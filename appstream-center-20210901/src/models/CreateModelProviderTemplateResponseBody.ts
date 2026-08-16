@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateModelProviderTemplateResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Model provider template ID.
+   * The ID of the model provider template.
    * 
    * @example
    * mpt-xxxx
@@ -35,12 +35,12 @@ export class CreateModelProviderTemplateResponseBodyData extends $dara.Model {
 export class CreateModelProviderTemplateResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Returned result object.
+   * The returned result object.
    */
   data?: CreateModelProviderTemplateResponseBodyData;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****

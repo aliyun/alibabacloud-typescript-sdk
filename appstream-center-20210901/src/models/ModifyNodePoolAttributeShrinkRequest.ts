@@ -13,7 +13,7 @@ export class ModifyNodePoolAttributeShrinkRequest extends $dara.Model {
   bizRegionId?: string;
   /**
    * @remarks
-   * The number of concurrent sessions, which is the number of sessions that can be simultaneously connected to a single resource. If too many sessions are connected simultaneously, the application experience may degrade. The valid values vary depending on the resource specification. The valid values for each resource specification are as follows:
+   * The number of concurrent sessions, which is the number of sessions that can be simultaneously connected to a single resource. If too many sessions are connected simultaneously, the application experience may degrade. The value range varies depending on the resource specification. The value ranges for each resource specification are as follows:
    * 
    * - appstreaming.general.4c8g: 1 to 2.
    * - appstreaming.general.8c16g: 1 to 4.
@@ -27,7 +27,7 @@ export class ModifyNodePoolAttributeShrinkRequest extends $dara.Model {
   nodeCapacity?: number;
   /**
    * @remarks
-   * The automatic scaling policy of the delivery group.
+   * The automatic scaling strategy of the delivery group.
    */
   nodePoolStrategyShrink?: string;
   /**

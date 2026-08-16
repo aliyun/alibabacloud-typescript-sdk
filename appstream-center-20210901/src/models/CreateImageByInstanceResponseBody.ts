@@ -13,7 +13,7 @@ export class CreateImageByInstanceResponseBodyData extends $dara.Model {
   imageId?: string;
   /**
    * @remarks
-   * The task ID for creating the image.
+   * The ID of the image creation task.
    * 
    * @example
    * tid-0abxi0lbih******
@@ -55,7 +55,7 @@ export class CreateImageByInstanceResponseBodyData extends $dara.Model {
 export class CreateImageByInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code returned if the request failed.
+   * The error code returned when the request fails.
    * 
    * @example
    * 200
@@ -68,7 +68,7 @@ export class CreateImageByInstanceResponseBody extends $dara.Model {
   data?: CreateImageByInstanceResponseBodyData;
   /**
    * @remarks
-   * The error message returned if the request failed.
+   * The error message returned when the request fails.
    * 
    * @example
    * NULL

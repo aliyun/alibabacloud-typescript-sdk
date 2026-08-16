@@ -105,7 +105,7 @@ export class ListPersistentAppInstancesResponseBodyPersistentAppInstanceModels e
 export class ListPersistentAppInstancesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The page number of the query results currently displayed.
+   * The current page number of the query results.
    * 
    * @example
    * 1

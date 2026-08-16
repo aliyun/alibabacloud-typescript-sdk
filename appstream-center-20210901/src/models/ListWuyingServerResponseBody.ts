@@ -12,18 +12,24 @@ export class ListWuyingServerResponseBodyWuyingServerListDataDisk extends $dara.
    */
   dataDiskCategory?: string;
   /**
+   * @remarks
+   * The data cloud disk ID.
+   * 
    * @example
    * d-bp1234567890abcde
    */
   dataDiskId?: string;
   /**
+   * @remarks
+   * The data cloud disk sequence number.
+   * 
    * @example
    * 1
    */
   dataDiskNo?: string;
   /**
    * @remarks
-   * The performance level of the data cloud disk.
+   * The data cloud disk performance level.
    * 
    * @example
    * PL0
@@ -77,7 +83,7 @@ export class ListWuyingServerResponseBodyWuyingServerListInstanceInfoList extend
   instanceId?: string;
   /**
    * @remarks
-   * The network interface controller (NIC) ID.
+   * The ID of the network interface controller (NIC).
    * 
    * @example
    * eni-uf65b****dfnt3wb
@@ -108,11 +114,17 @@ export class ListWuyingServerResponseBodyWuyingServerListInstanceInfoList extend
 
 export class ListWuyingServerResponseBodyWuyingServerListPrivateIpSets extends $dara.Model {
   /**
+   * @remarks
+   * Indicates whether the IP address is the primary private IP address. A value of true indicates the primary private IP address. A value of false indicates a secondary private IP address.
+   * 
    * @example
    * true
    */
   primary?: boolean;
   /**
+   * @remarks
+   * The private IP address.
+   * 
    * @example
    * 10.0.0.1
    */
@@ -166,6 +178,9 @@ export class ListWuyingServerResponseBodyWuyingServerListServerInstanceTypeInfo 
    */
   gpuMemory?: number;
   /**
+   * @remarks
+   * The GPU specification description.
+   * 
    * @example
    * NVIDIA T4
    */
@@ -219,11 +234,17 @@ export class ListWuyingServerResponseBodyWuyingServerListServerInstanceTypeInfo 
 
 export class ListWuyingServerResponseBodyWuyingServerListSessions extends $dara.Model {
   /**
+   * @remarks
+   * The start time of the session.
+   * 
    * @example
    * 2026-01-01T08:00:00Z
    */
   resourceSessionStartTime?: string;
   /**
+   * @remarks
+   * The user ID.
+   * 
    * @example
    * user1
    */
@@ -254,18 +275,24 @@ export class ListWuyingServerResponseBodyWuyingServerListSessions extends $dara.
 export class ListWuyingServerResponseBodyWuyingServerList extends $dara.Model {
   /**
    * @remarks
-   * The status of joining a virtual node pool.
+   * The status of adding to the virtual node pool.
    * 
    * @example
    * Added
    */
   addVirtualNodePoolStatus?: string;
   /**
+   * @remarks
+   * The tenant UID.
+   * 
    * @example
    * 1234567890123456
    */
   aliUid?: number;
   /**
+   * @remarks
+   * The bandwidth size. Unit: Mbit/s.
+   * 
    * @example
    * 10
    */
@@ -300,6 +327,9 @@ export class ListWuyingServerResponseBodyWuyingServerList extends $dara.Model {
    */
   dataDisk?: ListWuyingServerResponseBodyWuyingServerListDataDisk[];
   /**
+   * @remarks
+   * The maximum number of private IP addresses per ENI, including the primary IP address.
+   * 
    * @example
    * 10
    */
@@ -313,6 +343,9 @@ export class ListWuyingServerResponseBodyWuyingServerList extends $dara.Model {
    */
   expiredTime?: string;
   /**
+   * @remarks
+   * The FOTA version number.
+   * 
    * @example
    * 2.0.0
    */
@@ -335,10 +368,13 @@ export class ListWuyingServerResponseBodyWuyingServerList extends $dara.Model {
   imageName?: string;
   /**
    * @remarks
-   * The list of workstation instance information.
+   * The list of workspace instance information.
    */
   instanceInfoList?: ListWuyingServerResponseBodyWuyingServerListInstanceInfoList[];
   /**
+   * @remarks
+   * The maximum price of the spot instance.
+   * 
    * @example
    * 0.5
    */
@@ -383,9 +419,20 @@ export class ListWuyingServerResponseBodyWuyingServerList extends $dara.Model {
    * Linux
    */
   osType?: string;
+  /**
+   * @remarks
+   * The list of policy group IDs.
+   */
   policyGroupIdList?: string[];
+  /**
+   * @remarks
+   * The set of private IP addresses, including the primary IP address and secondary IP addresses.
+   */
   privateIpSets?: ListWuyingServerResponseBodyWuyingServerListPrivateIpSets[];
   /**
+   * @remarks
+   * The resource session status.
+   * 
    * @example
    * Connected
    */
@@ -400,6 +447,10 @@ export class ListWuyingServerResponseBodyWuyingServerList extends $dara.Model {
    * The instance type information.
    */
   serverInstanceTypeInfo?: ListWuyingServerResponseBodyWuyingServerListServerInstanceTypeInfo;
+  /**
+   * @remarks
+   * The list of sessions.
+   */
   sessions?: ListWuyingServerResponseBodyWuyingServerListSessions[];
   /**
    * @remarks
@@ -410,6 +461,9 @@ export class ListWuyingServerResponseBodyWuyingServerList extends $dara.Model {
    */
   status?: string;
   /**
+   * @remarks
+   * The sub-payment type.
+   * 
    * @example
    * spot
    */
@@ -423,13 +477,16 @@ export class ListWuyingServerResponseBodyWuyingServerList extends $dara.Model {
    */
   systemDiskCategory?: string;
   /**
+   * @remarks
+   * The ID of the system cloud disk.
+   * 
    * @example
    * d-bp1234567890abcde
    */
   systemDiskId?: string;
   /**
    * @remarks
-   * The performance level of the system cloud disk.
+   * The system cloud disk performance level.
    * 
    * @example
    * PL0
@@ -444,12 +501,22 @@ export class ListWuyingServerResponseBodyWuyingServerList extends $dara.Model {
    */
   systemDiskSize?: number;
   /**
+   * @remarks
+   * The ID of the timer group.
+   * 
    * @example
    * tg-bp1234567890abcde
    */
   timerGroupId?: string;
+  /**
+   * @remarks
+   * The list of authorized users.
+   */
   users?: string[];
   /**
+   * @remarks
+   * The IP address of the Virtual Kubelet node.
+   * 
    * @example
    * 10.0.0.100
    */
@@ -462,8 +529,15 @@ export class ListWuyingServerResponseBodyWuyingServerList extends $dara.Model {
    * vnp-bp1234567890abcde
    */
   virtualNodePoolId?: string;
+  /**
+   * @remarks
+   * Indicates whether the Virtual Kubelet needs to be upgraded.
+   */
   vkUpgradeNeeded?: boolean;
   /**
+   * @remarks
+   * The Virtual Kubelet version.
+   * 
    * @example
    * 1.0.0
    */
@@ -484,6 +558,14 @@ export class ListWuyingServerResponseBodyWuyingServerList extends $dara.Model {
    * exampleServerName
    */
   wuyingServerName?: string;
+  /**
+   * @remarks
+   * The zone ID.
+   * 
+   * @example
+   * cn-hangzhou-h
+   */
+  zoneId?: string;
   static names(): { [key: string]: string } {
     return {
       addVirtualNodePoolStatus: 'AddVirtualNodePoolStatus',
@@ -525,6 +607,7 @@ export class ListWuyingServerResponseBodyWuyingServerList extends $dara.Model {
       vkVersion: 'VkVersion',
       wuyingServerId: 'WuyingServerId',
       wuyingServerName: 'WuyingServerName',
+      zoneId: 'ZoneId',
     };
   }
 
@@ -569,6 +652,7 @@ export class ListWuyingServerResponseBodyWuyingServerList extends $dara.Model {
       vkVersion: 'string',
       wuyingServerId: 'string',
       wuyingServerName: 'string',
+      zoneId: 'string',
     };
   }
 
@@ -616,7 +700,7 @@ export class ListWuyingServerResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The page size.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -632,7 +716,7 @@ export class ListWuyingServerResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries.
+   * The total number of entries returned.
    * 
    * @example
    * 15

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class AssignWuyingServerPrivateAddressesRequest extends $dara.Model {
   /**
    * @remarks
+   * The number of secondary private IP addresses to assign. Valid values: 1 to 50.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class AssignWuyingServerPrivateAddressesRequest extends $dara.Model {
   secondaryPrivateIpAddressCount?: number;
   /**
    * @remarks
+   * The ID of the development host.
+   * 
    * This parameter is required.
    * 
    * @example

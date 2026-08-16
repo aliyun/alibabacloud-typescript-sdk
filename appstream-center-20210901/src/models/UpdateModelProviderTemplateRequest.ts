@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateModelProviderTemplateRequestConfig extends $dara.Model {
   /**
    * @remarks
-   * The API key of the model service, which is used for authentication. The key is encrypted after it is created.
+   * The API key of the model service, used for authentication. The key is stored in encrypted form after creation.
    * 
    * @example
    * sk-xxxxxxxxxxxxxxxxxxxx
@@ -68,7 +68,7 @@ export class UpdateModelProviderTemplateRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Specifies whether to enable the Wuying security gateway proxy.
+   * Specifies whether to enable the WUYING security gateway proxy.
    * 
    * @example
    * true

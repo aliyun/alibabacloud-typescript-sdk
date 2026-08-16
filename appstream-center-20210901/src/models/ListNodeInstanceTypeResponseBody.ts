@@ -29,7 +29,7 @@ export class ListNodeInstanceTypeResponseBodyNodeInstanceTypeModels extends $dar
   gpuMemory?: number;
   /**
    * @remarks
-   * The maximum number of concurrent sessions, which is the number of sessions that can be simultaneously connected to a single resource. If too many sessions are connected simultaneously, the application experience may degrade. The valid values vary depending on the resource specification. The valid values for each resource specification are as follows:
+   * The maximum number of concurrent sessions, which is the number of sessions that can be simultaneously connected to a single resource. If too many sessions are connected simultaneously, the application experience may degrade. The valid values vary by resource specification. The valid values for each resource specification are as follows:
    * 
    * - appstreaming.general.2c4g: 1
    * - appstreaming.general.4c8g: 1 to 2
@@ -46,7 +46,7 @@ export class ListNodeInstanceTypeResponseBodyNodeInstanceTypeModels extends $dar
    * - appstreaming.vgpu.12c46g.11g28: 1 to 6
    * - appstreaming.vgpu.14c93g.12g: 1 to 7
    * - appstreaming.vgpu.16c32g.8g: 1 to 8
-   * - appstreaming.vgpu.16c62g.8ga10: 1 to 8.
+   * - appstreaming.vgpu.16c62g.8ga10: 1 to 8
    * 
    * @example
    * 4
@@ -62,7 +62,7 @@ export class ListNodeInstanceTypeResponseBodyNodeInstanceTypeModels extends $dar
   memory?: number;
   /**
    * @remarks
-   * The ID of the resource specification type.
+   * The resource specification type ID.
    * 
    * @example
    * appstreaming.vgpu.4c8g.2g
@@ -78,10 +78,10 @@ export class ListNodeInstanceTypeResponseBodyNodeInstanceTypeModels extends $dar
   nodeInstanceTypeFamily?: string;
   /**
    * @remarks
-   * The name of the resource specification.
+   * The resource specification name.
    * 
    * @example
-   * 无影-通用型_4核8G
+   * WUYING-General-purpose_4vCPU8GB.
    */
   nodeTypeName?: string;
   static names(): { [key: string]: string } {

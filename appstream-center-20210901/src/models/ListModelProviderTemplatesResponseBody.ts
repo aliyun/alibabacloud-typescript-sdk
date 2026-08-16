@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListModelProviderTemplatesResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The model provider configuration as a JSON object.
+   * The model provider configuration JSON object.
    * 
    * @example
    * {
@@ -17,7 +17,7 @@ export class ListModelProviderTemplatesResponseBodyData extends $dara.Model {
   config?: string;
   /**
    * @remarks
-   * The description of the model provider template.
+   * The model provider template description.
    * 
    * @example
    * 阿里云百炼服务商
@@ -33,7 +33,7 @@ export class ListModelProviderTemplatesResponseBodyData extends $dara.Model {
   enableWuyingProxy?: boolean;
   /**
    * @remarks
-   * The name of the model provider template.
+   * The model provider template name.
    * 
    * @example
    * 阿里云百炼
@@ -41,7 +41,7 @@ export class ListModelProviderTemplatesResponseBodyData extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The name of the model provider.
+   * The model provider name.
    * 
    * @example
    * bailian
@@ -104,7 +104,7 @@ export class ListModelProviderTemplatesResponseBody extends $dara.Model {
   data?: ListModelProviderTemplatesResponseBodyData[];
   /**
    * @remarks
-   * The page number of the current query result.
+   * The page number of the current query results.
    * 
    * @example
    * 1
@@ -112,7 +112,7 @@ export class ListModelProviderTemplatesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page in the query result.
+   * The number of entries per page.
    * 
    * @example
    * 20
@@ -128,7 +128,7 @@ export class ListModelProviderTemplatesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of query results.
    * 
    * @example
    * 30

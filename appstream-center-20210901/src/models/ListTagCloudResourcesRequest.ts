@@ -17,7 +17,7 @@ export class ListTagCloudResourcesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token for the next query.
+   * The pagination token for the next query.
    * 
    * @example
    * ptnJAAAAAAAxNzE5OTEwNQ==

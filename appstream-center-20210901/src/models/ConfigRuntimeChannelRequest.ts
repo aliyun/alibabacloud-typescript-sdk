@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ConfigRuntimeChannelRequest extends $dara.Model {
   /**
    * @remarks
-   * The Agent platform (such as ENTERPRISE or JVS).
+   * The Agent platform.
    * 
    * @example
    * ENTERPRISE
@@ -14,6 +14,10 @@ export class ConfigRuntimeChannelRequest extends $dara.Model {
   /**
    * @remarks
    * The Agent provider.
+   * 
+   * - JVS Computer: set to OpenClaw.
+   * - OpenClaw: set to OpenClaw.
+   * - Hermes Agent: set to HermesAgent.
    * 
    * This parameter is required.
    * 
@@ -34,6 +38,23 @@ export class ConfigRuntimeChannelRequest extends $dara.Model {
   /**
    * @remarks
    * The channel configuration JSON string.
+   * 
+   * - Simple configuration mode example:
+   * ```json
+   * {
+   *     "appKey": "abc",
+   *     "appSecret": "efg"
+   * }
+   * ```
+   * 
+   * - Custom configuration mode example:
+   * ```json
+   * {
+   *   "enabled": true,
+   *   "clientId": "xxx",
+   *   "clientSecret": "xxx"
+   * }
+   * ```
    * 
    * This parameter is required.
    * 

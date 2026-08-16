@@ -11,6 +11,7 @@ export class ListNodeInstanceTypeRequest extends $dara.Model {
    * cn-hangzhou
    */
   bizRegionId?: string;
+  chargeType?: string;
   /**
    * @remarks
    * The number of CPU cores.
@@ -29,7 +30,7 @@ export class ListNodeInstanceTypeRequest extends $dara.Model {
   gpu?: number;
   /**
    * @remarks
-   * The GPU memory size. This parameter is meaningful only for GPU-accelerated cloud desktops. Unit: MB.
+   * The GPU memory size. This parameter is meaningful for GPU-accelerated cloud desktops. Unit: MB.
    * 
    * @example
    * 2048
@@ -54,7 +55,7 @@ export class ListNodeInstanceTypeRequest extends $dara.Model {
   memory?: number;
   /**
    * @remarks
-   * The resource specification type to query. If you leave this parameter empty, all specification types are returned.
+   * The resource specification type to query. If this parameter is not specified, all specification types are returned.
    * 
    * @example
    * appstreaming.vgpu.4c8g.2g
@@ -70,7 +71,7 @@ export class ListNodeInstanceTypeRequest extends $dara.Model {
   nodeInstanceTypeFamily?: string;
   /**
    * @remarks
-   * CPU/Memory.
+   * CPU/Memory
    * 
    * @example
    * CPU
@@ -117,7 +118,7 @@ export class ListNodeInstanceTypeRequest extends $dara.Model {
   productType?: string;
   /**
    * @remarks
-   * DESC/ASC.
+   * DESC/ASC
    * 
    * @example
    * ASC
@@ -126,6 +127,7 @@ export class ListNodeInstanceTypeRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       bizRegionId: 'BizRegionId',
+      chargeType: 'ChargeType',
       cpu: 'Cpu',
       gpu: 'Gpu',
       gpuMemory: 'GpuMemory',
@@ -147,6 +149,7 @@ export class ListNodeInstanceTypeRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       bizRegionId: 'string',
+      chargeType: 'string',
       cpu: 'number',
       gpu: 'number',
       gpuMemory: 'number',

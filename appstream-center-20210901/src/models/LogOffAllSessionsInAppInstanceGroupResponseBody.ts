@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class LogOffAllSessionsInAppInstanceGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code returned when an error occurs.
+   * The error code returned if the operation failed.
    * 
    * @example
    * InvalidParameter.ProductType
@@ -13,7 +13,7 @@ export class LogOffAllSessionsInAppInstanceGroupResponseBody extends $dara.Model
   code?: string;
   /**
    * @remarks
-   * The error message returned when an error occurs.
+   * The error message returned if the operation failed.
    * 
    * @example
    * The parameter ProductType is invalid.

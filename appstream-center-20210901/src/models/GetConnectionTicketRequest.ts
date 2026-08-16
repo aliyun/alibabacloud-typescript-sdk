@@ -5,7 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class GetConnectionTicketRequest extends $dara.Model {
   /**
    * @remarks
-   * The access type. If you do not specify this parameter, both types are displayed. Valid values:
+   * The access type. If you do not specify this parameter, both types are displayed.
+   * 
+   * Valid values:
    * - INTERNET: Internet access.
    * - VPC: Express Connect access.
    * 
@@ -57,7 +59,7 @@ export class GetConnectionTicketRequest extends $dara.Model {
   appPolicyId?: string;
   /**
    * @remarks
-   * The application startup parameter. For information about how to obtain startup parameters, see [How to obtain application installation and startup parameters](https://help.aliyun.com/document_detail/426045.html).
+   * The application startup parameter. For information about how to obtain startup parameters, see [How to obtain application installation parameters and startup parameters](https://help.aliyun.com/document_detail/426045.html).
    * 
    * @example
    * /q /n
@@ -110,7 +112,7 @@ export class GetConnectionTicketRequest extends $dara.Model {
    * @remarks
    * The task ID.
    * 
-   * > This request parameter is required for non-initial invokes. Use this parameter to check the task status and connection credentials.
+   * > This parameter is required for non-initial calls. Use this parameter to query the task status and connection credentials.
    * 
    * @example
    * 28778acb-a469-4bc0-8e0f****

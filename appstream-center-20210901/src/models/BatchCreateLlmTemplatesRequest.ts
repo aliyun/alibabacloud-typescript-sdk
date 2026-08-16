@@ -37,7 +37,7 @@ export class BatchCreateLlmTemplatesRequestLlmTemplateItems extends $dara.Model 
   description?: string;
   /**
    * @remarks
-   * Specifies whether to set this model as the default model. Each model group can have at most one default model.
+   * Specifies whether to set the model as the default model. A model group can have at most one default model.
    * 
    * @example
    * false

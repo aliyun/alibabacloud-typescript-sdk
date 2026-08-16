@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListImageRequestTagList extends $dara.Model {
   /**
    * @remarks
-   * The custom tag key.
+   * The user-defined tag key.
    * 
    * @example
    * env
@@ -13,7 +13,7 @@ export class ListImageRequestTagList extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The custom tag value.
+   * The user-defined tag value.
    * 
    * @example
    * test
@@ -45,8 +45,7 @@ export class ListImageRequestTagList extends $dara.Model {
 export class ListImageRequest extends $dara.Model {
   /**
    * @remarks
-   * The list of supported regions.
-   * WUYING images are centralized. Use this parameter to query the regions where the image is deployed.
+   * The list of supported regions. WUYING images are centralized. Use this parameter to query the regions where the image is deployed.
    */
   bizRegionIdList?: string[];
   /**
@@ -126,7 +125,7 @@ export class ListImageRequest extends $dara.Model {
   packageType?: string;
   /**
    * @remarks
-   * The page number.
+   * The current page number.
    * 
    * @example
    * 1

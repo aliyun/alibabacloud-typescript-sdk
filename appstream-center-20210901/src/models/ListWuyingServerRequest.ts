@@ -8,7 +8,7 @@ export class ListWuyingServerRequest extends $dara.Model {
    * The list of statuses for joining a virtual node pool.
    * 
    * @example
-   * Added
+   * RUNNING
    */
   addVirtualNodePoolStatusList?: string[];
   /**
@@ -20,6 +20,9 @@ export class ListWuyingServerRequest extends $dara.Model {
    */
   bizRegionId?: string;
   /**
+   * @remarks
+   * The business type.
+   * 
    * @example
    * 1
    */
@@ -34,12 +37,52 @@ export class ListWuyingServerRequest extends $dara.Model {
   chargeType?: string;
   /**
    * @remarks
+   * The end time of the creation time range, in ISO 8601 format. This time point is exclusive.
+   * 
+   * @example
+   * 2026-08-01T00:00:00Z
+   */
+  createTimeEnd?: string;
+  /**
+   * @remarks
+   * The start time of the creation time range, in ISO 8601 format. This time point is inclusive.
+   * 
+   * @example
+   * 2026-07-01T00:00:00Z
+   */
+  createTimeStart?: string;
+  /**
+   * @remarks
+   * The end time of the expiration time range, in ISO 8601 format. This time point is exclusive.
+   * 
+   * @example
+   * 2026-08-01T00:00:00Z
+   */
+  expiredTimeEnd?: string;
+  /**
+   * @remarks
+   * The start time of the expiration time range, in ISO 8601 format. This time point is inclusive.
+   * 
+   * @example
+   * 2026-07-01T00:00:00Z
+   */
+  expiredTimeStart?: string;
+  /**
+   * @remarks
    * The image ID.
    * 
    * @example
    * img-bp13mu****
    */
   imageId?: string;
+  /**
+   * @remarks
+   * The internal IP address.
+   * 
+   * @example
+   * 10.31.1.1
+   */
+  networkInterfaceIp?: string;
   /**
    * @remarks
    * The office network ID.
@@ -58,13 +101,16 @@ export class ListWuyingServerRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The page size.
+   * The number of entries per page.
    * 
    * @example
    * 100
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The product type.
+   * 
    * @example
    * wuying_server
    */
@@ -86,6 +132,9 @@ export class ListWuyingServerRequest extends $dara.Model {
    */
   status?: string;
   /**
+   * @remarks
+   * The list of authorized users.
+   * 
    * @example
    * user1
    */
@@ -103,7 +152,7 @@ export class ListWuyingServerRequest extends $dara.Model {
    * The list of workstation IDs.
    * 
    * @example
-   * aig-bp1234567890abcde
+   * 1
    */
   wuyingServerIdList?: string[];
   /**
@@ -114,13 +163,26 @@ export class ListWuyingServerRequest extends $dara.Model {
    * exampleServerName
    */
   wuyingServerNameOrId?: string;
+  /**
+   * @remarks
+   * The zone ID.
+   * 
+   * @example
+   * cn-hangzhou-h
+   */
+  zoneId?: string;
   static names(): { [key: string]: string } {
     return {
       addVirtualNodePoolStatusList: 'AddVirtualNodePoolStatusList',
       bizRegionId: 'BizRegionId',
       bizType: 'BizType',
       chargeType: 'ChargeType',
+      createTimeEnd: 'CreateTimeEnd',
+      createTimeStart: 'CreateTimeStart',
+      expiredTimeEnd: 'ExpiredTimeEnd',
+      expiredTimeStart: 'ExpiredTimeStart',
       imageId: 'ImageId',
+      networkInterfaceIp: 'NetworkInterfaceIp',
       officeSiteId: 'OfficeSiteId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
@@ -131,6 +193,7 @@ export class ListWuyingServerRequest extends $dara.Model {
       virtualNodePoolId: 'VirtualNodePoolId',
       wuyingServerIdList: 'WuyingServerIdList',
       wuyingServerNameOrId: 'WuyingServerNameOrId',
+      zoneId: 'ZoneId',
     };
   }
 
@@ -140,7 +203,12 @@ export class ListWuyingServerRequest extends $dara.Model {
       bizRegionId: 'string',
       bizType: 'number',
       chargeType: 'string',
+      createTimeEnd: 'string',
+      createTimeStart: 'string',
+      expiredTimeEnd: 'string',
+      expiredTimeStart: 'string',
       imageId: 'string',
+      networkInterfaceIp: 'string',
       officeSiteId: 'string',
       pageNumber: 'number',
       pageSize: 'number',
@@ -151,6 +219,7 @@ export class ListWuyingServerRequest extends $dara.Model {
       virtualNodePoolId: 'string',
       wuyingServerIdList: { 'type': 'array', 'itemType': 'string' },
       wuyingServerNameOrId: 'string',
+      zoneId: 'string',
     };
   }
 

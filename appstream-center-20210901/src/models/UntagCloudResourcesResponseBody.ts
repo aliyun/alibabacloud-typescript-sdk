@@ -53,7 +53,7 @@ export class UntagCloudResourcesResponseBodyFailedResources extends $dara.Model 
   code?: string;
   /**
    * @remarks
-   * The error message.
+   * The error description.
    * 
    * @example
    * Failed to untag resource.

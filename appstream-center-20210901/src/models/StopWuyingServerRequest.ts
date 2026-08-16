@@ -7,8 +7,8 @@ export class StopWuyingServerRequest extends $dara.Model {
    * @remarks
    * Specifies whether to forcibly restart the workstation. Valid values:
    * 
-   * - True: forcibly restart
-   * - False: do not forcibly restart.
+   * - True: forcibly
+   * - False: not forcibly
    * 
    * @example
    * True

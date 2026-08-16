@@ -2,15 +2,49 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class GetRuntimeModelConfigResponseBodyDataModelProviderListLlmInfoListCreditMultiplier extends $dara.Model {
+  /**
+   * @remarks
+   * The maximum multiplier. An empty value indicates no upper limit. For example, Min=1 with an empty Max is displayed as 1x and above.
+   */
+  max?: number;
+  /**
+   * @remarks
+   * The minimum multiplier. When equal to Max, it is a fixed multiplier. For example, Min=Max=2 is displayed as 2x.
+   */
+  min?: number;
+  static names(): { [key: string]: string } {
+    return {
+      max: 'Max',
+      min: 'Min',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      max: 'number',
+      min: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetRuntimeModelConfigResponseBodyDataModelProviderListLlmInfoListInferenceMetadata extends $dara.Model {
   /**
    * @remarks
-   * The list of request modalities, such as Text, Image, and Audio.
+   * The list of request modalities (such as Text, Image, and Audio).
    */
   requestModality?: string[];
   /**
    * @remarks
-   * The list of response modalities, such as Text, Image, and Audio.
+   * The list of response modalities (such as Text, Image, and Audio).
    */
   responseModality?: string[];
   static names(): { [key: string]: string } {
@@ -45,20 +79,25 @@ export class GetRuntimeModelConfigResponseBodyDataModelProviderListLlmInfoListIn
 export class GetRuntimeModelConfigResponseBodyDataModelProviderListLlmInfoList extends $dara.Model {
   /**
    * @remarks
+   * The credit consumption multiplier. An empty value indicates the model does not participate in credit-based billing.
+   */
+  creditMultiplier?: GetRuntimeModelConfigResponseBodyDataModelProviderListLlmInfoListCreditMultiplier;
+  /**
+   * @remarks
    * The model description.
    * 
    * @example
-   * Qwen3.6原生视觉语言系列Plus模型，展现出与当前顶尖前沿模型相媲美的卓越性能，模型效果相较3.5系列显著提升。模型在Agentic coding、前端编程、Vibe coding等代码能力、多模态万物识别、OCR、物体定位等能力上显著增强。
+   * Qwen3.6原生视觉语言系列Plus模型，展现出与当前顶尖前沿模型相媲美的卓越性能，模型效果相较3.5系列显著提升。模型在Agentic coding、前端编程、Vibe coding等代码能力、多模态万物识别、OCR、物体定位等能力上显著增强
    */
   description?: string;
   /**
    * @remarks
-   * The list of model features, such as function-calling, web-search, and structured-outputs.
+   * The list of model features (such as function-calling, web-search, and structured-outputs).
    */
   features?: string[];
   /**
    * @remarks
-   * The inference metadata, including request and response modalities.
+   * The inference metadata (request and response modalities).
    */
   inferenceMetadata?: GetRuntimeModelConfigResponseBodyDataModelProviderListLlmInfoListInferenceMetadata;
   /**
@@ -79,7 +118,7 @@ export class GetRuntimeModelConfigResponseBodyDataModelProviderListLlmInfoList e
   name?: string;
   /**
    * @remarks
-   * The publish time in ISO 8601 format.
+   * The publish time (ISO 8601 format).
    * 
    * @example
    * 2026-03-04T06:25:17.000+00:00
@@ -87,7 +126,7 @@ export class GetRuntimeModelConfigResponseBodyDataModelProviderListLlmInfoList e
   publishedTime?: string;
   /**
    * @remarks
-   * The model risk type. This parameter is returned only when the request parameter IncludeRiskInfo is set to true.
+   * The model risk type (returned only when the request parameter IncludeRiskInfo is set to true).
    * 
    * @example
    * Normal
@@ -95,6 +134,7 @@ export class GetRuntimeModelConfigResponseBodyDataModelProviderListLlmInfoList e
   riskType?: string;
   static names(): { [key: string]: string } {
     return {
+      creditMultiplier: 'CreditMultiplier',
       description: 'Description',
       features: 'Features',
       inferenceMetadata: 'InferenceMetadata',
@@ -107,6 +147,7 @@ export class GetRuntimeModelConfigResponseBodyDataModelProviderListLlmInfoList e
 
   static types(): { [key: string]: any } {
     return {
+      creditMultiplier: GetRuntimeModelConfigResponseBodyDataModelProviderListLlmInfoListCreditMultiplier,
       description: 'string',
       features: { 'type': 'array', 'itemType': 'string' },
       inferenceMetadata: GetRuntimeModelConfigResponseBodyDataModelProviderListLlmInfoListInferenceMetadata,
@@ -118,6 +159,9 @@ export class GetRuntimeModelConfigResponseBodyDataModelProviderListLlmInfoList e
   }
 
   validate() {
+    if(this.creditMultiplier && typeof (this.creditMultiplier as any).validate === 'function') {
+      (this.creditMultiplier as any).validate();
+    }
     if(Array.isArray(this.features)) {
       $dara.Model.validateArray(this.features);
     }
@@ -224,7 +268,7 @@ export class GetRuntimeModelConfigResponseBodyData extends $dara.Model {
   modelTemplateName?: string;
   /**
    * @remarks
-   * The model template association type (returned only when an association exists).
+   * The model template association type (returned only when present).
    * 
    * @example
    * Runtime
@@ -232,7 +276,7 @@ export class GetRuntimeModelConfigResponseBodyData extends $dara.Model {
   modelTemplateRefType?: string;
   /**
    * @remarks
-   * The resource group ID to which the runtime belongs. The value is null if the runtime is not associated with a resource group.
+   * The resource group ID to which the runtime belongs (null if not assigned to a resource group).
    * 
    * @example
    * rg-xxxxx

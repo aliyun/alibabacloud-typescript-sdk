@@ -27,6 +27,9 @@ export class ModifyBrowserInstanceGroupShrinkRequest extends $dara.Model {
    */
   cloudBrowserName?: string;
   /**
+   * @remarks
+   * The maximum resource count. This parameter takes effect for monthly active pay-as-you-go billing.
+   * 
    * @example
    * 5
    */
@@ -41,6 +44,10 @@ export class ModifyBrowserInstanceGroupShrinkRequest extends $dara.Model {
    * The access policy.
    */
   policyShrink?: string;
+  /**
+   * @remarks
+   * The storage-related policy.
+   */
   storagePolicyShrink?: string;
   /**
    * @remarks

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAuthorizedUserGroupsResponseBodyUserGroups extends $dara.Model {
   /**
    * @remarks
-   * The delivery group ID.
+   * The ID of the delivery group.
    * 
    * @example
    * aig-9ciijz60n4xsv****
@@ -21,7 +21,7 @@ export class ListAuthorizedUserGroupsResponseBodyUserGroups extends $dara.Model 
   authMode?: string;
   /**
    * @remarks
-   * The user group ID.
+   * The ID of the user group.
    * 
    * @example
    * ug-00001
@@ -29,7 +29,7 @@ export class ListAuthorizedUserGroupsResponseBodyUserGroups extends $dara.Model 
   groupId?: string;
   /**
    * @remarks
-   * The user group name.
+   * The name of the user group.
    * 
    * @example
    * 用户组001
@@ -73,7 +73,7 @@ export class ListAuthorizedUserGroupsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The maximum number of entries per page.
+   * The maximum number of entries returned per page.
    * 
    * @example
    * 10
@@ -89,7 +89,7 @@ export class ListAuthorizedUserGroupsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries.
+   * The total number of entries returned.
    * 
    * @example
    * 6

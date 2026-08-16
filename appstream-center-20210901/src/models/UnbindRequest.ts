@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UnbindRequest extends $dara.Model {
   /**
    * @remarks
-   * The delivery group ID. You can call the [GetConnectionTicket](https://help.aliyun.com/document_detail/609336.html) operation to obtain the ID.
+   * The delivery group ID. You can call the [GetConnectionTicket](https://help.aliyun.com/document_detail/609336.html) operation to obtain this ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class UnbindRequest extends $dara.Model {
   appInstanceGroupId?: string;
   /**
    * @remarks
-   * The session ID. You can call the [GetConnectionTicket](https://help.aliyun.com/document_detail/609336.html) operation to obtain the ID.
+   * The session ID. You can call the [GetConnectionTicket](https://help.aliyun.com/document_detail/609336.html) operation to obtain this ID.
    * 
    * @example
    * ai-d297eyf83g5ni****
@@ -23,7 +23,7 @@ export class UnbindRequest extends $dara.Model {
   appInstanceId?: string;
   /**
    * @remarks
-   * The persistent session ID. You can call the [GetConnectionTicket](https://help.aliyun.com/document_detail/609336.html) operation to obtain the ID.
+   * The persistent session ID. You can call the [GetConnectionTicket](https://help.aliyun.com/document_detail/609336.html) operation to obtain this ID.
    * 
    * @example
    * p-0bxls9m3cl7s****

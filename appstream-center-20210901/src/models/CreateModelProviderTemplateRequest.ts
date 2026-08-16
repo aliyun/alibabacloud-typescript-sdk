@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateModelProviderTemplateRequest extends $dara.Model {
   /**
    * @remarks
-   * Agent platform.
+   * The Agent platform.
    * 
    * @example
    * ENTERPRISE
@@ -13,7 +13,7 @@ export class CreateModelProviderTemplateRequest extends $dara.Model {
   agentPlatform?: string;
   /**
    * @remarks
-   * Agent provider name.
+   * The Agent provider name.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class CreateModelProviderTemplateRequest extends $dara.Model {
   agentProvider?: string;
   /**
    * @remarks
-   * Business type.
+   * The business type.
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class CreateModelProviderTemplateRequest extends $dara.Model {
   bizType?: number;
   /**
    * @remarks
-   * Model provider configuration JSON, containing connection information such as baseUrl, apiKey, and api. The apiKey is encrypted after creation. Not required when ProviderType is WuyingCredit, as it is copied from the system template.
+   * The model provider configuration in JSON format, which contains connection information such as baseUrl, apiKey, and api. The apiKey is encrypted after creation. When ProviderType is set to WuyingCredit, this parameter is not required because the configuration is copied from the system template.
    * 
    * This parameter is required.
    * 
@@ -47,7 +47,7 @@ export class CreateModelProviderTemplateRequest extends $dara.Model {
   config?: string;
   /**
    * @remarks
-   * Model provider template description.
+   * The description of the model provider template.
    * 
    * @example
    * 阿里云百炼服务商
@@ -55,7 +55,7 @@ export class CreateModelProviderTemplateRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Whether to enable Wuying security proxy. Must be true when ProviderType is WuyingCredit.
+   * Specifies whether to enable the WUYING secure proxy. This parameter must be set to true when ProviderType is set to WuyingCredit.
    * 
    * @example
    * true
@@ -63,7 +63,7 @@ export class CreateModelProviderTemplateRequest extends $dara.Model {
   enableWuyingProxy?: boolean;
   /**
    * @remarks
-   * Associated model group ID.
+   * The ID of the associated model template.
    * 
    * This parameter is required.
    * 
@@ -73,7 +73,7 @@ export class CreateModelProviderTemplateRequest extends $dara.Model {
   modelTemplateId?: string;
   /**
    * @remarks
-   * Model provider template name.
+   * The name of the model provider template.
    * 
    * @example
    * 阿里云百炼
@@ -81,7 +81,7 @@ export class CreateModelProviderTemplateRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Model provider name. Must be unique within the same model template. Naming rules vary by ProviderType. For details, see the ProviderType description.
+   * The model provider name. The name must be unique within the same model template. The naming rules vary based on the value of ProviderType. For more information, see the description of ProviderType.
    * 
    * This parameter is required.
    * 
@@ -91,10 +91,10 @@ export class CreateModelProviderTemplateRequest extends $dara.Model {
   providerName?: string;
   /**
    * @remarks
-   * Model provider type. Different types impose different constraints on ProviderName and Config:
-   * - WuyingCredit: Wuying credit package. ProviderName must be wuying-credit. Created by copying from the system template. Config is not required.
-   * - Managed: Managed provider. System-reserved names such as wuying-credit cannot be used. Config is required.
-   * - Custom: User-defined provider. ProviderName must start with the provider- prefix. Config is required.
+   * The model provider type. Different types impose different constraints on ProviderName and Config. Valid values:
+   * - WuyingCredit: WUYING credit plan. ProviderName must be set to wuying-credit. The template is created by copying from a system template, and Config is not required.
+   * - Managed: managed provider. System-reserved names such as wuying-credit cannot be used. Config is required.
+   * - Custom: user-defined provider. ProviderName must start with the prefix provider-. Config is required.
    * 
    * @example
    * Managed

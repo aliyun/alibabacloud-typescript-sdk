@@ -18,7 +18,7 @@ export class UpdateModelProviderTemplateShrinkRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Specifies whether to enable the Wuying security gateway proxy.
+   * Specifies whether to enable the WUYING security gateway proxy.
    * 
    * @example
    * true

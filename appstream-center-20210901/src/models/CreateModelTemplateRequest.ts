@@ -33,15 +33,15 @@ export class CreateModelTemplateRequest extends $dara.Model {
   bizType?: number;
   /**
    * @remarks
-   * The template group description.
+   * The description of the model group.
    * 
    * @example
-   * 测试模型分组
+   * Test model group
    */
   description?: string;
   /**
    * @remarks
-   * The template group name.
+   * The name of the model group.
    * 
    * This parameter is required.
    * 
@@ -49,6 +49,11 @@ export class CreateModelTemplateRequest extends $dara.Model {
    * model-template-001
    */
   name?: string;
+  /**
+   * @remarks
+   * The authorization scope. This parameter is optional and effective only for Common model groups. Valid values: ALL_USER and USER_MIXED (strictly uppercase). If not specified, the default value is USER_MIXED for Common groups. Non-Common groups ignore this parameter and use RESOURCE_MIXED.
+   */
+  refScope?: string;
   static names(): { [key: string]: string } {
     return {
       agentPlatform: 'AgentPlatform',
@@ -56,6 +61,7 @@ export class CreateModelTemplateRequest extends $dara.Model {
       bizType: 'BizType',
       description: 'Description',
       name: 'Name',
+      refScope: 'RefScope',
     };
   }
 
@@ -66,6 +72,7 @@ export class CreateModelTemplateRequest extends $dara.Model {
       bizType: 'number',
       description: 'string',
       name: 'string',
+      refScope: 'string',
     };
   }
 

@@ -15,7 +15,7 @@ export class ModifyNodePoolAmountRequestNodePool extends $dara.Model {
   nodeAmount?: number;
   /**
    * @remarks
-   * The modification mode for subscription nodes.
+   * The subscription node modification mode.
    * 
    * @example
    * EXPAND_FROM_POST_PAID_EXPLICIT
@@ -23,7 +23,7 @@ export class ModifyNodePoolAmountRequestNodePool extends $dara.Model {
   prePaidNodeAmountModifyMode?: string;
   /**
    * @remarks
-   * The list of nodes whose billing type is to be changed.
+   * The list of nodes whose billing type is to be modified.
    */
   prePaidNodeAmountModifyNodeIds?: string[];
   static names(): { [key: string]: string } {
@@ -67,7 +67,7 @@ export class ModifyNodePoolAmountRequest extends $dara.Model {
   appInstanceGroupId?: string;
   /**
    * @remarks
-   * The node pool specification change parameters.
+   * The parameters for node pool specification changes.
    * 
    * This parameter is required.
    */

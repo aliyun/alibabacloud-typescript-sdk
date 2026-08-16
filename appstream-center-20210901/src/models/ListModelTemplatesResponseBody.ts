@@ -5,7 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class ListModelTemplatesResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The name of the Agent provider.
+   * The Agent platform (such as ENTERPRISE or ENTERPRISE_JVS).
+   */
+  agentPlatform?: string;
+  /**
+   * @remarks
+   * The Agent provider name.
    * 
    * @example
    * OpenClaw
@@ -30,17 +35,22 @@ export class ListModelTemplatesResponseBodyData extends $dara.Model {
    * The template group description.
    * 
    * @example
-   * 测试模型分组
+   * Test model group
    */
   description?: string;
   /**
    * @remarks
-   * Specifies whether models have been configured in the group.
+   * Specifies whether models are configured in the group.
    * 
    * @example
    * true
    */
   hasModel?: boolean;
+  /**
+   * @remarks
+   * The number of models in the model group, including referenced system provider models.
+   */
+  modelCount?: number;
   /**
    * @remarks
    * The model group ID.
@@ -57,25 +67,52 @@ export class ListModelTemplatesResponseBodyData extends $dara.Model {
    * model-template-001
    */
   name?: string;
+  /**
+   * @remarks
+   * The group authorization scope. Valid values:
+   * - ALL_USER: all users.
+   * - USER_MIXED: user mixed (a mix of user groups and users, only for Common groups).
+   */
+  refScope?: string;
+  /**
+   * @remarks
+   * The number of authorized users in the group. Returned only when ListModelTemplates is called with refScope=USER_MIXED. Otherwise null.
+   */
+  userCount?: number;
+  /**
+   * @remarks
+   * The number of authorized user groups in the group. Returned only when ListModelTemplates is called with refScope=USER_MIXED. Otherwise null.
+   */
+  userGroupCount?: number;
   static names(): { [key: string]: string } {
     return {
+      agentPlatform: 'AgentPlatform',
       agentProvider: 'AgentProvider',
       config: 'Config',
       description: 'Description',
       hasModel: 'HasModel',
+      modelCount: 'ModelCount',
       modelTemplateId: 'ModelTemplateId',
       name: 'Name',
+      refScope: 'RefScope',
+      userCount: 'UserCount',
+      userGroupCount: 'UserGroupCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      agentPlatform: 'string',
       agentProvider: 'string',
       config: 'string',
       description: 'string',
       hasModel: 'boolean',
+      modelCount: 'number',
       modelTemplateId: 'string',
       name: 'string',
+      refScope: 'string',
+      userCount: 'number',
+      userGroupCount: 'number',
     };
   }
 
@@ -96,7 +133,7 @@ export class ListModelTemplatesResponseBody extends $dara.Model {
   data?: ListModelTemplatesResponseBodyData[];
   /**
    * @remarks
-   * The page number of the current query result.
+   * The current page number of the query results.
    * 
    * @example
    * 1
@@ -104,7 +141,7 @@ export class ListModelTemplatesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page in the query result.
+   * The number of query results per page.
    * 
    * @example
    * 20
@@ -120,7 +157,7 @@ export class ListModelTemplatesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries in the query result.
+   * The total number of query results.
    * 
    * @example
    * 30

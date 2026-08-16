@@ -15,7 +15,7 @@ export class CreateImageFromAppInstanceGroupRequest extends $dara.Model {
   appCenterImageName?: string;
   /**
    * @remarks
-   * The delivery group ID. You can call the [ListAppInstanceGroup](https://help.aliyun.com/document_detail/428506.html) operation to obtain the value.
+   * The delivery group ID. You can call the [ListAppInstanceGroup](https://help.aliyun.com/document_detail/428506.html) operation to obtain the ID.
    * 
    * This parameter is required.
    * 

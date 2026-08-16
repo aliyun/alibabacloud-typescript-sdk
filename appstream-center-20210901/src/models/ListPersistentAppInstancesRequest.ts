@@ -23,7 +23,7 @@ export class ListPersistentAppInstancesRequest extends $dara.Model {
   appInstancePersistentIds?: string[];
   /**
    * @remarks
-   * The page number of the query results to display. Minimum value: **1**. Default value: **1**.
+   * The page number of the query results to display. The value starts from **1**. Default value: **1**.
    * 
    * @example
    * 1
@@ -31,7 +31,7 @@ export class ListPersistentAppInstancesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of query results per page. Maximum value: **100**. Default value: **20**.
+   * The number of query results per page. The maximum value is **100**. Default value: **20**.
    * 
    * @example
    * 20

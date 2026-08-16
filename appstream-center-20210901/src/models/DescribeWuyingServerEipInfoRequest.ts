@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeWuyingServerEipInfoRequest extends $dara.Model {
   /**
    * @remarks
-   * The Internet service operation provider (ISP). Valid values: 
+   * The Internet service operation provider. Valid values: 
    * - ChinaMobile: Shift.
    * - ChinaTelecom: China Telecom.
    * - ChinaUnicom: China Unicom.

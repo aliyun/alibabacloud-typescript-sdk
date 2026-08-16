@@ -5,6 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class ListDesktopAgentRuntimeRequest extends $dara.Model {
   /**
    * @remarks
+   * The agent IM online status filter.
+   * 
+   * @example
+   * Online
+   */
+  agentImOnlineStatus?: string;
+  /**
+   * @remarks
    * The list of agent instance statuses.
    * 
    * @example
@@ -29,12 +37,36 @@ export class ListDesktopAgentRuntimeRequest extends $dara.Model {
   agentPlatform?: string;
   /**
    * @remarks
-   * The name of the agent provider.
+   * The list of agent platforms. If AgentPlatform is also specified, AgentPlatform takes precedence and this list is ignored.
+   * 
+   * @example
+   * ENTERPRISE
+   */
+  agentPlatformList?: string[];
+  /**
+   * @remarks
+   * The agent provider name.
    * 
    * @example
    * OpenClaw
    */
   agentProvider?: string;
+  /**
+   * @remarks
+   * The list of agent providers. If AgentProvider is also specified, AgentProvider takes precedence and this list is ignored.
+   * 
+   * @example
+   * OpenClaw
+   */
+  agentProviderList?: string[];
+  /**
+   * @remarks
+   * The list of agent template IDs. A match occurs only when all valid templates are assigned.
+   * 
+   * @example
+   * at-xxxxx
+   */
+  agentTemplateIds?: string[];
   /**
    * @remarks
    * The list of authorized users.
@@ -45,6 +77,14 @@ export class ListDesktopAgentRuntimeRequest extends $dara.Model {
   authUsers?: string[];
   /**
    * @remarks
+   * The business region ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  bizRegionId?: string;
+  /**
+   * @remarks
    * The business type.
    * 
    * @example
@@ -53,7 +93,7 @@ export class ListDesktopAgentRuntimeRequest extends $dara.Model {
   bizType?: number;
   /**
    * @remarks
-   * Specifies whether the third-party channel is configured.
+   * Specifies whether a third-party channel is configured.
    * 
    * @example
    * true
@@ -85,7 +125,7 @@ export class ListDesktopAgentRuntimeRequest extends $dara.Model {
   desktopNames?: string[];
   /**
    * @remarks
-   * The list of cloud computer statuses.
+   * The list of Cloud Desktop statuses.
    * 
    * @example
    * Running
@@ -93,7 +133,7 @@ export class ListDesktopAgentRuntimeRequest extends $dara.Model {
   desktopStatuses?: string[];
   /**
    * @remarks
-   * Specifies whether authorized users exist.
+   * Indicates whether an authorized user exists for authorization.
    * 
    * @example
    * true
@@ -101,9 +141,9 @@ export class ListDesktopAgentRuntimeRequest extends $dara.Model {
   hasAuthUser?: boolean;
   /**
    * @remarks
-   * Specifies whether a risk exists. Used to filter cloud computers with or without risks. This parameter takes effect only when IncludeRiskInfo is set to true.
+   * Specifies whether a risk exists. This parameter is used to filter Cloud Desktops with or without risks and takes effect only when IncludeRiskInfo is set to true.
    * 
-   * Set to true to return only records with risks. Set to false to return only records without risks. If not specified, no filtering is applied.
+   * Set this parameter to true to return only records with risks. Set this parameter to false to return only records without risks. If you do not specify this parameter, no filtering is applied.
    * 
    * @example
    * true
@@ -111,20 +151,23 @@ export class ListDesktopAgentRuntimeRequest extends $dara.Model {
   hasRisk?: boolean;
   /**
    * @remarks
-   * Specifies whether to query and return risk information. Default value: false. When set to true, the response includes the RiskInfo field, and the HasRisk filter condition takes effect.
+   * Specifies whether to query and return risk information. Default value: false. If set to true, the response includes the RiskInfo field, and the HasRisk filter takes effect.
    * 
    * @example
    * true
    */
   includeRiskInfo?: boolean;
   /**
+   * @remarks
+   * The management status filter, such as Hibernated.
+   * 
    * @example
    * Hibernated
    */
   managementStatus?: string;
   /**
    * @remarks
-   * Specifies whether the model is configured.
+   * Specifies whether a model is configured.
    * 
    * @example
    * true
@@ -140,7 +183,15 @@ export class ListDesktopAgentRuntimeRequest extends $dara.Model {
   modelTemplateId?: string;
   /**
    * @remarks
-   * The page number, starting from 1. Values 0 and 1 return the same result.
+   * The office network ID.
+   * 
+   * @example
+   * cn-hangzhou+dir-xxxx
+   */
+  officeSiteId?: string;
+  /**
+   * @remarks
+   * The page number. Starts from 1. Values 0 and 1 return the same result.
    * 
    * @example
    * 1
@@ -164,7 +215,7 @@ export class ListDesktopAgentRuntimeRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The list of resource IDs (underlying real resource IDs).
+   * The list of resource IDs (underlying actual resource IDs).
    * 
    * @example
    * ecd-xxxxx
@@ -172,11 +223,16 @@ export class ListDesktopAgentRuntimeRequest extends $dara.Model {
   resourceIds?: string[];
   static names(): { [key: string]: string } {
     return {
+      agentImOnlineStatus: 'AgentImOnlineStatus',
       agentInstanceStatuses: 'AgentInstanceStatuses',
       agentInstanceVersions: 'AgentInstanceVersions',
       agentPlatform: 'AgentPlatform',
+      agentPlatformList: 'AgentPlatformList',
       agentProvider: 'AgentProvider',
+      agentProviderList: 'AgentProviderList',
+      agentTemplateIds: 'AgentTemplateIds',
       authUsers: 'AuthUsers',
+      bizRegionId: 'BizRegionId',
       bizType: 'BizType',
       channelConfigure: 'ChannelConfigure',
       deploymentSource: 'DeploymentSource',
@@ -189,6 +245,7 @@ export class ListDesktopAgentRuntimeRequest extends $dara.Model {
       managementStatus: 'ManagementStatus',
       modelConfigure: 'ModelConfigure',
       modelTemplateId: 'ModelTemplateId',
+      officeSiteId: 'OfficeSiteId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       resourceGroupId: 'ResourceGroupId',
@@ -198,11 +255,16 @@ export class ListDesktopAgentRuntimeRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      agentImOnlineStatus: 'string',
       agentInstanceStatuses: { 'type': 'array', 'itemType': 'string' },
       agentInstanceVersions: { 'type': 'array', 'itemType': 'string' },
       agentPlatform: 'string',
+      agentPlatformList: { 'type': 'array', 'itemType': 'string' },
       agentProvider: 'string',
+      agentProviderList: { 'type': 'array', 'itemType': 'string' },
+      agentTemplateIds: { 'type': 'array', 'itemType': 'string' },
       authUsers: { 'type': 'array', 'itemType': 'string' },
+      bizRegionId: 'string',
       bizType: 'number',
       channelConfigure: 'boolean',
       deploymentSource: 'string',
@@ -215,6 +277,7 @@ export class ListDesktopAgentRuntimeRequest extends $dara.Model {
       managementStatus: 'string',
       modelConfigure: 'boolean',
       modelTemplateId: 'string',
+      officeSiteId: 'string',
       pageNumber: 'number',
       pageSize: 'number',
       resourceGroupId: 'string',
@@ -228,6 +291,15 @@ export class ListDesktopAgentRuntimeRequest extends $dara.Model {
     }
     if(Array.isArray(this.agentInstanceVersions)) {
       $dara.Model.validateArray(this.agentInstanceVersions);
+    }
+    if(Array.isArray(this.agentPlatformList)) {
+      $dara.Model.validateArray(this.agentPlatformList);
+    }
+    if(Array.isArray(this.agentProviderList)) {
+      $dara.Model.validateArray(this.agentProviderList);
+    }
+    if(Array.isArray(this.agentTemplateIds)) {
+      $dara.Model.validateArray(this.agentTemplateIds);
     }
     if(Array.isArray(this.authUsers)) {
       $dara.Model.validateArray(this.authUsers);

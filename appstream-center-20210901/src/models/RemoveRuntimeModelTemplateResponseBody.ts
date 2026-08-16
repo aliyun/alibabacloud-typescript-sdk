@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RemoveRuntimeModelTemplateResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The error code returned if the operation fails.
+   * The error code returned when the operation fails.
    * 
    * @example
    * Runtime.NotFound
@@ -13,7 +13,7 @@ export class RemoveRuntimeModelTemplateResponseBodyData extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The HTTP status code returned if the operation fails.
+   * The HTTP status code returned when the operation fails.
    * 
    * @example
    * 404
@@ -21,7 +21,7 @@ export class RemoveRuntimeModelTemplateResponseBodyData extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The error message returned if the operation fails.
+   * The error message returned when the operation fails.
    * 
    * @example
    * The runtime is not found.
@@ -41,7 +41,7 @@ export class RemoveRuntimeModelTemplateResponseBodyData extends $dara.Model {
   runtimeId?: string;
   /**
    * @remarks
-   * Indicates whether the operation is successful.
+   * Indicates whether the operation was successful.
    * 
    * @example
    * true
@@ -92,7 +92,7 @@ export class RemoveRuntimeModelTemplateResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries.
+   * The total number of entries returned.
    * 
    * @example
    * 3

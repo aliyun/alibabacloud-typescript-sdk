@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyWuyingServerAttributeRequest extends $dara.Model {
   /**
    * @remarks
-   * The logon password of the cloud graphics workstation.
+   * The logon password of the workstation.
    * 
    * @example
    * yourPassword
@@ -14,7 +14,7 @@ export class ModifyWuyingServerAttributeRequest extends $dara.Model {
   productType?: string;
   /**
    * @remarks
-   * The ID of the cloud graphics workstation.
+   * The workstation ID.
    * 
    * @example
    * ws-0bw2f11****dial
@@ -22,7 +22,7 @@ export class ModifyWuyingServerAttributeRequest extends $dara.Model {
   wuyingServerId?: string;
   /**
    * @remarks
-   * The name of the cloud graphics workstation.
+   * The name.
    * 
    * @example
    * exampleServerName

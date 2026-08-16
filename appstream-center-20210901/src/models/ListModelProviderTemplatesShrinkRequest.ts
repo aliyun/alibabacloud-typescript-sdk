@@ -57,7 +57,7 @@ export class ListModelProviderTemplatesShrinkRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The name of the model provider to filter by.
+   * The model provider name to filter by.
    * 
    * @example
    * bailian

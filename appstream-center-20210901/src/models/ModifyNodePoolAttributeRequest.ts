@@ -55,7 +55,7 @@ export class ModifyNodePoolAttributeRequestNodePoolStrategyRecurrenceSchedulesTi
 export class ModifyNodePoolAttributeRequestNodePoolStrategyRecurrenceSchedules extends $dara.Model {
   /**
    * @remarks
-   * The type of the policy execution cycle. You must specify both `RecurrenceType` and `RecurrenceValues`.
+   * The type of the strategy execution cycle. You must specify both `RecurrenceType` and `RecurrenceValues`.
    * 
    * @example
    * weekly
@@ -63,17 +63,17 @@ export class ModifyNodePoolAttributeRequestNodePoolStrategyRecurrenceSchedules e
   recurrenceType?: string;
   /**
    * @remarks
-   * The list of values for the policy execution cycle.
+   * The list of values for the strategy execution cycle.
    */
   recurrenceValues?: number[];
   /**
    * @remarks
-   * The list of time periods for the policy execution cycle. Requirements for time period settings:
+   * The list of time periods for the strategy execution cycle. Requirements for time period settings:
    * 
-   * - You can add up to three time periods.
-   * - Time periods must not overlap.
-   * - The interval between time periods must be at least 5 minutes.
-   * - Each time period must be at least 15 minutes long.
+   * - You can add up to 3 time periods.
+   * - Time periods cannot overlap.
+   * - The interval between time periods must be greater than or equal to 5 minutes.
+   * - The duration of a single time period must be greater than or equal to 15 minutes.
    * - All time periods combined must not span across days.
    */
   timerPeriods?: ModifyNodePoolAttributeRequestNodePoolStrategyRecurrenceSchedulesTimerPeriods[];
@@ -111,7 +111,7 @@ export class ModifyNodePoolAttributeRequestNodePoolStrategyRecurrenceSchedules e
 export class ModifyNodePoolAttributeRequestNodePoolStrategy extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of idle sessions. When this value is specified, automatic scale-out is triggered only when the session usage exceeds `ScalingUsageThreshold` and the number of idle sessions in the current delivery group is less than `MaxIdleAppInstanceAmount`. Otherwise, the idle sessions in the delivery group are considered sufficient, and no automatic scale-out is performed. This parameter can be used to flexibly control elastic scale-out behavior and reduce costs.
+   * The upper limit of idle sessions. When this value is specified, automatic scale-out is triggered only when the session usage exceeds `ScalingUsageThreshold` and the number of idle sessions in the current delivery group is less than `MaxIdleAppInstanceAmount`. Otherwise, the idle sessions in the delivery group are considered sufficient and automatic scale-out is not triggered. This parameter can be used to flexibly control elastic scale-out behavior and reduce costs.
    * 
    * @example
    * 3
@@ -131,7 +131,7 @@ export class ModifyNodePoolAttributeRequestNodePoolStrategy extends $dara.Model 
    * 
    * > 
    * - If the resources are subscription resources, this parameter cannot be modified.
-   * - If the resources are pay-as-you-go resources, this parameter can be modified when the scaling mode (`StrategyType`) is set to fixed quantity (`NODE_FIXED`) or automatic scaling (`NODE_SCALING_BY_USAGE`).
+   * - If the resources are pay-as-you-go resources, this parameter can be modified when the elastic mode (`StrategyType`) is set to fixed quantity (`NODE_FIXED`) or automatic scaling (`NODE_SCALING_BY_USAGE`).
    * 
    * @example
    * 1
@@ -139,15 +139,15 @@ export class ModifyNodePoolAttributeRequestNodePoolStrategy extends $dara.Model 
   nodeAmount?: number;
   /**
    * @remarks
-   * The list of policy execution cycles. This parameter is required when `StrategyType` (scaling mode) is set to `NODE_SCALING_BY_SCHEDULE` (scheduled scaling).
+   * The list of strategy execution cycles. This parameter is required when `StrategyType` (elastic mode) is set to `NODE_SCALING_BY_SCHEDULE` (scheduled scaling).
    */
   recurrenceSchedules?: ModifyNodePoolAttributeRequestNodePoolStrategyRecurrenceSchedules[];
   /**
    * @remarks
-   * The maximum duration (in minutes) that a resource without session connections is retained. When no sessions are connected to a resource, a countdown starts based on the duration specified here. The resource is scaled in when the countdown ends. Valid values: 5 to 120. Default value: 5. The following exceptions apply:
+   * The maximum duration (in minutes) that a resource without session connections is retained. When no sessions are connected to a resource, a countdown starts based on the duration specified here. Scale-in is completed when the countdown ends. Valid values: 5 to 120. Default value: 5. The following exceptions apply:
    * 
-   * - If scale-in would trigger automatic scale-out again, the scale-in is not performed to avoid repeated scale-in and scale-out operations.
-   * - If automatic scale-out is triggered by an increase in sessions during this period, the resource is not scaled in as originally planned, and the countdown restarts.
+   * - If scale-in would trigger automatic scale-out again, scale-in is not performed to avoid repeated scale-in and scale-out operations.
+   * - If automatic scale-out is triggered due to an increase in sessions during this period, the resource is not scaled in as originally planned, and the countdown restarts.
    * 
    * @example
    * 5
@@ -155,7 +155,7 @@ export class ModifyNodePoolAttributeRequestNodePoolStrategy extends $dara.Model 
   scalingDownAfterIdleMinutes?: number;
   /**
    * @remarks
-   * The number of resources created per scale-out operation. Valid values: 1 to 10. This parameter is required when `StrategyType` is set to `NODE_SCALING_BY_USAGE`.
+   * The number of resources created during each scale-out operation. Valid values: 1 to 10. This parameter is required when `StrategyType` is set to `NODE_SCALING_BY_USAGE`.
    * 
    * @example
    * 2
@@ -163,7 +163,7 @@ export class ModifyNodePoolAttributeRequestNodePoolStrategy extends $dara.Model 
   scalingStep?: number;
   /**
    * @remarks
-   * The upper threshold of session usage (%). Automatic scale-out is triggered when the session usage exceeds this threshold. The session usage is calculated by using the following formula: `Session usage = Current sessions ÷ (Total resources × Concurrent sessions per resource) × 100%`. This parameter is required when `StrategyType` is set to `NODE_SCALING_BY_USAGE`. Valid values: 0 to 100. Default value: 85.
+   * The upper threshold of session usage (%). Automatic scale-out is triggered when the session usage exceeds this threshold. The formula for session usage is `Session usage = Current sessions ÷ (Total resources × Concurrent sessions per resource) × 100%`. This parameter is required when `StrategyType` is set to `NODE_SCALING_BY_USAGE`. Valid values: 0 to 100. Default value: 85.
    * 
    * @example
    * 85
@@ -171,7 +171,7 @@ export class ModifyNodePoolAttributeRequestNodePoolStrategy extends $dara.Model 
   scalingUsageThreshold?: string;
   /**
    * @remarks
-   * The date when the policy expires. Format: yyyy-MM-dd. The interval between the expiration date and the effective date must be between 7 days and 1 year, inclusive. This parameter is required when `StrategyType` (scaling mode) is set to `NODE_SCALING_BY_SCHEDULE` (scheduled scaling).
+   * The date when the strategy expires. Format: yyyy-MM-dd. The interval between the expiration date and the effective date must be between 7 days and 1 year (inclusive). This parameter is required when `StrategyType` (elastic mode) is set to `NODE_SCALING_BY_SCHEDULE` (scheduled scaling).
    * 
    * @example
    * 2023-01-19
@@ -179,7 +179,7 @@ export class ModifyNodePoolAttributeRequestNodePoolStrategy extends $dara.Model 
   strategyDisableDate?: string;
   /**
    * @remarks
-   * The date when the policy takes effect. Format: yyyy-MM-dd. The date must be equal to or later than the current date. This parameter is required when `StrategyType` (scaling mode) is set to `NODE_SCALING_BY_SCHEDULE` (scheduled scaling).
+   * The date when the strategy takes effect. Format: yyyy-MM-dd. This date must be greater than or equal to the current date. This parameter is required when `StrategyType` (elastic mode) is set to `NODE_SCALING_BY_SCHEDULE` (scheduled scaling).
    * 
    * @example
    * 2023-01-05
@@ -187,7 +187,7 @@ export class ModifyNodePoolAttributeRequestNodePoolStrategy extends $dara.Model 
   strategyEnableDate?: string;
   /**
    * @remarks
-   * The scaling mode.
+   * The elastic mode.
    * 
    * > 
    * - `NODE_FIXED` (fixed quantity): Applicable to subscription and pay-as-you-go resources.
@@ -200,7 +200,7 @@ export class ModifyNodePoolAttributeRequestNodePoolStrategy extends $dara.Model 
   strategyType?: string;
   /**
    * @remarks
-   * Specifies whether to enable the resource prefetch policy. This parameter is required when `StrategyType` (scaling mode) is set to `NODE_SCALING_BY_SCHEDULE` (scheduled scaling).
+   * Specifies whether to enable the resource prefetch policy. This parameter is required when `StrategyType` (elastic mode) is set to `NODE_SCALING_BY_SCHEDULE` (scheduled scaling).
    * 
    * @example
    * false
@@ -261,7 +261,7 @@ export class ModifyNodePoolAttributeRequest extends $dara.Model {
   bizRegionId?: string;
   /**
    * @remarks
-   * The number of concurrent sessions, which is the number of sessions that can be simultaneously connected to a single resource. If too many sessions are connected simultaneously, the application experience may degrade. The valid values vary depending on the resource specification. The valid values for each resource specification are as follows:
+   * The number of concurrent sessions, which is the number of sessions that can be simultaneously connected to a single resource. If too many sessions are connected simultaneously, the application experience may degrade. The value range varies depending on the resource specification. The value ranges for each resource specification are as follows:
    * 
    * - appstreaming.general.4c8g: 1 to 2.
    * - appstreaming.general.8c16g: 1 to 4.
@@ -275,7 +275,7 @@ export class ModifyNodePoolAttributeRequest extends $dara.Model {
   nodeCapacity?: number;
   /**
    * @remarks
-   * The automatic scaling policy of the delivery group.
+   * The automatic scaling strategy of the delivery group.
    */
   nodePoolStrategy?: ModifyNodePoolAttributeRequestNodePoolStrategy;
   /**

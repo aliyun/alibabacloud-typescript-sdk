@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class UnassignWuyingServerPrivateAddressesRequest extends $dara.Model {
   /**
    * @remarks
+   * The list of secondary private IP addresses to unbind.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class UnassignWuyingServerPrivateAddressesRequest extends $dara.Model {
   privateIpAddresses?: string[];
   /**
    * @remarks
+   * The ID of the development host.
+   * 
    * This parameter is required.
    * 
    * @example

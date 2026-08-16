@@ -5,14 +5,18 @@ import * as $dara from '@darabonba/typescript';
 export class GetRuntimeChannelResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The URL of the channel avatar.
+   * The channel avatar URL.
+   * 
+   * @example
+   * https://test.com/test.jpg
    */
   avatarUrl?: string;
   /**
    * @remarks
-   * The channel type. Valid values:
-   * - System: a channel supported by the system.
-   * - Custom: a custom channel.
+   * The channel type.
+   * 
+   * @example
+   * System
    */
   channelType?: string;
   /**
@@ -27,7 +31,7 @@ export class GetRuntimeChannelResponseBodyData extends $dara.Model {
    * @remarks
    * The channel configuration JSON string.
    * 
-   * Currently, only the simple configuration mode is supported. You must pass the AppKey and AppSecret parameters.
+   * Currently, only the simple configuration mode is supported. You must pass AppKey and AppSecret.
    * 
    * @example
    * {
@@ -38,24 +42,31 @@ export class GetRuntimeChannelResponseBodyData extends $dara.Model {
   config?: string;
   /**
    * @remarks
-   * The configuration mode. Valid values:
-   * - Simple: simple configuration mode.
-   * - Custom: custom configuration mode.
+   * The configuration mode.
+   * 
+   * @example
+   * Simple
    */
   configMode?: string;
   /**
    * @remarks
-   * The URL of the QR code configuration notification page. This parameter is returned only for the ENTERPRISE or ENTERPRISE_JVS platform.
+   * The QR code configuration notification page URL (returned only for ENTERPRISE/ENTERPRISE_JVS platforms).
+   * 
+   * @example
+   * https://eds.console.aliyun.com/public/scan-pair?taskId=e7eb5d86-1b94-4d58-****-3b78b01df99e&code=dingtalk-connector&region=cn-shanghai
    */
   qrCodeNotifyUrl?: string;
   /**
    * @remarks
-   * The QR code configuration status. This parameter is returned only when the status is not in a final state.
+   * The QR code configuration status (returned only when not in a desired state).
+   * 
+   * @example
+   * https://q.qq.com/qqbot/openclaw/entity-picker.html?session_id=c0882266-77c0-4094-af93-442*****2a58
    */
   qrCodeStatus?: string;
   /**
    * @remarks
-   * The risk type. This parameter is returned only when **includeRiskInfo=true**.
+   * The risk type (returned only when **includeRiskInfo=true**).
    * 
    * @example
    * Normal
@@ -122,7 +133,7 @@ export class GetRuntimeChannelResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries.
+   * The total number of entries returned.
    * 
    * @example
    * 6

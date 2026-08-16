@@ -83,7 +83,7 @@ export class GetResourceRenewPriceResponseBodyDataPrice extends $dara.Model {
   currency?: string;
   /**
    * @remarks
-   * The discount amount. The actual price is calculated by subtracting the discount amount from the original price.
+   * The discount amount. The actual price equals the original price minus the discount amount.
    * 
    * @example
    * 1
@@ -104,7 +104,7 @@ export class GetResourceRenewPriceResponseBodyDataPrice extends $dara.Model {
   promotions?: GetResourceRenewPriceResponseBodyDataPricePromotions[];
   /**
    * @remarks
-   * The actual price. The actual price is calculated by subtracting the discount amount from the original price.
+   * The actual price. The actual price equals the original price minus the discount amount.
    * 
    * @example
    * 10

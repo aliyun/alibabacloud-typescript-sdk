@@ -112,7 +112,7 @@ export class CreateWuyingServerRequest extends $dara.Model {
    * 
    * - A period (.) or hyphen (-) cannot be used as the first or last character, and consecutive periods or hyphens are not allowed.
    * 
-   * - Windows workstations: The hostname must be 2 to 15 characters in length. It cannot contain periods (.), consecutive hyphens, or consist entirely of digits. It can contain uppercase and lowercase letters, digits, and hyphens (-).
+   * - Windows workstations: The hostname must be 2 to 15 characters in length. It cannot contain periods (.). Consecutive hyphens are not allowed, and the hostname cannot be all digits. The hostname can contain uppercase and lowercase letters, digits, and hyphens (-).
    * 
    * - Linux workstations:
    * 
@@ -122,15 +122,15 @@ export class CreateWuyingServerRequest extends $dara.Model {
    * 
    * - When you create multiple workstation instances at a time, you can use the `name_prefix[begin_number,bits]name_suffix` format to assign sequential hostnames. For example, if you set HostName to `ecd-[1,4]-test`, the hostname of the first workstation is `ecd-0001-test`, the hostname of the second workstation is `ecd-0002-test`, and so on.
    * 
-   *   - `name_prefix`: the prefix of the hostname.
+   *   - `name_prefix`: The prefix of the hostname.
    * 
-   *   - `[begin_number,bits]`: the sequential number in the hostname.
+   *   - `[begin_number,bits]`: The sequential number in the hostname.
    * 
-   *     - `begin_number`: the starting number. Valid values: 0 to 999999. Default value: 0. If the value is invalid, 0 is used.
+   *     - `begin_number`: The starting number. Valid values: 0 to 999999. Default value: 0. If the value is invalid, it is set to 0.
    * 
-   *     - `bits`: the number of digits. Valid values: 1 to 6. Default value: 6. If the value is invalid, 6 is used.
+   *     - `bits`: The number of digits. Valid values: 1 to 6. Default value: 6. If the value is invalid, it is set to 6.
    * 
-   *   - `name_suffix`: the suffix of the hostname.
+   *   - `name_suffix`: The suffix of the hostname.
    * 
    * @example
    * testhost
@@ -155,7 +155,7 @@ export class CreateWuyingServerRequest extends $dara.Model {
   maxPrice?: number;
   /**
    * @remarks
-   * The network policy type (in invitational preview).
+   * The network policy type (invite-only preview).
    * 
    * @example
    * DirectIp
@@ -195,10 +195,10 @@ export class CreateWuyingServerRequest extends $dara.Model {
   periodUnit?: string;
   /**
    * @remarks
-   * The promotion ID.
+   * The discount ID.
    * 
    * 
-   * > If PromotionId is specified, the corresponding discount is applied.
+   * > If PromotionId is specified, the system attempts to apply the corresponding discount.
    * 
    * @example
    * 17440009****

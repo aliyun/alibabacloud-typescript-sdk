@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListModelTemplateResourceGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the model group.
+   * The model group ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ListModelTemplateResourceGroupRequest extends $dara.Model {
   modelTemplateId?: string;
   /**
    * @remarks
-   * The page number. Pages start from page 1. Both 0 and 1 return the same result.
+   * The page number. Pages start from page 1. The values 0 and 1 return the same result.
    * 
    * @example
    * 1

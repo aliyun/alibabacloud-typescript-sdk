@@ -29,7 +29,7 @@ export class ModifyAppPolicyRequestVideoPolicy extends $dara.Model {
   sessionResolutionWidth?: number;
   /**
    * @remarks
-   * The streaming mode. This parameter is used together with the Webrtc parameter to specify the protocol type.
+   * The streaming mode. Used together with the Webrtc parameter to specify the protocol type.
    * 
    * - Webrtc=`true` and StreamingMode=`video`: WebRTC stream.
    * - Webrtc=`false` and StreamingMode=`video`: video stream.
@@ -61,7 +61,7 @@ export class ModifyAppPolicyRequestVideoPolicy extends $dara.Model {
   visualQualityStrategy?: string;
   /**
    * @remarks
-   * Specifies whether to enable WebRTC. This parameter is used together with the StreamingMode parameter to specify the protocol type.
+   * Specifies whether to enable WebRTC. Used together with the StreamingMode parameter to specify the protocol type.
    * 
    * - Webrtc=`true` and StreamingMode=`video`: WebRTC stream.
    * - Webrtc=`false` and StreamingMode=`video`: video stream.

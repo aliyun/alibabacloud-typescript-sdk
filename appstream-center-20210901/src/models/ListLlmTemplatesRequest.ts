@@ -5,7 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class ListLlmTemplatesRequest extends $dara.Model {
   /**
    * @remarks
-   * The model code used for filtering. Fuzzy match is supported.
+   * The business type. This parameter is required when SmartModel is set to true.
+   */
+  bizType?: number;
+  /**
+   * @remarks
+   * The model code filter. Fuzzy match is supported.
    * 
    * @example
    * qwen3.6-plus
@@ -26,7 +31,7 @@ export class ListLlmTemplatesRequest extends $dara.Model {
   modelTemplateId?: string;
   /**
    * @remarks
-   * The page number. Pages start from page 1. Values 0 and 1 return the same result.
+   * The page number, starting from 1. Values 0 and 1 return the same result.
    * 
    * @example
    * 1
@@ -48,25 +53,37 @@ export class ListLlmTemplatesRequest extends $dara.Model {
    * mpt-xxxx
    */
   providerTemplateId?: string;
+  /**
+   * @remarks
+   * Specifies whether to query smart models. If set to true, only LLMs under system preset smart models are returned, and BizType is required. Default value: false.
+   * 
+   * @example
+   * false
+   */
+  smartModel?: boolean;
   static names(): { [key: string]: string } {
     return {
+      bizType: 'BizType',
       llmCode: 'LlmCode',
       llmTemplateIds: 'LlmTemplateIds',
       modelTemplateId: 'ModelTemplateId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       providerTemplateId: 'ProviderTemplateId',
+      smartModel: 'SmartModel',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      bizType: 'number',
       llmCode: 'string',
       llmTemplateIds: { 'type': 'array', 'itemType': 'string' },
       modelTemplateId: 'string',
       pageNumber: 'number',
       pageSize: 'number',
       providerTemplateId: 'string',
+      smartModel: 'boolean',
     };
   }
 

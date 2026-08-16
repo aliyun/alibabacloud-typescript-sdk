@@ -31,7 +31,7 @@ export class CreateImageByInstanceRequestTagList extends $dara.Model {
 export class CreateImageByInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * This parameter is applicable only when the instance type is cloud desktop. Specifies whether to clear user personal data. If you set this parameter to true, the created image clears data in all directories under C:\\Users except the Administrator and Public directories.
+   * This parameter applies only to Cloud Desktop instances. Specifies whether to clear user personal data. If set to true, the created image clears data in all directories under C:\\Users except Administrator and Public.
    * 
    * @example
    * false
@@ -55,7 +55,7 @@ export class CreateImageByInstanceRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The type of disk data included in the image. By default, the image includes both the system cloud disk and data cloud disk of the instance.
+   * The type of disk data included in the image. By default, both the system cloud disk and data cloud disk of the instance are included.
    * 
    * @example
    * ALL
@@ -71,7 +71,7 @@ export class CreateImageByInstanceRequest extends $dara.Model {
   imageName?: string;
   /**
    * @remarks
-   * The WUYING instance ID. The instance can be a cloud desktop instance or a workstation instance. To ensure data consistency in the image, stop the instance before creating the image.
+   * The WUYING instance ID. The instance can be a Cloud Desktop instance or a workstation instance. To ensure data consistency in the image, stop the instance before creating the image.
    * 
    * @example
    * ws-0buj1s9gm******
@@ -95,7 +95,7 @@ export class CreateImageByInstanceRequest extends $dara.Model {
   productType?: string;
   /**
    * @remarks
-   * The sub-instance ID. This parameter is not applicable to cloud desktop scenarios. In workstation scenarios, specify the persistent session ID to identify a specific instance.
+   * The sub-instance ID. This parameter does not apply to Cloud Desktop scenarios. In workstation scenarios, specify the persistent session ID to identify a specific instance.
    * 
    * @example
    * p-0cc7s3n1l*****

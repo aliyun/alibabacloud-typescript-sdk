@@ -58,7 +58,7 @@ export class DescribeWuyingServerEipInfoResponseBodyEipInfoModel extends $dara.M
 export class DescribeWuyingServerEipInfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The EIP information.
+   * The Elastic IP Address (EIP) information.
    */
   eipInfoModel?: DescribeWuyingServerEipInfoResponseBodyEipInfoModel;
   /**

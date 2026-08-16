@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeliverToUserSlsRequestDeliveryScopes extends $dara.Model {
   /**
    * @remarks
-   * product type
+   * The product type.
    * 
    * This parameter is required.
    * 
@@ -37,7 +37,7 @@ export class DeliverToUserSlsRequestDeliveryScopes extends $dara.Model {
 export class DeliverToUserSlsRequest extends $dara.Model {
   /**
    * @remarks
-   * List of delivery scopes
+   * The list of delivery scopes.
    * 
    * This parameter is required.
    * 
@@ -47,7 +47,7 @@ export class DeliverToUserSlsRequest extends $dara.Model {
   deliveryScopes?: DeliverToUserSlsRequestDeliveryScopes[];
   /**
    * @remarks
-   * Existing Simple Log Service project name; either this or ProjectName is required
+   * The name of an existing SLS project. Either this parameter or ProjectName must be specified.
    * 
    * @example
    * elastic-desktop-xxx
@@ -55,7 +55,7 @@ export class DeliverToUserSlsRequest extends $dara.Model {
   existedProjectName?: string;
   /**
    * @remarks
-   * LogStore name
+   * The LogStore name.
    * 
    * @example
    * elastic_desktop_xxx
@@ -63,7 +63,7 @@ export class DeliverToUserSlsRequest extends $dara.Model {
   logStoreName?: string;
   /**
    * @remarks
-   * Simple Log Service project name; either this or ExistedProjectName is required
+   * The SLS project name. Either this parameter or ExistedProjectName must be specified.
    * 
    * @example
    * elastic-desktop-xxx
@@ -71,7 +71,7 @@ export class DeliverToUserSlsRequest extends $dara.Model {
   projectName?: string;
   /**
    * @remarks
-   * Region ID of Simple Log Service
+   * The region ID of the SLS instance.
    * 
    * This parameter is required.
    * 
@@ -81,7 +81,7 @@ export class DeliverToUserSlsRequest extends $dara.Model {
   slsRegionId?: string;
   /**
    * @remarks
-   * Data retention period (Day), default 30
+   * The data retention period in days. Default value: 30.
    * 
    * @example
    * 30

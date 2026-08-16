@@ -5,16 +5,23 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateModelTemplateRequest extends $dara.Model {
   /**
    * @remarks
-   * The model group configuration JSON object.
+   * The model group configuration JSON object. You can use this field to modify the default model. The configuration format varies depending on the agent provider (AgentProvider):
+   * 
+   * - **OpenClaw / AgenticComputer scenarios:**
+   * Set the default model by using the `defaults.model.primary` field in the format of `provider name/model code`.
+   * 
+   * - **HermesAgent scenarios:**
+   * Specify the provider name by using `model.provider` and the model code by using `model.default`.
+   * 
+   * > Note:
+   * > - When you modify the default model, the system verifies whether the specified provider and model code already exist in the model group.
    * 
    * @example
-   * {
-   * 	"defaults": {
-   * 		"model": {
-   * 			"primary": "bailian/qwen3.5-plus"
-   * 		}
-   * 	}
-   * }
+   * OpenClaw：
+   * {"defaults":{"model":{"primary":"bailian/qwen3.5-plus"}}}
+   * 
+   * HermesAgent：
+   * {"model":{"provider":"bailian","default":"qwen3.5-plus"}}
    */
   config?: string;
   /**
@@ -22,7 +29,7 @@ export class UpdateModelTemplateRequest extends $dara.Model {
    * The template group description.
    * 
    * @example
-   * 测试模型分组
+   * Test model group
    */
   description?: string;
   /**
@@ -43,12 +50,18 @@ export class UpdateModelTemplateRequest extends $dara.Model {
    * model-template-001
    */
   name?: string;
+  /**
+   * @remarks
+   * The authorization scope. This parameter is optional and can be modified only for Common model groups. Valid values: ALL_USER and USER_MIXED.
+   */
+  refScope?: string;
   static names(): { [key: string]: string } {
     return {
       config: 'Config',
       description: 'Description',
       modelTemplateId: 'ModelTemplateId',
       name: 'Name',
+      refScope: 'RefScope',
     };
   }
 
@@ -58,6 +71,7 @@ export class UpdateModelTemplateRequest extends $dara.Model {
       description: 'string',
       modelTemplateId: 'string',
       name: 'string',
+      refScope: 'string',
     };
   }
 

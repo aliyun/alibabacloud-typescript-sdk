@@ -45,7 +45,7 @@ export class ListImageResponseBodyDataAppList extends $dara.Model {
 export class ListImageResponseBodyDataImageRegionDistributeList extends $dara.Model {
   /**
    * @remarks
-   * The image ID. System image IDs are meaningful, while custom image IDs are automatically generated.
+   * The image ID. System image IDs are meaningful, while custom image IDs are auto-generated.
    * 
    * @example
    * imgc-xxx
@@ -315,7 +315,7 @@ export class ListImageResponseBodyData extends $dara.Model {
   imageIconUrl?: string;
   /**
    * @remarks
-   * The image ID. System image IDs are meaningful, while custom image IDs are automatically generated.
+   * The image ID. System image IDs are meaningful, while custom image IDs are auto-generated.
    * 
    * @example
    * imgc-xxxx
@@ -331,7 +331,7 @@ export class ListImageResponseBodyData extends $dara.Model {
   imageName?: string;
   /**
    * @remarks
-   * The effective region information for overlay layers.
+   * The overlay effective region information.
    */
   imageRegionDistributeList?: ListImageResponseBodyDataImageRegionDistributeList[];
   /**
@@ -349,7 +349,7 @@ export class ListImageResponseBodyData extends $dara.Model {
   imageType?: string;
   /**
    * @remarks
-   * The image language. If the package type is VHD or Container, this property is inherited from the ECS-packaged image in the image combination.
+   * The image language. If the package type is VHD/Container, this property is inherited from the ECS package type image in the image combination.
    * 
    * @example
    * zh-CN
@@ -373,7 +373,7 @@ export class ListImageResponseBodyData extends $dara.Model {
   onlineVersion?: boolean;
   /**
    * @remarks
-   * The sub-version from which the current image reads the primary image information. An image consists of multiple sub-versions.
+   * The sub-version from which the current image reads the main image information. An image consists of multiple sub-versions.
    * 
    * @example
    * iv-xxxx
@@ -397,7 +397,7 @@ export class ListImageResponseBodyData extends $dara.Model {
   packageType?: string;
   /**
    * @remarks
-   * The parent image ID. This parameter indicates only the inheritance relationship. System images do not have a parent image.
+   * The parent image ID. This only indicates the inheritance relationship. System images have no parent image.
    * 
    * @example
    * imgc-xxx
@@ -413,9 +413,9 @@ export class ListImageResponseBodyData extends $dara.Model {
   parentImageVersion?: string;
   /**
    * @remarks
-   * The operating system platform of the image.
+   * The image operating system platform.
    * 
-   * > If the package type is VHD or Container, this property is inherited from the ECS-packaged image in the image combination.
+   * > If the package type is VHD/Container, this property is inherited from the ECS package type image in the image combination.
    * 
    * @example
    * Windows
@@ -514,7 +514,7 @@ export class ListImageResponseBodyData extends $dara.Model {
   versionName?: string;
   /**
    * @remarks
-   * Indicates whether cloud disk encryption is enabled.
+   * Indicates whether disk encryption is enabled.
    * 
    * @example
    * true
@@ -522,7 +522,7 @@ export class ListImageResponseBodyData extends $dara.Model {
   volumeEncryptionEnabled?: boolean;
   /**
    * @remarks
-   * The KMS key ID used when cloud disk encryption is enabled.
+   * The KMS key ID used when disk encryption is enabled.
    * 
    * @example
    * a7b3c0c8-xxxx

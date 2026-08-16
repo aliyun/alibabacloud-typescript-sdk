@@ -29,7 +29,7 @@ export class GetOtaTaskByTaskIdResponseBody extends $dara.Model {
   otaVersion?: string;
   /**
    * @remarks
-   * The version description that describes the content of the over-the-air update.
+   * The release note that describes the content of the over-the-air update.
    * 
    * @example
    * 测试升级

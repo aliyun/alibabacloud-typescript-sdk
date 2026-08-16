@@ -183,7 +183,7 @@ export class ListAppInstanceGroupResponseBodyAppInstanceGroupModelsNodePool exte
   amount?: number;
   /**
    * @remarks
-   * The upper limit of idle sessions. When this value is specified, automatic scale-out is triggered only when the session usage exceeds `ScalingUsageThreshold` and the number of idle sessions in the delivery group is less than `MaxIdleAppInstanceAmount`. Otherwise, the delivery group is considered to have sufficient idle sessions and no automatic scale-out is performed. This parameter allows you to flexibly control elastic scaling behavior and reduce costs.
+   * The upper limit of idle sessions. When this value is specified, automatic scale-out is triggered only when the session usage exceeds `ScalingUsageThreshold` and the number of idle sessions in the delivery group is less than `MaxIdleAppInstanceAmount`. Otherwise, the delivery group is considered to have sufficient idle sessions and automatic scale-out is not triggered. This parameter allows flexible control over elastic scaling behavior and helps reduce costs.
    * 
    * @example
    * 3
@@ -207,7 +207,7 @@ export class ListAppInstanceGroupResponseBodyAppInstanceGroupModelsNodePool exte
   nodeAmount?: number;
   /**
    * @remarks
-   * The number of concurrent sessions, which is the number of sessions that a single resource can handle simultaneously. Too many simultaneous sessions may degrade the application experience. The valid values vary depending on the resource specification.
+   * The number of concurrent sessions, which is the number of sessions that a single resource can handle simultaneously. If too many sessions are connected simultaneously, the application experience may degrade. The valid values vary depending on the resource specification.
    * 
    * @example
    * 2
@@ -215,7 +215,7 @@ export class ListAppInstanceGroupResponseBodyAppInstanceGroupModelsNodePool exte
   nodeCapacity?: number;
   /**
    * @remarks
-   * The specification type ID of the purchased resources.
+   * The specification type ID of the purchased resource.
    * 
    * @example
    * appstreaming.vgpu.4c8g.2g
@@ -276,7 +276,7 @@ export class ListAppInstanceGroupResponseBodyAppInstanceGroupModelsNodePool exte
   scalingNodeUsed?: number;
   /**
    * @remarks
-   * The number of resources created during each scale-out event. Valid values: 1 to 10.
+   * The number of resources created per scale-out operation. Valid values: 1 to 10.
    * 
    * @example
    * 2
@@ -284,7 +284,7 @@ export class ListAppInstanceGroupResponseBodyAppInstanceGroupModelsNodePool exte
   scalingStep?: number;
   /**
    * @remarks
-   * The upper threshold of session usage (%). When the session usage exceeds this threshold, automatic scale-out is triggered. The formula for session usage is: `Session usage = Number of current sessions ÷ (Total number of resources × Concurrent sessions per resource) × 100%`.
+   * The upper threshold of session usage (%). When the session usage exceeds this threshold, automatic scale-out is triggered. The formula for session usage is: `session usage = current number of sessions ÷ (total number of resources × concurrent sessions per resource) × 100%`.
    * 
    * @example
    * 85
@@ -691,7 +691,7 @@ export class ListAppInstanceGroupResponseBodyAppInstanceGroupModels extends $dar
   osType?: string;
   /**
    * @remarks
-   * The over-the-air update task information.
+   * The OTA upgrade task information.
    */
   otaInfo?: ListAppInstanceGroupResponseBodyAppInstanceGroupModelsOtaInfo;
   /**
@@ -712,7 +712,7 @@ export class ListAppInstanceGroupResponseBodyAppInstanceGroupModels extends $dar
   regionId?: string;
   /**
    * @remarks
-   * The percentage of reserved instances, which represents the ratio of unused sessions in the delivery group. Valid values: 0 to 99.
+   * The reserved instance percentage, which is the ratio of unused sessions in the delivery group. Valid values: 0 to 99.
    * 
    * @example
    * 20
@@ -720,7 +720,7 @@ export class ListAppInstanceGroupResponseBodyAppInstanceGroupModels extends $dar
   reserveAmountRatio?: string;
   /**
    * @remarks
-   * The maximum number of reserved instances, which represents the maximum number of unused sessions in the delivery group. Minimum value: 1.
+   * The maximum number of reserved instances, which is the maximum number of unused sessions in the delivery group. Minimum value: 1.
    * 
    * @example
    * 5
@@ -728,7 +728,7 @@ export class ListAppInstanceGroupResponseBodyAppInstanceGroupModels extends $dar
   reserveMaxAmount?: number;
   /**
    * @remarks
-   * The minimum number of reserved instances, which represents the minimum number of unused sessions in the delivery group. Minimum value: 1.
+   * The minimum number of reserved instances, which is the minimum number of unused sessions in the delivery group. Minimum value: 1.
    * 
    * @example
    * 1
@@ -757,7 +757,7 @@ export class ListAppInstanceGroupResponseBodyAppInstanceGroupModels extends $dar
   scalingDownAfterIdleMinutes?: number;
   /**
    * @remarks
-   * The number of sessions created during each scale-out event. Minimum value: 1.
+   * The number of sessions created per scale-out operation. Minimum value: 1.
    * 
    * @example
    * 10
@@ -765,7 +765,7 @@ export class ListAppInstanceGroupResponseBodyAppInstanceGroupModels extends $dar
   scalingStep?: number;
   /**
    * @remarks
-   * The upper threshold of session usage (%). When the session usage exceeds this threshold, automatic scale-out is triggered. The formula for session usage is: Session usage = Number of sessions in use ÷ Total number of sessions × 100%. Valid values: 0 to 99.
+   * The upper threshold of session usage (%). When the session usage exceeds this threshold, automatic scale-out is triggered. The formula for session usage is: session usage = number of sessions in use ÷ total number of sessions × 100%. Valid values: 0 to 99.
    * 
    * @example
    * 85
@@ -773,7 +773,7 @@ export class ListAppInstanceGroupResponseBodyAppInstanceGroupModels extends $dar
   scalingUsageThreshold?: string;
   /**
    * @remarks
-   * The session disconnection retention duration, in minutes. After an end user session is disconnected, the session is retained for the specified duration before being logged off. Set this parameter to `-1` to retain the session indefinitely. Valid values: -1 and 3 to 300. Default value: `15`.
+   * The session disconnection retention duration, in minutes. After an end user session is disconnected, the session is retained for the specified duration before being logged off. Set this value to `-1` to retain the session indefinitely. Valid values: -1 and 3 to 300. Default value: `15`.
    * 
    * @example
    * 15
@@ -781,7 +781,7 @@ export class ListAppInstanceGroupResponseBodyAppInstanceGroupModels extends $dar
   sessionTimeout?: string;
   /**
    * @remarks
-   * Indicates whether user authorization verification is skipped.
+   * Specifies whether to skip user authorization verification.
    * 
    * @example
    * false
@@ -932,7 +932,7 @@ export class ListAppInstanceGroupResponseBody extends $dara.Model {
   appInstanceGroupModels?: ListAppInstanceGroupResponseBodyAppInstanceGroupModels[];
   /**
    * @remarks
-   * The page number of the query results currently displayed.
+   * The page number of the displayed query results.
    * 
    * @example
    * 1

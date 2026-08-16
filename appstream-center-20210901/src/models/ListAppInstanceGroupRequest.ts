@@ -61,7 +61,7 @@ export class ListAppInstanceGroupRequest extends $dara.Model {
   appInstanceGroupId?: string;
   /**
    * @remarks
-   * The delivery group name. Fuzzy match is used for the query. For example, if you set the delivery group name to `Office App`, all delivery groups whose names contain `Office App` are returned, such as `My Office App` and `Office App A`.
+   * The delivery group name. Fuzzy matching is used for the query. For example, if you set the delivery group name to `OfficeApp`, all delivery groups whose names contain `OfficeApp` are returned, such as `MyOfficeApp` and `OfficeAppA`.
    * 
    * @example
    * 办公应用
@@ -82,7 +82,7 @@ export class ListAppInstanceGroupRequest extends $dara.Model {
   excludedUserGroupIds?: string[];
   /**
    * @remarks
-   * The specification type ID of the purchased resources. You can call the [ListNodeInstanceType](~~ListNodeInstanceType~~) operation to obtain this value.
+   * The specification type ID of the purchased resource. You can call the [ListNodeInstanceType](~~ListNodeInstanceType~~) operation to obtain this value.
    * 
    * @example
    * appstreaming.vgpu.4c8g.2g
@@ -139,7 +139,7 @@ export class ListAppInstanceGroupRequest extends $dara.Model {
   status?: string[];
   /**
    * @remarks
-   * The tags.
+   * The list of tags.
    * 
    * **if can be null:**
    * true

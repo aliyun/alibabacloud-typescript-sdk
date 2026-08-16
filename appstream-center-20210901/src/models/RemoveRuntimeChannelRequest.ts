@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RemoveRuntimeChannelRequest extends $dara.Model {
   /**
    * @remarks
-   * The agent platform.
+   * The Agent platform.
    * 
    * @example
    * ENTERPRISE
@@ -13,7 +13,7 @@ export class RemoveRuntimeChannelRequest extends $dara.Model {
   agentPlatform?: string;
   /**
    * @remarks
-   * The agent provider.
+   * The Agent provider.
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class RemoveRuntimeChannelRequest extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The list of agent runtime IDs.
+   * The list of Agent runtime IDs.
    * 
    * This parameter is required.
    */
