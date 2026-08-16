@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCreditPackageAgentsResponseBodyAgents extends $dara.Model {
   /**
    * @remarks
-   * The ID of the agent.
+   * Agent ID
    * 
    * @example
    * agent-abc
@@ -13,7 +13,7 @@ export class DescribeCreditPackageAgentsResponseBodyAgents extends $dara.Model {
   agentId?: string;
   /**
    * @remarks
-   * **The creation time of the instance.**
+   * **The instance creation time.**
    * 
    * @example
    * 2026-04-01 10:00:00
@@ -21,7 +21,7 @@ export class DescribeCreditPackageAgentsResponseBodyAgents extends $dara.Model {
   createdTime?: string;
   /**
    * @remarks
-   * **The ID of the active credit package instance.**
+   * **The ID of the currently active credit package instance.**
    * 
    * @example
    * cp-inst-001
@@ -29,7 +29,7 @@ export class DescribeCreditPackageAgentsResponseBodyAgents extends $dara.Model {
   creditPackageId?: string;
   /**
    * @remarks
-   * **The expiration time of the instance.**
+   * **The time when the instance expires.**
    * 
    * @example
    * 2026-10-01 10:00:00
@@ -45,7 +45,7 @@ export class DescribeCreditPackageAgentsResponseBodyAgents extends $dara.Model {
   instanceType?: string;
   /**
    * @remarks
-   * **The total credit.**
+   * **The total number of credits.**
    * 
    * @example
    * 2000
@@ -53,7 +53,7 @@ export class DescribeCreditPackageAgentsResponseBodyAgents extends $dara.Model {
   totalCredit?: number;
   /**
    * @remarks
-   * **The amount of credit used.**
+   * **The amount of credits used.**
    * 
    * @example
    * 100
@@ -61,7 +61,7 @@ export class DescribeCreditPackageAgentsResponseBodyAgents extends $dara.Model {
   usedCredit?: number;
   /**
    * @remarks
-   * **The alarm threshold, specified as a percentage. Valid values: 0 to 100.**
+   * **The alert threshold percentage (0–100).**
    * 
    * @example
    * 80
@@ -105,12 +105,12 @@ export class DescribeCreditPackageAgentsResponseBodyAgents extends $dara.Model {
 export class DescribeCreditPackageAgentsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A list of agents.
+   * The Agent list.
    */
   agents?: DescribeCreditPackageAgentsResponseBodyAgents[];
   /**
    * @remarks
-   * The number of results returned on the current page.
+   * The number of entries per page.
    * 
    * @example
    * 20
@@ -118,7 +118,7 @@ export class DescribeCreditPackageAgentsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token to retrieve the next page of results. If this value is empty, all results have been returned.
+   * The pagination token. Set this parameter to an empty string for the first request. For subsequent requests, use the `nextToken` value from the previous response.
    * 
    * @example
    * eyJvZmZzZXQiOjIwfQ==
@@ -126,7 +126,7 @@ export class DescribeCreditPackageAgentsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The request ID. Provide this ID when contacting support.
+   * The request trace ID, which is used for troubleshooting.
    * 
    * @example
    * xxxx-xxxx-xxxx

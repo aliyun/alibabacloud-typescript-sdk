@@ -21,7 +21,7 @@ export class DescribePackageDeductionsResponseBodyDeductions extends $dara.Model
   desktopId?: string;
   /**
    * @remarks
-   * The cloud computer name.
+   * The name of the cloud computer.
    * 
    * @example
    * DemoComputer
@@ -29,7 +29,7 @@ export class DescribePackageDeductionsResponseBodyDeductions extends $dara.Model
   desktopName?: string;
   /**
    * @remarks
-   * The desktop type.
+   * The specifications of the cloud computer.
    * 
    * @example
    * eds.enterprise_office.4c8g
@@ -37,26 +37,38 @@ export class DescribePackageDeductionsResponseBodyDeductions extends $dara.Model
   desktopType?: string;
   /**
    * @remarks
-   * The billing cycle end time.
+   * The end time of the period.
    * 
    * @example
    * 2024-07-31T03:00Z
    */
   endTime?: string;
+  /**
+   * @remarks
+   * The group resource type.
+   */
   groupResourceType?: string;
+  /**
+   * @remarks
+   * The instance ID.
+   */
   instanceId?: string;
   /**
    * @remarks
-   * The core-hour package state.
+   * The status of the core-hour package.
    * 
    * @example
    * Deleted
    */
   instanceState?: string;
+  /**
+   * @remarks
+   * The instance type.
+   */
   instanceType?: string;
   /**
    * @remarks
-   * The memory size, in MB.
+   * The memory size. Unit: MB.
    * 
    * @example
    * 8192
@@ -64,7 +76,7 @@ export class DescribePackageDeductionsResponseBodyDeductions extends $dara.Model
   memory?: number;
   /**
    * @remarks
-   * The OS of the cloud computer.
+   * The operating system type of the cloud computer.
    * 
    * @example
    * Windows
@@ -72,7 +84,7 @@ export class DescribePackageDeductionsResponseBodyDeductions extends $dara.Model
   osType?: string;
   /**
    * @remarks
-   * The region ID.
+   * The region ID of the cloud computer.
    * 
    * @example
    * cn-hangzhou
@@ -86,10 +98,14 @@ export class DescribePackageDeductionsResponseBodyDeductions extends $dara.Model
    * Desktop
    */
   resourceType?: string;
+  /**
+   * @remarks
+   * The session ID.
+   */
   sessionId?: string;
   /**
    * @remarks
-   * The billing cycle start time.
+   * The start time of the period.
    * 
    * @example
    * 2024-07-31T02:00Z
@@ -97,7 +113,7 @@ export class DescribePackageDeductionsResponseBodyDeductions extends $dara.Model
   staTime?: string;
   /**
    * @remarks
-   * The deducted core-hours.
+   * The number of cores deducted in this period.
    * 
    * @example
    * 4.0
@@ -105,13 +121,21 @@ export class DescribePackageDeductionsResponseBodyDeductions extends $dara.Model
   usedCoreTime?: number;
   /**
    * @remarks
-   * The usage duration, in seconds.
+   * The usage duration. Unit: seconds.
    * 
    * @example
    * 3600
    */
   usedTime?: number;
+  /**
+   * @remarks
+   * The usage duration in decimal format.
+   */
   usedTimeDecimal?: string;
+  /**
+   * @remarks
+   * The usage duration after proportional scaling.
+   */
   usedTimeWithScale?: number;
   static names(): { [key: string]: string } {
     return {
@@ -173,7 +197,7 @@ export class DescribePackageDeductionsResponseBodyDeductions extends $dara.Model
 export class DescribePackageDeductionsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The deduction details.
+   * The list of deduction details.
    */
   deductions?: DescribePackageDeductionsResponseBodyDeductions[];
   /**
@@ -186,7 +210,7 @@ export class DescribePackageDeductionsResponseBody extends $dara.Model {
   pageNum?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries per page in a paged query. Settings the number of rows per page for paging.
    * 
    * @example
    * 100
@@ -202,7 +226,7 @@ export class DescribePackageDeductionsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of matching entries.
+   * The total number of deduction detail records returned.
    * 
    * @example
    * 100
@@ -210,7 +234,7 @@ export class DescribePackageDeductionsResponseBody extends $dara.Model {
   totalCount?: number;
   /**
    * @remarks
-   * The total core-hours deducted for all matching entries.
+   * The total deducted core-hours.
    * 
    * @example
    * 10.1
@@ -218,12 +242,16 @@ export class DescribePackageDeductionsResponseBody extends $dara.Model {
   totalUsedCoreTime?: number;
   /**
    * @remarks
-   * The total usage duration of all matching entries, in seconds.
+   * The total usage duration.
    * 
    * @example
    * 100000
    */
   totalUsedTime?: number;
+  /**
+   * @remarks
+   * The total usage duration in decimal format.
+   */
   totalUsedTimeDecimal?: string;
   static names(): { [key: string]: string } {
     return {

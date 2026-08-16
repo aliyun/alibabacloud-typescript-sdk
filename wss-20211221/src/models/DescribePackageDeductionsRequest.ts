@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePackageDeductionsRequest extends $dara.Model {
   /**
    * @remarks
-   * The end time, in Unix timestamp format.
+   * The end time in UNIX timestamp format.
    * 
    * @example
    * 1709117383000
@@ -13,17 +13,17 @@ export class DescribePackageDeductionsRequest extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * An array of instance IDs. If you specify this parameter, the `PackageIds` parameter is required.
+   * The list of cloud computer IDs. If this parameter is specified, the `PackageIds` parameter is required.
    */
   instanceIds?: string[];
   /**
    * @remarks
-   * An array of package IDs.
+   * The list of core-hour package IDs in JSON format.
    */
   packageIds?: string[];
   /**
    * @remarks
-   * The page number. Default value: 1.
+   * The current page number. Default value: 1.
    * 
    * @example
    * 1
@@ -31,7 +31,7 @@ export class DescribePackageDeductionsRequest extends $dara.Model {
   pageNum?: number;
   /**
    * @remarks
-   * The number of entries per page. Maximum value: 100.
+   * The number of entries per page in a paged query. Settings the number of rows per page for paging. Maximum value: 100.
    * 
    * @example
    * 100
@@ -45,10 +45,14 @@ export class DescribePackageDeductionsRequest extends $dara.Model {
    * Desktop
    */
   resourceType?: string;
+  /**
+   * @remarks
+   * The list of resource types.
+   */
   resourceTypes?: string[];
   /**
    * @remarks
-   * The start time, in Unix timestamp format.
+   * The start time in UNIX timestamp format.
    * 
    * @example
    * 1709117383000

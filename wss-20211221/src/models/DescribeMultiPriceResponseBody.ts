@@ -43,6 +43,10 @@ export class DescribeMultiPriceResponseBodyPriceInfoPricePriceDetailsModuleDetai
    * 10900
    */
   originalPrice?: number;
+  /**
+   * @remarks
+   * The savings plan discount price.
+   */
   savingPlanDiscountPrice?: number;
   /**
    * @remarks
@@ -110,6 +114,10 @@ export class DescribeMultiPriceResponseBodyPriceInfoPricePriceDetailsPriceDetail
    * DurationPackage
    */
   resourceType?: string;
+  /**
+   * @remarks
+   * The savings plan recommended price.
+   */
   savingPlanRecommendPrice?: number;
   /**
    * @remarks
@@ -199,8 +207,20 @@ export class DescribeMultiPriceResponseBodyPriceInfoPricePriceDetails extends $d
 }
 
 export class DescribeMultiPriceResponseBodyPriceInfoPricePromotions extends $dara.Model {
+  /**
+   * @remarks
+   * The activity ID.
+   */
   activityId?: string;
+  /**
+   * @remarks
+   * Indicates whether the activity is effective.
+   */
   effective?: boolean;
+  /**
+   * @remarks
+   * The timestamp when the activity ends.
+   */
   endTimestamp?: string;
   /**
    * @remarks
@@ -210,7 +230,15 @@ export class DescribeMultiPriceResponseBodyPriceInfoPricePromotions extends $dar
    * new
    */
   optionCode?: string;
+  /**
+   * @remarks
+   * The tiered pricing discount value.
+   */
   priceBreakReduceValue?: string;
+  /**
+   * @remarks
+   * The tiered pricing threshold.
+   */
   priceBreakThreshold?: string;
   /**
    * @remarks
@@ -233,7 +261,7 @@ export class DescribeMultiPriceResponseBodyPriceInfoPricePromotions extends $dar
    * The promotion name.
    * 
    * @example
-   * PromotionName
+   * Promotion name
    */
   promotionName?: string;
   /**
@@ -244,6 +272,10 @@ export class DescribeMultiPriceResponseBodyPriceInfoPricePromotions extends $dar
    * true
    */
   selected?: boolean;
+  /**
+   * @remarks
+   * The timestamp when the activity starts.
+   */
   startTimestamp?: string;
   static names(): { [key: string]: string } {
     return {
@@ -290,10 +322,6 @@ export class DescribeMultiPriceResponseBodyPriceInfoPrice extends $dara.Model {
   /**
    * @remarks
    * The currency unit.
-   * 
-   * China site: CNY.
-   * 
-   * International site: USD.
    * 
    * @example
    * CNY

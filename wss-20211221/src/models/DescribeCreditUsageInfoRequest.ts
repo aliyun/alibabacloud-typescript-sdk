@@ -13,15 +13,16 @@ export class DescribeCreditUsageInfoRequest extends $dara.Model {
   bizType?: string;
   /**
    * @remarks
-   * The JSON string of instance IDs. This parameter can be omitted when `UsageType=User`. Set this parameter to the credit package instance ID when `UsageType=CreditPackage`, or to the `AgentId` when `UsageType=Agent`.
+   * The JSON string of instance IDs. This parameter can be omitted when `UsageType=User`. Pass a credit package instance ID when `UsageType=CreditPackage`, or pass an `AgentId` when `UsageType=Agent`.
    */
   instanceIds?: string[];
   /**
    * @remarks
-   * The usage type. Valid values:
-   * *   User: Returns the usage, remaining credits, and consumption trends of the active credit packages for the current user.
+   * The usage type (UsageType). Valid values:
+   * 
+   * *   User: Returns the usage, remaining credits, and consumption trends of the current user\\"s active credit packages.
    * *   CreditPackage: Requires a CreditPackageId. Returns the total and remaining credits of the specified credit package.
-   * *   Agent: Requires an AgentId. Returns the cumulative credit usage, cumulative allocated quota, and the percentages of both.
+   * *   Agent: Requires an AgentId. Returns the cumulative credit usage, cumulative allocated quota, and their percentages.
    * 
    * @example
    * User

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDeductionStatisticResponseBodyDataAvailableCorePackages extends $dara.Model {
   /**
    * @remarks
-   * The Alibaba Cloud account ID.
+   * The Alibaba Cloud UID.
    * 
    * @example
    * 1568857911493620
@@ -53,12 +53,12 @@ export class DescribeDeductionStatisticResponseBodyDataAvailableCorePackages ext
   groupResourceType?: string;
   /**
    * @remarks
-   * Indicates whether the resource is a No-Lx resource.
+   * Indicates whether LingXiao is excluded.
    */
   noLx?: boolean;
   /**
    * @remarks
-   * The source of the No-Lx resource.
+   * The source when LingXiao is excluded.
    * 
    * @example
    * 无凌霄来源示例值
@@ -162,7 +162,7 @@ export class DescribeDeductionStatisticResponseBodyDataAvailableCorePackages ext
 export class DescribeDeductionStatisticResponseBodyDataDeductions extends $dara.Model {
   /**
    * @remarks
-   * The consumption duration in seconds.
+   * The consumption duration, in seconds.
    * 
    * @example
    * 7000
@@ -212,7 +212,7 @@ export class DescribeDeductionStatisticResponseBodyDataDeductions extends $dara.
 export class DescribeDeductionStatisticResponseBodyDataUsages extends $dara.Model {
   /**
    * @remarks
-   * **The consumption duration in seconds.**
+   * **The consumption duration, in seconds.**
    * 
    * @example
    * 6000
@@ -262,7 +262,7 @@ export class DescribeDeductionStatisticResponseBodyDataUsages extends $dara.Mode
 export class DescribeDeductionStatisticResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * **The available core-hour packages.**
+   * **The list of available core-hour package resources.**
    */
   availableCorePackages?: DescribeDeductionStatisticResponseBodyDataAvailableCorePackages[];
   /**
@@ -272,7 +272,7 @@ export class DescribeDeductionStatisticResponseBodyData extends $dara.Model {
   deductions?: DescribeDeductionStatisticResponseBodyDataDeductions[];
   /**
    * @remarks
-   * **The usage details.**
+   * **The usage list.**
    */
   usages?: DescribeDeductionStatisticResponseBodyDataUsages[];
   static names(): { [key: string]: string } {

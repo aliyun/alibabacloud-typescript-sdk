@@ -15,30 +15,6 @@ export class DescribeMultiPriceRequestOrderItemsComponents extends $dara.Model {
    * @remarks
    * The value of the module.
    * 
-   * The following example values and valid values are for the Enterprise Edition monthly duration package:
-   * 
-   * - RegionId: cn-shanghai
-   * - InstanceType: eds.enterprise_office.4c8g
-   * - DurationType (hours): Valid values: 
-   *    - 120
-   *    - 250
-   * - OsType: Valid values: 
-   *    - Windows
-   *    - Linux
-   * - RootDiskSize (GiB): 80
-   * - RootDiskCategory: Valid values: 
-   *    - cloud_efficiency: ultra cloud disk
-   *    - cloud_auto: ESSD AutoPL cloud disk
-   *    - cloud_essd: enhanced standard SSD. Only specific instance types support this value.
-   * - RootPerformanceLevel: Valid values: 
-   *    - PL0
-   *    - PL1
-   *    - PL2
-   *    - PL3
-   * - DataDiskSize (GiB): same as RootDiskSize
-   * - DataDiskCategory: same as RootDiskCategory
-   * - DataPerformanceLevel: same as RootPerformanceLevel
-   * 
    * @example
    * cn-shanghai
    */
@@ -69,7 +45,7 @@ export class DescribeMultiPriceRequestOrderItemsComponents extends $dara.Model {
 export class DescribeMultiPriceRequestOrderItems extends $dara.Model {
   /**
    * @remarks
-   * The purchase quantity.
+   * The quantity to purchase.
    * 
    * @example
    * 1
@@ -80,6 +56,10 @@ export class DescribeMultiPriceRequestOrderItems extends $dara.Model {
    * The list of product modules.
    */
   components?: DescribeMultiPriceRequestOrderItemsComponents[];
+  /**
+   * @remarks
+   * The extended properties.
+   */
   data?: string;
   /**
    * @remarks
@@ -89,10 +69,6 @@ export class DescribeMultiPriceRequestOrderItems extends $dara.Model {
   /**
    * @remarks
    * The subscription duration. Valid values:
-   * 
-   * - If PeriodUnit is set to Year: 1, 2, or 3.
-   * 
-   * - If PeriodUnit is set to Month: 1, 2, 3, or 6.
    * 
    * @example
    * 1
@@ -122,12 +98,15 @@ export class DescribeMultiPriceRequestOrderItems extends $dara.Model {
   /**
    * @remarks
    * The resource type.
-   * > This parameter is case-sensitive. Make sure that the value is spelled correctly.
    * 
    * @example
    * DurationPackage
    */
   resourceType?: string;
+  /**
+   * @remarks
+   * The period of the savings plan.
+   */
   savingPlanPeriod?: string;
   static names(): { [key: string]: string } {
     return {
@@ -193,7 +172,7 @@ export class DescribeMultiPriceRequest extends $dara.Model {
   orderType?: string;
   /**
    * @remarks
-   * The package code. You do not need to specify this parameter for non-package types.
+   * The package code. You do not need to specify this parameter if the product is not a package.
    * 
    * @example
    * pacakge
@@ -201,7 +180,7 @@ export class DescribeMultiPriceRequest extends $dara.Model {
   packageCode?: string;
   /**
    * @remarks
-   * The user ID of the resource ownership in reseller pattern. You do not need to specify this parameter in non-reseller pattern.
+   * The user ID of resource ownership in the reselling pattern. You do not need to specify this parameter if the product is not in the reselling pattern.
    * 
    * @example
    * 182864463481****

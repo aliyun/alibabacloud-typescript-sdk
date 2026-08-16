@@ -4,6 +4,7 @@ export { CreateMultiOrderShrinkRequestOrderItemsComponents } from './CreateMulti
 export { CreateMultiOrderShrinkRequestOrderItems } from './CreateMultiOrderShrinkRequest';
 export { DescribeCreditPackageAgentsResponseBodyAgents } from './DescribeCreditPackageAgentsResponseBody';
 export { DescribeCreditUsageInfoResponseBodyUsageInfoListUsageInfoCreditTrendList } from './DescribeCreditUsageInfoResponseBody';
+export { DescribeCreditUsageInfoResponseBodyUsageInfoListUsageInfoRemainCreditInfo } from './DescribeCreditUsageInfoResponseBody';
 export { DescribeCreditUsageInfoResponseBodyUsageInfoListUsageInfo } from './DescribeCreditUsageInfoResponseBody';
 export { DescribeCreditUsageInfoResponseBodyUsageInfoList } from './DescribeCreditUsageInfoResponseBody';
 export { DescribeDeductionStatisticRequestPeriods } from './DescribeDeductionStatisticRequest';
@@ -26,6 +27,7 @@ export { DescribeMultiPriceResponseBodyPriceInfoPrice } from './DescribeMultiPri
 export { DescribeMultiPriceResponseBodyPriceInfoRules } from './DescribeMultiPriceResponseBody';
 export { DescribeMultiPriceResponseBodyPriceInfo } from './DescribeMultiPriceResponseBody';
 export { DescribePackageDeductionsResponseBodyDeductions } from './DescribePackageDeductionsResponseBody';
+export { DescribeRunIdDeductionsResponseBodyDeductions } from './DescribeRunIdDeductionsResponseBody';
 export { CreateMultiOrderRequest } from './CreateMultiOrderRequest';
 export { CreateMultiOrderShrinkRequest } from './CreateMultiOrderShrinkRequest';
 export { CreateMultiOrderResponseBody } from './CreateMultiOrderResponseBody';
@@ -47,6 +49,9 @@ export { DescribeMultiPriceResponse } from './DescribeMultiPriceResponse';
 export { DescribePackageDeductionsRequest } from './DescribePackageDeductionsRequest';
 export { DescribePackageDeductionsResponseBody } from './DescribePackageDeductionsResponseBody';
 export { DescribePackageDeductionsResponse } from './DescribePackageDeductionsResponse';
+export { DescribeRunIdDeductionsRequest } from './DescribeRunIdDeductionsRequest';
+export { DescribeRunIdDeductionsResponseBody } from './DescribeRunIdDeductionsResponseBody';
+export { DescribeRunIdDeductionsResponse } from './DescribeRunIdDeductionsResponse';
 export { ModifyInstancePropertiesRequest } from './ModifyInstancePropertiesRequest';
 export { ModifyInstancePropertiesResponseBody } from './ModifyInstancePropertiesResponseBody';
 export { ModifyInstancePropertiesResponse } from './ModifyInstancePropertiesResponse';

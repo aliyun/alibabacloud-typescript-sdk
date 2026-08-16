@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCreditUsageInfoResponseBodyUsageInfoListUsageInfoCreditTrendList extends $dara.Model {
   /**
    * @remarks
-   * The time point in the format of `yyyy-MM-dd HH` (accurate to the hour).
+   * The time point in the format `yyyy-MM-dd HH` (accurate to the hour).
    * 
    * @example
    * 2026-05-02 10
@@ -13,7 +13,7 @@ export class DescribeCreditUsageInfoResponseBodyUsageInfoListUsageInfoCreditTren
   timePoint?: string;
   /**
    * @remarks
-   * The number of credits consumed during the hour.
+   * The number of credits consumed in this hour.
    * 
    * @example
    * 12
@@ -42,7 +42,35 @@ export class DescribeCreditUsageInfoResponseBodyUsageInfoListUsageInfoCreditTren
   }
 }
 
+export class DescribeCreditUsageInfoResponseBodyUsageInfoListUsageInfoRemainCreditInfo extends $dara.Model {
+  deductingAmount?: number;
+  pendingAmount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      deductingAmount: 'DeductingAmount',
+      pendingAmount: 'PendingAmount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deductingAmount: 'number',
+      pendingAmount: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeCreditUsageInfoResponseBodyUsageInfoListUsageInfo extends $dara.Model {
+  availableAmount?: number;
+  contactGroupNames?: string[];
   /**
    * @remarks
    * The hourly consumption samples of the current credit package.
@@ -61,7 +89,7 @@ export class DescribeCreditUsageInfoResponseBodyUsageInfoListUsageInfo extends $
    * The remaining credits of the current active credit package.
    * 
    * @example
-   * 当前周期积分余量
+   * Current period remaining credits
    */
   currentRemainCredit?: number;
   /**
@@ -69,7 +97,7 @@ export class DescribeCreditUsageInfoResponseBodyUsageInfoListUsageInfo extends $
    * The total credits of the current active credit package.
    * 
    * @example
-   * 当前周期积分配额
+   * Current period credit quota
    */
   currentTotalCredit?: number;
   /**
@@ -77,7 +105,7 @@ export class DescribeCreditUsageInfoResponseBodyUsageInfoListUsageInfo extends $
    * The used credits of the current active credit package.
    * 
    * @example
-   * 当前周期积分消耗
+   * Current period credits consumed
    */
   currentUsedCredit?: number;
   /**
@@ -85,9 +113,10 @@ export class DescribeCreditUsageInfoResponseBodyUsageInfoListUsageInfo extends $
    * The credit usage in the last 1 day.
    * 
    * @example
-   * 最近一天消耗积分
+   * Credits consumed in the last day
    */
   dayUsedCredit?: number;
+  lastTriggeredAt?: string;
   /**
    * @remarks
    * The shared credit quota in the current active period.
@@ -109,25 +138,34 @@ export class DescribeCreditUsageInfoResponseBodyUsageInfoListUsageInfo extends $
    * The cumulative remaining credits.
    * 
    * @example
-   * 积分余量
+   * Remaining credits
    */
   remainCredit?: number;
+  remainCreditInfo?: DescribeCreditUsageInfoResponseBodyUsageInfoListUsageInfoRemainCreditInfo;
+  /**
+   * @remarks
+   * The quota used today.
+   */
   todayUsed?: string;
   /**
    * @remarks
-   * The cumulative total credits.
+   * The total cumulative credits.
    * 
    * @example
-   * 积分配额
+   * Credit quota
    */
   totalCredit?: number;
+  /**
+   * @remarks
+   * The cumulative used quota.
+   */
   totalUsed?: string;
   /**
    * @remarks
    * The cumulative credit usage.
    * 
    * @example
-   * 共计消耗积分
+   * Total credits consumed
    */
   totalUsedCredit?: number;
   /**
@@ -143,20 +181,24 @@ export class DescribeCreditUsageInfoResponseBodyUsageInfoListUsageInfo extends $
    * The credit usage in the last 1 week.
    * 
    * @example
-   * 最近一周消耗积分
+   * Credits consumed in the last week
    */
   weekUsedCredit?: number;
   static names(): { [key: string]: string } {
     return {
+      availableAmount: 'AvailableAmount',
+      contactGroupNames: 'ContactGroupNames',
       creditTrendList: 'CreditTrendList',
       currentInstanceId: 'CurrentInstanceId',
       currentRemainCredit: 'CurrentRemainCredit',
       currentTotalCredit: 'CurrentTotalCredit',
       currentUsedCredit: 'CurrentUsedCredit',
       dayUsedCredit: 'DayUsedCredit',
+      lastTriggeredAt: 'LastTriggeredAt',
       periodTotalCredit: 'PeriodTotalCredit',
       periodUsedCredit: 'PeriodUsedCredit',
       remainCredit: 'RemainCredit',
+      remainCreditInfo: 'RemainCreditInfo',
       todayUsed: 'TodayUsed',
       totalCredit: 'TotalCredit',
       totalUsed: 'TotalUsed',
@@ -168,15 +210,19 @@ export class DescribeCreditUsageInfoResponseBodyUsageInfoListUsageInfo extends $
 
   static types(): { [key: string]: any } {
     return {
+      availableAmount: 'number',
+      contactGroupNames: { 'type': 'array', 'itemType': 'string' },
       creditTrendList: { 'type': 'array', 'itemType': DescribeCreditUsageInfoResponseBodyUsageInfoListUsageInfoCreditTrendList },
       currentInstanceId: 'string',
       currentRemainCredit: 'number',
       currentTotalCredit: 'number',
       currentUsedCredit: 'number',
       dayUsedCredit: 'number',
+      lastTriggeredAt: 'string',
       periodTotalCredit: 'number',
       periodUsedCredit: 'number',
       remainCredit: 'number',
+      remainCreditInfo: DescribeCreditUsageInfoResponseBodyUsageInfoListUsageInfoRemainCreditInfo,
       todayUsed: 'string',
       totalCredit: 'number',
       totalUsed: 'string',
@@ -187,8 +233,14 @@ export class DescribeCreditUsageInfoResponseBodyUsageInfoListUsageInfo extends $
   }
 
   validate() {
+    if(Array.isArray(this.contactGroupNames)) {
+      $dara.Model.validateArray(this.contactGroupNames);
+    }
     if(Array.isArray(this.creditTrendList)) {
       $dara.Model.validateArray(this.creditTrendList);
+    }
+    if(this.remainCreditInfo && typeof (this.remainCreditInfo as any).validate === 'function') {
+      (this.remainCreditInfo as any).validate();
     }
     super.validate();
   }

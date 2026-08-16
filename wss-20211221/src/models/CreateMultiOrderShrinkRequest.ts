@@ -15,22 +15,22 @@ export class CreateMultiOrderShrinkRequestOrderItemsComponents extends $dara.Mod
    * @remarks
    * The value of the module.
    * 
-   * The following example values or valid values are available for each key of the Enterprise Edition monthly duration package:
+   * The following section describes the sample values and valid values for each key of the Enterprise Edition monthly duration package:
    * 
-   * - RegionId: cn-shanghai
+   * - RegionId: ap-southeast-1
    * - InstanceType: eds.enterprise_office.4c8g
-   * - DurationType (hours): [Valid values] 
+   * - DurationType (hours): Valid values: 
    *    - 120
    *    - 250
-   * - OsType: [Valid values] 
+   * - OsType: Valid values: 
    *    - Windows
    *    - Linux
    * - RootDiskSize (GiB): 80
-   * - RootDiskCategory: [Valid values] 
+   * - RootDiskCategory: Valid values: 
    *    - cloud_efficiency (ultra cloud disk)
    *    - cloud_auto (ultra-fast cloud disk)
    *    - cloud_essd (enhanced standard SSD. Only specific instance types support this value.)
-   * - RootPerformanceLevel: [Valid values] 
+   * - RootPerformanceLevel: Valid values: 
    *    - PL0
    *    - PL1
    *    - PL2
@@ -91,21 +91,33 @@ export class CreateMultiOrderShrinkRequestOrderItems extends $dara.Model {
    * false
    */
   autoRenew?: boolean;
+  /**
+   * @remarks
+   * Specifies whether this is a change purchase.
+   */
   buyChange?: boolean;
   /**
    * @remarks
    * The product modules.
    */
   components?: CreateMultiOrderShrinkRequestOrderItemsComponents[];
+  /**
+   * @remarks
+   * The list of instance IDs.
+   */
   instanceIds?: string[];
+  /**
+   * @remarks
+   * The callback URL after the payment is completed.
+   */
   paidCallBackUrl?: string;
   /**
    * @remarks
    * The subscription duration. Valid values:
    * 
-   * - If `PeriodUnit` is set to `Year`: 1, 2, 3, or 5.
+   * - If PeriodUnit is set to Year: 1, 2, 3, and 5.
    * 
-   * - If `PeriodUnit` is set to `Month`: 1, 2, 3, or 6.
+   * - If PeriodUnit is set to Month: 1, 2, 3, and 6.
    * 
    * @example
    * 1
@@ -113,9 +125,9 @@ export class CreateMultiOrderShrinkRequestOrderItems extends $dara.Model {
   period?: number;
   /**
    * @remarks
-   * The unit of the billing cycle for the subscription instance.
+   * The unit of the subscription duration for a subscription instance.
    * 
-   * > This parameter is required only when the billing method of the instance is subscription. This parameter is case-sensitive. Make sure that the spelling is correct.
+   * > This parameter is required only when the billing method of the instance is subscription. This parameter is case-sensitive. Make sure that the value is spelled correctly.
    * 
    * @example
    * Year
@@ -132,13 +144,13 @@ export class CreateMultiOrderShrinkRequestOrderItems extends $dara.Model {
   /**
    * @remarks
    * The list of resource IDs.
-   * > For monthly duration packages, this parameter corresponds to the cloud desktop ID. This parameter is required when OrderType is not `create`.
+   * > For monthly duration packages, this parameter corresponds to the cloud desktop ID. This parameter is required when OrderType is not set to `create`.
    */
   resourceIds?: string[];
   /**
    * @remarks
    * The resource type.
-   * > This parameter is case-sensitive. Make sure that the spelling is correct.
+   * > This parameter is case-sensitive. Make sure that the value is spelled correctly.
    * 
    * This parameter is required.
    * 
@@ -199,6 +211,10 @@ export class CreateMultiOrderShrinkRequestOrderItems extends $dara.Model {
 }
 
 export class CreateMultiOrderShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The channel cookie information.
+   */
   channelCookie?: string;
   /**
    * @remarks
@@ -218,6 +234,10 @@ export class CreateMultiOrderShrinkRequest extends $dara.Model {
    * The extended properties.
    */
   propertiesShrink?: string;
+  /**
+   * @remarks
+   * The UID of the reseller owner.
+   */
   resellerOwnerUid?: number;
   static names(): { [key: string]: string } {
     return {
