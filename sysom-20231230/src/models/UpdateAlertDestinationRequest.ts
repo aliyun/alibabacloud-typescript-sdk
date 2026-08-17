@@ -63,6 +63,9 @@ export class UpdateAlertDestinationRequestParams extends $dara.Model {
 }
 
 export class UpdateAlertDestinationRequest extends $dara.Model {
+  appId?: string;
+  appSecret?: string;
+  groupId?: string[];
   /**
    * @remarks
    * The ID of the alert contact.
@@ -71,6 +74,7 @@ export class UpdateAlertDestinationRequest extends $dara.Model {
    * 1
    */
   id?: string;
+  imbot?: boolean;
   /**
    * @remarks
    * The name of the alert contact.
@@ -102,7 +106,11 @@ export class UpdateAlertDestinationRequest extends $dara.Model {
   target?: string;
   static names(): { [key: string]: string } {
     return {
+      appId: 'app_id',
+      appSecret: 'app_secret',
+      groupId: 'group_id',
       id: 'id',
+      imbot: 'imbot',
       name: 'name',
       params: 'params',
       source: 'source',
@@ -112,7 +120,11 @@ export class UpdateAlertDestinationRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      appId: 'string',
+      appSecret: 'string',
+      groupId: { 'type': 'array', 'itemType': 'string' },
       id: 'string',
+      imbot: 'boolean',
       name: 'string',
       params: UpdateAlertDestinationRequestParams,
       source: 'string',
@@ -121,6 +133,9 @@ export class UpdateAlertDestinationRequest extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.groupId)) {
+      $dara.Model.validateArray(this.groupId);
+    }
     if(this.params && typeof (this.params as any).validate === 'function') {
       (this.params as any).validate();
     }

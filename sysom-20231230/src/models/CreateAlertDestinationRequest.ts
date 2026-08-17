@@ -63,6 +63,10 @@ export class CreateAlertDestinationRequestParams extends $dara.Model {
 }
 
 export class CreateAlertDestinationRequest extends $dara.Model {
+  appId?: string;
+  appSecret?: string;
+  groupId?: string[];
+  imbot?: boolean;
   /**
    * @remarks
    * The name of the alert contact.
@@ -94,6 +98,10 @@ export class CreateAlertDestinationRequest extends $dara.Model {
   target?: string;
   static names(): { [key: string]: string } {
     return {
+      appId: 'app_id',
+      appSecret: 'app_secret',
+      groupId: 'group_id',
+      imbot: 'imbot',
       name: 'name',
       params: 'params',
       source: 'source',
@@ -103,6 +111,10 @@ export class CreateAlertDestinationRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      appId: 'string',
+      appSecret: 'string',
+      groupId: { 'type': 'array', 'itemType': 'string' },
+      imbot: 'boolean',
       name: 'string',
       params: CreateAlertDestinationRequestParams,
       source: 'string',
@@ -111,6 +123,9 @@ export class CreateAlertDestinationRequest extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.groupId)) {
+      $dara.Model.validateArray(this.groupId);
+    }
     if(this.params && typeof (this.params as any).validate === 'function') {
       (this.params as any).validate();
     }

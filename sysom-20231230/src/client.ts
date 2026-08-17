@@ -257,6 +257,22 @@ export default class Client extends OpenApi {
   async createAlertDestinationWithOptions(request: $_model.CreateAlertDestinationRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateAlertDestinationResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appId)) {
+      body["app_id"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.appSecret)) {
+      body["app_secret"] = request.appSecret;
+    }
+
+    if (!$dara.isNull(request.groupId)) {
+      body["group_id"] = request.groupId;
+    }
+
+    if (!$dara.isNull(request.imbot)) {
+      body["imbot"] = request.imbot;
+    }
+
     if (!$dara.isNull(request.name)) {
       body["name"] = request.name;
     }
@@ -4144,8 +4160,24 @@ export default class Client extends OpenApi {
   async updateAlertDestinationWithOptions(request: $_model.UpdateAlertDestinationRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateAlertDestinationResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appId)) {
+      body["app_id"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.appSecret)) {
+      body["app_secret"] = request.appSecret;
+    }
+
+    if (!$dara.isNull(request.groupId)) {
+      body["group_id"] = request.groupId;
+    }
+
     if (!$dara.isNull(request.id)) {
       body["id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.imbot)) {
+      body["imbot"] = request.imbot;
     }
 
     if (!$dara.isNull(request.name)) {
