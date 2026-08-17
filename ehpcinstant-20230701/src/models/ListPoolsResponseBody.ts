@@ -4,28 +4,40 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListPoolsResponseBodyPoolList extends $dara.Model {
   /**
+   * @remarks
+   * The time when the resource pool was created.
+   * 
    * @example
    * 2026-04-20 11:09:59
    */
   createTime?: string;
   /**
    * @remarks
-   * Indices whether the resource pool is the default resource pool. Valid values:
+   * Indicates whether the resource pool is the default pool. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: The resource pool is the default pool.
+   * 
+   * - **false**: The resource pool is not the default pool.
    * 
    * @example
    * true
    */
   isDefault?: boolean;
+  /**
+   * @remarks
+   * The number of running executor nodes in the resource pool.
+   * 
+   * @example
+   * 100
+   */
   maxExecutorNum?: number;
   /**
    * @remarks
    * The name of the resource pool.
    * 
-   * *   The value can be up to 15 characters in length.
-   * *   It can contain digits, uppercase letters, lowercase letters, underscores (_), and dots (.).
+   * - Maximum length: 15 characters.
+   * 
+   * - Allowed characters: digits, letters, underscores (_), and periods (.).
    * 
    * @example
    * PoolTest
@@ -35,14 +47,18 @@ export class ListPoolsResponseBodyPoolList extends $dara.Model {
    * @remarks
    * The priority of the resource pool.
    * 
-   * *   You can set a priority in the range of 1 to 99. The default value is 1, which is the lowest priority.
-   * *   Jobs submitted to a resource pool with a higher priority level value will be scheduled before pending jobs in a resource pool with a lower priority level value, and the priority level of the resource pool takes precedence over the priority of the job.
+   * - Valid values: 1 to 99. Default value: 1 (lowest priority).
+   * 
+   * - Jobs in a resource pool with a higher priority are scheduled before those in a pool with a lower priority. The pool\\"s priority overrides the priority of an individual job.
    * 
    * @example
    * 1
    */
   priority?: number;
   /**
+   * @remarks
+   * The ID of the scheduling policy.
+   * 
    * @example
    * policy-xxx
    */
@@ -51,17 +67,24 @@ export class ListPoolsResponseBodyPoolList extends $dara.Model {
    * @remarks
    * The status of the resource pool. Valid values:
    * 
-   * *   Creating: The resource pool is being created.
-   * *   Updating: The resource pool is being updated.
-   * *   Deleting: The resource pool is being deleted.
-   * *   Working: The resource pool is working.
-   * *   Deleted: The resource pool is deleted.
+   * - Creating: The resource pool is being created.
+   * 
+   * - Updating: The resource pool is being updated.
+   * 
+   * - Deleting: The resource pool is being deleted.
+   * 
+   * - Working: The resource pool is operational.
+   * 
+   * - Deleted: The resource pool has been deleted.
    * 
    * @example
    * Working
    */
   status?: string;
   /**
+   * @remarks
+   * The time when the resource pool was last updated.
+   * 
    * @example
    * 2026-04-20 11:09:59
    */
@@ -112,7 +135,7 @@ export class ListPoolsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries on each page. Maximum value: 50. Default value: 10.
+   * The number of entries returned per page. Maximum value: 50. Default value: 10.
    * 
    * @example
    * 10
@@ -120,12 +143,12 @@ export class ListPoolsResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Queries the resource pool list.
+   * An array of resource pools.
    */
   poolList?: ListPoolsResponseBodyPoolList[];
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 896D338C-E4F4-41EC-A154-D605E5DE****
@@ -133,7 +156,7 @@ export class ListPoolsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of list entries.
+   * The total number of entries.
    * 
    * @example
    * 2

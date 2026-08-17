@@ -4,13 +4,16 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetJobRecordDurationResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The job record retention period, in days. Valid values: 1 to 30. Default value: 30.
+   * 
    * @example
    * 30
    */
   jobRecordDuration?: number;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 896D338C-E4F4-41EC-A154-D605E5DE****

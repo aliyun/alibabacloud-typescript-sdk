@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdatePoolResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 04F0F334-1335-436C-A1D7-6C044FE7****

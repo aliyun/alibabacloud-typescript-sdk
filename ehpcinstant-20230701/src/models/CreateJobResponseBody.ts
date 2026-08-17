@@ -10,7 +10,7 @@ export class CreateJobResponseBodyTasks extends $dara.Model {
   executorIds?: string[];
   /**
    * @remarks
-   * The name of the task.
+   * The task name.
    * 
    * @example
    * task0
@@ -61,7 +61,7 @@ export class CreateJobResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The list of tasks.
+   * The task list.
    */
   tasks?: CreateJobResponseBodyTasks[];
   static names(): { [key: string]: string } {

@@ -5,16 +5,16 @@ import * as $dara from '@darabonba/typescript';
 export class ListJobsShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * Queries job filter conditions.
+   * The filter conditions for querying jobs.
    */
   filterShrink?: string;
   /**
    * @remarks
-   * The page number.
+   * The current page number.
    * 
-   * Pages start from page 1.
+   * Start value: 1
    * 
-   * Default value: 1.
+   * Default value: 1
    * 
    * @example
    * 1
@@ -22,7 +22,7 @@ export class ListJobsShrinkRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries on the current page. Default value: 50. Maximum value: 100.
+   * The number of entries to return on each page. The default value is 50. The maximum value is 100.
    * 
    * @example
    * 50

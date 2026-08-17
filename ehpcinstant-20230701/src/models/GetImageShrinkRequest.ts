@@ -6,10 +6,11 @@ export class GetImageShrinkRequest extends $dara.Model {
   additionalRegionIdsShrink?: string;
   /**
    * @remarks
-   * The source of the image. Valid values:
+   * Image source. Valid values:
    * 
-   * *   Public: public images provided by Alibaba Cloud.
-   * *   Custom: the custom image that you added.
+   * - Public: public images provided by Alibaba Cloud.
+   * 
+   * - Custom: custom images that you added.
    * 
    * @example
    * Custom
@@ -17,7 +18,7 @@ export class GetImageShrinkRequest extends $dara.Model {
   imageCategory?: string;
   /**
    * @remarks
-   * The image ID.
+   * Image ID.
    * 
    * @example
    * m-2ze74g5mvy4pjg*****
@@ -25,10 +26,11 @@ export class GetImageShrinkRequest extends $dara.Model {
   imageId?: string;
   /**
    * @remarks
-   * The type of the images. Valid values:
+   * Image type. Valid values:
    * 
-   * *   VM: virtual machine image.
-   * *   Container: the container image.
+   * - VM: virtual machine image.
+   * 
+   * - Container: container image.
    * 
    * Default value: VM
    * 

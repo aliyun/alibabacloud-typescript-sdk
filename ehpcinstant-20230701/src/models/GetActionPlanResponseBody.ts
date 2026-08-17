@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetActionPlanResponseBodyRegions extends $dara.Model {
   /**
    * @remarks
-   * The region ID of the instance.
+   * ID of the region.
    * 
    * @example
    * cn-hangzhou
@@ -13,12 +13,12 @@ export class GetActionPlanResponseBodyRegions extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The list of security groups available for the execution plan in the region.
+   * List of security groups available to the execution plan in this region.
    */
   securityGroupIds?: string[];
   /**
    * @remarks
-   * The list of VSwitches available for the execution plan in the region.
+   * List of vSwitches available to the execution plan in this region.
    */
   vSwitchIds?: string[];
   static names(): { [key: string]: string } {
@@ -55,7 +55,7 @@ export class GetActionPlanResponseBodyRegions extends $dara.Model {
 export class GetActionPlanResponseBodyResources extends $dara.Model {
   /**
    * @remarks
-   * The number of CPUs in the running environment.
+   * Number of CPUs in the runtime environment.
    * 
    * @example
    * 64
@@ -63,7 +63,7 @@ export class GetActionPlanResponseBodyResources extends $dara.Model {
   cores?: number;
   /**
    * @remarks
-   * The memory size of the running environment. Unit: GiB.
+   * Memory size in the runtime environment, in GiB.
    * 
    * @example
    * 128
@@ -95,7 +95,7 @@ export class GetActionPlanResponseBodyResources extends $dara.Model {
 export class GetActionPlanResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the execution plan.
+   * ID of the execution plan.
    * 
    * @example
    * ap-hz036ubmx2qmw93k****
@@ -103,7 +103,7 @@ export class GetActionPlanResponseBody extends $dara.Model {
   actionPlanId?: string;
   /**
    * @remarks
-   * The name of the execution plan.
+   * Name of the execution plan.
    * 
    * @example
    * TestActionPlan
@@ -111,7 +111,7 @@ export class GetActionPlanResponseBody extends $dara.Model {
   actionPlanName?: string;
   /**
    * @remarks
-   * The type of the resource.
+   * Resource type.
    * 
    * @example
    * Standard
@@ -119,7 +119,7 @@ export class GetActionPlanResponseBody extends $dara.Model {
   allocationSpec?: string;
   /**
    * @remarks
-   * The ID of the application.
+   * ID of the application.
    * 
    * @example
    * ci-vm-rYfypJKwlN9Y
@@ -127,7 +127,7 @@ export class GetActionPlanResponseBody extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The time when the execution plan was created.
+   * Time when the execution plan was created.
    * 
    * @example
    * 2025-08-10 18:28:05
@@ -135,7 +135,7 @@ export class GetActionPlanResponseBody extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The expected scale of resources for the execution plan. If the ResourceType parameter is set to VcpuCapacity, the execution plan is expected to have 10000 vCPUs.
+   * Target resource size for the execution plan. If ResourceType is VCpuCapacity, this value represents the target vCPU count.
    * 
    * @example
    * 1000
@@ -148,7 +148,7 @@ export class GetActionPlanResponseBody extends $dara.Model {
   intervalMinutes?: number;
   /**
    * @remarks
-   * The computing power level.
+   * Computing power level.
    * 
    * @example
    * General
@@ -156,7 +156,7 @@ export class GetActionPlanResponseBody extends $dara.Model {
   level?: string;
   /**
    * @remarks
-   * The pre-processing script. Base64 encoding is required.
+   * Prologue script. Must be Base64-encoded.
    * 
    * @example
    * bHMgLWFsCmxzIC1hbGggfCB3YyAtbA==
@@ -164,12 +164,12 @@ export class GetActionPlanResponseBody extends $dara.Model {
   prologScript?: string;
   /**
    * @remarks
-   * The list of resource configurations in the region where the execution plan runs.
+   * List of region-specific resource configurations for the execution plan\\"s runtime environment.
    */
   regions?: GetActionPlanResponseBodyRegions[];
   /**
    * @remarks
-   * The request ID.
+   * ID of the request.
    * 
    * @example
    * 896D338C-E4F4-41EC-A154-D605E5DE****
@@ -177,10 +177,11 @@ export class GetActionPlanResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Target resource type: the capacity of vCPUs or the number of execution nodes. Valid values:
+   * Type of target resource for the execution plan. Valid values are:
    * 
-   * *   VCpuCapacity
-   * *   ExecutorCapacity
+   * - VCpuCapacity: vCPU capacity
+   * 
+   * - ExecutorCapacity: number of executor nodes
    * 
    * @example
    * VCpuCapacity
@@ -188,16 +189,18 @@ export class GetActionPlanResponseBody extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The list of resource configurations of the execution plan runtime environment.
+   * List of resource configurations for the execution plan\\"s runtime environment.
    */
   resources?: GetActionPlanResponseBodyResources[];
   /**
    * @remarks
-   * The status of the execution plan. The possible values are as follows:
+   * Status of the execution plan. Valid values are:
    * 
-   * *   Active Instant tasks are dynamically managed only when the execution plan is in the Active state.
-   * *   Inactive Instant tasks are no longer managed by execution plans in the Inactive state.
-   * *   Deleting You cannot modify the parameters of an execution plan in this state.
+   * - Active: The execution plan is active and dynamically manages Instant jobs.
+   * 
+   * - Inactive: The execution plan is inactive and no longer manages Instant jobs.
+   * 
+   * - Deleting: The execution plan is being deleted. You cannot modify parameters during this state.
    * 
    * @example
    * Active
@@ -205,7 +208,7 @@ export class GetActionPlanResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The size of the resources currently managed by the execution plan.
+   * Current resource size managed by the execution plan.
    * 
    * @example
    * 1000
@@ -213,7 +216,7 @@ export class GetActionPlanResponseBody extends $dara.Model {
   totalCapacity?: number;
   /**
    * @remarks
-   * The time when the execution plan was last modified.
+   * Last time the execution plan was modified.
    * 
    * @example
    * 2025-08-10 18:28:05

@@ -11,7 +11,24 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApiUtil.Config) {
     super(config);
-    this._endpointRule = "";
+    this._endpointRule = "regional";
+    this._endpointMap = {
+      'cn-shenzhen': "ehpcinstant.cn-shenzhen.aliyuncs.com",
+      'cn-wulanchabu': "ehpcinstant.cn-wulanchabu.aliyuncs.com",
+      'cn-beijing': "ehpcinstant.cn-beijing.aliyuncs.com",
+      'ap-northeast-2': "ehpcinstant.ap-northeast-2.aliyuncs.com",
+      'ap-northeast-1': "ehpcinstant.ap-northeast-1.aliyuncs.com",
+      'cn-chengdu': "ehpcinstant.cn-chengdu.aliyuncs.com",
+      'cn-shanghai': "ehpcinstant.cn-shanghai.aliyuncs.com",
+      'cn-guangzhou': "ehpcinstant.cn-guangzhou.aliyuncs.com",
+      'cn-hongkong': "ehpcinstant.cn-hongkong.aliyuncs.com",
+      'cn-heyuan': "ehpcinstant.cn-heyuan.aliyuncs.com",
+      'ap-southeast-1': "ehpcinstant.ap-southeast-1.aliyuncs.com",
+      'ap-southeast-3': "ehpcinstant.ap-southeast-3.aliyuncs.com",
+      'ap-southeast-5': "ehpcinstant.ap-southeast-5.aliyuncs.com",
+      'cn-hangzhou': "ehpcinstant.cn-hangzhou.aliyuncs.com",
+      'eu-central-1': "ehpcinstant.eu-central-1.aliyuncs.com",
+    };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("ehpcinstant", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
@@ -102,10 +119,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create a E-HPC execution plan.
+   * Creates an E-HPC execution plan.
    * 
    * @remarks
-   * *Make sure that you fully understand E-HPC Instnat billing methods and [prices](https://help.aliyun.com/zh/e-hpc/e-hpc-instant/product-overview/billing-overview?spm=a2c4g.11186623.help-menu-57664.d_0_2_0.5fdd28422y6UvO).
+   * *Before you call this operation, ensure that you understand the billing methods and&#x20;**[**pricing**](https://help.aliyun.com/zh/e-hpc/e-hpc-instant/product-overview/billing-overview?spm=a2c4g.11186623.help-menu-57664.d_0_2_0.5fdd28422y6UvO)**&#x20;of E-HPC Instant.**
    * 
    * @param tmpReq - CreateActionPlanRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -186,10 +203,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create a E-HPC execution plan.
+   * Creates an E-HPC execution plan.
    * 
    * @remarks
-   * *Make sure that you fully understand E-HPC Instnat billing methods and [prices](https://help.aliyun.com/zh/e-hpc/e-hpc-instant/product-overview/billing-overview?spm=a2c4g.11186623.help-menu-57664.d_0_2_0.5fdd28422y6UvO).
+   * *Before you call this operation, ensure that you understand the billing methods and&#x20;**[**pricing**](https://help.aliyun.com/zh/e-hpc/e-hpc-instant/product-overview/billing-overview?spm=a2c4g.11186623.help-menu-57664.d_0_2_0.5fdd28422y6UvO)**&#x20;of E-HPC Instant.**
    * 
    * @param request - CreateActionPlanRequest
    * @returns CreateActionPlanResponse
@@ -200,7 +217,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create a E-HPC Instant job.
+   * Creates an E-HPC Instant job.
    * 
    * @param tmpReq - CreateJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -247,6 +264,10 @@ export default class Client extends OpenApi {
       query["JobScheduler"] = request.jobScheduler;
     }
 
+    if (!$dara.isNull(request.jobTemplateId)) {
+      query["JobTemplateId"] = request.jobTemplateId;
+    }
+
     if (!$dara.isNull(request.securityPolicyShrink)) {
       query["SecurityPolicy"] = request.securityPolicyShrink;
     }
@@ -273,7 +294,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create a E-HPC Instant job.
+   * Creates an E-HPC Instant job.
    * 
    * @param request - CreateJobRequest
    * @returns CreateJobResponse
@@ -660,7 +681,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query job logs
+   * Retrieves the logs for a job.
    * 
    * @param request - DescribeJobResultsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -711,7 +732,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query job logs
+   * Retrieves the logs for a job.
    * 
    * @param request - DescribeJobResultsRequest
    * @returns DescribeJobResultsResponse
@@ -722,7 +743,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Querying Execution Plan Details
+   * Queries the details of an execution plan.
    * 
    * @param request - GetActionPlanRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -753,7 +774,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Querying Execution Plan Details
+   * Queries the details of an execution plan.
    * 
    * @param request - GetActionPlanRequest
    * @returns GetActionPlanResponse
@@ -822,7 +843,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the information about an image.
+   * Get image details.
    * 
    * @param tmpReq - GetImageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -871,7 +892,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the information about an image.
+   * Get image details.
    * 
    * @param request - GetImageRequest
    * @returns GetImageResponse
@@ -882,7 +903,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the details of an execution job.
+   * Retrieves the details of an execution job.
    * 
    * @param request - GetJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -913,7 +934,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the details of an execution job.
+   * Retrieves the details of an execution job.
    * 
    * @param request - GetJobRequest
    * @returns GetJobResponse
@@ -924,7 +945,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询作业保留时长
+   * Retrieves the job record retention period.
    * 
    * @param request - GetJobRecordDurationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -948,7 +969,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询作业保留时长
+   * Retrieves the job record retention period.
    * 
    * @param request - GetJobRecordDurationRequest
    * @returns GetJobRecordDurationResponse
@@ -959,7 +980,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the details of a resource pool.
+   * Retrieves the details of a specified resource pool.
    * 
    * @param request - GetPoolRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -990,7 +1011,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the details of a resource pool.
+   * Retrieves the details of a specified resource pool.
    * 
    * @param request - GetPoolRequest
    * @returns GetPoolResponse
@@ -1169,7 +1190,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Querying Global Executor Information
+   * Queries information about global executors.
    * 
    * @param tmpReq - ListExecutorsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1214,7 +1235,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Querying Global Executor Information
+   * Queries information about global executors.
    * 
    * @param request - ListExecutorsRequest
    * @returns ListExecutorsResponse
@@ -1301,10 +1322,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries job executor information.
+   * Retrieves information about job executors.
    * 
    * @remarks
-   * Queries job executor information.
+   * Retrieves information about job executors.
    * 
    * @param request - ListJobExecutorsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1347,10 +1368,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries job executor information.
+   * Retrieves information about job executors.
    * 
    * @remarks
-   * Queries job executor information.
+   * Retrieves information about job executors.
    * 
    * @param request - ListJobExecutorsRequest
    * @returns ListJobExecutorsResponse
@@ -1361,7 +1382,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the jobs in a cluster.
+   * Returns a list of jobs.
    * 
    * @param tmpReq - ListJobsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1414,7 +1435,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the jobs in a cluster.
+   * Returns a list of jobs.
    * 
    * @param request - ListJobsRequest
    * @returns ListJobsResponse
@@ -1425,7 +1446,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the resource pool list.
+   * Lists resource pools.
    * 
    * @param tmpReq - ListPoolsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1470,7 +1491,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the resource pool list.
+   * Lists resource pools.
    * 
    * @param request - ListPoolsRequest
    * @returns ListPoolsResponse
@@ -1795,7 +1816,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新作业保留时长
+   * Updates the job record duration.
    * 
    * @param request - UpdateJobRecordDurationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1826,7 +1847,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新作业保留时长
+   * Updates the job record duration.
    * 
    * @param request - UpdateJobRecordDurationRequest
    * @returns UpdateJobRecordDurationResponse
@@ -1837,7 +1858,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Update the resource pool configuration.
+   * Updates the configuration of a resource pool.
    * 
    * @param tmpReq - UpdatePoolRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1886,7 +1907,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Update the resource pool configuration.
+   * Updates the configuration of a resource pool.
    * 
    * @param request - UpdatePoolRequest
    * @returns UpdatePoolResponse

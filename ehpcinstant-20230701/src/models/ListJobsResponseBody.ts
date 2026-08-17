@@ -45,12 +45,19 @@ export class ListJobsResponseBodyJobListTags extends $dara.Model {
 export class ListJobsResponseBodyJobList extends $dara.Model {
   /**
    * @remarks
-   * The additional information about the application.
+   * Additional information about the application.
    * 
    * @example
    * {\\"xxx\\": \\"xxxxx\\"}
    */
   appExtraInfo?: string;
+  /**
+   * @remarks
+   * The name of the application.
+   * 
+   * @example
+   * Alphafold3
+   */
   appName?: string;
   /**
    * @remarks
@@ -62,7 +69,7 @@ export class ListJobsResponseBodyJobList extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The end time of the job.
+   * The time when the job ended.
    * 
    * @example
    * 2024-01-25 12:35:23
@@ -94,7 +101,7 @@ export class ListJobsResponseBodyJobList extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * The job name.
+   * The name of the job.
    * 
    * @example
    * testJob
@@ -102,7 +109,7 @@ export class ListJobsResponseBodyJobList extends $dara.Model {
   jobName?: string;
   /**
    * @remarks
-   * The UID of the creator.
+   * The UID of the user who created the job.
    * 
    * @example
    * 129**********
@@ -110,7 +117,7 @@ export class ListJobsResponseBodyJobList extends $dara.Model {
   ownerUid?: string;
   /**
    * @remarks
-   * The start time of the job.
+   * The time when the job started.
    * 
    * @example
    * 2024-01-25 12:29:23
@@ -118,18 +125,29 @@ export class ListJobsResponseBodyJobList extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The status of the job. Valid values:
+   * The status of the job. Possible values:
    * 
-   * *   Pending
-   * *   Initing
-   * *   Succeed
-   * *   Failed
-   * *   Running
-   * *   Exception
-   * *   Retrying
-   * *   Expired
-   * *   Deleting
-   * *   Deleted
+   * - Pending: The job is in the queue.
+   * 
+   * - Initing: The job is initializing.
+   * 
+   * - Succeeded: The job was successful.
+   * 
+   * - Failed: The job failed.
+   * 
+   * - Running: The job is running.
+   * 
+   * - Exception: A scheduling exception occurred.
+   * 
+   * - Retrying: The job is being retried.
+   * 
+   * - Expired: The job timed out.
+   * 
+   * - Suspended: The job is in hibernation.
+   * 
+   * - Restarting: The job is restarting.
+   * 
+   * - Deleted: The job is deleted.
    * 
    * @example
    * Running
@@ -150,7 +168,7 @@ export class ListJobsResponseBodyJobList extends $dara.Model {
   taskCount?: number;
   /**
    * @remarks
-   * Indicate whether the job is a long-running job.
+   * Indicates whether the job is a long-running job.
    * 
    * @example
    * true
@@ -222,7 +240,7 @@ export class ListJobsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries returned on the current page.
    * 
    * @example
    * 10
@@ -230,7 +248,7 @@ export class ListJobsResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 896D338C-E4F4-41EC-A154-D605E5DE****
@@ -238,7 +256,8 @@ export class ListJobsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned. This parameter is optional and is not returned by default.
+   * The total number of entries that meet the filter conditions.
+   * This parameter is optional and may not be returned.
    * 
    * @example
    * 1

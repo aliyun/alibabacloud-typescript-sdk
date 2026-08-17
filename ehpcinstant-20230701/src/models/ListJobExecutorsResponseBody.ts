@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListJobExecutorsResponseBodyExecutorStatus extends $dara.Model {
   /**
    * @remarks
-   * The number of executers in the Deleted state.
+   * The number of executors in the Deleted state.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class ListJobExecutorsResponseBodyExecutorStatus extends $dara.Model {
   deleted?: number;
   /**
    * @remarks
-   * The number of executers in the abnormal state.
+   * The number of executors in the Exception state.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class ListJobExecutorsResponseBodyExecutorStatus extends $dara.Model {
   exception?: number;
   /**
    * @remarks
-   * The number of executers in the Failed state.
+   * The number of executors in the Failed state.
    * 
    * @example
    * 1
@@ -29,7 +29,7 @@ export class ListJobExecutorsResponseBodyExecutorStatus extends $dara.Model {
   failed?: number;
   /**
    * @remarks
-   * The number of executers in the initialized state.
+   * The number of executors in the Initing state.
    * 
    * @example
    * 1
@@ -37,16 +37,23 @@ export class ListJobExecutorsResponseBodyExecutorStatus extends $dara.Model {
   initing?: number;
   /**
    * @remarks
-   * The number of executers in the queued state.
+   * The number of executors in the Pending state.
    * 
    * @example
    * 1
    */
   pending?: number;
+  /**
+   * @remarks
+   * The number of executors in the Restarting state.
+   * 
+   * @example
+   * 1
+   */
   restarting?: number;
   /**
    * @remarks
-   * The number of executers in the running state.
+   * The number of executors in the Running state.
    * 
    * @example
    * 1
@@ -54,12 +61,19 @@ export class ListJobExecutorsResponseBodyExecutorStatus extends $dara.Model {
   running?: number;
   /**
    * @remarks
-   * The number of executoresin the Successful state.
+   * The number of executors in the Succeeded state.
    * 
    * @example
    * 1
    */
   succeeded?: number;
+  /**
+   * @remarks
+   * The number of executors in the Suspended state.
+   * 
+   * @example
+   * 1
+   */
   suspended?: number;
   static names(): { [key: string]: string } {
     return {
@@ -101,7 +115,7 @@ export class ListJobExecutorsResponseBodyExecutorStatus extends $dara.Model {
 export class ListJobExecutorsResponseBodyExecutorsTags extends $dara.Model {
   /**
    * @remarks
-   * The key of the executor tag.
+   * The tag key of the executor.
    * 
    * @example
    * TestKey
@@ -109,7 +123,7 @@ export class ListJobExecutorsResponseBodyExecutorsTags extends $dara.Model {
   tagKey?: string;
   /**
    * @remarks
-   * The value of the executor tag.
+   * The tag value of the executor.
    * 
    * @example
    * TestValue
@@ -139,19 +153,39 @@ export class ListJobExecutorsResponseBodyExecutorsTags extends $dara.Model {
 }
 
 export class ListJobExecutorsResponseBodyExecutors extends $dara.Model {
+  /**
+   * @remarks
+   * The resource type.
+   * 
+   * - Standard: Standard.
+   * 
+   * - Dedicated: Dedicated. To use this resource type, you must be added to the whitelist.
+   * 
+   * - Economic: Economy. To use this resource type, you must be added to the whitelist.
+   * 
+   * @example
+   * Standard
+   */
   allocationSpec?: string;
   /**
    * @remarks
-   * The executor index number.
+   * The index of the executor.
    * 
    * @example
    * 0
    */
   arrayIndex?: number;
+  /**
+   * @remarks
+   * The retention period of the compute resources.
+   * 
+   * @example
+   * 24
+   */
   blockDuration?: number;
   /**
    * @remarks
-   * The time when the storage resource was created.
+   * The time when the executor was created.
    * 
    * @example
    * 2024-02-20 10:04:10
@@ -159,7 +193,7 @@ export class ListJobExecutorsResponseBodyExecutors extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The end time.
+   * The time when the executor ended.
    * 
    * @example
    * 2024-02-20 10:04:18
@@ -167,7 +201,7 @@ export class ListJobExecutorsResponseBodyExecutors extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The executor ID. The format is JobId-TaskName-ArrayIndex.
+   * The ID of the executor. The format is \\`JobId-TaskName-ArrayIndex\\`.
    * 
    * @example
    * job-xxxx-Task0-1
@@ -176,7 +210,7 @@ export class ListJobExecutorsResponseBodyExecutors extends $dara.Model {
   expirationTime?: string;
   /**
    * @remarks
-   * The list of public IP addresses of the nodes.
+   * A list of public IP addresses of the nodes.
    */
   externalIpAddress?: string[];
   /**
@@ -186,13 +220,13 @@ export class ListJobExecutorsResponseBodyExecutors extends $dara.Model {
   hostName?: string[];
   /**
    * @remarks
-   * The list of node IP addresses.
+   * A list of node IP addresses.
    */
   ipAddress?: string[];
   preemptible?: boolean;
   /**
    * @remarks
-   * The create time.
+   * The time when the executor started.
    * 
    * @example
    * 2024-02-20 10:04:13
@@ -202,16 +236,27 @@ export class ListJobExecutorsResponseBodyExecutors extends $dara.Model {
    * @remarks
    * The status of the executor. Valid values:
    * 
-   * *   Pending
-   * *   Initing
-   * *   Succeed
-   * *   Failed
-   * *   Running
-   * *   Unknown
-   * *   Exception
-   * *   Retrying
-   * *   Expired
-   * *   Deleted
+   * - Pending: In queue
+   * 
+   * - Initing: Initializing
+   * 
+   * - Succeed: Succeeded
+   * 
+   * - Failed: Failed
+   * 
+   * - Running: Running
+   * 
+   * - Exception: Abnormal scheduling
+   * 
+   * - Retrying: Retrying
+   * 
+   * - Expired: Timed out
+   * 
+   * - Suspended: Job hibernating
+   * 
+   * - Restarting: Job restarting
+   * 
+   * - Deleted: Deleted
    * 
    * @example
    * Running
@@ -219,15 +264,15 @@ export class ListJobExecutorsResponseBodyExecutors extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The description of the status reason.
+   * The reason for the status.
    * 
    * @example
-   * Creating executor
+   * ExecutorReady
    */
   statusReason?: string;
   /**
    * @remarks
-   * The list of executor tags.
+   * A list of executor tags.
    */
   tags?: ListJobExecutorsResponseBodyExecutorsTags[];
   static names(): { [key: string]: string } {
@@ -294,12 +339,12 @@ export class ListJobExecutorsResponseBodyExecutors extends $dara.Model {
 export class ListJobExecutorsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Executor status statistics.
+   * Statistics about executor statuses.
    */
   executorStatus?: ListJobExecutorsResponseBodyExecutorStatus;
   /**
    * @remarks
-   * The executor list.
+   * A list of executors.
    */
   executors?: ListJobExecutorsResponseBodyExecutors[];
   /**
@@ -312,7 +357,7 @@ export class ListJobExecutorsResponseBody extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * The page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -320,7 +365,7 @@ export class ListJobExecutorsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries on each page.
    * 
    * @example
    * 10
@@ -339,12 +384,12 @@ export class ListJobExecutorsResponseBody extends $dara.Model {
    * The job name.
    * 
    * @example
-   * task0
+   * Task0
    */
   taskName?: string;
   /**
    * @remarks
-   * The total number of list entries.
+   * The total number of entries.
    * 
    * @example
    * 50

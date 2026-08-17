@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class ListExecutorsRequestFilter extends $dara.Model {
   /**
    * @remarks
-   * The list of executor IDs. A maximum of 100 IDs are supported.
+   * A list of executor IDs. You can specify up to 100 IDs.
    */
   executorIds?: string[];
   /**
    * @remarks
-   * Executor image.
+   * The executor image.
    * 
    * @example
    * m-f8z0dfa96luxxxxx
@@ -18,25 +18,30 @@ export class ListExecutorsRequestFilter extends $dara.Model {
   image?: string;
   /**
    * @remarks
-   * The list of internal IP addresses. A maximum of 100 IP addresses are supported.
+   * A list of private IP addresses. You can specify up to 100 IP addresses.
    */
   ipAddresses?: string[];
   /**
    * @remarks
-   * The job name. Exact filtering. Fuzzy query is not supported.
+   * The job name. Fuzzy queries are supported.
    * 
    * @example
    * testJob
    */
   jobName?: string;
   /**
+   * @example
+   * jt-xxxx
+   */
+  jobTemplateId?: string;
+  /**
    * @remarks
-   * Executor status list.
+   * A list of executor statuses.
    */
   status?: string[];
   /**
    * @remarks
-   * For jobs submitted after this time, the time in the region is converted into a UNIX timestamp (UI8).
+   * The jobs submitted after this time. This is a UNIX timestamp that is converted from the time in the region where the job is located. For sites in mainland China, the time is in the UTC+8 time zone.
    * 
    * @example
    * 1703819914
@@ -44,16 +49,23 @@ export class ListExecutorsRequestFilter extends $dara.Model {
   timeCreatedAfter?: number;
   /**
    * @remarks
-   * For jobs submitted before this time, the time in the region is converted into a Unix timestamp (for domestic sites, the UI8 region).
+   * The jobs submitted before this time. This is a UNIX timestamp that is converted from the time in the region where the job is located. For sites in mainland China, the time is in the UTC+8 time zone.
    * 
    * @example
    * 1703820113
    */
   timeCreatedBefore?: number;
+  /**
+   * @remarks
+   * The virtual private cloud (VPC) ID.
+   * 
+   * @example
+   * vpc-xxx
+   */
   vpcId?: string;
   /**
    * @remarks
-   * The ID of the vSwitch.
+   * The vSwitch ID.
    * 
    * @example
    * vsw-xxx
@@ -65,6 +77,7 @@ export class ListExecutorsRequestFilter extends $dara.Model {
       image: 'Image',
       ipAddresses: 'IpAddresses',
       jobName: 'JobName',
+      jobTemplateId: 'JobTemplateId',
       status: 'Status',
       timeCreatedAfter: 'TimeCreatedAfter',
       timeCreatedBefore: 'TimeCreatedBefore',
@@ -79,6 +92,7 @@ export class ListExecutorsRequestFilter extends $dara.Model {
       image: 'string',
       ipAddresses: { 'type': 'array', 'itemType': 'string' },
       jobName: 'string',
+      jobTemplateId: 'string',
       status: { 'type': 'array', 'itemType': 'string' },
       timeCreatedAfter: 'number',
       timeCreatedBefore: 'number',
@@ -108,14 +122,12 @@ export class ListExecutorsRequestFilter extends $dara.Model {
 export class ListExecutorsRequest extends $dara.Model {
   /**
    * @remarks
-   * Queries the Executor filter conditions.
+   * The filter conditions for querying executors.
    */
   filter?: ListExecutorsRequestFilter;
   /**
    * @remarks
-   * The current page number.\\
-   * Starting value: 1\\
-   * Default value: 1
+   * The current page number.<br>Start value: 1<br>Default value: 1<br><br>
    * 
    * @example
    * 1
@@ -123,7 +135,7 @@ export class ListExecutorsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. The number of entries returned per page. Default value: 50. Maximum value: 100.
+   * The number of entries to return on each page for a paged query. Default value: 50. Maximum value: 100.
    * 
    * @example
    * 50

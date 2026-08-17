@@ -18,6 +18,7 @@ export { CreateJobRequestTasksTaskSpecRetryPolicyExitCodeActions } from './Creat
 export { CreateJobRequestTasksTaskSpecRetryPolicy } from './CreateJobRequest';
 export { CreateJobRequestTasksTaskSpecTaskExecutorContainerEnvironmentVars } from './CreateJobRequest';
 export { CreateJobRequestTasksTaskSpecTaskExecutorContainer } from './CreateJobRequest';
+export { CreateJobRequestTasksTaskSpecTaskExecutorVMEnvironmentVars } from './CreateJobRequest';
 export { CreateJobRequestTasksTaskSpecTaskExecutorVM } from './CreateJobRequest';
 export { CreateJobRequestTasksTaskSpecTaskExecutor } from './CreateJobRequest';
 export { CreateJobRequestTasksTaskSpecVolumeMount } from './CreateJobRequest';
@@ -72,6 +73,7 @@ export { ListImagesResponseBodyImages } from './ListImagesResponseBody';
 export { ListJobExecutorsResponseBodyExecutorStatus } from './ListJobExecutorsResponseBody';
 export { ListJobExecutorsResponseBodyExecutorsTags } from './ListJobExecutorsResponseBody';
 export { ListJobExecutorsResponseBodyExecutors } from './ListJobExecutorsResponseBody';
+export { ListJobsRequestFilterTag } from './ListJobsRequest';
 export { ListJobsRequestFilter } from './ListJobsRequest';
 export { ListJobsRequestSortBy } from './ListJobsRequest';
 export { ListJobsResponseBodyJobListTags } from './ListJobsResponseBody';

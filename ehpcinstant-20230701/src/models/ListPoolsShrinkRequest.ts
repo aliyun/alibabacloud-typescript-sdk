@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListPoolsShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * Queries the filter conditions of a resource pool.
+   * The filter conditions for querying resource pools.
    */
   filterShrink?: string;
   /**
@@ -18,7 +18,7 @@ export class ListPoolsShrinkRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries on each page. Maximum value: 50. Default value: 10.
+   * The number of entries per page. Valid values: 1 to 50. Default value: 10.
    * 
    * @example
    * 10

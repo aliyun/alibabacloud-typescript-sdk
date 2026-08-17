@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateActionPlanResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the execution plan.
+   * The execution plan ID.
    * 
    * @example
    * ap-hz036ubmx2qmw93k****

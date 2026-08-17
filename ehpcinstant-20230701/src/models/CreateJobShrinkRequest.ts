@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateJobShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * Dependency policy.
+   * The dependency policy.
    */
   dependencyPolicyShrink?: string;
   /**
@@ -15,7 +15,7 @@ export class CreateJobShrinkRequest extends $dara.Model {
   deploymentPolicyShrink?: string;
   /**
    * @remarks
-   * The description of the job.
+   * The job description.
    * 
    * @example
    * Demo
@@ -23,7 +23,7 @@ export class CreateJobShrinkRequest extends $dara.Model {
   jobDescription?: string;
   /**
    * @remarks
-   * The job name. The name must be 2 to 64 characters in length and can contain letters, digits, and Chinese characters. It can contain hyphens (-) and underscores (_).
+   * The job name. The name must be 2 to 64 characters in length and can contain letters, digits, hyphens (-), and underscores (_).
    * 
    * This parameter is required.
    * 
@@ -31,19 +31,15 @@ export class CreateJobShrinkRequest extends $dara.Model {
    * testjob
    */
   jobName?: string;
+  jobScheduler?: string;
   /**
    * @remarks
-   * The type of the job scheduler.
-   * 
-   * *   HPC
-   * *   K8S
-   * 
-   * Default value: HPC
+   * The job template ID.
    * 
    * @example
-   * HPC
+   * jt-xxxx
    */
-  jobScheduler?: string;
+  jobTemplateId?: string;
   /**
    * @remarks
    * The security policy.
@@ -51,7 +47,7 @@ export class CreateJobShrinkRequest extends $dara.Model {
   securityPolicyShrink?: string;
   /**
    * @remarks
-   * The list of tasks. Only one task is supported.
+   * The task list. Currently, only one task is supported.
    * 
    * This parameter is required.
    */
@@ -63,6 +59,7 @@ export class CreateJobShrinkRequest extends $dara.Model {
       jobDescription: 'JobDescription',
       jobName: 'JobName',
       jobScheduler: 'JobScheduler',
+      jobTemplateId: 'JobTemplateId',
       securityPolicyShrink: 'SecurityPolicy',
       tasksShrink: 'Tasks',
     };
@@ -75,6 +72,7 @@ export class CreateJobShrinkRequest extends $dara.Model {
       jobDescription: 'string',
       jobName: 'string',
       jobScheduler: 'string',
+      jobTemplateId: 'string',
       securityPolicyShrink: 'string',
       tasksShrink: 'string',
     };

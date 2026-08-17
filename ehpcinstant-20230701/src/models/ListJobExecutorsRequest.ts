@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class ListJobExecutorsRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the job.
+   * The job ID.
    * 
    * @example
-   * job-xxx
+   * job-xxxx
    */
   jobId?: string;
   /**
    * @remarks
-   * The page number of the page to return.
+   * The page number for the paged query.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class ListJobExecutorsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries to return on each page.
    * 
    * @example
    * 10
@@ -32,7 +32,7 @@ export class ListJobExecutorsRequest extends $dara.Model {
    * The job name.
    * 
    * @example
-   * task0
+   * Task0
    */
   taskName?: string;
   static names(): { [key: string]: string } {

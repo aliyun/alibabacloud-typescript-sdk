@@ -2,76 +2,28 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ListJobsRequestFilter extends $dara.Model {
+export class ListJobsRequestFilterTag extends $dara.Model {
   /**
-   * @remarks
-   * The ID of the job.
-   * 
    * @example
-   * job-xxxx
+   * TestKey
    */
-  jobId?: string;
+  key?: string;
   /**
-   * @remarks
-   * The job name. Fuzzy search is supported.
-   * 
    * @example
-   * testJob
+   * TestValue
    */
-  jobName?: string;
-  /**
-   * @remarks
-   * The job status. Valid values:
-   * 
-   * *   Pending
-   * *   initing
-   * *   Succeed
-   * *   Failed
-   * *   Running
-   * *   Exception
-   * *   Retrying
-   * *   Expired
-   * *   Suspended
-   * *   Restarting
-   * *   Deleted
-   * 
-   * @example
-   * Running
-   */
-  status?: string;
-  /**
-   * @remarks
-   * For jobs submitted after this time, the time in the region is converted into a UNIX timestamp (UI8).
-   * 
-   * @example
-   * 1703819914
-   */
-  timeCreatedAfter?: number;
-  /**
-   * @remarks
-   * For jobs submitted before this time, the time in the region is converted into a Unix timestamp (for domestic sites, the UI8 region).
-   * 
-   * @example
-   * 1703820113
-   */
-  timeCreatedBefore?: number;
+  value?: string;
   static names(): { [key: string]: string } {
     return {
-      jobId: 'JobId',
-      jobName: 'JobName',
-      status: 'Status',
-      timeCreatedAfter: 'TimeCreatedAfter',
-      timeCreatedBefore: 'TimeCreatedBefore',
+      key: 'Key',
+      value: 'Value',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      jobId: 'string',
-      jobName: 'string',
-      status: 'string',
-      timeCreatedAfter: 'number',
-      timeCreatedBefore: 'number',
+      key: 'string',
+      value: 'string',
     };
   }
 
@@ -84,13 +36,125 @@ export class ListJobsRequestFilter extends $dara.Model {
   }
 }
 
+export class ListJobsRequestFilter extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the job.
+   * 
+   * @example
+   * job-xxxx
+   */
+  jobId?: string;
+  jobIds?: string[];
+  /**
+   * @remarks
+   * The name of the job. Fuzzy search is supported.
+   * 
+   * @example
+   * testJob
+   */
+  jobName?: string;
+  /**
+   * @example
+   * jt-xxxx
+   */
+  jobTemplateId?: string;
+  /**
+   * @remarks
+   * The status of the job. Valid values:
+   * 
+   * - Pending: The job is in the queue.
+   * 
+   * - Initing: The job is initializing.
+   * 
+   * - Succeeded: The job was successful.
+   * 
+   * - Failed: The job failed.
+   * 
+   * - Running: The job is running.
+   * 
+   * - Exception: A scheduling exception occurred.
+   * 
+   * - Retrying: The job is being retried.
+   * 
+   * - Expired: The job timed out.
+   * 
+   * - Suspended: The job is in hibernation.
+   * 
+   * - Restarting: The job is restarting.
+   * 
+   * - Deleted: The job is deleted.
+   * 
+   * @example
+   * Running
+   */
+  status?: string;
+  tag?: ListJobsRequestFilterTag[];
+  /**
+   * @remarks
+   * The time after which the jobs were submitted. This is a UNIX timestamp based on the local time of the region. For sites in the Chinese mainland, the time zone is UTC+8.
+   * 
+   * @example
+   * 1703819914
+   */
+  timeCreatedAfter?: number;
+  /**
+   * @remarks
+   * The time before which the jobs were submitted. This is a UNIX timestamp based on the local time of the region. For sites in the Chinese mainland, the time zone is UTC+8.
+   * 
+   * @example
+   * 1703820113
+   */
+  timeCreatedBefore?: number;
+  static names(): { [key: string]: string } {
+    return {
+      jobId: 'JobId',
+      jobIds: 'JobIds',
+      jobName: 'JobName',
+      jobTemplateId: 'JobTemplateId',
+      status: 'Status',
+      tag: 'Tag',
+      timeCreatedAfter: 'TimeCreatedAfter',
+      timeCreatedBefore: 'TimeCreatedBefore',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobId: 'string',
+      jobIds: { 'type': 'array', 'itemType': 'string' },
+      jobName: 'string',
+      jobTemplateId: 'string',
+      status: 'string',
+      tag: { 'type': 'array', 'itemType': ListJobsRequestFilterTag },
+      timeCreatedAfter: 'number',
+      timeCreatedBefore: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.jobIds)) {
+      $dara.Model.validateArray(this.jobIds);
+    }
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListJobsRequestSortBy extends $dara.Model {
   /**
    * @remarks
-   * The sorting label. Valid values:
+   * The field to sort by. Valid values:
    * 
-   * *   time_start
-   * *   job_name
+   * - time_start
+   * 
+   * - job_name
    * 
    * @example
    * time_start
@@ -98,10 +162,11 @@ export class ListJobsRequestSortBy extends $dara.Model {
   label?: string;
   /**
    * @remarks
-   * The sorting order. Valid values:
+   * The sort order. Valid values:
    * 
-   * *   ASC (default): ascending order
-   * *   DESC: descending order
+   * - ASC (default): Ascending
+   * 
+   * - DESC: Descending
    * 
    * @example
    * ASC
@@ -133,16 +198,16 @@ export class ListJobsRequestSortBy extends $dara.Model {
 export class ListJobsRequest extends $dara.Model {
   /**
    * @remarks
-   * Queries job filter conditions.
+   * The filter conditions for querying jobs.
    */
   filter?: ListJobsRequestFilter;
   /**
    * @remarks
-   * The page number.
+   * The current page number.
    * 
-   * Pages start from page 1.
+   * Start value: 1
    * 
-   * Default value: 1.
+   * Default value: 1
    * 
    * @example
    * 1
@@ -150,7 +215,7 @@ export class ListJobsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries on the current page. Default value: 50. Maximum value: 100.
+   * The number of entries to return on each page. The default value is 50. The maximum value is 100.
    * 
    * @example
    * 50

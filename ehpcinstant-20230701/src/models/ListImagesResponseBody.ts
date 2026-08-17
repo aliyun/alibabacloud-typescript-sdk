@@ -24,6 +24,9 @@ export class ListImagesResponseBodyImages extends $dara.Model {
   /**
    * @remarks
    * The description of the image.
+   * 
+   * @example
+   * 应用测试镜像。
    */
   description?: string;
   /**
