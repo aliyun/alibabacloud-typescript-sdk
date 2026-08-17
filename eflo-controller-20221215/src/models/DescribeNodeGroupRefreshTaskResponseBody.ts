@@ -111,7 +111,7 @@ export class DescribeNodeGroupRefreshTaskResponseBodyNodes extends $dara.Model {
   nodeId?: string;
   /**
    * @remarks
-   * The property drift list for the node, including both executed and skipped properties.
+   * The list of property drifts for the node, including both executed and skipped properties.
    */
   propertyDrifts?: DescribeNodeGroupRefreshTaskResponseBodyNodesPropertyDrifts[];
   /**

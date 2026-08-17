@@ -73,7 +73,7 @@ export class ListNodeGroupRefreshTasksResponseBodyNodeGroupRefreshTasks extends 
   status?: string;
   /**
    * @remarks
-   * The total number of nodes to be refreshed by this task.
+   * The total number of nodes to refresh in this task.
    * 
    * @example
    * 100

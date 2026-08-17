@@ -13,7 +13,7 @@ export class ListNodeGroupRefreshTasksRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The maximum number of entries per page for a paging query. Valid values: 1 to 500. Default value: 100.
+   * The maximum number of entries per page for paging. Valid values: 1 to 500. Default value: 100.
    * 
    * @example
    * 20

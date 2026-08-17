@@ -99,6 +99,12 @@ export { ListHyperNodesResponseBodyHyperNodes } from './ListHyperNodesResponseBo
 export { ListImagesResponseBodyImages } from './ListImagesResponseBody';
 export { ListMachineNetworkInfoRequestMachineHpnInfo } from './ListMachineNetworkInfoRequest';
 export { ListMachineNetworkInfoResponseBodyMachineNetworkInfo } from './ListMachineNetworkInfoResponseBody';
+export { ListMachineTypesResponseBodyMachineTypesCpuInfoDetail } from './ListMachineTypesResponseBody';
+export { ListMachineTypesResponseBodyMachineTypesDiskInfoDetail } from './ListMachineTypesResponseBody';
+export { ListMachineTypesResponseBodyMachineTypesFrontendNetworkDetail } from './ListMachineTypesResponseBody';
+export { ListMachineTypesResponseBodyMachineTypesGpuInfoDetail } from './ListMachineTypesResponseBody';
+export { ListMachineTypesResponseBodyMachineTypesMemoryInfoDetail } from './ListMachineTypesResponseBody';
+export { ListMachineTypesResponseBodyMachineTypesRdmaInfoDetail } from './ListMachineTypesResponseBody';
 export { ListMachineTypesResponseBodyMachineTypes } from './ListMachineTypesResponseBody';
 export { ListNetTestResultsResponseBodyNetTestResultsCommTestHosts } from './ListNetTestResultsResponseBody';
 export { ListNetTestResultsResponseBodyNetTestResultsCommTest } from './ListNetTestResultsResponseBody';
