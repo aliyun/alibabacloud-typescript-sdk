@@ -51,6 +51,48 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Disables the Flink AI service.
+   * 
+   * @param request - CloseFlinkAiServiceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CloseFlinkAiServiceResponse
+   */
+  async closeFlinkAiServiceWithOptions(request: $_model.CloseFlinkAiServiceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CloseFlinkAiServiceResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.region)) {
+      body["Region"] = request.region;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CloseFlinkAiService",
+      version: "2021-10-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CloseFlinkAiServiceResponse>(await this.callApi(params, req, runtime), new $_model.CloseFlinkAiServiceResponse({}));
+  }
+
+  /**
+   * Disables the Flink AI service.
+   * 
+   * @param request - CloseFlinkAiServiceRequest
+   * @returns CloseFlinkAiServiceResponse
+   */
+  async closeFlinkAiService(request: $_model.CloseFlinkAiServiceRequest): Promise<$_model.CloseFlinkAiServiceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.closeFlinkAiServiceWithOptions(request, runtime);
+  }
+
+  /**
    * Converts a subscription instance to a hybrid billing instance.
    * 
    * @remarks
@@ -720,6 +762,90 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves the status of the Flink AI service.
+   * 
+   * @param request - GetFlinkAiServiceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetFlinkAiServiceResponse
+   */
+  async getFlinkAiServiceWithOptions(request: $_model.GetFlinkAiServiceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetFlinkAiServiceResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.region)) {
+      body["Region"] = request.region;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetFlinkAiService",
+      version: "2021-10-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetFlinkAiServiceResponse>(await this.callApi(params, req, runtime), new $_model.GetFlinkAiServiceResponse({}));
+  }
+
+  /**
+   * Retrieves the status of the Flink AI service.
+   * 
+   * @param request - GetFlinkAiServiceRequest
+   * @returns GetFlinkAiServiceResponse
+   */
+  async getFlinkAiService(request: $_model.GetFlinkAiServiceRequest): Promise<$_model.GetFlinkAiServiceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getFlinkAiServiceWithOptions(request, runtime);
+  }
+
+  /**
+   * Retrieves the free quota usage of Flink AI services.
+   * 
+   * @param request - GetFlinkAiServiceFreeQuotaRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetFlinkAiServiceFreeQuotaResponse
+   */
+  async getFlinkAiServiceFreeQuotaWithOptions(request: $_model.GetFlinkAiServiceFreeQuotaRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetFlinkAiServiceFreeQuotaResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.region)) {
+      body["Region"] = request.region;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetFlinkAiServiceFreeQuota",
+      version: "2021-10-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetFlinkAiServiceFreeQuotaResponse>(await this.callApi(params, req, runtime), new $_model.GetFlinkAiServiceFreeQuotaResponse({}));
+  }
+
+  /**
+   * Retrieves the free quota usage of Flink AI services.
+   * 
+   * @param request - GetFlinkAiServiceFreeQuotaRequest
+   * @returns GetFlinkAiServiceFreeQuotaResponse
+   */
+  async getFlinkAiServiceFreeQuota(request: $_model.GetFlinkAiServiceFreeQuotaRequest): Promise<$_model.GetFlinkAiServiceFreeQuotaResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getFlinkAiServiceFreeQuotaWithOptions(request, runtime);
+  }
+
+  /**
    * Queries resource tags. You can query tag keys by tag values, query tag values by tag keys, or retrieve all tag information used in your Flink fully managed workspace.
    * 
    * @param request - ListTagResourcesRequest
@@ -775,6 +901,52 @@ export default class Client extends OpenApi {
   async listTagResources(request: $_model.ListTagResourcesRequest): Promise<$_model.ListTagResourcesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listTagResourcesWithOptions(request, runtime);
+  }
+
+  /**
+   * Modifies the shutdown protection setting for a Flink AI service.
+   * 
+   * @param request - ModifyAiServiceProtectionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyAiServiceProtectionResponse
+   */
+  async modifyAiServiceProtectionWithOptions(request: $_model.ModifyAiServiceProtectionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyAiServiceProtectionResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.deletionProtection)) {
+      body["DeletionProtection"] = request.deletionProtection;
+    }
+
+    if (!$dara.isNull(request.region)) {
+      body["Region"] = request.region;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyAiServiceProtection",
+      version: "2021-10-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyAiServiceProtectionResponse>(await this.callApi(params, req, runtime), new $_model.ModifyAiServiceProtectionResponse({}));
+  }
+
+  /**
+   * Modifies the shutdown protection setting for a Flink AI service.
+   * 
+   * @param request - ModifyAiServiceProtectionRequest
+   * @returns ModifyAiServiceProtectionResponse
+   */
+  async modifyAiServiceProtection(request: $_model.ModifyAiServiceProtectionRequest): Promise<$_model.ModifyAiServiceProtectionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyAiServiceProtectionWithOptions(request, runtime);
   }
 
   /**
@@ -1234,6 +1406,48 @@ export default class Client extends OpenApi {
   async modifyPrepayNamespaceSpec(request: $_model.ModifyPrepayNamespaceSpecRequest): Promise<$_model.ModifyPrepayNamespaceSpecResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyPrepayNamespaceSpecWithOptions(request, runtime);
+  }
+
+  /**
+   * Activates the Flink AI service.
+   * 
+   * @param request - OpenFlinkAiServiceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns OpenFlinkAiServiceResponse
+   */
+  async openFlinkAiServiceWithOptions(request: $_model.OpenFlinkAiServiceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.OpenFlinkAiServiceResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.region)) {
+      body["Region"] = request.region;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "OpenFlinkAiService",
+      version: "2021-10-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.OpenFlinkAiServiceResponse>(await this.callApi(params, req, runtime), new $_model.OpenFlinkAiServiceResponse({}));
+  }
+
+  /**
+   * Activates the Flink AI service.
+   * 
+   * @param request - OpenFlinkAiServiceRequest
+   * @returns OpenFlinkAiServiceResponse
+   */
+  async openFlinkAiService(request: $_model.OpenFlinkAiServiceRequest): Promise<$_model.OpenFlinkAiServiceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.openFlinkAiServiceWithOptions(request, runtime);
   }
 
   /**
