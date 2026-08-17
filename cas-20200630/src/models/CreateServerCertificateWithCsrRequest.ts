@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateServerCertificateWithCsrRequestTags extends $dara.Model {
   /**
    * @remarks
-   * Tag key.
+   * The tag key.
    * 
    * @example
    * account
@@ -13,7 +13,7 @@ export class CreateServerCertificateWithCsrRequestTags extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * Tag value.
+   * The tag value.
    * 
    * @example
    * test
@@ -45,9 +45,8 @@ export class CreateServerCertificateWithCsrRequestTags extends $dara.Model {
 export class CreateServerCertificateWithCsrRequest extends $dara.Model {
   /**
    * @remarks
-   * Expiration time of the server-side certificate, in UNIX timestamp format. Unit: seconds.
-   * 
-   * > The **BeforeTime** and **AfterTime** parameters must both be empty or both configured.
+   * The expiration time of the server certificate in UNIX timestamp format. Unit: seconds.
+   * >The **BeforeTime** and **AfterTime** parameters must both be empty or both be specified.
    * 
    * @example
    * 1665819958
@@ -55,35 +54,35 @@ export class CreateServerCertificateWithCsrRequest extends $dara.Model {
   afterTime?: number;
   /**
    * @remarks
-   * Key algorithm for the server-side certificate. Use the format `<encryption algorithm>_<key length>`. Valid values:
+   * The key algorithm of the server certificate. The key algorithm is in the `<Encryption algorithm>_<Key length>` format. Valid values:
    * 
-   * - **RSA_1024**: Signature algorithm is Sha256WithRSA.
+   * - **RSA_1024**: The signature algorithm is Sha256WithRSA.
+   * - **RSA_2048**: The signature algorithm is Sha256WithRSA.
+   * - **RSA_4096**: The signature algorithm is Sha256WithRSA.
+   * - **ECC_256**: The signature algorithm is Sha256WithECDSA.
+   * - **ECC_384**: The signature algorithm is Sha256WithECDSA.
+   * - **ECC_512**: The signature algorithm is Sha256WithECDSA.
+   * - **SM2_256**: The signature algorithm is SM3WithSM2.
    * 
-   * - **RSA_2048**: Signature algorithm is Sha256WithRSA.
    * 
-   * - **RSA_4096**: Signature algorithm is Sha256WithRSA.
+   * The encryption algorithm of the server certificate must be the same as that of the subordinate CA certificate, but the key length can be different. For example, if the key algorithm of the subordinate CA certificate is RSA_2048, the key algorithm of the server certificate must be RSA_1024, RSA_2048, or RSA_4096.
    * 
-   * - **ECC_256**: Signature algorithm is Sha256WithECDSA.
-   * 
-   * - **ECC_384**: Signature algorithm is Sha256WithECDSA.
-   * 
-   * - **ECC_512**: Signature algorithm is Sha256WithECDSA.
-   * 
-   * - **SM2_256**: Signature algorithm is SM3WithSM2.
-   * 
-   * The encryption algorithm of the server-side certificate must match that of the sub-CA certificate. The key length can differ. For example, if the sub-CA certificate uses RSA_2048, the server-side certificate must use RSA_1024, RSA_2048, or RSA_4096.
-   * 
-   * > Call [DescribeCACertificate](https://help.aliyun.com/document_detail/465954.html) to check the key algorithm of the sub-CA certificate.
+   * >You can call [DescribeCACertificate](https://help.aliyun.com/document_detail/465954.html) to query the key algorithm of the subordinate CA certificate.
    * 
    * @example
    * RSA_2048
    */
   algorithm?: string;
   /**
+   * @example
+   * false
+   */
+  asynchronousFlag?: boolean;
+  /**
    * @remarks
-   * Issue time of the server-side certificate, in UNIX timestamp format. Default: current time when you call this API. Unit: seconds.
+   * The issuance time of the server certificate in UNIX timestamp format. The default value is the time when you call this operation. Unit: seconds.
    * 
-   * > The **BeforeTime** and **AfterTime** parameters must both be empty or both configured.
+   * >The **BeforeTime** and **AfterTime** parameters must both be empty or both be specified.
    * 
    * @example
    * 1634283958
@@ -91,9 +90,8 @@ export class CreateServerCertificateWithCsrRequest extends $dara.Model {
   beforeTime?: number;
   /**
    * @remarks
-   * Set the common name for the certificate. Supports Chinese, English, and other characters.
-   * 
-   * > If you set the **Csr** parameter, the value of **CommonName** comes from the corresponding field in the **Csr** parameter.
+   * The common name of the certificate. Chinese characters, English characters, and other characters are supported.
+   * >If you set the **Csr** parameter, the value of the **CommonName** parameter is determined by the corresponding information in the **Csr** parameter.
    * 
    * @example
    * mtcsq.com
@@ -101,7 +99,7 @@ export class CreateServerCertificateWithCsrRequest extends $dara.Model {
   commonName?: string;
   /**
    * @remarks
-   * The country code. For example, CN or US.
+   * The country code, such as **CN**.
    * 
    * @example
    * CN
@@ -109,11 +107,9 @@ export class CreateServerCertificateWithCsrRequest extends $dara.Model {
   country?: string;
   /**
    * @remarks
-   * You can generate a CSR using OpenSSL or Keytool. For more information, see [How to create a CSR file](https://help.aliyun.com/document_detail/42218.html).
-   * 
-   * <props="china">
-   * 
-   * You can also create a CSR in the SSL Certificate console. For more information, see [Create a CSR](https://help.aliyun.com/document_detail/313297.html).
+   * The CSR content.
+   * You can use OpenSSL or Keytool to generate a CSR. For more information, see [How do I create a CSR file?](https://help.aliyun.com/document_detail/42218.html).
+   * <props="china">You can also create a CSR in the SSL Certificates Service console. For more information, see [Create a CSR](https://help.aliyun.com/document_detail/313297.html).
    * 
    * This parameter is required.
    * 
@@ -123,7 +119,7 @@ export class CreateServerCertificateWithCsrRequest extends $dara.Model {
   csr?: string;
   /**
    * @remarks
-   * A custom identifier. This is a unique key.
+   * The user-defined identifier, which serves as a unique key.
    * 
    * @example
    * ***e6bb538d538c70c01f81hfd3****
@@ -131,15 +127,16 @@ export class CreateServerCertificateWithCsrRequest extends $dara.Model {
   customIdentifier?: string;
   /**
    * @remarks
-   * The **Days**, **BeforeTime**, and **AfterTime** parameters cannot all be empty. The **BeforeTime** and **AfterTime** parameters must both be empty or both set. Follow these rules:
+   * The validity period of the server certificate. Unit: days.
+   * The **Days**, **BeforeTime**, and **AfterTime** parameters cannot all be empty. The **BeforeTime** and **AfterTime** parameters must both be empty or both be specified. The following rules apply:
    * 
-   * - If you set **Days**, you can optionally set **BeforeTime** and **AfterTime**.
+   * - If you set the **Days** parameter, you can choose to set or not set the **BeforeTime** and **AfterTime** parameters.
    * 
-   * - If you do not set **Days**, you must set both **BeforeTime** and **AfterTime**.
    * 
-   * > * If you set **Days**, **BeforeTime**, and **AfterTime** together, the validity period uses the value of **Days**.
+   * - If you do not set the **Days** parameter, you must set the **BeforeTime** and **AfterTime** parameters.
    * 
-   * - The server-side certificate validity period cannot exceed that of the sub-CA certificate. Call [DescribeCACertificate](https://help.aliyun.com/document_detail/465954.html) to check the sub-CA certificate validity period.
+   * >- If you set the **Days**, **BeforeTime**, and **AfterTime** parameters at the same time, the validity period of the server certificate is determined by the value of the **Days** parameter.
+   * - The validity period of the server certificate cannot exceed the validity period of the subordinate CA certificate. You can call [DescribeCACertificate](https://help.aliyun.com/document_detail/465954.html) to query the validity period of the subordinate CA certificate.
    * 
    * @example
    * 365
@@ -147,9 +144,9 @@ export class CreateServerCertificateWithCsrRequest extends $dara.Model {
   days?: number;
   /**
    * @remarks
-   * Additional domain names or IP addresses for the server-side certificate. Adding this information lets you apply the certificate to multiple domains or IP addresses.
+   * The extended domain name or extended IP address of the server certificate. After you add extended information to the certificate, you can apply the certificate to multiple domain names or IP addresses.
    * 
-   * You can enter multiple domain names and IP addresses. Separate them with commas (,).
+   * You can enter multiple domain names and IP addresses at the same time. Separate multiple values with commas (,).
    * 
    * @example
    * example.com
@@ -157,11 +154,11 @@ export class CreateServerCertificateWithCsrRequest extends $dara.Model {
   domain?: string;
   /**
    * @remarks
-   * Specifies whether to include the certificate revocation list (CRL) address.
+   * Specifies whether to include the CRL address. Valid values:
    * 
-   * 0 - No
+   * - 0: No. 
    * 
-   * 1 - Yes
+   * - 1: Yes.
    * 
    * @example
    * 1
@@ -169,13 +166,10 @@ export class CreateServerCertificateWithCsrRequest extends $dara.Model {
   enableCrl?: number;
   /**
    * @remarks
-   * Specifies whether to return the digital certificate immediately.
-   * 
-   * - **0**: Do not return. Default.
-   * 
-   * - **1**: Return the certificate.
-   * 
-   * - **2**: Return the certificate and its certificate chain.
+   * Specifies whether to immediately return the digital certificate. Valid values:
+   * - **0**: Does not return the certificate. This is the default value.
+   * - **1**: Returns the certificate.
+   * - **2**: Returns the certificate and its certificate chain.
    * 
    * @example
    * 1
@@ -183,7 +177,8 @@ export class CreateServerCertificateWithCsrRequest extends $dara.Model {
   immediately?: number;
   /**
    * @remarks
-   * The city where the organization for the certificate is located. The name can contain both Chinese and English characters. By default, this parameter is set to the city of the organization for the issuing subordinate Certificate Authority (CA).
+   * The name of the city where the certificate organization is located. Chinese characters, English characters, and other characters are supported.
+   * The default value is the name of the city where the organization of the subordinate CA certificate that issues this certificate is located.
    * 
    * @example
    * Hangzhou
@@ -191,7 +186,7 @@ export class CreateServerCertificateWithCsrRequest extends $dara.Model {
   locality?: string;
   /**
    * @remarks
-   * The validity period of the certificate, in months.
+   * The certificate validity period. Unit: months.
    * 
    * @example
    * 12
@@ -199,15 +194,15 @@ export class CreateServerCertificateWithCsrRequest extends $dara.Model {
   months?: number;
   /**
    * @remarks
-   * The name of the organization. Default value: Alibaba Inc.
+   * The organization name. Default value: Alibaba Inc.
    * 
    * @example
-   * 阿里云
+   * Alibaba Cloud
    */
   organization?: string;
   /**
    * @remarks
-   * The name of the department. Default value: Alibaba Cloud CDN.
+   * The department name. Default value: Aliyun CDN.
    * 
    * @example
    * IT
@@ -215,9 +210,8 @@ export class CreateServerCertificateWithCsrRequest extends $dara.Model {
   organizationUnit?: string;
   /**
    * @remarks
-   * Unique identifier of the sub-CA certificate that issues this certificate.
-   * 
-   * > Call [DescribeCACertificateList](https://help.aliyun.com/document_detail/465957.html) to query the unique identifier of the sub-CA certificate.
+   * The unique identifier of the subordinate CA certificate that issues this certificate.
+   * >You can call [DescribeCACertificateList](https://help.aliyun.com/document_detail/465957.html) to query the unique identifier of the subordinate CA certificate.
    * 
    * This parameter is required.
    * 
@@ -227,7 +221,7 @@ export class CreateServerCertificateWithCsrRequest extends $dara.Model {
   parentIdentifier?: string;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The resource group ID.
    * 
    * @example
    * rg-aek****wia
@@ -235,8 +229,8 @@ export class CreateServerCertificateWithCsrRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * <props="china">Set the name of the province, municipality, or autonomous region where the organization is located. Supports Chinese, English, and other characters. Defaults to the province, municipality, or autonomous region of the issuing sub-CA certificate\\"s organization.
-   * <props="intl">Set the name of the state or province where the organization is located. Supports Chinese, English, and other characters. Defaults to the state or province of the issuing sub-CA certificate\\"s organization.
+   * <props="china">The name of the province, municipality, or autonomous region where the certificate organization is located. Chinese characters, English characters, and other characters are supported. The default value is the name of the province, municipality, or autonomous region where the organization of the subordinate CA certificate that issues this certificate is located.
+   * <props="intl">The name of the province or state where the certificate organization is located. Chinese characters, English characters, and other characters are supported. The default value is the name of the province or state where the organization of the subordinate CA certificate that issues this certificate is located.
    * 
    * @example
    * Zhejiang
@@ -244,12 +238,12 @@ export class CreateServerCertificateWithCsrRequest extends $dara.Model {
   state?: string;
   /**
    * @remarks
-   * A list of tags.
+   * The tag list.
    */
   tags?: CreateServerCertificateWithCsrRequestTags[];
   /**
    * @remarks
-   * The validity period of the certificate, in years.
+   * The certificate validity period. Unit: years.
    * 
    * @example
    * 1
@@ -259,6 +253,7 @@ export class CreateServerCertificateWithCsrRequest extends $dara.Model {
     return {
       afterTime: 'AfterTime',
       algorithm: 'Algorithm',
+      asynchronousFlag: 'AsynchronousFlag',
       beforeTime: 'BeforeTime',
       commonName: 'CommonName',
       country: 'Country',
@@ -284,6 +279,7 @@ export class CreateServerCertificateWithCsrRequest extends $dara.Model {
     return {
       afterTime: 'number',
       algorithm: 'string',
+      asynchronousFlag: 'boolean',
       beforeTime: 'number',
       commonName: 'string',
       country: 'string',

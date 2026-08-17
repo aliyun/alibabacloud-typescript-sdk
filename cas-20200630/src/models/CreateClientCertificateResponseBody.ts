@@ -21,7 +21,7 @@ export class CreateClientCertificateResponseBody extends $dara.Model {
   identifier?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID. Alibaba Cloud generates a unique identifier for each request. You can use the request ID to troubleshoot issues.
    * 
    * @example
    * 8C467B38-3910-447D-87BC-AC049166F216

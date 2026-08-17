@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetCaInstanceCrlAddressRequest extends $dara.Model {
   /**
    * @remarks
-   * The identifier of the CA certificate.
+   * The CA certificate identifier.
    * 
    * @example
    * 1f0167b4-ee84-XXX-49bc4d39fa68
@@ -13,7 +13,7 @@ export class GetCaInstanceCrlAddressRequest extends $dara.Model {
   caIdentifier?: string;
   /**
    * @remarks
-   * The ID of the zone where the CAS instance resides.
+   * The zone ID of the China CAS instance.
    * 
    * @example
    * 1f047318-0815-XXX-f7ceb76b5c0a
