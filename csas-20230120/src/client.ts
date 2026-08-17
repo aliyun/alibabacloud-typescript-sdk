@@ -3452,6 +3452,70 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 分页查询域名条目
+   * 
+   * @remarks
+   * 分页查询指定域名名单下的域名条目明细。与 ListDomainMetas配套使用：先拿到 `ListId`，再用本接口翻页查看该名单里的域名。
+   * 
+   * @param request - ListDomainItemsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDomainItemsResponse
+   */
+  async listDomainItemsWithOptions(request: $_model.ListDomainItemsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListDomainItemsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!$dara.isNull(request.itemValue)) {
+      query["ItemValue"] = request.itemValue;
+    }
+
+    if (!$dara.isNull(request.listId)) {
+      query["ListId"] = request.listId;
+    }
+
+    if (!$dara.isNull(request.listType)) {
+      query["ListType"] = request.listType;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListDomainItems",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListDomainItemsResponse>(await this.callApi(params, req, runtime), new $_model.ListDomainItemsResponse({}));
+  }
+
+  /**
+   * 分页查询域名条目
+   * 
+   * @remarks
+   * 分页查询指定域名名单下的域名条目明细。与 ListDomainMetas配套使用：先拿到 `ListId`，再用本接口翻页查看该名单里的域名。
+   * 
+   * @param request - ListDomainItemsRequest
+   * @returns ListDomainItemsResponse
+   */
+  async listDomainItems(request: $_model.ListDomainItemsRequest): Promise<$_model.ListDomainItemsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listDomainItemsWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the list of domain name lists.
    * 
    * @remarks
@@ -4452,6 +4516,102 @@ export default class Client extends OpenApi {
   async listRegistrationPoliciesForUserGroup(request: $_model.ListRegistrationPoliciesForUserGroupRequest): Promise<$_model.ListRegistrationPoliciesForUserGroupResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listRegistrationPoliciesForUserGroupWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the list of risk events under the current Alibaba Cloud account.
+   * 
+   * @remarks
+   * ## Operation description
+   * - This operation performs paging query of risk events based on specified conditional criteria.
+   * - `CurrentPage` and `PageSize` are required parameters that specify the current page number and the number of entries per page.
+   * - You can set parameters such as `RiskId`, `RiskScene`, and `RiskCategory` to perform exact or fuzzy queries for specific risk events.
+   * - The `Status` and `StatusList` parameters cannot be used at the same time. They are used to filter risk events by disposition status.
+   * - Fuzzy matching is supported for `PolicyName` and `Username`.
+   * - The response includes the total number of risk events that match the query conditions and their details.
+   * 
+   * @param request - ListRiskItemsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListRiskItemsResponse
+   */
+  async listRiskItemsWithOptions(request: $_model.ListRiskItemsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListRiskItemsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.policyName)) {
+      query["PolicyName"] = request.policyName;
+    }
+
+    if (!$dara.isNull(request.riskCategory)) {
+      query["RiskCategory"] = request.riskCategory;
+    }
+
+    if (!$dara.isNull(request.riskId)) {
+      query["RiskId"] = request.riskId;
+    }
+
+    if (!$dara.isNull(request.riskLevel)) {
+      query["RiskLevel"] = request.riskLevel;
+    }
+
+    if (!$dara.isNull(request.riskScene)) {
+      query["RiskScene"] = request.riskScene;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!$dara.isNull(request.statusList)) {
+      query["StatusList"] = request.statusList;
+    }
+
+    if (!$dara.isNull(request.username)) {
+      query["Username"] = request.username;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListRiskItems",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListRiskItemsResponse>(await this.callApi(params, req, runtime), new $_model.ListRiskItemsResponse({}));
+  }
+
+  /**
+   * Queries the list of risk events under the current Alibaba Cloud account.
+   * 
+   * @remarks
+   * ## Operation description
+   * - This operation performs paging query of risk events based on specified conditional criteria.
+   * - `CurrentPage` and `PageSize` are required parameters that specify the current page number and the number of entries per page.
+   * - You can set parameters such as `RiskId`, `RiskScene`, and `RiskCategory` to perform exact or fuzzy queries for specific risk events.
+   * - The `Status` and `StatusList` parameters cannot be used at the same time. They are used to filter risk events by disposition status.
+   * - Fuzzy matching is supported for `PolicyName` and `Username`.
+   * - The response includes the total number of risk events that match the query conditions and their details.
+   * 
+   * @param request - ListRiskItemsRequest
+   * @returns ListRiskItemsResponse
+   */
+  async listRiskItems(request: $_model.ListRiskItemsRequest): Promise<$_model.ListRiskItemsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listRiskItemsWithOptions(request, runtime);
   }
 
   /**
@@ -6245,6 +6405,80 @@ export default class Client extends OpenApi {
   async updateRegistrationPolicy(request: $_model.UpdateRegistrationPolicyRequest): Promise<$_model.UpdateRegistrationPolicyResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateRegistrationPolicyWithOptions(request, runtime);
+  }
+
+  /**
+   * Updates the current handling status and conclusion of a specified risk event.
+   * 
+   * @remarks
+   * ## Request description
+   * - This operation allows you to update the handling status of a specific risk event under your Alibaba Cloud account.
+   * - When `Status` is set to `Processed`, you must provide the `RiskConfirm` parameter to specify the manually confirmed risk conclusion.
+   * - If `Status` is `Unprocess` or `Processing`, do not include the `RiskConfirm` parameter.
+   * - The `RiskScene` parameter is optional. If not provided, the system automatically populates it based on `RiskId`.
+   * - The `RiskConfirmDesc` field provides additional explanation or remarks for the handling decision. The length must be 1 to 128 characters.
+   * 
+   * @param request - UpdateRiskStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateRiskStatusResponse
+   */
+  async updateRiskStatusWithOptions(request: $_model.UpdateRiskStatusRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateRiskStatusResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.riskConfirm)) {
+      body["RiskConfirm"] = request.riskConfirm;
+    }
+
+    if (!$dara.isNull(request.riskConfirmDesc)) {
+      body["RiskConfirmDesc"] = request.riskConfirmDesc;
+    }
+
+    if (!$dara.isNull(request.riskId)) {
+      body["RiskId"] = request.riskId;
+    }
+
+    if (!$dara.isNull(request.riskScene)) {
+      body["RiskScene"] = request.riskScene;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      body["Status"] = request.status;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateRiskStatus",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateRiskStatusResponse>(await this.callApi(params, req, runtime), new $_model.UpdateRiskStatusResponse({}));
+  }
+
+  /**
+   * Updates the current handling status and conclusion of a specified risk event.
+   * 
+   * @remarks
+   * ## Request description
+   * - This operation allows you to update the handling status of a specific risk event under your Alibaba Cloud account.
+   * - When `Status` is set to `Processed`, you must provide the `RiskConfirm` parameter to specify the manually confirmed risk conclusion.
+   * - If `Status` is `Unprocess` or `Processing`, do not include the `RiskConfirm` parameter.
+   * - The `RiskScene` parameter is optional. If not provided, the system automatically populates it based on `RiskId`.
+   * - The `RiskConfirmDesc` field provides additional explanation or remarks for the handling decision. The length must be 1 to 128 characters.
+   * 
+   * @param request - UpdateRiskStatusRequest
+   * @returns UpdateRiskStatusResponse
+   */
+  async updateRiskStatus(request: $_model.UpdateRiskStatusRequest): Promise<$_model.UpdateRiskStatusResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateRiskStatusWithOptions(request, runtime);
   }
 
   /**

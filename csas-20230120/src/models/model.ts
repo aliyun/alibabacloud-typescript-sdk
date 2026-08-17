@@ -175,6 +175,7 @@ export { ListConnectorsResponseBodyConnectorsApplications } from './ListConnecto
 export { ListConnectorsResponseBodyConnectorsConnectorClients } from './ListConnectorsResponseBody';
 export { ListConnectorsResponseBodyConnectorsUpgradeTime } from './ListConnectorsResponseBody';
 export { ListConnectorsResponseBodyConnectors } from './ListConnectorsResponseBody';
+export { ListDomainItemsResponseBodyDomainItems } from './ListDomainItemsResponseBody';
 export { ListDomainMetasResponseBodyDomainMetas } from './ListDomainMetasResponseBody';
 export { ListDynamicDisposalProcessesResponseBodyDisposalProcessesDeviceBasicInfo } from './ListDynamicDisposalProcessesResponseBody';
 export { ListDynamicDisposalProcessesResponseBodyDisposalProcessesDeviceStatusInfo } from './ListDynamicDisposalProcessesResponseBody';
@@ -218,6 +219,7 @@ export { ListRegistrationPoliciesForUserGroupResponseBodyUserGroupsPoliciesLimit
 export { ListRegistrationPoliciesForUserGroupResponseBodyUserGroupsPoliciesLimitDetail } from './ListRegistrationPoliciesForUserGroupResponseBody';
 export { ListRegistrationPoliciesForUserGroupResponseBodyUserGroupsPolicies } from './ListRegistrationPoliciesForUserGroupResponseBody';
 export { ListRegistrationPoliciesForUserGroupResponseBodyUserGroups } from './ListRegistrationPoliciesForUserGroupResponseBody';
+export { ListRiskItemsResponseBodyRiskItems } from './ListRiskItemsResponseBody';
 export { ListSoftwareForUserDeviceResponseBodySoftware } from './ListSoftwareForUserDeviceResponseBody';
 export { ListTagsForPrivateAccessApplicationResponseBodyApplicationsTags } from './ListTagsForPrivateAccessApplicationResponseBody';
 export { ListTagsForPrivateAccessApplicationResponseBodyApplications } from './ListTagsForPrivateAccessApplicationResponseBody';
@@ -548,6 +550,9 @@ export { ListClientUsersResponse } from './ListClientUsersResponse';
 export { ListConnectorsRequest } from './ListConnectorsRequest';
 export { ListConnectorsResponseBody } from './ListConnectorsResponseBody';
 export { ListConnectorsResponse } from './ListConnectorsResponse';
+export { ListDomainItemsRequest } from './ListDomainItemsRequest';
+export { ListDomainItemsResponseBody } from './ListDomainItemsResponseBody';
+export { ListDomainItemsResponse } from './ListDomainItemsResponse';
 export { ListDomainMetasRequest } from './ListDomainMetasRequest';
 export { ListDomainMetasResponseBody } from './ListDomainMetasResponseBody';
 export { ListDomainMetasResponse } from './ListDomainMetasResponse';
@@ -619,6 +624,9 @@ export { ListRegistrationPoliciesResponse } from './ListRegistrationPoliciesResp
 export { ListRegistrationPoliciesForUserGroupRequest } from './ListRegistrationPoliciesForUserGroupRequest';
 export { ListRegistrationPoliciesForUserGroupResponseBody } from './ListRegistrationPoliciesForUserGroupResponseBody';
 export { ListRegistrationPoliciesForUserGroupResponse } from './ListRegistrationPoliciesForUserGroupResponse';
+export { ListRiskItemsRequest } from './ListRiskItemsRequest';
+export { ListRiskItemsResponseBody } from './ListRiskItemsResponseBody';
+export { ListRiskItemsResponse } from './ListRiskItemsResponse';
 export { ListSoftwareForUserDeviceRequest } from './ListSoftwareForUserDeviceRequest';
 export { ListSoftwareForUserDeviceResponseBody } from './ListSoftwareForUserDeviceResponseBody';
 export { ListSoftwareForUserDeviceResponse } from './ListSoftwareForUserDeviceResponse';
@@ -713,6 +721,9 @@ export { UpdateRegistrationPolicyRequest } from './UpdateRegistrationPolicyReque
 export { UpdateRegistrationPolicyShrinkRequest } from './UpdateRegistrationPolicyShrinkRequest';
 export { UpdateRegistrationPolicyResponseBody } from './UpdateRegistrationPolicyResponseBody';
 export { UpdateRegistrationPolicyResponse } from './UpdateRegistrationPolicyResponse';
+export { UpdateRiskStatusRequest } from './UpdateRiskStatusRequest';
+export { UpdateRiskStatusResponseBody } from './UpdateRiskStatusResponseBody';
+export { UpdateRiskStatusResponse } from './UpdateRiskStatusResponse';
 export { UpdateUninstallApplicationsStatusRequest } from './UpdateUninstallApplicationsStatusRequest';
 export { UpdateUninstallApplicationsStatusResponseBody } from './UpdateUninstallApplicationsStatusResponseBody';
 export { UpdateUninstallApplicationsStatusResponse } from './UpdateUninstallApplicationsStatusResponse';
