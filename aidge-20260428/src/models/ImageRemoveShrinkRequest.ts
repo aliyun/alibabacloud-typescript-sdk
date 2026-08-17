@@ -49,12 +49,30 @@ export class ImageRemoveShrinkRequest extends $dara.Model {
    * [1,2]
    */
   objectRemoveElementsShrink?: string;
+  /**
+   * @example
+   * [10,10,100,100]
+   */
+  position?: string;
+  /**
+   * @example
+   * ["https://img.alicdn.com/bao/uploaded/i2/xxx.jpg"]
+   */
+  userImageShrink?: string;
+  /**
+   * @example
+   * ["xx","yy"]
+   */
+  userTextShrink?: string;
   static names(): { [key: string]: string } {
     return {
       imageUrl: 'ImageUrl',
       mask: 'Mask',
       nonObjectRemoveElementsShrink: 'NonObjectRemoveElements',
       objectRemoveElementsShrink: 'ObjectRemoveElements',
+      position: 'Position',
+      userImageShrink: 'UserImage',
+      userTextShrink: 'UserText',
     };
   }
 
@@ -64,6 +82,9 @@ export class ImageRemoveShrinkRequest extends $dara.Model {
       mask: 'string',
       nonObjectRemoveElementsShrink: 'string',
       objectRemoveElementsShrink: 'string',
+      position: 'string',
+      userImageShrink: 'string',
+      userTextShrink: 'string',
     };
   }
 

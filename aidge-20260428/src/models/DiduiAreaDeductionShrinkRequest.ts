@@ -5,21 +5,31 @@ import * as $dara from '@darabonba/typescript';
 export class DiduiAreaDeductionShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The list of products and their detection boxes.
+   * 
    * This parameter is required.
    */
   productsShrink?: string;
   /**
+   * @remarks
+   * The ID of the customer-specific SKU vector database that determines which database is used for retrieval. The database must be created in advance through the database creation process.
+   * 
    * @example
    * rag_xxx
    */
   ragId?: string;
   /**
+   * @remarks
+   * The optional business request ID used for Tracing Analysis.
+   * 
    * @example
    * didui-request-001
    */
   reqId?: string;
   /**
    * @remarks
+   * The HTTPS URL of the overall floor display image.
+   * 
    * This parameter is required.
    * 
    * @example

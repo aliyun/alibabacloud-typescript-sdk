@@ -49,12 +49,30 @@ export class ImageRemoveRequest extends $dara.Model {
    * [1,2]
    */
   objectRemoveElements?: number[];
+  /**
+   * @example
+   * [10,10,100,100]
+   */
+  position?: string;
+  /**
+   * @example
+   * ["https://img.alicdn.com/bao/uploaded/i2/xxx.jpg"]
+   */
+  userImage?: string[];
+  /**
+   * @example
+   * ["xx","yy"]
+   */
+  userText?: string[];
   static names(): { [key: string]: string } {
     return {
       imageUrl: 'ImageUrl',
       mask: 'Mask',
       nonObjectRemoveElements: 'NonObjectRemoveElements',
       objectRemoveElements: 'ObjectRemoveElements',
+      position: 'Position',
+      userImage: 'UserImage',
+      userText: 'UserText',
     };
   }
 
@@ -64,6 +82,9 @@ export class ImageRemoveRequest extends $dara.Model {
       mask: 'string',
       nonObjectRemoveElements: { 'type': 'array', 'itemType': 'number' },
       objectRemoveElements: { 'type': 'array', 'itemType': 'number' },
+      position: 'string',
+      userImage: { 'type': 'array', 'itemType': 'string' },
+      userText: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -73,6 +94,12 @@ export class ImageRemoveRequest extends $dara.Model {
     }
     if(Array.isArray(this.objectRemoveElements)) {
       $dara.Model.validateArray(this.objectRemoveElements);
+    }
+    if(Array.isArray(this.userImage)) {
+      $dara.Model.validateArray(this.userImage);
+    }
+    if(Array.isArray(this.userText)) {
+      $dara.Model.validateArray(this.userText);
     }
     super.validate();
   }

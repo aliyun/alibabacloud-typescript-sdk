@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DiduiAreaDeductionRequestProductsBoxes extends $dara.Model {
   /**
    * @remarks
+   * The bottom boundary of the detection box.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class DiduiAreaDeductionRequestProductsBoxes extends $dara.Model {
   bottom?: number;
   /**
    * @remarks
+   * The left boundary of the detection box.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class DiduiAreaDeductionRequestProductsBoxes extends $dara.Model {
   left?: number;
   /**
    * @remarks
+   * The right boundary of the detection box.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,6 +35,8 @@ export class DiduiAreaDeductionRequestProductsBoxes extends $dara.Model {
   right?: number;
   /**
    * @remarks
+   * The top boundary of the detection box.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -65,11 +73,15 @@ export class DiduiAreaDeductionRequestProductsBoxes extends $dara.Model {
 export class DiduiAreaDeductionRequestProducts extends $dara.Model {
   /**
    * @remarks
+   * The detection boxes for the current SKU. Coordinate values range from 0 to 1000.
+   * 
    * This parameter is required.
    */
   boxes?: DiduiAreaDeductionRequestProductsBoxes[];
   /**
    * @remarks
+   * The unique ID of the SKU.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -105,21 +117,31 @@ export class DiduiAreaDeductionRequestProducts extends $dara.Model {
 export class DiduiAreaDeductionRequest extends $dara.Model {
   /**
    * @remarks
+   * The list of products and their detection boxes.
+   * 
    * This parameter is required.
    */
   products?: DiduiAreaDeductionRequestProducts[];
   /**
+   * @remarks
+   * The ID of the customer-specific SKU vector database that determines which database is used for retrieval. The database must be created in advance through the database creation process.
+   * 
    * @example
    * rag_xxx
    */
   ragId?: string;
   /**
+   * @remarks
+   * The optional business request ID used for Tracing Analysis.
+   * 
    * @example
    * didui-request-001
    */
   reqId?: string;
   /**
    * @remarks
+   * The HTTPS URL of the overall floor display image.
+   * 
    * This parameter is required.
    * 
    * @example
