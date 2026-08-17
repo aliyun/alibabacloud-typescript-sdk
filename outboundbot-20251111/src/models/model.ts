@@ -1,4 +1,5 @@
 export { AppendCasesRequestCases } from './AppendCasesRequest';
+export { AppendCasesResponseBodyData } from './AppendCasesResponseBody';
 export { CreateCampaignRequestCases } from './CreateCampaignRequest';
 export { CreateCloneVoiceResponseBodyData } from './CreateCloneVoiceResponseBody';
 export { CreateFlashSmsAccessProfileRequestAccessProfileDySmsAccessProfiles } from './CreateFlashSmsAccessProfileRequest';

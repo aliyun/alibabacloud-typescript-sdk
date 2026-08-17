@@ -2043,7 +2043,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 恢复外呼活动
+   * Resumes an outbound campaign.
    * 
    * @remarks
    * ***
@@ -2081,7 +2081,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 恢复外呼活动
+   * Resumes an outbound campaign.
    * 
    * @remarks
    * ***
@@ -2095,7 +2095,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 提交外呼活动
+   * Submits an outbound call campaign.
    * 
    * @remarks
    * ***
@@ -2133,7 +2133,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 提交外呼活动
+   * Submits an outbound call campaign.
    * 
    * @remarks
    * ***

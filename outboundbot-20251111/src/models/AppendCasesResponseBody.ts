@@ -2,6 +2,40 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class AppendCasesResponseBodyData extends $dara.Model {
+  /**
+   * @example
+   * 133xxxxxxxx
+   */
+  phoneNumber?: string;
+  /**
+   * @example
+   * bizId-xxxxxx
+   */
+  referenceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      phoneNumber: 'PhoneNumber',
+      referenceId: 'ReferenceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      phoneNumber: 'string',
+      referenceId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AppendCasesResponseBody extends $dara.Model {
   /**
    * @remarks
@@ -11,6 +45,7 @@ export class AppendCasesResponseBody extends $dara.Model {
    * OK
    */
   code?: string;
+  data?: AppendCasesResponseBodyData[];
   /**
    * @remarks
    * The HTTP status code.
@@ -51,6 +86,7 @@ export class AppendCasesResponseBody extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
+      data: 'Data',
       httpStatusCode: 'HttpStatusCode',
       message: 'Message',
       params: 'Params',
@@ -62,6 +98,7 @@ export class AppendCasesResponseBody extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       code: 'string',
+      data: { 'type': 'array', 'itemType': AppendCasesResponseBodyData },
       httpStatusCode: 'number',
       message: 'string',
       params: { 'type': 'array', 'itemType': 'string' },
@@ -71,6 +108,9 @@ export class AppendCasesResponseBody extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.data)) {
+      $dara.Model.validateArray(this.data);
+    }
     if(Array.isArray(this.params)) {
       $dara.Model.validateArray(this.params);
     }

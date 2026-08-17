@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitCampaignResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 结果码
+   * The result code.
    * 
    * @example
    * OK
@@ -13,7 +13,7 @@ export class SubmitCampaignResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * 操作是否成功
+   * Indicates whether the operation was successful.
    * 
    * @example
    * true
@@ -21,7 +21,7 @@ export class SubmitCampaignResponseBody extends $dara.Model {
   data?: boolean;
   /**
    * @remarks
-   * HTTP状态码
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -29,7 +29,7 @@ export class SubmitCampaignResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * 错误信息
+   * The error message.
    * 
    * @example
    * Success
@@ -37,12 +37,12 @@ export class SubmitCampaignResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * 错误信息参数列表
+   * The list of error message parameters.
    */
   params?: string[];
   /**
    * @remarks
-   * 请求ID
+   * The request ID.
    * 
    * @example
    * 254EB995-DEDF-48A4-9101-9CA5B72FFBCC
@@ -50,7 +50,7 @@ export class SubmitCampaignResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * 请求是否成功
+   * Indicates whether the request was successful.
    * 
    * @example
    * true
