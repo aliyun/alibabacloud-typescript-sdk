@@ -76,6 +76,7 @@ export class DescribeCreditUsageInfoResponseBodyUsageInfoListUsageInfo extends $
    * The hourly consumption samples of the current credit package.
    */
   creditTrendList?: DescribeCreditUsageInfoResponseBodyUsageInfoListUsageInfoCreditTrendList[];
+  currentInstanceExpiredTime?: string;
   /**
    * @remarks
    * The instance ID of the current active credit package.
@@ -189,6 +190,7 @@ export class DescribeCreditUsageInfoResponseBodyUsageInfoListUsageInfo extends $
       availableAmount: 'AvailableAmount',
       contactGroupNames: 'ContactGroupNames',
       creditTrendList: 'CreditTrendList',
+      currentInstanceExpiredTime: 'CurrentInstanceExpiredTime',
       currentInstanceId: 'CurrentInstanceId',
       currentRemainCredit: 'CurrentRemainCredit',
       currentTotalCredit: 'CurrentTotalCredit',
@@ -213,6 +215,7 @@ export class DescribeCreditUsageInfoResponseBodyUsageInfoListUsageInfo extends $
       availableAmount: 'number',
       contactGroupNames: { 'type': 'array', 'itemType': 'string' },
       creditTrendList: { 'type': 'array', 'itemType': DescribeCreditUsageInfoResponseBodyUsageInfoListUsageInfoCreditTrendList },
+      currentInstanceExpiredTime: 'string',
       currentInstanceId: 'string',
       currentRemainCredit: 'number',
       currentTotalCredit: 'number',
