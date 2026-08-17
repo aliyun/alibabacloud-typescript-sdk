@@ -43,6 +43,14 @@ export default class Client extends OpenApi {
       body["CalledNumber"] = request.calledNumber;
     }
 
+    if (!$dara.isNull(request.callerUacAccountId)) {
+      body["CallerUacAccountId"] = request.callerUacAccountId;
+    }
+
+    if (!$dara.isNull(request.currentWorkspaceId)) {
+      body["CurrentWorkspaceId"] = request.currentWorkspaceId;
+    }
+
     if (!$dara.isNull(request.customerName)) {
       body["CustomerName"] = request.customerName;
     }
@@ -99,6 +107,14 @@ export default class Client extends OpenApi {
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.applicationCode)) {
       body["ApplicationCode"] = request.applicationCode;
+    }
+
+    if (!$dara.isNull(request.callerUacAccountId)) {
+      body["CallerUacAccountId"] = request.callerUacAccountId;
+    }
+
+    if (!$dara.isNull(request.currentWorkspaceId)) {
+      body["CurrentWorkspaceId"] = request.currentWorkspaceId;
     }
 
     if (!$dara.isNull(request.taskId)) {
@@ -169,8 +185,16 @@ export default class Client extends OpenApi {
       body["CallStartTimeEnd"] = request.callStartTimeEnd;
     }
 
+    if (!$dara.isNull(request.callerUacAccountId)) {
+      body["CallerUacAccountId"] = request.callerUacAccountId;
+    }
+
     if (!$dara.isNull(request.current)) {
       body["Current"] = request.current;
+    }
+
+    if (!$dara.isNull(request.currentWorkspaceId)) {
+      body["CurrentWorkspaceId"] = request.currentWorkspaceId;
     }
 
     if (!$dara.isNull(request.customerNameOrPhone)) {

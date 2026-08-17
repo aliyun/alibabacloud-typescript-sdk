@@ -10,6 +10,16 @@ export class CreateCallOutboundInstantRequest extends $dara.Model {
   calledNumber?: string;
   /**
    * @example
+   * abc123***
+   */
+  callerUacAccountId?: string;
+  /**
+   * @example
+   * abc123***
+   */
+  currentWorkspaceId?: string;
+  /**
+   * @example
    * 张三
    */
   customerName?: string;
@@ -31,6 +41,8 @@ export class CreateCallOutboundInstantRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       calledNumber: 'CalledNumber',
+      callerUacAccountId: 'CallerUacAccountId',
+      currentWorkspaceId: 'CurrentWorkspaceId',
       customerName: 'CustomerName',
       encryptCall: 'EncryptCall',
       promptVariables: 'PromptVariables',
@@ -41,6 +53,8 @@ export class CreateCallOutboundInstantRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       calledNumber: 'string',
+      callerUacAccountId: 'string',
+      currentWorkspaceId: 'string',
       customerName: 'string',
       encryptCall: 'boolean',
       promptVariables: 'string',

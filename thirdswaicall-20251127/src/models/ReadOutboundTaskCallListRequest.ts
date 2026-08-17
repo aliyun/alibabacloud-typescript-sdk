@@ -25,9 +25,19 @@ export class ReadOutboundTaskCallListRequest extends $dara.Model {
   callStartTimeEnd?: number;
   /**
    * @example
+   * abc123***
+   */
+  callerUacAccountId?: string;
+  /**
+   * @example
    * 1
    */
   current?: number;
+  /**
+   * @example
+   * abc123***
+   */
+  currentWorkspaceId?: string;
   /**
    * @example
    * 张先生
@@ -74,7 +84,9 @@ export class ReadOutboundTaskCallListRequest extends $dara.Model {
       callEndTimeEnd: 'CallEndTimeEnd',
       callStartTimeBegin: 'CallStartTimeBegin',
       callStartTimeEnd: 'CallStartTimeEnd',
+      callerUacAccountId: 'CallerUacAccountId',
       current: 'Current',
+      currentWorkspaceId: 'CurrentWorkspaceId',
       customerNameOrPhone: 'CustomerNameOrPhone',
       displayStatusList: 'DisplayStatusList',
       labelTags: 'LabelTags',
@@ -92,7 +104,9 @@ export class ReadOutboundTaskCallListRequest extends $dara.Model {
       callEndTimeEnd: 'number',
       callStartTimeBegin: 'number',
       callStartTimeEnd: 'number',
+      callerUacAccountId: 'string',
       current: 'number',
+      currentWorkspaceId: 'string',
       customerNameOrPhone: 'string',
       displayStatusList: { 'type': 'array', 'itemType': 'string' },
       labelTags: { 'type': 'array', 'itemType': 'string' },

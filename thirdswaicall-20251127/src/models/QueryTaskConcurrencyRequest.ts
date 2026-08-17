@@ -10,12 +10,24 @@ export class QueryTaskConcurrencyRequest extends $dara.Model {
   applicationCode?: string;
   /**
    * @example
+   * abc123***
+   */
+  callerUacAccountId?: string;
+  /**
+   * @example
+   * abc123***
+   */
+  currentWorkspaceId?: string;
+  /**
+   * @example
    * 12345
    */
   taskId?: number;
   static names(): { [key: string]: string } {
     return {
       applicationCode: 'ApplicationCode',
+      callerUacAccountId: 'CallerUacAccountId',
+      currentWorkspaceId: 'CurrentWorkspaceId',
       taskId: 'TaskId',
     };
   }
@@ -23,6 +35,8 @@ export class QueryTaskConcurrencyRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       applicationCode: 'string',
+      callerUacAccountId: 'string',
+      currentWorkspaceId: 'string',
       taskId: 'number',
     };
   }
