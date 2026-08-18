@@ -82,6 +82,7 @@ export class QueryAccountSafetyIncidentResponseBodyDataList extends $dara.Model 
    * 2026-03-16 15:15:00
    */
   antiPunishTime?: string;
+  callApi?: string;
   /**
    * @remarks
    * The control action time information.
@@ -119,6 +120,9 @@ export class QueryAccountSafetyIncidentResponseBodyDataList extends $dara.Model 
    * ak leak.
    */
   eventReason?: string;
+  eventType?: string;
+  exceptionCallTime?: string;
+  exceptionIp?: string;
   /**
    * @remarks
    * The start time of the control action.
@@ -195,11 +199,15 @@ export class QueryAccountSafetyIncidentResponseBodyDataList extends $dara.Model 
       actionCode: 'ActionCode',
       actionName: 'ActionName',
       antiPunishTime: 'AntiPunishTime',
+      callApi: 'CallApi',
       dateExtras: 'DateExtras',
       eventId: 'EventId',
       eventImpact: 'EventImpact',
       eventName: 'EventName',
       eventReason: 'EventReason',
+      eventType: 'EventType',
+      exceptionCallTime: 'ExceptionCallTime',
+      exceptionIp: 'ExceptionIp',
       punishTime: 'PunishTime',
       reinforcement: 'Reinforcement',
       resourceId: 'ResourceId',
@@ -216,11 +224,15 @@ export class QueryAccountSafetyIncidentResponseBodyDataList extends $dara.Model 
       actionCode: 'string',
       actionName: 'string',
       antiPunishTime: 'string',
+      callApi: 'string',
       dateExtras: QueryAccountSafetyIncidentResponseBodyDataListDateExtras,
       eventId: 'string',
       eventImpact: 'string',
       eventName: 'string',
       eventReason: 'string',
+      eventType: 'string',
+      exceptionCallTime: 'string',
+      exceptionIp: 'string',
       punishTime: 'string',
       reinforcement: 'string',
       resourceId: 'string',

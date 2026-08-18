@@ -16,12 +16,12 @@ export class QueryResourceControlEventsResponseBodyDataList extends $dara.Model 
    * The action name.
    * 
    * @example
-   * Cryptomining alert.
+   * Cryptomining alert
    */
   actionName?: string;
   /**
    * @remarks
-   * The time when the alert ended.
+   * The alert end time.
    * 
    * @example
    * 2026-03-16 15:15:00
@@ -29,7 +29,7 @@ export class QueryResourceControlEventsResponseBodyDataList extends $dara.Model 
   alertEndTime?: string;
   /**
    * @remarks
-   * The time when the first alert was triggered.
+   * The first alert time.
    * 
    * @example
    * 2026-03-16 15:15:00
@@ -54,6 +54,12 @@ export class QueryResourceControlEventsResponseBodyDataList extends $dara.Model 
   /**
    * @remarks
    * The application status.
+   * 
+   * Valid values:
+   * 
+   * - **AUDIT**: Under review.
+   * - **SUCCESS**: Approved.
+   * - **FAIL**: Rejected.
    * 
    * @example
    * AUDIT
@@ -104,7 +110,7 @@ export class QueryResourceControlEventsResponseBodyDataList extends $dara.Model 
    * The event name.
    * 
    * @example
-   * Mining control event.
+   * Mining control event
    */
   eventName?: string;
   /**
@@ -184,7 +190,7 @@ export class QueryResourceControlEventsResponseBodyDataList extends $dara.Model 
    * The event reason.
    * 
    * @example
-   * Cryptomining alert.
+   * Cryptomining alert
    */
   reason?: string;
   /**
@@ -214,6 +220,12 @@ export class QueryResourceControlEventsResponseBodyDataList extends $dara.Model 
   /**
    * @remarks
    * The task status.
+   * 
+   * - **Executing**: executing
+   * - **Removed**: removed
+   * - **Alerting**: alerting
+   * - **Ended**: ended
+   * - **Processed**: processed by the user and under platform review
    * 
    * @example
    * Executing
@@ -343,7 +355,7 @@ export class QueryResourceControlEventsResponseBodyDataPageInfo extends $dara.Mo
   current?: number;
   /**
    * @remarks
-   * The number of records per page.
+   * The number of records returned per page.
    * 
    * @example
    * 24

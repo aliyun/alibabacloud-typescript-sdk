@@ -35,6 +35,10 @@ export class QueryResourceControlEventsShrinkRequest extends $dara.Model {
    * ecs
    */
   businessCode?: string;
+  /**
+   * @remarks
+   * The list of product types.
+   */
   businessCodesShrink?: string;
   /**
    * @remarks
@@ -71,6 +75,8 @@ export class QueryResourceControlEventsShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The collection of event name codes.
+   * 
+   * > Example: [\\\\\\"BANFF_ECS_PE_ECS_MINING_SHUTDOWN\\\\\\"]
    * 
    * @example
    * ["BANFF_ECS_PE_ECS_MINING_SHUTDOWN"]
@@ -169,7 +175,7 @@ export class QueryResourceControlEventsShrinkRequest extends $dara.Model {
    * The event reason.
    * 
    * @example
-   * Cryptomining.
+   * Cryptomining
    */
   reason?: string;
   /**
@@ -190,7 +196,12 @@ export class QueryResourceControlEventsShrinkRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The collection of task statuses.
+   * The collection of task statuses. Valid values:
+   * - **Executing**: executing
+   * - **Removed**: removed
+   * - **Alerting**: alerting
+   * - **Ended**: ended
+   * - **Processed**: processed by the user and under platform review
    * 
    * @example
    * [\\"Executing\\"]
