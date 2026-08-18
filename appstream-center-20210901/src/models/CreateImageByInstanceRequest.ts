@@ -31,7 +31,7 @@ export class CreateImageByInstanceRequestTagList extends $dara.Model {
 export class CreateImageByInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * This parameter applies only to Cloud Desktop instances. Specifies whether to clear user personal data. If set to true, the created image clears data in all directories under C:\\Users except Administrator and Public.
+   * This parameter applies only to Cloud Desktop scenarios. Specifies whether to clear user personal data. If set to true, the created image clears data in all directories under C:\\Users except Administrator and Public.
    * 
    * @example
    * false
@@ -45,6 +45,7 @@ export class CreateImageByInstanceRequest extends $dara.Model {
    * 1
    */
   bizType?: number;
+  copyProfile?: boolean;
   /**
    * @remarks
    * The image description.
@@ -106,6 +107,7 @@ export class CreateImageByInstanceRequest extends $dara.Model {
     return {
       autoCleanUserdata: 'AutoCleanUserdata',
       bizType: 'BizType',
+      copyProfile: 'CopyProfile',
       description: 'Description',
       diskType: 'DiskType',
       imageName: 'ImageName',
@@ -121,6 +123,7 @@ export class CreateImageByInstanceRequest extends $dara.Model {
     return {
       autoCleanUserdata: 'boolean',
       bizType: 'number',
+      copyProfile: 'boolean',
       description: 'string',
       diskType: 'string',
       imageName: 'string',

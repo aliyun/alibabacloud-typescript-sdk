@@ -695,6 +695,10 @@ export default class Client extends OpenApi {
       body["BizType"] = request.bizType;
     }
 
+    if (!$dara.isNull(request.copyProfile)) {
+      body["CopyProfile"] = request.copyProfile;
+    }
+
     if (!$dara.isNull(request.description)) {
       body["Description"] = request.description;
     }
