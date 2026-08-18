@@ -1504,6 +1504,59 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 安装节点组件
+   * 
+   * @param request - CreateNodePoolComponentInstancesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateNodePoolComponentInstancesResponse
+   */
+  async createNodePoolComponentInstancesWithOptions(clusterId: string, nodepoolId: string, request: $_model.CreateNodePoolComponentInstancesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateNodePoolComponentInstancesResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.components)) {
+      body["components"] = request.components;
+    }
+
+    if (!$dara.isNull(request.nodeNames)) {
+      body["node_names"] = request.nodeNames;
+    }
+
+    if (!$dara.isNull(request.rollingPolicy)) {
+      body["rolling_policy"] = request.rollingPolicy;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateNodePoolComponentInstances",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/clusters/${$dara.URL.percentEncode(clusterId)}/nodepools/${$dara.URL.percentEncode(nodepoolId)}/component_instances`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateNodePoolComponentInstancesResponse>(await this.callApi(params, req, runtime), new $_model.CreateNodePoolComponentInstancesResponse({}));
+  }
+
+  /**
+   * 安装节点组件
+   * 
+   * @param request - CreateNodePoolComponentInstancesRequest
+   * @returns CreateNodePoolComponentInstancesResponse
+   */
+  async createNodePoolComponentInstances(clusterId: string, nodepoolId: string, request: $_model.CreateNodePoolComponentInstancesRequest): Promise<$_model.CreateNodePoolComponentInstancesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createNodePoolComponentInstancesWithOptions(clusterId, nodepoolId, request, headers, runtime);
+  }
+
+  /**
    * An orchestration template defines and describes a set of Kubernetes cluster resources in a declarative manner, specifying how applications should run or be configured. You can use these templates to automate the deployment and cluster management of resources, such as Pods, Services, Deployments, ConfigMaps, and PersistentVolumes. You can invoke the CreateTemplate operation to create an orchestration template.
    * 
    * @param request - CreateTemplateRequest
@@ -2040,6 +2093,73 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteKubernetesTriggerWithOptions(Id, headers, runtime);
+  }
+
+  /**
+   * 卸载节点组件
+   * 
+   * @param tmpReq - DeleteNodePoolComponentInstanceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteNodePoolComponentInstanceResponse
+   */
+  async deleteNodePoolComponentInstanceWithOptions(clusterId: string, nodepoolId: string, name: string, tmpReq: $_model.DeleteNodePoolComponentInstanceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteNodePoolComponentInstanceResponse> {
+    tmpReq.validate();
+    let request = new $_model.DeleteNodePoolComponentInstanceShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.nodeNames)) {
+      request.nodeNamesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.nodeNames, "node_names", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.batchInterval)) {
+      query["batch_interval"] = request.batchInterval;
+    }
+
+    if (!$dara.isNull(request.maxFailedNodes)) {
+      query["max_failed_nodes"] = request.maxFailedNodes;
+    }
+
+    if (!$dara.isNull(request.maxParallelism)) {
+      query["max_parallelism"] = request.maxParallelism;
+    }
+
+    if (!$dara.isNull(request.nodeNamesShrink)) {
+      query["node_names"] = request.nodeNamesShrink;
+    }
+
+    if (!$dara.isNull(request.pausePolicy)) {
+      query["pause_policy"] = request.pausePolicy;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteNodePoolComponentInstance",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/clusters/${$dara.URL.percentEncode(clusterId)}/nodepools/${$dara.URL.percentEncode(nodepoolId)}/component_instances/${$dara.URL.percentEncode(name)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteNodePoolComponentInstanceResponse>(await this.callApi(params, req, runtime), new $_model.DeleteNodePoolComponentInstanceResponse({}));
+  }
+
+  /**
+   * 卸载节点组件
+   * 
+   * @param request - DeleteNodePoolComponentInstanceRequest
+   * @returns DeleteNodePoolComponentInstanceResponse
+   */
+  async deleteNodePoolComponentInstance(clusterId: string, nodepoolId: string, name: string, request: $_model.DeleteNodePoolComponentInstanceRequest): Promise<$_model.DeleteNodePoolComponentInstanceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteNodePoolComponentInstanceWithOptions(clusterId, nodepoolId, name, request, headers, runtime);
   }
 
   /**
@@ -5327,6 +5447,130 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询节点组件实例列表
+   * 
+   * @param request - ListNodePoolComponentInstancesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListNodePoolComponentInstancesResponse
+   */
+  async listNodePoolComponentInstancesWithOptions(clusterId: string, nodepoolId: string, request: $_model.ListNodePoolComponentInstancesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListNodePoolComponentInstancesResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.maxResults)) {
+      query["max_results"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["next_token"] = request.nextToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListNodePoolComponentInstances",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/clusters/${$dara.URL.percentEncode(clusterId)}/nodepools/${$dara.URL.percentEncode(nodepoolId)}/component_instances`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListNodePoolComponentInstancesResponse>(await this.callApi(params, req, runtime), new $_model.ListNodePoolComponentInstancesResponse({}));
+  }
+
+  /**
+   * 查询节点组件实例列表
+   * 
+   * @param request - ListNodePoolComponentInstancesRequest
+   * @returns ListNodePoolComponentInstancesResponse
+   */
+  async listNodePoolComponentInstances(clusterId: string, nodepoolId: string, request: $_model.ListNodePoolComponentInstancesRequest): Promise<$_model.ListNodePoolComponentInstancesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listNodePoolComponentInstancesWithOptions(clusterId, nodepoolId, request, headers, runtime);
+  }
+
+  /**
+   * 查询节点池可安装的节点组件
+   * 
+   * @param tmpReq - ListNodePoolComponentsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListNodePoolComponentsResponse
+   */
+  async listNodePoolComponentsWithOptions(clusterId: string, tmpReq: $_model.ListNodePoolComponentsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListNodePoolComponentsResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListNodePoolComponentsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.instanceTypes)) {
+      request.instanceTypesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.instanceTypes, "instance_types", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.imageId)) {
+      query["image_id"] = request.imageId;
+    }
+
+    if (!$dara.isNull(request.imageType)) {
+      query["image_type"] = request.imageType;
+    }
+
+    if (!$dara.isNull(request.instanceTypesShrink)) {
+      query["instance_types"] = request.instanceTypesShrink;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["max_results"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["next_token"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.nodepoolId)) {
+      query["nodepool_id"] = request.nodepoolId;
+    }
+
+    if (!$dara.isNull(request.nodepoolType)) {
+      query["nodepool_type"] = request.nodepoolType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListNodePoolComponents",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/clusters/${$dara.URL.percentEncode(clusterId)}/nodepool_components`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListNodePoolComponentsResponse>(await this.callApi(params, req, runtime), new $_model.ListNodePoolComponentsResponse({}));
+  }
+
+  /**
+   * 查询节点池可安装的节点组件
+   * 
+   * @param request - ListNodePoolComponentsRequest
+   * @returns ListNodePoolComponentsResponse
+   */
+  async listNodePoolComponents(clusterId: string, request: $_model.ListNodePoolComponentsRequest): Promise<$_model.ListNodePoolComponentsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listNodePoolComponentsWithOptions(clusterId, request, headers, runtime);
+  }
+
+  /**
    * Retrieves a list of automated O&M execution plans.
    * 
    * @param request - ListOperationPlansRequest
@@ -7673,6 +7917,67 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateNodePoolComponentWithOptions(clusterId, nodepoolId, request, headers, runtime);
+  }
+
+  /**
+   * 更新节点组件
+   * 
+   * @param request - UpdateNodePoolComponentInstanceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateNodePoolComponentInstanceResponse
+   */
+  async updateNodePoolComponentInstanceWithOptions(clusterId: string, nodepoolId: string, name: string, request: $_model.UpdateNodePoolComponentInstanceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateNodePoolComponentInstanceResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.config)) {
+      body["config"] = request.config;
+    }
+
+    if (!$dara.isNull(request.disableRolling)) {
+      body["disable_rolling"] = request.disableRolling;
+    }
+
+    if (!$dara.isNull(request.nodeNames)) {
+      body["node_names"] = request.nodeNames;
+    }
+
+    if (!$dara.isNull(request.rollingPolicy)) {
+      body["rolling_policy"] = request.rollingPolicy;
+    }
+
+    if (!$dara.isNull(request.version)) {
+      body["version"] = request.version;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateNodePoolComponentInstance",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/clusters/${$dara.URL.percentEncode(clusterId)}/nodepools/${$dara.URL.percentEncode(nodepoolId)}/component_instances/${$dara.URL.percentEncode(name)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateNodePoolComponentInstanceResponse>(await this.callApi(params, req, runtime), new $_model.UpdateNodePoolComponentInstanceResponse({}));
+  }
+
+  /**
+   * 更新节点组件
+   * 
+   * @param request - UpdateNodePoolComponentInstanceRequest
+   * @returns UpdateNodePoolComponentInstanceResponse
+   */
+  async updateNodePoolComponentInstance(clusterId: string, nodepoolId: string, name: string, request: $_model.UpdateNodePoolComponentInstanceRequest): Promise<$_model.UpdateNodePoolComponentInstanceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateNodePoolComponentInstanceWithOptions(clusterId, nodepoolId, name, request, headers, runtime);
   }
 
   /**
