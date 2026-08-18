@@ -14,7 +14,7 @@ export class ModelRouterQueryBillingCostBreakdownResponseBody extends $dara.Mode
   data?: BillingCostBreakdownRespDTO;
   /**
    * @remarks
-   * The error message code.
+   * The fault code.
    * 
    * @example
    * UNKNOWN_ERROR

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModelRouterQueryObservationLogsRequest extends $dara.Model {
   /**
    * @remarks
-   * The API key ID used to filter the results.
+   * The API key ID used to filter results.
    * 
    * @example
    * 1
@@ -13,12 +13,20 @@ export class ModelRouterQueryObservationLogsRequest extends $dara.Model {
   apiKeyId?: number;
   /**
    * @remarks
-   * The client ID used to filter the results.
+   * The client ID used to filter results.
    * 
    * @example
    * 1
    */
   clientId?: number;
+  /**
+   * @remarks
+   * The list of department IDs, separated by commas. You can query data for multiple departments. This parameter is mutually exclusive with client_id.
+   * 
+   * @example
+   * 1,2,3
+   */
+  clientIds?: string;
   /**
    * @remarks
    * The custom end time.
@@ -45,7 +53,7 @@ export class ModelRouterQueryObservationLogsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * Optional. Filters results by member IDs. Separate multiple member IDs with commas. If this parameter is not specified, results for the department and all its members are returned. If an empty value is specified, results for only the department are returned, excluding members.
+   * Optional. Filters results by member user IDs, separated by commas. If not specified, data for the department and all its members is returned. If an empty value is specified, only department data without member data is returned.
    * 
    * @example
    * 30001,30002
@@ -53,7 +61,7 @@ export class ModelRouterQueryObservationLogsRequest extends $dara.Model {
   memberUserIds?: string;
   /**
    * @remarks
-   * The model ID used to filter the results.
+   * The model ID used to filter results.
    * 
    * @example
    * 1
@@ -117,7 +125,7 @@ export class ModelRouterQueryObservationLogsRequest extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The time range for the query. Valid values: 1h, 6h, 24h, 7d, 30d.
+   * The time range for the query. Valid values: 1h, 6h, 24h, 7d, and 30d.
    * 
    * @example
    * 24h
@@ -127,6 +135,7 @@ export class ModelRouterQueryObservationLogsRequest extends $dara.Model {
     return {
       apiKeyId: 'apiKeyId',
       clientId: 'clientId',
+      clientIds: 'clientIds',
       endTime: 'endTime',
       groupBy: 'groupBy',
       maxResults: 'maxResults',
@@ -147,6 +156,7 @@ export class ModelRouterQueryObservationLogsRequest extends $dara.Model {
     return {
       apiKeyId: 'number',
       clientId: 'number',
+      clientIds: 'string',
       endTime: 'string',
       groupBy: 'string',
       maxResults: 'number',

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModelRouterQueryCostOverviewMetricsRequest extends $dara.Model {
   /**
    * @remarks
-   * Optional. Filters by API key ID. This parameter works in conjunction with the department and requires clientId to be specified first.
+   * Optional. Filters results by API Key ID. This parameter is linked to the department and requires clientId to be specified first.
    * 
    * @example
    * 100
@@ -13,7 +13,7 @@ export class ModelRouterQueryCostOverviewMetricsRequest extends $dara.Model {
   apiKeyId?: number;
   /**
    * @remarks
-   * The department ID used to filter results.
+   * Filters results by department ID.
    * 
    * @example
    * 1
@@ -21,7 +21,15 @@ export class ModelRouterQueryCostOverviewMetricsRequest extends $dara.Model {
   clientId?: number;
   /**
    * @remarks
-   * The end time, as a UNIX timestamp in seconds.
+   * The list of department IDs, separated by commas. Supports querying data for multiple departments. This parameter is mutually exclusive with clientId.
+   * 
+   * @example
+   * 1,2,3
+   */
+  clientIds?: string;
+  /**
+   * @remarks
+   * The end time, in UNIX timestamp (seconds).
    * 
    * This parameter is required.
    * 
@@ -31,7 +39,7 @@ export class ModelRouterQueryCostOverviewMetricsRequest extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * Automatically aggregated. No input required. The granularity of the data. Valid values: hourly and daily. Default value: hourly.
+   * Automatically aggregated. No input required. The granularity. Valid values: hourly and daily. Default value: hourly.
    * 
    * @example
    * hourly
@@ -47,7 +55,7 @@ export class ModelRouterQueryCostOverviewMetricsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * Optional. Filters by members (member IDs, separated by commas). If not specified, the department and all its members are included. If an empty value is specified, only the department is included without members.
+   * Optional. Filters results by member IDs, separated by commas. If not specified, the department and all its members are included. If an empty value is specified, only the department is included without members.
    * 
    * @example
    * 30001,30002
@@ -71,7 +79,7 @@ export class ModelRouterQueryCostOverviewMetricsRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The start time, as a UNIX timestamp in seconds.
+   * The start time, in UNIX timestamp (seconds).
    * 
    * This parameter is required.
    * 
@@ -83,6 +91,7 @@ export class ModelRouterQueryCostOverviewMetricsRequest extends $dara.Model {
     return {
       apiKeyId: 'apiKeyId',
       clientId: 'clientId',
+      clientIds: 'clientIds',
       endTime: 'endTime',
       granularity: 'granularity',
       maxResults: 'maxResults',
@@ -97,6 +106,7 @@ export class ModelRouterQueryCostOverviewMetricsRequest extends $dara.Model {
     return {
       apiKeyId: 'number',
       clientId: 'number',
+      clientIds: 'string',
       endTime: 'number',
       granularity: 'string',
       maxResults: 'number',

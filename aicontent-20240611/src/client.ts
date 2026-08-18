@@ -3071,7 +3071,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a balance transaction for customer management.
+   * Manages customers or creates a balance transaction.
    * 
    * @param request - ModelRouterCreateBalanceTransactionRequest
    * @param headers - map
@@ -3120,7 +3120,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a balance transaction for customer management.
+   * Manages customers or creates a balance transaction.
    * 
    * @param request - ModelRouterCreateBalanceTransactionRequest
    * @returns ModelRouterCreateBalanceTransactionResponse
@@ -4027,6 +4027,87 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the total cost trend of bills in the Billing Center.
+   * 
+   * @param request - ModelRouterGetBillingBillSummaryRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModelRouterGetBillingBillSummaryResponse
+   */
+  async modelRouterGetBillingBillSummaryWithOptions(request: $_model.ModelRouterGetBillingBillSummaryRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ModelRouterGetBillingBillSummaryResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.apiKeyId)) {
+      query["apiKeyId"] = request.apiKeyId;
+    }
+
+    if (!$dara.isNull(request.clientId)) {
+      query["clientId"] = request.clientId;
+    }
+
+    if (!$dara.isNull(request.clientIds)) {
+      query["clientIds"] = request.clientIds;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      query["endTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.memberUserIds)) {
+      query["memberUserIds"] = request.memberUserIds;
+    }
+
+    if (!$dara.isNull(request.modelId)) {
+      query["modelId"] = request.modelId;
+    }
+
+    if (!$dara.isNull(request.modelTypes)) {
+      query["modelTypes"] = request.modelTypes;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["startTime"] = request.startTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModelRouterGetBillingBillSummary",
+      version: "20240611",
+      protocol: "HTTPS",
+      pathname: `/api/v1/modelRouter/open/billing/bills/summary`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModelRouterGetBillingBillSummaryResponse>(await this.callApi(params, req, runtime), new $_model.ModelRouterGetBillingBillSummaryResponse({}));
+  }
+
+  /**
+   * Queries the total cost trend of bills in the Billing Center.
+   * 
+   * @param request - ModelRouterGetBillingBillSummaryRequest
+   * @returns ModelRouterGetBillingBillSummaryResponse
+   */
+  async modelRouterGetBillingBillSummary(request: $_model.ModelRouterGetBillingBillSummaryRequest): Promise<$_model.ModelRouterGetBillingBillSummaryResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.modelRouterGetBillingBillSummaryWithOptions(request, headers, runtime);
+  }
+
+  /**
    * Client Management/Get department balance
    * 
    * @param request - ModelRouterGetClientBalanceRequest
@@ -4813,6 +4894,10 @@ export default class Client extends OpenApi {
       query["clientId"] = request.clientId;
     }
 
+    if (!$dara.isNull(request.clientIds)) {
+      query["clientIds"] = request.clientIds;
+    }
+
     if (!$dara.isNull(request.endTime)) {
       query["endTime"] = request.endTime;
     }
@@ -5260,7 +5345,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the usage details of a model for billing management.
+   * Retrieves model usage details for billing management.
    * 
    * @param request - ModelRouterQueryCostModelDetailRequest
    * @param headers - map
@@ -5276,6 +5361,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.clientId)) {
       query["clientId"] = request.clientId;
+    }
+
+    if (!$dara.isNull(request.clientIds)) {
+      query["clientIds"] = request.clientIds;
     }
 
     if (!$dara.isNull(request.endTime)) {
@@ -5333,7 +5422,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the usage details of a model for billing management.
+   * Retrieves model usage details for billing management.
    * 
    * @param request - ModelRouterQueryCostModelDetailRequest
    * @returns ModelRouterQueryCostModelDetailResponse
@@ -5361,6 +5450,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.clientId)) {
       query["clientId"] = request.clientId;
+    }
+
+    if (!$dara.isNull(request.clientIds)) {
+      query["clientIds"] = request.clientIds;
     }
 
     if (!$dara.isNull(request.endTime)) {
@@ -5444,6 +5537,10 @@ export default class Client extends OpenApi {
       query["clientId"] = request.clientId;
     }
 
+    if (!$dara.isNull(request.clientIds)) {
+      query["clientIds"] = request.clientIds;
+    }
+
     if (!$dara.isNull(request.endTime)) {
       query["endTime"] = request.endTime;
     }
@@ -5519,6 +5616,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.clientId)) {
       query["clientId"] = request.clientId;
+    }
+
+    if (!$dara.isNull(request.clientIds)) {
+      query["clientIds"] = request.clientIds;
     }
 
     if (!$dara.isNull(request.endTime)) {
@@ -6222,6 +6323,10 @@ export default class Client extends OpenApi {
       query["clientId"] = request.clientId;
     }
 
+    if (!$dara.isNull(request.clientIds)) {
+      query["clientIds"] = request.clientIds;
+    }
+
     if (!$dara.isNull(request.endTime)) {
       query["endTime"] = request.endTime;
     }
@@ -6273,7 +6378,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of model observation logs.
+   * Retrieves a list of observation logs for model monitoring.
    * 
    * @param request - ModelRouterQueryObservationLogsRequest
    * @param headers - map
@@ -6289,6 +6394,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.clientId)) {
       query["clientId"] = request.clientId;
+    }
+
+    if (!$dara.isNull(request.clientIds)) {
+      query["clientIds"] = request.clientIds;
     }
 
     if (!$dara.isNull(request.endTime)) {
@@ -6362,7 +6471,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of model observation logs.
+   * Retrieves a list of observation logs for model monitoring.
    * 
    * @param request - ModelRouterQueryObservationLogsRequest
    * @returns ModelRouterQueryObservationLogsResponse
@@ -6374,7 +6483,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves observability metric data for models.
+   * Retrieves observability metric data for model API calls.
    * 
    * @param request - ModelRouterQueryObservationMetricsRequest
    * @param headers - map
@@ -6390,6 +6499,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.clientId)) {
       query["clientId"] = request.clientId;
+    }
+
+    if (!$dara.isNull(request.clientIds)) {
+      query["clientIds"] = request.clientIds;
     }
 
     if (!$dara.isNull(request.endTime)) {
@@ -6463,7 +6576,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves observability metric data for models.
+   * Retrieves observability metric data for model API calls.
    * 
    * @param request - ModelRouterQueryObservationMetricsRequest
    * @returns ModelRouterQueryObservationMetricsResponse
@@ -6491,6 +6604,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.clientId)) {
       query["clientId"] = request.clientId;
+    }
+
+    if (!$dara.isNull(request.clientIds)) {
+      query["clientIds"] = request.clientIds;
     }
 
     if (!$dara.isNull(request.endTime)) {

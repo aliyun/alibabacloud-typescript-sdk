@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModelRouterQueryCostTrendMetricsRequest extends $dara.Model {
   /**
    * @remarks
-   * Optional. Filters results by API Key ID. This parameter works in conjunction with the department and requires clientId to be specified first.
+   * Optional. Filters by API Key ID. This parameter is linked to the department and requires clientId to be specified first.
    * 
    * @example
    * 100
@@ -13,7 +13,7 @@ export class ModelRouterQueryCostTrendMetricsRequest extends $dara.Model {
   apiKeyId?: number;
   /**
    * @remarks
-   * Filters results by department ID.
+   * The department ID used to filter results.
    * 
    * @example
    * 1
@@ -21,7 +21,15 @@ export class ModelRouterQueryCostTrendMetricsRequest extends $dara.Model {
   clientId?: number;
   /**
    * @remarks
-   * The end time, in UNIX timestamp format (seconds).
+   * The list of department IDs, separated by commas. Supports querying data for multiple departments. This parameter is mutually exclusive with clientId.
+   * 
+   * @example
+   * 1,2,3
+   */
+  clientIds?: string;
+  /**
+   * @remarks
+   * The end time, as a UNIX timestamp in seconds.
    * 
    * This parameter is required.
    * 
@@ -52,7 +60,7 @@ export class ModelRouterQueryCostTrendMetricsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * Optional. Filters results by members (member IDs, separated by commas). If not specified, the department and all its members are included. If an empty value is specified, only the department is included without members.
+   * Optional. Filters by member IDs, separated by commas. If not specified, data for the department and all its members is returned. If an empty value is specified, only department data without members is returned.
    * 
    * @example
    * 30001,30002
@@ -76,7 +84,7 @@ export class ModelRouterQueryCostTrendMetricsRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The start time, in UNIX timestamp format (seconds).
+   * The start time, as a UNIX timestamp in seconds.
    * 
    * This parameter is required.
    * 
@@ -88,6 +96,7 @@ export class ModelRouterQueryCostTrendMetricsRequest extends $dara.Model {
     return {
       apiKeyId: 'apiKeyId',
       clientId: 'clientId',
+      clientIds: 'clientIds',
       endTime: 'endTime',
       granularity: 'granularity',
       maxResults: 'maxResults',
@@ -102,6 +111,7 @@ export class ModelRouterQueryCostTrendMetricsRequest extends $dara.Model {
     return {
       apiKeyId: 'number',
       clientId: 'number',
+      clientIds: 'string',
       endTime: 'number',
       granularity: 'string',
       maxResults: 'number',

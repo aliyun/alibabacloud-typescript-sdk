@@ -2,10 +2,10 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ModelRouterQueryUsageBreakdownRequest extends $dara.Model {
+export class ModelRouterGetBillingBillSummaryRequest extends $dara.Model {
   /**
    * @remarks
-   * Optional. Filters results by API key ID. This parameter is linked to the department and requires clientId to be specified first.
+   * The API key ID used to filter results. This parameter is optional and linked to the department. You must specify clientId first.
    * 
    * @example
    * 100
@@ -13,7 +13,7 @@ export class ModelRouterQueryUsageBreakdownRequest extends $dara.Model {
   apiKeyId?: number;
   /**
    * @remarks
-   * Optional. Filters results by department ID.
+   * The department ID used to filter results.
    * 
    * @example
    * 1
@@ -29,7 +29,7 @@ export class ModelRouterQueryUsageBreakdownRequest extends $dara.Model {
   clientIds?: string;
   /**
    * @remarks
-   * The query end time, in UNIX timestamp (seconds).
+   * The end time, in UNIX timestamp format (seconds).
    * 
    * This parameter is required.
    * 
@@ -37,27 +37,10 @@ export class ModelRouterQueryUsageBreakdownRequest extends $dara.Model {
    * 1700086400
    */
   endTime?: number;
-  /**
-   * @remarks
-   * The aggregation granularity. Valid values: hourly and daily.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * hourly
-   */
-  granularity?: string;
-  /**
-   * @remarks
-   * The maximum number of results to return.
-   * 
-   * @example
-   * 20
-   */
   maxResults?: number;
   /**
    * @remarks
-   * Optional. Filters results by member IDs, separated by commas. If not specified, the department and all its members are included. If an empty value is passed, only the department is included without members.
+   * The member IDs used to filter results, separated by commas. This parameter is optional. If not specified, the query returns data for the department and all its members. If an empty value is specified, the query returns data for the department only, excluding members.
    * 
    * @example
    * 30001,30002
@@ -65,31 +48,24 @@ export class ModelRouterQueryUsageBreakdownRequest extends $dara.Model {
   memberUserIds?: string;
   /**
    * @remarks
-   * The pagination token.
-   * 
-   * @example
-   * xxxx-xxx-xxxxx
-   */
-  nextToken?: string;
-  /**
-   * @remarks
-   * The page number. Default value: 1.
+   * The model ID. This parameter is optional and used to filter by model.
    * 
    * @example
    * 1
    */
-  page?: number;
+  modelId?: number;
   /**
    * @remarks
-   * The number of entries per page. Default value: 20. Maximum value: 500.
+   * The model types, separated by commas.
    * 
    * @example
-   * 20
+   * Chat,ChatMultimodal
    */
-  pageSize?: number;
+  modelTypes?: string;
+  nextToken?: string;
   /**
    * @remarks
-   * The query start time, in UNIX timestamp (seconds).
+   * The start time, in UNIX timestamp format (seconds).
    * 
    * This parameter is required.
    * 
@@ -103,12 +79,11 @@ export class ModelRouterQueryUsageBreakdownRequest extends $dara.Model {
       clientId: 'clientId',
       clientIds: 'clientIds',
       endTime: 'endTime',
-      granularity: 'granularity',
       maxResults: 'maxResults',
       memberUserIds: 'memberUserIds',
+      modelId: 'modelId',
+      modelTypes: 'modelTypes',
       nextToken: 'nextToken',
-      page: 'page',
-      pageSize: 'pageSize',
       startTime: 'startTime',
     };
   }
@@ -119,12 +94,11 @@ export class ModelRouterQueryUsageBreakdownRequest extends $dara.Model {
       clientId: 'number',
       clientIds: 'string',
       endTime: 'number',
-      granularity: 'string',
       maxResults: 'number',
       memberUserIds: 'string',
+      modelId: 'number',
+      modelTypes: 'string',
       nextToken: 'string',
-      page: 'number',
-      pageSize: 'number',
       startTime: 'number',
     };
   }

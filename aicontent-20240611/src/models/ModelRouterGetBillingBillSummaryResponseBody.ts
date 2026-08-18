@@ -1,20 +1,17 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { ClientBalanceDTO } from "./ClientBalanceDto";
+import { BillingBillSummaryRespDTO } from "./BillingBillSummaryRespDto";
 
 
-export class ModelRouterCreateBalanceTransactionResponseBody extends $dara.Model {
+export class ModelRouterGetBillingBillSummaryResponseBody extends $dara.Model {
   /**
    * @remarks
    * The data object.
-   * 
-   * @example
-   * {}
    */
-  data?: ClientBalanceDTO;
+  data?: BillingBillSummaryRespDTO;
   /**
    * @remarks
-   * The fault message encoding.
+   * The fault code.
    * 
    * @example
    * UNKNOWN_ERROR
@@ -36,6 +33,8 @@ export class ModelRouterCreateBalanceTransactionResponseBody extends $dara.Model
    * 200
    */
   httpStatusCode?: number;
+  maxResults?: number;
+  nextToken?: string;
   /**
    * @remarks
    * The request ID.
@@ -58,6 +57,8 @@ export class ModelRouterCreateBalanceTransactionResponseBody extends $dara.Model
       errCode: 'errCode',
       errMessage: 'errMessage',
       httpStatusCode: 'httpStatusCode',
+      maxResults: 'maxResults',
+      nextToken: 'nextToken',
       requestId: 'requestId',
       success: 'success',
     };
@@ -65,10 +66,12 @@ export class ModelRouterCreateBalanceTransactionResponseBody extends $dara.Model
 
   static types(): { [key: string]: any } {
     return {
-      data: ClientBalanceDTO,
+      data: BillingBillSummaryRespDTO,
       errCode: 'string',
       errMessage: 'string',
       httpStatusCode: 'number',
+      maxResults: 'number',
+      nextToken: 'string',
       requestId: 'string',
       success: 'boolean',
     };

@@ -21,6 +21,14 @@ export class ModelRouterQueryCostModelDetailRequest extends $dara.Model {
   clientId?: number;
   /**
    * @remarks
+   * The list of department IDs, separated by commas. Supports querying data for multiple departments. This parameter is mutually exclusive with clientId.
+   * 
+   * @example
+   * 1,2,3
+   */
+  clientIds?: string;
+  /**
+   * @remarks
    * The end time, in UNIX timestamp (seconds).
    * 
    * This parameter is required.
@@ -39,7 +47,7 @@ export class ModelRouterQueryCostModelDetailRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * Optional. Filters by member IDs. Separate multiple IDs with commas. If not specified, the department and all its members are included. If an empty value is specified, only the department is included without members.
+   * Optional. Filters by member IDs, separated by commas. If not specified, the department and all its members are included. If an empty value is specified, only the department is included without members.
    * 
    * @example
    * 30001,30002
@@ -101,6 +109,7 @@ export class ModelRouterQueryCostModelDetailRequest extends $dara.Model {
     return {
       apiKeyId: 'apiKeyId',
       clientId: 'clientId',
+      clientIds: 'clientIds',
       endTime: 'endTime',
       maxResults: 'maxResults',
       memberUserIds: 'memberUserIds',
@@ -117,6 +126,7 @@ export class ModelRouterQueryCostModelDetailRequest extends $dara.Model {
     return {
       apiKeyId: 'number',
       clientId: 'number',
+      clientIds: 'string',
       endTime: 'number',
       maxResults: 'number',
       memberUserIds: 'string',

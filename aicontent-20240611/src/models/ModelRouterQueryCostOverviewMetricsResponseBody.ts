@@ -14,7 +14,7 @@ export class ModelRouterQueryCostOverviewMetricsResponseBody extends $dara.Model
   data?: MetricValueDTO[];
   /**
    * @remarks
-   * The fault code.
+   * The fault information code.
    * 
    * @example
    * UNKNOWN_ERROR

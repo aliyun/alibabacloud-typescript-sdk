@@ -21,6 +21,14 @@ export class ModelRouterQueryObservationChartsRequest extends $dara.Model {
   clientId?: number;
   /**
    * @remarks
+   * The list of department IDs, separated by commas. Supports querying data for multiple departments. This parameter is mutually exclusive with client_id.
+   * 
+   * @example
+   * 1,2,3
+   */
+  clientIds?: string;
+  /**
+   * @remarks
    * The custom end time.
    * 
    * @example
@@ -29,7 +37,7 @@ export class ModelRouterQueryObservationChartsRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * Optional. Filters by member IDs. Separate multiple IDs with commas. If this parameter is not specified, the department and all its members are included. If an empty value is specified, only the department is included without members.
+   * Optional. Filters by member IDs, separated by commas. If not specified, the department and all its members are included. If an empty value is specified, only the department is included without members.
    * 
    * @example
    * 30001,30002
@@ -63,6 +71,7 @@ export class ModelRouterQueryObservationChartsRequest extends $dara.Model {
     return {
       apiKeyId: 'apiKeyId',
       clientId: 'clientId',
+      clientIds: 'clientIds',
       endTime: 'endTime',
       memberUserIds: 'memberUserIds',
       modelId: 'modelId',
@@ -75,6 +84,7 @@ export class ModelRouterQueryObservationChartsRequest extends $dara.Model {
     return {
       apiKeyId: 'number',
       clientId: 'number',
+      clientIds: 'string',
       endTime: 'string',
       memberUserIds: 'string',
       modelId: 'number',

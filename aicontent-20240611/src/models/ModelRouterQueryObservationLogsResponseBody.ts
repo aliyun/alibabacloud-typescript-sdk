@@ -4,28 +4,47 @@ import { RequestLogDTO } from "./RequestLogDto";
 
 
 export class ModelRouterQueryObservationLogsResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The list of log data.
+   */
   list?: RequestLogDTO[];
   /**
+   * @remarks
+   * maxResults
+   * 
    * @example
    * 1
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The token for the next query.
+   * 
    * @example
    * 0
    */
   nextToken?: number;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   page?: number;
   /**
+   * @remarks
+   * The number of entries returned per page. Default value: 10. Maximum value: 50.
+   * 
    * @example
    * 1
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The total number of entries.
+   * 
    * @example
    * None
    */

@@ -14,7 +14,7 @@ export class ModelRouterQueryCostModelDetailResponseBody extends $dara.Model {
   data?: CostModelDetailRespDTO;
   /**
    * @remarks
-   * The fault code.
+   * The error message code.
    * 
    * @example
    * UNKNOWN_ERROR
