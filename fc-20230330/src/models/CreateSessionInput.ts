@@ -60,6 +60,7 @@ export class CreateSessionInput extends $dara.Model {
    * 21600
    */
   sessionTTLInSeconds?: number;
+  snapshotId?: string;
   static names(): { [key: string]: string } {
     return {
       allowInternetAccess: 'allowInternetAccess',
@@ -74,6 +75,7 @@ export class CreateSessionInput extends $dara.Model {
       sessionId: 'sessionId',
       sessionIdleTimeoutInSeconds: 'sessionIdleTimeoutInSeconds',
       sessionTTLInSeconds: 'sessionTTLInSeconds',
+      snapshotId: 'snapshotId',
     };
   }
 
@@ -91,6 +93,7 @@ export class CreateSessionInput extends $dara.Model {
       sessionId: 'string',
       sessionIdleTimeoutInSeconds: 'number',
       sessionTTLInSeconds: 'number',
+      snapshotId: 'string',
     };
   }
 

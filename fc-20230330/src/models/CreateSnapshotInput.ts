@@ -2,24 +2,24 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class GetFunctionRequest extends $dara.Model {
+export class CreateSnapshotInput extends $dara.Model {
+  description?: string;
   /**
-   * @remarks
-   * The function version or alias.
-   * 
    * @example
-   * LATEST
+   * custom-test-session-id
    */
-  qualifier?: string;
+  sessionId?: string;
   static names(): { [key: string]: string } {
     return {
-      qualifier: 'qualifier',
+      description: 'description',
+      sessionId: 'sessionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      qualifier: 'string',
+      description: 'string',
+      sessionId: 'string',
     };
   }
 

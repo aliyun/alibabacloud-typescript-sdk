@@ -1,31 +1,32 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { CreateFunctionInput } from "./CreateFunctionInput";
+import { Snapshot } from "./Snapshot";
 
 
-export class CreateFunctionRequest extends $dara.Model {
+export class ListSnapshotsOutput extends $dara.Model {
+  nextToken?: string;
   /**
    * @remarks
-   * The function configuration.
-   * 
    * This parameter is required.
    */
-  body?: CreateFunctionInput;
+  snapshots?: Snapshot[];
   static names(): { [key: string]: string } {
     return {
-      body: 'body',
+      nextToken: 'nextToken',
+      snapshots: 'snapshots',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      body: CreateFunctionInput,
+      nextToken: 'string',
+      snapshots: { 'type': 'array', 'itemType': Snapshot },
     };
   }
 
   validate() {
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
+    if(Array.isArray(this.snapshots)) {
+      $dara.Model.validateArray(this.snapshots);
     }
     super.validate();
   }

@@ -3,10 +3,14 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class LifecycleHook extends $dara.Model {
+  /**
+   * @remarks
+   * The callback command for the function lifecycle initialization phase. The handler and command parameters for the lifecycle hook execution entry point cannot be configured at the same time. Only one can take effect. Configuring both produces an error.
+   */
   command?: string[];
   /**
    * @remarks
-   * The handler of the hook. The definition is similar to that of a request handler.
+   * The execution entry point of the hook, similar in meaning to the handler.
    * 
    * @example
    * index.initializer
@@ -14,7 +18,7 @@ export class LifecycleHook extends $dara.Model {
   handler?: string;
   /**
    * @remarks
-   * The timeout period of the hook. Unit: seconds.
+   * The timeout period of the hook, in seconds.
    * 
    * @example
    * 10

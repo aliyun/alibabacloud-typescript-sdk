@@ -6,7 +6,7 @@ import { CORSConfig } from "./Corsconfig";
 export class HTTPTriggerConfig extends $dara.Model {
   /**
    * @remarks
-   * Authentication configuration
+   * The authentication configuration.
    * 
    * @example
    * {"JWKS":{"foo":"bar"},"TokenLookup":"header:Authorization:Bearer,cookie:AuthorizationCookie","ClaimPassBy":"query:uid:uid,header:name:name"}
@@ -14,22 +14,26 @@ export class HTTPTriggerConfig extends $dara.Model {
   authConfig?: string;
   /**
    * @remarks
-   * The authentication type. Valid values are:
+   * The authentication type. Valid values:
    * 
    * - **function**: Authentication is required.
    * 
    * - **anonymous**: Authentication is not required.
    * 
-   * > The default type is **function**.
+   * > The default value is **function**.
    * 
    * @example
    * anonymous
    */
   authType?: string;
+  /**
+   * @remarks
+   * The CORS configuration.
+   */
   corsConfig?: CORSConfig;
   /**
    * @remarks
-   * Specifies whether to disable access from the default public domain name. If set to true, accessing the function\\"s default public URL returns a 403 error. If set to false, this parameter has no effect.
+   * Specifies whether to disable access through the default public domain name. If set to true, accessing the default public URL of the function returns a 403 error. If set to false, access is not affected.
    * 
    * @example
    * true
@@ -37,7 +41,7 @@ export class HTTPTriggerConfig extends $dara.Model {
   disableURLInternet?: boolean;
   /**
    * @remarks
-   * The list of request methods. Multiple methods are supported.
+   * The list of request methods. Multiple methods can be supported simultaneously.
    */
   methods?: string[];
   static names(): { [key: string]: string } {

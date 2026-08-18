@@ -15,6 +15,7 @@ export class ListFunctionsRequest extends $dara.Model {
   /**
    * @remarks
    * The version to which the function belongs. Valid values:
+   * 
    * - v3: lists only FC 3.0 functions.
    * - v2: lists only FC 2.0 functions.
    * 

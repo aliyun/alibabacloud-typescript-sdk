@@ -16,13 +16,20 @@ export class UpdateCustomDomainInput extends $dara.Model {
   authConfig?: AuthConfig;
   /**
    * @remarks
-   * Information about the HTTPS certificate.
+   * The HTTPS certificate information.
    */
   certConfig?: CertConfig;
+  /**
+   * @remarks
+   * The CORS configuration.
+   */
   corsConfig?: CORSConfig;
   /**
    * @remarks
-   * The protocol type that the domain name supports. \\`HTTP\\`: supports only the HTTP protocol. \\`HTTPS\\`: supports only the HTTPS protocol. \\`HTTP,HTTPS\\`: supports both HTTP and HTTPS protocols.
+   * The protocol type supported by the domain name. Valid values:
+   * - HTTP: Only the HTTP protocol is supported.
+   * - HTTPS: Only the HTTPS protocol is supported.
+   * - HTTP,HTTPS: Both HTTP and HTTPS protocols are supported.
    * 
    * @example
    * HTTP
@@ -30,17 +37,17 @@ export class UpdateCustomDomainInput extends $dara.Model {
   protocol?: string;
   /**
    * @remarks
-   * The route table that maps the access paths of the custom domain name to functions.
+   * The route table that maps paths to functions when the custom domain name is accessed.
    */
   routeConfig?: RouteConfig;
   /**
    * @remarks
-   * The TLS configuration.
+   * The TLS configuration information.
    */
   tlsConfig?: TLSConfig;
   /**
    * @remarks
-   * The Web Application Firewall (WAF) configuration.
+   * The Web Application Protection configuration information.
    */
   wafConfig?: WAFConfig;
   static names(): { [key: string]: string } {

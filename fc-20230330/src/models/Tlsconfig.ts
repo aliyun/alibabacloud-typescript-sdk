@@ -25,7 +25,7 @@ export class TLSConfig extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * TLSv1.2
+   * TLSv1.0
    */
   minVersion?: string;
   static names(): { [key: string]: string } {

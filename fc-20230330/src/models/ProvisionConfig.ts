@@ -7,27 +7,23 @@ import { TargetTrackingPolicy } from "./TargetTrackingPolicy";
 export class ProvisionConfig extends $dara.Model {
   /**
    * @remarks
-   * The target number of provisioned instances at the current time. If a metric-based or scheduled auto scaling policy is in effect, the value of this parameter is the number of provisioned instances as calculated by the policy. Otherwise, the value is the default number of provisioned instances when all auto scaling policies become invalid.
-   * 
-   * >  Comparison between this parameter and defaultTarget\\
-   * Assume that after the number of provisioned instances is set to 1, a scheduled auto scaling policy is added, and this auto scaling policy increases the number of provisioned instances during a specified time period to 5.
-   * 
-   * *   During the time period when the scheduled policy **takes effect**, the value of the target parameter is 5, while the value of the defaultTarget parameter is 1.
-   * 
-   * *   When the scheduled policy **is ineffective**, both the target value and defaultTarget value are 1.
+   * Specifies whether to always allocate CPU to function instances.
    * 
    * @example
    * true
    */
   alwaysAllocateCPU?: boolean;
   /**
+   * @remarks
+   * Specifies whether to always allocate GPU to function instances.
+   * 
    * @example
    * true
    */
   alwaysAllocateGPU?: boolean;
   /**
    * @remarks
-   * public
+   * The actual number of resources.
    * 
    * @example
    * 1
@@ -35,7 +31,7 @@ export class ProvisionConfig extends $dara.Model {
   current?: number;
   /**
    * @remarks
-   * public
+   * The error message when provisioned instance creation fails.
    * 
    * @example
    * image not found
@@ -43,27 +39,43 @@ export class ProvisionConfig extends $dara.Model {
   currentError?: string;
   /**
    * @remarks
-   * public
+   * The default number of resources when all metric-based scaling policies and scheduled scaling policies are inactive.
    * 
    * @example
    * 5
    */
   defaultTarget?: number;
   /**
+   * @remarks
+   * The resource descriptor of the function.
+   * 
    * @example
    * acs:fc:cn-shanghai:124:functions/myFunction/prod
    */
   functionArn?: string;
   /**
    * @remarks
-   * public
+   * The scheduled scaling policy configurations.
    */
   scheduledActions?: ScheduledAction[];
   /**
+   * @remarks
+   * The current target number of resources. If a metric-based scaling policy or scheduled scaling policy exists, this value is the number of resources calculated by the policy. Otherwise, it is the default number of provisioned instances.
+   * 
+   * 
+   * > What is the difference between target and defaultTarget?\\
+   * > Assume that the number of provisioned instances is configured as 1, and then a scheduled scaling policy is added to set the number of provisioned instances to 5 during a specific time period.
+   * > - During the **active period** of the scheduled scaling policy, target and defaultTarget are 5 and 1, respectively.
+   * >-  During the **inactive period** of the scheduled scaling policy, both target and defaultTarget are 1.
+   * 
    * @example
    * 5
    */
   target?: number;
+  /**
+   * @remarks
+   * The metric-based scaling policy configurations.
+   */
   targetTrackingPolicies?: TargetTrackingPolicy[];
   static names(): { [key: string]: string } {
     return {
