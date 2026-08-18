@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetAgentSpaceResponseBodyMseNamespace extends $dara.Model {
+  bindType?: string;
   /**
    * @remarks
    * The ID of the MSE namespace.
@@ -21,6 +22,7 @@ export class GetAgentSpaceResponseBodyMseNamespace extends $dara.Model {
   namespaceName?: string;
   static names(): { [key: string]: string } {
     return {
+      bindType: 'bindType',
       namespaceId: 'namespaceId',
       namespaceName: 'namespaceName',
     };
@@ -28,6 +30,7 @@ export class GetAgentSpaceResponseBodyMseNamespace extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      bindType: 'string',
       namespaceId: 'string',
       namespaceName: 'string',
     };
@@ -69,7 +72,7 @@ export class GetAgentSpaceResponseBody extends $dara.Model {
   cmsWorkspaceBindType?: string;
   /**
    * @remarks
-   * The time when the AgentSpace was created.
+   * The creation time.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
    * 
@@ -87,7 +90,7 @@ export class GetAgentSpaceResponseBody extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The Microservices Engine (MSE) namespace.
+   * The MSE namespace.
    */
   mseNamespace?: GetAgentSpaceResponseBodyMseNamespace;
   /**
@@ -116,7 +119,7 @@ export class GetAgentSpaceResponseBody extends $dara.Model {
   slsProject?: string;
   /**
    * @remarks
-   * The time when the AgentSpace was last updated.
+   * The update time.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
    * 

@@ -31,7 +31,7 @@ export class UpdateExperimentPlanRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The evaluator list. Omitting this field means no modification. Passing an empty array clears the list.
+   * The evaluator list. Omitting this field indicates no modification. Passing an empty array clears the list.
    * 
    * @example
    * [{"evaluatorRef": "Builtin.agent_task_completion"}]
@@ -47,7 +47,7 @@ export class UpdateExperimentPlanRequest extends $dara.Model {
   experimentType?: string;
   /**
    * @remarks
-   * The experiment configuration list. When passed, the entire list is replaced. The number of items must be 1 to 5.
+   * The experiment configuration list. When specified, the entire list is replaced. The number of items must be 1 to 5.
    * 
    * @example
    * [{"label": "A", "name": "baseline", "modelName": "qwen-max"}]

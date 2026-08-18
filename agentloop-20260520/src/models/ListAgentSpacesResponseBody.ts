@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListAgentSpacesResponseBodyAgentSpacesMseNamespace extends $dara.Model {
+  bindType?: string;
   /**
    * @remarks
    * The MSE namespace ID.
@@ -21,6 +22,7 @@ export class ListAgentSpacesResponseBodyAgentSpacesMseNamespace extends $dara.Mo
   namespaceName?: string;
   static names(): { [key: string]: string } {
     return {
+      bindType: 'bindType',
       namespaceId: 'namespaceId',
       namespaceName: 'namespaceName',
     };
@@ -28,6 +30,7 @@ export class ListAgentSpacesResponseBodyAgentSpacesMseNamespace extends $dara.Mo
 
   static types(): { [key: string]: any } {
     return {
+      bindType: 'string',
       namespaceId: 'string',
       namespaceName: 'string',
     };

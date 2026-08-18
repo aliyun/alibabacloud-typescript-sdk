@@ -29,7 +29,7 @@ export class UpdateExperimentPlanResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The update result. The value is updated if successful.
+   * The update result. The value is updated if the operation is successful.
    * 
    * @example
    * updated

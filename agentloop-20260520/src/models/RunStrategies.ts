@@ -5,7 +5,21 @@ import { ContinuousStrategy } from "./ContinuousStrategy";
 
 
 export class RunStrategies extends $dara.Model {
+  /**
+   * @remarks
+   * The historical batch backfill policy. Backfill is enabled when the object exists and enabled is not explicitly set to false.
+   * 
+   * @example
+   * {"enabled":true,"startTime":1782816000000,"endTime":1782902400000,"immediate":false}
+   */
   backfill?: BackfillStrategy;
+  /**
+   * @remarks
+   * The continuous evaluation policy. Continuous evaluation is enabled when the object exists and enabled is not explicitly set to false.
+   * 
+   * @example
+   * {"enabled":true,"intervalUnit":"HOUR","intervalValue":1,"dataDelayMinutes":5}
+   */
   continuous?: ContinuousStrategy;
   static names(): { [key: string]: string } {
     return {
