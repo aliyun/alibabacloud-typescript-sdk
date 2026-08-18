@@ -5,10 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetApprovalRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the approval instance. You can obtain the ID from the following sources:
-   * 
-   * - [ListApprovals](~~ListApprovals~~): Queries a list of approval instances.
-   * 
+   * The approval instance ID. You can obtain the value from:
+   * - [ListApprovals](~~ListApprovals~~): Lists approval instances.
    * - [GetApproval](~~GetApproval~~): Queries the details of an approval instance.
    * 
    * This parameter is required.

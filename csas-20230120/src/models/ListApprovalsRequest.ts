@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class ListApprovalsRequest extends $dara.Model {
   /**
    * @remarks
-   * Collection of approval instance IDs.
+   * The collection of approval instance IDs.
    */
   approvalIds?: string[];
   /**
    * @remarks
-   * End time when the approval instance was created, in seconds since the Unix epoch.
+   * The end time for approval instance creation, in seconds-level timestamp.
    * 
    * @example
    * 1736750500
@@ -18,7 +18,7 @@ export class ListApprovalsRequest extends $dara.Model {
   createEndTime?: number;
   /**
    * @remarks
-   * Start time when the approval instance was created, in seconds since the Unix epoch.
+   * The start time for approval instance creation, in seconds-level timestamp.
    * 
    * @example
    * 1730000000
@@ -26,15 +26,15 @@ export class ListApprovalsRequest extends $dara.Model {
   createStartTime?: number;
   /**
    * @remarks
-   * Department of the user who created the approval instance.
+   * The department of the approval instance creator.
    * 
    * @example
-   * 测试部
+   * QA Department
    */
   creatorDepartment?: string;
   /**
    * @remarks
-   * ID of the device used to create the approval instance.
+   * The terminal device ID of the approval instance creator.
    * 
    * @example
    * 36efa42d-2c32-c4dc-e3fc-8541e33a****
@@ -42,7 +42,7 @@ export class ListApprovalsRequest extends $dara.Model {
   creatorDevTag?: string;
   /**
    * @remarks
-   * ID of the user who created the approval instance.
+   * The ID of the approval instance creator.
    * 
    * @example
    * su_e8f218fb171edd167c2ad917d21f53148bdefc510ca1f3c3cc0249d3643d****
@@ -50,15 +50,15 @@ export class ListApprovalsRequest extends $dara.Model {
   creatorUserId?: string;
   /**
    * @remarks
-   * Username of the user who created the approval instance.
+   * The username of the approval instance creator.
    * 
    * @example
-   * 王先生
+   * Mr. Wang
    */
   creatorUsername?: string;
   /**
    * @remarks
-   * Page number for the current page in a paged query. Valid values: 1 to 10000.
+   * The page number of the current page in a paging query. Valid values: 1 to 10000.
    * 
    * This parameter is required.
    * 
@@ -68,7 +68,12 @@ export class ListApprovalsRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * ID of the user who performed an operation on the approval instance.
+   * The list of report effective statuses. Valid values: Enabled, Expired.
+   */
+  effectStatuses?: string[];
+  /**
+   * @remarks
+   * The ID of the approval instance operator.
    * 
    * @example
    * su_e8f218fb171edd167c2ad917d21f53148bdefc510ca1f3c3cc0249d3643d****
@@ -76,15 +81,15 @@ export class ListApprovalsRequest extends $dara.Model {
   operatorUserId?: string;
   /**
    * @remarks
-   * Username of the user who performed an operation on the approval instance.
+   * The username of the approval instance operator.
    * 
    * @example
-   * 李小姐
+   * Ms. Li
    */
   operatorUsername?: string;
   /**
    * @remarks
-   * Number of entries per page in a paged query. Valid values: 1 to 500.
+   * The number of entries per page in a paging query. Valid values: 1 to 500.
    * 
    * This parameter is required.
    * 
@@ -94,19 +99,7 @@ export class ListApprovalsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Policy type. Valid values:
-   * 
-   * - **DomainBlacklist**: Domain blacklist.
-   * 
-   * - **DomainWhitelist**: Domain whitelist.
-   * 
-   * - **SoftwareBlock**: Software blocking.
-   * 
-   * - **AppUninstall**: App uninstallation.
-   * 
-   * - **DlpSend**: File outbound transfer.
-   * 
-   * - **PeripheralBlock**: Peripheral control.
+   * The adaptation policy type. Valid values:
    * 
    * @example
    * DlpSend
@@ -114,7 +107,7 @@ export class ListApprovalsRequest extends $dara.Model {
   policyType?: string;
   /**
    * @remarks
-   * ID of the associated approval process.
+   * The associated approval process ID.
    * 
    * @example
    * approval-process-fcc351b8a95b****
@@ -122,15 +115,20 @@ export class ListApprovalsRequest extends $dara.Model {
   processId?: string;
   /**
    * @remarks
-   * Name of the associated approval process.
+   * The associated approval process name.
    * 
    * @example
-   * 测试
+   * Test
    */
   processName?: string;
   /**
    * @remarks
-   * ID of the associated approval template.
+   * The list of report types. If not specified, only ApprovalReport is queried.
+   */
+  reportTypes?: string[];
+  /**
+   * @remarks
+   * The associated approval template ID.
    * 
    * @example
    * approval-schema-090134f1ebff****
@@ -138,7 +136,7 @@ export class ListApprovalsRequest extends $dara.Model {
   schemaId?: string;
   /**
    * @remarks
-   * Name of the associated approval template.
+   * The associated approval template name.
    * 
    * @example
    * test
@@ -146,7 +144,7 @@ export class ListApprovalsRequest extends $dara.Model {
   schemaName?: string;
   /**
    * @remarks
-   * Collection of approval instance statuses.
+   * The collection of approval instance statuses.
    */
   statuses?: string[];
   static names(): { [key: string]: string } {
@@ -159,12 +157,14 @@ export class ListApprovalsRequest extends $dara.Model {
       creatorUserId: 'CreatorUserId',
       creatorUsername: 'CreatorUsername',
       currentPage: 'CurrentPage',
+      effectStatuses: 'EffectStatuses',
       operatorUserId: 'OperatorUserId',
       operatorUsername: 'OperatorUsername',
       pageSize: 'PageSize',
       policyType: 'PolicyType',
       processId: 'ProcessId',
       processName: 'ProcessName',
+      reportTypes: 'ReportTypes',
       schemaId: 'SchemaId',
       schemaName: 'SchemaName',
       statuses: 'Statuses',
@@ -181,12 +181,14 @@ export class ListApprovalsRequest extends $dara.Model {
       creatorUserId: 'string',
       creatorUsername: 'string',
       currentPage: 'number',
+      effectStatuses: { 'type': 'array', 'itemType': 'string' },
       operatorUserId: 'string',
       operatorUsername: 'string',
       pageSize: 'number',
       policyType: 'string',
       processId: 'string',
       processName: 'string',
+      reportTypes: { 'type': 'array', 'itemType': 'string' },
       schemaId: 'string',
       schemaName: 'string',
       statuses: { 'type': 'array', 'itemType': 'string' },
@@ -196,6 +198,12 @@ export class ListApprovalsRequest extends $dara.Model {
   validate() {
     if(Array.isArray(this.approvalIds)) {
       $dara.Model.validateArray(this.approvalIds);
+    }
+    if(Array.isArray(this.effectStatuses)) {
+      $dara.Model.validateArray(this.effectStatuses);
+    }
+    if(Array.isArray(this.reportTypes)) {
+      $dara.Model.validateArray(this.reportTypes);
     }
     if(Array.isArray(this.statuses)) {
       $dara.Model.validateArray(this.statuses);

@@ -78,6 +78,8 @@ export { CreateWmInfoMappingResponseBodyData } from './CreateWmInfoMappingRespon
 export { GetActiveIdpConfigResponseBodyData } from './GetActiveIdpConfigResponseBody';
 export { GetApprovalResponseBodyApprovalApprovalProgressesOperators } from './GetApprovalResponseBody';
 export { GetApprovalResponseBodyApprovalApprovalProgresses } from './GetApprovalResponseBody';
+export { GetApprovalResponseBodyApprovalBackendReportDetailTargetUser } from './GetApprovalResponseBody';
+export { GetApprovalResponseBodyApprovalBackendReportDetail } from './GetApprovalResponseBody';
 export { GetApprovalResponseBodyApproval } from './GetApprovalResponseBody';
 export { GetApprovalProcessResponseBodyProcessAppUninstallPoliciesFieldMap } from './GetApprovalProcessResponseBody';
 export { GetApprovalProcessResponseBodyProcessAppUninstallPolicies } from './GetApprovalProcessResponseBody';
@@ -355,6 +357,12 @@ export { AttachApplication2ConnectorResponse } from './AttachApplication2connect
 export { AttachPolicy2ApprovalProcessRequest } from './AttachPolicy2approvalProcessRequest';
 export { AttachPolicy2ApprovalProcessResponseBody } from './AttachPolicy2approvalProcessResponseBody';
 export { AttachPolicy2ApprovalProcessResponse } from './AttachPolicy2approvalProcessResponse';
+export { BatchCreateDomainItemsRequest } from './BatchCreateDomainItemsRequest';
+export { BatchCreateDomainItemsResponseBody } from './BatchCreateDomainItemsResponseBody';
+export { BatchCreateDomainItemsResponse } from './BatchCreateDomainItemsResponse';
+export { BatchDeleteDomainItemsRequest } from './BatchDeleteDomainItemsRequest';
+export { BatchDeleteDomainItemsResponseBody } from './BatchDeleteDomainItemsResponseBody';
+export { BatchDeleteDomainItemsResponse } from './BatchDeleteDomainItemsResponse';
 export { CreateApprovalProcessRequest } from './CreateApprovalProcessRequest';
 export { CreateApprovalProcessShrinkRequest } from './CreateApprovalProcessShrinkRequest';
 export { CreateApprovalProcessResponseBody } from './CreateApprovalProcessResponseBody';

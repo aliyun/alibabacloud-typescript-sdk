@@ -136,6 +136,128 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Inserts domain name entries into a domain name list in batches.
+   * 
+   * @remarks
+   * Appends domain name entries in batches to a specified domain name list (`ListId`). Domain names must be second-level or higher domain names. Wildcard domain names (`*.example.com`) are supported, but overly broad patterns such as `*.com` or `*.com.cn` are prohibited.
+   * 
+   * @param request - BatchCreateDomainItemsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BatchCreateDomainItemsResponse
+   */
+  async batchCreateDomainItemsWithOptions(request: $_model.BatchCreateDomainItemsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.BatchCreateDomainItemsResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    let bodyFlat : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.domainItems)) {
+      bodyFlat["DomainItems"] = request.domainItems;
+    }
+
+    if (!$dara.isNull(request.listId)) {
+      body["ListId"] = request.listId;
+    }
+
+    if (!$dara.isNull(request.listType)) {
+      body["ListType"] = request.listType;
+    }
+
+    body = {
+      ...body,
+      ...OpenApiUtil.query(bodyFlat),
+    };
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "BatchCreateDomainItems",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.BatchCreateDomainItemsResponse>(await this.callApi(params, req, runtime), new $_model.BatchCreateDomainItemsResponse({}));
+  }
+
+  /**
+   * Inserts domain name entries into a domain name list in batches.
+   * 
+   * @remarks
+   * Appends domain name entries in batches to a specified domain name list (`ListId`). Domain names must be second-level or higher domain names. Wildcard domain names (`*.example.com`) are supported, but overly broad patterns such as `*.com` or `*.com.cn` are prohibited.
+   * 
+   * @param request - BatchCreateDomainItemsRequest
+   * @returns BatchCreateDomainItemsResponse
+   */
+  async batchCreateDomainItems(request: $_model.BatchCreateDomainItemsRequest): Promise<$_model.BatchCreateDomainItemsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.batchCreateDomainItemsWithOptions(request, runtime);
+  }
+
+  /**
+   * Batch deletes domain name entries from a domain name list.
+   * 
+   * @remarks
+   * Batch deletes domain name entries from a specified domain name list by entry IDs (`ItemIds`, obtained from the `ItemId` field returned by ListDomainItems).
+   * 
+   * @param request - BatchDeleteDomainItemsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BatchDeleteDomainItemsResponse
+   */
+  async batchDeleteDomainItemsWithOptions(request: $_model.BatchDeleteDomainItemsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.BatchDeleteDomainItemsResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    let bodyFlat : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.itemIds)) {
+      bodyFlat["ItemIds"] = request.itemIds;
+    }
+
+    if (!$dara.isNull(request.listId)) {
+      body["ListId"] = request.listId;
+    }
+
+    if (!$dara.isNull(request.listType)) {
+      body["ListType"] = request.listType;
+    }
+
+    body = {
+      ...body,
+      ...OpenApiUtil.query(bodyFlat),
+    };
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "BatchDeleteDomainItems",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.BatchDeleteDomainItemsResponse>(await this.callApi(params, req, runtime), new $_model.BatchDeleteDomainItemsResponse({}));
+  }
+
+  /**
+   * Batch deletes domain name entries from a domain name list.
+   * 
+   * @remarks
+   * Batch deletes domain name entries from a specified domain name list by entry IDs (`ItemIds`, obtained from the `ItemId` field returned by ListDomainItems).
+   * 
+   * @param request - BatchDeleteDomainItemsRequest
+   * @returns BatchDeleteDomainItemsResponse
+   */
+  async batchDeleteDomainItems(request: $_model.BatchDeleteDomainItemsRequest): Promise<$_model.BatchDeleteDomainItemsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.batchDeleteDomainItemsWithOptions(request, runtime);
+  }
+
+  /**
    * Creates an approval process under the current Alibaba Cloud account.
    * 
    * @param tmpReq - CreateApprovalProcessRequest
@@ -2460,7 +2582,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of an approval instance for your Alibaba Cloud account.
+   * Queries the details of an approval instance under the current Alibaba Cloud account.
    * 
    * @param request - GetApprovalRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2487,7 +2609,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of an approval instance for your Alibaba Cloud account.
+   * Queries the details of an approval instance under the current Alibaba Cloud account.
    * 
    * @param request - GetApprovalRequest
    * @returns GetApprovalResponse
@@ -3338,7 +3460,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists approval instances for your Alibaba Cloud account.
+   * Queries the list of approval instances under the current Alibaba Cloud account.
    * 
    * @param request - ListApprovalsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3365,7 +3487,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists approval instances for your Alibaba Cloud account.
+   * Queries the list of approval instances under the current Alibaba Cloud account.
    * 
    * @param request - ListApprovalsRequest
    * @returns ListApprovalsResponse
@@ -3452,10 +3574,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 分页查询域名条目
+   * Queries domain name entries in a domain name list by paging.
    * 
    * @remarks
-   * 分页查询指定域名名单下的域名条目明细。与 ListDomainMetas配套使用：先拿到 `ListId`，再用本接口翻页查看该名单里的域名。
+   * Queries the details of domain name entries in a specified domain name list by paging. Use this operation together with ListDomainMetas: first obtain the `ListId`, and then use this operation to perform paging through the domain names in the list.
    * 
    * @param request - ListDomainItemsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3502,10 +3624,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 分页查询域名条目
+   * Queries domain name entries in a domain name list by paging.
    * 
    * @remarks
-   * 分页查询指定域名名单下的域名条目明细。与 ListDomainMetas配套使用：先拿到 `ListId`，再用本接口翻页查看该名单里的域名。
+   * Queries the details of domain name entries in a specified domain name list by paging. Use this operation together with ListDomainMetas: first obtain the `ListId`, and then use this operation to perform paging through the domain names in the list.
    * 
    * @param request - ListDomainItemsRequest
    * @returns ListDomainItemsResponse

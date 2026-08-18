@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListDomainItemsRequest extends $dara.Model {
   /**
    * @remarks
+   * The current page number in paging.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,12 +14,17 @@ export class ListDomainItemsRequest extends $dara.Model {
    */
   currentPage?: number;
   /**
+   * @remarks
+   * The domain name value filter. Fuzzy match is supported.
+   * 
    * @example
    * example.com
    */
   itemValue?: string;
   /**
    * @remarks
+   * The list ID. This is a unique business identifier used for policy references and CRUD operations.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -26,6 +33,8 @@ export class ListDomainItemsRequest extends $dara.Model {
   listId?: string;
   /**
    * @remarks
+   * The list type (Blacklist/Whitelist).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -34,6 +43,8 @@ export class ListDomainItemsRequest extends $dara.Model {
   listType?: string;
   /**
    * @remarks
+   * The number of entries per page in paging. Valid values: 1 to 1000.
+   * 
    * This parameter is required.
    * 
    * @example
