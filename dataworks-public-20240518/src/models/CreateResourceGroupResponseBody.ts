@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateResourceGroupResponseBodyResourceGroupOrder extends $dara.Model {
   /**
    * @remarks
-   * The unique identifier of the general-purpose resource group.
+   * The unique identifier of the created common resource group.
    * 
    * @example
    * Serverless_res_group_524257424564736_6831777003XXXXX
@@ -13,7 +13,7 @@ export class CreateResourceGroupResponseBodyResourceGroupOrder extends $dara.Mod
   id?: string;
   /**
    * @remarks
-   * The ID of the resource group creation order.
+   * The order ID of the created common resource group.
    * 
    * @example
    * 2391982058XXXXX
@@ -21,7 +21,7 @@ export class CreateResourceGroupResponseBodyResourceGroupOrder extends $dara.Mod
   orderId?: number;
   /**
    * @remarks
-   * The instance ID of the resource group creation order.
+   * The order instance ID of the created common resource group.
    * 
    * @example
    * c442b330-3b10-4584-959e-736e4edXXXXX
@@ -55,7 +55,7 @@ export class CreateResourceGroupResponseBodyResourceGroupOrder extends $dara.Mod
 export class CreateResourceGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID. You can use this ID to locate logs and troubleshoot issues.
+   * The request ID, which is used for locating logs and troubleshooting.
    * 
    * @example
    * 6A6CBE87-9F91-1323-B680-E7A7065XXXXX
@@ -63,7 +63,7 @@ export class CreateResourceGroupResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Information about the resource group creation order.
+   * The order information of the created common resource group.
    */
   resourceGroupOrder?: CreateResourceGroupResponseBodyResourceGroupOrder;
   /**

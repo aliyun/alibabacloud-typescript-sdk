@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetPipelineRunRequest extends $dara.Model {
   /**
    * @remarks
-   * The unique identifier of the Publishing Pipeline.
+   * The unique identifier of the deployment process.
    * 
    * This parameter is required.
    * 
@@ -15,9 +15,9 @@ export class GetPipelineRunRequest extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The ID of the DataWorks workspace. You can find this ID on the Workspace Management page in the [DataWorks console](https://workbench.data.aliyun.com/console).
+   * The ID of the DataWorks workspace. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the workspace management page to obtain the ID.
    * 
-   * This parameter specifies the DataWorks workspace for the API call.
+   * This parameter specifies the DataWorks workspace for this API call.
    * 
    * This parameter is required.
    * 

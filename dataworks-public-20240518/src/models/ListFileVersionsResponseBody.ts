@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListFileVersionsResponseBodyDataFileVersions extends $dara.Model {
   /**
    * @remarks
-   * The change type for this file version. Valid values: CREATE, UPDATE, and DELETE.
+   * The change type of this file version. Valid values: CREATE, UPDATE, and DELETE.
    * 
    * @example
    * UPDATE
@@ -21,7 +21,7 @@ export class ListFileVersionsResponseBodyDataFileVersions extends $dara.Model {
   comment?: string;
   /**
    * @remarks
-   * The timestamp (in milliseconds) when the file version was created.
+   * The timestamp in milliseconds when the file version was generated.
    * 
    * @example
    * 1593881265000
@@ -29,7 +29,7 @@ export class ListFileVersionsResponseBodyDataFileVersions extends $dara.Model {
   commitTime?: number;
   /**
    * @remarks
-   * The Alibaba Cloud account ID of the user who created this file version.
+   * The Alibaba Cloud user ID that generated this file version.
    * 
    * @example
    * 73842342****
@@ -37,7 +37,7 @@ export class ListFileVersionsResponseBodyDataFileVersions extends $dara.Model {
   commitUser?: string;
   /**
    * @remarks
-   * The file code for this version.
+   * The file code that generated this file version.
    * 
    * @example
    * SHOW TABLES;
@@ -45,7 +45,7 @@ export class ListFileVersionsResponseBodyDataFileVersions extends $dara.Model {
   fileContent?: string;
   /**
    * @remarks
-   * The file name for this file version.
+   * The file name that generated this file version.
    * 
    * @example
    * ods_user_info_d
@@ -53,7 +53,7 @@ export class ListFileVersionsResponseBodyDataFileVersions extends $dara.Model {
   fileName?: string;
   /**
    * @remarks
-   * The text information for this file version.
+   * The basic text information that generated this file version.
    * 
    * @example
    * {"fileName":"ods_user_info_d","fileType":10}
@@ -61,7 +61,7 @@ export class ListFileVersionsResponseBodyDataFileVersions extends $dara.Model {
   filePropertyContent?: string;
   /**
    * @remarks
-   * The file version.
+   * The version of the file.
    * 
    * @example
    * 2
@@ -71,9 +71,8 @@ export class ListFileVersionsResponseBodyDataFileVersions extends $dara.Model {
    * @remarks
    * Indicates whether this file version is the latest version in the production environment.
    * 
-   * - true
-   * 
-   * - false
+   * - true: The version is the latest version.
+   * - false: The version is not the latest version.
    * 
    * @example
    * false
@@ -81,7 +80,7 @@ export class ListFileVersionsResponseBodyDataFileVersions extends $dara.Model {
   isCurrentProd?: boolean;
   /**
    * @remarks
-   * The scheduling configuration for this file version.
+   * The scheduling configuration that generated this file version.
    * 
    * @example
    * {"cycleType":0,"cronExpress":"00 05 00 * * ?"}
@@ -89,7 +88,7 @@ export class ListFileVersionsResponseBodyDataFileVersions extends $dara.Model {
   nodeContent?: string;
   /**
    * @remarks
-   * The scheduling task ID associated with this file version.
+   * The ID of the scheduling node associated with the file version.
    * 
    * @example
    * 1234
@@ -105,7 +104,7 @@ export class ListFileVersionsResponseBodyDataFileVersions extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The functional module to which the file belongs. Valid values: NORMAL (Data Studio), MANUAL (manual task), MANUAL_BIZ (manual workflow), SKIP (dry-run scheduling in Data Studio), ADHOCQUERY (ad hoc query), and COMPONENT (component management).
+   * The functional module to which the file belongs. Valid values: NORMAL (DataStudio), MANUAL (manual node), MANUAL_BIZ (manual workflow), SKIP (dry-run scheduling in DataStudio), ADHOCQUERY (ad hoc query), and COMPONENT (component management).
    * 
    * @example
    * NORMAL
@@ -164,7 +163,7 @@ export class ListFileVersionsResponseBodyData extends $dara.Model {
   fileVersions?: ListFileVersionsResponseBodyDataFileVersions[];
   /**
    * @remarks
-   * The current page number.
+   * The page number of the current page.
    * 
    * @example
    * 1
@@ -172,7 +171,7 @@ export class ListFileVersionsResponseBodyData extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries on the current page.
+   * The size of the current page.
    * 
    * @example
    * 10
@@ -180,7 +179,7 @@ export class ListFileVersionsResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries that meet the query conditions.
    * 
    * @example
    * 13
@@ -219,7 +218,7 @@ export class ListFileVersionsResponseBodyData extends $dara.Model {
 export class ListFileVersionsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of file versions.
+   * The version list of the file.
    */
   data?: ListFileVersionsResponseBodyData;
   /**
@@ -256,11 +255,10 @@ export class ListFileVersionsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call succeeded. Valid values:
+   * Indicates whether the call was successful. Valid values:
    * 
-   * - true
-   * 
-   * - false
+   * - true: The call was successful.
+   * - false: The call failed.
    * 
    * @example
    * true

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateMcpServerShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The connection configuration for the MCP Server.
+   * The connection configuration of the MCP Server.
    * 
    * @example
    * -
@@ -13,7 +13,7 @@ export class CreateMcpServerShrinkRequest extends $dara.Model {
   configShrink?: string;
   /**
    * @remarks
-   * The name of the MCP Server. The name must be unique at the tenant level. It must start with a lowercase letter and contain only characters from `a-z`, `0-9`, `_`, and `-`.
+   * The name of the MCP Server. The name must be unique at the tenant level. It must start with a lowercase letter and can contain only `a-z`, `0-9`, `_`, and `-`.
    * 
    * This parameter is required.
    * 
@@ -31,7 +31,7 @@ export class CreateMcpServerShrinkRequest extends $dara.Model {
   visibility?: string;
   /**
    * @remarks
-   * The visibility scope. The required fields depend on the value of the `Visibility` parameter.
+   * The visibility scope. The corresponding field is used based on the Visibility value.
    */
   visibilityScopeShrink?: string;
   static names(): { [key: string]: string } {

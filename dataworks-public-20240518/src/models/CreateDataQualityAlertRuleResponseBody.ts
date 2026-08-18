@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDataQualityAlertRuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The user-defined rule ID returned after the monitoring rule is successfully created.
+   * The ID of the custom monitoring rule returned after the rule is created.
    * 
    * @example
    * 1010543619

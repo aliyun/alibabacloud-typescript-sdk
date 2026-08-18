@@ -45,7 +45,7 @@ export class ListFunctionsResponseBodyPagingInfoFunctionsDataSource extends $dar
 export class ListFunctionsResponseBodyPagingInfoFunctionsRuntimeResource extends $dara.Model {
   /**
    * @remarks
-   * The runtime resource group ID.
+   * The ID of the runtime resource group.
    * 
    * @example
    * S_resgrop_xxx
@@ -75,7 +75,7 @@ export class ListFunctionsResponseBodyPagingInfoFunctionsRuntimeResource extends
 export class ListFunctionsResponseBodyPagingInfoFunctionsScriptRuntime extends $dara.Model {
   /**
    * @remarks
-   * Command
+   * The command.
    * 
    * @example
    * ODPS_FUNCTION
@@ -105,9 +105,9 @@ export class ListFunctionsResponseBodyPagingInfoFunctionsScriptRuntime extends $
 export class ListFunctionsResponseBodyPagingInfoFunctionsScript extends $dara.Model {
   /**
    * @remarks
-   * The ID of the script.
+   * The script ID.
    * 
-   * > This field is of type Long in SDK versions prior to 8.0.0, and of type String in SDK version 8.0.0 and later. This change does not affect the normal use of the SDK. The parameter is returned based on the type defined in the SDK. However, compilation failures may occur due to the type change only when upgrading the SDK across version 8.0.0. In this case, you must manually update the data type.
+   * >Notice: This field was of the Long type in SDK versions earlier than 8.0.0 and is of the String type in SDK 8.0.0 and later. **This change does not affect normal SDK usage. The parameter is still returned in the type defined in the SDK**. Only when you upgrade the SDK across version 8.0.0, the type change may cause project compilation failures, and you need to manually correct the data type.
    * 
    * @example
    * 652567824470354XXXX
@@ -123,7 +123,7 @@ export class ListFunctionsResponseBodyPagingInfoFunctionsScript extends $dara.Mo
   path?: string;
   /**
    * @remarks
-   * Runtime
+   * The runtime.
    */
   runtime?: ListFunctionsResponseBodyPagingInfoFunctionsScriptRuntime;
   static names(): { [key: string]: string } {
@@ -165,7 +165,7 @@ export class ListFunctionsResponseBodyPagingInfoFunctions extends $dara.Model {
   armResource?: string;
   /**
    * @remarks
-   * The fully qualified class name of the UDF.
+   * The fully qualified class name of the UDF function.
    * 
    * @example
    * com.demo.Main
@@ -181,7 +181,7 @@ export class ListFunctionsResponseBodyPagingInfoFunctions extends $dara.Model {
   commandDescription?: string;
   /**
    * @remarks
-   * The timestamp when the UDF was created.
+   * The timestamp when the UDF function was created.
    * 
    * @example
    * 1655953028000
@@ -189,12 +189,12 @@ export class ListFunctionsResponseBodyPagingInfoFunctions extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * Data source information of the UDF.
+   * The data source information of the UDF function.
    */
   dataSource?: ListFunctionsResponseBodyPagingInfoFunctionsDataSource;
   /**
    * @remarks
-   * The database name. This parameter is used only when the function type is EMR Function.
+   * The database name. This field is used only when the function type is EMR Function.
    * 
    * @example
    * EMR_lake
@@ -202,7 +202,7 @@ export class ListFunctionsResponseBodyPagingInfoFunctions extends $dara.Model {
   databaseName?: string;
   /**
    * @remarks
-   * The general description of the function.
+   * The overall description of the function.
    * 
    * @example
    * Description
@@ -210,7 +210,7 @@ export class ListFunctionsResponseBodyPagingInfoFunctions extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Content of the nested function code
+   * The embedded function code content.
    * 
    * @example
    * print(\\"hello,world!\\")
@@ -218,18 +218,14 @@ export class ListFunctionsResponseBodyPagingInfoFunctions extends $dara.Model {
   embeddedCode?: string;
   /**
    * @remarks
-   * The nested code type.
+   * The embedded code type.
    * 
    * Valid values:
    * 
    * - Python2
-   * 
    * - Python3
-   * 
    * - Java8
-   * 
    * - Java11
-   * 
    * - Java17
    * 
    * @example
@@ -238,13 +234,12 @@ export class ListFunctionsResponseBodyPagingInfoFunctions extends $dara.Model {
   embeddedCodeType?: string;
   /**
    * @remarks
-   * The nested resource type.
+   * The embedded resource type.
    * 
    * Valid values:
    * 
-   * - File: General resource file.
-   * 
-   * - Embedded: Embedded resource.
+   * - File: common resource file
+   * - Embedded: embedded resource
    * 
    * @example
    * File
@@ -261,7 +256,7 @@ export class ListFunctionsResponseBodyPagingInfoFunctions extends $dara.Model {
   exampleDescription?: string;
   /**
    * @remarks
-   * The implementation code of the function and the list of resource files.
+   * The implementation code of the function. The list of resource files.
    * 
    * @example
    * xxx.jar,yyy.jar
@@ -269,9 +264,9 @@ export class ListFunctionsResponseBodyPagingInfoFunctions extends $dara.Model {
   fileResource?: string;
   /**
    * @remarks
-   * The unique identifier of the UDF.
+   * The unique identifier of the UDF function.
    * 
-   * > Prior to SDK version 8.0.0, this field is of type Long. In SDK version 8.0.0 and later, it is of type String. This change does not affect the normal use of the SDK. The parameter is returned based on the type defined in the SDK. Compilation failures caused by the type change may occur only when you upgrade the SDK across version 8.0.0. In this case, you must manually update the data type.
+   * >Notice: This field was of the Long type in SDK versions earlier than 8.0.0 and is of the String type in SDK 8.0.0 and later. **This change does not affect normal SDK usage. The parameter is still returned in the type defined in the SDK**. Only when you upgrade the SDK across version 8.0.0, the type change may cause project compilation failures, and you need to manually correct the data type.
    * 
    * @example
    * 580667964888595XXXX
@@ -281,13 +276,15 @@ export class ListFunctionsResponseBodyPagingInfoFunctions extends $dara.Model {
    * @remarks
    * The modification time.
    * 
+   * The value is a 13-digit number, such as `1655953028000`.
+   * 
    * @example
    * 1655953028000
    */
   modifyTime?: number;
   /**
    * @remarks
-   * The UDF name.
+   * The name of the UDF function.
    * 
    * @example
    * Function name
@@ -295,7 +292,7 @@ export class ListFunctionsResponseBodyPagingInfoFunctions extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The owner of the UDF.
+   * The owner of the UDF function.
    * 
    * @example
    * 110755000425XXXX
@@ -312,7 +309,7 @@ export class ListFunctionsResponseBodyPagingInfoFunctions extends $dara.Model {
   parameterDescription?: string;
   /**
    * @remarks
-   * The ID of the project to which the UDF belongs.
+   * The ID of the project to which the UDF function belongs.
    * 
    * @example
    * 307XXX
@@ -333,26 +330,21 @@ export class ListFunctionsResponseBodyPagingInfoFunctions extends $dara.Model {
   runtimeResource?: ListFunctionsResponseBodyPagingInfoFunctionsRuntimeResource;
   /**
    * @remarks
-   * Script information of the UDF.
+   * The script information of the UDF function.
    */
   script?: ListFunctionsResponseBodyPagingInfoFunctionsScript;
   /**
    * @remarks
-   * The UDF type.
+   * The type of the UDF function.
    * 
    * Valid values:
    * 
-   * - Math: Mathematical operation functions
-   * 
-   * - Aggregate: Aggregation functions
-   * 
-   * - String: String processing functions
-   * 
-   * - Date: Date functions
-   * 
-   * - Analytic: Window functions
-   * 
-   * - Other: Other functions
+   * - Math: mathematical operation function
+   * - Aggregate: aggregate functions
+   * - String: character string processing function
+   * - Date: date function
+   * - Analytic: window function
+   * - Other: other function
    * 
    * @example
    * Math
@@ -433,12 +425,12 @@ export class ListFunctionsResponseBodyPagingInfoFunctions extends $dara.Model {
 export class ListFunctionsResponseBodyPagingInfo extends $dara.Model {
   /**
    * @remarks
-   * The function list.
+   * The list of functions.
    */
   functions?: ListFunctionsResponseBodyPagingInfoFunctions[];
   /**
    * @remarks
-   * The page number.
+   * The page number of the returned data. Used for pagination.
    * 
    * @example
    * 1
@@ -454,7 +446,7 @@ export class ListFunctionsResponseBodyPagingInfo extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries that meet the filter conditions.
    * 
    * @example
    * 294
@@ -498,7 +490,7 @@ export class ListFunctionsResponseBody extends $dara.Model {
   pagingInfo?: ListFunctionsResponseBodyPagingInfo;
   /**
    * @remarks
-   * The request ID.
+   * The request ID. Used for troubleshooting when an error occurs.
    * 
    * @example
    * 89FB2BF0-EB00-5D03-9C34-05931001XXXX

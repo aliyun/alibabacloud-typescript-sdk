@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetDataSourceRequest extends $dara.Model {
   /**
    * @remarks
-   * The data source ID.
+   * The data source ID, which is the unique identifier of the data source.
    * 
    * This parameter is required.
    * 

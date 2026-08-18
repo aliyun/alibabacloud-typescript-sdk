@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteNetworkRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the network that you want to delete.
+   * The ID of the network resource to delete.
    * 
    * This parameter is required.
    * 

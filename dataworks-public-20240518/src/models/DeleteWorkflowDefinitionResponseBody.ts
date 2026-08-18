@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteWorkflowDefinitionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The request ID, which is used for subsequent error troubleshooting.
    * 
    * @example
    * B17730C0-D959-548A-AE23-E754177CXXXX
@@ -13,11 +13,11 @@ export class DeleteWorkflowDefinitionResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the operation was successful. Valid values:
    * 
-   * - true
+   * - true: Succeeded.
    * 
-   * - false
+   * - false: Failed.
    * 
    * @example
    * true

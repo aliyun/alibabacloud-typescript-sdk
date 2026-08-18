@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDIJobShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The description of the job.
+   * The description of the task.
    * 
    * @example
    * DI Job Demo
@@ -13,12 +13,12 @@ export class CreateDIJobShrinkRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Settings for the destination data sources.
+   * The list of destination data source settings.
    */
   destinationDataSourceSettingsShrink?: string;
   /**
    * @remarks
-   * The type of the destination data source. Valid values: `Hologres`, `OSS-HDFS`, `OSS`, `MaxCompute`, `LogHub`, `StarRocks`, `DataHub`, `AnalyticDB for MySQL`, `Kafka`, and `Hive`.
+   * The type of the destination data source. Valid values: Hologres, OSS-HDFS, OSS, MaxCompute, LogHub, StarRocks, DataHub, AnalyticDB_For_MySQL, Kafka, Hive.
    * 
    * @example
    * Hologres
@@ -26,7 +26,7 @@ export class CreateDIJobShrinkRequest extends $dara.Model {
   destinationDataSourceType?: string;
   /**
    * @remarks
-   * The code for a job created in script mode.
+   * The code content in script mode.
    * 
    * @example
    * {
@@ -215,7 +215,7 @@ export class CreateDIJobShrinkRequest extends $dara.Model {
   fileSpec?: string;
   /**
    * @remarks
-   * This parameter is deprecated. Use the `Name` parameter instead.
+   * **[Deprecated]** Use the Name parameter instead.
    * 
    * @example
    * mysql_to_holo_sync_8772
@@ -225,18 +225,18 @@ export class CreateDIJobShrinkRequest extends $dara.Model {
   jobName?: string;
   /**
    * @remarks
-   * The settings for the synchronization job, including DDL processing policies, data type mappings between source and destination columns, and runtime parameters.
+   * The task-level settings, including DDL handling policies, source-to-destination column data type mapping policies, and task runtime parameters.
    */
   jobSettingsShrink?: string;
   /**
    * @remarks
-   * The job type. Valid values:
+   * The task type. Valid values:
    * 
-   * - `DatabaseRealtimeMigration`: Synchronizes multiple tables from multiple source databases in real time (stream synchronization). This type supports full, incremental, or both full and incremental synchronization.
+   *  - DatabaseRealtimeMigration: real-time migration of entire databases. Performs streaming synchronization of multiple tables from multiple source databases. Supports full-only, incremental-only, or full and incremental synchronization.
    * 
-   * - `DatabaseOfflineMigration`: Synchronizes multiple tables from multiple source databases in batches. This type supports full, incremental, or both full and incremental synchronization.
+   *  - DatabaseOfflineMigration: offline migration of entire databases. Performs batch synchronization of multiple tables from multiple source databases. Supports full-only, incremental-only, or full and incremental synchronization.
    * 
-   * - `SingleTableRealtimeMigration`: Synchronizes a single source table in real time (stream synchronization).
+   *  - SingleTableRealtimeMigration: real-time migration of a single table. Performs streaming synchronization of a single source table.
    * 
    * @example
    * DatabaseRealtimeMigration
@@ -245,16 +245,11 @@ export class CreateDIJobShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The synchronization type. Valid values:
-   * 
-   * - `FullAndRealtimeIncremental`: Full and real-time incremental synchronization for an entire database.
-   * 
-   * - `RealtimeIncremental`: Real-time incremental synchronization for a single table.
-   * 
-   * - `Full`: Full batch synchronization for an entire database.
-   * 
-   * - `OfflineIncremental`: Incremental synchronization in batch mode.
-   * 
-   * - `FullAndOfflineIncremental`: Full and incremental batch synchronization for an entire database.
+   * - FullAndRealtimeIncremental: full and real-time incremental synchronization for entire databases in real time.
+   * - RealtimeIncremental: real-time incremental synchronization for single tables in real time.
+   * - Full: full synchronization for entire databases offline.
+   * - OfflineIncremental: offline incremental synchronization for entire databases offline.
+   * - FullAndOfflineIncremental: full and offline incremental synchronization for entire databases offline.
    * 
    * @example
    * FullAndRealtimeIncremental
@@ -262,7 +257,7 @@ export class CreateDIJobShrinkRequest extends $dara.Model {
   migrationType?: string;
   /**
    * @remarks
-   * The name of the job.
+   * The name of the task.
    * 
    * @example
    * mysql_to_holo_sync_8772
@@ -270,7 +265,7 @@ export class CreateDIJobShrinkRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The job owner.
+   * The owner of the task.
    * 
    * @example
    * 3726346
@@ -278,7 +273,9 @@ export class CreateDIJobShrinkRequest extends $dara.Model {
   owner?: string;
   /**
    * @remarks
-   * The ID of the DataWorks workspace for this API call. To obtain the workspace ID, log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace Management page.
+   * The ID of the DataWorks workspace. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the workspace management page to obtain the ID.
+   * 
+   * This parameter specifies the DataWorks workspace for this API call.
    * 
    * @example
    * 10000
@@ -291,12 +288,12 @@ export class CreateDIJobShrinkRequest extends $dara.Model {
   resourceSettingsShrink?: string;
   /**
    * @remarks
-   * Settings for the source data sources.
+   * The list of source data source settings.
    */
   sourceDataSourceSettingsShrink?: string;
   /**
    * @remarks
-   * The type of the source data source. Valid values: `PolarDB`, `MySQL`, `Kafka`, `LogHub`, `Hologres`, `Oracle`, `OceanBase`, `MongoDB`, `Redshift`, `Hive`, `SQL Server`, `Doris`, and `ClickHouse`.
+   * The type of the source data source. Valid values: PolarDB, MySQL, Kafka, LogHub, Hologres, Oracle, OceanBase, MongoDB, RedShift, Hive, SQLServer, Doris, ClickHouse.
    * 
    * @example
    * MySQL
@@ -304,16 +301,15 @@ export class CreateDIJobShrinkRequest extends $dara.Model {
   sourceDataSourceType?: string;
   /**
    * @remarks
-   * Transformation mappings for the objects to be synchronized. Each mapping defines selection rules for a group of source objects and the transformation rules to apply to them.
+   * The list of synchronization object transformation mappings. Each element describes a group of source object selection rules and the transformation rules applied to that group.
    * 
    * > [ { "SourceObjectSelectionRules":[ { "ObjectType":"Database", "Action":"Include", "ExpressionType":"Exact", "Expression":"biz_db" }, { "ObjectType":"Schema", "Action":"Include", "ExpressionType":"Exact", "Expression":"s1" }, { "ObjectType":"Table", "Action":"Include", "ExpressionType":"Exact", "Expression":"table1" } ], "TransformationRuleNames":[ { "RuleName":"my_database_rename_rule", "RuleActionType":"Rename", "RuleTargetType":"Schema" } ] } ]
    */
   tableMappingsShrink?: string;
   /**
    * @remarks
-   * A list of transformation rules for the objects to be synchronized.
-   * 
-   * > [ { "RuleName":"my_database_rename_rule", "RuleActionType":"Rename", "RuleTargetType":"Schema", "RuleExpression":"{\\\\"expression\\\\":\\\\"${srcDatasoureName}_${srcDatabaseName}\\\\"}" } ]
+   * The list of synchronization object transformation rule definitions.
+   * >[ { "RuleName":"my_database_rename_rule", "RuleActionType":"Rename", "RuleTargetType":"Schema", "RuleExpression":"{"expression":"${srcDatasoureName}_${srcDatabaseName}"}" } ]
    */
   transformationRulesShrink?: string;
   static names(): { [key: string]: string } {

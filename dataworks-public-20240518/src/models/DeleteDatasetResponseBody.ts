@@ -13,7 +13,7 @@ export class DeleteDatasetResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the deletion succeeded.
+   * Indicates whether the dataset is deleted successfully.
    * 
    * @example
    * true

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteNetworkResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request, which is used to locate logs and troubleshoot issues.
    * 
    * @example
    * 6A6CBE87-9F91-1323-B680-E7A7065****

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDatasetRequestInitVersion extends $dara.Model {
   /**
    * @remarks
-   * The description. It must not exceed 1,024 characters in length.
+   * The description. The value can be up to 1024 characters in length.
    * 
    * @example
    * Initial Version
@@ -13,24 +13,25 @@ export class CreateDatasetRequestInitVersion extends $dara.Model {
   comment?: string;
   /**
    * @remarks
-   * The storage import configuration for the dataset. The required configuration information varies by storage type.
-   * 
-   * **NAS**
-   * 
-   * For valid values, refer to the response of the file storage API DescribeFileSystems.
+   * The storage import configuration of the dataset. The required configuration varies depending on the storage type.
+   * <details>
+   * <summary>NAS</summary>
+   * The values can be obtained from the response of the File Storage NAS API DescribeFileSystems operation.
    * 
    * ```JSON
    * {
-   * "fileSystemId": "3b6XXX89c9", // The file system ID.
-   * "fileSystemStorageType":  "Performance" // The storage specification of the file system.
-   * "vpcId": "vpc-uf66oxxxrqge1t2gson7s" // The VPC ID of the mount point.
+   *   "fileSystemId": "3b6XXX89c9", // File system ID
+   *   "fileSystemStorageType": "Performance", // Storage specification of the file system
+   *   "vpcId": "vpc-uf66oxxxrqge1t2gson7s" // VPC ID of the mount target
    * }
    * ```
+   * 
+   * </details>
    */
   importInfo?: { [key: string]: string };
   /**
    * @remarks
-   * The mount path. It must start with /mnt/. Default value: /mnt/data.
+   * The mount path. The value must start with /mnt/. Default value: /mnt/data.
    * 
    * @example
    * /mnt/data
@@ -38,7 +39,7 @@ export class CreateDatasetRequestInitVersion extends $dara.Model {
   mountPath?: string;
   /**
    * @remarks
-   * URL
+   * The URL.
    * 
    * This parameter is required.
    * 
@@ -79,7 +80,7 @@ export class CreateDatasetRequestInitVersion extends $dara.Model {
 export class CreateDatasetRequest extends $dara.Model {
   /**
    * @remarks
-   * The description of the dataset. It must not exceed 1,024 characters in length.
+   * The description of the dataset. The value can be up to 1024 characters in length.
    * 
    * @example
    * this is a comment
@@ -88,20 +89,13 @@ export class CreateDatasetRequest extends $dara.Model {
   /**
    * @remarks
    * The data type. Valid values:
-   * 
-   * - COMMON: Common (Default)
-   * 
-   * - PIC
-   * 
-   * - TEXT
-   * 
-   * - TABLE
-   * 
-   * - VIDEO
-   * 
-   * - AUDIO
-   * 
-   * - INDEX
+   * - COMMON: general-purpose (default).
+   * - PIC: image.
+   * - TEXT: text.
+   * - TABLE: table.
+   * - VIDEO: video.
+   * - AUDIO: audio.
+   * - INDEX: index.
    * 
    * @example
    * COMMON
@@ -116,7 +110,7 @@ export class CreateDatasetRequest extends $dara.Model {
   initVersion?: CreateDatasetRequestInitVersion;
   /**
    * @remarks
-   * The name of the dataset. It cannot be an empty string and must not exceed 128 characters in length.
+   * The name of the dataset. The value must be a non-empty string that is up to 128 characters in length.
    * 
    * This parameter is required.
    * 
@@ -126,7 +120,7 @@ export class CreateDatasetRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The source of the dataset. Currently, only DataWorks is supported.
+   * The origin of the dataset. Only DataWorks is supported.
    * 
    * @example
    * DataWorks
@@ -134,7 +128,7 @@ export class CreateDatasetRequest extends $dara.Model {
   origin?: string;
   /**
    * @remarks
-   * The DataWorks workspace ID.
+   * The ID of the DataWorks workspace.
    * 
    * This parameter is required.
    * 
@@ -144,30 +138,10 @@ export class CreateDatasetRequest extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The storage type. Currently supported values:
-   * 
-   * - OSS
-   * 
-   * - NAS: General-purpose NAS file systems
-   * 
-   * - EXTREMENAS: Extreme NAS file systems
-   * 
-   * - DLF_LANCE: Data Lake Formation
-   * 
-   * Valid values:
-   * 
-   * - NAS: General-purpose NAS file systems
-   * 
-   * - MAXCOMPUTE: MaxCompute table
-   * 
-   * - CPFS: Cloud Parallel File Storage
-   * 
-   * - BMCPFS: CPFS for Lingjun
-   * 
-   * - EXTREMENAS: Extreme NAS file systems
-   * 
-   * - OSS: Object Storage Service
-   * 
+   * The storage type. Valid values:
+   * - OSS: Object Storage Service.
+   * - NAS: general-purpose NAS file storage.
+   * - EXTREMENAS: extreme NAS file storage.
    * - DLF_LANCE: Data Lake Formation.
    * 
    * This parameter is required.

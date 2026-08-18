@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetDIJobLogRequest extends $dara.Model {
   /**
    * @remarks
-   * This parameter is deprecated. Use the Id parameter instead.
+   * **[Deprecated]** This parameter is deprecated. Use the Id parameter instead.
    * 
    * @example
    * 10000
@@ -23,7 +23,7 @@ export class GetDIJobLogRequest extends $dara.Model {
   failoverId?: number;
   /**
    * @remarks
-   * The ID of the synchronization task.
+   * The node ID.
    * 
    * @example
    * 10000
@@ -39,11 +39,10 @@ export class GetDIJobLogRequest extends $dara.Model {
   instanceId?: number;
   /**
    * @remarks
-   * The type of the node. This parameter is applicable only to the tasks that are run on serverless resource groups. Valid values:
+   * The node type. This parameter is applicable only to tasks that run on resource group 2.0. Valid values:
    * 
-   * - **MASTER**: the master node, which is used to query the logs of JobManagers.
-   * 
-   * - **WORKER**: the worker node, which is used to query the logs of TaskManagers.
+   * * **MASTER**: retrieves the JobManager logs.
+   * * **WORKER**: retrieves the TaskManager logs.
    * 
    * @example
    * MASTER
@@ -51,7 +50,7 @@ export class GetDIJobLogRequest extends $dara.Model {
   nodeType?: string;
   /**
    * @remarks
-   * The page number of the pagination query. The value is a positive integer greater than or equal to 1.
+   * The page number for paging. The value must be a positive integer greater than or equal to 1.
    * 
    * @example
    * 1

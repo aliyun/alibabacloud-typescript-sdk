@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateProjectRoleShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * A reserved parameter.
+   * A reserved field.
    * 
    * @example
    * 0000-ABCD-EFG****
@@ -30,9 +30,9 @@ export class UpdateProjectRoleShrinkRequest extends $dara.Model {
   modulePermissionsShrink?: string;
   /**
    * @remarks
-   * The ID of the DataWorks workspace. You can log on to the [DataWorks console](https://dataworks.console.aliyun.com/workspace/list) and go to the workspace management page to obtain the ID.
+   * The ID of the DataWorks workspace. You can log on to the [DataWorks console](https://dataworks.console.aliyun.com/workspace/list) and go to the Storage Management page to obtain the ID.
    * 
-   * This parameter specifies the DataWorks workspace on which the API operation is performed.
+   * This parameter specifies the DataWorks workspace for this API invocation.
    * 
    * This parameter is required.
    * 

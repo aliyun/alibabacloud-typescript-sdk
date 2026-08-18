@@ -5,13 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class GetDataSourceResponseBodyDataSource extends $dara.Model {
   /**
    * @remarks
-   * The connection configurations of the data source, including the connection address, access identity, and environment information. The envType parameter specifies the environment in which the data source is used. Valid values of the envType parameter:
+   * The connection configuration of the data source, including the endpoint, access identity, and environment context. The data source environment type (envType) is a member property of this object. Valid values:
+   * - Dev: development environment.
+   * - Prod: production environment.
    * 
-   * - Dev: development environment
-   * 
-   * - Prod: production environment
-   * 
-   * The parameters that you need to configure for the data source vary based on the mode in which the data source is added. For more information, see [Data source connection information (ConnectionProperties)](https://help.aliyun.com/document_detail/2852465.html).
+   * Different types of data sources have different property specifications under different configuration modes (ConnectionPropertiesMode). For more information, see [Data source connection properties (ConnectionProperties)](https://help.aliyun.com/document_detail/2852465.html).
    * 
    * @example
    * {
@@ -27,13 +25,10 @@ export class GetDataSourceResponseBodyDataSource extends $dara.Model {
   connectionProperties?: any;
   /**
    * @remarks
-   * The mode in which the data source is added. The mode varies based on the data source type. Valid values:
-   * 
-   * - InstanceMode: instance mode
-   * 
-   * - UrlMode: connection string mode
-   * 
-   * - CdhMode: CDH cluster mode
+   * The category in which the data source is added. Different types have different subtypes with different parameter constraints. Examples:
+   * - InstanceMode: instance mode.
+   * - UrlMode: connection string mode.
+   * - CdhMode: CDH mode.
    * 
    * @example
    * UrlMode
@@ -41,7 +36,7 @@ export class GetDataSourceResponseBodyDataSource extends $dara.Model {
   connectionPropertiesMode?: string;
   /**
    * @remarks
-   * The time when the data source was added. This value is a UNIX timestamp.
+   * The time when the data source was created (timestamp).
    * 
    * @example
    * 1698286929333
@@ -49,7 +44,7 @@ export class GetDataSourceResponseBodyDataSource extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * The ID of the user who adds the data source.
+   * The ID of the user who created the data source.
    * 
    * @example
    * 1107550004253538
@@ -65,7 +60,7 @@ export class GetDataSourceResponseBodyDataSource extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The data source ID.
+   * The ID of the data source.
    * 
    * @example
    * 16738
@@ -73,7 +68,7 @@ export class GetDataSourceResponseBodyDataSource extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The time when the data source was last modified. This value is a UNIX timestamp.
+   * The time when the data source was last modified (timestamp).
    * 
    * @example
    * 1698286929333
@@ -81,7 +76,7 @@ export class GetDataSourceResponseBodyDataSource extends $dara.Model {
   modifyTime?: number;
   /**
    * @remarks
-   * The ID of the user who modifies the data source.
+   * The ID of the user who last modified the data source.
    * 
    * @example
    * 1107550004253538
@@ -97,7 +92,7 @@ export class GetDataSourceResponseBodyDataSource extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The ID of the workspace with which the data source is associated.
+   * The ID of the workspace to which the data source belongs.
    * 
    * @example
    * 52660
@@ -105,7 +100,7 @@ export class GetDataSourceResponseBodyDataSource extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The unique business key of the data source. For example, the unique business key of a Hologres data source is in the `${tenantOwnerId}:${regionId}:${type}:${instanceId}:${database}` format.
+   * The business unique key of the data source. For example, the format for a Hologres data source is `${tenantOwnerId}:${regionId}:${type}:${instanceId}:${database}`.
    * 
    * @example
    * 1107550004253538:cn-beijing:holo:hgprecn-cn-x0r3oun4k001:testdb
@@ -165,12 +160,12 @@ export class GetDataSourceResponseBodyDataSource extends $dara.Model {
 export class GetDataSourceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the data source.
+   * The data source details.
    */
   dataSource?: GetDataSourceResponseBodyDataSource;
   /**
    * @remarks
-   * The request ID.
+   * The request ID. Used for locating logs and troubleshooting issues.
    * 
    * @example
    * 9252F32F-D855-549E-8898-61CF5A733050

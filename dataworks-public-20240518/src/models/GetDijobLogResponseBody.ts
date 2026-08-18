@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetDIJobLogResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The log.
+   * The task logs.
    * 
    * @example
    * >>>>>>>> stdout:n++++++++++++++++++executing sql: create database if not exists jindo_test location \\"oss://pangbei-hdfs/tmp/hive\\" n++n
@@ -13,7 +13,7 @@ export class GetDIJobLogResponseBody extends $dara.Model {
   log?: string;
   /**
    * @remarks
-   * The request ID. You can use the ID to query logs and troubleshoot issues.
+   * The request ID. You can use this ID to locate logs and troubleshoot issues.
    * 
    * @example
    * 1AFAE64E-D1BE-432B-A9****

@@ -7,7 +7,7 @@ export class CreateFunctionResponseBody extends $dara.Model {
    * @remarks
    * The unique identifier of the UDF function.
    * 
-   * > Prior to SDK version 8.0.0, this field is of type Long. In SDK version 8.0.0 and later, it is of type String. This change does not affect the normal use of the SDK. The parameter is returned based on the type defined in the SDK. Compilation failures caused by the type change may occur only when you upgrade the SDK across version 8.0.0. In this case, you must manually update the data type.
+   * >Notice: This field was of the Long type in SDK versions earlier than 8.0.0 and is of the String type in SDK 8.0.0 and later. **This change does not affect normal SDK usage, and the parameter is still returned in the type defined in the SDK**. Only when you upgrade across SDK version 8.0.0, the type change may cause project compilation failures, and you need to manually correct the data type.
    * 
    * @example
    * 580667964888595XXXX
@@ -15,7 +15,7 @@ export class CreateFunctionResponseBody extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The request ID. You can locate logs and troubleshoot issues based on the ID.
+   * The request ID. Used for locating logs and troubleshooting issues.
    * 
    * @example
    * AE49C88D-5BEE-5ADD-8B8C-C4BBC0D7****

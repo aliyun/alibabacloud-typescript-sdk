@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CloneDataSourceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the cloned data source.
+   * The ID of the cloned data source. This is the unique identifier of the data source.
    * 
    * @example
    * 19715
@@ -13,7 +13,7 @@ export class CloneDataSourceResponseBody extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The request ID. You can use this ID to locate logs and troubleshoot issues.
+   * The request ID. Used to locate logs and troubleshoot issues.
    * 
    * @example
    * FCD583B9-346B-5E75-82C1-4A7C192C48DB

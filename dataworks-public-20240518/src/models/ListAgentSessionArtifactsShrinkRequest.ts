@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAgentSessionArtifactsShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID passed by the caller. The value is returned as-is in the response.
+   * The ID passed in by the requester. The value is returned as-is.
    * 
    * @example
    * 10001

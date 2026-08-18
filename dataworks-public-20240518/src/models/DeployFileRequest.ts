@@ -13,7 +13,7 @@ export class DeployFileRequest extends $dara.Model {
   comment?: string;
   /**
    * @remarks
-   * The file ID. You can call the [ListFiles](https://help.aliyun.com/document_detail/173942.html) operation to obtain the ID. You need to configure either this parameter or the NodeId parameter.
+   * The ID of the file. You can call [ListFiles](https://help.aliyun.com/document_detail/173942.html) to query the file ID. You need to specify only one of this parameter and the NodeId parameter settings.
    * 
    * @example
    * 10000001
@@ -21,7 +21,9 @@ export class DeployFileRequest extends $dara.Model {
   fileId?: number;
   /**
    * @remarks
-   * The task ID of the file to be deployed in the scheduling system. You need to configure either this parameter or the FileId parameter.
+   * The ID of the node in the scheduling system that corresponds to the file to be published.
+   * 
+   * You need to specify only one of this parameter and the FileId parameter settings.
    * 
    * @example
    * 2000001
@@ -29,7 +31,9 @@ export class DeployFileRequest extends $dara.Model {
   nodeId?: number;
   /**
    * @remarks
-   * The DataWorks workspace ID. You can log on to the DataWorks console and go to the Workspace page to query the ID. You must specify either this parameter or the ProjectIdentifier parameter to identify the DataWorks workspace when you call this operation.
+   * The ID of the DataWorks workspace.
+   * 
+   * You can log on to the DataWorks console and go to the workspace configuration page to obtain the workspace ID. You must specify either this parameter or ProjectIdentifier to determine the DataWorks workspace for this API call.
    * 
    * @example
    * 10000
@@ -37,7 +41,9 @@ export class DeployFileRequest extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The name of the DataWorks workspace. You can log on to the DataWorks console and go to the Workspace page to query the workspace name. You must specify either this parameter or the ProjectId parameter to identify the DataWorks workspace when you call this operation.
+   * The name of the DataWorks workspace.
+   * 
+   * You can log on to the DataWorks console and go to the workspace configuration page to obtain the workspace name. You must specify either this parameter or ProjectId to determine the DataWorks workspace for this API call.
    * 
    * @example
    * dw_project

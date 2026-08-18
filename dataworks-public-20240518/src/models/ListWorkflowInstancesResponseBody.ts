@@ -47,6 +47,8 @@ export class ListWorkflowInstancesResponseBodyPagingInfoWorkflowInstances extend
    * @remarks
    * The business date.
    * 
+   * The value is a 13-digit number, such as `1710239005403`.
+   * 
    * @example
    * 1710239005403
    */
@@ -54,6 +56,8 @@ export class ListWorkflowInstancesResponseBodyPagingInfoWorkflowInstances extend
   /**
    * @remarks
    * The creation time.
+   * 
+   * The value is a 13-digit number, such as `1710239005403`.
    * 
    * @example
    * 1710239005403
@@ -69,10 +73,8 @@ export class ListWorkflowInstancesResponseBodyPagingInfoWorkflowInstances extend
   createUser?: string;
   /**
    * @remarks
-   * The project environment.
-   * 
+   * The project environment. Valid values:
    * - Prod (production)
-   * 
    * - Dev (development)
    * 
    * @example
@@ -81,7 +83,9 @@ export class ListWorkflowInstancesResponseBodyPagingInfoWorkflowInstances extend
   envType?: string;
   /**
    * @remarks
-   * The time when the instance finished running.
+   * The finish time.
+   * 
+   * The value is a 13-digit number, such as `1710239005403`.
    * 
    * @example
    * 1710239005403
@@ -98,6 +102,8 @@ export class ListWorkflowInstancesResponseBodyPagingInfoWorkflowInstances extend
   /**
    * @remarks
    * The modification time.
+   * 
+   * The value is a 13-digit number, such as `1710239005403`.
    * 
    * @example
    * 1710239005403
@@ -137,7 +143,9 @@ export class ListWorkflowInstancesResponseBodyPagingInfoWorkflowInstances extend
   projectId?: number;
   /**
    * @remarks
-   * The time when the instance started running.
+   * The start time.
+   * 
+   * The value is a 13-digit number, such as `1710239005403`.
    * 
    * @example
    * 1710239005403
@@ -145,23 +153,15 @@ export class ListWorkflowInstancesResponseBodyPagingInfoWorkflowInstances extend
   startedTime?: number;
   /**
    * @remarks
-   * The running status of the workflow instance.
-   * 
-   * - NotRun: Not run
-   * 
-   * - Running: Running
-   * 
-   * - WaitTime: Waiting for TriggerTime
-   * 
-   * - CheckingCondition: Checking branch conditions
-   * 
-   * - WaitResource: Waiting for resources
-   * 
-   * - Failure: Failed
-   * 
-   * - Success: Succeeded
-   * 
-   * - Checking: Submitted for Data Quality check
+   * The running status of the workflow instance. Valid values:
+   * - NotRun: not run
+   * - Running: running
+   * - WaitTime: waiting for TriggerTime
+   * - CheckingCondition: checking branch conditions
+   * - WaitResource: waiting for resources
+   * - Failure: failed
+   * - Success: succeeded
+   * - Checking: submitted for data quality check
    * 
    * @example
    * Success
@@ -169,24 +169,18 @@ export class ListWorkflowInstancesResponseBodyPagingInfoWorkflowInstances extend
   status?: string;
   /**
    * @remarks
-   * The task tags.
+   * The node tags.
    */
   tags?: ListWorkflowInstancesResponseBodyPagingInfoWorkflowInstancesTags[];
   /**
    * @remarks
-   * The type of the workflow instance.
-   * 
-   * - Normal: Periodic scheduling
-   * 
-   * - Manual: Manual task
-   * 
-   * - SmokeTest: Testing
-   * 
-   * - SupplementData: Backfill data
-   * 
-   * - ManualWorkflow: Manual workflow
-   * 
-   * - TriggerWorkflow: Trigger-based workflow
+   * The type of the workflow instance. Valid values:
+   * - Normal: periodic scheduling
+   * - Manual: manual task
+   * - SmokeTest: test
+   * - SupplementData: data backfill
+   * - ManualWorkflow: manual workflow
+   * - TriggerWorkflow: trigger-based workflow
    * 
    * @example
    * Normal
@@ -194,7 +188,7 @@ export class ListWorkflowInstancesResponseBodyPagingInfoWorkflowInstances extend
   type?: string;
   /**
    * @remarks
-   * The unified workflow instance ID. All workflow instances within the same business date of a single trigger share the same value for this field.
+   * The unified workflow instance ID. All workflow instances within the same business date under a specific trigger share the same value for this field.
    * 
    * @example
    * 1234
@@ -213,9 +207,9 @@ export class ListWorkflowInstancesResponseBodyPagingInfoWorkflowInstances extend
    * The workflow parameters.
    * 
    * @example
-   * 周期工作流：
+   * Periodic workflow:
    * key1=value1 key2=value2
-   * 手动业务流程：
+   * Manual workflow:
    * {"key1":"value1", "key2": "value2"}
    */
   workflowParameters?: string;

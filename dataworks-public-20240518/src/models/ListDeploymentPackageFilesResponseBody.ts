@@ -5,13 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class ListDeploymentPackageFilesResponseBodyPagingInfoDeploymentPackageFiles extends $dara.Model {
   /**
    * @remarks
-   * The change type, which is an integer. Valid values:
-   * 
-   * - 0: addition
-   * 
-   * - 1: update
-   * 
-   * - 2: deletion
+   * The change type. Valid values: 
+   * - 0: added.
+   * - 1: updated.
+   * - 2: deleted.
    * 
    * @example
    * 0
@@ -19,15 +16,17 @@ export class ListDeploymentPackageFilesResponseBodyPagingInfoDeploymentPackageFi
   changeType?: number;
   /**
    * @remarks
-   * The comment for committing.
+   * The comment provided at the time of commit.
    * 
    * @example
-   * Test submission
+   * Test commit
    */
   comment?: string;
   /**
    * @remarks
-   * The time for committing.
+   * The commit time.
+   * 
+   * The format is `yyyy-MM-dd HH:mm:ss`, for example, `2025-04-10 15:55:47`. This example does not include a time zone identifier.
    * 
    * @example
    * 2025-04-10 15:55:47
@@ -35,7 +34,7 @@ export class ListDeploymentPackageFilesResponseBodyPagingInfoDeploymentPackageFi
   commitTime?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account used by the user who committed the file.
+   * The Alibaba Cloud account ID of the committer.
    * 
    * @example
    * 446***
@@ -43,7 +42,7 @@ export class ListDeploymentPackageFilesResponseBodyPagingInfoDeploymentPackageFi
   commitUser?: string;
   /**
    * @remarks
-   * The name of the Alibaba Cloud account used by the user who committed the file.
+   * The Alibaba Cloud account name of the committer.
    * 
    * @example
    * user***
@@ -51,7 +50,7 @@ export class ListDeploymentPackageFilesResponseBodyPagingInfoDeploymentPackageFi
   commitUserName?: string;
   /**
    * @remarks
-   * The file ID.
+   * The ID of the file.
    * 
    * @example
    * 520246913
@@ -59,7 +58,7 @@ export class ListDeploymentPackageFilesResponseBodyPagingInfoDeploymentPackageFi
   fileId?: number;
   /**
    * @remarks
-   * The name of the file of the current version.
+   * The name of the file that generated this file version.
    * 
    * @example
    * bak_part_basc_person_relation_all_da
@@ -67,7 +66,7 @@ export class ListDeploymentPackageFilesResponseBodyPagingInfoDeploymentPackageFi
   fileName?: string;
   /**
    * @remarks
-   * The file type. The code for files varies based on the file type. For more information, see [DataWorks nodes](https://help.aliyun.com/document_detail/600169.html).
+   * The file type. Different file types have different codes. For more information, see [DataWorks nodes](https://help.aliyun.com/document_detail/600169.html).
    * 
    * @example
    * 13
@@ -75,7 +74,7 @@ export class ListDeploymentPackageFilesResponseBodyPagingInfoDeploymentPackageFi
   fileType?: number;
   /**
    * @remarks
-   * The file version.
+   * The version number of the file.
    * 
    * @example
    * 34
@@ -83,7 +82,7 @@ export class ListDeploymentPackageFilesResponseBodyPagingInfoDeploymentPackageFi
   fileVersion?: number;
   /**
    * @remarks
-   * The unique ID.
+   * The unique identifier.
    * 
    * @example
    * 650433503
@@ -91,7 +90,7 @@ export class ListDeploymentPackageFilesResponseBodyPagingInfoDeploymentPackageFi
   id?: number;
   /**
    * @remarks
-   * Indicates whether the version is a version in the production environment of the scheduling system.
+   * Indicates whether this version is the same as the current production version in scheduling.
    * 
    * @example
    * true
@@ -99,7 +98,7 @@ export class ListDeploymentPackageFilesResponseBodyPagingInfoDeploymentPackageFi
   isSameAsProductionVersion?: boolean;
   /**
    * @remarks
-   * The scheduling property configurations of the node that corresponds to the file, which is a JSON string.
+   * The scheduling property configuration of the scheduling node to which this file belongs, stored as a JSON string.
    * 
    * @example
    * {
@@ -153,7 +152,7 @@ export class ListDeploymentPackageFilesResponseBodyPagingInfoDeploymentPackageFi
   nodeConfiguration?: string;
   /**
    * @remarks
-   * The ID of the auto triggered node that corresponds to the file.
+   * The node ID in scheduling that corresponds to this file.
    * 
    * @example
    * 700005008419
@@ -169,7 +168,7 @@ export class ListDeploymentPackageFilesResponseBodyPagingInfoDeploymentPackageFi
   projectId?: number;
   /**
    * @remarks
-   * The test status in the development environment.
+   * The testing status in the development environment.
    * 
    * @example
    * Not tested
@@ -177,35 +176,21 @@ export class ListDeploymentPackageFilesResponseBodyPagingInfoDeploymentPackageFi
   smokeTestStatus?: string;
   /**
    * @remarks
-   * The status of the code file of the current version. Valid values:
-   * 
-   * - 2: Commit check in progress.
-   * 
-   * - 3: Commit check passed.
-   * 
-   * - 4: Commit check failed.
-   * 
-   * - 10: Committing.
-   * 
-   * - 11: Committed.
-   * 
-   * - 20: Approved.
-   * 
-   * - 21: Rejected.
-   * 
-   * - 22: Warning detected during checking.
-   * 
-   * - 23: Under code review.
-   * 
-   * - 24: Code review rejected.
-   * 
-   * - 80: Deployment package created.
-   * 
-   * - 100: Deploying.
-   * 
-   * - 101: Deployed to the production environment.
-   * 
-   * - 200: Cancelled.
+   * The status of the code file for this version. Valid values: 
+   * - 2: commit check in progress.
+   * - 3: commit check succeeded.
+   * - 4: commit check rejected.
+   * - 10: committing. 
+   * - 11: committed to the scheduling development environment. 
+   * - 20: review approved.
+   * - 21: review failed.
+   * - 22: check has warnings.
+   * - 23: code review in progress.
+   * - 24: code review rejected.
+   * - 80: deployment package created. 
+   * - 100: deploying. 
+   * - 101: deployed to production. 
+   * - 200: canceled.
    * 
    * @example
    * 100
@@ -221,19 +206,13 @@ export class ListDeploymentPackageFilesResponseBodyPagingInfoDeploymentPackageFi
   tenantId?: number;
   /**
    * @remarks
-   * The module to which the file belongs. Valid values:
-   * 
-   * - NORMAL: The file is used for DataStudio.
-   * 
-   * - MANUAL: The file is used for a manually triggered node.
-   * 
-   * - MANUAL_BIZ: The file is used for a manually triggered workflow.
-   * 
-   * - SKIP: The file is used for a dry-run node in DataStudio.
-   * 
-   * - ADHOCQUERY: The file is used for an ad hoc query.
-   * 
-   * - COMPONENT: The file is used for a script template.
+   * The functional module to which the file belongs. Valid values:
+   * - NORMAL: data development.
+   * - MANUAL: manual task.
+   * - MANUAL_BIZ: manual workflow.
+   * - SKIP: dry-run scheduling in data development.
+   * - ADHOCQUERY: ad hoc query.
+   * - COMPONENT: component management.
    * 
    * @example
    * NORMAL
@@ -297,12 +276,12 @@ export class ListDeploymentPackageFilesResponseBodyPagingInfoDeploymentPackageFi
 export class ListDeploymentPackageFilesResponseBodyPagingInfo extends $dara.Model {
   /**
    * @remarks
-   * The list of files pending deployment.
+   * The list of file versions pending deployment.
    */
   deploymentPackageFiles?: ListDeploymentPackageFilesResponseBodyPagingInfoDeploymentPackageFiles[];
   /**
    * @remarks
-   * The page number. Pages start from page 1.
+   * The page number, starting from 1.
    * 
    * @example
    * 1
@@ -310,7 +289,7 @@ export class ListDeploymentPackageFilesResponseBodyPagingInfo extends $dara.Mode
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Default value: 10.
+   * The page size. Default value: 10.
    * 
    * @example
    * 10
@@ -318,7 +297,7 @@ export class ListDeploymentPackageFilesResponseBodyPagingInfo extends $dara.Mode
   pageSize?: number;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries that meet the conditions.
    * 
    * @example
    * 100
@@ -357,12 +336,12 @@ export class ListDeploymentPackageFilesResponseBodyPagingInfo extends $dara.Mode
 export class ListDeploymentPackageFilesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The pagination details.
+   * The pagination information.
    */
   pagingInfo?: ListDeploymentPackageFilesResponseBodyPagingInfo;
   /**
    * @remarks
-   * The request ID.
+   * The request ID. You can use this ID to troubleshoot issues.
    * 
    * @example
    * 0000-ABCD-EFG****

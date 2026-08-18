@@ -13,7 +13,7 @@ export class BatchUpdateTasksShrinkRequest extends $dara.Model {
   comment?: string;
   /**
    * @remarks
-   * The list of tasks.
+   * The list of nodes.
    */
   tasksShrink?: string;
   static names(): { [key: string]: string } {

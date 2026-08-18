@@ -5,23 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDIAlarmRuleRequestNotificationSettingsNotificationChannels extends $dara.Model {
   /**
    * @remarks
-   * The alert notification method. Valid values:
-   * 
-   * - Mail
-   * 
-   * - Phone
-   * 
-   * - Sms
-   * 
-   * - Ding
+   * The notification channel. Valid values:
+   * - Mail: email.
+   * - Phone: phone call.
+   * - Sms: text message.
+   * - Ding: DingTalk.
    */
   channels?: string[];
   /**
    * @remarks
    * The severity level. Valid values:
-   * 
    * - Warning
-   * 
    * - Critical
    * 
    * @example
@@ -57,7 +51,7 @@ export class CreateDIAlarmRuleRequestNotificationSettingsNotificationChannels ex
 export class CreateDIAlarmRuleRequestNotificationSettingsNotificationReceivers extends $dara.Model {
   /**
    * @remarks
-   * The recipient type. Valid values: AliyunUid, DingToken, FeishuToken, and WebHookUrl.
+   * The receiver type. Valid values: AliyunUid, DingToken, FeishuToken, and WebHookUrl.
    * 
    * @example
    * DingToken
@@ -65,11 +59,9 @@ export class CreateDIAlarmRuleRequestNotificationSettingsNotificationReceivers e
   receiverType?: string;
   /**
    * @remarks
-   * The recipient.
-   * 
-   * - If the ReceiverType parameter is set to AliyunUid, set this parameter to the Alibaba Cloud account ID of a user.
-   * 
-   * - If the ReceiverType parameter is set to DingToken, set this parameter to the token of a DingTalk chatbot.
+   * The receiver values.
+   * - If the receiver type is AliyunUid, the value is the Alibaba Cloud account ID.
+   * - If the receiver type is DingToken, the value is the DingTalk token.
    */
   receiverValues?: string[];
   static names(): { [key: string]: string } {
@@ -101,7 +93,7 @@ export class CreateDIAlarmRuleRequestNotificationSettingsNotificationReceivers e
 export class CreateDIAlarmRuleRequestNotificationSettings extends $dara.Model {
   /**
    * @remarks
-   * This parameter is deprecated and replaced by the MuteInterval parameter.
+   * **[Deprecated]** Use the MuteInterval parameter instead.
    * 
    * @example
    * 5
@@ -111,7 +103,7 @@ export class CreateDIAlarmRuleRequestNotificationSettings extends $dara.Model {
   inhibitionInterval?: number;
   /**
    * @remarks
-   * The duration of the alert suppression interval. Default value: 5. Unit: minutes.
+   * The alert mute interval. Unit: minutes. Default value: 5.
    * 
    * @example
    * 5
@@ -119,12 +111,12 @@ export class CreateDIAlarmRuleRequestNotificationSettings extends $dara.Model {
   muteInterval?: number;
   /**
    * @remarks
-   * The alert notification methods.
+   * The alert notification channels.
    */
   notificationChannels?: CreateDIAlarmRuleRequestNotificationSettingsNotificationChannels[];
   /**
    * @remarks
-   * The settings of alert notification recipients.
+   * The alert notification receivers.
    */
   notificationReceivers?: CreateDIAlarmRuleRequestNotificationSettingsNotificationReceivers[];
   static names(): { [key: string]: string } {
@@ -163,19 +155,19 @@ export class CreateDIAlarmRuleRequestNotificationSettings extends $dara.Model {
 export class CreateDIAlarmRuleRequestTriggerConditions extends $dara.Model {
   /**
    * @remarks
-   * This parameter is deprecated and replaced by the DdlTypes parameter.
+   * **[Deprecated]** Use the DdlTypes parameter instead.
    * 
    * @deprecated
    */
   ddlReportTags?: string[];
   /**
    * @remarks
-   * The types of DDL operations for which the alert rule takes effect.
+   * The list of DDL types that take effect. This parameter takes effect only when the metric type is DDL notification.
    */
   ddlTypes?: string[];
   /**
    * @remarks
-   * The time interval for alert calculation. Unit: minutes.
+   * The time window for alert calculation. Unit: minutes.
    * 
    * @example
    * 10
@@ -184,9 +176,7 @@ export class CreateDIAlarmRuleRequestTriggerConditions extends $dara.Model {
   /**
    * @remarks
    * The severity level. Valid values:
-   * 
    * - Warning
-   * 
    * - Critical
    * 
    * @example
@@ -196,12 +186,9 @@ export class CreateDIAlarmRuleRequestTriggerConditions extends $dara.Model {
   /**
    * @remarks
    * The alert threshold.
-   * 
-   * - If the alert rule is for task status, you do not need to specify a threshold.
-   * 
-   * - If the alert rule is for failovers, you must specify the number of failovers.
-   * 
-   * - If the alert rule is for latency, you must specify the latency duration, in seconds.
+   * - Task status alert: no threshold is required.
+   * - Failover count alert: the threshold is the number of failovers.
+   * - Task latency alert: the threshold is the latency duration. Unit: seconds.
    * 
    * @example
    * 10
@@ -245,7 +232,7 @@ export class CreateDIAlarmRuleRequestTriggerConditions extends $dara.Model {
 export class CreateDIAlarmRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request.
+   * The idempotency parameter.
    * 
    * @example
    * ABFUOEUOTRTRJKE
@@ -253,7 +240,7 @@ export class CreateDIAlarmRuleRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The ID of the synchronization task with which the alert rule is associated.
+   * The task ID associated with the alert rule.
    * 
    * This parameter is required.
    * 
@@ -279,17 +266,12 @@ export class CreateDIAlarmRuleRequest extends $dara.Model {
   enabled?: boolean;
   /**
    * @remarks
-   * The metric type in the alert rule. Valid values:
-   * 
-   * - Heartbeat
-   * 
-   * - FailoverCount
-   * 
-   * - Delay
-   * 
-   * - DdlReport
-   * 
-   * - ResourceUtilization
+   * The alert metric type. Valid values:
+   * - Heartbeat: task status alert.
+   * - FailoverCount: failover count alert.
+   * - Delay: task latency alert.
+   * - DdlReport: DDL notification.
+   * - ResourceUtilization: resource group utilization.
    * 
    * This parameter is required.
    * 
@@ -316,7 +298,7 @@ export class CreateDIAlarmRuleRequest extends $dara.Model {
   notificationSettings?: CreateDIAlarmRuleRequestNotificationSettings;
   /**
    * @remarks
-   * The conditions that can trigger the alert rule.
+   * The list of alert trigger conditions. Multiple conditions are supported.
    * 
    * This parameter is required.
    */

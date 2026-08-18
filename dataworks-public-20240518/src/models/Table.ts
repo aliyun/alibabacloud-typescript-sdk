@@ -431,7 +431,10 @@ export class Table extends $dara.Model {
    * `table_name`: The table name.
    * 
    * @example
-   * dlf-table::catalog_id:database_name::table_name
+   * maxcompute-table:123456XXX::test_project::test_tbl
+   * dlf-table:123456XXX:test_catalog:test_db::test_tbl
+   * hms-table:c-abc123xxx::test_db::test_tbl
+   * holo-table:h-abc123xxx::test_db:test_schema:test_tbl
    */
   id?: string;
   /**
@@ -447,7 +450,7 @@ export class Table extends $dara.Model {
    * The name.
    * 
    * @example
-   * table_name
+   * test_tbl
    */
   name?: string;
   /**
@@ -485,7 +488,11 @@ export class Table extends $dara.Model {
    * `schema_name`: The schema name.
    * 
    * @example
-   * dlf-database::catalog_id:database_name
+   * maxcompute-schema:123456XXX::test_project_with_schema:default
+   * maxcompute-project:123456XXX::test_project_without_schema
+   * dlf-database:123456XXX:test_catalog:test_db
+   * hms-database:c-abc123xxx::test_db
+   * holo-schema:h-abc123xxx::test_db:test_schema
    */
   parentMetaEntityId?: string;
   /**

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListFoldersResponseBodyDataFolders extends $dara.Model {
   /**
    * @remarks
-   * The folder ID.
+   * The ID of the folder.
    * 
    * @example
    * 2735c2****
@@ -13,7 +13,7 @@ export class ListFoldersResponseBodyDataFolders extends $dara.Model {
   folderId?: string;
   /**
    * @remarks
-   * The folder path.
+   * The path of the folder.
    * 
    * @example
    * Business_process/my_first_business_process/MaxCompute/ods_layer
@@ -50,7 +50,7 @@ export class ListFoldersResponseBodyData extends $dara.Model {
   folders?: ListFoldersResponseBodyDataFolders[];
   /**
    * @remarks
-   * The current page number.
+   * The page number of the current page.
    * 
    * @example
    * 1
@@ -58,7 +58,7 @@ export class ListFoldersResponseBodyData extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of records on the current page.
+   * The number of entries on the current page.
    * 
    * @example
    * 10
@@ -66,7 +66,7 @@ export class ListFoldersResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of records that meet the query conditions.
+   * The total number of entries that meet the query conditions.
    * 
    * @example
    * 13
@@ -105,7 +105,7 @@ export class ListFoldersResponseBodyData extends $dara.Model {
 export class ListFoldersResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of folders that meet the conditions.
+   * The list of folders that meet the specified conditions.
    */
   data?: ListFoldersResponseBodyData;
   /**
@@ -118,7 +118,7 @@ export class ListFoldersResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The error message
+   * The error message.
    * 
    * @example
    * The connection does not exist.
@@ -134,7 +134,7 @@ export class ListFoldersResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The request ID. Used to troubleshoot errors.
+   * The request ID. You can use this ID to troubleshoot issues.
    * 
    * @example
    * 0000-ABCD-****
@@ -142,11 +142,10 @@ export class ListFoldersResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the call was successful. Valid values:
    * 
-   * - true: success.
-   * 
-   * - false: failure.
+   * - true: The call was successful.
+   * - false: The call failed.
    * 
    * @example
    * true

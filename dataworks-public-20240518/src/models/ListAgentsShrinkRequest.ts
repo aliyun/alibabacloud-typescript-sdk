@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAgentsShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The request ID passed in by the caller. The value is returned as-is in the response.
+   * The ID passed in by the requester. The value is returned as-is.
    * 
    * @example
    * 4as3dasf654a
@@ -21,7 +21,7 @@ export class ListAgentsShrinkRequest extends $dara.Model {
   jsonrpc?: string;
   /**
    * @remarks
-   * The parameters for this request.
+   * The specific parameter content for this request.
    */
   paramsShrink?: string;
   static names(): { [key: string]: string } {

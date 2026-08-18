@@ -4,15 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateCrawlerResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the updated metadata crawler.
+   * 
    * @example
    * 1234
    */
   id?: number;
   /**
+   * @remarks
+   * The request ID. You can use this ID to locate logs and troubleshoot issues.
+   * 
    * @example
    * 9252F32F-D855-549E-8898-61CF5A733050
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

@@ -5,9 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class ListDataQualityRuleTemplatesRequest extends $dara.Model {
   /**
    * @remarks
-   * The creation source of the rule template. This parameter is required.
-   * - System: system template
-   * - UserDefined: user-defined template
+   * The creation source of the rule template. This parameter is required. Valid values:
+   * 
+   * - System: system template.
+   * - UserDefined: user-defined template.
    * 
    * @example
    * System
@@ -15,7 +16,7 @@ export class ListDataQualityRuleTemplatesRequest extends $dara.Model {
   creationSource?: string;
   /**
    * @remarks
-   * The category directory in which the custom template is stored. Levels are separated by forward slashes (/). Each level name can be up to 1,024 characters in length and cannot contain whitespace characters or backslashes.
+   * The category directory where the custom template is stored. Levels are separated by forward slashes (/). Each level name can be up to 1024 characters in length and cannot contain whitespace characters or backslashes.
    * 
    * @example
    * /ods/order_data
@@ -23,7 +24,7 @@ export class ListDataQualityRuleTemplatesRequest extends $dara.Model {
   directoryPath?: string;
   /**
    * @remarks
-   * The fuzzy match of the template rule name. For a system template, the internationalized name of the system template is fuzzy matched based on the language.
+   * The fuzzy match for the template rule name. If the template is a system template, the internationalized name of the system template is fuzzy matched based on the language.
    * 
    * @example
    * Table rows
@@ -31,7 +32,7 @@ export class ListDataQualityRuleTemplatesRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The number of entries per page in a paginated query. Default value: 10.
+   * The page size for the paging query. Default value: 10.
    * 
    * @example
    * 10
@@ -39,7 +40,7 @@ export class ListDataQualityRuleTemplatesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The page number of a paginated query. Default value: 1.
+   * The page number for the paging query. Default value: 1.
    * 
    * @example
    * 1

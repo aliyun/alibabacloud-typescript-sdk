@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDataQualityScanRunResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The run ID.
+   * The run ID of the successfully triggered task.
    * 
    * @example
    * 248840

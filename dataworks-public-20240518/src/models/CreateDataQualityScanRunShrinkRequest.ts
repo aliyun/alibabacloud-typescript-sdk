@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDataQualityScanRunShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The data quality scan ID.
+   * The ID of the data quality monitoring task.
    * 
    * @example
    * 20000001
@@ -13,7 +13,7 @@ export class CreateDataQualityScanRunShrinkRequest extends $dara.Model {
   dataQualityScanId?: number;
   /**
    * @remarks
-   * The parameters for the run. The `triggerTime` parameter is required.
+   * The parameter settings used during the actual run. The `triggerTime` parameter is required.
    */
   parametersShrink?: string;
   /**
@@ -26,7 +26,7 @@ export class CreateDataQualityScanRunShrinkRequest extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * Specifies the scheduling resource group used to run the data quality scan. This object uses the same data structure as the scheduling API.
+   * The schedule resource group used when the data quality monitoring task runs. This shares the same data structure as the scheduling API.
    */
   runtimeResourceShrink?: string;
   static names(): { [key: string]: string } {

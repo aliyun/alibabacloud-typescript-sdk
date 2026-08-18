@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListRoutesRequest extends $dara.Model {
   /**
    * @remarks
-   * The network ID.
+   * The ID of the network resource.
    * 
    * @example
    * 1000
@@ -29,7 +29,7 @@ export class ListRoutesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The unique identifier of the general quota.
    * 
    * This parameter is required.
    * 
@@ -39,13 +39,11 @@ export class ListRoutesRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The fields used for sorting. Fields such as TriggerTime and StartedTime are supported. The value of this parameter is in the Sort field + Sort by (Desc/Asc) format. By default, results are sorted in ascending order. Valid values:
+   * The list of sort fields. Fields such as scheduled time and start time are supported. The format is "sort field + sort order (Desc/Asc)" (Asc is the default if omitted). Valid values:
    * 
-   * - Id (Desc/Asc): the route ID
-   * 
-   * - DestinationCidr (Desc/Asc): the destination CIDR block of the route
-   * 
-   * - CreateTime (Desc/Asc): the time when the route is created
+   * - Id (Desc/Asc): route ID
+   * - DestinationCidr (Desc/Asc): destination CIDR
+   * - CreateTime (Desc/Asc): creation time
    * 
    * Default value: CreateTime Asc.
    * 

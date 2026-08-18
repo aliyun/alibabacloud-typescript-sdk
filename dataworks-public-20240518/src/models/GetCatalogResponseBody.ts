@@ -6,7 +6,7 @@ import { Catalog } from "./Catalog";
 export class GetCatalogResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Catalog information.
+   * The data catalog information.
    */
   catalog?: Catalog;
   /**

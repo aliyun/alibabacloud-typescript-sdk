@@ -3,18 +3,31 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetCrawlerTypeCapabilitiesResponseBodyCrawlerTypesSupportedEntityTypes extends $dara.Model {
+  /**
+   * @remarks
+   * Indicates whether the metadata entity level is optional.
+   */
   optional?: boolean;
   /**
+   * @remarks
+   * The parent-level metadata entity subtype.
+   * 
    * @example
    * instance
    */
   parentSubType?: string;
   /**
+   * @remarks
+   * The metadata entity subtype.
+   * 
    * @example
    * database
    */
   subType?: string;
   /**
+   * @remarks
+   * The metadata entity type identifier.
+   * 
    * @example
    * holo
    */
@@ -47,19 +60,36 @@ export class GetCrawlerTypeCapabilitiesResponseBodyCrawlerTypesSupportedEntityTy
 }
 
 export class GetCrawlerTypeCapabilitiesResponseBodyCrawlerTypesSupportedOptionKeys extends $dara.Model {
+  /**
+   * @remarks
+   * The list of allowed values for the extension configuration item.
+   */
   allowedValues?: string[];
   /**
+   * @remarks
+   * The default value of the extension configuration item.
+   * 
    * @example
    * false
    */
   defaultValue?: string;
   /**
+   * @remarks
+   * The name of the extension configuration item.
+   * 
    * @example
    * CollectRecyclebin
    */
   key?: string;
+  /**
+   * @remarks
+   * Indicates whether the extension configuration item is required.
+   */
   required?: boolean;
   /**
+   * @remarks
+   * The value type of the extension configuration item, such as BOOLEAN.
+   * 
    * @example
    * BOOLEAN
    */
@@ -98,24 +128,65 @@ export class GetCrawlerTypeCapabilitiesResponseBodyCrawlerTypesSupportedOptionKe
 
 export class GetCrawlerTypeCapabilitiesResponseBodyCrawlerTypes extends $dara.Model {
   /**
+   * @remarks
+   * The default collection scope granularity.
+   * 
    * @example
    * DATABASE
    */
   defaultScopeUnit?: string;
   /**
+   * @remarks
+   * The display name.
+   * 
    * @example
    * Hologres
    */
   displayName?: string;
+  /**
+   * @remarks
+   * Indicates whether a resource group must be specified when creating this type of crawler.
+   */
   requireResourceGroup?: boolean;
+  /**
+   * @remarks
+   * Indicates whether AI metadata description is supported.
+   */
   supportAiComment?: boolean;
+  /**
+   * @remarks
+   * Indicates whether schema or table exclusion regular expressions are supported.
+   */
   supportExcludeRegex?: boolean;
+  /**
+   * @remarks
+   * Indicates whether periodic scheduling is supported.
+   */
   supportSchedule?: boolean;
+  /**
+   * @remarks
+   * The list of supported data source types.
+   */
   supportedDatasourceTypes?: string[];
+  /**
+   * @remarks
+   * The metadata entity levels that the crawler type supports for collection.
+   */
   supportedEntityTypes?: GetCrawlerTypeCapabilitiesResponseBodyCrawlerTypesSupportedEntityTypes[];
+  /**
+   * @remarks
+   * The supported crawler extension configuration items.
+   */
   supportedOptionKeys?: GetCrawlerTypeCapabilitiesResponseBodyCrawlerTypesSupportedOptionKeys[];
+  /**
+   * @remarks
+   * The list of supported collection scope granularities.
+   */
   supportedScopeUnits?: string[];
   /**
+   * @remarks
+   * The crawler type.
+   * 
    * @example
    * holo
    */
@@ -174,12 +245,23 @@ export class GetCrawlerTypeCapabilitiesResponseBodyCrawlerTypes extends $dara.Mo
 }
 
 export class GetCrawlerTypeCapabilitiesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The list of crawler types and capabilities supported in the current region.
+   */
   crawlerTypes?: GetCrawlerTypeCapabilitiesResponseBodyCrawlerTypes[];
   /**
+   * @remarks
+   * The request ID. Used for locating logs and troubleshooting issues.
+   * 
    * @example
    * 9252F32F-D855-549E-8898-61CF5A733050
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

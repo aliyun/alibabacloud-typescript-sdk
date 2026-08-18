@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ExecuteAdhocWorkflowInstanceRequestTasksDataSource extends $dara.Model {
   /**
    * @remarks
-   * The name of the data source.
+   * The data source name.
    * 
    * @example
    * mysql_test
@@ -35,7 +35,7 @@ export class ExecuteAdhocWorkflowInstanceRequestTasksDataSource extends $dara.Mo
 export class ExecuteAdhocWorkflowInstanceRequestTasksDependencies extends $dara.Model {
   /**
    * @remarks
-   * The identifier of the output of the ancestor task.
+   * The output identifier of the dependent task.
    * 
    * @example
    * pre.odps_sql_demo_0
@@ -65,7 +65,7 @@ export class ExecuteAdhocWorkflowInstanceRequestTasksDependencies extends $dara.
 export class ExecuteAdhocWorkflowInstanceRequestTasksInputsVariables extends $dara.Model {
   /**
    * @remarks
-   * The name of the variable.
+   * The variable name.
    * 
    * @example
    * key1
@@ -73,7 +73,7 @@ export class ExecuteAdhocWorkflowInstanceRequestTasksInputsVariables extends $da
   name?: string;
   /**
    * @remarks
-   * The value of the variable. You must configure this parameter in the `The ancestor output: The output variable name of the ancestor task` format.
+   * The variable value. Specify the value in the format of `Upstream task Output:Upstream task output variable name`.
    * 
    * @example
    * upstream_task_output:key1
@@ -105,7 +105,7 @@ export class ExecuteAdhocWorkflowInstanceRequestTasksInputsVariables extends $da
 export class ExecuteAdhocWorkflowInstanceRequestTasksInputs extends $dara.Model {
   /**
    * @remarks
-   * The variables.
+   * The list of variable definitions.
    */
   variables?: ExecuteAdhocWorkflowInstanceRequestTasksInputsVariables[];
   static names(): { [key: string]: string } {
@@ -135,7 +135,7 @@ export class ExecuteAdhocWorkflowInstanceRequestTasksInputs extends $dara.Model 
 export class ExecuteAdhocWorkflowInstanceRequestTasksOutputsTaskOutputs extends $dara.Model {
   /**
    * @remarks
-   * The identifier of the output.
+   * The output identifier.
    * 
    * @example
    * pre.odps_sql_demo_0
@@ -165,7 +165,7 @@ export class ExecuteAdhocWorkflowInstanceRequestTasksOutputsTaskOutputs extends 
 export class ExecuteAdhocWorkflowInstanceRequestTasksOutputsVariables extends $dara.Model {
   /**
    * @remarks
-   * The name of the variable.
+   * The variable name.
    * 
    * @example
    * key1
@@ -174,13 +174,9 @@ export class ExecuteAdhocWorkflowInstanceRequestTasksOutputsVariables extends $d
   /**
    * @remarks
    * The type. Valid values:
-   * 
    * - System
-   * 
    * - Constant
-   * 
    * - NodeOutput
-   * 
    * - PassThrough
    * 
    * @example
@@ -189,7 +185,7 @@ export class ExecuteAdhocWorkflowInstanceRequestTasksOutputsVariables extends $d
   type?: string;
   /**
    * @remarks
-   * The value of the variable.
+   * The variable value.
    * 
    * @example
    * value1
@@ -223,12 +219,12 @@ export class ExecuteAdhocWorkflowInstanceRequestTasksOutputsVariables extends $d
 export class ExecuteAdhocWorkflowInstanceRequestTasksOutputs extends $dara.Model {
   /**
    * @remarks
-   * The task outputs.
+   * The list of task output definitions.
    */
   taskOutputs?: ExecuteAdhocWorkflowInstanceRequestTasksOutputsTaskOutputs[];
   /**
    * @remarks
-   * The variables.
+   * The list of variable definitions.
    */
   variables?: ExecuteAdhocWorkflowInstanceRequestTasksOutputsVariables[];
   static names(): { [key: string]: string } {
@@ -263,7 +259,7 @@ export class ExecuteAdhocWorkflowInstanceRequestTasksOutputs extends $dara.Model
 export class ExecuteAdhocWorkflowInstanceRequestTasksRuntimeResource extends $dara.Model {
   /**
    * @remarks
-   * The default number of compute units (CUs) configured for task running.
+   * The compute unit (CU) consumption configured for the task.
    * 
    * @example
    * 0.25
@@ -271,7 +267,7 @@ export class ExecuteAdhocWorkflowInstanceRequestTasksRuntimeResource extends $da
   cu?: string;
   /**
    * @remarks
-   * The ID of the image configured for task running.
+   * The image ID configured for the task.
    * 
    * @example
    * i-xxxxxx
@@ -279,7 +275,7 @@ export class ExecuteAdhocWorkflowInstanceRequestTasksRuntimeResource extends $da
   image?: string;
   /**
    * @remarks
-   * The ID of the resource group for scheduling configured for task running.
+   * The identifier of the schedule resource group configured for the task.
    * 
    * This parameter is required.
    * 
@@ -323,7 +319,7 @@ export class ExecuteAdhocWorkflowInstanceRequestTasksScript extends $dara.Model 
   content?: string;
   /**
    * @remarks
-   * The script parameters.
+   * The list of script parameters.
    * 
    * @example
    * para1=$bizdate
@@ -355,7 +351,7 @@ export class ExecuteAdhocWorkflowInstanceRequestTasksScript extends $dara.Model 
 export class ExecuteAdhocWorkflowInstanceRequestTasks extends $dara.Model {
   /**
    * @remarks
-   * The unique code of the client. This code uniquely identifies a task.
+   * The client unique code of the task, which is used to uniquely identify a task.
    * 
    * This parameter is required.
    * 
@@ -365,7 +361,7 @@ export class ExecuteAdhocWorkflowInstanceRequestTasks extends $dara.Model {
   clientUniqueCode?: string;
   /**
    * @remarks
-   * The information about the associated data source.
+   * The associated data source information.
    */
   dataSource?: ExecuteAdhocWorkflowInstanceRequestTasksDataSource;
   /**
@@ -405,19 +401,19 @@ export class ExecuteAdhocWorkflowInstanceRequestTasks extends $dara.Model {
   owner?: string;
   /**
    * @remarks
-   * The configurations of the runtime environment, such as the resource group information.
+   * The runtime environment configuration, such as resource group information.
    * 
    * This parameter is required.
    */
   runtimeResource?: ExecuteAdhocWorkflowInstanceRequestTasksRuntimeResource;
   /**
    * @remarks
-   * The script information.
+   * The script information for running the task.
    */
   script?: ExecuteAdhocWorkflowInstanceRequestTasksScript;
   /**
    * @remarks
-   * The timeout period of task running. Unit: seconds.
+   * The timeout period for task execution. Unit: seconds.
    * 
    * @example
    * 3600
@@ -425,7 +421,7 @@ export class ExecuteAdhocWorkflowInstanceRequestTasks extends $dara.Model {
   timeout?: number;
   /**
    * @remarks
-   * The type of the task.
+   * The task type.
    * 
    * This parameter is required.
    * 
@@ -495,7 +491,7 @@ export class ExecuteAdhocWorkflowInstanceRequestTasks extends $dara.Model {
 export class ExecuteAdhocWorkflowInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * The data timestamp.
+   * The business date. The value is a timestamp.
    * 
    * @example
    * 1710239005403
@@ -503,11 +499,9 @@ export class ExecuteAdhocWorkflowInstanceRequest extends $dara.Model {
   bizDate?: number;
   /**
    * @remarks
-   * The environment of the workspace. Valid values:
-   * 
-   * - Prod: production environment
-   * 
-   * - Dev: development environment
+   * The project environment. Valid values:
+   * - Prod: production
+   * - Dev: development
    * 
    * @example
    * Prod
@@ -515,7 +509,7 @@ export class ExecuteAdhocWorkflowInstanceRequest extends $dara.Model {
   envType?: string;
   /**
    * @remarks
-   * The name of the workflow instance.
+   * The name.
    * 
    * This parameter is required.
    * 
@@ -535,7 +529,7 @@ export class ExecuteAdhocWorkflowInstanceRequest extends $dara.Model {
   owner?: string;
   /**
    * @remarks
-   * The workspace ID.
+   * The project ID.
    * 
    * This parameter is required.
    * 
@@ -545,7 +539,7 @@ export class ExecuteAdhocWorkflowInstanceRequest extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The tasks.
+   * The list of tasks.
    * 
    * This parameter is required.
    */

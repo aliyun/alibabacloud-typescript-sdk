@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteAlertRuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request. You can use the ID to locate logs and troubleshoot issues.
    * 
    * @example
    * 8754EE08-4AA2-5F77-ADD7-754DBBDA9F75
@@ -13,7 +13,7 @@ export class DeleteAlertRuleResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the operation is successful.
    * 
    * @example
    * true

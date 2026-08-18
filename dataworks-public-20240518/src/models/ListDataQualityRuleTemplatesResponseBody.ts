@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDataQualityRuleTemplatesResponseBodyPagingInfoDataQualityRuleTemplatesCheckingConfig extends $dara.Model {
   /**
    * @remarks
-   * Some types of thresholds require reference samples to be queried, and then the values of the reference samples are aggregated to obtain the threshold for comparison. An expression is used here to indicate the query method of the reference samples.
+   * An expression that specifies how to query reference samples. Some threshold types require querying reference samples and then aggregating their values to derive the threshold for comparison.
    * 
    * @example
    * { "bizdate": [ "-1", "-7", "-1m" ] }
@@ -13,7 +13,8 @@ export class ListDataQualityRuleTemplatesResponseBodyPagingInfoDataQualityRuleTe
   referencedSamplesFilter?: string;
   /**
    * @remarks
-   * The threshold calculation method.
+   * The threshold calculation method. Valid values:
+   * 
    * - Fixed
    * - Fluctation
    * - FluctationDiscreate
@@ -51,22 +52,23 @@ export class ListDataQualityRuleTemplatesResponseBodyPagingInfoDataQualityRuleTe
 export class ListDataQualityRuleTemplatesResponseBodyPagingInfoDataQualityRuleTemplatesSamplingConfig extends $dara.Model {
   /**
    * @remarks
-   * The name of the sampling metric.
-   * - Count: the number of table rows
-   * - Min: the minimum value of the field
-   * - Max: the maximum value of the field
-   * - Avg: the average value of the field
-   * - DistinctCount: the number of unique values of the field
-   * - DistinctPercent: the ratio of the number of unique values of the field to the number of data rows
-   * - DuplicatedCount: the number of duplicate values of the field
-   * - DuplicatedPercent: the ratio of the number of duplicate values of the field to the number of data rows
-   * - TableSize: the size of the table
-   * - NullValueCount: the number of rows in which the field is null
-   * - NullValuePercent: the ratio of rows in which the field is null
-   * - GroupCount: each value and the corresponding number of data rows after aggregation by field value
-   * - CountNotIn: the number of rows in which the enumeration value does not match
-   * - CountDistinctNotIn: the number of unique values in which the enumeration value does not match
-   * - UserDefinedSql: collect samples by using custom SQL
+   * The metric name for sampling. Valid values:
+   * 
+   * - Count: table row count.
+   * - Min: minimum value of the field.
+   * - Max: maximum value of the field.
+   * - Avg: average value of the field.
+   * - DistinctCount: number of unique values in the field.
+   * - DistinctPercent: ratio of unique values to total rows.
+   * - DuplicatedCount: number of duplicate values in the field.
+   * - DuplicatedPercent: ratio of duplicate values to total rows.
+   * - TableSize: table size.
+   * - NullValueCount: number of rows where the field is null.
+   * - NullValuePercent: ratio of rows where the field is null.
+   * - GroupCount: row count for each value after aggregation by field value.
+   * - CountNotIn: number of rows with non-matching enumeration values.
+   * - CountDistinctNotIn: number of unique values with non-matching enumeration values.
+   * - UserDefinedSql: sample collection through custom SQL.
    * 
    * @example
    * Max
@@ -82,7 +84,7 @@ export class ListDataQualityRuleTemplatesResponseBodyPagingInfoDataQualityRuleTe
   metricParameters?: string;
   /**
    * @remarks
-   * The runtime parameter setting statements that are inserted and executed before the sampling statement is executed. This parameter can be up to 1,000 characters in length. Currently, only MaxCompute is supported.
+   * The runtime parameter setting statements that are executed before the sampling statement. The value can be up to 1000 characters in length. Currently, only MaxCompute is supported.
    * 
    * @example
    * SET odps.sql.udf.timeout=600s; 
@@ -130,7 +132,7 @@ export class ListDataQualityRuleTemplatesResponseBodyPagingInfoDataQualityRuleTe
   code?: string;
   /**
    * @remarks
-   * The category directory in which the custom template is stored. Levels are separated by forward slashes (/). Each level name can be up to 1,024 characters in length and cannot contain whitespace characters or slashes.
+   * The category directory where the custom template is stored. Levels are separated by forward slashes. Each level name can be up to 1024 characters in length and cannot contain whitespace characters or forward slashes.
    * 
    * @example
    * /ods/order_data
@@ -138,7 +140,7 @@ export class ListDataQualityRuleTemplatesResponseBodyPagingInfoDataQualityRuleTe
   directoryPath?: string;
   /**
    * @remarks
-   * The name of the rule template. It can be a combination of digits, letters, Chinese characters, and half-width or full-width punctuation marks, and can be up to 512 characters in length.
+   * The name of the rule template. The name can contain digits, letters, Chinese characters, and half-width or full-width punctuation marks. The name can be up to 512 characters in length.
    * 
    * @example
    * Table row Count Verification
@@ -159,9 +161,10 @@ export class ListDataQualityRuleTemplatesResponseBodyPagingInfoDataQualityRuleTe
   samplingConfig?: ListDataQualityRuleTemplatesResponseBodyPagingInfoDataQualityRuleTemplatesSamplingConfig;
   /**
    * @remarks
-   * The available scope of the template:
-   * - Tenant: available to all tenants
-   * - Project: available only in the current project
+   * The visibility scope of the template. Valid values:
+   * 
+   * - Tenant: available to the entire tenant.
+   * - Project: available only in the current project.
    * 
    * @example
    * Project
@@ -222,7 +225,7 @@ export class ListDataQualityRuleTemplatesResponseBodyPagingInfo extends $dara.Mo
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The page size.
    * 
    * @example
    * 10
@@ -269,12 +272,12 @@ export class ListDataQualityRuleTemplatesResponseBodyPagingInfo extends $dara.Mo
 export class ListDataQualityRuleTemplatesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The paginated query result of data quality rule templates.
+   * The paging result of the data quality rule template paged query.
    */
   pagingInfo?: ListDataQualityRuleTemplatesResponseBodyPagingInfo;
   /**
    * @remarks
-   * The API request ID.
+   * The request ID.
    * 
    * @example
    * 691CA452-D37A-****

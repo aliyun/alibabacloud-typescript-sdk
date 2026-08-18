@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ExecuteAdhocWorkflowInstanceShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The data timestamp.
+   * The business date. The value is a timestamp.
    * 
    * @example
    * 1710239005403
@@ -13,11 +13,9 @@ export class ExecuteAdhocWorkflowInstanceShrinkRequest extends $dara.Model {
   bizDate?: number;
   /**
    * @remarks
-   * The environment of the workspace. Valid values:
-   * 
-   * - Prod: production environment
-   * 
-   * - Dev: development environment
+   * The project environment. Valid values:
+   * - Prod: production
+   * - Dev: development
    * 
    * @example
    * Prod
@@ -25,7 +23,7 @@ export class ExecuteAdhocWorkflowInstanceShrinkRequest extends $dara.Model {
   envType?: string;
   /**
    * @remarks
-   * The name of the workflow instance.
+   * The name.
    * 
    * This parameter is required.
    * 
@@ -45,7 +43,7 @@ export class ExecuteAdhocWorkflowInstanceShrinkRequest extends $dara.Model {
   owner?: string;
   /**
    * @remarks
-   * The workspace ID.
+   * The project ID.
    * 
    * This parameter is required.
    * 
@@ -55,7 +53,7 @@ export class ExecuteAdhocWorkflowInstanceShrinkRequest extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The tasks.
+   * The list of tasks.
    * 
    * This parameter is required.
    */

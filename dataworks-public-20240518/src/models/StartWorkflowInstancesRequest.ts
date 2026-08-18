@@ -13,7 +13,7 @@ export class StartWorkflowInstancesRequest extends $dara.Model {
   comment?: string;
   /**
    * @remarks
-   * The IDs of workflow instances.
+   * The list of workflow instance IDs.
    * 
    * This parameter is required.
    */

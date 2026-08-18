@@ -99,7 +99,7 @@ export class Column extends $dara.Model {
    * `column_name`: The column name.
    * 
    * @example
-   * maxcompute-column:::project_name:[schema_name]:table_name:column_name
+   * maxcompute-column:123456::test_project:default:test_tbl:col1
    */
   id?: string;
   /**
@@ -107,7 +107,7 @@ export class Column extends $dara.Model {
    * The name.
    * 
    * @example
-   * column_name
+   * col1
    */
   name?: string;
   /**
@@ -140,7 +140,7 @@ export class Column extends $dara.Model {
    * The table ID. For more information, see the `Table` object.
    * 
    * @example
-   * maxcompute-table:::project_name:[schema_name]:table_name
+   * maxcompute-table:123456::test_project:default:test_tbl
    */
   tableId?: string;
   /**

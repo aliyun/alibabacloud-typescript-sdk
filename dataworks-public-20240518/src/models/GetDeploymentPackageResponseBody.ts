@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetDeploymentPackageResponseBodyDataDeployedItems extends $dara.Model {
   /**
    * @remarks
-   * The file ID.
+   * The ID of the file.
    * 
    * @example
    * 5076****
@@ -13,7 +13,7 @@ export class GetDeploymentPackageResponseBodyDataDeployedItems extends $dara.Mod
   fileId?: number;
   /**
    * @remarks
-   * The file version.
+   * The version of the file.
    * 
    * @example
    * 7
@@ -21,19 +21,15 @@ export class GetDeploymentPackageResponseBodyDataDeployedItems extends $dara.Mod
   fileVersion?: number;
   /**
    * @remarks
-   * - UNPUBLISHED(0)
+   * The status of the deployed item. Valid values:
    * 
-   * - SUCCESS(1)
-   * 
-   * - ERROR(2)
-   * 
-   * - CLONED(3)
-   * 
-   * - DEPLOY_ERROR(4)
-   * 
-   * - CLONING(5)
-   * 
-   * - REJECT(6)
+   * - UNPUBLISHED(0): not published
+   * - SUCCESS(1): published successfully
+   * - ERROR(2): publishing failed
+   * - CLONED(3): cloned successfully
+   * - DEPLOY_ERROR(4): publishing failed
+   * - CLONING(5): cloning in progress
+   * - REJECT(6): publishing rejected
    * 
    * @example
    * 1
@@ -67,11 +63,10 @@ export class GetDeploymentPackageResponseBodyDataDeployedItems extends $dara.Mod
 export class GetDeploymentPackageResponseBodyDataDeployment extends $dara.Model {
   /**
    * @remarks
-   * The validation status of nodes in the deployment package. For packages deployed to the development environment (toEnviroment=1), you can only proceed to deploy to production if the package Status is 1 (succeeded) and CheckingStatus is empty (validation complete).
+   * The check status of the nodes involved in the deployment package. When the target environment is the development environment (toEnvironment=1), you can publish the file to the production environment only when the Status of the deployment package is 1 and CheckingStatus is empty.
    * 
-   * - 7: Validation failed
-   * 
-   * - 8: Validation in progress
+   * - 7: The check failed.
+   * - 8: The check is in progress.
    * 
    * @example
    * 7
@@ -79,7 +74,7 @@ export class GetDeploymentPackageResponseBodyDataDeployment extends $dara.Model 
   checkingStatus?: number;
   /**
    * @remarks
-   * The timestamp (in milliseconds) when the deployment package was created.
+   * The timestamp when the deployment package was generated, in milliseconds.
    * 
    * @example
    * 1593877765000
@@ -87,7 +82,7 @@ export class GetDeploymentPackageResponseBodyDataDeployment extends $dara.Model 
   createTime?: number;
   /**
    * @remarks
-   * The Alibaba Cloud account ID of the user who created the deployment package.
+   * The Alibaba Cloud user ID of the user who created the deployment package.
    * 
    * @example
    * 20030****
@@ -95,7 +90,7 @@ export class GetDeploymentPackageResponseBodyDataDeployment extends $dara.Model 
   creatorId?: string;
   /**
    * @remarks
-   * The detailed error message when the deployment package fails (status is 2).
+   * The error message recorded when the deployment package fails to run (status is 2).
    * 
    * @example
    * Success
@@ -103,7 +98,7 @@ export class GetDeploymentPackageResponseBodyDataDeployment extends $dara.Model 
   errorMessage?: string;
   /**
    * @remarks
-   * The timestamp (in milliseconds) when the deployment started.
+   * The timestamp when the deployment package started to run, in milliseconds.
    * 
    * @example
    * 1593877765000
@@ -111,7 +106,10 @@ export class GetDeploymentPackageResponseBodyDataDeployment extends $dara.Model 
   executeTime?: number;
   /**
    * @remarks
-   * The environment where the deployment is executed. Valid values: 0 (local) and 1 (development).
+   * The environment from which the deployment is initiated. Valid values:
+   * 
+   * - 0: local
+   * - 1: development environment
    * 
    * @example
    * 0
@@ -119,7 +117,7 @@ export class GetDeploymentPackageResponseBodyDataDeployment extends $dara.Model 
   fromEnvironment?: number;
   /**
    * @remarks
-   * The Alibaba Cloud account ID of the user who executed the deployment.
+   * The Alibaba Cloud user ID of the user who executed the deployment package.
    * 
    * @example
    * 2003****
@@ -127,7 +125,7 @@ export class GetDeploymentPackageResponseBodyDataDeployment extends $dara.Model 
   handlerId?: string;
   /**
    * @remarks
-   * The deployment package name, displayed on the Deploy Center > Deployment Packages page.
+   * The name of the deployment package, which is displayed on the Task Publish > Deployment Package List page.
    * 
    * @example
    * ods_user_info_d-2020-07-04_20030****
@@ -135,7 +133,11 @@ export class GetDeploymentPackageResponseBodyDataDeployment extends $dara.Model 
   name?: string;
   /**
    * @remarks
-   * The current status of the deployment package. Valid values: 0 (ready), 1 (succeeded), and 2 (failed).
+   * The current status of the deployment package. Valid values:
+   * 
+   * - 0: ready
+   * - 1: successful
+   * - 2: failed
    * 
    * @example
    * 1
@@ -143,7 +145,10 @@ export class GetDeploymentPackageResponseBodyDataDeployment extends $dara.Model 
   status?: number;
   /**
    * @remarks
-   * The target environment for the deployment. Valid values: 1 (development) and 2 (production).
+   * The target environment to which the file information is published. Valid values:
+   * 
+   * - 1: development environment
+   * - 2: production environment
    * 
    * @example
    * 1
@@ -191,12 +196,12 @@ export class GetDeploymentPackageResponseBodyDataDeployment extends $dara.Model 
 export class GetDeploymentPackageResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The deployment item details.
+   * The details of the deployed items.
    */
   deployedItems?: GetDeploymentPackageResponseBodyDataDeployedItems[];
   /**
    * @remarks
-   * The deployment package details.
+   * The details of the deployment package.
    */
   deployment?: GetDeploymentPackageResponseBodyDataDeployment;
   static names(): { [key: string]: string } {
@@ -231,7 +236,7 @@ export class GetDeploymentPackageResponseBodyData extends $dara.Model {
 export class GetDeploymentPackageResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The deployment package details.
+   * The details of the deployment package.
    */
   data?: GetDeploymentPackageResponseBodyData;
   /**
@@ -260,7 +265,7 @@ export class GetDeploymentPackageResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The request ID. Use this ID to locate logs and troubleshoot issues.
+   * The request ID. You can use this ID to locate logs and troubleshoot issues.
    * 
    * @example
    * 0bc1ec92159376****
@@ -268,11 +273,10 @@ export class GetDeploymentPackageResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call succeeded. Valid values:
+   * Indicates whether the call was successful.
    * 
-   * - **true**
-   * 
-   * - **false**
+   * - **true**: The call was successful.
+   * - **false**: The call failed.
    * 
    * @example
    * true

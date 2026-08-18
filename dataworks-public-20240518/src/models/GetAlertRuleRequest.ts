@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAlertRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * The rule ID.
+   * The ID of the custom alert rule.
    * 
    * @example
    * 28547072

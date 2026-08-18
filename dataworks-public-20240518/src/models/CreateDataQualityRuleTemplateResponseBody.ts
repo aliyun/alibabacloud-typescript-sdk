@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDataQualityRuleTemplateResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The rule template Code.
+   * The code of the rule template.
    * 
    * @example
    * UserDefined:3001
@@ -13,7 +13,7 @@ export class CreateDataQualityRuleTemplateResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The API request ID.
+   * The request ID.
    * 
    * @example
    * 691CA452-D37A-4ED0-9441

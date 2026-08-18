@@ -12,7 +12,7 @@ export class ListLineagesResponseBodyPagingInfoLineages extends $dara.Model {
   dstEntity?: LineageEntity;
   /**
    * @remarks
-   * A list of lineage relationships.
+   * The lineage relationship information.
    */
   relationships?: LineageRelationship[];
   /**
@@ -57,12 +57,12 @@ export class ListLineagesResponseBodyPagingInfoLineages extends $dara.Model {
 export class ListLineagesResponseBodyPagingInfo extends $dara.Model {
   /**
    * @remarks
-   * A list of lineage information.
+   * The lineage information list.
    */
   lineages?: ListLineagesResponseBodyPagingInfoLineages[];
   /**
    * @remarks
-   * The page number of the returned data.
+   * The page number of the returned data, used for pagination.
    * 
    * @example
    * 1
@@ -70,7 +70,7 @@ export class ListLineagesResponseBodyPagingInfo extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned on the current page.
+   * The page size. Default value: 10.
    * 
    * @example
    * 10
@@ -117,7 +117,7 @@ export class ListLineagesResponseBodyPagingInfo extends $dara.Model {
 export class ListLineagesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The pagination details.
+   * The paging result.
    */
   pagingInfo?: ListLineagesResponseBodyPagingInfo;
   /**

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDIAlarmRuleShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request.
+   * The idempotency parameter.
    * 
    * @example
    * ABFUOEUOTRTRJKE
@@ -13,7 +13,7 @@ export class CreateDIAlarmRuleShrinkRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The ID of the synchronization task with which the alert rule is associated.
+   * The task ID associated with the alert rule.
    * 
    * This parameter is required.
    * 
@@ -39,17 +39,12 @@ export class CreateDIAlarmRuleShrinkRequest extends $dara.Model {
   enabled?: boolean;
   /**
    * @remarks
-   * The metric type in the alert rule. Valid values:
-   * 
-   * - Heartbeat
-   * 
-   * - FailoverCount
-   * 
-   * - Delay
-   * 
-   * - DdlReport
-   * 
-   * - ResourceUtilization
+   * The alert metric type. Valid values:
+   * - Heartbeat: task status alert.
+   * - FailoverCount: failover count alert.
+   * - Delay: task latency alert.
+   * - DdlReport: DDL notification.
+   * - ResourceUtilization: resource group utilization.
    * 
    * This parameter is required.
    * 
@@ -76,7 +71,7 @@ export class CreateDIAlarmRuleShrinkRequest extends $dara.Model {
   notificationSettingsShrink?: string;
   /**
    * @remarks
-   * The conditions that can trigger the alert rule.
+   * The list of alert trigger conditions. Multiple conditions are supported.
    * 
    * This parameter is required.
    */

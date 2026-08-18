@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CloneDataSourceRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the destination data source The name can contain letters, digits, and underscores (_), and must start with a letter. It cannot exceed 60 characters in length.
+   * The name of the destination data source. The name can contain letters, digits, and underscores, and cannot start with a digit or underscore. The name can be up to 60 characters in length.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class CloneDataSourceRequest extends $dara.Model {
   cloneDataSourceName?: string;
   /**
    * @remarks
-   * The data source ID.
+   * The data source ID. This is the unique identifier of the data source.
    * 
    * This parameter is required.
    * 

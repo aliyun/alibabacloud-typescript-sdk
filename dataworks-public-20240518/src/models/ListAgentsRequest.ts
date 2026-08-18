@@ -21,7 +21,7 @@ export class ListAgentsRequestParams extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token for the next page, following the Alibaba Cloud OpenAPI convention. Do not specify this parameter for the first page. For subsequent pages, pass in the nextToken value returned in the previous response.
+   * The pagination token that conforms to the Alibaba Cloud OpenAPI specification. Leave this parameter empty for the first page. For subsequent pages, pass the nextToken value returned from the previous page.
    * 
    * @example
    * 0
@@ -55,7 +55,7 @@ export class ListAgentsRequestParams extends $dara.Model {
 export class ListAgentsRequest extends $dara.Model {
   /**
    * @remarks
-   * The request ID passed in by the caller. The value is returned as-is in the response.
+   * The ID passed in by the requester. The value is returned as-is.
    * 
    * @example
    * 4as3dasf654a
@@ -71,7 +71,7 @@ export class ListAgentsRequest extends $dara.Model {
   jsonrpc?: string;
   /**
    * @remarks
-   * The parameters for this request.
+   * The specific parameter content for this request.
    */
   params?: ListAgentsRequestParams;
   static names(): { [key: string]: string } {

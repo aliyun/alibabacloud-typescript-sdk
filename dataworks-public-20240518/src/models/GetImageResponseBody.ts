@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetImageResponseBodyImageBuildConfigPackageInstallationScripts extends $dara.Model {
   /**
    * @remarks
-   * The script content. If the content consists of package names, separate them with commas (,).
+   * The script content. If the content contains package names, separate them with commas (,).
    * 
    * @example
    * requests
@@ -85,9 +85,8 @@ export class GetImageResponseBodyImageBuildConfig extends $dara.Model {
 export class GetImageResponseBodyImageSupported extends $dara.Model {
   /**
    * @remarks
-   * The supported module:
-   * 
-   * - Scheduler: Scheduling.
+   * The supported module. Valid values:
+   * - Scheduler: scheduling.
    * 
    * @example
    * Scheduler
@@ -127,11 +126,9 @@ export class GetImageResponseBodyImageSupported extends $dara.Model {
 export class GetImageResponseBodyImage extends $dara.Model {
   /**
    * @remarks
-   * The image visibility:
-   * 
-   * - Public: Visible to all users.
-   * 
-   * - Private: Visible only to the creator.
+   * The image visibility. Valid values:
+   * - Public: visible to all users.
+   * - Private: visible only to the creator.
    * 
    * @example
    * Public
@@ -192,7 +189,7 @@ export class GetImageResponseBodyImage extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Indicates whether synchronization to MaxCompute is enabled.
+   * Indicates whether synchronization with MaxCompute is enabled.
    * 
    * @example
    * false
@@ -280,7 +277,7 @@ export class GetImageResponseBodyImage extends $dara.Model {
   official?: boolean;
   /**
    * @remarks
-   * The image ID assigned by the provider.
+   * The image ID from the image provider.
    * 
    * @example
    * acr_image_id
@@ -288,10 +285,8 @@ export class GetImageResponseBodyImage extends $dara.Model {
   providerImageId?: string;
   /**
    * @remarks
-   * The image provider type:
-   * 
+   * The image reference data type. Valid values:
    * - ACR: ACR image repository.
-   * 
    * - DataWorks: DataWorks official image.
    * 
    * @example
@@ -300,33 +295,20 @@ export class GetImageResponseBodyImage extends $dara.Model {
   providerType?: string;
   /**
    * @remarks
-   * The publish stage:
-   * 
-   * - Untest: Not tested.
-   * 
-   * - Testing: Being tested.
-   * 
-   * - TestFailed: Test failed.
-   * 
-   * - Unpublished: Not published.
-   * 
-   * - Publishing: Being published.
-   * 
-   * - Published: Published.
-   * 
-   * - PublishFailed: Publish failed.
-   * 
-   * - Building: Being built.
-   * 
-   * - BuildSuccess: Build succeeded.
-   * 
-   * - BuildFailed: Build failed.
-   * 
-   * - Accelerating: Being accelerated.
-   * 
-   * - AccelerateSuccess: Acceleration succeeded.
-   * 
-   * - AccelerateFailed: Acceleration failed.
+   * The publish status. Valid values:
+   * - Untest: not tested.
+   * - Testing: being tested.
+   * - TestFailed: test failed.
+   * - Unpublished: not published.
+   * - Publishing: being published.
+   * - Published: published.
+   * - PublishFailed: publish failed.
+   * - Building: being built.
+   * - BuildSuccess: build succeeded.
+   * - BuildFailed: build failed.
+   * - Accelerating: being accelerated.
+   * - AccelerateSuccess: acceleration succeeded.
+   * - AccelerateFailed: acceleration failed.
    * 
    * @example
    * Published
@@ -350,15 +332,11 @@ export class GetImageResponseBodyImage extends $dara.Model {
   size?: string;
   /**
    * @remarks
-   * The image status:
-   * 
-   * - Disabled: The image is disabled.
-   * 
-   * - Expired: The image has expired.
-   * 
-   * - Available: The image is available.
-   * 
-   * - ReadOnly: The image is read-only.
+   * The image status. Valid values:
+   * - Disabled: disabled.
+   * - Expired: expired.
+   * - Available: active.
+   * - ReadOnly: read-only.
    * 
    * @example
    * Available

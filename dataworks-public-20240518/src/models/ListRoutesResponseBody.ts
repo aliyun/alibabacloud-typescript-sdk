@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListRoutesResponseBodyPagingInfoRouteList extends $dara.Model {
   /**
    * @remarks
-   * The creation time, which is a 64-bit timestamp.
+   * The creation time, represented as a 64-bit timestamp.
    * 
    * @example
    * 1727055811000
@@ -13,7 +13,7 @@ export class ListRoutesResponseBodyPagingInfoRouteList extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * The destination CIDR block of the route.
+   * The destination CIDR of the route.
    * 
    * @example
    * 192.168.0.0/16
@@ -29,7 +29,7 @@ export class ListRoutesResponseBodyPagingInfoRouteList extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The network resource ID.
+   * The ID of the network resource to which the route belongs.
    * 
    * @example
    * 1000
@@ -37,7 +37,7 @@ export class ListRoutesResponseBodyPagingInfoRouteList extends $dara.Model {
   networkId?: number;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The unique identifier of the resource group to which the route belongs.
    * 
    * @example
    * Serverless_res_group_524257424564736_6831777003****
@@ -45,7 +45,7 @@ export class ListRoutesResponseBodyPagingInfoRouteList extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The ID of the network resource.
+   * The unique identifier of the network resource.
    * 
    * @example
    * ns-679XXXXXX
@@ -101,12 +101,12 @@ export class ListRoutesResponseBodyPagingInfo extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The routes of the network resource.
+   * The list of network resource routes.
    */
   routeList?: ListRoutesResponseBodyPagingInfoRouteList[];
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 100
@@ -145,12 +145,12 @@ export class ListRoutesResponseBodyPagingInfo extends $dara.Model {
 export class ListRoutesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The pagination information.
+   * The paging information.
    */
   pagingInfo?: ListRoutesResponseBodyPagingInfo;
   /**
    * @remarks
-   * The ID of the request. It is used to locate logs and troubleshoot problems.
+   * The request ID, which is used to locate logs and troubleshoot issues.
    * 
    * @example
    * 6A6CBE87-9F91-1323-B680-E7A7065XXXXX

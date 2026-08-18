@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteProjectMemberResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID. You can use the ID to query logs and troubleshoot issues.
+   * The request ID. You can use this ID to locate logs and troubleshoot issues.
    * 
    * @example
    * 1FF0465F-209C-5964-8F30-FAF21B677CC6

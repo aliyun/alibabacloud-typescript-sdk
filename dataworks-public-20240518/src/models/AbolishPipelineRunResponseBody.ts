@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AbolishPipelineRunResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The request ID. Used to locate logs and troubleshoot issues.
    * 
    * @example
    * 55D786C9-DD57-524D-884C-C5239278XXXX
@@ -14,10 +14,8 @@ export class AbolishPipelineRunResponseBody extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the request was successful. Valid values:
-   * 
-   * - true
-   * 
-   * - false
+   * - true: The request was successful.
+   * - false: The request failed.
    * 
    * @example
    * true

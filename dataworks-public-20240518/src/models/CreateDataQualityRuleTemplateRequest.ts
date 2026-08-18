@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDataQualityRuleTemplateRequestCheckingConfig extends $dara.Model {
   /**
    * @remarks
-   * Some threshold types require querying reference samples and then aggregating the values of those reference samples to derive the threshold used for comparison. An expression is used here to describe how the reference samples are queried.
+   * An expression that specifies how to query reference samples. Some threshold types require querying reference samples and then aggregating their values to derive the threshold for comparison.
    * 
    * @example
    * { "bizdate": [ "-1", "-7", "-1m" ] }
@@ -13,7 +13,8 @@ export class CreateDataQualityRuleTemplateRequestCheckingConfig extends $dara.Mo
   referencedSamplesFilter?: string;
   /**
    * @remarks
-   * The threshold calculation method:
+   * The threshold calculation method. Valid values:
+   * 
    * - Fixed
    * - Fluctation
    * - FluctationDiscreate
@@ -51,22 +52,23 @@ export class CreateDataQualityRuleTemplateRequestCheckingConfig extends $dara.Mo
 export class CreateDataQualityRuleTemplateRequestSamplingConfig extends $dara.Model {
   /**
    * @remarks
-   * The name of the metric to sample:
-   * - Count: number of table rows
-   * - Min: minimum field value
-   * - Max: maximum field value
-   * - Avg: average field value
-   * - DistinctCount: number of distinct field values
-   * - DistinctPercent: ratio of the number of distinct field values to the number of data rows
-   * - DuplicatedCount: number of duplicate field values
-   * - DuplicatedPercent: ratio of the number of duplicate field values to the number of data rows
-   * - TableSize: table size
-   * - NullValueCount: number of rows where the field is null
-   * - NullValuePercent: ratio of rows where the field is null
-   * - GroupCount: each value and the corresponding number of data rows after aggregating by field value
-   * - CountNotIn: number of rows whose enum value does not match
-   * - CountDistinctNotIn: number of distinct values whose enum value does not match
-   * - UserDefinedSql: sample collection via a custom SQL statement
+   * The name of the sampling metric. Valid values:
+   * 
+   * - Count: the number of table rows.
+   * - Min: the minimum value of a field.
+   * - Max: the maximum value of a field.
+   * - Avg: the average value of a field.
+   * - DistinctCount: the number of distinct values in a field.
+   * - DistinctPercent: the ratio of distinct values to the total number of rows.
+   * - DuplicatedCount: the number of duplicate values in a field.
+   * - DuplicatedPercent: the ratio of duplicate values to the total number of rows.
+   * - TableSize: the table size.
+   * - NullValueCount: the number of rows where the field value is null.
+   * - NullValuePercent: the ratio of rows where the field value is null.
+   * - GroupCount: the count of rows for each value after aggregation by field value.
+   * - CountNotIn: the number of rows that do not match the enumerated values.
+   * - CountDistinctNotIn: the number of distinct values that do not match the enumerated values.
+   * - UserDefinedSql: sample collection through a custom SQL statement.
    * 
    * @example
    * Count
@@ -82,7 +84,7 @@ export class CreateDataQualityRuleTemplateRequestSamplingConfig extends $dara.Mo
   metricParameters?: string;
   /**
    * @remarks
-   * Runtime parameter setting statements to be inserted and executed before the sampling statement is executed. The maximum length is 1000 characters. Currently only MaxCompute is supported.
+   * The runtime parameter setting statements to execute before the sampling statement. The value can be up to 1000 characters in length. Currently, only MaxCompute is supported.
    * 
    * @example
    * SET odps.sql.udf.timeout=600s; 
@@ -117,12 +119,12 @@ export class CreateDataQualityRuleTemplateRequestSamplingConfig extends $dara.Mo
 export class CreateDataQualityRuleTemplateRequest extends $dara.Model {
   /**
    * @remarks
-   * The sample validation settings.
+   * The sample verification settings.
    */
   checkingConfig?: CreateDataQualityRuleTemplateRequestCheckingConfig;
   /**
    * @remarks
-   * The category directory where the custom template is stored. Hierarchy levels are separated by slashes. Each level name can be up to 1024 characters long and cannot contain whitespace characters or slashes.
+   * The directory path where the custom template is stored. Levels are separated by forward slashes (/). Each level name can be up to 1024 characters in length and cannot contain whitespace characters or forward slashes.
    * 
    * @example
    * /ods/order_data
@@ -130,7 +132,7 @@ export class CreateDataQualityRuleTemplateRequest extends $dara.Model {
   directoryPath?: string;
   /**
    * @remarks
-   * The name of the rule template. It can be a combination of digits, English letters, Chinese characters, and half-width or full-width punctuation marks. The maximum length is 512 characters.
+   * The name of the rule template. The name can contain digits, letters, Chinese characters, and half-width or full-width punctuation marks. The name can be up to 512 characters in length.
    * 
    * This parameter is required.
    * 
@@ -155,9 +157,10 @@ export class CreateDataQualityRuleTemplateRequest extends $dara.Model {
   samplingConfig?: CreateDataQualityRuleTemplateRequestSamplingConfig;
   /**
    * @remarks
-   * The visibility scope of the template:
-   * - Tenant: available to the entire tenant
-   * - Project: available only in the current project
+   * The visibility scope of the template. Valid values:
+   * 
+   * - Tenant: available to the entire tenant.
+   * - Project: available only in the current project.
    * 
    * @example
    * Project

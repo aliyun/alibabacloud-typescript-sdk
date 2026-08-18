@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetLineageRelationshipRequest extends $dara.Model {
   /**
    * @remarks
-   * The lineage relationship ID. You can get this ID from the response to the ListLineageRelationships operation.
+   * The ID of the lineage relationship. You can obtain this value from the response of the ListLineageRelationships operation.
    * 
    * This parameter is required.
    * 

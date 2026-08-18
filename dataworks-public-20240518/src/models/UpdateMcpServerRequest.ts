@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateMcpServerRequestVisibilityScope extends $dara.Model {
   /**
    * @remarks
-   * The list of workspace IDs that can access the MCP Server. This parameter takes effect only when `Visibility` is set to `PROJECT`.
+   * The list of visible project IDs. This parameter takes effect only when Visibility is set to `PROJECT`.
    */
   projectIds?: string[];
   /**
    * @remarks
-   * The list of user IDs that can access the MCP Server. This parameter takes effect only when `Visibility` is set to `USER`.
+   * The list of visible user IDs. This parameter takes effect only when Visibility is set to `USER`.
    */
   userIds?: string[];
   static names(): { [key: string]: string } {
@@ -45,7 +45,7 @@ export class UpdateMcpServerRequestVisibilityScope extends $dara.Model {
 export class UpdateMcpServerRequest extends $dara.Model {
   /**
    * @remarks
-   * The new custom request headers, specified as key-value pairs.
+   * The new custom request headers (key-value pairs).
    * 
    * @example
    * {}
@@ -71,7 +71,7 @@ export class UpdateMcpServerRequest extends $dara.Model {
   transport?: string;
   /**
    * @remarks
-   * The new service address. The address must start with`https://`.
+   * The new service URL. The URL must start with `https://`.
    * 
    * @example
    * https://example.com/mcp/sse
@@ -87,7 +87,7 @@ export class UpdateMcpServerRequest extends $dara.Model {
   visibility?: string;
   /**
    * @remarks
-   * The new visibility scope. The fields in this object depend on the value of the `Visibility` parameter.
+   * The new visibility scope. Provide the corresponding field based on the Visibility setting.
    */
   visibilityScope?: UpdateMcpServerRequestVisibilityScope;
   static names(): { [key: string]: string } {

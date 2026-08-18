@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class BatchCreateMetaEntitiesRequestEntities extends $dara.Model {
   /**
    * @remarks
-   * The entity attributes. Complex values must be serialized into a JSON string.
+   * The entity attributes. Complex values must be serialized as JSON strings.
    */
   attributes?: { [key: string]: string };
   /**
    * @remarks
-   * The comment for the entity.
+   * The comment.
    * 
    * @example
    * this is a comment
@@ -18,17 +18,15 @@ export class BatchCreateMetaEntitiesRequestEntities extends $dara.Model {
   comment?: string;
   /**
    * @remarks
-   * The custom attribute values. The key is the identifier of the custom attribute, and the value is a single-element list.
-   * >Notice: The custom attributes used here must be created in advance by using the CreateCustomAttribute API. For example, after you create a custom attribute with the ID `custom-attribute:owner_name`, you can configure the custom attribute by setting this parameter to {\\"owner_name\\": [\\"Bob\\"]}.
+   * The custom attribute values. The key is the custom attribute identifier, and the value currently supports only a single value.
+   * <notice>The custom attributes used here must be created in advance by calling the CreateCustomAttribute operation. For example, after you call the API to create a custom attribute with the ID `custom-attribute:owner_name`, you can configure {\\"owner_name\\": [\\"Bob\\"]} here to complete the custom attribute configuration.</notice>
    */
   customAttributes?: { [key: string]: string[] };
   /**
    * @remarks
-   * The entity type. All entities in a batch must have the same type. The following types are supported:
-   * 
-   * - Custom types, such as `custom_entity-biz_api`.
-   * 
-   * - Extended table types. For example, if you have registered the `custom_dw-table` metadata entity type, you can create objects of the corresponding `custom_dw-database` (database) and `custom_dw-table` (table) types.
+   * The entity type. All entities in the same batch must have the same type. The following types are supported:
+   * - Custom entity types, such as custom_entity-biz_api.
+   * - Extension table types. If the metadata entity type custom_dw-table is registered, you can create objects of the corresponding database type custom_dw-database and table type custom_dw-table.
    * 
    * This parameter is required.
    * 
@@ -38,7 +36,7 @@ export class BatchCreateMetaEntitiesRequestEntities extends $dara.Model {
   entityType?: string;
   /**
    * @remarks
-   * The entity name. The name can contain uppercase letters, lowercase letters, digits, and underscores (_). It must start with a letter and not exceed 64 characters.
+   * The entity name. The name can contain uppercase letters, lowercase letters, digits, and underscores (_). It must start with a letter and can be up to 64 characters in length.
    * 
    * This parameter is required.
    * 
@@ -84,7 +82,7 @@ export class BatchCreateMetaEntitiesRequestEntities extends $dara.Model {
 export class BatchCreateMetaEntitiesRequest extends $dara.Model {
   /**
    * @remarks
-   * An entity list. You can create up to five entities in a batch. All entities in the batch must have the same `EntityType`.
+   * The list of entities. A maximum of five entities are supported. All entities in the same batch must have the same entityType.
    * 
    * This parameter is required.
    * 

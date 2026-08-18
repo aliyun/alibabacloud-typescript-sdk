@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListLineagesRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the destination entity. This can be a table or column ID returned by the `ListTables` or `ListColumns` API, or the ID of a custom entity.
+   * The destination entity ID. You can use the table or column ID returned by the ListTables or ListColumns operation, or a custom entity ID.
    * 
    * @example
    * dlf-table::catalog_id:database_name::table_name
@@ -13,7 +13,7 @@ export class ListLineagesRequest extends $dara.Model {
   dstEntityId?: string;
   /**
    * @remarks
-   * The name of the destination entity. This parameter supports fuzzy matching.
+   * The destination entity name. Fuzzy match is supported.
    * 
    * @example
    * dstName1
@@ -21,7 +21,7 @@ export class ListLineagesRequest extends $dara.Model {
   dstEntityName?: string;
   /**
    * @remarks
-   * Specifies whether to include lineage relationships. Default: false.
+   * Specifies whether to return lineage relationship information. Default value: false.
    * 
    * @example
    * false
@@ -29,11 +29,9 @@ export class ListLineagesRequest extends $dara.Model {
   needAttachRelationship?: boolean;
   /**
    * @remarks
-   * The sort order. Default: `Asc`. Valid values:
-   * 
-   * - `Asc`: ascending
-   * 
-   * - `Desc`: descending
+   * The sort direction. Default value: Asc. Valid values:
+   * - Asc: ascending order.
+   * - Desc: descending order.
    * 
    * @example
    * Asc
@@ -41,7 +39,7 @@ export class ListLineagesRequest extends $dara.Model {
   order?: string;
   /**
    * @remarks
-   * The page number to retrieve. Default: 1.
+   * The page number. Default value: 1.
    * 
    * @example
    * 1
@@ -49,7 +47,7 @@ export class ListLineagesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Default: 10. Maximum: 100.
+   * The page size. Default value: 10. Maximum value: 100.
    * 
    * @example
    * 10
@@ -58,7 +56,7 @@ export class ListLineagesRequest extends $dara.Model {
   recentDays?: number;
   /**
    * @remarks
-   * The field to sort the results by. The default is `Name`, which sorts by entity name.
+   * The sort field. Default value: Name, which sorts by lineage entity name.
    * 
    * @example
    * Name
@@ -66,7 +64,7 @@ export class ListLineagesRequest extends $dara.Model {
   sortBy?: string;
   /**
    * @remarks
-   * The ID of the source entity. This can be a table or column ID returned by the `ListTables` or `ListColumns` API, or the ID of a custom entity.
+   * The source entity ID. You can use the table or column ID returned by the ListTables or ListColumns operation, or a custom entity ID.
    * 
    * @example
    * maxcompute-table:::project_name:[schema_name]:table_name
@@ -74,7 +72,7 @@ export class ListLineagesRequest extends $dara.Model {
   srcEntityId?: string;
   /**
    * @remarks
-   * The name of the source entity. This parameter supports fuzzy matching.
+   * The source entity name. Fuzzy match is supported.
    * 
    * @example
    * srcName1

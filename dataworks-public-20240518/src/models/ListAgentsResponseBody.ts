@@ -56,7 +56,7 @@ export class ListAgentsResponseBodyJsonRpcResponseResult extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The total number of agents that match the filter criteria.
+   * The total number of matched agents.
    * 
    * @example
    * 27
@@ -95,7 +95,7 @@ export class ListAgentsResponseBodyJsonRpcResponseResult extends $dara.Model {
 export class ListAgentsResponseBodyJsonRpcResponse extends $dara.Model {
   /**
    * @remarks
-   * The request ID passed in by the caller. The value is returned as-is in the response.
+   * The ID passed in by the requester. The value is returned as-is.
    * 
    * @example
    * 70623e38-a889-4192-930a-752ffdd75f48
@@ -111,7 +111,7 @@ export class ListAgentsResponseBodyJsonRpcResponse extends $dara.Model {
   jsonrpc?: string;
   /**
    * @remarks
-   * The paginated query result for agents.
+   * The paging query result for agents.
    */
   result?: ListAgentsResponseBodyJsonRpcResponseResult;
   static names(): { [key: string]: string } {

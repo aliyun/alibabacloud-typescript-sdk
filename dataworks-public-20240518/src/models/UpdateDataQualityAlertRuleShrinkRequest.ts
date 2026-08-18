@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateDataQualityAlertRuleShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The alert condition of the data quality monitoring rule.
+   * The alert condition of the data quality monitoring alert rule.
    * 
    * @example
    * results.any { r -> r.status == \\"fail\\" && r.rule.severity == \\"High\\" }
@@ -13,7 +13,7 @@ export class UpdateDataQualityAlertRuleShrinkRequest extends $dara.Model {
   condition?: string;
   /**
    * @remarks
-   * The ID of the alert rule.
+   * The alert rule ID.
    * 
    * @example
    * 105412
@@ -21,7 +21,7 @@ export class UpdateDataQualityAlertRuleShrinkRequest extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * Alert notification configurations.
+   * The alert notification configuration.
    */
   notificationShrink?: string;
   /**
@@ -34,7 +34,7 @@ export class UpdateDataQualityAlertRuleShrinkRequest extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The monitored target of the data quality monitoring rule.
+   * The monitoring target of the data quality monitoring alert rule.
    */
   targetShrink?: string;
   static names(): { [key: string]: string } {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CancelAgentSessionShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID passed by the requester. The value is returned as-is in the response.
+   * The ID passed in by the requester, returned as-is in the response.
    * 
    * @example
    * 676303114031776

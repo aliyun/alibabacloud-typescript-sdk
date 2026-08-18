@@ -15,7 +15,7 @@ export class GetImageRequest extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The image version. If you do not specify this parameter, the latest version is returned.
+   * The image version. If this parameter is not specified, the latest version is returned.
    * 
    * @example
    * 1

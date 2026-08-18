@@ -7,9 +7,9 @@ export class ApproveProcessInstanceRequest extends $dara.Model {
    * @remarks
    * The approval action. Valid values:
    * 
-   * - Agree: Approved.
+   * - Agree: approves the request.
    * 
-   * - Deny: Rejected.
+   * - Deny: rejects the request.
    * 
    * This parameter is required.
    * 
@@ -24,7 +24,7 @@ export class ApproveProcessInstanceRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 同意授权
+   * Approve authorization
    */
   approvalComment?: string;
   /**
@@ -37,7 +37,7 @@ export class ApproveProcessInstanceRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The new authorization expiration time. Unit: milliseconds (UNIX timestamp).
+   * The modified authorization expiration time. The value is a millisecond-level timestamp.
    * 
    * @example
    * 1782541464000
@@ -45,7 +45,7 @@ export class ApproveProcessInstanceRequest extends $dara.Model {
   newExpiration?: number;
   /**
    * @remarks
-   * The process instance ID. Both new and legacy Security Center approval forms are supported.
+   * The flow instance ID. Both new and legacy Security Center approval orders are supported.
    * 
    * This parameter is required.
    * 

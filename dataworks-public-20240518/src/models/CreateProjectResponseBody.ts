@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateProjectResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The workspace ID.
+   * The ID of the DataWorks workspace created by this operation.
    * 
    * @example
    * 123456
@@ -13,7 +13,8 @@ export class CreateProjectResponseBody extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The workspace ID. Note: This parameter is deprecated and is replaced by the Id parameter.
+   * The ID of the DataWorks workspace created by this operation.
+   * Note: This field is deprecated. Use the Id field instead.
    * 
    * @example
    * 123456
@@ -23,7 +24,7 @@ export class CreateProjectResponseBody extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The request ID.
+   * The request ID. Used for locating logs and troubleshooting issues.
    * 
    * @example
    * AFBB799F-8578-51C5-A766-E922EDB8XXXX

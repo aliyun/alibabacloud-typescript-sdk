@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetBusinessResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The workflow ID.
+   * The ID of the business process.
    * 
    * @example
    * 1000001
@@ -13,7 +13,7 @@ export class GetBusinessResponseBodyData extends $dara.Model {
   businessId?: number;
   /**
    * @remarks
-   * The name of the workflow. Workflow names must be unique within the same workspace.
+   * The name of the business process. The name must be unique within the same workspace.
    * 
    * @example
    * The first business process
@@ -21,7 +21,7 @@ export class GetBusinessResponseBodyData extends $dara.Model {
   businessName?: string;
   /**
    * @remarks
-   * The description of the workflow.
+   * The description of the business process.
    * 
    * @example
    * This is my first business process.
@@ -29,7 +29,7 @@ export class GetBusinessResponseBodyData extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The Alibaba Cloud account ID of the workflow owner.
+   * The Alibaba Cloud user ID of the business process owner.
    * 
    * @example
    * 20000****
@@ -37,7 +37,7 @@ export class GetBusinessResponseBodyData extends $dara.Model {
   owner?: string;
   /**
    * @remarks
-   * The ID of the workspace where the workflow resides.
+   * The ID of the DataWorks workspace to which the business process belongs.
    * 
    * @example
    * 10000
@@ -45,7 +45,7 @@ export class GetBusinessResponseBodyData extends $dara.Model {
   projectId?: string;
   /**
    * @remarks
-   * The functional module to which the workflow belongs. Valid values: NORMAL (Data Studio) and MANUAL_BIZ (Manually Triggered Workflow)
+   * The functional module to which the business process belongs. Valid values: NORMAL (DataStudio) and MANUAL_BIZ (manual business process).
    * 
    * @example
    * NORMAL
@@ -85,7 +85,7 @@ export class GetBusinessResponseBodyData extends $dara.Model {
 export class GetBusinessResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Details of the workflow.
+   * The details of the business process.
    */
   data?: GetBusinessResponseBodyData;
   /**
@@ -114,7 +114,7 @@ export class GetBusinessResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The request ID. Used for troubleshooting when an error occurs.
+   * The request ID. You can use this ID to troubleshoot issues.
    * 
    * @example
    * 0000-ABCD-EFG****
@@ -124,9 +124,8 @@ export class GetBusinessResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the call was successful. Valid values:
    * 
-   * - true: success.
-   * 
-   * - false: failure.
+   * - true: The call was successful.
+   * - false: The call failed.
    * 
    * @example
    * true

@@ -6,7 +6,7 @@ import { MetaEntityWriteResult } from "./MetaEntityWriteResult";
 export class BatchDeleteMetaEntitiesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The unique identifier of the request.
+   * Id of the request
    * 
    * @example
    * 1FC02D76-4A94-5D97-B52C-00A031B95359
@@ -14,12 +14,12 @@ export class BatchDeleteMetaEntitiesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * An array of deletion results, one for each requested entity. Each result indicates whether the deletion was successful and includes an error message upon failure.
+   * The list of entity deletion results, which returns the success status and failure reason for each entity.
    */
   results?: MetaEntityWriteResult[];
   /**
    * @remarks
-   * Indicates whether the request was successful. This parameter returns true even if the deletion of some entities fails. To check the status of each individual deletion, see the Success and ErrorMessage fields in the Results array.
+   * Indicates whether the request is successful. When some entities fail, this field still returns true. Check Results[].Success and Results[].ErrorMessage for individual results.
    * 
    * @example
    * []

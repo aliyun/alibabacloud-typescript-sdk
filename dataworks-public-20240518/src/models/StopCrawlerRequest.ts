@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class StopCrawlerRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the metadata crawler. You can call ListCrawlers to query the ID.
+   * 
    * This parameter is required.
    * 
    * @example

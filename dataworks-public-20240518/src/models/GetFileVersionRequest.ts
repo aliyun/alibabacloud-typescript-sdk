@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetFileVersionRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the file. You can obtain the ID of the desired file by calling [ListFiles](https://help.aliyun.com/document_detail/173942.html).
+   * The ID of the file. You can call [ListFiles](https://help.aliyun.com/document_detail/173942.html) to query the file ID.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class GetFileVersionRequest extends $dara.Model {
   fileVersion?: number;
   /**
    * @remarks
-   * The ID of the DataWorks workspace. You can click the wrench icon in the upper-right corner of the page to go to the Workspace Management page and view it.
+   * The ID of the DataWorks workspace. You can click the small wrench icon in the upper-right corner of the page to go to the storage management page and view the ID.
    * 
    * @example
    * 1000011
@@ -33,9 +33,9 @@ export class GetFileVersionRequest extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The unique identifier of the DataWorks workspace, which is the English identifier displayed at the top of the Data Development page when you switch workspaces.
+   * The unique identifier of the DataWorks workspace, which is the English identifier displayed at the top of the DataStudio page for switching workspaces.
    * 
-   * You must specify either this parameter or the ProjectId parameter to identify the DataWorks workspace for this API call.
+   * You must set either this parameter or ProjectId to determine the DataWorks workspace for this API call.
    * 
    * @example
    * dw_project

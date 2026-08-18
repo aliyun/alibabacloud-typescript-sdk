@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDIAlarmRuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * This parameter is deprecated and is replaced by the Id parameter.
+   * **[Deprecated]** Use the Id parameter instead.
    * 
    * @example
    * 1
@@ -23,7 +23,7 @@ export class CreateDIAlarmRuleResponseBody extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The request ID. You can locate logs and troubleshoot issues based on the ID.
+   * The request ID. Used for locating logs and troubleshooting issues.
    * 
    * @example
    * C636A747-7E4E-594D-94CD-2B****

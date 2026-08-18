@@ -6,7 +6,7 @@ import { LineageRelationship } from "./LineageRelationship";
 export class GetLineageRelationshipResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The lineage relationship object.
+   * The lineage relationship struct.
    */
   lineageRelationship?: LineageRelationship;
   /**

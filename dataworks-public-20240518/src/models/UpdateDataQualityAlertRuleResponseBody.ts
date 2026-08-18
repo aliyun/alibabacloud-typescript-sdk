@@ -13,7 +13,7 @@ export class UpdateDataQualityAlertRuleResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the alert rule was updated.
+   * Indicates whether the alert rule is updated.
    * 
    * @example
    * True

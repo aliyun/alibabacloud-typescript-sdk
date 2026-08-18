@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListNodesResponseBodyPagingInfoNodesDataSource extends $dara.Model {
   /**
    * @remarks
-   * The name of the data source.
+   * The data source name.
    * 
    * @example
    * odps_first
@@ -13,7 +13,7 @@ export class ListNodesResponseBodyPagingInfoNodesDataSource extends $dara.Model 
   name?: string;
   /**
    * @remarks
-   * The type of the data source.
+   * The data source type.
    * 
    * @example
    * odps
@@ -45,7 +45,7 @@ export class ListNodesResponseBodyPagingInfoNodesDataSource extends $dara.Model 
 export class ListNodesResponseBodyPagingInfoNodesInputsNodeOutputs extends $dara.Model {
   /**
    * @remarks
-   * The node output.
+   * The node outputs.
    * 
    * @example
    * 623731286945488XXXX
@@ -53,7 +53,7 @@ export class ListNodesResponseBodyPagingInfoNodesInputsNodeOutputs extends $dara
   data?: string;
   /**
    * @remarks
-   * A human-readable name for the input data table. This name is for display purposes only and has no functional effect.
+   * The target data table that identifies the node output. This field provides a semantic name that helps users quickly identify the output content. It is used only for display and annotation purposes and has no actual logical constraints.
    * 
    * @example
    * testProject.testTableName
@@ -85,7 +85,7 @@ export class ListNodesResponseBodyPagingInfoNodesInputsNodeOutputs extends $dara
 export class ListNodesResponseBodyPagingInfoNodesInputsTables extends $dara.Model {
   /**
    * @remarks
-   * The ID of the table.
+   * The table ID.
    * 
    * @example
    * odps.autotest.test_output_table_1
@@ -115,7 +115,7 @@ export class ListNodesResponseBodyPagingInfoNodesInputsTables extends $dara.Mode
 export class ListNodesResponseBodyPagingInfoNodesInputsVariablesNode extends $dara.Model {
   /**
    * @remarks
-   * The node output.
+   * The node outputs.
    * 
    * @example
    * 623731286945488XXXX
@@ -155,9 +155,7 @@ export class ListNodesResponseBodyPagingInfoNodesInputsVariables extends $dara.M
    * @remarks
    * The variable ID.
    * 
-   * >Notice: 
-   * 
-   * This parameter is a `Long` in SDKs earlier than v8.0.0 and a `String` in v8.0.0 and later. **This change does not impact normal SDK use, as the parameter is returned in the type defined by your SDK.** Upgrading the SDK across v8.0.0 may cause compilation errors, which you must resolve by manually updating the data type.
+   * >Notice: This field was of the Long type in SDK versions earlier than 8.0.0 and is of the String type in SDK 8.0.0 and later. **This change does not affect normal SDK usage, and the parameter is still returned in the type defined in the SDK**. Only when upgrading across SDK version 8.0.0, the type change may cause project compilation failures, and you need to manually correct the data type.
    * 
    * @example
    * 543211286945488XXXX
@@ -165,7 +163,7 @@ export class ListNodesResponseBodyPagingInfoNodesInputsVariables extends $dara.M
   id?: string;
   /**
    * @remarks
-   * The name of the variable.
+   * The variable name.
    * 
    * @example
    * input
@@ -178,15 +176,11 @@ export class ListNodesResponseBodyPagingInfoNodesInputsVariables extends $dara.M
   node?: ListNodesResponseBodyPagingInfoNodesInputsVariablesNode;
   /**
    * @remarks
-   * The scope of the variable.
-   * 
-   * - `WorkSpace`
-   * 
-   * - `NodeParameter`
-   * 
-   * - `NodeContext`
-   * 
-   * - `Workflow`
+   * The scope of the input variable. Valid values:
+   * - WorkSpace
+   * - NodeParameter
+   * - NodeContext
+   * - Workflow
    * 
    * @example
    * NodeParameter
@@ -194,17 +188,12 @@ export class ListNodesResponseBodyPagingInfoNodesInputsVariables extends $dara.M
   scope?: string;
   /**
    * @remarks
-   * The type of the variable.
-   * 
-   * - `NoKvVariableExpression`
-   * 
-   * - `Constant`
-   * 
-   * - `PassThrough`
-   * 
-   * - `System`
-   * 
-   * - `NodeOutput`
+   * The type. Valid values:
+   * - NoKvVariableExpression
+   * - Constant
+   * - PassThrough
+   * - System
+   * - NodeOutput
    * 
    * @example
    * Constant
@@ -212,7 +201,7 @@ export class ListNodesResponseBodyPagingInfoNodesInputsVariables extends $dara.M
   type?: string;
   /**
    * @remarks
-   * The value of the variable.
+   * The variable value.
    * 
    * @example
    * 222
@@ -307,7 +296,7 @@ export class ListNodesResponseBodyPagingInfoNodesInputs extends $dara.Model {
 export class ListNodesResponseBodyPagingInfoNodesOutputsNodeOutputs extends $dara.Model {
   /**
    * @remarks
-   * The node output.
+   * The node outputs.
    * 
    * @example
    * 860438872620113XXXX
@@ -315,7 +304,7 @@ export class ListNodesResponseBodyPagingInfoNodesOutputsNodeOutputs extends $dar
   data?: string;
   /**
    * @remarks
-   * A human-readable name for the output data table. This name is for display purposes only and has no functional effect.
+   * The target data table that identifies the node output. This field provides a semantic name that helps users quickly identify the output content. It is used only for display and annotation purposes and has no actual logical constraints.
    * 
    * @example
    * testProject.testTableName
@@ -347,7 +336,7 @@ export class ListNodesResponseBodyPagingInfoNodesOutputsNodeOutputs extends $dar
 export class ListNodesResponseBodyPagingInfoNodesOutputsTables extends $dara.Model {
   /**
    * @remarks
-   * The ID of the table.
+   * The table ID.
    * 
    * @example
    * odps.autotest.test_output_table_1
@@ -377,7 +366,7 @@ export class ListNodesResponseBodyPagingInfoNodesOutputsTables extends $dara.Mod
 export class ListNodesResponseBodyPagingInfoNodesOutputsVariablesNode extends $dara.Model {
   /**
    * @remarks
-   * The node output.
+   * The node outputs.
    * 
    * @example
    * 860438872620113XXXX
@@ -417,9 +406,7 @@ export class ListNodesResponseBodyPagingInfoNodesOutputsVariables extends $dara.
    * @remarks
    * The variable ID.
    * 
-   * >Notice: 
-   * 
-   * This parameter is a `Long` in SDKs earlier than v8.0.0 and a `String` in v8.0.0 and later. **This change does not impact normal SDK use, as the parameter is returned in the type defined by your SDK.** Upgrading the SDK across v8.0.0 may cause compilation errors, which you must resolve by manually updating the data type.
+   * >Notice: This field was of the Long type in SDK versions earlier than 8.0.0 and is of the String type in SDK 8.0.0 and later. **This change does not affect normal SDK usage, and the parameter is still returned in the type defined in the SDK**. Only when upgrading across SDK version 8.0.0, the type change may cause project compilation failures, and you need to manually correct the data type.
    * 
    * @example
    * 623731286945488XXXX
@@ -427,7 +414,7 @@ export class ListNodesResponseBodyPagingInfoNodesOutputsVariables extends $dara.
   id?: string;
   /**
    * @remarks
-   * The name of the variable.
+   * The variable name.
    * 
    * @example
    * output
@@ -440,15 +427,11 @@ export class ListNodesResponseBodyPagingInfoNodesOutputsVariables extends $dara.
   node?: ListNodesResponseBodyPagingInfoNodesOutputsVariablesNode;
   /**
    * @remarks
-   * The scope of the variable.
-   * 
-   * - `NodeParameter`
-   * 
-   * - `NodeContext`
-   * 
-   * - `Workflow`
-   * 
-   * - `Workspace`
+   * The scope of the variable. Valid values:
+   * - NodeParameter
+   * - NodeContext
+   * - Workflow
+   * - Workspace
    * 
    * @example
    * NodeParameter
@@ -456,17 +439,12 @@ export class ListNodesResponseBodyPagingInfoNodesOutputsVariables extends $dara.
   scope?: string;
   /**
    * @remarks
-   * The type of the variable.
-   * 
-   * - `NoKvVariableExpression`
-   * 
-   * - `Constant`
-   * 
-   * - `PassThrough`
-   * 
-   * - `System`
-   * 
-   * - `NodeOutput`
+   * The variable type. Valid values:
+   * - NoKvVariableExpression
+   * - Constant
+   * - PassThrough
+   * - System
+   * - NodeOutput
    * 
    * @example
    * Constant
@@ -474,7 +452,7 @@ export class ListNodesResponseBodyPagingInfoNodesOutputsVariables extends $dara.
   type?: string;
   /**
    * @remarks
-   * The value of the variable.
+   * The variable value.
    * 
    * @example
    * 111
@@ -569,7 +547,7 @@ export class ListNodesResponseBodyPagingInfoNodesOutputs extends $dara.Model {
 export class ListNodesResponseBodyPagingInfoNodesRuntimeResource extends $dara.Model {
   /**
    * @remarks
-   * The identifier of the resource group. You can obtain this identifier by calling the [ListResourceGroups](https://help.aliyun.com/document_detail/173913.html) operation.
+   * The identifier of the resource group. You can call the [ListResourceGroups](https://help.aliyun.com/document_detail/173913.html) operation to obtain the resource group identifier.
    * 
    * @example
    * S_res_group_XXXX
@@ -577,7 +555,7 @@ export class ListNodesResponseBodyPagingInfoNodesRuntimeResource extends $dara.M
   resourceGroup?: string;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The resource group ID.
    * 
    * @example
    * 123456XXX
@@ -609,7 +587,7 @@ export class ListNodesResponseBodyPagingInfoNodesRuntimeResource extends $dara.M
 export class ListNodesResponseBodyPagingInfoNodesScriptRuntime extends $dara.Model {
   /**
    * @remarks
-   * The command that identifies the node type.
+   * The command, which is used to distinguish node types.
    * 
    * @example
    * ODPS_SQL
@@ -639,11 +617,9 @@ export class ListNodesResponseBodyPagingInfoNodesScriptRuntime extends $dara.Mod
 export class ListNodesResponseBodyPagingInfoNodesScript extends $dara.Model {
   /**
    * @remarks
-   * The ID of the script.
+   * The script ID.
    * 
-   * >Notice: 
-   * 
-   * This parameter is a `Long` in SDKs earlier than v8.0.0 and a `String` in v8.0.0 and later. **This change does not impact normal SDK use, as the parameter is returned in the type defined by your SDK.** Upgrading the SDK across v8.0.0 may cause compilation errors, which you must resolve by manually updating the data type.
+   * >Notice: This field was of the Long type in SDK versions earlier than 8.0.0 and is of the String type in SDK 8.0.0 and later. **This change does not affect normal SDK usage, and the parameter is still returned in the type defined in the SDK**. Only when upgrading across SDK version 8.0.0, the type change may cause project compilation failures, and you need to manually correct the data type.
    * 
    * @example
    * 853573334108680XXXX
@@ -651,7 +627,7 @@ export class ListNodesResponseBodyPagingInfoNodesScript extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The path of the script.
+   * The script path.
    * 
    * @example
    * root/demo
@@ -693,11 +669,7 @@ export class ListNodesResponseBodyPagingInfoNodesScript extends $dara.Model {
 export class ListNodesResponseBodyPagingInfoNodesStrategy extends $dara.Model {
   /**
    * @remarks
-   * The instance generation mode.
-   * 
-   * - `T+1`
-   * 
-   * - `Immediately`
+   * The mode for generating instances.
    * 
    * @example
    * T+1
@@ -705,7 +677,7 @@ export class ListNodesResponseBodyPagingInfoNodesStrategy extends $dara.Model {
   instanceMode?: string;
   /**
    * @remarks
-   * The retry interval, in milliseconds.
+   * The retry time interval, in milliseconds.
    * 
    * @example
    * 180000
@@ -713,13 +685,7 @@ export class ListNodesResponseBodyPagingInfoNodesStrategy extends $dara.Model {
   rerunInterval?: number;
   /**
    * @remarks
-   * The rerun mode.
-   * 
-   * - `Allowed`
-   * 
-   * - `Denied`
-   * 
-   * - `FailureAllowed`
+   * The mode that specifies whether reruns are allowed.
    * 
    * @example
    * Allowed
@@ -735,7 +701,7 @@ export class ListNodesResponseBodyPagingInfoNodesStrategy extends $dara.Model {
   rerunTimes?: number;
   /**
    * @remarks
-   * The timeout duration.
+   * The timeout period.
    * 
    * @example
    * 0
@@ -813,7 +779,7 @@ export class ListNodesResponseBodyPagingInfoNodesTags extends $dara.Model {
 export class ListNodesResponseBodyPagingInfoNodesTrigger extends $dara.Model {
   /**
    * @remarks
-   * The cron expression.
+   * The cron expression for scheduling.
    * 
    * @example
    * 00 00 00 * * ?
@@ -821,7 +787,9 @@ export class ListNodesResponseBodyPagingInfoNodesTrigger extends $dara.Model {
   cron?: string;
   /**
    * @remarks
-   * The end of the trigger\\"s validity period.
+   * The end time of the trigger validity period.
+   * 
+   * The format is `yyyy-MM-dd HH:mm:ss`. For example, `9999-01-01 00:00:00`. This example does not include a time zone identifier.
    * 
    * @example
    * 9999-01-01 00:00:00
@@ -829,11 +797,9 @@ export class ListNodesResponseBodyPagingInfoNodesTrigger extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The ID of the trigger.
+   * The trigger ID.
    * 
-   * >Notice: 
-   * 
-   * This parameter is a `Long` in SDKs earlier than v8.0.0 and a `String` in v8.0.0 and later. **This change does not impact normal SDK use, as the parameter is returned in the type defined by your SDK.** Upgrading the SDK across v8.0.0 may cause compilation errors, which you must resolve by manually updating the data type.
+   * >Notice: This field was of the Long type in SDK versions earlier than 8.0.0 and is of the String type in SDK 8.0.0 and later. **This change does not affect normal SDK usage, and the parameter is still returned in the type defined in the SDK**. Only when upgrading across SDK version 8.0.0, the type change may cause project compilation failures, and you need to manually correct the data type.
    * 
    * @example
    * 543680677872062XXXX
@@ -841,7 +807,9 @@ export class ListNodesResponseBodyPagingInfoNodesTrigger extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The start of the trigger\\"s validity period.
+   * The start time of the validity period of the trigger.
+   * 
+   * The format is `yyyy-MM-dd HH:mm:ss`. Example: `1970-01-01 00:00:00`. This example does not include a time zone identifier.
    * 
    * @example
    * 1970-01-01 00:00:00
@@ -857,15 +825,13 @@ export class ListNodesResponseBodyPagingInfoNodesTrigger extends $dara.Model {
   timezone?: string;
   /**
    * @remarks
-   * The type of the trigger.
+   * The trigger type.
    * 
    * Valid values:
    * 
-   * - `Scheduler`: periodic scheduling
-   * 
-   * - `Manual`: manual trigger
-   * 
-   * - `Streaming`: streaming task
+   * - Scheduler: timed scheduling.
+   * - Manual: manual trigger.
+   * - Steaming: streaming task.
    * 
    * @example
    * Scheduler
@@ -905,7 +871,7 @@ export class ListNodesResponseBodyPagingInfoNodesTrigger extends $dara.Model {
 export class ListNodesResponseBodyPagingInfoNodes extends $dara.Model {
   /**
    * @remarks
-   * The creation timestamp of the node.
+   * The timestamp when the data development node was created.
    * 
    * @example
    * 1722910655000
@@ -918,7 +884,7 @@ export class ListNodesResponseBodyPagingInfoNodes extends $dara.Model {
   dataSource?: ListNodesResponseBodyPagingInfoNodesDataSource;
   /**
    * @remarks
-   * The description of the node.
+   * The node description.
    * 
    * @example
    * Node description
@@ -928,9 +894,7 @@ export class ListNodesResponseBodyPagingInfoNodes extends $dara.Model {
    * @remarks
    * The unique identifier of the data development node.
    * 
-   * >Notice: 
-   * 
-   * This parameter is a `Long` in SDKs earlier than v8.0.0 and a `String` in v8.0.0 and later. **This change does not impact normal SDK use, as the parameter is returned in the type defined by your SDK.** Upgrading the SDK across v8.0.0 may cause compilation errors, which you must resolve by manually updating the data type.
+   * >Notice: This field was of the Long type in SDK versions earlier than 8.0.0 and is of the String type in SDK 8.0.0 and later. **This change does not affect normal SDK usage, and the parameter is still returned in the type defined in the SDK**. Only when upgrading across SDK version 8.0.0, the type change may cause project compilation failures, and you must manually correct the data type.
    * 
    * @example
    * 860438872620113XXXX
@@ -943,7 +907,7 @@ export class ListNodesResponseBodyPagingInfoNodes extends $dara.Model {
   inputs?: ListNodesResponseBodyPagingInfoNodesInputs;
   /**
    * @remarks
-   * The last modification timestamp of the node.
+   * The timestamp when the data development node was last modified.
    * 
    * @example
    * 1722910655000
@@ -951,7 +915,7 @@ export class ListNodesResponseBodyPagingInfoNodes extends $dara.Model {
   modifyTime?: number;
   /**
    * @remarks
-   * The name of the node.
+   * The node name.
    * 
    * @example
    * test
@@ -964,7 +928,7 @@ export class ListNodesResponseBodyPagingInfoNodes extends $dara.Model {
   outputs?: ListNodesResponseBodyPagingInfoNodesOutputs;
   /**
    * @remarks
-   * The owner of the node.
+   * The owner of the data development node.
    * 
    * @example
    * 110755000425XXXX
@@ -972,7 +936,7 @@ export class ListNodesResponseBodyPagingInfoNodes extends $dara.Model {
   owner?: string;
   /**
    * @remarks
-   * The ID of the DataWorks workspace. You can find this ID on the Workspace Management page in the [DataWorks console](https://workbench.data.aliyun.com/console).
+   * The ID of the DataWorks workspace. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the workspace management page to view the ID.
    * 
    * @example
    * 33233
@@ -982,26 +946,18 @@ export class ListNodesResponseBodyPagingInfoNodes extends $dara.Model {
    * @remarks
    * The scheduling type.
    * 
-   * Valid values:
-   * 
-   * - `Normal`: The node runs as scheduled.
-   * 
-   * - `Pause`: The node is paused and blocks the execution of its downstream nodes.
-   * 
-   * - `Skip`: The node is skipped. The system immediately returns a success status with an execution duration of 0 seconds. This does not block downstream nodes or consume resources.
-   * 
    * @example
    * Normal
    */
   recurrence?: string;
   /**
    * @remarks
-   * Information about the resource group.
+   * The resource group information.
    */
   runtimeResource?: ListNodesResponseBodyPagingInfoNodesRuntimeResource;
   /**
    * @remarks
-   * Information about the script.
+   * The script information.
    */
   script?: ListNodesResponseBodyPagingInfoNodesScript;
   /**
@@ -1011,12 +967,12 @@ export class ListNodesResponseBodyPagingInfoNodes extends $dara.Model {
   strategy?: ListNodesResponseBodyPagingInfoNodesStrategy;
   /**
    * @remarks
-   * The tags for the node. This parameter is not in use.
+   * The tag information. Not currently in use.
    */
   tags?: ListNodesResponseBodyPagingInfoNodesTags[];
   /**
    * @remarks
-   * The ID of the scheduling task.
+   * The scheduling task ID.
    * 
    * @example
    * 88888888888
@@ -1107,12 +1063,12 @@ export class ListNodesResponseBodyPagingInfoNodes extends $dara.Model {
 export class ListNodesResponseBodyPagingInfo extends $dara.Model {
   /**
    * @remarks
-   * The list of nodes.
+   * The list of data development nodes.
    */
   nodes?: ListNodesResponseBodyPagingInfoNodes[];
   /**
    * @remarks
-   * The page number of the returned data.
+   * The page number for pagination.
    * 
    * @example
    * 1
@@ -1120,7 +1076,7 @@ export class ListNodesResponseBodyPagingInfo extends $dara.Model {
   pageNumber?: string;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of records per page.
    * 
    * @example
    * 10
@@ -1128,7 +1084,7 @@ export class ListNodesResponseBodyPagingInfo extends $dara.Model {
   pageSize?: string;
   /**
    * @remarks
-   * The total number of entries that meet the specified filter criteria.
+   * The total number of records that meet the conditions.
    * 
    * @example
    * 42
@@ -1167,12 +1123,12 @@ export class ListNodesResponseBodyPagingInfo extends $dara.Model {
 export class ListNodesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The paging information.
+   * The pagination information.
    */
   pagingInfo?: ListNodesResponseBodyPagingInfo;
   /**
    * @remarks
-   * The request ID. You can use this ID to locate logs and troubleshoot issues.
+   * The request ID. Used to locate logs and troubleshoot issues.
    * 
    * @example
    * 2197B9C4-39CE-55EA-8EEA-FDBAE52DXXXX

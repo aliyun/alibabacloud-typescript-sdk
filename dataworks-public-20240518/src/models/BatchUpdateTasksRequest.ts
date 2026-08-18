@@ -35,7 +35,7 @@ export class BatchUpdateTasksRequestTasksDataSource extends $dara.Model {
 export class BatchUpdateTasksRequestTasksRuntimeResource extends $dara.Model {
   /**
    * @remarks
-   * The default number of compute units (CUs) configured for task running.
+   * The compute unit (CU) consumption configured for node execution.
    * 
    * @example
    * 0.25
@@ -43,7 +43,7 @@ export class BatchUpdateTasksRequestTasksRuntimeResource extends $dara.Model {
   cu?: string;
   /**
    * @remarks
-   * The image ID used in the task runtime configuration.
+   * The image ID configured for node execution.
    * 
    * @example
    * i-xxxxxx
@@ -51,7 +51,7 @@ export class BatchUpdateTasksRequestTasksRuntimeResource extends $dara.Model {
   image?: string;
   /**
    * @remarks
-   * The identifier of the scheduling resource group used in the task runtime configuration.
+   * The identifier of the schedule resource group configured for node execution.
    * 
    * @example
    * S_res_group_524258031846018_1684XXXXXXXXX
@@ -127,7 +127,7 @@ export class BatchUpdateTasksRequestTasksTags extends $dara.Model {
 export class BatchUpdateTasksRequestTasksTrigger extends $dara.Model {
   /**
    * @remarks
-   * The cron expression. Takes effect when type=Scheduler.
+   * The cron expression. This parameter takes effect only when type is set to Scheduler.
    * 
    * @example
    * 00 00 00 * * ?
@@ -135,7 +135,7 @@ export class BatchUpdateTasksRequestTasksTrigger extends $dara.Model {
   cron?: string;
   /**
    * @remarks
-   * The expiration time of periodic triggering. Takes effect only when type is set to Scheduler. The value of this parameter is in the`yyyy-mm-dd hh:mm:ss` format.
+   * The time when the periodic trigger expires. This parameter takes effect only when type is set to Scheduler. Format: `yyyy-mm-dd hh:mm:ss`.
    * 
    * @example
    * 9999-01-01 00:00:00
@@ -143,13 +143,10 @@ export class BatchUpdateTasksRequestTasksTrigger extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The running mode of the task after it is triggered. This parameter takes effect only if the Type parameter is set to Scheduler. Valid values:
-   * 
-   * - Pause
-   * 
-   * - Skip
-   * 
-   * - Normal
+   * The running mode when the node is triggered. This parameter takes effect only when type is set to Scheduler. Valid values:
+   * - Pause: paused
+   * - Skip: dry run
+   * - Normal: normal execution
    * 
    * @example
    * Normal
@@ -157,7 +154,7 @@ export class BatchUpdateTasksRequestTasksTrigger extends $dara.Model {
   recurrence?: string;
   /**
    * @remarks
-   * The time when periodic triggering takes effect. This parameter takes effect only if the Type parameter is set to Scheduler. The value of this parameter is in the `yyyy-mm-dd hh:mm:ss` format.
+   * The effective period of the epoch trigger. This parameter takes effect only when type is set to Scheduler. Format: `yyyy-mm-dd hh:mm:ss`.
    * 
    * @example
    * 1970-01-01 00:00:00
@@ -166,10 +163,8 @@ export class BatchUpdateTasksRequestTasksTrigger extends $dara.Model {
   /**
    * @remarks
    * The trigger type. Valid values:
-   * 
-   * - Scheduler: periodically triggered
-   * 
-   * - Manual
+   * - Scheduler: triggered by scheduling cycle
+   * - Manual: manually triggered
    * 
    * @example
    * Scheduler
@@ -207,7 +202,7 @@ export class BatchUpdateTasksRequestTasksTrigger extends $dara.Model {
 export class BatchUpdateTasksRequestTasks extends $dara.Model {
   /**
    * @remarks
-   * Associated data source information.
+   * The associated data source information.
    */
   dataSource?: BatchUpdateTasksRequestTasksDataSource;
   /**
@@ -220,11 +215,9 @@ export class BatchUpdateTasksRequestTasks extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The project environment.
-   * 
-   * - Prod: Production
-   * 
-   * - Dev: Development
+   * The project environment. Valid values:
+   * - Prod: production
+   * - Dev: development
    * 
    * @example
    * Prod
@@ -232,7 +225,7 @@ export class BatchUpdateTasksRequestTasks extends $dara.Model {
   envType?: string;
   /**
    * @remarks
-   * The task ID.
+   * The node ID.
    * 
    * This parameter is required.
    * 
@@ -250,7 +243,7 @@ export class BatchUpdateTasksRequestTasks extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The account ID of the task owner.
+   * The account ID of the node owner.
    * 
    * @example
    * 1000
@@ -258,7 +251,7 @@ export class BatchUpdateTasksRequestTasks extends $dara.Model {
   owner?: string;
   /**
    * @remarks
-   * The retry interval in seconds.
+   * The retry time interval, in seconds.
    * 
    * @example
    * 60
@@ -266,13 +259,10 @@ export class BatchUpdateTasksRequestTasks extends $dara.Model {
   rerunInterval?: number;
   /**
    * @remarks
-   * The rerun mode. Valid values:
-   * 
-   * - AllDenied: The task cannot be rerun.
-   * 
-   * - FailureAllowed: The task can be rerun only after it fails.
-   * 
-   * - AllAllowed: The task can always be rerun.
+   * Specifies whether the node can be rerun. Valid values:
+   * - AllDenied: The node cannot be rerun regardless of whether it succeeds or fails.
+   * - FailureAllowed: The node can be rerun only after it fails.
+   * - AllAllowed: The node can be rerun regardless of whether it succeeds or fails.
    * 
    * @example
    * AllAllowed
@@ -280,7 +270,7 @@ export class BatchUpdateTasksRequestTasks extends $dara.Model {
   rerunMode?: string;
   /**
    * @remarks
-   * The number of retry attempts. Takes effect when the task is configured to allow reruns.
+   * The number of retries. This parameter takes effect only when the node is configured to allow reruns.
    * 
    * @example
    * 3
@@ -288,17 +278,17 @@ export class BatchUpdateTasksRequestTasks extends $dara.Model {
   rerunTimes?: number;
   /**
    * @remarks
-   * Runtime environment configurations, such as resource group information.
+   * The runtime environment configuration, such as resource group information.
    */
   runtimeResource?: BatchUpdateTasksRequestTasksRuntimeResource;
   /**
    * @remarks
-   * The list of task tags.
+   * The list of node tags.
    */
   tags?: BatchUpdateTasksRequestTasksTags[];
   /**
    * @remarks
-   * The task execution timeout in seconds. The value should be greater than 3600.
+   * The timeout period for node execution, in seconds. The value must be greater than 3600.
    * 
    * @example
    * 3600
@@ -306,7 +296,7 @@ export class BatchUpdateTasksRequestTasks extends $dara.Model {
   timeout?: number;
   /**
    * @remarks
-   * The task trigger configurations.
+   * The trigger configuration of the node.
    */
   trigger?: BatchUpdateTasksRequestTasksTrigger;
   static names(): { [key: string]: string } {
@@ -377,7 +367,7 @@ export class BatchUpdateTasksRequest extends $dara.Model {
   comment?: string;
   /**
    * @remarks
-   * The list of tasks.
+   * The list of nodes.
    */
   tasks?: BatchUpdateTasksRequestTasks[];
   static names(): { [key: string]: string } {

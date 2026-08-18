@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAgentSessionArtifactsResponseBodyJsonRpcResponseResultArtifacts extends $dara.Model {
   /**
    * @remarks
-   * The name of the artifact.
+   * The name of the model artifact.
    * 
    * @example
    * mock_report.md
@@ -13,7 +13,7 @@ export class ListAgentSessionArtifactsResponseBodyJsonRpcResponseResultArtifacts
   artifactName?: string;
   /**
    * @remarks
-   * The path of the artifact.
+   * The path of the model artifact.
    * 
    * @example
    * mock/mock_report.md
@@ -21,7 +21,7 @@ export class ListAgentSessionArtifactsResponseBodyJsonRpcResponseResultArtifacts
   artifactPath?: string;
   /**
    * @remarks
-   * The type of the artifact, which is typically the file extension.
+   * The type of the model artifact, typically a file extension.
    * 
    * @example
    * md
@@ -55,12 +55,12 @@ export class ListAgentSessionArtifactsResponseBodyJsonRpcResponseResultArtifacts
 export class ListAgentSessionArtifactsResponseBodyJsonRpcResponseResult extends $dara.Model {
   /**
    * @remarks
-   * The list of artifacts.
+   * The list of model artifacts.
    */
   artifacts?: ListAgentSessionArtifactsResponseBodyJsonRpcResponseResultArtifacts[];
   /**
    * @remarks
-   * The actual number of entries returned per page.
+   * The actual number of entries per page.
    * 
    * @example
    * 29
@@ -68,7 +68,7 @@ export class ListAgentSessionArtifactsResponseBodyJsonRpcResponseResult extends 
   maxResults?: number;
   /**
    * @remarks
-   * The token for the next page. The value is null if there are no more pages.
+   * The token for the next page. The value is null for the last page.
    * 
    * @example
    * CAESExFsbyH...
@@ -105,7 +105,7 @@ export class ListAgentSessionArtifactsResponseBodyJsonRpcResponseResult extends 
 export class ListAgentSessionArtifactsResponseBodyJsonRpcResponse extends $dara.Model {
   /**
    * @remarks
-   * The ID passed by the caller. The value is returned as-is in the response.
+   * The ID passed in by the requester. The value is returned as-is.
    * 
    * @example
    * 28477817
@@ -121,7 +121,7 @@ export class ListAgentSessionArtifactsResponseBodyJsonRpcResponse extends $dara.
   jsonrpc?: string;
   /**
    * @remarks
-   * The paginated information of artifacts.
+   * The pagination information of model artifacts.
    */
   result?: ListAgentSessionArtifactsResponseBodyJsonRpcResponseResult;
   static names(): { [key: string]: string } {
@@ -160,7 +160,7 @@ export class ListAgentSessionArtifactsResponseBody extends $dara.Model {
   jsonRpcResponse?: ListAgentSessionArtifactsResponseBodyJsonRpcResponse;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * 0000-ABCD-E****

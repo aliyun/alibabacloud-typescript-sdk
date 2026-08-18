@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SuccessInfoValue extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the operation is successful.
    * 
    * @example
    * true

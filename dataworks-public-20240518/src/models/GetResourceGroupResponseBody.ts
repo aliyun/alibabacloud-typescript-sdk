@@ -45,7 +45,7 @@ export class GetResourceGroupResponseBodyResourceGroupAliyunResourceTags extends
 export class GetResourceGroupResponseBodyResourceGroupSpec extends $dara.Model {
   /**
    * @remarks
-   * The number of resources in the resource group.
+   * The resource count.
    * 
    * @example
    * 1
@@ -53,7 +53,7 @@ export class GetResourceGroupResponseBodyResourceGroupSpec extends $dara.Model {
   amount?: number;
   /**
    * @remarks
-   * The number of compute units (CUs) in the resource group.
+   * The specification details.
    * 
    * @example
    * 2CU
@@ -85,7 +85,7 @@ export class GetResourceGroupResponseBodyResourceGroupSpec extends $dara.Model {
 export class GetResourceGroupResponseBodyResourceGroup extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Alibaba Cloud resource group.
+   * The ID of the Alibaba Cloud resource group to which the resource group belongs.
    * 
    * @example
    * rg-aek2kqofrgXXXXX
@@ -93,12 +93,12 @@ export class GetResourceGroupResponseBodyResourceGroup extends $dara.Model {
   aliyunResourceGroupId?: string;
   /**
    * @remarks
-   * The tags.
+   * The list of Alibaba Cloud tags.
    */
   aliyunResourceTags?: GetResourceGroupResponseBodyResourceGroupAliyunResourceTags[];
   /**
    * @remarks
-   * The time when the resource group was created. The value is a 64-bit timestamp.
+   * The creation time, represented as a 64-bit timestamp.
    * 
    * @example
    * 1727055811000
@@ -106,7 +106,7 @@ export class GetResourceGroupResponseBodyResourceGroup extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * The ID of the account that is used to create the resource group.
+   * The ID of the user who created the resource group.
    * 
    * @example
    * 11075500042XXXXX
@@ -114,7 +114,7 @@ export class GetResourceGroupResponseBodyResourceGroup extends $dara.Model {
   createUser?: string;
   /**
    * @remarks
-   * The ID of the virtual private cloud (VPC) with which the resource group is associated by default.
+   * The ID of the default VPC bound to the resource group.
    * 
    * @example
    * vpc-m2et4f3oc8msfbccXXXXX
@@ -122,7 +122,7 @@ export class GetResourceGroupResponseBodyResourceGroup extends $dara.Model {
   defaultVpcId?: string;
   /**
    * @remarks
-   * The ID of the vSwitch with which the resource group is associated by default.
+   * The ID of the default vSwitch bound to the resource group.
    * 
    * @example
    * vsw-uf8usrhs7hjd9amsXXXXX
@@ -130,7 +130,7 @@ export class GetResourceGroupResponseBodyResourceGroup extends $dara.Model {
   defaultVswitchId?: string;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The unique identifier of the resource group.
    * 
    * @example
    * Serverless_res_group_524257424564736_6831777003XXXXX
@@ -146,7 +146,7 @@ export class GetResourceGroupResponseBodyResourceGroup extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The instance ID of the order that is used to create the resource group.
+   * The order instance ID of the resource group.
    * 
    * @example
    * c442b330-3b10-4584-959e-736e4edXXXXX
@@ -154,7 +154,10 @@ export class GetResourceGroupResponseBodyResourceGroup extends $dara.Model {
   orderInstanceId?: string;
   /**
    * @remarks
-   * The billing method of the resource group. Valid values: PrePaid and PostPaid. The value PrePaid indicates the subscription billing method, and the value PostPaid indicates the pay-as-you-go billing method.
+   * The billing method of the resource group. Valid values:
+   * 
+   * - PrePaid: subscription.
+   * - PostPaid: pay-as-you-go.
    * 
    * @example
    * PrePaid
@@ -162,7 +165,7 @@ export class GetResourceGroupResponseBodyResourceGroup extends $dara.Model {
   paymentType?: string;
   /**
    * @remarks
-   * The description of the resource group.
+   * The remarks of the resource group.
    * 
    * @example
    * Create a common resource group for common tasks
@@ -172,13 +175,10 @@ export class GetResourceGroupResponseBodyResourceGroup extends $dara.Model {
    * @remarks
    * The type of the resource group. Valid values:
    * 
-   * - CommonV2: Serverless resource group.
-   * 
-   * - ExclusiveDataIntegration: Exclusive resource group for Data Integration.
-   * 
-   * - ExclusiveScheduler: Exclusive resource group for scheduling.
-   * 
-   * - ExclusiveDataService: Exclusive resource group for DataService Studio.
+   * - CommonV2: new-version resource group.
+   * - ExclusiveDataIntegration: exclusive data integration resource group.
+   * - ExclusiveScheduler: exclusive scheduling resource group.
+   * - ExclusiveDataService: exclusive data service resource group.
    * 
    * @example
    * CommonV2
@@ -193,29 +193,18 @@ export class GetResourceGroupResponseBodyResourceGroup extends $dara.Model {
    * @remarks
    * The status of the resource group. Valid values:
    * 
-   * - Normal: The resource group is running or in use.
-   * 
-   * - Stop: The resource group is expired.
-   * 
-   * - Deleted: The resource group is released or destroyed.
-   * 
-   * - Creating: The resource group is being created.
-   * 
-   * - CreateFailed: The resource group fails to be created.
-   * 
-   * - Updating: The resource group is being scaled in or out, or the configurations of the resource group are being changed.
-   * 
-   * - UpdateFailed: The resource group fails to be scaled out or upgraded.
-   * 
-   * - Deleting: The resource group is being released or destroyed.
-   * 
-   * - DeleteFailed: The resource group fails to be released or destroyed.
-   * 
-   * - Timeout: The operations that are performed on the resource group time out.
-   * 
-   * - Freezed: The resource group is frozen.
-   * 
-   * - Starting: The resource group is being started.
+   * - Normal: normal (running/in service).
+   * - Stop: frozen (expired).
+   * - Deleted: deleted (released/destroyed).
+   * - Creating: being created.
+   * - CreateFailed: creation failed.
+   * - Updating: being updated (scaling out/scaling in/specification change in progress).
+   * - UpdateFailed: update failed (scale-out failed/upgrade failed).
+   * - Deleting: being deleted (being released/being destroyed).
+   * - DeleteFailed: deletion failed (release failed/destruction failed).
+   * - Timeout: operation timed out.
+   * - Freezed: frozen.
+   * - Starting: starting.
    * 
    * @example
    * Normal
@@ -277,7 +266,7 @@ export class GetResourceGroupResponseBodyResourceGroup extends $dara.Model {
 export class GetResourceGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request, which is used to locate logs and troubleshoot issues.
    * 
    * @example
    * 6A6CBE87-9F91-1323-B680-E7A7065XXXXX
@@ -285,7 +274,7 @@ export class GetResourceGroupResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The details about the resource group.
+   * The detailed information of the resource group.
    */
   resourceGroup?: GetResourceGroupResponseBodyResourceGroup;
   /**

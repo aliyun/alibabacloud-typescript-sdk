@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetJobStatusRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the asynchronous task that is generated after you call an asynchronous operation.
+   * The task ID returned after calling an asynchronous API.
    * 
    * This parameter is required.
    * 

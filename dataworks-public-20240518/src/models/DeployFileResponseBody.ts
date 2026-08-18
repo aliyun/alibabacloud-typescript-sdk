@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeployFileResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The deployment package ID. You must specify this ID as a parameter when you call the [GetDeployment](https://help.aliyun.com/document_detail/173950.html) operation to query the details of the deployment.
+   * The ID of the deployment package. You must pass this ID as a parameter when you call the [GetDeployment](https://help.aliyun.com/document_detail/173950.html) operation to obtain the details of this deployment.
    * 
    * @example
    * 30000001
@@ -47,9 +47,8 @@ export class DeployFileResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the call was successful. Valid values:
    * 
-   * - true: success.
-   * 
-   * - false: failure.
+   * - true: The call was successful.
+   * - false: The call failed.
    * 
    * @example
    * true

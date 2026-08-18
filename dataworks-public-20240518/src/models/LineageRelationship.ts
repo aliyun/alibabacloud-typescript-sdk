@@ -20,7 +20,7 @@ export class LineageRelationship extends $dara.Model {
   dstEntity?: LineageEntity;
   /**
    * @remarks
-   * The ID.
+   * ID
    * 
    * @example
    * maxcompute-table.p.table:custom-table.xxx:custom-sql.123
@@ -33,7 +33,7 @@ export class LineageRelationship extends $dara.Model {
   srcEntity?: LineageEntity;
   /**
    * @remarks
-   * The task.
+   * The node.
    */
   task?: LineageTask;
   static names(): { [key: string]: string } {

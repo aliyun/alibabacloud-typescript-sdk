@@ -13,7 +13,7 @@ export class ListDeploymentPackagesResponseBodyDataDeployments extends $dara.Mod
   createTime?: number;
   /**
    * @remarks
-   * The Alibaba Cloud account ID of the deployment package creator.
+   * The Alibaba Cloud user ID of the deployment package creator.
    * 
    * @example
    * 2003****
@@ -21,7 +21,7 @@ export class ListDeploymentPackagesResponseBodyDataDeployments extends $dara.Mod
   creator?: string;
   /**
    * @remarks
-   * When the deployment package fails to execute, this parameter is used to record the error message.
+   * The error message recorded when the deployment package fails to be executed.
    * 
    * @example
    * OK
@@ -37,7 +37,7 @@ export class ListDeploymentPackagesResponseBodyDataDeployments extends $dara.Mod
   executeTime?: number;
   /**
    * @remarks
-   * The Alibaba Cloud account ID of the deployment package executor.
+   * The Alibaba Cloud user ID of the deployment package executor.
    * 
    * @example
    * 2003****
@@ -45,7 +45,7 @@ export class ListDeploymentPackagesResponseBodyDataDeployments extends $dara.Mod
   executor?: string;
   /**
    * @remarks
-   * The ID of the deployment package. You can use this ID to call the [GetDeployment](https://help.aliyun.com/document_detail/173950.html) operation to get the deployment package details.
+   * The ID of the deployment package. You can use this ID to call the [GetDeployment](https://help.aliyun.com/document_detail/173950.html) operation to obtain the details of the deployment package.
    * 
    * @example
    * 11111
@@ -61,15 +61,12 @@ export class ListDeploymentPackagesResponseBodyDataDeployments extends $dara.Mod
   name?: string;
   /**
    * @remarks
-   * The status of the deployment package. Valid values:
+   * The current status of the deployment package. Valid values:
    * 
-   * - 0: It is ready.
-   * 
-   * - 1: It was successfully deployed.
-   * 
-   * - 2: It failed to be deployed.
-   * 
-   * - 6: It was rejected.
+   * - 0: The deployment package is ready.
+   * - 1: The deployment package is published.
+   * - 2: The deployment package failed to be published.
+   * - 6: The deployment package is rejected.
    * 
    * @example
    * 1
@@ -113,7 +110,7 @@ export class ListDeploymentPackagesResponseBodyDataDeployments extends $dara.Mod
 export class ListDeploymentPackagesResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The returned list of deployment packages.
+   * The list of deployment packages.
    */
   deployments?: ListDeploymentPackagesResponseBodyDataDeployments[];
   /**
@@ -126,7 +123,7 @@ export class ListDeploymentPackagesResponseBodyData extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of records per page.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -134,7 +131,7 @@ export class ListDeploymentPackagesResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of records that meet the conditions.
+   * The total number of entries that meet the conditions.
    * 
    * @example
    * 20
@@ -178,7 +175,7 @@ export class ListDeploymentPackagesResponseBody extends $dara.Model {
   data?: ListDeploymentPackagesResponseBodyData;
   /**
    * @remarks
-   * The request ID.
+   * The unique ID of the request.
    * 
    * @example
    * 952795279527ab****

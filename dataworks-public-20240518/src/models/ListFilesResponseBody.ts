@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListFilesResponseBodyDataFiles extends $dara.Model {
   /**
    * @remarks
-   * The path to the folder where the file is located.
+   * The path of the folder where the file is stored.
    * 
    * @example
    * Business_process/my_first_business_process/MaxCompute/ods_layer
@@ -13,13 +13,12 @@ export class ListFilesResponseBodyDataFiles extends $dara.Model {
   absoluteFolderPath?: string;
   /**
    * @remarks
-   * Specifies whether automatic parsing is enabled for the file. Valid values:
+   * Indicates whether the automatic parsing feature is enabled for the file. Valid values:
    * 
    * - true: The file automatically parses code.
-   * 
    * - false: The file does not automatically parse code.
    * 
-   * This parameter corresponds to Analyze Code when you set Dependencies to Same Cycle in the scheduling configuration of a Data Studio task in the [DataWorks console](https://workbench.data.aliyun.com/console).
+   * This parameter corresponds to the "Code Parsing" option when you select "Same Cycle" in "Scheduling Configuration > Scheduling Dependencies" for a DataStudio task in the [DataWorks console](https://workbench.data.aliyun.com/console).
    * 
    * @example
    * true
@@ -27,7 +26,7 @@ export class ListFilesResponseBodyDataFiles extends $dara.Model {
   autoParsing?: boolean;
   /**
    * @remarks
-   * The ID of the workflow to which the file belongs. This parameter is deprecated. Use the BusinessId parameter instead.
+   * **[Deprecated]** The ID of the workflow to which the file belongs. This field is deprecated. Use the BusinessId field instead.
    * 
    * @example
    * 300000
@@ -43,7 +42,7 @@ export class ListFilesResponseBodyDataFiles extends $dara.Model {
   businessId?: number;
   /**
    * @remarks
-   * The current commit status of the file. Valid values: 0 (the latest code is not committed) and 1 (the latest code is committed).
+   * The current commit status of the file. Valid values: 0 (the latest code has not been committed) and 1 (the latest code has been committed).
    * 
    * @example
    * 1
@@ -51,7 +50,7 @@ export class ListFilesResponseBodyDataFiles extends $dara.Model {
   commitStatus?: number;
   /**
    * @remarks
-   * The data source name used by the task.
+   * The name of the data source used when the task corresponding to the file is executed.
    * 
    * @example
    * odps_source
@@ -59,7 +58,7 @@ export class ListFilesResponseBodyDataFiles extends $dara.Model {
   connectionName?: string;
   /**
    * @remarks
-   * This parameter is deprecated. You can call the [GetFile](https://help.aliyun.com/document_detail/173954.html) operation to query this information.
+   * **[Deprecated]** This parameter is deprecated. You can call the [GetFile](https://help.aliyun.com/document_detail/173954.html) operation to query file content.
    * 
    * @example
    * SHOW TABLES;
@@ -67,7 +66,7 @@ export class ListFilesResponseBodyDataFiles extends $dara.Model {
   content?: string;
   /**
    * @remarks
-   * The timestamp (in milliseconds) when the file was created.
+   * The timestamp when the file was created, in milliseconds.
    * 
    * @example
    * 1593950832000
@@ -75,7 +74,7 @@ export class ListFilesResponseBodyDataFiles extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * The Alibaba Cloud account ID of the file creator.
+   * The Alibaba Cloud user ID of the file creator.
    * 
    * @example
    * 382762****
@@ -99,7 +98,7 @@ export class ListFilesResponseBodyDataFiles extends $dara.Model {
   fileDescription?: string;
   /**
    * @remarks
-   * The ID of the folder where the file is located.
+   * The ID of the folder where the file is stored.
    * 
    * @example
    * 2735c2****
@@ -107,7 +106,7 @@ export class ListFilesResponseBodyDataFiles extends $dara.Model {
   fileFolderId?: string;
   /**
    * @remarks
-   * The file ID.
+   * The ID of the file.
    * 
    * @example
    * 10000001
@@ -115,7 +114,7 @@ export class ListFilesResponseBodyDataFiles extends $dara.Model {
   fileId?: number;
   /**
    * @remarks
-   * The file name.
+   * The name of the file.
    * 
    * @example
    * ods_user_info_d
@@ -123,7 +122,7 @@ export class ListFilesResponseBodyDataFiles extends $dara.Model {
   fileName?: string;
   /**
    * @remarks
-   * The file type. Different file types have different code. For more information, see [DataWorks node types](https://help.aliyun.com/document_detail/600169.html).
+   * The file type. Different file types have different codes. For more information, see [DataWorks nodes](https://help.aliyun.com/document_detail/600169.html).
    * 
    * @example
    * 10
@@ -131,9 +130,9 @@ export class ListFilesResponseBodyDataFiles extends $dara.Model {
   fileType?: number;
   /**
    * @remarks
-   * If the current file is a MaxCompute resource file, this parameter specifies whether the resource file needs to be uploaded to MaxCompute.
+   * If the current file is a MaxCompute resource file, this field indicates whether the resource file needs to be uploaded to MaxCompute.
    * 
-   * You only need to configure this parameter when the file is a MaxCompute resource file.
+   * This parameter needs to be configured only when the file is a MaxCompute resource file.
    * 
    * @example
    * false
@@ -141,7 +140,7 @@ export class ListFilesResponseBodyDataFiles extends $dara.Model {
   isMaxCompute?: boolean;
   /**
    * @remarks
-   * The timestamp (in milliseconds) when the file was last modified.
+   * The timestamp of the last file edit, in milliseconds.
    * 
    * @example
    * 1593950832000
@@ -149,7 +148,7 @@ export class ListFilesResponseBodyDataFiles extends $dara.Model {
   lastEditTime?: number;
   /**
    * @remarks
-   * The Alibaba Cloud account ID of the user who last updated the file.
+   * The Alibaba Cloud ID of the user who last updated the file.
    * 
    * @example
    * 382762****
@@ -165,7 +164,7 @@ export class ListFilesResponseBodyDataFiles extends $dara.Model {
   nodeId?: number;
   /**
    * @remarks
-   * The Alibaba Cloud account ID of the file owner.
+   * The Alibaba Cloud user ID of the file owner.
    * 
    * @example
    * 3872572****
@@ -173,7 +172,7 @@ export class ListFilesResponseBodyDataFiles extends $dara.Model {
   owner?: string;
   /**
    * @remarks
-   * If the current file is an internal file of a combined node, this parameter specifies the ID of the corresponding combined node file.
+   * If the current file is an internal file of a combined node, this field indicates the ID of the corresponding combined node file.
    * 
    * @example
    * -1
@@ -182,18 +181,12 @@ export class ListFilesResponseBodyDataFiles extends $dara.Model {
   /**
    * @remarks
    * The functional module to which the file belongs. Valid values:
-   * 
-   * - NORMAL: Data Studio
-   * 
-   * - MANUAL: Manually triggered node
-   * 
-   * - MANUAL_BIZ: Manually triggered workflow
-   * 
-   * - SKIP: Dry-run scheduling in Data Studio
-   * 
-   * - ADHOCQUERY: Ad hoc query
-   * 
-   * - COMPONENT: Component management
+   * - NORMAL: DataStudio.
+   * - MANUAL: manual node.
+   * - MANUAL_BIZ: manual workflow.
+   * - SKIP: dry-run scheduling in DataStudio.
+   * - ADHOCQUERY: ad hoc query.
+   * - COMPONENT: component management.
    * 
    * @example
    * NORMAL
@@ -270,7 +263,7 @@ export class ListFilesResponseBodyData extends $dara.Model {
   files?: ListFilesResponseBodyDataFiles[];
   /**
    * @remarks
-   * The page number.
+   * The page number of the returned data.
    * 
    * @example
    * 1
@@ -286,7 +279,7 @@ export class ListFilesResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries that meet the conditions.
    * 
    * @example
    * 13
@@ -325,7 +318,7 @@ export class ListFilesResponseBodyData extends $dara.Model {
 export class ListFilesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response details.
+   * The returned data details.
    */
   data?: ListFilesResponseBodyData;
   /**
@@ -354,7 +347,7 @@ export class ListFilesResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The request ID. Use this ID to troubleshoot issues.
+   * The request ID. You can use this ID to troubleshoot issues.
    * 
    * @example
    * 0000-ABCD-****
@@ -362,11 +355,10 @@ export class ListFilesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call succeeded. Valid values:
+   * Indicates whether the call was successful. Valid values:
    * 
-   * - true
-   * 
-   * - false
+   * - true: The call was successful.
+   * - false: The call failed.
    * 
    * @example
    * true

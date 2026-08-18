@@ -15,7 +15,7 @@ export class ListDownstreamTaskInstancesRequest extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The page number. Pages start from page 1. Default value: 1.
+   * The page number. Pages start from 1. Default value: 1.
    * 
    * @example
    * 1

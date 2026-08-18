@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class ListDataQualityRulesResponseBodyPagingInfoDataQualityRulesCheckingConfigThresholdsCritical extends $dara.Model {
   /**
    * @remarks
-   * Threshold expression.
+   * The threshold expression.
    * 
-   * Fluctuation rate type rules must use the expression method to indicate the fluctuation threshold. Examples:
+   * For fluctuation-type rules, you must use an expression to represent the fluctuation threshold. Examples:
    * 
    * - Fluctuation increase greater than 0.01: $checkValue > 0.01 
    * - Fluctuation decrease greater than 0.01: $checkValue < -0.01 
-   * - Absolute value of the fluctuation rate: abs($checkValue) > 0.01
+   * - Absolute value of fluctuation rate: abs($checkValue) > 0.01
    * 
-   * Fixed value type rules can also configure thresholds using expressions. If both are configured, the expression takes precedence over Operator and Value.
+   * For fixed-value-type rules, you can also use an expression to configure the threshold. If both are configured, the expression takes precedence over Operator and Value.
    * 
    * @example
    * $checkValue > 0.01
@@ -21,7 +21,7 @@ export class ListDataQualityRulesResponseBodyPagingInfoDataQualityRulesCheckingC
   expression?: string;
   /**
    * @remarks
-   * Comparison operator.
+   * The comparison operator. Valid values:
    * - \\>
    * - \\>=
    * - <
@@ -35,7 +35,7 @@ export class ListDataQualityRulesResponseBodyPagingInfoDataQualityRulesCheckingC
   operator?: string;
   /**
    * @remarks
-   * Threshold value.
+   * The threshold value.
    * 
    * @example
    * 100.0
@@ -69,15 +69,15 @@ export class ListDataQualityRulesResponseBodyPagingInfoDataQualityRulesCheckingC
 export class ListDataQualityRulesResponseBodyPagingInfoDataQualityRulesCheckingConfigThresholdsExpected extends $dara.Model {
   /**
    * @remarks
-   * Threshold expression.
+   * The threshold expression.
    * 
-   * Fluctuation rate type rules must use the expression method to indicate the fluctuation threshold. Examples:
+   * For fluctuation-type rules, you must use an expression to represent the fluctuation threshold. Examples:
    * 
    * - Fluctuation increase greater than 0.01: $checkValue > 0.01 
    * - Fluctuation decrease greater than 0.01: $checkValue < -0.01 
-   * - Absolute value of the fluctuation rate: abs($checkValue) > 0.01
+   * - Absolute value of fluctuation rate: abs($checkValue) > 0.01
    * 
-   * Fixed value type rules can also configure thresholds using expressions. If both are configured, the expression takes precedence over Operator and Value.
+   * For fixed-value-type rules, you can also use an expression to configure the threshold. If both are configured, the expression takes precedence over Operator and Value.
    * 
    * @example
    * $checkValue > 0.01
@@ -85,7 +85,7 @@ export class ListDataQualityRulesResponseBodyPagingInfoDataQualityRulesCheckingC
   expression?: string;
   /**
    * @remarks
-   * Comparison operator.
+   * The comparison operator. Valid values:
    * - \\>
    * - \\>=
    * - <
@@ -99,7 +99,7 @@ export class ListDataQualityRulesResponseBodyPagingInfoDataQualityRulesCheckingC
   operator?: string;
   /**
    * @remarks
-   * Threshold value.
+   * The threshold value.
    * 
    * @example
    * 100.0
@@ -133,15 +133,15 @@ export class ListDataQualityRulesResponseBodyPagingInfoDataQualityRulesCheckingC
 export class ListDataQualityRulesResponseBodyPagingInfoDataQualityRulesCheckingConfigThresholdsWarned extends $dara.Model {
   /**
    * @remarks
-   * Threshold expression.
+   * The threshold expression.
    * 
-   * Fluctuation rate type rules must use the expression method to indicate the fluctuation threshold. Examples:
+   * For fluctuation-type rules, you must use an expression to represent the fluctuation threshold. Examples:
    * 
    * - Fluctuation increase greater than 0.01: $checkValue > 0.01 
    * - Fluctuation decrease greater than 0.01: $checkValue < -0.01 
-   * - Absolute value of the fluctuation rate: abs($checkValue) > 0.01
+   * - Absolute value of fluctuation rate: abs($checkValue) > 0.01
    * 
-   * Fixed value type rules can also configure thresholds using expressions. If both are configured, the expression takes precedence over Operator and Value.
+   * For fixed-value-type rules, you can also use an expression to configure the threshold. If both are configured, the expression takes precedence over Operator and Value.
    * 
    * @example
    * $checkValue > 0.01
@@ -149,7 +149,7 @@ export class ListDataQualityRulesResponseBodyPagingInfoDataQualityRulesCheckingC
   expression?: string;
   /**
    * @remarks
-   * Comparison operator.
+   * The comparison operator. Valid values:
    * - \\>
    * - \\>=
    * - <
@@ -163,7 +163,7 @@ export class ListDataQualityRulesResponseBodyPagingInfoDataQualityRulesCheckingC
   operator?: string;
   /**
    * @remarks
-   * Threshold value.
+   * The threshold value.
    * 
    * @example
    * 100.0
@@ -197,17 +197,17 @@ export class ListDataQualityRulesResponseBodyPagingInfoDataQualityRulesCheckingC
 export class ListDataQualityRulesResponseBodyPagingInfoDataQualityRulesCheckingConfigThresholds extends $dara.Model {
   /**
    * @remarks
-   * Threshold settings for critical warnings.
+   * The threshold settings for critical warnings.
    */
   critical?: ListDataQualityRulesResponseBodyPagingInfoDataQualityRulesCheckingConfigThresholdsCritical;
   /**
    * @remarks
-   * Expected threshold settings.
+   * The expected threshold settings.
    */
   expected?: ListDataQualityRulesResponseBodyPagingInfoDataQualityRulesCheckingConfigThresholdsExpected;
   /**
    * @remarks
-   * Threshold settings for normal warnings.
+   * The threshold settings for normal warnings.
    */
   warned?: ListDataQualityRulesResponseBodyPagingInfoDataQualityRulesCheckingConfigThresholdsWarned;
   static names(): { [key: string]: string } {
@@ -247,7 +247,7 @@ export class ListDataQualityRulesResponseBodyPagingInfoDataQualityRulesCheckingC
 export class ListDataQualityRulesResponseBodyPagingInfoDataQualityRulesCheckingConfig extends $dara.Model {
   /**
    * @remarks
-   * Some types of thresholds require querying some reference samples, then aggregating the values of the reference samples to obtain the threshold for comparison. An expression is used here to represent the query method for the reference samples.
+   * An expression that specifies how to query reference samples. Some threshold types require querying reference samples and aggregating their values to derive the comparison threshold.
    * 
    * @example
    * { "bizdate": [ "-1", "-7", "-1m" ] }
@@ -255,12 +255,12 @@ export class ListDataQualityRulesResponseBodyPagingInfoDataQualityRulesCheckingC
   referencedSamplesFilter?: string;
   /**
    * @remarks
-   * Threshold settings.
+   * The threshold settings.
    */
   thresholds?: ListDataQualityRulesResponseBodyPagingInfoDataQualityRulesCheckingConfigThresholds;
   /**
    * @remarks
-   * Threshold calculation method.
+   * The threshold calculation method. Valid values:
    * - Fixed
    * - Fluctation
    * - FluctationDiscreate
@@ -303,7 +303,7 @@ export class ListDataQualityRulesResponseBodyPagingInfoDataQualityRulesCheckingC
 export class ListDataQualityRulesResponseBodyPagingInfoDataQualityRulesErrorHandlers extends $dara.Model {
   /**
    * @remarks
-   * For custom SQL rules, the user needs to specify SQL to filter problem data.
+   * For custom SQL rules, the SQL statement specified by the user to filter error data.
    * 
    * @example
    * SELECT * FROM tb_api_log WHERE id IS NULL
@@ -311,7 +311,7 @@ export class ListDataQualityRulesResponseBodyPagingInfoDataQualityRulesErrorHand
   errorDataFilter?: string;
   /**
    * @remarks
-   * Handler type:
+   * The handler type. Valid values:
    * - SaveErrorData
    * 
    * @example
@@ -344,22 +344,22 @@ export class ListDataQualityRulesResponseBodyPagingInfoDataQualityRulesErrorHand
 export class ListDataQualityRulesResponseBodyPagingInfoDataQualityRulesSamplingConfig extends $dara.Model {
   /**
    * @remarks
-   * Sampling metric name.
-   * - Count: number of table rows.
-   * - Min: minimum value of the field.
-   * - Max: maximum value of the field.
-   * - Avg: average value of the field.
-   * - DistinctCount: number of distinct values of the field.
-   * - DistinctPercent: ratio of the number of distinct values of the field to the number of data rows.
-   * - DuplicatedCount: number of duplicate values of the field.
-   * - DuplicatedPercent: ratio of the number of duplicate values of the field to the number of data rows.
-   * - TableSize: table size.
-   * - NullValueCount: number of rows where the field value is null.
-   * - NullValuePercent: percentage of rows where the field value is null.
-   * - GroupCount: each value and its corresponding number of data rows after aggregation by field value.
-   * - CountNotIn: number of rows whose enumerated values do not match.
-   * - CountDistinctNotIn: number of distinct values whose enumerated values do not match.
-   * - UserDefinedSql: sample collection via custom SQL.
+   * The metric name for sampling. Valid values:
+   * - Count: the number of table rows.
+   * - Min: the minimum value of a field.
+   * - Max: the maximum value of a field.
+   * - Avg: the average value of a field.
+   * - DistinctCount: the number of unique values in a field.
+   * - DistinctPercent: the ratio of unique values to the total number of rows.
+   * - DuplicatedCount: the number of duplicate values in a field.
+   * - DuplicatedPercent: the ratio of duplicate values to the total number of rows.
+   * - TableSize: the table size.
+   * - NullValueCount: the number of rows where the field is null.
+   * - NullValuePercent: the ratio of null values in a field.
+   * - GroupCount: the number of rows for each value after aggregation by field value.
+   * - CountNotIn: the number of rows with mismatched enumeration values.
+   * - CountDistinctNotIn: the number of unique values with mismatched enumeration values.
+   * - UserDefinedSql: sample collection through custom SQL.
    * 
    * @example
    * Max
@@ -367,7 +367,7 @@ export class ListDataQualityRulesResponseBodyPagingInfoDataQualityRulesSamplingC
   metric?: string;
   /**
    * @remarks
-   * Parameters required during sample collection.
+   * The parameters required for sample collection.
    * 
    * @example
    * { "Columns": [ "id", "name" ] , "SQL": "select count(1) from table;"}
@@ -375,7 +375,7 @@ export class ListDataQualityRulesResponseBodyPagingInfoDataQualityRulesSamplingC
   metricParameters?: string;
   /**
    * @remarks
-   * Condition for the secondary filtering of data that is not of concern during sampling. Maximum length: 16,777,215 characters.
+   * The filter condition for secondary filtering of irrelevant data during sampling. Maximum length: 16,777,215 characters.
    * 
    * @example
    * id IS NULL
@@ -383,7 +383,7 @@ export class ListDataQualityRulesResponseBodyPagingInfoDataQualityRulesSamplingC
   samplingFilter?: string;
   /**
    * @remarks
-   * Runtime parameter setting statements inserted and executed before the sampling statement is actually executed. Maximum length: 1,000 characters. Currently only MaxCompute is supported.
+   * The runtime parameter setting statements to execute before the sampling statement. Maximum length: 1000 characters. Currently, only MaxCompute is supported.
    * 
    * @example
    * SET odps.sql.udf.timeout=600s; 
@@ -420,7 +420,7 @@ export class ListDataQualityRulesResponseBodyPagingInfoDataQualityRulesSamplingC
 export class ListDataQualityRulesResponseBodyPagingInfoDataQualityRulesTarget extends $dara.Model {
   /**
    * @remarks
-   * For table-type datasets, the database type to which the table belongs.
+   * The database type of the table for table-type datasets. Valid values:
    * - maxcompute
    * - emr
    * - cdh
@@ -435,7 +435,7 @@ export class ListDataQualityRulesResponseBodyPagingInfoDataQualityRulesTarget ex
   databaseType?: string;
   /**
    * @remarks
-   * Unique ID of the table to which the rule applies in Data Map.
+   * The unique ID of the table that the rule applies to in DataWorks Data Map.
    * 
    * @example
    * odps.unit_test.tb_unit_test
@@ -443,7 +443,7 @@ export class ListDataQualityRulesResponseBodyPagingInfoDataQualityRulesTarget ex
   tableGuid?: string;
   /**
    * @remarks
-   * Type of the monitored object.
+   * The monitored object type.
    * 
    * - Table
    * 
@@ -479,12 +479,12 @@ export class ListDataQualityRulesResponseBodyPagingInfoDataQualityRulesTarget ex
 export class ListDataQualityRulesResponseBodyPagingInfoDataQualityRules extends $dara.Model {
   /**
    * @remarks
-   * Sample validation settings.
+   * The sample check settings.
    */
   checkingConfig?: ListDataQualityRulesResponseBodyPagingInfoDataQualityRulesCheckingConfig;
   /**
    * @remarks
-   * Rule description. Maximum length: 500 characters.
+   * The rule description. Maximum length: 500 characters.
    * 
    * @example
    * this is a odps _sql task
@@ -492,7 +492,7 @@ export class ListDataQualityRulesResponseBodyPagingInfoDataQualityRules extends 
   description?: string;
   /**
    * @remarks
-   * Whether the data quality rule is enabled.
+   * Indicates whether the quality rule is enabled.
    * 
    * @example
    * true
@@ -500,12 +500,12 @@ export class ListDataQualityRulesResponseBodyPagingInfoDataQualityRules extends 
   enabled?: boolean;
   /**
    * @remarks
-   * List of issue handlers for data quality rule validation.
+   * The list of quality rule check error handlers.
    */
   errorHandlers?: ListDataQualityRulesResponseBodyPagingInfoDataQualityRulesErrorHandlers[];
   /**
    * @remarks
-   * Rule ID.
+   * The rule ID.
    * 
    * @example
    * 22130
@@ -513,7 +513,7 @@ export class ListDataQualityRulesResponseBodyPagingInfoDataQualityRules extends 
   id?: number;
   /**
    * @remarks
-   * Rule name.
+   * The rule name.
    * 
    * @example
    * The table cannot be empty.
@@ -521,7 +521,7 @@ export class ListDataQualityRulesResponseBodyPagingInfoDataQualityRules extends 
   name?: string;
   /**
    * @remarks
-   * DataWorks workspace ID.
+   * The DataWorks workspace ID.
    * 
    * @example
    * 100001
@@ -529,12 +529,12 @@ export class ListDataQualityRulesResponseBodyPagingInfoDataQualityRules extends 
   projectId?: number;
   /**
    * @remarks
-   * Settings required for sample collection.
+   * The settings required for sample collection.
    */
   samplingConfig?: ListDataQualityRulesResponseBodyPagingInfoDataQualityRulesSamplingConfig;
   /**
    * @remarks
-   * Severity level of the rule for the business (corresponding to strong/weak rules on the page). Valid enumerated values:
+   * The severity level of the rule for business (corresponding to strong/weak rules on the page). Valid values:
    * - Normal
    * - High
    * 
@@ -544,12 +544,12 @@ export class ListDataQualityRulesResponseBodyPagingInfoDataQualityRules extends 
   severity?: string;
   /**
    * @remarks
-   * Object monitored by the rule.
+   * The object monitored by the rule.
    */
   target?: ListDataQualityRulesResponseBodyPagingInfoDataQualityRulesTarget;
   /**
    * @remarks
-   * Unique identifier of the rule template referenced by the rule.
+   * The unique identifier of the rule template referenced by the rule.
    * 
    * @example
    * SYSTEM:user_defined_sql
@@ -611,12 +611,12 @@ export class ListDataQualityRulesResponseBodyPagingInfoDataQualityRules extends 
 export class ListDataQualityRulesResponseBodyPagingInfo extends $dara.Model {
   /**
    * @remarks
-   * Specific rule list.
+   * The list of rules.
    */
   dataQualityRules?: ListDataQualityRulesResponseBodyPagingInfoDataQualityRules[];
   /**
    * @remarks
-   * Page number.
+   * The page number.
    * 
    * @example
    * 1
@@ -624,7 +624,7 @@ export class ListDataQualityRulesResponseBodyPagingInfo extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * Page size.
+   * The page size.
    * 
    * @example
    * 10
@@ -632,7 +632,7 @@ export class ListDataQualityRulesResponseBodyPagingInfo extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Total number of entries.
+   * The total number of entries.
    * 
    * @example
    * 294
@@ -671,12 +671,12 @@ export class ListDataQualityRulesResponseBodyPagingInfo extends $dara.Model {
 export class ListDataQualityRulesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Paginated query result of the rule list.
+   * The paginated query result of the rule list.
    */
   pagingInfo?: ListDataQualityRulesResponseBodyPagingInfo;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 691CA452-D37A-4ED0-9441

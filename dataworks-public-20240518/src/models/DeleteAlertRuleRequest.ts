@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteAlertRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * The rule ID.
+   * The ID of the custom rule.
    * 
    * @example
    * 105412

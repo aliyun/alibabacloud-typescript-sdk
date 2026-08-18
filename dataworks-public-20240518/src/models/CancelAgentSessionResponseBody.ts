@@ -35,7 +35,7 @@ export class CancelAgentSessionResponseBodyJsonRpcResponseResult extends $dara.M
 export class CancelAgentSessionResponseBodyJsonRpcResponse extends $dara.Model {
   /**
    * @remarks
-   * The ID passed by the requester. The value is returned as-is in the response.
+   * The ID passed in by the requester, returned as-is in the response.
    * 
    * @example
    * 7675839888324361477
@@ -90,7 +90,7 @@ export class CancelAgentSessionResponseBody extends $dara.Model {
   jsonRpcResponse?: CancelAgentSessionResponseBodyJsonRpcResponse;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * 7CD3D216-5876-5DB1-A34A-396806F4A413
