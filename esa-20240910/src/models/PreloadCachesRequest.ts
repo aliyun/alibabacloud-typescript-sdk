@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class PreloadCachesRequest extends $dara.Model {
   /**
    * @remarks
-   * The objects to prefetch.
+   * The prefetch objects.
    */
   content?: string[];
   /**
    * @remarks
-   * The default header carried in a prefetch request is Accept-Encoding:gzip. If you want the prefetch request to carry other headers or implement multi-copy prefetching, use this parameter to customize the prefetch headers.
+   * The default header carried in a prefetch request is Accept-Encoding:gzip. If you want the prefetch request to carry other headers or implement multi-copy prefetching, use this parameter to customize prefetch headers.
    */
   headers?: { [key: string]: string };
   /**

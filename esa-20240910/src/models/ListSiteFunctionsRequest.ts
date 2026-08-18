@@ -14,10 +14,6 @@ export class ListSiteFunctionsRequest extends $dara.Model {
   /**
    * @remarks
    * The configuration type. You can use this parameter to query global configurations or rule configurations. Valid values:
-   * - global: queries global configurations.
-   * - rule: queries rule configurations.
-   * 
-   * This parameter is optional. If not specified, both global and rule configurations are returned. This parameter takes effect only when the FunctionName parameter is specified.
    * 
    * @example
    * rule
@@ -49,7 +45,7 @@ export class ListSiteFunctionsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The rule name. Returns the rule that matches the specified name. This parameter takes effect only when the FunctionName parameter is specified.
+   * The rule name. Filters the rule that matches the specified name. This parameter takes effect only when FunctionName is specified.
    * 
    * @example
    * test

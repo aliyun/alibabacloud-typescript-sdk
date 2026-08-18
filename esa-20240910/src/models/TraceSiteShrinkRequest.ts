@@ -4,33 +4,54 @@ import * as $dara from '@darabonba/typescript';
 
 export class TraceSiteShrinkRequest extends $dara.Model {
   /**
+   * @remarks
+   * The HTTP request body.
+   * 
    * @example
    * {"PlainText":"bc58c54211db"}
    */
   bodyShrink?: string;
+  /**
+   * @remarks
+   * The environment context. This parameter is optional.
+   */
   contextShrink?: string;
   /**
+   * @remarks
+   * The cookie parameters.
+   * 
    * @example
    * []
    */
   cookiesShrink?: string;
   /**
+   * @remarks
+   * The request headers.
+   * 
    * @example
    * []
    */
   headersShrink?: string;
   /**
+   * @remarks
+   * The HTTP method.
+   * 
    * @example
    * GET
    */
   method?: string;
   /**
+   * @remarks
+   * The HTTP protocol.
+   * 
    * @example
    * HTTP/1.1
    */
   protocol?: string;
   /**
    * @remarks
+   * The URL of the request.
+   * 
    * This parameter is required.
    * 
    * @example

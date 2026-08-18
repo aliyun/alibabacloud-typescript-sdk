@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class PurgeCachesRequestContentCacheKeys extends $dara.Model {
   /**
    * @remarks
-   * The header information corresponding to the cache key for the refresh. When the custom cache key feature is enabled, the cache key is generated based on the specified headers for the refresh.
+   * The header information corresponding to the cache key specified during the refresh. When the custom cache key feature is enabled, the cache key is generated based on the specified headers for the refresh.
    * 
    * **UserGeo: country/region**
    * 
@@ -21,7 +21,7 @@ export class PurgeCachesRequestContentCacheKeys extends $dara.Model {
    * 
    * **UserLanguage: language**
    * 
-   * - Language codes follow the ISO 639-1 or BCP 47 standard. For example, set this to zh to refresh content in Chinese.
+   * - Language codes follow the ISO 639-1 standard or the BCP47 standard. For example, entering zh indicates refreshing content in Chinese.
    */
   headers?: { [key: string]: string };
   /**
@@ -61,37 +61,37 @@ export class PurgeCachesRequestContentCacheKeys extends $dara.Model {
 export class PurgeCachesRequestContent extends $dara.Model {
   /**
    * @remarks
-   * The list of cache keys to refresh. This parameter is required when Type is set to cachekey.
+   * The list of cache keys to refresh. This parameter is required when the type is set to cachekey.
    */
   cacheKeys?: PurgeCachesRequestContentCacheKeys[];
   /**
    * @remarks
-   * The list of cache tags to refresh. This parameter is required when Type is set to cachetag.
+   * The list of cache tags to refresh. This parameter is required when the type is set to cachetag.
    */
   cacheTags?: string[];
   /**
    * @remarks
-   * The list of directories to refresh. This parameter is required when Type is set to directory.
+   * The list of directories to refresh. This parameter is required when the type is set to directory.
    */
   directories?: string[];
   /**
    * @remarks
-   * The list of files to refresh. This parameter is required when Type is set to file.
+   * The list of files to refresh. This parameter is required when the type is set to file.
    */
   files?: any[];
   /**
    * @remarks
-   * The list of hostnames to refresh. This parameter is required when Type is set to hostname.
+   * The list of hostnames to refresh. This parameter is required when the type is set to hostname.
    */
   hostnames?: string[];
   /**
    * @remarks
-   * The list of files with parameters ignored. This parameter is required when Type is set to ignoreParams.
+   * The list of files with parameters ignored. This parameter is required when the type is set to ignoreParams.
    */
   ignoreParams?: string[];
   /**
    * @remarks
-   * Specifies whether to refresh all cached content under the site. Default value: false. Set this parameter to true when Type is set to purgeall.
+   * The flag for refreshing the entire site. Default value: false. Set this parameter to true when the type is set to purgeall.
    * 
    * @example
    * true
@@ -164,12 +164,12 @@ export class PurgeCachesRequest extends $dara.Model {
   edgeComputePurge?: boolean;
   /**
    * @remarks
-   * Specifies whether to refresh all resources under the corresponding directory when the back-to-origin content is inconsistent with the origin server resources. Default value: false.
+   * Specifies whether to refresh resources under the corresponding directory when the back-to-origin content is inconsistent with the origin server resources. Default value: false.
    * - **true**: Refreshes all resources under the corresponding directory.
    * - **false**: Refreshes only the changed resources under the corresponding directory.
    * 
    * > 
-   * >  This parameter takes effect for directory refresh, cache tag refresh, parameter-ignored refresh, hostname refresh, and full site cache refresh.
+   * >  Effective scope: directory refresh, cache tag refresh, parameter-ignored refresh, hostname refresh, and refreshing all cached content under the site.
    * 
    * @example
    * true
@@ -192,7 +192,7 @@ export class PurgeCachesRequest extends $dara.Model {
    * - **cachekey**: cache key refresh.
    * - **cachetag**: cache label refresh.
    * - **directory**: folder refresh.
-   * - **ignoreParams**: parameter-ignored refresh. This refers to removing the question mark (?) and all parameters after it from the request URL. When you commit a parameter-stripped URL through this API operation, the submitted URL is matched against cached resource URLs after their parameters are also stripped. If a cached resource URL matches the submitted URL after parameter stripping, the point of presence executes the refresh on the cached resource.
+   * - **ignoreParams**: parameter-ignored refresh. This refers to removing the question mark (?) and all parameters after it from the request URL. When you commit a parameter-stripped URL through this operation, the committed URL is matched against cached resource URLs after their parameters are stripped. If a cached resource URL matches the committed URL after parameter stripping, the point of presence executes the refresh on the cached resource.
    * - **hostname**: hostname refresh.
    * - **purgeall**: refreshes all cached content under the site.
    * 

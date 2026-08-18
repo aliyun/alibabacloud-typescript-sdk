@@ -14,9 +14,9 @@ export class DescribeUserResourcePackageResponseBodyResourcePackageInfos extends
   /**
    * @remarks
    * The current remaining capacity of the instance.
-   * - Unit for data transfer plans: Byte.
+   * - Unit for traffic plans: Byte.
    * 
-   * - Unit for request count plans: count.
+   * - Unit for request plans: count.
    * 
    * @example
    * 53661095687
@@ -65,9 +65,9 @@ export class DescribeUserResourcePackageResponseBodyResourcePackageInfos extends
   /**
    * @remarks
    * The total capacity of the resource plan.
-   * - Unit for data transfer plans: Byte.
+   * - Unit for traffic plans: Byte.
    * 
-   * - Unit for request count plans: count.
+   * - Unit for request plans: count.
    * 
    * @example
    * 107374182400

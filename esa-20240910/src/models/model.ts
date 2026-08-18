@@ -346,6 +346,7 @@ export { ListSiteFunctionsResponseBodyConfigsHttpsBasicConfiguration } from './L
 export { ListSiteFunctionsResponseBodyConfigsImageTransform } from './ListSiteFunctionsResponseBody';
 export { ListSiteFunctionsResponseBodyConfigsIpv6 } from './ListSiteFunctionsResponseBody';
 export { ListSiteFunctionsResponseBodyConfigsManagedTransforms } from './ListSiteFunctionsResponseBody';
+export { ListSiteFunctionsResponseBodyConfigsMarkdownForAgent } from './ListSiteFunctionsResponseBody';
 export { ListSiteFunctionsResponseBodyConfigsNetworkOptimization } from './ListSiteFunctionsResponseBody';
 export { ListSiteFunctionsResponseBodyConfigsOriginRules } from './ListSiteFunctionsResponseBody';
 export { ListSiteFunctionsResponseBodyConfigsRedirectRules } from './ListSiteFunctionsResponseBody';
@@ -435,6 +436,7 @@ export { HttpDeliveryQueryParamValue } from './HttpDeliveryQueryParamValue';
 export { FieldContentValue } from './FieldContentValue';
 export { QuotaListItemsValue } from './QuotaListItemsValue';
 export { QuotaPageContentTypesValue } from './QuotaPageContentTypesValue';
+export { EnvironmentVariablesValue } from './EnvironmentVariablesValue';
 export { ActivateClientCertificateRequest } from './ActivateClientCertificateRequest';
 export { ActivateClientCertificateResponseBody } from './ActivateClientCertificateResponseBody';
 export { ActivateClientCertificateResponse } from './ActivateClientCertificateResponse';
@@ -802,6 +804,10 @@ export { DeleteRoutineBuildConfigurationResponse } from './DeleteRoutineBuildCon
 export { DeleteRoutineCodeVersionRequest } from './DeleteRoutineCodeVersionRequest';
 export { DeleteRoutineCodeVersionResponseBody } from './DeleteRoutineCodeVersionResponseBody';
 export { DeleteRoutineCodeVersionResponse } from './DeleteRoutineCodeVersionResponse';
+export { DeleteRoutineEnvironmentVariablesRequest } from './DeleteRoutineEnvironmentVariablesRequest';
+export { DeleteRoutineEnvironmentVariablesShrinkRequest } from './DeleteRoutineEnvironmentVariablesShrinkRequest';
+export { DeleteRoutineEnvironmentVariablesResponseBody } from './DeleteRoutineEnvironmentVariablesResponseBody';
+export { DeleteRoutineEnvironmentVariablesResponse } from './DeleteRoutineEnvironmentVariablesResponse';
 export { DeleteRoutineRelatedRecordRequest } from './DeleteRoutineRelatedRecordRequest';
 export { DeleteRoutineRelatedRecordResponseBody } from './DeleteRoutineRelatedRecordResponseBody';
 export { DeleteRoutineRelatedRecordResponse } from './DeleteRoutineRelatedRecordResponse';
@@ -1458,6 +1464,9 @@ export { ListRoutineCanaryAreasResponse } from './ListRoutineCanaryAreasResponse
 export { ListRoutineCodeVersionsRequest } from './ListRoutineCodeVersionsRequest';
 export { ListRoutineCodeVersionsResponseBody } from './ListRoutineCodeVersionsResponseBody';
 export { ListRoutineCodeVersionsResponse } from './ListRoutineCodeVersionsResponse';
+export { ListRoutineEnvironmentVariablesRequest } from './ListRoutineEnvironmentVariablesRequest';
+export { ListRoutineEnvironmentVariablesResponseBody } from './ListRoutineEnvironmentVariablesResponseBody';
+export { ListRoutineEnvironmentVariablesResponse } from './ListRoutineEnvironmentVariablesResponse';
 export { ListRoutineRelatedRecordsRequest } from './ListRoutineRelatedRecordsRequest';
 export { ListRoutineRelatedRecordsResponseBody } from './ListRoutineRelatedRecordsResponseBody';
 export { ListRoutineRelatedRecordsResponse } from './ListRoutineRelatedRecordsResponse';
@@ -1658,6 +1667,10 @@ export { SetOriginClientCertificateHostnamesRequest } from './SetOriginClientCer
 export { SetOriginClientCertificateHostnamesShrinkRequest } from './SetOriginClientCertificateHostnamesShrinkRequest';
 export { SetOriginClientCertificateHostnamesResponseBody } from './SetOriginClientCertificateHostnamesResponseBody';
 export { SetOriginClientCertificateHostnamesResponse } from './SetOriginClientCertificateHostnamesResponse';
+export { SetRoutineEnvironmentVariablesRequest } from './SetRoutineEnvironmentVariablesRequest';
+export { SetRoutineEnvironmentVariablesShrinkRequest } from './SetRoutineEnvironmentVariablesShrinkRequest';
+export { SetRoutineEnvironmentVariablesResponseBody } from './SetRoutineEnvironmentVariablesResponseBody';
+export { SetRoutineEnvironmentVariablesResponse } from './SetRoutineEnvironmentVariablesResponse';
 export { StartScheduledPreloadExecutionRequest } from './StartScheduledPreloadExecutionRequest';
 export { StartScheduledPreloadExecutionResponseBody } from './StartScheduledPreloadExecutionResponseBody';
 export { StartScheduledPreloadExecutionResponse } from './StartScheduledPreloadExecutionResponse';

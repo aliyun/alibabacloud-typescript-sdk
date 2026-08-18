@@ -2,34 +2,38 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class GetReleaseTimeResponseBody extends $dara.Model {
+export class EnvironmentVariablesValue extends $dara.Model {
   /**
    * @remarks
-   * The scheduled release time. Format: yyyy-MM-dd\\"T\\"HH:mm:ss\\"Z\\".
+   * The environment variable type.
+   * 
+   * Valid values:
+   * - `plain_text`: plain text
+   * - `secret_text`: encrypted text
    * 
    * @example
-   * 2026-01-02T06:00:00Z
+   * plain_text
    */
-  releaseTime?: string;
+  type?: string;
   /**
    * @remarks
-   * The request ID.
+   * The environment variable value.
    * 
    * @example
-   * 6abd807e-ed2a-****-ac54-ac38a62472e6
+   * value
    */
-  requestId?: string;
+  value?: string;
   static names(): { [key: string]: string } {
     return {
-      releaseTime: 'ReleaseTime',
-      requestId: 'RequestId',
+      type: 'Type',
+      value: 'Value',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      releaseTime: 'string',
-      requestId: 'string',
+      type: 'string',
+      value: 'string',
     };
   }
 

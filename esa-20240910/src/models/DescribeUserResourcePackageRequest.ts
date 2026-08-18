@@ -33,6 +33,9 @@ export class DescribeUserResourcePackageRequest extends $dara.Model {
    * The sorting field. Valid values:
    * - startTime: the effective period of the instance.
    * - endTime: the expiration time of the instance.
+   * - StartTime: the effective period of the instance.
+   * - EndTime: the expiration time of the instance.
+   * - default: no sorting field.
    * 
    * @example
    * startTime
@@ -40,7 +43,7 @@ export class DescribeUserResourcePackageRequest extends $dara.Model {
   sortField?: string;
   /**
    * @remarks
-   * The collation. Default value: desc. Valid values:
+   * The sorting rule. Default value: desc. Valid values:
    * - asc
    * - desc
    * 

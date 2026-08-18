@@ -13,8 +13,8 @@ export default class Client extends OpenApi {
     super(config);
     this._endpointRule = "regional";
     this._endpointMap = {
-      'cn-hangzhou': "esa.cn-hangzhou.aliyuncs.com",
       'ap-southeast-1': "esa.ap-southeast-1.aliyuncs.com",
+      'cn-hangzhou': "esa.cn-hangzhou.aliyuncs.com",
     };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("esa", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -7349,6 +7349,72 @@ export default class Client extends OpenApi {
   async deleteRoutineCodeVersion(request: $_model.DeleteRoutineCodeVersionRequest): Promise<$_model.DeleteRoutineCodeVersionResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteRoutineCodeVersionWithOptions(request, runtime);
+  }
+
+  /**
+   * Deletes environment variables of a Routine.
+   * 
+   * @remarks
+   * ## Operation description
+   * - When you create a Routine code version for deployment, the environment name `Env` supports only the staging environment `staging` or the production environment `production`.
+   * - The `CodeVersions` parameter supports canary release of up to two versions, and the total proportion of these versions must equal 100%.
+   * 
+   * @param tmpReq - DeleteRoutineEnvironmentVariablesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteRoutineEnvironmentVariablesResponse
+   */
+  async deleteRoutineEnvironmentVariablesWithOptions(tmpReq: $_model.DeleteRoutineEnvironmentVariablesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteRoutineEnvironmentVariablesResponse> {
+    tmpReq.validate();
+    let request = new $_model.DeleteRoutineEnvironmentVariablesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.environmentVariableKeys)) {
+      request.environmentVariableKeysShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.environmentVariableKeys, "EnvironmentVariableKeys", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.env)) {
+      body["Env"] = request.env;
+    }
+
+    if (!$dara.isNull(request.environmentVariableKeysShrink)) {
+      body["EnvironmentVariableKeys"] = request.environmentVariableKeysShrink;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteRoutineEnvironmentVariables",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteRoutineEnvironmentVariablesResponse>(await this.callApi(params, req, runtime), new $_model.DeleteRoutineEnvironmentVariablesResponse({}));
+  }
+
+  /**
+   * Deletes environment variables of a Routine.
+   * 
+   * @remarks
+   * ## Operation description
+   * - When you create a Routine code version for deployment, the environment name `Env` supports only the staging environment `staging` or the production environment `production`.
+   * - The `CodeVersions` parameter supports canary release of up to two versions, and the total proportion of these versions must equal 100%.
+   * 
+   * @param request - DeleteRoutineEnvironmentVariablesRequest
+   * @returns DeleteRoutineEnvironmentVariablesResponse
+   */
+  async deleteRoutineEnvironmentVariables(request: $_model.DeleteRoutineEnvironmentVariablesRequest): Promise<$_model.DeleteRoutineEnvironmentVariablesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteRoutineEnvironmentVariablesWithOptions(request, runtime);
   }
 
   /**
@@ -17033,6 +17099,70 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the environment variables of a Routine.
+   * 
+   * @remarks
+   * This operation allows you to perform a paged query of all Edge Routines (Routines) created under your account, and provides the Routine quota and usage for your current plan. You can specify the paging parameters `PageNumber` and `PageSize` to control the number of returned results, and use `SearchKeyWord` to perform a fuzzy search to filter specific Routine names.
+   * 
+   * @param request - ListRoutineEnvironmentVariablesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListRoutineEnvironmentVariablesResponse
+   */
+  async listRoutineEnvironmentVariablesWithOptions(request: $_model.ListRoutineEnvironmentVariablesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListRoutineEnvironmentVariablesResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.env)) {
+      body["Env"] = request.env;
+    }
+
+    if (!$dara.isNull(request.keyWord)) {
+      body["KeyWord"] = request.keyWord;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListRoutineEnvironmentVariables",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListRoutineEnvironmentVariablesResponse>(await this.callApi(params, req, runtime), new $_model.ListRoutineEnvironmentVariablesResponse({}));
+  }
+
+  /**
+   * Queries the environment variables of a Routine.
+   * 
+   * @remarks
+   * This operation allows you to perform a paged query of all Edge Routines (Routines) created under your account, and provides the Routine quota and usage for your current plan. You can specify the paging parameters `PageNumber` and `PageSize` to control the number of returned results, and use `SearchKeyWord` to perform a fuzzy search to filter specific Routine names.
+   * 
+   * @param request - ListRoutineEnvironmentVariablesRequest
+   * @returns ListRoutineEnvironmentVariablesResponse
+   */
+  async listRoutineEnvironmentVariables(request: $_model.ListRoutineEnvironmentVariablesRequest): Promise<$_model.ListRoutineEnvironmentVariablesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listRoutineEnvironmentVariablesWithOptions(request, runtime);
+  }
+
+  /**
    * The records associated with the function.
    * 
    * @remarks
@@ -18727,7 +18857,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Prefetches URLs to warm the cache.
+   * Prefetches cache content.
    * 
    * @param tmpReq - PreloadCachesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18776,7 +18906,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Prefetches URLs to warm the cache.
+   * Prefetches cache content.
    * 
    * @param request - PreloadCachesRequest
    * @returns PreloadCachesResponse
@@ -20507,6 +20637,78 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Sets environment variables for a Routine.
+   * 
+   * @remarks
+   * - If you do not specify StartTime and EndTime, this operation returns data from the past 24 hours. If you specify StartTime and EndTime, this operation returns data for the specified time range.
+   * - The time granularity of returned data varies based on the time range specified by StartTime and EndTime.
+   *   * If the time range is less than or equal to 3 hours, data is returned at a 1-minute granularity.
+   *   * If the time range is greater than 3 hours and less than or equal to 1 day, data is returned at a 5-minute granularity.
+   *   * If the time range is greater than 1 day and less than or equal to 10 days, data is returned at an hourly granularity.
+   *   * If the time range is greater than 10 days and less than or equal to 31 days, data is returned at a daily granularity.
+   * 
+   * @param tmpReq - SetRoutineEnvironmentVariablesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SetRoutineEnvironmentVariablesResponse
+   */
+  async setRoutineEnvironmentVariablesWithOptions(tmpReq: $_model.SetRoutineEnvironmentVariablesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SetRoutineEnvironmentVariablesResponse> {
+    tmpReq.validate();
+    let request = new $_model.SetRoutineEnvironmentVariablesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.environmentVariables)) {
+      request.environmentVariablesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.environmentVariables, "EnvironmentVariables", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.env)) {
+      body["Env"] = request.env;
+    }
+
+    if (!$dara.isNull(request.environmentVariablesShrink)) {
+      body["EnvironmentVariables"] = request.environmentVariablesShrink;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SetRoutineEnvironmentVariables",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SetRoutineEnvironmentVariablesResponse>(await this.callApi(params, req, runtime), new $_model.SetRoutineEnvironmentVariablesResponse({}));
+  }
+
+  /**
+   * Sets environment variables for a Routine.
+   * 
+   * @remarks
+   * - If you do not specify StartTime and EndTime, this operation returns data from the past 24 hours. If you specify StartTime and EndTime, this operation returns data for the specified time range.
+   * - The time granularity of returned data varies based on the time range specified by StartTime and EndTime.
+   *   * If the time range is less than or equal to 3 hours, data is returned at a 1-minute granularity.
+   *   * If the time range is greater than 3 hours and less than or equal to 1 day, data is returned at a 5-minute granularity.
+   *   * If the time range is greater than 1 day and less than or equal to 10 days, data is returned at an hourly granularity.
+   *   * If the time range is greater than 10 days and less than or equal to 31 days, data is returned at a daily granularity.
+   * 
+   * @param request - SetRoutineEnvironmentVariablesRequest
+   * @returns SetRoutineEnvironmentVariablesResponse
+   */
+  async setRoutineEnvironmentVariables(request: $_model.SetRoutineEnvironmentVariablesRequest): Promise<$_model.SetRoutineEnvironmentVariablesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.setRoutineEnvironmentVariablesWithOptions(request, runtime);
+  }
+
+  /**
    * Starts a scheduled prefetch based on the prefetch plan ID.
    * 
    * @param request - StartScheduledPreloadExecutionRequest
@@ -20777,10 +20979,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Trace站点
+   * Performs Tracing Analysis. You can use this operation to construct and initiate an impersonation HTTP/HTTPS request to the ESA platform, displaying the site configuration matching and effective settings on the ESA platform for the request.
    * 
    * @remarks
-   * >Notice: 请确保在使用该接口前，站点已接入ESA平台并启用。
+   * >Notice: Before you use this operation, make sure that the site is connected to the ESA platform and enabled.
    * 
    * @param tmpReq - TraceSiteRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -20853,10 +21055,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Trace站点
+   * Performs Tracing Analysis. You can use this operation to construct and initiate an impersonation HTTP/HTTPS request to the ESA platform, displaying the site configuration matching and effective settings on the ESA platform for the request.
    * 
    * @remarks
-   * >Notice: 请确保在使用该接口前，站点已接入ESA平台并启用。
+   * >Notice: Before you use this operation, make sure that the site is connected to the ESA platform and enabled.
    * 
    * @param request - TraceSiteRequest
    * @returns TraceSiteResponse
@@ -21721,7 +21923,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the specifications of an Anti-DDoS instance.
+   * Modifies the specifications of an Anti-DDoS Pro or Anti-DDoS Premium instance.
    * 
    * @param request - UpdateDDoSSpecRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -21764,7 +21966,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the specifications of an Anti-DDoS instance.
+   * Modifies the specifications of an Anti-DDoS Pro or Anti-DDoS Premium instance.
    * 
    * @param request - UpdateDDoSSpecRequest
    * @returns UpdateDDoSSpecResponse

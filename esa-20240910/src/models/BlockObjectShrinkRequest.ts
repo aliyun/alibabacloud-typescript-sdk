@@ -32,8 +32,8 @@ export class BlockObjectShrinkRequest extends $dara.Model {
    * @remarks
    * The type. Valid values:
    * 
-   * - **block**: blocks the URL.
-   * - **unblock**: unblocks the URL.
+   * - **block**: Block.
+   * - **unblock**: Unblock.
    * 
    * This parameter is required.
    * 

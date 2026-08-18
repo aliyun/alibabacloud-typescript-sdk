@@ -4,41 +4,26 @@ import * as $dara from '@darabonba/typescript';
 
 export class WafQuotaInteger extends $dara.Model {
   /**
-   * @remarks
-   * 等于。
-   * 
    * @example
    * 1
    */
   equal?: number;
   /**
-   * @remarks
-   * 大于。
-   * 
    * @example
    * 1
    */
   greaterThan?: number;
   /**
-   * @remarks
-   * 大于等于。
-   * 
    * @example
    * 1
    */
   greaterThanOrEqual?: number;
   /**
-   * @remarks
-   * 小于。
-   * 
    * @example
    * 1
    */
   lessThan?: number;
   /**
-   * @remarks
-   * 小于等于。
-   * 
    * @example
    * 1
    */

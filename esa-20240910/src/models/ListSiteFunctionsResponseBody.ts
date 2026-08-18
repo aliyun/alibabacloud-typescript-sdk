@@ -13,9 +13,7 @@ export class ListSiteFunctionsResponseBodyConfigsCacheReserve extends $dara.Mode
   configId?: number;
   /**
    * @remarks
-   * Specifies whether to enable cache reserve. Disabled by default. Valid values:
-   * - on: enabled.
-   * - off: disabled.
+   * Specifies whether to enable cache reserve. This feature is disabled by default. Valid values:
    * 
    * @example
    * on
@@ -66,9 +64,6 @@ export class ListSiteFunctionsResponseBodyConfigsCacheRules extends $dara.Model 
   /**
    * @remarks
    * The browser cache mode. Valid values:
-   * - no_cache: no caching.
-   * - follow_origin: follows the origin server cache policy.
-   * - override_origin: overrides the origin server cache policy.
    * 
    * @example
    * follow_origin
@@ -94,9 +89,7 @@ export class ListSiteFunctionsResponseBodyConfigsCacheRules extends $dara.Model 
   bypassCache?: string;
   /**
    * @remarks
-   * Specifies whether to enable cache deception armor. This feature protects against web cache deception attacks by caching only content that passes validation. Valid values:
-   * - on: enabled.
-   * - off: disabled.
+   * Specifies whether cache deception armor is enabled. This feature protects against web cache deception attacks by caching only content that passes validation. Valid values:
    * 
    * @example
    * on
@@ -104,9 +97,9 @@ export class ListSiteFunctionsResponseBodyConfigsCacheRules extends $dara.Model 
   cacheDeceptionArmor?: string;
   /**
    * @remarks
-   * The cache reserve eligibility. Controls whether requests bypass the cache reserve node during back-to-origin. Valid values:
+   * The cache reserve eligibility. Controls whether user requests bypass cache reserve nodes during back-to-origin. Valid values:
    * - bypass_cache_reserve: requests bypass cache reserve.
-   * - eligible_for_cache_reserve: requests are eligible for cache reserve.
+   * - eligible_for_cache_reserve: eligible for cache reserve.
    * 
    * @example
    * bypass_cache_reserve
@@ -114,7 +107,7 @@ export class ListSiteFunctionsResponseBodyConfigsCacheRules extends $dara.Model 
   cacheReserveEligibility?: string;
   /**
    * @remarks
-   * Checks whether a cookie exists when generating cache keys. If the cookie exists, the cookie name (case-insensitive) is added to the cache key. Multiple cookie names are supported and separated by spaces.
+   * The cookie names to check for presence when generating cache keys. If a cookie exists, its name (case-insensitive) is added to the cache key. Multiple cookie names are separated by spaces.
    * 
    * @example
    * cookiename
@@ -122,7 +115,7 @@ export class ListSiteFunctionsResponseBodyConfigsCacheRules extends $dara.Model 
   checkPresenceCookie?: string;
   /**
    * @remarks
-   * Checks whether a header exists when generating cache keys. If the header exists, the header name (case-insensitive) is added to the cache key. Multiple header names are supported and separated by spaces.
+   * The header names to check for presence when generating cache keys. If a header exists, its name (case-insensitive) is added to the cache key. Multiple header names are separated by spaces.
    * 
    * @example
    * headername
@@ -139,10 +132,10 @@ export class ListSiteFunctionsResponseBodyConfigsCacheRules extends $dara.Model 
   /**
    * @remarks
    * The edge cache mode. Valid values:
-   * - follow_origin: follows the origin server cache policy (if present). Otherwise, uses the default cache policy.
-   * - no_cache: no caching.
-   * - override_origin: overrides the origin server cache policy.
-   * - follow_origin_bypass: follows the origin server cache policy (if present). Otherwise, does not cache.
+   * - follow_origin: follows the origin cache policy if one exists. Otherwise, uses the default cache policy.
+   * - no_cache: does not cache.
+   * - override_origin: overrides the origin cache policy.
+   * - follow_origin_bypass: follows the origin cache policy if one exists. Otherwise, does not cache.
    * 
    * @example
    * follow_origin
@@ -150,7 +143,7 @@ export class ListSiteFunctionsResponseBodyConfigsCacheRules extends $dara.Model 
   edgeCacheMode?: string;
   /**
    * @remarks
-   * The edge cache expiration time, in seconds.
+   * The edge node cache expiration time, in seconds.
    * 
    * @example
    * 300
@@ -166,7 +159,7 @@ export class ListSiteFunctionsResponseBodyConfigsCacheRules extends $dara.Model 
   edgeStatusCodeCacheTtl?: string;
   /**
    * @remarks
-   * The cookie names and their values to include when generating cache keys. Multiple values are supported and separated by spaces.
+   * The specified cookie names and their values to include when generating cache keys. Multiple values are separated by spaces.
    * 
    * @example
    * cookie_exapmle
@@ -174,7 +167,7 @@ export class ListSiteFunctionsResponseBodyConfigsCacheRules extends $dara.Model 
   includeCookie?: string;
   /**
    * @remarks
-   * The header names and their values to include when generating cache keys. Multiple values are supported and separated by spaces.
+   * The specified header names and their values to include when generating cache keys. Multiple values are separated by spaces.
    * 
    * @example
    * example
@@ -190,7 +183,7 @@ export class ListSiteFunctionsResponseBodyConfigsCacheRules extends $dara.Model 
   postBodyCacheKey?: string;
   /**
    * @remarks
-   * The body size limit, in KB. Supports body sizes from 1 to 8 KB. If left empty, the default value of 8 KB is used.
+   * The body size limit, in KB. Supports body sizes from 1 to 8 KB. If the value is empty, the default value of 8 KB takes effect.
    * 
    * @example
    * 1
@@ -198,7 +191,7 @@ export class ListSiteFunctionsResponseBodyConfigsCacheRules extends $dara.Model 
   postBodySizeLimit?: string;
   /**
    * @remarks
-   * The POST cache switch.
+   * Specifies whether POST caching is enabled.
    * 
    * @example
    * on
@@ -206,7 +199,7 @@ export class ListSiteFunctionsResponseBodyConfigsCacheRules extends $dara.Model 
   postCache?: string;
   /**
    * @remarks
-   * The query strings to retain or remove. Multiple values are supported and separated by spaces.
+   * The query strings to retain or remove. Multiple values are separated by spaces.
    * 
    * @example
    * example
@@ -214,11 +207,7 @@ export class ListSiteFunctionsResponseBodyConfigsCacheRules extends $dara.Model 
   queryString?: string;
   /**
    * @remarks
-   * The query string processing mode when generating cache keys. Valid values:
-   * - ignore_all: ignores all query strings.
-   * - exclude_query_string: removes specified query strings.
-   * - reserve_all: retains all query strings. This is the default value.
-   * - include_query_string: retains specified query strings.
+   * The processing mode for query strings when generating cache keys. Valid values:
    * 
    * @example
    * reserve_all
@@ -234,9 +223,7 @@ export class ListSiteFunctionsResponseBodyConfigsCacheRules extends $dara.Model 
   rule?: string;
   /**
    * @remarks
-   * The rule switch. Valid values:
-   * - on: enabled.
-   * - off: disabled.
+   * Specifies whether the rule is enabled. Valid values:
    * 
    * @example
    * on
@@ -252,7 +239,7 @@ export class ListSiteFunctionsResponseBodyConfigsCacheRules extends $dara.Model 
   ruleName?: string;
   /**
    * @remarks
-   * The rule execution order.
+   * The execution order of the rule.
    * 
    * @example
    * 1
@@ -260,9 +247,7 @@ export class ListSiteFunctionsResponseBodyConfigsCacheRules extends $dara.Model 
   sequence?: string;
   /**
    * @remarks
-   * Specifies whether to serve stale cache. When enabled, the edge node can respond to user requests with cached expired content when the origin server is unavailable. Valid values:
-   * - on: enabled.
-   * - off: disabled.
+   * Specifies whether to serve stale cache. When enabled, edge nodes can respond to user requests with cached expired content when the origin server is unavailable. Valid values:
    * 
    * @example
    * on
@@ -270,9 +255,7 @@ export class ListSiteFunctionsResponseBodyConfigsCacheRules extends $dara.Model 
   serveStale?: string;
   /**
    * @remarks
-   * Specifies whether to sort query strings. Valid values:
-   * - on: enabled.
-   * - off: disabled.
+   * Specifies whether to sort query strings for caching. Valid values:
    * 
    * @example
    * on
@@ -281,8 +264,6 @@ export class ListSiteFunctionsResponseBodyConfigsCacheRules extends $dara.Model 
   /**
    * @remarks
    * Specifies whether to include the type of the client when generating cache keys. Valid values:
-   * - on: enabled.
-   * - off: shutdown.
    * 
    * @example
    * on
@@ -291,8 +272,6 @@ export class ListSiteFunctionsResponseBodyConfigsCacheRules extends $dara.Model 
   /**
    * @remarks
    * Specifies whether to include the client geographic location when generating cache keys. Valid values:
-   * - on: enabled.
-   * - off: disabled.
    * 
    * @example
    * on
@@ -301,8 +280,6 @@ export class ListSiteFunctionsResponseBodyConfigsCacheRules extends $dara.Model 
   /**
    * @remarks
    * Specifies whether to include the client language type when generating cache keys. Valid values:
-   * - on: enabled.
-   * - off: disabled.
    * 
    * @example
    * on
@@ -387,8 +364,6 @@ export class ListSiteFunctionsResponseBodyConfigsCacheTags extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to ignore case. Valid values:
-   * - on: enabled.
-   * - off: disabled.
    * 
    * @example
    * on
@@ -404,7 +379,7 @@ export class ListSiteFunctionsResponseBodyConfigsCacheTags extends $dara.Model {
   configId?: number;
   /**
    * @remarks
-   * The rule execution order.
+   * The execution order of the rule.
    * 
    * @example
    * 1
@@ -458,7 +433,7 @@ export class ListSiteFunctionsResponseBodyConfigsCnameFlattening extends $dara.M
    * @remarks
    * The flattening mode. Valid values:
    * - flatten_all: flattens all records.
-   * - flatten_at_root: flattens only the root domain. This is the default value.
+   * - flatten_at_root: flattens only the root domain. The root domain is flattened by default.
    * 
    * @example
    * flatten_all
@@ -466,7 +441,7 @@ export class ListSiteFunctionsResponseBodyConfigsCnameFlattening extends $dara.M
   flattenMode?: string;
   /**
    * @remarks
-   * The rule execution order.
+   * The execution order of the rule.
    * 
    * @example
    * 0
@@ -500,9 +475,7 @@ export class ListSiteFunctionsResponseBodyConfigsCnameFlattening extends $dara.M
 export class ListSiteFunctionsResponseBodyConfigsCompressionRules extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable Brotli compression. Valid values:
-   * - on: enabled.
-   * - off: disabled.
+   * The Brotli compression setting. Valid values:
    * 
    * @example
    * on
@@ -518,9 +491,7 @@ export class ListSiteFunctionsResponseBodyConfigsCompressionRules extends $dara.
   configId?: number;
   /**
    * @remarks
-   * Specifies whether to enable Gzip compression. Valid values:
-   * - on: enabled.
-   * - off: disabled.
+   * The Gzip compression setting. Valid values:
    * 
    * @example
    * on
@@ -536,9 +507,7 @@ export class ListSiteFunctionsResponseBodyConfigsCompressionRules extends $dara.
   rule?: string;
   /**
    * @remarks
-   * The rule switch. Valid values:
-   * - on: enabled.
-   * - off: disabled.
+   * Specifies whether the rule is enabled. Valid values:
    * 
    * @example
    * on
@@ -554,7 +523,7 @@ export class ListSiteFunctionsResponseBodyConfigsCompressionRules extends $dara.
   ruleName?: string;
   /**
    * @remarks
-   * The rule execution order.
+   * The execution order of the rule.
    * 
    * @example
    * 1
@@ -562,9 +531,7 @@ export class ListSiteFunctionsResponseBodyConfigsCompressionRules extends $dara.
   sequence?: string;
   /**
    * @remarks
-   * Specifies whether to enable Zstd compression. Valid values:
-   * - on: enabled.
-   * - off: disabled.
+   * The Zstd compression setting. Valid values:
    * 
    * @example
    * on
@@ -617,8 +584,6 @@ export class ListSiteFunctionsResponseBodyConfigsCrossBorderOptimization extends
   /**
    * @remarks
    * Specifies whether to enable Chinese mainland network access optimization. Disabled by default. Valid values:
-   * - on: enabled.
-   * - off: disabled.
    * 
    * @example
    * on
@@ -626,7 +591,7 @@ export class ListSiteFunctionsResponseBodyConfigsCrossBorderOptimization extends
   enable?: string;
   /**
    * @remarks
-   * The rule execution order.
+   * The execution order of the rule.
    * 
    * @example
    * 1
@@ -684,9 +649,9 @@ export class ListSiteFunctionsResponseBodyConfigsCustomResponseCode extends $dar
   returnCode?: string;
   /**
    * @remarks
-   * The rule content. Uses conditional expressions to match user requests. This parameter is not required when adding a global configuration. Two scenarios are supported:
-   * - Match all incoming requests: set the value to true.
-   * - Match specified requests: set the value to a custom expression, such as (http.host eq \\"video.example.com\\").
+   * The rule content. A conditional expression is used to match user requests. You do not need to set this parameter when you add a global configuration. Two scenarios are supported:
+   * - Match all incoming requests: Set the value to true.
+   * - Match specified requests: Set the value to a custom expression, for example: (http.host eq \\"video.example.com\\")
    * 
    * @example
    * (http.host eq "video.example.com")
@@ -694,10 +659,7 @@ export class ListSiteFunctionsResponseBodyConfigsCustomResponseCode extends $dar
   rule?: string;
   /**
    * @remarks
-   * The rule switch. This parameter is not required when adding a global configuration. Valid values:
-   * 
-   * - on: enabled.
-   * - off: disabled.
+   * Specifies whether to enable the rule. You do not need to set this parameter when adding a global configuration. Valid values:
    * 
    * @example
    * on
@@ -705,7 +667,7 @@ export class ListSiteFunctionsResponseBodyConfigsCustomResponseCode extends $dar
   ruleEnable?: string;
   /**
    * @remarks
-   * The rule name. This parameter is not required when adding a global configuration.
+   * The rule name. You do not need to set this parameter when adding a global configuration.
    * 
    * @example
    * rule_example
@@ -713,7 +675,7 @@ export class ListSiteFunctionsResponseBodyConfigsCustomResponseCode extends $dar
   ruleName?: string;
   /**
    * @remarks
-   * The rule execution order. A smaller value indicates a higher priority.
+   * The execution priority of the rule. A smaller value indicates a higher priority.
    * 
    * @example
    * 1
@@ -764,8 +726,6 @@ export class ListSiteFunctionsResponseBodyConfigsDevelopmentMode extends $dara.M
   /**
    * @remarks
    * The feature switch. Disabled by default. Valid values:
-   * - on: enabled.
-   * - off: disabled.
    * 
    * @example
    * on
@@ -773,7 +733,7 @@ export class ListSiteFunctionsResponseBodyConfigsDevelopmentMode extends $dara.M
   enable?: string;
   /**
    * @remarks
-   * The rule execution order.
+   * The execution order of the rule.
    * 
    * @example
    * 1
@@ -807,18 +767,7 @@ export class ListSiteFunctionsResponseBodyConfigsDevelopmentMode extends $dara.M
 export class ListSiteFunctionsResponseBodyConfigsErrorPagesRedirectsErrorPagesRedirect extends $dara.Model {
   /**
    * @remarks
-   * The response status code used by the edge node when responding with the redirect address to the client. Valid values:
-   * - 400
-   * - 403
-   * - 404
-   * - 405
-   * - 414
-   * - 416
-   * - 500
-   * - 501
-   * - 502
-   * - 503
-   * - 504
+   * The response status code used by the node when returning the redirect address to the client. Valid values:
    * 
    * @example
    * 400
@@ -826,7 +775,7 @@ export class ListSiteFunctionsResponseBodyConfigsErrorPagesRedirectsErrorPagesRe
   statusCode?: string;
   /**
    * @remarks
-   * The target URL after redirection.
+   * The target URL to which the request is redirected.
    * 
    * @example
    * http://example.com/test
@@ -866,14 +815,14 @@ export class ListSiteFunctionsResponseBodyConfigsErrorPagesRedirects extends $da
   configId?: number;
   /**
    * @remarks
-   * The error page redirect configuration.
+   * The error code redirect configuration.
    */
   errorPagesRedirect?: ListSiteFunctionsResponseBodyConfigsErrorPagesRedirectsErrorPagesRedirect[];
   /**
    * @remarks
-   * The rule content. Uses conditional expressions to match user requests. This parameter is not required when adding a global configuration. Two scenarios are supported:
-   * - Match all incoming requests: set the value to true.
-   * - Match specified requests: set the value to a custom expression, such as (http.host eq \\"video.example.com\\").
+   * The rule content. A conditional expression is used to match user requests. You do not need to set this parameter when you add a global configuration. Two scenarios are supported:
+   * - Match all incoming requests: Set the value to true.
+   * - Match specified requests: Set the value to a custom expression, such as (http.host eq \\"video.example.com\\").
    * 
    * @example
    * (http.host eq "video.example.com")
@@ -881,9 +830,7 @@ export class ListSiteFunctionsResponseBodyConfigsErrorPagesRedirects extends $da
   rule?: string;
   /**
    * @remarks
-   * The rule switch. This parameter is not required when adding a global configuration. Valid values:
-   * - on: enabled.
-   * - off: disabled.
+   * Specifies whether to enable the rule. You do not need to set this parameter when adding a global configuration. Valid values:
    * 
    * @example
    * on
@@ -891,7 +838,7 @@ export class ListSiteFunctionsResponseBodyConfigsErrorPagesRedirects extends $da
   ruleEnable?: string;
   /**
    * @remarks
-   * The rule name. This parameter is not required when adding a global configuration.
+   * The rule name. You do not need to set this parameter when adding a global configuration.
    * 
    * @example
    * rule_example
@@ -899,7 +846,7 @@ export class ListSiteFunctionsResponseBodyConfigsErrorPagesRedirects extends $da
   ruleName?: string;
   /**
    * @remarks
-   * The rule execution order. A smaller value indicates a higher priority.
+   * The execution priority of the rule. A smaller value indicates a higher priority.
    * 
    * @example
    * 1
@@ -951,9 +898,6 @@ export class ListSiteFunctionsResponseBodyConfigsHttpIncomingRequestHeaderModifi
   /**
    * @remarks
    * The operation type. Valid values:
-   * - add: adds a header.
-   * - del: deletes a header.
-   * - modify: modifies a header.
    * 
    * @example
    * add
@@ -1016,9 +960,7 @@ export class ListSiteFunctionsResponseBodyConfigsHttpIncomingRequestHeaderModifi
   rule?: string;
   /**
    * @remarks
-   * The rule switch. Valid values:
-   * - on: enabled.
-   * - off: disabled.
+   * Specifies whether the rule is enabled. Valid values:
    * 
    * @example
    * on
@@ -1034,7 +976,7 @@ export class ListSiteFunctionsResponseBodyConfigsHttpIncomingRequestHeaderModifi
   ruleName?: string;
   /**
    * @remarks
-   * The rule execution order.
+   * The execution order of the rule.
    * 
    * @example
    * 1
@@ -1086,9 +1028,6 @@ export class ListSiteFunctionsResponseBodyConfigsHttpIncomingResponseHeaderModif
   /**
    * @remarks
    * The operation type. Valid values:
-   * - add: adds a header.
-   * - del: deletes a header.
-   * - modify: modifies a header.
    * 
    * @example
    * add
@@ -1151,9 +1090,7 @@ export class ListSiteFunctionsResponseBodyConfigsHttpIncomingResponseHeaderModif
   rule?: string;
   /**
    * @remarks
-   * The rule switch. Valid values:
-   * - on: enabled.
-   * - off: disabled.
+   * Specifies whether the rule is enabled. Valid values:
    * 
    * @example
    * on
@@ -1169,7 +1106,7 @@ export class ListSiteFunctionsResponseBodyConfigsHttpIncomingResponseHeaderModif
   ruleName?: string;
   /**
    * @remarks
-   * The rule execution order.
+   * The execution order of the rule.
    * 
    * @example
    * 1
@@ -1221,9 +1158,6 @@ export class ListSiteFunctionsResponseBodyConfigsHttpRequestHeaderModificationRu
   /**
    * @remarks
    * The operation type. Valid values:
-   * - add: adds a header.
-   * - del: deletes a header.
-   * - modify: modifies a header.
    * 
    * @example
    * add
@@ -1289,9 +1223,7 @@ export class ListSiteFunctionsResponseBodyConfigsHttpRequestHeaderModificationRu
   rule?: string;
   /**
    * @remarks
-   * The rule switch. Valid values:
-   * - on: enabled.
-   * - off: disabled.
+   * Specifies whether the rule is enabled. Valid values:
    * 
    * @example
    * on
@@ -1307,7 +1239,7 @@ export class ListSiteFunctionsResponseBodyConfigsHttpRequestHeaderModificationRu
   ruleName?: string;
   /**
    * @remarks
-   * The rule execution order.
+   * The execution order of the rule.
    * 
    * @example
    * 1
@@ -1359,9 +1291,6 @@ export class ListSiteFunctionsResponseBodyConfigsHttpResponseHeaderModificationR
   /**
    * @remarks
    * The operation type. Valid values:
-   * - add: adds a header.
-   * - del: deletes a header.
-   * - modify: modifies a header.
    * 
    * @example
    * add
@@ -1427,9 +1356,7 @@ export class ListSiteFunctionsResponseBodyConfigsHttpResponseHeaderModificationR
   rule?: string;
   /**
    * @remarks
-   * The rule switch. Valid values:
-   * - on: enabled.
-   * - off: disabled.
+   * Specifies whether the rule is enabled. Valid values:
    * 
    * @example
    * on
@@ -1445,7 +1372,7 @@ export class ListSiteFunctionsResponseBodyConfigsHttpResponseHeaderModificationR
   ruleName?: string;
   /**
    * @remarks
-   * The rule execution order.
+   * The execution order of the rule.
    * 
    * @example
    * 1
@@ -1489,8 +1416,6 @@ export class ListSiteFunctionsResponseBodyConfigsHttpsApplicationConfiguration e
   /**
    * @remarks
    * The Alt-Svc feature switch. Disabled by default. Valid values:
-   * - on: enabled.
-   * - off: disabled.
    * 
    * @example
    * on
@@ -1499,8 +1424,6 @@ export class ListSiteFunctionsResponseBodyConfigsHttpsApplicationConfiguration e
   /**
    * @remarks
    * Specifies whether the Alt-Svc header includes the clear parameter. Disabled by default. Valid values:
-   * - on: enabled.
-   * - off: disabled.
    * 
    * @example
    * on
@@ -1517,8 +1440,6 @@ export class ListSiteFunctionsResponseBodyConfigsHttpsApplicationConfiguration e
   /**
    * @remarks
    * Specifies whether the Alt-Svc header includes the persist parameter. Disabled by default. Valid values:
-   * - on: enabled.
-   * - off: disabled.
    * 
    * @example
    * on
@@ -1536,9 +1457,6 @@ export class ListSiteFunctionsResponseBodyConfigsHttpsApplicationConfiguration e
    * @remarks
    * Specifies whether to enable HSTS. Disabled by default. Valid values:
    * 
-   * - on: enabled.
-   * - off: disabled.
-   * 
    * @example
    * on
    */
@@ -1546,9 +1464,6 @@ export class ListSiteFunctionsResponseBodyConfigsHttpsApplicationConfiguration e
   /**
    * @remarks
    * Specifies whether to include subdomains in HSTS. Disabled by default. Valid values:
-   * 
-   * - on: enabled.
-   * - off: disabled.
    * 
    * @example
    * on
@@ -1566,9 +1481,6 @@ export class ListSiteFunctionsResponseBodyConfigsHttpsApplicationConfiguration e
    * @remarks
    * Specifies whether to enable HSTS preload. Disabled by default. Valid values:
    * 
-   * - on: enabled.
-   * - off: disabled.
-   * 
    * @example
    * on
    */
@@ -1577,21 +1489,13 @@ export class ListSiteFunctionsResponseBodyConfigsHttpsApplicationConfiguration e
    * @remarks
    * Specifies whether to enable forced HTTPS. Disabled by default. Valid values:
    * 
-   * - on: enabled.
-   * 
-   * - off: disabled.
-   * 
    * @example
    * on
    */
   httpsForce?: string;
   /**
    * @remarks
-   * The status code used for forced HTTPS redirect. Valid values:
-   * - 301
-   * - 302
-   * - 307
-   * - 308
+   * The HTTP status code for forced HTTPS redirect. Valid values:
    * 
    * @example
    * 301
@@ -1608,8 +1512,6 @@ export class ListSiteFunctionsResponseBodyConfigsHttpsApplicationConfiguration e
   /**
    * @remarks
    * The rule switch. Valid values:
-   * - on: enabled.
-   * - off: disabled.
    * 
    * @example
    * on
@@ -1625,7 +1527,7 @@ export class ListSiteFunctionsResponseBodyConfigsHttpsApplicationConfiguration e
   ruleName?: string;
   /**
    * @remarks
-   * The rule execution order.
+   * The execution order of the rule.
    * 
    * @example
    * 1
@@ -1683,7 +1585,7 @@ export class ListSiteFunctionsResponseBodyConfigsHttpsApplicationConfiguration e
 export class ListSiteFunctionsResponseBodyConfigsHttpsBasicConfiguration extends $dara.Model {
   /**
    * @remarks
-   * The custom cipher suites. Specifies the specific encryption algorithms selected when CiphersuiteGroup is set to custom.
+   * The custom cipher suite. Specifies the specific encryption algorithms selected when CiphersuiteGroup is set to custom.
    * 
    * @example
    * TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256
@@ -1691,7 +1593,7 @@ export class ListSiteFunctionsResponseBodyConfigsHttpsBasicConfiguration extends
   ciphersuite?: string;
   /**
    * @remarks
-   * The cipher suite group. All cipher suites are enabled by default. Valid values:
+   * The cipher suite group. By default, all cipher suites are enabled. Valid values:
    * - all: all cipher suites.
    * - strict: strong cipher suites.
    * - custom: custom cipher suites.
@@ -1711,8 +1613,6 @@ export class ListSiteFunctionsResponseBodyConfigsHttpsBasicConfiguration extends
   /**
    * @remarks
    * Specifies whether to enable HTTP/2. Enabled by default. Valid values:
-   * - on: enabled.
-   * - off: disabled.
    * 
    * @example
    * on
@@ -1721,8 +1621,6 @@ export class ListSiteFunctionsResponseBodyConfigsHttpsBasicConfiguration extends
   /**
    * @remarks
    * Specifies whether to enable HTTP/3. Enabled by default. Valid values:
-   * - on: enabled.
-   * - off: disabled.
    * 
    * @example
    * on
@@ -1732,10 +1630,6 @@ export class ListSiteFunctionsResponseBodyConfigsHttpsBasicConfiguration extends
    * @remarks
    * Specifies whether to enable HTTPS. Enabled by default. Valid values:
    * 
-   * - on: enabled.
-   * 
-   * - off: disabled.
-   * 
    * @example
    * on
    */
@@ -1743,8 +1637,6 @@ export class ListSiteFunctionsResponseBodyConfigsHttpsBasicConfiguration extends
   /**
    * @remarks
    * Specifies whether to enable OCSP stapling. Disabled by default. Valid values:
-   * - on: enabled.
-   * - off: disabled.
    * 
    * @example
    * on
@@ -1760,9 +1652,7 @@ export class ListSiteFunctionsResponseBodyConfigsHttpsBasicConfiguration extends
   rule?: string;
   /**
    * @remarks
-   * The rule switch. Valid values:
-   * - on: enabled.
-   * - off: disabled.
+   * Specifies whether the rule is enabled. Valid values:
    * 
    * @example
    * on
@@ -1778,7 +1668,7 @@ export class ListSiteFunctionsResponseBodyConfigsHttpsBasicConfiguration extends
   ruleName?: string;
   /**
    * @remarks
-   * The rule execution order.
+   * The execution order of the rule.
    * 
    * @example
    * 1
@@ -1787,8 +1677,6 @@ export class ListSiteFunctionsResponseBodyConfigsHttpsBasicConfiguration extends
   /**
    * @remarks
    * Specifies whether to enable TLS 1.0. Disabled by default. Valid values:
-   * - on: enabled.
-   * - off: disabled.
    * 
    * @example
    * on
@@ -1797,8 +1685,6 @@ export class ListSiteFunctionsResponseBodyConfigsHttpsBasicConfiguration extends
   /**
    * @remarks
    * Specifies whether to enable TLS 1.1. Enabled by default. Valid values:
-   * - on: enabled.
-   * - off: disabled.
    * 
    * @example
    * on
@@ -1807,8 +1693,6 @@ export class ListSiteFunctionsResponseBodyConfigsHttpsBasicConfiguration extends
   /**
    * @remarks
    * Specifies whether to enable TLS 1.2. Enabled by default. Valid values:
-   * - on: enabled.
-   * - off: disabled.
    * 
    * @example
    * on
@@ -1817,8 +1701,6 @@ export class ListSiteFunctionsResponseBodyConfigsHttpsBasicConfiguration extends
   /**
    * @remarks
    * Specifies whether to enable TLS 1.3. Enabled by default. Valid values:
-   * - on: enabled.
-   * - off: disabled.
    * 
    * @example
    * on
@@ -1900,9 +1782,7 @@ export class ListSiteFunctionsResponseBodyConfigsImageTransform extends $dara.Mo
   configId?: number;
   /**
    * @remarks
-   * Specifies whether to enable image transformation. Disabled by default. Valid values:
-   * - on: enabled.
-   * - off: disabled.
+   * Specifies whether to enable image transformation. This feature is disabled by default. Valid values:
    * 
    * @example
    * off
@@ -1918,9 +1798,7 @@ export class ListSiteFunctionsResponseBodyConfigsImageTransform extends $dara.Mo
   rule?: string;
   /**
    * @remarks
-   * The rule switch. Valid values:
-   * - on: enabled.
-   * - off: disabled.
+   * Specifies whether the rule is enabled. Valid values:
    * 
    * @example
    * on
@@ -1936,7 +1814,7 @@ export class ListSiteFunctionsResponseBodyConfigsImageTransform extends $dara.Mo
   ruleName?: string;
   /**
    * @remarks
-   * The rule execution order.
+   * The execution order of the rule.
    * 
    * @example
    * 1
@@ -1989,8 +1867,6 @@ export class ListSiteFunctionsResponseBodyConfigsIpv6 extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to enable IPv6. Enabled by default. Valid values:
-   * - on: enabled.
-   * - off: disabled.
    * 
    * @example
    * on
@@ -1998,7 +1874,7 @@ export class ListSiteFunctionsResponseBodyConfigsIpv6 extends $dara.Model {
   enable?: string;
   /**
    * @remarks
-   * The rule execution order.
+   * The execution order of the rule.
    * 
    * @example
    * 1
@@ -2033,8 +1909,6 @@ export class ListSiteFunctionsResponseBodyConfigsManagedTransforms extends $dara
   /**
    * @remarks
    * Specifies whether to add visitor geolocation headers. Valid values:
-   * - on: enabled.
-   * - off: disabled.
    * 
    * @example
    * on
@@ -2042,7 +1916,7 @@ export class ListSiteFunctionsResponseBodyConfigsManagedTransforms extends $dara
   addClientGeolocationHeaders?: string;
   /**
    * @remarks
-   * Specifies whether to add the "ali-real-client-ip" header that contains the real client IP address. Valid values:
+   * Adds the "ali-real-client-ip" header that contains the originating IP address of the client. Valid values:
    * - on: enabled.
    * - off: disabled.
    * 
@@ -2060,7 +1934,7 @@ export class ListSiteFunctionsResponseBodyConfigsManagedTransforms extends $dara
   configId?: number;
   /**
    * @remarks
-   * The rule execution order.
+   * The execution order of the rule.
    * 
    * @example
    * 1
@@ -2093,6 +1967,44 @@ export class ListSiteFunctionsResponseBodyConfigsManagedTransforms extends $dara
   }
 }
 
+export class ListSiteFunctionsResponseBodyConfigsMarkdownForAgent extends $dara.Model {
+  configId?: number;
+  enable?: string;
+  rule?: string;
+  ruleEnable?: string;
+  ruleName?: string;
+  sequence?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configId: 'ConfigId',
+      enable: 'Enable',
+      rule: 'Rule',
+      ruleEnable: 'RuleEnable',
+      ruleName: 'RuleName',
+      sequence: 'Sequence',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configId: 'number',
+      enable: 'string',
+      rule: 'string',
+      ruleEnable: 'string',
+      ruleName: 'string',
+      sequence: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListSiteFunctionsResponseBodyConfigsNetworkOptimization extends $dara.Model {
   /**
    * @remarks
@@ -2104,9 +2016,7 @@ export class ListSiteFunctionsResponseBodyConfigsNetworkOptimization extends $da
   configId?: number;
   /**
    * @remarks
-   * Specifies whether to enable gRPC. Disabled by default. Valid values:
-   * - on: enabled.
-   * - off: disabled.
+   * Specifies whether to enable gRPC. This feature is disabled by default. Valid values:
    * 
    * @example
    * on
@@ -2114,10 +2024,7 @@ export class ListSiteFunctionsResponseBodyConfigsNetworkOptimization extends $da
   grpc?: string;
   /**
    * @remarks
-   * Specifies whether to enable HTTP/2 back-to-origin. Disabled by default. Valid values:
-   * 
-   * - on: enabled.
-   * - off: disabled.
+   * Specifies whether to enable HTTP/2 back-to-origin. This feature is disabled by default. Valid values:
    * 
    * @example
    * on
@@ -2134,8 +2041,6 @@ export class ListSiteFunctionsResponseBodyConfigsNetworkOptimization extends $da
   /**
    * @remarks
    * The rule switch. Valid values:
-   * - on: enabled.
-   * - off: disabled.
    * 
    * @example
    * on
@@ -2151,7 +2056,7 @@ export class ListSiteFunctionsResponseBodyConfigsNetworkOptimization extends $da
   ruleName?: string;
   /**
    * @remarks
-   * The rule execution order.
+   * The execution order of the rule.
    * 
    * @example
    * 1
@@ -2159,9 +2064,7 @@ export class ListSiteFunctionsResponseBodyConfigsNetworkOptimization extends $da
   sequence?: string;
   /**
    * @remarks
-   * Specifies whether to enable smart routing. Disabled by default. Valid values:
-   * - on: enabled.
-   * - off: disabled.
+   * Specifies whether to enable the smart routing service. This feature is disabled by default. Valid values:
    * 
    * @example
    * on
@@ -2169,7 +2072,7 @@ export class ListSiteFunctionsResponseBodyConfigsNetworkOptimization extends $da
   smartRouting?: string;
   /**
    * @remarks
-   * The maximum upload file size, in MB. Valid values: 100 to 500.
+   * The maximum upload file size. Unit: MB. Valid values: 100 to 500.
    * 
    * @example
    * 300
@@ -2177,9 +2080,7 @@ export class ListSiteFunctionsResponseBodyConfigsNetworkOptimization extends $da
   uploadMaxFilesize?: string;
   /**
    * @remarks
-   * Specifies whether to enable WebSocket. Enabled by default. Valid values:
-   * - on: enabled.
-   * - off: disabled.
+   * Specifies whether to enable WebSocket. This feature is enabled by default. Valid values:
    * 
    * @example
    * on
@@ -2235,7 +2136,7 @@ export class ListSiteFunctionsResponseBodyConfigsOriginRules extends $dara.Model
   configId?: number;
   /**
    * @remarks
-   * The overridden DNS resolution record for back-to-origin requests.
+   * The rewritten DNS resolution record for back-to-origin requests.
    * 
    * @example
    * test.example.com
@@ -2267,9 +2168,7 @@ export class ListSiteFunctionsResponseBodyConfigsOriginRules extends $dara.Model
   originHttpsPort?: string;
   /**
    * @remarks
-   * Specifies whether to enable mTLS for back-to-origin. Valid values:
-   * - on: enabled.
-   * - off: disabled.
+   * Specifies whether to enable mTLS for back-to-origin requests. Valid values:
    * 
    * @example
    * on
@@ -2286,9 +2185,6 @@ export class ListSiteFunctionsResponseBodyConfigsOriginRules extends $dara.Model
   /**
    * @remarks
    * The protocol used for back-to-origin requests. Valid values:
-   * - http: uses HTTP for back-to-origin.
-   * - https: uses HTTPS for back-to-origin.
-   * - follow: follows the client protocol for back-to-origin.
    * 
    * @example
    * http
@@ -2305,8 +2201,6 @@ export class ListSiteFunctionsResponseBodyConfigsOriginRules extends $dara.Model
   /**
    * @remarks
    * Specifies whether to enable origin server certificate verification. Valid values:
-   * - on: enabled.
-   * - off: disabled.
    * 
    * @example
    * on
@@ -2314,7 +2208,7 @@ export class ListSiteFunctionsResponseBodyConfigsOriginRules extends $dara.Model
   originVerify?: string;
   /**
    * @remarks
-   * Specifies whether to use range-based origin fetch for file downloads. Valid values:
+   * Uses range-based origin fetch to download files. Valid values:
    * - on: enabled.
    * - off: disabled.
    * - force: forced.
@@ -2326,10 +2220,6 @@ export class ListSiteFunctionsResponseBodyConfigsOriginRules extends $dara.Model
   /**
    * @remarks
    * The range chunk size. Valid values:
-   * - 512KB
-   * - 1MB
-   * - 2MB
-   * - 4MB
    * 
    * @example
    * 512KB
@@ -2345,9 +2235,7 @@ export class ListSiteFunctionsResponseBodyConfigsOriginRules extends $dara.Model
   rule?: string;
   /**
    * @remarks
-   * The rule switch. Valid values:
-   * - on: enabled.
-   * - off: disabled.
+   * Specifies whether the rule is enabled. Valid values:
    * 
    * @example
    * on
@@ -2363,7 +2251,7 @@ export class ListSiteFunctionsResponseBodyConfigsOriginRules extends $dara.Model
   ruleName?: string;
   /**
    * @remarks
-   * The rule execution order.
+   * The execution order of the rule.
    * 
    * @example
    * 1
@@ -2431,9 +2319,7 @@ export class ListSiteFunctionsResponseBodyConfigsRedirectRules extends $dara.Mod
   configId?: number;
   /**
    * @remarks
-   * Specifies whether to preserve the query string. Valid values:
-   * - on: enabled.
-   * - off: disabled.
+   * Specifies whether to reserve the query string. Valid values:
    * 
    * @example
    * on
@@ -2449,9 +2335,7 @@ export class ListSiteFunctionsResponseBodyConfigsRedirectRules extends $dara.Mod
   rule?: string;
   /**
    * @remarks
-   * The rule switch. Valid values:
-   * - on: enabled.
-   * - off: disabled.
+   * Specifies whether the rule is enabled. Valid values:
    * 
    * @example
    * on
@@ -2467,7 +2351,7 @@ export class ListSiteFunctionsResponseBodyConfigsRedirectRules extends $dara.Mod
   ruleName?: string;
   /**
    * @remarks
-   * The rule execution order.
+   * The execution order of the rule.
    * 
    * @example
    * 1
@@ -2475,7 +2359,7 @@ export class ListSiteFunctionsResponseBodyConfigsRedirectRules extends $dara.Mod
   sequence?: string;
   /**
    * @remarks
-   * The response status code used by the edge node when responding with the redirect address to the client. Valid values:
+   * The HTTP status code used when the node responds to the client with a redirect address. Valid values:
    * - 301
    * - 302
    * - 303
@@ -2497,7 +2381,6 @@ export class ListSiteFunctionsResponseBodyConfigsRedirectRules extends $dara.Mod
   /**
    * @remarks
    * The redirect type. Valid values:
-   * - static: static mode.
    * 
    * @example
    * static
@@ -2560,7 +2443,6 @@ export class ListSiteFunctionsResponseBodyConfigsRewriteUrlRules extends $dara.M
   /**
    * @remarks
    * The query string rewrite type. Valid values:
-   * - static: static mode.
    * 
    * @example
    * static
@@ -2569,7 +2451,6 @@ export class ListSiteFunctionsResponseBodyConfigsRewriteUrlRules extends $dara.M
   /**
    * @remarks
    * The path rewrite type. Valid values:
-   * - static: static mode.
    * 
    * @example
    * static
@@ -2585,9 +2466,7 @@ export class ListSiteFunctionsResponseBodyConfigsRewriteUrlRules extends $dara.M
   rule?: string;
   /**
    * @remarks
-   * The rule switch. Valid values:
-   * - on: enabled.
-   * - off: disabled.
+   * Specifies whether the rule is enabled. Valid values:
    * 
    * @example
    * on
@@ -2603,7 +2482,7 @@ export class ListSiteFunctionsResponseBodyConfigsRewriteUrlRules extends $dara.M
   ruleName?: string;
   /**
    * @remarks
-   * The rule execution order.
+   * The execution order of the rule.
    * 
    * @example
    * 1
@@ -2666,8 +2545,6 @@ export class ListSiteFunctionsResponseBodyConfigsSeoBypass extends $dara.Model {
   /**
    * @remarks
    * The feature switch. Disabled by default. Valid values:
-   * - on: enabled.
-   * - off: disabled.
    * 
    * @example
    * on
@@ -2675,7 +2552,7 @@ export class ListSiteFunctionsResponseBodyConfigsSeoBypass extends $dara.Model {
   enable?: string;
   /**
    * @remarks
-   * The rule execution order.
+   * The execution order of the rule.
    * 
    * @example
    * 1
@@ -2718,8 +2595,6 @@ export class ListSiteFunctionsResponseBodyConfigsSiteNameExclusive extends $dara
   /**
    * @remarks
    * The feature switch. Valid values:
-   * - on: enabled.
-   * - off: disabled.
    * 
    * @example
    * on
@@ -2727,7 +2602,7 @@ export class ListSiteFunctionsResponseBodyConfigsSiteNameExclusive extends $dara
   enable?: string;
   /**
    * @remarks
-   * The rule execution order.
+   * The execution order of the rule.
    * 
    * @example
    * 0
@@ -2769,9 +2644,9 @@ export class ListSiteFunctionsResponseBodyConfigsSitePause extends $dara.Model {
   configId?: number;
   /**
    * @remarks
-   * Temporarily pauses the proxy acceleration feature for the entire site. When enabled, all DNS records directly return record values to clients. Valid values:
-   * - true: site acceleration is paused.
-   * - false: site acceleration is active.
+   * Specifies whether to temporarily pause the proxy acceleration feature for the entire site. When enabled, all DNS records directly return record values to the client. Valid values:
+   * - true: Site acceleration is paused.
+   * - false: Site acceleration is active.
    * 
    * @example
    * false
@@ -2779,7 +2654,7 @@ export class ListSiteFunctionsResponseBodyConfigsSitePause extends $dara.Model {
   paused?: string;
   /**
    * @remarks
-   * The rule execution order.
+   * The execution order of the rule.
    * 
    * @example
    * 1
@@ -2814,10 +2689,6 @@ export class ListSiteFunctionsResponseBodyConfigsTieredCache extends $dara.Model
   /**
    * @remarks
    * The tiered cache architecture mode. Valid values:
-   * - edge: edge cache layer.
-   * - edge_smart: edge cache layer + smart cache layer.
-   * - edge_regional: edge cache layer + regional cache layer.
-   * - edge_regional_smart: edge cache layer + regional cache layer + smart cache layer.
    * 
    * @example
    * edge_smart
@@ -2833,7 +2704,7 @@ export class ListSiteFunctionsResponseBodyConfigsTieredCache extends $dara.Model
   configId?: number;
   /**
    * @remarks
-   * The rule execution order.
+   * The execution order of the rule.
    * 
    * @example
    * 1
@@ -2892,8 +2763,6 @@ export class ListSiteFunctionsResponseBodyConfigsVideoProcessing extends $dara.M
   /**
    * @remarks
    * The FLV seeking mode. Valid values:
-   * - by_byte: seeks by byte.
-   * - by_time: seeks by time.
    * 
    * @example
    * by_time
@@ -2925,9 +2794,7 @@ export class ListSiteFunctionsResponseBodyConfigsVideoProcessing extends $dara.M
   rule?: string;
   /**
    * @remarks
-   * The rule switch. Valid values:
-   * - on: enabled.
-   * - off: disabled.
+   * Specifies whether the rule is enabled. Valid values:
    * 
    * @example
    * on
@@ -2943,7 +2810,7 @@ export class ListSiteFunctionsResponseBodyConfigsVideoProcessing extends $dara.M
   ruleName?: string;
   /**
    * @remarks
-   * The rule execution order.
+   * The execution order of the rule.
    * 
    * @example
    * 1
@@ -2951,11 +2818,7 @@ export class ListSiteFunctionsResponseBodyConfigsVideoProcessing extends $dara.M
   sequence?: string;
   /**
    * @remarks
-   * The video seeking switch. Valid values:
-   * 
-   * - on: enabled.
-   * 
-   * - off: disabled.
+   * Specifies whether to enable the audio seeking feature. Valid values:
    * 
    * @example
    * on
@@ -3015,7 +2878,7 @@ export class ListSiteFunctionsResponseBodyConfigs extends $dara.Model {
   cacheRules?: ListSiteFunctionsResponseBodyConfigsCacheRules[];
   /**
    * @remarks
-   * The cache tags. When using the purge-by-cache-tag feature, specifies the CacheTag name carried in the origin server response.
+   * The cache tag configuration. When using the purge-by-cache-tag feature, specifies the CacheTag name carried in the origin server response.
    */
   cacheTags?: ListSiteFunctionsResponseBodyConfigsCacheTags[];
   /**
@@ -3035,7 +2898,7 @@ export class ListSiteFunctionsResponseBodyConfigs extends $dara.Model {
   crossBorderOptimization?: ListSiteFunctionsResponseBodyConfigsCrossBorderOptimization[];
   /**
    * @remarks
-   * The custom response code rules.
+   * The custom response code configurations.
    */
   customResponseCode?: ListSiteFunctionsResponseBodyConfigsCustomResponseCode[];
   /**
@@ -3045,7 +2908,7 @@ export class ListSiteFunctionsResponseBodyConfigs extends $dara.Model {
   developmentMode?: ListSiteFunctionsResponseBodyConfigsDevelopmentMode[];
   /**
    * @remarks
-   * The error page redirect rules.
+   * The error code redirect rules.
    */
   errorPagesRedirects?: ListSiteFunctionsResponseBodyConfigsErrorPagesRedirects[];
   /**
@@ -3055,7 +2918,7 @@ export class ListSiteFunctionsResponseBodyConfigs extends $dara.Model {
   httpIncomingRequestHeaderModificationRules?: ListSiteFunctionsResponseBodyConfigsHttpIncomingRequestHeaderModificationRules[];
   /**
    * @remarks
-   * The inbound response header modification rules.
+   * The rules for modifying inbound response headers.
    */
   httpIncomingResponseHeaderModificationRules?: ListSiteFunctionsResponseBodyConfigsHttpIncomingResponseHeaderModificationRules[];
   /**
@@ -3093,6 +2956,7 @@ export class ListSiteFunctionsResponseBodyConfigs extends $dara.Model {
    * The managed transforms.
    */
   managedTransforms?: ListSiteFunctionsResponseBodyConfigsManagedTransforms[];
+  markdownForAgent?: ListSiteFunctionsResponseBodyConfigsMarkdownForAgent[];
   /**
    * @remarks
    * The network optimization configuration.
@@ -3120,12 +2984,12 @@ export class ListSiteFunctionsResponseBodyConfigs extends $dara.Model {
   seoBypass?: ListSiteFunctionsResponseBodyConfigsSeoBypass[];
   /**
    * @remarks
-   * The site name exclusive configuration. When enabled, other accounts cannot create sites or subsites with the same name as the current site.
+   * Site name exclusive. When enabled, other accounts cannot create sites or subsites with the same name as the current site.
    */
   siteNameExclusive?: ListSiteFunctionsResponseBodyConfigsSiteNameExclusive[];
   /**
    * @remarks
-   * The site acceleration pause configuration. Temporarily pauses the proxy acceleration feature for the entire site. When enabled, all DNS records directly return record values to clients.
+   * Site acceleration pause. Temporarily pauses the proxy acceleration feature for the entire site. When enabled, all DNS records directly return record values to the client.
    */
   sitePause?: ListSiteFunctionsResponseBodyConfigsSitePause[];
   /**
@@ -3135,7 +2999,7 @@ export class ListSiteFunctionsResponseBodyConfigs extends $dara.Model {
   tieredCache?: ListSiteFunctionsResponseBodyConfigsTieredCache[];
   /**
    * @remarks
-   * The video processing configuration.
+   * The video processing configurations.
    */
   videoProcessing?: ListSiteFunctionsResponseBodyConfigsVideoProcessing[];
   static names(): { [key: string]: string } {
@@ -3158,6 +3022,7 @@ export class ListSiteFunctionsResponseBodyConfigs extends $dara.Model {
       imageTransform: 'ImageTransform',
       ipv6: 'Ipv6',
       managedTransforms: 'ManagedTransforms',
+      markdownForAgent: 'MarkdownForAgent',
       networkOptimization: 'NetworkOptimization',
       originRules: 'OriginRules',
       redirectRules: 'RedirectRules',
@@ -3190,6 +3055,7 @@ export class ListSiteFunctionsResponseBodyConfigs extends $dara.Model {
       imageTransform: { 'type': 'array', 'itemType': ListSiteFunctionsResponseBodyConfigsImageTransform },
       ipv6: { 'type': 'array', 'itemType': ListSiteFunctionsResponseBodyConfigsIpv6 },
       managedTransforms: { 'type': 'array', 'itemType': ListSiteFunctionsResponseBodyConfigsManagedTransforms },
+      markdownForAgent: { 'type': 'array', 'itemType': ListSiteFunctionsResponseBodyConfigsMarkdownForAgent },
       networkOptimization: { 'type': 'array', 'itemType': ListSiteFunctionsResponseBodyConfigsNetworkOptimization },
       originRules: { 'type': 'array', 'itemType': ListSiteFunctionsResponseBodyConfigsOriginRules },
       redirectRules: { 'type': 'array', 'itemType': ListSiteFunctionsResponseBodyConfigsRedirectRules },
@@ -3257,6 +3123,9 @@ export class ListSiteFunctionsResponseBodyConfigs extends $dara.Model {
     if(Array.isArray(this.managedTransforms)) {
       $dara.Model.validateArray(this.managedTransforms);
     }
+    if(Array.isArray(this.markdownForAgent)) {
+      $dara.Model.validateArray(this.markdownForAgent);
+    }
     if(Array.isArray(this.networkOptimization)) {
       $dara.Model.validateArray(this.networkOptimization);
     }
@@ -3295,7 +3164,7 @@ export class ListSiteFunctionsResponseBodyConfigs extends $dara.Model {
 export class ListSiteFunctionsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The configuration information.
+   * The response body configurations.
    */
   configs?: ListSiteFunctionsResponseBodyConfigs;
   /**

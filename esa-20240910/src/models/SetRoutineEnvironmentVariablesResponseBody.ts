@@ -2,38 +2,41 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class GetReleaseTimeResponseBody extends $dara.Model {
+export class SetRoutineEnvironmentVariablesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The scheduled release time. Format: yyyy-MM-dd\\"T\\"HH:mm:ss\\"Z\\".
+   * Id of the request
    * 
    * @example
-   * 2026-01-02T06:00:00Z
-   */
-  releaseTime?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 6abd807e-ed2a-****-ac54-ac38a62472e6
+   * 15C66C7B-671A-4297-9187-2C4477247A74
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The list of environment variable keys that were set successfully.
+   * 
+   * @example
+   * ["key1","key2"]
+   */
+  setKeys?: string[];
   static names(): { [key: string]: string } {
     return {
-      releaseTime: 'ReleaseTime',
       requestId: 'RequestId',
+      setKeys: 'SetKeys',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      releaseTime: 'string',
       requestId: 'string',
+      setKeys: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
   validate() {
+    if(Array.isArray(this.setKeys)) {
+      $dara.Model.validateArray(this.setKeys);
+    }
     super.validate();
   }
 
