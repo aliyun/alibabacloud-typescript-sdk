@@ -11,10 +11,14 @@ export class CreateApiKeyResponseBodyDataCustomKeyList extends $dara.Model {
    * sk-rds-*****
    */
   apiKey?: string;
+  /**
+   * @remarks
+   * The daily quota of the API key.
+   */
   dailyTokenQuota?: number;
   /**
    * @remarks
-   * The name of the API key.
+   * The API key name.
    * 
    * @example
    * api-*****
@@ -30,21 +34,22 @@ export class CreateApiKeyResponseBodyDataCustomKeyList extends $dara.Model {
   limitRate?: number;
   /**
    * @remarks
-   * The quota type. Valid values:
+   * The quota allocation method. Valid values:
    * 
-   * - **fixed**: by fixed value.
+   * - **fixed**: By fixed value.
    * 
-   * - **ratio**: by percentage.
+   * - **ratio**: By percentage.
    * 
-   * - **auto**: automatic allocation.
+   * - **auto**: Automatic allocation.
    * 
    * @example
    * fixed
    */
   limitType?: string;
+  roleArn?: string;
   /**
    * @remarks
-   * The quota for the current key.
+   * The quota limit for the current key.
    * 
    * @example
    * 100000
@@ -57,6 +62,7 @@ export class CreateApiKeyResponseBodyDataCustomKeyList extends $dara.Model {
       keyName: 'KeyName',
       limitRate: 'LimitRate',
       limitType: 'LimitType',
+      roleArn: 'RoleArn',
       tokenQuota: 'TokenQuota',
     };
   }
@@ -68,6 +74,7 @@ export class CreateApiKeyResponseBodyDataCustomKeyList extends $dara.Model {
       keyName: 'string',
       limitRate: 'number',
       limitType: 'string',
+      roleArn: 'string',
       tokenQuota: 'number',
     };
   }
@@ -134,12 +141,12 @@ export class CreateApiKeyResponseBodyData extends $dara.Model {
 export class CreateApiKeyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned data.
+   * The response data.
    */
   data?: CreateApiKeyResponseBodyData;
   /**
    * @remarks
-   * The returned message.
+   * The response message.
    * 
    * @example
    * success

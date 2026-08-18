@@ -14,6 +14,7 @@ export class ModifyScheduledTaskRequest extends $dara.Model {
   /**
    * @remarks
    * The new inspection frequency. Separate multiple values with commas (,). Default value: DAILY. Valid values:
+   * 
    * * DAILY: every day
    * * Monday: Monday
    * * Tuesday: Tuesday
@@ -22,6 +23,7 @@ export class ModifyScheduledTaskRequest extends $dara.Model {
    * * Friday: Friday
    * * Saturday: Saturday
    * * Sunday: Sunday
+   * 
    * ### Note: DAILY overrides weekly values. For example, if you specify DAILY,Monday, the backend uses DAILY as the inspection frequency.
    * 
    * @example
@@ -31,7 +33,7 @@ export class ModifyScheduledTaskRequest extends $dara.Model {
   inspectionItems?: string;
   /**
    * @remarks
-   * The new list of associated instance IDs. Separate multiple values with commas (,).
+   * The new list of associated instances. Separate multiple values with commas (,).
    * 
    * @example
    * rm-2ze6mk259v322****,rm-2zef3b65430j0****

@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateApiKeyRequest extends $dara.Model {
   /**
+   * @remarks
+   * The daily quota of the API key.
+   * 
    * @example
    * 1000000000
    */
@@ -18,7 +21,7 @@ export class CreateApiKeyRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The name of the API key.
+   * The API key name.
    * 
    * @example
    * api-*****
@@ -34,7 +37,8 @@ export class CreateApiKeyRequest extends $dara.Model {
   limitRate?: number;
   /**
    * @remarks
-   * The quota type. Valid values:
+   * The quota allocation method. Valid values:
+   * 
    * - ratio: by percentage.
    * - fixed: by fixed value.
    * - auto: automatic allocation.
@@ -51,9 +55,11 @@ export class CreateApiKeyRequest extends $dara.Model {
    * 1
    */
   quantity?: number;
+  roleArn?: string;
+  roleName?: string;
   /**
    * @remarks
-   * The quota for the current key.
+   * The quota limit for the current key.
    * 
    * @example
    * 100000
@@ -67,6 +73,8 @@ export class CreateApiKeyRequest extends $dara.Model {
       limitRate: 'LimitRate',
       limitType: 'LimitType',
       quantity: 'Quantity',
+      roleArn: 'RoleArn',
+      roleName: 'RoleName',
       tokenQuota: 'TokenQuota',
     };
   }
@@ -79,6 +87,8 @@ export class CreateApiKeyRequest extends $dara.Model {
       limitRate: 'number',
       limitType: 'string',
       quantity: 'number',
+      roleArn: 'string',
+      roleName: 'string',
       tokenQuota: 'number',
     };
   }

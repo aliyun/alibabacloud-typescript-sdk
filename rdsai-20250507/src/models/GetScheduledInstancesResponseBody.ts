@@ -16,7 +16,7 @@ export class GetScheduledInstancesResponseBodyInstances extends $dara.Model {
    * The instance description.
    * 
    * @example
-   * 巡检测试实例。
+   * Inspection test instance
    */
   instanceDesc?: string;
   /**
@@ -29,7 +29,7 @@ export class GetScheduledInstancesResponseBodyInstances extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The region in which the instance resides.
+   * The region where the instance resides.
    * 
    * @example
    * cn-hangzhou
@@ -37,7 +37,7 @@ export class GetScheduledInstancesResponseBodyInstances extends $dara.Model {
   region?: string;
   /**
    * @remarks
-   * The status of the instance.
+   * The instance status.
    * 
    * @example
    * Running
@@ -75,7 +75,7 @@ export class GetScheduledInstancesResponseBodyInstances extends $dara.Model {
 export class GetScheduledInstancesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of instances included in the inspection configuration.
+   * The list of instances.
    */
   instances?: GetScheduledInstancesResponseBodyInstances[];
   /**
@@ -83,12 +83,12 @@ export class GetScheduledInstancesResponseBody extends $dara.Model {
    * The response message.
    * 
    * @example
-   * 获取巡检实例ID列表成功
+   * Successfully retrieved the list of inspection instance IDs
    */
   message?: string;
   /**
    * @remarks
-   * The page number. Pages start from 1. Default value: 1.
+   * The page number. Default value: 1.
    * 
    * @example
    * 1
@@ -96,7 +96,7 @@ export class GetScheduledInstancesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of records on each page. Default value: 20. Maximum value: 100.
+   * The number of entries per page. Default value: 20. Maximum value: 100.
    * 
    * @example
    * 10
@@ -112,7 +112,7 @@ export class GetScheduledInstancesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * The request result.
    * 
    * @example
    * true
@@ -120,7 +120,7 @@ export class GetScheduledInstancesResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The total number of records that are returned.
+   * The total number of records.
    * 
    * @example
    * 20

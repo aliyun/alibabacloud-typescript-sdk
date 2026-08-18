@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetStandAloneReportsRequest extends $dara.Model {
   /**
    * @remarks
-   * The end time for filtering (format: YYYY-MM-DDTHH:mm:ssZ). If not specified, no filtering is applied.
+   * The end time filter in the format of YYYY-MM-DDTHH:mm:ssZ. If this parameter is not specified, no end time filter is applied.
    * 
    * @example
    * 2026-01-19T02:20:20Z
@@ -30,7 +30,7 @@ export class GetStandAloneReportsRequest extends $dara.Model {
   reportType?: string;
   /**
    * @remarks
-   * The start time for filtering (format: YYYY-MM-DDTHH:mm:ssZ). If not specified, no filtering is applied.
+   * The start time filter in the format of YYYY-MM-DDTHH:mm:ssZ. If this parameter is not specified, no start time filter is applied.
    * 
    * @example
    * 2025-03-11T02:09:00Z

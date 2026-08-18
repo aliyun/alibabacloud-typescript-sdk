@@ -14,15 +14,15 @@ export class CreateScheduledTaskRequest extends $dara.Model {
   /**
    * @remarks
    * The inspection frequency. Separate multiple values with commas (,). Default value: DAILY. Valid values:
-   * * DAILY: every day.
-   * * Monday: Monday.
-   * * Tuesday: Tuesday.
-   * * Wednesday: Wednesday.
-   * * Thursday: Thursday.
-   * * Friday: Friday.
-   * * Saturday: Saturday.
-   * * Sunday: Sunday.
-   * ### Note: DAILY overrides weekly values. For example, if you specify DAILY,Monday, the backend uses DAILY as the inspection frequency.
+   * * DAILY: every day
+   * * Monday: Monday
+   * * Tuesday: Tuesday
+   * * Wednesday: Wednesday
+   * * Thursday: Thursday
+   * * Friday: Friday
+   * * Saturday: Saturday
+   * * Sunday: Sunday
+   * ### Note: DAILY overrides weekly values. For example, if you specify DAILY,Monday, the system uses DAILY as the inspection frequency.
    * 
    * @example
    * Monday
@@ -50,7 +50,7 @@ export class CreateScheduledTaskRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The report language. Default value: zh-CN. Valid values: zh-CN, zh-TW, ja-JP, and en-US.
+   * The language of the report. Default value: zh-CN. Valid values: zh-CN, zh-TW, ja-JP, and en-US.
    * 
    * @example
    * zh-CN
@@ -60,7 +60,7 @@ export class CreateScheduledTaskRequest extends $dara.Model {
   reportType?: string;
   /**
    * @remarks
-   * The time to run the inspection task. Format: HH:mm:ssZ (UTC). Default value: 02:00:00Z.
+   * The time at which the inspection task is executed. Format: HH:mm:ssZ (UTC). Default value: 02:00:00Z.
    * 
    * @example
    * 02:00:00Z
@@ -69,7 +69,7 @@ export class CreateScheduledTaskRequest extends $dara.Model {
   templateId?: string;
   /**
    * @remarks
-   * The time range for the inspection. Default value: the last 24 hours. Valid values: 1 to 168 (up to 7 days).
+   * The time range for the inspection. Default value: 24 (the last 24 hours). Valid values: 1 to 168 (up to 7 days).
    * 
    * @example
    * 24

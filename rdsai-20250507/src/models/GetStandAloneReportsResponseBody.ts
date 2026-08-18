@@ -13,7 +13,7 @@ export class GetStandAloneReportsResponseBodyReports extends $dara.Model {
   createdTime?: string;
   /**
    * @remarks
-   * The inspection end time (format: YYYY-MM-DDTHH:mm:ssZ).
+   * The inspection end time in the format of YYYY-MM-DDTHH:mm:ssZ.
    * 
    * @example
    * 2026-01-23T08:20:31Z
@@ -25,7 +25,7 @@ export class GetStandAloneReportsResponseBodyReports extends $dara.Model {
   reportType?: string;
   /**
    * @remarks
-   * The inspection start time (format: YYYY-MM-DDTHH:mm:ssZ).
+   * The inspection start time in the format of YYYY-MM-DDTHH:mm:ssZ.
    * 
    * @example
    * 2026-01-23T08:00:31Z

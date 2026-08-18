@@ -13,7 +13,7 @@ export class RenameApiKeyResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * FE9C65D7-930F-57A5-A207-8C396329241C
@@ -21,7 +21,7 @@ export class RenameApiKeyResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates if the request succeeded.
+   * The request result.
    * 
    * @example
    * true

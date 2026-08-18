@@ -16,7 +16,7 @@ export class ListScheduledTasksResponseBodySchedules extends $dara.Model {
    * The inspection description.
    * 
    * @example
-   * Automatically inspect production ApsaraDB RDS instances at 2:00 AM every day
+   * Automatic inspection of production RDS instances at 2 AM every day
    */
   description?: string;
   /**

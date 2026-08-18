@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateInspectionTaskRequest extends $dara.Model {
   /**
    * @remarks
-   * The end time of the inspection range. Format: YYYY-MM-DDTHH:mm:ssZ (UTC). Default value: the current time.
+   * The end time of the inspection range. Format: YYYY-MM-DDTHH:mm:ssZ (UTC). Default value: the end time of the last 24 hours.
    * 
    * @example
    * 2026-01-30T02:10:48Z
@@ -46,7 +46,7 @@ export class CreateInspectionTaskRequest extends $dara.Model {
   reportType?: string;
   /**
    * @remarks
-   * The start time of the inspection range. Format: YYYY-MM-DDTHH:mm:ssZ (UTC). Default value: 24 hours before the current time.
+   * The start time of the inspection range. Format: YYYY-MM-DDTHH:mm:ssZ (UTC). Default value: the start time of the last 24 hours.
    * 
    * @example
    * 2025-12-28T16:00:00Z

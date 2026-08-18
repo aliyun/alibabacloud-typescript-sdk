@@ -13,7 +13,7 @@ export class DeleteApiKeyResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * FE9C65D7-930F-57A5-A207-8C396329****
@@ -21,7 +21,7 @@ export class DeleteApiKeyResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * The request result.
    * 
    * @example
    * true
