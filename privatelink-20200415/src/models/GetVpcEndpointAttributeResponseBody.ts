@@ -5,11 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class GetVpcEndpointAttributeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The IP version. Valid values:
+   * The protocol version. Valid values:
    * 
-   * - **IPv4**: Supports IPv4 only.
-   * 
-   * - **DualStack**: Supports both IPv4 and IPv6.
+   * - **IPv4**: IPv4.
+   * - **DualStack**: dual-stack.
    * 
    * @example
    * IPv4
@@ -17,7 +16,7 @@ export class GetVpcEndpointAttributeResponseBody extends $dara.Model {
   addressIpVersion?: string;
   /**
    * @remarks
-   * The connection bandwidth of the endpoint, in Mbps.
+   * The bandwidth of the endpoint connection. Unit: Mbps.
    * 
    * @example
    * 1024
@@ -25,21 +24,21 @@ export class GetVpcEndpointAttributeResponseBody extends $dara.Model {
   bandwidth?: number;
   /**
    * @remarks
-   * The state of the endpoint connection. Valid values:
+   * The endpoint connection status. Valid values:
    * 
-   * - **Pending**: The connection is being modified.
+   * - **Pending**: being modified.
    * 
-   * - **Connecting**: The endpoint is connecting to the endpoint service.
+   * - **Connecting**: connecting.
    * 
-   * - **Connected**: The endpoint is connected to the endpoint service.
+   * - **Connected**: connected.
    * 
-   * - **Disconnecting**: The endpoint is disconnecting from the endpoint service.
+   * - **Disconnecting**: disconnecting.
    * 
-   * - **Disconnected**: The endpoint is not connected to the endpoint service.
+   * - **Disconnected**: disconnected.
    * 
-   * - **Deleting**: The endpoint is being deleted.
+   * - **Deleting**: being deleted.
    * 
-   * - **ServiceDeleted**: The associated endpoint service has been deleted.
+   * - **ServiceDeleted**: the corresponding endpoint service has been deleted.
    * 
    * @example
    * Connected
@@ -47,7 +46,7 @@ export class GetVpcEndpointAttributeResponseBody extends $dara.Model {
   connectionStatus?: string;
   /**
    * @remarks
-   * The time the endpoint was created.
+   * The time when the endpoint was created.
    * 
    * @example
    * 2021-09-24T18:00:07Z
@@ -55,7 +54,7 @@ export class GetVpcEndpointAttributeResponseBody extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The cross-region bandwidth, in Mbps.
+   * The cross-region bandwidth of the endpoint. Unit: Mbps.
    * 
    * @example
    * 1000
@@ -65,9 +64,9 @@ export class GetVpcEndpointAttributeResponseBody extends $dara.Model {
    * @remarks
    * The business status of the endpoint. Valid values:
    * 
-   * - **Normal**: The endpoint is running as expected.
+   * - **Normal**: Normal.
    * 
-   * - **FinancialLocked**: The endpoint is locked due to an overdue payment.
+   * - **FinancialLocked**: Financial lock.
    * 
    * @example
    * Normal
@@ -83,7 +82,7 @@ export class GetVpcEndpointAttributeResponseBody extends $dara.Model {
   endpointDescription?: string;
   /**
    * @remarks
-   * The domain name of the endpoint.
+   * The endpoint domain name.
    * 
    * @example
    * ep-hp33b2e43fays7s8****.epsrv-hp3xdsq46ael67lo****.cn-huhehaote.privatelink.aliyuncs.com
@@ -109,13 +108,13 @@ export class GetVpcEndpointAttributeResponseBody extends $dara.Model {
    * @remarks
    * The status of the endpoint. Valid values:
    * 
-   * - **Creating**: The endpoint is being created.
+   * - **Creating**: being created.
    * 
-   * - **Active**: The endpoint is available.
+   * - **Active**: available.
    * 
-   * - **Pending**: The endpoint is being modified.
+   * - **Pending**: being modified.
    * 
-   * - **Deleting**: The endpoint is being deleted.
+   * - **Deleting**: being deleted.
    * 
    * @example
    * Active
@@ -123,13 +122,12 @@ export class GetVpcEndpointAttributeResponseBody extends $dara.Model {
   endpointStatus?: string;
   /**
    * @remarks
-   * The type of the endpoint. Valid values:
+   * The endpoint type. Valid values:
    * 
-   * - **Interface**: an interface endpoint.
+   * - **Interface**: interface endpoint.
    * 
-   * - **Reverse**: a reverse endpoint.
-   * 
-   * - **GatewayLoadBalancer**: a Gateway Load Balancer endpoint (GWLBe).
+   * - **Reverse**: reverse endpoint.
+   * - **GatewayLoadBalancer**: Gateway Load Balancer endpoint (GWLBe).
    * 
    * @example
    * Interface
@@ -149,7 +147,7 @@ export class GetVpcEndpointAttributeResponseBody extends $dara.Model {
   payer?: string;
   /**
    * @remarks
-   * The RAM policy. For more information about policy elements, see [Basic elements of a policy](https://help.aliyun.com/document_detail/93738.html).
+   * The RAM access policy. For more information about the policy definition, see [Policy elements](https://help.aliyun.com/document_detail/93738.html).
    * 
    * @example
    * {
@@ -177,7 +175,18 @@ export class GetVpcEndpointAttributeResponseBody extends $dara.Model {
   policyDocument?: string;
   /**
    * @remarks
-   * The ID of the region where the endpoint is located.
+   * Indicates whether managed protection is enabled. This parameter takes effect only when the STS calling method is used. Valid values:
+   * 
+   * **true**: enabled. After managed protection is enabled, only the same user who created the endpoint can modify or delete the endpoint by using STS.
+   * 
+   * **false**: disabled.
+   * 
+   * This parameter is required.
+   */
+  protectedEnabled?: boolean;
+  /**
+   * @remarks
+   * The region ID of the endpoint.
    * 
    * @example
    * cn-huhehaote
@@ -203,9 +212,9 @@ export class GetVpcEndpointAttributeResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the endpoint and the endpoint service belong to the same Alibaba Cloud account. Valid values:
    * 
-   * - **true**: Yes.
+   * - **true**: The endpoint and the endpoint service belong to the same account.
    * 
-   * - **false**: No.
+   * - **false**: The endpoint and the endpoint service belong to different accounts.
    * 
    * @example
    * true
@@ -213,7 +222,7 @@ export class GetVpcEndpointAttributeResponseBody extends $dara.Model {
   resourceOwner?: boolean;
   /**
    * @remarks
-   * The ID of the associated endpoint service.
+   * The ID of the endpoint service with which the endpoint is associated.
    * 
    * @example
    * epsrv-hp3vpx8yqxblby3i****
@@ -221,7 +230,7 @@ export class GetVpcEndpointAttributeResponseBody extends $dara.Model {
   serviceId?: string;
   /**
    * @remarks
-   * The name of the associated endpoint service.
+   * The name of the endpoint service with which the endpoint is associated.
    * 
    * @example
    * com.aliyuncs.privatelink.cn-huhehaote.epsrv-hp3xdsq46ael67lo****
@@ -229,7 +238,7 @@ export class GetVpcEndpointAttributeResponseBody extends $dara.Model {
   serviceName?: string;
   /**
    * @remarks
-   * The region ID of the associated endpoint service.
+   * The region ID of the endpoint service with which the endpoint is associated.
    * 
    * @example
    * cn-hangzhou
@@ -237,7 +246,7 @@ export class GetVpcEndpointAttributeResponseBody extends $dara.Model {
   serviceRegionId?: string;
   /**
    * @remarks
-   * The ID of the VPC to which the endpoint belongs.
+   * The ID of the virtual private cloud (VPC) to which the endpoint belongs.
    * 
    * @example
    * vpc-fdfhkjafhjvcvdjf****
@@ -245,11 +254,11 @@ export class GetVpcEndpointAttributeResponseBody extends $dara.Model {
   vpcId?: string;
   /**
    * @remarks
-   * Indicates whether the endpoint service\\"s domain name resolves to the endpoint\\"s IP address in the nearest zone. Valid values:
+   * Indicates whether zone affinity is enabled for the endpoint domain name to resolve to the connected service. Valid values:
    * 
-   * - **true**: Yes.
+   * - **true**: enabled.
    * 
-   * - **false**: No.
+   * - **false**: disabled.
    * 
    * @example
    * true
@@ -257,7 +266,7 @@ export class GetVpcEndpointAttributeResponseBody extends $dara.Model {
   zoneAffinityEnabled?: boolean;
   /**
    * @remarks
-   * The number of private IP addresses for the elastic network interface (ENI) in each zone. This value is always **1**.
+   * The number of private IP addresses assigned to the endpoint elastic network interface (ENI) in each zone. The value is fixed to **1**.
    * 
    * @example
    * 1
@@ -279,6 +288,7 @@ export class GetVpcEndpointAttributeResponseBody extends $dara.Model {
       endpointType: 'EndpointType',
       payer: 'Payer',
       policyDocument: 'PolicyDocument',
+      protectedEnabled: 'ProtectedEnabled',
       regionId: 'RegionId',
       requestId: 'RequestId',
       resourceGroupId: 'ResourceGroupId',
@@ -308,6 +318,7 @@ export class GetVpcEndpointAttributeResponseBody extends $dara.Model {
       endpointType: 'string',
       payer: 'string',
       policyDocument: 'string',
+      protectedEnabled: 'boolean',
       regionId: 'string',
       requestId: 'string',
       resourceGroupId: 'string',

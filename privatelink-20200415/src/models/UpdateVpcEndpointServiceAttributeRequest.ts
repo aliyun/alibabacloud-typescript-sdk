@@ -5,18 +5,16 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateVpcEndpointServiceAttributeRequest extends $dara.Model {
   /**
    * @remarks
-   * The remote regions to add to the list of supported regions.
+   * The list of remote regions to add for the endpoint service.
    */
   addSupportedRegionSet?: string[];
   /**
    * @remarks
-   * The IP version. Valid values:
+   * The protocol version. Valid values:
    * 
    * - **IPv4**: IPv4.
-   * 
    * - **DualStack**: dual-stack.
-   * 
-   * > Only endpoint services that use an NLB or GWLB instance as the service resource support the **DualStack** IP version.
+   * > Currently, only endpoint services whose backend resource type is NLB or GWLB support setting the IP address protocol to DualStack.
    * 
    * @example
    * IPv4
@@ -36,9 +34,9 @@ export class UpdateVpcEndpointServiceAttributeRequest extends $dara.Model {
   autoAcceptEnabled?: boolean;
   /**
    * @remarks
-   * A client-generated token that ensures the idempotence of the request.
+   * The client token that is used to ensure the idempotence of the request.
    * 
-   * Your client must generate a unique token for each request. **ClientToken** can contain only ASCII characters.
+   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The **ClientToken** parameter supports only ASCII characters.
    * 
    * @example
    * 0c593ea1-3bea-11e9-b96b-88e9fe637760
@@ -46,11 +44,11 @@ export class UpdateVpcEndpointServiceAttributeRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The default maximum connection bandwidth. The default value is **3072**. Unit: Mbps.
+   * The default bandwidth limit. Default value: **3072**. Unit: Mbit/s.
    * 
    * Valid values: **100** to **10240**.
    * 
-   * > You can set this parameter only if the service resource is a CLB or ALB instance, but not an NLB instance.
+   * > Settings for the default bandwidth limit are supported when the service resource is a Classic Load Balancer (CLB) instance or an Application Load Balancer (ALB) instance. When the service resource is a Network Load Balancer (NLB) instance, the connection bandwidth cannot be configured.
    * 
    * @example
    * 3072
@@ -58,16 +56,16 @@ export class UpdateVpcEndpointServiceAttributeRequest extends $dara.Model {
   connectBandwidth?: number;
   /**
    * @remarks
-   * The remote regions to remove from the list of supported regions.
+   * The list of remote regions to remove from the endpoint service.
    */
   deleteSupportedRegionSet?: string[];
   /**
    * @remarks
-   * Specifies whether to perform a dry run. Valid values:
+   * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
    * 
-   * - **true**: performs a dry run. The system checks the required parameters, request format, and service limits. If the request fails the dry run, the system returns an error message. If the request passes the dry run, the system returns the `DryRunOperation` error code.
+   * - **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error code is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
    * 
-   * - **false** (default): sends a normal request. If the request passes the check, the system returns a 2xx HTTP status code and performs the operation.
+   * - **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, an HTTP 2xx status code is returned and the resource attributes are modified.
    * 
    * @example
    * false
@@ -77,7 +75,7 @@ export class UpdateVpcEndpointServiceAttributeRequest extends $dara.Model {
    * @remarks
    * The region ID of the endpoint service.
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/120468.html) operation to get the region ID.
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/120468.html) operation to query the most recent region list.
    * 
    * This parameter is required.
    * 
@@ -105,11 +103,11 @@ export class UpdateVpcEndpointServiceAttributeRequest extends $dara.Model {
   serviceId?: string;
   /**
    * @remarks
-   * Specifies whether to enable IPv6 for the endpoint service. Valid values:
+   * Specifies whether the endpoint service supports IPv6. Valid values:
    * 
-   * - **true**: Enables IPv6.
+   * - **true**: yes.
    * 
-   * - **false** (default): Disables IPv6.
+   * - **false** (default): no.
    * 
    * @example
    * false
@@ -119,11 +117,10 @@ export class UpdateVpcEndpointServiceAttributeRequest extends $dara.Model {
   serviceSupportIPv6?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable zone affinity for the endpoint service. Valid values:
+   * Specifies whether to resolve the domain name of the endpoint that is connected to the endpoint service to the nearest access point. Valid values:
    * 
-   * - **true** (default): Enables zone affinity.
-   * 
-   * - **false**: Disables zone affinity.
+   * - **true** (default): yes.
+   * - **false**: no.
    * 
    * @example
    * true

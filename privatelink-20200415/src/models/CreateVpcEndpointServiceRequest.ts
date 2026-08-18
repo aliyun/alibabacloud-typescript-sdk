@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateVpcEndpointServiceRequestResource extends $dara.Model {
   /**
    * @remarks
-   * The ID of the service resource that is added to the endpoint service.
+   * The ID of the service resource to add to the endpoint service.
    * 
    * @example
    * lb-hp32z1wp5peaoox2q****
@@ -13,13 +13,13 @@ export class CreateVpcEndpointServiceRequestResource extends $dara.Model {
   resourceId?: string;
   /**
    * @remarks
-   * The type of the service resource that is added to the endpoint service. You can add at most 20 service resources to an endpoint service. Valid values:
+   * The EPS resource type to add to the endpoint service. You can add up to 20 service resources to an endpoint service. Valid values:
    * 
-   * - **slb**: a Classic Load Balancer (CLB) instance.
+   * - **slb**: Classic Load Balancer (CLB).
    * 
-   * - **alb**: an Application Load Balancer (ALB) instance.
-   * - **nlb**: a Network Load Balancer (NLB) instance.
-   * - **gwlb**: a Gateway Load Balancer (GWLB) instance.
+   * - **alb**: Application Load Balancer (ALB).
+   * - **nlb**: Network Load Balancer (NLB).
+   * - **gwlb**: Gateway Load Balancer (GWLB).
    * 
    * @example
    * slb
@@ -61,9 +61,9 @@ export class CreateVpcEndpointServiceRequestResource extends $dara.Model {
 export class CreateVpcEndpointServiceRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The tag key. You can specify at most 20 tag keys. The tag key cannot be an empty string.
+   * The tag key of the instance. You can specify up to 20 tag keys. The tag key cannot be an empty string.
    * 
-   * The tag key can be at most 64 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
+   * The tag key can be up to 64 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
    * 
    * @example
    * env
@@ -71,9 +71,9 @@ export class CreateVpcEndpointServiceRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value. You can specify at most 20 tag values. The tag value can be an empty string.
+   * The tag value of the instance. You can specify up to 20 tag values. The tag value can be an empty string.
    * 
-   * The tag value can be at most 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
+   * The tag value can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
    * 
    * @example
    * prod
@@ -105,11 +105,11 @@ export class CreateVpcEndpointServiceRequestTag extends $dara.Model {
 export class CreateVpcEndpointServiceRequest extends $dara.Model {
   /**
    * @remarks
-   * The IP version. Valid values:
+   * The protocol version. Valid values:
    * 
-   * - **IPv4** (default): IPv4.
-   * - **DualStack**: dual stack.
-   * > Only endpoint services whose backend resource type is nlb or gwlb support DualStack. If the endpoint service supports dual stack, its backend resources must also support dual stack.
+   * - **IPv4**: IPv4 (default).
+   * - **DualStack**: dual-stack.
+   * > Only endpoint services whose backend resource type is nlb or gwlb support the DualStack IP address protocol. If the endpoint service supports dual-stack, the backend resources must also support dual-stack.
    * 
    * @example
    * IPv4
@@ -117,11 +117,11 @@ export class CreateVpcEndpointServiceRequest extends $dara.Model {
   addressIpVersion?: string;
   /**
    * @remarks
-   * Specifies whether to automatically accept endpoint connection requests. Valid values:
+   * Specifies whether to automatically accept endpoint connections. Valid values:
    * 
-   * - **true**: automatically accepts endpoint connection requests.
+   * - **true**: automatically accept endpoint connections.
    * 
-   * - **false** (default): does not automatically accept endpoint connection requests.
+   * - **false** (default): do not automatically accept endpoint connections.
    * 
    * @example
    * false
@@ -131,7 +131,7 @@ export class CreateVpcEndpointServiceRequest extends $dara.Model {
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the value, but you must ensure that it is unique among different requests. **ClientToken** can contain only ASCII characters.
+   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
    * 
    * @example
    * 0c593ea1-3bea-11e9-b96b-88e9fe637760
@@ -141,9 +141,9 @@ export class CreateVpcEndpointServiceRequest extends $dara.Model {
    * @remarks
    * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
    * 
-   * - **true**: performs only a dry run. The system checks the request for required parameters, request format, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+   * - **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error code is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
    * 
-   * - **false** (default): performs a dry run and sends the request. If the request passes the dry run, an HTTP 2xx status code is returned and the operation is performed.
+   * - **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, an HTTP 2xx status code is returned and the operation is performed.
    * 
    * @example
    * false
@@ -151,11 +151,11 @@ export class CreateVpcEndpointServiceRequest extends $dara.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * The payer of the endpoint service. Valid values:
+   * The payer. Valid values:
    * 
-   * - **Endpoint**: the service consumer.
+   * - **Endpoint**: service consumer.
    * 
-   * - **EndpointService**: the service provider.
+   * - **EndpointService**: service provider.
    * 
    * @example
    * Endpoint
@@ -163,7 +163,7 @@ export class CreateVpcEndpointServiceRequest extends $dara.Model {
   payer?: string;
   /**
    * @remarks
-   * The ID of the region where the endpoint service is created.
+   * The region ID of the endpoint service.
    * 
    * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/469325.html) operation to query the most recent region list.
    * 
@@ -175,12 +175,12 @@ export class CreateVpcEndpointServiceRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The list of service resources of the endpoint service. You can add at most 10 service resources when you create the endpoint service. After the endpoint service is created, you can continue to add service resources.
+   * The service resources of the endpoint service. You can add up to 10 resources during creation. After creation, you can add more resources by adding service resources to the endpoint.
    */
   resource?: CreateVpcEndpointServiceRequestResource[];
   /**
    * @remarks
-   * The ID of the resource group.
+   * The resource group ID.
    * 
    * @example
    * rg-acfmy*****
@@ -196,15 +196,15 @@ export class CreateVpcEndpointServiceRequest extends $dara.Model {
   serviceDescription?: string;
   /**
    * @remarks
-   * The type of the service resource. Valid values:
+   * The EPS resource type. Valid values:
    * 
-   * - **slb**: a Classic Load Balancer (CLB) instance.
+   * - **slb**: Classic Load Balancer (CLB).
    * 
-   * - **alb**: an Application Load Balancer (ALB) instance.
-   * - **nlb**: a Network Load Balancer (NLB) instance.
-   * - **gwlb**: a Gateway Load Balancer (GWLB) instance.
+   * - **alb**: Application Load Balancer (ALB).
+   * - **nlb**: Network Load Balancer (NLB).
+   * - **gwlb**: Gateway Load Balancer (GWLB).
    * 
-   * > TCPSSL listeners of NLB instances cannot be accessed.
+   * > Access to TCPSSL listeners of NLB is not supported.
    * 
    * @example
    * slb
@@ -214,9 +214,9 @@ export class CreateVpcEndpointServiceRequest extends $dara.Model {
    * @remarks
    * Specifies whether the endpoint service supports IPv6. Valid values:
    * 
-   * - **true**: yes.
+   * - **true**: supported.
    * 
-   * - **false** (default): no.
+   * - **false** (default): not supported.
    * 
    * @example
    * false
@@ -226,21 +226,21 @@ export class CreateVpcEndpointServiceRequest extends $dara.Model {
   serviceSupportIPv6?: boolean;
   /**
    * @remarks
-   * The list of regions in which the endpoint service is available. Service consumers can initiate endpoint connections from the regions in the list.
+   * The list of regions supported by the endpoint service. Service consumers can initiate endpoint connections from the regions in the list.
    */
   supportedRegionList?: string[];
   /**
    * @remarks
-   * The tag list.
+   * The list of tags.
    */
   tag?: CreateVpcEndpointServiceRequestTag[];
   /**
    * @remarks
-   * Specifies whether to enable zone affinity for endpoint domain name resolution. Valid values:
+   * Specifies whether to support zone affinity for the endpoint domain name of the endpoint service. Valid values:
    * 
-   * - **true**: yes.
+   * - **true**: supported.
    * 
-   * - **false** (default): no.
+   * - **false** (default): not supported.
    * 
    * @example
    * false
