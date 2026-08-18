@@ -1081,6 +1081,62 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves the details of a call session.
+   * 
+   * @remarks
+   * ***
+   * 
+   * @param request - GetCallDetailRecordRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetCallDetailRecordResponse
+   */
+  async getCallDetailRecordWithOptions(request: $_model.GetCallDetailRecordRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetCallDetailRecordResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.productCode)) {
+      query["ProductCode"] = request.productCode;
+    }
+
+    if (!$dara.isNull(request.sessionId)) {
+      query["SessionId"] = request.sessionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetCallDetailRecord",
+      version: "2025-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetCallDetailRecordResponse>(await this.callApi(params, req, runtime), new $_model.GetCallDetailRecordResponse({}));
+  }
+
+  /**
+   * Retrieves the details of a call session.
+   * 
+   * @remarks
+   * ***
+   * 
+   * @param request - GetCallDetailRecordRequest
+   * @returns GetCallDetailRecordResponse
+   */
+  async getCallDetailRecord(request: $_model.GetCallDetailRecordRequest): Promise<$_model.GetCallDetailRecordResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getCallDetailRecordWithOptions(request, runtime);
+  }
+
+  /**
    * Retrieves the details of an outbound campaign.
    * 
    * @param request - GetCampaignRequest
@@ -1124,6 +1180,62 @@ export default class Client extends OpenApi {
   async getCampaign(request: $_model.GetCampaignRequest): Promise<$_model.GetCampaignResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getCampaignWithOptions(request, runtime);
+  }
+
+  /**
+   * Retrieves the details of a case.
+   * 
+   * @remarks
+   * ***
+   * 
+   * @param request - GetCaseDetailRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetCaseDetailResponse
+   */
+  async getCaseDetailWithOptions(request: $_model.GetCaseDetailRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetCaseDetailResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.caseId)) {
+      query["CaseId"] = request.caseId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.productCode)) {
+      query["ProductCode"] = request.productCode;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetCaseDetail",
+      version: "2025-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetCaseDetailResponse>(await this.callApi(params, req, runtime), new $_model.GetCaseDetailResponse({}));
+  }
+
+  /**
+   * Retrieves the details of a case.
+   * 
+   * @remarks
+   * ***
+   * 
+   * @param request - GetCaseDetailRequest
+   * @returns GetCaseDetailResponse
+   */
+  async getCaseDetail(request: $_model.GetCaseDetailRequest): Promise<$_model.GetCaseDetailResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getCaseDetailWithOptions(request, runtime);
   }
 
   /**
@@ -1334,6 +1446,168 @@ export default class Client extends OpenApi {
   async listCampaigns(request: $_model.ListCampaignsRequest): Promise<$_model.ListCampaignsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listCampaignsWithOptions(request, runtime);
+  }
+
+  /**
+   * Retrieves a list of cases.
+   * 
+   * @remarks
+   * ***
+   * 
+   * @param tmpReq - ListCasesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListCasesResponse
+   */
+  async listCasesWithOptions(tmpReq: $_model.ListCasesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListCasesResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListCasesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.caseIds)) {
+      request.caseIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.caseIds, "CaseIds", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.dispositionCodes)) {
+      request.dispositionCodesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.dispositionCodes, "DispositionCodes", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.dispositionReasons)) {
+      request.dispositionReasonsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.dispositionReasons, "DispositionReasons", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.labelSearch)) {
+      request.labelSearchShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.labelSearch, "LabelSearch", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.states)) {
+      request.statesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.states, "States", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.accessChannelId)) {
+      query["AccessChannelId"] = request.accessChannelId;
+    }
+
+    if (!$dara.isNull(request.accessChannelType)) {
+      query["AccessChannelType"] = request.accessChannelType;
+    }
+
+    if (!$dara.isNull(request.caller)) {
+      query["Caller"] = request.caller;
+    }
+
+    if (!$dara.isNull(request.campaignId)) {
+      query["CampaignId"] = request.campaignId;
+    }
+
+    if (!$dara.isNull(request.caseCompleted)) {
+      query["CaseCompleted"] = request.caseCompleted;
+    }
+
+    if (!$dara.isNull(request.caseIdsShrink)) {
+      query["CaseIds"] = request.caseIdsShrink;
+    }
+
+    if (!$dara.isNull(request.dispositionCodesShrink)) {
+      query["DispositionCodes"] = request.dispositionCodesShrink;
+    }
+
+    if (!$dara.isNull(request.dispositionReasonsShrink)) {
+      query["DispositionReasons"] = request.dispositionReasonsShrink;
+    }
+
+    if (!$dara.isNull(request.draftVersion)) {
+      query["DraftVersion"] = request.draftVersion;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.labelSearchShrink)) {
+      query["LabelSearch"] = request.labelSearchShrink;
+    }
+
+    if (!$dara.isNull(request.maxRingingDuration)) {
+      query["MaxRingingDuration"] = request.maxRingingDuration;
+    }
+
+    if (!$dara.isNull(request.maxTalkTime)) {
+      query["MaxTalkTime"] = request.maxTalkTime;
+    }
+
+    if (!$dara.isNull(request.maxTalkTurns)) {
+      query["MaxTalkTurns"] = request.maxTalkTurns;
+    }
+
+    if (!$dara.isNull(request.minRingingDuration)) {
+      query["MinRingingDuration"] = request.minRingingDuration;
+    }
+
+    if (!$dara.isNull(request.minTalkTime)) {
+      query["MinTalkTime"] = request.minTalkTime;
+    }
+
+    if (!$dara.isNull(request.minTalkTurns)) {
+      query["MinTalkTurns"] = request.minTalkTurns;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.phoneNumber)) {
+      query["PhoneNumber"] = request.phoneNumber;
+    }
+
+    if (!$dara.isNull(request.scriptId)) {
+      query["ScriptId"] = request.scriptId;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!$dara.isNull(request.statesShrink)) {
+      query["States"] = request.statesShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListCases",
+      version: "2025-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListCasesResponse>(await this.callApi(params, req, runtime), new $_model.ListCasesResponse({}));
+  }
+
+  /**
+   * Retrieves a list of cases.
+   * 
+   * @remarks
+   * ***
+   * 
+   * @param request - ListCasesRequest
+   * @returns ListCasesResponse
+   */
+  async listCases(request: $_model.ListCasesRequest): Promise<$_model.ListCasesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listCasesWithOptions(request, runtime);
   }
 
   /**

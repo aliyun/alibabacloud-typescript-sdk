@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class AppendCasesResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The phone number.
+   * 
    * @example
    * 133xxxxxxxx
    */
   phoneNumber?: string;
   /**
+   * @remarks
+   * The business ID.
+   * 
    * @example
    * bizId-xxxxxx
    */
@@ -45,6 +51,10 @@ export class AppendCasesResponseBody extends $dara.Model {
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * The list of contacts that failed to be added.
+   */
   data?: AppendCasesResponseBodyData[];
   /**
    * @remarks
