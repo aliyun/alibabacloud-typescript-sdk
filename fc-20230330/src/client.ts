@@ -323,6 +323,66 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 从正常且未过期的微沙箱会话中创建用户快照。
+   * 
+   * @remarks
+   * ## 请求说明
+   * - 该 API 用于从指定的微沙箱会话中创建一个用户快照。
+   * - 可选参数 `qualifier` 用于标识创建源会话时使用的有效别名或具体函数版本。如果省略，默认为 `LATEST`。
+   * - 必须提供 `sessionId` 参数，以指定要从中创建快照的客户端会话 ID。
+   * - 描述信息 `description` 是可选的，但若提供，则不能包含控制字符，并且长度限制为 256 个 UTF-8 字节。
+   * 
+   * @param request - CreateSnapshotRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateSnapshotResponse
+   */
+  async createSnapshotWithOptions(functionName: string, request: $_model.CreateSnapshotRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateSnapshotResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.qualifier)) {
+      query["qualifier"] = request.qualifier;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(request.body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateSnapshot",
+      version: "2023-03-30",
+      protocol: "HTTPS",
+      pathname: `/2023-03-30/functions/${$dara.URL.percentEncode(functionName)}/snapshots`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateSnapshotResponse>(await this.callApi(params, req, runtime), new $_model.CreateSnapshotResponse({}));
+  }
+
+  /**
+   * 从正常且未过期的微沙箱会话中创建用户快照。
+   * 
+   * @remarks
+   * ## 请求说明
+   * - 该 API 用于从指定的微沙箱会话中创建一个用户快照。
+   * - 可选参数 `qualifier` 用于标识创建源会话时使用的有效别名或具体函数版本。如果省略，默认为 `LATEST`。
+   * - 必须提供 `sessionId` 参数，以指定要从中创建快照的客户端会话 ID。
+   * - 描述信息 `description` 是可选的，但若提供，则不能包含控制字符，并且长度限制为 256 个 UTF-8 字节。
+   * 
+   * @param request - CreateSnapshotRequest
+   * @returns CreateSnapshotResponse
+   */
+  async createSnapshot(functionName: string, request: $_model.CreateSnapshotRequest): Promise<$_model.CreateSnapshotResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createSnapshotWithOptions(functionName, request, headers, runtime);
+  }
+
+  /**
    * Creates a trigger.
    * 
    * @param request - CreateTriggerRequest
@@ -790,6 +850,59 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteSessionWithOptions(functionName, sessionId, request, headers, runtime);
+  }
+
+  /**
+   * 删除用户快照
+   * 
+   * @remarks
+   * - 该 API 用于删除指定函数下的用户 MicroSandbox 快照。
+   * - 删除成功后，快照进入异步删除流程；接口返回 202 Accepted 表示删除请求已受理，不等待底层 Template、artifact 等物理资源清理完成。
+   * - 已进入删除中的快照重复删除仍返回 202 Accepted。
+   * - 如果指定快照在当前函数作用域下不存在，返回 204 No Content，用于支持幂等删除。
+   * - 如果快照仍被已恢复的 Session 使用，或存在未确认可清理的 consumer relation，返回 409 SnapshotInUse，不会删除快照。
+   * 
+   * @param request - DeleteSnapshotRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteSnapshotResponse
+   */
+  async deleteSnapshotWithOptions(functionName: string, snapshotId: string, request: $_model.DeleteSnapshotRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteSnapshotResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteSnapshot",
+      version: "2023-03-30",
+      protocol: "HTTPS",
+      pathname: `/2023-03-30/functions/${$dara.URL.percentEncode(functionName)}/snapshots/${$dara.URL.percentEncode(snapshotId)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $dara.cast<$_model.DeleteSnapshotResponse>(await this.callApi(params, req, runtime), new $_model.DeleteSnapshotResponse({}));
+  }
+
+  /**
+   * 删除用户快照
+   * 
+   * @remarks
+   * - 该 API 用于删除指定函数下的用户 MicroSandbox 快照。
+   * - 删除成功后，快照进入异步删除流程；接口返回 202 Accepted 表示删除请求已受理，不等待底层 Template、artifact 等物理资源清理完成。
+   * - 已进入删除中的快照重复删除仍返回 202 Accepted。
+   * - 如果指定快照在当前函数作用域下不存在，返回 204 No Content，用于支持幂等删除。
+   * - 如果快照仍被已恢复的 Session 使用，或存在未确认可清理的 consumer relation，返回 409 SnapshotInUse，不会删除快照。
+   * 
+   * @param request - DeleteSnapshotRequest
+   * @returns DeleteSnapshotResponse
+   */
+  async deleteSnapshot(functionName: string, snapshotId: string, request: $_model.DeleteSnapshotRequest): Promise<$_model.DeleteSnapshotResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteSnapshotWithOptions(functionName, snapshotId, request, headers, runtime);
   }
 
   /**
@@ -1485,6 +1598,55 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getSessionWithOptions(functionName, sessionId, request, headers, runtime);
+  }
+
+  /**
+   * 获取快照信息
+   * 
+   * @remarks
+   * - 该 API 用于获取指定函数下的用户 MicroSandbox 快照信息。
+   * - 仅当快照属于当前函数、状态为 Available 且未过期时返回快照详情。
+   * - 快照不存在、已过期、正在创建、正在删除、属于内部快照或不属于当前函数时，均按不可见处理，返回 404 SnapshotNotFound。
+   * 
+   * @param request - GetSnapshotRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetSnapshotResponse
+   */
+  async getSnapshotWithOptions(functionName: string, snapshotId: string, request: $_model.GetSnapshotRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetSnapshotResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetSnapshot",
+      version: "2023-03-30",
+      protocol: "HTTPS",
+      pathname: `/2023-03-30/functions/${$dara.URL.percentEncode(functionName)}/snapshots/${$dara.URL.percentEncode(snapshotId)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetSnapshotResponse>(await this.callApi(params, req, runtime), new $_model.GetSnapshotResponse({}));
+  }
+
+  /**
+   * 获取快照信息
+   * 
+   * @remarks
+   * - 该 API 用于获取指定函数下的用户 MicroSandbox 快照信息。
+   * - 仅当快照属于当前函数、状态为 Available 且未过期时返回快照详情。
+   * - 快照不存在、已过期、正在创建、正在删除、属于内部快照或不属于当前函数时，均按不可见处理，返回 404 SnapshotNotFound。
+   * 
+   * @param request - GetSnapshotRequest
+   * @returns GetSnapshotResponse
+   */
+  async getSnapshot(functionName: string, snapshotId: string, request: $_model.GetSnapshotRequest): Promise<$_model.GetSnapshotResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getSnapshotWithOptions(functionName, snapshotId, request, headers, runtime);
   }
 
   /**
@@ -2396,6 +2558,81 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listSessionsWithOptions(functionName, request, headers, runtime);
+  }
+
+  /**
+   * 列出快照信息
+   * 
+   * @remarks
+   * - 该 API 用于列出当前账号下可见的用户 MicroSandbox 快照。
+   * - 仅返回未过期且状态为 Available 的用户快照。
+   * - 支持四种筛选方式：账号级列表、按函数过滤、按函数和源 SessionID 过滤、按函数、源 SessionID 和创建时 qualifier 过滤。
+   * - 结果按创建时间和快照 ID 稳定降序分页。
+   * - ListSnapshots 使用搜索索引查询，短时间内可能存在最终一致性延迟；GetSnapshot 和使用快照创建 Session 以主表强读为准。
+   * 
+   * @param request - ListSnapshotsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListSnapshotsResponse
+   */
+  async listSnapshotsWithOptions(request: $_model.ListSnapshotsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListSnapshotsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.functionName)) {
+      query["functionName"] = request.functionName;
+    }
+
+    if (!$dara.isNull(request.limit)) {
+      query["limit"] = request.limit;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.qualifier)) {
+      query["qualifier"] = request.qualifier;
+    }
+
+    if (!$dara.isNull(request.sessionId)) {
+      query["sessionId"] = request.sessionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListSnapshots",
+      version: "2023-03-30",
+      protocol: "HTTPS",
+      pathname: `/2023-03-30/snapshots`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListSnapshotsResponse>(await this.callApi(params, req, runtime), new $_model.ListSnapshotsResponse({}));
+  }
+
+  /**
+   * 列出快照信息
+   * 
+   * @remarks
+   * - 该 API 用于列出当前账号下可见的用户 MicroSandbox 快照。
+   * - 仅返回未过期且状态为 Available 的用户快照。
+   * - 支持四种筛选方式：账号级列表、按函数过滤、按函数和源 SessionID 过滤、按函数、源 SessionID 和创建时 qualifier 过滤。
+   * - 结果按创建时间和快照 ID 稳定降序分页。
+   * - ListSnapshots 使用搜索索引查询，短时间内可能存在最终一致性延迟；GetSnapshot 和使用快照创建 Session 以主表强读为准。
+   * 
+   * @param request - ListSnapshotsRequest
+   * @returns ListSnapshotsResponse
+   */
+  async listSnapshots(request: $_model.ListSnapshotsRequest): Promise<$_model.ListSnapshotsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listSnapshotsWithOptions(request, headers, runtime);
   }
 
   /**
