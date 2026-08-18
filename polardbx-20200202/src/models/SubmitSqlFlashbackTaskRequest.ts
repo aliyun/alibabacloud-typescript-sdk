@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitSqlFlashbackTaskRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the database.
+   * The database name.
    * 
    * This parameter is required.
    * 
@@ -35,10 +35,10 @@ export class SubmitSqlFlashbackTaskRequest extends $dara.Model {
   polardbxInstanceId?: string;
   /**
    * @remarks
-   * The restoration type. Valid values:
+   * The restore type. Valid values:
    * 
-   * - **1**: Image-based restoration.
-   * - **0**: Reverse restoration.
+   * - **1**: image-based restore.
+   * - **0**: reverse restore.
    * 
    * This parameter is required.
    * 
@@ -48,7 +48,7 @@ export class SubmitSqlFlashbackTaskRequest extends $dara.Model {
   recallRestoreType?: string;
   /**
    * @remarks
-   * The matching mode. Valid values:
+   * The match type. Valid values:
    * 
    * - **0**: exact match.
    * - **1**: fuzzy match.
@@ -83,7 +83,7 @@ export class SubmitSqlFlashbackTaskRequest extends $dara.Model {
   sqlPk?: string;
   /**
    * @remarks
-   * The type of SQL. Valid values: INSERT, UPDATE, and DELETE. Separate multiple types with commas (,).
+   * The type of SQL statement. Valid values: INSERT, UPDATE, and DELETE. Separate multiple types with commas (,).
    * 
    * @example
    * INSERT,UPDATE

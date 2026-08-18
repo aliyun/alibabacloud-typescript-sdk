@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateSuperAccountRequest extends $dara.Model {
   /**
    * @remarks
-   * The description of the account.
+   * The account description.
    * 
    * @example
    * testdbadescription
@@ -13,7 +13,7 @@ export class CreateSuperAccountRequest extends $dara.Model {
   accountDescription?: string;
   /**
    * @remarks
-   * The name of the account.
+   * The account name.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class CreateSuperAccountRequest extends $dara.Model {
   accountName?: string;
   /**
    * @remarks
-   * The password of the account.
+   * The account password.
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class CreateSuperAccountRequest extends $dara.Model {
   accountPassword?: string;
   /**
    * @remarks
-   * The name of the instance.
+   * The instance name.
    * 
    * This parameter is required.
    * 

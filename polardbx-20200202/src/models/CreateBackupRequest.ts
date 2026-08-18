@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateBackupRequest extends $dara.Model {
   /**
    * @remarks
-   * The backup type. Currently, only "0" is supported, which indicates fast backup.
+   * The backup type. Currently, only "0" is supported, which indicates a fast backup.
    * 
    * @example
    * 0

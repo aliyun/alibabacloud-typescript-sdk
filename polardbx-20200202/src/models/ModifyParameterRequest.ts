@@ -25,8 +25,8 @@ export class ModifyParameterRequest extends $dara.Model {
    * @remarks
    * The parameter type. Valid values:
    * 
-   * - **compute**: compute layer parameters.
-   * - **storage**: storage layer parameters.
+   * - **compute**: compute layer parameter.
+   * - **storage**: storage layer parameter.
    * 
    * @example
    * compute
@@ -35,7 +35,7 @@ export class ModifyParameterRequest extends $dara.Model {
   parameterGroupId?: string;
   /**
    * @remarks
-   * A JSON-formatted string. MapKey specifies the parameter name, and MapValue specifies the parameter value. The modifiable parameters are dynamically added or removed. Call the [DescribeParameterTemplates](https://help.aliyun.com/document_detail/196856.html) operation to query the available parameters. You can specify multiple parameters in a single request.
+   * A JSON-formatted string. MapKey specifies the parameter name, and MapValue specifies the parameter value. The modifiable parameters are dynamically added or removed. Call the [DescribeParameterTemplates](https://help.aliyun.com/document_detail/196856.html) operation to query the available parameters. You can specify multiple parameters at a time.
    * 
    * @example
    * {"CONN_POOL_BLOCK_TIMEOUT":6000}

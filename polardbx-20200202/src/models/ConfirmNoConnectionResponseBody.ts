@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ConfirmNoConnectionResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The original task ID, used to match the response with the request.
+   * The original task ID, which is used to match the response with the request.
    * 
    * @example
    * etx-szr2rr6i*****

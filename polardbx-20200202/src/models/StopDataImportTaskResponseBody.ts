@@ -13,7 +13,7 @@ export class StopDataImportTaskResponseBody extends $dara.Model {
   data?: boolean;
   /**
    * @remarks
-   * The response message. >This parameter is empty if the request is successful. If the request fails, an error message is returned, such as an error code.
+   * The returned message. >This parameter is empty when the request succeeds. When the request fails, exception information such as an error code is returned.
    * 
    * @example
    * *****

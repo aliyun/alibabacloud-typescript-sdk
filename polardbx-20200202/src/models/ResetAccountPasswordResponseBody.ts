@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ResetAccountPasswordResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response message. If the request is successful, success is returned. If the request fails, the corresponding error code is returned.
+   * The response message. "success" is returned if the request is successful. Otherwise, an error code is returned.
    * 
    * @example
    * success

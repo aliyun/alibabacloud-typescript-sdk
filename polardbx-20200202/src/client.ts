@@ -58,18 +58,18 @@ export default class Client extends OpenApi {
       'eu-west-1-oxs': "polardbx.aliyuncs.com",
       'me-east-1': "polardbx.aliyuncs.com",
       'rus-west-1-pop': "polardbx.aliyuncs.com",
-      'us-west-1': "polardbx.us-west-1.aliyuncs.com",
-      'us-east-1': "polardbx.us-east-1.aliyuncs.com",
+      'cn-beijing': "polardbx.cn-beijing.aliyuncs.com",
+      'cn-qingdao': "polardbx.cn-qingdao.aliyuncs.com",
+      'cn-shanghai': "polardbx.cn-shanghai.aliyuncs.com",
+      'cn-hongkong': "polardbx.cn-hongkong.aliyuncs.com",
       'cn-zhangjiakou': "polardbx.cn-zhangjiakou.aliyuncs.com",
       'cn-shenzhen': "polardbx.cn-shenzhen.aliyuncs.com",
-      'cn-shanghai': "polardbx.cn-shanghai.aliyuncs.com",
-      'cn-qingdao': "polardbx.cn-qingdao.aliyuncs.com",
-      'cn-huhehaote': "polardbx.cn-huhehaote.aliyuncs.com",
-      'cn-hongkong': "polardbx.cn-hongkong.aliyuncs.com",
-      'cn-hangzhou': "polardbx.cn-hangzhou.aliyuncs.com",
       'cn-chengdu': "polardbx.cn-chengdu.aliyuncs.com",
-      'cn-beijing': "polardbx.cn-beijing.aliyuncs.com",
       'ap-southeast-1': "polardbx.ap-southeast-1.aliyuncs.com",
+      'cn-huhehaote': "polardbx.cn-huhehaote.aliyuncs.com",
+      'cn-hangzhou': "polardbx.cn-hangzhou.aliyuncs.com",
+      'us-east-1': "polardbx.us-east-1.aliyuncs.com",
+      'us-west-1': "polardbx.us-west-1.aliyuncs.com",
     };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("polardbx", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -186,6 +186,70 @@ export default class Client extends OpenApi {
   async allocateColdDataVolume(request: $_model.AllocateColdDataVolumeRequest): Promise<$_model.AllocateColdDataVolumeResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.allocateColdDataVolumeWithOptions(request, runtime);
+  }
+
+  /**
+   * Enables a public network connection for a ContextDB-X service ReplicaSet.
+   * 
+   * @remarks
+   * This operation is used to confirm that no active connections exist before a rollback task, ensuring operation safety.
+   * 
+   * @param request - AllocateContextDBPublicConnectionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AllocateContextDBPublicConnectionResponse
+   */
+  async allocateContextDBPublicConnectionWithOptions(request: $_model.AllocateContextDBPublicConnectionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AllocateContextDBPublicConnectionResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.connectionStringPrefix)) {
+      query["ConnectionStringPrefix"] = request.connectionStringPrefix;
+    }
+
+    if (!$dara.isNull(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!$dara.isNull(request.nodeType)) {
+      query["NodeType"] = request.nodeType;
+    }
+
+    if (!$dara.isNull(request.port)) {
+      query["Port"] = request.port;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AllocateContextDBPublicConnection",
+      version: "2020-02-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AllocateContextDBPublicConnectionResponse>(await this.callApi(params, req, runtime), new $_model.AllocateContextDBPublicConnectionResponse({}));
+  }
+
+  /**
+   * Enables a public network connection for a ContextDB-X service ReplicaSet.
+   * 
+   * @remarks
+   * This operation is used to confirm that no active connections exist before a rollback task, ensuring operation safety.
+   * 
+   * @param request - AllocateContextDBPublicConnectionRequest
+   * @returns AllocateContextDBPublicConnectionResponse
+   */
+  async allocateContextDBPublicConnection(request: $_model.AllocateContextDBPublicConnectionRequest): Promise<$_model.AllocateContextDBPublicConnectionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.allocateContextDBPublicConnectionWithOptions(request, runtime);
   }
 
   /**
@@ -369,7 +433,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Cancels active O&M event tasks by calling the CancelActiveOperationTasks operation.
+   * Cancels active O&M event tasks.
    * 
    * @param request - CancelActiveOperationTasksRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -396,7 +460,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Cancels active O&M event tasks by calling the CancelActiveOperationTasks operation.
+   * Cancels active O&M event tasks.
    * 
    * @param request - CancelActiveOperationTasksRequest
    * @returns CancelActiveOperationTasksResponse
@@ -411,7 +475,7 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * Note: 
-   * - The **endpoint** differs from other operations. Use **polardbx.aliyuncs.com** for Chinese mainland regions and Singapore. For other regions, use **polardbx.{region id}.aliyunc.com**.
+   * - The **endpoint** differs from other operations. Use **polardbx.aliyuncs.com** for Chinese regions and Singapore. For other regions, use **polardbx.{region id}.aliyunc.com**.
    * - When testing this API operation, if a service unavailable error is returned, verify that the **endpoint** is correct. You can switch the **service address** to **Dubai** or **India** to change the **endpoint** to **polardbx.aliyuncs.com**.
    * 
    * @param request - ChangeResourceGroupRequest
@@ -459,7 +523,7 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * Note: 
-   * - The **endpoint** differs from other operations. Use **polardbx.aliyuncs.com** for Chinese mainland regions and Singapore. For other regions, use **polardbx.{region id}.aliyunc.com**.
+   * - The **endpoint** differs from other operations. Use **polardbx.aliyuncs.com** for Chinese regions and Singapore. For other regions, use **polardbx.{region id}.aliyunc.com**.
    * - When testing this API operation, if a service unavailable error is returned, verify that the **endpoint** is correct. You can switch the **service address** to **Dubai** or **India** to change the **endpoint** to **polardbx.aliyuncs.com**.
    * 
    * @param request - ChangeResourceGroupRequest
@@ -471,7 +535,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Checks whether a PolarDB-X instance is authorized to use Key Management Service (KMS).
+   * Queries whether a PolarDB-X instance is authorized to use Key Management Service (KMS).
    * 
    * @param request - CheckCloudResourceAuthorizedRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -510,7 +574,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Checks whether a PolarDB-X instance is authorized to use Key Management Service (KMS).
+   * Queries whether a PolarDB-X instance is authorized to use Key Management Service (KMS).
    * 
    * @param request - CheckCloudResourceAuthorizedRequest
    * @returns CheckCloudResourceAuthorizedResponse
@@ -606,7 +670,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Closes the database engine migration process for a specified instance. After you start a data migration task from another database (such as a self-managed MySQL database or an ApsaraDB RDS instance) to PolarDB-X, you can call this operation to safely stop the migration process if you need to terminate or clean up the migration state.
+   * Closes the database engine migration process for a specified instance. After a user starts a data migration task from another database (such as a self-managed MySQL or ApsaraDB RDS instance) to PolarDB-X, this operation can be called to safely stop the migration process if the migration needs to be terminated or the migration state needs to be cleaned up.
    * 
    * @param request - CloseEngineMigrationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -645,7 +709,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Closes the database engine migration process for a specified instance. After you start a data migration task from another database (such as a self-managed MySQL database or an ApsaraDB RDS instance) to PolarDB-X, you can call this operation to safely stop the migration process if you need to terminate or clean up the migration state.
+   * Closes the database engine migration process for a specified instance. After a user starts a data migration task from another database (such as a self-managed MySQL or ApsaraDB RDS instance) to PolarDB-X, this operation can be called to safely stop the migration process if the migration needs to be terminated or the migration state needs to be cleaned up.
    * 
    * @param request - CloseEngineMigrationRequest
    * @returns CloseEngineMigrationResponse
@@ -786,7 +850,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls the CreateBackup operation to create a backup.
+   * Creates a backup by calling the CreateBackup operation.
    * 
    * @param request - CreateBackupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -825,7 +889,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls the CreateBackup operation to create a backup.
+   * Creates a backup by calling the CreateBackup operation.
    * 
    * @param request - CreateBackupRequest
    * @returns CreateBackupResponse
@@ -836,10 +900,66 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates a ContextDB-X instance.
+   * 
+   * @remarks
+   * <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
+   * 
+   * @param request - CreateContextDBRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateContextDBResponse
+   */
+  async createContextDBWithOptions(request: $_model.CreateContextDBRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateContextDBResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!$dara.isNull(request.openSearchInstanceName)) {
+      query["OpenSearchInstanceName"] = request.openSearchInstanceName;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateContextDB",
+      version: "2020-02-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateContextDBResponse>(await this.callApi(params, req, runtime), new $_model.CreateContextDBResponse({}));
+  }
+
+  /**
+   * Creates a ContextDB-X instance.
+   * 
+   * @remarks
+   * <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
+   * 
+   * @param request - CreateContextDBRequest
+   * @returns CreateContextDBResponse
+   */
+  async createContextDB(request: $_model.CreateContextDBRequest): Promise<$_model.CreateContextDBResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createContextDBWithOptions(request, runtime);
+  }
+
+  /**
    * Creates a custom endpoint for a database instance.
    * 
    * @remarks
-   * <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html)..
+   * <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
    * 
    * @param request - CreateCustomEndpointRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -901,7 +1021,7 @@ export default class Client extends OpenApi {
    * Creates a custom endpoint for a database instance.
    * 
    * @remarks
-   * <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html)..
+   * <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
    * 
    * @param request - CreateCustomEndpointRequest
    * @returns CreateCustomEndpointResponse
@@ -1168,10 +1288,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a data import task to import external data files, such as SQL scripts and CSV files, into a target database instance.
+   * Creates a data import task to import external data files such as SQL scripts and CSV files into a target database instance.
    * 
    * @remarks
-   * Creates a data import task that imports SQL or CSV files stored in OSS or ECS, or directly provided files, into a target database instance. By specifying the instance ID, database name, engine type, data source (such as an OSS path), and import type, the system performs data write operations asynchronously or synchronously. This operation is applicable to scenarios such as data migration, initialization, and data backfill. A task ID is returned for subsequent status queries and management.
+   * The CreateDataImportTask operation creates a data import task that supports importing SQL or CSV files stored in OSS, ECS, or directly uploaded into a target database instance. By specifying the instance ID, database name, engine type, data source (such as an OSS path), and import type, the system performs data write operations asynchronously or synchronously. This operation is applicable to scenarios such as data migration, initialization, and data backfill. A task ID is returned for subsequent status queries and management.
    * 
    * @param request - CreateDataImportTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1242,10 +1362,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a data import task to import external data files, such as SQL scripts and CSV files, into a target database instance.
+   * Creates a data import task to import external data files such as SQL scripts and CSV files into a target database instance.
    * 
    * @remarks
-   * Creates a data import task that imports SQL or CSV files stored in OSS or ECS, or directly provided files, into a target database instance. By specifying the instance ID, database name, engine type, data source (such as an OSS path), and import type, the system performs data write operations asynchronously or synchronously. This operation is applicable to scenarios such as data migration, initialization, and data backfill. A task ID is returned for subsequent status queries and management.
+   * The CreateDataImportTask operation creates a data import task that supports importing SQL or CSV files stored in OSS, ECS, or directly uploaded into a target database instance. By specifying the instance ID, database name, engine type, data source (such as an OSS path), and import type, the system performs data write operations asynchronously or synchronously. This operation is applicable to scenarios such as data migration, initialization, and data backfill. A task ID is returned for subsequent status queries and management.
    * 
    * @param request - CreateDataImportTaskRequest
    * @returns CreateDataImportTaskResponse
@@ -1308,7 +1428,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a Global Database Network (GDN) instance.
+   * Creates a GDN instance.
    * 
    * @param request - CreateGdnInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1363,7 +1483,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a Global Database Network (GDN) instance.
+   * Creates a GDN instance.
    * 
    * @param request - CreateGdnInstanceRequest
    * @returns CreateGdnInstanceResponse
@@ -1374,10 +1494,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建GDN从实例
+   * Adds a secondary instance to a global database network (GDN).
    * 
    * @remarks
-   * <props="china">更多关于实例账号的信息，请参见[账号管理](https://help.aliyun.com/document_detail/172163.html)。
+   * <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
    * 
    * @param request - CreateGdnStandbyMemberRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1500,10 +1620,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建GDN从实例
+   * Adds a secondary instance to a global database network (GDN).
    * 
    * @remarks
-   * <props="china">更多关于实例账号的信息，请参见[账号管理](https://help.aliyun.com/document_detail/172163.html)。
+   * <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
    * 
    * @param request - CreateGdnStandbyMemberRequest
    * @returns CreateGdnStandbyMemberResponse
@@ -1670,7 +1790,59 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a health check on the replication task during data migration.
+   * Creates a PXFuse node.
+   * 
+   * @remarks
+   * <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
+   * 
+   * @param request - CreatePxfuseRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreatePxfuseResponse
+   */
+  async createPxfuseWithOptions(request: $_model.CreatePxfuseRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreatePxfuseResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreatePxfuse",
+      version: "2020-02-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreatePxfuseResponse>(await this.callApi(params, req, runtime), new $_model.CreatePxfuseResponse({}));
+  }
+
+  /**
+   * Creates a PXFuse node.
+   * 
+   * @remarks
+   * <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
+   * 
+   * @param request - CreatePxfuseRequest
+   * @returns CreatePxfuseResponse
+   */
+  async createPxfuse(request: $_model.CreatePxfuseRequest): Promise<$_model.CreatePxfuseResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createPxfuseWithOptions(request, runtime);
+  }
+
+  /**
+   * Performs a health check on a replication task during data migration.
    * 
    * @remarks
    * During the data synchronization phase, proactively initiates a diagnostic task for the replication task to check for issues such as latency, replication interruption, or data inconsistency.
@@ -1732,7 +1904,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a health check on the replication task during data migration.
+   * Performs a health check on a replication task during data migration.
    * 
    * @remarks
    * During the data synchronization phase, proactively initiates a diagnostic task for the replication task to check for issues such as latency, replication interruption, or data inconsistency.
@@ -1950,7 +2122,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a database schema import task. This operation allows you to import SQL script files or text content that contains DDL statements into a target database instance, and automatically performs schema operations such as creating tables, indexes, views, and stored procedures.
+   * Creates a database schema import task. This operation imports SQL script files or text content that contains DDL statements into a target database instance and automatically executes structured operations such as creating tables, indexes, views, and stored procedures.
    * 
    * @param request - CreateStructureImportTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1995,7 +2167,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a database schema import task. This operation allows you to import SQL script files or text content that contains DDL statements into a target database instance, and automatically performs schema operations such as creating tables, indexes, views, and stored procedures.
+   * Creates a database schema import task. This operation imports SQL script files or text content that contains DDL statements into a target database instance and automatically executes structured operations such as creating tables, indexes, views, and stored procedures.
    * 
    * @param request - CreateStructureImportTaskRequest
    * @returns CreateStructureImportTaskResponse
@@ -2230,7 +2402,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an account by calling the DeleteAccount operation.
+   * Calls the DeleteAccount operation to delete an account.
    * 
    * @param request - DeleteAccountRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2277,7 +2449,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an account by calling the DeleteAccount operation.
+   * Calls the DeleteAccount operation to delete an account.
    * 
    * @param request - DeleteAccountRequest
    * @returns DeleteAccountResponse
@@ -2285,6 +2457,58 @@ export default class Client extends OpenApi {
   async deleteAccount(request: $_model.DeleteAccountRequest): Promise<$_model.DeleteAccountResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteAccountWithOptions(request, runtime);
+  }
+
+  /**
+   * Deletes a ContextDB-X.
+   * 
+   * @remarks
+   * Deletes the custom endpoint of a specified database instance and disables access through the domain name.
+   * 
+   * @param request - DeleteContextDBRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteContextDBResponse
+   */
+  async deleteContextDBWithOptions(request: $_model.DeleteContextDBRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteContextDBResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteContextDB",
+      version: "2020-02-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteContextDBResponse>(await this.callApi(params, req, runtime), new $_model.DeleteContextDBResponse({}));
+  }
+
+  /**
+   * Deletes a ContextDB-X.
+   * 
+   * @remarks
+   * Deletes the custom endpoint of a specified database instance and disables access through the domain name.
+   * 
+   * @param request - DeleteContextDBRequest
+   * @returns DeleteContextDBResponse
+   */
+  async deleteContextDB(request: $_model.DeleteContextDBRequest): Promise<$_model.DeleteContextDBResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteContextDBWithOptions(request, runtime);
   }
 
   /**
@@ -2344,7 +2568,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a database by calling the DeleteDB operation.
+   * Calls the DeleteDB operation to delete a database.
    * 
    * @param request - DeleteDBRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2383,7 +2607,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a database by calling the DeleteDB operation.
+   * Calls the DeleteDB operation to delete a database.
    * 
    * @param request - DeleteDBRequest
    * @returns DeleteDBResponse
@@ -2440,10 +2664,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an evaluation import task.
+   * Deletes an assessment import task.
    * 
    * @remarks
-   * Deletes a created evaluation task and performs subsequent data import operations.
+   * Deletes a created assessment task and performs subsequent data import operations.
    * 
    * @param request - DeleteEvaluateAndImportTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2478,10 +2702,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an evaluation import task.
+   * Deletes an assessment import task.
    * 
    * @remarks
-   * Deletes a created evaluation task and performs subsequent data import operations.
+   * Deletes a created assessment task and performs subsequent data import operations.
    * 
    * @param request - DeleteEvaluateAndImportTaskRequest
    * @returns DeleteEvaluateAndImportTaskResponse
@@ -2642,6 +2866,58 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes a PXFuse node.
+   * 
+   * @remarks
+   * Deletes a custom endpoint of a specified database instance and disables access through the domain name.
+   * 
+   * @param request - DeletePxfuseRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeletePxfuseResponse
+   */
+  async deletePxfuseWithOptions(request: $_model.DeletePxfuseRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeletePxfuseResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeletePxfuse",
+      version: "2020-02-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeletePxfuseResponse>(await this.callApi(params, req, runtime), new $_model.DeletePxfuseResponse({}));
+  }
+
+  /**
+   * Deletes a PXFuse node.
+   * 
+   * @remarks
+   * Deletes a custom endpoint of a specified database instance and disables access through the domain name.
+   * 
+   * @param request - DeletePxfuseRequest
+   * @returns DeletePxfuseResponse
+   */
+  async deletePxfuse(request: $_model.DeletePxfuseRequest): Promise<$_model.DeletePxfuseResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deletePxfuseWithOptions(request, runtime);
+  }
+
+  /**
    * Deletes a service account.
    * 
    * @remarks
@@ -2698,7 +2974,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除自定义地址
+   * Deletes a custom address.
    * 
    * @remarks
    * ***
@@ -2740,7 +3016,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除自定义地址
+   * Deletes a custom address.
    * 
    * @remarks
    * ***
@@ -2978,7 +3254,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists cold storage tables.
+   * Queries the list of cold storage tables.
    * 
    * @param request - DescribeArchiveTableListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3033,7 +3309,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists cold storage tables.
+   * Queries the list of cold storage tables.
    * 
    * @param request - DescribeArchiveTableListRequest
    * @returns DescribeArchiveTableListResponse
@@ -3090,7 +3366,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls the DescribeBackupPolicy operation to query the backup settings of an instance.
+   * Queries the backup settings of an instance.
    * 
    * @param request - DescribeBackupPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3125,7 +3401,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls the DescribeBackupPolicy operation to query the backup settings of an instance.
+   * Queries the backup settings of an instance.
    * 
    * @param request - DescribeBackupPolicyRequest
    * @returns DescribeBackupPolicyResponse
@@ -3190,7 +3466,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls the DescribeBackupSetList operation to query the list of backup sets.
+   * Queries the list of backup sets by calling the DescribeBackupSetList operation.
    * 
    * @param request - DescribeBackupSetListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3217,7 +3493,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls the DescribeBackupSetList operation to query the list of backup sets.
+   * Queries the list of backup sets by calling the DescribeBackupSetList operation.
    * 
    * @param request - DescribeBackupSetListRequest
    * @returns DescribeBackupSetListResponse
@@ -3228,12 +3504,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls the DescribeBinaryLogList operation to query binlog logs.
+   * Queries binary logs by calling the DescribeBinaryLogList operation.
    * 
    * @remarks
-   * - Binlog files are retained for 15 days by default.
-   * - The returned log list includes all logs whose record end time is after the query start time and whose record start time is before the query end time.
-   * - When the DownloadLink is not NULL, you can use this URL to download the backup file. This URL is valid for 2 days after it is generated. Download the file before the URL expires.
+   * - Binary log files are retained for 15 days by default.
+   * - The returned log list includes all logs log record end time is after the query start time and log record start time is before the query end time.
+   * - When DownloadLink is not NULL, you can download the backup file from this URL. The URL is valid for 2 days after it is generated. Download the file before the URL expires.
    * 
    * @param request - DescribeBinaryLogListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3288,12 +3564,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls the DescribeBinaryLogList operation to query binlog logs.
+   * Queries binary logs by calling the DescribeBinaryLogList operation.
    * 
    * @remarks
-   * - Binlog files are retained for 15 days by default.
-   * - The returned log list includes all logs whose record end time is after the query start time and whose record start time is before the query end time.
-   * - When the DownloadLink is not NULL, you can use this URL to download the backup file. This URL is valid for 2 days after it is generated. Download the file before the URL expires.
+   * - Binary log files are retained for 15 days by default.
+   * - The returned log list includes all logs log record end time is after the query start time and log record start time is before the query end time.
+   * - When DownloadLink is not NULL, you can download the backup file from this URL. The URL is valid for 2 days after it is generated. Download the file before the URL expires.
    * 
    * @param request - DescribeBinaryLogListRequest
    * @returns DescribeBinaryLogListResponse
@@ -3308,8 +3584,8 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * - Binary log files are retained for 15 days by default.
-   * - The returned log list includes all logs whose log record end time is after the query start time and whose log record start time is before the query end time.
-   * - If DownloadLink is not NULL, you can use this URL to download the backup file. This URL is valid for 2 days after it is generated. Download the file before the URL expires.
+   * - The returned log list includes all logs log record end time is after the query start time and log record start time is before the query end time.
+   * - When DownloadLink is not NULL, you can download the backup file from this URL. The URL is valid for 2 days after it is generated. Download the file before the expiration time.
    * 
    * @param request - DescribeCdcClassListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3352,8 +3628,8 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * - Binary log files are retained for 15 days by default.
-   * - The returned log list includes all logs whose log record end time is after the query start time and whose log record start time is before the query end time.
-   * - If DownloadLink is not NULL, you can use this URL to download the backup file. This URL is valid for 2 days after it is generated. Download the file before the URL expires.
+   * - The returned log list includes all logs log record end time is after the query start time and log record start time is before the query end time.
+   * - When DownloadLink is not NULL, you can download the backup file from this URL. The URL is valid for 2 days after it is generated. Download the file before the expiration time.
    * 
    * @param request - DescribeCdcClassListRequest
    * @returns DescribeCdcClassListResponse
@@ -3516,7 +3792,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The cold storage basic information.
+   * Retrieves the basic information of cold storage.
    * 
    * @param request - DescribeColdDataBasicInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3543,7 +3819,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The cold storage basic information.
+   * Retrieves the basic information of cold storage.
    * 
    * @param request - DescribeColdDataBasicInfoRequest
    * @returns DescribeColdDataBasicInfoResponse
@@ -3650,12 +3926,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries column store version information.
+   * Queries the column store version information.
    * 
    * @remarks
    * - Binary log files are retained for 15 days by default.
    * - The returned log list includes all logs whose log record end time is after the query start time and whose log record start time is before the query end time.
-   * - When DownloadLink is not NULL, you can download the backup file from this URL. This URL is valid for 2 days after it is generated. Download the file before the expiration time.
+   * - If DownloadLink is not NULL, you can download the backup file from this URL. The URL is valid for 2 days after it is generated. Download the file before the URL expires.
    * 
    * @param request - DescribeColumnarVersionListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3690,12 +3966,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries column store version information.
+   * Queries the column store version information.
    * 
    * @remarks
    * - Binary log files are retained for 15 days by default.
    * - The returned log list includes all logs whose log record end time is after the query start time and whose log record start time is before the query end time.
-   * - When DownloadLink is not NULL, you can download the backup file from this URL. This URL is valid for 2 days after it is generated. Download the file before the expiration time.
+   * - If DownloadLink is not NULL, you can download the backup file from this URL. The URL is valid for 2 days after it is generated. Download the file before the URL expires.
    * 
    * @param request - DescribeColumnarVersionListRequest
    * @returns DescribeColumnarVersionListResponse
@@ -3760,10 +4036,166 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of custom endpoints defined by the user.
+   * Queries the management credentials of ContextDB-X.
    * 
    * @remarks
-   * Queries the list of custom endpoints configured by the user. You can use this operation to manage and view the settings of private connections or VPC endpoint services.
+   * > * The SQL audit and analysis feature of PolarDB-X 2.0 is free of charge. However, Simple Log Service charges fees for storage space, read traffic, number of requests, data transformation, and data shipping. For more information about the SQL audit feature, see [Enable SQL audit and analysis](https://help.aliyun.com/document_detail/184619.html).
+   * 
+   * @param request - DescribeContextDBConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeContextDBConfigResponse
+   */
+  async describeContextDBConfigWithOptions(request: $_model.DescribeContextDBConfigRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeContextDBConfigResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeContextDBConfig",
+      version: "2020-02-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeContextDBConfigResponse>(await this.callApi(params, req, runtime), new $_model.DescribeContextDBConfigResponse({}));
+  }
+
+  /**
+   * Queries the management credentials of ContextDB-X.
+   * 
+   * @remarks
+   * > * The SQL audit and analysis feature of PolarDB-X 2.0 is free of charge. However, Simple Log Service charges fees for storage space, read traffic, number of requests, data transformation, and data shipping. For more information about the SQL audit feature, see [Enable SQL audit and analysis](https://help.aliyun.com/document_detail/184619.html).
+   * 
+   * @param request - DescribeContextDBConfigRequest
+   * @returns DescribeContextDBConfigResponse
+   */
+  async describeContextDBConfig(request: $_model.DescribeContextDBConfigRequest): Promise<$_model.DescribeContextDBConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeContextDBConfigWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the information of a ContextDB-X instance.
+   * 
+   * @remarks
+   * > * The SQL audit and analysis feature of PolarDB-X 2.0 is free of charge. However, Simple Log Service charges fees for storage space, read traffic, number of requests, data transformation, and data shipping. For more information about the SQL audit feature, see [Enable SQL audit and analysis](https://help.aliyun.com/document_detail/184619.html).
+   * 
+   * @param request - DescribeContextDBInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeContextDBInfoResponse
+   */
+  async describeContextDBInfoWithOptions(request: $_model.DescribeContextDBInfoRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeContextDBInfoResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeContextDBInfo",
+      version: "2020-02-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeContextDBInfoResponse>(await this.callApi(params, req, runtime), new $_model.DescribeContextDBInfoResponse({}));
+  }
+
+  /**
+   * Queries the information of a ContextDB-X instance.
+   * 
+   * @remarks
+   * > * The SQL audit and analysis feature of PolarDB-X 2.0 is free of charge. However, Simple Log Service charges fees for storage space, read traffic, number of requests, data transformation, and data shipping. For more information about the SQL audit feature, see [Enable SQL audit and analysis](https://help.aliyun.com/document_detail/184619.html).
+   * 
+   * @param request - DescribeContextDBInfoRequest
+   * @returns DescribeContextDBInfoResponse
+   */
+  async describeContextDBInfo(request: $_model.DescribeContextDBInfoRequest): Promise<$_model.DescribeContextDBInfoResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeContextDBInfoWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the whitelist of a ContextDB-X instance.
+   * 
+   * @remarks
+   * > * The SQL audit and analysis feature of PolarDB-X 2.0 is free of charge. However, Simple Log Service charges fees for storage space, read traffic, number of requests, data transformation, and data shipping. For more information about the SQL audit feature, see [Enable SQL audit and analysis](https://help.aliyun.com/document_detail/184619.html).
+   * 
+   * @param request - DescribeContextDBSecurityIpsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeContextDBSecurityIpsResponse
+   */
+  async describeContextDBSecurityIpsWithOptions(request: $_model.DescribeContextDBSecurityIpsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeContextDBSecurityIpsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeContextDBSecurityIps",
+      version: "2020-02-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeContextDBSecurityIpsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeContextDBSecurityIpsResponse({}));
+  }
+
+  /**
+   * Queries the whitelist of a ContextDB-X instance.
+   * 
+   * @remarks
+   * > * The SQL audit and analysis feature of PolarDB-X 2.0 is free of charge. However, Simple Log Service charges fees for storage space, read traffic, number of requests, data transformation, and data shipping. For more information about the SQL audit feature, see [Enable SQL audit and analysis](https://help.aliyun.com/document_detail/184619.html).
+   * 
+   * @param request - DescribeContextDBSecurityIpsRequest
+   * @returns DescribeContextDBSecurityIpsResponse
+   */
+  async describeContextDBSecurityIps(request: $_model.DescribeContextDBSecurityIpsRequest): Promise<$_model.DescribeContextDBSecurityIpsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeContextDBSecurityIpsWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the list of user-defined custom domain names.
+   * 
+   * @remarks
+   * This operation retrieves the list of custom endpoints configured by the user, which facilitates the management and viewing of private connection or VPC endpoint service settings.
    * 
    * @param request - DescribeCustomEndpointListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3806,10 +4238,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of custom endpoints defined by the user.
+   * Queries the list of user-defined custom domain names.
    * 
    * @remarks
-   * Queries the list of custom endpoints configured by the user. You can use this operation to manage and view the settings of private connections or VPC endpoint services.
+   * This operation retrieves the list of custom endpoints configured by the user, which facilitates the management and viewing of private connection or VPC endpoint service settings.
    * 
    * @param request - DescribeCustomEndpointListRequest
    * @returns DescribeCustomEndpointListResponse
@@ -3870,7 +4302,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls the DescribeDBInstanceConfig operation to retrieve the configuration parameters of an instance.
+   * Calls the DescribeDBInstanceConfig operation to retrieve instance configuration parameters.
    * 
    * @param request - DescribeDBInstanceConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3909,7 +4341,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls the DescribeDBInstanceConfig operation to retrieve the configuration parameters of an instance.
+   * Calls the DescribeDBInstanceConfig operation to retrieve instance configuration parameters.
    * 
    * @param request - DescribeDBInstanceConfigRequest
    * @returns DescribeDBInstanceConfigResponse
@@ -3920,10 +4352,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询endpoint列表
+   * Queries custom endpoints.
    * 
    * @remarks
-   * 该接口用于获取用户已配置的自定义终端节点（Endpoint）列表，便于管理和查看私有连接或VPC终端服务的设置。
+   * Queries the list of custom endpoints configured by a user, which helps manage and view private connection or VPC endpoint service settings.
    * 
    * @param request - DescribeDBInstanceEndpointRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3966,10 +4398,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询endpoint列表
+   * Queries custom endpoints.
    * 
    * @remarks
-   * 该接口用于获取用户已配置的自定义终端节点（Endpoint）列表，便于管理和查看私有连接或VPC终端服务的设置。
+   * Queries the list of custom endpoints configured by a user, which helps manage and view private connection or VPC endpoint service settings.
    * 
    * @param request - DescribeDBInstanceEndpointRequest
    * @returns DescribeDBInstanceEndpointResponse
@@ -4026,7 +4458,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Views SSL information.
+   * Queries SSL information.
    * 
    * @param request - DescribeDBInstanceSSLRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4061,7 +4493,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Views SSL information.
+   * Queries SSL information.
    * 
    * @param request - DescribeDBInstanceSSLRequest
    * @returns DescribeDBInstanceSSLResponse
@@ -4072,7 +4504,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls the DescribeDBInstanceTDE operation to retrieve the details of Transparent Data Encryption (TDE) for an instance.
+   * Queries the details of Transparent Data Encryption (TDE) for an instance.
    * 
    * @param request - DescribeDBInstanceTDERequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4107,7 +4539,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls the DescribeDBInstanceTDE operation to retrieve the details of Transparent Data Encryption (TDE) for an instance.
+   * Queries the details of Transparent Data Encryption (TDE) for an instance.
    * 
    * @param request - DescribeDBInstanceTDERequest
    * @returns DescribeDBInstanceTDEResponse
@@ -4118,7 +4550,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls the DescribeDBInstanceTopology operation to retrieve the topology information of an instance.
+   * Queries the topology information of an instance.
    * 
    * @param request - DescribeDBInstanceTopologyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4165,7 +4597,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls the DescribeDBInstanceTopology operation to retrieve the topology information of an instance.
+   * Queries the topology information of an instance.
    * 
    * @param request - DescribeDBInstanceTopologyRequest
    * @returns DescribeDBInstanceTopologyResponse
@@ -4176,7 +4608,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the basic information about an instance by using the endpoint of the instance.
+   * Retrieves the basic information of an instance by using the endpoint of the instance.
    * 
    * @param request - DescribeDBInstanceViaEndpointRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4211,7 +4643,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the basic information about an instance by using the endpoint of the instance.
+   * Retrieves the basic information of an instance by using the endpoint of the instance.
    * 
    * @param request - DescribeDBInstanceViaEndpointRequest
    * @returns DescribeDBInstanceViaEndpointResponse
@@ -4222,7 +4654,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls the DescribeDBInstances operation to query a list of instances.
+   * Queries a list of instances by calling the DescribeDBInstances operation.
    * 
    * @param request - DescribeDBInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4289,7 +4721,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls the DescribeDBInstances operation to query a list of instances.
+   * Queries a list of instances by calling the DescribeDBInstances operation.
    * 
    * @param request - DescribeDBInstancesRequest
    * @returns DescribeDBInstancesResponse
@@ -4300,12 +4732,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the performance data of an instance by calling the DescribeDBNodePerformance operation.
+   * Queries the performance data of an instance.
    * 
    * @remarks
    * Note: 
-   * - The **endpoint** differs from other API operations. Use **polardbx.aliyuncs.com** for Chinese regions and Singapore. For other regions, use **polardbx.{region id}.aliyunc.com**.
-   * - When debugging this API operation, if a service not active error is returned, confirm that the **endpoint** is correct. You can switch the **service address** to **Dubai** or **India** and change the **endpoint** to **polardbx.aliyuncs.com**.
+   * - The **endpoint** differs from other API operations. For Chinese mainland regions and Singapore, use **polardbx.aliyuncs.com**. For other regions, use **polardbx.{region id}.aliyunc.com**.
+   * - When debugging this API operation, if you receive a service unavailable error, verify that the **endpoint** is correct. You can switch the **service address** to **Dubai** or **India** and change the **endpoint** to **polardbx.aliyuncs.com**.
    * 
    * @param request - DescribeDBNodePerformanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4364,12 +4796,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the performance data of an instance by calling the DescribeDBNodePerformance operation.
+   * Queries the performance data of an instance.
    * 
    * @remarks
    * Note: 
-   * - The **endpoint** differs from other API operations. Use **polardbx.aliyuncs.com** for Chinese regions and Singapore. For other regions, use **polardbx.{region id}.aliyunc.com**.
-   * - When debugging this API operation, if a service not active error is returned, confirm that the **endpoint** is correct. You can switch the **service address** to **Dubai** or **India** and change the **endpoint** to **polardbx.aliyuncs.com**.
+   * - The **endpoint** differs from other API operations. For Chinese mainland regions and Singapore, use **polardbx.aliyuncs.com**. For other regions, use **polardbx.{region id}.aliyunc.com**.
+   * - When debugging this API operation, if you receive a service unavailable error, verify that the **endpoint** is correct. You can switch the **service address** to **Dubai** or **India** and change the **endpoint** to **polardbx.aliyuncs.com**.
    * 
    * @param request - DescribeDBNodePerformanceRequest
    * @returns DescribeDBNodePerformanceResponse
@@ -4492,7 +4924,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls the DescribeDistributeTableList operation to retrieve the list of database tables.
+   * Queries the list of database tables by calling the DescribeDistributeTableList operation.
    * 
    * @param request - DescribeDistributeTableListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4531,7 +4963,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls the DescribeDistributeTableList operation to retrieve the list of database tables.
+   * Queries the list of database tables by calling the DescribeDistributeTableList operation.
    * 
    * @param request - DescribeDistributeTableListRequest
    * @returns DescribeDistributeTableListResponse
@@ -4588,7 +5020,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of PolarDB-X assessment import tasks. (Single).
+   * Queries the list of PolarDB-X assessment import tasks. (single)
    * 
    * @param request - DescribeEvaluateAndImportTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4623,7 +5055,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of PolarDB-X assessment import tasks. (Single).
+   * Queries the list of PolarDB-X assessment import tasks. (single)
    * 
    * @param request - DescribeEvaluateAndImportTaskRequest
    * @returns DescribeEvaluateAndImportTaskResponse
@@ -4637,7 +5069,7 @@ export default class Client extends OpenApi {
    * Queries a list of assessment import tasks for PolarDB-X.
    * 
    * @remarks
-   * Creates a data import task. You can use this operation to import SQL or CSV files stored in OSS or ECS, or directly provided files, into a destination database instance. By specifying the instance ID, database name, engine type, data source (such as an OSS path), and import type, the system performs data write operations asynchronously or synchronously. This operation is applicable to scenarios such as data migration, initialization, and data backfill. A task ID is returned for subsequent status queries and management.
+   * The CreateDataImportTask operation creates a data import task. You can use this operation to import SQL or CSV files stored in OSS or ECS, or directly provided, into a destination database instance. By specifying the instance ID, database name, engine type, data source (such as an OSS path), and import type, the system performs data write operations asynchronously or synchronously. This operation is applicable to scenarios such as data migration, initialization, and data backfill. A task ID is returned for subsequent status queries and management.
    * 
    * @param request - DescribeEvaluateAndImportTasksRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4679,7 +5111,7 @@ export default class Client extends OpenApi {
    * Queries a list of assessment import tasks for PolarDB-X.
    * 
    * @remarks
-   * Creates a data import task. You can use this operation to import SQL or CSV files stored in OSS or ECS, or directly provided files, into a destination database instance. By specifying the instance ID, database name, engine type, data source (such as an OSS path), and import type, the system performs data write operations asynchronously or synchronously. This operation is applicable to scenarios such as data migration, initialization, and data backfill. A task ID is returned for subsequent status queries and management.
+   * The CreateDataImportTask operation creates a data import task. You can use this operation to import SQL or CSV files stored in OSS or ECS, or directly provided, into a destination database instance. By specifying the instance ID, database name, engine type, data source (such as an OSS path), and import type, the system performs data write operations asynchronously or synchronously. This operation is applicable to scenarios such as data migration, initialization, and data backfill. A task ID is returned for subsequent status queries and management.
    * 
    * @param request - DescribeEvaluateAndImportTasksRequest
    * @returns DescribeEvaluateAndImportTasksResponse
@@ -4728,7 +5160,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of global database network (GDN) instances.
+   * Retrieves the list of global database network (GDN) instances.
    * 
    * @param request - DescribeGdnInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4779,7 +5211,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of global database network (GDN) instances.
+   * Retrieves the list of global database network (GDN) instances.
    * 
    * @param request - DescribeGdnInstancesRequest
    * @returns DescribeGdnInstancesResponse
@@ -4982,7 +5414,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls the DescribeParameterTemplates operation to retrieve the parameter template list for an instance.
+   * Calls the DescribeParameterTemplates operation to retrieve the parameter template list of an instance.
    * 
    * @param request - DescribeParameterTemplatesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5025,7 +5457,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls the DescribeParameterTemplates operation to retrieve the parameter template list for an instance.
+   * Calls the DescribeParameterTemplates operation to retrieve the parameter template list of an instance.
    * 
    * @param request - DescribeParameterTemplatesRequest
    * @returns DescribeParameterTemplatesResponse
@@ -5036,7 +5468,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls the DescribeParameters operation to retrieve instance parameters.
+   * Queries the parameters of an instance.
    * 
    * @param request - DescribeParametersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5075,7 +5507,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls the DescribeParameters operation to retrieve instance parameters.
+   * Queries the parameters of an instance.
    * 
    * @param request - DescribeParametersRequest
    * @returns DescribeParametersResponse
@@ -5144,10 +5576,114 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of VPCs available for PolarDB-X.
+   * Queries PXFuse instance information.
    * 
    * @remarks
-   * Queries the list of Virtual Private Clouds (VPCs) available under your account for database instances. You can use this operation to select an appropriate network environment when creating or managing database instances.
+   * > * The SQL audit and analysis feature of PolarDB-X 2.0 is free of charge. However, Simple Log Service charges fees for storage space, read traffic, number of requests, data transformation, and data shipping. For more information about the SQL audit feature, see [Enable SQL audit and analysis](https://help.aliyun.com/document_detail/184619.html).
+   * 
+   * @param request - DescribePxfuseInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribePxfuseInfoResponse
+   */
+  async describePxfuseInfoWithOptions(request: $_model.DescribePxfuseInfoRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribePxfuseInfoResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribePxfuseInfo",
+      version: "2020-02-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribePxfuseInfoResponse>(await this.callApi(params, req, runtime), new $_model.DescribePxfuseInfoResponse({}));
+  }
+
+  /**
+   * Queries PXFuse instance information.
+   * 
+   * @remarks
+   * > * The SQL audit and analysis feature of PolarDB-X 2.0 is free of charge. However, Simple Log Service charges fees for storage space, read traffic, number of requests, data transformation, and data shipping. For more information about the SQL audit feature, see [Enable SQL audit and analysis](https://help.aliyun.com/document_detail/184619.html).
+   * 
+   * @param request - DescribePxfuseInfoRequest
+   * @returns DescribePxfuseInfoResponse
+   */
+  async describePxfuseInfo(request: $_model.DescribePxfuseInfoRequest): Promise<$_model.DescribePxfuseInfoResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describePxfuseInfoWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the whitelist of a PXFuse instance.
+   * 
+   * @remarks
+   * > * The SQL audit and analysis feature of PolarDB-X 2.0 is free of charge. However, Simple Log Service charges fees for storage space, read traffic, number of requests, data transformation, and data shipping. For more information about the SQL audit feature, see [Enable SQL audit and analysis](https://help.aliyun.com/document_detail/184619.html).
+   * 
+   * @param request - DescribePxfuseSecurityIpsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribePxfuseSecurityIpsResponse
+   */
+  async describePxfuseSecurityIpsWithOptions(request: $_model.DescribePxfuseSecurityIpsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribePxfuseSecurityIpsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribePxfuseSecurityIps",
+      version: "2020-02-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribePxfuseSecurityIpsResponse>(await this.callApi(params, req, runtime), new $_model.DescribePxfuseSecurityIpsResponse({}));
+  }
+
+  /**
+   * Queries the whitelist of a PXFuse instance.
+   * 
+   * @remarks
+   * > * The SQL audit and analysis feature of PolarDB-X 2.0 is free of charge. However, Simple Log Service charges fees for storage space, read traffic, number of requests, data transformation, and data shipping. For more information about the SQL audit feature, see [Enable SQL audit and analysis](https://help.aliyun.com/document_detail/184619.html).
+   * 
+   * @param request - DescribePxfuseSecurityIpsRequest
+   * @returns DescribePxfuseSecurityIpsResponse
+   */
+  async describePxfuseSecurityIps(request: $_model.DescribePxfuseSecurityIpsRequest): Promise<$_model.DescribePxfuseSecurityIpsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describePxfuseSecurityIpsWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the list of VPCs for PolarDB-X.
+   * 
+   * @remarks
+   * Queries the list of virtual private clouds (VPCs) available under your account. You can use this operation to select an appropriate network environment when creating or managing database instances.
    * 
    * @param request - DescribeRdsVpcsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5182,10 +5718,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of VPCs available for PolarDB-X.
+   * Queries the list of VPCs for PolarDB-X.
    * 
    * @remarks
-   * Queries the list of Virtual Private Clouds (VPCs) available under your account for database instances. You can use this operation to select an appropriate network environment when creating or managing database instances.
+   * Queries the list of virtual private clouds (VPCs) available under your account. You can use this operation to select an appropriate network environment when creating or managing database instances.
    * 
    * @param request - DescribeRdsVpcsRequest
    * @returns DescribeRdsVpcsResponse
@@ -5199,7 +5735,7 @@ export default class Client extends OpenApi {
    * Queries the list of available vSwitches in a virtual private cloud (VPC) for an ApsaraDB RDS instance.
    * 
    * @remarks
-   * Queries the list of available virtual private clouds (VPCs) under your account for an instance, so that you can select an appropriate network environment when creating or managing a database instance.
+   * Queries the list of available virtual private clouds (VPCs) under your account for an instance, so that you can select an appropriate network environment when creating or managing database instances.
    * 
    * @param request - DescribeRdsVswitchesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5241,7 +5777,7 @@ export default class Client extends OpenApi {
    * Queries the list of available vSwitches in a virtual private cloud (VPC) for an ApsaraDB RDS instance.
    * 
    * @remarks
-   * Queries the list of available virtual private clouds (VPCs) under your account for an instance, so that you can select an appropriate network environment when creating or managing a database instance.
+   * Queries the list of available virtual private clouds (VPCs) under your account for an instance, so that you can select an appropriate network environment when creating or managing database instances.
    * 
    * @param request - DescribeRdsVswitchesRequest
    * @returns DescribeRdsVswitchesResponse
@@ -5252,7 +5788,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls the DescribeRegions operation to obtain the list of regions.
+   * Calls the DescribeRegions operation to retrieve the list of regions.
    * 
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeRegionsResponse
@@ -5274,7 +5810,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls the DescribeRegions operation to obtain the list of regions.
+   * Calls the DescribeRegions operation to retrieve the list of regions.
    * @returns DescribeRegionsResponse
    */
   async describeRegions(): Promise<$_model.DescribeRegionsResponse> {
@@ -5283,7 +5819,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a replication lag inspection task for an instance.
+   * Queries the details of the replication lag inspection task for an instance.
    * 
    * @remarks
    * During the data synchronization phase, proactively initiates a diagnostic task for the replication task to check for exceptions such as latency, interruption, or data inconsistency.
@@ -5337,7 +5873,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a replication lag inspection task for an instance.
+   * Queries the details of the replication lag inspection task for an instance.
    * 
    * @remarks
    * During the data synchronization phase, proactively initiates a diagnostic task for the replication task to check for exceptions such as latency, interruption, or data inconsistency.
@@ -5351,7 +5887,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Display the ScaleOut migration task progress.
+   * Displays the progress of a ScaleOut migration task.
    * 
    * @param request - DescribeScaleOutMigrateTaskListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5402,7 +5938,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Display the ScaleOut migration task progress.
+   * Displays the progress of a ScaleOut migration task.
    * 
    * @param request - DescribeScaleOutMigrateTaskListRequest
    * @returns DescribeScaleOutMigrateTaskListResponse
@@ -5413,7 +5949,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls the DescribeSecurityIps operation to view the IP whitelist of an instance.
+   * Queries the IP whitelist of an instance.
    * 
    * @param request - DescribeSecurityIpsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5448,7 +5984,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls the DescribeSecurityIps operation to view the IP whitelist of an instance.
+   * Queries the IP whitelist of an instance.
    * 
    * @param request - DescribeSecurityIpsRequest
    * @returns DescribeSecurityIpsResponse
@@ -5511,7 +6047,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the storage usage details of an instance, including the total capacity, used space, remaining space, and other information.
+   * Queries the storage usage details of an instance, including total capacity, used space, and remaining space.
    * 
    * @param request - DescribeShowStorageInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5550,7 +6086,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the storage usage details of an instance, including the total capacity, used space, remaining space, and other information.
+   * Queries the storage usage details of an instance, including total capacity, used space, and remaining space.
    * 
    * @param request - DescribeShowStorageInfoRequest
    * @returns DescribeShowStorageInfoResponse
@@ -5794,7 +6330,7 @@ export default class Client extends OpenApi {
    * Queries the details of a database schema import task.
    * 
    * @remarks
-   * The CreateDataImportTask operation creates a data import task. You can use this operation to import SQL or CSV files stored in OSS or ECS, or directly provided, into a destination database instance. Specify the instance ID, database name, engine type, data source (such as an OSS path), and import type. The system performs the data write operation asynchronously or synchronously. This operation is applicable to scenarios such as data migration, initialization, and data backfill. A task ID is returned for subsequent status queries and management.
+   * The CreateDataImportTask operation creates a data import task. This operation supports importing SQL or CSV files stored in OSS or ECS, or directly provided, into a destination database instance. By specifying the instance ID, database name, engine type, data source (such as an OSS path), and import type, the system performs data write operations asynchronously or synchronously. This operation is applicable to scenarios such as data migration, initialization, and data backfill. A task ID is returned for subsequent status queries and management.
    * 
    * @param request - DescribeStructureImportTaskInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5832,7 +6368,7 @@ export default class Client extends OpenApi {
    * Queries the details of a database schema import task.
    * 
    * @remarks
-   * The CreateDataImportTask operation creates a data import task. You can use this operation to import SQL or CSV files stored in OSS or ECS, or directly provided, into a destination database instance. Specify the instance ID, database name, engine type, data source (such as an OSS path), and import type. The system performs the data write operation asynchronously or synchronously. This operation is applicable to scenarios such as data migration, initialization, and data backfill. A task ID is returned for subsequent status queries and management.
+   * The CreateDataImportTask operation creates a data import task. This operation supports importing SQL or CSV files stored in OSS or ECS, or directly provided, into a destination database instance. By specifying the instance ID, database name, engine type, data source (such as an OSS path), and import type, the system performs data write operations asynchronously or synchronously. This operation is applicable to scenarios such as data migration, initialization, and data backfill. A task ID is returned for subsequent status queries and management.
    * 
    * @param request - DescribeStructureImportTaskInfoRequest
    * @returns DescribeStructureImportTaskInfoResponse
@@ -6494,7 +7030,7 @@ export default class Client extends OpenApi {
    * Enables the SQL audit feature.
    * 
    * @remarks
-   * > * The PolarDB-X 2.0 SQL audit and analysis feature itself is free of charge. However, Log Service charges fees for storage space, read traffic, number of requests, data transformation, data shipping, and other services. For more information about the SQL audit feature, see [Enable SQL Audit and Analysis](https://help.aliyun.com/document_detail/184619.html).
+   * > * The SQL audit and analysis feature of PolarDB-X 2.0 is free of charge. However, Simple Log Service charges fees for storage space, read traffic, number of requests, data transformation, and data shipping. For more information about the SQL audit feature, see [Enable SQL audit and analysis](https://help.aliyun.com/document_detail/184619.html).
    * 
    * @param request - EnableSqlAuditRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6544,7 +7080,7 @@ export default class Client extends OpenApi {
    * Enables the SQL audit feature.
    * 
    * @remarks
-   * > * The PolarDB-X 2.0 SQL audit and analysis feature itself is free of charge. However, Log Service charges fees for storage space, read traffic, number of requests, data transformation, data shipping, and other services. For more information about the SQL audit feature, see [Enable SQL Audit and Analysis](https://help.aliyun.com/document_detail/184619.html).
+   * > * The SQL audit and analysis feature of PolarDB-X 2.0 is free of charge. However, Simple Log Service charges fees for storage space, read traffic, number of requests, data transformation, and data shipping. For more information about the SQL audit feature, see [Enable SQL audit and analysis](https://help.aliyun.com/document_detail/184619.html).
    * 
    * @param request - EnableSqlAuditRequest
    * @returns EnableSqlAuditResponse
@@ -6747,7 +7283,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls the ModifyAccountDescription operation to modify the description of an account.
+   * Modifies the description of an account by calling the ModifyAccountDescription operation.
    * 
    * @param request - ModifyAccountDescriptionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6790,7 +7326,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls the ModifyAccountDescription operation to modify the description of an account.
+   * Modifies the description of an account by calling the ModifyAccountDescription operation.
    * 
    * @param request - ModifyAccountDescriptionRequest
    * @returns ModifyAccountDescriptionResponse
@@ -6867,7 +7403,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls the ModifyActiveOperationMaintainConf operation to modify the time configuration of O&M events.
+   * Modifies the time configuration of O&M events by calling the ModifyActiveOperationMaintainConf operation.
    * 
    * @param request - ModifyActiveOperationMaintainConfRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6894,7 +7430,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls the ModifyActiveOperationMaintainConf operation to modify the time configuration of O&M events.
+   * Modifies the time configuration of O&M events by calling the ModifyActiveOperationMaintainConf operation.
    * 
    * @param request - ModifyActiveOperationMaintainConfRequest
    * @returns ModifyActiveOperationMaintainConfResponse
@@ -6905,7 +7441,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls the ModifyActiveOperationTasks operation to modify the execution time of O&M events.
+   * Modifies the execution time of O&M events.
    * 
    * @param request - ModifyActiveOperationTasksRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6948,7 +7484,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls the ModifyActiveOperationTasks operation to modify the execution time of O&M events.
+   * Modifies the execution time of O&M events.
    * 
    * @param request - ModifyActiveOperationTasksRequest
    * @returns ModifyActiveOperationTasksResponse
@@ -6962,7 +7498,7 @@ export default class Client extends OpenApi {
    * Modifies the CDC configuration.
    * 
    * @remarks
-   * ***.
+   * ***
    * 
    * @param request - ModifyCdcClassRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7012,7 +7548,7 @@ export default class Client extends OpenApi {
    * Modifies the CDC configuration.
    * 
    * @remarks
-   * ***.
+   * ***
    * 
    * @param request - ModifyCdcClassRequest
    * @returns ModifyCdcClassResponse
@@ -7026,7 +7562,7 @@ export default class Client extends OpenApi {
    * Modifies the column store specifications.
    * 
    * @remarks
-   * ***.
+   * ***
    * 
    * @param request - ModifyColumnarClassRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7076,7 +7612,7 @@ export default class Client extends OpenApi {
    * Modifies the column store specifications.
    * 
    * @remarks
-   * ***.
+   * ***
    * 
    * @param request - ModifyColumnarClassRequest
    * @returns ModifyColumnarClassResponse
@@ -7084,6 +7620,70 @@ export default class Client extends OpenApi {
   async modifyColumnarClass(request: $_model.ModifyColumnarClassRequest): Promise<$_model.ModifyColumnarClassResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyColumnarClassWithOptions(request, runtime);
+  }
+
+  /**
+   * Modifies the whitelist of a ContextDB-X service ReplicaSet.
+   * 
+   * @remarks
+   * ***
+   * 
+   * @param request - ModifyContextDBSecurityIpsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyContextDBSecurityIpsResponse
+   */
+  async modifyContextDBSecurityIpsWithOptions(request: $_model.ModifyContextDBSecurityIpsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyContextDBSecurityIpsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!$dara.isNull(request.groupName)) {
+      query["GroupName"] = request.groupName;
+    }
+
+    if (!$dara.isNull(request.modifyMode)) {
+      query["ModifyMode"] = request.modifyMode;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.securityIPList)) {
+      query["SecurityIPList"] = request.securityIPList;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyContextDBSecurityIps",
+      version: "2020-02-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyContextDBSecurityIpsResponse>(await this.callApi(params, req, runtime), new $_model.ModifyContextDBSecurityIpsResponse({}));
+  }
+
+  /**
+   * Modifies the whitelist of a ContextDB-X service ReplicaSet.
+   * 
+   * @remarks
+   * ***
+   * 
+   * @param request - ModifyContextDBSecurityIpsRequest
+   * @returns ModifyContextDBSecurityIpsResponse
+   */
+  async modifyContextDBSecurityIps(request: $_model.ModifyContextDBSecurityIpsRequest): Promise<$_model.ModifyContextDBSecurityIpsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyContextDBSecurityIpsWithOptions(request, runtime);
   }
 
   /**
@@ -7231,7 +7831,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls the ModifyDBInstanceClass operation to modify the specifications of an instance.
+   * Calls the ModifyDBInstanceClass operation to modify the instance specifications.
    * 
    * @param request - ModifyDBInstanceClassRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7302,7 +7902,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls the ModifyDBInstanceClass operation to modify the specifications of an instance.
+   * Calls the ModifyDBInstanceClass operation to modify the instance specifications.
    * 
    * @param request - ModifyDBInstanceClassRequest
    * @returns ModifyDBInstanceClassResponse
@@ -7313,7 +7913,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls the ModifyDBInstanceConfig operation to modify instance configuration items.
+   * Calls the ModifyDBInstanceConfig operation to modify an instance configuration item.
    * 
    * @param request - ModifyDBInstanceConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7356,7 +7956,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls the ModifyDBInstanceConfig operation to modify instance configuration items.
+   * Calls the ModifyDBInstanceConfig operation to modify an instance configuration item.
    * 
    * @param request - ModifyDBInstanceConfigRequest
    * @returns ModifyDBInstanceConfigResponse
@@ -7367,7 +7967,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the connection string of an instance.
+   * Modifies the connection string of an instance endpoint.
    * 
    * @param request - ModifyDBInstanceConnectionStringRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7414,7 +8014,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the connection string of an instance.
+   * Modifies the connection string of an instance endpoint.
    * 
    * @param request - ModifyDBInstanceConnectionStringRequest
    * @returns ModifyDBInstanceConnectionStringResponse
@@ -7478,7 +8078,7 @@ export default class Client extends OpenApi {
    * Modifies the maintenance window of an instance.
    * 
    * @remarks
-   * ***.
+   * ***
    * 
    * @param request - ModifyDBInstanceMaintainTimeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7524,7 +8124,7 @@ export default class Client extends OpenApi {
    * Modifies the maintenance window of an instance.
    * 
    * @remarks
-   * ***.
+   * ***
    * 
    * @param request - ModifyDBInstanceMaintainTimeRequest
    * @returns ModifyDBInstanceMaintainTimeResponse
@@ -7599,7 +8199,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls the ModifyDatabaseDescription operation to modify the description of a database.
+   * Modifies the description of a database.
    * 
    * @param request - ModifyDatabaseDescriptionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7642,7 +8242,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls the ModifyDatabaseDescription operation to modify the description of a database.
+   * Modifies the description of a database.
    * 
    * @param request - ModifyDatabaseDescriptionRequest
    * @returns ModifyDatabaseDescriptionResponse
@@ -7656,7 +8256,7 @@ export default class Client extends OpenApi {
    * Modifies the configuration or migration parameters of a database engine migration task, such as the source database, destination database, migration objects, or migration mode.
    * 
    * @remarks
-   * ***.
+   * ***
    * 
    * @param request - ModifyEngineMigrationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7710,7 +8310,7 @@ export default class Client extends OpenApi {
    * Modifies the configuration or migration parameters of a database engine migration task, such as the source database, destination database, migration objects, or migration mode.
    * 
    * @remarks
-   * ***.
+   * ***
    * 
    * @param request - ModifyEngineMigrationRequest
    * @returns ModifyEngineMigrationResponse
@@ -7785,7 +8385,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls the ModifyParameter operation to modify instance parameters, including compute layer and storage layer parameters.
+   * Modifies instance parameters, including parameters at the compute layer and storage layer.
    * 
    * @param request - ModifyParameterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7836,7 +8436,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls the ModifyParameter operation to modify instance parameters, including compute layer and storage layer parameters.
+   * Modifies instance parameters, including parameters at the compute layer and storage layer.
    * 
    * @param request - ModifyParameterRequest
    * @returns ModifyParameterResponse
@@ -7844,6 +8444,70 @@ export default class Client extends OpenApi {
   async modifyParameter(request: $_model.ModifyParameterRequest): Promise<$_model.ModifyParameterResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyParameterWithOptions(request, runtime);
+  }
+
+  /**
+   * Modifies the PXFuse node whitelist.
+   * 
+   * @remarks
+   * ***
+   * 
+   * @param request - ModifyPxfuseSecurityIpsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyPxfuseSecurityIpsResponse
+   */
+  async modifyPxfuseSecurityIpsWithOptions(request: $_model.ModifyPxfuseSecurityIpsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyPxfuseSecurityIpsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!$dara.isNull(request.groupName)) {
+      query["GroupName"] = request.groupName;
+    }
+
+    if (!$dara.isNull(request.modifyMode)) {
+      query["ModifyMode"] = request.modifyMode;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.securityIPList)) {
+      query["SecurityIPList"] = request.securityIPList;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyPxfuseSecurityIps",
+      version: "2020-02-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyPxfuseSecurityIpsResponse>(await this.callApi(params, req, runtime), new $_model.ModifyPxfuseSecurityIpsResponse({}));
+  }
+
+  /**
+   * Modifies the PXFuse node whitelist.
+   * 
+   * @remarks
+   * ***
+   * 
+   * @param request - ModifyPxfuseSecurityIpsRequest
+   * @returns ModifyPxfuseSecurityIpsResponse
+   */
+  async modifyPxfuseSecurityIps(request: $_model.ModifyPxfuseSecurityIpsRequest): Promise<$_model.ModifyPxfuseSecurityIpsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyPxfuseSecurityIpsWithOptions(request, runtime);
   }
 
   /**
@@ -8025,7 +8689,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a pre-check and feasibility assessment for a recovery task before you execute SQL flashback recovery.
+   * Performs a pre-check and feasibility assessment on a recovery task before executing SQL flashback recovery.
    * 
    * @param request - PreCheckSqlFlashbackTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8072,7 +8736,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a pre-check and feasibility assessment for a recovery task before you execute SQL flashback recovery.
+   * Performs a pre-check and feasibility assessment on a recovery task before executing SQL flashback recovery.
    * 
    * @param request - PreCheckSqlFlashbackTaskRequest
    * @returns PreCheckSqlFlashbackTaskResponse
@@ -8179,7 +8843,67 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Releases the public network connection of an instance by calling the ReleaseInstancePublicConnection operation.
+   * Shuts down the public network connection for a ContextDB-X service ReplicaSet.
+   * 
+   * @remarks
+   * This operation is used to confirm that no active connections exist before a rollback task, ensuring operation safety.
+   * 
+   * @param request - ReleaseContextDBPublicConnectionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ReleaseContextDBPublicConnectionResponse
+   */
+  async releaseContextDBPublicConnectionWithOptions(request: $_model.ReleaseContextDBPublicConnectionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ReleaseContextDBPublicConnectionResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.currentConnectionString)) {
+      query["CurrentConnectionString"] = request.currentConnectionString;
+    }
+
+    if (!$dara.isNull(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!$dara.isNull(request.nodeType)) {
+      query["NodeType"] = request.nodeType;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ReleaseContextDBPublicConnection",
+      version: "2020-02-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ReleaseContextDBPublicConnectionResponse>(await this.callApi(params, req, runtime), new $_model.ReleaseContextDBPublicConnectionResponse({}));
+  }
+
+  /**
+   * Shuts down the public network connection for a ContextDB-X service ReplicaSet.
+   * 
+   * @remarks
+   * This operation is used to confirm that no active connections exist before a rollback task, ensuring operation safety.
+   * 
+   * @param request - ReleaseContextDBPublicConnectionRequest
+   * @returns ReleaseContextDBPublicConnectionResponse
+   */
+  async releaseContextDBPublicConnection(request: $_model.ReleaseContextDBPublicConnectionRequest): Promise<$_model.ReleaseContextDBPublicConnectionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.releaseContextDBPublicConnectionWithOptions(request, runtime);
+  }
+
+  /**
+   * Releases the public network connection of an instance.
    * 
    * @param request - ReleaseInstancePublicConnectionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8218,7 +8942,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Releases the public network connection of an instance by calling the ReleaseInstancePublicConnection operation.
+   * Releases the public network connection of an instance.
    * 
    * @param request - ReleaseInstancePublicConnectionRequest
    * @returns ReleaseInstancePublicConnectionResponse
@@ -8350,7 +9074,7 @@ export default class Client extends OpenApi {
    * Resets the password of an account.
    * 
    * @remarks
-   * ***.
+   * ***
    * 
    * @param request - ResetAccountPasswordRestrictRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8404,7 +9128,7 @@ export default class Client extends OpenApi {
    * Resets the password of an account.
    * 
    * @remarks
-   * ***.
+   * ***
    * 
    * @param request - ResetAccountPasswordRestrictRequest
    * @returns ResetAccountPasswordRestrictResponse
@@ -8623,7 +9347,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 克隆PolarDB-X实例
+   * Clones a PolarDB-X instance.
    * 
    * @remarks
    * ***
@@ -8777,7 +9501,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 克隆PolarDB-X实例
+   * Clones a PolarDB-X instance.
    * 
    * @remarks
    * ***
@@ -8791,7 +9515,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * This API is used to skip the current step.
+   * Skips the current step.
    * 
    * @param request - SkipCurrentStepRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8830,7 +9554,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * This API is used to skip the current step.
+   * Skips the current step.
    * 
    * @param request - SkipCurrentStepRequest
    * @returns SkipCurrentStepResponse
@@ -9233,7 +9957,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Removes tags from a resource.
+   * Deletes tags from a resource.
    * 
    * @param request - UntagResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9280,7 +10004,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Removes tags from a resource.
+   * Deletes tags from a resource.
    * 
    * @param request - UntagResourcesRequest
    * @returns UntagResourcesResponse
@@ -9291,7 +10015,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls the UpdateBackupPolicy operation to modify the backup policy of an instance.
+   * Modifies the backup policy of an instance.
    * 
    * @param request - UpdateBackupPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9402,7 +10126,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls the UpdateBackupPolicy operation to modify the backup policy of an instance.
+   * Modifies the backup policy of an instance.
    * 
    * @param request - UpdateBackupPolicyRequest
    * @returns UpdateBackupPolicyResponse
@@ -9413,10 +10137,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新实例的管控参数
+   * Modifies instance tags.
    * 
    * @remarks
-   * <props="china">更多关于实例账号的信息，请参见[账号管理](https://help.aliyun.com/document_detail/172163.html)。
+   * <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
    * 
    * @param request - UpdateCustinsParamRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9459,10 +10183,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新实例的管控参数
+   * Modifies instance tags.
    * 
    * @remarks
-   * <props="china">更多关于实例账号的信息，请参见[账号管理](https://help.aliyun.com/document_detail/172163.html)。
+   * <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
    * 
    * @param request - UpdateCustinsParamRequest
    * @returns UpdateCustinsParamResponse
@@ -9527,7 +10251,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables Transparent Data Encryption (TDE) for an instance by calling the UpdateDBInstanceTDE operation.
+   * Enables Transparent Data Encryption (TDE) for an instance.
    * 
    * @param request - UpdateDBInstanceTDERequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9574,7 +10298,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables Transparent Data Encryption (TDE) for an instance by calling the UpdateDBInstanceTDE operation.
+   * Enables Transparent Data Encryption (TDE) for an instance.
    * 
    * @param request - UpdateDBInstanceTDERequest
    * @returns UpdateDBInstanceTDEResponse

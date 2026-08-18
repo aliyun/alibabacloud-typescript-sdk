@@ -126,7 +126,7 @@ export class DescribeDBNodePerformanceResponseBody extends $dara.Model {
   DBInstanceName?: string;
   /**
    * @remarks
-   * The end of the time range to query. The time is in the YYYY-MM-ddTHH:mm:ssZ format (UTC).
+   * The end time of the query. Format: YYYY-MM-ddTHH:mm:ssZ (UTC).
    * 
    * @example
    * 2021-10-20T02:00Z
@@ -143,7 +143,7 @@ export class DescribeDBNodePerformanceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. The time is in the YYYY-MM-ddTHH:mm:ssZ format (UTC).
+   * The start time of the query. Format: YYYY-MM-ddTHH:mm:ssZ (UTC).
    * 
    * @example
    * 2021-10-20T00:00Z

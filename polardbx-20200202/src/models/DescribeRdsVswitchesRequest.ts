@@ -13,7 +13,7 @@ export class DescribeRdsVswitchesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the VPC in which the endpoint resides.
+   * The ID of the VPC in which the access endpoint resides.
    * 
    * @example
    * vpc-bp1ndou****twoedlmru0

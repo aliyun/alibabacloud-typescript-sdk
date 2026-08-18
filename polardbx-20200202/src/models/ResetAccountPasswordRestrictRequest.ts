@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ResetAccountPasswordRestrictRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the account whose password you want to reset. > Only passwords of standard accounts can be reset.
+   * The name of the account whose password you want to reset. > Only the passwords of standard accounts can be reset.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ResetAccountPasswordRestrictRequest extends $dara.Model {
   accountName?: string;
   /**
    * @remarks
-   * The account information for which you want to reset the password. Separate multiple account entries with commas (,).
+   * The account information for the accounts whose passwords you want to reset. Separate multiple account entries with commas (,).
    * 
    * This parameter is required.
    * 
@@ -45,7 +45,7 @@ export class ResetAccountPasswordRestrictRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The name of the account whose password you want to reset. > *Only passwords of standard accounts can be reset.* You can invoke the [DescribeAccountList](https://help.aliyun.com/document_detail/196844.html) operation to query the account information of the target instance, including account names.
+   * The name of the account whose password you want to reset. > Only the passwords of standard accounts can be reset. You can invoke the [DescribeAccountList](https://help.aliyun.com/document_detail/196844.html) operation to query the account information of the target instance, including account names.
    * 
    * @example
    * account_sec
@@ -53,7 +53,7 @@ export class ResetAccountPasswordRestrictRequest extends $dara.Model {
   securityAccountName?: string;
   /**
    * @remarks
-   * The password of the security administrator account. > If three-role mode is enabled, this parameter is required. For more information about three-role mode, see [Three-role mode](https://help.aliyun.com/document_detail/213824.html).
+   * The password of the security administrator account. > This parameter is required if the three-role mode is enabled. For more information about the three-role mode, see [Three-role mode](https://help.aliyun.com/document_detail/213824.html).
    * 
    * @example
    * *****

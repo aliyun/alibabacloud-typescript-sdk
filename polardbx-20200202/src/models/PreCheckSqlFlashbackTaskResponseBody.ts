@@ -5,12 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class PreCheckSqlFlashbackTaskResponseBodyDataCheckResult extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether valid binary log files exist. This value is used to determine whether operations such as flashback and synchronization can be performed.
+   * Indicates whether valid binary log files exist. This is used to determine whether flashback or synchronization operations can be performed.
    */
   binlogExists?: boolean;
   /**
    * @remarks
    * Indicates whether the recording of original SQL query events is enabled. Valid values:
+   * 
    * - **true**: Enabled.
    * - **false**: Disabled.
    */
@@ -28,6 +29,7 @@ export class PreCheckSqlFlashbackTaskResponseBodyDataCheckResult extends $dara.M
   /**
    * @remarks
    * Indicates whether log recording is supported. Valid values:
+   * 
    * - **true**: Supported.
    * - **false**: Not supported.
    */
@@ -94,12 +96,12 @@ export class PreCheckSqlFlashbackTaskResponseBodyData extends $dara.Model {
 export class PreCheckSqlFlashbackTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The result set.
+   * The returned result set.
    */
   data?: PreCheckSqlFlashbackTaskResponseBodyData;
   /**
    * @remarks
-   * The response message. This parameter is empty when the request succeeds. If the request fails, an exception message is returned, such as an error code.
+   * The response message. This parameter is empty when the request succeeds. When the request fails, an exception message is returned, such as an error code.
    * 
    * @example
    * successs

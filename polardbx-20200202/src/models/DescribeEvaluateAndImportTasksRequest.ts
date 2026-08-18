@@ -21,7 +21,7 @@ export class DescribeEvaluateAndImportTasksRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region where the instance resides. > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196841.html) operation to query the regions supported by PolarDB-X, including region IDs.
+   * The region in which the instance resides. > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196841.html) operation to query the regions supported by PolarDB-X, including region IDs.
    * 
    * This parameter is required.
    * 

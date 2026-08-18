@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCdcInfoRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the instance.
+   * The instance name.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DescribeCdcInfoRequest extends $dara.Model {
   DBInstanceName?: string;
   /**
    * @remarks
-   * The region in which the instance resides.
+   * The region where the instance resides.
    * 
    * This parameter is required.
    * 

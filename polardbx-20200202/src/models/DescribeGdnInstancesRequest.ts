@@ -16,7 +16,7 @@ export class DescribeGdnInstancesRequest extends $dara.Model {
    * @remarks
    * The filter value for querying resources.
    * 
-   * This parameter is used together with FilterKey.
+   * Used together with FilterKey.
    * 
    * @example
    * gdn-***、
@@ -25,7 +25,7 @@ export class DescribeGdnInstancesRequest extends $dara.Model {
   filterValue?: string;
   /**
    * @remarks
-   * The GDN ID.
+   * GDN ID。
    * 
    * @example
    * gdn-***

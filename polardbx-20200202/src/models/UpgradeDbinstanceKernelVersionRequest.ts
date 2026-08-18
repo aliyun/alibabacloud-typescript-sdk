@@ -35,8 +35,8 @@ export class UpgradeDBInstanceKernelVersionRequest extends $dara.Model {
    * @remarks
    * The switch mode. Valid values:
    * 
-   * - 0: immediately.
-   * - 1: during the O&M window.
+   * - 0: immediately switches.
+   * - 1: switches during the O&M window.
    * 
    * @example
    * 0

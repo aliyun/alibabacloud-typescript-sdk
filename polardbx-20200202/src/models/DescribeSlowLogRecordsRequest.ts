@@ -33,7 +33,7 @@ export class DescribeSlowLogRecordsRequest extends $dara.Model {
   DBName?: string;
   /**
    * @remarks
-   * The node ID. You can specify multiple node IDs separated by commas (`,`). This parameter is required when you query storage nodes.
+   * The node IDs. You can specify multiple node IDs separated by commas (`,`). This parameter is required when you query storage nodes.
    * 
    * @example
    * pxc-i-mezcj4ejdz
@@ -41,7 +41,7 @@ export class DescribeSlowLogRecordsRequest extends $dara.Model {
   DBNodeIds?: string;
   /**
    * @remarks
-   * The start time of the query. Specify the time in the YYYY-MM-ddTHH:mmZ format (UTC).
+   * The start time of the query. Format: YYYY-MM-ddTHH:mmZ (UTC).
    * 
    * This parameter is required.
    * 
@@ -79,7 +79,7 @@ export class DescribeSlowLogRecordsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The start time of the query. Specify the time in the YYYY-MM-ddTHH:mmZ format (UTC).
+   * The start time of the query. Format: YYYY-MM-ddTHH:mmZ (UTC).
    * 
    * This parameter is required.
    * 

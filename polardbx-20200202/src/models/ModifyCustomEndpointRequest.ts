@@ -25,7 +25,7 @@ export class ModifyCustomEndpointRequest extends $dara.Model {
   DBInstanceName?: string;
   /**
    * @remarks
-   * The name of the custom endpoint.
+   * The name.
    * 
    * @example
    * secondary-endpoint
@@ -41,7 +41,7 @@ export class ModifyCustomEndpointRequest extends $dara.Model {
   nodeAutoEnter?: boolean;
   /**
    * @remarks
-   * The node IDs.
+   * node ids
    * 
    * @example
    * node3
@@ -57,7 +57,7 @@ export class ModifyCustomEndpointRequest extends $dara.Model {
   nodeRole?: string;
   /**
    * @remarks
-   * The region ID of the instance.
+   * The region in which the instance resides.
    * 
    * @example
    * cn-zhangjiakou

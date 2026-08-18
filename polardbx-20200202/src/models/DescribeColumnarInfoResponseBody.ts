@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeColumnarInfoResponseBodyDataInstanceTopologyListPhysicalNodes extends $dara.Model {
   /**
    * @remarks
-   * The zone in which the instance resides.
+   * The zone where the instance resides.
    * 
    * @example
    * cn-hangzhou-h
@@ -169,7 +169,7 @@ export class DescribeColumnarInfoResponseBodyData extends $dara.Model {
   classCode?: string;
   /**
    * @remarks
-   * The new column store version.
+   * The new version of the column store.
    * 
    * This parameter is required.
    * 

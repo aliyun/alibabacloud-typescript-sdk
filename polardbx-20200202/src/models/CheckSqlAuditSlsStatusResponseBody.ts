@@ -14,8 +14,8 @@ export class CheckSqlAuditSlsStatusResponseBody extends $dara.Model {
   /**
    * @remarks
    * The enabling status of the SQL audit feature. Valid values:
-   * * enabled: Enabled.
-   * * disabled: Not enabled.
+   * * enabled: The feature is enabled.
+   * * disabled: The feature is disabled.
    * 
    * @example
    * enabled

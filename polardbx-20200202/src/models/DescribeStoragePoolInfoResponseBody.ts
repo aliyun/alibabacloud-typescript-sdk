@@ -13,7 +13,7 @@ export class DescribeStoragePoolInfoResponseBodyDataStoragePools extends $dara.M
   class?: string;
   /**
    * @remarks
-   * The list of DN IDs.
+   * The list of DNs.
    * 
    * @example
    * [pxc-xdb-s-pxcbj****xxnwp0wac2c4\\",\\"pxc-xdb-s-pxcbjr3b8****p0wa1589\\"]
@@ -29,7 +29,7 @@ export class DescribeStoragePoolInfoResponseBodyDataStoragePools extends $dara.M
   dnIdString?: string;
   /**
    * @remarks
-   * The reserved field.
+   * A reserved field.
    * 
    * @example
    * {\\"appId\\":\\"APP_ETLUP1E5FMI5ND5IFO8W\\"}
@@ -53,7 +53,7 @@ export class DescribeStoragePoolInfoResponseBodyDataStoragePools extends $dara.M
   gmtModified?: string;
   /**
    * @remarks
-   * The list of idle DN IDs.
+   * The list of idle DNs.
    * 
    * @example
    * none
@@ -159,7 +159,7 @@ export class DescribeStoragePoolInfoResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The list of instance details.
+   * The instance details.
    */
   data?: DescribeStoragePoolInfoResponseBodyData;
   /**

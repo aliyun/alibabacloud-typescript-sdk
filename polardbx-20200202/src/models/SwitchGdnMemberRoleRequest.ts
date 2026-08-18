@@ -35,8 +35,8 @@ export class SwitchGdnMemberRoleRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 常规切换：switch_over
-   * 强制切换：fail_over
+   * Regular switchover: switch_over
+   * Forced switchover: fail_over
    */
   switchMode?: string;
   /**

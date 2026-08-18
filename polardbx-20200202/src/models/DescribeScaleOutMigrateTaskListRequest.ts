@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeScaleOutMigrateTaskListRequest extends $dara.Model {
   /**
    * @remarks
-   * Instance ID.
+   * The instance ID.
    * 
    * This parameter is required.
    * 

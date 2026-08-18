@@ -15,7 +15,7 @@ export class DeleteAccountRequest extends $dara.Model {
   accountName?: string;
   /**
    * @remarks
-   * The name of the instance.
+   * The instance name.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class DeleteAccountRequest extends $dara.Model {
   DBInstanceName?: string;
   /**
    * @remarks
-   * The region in which the instance resides.
+   * The region where the instance resides.
    * 
    * This parameter is required.
    * 
@@ -37,7 +37,7 @@ export class DeleteAccountRequest extends $dara.Model {
    * @remarks
    * The name of the security administrator account.
    * 
-   * > If three-role mode is enabled, this parameter is required. If three-role mode is not enabled, you do not need to specify this parameter.
+   * > If three-role mode is enabled, this parameter is required. If three-role mode is not enabled, this parameter is not required.
    * 
    * @example
    * securityAccount
@@ -47,7 +47,7 @@ export class DeleteAccountRequest extends $dara.Model {
    * @remarks
    * The password of the security administrator account.
    * 
-   * > If three-role mode is enabled, this parameter is required. If three-role mode is not enabled, you do not need to specify this parameter.
+   * > If three-role mode is enabled, this parameter is required. If three-role mode is not enabled, this parameter is not required.
    * 
    * @example
    * securityPassword

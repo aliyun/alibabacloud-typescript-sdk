@@ -7,8 +7,8 @@ export class DescribeActiveOperationTasksResponseBodyItems extends $dara.Model {
    * @remarks
    * Indicates whether cancellation is allowed. Valid values:
    * 
-   * - **0**: Not allowed.
-   * - **1**: Allowed.
+   * - **0**: not allowed.
+   * - **1**: allowed.
    * 
    * @example
    * 0
@@ -18,8 +18,8 @@ export class DescribeActiveOperationTasksResponseBodyItems extends $dara.Model {
    * @remarks
    * Indicates whether modification is allowed. Valid values:
    * 
-   * - **0**: Not allowed.
-   * - **1**: Allowed.
+   * - **0**: not allowed.
+   * - **1**: allowed.
    * 
    * @example
    * 0
@@ -27,7 +27,7 @@ export class DescribeActiveOperationTasksResponseBodyItems extends $dara.Model {
   allowChange?: string;
   /**
    * @remarks
-   * The change level. This parameter can be ignored.
+   * The change level (can be ignored).
    * 
    * @example
    * Risk
@@ -99,7 +99,7 @@ export class DescribeActiveOperationTasksResponseBodyItems extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The impact. This parameter is not returned.
+   * The impact (not output).
    * 
    * @example
    * --
@@ -107,7 +107,7 @@ export class DescribeActiveOperationTasksResponseBodyItems extends $dara.Model {
   impact?: string;
   /**
    * @remarks
-   * The impact description in English.
+   * The impact in English.
    * 
    * @example
    * Transient instance disconnection
@@ -115,7 +115,7 @@ export class DescribeActiveOperationTasksResponseBodyItems extends $dara.Model {
   impactEn?: string;
   /**
    * @remarks
-   * The impact description in Chinese.
+   * The impact in Chinese.
    * 
    * @example
    * 中断
@@ -163,7 +163,7 @@ export class DescribeActiveOperationTasksResponseBodyItems extends $dara.Model {
   region?: string;
   /**
    * @remarks
-   * The result information. This parameter can be ignored.
+   * The result information (can be ignored).
    * 
    * @example
    * --
@@ -181,8 +181,8 @@ export class DescribeActiveOperationTasksResponseBodyItems extends $dara.Model {
    * @remarks
    * The status. Valid values:
    * 
-   * - **3**: Pending. 
-   * - **4**: Running.
+   * - **3**: pending. 
+   * - **4**: running.
    * 
    * @example
    * 3
@@ -211,7 +211,7 @@ export class DescribeActiveOperationTasksResponseBodyItems extends $dara.Model {
   taskType?: string;
   /**
    * @remarks
-   * The task type in English. This parameter can be ignored.
+   * The task type in English (can be ignored).
    * 
    * @example
    * --
@@ -219,7 +219,7 @@ export class DescribeActiveOperationTasksResponseBodyItems extends $dara.Model {
   taskTypeEn?: string;
   /**
    * @remarks
-   * The task type in Chinese. This parameter can be ignored.
+   * The task type in Chinese (can be ignored).
    * 
    * @example
    * --

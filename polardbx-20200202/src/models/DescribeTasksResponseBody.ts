@@ -29,7 +29,7 @@ export class DescribeTasksResponseBodyItems extends $dara.Model {
   finishTime?: string;
   /**
    * @remarks
-   * The task progress, in percentage.
+   * The task progress, in percentage (%).
    * 
    * @example
    * 80
@@ -45,7 +45,7 @@ export class DescribeTasksResponseBodyItems extends $dara.Model {
   progressInfo?: string;
   /**
    * @remarks
-   * The scale-out ID if the task is a scale-out task. This value serves as a unique key in the backend.
+   * The scale-out ID if the task is a scale-out task. This is a unique key in the backend.
    * 
    * @example
    * FEA5DC20-6D8A-5979-97AA-FC57546ADC20
@@ -56,7 +56,7 @@ export class DescribeTasksResponseBodyItems extends $dara.Model {
    * The task status. Valid values:
    * 
    * - **RUNNING**: The task is running.
-   * - **FAILED**: The task failed.
+   * - **FAILED**: The task failed and was interrupted.
    * 
    * @example
    * RUNNING
@@ -64,7 +64,7 @@ export class DescribeTasksResponseBodyItems extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The task action, which serves as the unique key for the backend task type.
+   * The task action, which is the unique key for the backend task type.
    * 
    * @example
    * multi_scale_out

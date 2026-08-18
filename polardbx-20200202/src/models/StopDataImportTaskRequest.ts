@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class StopDataImportTaskRequest extends $dara.Model {
   /**
    * @remarks
-   * The page number. The value must be a positive integer that does not exceed the maximum value of the integer data type. Default value: **1**.
+   * The page number. The value must be greater than 0 and cannot exceed the maximum value of the integer data type. Default value: **1**.
    * 
    * @example
    * 1

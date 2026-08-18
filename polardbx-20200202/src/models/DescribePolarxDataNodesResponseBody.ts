@@ -8,7 +8,7 @@ export class DescribePolarxDataNodesResponseBodyDBInstanceDataNodes extends $dar
    * The description of the node instance.
    * 
    * @example
-   * pxc-z****nfxsxy728 : PROD-OMS-Auto-生产库克隆实例
+   * pxc-z****nfxsxy728 : PROD-OMS-Auto-ProductionDBCloneInstance
    */
   DBInstanceDescription?: string;
   /**

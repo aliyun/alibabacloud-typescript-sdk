@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyDBInstanceClassResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The order ID. An order is generated when you upgrade, downgrade, or change the specifications of an instance.
+   * The order ID. An order is generated when you upgrade, downgrade, or change the instance specifications.
    * 
    * @example
    * 20211103105558

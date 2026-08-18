@@ -31,7 +31,7 @@ export class DescribeSqlAuditInfoRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The ID of the region where the instance resides. > You can call [DescribeRegions](https://help.aliyun.com/document_detail/196841.html) to query the regions supported by PolarDB-X, including region IDs.
+   * The ID of the region in which the instance resides. > You can call [DescribeRegions](https://help.aliyun.com/document_detail/196841.html) to query the regions supported by PolarDB-X, including region IDs.
    * 
    * This parameter is required.
    * 

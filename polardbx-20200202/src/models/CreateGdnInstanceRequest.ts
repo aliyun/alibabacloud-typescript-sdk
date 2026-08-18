@@ -15,7 +15,7 @@ export class CreateGdnInstanceRequest extends $dara.Model {
   DBInstanceName?: string;
   /**
    * @remarks
-   * The description of the instance.
+   * The description information.
    * 
    * @example
    * FASTJSON 2.0.x has been released, faster and more secure, recommend you upgrade.
@@ -31,7 +31,7 @@ export class CreateGdnInstanceRequest extends $dara.Model {
   gdnMode?: string;
   /**
    * @remarks
-   * The region in which the instance resides.
+   * The region where the instance resides.
    * 
    * This parameter is required.
    * 

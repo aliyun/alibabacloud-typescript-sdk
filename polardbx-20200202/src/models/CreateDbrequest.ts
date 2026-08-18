@@ -15,12 +15,12 @@ export class CreateDBRequest extends $dara.Model {
   accountName?: string;
   /**
    * @remarks
-   * The permissions granted to the account on the database. Valid values:
+   * The permissions granted to the account on the new database. Valid values:
    * 
-   * - **ReadWrite**: read and write permissions.
-   * - **ReadOnly**: read-only permissions.
-   * - **DMLOnly**: DML-only permissions.
-   * - **DDLOnly**: DDL-only permissions.
+   * - **ReadWrite**
+   * - **ReadOnly**
+   * - **DMLOnly**
+   * - **DDLOnly**
    * 
    * @example
    * ReadWrite
@@ -28,12 +28,12 @@ export class CreateDBRequest extends $dara.Model {
   accountPrivilege?: string;
   /**
    * @remarks
-   * The character set. Valid values:
+   * The character set. The following character sets are supported:
    * 
    * - **utf8**
    * - **gbk**
    * - **latin1**
-   * - **utf8mb4**.
+   * - **utf8mb4**
    * 
    * This parameter is required.
    * 
@@ -71,10 +71,10 @@ export class CreateDBRequest extends $dara.Model {
   dbName?: string;
   /**
    * @remarks
-   * The mode of the database. Valid values:
+   * The mode selected when creating the database. Valid values:
    * 
-   * - **auto**: The database supports automatic partitioning. You do not need to specify a partition key when you create a table.
-   * - **drds**: The database does not support automatic partitioning. You must use the dedicated sharding syntax to specify sharding keys when you create a table.
+   * - **auto**: The database supports automatic partitioning. You do not need to specify a partition key when creating a table.
+   * - **drds**: The database does not support automatic partitioning. You must use dedicated table and database sharding syntax and specify sharding keys when creating a table.
    * 
    * @example
    * auto
@@ -94,7 +94,7 @@ export class CreateDBRequest extends $dara.Model {
    * @remarks
    * The name of the security administrator account.
    * 
-   * > If the three-role mode is enabled, this parameter is required. If the three-role mode is not enabled, this parameter is not required.
+   * > If the three-role mode is enabled, this parameter is required. If the three-role mode is not enabled, this parameter is optional.
    * 
    * @example
    * securityAccount
@@ -104,7 +104,7 @@ export class CreateDBRequest extends $dara.Model {
    * @remarks
    * The password of the security administrator account.
    * 
-   * > If the three-role mode is enabled, this parameter is required. If the three-role mode is not enabled, this parameter is not required.
+   * > If the three-role mode is enabled, this parameter is required. If the three-role mode is not enabled, this parameter is optional.
    * 
    * @example
    * securityPassword

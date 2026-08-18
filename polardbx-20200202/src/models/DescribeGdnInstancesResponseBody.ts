@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeGdnInstancesResponseBodyDataGdnInstanceListMemberList extends $dara.Model {
   /**
    * @remarks
-   * The instance type.
+   * The instance specifications.
    * 
    * @example
    * polarx.x4.medium.2e
@@ -13,7 +13,7 @@ export class DescribeGdnInstancesResponseBodyDataGdnInstanceListMemberList exten
   classCode?: string;
   /**
    * @remarks
-   * The CN node specifications. Valid values:
+   * The CN node specifications.
    * 
    * - **polarx.x4.medium.2e**: 2 cores, 8 GB
    * - **polarx.x4.large.2e**: 4 cores, 16 GB
@@ -25,7 +25,7 @@ export class DescribeGdnInstancesResponseBodyDataGdnInstanceListMemberList exten
    * - **polarx.x4.4xlarge.2e**: 32 cores, 128 GB
    * - **polarx.x8.4xlarge.2e**: 32 cores, 256 GB
    * - **polarx.st.8xlarge.2e**: 60 cores, 470 GB
-   * - **polarx.st.12xlarge.2e**: 90 cores, 720 GB.
+   * - **polarx.st.12xlarge.2e**: 90 cores, 720 GB
    * 
    * @example
    * polarx.x4.medium.2e
@@ -50,7 +50,7 @@ export class DescribeGdnInstancesResponseBodyDataGdnInstanceListMemberList exten
   dataSyncStatus?: string;
   /**
    * @remarks
-   * The DN node specifications. Valid values:
+   * The DN node specifications.
    * - **mysql.n2.medium.25**: 2 cores, 4 GB
    * - **mysql.n4.medium.25**: 2 cores, 8 GB
    * - **mysql.x8.medium.25**: 2 cores, 16 GB
@@ -65,7 +65,7 @@ export class DescribeGdnInstancesResponseBodyDataGdnInstanceListMemberList exten
    * - **mysql.x4.4xlarge.25**: 32 cores, 128 GB
    * - **mysql.x8.4xlarge.25**: 32 cores, 256 GB
    * - **mysql.st.8xlarge.25**: 60 cores, 470 GB
-   * - **mysql.st.12xlarge.25**: 90 cores, 720 GB.
+   * - **mysql.st.12xlarge.25**: 90 cores, 720 GB
    * 
    * @example
    * mysql.n4.medium.25
@@ -150,7 +150,7 @@ export class DescribeGdnInstancesResponseBodyDataGdnInstanceListMemberList exten
   secondaryZone?: string;
   /**
    * @remarks
-   * The data latency.
+   * The data replication lag.
    * 
    * @example
    * 1s
@@ -169,16 +169,16 @@ export class DescribeGdnInstancesResponseBodyDataGdnInstanceListMemberList exten
    * The switchover task status.
    * 
    * @example
-   * prepared：参数初始化完毕
-   * set_old_primary_readonly：原主实例已禁写
-   * set_new_primary_read_write：已切换
-   * timeout：任务超时
-   * rollback：已回滚
+   * prepared: Parameter initialization is complete.
+   * set_old_primary_readonly: The original primary instance is set to read-only.
+   * set_new_primary_read_write: The switchover is complete.
+   * timeout: The task has timed out.
+   * rollback: The task has been rolled back
    */
   taskStatus?: string;
   /**
    * @remarks
-   * The zone for Three-zone deployment. This zone is active only when three-zone deployment is enabled.
+   * The zone for three-zone deployment. This zone is active along with the primary and secondary zones.
    * 
    * @example
    * cn-zhangjiakou-a
@@ -281,7 +281,7 @@ export class DescribeGdnInstancesResponseBodyDataGdnInstanceList extends $dara.M
   gmtCreated?: string;
   /**
    * @remarks
-   * The list of members.
+   * The member list.
    */
   memberList?: DescribeGdnInstancesResponseBodyDataGdnInstanceListMemberList[];
   /**
@@ -305,7 +305,7 @@ export class DescribeGdnInstancesResponseBodyDataGdnInstanceList extends $dara.M
   status?: string;
   /**
    * @remarks
-   * The switchover log.
+   * The switchover history.
    * 
    * @example
    * ""
@@ -424,7 +424,7 @@ export class DescribeGdnInstancesResponseBody extends $dara.Model {
   /**
    * @remarks
    * The response message.
-   * > This parameter is empty when the request succeeds. When the request fails, an exception message is returned, such as an error code.
+   * > This parameter is empty when the request succeeds. If the request fails, an exception message is returned, such as an error code.
    * 
    * @example
    * success

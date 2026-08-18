@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCdcVersionListRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the instance.
+   * The instance name.
    * 
    * @example
    * pxc-bjrl7****k2vp7
@@ -14,7 +14,7 @@ export class DescribeCdcVersionListRequest extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * The ID of the region in which the instance resides.
+   * The region ID of the instance.
    * 
    * @example
    * cn-beijing

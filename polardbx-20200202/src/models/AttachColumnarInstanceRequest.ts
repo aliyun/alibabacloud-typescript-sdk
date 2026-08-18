@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AttachColumnarInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance name or ID.
+   * The instance ID.
    * 
    * This parameter is required.
    * 

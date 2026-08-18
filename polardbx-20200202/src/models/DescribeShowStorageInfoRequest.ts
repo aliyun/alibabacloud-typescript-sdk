@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeShowStorageInfoRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the instance.
+   * The instance name.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DescribeShowStorageInfoRequest extends $dara.Model {
   DBInstanceName?: string;
   /**
    * @remarks
-   * The region in which the instance resides.
+   * The region where the instance resides.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class DescribeShowStorageInfoRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The resource group ID.
    * 
    * @example
    * rg-xxxxx

@@ -17,7 +17,7 @@ export class CheckCloudResourceAuthorizedResponseBodyData extends $dara.Model {
   authorizationState?: string;
   /**
    * @remarks
-   * The global resource descriptor ARN (Alibaba Cloud Resource Name) of the authorized role. After the authorization of this role is complete, the related KMS can be used. Format: acs:ram::$accountID:role/$roleName.
+   * The global resource descriptor ARN (Alibaba Cloud Resource Name) of the authorized role. After the authorization of the role is complete, the related KMS can be used. Format: acs:ram::$accountID:role/$roleName.
    * 
    * @example
    * acs:ram::123456789012****:role/AliyunRdsInstanceEncryptionDefaultRole

@@ -29,7 +29,7 @@ export class DescribeEvaluateAndImportTasksResponseBodyData extends $dara.Model 
   deleted?: boolean;
   /**
    * @remarks
-   * The task creation timestamp, in milliseconds.
+   * The timestamp when the task was created. Unit: milliseconds.
    * 
    * @example
    * 2025-01-08T15:00Z
@@ -37,7 +37,7 @@ export class DescribeEvaluateAndImportTasksResponseBodyData extends $dara.Model 
   gmtCreated?: number;
   /**
    * @remarks
-   * The modification time of the metadata information.
+   * The time when the metadata information was last modified.
    * 
    * @example
    * 2025-04-02T02:10:59Z
@@ -215,12 +215,12 @@ export class DescribeEvaluateAndImportTasksResponseBodyData extends $dara.Model 
 export class DescribeEvaluateAndImportTasksResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The task details.
+   * The details of the restoration tasks.
    */
   data?: DescribeEvaluateAndImportTasksResponseBodyData[];
   /**
    * @remarks
-   * The returned message. > This parameter is empty when the request succeeds. When the request fails, exception information (such as error codes) is returned.
+   * The returned message. > This parameter is empty when the request succeeds. When the request fails, exception information such as an error code is returned.
    * 
    * @example
    * success

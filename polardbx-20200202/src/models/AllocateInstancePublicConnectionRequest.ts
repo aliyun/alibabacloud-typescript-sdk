@@ -24,6 +24,9 @@ export class AllocateInstancePublicConnectionRequest extends $dara.Model {
    */
   DBInstanceName?: string;
   /**
+   * @remarks
+   * The name of the instance CN cluster, such as default.
+   * 
    * @example
    * default
    */

@@ -66,7 +66,7 @@ export class ModifyEngineMigrationResponseBody extends $dara.Model {
   httpStatusCode?: string;
   /**
    * @remarks
-   * The additional information. The value success is returned if the request succeeds. Otherwise, an error code is returned.
+   * The additional information. The value success is returned if the request is successful. Otherwise, an error code is returned.
    * 
    * @example
    * Success

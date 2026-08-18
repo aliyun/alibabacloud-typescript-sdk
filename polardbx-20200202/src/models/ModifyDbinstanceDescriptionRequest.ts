@@ -10,7 +10,7 @@ export class ModifyDBInstanceDescriptionRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 测试实例
+   * Test instance
    */
   DBInstanceDescription?: string;
   /**

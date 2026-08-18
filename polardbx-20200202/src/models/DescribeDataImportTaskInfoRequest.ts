@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDataImportTaskInfoRequest extends $dara.Model {
   /**
    * @remarks
-   * The page number of failed records.
+   * The page number of the failed records.
    * 
    * @example
    * 1
@@ -41,7 +41,7 @@ export class DescribeDataImportTaskInfoRequest extends $dara.Model {
   slinkTaskId?: string;
   /**
    * @remarks
-   * The page number of successful records.
+   * The page number of the successful records.
    * 
    * @example
    * 1

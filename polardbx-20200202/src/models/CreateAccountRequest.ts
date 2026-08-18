@@ -38,7 +38,7 @@ export class CreateAccountRequest extends $dara.Model {
    * - ReadWrite
    * - ReadOnly
    * - DMLOnly
-   * - DDLOnly.
+   * - DDLOnly
    * 
    * @example
    * ReadWrite
@@ -64,7 +64,7 @@ export class CreateAccountRequest extends $dara.Model {
   DBName?: string;
   /**
    * @remarks
-   * The region in which the instance resides.
+   * The region where the instance resides.
    * 
    * This parameter is required.
    * 
@@ -76,7 +76,7 @@ export class CreateAccountRequest extends $dara.Model {
    * @remarks
    * The name of the security administrator account.
    * 
-   * > If three-role mode is enabled, this parameter is required. If three-role mode is not enabled, this parameter is not required.
+   * > If the three-role mode is enabled, this parameter is required. If the three-role mode is not enabled, this parameter is not required.
    * 
    * @example
    * securityAccount
@@ -86,7 +86,7 @@ export class CreateAccountRequest extends $dara.Model {
    * @remarks
    * The password of the security administrator account.
    * 
-   * > If three-role mode is enabled, this parameter is required. If three-role mode is not enabled, this parameter is not required.
+   * > If the three-role mode is enabled, this parameter is required. If the three-role mode is not enabled, this parameter is not required.
    * 
    * @example
    * securityPassword

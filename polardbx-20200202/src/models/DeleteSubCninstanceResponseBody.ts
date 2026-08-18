@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteSubCNInstanceResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The backend task ID.
+   * 
    * @example
    * 2209883
    */
@@ -30,8 +33,15 @@ export class DeleteSubCNInstanceResponseBodyData extends $dara.Model {
 }
 
 export class DeleteSubCNInstanceResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: DeleteSubCNInstanceResponseBodyData;
   /**
+   * @remarks
+   * Id of the request
+   * 
    * @example
    * 1A586DCB-39A6-4050-81CC-C7BD4CCDB49F
    */

@@ -50,14 +50,17 @@ export class DescribeParameterTemplatesResponseBodyDataParameters extends $dara.
    * @remarks
    * Indicates whether the parameter can be modified. Valid values:
    * 
-   * - **0**: The parameter cannot be modified.
-   * - **1**: The parameter can be modified.
+   * - **0**: Cannot be modified.
+   * - **1**: Can be modified.
    * 
    * @example
    * 0
    */
   revisable?: number;
   /**
+   * @remarks
+   * Indicates whether the parameter can be modified by the user.
+   * 
    * @example
    * 0
    */

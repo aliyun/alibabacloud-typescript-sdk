@@ -35,7 +35,7 @@ export class ModifyColumnarClassResponseBodyData extends $dara.Model {
 export class ModifyColumnarClassResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The policy details returned.
+   * The returned policy details.
    */
   data?: ModifyColumnarClassResponseBodyData;
   /**

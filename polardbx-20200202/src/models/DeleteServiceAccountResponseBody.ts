@@ -29,7 +29,7 @@ export class DeleteServiceAccountResponseBodyAccessDeniedDetail extends $dara.Mo
   encodedDiagnosticMessage?: string;
   /**
    * @remarks
-   * The type of missing permission.
+   * The type of the permission denial.
    * 
    * @example
    * ImplicitDeny

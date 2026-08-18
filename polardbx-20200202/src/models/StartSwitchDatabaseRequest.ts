@@ -57,7 +57,7 @@ export class StartSwitchDatabaseRequest extends $dara.Model {
   slinkTaskId?: string;
   /**
    * @remarks
-   * The endpoint of the primary node of the source instance, which is typically the internal or public endpoint of the instance.
+   * The endpoint of the primary node of the source instance. This is typically the internal or public endpoint of the instance.
    * 
    * @example
    * rm-*********.mysql.rds.aliyuncs.com

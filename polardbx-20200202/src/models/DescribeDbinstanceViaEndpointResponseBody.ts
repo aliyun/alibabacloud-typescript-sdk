@@ -45,7 +45,7 @@ export class DescribeDBInstanceViaEndpointResponseBodyDBInstanceConnAddrs extend
   vSwitchId?: string;
   /**
    * @remarks
-   * The internal cloud instance ID within the VPC. You can ignore this parameter.
+   * The internal CloudInstanceId within the VPC. This parameter can be ignored.
    * 
    * @example
    * pxc-zkralxpc5d****
@@ -216,7 +216,7 @@ export class DescribeDBInstanceViaEndpointResponseBodyDBInstance extends $dara.M
    * - **polarx.x4.4xlarge.2e**: 32 cores, 128 GB
    * - **polarx.x8.4xlarge.2e**: 32 cores, 256 GB
    * - **polarx.st.8xlarge.2e**: 60 cores, 470 GB
-   * - **polarx.st.12xlarge.2e**: 90 cores, 720 GB.
+   * - **polarx.st.12xlarge.2e**: 90 cores, 720 GB
    * 
    * @example
    * polarx.x4.xlarge.2e
@@ -332,7 +332,7 @@ export class DescribeDBInstanceViaEndpointResponseBodyDBInstance extends $dara.M
    * - **mysql.x4.4xlarge.25**: 32 cores, 128 GB
    * - **mysql.x8.4xlarge.25**: 32 cores, 256 GB
    * - **mysql.st.8xlarge.25**: 60 cores, 470 GB
-   * - **mysql.st.12xlarge.25**: 90 cores, 720 GB.
+   * - **mysql.st.12xlarge.25**: 90 cores, 720 GB
    * 
    * @example
    * mysql.x8.large.25
@@ -366,8 +366,8 @@ export class DescribeDBInstanceViaEndpointResponseBodyDBInstance extends $dara.M
    * @remarks
    * Indicates whether the instance has expired. Valid values:
    * 
-   * - **true**: The instance has expired.
-   * - **false**: The instance is running normally.
+   * - **true**: Expired.
+   * - **false**: Not expired.
    * 
    * @example
    * false
@@ -391,7 +391,7 @@ export class DescribeDBInstanceViaEndpointResponseBodyDBInstance extends $dara.M
   kindCode?: number;
   /**
    * @remarks
-   * The Long-Term Support (LTS) version number.
+   * The LTS version numbers.
    * 
    * This parameter is required.
    */
@@ -412,8 +412,8 @@ export class DescribeDBInstanceViaEndpointResponseBodyDBInstance extends $dara.M
    * - **ManualLock**: Manually locked.
    * - **LockByExpiration**: Automatically locked due to instance expiration.
    * - **LockByRestoration**: Automatically locked before instance rollback.
-   * - **LockByDiskQuota**: Automatically locked because the instance storage is full.
-   * - **LockReadInstanceByDiskQuota**: Automatically locked because the read-only instance storage is full.
+   * - **LockByDiskQuota**: Automatically locked due to insufficient disk space.
+   * - **LockReadInstanceByDiskQuota**: Read-only instance automatically locked due to insufficient disk space.
    * 
    * @example
    * Unlock
@@ -472,7 +472,7 @@ export class DescribeDBInstanceViaEndpointResponseBodyDBInstance extends $dara.M
   port?: string;
   /**
    * @remarks
-   * The names of the read-only instances.
+   * The names of read-only instances.
    */
   readDBInstances?: string[];
   /**
@@ -493,7 +493,7 @@ export class DescribeDBInstanceViaEndpointResponseBodyDBInstance extends $dara.M
   resourceGroupId?: string;
   /**
    * @remarks
-   * The three-role mode status. Valid values:
+   * Indicates whether the three-role mode is enabled. Valid values:
    * 
    * - **false**: Disabled.
    * - **true**: Enabled.
@@ -509,7 +509,7 @@ export class DescribeDBInstanceViaEndpointResponseBodyDBInstance extends $dara.M
    * - **disabled**: Disabled.
    * - **enabled**: Enabled.
    * - **processing**: Being processed.
-   * - **unknown**: Unknown. The instance may be disconnected.
+   * - **unknown**: Unknown. This may be caused by the instance being unreachable.
    * 
    * @example
    * disabled

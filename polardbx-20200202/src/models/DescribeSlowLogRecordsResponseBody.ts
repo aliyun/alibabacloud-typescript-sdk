@@ -45,7 +45,7 @@ export class DescribeSlowLogRecordsResponseBodyItems extends $dara.Model {
   frows?: string;
   /**
    * @remarks
-   * The name and address of the client that connects to the database.
+   * The client name and address that connects to the database.
    * 
    * @example
    * ****[****] @ [1XX.XX.XX.XX]
@@ -93,7 +93,7 @@ export class DescribeSlowLogRecordsResponseBodyItems extends $dara.Model {
   parseRowCounts?: string;
   /**
    * @remarks
-   * The timestamp in the YYYY-MM-ddTHH:mm.ss.SSSZ format (UTC).
+   * The timestamp. Format: YYYY-MM-ddTHH:mm.ss.SSSZ (UTC).
    * 
    * - In CN slow logs, this field indicates the execution start time.
    * - In DN slow logs, this field indicates the execution end time.
@@ -104,7 +104,7 @@ export class DescribeSlowLogRecordsResponseBodyItems extends $dara.Model {
   queryStartTime?: string;
   /**
    * @remarks
-   * The execution duration of the SQL statement. Unit: seconds.
+   * The execution duration of the SQL statement. Unit: seconds (s).
    * 
    * @example
    * 3.000
@@ -144,7 +144,7 @@ export class DescribeSlowLogRecordsResponseBodyItems extends $dara.Model {
   SCNT?: string;
   /**
    * @remarks
-   * The unique identifier of the SQL statement in slow query log statistics.
+   * The unique identity of the SQL statement in slow query log statistics.
    * 
    * @example
    * c8df07e5d45cd68da8b4771c2016e20b

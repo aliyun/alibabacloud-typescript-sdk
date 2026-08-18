@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCdcInfoResponseBodyDataInstanceTopologyListPhysicalNodes extends $dara.Model {
   /**
    * @remarks
-   * The zone in which the instance resides.
+   * The zone where the instance resides.
    * 
    * @example
    * cn-hangzhou-h
@@ -13,7 +13,7 @@ export class DescribeCdcInfoResponseBodyDataInstanceTopologyListPhysicalNodes ex
   AZone?: string;
   /**
    * @remarks
-   * The disk size. Unit: MB.
+   * The disk size, in MB.
    * 
    * @example
    * 204800
@@ -37,7 +37,7 @@ export class DescribeCdcInfoResponseBodyDataInstanceTopologyListPhysicalNodes ex
   nodeId?: string;
   /**
    * @remarks
-   * The name of the node.
+   * The node name.
    * 
    * @example
    * pxc-c-***
@@ -103,7 +103,7 @@ export class DescribeCdcInfoResponseBodyDataInstanceTopologyList extends $dara.M
   clusterType?: string;
   /**
    * @remarks
-   * The remarks on the instance type.
+   * The instance type remarks.
    * 
    * @example
    * ***
@@ -111,7 +111,7 @@ export class DescribeCdcInfoResponseBodyDataInstanceTopologyList extends $dara.M
   comment?: string;
   /**
    * @remarks
-   * The name of the multi-stream group.
+   * The multi-stream group name.
    * 
    * @example
    * test
@@ -127,7 +127,7 @@ export class DescribeCdcInfoResponseBodyDataInstanceTopologyList extends $dara.M
   hashLevel?: string;
   /**
    * @remarks
-   * The name of the instance.
+   * The instance name.
    * 
    * @example
    * pxc-***
@@ -135,7 +135,7 @@ export class DescribeCdcInfoResponseBodyDataInstanceTopologyList extends $dara.M
   instanceName?: string;
   /**
    * @remarks
-   * The array of nodes.
+   * The node array.
    */
   physicalNodes?: DescribeCdcInfoResponseBodyDataInstanceTopologyListPhysicalNodes[];
   /**
@@ -193,7 +193,7 @@ export class DescribeCdcInfoResponseBodyData extends $dara.Model {
   binlogPersistTime?: number;
   /**
    * @remarks
-   * The size of the binlog.
+   * The binlog size.
    * 
    * This parameter is required.
    * 
@@ -213,7 +213,7 @@ export class DescribeCdcInfoResponseBodyData extends $dara.Model {
   cdcNewVersion?: string;
   /**
    * @remarks
-   * The checksum switch status.
+   * The checksum switch.
    * 
    * @example
    * ON
@@ -229,7 +229,7 @@ export class DescribeCdcInfoResponseBodyData extends $dara.Model {
   enableCyclicReplication?: boolean;
   /**
    * @remarks
-   * The list of instances.
+   * The instance list.
    */
   instanceTopologyList?: DescribeCdcInfoResponseBodyDataInstanceTopologyList[];
   /**
@@ -296,7 +296,7 @@ export class DescribeCdcInfoResponseBody extends $dara.Model {
   data?: DescribeCdcInfoResponseBodyData;
   /**
    * @remarks
-   * The HTTP status code of the request.
+   * The HTTP status code.
    * 
    * This parameter is required.
    * 

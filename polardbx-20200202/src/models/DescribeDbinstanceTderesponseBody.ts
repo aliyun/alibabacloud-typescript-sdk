@@ -7,8 +7,8 @@ export class DescribeDBInstanceTDEResponseBodyData extends $dara.Model {
    * @remarks
    * Indicates whether TDE is enabled. Valid values:
    * 
-   * - 0: TDE is disabled.
-   * - 1: TDE is enabled.
+   * - 0: Not enabled.
+   * - 1: Enabled.
    * 
    * @example
    * 0

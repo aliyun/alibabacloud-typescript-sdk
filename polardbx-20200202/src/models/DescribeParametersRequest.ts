@@ -17,7 +17,7 @@ export class DescribeParametersRequest extends $dara.Model {
    * @remarks
    * The parameter level. Valid values:
    * 
-   * - compute: compute layer
+   * - compute: compute layer.
    * - storage: storage layer.
    * 
    * @example

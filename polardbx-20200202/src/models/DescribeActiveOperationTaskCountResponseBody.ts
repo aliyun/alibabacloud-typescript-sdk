@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeActiveOperationTaskCountResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether a pop-up notification is required. Valid values:
+   * Indicates whether a pop-up window is required. Valid values:
    * 
    * - 1: Required.
    * - 0: Not required.

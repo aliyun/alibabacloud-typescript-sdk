@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateSQLEvaluateTaskResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The Slink task ID.
+   * The slink task ID.
    * 
    * @example
    * etx-szr2rr6i*****
@@ -40,7 +40,7 @@ export class CreateSQLEvaluateTaskResponseBody extends $dara.Model {
   data?: CreateSQLEvaluateTaskResponseBodyData;
   /**
    * @remarks
-   * The returned message. > This parameter is empty when the request succeeds. If the request fails, an error message is returned, such as an error code.
+   * The response message. > This parameter is empty when the request succeeds. If the request fails, an exception message is returned, such as an error code.
    * 
    * @example
    * *****

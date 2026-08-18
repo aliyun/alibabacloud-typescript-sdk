@@ -6,7 +6,7 @@ export class DescribeArchiveTableListResponseBodyDataTables extends $dara.Model 
   archiveStatus?: string;
   /**
    * @remarks
-   * The time when the table was created.
+   * The creation time.
    */
   createdDate?: number;
   /**
@@ -22,7 +22,7 @@ export class DescribeArchiveTableListResponseBodyDataTables extends $dara.Model 
   schemaName?: string;
   /**
    * @remarks
-   * The space occupied by the table.
+   * The space size occupied by the table.
    */
   spaceSize?: number;
   /**
@@ -66,7 +66,7 @@ export class DescribeArchiveTableListResponseBodyDataTables extends $dara.Model 
 export class DescribeArchiveTableListResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The page number.
+   * The page index.
    */
   pageIndex?: number;
   /**
@@ -125,7 +125,7 @@ export class DescribeArchiveTableListResponseBodyData extends $dara.Model {
 export class DescribeArchiveTableListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The data returned.
+   * The returned data.
    */
   data?: DescribeArchiveTableListResponseBodyData;
   /**

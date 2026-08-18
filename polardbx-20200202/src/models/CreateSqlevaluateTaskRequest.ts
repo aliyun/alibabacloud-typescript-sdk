@@ -73,7 +73,7 @@ export class CreateSQLEvaluateTaskRequest extends $dara.Model {
   slinkTaskId?: string;
   /**
    * @remarks
-   * Specifies whether to enable the source ApsaraDB RDS instance. Valid values: ***enable**: enabled. ***disabled**: disabled.
+   * Specifies whether to enable the source ApsaraDB RDS instance. Valid values: **enable**: enables the source ApsaraDB RDS instance. **disabled**: disables the source ApsaraDB RDS instance.
    * 
    * @example
    * transfer_test3

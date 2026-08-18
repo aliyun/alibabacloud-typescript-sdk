@@ -13,10 +13,10 @@ export class DescribeDBInstanceSSLResponseBodyData extends $dara.Model {
   certCommonName?: string;
   /**
    * @remarks
-   * Indicates whether SSL is enabled for the instance:
+   * Indicates whether SSL is enabled for the instance. Valid values:
    * 
-   * - **true**: enabled
-   * - **false**: disabled
+   * - **true**: Enabled.
+   * - **false**: Disabled.
    * 
    * @example
    * false
@@ -24,7 +24,7 @@ export class DescribeDBInstanceSSLResponseBodyData extends $dara.Model {
   SSLEnabled?: boolean;
   /**
    * @remarks
-   * The expiration time of the SSL certificate.
+   * The certificate expiration time.
    * 
    * @example
    * 2022-11-04T09:39:07Z
@@ -58,7 +58,7 @@ export class DescribeDBInstanceSSLResponseBodyData extends $dara.Model {
 export class DescribeDBInstanceSSLResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The data structure.
+   * The data struct.
    */
   data?: DescribeDBInstanceSSLResponseBodyData;
   /**

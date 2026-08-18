@@ -21,7 +21,7 @@ export class DescribeBinaryLogListResponseBodyLogList extends $dara.Model {
   createdTime?: string;
   /**
    * @remarks
-   * The download link for the file. The link is valid for 2 days.
+   * The download link of the file. The link is valid for 2 days.
    * 
    * @example
    * http://polarx-cdc-binlog-cn-hangzhou.oss-cn-hangzhou.aliyuncs.com/polardbx_cdc/pxc-hzfd132143sfds1/binlog.000001?Expires=1636469502&OSSAccessKeyId=LT13fds12dsafddsf&Signature=fdpm%bdsfadsa%2F%bdsafdsaf%3D
@@ -29,7 +29,7 @@ export class DescribeBinaryLogListResponseBodyLogList extends $dara.Model {
   downloadLink?: string;
   /**
    * @remarks
-   * The end time of the current binlog.
+   * The end time of the current binary log.
    * 
    * @example
    * 2021-11-09 10:27:46
@@ -37,7 +37,7 @@ export class DescribeBinaryLogListResponseBodyLogList extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The name of the binlog file.
+   * The name of the binary log file.
    * 
    * @example
    * binlog.000001
@@ -61,7 +61,7 @@ export class DescribeBinaryLogListResponseBodyLogList extends $dara.Model {
   logSize?: number;
   /**
    * @remarks
-   * The last modification time.
+   * The last modified time.
    * 
    * @example
    * 2021-11-09 10:27:46
@@ -71,8 +71,8 @@ export class DescribeBinaryLogListResponseBodyLogList extends $dara.Model {
    * @remarks
    * The purge status. Valid values:
    * 
-   * - 0: Not deleted.
-   * - 1: Deleted.
+   * - 0: not deleted. 
+   * - 1: deleted.
    * 
    * @example
    * 0
@@ -90,9 +90,9 @@ export class DescribeBinaryLogListResponseBodyLogList extends $dara.Model {
    * @remarks
    * The backup status. Valid values:
    * 
-   * - 0: Not backed up.
-   * - 1: Backing up.
-   * - 2: Backed up.
+   * - 0: not backed up. 
+   * - 1: being backed up. 
+   * - 2: backed up.
    * 
    * @example
    * 2
@@ -142,7 +142,7 @@ export class DescribeBinaryLogListResponseBodyLogList extends $dara.Model {
 export class DescribeBinaryLogListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of binlog files.
+   * The list of binary log files.
    */
   logList?: DescribeBinaryLogListResponseBodyLogList[];
   /**
@@ -155,7 +155,7 @@ export class DescribeBinaryLogListResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of binlog entries displayed on the current page.
+   * The number of binary logs displayed on the current page.
    * 
    * @example
    * 30
@@ -171,7 +171,7 @@ export class DescribeBinaryLogListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of binlog files found.
+   * The total number of binary log files returned.
    * 
    * @example
    * 100

@@ -15,12 +15,12 @@ export class ModifyAccountPrivilegeRequest extends $dara.Model {
   accountName?: string;
   /**
    * @remarks
-   * The account permissions. Valid values:
+   * The account permission. Valid values:
    * 
    * - **ReadWrite**
    * - **ReadOnly**
    * - **DMLOnly**
-   * - **DDLOnly**.
+   * - **DDLOnly**
    * 
    * @example
    * ReadWrite

@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateCustinsParamResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The task ID.
+   * 
    * @example
    * ******
    */
@@ -30,8 +33,15 @@ export class UpdateCustinsParamResponseBodyData extends $dara.Model {
 }
 
 export class UpdateCustinsParamResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The returned result.
+   */
   data?: UpdateCustinsParamResponseBodyData;
   /**
+   * @remarks
+   * Id of the request
+   * 
    * @example
    * 73559800-3c8c-****-bd40-99cfcff3fe1e
    */

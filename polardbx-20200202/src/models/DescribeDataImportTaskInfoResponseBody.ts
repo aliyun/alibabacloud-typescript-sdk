@@ -37,7 +37,7 @@ export class DescribeDataImportTaskInfoResponseBodyDataDataImportTaskDetailInfoS
   progress?: number;
   /**
    * @remarks
-   * The performance and runtime metrics collected during the execution of the data migration or import task.
+   * The performance and runtime metrics recorded during the execution of the data migration or import task.
    * 
    * @example
    * {
@@ -131,7 +131,8 @@ export class DescribeDataImportTaskInfoResponseBodyDataDataImportTaskDetailInfoS
   taskDetailList?: DescribeDataImportTaskInfoResponseBodyDataDataImportTaskDetailInfoServiceDetailListTaskDetailList[];
   /**
    * @remarks
-   * Valid values:
+   * The replication type. Valid values:
+   * 
    * - FULL_COPY: full replication.
    * - INC_COPY: incremental replication.
    * 
@@ -180,7 +181,7 @@ export class DescribeDataImportTaskInfoResponseBodyDataDataImportTaskDetailInfo 
   fsmId?: number;
   /**
    * @remarks
-   * The state identifier in a data migration or synchronization task.
+   * The state identifier in the data migration or synchronization task.
    * 
    * @example
    * RECON_FINISHED_CATCH_UP
@@ -188,7 +189,7 @@ export class DescribeDataImportTaskInfoResponseBodyDataDataImportTaskDetailInfo 
   fsmState?: string;
   /**
    * @remarks
-   * The status in a data migration, import, or synchronization system.
+   * The status in the data migration, import, or synchronization system.
    * 
    * @example
    * IMPORT_NOT_BEGIN
@@ -262,7 +263,7 @@ export class DescribeDataImportTaskInfoResponseBodyData extends $dara.Model {
 export class DescribeDataImportTaskInfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The return code. This parameter is empty when the request succeeds. When the request fails, an exception message such as an error code is returned.
+   * The response code. This parameter is empty when the request succeeds. If the request fails, an error message is returned, such as an error code.
    * 
    * @example
    * 200
@@ -270,12 +271,12 @@ export class DescribeDataImportTaskInfoResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The returned result set.
+   * The result set.
    */
   data?: DescribeDataImportTaskInfoResponseBodyData;
   /**
    * @remarks
-   * The returned message. This parameter has a value only when the task status is success. Otherwise, an empty value is returned.
+   * The response message. This parameter has a value only when the task status is success. Otherwise, an empty value is returned.
    * 
    * @example
    * success

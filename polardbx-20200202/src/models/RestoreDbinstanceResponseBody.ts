@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class RestoreDBInstanceResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The instance name.
+   * 
    * @example
    * pxc-*********
    */
   DBInstanceName?: string;
   /**
+   * @remarks
+   * The order ID.
+   * 
    * @example
    * 12345
    */
   orderId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 9B2F3840-XXXX-XXXX-XXXX-2D5C3A31797C
    */

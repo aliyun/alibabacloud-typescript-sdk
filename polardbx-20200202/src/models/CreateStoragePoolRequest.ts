@@ -41,7 +41,7 @@ export class CreateStoragePoolRequest extends $dara.Model {
   storagePoolDNList?: string;
   /**
    * @remarks
-   * The name of the storage pool.
+   * The storage pool name.
    * 
    * @example
    * test

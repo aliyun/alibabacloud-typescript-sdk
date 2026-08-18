@@ -13,7 +13,7 @@ export class RestartDataImportTaskRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Valid values: ***30*****50*****100**. Default value: **30**.
+   * The number of entries per page. Valid values: ***30***, **50**, and **100**. Default value: **30**.
    * 
    * @example
    * 0
@@ -31,7 +31,7 @@ export class RestartDataImportTaskRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the destination task.
+   * The ID of the target task.
    * 
    * @example
    * etx-szr2rr6i*****

@@ -40,7 +40,7 @@ export class SkipCurrentStepResponseBody extends $dara.Model {
   data?: SkipCurrentStepResponseBodyData;
   /**
    * @remarks
-   * The return message. This parameter is empty when the request succeeds. When the request fails, exception information such as error codes is returned.
+   * The returned message. This parameter is empty when the request succeeds. When the request fails, an exception message is returned, such as an error code.
    * 
    * @example
    * *****
@@ -56,7 +56,7 @@ export class SkipCurrentStepResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful.
+   * Indicates whether the request was successful.
    * 
    * @example
    * True

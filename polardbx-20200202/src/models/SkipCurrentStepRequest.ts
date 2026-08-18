@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SkipCurrentStepRequest extends $dara.Model {
   /**
    * @remarks
-   * The current operation step of the task.
+   * The current operation step number of the task.
    * 
    * @example
    * PRE_CHECK
@@ -13,7 +13,7 @@ export class SkipCurrentStepRequest extends $dara.Model {
   currentStep?: string;
   /**
    * @remarks
-   * The region where the instance is located.
+   * The region where the instance resides.
    * 
    * @example
    * cn-hangzhou

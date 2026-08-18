@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifySecurityIpsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response message. success is returned if the request is successful. Otherwise, an error code is returned.
+   * The response message. "success" is returned if the request is successful. Otherwise, an error code is returned.
    * 
    * @example
    * success

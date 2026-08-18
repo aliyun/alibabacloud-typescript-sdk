@@ -125,17 +125,17 @@ export class ExecuteMetaQueryResponseBodyData extends $dara.Model {
 export class ExecuteMetaQueryResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details about the access denial.
+   * The details of the access denial.
    */
   accessDeniedDetail?: ExecuteMetaQueryResponseBodyAccessDeniedDetail;
   /**
    * @remarks
-   * The instance details.
+   * The list of instance details.
    */
   data?: ExecuteMetaQueryResponseBodyData;
   /**
    * @remarks
-   * The additional information returned. If the request is successful, success is returned. If the request fails, the corresponding error code is returned.
+   * The additional information returned. If the request is successful, **success** is returned. If the request fails, the corresponding error code is returned.
    * 
    * @example
    * ""

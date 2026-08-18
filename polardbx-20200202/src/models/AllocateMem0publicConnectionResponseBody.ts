@@ -2,8 +2,6 @@
 import * as $dara from '@darabonba/typescript';
 
 
-/**
- */
 export class AllocateMem0PublicConnectionResponseBodyAccessDeniedDetail extends $dara.Model {
   /**
    * @remarks

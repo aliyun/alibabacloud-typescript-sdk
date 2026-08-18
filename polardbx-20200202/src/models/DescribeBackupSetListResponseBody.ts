@@ -16,7 +16,7 @@ export class DescribeBackupSetListResponseBodyData extends $dara.Model {
   backupModel?: number;
   /**
    * @remarks
-   * The ID of the backup set.
+   * The backup set ID.
    * 
    * @example
    * 111
@@ -24,7 +24,7 @@ export class DescribeBackupSetListResponseBodyData extends $dara.Model {
   backupSetId?: string;
   /**
    * @remarks
-   * The size of the backup set. Unit: bytes.
+   * The size of the backup set, in bytes.
    * 
    * @example
    * 88803195
@@ -43,7 +43,7 @@ export class DescribeBackupSetListResponseBodyData extends $dara.Model {
   backupType?: number;
   /**
    * @remarks
-   * The time when the backup started.
+   * The backup start time.
    * 
    * @example
    * 1635706960956
@@ -51,7 +51,7 @@ export class DescribeBackupSetListResponseBodyData extends $dara.Model {
   beginTime?: number;
   /**
    * @remarks
-   * The time when the backup ended.
+   * The backup end time.
    * 
    * @example
    * 1635706960956
@@ -61,7 +61,7 @@ export class DescribeBackupSetListResponseBodyData extends $dara.Model {
    * @remarks
    * The status of the backup set. Valid values:
    * 
-   * - **0**: Being backed up.
+   * - **0**: Backing up.
    * - **1**: Backup succeeded.
    * - **2**: Backup failed.
    * 
@@ -110,7 +110,7 @@ export class DescribeBackupSetListResponseBody extends $dara.Model {
   data?: DescribeBackupSetListResponseBodyData[];
   /**
    * @remarks
-   * The response message. "success" is returned if the request is successful. Otherwise, an error code is returned.
+   * The returned message. "success" is returned if the request is successful. Otherwise, an error code is returned.
    * 
    * @example
    * success

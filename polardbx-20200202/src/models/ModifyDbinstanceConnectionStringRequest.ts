@@ -35,7 +35,7 @@ export class ModifyDBInstanceConnectionStringRequest extends $dara.Model {
   newPort?: string;
   /**
    * @remarks
-   * The new connection string prefix.
+   * The new address prefix.
    * 
    * This parameter is required.
    * 

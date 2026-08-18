@@ -8,7 +8,7 @@ export class DescribeComponentPropetiesResponseBodyProperties extends $dara.Mode
    * The name.
    * 
    * @example
-   * 4核32G
+   * 4C32G
    */
   name?: string;
   /**
@@ -31,7 +31,7 @@ export class DescribeComponentPropetiesResponseBodyProperties extends $dara.Mode
   propertyCode?: string;
   /**
    * @remarks
-   * The label value.
+   * The tag value.
    * 
    * @example
    * 172.27.35.
@@ -67,7 +67,7 @@ export class DescribeComponentPropetiesResponseBodyProperties extends $dara.Mode
 export class DescribeComponentPropetiesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The export parameters of the exception event.
+   * The export parameters of exception events.
    */
   properties?: DescribeComponentPropetiesResponseBodyProperties[];
   /**

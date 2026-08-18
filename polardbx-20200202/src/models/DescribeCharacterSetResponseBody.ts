@@ -10,7 +10,7 @@ export class DescribeCharacterSetResponseBodyData extends $dara.Model {
    * - utf8mb4
    * - gbk
    * - latin1
-   * - utf8.
+   * - utf8
    */
   characterSet?: string[];
   /**

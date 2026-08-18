@@ -8,7 +8,7 @@ export class UntagResourcesRequest extends $dara.Model {
    * Specifies whether to delete all tags. This parameter is valid only when TagKey.N is empty. Valid values: true, false, True, and False. Default value: false.
    * 
    * @example
-   * 是否全部删除
+   * Specifies whether to delete all tags
    */
   all?: boolean;
   /**
@@ -30,7 +30,7 @@ export class UntagResourcesRequest extends $dara.Model {
   resourceId?: string[];
   /**
    * @remarks
-   * The resource type. Set this parameter to PolarDBXInstance.
+   * The resource type. The value must be PolarDBXInstance.
    * 
    * This parameter is required.
    * 

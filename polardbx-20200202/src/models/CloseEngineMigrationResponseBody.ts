@@ -53,7 +53,7 @@ export class CloseEngineMigrationResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The new endpoint information.
+   * The new endpoint connection string information.
    */
   data?: CloseEngineMigrationResponseBodyData;
   /**

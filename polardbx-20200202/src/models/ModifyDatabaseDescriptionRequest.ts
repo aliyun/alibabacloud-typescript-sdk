@@ -20,7 +20,7 @@ export class ModifyDatabaseDescriptionRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 测试数据库
+   * Test database
    */
   dbDescription?: string;
   /**

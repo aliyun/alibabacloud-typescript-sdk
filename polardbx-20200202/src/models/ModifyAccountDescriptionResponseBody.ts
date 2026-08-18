@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyAccountDescriptionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The additional information returned by the API. "success" is returned if the request is successful. Otherwise, the corresponding error code is returned.
+   * The additional information returned. If the request is successful, success is returned. If the request fails, the corresponding error code is returned.
    * 
    * @example
    * msg

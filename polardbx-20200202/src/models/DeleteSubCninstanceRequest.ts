@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteSubCNInstanceRequest extends $dara.Model {
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -14,6 +16,8 @@ export class DeleteSubCNInstanceRequest extends $dara.Model {
   instanceClusterName?: string;
   /**
    * @remarks
+   * The region where the instance resides.
+   * 
    * This parameter is required.
    * 
    * @example

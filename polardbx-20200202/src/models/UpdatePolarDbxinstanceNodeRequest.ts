@@ -14,7 +14,7 @@ export class UpdatePolarDBXInstanceNodeRequest extends $dara.Model {
   CNNodeCount?: number;
   /**
    * @remarks
-   * The client token. You can set this parameter to any random string.
+   * The client token, which is an arbitrary random string.
    * 
    * @example
    * FEA5DC20-6D8A-5979-97AA-FC57546ADC20

@@ -83,7 +83,7 @@ export class DescribeServiceAccountResponseBodyDataServiceAccounts extends $dara
   accountName?: string;
   /**
    * @remarks
-   * The time when the account was created.
+   * The creation time.
    * 
    * @example
    * 2023-07-21T14:17:25+08:00
@@ -139,7 +139,7 @@ export class DescribeServiceAccountResponseBodyDataServiceAccounts extends $dara
 export class DescribeServiceAccountResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The service account in the list.
+   * A service account in the list.
    */
   serviceAccounts?: DescribeServiceAccountResponseBodyDataServiceAccounts[];
   static names(): { [key: string]: string } {
@@ -179,7 +179,7 @@ export class DescribeServiceAccountResponseBody extends $dara.Model {
   data?: DescribeServiceAccountResponseBodyData;
   /**
    * @remarks
-   * The response message. "success" is returned if the request was successful. Otherwise, the corresponding error code is returned.
+   * The response message. "success" is returned if the request was successful. Otherwise, an error code is returned.
    * 
    * @example
    * ****

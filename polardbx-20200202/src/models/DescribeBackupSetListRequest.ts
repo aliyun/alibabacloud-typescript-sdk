@@ -15,7 +15,7 @@ export class DescribeBackupSetListRequest extends $dara.Model {
   DBInstanceName?: string;
   /**
    * @remarks
-   * The region where the backup sets reside. If you specify this parameter, backup sets in the specified region are returned. You can specify only one region at a time.
+   * The region where the backup set resides. After you specify this parameter, backup sets in the specified region are returned. Only one region can be specified at a time.
    * 
    * @example
    * cn-hangzhou
@@ -23,7 +23,7 @@ export class DescribeBackupSetListRequest extends $dara.Model {
   destCrossRegion?: string;
   /**
    * @remarks
-   * The end time. Specify a UNIX timestamp in milliseconds.
+   * The end time timestamp, in milliseconds.
    * 
    * @example
    * 1635707845000
@@ -31,7 +31,7 @@ export class DescribeBackupSetListRequest extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * The page number. The value starts from 1.
+   * The page number, starting from 1.
    * 
    * @example
    * 1
@@ -57,7 +57,7 @@ export class DescribeBackupSetListRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The start time. Specify a UNIX timestamp in milliseconds.
+   * The start time timestamp, in milliseconds.
    * 
    * @example
    * 1635707845000

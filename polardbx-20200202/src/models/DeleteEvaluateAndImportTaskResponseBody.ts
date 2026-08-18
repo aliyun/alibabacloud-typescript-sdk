@@ -13,7 +13,7 @@ export class DeleteEvaluateAndImportTaskResponseBody extends $dara.Model {
   data?: boolean;
   /**
    * @remarks
-   * The returned message. > This parameter is empty when the request succeeds. If the request fails, an exception message is returned, such as an error code.
+   * The returned message. > This parameter is empty when the request succeeds. When the request fails, an exception message is returned, such as an error code.
    * 
    * @example
    * msg

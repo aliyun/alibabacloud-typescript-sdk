@@ -15,7 +15,9 @@ export class ModifyActiveOperationMaintainConfRequest extends $dara.Model {
   cycleTime?: string;
   /**
    * @remarks
-   * The cycle mode. Set this parameter to Week.
+   * The cycle mode. Valid values:
+   * 
+   * - Week: weekly.
    * 
    * This parameter is required.
    * 

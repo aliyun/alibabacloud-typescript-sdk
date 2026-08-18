@@ -8,7 +8,7 @@ export class ModifyAccountDescriptionRequest extends $dara.Model {
    * The description of the account.
    * 
    * @example
-   * 测试账号
+   * Test account
    */
   accountDescription?: string;
   /**

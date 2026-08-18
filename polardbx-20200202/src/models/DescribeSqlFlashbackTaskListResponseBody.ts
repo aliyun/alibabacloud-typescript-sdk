@@ -93,8 +93,8 @@ export class DescribeSqlFlashbackTaskListResponseBodyDataSqlFlashbackTasks exten
    * @remarks
    * The recall type. Valid values:
    * 
-   * - **0**: exact match.
-   * - **1**: fuzzy match.
+   * - **0**: Exact match.
+   * - **1**: Fuzzy match.
    * 
    * @example
    * 0

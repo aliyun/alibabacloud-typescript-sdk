@@ -8,7 +8,7 @@ export class DescribeParametersResponseBodyDataConfigParameters extends $dara.Mo
    * The parameter description.
    * 
    * @example
-   * 存储节点私有协议开关(-1关闭，0开启)
+   * Storage node private protocol switch (-1: disabled, 0: enabled)
    */
   parameterDescription?: string;
   /**
@@ -58,7 +58,7 @@ export class DescribeParametersResponseBodyDataRunningParameters extends $dara.M
    * The parameter description.
    * 
    * @example
-   * 存储节点私有协议开关(-1关闭，0开启)
+   * Storage node private protocol switch (-1: disabled, 0: enabled)
    */
   parameterDescription?: string;
   /**

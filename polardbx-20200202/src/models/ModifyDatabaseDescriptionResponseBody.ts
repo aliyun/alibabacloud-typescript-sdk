@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyDatabaseDescriptionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The additional information returned. The value success is returned if the request is successful. Otherwise, an error code is returned.
+   * The additional information returned. The value is success if the request is successful, or an error code if the request fails.
    * 
    * @example
    * success

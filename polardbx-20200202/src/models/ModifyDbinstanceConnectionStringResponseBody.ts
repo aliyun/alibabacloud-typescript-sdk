@@ -78,7 +78,7 @@ export class ModifyDBInstanceConnectionStringResponseBody extends $dara.Model {
   data?: ModifyDBInstanceConnectionStringResponseBodyData;
   /**
    * @remarks
-   * The response message. This is typically an error message.
+   * The response message, which is typically an error message.
    * 
    * @example
    * success
@@ -86,7 +86,7 @@ export class ModifyDBInstanceConnectionStringResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID. It is a unique identifier.
+   * The request ID, which is a unique identifier.
    * 
    * @example
    * c3cf535c-a585-11ea-8263-00163e04d3a7

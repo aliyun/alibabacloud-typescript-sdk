@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateCustinsParamRequest extends $dara.Model {
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,14 +15,18 @@ export class UpdateCustinsParamRequest extends $dara.Model {
   DBInstanceName?: string;
   /**
    * @remarks
+   * The tag name.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 数仓抽数地址
+   * DataWarehouseExtractionAddress
    */
   name?: string;
   /**
    * @remarks
+   * The region ID. > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196841.html) operation to query the regions supported by PolarDB-X, including region IDs.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,6 +35,8 @@ export class UpdateCustinsParamRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
+   * The tag value.
+   * 
    * This parameter is required.
    * 
    * @example

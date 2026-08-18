@@ -6,7 +6,7 @@ export class DescribeDBInstancesRequest extends $dara.Model {
   dbVersion?: string;
   /**
    * @remarks
-   * The description or remarks of the database.
+   * The description of the database.
    * 
    * @example
    * app-test
@@ -30,7 +30,7 @@ export class DescribeDBInstancesRequest extends $dara.Model {
   mustHasCdc?: boolean;
   /**
    * @remarks
-   * The page number. Starts from 1.
+   * The page number. Pages start from 1.
    * 
    * @example
    * 1
@@ -39,10 +39,6 @@ export class DescribeDBInstancesRequest extends $dara.Model {
   /**
    * @remarks
    * The page size. Valid values:
-   * 
-   * - 30
-   * - 50
-   * - 100.
    * 
    * @example
    * 30
@@ -69,9 +65,6 @@ export class DescribeDBInstancesRequest extends $dara.Model {
   /**
    * @remarks
    * The instance edition. Valid values:
-   * 
-   * - **enterprise**: Enterprise Edition.
-   * - **standard**: Standard Edition.
    * 
    * @example
    * enterprise

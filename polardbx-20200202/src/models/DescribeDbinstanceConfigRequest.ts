@@ -25,7 +25,7 @@ export class DescribeDBInstanceConfigRequest extends $dara.Model {
   DBInstanceName?: string;
   /**
    * @remarks
-   * The ID of the region in which the instance resides.
+   * The ID of the region where the instance resides.
    * 
    * This parameter is required.
    * 

@@ -15,7 +15,7 @@ export class ModifyDBInstanceConfigRequest extends $dara.Model {
   configName?: string;
   /**
    * @remarks
-   * If configName is set to ENABLE_CONSISTENT_REPLICA_READ, the valid values are "true" and "false".
+   * If configName is set to ENABLE_CONSISTENT_REPLICA_READ, valid values are "true" and "false".
    * 
    * This parameter is required.
    * 

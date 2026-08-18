@@ -42,7 +42,7 @@ export class DescribePolarxDataNodesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The keyword for filtering query results.
+   * The keyword for filtering results.
    * 
    * @example
    * pc-bp1c5w4fx****2274

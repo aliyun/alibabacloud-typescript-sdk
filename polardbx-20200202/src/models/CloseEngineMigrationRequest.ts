@@ -12,7 +12,7 @@ export class CloseEngineMigrationRequest extends $dara.Model {
    * 
    * Default value: **true**.
    * 
-   * > Disabling binlog restarts your PolarDB cluster.
+   * > Disabling binlog will restart your PolarDB cluster.
    * 
    * @example
    * true
@@ -20,7 +20,7 @@ export class CloseEngineMigrationRequest extends $dara.Model {
   continueEnableBinlog?: string;
   /**
    * @remarks
-   * The name of the instance.
+   * The instance name.
    * 
    * This parameter is required.
    * 

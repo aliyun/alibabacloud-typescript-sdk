@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DisableSqlAuditRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the audit administrator account. > If the three-role mode is enabled, this parameter is required. For more information about the three-role mode, see [Three-role mode](https://help.aliyun.com/document_detail/213824.html).
+   * The name of the audit administrator account. > This parameter is required if the three-role mode is enabled. For more information about the three-role mode, see [Three-role mode](https://help.aliyun.com/document_detail/213824.html).
    * 
    * @example
    * test_daa
@@ -13,7 +13,7 @@ export class DisableSqlAuditRequest extends $dara.Model {
   auditAccountName?: string;
   /**
    * @remarks
-   * The password of the audit administrator account. > If the three-role mode is enabled, this parameter is required. For more information about the three-role mode, see [Three-role mode](https://help.aliyun.com/document_detail/213824.html).
+   * The password of the audit administrator account. > This parameter is required if the three-role mode is enabled. For more information about the three-role mode, see [Three-role mode](https://help.aliyun.com/document_detail/213824.html).
    * 
    * @example
    * Pw@11111
@@ -31,7 +31,7 @@ export class DisableSqlAuditRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The region ID of the instance. > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196841.html) operation to query the regions supported by PolarDB-X, including region IDs.
+   * The ID of the region where the instance resides. > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196841.html) operation to query the regions supported by PolarDB-X, including region IDs.
    * 
    * This parameter is required.
    * 

@@ -29,7 +29,7 @@ export class DescribeActiveOperationMaintainConfResponseBodyConfig extends $dara
   cycleType?: string;
   /**
    * @remarks
-   * The end time of the O&M window.
+   * The O&M end time.
    * 
    * @example
    * 04:00:00Z
@@ -37,7 +37,7 @@ export class DescribeActiveOperationMaintainConfResponseBodyConfig extends $dara
   maintainEndTime?: string;
   /**
    * @remarks
-   * The start time of the O&M window.
+   * The O&M start time.
    * 
    * @example
    * 04:00:00Z
@@ -102,8 +102,8 @@ export class DescribeActiveOperationMaintainConfResponseBody extends $dara.Model
    * @remarks
    * Indicates whether the O&M window has been configured. Valid values:
    * 
-   * - 1: configured.
-   * - 0: not configured.
+   * - 1: Configured.
+   * - 0: Not configured.
    * 
    * @example
    * 1

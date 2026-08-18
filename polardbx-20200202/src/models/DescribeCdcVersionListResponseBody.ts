@@ -35,7 +35,7 @@ export class DescribeCdcVersionListResponseBodyData extends $dara.Model {
 export class DescribeCdcVersionListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The data struct.
+   * The response struct.
    */
   data?: DescribeCdcVersionListResponseBodyData;
   /**

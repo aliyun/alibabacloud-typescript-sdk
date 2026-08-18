@@ -15,7 +15,7 @@ export class DescribeColdDataBasicInfoResponseBodyData extends $dara.Model {
   backupSetSpaceSize?: number;
   /**
    * @remarks
-   * The underlying storage cloud service.
+   * The underlying storage cloud product.
    */
   cloudProduct?: string;
   /**

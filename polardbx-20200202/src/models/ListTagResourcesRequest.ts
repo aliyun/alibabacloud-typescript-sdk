@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListTagResourcesRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The label key.
+   * The key of the label.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class ListTagResourcesRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The label value.
+   * The value of the label.
    * 
    * @example
    * 2
@@ -45,7 +45,7 @@ export class ListTagResourcesRequestTag extends $dara.Model {
 export class ListTagResourcesRequest extends $dara.Model {
   /**
    * @remarks
-   * The token for the next query. If this parameter is empty, no more results exist.
+   * The token used to start the next query.
    * 
    * @example
    * xxdds

@@ -45,7 +45,7 @@ export class DescribeSecurityIpsResponseBodyDataGroupItems extends $dara.Model {
 export class DescribeSecurityIpsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The name of the instance.
+   * The instance name.
    * 
    * @example
    * pxc-hzjasd****
@@ -90,7 +90,7 @@ export class DescribeSecurityIpsResponseBody extends $dara.Model {
   data?: DescribeSecurityIpsResponseBodyData;
   /**
    * @remarks
-   * The additional information returned. If the request is successful, success is returned. If the request fails, the corresponding error code is returned.
+   * The additional information returned. "success" is returned if the request is successful. Otherwise, an error code is returned.
    * 
    * @example
    * success

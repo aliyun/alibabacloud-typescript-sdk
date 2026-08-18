@@ -125,12 +125,12 @@ export class DescribeStructureImportTaskInfoResponseBodyData extends $dara.Model
 export class DescribeStructureImportTaskInfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned result set.
+   * The result set.
    */
   data?: DescribeStructureImportTaskInfoResponseBodyData;
   /**
    * @remarks
-   * The returned message. This parameter is empty if the request is successful. If the request fails, an error message is returned, such as an error code.
+   * The returned message. This parameter is empty when the request succeeds. When the request fails, an exception message is returned, such as an error code.
    * 
    * @example
    * success
@@ -146,7 +146,7 @@ export class DescribeStructureImportTaskInfoResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true

@@ -25,7 +25,7 @@ export class CreateServiceAccountRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The type of the service account.
+   * The service account type.
    * 
    * This parameter is required.
    * 

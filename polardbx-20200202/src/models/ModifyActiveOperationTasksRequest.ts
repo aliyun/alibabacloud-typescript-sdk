@@ -17,8 +17,8 @@ export class ModifyActiveOperationTasksRequest extends $dara.Model {
    * @remarks
    * Specifies whether to immediately execute the event. Valid values:
    * 
-   * - 1: immediately execute
-   * - 0: execute at the specified time.
+   * - 1: immediately executes the event.
+   * - 0: executes the event at the specified time.
    * 
    * @example
    * 1
@@ -36,7 +36,7 @@ export class ModifyActiveOperationTasksRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The switchover start time in the YYYY-MM-DDThh:mm:ssZ format.
+   * The time when the switchover starts. Specify the time in the YYYY-MM-DDThh:mm:ssZ format.
    * 
    * @example
    * 2021-08-15T12:00:00Z

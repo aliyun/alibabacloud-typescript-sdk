@@ -53,7 +53,7 @@ export class DescribeRplInspectionTaskResponseBodyDataInspectionTaskList extends
   status?: string;
   /**
    * @remarks
-   * The timestamp of the most recent task update.
+   * The timestamp when the task was last updated.
    * 
    * @example
    * 2025-09-23T03:25:21.000+0000

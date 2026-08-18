@@ -15,7 +15,7 @@ export class DescribeSqlFlashbackTaskListRequest extends $dara.Model {
   polardbxInstanceId?: string;
   /**
    * @remarks
-   * The region in which the instance resides.
+   * The region where the instance resides.
    * 
    * This parameter is required.
    * 

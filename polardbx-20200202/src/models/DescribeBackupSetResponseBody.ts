@@ -21,7 +21,7 @@ export class DescribeBackupSetResponseBodyDataOSSList extends $dara.Model {
   downloadLink?: string;
   /**
    * @remarks
-   * The internal network download URL for the OSS file.
+   * The internal network OSS download URL.
    * 
    * @example
    * http://pre-rdsbak-cn-beijing.oss-cn-beijing-internal.aliyuncs.com/custins2255/hins3084_data_20220418110623_qp.xb?
@@ -103,7 +103,7 @@ export class DescribeBackupSetResponseBodyData extends $dara.Model {
   backupType?: number;
   /**
    * @remarks
-   * The time when the backup started.
+   * The backup start time.
    * 
    * @example
    * 1650250861754
@@ -111,7 +111,7 @@ export class DescribeBackupSetResponseBodyData extends $dara.Model {
   beginTime?: number;
   /**
    * @remarks
-   * The time when the backup ended.
+   * The backup end time.
    * 
    * @example
    * 1650251308000

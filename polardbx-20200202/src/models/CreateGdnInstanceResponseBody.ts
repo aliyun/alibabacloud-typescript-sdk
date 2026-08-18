@@ -41,7 +41,7 @@ export class CreateGdnInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
    * The returned message.
-   * > This parameter is empty when the request succeeds. If the request fails, an error message is returned, such as an error code.
+   * > This parameter is empty when the request succeeds. If the request fails, an exception message is returned, such as an error code.
    * 
    * @example
    * ****
