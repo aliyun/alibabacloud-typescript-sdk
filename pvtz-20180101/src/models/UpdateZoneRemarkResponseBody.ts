@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateZoneRemarkResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The unique ID of the request.
    * 
    * @example
    * C6F1D541-E7A6-447A-A2B5-9F7A20B2A8FB
@@ -13,7 +13,7 @@ export class UpdateZoneRemarkResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The zone ID. This ID uniquely identifies the zone.
+   * The unique ID of the zone.
    * 
    * @example
    * df2d03865266bd9842306db586d3****

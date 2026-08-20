@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeUserVpcAuthorizationsRequest extends $dara.Model {
   /**
    * @remarks
-   * The authorization scope. Valid values:
+   * The authorization type. Valid values:
    * 
-   * *   NORMAL: general authorization
-   * *   CLOUD_PRODUCT: cloud service-related authorization
+   * - NORMAL: A regular authorization.
+   * 
+   * - CLOUD_PRODUCT: An authorization for an Alibaba Cloud service.
    * 
    * @example
    * NORMAL
@@ -16,7 +17,7 @@ export class DescribeUserVpcAuthorizationsRequest extends $dara.Model {
   authType?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account to which the permissions on the resources are granted.
+   * The ID of the Alibaba Cloud account that owns the authorized resources.
    * 
    * @example
    * 141339776561****
@@ -24,7 +25,7 @@ export class DescribeUserVpcAuthorizationsRequest extends $dara.Model {
   authorizedUserId?: number;
   /**
    * @remarks
-   * The page number. Pages start from page 1. Default value: 1.
+   * The page number. The value starts from 1. The default value is 1.
    * 
    * @example
    * 1
@@ -32,7 +33,7 @@ export class DescribeUserVpcAuthorizationsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Valid values: 1 to 100. Default value: 20.
+   * The number of entries per page. The maximum value is 100. The default value is 20.
    * 
    * @example
    * 20

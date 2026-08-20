@@ -13,7 +13,7 @@ export class DeleteResolverRuleRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The forwarding rule ID.
+   * The ID of the forwarding rule.
    * 
    * This parameter is required.
    * 

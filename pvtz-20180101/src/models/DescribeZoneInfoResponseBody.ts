@@ -126,18 +126,18 @@ export class DescribeZoneInfoResponseBody extends $dara.Model {
   bindVpcs?: DescribeZoneInfoResponseBodyBindVpcs;
   /**
    * @remarks
-   * The time when the zone was created. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
+   * The time when the zone was created.
    * 
    * @example
-   * 2018-01-23T03:15Z
+   * 2024-07-15T09:40Z
    */
   createTime?: string;
   /**
    * @remarks
-   * The time when the zone was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The timestamp that indicates when the zone was created.
    * 
    * @example
-   * 1516775741000
+   * 1721036404000
    */
   createTimestamp?: number;
   /**
@@ -158,10 +158,11 @@ export class DescribeZoneInfoResponseBody extends $dara.Model {
   creatorType?: string;
   /**
    * @remarks
-   * The logical location type of the built-in authoritative module in which the zone is added. Valid values:
+   * The DNS group. Valid values:
    * 
-   * *   **NORMAL_ZONE**: regular module
-   * *   **FAST_ZONE**: acceleration module
+   * - **NORMAL_ZONE**: Regular group
+   * 
+   * - **FAST_ZONE**: Fast group
    * 
    * @example
    * FAST_ZONE
@@ -169,10 +170,11 @@ export class DescribeZoneInfoResponseBody extends $dara.Model {
   dnsGroup?: string;
   /**
    * @remarks
-   * Indicates whether the zone is being removed to another logical location. Valid values:
+   * The status of switching the DNS group for the zone. You can switch a zone between the regular and fast groups. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: The DNS group is being switched.
+   * 
+   * - false: The DNS group is not being switched.
    * 
    * @example
    * false
@@ -182,8 +184,9 @@ export class DescribeZoneInfoResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the zone is a reverse lookup zone. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: The zone is a reverse lookup zone.
+   * 
+   * - false: The zone is not a reverse lookup zone.
    * 
    * @example
    * false
@@ -191,10 +194,11 @@ export class DescribeZoneInfoResponseBody extends $dara.Model {
   isPtr?: boolean;
   /**
    * @remarks
-   * Indicates whether the recursive resolution proxy for subdomain names is enabled. Valid values:
+   * Indicates whether the recursive proxy for subdomains is enabled.
    * 
-   * *   ZONE: The recursive resolution proxy for subdomain names is disabled. In this case, NXDOMAIN is returned if the queried domain name does not exist in the zone.
-   * *   RECORD: The recursive resolution proxy for subdomain names is enabled. In this case, if the queried domain name does not exist in the zone, DNS requests are recursively forwarded to the forward module and then to the recursion module until DNS results are returned.
+   * - ZONE: Disabled. If a non-existent subdomain is resolved, an NXDOMAIN response is returned to indicate that the subdomain does not exist.
+   * 
+   * - RECORD: Enabled. If a non-existent subdomain is resolved, the system queries the forwarding and recursion modules in sequence and uses the final result to respond to the DNS query.
    * 
    * @example
    * ZONE
@@ -202,15 +206,15 @@ export class DescribeZoneInfoResponseBody extends $dara.Model {
   proxyPattern?: string;
   /**
    * @remarks
-   * The total number of DNS records added in the zone.
+   * The total number of DNS records in the zone.
    * 
    * @example
-   * 2
+   * 5
    */
   recordCount?: number;
   /**
    * @remarks
-   * The description of the zone.
+   * The remarks.
    * 
    * @example
    * test
@@ -218,7 +222,7 @@ export class DescribeZoneInfoResponseBody extends $dara.Model {
   remark?: string;
   /**
    * @remarks
-   * The request ID.
+   * The unique ID of the request.
    * 
    * @example
    * F73F41A3-B6DD-42CA-A793-FFF93277835D
@@ -234,34 +238,35 @@ export class DescribeZoneInfoResponseBody extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * Indicates whether the secondary Domain Name System (DNS) feature is enabled for the zone. Valid values:
+   * Indicates whether secondary DNS is enabled. Valid values:
    * 
-   * *   **true**: The secondary DNS feature is enabled.
-   * *   **false**: The secondary DNS feature is disabled.
+   * - **true**: Enabled
+   * 
+   * - **false**: Disabled
    * 
    * @example
-   * true
+   * false
    */
   slaveDns?: boolean;
   /**
    * @remarks
-   * The time when the zone was last updated. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
+   * The time when the zone was last updated.
    * 
    * @example
-   * 2018-01-24T06:35Z
+   * 2024-07-22T09:39Z
    */
   updateTime?: string;
   /**
    * @remarks
-   * The time when the zone was last updated. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The timestamp that indicates when the zone was last updated.
    * 
    * @example
-   * 1516775741000
+   * 1721641148000
    */
   updateTimestamp?: number;
   /**
    * @remarks
-   * The zone ID. This ID uniquely identifies the zone.
+   * The unique ID of the zone.
    * 
    * @example
    * df2d03865266bd9842306db586d3****
@@ -269,7 +274,7 @@ export class DescribeZoneInfoResponseBody extends $dara.Model {
   zoneId?: string;
   /**
    * @remarks
-   * The zone name.
+   * The name of the zone.
    * 
    * @example
    * zone-test.cn
@@ -277,7 +282,7 @@ export class DescribeZoneInfoResponseBody extends $dara.Model {
   zoneName?: string;
   /**
    * @remarks
-   * The tag added to the zone.
+   * The tag of the zone.
    * 
    * @example
    * pvtz
@@ -285,13 +290,14 @@ export class DescribeZoneInfoResponseBody extends $dara.Model {
   zoneTag?: string;
   /**
    * @remarks
-   * The zone type. Valid values:
+   * The type of the zone. Valid values:
    * 
-   * *   **AUTH_ZONE**: authoritative zone
-   * *   **CLOUD_PRODUCT_ZONE**: authoritative zone for cloud services
+   * - **AUTH_ZONE**: Authoritative zone.
+   * 
+   * - **CLOUD_PRODUCT_ZONE**: Authoritative zone for a cloud product.
    * 
    * @example
-   * CLOUD_PRODUCT_ZONE
+   * AUTH_ZONE
    */
   zoneType?: string;
   static names(): { [key: string]: string } {

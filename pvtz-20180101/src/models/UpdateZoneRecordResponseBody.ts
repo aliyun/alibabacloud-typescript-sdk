@@ -13,7 +13,7 @@ export class UpdateZoneRecordResponseBody extends $dara.Model {
   recordId?: number;
   /**
    * @remarks
-   * The request ID.
+   * The unique ID of the request.
    * 
    * @example
    * 250E2C38-D0AD-4518-851D-1C1055805F82

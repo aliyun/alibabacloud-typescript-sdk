@@ -13,10 +13,11 @@ export class DescribeResolverAvailableZonesResponseBodyAvailableZones extends $d
   azId?: string;
   /**
    * @remarks
-   * The state of resources in the zone. Valid values:
+   * The status of resources in the zone. Valid values:
    * 
-   * *   NORMAL: The resources are in the normal state.
-   * *   SOLD_OUT: The resources are sold out.
+   * - NORMAL: Normal
+   * 
+   * - SOLD_OUT: Sold out
    * 
    * @example
    * NORMAL
@@ -48,12 +49,12 @@ export class DescribeResolverAvailableZonesResponseBodyAvailableZones extends $d
 export class DescribeResolverAvailableZonesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The queried zones.
+   * A list of zones and their resource statuses.
    */
   availableZones?: DescribeResolverAvailableZonesResponseBodyAvailableZones[];
   /**
    * @remarks
-   * The request ID.
+   * The unique request ID.
    * 
    * @example
    * 23268E49-0C3E-4A2C-AB70-B4C7D092470B

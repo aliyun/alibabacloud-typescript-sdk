@@ -163,7 +163,7 @@ export class DescribeZoneVpcTreeResponseBodyZones extends $dara.Model {
 export class DescribeZoneVpcTreeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The unique ID of the request.
    * 
    * @example
    * 7B07FBC3-3A53-4939-A3C6-2BDFE407BAB2

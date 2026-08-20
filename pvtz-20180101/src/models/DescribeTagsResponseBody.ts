@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeTagsResponseBodyTags extends $dara.Model {
   /**
    * @remarks
-   * The key of tag N added to the resource.
+   * The tag key of the resource.
    * 
    * @example
    * env
@@ -13,7 +13,7 @@ export class DescribeTagsResponseBodyTags extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The values of tags added to the resources.
+   * The list of tag values.
    */
   values?: string[];
   static names(): { [key: string]: string } {
@@ -45,7 +45,7 @@ export class DescribeTagsResponseBodyTags extends $dara.Model {
 export class DescribeTagsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The page number.
+   * The returned page number.
    * 
    * @example
    * 1
@@ -53,7 +53,7 @@ export class DescribeTagsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries returned per page.
    * 
    * @example
    * 20
@@ -61,7 +61,7 @@ export class DescribeTagsResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The request ID.
+   * The unique request ID.
    * 
    * @example
    * 9EA7F720-B7C0-45C1-9CF4-B6A5A1179B68
@@ -69,7 +69,7 @@ export class DescribeTagsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The tags added to the resources.
+   * The list of resource tags.
    */
   tags?: DescribeTagsResponseBodyTags[];
   /**

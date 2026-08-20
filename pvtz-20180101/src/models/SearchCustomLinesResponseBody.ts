@@ -114,7 +114,7 @@ export class SearchCustomLinesResponseBody extends $dara.Model {
   customLines?: SearchCustomLinesResponseBodyCustomLines;
   /**
    * @remarks
-   * The page number. Default value: 1.
+   * The page number. The default value is 1.
    * 
    * @example
    * 1
@@ -122,7 +122,7 @@ export class SearchCustomLinesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Valid values: **1 to 100**. Default value: **10**.
+   * The number of entries per page for a paged query. The maximum value is **100**. The default value is **10**.
    * 
    * @example
    * 10
@@ -130,7 +130,7 @@ export class SearchCustomLinesResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The request ID.
+   * The unique request ID.
    * 
    * @example
    * 46973D4C-E3E4-4ABA-9190-9A9DE406C7E
@@ -138,7 +138,7 @@ export class SearchCustomLinesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 100
@@ -146,7 +146,7 @@ export class SearchCustomLinesResponseBody extends $dara.Model {
   totalItems?: number;
   /**
    * @remarks
-   * The total number of returned pages.
+   * The total number of pages.
    * 
    * @example
    * 5

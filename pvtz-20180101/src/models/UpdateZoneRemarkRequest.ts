@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateZoneRemarkRequest extends $dara.Model {
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * A client-generated token that is used to ensure the idempotence of the request. Make sure that the token is unique for each request. The token can contain only ASCII characters and cannot exceed 64 characters in length.
    * 
    * @example
    * 21079fa016944979537637959d09bc
@@ -15,8 +15,9 @@ export class UpdateZoneRemarkRequest extends $dara.Model {
    * @remarks
    * The language of the response. Valid values:
    * 
-   * *   zh: Chinese
-   * *   en: English
+   * - zh: Chinese.
+   * 
+   * - en: English.
    * 
    * Default value: en.
    * 
@@ -26,7 +27,7 @@ export class UpdateZoneRemarkRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The new description. If you leave Remark empty, the zone has no description.
+   * The new remark. To clear the remark, set this parameter to an empty string.
    * 
    * @example
    * test
@@ -42,7 +43,7 @@ export class UpdateZoneRemarkRequest extends $dara.Model {
   userClientIp?: string;
   /**
    * @remarks
-   * The zone ID. This ID uniquely identifies the zone.
+   * The unique ID of the zone.
    * 
    * This parameter is required.
    * 

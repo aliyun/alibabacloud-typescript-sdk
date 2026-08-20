@@ -7,7 +7,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddResolverEndpointRequestIpConfig extends $dara.Model {
   /**
    * @remarks
-   * The ID of the zone to which the vSwitch belongs.
+   * The ID of the zone where the vSwitch resides.
    * 
    * This parameter is required.
    * 
@@ -22,15 +22,15 @@ export class AddResolverEndpointRequestIpConfig extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 172.16.0.0/24
+   * 172.16.XX.XX/24
    */
   cidrBlock?: string;
   /**
    * @remarks
-   * The source IP address of outbound traffic. The IP address must be within the specified CIDR block. If you leave this parameter empty, the system automatically allocates an IP address.
+   * The IP address. The IP address must be within the specified CIDR block. If you leave this parameter empty, the system automatically assigns an IP address.
    * 
    * @example
-   * 172.16.xx.xx
+   * 172.16.XX.XX
    */
   ip?: string;
   /**
@@ -40,7 +40,7 @@ export class AddResolverEndpointRequestIpConfig extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * sjqkql
+   * vsw-0jlgeyq4oazkh5xue****
    */
   vSwitchId?: string;
   static names(): { [key: string]: string } {
@@ -73,9 +73,9 @@ export class AddResolverEndpointRequestIpConfig extends $dara.Model {
 export class AddResolverEndpointRequest extends $dara.Model {
   /**
    * @remarks
-   * The source IP addresses of outbound traffic. You must add two to six source IP addresses.
+   * The list of source IP addresses for outbound traffic. You must add at least two IP addresses. You can add up to six IP addresses.
    * 
-   * >  You must add at least two source IP addresses for outbound traffic to ensure high availability. We recommend that you add two IP addresses that reside in different zones. You can add up to six source IP addresses.
+   * > To ensure high availability (HA), add at least two source IP addresses for the outbound endpoint. We recommend that you allocate these IP addresses in different zones. You can add a maximum of six source IP addresses.
    * 
    * This parameter is required.
    */
@@ -84,10 +84,11 @@ export class AddResolverEndpointRequest extends $dara.Model {
    * @remarks
    * The language of the response. Valid values:
    * 
-   * *   zh: Chinese
-   * *   en: English
+   * - zh: Chinese.
    * 
-   * Default value: en.
+   * - en: English.
+   * 
+   * Default value: en
    * 
    * @example
    * en
@@ -95,7 +96,7 @@ export class AddResolverEndpointRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The endpoint name. The name can be up to 20 characters in length. If the upper limit is exceeded, an error message is returned.
+   * The name of the endpoint. The name can be up to 20 characters long. An error is reported if the limit is exceeded.
    * 
    * This parameter is required.
    * 
@@ -105,31 +106,31 @@ export class AddResolverEndpointRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The ID of the security group. The security group rules are applied to the outbound VPC.
+   * The ID of the security group. The rules in the security group are applied to the outbound VPC.
    * 
-   * >  After you create the outbound endpoint, you cannot change the value of SecurityGroupId. This prevents the forwarding of DNS requests from being interrupted due to misoperations.
+   * > To prevent service interruptions, you cannot change this value after you create the outbound endpoint.
    * 
    * This parameter is required.
    * 
    * @example
-   * kqlqlqjqqkq
+   * sg-0jld3m9yq7l2cw12****
    */
   securityGroupId?: string;
   /**
    * @remarks
-   * The outbound VPC ID. All outbound Domain Name System (DNS) requests of the resolver are forwarded by this VPC.
+   * The ID of the outbound virtual private cloud (VPC). All outbound DNS query traffic from the Resolver is forwarded through this VPC.
    * 
-   * >  After you create the outbound endpoint, you cannot change the value of VpcId. This prevents the forwarding of DNS requests from being interrupted due to misoperations.
+   * > To prevent service interruptions, you cannot change this value after you create the outbound endpoint.
    * 
    * This parameter is required.
    * 
    * @example
-   * vpc-129343jslslsks
+   * vpc-0jl96awrjt75ezglc****
    */
   vpcId?: string;
   /**
    * @remarks
-   * The region ID of the outbound virtual private cloud (VPC).
+   * The region ID of the outbound VPC.
    * 
    * This parameter is required.
    * 

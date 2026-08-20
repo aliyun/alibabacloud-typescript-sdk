@@ -114,7 +114,7 @@ export class DescribeCustomLinesResponseBody extends $dara.Model {
   customLines?: DescribeCustomLinesResponseBodyCustomLines;
   /**
    * @remarks
-   * The page number. Pages start from page **1**. Default value: **1**.
+   * The page number of the returned page.
    * 
    * @example
    * 1
@@ -122,7 +122,7 @@ export class DescribeCustomLinesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Valid values: **1 to 100**. Default value: **10**.
+   * The number of entries returned per page.
    * 
    * @example
    * 10
@@ -146,7 +146,7 @@ export class DescribeCustomLinesResponseBody extends $dara.Model {
   totalItems?: number;
   /**
    * @remarks
-   * The total number of returned pages.
+   * The total number of pages returned.
    * 
    * @example
    * 5

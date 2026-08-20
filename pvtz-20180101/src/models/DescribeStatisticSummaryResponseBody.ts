@@ -124,7 +124,7 @@ export class DescribeStatisticSummaryResponseBodyZoneRequestTops extends $dara.M
 export class DescribeStatisticSummaryResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The unique request ID.
    * 
    * @example
    * A73F3BD0-B1A8-42A9-A9B6-689BBABC4891
@@ -132,7 +132,7 @@ export class DescribeStatisticSummaryResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of requests from yesterday.
    * 
    * @example
    * 2254

@@ -4,32 +4,57 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeIntranetUserCanAnalysisVpcsRequest extends $dara.Model {
   /**
+   * @remarks
+   * The network type.
+   * 
    * @example
    * CLOUD
    */
   networkType?: string;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 100
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * The level in the query hierarchy. For example, you can query for VPCs that belong to a specific cloud account.
+   * 
+   * @example
+   * 1
+   */
   queryTreeLevel?: number;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-beijing
    */
   regionId?: string;
   /**
+   * @remarks
+   * The owner of the VPC.
+   * 
    * @example
    * 1204673843521685
    */
   vpcOwner?: number;
   /**
+   * @remarks
+   * The VPC type.
+   * 
    * @example
    * STANDARD
    */

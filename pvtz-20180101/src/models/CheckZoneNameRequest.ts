@@ -7,10 +7,11 @@ export class CheckZoneNameRequest extends $dara.Model {
    * @remarks
    * The language of the response. Valid values:
    * 
-   * *   zh: Chinese
-   * *   en: English
+   * - zh: Chinese
    * 
-   * Default value: en.
+   * - en: English
+   * 
+   * Default value: en
    * 
    * @example
    * en
@@ -18,7 +19,7 @@ export class CheckZoneNameRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The IP address of the client.
+   * The IP address of the user.
    * 
    * @example
    * 127.0.XX.XX

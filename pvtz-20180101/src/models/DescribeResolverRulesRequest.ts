@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeResolverRulesRequest extends $dara.Model {
   /**
    * @remarks
-   * The outbound endpoint ID.
+   * The ID of the outbound endpoint.
    * 
    * @example
    * hr****
@@ -13,7 +13,7 @@ export class DescribeResolverRulesRequest extends $dara.Model {
   endpointId?: string;
   /**
    * @remarks
-   * The keyword of the forwarding rule name. Fuzzy search is supported. The value is not case-sensitive.
+   * The keyword for the name of the forwarding rule. The search is case-insensitive and supports fuzzy match.
    * 
    * @example
    * test
@@ -23,10 +23,11 @@ export class DescribeResolverRulesRequest extends $dara.Model {
    * @remarks
    * The language of the response. Valid values:
    * 
-   * *   zh: Chinese
-   * *   en: English
+   * - zh: Chinese.
    * 
-   * Default value: en.
+   * - en: English.
+   * 
+   * Default value: en
    * 
    * @example
    * en
@@ -34,10 +35,11 @@ export class DescribeResolverRulesRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Specifies whether to return virtual private clouds (VPCs) associated with the forwarding rule. Valid values:
+   * Specifies whether to return the list of virtual private clouds (VPCs) that are associated with the forwarding rule. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: returns the list.
+   * 
+   * - false: does not return the list.
    * 
    * Default value: false.
    * 
@@ -47,7 +49,7 @@ export class DescribeResolverRulesRequest extends $dara.Model {
   needDetailAttributes?: boolean;
   /**
    * @remarks
-   * The page number. Pages start from page 1. Default value: 1.
+   * The number of the page to return. The start value is 1. Default value: 1.
    * 
    * @example
    * 1
@@ -55,7 +57,7 @@ export class DescribeResolverRulesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Valid values: 1 to 100. Default value: 20.
+   * The number of entries to return on each page. Maximum value: 100. Default value: 20.
    * 
    * @example
    * 20

@@ -71,30 +71,49 @@ export class DescribeIntranetUserCanAnalysisVpcsResponseBodyUserCanAnalysisVpcsP
 
 export class DescribeIntranetUserCanAnalysisVpcsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The current page number.
+   * 
    * @example
    * 11
    */
   curPage?: number;
   /**
+   * @remarks
+   * The number of entries returned per page.
+   * 
    * @example
    * 1
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * C6F1D541-E7A6-447A-A2B5-9F7A20B2A8FB
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of pages.
+   * 
    * @example
    * 0
    */
   totalPage?: number;
   /**
+   * @remarks
+   * The total number of entries.
+   * 
    * @example
    * 35
    */
   totalSize?: number;
+  /**
+   * @remarks
+   * A list of VPCs that the user can analyze.
+   */
   userCanAnalysisVpcsPopResults?: DescribeIntranetUserCanAnalysisVpcsResponseBodyUserCanAnalysisVpcsPopResults;
   static names(): { [key: string]: string } {
     return {

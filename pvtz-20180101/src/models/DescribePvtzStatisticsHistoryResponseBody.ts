@@ -4,46 +4,73 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribePvtzStatisticsHistoryResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The number of requests.
+   * 
    * @example
    * 29
    */
   count?: number;
   /**
+   * @remarks
+   * The domain name.
+   * 
    * @example
    * wget At8P8tza.popscan.xaliyun.com
    */
   domainName?: string;
   /**
+   * @remarks
+   * The number of failed requests.
+   * 
    * @example
    * 100
    */
   failCount?: number;
   /**
+   * @remarks
+   * The protocol.
+   * 
    * @example
    * UDP、TCP
    */
   protocol?: string;
   /**
+   * @remarks
+   * The query type.
+   * 
    * @example
    * A
    */
   qtype?: string;
   /**
+   * @remarks
+   * The success rate.
+   * 
    * @example
    * 95
    */
   ratio?: number;
   /**
+   * @remarks
+   * The number of successful requests.
+   * 
    * @example
    * 5
    */
   successCount?: number;
   /**
+   * @remarks
+   * The timestamp of the data point. Unit: milliseconds.
+   * 
    * @example
    * 1687190400000
    */
   timestamp?: number;
   /**
+   * @remarks
+   * The name of the zone.
+   * 
    * @example
    * cn-zhangjiakou-share.log.aliyuncs.com
    */
@@ -86,10 +113,14 @@ export class DescribePvtzStatisticsHistoryResponseBodyData extends $dara.Model {
 }
 
 export class DescribePvtzStatisticsHistoryResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The statistical data.
+   */
   data?: DescribePvtzStatisticsHistoryResponseBodyData[];
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 46973D4C-E3E4-4ABA-9190-9A9DE406C7E

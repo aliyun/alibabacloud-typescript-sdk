@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateSyncEcsHostTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The unique ID of the request.
    * 
    * @example
    * test-FC9A-4595-8D96-089D73D7A63D
@@ -15,8 +15,9 @@ export class UpdateSyncEcsHostTaskResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * *   true
-   * *   false
+   * - True: The request succeeded.
+   * 
+   * - False: The request failed.
    * 
    * @example
    * true

@@ -104,7 +104,7 @@ export class DescribeZoneRecordsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries returned on each page.
    * 
    * @example
    * 100
@@ -121,7 +121,7 @@ export class DescribeZoneRecordsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of DNS records.
    * 
    * @example
    * 100
@@ -129,10 +129,10 @@ export class DescribeZoneRecordsResponseBody extends $dara.Model {
   totalItems?: number;
   /**
    * @remarks
-   * The total number of pages returned.
+   * The total number of pages.
    * 
    * @example
-   * 100
+   * 1
    */
   totalPages?: number;
   static names(): { [key: string]: string } {

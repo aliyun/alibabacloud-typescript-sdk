@@ -23,8 +23,9 @@ export class BindResolverRuleVpcRequestVpc extends $dara.Model {
    * @remarks
    * The VPC type. Valid values:
    * 
-   * *   STANDARD: standard VPC
-   * *   EDS: Elastic Desktop Service (EDS) workspace VPC
+   * - STANDARD: standard VPC.
+   * 
+   * - EDS: Elastic Desktop Service workspace VPC.
    * 
    * @example
    * STANDARD
@@ -60,8 +61,9 @@ export class BindResolverRuleVpcRequest extends $dara.Model {
    * @remarks
    * The language of the response. Valid values:
    * 
-   * *   zh: Chinese
-   * *   en: English
+   * - zh: Chinese.
+   * 
+   * - en: English.
    * 
    * Default value: en.
    * 
@@ -71,7 +73,7 @@ export class BindResolverRuleVpcRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The ID of the forwarding rule.
+   * The forwarding rule ID.
    * 
    * This parameter is required.
    * 
@@ -81,7 +83,7 @@ export class BindResolverRuleVpcRequest extends $dara.Model {
   ruleId?: string;
   /**
    * @remarks
-   * The VPCs that you want to associate with the forwarding rule.
+   * The VPCs to associate.
    */
   vpc?: BindResolverRuleVpcRequestVpc[];
   static names(): { [key: string]: string } {

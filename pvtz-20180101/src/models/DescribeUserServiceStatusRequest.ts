@@ -7,10 +7,11 @@ export class DescribeUserServiceStatusRequest extends $dara.Model {
    * @remarks
    * The language of the response. Valid values:
    * 
-   * *   zh: Chinese
-   * *   en: English
+   * - zh: Chinese.
    * 
-   * Default value: en.
+   * - en: English.
+   * 
+   * Default: en.
    * 
    * @example
    * en

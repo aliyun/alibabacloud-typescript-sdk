@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class TagResourcesRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The key of tag N to add to the resources.
+   * The tag key.
    * 
    * @example
    * env
@@ -13,7 +13,7 @@ export class TagResourcesRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of tag N to add to the resources.
+   * The tag value.
    * 
    * @example
    * daily
@@ -47,10 +47,11 @@ export class TagResourcesRequest extends $dara.Model {
    * @remarks
    * The language of the response. Valid values:
    * 
-   * *   zh: Chinese
-   * *   en: English
+   * - zh: Chinese.
    * 
-   * Default value: en.
+   * - en: English.
+   * 
+   * Default value: en
    * 
    * @example
    * en
@@ -58,10 +59,11 @@ export class TagResourcesRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Specifies whether to replace the original tags added to the resources. Valid values:
+   * Specifies whether to modify the tag list. Valid values:
    * 
-   * *   True: replaces the original tags.
-   * *   False (default): appends the specified one or more tags to the original tags. If a new tag has the same key but a different value from an original tag, the new tag replaces the original tag.
+   * - True: Overwrites the existing tag list.
+   * 
+   * - False (default): Appends tags to the existing list. If a tag key already exists, its value is updated.
    * 
    * @example
    * true
@@ -69,7 +71,7 @@ export class TagResourcesRequest extends $dara.Model {
   overWrite?: boolean;
   /**
    * @remarks
-   * The resource IDs, which are zone IDs. You can specify up to 50 zone IDs.
+   * The list of resource IDs. These are the IDs of the zones. You can specify up to 50 IDs.
    * 
    * This parameter is required.
    * 
@@ -79,7 +81,7 @@ export class TagResourcesRequest extends $dara.Model {
   resourceId?: string[];
   /**
    * @remarks
-   * The resource type. Valid value: ZONE.
+   * The resource type. The value must be ZONE.
    * 
    * This parameter is required.
    * 
@@ -89,7 +91,7 @@ export class TagResourcesRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The tags to add to the resources.
+   * The list of tags.
    * 
    * This parameter is required.
    */

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeResolverEndpointsResponseBodyEndpointsIpConfigs extends $dara.Model {
   /**
    * @remarks
-   * The ID of the zone to which the vSwitch belongs.
+   * The ID of the zone where the vSwitch is located.
    * 
    * @example
    * cn-zhangjiakou-a
@@ -13,7 +13,7 @@ export class DescribeResolverEndpointsResponseBodyEndpointsIpConfigs extends $da
   azId?: string;
   /**
    * @remarks
-   * The IPv4 CIDR block of the vSwitch.
+   * The subnet mask, which is the IPv4 CIDR block of the vSwitch.
    * 
    * @example
    * 172.16.XX.XX/24
@@ -21,7 +21,7 @@ export class DescribeResolverEndpointsResponseBodyEndpointsIpConfigs extends $da
   cidrBlock?: string;
   /**
    * @remarks
-   * The source IP address of outbound traffic. The IP address must be within the specified CIDR block.
+   * The IP address within the CIDR block.
    * 
    * @example
    * 172.16.XX.XX
@@ -29,7 +29,7 @@ export class DescribeResolverEndpointsResponseBodyEndpointsIpConfigs extends $da
   ip?: string;
   /**
    * @remarks
-   * The vSwitch ID.
+   * The ID of the vSwitch.
    * 
    * @example
    * vsw-0jlgeyq4oazkh5xue****
@@ -73,7 +73,7 @@ export class DescribeResolverEndpointsResponseBodyEndpoints extends $dara.Model 
   createTime?: string;
   /**
    * @remarks
-   * The time when the endpoint was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The time when the endpoint was created. This is a UNIX timestamp.
    * 
    * @example
    * 1594607786000
@@ -81,7 +81,7 @@ export class DescribeResolverEndpointsResponseBodyEndpoints extends $dara.Model 
   createTimestamp?: number;
   /**
    * @remarks
-   * The endpoint ID.
+   * The ID of the endpoint.
    * 
    * @example
    * hr****
@@ -89,7 +89,7 @@ export class DescribeResolverEndpointsResponseBodyEndpoints extends $dara.Model 
   id?: string;
   /**
    * @remarks
-   * The source IP addresses of outbound traffic.
+   * The list of source IP addresses for outbound traffic.
    */
   ipConfigs?: DescribeResolverEndpointsResponseBodyEndpointsIpConfigs[];
   /**
@@ -97,7 +97,7 @@ export class DescribeResolverEndpointsResponseBodyEndpoints extends $dara.Model 
    * The name of the endpoint.
    * 
    * @example
-   * endpoint-test
+   * Endpoint-test
    */
   name?: string;
   /**
@@ -110,14 +110,19 @@ export class DescribeResolverEndpointsResponseBodyEndpoints extends $dara.Model 
   securityGroupId?: string;
   /**
    * @remarks
-   * The state of the endpoint that you queried. Valid values:
+   * The status of the endpoint. Description:
    * 
-   * *   SUCCESS: The endpoint works as expected.
-   * *   INIT: The endpoint is being created.
-   * *   FAILED: The endpoint failed to be created.
-   * *   CHANGE_INIT: The endpoint is being modified.
-   * *   CHANGE_FAILED: The endpoint failed to be modified.
-   * *   EXCEPTION: The endpoint encountered an exception.
+   * - SUCCESS: The endpoint is working as expected.
+   * 
+   * - INIT: The endpoint is being created.
+   * 
+   * - FAILED: The endpoint failed to be created.
+   * 
+   * - CHANGE_INIT: The endpoint is being modified.
+   * 
+   * - CHANGE_FAILED: The endpoint failed to be modified.
+   * 
+   * - EXCEPTION: The endpoint is not working as expected.
    * 
    * @example
    * SUCCESS
@@ -125,7 +130,7 @@ export class DescribeResolverEndpointsResponseBodyEndpoints extends $dara.Model 
   status?: string;
   /**
    * @remarks
-   * The time when the endpoint was updated.
+   * The time when the endpoint was last updated.
    * 
    * @example
    * 2020-07-13 10:38:24
@@ -133,7 +138,7 @@ export class DescribeResolverEndpointsResponseBodyEndpoints extends $dara.Model 
   updateTime?: string;
   /**
    * @remarks
-   * The time when the endpoint was updated. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The time when the endpoint was last updated. This is a UNIX timestamp.
    * 
    * @example
    * 1594607904000
@@ -141,7 +146,7 @@ export class DescribeResolverEndpointsResponseBodyEndpoints extends $dara.Model 
   updateTimestamp?: number;
   /**
    * @remarks
-   * The ID of the outbound VPC. All outbound Domain Name System (DNS) requests of the resolver are forwarded by this VPC.
+   * The ID of the outbound VPC. All outbound DNS query traffic from the Resolver is forwarded through this VPC.
    * 
    * @example
    * vpc-0jlxhpfnj5bfu0bsd****
@@ -157,7 +162,7 @@ export class DescribeResolverEndpointsResponseBodyEndpoints extends $dara.Model 
   vpcName?: string;
   /**
    * @remarks
-   * The region ID of the outbound VPC.
+   * The ID of the region where the outbound VPC is located.
    * 
    * @example
    * cn-zhangjiakou
@@ -165,10 +170,10 @@ export class DescribeResolverEndpointsResponseBodyEndpoints extends $dara.Model 
   vpcRegionId?: string;
   /**
    * @remarks
-   * The name of the region where the VPC resides.
+   * The name of the region where the outbound VPC is located.
    * 
    * @example
-   * China East 1 (Hangzhou)
+   * Hangzhou VPC test
    */
   vpcRegionName?: string;
   static names(): { [key: string]: string } {
@@ -222,12 +227,12 @@ export class DescribeResolverEndpointsResponseBodyEndpoints extends $dara.Model 
 export class DescribeResolverEndpointsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The endpoints.
+   * The list of endpoints.
    */
   endpoints?: DescribeResolverEndpointsResponseBodyEndpoints[];
   /**
    * @remarks
-   * The page number.
+   * The page number of the returned data.
    * 
    * @example
    * 1
@@ -235,7 +240,7 @@ export class DescribeResolverEndpointsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries returned per page.
    * 
    * @example
    * 2
@@ -243,7 +248,7 @@ export class DescribeResolverEndpointsResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The request ID.
+   * The unique ID of the request.
    * 
    * @example
    * 83D1682B-B69A-4060-9FA8-2907C2A35600

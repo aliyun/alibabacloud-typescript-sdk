@@ -64,10 +64,10 @@ export class DescribeRegionsResponseBody extends $dara.Model {
   regions?: DescribeRegionsResponseBodyRegions;
   /**
    * @remarks
-   * The request ID.
+   * The unique ID of the request.
    * 
    * @example
-   * AF7D4DCE-0776-47F2-A9B2-6FB85A87AA60
+   * 1E0F6898-F854-5133-A4CB-9C094152D05A
    */
   requestId?: string;
   static names(): { [key: string]: string } {

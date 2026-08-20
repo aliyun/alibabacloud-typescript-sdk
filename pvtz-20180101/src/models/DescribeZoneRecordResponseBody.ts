@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeZoneRecordResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The time when the DNS record was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * The time when the record was created.
    * 
    * @example
    * 2018-01-23T03:15Z
@@ -13,7 +13,7 @@ export class DescribeZoneRecordResponseBody extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The time when the DNS record was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The timestamp that indicates when the record was created.
    * 
    * @example
    * 1516775741000
@@ -21,7 +21,7 @@ export class DescribeZoneRecordResponseBody extends $dara.Model {
   createTimestamp?: number;
   /**
    * @remarks
-   * The resolution line.
+   * The DNS resolution line.
    * 
    * @example
    * default
@@ -29,7 +29,7 @@ export class DescribeZoneRecordResponseBody extends $dara.Model {
   line?: string;
   /**
    * @remarks
-   * The priority of the mail exchanger (MX) record.
+   * The priority of the mail exchange (MX) record.
    * 
    * @example
    * 5
@@ -45,7 +45,7 @@ export class DescribeZoneRecordResponseBody extends $dara.Model {
   recordId?: number;
   /**
    * @remarks
-   * The description of the DNS record.
+   * The remarks.
    * 
    * @example
    * test record
@@ -61,7 +61,7 @@ export class DescribeZoneRecordResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The hostname.
+   * The host record.
    * 
    * @example
    * www
@@ -69,10 +69,11 @@ export class DescribeZoneRecordResponseBody extends $dara.Model {
   rr?: string;
   /**
    * @remarks
-   * The state of the DNS record. Valid values:
+   * The status of the DNS record. Valid values:
    * 
-   * *   **ENABLE**: The DNS record is enabled.
-   * *   **DISABLE**: The DNS record is disabled.
+   * - **ENABLE**: The DNS record is enabled.
+   * 
+   * - **DISABLE**: The DNS record is paused.
    * 
    * @example
    * ENABLE
@@ -80,7 +81,7 @@ export class DescribeZoneRecordResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The time to live (TTL) of the DNS record.
+   * The time to live (TTL).
    * 
    * @example
    * 60
@@ -96,7 +97,7 @@ export class DescribeZoneRecordResponseBody extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The time when the DNS record was updated. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * The time when the record was last updated.
    * 
    * @example
    * 2018-01-24T06:35Z
@@ -104,7 +105,7 @@ export class DescribeZoneRecordResponseBody extends $dara.Model {
   updateTime?: string;
   /**
    * @remarks
-   * The time when the DNS record was updated. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The timestamp that indicates when the record was last updated.
    * 
    * @example
    * 1516775741000
@@ -120,7 +121,7 @@ export class DescribeZoneRecordResponseBody extends $dara.Model {
   value?: string;
   /**
    * @remarks
-   * The weight value of the DNS record.
+   * The weight of the DNS record.
    * 
    * @example
    * 1

@@ -2,24 +2,18 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class MoveResourceGroupRequest extends $dara.Model {
+export class UpdateZoneRecordWeightRequest extends $dara.Model {
   /**
    * @remarks
-   * A client token that ensures the idempotence of the request. Generate a unique value on your client. The token must contain only ASCII characters and be no more than 64 characters in length.
+   * The client token that is used to ensure the idempotence of the request. If you do not specify this parameter, the system automatically generates a value. To ensure uniqueness across different requests, the value cannot exceed 64 ASCII characters.
    * 
    * @example
-   * 21079fa016944979537637959d09bc
+   * 210bc45716943908285687176dcf0a
    */
   clientToken?: string;
   /**
    * @remarks
-   * The language of the response. Valid values:
-   * 
-   * - zh: Chinese
-   * 
-   * - en: English
-   * 
-   * Default value: en.
+   * The language.
    * 
    * @example
    * en
@@ -27,30 +21,30 @@ export class MoveResourceGroupRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The ID of the destination resource group.
+   * The ID of the DNS record.
    * 
    * This parameter is required.
    * 
    * @example
-   * rg-aekz2qj7awz****
+   * 5808
    */
-  newResourceGroupId?: string;
+  recordId?: number;
   /**
    * @remarks
-   * The unique ID of the zone.
+   * The updated weight value `[0,100]`.
    * 
    * This parameter is required.
    * 
    * @example
-   * df2d03865266bd9842306db586d4****
+   * 1
    */
-  resourceId?: string;
+  weight?: number;
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
       lang: 'Lang',
-      newResourceGroupId: 'NewResourceGroupId',
-      resourceId: 'ResourceId',
+      recordId: 'RecordId',
+      weight: 'Weight',
     };
   }
 
@@ -58,8 +52,8 @@ export class MoveResourceGroupRequest extends $dara.Model {
     return {
       clientToken: 'string',
       lang: 'string',
-      newResourceGroupId: 'string',
-      resourceId: 'string',
+      recordId: 'number',
+      weight: 'number',
     };
   }
 

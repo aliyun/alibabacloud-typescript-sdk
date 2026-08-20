@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateResolverEndpointRequestIpConfig extends $dara.Model {
   /**
    * @remarks
-   * The ID of the zone to which the vSwitch belongs.
+   * The ID of the zone where the vSwitch is located.
    * 
    * @example
    * cn-hangzhou-a
@@ -21,7 +21,7 @@ export class UpdateResolverEndpointRequestIpConfig extends $dara.Model {
   cidrBlock?: string;
   /**
    * @remarks
-   * The source IP address of outbound traffic. The IP address must be within the specified CIDR block. If you leave this parameter empty, the system automatically allocates an IP address.
+   * An IP address that is within the CIDR block of the vSwitch. If you leave this parameter empty, the system automatically assigns an IP address.
    * 
    * @example
    * 172.16.XX.XX
@@ -75,19 +75,20 @@ export class UpdateResolverEndpointRequest extends $dara.Model {
   endpointId?: string;
   /**
    * @remarks
-   * The source IP addresses of outbound traffic. You can add two to six IP addresses.
+   * A list of source IP addresses for outbound traffic. Specify at least two and up to six IP addresses.
    * 
-   * >  You must add at least two source IP addresses for outbound traffic to ensure high availability. We recommend that you add two IP addresses that reside in different zones. You can add up to six source IP addresses.
+   * > To ensure high availability (HA), an outbound endpoint requires at least two source IP addresses. We recommend that you assign these IP addresses to different zones. An outbound endpoint supports a maximum of six source IP addresses.
    */
   ipConfig?: UpdateResolverEndpointRequestIpConfig[];
   /**
    * @remarks
    * The language of the response. Valid values:
    * 
-   * *   zh: Chinese
-   * *   en: English
+   * - zh: Chinese.
    * 
-   * Default value: en.
+   * - en: English.
+   * 
+   * Default value: en
    * 
    * @example
    * en
@@ -95,7 +96,7 @@ export class UpdateResolverEndpointRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The endpoint name.
+   * The name of the endpoint.
    * 
    * @example
    * endpoint-test-name

@@ -61,7 +61,7 @@ export class DescribeRequestGraphResponseBody extends $dara.Model {
   requestDetails?: DescribeRequestGraphResponseBodyRequestDetails;
   /**
    * @remarks
-   * The request ID.
+   * The unique ID of the request.
    * 
    * @example
    * EB71815-A421-4E51-8E8D-667F44ABE633

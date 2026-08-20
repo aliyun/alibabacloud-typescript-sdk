@@ -163,7 +163,7 @@ export class DescribeZonesResponseBodyZones extends $dara.Model {
 export class DescribeZonesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The page number.
+   * The page number of the returned data.
    * 
    * @example
    * 1
@@ -171,7 +171,7 @@ export class DescribeZonesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries returned per page.
    * 
    * @example
    * 20
@@ -179,7 +179,7 @@ export class DescribeZonesResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The request ID.
+   * The unique ID of the request.
    * 
    * @example
    * 6856BCF6-11D6-4D7E-AC53-FD579933522B
@@ -190,15 +190,15 @@ export class DescribeZonesResponseBody extends $dara.Model {
    * The total number of entries returned.
    * 
    * @example
-   * 3
+   * 1
    */
   totalItems?: number;
   /**
    * @remarks
-   * The total number of returned pages.
+   * The total number of pages returned.
    * 
    * @example
-   * 3
+   * 1
    */
   totalPages?: number;
   zones?: DescribeZonesResponseBodyZones;

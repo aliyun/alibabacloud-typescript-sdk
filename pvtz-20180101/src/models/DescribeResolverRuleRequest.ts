@@ -7,8 +7,9 @@ export class DescribeResolverRuleRequest extends $dara.Model {
    * @remarks
    * The language of the response. Valid values:
    * 
-   * *   zh: Chinese
-   * *   en: English
+   * - zh: Chinese.
+   * 
+   * - en: English.
    * 
    * Default value: en.
    * 
@@ -18,7 +19,7 @@ export class DescribeResolverRuleRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The ID of the forwarding rule.
+   * The forwarding rule ID.
    * 
    * This parameter is required.
    * 

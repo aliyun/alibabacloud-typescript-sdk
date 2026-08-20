@@ -13,7 +13,7 @@ export class SetZoneRecordStatusResponseBody extends $dara.Model {
   recordId?: number;
   /**
    * @remarks
-   * The request ID.
+   * The unique ID of the request.
    * 
    * @example
    * 39CB16E5-4180-49F2-A060-23C0ECEB80D9
@@ -21,13 +21,14 @@ export class SetZoneRecordStatusResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The state of the DNS record. Valid values:
+   * The status of the DNS record. Valid values:
    * 
-   * *   ENABLE: The DNS record is enabled.
-   * *   DISABLE: The DNS record is disabled.
+   * - ENABLE: DNS resolution is enabled.
+   * 
+   * - DISABLE: DNS resolution is paused.
    * 
    * @example
-   * DISABLE
+   * ENABLE
    */
   status?: string;
   static names(): { [key: string]: string } {

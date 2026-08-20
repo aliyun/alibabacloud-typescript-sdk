@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SearchCustomLinesRequest extends $dara.Model {
   /**
    * @remarks
-   * The end of the time range during which the custom lines are created to query. Set the time to a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The end of the creation time range. This value is a UNIX timestamp.
    * 
    * @example
    * 1672136518234
@@ -13,7 +13,7 @@ export class SearchCustomLinesRequest extends $dara.Model {
   createTimestampEnd?: number;
   /**
    * @remarks
-   * The beginning of the time range during which the custom lines are created to query. Set the time to a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The start of the creation time range. This value is a UNIX timestamp.
    * 
    * @example
    * 1672136518123
@@ -21,7 +21,7 @@ export class SearchCustomLinesRequest extends $dara.Model {
   createTimestampStart?: number;
   /**
    * @remarks
-   * The IDs of the creators for the custom lines.
+   * The list of creator IDs.
    */
   creator?: string[];
   /**
@@ -42,12 +42,15 @@ export class SearchCustomLinesRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The name of the custom line.
+   * The name of the custom ACL.
+   * 
+   * @example
+   * Test
    */
   name?: string;
   /**
    * @remarks
-   * The page number. Pages start from page **1**. Default value: **1**.
+   * The page number. The value starts from **1**. The default value is **1**.
    * 
    * @example
    * 1
@@ -55,7 +58,7 @@ export class SearchCustomLinesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Valid values: **1 to 100**. Default value: **10**.
+   * The number of entries per page for a paged query. The maximum value is **100**. The default value is **10**.
    * 
    * @example
    * 10
@@ -63,7 +66,7 @@ export class SearchCustomLinesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The end of the time range during which the custom lines are updated to query. Set the time to a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The end of the update time range. This value is a UNIX timestamp.
    * 
    * @example
    * 1672136518000
@@ -71,7 +74,7 @@ export class SearchCustomLinesRequest extends $dara.Model {
   updateTimestampEnd?: number;
   /**
    * @remarks
-   * The beginning of the time range during which the custom lines are updated to query. Set the time to a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The start of the update time range. This value is a UNIX timestamp.
    * 
    * @example
    * 1672136515000

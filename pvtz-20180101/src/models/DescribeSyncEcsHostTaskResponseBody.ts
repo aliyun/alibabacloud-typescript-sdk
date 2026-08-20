@@ -114,7 +114,7 @@ export class DescribeSyncEcsHostTaskResponseBody extends $dara.Model {
   regions?: DescribeSyncEcsHostTaskResponseBodyRegions;
   /**
    * @remarks
-   * The request ID.
+   * The unique ID of the request.
    * 
    * @example
    * 75446CC1-FC9A-4595-8D96-089D73D7A63D
@@ -122,10 +122,11 @@ export class DescribeSyncEcsHostTaskResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether hostname automatic synchronization is enabled. Valid values:
+   * The status of the automatic hostname synchronization feature. Valid values:
    * 
-   * *   ON: Hostname automatic synchronization is enabled. After this feature is enabled, the system automatically reads the hostnames of the Elastic Compute Service (ECS) instances in the specified regions and updates Domain Name System (DNS) records at an interval of 1 minute.
-   * *   OFF: Hostname automatic synchronization is disabled.
+   * - ON: Enabled. The system reads the hostnames of ECS instances in the selected region and updates the DNS records every minute.
+   * 
+   * - OFF: Disabled.
    * 
    * @example
    * ON
@@ -133,10 +134,11 @@ export class DescribeSyncEcsHostTaskResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Indicates whether the task was successful. Valid values:
+   * Indicates whether the request was successful. Valid values:
    * 
-   * *   True
-   * *   False
+   * - True
+   * 
+   * - False
    * 
    * @example
    * True
@@ -144,7 +146,7 @@ export class DescribeSyncEcsHostTaskResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The zone ID. This ID uniquely identifies the zone.
+   * The unique ID of the zone.
    * 
    * @example
    * pvtz-test-id-2989149d628c56****

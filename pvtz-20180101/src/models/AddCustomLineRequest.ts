@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddCustomLineRequest extends $dara.Model {
   /**
    * @remarks
-   * This parameter is not available. You can ignore it.
+   * This parameter is not available to users. You do not need to specify this parameter.
    * 
    * @example
    * INTRANET
@@ -13,7 +13,7 @@ export class AddCustomLineRequest extends $dara.Model {
   dnsCategory?: string;
   /**
    * @remarks
-   * The IPv4 CIDR blocks.
+   * The list of IPv4 address segments.
    * 
    * This parameter is required.
    */
@@ -31,11 +31,14 @@ export class AddCustomLineRequest extends $dara.Model {
    * The name of the custom line.
    * 
    * This parameter is required.
+   * 
+   * @example
+   * Custom Route-test
    */
   name?: string;
   /**
    * @remarks
-   * This parameter is not available. You can ignore it.
+   * This parameter is not available to users. You do not need to specify this parameter.
    * 
    * @example
    * GLOBAL

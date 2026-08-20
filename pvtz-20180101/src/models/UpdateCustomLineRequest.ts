@@ -6,14 +6,14 @@ export class UpdateCustomLineRequest extends $dara.Model {
   dnsCategory?: string;
   /**
    * @remarks
-   * The IPv4 CIDR blocks.
+   * An array of IPv4 address ranges for the custom line. Specify each range in the `StartIP-EndIP` format.
    * 
    * This parameter is required.
    */
   ipv4s?: string[];
   /**
    * @remarks
-   * The language.
+   * The language of the response. Valid values: `en` and `zh`. Default value: `en`.
    * 
    * @example
    * en
@@ -32,6 +32,9 @@ export class UpdateCustomLineRequest extends $dara.Model {
   /**
    * @remarks
    * The name of the custom line.
+   * 
+   * @example
+   * Test
    */
   name?: string;
   static names(): { [key: string]: string } {

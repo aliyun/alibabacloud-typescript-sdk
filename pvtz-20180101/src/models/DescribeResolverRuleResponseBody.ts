@@ -42,10 +42,10 @@ export class DescribeResolverRuleResponseBodyBindVpcs extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The region name.
+   * The name of the region.
    * 
    * @example
-   * hangzhou
+   * Hangzhou test
    */
   regionName?: string;
   /**
@@ -66,10 +66,11 @@ export class DescribeResolverRuleResponseBodyBindVpcs extends $dara.Model {
   vpcName?: string;
   /**
    * @remarks
-   * The VPC type. Valid values:
+   * The type of the VPC. Valid values:
    * 
-   * *   STANDARD: standard VPC
-   * *   EDS: Elastic Desktop Service (EDS) workspace VPC
+   * - STANDARD: A standard VPC.
+   * 
+   * - EDS: An Elastic Desktop Service (EDS) workspace VPC.
    * 
    * @example
    * STANDARD
@@ -125,10 +126,10 @@ export class DescribeResolverRuleResponseBodyForwardIps extends $dara.Model {
   ip?: string;
   /**
    * @remarks
-   * The port number.
+   * The destination port.
    * 
    * @example
-   * 8080
+   * 80
    */
   port?: number;
   static names(): { [key: string]: string } {
@@ -158,12 +159,12 @@ export class DescribeResolverRuleResponseBody extends $dara.Model {
   bindEdgeDnsClusters?: DescribeResolverRuleResponseBodyBindEdgeDnsClusters[];
   /**
    * @remarks
-   * The virtual private clouds (VPCs) that are associated with the forwarding rule.
+   * A list of Virtual Private Clouds (VPCs) that are associated with the forwarding rule.
    */
   bindVpcs?: DescribeResolverRuleResponseBodyBindVpcs[];
   /**
    * @remarks
-   * The time when the forwarding rule was created.
+   * The time when the rule was created.
    * 
    * @example
    * 2020-07-13 10:51:44
@@ -171,7 +172,7 @@ export class DescribeResolverRuleResponseBody extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The time when the forwarding rule was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The timestamp that indicates when the rule was created.
    * 
    * @example
    * 1594608704000
@@ -187,20 +188,20 @@ export class DescribeResolverRuleResponseBody extends $dara.Model {
   endpointId?: string;
   /**
    * @remarks
-   * The endpoint name.
+   * The name of the endpoint.
    * 
    * @example
-   * endpoint-test
+   * Endpoint-test
    */
   endpointName?: string;
   /**
    * @remarks
-   * The destination IP addresses.
+   * A list of destination IP addresses.
    */
   forwardIps?: DescribeResolverRuleResponseBodyForwardIps[];
   /**
    * @remarks
-   * The ID of the forwarding rule.
+   * The forwarding rule ID.
    * 
    * @example
    * hr****
@@ -211,12 +212,12 @@ export class DescribeResolverRuleResponseBody extends $dara.Model {
    * The name of the forwarding rule.
    * 
    * @example
-   * forward rule-test
+   * Forwarding rule-test
    */
   name?: string;
   /**
    * @remarks
-   * The request ID.
+   * The unique request ID.
    * 
    * @example
    * 13D5113B-7E34-407F-A9C1-D96CD2B04277
@@ -224,9 +225,9 @@ export class DescribeResolverRuleResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The type of the forwarding rule. Valid value:
+   * The type of the forwarding rule. The only valid value is OUTBOUND, which indicates that traffic is forwarded to an external IP address.
    * 
-   * OUTBOUND: outbound forwarding rule. This type of rule forwards Domain Name System (DNS) requests to one or more external IP addresses.
+   * OUTBOUND: Forwards to an external IP.
    * 
    * @example
    * OUTBOUND
@@ -234,7 +235,7 @@ export class DescribeResolverRuleResponseBody extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The time when the forwarding rule was updated.
+   * The time when the rule was last updated.
    * 
    * @example
    * 2020-07-13 10:51:44
@@ -242,7 +243,7 @@ export class DescribeResolverRuleResponseBody extends $dara.Model {
   updateTime?: string;
   /**
    * @remarks
-   * The time when the forwarding rule was updated. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The timestamp that indicates when the rule was last updated.
    * 
    * @example
    * 1594608704000
@@ -250,7 +251,7 @@ export class DescribeResolverRuleResponseBody extends $dara.Model {
   updateTimestamp?: number;
   /**
    * @remarks
-   * The name of the forward zone.
+   * The name of the forwarding zone.
    * 
    * @example
    * example.com

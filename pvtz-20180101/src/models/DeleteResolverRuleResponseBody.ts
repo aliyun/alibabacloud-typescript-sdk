@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteResolverRuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The unique request ID.
    * 
    * @example
    * 0C9959BE-3A6A-4803-8DCE-973B42ACD599

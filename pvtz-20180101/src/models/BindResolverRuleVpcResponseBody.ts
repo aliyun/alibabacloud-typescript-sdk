@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class BindResolverRuleVpcResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The unique request ID.
    * 
    * @example
    * 12FE6E98-3885-423E-B18B-88CC17052A31

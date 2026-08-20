@@ -5,12 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteUserVpcAuthorizationRequest extends $dara.Model {
   /**
    * @remarks
-   * The authorization scope. Valid values:
+   * The authorization type. Valid values:
    * 
-   * *   NORMAL: general authorization
-   * *   NORMAL: cloud service-related authorization
+   * - NORMAL: Standard authorization.
    * 
-   * Default value: NORMAL.
+   * - CLOUD_PRODUCT: Cloud product authorization.
+   * 
+   * Default value: NORMAL
    * 
    * @example
    * NORMAL
@@ -18,7 +19,7 @@ export class DeleteUserVpcAuthorizationRequest extends $dara.Model {
   authType?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account.
+   * The ID of the Alibaba Cloud account that owns the authorized resources.
    * 
    * This parameter is required.
    * 

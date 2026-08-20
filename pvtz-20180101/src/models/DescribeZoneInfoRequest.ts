@@ -7,10 +7,11 @@ export class DescribeZoneInfoRequest extends $dara.Model {
    * @remarks
    * The language of the response. Valid values:
    * 
-   * *   **zh**: Chinese
-   * *   **en**: English.
+   * - **zh**: Chinese.
    * 
-   * Default value: **en**.
+   * - **en**: English.
+   * 
+   * Default: **en**
    * 
    * @example
    * en
@@ -18,7 +19,7 @@ export class DescribeZoneInfoRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The zone ID. This ID uniquely identifies the zone.
+   * The unique ID of the zone.
    * 
    * This parameter is required.
    * 

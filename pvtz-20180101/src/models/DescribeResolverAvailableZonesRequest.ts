@@ -15,8 +15,9 @@ export class DescribeResolverAvailableZonesRequest extends $dara.Model {
    * @remarks
    * The language of the response. Valid values:
    * 
-   * *   zh: Chinese
-   * *   en: English
+   * - zh: Chinese.
+   * 
+   * - en: English.
    * 
    * Default value: en.
    * 

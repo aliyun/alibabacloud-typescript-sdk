@@ -13,7 +13,7 @@ export class DeleteZoneRecordResponseBody extends $dara.Model {
   recordId?: number;
   /**
    * @remarks
-   * The request ID.
+   * The unique ID of the request.
    * 
    * @example
    * 0B7AD377-7E86-44A8-B9A8-53E8666E72FE

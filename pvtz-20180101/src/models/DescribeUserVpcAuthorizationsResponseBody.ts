@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeUserVpcAuthorizationsResponseBodyUsers extends $dara.Model {
   /**
    * @remarks
-   * The authorization scope. Valid values:
+   * The authorization type. Valid values:
    * 
-   * *   NORMAL: general authorization
-   * *   CLOUD_PRODUCT: cloud service-related authorization
+   * - NORMAL: A regular authorization.
+   * 
+   * - CLOUD_PRODUCT: An authorization for an Alibaba Cloud service.
    * 
    * @example
    * NORMAL
@@ -16,7 +17,7 @@ export class DescribeUserVpcAuthorizationsResponseBodyUsers extends $dara.Model 
   authType?: string;
   /**
    * @remarks
-   * The name of the Alibaba Cloud account to which the permissions on the resources are granted.
+   * The name of the Alibaba Cloud account that owns the authorized resources.
    * 
    * @example
    * alidn****@test.com
@@ -24,7 +25,7 @@ export class DescribeUserVpcAuthorizationsResponseBodyUsers extends $dara.Model 
   authorizedAliyunId?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account to which the permissions on the resources are granted.
+   * The ID of the Alibaba Cloud account that owns the authorized resources.
    * 
    * @example
    * 141339776561****
@@ -32,7 +33,7 @@ export class DescribeUserVpcAuthorizationsResponseBodyUsers extends $dara.Model 
   authorizedUserId?: number;
   /**
    * @remarks
-   * The time when the authorization was performed. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
+   * The time when the authorization was created.
    * 
    * @example
    * 2023-05-08T02:31Z
@@ -40,7 +41,7 @@ export class DescribeUserVpcAuthorizationsResponseBodyUsers extends $dara.Model 
   createTime?: string;
   /**
    * @remarks
-   * The time when the authorization was performed. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The timestamp that indicates when the authorization was created.
    * 
    * @example
    * 1672740294000
@@ -78,7 +79,7 @@ export class DescribeUserVpcAuthorizationsResponseBodyUsers extends $dara.Model 
 export class DescribeUserVpcAuthorizationsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The page number.
+   * The page number of the returned data.
    * 
    * @example
    * 1
@@ -86,7 +87,7 @@ export class DescribeUserVpcAuthorizationsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries returned per page.
    * 
    * @example
    * 20
@@ -94,7 +95,7 @@ export class DescribeUserVpcAuthorizationsResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The request ID.
+   * The unique request ID.
    * 
    * @example
    * 46973D4C-E3E4-4ABA-9190-9A9DE406C7E
@@ -102,7 +103,7 @@ export class DescribeUserVpcAuthorizationsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of authorizations.
    * 
    * @example
    * 100
@@ -110,7 +111,7 @@ export class DescribeUserVpcAuthorizationsResponseBody extends $dara.Model {
   totalItems?: number;
   /**
    * @remarks
-   * The total number of returned pages.
+   * The total number of pages returned.
    * 
    * @example
    * 5
@@ -118,7 +119,7 @@ export class DescribeUserVpcAuthorizationsResponseBody extends $dara.Model {
   totalPages?: number;
   /**
    * @remarks
-   * The Alibaba Cloud accounts to which the permissions on the resources are granted.
+   * The information about the Alibaba Cloud accounts that own the authorized resources.
    */
   users?: DescribeUserVpcAuthorizationsResponseBodyUsers[];
   static names(): { [key: string]: string } {

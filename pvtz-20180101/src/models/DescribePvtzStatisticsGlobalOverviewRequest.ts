@@ -4,24 +4,37 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribePvtzStatisticsGlobalOverviewRequestNetworkParams extends $dara.Model {
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-hongkong
    */
   regionId?: string;
   /**
    * @remarks
-   * VPC ID。
+   * The VPC ID.
    * 
    * @example
    * vpc-bp1y5y4wk5810n50cx765
    */
   vpcId?: string;
   /**
+   * @remarks
+   * The ID of the Alibaba Cloud account to which the VPC belongs.
+   * 
    * @example
    * 5924158341670144
    */
   vpcOwner?: string;
   /**
+   * @remarks
+   * The type of the VPC. Valid values:
+   * 
+   * - **STANDARD**: standard VPC
+   * 
+   * - **EDS**: Elastic Desktop Service (EDS) VPC
+   * 
    * @example
    * STANDARD
    */
@@ -54,13 +67,23 @@ export class DescribePvtzStatisticsGlobalOverviewRequestNetworkParams extends $d
 }
 
 export class DescribePvtzStatisticsGlobalOverviewRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The network parameters.
+   */
   networkParams?: DescribePvtzStatisticsGlobalOverviewRequestNetworkParams[];
   /**
+   * @remarks
+   * The statistical period. Valid values: `DAY`, `WEEK`, and `MONTH`.
+   * 
    * @example
    * DAY, WEEK, MONTH
    */
   overviewPeriod?: string;
   /**
+   * @remarks
+   * The region.
+   * 
    * @example
    * cn-hangzhou
    */

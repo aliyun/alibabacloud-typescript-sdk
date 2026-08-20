@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeResolverEndpointResponseBodyIpConfigs extends $dara.Model {
   /**
    * @remarks
-   * The ID of the zone to which the vSwitch belongs.
+   * The ID of the zone where the vSwitch is located.
    * 
    * @example
    * cn-hangzhou-a
@@ -21,7 +21,7 @@ export class DescribeResolverEndpointResponseBodyIpConfigs extends $dara.Model {
   cidrBlock?: string;
   /**
    * @remarks
-   * The source IP address of outbound traffic. The IP address must be within the specified CIDR block. If this parameter is left empty, the system automatically allocates an IP address.
+   * An IP address within the specified CIDR block. If you leave this parameter empty, the system automatically assigns an IP address.
    * 
    * @example
    * 172.16.XX.XX
@@ -73,7 +73,7 @@ export class DescribeResolverEndpointResponseBody extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The time when the endpoint was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The time when the endpoint was created. This is a UNIX timestamp.
    * 
    * @example
    * 1594608356000
@@ -81,15 +81,15 @@ export class DescribeResolverEndpointResponseBody extends $dara.Model {
   createTimestamp?: number;
   /**
    * @remarks
-   * The endpoint ID. This ID uniquely identifies the endpoint.
+   * The ID of the endpoint.
    * 
    * @example
-   * hr****
+   * hra0**
    */
   id?: string;
   /**
    * @remarks
-   * The configurations of the source IP addresses for outbound traffic.
+   * A list of IP address configurations for the outbound traffic source.
    */
   ipConfigs?: DescribeResolverEndpointResponseBodyIpConfigs[];
   /**
@@ -97,12 +97,12 @@ export class DescribeResolverEndpointResponseBody extends $dara.Model {
    * The name of the endpoint.
    * 
    * @example
-   * test
+   * Endpoint-test
    */
   name?: string;
   /**
    * @remarks
-   * The request ID.
+   * The unique request ID.
    * 
    * @example
    * 45020ED9-6319-4CA7-9475-6E8D6446E84F
@@ -110,7 +110,7 @@ export class DescribeResolverEndpointResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the security group. The security group rules are applied to the outbound virtual private cloud (VPC).
+   * The ID of the security group. The rules in the security group are applied to the outbound VPC.
    * 
    * @example
    * sg-8vb3sigz86xc-group-****
@@ -118,14 +118,19 @@ export class DescribeResolverEndpointResponseBody extends $dara.Model {
   securityGroupId?: string;
   /**
    * @remarks
-   * The state of the endpoint. Valid values:
+   * The status of the endpoint. Valid values:
    * 
-   * *   SUCCESS: The endpoint works as expected.
-   * *   INIT: The endpoint is being created.
-   * *   FAILED: The endpoint failed to be created.
-   * *   CHANGE_INIT: The endpoint is being modified.
-   * *   CHANGE_FAILED: The endpoint failed to be modified.
-   * *   EXCEPTION: The endpoint encountered an exception.
+   * - SUCCESS: The endpoint works as expected.
+   * 
+   * - INIT: The endpoint is being created.
+   * 
+   * - FAILED: The endpoint failed to be created.
+   * 
+   * - CHANGE_INIT: The endpoint is being modified.
+   * 
+   * - CHANGE_FAILED: The endpoint failed to be modified.
+   * 
+   * - EXCEPTION: An exception occurred on the endpoint.
    * 
    * @example
    * SUCCESS
@@ -133,7 +138,7 @@ export class DescribeResolverEndpointResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The time when the endpoint was updated.
+   * The time when the endpoint was last updated.
    * 
    * @example
    * 2020-07-13 10:48:39
@@ -141,7 +146,7 @@ export class DescribeResolverEndpointResponseBody extends $dara.Model {
   updateTime?: string;
   /**
    * @remarks
-   * The time when the endpoint was updated. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The time when the endpoint was last updated. This is a UNIX timestamp.
    * 
    * @example
    * 1594608519000
@@ -149,7 +154,7 @@ export class DescribeResolverEndpointResponseBody extends $dara.Model {
   updateTimestamp?: number;
   /**
    * @remarks
-   * The ID of the outbound VPC. All outbound Domain Name System (DNS) requests of the resolver are forwarded by this VPC.
+   * The ID of the outbound virtual private cloud (VPC). All outbound DNS query traffic from the Resolver is forwarded through this VPC.
    * 
    * @example
    * vpc-0jl96awrjt75ezglc****
@@ -165,7 +170,7 @@ export class DescribeResolverEndpointResponseBody extends $dara.Model {
   vpcName?: string;
   /**
    * @remarks
-   * The region ID of the outbound VPC.
+   * The ID of the region where the outbound VPC is located.
    * 
    * @example
    * cn-hangzhou
@@ -173,10 +178,10 @@ export class DescribeResolverEndpointResponseBody extends $dara.Model {
   vpcRegionId?: string;
   /**
    * @remarks
-   * The name of the region where the outbound VPC resides.
+   * The name of the region where the outbound VPC is located.
    * 
    * @example
-   * HuaBei
+   * North China
    */
   vpcRegionName?: string;
   static names(): { [key: string]: string } {

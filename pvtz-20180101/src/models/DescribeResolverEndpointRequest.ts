@@ -5,20 +5,21 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeResolverEndpointRequest extends $dara.Model {
   /**
    * @remarks
-   * The endpoint ID. This ID uniquely identifies the endpoint.
+   * The ID of the endpoint.
    * 
    * This parameter is required.
    * 
    * @example
-   * hr****
+   * hra0**
    */
   endpointId?: string;
   /**
    * @remarks
    * The language of the response. Valid values:
    * 
-   * *   zh: Chinese
-   * *   en: English
+   * - zh: Chinese.
+   * 
+   * - en: English.
    * 
    * Default value: en.
    * 

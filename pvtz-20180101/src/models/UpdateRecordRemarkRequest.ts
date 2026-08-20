@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateRecordRemarkRequest extends $dara.Model {
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * A client token used to ensure the idempotence of a request. The client generates this value, which must be unique across different requests. The token can be up to 64 ASCII characters in length.
    * 
    * @example
    * 6447728c8578e66aacf062d2df4446dc
@@ -15,8 +15,9 @@ export class UpdateRecordRemarkRequest extends $dara.Model {
    * @remarks
    * The language of the response. Valid values:
    * 
-   * *   zh: Chinese
-   * *   en: English
+   * - zh: Chinese.
+   * 
+   * - en: English.
    * 
    * Default value: en.
    * 
@@ -36,7 +37,7 @@ export class UpdateRecordRemarkRequest extends $dara.Model {
   recordId?: number;
   /**
    * @remarks
-   * The description of the DNS record.
+   * The remarks.
    * 
    * @example
    * test record

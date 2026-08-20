@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateResolverEndpointResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The unique request ID.
    * 
    * @example
    * EC0BDA3A-A92A-4AC8-B351-322A9C79D5C5

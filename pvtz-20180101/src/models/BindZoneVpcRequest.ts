@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class BindZoneVpcRequestVpcs extends $dara.Model {
   /**
    * @remarks
-   * The region ID of the VPC.
+   * The ID of the region where the VPC is located.
    * 
    * @example
    * cn-beijing
@@ -13,7 +13,7 @@ export class BindZoneVpcRequestVpcs extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The VPC ID. If the zone is already associated with VPCs and you do not specify this parameter, the associated VPCs are disassociated from the zone.
+   * The ID of the VPC.
    * 
    * @example
    * vpc-f8zvrvr1payllgz38****
@@ -21,10 +21,11 @@ export class BindZoneVpcRequestVpcs extends $dara.Model {
   vpcId?: string;
   /**
    * @remarks
-   * The VPC type. Valid values:
+   * The type of the VPC. Valid values:
    * 
-   * *   **STANDARD**: standard VPC
-   * *   **EDS**: Elastic Desktop Service (EDS) workspace VPC
+   * - **STANDARD**: a standard VPC.
+   * 
+   * - **EDS**: an Elastic Desktop Service VPC.
    * 
    * @example
    * STANDARD
@@ -58,7 +59,7 @@ export class BindZoneVpcRequestVpcs extends $dara.Model {
 export class BindZoneVpcRequest extends $dara.Model {
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * A client-generated token that is used to ensure the idempotence of the request. You can use the client to generate a unique token for the request. The token can contain only ASCII characters and cannot exceed 64 characters in length.
    * 
    * @example
    * 6447728c8578e66aacf062d2df4446dc
@@ -68,10 +69,11 @@ export class BindZoneVpcRequest extends $dara.Model {
    * @remarks
    * The language of the response. Valid values:
    * 
-   * *   zh: Chinese
-   * *   en: English
+   * - `zh`: Chinese.
    * 
-   * Default value: en.
+   * - `en`: English.
+   * 
+   * Default value: `en`.
    * 
    * @example
    * en
@@ -89,12 +91,12 @@ export class BindZoneVpcRequest extends $dara.Model {
    * @remarks
    * The VPCs.
    * 
-   * >  If Vpcs is left empty, all VPCs that are associated with the zone are disassociated from the zone.
+   * > If you leave this parameter empty, all VPCs bound to the zone are unbound.
    */
   vpcs?: BindZoneVpcRequestVpcs[];
   /**
    * @remarks
-   * The zone ID. This ID uniquely identifies the zone.
+   * The unique ID of the zone.
    * 
    * This parameter is required.
    * 

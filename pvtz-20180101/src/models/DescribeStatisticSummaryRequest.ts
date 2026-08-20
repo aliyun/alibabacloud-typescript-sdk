@@ -7,18 +7,19 @@ export class DescribeStatisticSummaryRequest extends $dara.Model {
    * @remarks
    * The language of the response. Valid values:
    * 
-   * *   zh: Chinese
-   * *   en: English
+   * - zh: Chinese.
+   * 
+   * - en: English.
    * 
    * Default value: en.
    * 
    * @example
-   * en
+   * zh
    */
   lang?: string;
   /**
    * @remarks
-   * The IP address of the client.
+   * The user\\"s IP address.
    * 
    * @example
    * 127.0.XX.XX

@@ -14,6 +14,9 @@ export class AddCustomLineResponseBody extends $dara.Model {
   /**
    * @remarks
    * The name of the custom line.
+   * 
+   * @example
+   * Custom Route-test
    */
   name?: string;
   /**

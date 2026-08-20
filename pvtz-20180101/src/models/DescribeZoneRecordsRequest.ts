@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeZoneRecordsRequest extends $dara.Model {
   /**
    * @remarks
-   * The keyword of the hostname. The value is not case-sensitive. You can set SearchMode to LIKE or EXACT. The default value of SearchMode is EXACT.
+   * The keyword for the hostname. The search is not case-sensitive. Use the SearchMode parameter to switch between a fuzzy search and an exact search. The default is an exact search.
    * 
    * @example
    * test
@@ -15,8 +15,9 @@ export class DescribeZoneRecordsRequest extends $dara.Model {
    * @remarks
    * The language of the response. Valid values:
    * 
-   * *   zh: Chinese
-   * *   en: English
+   * - zh: Chinese.
+   * 
+   * - en: English.
    * 
    * Default value: en.
    * 
@@ -26,7 +27,7 @@ export class DescribeZoneRecordsRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The page number. Pages start from page 1. Default value: 1.
+   * The page number. Pages start from 1. The default value is 1.
    * 
    * @example
    * 1
@@ -34,31 +35,33 @@ export class DescribeZoneRecordsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Valid values: 1 to 100. Default value: 20.
+   * The number of entries to return on each page. The maximum value is 100. The default value is 20.
    * 
    * @example
-   * 100
+   * 20
    */
   pageSize?: number;
   /**
    * @remarks
    * The search mode. Valid values:
    * 
-   * *   **LIKE**: fuzzy search
-   * *   **EXACT** (default): exact search
+   * - **LIKE**: fuzzy search
    * 
-   * The value of Keyword is the search scope.
+   * - **EXACT**: exact search (default)
+   * 
+   * This parameter is used with the Keyword parameter.
    * 
    * @example
-   * LIKE
+   * EXACT
    */
   searchMode?: string;
   /**
    * @remarks
-   * The tag added to the DNS record. Valid values:
+   * The tag. Valid values:
    * 
-   * *   ecs: If you set Tag to ecs, the DNS records added to the hostnames of Elastic Compute Service (ECS) instances in the zone are queried.
-   * *   If Tag is left empty, the DNS records in the zone are queried.
+   * - ecs: Queries the hostnames that are synchronized from ECS instances to the zone.
+   * 
+   * - If you do not specify this parameter, all DNS records in the zone are queried.
    * 
    * @example
    * ecs
@@ -66,7 +69,7 @@ export class DescribeZoneRecordsRequest extends $dara.Model {
   tag?: string;
   /**
    * @remarks
-   * The IP address of the client.
+   * The client IP address of the user.
    * 
    * @example
    * 127.0.XX.XX
@@ -74,7 +77,7 @@ export class DescribeZoneRecordsRequest extends $dara.Model {
   userClientIp?: string;
   /**
    * @remarks
-   * The zone ID. This ID uniquely identifies the zone.
+   * The unique ID of the zone.
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class BindZoneVpcResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 46973D4C-E3E4-4ABA-9190-9A9DE406C7E

@@ -5,25 +5,31 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeChangeLogsRequest extends $dara.Model {
   /**
    * @remarks
-   * The end of the time range to query. Set the time to a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The end time. This value is a UNIX timestamp.
    * 
    * @example
-   * 1516779348000
+   * 2516779348000
    */
   endTimestamp?: number;
   /**
    * @remarks
-   * The type of operation logs. Valid values:
+   * The type of log to obtain. Valid values:
    * 
-   * *   **PV_ZONE**: the logs that record the operations on built-in authoritative zones
-   * *   **PV_RECORD**: the logs that record the operations on DNS records
-   * *   **RESOLVER_RULE**: the logs that record the operations on forwarding rules
-   * *   **CUSTOM_LINE**: the logs that record the operations on user-defined lines
-   * *   **RESOLVER_ENDPOINT**: the logs that record the operations on outbound endpoints
-   * *   **INBOUND_ENDPOINT**: the logs that record the operations on inbound endpoints
-   * *   **CACHE_RESERVE_DOMAIN**: the logs that record the operations on cache retention domain names
+   * - **PV_ZONE**: operation logs of built-in authoritative zones.
    * 
-   * >  If you set EntityType to other values, all types of logs are queried.
+   * - **PV_RECORD**: operation logs of DNS records.
+   * 
+   * - **RESOLVER_RULE**: operation logs of forwarding rules.
+   * 
+   * - **CUSTOM_LINE**: operation logs of custom lines.
+   * 
+   * - **RESOLVER_ENDPOINT**: operation logs of outbound endpoints.
+   * 
+   * - **INBOUND_ENDPOINT**: operation logs of inbound endpoints.
+   * 
+   * - **CACHE_RESERVE_DOMAIN**: operation logs of domains for which cache is retained.
+   * 
+   * > If you specify another value, this parameter is ignored and logs of all types are returned.
    * 
    * @example
    * PV_ZONE
@@ -31,7 +37,7 @@ export class DescribeChangeLogsRequest extends $dara.Model {
   entityType?: string;
   /**
    * @remarks
-   * The keyword of the operation or the operation content. Fuzzy search is supported. The value is not case-sensitive.
+   * The keyword, such as a behavior or content. Fuzzy search is supported. The keyword is not case-sensitive.
    * 
    * @example
    * test
@@ -41,10 +47,11 @@ export class DescribeChangeLogsRequest extends $dara.Model {
    * @remarks
    * The language of the response. Valid values:
    * 
-   * *   zh: Chinese
-   * *   en: English
+   * - zh: Chinese.
    * 
-   * Default value: en.
+   * - en: English.
+   * 
+   * Default value: en
    * 
    * @example
    * en
@@ -52,7 +59,7 @@ export class DescribeChangeLogsRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The page number. Pages start from page 1. Default value: 1.
+   * The number of the page to return. The value must be an integer that is greater than 0. Default value: 1.
    * 
    * @example
    * 1
@@ -60,7 +67,7 @@ export class DescribeChangeLogsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Valid values: 1 to 100. Default value: 20.
+   * The number of entries to return on each page. Maximum value: 100. Default value: 20.
    * 
    * @example
    * 100
@@ -68,7 +75,7 @@ export class DescribeChangeLogsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The beginning of the time range to query. Set the time to a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The start time. This value is a UNIX timestamp.
    * 
    * @example
    * 1516779348000
@@ -76,7 +83,7 @@ export class DescribeChangeLogsRequest extends $dara.Model {
   startTimestamp?: number;
   /**
    * @remarks
-   * The IP address of the client.
+   * The IP address of the user.
    * 
    * @example
    * 192.0.XX.XX
@@ -84,11 +91,11 @@ export class DescribeChangeLogsRequest extends $dara.Model {
   userClientIp?: string;
   /**
    * @remarks
-   * The zone ID. Valid values:
+   * The ID of the zone.
    * 
-   * *   If you set ZoneId to a zone ID, the logs that record the operations on the DNS records of the specified zone are queried.\\
+   * - If you specify this parameter, the operation returns the change logs of DNS records for the specified zone.<br>
    * 
-   * *   If you leave ZoneId empty, the logs that record the operations on all zones and the DNS records of these zones that belong to the current Alibaba Cloud account are queried.
+   * - If you leave this parameter empty, the operation returns the change logs of all zones and DNS records that belong to the current account.
    * 
    * @example
    * df2d03865266bd9842306db586d3****

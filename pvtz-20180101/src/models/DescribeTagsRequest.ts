@@ -7,10 +7,11 @@ export class DescribeTagsRequest extends $dara.Model {
    * @remarks
    * The language of the response. Valid values:
    * 
-   * *   zh: Chinese
-   * *   en: English
+   * - zh: Chinese.
    * 
-   * Default value: en.
+   * - en: English.
+   * 
+   * Default value: en
    * 
    * @example
    * en
@@ -18,7 +19,7 @@ export class DescribeTagsRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The page number. Pages start from page 1. Default value: 1.
+   * The page number. The start value is 1. Default value: 1.
    * 
    * @example
    * 1
@@ -26,7 +27,7 @@ export class DescribeTagsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Maximum number: 1. Default value: 20.
+   * The number of entries per page. Maximum value: 100. Default value: 20.
    * 
    * @example
    * 20
@@ -34,7 +35,7 @@ export class DescribeTagsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The resource type. Valid value: ZONE.
+   * The resource type. Set the value to ZONE.
    * 
    * This parameter is required.
    * 

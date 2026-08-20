@@ -7,20 +7,21 @@ export class DescribeRegionsRequest extends $dara.Model {
    * @remarks
    * The supported language. Valid values:
    * 
-   * *   zh-CN: Chinese
-   * *   en-US: English
+   * - zh-CN: Chinese
+   * 
+   * - en-US: English
    * 
    * Default value: en-US.
    * 
-   * >  AcceptLanguage has a higher priority than Lang.
+   * > This parameter has a higher priority than Lang.
    * 
    * @example
-   * en-US
+   * zh-CN
    */
   acceptLanguage?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account to which the permissions on the resources are granted.
+   * The ID of the Alibaba Cloud account to which the authorized resources belong.
    * 
    * @example
    * 141339776561****
@@ -30,24 +31,27 @@ export class DescribeRegionsRequest extends $dara.Model {
    * @remarks
    * The language of the response. Valid values:
    * 
-   * *   **zh**: Chinese
-   * *   **en**: English
+   * - **zh**: Chinese.
+   * 
+   * - **en**: English.
    * 
    * Default value: **en**.
    * 
-   * >  Lang has a lower priority than AcceptLanguage.
+   * > This parameter has a lower priority than AcceptLanguage.
    * 
    * @example
-   * en
+   * zh
    */
   lang?: string;
   /**
    * @remarks
    * The scenario. Valid values:
    * 
-   * *   AUTH: the built-in authoritative module
-   * *   FWD: the forward module
-   * *   RA: the traffic analysis module
+   * - AUTH: built-in authoritative server
+   * 
+   * - FWD: forwarding management
+   * 
+   * - RA: traffic analysis
    * 
    * @example
    * AUTH
@@ -55,18 +59,19 @@ export class DescribeRegionsRequest extends $dara.Model {
   scene?: string;
   /**
    * @remarks
-   * The IP address of the client.
+   * The IP address of the user.
    * 
    * @example
-   * 192.168.XX.XX
+   * 192.0.XX.XX
    */
   userClientIp?: string;
   /**
    * @remarks
-   * The VPC type. Valid values:
+   * The type of the VPC. Valid values:
    * 
-   * *   STANDARD: standard VPC
-   * *   EDS: Elastic Desktop Service (EDS) workspace VPC
+   * - STANDARD: standard VPC.
+   * 
+   * - EDS: Elastic Desktop Service (EDS) VPC.
    * 
    * @example
    * STANDARD

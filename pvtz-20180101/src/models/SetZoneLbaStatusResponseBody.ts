@@ -2,18 +2,10 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class AddZoneRecordResponseBody extends $dara.Model {
+export class SetZoneLbaStatusResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the DNS record.
-   * 
-   * @example
-   * 429570****
-   */
-  recordId?: number;
-  /**
-   * @remarks
-   * The unique ID of the request.
+   * The request ID.
    * 
    * @example
    * 0B7AD377-7E86-44A8-B9A8-53E8666E72FE
@@ -21,7 +13,7 @@ export class AddZoneRecordResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the operation is successful.
    * 
    * @example
    * true
@@ -29,7 +21,6 @@ export class AddZoneRecordResponseBody extends $dara.Model {
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
-      recordId: 'RecordId',
       requestId: 'RequestId',
       success: 'Success',
     };
@@ -37,7 +28,6 @@ export class AddZoneRecordResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      recordId: 'number',
       requestId: 'string',
       success: 'boolean',
     };

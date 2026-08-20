@@ -13,7 +13,7 @@ export class DescribeCustomLinesRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The page number. Default value: 1.
+   * The page number. The default value is 1.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class DescribeCustomLinesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Valid values: **1 to 100**. Default value: **10**.
+   * The number of entries to return on each page. The maximum value is **100**. The default value is **10**.
    * 
    * @example
    * 10

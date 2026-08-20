@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteZoneResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The unique ID of the request.
    * 
    * @example
    * E246E023-F2EB-4034-83F7-B13FCF31459C
@@ -13,7 +13,7 @@ export class DeleteZoneResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The zone ID. This ID uniquely identifies the zone.
+   * The unique ID of the zone.
    * 
    * @example
    * 0e41496f12da01311d314f17b801****

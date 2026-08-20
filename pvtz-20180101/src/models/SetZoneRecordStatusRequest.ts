@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SetZoneRecordStatusRequest extends $dara.Model {
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * A client token that is used to ensure the idempotence of the request. The client generates this value. The value must be unique among different requests and can be up to 64 ASCII characters in length.
    * 
    * @example
    * 6447728c8578e66aacf062d2df4446dc
@@ -15,10 +15,11 @@ export class SetZoneRecordStatusRequest extends $dara.Model {
    * @remarks
    * The language of the response. Valid values:
    * 
-   * *   zh: Chinese
-   * *   en: English
+   * - zh: Chinese.
    * 
-   * Default value: en.
+   * - en: English.
+   * 
+   * The default value is en.
    * 
    * @example
    * en
@@ -36,20 +37,21 @@ export class SetZoneRecordStatusRequest extends $dara.Model {
   recordId?: number;
   /**
    * @remarks
-   * The state of the DNS record. Valid values:
+   * The status of the DNS record. Valid values:
    * 
-   * *   ENABLE: enables the DNS record.
-   * *   DISABLE: suspends the DNS record.
+   * - ENABLE: Enables DNS resolution.
+   * 
+   * - DISABLE: Pauses DNS resolution.
    * 
    * This parameter is required.
    * 
    * @example
-   * DISABLE
+   * ENABLE
    */
   status?: string;
   /**
    * @remarks
-   * The IP address of the client.
+   * The client IP address.
    * 
    * @example
    * 127.XX.XX

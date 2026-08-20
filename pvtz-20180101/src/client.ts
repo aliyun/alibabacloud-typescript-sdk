@@ -11,7 +11,23 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApiUtil.Config) {
     super(config);
-    this._endpointRule = "central";
+    this._endpointRule = "regional";
+    this._endpointMap = {
+      'ap-northeast-1': "pvtz.aliyuncs.com",
+      'cn-hangzhou': "pvtz.aliyuncs.com",
+      'cn-qingdao': "pvtz.aliyuncs.com",
+      'cn-zhangjiakou': "pvtz.aliyuncs.com",
+      'eu-west-1': "pvtz.aliyuncs.com",
+      'us-east-1': "pvtz.aliyuncs.com",
+      'us-west-1': "pvtz.aliyuncs.com",
+      'ap-south-1': "pvtz.aliyuncs.com",
+      'me-east-1': "pvtz.aliyuncs.com",
+      'cn-beijing-finance-1': "pvtz.aliyuncs.com",
+      'cn-hangzhou-finance': "pvtz.aliyuncs.com",
+      'cn-north-2-gov-1': "pvtz.aliyuncs.com",
+      'cn-shanghai-finance-1': "pvtz.aliyuncs.com",
+      'cn-shenzhen-finance-1': "pvtz.aliyuncs.com",
+    };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("pvtz", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
@@ -88,7 +104,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an endpoint.
+   * You can call this operation to add an endpoint.
    * 
    * @param request - AddResolverEndpointRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -139,7 +155,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an endpoint.
+   * You can call this operation to add an endpoint.
    * 
    * @param request - AddResolverEndpointRequest
    * @returns AddResolverEndpointResponse
@@ -150,11 +166,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a forwarding rule.
+   * Adds a forwarding rule.
    * 
    * @remarks
-   * #### [](#)**Precautions**
-   * If a virtual private cloud (VPC) serves as both an inbound VPC and an outbound VPC, the IP addresses of external Domain Name System (DNS) servers cannot be the same as the IP addresses of the inbound endpoint in the VPC. The IP addresses of the external DNS servers are specified in the forwarding rule associated with the outbound endpoint in the same VPC. If the IP addresses are the same, the DNS requests sent from the IP addresses of the inbound endpoint are returned to the VPC. This results in resolution failures.
+   * If the outbound VPC and the inbound VPC are the same, the IP address of the external DNS system in the forwarding rule for the outbound endpoint cannot be the same as the IP address of the inbound endpoint service. This is because if the IP addresses are the same, a request loopback occurs and DNS resolution fails.
    * 
    * @param request - AddResolverRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -213,11 +228,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a forwarding rule.
+   * Adds a forwarding rule.
    * 
    * @remarks
-   * #### [](#)**Precautions**
-   * If a virtual private cloud (VPC) serves as both an inbound VPC and an outbound VPC, the IP addresses of external Domain Name System (DNS) servers cannot be the same as the IP addresses of the inbound endpoint in the VPC. The IP addresses of the external DNS servers are specified in the forwarding rule associated with the outbound endpoint in the same VPC. If the IP addresses are the same, the DNS requests sent from the IP addresses of the inbound endpoint are returned to the VPC. This results in resolution failures.
+   * If the outbound VPC and the inbound VPC are the same, the IP address of the external DNS system in the forwarding rule for the outbound endpoint cannot be the same as the IP address of the inbound endpoint service. This is because if the IP addresses are the same, a request loopback occurs and DNS resolution fails.
    * 
    * @param request - AddResolverRuleRequest
    * @returns AddResolverRuleResponse
@@ -228,14 +242,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds another account to associate one or more virtual private clouds (VPCs) of the current account with a private zone.
+   * Adds cross-account VPC authorization.
    * 
    * @remarks
    * #### **Limits**
-   * *   You can set an effective scope across accounts only by using an Alibaba Cloud account instead of a RAM user. You can set an effective scope across accounts registered on the same site. For example, you can perform the operation across accounts that are both registered on the Alibaba Cloud China site or Alibaba Cloud international site. You cannot set an effective scope across accounts registered on different sites. For example, you cannot perform the operation across accounts that are separately registered on the Alibaba Cloud China site and Alibaba Cloud international site.
-   * *   No API operation is provided for sending the verification codes that are required for authorization.
+   * - Cross-account settings for the effective scope only support Alibaba Cloud accounts (primary accounts) and do not support RAM users. Only accounts within the same site can be associated, such as between Alibaba Cloud China Website (www.aliyun.com) accounts or between Alibaba Cloud International Website (www.alibabacloud.com) accounts. Cross-site association is not supported, such as between a China Website account and an International Website account.
+   * - For scenarios that use authentication code authorization, no API is currently available for sending authentication codes.
    * #### **Precautions**
-   * If you set an effective scope across accounts, bills are settled within the account that is used to perform routine management on built-in authoritative zones.
+   * When you configure cross-account settings for the effective scope, billing is settled under the account that manages the built-in authoritative domain name.
    * 
    * @param request - AddUserVpcAuthorizationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -278,14 +292,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds another account to associate one or more virtual private clouds (VPCs) of the current account with a private zone.
+   * Adds cross-account VPC authorization.
    * 
    * @remarks
    * #### **Limits**
-   * *   You can set an effective scope across accounts only by using an Alibaba Cloud account instead of a RAM user. You can set an effective scope across accounts registered on the same site. For example, you can perform the operation across accounts that are both registered on the Alibaba Cloud China site or Alibaba Cloud international site. You cannot set an effective scope across accounts registered on different sites. For example, you cannot perform the operation across accounts that are separately registered on the Alibaba Cloud China site and Alibaba Cloud international site.
-   * *   No API operation is provided for sending the verification codes that are required for authorization.
+   * - Cross-account settings for the effective scope only support Alibaba Cloud accounts (primary accounts) and do not support RAM users. Only accounts within the same site can be associated, such as between Alibaba Cloud China Website (www.aliyun.com) accounts or between Alibaba Cloud International Website (www.alibabacloud.com) accounts. Cross-site association is not supported, such as between a China Website account and an International Website account.
+   * - For scenarios that use authentication code authorization, no API is currently available for sending authentication codes.
    * #### **Precautions**
-   * If you set an effective scope across accounts, bills are settled within the account that is used to perform routine management on built-in authoritative zones.
+   * When you configure cross-account settings for the effective scope, billing is settled under the account that manages the built-in authoritative domain name.
    * 
    * @param request - AddUserVpcAuthorizationRequest
    * @returns AddUserVpcAuthorizationResponse
@@ -296,7 +310,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a built-in authoritative zone in the regular module or acceleration module.
+   * Call the AddZone operation to create a built-in authoritative zone. The built-in authoritative zone can be a standard zone or an accelerated zone.
+   * 
+   * @remarks
+   * Starting from April 30, 2025 (UTC+8), zones added by new users of Alibaba Cloud DNS PrivateZone are set as accelerated zones by default. Starting from <props="china">October 30, 2025 (UTC+8)<props="intl">April 30, 2026 (UTC+8), all built-in authoritative standard zones will be automatically switched to accelerated zones. After the switch, the number of DNS queries may increase, which can increase your costs. To reduce the increase in DNS queries caused by the absence of a local cache, [enable NSCD for your ECS instances](https://help.aliyun.com/document_detail/2592999.html).
    * 
    * @param request - AddZoneRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -355,7 +372,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a built-in authoritative zone in the regular module or acceleration module.
+   * Call the AddZone operation to create a built-in authoritative zone. The built-in authoritative zone can be a standard zone or an accelerated zone.
+   * 
+   * @remarks
+   * Starting from April 30, 2025 (UTC+8), zones added by new users of Alibaba Cloud DNS PrivateZone are set as accelerated zones by default. Starting from <props="china">October 30, 2025 (UTC+8)<props="intl">April 30, 2026 (UTC+8), all built-in authoritative standard zones will be automatically switched to accelerated zones. After the switch, the number of DNS queries may increase, which can increase your costs. To reduce the increase in DNS queries caused by the absence of a local cache, [enable NSCD for your ECS instances](https://help.aliyun.com/document_detail/2592999.html).
    * 
    * @param request - AddZoneRequest
    * @returns AddZoneResponse
@@ -366,7 +386,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds a Domain Name System (DNS) record for a built-in authoritative zone. Within the effective scope, the intranet DNS records rather than the Internet DNS records take effect for the zone.
+   * Call the AddZoneRecord operation to add a DNS record to an authoritative zone. Within the effective scope of the zone, the internal DNS record for a domain name overwrites its public DNS record.
    * 
    * @param request - AddZoneRecordRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -441,7 +461,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds a Domain Name System (DNS) record for a built-in authoritative zone. Within the effective scope, the intranet DNS records rather than the Internet DNS records take effect for the zone.
+   * Call the AddZoneRecord operation to add a DNS record to an authoritative zone. Within the effective scope of the zone, the internal DNS record for a domain name overwrites its public DNS record.
    * 
    * @param request - AddZoneRecordRequest
    * @returns AddZoneRecordResponse
@@ -452,7 +472,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Associates a forwarding rule with virtual private clouds (VPCs).
+   * The BindResolverRuleVpc operation associates a forwarding rule with a virtual private cloud (VPC).
+   * 
+   * @remarks
+   * >Notice: 
+   * This operation performs a full replacement. Any existing VPC associations not included in your request will be removed. To add a new VPC, you must include the IDs of all VPCs that should remain associated.
    * 
    * @param request - BindResolverRuleVpcRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -491,7 +515,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Associates a forwarding rule with virtual private clouds (VPCs).
+   * The BindResolverRuleVpc operation associates a forwarding rule with a virtual private cloud (VPC).
+   * 
+   * @remarks
+   * >Notice: 
+   * This operation performs a full replacement. Any existing VPC associations not included in your request will be removed. To add a new VPC, you must include the IDs of all VPCs that should remain associated.
    * 
    * @param request - BindResolverRuleVpcRequest
    * @returns BindResolverRuleVpcResponse
@@ -502,11 +530,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Associates or dissociates virtual private clouds (VPCs) from a zone to set the effective scope of the zone.
+   * Binds a Zone to, or unbinds it from, one or more VPCs to define its effective scope.
    * 
    * @remarks
-   * ##### [](#)Precautions:
-   * We recommend that you set the effective scope of a zone after you configure all Domain Name System (DNS) records. If you set an effective scope before you configure DNS records, the DNS resolution for the zone within the effective scope will fail unless you enable the recursive resolution proxy for subdomain names.
+   * ##### Notes
+   * We recommend binding VPCs to a Zone only after you configure all its DNS records. Otherwise, DNS queries for the domain name in the specified VPCs may fail. This issue does not occur if the subdomain recursive resolution proxy feature is enabled.
+   * >Notice: This API operation performs a full overwrite. The list of VPCs provided in a request replaces all existing associated VPCs. To add a VPC, you must include the IDs of the new VPC and all existing VPCs that you want to retain.
    * 
    * @param request - BindZoneVpcRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -553,11 +582,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Associates or dissociates virtual private clouds (VPCs) from a zone to set the effective scope of the zone.
+   * Binds a Zone to, or unbinds it from, one or more VPCs to define its effective scope.
    * 
    * @remarks
-   * ##### [](#)Precautions:
-   * We recommend that you set the effective scope of a zone after you configure all Domain Name System (DNS) records. If you set an effective scope before you configure DNS records, the DNS resolution for the zone within the effective scope will fail unless you enable the recursive resolution proxy for subdomain names.
+   * ##### Notes
+   * We recommend binding VPCs to a Zone only after you configure all its DNS records. Otherwise, DNS queries for the domain name in the specified VPCs may fail. This issue does not occur if the subdomain recursive resolution proxy feature is enabled.
+   * >Notice: This API operation performs a full overwrite. The list of VPCs provided in a request replaces all existing associated VPCs. To add a VPC, you must include the IDs of the new VPC and all existing VPCs that you want to retain.
    * 
    * @param request - BindZoneVpcRequest
    * @returns BindZoneVpcResponse
@@ -568,7 +598,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the logical location of a zone.
+   * Modify the location of a ZONE.
+   * 
+   * @remarks
+   * Starting April 30, 2025 (UTC+8), zones added by new Alibaba Cloud DNS PrivateZone users will be set to acceleration zones by default. <props="china">Starting October 30, 2025 (UTC+8)<props="intl">Starting April 30, 2026 (UTC+8), built-in authoritative zones in the standard zone group for all users will be automatically switched to the acceleration zone group. After the switch, the number of DNS requests may increase, which can result in higher usage costs. You can enable [NSCD for ECS](https://help.aliyun.com/document_detail/2592999.html) to reduce the increase in DNS requests caused by the lack of a local cache.
    * 
    * @param request - ChangeZoneDnsGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -607,7 +640,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the logical location of a zone.
+   * Modify the location of a ZONE.
+   * 
+   * @remarks
+   * Starting April 30, 2025 (UTC+8), zones added by new Alibaba Cloud DNS PrivateZone users will be set to acceleration zones by default. <props="china">Starting October 30, 2025 (UTC+8)<props="intl">Starting April 30, 2026 (UTC+8), built-in authoritative zones in the standard zone group for all users will be automatically switched to the acceleration zone group. After the switch, the number of DNS requests may increase, which can result in higher usage costs. You can enable [NSCD for ECS](https://help.aliyun.com/document_detail/2592999.html) to reduce the increase in DNS requests caused by the lack of a local cache.
    * 
    * @param request - ChangeZoneDnsGroupRequest
    * @returns ChangeZoneDnsGroupResponse
@@ -618,7 +654,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Checks whether a zone name can be added based on a rule.
+   * You can call the CheckZoneName operation to check whether a zone name is available.
    * 
    * @param request - CheckZoneNameRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -657,7 +693,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Checks whether a zone name can be added based on a rule.
+   * You can call the CheckZoneName operation to check whether a zone name is available.
    * 
    * @param request - CheckZoneNameRequest
    * @returns CheckZoneNameResponse
@@ -714,7 +750,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an endpoint based on the endpoint ID.
+   * You can call the DeleteResolverEndpoint operation to delete an endpoint by its ID.
    * 
    * @param request - DeleteResolverEndpointRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -749,7 +785,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an endpoint based on the endpoint ID.
+   * You can call the DeleteResolverEndpoint operation to delete an endpoint by its ID.
    * 
    * @param request - DeleteResolverEndpointRequest
    * @returns DeleteResolverEndpointResponse
@@ -760,7 +796,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a forwarding rule based on the rule ID.
+   * Deletes a forwarding rule by its ID.
    * 
    * @param request - DeleteResolverRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -795,7 +831,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a forwarding rule based on the rule ID.
+   * Deletes a forwarding rule by its ID.
    * 
    * @param request - DeleteResolverRuleRequest
    * @returns DeleteResolverRuleResponse
@@ -806,7 +842,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Removes an account from the central management of private Domain Name System (DNS) resolution based on the account ID and authorization type.
+   * Deletes a cross-account authorization based on a specified account ID and authorization type.
    * 
    * @param request - DeleteUserVpcAuthorizationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -841,7 +877,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Removes an account from the central management of private Domain Name System (DNS) resolution based on the account ID and authorization type.
+   * Deletes a cross-account authorization based on a specified account ID and authorization type.
    * 
    * @param request - DeleteUserVpcAuthorizationRequest
    * @returns DeleteUserVpcAuthorizationResponse
@@ -852,11 +888,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an idle built-in authoritative zone.
+   * Deletes an idle zone (built-in authoritative domain name).
    * 
    * @remarks
-   * #### [](#)Precautions
-   * If you want to delete a built-in authoritative zone whose effective scope is configured, you must disassociate the zone from the effective scope first.
+   * #### Notes
+   * You must dissociate a zone from its scope before you delete it.
    * 
    * @param request - DeleteZoneRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -899,11 +935,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an idle built-in authoritative zone.
+   * Deletes an idle zone (built-in authoritative domain name).
    * 
    * @remarks
-   * #### [](#)Precautions
-   * If you want to delete a built-in authoritative zone whose effective scope is configured, you must disassociate the zone from the effective scope first.
+   * #### Notes
+   * You must dissociate a zone from its scope before you delete it.
    * 
    * @param request - DeleteZoneRequest
    * @returns DeleteZoneResponse
@@ -914,11 +950,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a Domain Name System (DNS) record based on the ID of the DNS record.
+   * The DeleteZoneRecord operation deletes a DNS record by its ID.
    * 
    * @remarks
-   * #### **Precautions**
-   * Deleted DNS records cannot be restored. Exercise caution when you perform this operation.
+   * #### **Notes**
+   * This operation is irreversible. Deleted records cannot be recovered.
    * 
    * @param request - DeleteZoneRecordRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -961,11 +997,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a Domain Name System (DNS) record based on the ID of the DNS record.
+   * The DeleteZoneRecord operation deletes a DNS record by its ID.
    * 
    * @remarks
-   * #### **Precautions**
-   * Deleted DNS records cannot be restored. Exercise caution when you perform this operation.
+   * #### **Notes**
+   * This operation is irreversible. Deleted records cannot be recovered.
    * 
    * @param request - DeleteZoneRecordRequest
    * @returns DeleteZoneRecordResponse
@@ -976,11 +1012,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the operation logs of Private DNS. Operation logs record operations in modules such as the built-in authoritative module, cache module, forward module, and service address module and record the queries for Domain Name System (DNS) records. You can query operation logs by operation or operation content.
+   * You can call the DescribeChangeLogs operation to retrieve the operation logs for a private zone. The logs record operations related to built-in authoritative zones, cache management, forwarding management, endpoints, and DNS record queries. You can perform a fuzzy search by keywords such as behavior and content.
    * 
    * @remarks
-   * #### **Precautions**
-   * You can query the operation logs of Private DNS that are generated within the last six months.
+   * #### **Limits**
+   * You can query operation logs for a private zone generated within the last six months.
    * 
    * @param request - DescribeChangeLogsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1043,11 +1079,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the operation logs of Private DNS. Operation logs record operations in modules such as the built-in authoritative module, cache module, forward module, and service address module and record the queries for Domain Name System (DNS) records. You can query operation logs by operation or operation content.
+   * You can call the DescribeChangeLogs operation to retrieve the operation logs for a private zone. The logs record operations related to built-in authoritative zones, cache management, forwarding management, endpoints, and DNS record queries. You can perform a fuzzy search by keywords such as behavior and content.
    * 
    * @remarks
-   * #### **Precautions**
-   * You can query the operation logs of Private DNS that are generated within the last six months.
+   * #### **Limits**
+   * You can query operation logs for a private zone generated within the last six months.
    * 
    * @param request - DescribeChangeLogsRequest
    * @returns DescribeChangeLogsResponse
@@ -1058,7 +1094,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about a custom line.
+   * Retrieves the details of a custom line.
    * 
    * @param request - DescribeCustomLineInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1093,7 +1129,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about a custom line.
+   * Retrieves the details of a custom line.
    * 
    * @param request - DescribeCustomLineInfoRequest
    * @returns DescribeCustomLineInfoResponse
@@ -1154,7 +1190,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取用户可以分析的VPC列表
+   * Retrieves a list of VPCs that a user can analyze.
+   * 
+   * @remarks
+   * This operation is not recommended due to its low performance. To retrieve a list of zones, call the `DescribeZones` operation. To get details about a VPC in a specific zone, call `DescribeZoneInfo` and specify the `zoneId`.
    * 
    * @param request - DescribeIntranetUserCanAnalysisVpcsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1209,7 +1248,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取用户可以分析的VPC列表
+   * Retrieves a list of VPCs that a user can analyze.
+   * 
+   * @remarks
+   * This operation is not recommended due to its low performance. To retrieve a list of zones, call the `DescribeZones` operation. To get details about a VPC in a specific zone, call `DescribeZoneInfo` and specify the `zoneId`.
    * 
    * @param request - DescribeIntranetUserCanAnalysisVpcsRequest
    * @returns DescribeIntranetUserCanAnalysisVpcsResponse
@@ -1220,7 +1262,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Pvtz解析统计信息全局总览
+   * Retrieves global DNS resolution statistics for PrivateZone.
+   * 
+   * @remarks
+   * #### **Usage notes**
+   * This operation queries tag information only for zone resources.
    * 
    * @param request - DescribePvtzStatisticsGlobalOverviewRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1259,7 +1305,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Pvtz解析统计信息全局总览
+   * Retrieves global DNS resolution statistics for PrivateZone.
+   * 
+   * @remarks
+   * #### **Usage notes**
+   * This operation queries tag information only for zone resources.
    * 
    * @param request - DescribePvtzStatisticsGlobalOverviewRequest
    * @returns DescribePvtzStatisticsGlobalOverviewResponse
@@ -1270,7 +1320,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Pvtz解析统计信息趋势
+   * PrivateZone Resolution Trends
+   * 
+   * @remarks
+   * #### **Limits**
+   * Currently, you can only query tags for availability zone resources.
    * 
    * @param request - DescribePvtzStatisticsHistoryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1333,7 +1387,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Pvtz解析统计信息趋势
+   * PrivateZone Resolution Trends
+   * 
+   * @remarks
+   * #### **Limits**
+   * Currently, you can only query tags for availability zone resources.
    * 
    * @param request - DescribePvtzStatisticsHistoryRequest
    * @returns DescribePvtzStatisticsHistoryResponse
@@ -1344,7 +1402,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Pvtz解析统计信息摘要列表
+   * PrivateZone Resolution Statistics Summary
+   * 
+   * @remarks
+   * #### **Limits**
+   * You can only query tags for zone resources.
    * 
    * @param request - DescribePvtzStatisticsSummaryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1431,7 +1493,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Pvtz解析统计信息摘要列表
+   * PrivateZone Resolution Statistics Summary
+   * 
+   * @remarks
+   * #### **Limits**
+   * You can only query tags for zone resources.
    * 
    * @param request - DescribePvtzStatisticsSummaryRequest
    * @returns DescribePvtzStatisticsSummaryResponse
@@ -1442,7 +1508,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Pvtz解析统计信息Zone维度总览
+   * Provides an overview of resolution statistics for zones in PrivateZone.
+   * 
+   * @remarks
+   * This is a low-performance operation and is not recommended. To retrieve a list of zones, use the DescribeZones operation. To get details of the VPCs bound to a zone, call the DescribeZoneInfo operation and specify the zone ID.
    * 
    * @param request - DescribePvtzStatisticsZoneOverviewRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1493,7 +1562,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Pvtz解析统计信息Zone维度总览
+   * Provides an overview of resolution statistics for zones in PrivateZone.
+   * 
+   * @remarks
+   * This is a low-performance operation and is not recommended. To retrieve a list of zones, use the DescribeZones operation. To get details of the VPCs bound to a zone, call the DescribeZoneInfo operation and specify the zone ID.
    * 
    * @param request - DescribePvtzStatisticsZoneOverviewRequest
    * @returns DescribePvtzStatisticsZoneOverviewResponse
@@ -1504,7 +1576,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of regions for selection based on the scenario and virtual private cloud (VPC) type.
+   * Call the DescribeRegions operation to query a list of available regions. You can filter the list by criteria such as the scenario and VPC type.
    * 
    * @param request - DescribeRegionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1555,7 +1627,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of regions for selection based on the scenario and virtual private cloud (VPC) type.
+   * Call the DescribeRegions operation to query a list of available regions. You can filter the list by criteria such as the scenario and VPC type.
    * 
    * @param request - DescribeRegionsRequest
    * @returns DescribeRegionsResponse
@@ -1566,7 +1638,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about Domain Name System (DNS) requests based on conditions such as the time range.
+   * Queries details about the number of requests based on conditions such as a time range.
    * 
    * @param request - DescribeRequestGraphRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1625,7 +1697,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about Domain Name System (DNS) requests based on conditions such as the time range.
+   * Queries details about the number of requests based on conditions such as a time range.
    * 
    * @param request - DescribeRequestGraphRequest
    * @returns DescribeRequestGraphResponse
@@ -1636,7 +1708,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of available zones.
+   * Call DescribeResolverAvailableZones to retrieve a list of available zones.
    * 
    * @param request - DescribeResolverAvailableZonesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1675,7 +1747,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of available zones.
+   * Call DescribeResolverAvailableZones to retrieve a list of available zones.
    * 
    * @param request - DescribeResolverAvailableZonesRequest
    * @returns DescribeResolverAvailableZonesResponse
@@ -1686,7 +1758,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about an endpoint based on the endpoint ID.
+   * You can call DescribeResolverEndpoint to retrieve the details of an endpoint by its ID.
    * 
    * @param request - DescribeResolverEndpointRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1721,7 +1793,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about an endpoint based on the endpoint ID.
+   * You can call DescribeResolverEndpoint to retrieve the details of an endpoint by its ID.
    * 
    * @param request - DescribeResolverEndpointRequest
    * @returns DescribeResolverEndpointResponse
@@ -1732,7 +1804,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of endpoints.
+   * You can call DescribeResolverEndpoints to retrieve a list of endpoints.
    * 
    * @param request - DescribeResolverEndpointsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1783,7 +1855,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of endpoints.
+   * You can call DescribeResolverEndpoints to retrieve a list of endpoints.
    * 
    * @param request - DescribeResolverEndpointsRequest
    * @returns DescribeResolverEndpointsResponse
@@ -1794,7 +1866,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about a forwarding rule based on the ID of the forwarding rule.
+   * Call the DescribeResolverRule operation to retrieve the details of a forwarding rule.
    * 
    * @param request - DescribeResolverRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1829,7 +1901,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about a forwarding rule based on the ID of the forwarding rule.
+   * Call the DescribeResolverRule operation to retrieve the details of a forwarding rule.
    * 
    * @param request - DescribeResolverRuleRequest
    * @returns DescribeResolverRuleResponse
@@ -1840,7 +1912,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of forwarding rules.
+   * Describes one or more forwarding rules.
    * 
    * @param request - DescribeResolverRulesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1891,7 +1963,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of forwarding rules.
+   * Describes one or more forwarding rules.
    * 
    * @param request - DescribeResolverRulesRequest
    * @returns DescribeResolverRulesResponse
@@ -1902,7 +1974,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the statistics on Domain Name System (DNS) requests received on the previous day, including the top three zones and virtual private clouds (VPCs) with the largest number of DNS requests.
+   * Call the DescribeStatisticSummary operation to retrieve a summary of yesterday\\"s request volume. This summary includes the top three zones and top three VPCs ranked by request volume.
    * 
    * @param request - DescribeStatisticSummaryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1937,7 +2009,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the statistics on Domain Name System (DNS) requests received on the previous day, including the top three zones and virtual private clouds (VPCs) with the largest number of DNS requests.
+   * Call the DescribeStatisticSummary operation to retrieve a summary of yesterday\\"s request volume. This summary includes the top three zones and top three VPCs ranked by request volume.
    * 
    * @param request - DescribeStatisticSummaryRequest
    * @returns DescribeStatisticSummaryResponse
@@ -1948,10 +2020,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about a hostname synchronization task based on a zone ID.
-   * 
-   * @remarks
-   * You can call the DescribeSyncEcsHostTask operation to query the information about a hostname synchronization task based on a zone ID.
+   * Call DescribeSyncEcsHostTask to retrieve the details of a hostname sync task based on a zone ID.
    * 
    * @param request - DescribeSyncEcsHostTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1986,10 +2055,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about a hostname synchronization task based on a zone ID.
-   * 
-   * @remarks
-   * You can call the DescribeSyncEcsHostTask operation to query the information about a hostname synchronization task based on a zone ID.
+   * Call DescribeSyncEcsHostTask to retrieve the details of a hostname sync task based on a zone ID.
    * 
    * @param request - DescribeSyncEcsHostTaskRequest
    * @returns DescribeSyncEcsHostTaskResponse
@@ -2000,11 +2066,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of tags added to zones.
+   * Queries the tags that are added to resources in PrivateZone.
    * 
    * @remarks
-   * #### **Precautions**
-   * You can call this API operation to query the information about tags added only to zones.
+   * #### **Limits**
+   * You can query tags for zone resources only.
    * 
    * @param request - DescribeTagsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2047,11 +2113,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of tags added to zones.
+   * Queries the tags that are added to resources in PrivateZone.
    * 
    * @remarks
-   * #### **Precautions**
-   * You can call this API operation to query the information about tags added only to zones.
+   * #### **Limits**
+   * You can query tags for zone resources only.
    * 
    * @param request - DescribeTagsRequest
    * @returns DescribeTagsResponse
@@ -2062,7 +2128,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the current user\\"s service status, such as whether the service is activated, whether there are any unpaid fees, etc.
+   * Queries the service status of the current user, which indicates whether the service is activated or has overdue payments.
    * 
    * @param request - DescribeUserServiceStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2093,7 +2159,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the current user\\"s service status, such as whether the service is activated, whether there are any unpaid fees, etc.
+   * Queries the service status of the current user, which indicates whether the service is activated or has overdue payments.
    * 
    * @param request - DescribeUserServiceStatusRequest
    * @returns DescribeUserServiceStatusResponse
@@ -2104,7 +2170,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of accounts whose virtual private clouds (VPCs) are associated with a private zone.
+   * Call the DescribeUserVpcAuthorizations operation to retrieve a list of cross-account authorizations.
    * 
    * @param request - DescribeUserVpcAuthorizationsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2147,7 +2213,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of accounts whose virtual private clouds (VPCs) are associated with a private zone.
+   * Call the DescribeUserVpcAuthorizations operation to retrieve a list of cross-account authorizations.
    * 
    * @param request - DescribeUserVpcAuthorizationsRequest
    * @returns DescribeUserVpcAuthorizationsResponse
@@ -2158,7 +2224,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about a built-in authoritative zone, such as the virtual private clouds (VPCs) that are associated with the zone.
+   * Call the DescribeZoneInfo operation to retrieve the details of a specified built-in authoritative zone. The details include the list of VPCs that are bound to the zone.
    * 
    * @param request - DescribeZoneInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2193,7 +2259,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about a built-in authoritative zone, such as the virtual private clouds (VPCs) that are associated with the zone.
+   * Call the DescribeZoneInfo operation to retrieve the details of a specified built-in authoritative zone. The details include the list of VPCs that are bound to the zone.
    * 
    * @param request - DescribeZoneInfoRequest
    * @returns DescribeZoneInfoResponse
@@ -2204,7 +2270,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about a Domain Name System (DNS) record.
+   * Queries the details of a DNS record.
    * 
    * @param request - DescribeZoneRecordRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2235,7 +2301,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about a Domain Name System (DNS) record.
+   * Queries the details of a DNS record.
    * 
    * @param request - DescribeZoneRecordRequest
    * @returns DescribeZoneRecordResponse
@@ -2246,7 +2312,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of Domain Name System (DNS) records.
+   * You can call DescribeZoneRecords to query DNS records for a zone.
    * 
    * @param request - DescribeZoneRecordsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2305,7 +2371,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of Domain Name System (DNS) records.
+   * You can call DescribeZoneRecords to query DNS records for a zone.
    * 
    * @param request - DescribeZoneRecordsRequest
    * @returns DescribeZoneRecordsResponse
@@ -2316,10 +2382,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of zones within the current account and a list of virtual private clouds (VPCs) associated with the zones.
+   * Call the DescribeZoneVpcTree operation to query the zones and the Virtual Private Clouds (VPCs) attached to them in your account.
    * 
    * @remarks
-   * We recommend that you do not call this API operation due to its poor performance. Instead, you can call the DescribeZones operation to query a list of zones. If you want to query the information about VPCs with which a zone is associated, you can call the DescribeZoneInfo operation based on the zone ID.
+   * This operation is not recommended due to low performance. To retrieve a list of zones, call DescribeZones. To retrieve the details of attached VPCs, call DescribeZoneInfo with the zone ID.
    * 
    * @param request - DescribeZoneVpcTreeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2354,10 +2420,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of zones within the current account and a list of virtual private clouds (VPCs) associated with the zones.
+   * Call the DescribeZoneVpcTree operation to query the zones and the Virtual Private Clouds (VPCs) attached to them in your account.
    * 
    * @remarks
-   * We recommend that you do not call this API operation due to its poor performance. Instead, you can call the DescribeZones operation to query a list of zones. If you want to query the information about VPCs with which a zone is associated, you can call the DescribeZoneInfo operation based on the zone ID.
+   * This operation is not recommended due to low performance. To retrieve a list of zones, call DescribeZones. To retrieve the details of attached VPCs, call DescribeZoneInfo with the zone ID.
    * 
    * @param request - DescribeZoneVpcTreeRequest
    * @returns DescribeZoneVpcTreeResponse
@@ -2368,7 +2434,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of zones within the current account.
+   * You can call the DescribeZones operation to query a list of zones available to your account.
    * 
    * @param request - DescribeZonesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2439,7 +2505,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of zones within the current account.
+   * You can call the DescribeZones operation to query a list of zones available to your account.
    * 
    * @param request - DescribeZonesRequest
    * @returns DescribeZonesResponse
@@ -2450,11 +2516,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of tags added to zones.
+   * Queries the tags that are added to resources in Private Zone.
    * 
    * @remarks
-   * #### [](#)**Precautions**
-   * You can call this API operation to query tags added only to zones.
+   * #### **Limits**
+   * This operation queries tags for zone resources only.
    * 
    * @param request - ListTagResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2505,11 +2571,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of tags added to zones.
+   * Queries the tags that are added to resources in Private Zone.
    * 
    * @remarks
-   * #### [](#)**Precautions**
-   * You can call this API operation to query tags added only to zones.
+   * #### **Limits**
+   * This operation queries tags for zone resources only.
    * 
    * @param request - ListTagResourcesRequest
    * @returns ListTagResourcesResponse
@@ -2520,11 +2586,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes a resource group.
+   * You can call the MoveResourceGroup operation to move a resource to a different resource group.
    * 
    * @remarks
-   * #### [](#)Precautions
-   * You can call this API operation to change a resource group only for a zone.
+   * #### Conditions
+   * This operation can be used to change the resource group of only zone-specific resources.
    * 
    * @param request - MoveResourceGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2567,11 +2633,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes a resource group.
+   * You can call the MoveResourceGroup operation to move a resource to a different resource group.
    * 
    * @remarks
-   * #### [](#)Precautions
-   * You can call this API operation to change a resource group only for a zone.
+   * #### Conditions
+   * This operation can be used to change the resource group of only zone-specific resources.
    * 
    * @param request - MoveResourceGroupRequest
    * @returns MoveResourceGroupResponse
@@ -2582,7 +2648,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of custom lines.
+   * Searches for custom access control lists (ACLs).
    * 
    * @param request - SearchCustomLinesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2649,7 +2715,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of custom lines.
+   * Searches for custom access control lists (ACLs).
    * 
    * @param request - SearchCustomLinesRequest
    * @returns SearchCustomLinesResponse
@@ -2660,7 +2726,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables the recursive resolution proxy for subdomain names.
+   * Sets the recursive resolution proxy for subdomains.
    * 
    * @param request - SetProxyPatternRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2707,7 +2773,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables the recursive resolution proxy for subdomain names.
+   * Sets the recursive resolution proxy for subdomains.
    * 
    * @param request - SetProxyPatternRequest
    * @returns SetProxyPatternResponse
@@ -2718,7 +2784,85 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables or disables a Domain Name System (DNS) record.
+   * Sets the weight enabling status.
+   * 
+   * @remarks
+   * #### Precautions
+   * Built-in authoritative domain names that have configured domain name effective scopes must first be dissociated from the domain name effective scope before they can be deleted.
+   * 
+   * @param request - SetZoneLbaStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SetZoneLbaStatusResponse
+   */
+  async setZoneLbaStatusWithOptions(request: $_model.SetZoneLbaStatusRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SetZoneLbaStatusResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!$dara.isNull(request.line)) {
+      query["Line"] = request.line;
+    }
+
+    if (!$dara.isNull(request.open)) {
+      query["Open"] = request.open;
+    }
+
+    if (!$dara.isNull(request.rr)) {
+      query["Rr"] = request.rr;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    if (!$dara.isNull(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
+    if (!$dara.isNull(request.zoneId)) {
+      query["ZoneId"] = request.zoneId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SetZoneLbaStatus",
+      version: "2018-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SetZoneLbaStatusResponse>(await this.callApi(params, req, runtime), new $_model.SetZoneLbaStatusResponse({}));
+  }
+
+  /**
+   * Sets the weight enabling status.
+   * 
+   * @remarks
+   * #### Precautions
+   * Built-in authoritative domain names that have configured domain name effective scopes must first be dissociated from the domain name effective scope before they can be deleted.
+   * 
+   * @param request - SetZoneLbaStatusRequest
+   * @returns SetZoneLbaStatusResponse
+   */
+  async setZoneLbaStatus(request: $_model.SetZoneLbaStatusRequest): Promise<$_model.SetZoneLbaStatusResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.setZoneLbaStatusWithOptions(request, runtime);
+  }
+
+  /**
+   * You can call SetZoneRecordStatus to set the status of a DNS record for a zone. This enables or pauses DNS resolution.
    * 
    * @param request - SetZoneRecordStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2765,7 +2909,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables or disables a Domain Name System (DNS) record.
+   * You can call SetZoneRecordStatus to set the status of a DNS record for a zone. This enables or pauses DNS resolution.
    * 
    * @param request - SetZoneRecordStatusRequest
    * @returns SetZoneRecordStatusResponse
@@ -2776,11 +2920,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds or modifies tags for zones.
+   * You can call the TagResources operation to add or modify tags for one or more zones in a batch.
    * 
    * @remarks
-   * ##### [](#)Precautions
-   * You can configure tags only for zones.
+   * ##### Limits
+   * You can add tags only to zone resources.
    * 
    * @param request - TagResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2827,11 +2971,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds or modifies tags for zones.
+   * You can call the TagResources operation to add or modify tags for one or more zones in a batch.
    * 
    * @remarks
-   * ##### [](#)Precautions
-   * You can configure tags only for zones.
+   * ##### Limits
+   * You can add tags only to zone resources.
    * 
    * @param request - TagResourcesRequest
    * @returns TagResourcesResponse
@@ -2842,11 +2986,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Removes the tags of multiple zones at a time.
+   * You can call the UntagResources operation to remove tags from one or more zones in PrivateZone.
    * 
    * @remarks
-   * #### [](#)**Precautions**
-   * You can call this API operation to remove tags added only to zones.
+   * #### **Limits**
+   * You can remove tags only from zone resources.
    * 
    * @param request - UntagResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2893,11 +3037,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Removes the tags of multiple zones at a time.
+   * You can call the UntagResources operation to remove tags from one or more zones in PrivateZone.
    * 
    * @remarks
-   * #### [](#)**Precautions**
-   * You can call this API operation to remove tags added only to zones.
+   * #### **Limits**
+   * You can remove tags only from zone resources.
    * 
    * @param request - UntagResourcesRequest
    * @returns UntagResourcesResponse
@@ -2908,7 +3052,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies a custom line.
+   * Updates a custom line.
    * 
    * @param request - UpdateCustomLineRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2955,7 +3099,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies a custom line.
+   * Updates a custom line.
    * 
    * @param request - UpdateCustomLineRequest
    * @returns UpdateCustomLineResponse
@@ -2966,7 +3110,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the description of a Domain Name System (DNS) record based on the record ID.
+   * You can call the UpdateRecordRemark operation to modify the remarks of a DNS record based on its ID.
    * 
    * @param request - UpdateRecordRemarkRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3009,7 +3153,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the description of a Domain Name System (DNS) record based on the record ID.
+   * You can call the UpdateRecordRemark operation to modify the remarks of a DNS record based on its ID.
    * 
    * @param request - UpdateRecordRemarkRequest
    * @returns UpdateRecordRemarkResponse
@@ -3020,7 +3164,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies an endpoint.
+   * Updates an endpoint.
    * 
    * @param request - UpdateResolverEndpointRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3063,7 +3207,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies an endpoint.
+   * Updates an endpoint.
    * 
    * @param request - UpdateResolverEndpointRequest
    * @returns UpdateResolverEndpointResponse
@@ -3136,7 +3280,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds or updates a hostname synchronization task.
+   * Call the UpdateSyncEcsHostTask operation to add or update a hostname sync task.
    * 
    * @param request - UpdateSyncEcsHostTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3179,7 +3323,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds or updates a hostname synchronization task.
+   * Call the UpdateSyncEcsHostTask operation to add or update a hostname sync task.
    * 
    * @param request - UpdateSyncEcsHostTaskRequest
    * @returns UpdateSyncEcsHostTaskResponse
@@ -3190,11 +3334,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies a Domain Name System (DNS) record of a zone, including the hostname, record value, and weight value of the DNS record.
+   * The UpdateZoneRecord operation modifies a DNS record for a zone. You can change properties such as the host record, record type, and weight.
    * 
    * @remarks
-   * #### **Precautions**
-   * The DNS record modification for a zone in the regular module takes effect only after the time to live (TTL) expires. The DNS record modification for a zone in the acceleration module takes effect immediately.
+   * #### **Notes**
+   * Modifications to DNS records in standard zones take effect after the Time to Live (TTL) expires. Modifications to DNS records in acceleration regions take effect immediately and are not affected by the TTL.
    * 
    * @param request - UpdateZoneRecordRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3265,11 +3409,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies a Domain Name System (DNS) record of a zone, including the hostname, record value, and weight value of the DNS record.
+   * The UpdateZoneRecord operation modifies a DNS record for a zone. You can change properties such as the host record, record type, and weight.
    * 
    * @remarks
-   * #### **Precautions**
-   * The DNS record modification for a zone in the regular module takes effect only after the time to live (TTL) expires. The DNS record modification for a zone in the acceleration module takes effect immediately.
+   * #### **Notes**
+   * Modifications to DNS records in standard zones take effect after the Time to Live (TTL) expires. Modifications to DNS records in acceleration regions take effect immediately and are not affected by the TTL.
    * 
    * @param request - UpdateZoneRecordRequest
    * @returns UpdateZoneRecordResponse
@@ -3280,7 +3424,67 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the description of a built-in authoritative zone.
+   * Updates the weight value of an authoritative DNS record in Alibaba Cloud DNS PrivateZone.
+   * 
+   * @remarks
+   * Updates the weight value of an authoritative DNS record in Alibaba Cloud DNS PrivateZone.
+   * 
+   * @param request - UpdateZoneRecordWeightRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateZoneRecordWeightResponse
+   */
+  async updateZoneRecordWeightWithOptions(request: $_model.UpdateZoneRecordWeightRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateZoneRecordWeightResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!$dara.isNull(request.recordId)) {
+      query["RecordId"] = request.recordId;
+    }
+
+    if (!$dara.isNull(request.weight)) {
+      query["Weight"] = request.weight;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateZoneRecordWeight",
+      version: "2018-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateZoneRecordWeightResponse>(await this.callApi(params, req, runtime), new $_model.UpdateZoneRecordWeightResponse({}));
+  }
+
+  /**
+   * Updates the weight value of an authoritative DNS record in Alibaba Cloud DNS PrivateZone.
+   * 
+   * @remarks
+   * Updates the weight value of an authoritative DNS record in Alibaba Cloud DNS PrivateZone.
+   * 
+   * @param request - UpdateZoneRecordWeightRequest
+   * @returns UpdateZoneRecordWeightResponse
+   */
+  async updateZoneRecordWeight(request: $_model.UpdateZoneRecordWeightRequest): Promise<$_model.UpdateZoneRecordWeightResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateZoneRecordWeightWithOptions(request, runtime);
+  }
+
+  /**
+   * Modifies the remark for a built-in authoritative domain name (zone).
    * 
    * @param request - UpdateZoneRemarkRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3327,7 +3531,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the description of a built-in authoritative zone.
+   * Modifies the remark for a built-in authoritative domain name (zone).
    * 
    * @param request - UpdateZoneRemarkRequest
    * @returns UpdateZoneRemarkResponse

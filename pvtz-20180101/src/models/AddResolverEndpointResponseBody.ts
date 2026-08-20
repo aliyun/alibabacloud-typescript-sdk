@@ -8,12 +8,12 @@ export class AddResolverEndpointResponseBody extends $dara.Model {
    * The endpoint ID.
    * 
    * @example
-   * hra0**
+   * hr****
    */
   endpointId?: string;
   /**
    * @remarks
-   * The request ID.
+   * The unique request ID.
    * 
    * @example
    * 32436208-E1AF-4DAB-B3B8-24F5F25B0950

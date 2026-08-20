@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListTagResourcesRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The key of tag N added to the resource.
+   * The key of the tag.
    * 
    * @example
    * env
@@ -13,7 +13,7 @@ export class ListTagResourcesRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of tag N added to the resource.
+   * The value of the tag.
    * 
    * @example
    * daily
@@ -47,8 +47,9 @@ export class ListTagResourcesRequest extends $dara.Model {
    * @remarks
    * The language of the response. Valid values:
    * 
-   * *   zh: Chinese
-   * *   en: English
+   * - zh: Chinese
+   * 
+   * - en: English
    * 
    * Default value: en.
    * 
@@ -58,7 +59,7 @@ export class ListTagResourcesRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
+   * The token that is used to start the next query. It is returned in the response to the previous query.
    * 
    * @example
    * 23423****
@@ -66,7 +67,7 @@ export class ListTagResourcesRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The resource IDs, which are zone IDs. You can specify up to 50 zone IDs.
+   * A list of resource IDs. In this case, a list of zone IDs. You can specify up to 50 IDs.
    * 
    * @example
    * 97fe9321a476d0861f624d3f738dcc38
@@ -74,7 +75,7 @@ export class ListTagResourcesRequest extends $dara.Model {
   resourceId?: string[];
   /**
    * @remarks
-   * The resource type. Valid value: ZONE.
+   * The resource type. Set the value to ZONE.
    * 
    * This parameter is required.
    * 
@@ -84,7 +85,7 @@ export class ListTagResourcesRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The number of entries per page. Maximum value: 200. Default value: 20.
+   * The number of entries to return on each page. Maximum value: 200. Default value: 20.
    * 
    * @example
    * 20
@@ -92,7 +93,7 @@ export class ListTagResourcesRequest extends $dara.Model {
   size?: number;
   /**
    * @remarks
-   * The tags added to the resources.
+   * A list of tags.
    */
   tag?: ListTagResourcesRequestTag[];
   static names(): { [key: string]: string } {

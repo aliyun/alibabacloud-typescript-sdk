@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SetProxyPatternRequest extends $dara.Model {
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * A client token to ensure the idempotence of the request. The token must be unique for each request. It can contain only ASCII characters and must be no more than 64 characters in length.
    * 
    * @example
    * 21079fa016944979537637959d09bc
@@ -15,10 +15,11 @@ export class SetProxyPatternRequest extends $dara.Model {
    * @remarks
    * The language of the response. Valid values:
    * 
-   * *   zh: Chinese
-   * *   en: English
+   * - zh: Chinese.
    * 
-   * Default value: en.
+   * - en: English.
+   * 
+   * Default value: en
    * 
    * @example
    * en
@@ -26,10 +27,11 @@ export class SetProxyPatternRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Specifies whether to enable the recursive resolution proxy for subdomain names. Valid values:
+   * The proxy mode for recursive resolution of subdomains. Valid values:
    * 
-   * *   **ZONE**: disables the recursive resolution proxy for subdomain names. In this case, NXDOMAIN is returned if the queried subdomain name does not exist in the zone.
-   * *   **RECORD**: enables the recursive resolution proxy for subdomain names. In this case, if the queried domain name does not exist in the zone, Domain Name System (DNS) requests are recursively forwarded to the forward module and then to the recursion module until DNS results are returned.
+   * - **ZONE**: Disables the proxy. If a subdomain does not exist, an NXDOMAIN response is returned.
+   * 
+   * - **RECORD**: Enables the proxy. If a subdomain does not exist, the system queries the forwarding and recursion modules and returns the final result.
    * 
    * This parameter is required.
    * 
@@ -47,7 +49,7 @@ export class SetProxyPatternRequest extends $dara.Model {
   userClientIp?: string;
   /**
    * @remarks
-   * The zone ID. This ID uniquely identifies the zone.
+   * The unique ID of the zone.
    * 
    * This parameter is required.
    * 

@@ -13,7 +13,7 @@ export class UpdateSyncEcsHostTaskRequestRegion extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The user ID to which the region belongs. This parameter is used in cross-account synchronization scenarios.
+   * The ID of the user who owns the region. This parameter is used for cross-account synchronization.
    * 
    * @example
    * 141339776561****
@@ -47,10 +47,11 @@ export class UpdateSyncEcsHostTaskRequest extends $dara.Model {
    * @remarks
    * The language of the response. Valid values:
    * 
-   * *   zh: Chinese
-   * *   en: English
+   * - zh: Chinese.
    * 
-   * Default value: en.
+   * - en: English.
+   * 
+   * Default value: en
    * 
    * @example
    * en
@@ -58,17 +59,18 @@ export class UpdateSyncEcsHostTaskRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The regions to be synchronized.
+   * The regions for synchronization.
    * 
    * This parameter is required.
    */
   region?: UpdateSyncEcsHostTaskRequestRegion[];
   /**
    * @remarks
-   * The state of the hostname synchronization task. Valid values:
+   * The status of the ECS hostname sync task. Valid values:
    * 
-   * *   ON: The task is started.
-   * *   OFF: The task is ended.
+   * - ON: enables the task.
+   * 
+   * - OFF: disables the task.
    * 
    * This parameter is required.
    * 
@@ -78,7 +80,7 @@ export class UpdateSyncEcsHostTaskRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The zone ID. This ID uniquely identifies the zone.
+   * The unique ID of the zone.
    * 
    * This parameter is required.
    * 

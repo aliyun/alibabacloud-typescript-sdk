@@ -91,15 +91,15 @@ export class DescribeChangeLogsResponseBody extends $dara.Model {
   changeLogs?: DescribeChangeLogsResponseBodyChangeLogs;
   /**
    * @remarks
-   * The page number.
+   * The page number of the returned data.
    * 
    * @example
-   * 2
+   * 1
    */
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries returned per page.
    * 
    * @example
    * 1
@@ -107,7 +107,7 @@ export class DescribeChangeLogsResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The request ID.
+   * The unique request ID.
    * 
    * @example
    * F0FCB52A-D512-41A0-8595-40234EDCFD8B
@@ -115,10 +115,10 @@ export class DescribeChangeLogsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of logs.
    * 
    * @example
-   * 100
+   * 1
    */
   totalItems?: number;
   /**
@@ -126,7 +126,7 @@ export class DescribeChangeLogsResponseBody extends $dara.Model {
    * The total number of pages returned.
    * 
    * @example
-   * 100
+   * 1
    */
   totalPages?: number;
   static names(): { [key: string]: string } {

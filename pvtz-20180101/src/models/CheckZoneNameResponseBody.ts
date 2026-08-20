@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class CheckZoneNameResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the zone name can be added. Valid values:
+   * The result of the check. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: The zone name can be added.
+   * 
+   * - **false**: The zone name cannot be added.
    * 
    * @example
    * true
@@ -16,7 +17,7 @@ export class CheckZoneNameResponseBody extends $dara.Model {
   check?: boolean;
   /**
    * @remarks
-   * The request ID.
+   * The unique ID of the request.
    * 
    * @example
    * CA29B88F-A571-4123-80D5-768AC2F7F806

@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class AddZoneResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The unique ID of the request.
    * 
    * @example
-   * 46973D4C-E3E4-4ABA-9190-9A9DE406C7E
+   * 54F10A2A-C3CF-59D4-810F-F18DDD93FE20
    */
   requestId?: string;
   /**
@@ -21,7 +21,7 @@ export class AddZoneResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The zone ID. This ID uniquely identifies the zone.
+   * The unique ID of the zone.
    * 
    * @example
    * 6fc186295683a131f63bb8b0cddc****

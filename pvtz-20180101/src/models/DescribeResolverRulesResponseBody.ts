@@ -34,23 +34,23 @@ export class DescribeResolverRulesResponseBodyRulesBindEdgeDnsClusters extends $
 export class DescribeResolverRulesResponseBodyRulesBindVpcs extends $dara.Model {
   /**
    * @remarks
-   * The region ID of the VPC.
+   * The ID of the region where the VPC resides.
    * 
    * @example
-   * cn-hangzhou
+   * cn-wulanchabu
    */
   regionId?: string;
   /**
    * @remarks
-   * The name of the region to which the VPC belongs.
+   * The name of the region where the VPC resides.
    * 
    * @example
-   * ap-southeast-1
+   * China (Ulanqab)
    */
   regionName?: string;
   /**
    * @remarks
-   * The VPC ID. This ID uniquely identifies the VPC.
+   * The unique ID of the VPC.
    * 
    * @example
    * vpc-0jl96awrjt75ezglc****
@@ -58,7 +58,7 @@ export class DescribeResolverRulesResponseBodyRulesBindVpcs extends $dara.Model 
   vpcId?: string;
   /**
    * @remarks
-   * The VPC name.
+   * The name of the VPC.
    * 
    * @example
    * vpc-name-test
@@ -66,10 +66,11 @@ export class DescribeResolverRulesResponseBodyRulesBindVpcs extends $dara.Model 
   vpcName?: string;
   /**
    * @remarks
-   * The VPC type. Valid values:
+   * The type of the VPC. Valid values:
    * 
-   * *   STANDARD: standard VPC
-   * *   EDS: Elastic Desktop Service (EDS) workspace VPC
+   * - STANDARD: a standard VPC.
+   * 
+   * - EDS: a workspace VPC of Elastic Desktop Service (EDS).
    * 
    * @example
    * STANDARD
@@ -77,7 +78,7 @@ export class DescribeResolverRulesResponseBodyRulesBindVpcs extends $dara.Model 
   vpcType?: string;
   /**
    * @remarks
-   * The user ID to which the VPC belongs.
+   * The user ID (UID) of the account to which the VPC belongs.
    * 
    * @example
    * 141339776561****
@@ -117,7 +118,7 @@ export class DescribeResolverRulesResponseBodyRulesBindVpcs extends $dara.Model 
 export class DescribeResolverRulesResponseBodyRulesForwardIps extends $dara.Model {
   /**
    * @remarks
-   * The IP address of the destination server.
+   * The destination IP address.
    * 
    * @example
    * 172.16.XX.XX
@@ -125,10 +126,10 @@ export class DescribeResolverRulesResponseBodyRulesForwardIps extends $dara.Mode
   ip?: string;
   /**
    * @remarks
-   * The port of the destination server.
+   * The port of the destination IP address.
    * 
    * @example
-   * 8080
+   * 80
    */
   port?: number;
   static names(): { [key: string]: string } {
@@ -199,12 +200,12 @@ export class DescribeResolverRulesResponseBodyRules extends $dara.Model {
   bindEdgeDnsClusters?: DescribeResolverRulesResponseBodyRulesBindEdgeDnsClusters[];
   /**
    * @remarks
-   * The VPCs associated with the forwarding rule.
+   * The list of associated VPCs.
    */
   bindVpcs?: DescribeResolverRulesResponseBodyRulesBindVpcs[];
   /**
    * @remarks
-   * The time when the forwarding was created. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
+   * The time when the rule was created.
    * 
    * @example
    * 2020-07-13 10:51:44
@@ -212,7 +213,7 @@ export class DescribeResolverRulesResponseBodyRules extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The time when the forwarding rule was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The UNIX timestamp when the rule was created.
    * 
    * @example
    * 1594608704000
@@ -220,7 +221,7 @@ export class DescribeResolverRulesResponseBodyRules extends $dara.Model {
   createTimestamp?: number;
   /**
    * @remarks
-   * The endpoint ID.
+   * The ID of the endpoint.
    * 
    * @example
    * hr****
@@ -228,15 +229,15 @@ export class DescribeResolverRulesResponseBodyRules extends $dara.Model {
   endpointId?: string;
   /**
    * @remarks
-   * The endpoint name.
+   * The name of the endpoint.
    * 
    * @example
-   * endpoint-test
+   * Endpoint-test
    */
   endpointName?: string;
   /**
    * @remarks
-   * The IP addresses and ports of the external DNS servers. Enter the IP addresses and ports of the destination servers to which the DNS requests are forwarded.
+   * The IP addresses and ports of the destination servers in an external DNS system. DNS query traffic is forwarded to these servers.
    */
   forwardIps?: DescribeResolverRulesResponseBodyRulesForwardIps[];
   /**
@@ -252,15 +253,15 @@ export class DescribeResolverRulesResponseBodyRules extends $dara.Model {
    * The name of the forwarding rule.
    * 
    * @example
-   * forward rule-test
+   * Forwarding rule-test
    */
   name?: string;
   priorityForwardConfigs?: DescribeResolverRulesResponseBodyRulesPriorityForwardConfigs[];
   /**
    * @remarks
-   * The type of the forwarding rule.
+   * The type of the forwarding rule. Currently, only forwarding to an external IP address is supported. Valid value:
    * 
-   * The parameter value can only be OUTBOUND, which indicates that Domain Name System (DNS) requests are forwarded to one or more external IP addresses.
+   * OUTBOUND: Forwards DNS requests to an external IP address.
    * 
    * @example
    * OUTBOUND
@@ -268,7 +269,7 @@ export class DescribeResolverRulesResponseBodyRules extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The time when the forwarding rule was last modified. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
+   * The time when the rule was last updated.
    * 
    * @example
    * 2020-07-13 10:51:44
@@ -276,7 +277,7 @@ export class DescribeResolverRulesResponseBodyRules extends $dara.Model {
   updateTime?: string;
   /**
    * @remarks
-   * The time when the forwarding rule was updated. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The UNIX timestamp when the rule was last updated.
    * 
    * @example
    * 1594608704000
@@ -284,7 +285,7 @@ export class DescribeResolverRulesResponseBodyRules extends $dara.Model {
   updateTimestamp?: number;
   /**
    * @remarks
-   * The zone for which you want to forward DNS requests.
+   * The domain name (zone) for which DNS requests are forwarded.
    * 
    * @example
    * example.com
@@ -352,7 +353,7 @@ export class DescribeResolverRulesResponseBodyRules extends $dara.Model {
 export class DescribeResolverRulesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The page number.
+   * The page number of the returned page.
    * 
    * @example
    * 1
@@ -360,7 +361,7 @@ export class DescribeResolverRulesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries returned on each page.
    * 
    * @example
    * 10
@@ -368,7 +369,7 @@ export class DescribeResolverRulesResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The request ID.
+   * The unique request ID.
    * 
    * @example
    * A10E03D7-808C-422D-9144-F8586C2E2297
@@ -376,12 +377,12 @@ export class DescribeResolverRulesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The forwarding rules.
+   * The list of forwarding rules.
    */
   rules?: DescribeResolverRulesResponseBodyRules[];
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 1
@@ -389,7 +390,7 @@ export class DescribeResolverRulesResponseBody extends $dara.Model {
   totalItems?: number;
   /**
    * @remarks
-   * The total number of returned pages.
+   * The total number of pages.
    * 
    * @example
    * 1
