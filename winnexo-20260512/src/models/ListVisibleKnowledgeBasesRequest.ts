@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListVisibleKnowledgeBasesRequest extends $dara.Model {
   /**
    * @remarks
-   * 数字员工名称（运营对象 name）
+   * The name of the digital employee (operating object name).
    * 
    * This parameter is required.
    * 
@@ -15,10 +15,10 @@ export class ListVisibleKnowledgeBasesRequest extends $dara.Model {
   operatingObjectName?: string;
   /**
    * @remarks
-   * 租户ID，公共参数，缺省时使用调用方默认租户
+   * The tenant ID.
    * 
    * @example
-   * 10000
+   * 1729094555111072
    */
   tenantId?: string;
   static names(): { [key: string]: string } {

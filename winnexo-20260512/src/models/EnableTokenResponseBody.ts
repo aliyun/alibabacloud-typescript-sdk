@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class EnableTokenResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+   * The status code.
    * 
    * @example
    * 200
@@ -13,12 +13,15 @@ export class EnableTokenResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * 错误描述，成功时为空
+   * The description of the status code.
+   * 
+   * @example
+   * ok
    */
   message?: string;
   /**
    * @remarks
-   * 请求追踪 ID
+   * The request ID.
    * 
    * @example
    * 019FF406-1B10-0065-A97D-2D1920C2A03D
@@ -26,7 +29,7 @@ export class EnableTokenResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Token 明文（仅本次返回，请妥善保管）
+   * The temporary access credential for the data catalog.
    * 
    * @example
    * example_token_value
@@ -34,7 +37,7 @@ export class EnableTokenResponseBody extends $dara.Model {
   token?: string;
   /**
    * @remarks
-   * 脱敏后的 Token 值
+   * The masked token value.
    * 
    * @example
    * string_value

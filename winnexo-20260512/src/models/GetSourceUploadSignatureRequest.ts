@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetSourceUploadSignatureRequest extends $dara.Model {
   /**
    * @remarks
-   * 文件 Content-Type（可选，不传则自动推断）
+   * The content type. Valid values: Text and Markdown.
    * 
    * @example
    * string_value
@@ -13,7 +13,7 @@ export class GetSourceUploadSignatureRequest extends $dara.Model {
   contentType?: string;
   /**
    * @remarks
-   * 签名 URL 过期时间（秒），默认 3600
+   * The expiration time of the signed URL, in seconds. Default value: 3600.
    * 
    * @example
    * 3600
@@ -21,7 +21,7 @@ export class GetSourceUploadSignatureRequest extends $dara.Model {
   expires?: number;
   /**
    * @remarks
-   * 文件名（含后缀，如 report.pdf）
+   * The file name.
    * 
    * This parameter is required.
    * 
@@ -31,7 +31,7 @@ export class GetSourceUploadSignatureRequest extends $dara.Model {
   filename?: string;
   /**
    * @remarks
-   * Agent 命名空间标识（数字员工名称）
+   * The name of the digital employee (operating object name). This parameter is optional.
    * 
    * @example
    * string_value
@@ -39,7 +39,7 @@ export class GetSourceUploadSignatureRequest extends $dara.Model {
   operatingObjectName?: string;
   /**
    * @remarks
-   * 数据源归属范围: source（个人数据源，映射 PERSONAL）/ knowledge（企业知识库，映射 TENANT）
+   * The permission scope.
    * 
    * @example
    * source
@@ -47,7 +47,7 @@ export class GetSourceUploadSignatureRequest extends $dara.Model {
   scope?: string;
   /**
    * @remarks
-   * 租户ID，公共参数，缺省时使用调用方默认租户
+   * The tenant ID to which the task belongs.
    * 
    * @example
    * 10000

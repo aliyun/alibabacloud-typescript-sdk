@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateDirectoryRequest extends $dara.Model {
   /**
    * @remarks
-   * 新目录描述；缺省表示不更新
+   * The description of the to-do card type.
    * 
    * @example
-   * 示例描述
+   * Sample description
    */
   description?: string;
   /**
    * @remarks
-   * 目录唯一标识（业务 ID，非主键 ID）
+   * The directory ID.
    * 
    * This parameter is required.
    * 
@@ -23,15 +23,15 @@ export class UpdateDirectoryRequest extends $dara.Model {
   directoryId?: string;
   /**
    * @remarks
-   * 新目录名称；缺省表示不更新
+   * The name.
    * 
    * @example
-   * 示例名称.pdf
+   * SampleName.pdf
    */
   name?: string;
   /**
    * @remarks
-   * 新父目录主键 ID；缺省表示不更新父目录
+   * The ID of the parent node.
    * 
    * @example
    * 1
@@ -39,7 +39,7 @@ export class UpdateDirectoryRequest extends $dara.Model {
   parentId?: number;
   /**
    * @remarks
-   * 新目录路径；传入时会级联更新当前目录及全部子目录的 path
+   * The path of the node.
    * 
    * @example
    * https://example.com/oss/file.pdf
@@ -47,7 +47,7 @@ export class UpdateDirectoryRequest extends $dara.Model {
   path?: string;
   /**
    * @remarks
-   * 租户ID，公共参数；winnexo-cli 通过 --tenant-id 显式传入
+   * The tenant ID.
    * 
    * @example
    * 10000

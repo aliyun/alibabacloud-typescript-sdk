@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreatePersonalAlidingKnowledgeBaseResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+   * The status code.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class CreatePersonalAlidingKnowledgeBaseResponseBody extends $dara.Model 
   code?: string;
   /**
    * @remarks
-   * 新建知识库根目录 ID
+   * The directory ID.
    * 
    * @example
    * exampleDirectoryId
@@ -21,15 +21,15 @@ export class CreatePersonalAlidingKnowledgeBaseResponseBody extends $dara.Model 
   directoryId?: string;
   /**
    * @remarks
-   * 创建时间 ISO8601
+   * The creation time in ISO 8601 format.
    * 
    * @example
-   * string_value
+   * 2025-11-14T02:18:27Z
    */
   gmtCreate?: string;
   /**
    * @remarks
-   * 知识库 URL（echo 回入参，便于调用方对齐）
+   * The knowledge base URL (echoed from the request parameter for caller alignment).
    * 
    * @example
    * https://example.com/winnexo/resource
@@ -37,20 +37,23 @@ export class CreatePersonalAlidingKnowledgeBaseResponseBody extends $dara.Model 
   kbUrl?: string;
   /**
    * @remarks
-   * 错误描述，成功时为空
+   * The response message.
+   * 
+   * @example
+   * ok
    */
   message?: string;
   /**
    * @remarks
-   * 文件名
+   * The name of the AI assistant.
    * 
    * @example
-   * 示例名称.pdf
+   * p-toolset-3dcef7ca-31b9-4d1c-8692-1ef03099cad3
    */
   name?: string;
   /**
    * @remarks
-   * 所属数字员工名称（echo 回入参，可为 null）
+   * The name of the digital employee (operating object name, optional).
    * 
    * @example
    * string_value
@@ -58,18 +61,21 @@ export class CreatePersonalAlidingKnowledgeBaseResponseBody extends $dara.Model 
   operatingObjectName?: string;
   /**
    * @remarks
-   * 请求追踪 ID
+   * The request ID.
    * 
    * @example
-   * 019FF406-1B10-0065-A97D-2D1920C2A03D
+   * E68654BD-F7BA-5837-8686-5645D739A47C
    */
   requestId?: string;
   /**
    * @remarks
-   * 知识库根目录状态（创建后为 RUNNING；后台同步完成后转 READY 或 FAILED）
+   * The status. Valid values:
+   * 
+   * - 200: Success.
+   * - 500: Failure.
    * 
    * @example
-   * READY
+   * 200
    */
   status?: string;
   static names(): { [key: string]: string } {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateChatSessionRequest extends $dara.Model {
   /**
    * @remarks
-   * 抽象模型名（模型档位）；不传则不修改会话当前模型
+   * The abstract model name (model tier). If not specified, the current model of the session is not modified.
    * 
    * @example
    * quick
@@ -13,7 +13,7 @@ export class UpdateChatSessionRequest extends $dara.Model {
   model?: string;
   /**
    * @remarks
-   * 会话 ID
+   * The session ID.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class UpdateChatSessionRequest extends $dara.Model {
   sessionId?: string;
   /**
    * @remarks
-   * 租户ID，公共参数，缺省时使用调用方默认租户
+   * The tenant ID. This is a common parameter. If not specified, the default tenant of the caller is used.
    * 
    * @example
    * 10000
@@ -31,10 +31,10 @@ export class UpdateChatSessionRequest extends $dara.Model {
   tenantId?: string;
   /**
    * @remarks
-   * 新的会话标题
+   * The new session title.
    * 
    * @example
-   * 示例标题
+   * Sample title
    */
   title?: string;
   static names(): { [key: string]: string } {

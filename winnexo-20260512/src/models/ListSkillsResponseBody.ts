@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListSkillsResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * 创建时间，ISO8601 格式
+   * The creation time.
    * 
    * @example
    * 2023-10-01T12:00:00Z
@@ -13,15 +13,15 @@ export class ListSkillsResponseBodyItems extends $dara.Model {
   createdTime?: string;
   /**
    * @remarks
-   * 技能描述（已 i18n 解析）
+   * The description of the to-do card type.
    * 
    * @example
-   * 示例描述
+   * Sample description
    */
   description?: string;
   /**
    * @remarks
-   * 执行模式：CODE_AGENT / SYSTEM 等
+   * The execution mode, such as CODE_AGENT or SYSTEM.
    * 
    * @example
    * string_value
@@ -29,7 +29,7 @@ export class ListSkillsResponseBodyItems extends $dara.Model {
   executeMode?: string;
   /**
    * @remarks
-   * 是否全局可访问
+   * Indicates whether the skill is globally accessible.
    * 
    * @example
    * true
@@ -37,7 +37,7 @@ export class ListSkillsResponseBodyItems extends $dara.Model {
   globalAccess?: boolean;
   /**
    * @remarks
-   * 是否存在未发布的草稿修改
+   * Indicates whether unpublished draft modifications exist.
    * 
    * @example
    * true
@@ -45,15 +45,15 @@ export class ListSkillsResponseBodyItems extends $dara.Model {
   hasDraftChanges?: boolean;
   /**
    * @remarks
-   * 技能名称（已 i18n 解析）
+   * The file name.
    * 
    * @example
-   * 示例名称.pdf
+   * SampleName.pdf
    */
   name?: string;
   /**
    * @remarks
-   * 技能编码（全局唯一）
+   * The actual skill code for execution.
    * 
    * @example
    * string_value
@@ -61,7 +61,7 @@ export class ListSkillsResponseBodyItems extends $dara.Model {
   skillCode?: string;
   /**
    * @remarks
-   * 技能定义 ID
+   * The skill definition ID.
    * 
    * @example
    * 1
@@ -69,7 +69,7 @@ export class ListSkillsResponseBodyItems extends $dara.Model {
   skillHubDefinitionId?: number;
   /**
    * @remarks
-   * 来源类型：BUILTIN / CUSTOM
+   * The data source type. Fixed value: FILE.
    * 
    * @example
    * BUILTIN
@@ -77,7 +77,7 @@ export class ListSkillsResponseBodyItems extends $dara.Model {
   sourceType?: string;
   /**
    * @remarks
-   * 技能状态：ACTIVE / DRAFT
+   * The task status. Returns Running upon submission.
    * 
    * @example
    * READY
@@ -85,7 +85,7 @@ export class ListSkillsResponseBodyItems extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * 标签列表（已 i18n 解析）
+   * The keys.
    * 
    * @example
    * string_value
@@ -93,7 +93,7 @@ export class ListSkillsResponseBodyItems extends $dara.Model {
   tags?: string[];
   /**
    * @remarks
-   * 修改时间，ISO8601 格式
+   * The update timestamp, in milliseconds.
    * 
    * @example
    * 2023-10-01T12:00:00Z
@@ -101,7 +101,7 @@ export class ListSkillsResponseBodyItems extends $dara.Model {
   updatedTime?: string;
   /**
    * @remarks
-   * 版本号
+   * The workflow definition version number.
    * 
    * @example
    * string_value
@@ -158,7 +158,7 @@ export class ListSkillsResponseBodyItems extends $dara.Model {
 export class ListSkillsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+   * The response status code.
    * 
    * @example
    * 200
@@ -166,27 +166,36 @@ export class ListSkillsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * 技能列表
+   * The list of skill cards.
    */
   items?: ListSkillsResponseBodyItems[];
   /**
    * @remarks
-   * 错误描述，成功时为空
+   * The prompt message.
+   * 
+   * @example
+   * successful
    */
   message?: string;
   /**
    * @remarks
-   * 当前页码
+   * The page number.
+   * 
+   * @example
+   * 1
    */
   page?: number;
   /**
    * @remarks
-   * 每页数量
+   * The number of entries per page. Default value: 20. Minimum value: 1. Maximum value: 50.
+   * 
+   * @example
+   * 10
    */
   pageSize?: number;
   /**
    * @remarks
-   * 请求追踪 ID
+   * The request ID.
    * 
    * @example
    * 019FF406-1B10-0065-A97D-2D1920C2A03D
@@ -194,7 +203,7 @@ export class ListSkillsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * 符合条件的技能总数
+   * The total number of entries.
    * 
    * @example
    * 1

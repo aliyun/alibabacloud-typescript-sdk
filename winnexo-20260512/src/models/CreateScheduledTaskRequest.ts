@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class CreateScheduledTaskRequestDescription extends $dara.Model {
   /**
    * @remarks
-   * 文本内容，type=text 时必填
+   * The streaming output message.
    * 
    * @example
-   * 示例内容
+   * Sample content
    */
   content?: string;
   /**
    * @remarks
-   * 功能开关，type=web_search 时可选
+   * Specifies whether the throttling rule is enabled. A value of true indicates enabled, and a value of false indicates disabled.
    * 
    * @example
    * true
@@ -21,15 +21,19 @@ export class CreateScheduledTaskRequestDescription extends $dara.Model {
   enabled?: boolean;
   /**
    * @remarks
-   * 文件名
+   * The name.
    * 
    * @example
-   * 示例名称.pdf
+   * SampleName.pdf
    */
   name?: string;
   /**
    * @remarks
-   * 对象 ID，type=mention 时有值
+   * The object ID. Pass the project task ID.
+   * 
+   * - For internal enterprise applications, use the taskId obtained by calling the [Create a project task](https://open.dingtalk.com/document/orgapp-server/create-a-project-task) operation.
+   * 
+   * - For third-party enterprise applications, use the taskId obtained by calling the [Create a project task](https://open.dingtalk.com/document/isvapp-server/create-a-project-task) operation.
    * 
    * @example
    * exampleObjectId
@@ -37,7 +41,7 @@ export class CreateScheduledTaskRequestDescription extends $dara.Model {
   objectId?: string;
   /**
    * @remarks
-   * 对象类型如 customer，type=mention 时有值
+   * The object type. Fixed value: task, indicating a project task.
    * 
    * @example
    * string_value
@@ -45,7 +49,7 @@ export class CreateScheduledTaskRequestDescription extends $dara.Model {
   objectType?: string;
   /**
    * @remarks
-   * 技能编码，type=skill 时有值
+   * The skill code. This parameter has a value when type is set to skill.
    * 
    * @example
    * string_value
@@ -53,7 +57,7 @@ export class CreateScheduledTaskRequestDescription extends $dara.Model {
   skillCode?: string;
   /**
    * @remarks
-   * 元素类型：text|web_search|mention|skill
+   * The HTTP API type. Valid values: Http (standard HTTP API), Rest (RESTful API), WebSocket (WebSocket API), HttpIngress (HTTP API accessed through Ingress), LLM (large language model API), and Agent (Agent proxy API).
    * 
    * @example
    * text
@@ -95,15 +99,15 @@ export class CreateScheduledTaskRequestDescription extends $dara.Model {
 export class CreateScheduledTaskRequestSegments extends $dara.Model {
   /**
    * @remarks
-   * 文本内容，type=text 时必填
+   * The card callback content.
    * 
    * @example
-   * 示例内容
+   * Sample content
    */
   content?: string;
   /**
    * @remarks
-   * 功能开关，type=web_search 时可选
+   * Specifies whether to enable this feature.
    * 
    * @example
    * true
@@ -111,15 +115,15 @@ export class CreateScheduledTaskRequestSegments extends $dara.Model {
   enabled?: boolean;
   /**
    * @remarks
-   * 文件名
+   * The name.
    * 
    * @example
-   * 示例名称.pdf
+   * SampleName.pdf
    */
   name?: string;
   /**
    * @remarks
-   * 对象 ID，type=mention 时有值
+   * The ID of the recommended item, which can be a **feedId** or a micro-application ID.
    * 
    * @example
    * exampleObjectId
@@ -127,7 +131,7 @@ export class CreateScheduledTaskRequestSegments extends $dara.Model {
   objectId?: string;
   /**
    * @remarks
-   * 对象类型如 customer，type=mention 时有值
+   * The customer type to save.
    * 
    * @example
    * string_value
@@ -135,7 +139,7 @@ export class CreateScheduledTaskRequestSegments extends $dara.Model {
   objectType?: string;
   /**
    * @remarks
-   * 技能编码，type=skill 时有值
+   * The skill code. This parameter has a value when type is set to skill.
    * 
    * @example
    * string_value
@@ -143,7 +147,7 @@ export class CreateScheduledTaskRequestSegments extends $dara.Model {
   skillCode?: string;
   /**
    * @remarks
-   * 元素类型：text|web_search|mention|skill
+   * The billing type. Only fixed is supported.
    * 
    * @example
    * text
@@ -185,7 +189,7 @@ export class CreateScheduledTaskRequestSegments extends $dara.Model {
 export class CreateScheduledTaskRequestTaskDetailRelatedObjects extends $dara.Model {
   /**
    * @remarks
-   * 提及类型，如 objects
+   * The mention type, such as objects.
    * 
    * @example
    * string_value
@@ -193,15 +197,19 @@ export class CreateScheduledTaskRequestTaskDetailRelatedObjects extends $dara.Mo
   mentionType?: string;
   /**
    * @remarks
-   * 文件名
+   * The name.
    * 
    * @example
-   * 示例名称.pdf
+   * SampleName.pdf
    */
   name?: string;
   /**
    * @remarks
-   * 对象 ID（@指定时有值）
+   * The object ID. Pass the project task ID.
+   * 
+   * - For internal enterprise applications, use the taskId obtained by calling the [Create a project task](https://open.dingtalk.com/document/orgapp-server/create-a-project-task) operation.
+   * 
+   * - For third-party enterprise applications, use the taskId obtained by calling the [Create a project task](https://open.dingtalk.com/document/isvapp-server/create-a-project-task) operation.
    * 
    * @example
    * exampleObjectId
@@ -209,7 +217,9 @@ export class CreateScheduledTaskRequestTaskDetailRelatedObjects extends $dara.Mo
   objectId?: string;
   /**
    * @remarks
-   * 对象类型，如 customer、company
+   * The relationship type. Valid values:
+   * - crm_customer: enterprise customer.
+   * - crm_customer_personal: individual customer.
    * 
    * @example
    * string_value
@@ -245,7 +255,7 @@ export class CreateScheduledTaskRequestTaskDetailRelatedObjects extends $dara.Mo
 export class CreateScheduledTaskRequestTaskDetailRelatedSemantics extends $dara.Model {
   /**
    * @remarks
-   * 语义属性（JSON 字符串），用于语义检索时过滤
+   * The file extension information.
    * 
    * @example
    * {"level": "VIP"}
@@ -253,7 +263,7 @@ export class CreateScheduledTaskRequestTaskDetailRelatedSemantics extends $dara.
   attributes?: string;
   /**
    * @remarks
-   * 语义实体名，如客户/机会
+   * The semantic entity name, such as customer or opportunity.
    * 
    * @example
    * customer
@@ -285,7 +295,7 @@ export class CreateScheduledTaskRequestTaskDetailRelatedSemantics extends $dara.
 export class CreateScheduledTaskRequestTaskDetailRelatedSkills extends $dara.Model {
   /**
    * @remarks
-   * 技能展示名称
+   * The display name.
    * 
    * @example
    * string_value
@@ -293,15 +303,15 @@ export class CreateScheduledTaskRequestTaskDetailRelatedSkills extends $dara.Mod
   displayName?: string;
   /**
    * @remarks
-   * 文件名
+   * The name.
    * 
    * @example
-   * 示例名称.pdf
+   * SampleName.pdf
    */
   name?: string;
   /**
    * @remarks
-   * 技能代码
+   * The skill code.
    * 
    * @example
    * string_value
@@ -346,12 +356,24 @@ export class CreateScheduledTaskRequestTaskDetailRelatedSkills extends $dara.Mod
 }
 
 export class CreateScheduledTaskRequestTaskDetail extends $dara.Model {
+  /**
+   * @remarks
+   * The related objects.
+   */
   relatedObjects?: CreateScheduledTaskRequestTaskDetailRelatedObjects[];
+  /**
+   * @remarks
+   * The related semantics.
+   */
   relatedSemantics?: CreateScheduledTaskRequestTaskDetailRelatedSemantics[];
+  /**
+   * @remarks
+   * The related skills.
+   */
   relatedSkills?: CreateScheduledTaskRequestTaskDetailRelatedSkills[];
   /**
    * @remarks
-   * LLM 润色后的任务理解描述
+   * The task understanding description polished by the LLM.
    * 
    * @example
    * string_value
@@ -396,7 +418,12 @@ export class CreateScheduledTaskRequestTaskDetail extends $dara.Model {
 export class CreateScheduledTaskRequestTriggerConfigPushConfig extends $dara.Model {
   /**
    * @remarks
-   * 推送渠道
+   * The notification method. Valid values:
+   * 
+   * - **hdm_alarm_sms**: SMS.
+   * - **dingtalk**: DingTalk chatbot.
+   * - **hdm_alarm_sms_and_email**: SMS and email.
+   * - **hdm_alarm_sms,dingtalk**: SMS and DingTalk chatbot.
    * 
    * @example
    * DINGTALK
@@ -404,7 +431,7 @@ export class CreateScheduledTaskRequestTriggerConfigPushConfig extends $dara.Mod
   channelType?: string;
   /**
    * @remarks
-   * 推送内容范围，默认 all_replies
+   * The push content scope. Default value: all_replies.
    * 
    * @example
    * all_replies
@@ -412,7 +439,7 @@ export class CreateScheduledTaskRequestTriggerConfigPushConfig extends $dara.Mod
   contentScope?: string;
   /**
    * @remarks
-   * 推送方式，默认 channel_bot
+   * The push method. Default value: channel_bot.
    * 
    * @example
    * channel_bot
@@ -420,7 +447,10 @@ export class CreateScheduledTaskRequestTriggerConfigPushConfig extends $dara.Mod
   deliveryMethod?: string;
   /**
    * @remarks
-   * 是否推送该频道，默认关闭
+   * Specifies whether the credential is enabled. Valid values:
+   * 
+   * - true: Enabled.
+   * - false: Disabled.
    * 
    * @example
    * true
@@ -428,7 +458,7 @@ export class CreateScheduledTaskRequestTriggerConfigPushConfig extends $dara.Mod
   enabled?: boolean;
   /**
    * @remarks
-   * 产出文件推送格式，默认 file
+   * The file format. Valid values: Excel and CSV.
    * 
    * @example
    * file
@@ -436,7 +466,7 @@ export class CreateScheduledTaskRequestTriggerConfigPushConfig extends $dara.Mod
   fileFormat?: string;
   /**
    * @remarks
-   * 发送机器人所属数字员工，必传且不可为空
+   * The digital employee name (operating object name, optional).
    * 
    * @example
    * string_value
@@ -444,7 +474,15 @@ export class CreateScheduledTaskRequestTriggerConfigPushConfig extends $dara.Mod
   operatingObjectName?: string;
   /**
    * @remarks
-   * 接收人，当前仅支持 self
+   * The file receiver type. Valid values:
+   * 
+   * - 0: One-on-one chat.
+   * 
+   * - 1: Group chat.
+   * 
+   * - 2: DingTalk Drive.
+   * 
+   * - 3: Document.
    * 
    * @example
    * string_value
@@ -486,7 +524,7 @@ export class CreateScheduledTaskRequestTriggerConfigPushConfig extends $dara.Mod
 export class CreateScheduledTaskRequestTriggerConfig extends $dara.Model {
   /**
    * @remarks
-   * Cron 表达式，trigger_mode=scheduled 时必填，如 \"00 09 * * *\"
+   * The periodic training information in cron syntax (Minutes Hours DayofMonth Month DayofWeek). An empty value indicates that periodic training is not performed (default). In DayofWeek, 0 indicates Sunday.
    * 
    * @example
    * string_value
@@ -494,7 +532,10 @@ export class CreateScheduledTaskRequestTriggerConfig extends $dara.Model {
   cron?: string;
   /**
    * @remarks
-   * 语言如 zh-CN|en-US，由服务端自动注入
+   * The language. Valid values:
+   * 
+   * - zh_CN: Chinese (default)
+   * - en_US: English
    * 
    * @example
    * zh-CN
@@ -502,12 +543,12 @@ export class CreateScheduledTaskRequestTriggerConfig extends $dara.Model {
   language?: string;
   /**
    * @remarks
-   * 任务推送频道列表；为空或无启用频道时不推送
+   * The list of task push channels. No push is performed if the list is empty or no channel is enabled.
    */
   pushConfig?: CreateScheduledTaskRequestTriggerConfigPushConfig[];
   /**
    * @remarks
-   * 时区如 Asia/Shanghai，由服务端自动注入
+   * The time zone.
    * 
    * @example
    * Asia/Shanghai
@@ -515,7 +556,17 @@ export class CreateScheduledTaskRequestTriggerConfig extends $dara.Model {
   timezone?: string;
   /**
    * @remarks
-   * 触发模式：manual|scheduled
+   * The trigger mode.
+   *  
+   *   1: Manual trigger
+   *    
+   *   2: Scheduled trigger 
+   * 
+   *   3: Code commit trigger
+   *  
+   *   5: Pipeline trigger
+   * 
+   *   6: WEBHOOK trigger
    * 
    * @example
    * manual
@@ -556,16 +607,20 @@ export class CreateScheduledTaskRequestTriggerConfig extends $dara.Model {
 export class CreateScheduledTaskRequest extends $dara.Model {
   /**
    * @remarks
-   * 所属协作群组 ID（如 cg_101）；传入时创建群空间任务（调用者需为有效群成员），为空创建个人任务
+   * The ID of the collaboration group (such as cg_101). If specified, a group space task is created (the caller must be a valid group member). If empty, a personal task is created.
    * 
    * @example
    * exampleCollaborationGroupId
    */
   collaborationGroupId?: string;
+  /**
+   * @remarks
+   * The description of the to-do card type.
+   */
   description?: CreateScheduledTaskRequestDescription[];
   /**
    * @remarks
-   * 数字员工名称列表
+   * The name of the current effective digital employee. This parameter is empty if not configured.
    * 
    * @example
    * string_value
@@ -573,7 +628,7 @@ export class CreateScheduledTaskRequest extends $dara.Model {
   digitalEmployeeName?: string[];
   /**
    * @remarks
-   * 是否公开访问
+   * Specifies whether public access is enabled.
    * 
    * @example
    * true
@@ -581,7 +636,7 @@ export class CreateScheduledTaskRequest extends $dara.Model {
   isOpen?: boolean;
   /**
    * @remarks
-   * 执行模型档位，不传默认 standard
+   * The large model used by the assistant. An empty value indicates that DingTalk automatically selects the model.
    * 
    * @example
    * quick
@@ -589,25 +644,62 @@ export class CreateScheduledTaskRequest extends $dara.Model {
   model?: string;
   /**
    * @remarks
-   * 文件名
+   * The name.
    * 
    * This parameter is required.
    * 
    * @example
-   * 示例名称.pdf
+   * SampleName.pdf
    */
   name?: string;
+  /**
+   * @remarks
+   * The site ID.
+   */
   segments?: CreateScheduledTaskRequestSegments[];
+  /**
+   * @remarks
+   * The task details.
+   */
   taskDetail?: CreateScheduledTaskRequestTaskDetail;
   /**
    * @remarks
-   * 租户ID，公共参数，缺省时使用调用方默认租户
+   * The ID of the effective tenant.
    * 
    * @example
    * 10000
    */
   tenantId?: string;
+  /**
+   * @remarks
+   * The trigger configuration. The configuration varies depending on the trigger type. For the specific format, refer to the following data structures:
+   * 
+   *   - OSS trigger: See [OSSTriggerConfig](https://help.aliyun.com/document_detail/415697.html).
+   *   - Simple Log Service trigger: See [LogTriggerConfig](https://help.aliyun.com/document_detail/415694.html).
+   *   - Time trigger: See [TimeTriggerConfig](https://help.aliyun.com/document_detail/415712.html).
+   *   - HTTP trigger: See [HTTPTriggerConfig](https://help.aliyun.com/document_detail/415685.html).
+   *   - Tablestore trigger: You only need to specify the complete **SourceArn** parameter. No additional configuration is required. Set the value to an empty object {}.
+   *   - CDN event trigger: See [CDNEventsTriggerConfig](https://help.aliyun.com/document_detail/415674.html).
+   *   - MNS topic trigger: See [MnsTopicTriggerConfig](https://help.aliyun.com/document_detail/415695.html).
+   *   - EventBridge trigger: See [EventBridgeTriggerConfig](https://help.aliyun.com/document_detail/2508622.html).
+   */
   triggerConfig?: CreateScheduledTaskRequestTriggerConfig;
+  /**
+   * @remarks
+   * The visibility scope of the group task. Valid values: PRIVATE (visible only to the creator and group owner), COLLABORATIVE (visible to specified collaborators), and PUBLIC (visible to all group members). Default value for group tasks: PRIVATE. This parameter is ignored for personal tasks.
+   * 
+   * @example
+   * PRIVATE
+   */
+  visibility?: string;
+  /**
+   * @remarks
+   * The list of collaborator user IDs. This parameter takes effect only when visibility is set to COLLABORATIVE. It is ignored for other visibility levels. A maximum of 1000 IDs are supported. The task creator and group creator do not need to be included (covered by the authentication layer). This parameter is ignored for personal tasks.
+   * 
+   * @example
+   * string_value
+   */
+  visibleMemberUserIds?: string[];
   static names(): { [key: string]: string } {
     return {
       collaborationGroupId: 'collaborationGroupId',
@@ -620,6 +712,8 @@ export class CreateScheduledTaskRequest extends $dara.Model {
       taskDetail: 'taskDetail',
       tenantId: 'tenantId',
       triggerConfig: 'triggerConfig',
+      visibility: 'visibility',
+      visibleMemberUserIds: 'visibleMemberUserIds',
     };
   }
 
@@ -635,6 +729,8 @@ export class CreateScheduledTaskRequest extends $dara.Model {
       taskDetail: CreateScheduledTaskRequestTaskDetail,
       tenantId: 'string',
       triggerConfig: CreateScheduledTaskRequestTriggerConfig,
+      visibility: 'string',
+      visibleMemberUserIds: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -653,6 +749,9 @@ export class CreateScheduledTaskRequest extends $dara.Model {
     }
     if(this.triggerConfig && typeof (this.triggerConfig as any).validate === 'function') {
       (this.triggerConfig as any).validate();
+    }
+    if(Array.isArray(this.visibleMemberUserIds)) {
+      $dara.Model.validateArray(this.visibleMemberUserIds);
     }
     super.validate();
   }

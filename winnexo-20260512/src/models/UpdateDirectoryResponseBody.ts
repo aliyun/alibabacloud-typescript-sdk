@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateDirectoryResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+   * The status code.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class UpdateDirectoryResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * 目录唯一标识（echo 回入参）
+   * The directory ID.
    * 
    * @example
    * exampleDirectoryId
@@ -21,12 +21,15 @@ export class UpdateDirectoryResponseBody extends $dara.Model {
   directoryId?: string;
   /**
    * @remarks
-   * 错误描述，成功时为空
+   * The description of the status code.
+   * 
+   * @example
+   * ok
    */
   message?: string;
   /**
    * @remarks
-   * 请求追踪 ID
+   * The request ID.
    * 
    * @example
    * 019FF406-1B10-0065-A97D-2D1920C2A03D
@@ -34,7 +37,9 @@ export class UpdateDirectoryResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * 操作是否成功
+   * Indicates whether the API call is successful. Valid values:
+   * - true: The call is successful.
+   * - false: The call fails.
    * 
    * @example
    * true

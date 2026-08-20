@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetSourceRequest extends $dara.Model {
   /**
    * @remarks
-   * 是否返回大体积明细字段（settings / notes / structuredTables / unstructuredDocs）。默认 False，仅返回元信息。
+   * Specifies whether to return large detail fields (settings / notes / structuredTables / unstructuredDocs). Default value: False, which returns only metadata.
    * 
    * @example
    * false
@@ -13,7 +13,7 @@ export class GetSourceRequest extends $dara.Model {
   includeDetails?: boolean;
   /**
    * @remarks
-   * 数据源 ID（租户内唯一）
+   * The primary ID of the resource.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class GetSourceRequest extends $dara.Model {
   sourceId?: string;
   /**
    * @remarks
-   * 租户ID，公共参数，缺省时使用调用方默认租户
+   * The tenant ID to which the task belongs.
    * 
    * @example
    * 10000

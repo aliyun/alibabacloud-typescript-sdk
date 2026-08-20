@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAdminKnowledgeBasesShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * 目录 ID；为空或 \"root\" 时返回 KB 顶层列表，传具体值时下钻返回该目录的子目录 + 资源（混合分页，由 itemType 区分）
+   * The directory ID.
    * 
    * @example
    * exampleDirectoryId
@@ -13,15 +13,15 @@ export class ListAdminKnowledgeBasesShrinkRequest extends $dara.Model {
   directoryId?: string;
   /**
    * @remarks
-   * 搜索关键词，仅在 directoryId 为空/root 时生效，模糊匹配 KB 名称或描述（忽略大小写）
+   * The keyword for fuzzy search on form component data.
    * 
    * @example
-   * 示例关键词
+   * SampleKeyword
    */
   keyword?: string;
   /**
    * @remarks
-   * 页码，从 1 开始
+   * The page number. Default value: 1. Pages start from page 1.
    * 
    * @example
    * 1
@@ -29,7 +29,7 @@ export class ListAdminKnowledgeBasesShrinkRequest extends $dara.Model {
   page?: number;
   /**
    * @remarks
-   * 每页数量，范围 1-100
+   * The number of entries per page.
    * 
    * @example
    * 20
@@ -37,7 +37,11 @@ export class ListAdminKnowledgeBasesShrinkRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * 排序字段：name / gmtCreate / gmtModified；非法值回退为 name
+   * The field by which the results are sorted. Valid values:
+   * 
+   * - event_time: the event creation time.
+   * - event_execute_start_time: the event execution time.
+   * - event_execute_finish_time: the event completion time.
    * 
    * @example
    * name
@@ -45,7 +49,7 @@ export class ListAdminKnowledgeBasesShrinkRequest extends $dara.Model {
   sortField?: string;
   /**
    * @remarks
-   * 排序方向：asc / desc；非法值回退为 asc
+   * The sort order. This parameter takes effect only when sortBy is specified. Valid values: ASC, DESC (case-insensitive).
    * 
    * @example
    * asc
@@ -53,7 +57,7 @@ export class ListAdminKnowledgeBasesShrinkRequest extends $dara.Model {
   sortOrder?: string;
   /**
    * @remarks
-   * 资源类型过滤，仅在下钻（directoryId 非空）时生效；命中时仅返回匹配类型的资源，不含子目录
+   * The list of source types.
    * 
    * @example
    * string_value
@@ -61,7 +65,7 @@ export class ListAdminKnowledgeBasesShrinkRequest extends $dara.Model {
   sourceTypesShrink?: string;
   /**
    * @remarks
-   * 租户ID，公共参数；winnexo-cli 通过 --tenant-id 显式传入
+   * The tenant ID to which the task belongs.
    * 
    * @example
    * 10000

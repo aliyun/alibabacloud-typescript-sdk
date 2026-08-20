@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetSkillRunResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+   * The response status code.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class GetSkillRunResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * 任务创建时间，ISO8601
+   * The task creation time in ISO 8601 format.
    * 
    * @example
    * string_value
@@ -21,7 +21,7 @@ export class GetSkillRunResponseBody extends $dara.Model {
   createdAt?: string;
   /**
    * @remarks
-   * 错误码，仅 Failed 时返回
+   * The error code. This parameter is returned only when the status is Failed.
    * 
    * @example
    * string_value
@@ -29,7 +29,7 @@ export class GetSkillRunResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * 错误描述，仅 Failed 时返回
+   * The error description. This parameter is returned only when the status is Failed.
    * 
    * @example
    * string_value
@@ -37,21 +37,28 @@ export class GetSkillRunResponseBody extends $dara.Model {
   errorMessage?: string;
   /**
    * @remarks
-   * 任务结束时间，ISO8601；仅终态（Succeeded/Failed/Cancelled）有值
+   * The task end time in ISO 8601 format. This parameter has a value only in desired states (Succeeded, Failed, or Cancelled).
    * 
    * @example
    * string_value
    */
   finishedAt?: string;
+  /**
+   * @remarks
+   * The execution log list. This parameter is returned only when IncludeLogs is set to true.
+   */
   logs?: { [key: string]: any }[];
   /**
    * @remarks
-   * 错误描述，成功时为空
+   * The status code description.
+   * 
+   * @example
+   * successful
    */
   message?: string;
   /**
    * @remarks
-   * 进度百分比（仅 Running 时有意义）
+   * The progress percentage. This parameter is meaningful only when the status is Running.
    * 
    * @example
    * 1
@@ -59,7 +66,7 @@ export class GetSkillRunResponseBody extends $dara.Model {
   progress?: number;
   /**
    * @remarks
-   * 进度描述
+   * The progress description.
    * 
    * @example
    * string_value
@@ -67,16 +74,20 @@ export class GetSkillRunResponseBody extends $dara.Model {
   progressMessage?: string;
   /**
    * @remarks
-   * 请求追踪 ID
+   * The request ID.
    * 
    * @example
    * 019FF406-1B10-0065-A97D-2D1920C2A03D
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The execution result. This parameter is returned only when the status is Succeeded. It contains a content list.
+   */
   result?: { [key: string]: any };
   /**
    * @remarks
-   * 异步任务 ID
+   * The asynchronous task ID.
    * 
    * @example
    * exampleRunId
@@ -84,7 +95,7 @@ export class GetSkillRunResponseBody extends $dara.Model {
   runId?: string;
   /**
    * @remarks
-   * 技能编码
+   * The skill code.
    * 
    * @example
    * string_value
@@ -92,7 +103,7 @@ export class GetSkillRunResponseBody extends $dara.Model {
   skillCode?: string;
   /**
    * @remarks
-   * 技能名称
+   * The skill name.
    * 
    * @example
    * string_value
@@ -100,7 +111,7 @@ export class GetSkillRunResponseBody extends $dara.Model {
   skillName?: string;
   /**
    * @remarks
-   * 任务开始执行时间，ISO8601
+   * The task execution start time in ISO 8601 format.
    * 
    * @example
    * string_value
@@ -108,12 +119,16 @@ export class GetSkillRunResponseBody extends $dara.Model {
   startedAt?: string;
   /**
    * @remarks
-   * 执行状态：Running / Succeeded / Failed / Cancelled
+   * The execution status. Valid values: Running, Succeeded, Failed, and Cancelled.
    * 
    * @example
    * READY
    */
   status?: string;
+  /**
+   * @remarks
+   * The LLM token usage statistics. This parameter is returned only when the status is Succeeded.
+   */
   usage?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateTenantDirectoryResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+   * The status code.
    * 
    * @example
    * 200
@@ -13,15 +13,15 @@ export class CreateTenantDirectoryResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * 目录描述
+   * The description of the to-do card type.
    * 
    * @example
-   * 示例描述
+   * Sample description
    */
   description?: string;
   /**
    * @remarks
-   * 目录唯一标识
+   * The directory ID.
    * 
    * This parameter is required.
    * 
@@ -31,7 +31,7 @@ export class CreateTenantDirectoryResponseBody extends $dara.Model {
   directoryId?: string;
   /**
    * @remarks
-   * 创建时间戳
+   * The creation time.
    * 
    * @example
    * 1
@@ -39,7 +39,7 @@ export class CreateTenantDirectoryResponseBody extends $dara.Model {
   gmtCreate?: number;
   /**
    * @remarks
-   * 修改时间戳
+   * The last modification time.
    * 
    * @example
    * 1
@@ -47,7 +47,7 @@ export class CreateTenantDirectoryResponseBody extends $dara.Model {
   gmtModified?: number;
   /**
    * @remarks
-   * 目录内部主键
+   * Id of the request
    * 
    * This parameter is required.
    * 
@@ -57,22 +57,25 @@ export class CreateTenantDirectoryResponseBody extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * 错误描述，成功时为空
+   * The description of the status code.
+   * 
+   * @example
+   * successful
    */
   message?: string;
   /**
    * @remarks
-   * 文件名
+   * The name.
    * 
    * This parameter is required.
    * 
    * @example
-   * 示例名称.pdf
+   * SampleName.pdf
    */
   name?: string;
   /**
    * @remarks
-   * 历史运营对象名称
+   * The name of the digital employee (the operating object name, optional).
    * 
    * @example
    * string_value
@@ -80,7 +83,7 @@ export class CreateTenantDirectoryResponseBody extends $dara.Model {
   operatingObjectName?: string;
   /**
    * @remarks
-   * 父目录内部主键
+   * The ID of the parent node.
    * 
    * @example
    * 1
@@ -88,7 +91,7 @@ export class CreateTenantDirectoryResponseBody extends $dara.Model {
   parentId?: number;
   /**
    * @remarks
-   * 文件 OSS URL
+   * The path of the node.
    * 
    * This parameter is required.
    * 
@@ -98,7 +101,7 @@ export class CreateTenantDirectoryResponseBody extends $dara.Model {
   path?: string;
   /**
    * @remarks
-   * 请求追踪 ID
+   * The request ID.
    * 
    * @example
    * 019FF406-1B10-0065-A97D-2D1920C2A03D
@@ -106,7 +109,7 @@ export class CreateTenantDirectoryResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * 租户 ID
+   * The ID of the effective tenant.
    * 
    * This parameter is required.
    * 
@@ -116,7 +119,7 @@ export class CreateTenantDirectoryResponseBody extends $dara.Model {
   tenantId?: number;
   /**
    * @remarks
-   * 创建人用户 ID
+   * The user ID of the creator.
    * 
    * This parameter is required.
    * 

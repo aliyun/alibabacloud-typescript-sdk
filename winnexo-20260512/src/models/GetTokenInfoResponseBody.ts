@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetTokenInfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+   * The error code.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class GetTokenInfoResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Token 是否开启（存在 ACTIVE 状态的 Token）
+   * Indicates whether the token is enabled.
    * 
    * @example
    * true
@@ -21,7 +21,7 @@ export class GetTokenInfoResponseBody extends $dara.Model {
   enabled?: boolean;
   /**
    * @remarks
-   * Token 创建时间（ISO 8601）
+   * The creation time.
    * 
    * @example
    * string_value
@@ -29,12 +29,15 @@ export class GetTokenInfoResponseBody extends $dara.Model {
   gmtCreate?: string;
   /**
    * @remarks
-   * 错误描述，成功时为空
+   * The description of the status code.
+   * 
+   * @example
+   * ok
    */
   message?: string;
   /**
    * @remarks
-   * 请求追踪 ID
+   * The request ID.
    * 
    * @example
    * 019FF406-1B10-0065-A97D-2D1920C2A03D
@@ -42,7 +45,7 @@ export class GetTokenInfoResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * 脱敏后的 Token 值
+   * The masked token value.
    * 
    * @example
    * string_value

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateChatSessionResponseBodySession extends $dara.Model {
   /**
    * @remarks
-   * 创建时间
+   * The creation time.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class UpdateChatSessionResponseBodySession extends $dara.Model {
   createdAt?: number;
   /**
    * @remarks
-   * 消息ID
+   * The message ID.
    * 
    * @example
    * exampleId
@@ -21,7 +21,7 @@ export class UpdateChatSessionResponseBodySession extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * 创建时间是否超过30天
+   * Indicates whether the creation time exceeds 30 days.
    * 
    * @example
    * true
@@ -29,7 +29,7 @@ export class UpdateChatSessionResponseBodySession extends $dara.Model {
   isExpired?: boolean;
   /**
    * @remarks
-   * 关联对象ID
+   * The associated object ID.
    * 
    * @example
    * exampleObjectId
@@ -37,7 +37,7 @@ export class UpdateChatSessionResponseBodySession extends $dara.Model {
   metadata?: { [key: string]: any };
   /**
    * @remarks
-   * 会话使用的抽象模型名（quick/standard/flagship）
+   * The abstract model name used by the session (quick/standard/flagship).
    * 
    * @example
    * string_value
@@ -45,16 +45,23 @@ export class UpdateChatSessionResponseBodySession extends $dara.Model {
   model?: string;
   /**
    * @remarks
-   * 类型
+   * The type.
    * 
    * @example
    * string_value
    */
   object?: string;
+  /**
+   * @remarks
+   * The associated object ID.
+   * 
+   * @example
+   * 2676
+   */
   objectId?: string;
   /**
    * @remarks
-   * operatingObjectName
+   * The operating object name.
    * 
    * @example
    * string_value
@@ -62,15 +69,15 @@ export class UpdateChatSessionResponseBodySession extends $dara.Model {
   operatingObjectName?: string[];
   /**
    * @remarks
-   * 标题
+   * The title.
    * 
    * @example
-   * 示例标题
+   * Sample title
    */
   title?: string;
   /**
    * @remarks
-   * 更新时间
+   * The update time.
    * 
    * @example
    * 1
@@ -124,7 +131,7 @@ export class UpdateChatSessionResponseBodySession extends $dara.Model {
 export class UpdateChatSessionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+   * The business status code. A value of 200 indicates success. A failure returns a backend error code (ERR.* / InvalidParameter.*).
    * 
    * @example
    * 200
@@ -132,17 +139,24 @@ export class UpdateChatSessionResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * 错误描述，成功时为空
+   * The error description. This is empty when the request is successful.
+   * 
+   * @example
+   * successful
    */
   message?: string;
   /**
    * @remarks
-   * 请求追踪 ID
+   * The request trace ID.
    * 
    * @example
    * 019FF406-1B10-0065-A97D-2D1920C2A03D
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The session ID.
+   */
   session?: UpdateChatSessionResponseBodySession;
   static names(): { [key: string]: string } {
     return {

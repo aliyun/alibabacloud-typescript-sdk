@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class PreviewKnowledgeBaseSourceRequest extends $dara.Model {
   /**
    * @remarks
-   * 知识 ID（数据源唯一标识）
+   * The data source ID, which is unique within the tenant.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class PreviewKnowledgeBaseSourceRequest extends $dara.Model {
   sourceId?: string;
   /**
    * @remarks
-   * 租户ID，公共参数；winnexo-cli 通过 --tenant-id 显式传入
+   * The tenant ID. This is a common parameter. In winnexo-cli, pass it explicitly with --tenant-id.
    * 
    * @example
    * 10000

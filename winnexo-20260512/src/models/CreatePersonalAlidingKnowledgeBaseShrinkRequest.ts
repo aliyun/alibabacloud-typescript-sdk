@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreatePersonalAlidingKnowledgeBaseShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * 目标个人目录 ID；不传时自动绑定到用户默认根目录，传入时必须是当前用户的已有个人目录（PERSONAL）
+   * The directory ID.
    * 
    * @example
    * exampleDirectoryId
@@ -13,7 +13,7 @@ export class CreatePersonalAlidingKnowledgeBaseShrinkRequest extends $dara.Model
   directoryId?: string;
   /**
    * @remarks
-   * 知识库显示名称；不传时由后台从远程拉取的根节点名称回填
+   * The display name of the knowledge base. If not provided, the name is populated from the root node name pulled from the remote source.
    * 
    * @example
    * string_value
@@ -21,7 +21,7 @@ export class CreatePersonalAlidingKnowledgeBaseShrinkRequest extends $dara.Model
   kbName?: string;
   /**
    * @remarks
-   * 阿里钉知识库的可公开访问 URL
+   * The publicly accessible URL of the AliDing knowledge base.
    * 
    * This parameter is required.
    * 
@@ -29,22 +29,30 @@ export class CreatePersonalAlidingKnowledgeBaseShrinkRequest extends $dara.Model
    * https://example.com/winnexo/resource
    */
   kbUrl?: string;
+  /**
+   * @remarks
+   * The object bindings.
+   */
   objectBindingsShrink?: string;
   /**
    * @remarks
-   * Agent 命名空间标识，可选
+   * The name of the digital employee (operating object name, optional).
    * 
    * @example
    * string_value
    */
   operatingObjectName?: string;
+  /**
+   * @remarks
+   * The synchronization settings.
+   */
   syncConfigShrink?: string;
   /**
    * @remarks
-   * 租户ID，公共参数；winnexo-cli 通过 --tenant-id 显式传入
+   * The tenant ID.
    * 
    * @example
-   * 10000
+   * PiPklI1iSRTm6VFFqlY9VzbgiEiE
    */
   tenantId?: string;
   static names(): { [key: string]: string } {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ReplaceObjectBindingsResponseBodyObjectBindings extends $dara.Model {
   /**
    * @remarks
-   * 绑定对象归属的语义图谱名（object_id 在该 graph 下唯一，必填）
+   * The semantic graph name to which the binding object belongs (object_id is unique within this graph. Required).
    * 
    * @example
    * string_value
@@ -13,7 +13,7 @@ export class ReplaceObjectBindingsResponseBodyObjectBindings extends $dara.Model
   graphName?: string;
   /**
    * @remarks
-   * 绑定对象 ID
+   * The binding object ID.
    * 
    * @example
    * exampleObjectId
@@ -21,7 +21,7 @@ export class ReplaceObjectBindingsResponseBodyObjectBindings extends $dara.Model
   objectId?: string;
   /**
    * @remarks
-   * 绑定对象类型（如 customer / project）
+   * The binding object type (such as customer or project).
    * 
    * @example
    * string_value
@@ -55,7 +55,7 @@ export class ReplaceObjectBindingsResponseBodyObjectBindings extends $dara.Model
 export class ReplaceObjectBindingsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+   * The status code.
    * 
    * @example
    * 200
@@ -63,13 +63,20 @@ export class ReplaceObjectBindingsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * 错误描述，成功时为空
+   * The description of the status code.
+   * 
+   * @example
+   * successful
    */
   message?: string;
+  /**
+   * @remarks
+   * The object binding.
+   */
   objectBindings?: ReplaceObjectBindingsResponseBodyObjectBindings[];
   /**
    * @remarks
-   * 请求追踪 ID
+   * The request ID.
    * 
    * @example
    * 019FF406-1B10-0065-A97D-2D1920C2A03D
@@ -77,7 +84,7 @@ export class ReplaceObjectBindingsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * 数据源 ID
+   * The ID of the personal FILE data source to be replaced (unique within the tenant).
    * 
    * @example
    * exampleSourceId

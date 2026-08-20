@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetSourceUploadSignatureResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+   * The response status code.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class GetSourceUploadSignatureResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * 文件 Content-Type
+   * The content type. Valid values: Text and Markdown.
    * 
    * @example
    * string_value
@@ -21,7 +21,7 @@ export class GetSourceUploadSignatureResponseBody extends $dara.Model {
   contentType?: string;
   /**
    * @remarks
-   * 签名 URL 有效时长（秒）
+   * The validity period of the task, in seconds.
    * 
    * @example
    * 1
@@ -29,7 +29,7 @@ export class GetSourceUploadSignatureResponseBody extends $dara.Model {
   expiresIn?: number;
   /**
    * @remarks
-   * 文件公开访问 URL
+   * The publicly accessible URL of the DingTalk online document.
    * 
    * @example
    * https://example.com/winnexo/resource
@@ -37,7 +37,7 @@ export class GetSourceUploadSignatureResponseBody extends $dara.Model {
   filePublicUrl?: string;
   /**
    * @remarks
-   * 文件记录 ID
+   * The file record ID. This parameter is optional and corresponds to settings.file_record_id.
    * 
    * @example
    * exampleFileRecordId
@@ -45,7 +45,7 @@ export class GetSourceUploadSignatureResponseBody extends $dara.Model {
   fileRecordId?: string;
   /**
    * @remarks
-   * 文件 OSS 内部 URL
+   * The Yida attachment URL.
    * 
    * @example
    * https://example.com/winnexo/resource
@@ -53,12 +53,15 @@ export class GetSourceUploadSignatureResponseBody extends $dara.Model {
   fileUrl?: string;
   /**
    * @remarks
-   * 错误描述，成功时为空
+   * The prompt message.
+   * 
+   * @example
+   * The current zone list is illegal.
    */
   message?: string;
   /**
    * @remarks
-   * 上传 HTTP 方法（固定为 PUT）
+   * The method.
    * 
    * @example
    * string_value
@@ -66,7 +69,7 @@ export class GetSourceUploadSignatureResponseBody extends $dara.Model {
   method?: string;
   /**
    * @remarks
-   * OSS 对象名
+   * The object name.
    * 
    * @example
    * string_value
@@ -74,7 +77,7 @@ export class GetSourceUploadSignatureResponseBody extends $dara.Model {
   objectName?: string;
   /**
    * @remarks
-   * 请求追踪 ID
+   * The request ID.
    * 
    * @example
    * 019FF406-1B10-0065-A97D-2D1920C2A03D
@@ -82,7 +85,7 @@ export class GetSourceUploadSignatureResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * 签名上传 URL（PUT 方式）
+   * The signed URL.
    * 
    * @example
    * https://example.com/winnexo/resource

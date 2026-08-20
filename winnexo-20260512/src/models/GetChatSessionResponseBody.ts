@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class GetChatSessionResponseBodyMessages extends $dara.Model {
   /**
    * @remarks
-   * 消息内容
+   * The message content.
    * 
    * @example
-   * 示例内容
+   * Sample content
    */
   content?: string;
   /**
    * @remarks
-   * 该消息之后 LLM 上下文是否已清空
+   * Indicates whether the LLM context has been cleared after this message.
    * 
    * @example
    * true
@@ -21,7 +21,7 @@ export class GetChatSessionResponseBodyMessages extends $dara.Model {
   contextCleared?: boolean;
   /**
    * @remarks
-   * 是否来自分享续聊复制的消息
+   * Indicates whether the message is copied from a shared conversation.
    * 
    * @example
    * true
@@ -29,7 +29,7 @@ export class GetChatSessionResponseBodyMessages extends $dara.Model {
   fromShare?: boolean;
   /**
    * @remarks
-   * 消息ID
+   * The message ID.
    * 
    * @example
    * exampleId
@@ -37,7 +37,7 @@ export class GetChatSessionResponseBodyMessages extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * 更新时间
+   * The message metadata.
    * 
    * @example
    * 1
@@ -45,7 +45,7 @@ export class GetChatSessionResponseBodyMessages extends $dara.Model {
   metadata?: { [key: string]: any };
   /**
    * @remarks
-   * 类型
+   * The type.
    * 
    * @example
    * string_value
@@ -53,7 +53,7 @@ export class GetChatSessionResponseBodyMessages extends $dara.Model {
   object?: string;
   /**
    * @remarks
-   * 角色
+   * The role.
    * 
    * @example
    * string_value
@@ -61,7 +61,7 @@ export class GetChatSessionResponseBodyMessages extends $dara.Model {
   role?: string;
   /**
    * @remarks
-   * 分享来源用户名称
+   * The username of the sharing source. This parameter has a value only when from_share=True.
    * 
    * @example
    * string_value
@@ -69,7 +69,7 @@ export class GetChatSessionResponseBodyMessages extends $dara.Model {
   shareUserName?: string;
   /**
    * @remarks
-   * 消息状态
+   * The message status.
    * 
    * @example
    * READY
@@ -77,16 +77,23 @@ export class GetChatSessionResponseBodyMessages extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * 追踪ID
+   * The trace ID.
    * 
    * @example
    * exampleTraceId
    */
   traceId?: string;
+  /**
+   * @remarks
+   * The update time.
+   * 
+   * @example
+   * 20240101
+   */
   updateAt?: number;
   /**
    * @remarks
-   * 用户反馈类型
+   * The user feedback type: LIKE | DISLIKE | CANCEL.
    * 
    * @example
    * string_value
@@ -141,7 +148,7 @@ export class GetChatSessionResponseBodyMessages extends $dara.Model {
 export class GetChatSessionResponseBodySession extends $dara.Model {
   /**
    * @remarks
-   * 创建时间
+   * The creation time.
    * 
    * @example
    * 1
@@ -149,7 +156,7 @@ export class GetChatSessionResponseBodySession extends $dara.Model {
   createdAt?: number;
   /**
    * @remarks
-   * 消息ID
+   * The message ID.
    * 
    * @example
    * exampleId
@@ -157,7 +164,7 @@ export class GetChatSessionResponseBodySession extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * 创建时间是否超过30天
+   * Indicates whether the creation time exceeds 30 days.
    * 
    * @example
    * true
@@ -165,7 +172,7 @@ export class GetChatSessionResponseBodySession extends $dara.Model {
   isExpired?: boolean;
   /**
    * @remarks
-   * 关联对象ID
+   * The session metadata.
    * 
    * @example
    * exampleObjectId
@@ -173,7 +180,7 @@ export class GetChatSessionResponseBodySession extends $dara.Model {
   metadata?: { [key: string]: any };
   /**
    * @remarks
-   * 会话使用的抽象模型名（quick/standard/flagship）
+   * The abstract model name used by the session (quick/standard/flagship).
    * 
    * @example
    * string_value
@@ -181,16 +188,23 @@ export class GetChatSessionResponseBodySession extends $dara.Model {
   model?: string;
   /**
    * @remarks
-   * 类型
+   * The type.
    * 
    * @example
    * string_value
    */
   object?: string;
+  /**
+   * @remarks
+   * The associated object ID.
+   * 
+   * @example
+   * 2676
+   */
   objectId?: string;
   /**
    * @remarks
-   * operatingObjectName
+   * The list of digital employee names.
    * 
    * @example
    * string_value
@@ -198,15 +212,15 @@ export class GetChatSessionResponseBodySession extends $dara.Model {
   operatingObjectName?: string[];
   /**
    * @remarks
-   * 标题
+   * The title.
    * 
    * @example
-   * 示例标题
+   * Sample title
    */
   title?: string;
   /**
    * @remarks
-   * 更新时间
+   * The update time.
    * 
    * @example
    * 1
@@ -260,7 +274,7 @@ export class GetChatSessionResponseBodySession extends $dara.Model {
 export class GetChatSessionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+   * The error code.
    * 
    * @example
    * 200
@@ -268,18 +282,29 @@ export class GetChatSessionResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * 错误描述，成功时为空
+   * The status code description.
+   * 
+   * @example
+   * successful
    */
   message?: string;
+  /**
+   * @remarks
+   * The message data detail structure.
+   */
   messages?: GetChatSessionResponseBodyMessages[];
   /**
    * @remarks
-   * 请求追踪 ID
+   * The request ID.
    * 
    * @example
    * 019FF406-1B10-0065-A97D-2D1920C2A03D
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The session ID.
+   */
   session?: GetChatSessionResponseBodySession;
   static names(): { [key: string]: string } {
     return {

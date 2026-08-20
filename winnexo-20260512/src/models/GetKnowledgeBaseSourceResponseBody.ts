@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetKnowledgeBaseSourceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+   * The status code.
    * 
    * @example
    * 200
@@ -13,15 +13,15 @@ export class GetKnowledgeBaseSourceResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * 知识描述
+   * The description of the to-do card type.
    * 
    * @example
-   * 示例描述
+   * Sample description
    */
   description?: string;
   /**
    * @remarks
-   * 所属分类 ID
+   * The folder ID.
    * 
    * @example
    * exampleDirectoryId
@@ -29,7 +29,7 @@ export class GetKnowledgeBaseSourceResponseBody extends $dara.Model {
   directoryId?: string;
   /**
    * @remarks
-   * 所属分类完整路径
+   * The full path of the category to which the knowledge item belongs.
    * 
    * @example
    * string_value
@@ -37,7 +37,7 @@ export class GetKnowledgeBaseSourceResponseBody extends $dara.Model {
   directoryPath?: string;
   /**
    * @remarks
-   * 创建时间戳（毫秒）
+   * The creation time.
    * 
    * @example
    * 1
@@ -45,7 +45,7 @@ export class GetKnowledgeBaseSourceResponseBody extends $dara.Model {
   gmtCreate?: number;
   /**
    * @remarks
-   * 修改时间戳（毫秒）
+   * The last modification time.
    * 
    * @example
    * 1
@@ -53,20 +53,23 @@ export class GetKnowledgeBaseSourceResponseBody extends $dara.Model {
   gmtModified?: number;
   /**
    * @remarks
-   * 错误描述，成功时为空
+   * The description of the status code.
+   * 
+   * @example
+   * ok
    */
   message?: string;
   /**
    * @remarks
-   * 文件名
+   * The name.
    * 
    * @example
-   * 示例名称.pdf
+   * SampleName.pdf
    */
   name?: string;
   /**
    * @remarks
-   * 请求追踪 ID
+   * The request ID.
    * 
    * @example
    * 019FF406-1B10-0065-A97D-2D1920C2A03D
@@ -74,7 +77,7 @@ export class GetKnowledgeBaseSourceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * 知识 ID
+   * The unique identifier on the business system side, that is, the business ID.
    * 
    * @example
    * exampleSourceId
@@ -82,7 +85,7 @@ export class GetKnowledgeBaseSourceResponseBody extends $dara.Model {
   sourceId?: string;
   /**
    * @remarks
-   * 知识 KB 归属类型：aliding_kb_doc（阿里钉知识库文档）/ normal（普通知识）
+   * The knowledge base ownership type. Valid values: aliding_kb_doc (DingTalk knowledge base document) and normal (common knowledge).
    * 
    * @example
    * string_value
@@ -90,7 +93,7 @@ export class GetKnowledgeBaseSourceResponseBody extends $dara.Model {
   sourceKind?: string;
   /**
    * @remarks
-   * 知识标签（JSON 字符串列表）
+   * The resource tags. This is optional and is a JSON string list, such as ["tagA","tagB"].
    * 
    * @example
    * string_value
@@ -98,7 +101,13 @@ export class GetKnowledgeBaseSourceResponseBody extends $dara.Model {
   sourceTags?: string;
   /**
    * @remarks
-   * 知识类型（TEXT / FILE / ONLINE_DOC 等）
+   * The type of the resource source. Valid values:
+   * 
+   * - ExportTaskId: the resource export ID.
+   * 
+   * - TaskId: the Module execution task ID.
+   * 
+   * - StatePath: the OSS path where the resource state is stored.
    * 
    * @example
    * string_value
@@ -106,7 +115,9 @@ export class GetKnowledgeBaseSourceResponseBody extends $dara.Model {
   sourceType?: string;
   /**
    * @remarks
-   * 处理状态（READY / RUNNING / FAILED 等）
+   * The data source status. Valid values:
+   * - **1**: online.
+   * - **0**: offline.
    * 
    * @example
    * READY
@@ -114,7 +125,7 @@ export class GetKnowledgeBaseSourceResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * 状态附加信息（如失败原因）
+   * The status message.
    * 
    * @example
    * string_value

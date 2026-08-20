@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SaveOutputFileToResourceResponseBodyResults extends $dara.Model {
   /**
    * @remarks
-   * 失败时返回业务错误码（i18n key）
+   * The business error code (i18n key). Returned on failure.
    * 
    * @example
    * string_value
@@ -13,7 +13,7 @@ export class SaveOutputFileToResourceResponseBodyResults extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * 失败时返回错误描述（已按请求 locale 国际化）
+   * The error description, localized based on the request Accept-Language header. Returned on failure.
    * 
    * @example
    * string_value
@@ -21,7 +21,7 @@ export class SaveOutputFileToResourceResponseBodyResults extends $dara.Model {
   errorMessage?: string;
   /**
    * @remarks
-   * 产出明细 ID
+   * The output detail ID.
    * 
    * @example
    * exampleItemId
@@ -29,7 +29,7 @@ export class SaveOutputFileToResourceResponseBodyResults extends $dara.Model {
   itemId?: string;
   /**
    * @remarks
-   * 成功时返回新建的资源 sourceId
+   * The sourceId of the newly created resource. Returned on success.
    * 
    * @example
    * exampleSourceId
@@ -37,7 +37,7 @@ export class SaveOutputFileToResourceResponseBodyResults extends $dara.Model {
   sourceId?: string;
   /**
    * @remarks
-   * 操作是否成功
+   * Indicates whether the operation is successful.
    * 
    * @example
    * true
@@ -75,7 +75,7 @@ export class SaveOutputFileToResourceResponseBodyResults extends $dara.Model {
 export class SaveOutputFileToResourceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+   * The business status code. A value of 200 indicates success. A failure returns a backend error code (ERR.* / InvalidParameter.*).
    * 
    * @example
    * 200
@@ -83,17 +83,24 @@ export class SaveOutputFileToResourceResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * 错误描述，成功时为空
+   * The error description. This value is empty on success.
+   * 
+   * @example
+   * The current zone list is illegal.
    */
   message?: string;
   /**
    * @remarks
-   * 请求追踪 ID
+   * The request trace ID.
    * 
    * @example
    * 019FF406-1B10-0065-A97D-2D1920C2A03D
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The per-record results in the same order as the input itemIds. A single record failure does not affect other records.
+   */
   results?: SaveOutputFileToResourceResponseBodyResults[];
   static names(): { [key: string]: string } {
     return {

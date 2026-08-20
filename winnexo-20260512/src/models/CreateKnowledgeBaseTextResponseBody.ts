@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateKnowledgeBaseTextResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+   * The status code.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class CreateKnowledgeBaseTextResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * 绑定的目录 ID
+   * The folder ID.
    * 
    * @example
    * exampleDirectoryId
@@ -21,55 +21,58 @@ export class CreateKnowledgeBaseTextResponseBody extends $dara.Model {
   directoryId?: string;
   /**
    * @remarks
-   * 创建时间 ISO8601
+   * The creation time.
    * 
    * @example
-   * string_value
+   * 2026-04-22T07:10:40.000+00:00
    */
   gmtCreate?: string;
   /**
    * @remarks
-   * 错误描述，成功时为空
+   * The error message returned when the request fails.
+   * 
+   * @example
+   * The current zone list is illegal.
    */
   message?: string;
   /**
    * @remarks
-   * 文件名
+   * The image name.
    * 
    * @example
-   * 示例名称.pdf
+   * p-default-af484147-e026-487b-a9eb-bd25464f0667
    */
   name?: string;
   /**
    * @remarks
-   * 请求追踪 ID
+   * The request ID.
    * 
    * @example
-   * 019FF406-1B10-0065-A97D-2D1920C2A03D
+   * 9005F6D0-748F-559D-ABDA-F4F31B983316
    */
   requestId?: string;
   /**
    * @remarks
-   * 资源 scope，固定为 TENANT
+   * The permission scope.
    * 
    * @example
-   * PERSONAL
+   * read:user,read:repo,write:repo,read:org,read:group
    */
   scope?: string;
   /**
    * @remarks
-   * 新建资源 ID
+   * The data source ID.
    * 
    * @example
-   * exampleSourceId
+   * 8
    */
   sourceId?: string;
   /**
    * @remarks
-   * 资源状态
+   * The status.
    * 
    * @example
-   * READY
+   * 200
    */
   status?: string;
   static names(): { [key: string]: string } {

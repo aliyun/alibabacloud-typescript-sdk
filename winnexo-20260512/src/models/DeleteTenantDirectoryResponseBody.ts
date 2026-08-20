@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteTenantDirectoryResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+   * The status code.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class DeleteTenantDirectoryResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * 实际使用的删除模式
+   * The deletion mode that is actually used.
    * 
    * @example
    * reject
@@ -21,7 +21,7 @@ export class DeleteTenantDirectoryResponseBody extends $dara.Model {
   deleteMode?: string;
   /**
    * @remarks
-   * 已删除的目录唯一标识
+   * The directory ID.
    * 
    * @example
    * exampleDirectoryId
@@ -29,12 +29,15 @@ export class DeleteTenantDirectoryResponseBody extends $dara.Model {
   directoryId?: string;
   /**
    * @remarks
-   * 错误描述，成功时为空
+   * The description of the status code.
+   * 
+   * @example
+   * ok
    */
   message?: string;
   /**
    * @remarks
-   * 请求追踪 ID
+   * The request ID.
    * 
    * @example
    * 019FF406-1B10-0065-A97D-2D1920C2A03D

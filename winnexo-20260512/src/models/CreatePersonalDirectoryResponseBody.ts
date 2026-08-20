@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreatePersonalDirectoryResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+   * SUCCESS indicates success. In case of failure, the corresponding error type is returned, such as ERR_BAD_REQUEST, ERR_VALIDATION_FAILED, or ERR_INTERNAL_SERVER_ERROR.
    * 
    * @example
    * 200
@@ -13,15 +13,15 @@ export class CreatePersonalDirectoryResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * 目录描述
+   * The description.
    * 
    * @example
-   * 示例描述
+   * PublicApplication
    */
   description?: string;
   /**
    * @remarks
-   * 新建目录 ID
+   * The folder ID.
    * 
    * @example
    * exampleDirectoryId
@@ -29,7 +29,7 @@ export class CreatePersonalDirectoryResponseBody extends $dara.Model {
   directoryId?: string;
   /**
    * @remarks
-   * 目录 KB 归属类型：normal / aliding_kb_root / aliding_kb_internal
+   * The folder type.
    * 
    * @example
    * string_value
@@ -37,36 +37,39 @@ export class CreatePersonalDirectoryResponseBody extends $dara.Model {
   directoryKind?: string;
   /**
    * @remarks
-   * 创建时间戳（毫秒）
+   * The creation time.
    * 
    * @example
-   * 1
+   * 2026-03-04 13:54:52
    */
   gmtCreate?: number;
   /**
    * @remarks
-   * 修改时间戳（毫秒）
+   * The last modification time.
    * 
    * @example
-   * 1
+   * 2025-11-14T02:18:27Z
    */
   gmtModified?: number;
   /**
    * @remarks
-   * 错误描述，成功时为空
+   * The response message.
+   * 
+   * @example
+   * ok
    */
   message?: string;
   /**
    * @remarks
-   * 文件名
+   * The name of the worksheet.
    * 
    * @example
-   * 示例名称.pdf
+   * conn_ip_101
    */
   name?: string;
   /**
    * @remarks
-   * 所属数字员工名称
+   * The name of the digital human (operating object name, optional).
    * 
    * @example
    * string_value
@@ -74,26 +77,26 @@ export class CreatePersonalDirectoryResponseBody extends $dara.Model {
   operatingObjectName?: string;
   /**
    * @remarks
-   * 父目录 ID（service 若回填默认根目录，这里返回回填后的父目录 ID）
+   * The folder ID.
    * 
    * @example
-   * exampleParentDirectoryId
+   * wd-lxykjnnw4lyl9eq
    */
   parentDirectoryId?: string;
   /**
    * @remarks
-   * 文件 OSS URL
+   * The path.
    * 
    * @example
-   * https://example.com/oss/file.pdf
+   * oss://clg-paimon-4a00f1ac43464714b86fb54ca41a84c9/db-abc73646-6a08-4b96-820f-3d1d547a1e3b.db/tbl-c8a33522-5398-4f8e-9a2a-fba1efad94d1
    */
   path?: string;
   /**
    * @remarks
-   * 请求追踪 ID
+   * Id of the request
    * 
    * @example
-   * 019FF406-1B10-0065-A97D-2D1920C2A03D
+   * 375701FC-2FB9-5782-BE8F-A3F5E2F2158C
    */
   requestId?: string;
   static names(): { [key: string]: string } {

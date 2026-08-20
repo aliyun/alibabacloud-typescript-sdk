@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateCustomOrgResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+   * The response status code.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class CreateCustomOrgResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * 注册成功的组织标识
+   * The enterprise ID.
    * 
    * @example
    * exampleCorpId
@@ -21,7 +21,7 @@ export class CreateCustomOrgResponseBody extends $dara.Model {
   corpId?: string;
   /**
    * @remarks
-   * 组织展示名称
+   * The organization name.
    * 
    * @example
    * string_value
@@ -29,12 +29,15 @@ export class CreateCustomOrgResponseBody extends $dara.Model {
   corpName?: string;
   /**
    * @remarks
-   * 错误描述，成功时为空
+   * The prompt message.
+   * 
+   * @example
+   * successful
    */
   message?: string;
   /**
    * @remarks
-   * 平台类型，固定为 custom
+   * The platform type.
    * 
    * @example
    * string_value
@@ -42,10 +45,10 @@ export class CreateCustomOrgResponseBody extends $dara.Model {
   platformType?: string;
   /**
    * @remarks
-   * 请求追踪 ID
+   * The request ID.
    * 
    * @example
-   * 019FF406-1B10-0065-A97D-2D1920C2A03D
+   * 72D1EC35-B174-5595-891F-2F0B3BFBE56F
    */
   requestId?: string;
   static names(): { [key: string]: string } {

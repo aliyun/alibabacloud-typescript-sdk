@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateKnowledgeBaseAliDingDocResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+   * The result code.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class CreateKnowledgeBaseAliDingDocResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * 绑定的目录 ID
+   * The directory ID.
    * 
    * @example
    * exampleDirectoryId
@@ -21,7 +21,7 @@ export class CreateKnowledgeBaseAliDingDocResponseBody extends $dara.Model {
   directoryId?: string;
   /**
    * @remarks
-   * 文档公开 URL（echo 回入参）
+   * The public URL of the document (echoes the input parameter).
    * 
    * @example
    * https://example.com/winnexo/resource
@@ -29,55 +29,64 @@ export class CreateKnowledgeBaseAliDingDocResponseBody extends $dara.Model {
   filePublicUrl?: string;
   /**
    * @remarks
-   * 创建时间 ISO8601
+   * The creation time.
    * 
    * @example
-   * string_value
+   * 2026-05-22 16:03:27
    */
   gmtCreate?: string;
   /**
    * @remarks
-   * 错误描述，成功时为空
+   * The error details.
+   * 
+   * @example
+   * success
    */
   message?: string;
   /**
    * @remarks
-   * 资源显示名称
+   * The name.
    * 
    * @example
-   * 示例名称.pdf
+   * p-toolset-b8a1de80-e9f5-49f3-8a12-873d378889c6
    */
   name?: string;
   /**
    * @remarks
-   * 请求追踪 ID
+   * Id of the request
    * 
    * @example
-   * 019FF406-1B10-0065-A97D-2D1920C2A03D
+   * F42FC60B-C54D-5DFB-A8EC-04625BFFF1F7
    */
   requestId?: string;
   /**
    * @remarks
-   * 资源 scope，固定为 TENANT
+   * The permission scope.
    * 
    * @example
-   * PERSONAL
+   * repo
    */
   scope?: string;
   /**
    * @remarks
-   * 新建资源 ID
+   * The unique identifier on the business system side, which is the business ID.
    * 
    * @example
-   * exampleSourceId
+   * 8
    */
   sourceId?: string;
   /**
    * @remarks
-   * 资源状态
+   * The refund status. Query this field to confirm the refund status during processing. Valid values:
+   * - SUCCESS: All refunds are successful.
+   * - FAIL: The refund failed.
+   * - WAIT_PAY: Waiting for refund.
+   * - EXPIRE: The refund has expired.
+   * - PAYING: The refund is being processed.
+   * - TERMINATE: The refund is terminated.
    * 
    * @example
-   * READY
+   * {\\"observedGeneration\\": 7, \\"servicesInstances\\": {}, \\"observedTime\\": \\"2025-12-17T11:57:07Z\\", \\"servicesWithPendingChanges\\": [], \\"latestEnvironmentDeploymentName\\": \\"manual-1765972627273-k7GZvr\\"}
    */
   status?: string;
   static names(): { [key: string]: string } {

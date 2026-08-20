@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListUsersResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * WINNEXO 登录账号
+   * The account ID.
    * 
    * @example
    * exampleAccountId
@@ -13,7 +13,7 @@ export class ListUsersResponseBodyItems extends $dara.Model {
   accountId?: string;
   /**
    * @remarks
-   * 用户显示名称
+   * The display name of the tool.
    * 
    * @example
    * string_value
@@ -21,7 +21,7 @@ export class ListUsersResponseBodyItems extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * 加入租户时间
+   * The creation time.
    * 
    * @example
    * string_value
@@ -29,7 +29,10 @@ export class ListUsersResponseBodyItems extends $dara.Model {
   gmtCreate?: string;
   /**
    * @remarks
-   * 启用/停用状态
+   * Indicates whether the account is activated:
+   * 
+   * - 1: Activated.
+   * - 0: Not activated.
    * 
    * @example
    * true
@@ -37,7 +40,7 @@ export class ListUsersResponseBodyItems extends $dara.Model {
   isActive?: boolean;
   /**
    * @remarks
-   * 最后登录时间
+   * The last logon time.
    * 
    * @example
    * 2023-10-01T12:00:00Z
@@ -45,7 +48,7 @@ export class ListUsersResponseBodyItems extends $dara.Model {
   lastLoginTime?: string;
   /**
    * @remarks
-   * 用户拥有的系统角色 code 列表
+   * The list of new system role codes (full replacement, at least one role must be included). Valid values: SUPER_ADMIN / SYSTEM_ADMIN / SEMANTIC_ADMIN / SKILL_ADMIN / KB_ADMIN / AGENT_ADMIN / APPLICATION_USER.
    * 
    * @example
    * string_value
@@ -53,7 +56,7 @@ export class ListUsersResponseBodyItems extends $dara.Model {
   roleCodes?: string[];
   /**
    * @remarks
-   * 用户ID
+   * The user ID.
    * 
    * @example
    * 1
@@ -98,7 +101,7 @@ export class ListUsersResponseBodyItems extends $dara.Model {
 export class ListUsersResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+   * The error code.
    * 
    * @example
    * 200
@@ -106,17 +109,20 @@ export class ListUsersResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * 成员列表
+   * The user information.
    */
   items?: ListUsersResponseBodyItems[];
   /**
    * @remarks
-   * 错误描述，成功时为空
+   * The description of the status code.
+   * 
+   * @example
+   * ok
    */
   message?: string;
   /**
    * @remarks
-   * 当前页码
+   * The current page number.
    * 
    * @example
    * 1
@@ -124,7 +130,7 @@ export class ListUsersResponseBody extends $dara.Model {
   page?: number;
   /**
    * @remarks
-   * 每页数量
+   * The number of entries per page.
    * 
    * @example
    * 20
@@ -132,7 +138,7 @@ export class ListUsersResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * 请求追踪 ID
+   * The request ID.
    * 
    * @example
    * 019FF406-1B10-0065-A97D-2D1920C2A03D
@@ -140,7 +146,7 @@ export class ListUsersResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * 符合条件的总记录数
+   * The total number of data entries in the project.
    * 
    * @example
    * 1

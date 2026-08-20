@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RenameKnowledgeBaseSourceRequest extends $dara.Model {
   /**
    * @remarks
-   * 新的数据源名称
+   * The new name of the data source.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class RenameKnowledgeBaseSourceRequest extends $dara.Model {
   newName?: string;
   /**
    * @remarks
-   * 数据源 ID（租户内唯一）
+   * The data source ID, which is unique within the tenant.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class RenameKnowledgeBaseSourceRequest extends $dara.Model {
   sourceId?: string;
   /**
    * @remarks
-   * 租户ID，公共参数；winnexo-cli 通过 --tenant-id 显式传入
+   * The tenant ID. This is a common parameter. In winnexo-cli, pass this value explicitly by using --tenant-id.
    * 
    * @example
    * 10000

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListChatSessionsRequest extends $dara.Model {
   /**
    * @remarks
-   * 数字员工名称筛选（逗号分隔，如 sales_agent,service_agent）
+   * The list of digital employee names. A single string can be passed for backward compatibility with the legacy format.
    * 
    * @example
    * string_value
@@ -13,21 +13,31 @@ export class ListChatSessionsRequest extends $dara.Model {
   digitalEmployeeName?: string;
   /**
    * @remarks
-   * 标题模糊搜索
+   * The rule name keyword for fuzzy match.
    * 
    * @example
-   * 示例关键词
+   * SampleKeyword
    */
   keyword?: string;
   /**
    * @remarks
-   * 页码，从 1 开始
+   * The page number. Default value: 1. Pages start from page 1.
+   * 
+   * @example
+   * 1
    */
   page?: number;
+  /**
+   * @remarks
+   * The maximum number of data records to read in this request.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
   /**
    * @remarks
-   * 租户ID
+   * The tenant ID to which the task belongs.
    * 
    * @example
    * 10000

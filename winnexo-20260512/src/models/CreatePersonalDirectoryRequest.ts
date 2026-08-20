@@ -5,25 +5,25 @@ import * as $dara from '@darabonba/typescript';
 export class CreatePersonalDirectoryRequest extends $dara.Model {
   /**
    * @remarks
-   * 目录描述（可选）
+   * The workspace description.
    * 
    * @example
-   * 示例描述
+   * hangzhou-release-version-3-eventbridge-numeric-queue-fix-20260529
    */
   description?: string;
   /**
    * @remarks
-   * 目录名称
+   * The name of the digital human.
    * 
    * This parameter is required.
    * 
    * @example
-   * 示例名称.pdf
+   * sandbox-conversation-webpage-github-default-p32JG2
    */
   name?: string;
   /**
    * @remarks
-   * 数字员工名称（已废弃：不再作为个人资源隔离条件，仅保留用于来源追溯）
+   * The name of the digital human (operating object name, optional).
    * 
    * @example
    * string_value
@@ -31,18 +31,18 @@ export class CreatePersonalDirectoryRequest extends $dara.Model {
   operatingObjectName?: string;
   /**
    * @remarks
-   * 父目录 ID；不传时新目录挂在用户的默认根目录下，传入时必须是当前用户的已有个人目录
+   * The folder ID.
    * 
    * @example
-   * exampleParentDirectoryId
+   * wd-lxykjnnw4lyl9eq
    */
   parentDirectoryId?: string;
   /**
    * @remarks
-   * 租户ID，公共参数；winnexo-cli 通过 --tenant-id 显式传入
+   * The tenant ID.
    * 
    * @example
-   * 10000
+   * 235454102432001
    */
   tenantId?: string;
   static names(): { [key: string]: string } {

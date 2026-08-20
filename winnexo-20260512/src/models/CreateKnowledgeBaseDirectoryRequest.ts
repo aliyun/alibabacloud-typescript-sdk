@@ -5,36 +5,36 @@ import * as $dara from '@darabonba/typescript';
 export class CreateKnowledgeBaseDirectoryRequest extends $dara.Model {
   /**
    * @remarks
-   * 分类描述（可选）
+   * The description of the AI assistant.
    * 
    * @example
-   * 示例描述
+   * recorder function
    */
   description?: string;
   /**
    * @remarks
-   * 分类名称（企业知识库目录名称）
+   * The image name.
    * 
    * This parameter is required.
    * 
    * @example
-   * 示例名称.pdf
+   * oklabs_tongyici
    */
   name?: string;
   /**
    * @remarks
-   * 父分类 ID；不传时新分类挂在企业知识库根目录下，传入时必须是当前租户下已存在的企业知识库目录 ID
+   * The directory ID.
    * 
    * @example
-   * exampleParentDirectoryId
+   * wd-lxykjnnw4lyl9eq
    */
   parentDirectoryId?: string;
   /**
    * @remarks
-   * 租户ID，公共参数；winnexo-cli 通过 --tenant-id 显式传入
+   * The tenant ID.
    * 
    * @example
-   * 10000
+   * 692318833855074
    */
   tenantId?: string;
   static names(): { [key: string]: string } {

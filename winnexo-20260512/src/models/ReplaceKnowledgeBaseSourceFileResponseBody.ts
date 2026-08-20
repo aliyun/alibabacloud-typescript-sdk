@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ReplaceKnowledgeBaseSourceFileResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+   * The status code.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class ReplaceKnowledgeBaseSourceFileResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * 替换后的文件 OSS 持久化地址
+   * The OSS persistent storage address of the replacement file.
    * 
    * @example
    * string_value
@@ -21,7 +21,7 @@ export class ReplaceKnowledgeBaseSourceFileResponseBody extends $dara.Model {
   filePath?: string;
   /**
    * @remarks
-   * 替换后的文件公开访问 URL
+   * The OSS persistent storage address of the replacement file.
    * 
    * @example
    * https://example.com/winnexo/resource
@@ -29,7 +29,7 @@ export class ReplaceKnowledgeBaseSourceFileResponseBody extends $dara.Model {
   filePublicUrl?: string;
   /**
    * @remarks
-   * 替换后的文件记录 ID
+   * The file record ID of the replacement file.
    * 
    * @example
    * exampleFileRecordId
@@ -37,20 +37,23 @@ export class ReplaceKnowledgeBaseSourceFileResponseBody extends $dara.Model {
   fileRecordId?: string;
   /**
    * @remarks
-   * 错误描述，成功时为空
+   * The description of the status code.
+   * 
+   * @example
+   * ok
    */
   message?: string;
   /**
    * @remarks
-   * 文件名
+   * The file name.
    * 
    * @example
-   * 示例名称.pdf
+   * SampleName.pdf
    */
   name?: string;
   /**
    * @remarks
-   * 请求追踪 ID
+   * The request trace ID.
    * 
    * @example
    * 019FF406-1B10-0065-A97D-2D1920C2A03D
@@ -58,7 +61,7 @@ export class ReplaceKnowledgeBaseSourceFileResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * 数据源 ID
+   * The data source ID.
    * 
    * @example
    * exampleSourceId
@@ -66,7 +69,7 @@ export class ReplaceKnowledgeBaseSourceFileResponseBody extends $dara.Model {
   sourceId?: string;
   /**
    * @remarks
-   * 数据源类型，固定为 FILE
+   * The data source type.
    * 
    * @example
    * string_value
@@ -74,7 +77,7 @@ export class ReplaceKnowledgeBaseSourceFileResponseBody extends $dara.Model {
   sourceType?: string;
   /**
    * @remarks
-   * 重新解析后的数据源状态
+   * The task status. The value Running is returned upon submission.
    * 
    * @example
    * READY

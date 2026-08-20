@@ -5,21 +5,31 @@ import * as $dara from '@darabonba/typescript';
 export class QueryPrimaryObjectDataResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+   * The business status code. A value of 200 indicates success. A failure returns a backend error code (ERR.* / InvalidParameter.*).
    * 
    * @example
    * 200
    */
   code?: string;
+  /**
+   * @remarks
+   * The incremental information list.
+   * 
+   * @example
+   * string_value
+   */
   items?: { [key: string]: string }[];
   /**
    * @remarks
-   * 错误描述，成功时为空
+   * The error description. This value is empty when the request succeeds.
+   * 
+   * @example
+   * ok
    */
   message?: string;
   /**
    * @remarks
-   * 当前页码
+   * The current page number.
    * 
    * @example
    * 1
@@ -27,7 +37,7 @@ export class QueryPrimaryObjectDataResponseBody extends $dara.Model {
   page?: number;
   /**
    * @remarks
-   * 每页数量
+   * The number of entries per page.
    * 
    * @example
    * 100
@@ -35,7 +45,7 @@ export class QueryPrimaryObjectDataResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * 请求追踪 ID
+   * The request trace ID.
    * 
    * @example
    * 019FF406-1B10-0065-A97D-2D1920C2A03D
@@ -43,7 +53,7 @@ export class QueryPrimaryObjectDataResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * 总数
+   * The total number of entries.
    * 
    * @example
    * 0

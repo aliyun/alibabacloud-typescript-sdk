@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListChatSessionsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+   * The error code.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class ListChatSessionsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * 是否有更多数据
+   * Indicates whether there is a next page.
    * 
    * @example
    * true
@@ -21,13 +21,23 @@ export class ListChatSessionsResponseBody extends $dara.Model {
   hasMore?: boolean;
   /**
    * @remarks
-   * 错误描述，成功时为空
+   * The status code description.
+   * 
+   * @example
+   * ok
    */
   message?: string;
+  /**
+   * @remarks
+   * The current page number.
+   * 
+   * @example
+   * 1
+   */
   page?: number;
   /**
    * @remarks
-   * 每页条数
+   * The number of entries per page. Default value: 10.
    * 
    * @example
    * 20
@@ -35,7 +45,7 @@ export class ListChatSessionsResponseBody extends $dara.Model {
   pageSize?: string;
   /**
    * @remarks
-   * 请求追踪 ID
+   * The request ID.
    * 
    * @example
    * 019FF406-1B10-0065-A97D-2D1920C2A03D
@@ -43,7 +53,7 @@ export class ListChatSessionsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * 响应数据负载
+   * The list of sessions.
    * 
    * @example
    * {}
@@ -51,12 +61,19 @@ export class ListChatSessionsResponseBody extends $dara.Model {
   sessions?: any[];
   /**
    * @remarks
-   * 租户ID
+   * The effective tenant ID.
    * 
    * @example
    * 10000
    */
   tenantId?: string;
+  /**
+   * @remarks
+   * The total number of records.
+   * 
+   * @example
+   * 1159
+   */
   total?: number;
   static names(): { [key: string]: string } {
     return {

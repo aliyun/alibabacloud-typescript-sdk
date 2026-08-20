@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateUserRequest extends $dara.Model {
   /**
    * @remarks
-   * 新的显示名称（不传不修改，传则不可为空，最多100字）
+   * The display name of the user.
    * 
    * @example
    * string_value
@@ -13,7 +13,9 @@ export class UpdateUserRequest extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * 启用/停用状态（不传不修改）。false=停用，true=启用
+   * Specifies whether the account is activated. Valid values:
+   *  - **true**: Activated.
+   * - **false**: Not activated.
    * 
    * @example
    * true
@@ -21,7 +23,7 @@ export class UpdateUserRequest extends $dara.Model {
   isActive?: boolean;
   /**
    * @remarks
-   * 新的系统角色 code 列表（全量替换，至少包含一个角色）。可选值: SUPER_ADMIN / SYSTEM_ADMIN / SEMANTIC_ADMIN / SKILL_ADMIN / KB_ADMIN / AGENT_ADMIN / APPLICATION_USER
+   * The new list of system role codes (full replacement, must contain at least one role). Valid values: SUPER_ADMIN / SYSTEM_ADMIN / SEMANTIC_ADMIN / SKILL_ADMIN / KB_ADMIN / AGENT_ADMIN / APPLICATION_USER.
    * 
    * @example
    * string_value
@@ -29,7 +31,7 @@ export class UpdateUserRequest extends $dara.Model {
   roleCodes?: string[];
   /**
    * @remarks
-   * 租户ID，公共参数，缺省时使用调用方默认租户
+   * The ID of the effective tenant.
    * 
    * @example
    * 10000
@@ -37,7 +39,7 @@ export class UpdateUserRequest extends $dara.Model {
   tenantId?: string;
   /**
    * @remarks
-   * 新的用户组ID列表（全量替换，不传不修改）
+   * The new list of user group IDs (full replacement. If not specified, the value is not modified).
    * 
    * @example
    * string_value
@@ -45,7 +47,7 @@ export class UpdateUserRequest extends $dara.Model {
   userGroupIds?: string[];
   /**
    * @remarks
-   * 目标用户ID（WINNEXO 平台用户ID）
+   * The ID of the target user (WINNEXO platform user ID).
    * 
    * This parameter is required.
    * 

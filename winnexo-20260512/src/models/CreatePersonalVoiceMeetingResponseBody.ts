@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreatePersonalVoiceMeetingResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+   * The response code.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class CreatePersonalVoiceMeetingResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * 绑定的目录 ID（请求体传入时 echo 回；缺省走默认根目录时为 null）
+   * The bound directory ID. This value echoes the directoryId provided in the request body. If no directoryId is specified, the value is null because the default root directory is used.
    * 
    * @example
    * exampleDirectoryId
@@ -21,55 +21,58 @@ export class CreatePersonalVoiceMeetingResponseBody extends $dara.Model {
   directoryId?: string;
   /**
    * @remarks
-   * 创建时间 ISO8601
+   * The creation time in ISO 8601 format.
    * 
    * @example
-   * string_value
+   * 2026-04-22T08:15:28.000+00:00
    */
   gmtCreate?: string;
   /**
    * @remarks
-   * 错误描述，成功时为空
+   * The description of the status code.
+   * 
+   * @example
+   * successful
    */
   message?: string;
   /**
    * @remarks
-   * 文件名
+   * The knowledge base name.
    * 
    * @example
-   * 示例名称.pdf
+   * p-toolset-e95d1287-3d40-487a-bcce-6e6252c7a793
    */
   name?: string;
   /**
    * @remarks
-   * 请求追踪 ID
+   * The request ID.
    * 
    * @example
-   * 019FF406-1B10-0065-A97D-2D1920C2A03D
+   * A5241B90-8FF4-565C-977A-0CE1842AED72
    */
   requestId?: string;
   /**
    * @remarks
-   * 资源 scope，固定为 PERSONAL
+   * The resource scope. The value is fixed to PERSONAL.
    * 
    * @example
-   * PERSONAL
+   * user_info projects pull_requests hook gists emails
    */
   scope?: string;
   /**
    * @remarks
-   * 新建资源 ID
+   * The unique identifier on the business system side, that is, the business ID.
    * 
    * @example
-   * exampleSourceId
+   * 8
    */
   sourceId?: string;
   /**
    * @remarks
-   * 资源状态（创建链路初始多为 PENDING；on_create 失败则为 FAILED）
+   * The resource status. The initial status during the creation process is typically PENDING. If the on_create process fails, the status is FAILED.
    * 
    * @example
-   * READY
+   * {\\"observedGeneration\\": 4, \\"servicesInstances\\": {}, \\"observedTime\\": \\"2025-10-31T03:48:27Z\\", \\"servicesWithPendingChanges\\": [], \\"latestEnvironmentDeploymentName\\": \\"manual-1761882507097-Eu1vIP\\"}
    */
   status?: string;
   static names(): { [key: string]: string } {

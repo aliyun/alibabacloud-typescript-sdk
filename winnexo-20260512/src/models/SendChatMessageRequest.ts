@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SendChatMessageRequestFiles extends $dara.Model {
   /**
    * @remarks
-   * 文件 ID，由 uploadChatFile 返回
+   * The file ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class SendChatMessageRequestFiles extends $dara.Model {
   fileId?: string;
   /**
    * @remarks
-   * 文件类型
+   * The element type. Valid values: text, web_search, mention, and skill.
    * 
    * @example
    * text
@@ -47,7 +47,7 @@ export class SendChatMessageRequestFiles extends $dara.Model {
 export class SendChatMessageRequestTaskExecution extends $dara.Model {
   /**
    * @remarks
-   * 计费 ID
+   * The billing ID.
    * 
    * @example
    * exampleBillingId
@@ -55,7 +55,7 @@ export class SendChatMessageRequestTaskExecution extends $dara.Model {
   billingId?: string;
   /**
    * @remarks
-   * 是否启用联网搜索
+   * Specifies whether to enable web search.
    * 
    * @example
    * true
@@ -63,7 +63,7 @@ export class SendChatMessageRequestTaskExecution extends $dara.Model {
   enableWebSearch?: boolean;
   /**
    * @remarks
-   * 执行记录 ID
+   * The execution record ID.
    * 
    * This parameter is required.
    * 
@@ -73,7 +73,7 @@ export class SendChatMessageRequestTaskExecution extends $dara.Model {
   executionId?: string;
   /**
    * @remarks
-   * 数字员工名称
+   * The digital employee name.
    * 
    * @example
    * string_value
@@ -81,7 +81,7 @@ export class SendChatMessageRequestTaskExecution extends $dara.Model {
   operatingObjectName?: string;
   /**
    * @remarks
-   * 关联技能编码列表
+   * The list of associated skill codes.
    * 
    * @example
    * string_value
@@ -89,7 +89,7 @@ export class SendChatMessageRequestTaskExecution extends $dara.Model {
   skillCodes?: string[];
   /**
    * @remarks
-   * 任务 ID
+   * The task ID.
    * 
    * This parameter is required.
    * 
@@ -99,7 +99,7 @@ export class SendChatMessageRequestTaskExecution extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * 任务名称
+   * The task name.
    * 
    * @example
    * string_value
@@ -107,7 +107,7 @@ export class SendChatMessageRequestTaskExecution extends $dara.Model {
   taskName?: string;
   /**
    * @remarks
-   * 任务理解内容
+   * The task understanding content.
    * 
    * @example
    * string_value
@@ -115,7 +115,7 @@ export class SendChatMessageRequestTaskExecution extends $dara.Model {
   taskUnderstand?: string;
   /**
    * @remarks
-   * 任务所属租户 ID
+   * The tenant ID to which the task belongs.
    * 
    * @example
    * 10000
@@ -123,7 +123,7 @@ export class SendChatMessageRequestTaskExecution extends $dara.Model {
   tenantId?: string;
   /**
    * @remarks
-   * 任务所属用户 ID
+   * The user ID to which the task belongs.
    * 
    * @example
    * exampleUserId
@@ -174,17 +174,17 @@ export class SendChatMessageRequestTaskExecution extends $dara.Model {
 export class SendChatMessageRequest extends $dara.Model {
   /**
    * @remarks
-   * 用户消息正文
+   * The message body from the user.
    * 
    * This parameter is required.
    * 
    * @example
-   * 示例内容
+   * Sample content
    */
   content?: string;
   /**
    * @remarks
-   * 消息类型: Text / Markdown
+   * The message type. Valid values: Text and Markdown.
    * 
    * @example
    * Text
@@ -192,7 +192,7 @@ export class SendChatMessageRequest extends $dara.Model {
   contentType?: string;
   /**
    * @remarks
-   * 数字员工名称列表（兼容旧格式可传单个字符串）
+   * The list of digital employee names. A single string can be passed for backward compatibility with the legacy format.
    * 
    * @example
    * string_value
@@ -200,7 +200,7 @@ export class SendChatMessageRequest extends $dara.Model {
   digitalEmployeeName?: string[];
   /**
    * @remarks
-   * 是否启用直连模式；true 时跳过常规场景路由，直接进入直连对话场景
+   * Specifies whether to enable direct connection mode. When set to true, the regular scenario routing is skipped and the direct conversation scenario is entered directly.
    * 
    * @example
    * false
@@ -208,12 +208,12 @@ export class SendChatMessageRequest extends $dara.Model {
   directChat?: boolean;
   /**
    * @remarks
-   * 文件引用列表；每项为对象，fileId 必传（由 uploadChatFile 返回）
+   * The list of file references. Each item is an object, and fileId is required (returned by uploadChatFile).
    */
   files?: SendChatMessageRequestFiles[];
   /**
    * @remarks
-   * 抽象模型档位（quick / standard / flagship）；缺省时新会话用 standard，已有会话沿用会话当前档位
+   * The abstract model tier. Valid values: quick, standard, and flagship. If not specified, new sessions use standard, and existing sessions retain the current session tier.
    * 
    * @example
    * quick
@@ -221,7 +221,7 @@ export class SendChatMessageRequest extends $dara.Model {
   model?: string;
   /**
    * @remarks
-   * 不传 sessionId 时是否复用该数字员工下最近一个会话（CLI 场景），缺省 false 即新建会话
+   * Specifies whether to reuse the most recent session of the digital employee when sessionId is not provided (CLI scenario). Default value: false, which creates a new session.
    * 
    * @example
    * false
@@ -229,7 +229,7 @@ export class SendChatMessageRequest extends $dara.Model {
   reuseLastSession?: boolean;
   /**
    * @remarks
-   * 会话 ID
+   * The session ID.
    * 
    * @example
    * exampleSessionId
@@ -237,7 +237,7 @@ export class SendChatMessageRequest extends $dara.Model {
   sessionId?: string;
   /**
    * @remarks
-   * 是否流式返回，默认True
+   * Specifies whether to use streaming output.
    * 
    * @example
    * true
@@ -245,12 +245,12 @@ export class SendChatMessageRequest extends $dara.Model {
   stream?: boolean;
   /**
    * @remarks
-   * executeScheduledTask 返回的任务执行元数据；传入后按任务执行链路处理
+   * The task execution metadata returned by executeScheduledTask. When provided, the request is processed through the task execution pipeline.
    */
   taskExecution?: SendChatMessageRequestTaskExecution;
   /**
    * @remarks
-   * 租户ID，公共参数，缺省时使用调用方默认租户
+   * The effective tenant ID.
    * 
    * @example
    * 10000

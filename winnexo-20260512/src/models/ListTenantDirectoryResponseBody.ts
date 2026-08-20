@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListTenantDirectoryResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * 创建人名称
+   * The nickname of the creator.
    * 
    * @example
    * string_value
@@ -13,15 +13,15 @@ export class ListTenantDirectoryResponseBodyItems extends $dara.Model {
   creatorName?: string;
   /**
    * @remarks
-   * 目录描述
+   * The description of the to-do card type.
    * 
    * @example
-   * 示例描述
+   * Sample description
    */
   description?: string;
   /**
    * @remarks
-   * 创建时间戳
+   * The creation time.
    * 
    * @example
    * 1
@@ -29,7 +29,7 @@ export class ListTenantDirectoryResponseBodyItems extends $dara.Model {
   gmtCreate?: number;
   /**
    * @remarks
-   * 修改时间戳
+   * The last modification time.
    * 
    * @example
    * 1
@@ -37,7 +37,7 @@ export class ListTenantDirectoryResponseBodyItems extends $dara.Model {
   gmtModified?: number;
   /**
    * @remarks
-   * 目录 ID 或资源 ID
+   * The signing record ID.
    * 
    * @example
    * exampleItemId
@@ -45,7 +45,7 @@ export class ListTenantDirectoryResponseBodyItems extends $dara.Model {
   itemId?: string;
   /**
    * @remarks
-   * 内容类型：directory 或 resource
+   * The data type (group, user, or role).
    * 
    * @example
    * string_value
@@ -53,16 +53,20 @@ export class ListTenantDirectoryResponseBodyItems extends $dara.Model {
   itemType?: string;
   /**
    * @remarks
-   * 文件名
+   * The name.
    * 
    * @example
-   * 示例名称.pdf
+   * SampleName.pdf
    */
   name?: string;
+  /**
+   * @remarks
+   * The object bindings.
+   */
   objectBindings?: { [key: string]: any }[];
   /**
    * @remarks
-   * 根知识库下失败资源数
+   * The number of resources with the FAILED status. This field is returned only when the top-level directory list of the knowledge base is queried.
    * 
    * @example
    * 1
@@ -70,7 +74,7 @@ export class ListTenantDirectoryResponseBodyItems extends $dara.Model {
   sourceFailedCount?: number;
   /**
    * @remarks
-   * 根知识库下成功资源数
+   * The number of resources with the READY status. This field is returned only when the top-level directory list of the knowledge base is queried.
    * 
    * @example
    * 1
@@ -78,7 +82,7 @@ export class ListTenantDirectoryResponseBodyItems extends $dara.Model {
   sourceReadyCount?: number;
   /**
    * @remarks
-   * 资源解析状态
+   * The resource status. This field has a value only when itemType is set to resource.
    * 
    * @example
    * string_value
@@ -86,7 +90,7 @@ export class ListTenantDirectoryResponseBodyItems extends $dara.Model {
   sourceStatus?: string;
   /**
    * @remarks
-   * 根知识库下资源总数
+   * The total number of resources in the directory and its subdirectories. This field is returned only when the top-level directory list of the knowledge base is queried.
    * 
    * @example
    * 1
@@ -94,7 +98,7 @@ export class ListTenantDirectoryResponseBodyItems extends $dara.Model {
   sourceTotalCount?: number;
   /**
    * @remarks
-   * 资源类型
+   * The data source type.
    * 
    * @example
    * string_value
@@ -151,21 +155,28 @@ export class ListTenantDirectoryResponseBodyItems extends $dara.Model {
 export class ListTenantDirectoryResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+   * The status code.
    * 
    * @example
    * 200
    */
   code?: string;
+  /**
+   * @remarks
+   * The file information.
+   */
   items?: ListTenantDirectoryResponseBodyItems[];
   /**
    * @remarks
-   * 错误描述，成功时为空
+   * The description of the status code.
+   * 
+   * @example
+   * successful
    */
   message?: string;
   /**
    * @remarks
-   * 当前页码
+   * The page number. Default value: 1. Minimum value: 1. Maximum value: 200.
    * 
    * @example
    * 1
@@ -173,7 +184,7 @@ export class ListTenantDirectoryResponseBody extends $dara.Model {
   page?: number;
   /**
    * @remarks
-   * 每页数量
+   * The number of entries per page. Default value: 100. Maximum value: 500.
    * 
    * @example
    * 20
@@ -181,7 +192,7 @@ export class ListTenantDirectoryResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * 请求追踪 ID
+   * The request ID.
    * 
    * @example
    * 019FF406-1B10-0065-A97D-2D1920C2A03D
@@ -189,7 +200,7 @@ export class ListTenantDirectoryResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * 内容总数
+   * The total number of entries.
    * 
    * @example
    * 1

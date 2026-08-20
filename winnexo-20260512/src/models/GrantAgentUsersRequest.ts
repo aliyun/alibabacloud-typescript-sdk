@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GrantAgentUsersRequest extends $dara.Model {
   /**
    * @remarks
-   * 授权截止时间戳（毫秒），不传表示永不过期
+   * The authorization expiration timestamp in milliseconds. If this parameter is not specified, the authorization never expires.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class GrantAgentUsersRequest extends $dara.Model {
   expireDate?: number;
   /**
    * @remarks
-   * 数字员工名称
+   * The name of the digital human.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class GrantAgentUsersRequest extends $dara.Model {
   operatingObjectName?: string;
   /**
    * @remarks
-   * 权限列表：USE（使用权限）和/或 MANAGE（管理权限），不传时默认仅 USE；不得为空列表
+   * The permission items.
    * 
    * @example
    * string_value
@@ -31,7 +31,7 @@ export class GrantAgentUsersRequest extends $dara.Model {
   permissions?: string[];
   /**
    * @remarks
-   * 租户ID，公共参数，缺省时使用调用方默认租户
+   * The tenant ID.
    * 
    * @example
    * 676577544219585
@@ -39,7 +39,7 @@ export class GrantAgentUsersRequest extends $dara.Model {
   tenantId?: string;
   /**
    * @remarks
-   * 被授权的用户组 ID 列表（16位 hex 字符串）
+   * The list of user group IDs.
    * 
    * @example
    * string_value
@@ -47,7 +47,7 @@ export class GrantAgentUsersRequest extends $dara.Model {
   userGroupIds?: string[];
   /**
    * @remarks
-   * 被授权的用户 ID 列表
+   * The list of user IDs to be authorized.
    * 
    * @example
    * 1

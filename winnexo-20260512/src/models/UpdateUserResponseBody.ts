@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateUserResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+   * The error code.
    * 
    * @example
    * 200
@@ -13,12 +13,15 @@ export class UpdateUserResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * 错误描述，成功时为空
+   * The status code description.
+   * 
+   * @example
+   * ok
    */
   message?: string;
   /**
    * @remarks
-   * 请求追踪 ID
+   * The request ID.
    * 
    * @example
    * 019FF406-1B10-0065-A97D-2D1920C2A03D
@@ -26,7 +29,7 @@ export class UpdateUserResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * WINNEXO 平台用户ID
+   * The WINNEXO platform user ID.
    * 
    * @example
    * 1

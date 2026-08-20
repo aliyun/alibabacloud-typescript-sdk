@@ -5,9 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class ListGraphsRequest extends $dara.Model {
   /**
    * @remarks
-   * 租户ID，公共参数；winnexo-cli 通过 --tenant-id 显式传入
+   * The ID of the tenant to which the node belongs.
    * 
    * This parameter is required.
+   * 
+   * @example
+   * 21577
    */
   tenantId?: string;
   static names(): { [key: string]: string } {

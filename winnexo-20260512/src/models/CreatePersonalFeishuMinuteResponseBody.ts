@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreatePersonalFeishuMinuteResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+   * SUCCESS indicates success. In case of failure, the corresponding error type is returned, such as ERR_BAD_REQUEST, ERR_VALIDATION_FAILED, or ERR_INTERNAL_SERVER_ERROR.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class CreatePersonalFeishuMinuteResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * 绑定的目录 ID
+   * The directory ID.
    * 
    * @example
    * exampleDirectoryId
@@ -21,55 +21,58 @@ export class CreatePersonalFeishuMinuteResponseBody extends $dara.Model {
   directoryId?: string;
   /**
    * @remarks
-   * 创建时间 ISO8601
+   * The creation time.
    * 
    * @example
-   * string_value
+   * 2026-03-04 11:12:03
    */
   gmtCreate?: string;
   /**
    * @remarks
-   * 错误描述，成功时为空
+   * The operation message.
+   * 
+   * @example
+   * success
    */
   message?: string;
   /**
    * @remarks
-   * 文件名
+   * The resource name.
    * 
    * @example
-   * 示例名称.pdf
+   * issue_research
    */
   name?: string;
   /**
    * @remarks
-   * 请求追踪 ID
+   * The request ID.
    * 
    * @example
-   * 019FF406-1B10-0065-A97D-2D1920C2A03D
+   * 019FEE93-17FB-5369-BB65-1188C3A14B0A
    */
   requestId?: string;
   /**
    * @remarks
-   * 资源 scope，固定为 PERSONAL
+   * The permission scope.
    * 
    * @example
-   * PERSONAL
+   * read:user,read:repo,write:repo,read:org,read:group
    */
   scope?: string;
   /**
    * @remarks
-   * 新建资源 ID
+   * The original project ID.
    * 
    * @example
-   * exampleSourceId
+   * 2001086
    */
   sourceId?: string;
   /**
    * @remarks
-   * 资源状态
+   * The status.
    * 
    * @example
-   * READY
+   * 200
    */
   status?: string;
   static names(): { [key: string]: string } {

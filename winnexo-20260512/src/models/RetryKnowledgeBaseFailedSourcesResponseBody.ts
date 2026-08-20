@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class RetryKnowledgeBaseFailedSourcesResponseBodyFailedSources extends $dara.Model {
   /**
    * @remarks
-   * 文件名
+   * The file name.
    * 
    * @example
-   * 示例名称.pdf
+   * SampleName.pdf
    */
   name?: string;
   /**
    * @remarks
-   * 数据源 ID
+   * The data source ID.
    * 
    * @example
    * exampleSourceId
@@ -21,7 +21,7 @@ export class RetryKnowledgeBaseFailedSourcesResponseBodyFailedSources extends $d
   sourceId?: string;
   /**
    * @remarks
-   * 数据源类型
+   * The data source type.
    * 
    * @example
    * string_value
@@ -55,7 +55,7 @@ export class RetryKnowledgeBaseFailedSourcesResponseBodyFailedSources extends $d
 export class RetryKnowledgeBaseFailedSourcesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+   * The business status code. A value of 200 indicates success. A failure returns a backend error code (ERR.* / InvalidParameter.*).
    * 
    * @example
    * 200
@@ -63,7 +63,7 @@ export class RetryKnowledgeBaseFailedSourcesResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * 企业知识库目录 ID
+   * The enterprise knowledge base directory ID.
    * 
    * @example
    * exampleDirectoryId
@@ -71,7 +71,7 @@ export class RetryKnowledgeBaseFailedSourcesResponseBody extends $dara.Model {
   directoryId?: string;
   /**
    * @remarks
-   * 成功入队重试的数量
+   * The number of resources successfully enqueued for retry.
    * 
    * @example
    * 1
@@ -79,7 +79,7 @@ export class RetryKnowledgeBaseFailedSourcesResponseBody extends $dara.Model {
   enqueuedCount?: number;
   /**
    * @remarks
-   * enqueuedIds
+   * enqueuedIds。
    * 
    * @example
    * string_value
@@ -87,21 +87,28 @@ export class RetryKnowledgeBaseFailedSourcesResponseBody extends $dara.Model {
   enqueuedIds?: string[];
   /**
    * @remarks
-   * 目录下失败资源总数
+   * The total number of failed resources under the directory.
    * 
    * @example
    * 1
    */
   failedCount?: number;
+  /**
+   * @remarks
+   * The list of failed data sources.
+   */
   failedSources?: RetryKnowledgeBaseFailedSourcesResponseBodyFailedSources[];
   /**
    * @remarks
-   * 错误描述，成功时为空
+   * The error description. This value is empty on success.
+   * 
+   * @example
+   * ok
    */
   message?: string;
   /**
    * @remarks
-   * 请求追踪 ID
+   * The request trace ID.
    * 
    * @example
    * 019FF406-1B10-0065-A97D-2D1920C2A03D
@@ -109,7 +116,7 @@ export class RetryKnowledgeBaseFailedSourcesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * 跳过（非 FAILED 状态）的数量
+   * The number of resources skipped because they are not in FAILED status.
    * 
    * @example
    * 1

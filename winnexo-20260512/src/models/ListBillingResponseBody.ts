@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListBillingResponseBodyList extends $dara.Model {
   /**
    * @remarks
-   * 账单业务ID
+   * The billing ID.
    * 
    * @example
    * exampleBillingId
@@ -13,7 +13,7 @@ export class ListBillingResponseBodyList extends $dara.Model {
   billingId?: string;
   /**
    * @remarks
-   * 业务来源ID
+   * The file ID.
    * 
    * @example
    * exampleBizId
@@ -21,7 +21,7 @@ export class ListBillingResponseBodyList extends $dara.Model {
   bizId?: string;
   /**
    * @remarks
-   * 业务来源类型
+   * The business type.
    * 
    * @example
    * string_value
@@ -45,7 +45,7 @@ export class ListBillingResponseBodyList extends $dara.Model {
   costSourceDisplayName?: string[];
   /**
    * @remarks
-   * 结束时间
+   * The end timestamp, in milliseconds.
    * 
    * @example
    * 2023-10-01T12:00:00Z
@@ -53,7 +53,7 @@ export class ListBillingResponseBodyList extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * 入口对象ID
+   * The entry object ID.
    * 
    * @example
    * exampleEntryObjectId
@@ -61,7 +61,7 @@ export class ListBillingResponseBodyList extends $dara.Model {
   entryObjectId?: string;
   /**
    * @remarks
-   * 入口对象类型
+   * The entry object type.
    * 
    * @example
    * string_value
@@ -69,7 +69,7 @@ export class ListBillingResponseBodyList extends $dara.Model {
   entryObjectType?: string;
   /**
    * @remarks
-   * 是否影子账单
+   * Indicates whether the bill is a shadow bill.
    * 
    * @example
    * true
@@ -77,7 +77,7 @@ export class ListBillingResponseBodyList extends $dara.Model {
   isShadow?: boolean;
   /**
    * @remarks
-   * 操作类型
+   * The operation type.
    * 
    * @example
    * string_value
@@ -85,7 +85,7 @@ export class ListBillingResponseBodyList extends $dara.Model {
   operation?: string;
   /**
    * @remarks
-   * 操作类型展示名称
+   * The display name of the operation.
    * 
    * @example
    * string_value
@@ -93,7 +93,7 @@ export class ListBillingResponseBodyList extends $dara.Model {
   operationDisplayName?: string;
   /**
    * @remarks
-   * 开始时间
+   * The start timestamp, in milliseconds.
    * 
    * @example
    * 2023-10-01T12:00:00Z
@@ -101,7 +101,7 @@ export class ListBillingResponseBodyList extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * 状态
+   * The task status. Running is returned upon submission.
    * 
    * @example
    * READY
@@ -109,7 +109,7 @@ export class ListBillingResponseBodyList extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * 状态展示名称
+   * The display name of the status.
    * 
    * @example
    * string_value
@@ -117,7 +117,7 @@ export class ListBillingResponseBodyList extends $dara.Model {
   statusDisplayName?: string;
   /**
    * @remarks
-   * 租户ID
+   * The tenant ID. This is a common parameter. If not specified, the default tenant of the caller is used.
    * 
    * @example
    * 10000
@@ -125,7 +125,7 @@ export class ListBillingResponseBodyList extends $dara.Model {
   tenantId?: number;
   /**
    * @remarks
-   * 汇总 credit 消耗
+   * The total credit consumption.
    * 
    * @example
    * string_value
@@ -133,7 +133,7 @@ export class ListBillingResponseBodyList extends $dara.Model {
   totalCreditCost?: string;
   /**
    * @remarks
-   * WINNEXO 平台用户ID
+   * The WINNEXO platform user ID.
    * 
    * @example
    * 1
@@ -201,21 +201,28 @@ export class ListBillingResponseBodyList extends $dara.Model {
 export class ListBillingResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+   * The response status code.
    * 
    * @example
    * 200
    */
   code?: string;
+  /**
+   * @remarks
+   * The details of the list.
+   */
   list?: ListBillingResponseBodyList[];
   /**
    * @remarks
-   * 错误描述，成功时为空
+   * The prompt message.
+   * 
+   * @example
+   * successful
    */
   message?: string;
   /**
    * @remarks
-   * 页码
+   * The page number.
    * 
    * @example
    * 1
@@ -223,7 +230,7 @@ export class ListBillingResponseBody extends $dara.Model {
   page?: number;
   /**
    * @remarks
-   * 每页条数
+   * The number of entries per page.
    * 
    * @example
    * 20
@@ -231,7 +238,7 @@ export class ListBillingResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * 请求追踪 ID
+   * The request ID.
    * 
    * @example
    * 019FF406-1B10-0065-A97D-2D1920C2A03D
@@ -239,7 +246,7 @@ export class ListBillingResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * 总数
+   * The total number of bills.
    * 
    * @example
    * 1

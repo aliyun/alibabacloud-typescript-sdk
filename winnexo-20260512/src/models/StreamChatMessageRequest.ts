@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class StreamChatMessageRequest extends $dara.Model {
   /**
    * @remarks
-   * 上次接收到的 SSE event id，用于断线续推；不传则从头全量回放
+   * The last received SSE event ID, used for resuming delivery after a disconnection. If not specified, the full stream is replayed from the beginning.
    * 
    * @example
    * 5-1683456789012
@@ -13,7 +13,7 @@ export class StreamChatMessageRequest extends $dara.Model {
   lastEventId?: string;
   /**
    * @remarks
-   * 租户ID，公共参数，缺省时使用调用方默认租户
+   * The ID of the effective tenant.
    * 
    * @example
    * 10000

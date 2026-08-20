@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetScheduledTaskUnderstandDetailResponseBodyRelatedObjects extends $dara.Model {
   /**
    * @remarks
-   * 提及类型
+   * The mention type, such as objects.
    * 
    * @example
    * string_value
@@ -13,15 +13,19 @@ export class GetScheduledTaskUnderstandDetailResponseBodyRelatedObjects extends 
   mentionType?: string;
   /**
    * @remarks
-   * 文件名
+   * The name.
    * 
    * @example
-   * 示例名称.pdf
+   * SampleName.pdf
    */
   name?: string;
   /**
    * @remarks
-   * 对象 ID
+   * The object ID. Pass the project task ID.
+   * 
+   * - For internal enterprise applications, this is the taskId obtained by calling the [Create a project task](https://open.dingtalk.com/document/orgapp-server/create-a-project-task) operation.
+   * 
+   * - For third-party enterprise applications, this is the taskId obtained by calling the [Create a project task](https://open.dingtalk.com/document/isvapp-server/create-a-project-task) operation.
    * 
    * @example
    * exampleObjectId
@@ -29,7 +33,7 @@ export class GetScheduledTaskUnderstandDetailResponseBodyRelatedObjects extends 
   objectId?: string;
   /**
    * @remarks
-   * 对象类型
+   * The object type, such as customer. This parameter has a value when type is set to mention.
    * 
    * @example
    * string_value
@@ -65,7 +69,7 @@ export class GetScheduledTaskUnderstandDetailResponseBodyRelatedObjects extends 
 export class GetScheduledTaskUnderstandDetailResponseBodyRelatedSemantics extends $dara.Model {
   /**
    * @remarks
-   * 语义属性（JSON 字符串），用于语义检索时过滤
+   * The information type.
    * 
    * @example
    * {"level": "VIP"}
@@ -73,7 +77,7 @@ export class GetScheduledTaskUnderstandDetailResponseBodyRelatedSemantics extend
   attributes?: string;
   /**
    * @remarks
-   * 语义实体名，如客户/机会
+   * The semantic entity name, such as customer or opportunity.
    * 
    * @example
    * customer
@@ -105,7 +109,7 @@ export class GetScheduledTaskUnderstandDetailResponseBodyRelatedSemantics extend
 export class GetScheduledTaskUnderstandDetailResponseBodyRelatedSkills extends $dara.Model {
   /**
    * @remarks
-   * 技能展示名称
+   * The display name of the MCP service.
    * 
    * @example
    * string_value
@@ -113,15 +117,15 @@ export class GetScheduledTaskUnderstandDetailResponseBodyRelatedSkills extends $
   displayName?: string;
   /**
    * @remarks
-   * 文件名
+   * The name.
    * 
    * @example
-   * 示例名称.pdf
+   * SampleName.pdf
    */
   name?: string;
   /**
    * @remarks
-   * 技能代码
+   * The skill code.
    * 
    * @example
    * string_value
@@ -168,7 +172,7 @@ export class GetScheduledTaskUnderstandDetailResponseBodyRelatedSkills extends $
 export class GetScheduledTaskUnderstandDetailResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+   * The status code.
    * 
    * @example
    * 200
@@ -176,15 +180,30 @@ export class GetScheduledTaskUnderstandDetailResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * 错误描述，成功时为空
+   * The description of the status code.
+   * 
+   * @example
+   * ok
    */
   message?: string;
+  /**
+   * @remarks
+   * The related objects.
+   */
   relatedObjects?: GetScheduledTaskUnderstandDetailResponseBodyRelatedObjects[];
+  /**
+   * @remarks
+   * The related semantics.
+   */
   relatedSemantics?: GetScheduledTaskUnderstandDetailResponseBodyRelatedSemantics[];
+  /**
+   * @remarks
+   * The related skills.
+   */
   relatedSkills?: GetScheduledTaskUnderstandDetailResponseBodyRelatedSkills[];
   /**
    * @remarks
-   * 请求追踪 ID
+   * The request ID.
    * 
    * @example
    * 019FF406-1B10-0065-A97D-2D1920C2A03D
@@ -192,7 +211,7 @@ export class GetScheduledTaskUnderstandDetailResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * 润色后的任务理解
+   * The task understanding description polished by the LLM.
    * 
    * @example
    * string_value

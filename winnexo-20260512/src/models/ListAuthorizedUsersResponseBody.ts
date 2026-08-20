@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAuthorizedUsersResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * 授权截止时间戳（毫秒）
+   * The authorization expiration timestamp in milliseconds. If not specified, the authorization never expires.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class ListAuthorizedUsersResponseBodyItems extends $dara.Model {
   expireDate?: number;
   /**
    * @remarks
-   * 创建时间
+   * The creation time.
    * 
    * @example
    * string_value
@@ -21,7 +21,7 @@ export class ListAuthorizedUsersResponseBodyItems extends $dara.Model {
   gmtCreate?: string;
   /**
    * @remarks
-   * 最后修改时间
+   * The last update time.
    * 
    * @example
    * string_value
@@ -29,7 +29,7 @@ export class ListAuthorizedUsersResponseBodyItems extends $dara.Model {
   gmtModified?: string;
   /**
    * @remarks
-   * 授权人用户 ID
+   * The user ID of the person who granted the authorization.
    * 
    * @example
    * 1
@@ -37,7 +37,7 @@ export class ListAuthorizedUsersResponseBodyItems extends $dara.Model {
   grantedBy?: number;
   /**
    * @remarks
-   * 被授权对象 ID
+   * The ID of the authorized object.
    * 
    * @example
    * exampleGranteeId
@@ -45,7 +45,7 @@ export class ListAuthorizedUsersResponseBodyItems extends $dara.Model {
   granteeId?: string;
   /**
    * @remarks
-   * 被授权对象类型：USER / USER_GROUP
+   * The authorization object type. Valid values: USER, USER_GROUP.
    * 
    * @example
    * string_value
@@ -53,7 +53,7 @@ export class ListAuthorizedUsersResponseBodyItems extends $dara.Model {
   granteeType?: string;
   /**
    * @remarks
-   * 授权记录 ID
+   * The Operation logs ID.
    * 
    * @example
    * 1
@@ -61,7 +61,7 @@ export class ListAuthorizedUsersResponseBodyItems extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * 用户组成员数
+   * The number of members.
    * 
    * @example
    * 1
@@ -69,7 +69,17 @@ export class ListAuthorizedUsersResponseBodyItems extends $dara.Model {
   memberCount?: number;
   /**
    * @remarks
-   * 已授权的权限列表
+   * The permission member type. Valid values:
+   * 
+   * - **ORG**: Enterprise.
+   * 
+   * - **DEPT**: Department.
+   * 
+   * - **TAG**: Custom tag.
+   * 
+   * - **CONVERSATION**: Conversation.
+   * 
+   * - **USER**: User.
    * 
    * @example
    * string_value
@@ -77,7 +87,7 @@ export class ListAuthorizedUsersResponseBodyItems extends $dara.Model {
   permissions?: string[];
   /**
    * @remarks
-   * 用户组 ID（granteeType=USER_GROUP 时有值）
+   * The user group ID. This parameter has a value only when granteeType is set to USER_GROUP.
    * 
    * @example
    * exampleUserGroupId
@@ -85,7 +95,7 @@ export class ListAuthorizedUsersResponseBodyItems extends $dara.Model {
   userGroupId?: string;
   /**
    * @remarks
-   * 用户组名
+   * The user group name.
    * 
    * @example
    * string_value
@@ -93,7 +103,7 @@ export class ListAuthorizedUsersResponseBodyItems extends $dara.Model {
   userGroupName?: string;
   /**
    * @remarks
-   * 用户 ID（granteeType=USER 时有值）
+   * The user ID. This parameter has a value only when granteeType is set to USER.
    * 
    * @example
    * 1
@@ -101,7 +111,7 @@ export class ListAuthorizedUsersResponseBodyItems extends $dara.Model {
   userId?: number;
   /**
    * @remarks
-   * 用户名
+   * The username.
    * 
    * @example
    * string_value
@@ -158,7 +168,7 @@ export class ListAuthorizedUsersResponseBodyItems extends $dara.Model {
 export class ListAuthorizedUsersResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 授权模式：SPECIFIED_USERS / ALL_USERS
+   * The authentication mode.
    * 
    * @example
    * string_value
@@ -166,7 +176,7 @@ export class ListAuthorizedUsersResponseBody extends $dara.Model {
   authMode?: string;
   /**
    * @remarks
-   * 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+   * The status code.
    * 
    * @example
    * 200
@@ -174,17 +184,20 @@ export class ListAuthorizedUsersResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * 已授权对象列表
+   * The details.
    */
   items?: ListAuthorizedUsersResponseBodyItems[];
   /**
    * @remarks
-   * 错误描述，成功时为空
+   * The description of the status code.
+   * 
+   * @example
+   * successful
    */
   message?: string;
   /**
    * @remarks
-   * 请求追踪 ID
+   * The request ID.
    * 
    * @example
    * 019FF406-1B10-0065-A97D-2D1920C2A03D
@@ -192,7 +205,7 @@ export class ListAuthorizedUsersResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * 授权记录总数
+   * The total number of records.
    * 
    * @example
    * 1

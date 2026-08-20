@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetUserRequest extends $dara.Model {
   /**
    * @remarks
-   * 租户ID，公共参数，缺省时使用调用方默认租户
+   * The ID of the tenant to which the task belongs.
    * 
    * @example
    * 10000
@@ -13,7 +13,7 @@ export class GetUserRequest extends $dara.Model {
   tenantId?: string;
   /**
    * @remarks
-   * WINNEXO 登录账号（与 wnUserId 二选一）
+   * The WINNEXO logon account. This is a unique identifier and cannot be empty.
    * 
    * @example
    * exampleAccountId
@@ -21,7 +21,7 @@ export class GetUserRequest extends $dara.Model {
   wnAccountId?: string;
   /**
    * @remarks
-   * WINNEXO 平台用户ID（与 accountId 二选一）
+   * The WINNEXO platform user ID. Specify either this parameter or accountId.
    * 
    * @example
    * 1

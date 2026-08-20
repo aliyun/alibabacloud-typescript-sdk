@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class QueryPrimaryObjectDataRequest extends $dara.Model {
   /**
    * @remarks
-   * 关键字搜索（固定匹配 name；若 schema 定义 description，则同时匹配 description）
+   * The keyword for search. The keyword is matched against the name field. If the schema defines a description field, the keyword is also matched against the description field.
    * 
    * @example
-   * 示例关键词
+   * SampleKeyword
    */
   keyword?: string;
   /**
    * @remarks
-   * 仅返回关注的主对象；false 或不传则返回全部对象（包含 isFavorited 标识）
+   * Specifies whether to return only favorited primary objects. If this parameter is set to false or not specified, all objects are returned with the isFavorited flag.
    * 
    * @example
    * false
@@ -21,7 +21,7 @@ export class QueryPrimaryObjectDataRequest extends $dara.Model {
   onlyFavorites?: boolean;
   /**
    * @remarks
-   * 运营对象名称（如 customer_1）
+   * The operating object name (such as customer_1).
    * 
    * This parameter is required.
    * 
@@ -31,7 +31,7 @@ export class QueryPrimaryObjectDataRequest extends $dara.Model {
   operatingObjectName?: string;
   /**
    * @remarks
-   * 页码（从 1 开始）
+   * The page number (starting from 1).
    * 
    * @example
    * 1
@@ -39,7 +39,7 @@ export class QueryPrimaryObjectDataRequest extends $dara.Model {
   page?: number;
   /**
    * @remarks
-   * 每页数量，范围 1-100
+   * The number of entries per page. Valid values: 1 to 100.
    * 
    * @example
    * 20
@@ -47,7 +47,7 @@ export class QueryPrimaryObjectDataRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * 租户ID，公共参数；winnexo-cli 通过 --tenant-id 显式传入
+   * The tenant ID. This is a common parameter. In winnexo-cli, pass this value explicitly by using --tenant-id.
    * 
    * @example
    * 10000

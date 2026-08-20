@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ReplaceSourceFileResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+   * The status code.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class ReplaceSourceFileResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * 替换后的文件 OSS 持久化地址
+   * The OSS persistent address of the file after replacement.
    * 
    * @example
    * string_value
@@ -21,7 +21,7 @@ export class ReplaceSourceFileResponseBody extends $dara.Model {
   filePath?: string;
   /**
    * @remarks
-   * 替换后的文件公开访问 URL
+   * The OSS persistent address of the file after replacement.
    * 
    * @example
    * https://example.com/winnexo/resource
@@ -29,7 +29,7 @@ export class ReplaceSourceFileResponseBody extends $dara.Model {
   filePublicUrl?: string;
   /**
    * @remarks
-   * 替换后的文件记录 ID
+   * The file record ID after replacement.
    * 
    * @example
    * exampleFileRecordId
@@ -37,22 +37,25 @@ export class ReplaceSourceFileResponseBody extends $dara.Model {
   fileRecordId?: string;
   /**
    * @remarks
-   * 错误描述，成功时为空
+   * The description of the status code.
+   * 
+   * @example
+   * ok
    */
   message?: string;
   /**
    * @remarks
-   * 文件名
+   * The file name.
    * 
    * This parameter is required.
    * 
    * @example
-   * 示例名称.pdf
+   * SampleName.pdf
    */
   name?: string;
   /**
    * @remarks
-   * 请求追踪 ID
+   * The request trace ID.
    * 
    * @example
    * 019FF406-1B10-0065-A97D-2D1920C2A03D
@@ -60,7 +63,7 @@ export class ReplaceSourceFileResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * 数据源 ID
+   * The data source ID.
    * 
    * This parameter is required.
    * 
@@ -70,7 +73,7 @@ export class ReplaceSourceFileResponseBody extends $dara.Model {
   sourceId?: string;
   /**
    * @remarks
-   * 数据源类型，固定为 FILE
+   * The data source type. The value is fixed to FILE.
    * 
    * @example
    * string_value
@@ -78,7 +81,7 @@ export class ReplaceSourceFileResponseBody extends $dara.Model {
   sourceType?: string;
   /**
    * @remarks
-   * 重新解析后的数据源状态
+   * The data source status after re-parsing.
    * 
    * @example
    * READY

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetUserResponseBody extends $dara.Model {
   /**
    * @remarks
-   * WINNEXO 登录账号
+   * The account ID.
    * 
    * @example
    * exampleAccountId
@@ -13,7 +13,7 @@ export class GetUserResponseBody extends $dara.Model {
   accountId?: string;
   /**
    * @remarks
-   * 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+   * The error code.
    * 
    * @example
    * 200
@@ -21,7 +21,7 @@ export class GetUserResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * 用户显示名称
+   * The display name of the account.
    * 
    * @example
    * string_value
@@ -29,7 +29,7 @@ export class GetUserResponseBody extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * 加入租户时间
+   * The creation time.
    * 
    * @example
    * string_value
@@ -37,7 +37,9 @@ export class GetUserResponseBody extends $dara.Model {
   gmtCreate?: string;
   /**
    * @remarks
-   * 启用/停用状态
+   * Indicates whether the account is activated. Valid values:
+   *  - **true**: Activated.
+   * - **false**: Not activated.
    * 
    * @example
    * true
@@ -45,7 +47,7 @@ export class GetUserResponseBody extends $dara.Model {
   isActive?: boolean;
   /**
    * @remarks
-   * 最后登录时间
+   * The last logon time.
    * 
    * @example
    * 2023-10-01T12:00:00Z
@@ -53,12 +55,15 @@ export class GetUserResponseBody extends $dara.Model {
   lastLoginTime?: string;
   /**
    * @remarks
-   * 错误描述，成功时为空
+   * The status code description.
+   * 
+   * @example
+   * ok
    */
   message?: string;
   /**
    * @remarks
-   * 请求追踪 ID
+   * The request ID.
    * 
    * @example
    * 019FF406-1B10-0065-A97D-2D1920C2A03D
@@ -66,7 +71,7 @@ export class GetUserResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * 用户拥有的系统角色 code 列表
+   * The list of system role codes (full replacement, must contain at least one role). Valid values: SUPER_ADMIN, SYSTEM_ADMIN, SEMANTIC_ADMIN, SKILL_ADMIN, KB_ADMIN, AGENT_ADMIN, and APPLICATION_USER.
    * 
    * @example
    * string_value
@@ -74,7 +79,7 @@ export class GetUserResponseBody extends $dara.Model {
   roleCodes?: string[];
   /**
    * @remarks
-   * 用户所属用户组ID列表
+   * The list of user group IDs to which the user belongs.
    * 
    * @example
    * string_value
@@ -82,7 +87,7 @@ export class GetUserResponseBody extends $dara.Model {
   userGroupIds?: string[];
   /**
    * @remarks
-   * WINNEXO 平台用户ID
+   * The WINNEXO platform user ID.
    * 
    * @example
    * 1

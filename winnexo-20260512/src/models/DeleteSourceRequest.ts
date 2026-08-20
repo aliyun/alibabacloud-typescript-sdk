@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteSourceRequest extends $dara.Model {
   /**
    * @remarks
-   * 待删除的数据源 ID（租户内唯一）
+   * The unique identifier on the business system side, that is, the business ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DeleteSourceRequest extends $dara.Model {
   sourceId?: string;
   /**
    * @remarks
-   * 租户ID，公共参数，缺省时使用调用方默认租户
+   * The tenant ID.
    * 
    * @example
    * 21577

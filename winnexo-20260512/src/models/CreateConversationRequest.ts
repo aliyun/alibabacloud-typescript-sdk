@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateConversationRequest extends $dara.Model {
   /**
    * @remarks
-   * 会话元数据，可含 model 等透传字段（model 需为合法抽象模型名，否则回退默认）
+   * A reserved field.
    * 
    * @example
    * string_value
@@ -13,15 +13,15 @@ export class CreateConversationRequest extends $dara.Model {
   metadata?: string;
   /**
    * @remarks
-   * 关联业务对象ID
+   * The primary key ID of the associated variable.
    * 
    * @example
-   * exampleObjectId
+   * 2676
    */
   objectId?: string;
   /**
    * @remarks
-   * operatingObjectName
+   * The operating object name.
    * 
    * @example
    * string_value
@@ -29,10 +29,10 @@ export class CreateConversationRequest extends $dara.Model {
   operatingObjectName?: any[];
   /**
    * @remarks
-   * 租户ID，公共参数，缺省时使用调用方默认租户
+   * The tenant ID.
    * 
    * @example
-   * 10000
+   * 10001
    */
   tenantId?: string;
   static names(): { [key: string]: string } {

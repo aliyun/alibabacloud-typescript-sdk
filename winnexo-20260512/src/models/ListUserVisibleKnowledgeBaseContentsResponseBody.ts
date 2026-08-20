@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListUserVisibleKnowledgeBaseContentsResponseBodyItemsShareInfos extends $dara.Model {
   /**
    * @remarks
-   * 知识库提交审批单 ID
+   * The Ray Job ID.
    * 
    * @example
    * submission_example
@@ -13,7 +13,7 @@ export class ListUserVisibleKnowledgeBaseContentsResponseBodyItemsShareInfos ext
   submissionId?: string;
   /**
    * @remarks
-   * 提交人用户 ID
+   * The user ID of the submitter.
    * 
    * @example
    * 1
@@ -21,15 +21,15 @@ export class ListUserVisibleKnowledgeBaseContentsResponseBodyItemsShareInfos ext
   submitterId?: number;
   /**
    * @remarks
-   * 提交人名称
+   * The submitter name.
    * 
    * @example
-   * 张三
+   * John
    */
   submitterName?: string;
   /**
    * @remarks
-   * 目标目录 ID
+   * The target directory ID.
    * 
    * @example
    * dir_target
@@ -37,15 +37,15 @@ export class ListUserVisibleKnowledgeBaseContentsResponseBodyItemsShareInfos ext
   targetDirectoryId?: string;
   /**
    * @remarks
-   * 目标目录名称
+   * The target directory name.
    * 
    * @example
-   * 共享目录
+   * Shared directory
    */
   targetDirectoryName?: string;
   /**
    * @remarks
-   * 目标企业知识库根目录 ID
+   * The root directory ID of the target enterprise knowledge base.
    * 
    * @example
    * dir_kb_root
@@ -53,10 +53,10 @@ export class ListUserVisibleKnowledgeBaseContentsResponseBodyItemsShareInfos ext
   targetKbRootDirectoryId?: string;
   /**
    * @remarks
-   * 目标企业知识库名称
+   * The name of the target enterprise knowledge base.
    * 
    * @example
-   * 产品知识库
+   * Product knowledge base
    */
   targetKbRootDirectoryName?: string;
   static names(): { [key: string]: string } {
@@ -95,23 +95,23 @@ export class ListUserVisibleKnowledgeBaseContentsResponseBodyItemsShareInfos ext
 export class ListUserVisibleKnowledgeBaseContentsResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * 创建人名称
+   * The name of the creator.
    * 
    * @example
-   * 张三
+   * John
    */
   creatorName?: string;
   /**
    * @remarks
-   * 知识库描述
+   * The description of the to-do card type.
    * 
    * @example
-   * 产品资料与使用说明
+   * Product materials and user guide
    */
   description?: string;
   /**
    * @remarks
-   * 目录归属类型
+   * The directory type.
    * 
    * @example
    * normal
@@ -119,7 +119,7 @@ export class ListUserVisibleKnowledgeBaseContentsResponseBodyItems extends $dara
   directoryKind?: string;
   /**
    * @remarks
-   * 目录类型
+   * The directory type.
    * 
    * @example
    * TENANT
@@ -127,7 +127,7 @@ export class ListUserVisibleKnowledgeBaseContentsResponseBodyItems extends $dara
   directoryType?: string;
   /**
    * @remarks
-   * 创建时间戳（毫秒）
+   * The creation time.
    * 
    * @example
    * 1
@@ -135,7 +135,7 @@ export class ListUserVisibleKnowledgeBaseContentsResponseBodyItems extends $dara
   gmtCreate?: number;
   /**
    * @remarks
-   * 修改时间戳（毫秒）
+   * The last modification time.
    * 
    * @example
    * 1
@@ -143,7 +143,7 @@ export class ListUserVisibleKnowledgeBaseContentsResponseBodyItems extends $dara
   gmtModified?: number;
   /**
    * @remarks
-   * 目录 ID 或资源 ID
+   * The item ID.
    * 
    * @example
    * source_example
@@ -151,7 +151,7 @@ export class ListUserVisibleKnowledgeBaseContentsResponseBodyItems extends $dara
   itemId?: string;
   /**
    * @remarks
-   * 内容类型：directory 或 resource
+   * The item type.
    * 
    * @example
    * resource
@@ -159,7 +159,7 @@ export class ListUserVisibleKnowledgeBaseContentsResponseBodyItems extends $dara
   itemType?: string;
   /**
    * @remarks
-   * 资源是否存在待审批的知识库提交记录
+   * Indicates whether the resource has a pending knowledge base submission record.
    * 
    * @example
    * false
@@ -167,24 +167,28 @@ export class ListUserVisibleKnowledgeBaseContentsResponseBodyItems extends $dara
   kbSubmissionPending?: boolean;
   /**
    * @remarks
-   * 更新人名称
+   * The name of the modifier.
    * 
    * @example
-   * 李四
+   * Jane
    */
   modifierName?: string;
   /**
    * @remarks
-   * 目录或资源名称
+   * The name.
    * 
    * @example
-   * 产品说明.pdf
+   * Product description.pdf
    */
   name?: string;
+  /**
+   * @remarks
+   * The object bindings.
+   */
   objectBindings?: { [key: string]: any }[];
   /**
    * @remarks
-   * 知识库对数字员工的可见模式
+   * The visibility mode of the knowledge base to digital employees.
    * 
    * @example
    * PUBLIC
@@ -192,16 +196,20 @@ export class ListUserVisibleKnowledgeBaseContentsResponseBodyItems extends $dara
   ooVisibilityMode?: string;
   /**
    * @remarks
-   * 是否为只读关联内容
+   * Indicates whether the item is read-only.
    * 
    * @example
    * false
    */
   readOnly?: boolean;
+  /**
+   * @remarks
+   * The sharing information.
+   */
   shareInfos?: ListUserVisibleKnowledgeBaseContentsResponseBodyItemsShareInfos[];
   /**
    * @remarks
-   * 是否已直接共享到企业知识库
+   * Indicates whether shared access is allowed.
    * 
    * @example
    * false
@@ -209,7 +217,7 @@ export class ListUserVisibleKnowledgeBaseContentsResponseBodyItems extends $dara
   shared?: boolean;
   /**
    * @remarks
-   * 目录 FAILED 资源数
+   * The number of resources in FAILED status. Returned only when listing top-level KB directories.
    * 
    * @example
    * 0
@@ -217,7 +225,7 @@ export class ListUserVisibleKnowledgeBaseContentsResponseBodyItems extends $dara
   sourceFailedCount?: number;
   /**
    * @remarks
-   * 资源归属类型
+   * The knowledge base affiliation type. Valid values: aliding_kb_doc (DingTalk knowledge base document), normal (common knowledge).
    * 
    * @example
    * normal
@@ -225,7 +233,7 @@ export class ListUserVisibleKnowledgeBaseContentsResponseBodyItems extends $dara
   sourceKind?: string;
   /**
    * @remarks
-   * 目录 READY 资源数
+   * The number of resources in READY status. Returned only when listing top-level KB directories.
    * 
    * @example
    * 1
@@ -233,7 +241,7 @@ export class ListUserVisibleKnowledgeBaseContentsResponseBodyItems extends $dara
   sourceReadyCount?: number;
   /**
    * @remarks
-   * 资源状态；本接口只返回 READY 资源
+   * The resource status. This field has a value only when itemType is resource.
    * 
    * @example
    * READY
@@ -241,7 +249,7 @@ export class ListUserVisibleKnowledgeBaseContentsResponseBodyItems extends $dara
   sourceStatus?: string;
   /**
    * @remarks
-   * 目录资源总数
+   * The total number of resources under the directory and its subdirectories. Returned only when listing top-level KB directories.
    * 
    * @example
    * 1
@@ -249,7 +257,7 @@ export class ListUserVisibleKnowledgeBaseContentsResponseBodyItems extends $dara
   sourceTotalCount?: number;
   /**
    * @remarks
-   * 资源类型，目录项为空
+   * The data source type.
    * 
    * @example
    * FILE
@@ -327,21 +335,28 @@ export class ListUserVisibleKnowledgeBaseContentsResponseBodyItems extends $dara
 export class ListUserVisibleKnowledgeBaseContentsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+   * The status code.
    * 
    * @example
    * 200
    */
   code?: string;
+  /**
+   * @remarks
+   * The list of skill cards.
+   */
   items?: ListUserVisibleKnowledgeBaseContentsResponseBodyItems[];
   /**
    * @remarks
-   * 错误描述，成功时为空
+   * The status code description.
+   * 
+   * @example
+   * successful
    */
   message?: string;
   /**
    * @remarks
-   * 当前页码
+   * The page number. Default value: 1. Pages start from page 1.
    * 
    * @example
    * 1
@@ -349,7 +364,7 @@ export class ListUserVisibleKnowledgeBaseContentsResponseBody extends $dara.Mode
   page?: number;
   /**
    * @remarks
-   * 每页数量
+   * The page size.
    * 
    * @example
    * 20
@@ -357,7 +372,7 @@ export class ListUserVisibleKnowledgeBaseContentsResponseBody extends $dara.Mode
   pageSize?: number;
   /**
    * @remarks
-   * 请求追踪 ID
+   * The request ID.
    * 
    * @example
    * 019FF406-1B10-0065-A97D-2D1920C2A03D
@@ -365,7 +380,7 @@ export class ListUserVisibleKnowledgeBaseContentsResponseBody extends $dara.Mode
   requestId?: string;
   /**
    * @remarks
-   * 命中总数
+   * The total number of records.
    * 
    * @example
    * 1

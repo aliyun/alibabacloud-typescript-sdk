@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class StopChatMessageRequest extends $dara.Model {
   /**
    * @remarks
-   * 会话ID
+   * The session ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class StopChatMessageRequest extends $dara.Model {
   sessionId?: string;
   /**
    * @remarks
-   * 租户ID，公共参数，缺省时使用调用方默认租户
+   * The ID of the effective tenant.
    * 
    * @example
    * 10000

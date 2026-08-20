@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAdminKnowledgeBasesResponseBodyItemsObjectBindings extends $dara.Model {
   /**
    * @remarks
-   * 对象归属的语义图谱名（object_id 在该 graph 下唯一）
+   * The semantic graph name to which the object belongs. The object_id is unique within this graph.
    * 
    * @example
    * string_value
@@ -13,7 +13,7 @@ export class ListAdminKnowledgeBasesResponseBodyItemsObjectBindings extends $dar
   graphName?: string;
   /**
    * @remarks
-   * 对象唯一 ID
+   * The ID of the recommended item, which can be a feedId or a micro-application ID.
    * 
    * @example
    * exampleObjectId
@@ -21,7 +21,7 @@ export class ListAdminKnowledgeBasesResponseBodyItemsObjectBindings extends $dar
   objectId?: string;
   /**
    * @remarks
-   * 对象显示名（如客户名称），由图谱 schema 解析；缓存缺失时为 null
+   * The object name.
    * 
    * @example
    * string_value
@@ -29,7 +29,7 @@ export class ListAdminKnowledgeBasesResponseBodyItemsObjectBindings extends $dar
   objectName?: string;
   /**
    * @remarks
-   * 对象类型（如 customer / opportunity），对应图谱 schema 中的 object_type
+   * The object type, such as customer. This field has a value only when type is mention.
    * 
    * @example
    * string_value
@@ -37,7 +37,7 @@ export class ListAdminKnowledgeBasesResponseBodyItemsObjectBindings extends $dar
   objectType?: string;
   /**
    * @remarks
-   * 对象类型显示名（如"客户"），由图谱 schema 解析；缓存缺失时为 null
+   * The display name of the object type (such as "Customer"), parsed from the graph schema. The value is null when the cache is missed.
    * 
    * @example
    * string_value
@@ -75,7 +75,7 @@ export class ListAdminKnowledgeBasesResponseBodyItemsObjectBindings extends $dar
 export class ListAdminKnowledgeBasesResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * 目录创建者姓名（仅 KB 顶层目录列表时返回）
+   * The name of the creator.
    * 
    * @example
    * string_value
@@ -83,15 +83,15 @@ export class ListAdminKnowledgeBasesResponseBodyItems extends $dara.Model {
   creatorName?: string;
   /**
    * @remarks
-   * 描述（仅 KB 顶层目录列表时返回）
+   * The description of the to-do card type.
    * 
    * @example
-   * 示例描述
+   * Sample description
    */
   description?: string;
   /**
    * @remarks
-   * 目录归属类型（itemType=directory 时有值）：normal / aliding_kb_root / aliding_kb_internal
+   * The directory type.
    * 
    * @example
    * string_value
@@ -99,7 +99,7 @@ export class ListAdminKnowledgeBasesResponseBodyItems extends $dara.Model {
   directoryKind?: string;
   /**
    * @remarks
-   * 创建时间戳（毫秒）
+   * The creation time.
    * 
    * @example
    * 1
@@ -107,7 +107,7 @@ export class ListAdminKnowledgeBasesResponseBodyItems extends $dara.Model {
   gmtCreate?: number;
   /**
    * @remarks
-   * 修改时间戳（毫秒）
+   * The last modification time.
    * 
    * @example
    * 1
@@ -115,7 +115,7 @@ export class ListAdminKnowledgeBasesResponseBodyItems extends $dara.Model {
   gmtModified?: number;
   /**
    * @remarks
-   * 唯一标识（itemType=directory 时为 directory_id；itemType=resource 时为 source_id）
+   * The ID of the data item. When tabId and orgId are the same, itemId uniquely identifies a data item. The maximum length is 128 characters.
    * 
    * @example
    * exampleItemId
@@ -123,7 +123,7 @@ export class ListAdminKnowledgeBasesResponseBodyItems extends $dara.Model {
   itemId?: string;
   /**
    * @remarks
-   * 类型：directory / resource
+   * The data type (group, user, or role).
    * 
    * @example
    * string_value
@@ -131,16 +131,20 @@ export class ListAdminKnowledgeBasesResponseBodyItems extends $dara.Model {
   itemType?: string;
   /**
    * @remarks
-   * 文件名
+   * The name.
    * 
    * @example
-   * 示例名称.pdf
+   * SampleName.pdf
    */
   name?: string;
+  /**
+   * @remarks
+   * The object bindings.
+   */
   objectBindings?: ListAdminKnowledgeBasesResponseBodyItemsObjectBindings[];
   /**
    * @remarks
-   * 状态为 FAILED 的资源数（仅 KB 顶层目录列表时返回）
+   * The number of resources with FAILED status. This field is returned only for the top-level knowledge base directory list.
    * 
    * @example
    * 1
@@ -148,7 +152,7 @@ export class ListAdminKnowledgeBasesResponseBodyItems extends $dara.Model {
   sourceFailedCount?: number;
   /**
    * @remarks
-   * 资源归属类型（itemType=resource 时有值）：aliding_kb_doc / normal
+   * The knowledge base ownership type. Valid values: aliding_kb_doc (DingTalk knowledge base document) and normal (common knowledge).
    * 
    * @example
    * string_value
@@ -156,7 +160,7 @@ export class ListAdminKnowledgeBasesResponseBodyItems extends $dara.Model {
   sourceKind?: string;
   /**
    * @remarks
-   * 状态为 READY 的资源数（仅 KB 顶层目录列表时返回）
+   * The number of resources with READY status. This field is returned only for the top-level knowledge base directory list.
    * 
    * @example
    * 1
@@ -164,7 +168,7 @@ export class ListAdminKnowledgeBasesResponseBodyItems extends $dara.Model {
   sourceReadyCount?: number;
   /**
    * @remarks
-   * 资源状态（itemType=resource 时有值）
+   * The resource status. This field has a value only when itemType is resource.
    * 
    * @example
    * string_value
@@ -172,7 +176,7 @@ export class ListAdminKnowledgeBasesResponseBodyItems extends $dara.Model {
   sourceStatus?: string;
   /**
    * @remarks
-   * 目录及子目录下资源总数（仅 KB 顶层目录列表时返回）
+   * The total number of resources in the directory and its subdirectories. This field is returned only for the top-level knowledge base directory list.
    * 
    * @example
    * 1
@@ -180,7 +184,7 @@ export class ListAdminKnowledgeBasesResponseBodyItems extends $dara.Model {
   sourceTotalCount?: number;
   /**
    * @remarks
-   * 资源类型（itemType=resource 时有值）
+   * The source type.
    * 
    * @example
    * string_value
@@ -241,21 +245,28 @@ export class ListAdminKnowledgeBasesResponseBodyItems extends $dara.Model {
 export class ListAdminKnowledgeBasesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+   * The status code.
    * 
    * @example
    * 200
    */
   code?: string;
+  /**
+   * @remarks
+   * The list of MCP cards.
+   */
   items?: ListAdminKnowledgeBasesResponseBodyItems[];
   /**
    * @remarks
-   * 错误描述，成功时为空
+   * The status code description.
+   * 
+   * @example
+   * ok
    */
   message?: string;
   /**
    * @remarks
-   * 当前页码
+   * The page number. Default value: 1.
    * 
    * @example
    * 1
@@ -263,7 +274,7 @@ export class ListAdminKnowledgeBasesResponseBody extends $dara.Model {
   page?: number;
   /**
    * @remarks
-   * 每页数量
+   * The page size.
    * 
    * @example
    * 20
@@ -271,7 +282,7 @@ export class ListAdminKnowledgeBasesResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * 请求追踪 ID
+   * The request ID.
    * 
    * @example
    * 019FF406-1B10-0065-A97D-2D1920C2A03D
@@ -279,7 +290,7 @@ export class ListAdminKnowledgeBasesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * 符合条件的总数（应用 keyword/sourceTypes 后，分页前）
+   * The maximum number of records returned in this request.
    * 
    * @example
    * 1

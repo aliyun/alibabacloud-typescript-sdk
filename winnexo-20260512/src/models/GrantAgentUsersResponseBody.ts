@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GrantAgentUsersResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+   * The error code.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class GrantAgentUsersResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * 本次处理的授权记录数（含新增与更新）
+   * The number of authorization records processed in this request, including both newly created and updated records.
    * 
    * @example
    * 1
@@ -21,12 +21,15 @@ export class GrantAgentUsersResponseBody extends $dara.Model {
   grantedCount?: number;
   /**
    * @remarks
-   * 错误描述，成功时为空
+   * The description of the status code.
+   * 
+   * @example
+   * successful
    */
   message?: string;
   /**
    * @remarks
-   * 请求追踪 ID
+   * The request ID.
    * 
    * @example
    * 019FF406-1B10-0065-A97D-2D1920C2A03D

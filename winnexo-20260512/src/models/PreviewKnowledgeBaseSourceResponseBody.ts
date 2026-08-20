@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class PreviewKnowledgeBaseSourceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+   * The status code.
    * 
    * @example
    * 200
@@ -13,15 +13,15 @@ export class PreviewKnowledgeBaseSourceResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * 文本内容（CONTENT类型使用）
+   * The text content. This is used for the CONTENT type.
    * 
    * @example
-   * 示例内容
+   * Sample content
    */
   content?: string;
   /**
    * @remarks
-   * 文件扩展名（OSS_IMM类型使用）
+   * The file name extension. This is used for the OSS_IMM type.
    * 
    * @example
    * string_value
@@ -29,7 +29,7 @@ export class PreviewKnowledgeBaseSourceResponseBody extends $dara.Model {
   fileExt?: string;
   /**
    * @remarks
-   * 文件名（OSS_IMM类型使用）
+   * The file name. This is used for the OSS_IMM type.
    * 
    * @example
    * example.pdf
@@ -37,12 +37,15 @@ export class PreviewKnowledgeBaseSourceResponseBody extends $dara.Model {
   fileName?: string;
   /**
    * @remarks
-   * 错误描述，成功时为空
+   * The description of the status code.
+   * 
+   * @example
+   * successful
    */
   message?: string;
   /**
    * @remarks
-   * 预览类型：OSS_IMM / IMAGE / AUDIO / VIDEO / HTML / DING_TALK / VOICE_MEETING / CONTENT
+   * The preview type. Valid values: OSS_IMM, IMAGE, AUDIO, VIDEO, HTML, DING_TALK, VOICE_MEETING, CONTENT.
    * 
    * @example
    * OSS_IMM
@@ -50,7 +53,7 @@ export class PreviewKnowledgeBaseSourceResponseBody extends $dara.Model {
   previewType?: string;
   /**
    * @remarks
-   * 预览URL（OSS_IMM、DING_TALK、VOICE_MEETING使用）
+   * The preview URL. This is used for the OSS_IMM, DING_TALK, and VOICE_MEETING types.
    * 
    * @example
    * https://example.com/winnexo/resource
@@ -58,7 +61,7 @@ export class PreviewKnowledgeBaseSourceResponseBody extends $dara.Model {
   previewUrl?: string;
   /**
    * @remarks
-   * 公开下载URL（可供下载的文件URL）
+   * The public download URL of the file.
    * 
    * @example
    * https://example.com/winnexo/resource
@@ -66,7 +69,7 @@ export class PreviewKnowledgeBaseSourceResponseBody extends $dara.Model {
   publicUrl?: string;
   /**
    * @remarks
-   * 请求追踪 ID
+   * The request trace ID.
    * 
    * @example
    * 019FF406-1B10-0065-A97D-2D1920C2A03D

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateTenantDirectoryResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+   * The status code.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class UpdateTenantDirectoryResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * 已修改的目录唯一标识
+   * The folder ID.
    * 
    * @example
    * exampleDirectoryId
@@ -21,12 +21,15 @@ export class UpdateTenantDirectoryResponseBody extends $dara.Model {
   directoryId?: string;
   /**
    * @remarks
-   * 错误描述，成功时为空
+   * The description of the status code.
+   * 
+   * @example
+   * ok
    */
   message?: string;
   /**
    * @remarks
-   * 请求追踪 ID
+   * The request ID.
    * 
    * @example
    * 019FF406-1B10-0065-A97D-2D1920C2A03D

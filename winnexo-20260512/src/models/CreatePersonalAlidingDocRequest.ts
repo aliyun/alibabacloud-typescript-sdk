@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class CreatePersonalAlidingDocRequest extends $dara.Model {
   /**
    * @remarks
-   * 资源描述（可选）
+   * The pipeline description.
    * 
    * @example
-   * 示例描述
+   * controll service user
    */
   description?: string;
   /**
    * @remarks
-   * 目标个人目录 ID；不传时自动绑定到当前数字员工默认根目录，传入时绑定到该目录（必须是当前用户在当前数字员工下的已有个人目录）
+   * The folder ID.
    * 
    * @example
    * exampleDirectoryId
@@ -21,7 +21,7 @@ export class CreatePersonalAlidingDocRequest extends $dara.Model {
   directoryId?: string;
   /**
    * @remarks
-   * 阿里钉在线文档的可公开访问 URL
+   * The publicly accessible URL of the AliDing online document.
    * 
    * This parameter is required.
    * 
@@ -31,17 +31,17 @@ export class CreatePersonalAlidingDocRequest extends $dara.Model {
   filePublicUrl?: string;
   /**
    * @remarks
-   * 文件名
+   * The customer group name.
    * 
    * This parameter is required.
    * 
    * @example
-   * 示例名称.pdf
+   * issue_research
    */
   name?: string;
   /**
    * @remarks
-   * Agent 命名空间标识，可选
+   * The name of the digital employee (operating object name, optional).
    * 
    * @example
    * string_value
@@ -49,10 +49,10 @@ export class CreatePersonalAlidingDocRequest extends $dara.Model {
   operatingObjectName?: string;
   /**
    * @remarks
-   * 租户ID，公共参数；winnexo-cli 通过 --tenant-id 显式传入
+   * The tenant ID.
    * 
    * @example
-   * 10000
+   * 1729094555111072
    */
   tenantId?: string;
   static names(): { [key: string]: string } {

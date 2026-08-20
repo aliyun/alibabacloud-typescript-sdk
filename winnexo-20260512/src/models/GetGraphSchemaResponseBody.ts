@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetGraphSchemaResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+   * The response status code.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class GetGraphSchemaResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * 图谱名称
+   * The knowledge graph name.
    * 
    * This parameter is required.
    * 
@@ -23,12 +23,15 @@ export class GetGraphSchemaResponseBody extends $dara.Model {
   graphName?: string;
   /**
    * @remarks
-   * 错误描述，成功时为空
+   * The status code description.
+   * 
+   * @example
+   * ok
    */
   message?: string;
   /**
    * @remarks
-   * 请求追踪 ID
+   * The request ID.
    * 
    * @example
    * 019FF406-1B10-0065-A97D-2D1920C2A03D
@@ -36,7 +39,7 @@ export class GetGraphSchemaResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * 当前 active Graph Schema 版本
+   * The version.
    * 
    * This parameter is required.
    * 
@@ -46,7 +49,7 @@ export class GetGraphSchemaResponseBody extends $dara.Model {
   schemaVersion?: string;
   /**
    * @remarks
-   * 按 READ 权限裁剪的 Graph Schema 原始 YAML 文本，保留授权子图内的 $ref
+   * The raw YAML text of the Graph Schema trimmed by READ permissions, retaining $ref references within the authorized subgraph.
    * 
    * This parameter is required.
    * 

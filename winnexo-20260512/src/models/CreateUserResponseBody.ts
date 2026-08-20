@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateUserResponseBody extends $dara.Model {
   /**
    * @remarks
-   * WINNEXO 登录账号
+   * The ID of your Alibaba Cloud account.
    * 
    * @example
    * exampleAccountId
@@ -13,7 +13,7 @@ export class CreateUserResponseBody extends $dara.Model {
   accountId?: string;
   /**
    * @remarks
-   * 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+   * The error code.
    * 
    * @example
    * 200
@@ -21,7 +21,7 @@ export class CreateUserResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * 用户显示名称
+   * The cluster name.
    * 
    * @example
    * string_value
@@ -29,7 +29,7 @@ export class CreateUserResponseBody extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * 是否为新创建的用户（false 表示已有用户加入租户）
+   * Indicates whether the user is newly created. A value of false indicates that an existing user is added to the tenant.
    * 
    * @example
    * true
@@ -37,12 +37,15 @@ export class CreateUserResponseBody extends $dara.Model {
   isNewUser?: boolean;
   /**
    * @remarks
-   * 错误描述，成功时为空
+   * The status code description.
+   * 
+   * @example
+   * successful
    */
   message?: string;
   /**
    * @remarks
-   * 请求追踪 ID
+   * The request ID.
    * 
    * @example
    * 019FF406-1B10-0065-A97D-2D1920C2A03D
@@ -50,7 +53,7 @@ export class CreateUserResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * WINNEXO 平台用户ID
+   * The WINNEXO platform user ID.
    * 
    * @example
    * 1

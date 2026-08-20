@@ -5,17 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateSourceContentRequest extends $dara.Model {
   /**
    * @remarks
-   * 更新后的完整正文；允许空字符串
+   * The returned content.
    * 
    * This parameter is required.
    * 
    * @example
-   * 示例内容
+   * Sample content
    */
   content?: string;
   /**
    * @remarks
-   * 是否同步等待重新解析完成；默认 false，异步入队
+   * Specifies whether to force synchronous processing.
    * 
    * @example
    * false
@@ -23,7 +23,7 @@ export class UpdateSourceContentRequest extends $dara.Model {
   forceSync?: boolean;
   /**
    * @remarks
-   * 数据源 ID（租户内唯一）
+   * The ID of the data source.
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class UpdateSourceContentRequest extends $dara.Model {
   sourceId?: string;
   /**
    * @remarks
-   * 租户ID，公共参数；winnexo-cli 通过 --tenant-id 显式传入
+   * The ID of the effective tenant.
    * 
    * @example
    * 10000

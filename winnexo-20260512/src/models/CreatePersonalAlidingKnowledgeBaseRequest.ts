@@ -2,23 +2,21 @@
 import * as $dara from '@darabonba/typescript';
 
 
-/**
- */
 export class CreatePersonalAlidingKnowledgeBaseRequestObjectBindings extends $dara.Model {
   /**
    * @remarks
-   * 绑定对象 ID
+   * The ID of the recommended item, which can be a **feedId** or a micro-application ID.
    * 
    * @example
-   * exampleObjectId
+   * 2676
    */
   objectId?: string;
   /**
    * @remarks
-   * 绑定对象类型，例如 CUSTOMER / OPPORTUNITY
+   * The advanced field type.
    * 
    * @example
-   * string_value
+   * table
    */
   objectType?: string;
   static names(): { [key: string]: string } {
@@ -47,7 +45,7 @@ export class CreatePersonalAlidingKnowledgeBaseRequestObjectBindings extends $da
 export class CreatePersonalAlidingKnowledgeBaseRequestSyncConfig extends $dara.Model {
   /**
    * @remarks
-   * cron 表达式；enabled=true 时必填，enabled=false 时忽略
+   * The cron expression for timed scheduling.
    * 
    * @example
    * string_value
@@ -55,10 +53,10 @@ export class CreatePersonalAlidingKnowledgeBaseRequestSyncConfig extends $dara.M
   cron?: string;
   /**
    * @remarks
-   * 是否启用定时同步
+   * Specifies whether to enable synchronization.
    * 
    * @example
-   * true
+   * False
    */
   enabled?: boolean;
   static names(): { [key: string]: string } {
@@ -87,7 +85,7 @@ export class CreatePersonalAlidingKnowledgeBaseRequestSyncConfig extends $dara.M
 export class CreatePersonalAlidingKnowledgeBaseRequest extends $dara.Model {
   /**
    * @remarks
-   * 目标个人目录 ID；不传时自动绑定到用户默认根目录，传入时必须是当前用户的已有个人目录（PERSONAL）
+   * The directory ID.
    * 
    * @example
    * exampleDirectoryId
@@ -95,7 +93,7 @@ export class CreatePersonalAlidingKnowledgeBaseRequest extends $dara.Model {
   directoryId?: string;
   /**
    * @remarks
-   * 知识库显示名称；不传时由后台从远程拉取的根节点名称回填
+   * The display name of the knowledge base. If not provided, the name is populated from the root node name pulled from the remote source.
    * 
    * @example
    * string_value
@@ -103,7 +101,7 @@ export class CreatePersonalAlidingKnowledgeBaseRequest extends $dara.Model {
   kbName?: string;
   /**
    * @remarks
-   * 阿里钉知识库的可公开访问 URL
+   * The publicly accessible URL of the AliDing knowledge base.
    * 
    * This parameter is required.
    * 
@@ -111,22 +109,30 @@ export class CreatePersonalAlidingKnowledgeBaseRequest extends $dara.Model {
    * https://example.com/winnexo/resource
    */
   kbUrl?: string;
+  /**
+   * @remarks
+   * The object bindings.
+   */
   objectBindings?: CreatePersonalAlidingKnowledgeBaseRequestObjectBindings[];
   /**
    * @remarks
-   * Agent 命名空间标识，可选
+   * The name of the digital employee (operating object name, optional).
    * 
    * @example
    * string_value
    */
   operatingObjectName?: string;
+  /**
+   * @remarks
+   * The synchronization settings.
+   */
   syncConfig?: CreatePersonalAlidingKnowledgeBaseRequestSyncConfig;
   /**
    * @remarks
-   * 租户ID，公共参数；winnexo-cli 通过 --tenant-id 显式传入
+   * The tenant ID.
    * 
    * @example
-   * 10000
+   * PiPklI1iSRTm6VFFqlY9VzbgiEiE
    */
   tenantId?: string;
   static names(): { [key: string]: string } {

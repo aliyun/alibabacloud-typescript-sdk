@@ -5,23 +5,23 @@ import * as $dara from '@darabonba/typescript';
 export class ListVisibleKnowledgeBasesResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * 目录创建者姓名（来自 rbj_user_tenant_mapping.user_display_name）
+   * The creator.
    * 
    * @example
-   * string_value
+   * admin
    */
   creatorName?: string;
   /**
    * @remarks
-   * 目录描述
+   * The description.
    * 
    * @example
-   * 示例描述
+   * {{7*7}}
    */
   description?: string;
   /**
    * @remarks
-   * 目录唯一标识（租户内唯一）
+   * The directory ID. You can obtain this value by calling the API operation for retrieving the knowledge base directory.
    * 
    * @example
    * exampleDirectoryId
@@ -29,39 +29,39 @@ export class ListVisibleKnowledgeBasesResponseBodyItems extends $dara.Model {
   directoryId?: string;
   /**
    * @remarks
-   * 创建时间戳（毫秒）
+   * The creation time. This value is a timestamp in milliseconds.
    * 
    * @example
-   * 1
+   * 2025-11-14T02:18:27Z
    */
   gmtCreate?: number;
   /**
    * @remarks
-   * 修改时间戳（毫秒）
+   * The modification time.
    * 
    * @example
-   * 1
+   * 2026-03-26T13:57:42Z
    */
   gmtModified?: number;
   /**
    * @remarks
-   * 文件名
+   * The skill name.
    * 
    * @example
-   * 示例名称.pdf
+   * cs-default-umodel-1785637207863_k8s.metric.k8s_csi_node_pv_node_cn-heyuan-acdr-1/c80cf3a4f9d6c496781591bd17d006c6f
    */
   name?: string;
   /**
    * @remarks
-   * 文件 OSS URL
+   * The file directory information.
    * 
    * @example
-   * https://example.com/oss/file.pdf
+   * /test-folder-path1_1773194924773
    */
   path?: string;
   /**
    * @remarks
-   * 目录及子目录下状态为 FAILED 的资源数
+   * The number of resources in the FAILED state. This parameter is returned only when listing top-level knowledge base directories.
    * 
    * @example
    * 1
@@ -69,7 +69,7 @@ export class ListVisibleKnowledgeBasesResponseBodyItems extends $dara.Model {
   sourceFailedCount?: number;
   /**
    * @remarks
-   * 目录及子目录下状态为 READY 的资源数
+   * The number of resources in the READY state. This parameter is returned only when listing top-level knowledge base directories.
    * 
    * @example
    * 1
@@ -77,7 +77,7 @@ export class ListVisibleKnowledgeBasesResponseBodyItems extends $dara.Model {
   sourceReadyCount?: number;
   /**
    * @remarks
-   * 目录及子目录下的资源总数
+   * The total number of resources in the directory and its subdirectories. This parameter is returned only when listing top-level knowledge base directories.
    * 
    * @example
    * 1
@@ -125,32 +125,39 @@ export class ListVisibleKnowledgeBasesResponseBodyItems extends $dara.Model {
 export class ListVisibleKnowledgeBasesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+   * The response status code.
    * 
    * @example
    * 200
    */
   code?: string;
+  /**
+   * @remarks
+   * The file information.
+   */
   items?: ListVisibleKnowledgeBasesResponseBodyItems[];
   /**
    * @remarks
-   * 错误描述，成功时为空
+   * The description of the status code.
+   * 
+   * @example
+   * successful
    */
   message?: string;
   /**
    * @remarks
-   * 请求追踪 ID
+   * Id of the request
    * 
    * @example
-   * 019FF406-1B10-0065-A97D-2D1920C2A03D
+   * 190F5425-A145-5BBA-980F-082ADB0CA6AF
    */
   requestId?: string;
   /**
    * @remarks
-   * 返回条数（不分页，等于 len(items)）
+   * The total number of records.
    * 
    * @example
-   * 1
+   * 3
    */
   total?: number;
   static names(): { [key: string]: string } {

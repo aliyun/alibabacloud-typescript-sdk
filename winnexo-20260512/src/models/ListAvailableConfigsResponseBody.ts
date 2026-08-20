@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAvailableConfigsResponseBodyConfigs extends $dara.Model {
   /**
    * @remarks
-   * 企业标识（wecom=corpId, saml=idpEntityId, oauth2=clientId, custom=客户自定义）。注意：OAuth2 多 IdP 配置使用相同 clientId 时，需在 syncOrgStructure 中显式传 ssoSettingsId
+   * The enterprise ID.
    * 
    * @example
    * exampleCorpId
@@ -13,7 +13,7 @@ export class ListAvailableConfigsResponseBodyConfigs extends $dara.Model {
   corpId?: string;
   /**
    * @remarks
-   * 企业展示名称
+   * The organization name.
    * 
    * @example
    * string_value
@@ -21,7 +21,7 @@ export class ListAvailableConfigsResponseBodyConfigs extends $dara.Model {
   corpName?: string;
   /**
    * @remarks
-   * 平台类型: wecom / saml / oauth2 / custom
+   * The platform type.
    * 
    * @example
    * string_value
@@ -29,7 +29,7 @@ export class ListAvailableConfigsResponseBodyConfigs extends $dara.Model {
   platformType?: string;
   /**
    * @remarks
-   * SSO 配置 ID（仅 SAML/OAuth2/WeCom 有值，custom 为 null）
+   * The SSO configuration ID. This field has a value only for SAML, OAuth2, or WeCom types. The value is null for custom types.
    * 
    * @example
    * exampleSsoSettingsId
@@ -37,7 +37,7 @@ export class ListAvailableConfigsResponseBodyConfigs extends $dara.Model {
   ssoSettingsId?: string;
   /**
    * @remarks
-   * SSO 配置名称（仅 SAML/OAuth2/WeCom 有值，custom 为 null）
+   * The SSO configuration name. This field has a value only for SAML, OAuth2, or WeCom types. The value is null for custom types.
    * 
    * @example
    * string_value
@@ -75,7 +75,7 @@ export class ListAvailableConfigsResponseBodyConfigs extends $dara.Model {
 export class ListAvailableConfigsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+   * The error code.
    * 
    * @example
    * 200
@@ -83,17 +83,20 @@ export class ListAvailableConfigsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * 可用的组织同步配置列表
+   * The list of queried Logtail configurations.
    */
   configs?: ListAvailableConfigsResponseBodyConfigs[];
   /**
    * @remarks
-   * 错误描述，成功时为空
+   * The status code description.
+   * 
+   * @example
+   * ok
    */
   message?: string;
   /**
    * @remarks
-   * 请求追踪 ID
+   * The request ID.
    * 
    * @example
    * 019FF406-1B10-0065-A97D-2D1920C2A03D

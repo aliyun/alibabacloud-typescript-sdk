@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateUserInfoRequest extends $dara.Model {
   /**
    * @remarks
-   * 用户头像 URL
+   * The profile picture URL.
    * 
    * @example
    * https://example.com/avatar.png
@@ -13,7 +13,7 @@ export class UpdateUserInfoRequest extends $dara.Model {
   avatar?: string;
   /**
    * @remarks
-   * 语言偏好: zh-CN, en-US
+   * The language preference: zh-CN, en-US.
    * 
    * @example
    * string_value
@@ -21,15 +21,15 @@ export class UpdateUserInfoRequest extends $dara.Model {
   languagePreference?: string;
   /**
    * @remarks
-   * 文件名
+   * The name.
    * 
    * @example
-   * 示例名称.pdf
+   * SampleName.pdf
    */
   name?: string;
   /**
    * @remarks
-   * 用户服务描述，最多1000字符
+   * The user service description. Maximum length: 1000 characters.
    * 
    * @example
    * string_value
@@ -37,7 +37,7 @@ export class UpdateUserInfoRequest extends $dara.Model {
   offering?: string;
   /**
    * @remarks
-   * 用户角色描述（当profileRole为Others时使用），最多100字符
+   * The user role description (used when profileRole is set to Others). Maximum length: 100 characters.
    * 
    * @example
    * string_value
@@ -45,7 +45,7 @@ export class UpdateUserInfoRequest extends $dara.Model {
   profileRoleInfo?: string;
   /**
    * @remarks
-   * 用户自我介绍，最多1000字符
+   * The user self-introduction. Maximum length: 1000 characters.
    * 
    * @example
    * string_value
@@ -53,7 +53,7 @@ export class UpdateUserInfoRequest extends $dara.Model {
   selfIntroduction?: string;
   /**
    * @remarks
-   * 租户ID，公共参数；winnexo-cli 通过 --tenant-id 显式传入
+   * The effective tenant ID.
    * 
    * @example
    * 10000

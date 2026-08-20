@@ -6,10 +6,10 @@ export class ListVisibleKnowledgeBasesHeaders extends $dara.Model {
   commonHeaders?: { [key: string]: string };
   /**
    * @remarks
-   * 请求追踪 ID
+   * Id of the request
    * 
    * @example
-   * 019FF406-1B10-0065-A97D-2D1920C2A03D
+   * F892C03F-7E12-5F37-A506-1FC3B065EAC6
    */
   requestId?: string;
   static names(): { [key: string]: string } {

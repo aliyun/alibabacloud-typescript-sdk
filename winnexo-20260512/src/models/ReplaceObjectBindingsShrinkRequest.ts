@@ -5,14 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class ReplaceObjectBindingsShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * 新的对象绑定列表（全量替换；传空列表表示清空所有绑定）
+   * The new list of object bindings (full replacement. Pass an empty list to clear all bindings).
    * 
    * This parameter is required.
    */
   objectBindingsShrink?: string;
   /**
    * @remarks
-   * 数据源 ID（租户内唯一）
+   * The ID of the personal FILE data source to be replaced (unique within the tenant).
    * 
    * This parameter is required.
    * 
@@ -22,7 +22,7 @@ export class ReplaceObjectBindingsShrinkRequest extends $dara.Model {
   sourceId?: string;
   /**
    * @remarks
-   * 租户ID，公共参数；winnexo-cli 通过 --tenant-id 显式传入
+   * The tenant ID. This is a common parameter. Pass it explicitly through winnexo-cli using --tenant-id.
    * 
    * @example
    * 10000

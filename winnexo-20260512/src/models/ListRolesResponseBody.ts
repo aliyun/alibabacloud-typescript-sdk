@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class ListRolesResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * 角色说明（按请求 Accept-Language 国际化）
+   * The description of the to-do card type.
    * 
    * @example
-   * 示例描述
+   * Sample description
    */
   description?: string;
   /**
    * @remarks
-   * 角色标识码，用于 createUser/updateUser 的 roleCodes 参数
+   * The role code.
    * 
    * @example
    * string_value
@@ -21,7 +21,7 @@ export class ListRolesResponseBodyItems extends $dara.Model {
   roleCode?: string;
   /**
    * @remarks
-   * 角色显示名称（按请求 Accept-Language 国际化）
+   * The role name.
    * 
    * @example
    * string_value
@@ -29,7 +29,7 @@ export class ListRolesResponseBodyItems extends $dara.Model {
   roleName?: string;
   /**
    * @remarks
-   * 是否允许启用/停用操作（超级管理员和应用用户不可切换）
+   * Indicates whether the enable/disable operation is allowed. Super administrators and application users cannot be switched.
    * 
    * @example
    * true
@@ -65,7 +65,7 @@ export class ListRolesResponseBodyItems extends $dara.Model {
 export class ListRolesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+   * The response status code.
    * 
    * @example
    * 200
@@ -73,17 +73,20 @@ export class ListRolesResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * 系统内置角色列表（固定 7 个）
+   * The MCP card list.
    */
   items?: ListRolesResponseBodyItems[];
   /**
    * @remarks
-   * 错误描述，成功时为空
+   * The prompt message.
+   * 
+   * @example
+   * ok
    */
   message?: string;
   /**
    * @remarks
-   * 请求追踪 ID
+   * The request trace ID.
    * 
    * @example
    * 019FF406-1B10-0065-A97D-2D1920C2A03D

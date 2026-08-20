@@ -5,39 +5,39 @@ import * as $dara from '@darabonba/typescript';
 export class ListVisibleKnowledgeBaseContentsResponseBodyItemsObjectBindings extends $dara.Model {
   /**
    * @remarks
-   * 对象归属的语义图谱名（object_id 在该 graph 下唯一）
+   * The semantic graph name to which the object belongs. The object_id is unique within this graph.
    * 
    * @example
-   * string_value
+   * product
    */
   graphName?: string;
   /**
    * @remarks
-   * 对象唯一 ID
+   * The ID of the recommended item, which can be a **feedId** or a micro-application ID.
    * 
    * @example
-   * exampleObjectId
+   * 2676
    */
   objectId?: string;
   /**
    * @remarks
-   * 对象显示名（如客户名称），由图谱 schema 解析；缓存缺失时为 null
+   * The object name.
    * 
    * @example
-   * string_value
+   * 0bf4cf71-a55d-43f7-9d1e-3f9a6110ae6b
    */
   objectName?: string;
   /**
    * @remarks
-   * 对象类型（如 customer / opportunity），对应图谱 schema 中的 object_type
+   * The data type.
    * 
    * @example
-   * string_value
+   * table
    */
   objectType?: string;
   /**
    * @remarks
-   * 对象类型显示名（如"客户"），由图谱 schema 解析；缓存缺失时为 null
+   * The display name of the object type (such as "Customer"), parsed from the graph schema. The value is null when the cache is missed.
    * 
    * @example
    * string_value
@@ -75,23 +75,23 @@ export class ListVisibleKnowledgeBaseContentsResponseBodyItemsObjectBindings ext
 export class ListVisibleKnowledgeBaseContentsResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * 目录创建者姓名（仅根目录列表时返回；下钻场景为 null）
+   * The name of the creator.
    * 
    * @example
-   * string_value
+   * admin
    */
   creatorName?: string;
   /**
    * @remarks
-   * 知识库描述（仅根目录列表时返回；下钻场景为 null）
+   * The description.
    * 
    * @example
-   * 示例描述
+   * Created by taishan-module-recovery
    */
   description?: string;
   /**
    * @remarks
-   * 目录 KB 归属类型（itemType=directory 时有值）：aliding_kb_root / aliding_kb_internal / normal
+   * The directory type.
    * 
    * @example
    * string_value
@@ -99,48 +99,52 @@ export class ListVisibleKnowledgeBaseContentsResponseBodyItems extends $dara.Mod
   directoryKind?: string;
   /**
    * @remarks
-   * 创建时间戳（毫秒）
+   * The creation time.
    * 
    * @example
-   * 1
+   * 2025-11-14T02:18:27Z
    */
   gmtCreate?: number;
   /**
    * @remarks
-   * 修改时间戳（毫秒）
+   * The modification time.
    * 
    * @example
-   * 1
+   * 2025-11-26T08:46:25Z
    */
   gmtModified?: number;
   /**
    * @remarks
-   * 唯一标识（目录为 directoryId，资源为 sourceId）
+   * The ID of the data item. When tabId and orgId are the same, itemId uniquely identifies a data item. The maximum length is 128 characters.
    * 
    * @example
-   * exampleItemId
+   * 8525934734583554048_prod
    */
   itemId?: string;
   /**
    * @remarks
-   * 类型: directory 或 resource
+   * The item type.
    * 
    * @example
-   * string_value
+   * item
    */
   itemType?: string;
   /**
    * @remarks
-   * 文件名
+   * The skill name.
    * 
    * @example
-   * 示例名称.pdf
+   * cs-default-umodel-1782181212383_k8s.metric.k8s_csi_node_pv_node_cn-heyuan-acdr-1/c80cf3a4f9d6c496781591bd17d006c6f
    */
   name?: string;
+  /**
+   * @remarks
+   * The object bindings.
+   */
   objectBindings?: ListVisibleKnowledgeBaseContentsResponseBodyItemsObjectBindings[];
   /**
    * @remarks
-   * 目录下失败资源数（仅根目录列表时返回；下钻场景为 null）
+   * The number of resources in the FAILED state. This field is returned only when listing top-level knowledge base directories.
    * 
    * @example
    * 1
@@ -148,7 +152,7 @@ export class ListVisibleKnowledgeBaseContentsResponseBodyItems extends $dara.Mod
   sourceFailedCount?: number;
   /**
    * @remarks
-   * Source KB 归属类型（itemType=resource 时有值）：aliding_kb_doc / normal
+   * The knowledge base affiliation type. Valid values: aliding_kb_doc (DingTalk knowledge base document) and normal (common knowledge).
    * 
    * @example
    * string_value
@@ -156,7 +160,7 @@ export class ListVisibleKnowledgeBaseContentsResponseBodyItems extends $dara.Mod
   sourceKind?: string;
   /**
    * @remarks
-   * 目录下成功资源数（仅根目录列表时返回；下钻场景为 null）
+   * The number of resources in the READY state. This field is returned only when listing top-level knowledge base directories.
    * 
    * @example
    * 1
@@ -164,7 +168,7 @@ export class ListVisibleKnowledgeBaseContentsResponseBodyItems extends $dara.Mod
   sourceReadyCount?: number;
   /**
    * @remarks
-   * 资源状态（itemType=resource 时有值；本接口固定按 READY 过滤）
+   * The resource status. This field has a value only when itemType is resource.
    * 
    * @example
    * string_value
@@ -172,7 +176,7 @@ export class ListVisibleKnowledgeBaseContentsResponseBodyItems extends $dara.Mod
   sourceStatus?: string;
   /**
    * @remarks
-   * 目录下资源总数（含子目录，仅根目录列表时返回；下钻场景为 null）
+   * The total number of resources under the directory and its subdirectories. This field is returned only when listing top-level knowledge base directories.
    * 
    * @example
    * 1
@@ -180,10 +184,10 @@ export class ListVisibleKnowledgeBaseContentsResponseBodyItems extends $dara.Mod
   sourceTotalCount?: number;
   /**
    * @remarks
-   * 资源类型（itemType=resource 时有值）
+   * The source type.
    * 
    * @example
-   * string_value
+   * AGENT
    */
   sourceType?: string;
   static names(): { [key: string]: string } {
@@ -241,21 +245,28 @@ export class ListVisibleKnowledgeBaseContentsResponseBodyItems extends $dara.Mod
 export class ListVisibleKnowledgeBaseContentsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+   * The status code.
    * 
    * @example
    * 200
    */
   code?: string;
+  /**
+   * @remarks
+   * The list of MCP cards.
+   */
   items?: ListVisibleKnowledgeBaseContentsResponseBodyItems[];
   /**
    * @remarks
-   * 错误描述，成功时为空
+   * The status code description.
+   * 
+   * @example
+   * successful
    */
   message?: string;
   /**
    * @remarks
-   * 当前页码
+   * The current page number.
    * 
    * @example
    * 1
@@ -263,26 +274,26 @@ export class ListVisibleKnowledgeBaseContentsResponseBody extends $dara.Model {
   page?: number;
   /**
    * @remarks
-   * 每页数量
+   * The page size.
    * 
    * @example
-   * 20
+   * 10
    */
   pageSize?: number;
   /**
    * @remarks
-   * 请求追踪 ID
+   * The request ID.
    * 
    * @example
-   * 019FF406-1B10-0065-A97D-2D1920C2A03D
+   * C474BFC7-7B11-5D92-971E-74AA82EC495B
    */
   requestId?: string;
   /**
    * @remarks
-   * 总数（不分页前的命中行数）
+   * The total number of context libraries that match the query conditions.
    * 
    * @example
-   * 1
+   * 3
    */
   total?: number;
   static names(): { [key: string]: string } {

@@ -6,12 +6,12 @@ export class CreatePersonalVoiceMeetingHeaders extends $dara.Model {
   commonHeaders?: { [key: string]: string };
   /**
    * @remarks
-   * 请求追踪 ID
+   * Id of the request
    * 
    * This parameter is required.
    * 
    * @example
-   * 019FF406-1B10-0065-A97D-2D1920C2A03D
+   * 0B6F0F99-EB17-51D5-AAC8-AD78A26E18DD
    */
   requestId?: string;
   static names(): { [key: string]: string } {

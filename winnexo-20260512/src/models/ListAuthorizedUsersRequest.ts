@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAuthorizedUsersRequest extends $dara.Model {
   /**
    * @remarks
-   * 筛选类型：USER / USER_GROUP / 不传则返回全部
+   * The filter type. Valid values: USER, USER_GROUP. If not specified, all types are returned.
    * 
    * @example
    * USER
@@ -13,15 +13,15 @@ export class ListAuthorizedUsersRequest extends $dara.Model {
   granteeType?: string;
   /**
    * @remarks
-   * 搜索关键词，按用户名或组名模糊匹配
+   * The search keyword.
    * 
    * @example
-   * 示例关键词
+   * SampleKeyword
    */
   keyword?: string;
   /**
    * @remarks
-   * 数字员工名称
+   * The name of the digital employee.
    * 
    * This parameter is required.
    * 
@@ -31,7 +31,7 @@ export class ListAuthorizedUsersRequest extends $dara.Model {
   operatingObjectName?: string;
   /**
    * @remarks
-   * 权限类型过滤：USE=使用权限 / MANAGE=管理权限
+   * Permission
    * 
    * @example
    * USE
@@ -39,7 +39,7 @@ export class ListAuthorizedUsersRequest extends $dara.Model {
   permission?: string;
   /**
    * @remarks
-   * 租户ID，公共参数，缺省时使用调用方默认租户
+   * The tenant ID. This is a common parameter. If not specified, the default tenant of the caller is used.
    * 
    * @example
    * 10000

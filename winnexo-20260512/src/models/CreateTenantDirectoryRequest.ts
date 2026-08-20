@@ -5,25 +5,25 @@ import * as $dara from '@darabonba/typescript';
 export class CreateTenantDirectoryRequest extends $dara.Model {
   /**
    * @remarks
-   * 目录描述
+   * The description of the to-do card type.
    * 
    * @example
-   * 示例描述
+   * Sample description
    */
   description?: string;
   /**
    * @remarks
-   * 文件名
+   * The name.
    * 
    * This parameter is required.
    * 
    * @example
-   * 示例名称.pdf
+   * SampleName.pdf
    */
   name?: string;
   /**
    * @remarks
-   * 父目录内部主键；不传表示创建企业知识库根目录
+   * The ID of the parent node.
    * 
    * @example
    * 1
@@ -31,7 +31,7 @@ export class CreateTenantDirectoryRequest extends $dara.Model {
   parentId?: number;
   /**
    * @remarks
-   * 文件 OSS URL
+   * The path of the node.
    * 
    * @example
    * https://example.com/oss/file.pdf
@@ -39,7 +39,7 @@ export class CreateTenantDirectoryRequest extends $dara.Model {
   path?: string;
   /**
    * @remarks
-   * 租户ID，公共参数；winnexo-cli 通过 --tenant-id 显式传入
+   * The ID of the effective tenant.
    * 
    * @example
    * 10000

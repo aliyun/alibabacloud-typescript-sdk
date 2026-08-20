@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListUserVisibleKnowledgeBasesResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * 知识库创建人用户 ID
+   * The user ID of the creator.
    * 
    * @example
    * 1
@@ -13,23 +13,23 @@ export class ListUserVisibleKnowledgeBasesResponseBodyItems extends $dara.Model 
   creatorId?: number;
   /**
    * @remarks
-   * 知识库创建人名称
+   * The name of the creator.
    * 
    * @example
-   * 张三
+   * John
    */
   creatorName?: string;
   /**
    * @remarks
-   * 知识库描述
+   * The description of the knowledge base.
    * 
    * @example
-   * 产品资料与使用说明
+   * Product materials and usage instructions
    */
   description?: string;
   /**
    * @remarks
-   * 知识库根目录唯一标识
+   * The directory ID of the enterprise knowledge base.
    * 
    * @example
    * dir_example
@@ -37,7 +37,7 @@ export class ListUserVisibleKnowledgeBasesResponseBodyItems extends $dara.Model 
   directoryId?: string;
   /**
    * @remarks
-   * 目录归属类型
+   * The directory type.
    * 
    * @example
    * normal
@@ -45,7 +45,7 @@ export class ListUserVisibleKnowledgeBasesResponseBodyItems extends $dara.Model 
   directoryKind?: string;
   /**
    * @remarks
-   * 目录类型
+   * The directory type.
    * 
    * @example
    * TENANT
@@ -53,7 +53,7 @@ export class ListUserVisibleKnowledgeBasesResponseBodyItems extends $dara.Model 
   directoryType?: string;
   /**
    * @remarks
-   * 创建时间戳（毫秒）
+   * The creation time.
    * 
    * @example
    * 1
@@ -61,7 +61,7 @@ export class ListUserVisibleKnowledgeBasesResponseBodyItems extends $dara.Model 
   gmtCreate?: number;
   /**
    * @remarks
-   * 修改时间戳（毫秒）
+   * The last modification time.
    * 
    * @example
    * 1
@@ -69,10 +69,10 @@ export class ListUserVisibleKnowledgeBasesResponseBodyItems extends $dara.Model 
   gmtModified?: number;
   /**
    * @remarks
-   * 知识库名称
+   * The file name.
    * 
    * @example
-   * 产品知识库
+   * Product Knowledge Base
    */
   name?: string;
   static names(): { [key: string]: string } {
@@ -115,21 +115,30 @@ export class ListUserVisibleKnowledgeBasesResponseBodyItems extends $dara.Model 
 export class ListUserVisibleKnowledgeBasesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+   * The status code.
    * 
    * @example
    * 200
    */
   code?: string;
+  /**
+   * @remarks
+   * The result list.
+   * Maximum size:
+   * 	50
+   */
   items?: ListUserVisibleKnowledgeBasesResponseBodyItems[];
   /**
    * @remarks
-   * 错误描述，成功时为空
+   * The description of the status code.
+   * 
+   * @example
+   * The current zone list is illegal.
    */
   message?: string;
   /**
    * @remarks
-   * 请求追踪 ID
+   * The request trace ID.
    * 
    * @example
    * 019FF406-1B10-0065-A97D-2D1920C2A03D
@@ -137,7 +146,7 @@ export class ListUserVisibleKnowledgeBasesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * 知识库总数
+   * The total number of entries.
    * 
    * @example
    * 1

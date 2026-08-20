@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class StreamChatMessageResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+   * The error code.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class StreamChatMessageResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * SSE 事件流负载；成功时响应为 text/event-stream 原始帧，需按流式方式逐帧消费
+   * The SSE event stream payload. On success, the response is in text/event-stream raw frames and must be consumed frame by frame in a streaming manner.
    * 
    * @example
    * {}
@@ -21,12 +21,15 @@ export class StreamChatMessageResponseBody extends $dara.Model {
   data?: any;
   /**
    * @remarks
-   * 错误描述，成功时为空
+   * The status code description.
+   * 
+   * @example
+   * ok
    */
   message?: string;
   /**
    * @remarks
-   * 请求追踪 ID
+   * The request ID.
    * 
    * @example
    * 019FF406-1B10-0065-A97D-2D1920C2A03D

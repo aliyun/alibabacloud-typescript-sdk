@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateConversationResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+   * The error code.
    * 
    * @example
    * 200
@@ -13,40 +13,47 @@ export class CreateConversationResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * 新建会话ID
+   * Id of the request
    * 
    * @example
-   * exampleConversationId
+   * 3a59769c-e631-4b48-84f3-c9bf3a8ae940
    */
   conversationId?: string;
   /**
    * @remarks
-   * 会话创建时间戳（秒）
+   * The time when the share was created.
    * 
    * @example
-   * 1
+   * 1784513941206
    */
   createdAt?: string;
   /**
    * @remarks
-   * 错误描述，成功时为空
+   * The status code description.
+   * 
+   * @example
+   * The current zone list is illegal.
    */
   message?: string;
+  /**
+   * @remarks
+   * A reserved field for extension use.
+   */
   metadata?: { [key: string]: any };
   /**
    * @remarks
-   * 请求追踪 ID
+   * The request ID.
    * 
    * @example
-   * 019FF406-1B10-0065-A97D-2D1920C2A03D
+   * A5241B90-8FF4-565C-977A-0CE1842AED72
    */
   requestId?: string;
   /**
    * @remarks
-   * 会话标题（已按调用方语言国际化）
+   * The appointment title.
    * 
    * @example
-   * 示例标题
+   * Incident RCA: alert-0885feb7-3d4b-4da5-90f0-0119dfbbf555:up0shc25tp0kueo0afeobvhk81
    */
   title?: string;
   static names(): { [key: string]: string } {

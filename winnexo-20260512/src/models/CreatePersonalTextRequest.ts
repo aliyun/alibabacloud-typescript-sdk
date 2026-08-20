@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class CreatePersonalTextRequest extends $dara.Model {
   /**
    * @remarks
-   * 资源描述（可选）
+   * The pipeline description.
    * 
    * @example
-   * 示例描述
+   * PublicApplication
    */
   description?: string;
   /**
    * @remarks
-   * 目标个人目录 ID；不传时自动绑定到用户默认根目录，传入时必须是当前用户的已有个人目录
+   * The folder ID.
    * 
    * @example
    * exampleDirectoryId
@@ -21,17 +21,17 @@ export class CreatePersonalTextRequest extends $dara.Model {
   directoryId?: string;
   /**
    * @remarks
-   * 资源显示名称
+   * The image name.
    * 
    * This parameter is required.
    * 
    * @example
-   * 示例名称.pdf
+   * rds_mysql_10_34_4_255_6306_password
    */
   name?: string;
   /**
    * @remarks
-   * 数字员工名称（已废弃：不再作为个人资源隔离条件，仅保留用于来源追溯）
+   * The name of the digital employee (operating object name, optional).
    * 
    * @example
    * string_value
@@ -39,15 +39,15 @@ export class CreatePersonalTextRequest extends $dara.Model {
   operatingObjectName?: string;
   /**
    * @remarks
-   * 租户ID，公共参数；winnexo-cli 通过 --tenant-id 显式传入
+   * The tenant ID.
    * 
    * @example
-   * 10000
+   * 3668
    */
   tenantId?: string;
   /**
    * @remarks
-   * 纯文本正文（必填）
+   * The message content for text messages.
    * 
    * This parameter is required.
    * 

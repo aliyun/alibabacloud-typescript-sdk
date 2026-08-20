@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListOutputFilesResponseBodyItemsOutputItemsEmailInfo extends $dara.Model {
   /**
    * @remarks
-   * 邮件内容
+   * The email body.
    * 
    * @example
    * string_value
@@ -13,7 +13,7 @@ export class ListOutputFilesResponseBodyItemsOutputItemsEmailInfo extends $dara.
   body?: string;
   /**
    * @remarks
-   * 内容类型，如 MARKDOWN/JSONML/HTML
+   * The content type, such as MARKDOWN/JSONML/HTML.
    * 
    * @example
    * string_value
@@ -21,7 +21,7 @@ export class ListOutputFilesResponseBodyItemsOutputItemsEmailInfo extends $dara.
   contentType?: string;
   /**
    * @remarks
-   * recipients
+   * The recipient list.
    * 
    * @example
    * string_value
@@ -29,7 +29,7 @@ export class ListOutputFilesResponseBodyItemsOutputItemsEmailInfo extends $dara.
   recipients?: string[];
   /**
    * @remarks
-   * 邮件主题
+   * The email subject.
    * 
    * @example
    * string_value
@@ -68,23 +68,23 @@ export class ListOutputFilesResponseBodyItemsOutputItemsEmailInfo extends $dara.
 export class ListOutputFilesResponseBodyItemsOutputItemsFileInfo extends $dara.Model {
   /**
    * @remarks
-   * 文件描述
+   * The file description.
    * 
    * @example
-   * 示例描述
+   * Sample description
    */
   description?: string;
   /**
    * @remarks
-   * 文件名
+   * The file name.
    * 
    * @example
-   * 示例名称.pdf
+   * SampleName.pdf
    */
   name?: string;
   /**
    * @remarks
-   * 文件 OSS URL
+   * The file path (OSS object key).
    * 
    * @example
    * https://example.com/oss/file.pdf
@@ -92,7 +92,7 @@ export class ListOutputFilesResponseBodyItemsOutputItemsFileInfo extends $dara.M
   path?: string;
   /**
    * @remarks
-   * 文件类型，如 .pdf, .md
+   * The file type, such as .pdf or .md.
    * 
    * @example
    * text
@@ -128,7 +128,7 @@ export class ListOutputFilesResponseBodyItemsOutputItemsFileInfo extends $dara.M
 export class ListOutputFilesResponseBodyItemsOutputItemsSlidesInfo extends $dara.Model {
   /**
    * @remarks
-   * 已完成幻灯片数
+   * The number of completed slides.
    * 
    * @example
    * 1
@@ -144,7 +144,7 @@ export class ListOutputFilesResponseBodyItemsOutputItemsSlidesInfo extends $dara
   pptId?: string;
   /**
    * @remarks
-   * PPT 名称
+   * The PPT name.
    * 
    * @example
    * string_value
@@ -152,7 +152,7 @@ export class ListOutputFilesResponseBodyItemsOutputItemsSlidesInfo extends $dara
   pptName?: string;
   /**
    * @remarks
-   * 总幻灯片数
+   * The total number of slides.
    * 
    * @example
    * 1
@@ -188,17 +188,25 @@ export class ListOutputFilesResponseBodyItemsOutputItemsSlidesInfo extends $dara
 export class ListOutputFilesResponseBodyItemsOutputItems extends $dara.Model {
   /**
    * @remarks
-   * 创建时间(ISO8601)
+   * The creation time in ISO 8601 format.
    * 
    * @example
    * 2023-10-01T12:00:00Z
    */
   createTime?: string;
+  /**
+   * @remarks
+   * The email information. This field is present when the output type is email.
+   */
   emailInfo?: ListOutputFilesResponseBodyItemsOutputItemsEmailInfo;
+  /**
+   * @remarks
+   * The file information. This field is present when the output type is file.
+   */
   fileInfo?: ListOutputFilesResponseBodyItemsOutputItemsFileInfo;
   /**
    * @remarks
-   * 数据库创建时间(ISO8601)
+   * The database creation time in ISO 8601 format.
    * 
    * @example
    * 2023-10-01T12:00:00Z
@@ -206,7 +214,7 @@ export class ListOutputFilesResponseBodyItemsOutputItems extends $dara.Model {
   gmtCreate?: string;
   /**
    * @remarks
-   * 数据库更新时间(ISO8601)
+   * The database update time in ISO 8601 format.
    * 
    * @example
    * 2023-10-01T12:00:00Z
@@ -214,7 +222,7 @@ export class ListOutputFilesResponseBodyItemsOutputItems extends $dara.Model {
   gmtModified?: string;
   /**
    * @remarks
-   * 产出名称
+   * The output name.
    * 
    * @example
    * exampleItemName
@@ -222,7 +230,7 @@ export class ListOutputFilesResponseBodyItemsOutputItems extends $dara.Model {
   itemName?: string;
   /**
    * @remarks
-   * 产出明细类型: ppt/html/document/picture/slides/video/audio/email/others
+   * The type of the output item. Valid values: ppt, html, document, picture, slides, video, audio, email, and others.
    * 
    * @example
    * ppt
@@ -230,7 +238,7 @@ export class ListOutputFilesResponseBodyItemsOutputItems extends $dara.Model {
   itemType?: string;
   /**
    * @remarks
-   * 产出明细类型国际化展示名称
+   * The internationalized display name of the output detail type.
    * 
    * @example
    * string_value
@@ -238,7 +246,7 @@ export class ListOutputFilesResponseBodyItemsOutputItems extends $dara.Model {
   itemTypeDisplayName?: string;
   /**
    * @remarks
-   * 助手消息ID，由 sendAsyncChatMessage 返回；不属于当前租户时返回 404
+   * The message ID.
    * 
    * @example
    * exampleMessageId
@@ -246,7 +254,7 @@ export class ListOutputFilesResponseBodyItemsOutputItems extends $dara.Model {
   messageId?: string;
   /**
    * @remarks
-   * 产出明细 ID
+   * The output detail ID.
    * 
    * @example
    * string_example_value
@@ -254,7 +262,7 @@ export class ListOutputFilesResponseBodyItemsOutputItems extends $dara.Model {
   outputItemId?: string;
   /**
    * @remarks
-   * 是否开启分享
+   * Indicates whether sharing is enabled.
    * 
    * @example
    * true
@@ -262,7 +270,7 @@ export class ListOutputFilesResponseBodyItemsOutputItems extends $dara.Model {
   shareEnabled?: boolean;
   /**
    * @remarks
-   * 分享令牌
+   * The share token, which is present when sharing is enabled. You can use this token to access the public share preview API.
    * 
    * @example
    * example_share_token
@@ -270,16 +278,20 @@ export class ListOutputFilesResponseBodyItemsOutputItems extends $dara.Model {
   shareToken?: string;
   /**
    * @remarks
-   * 技能产出 ID
+   * The skill output ID.
    * 
    * @example
    * exampleSkillOutputId
    */
   skillOutputId?: string;
+  /**
+   * @remarks
+   * The slides information. This field is present when the output type is slides.
+   */
   slidesInfo?: ListOutputFilesResponseBodyItemsOutputItemsSlidesInfo;
   /**
    * @remarks
-   * 任务执行 ID
+   * The task execution ID.
    * 
    * @example
    * exampleTaskExecutionId
@@ -346,7 +358,7 @@ export class ListOutputFilesResponseBodyItemsOutputItems extends $dara.Model {
 export class ListOutputFilesResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * 会话 ID
+   * The conversation ID.
    * 
    * @example
    * exampleConversationId
@@ -354,7 +366,7 @@ export class ListOutputFilesResponseBodyItems extends $dara.Model {
   conversationId?: string;
   /**
    * @remarks
-   * 创建时间(ISO8601)
+   * The creation time in ISO 8601 format.
    * 
    * @example
    * string_value
@@ -362,7 +374,7 @@ export class ListOutputFilesResponseBodyItems extends $dara.Model {
   gmtCreate?: string;
   /**
    * @remarks
-   * 更新时间(ISO8601)
+   * The update time in ISO 8601 format.
    * 
    * @example
    * string_value
@@ -370,15 +382,15 @@ export class ListOutputFilesResponseBodyItems extends $dara.Model {
   gmtModified?: string;
   /**
    * @remarks
-   * 文件名
+   * The output name.
    * 
    * @example
-   * 示例名称.pdf
+   * SampleName.pdf
    */
   name?: string;
   /**
    * @remarks
-   * 数字员工（运营对象）名称
+   * The name of the digital employee (operating object).
    * 
    * @example
    * string_value
@@ -386,16 +398,20 @@ export class ListOutputFilesResponseBodyItems extends $dara.Model {
   operatingObjectName?: string;
   /**
    * @remarks
-   * 产出 ID
+   * The output ID.
    * 
    * @example
    * exampleOutputId
    */
   outputId?: string;
+  /**
+   * @remarks
+   * The output detail list.
+   */
   outputItems?: ListOutputFilesResponseBodyItemsOutputItems[];
   /**
    * @remarks
-   * 产出类型: conversation/skill/task
+   * The output type: `conversation/skill/task`.
    * 
    * @example
    * conversation
@@ -403,7 +419,7 @@ export class ListOutputFilesResponseBodyItems extends $dara.Model {
   outputType?: string;
   /**
    * @remarks
-   * 产出类型国际化展示名称
+   * The internationalized display name of the output type.
    * 
    * @example
    * string_value
@@ -411,7 +427,7 @@ export class ListOutputFilesResponseBodyItems extends $dara.Model {
   outputTypeDisplayName?: string;
   /**
    * @remarks
-   * 技能产出 ID
+   * The skill output ID.
    * 
    * @example
    * exampleSkillOutputId
@@ -419,7 +435,7 @@ export class ListOutputFilesResponseBodyItems extends $dara.Model {
   skillOutputId?: string;
   /**
    * @remarks
-   * 任务 ID
+   * The task ID.
    * 
    * @example
    * string_example_value
@@ -472,21 +488,28 @@ export class ListOutputFilesResponseBodyItems extends $dara.Model {
 export class ListOutputFilesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+   * The response status code.
    * 
    * @example
    * 200
    */
   code?: string;
+  /**
+   * @remarks
+   * The output list.
+   */
   items?: ListOutputFilesResponseBodyItems[];
   /**
    * @remarks
-   * 错误描述，成功时为空
+   * The prompt message.
+   * 
+   * @example
+   * ok
    */
   message?: string;
   /**
    * @remarks
-   * 当前页码
+   * The current page number.
    * 
    * @example
    * 1
@@ -494,7 +517,7 @@ export class ListOutputFilesResponseBody extends $dara.Model {
   page?: number;
   /**
    * @remarks
-   * 每页数量
+   * The number of entries per page.
    * 
    * @example
    * 20
@@ -502,7 +525,7 @@ export class ListOutputFilesResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * 请求追踪 ID
+   * The request trace ID.
    * 
    * @example
    * 019FF406-1B10-0065-A97D-2D1920C2A03D
@@ -510,7 +533,7 @@ export class ListOutputFilesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * 符合条件的产出总数
+   * The total number of outputs that match the specified conditions.
    * 
    * @example
    * 1

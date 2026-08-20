@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreatePersonalAlidingDocResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+   * The response code.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class CreatePersonalAlidingDocResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * 绑定的目录 ID（请求体传入时 echo 回；缺省走默认根目录时为 null）
+   * The folder ID.
    * 
    * @example
    * exampleDirectoryId
@@ -21,7 +21,7 @@ export class CreatePersonalAlidingDocResponseBody extends $dara.Model {
   directoryId?: string;
   /**
    * @remarks
-   * 文档公开 URL（echo 回入参，便于调用方对齐）
+   * The publicly accessible URL of the AliDing online document.
    * 
    * @example
    * https://example.com/winnexo/resource
@@ -29,55 +29,62 @@ export class CreatePersonalAlidingDocResponseBody extends $dara.Model {
   filePublicUrl?: string;
   /**
    * @remarks
-   * 创建时间 ISO8601
+   * The timestamp when the customer group was created. Unit: milliseconds.
    * 
    * @example
-   * string_value
+   * 2026-04-22T08:15:28.000+00:00
    */
   gmtCreate?: string;
   /**
    * @remarks
-   * 错误描述，成功时为空
+   * The response message.
+   * 
+   * @example
+   * successful
    */
   message?: string;
   /**
    * @remarks
-   * 文件名
+   * The pipeline name.
    * 
    * @example
-   * 示例名称.pdf
+   * user_paswd_104
    */
   name?: string;
   /**
    * @remarks
-   * 请求追踪 ID
+   * The request ID.
    * 
    * @example
-   * 019FF406-1B10-0065-A97D-2D1920C2A03D
+   * E68654BD-F7BA-5837-8686-5645D739A47C
    */
   requestId?: string;
   /**
    * @remarks
-   * 资源 scope，固定为 PERSONAL
+   * The permission scope.
    * 
    * @example
-   * PERSONAL
+   * user_info projects pull_requests hook gists emails
    */
   scope?: string;
   /**
    * @remarks
-   * 新建资源 ID
+   * The unique identifier on the business system side, that is, the business ID.
    * 
    * @example
-   * exampleSourceId
+   * 2000413
    */
   sourceId?: string;
   /**
    * @remarks
-   * 资源状态（创建链路初始多为 PENDING；on_create 失败则为 FAILED）
+   * The call status. Valid values:
+   * - **PENDING**: Waiting for receipt.
+   * - **SUCCESS**: Succeeded.
+   * - **FAILED**: Failed.
+   * - **TIMEOUT**: Timed out.
    * 
    * @example
-   * READY
+   * {\\"servicesInstances\\": {}, \\"servicesWithPendingChanges\\": []}
    */
   status?: string;
   static names(): { [key: string]: string } {

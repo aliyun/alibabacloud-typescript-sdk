@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListKnowledgeBaseDirectoriesRequest extends $dara.Model {
   /**
    * @remarks
-   * 父分类 ID；不传时返回企业知识库根目录下的所有分类树
+   * The directory ID.
    * 
    * @example
    * exampleDirectoryId
@@ -13,7 +13,11 @@ export class ListKnowledgeBaseDirectoriesRequest extends $dara.Model {
   directoryId?: string;
   /**
    * @remarks
-   * 排序字段：name / gmt_create / gmt_modified
+   * The field by which the results are sorted. Valid values:
+   * 
+   * - event_time: event creation time
+   * - event_execute_start_time: event execution time
+   * - event_execute_finish_time: event completion time
    * 
    * @example
    * name
@@ -21,7 +25,7 @@ export class ListKnowledgeBaseDirectoriesRequest extends $dara.Model {
   sortField?: string;
   /**
    * @remarks
-   * 排序方向：asc / desc
+   * The sort order. This parameter takes effect only when sortBy is specified. Valid values: ASC, DESC (case-insensitive).
    * 
    * @example
    * asc
@@ -29,7 +33,7 @@ export class ListKnowledgeBaseDirectoriesRequest extends $dara.Model {
   sortOrder?: string;
   /**
    * @remarks
-   * 租户ID，公共参数；winnexo-cli 通过 --tenant-id 显式传入
+   * The tenant ID. This is a common parameter. You can pass it explicitly by using --tenant-id in winnexo-cli.
    * 
    * @example
    * 10000

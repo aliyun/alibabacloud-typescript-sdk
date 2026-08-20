@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListPersonalDirectoryContentsResponseBodyItemsObjectBindings extends $dara.Model {
   /**
    * @remarks
-   * 对象唯一 ID
+   * The bound object ID.
    * 
    * @example
    * exampleObjectId
@@ -13,7 +13,7 @@ export class ListPersonalDirectoryContentsResponseBodyItemsObjectBindings extend
   objectId?: string;
   /**
    * @remarks
-   * 对象显示名（如客户名称），由图谱 schema 解析；缓存缺失时为 null
+   * The object name.
    * 
    * @example
    * string_value
@@ -21,7 +21,7 @@ export class ListPersonalDirectoryContentsResponseBodyItemsObjectBindings extend
   objectName?: string;
   /**
    * @remarks
-   * 对象类型（如 customer / opportunity），对应图谱 schema 中的 object_type
+   * The bound object type, such as customer or project.
    * 
    * @example
    * string_value
@@ -29,7 +29,7 @@ export class ListPersonalDirectoryContentsResponseBodyItemsObjectBindings extend
   objectType?: string;
   /**
    * @remarks
-   * 对象类型显示名（如"客户"），由图谱 schema 解析；缓存缺失时为 null
+   * The display name of the object type, such as "Customer". This value is resolved from the graph schema. The value is null when the cache is missed.
    * 
    * @example
    * string_value
@@ -65,7 +65,7 @@ export class ListPersonalDirectoryContentsResponseBodyItemsObjectBindings extend
 export class ListPersonalDirectoryContentsResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * 目录创建者姓名（仅 directoryId=\"root\" 列表时返回）
+   * The name of the creator.
    * 
    * @example
    * string_value
@@ -73,15 +73,15 @@ export class ListPersonalDirectoryContentsResponseBodyItems extends $dara.Model 
   creatorName?: string;
   /**
    * @remarks
-   * 知识库描述（仅 directoryId=\"root\" 列表时返回）
+   * The description of the to-do card type.
    * 
    * @example
-   * 示例描述
+   * Sample description
    */
   description?: string;
   /**
    * @remarks
-   * 目录 KB 归属类型（itemType=directory 时有值）：aliding_kb_root / aliding_kb_internal / normal
+   * The directory type.
    * 
    * @example
    * string_value
@@ -89,7 +89,7 @@ export class ListPersonalDirectoryContentsResponseBodyItems extends $dara.Model 
   directoryKind?: string;
   /**
    * @remarks
-   * 创建时间戳（毫秒）
+   * The creation time.
    * 
    * @example
    * 1
@@ -97,7 +97,7 @@ export class ListPersonalDirectoryContentsResponseBodyItems extends $dara.Model 
   gmtCreate?: number;
   /**
    * @remarks
-   * 修改时间戳（毫秒）
+   * The last modification time.
    * 
    * @example
    * 1
@@ -105,7 +105,7 @@ export class ListPersonalDirectoryContentsResponseBodyItems extends $dara.Model 
   gmtModified?: number;
   /**
    * @remarks
-   * 唯一标识（目录为 directoryId，资源为 sourceId）
+   * The signing record ID.
    * 
    * @example
    * exampleItemId
@@ -113,7 +113,7 @@ export class ListPersonalDirectoryContentsResponseBodyItems extends $dara.Model 
   itemId?: string;
   /**
    * @remarks
-   * 类型: directory 或 resource
+   * The item type.
    * 
    * @example
    * string_value
@@ -121,16 +121,20 @@ export class ListPersonalDirectoryContentsResponseBodyItems extends $dara.Model 
   itemType?: string;
   /**
    * @remarks
-   * 文件名
+   * The name.
    * 
    * @example
-   * 示例名称.pdf
+   * SampleName.pdf
    */
   name?: string;
+  /**
+   * @remarks
+   * The object bindings.
+   */
   objectBindings?: ListPersonalDirectoryContentsResponseBodyItemsObjectBindings[];
   /**
    * @remarks
-   * 目录下失败资源数（含子目录，仅 directoryId=\"root\" 列表时返回）
+   * The number of resources in the FAILED state. This field is returned only when the top-level KB directory list is queried.
    * 
    * @example
    * 1
@@ -138,7 +142,7 @@ export class ListPersonalDirectoryContentsResponseBodyItems extends $dara.Model 
   sourceFailedCount?: number;
   /**
    * @remarks
-   * Source KB 归属类型（itemType=resource 时有值）：aliding_kb_doc / normal
+   * The knowledge base affiliation type. Valid values: aliding_kb_doc (DingTalk knowledge base document), normal (common knowledge).
    * 
    * @example
    * string_value
@@ -146,7 +150,7 @@ export class ListPersonalDirectoryContentsResponseBodyItems extends $dara.Model 
   sourceKind?: string;
   /**
    * @remarks
-   * 目录下成功资源数（含子目录，仅 directoryId=\"root\" 列表时返回）
+   * The number of resources in the READY state. This field is returned only when the top-level KB directory list is queried.
    * 
    * @example
    * 1
@@ -154,7 +158,7 @@ export class ListPersonalDirectoryContentsResponseBodyItems extends $dara.Model 
   sourceReadyCount?: number;
   /**
    * @remarks
-   * 资源状态（itemType=resource 时有值）
+   * The resource status. This field has a value only when itemType is resource.
    * 
    * @example
    * string_value
@@ -162,7 +166,7 @@ export class ListPersonalDirectoryContentsResponseBodyItems extends $dara.Model 
   sourceStatus?: string;
   /**
    * @remarks
-   * 目录下资源总数（含子目录，仅 directoryId=\"root\" 列表时返回）
+   * The total number of resources under the directory and its subdirectories. This field is returned only when the top-level KB directory list is queried.
    * 
    * @example
    * 1
@@ -170,7 +174,7 @@ export class ListPersonalDirectoryContentsResponseBodyItems extends $dara.Model 
   sourceTotalCount?: number;
   /**
    * @remarks
-   * 资源类型（itemType=resource 时有值；产出保存类资源会被反刷为 OUTPUT）
+   * The data source type.
    * 
    * @example
    * string_value
@@ -231,21 +235,28 @@ export class ListPersonalDirectoryContentsResponseBodyItems extends $dara.Model 
 export class ListPersonalDirectoryContentsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+   * The status code.
    * 
    * @example
    * 200
    */
   code?: string;
+  /**
+   * @remarks
+   * The file information.
+   */
   items?: ListPersonalDirectoryContentsResponseBodyItems[];
   /**
    * @remarks
-   * 错误描述，成功时为空
+   * The status code description.
+   * 
+   * @example
+   * The current zone list is illegal.
    */
   message?: string;
   /**
    * @remarks
-   * 当前页码
+   * The page number.
    * 
    * @example
    * 1
@@ -253,7 +264,7 @@ export class ListPersonalDirectoryContentsResponseBody extends $dara.Model {
   page?: number;
   /**
    * @remarks
-   * 每页数量
+   * The number of entries returned per page. Default value: 10.
    * 
    * @example
    * 20
@@ -261,7 +272,7 @@ export class ListPersonalDirectoryContentsResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * 请求追踪 ID
+   * The request ID.
    * 
    * @example
    * 019FF406-1B10-0065-A97D-2D1920C2A03D
@@ -269,7 +280,7 @@ export class ListPersonalDirectoryContentsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * 总数（不分页前的命中行数）
+   * The total number of records.
    * 
    * @example
    * 1

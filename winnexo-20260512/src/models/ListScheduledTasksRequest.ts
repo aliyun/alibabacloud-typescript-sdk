@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListScheduledTasksRequest extends $dara.Model {
   /**
    * @remarks
-   * 协作群组 ID（如 cg_101）；传入时按群维度返回群任务（调用者需为有效群成员），未传时为个人维度（排除群任务）
+   * The ID of the collaboration group (such as cg_101). If specified, a group task is created (the caller must be a valid group member). If left empty, a personal task is created.
    * 
    * @example
    * exampleCollaborationGroupId
@@ -13,15 +13,23 @@ export class ListScheduledTasksRequest extends $dara.Model {
   collaborationGroupId?: string;
   /**
    * @remarks
-   * 任务名模糊搜索
+   * Specifies whether to return only tasks created by the caller. This parameter takes effect only in the group dimension (in the personal dimension, only the caller\\"s own tasks are returned). If not specified, no filtering is applied.
    * 
    * @example
-   * 示例关键词
+   * true
+   */
+  creatorOnly?: boolean;
+  /**
+   * @remarks
+   * The keyword of the rule name, used for fuzzy match.
+   * 
+   * @example
+   * SampleKeyword
    */
   keyword?: string;
   /**
    * @remarks
-   * 单页最大返回数量（1~100）；传入时优先于 pageSize
+   * The maximum number of entries returned in this request.
    * 
    * @example
    * string_value
@@ -29,12 +37,15 @@ export class ListScheduledTasksRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * 翻页令牌，取上次响应返回的 nextToken；传入时优先于 page，翻页过程中请保持 maxResults 不变
+   * The pagination token for the next page.
+   * 
+   * @example
+   * eHiB8vca1XDyBT0cNAmThA==
    */
   nextToken?: string;
   /**
    * @remarks
-   * 页码
+   * The page number. Default value: 1.
    * 
    * @example
    * 1
@@ -42,7 +53,9 @@ export class ListScheduledTasksRequest extends $dara.Model {
   page?: number;
   /**
    * @remarks
-   * 每页条数（1~100）
+   * The number of entries per page.
+   * 
+   * > The maximum number of entries per page is 30.
    * 
    * @example
    * 20
@@ -50,37 +63,57 @@ export class ListScheduledTasksRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * 租户ID，公共参数，缺省时使用调用方默认租户
+   * The tenant ID that takes effect.
    * 
    * @example
    * 10000
    */
   tenantId?: string;
+  /**
+   * @remarks
+   * Filters by visibility. Valid values:
+   * - PRIVATE: visible only to the creator and group owner.
+   * - COLLABORATIVE: visible to specified collaborators.
+   * - PUBLIC: visible to all group members.
+   * 
+   * If not specified or an empty list is passed, no filtering is applied. This parameter takes effect only in the group dimension (when collaborationGroupId is specified) and is ignored in the personal dimension.
+   * 
+   * @example
+   * PRIVATE
+   */
+  visibilities?: string[];
   static names(): { [key: string]: string } {
     return {
       collaborationGroupId: 'collaborationGroupId',
+      creatorOnly: 'creatorOnly',
       keyword: 'keyword',
       maxResults: 'maxResults',
       nextToken: 'nextToken',
       page: 'page',
       pageSize: 'pageSize',
       tenantId: 'tenantId',
+      visibilities: 'visibilities',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       collaborationGroupId: 'string',
+      creatorOnly: 'boolean',
       keyword: 'string',
       maxResults: 'number',
       nextToken: 'string',
       page: 'number',
       pageSize: 'number',
       tenantId: 'string',
+      visibilities: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
   validate() {
+    if(Array.isArray(this.visibilities)) {
+      $dara.Model.validateArray(this.visibilities);
+    }
     super.validate();
   }
 

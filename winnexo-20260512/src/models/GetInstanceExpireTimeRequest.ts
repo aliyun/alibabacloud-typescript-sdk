@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetInstanceExpireTimeRequest extends $dara.Model {
   /**
    * @remarks
-   * 租户ID，公共参数；winnexo-cli 通过 --tenant-id 显式传入
+   * The effective tenant ID.
    * 
    * @example
    * 10000

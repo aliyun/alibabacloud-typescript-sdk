@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetKnowledgeBaseSourceRequest extends $dara.Model {
   /**
    * @remarks
-   * 知识 ID（数据源唯一标识）
+   * The unique identifier on the business system side, that is, the business ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class GetKnowledgeBaseSourceRequest extends $dara.Model {
   sourceId?: string;
   /**
    * @remarks
-   * 租户ID，公共参数，缺省时使用调用方默认租户
+   * The tenant ID.
    * 
    * @example
    * 676577544219585

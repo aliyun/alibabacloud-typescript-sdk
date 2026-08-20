@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateCustomOrgRequest extends $dara.Model {
   /**
    * @remarks
-   * 自定义组织标识，格式：^[a-z0-9][a-z0-9\-]{2,63}$
+   * The corpId of the activated enterprise.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class CreateCustomOrgRequest extends $dara.Model {
   corpId?: string;
   /**
    * @remarks
-   * 组织展示名称（可选，不传则与 corpId 相同）
+   * The organization name.
    * 
    * @example
    * string_value
@@ -23,10 +23,10 @@ export class CreateCustomOrgRequest extends $dara.Model {
   corpName?: string;
   /**
    * @remarks
-   * 租户ID，公共参数，缺省时使用调用方默认租户
+   * The tenant ID.
    * 
    * @example
-   * 10000
+   * 692318833855074
    */
   tenantId?: string;
   static names(): { [key: string]: string } {

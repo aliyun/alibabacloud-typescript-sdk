@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateKnowledgeBaseDirectoryResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+   * The status code.
    * 
    * @example
    * 200
@@ -13,15 +13,15 @@ export class CreateKnowledgeBaseDirectoryResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * 分类描述
+   * The description of the to-do card type.
    * 
    * @example
-   * 示例描述
+   * This is default function description by fc-deploy component
    */
   description?: string;
   /**
    * @remarks
-   * 新建分类 ID
+   * The directory ID.
    * 
    * @example
    * exampleDirectoryId
@@ -29,7 +29,7 @@ export class CreateKnowledgeBaseDirectoryResponseBody extends $dara.Model {
   directoryId?: string;
   /**
    * @remarks
-   * 目录 KB 归属类型：normal / aliding_kb_root / aliding_kb_internal
+   * The directory type.
    * 
    * @example
    * string_value
@@ -37,55 +37,58 @@ export class CreateKnowledgeBaseDirectoryResponseBody extends $dara.Model {
   directoryKind?: string;
   /**
    * @remarks
-   * 创建时间戳（毫秒）
+   * The creation time.
    * 
    * @example
-   * 1
+   * 2025-11-14T02:18:27Z
    */
   gmtCreate?: number;
   /**
    * @remarks
-   * 修改时间戳（毫秒）
+   * The last modification time.
    * 
    * @example
-   * 1
+   * 2026-01-19T01:48:56Z
    */
   gmtModified?: number;
   /**
    * @remarks
-   * 错误描述，成功时为空
+   * The description of the status code.
+   * 
+   * @example
+   * successful
    */
   message?: string;
   /**
    * @remarks
-   * 文件名
+   * The name.
    * 
    * @example
-   * 示例名称.pdf
+   * p-toolset-89550434-4e20-4e4e-bcac-9ab81b82c5b3
    */
   name?: string;
   /**
    * @remarks
-   * 父分类 ID；新分类挂在租户根目录下时返回 null
+   * The directory ID.
    * 
    * @example
-   * exampleParentDirectoryId
+   * wd-lxykjnnw4lyl9eq
    */
   parentDirectoryId?: string;
   /**
    * @remarks
-   * 文件 OSS URL
+   * The path of the node.
    * 
    * @example
-   * https://example.com/oss/file.pdf
+   * UVCIpI0siUski9iw
    */
   path?: string;
   /**
    * @remarks
-   * 请求追踪 ID
+   * The request ID.
    * 
    * @example
-   * 019FF406-1B10-0065-A97D-2D1920C2A03D
+   * C474BFC7-7B11-5D92-971E-74AA82EC495B
    */
   requestId?: string;
   static names(): { [key: string]: string } {

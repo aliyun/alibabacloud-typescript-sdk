@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ResetPasswordRequest extends $dara.Model {
   /**
    * @remarks
-   * RSA-OAEP-SHA256 加密后的新密码 base64 密文（必填，不可为空）
+   * The base64-encoded password ciphertext encrypted with RSA-OAEP-SHA256. This parameter is required and cannot be empty.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ResetPasswordRequest extends $dara.Model {
   passwordEncrypted?: string;
   /**
    * @remarks
-   * 租户ID，公共参数，缺省时使用调用方默认租户
+   * The tenant ID.
    * 
    * @example
    * 21577
@@ -23,7 +23,7 @@ export class ResetPasswordRequest extends $dara.Model {
   tenantId?: string;
   /**
    * @remarks
-   * 目标用户ID（WINNEXO 平台用户ID）
+   * The ID of the target user (WINNEXO platform user ID).
    * 
    * This parameter is required.
    * 

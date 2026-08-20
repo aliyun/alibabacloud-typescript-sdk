@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateKnowledgeBaseSourceTagsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+   * The status code.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class UpdateKnowledgeBaseSourceTagsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * 最近修改时间，ISO8601 格式
+   * The last modified time in ISO 8601 format.
    * 
    * @example
    * string_value
@@ -21,12 +21,15 @@ export class UpdateKnowledgeBaseSourceTagsResponseBody extends $dara.Model {
   gmtModified?: string;
   /**
    * @remarks
-   * 错误描述，成功时为空
+   * The description of the status code.
+   * 
+   * @example
+   * ok
    */
   message?: string;
   /**
    * @remarks
-   * 请求追踪 ID
+   * The request ID.
    * 
    * @example
    * 019FF406-1B10-0065-A97D-2D1920C2A03D
@@ -34,7 +37,7 @@ export class UpdateKnowledgeBaseSourceTagsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * 数据源 ID
+   * The source ID.
    * 
    * @example
    * exampleSourceId
@@ -42,7 +45,7 @@ export class UpdateKnowledgeBaseSourceTagsResponseBody extends $dara.Model {
   sourceId?: string;
   /**
    * @remarks
-   * 更新后的资源标签
+   * The updated resource tags.
    * 
    * @example
    * string_value

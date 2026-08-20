@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateSourceContentResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+   * The error code.
    * 
    * @example
    * 200
@@ -13,22 +13,25 @@ export class UpdateSourceContentResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * 错误描述，成功时为空
+   * The description of the status code.
+   * 
+   * @example
+   * ok
    */
   message?: string;
   /**
    * @remarks
-   * 文件名
+   * The username.
    * 
    * This parameter is required.
    * 
    * @example
-   * 示例名称.pdf
+   * SampleName.pdf
    */
   name?: string;
   /**
    * @remarks
-   * 请求追踪 ID
+   * The request ID.
    * 
    * @example
    * 019FF406-1B10-0065-A97D-2D1920C2A03D
@@ -36,7 +39,7 @@ export class UpdateSourceContentResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * 数据源 ID
+   * The ID of the data source.
    * 
    * This parameter is required.
    * 
@@ -46,7 +49,9 @@ export class UpdateSourceContentResponseBody extends $dara.Model {
   sourceId?: string;
   /**
    * @remarks
-   * 数据源类型
+   * The source type of the dictionary file. Valid values:
+   * - OSS: Object Storage Service (OSS).
+   * - ORIGIN: retains the previously uploaded dictionary.
    * 
    * This parameter is required.
    * 
@@ -56,7 +61,7 @@ export class UpdateSourceContentResponseBody extends $dara.Model {
   sourceType?: string;
   /**
    * @remarks
-   * 重新解析后的数据源状态
+   * The status.
    * 
    * This parameter is required.
    * 

@@ -6,7 +6,7 @@ export class PreviewPersonalSourceHeaders extends $dara.Model {
   commonHeaders?: { [key: string]: string };
   /**
    * @remarks
-   * 请求追踪 ID
+   * The request trace ID.
    * 
    * This parameter is required.
    * 

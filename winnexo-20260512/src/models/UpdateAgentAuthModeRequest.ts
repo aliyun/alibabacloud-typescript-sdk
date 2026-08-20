@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateAgentAuthModeRequest extends $dara.Model {
   /**
    * @remarks
-   * 使用权限授权模式：SPECIFIED_USERS=指定用户（需显式授权），ALL_USERS=所有用户（无需授权即可使用）
+   * The authentication mode.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class UpdateAgentAuthModeRequest extends $dara.Model {
   authMode?: string;
   /**
    * @remarks
-   * 数字员工名称
+   * The name of the digital employee (operating object name, optional).
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class UpdateAgentAuthModeRequest extends $dara.Model {
   operatingObjectName?: string;
   /**
    * @remarks
-   * 租户ID，公共参数，缺省时使用调用方默认租户
+   * The ID of the effective tenant.
    * 
    * @example
    * 10000

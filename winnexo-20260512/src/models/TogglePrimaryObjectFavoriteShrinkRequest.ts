@@ -5,7 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class TogglePrimaryObjectFavoriteShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * 操作：add-关注，remove-取消关注
+   * The operation type. Valid values:
+   * 
+   * - **1**: Add to whitelist.
+   * - **2**: Remove from whitelist.
    * 
    * This parameter is required.
    * 
@@ -15,7 +18,7 @@ export class TogglePrimaryObjectFavoriteShrinkRequest extends $dara.Model {
   action?: string;
   /**
    * @remarks
-   * 主对象业务ID列表
+   * The list of primary object business IDs.
    * 
    * This parameter is required.
    * 
@@ -25,7 +28,7 @@ export class TogglePrimaryObjectFavoriteShrinkRequest extends $dara.Model {
   objectIdsShrink?: string;
   /**
    * @remarks
-   * 对象类型（如 customer、project）
+   * The object type, such as customer. This parameter has a value when type is set to mention.
    * 
    * This parameter is required.
    * 
@@ -35,7 +38,7 @@ export class TogglePrimaryObjectFavoriteShrinkRequest extends $dara.Model {
   objectType?: string;
   /**
    * @remarks
-   * 运营对象名称（如 customer_1）
+   * The name of the digital employee (operating object name, optional).
    * 
    * This parameter is required.
    * 
@@ -45,7 +48,7 @@ export class TogglePrimaryObjectFavoriteShrinkRequest extends $dara.Model {
   operatingObjectName?: string;
   /**
    * @remarks
-   * 租户ID，公共参数；winnexo-cli 通过 --tenant-id 显式传入
+   * The ID of the effective tenant.
    * 
    * @example
    * 10000

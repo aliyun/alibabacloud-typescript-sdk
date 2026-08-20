@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class MoveKnowledgeBaseResourceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+   * The response code.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class MoveKnowledgeBaseResourceResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * 目标知识库 ID（echo 回入参）
+   * The target knowledge base ID. This value is echoed from the request parameter.
    * 
    * @example
    * exampleKnowledgeId
@@ -21,20 +21,23 @@ export class MoveKnowledgeBaseResourceResponseBody extends $dara.Model {
   knowledgeId?: string;
   /**
    * @remarks
-   * 错误描述，成功时为空
+   * The description of the status code.
+   * 
+   * @example
+   * ok
    */
   message?: string;
   /**
    * @remarks
-   * 请求追踪 ID
+   * The request ID.
    * 
    * @example
-   * 019FF406-1B10-0065-A97D-2D1920C2A03D
+   * 375701FC-2FB9-5782-BE8F-A3F5E2F2158C
    */
   requestId?: string;
   /**
    * @remarks
-   * 源目录 ID（echo 回入参）
+   * The source directory ID. This value is echoed from the request parameter.
    * 
    * @example
    * exampleSourceDirectoryId
@@ -42,15 +45,15 @@ export class MoveKnowledgeBaseResourceResponseBody extends $dara.Model {
   sourceDirectoryId?: string;
   /**
    * @remarks
-   * 资源 ID（echo 回入参）
+   * The unique identifier on the business system side, that is, the business ID.
    * 
    * @example
-   * exampleSourceId
+   * 2000358
    */
   sourceId?: string;
   /**
    * @remarks
-   * 目标目录 ID（echo 回入参）
+   * The target directory ID. This value is echoed from the request parameter.
    * 
    * @example
    * exampleTargetDirectoryId

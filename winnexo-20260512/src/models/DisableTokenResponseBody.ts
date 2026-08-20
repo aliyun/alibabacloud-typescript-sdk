@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DisableTokenResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+   * The status code.
    * 
    * @example
    * 200
@@ -13,7 +13,9 @@ export class DisableTokenResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * 操作是否成功
+   * Indicates whether the token is disabled. Valid values:
+   * - true: Disabled.
+   * - false: Not disabled.
    * 
    * @example
    * true
@@ -21,12 +23,15 @@ export class DisableTokenResponseBody extends $dara.Model {
   disabled?: boolean;
   /**
    * @remarks
-   * 错误描述，成功时为空
+   * The description of the status code.
+   * 
+   * @example
+   * successful
    */
   message?: string;
   /**
    * @remarks
-   * 请求追踪 ID
+   * The request ID.
    * 
    * @example
    * 019FF406-1B10-0065-A97D-2D1920C2A03D

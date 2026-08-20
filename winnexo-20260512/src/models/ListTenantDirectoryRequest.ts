@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListTenantDirectoryRequest extends $dara.Model {
   /**
    * @remarks
-   * 目录唯一标识；不传或传 root 时查询知识库根目录列表
+   * The folder ID.
    * 
    * @example
    * exampleDirectoryId
@@ -13,7 +13,7 @@ export class ListTenantDirectoryRequest extends $dara.Model {
   directoryId?: string;
   /**
    * @remarks
-   * 页码
+   * The current page number.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class ListTenantDirectoryRequest extends $dara.Model {
   page?: number;
   /**
    * @remarks
-   * 每页数量
+   * The number of entries per page. Default value: 100. Maximum value: 500.
    * 
    * @example
    * 20
@@ -29,7 +29,11 @@ export class ListTenantDirectoryRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * 排序字段
+   * The field by which the results are sorted. Valid values:
+   * 
+   * - event_time: the event creation time.
+   * - event_execute_start_time: the event execution time.
+   * - event_execute_finish_time: the event completion time.
    * 
    * @example
    * name
@@ -37,7 +41,7 @@ export class ListTenantDirectoryRequest extends $dara.Model {
   sortField?: string;
   /**
    * @remarks
-   * 排序方向
+   * The sort order. This parameter takes effect only when sortBy is specified. Valid values: ASC, DESC (case-insensitive).
    * 
    * @example
    * asc
@@ -45,7 +49,7 @@ export class ListTenantDirectoryRequest extends $dara.Model {
   sortOrder?: string;
   /**
    * @remarks
-   * 资源类型过滤，多个类型使用逗号分隔；传入后只返回资源
+   * The list of source types.
    * 
    * @example
    * string_value
@@ -53,7 +57,7 @@ export class ListTenantDirectoryRequest extends $dara.Model {
   sourceTypes?: string;
   /**
    * @remarks
-   * 租户ID，公共参数；winnexo-cli 通过 --tenant-id 显式传入
+   * The tenant ID. This is a common parameter. If not specified, the default tenant of the caller is used.
    * 
    * @example
    * 10000

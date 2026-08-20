@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateScheduledTaskRequestDescription extends $dara.Model {
   /**
    * @remarks
-   * 文本内容，type=text 时必填
+   * The text content. Required when type is set to text.
    * 
    * @example
-   * 示例内容
+   * Sample content
    */
   content?: string;
   /**
    * @remarks
-   * 功能开关，type=web_search 时可选
+   * The feature switch. Optional when type is set to web_search.
    * 
    * @example
    * true
@@ -21,15 +21,15 @@ export class UpdateScheduledTaskRequestDescription extends $dara.Model {
   enabled?: boolean;
   /**
    * @remarks
-   * 文件名
+   * The file name.
    * 
    * @example
-   * 示例名称.pdf
+   * SampleName.pdf
    */
   name?: string;
   /**
    * @remarks
-   * 对象 ID，type=mention 时有值
+   * The object ID. This parameter has a value when type is set to mention.
    * 
    * @example
    * exampleObjectId
@@ -37,7 +37,7 @@ export class UpdateScheduledTaskRequestDescription extends $dara.Model {
   objectId?: string;
   /**
    * @remarks
-   * 对象类型如 customer，type=mention 时有值
+   * The object type, such as customer. This parameter has a value when type is set to mention.
    * 
    * @example
    * string_value
@@ -45,7 +45,7 @@ export class UpdateScheduledTaskRequestDescription extends $dara.Model {
   objectType?: string;
   /**
    * @remarks
-   * 技能编码，type=skill 时有值
+   * The skill code. This parameter has a value when type is set to skill.
    * 
    * @example
    * string_value
@@ -53,7 +53,7 @@ export class UpdateScheduledTaskRequestDescription extends $dara.Model {
   skillCode?: string;
   /**
    * @remarks
-   * 元素类型：text|web_search|mention|skill
+   * The element type. Valid values: text, web_search, mention, and skill.
    * 
    * This parameter is required.
    * 
@@ -97,15 +97,15 @@ export class UpdateScheduledTaskRequestDescription extends $dara.Model {
 export class UpdateScheduledTaskRequestSegments extends $dara.Model {
   /**
    * @remarks
-   * 文本内容，type=text 时必填
+   * The text content. Required when type is set to text.
    * 
    * @example
-   * 示例内容
+   * Sample content
    */
   content?: string;
   /**
    * @remarks
-   * 功能开关，type=web_search 时可选
+   * The feature switch. Optional when type is set to web_search.
    * 
    * @example
    * true
@@ -113,15 +113,15 @@ export class UpdateScheduledTaskRequestSegments extends $dara.Model {
   enabled?: boolean;
   /**
    * @remarks
-   * 文件名
+   * The file name.
    * 
    * @example
-   * 示例名称.pdf
+   * SampleName.pdf
    */
   name?: string;
   /**
    * @remarks
-   * 对象 ID，type=mention 时有值
+   * The object ID. This parameter has a value when type is set to mention.
    * 
    * @example
    * exampleObjectId
@@ -129,7 +129,7 @@ export class UpdateScheduledTaskRequestSegments extends $dara.Model {
   objectId?: string;
   /**
    * @remarks
-   * 对象类型如 customer，type=mention 时有值
+   * The object type, such as customer. This parameter has a value when type is set to mention.
    * 
    * @example
    * string_value
@@ -137,7 +137,7 @@ export class UpdateScheduledTaskRequestSegments extends $dara.Model {
   objectType?: string;
   /**
    * @remarks
-   * 技能编码，type=skill 时有值
+   * The skill code. This parameter has a value when type is set to skill.
    * 
    * @example
    * string_value
@@ -145,7 +145,7 @@ export class UpdateScheduledTaskRequestSegments extends $dara.Model {
   skillCode?: string;
   /**
    * @remarks
-   * 元素类型：text|web_search|mention|skill
+   * The element type. Valid values: text, web_search, mention, and skill.
    * 
    * This parameter is required.
    * 
@@ -189,7 +189,7 @@ export class UpdateScheduledTaskRequestSegments extends $dara.Model {
 export class UpdateScheduledTaskRequestTaskDetailRelatedObjects extends $dara.Model {
   /**
    * @remarks
-   * 提及类型，如 objects
+   * The mention type, such as objects.
    * 
    * @example
    * string_value
@@ -197,15 +197,15 @@ export class UpdateScheduledTaskRequestTaskDetailRelatedObjects extends $dara.Mo
   mentionType?: string;
   /**
    * @remarks
-   * 文件名
+   * The file name.
    * 
    * @example
-   * 示例名称.pdf
+   * SampleName.pdf
    */
   name?: string;
   /**
    * @remarks
-   * 对象 ID（@指定时有值）
+   * The object ID. This parameter has a value when an object is mentioned using @.
    * 
    * @example
    * exampleObjectId
@@ -213,7 +213,7 @@ export class UpdateScheduledTaskRequestTaskDetailRelatedObjects extends $dara.Mo
   objectId?: string;
   /**
    * @remarks
-   * 对象类型，如 customer、company
+   * The object type, such as customer or company.
    * 
    * @example
    * string_value
@@ -249,7 +249,7 @@ export class UpdateScheduledTaskRequestTaskDetailRelatedObjects extends $dara.Mo
 export class UpdateScheduledTaskRequestTaskDetailRelatedSemantics extends $dara.Model {
   /**
    * @remarks
-   * 语义属性（JSON 字符串），用于语义检索时过滤
+   * The semantic attributes (JSON string) used for filtering during semantic retrieval.
    * 
    * @example
    * {"level": "VIP"}
@@ -257,7 +257,7 @@ export class UpdateScheduledTaskRequestTaskDetailRelatedSemantics extends $dara.
   attributes?: string;
   /**
    * @remarks
-   * 语义实体名，如客户/机会
+   * The semantic entity name, such as customer or opportunity.
    * 
    * @example
    * customer
@@ -289,7 +289,7 @@ export class UpdateScheduledTaskRequestTaskDetailRelatedSemantics extends $dara.
 export class UpdateScheduledTaskRequestTaskDetailRelatedSkills extends $dara.Model {
   /**
    * @remarks
-   * 技能展示名称
+   * The display name of the skill.
    * 
    * @example
    * string_value
@@ -297,15 +297,15 @@ export class UpdateScheduledTaskRequestTaskDetailRelatedSkills extends $dara.Mod
   displayName?: string;
   /**
    * @remarks
-   * 文件名
+   * The file name.
    * 
    * @example
-   * 示例名称.pdf
+   * SampleName.pdf
    */
   name?: string;
   /**
    * @remarks
-   * 技能代码
+   * The skill code.
    * 
    * @example
    * string_value
@@ -350,14 +350,24 @@ export class UpdateScheduledTaskRequestTaskDetailRelatedSkills extends $dara.Mod
 }
 
 export class UpdateScheduledTaskRequestTaskDetail extends $dara.Model {
+  /**
+   * @remarks
+   * The related objects.
+   */
   relatedObjects?: UpdateScheduledTaskRequestTaskDetailRelatedObjects[];
+  /**
+   * @remarks
+   * The related semantics.
+   */
   relatedSemantics?: UpdateScheduledTaskRequestTaskDetailRelatedSemantics[];
+  /**
+   * @remarks
+   * The related skills.
+   */
   relatedSkills?: UpdateScheduledTaskRequestTaskDetailRelatedSkills[];
   /**
    * @remarks
-   * LLM 润色后的任务理解描述
-   * 
-   * This parameter is required.
+   * The task understanding description polished by the LLM.
    * 
    * @example
    * string_value
@@ -402,7 +412,7 @@ export class UpdateScheduledTaskRequestTaskDetail extends $dara.Model {
 export class UpdateScheduledTaskRequestTriggerConfigPushConfig extends $dara.Model {
   /**
    * @remarks
-   * 推送渠道
+   * The push channel type.
    * 
    * @example
    * DINGTALK
@@ -410,7 +420,7 @@ export class UpdateScheduledTaskRequestTriggerConfigPushConfig extends $dara.Mod
   channelType?: string;
   /**
    * @remarks
-   * 推送内容范围，默认 all_replies
+   * The scope of push content. Default value: all_replies.
    * 
    * @example
    * all_replies
@@ -418,7 +428,7 @@ export class UpdateScheduledTaskRequestTriggerConfigPushConfig extends $dara.Mod
   contentScope?: string;
   /**
    * @remarks
-   * 推送方式，默认 channel_bot
+   * The push method. Default value: channel_bot.
    * 
    * @example
    * channel_bot
@@ -426,7 +436,7 @@ export class UpdateScheduledTaskRequestTriggerConfigPushConfig extends $dara.Mod
   deliveryMethod?: string;
   /**
    * @remarks
-   * 是否推送该频道，默认关闭
+   * Specifies whether to push to this channel. Default value: false.
    * 
    * @example
    * true
@@ -434,7 +444,7 @@ export class UpdateScheduledTaskRequestTriggerConfigPushConfig extends $dara.Mod
   enabled?: boolean;
   /**
    * @remarks
-   * 产出文件推送格式，默认 file
+   * The format for pushing output files. Default value: file.
    * 
    * @example
    * file
@@ -442,7 +452,7 @@ export class UpdateScheduledTaskRequestTriggerConfigPushConfig extends $dara.Mod
   fileFormat?: string;
   /**
    * @remarks
-   * 发送机器人所属数字员工，必传且不可为空
+   * The digital human to which the sending bot belongs. This parameter is required and cannot be empty.
    * 
    * @example
    * string_value
@@ -450,7 +460,7 @@ export class UpdateScheduledTaskRequestTriggerConfigPushConfig extends $dara.Mod
   operatingObjectName?: string;
   /**
    * @remarks
-   * 接收人，当前仅支持 self
+   * The receiver type. Currently only self is supported.
    * 
    * @example
    * string_value
@@ -492,7 +502,7 @@ export class UpdateScheduledTaskRequestTriggerConfigPushConfig extends $dara.Mod
 export class UpdateScheduledTaskRequestTriggerConfig extends $dara.Model {
   /**
    * @remarks
-   * Cron 表达式，trigger_mode=scheduled 时必填，如 \"00 09 * * *\"
+   * The cron expression. Required when trigger_mode is set to scheduled. Example: \\"00 09 * * *\\".
    * 
    * @example
    * string_value
@@ -500,7 +510,7 @@ export class UpdateScheduledTaskRequestTriggerConfig extends $dara.Model {
   cron?: string;
   /**
    * @remarks
-   * 语言如 zh-CN|en-US，由服务端自动注入
+   * The language, such as zh-CN or en-US. Automatically injected by the server.
    * 
    * @example
    * zh-CN
@@ -508,12 +518,12 @@ export class UpdateScheduledTaskRequestTriggerConfig extends $dara.Model {
   language?: string;
   /**
    * @remarks
-   * 任务推送频道列表；为空或无启用频道时不推送
+   * The list of push channels for the task. No push notifications are sent if the list is empty or no channel is enabled.
    */
   pushConfig?: UpdateScheduledTaskRequestTriggerConfigPushConfig[];
   /**
    * @remarks
-   * 时区如 Asia/Shanghai，由服务端自动注入
+   * The time zone, such as Asia/Shanghai. Automatically injected by the server.
    * 
    * @example
    * Asia/Shanghai
@@ -521,7 +531,7 @@ export class UpdateScheduledTaskRequestTriggerConfig extends $dara.Model {
   timezone?: string;
   /**
    * @remarks
-   * 触发模式：manual|scheduled
+   * The trigger mode. Valid values: manual and scheduled.
    * 
    * This parameter is required.
    * 
@@ -562,10 +572,14 @@ export class UpdateScheduledTaskRequestTriggerConfig extends $dara.Model {
 }
 
 export class UpdateScheduledTaskRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The description information.
+   */
   description?: UpdateScheduledTaskRequestDescription[];
   /**
    * @remarks
-   * 数字员工名称列表
+   * The list of digital human names.
    * 
    * @example
    * string_value
@@ -573,7 +587,7 @@ export class UpdateScheduledTaskRequest extends $dara.Model {
   digitalEmployeeName?: string[];
   /**
    * @remarks
-   * 是否公开访问
+   * Specifies whether the task is publicly accessible.
    * 
    * @example
    * true
@@ -581,7 +595,7 @@ export class UpdateScheduledTaskRequest extends $dara.Model {
   isOpen?: boolean;
   /**
    * @remarks
-   * 执行模型档位；不传则不更新
+   * The execution model tier. If not specified, the model tier is not updated.
    * 
    * @example
    * quick
@@ -589,17 +603,25 @@ export class UpdateScheduledTaskRequest extends $dara.Model {
   model?: string;
   /**
    * @remarks
-   * 文件名
+   * The file name.
    * 
    * @example
-   * 示例名称.pdf
+   * SampleName.pdf
    */
   name?: string;
+  /**
+   * @remarks
+   * The segments.
+   */
   segments?: UpdateScheduledTaskRequestSegments[];
+  /**
+   * @remarks
+   * The task details.
+   */
   taskDetail?: UpdateScheduledTaskRequestTaskDetail;
   /**
    * @remarks
-   * 任务 ID
+   * The task ID.
    * 
    * This parameter is required.
    * 
@@ -609,13 +631,33 @@ export class UpdateScheduledTaskRequest extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * 租户ID，公共参数，缺省时使用调用方默认租户
+   * The tenant ID. This is a common parameter. If not specified, the default tenant of the caller is used.
    * 
    * @example
    * 10000
    */
   tenantId?: string;
+  /**
+   * @remarks
+   * The trigger configuration. The configuration varies depending on the trigger type.
+   */
   triggerConfig?: UpdateScheduledTaskRequestTriggerConfig;
+  /**
+   * @remarks
+   * The visibility scope for group tasks. Valid values: PRIVATE (visible only to the creator and group owner), COLLABORATIVE (visible to specified collaborators), and PUBLIC (visible to all group members). If not specified, the visibility is not updated. This parameter is ignored for personal tasks.
+   * 
+   * @example
+   * COLLABORATIVE
+   */
+  visibility?: string;
+  /**
+   * @remarks
+   * The full replacement list of collaborator member user IDs. This parameter takes effect only when visibility is set to COLLABORATIVE. The list is cleared when switching away from the COLLABORATIVE tier. A maximum of 1000 members are supported. If not specified, the member list is not updated. The task creator and group creator do not need to be included because they are covered by the authentication layer. This parameter is ignored for personal tasks.
+   * 
+   * @example
+   * string_value
+   */
+  visibleMemberUserIds?: string[];
   static names(): { [key: string]: string } {
     return {
       description: 'description',
@@ -628,6 +670,8 @@ export class UpdateScheduledTaskRequest extends $dara.Model {
       taskId: 'taskId',
       tenantId: 'tenantId',
       triggerConfig: 'triggerConfig',
+      visibility: 'visibility',
+      visibleMemberUserIds: 'visibleMemberUserIds',
     };
   }
 
@@ -643,6 +687,8 @@ export class UpdateScheduledTaskRequest extends $dara.Model {
       taskId: 'string',
       tenantId: 'string',
       triggerConfig: UpdateScheduledTaskRequestTriggerConfig,
+      visibility: 'string',
+      visibleMemberUserIds: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -661,6 +707,9 @@ export class UpdateScheduledTaskRequest extends $dara.Model {
     }
     if(this.triggerConfig && typeof (this.triggerConfig as any).validate === 'function') {
       (this.triggerConfig as any).validate();
+    }
+    if(Array.isArray(this.visibleMemberUserIds)) {
+      $dara.Model.validateArray(this.visibleMemberUserIds);
     }
     super.validate();
   }

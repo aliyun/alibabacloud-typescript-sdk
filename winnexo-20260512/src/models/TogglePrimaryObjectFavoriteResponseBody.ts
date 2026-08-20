@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class TogglePrimaryObjectFavoriteResponseBodyResults extends $dara.Model {
   /**
    * @remarks
-   * 操作后是否已关注
+   * Indicates whether the object is followed after the operation.
    * 
    * @example
    * true
@@ -13,7 +13,7 @@ export class TogglePrimaryObjectFavoriteResponseBodyResults extends $dara.Model 
   isFavorited?: boolean;
   /**
    * @remarks
-   * 失败原因（成功时为 null）
+   * The description of the status code.
    * 
    * @example
    * string_value
@@ -21,7 +21,7 @@ export class TogglePrimaryObjectFavoriteResponseBodyResults extends $dara.Model 
   message?: string;
   /**
    * @remarks
-   * 主对象业务ID
+   * The ID of the aligned object: target ID or KR ID.
    * 
    * @example
    * exampleObjectId
@@ -29,7 +29,7 @@ export class TogglePrimaryObjectFavoriteResponseBodyResults extends $dara.Model 
   objectId?: string;
   /**
    * @remarks
-   * 操作是否成功
+   * Indicates whether the operation is successful.
    * 
    * @example
    * true
@@ -65,7 +65,7 @@ export class TogglePrimaryObjectFavoriteResponseBodyResults extends $dara.Model 
 export class TogglePrimaryObjectFavoriteResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+   * The status code.
    * 
    * @example
    * 200
@@ -73,7 +73,7 @@ export class TogglePrimaryObjectFavoriteResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * 该用户的关注总数（针对该对象类型）
+   * The total number of follows by the user for the specified object type.
    * 
    * @example
    * 1
@@ -81,17 +81,24 @@ export class TogglePrimaryObjectFavoriteResponseBody extends $dara.Model {
   favoriteCount?: number;
   /**
    * @remarks
-   * 错误描述，成功时为空
+   * The description of the status code.
+   * 
+   * @example
+   * ok
    */
   message?: string;
   /**
    * @remarks
-   * 请求追踪 ID
+   * The request ID.
    * 
    * @example
    * 019FF406-1B10-0065-A97D-2D1920C2A03D
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The list of results.
+   */
   results?: TogglePrimaryObjectFavoriteResponseBodyResults[];
   static names(): { [key: string]: string } {
     return {

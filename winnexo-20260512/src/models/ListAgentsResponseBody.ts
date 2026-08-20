@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAgentsResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * 使用权限授权模式：SPECIFIED_USERS=指定用户 / ALL_USERS=所有用户；未设置时为 null
+   * The authentication mode.
    * 
    * @example
    * string_value
@@ -13,7 +13,7 @@ export class ListAgentsResponseBodyItems extends $dara.Model {
   authMode?: string;
   /**
    * @remarks
-   * 数字员工显示名称
+   * The display name of the tool.
    * 
    * @example
    * string_value
@@ -21,7 +21,7 @@ export class ListAgentsResponseBodyItems extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * 启用/停用状态
+   * Indicates whether the account is activated.
    * 
    * @example
    * true
@@ -29,7 +29,7 @@ export class ListAgentsResponseBodyItems extends $dara.Model {
   isActive?: boolean;
   /**
    * @remarks
-   * 数字员工名称（唯一标识）
+   * The name of the digital employee.
    * 
    * @example
    * string_value
@@ -65,7 +65,7 @@ export class ListAgentsResponseBodyItems extends $dara.Model {
 export class ListAgentsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+   * The response status code.
    * 
    * @example
    * 200
@@ -73,17 +73,20 @@ export class ListAgentsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * 租户全量数字员工列表（含停用，按名称字母序）
+   * The list of skill cards.
    */
   items?: ListAgentsResponseBodyItems[];
   /**
    * @remarks
-   * 错误描述，成功时为空
+   * The prompt message.
+   * 
+   * @example
+   * ok
    */
   message?: string;
   /**
    * @remarks
-   * 请求追踪 ID
+   * The request ID.
    * 
    * @example
    * 019FF406-1B10-0065-A97D-2D1920C2A03D

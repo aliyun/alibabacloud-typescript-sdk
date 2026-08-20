@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QuerySyncResultResponseBodyDeptStats extends $dara.Model {
   /**
    * @remarks
-   * 新增的用户组数
+   * The total number of external departments.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class QuerySyncResultResponseBodyDeptStats extends $dara.Model {
   created?: number;
   /**
    * @remarks
-   * 标记删除的用户组数
+   * The number of user groups marked for deletion.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class QuerySyncResultResponseBodyDeptStats extends $dara.Model {
   deleted?: number;
   /**
    * @remarks
-   * 移动的用户组数
+   * The number of moved user groups.
    * 
    * @example
    * 1
@@ -29,7 +29,7 @@ export class QuerySyncResultResponseBodyDeptStats extends $dara.Model {
   moved?: number;
   /**
    * @remarks
-   * 更名的用户组数
+   * The number of renamed user groups.
    * 
    * @example
    * 1
@@ -37,7 +37,7 @@ export class QuerySyncResultResponseBodyDeptStats extends $dara.Model {
   renamed?: number;
   /**
    * @remarks
-   * 跳过的用户组数
+   * The number of skipped user groups.
    * 
    * @example
    * 1
@@ -45,7 +45,7 @@ export class QuerySyncResultResponseBodyDeptStats extends $dara.Model {
   skipped?: number;
   /**
    * @remarks
-   * 外部部门总数
+   * The total number of external departments.
    * 
    * @example
    * 1
@@ -85,7 +85,7 @@ export class QuerySyncResultResponseBodyDeptStats extends $dara.Model {
 export class QuerySyncResultResponseBodyMemberStats extends $dara.Model {
   /**
    * @remarks
-   * 失败的成员数
+   * The number of failed members.
    * 
    * @example
    * 1
@@ -93,7 +93,7 @@ export class QuerySyncResultResponseBodyMemberStats extends $dara.Model {
   failed?: number;
   /**
    * @remarks
-   * 新增的成员关系数
+   * The number of added member relationships.
    * 
    * @example
    * 1
@@ -101,7 +101,7 @@ export class QuerySyncResultResponseBodyMemberStats extends $dara.Model {
   relationshipAdded?: number;
   /**
    * @remarks
-   * 移除的成员关系数
+   * The number of removed member relationships.
    * 
    * @example
    * 1
@@ -109,7 +109,7 @@ export class QuerySyncResultResponseBodyMemberStats extends $dara.Model {
   relationshipRemoved?: number;
   /**
    * @remarks
-   * 外部成员总数
+   * The total number of external members.
    * 
    * @example
    * 1
@@ -117,7 +117,7 @@ export class QuerySyncResultResponseBodyMemberStats extends $dara.Model {
   totalExternal?: number;
   /**
    * @remarks
-   * 未变更的成员关系数
+   * The number of unchanged member relationships.
    * 
    * @example
    * 1
@@ -155,7 +155,7 @@ export class QuerySyncResultResponseBodyMemberStats extends $dara.Model {
 export class QuerySyncResultResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+   * The response status code.
    * 
    * @example
    * 200
@@ -163,7 +163,7 @@ export class QuerySyncResultResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * 任务完成时间（ISO 8601）
+   * The time when the task was completed (ISO 8601 format).
    * 
    * @example
    * string_value
@@ -171,7 +171,7 @@ export class QuerySyncResultResponseBody extends $dara.Model {
   completedAt?: string;
   /**
    * @remarks
-   * 企业标识
+   * The enterprise identifier.
    * 
    * @example
    * exampleCorpId
@@ -179,12 +179,12 @@ export class QuerySyncResultResponseBody extends $dara.Model {
   corpId?: string;
   /**
    * @remarks
-   * 部门同步统计（完成时有值）
+   * The department synchronization statistics. This field has a value when the task is completed.
    */
   deptStats?: QuerySyncResultResponseBodyDeptStats;
   /**
    * @remarks
-   * 执行时长（秒）
+   * The execution duration, in seconds.
    * 
    * @example
    * 1
@@ -192,7 +192,7 @@ export class QuerySyncResultResponseBody extends $dara.Model {
   durationSeconds?: number;
   /**
    * @remarks
-   * 错误信息（失败时有值）
+   * The error message.
    * 
    * @example
    * string_value
@@ -200,17 +200,20 @@ export class QuerySyncResultResponseBody extends $dara.Model {
   errorMessage?: string;
   /**
    * @remarks
-   * 成员同步统计（syncMembers=true 且完成时有值）
+   * The member synchronization statistics. This field has a value when syncMembers is set to true and the task is completed.
    */
   memberStats?: QuerySyncResultResponseBodyMemberStats;
   /**
    * @remarks
-   * 错误描述，成功时为空
+   * The description of the status code.
+   * 
+   * @example
+   * ok
    */
   message?: string;
   /**
    * @remarks
-   * 平台类型
+   * The platform type.
    * 
    * @example
    * string_value
@@ -218,7 +221,7 @@ export class QuerySyncResultResponseBody extends $dara.Model {
   platformType?: string;
   /**
    * @remarks
-   * 请求追踪 ID
+   * The request trace ID.
    * 
    * @example
    * 019FF406-1B10-0065-A97D-2D1920C2A03D
@@ -226,7 +229,7 @@ export class QuerySyncResultResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * 任务开始执行时间（ISO 8601）
+   * The time when the task started (ISO 8601 format).
    * 
    * @example
    * string_value
@@ -234,7 +237,7 @@ export class QuerySyncResultResponseBody extends $dara.Model {
   startedAt?: string;
   /**
    * @remarks
-   * 任务状态: PENDING / RUNNING / COMPLETED / FAILED / TIMEOUT / CANCELED
+   * The task status. Valid values: PENDING, RUNNING, COMPLETED, FAILED, TIMEOUT, and CANCELED.
    * 
    * @example
    * READY
@@ -242,7 +245,7 @@ export class QuerySyncResultResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * 任务提交时间（ISO 8601）
+   * The time when the task was submitted (ISO 8601 format).
    * 
    * @example
    * string_value
@@ -250,7 +253,7 @@ export class QuerySyncResultResponseBody extends $dara.Model {
   submittedAt?: string;
   /**
    * @remarks
-   * 执行摘要（人可读）
+   * The intelligent meeting summary content.
    * 
    * @example
    * string_value
@@ -258,7 +261,7 @@ export class QuerySyncResultResponseBody extends $dara.Model {
   summary?: string;
   /**
    * @remarks
-   * 任务 ID
+   * The task ID.
    * 
    * @example
    * 1

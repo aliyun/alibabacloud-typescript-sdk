@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateKnowledgeBaseDirectoryRequest extends $dara.Model {
   /**
    * @remarks
-   * 新分类描述；不传表示不更新
+   * The description of the to-do card type.
    * 
    * @example
-   * 示例描述
+   * Sample description
    */
   description?: string;
   /**
    * @remarks
-   * 待修改的分类 ID（必传）
+   * The directory ID.
    * 
    * This parameter is required.
    * 
@@ -23,15 +23,15 @@ export class UpdateKnowledgeBaseDirectoryRequest extends $dara.Model {
   directoryId?: string;
   /**
    * @remarks
-   * 新分类名称；不传表示不更新
+   * The name.
    * 
    * @example
-   * 示例名称.pdf
+   * SampleName.pdf
    */
   name?: string;
   /**
    * @remarks
-   * 新父分类 ID；不传表示不移动，传入时必须是当前租户下已存在的企业知识库目录 ID
+   * The directory ID.
    * 
    * @example
    * exampleParentDirectoryId
@@ -39,7 +39,7 @@ export class UpdateKnowledgeBaseDirectoryRequest extends $dara.Model {
   parentDirectoryId?: string;
   /**
    * @remarks
-   * 租户ID，公共参数，缺省时使用调用方默认租户
+   * The tenant ID to take effect.
    * 
    * @example
    * 10000

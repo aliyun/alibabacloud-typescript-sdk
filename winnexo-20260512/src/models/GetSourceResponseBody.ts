@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetSourceResponseBodyObjectBindings extends $dara.Model {
   /**
    * @remarks
-   * 对象归属的语义图谱名
+   * The semantic graph name to which the object belongs.
    * 
    * @example
    * string_value
@@ -13,7 +13,7 @@ export class GetSourceResponseBodyObjectBindings extends $dara.Model {
   graphName?: string;
   /**
    * @remarks
-   * 对象 ID
+   * The ID of the recommended item, which can be a **feedId** or a micro-application ID.
    * 
    * @example
    * exampleObjectId
@@ -21,7 +21,7 @@ export class GetSourceResponseBodyObjectBindings extends $dara.Model {
   objectId?: string;
   /**
    * @remarks
-   * 对象类型
+   * The object type, such as customer. This field has a value when type is set to mention.
    * 
    * @example
    * string_value
@@ -55,7 +55,7 @@ export class GetSourceResponseBodyObjectBindings extends $dara.Model {
 export class GetSourceResponseBodyUnstructuredDocs extends $dara.Model {
   /**
    * @remarks
-   * DocumentAgent 解析完成时间，ISO8601 格式
+   * The completion time, in milliseconds.
    * 
    * @example
    * 2023-10-01T12:00:00Z
@@ -63,7 +63,7 @@ export class GetSourceResponseBodyUnstructuredDocs extends $dara.Model {
   completionTime?: string;
   /**
    * @remarks
-   * 文件名
+   * The file name, including the file name extension.
    * 
    * @example
    * example.pdf
@@ -71,7 +71,7 @@ export class GetSourceResponseBodyUnstructuredDocs extends $dara.Model {
   fileName?: string;
   /**
    * @remarks
-   * 文件记录 ID
+   * The file record ID (optional, corresponding to settings.file_record_id).
    * 
    * @example
    * exampleFileRecordId
@@ -79,7 +79,9 @@ export class GetSourceResponseBodyUnstructuredDocs extends $dara.Model {
   fileRecordId?: string;
   /**
    * @remarks
-   * 文件类型
+   * The file type. Valid values:
+   * - **file**: file.
+   * - **folder**: folder.
    * 
    * @example
    * pdf
@@ -87,7 +89,7 @@ export class GetSourceResponseBodyUnstructuredDocs extends $dara.Model {
   fileType?: string;
   /**
    * @remarks
-   * OSS 远程 URL
+   * The session analysis result in OSS URL format. The URL expires in one hour.
    * 
    * @example
    * https://example.com/winnexo/resource
@@ -95,7 +97,7 @@ export class GetSourceResponseBodyUnstructuredDocs extends $dara.Model {
   ossUrl?: string;
   /**
    * @remarks
-   * DocumentAgent 语义 ID
+   * The DocumentAgent semantic ID.
    * 
    * @example
    * exampleSemanticsId
@@ -135,7 +137,7 @@ export class GetSourceResponseBodyUnstructuredDocs extends $dara.Model {
 export class GetSourceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+   * The error code.
    * 
    * @example
    * 200
@@ -143,7 +145,7 @@ export class GetSourceResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * DocumentAgent 解析完成时间，ISO8601 格式
+   * The completion time, in milliseconds.
    * 
    * @example
    * 2023-10-01T12:00:00Z
@@ -151,15 +153,15 @@ export class GetSourceResponseBody extends $dara.Model {
   completionTime?: string;
   /**
    * @remarks
-   * 数据源描述
+   * The description of the to-do card type.
    * 
    * @example
-   * 示例描述
+   * Sample description
    */
   description?: string;
   /**
    * @remarks
-   * 创建时间，ISO8601 格式
+   * The creation time.
    * 
    * @example
    * string_value
@@ -167,7 +169,7 @@ export class GetSourceResponseBody extends $dara.Model {
   gmtCreate?: string;
   /**
    * @remarks
-   * 修改时间，ISO8601 格式
+   * The last modification time.
    * 
    * @example
    * string_value
@@ -175,7 +177,7 @@ export class GetSourceResponseBody extends $dara.Model {
   gmtModified?: string;
   /**
    * @remarks
-   * 是否存在备注
+   * Indicates whether notes exist.
    * 
    * @example
    * true
@@ -183,7 +185,7 @@ export class GetSourceResponseBody extends $dara.Model {
   hasNotes?: boolean;
   /**
    * @remarks
-   * 是否存在 settings 配置
+   * Indicates whether settings configuration exists.
    * 
    * @example
    * true
@@ -191,7 +193,7 @@ export class GetSourceResponseBody extends $dara.Model {
   hasSettings?: boolean;
   /**
    * @remarks
-   * 是否存在结构化表
+   * Indicates whether structured tables exist.
    * 
    * @example
    * true
@@ -199,7 +201,7 @@ export class GetSourceResponseBody extends $dara.Model {
   hasStructuredTables?: boolean;
   /**
    * @remarks
-   * 是否存在非结构化文档
+   * Indicates whether unstructured documents exist.
    * 
    * @example
    * true
@@ -207,29 +209,36 @@ export class GetSourceResponseBody extends $dara.Model {
   hasUnstructuredDocs?: boolean;
   /**
    * @remarks
-   * 错误描述，成功时为空
+   * The status code description.
+   * 
+   * @example
+   * ok
    */
   message?: string;
   /**
    * @remarks
-   * 文件名
+   * The username.
    * 
    * @example
-   * 示例名称.pdf
+   * SampleName.pdf
    */
   name?: string;
   /**
    * @remarks
-   * 备注（仅 includeDetails=True）
+   * The meeting notes content (optional), which participates in auxiliary analysis.
    * 
    * @example
    * string_value
    */
   notes?: string;
+  /**
+   * @remarks
+   * The object bindings.
+   */
   objectBindings?: GetSourceResponseBodyObjectBindings[];
   /**
    * @remarks
-   * 主对象 ID（兼容字段）
+   * The associated variable ID.
    * 
    * @example
    * exampleObjectId
@@ -237,7 +246,7 @@ export class GetSourceResponseBody extends $dara.Model {
   objectId?: string;
   /**
    * @remarks
-   * 主对象类型（兼容字段）
+   * The object type, such as customer. This field has a value when type is set to mention.
    * 
    * @example
    * string_value
@@ -245,7 +254,7 @@ export class GetSourceResponseBody extends $dara.Model {
   objectType?: string;
   /**
    * @remarks
-   * 运营对象名称
+   * The digital employee name (operating object name, optional).
    * 
    * @example
    * string_value
@@ -253,7 +262,7 @@ export class GetSourceResponseBody extends $dara.Model {
   operatingObjectName?: string;
   /**
    * @remarks
-   * 请求追踪 ID
+   * The request ID.
    * 
    * @example
    * 019FF406-1B10-0065-A97D-2D1920C2A03D
@@ -261,16 +270,20 @@ export class GetSourceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * 可见范围：PERSONAL / TENANT
+   * The task scope.
    * 
    * @example
    * PERSONAL
    */
   scope?: string;
+  /**
+   * @remarks
+   * The user profile card settings.
+   */
   settings?: { [key: string]: any };
   /**
    * @remarks
-   * 技能产出 ID（由产出保存为资源时携带）
+   * The skill output ID (carried when the output is saved as a resource).
    * 
    * @example
    * exampleSkillOutputId
@@ -278,7 +291,7 @@ export class GetSourceResponseBody extends $dara.Model {
   skillOutputId?: string;
   /**
    * @remarks
-   * 数据源 ID
+   * The data source ID.
    * 
    * @example
    * exampleSourceId
@@ -286,7 +299,9 @@ export class GetSourceResponseBody extends $dara.Model {
   sourceId?: string;
   /**
    * @remarks
-   * 数据源归属类型：normal / aliding_kb_doc
+   * The knowledge base affiliation type. Valid values:
+   * - aliding_kb_doc: DingTalk knowledge base document.
+   * - normal: common knowledge.
    * 
    * @example
    * string_value
@@ -294,7 +309,7 @@ export class GetSourceResponseBody extends $dara.Model {
   sourceKind?: string;
   /**
    * @remarks
-   * 资源标签 JSON 字符串
+   * The resource tags (optional, a JSON string list such as ["tagA","tagB"]).
    * 
    * @example
    * string_value
@@ -302,7 +317,7 @@ export class GetSourceResponseBody extends $dara.Model {
   sourceTags?: string;
   /**
    * @remarks
-   * 数据源类型
+   * The resource type.
    * 
    * @example
    * string_value
@@ -310,7 +325,7 @@ export class GetSourceResponseBody extends $dara.Model {
   sourceType?: string;
   /**
    * @remarks
-   * 数据源状态
+   * The final status of the message.
    * 
    * @example
    * READY
@@ -324,6 +339,10 @@ export class GetSourceResponseBody extends $dara.Model {
    * string_value
    */
   structuredTables?: string[];
+  /**
+   * @remarks
+   * The unstructured documents.
+   */
   unstructuredDocs?: GetSourceResponseBodyUnstructuredDocs[];
   static names(): { [key: string]: string } {
     return {

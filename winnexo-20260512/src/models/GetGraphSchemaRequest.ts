@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetGraphSchemaRequest extends $dara.Model {
   /**
    * @remarks
-   * 图谱名称，可先调用 listGraphs 获取
+   * The knowledge graph name. Call listGraphs to obtain this value.
    * 
    * This parameter is required.
    * 
@@ -15,9 +15,12 @@ export class GetGraphSchemaRequest extends $dara.Model {
   graphName?: string;
   /**
    * @remarks
-   * 租户ID，公共参数；winnexo-cli 通过 --tenant-id 显式传入
+   * The effective tenant ID.
    * 
    * This parameter is required.
+   * 
+   * @example
+   * 21577
    */
   tenantId?: string;
   static names(): { [key: string]: string } {

@@ -5,20 +5,23 @@ import * as $dara from '@darabonba/typescript';
 export class CheckHealthResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 认证来源: bearer / aliyun_gateway
+   * The authentication source: bearer / aliyun_gateway.
    * 
    * @example
    * aliyun_gateway
    */
   authSource?: string;
   /**
+   * @remarks
+   * The caller type: user / aliyun_main / aliyun_ram / service.
+   * 
    * @example
    * aliyun_main
    */
   callerType?: string;
   /**
    * @remarks
-   * 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+   * The response status code.
    * 
    * @example
    * 200
@@ -26,28 +29,31 @@ export class CheckHealthResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * 当前请求生效的数字员工名（运营对象）；未传且租户下无数字员工时为空
+   * The name of the currently effective digital employee. This value is empty if not configured.
    * 
    * @example
-   * string_value
+   * pcitc-magent
    */
   digitalEmployeeName?: string;
   /**
    * @remarks
-   * 错误描述，成功时为空
+   * The status code description.
+   * 
+   * @example
+   * ok
    */
   message?: string;
   /**
    * @remarks
-   * 请求追踪 ID
+   * The request ID.
    * 
    * @example
-   * 019FF406-1B10-0065-A97D-2D1920C2A03D
+   * F4A9EB1C-6952-5CCC-B1DC-355576FC82A7
    */
   requestId?: string;
   /**
    * @remarks
-   * 生效租户ID
+   * The effective tenant ID.
    * 
    * @example
    * 21577
@@ -55,7 +61,7 @@ export class CheckHealthResponseBody extends $dara.Model {
   tenantId?: number;
   /**
    * @remarks
-   * 平台用户ID
+   * The platform user ID.
    * 
    * @example
    * 10001

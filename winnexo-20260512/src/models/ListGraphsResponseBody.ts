@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListGraphsResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * 图谱业务说明，未配置时为空字符串
+   * The business description of the knowledge graph. An empty string is returned if not configured.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ListGraphsResponseBodyItems extends $dara.Model {
   businessProfile?: string;
   /**
    * @remarks
-   * 图谱显示名称
+   * The tool display name.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class ListGraphsResponseBodyItems extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * 图谱名称，传给 querySemanticKnowledge.graphName
+   * The knowledge graph name.
    * 
    * This parameter is required.
    * 
@@ -35,7 +35,7 @@ export class ListGraphsResponseBodyItems extends $dara.Model {
   graphName?: string;
   /**
    * @remarks
-   * 是否为租户默认图谱
+   * Indicates whether this is the default group.
    * 
    * This parameter is required.
    * 
@@ -73,7 +73,7 @@ export class ListGraphsResponseBodyItems extends $dara.Model {
 export class ListGraphsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+   * The response status code.
    * 
    * @example
    * 200
@@ -81,19 +81,22 @@ export class ListGraphsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * 租户下可用于语义查询的已发布图谱列表
+   * The list of MCP cards.
    * 
    * This parameter is required.
    */
   items?: ListGraphsResponseBodyItems[];
   /**
    * @remarks
-   * 错误描述，成功时为空
+   * The prompt message.
+   * 
+   * @example
+   * successful
    */
   message?: string;
   /**
    * @remarks
-   * 请求追踪 ID
+   * The request ID.
    * 
    * @example
    * 019FF406-1B10-0065-A97D-2D1920C2A03D

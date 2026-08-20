@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UploadChatFileResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+   * The status code.
    * 
    * @example
    * 200
@@ -13,7 +13,18 @@ export class UploadChatFileResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * 文件 MIME 类型
+   * The content type of the file. Valid values:
+   * 
+   * - **image**: image
+   * - **document**: general document
+   * - **alidoc**: Alibaba document
+   * - **text**: text
+   * - **video**: video
+   * - **audio**: audio
+   * - **archive**: archive
+   * - **app**: application
+   * - **link**: shortcut
+   * - **other**: other
    * 
    * @example
    * string_value
@@ -21,7 +32,7 @@ export class UploadChatFileResponseBody extends $dara.Model {
   contentType?: string;
   /**
    * @remarks
-   * 文件名
+   * The full path name of the file.
    * 
    * @example
    * example.pdf
@@ -29,7 +40,7 @@ export class UploadChatFileResponseBody extends $dara.Model {
   fileName?: string;
   /**
    * @remarks
-   * 文件公开访问 URL（有效期 1 小时）
+   * The publicly accessible URL of the online document.
    * 
    * @example
    * https://example.com/winnexo/resource
@@ -37,7 +48,7 @@ export class UploadChatFileResponseBody extends $dara.Model {
   filePublicUrl?: string;
   /**
    * @remarks
-   * 文件记录 ID
+   * The file record ID (optional, corresponding to settings.file_record_id).
    * 
    * @example
    * exampleFileRecordId
@@ -45,7 +56,7 @@ export class UploadChatFileResponseBody extends $dara.Model {
   fileRecordId?: string;
   /**
    * @remarks
-   * 文件 remote_url（入库路径）
+   * The attachment address.
    * 
    * @example
    * https://example.com/winnexo/resource
@@ -53,12 +64,15 @@ export class UploadChatFileResponseBody extends $dara.Model {
   fileUrl?: string;
   /**
    * @remarks
-   * 错误描述，成功时为空
+   * The description of the status code.
+   * 
+   * @example
+   * ok
    */
   message?: string;
   /**
    * @remarks
-   * OSS 对象路径
+   * The object name.
    * 
    * @example
    * string_value
@@ -66,7 +80,7 @@ export class UploadChatFileResponseBody extends $dara.Model {
   objectName?: string;
   /**
    * @remarks
-   * 请求追踪 ID
+   * The request ID.
    * 
    * @example
    * 019FF406-1B10-0065-A97D-2D1920C2A03D
@@ -74,7 +88,7 @@ export class UploadChatFileResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * 签名上传 URL（本接口为后端直传，该字段为空）
+   * The signature URL.
    * 
    * @example
    * https://example.com/winnexo/resource

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetInstanceExpireTimeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+   * The response status code.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class GetInstanceExpireTimeResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * 是否找到标准包实例
+   * Indicates whether a standard package instance is found.
    * 
    * @example
    * true
@@ -21,7 +21,7 @@ export class GetInstanceExpireTimeResponseBody extends $dara.Model {
   found?: boolean;
   /**
    * @remarks
-   * 实例过期时间（ISO格式）
+   * The expiration time of the instance in ISO format.
    * 
    * @example
    * 2023-10-01T12:00:00Z
@@ -29,7 +29,7 @@ export class GetInstanceExpireTimeResponseBody extends $dara.Model {
   instanceExpireTime?: string;
   /**
    * @remarks
-   * 实例ID
+   * The instance ID. This parameter is required.
    * 
    * @example
    * exampleInstanceId
@@ -37,7 +37,11 @@ export class GetInstanceExpireTimeResponseBody extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * 实例状态
+   * The instance status. Valid values:
+   * - RUNNING: Running.
+   * - TERMINATED: Terminated.
+   * - COMPLETED: Completed.
+   * - ERROR: Error.
    * 
    * @example
    * string_value
@@ -45,12 +49,15 @@ export class GetInstanceExpireTimeResponseBody extends $dara.Model {
   instanceStatus?: string;
   /**
    * @remarks
-   * 错误描述，成功时为空
+   * The prompt message.
+   * 
+   * @example
+   * ok
    */
   message?: string;
   /**
    * @remarks
-   * 请求追踪 ID
+   * The request ID.
    * 
    * @example
    * 019FF406-1B10-0065-A97D-2D1920C2A03D
@@ -58,7 +65,7 @@ export class GetInstanceExpireTimeResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * 系统租户ID
+   * The effective tenant ID.
    * 
    * @example
    * 10000

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetScheduledTaskExecutionRecordsResponseBodyTasksTimeline extends $dara.Model {
   /**
    * @remarks
-   * 实际执行时间（仅历史记录）
+   * The actual working hours, in hours.
    * 
    * @example
    * 2023-10-01T12:00:00Z
@@ -13,7 +13,7 @@ export class GetScheduledTaskExecutionRecordsResponseBodyTasksTimeline extends $
   actualTime?: string;
   /**
    * @remarks
-   * 执行记录展示名称
+   * The name of the schedule location.
    * 
    * @example
    * string_value
@@ -21,7 +21,7 @@ export class GetScheduledTaskExecutionRecordsResponseBodyTasksTimeline extends $
   displayName?: string;
   /**
    * @remarks
-   * 错误信息（仅失败记录）
+   * The error message.
    * 
    * @example
    * string_value
@@ -29,7 +29,7 @@ export class GetScheduledTaskExecutionRecordsResponseBodyTasksTimeline extends $
   errorMessage?: string;
   /**
    * @remarks
-   * 执行记录 ID（历史记录才有）
+   * The execution record ID.
    * 
    * @example
    * exampleExecutionId
@@ -37,7 +37,15 @@ export class GetScheduledTaskExecutionRecordsResponseBodyTasksTimeline extends $
   executionId?: string;
   /**
    * @remarks
-   * 执行输出内容（仅历史记录）
+   * Indicates whether the execution record has been archived due to expiration.
+   * 
+   * @example
+   * false
+   */
+  isExpired?: boolean;
+  /**
+   * @remarks
+   * The execution output content (historical records only).
    * 
    * @example
    * string_value
@@ -45,7 +53,7 @@ export class GetScheduledTaskExecutionRecordsResponseBodyTasksTimeline extends $
   outputContent?: string;
   /**
    * @remarks
-   * 计划执行时间 ISO8601
+   * The timed scheduling time.
    * 
    * @example
    * 2023-10-01T12:00:00Z
@@ -53,7 +61,7 @@ export class GetScheduledTaskExecutionRecordsResponseBodyTasksTimeline extends $
   scheduledTime?: string;
   /**
    * @remarks
-   * 状态：PENDING/RUNNING/SUCCESS/FAILED/SCHEDULED
+   * The final status of the message.
    * 
    * @example
    * READY
@@ -65,6 +73,7 @@ export class GetScheduledTaskExecutionRecordsResponseBodyTasksTimeline extends $
       displayName: 'displayName',
       errorMessage: 'errorMessage',
       executionId: 'executionId',
+      isExpired: 'isExpired',
       outputContent: 'outputContent',
       scheduledTime: 'scheduledTime',
       status: 'status',
@@ -77,6 +86,7 @@ export class GetScheduledTaskExecutionRecordsResponseBodyTasksTimeline extends $
       displayName: 'string',
       errorMessage: 'string',
       executionId: 'string',
+      isExpired: 'boolean',
       outputContent: 'string',
       scheduledTime: 'string',
       status: 'string',
@@ -95,7 +105,15 @@ export class GetScheduledTaskExecutionRecordsResponseBodyTasksTimeline extends $
 export class GetScheduledTaskExecutionRecordsResponseBodyTasks extends $dara.Model {
   /**
    * @remarks
-   * Cron 表达式
+   * The ID of the collaboration group to which the task belongs. If empty, the task is a personal task.
+   * 
+   * @example
+   * exampleCollaborationGroupId
+   */
+  collaborationGroupId?: string;
+  /**
+   * @remarks
+   * The cron expression.
    * 
    * @example
    * string_value
@@ -103,15 +121,15 @@ export class GetScheduledTaskExecutionRecordsResponseBodyTasks extends $dara.Mod
   cronExpression?: string;
   /**
    * @remarks
-   * 任务简述
+   * The description of the to-do card type.
    * 
    * @example
-   * 示例描述
+   * Sample description
    */
   description?: string;
   /**
    * @remarks
-   * 是否公开
+   * Indicates whether public access is enabled.
    * 
    * @example
    * true
@@ -119,24 +137,41 @@ export class GetScheduledTaskExecutionRecordsResponseBodyTasks extends $dara.Mod
   isOpen?: boolean;
   /**
    * @remarks
-   * 文件名
+   * The execution model tier. Valid values:
+   * - flagship: flagship.
+   * - standard: standard.
+   * - quick: lightweight.
    * 
    * @example
-   * 示例名称.pdf
+   * standard
+   */
+  model?: string;
+  /**
+   * @remarks
+   * The name.
+   * 
+   * @example
+   * SampleName.pdf
    */
   name?: string;
   /**
    * @remarks
-   * 任务 ID
+   * The task ID.
    * 
    * @example
    * exampleTaskId
    */
   taskId?: string;
+  /**
+   * @remarks
+   * The timeline.
+   */
   timeline?: GetScheduledTaskExecutionRecordsResponseBodyTasksTimeline[];
   /**
    * @remarks
-   * 时区
+   * The time zone.
+   * 
+   * > Default value: UTC+8.
    * 
    * @example
    * Asia/Shanghai
@@ -144,7 +179,9 @@ export class GetScheduledTaskExecutionRecordsResponseBodyTasks extends $dara.Mod
   timezone?: string;
   /**
    * @remarks
-   * 触发类型 cron/manual/event
+   * The trigger type. Valid values:
+   * - Manual: manually executed.
+   * - Cron: triggered by a schedule.
    * 
    * @example
    * string_value
@@ -152,9 +189,11 @@ export class GetScheduledTaskExecutionRecordsResponseBodyTasks extends $dara.Mod
   triggerType?: string;
   static names(): { [key: string]: string } {
     return {
+      collaborationGroupId: 'collaborationGroupId',
       cronExpression: 'cronExpression',
       description: 'description',
       isOpen: 'isOpen',
+      model: 'model',
       name: 'name',
       taskId: 'taskId',
       timeline: 'timeline',
@@ -165,9 +204,11 @@ export class GetScheduledTaskExecutionRecordsResponseBodyTasks extends $dara.Mod
 
   static types(): { [key: string]: any } {
     return {
+      collaborationGroupId: 'string',
       cronExpression: 'string',
       description: 'string',
       isOpen: 'boolean',
+      model: 'string',
       name: 'string',
       taskId: 'string',
       timeline: { 'type': 'array', 'itemType': GetScheduledTaskExecutionRecordsResponseBodyTasksTimeline },
@@ -191,7 +232,7 @@ export class GetScheduledTaskExecutionRecordsResponseBodyTasks extends $dara.Mod
 export class GetScheduledTaskExecutionRecordsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+   * The status code.
    * 
    * @example
    * 200
@@ -199,33 +240,80 @@ export class GetScheduledTaskExecutionRecordsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * 错误描述，成功时为空
+   * Indicates whether more data is available.
+   * 
+   * @example
+   * true
+   */
+  hasMore?: boolean;
+  /**
+   * @remarks
+   * The description of the status code.
+   * 
+   * @example
+   * The current zone list is illegal.
    */
   message?: string;
   /**
    * @remarks
-   * 请求追踪 ID
+   * The current page number.
+   * 
+   * @example
+   * 1
+   */
+  page?: number;
+  /**
+   * @remarks
+   * The number of tasks per page.
+   * 
+   * @example
+   * 20
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The request ID.
    * 
    * @example
    * 019FF406-1B10-0065-A97D-2D1920C2A03D
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The task list.
+   */
   tasks?: GetScheduledTaskExecutionRecordsResponseBodyTasks[];
+  /**
+   * @remarks
+   * The total number of tasks.
+   * 
+   * @example
+   * 1
+   */
+  total?: number;
   static names(): { [key: string]: string } {
     return {
       code: 'code',
+      hasMore: 'hasMore',
       message: 'message',
+      page: 'page',
+      pageSize: 'pageSize',
       requestId: 'requestId',
       tasks: 'tasks',
+      total: 'total',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       code: 'string',
+      hasMore: 'boolean',
       message: 'string',
+      page: 'number',
+      pageSize: 'number',
       requestId: 'string',
       tasks: { 'type': 'array', 'itemType': GetScheduledTaskExecutionRecordsResponseBodyTasks },
+      total: 'number',
     };
   }
 

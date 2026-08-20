@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateUserInfoResponseBodyUserTenantList extends $dara.Model {
   /**
    * @remarks
-   * 租户ID
+   * The tenant ID.
    * 
    * @example
    * 10000
@@ -13,7 +13,7 @@ export class UpdateUserInfoResponseBodyUserTenantList extends $dara.Model {
   tenantId?: number;
   /**
    * @remarks
-   * 租户名称
+   * The tenant name.
    * 
    * @example
    * string_value
@@ -45,7 +45,7 @@ export class UpdateUserInfoResponseBodyUserTenantList extends $dara.Model {
 export class UpdateUserInfoResponseBodyUser extends $dara.Model {
   /**
    * @remarks
-   * 用户头像URL
+   * The user profile picture URL.
    * 
    * @example
    * https://example.com/avatar.png
@@ -53,7 +53,7 @@ export class UpdateUserInfoResponseBodyUser extends $dara.Model {
   avatar?: string;
   /**
    * @remarks
-   * 是否为超级管理员
+   * Indicates whether the user is a super administrator.
    * 
    * @example
    * true
@@ -61,7 +61,7 @@ export class UpdateUserInfoResponseBodyUser extends $dara.Model {
   isAdmin?: boolean;
   /**
    * @remarks
-   * 当前登录租户是否为系统租户
+   * Indicates whether the current logged-in tenant is a system tenant.
    * 
    * @example
    * true
@@ -69,7 +69,7 @@ export class UpdateUserInfoResponseBodyUser extends $dara.Model {
   isSystemTenant?: boolean;
   /**
    * @remarks
-   * 用户语言偏好
+   * The user language preference.
    * 
    * @example
    * string_value
@@ -77,15 +77,15 @@ export class UpdateUserInfoResponseBodyUser extends $dara.Model {
   languagePreference?: string;
   /**
    * @remarks
-   * 文件名
+   * The username.
    * 
    * @example
-   * 示例名称.pdf
+   * SampleName.pdf
    */
   name?: string;
   /**
    * @remarks
-   * 用户服务描述
+   * The user service description.
    * 
    * @example
    * string_value
@@ -93,7 +93,7 @@ export class UpdateUserInfoResponseBodyUser extends $dara.Model {
   offering?: string;
   /**
    * @remarks
-   * 用户服务解析结果（JSON格式）
+   * The parsed user service result in JSON format.
    * 
    * @example
    * string_value
@@ -101,7 +101,7 @@ export class UpdateUserInfoResponseBodyUser extends $dara.Model {
   parsedOffering?: string;
   /**
    * @remarks
-   * 用户角色
+   * The user role.
    * 
    * @example
    * string_value
@@ -109,7 +109,7 @@ export class UpdateUserInfoResponseBodyUser extends $dara.Model {
   profileRole?: string;
   /**
    * @remarks
-   * 用户角色描述
+   * The user role description.
    * 
    * @example
    * string_value
@@ -117,7 +117,7 @@ export class UpdateUserInfoResponseBodyUser extends $dara.Model {
   profileRoleInfo?: string;
   /**
    * @remarks
-   * 用户自我介绍
+   * The user self-introduction.
    * 
    * @example
    * string_value
@@ -125,16 +125,20 @@ export class UpdateUserInfoResponseBodyUser extends $dara.Model {
   selfIntroduction?: string;
   /**
    * @remarks
-   * 当前租户ID
+   * The current tenant ID.
    * 
    * @example
    * 10000
    */
   tenantId?: number;
+  /**
+   * @remarks
+   * The list of tenants to which the user belongs.
+   */
   tenantList?: UpdateUserInfoResponseBodyUserTenantList[];
   /**
    * @remarks
-   * 当前租户名称
+   * The current tenant name.
    * 
    * @example
    * string_value
@@ -142,7 +146,7 @@ export class UpdateUserInfoResponseBodyUser extends $dara.Model {
   tenantName?: string;
   /**
    * @remarks
-   * 用户代码
+   * The user code.
    * 
    * @example
    * string_value
@@ -150,7 +154,7 @@ export class UpdateUserInfoResponseBodyUser extends $dara.Model {
   userCode?: string;
   /**
    * @remarks
-   * 用户ID
+   * The user ID.
    * 
    * @example
    * 1
@@ -211,7 +215,7 @@ export class UpdateUserInfoResponseBodyUser extends $dara.Model {
 export class UpdateUserInfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+   * The error code.
    * 
    * @example
    * 200
@@ -219,17 +223,24 @@ export class UpdateUserInfoResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * 错误描述，成功时为空
+   * The status code description.
+   * 
+   * @example
+   * The current zone list is illegal.
    */
   message?: string;
   /**
    * @remarks
-   * 请求追踪 ID
+   * The request ID.
    * 
    * @example
    * 019FF406-1B10-0065-A97D-2D1920C2A03D
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The user information.
+   */
   user?: UpdateUserInfoResponseBodyUser;
   static names(): { [key: string]: string } {
     return {

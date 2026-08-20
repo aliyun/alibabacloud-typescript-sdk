@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class MoveKnowledgeBaseResourceRequest extends $dara.Model {
   /**
    * @remarks
-   * 目标知识库 ID
+   * Not supported. This parameter is ignored.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class MoveKnowledgeBaseResourceRequest extends $dara.Model {
   knowledgeId?: string;
   /**
    * @remarks
-   * 源目录 ID（资源当前所在的企业知识库目录）
+   * The source directory ID. This is the enterprise knowledge base directory where the resource currently resides.
    * 
    * This parameter is required.
    * 
@@ -25,17 +25,17 @@ export class MoveKnowledgeBaseResourceRequest extends $dara.Model {
   sourceDirectoryId?: string;
   /**
    * @remarks
-   * 待移动的资源 ID
+   * The data source ID.
    * 
    * This parameter is required.
    * 
    * @example
-   * exampleSourceId
+   * 2000627
    */
   sourceId?: string;
   /**
    * @remarks
-   * 目标目录 ID（资源即将移动到的企业知识库目录）
+   * The target directory ID.
    * 
    * This parameter is required.
    * 
@@ -45,10 +45,10 @@ export class MoveKnowledgeBaseResourceRequest extends $dara.Model {
   targetDirectoryId?: string;
   /**
    * @remarks
-   * 租户ID，公共参数；winnexo-cli 通过 --tenant-id 显式传入
+   * The tenant ID.
    * 
    * @example
-   * 10000
+   * 1729094555111072
    */
   tenantId?: string;
   static names(): { [key: string]: string } {

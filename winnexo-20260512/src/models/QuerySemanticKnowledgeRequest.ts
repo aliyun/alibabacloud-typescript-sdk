@@ -5,17 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class QuerySemanticKnowledgeRequest extends $dara.Model {
   /**
    * @remarks
-   * 数字员工名称，可先调用 listAuthorizedAgents 获取 USE 权限列表
+   * The digital human name. Call listAuthorizedAgents first to retrieve the list of USE permissions.
    * 
    * This parameter is required.
    * 
    * @example
-   * 示例数字员工
+   * SampleDigitalHuman
    */
   agentName?: string;
   /**
    * @remarks
-   * 图谱名称，可先调用 listGraphs 获取
+   * The knowledge graph name. Call listGraphs first to retrieve available graphs.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class QuerySemanticKnowledgeRequest extends $dara.Model {
   graphName?: string;
   /**
    * @remarks
-   * 自然语言查询问题
+   * The natural language query question.
    * 
    * This parameter is required.
    * 
@@ -35,9 +35,12 @@ export class QuerySemanticKnowledgeRequest extends $dara.Model {
   query?: string;
   /**
    * @remarks
-   * 租户ID，公共参数；winnexo-cli 通过 --tenant-id 显式传入
+   * The tenant ID. This is a common parameter. In winnexo-cli, pass it explicitly with --tenant-id.
    * 
    * This parameter is required.
+   * 
+   * @example
+   * 21577
    */
   tenantId?: string;
   static names(): { [key: string]: string } {

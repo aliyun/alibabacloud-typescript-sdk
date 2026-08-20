@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RunSkillResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+   * The response status code.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class RunSkillResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * 任务创建时间，ISO8601 UTC 格式
+   * The task creation time in ISO 8601 UTC format.
    * 
    * @example
    * string_value
@@ -21,12 +21,15 @@ export class RunSkillResponseBody extends $dara.Model {
   createdAt?: string;
   /**
    * @remarks
-   * 错误描述，成功时为空
+   * The prompt message.
+   * 
+   * @example
+   * The current zone list is illegal.
    */
   message?: string;
   /**
    * @remarks
-   * 请求追踪 ID
+   * The request ID.
    * 
    * @example
    * 019FF406-1B10-0065-A97D-2D1920C2A03D
@@ -34,7 +37,7 @@ export class RunSkillResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * 异步任务 ID，用于 getSkillRun 查询
+   * The asynchronous task ID, used for querying with getSkillRun.
    * 
    * @example
    * exampleRunId
@@ -42,7 +45,7 @@ export class RunSkillResponseBody extends $dara.Model {
   runId?: string;
   /**
    * @remarks
-   * 实际执行的技能编码
+   * The skill code that was actually executed.
    * 
    * @example
    * string_value
@@ -50,7 +53,7 @@ export class RunSkillResponseBody extends $dara.Model {
   skillCode?: string;
   /**
    * @remarks
-   * 技能名称
+   * The skill name.
    * 
    * @example
    * string_value
@@ -58,7 +61,7 @@ export class RunSkillResponseBody extends $dara.Model {
   skillName?: string;
   /**
    * @remarks
-   * 任务状态：提交即返回 Running
+   * The task status. Returns Running immediately upon submission.
    * 
    * @example
    * READY

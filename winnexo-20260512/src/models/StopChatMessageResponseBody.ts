@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class StopChatMessageResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+   * The status code.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class StopChatMessageResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * 结束原因
+   * The reason for stopping.
    * 
    * @example
    * string_value
@@ -21,12 +21,15 @@ export class StopChatMessageResponseBody extends $dara.Model {
   finishReason?: string;
   /**
    * @remarks
-   * 错误描述，成功时为空
+   * The description of the status code.
+   * 
+   * @example
+   * successful
    */
   message?: string;
   /**
    * @remarks
-   * 助手消息ID，由 sendAsyncChatMessage 返回；不属于当前租户时返回 404
+   * The message ID.
    * 
    * @example
    * exampleMessageId
@@ -34,7 +37,7 @@ export class StopChatMessageResponseBody extends $dara.Model {
   messageId?: string;
   /**
    * @remarks
-   * 已生成的部分内容
+   * The partially generated content.
    * 
    * @example
    * string_value
@@ -42,7 +45,7 @@ export class StopChatMessageResponseBody extends $dara.Model {
   partialContent?: string;
   /**
    * @remarks
-   * 请求追踪 ID
+   * The request ID.
    * 
    * @example
    * 019FF406-1B10-0065-A97D-2D1920C2A03D
@@ -50,7 +53,7 @@ export class StopChatMessageResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * 会话 ID
+   * The session ID.
    * 
    * @example
    * exampleSessionId
@@ -58,7 +61,7 @@ export class StopChatMessageResponseBody extends $dara.Model {
   sessionId?: string;
   /**
    * @remarks
-   * 消息最终状态
+   * The final status of the message.
    * 
    * @example
    * READY

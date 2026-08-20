@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetUserCreditUsageResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+   * The error code.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class GetUserCreditUsageResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * 用户 credit 限额
+   * The credit limit of the user.
    * 
    * @example
    * string_value
@@ -21,12 +21,15 @@ export class GetUserCreditUsageResponseBody extends $dara.Model {
   creditLimit?: string;
   /**
    * @remarks
-   * 错误描述，成功时为空
+   * The status code description.
+   * 
+   * @example
+   * The current zone list is illegal.
    */
   message?: string;
   /**
    * @remarks
-   * 剩余 credit（实时，来自 Redis）
+   * The remaining credits in real time.
    * 
    * @example
    * string_value
@@ -34,7 +37,7 @@ export class GetUserCreditUsageResponseBody extends $dara.Model {
   remainingCredits?: string;
   /**
    * @remarks
-   * 请求追踪 ID
+   * The request ID.
    * 
    * @example
    * 019FF406-1B10-0065-A97D-2D1920C2A03D
@@ -42,7 +45,7 @@ export class GetUserCreditUsageResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * 影子 credit 限额
+   * The shadow credit limit.
    * 
    * @example
    * string_value
@@ -50,7 +53,7 @@ export class GetUserCreditUsageResponseBody extends $dara.Model {
   shadowCreditLimit?: string;
   /**
    * @remarks
-   * 剩余影子 credit（实时，来自 Redis）
+   * The remaining shadow credits in real time.
    * 
    * @example
    * string_value
@@ -58,7 +61,7 @@ export class GetUserCreditUsageResponseBody extends $dara.Model {
   shadowRemainingCredits?: string;
   /**
    * @remarks
-   * 已消耗影子 credit（实时，来自 Redis）
+   * The consumed shadow credits in real time.
    * 
    * @example
    * string_value
@@ -66,7 +69,7 @@ export class GetUserCreditUsageResponseBody extends $dara.Model {
   shadowUsedCredits?: string;
   /**
    * @remarks
-   * 租户ID
+   * The ID of the tenant to which the task belongs.
    * 
    * @example
    * 10000
@@ -74,7 +77,7 @@ export class GetUserCreditUsageResponseBody extends $dara.Model {
   tenantId?: number;
   /**
    * @remarks
-   * 已消耗 credit（实时，来自 Redis）
+   * The consumed credits in real time.
    * 
    * @example
    * string_value
@@ -82,7 +85,7 @@ export class GetUserCreditUsageResponseBody extends $dara.Model {
   usedCredits?: string;
   /**
    * @remarks
-   * 用户ID
+   * The user ID.
    * 
    * @example
    * 1

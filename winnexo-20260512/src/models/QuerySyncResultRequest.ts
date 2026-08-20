@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QuerySyncResultRequest extends $dara.Model {
   /**
    * @remarks
-   * 同步任务 ID（由 syncOrgStructure 返回）
+   * The task ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class QuerySyncResultRequest extends $dara.Model {
   taskId?: number;
   /**
    * @remarks
-   * 租户ID，公共参数，缺省时使用调用方默认租户
+   * The tenant ID. This is a common parameter. If not specified, the default tenant of the caller is used.
    * 
    * @example
    * 10000

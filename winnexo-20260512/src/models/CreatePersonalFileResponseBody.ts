@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreatePersonalFileResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+   * The response status code.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class CreatePersonalFileResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * 绑定的目录 ID
+   * The directory ID.
    * 
    * @example
    * exampleDirectoryId
@@ -21,55 +21,60 @@ export class CreatePersonalFileResponseBody extends $dara.Model {
   directoryId?: string;
   /**
    * @remarks
-   * 创建时间 ISO8601
+   * The creation time.
    * 
    * @example
-   * string_value
+   * 2025-11-14T02:18:27Z
    */
   gmtCreate?: string;
   /**
    * @remarks
-   * 错误描述，成功时为空
+   * The error details.
+   * 
+   * @example
+   * success
    */
   message?: string;
   /**
    * @remarks
-   * 文件名
+   * The updated filter view name.
    * 
    * @example
-   * 示例名称.pdf
+   * ha-cn-36z45q4xg06_qrs
    */
   name?: string;
   /**
    * @remarks
-   * 请求追踪 ID
+   * The request ID.
    * 
    * @example
-   * 019FF406-1B10-0065-A97D-2D1920C2A03D
+   * 3DAC4165-2401-543B-B5E7-A86AA151E517
    */
   requestId?: string;
   /**
    * @remarks
-   * 资源 scope，固定为 PERSONAL
+   * The export scope. Valid values:
+   * - ALL: all.
+   * - SELECT: selected rows.
    * 
    * @example
-   * PERSONAL
+   * read:user,read:repo,write:repo,read:org,read:group
    */
   scope?: string;
   /**
    * @remarks
-   * 新建资源 ID
+   * The source ID.
    * 
    * @example
-   * exampleSourceId
+   * 2001086
    */
   sourceId?: string;
   /**
    * @remarks
-   * 资源状态
+   * The status.
    * 
    * @example
-   * READY
+   * 200
    */
   status?: string;
   static names(): { [key: string]: string } {

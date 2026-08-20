@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListRolesRequest extends $dara.Model {
   /**
    * @remarks
-   * 租户ID，公共参数，缺省时使用调用方默认租户
+   * The tenant ID. This is a common parameter. You can pass it explicitly by using --tenant-id in winnexo-cli.
    * 
    * @example
    * 10000

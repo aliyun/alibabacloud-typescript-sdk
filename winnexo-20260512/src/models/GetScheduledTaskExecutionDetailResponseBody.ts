@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class GetScheduledTaskExecutionDetailResponseBodyFiles extends $dara.Model {
   /**
    * @remarks
-   * 文件名
+   * The file name.
    * 
    * @example
-   * 示例名称.pdf
+   * SampleName.pdf
    */
   name?: string;
   /**
    * @remarks
-   * 文件 OSS URL
+   * The OSS URL of the file.
    * 
    * @example
    * https://example.com/oss/file.pdf
@@ -45,7 +45,7 @@ export class GetScheduledTaskExecutionDetailResponseBodyFiles extends $dara.Mode
 export class GetScheduledTaskExecutionDetailResponseBodyMetadata extends $dara.Model {
   /**
    * @remarks
-   * 会话 ID
+   * The session ID.
    * 
    * @example
    * exampleSessionId
@@ -53,7 +53,7 @@ export class GetScheduledTaskExecutionDetailResponseBodyMetadata extends $dara.M
   sessionId?: string;
   /**
    * @remarks
-   * 执行结果推送状态（多频道时为列表）
+   * The token usage information.
    * 
    * @example
    * string_value
@@ -88,7 +88,7 @@ export class GetScheduledTaskExecutionDetailResponseBodyMetadata extends $dara.M
 export class GetScheduledTaskExecutionDetailResponseBodyTriggerInfo extends $dara.Model {
   /**
    * @remarks
-   * 触发执行的用户标识
+   * The user identifier that triggered the execution.
    * 
    * @example
    * user_10001
@@ -118,7 +118,7 @@ export class GetScheduledTaskExecutionDetailResponseBodyTriggerInfo extends $dar
 export class GetScheduledTaskExecutionDetailResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+   * The status code.
    * 
    * @example
    * 200
@@ -126,7 +126,7 @@ export class GetScheduledTaskExecutionDetailResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * 完成时间 ISO8601
+   * The completion time in ISO 8601 format.
    * 
    * @example
    * string_value
@@ -134,15 +134,15 @@ export class GetScheduledTaskExecutionDetailResponseBody extends $dara.Model {
   completedAt?: string;
   /**
    * @remarks
-   * 执行完整内容
+   * The full execution content.
    * 
    * @example
-   * 示例内容
+   * Sample content
    */
   content?: string;
   /**
    * @remarks
-   * 创建人
+   * The creator.
    * 
    * @example
    * string_value
@@ -150,7 +150,7 @@ export class GetScheduledTaskExecutionDetailResponseBody extends $dara.Model {
   creator?: string;
   /**
    * @remarks
-   * digitalEmployeeName
+   * The list of digital employee names.
    * 
    * @example
    * string_value
@@ -158,7 +158,7 @@ export class GetScheduledTaskExecutionDetailResponseBody extends $dara.Model {
   digitalEmployeeName?: string[];
   /**
    * @remarks
-   * 错误信息
+   * The error message.
    * 
    * @example
    * string_value
@@ -166,16 +166,20 @@ export class GetScheduledTaskExecutionDetailResponseBody extends $dara.Model {
   errorMessage?: string;
   /**
    * @remarks
-   * 执行 ID
+   * The execution ID.
    * 
    * @example
    * exampleExecutionId
    */
   executionId?: string;
+  /**
+   * @remarks
+   * The list of output files.
+   */
   files?: GetScheduledTaskExecutionDetailResponseBodyFiles[];
   /**
    * @remarks
-   * 创建时间 ISO8601
+   * The creation time in ISO 8601 format.
    * 
    * @example
    * string_value
@@ -183,22 +187,36 @@ export class GetScheduledTaskExecutionDetailResponseBody extends $dara.Model {
   gmtCreate?: string;
   /**
    * @remarks
-   * 错误描述，成功时为空
+   * The status code description.
+   * 
+   * @example
+   * ok
    */
   message?: string;
+  /**
+   * @remarks
+   * The extended metadata.
+   */
   metadata?: GetScheduledTaskExecutionDetailResponseBodyMetadata;
   /**
    * @remarks
-   * 结构化输出内容
+   * The structured output content.
    * 
    * @example
    * string_value
    */
   outputContent?: string;
+  /**
+   * @remarks
+   * The push status of the execution result.
+   * 
+   * @example
+   * succuss
+   */
   pushResult?: string;
   /**
    * @remarks
-   * 请求追踪 ID
+   * The request ID.
    * 
    * @example
    * 019FF406-1B10-0065-A97D-2D1920C2A03D
@@ -206,7 +224,7 @@ export class GetScheduledTaskExecutionDetailResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * skillCodes
+   * The list of associated skill codes.
    * 
    * @example
    * string_value
@@ -214,7 +232,7 @@ export class GetScheduledTaskExecutionDetailResponseBody extends $dara.Model {
   skillCodes?: string[];
   /**
    * @remarks
-   * 开始时间 ISO8601
+   * The start time in ISO 8601 format.
    * 
    * @example
    * string_value
@@ -222,7 +240,7 @@ export class GetScheduledTaskExecutionDetailResponseBody extends $dara.Model {
   startedAt?: string;
   /**
    * @remarks
-   * 执行状态
+   * The execution status.
    * 
    * @example
    * READY
@@ -230,7 +248,7 @@ export class GetScheduledTaskExecutionDetailResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * 任务 ID
+   * The task ID.
    * 
    * @example
    * exampleTaskId
@@ -238,21 +256,33 @@ export class GetScheduledTaskExecutionDetailResponseBody extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * 执行结果标题
+   * The execution result title.
    * 
    * @example
-   * 示例标题
+   * Sample title
    */
   title?: string;
+  /**
+   * @remarks
+   * The trigger information.
+   */
   triggerInfo?: GetScheduledTaskExecutionDetailResponseBodyTriggerInfo;
   /**
    * @remarks
-   * 触发类型
+   * The trigger type.
    * 
    * @example
    * string_value
    */
   triggerType?: string;
+  /**
+   * @remarks
+   * The visibility scope of the execution record, which is always equal to the visibility scope of the associated task. Valid values: PRIVATE, COLLABORATIVE, and PUBLIC. This field is empty for personal task executions.
+   * 
+   * @example
+   * COLLABORATIVE
+   */
+  visibility?: string;
   static names(): { [key: string]: string } {
     return {
       code: 'code',
@@ -276,6 +306,7 @@ export class GetScheduledTaskExecutionDetailResponseBody extends $dara.Model {
       title: 'title',
       triggerInfo: 'triggerInfo',
       triggerType: 'triggerType',
+      visibility: 'visibility',
     };
   }
 
@@ -302,6 +333,7 @@ export class GetScheduledTaskExecutionDetailResponseBody extends $dara.Model {
       title: 'string',
       triggerInfo: GetScheduledTaskExecutionDetailResponseBodyTriggerInfo,
       triggerType: 'string',
+      visibility: 'string',
     };
   }
 

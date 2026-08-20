@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class CreateKnowledgeBaseFileRequest extends $dara.Model {
   /**
    * @remarks
-   * 资源描述（可选）
+   * The description of the alias.
    * 
    * @example
-   * 示例描述
+   * hangzhou-release-version-3-eventbridge-numeric-queue-fix-20260529
    */
   description?: string;
   /**
    * @remarks
-   * 目标企业知识库目录 ID；不传时自动绑定到当前数字员工默认根目录，传入时必须是当前租户下已有的企业知识库目录
+   * The directory ID.
    * 
    * @example
    * exampleDirectoryId
@@ -21,7 +21,7 @@ export class CreateKnowledgeBaseFileRequest extends $dara.Model {
   directoryId?: string;
   /**
    * @remarks
-   * 文件后缀名（可选，如 pdf、docx）
+   * The file name extension. This parameter is optional. Examples: pdf and docx.
    * 
    * @example
    * string_value
@@ -29,25 +29,25 @@ export class CreateKnowledgeBaseFileRequest extends $dara.Model {
   fileExt?: string;
   /**
    * @remarks
-   * 原始文件名（可选，含后缀）
+   * The file name.
    * 
    * @example
-   * example.pdf
+   * BasicSimilarityScorer.cava
    */
   fileName?: string;
   /**
    * @remarks
-   * 文件 OSS 持久化地址（必填，对应 settings.file_path）
+   * The file path.
    * 
    * This parameter is required.
    * 
    * @example
-   * string_value
+   * bi/batch-query-service.app.yaml
    */
   filePath?: string;
   /**
    * @remarks
-   * 文件公开访问 URL（可选，带签名，对应 settings.file_public_url）
+   * The publicly accessible URL of the DingTalk online document.
    * 
    * @example
    * https://example.com/winnexo/resource
@@ -55,7 +55,7 @@ export class CreateKnowledgeBaseFileRequest extends $dara.Model {
   filePublicUrl?: string;
   /**
    * @remarks
-   * 文件记录 ID（可选，对应 settings.file_record_id）
+   * The file record ID. This parameter is optional and corresponds to settings.file_record_id.
    * 
    * @example
    * exampleFileRecordId
@@ -63,7 +63,7 @@ export class CreateKnowledgeBaseFileRequest extends $dara.Model {
   fileRecordId?: string;
   /**
    * @remarks
-   * 知识库 ID（可选，透传给 document_agent）
+   * Not supported. Ignore this parameter.
    * 
    * @example
    * exampleKnowledgeId
@@ -71,17 +71,17 @@ export class CreateKnowledgeBaseFileRequest extends $dara.Model {
   knowledgeId?: string;
   /**
    * @remarks
-   * 资源显示名称
+   * The name of the AI assistant.
    * 
    * This parameter is required.
    * 
    * @example
-   * 示例名称.pdf
+   * oklabs_tongyici
    */
   name?: string;
   /**
    * @remarks
-   * 数字员工名称（运营对象 name，可选）
+   * The name of the digital employee (operating object name). This parameter is optional.
    * 
    * @example
    * string_value
@@ -89,7 +89,7 @@ export class CreateKnowledgeBaseFileRequest extends $dara.Model {
   operatingObjectName?: string;
   /**
    * @remarks
-   * 资源标签（可选，JSON 字符串列表，如 ["tagA","tagB"]）
+   * The resource labels. This parameter is optional. Specify a JSON string list, such as ["tagA","tagB"].
    * 
    * @example
    * string_value
@@ -97,10 +97,10 @@ export class CreateKnowledgeBaseFileRequest extends $dara.Model {
   sourceTags?: string;
   /**
    * @remarks
-   * 租户ID，公共参数；winnexo-cli 通过 --tenant-id 显式传入
+   * The tenant ID.
    * 
    * @example
-   * 10000
+   * 692318833855074
    */
   tenantId?: string;
   static names(): { [key: string]: string } {
