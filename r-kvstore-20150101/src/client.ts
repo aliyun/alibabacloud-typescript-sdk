@@ -50,40 +50,38 @@ export default class Client extends OpenApi {
       'cn-zhengzhou-nebula-1': "r-kvstore.aliyuncs.com",
       'eu-west-1-oxs': "r-kvstore.aliyuncs.com",
       'rus-west-1-pop': "r-kvstore.aliyuncs.com",
-      'us-west-1': "r-kvstore.us-west-1.aliyuncs.com",
-      'us-southeast-1': "r-kvstore.us-southeast-1.aliyuncs.com",
+      'cn-zhengzhou-jva': "r-kvstore.cn-zhengzhou-jva.aliyuncs.com",
+      'cn-wuhan-lr': "r-kvstore.cn-wuhan-lr.aliyuncs.com",
+      'cn-hongkong': "r-kvstore.cn-hongkong.aliyuncs.com",
+      'cn-zhangjiakou': "r-kvstore.cn-zhangjiakou.aliyuncs.com",
+      'cn-shenzhen': "r-kvstore.cn-shenzhen.aliyuncs.com",
+      'cn-nanjing': "r-kvstore.cn-nanjing.aliyuncs.com",
+      'ap-northeast-2': "r-kvstore.ap-northeast-2.aliyuncs.com",
+      'ap-northeast-1': "r-kvstore.ap-northeast-1.aliyuncs.com",
+      'cn-fuzhou': "r-kvstore.cn-fuzhou.aliyuncs.com",
+      'cn-chengdu': "r-kvstore.cn-chengdu.aliyuncs.com",
+      'cn-guangzhou': "r-kvstore.cn-guangzhou.aliyuncs.com",
+      'ap-southeast-1': "r-kvstore.ap-southeast-1.aliyuncs.com",
+      'ap-southeast-2': "r-kvstore.ap-southeast-2.aliyuncs.com",
+      'ap-southeast-3': "r-kvstore.ap-southeast-3.aliyuncs.com",
+      'cn-huhehaote': "r-kvstore.cn-huhehaote.aliyuncs.com",
+      'ap-southeast-5': "r-kvstore.ap-southeast-5.aliyuncs.com",
+      'ap-southeast-6': "r-kvstore.ap-southeast-6.aliyuncs.com",
+      'ap-southeast-7': "r-kvstore.ap-southeast-7.aliyuncs.com",
       'us-east-1': "r-kvstore.us-east-1.aliyuncs.com",
+      'us-southeast-1': "r-kvstore.us-southeast-1.aliyuncs.com",
+      'eu-west-1': "r-kvstore.eu-west-1.aliyuncs.com",
+      'us-west-1': "r-kvstore.us-west-1.aliyuncs.com",
+      'eu-central-1': "r-kvstore.eu-central-1.aliyuncs.com",
       'na-south-1': "r-kvstore.na-south-1.aliyuncs.com",
       'me-east-1': "r-kvstore.me-east-1.aliyuncs.com",
       'me-central-1': "r-kvstore.me-central-1.aliyuncs.com",
-      'eu-west-2': "r-kvstore.eu-west-2.aliyuncs.com",
-      'eu-west-1': "r-kvstore.eu-west-1.aliyuncs.com",
-      'eu-central-1': "r-kvstore.eu-central-1.aliyuncs.com",
-      'cn-zhongwei': "r-kvstore.cn-zhongwei.aliyuncs.com",
-      'cn-zhengzhou-jva': "r-kvstore.cn-zhengzhou-jva.aliyuncs.com",
-      'cn-zhangjiakou': "r-kvstore.cn-zhangjiakou.aliyuncs.com",
-      'cn-wulanchabu-gic-1': "r-kvstore.cn-wulanchabu-gic-1.aliyuncs.com",
-      'cn-wuhan-lr': "r-kvstore.cn-wuhan-lr.aliyuncs.com",
-      'cn-shenzhen-finance-1': "r-kvstore.cn-shenzhen-finance-1.aliyuncs.com",
-      'cn-shenzhen': "r-kvstore.cn-shenzhen.aliyuncs.com",
-      'cn-shanghai-finance-1': "r-kvstore.cn-shanghai-finance-1.aliyuncs.com",
-      'cn-north-2-gov-1': "r-kvstore.cn-north-2-gov-1.aliyuncs.com",
-      'cn-nanjing': "r-kvstore.cn-nanjing.aliyuncs.com",
-      'cn-huhehaote': "r-kvstore.cn-huhehaote.aliyuncs.com",
-      'cn-hongkong': "r-kvstore.cn-hongkong.aliyuncs.com",
+      'ap-south-1': "r-kvstore.ap-south-1.aliyuncs.com",
       'cn-heyuan-acdr-1': "r-kvstore.cn-heyuan-acdr-1.aliyuncs.com",
-      'cn-guangzhou': "r-kvstore.cn-guangzhou.aliyuncs.com",
-      'cn-fuzhou': "r-kvstore.cn-fuzhou.aliyuncs.com",
-      'cn-chengdu': "r-kvstore.cn-chengdu.aliyuncs.com",
+      'cn-shenzhen-finance-1': "r-kvstore.cn-shenzhen-finance-1.aliyuncs.com",
       'cn-beijing-finance-1': "r-kvstore.cn-beijing-finance-1.aliyuncs.com",
-      'ap-southeast-8': "r-kvstore.ap-southeast-8.aliyuncs.com",
-      'ap-southeast-7': "r-kvstore.ap-southeast-7.aliyuncs.com",
-      'ap-southeast-6': "r-kvstore.ap-southeast-6.aliyuncs.com",
-      'ap-southeast-5': "r-kvstore.ap-southeast-5.aliyuncs.com",
-      'ap-southeast-3': "r-kvstore.ap-southeast-3.aliyuncs.com",
-      'ap-southeast-1': "r-kvstore.ap-southeast-1.aliyuncs.com",
-      'ap-northeast-2': "r-kvstore.ap-northeast-2.aliyuncs.com",
-      'ap-northeast-1': "r-kvstore.ap-northeast-1.aliyuncs.com",
+      'cn-shanghai-finance-1': "r-kvstore.cn-shanghai-finance-1.aliyuncs.com",
+      'cn-wulanchabu-gic-1': "r-kvstore.cn-wulanchabu-gic-1.aliyuncs.com",
     };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("r-kvstore", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -559,13 +557,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create an account for an ApsaraDB for Tair (Redis OSS-compatible) instance.
+   * Creates an account for an ApsaraDB for Tair (Redis® OSS-Compatible) database instance.
    * 
    * @remarks
-   * This API supports only instances compatible with Redis 4.0 or later versions.  
-   * * The instance must be in the running status to use this API.  
-   * * You can create up to 18 accounts for an instance.  
-   * > For the corresponding console operation, see [Account Management](https://help.aliyun.com/document_detail/92665.html).
+   * This API operation supports only instances that are compatible with Redis 4.0 or later.
+   *  * The instance status must be Running when you call this API operation. 
+   *  * You can create up to 18 accounts for each instance.
+   * > For the console operation that corresponds to this API operation, see [Account management](https://help.aliyun.com/document_detail/92665.html).
    * 
    * @param request - CreateAccountRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -606,6 +604,10 @@ export default class Client extends OpenApi {
       query["OwnerId"] = request.ownerId;
     }
 
+    if (!$dara.isNull(request.parameters)) {
+      query["Parameters"] = request.parameters;
+    }
+
     if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
@@ -640,13 +642,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create an account for an ApsaraDB for Tair (Redis OSS-compatible) instance.
+   * Creates an account for an ApsaraDB for Tair (Redis® OSS-Compatible) database instance.
    * 
    * @remarks
-   * This API supports only instances compatible with Redis 4.0 or later versions.  
-   * * The instance must be in the running status to use this API.  
-   * * You can create up to 18 accounts for an instance.  
-   * > For the corresponding console operation, see [Account Management](https://help.aliyun.com/document_detail/92665.html).
+   * This API operation supports only instances that are compatible with Redis 4.0 or later.
+   *  * The instance status must be Running when you call this API operation. 
+   *  * You can create up to 18 accounts for each instance.
+   * > For the console operation that corresponds to this API operation, see [Account management](https://help.aliyun.com/document_detail/92665.html).
    * 
    * @param request - CreateAccountRequest
    * @returns CreateAccountResponse
@@ -2863,7 +2865,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries information about a specific account in a specified ApsaraDB for Redis (Tair-compatible) instance.
+   * Queries the information about an account in a specified ApsaraDB for Tair (Redis® OSS-Compatible) database instance.
    * 
    * @param request - DescribeAccountsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2888,12 +2890,24 @@ export default class Client extends OpenApi {
       query["OwnerId"] = request.ownerId;
     }
 
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
     if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
     if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.searchAccountName)) {
+      query["SearchAccountName"] = request.searchAccountName;
     }
 
     if (!$dara.isNull(request.securityToken)) {
@@ -2918,7 +2932,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries information about a specific account in a specified ApsaraDB for Redis (Tair-compatible) instance.
+   * Queries the information about an account in a specified ApsaraDB for Tair (Redis® OSS-Compatible) database instance.
    * 
    * @param request - DescribeAccountsRequest
    * @returns DescribeAccountsResponse
@@ -6803,10 +6817,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the parameters and their default values that are supported by Tair (Redis OSS-compatible) instances of different architectures and major versions.
+   * Queries the parameter list and default values of an ApsaraDB for Tair (Redis® OSS-Compatible) database instance for different architectures and major engine versions.
    * 
    * @remarks
-   * After you call this operation to query the parameters and default values of an instance, you can call the [ModifyInstanceConfig](https://help.aliyun.com/document_detail/473844.html) operation to reconfigure the parameters of the instance.
+   * After you call this operation to query the parameter list and default values, you can call the [ModifyInstanceConfig](https://help.aliyun.com/document_detail/473844.html) operation to modify the parameters of a Redis instance based on your business requirements.
    * 
    * @param request - DescribeParameterTemplatesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6837,6 +6851,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.parameterCategory)) {
+      query["ParameterCategory"] = request.parameterCategory;
     }
 
     if (!$dara.isNull(request.resourceGroupId)) {
@@ -6873,10 +6891,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the parameters and their default values that are supported by Tair (Redis OSS-compatible) instances of different architectures and major versions.
+   * Queries the parameter list and default values of an ApsaraDB for Tair (Redis® OSS-Compatible) database instance for different architectures and major engine versions.
    * 
    * @remarks
-   * After you call this operation to query the parameters and default values of an instance, you can call the [ModifyInstanceConfig](https://help.aliyun.com/document_detail/473844.html) operation to reconfigure the parameters of the instance.
+   * After you call this operation to query the parameter list and default values, you can call the [ModifyInstanceConfig](https://help.aliyun.com/document_detail/473844.html) operation to modify the parameters of a Redis instance based on your business requirements.
    * 
    * @param request - DescribeParameterTemplatesRequest
    * @returns DescribeParameterTemplatesResponse
@@ -9127,6 +9145,66 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 修改账号参数
+   * 
+   * @remarks
+   * 目前仅支持Tair Serverless KV实例。
+   * 
+   * @param request - ModifyAccountParameterRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyAccountParameterResponse
+   */
+  async modifyAccountParameterWithOptions(request: $_model.ModifyAccountParameterRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyAccountParameterResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.accountName)) {
+      query["AccountName"] = request.accountName;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.parameters)) {
+      query["Parameters"] = request.parameters;
+    }
+
+    if (!$dara.isNull(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyAccountParameter",
+      version: "2015-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyAccountParameterResponse>(await this.callApi(params, req, runtime), new $_model.ModifyAccountParameterResponse({}));
+  }
+
+  /**
+   * 修改账号参数
+   * 
+   * @remarks
+   * 目前仅支持Tair Serverless KV实例。
+   * 
+   * @param request - ModifyAccountParameterRequest
+   * @returns ModifyAccountParameterResponse
+   */
+  async modifyAccountParameter(request: $_model.ModifyAccountParameterRequest): Promise<$_model.ModifyAccountParameterResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyAccountParameterWithOptions(request, runtime);
+  }
+
+  /**
    * Modifies the password of an account for a Tair (Redis OSS-compatible) instance.
    * 
    * @param request - ModifyAccountPasswordRequest
@@ -11013,10 +11091,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the configurations of a Tair (Redis OSS-compatible) instance.
+   * Changes the specifications of an ApsaraDB for Tair (Redis® OSS-Compatible) database instance.
    * 
    * @remarks
-   * >  For more information about the procedure, impacts, limits, and fees of this operation, see [Change the configurations of an instance](https://help.aliyun.com/document_detail/26353.html).
+   * > For information about the execution process, impacts, feature limits, and billing of specification changes, see [Change instance configurations](https://help.aliyun.com/document_detail/26353.html).
    * 
    * @param request - ModifyInstanceSpecRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11151,10 +11229,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the configurations of a Tair (Redis OSS-compatible) instance.
+   * Changes the specifications of an ApsaraDB for Tair (Redis® OSS-Compatible) database instance.
    * 
    * @remarks
-   * >  For more information about the procedure, impacts, limits, and fees of this operation, see [Change the configurations of an instance](https://help.aliyun.com/document_detail/26353.html).
+   * > For information about the execution process, impacts, feature limits, and billing of specification changes, see [Change instance configurations](https://help.aliyun.com/document_detail/26353.html).
    * 
    * @param request - ModifyInstanceSpecRequest
    * @returns ModifyInstanceSpecResponse

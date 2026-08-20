@@ -2,10 +2,10 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CreateAccountResponseBody extends $dara.Model {
+export class ModifyAccountParameterRequest extends $dara.Model {
   /**
    * @remarks
-   * The account name.
+   * This parameter is required.
    * 
    * @example
    * demoaccount
@@ -13,43 +13,36 @@ export class CreateAccountResponseBody extends $dara.Model {
   accountName?: string;
   /**
    * @remarks
-   * **[Deprecated]** This parameter is deprecated.
+   * This parameter is required.
    * 
    * @example
-   * demoaccount
-   */
-  acountName?: string;
-  /**
-   * @remarks
-   * The instance ID.
-   * 
-   * @example
-   * r-bp1zxszhcgatnx****
+   * r-bp1s4h3oosz5y8ilc7
    */
   instanceId?: string;
   /**
    * @remarks
-   * The request ID.
+   * This parameter is required.
    * 
    * @example
-   * ABAF95F6-35C1-4177-AF3A-70969EBD****
+   * {"access-db-id":"1","cu-limit":"10"}
    */
-  requestId?: string;
+  parameters?: string;
+  securityToken?: string;
   static names(): { [key: string]: string } {
     return {
       accountName: 'AccountName',
-      acountName: 'AcountName',
       instanceId: 'InstanceId',
-      requestId: 'RequestId',
+      parameters: 'Parameters',
+      securityToken: 'SecurityToken',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       accountName: 'string',
-      acountName: 'string',
       instanceId: 'string',
-      requestId: 'string',
+      parameters: 'string',
+      securityToken: 'string',
     };
   }
 

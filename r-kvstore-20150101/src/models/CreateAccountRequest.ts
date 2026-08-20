@@ -6,10 +6,9 @@ export class CreateAccountRequest extends $dara.Model {
   /**
    * @remarks
    * The description of the account.
-   * 
-   * *   The description must start with a letter, and cannot start with `http://` or `https://`.
-   * *   The description can contain letters, digits, underscores (_), and hyphens (-).
-   * *   The description must be 2 to 256 characters in length.
+   * * Must start with a Chinese character or an English letter. Cannot start with `http://` or `https://`.
+   * * Can contain Chinese characters, English letters, digits, underscores (_), and hyphens (-). 
+   * * Must be 2 to 256 characters in length.
    * 
    * @example
    * testaccount
@@ -17,11 +16,10 @@ export class CreateAccountRequest extends $dara.Model {
   accountDescription?: string;
   /**
    * @remarks
-   * The name of the account. The name must meet the following requirements:
-   * 
-   * *   The name must start with a lowercase letter and can contain lowercase letters, digits, and underscores (_).
-   * *   The name can be up to 100 characters in length.
-   * *   The name cannot be one of the reserved words listed in the [Reserved words for Redis account names](https://www.alibabacloud.com/help/zh/redis/user-guide/create-and-manage-database-accounts#section-u3q-817-om3) section.
+   * The account name. The name must meet the following requirements:
+   * * Starts with a lowercase letter and contains only lowercase letters, digits, or underscores (_).
+   * * Contains up to 100 characters.
+   * * Cannot be a <props="china">[reserved word for Redis account names](https://www.alibabacloud.com/help/en/redis/user-guide/create-and-manage-database-accounts#section-u3q-817-om3)<props="intl">[reserved word for Redis account names](https://www.alibabacloud.com/help/zh/redis/user-guide/create-and-manage-database-accounts#section-u3q-817-om3).
    * 
    * This parameter is required.
    * 
@@ -31,7 +29,7 @@ export class CreateAccountRequest extends $dara.Model {
   accountName?: string;
   /**
    * @remarks
-   * The password of the account. The password must be 8 to 32 characters in length and must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and specific special characters. These special characters include `! @ # $ % ^ & * ( ) _ + - =`
+   * The password of the account. The password must be 8 to 32 characters in length and contain at least three of the following character types: uppercase letters, lowercase letters, special characters, and digits. The following special characters are supported: `!@#$%^&*()_+-=`.
    * 
    * This parameter is required.
    * 
@@ -42,9 +40,8 @@ export class CreateAccountRequest extends $dara.Model {
   /**
    * @remarks
    * The permissions of the account. Valid values:
-   * 
-   * *   **RoleReadOnly**: The account has read-only permissions.
-   * *   **RoleReadWrite**: The account has read and write permissions.
+   * * **RoleReadOnly**: read-only permissions.
+   * * **RoleReadWrite**: read and write permissions. This is the default value.
    * 
    * @example
    * RoleReadOnly
@@ -52,7 +49,7 @@ export class CreateAccountRequest extends $dara.Model {
   accountPrivilege?: string;
   /**
    * @remarks
-   * The type of the account. Set the value to **Normal**, which indicates that the account is a standard account.
+   * The account type. Set the value to **Normal** (standard account).
    * 
    * @example
    * Normal
@@ -60,7 +57,7 @@ export class CreateAccountRequest extends $dara.Model {
   accountType?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -70,6 +67,15 @@ export class CreateAccountRequest extends $dara.Model {
   instanceId?: string;
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The account parameters to modify in JSON format. The new values overwrite the original values.
+   * >Notice: This parameter is supported only for Tair Serverless KV instances.
+   * 
+   * @example
+   * {"access-db-id":"1","cu-limit":"10"}
+   */
+  parameters?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   securityToken?: string;
@@ -91,6 +97,7 @@ export class CreateAccountRequest extends $dara.Model {
       instanceId: 'InstanceId',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      parameters: 'Parameters',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       securityToken: 'SecurityToken',
@@ -108,6 +115,7 @@ export class CreateAccountRequest extends $dara.Model {
       instanceId: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
+      parameters: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       securityToken: 'string',

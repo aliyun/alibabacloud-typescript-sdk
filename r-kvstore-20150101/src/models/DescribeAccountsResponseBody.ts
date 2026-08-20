@@ -58,6 +58,11 @@ export class DescribeAccountsResponseBodyAccountsAccount extends $dara.Model {
   accountType?: string;
   databasePrivileges?: DescribeAccountsResponseBodyAccountsAccountDatabasePrivileges;
   instanceId?: string;
+  /**
+   * @example
+   * {"access-db-id":"1","cu-limit":"10"}
+   */
+  parameters?: string;
   static names(): { [key: string]: string } {
     return {
       accountDescription: 'AccountDescription',
@@ -66,6 +71,7 @@ export class DescribeAccountsResponseBodyAccountsAccount extends $dara.Model {
       accountType: 'AccountType',
       databasePrivileges: 'DatabasePrivileges',
       instanceId: 'InstanceId',
+      parameters: 'Parameters',
     };
   }
 
@@ -77,6 +83,7 @@ export class DescribeAccountsResponseBodyAccountsAccount extends $dara.Model {
       accountType: 'string',
       databasePrivileges: DescribeAccountsResponseBodyAccountsAccountDatabasePrivileges,
       instanceId: 'string',
+      parameters: 'string',
     };
   }
 
@@ -122,23 +129,53 @@ export class DescribeAccountsResponseBody extends $dara.Model {
   accounts?: DescribeAccountsResponseBodyAccounts;
   /**
    * @remarks
+   * The page number.
+   * 
+   * @example
+   * 100
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page.
+   * 
+   * @example
+   * 1
+   */
+  pageSize?: number;
+  /**
+   * @remarks
    * The request ID.
    * 
    * @example
    * 6C9E114C-217C-4118-83C0-B4070222****
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries.
+   * 
+   * @example
+   * 10
+   */
+  totalCount?: number;
   static names(): { [key: string]: string } {
     return {
       accounts: 'Accounts',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
       requestId: 'RequestId',
+      totalCount: 'TotalCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       accounts: DescribeAccountsResponseBodyAccounts,
+      pageNumber: 'number',
+      pageSize: 'number',
       requestId: 'string',
+      totalCount: 'number',
     };
   }
 

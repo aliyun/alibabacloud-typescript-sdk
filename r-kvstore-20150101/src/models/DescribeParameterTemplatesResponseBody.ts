@@ -69,7 +69,7 @@ export class DescribeParameterTemplatesResponseBodyParameters extends $dara.Mode
 export class DescribeParameterTemplatesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The database engine that is run on the instance. The value **Redis** is returned for this parameter.
+   * The database type. The return value is fixed as **Redis**.
    * 
    * @example
    * redis
@@ -77,7 +77,7 @@ export class DescribeParameterTemplatesResponseBody extends $dara.Model {
   engine?: string;
   /**
    * @remarks
-   * The major version of the instance.
+   * The major engine version of the instance.
    * 
    * @example
    * 5.0
@@ -85,7 +85,7 @@ export class DescribeParameterTemplatesResponseBody extends $dara.Model {
   engineVersion?: string;
   /**
    * @remarks
-   * The number of parameters that are supported by the instance.
+   * The number of parameters.
    * 
    * @example
    * 24
@@ -94,7 +94,7 @@ export class DescribeParameterTemplatesResponseBody extends $dara.Model {
   parameters?: DescribeParameterTemplatesResponseBodyParameters;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 9DA28D8E-514D-4F12-ADED-70A9C818****
