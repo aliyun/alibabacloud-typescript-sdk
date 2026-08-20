@@ -779,7 +779,13 @@ export default class Client extends OpenApi {
    * Creates an ACK cluster, including ACK managed clusters, ACK Serverless clusters, ACK Edge clusters, and registered clusters. When you create a cluster, you configure cluster information, cluster components, and ACK-related cloud resources.
    * 
    * @remarks
-   * ### Generate OpenAPI request parameters by using the console.
+   * ### Generate OpenAPI request parameters through the console
+   * When you call the CreateCluster operation to create a cluster, if the call fails due to an incorrect combination of request parameters, you can use the console to generate the required request parameter combination for creating a cluster. Perform the following steps:
+   * 1. Log on to the [Container Service for Kubernetes (ACK) console](https://csnew.console.aliyun.com) and choose **Clusters** in the left-side navigation pane.
+   * 1. On the **Clusters** page, click **Cluster Template**.
+   * 1. In the dialog box, select the cluster type that you want to create, click Create, and then configure the cluster information on the cluster configuration page.
+   * 1. After the configuration is complete, on the **Confirm Configuration** page, click **Equivalent Code** in the upper-right corner. The dialog box displays the parameter combination required for creating the cluster. You can copy and use the parameters.
+   * >Notice: Starting from July 04, 2026, some request parameters will no longer take effect. For details about the changes and alternative parameters, see [Notice on changes to OpenAPI request and response parameters and deprecation of OpenAPIs related to ACK cluster management](https://help.aliyun.com/document_detail/2932733.html).</notice>
    * 
    * @param request - CreateClusterRequest
    * @param headers - map
@@ -1223,7 +1229,13 @@ export default class Client extends OpenApi {
    * Creates an ACK cluster, including ACK managed clusters, ACK Serverless clusters, ACK Edge clusters, and registered clusters. When you create a cluster, you configure cluster information, cluster components, and ACK-related cloud resources.
    * 
    * @remarks
-   * ### Generate OpenAPI request parameters by using the console.
+   * ### Generate OpenAPI request parameters through the console
+   * When you call the CreateCluster operation to create a cluster, if the call fails due to an incorrect combination of request parameters, you can use the console to generate the required request parameter combination for creating a cluster. Perform the following steps:
+   * 1. Log on to the [Container Service for Kubernetes (ACK) console](https://csnew.console.aliyun.com) and choose **Clusters** in the left-side navigation pane.
+   * 1. On the **Clusters** page, click **Cluster Template**.
+   * 1. In the dialog box, select the cluster type that you want to create, click Create, and then configure the cluster information on the cluster configuration page.
+   * 1. After the configuration is complete, on the **Confirm Configuration** page, click **Equivalent Code** in the upper-right corner. The dialog box displays the parameter combination required for creating the cluster. You can copy and use the parameters.
+   * >Notice: Starting from July 04, 2026, some request parameters will no longer take effect. For details about the changes and alternative parameters, see [Notice on changes to OpenAPI request and response parameters and deprecation of OpenAPIs related to ACK cluster management](https://help.aliyun.com/document_detail/2932733.html).</notice>
    * 
    * @param request - CreateClusterRequest
    * @returns CreateClusterResponse

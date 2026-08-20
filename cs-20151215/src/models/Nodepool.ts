@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 import { DataDisk } from "./DataDisk";
 import { DiskInit } from "./DiskInit";
 import { InstanceMetadataOptions } from "./InstanceMetadataOptions";
+import { InstancePatterns } from "./InstancePatterns";
 import { KubeletConfig } from "./KubeletConfig";
 import { Tag } from "./Tag";
 import { Taint } from "./Taint";
@@ -48,7 +49,7 @@ export class NodepoolAutoScaling extends $dara.Model {
    * @remarks
    * **[Deprecated]**
    * 
-   * Specifies whether to associate an elastic IP address (EIP). Valid values:
+   * Specifies whether to associate an Elastic IP Address (EIP). Valid values:
    * 
    * - `true`: Associates an EIP.
    * - `false`: Does not associate an EIP.
@@ -226,7 +227,7 @@ export class NodepoolKubernetesConfig extends $dara.Model {
   cpuPolicy?: string;
   /**
    * @remarks
-   * The node labels. Labels are added to the nodes in the Kubernetes cluster.
+   * The node labels. Adds labels to Kubernetes cluster nodes.
    */
   labels?: Tag[];
   /**
@@ -241,7 +242,7 @@ export class NodepoolKubernetesConfig extends $dara.Model {
    * @remarks
    * The container runtime. Valid values:
    * - `containerd`: Recommended. Supported by all cluster versions.
-   * - `Sandboxed-Container.runv`: Sandboxed container runtime that provides higher isolation. Supported by clusters of version 1.24 and earlier.
+   * - `Sandboxed-Container.runv`: Sandboxed container that provides higher isolation. Supported by clusters of version 1.24 and earlier.
    * - `docker`: Supported by clusters of version 1.22 and earlier.
    * 
    * Default value: `containerd`
@@ -269,7 +270,7 @@ export class NodepoolKubernetesConfig extends $dara.Model {
   taints?: Taint[];
   /**
    * @remarks
-   * The custom data for nodes.
+   * The node custom data.
    * 
    * @example
    * MXM=
@@ -318,11 +319,17 @@ export class NodepoolKubernetesConfig extends $dara.Model {
 
 export class NodepoolManagementAutoRepairPolicy extends $dara.Model {
   /**
+   * @remarks
+   * The maximum number of parallel repairs. When a large number of abnormal nodes exist in the node pool, this specifies the maximum number or percentage of nodes that can be repaired simultaneously. Supports a number (such as 5, valid range: 1 to 100000) or a percentage (such as 10%, valid range: 1% to 100%). Default value: 1.
+   * 
    * @example
    * 5
    */
   maxParallelRepairingNodes?: string;
   /**
+   * @remarks
+   * The self-healing circuit breaker threshold. When the number or percentage of faulty nodes exceeds this threshold, self-healing enters a circuit breaker state and stops initiating new repair actions. Supports a number (such as 10, valid range: 1 to 100000) or a percentage (such as 20%, valid range: 1% to 100%). Default value: 100%.
+   * 
    * @example
    * 20%
    */
@@ -363,7 +370,7 @@ export class NodepoolManagementAutoRepairPolicy extends $dara.Model {
 export class NodepoolManagementAutoUpgradePolicy extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to allow automatic kubelet upgrade.
+   * Specifies whether to allow auto upgrade of kubelet.
    * 
    * @example
    * true
@@ -401,7 +408,7 @@ export class NodepoolManagementAutoVulFixPolicy extends $dara.Model {
   restartNode?: boolean;
   /**
    * @remarks
-   * The vulnerability levels that are allowed for automatic fix, separated by commas.
+   * The vulnerability levels allowed for auto fix, separated by commas.
    * 
    * @example
    * asap,nntf
@@ -457,7 +464,7 @@ export class NodepoolManagementUpgradeConfig extends $dara.Model {
   surge?: number;
   /**
    * @remarks
-   * The percentage of extra nodes. You can set either this parameter or `surge`.
+   * The percentage of extra nodes. This parameter is mutually exclusive with `surge`.
    * 
    * @example
    * 0
@@ -493,15 +500,12 @@ export class NodepoolManagementUpgradeConfig extends $dara.Model {
 export class NodepoolManagement extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable node self-healing ECS fault detection.
+   * Specifies whether to enable self-healing ECS fault detection for nodes.
    */
   autoFaultDiagnosis?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable automatic repair. This parameter takes effect only when `enable=true`.
-   * 
-   * - `true`: Enables automatic repair.
-   * - `false`: Disables automatic repair.
+   * Specifies whether to enable auto repair. This parameter takes effect only when `enable=true`.
    * 
    * @example
    * false
@@ -612,7 +616,7 @@ export class NodepoolManagement extends $dara.Model {
 export class NodepoolNodeComponentsConfig extends $dara.Model {
   /**
    * @remarks
-   * The custom configuration of node components.
+   * The custom configuration of the node component.
    * 
    * @example
    * {"cpuManagerPolicy":"static"}
@@ -658,7 +662,7 @@ export class NodepoolNodeComponents extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The node component version.
+   * The version of the node component.
    * 
    * @example
    * 1.33.3-aliyun.1
@@ -815,9 +819,9 @@ export class NodepoolScalingGroupPrivatePoolOptions extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The type of the private node pool. Specifies the private pool capacity option for instance startup. After an elasticity assurance or capacity reservation takes effect, a private pool is generated for instances to use during startup. Valid values:
+   * The type of the private node pool. The private pool capacity option for instance startup. After an elasticity assurance or capacity reservation takes effect, a private pool capacity is generated for instances to select during startup. Valid values:
    * 
-   * - `Open`: open mode. The instance automatically matches open private pool capacity. If no matching private pool capacity is available, public pool resources are used to start the instance.
+   * - `Open`: open mode. The system automatically matches open private pool capacity. If no matching private pool capacity is available, public pool resources are used to start the instance.
    * 
    * - `Target`: targeted mode. The instance is started using the specified private pool capacity. If the specified private pool capacity is unavailable, the instance fails to start.
    * 
@@ -858,12 +862,11 @@ export class NodepoolScalingGroupResourcePoolOptions extends $dara.Model {
   privatePoolIds?: string[];
   /**
    * @remarks
-   * The resource pool strategy used when creating instances. Resource pools include private pools generated after Elasticity Assurance or Capacity Reservation takes effect, as well as public pools, which are available for instance startup. Valid values:
+   * The resource pool strategy used when instances are created. Resource pools include private pools generated after Elasticity Assurance or Capacity Reservation takes effect, as well as public pools, for instances to select from during startup. Valid values:
    * 
-   * PrivatePoolFirst: private pool first. When this strategy is selected, if resource_pool_options.private_pool_ids is specified, the specified private pools are used preferentially. If no private pool is specified or the specified private pool has insufficient capacity, open-type private pools are automatically matched. If no eligible private pool is available, the public pool is used to create instances.
-   * PrivatePoolOnly: private pool only. When this strategy is selected, resource_pool_options.private_pool_ids must be specified. If the specified private pool has insufficient capacity, the instance fails to start.
+   * PrivatePoolFirst: private pool first. When this strategy is selected, if resource_pool_options.private_pool_ids is specified, the specified private pools are used preferentially. If no private pools are specified or the specified private pools have insufficient capacity, open-type private pools are automatically matched. If no eligible private pools are available, instances are created from the public pool.
+   * PrivatePoolOnly: private pool only. When this strategy is selected, resource_pool_options.private_pool_ids must be specified. If the specified private pools have insufficient capacity, instance startup fails.
    * None: no resource pool strategy is used.
-   * 
    * Default value: None.
    * 
    * @example
@@ -987,7 +990,7 @@ export class NodepoolScalingGroup extends $dara.Model {
   autoRenew?: boolean;
   /**
    * @remarks
-   * The auto-renewal epoch for the node pool. This parameter takes effect and is required only when `instance_charge_type` is set to `PrePaid`.
+   * The auto-renewal period for the node pool. This parameter takes effect only when `instance_charge_type` is set to `PrePaid`, and is required in that case.
    * 
    * @example
    * 0
@@ -1011,7 +1014,7 @@ export class NodepoolScalingGroup extends $dara.Model {
   cpuOptions?: NodepoolScalingGroupCpuOptions;
   /**
    * @remarks
-   * The data cloud disk configuration for nodes in the node pool.
+   * The data cloud disk configuration for node pool nodes.
    */
   dataDisks?: DataDisk[];
   /**
@@ -1062,7 +1065,7 @@ export class NodepoolScalingGroup extends $dara.Model {
   imageType?: string;
   /**
    * @remarks
-   * The billing method for nodes in the node pool. Valid values:
+   * The billing method for node pool nodes. Valid values:
    * 
    * This parameter is required.
    * 
@@ -1072,9 +1075,14 @@ export class NodepoolScalingGroup extends $dara.Model {
   instanceChargeType?: string;
   /**
    * @remarks
-   * The metadata access configuration for ECS instances.
+   * The ECS instance metadata access configuration.
    */
   instanceMetadataOptions?: InstanceMetadataOptions;
+  /**
+   * @remarks
+   * The instance attributes.
+   */
+  instancePatterns?: InstancePatterns[];
   /**
    * @remarks
    * The instance types.
@@ -1100,7 +1108,7 @@ export class NodepoolScalingGroup extends $dara.Model {
   internetMaxBandwidthOut?: number;
   /**
    * @remarks
-   * The key pair name. Specify either this parameter or `login_password`.
+   * The key pair name. Choose either this or `login_password`.
    * 
    * @example
    * np-key
@@ -1108,12 +1116,12 @@ export class NodepoolScalingGroup extends $dara.Model {
   keyPair?: string;
   /**
    * @remarks
-   * Specifies whether to log on to scaled-out ECS instances as a non-root user.
+   * Specifies whether scaled-out ECS instances use non-root user logon.
    */
   loginAsNonRoot?: boolean;
   /**
    * @remarks
-   * The SSH logon password. Specify either this parameter or `key_pair`. The password must be 8 to 30 characters in length and must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters.
+   * The SSH logon password. Choose either this or `key_pair`. The password must be 8 to 30 characters in length and must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters.
    * 
    * @example
    * Hello1234
@@ -1123,13 +1131,13 @@ export class NodepoolScalingGroup extends $dara.Model {
    * @remarks
    * The multi-zone scaling policy for ECS instances in the scaling group. Valid values:
    * 
-   * - `PRIORITY`: Scales based on the vSwitches (VSwitchIds.N) you define. When ECS instances cannot be created in the zone of a higher-priority vSwitch, the next-priority vSwitch is automatically used to create ECS instances.
+   * - `PRIORITY`: Scales ECS instances based on the virtual switches (VSwitchIds.N) that you define. When ECS instances cannot be created in the zone of the highest-priority vSwitch, the system automatically uses the next-priority vSwitch to create ECS instances.
    * 
-   * - `COST_OPTIMIZED`: Attempts to create instances in order from the lowest to the highest vCPU unit price. When the scaling configuration specifies multiple instance types with the spot billing method, spot instances are created first. You can use the `CompensateWithOnDemand` parameter to specify whether to automatically attempt to create pay-as-you-go instances when spot instances cannot be created due to insufficient inventory.
+   * - `COST_OPTIMIZED`: Attempts to create ECS instances in ascending order of vCPU unit price. When the scaling configuration specifies multiple instance types with the spot billing method, spot instances are created first. You can use the `CompensateWithOnDemand` parameter to specify whether to automatically attempt to create pay-as-you-go instances when spot instances cannot be created due to insufficient inventory.
    * 
-   *   >`COST_OPTIMIZED` takes effect only when the scaling configuration specifies multiple instance types or uses spot instances.
+   *   >`COST_OPTIMIZED` takes effect only when multiple instance types are specified in the scaling configuration or spot instances are selected.
    * 
-   * - `BALANCE`: Evenly distributes ECS instances across the multiple zones specified in the scaling group. If zones become unbalanced due to insufficient inventory, you can use the RebalanceInstances API operation to rebalance resources. For more information, see [RebalanceInstances](https://help.aliyun.com/document_detail/71516.html).
+   * - `BALANCE`: Evenly distributes ECS instances across the multiple zones specified in the scaling group. If zones become unbalanced due to insufficient inventory, you can call the RebalanceInstances operation to rebalance resources. For more information, see [RebalanceInstances](https://help.aliyun.com/document_detail/71516.html).
    * 
    * Default value: `PRIORITY`.
    * 
@@ -1139,7 +1147,7 @@ export class NodepoolScalingGroup extends $dara.Model {
   multiAzPolicy?: string;
   /**
    * @remarks
-   * The minimum number of pay-as-you-go instances required in the scaling group. Valid values: [0,1000]. When the number of pay-as-you-go instances is less than this value, pay-as-you-go instances are created first.
+   * The minimum number of pay-as-you-go instances required in the scaling group. Valid values: [0,1000]. If the number of pay-as-you-go instances is less than this value, pay-as-you-go instances are created first.
    * 
    * @example
    * 0
@@ -1155,7 +1163,7 @@ export class NodepoolScalingGroup extends $dara.Model {
   onDemandPercentageAboveBaseCapacity?: number;
   /**
    * @remarks
-   * The subscription duration for nodes in the node pool. This parameter takes effect and is required only when `instance_charge_type` is set to `PrePaid`. Valid values: when `period_unit` is set to Month, the valid values of `period` are: {1, 2, 3, 6, 12}.
+   * The subscription duration for node pool nodes. This parameter takes effect only when `instance_charge_type` is set to `PrePaid`, and is required in that case. Valid values: when `period_unit` is set to Month, valid values for `period` are: {1, 2, 3, 6, 12}.
    * 
    * @example
    * 0
@@ -1163,7 +1171,7 @@ export class NodepoolScalingGroup extends $dara.Model {
   period?: number;
   /**
    * @remarks
-   * The billing period unit for nodes in the node pool. This parameter must be specified when `instance_charge_type` is set to `PrePaid`.
+   * The billing period unit for node pool nodes. This parameter must be specified when `instance_charge_type` is set to `PrePaid`.
    * 
    * @example
    * Month
@@ -1186,7 +1194,8 @@ export class NodepoolScalingGroup extends $dara.Model {
   privatePoolOptions?: NodepoolScalingGroupPrivatePoolOptions;
   /**
    * @remarks
-   * The Worker RAM role name.
+   * The RAM role name for worker nodes.
+   * >Notice: This parameter is supported only when you create a node pool for ACK managed clusters of version 1.22 or later.
    * 
    * @example
    * example-role
@@ -1204,7 +1213,12 @@ export class NodepoolScalingGroup extends $dara.Model {
   resourcePoolOptions?: NodepoolScalingGroupResourcePoolOptions;
   /**
    * @remarks
-   * The scaling group mode. Valid values:
+   * The scaling mode of the scaling group. Valid values:
+   * 
+   * - `release`: standard mode. The scaling group scales in or out by creating or releasing ECS instances based on resource usage.
+   * - `recycle`: swift mode. The scaling group scales in or out by creating, stopping, or starting ECS instances, which improves the speed of subsequent scaling operations. Stopped instances are not charged for compute resources but are still charged for storage resources, except for instances that use local disks.
+   * 
+   * Default value: `release`.
    * 
    * @example
    * release
@@ -1212,7 +1226,7 @@ export class NodepoolScalingGroup extends $dara.Model {
   scalingPolicy?: string;
   /**
    * @remarks
-   * The security group ID of the node pool. Specify either this parameter or `security_group_ids`. We recommend that you use `security_group_ids`.
+   * The security group ID of the node pool. Use either this parameter or `security_group_ids`. We recommend that you use `security_group_ids`.
    * 
    * @example
    * sg-2zeihch86ooz9io4****
@@ -1220,7 +1234,7 @@ export class NodepoolScalingGroup extends $dara.Model {
   securityGroupId?: string;
   /**
    * @remarks
-   * The list of security group IDs. Specify either this parameter or `security_group_id`. We recommend that you use `security_group_ids`. If both `security_group_id` and `security_group_ids` are specified, `security_group_ids` takes precedence.
+   * The list of security group IDs. Use either this parameter or `security_group_id`. We recommend that you use `security_group_ids`. If both `security_group_id` and `security_group_ids` are specified, `security_group_ids` takes precedence.
    */
   securityGroupIds?: string[];
   /**
@@ -1233,7 +1247,7 @@ export class NodepoolScalingGroup extends $dara.Model {
   spotInstancePools?: number;
   /**
    * @remarks
-   * Specifies whether to enable supplementation of spot instances. If enabled, when the system sends a notification that a spot instance will be reclaimed, the scaling group attempts to create a new instance to replace the spot instance that will be reclaimed. Valid values:
+   * Specifies whether to enable supplementing spot instances. If enabled, when the system receives a notification that a spot instance will be reclaimed, the scaling group attempts to create a new instance to replace the spot instance that will be reclaimed. Valid values:
    * 
    * @example
    * false
@@ -1241,12 +1255,17 @@ export class NodepoolScalingGroup extends $dara.Model {
   spotInstanceRemedy?: boolean;
   /**
    * @remarks
-   * The price range configuration for a single spot instance type.
+   * The price limit configurations for a single spot instance of the current instance type.
    */
   spotPriceLimit?: NodepoolScalingGroupSpotPriceLimit[];
   /**
    * @remarks
-   * The spot instance type. Valid values:
+   * The type of the spot instance. Valid values:
+   * - NoSpot: non-spot instance.
+   * - SpotWithPriceLimit: sets a maximum price for the spot instance.
+   * - SpotAsPriceGo: the system automatically bids at the current market price.
+   * 
+   * For more information, see [Spot instances](https://help.aliyun.com/document_detail/157759.html).
    * 
    * @example
    * NoSpot
@@ -1254,7 +1273,7 @@ export class NodepoolScalingGroup extends $dara.Model {
   spotStrategy?: string;
   /**
    * @remarks
-   * Specifies whether to enable burst (I/O burst) for the node system cloud disk. Valid values:
+   * Specifies whether to enable burst (performance burst) for the node system cloud disk. Valid values:
    * 
    * @example
    * true
@@ -1349,6 +1368,7 @@ export class NodepoolScalingGroup extends $dara.Model {
       imageType: 'image_type',
       instanceChargeType: 'instance_charge_type',
       instanceMetadataOptions: 'instance_metadata_options',
+      instancePatterns: 'instance_patterns',
       instanceTypes: 'instance_types',
       internetChargeType: 'internet_charge_type',
       internetMaxBandwidthOut: 'internet_max_bandwidth_out',
@@ -1400,6 +1420,7 @@ export class NodepoolScalingGroup extends $dara.Model {
       imageType: 'string',
       instanceChargeType: 'string',
       instanceMetadataOptions: InstanceMetadataOptions,
+      instancePatterns: { 'type': 'array', 'itemType': InstancePatterns },
       instanceTypes: { 'type': 'array', 'itemType': 'string' },
       internetChargeType: 'string',
       internetMaxBandwidthOut: 'number',
@@ -1450,6 +1471,9 @@ export class NodepoolScalingGroup extends $dara.Model {
     if(this.instanceMetadataOptions && typeof (this.instanceMetadataOptions as any).validate === 'function') {
       (this.instanceMetadataOptions as any).validate();
     }
+    if(Array.isArray(this.instancePatterns)) {
+      $dara.Model.validateArray(this.instancePatterns);
+    }
     if(Array.isArray(this.instanceTypes)) {
       $dara.Model.validateArray(this.instanceTypes);
     }
@@ -1488,7 +1512,7 @@ export class NodepoolScalingGroup extends $dara.Model {
 export class NodepoolTeeConfig extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the node pool is a confidential computing node pool.
+   * Specifies whether this is a confidential computing node pool.
    * 
    * This parameter is required.
    * 
@@ -1542,7 +1566,7 @@ export class Nodepool extends $dara.Model {
   interconnectConfig?: NodepoolInterconnectConfig;
   /**
    * @remarks
-   * The network type of the edge node pool. This parameter is valid only for node pools whose `type` is `edge`. Valid values:
+   * The network type of the edge node pool. This value is meaningful only for node pools whose `type` is `edge`. Valid values:
    * 
    * @example
    * basic
@@ -1560,7 +1584,7 @@ export class Nodepool extends $dara.Model {
   management?: NodepoolManagement;
   /**
    * @remarks
-   * The maximum number of nodes allowed in the edge node pool. The value must be greater than or equal to 0. A value of 0 indicates no additional limit (only limited by the maximum number of nodes the cluster can accommodate, with no additional limit on the node pool itself). Edge node pools typically have a value greater than 0. ESS-type node pools and default edge-type node pools have a value of 0.
+   * The maximum number of nodes allowed in the edge node pool. This parameter must be greater than or equal to 0. A value of 0 indicates no additional limit (limited only by the maximum number of nodes the cluster can contain, with no additional limit on the node pool itself). Edge node pools typically have a value greater than 0. ESS type node pools and default edge type node pools have a value of 0.
    * 
    * @example
    * 10
@@ -1583,7 +1607,7 @@ export class Nodepool extends $dara.Model {
   nodepoolInfo?: NodepoolNodepoolInfo;
   /**
    * @remarks
-   * The scaling group configuration for the node pool.
+   * The node pool scaling group configuration.
    */
   scalingGroup?: NodepoolScalingGroup;
   /**

@@ -20,7 +20,11 @@ export class CreateClusterRequestAuditLogConfig extends $dara.Model {
   enabled?: boolean;
   /**
    * @remarks
-   * The [Simple Log Service project](https://help.aliyun.com/document_detail/48873.html) that contains the [Logstore](https://help.aliyun.com/document_detail/48873.html) for cluster audit logs.
+   * The [SLS Project](https://help.aliyun.com/document_detail/48873.html) that contains the [Logstore](https://help.aliyun.com/document_detail/48873.html) for cluster audit logs.
+   * 
+   * - Default value: `k8s-log-{clusterid}`.
+   * 
+   * - After the cluster audit log feature is enabled, a Logstore for cluster audit logs is created in the specified SLS Project.
    * 
    * @example
    * k8s-log-c2345xxxxxxxxxxxx
@@ -82,7 +86,13 @@ export class CreateClusterRequestAutoMode extends $dara.Model {
 export class CreateClusterRequestControlPlaneConfig extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable auto-renewal for control plane nodes. This parameter is valid only when charge_type is set to `PrePaid`.
+   * Specifies whether to enable auto-renewal for control plane nodes. This parameter takes effect only when the billing method is set to `PrePaid`.
+   * 
+   * Valid values:
+   * - true: Enable auto-renewal.
+   * - false: Disable auto-renewal.
+   * 
+   * Default value: true.
    * 
    * @example
    * true
@@ -100,6 +110,11 @@ export class CreateClusterRequestControlPlaneConfig extends $dara.Model {
    * @remarks
    * The billing method of control plane nodes.
    * 
+   * - PrePaid: subscription.
+   * - PostPaid: pay-as-you-go.
+   * 
+   * Default value: PostPaid.
+   * 
    * @example
    * PostPaid
    */
@@ -114,7 +129,13 @@ export class CreateClusterRequestControlPlaneConfig extends $dara.Model {
   cloudMonitorFlags?: boolean;
   /**
    * @remarks
-   * The CPU management policy for nodes.
+   * The CPU management policy for the node.
+   * 
+   * Valid values:
+   * - static: Allows pods with certain resource characteristics on the node to be granted enhanced CPU affinity and exclusivity.
+   * - none: The existing default CPU affinity scheme is enabled.
+   * 
+   * Default value: none.
    * 
    * @example
    * none
@@ -151,7 +172,7 @@ export class CreateClusterRequestControlPlaneConfig extends $dara.Model {
   instanceMetadataOptions?: InstanceMetadataOptions;
   /**
    * @remarks
-   * The instance types of nodes.
+   * The node instance types.
    */
   instanceTypes?: string[];
   /**
@@ -180,7 +201,7 @@ export class CreateClusterRequestControlPlaneConfig extends $dara.Model {
   nodePortRange?: string;
   /**
    * @remarks
-   * The subscription duration of control plane nodes. This parameter is valid and required only when charge_type is set to `PrePaid`.
+   * The subscription duration of control plane nodes. This parameter is valid and required only when the billing method is set to `PrePaid`.
    * 
    * @example
    * 1
@@ -188,7 +209,7 @@ export class CreateClusterRequestControlPlaneConfig extends $dara.Model {
   period?: number;
   /**
    * @remarks
-   * The unit of the subscription duration of control plane nodes. This parameter is valid and required only when charge_type is set to `PrePaid`.
+   * The unit of the subscription duration of control plane nodes. This parameter is valid and required only when the billing method is set to `PrePaid`.
    * 
    * @example
    * Month
@@ -197,6 +218,8 @@ export class CreateClusterRequestControlPlaneConfig extends $dara.Model {
   /**
    * @remarks
    * **[Deprecated]** The runtime name of control plane nodes. Valid values:
+   * 
+   * containerd: Containerd runtime. Supported by all cluster versions.
    * 
    * @example
    * containerd
@@ -228,7 +251,7 @@ export class CreateClusterRequestControlPlaneConfig extends $dara.Model {
   socEnabled?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable burst (performance burst) for the system cloud disk of nodes.
+   * Specifies whether to enable burst (performance burst) for the node system cloud disk.
    * 
    * @example
    * true
@@ -236,7 +259,15 @@ export class CreateClusterRequestControlPlaneConfig extends $dara.Model {
   systemDiskBurstingEnabled?: boolean;
   /**
    * @remarks
-   * The type of the system cloud disk for nodes.
+   * The system cloud disk type of the node.
+   * 
+   * - `cloud_efficiency`: ultra cloud disk.
+   * - `cloud_ssd`: standard SSD.
+   * - `cloud_essd`: ESSD.
+   * - `cloud_auto`: ESSD AutoPL cloud disk.
+   * - `cloud_essd_entry`: ESSD Entry disk.
+   * 
+   * Default value: `cloud_ssd`. The default value may vary based on the zone.
    * 
    * @example
    * cloud_ssd
@@ -244,7 +275,7 @@ export class CreateClusterRequestControlPlaneConfig extends $dara.Model {
   systemDiskCategory?: string;
   /**
    * @remarks
-   * The performance level of the system cloud disk. This parameter takes effect only for ESSD disks.
+   * The performance level of the node system cloud disk. This parameter takes effect only for ESSD cloud disks.
    * 
    * @example
    * PL1
@@ -252,7 +283,11 @@ export class CreateClusterRequestControlPlaneConfig extends $dara.Model {
   systemDiskPerformanceLevel?: string;
   /**
    * @remarks
-   * The provisioned read/write IOPS of the system cloud disk for nodes.
+   * The provisioned read/write IOPS of the node system cloud disk.
+   * 
+   * Valid values: 0 to min{50,000, 1000\\*capacity-baseline performance}. Baseline performance=min{1,800+50\\*capacity, 50000}.
+   * 
+   * This parameter is supported only when `system_disk_category` is set to `cloud_auto`.
    * 
    * @example
    * 1000
@@ -260,7 +295,7 @@ export class CreateClusterRequestControlPlaneConfig extends $dara.Model {
   systemDiskProvisionedIops?: number;
   /**
    * @remarks
-   * The size of the system cloud disk for nodes.
+   * The system cloud disk size of nodes.
    * 
    * @example
    * 120
@@ -352,7 +387,7 @@ export class CreateClusterRequestControlPlaneConfig extends $dara.Model {
 export class CreateClusterRequestControlPlaneEndpointsConfigInternalDnsConfig extends $dara.Model {
   /**
    * @remarks
-   * The VPCs in which the internal domain name DNS resolution takes effect.
+   * The VPCs in which the internal domain name record resolution takes effect.
    */
   bindVpcs?: string[];
   static names(): { [key: string]: string } {
@@ -422,12 +457,13 @@ export class CreateClusterRequestControlPlaneEndpointsConfigLoadBalancersConfig 
 export class CreateClusterRequestControlPlaneEndpointsConfig extends $dara.Model {
   /**
    * @remarks
-   * The internal DNS configuration of the cluster. This applies to ACK managed clusters. The internal domain name is used by node-side system components such as kubelet and kube-proxy to access the API Server. If the internal domain name access is not enabled, node-side system components access the API Server through the CLB IP address.
+   * The internal DNS configuration for the cluster. Applicable to ACK managed clusters. The internal domain name is used by node-side system components such as kubelet and kube-proxy to access the API Server. If the internal domain name access is not enabled, node-side system components access the API Server through the CLB IP address.
    */
   internalDnsConfig?: CreateClusterRequestControlPlaneEndpointsConfigInternalDnsConfig;
   /**
    * @remarks
    * The cluster connection configuration. When this field is specified, the endpoint_public_access and load_balancer_id parameters do not take effect.
+   * ACK supports only automatic creation of NLB instances. To specify a CLB or NLB instance, use load_balancers_config to specify the corresponding instance ID.
    */
   loadBalancersConfig?: CreateClusterRequestControlPlaneEndpointsConfigLoadBalancersConfig[];
   static names(): { [key: string]: string } {
@@ -462,7 +498,10 @@ export class CreateClusterRequestControlPlaneEndpointsConfig extends $dara.Model
 export class CreateClusterRequestOperationPolicyClusterAutoUpgrade extends $dara.Model {
   /**
    * @remarks
-   * The cluster auto-upgrade frequency. Valid values:
+   * The frequency of automatic cluster upgrades. Valid values:
+   * - patch: automatically upgrades to the latest patch version within the current minor version when available. New Kubernetes versions do not contain breaking changes.
+   * - stable: automatically upgrades to the latest patch version of the second-latest minor version. New Kubernetes versions may involve changes to APIs and features, but their stability has been extensively validated.
+   * - rapid: automatically upgrades to the latest patch version of the latest minor version to obtain new Kubernetes community features more quickly.
    * 
    * @example
    * stable
@@ -562,7 +601,7 @@ export class CreateClusterRequestRrsaConfig extends $dara.Model {
 export class CreateClusterRequestWorkerDataDisks extends $dara.Model {
   /**
    * @remarks
-   * The type of the data disk.
+   * The data disk type.
    * 
    * This parameter is required.
    * 
@@ -572,7 +611,12 @@ export class CreateClusterRequestWorkerDataDisks extends $dara.Model {
   category?: string;
   /**
    * @remarks
-   * Specifies whether to encrypt the data disk. Valid values:
+   * Specifies whether to encrypt data cloud disks. Valid values:
+   * 
+   * - `true`: Encrypts data cloud disks.
+   * - `false`: Does not encrypt data cloud disks.
+   * 
+   * Default value: `false`.
    * 
    * @example
    * true
@@ -580,7 +624,7 @@ export class CreateClusterRequestWorkerDataDisks extends $dara.Model {
   encrypted?: string;
   /**
    * @remarks
-   * The performance level of the data cloud disk for nodes. This parameter takes effect only for [standard SSDs](https://help.aliyun.com/document_detail/122389.html).
+   * The performance level of the node data cloud disk. This parameter takes effect only for [standard SSDs](https://help.aliyun.com/document_detail/122389.html).
    * 
    * @example
    * PL1
@@ -588,7 +632,7 @@ export class CreateClusterRequestWorkerDataDisks extends $dara.Model {
   performanceLevel?: string;
   /**
    * @remarks
-   * The size of the data disk. Valid values: 40 to 32767. Unit: GiB.
+   * The data disk size. Valid values: 40 to 32767. Unit: GiB.
    * 
    * This parameter is required.
    * 
@@ -633,12 +677,37 @@ export class CreateClusterRequest extends $dara.Model {
   accessControlList?: string[];
   /**
    * @remarks
-   * The list of cluster components. Use `addons` to specify the components to install when creating a cluster.
+   * The list of cluster components. When you create a cluster, specify the components to install by using `addons`.
+   * 
+   * **Network component**: Required. Two network types are available: Flannel and Terway. Select one when you create a cluster:
+   * 
+   * - Flannel network: [{"name":"flannel","config":""}\\].
+   * - Terway network: [{"name": "terway-eniip","config": ""}\\].
+   * 
+   * **Storage component**: Optional. Only the `csi` type is supported:
+   * 
+   * `csi`: [{"name":"csi-plugin","config": ""},{"name": "csi-provisioner","config": ""}\\].
+   * 
+   * **Log component**: Optional. We recommend that you enable this component. If you do not enable the log service, the cluster audit feature is unavailable.
+   * 
+   * - Use an existing `SLS Project`: [{"name": "loongcollector","config": "{\\"IngressDashboardEnabled\\":\\"true\\",\\"sls_project_name\\":\\"your_sls_project_name\\"}"}\\].
+   * - Create a new `SLS Project`: [{"name": "loongcollector","config": "{\\"IngressDashboardEnabled\\":\\"true\\"}"}\\].
+   * 
+   * **Ingress component**: Optional. ACK dedicated clusters install the Ingress component `nginx-ingress-controller` by default.
+   * 
+   * - Install Ingress and enable Internet access: [{"name":"nginx-ingress-controller","config":"{\\"IngressSlbNetworkType\\":\\"internet\\"}"}\\].
+   * - Do not install Ingress by default: [{"name": "nginx-ingress-controller","config": "","disabled": true}\\].
+   * 
+   * **Event center**: Optional. Enabled by default.
+   * 
+   * The event center provides capabilities such as storage, query, and alerting for Kubernetes events. The Logstore associated with the Kubernetes event center is free of charge for 90 days. For more information about the free policy, see [Create and use a Kubernetes event center](https://help.aliyun.com/document_detail/150476.html).
+   * 
+   * Example of enabling the event center: [{"name":"ack-node-problem-detector","config":"{\\"sls_project_name\\":\\"your_sls_project_name\\"}"}\\].
    */
   addons?: Addon[];
   /**
    * @remarks
-   * A ServiceAccount is the access credential for communication between a pod and the cluster API server. The `api-audiences` parameter specifies the valid request `token` identities used by the `apiserver` to authenticate whether a request `token` is valid. You can specify multiple `audience` values separated by commas (,).
+   * A ServiceAccount is the access credential for communication between a pod and the cluster API server. The `api-audiences` parameter specifies the valid request `token` identities used by the `apiserver` to authenticate whether a request `token` is valid. You can configure multiple `audience` values separated by commas (,).
    * 
    * @example
    * kubernetes.default.svc
@@ -658,6 +727,15 @@ export class CreateClusterRequest extends $dara.Model {
    * @remarks
    * **[Deprecated]**
    * 
+   * Specifies whether to enable auto-renewal. This parameter takes effect only when charge_type is set to PrePaid. Valid values:
+   * 
+   * - true: Auto-renewal is enabled.
+   * - false: Auto-renewal is not enabled.
+   * 
+   * Default value: false.
+   * 
+   * This parameter was changed on October 15, 2024. For more information, see [Notice on behavior changes of the CreateCluster parameter](https://help.aliyun.com/document_detail/2849194.html).
+   * 
    * @example
    * true
    * 
@@ -668,6 +746,12 @@ export class CreateClusterRequest extends $dara.Model {
    * @remarks
    * **[Deprecated]**
    * 
+   * The auto-renewal period. This parameter takes effect only when the subscription billing method and auto-renewal are selected. When `PeriodUnit=Month`, valid values: {1, 2, 3, 6, 12}.
+   * 
+   * Default value: 1.
+   * 
+   * This parameter was changed on October 15, 2024. For more information, see [Notice on behavior changes of the CreateCluster parameter](https://help.aliyun.com/document_detail/2849194.html).
+   * 
    * @example
    * 1
    * 
@@ -677,6 +761,18 @@ export class CreateClusterRequest extends $dara.Model {
   /**
    * @remarks
    * **[Deprecated]**
+   * 
+   * The billing method of the Classic Load Balancer (CLB) instance used by the API server. Default value: PostPaid. Valid values:
+   * - PostPaid: pay-as-you-go.
+   * - PrePaid: subscription. This billing method is no longer supported for new CLB instances. Existing instances are not affected.
+   * 
+   * >Notice: 
+   * 
+   * - This parameter was changed on October 15, 2024. For more information, see [Notice on behavior changes of the CreateCluster parameter](https://help.aliyun.com/document_detail/2849194.html).
+   * - Starting from December 1, 2024, the subscription billing method is no longer supported for newly created CLB instances, and an instance fee is charged.
+   * </notice>
+   * <props="china">For more information, see [Notice on canceling subscription billing for API server CLB instances in new clusters](https://help.aliyun.com/document_detail/2851191.html) and [Notice on billing item changes for CLB](https://help.aliyun.com/document_detail/2839797.html).
+   * <props="intl">For more information, see [Notice on billing item changes for CLB](https://help.aliyun.com/document_detail/2839797.html).
    * 
    * @example
    * PostPaid
@@ -696,7 +792,14 @@ export class CreateClusterRequest extends $dara.Model {
   cisEnabled?: boolean;
   /**
    * @remarks
-   * **[Deprecated]** For cluster control plane node configuration, use the `cloud_monitor_flags` parameter under `control_plane_config` instead. For node pool configuration, use the `cms_enabled` parameter under `kubernetes_config` in `nodepool` instead.
+   * **[Deprecated]** For cluster control plane node configuration, use the `cloud_monitor_flags` parameter under `control_plane_config` instead. For node pool configuration, use the `cms_enabled` parameter under `kubernetes_config` in the nodepool instead.
+   * 
+   * Specifies whether to install the CloudMonitor agent on the cluster. Valid values:
+   * 
+   * - `true`: Install the CloudMonitor agent.
+   * - `false`: Do not install the CloudMonitor agent.
+   * 
+   * Default value: `false`.
    * 
    * @example
    * false
@@ -714,7 +817,17 @@ export class CreateClusterRequest extends $dara.Model {
   clusterDomain?: string;
   /**
    * @remarks
-   * If you set `cluster_type` to `ManagedKubernetes` and configure `profile`, you can further specify the cluster specifications. Valid values:
+   * After you set `cluster_type` to `ManagedKubernetes` and configure `profile`, you can further specify the cluster specification. Valid values:
+   * 
+   * - `ack.standard`: Basic Edition (selected by default if the value is left empty)
+   * - `ack.pro.small`: Pro Edition
+   * - `ack.pro.xlarge`: Pro XL
+   * - `ack.pro.2xlarge`: Pro 2XL
+   * - `ack.pro.4xlarge`: Pro 4XL (contact customer service to be added to the whitelist)
+   * 
+   * Pro XL, Pro 2XL, and Pro 4XL are three tiers provided by <props="china">[ACK Pro Provisioned Control Plane](https://help.aliyun.com/ack/ack-managed-and-ack-dedicated/user-guide/ack-pro-provisioned-control-plane)<props="intl">[ACK Pro Provisioned Control Plane](https://www.alibabacloud.com/help/ack/ack-managed-and-ack-dedicated/user-guide/ack-pro-provisioned-control-plane). These tiers pre-allocate and lock control plane resources to ensure that API concurrency and pod scheduling capabilities remain at a deterministic high level. They are suitable for AI training and inference, ultra-large-scale clusters, and mission-critical workloads.
+   * 
+   * For information about cluster management fees for Pro Edition and Provisioned Control Plane editions, see <props="china">[Cluster management fees](https://help.aliyun.com/ack/ack-managed-and-ack-dedicated/product-overview/cluster-management-fee)<props="intl">[Cluster management fees](https://www.alibabacloud.com/help/ack/ack-managed-and-ack-dedicated/product-overview/cluster-management-fee).
    * 
    * @example
    * ack.pro.small
@@ -730,7 +843,11 @@ export class CreateClusterRequest extends $dara.Model {
   clusterType?: string;
   /**
    * @remarks
-   * The pod network CIDR block. It must be a valid private CIDR block, which includes the following CIDR blocks and their subnets: 10.0.0.0/8, 172.16-31.0.0/12-16, and 192.168.0.0/16. It cannot overlap with the CIDR blocks used by the VPC or existing Kubernetes clusters in the VPC. It cannot be modified after the cluster is created.
+   * The pod CIDR block. The value must be a valid private CIDR block, which includes the following CIDR blocks and their subnets: 10.0.0.0/8, 172.16-31.0.0/12-16, and 192.168.0.0/16. The pod CIDR block cannot overlap with the CIDR block of the VPC or the CIDR blocks used by existing Kubernetes clusters in the VPC. You cannot modify the pod CIDR block after the cluster is created.
+   * 
+   * For more information about cluster network planning, see [Network planning for ACK managed clusters](https://help.aliyun.com/document_detail/86500.html).
+   * 
+   * > This parameter is required for Flannel clusters.
    * 
    * @example
    * 172.20.0.0/16
@@ -753,7 +870,7 @@ export class CreateClusterRequest extends $dara.Model {
   controlplaneLogComponents?: string[];
   /**
    * @remarks
-   * The Simple Log Service project for control plane component logs. You can use an existing project for log storage or allow the system to automatically create a project. If you choose automatic creation, a Simple Log Service project named `k8s-log-{ClusterID}` is automatically created.
+   * The Simple Log Service project for control plane component logs. You can use an existing project for log storage or allow the system to use automatic creation of a project. If you choose automatic creation, a Simple Log Service project named `k8s-log-{ClusterID}` is created.
    * 
    * @example
    * k8s-log-xxx
@@ -769,7 +886,7 @@ export class CreateClusterRequest extends $dara.Model {
   controlplaneLogTtl?: string;
   /**
    * @remarks
-   * **[Deprecated]** For cluster control plane configuration, use the cpu_policy parameter under `control_plane_config` instead. For node pool configuration, use the cpu_policy parameter under `kubernetes_config` in `nodepool` instead.
+   * **[Deprecated]** For cluster control plane configuration, use the `cpu_policy` parameter under `control_plane_config` instead. For node pool configuration, use the `cpu_policy` parameter under `kubernetes_config` in `nodepool` instead.
    * 
    * @example
    * none
@@ -789,7 +906,12 @@ export class CreateClusterRequest extends $dara.Model {
   customSan?: string;
   /**
    * @remarks
-   * Specifies whether to enable deletion protection for the cluster to prevent accidental deletion through the console or API. Valid values:
+   * Specifies whether to enable deletion protection for the cluster. Deletion protection prevents the cluster from being accidentally deleted in the console or by calling API operations. Valid values:
+   * 
+   * - `true`: Enables deletion protection. The cluster cannot be deleted in the console or by calling API operations.
+   * - `false`: Disables deletion protection. The cluster can be deleted in the console or by calling API operations.
+   * 
+   * Default value: `false`.
    * 
    * @example
    * true
@@ -807,7 +929,13 @@ export class CreateClusterRequest extends $dara.Model {
   disableRollback?: boolean;
   /**
    * @remarks
-   * **[Deprecated]** Use the `rrsa_config` parameter instead.
+   * **[Deprecated]** Use the rrsa_config parameter instead.
+   * 
+   * Specifies whether to enable the China RRSA feature.
+   * 
+   * Valid values:
+   * - true: Enable RRSA.
+   * - false: Do not enable RRSA.
    * 
    * @example
    * false
@@ -817,7 +945,9 @@ export class CreateClusterRequest extends $dara.Model {
   enableRrsa?: boolean;
   /**
    * @remarks
-   * The KMS key ID used to encrypt data cloud disks. For more information, see [Key Management Service](https://help.aliyun.com/document_detail/28935.html).
+   * The KMS key ID. This key is used to encrypt data cloud disks. For more information, see [Key Management Service](https://help.aliyun.com/document_detail/28935.html).
+   * 
+   * > This feature takes effect only in ACK Pro clusters.
    * 
    * @example
    * 0fe64791-55eb-4fc7-84c5-c6c7cdca****
@@ -860,6 +990,20 @@ export class CreateClusterRequest extends $dara.Model {
    * @remarks
    * **[Deprecated]** For cluster control plane configuration, use the `image_type` parameter under `control_plane_config` instead. For node pool configuration, use the `image_type` parameter under `scaling_group` in `nodepool` instead.
    * 
+   * The operating system distribution type. We recommend that you use this field to specify the node operating system. Valid values:
+   * 
+   * - CentOS
+   * - AliyunLinux
+   * - AliyunLinux Qboot
+   * - AliyunLinuxUEFI
+   * - AliyunLinux3
+   * - Windows
+   * - WindowsCore
+   * - AliyunLinux3Arm64
+   * - ContainerOS
+   * 
+   * Default value: `CentOS`.
+   * 
    * @example
    * AliyunLinux
    * 
@@ -868,14 +1012,18 @@ export class CreateClusterRequest extends $dara.Model {
   imageType?: string;
   /**
    * @remarks
-   * **[Deprecated]** Selecting existing nodes during cluster creation is not supported. To add existing nodes to a cluster, create a node pool first and call the [AttachInstancesToNodePool](https://help.aliyun.com/document_detail/2667920.html) operation.
+   * **[Deprecated]** Creating a cluster with existing nodes is not supported. To add existing nodes to a cluster, create a node pool first, and then call the [AttachInstancesToNodePool](https://help.aliyun.com/document_detail/2667920.html) operation.
+   * 
+   * The list of ECS instances to use as worker nodes when creating a cluster with existing nodes.
+   * 
+   * > This parameter is required when you create a cluster with existing instances.
    * 
    * @deprecated
    */
   instances?: string[];
   /**
    * @remarks
-   * The IP stack of the cluster.
+   * The IP protocol stack of the cluster.
    * 
    * @example
    * Valid values:
@@ -883,7 +1031,7 @@ export class CreateClusterRequest extends $dara.Model {
   ipStack?: string;
   /**
    * @remarks
-   * Specifies whether to enable automatic creation of an advanced security group. This parameter takes effect only when `security_group_id` is empty.
+   * Specifies whether to enable automatic creation of an advanced security group. This parameter takes effect when `security_group_id` is empty.
    * 
    * @example
    * true
@@ -901,7 +1049,9 @@ export class CreateClusterRequest extends $dara.Model {
   keepInstanceName?: boolean;
   /**
    * @remarks
-   * **[Deprecated]** For cluster control plane configuration, use the key_pair parameter under `control_plane_config` instead. For node pool configuration, use the key_pair parameter under `scaling_group` in `nodepool` instead.
+   * **[Deprecated]** For cluster control plane configurations, use the `key_pair` parameter under `control_plane_config` instead. For node pool configurations, use the `key_pair` parameter under `scaling_group` in `nodepool` instead.
+   * 
+   * The name of the key pair. You must specify one of this parameter or `login_password`.
    * 
    * @example
    * security-key
@@ -911,7 +1061,7 @@ export class CreateClusterRequest extends $dara.Model {
   keyPair?: string;
   /**
    * @remarks
-   * The cluster version, which is consistent with the Kubernetes community baseline version. Use the latest version. If you do not specify this parameter, the latest version is used by default.
+   * The cluster version, which is consistent with the Kubernetes community baseline version. We recommend that you select the latest version. If you do not specify this parameter, the latest version is used by default.
    * 
    * @example
    * 1.32.1-aliyun.1
@@ -947,7 +1097,9 @@ export class CreateClusterRequest extends $dara.Model {
   loggingType?: string;
   /**
    * @remarks
-   * **[Deprecated]** For cluster control plane configuration, use the login_password parameter under `control_plane_config` instead. For node pool configuration, use the login_password parameter under `scaling_group` in `nodepool` instead.
+   * **[Deprecated]** For cluster control plane configurations, use the `login_password` parameter under `control_plane_config` instead. For node pool configurations, use the `login_password` parameter under `scaling_group` in `nodepool` instead.
+   * 
+   * The SSH logon password. You must specify this parameter or `key_pair`. The password must be 8 to 30 characters in length and must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters.
    * 
    * @example
    * null
@@ -962,7 +1114,7 @@ export class CreateClusterRequest extends $dara.Model {
   maintenanceWindow?: MaintenanceWindow;
   /**
    * @remarks
-   * **[Deprecated]** For cluster control plane configuration, use the auto_renew parameter under `control_plane_config` instead.
+   * **[Deprecated]** For cluster control plane configuration, use the `auto_renew` parameter under `control_plane_config` instead.
    * 
    * @example
    * true
@@ -972,7 +1124,7 @@ export class CreateClusterRequest extends $dara.Model {
   masterAutoRenew?: boolean;
   /**
    * @remarks
-   * **[Deprecated]** For cluster control plane configuration, use the auto_renew_period parameter under `control_plane_config` instead.
+   * **[Deprecated]** For cluster control plane configuration, use the `auto_renew_period` parameter under `control_plane_config` instead.
    * 
    * @example
    * 1
@@ -982,7 +1134,14 @@ export class CreateClusterRequest extends $dara.Model {
   masterAutoRenewPeriod?: number;
   /**
    * @remarks
-   * **[Deprecated]** For cluster control plane configuration, use the size parameter under `control_plane_config` instead.
+   * **[Deprecated]** Use the `size` parameter under `control_plane_config` instead to configure the cluster control plane.
+   * 
+   * The number of master nodes. Valid values:
+   * 
+   * - 3
+   * - 5
+   * 
+   * Default value: `3`.
    * 
    * @example
    * 3
@@ -992,7 +1151,7 @@ export class CreateClusterRequest extends $dara.Model {
   masterCount?: number;
   /**
    * @remarks
-   * **[Deprecated]** For cluster control plane configuration, use the instance_charge_type parameter under `control_plane_config` instead.
+   * **[Deprecated]** For cluster control plane configuration, use the `instance_charge_type` parameter under `control_plane_config` instead.
    * 
    * @example
    * PrePaid
@@ -1002,14 +1161,22 @@ export class CreateClusterRequest extends $dara.Model {
   masterInstanceChargeType?: string;
   /**
    * @remarks
-   * **[Deprecated]** For cluster control plane configuration, use the instance_types parameter under `control_plane_config` instead.
+   * **[Deprecated]** Use the `instance_types` parameter under `control_plane_config` for cluster control plane configuration instead.
+   * 
+   * The instance types of master nodes. For more information, see [Instance families](https://help.aliyun.com/document_detail/25378.html).
    * 
    * @deprecated
    */
   masterInstanceTypes?: string[];
   /**
    * @remarks
-   * **[Deprecated]** For cluster control plane configuration, use the `unit` parameter under `control_plane_config` instead.
+   * **[Deprecated]** Use the `unit` parameter under `control_plane_config` for cluster control plane configuration instead.
+   * 
+   * The subscription duration of master nodes. This parameter takes effect and is required only when `master_instance_charge_type` is set to `PrePaid`.
+   * 
+   * Valid values: {1, 2, 3, 6, 12, 24, 36, 48, 60}.
+   * 
+   * Default value: 1.
    * 
    * @example
    * 1
@@ -1019,7 +1186,11 @@ export class CreateClusterRequest extends $dara.Model {
   masterPeriod?: number;
   /**
    * @remarks
-   * **[Deprecated]** For cluster control plane configuration, use the period_unit parameter under `control_plane_config` instead.
+   * **[Deprecated]** Use the `period_unit` parameter under `control_plane_config` for cluster control plane configuration instead.
+   * 
+   * The billing cycle of master nodes. This parameter is required when the billing method is set to `PrePaid`.
+   * 
+   * Valid values: `Month`. Currently, only monthly billing cycles are supported.
    * 
    * @example
    * Month
@@ -1029,7 +1200,7 @@ export class CreateClusterRequest extends $dara.Model {
   masterPeriodUnit?: string;
   /**
    * @remarks
-   * **[Deprecated]** For cluster control plane configuration, use the system_disk_category parameter under `control_plane_config` instead.
+   * **[Deprecated]** For cluster control plane configuration, use the `system_disk_category` parameter under `control_plane_config` instead.
    * 
    * @example
    * cloud_ssd
@@ -1039,7 +1210,7 @@ export class CreateClusterRequest extends $dara.Model {
   masterSystemDiskCategory?: string;
   /**
    * @remarks
-   * **[Deprecated]** For cluster control plane configuration, use the system_disk_performance_level parameter under `control_plane_config` instead.
+   * **[Deprecated]** For cluster control plane configuration, use the `system_disk_performance_level` parameter under `control_plane_config` instead.
    * 
    * @example
    * PL1
@@ -1049,7 +1220,11 @@ export class CreateClusterRequest extends $dara.Model {
   masterSystemDiskPerformanceLevel?: string;
   /**
    * @remarks
-   * **[Deprecated]** For cluster control plane configuration, use the system_disk_size parameter under `control_plane_config` instead.
+   * **[Deprecated]** Use the `system_disk_size` parameter under `control_plane_config` for cluster control plane configuration instead.
+   * 
+   * The system disk size of master nodes. Valid values: [40,500\\]. Unit: GiB.
+   * 
+   * Default value: `120`.
    * 
    * @example
    * 120
@@ -1059,7 +1234,9 @@ export class CreateClusterRequest extends $dara.Model {
   masterSystemDiskSize?: number;
   /**
    * @remarks
-   * **[Deprecated]** For cluster control plane configuration, use the system_disk_snapshot_policy_id parameter under `control_plane_config` instead.
+   * **[Deprecated]** Use the system_disk_snapshot_policy_id parameter under control_plane_config for cluster control plane configuration instead.
+   * 
+   * The ID of the automatic snapshot policy used by the system cloud disks of master nodes.
    * 
    * @example
    * sp-2zej1nogjvovnz4z****
@@ -1114,7 +1291,9 @@ export class CreateClusterRequest extends $dara.Model {
   nodeNameMode?: string;
   /**
    * @remarks
-   * The node service port. Valid port range: [30000,65535\\].
+   * The node service port range. Valid port range: [30000,65535\\].
+   * 
+   * Default value: `30000-32767`.
    * 
    * @example
    * 30000~32767
@@ -1129,7 +1308,9 @@ export class CreateClusterRequest extends $dara.Model {
   nodepools?: Nodepool[];
   /**
    * @remarks
-   * **[Deprecated]** For node pool configuration, use the desired_size parameter under `scaling_group` in `nodepool` instead.
+   * **[Deprecated]** Use the desired_size parameter under scaling_group in nodepool instead.
+   * 
+   * The number of worker nodes. Valid values: [0, 100\\].
    * 
    * @example
    * 3
@@ -1146,6 +1327,12 @@ export class CreateClusterRequest extends $dara.Model {
    * @remarks
    * **[Deprecated]** For cluster control plane node configuration, use the `image_type` parameter under `control_plane_config` instead. For node pool configuration, use the `image_type` parameter under `scaling_group` in `nodepool` instead.
    * 
+   * The operating system platform type. Valid values:
+   * - Windows
+   * - Linux
+   * 
+   * Default value: `Linux`.
+   * 
    * @example
    * Linux
    * 
@@ -1155,6 +1342,14 @@ export class CreateClusterRequest extends $dara.Model {
   /**
    * @remarks
    * **[Deprecated]**
+   * 
+   * The subscription duration. This parameter takes effect and is required only when charge_type is set to PrePaid.
+   * 
+   * Valid values: 1, 2, 3, 6, 12, 24, 36, 48, and 60.
+   * 
+   * Default value: 1.
+   * 
+   * This parameter was changed on October 15, 2024. For more information, see [Notice on the behavior changes of parameters in the CreateCluster operation](https://help.aliyun.com/document_detail/2849194.html).
    * 
    * @example
    * 1
@@ -1166,6 +1361,14 @@ export class CreateClusterRequest extends $dara.Model {
    * @remarks
    * **[Deprecated]**
    * 
+   * The billing cycle unit. This parameter is required when the billing type is set to PrePaid.
+   * 
+   * Valid values:
+   * 
+   * - Month: Currently, only monthly billing cycles are supported.
+   * 
+   * This parameter was changed on October 15, 2024. For more information, see [Notice on behavior changes of the CreateCluster parameter in the cluster creation operation](https://help.aliyun.com/document_detail/2849194.html).
+   * 
    * @example
    * Month
    * 
@@ -1174,7 +1377,18 @@ export class CreateClusterRequest extends $dara.Model {
   periodUnit?: string;
   /**
    * @remarks
-   * **[Deprecated]** For node pool configuration, use the `platform` parameter under `scaling_group` in `nodepool` instead.
+   * **[Deprecated]** Use the `platform` parameter under `scaling_group` in `nodepool` instead for node pool configuration.
+   * 
+   * The operating system distribution. Valid values:
+   * 
+   * - CentOS
+   * - AliyunLinux
+   * - QbootAliyunLinux
+   * - Qboot
+   * - Windows
+   * - WindowsCore
+   * 
+   * Default value: `CentOS`.
    * 
    * @example
    * CentOS
@@ -1184,7 +1398,8 @@ export class CreateClusterRequest extends $dara.Model {
   platform?: string;
   /**
    * @remarks
-   * **[Deprecated]** When you select Terway as the network plugin, you must specify vSwitches for pod IP address allocation. Each pod vSwitch corresponds to a worker node vSwitch, and the pod vSwitch and the worker node vSwitch must be in the same zone.
+   * **[Deprecated]** The vSwitches that are used to assign IP addresses to pods when the Terway network plugin is selected. Each pod vSwitch corresponds to a vSwitch of a worker node. The pod vSwitch and the worker node vSwitch must be in the same zone.
+   * > The subnet mask of the pod vSwitch CIDR block must be no longer than 19 bits and no longer than 25 bits. Otherwise, the number of Pod IP addresses available in the cluster network is very limited, which affects the normal use of the cluster.
    * 
    * @deprecated
    */
@@ -1207,7 +1422,9 @@ export class CreateClusterRequest extends $dara.Model {
   proxyMode?: string;
   /**
    * @remarks
-   * **[Deprecated]** For node pool configuration, use the `rds_instances` parameter under `scaling_group` in `nodepool` instead.
+   * **[Deprecated]** For node pool configurations, use the rds_instances parameter under scaling_group in nodepool instead.
+   * 
+   * The list of ApsaraDB RDS instances to which you want to add whitelist entries. We recommend that you add the container pod CIDR block and node CIDR block in the ApsaraDB RDS console. If you specify RDS instances here, the configuration may fail because the instances are not in the Running state.
    * 
    * @deprecated
    */
@@ -1232,19 +1449,19 @@ export class CreateClusterRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The RRSA feature configuration.
+   * The RAM Roles for Service Accounts (RRSA) feature configuration.
    */
   rrsaConfig?: CreateClusterRequestRrsaConfig;
   /**
    * @remarks
-   * The container runtime in the cluster. Supported runtimes include containerd, sandboxed containers, and Docker.
+   * The container runtime of the cluster. Supported runtimes include containerd, sandboxed containers, and Docker.
    * 
    * @deprecated
    */
   runtime?: Runtime;
   /**
    * @remarks
-   * The security group ID. Specify this parameter when you use an existing security group to create a cluster. This parameter and `is_enterprise_security_group` are mutually exclusive. Cluster nodes are automatically added to this security group.
+   * The security group ID. Specify this parameter when you use an existing security group to create a cluster. This parameter is mutually exclusive with `is_enterprise_security_group`. Cluster nodes are automatically added to this security group.
    * 
    * @example
    * sg-bp1bdue0qc1g7k****
@@ -1278,7 +1495,12 @@ export class CreateClusterRequest extends $dara.Model {
   serviceCidr?: string;
   /**
    * @remarks
-   * **[Deprecated]** The service discovery types within the cluster, used to specify the service discovery method in `ACK Serverless` clusters.
+   * **[Deprecated]** The type of service discovery within the cluster. This parameter is used to specify the service discovery method in `ACK Serverless` clusters.
+   * 
+   * - `CoreDNS`: Uses the Kubernetes-native standard service discovery component CoreDNS. A group of containers must be deployed in the cluster for DNS resolution. By default, two ECI instances with 0.25 Core and 512 MiB specifications are used.
+   * - `PrivateZone`: Uses Alibaba Cloud PrivateZone to provide service discovery capabilities. The PrivateZone service must be enabled.
+   * 
+   * Default value: disabled.
    * 
    * @deprecated
    */
@@ -1286,6 +1508,13 @@ export class CreateClusterRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to configure SNAT for the VPC. Valid values:
+   * 
+   * - `true`: Automatically creates a NAT gateway and configures SNAT rules. Set this to `true` if nodes and applications in the cluster need to access the Internet.
+   * - `false`: Does not create a NAT gateway or SNAT rules. Nodes and applications in the cluster cannot access the Internet.
+   * 
+   * > If this feature is not enabled during cluster creation and Internet access is required later, you can [manually enable it](https://help.aliyun.com/document_detail/178480.html).
+   * 
+   * Default value: `false`.
    * 
    * @example
    * false
@@ -1295,6 +1524,8 @@ export class CreateClusterRequest extends $dara.Model {
    * @remarks
    * **[Deprecated]** For cluster control plane node configuration, use the `soc_enabled` parameter under `control_plane_config` instead. For node pool configuration, use the `soc_enabled` parameter under `scaling_group` in `nodepool` instead.
    * 
+   * MLPS 2.0 security hardening. For more information, see [China Chinese China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China
+   * 
    * @example
    * false
    * 
@@ -1303,7 +1534,11 @@ export class CreateClusterRequest extends $dara.Model {
   socEnabled?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable public SSH logon. This is used to log on to the master nodes of ACK dedicated clusters. This parameter does not take effect for managed clusters.
+   * Specifies whether to enable public SSH logon. This parameter is used to log on to master nodes of ACK dedicated clusters. This parameter does not take effect for managed clusters.
+   * - `true`: Enabled.
+   * - `false`: Disabled.
+   * 
+   * Default value: `false`.
    * 
    * @example
    * true
@@ -1311,7 +1546,10 @@ export class CreateClusterRequest extends $dara.Model {
   sshFlags?: boolean;
   /**
    * @remarks
-   * The node tags. Tag definition rules:
+   * The node labels. Label rules:
+   * 
+   * - Labels are case-sensitive key-value pairs. You can add up to 20 labels.
+   * - Label keys must be unique and can be up to 64 characters in length. Label values can be empty and can be up to 128 characters in length. Label keys and values cannot start with "aliyun", "acs:", "https://", or "http://". For more information, see [Labels and Selectors](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#syntax-and-character-set).
    */
   tags?: Tag[];
   /**
@@ -1323,7 +1561,11 @@ export class CreateClusterRequest extends $dara.Model {
   taints?: Taint[];
   /**
    * @remarks
-   * **[Deprecated]** When cluster creation fails, rollback is not performed by default. You must manually clean up the failed cluster.
+   * **[Deprecated]** If a cluster fails to be created, the system does not roll back the cluster by default. You must manually clean up the failed cluster.
+   * 
+   * The timeout period for creating a cluster. Unit: minutes.
+   * 
+   * Default value: `60`.
    * 
    * @example
    * 60
@@ -1367,12 +1609,12 @@ export class CreateClusterRequest extends $dara.Model {
   vpcid?: string;
   /**
    * @remarks
-   * The vSwitches for cluster nodes. This field is required when you create a zero-node managed cluster.
+   * The vSwitches for cluster nodes. This field is required when you create a managed cluster with zero nodes.
    */
   vswitchIds?: string[];
   /**
    * @remarks
-   * **[Deprecated]** For node pool configuration, use the auto_renew parameter under `scaling_group` in `nodepool` instead.
+   * **[Deprecated]** For node pool configuration, use the `auto_renew` parameter under `scaling_group` in `nodepool` instead.
    * 
    * @example
    * true
@@ -1382,7 +1624,7 @@ export class CreateClusterRequest extends $dara.Model {
   workerAutoRenew?: boolean;
   /**
    * @remarks
-   * **[Deprecated]** For node pool configuration, use the auto_renew_period parameter under `scaling_group` in `nodepool` instead.
+   * **[Deprecated]** For node pool configuration, use the `auto_renew_period` parameter under `scaling_group` in `nodepool` instead.
    * 
    * @example
    * 1
@@ -1392,14 +1634,16 @@ export class CreateClusterRequest extends $dara.Model {
   workerAutoRenewPeriod?: number;
   /**
    * @remarks
-   * **[Deprecated]** For node pool configuration, use the data_disks parameter under `scaling_group` in `nodepool` instead.
+   * **[Deprecated]** Use the data_disks parameter in scaling_group under nodepool instead.
+   * 
+   * The configurations of data cloud disks for worker nodes, including the disk type and size.
    * 
    * @deprecated
    */
   workerDataDisks?: CreateClusterRequestWorkerDataDisks[];
   /**
    * @remarks
-   * **[Deprecated]** For node pool configuration, use the instance_charge_type parameter under `scaling_group` in `nodepool` instead.
+   * **[Deprecated]** For node pool configuration, use the `instance_charge_type` parameter under `scaling_group` in `nodepool` instead.
    * 
    * @example
    * PrePaid
@@ -1409,14 +1653,22 @@ export class CreateClusterRequest extends $dara.Model {
   workerInstanceChargeType?: string;
   /**
    * @remarks
-   * **[Deprecated]** For node pool configuration, use the instance_types parameter under `scaling_group` in `nodepool` instead.
+   * **[Deprecated]** Use the instance_types parameter in scaling_group under nodepool instead.
+   * 
+   * The instance types of worker nodes.
    * 
    * @deprecated
    */
   workerInstanceTypes?: string[];
   /**
    * @remarks
-   * **[Deprecated]** For node pool configuration, use the period parameter under `scaling_group` in `nodepool` instead.
+   * **[Deprecated]** Use the `period` parameter in `scaling_group` under `nodepool` for node pool configuration instead.
+   * 
+   * The subscription duration of worker nodes. This parameter takes effect and is required only when `worker_instance_charge_type` is set to `PrePaid`.
+   * 
+   * Valid values: 1, 2, 3, 6, 12, 24, 36, 48, and 60.
+   * 
+   * Default value: 1.
    * 
    * @example
    * 1
@@ -1426,7 +1678,11 @@ export class CreateClusterRequest extends $dara.Model {
   workerPeriod?: number;
   /**
    * @remarks
-   * **[Deprecated]** For node pool configuration, use the period_unit parameter under `scaling_group` in `nodepool` instead.
+   * **[Deprecated]** Use the period_unit parameter in scaling_group under nodepool instead.
+   * 
+   * The billing cycle of worker nodes. This parameter is required when the billing method is set to `PrePaid`.
+   * 
+   * Valid values: `Month`. Only monthly billing cycles are supported.
    * 
    * @example
    * Month
@@ -1436,7 +1692,7 @@ export class CreateClusterRequest extends $dara.Model {
   workerPeriodUnit?: string;
   /**
    * @remarks
-   * **[Deprecated]** For node pool configuration, use the system_disk_category parameter under `scaling_group` in `nodepool` instead.
+   * **[Deprecated]** For node pool configuration, use the `system_disk_category` parameter under `scaling_group` in `nodepool` instead.
    * 
    * @example
    * cloud_efficiency
@@ -1446,7 +1702,16 @@ export class CreateClusterRequest extends $dara.Model {
   workerSystemDiskCategory?: string;
   /**
    * @remarks
-   * **[Deprecated]** For node pool configuration, use the system_disk_performance_level parameter under `scaling_group` in `nodepool` instead.
+   * **[Deprecated]** For node pool configurations, use the `system_disk_performance_level` parameter under `scaling_group` in `nodepool` instead.
+   * 
+   * When the system cloud disk is an ESSD, you can set the performance level (PL) of the ESSD. For more information, see [ESSD](https://help.aliyun.com/document_detail/122389.html).
+   * 
+   * Valid values:
+   * 
+   * - PL0
+   * - PL1
+   * - PL2
+   * - PL3
    * 
    * @example
    * PL1
@@ -1456,7 +1721,7 @@ export class CreateClusterRequest extends $dara.Model {
   workerSystemDiskPerformanceLevel?: string;
   /**
    * @remarks
-   * **[Deprecated]** For node pool configuration, use the system_disk_size parameter under `scaling_group` in `nodepool` instead.
+   * **[Deprecated]** For node pool configuration, use the `system_disk_size` parameter under `scaling_group` in `nodepool` instead.
    * 
    * @example
    * 120
@@ -1466,7 +1731,9 @@ export class CreateClusterRequest extends $dara.Model {
   workerSystemDiskSize?: number;
   /**
    * @remarks
-   * **[Deprecated]** For node pool configuration, use the system_disk_snapshot_policy_id parameter under `scaling_group` in `nodepool` instead.
+   * **[Deprecated]** Use the system_disk_snapshot_policy_id parameter in scaling_group under nodepool instead.
+   * 
+   * The ID of the automatic snapshot policy used by the system cloud disk of worker nodes.
    * 
    * @example
    * sp-2zej1nogjvovnz4z****
@@ -1476,7 +1743,11 @@ export class CreateClusterRequest extends $dara.Model {
   workerSystemDiskSnapshotPolicyId?: string;
   /**
    * @remarks
-   * **[Deprecated]** For node pool configuration, use the vswitch_ids parameter under `scaling_group` in `nodepool` instead.
+   * **[Deprecated]** Use the vswitch_ids parameter in the scaling_group section of the nodepool configuration instead.
+   * 
+   * The list of vSwitches used by cluster nodes. Each node corresponds to one value.
+   * 
+   * When you create a managed cluster with zero nodes, the worker_vswitch_ids parameter is not required, but you must specify vswitch_ids.
    * 
    * @deprecated
    */
@@ -1484,6 +1755,10 @@ export class CreateClusterRequest extends $dara.Model {
   /**
    * @remarks
    * **[Deprecated]** Use the `zone_ids` parameter instead.
+   * 
+   * The zone ID of the region where the cluster resides. This parameter is specific to ACK managed clusters.
+   * 
+   * When you create an ACK managed cluster, if `vpc_id` and `vswitch_ids` are not specified, you must specify `zone_id` for the cluster so that VPC network resources are automatically created in the specified zone. If `vpc_id` and `vswitch_ids` are specified, this parameter does not take effect.
    * 
    * @example
    * cn-beiji****
