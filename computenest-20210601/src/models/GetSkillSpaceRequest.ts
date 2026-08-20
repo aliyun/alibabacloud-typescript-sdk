@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class GetSkillSpaceRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the SkillSpace.
+   * SkillSpace ID
    * 
    * This parameter is required.
    * 
    * @example
-   * ss-11111
+   * ss-xxxxx
    */
   skillSpaceId?: string;
   static names(): { [key: string]: string } {

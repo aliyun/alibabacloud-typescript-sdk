@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListSkillFilesResponseBodySkillFiles extends $dara.Model {
   /**
    * @remarks
-   * The relative path of the file within the Skill.
+   * The relative path of the internal file in the skill.
    * 
    * @example
    * SKILL.md
@@ -13,7 +13,7 @@ export class ListSkillFilesResponseBodySkillFiles extends $dara.Model {
   filePath?: string;
   /**
    * @remarks
-   * The pre-signed URL for accessing the file in OSS.
+   * The accessible OSS URL.
    * 
    * @example
    * https://embedding-pic.oss-cn-beijing-internal.aliyuncs.com/SKILL.md
@@ -45,7 +45,7 @@ export class ListSkillFilesResponseBodySkillFiles extends $dara.Model {
 export class ListSkillFilesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of entries returned per page.
+   * The maximum number of entries per page.
    * 
    * @example
    * 100
@@ -53,7 +53,7 @@ export class ListSkillFilesResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token to retrieve the next page of results. This token is returned only when more results are available.
+   * The pagination token for the next page.
    * 
    * @example
    * AAAAAWns8w4MmhzeptXVRG0PUEU=
@@ -61,7 +61,7 @@ export class ListSkillFilesResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * Id of the request
    * 
    * @example
    * 2849EE73-AFFA-5AFD-9575-12FA886451DA
@@ -69,12 +69,12 @@ export class ListSkillFilesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The Skill files.
+   * The list of skill files.
    */
   skillFiles?: ListSkillFilesResponseBodySkillFiles[];
   /**
    * @remarks
-   * The total number of entries that match the query.
+   * The actual number of entries returned.
    * 
    * @example
    * 1

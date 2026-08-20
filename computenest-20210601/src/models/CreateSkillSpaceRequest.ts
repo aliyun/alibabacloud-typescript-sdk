@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateSkillSpaceRequest extends $dara.Model {
   /**
    * @remarks
-   * A client-generated token to ensure the idempotence of the request. The token must be unique across requests. The **ClientToken** value can contain only ASCII characters and must be no more than 64 characters in length.
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but make sure that the token is unique among different requests. The value of ClientToken can contain only ASCII characters and cannot exceed 64 characters in length.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -13,22 +13,22 @@ export class CreateSkillSpaceRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The description of the skill space.
+   * The description of the SkillSpace.
    * 
    * This parameter is required.
    * 
    * @example
-   * 11111
+   * All-in-one office toolkit — generate reports, process data, manage files, and streamline workflows effortlessly.
    */
   skillSpaceDescription?: string;
   /**
    * @remarks
-   * The name of the skill space.
+   * The name of the SkillSpace.
    * 
    * This parameter is required.
    * 
    * @example
-   * 11111
+   * office-toolkit-skills
    */
   skillSpaceName?: string;
   static names(): { [key: string]: string } {

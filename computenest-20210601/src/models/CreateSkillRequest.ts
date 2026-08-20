@@ -16,21 +16,26 @@ export class CreateSkillRequest extends $dara.Model {
    * The OSS URL of the Skill package to upload. This parameter is required when SourceType is set to UPLOAD.
    * 
    * @example
-   * https://embedding-pic.oss-cn-beijing-internal.aliyuncs.com/30516570
+   * https://embedding-pic.oss-cn-beijing-internal.aliyuncs.com/skill-creator.zip
    */
   ossUrl?: string;
+  /**
+   * @remarks
+   * The set of connection types that the Skill depends on.
+   */
+  requiredConnections?: string[];
   /**
    * @remarks
    * The Skill description.
    * 
    * @example
-   * 11111
+   * Create new skills, modify and improve existing skills, and measure skill performance
    */
   skillDescription?: string;
   skillDisplayName?: string;
   /**
    * @remarks
-   * The Skill labels.
+   * The set of Skill labels.
    * 
    * @example
    * ["category:frontend-development"]
@@ -41,7 +46,7 @@ export class CreateSkillRequest extends $dara.Model {
    * The Skill name.
    * 
    * @example
-   * 11111
+   * skill-creator
    */
   skillName?: string;
   /**
@@ -51,7 +56,7 @@ export class CreateSkillRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * ss-111111
+   * ss-xxxxx
    */
   skillSpaceId?: string;
   /**
@@ -59,12 +64,12 @@ export class CreateSkillRequest extends $dara.Model {
    * The public Skill ID. This parameter is required when SourceType is set to COPY.
    * 
    * @example
-   * s-11111
+   * s-xxxxx
    */
   sourceSkillId?: string;
   /**
    * @remarks
-   * The source type used when creating the Skill.
+   * The source type for creating the Skill.
    * 
    * This parameter is required.
    * 
@@ -76,6 +81,7 @@ export class CreateSkillRequest extends $dara.Model {
     return {
       clientToken: 'ClientToken',
       ossUrl: 'OssUrl',
+      requiredConnections: 'RequiredConnections',
       skillDescription: 'SkillDescription',
       skillDisplayName: 'SkillDisplayName',
       skillLabels: 'SkillLabels',
@@ -90,6 +96,7 @@ export class CreateSkillRequest extends $dara.Model {
     return {
       clientToken: 'string',
       ossUrl: 'string',
+      requiredConnections: { 'type': 'array', 'itemType': 'string' },
       skillDescription: 'string',
       skillDisplayName: 'string',
       skillLabels: { 'type': 'array', 'itemType': 'string' },
@@ -101,6 +108,9 @@ export class CreateSkillRequest extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.requiredConnections)) {
+      $dara.Model.validateArray(this.requiredConnections);
+    }
     if(Array.isArray(this.skillLabels)) {
       $dara.Model.validateArray(this.skillLabels);
     }

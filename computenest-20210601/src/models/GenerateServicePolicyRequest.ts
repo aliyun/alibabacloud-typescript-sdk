@@ -8,6 +8,13 @@ export class GenerateServicePolicyRequest extends $dara.Model {
    * The operation types for which policy information needs to be generated.
    */
   operationTypes?: string[];
+  /**
+   * @remarks
+   * The parameters required to check the deployment permissions of the service instance.
+   * 
+   * @example
+   * {\\"EnablePublicIp\\":null,\\"DeploymentMode\\":\\"ExistingECS\\",\\"ExistingInstanceId\\":\\"i-bp1cg4t5o9kol5tdiw1q\\",\\"RegionId\\":\\"cn-hangzhou\\",\\"InternetChargeType\\":\\"PayByTraffic\\"}
+   */
   parameters?: { [key: string]: any };
   /**
    * @remarks
@@ -42,7 +49,7 @@ export class GenerateServicePolicyRequest extends $dara.Model {
    * The template name.
    * 
    * @example
-   * Template 1
+   * 模板1
    */
   templateName?: string;
   /**

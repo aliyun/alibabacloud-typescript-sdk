@@ -13,7 +13,7 @@ export class GetSkillSpaceResponseBody extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * Id of the request
    * 
    * @example
    * 13FE89A5-C036-56BF-A0FF-A31C59819FD7
@@ -21,26 +21,26 @@ export class GetSkillSpaceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The description of the SkillSpace.
+   * The SkillSpace description.
    * 
    * @example
-   * 1111111
+   * All-in-one office toolkit — generate reports, process data, manage files, and streamline workflows effortlessly.
    */
   skillSpaceDescription?: string;
   /**
    * @remarks
-   * The ID of the SkillSpace.
+   * SkillSpace ID
    * 
    * @example
-   * ss-11111
+   * ss-xxxxx
    */
   skillSpaceId?: string;
   /**
    * @remarks
-   * The name of the SkillSpace.
+   * The SkillSpace name.
    * 
    * @example
-   * 1111111
+   * office-toolkit-skills
    */
   skillSpaceName?: string;
   /**

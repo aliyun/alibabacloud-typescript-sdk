@@ -13,7 +13,7 @@ export class ListPublicSkillsRequestFilter extends $dara.Model {
    * 
    * - MatchType: the match type that controls how SkillName is matched. Valid values: exact, prefix, and fuzzy.
    * 
-   * - Keyword: keyword match for the skill name or skill description. Fuzzy match.
+   * - Keyword: keyword match against the skill name or skill description. Fuzzy match.
    * 
    * - SkillLabels: the skill label set. Fuzzy match.
    * 
@@ -68,7 +68,7 @@ export class ListPublicSkillsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * Specifies whether to include the download URL of the skill package.
+   * Specifies whether to include the download URL for the skill package.
    * 
    * @example
    * false

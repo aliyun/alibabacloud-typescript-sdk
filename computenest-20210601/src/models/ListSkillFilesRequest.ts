@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class ListSkillFilesRequestFilter extends $dara.Model {
   /**
    * @remarks
-   * No filter names are currently supported.
+   * No supported filter names are available.
    * 
    * @example
-   * 111111
+   * xxx
    */
   name?: string;
   /**
    * @remarks
-   * The filter values. You can specify 1 to 10 values.
+   * The list of filter values. Valid values of N: 1 to 10.
    */
   value?: string[];
   static names(): { [key: string]: string } {
@@ -45,12 +45,12 @@ export class ListSkillFilesRequestFilter extends $dara.Model {
 export class ListSkillFilesRequest extends $dara.Model {
   /**
    * @remarks
-   * The filter conditions.
+   * The filter.
    */
   filter?: ListSkillFilesRequestFilter[];
   /**
    * @remarks
-   * The maximum number of entries to return per page. Valid values: 1 to 100. Default: 20.
+   * The number of entries per page in a paging query. Maximum value: 100. Default value: 20.
    * 
    * @example
    * 20
@@ -58,7 +58,7 @@ export class ListSkillFilesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that was returned from a previous call to this operation. Use this token to retrieve the next page of results.
+   * The pagination token for the next query.
    * 
    * @example
    * AAAAAVz7BQqj2xtiNSC3d3RAD38=
@@ -66,12 +66,12 @@ export class ListSkillFilesRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The ID of the Skill.
+   * Skill ID
    * 
    * This parameter is required.
    * 
    * @example
-   * 06e9dca2-0ac9-4d2e-a965-e9db9c057e00
+   * s-xxxxx
    */
   skillId?: string;
   static names(): { [key: string]: string } {

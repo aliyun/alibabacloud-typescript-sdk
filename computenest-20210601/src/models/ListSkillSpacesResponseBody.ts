@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListSkillSpacesResponseBodySkillSpaces extends $dara.Model {
   /**
    * @remarks
-   * The time when the SkillSpace was created. The time is in UTC.
+   * The time when the SkillSpace was created.
    * 
    * @example
    * 2025-11-03T22:58:52Z
@@ -13,31 +13,31 @@ export class ListSkillSpacesResponseBodySkillSpaces extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The SkillSpace description.
+   * The description of the SkillSpace.
    * 
    * @example
-   * 1111
+   * All-in-one office toolkit — generate reports, process data, manage files, and streamline workflows effortlessly.
    */
   skillSpaceDescription?: string;
   /**
    * @remarks
-   * The SkillSpace ID.
+   * SkillSpace ID
    * 
    * @example
-   * ss-111111
+   * ss-xxxxx
    */
   skillSpaceId?: string;
   /**
    * @remarks
-   * The SkillSpace name.
+   * The name of the SkillSpace.
    * 
    * @example
-   * 1111
+   * office-toolkit-skills
    */
   skillSpaceName?: string;
   /**
    * @remarks
-   * The time when the SkillSpace was last updated. The time is in UTC.
+   * The time when the SkillSpace was last updated.
    * 
    * @example
    * 2025-11-03T22:57:29Z
@@ -75,7 +75,7 @@ export class ListSkillSpacesResponseBodySkillSpaces extends $dara.Model {
 export class ListSkillSpacesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The maximum number of entries per page.
    * 
    * @example
    * 20
@@ -83,7 +83,7 @@ export class ListSkillSpacesResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token for the next page of results. If this parameter is not returned, no more results are available.
+   * The token for the next page.
    * 
    * @example
    * AAAAAWns8w4MmhzeptXVRG0PUEU=
@@ -91,7 +91,7 @@ export class ListSkillSpacesResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * 4DB0F536-B3BE-4F0D-BD29-E83FB56D550C

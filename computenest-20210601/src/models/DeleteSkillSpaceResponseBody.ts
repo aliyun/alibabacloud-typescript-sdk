@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteSkillSpaceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * 13FE89A5-C036-56BF-A0FF-A31C59819FD7

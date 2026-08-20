@@ -16,7 +16,7 @@ export class CreateSkillResponseBody extends $dara.Model {
    * Skill ID
    * 
    * @example
-   * s-051j4ot2aerr5dyc4
+   * s-xxxxx
    */
   skillId?: string;
   static names(): { [key: string]: string } {

@@ -34,7 +34,7 @@ export class GetSkillResponseBodyLocales extends $dara.Model {
 export class GetSkillResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The time when the Skill was created.
+   * The creation time.
    * 
    * @example
    * 2021-05-20T00:00:00Z
@@ -55,24 +55,38 @@ export class GetSkillResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
+   * The set of connection types required by the Skill.
+   */
+  requiredConnections?: string[];
+  /**
+   * @remarks
+   * The security scan status of the source file.
+   */
+  securityScanStatus?: string;
+  /**
+   * @remarks
    * The Skill description.
    * 
    * @example
-   * 11111111
+   * Create new skills, modify and improve existing skills, and measure skill performance.
    */
   skillDescription?: string;
+  /**
+   * @remarks
+   * The Skill display name.
+   */
   skillDisplayName?: string;
   /**
    * @remarks
    * Skill ID
    * 
    * @example
-   * s-04zzrgosj6xd11yah
+   * s-xxxxx
    */
   skillId?: string;
   /**
    * @remarks
-   * The Skill labels.
+   * The set of Skill labels.
    */
   skillLabels?: string[];
   /**
@@ -80,7 +94,7 @@ export class GetSkillResponseBody extends $dara.Model {
    * The Skill name.
    * 
    * @example
-   * skill-hello
+   * skill-creator
    */
   skillName?: string;
   /**
@@ -88,12 +102,12 @@ export class GetSkillResponseBody extends $dara.Model {
    * The ID of the SkillSpace to which the Skill belongs.
    * 
    * @example
-   * ss-111111111
+   * ss-xxxxx
    */
   skillSpaceId?: string;
   /**
    * @remarks
-   * The time when the Skill was last updated.
+   * The update time.
    * 
    * @example
    * 2021-05-20T00:00:00Z
@@ -104,6 +118,8 @@ export class GetSkillResponseBody extends $dara.Model {
       createTime: 'CreateTime',
       locales: 'Locales',
       requestId: 'RequestId',
+      requiredConnections: 'RequiredConnections',
+      securityScanStatus: 'SecurityScanStatus',
       skillDescription: 'SkillDescription',
       skillDisplayName: 'SkillDisplayName',
       skillId: 'SkillId',
@@ -119,6 +135,8 @@ export class GetSkillResponseBody extends $dara.Model {
       createTime: 'string',
       locales: { 'type': 'array', 'itemType': GetSkillResponseBodyLocales },
       requestId: 'string',
+      requiredConnections: { 'type': 'array', 'itemType': 'string' },
+      securityScanStatus: 'string',
       skillDescription: 'string',
       skillDisplayName: 'string',
       skillId: 'string',
@@ -132,6 +150,9 @@ export class GetSkillResponseBody extends $dara.Model {
   validate() {
     if(Array.isArray(this.locales)) {
       $dara.Model.validateArray(this.locales);
+    }
+    if(Array.isArray(this.requiredConnections)) {
+      $dara.Model.validateArray(this.requiredConnections);
     }
     if(Array.isArray(this.skillLabels)) {
       $dara.Model.validateArray(this.skillLabels);

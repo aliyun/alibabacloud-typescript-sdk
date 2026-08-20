@@ -572,7 +572,7 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ### Before you begin
-   * Make sure that the service provider has enabled the Upgrade/Downgrade feature and completed the specification change parameter settings when creating the service.
+   * Confirm that the service provider has enabled the Upgrade/Downgrade feature and completed the specification change parameter settings when creating the service.
    * 
    * @param request - CreateSkillRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -583,6 +583,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.ossUrl)) {
       query["OssUrl"] = request.ossUrl;
+    }
+
+    if (!$dara.isNull(request.requiredConnections)) {
+      query["RequiredConnections"] = request.requiredConnections;
     }
 
     if (!$dara.isNull(request.skillDescription)) {
@@ -641,7 +645,7 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ### Before you begin
-   * Make sure that the service provider has enabled the Upgrade/Downgrade feature and completed the specification change parameter settings when creating the service.
+   * Confirm that the service provider has enabled the Upgrade/Downgrade feature and completed the specification change parameter settings when creating the service.
    * 
    * @param request - CreateSkillRequest
    * @returns CreateSkillResponse
@@ -655,8 +659,8 @@ export default class Client extends OpenApi {
    * Creates a Skill file detection task.
    * 
    * @remarks
-   * ### Prerequisites
-   * Ensure that the service provider has enabled the modification feature and configured its parameters during service creation.
+   * ### Before you begin
+   * Make sure that the service provider has enabled the Upgrade/Downgrade feature and completed the specification change parameter settings when creating the service.
    * 
    * @param request - CreateSkillFileDetectRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -700,8 +704,8 @@ export default class Client extends OpenApi {
    * Creates a Skill file detection task.
    * 
    * @remarks
-   * ### Prerequisites
-   * Ensure that the service provider has enabled the modification feature and configured its parameters during service creation.
+   * ### Before you begin
+   * Make sure that the service provider has enabled the Upgrade/Downgrade feature and completed the specification change parameter settings when creating the service.
    * 
    * @param request - CreateSkillFileDetectRequest
    * @returns CreateSkillFileDetectResponse
@@ -772,11 +776,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a skill space.
+   * Creates a SkillSpace.
    * 
    * @remarks
-   * ### Prerequisites
-   * Ensure the service provider has enabled the modify configuration feature and set the required parameters during service creation.
+   * ### Before you begin
+   * Confirm that the service provider has enabled the Upgrade/Downgrade feature and completed the specification change parameter settings when creating the service.
    * 
    * @param request - CreateSkillSpaceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -817,11 +821,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a skill space.
+   * Creates a SkillSpace.
    * 
    * @remarks
-   * ### Prerequisites
-   * Ensure the service provider has enabled the modify configuration feature and set the required parameters during service creation.
+   * ### Before you begin
+   * Confirm that the service provider has enabled the Upgrade/Downgrade feature and completed the specification change parameter settings when creating the service.
    * 
    * @param request - CreateSkillSpaceRequest
    * @returns CreateSkillSpaceResponse
@@ -932,11 +936,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a skill.
+   * Deletes a Skill.
    * 
    * @remarks
-   * ### Prerequisites
-   * Ensure the service provider has enabled the modification feature and configured the modification parameters when creating the service.
+   * ### Before you begin
+   * Make sure that the service provider has enabled the Upgrade/Downgrade feature and completed the specification change parameter settings when creating the service.
    * 
    * @param request - DeleteSkillRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -973,11 +977,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a skill.
+   * Deletes a Skill.
    * 
    * @remarks
-   * ### Prerequisites
-   * Ensure the service provider has enabled the modification feature and configured the modification parameters when creating the service.
+   * ### Before you begin
+   * Make sure that the service provider has enabled the Upgrade/Downgrade feature and completed the specification change parameter settings when creating the service.
    * 
    * @param request - DeleteSkillRequest
    * @returns DeleteSkillResponse
@@ -988,11 +992,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a SkillSpace.
+   * Deletes a Skill workspace.
    * 
    * @remarks
-   * ### Prerequisites
-   * Ensure that the service provider enabled the modify configuration feature and set the required parameters during service creation.
+   * ### Before you begin
+   * Confirm that the service provider has enabled the Upgrade/Downgrade feature and completed the specification change parameter settings when creating the service.
    * 
    * @param request - DeleteSkillSpaceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1029,11 +1033,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a SkillSpace.
+   * Deletes a Skill workspace.
    * 
    * @remarks
-   * ### Prerequisites
-   * Ensure that the service provider enabled the modify configuration feature and set the required parameters during service creation.
+   * ### Before you begin
+   * Confirm that the service provider has enabled the Upgrade/Downgrade feature and completed the specification change parameter settings when creating the service.
    * 
    * @param request - DeleteSkillSpaceRequest
    * @returns DeleteSkillSpaceResponse
@@ -1760,7 +1764,7 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ### Before you begin
-   * Make sure that the service provider has enabled the specification change feature and completed the specification change parameter settings when creating the service.
+   * Make sure the service provider has enabled the specification change feature and completed the specification change parameter settings when creating the service.
    * 
    * @param request - GetSkillRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1795,7 +1799,7 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ### Before you begin
-   * Make sure that the service provider has enabled the specification change feature and completed the specification change parameter settings when creating the service.
+   * Make sure the service provider has enabled the specification change feature and completed the specification change parameter settings when creating the service.
    * 
    * @param request - GetSkillRequest
    * @returns GetSkillResponse
@@ -1903,11 +1907,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a SkillSpace.
+   * Queries the details of a SkillSpace.
    * 
    * @remarks
-   * ### Prerequisites
-   * Ensure that the service provider has enabled the modification feature and configured the modification parameters for the service.
+   * ### Before you begin
+   * Make sure that the service provider has enabled the specification change feature and configured the specification change parameters when creating the service.
    * 
    * @param request - GetSkillSpaceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1938,11 +1942,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a SkillSpace.
+   * Queries the details of a SkillSpace.
    * 
    * @remarks
-   * ### Prerequisites
-   * Ensure that the service provider has enabled the modification feature and configured the modification parameters for the service.
+   * ### Before you begin
+   * Make sure that the service provider has enabled the specification change feature and configured the specification change parameters when creating the service.
    * 
    * @param request - GetSkillSpaceRequest
    * @returns GetSkillSpaceResponse
@@ -2107,7 +2111,7 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ### Before you begin
-   * Make sure the service provider has enabled the specification change feature and completed the specification change parameter settings when creating the service.
+   * Confirm that the service provider has enabled the specification change feature and completed the specification change parameter settings when creating the service.
    * 
    * @param request - ListPublicSkillsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2154,7 +2158,7 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ### Before you begin
-   * Make sure the service provider has enabled the specification change feature and completed the specification change parameter settings when creating the service.
+   * Confirm that the service provider has enabled the specification change feature and completed the specification change parameter settings when creating the service.
    * 
    * @param request - ListPublicSkillsRequest
    * @returns ListPublicSkillsResponse
@@ -2696,11 +2700,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the files of a specified Skill.
+   * Retrieves the list of skill files.
    * 
    * @remarks
-   * ### Prerequisites
-   * Before you call this operation, ensure that the service provider has enabled the modification feature and configured the modification parameters when creating the service.
+   * ### Before you begin
+   * Make sure the service provider has enabled the specification change feature and completed the specification change parameter settings when creating the service.
    * 
    * @param request - ListSkillFilesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2743,11 +2747,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the files of a specified Skill.
+   * Retrieves the list of skill files.
    * 
    * @remarks
-   * ### Prerequisites
-   * Before you call this operation, ensure that the service provider has enabled the modification feature and configured the modification parameters when creating the service.
+   * ### Before you begin
+   * Make sure the service provider has enabled the specification change feature and completed the specification change parameter settings when creating the service.
    * 
    * @param request - ListSkillFilesRequest
    * @returns ListSkillFilesResponse
@@ -2761,8 +2765,8 @@ export default class Client extends OpenApi {
    * Queries a list of SkillSpaces.
    * 
    * @remarks
-   * ### Prerequisites
-   * Ensure the service provider enabled the upgrade feature and configured its parameters when creating the service.
+   * ### Before you begin
+   * Make sure that the service provider has enabled the specification change feature and completed the specification change parameter settings when creating the service.
    * 
    * @param request - ListSkillSpacesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2804,8 +2808,8 @@ export default class Client extends OpenApi {
    * Queries a list of SkillSpaces.
    * 
    * @remarks
-   * ### Prerequisites
-   * Ensure the service provider enabled the upgrade feature and configured its parameters when creating the service.
+   * ### Before you begin
+   * Make sure that the service provider has enabled the specification change feature and completed the specification change parameter settings when creating the service.
    * 
    * @param request - ListSkillSpacesRequest
    * @returns ListSkillSpacesResponse
@@ -2816,11 +2820,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of skills.
+   * Queries a list of Skills.
    * 
    * @remarks
    * ### Before you begin
-   * Make sure that the service provider has enabled the specification change feature and completed the specification change parameter settings when creating the service.
+   * Make sure the service provider has enabled the specification change feature and completed the specification change parameter settings when creating the service.
    * 
    * @param request - ListSkillsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2863,11 +2867,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of skills.
+   * Queries a list of Skills.
    * 
    * @remarks
    * ### Before you begin
-   * Make sure that the service provider has enabled the specification change feature and completed the specification change parameter settings when creating the service.
+   * Make sure the service provider has enabled the specification change feature and completed the specification change parameter settings when creating the service.
    * 
    * @param request - ListSkillsRequest
    * @returns ListSkillsResponse
@@ -3686,7 +3690,7 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ### Before you begin
-   * Make sure that the service provider has enabled the specification change feature and configured the specification change parameters when creating the service.
+   * Make sure the service provider has enabled the specification change feature and completed the specification change parameter settings when creating the service.
    * 
    * @param request - UpdateSkillRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3697,6 +3701,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.ossUrl)) {
       query["OssUrl"] = request.ossUrl;
+    }
+
+    if (!$dara.isNull(request.requiredConnections)) {
+      query["RequiredConnections"] = request.requiredConnections;
     }
 
     if (!$dara.isNull(request.skillDescription)) {
@@ -3755,7 +3763,7 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ### Before you begin
-   * Make sure that the service provider has enabled the specification change feature and configured the specification change parameters when creating the service.
+   * Make sure the service provider has enabled the specification change feature and completed the specification change parameter settings when creating the service.
    * 
    * @param request - UpdateSkillRequest
    * @returns UpdateSkillResponse

@@ -34,7 +34,7 @@ export class ListPublicSkillsResponseBodySkillsLocales extends $dara.Model {
 export class ListPublicSkillsResponseBodySkills extends $dara.Model {
   /**
    * @remarks
-   * The time when the skill was created.
+   * The creation time.
    * 
    * @example
    * 2025-09-11T02:18:42Z
@@ -42,10 +42,10 @@ export class ListPublicSkillsResponseBodySkills extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The download URL of the skill package.
+   * The download URL for the skill package.
    * 
    * @example
-   * https://testts-1.oss-cn-beijing.aliyuncs.com/app/yyb_9.1.1.zip
+   * https://embedding-pic.oss-cn-beijing-internal.aliyuncs.com/skill-creator.zip
    */
   downloadUrl?: string;
   /**
@@ -55,19 +55,33 @@ export class ListPublicSkillsResponseBodySkills extends $dara.Model {
   locales?: ListPublicSkillsResponseBodySkillsLocales[];
   /**
    * @remarks
+   * The set of connection types that the skill depends on.
+   */
+  requiredConnections?: string[];
+  /**
+   * @remarks
+   * The security scan status of the source file.
+   */
+  securityScanStatus?: string;
+  /**
+   * @remarks
    * The skill description.
    * 
    * @example
-   * 11111
+   * Create new skills, modify and improve existing skills, and measure skill performance.
    */
   skillDescription?: string;
+  /**
+   * @remarks
+   * The skill display name.
+   */
   skillDisplayName?: string;
   /**
    * @remarks
    * Skill ID
    * 
    * @example
-   * af7e49d9-277f-454a-afc5-1513d41cac31
+   * s-xxxxx
    */
   skillId?: string;
   /**
@@ -80,7 +94,7 @@ export class ListPublicSkillsResponseBodySkills extends $dara.Model {
    * The skill name.
    * 
    * @example
-   * ziptest
+   * skill-creator
    */
   skillName?: string;
   /**
@@ -88,12 +102,12 @@ export class ListPublicSkillsResponseBodySkills extends $dara.Model {
    * The ID of the SkillSpace to which the skill belongs.
    * 
    * @example
-   * ss-1111111
+   * ss-xxxxx
    */
   skillSpaceId?: string;
   /**
    * @remarks
-   * The time when the skill was last updated.
+   * The update time.
    * 
    * @example
    * 2025-11-03T22:58:52Z
@@ -104,6 +118,8 @@ export class ListPublicSkillsResponseBodySkills extends $dara.Model {
       createTime: 'CreateTime',
       downloadUrl: 'DownloadUrl',
       locales: 'Locales',
+      requiredConnections: 'RequiredConnections',
+      securityScanStatus: 'SecurityScanStatus',
       skillDescription: 'SkillDescription',
       skillDisplayName: 'SkillDisplayName',
       skillId: 'SkillId',
@@ -119,6 +135,8 @@ export class ListPublicSkillsResponseBodySkills extends $dara.Model {
       createTime: 'string',
       downloadUrl: 'string',
       locales: { 'type': 'array', 'itemType': ListPublicSkillsResponseBodySkillsLocales },
+      requiredConnections: { 'type': 'array', 'itemType': 'string' },
+      securityScanStatus: 'string',
       skillDescription: 'string',
       skillDisplayName: 'string',
       skillId: 'string',
@@ -132,6 +150,9 @@ export class ListPublicSkillsResponseBodySkills extends $dara.Model {
   validate() {
     if(Array.isArray(this.locales)) {
       $dara.Model.validateArray(this.locales);
+    }
+    if(Array.isArray(this.requiredConnections)) {
+      $dara.Model.validateArray(this.requiredConnections);
     }
     if(Array.isArray(this.skillLabels)) {
       $dara.Model.validateArray(this.skillLabels);

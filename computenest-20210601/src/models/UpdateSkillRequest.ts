@@ -16,15 +16,20 @@ export class UpdateSkillRequest extends $dara.Model {
    * Required when SourceType is set to UPLOAD. The OSS URL of the skill package to upload.
    * 
    * @example
-   * https://embedding-pic.oss-cn-beijing-internal.aliyuncs.com/30516570
+   * https://embedding-pic.oss-cn-beijing-internal.aliyuncs.com/skill-creator1.zip
    */
   ossUrl?: string;
+  /**
+   * @remarks
+   * The collection of connection types required by the skill.
+   */
+  requiredConnections?: string[];
   /**
    * @remarks
    * The description of the skill.
    * 
    * @example
-   * 11111
+   * Create new skills.
    */
   skillDescription?: string;
   skillDisplayName?: string;
@@ -35,7 +40,7 @@ export class UpdateSkillRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 06e9dca2-0ac9-4d2e-a965-e9db9c057e00
+   * s-xxxxx
    */
   skillId?: string;
   /**
@@ -48,7 +53,7 @@ export class UpdateSkillRequest extends $dara.Model {
    * The name of the skill.
    * 
    * @example
-   * 111111
+   * skill-creator
    */
   skillName?: string;
   /**
@@ -56,7 +61,7 @@ export class UpdateSkillRequest extends $dara.Model {
    * Required when SourceType is set to COPY. The ID of the public skill.
    * 
    * @example
-   * s-111
+   * s-xxxxx
    */
   sourceSkillId?: string;
   /**
@@ -71,6 +76,7 @@ export class UpdateSkillRequest extends $dara.Model {
     return {
       clientToken: 'ClientToken',
       ossUrl: 'OssUrl',
+      requiredConnections: 'RequiredConnections',
       skillDescription: 'SkillDescription',
       skillDisplayName: 'SkillDisplayName',
       skillId: 'SkillId',
@@ -85,6 +91,7 @@ export class UpdateSkillRequest extends $dara.Model {
     return {
       clientToken: 'string',
       ossUrl: 'string',
+      requiredConnections: { 'type': 'array', 'itemType': 'string' },
       skillDescription: 'string',
       skillDisplayName: 'string',
       skillId: 'string',
@@ -96,6 +103,9 @@ export class UpdateSkillRequest extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.requiredConnections)) {
+      $dara.Model.validateArray(this.requiredConnections);
+    }
     if(Array.isArray(this.skillLabels)) {
       $dara.Model.validateArray(this.skillLabels);
     }

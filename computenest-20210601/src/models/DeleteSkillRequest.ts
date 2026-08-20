@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteSkillRequest extends $dara.Model {
   /**
    * @remarks
-   * A token that you provide to ensure request idempotence. The value must be unique for each request. **ClientToken** can contain only ASCII characters and cannot exceed 64 characters in length.
+   * Ensures the idempotence of the request. Generate a value from your client that is unique across different requests. **ClientToken** supports only ASCII characters and cannot exceed 64 characters in length.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -13,12 +13,12 @@ export class DeleteSkillRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The skill ID.
+   * Skill  ID
    * 
    * This parameter is required.
    * 
    * @example
-   * s-06e9dca2-0ac9-4d2e-a965-e9db9c057e00
+   * s-xxxxx
    */
   skillId?: string;
   static names(): { [key: string]: string } {
