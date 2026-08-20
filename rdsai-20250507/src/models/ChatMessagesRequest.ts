@@ -36,12 +36,19 @@ export class ChatMessagesRequestFiles extends $dara.Model {
 export class ChatMessagesRequestInputs extends $dara.Model {
   /**
    * @remarks
-   * The user-specific agent ID.
+   * The custom agent ID for the user.
    * 
    * @example
    * d1b7d639-f34e-44c7-8231-987da14d****
    */
   customAgentId?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable deep thinking mode.
+   * 
+   * @example
+   * true
+   */
   enableThinking?: string;
   /**
    * @remarks
@@ -51,6 +58,13 @@ export class ChatMessagesRequestInputs extends $dara.Model {
    * zh-cn
    */
   language?: string;
+  /**
+   * @remarks
+   * The model ID.
+   * 
+   * @example
+   * qwen3.7-max
+   */
   modelId?: string;
   /**
    * @remarks
@@ -60,6 +74,13 @@ export class ChatMessagesRequestInputs extends $dara.Model {
    * cn-beijing
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The thinking depth.
+   * 
+   * @example
+   * default
+   */
   thinkEffort?: string;
   /**
    * @remarks
@@ -114,6 +135,9 @@ export class ChatMessagesRequest extends $dara.Model {
   /**
    * @remarks
    * The event output type. Valid values: inline and separate. Default value: inline. When set to inline, tool invocation events, sub-node events, and document events are included in the answer field of event = message. When set to separate, tool invocation events, sub-node events, and document events each have their own event.
+   * 
+   * @example
+   * inline
    */
   eventMode?: string;
   files?: ChatMessagesRequestFiles[];
@@ -137,7 +161,7 @@ export class ChatMessagesRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * Instance rm-bp14as9914vd3**** disk usage, whether expansion is needed
+   * Disk usage of instance rm-bp14as9914vd3****, is capacity expansion needed
    */
   query?: string;
   static names(): { [key: string]: string } {
