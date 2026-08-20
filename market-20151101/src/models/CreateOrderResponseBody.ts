@@ -33,11 +33,17 @@ export class CreateOrderResponseBodyInstanceIds extends $dara.Model {
 export class CreateOrderResponseBody extends $dara.Model {
   instanceIds?: CreateOrderResponseBodyInstanceIds;
   /**
+   * @remarks
+   * The order ID.
+   * 
    * @example
    * 202********0117
    */
   orderId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 4ca591b5-bc30-4fa7-aeaa-c4d0ec5d24ed
    */

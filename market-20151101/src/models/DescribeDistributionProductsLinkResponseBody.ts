@@ -3,8 +3,29 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeDistributionProductsLinkResponseBodyResult extends $dara.Model {
+  /**
+   * @remarks
+   * The code of the promoted product.
+   * 
+   * @example
+   * cmapi000****
+   */
   code?: string;
+  /**
+   * @remarks
+   * The name of the promoted product.
+   * 
+   * @example
+   * 测试商品
+   */
   name?: string;
+  /**
+   * @remarks
+   * The promotion link for the product. Note: The sample link is a test product link.
+   * 
+   * @example
+   * https://market.aliyun.com/ad/adClick?param=QN%2BgAHA8mY%2BV1vSDtkNqyWG9G5uUX2Q8%2BJrC8wTzBo5YK7tTmm4Zdiz6nmmyLHMC5REAsq2viyeJYjBjVHno1HydPvHrVarNXQTMEzEmR8TRZaG2FsnzpszXKK2cMA69CUmF9qQpHqU%3D
+   */
   url?: string;
   static names(): { [key: string]: string } {
     return {
@@ -40,15 +61,25 @@ export class DescribeDistributionProductsLinkResponseBody extends $dara.Model {
    * 5BD09171-BF4D-18D8-890E-C70C067527BE
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The promotion link information for the promoted products.
+   */
   result?: DescribeDistributionProductsLinkResponseBodyResult[];
   /**
+   * @remarks
+   * The success status indicator.
+   * 
    * @example
    * true
    */
   success?: boolean;
   /**
+   * @remarks
+   * The total number of promoted products.
+   * 
    * @example
-   * 50
+   * 51
    */
   totalCount?: number;
   static names(): { [key: string]: string } {

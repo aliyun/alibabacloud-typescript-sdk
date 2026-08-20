@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeFailedNotificationsRequest extends $dara.Model {
   /**
    * @remarks
+   * The current page number.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class DescribeFailedNotificationsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
+   * The number of instances per page.
+   * 
    * This parameter is required.
    * 
    * @example

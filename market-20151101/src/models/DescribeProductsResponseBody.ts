@@ -98,22 +98,34 @@ export class DescribeProductsResponseBodyProductItems extends $dara.Model {
 
 export class DescribeProductsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The current page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of products displayed per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   productItems?: DescribeProductsResponseBodyProductItems;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * A077D99E-0C4D-421E-A5D4-F533F6657817
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of products that match the search conditions.
+   * 
    * @example
    * 75
    */

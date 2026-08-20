@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class CrossAccountVerifyTokenRequest extends $dara.Model {
   /**
+   * @remarks
+   * Token returned upon successful cross-account role authorization.
+   * 
    * @example
    * C19D103FEA2D50A584410267CE9FBA56
    */

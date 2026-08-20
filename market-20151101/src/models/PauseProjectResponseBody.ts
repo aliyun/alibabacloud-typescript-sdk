@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class PauseProjectResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ee69a00f-189b-400f-9fd2-af89749fb50f
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the operation is successful.
+   * 
    * @example
    * true
    */
   result?: boolean;
   /**
+   * @remarks
+   * The success status identifier.
+   * 
    * @example
    * true
    */

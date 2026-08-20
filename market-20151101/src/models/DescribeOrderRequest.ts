@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeOrderRequest extends $dara.Model {
   /**
    * @remarks
+   * The order ID.
+   * 
    * This parameter is required.
    * 
    * @example

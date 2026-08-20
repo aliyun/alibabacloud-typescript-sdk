@@ -4,39 +4,85 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeInvoiceForIsvResponseBodyResultEvaluateList extends $dara.Model {
   /**
+   * @remarks
+   * Indicates whether invoicing is performed by an agent.
+   * 
    * @example
    * false
    */
   agent?: boolean;
   /**
+   * @remarks
+   * The amount. Unit: CNY.
+   * 
    * @example
    * 1
    */
   amount?: string;
   /**
+   * @remarks
+   * The time when the business transaction occurred.
+   * 
    * @example
    * 2025-01-01 00:00:00
    */
   bizTimeStr?: string;
   /**
+   * @remarks
+   * The invoicing object ID.
+   * 
    * @example
    * 9540765
    */
   id?: string;
   /**
+   * @remarks
+   * The order or bill type. Valid values:
+   * 
+   * - 0: order
+   * 
+   * - 1: bill
+   * 
    * @example
    * 0
    */
   orderType?: string;
   /**
+   * @remarks
+   * The order ID.
+   * 
    * @example
    * 2024091610072000****
    */
   outBizId?: string;
+  /**
+   * @remarks
+   * The commodity code.
+   * 
+   * @example
+   * cmapi00067***
+   */
   productCode?: string;
+  /**
+   * @remarks
+   * The product name. (Deprecated.)
+   * 
+   * @example
+   * 图像识别OCR***
+   */
   productName?: string;
+  /**
+   * @remarks
+   * The account ID.
+   * 
+   * @example
+   * example@alibaba-inc.com
+   */
   realAliyunId?: string;
   /**
+   * @remarks
+   * The account to which the order belongs.
+   * 
    * @example
    * 102277855749****
    */
@@ -82,11 +128,17 @@ export class DescribeInvoiceForIsvResponseBodyResultEvaluateList extends $dara.M
 
 export class DescribeInvoiceForIsvResponseBodyResultInvoiceList extends $dara.Model {
   /**
+   * @remarks
+   * The invoice object ID.
+   * 
    * @example
-   * 50000018
+   * 4072040****
    */
   id?: string;
   /**
+   * @remarks
+   * The invoicing amount applied for. Unit: CNY.
+   * 
    * @example
    * 99.99
    */
@@ -115,15 +167,62 @@ export class DescribeInvoiceForIsvResponseBodyResultInvoiceList extends $dara.Mo
 }
 
 export class DescribeInvoiceForIsvResponseBodyResultReceiptUserInfoDto extends $dara.Model {
+  /**
+   * @remarks
+   * The bank account number.
+   * 
+   * @example
+   * 000000
+   */
+  bankAccount?: string;
+  /**
+   * @remarks
+   * The bank name.
+   * 
+   * @example
+   * 111111
+   */
+  bankName?: string;
+  /**
+   * @remarks
+   * The registered address.
+   * 
+   * @example
+   * 杭州市****
+   */
+  regAddress?: string;
+  /**
+   * @remarks
+   * The registered phone number.
+   * 
+   * @example
+   * 0571-****
+   */
+  regPhone?: string;
+  /**
+   * @remarks
+   * The unified social credit code of the enterprise.
+   * 
+   * @example
+   * 91420100MA49L5****
+   */
   taxNumber?: string;
   static names(): { [key: string]: string } {
     return {
+      bankAccount: 'BankAccount',
+      bankName: 'BankName',
+      regAddress: 'RegAddress',
+      regPhone: 'RegPhone',
       taxNumber: 'TaxNumber',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      bankAccount: 'string',
+      bankName: 'string',
+      regAddress: 'string',
+      regPhone: 'string',
       taxNumber: 'string',
     };
   }
@@ -138,12 +237,61 @@ export class DescribeInvoiceForIsvResponseBodyResultReceiptUserInfoDto extends $
 }
 
 export class DescribeInvoiceForIsvResponseBodyResultUserAddressDto extends $dara.Model {
+  /**
+   * @remarks
+   * The recipient.
+   * 
+   * @example
+   * ***
+   */
   addressee?: string;
+  /**
+   * @remarks
+   * The Alibaba Cloud user ID of the customer.
+   * 
+   * @example
+   * 174452687724****
+   */
   aliyunPk?: string;
+  /**
+   * @remarks
+   * Deprecated.
+   * 
+   * @example
+   * ******
+   */
   bizType?: string;
+  /**
+   * @remarks
+   * The delivery address.
+   * 
+   * @example
+   * 杭州市****
+   */
   deliveryAddress?: string;
+  /**
+   * @remarks
+   * The email address.
+   * 
+   * @example
+   * ******
+   */
   emails?: string;
+  /**
+   * @remarks
+   * The phone number.
+   * 
+   * @example
+   * 130********
+   */
   phone?: string;
+  /**
+   * @remarks
+   * The postal code.
+   * 
+   * @example
+   * ******
+   */
   postalCode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -180,53 +328,132 @@ export class DescribeInvoiceForIsvResponseBodyResultUserAddressDto extends $dara
 
 export class DescribeInvoiceForIsvResponseBodyResult extends $dara.Model {
   /**
+   * @remarks
+   * The Alibaba Cloud user ID of the customer.
+   * 
    * @example
    * 102277855749****
    */
   aliyunPk?: string;
+  /**
+   * @remarks
+   * The supplier invoice remarks.
+   * 
+   * @example
+   * 无
+   */
   checkNotice?: string;
+  /**
+   * @remarks
+   * The creation time.
+   * 
+   * @example
+   * 2025-01-01 00:00:00
+   */
   createTimeStr?: string;
+  /**
+   * @remarks
+   * The order, bill, or contract numbers.
+   */
   evaluateList?: DescribeInvoiceForIsvResponseBodyResultEvaluateList[];
   /**
+   * @remarks
+   * The invoice application ID. This corresponds to the InvoiceId parameter used when calling the ModifyInvoiceForIsv operation.
+   * 
    * @example
-   * 58050005
+   * 4072040****
    */
   id?: string;
+  /**
+   * @remarks
+   * The invoice object ID.
+   * 
+   * @example
+   * 4072040****
+   */
   invoiceId?: string;
+  /**
+   * @remarks
+   * The invoice sub-collection. (Deprecated.)
+   */
   invoiceList?: DescribeInvoiceForIsvResponseBodyResultInvoiceList[];
   /**
+   * @remarks
+   * The invoice issuance type. Valid values:
+   * - 0: paper
+   * - 1: electronic
+   * 
    * @example
    * 1
    */
   materialType?: string;
   /**
+   * @remarks
+   * The time when the order status was modified (GMT).
+   * 
    * @example
    * 2025-03-04T09:43:18+08:00
    */
   modifiedTime?: string;
   /**
+   * @remarks
+   * The invoice modification time.
+   * 
    * @example
    * 2025-01-01 00:00:00
    */
   modifiedTimeStr?: string;
   /**
+   * @remarks
+   * The total invoice amount. Unit: CNY.
+   * 
    * @example
    * 99.99
    */
   price?: string;
+  /**
+   * @remarks
+   * The invoice applicant user information.
+   */
   receiptUserInfoDto?: DescribeInvoiceForIsvResponseBodyResultReceiptUserInfoDto;
   /**
+   * @remarks
+   * The invoice status. Valid values: 0: pending invoicing. 1: invoiced.
+   * 
    * @example
    * Success
    */
   status?: string;
+  /**
+   * @remarks
+   * The invoice title.
+   * 
+   * @example
+   * 阿里云计算有限公司
+   */
   title?: string;
   /**
+   * @remarks
+   * The invoice type. Valid values:
+   * - 2: general digital electronic invoice
+   * - 3: special digital electronic invoice
+   * 
    * @example
    * 2
    */
   type?: string;
+  /**
+   * @remarks
+   * The address information.
+   */
   userAddressDto?: DescribeInvoiceForIsvResponseBodyResultUserAddressDto;
+  /**
+   * @remarks
+   * The user invoice remarks.
+   * 
+   * @example
+   * 无
+   */
   userNotice?: string;
   static names(): { [key: string]: string } {
     return {
@@ -295,42 +522,70 @@ export class DescribeInvoiceForIsvResponseBodyResult extends $dara.Model {
 
 export class DescribeInvoiceForIsvResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The commodity code corresponding to the product.
+   * 
    * @example
    * 200
    */
   code?: string;
   /**
+   * @remarks
+   * The total count.
+   * 
    * @example
    * 100
    */
   count?: string;
   /**
+   * @remarks
+   * The maximum number of entries per page for a paged query. Maximum value: 50. Default value: 10.
+   * 
    * @example
    * 10
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The query token returned by this call.
+   * 
    * @example
    * 3v3mzZN1QdVsTPNiT0OkD36LC9I+AJHU9z2oXBmJJOyy4nQl7MIUZUYG6fdbYBk+
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The current page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: string;
   /**
+   * @remarks
+   * The number of instances per page.
+   * 
    * @example
    * 10
    */
   pageSize?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 6EF60BEC-0242-43AF-BB20-270359FB54A7
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The process node information upon success.
+   */
   result?: DescribeInvoiceForIsvResponseBodyResult[];
   /**
+   * @remarks
+   * The result indicator.
+   * 
    * @example
    * true
    */

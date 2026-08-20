@@ -3,19 +3,45 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeProjectOperateLogsResponseBodyResult extends $dara.Model {
+  /**
+   * @remarks
+   * The description of the operation.
+   * 
+   * @example
+   * 进入分配服务商操作人
+   */
   description?: string;
   /**
+   * @remarks
+   * The operation time (UNIX timestamp).
+   * 
    * @example
    * 1587624497000
    */
   gmtCreate?: number;
   /**
+   * @remarks
+   * The Alibaba Cloud UID of the operator.
+   * 
    * @example
    * 0
    */
   operator?: number;
+  /**
+   * @remarks
+   * The name of the operator.
+   * 
+   * @example
+   * 系统
+   */
   operatorName?: string;
   /**
+   * @remarks
+   * The role of the operator. Valid values:
+   * - System: system.
+   * - Custom: customer.
+   * - Provider: service provider.
+   * 
    * @example
    * System
    */
@@ -51,12 +77,22 @@ export class DescribeProjectOperateLogsResponseBodyResult extends $dara.Model {
 
 export class DescribeProjectOperateLogsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * e6037e86-657f-4194-bb6a-7b26973aec8d
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The returned result.
+   */
   result?: DescribeProjectOperateLogsResponseBodyResult[];
   /**
+   * @remarks
+   * Indicates whether the call was successful.
+   * 
    * @example
    * true
    */

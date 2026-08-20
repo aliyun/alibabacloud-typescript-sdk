@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeApiMeteringRequest extends $dara.Model {
   /**
    * @remarks
+   * The page number.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,11 +14,19 @@ export class DescribeApiMeteringRequest extends $dara.Model {
    */
   pageNum?: number;
   /**
+   * @remarks
+   * The commodity code.
+   * 
    * @example
    * cmapi0004****
    */
   productCode?: string;
   /**
+   * @remarks
+   * The type. Valid values:
+   * - 1: subscription package.
+   * - 2: resource plan.
+   * 
    * @example
    * 1
    */

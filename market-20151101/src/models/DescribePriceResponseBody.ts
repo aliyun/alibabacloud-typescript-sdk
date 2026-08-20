@@ -124,49 +124,98 @@ export class DescribePriceResponseBodyPromotionRules extends $dara.Model {
 export class DescribePriceResponseBody extends $dara.Model {
   coupons?: DescribePriceResponseBodyCoupons;
   /**
+   * @remarks
+   * Currency
+   * 
+   * CNY: Chinese Yuan
+   * USD: US Dollar
+   * JPY: Japanese Yen
+   * 
    * @example
    * CNY
    */
   currency?: string;
   /**
+   * @remarks
+   * Indicates whether a promotion is available
+   * 
    * @example
    * true
    */
   cuxiao?: boolean;
   /**
+   * @remarks
+   * Cycle unit
+   * 
+   * DAY: Day
+   * MONTH: Month
+   * YEAR: Year
+   * 
    * @example
    * MONTH
    */
   cycle?: string;
   /**
+   * @remarks
+   * Discount amount (original price minus trade price), in CNY
+   * 
    * @example
    * 178.20
    */
   discountPrice?: number;
   /**
+   * @remarks
+   * Number of cycles, such as 1, 2, 3...
+   * 
    * @example
    * 1
    */
   duration?: number;
   /**
+   * @remarks
+   * Purchase restriction code
+   * 
    * @example
    * ORDER.NO_REAL_NAME_AUTHENTICATION
    */
   expressionCode?: string;
+  /**
+   * @remarks
+   * Purchase restriction description
+   * 
+   * @example
+   * 企业用户才能购买
+   */
   expressionMessage?: string;
+  /**
+   * @remarks
+   * Promotion name
+   * 
+   * @example
+   * 新年特惠
+   */
   infoTitle?: string;
   /**
+   * @remarks
+   * Original price, in CNY
+   * 
    * @example
    * 198.00
    */
   originalPrice?: number;
   /**
+   * @remarks
+   * Product code
+   * 
    * @example
    * cmgj01****
    */
   productCode?: string;
   promotionRules?: DescribePriceResponseBodyPromotionRules;
   /**
+   * @remarks
+   * Trade price (actual price), in CNY
+   * 
    * @example
    * 19.80
    */

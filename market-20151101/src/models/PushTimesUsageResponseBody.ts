@@ -4,37 +4,62 @@ import * as $dara from '@darabonba/typescript';
 
 export class PushTimesUsageResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The authentication error message.
+   * 
    * @example
    * {}
    */
   accessDeniedDetail?: string;
   /**
+   * @remarks
+   * The status code.
+   * 
    * @example
    * 200
    */
   code?: string;
+  /**
+   * @remarks
+   * The fatal error.
+   */
   forceFatal?: boolean;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStateCode?: string;
   /**
+   * @remarks
+   * The returned message.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 6EF60BEC-0242-43AF-BB20-270359FB54A7
    */
   requestId?: string;
   /**
+   * @remarks
+   * The returned result.
+   * 
    * @example
    * true
    */
   result?: boolean;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

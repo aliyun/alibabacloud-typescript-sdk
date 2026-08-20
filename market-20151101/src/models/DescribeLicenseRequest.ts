@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeLicenseRequest extends $dara.Model {
   /**
    * @remarks
+   * The activation code.
+   * 
    * This parameter is required.
    * 
    * @example

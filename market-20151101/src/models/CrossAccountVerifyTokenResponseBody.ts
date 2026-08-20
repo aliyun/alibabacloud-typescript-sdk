@@ -3,18 +3,31 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CrossAccountVerifyTokenResponseBodyResult extends $dara.Model {
+  /**
+   * @remarks
+   * Authorized roles.
+   */
   authRoles?: string[];
   /**
+   * @remarks
+   * Authorization time.
+   * 
    * @example
    * 1676974108866
    */
   authTime?: number;
   /**
+   * @remarks
+   * User display name.
+   * 
    * @example
    * marketplace_wangxiao_test
    */
   name?: string;
   /**
+   * @remarks
+   * User Alibaba Cloud UID.
+   * 
    * @example
    * 1744526877246715
    */
@@ -51,25 +64,38 @@ export class CrossAccountVerifyTokenResponseBodyResult extends $dara.Model {
 
 export class CrossAccountVerifyTokenResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Status code. A value of 200 indicates success.
+   * 
    * @example
    * 200
    */
   code?: string;
   /**
+   * @remarks
+   * Error message.
+   * 
    * @example
    * successful
    */
   message?: string;
   /**
    * @remarks
-   * RequestId
+   * Request ID.
    * 
    * @example
    * C19D103F-EA2D-50A5-8441-0267CE9FBA56
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Response result object.
+   */
   result?: CrossAccountVerifyTokenResponseBodyResult;
   /**
+   * @remarks
+   * Indicates whether the API call was successful.
+   * 
    * @example
    * true
    */

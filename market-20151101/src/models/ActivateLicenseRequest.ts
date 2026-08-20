@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ActivateLicenseRequest extends $dara.Model {
   /**
+   * @remarks
+   * The identity information for activation. Set this parameter to the Alibaba Cloud account ID (aliyunUid) of the user.
+   * 
    * @example
    * 129****1111
    */
   identification?: string;
   /**
    * @remarks
+   * The authorization code.
+   * 
    * This parameter is required.
    * 
    * @example

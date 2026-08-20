@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ResumeProjectRequest extends $dara.Model {
   /**
    * @remarks
+   * The instance ID of the Alibaba Cloud Marketplace order.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,12 +15,21 @@ export class ResumeProjectRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * The ID of the operation flow node.
+   * 
    * This parameter is required.
    * 
    * @example
    * 1922
    */
   nodeId?: number;
+  /**
+   * @remarks
+   * The reason for the remark.
+   * 
+   * @example
+   * 仓库库存已补充，可安排发货。
+   */
   remark?: string;
   static names(): { [key: string]: string } {
     return {

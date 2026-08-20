@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class FinishCurrentProjectNodeResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ee69a00f-189b-400f-9fd2-af89749fb50f
    */
   requestId?: string;
   /**
+   * @remarks
+   * The response result.
+   * 
    * @example
    * true
    */
   result?: boolean;
   /**
+   * @remarks
+   * Indicates whether the operation was successful.
+   * 
    * @example
    * true
    */

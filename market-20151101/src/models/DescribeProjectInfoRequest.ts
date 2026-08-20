@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeProjectInfoRequest extends $dara.Model {
   /**
    * @remarks
+   * The business instance ID in Cloud Marketplace.
+   * 
    * This parameter is required.
    * 
    * @example

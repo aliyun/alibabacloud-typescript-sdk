@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeProjectOperateLogsRequest extends $dara.Model {
   /**
    * @remarks
+   * The instance ID of the Alibaba Cloud Marketplace order.
+   * 
    * This parameter is required.
    * 
    * @example

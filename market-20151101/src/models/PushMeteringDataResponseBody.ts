@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class PushMeteringDataResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 6EF60BEC-0242-43AF-BB20-270359FB54A7
    */
   requestId?: string;
   /**
+   * @remarks
+   * The success status identifier.
+   * 
    * @example
    * true
    */

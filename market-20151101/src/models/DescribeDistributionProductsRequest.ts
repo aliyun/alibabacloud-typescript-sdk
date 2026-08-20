@@ -5,6 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDistributionProductsRequestFilter extends $dara.Model {
   /**
    * @remarks
+   * The search label category. Valid values:
+   * 
+   * - code: the commodity code of the promotional product
+   * - name: the name of the promotional product
+   * - supplierName: the name of the promotion service provider.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +19,12 @@ export class DescribeDistributionProductsRequestFilter extends $dara.Model {
   key?: string;
   /**
    * @remarks
+   * The search tag value:
+   * 
+   * - code: the product code to search for
+   * - name: the product name to search for
+   * - supplierName: the supplier name to search for.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -43,9 +55,15 @@ export class DescribeDistributionProductsRequestFilter extends $dara.Model {
 }
 
 export class DescribeDistributionProductsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The list of filter conditions.
+   */
   filter?: DescribeDistributionProductsRequestFilter[];
   /**
    * @remarks
+   * The current page number.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -54,6 +72,8 @@ export class DescribeDistributionProductsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
+   * The number of promotional products per page.
+   * 
    * This parameter is required.
    * 
    * @example

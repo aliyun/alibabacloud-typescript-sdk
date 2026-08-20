@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ConfirmNotificationRequest extends $dara.Model {
   /**
    * @remarks
+   * The notification request ID.
+   * 
    * This parameter is required.
    * 
    * @example

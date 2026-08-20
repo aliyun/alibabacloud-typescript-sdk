@@ -4,17 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeInstancesRequest extends $dara.Model {
   /**
+   * @remarks
+   * The commodity codes. Separate multiple codes with commas (,).
+   * 
    * @example
    * cmgj000112,cmgj000113
    */
   codes?: string;
   /**
+   * @remarks
+   * The commodity codes to exclude. This parameter cannot be specified together with the Codes parameter. Separate multiple codes with commas (,).
+   * 
    * @example
    * cmgj000114,cmgj000115
    */
   exceptCodes?: string;
   /**
    * @remarks
+   * The number of entries per page.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -23,6 +31,8 @@ export class DescribeInstancesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
+   * The page number.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -30,6 +40,17 @@ export class DescribeInstancesRequest extends $dara.Model {
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The commodity type. Valid values:
+   * - APP: application
+   * - SERVICE: service
+   * - MIRROR: image
+   * - DOWNLOAD: download
+   * - API_SERVICE: API
+   * - ROS: resource orchestration
+   * - DOCKER: container
+   * - IOT: IoT.
+   * 
    * @example
    * 1
    */

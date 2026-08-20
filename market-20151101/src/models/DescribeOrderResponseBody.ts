@@ -56,91 +56,190 @@ export class DescribeOrderResponseBodySupplierTelephones extends $dara.Model {
 
 export class DescribeOrderResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The number of accounts.
+   * 
    * @example
    * 0
    */
   accountQuantity?: number;
   /**
+   * @remarks
+   * The unique identifier of the Alibaba Cloud user (aliyunPK).
+   * 
    * @example
    * 190311111111****
    */
   aliUid?: number;
+  /**
+   * @remarks
+   * The order component information. The metric description for the parameters in the example is as follows:
+   * 
+   * - package_quantity: the number of usage times (a component specific to API products)
+   * - package_version: the version
+   * - ord_time: the duration
+   * - order_num: the quantity
+   * - code: the component code
+   * - globarKey: the component key
+   * - name: the component name
+   * - value: the component value.
+   * 
+   * @example
+   * { "package_quantity": { "code": "package_quantity", "globarKey": "cmapi014302_package_quantity_package_quantity_10000", "name": "10000次", "value": "10000" }, "package_version": { "code": "package_version", "globarKey": "cmapi014302_package_version_package_version_yuncode830200000", "name": "0元／10000次", "value": "yuncode830200000" }, "ord_time": { "code": "ord_time", "globarKey": "cmapi014302_ord_time_ord_time_6:Month", "name": "6个月", "value": "6:Month" }, "order_num": { "code": "order_num", "globarKey": "cmapi014302_order_num_order_num_1", "name": "1", "value": "1" } }
+   */
   components?: { [key: string]: any };
   /**
+   * @remarks
+   * The amount of vouchers used, in CNY.
+   * 
    * @example
    * 0.0
    */
   couponPrice?: number;
   /**
+   * @remarks
+   * The time when the order was placed.
+   * 
    * @example
    * 1531191564000
    */
   createdOn?: number;
   instanceIds?: DescribeOrderResponseBodyInstanceIds;
   /**
+   * @remarks
+   * The order ID.
+   * 
    * @example
    * 202211111111111
    */
   orderId?: number;
   /**
+   * @remarks
+   * The order status. Valid values:
+   * 
+   * - NORMAL: Normal.
+   * - REFUND: Refunded.
+   * - DELETE: Voided.
+   * 
    * @example
    * NORMAL
    */
   orderStatus?: string;
   /**
+   * @remarks
+   * The order type. Valid values:
+   * 
+   * - NEW: New purchase order.
+   * - RENEW: Renewal order.
+   * - TRIAL: Trial order.
+   * 
    * @example
    * NEW
    */
   orderType?: string;
   /**
+   * @remarks
+   * The original price of the order, in CNY.
+   * 
    * @example
    * 10.0
    */
   originalPrice?: number;
   /**
+   * @remarks
+   * The payment time.
+   * 
    * @example
    * 1531191675000
    */
   paidOn?: number;
   /**
+   * @remarks
+   * The payment status. Valid values:
+   * 
+   * - PAID: Paid.
+   * - UNPAID: Unpaid.
+   * 
    * @example
    * PAID
    */
   payStatus?: string;
   /**
+   * @remarks
+   * The actual payment amount, in CNY.
+   * 
    * @example
    * 0.0
    */
   paymentPrice?: number;
   /**
+   * @remarks
+   * The time unit for prepaid orders. Valid values:
+   * 
+   * - MONTH: one month
+   * - SEASON: one quarter
+   * - HALFYEAR: half a year
+   * - YEAR: one year
+   * - TWOYEARS: two years
+   * - ONCE: one-time.
+   * 
    * @example
    * MONTH
    */
   periodType?: string;
   /**
+   * @remarks
+   * The commodity code.
+   * 
    * @example
    * cmgj02****
    */
   productCode?: string;
+  /**
+   * @remarks
+   * The name of the subscribed product.
+   * 
+   * @example
+   * saas服务产品
+   */
   productName?: string;
   /**
+   * @remarks
+   * The specification code of the subscribed product.
+   * 
    * @example
    * cmgj02****-prepay
    */
   productSkuCode?: string;
   /**
+   * @remarks
+   * The quantity of the subscribed product.
+   * 
    * @example
    * 1
    */
   quantity?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 6EF60BEC-0242-43AF-BB20-270359FB54A7
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The company name of the seller.
+   * 
+   * @example
+   * **科技股份有限公司
+   */
   supplierCompanyName?: string;
   supplierTelephones?: DescribeOrderResponseBodySupplierTelephones;
   /**
+   * @remarks
+   * The total payable amount of the order, in CNY.
+   * 
    * @example
    * 0.0
    */

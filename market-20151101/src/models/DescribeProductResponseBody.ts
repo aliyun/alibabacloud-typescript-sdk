@@ -460,15 +460,28 @@ export class DescribeProductResponseBodyShopInfoWangWangs extends $dara.Model {
 
 export class DescribeProductResponseBodyShopInfo extends $dara.Model {
   /**
+   * @remarks
+   * The email address.
+   * 
    * @example
    * 46**41@example.com
    */
   emails?: string;
   /**
+   * @remarks
+   * The shop ID.
+   * 
    * @example
    * 123
    */
   id?: number;
+  /**
+   * @remarks
+   * The shop name.
+   * 
+   * @example
+   * **科学公司
+   */
   name?: string;
   telephones?: DescribeProductResponseBodyShopInfoTelephones;
   wangWangs?: DescribeProductResponseBodyShopInfoWangWangs;
@@ -508,40 +521,90 @@ export class DescribeProductResponseBodyShopInfo extends $dara.Model {
 }
 
 export class DescribeProductResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The reason for the audit failure. This parameter is returned when QueryDraft is set to true.
+   * 
+   * @example
+   * 功能验收不通过
+   */
   auditFailMsg?: string;
   /**
+   * @remarks
+   * The audit status. This parameter is returned when QueryDraft is set to true. Valid values:
+   * - draft: not submitted
+   * - security_ing: security audit in progress
+   * - security_fail: security audit failed
+   * - function_ing: functional audit in progress
+   * - function_fail: functional audit failed
+   * - info_ing: product information audit in progress
+   * - info_fail: product information audit failed
+   * - success: succeeded.
+   * 
    * @example
    * function_fail
    */
   auditStatus?: string;
   /**
+   * @remarks
+   * The audit time. This parameter is returned when QueryDraft is set to true.
+   * 
    * @example
    * 1581609600000
    */
   auditTime?: number;
   /**
+   * @remarks
+   * The commodity code of the product.
+   * 
    * @example
    * cmjj01**45
    */
   code?: string;
+  /**
+   * @remarks
+   * The detailed description of the product. HTML is supported.
+   * 
+   * @example
+   * <div>基于阿里云（Ubuntu16.04 64位）系统源码安装，安全、稳定、高效！</div>
+   */
   description?: string;
   /**
+   * @remarks
+   * The product category ID.
+   * 
    * @example
    * 523617212
    */
   frontCategoryId?: number;
   /**
+   * @remarks
+   * The time when the product was created.
+   * 
    * @example
    * 1578931200000
    */
   gmtCreated?: number;
   /**
+   * @remarks
+   * The time when the product was last modified.
+   * 
    * @example
    * 1578931200000
    */
   gmtModified?: number;
+  /**
+   * @remarks
+   * The product name.
+   * 
+   * @example
+   * LNMP环境（Ubuntu16.04 Nginx PHP5.3）
+   */
   name?: string;
   /**
+   * @remarks
+   * The URL of the product image.
+   * 
    * @example
    * https://oss.aliyuncs.com/photogallery/photo/1930532890589852/6245/495d5f19-03e4-4c2e-9c4e-bef9ab6af1e1.png
    */
@@ -549,33 +612,68 @@ export class DescribeProductResponseBody extends $dara.Model {
   productExtras?: DescribeProductResponseBodyProductExtras;
   productSkus?: DescribeProductResponseBodyProductSkus;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 6EF60BEC-0242-43AF-BB20-270359FB54A7
    */
   requestId?: string;
   /**
+   * @remarks
+   * The product rating.
+   * 
    * @example
    * 5.0
    */
   score?: number;
+  /**
+   * @remarks
+   * The shop information.
+   */
   shopInfo?: DescribeProductResponseBodyShopInfo;
+  /**
+   * @remarks
+   * The short description of the product.
+   * 
+   * @example
+   * 该镜像为LNMP（Ubuntu16.04 64位+Nginx+MySQL5.6+PHP5.3）
+   */
   shortDescription?: string;
   /**
+   * @remarks
+   * Deprecated.
+   * 
    * @example
    * 1
    */
   status?: string;
   /**
+   * @remarks
+   * The UID of the service provider.
+   * 
    * @example
    * 1526111111****
    */
   supplierPk?: number;
   /**
+   * @remarks
+   * The product type. Valid values:
+   * 
+   * * APP: application
+   * * DOWNLOAD: download
+   * * MIRROR: image
+   * * SERVICE: service
+   * * API_SERVICE: API service.
+   * 
    * @example
    * MIRROR
    */
   type?: string;
   /**
+   * @remarks
+   * The usage count.
+   * 
    * @example
    * 10
    */

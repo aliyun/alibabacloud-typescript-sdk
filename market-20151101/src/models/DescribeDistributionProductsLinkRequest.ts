@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDistributionProductsLinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The collection of product codes. The collection cannot be empty and can contain up to 50 entries.
+   * 
    * This parameter is required.
    */
   codes?: string[];

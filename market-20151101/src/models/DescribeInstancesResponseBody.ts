@@ -102,21 +102,33 @@ export class DescribeInstancesResponseBodyInstanceItems extends $dara.Model {
 export class DescribeInstancesResponseBody extends $dara.Model {
   instanceItems?: DescribeInstancesResponseBodyInstanceItems;
   /**
+   * @remarks
+   * The current page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 54C22FB9-0CB1-5629-97A8-653FC7990F00
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of instances.
+   * 
    * @example
    * 55
    */
