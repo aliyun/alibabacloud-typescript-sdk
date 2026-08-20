@@ -77,7 +77,7 @@ export class CreateCloudResourceShrinkRequest extends $dara.Model {
   redirectShrink?: string;
   /**
    * @remarks
-   * The region where the WAF instance is deployed. Valid values:
+   * The region where the WAF instance resides. Valid values:
    * 
    * - **cn-hangzhou**: the Chinese mainland.
    * 

@@ -6,6 +6,7 @@ export class ModifyHybridCloudClusterBypassStatusRequest extends $dara.Model {
   /**
    * @remarks
    * The resource ID of the hybrid cloud cluster.
+   * > Call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation and find the target hybrid cloud cluster in the **ClusterInfos** array of the response. Use the value of the **ClusterResourceId** field. If no cluster is available, call the [CreateHybridCloudCluster](https://help.aliyun.com/document_detail/2980286.html) operation to create a hybrid cloud cluster.
    * 
    * This parameter is required.
    * 
@@ -17,7 +18,7 @@ export class ModifyHybridCloudClusterBypassStatusRequest extends $dara.Model {
    * @remarks
    * The ID of the WAF instance.
    * 
-   * > You can call the [DescribeInstanceInfo](https://help.aliyun.com/document_detail/140857.html) operation to query the ID of the current WAF instance.
+   * > Call the [DescribeInstanceInfo](https://help.aliyun.com/document_detail/140857.html) operation to query the ID of the current WAF instance.
    * 
    * This parameter is required.
    * 
@@ -47,7 +48,7 @@ export class ModifyHybridCloudClusterBypassStatusRequest extends $dara.Model {
   resourceManagerResourceGroupId?: string;
   /**
    * @remarks
-   * The manual bypass enabling status. Valid values:
+   * The enabling status of the manual bypass switch. Valid values:
    * 
    * - **on**: enabled.
    * 

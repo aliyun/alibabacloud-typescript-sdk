@@ -45,7 +45,9 @@ export class ModifyDefenseRuleStatusRequest extends $dara.Model {
   resourceManagerResourceGroupId?: string;
   /**
    * @remarks
-   * The ID of the protection rule to modify.
+   * The ID of the protection rule that you want to modify.
+   * 
+   * > You can call the [DescribeDefenseRules](https://help.aliyun.com/document_detail/461426.html) operation to query the protection rule ID. You can create a protection rule by calling the [CreateDefenseRule](https://help.aliyun.com/document_detail/461421.html) operation.
    * 
    * This parameter is required.
    * 
@@ -55,9 +57,9 @@ export class ModifyDefenseRuleStatusRequest extends $dara.Model {
   ruleId?: number;
   /**
    * @remarks
-   * The status of the protection rule to set. Valid values: 
-   * - **0**: Disabled.  
-   * - **1**: Enabled.
+   * The status that you want to set for the protection rule. Valid values: 
+   * - **0**: disabled.  
+   * - **1**: enabled.
    * 
    * This parameter is required.
    * 

@@ -16,13 +16,7 @@ export class CreateDomainRequestListen extends $dara.Model {
   certId?: string;
   /**
    * @remarks
-   * The type of cipher suite to add. This parameter is used only when **HttpsPorts** is not empty, which indicates that the domain name uses the HTTPS protocol. Valid values:
-   * 
-   * - **1**: adds all cipher suites.
-   * 
-   * - **2**: adds strong cipher suites. This value is available only when **TLSVersion** is set to **tlsv1.2**.
-   * 
-   * - **99**: adds custom cipher suites. This value is available only when **TLSVersion** is not set to **tlsv1.3**.
+   * The type of cipher suite to add. This parameter is used only when **HttpsPorts** is not empty, which indicates that the domain name uses HTTPS. Valid values:
    * 
    * @example
    * 2
@@ -30,7 +24,7 @@ export class CreateDomainRequestListen extends $dara.Model {
   cipherSuite?: number;
   /**
    * @remarks
-   * The specific custom cipher suites to add.
+   * The custom cipher suites to add.
    */
   customCiphers?: string[];
   /**
@@ -64,9 +58,8 @@ export class CreateDomainRequestListen extends $dara.Model {
    * @remarks
    * Specifies whether HSTS includes subdomains. Valid values:
    * 
-   * - **true**: Enabled.
-   * 
-   * - **false**: Not enabled.
+   * @example
+   * true
    */
   hstsIncludeSubDomain?: boolean;
   /**
@@ -121,7 +114,7 @@ export class CreateDomainRequestListen extends $dara.Model {
   protectionResource?: string;
   /**
    * @remarks
-   * Specifies whether only China SM client access is allowed. This parameter is used only when SM2Enabled is set to true.
+   * Specifies whether to allow only SM2 client access. This parameter is used only when SM2Enabled is set to true.
    * 
    * @example
    * true
@@ -132,7 +125,7 @@ export class CreateDomainRequestListen extends $dara.Model {
   SM2AccessOnly?: boolean;
   /**
    * @remarks
-   * The ID of the China SM certificate to add. This parameter is used only when SM2Enabled is set to true.
+   * The ID of the SM2 certificate to add. This parameter is used only when SM2Enabled is set to true.
    * 
    * @example
    * 123-cn-hangzhou
@@ -143,7 +136,7 @@ export class CreateDomainRequestListen extends $dara.Model {
   SM2CertId?: string;
   /**
    * @remarks
-   * Specifies whether to enable China Encryption (China SM) certificates.
+   * Specifies whether to enable SM2 certificates.
    * 
    * @example
    * true
@@ -154,7 +147,11 @@ export class CreateDomainRequestListen extends $dara.Model {
   SM2Enabled?: boolean;
   /**
    * @remarks
-   * The TLS version to add. This parameter is used only when **HttpsPorts** is not empty, which indicates that the domain name uses HTTPS. Valid values:
+   * The TLS version to add. This parameter is used only when **HttpsPorts** is not empty, which indicates that the domain name uses the HTTPS protocol. Valid values:
+   * - **tlsv1**: Supports TLS 1.0 and later. Highest compatibility and lowest security.
+   * - **tlsv1.1**: Supports TLS 1.1 and later. Good compatibility and good security.
+   * - **tlsv1.2**: Supports TLS 1.2 and later. Good compatibility and highest security.
+   * - **tlsv1.3**: Supports only TLS 1.3. Highest security and lowest compatibility.
    * 
    * @example
    * tlsv1
@@ -170,7 +167,7 @@ export class CreateDomainRequestListen extends $dara.Model {
   xffHeaderMode?: number;
   /**
    * @remarks
-   * The list of custom header fields used to obtain the client IP address.
+   * The custom header fields used to obtain the client IP address.
    */
   xffHeaders?: string[];
   static names(): { [key: string]: string } {
@@ -247,7 +244,7 @@ export class CreateDomainRequestListen extends $dara.Model {
 export class CreateDomainRequestRedirectBackendPorts extends $dara.Model {
   /**
    * @remarks
-   * The origin server port.
+   * The back-to-origin port.
    * 
    * @example
    * 80
@@ -263,11 +260,7 @@ export class CreateDomainRequestRedirectBackendPorts extends $dara.Model {
   listenPort?: number;
   /**
    * @remarks
-   * The protocol of the listener port. Valid values:
-   * 
-   * - **http**: The protocol of the listener port is HTTP.
-   * 
-   * - **https**: The protocol of the listener port is HTTPS.
+   * The protocol of the listening port. Valid values:
    * 
    * @example
    * http
@@ -301,7 +294,7 @@ export class CreateDomainRequestRedirectBackendPorts extends $dara.Model {
 export class CreateDomainRequestRedirectRequestHeaders extends $dara.Model {
   /**
    * @remarks
-   * The specified custom request header field.
+   * The custom request header field.
    * 
    * @example
    * aaa
@@ -346,17 +339,21 @@ export class CreateDomainRequestRedirect extends $dara.Model {
   backendPorts?: CreateDomainRequestRedirectBackendPorts[];
   /**
    * @remarks
-   * The IP addresses or back-to-origin domain names of the origin server for the domain name.
+   * The IP addresses or domain names of the origin servers that correspond to the domain name.
    */
   backends?: string[];
   /**
    * @remarks
-   * The IP addresses or back-to-origin domain names of the secondary origin server for the domain name.
+   * The IP addresses or domain names of the secondary origin servers that correspond to the domain name.
    */
   backupBackends?: string[];
   /**
    * @remarks
    * Specifies whether to enable public cloud disaster recovery. Valid values:
+   * 
+   * - **true**: Public cloud disaster recovery is enabled.
+   * 
+   * - **false** (default): Public cloud disaster recovery is not enabled.
    * 
    * @example
    * true
@@ -372,11 +369,7 @@ export class CreateDomainRequestRedirect extends $dara.Model {
   connectTimeout?: number;
   /**
    * @remarks
-   * Specifies whether to enable forced HTTP back-to-origin. This parameter is used only when **HttpsPorts** is not empty, which indicates that the domain name uses the HTTPS protocol. Valid values:
-   * 
-   * - **true**: Forced HTTP back-to-origin is enabled.
-   * 
-   * - **false**: Forced HTTP back-to-origin is not enabled.
+   * Specifies whether to enable forced HTTP back-to-origin. This parameter is used only when **HttpsPorts** is not empty, which indicates that the domain name uses HTTPS. Valid values:
    * 
    * @example
    * true
@@ -384,11 +377,7 @@ export class CreateDomainRequestRedirect extends $dara.Model {
   focusHttpBackend?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable origin fetch over HTTP/2. Valid values:
-   * 
-   * - **true**: Enables origin fetch over HTTP/2.
-   * 
-   * - **false**: Disables origin fetch over HTTP/2.
+   * Specifies whether to enable HTTP/2 back-to-origin. Valid values:
    * 
    * @example
    * true
@@ -412,9 +401,7 @@ export class CreateDomainRequestRedirect extends $dara.Model {
   keepalive?: boolean;
   /**
    * @remarks
-   * The number of requests that can reuse a persistent connection. Valid values: 60 to 1000. Default value: 1000.
-   * 
-   * > After persistent connections are enabled, this parameter specifies how many requests can reuse a persistent connection.
+   * The number of requests that reuse a persistent connection. Valid values: 60 to 1000. Default value: 1000.
    * 
    * @example
    * 1000
@@ -422,7 +409,7 @@ export class CreateDomainRequestRedirect extends $dara.Model {
   keepaliveRequests?: number;
   /**
    * @remarks
-   * The timeout period for idle persistent connections. Valid values: 1 to 60. Default value: 15. Unit: seconds.
+   * The idle timeout period for persistent connections. Valid values: 1 to 60. Default value: 15. Unit: seconds.
    * 
    * @example
    * 15
@@ -436,7 +423,7 @@ export class CreateDomainRequestRedirect extends $dara.Model {
    * 
    * - **roundRobin**: round-robin algorithm.
    * 
-   * - **leastTime**: Least Time algorithm. This value is available only when **ProtectionResource** is set to **gslb**, which indicates that the protection resource type uses intelligent load balancing of the shared cluster.
+   * - **leastTime**: Least Time algorithm. This value is available only when **ProtectionResource** is set to **gslb** (indicating that the protection resource type uses intelligent load balancing of the shared cluster).
    * 
    * This parameter is required.
    * 
@@ -472,16 +459,12 @@ export class CreateDomainRequestRedirect extends $dara.Model {
   readTimeout?: number;
   /**
    * @remarks
-   * The traffic tag fields and values for the domain name, used to mark traffic processed by WAF.
+   * The traffic mark header fields and values for the domain name, used to mark traffic processed by WAF.
    */
   requestHeaders?: CreateDomainRequestRedirectRequestHeaders[];
   /**
    * @remarks
    * Specifies whether to retry when WAF fails to forward requests to the origin server. Valid values:
-   * 
-   * - **true** (default): Retry.
-   * 
-   * - **false**: Do not retry.
    * 
    * @example
    * true
@@ -510,7 +493,7 @@ export class CreateDomainRequestRedirect extends $dara.Model {
   routingRules?: string;
   /**
    * @remarks
-   * Specifies whether to enable back-to-origin SNI. This parameter is used only when **HttpsPorts** is not empty, which indicates that the domain name uses HTTPS. Valid values:
+   * Specifies whether to enable back-to-origin Server Name Indication (SNI). This parameter is used only when **HttpsPorts** is not empty, which indicates that the domain name uses HTTPS. Valid values:
    * 
    * @example
    * true
@@ -519,8 +502,7 @@ export class CreateDomainRequestRedirect extends $dara.Model {
   /**
    * @remarks
    * The value of the custom SNI extension field. If you do not set this parameter, the value of the **Host** field in the request header is used as the value of the SNI extension field by default.
-   * 
-   * In most cases, you do not need to customize the SNI unless your business has special configuration requirements and you want WAF to use an SNI that is different from the actual request Host in back-to-origin requests (that is, the custom SNI set here).
+   * In most cases, you do not need to customize SNI unless your business has special configuration requirements and you want WAF to use an SNI that is different from the actual request Host in back-to-origin requests (that is, the custom SNI set here).
    * 
    * > This parameter is required only when **SniEnabled** is set to **true** (indicating that back-to-origin SNI is enabled).
    * 
@@ -530,11 +512,7 @@ export class CreateDomainRequestRedirect extends $dara.Model {
   sniHost?: string;
   /**
    * @remarks
-   * Specifies whether WAF is allowed to overwrite the WL-Proxy-Client-IP header. Valid values:
-   * 
-   * - **true** (default): WAF is allowed to overwrite the header.
-   * 
-   * - **false**: WAF is not allowed to overwrite the header.
+   * Specifies whether to allow WAF to overwrite WL-Proxy-Client-IP. Valid values:
    * 
    * @example
    * true
@@ -712,7 +690,7 @@ export class CreateDomainRequest extends $dara.Model {
    * 
    * - **hybrid_cloud_cname**: hybrid cloud CNAME access.
    * 
-   * > If the value is **share**, or the value is **hybrid_cloud_cname** and public cloud disaster recovery is enabled, call the [DescribeVerifyContent](https://help.aliyun.com/document_detail/2985193.html) and [VerifyDomainOwner](https://help.aliyun.com/document_detail/2985192.html) operations to verify domain name ownership first. If the domain name is connected to a region in the Chinese mainland, ICP filing must be completed.
+   * > If the value is **share**, or if the value is **hybrid_cloud_cname** and public cloud disaster recovery is enabled, call the [DescribeVerifyContent](https://help.aliyun.com/document_detail/2985193.html) and [VerifyDomainOwner](https://help.aliyun.com/document_detail/2985192.html) operations to verify domain name ownership first. If the domain name is connected to a region in the Chinese mainland, ICP filing must also be completed.
    * 
    * @example
    * share
@@ -741,7 +719,7 @@ export class CreateDomainRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The listener configuration.
+   * The listening configuration.
    * 
    * This parameter is required.
    */
@@ -765,7 +743,7 @@ export class CreateDomainRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The Alibaba Cloud resource group ID.
+   * The ID of the Alibaba Cloud resource group.
    * 
    * @example
    * rg-acfm***q

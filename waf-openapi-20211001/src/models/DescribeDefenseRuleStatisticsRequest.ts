@@ -65,6 +65,8 @@ export class DescribeDefenseRuleStatisticsRequest extends $dara.Model {
    * @remarks
    * The ID of the protection template to query.
    * 
+   * > This operation supports querying protection templates under the new Bot Management (**bot_manager**) and new Web Core Protection (**waf_base**) scenarios. You can call [DescribeDefenseTemplates](https://help.aliyun.com/document_detail/2712643.html) to query the protection scenario (DefenseScene) of a protection template.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeMemberAccountsResponseBodyAccountInfos extends $dara.Model {
   /**
    * @remarks
-   * The ID of the member account.
+   * The ID of the member accounts.
    * 
    * @example
    * 169************21
@@ -13,7 +13,7 @@ export class DescribeMemberAccountsResponseBodyAccountInfos extends $dara.Model 
   accountId?: string;
   /**
    * @remarks
-   * The name of the member account.
+   * The name of the member accounts.
    * 
    * @example
    * ipflgmqqnbjg
@@ -21,13 +21,13 @@ export class DescribeMemberAccountsResponseBodyAccountInfos extends $dara.Model 
   accountName?: string;
   /**
    * @remarks
-   * The status of the member account. Valid values:
+   * The status of the member accounts. Valid values:
    * 
-   * - **enabled**: The member account is being managed.
+   * - **enabled**: The member accounts is managed.
    * 
-   * - **disabled**: The member account is not being managed.
+   * - **disabled**: The member accounts is not managed.
    * 
-   * - **disabling**: The member account is being removed from management.
+   * - **disabling**: The member accounts is being deleted.
    * 
    * @example
    * enabled
@@ -35,15 +35,15 @@ export class DescribeMemberAccountsResponseBodyAccountInfos extends $dara.Model 
   accountStatus?: string;
   /**
    * @remarks
-   * The description of the member account.
+   * The description of the member accounts.
    * 
    * @example
-   * test
+   * descriptionTest
    */
   description?: string;
   /**
    * @remarks
-   * The time when the member account was added. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The time when the member accounts was added.
    * 
    * @example
    * 1683367751000

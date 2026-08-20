@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyLogDeliveryConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * The details of the log delivery configuration, in JSON format.
+   * The log delivery configuration content, which is a string converted from a JSON object constructed with a series of parameters.
    * 
-   * > The value of this parameter is the same as the **DeliveryDetail** parameter of the **CreateLogDeliveryConfig** operation. For more information, see [CreateLogDeliveryConfig]().
+   * > This parameter is the same as the **DeliveryDetail** parameter of the **CreateLogDeliveryConfig** operation. For more information, see the **log delivery configuration content parameter description** in the [CreateLogDeliveryConfig](~~CreateLogDeliveryConfig~~) operation.
    * 
    * This parameter is required.
    * 
@@ -26,7 +26,7 @@ export class ModifyLogDeliveryConfigRequest extends $dara.Model {
   deliveryDetail?: string;
   /**
    * @remarks
-   * The name of the log delivery configuration that you want to modify.
+   * The name of the log delivery configuration to modify.
    * 
    * This parameter is required.
    * 
@@ -36,11 +36,10 @@ export class ModifyLogDeliveryConfigRequest extends $dara.Model {
   deliveryName?: string;
   /**
    * @remarks
-   * The type of the log delivery destination. Valid values:
+   * The type of the log delivery configuration to modify. Valid values:
    * 
-   * - **syslog**: delivers logs to a syslog server.
-   * 
-   * - **kafka**: delivers logs to a Kafka cluster.
+   * - **syslog**: delivers logs to a syslog service.
+   * - **kafka**: delivers logs to a Kafka service.
    * 
    * This parameter is required.
    * 
@@ -50,9 +49,9 @@ export class ModifyLogDeliveryConfigRequest extends $dara.Model {
   deliveryType?: string;
   /**
    * @remarks
-   * The ID of the Web Application Firewall (WAF) instance.
+   * The ID of the WAF instance.
    * 
-   * > Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+   * > You can call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to obtain the ID of the current WAF instance.
    * 
    * This parameter is required.
    * 
@@ -62,9 +61,9 @@ export class ModifyLogDeliveryConfigRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The region in which the WAF instance resides. Valid values:
+   * The region where the WAF instance resides. Valid values:
    * 
-   * - **cn-hangzhou**: Chinese mainland.
+   * - **cn-hangzhou**: the Chinese mainland.
    * 
    * - **ap-southeast-1**: outside the Chinese mainland.
    * 
@@ -74,7 +73,7 @@ export class ModifyLogDeliveryConfigRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The ID of the Alibaba Cloud resource group.
    * 
    * @example
    * rg-acfm***q
