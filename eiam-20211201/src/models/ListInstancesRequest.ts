@@ -31,6 +31,14 @@ export class ListInstancesRequest extends $dara.Model {
   instanceIds?: string[];
   /**
    * @remarks
+   * The service code of the managing cloud service.
+   * 
+   * @example
+   * kms
+   */
+  managedServiceCode?: string;
+  /**
+   * @remarks
    * The page number.
    * 
    * @example
@@ -45,6 +53,13 @@ export class ListInstancesRequest extends $dara.Model {
    * 20
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * Indicates whether the instance is managed by a cloud service.
+   * 
+   * @example
+   * true
+   */
   serviceManaged?: boolean;
   /**
    * @remarks
@@ -61,6 +76,7 @@ export class ListInstancesRequest extends $dara.Model {
       crossRegionReplication: 'CrossRegionReplication',
       edition: 'Edition',
       instanceIds: 'InstanceIds',
+      managedServiceCode: 'ManagedServiceCode',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       serviceManaged: 'ServiceManaged',
@@ -73,6 +89,7 @@ export class ListInstancesRequest extends $dara.Model {
       crossRegionReplication: 'string',
       edition: 'string',
       instanceIds: { 'type': 'array', 'itemType': 'string' },
+      managedServiceCode: 'string',
       pageNumber: 'number',
       pageSize: 'number',
       serviceManaged: 'boolean',

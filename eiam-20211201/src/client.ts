@@ -1432,6 +1432,10 @@ export default class Client extends OpenApi {
       query["AuthorizationRuleId"] = request.authorizationRuleId;
     }
 
+    if (!$dara.isNull(request.condition)) {
+      query["Condition"] = request.condition;
+    }
+
     if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
@@ -2557,7 +2561,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an instance based on which all capabilities of Identity as a Service (IDaaS) Enterprise Identity and Access Management (EIAM) are provided.
+   * Creates an instance. All EIAM product capabilities are provided based on instances.
    * 
    * @param request - CreateInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2566,6 +2570,10 @@ export default class Client extends OpenApi {
   async createInstanceWithOptions(request: $_model.CreateInstanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateInstanceResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
     if (!$dara.isNull(request.description)) {
       query["Description"] = request.description;
     }
@@ -2588,7 +2596,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an instance based on which all capabilities of Identity as a Service (IDaaS) Enterprise Identity and Access Management (EIAM) are provided.
+   * Creates an instance. All EIAM product capabilities are provided based on instances.
    * 
    * @param request - CreateInstanceRequest
    * @returns CreateInstanceResponse
@@ -7095,7 +7103,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 执行容灾切换
+   * Performs a disaster recovery switchover.
    * 
    * @param request - ExecuteInstanceFailoverRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7130,7 +7138,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 执行容灾切换
+   * Performs a disaster recovery switchover.
    * 
    * @param request - ExecuteInstanceFailoverRequest
    * @returns ExecuteInstanceFailoverResponse
@@ -7867,7 +7875,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries information about an authorized resource.
+   * Queries the information of an authorization resource.
    * 
    * @param request - GetAuthorizationResourceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7906,7 +7914,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries information about an authorized resource.
+   * Queries the information of an authorization resource.
    * 
    * @param request - GetAuthorizationResourceRequest
    * @returns GetAuthorizationResourceResponse
@@ -12437,6 +12445,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.instanceIds)) {
       query["InstanceIds"] = request.instanceIds;
+    }
+
+    if (!$dara.isNull(request.managedServiceCode)) {
+      query["ManagedServiceCode"] = request.managedServiceCode;
     }
 
     if (!$dara.isNull(request.pageNumber)) {

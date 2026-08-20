@@ -2,10 +2,67 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class GetAuthorizationResourceResponseBodyAuthorizationResourceConditionCredentialCondition extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether same-name identity accounts are supported.
+   */
+  allowSameNameIdentity?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      allowSameNameIdentity: 'AllowSameNameIdentity',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      allowSameNameIdentity: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAuthorizationResourceResponseBodyAuthorizationResourceCondition extends $dara.Model {
+  /**
+   * @remarks
+   * The credential condition.
+   */
+  credentialCondition?: GetAuthorizationResourceResponseBodyAuthorizationResourceConditionCredentialCondition;
+  static names(): { [key: string]: string } {
+    return {
+      credentialCondition: 'CredentialCondition',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      credentialCondition: GetAuthorizationResourceResponseBodyAuthorizationResourceConditionCredentialCondition,
+    };
+  }
+
+  validate() {
+    if(this.credentialCondition && typeof (this.credentialCondition as any).validate === 'function') {
+      (this.credentialCondition as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetAuthorizationResourceResponseBodyAuthorizationResource extends $dara.Model {
   /**
    * @remarks
-   * The ID of the resource entity associated with the authorized resource.
+   * The resource entity ID associated with the authorization resource.
    * 
    * @example
    * carole_01kmek49aqxxxx
@@ -13,8 +70,7 @@ export class GetAuthorizationResourceResponseBodyAuthorizationResource extends $
   authorizationResourceEntityId?: string;
   /**
    * @remarks
-   * The type of the resource entity associated with the authorized resource. Valid values:
-   * 
+   * The resource entity type associated with the authorization resource. Valid values:
    * - cloud_account_role: cloud role.
    * 
    * @example
@@ -39,12 +95,25 @@ export class GetAuthorizationResourceResponseBodyAuthorizationResource extends $
   authorizationRuleId?: string;
   /**
    * @remarks
-   * The ID of the cloud account to which the resource entity associated with the authorized resource belongs.
+   * The cloud account ID to which the resource entity associated with the authorization resource belongs.
    * 
    * @example
    * ca_01kmegjc11qa1txxxxx
    */
   cloudAccountId?: string;
+  /**
+   * @remarks
+   * The condition restriction.
+   */
+  condition?: GetAuthorizationResourceResponseBodyAuthorizationResourceCondition;
+  /**
+   * @remarks
+   * The creation time.
+   * 
+   * @example
+   * 1787023451494
+   */
+  createTime?: number;
   /**
    * @remarks
    * The instance ID.
@@ -53,6 +122,14 @@ export class GetAuthorizationResourceResponseBodyAuthorizationResource extends $
    * idaas_ue2jvisn35ea5lmthk267xxxxx
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * The update time.
+   * 
+   * @example
+   * 1787023451494
+   */
+  updateTime?: number;
   static names(): { [key: string]: string } {
     return {
       authorizationResourceEntityId: 'AuthorizationResourceEntityId',
@@ -60,7 +137,10 @@ export class GetAuthorizationResourceResponseBodyAuthorizationResource extends $
       authorizationResourceId: 'AuthorizationResourceId',
       authorizationRuleId: 'AuthorizationRuleId',
       cloudAccountId: 'CloudAccountId',
+      condition: 'Condition',
+      createTime: 'CreateTime',
       instanceId: 'InstanceId',
+      updateTime: 'UpdateTime',
     };
   }
 
@@ -71,11 +151,17 @@ export class GetAuthorizationResourceResponseBodyAuthorizationResource extends $
       authorizationResourceId: 'string',
       authorizationRuleId: 'string',
       cloudAccountId: 'string',
+      condition: GetAuthorizationResourceResponseBodyAuthorizationResourceCondition,
+      createTime: 'number',
       instanceId: 'string',
+      updateTime: 'number',
     };
   }
 
   validate() {
+    if(this.condition && typeof (this.condition as any).validate === 'function') {
+      (this.condition as any).validate();
+    }
     super.validate();
   }
 
@@ -87,7 +173,7 @@ export class GetAuthorizationResourceResponseBodyAuthorizationResource extends $
 export class GetAuthorizationResourceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The authorized resource.
+   * The authorization resource.
    */
   authorizationResource?: GetAuthorizationResourceResponseBodyAuthorizationResource;
   /**

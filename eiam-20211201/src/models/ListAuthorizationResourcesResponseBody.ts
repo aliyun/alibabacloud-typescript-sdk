@@ -2,10 +2,67 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class ListAuthorizationResourcesResponseBodyAuthorizationResourcesConditionCredentialCondition extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether same-name identity accounts are supported.
+   */
+  allowSameNameIdentity?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      allowSameNameIdentity: 'AllowSameNameIdentity',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      allowSameNameIdentity: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAuthorizationResourcesResponseBodyAuthorizationResourcesCondition extends $dara.Model {
+  /**
+   * @remarks
+   * The effective condition when used as a credential.
+   */
+  credentialCondition?: ListAuthorizationResourcesResponseBodyAuthorizationResourcesConditionCredentialCondition;
+  static names(): { [key: string]: string } {
+    return {
+      credentialCondition: 'CredentialCondition',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      credentialCondition: ListAuthorizationResourcesResponseBodyAuthorizationResourcesConditionCredentialCondition,
+    };
+  }
+
+  validate() {
+    if(this.credentialCondition && typeof (this.credentialCondition as any).validate === 'function') {
+      (this.credentialCondition as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListAuthorizationResourcesResponseBodyAuthorizationResources extends $dara.Model {
   /**
    * @remarks
-   * The resource entity ID associated with the authorization resource.
+   * The ID of the resource entity associated with the authorization resource.
    * 
    * @example
    * carole_01kmek49aqxxxx
@@ -13,7 +70,7 @@ export class ListAuthorizationResourcesResponseBodyAuthorizationResources extend
   authorizationResourceEntityId?: string;
   /**
    * @remarks
-   * The resource entity type associated with the authorization resource. Valid values:
+   * The type of the resource entity associated with the authorization resource. Valid values:
    * - cloud_account_role: cloud role.
    * 
    * @example
@@ -46,12 +103,33 @@ export class ListAuthorizationResourcesResponseBodyAuthorizationResources extend
   cloudAccountId?: string;
   /**
    * @remarks
+   * The effective condition.
+   */
+  condition?: ListAuthorizationResourcesResponseBodyAuthorizationResourcesCondition;
+  /**
+   * @remarks
+   * The creation time.
+   * 
+   * @example
+   * 1787023451494
+   */
+  createTime?: number;
+  /**
+   * @remarks
    * The instance ID.
    * 
    * @example
    * idaas_ue2jvisn35ea5lmthk267xxxxx
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * The update time.
+   * 
+   * @example
+   * 1787023451494
+   */
+  updateTime?: number;
   static names(): { [key: string]: string } {
     return {
       authorizationResourceEntityId: 'AuthorizationResourceEntityId',
@@ -59,7 +137,10 @@ export class ListAuthorizationResourcesResponseBodyAuthorizationResources extend
       authorizationResourceId: 'AuthorizationResourceId',
       authorizationRuleId: 'AuthorizationRuleId',
       cloudAccountId: 'CloudAccountId',
+      condition: 'Condition',
+      createTime: 'CreateTime',
       instanceId: 'InstanceId',
+      updateTime: 'UpdateTime',
     };
   }
 
@@ -70,11 +151,17 @@ export class ListAuthorizationResourcesResponseBodyAuthorizationResources extend
       authorizationResourceId: 'string',
       authorizationRuleId: 'string',
       cloudAccountId: 'string',
+      condition: ListAuthorizationResourcesResponseBodyAuthorizationResourcesCondition,
+      createTime: 'number',
       instanceId: 'string',
+      updateTime: 'number',
     };
   }
 
   validate() {
+    if(this.condition && typeof (this.condition as any).validate === 'function') {
+      (this.condition as any).validate();
+    }
     super.validate();
   }
 
@@ -91,7 +178,7 @@ export class ListAuthorizationResourcesResponseBody extends $dara.Model {
   authorizationResources?: ListAuthorizationResourcesResponseBodyAuthorizationResources[];
   /**
    * @remarks
-   * The number of entries per page in the paged query. This is the paging size.
+   * The number of entries per page in a paged query. This parameter is used for paging.
    * 
    * @example
    * 20
@@ -99,7 +186,7 @@ export class ListAuthorizationResourcesResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token returned in this call. Use this token for the next page query.
+   * The token returned for the next page query.
    * 
    * @example
    * NTxxxexample
@@ -115,7 +202,7 @@ export class ListAuthorizationResourcesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries in the list.
    * 
    * @example
    * 100

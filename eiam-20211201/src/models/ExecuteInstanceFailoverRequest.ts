@@ -5,7 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ExecuteInstanceFailoverRequest extends $dara.Model {
   /**
    * @remarks
-   * 故障转移状态
+   * The failover status. Valid values:
+   * - inactive: The primary instance is active.
+   * - active: The replica instance is active.
    * 
    * This parameter is required.
    * 
@@ -15,7 +17,7 @@ export class ExecuteInstanceFailoverRequest extends $dara.Model {
   instanceFailoverStatus?: string;
   /**
    * @remarks
-   * IDaaS 的副本实例 ID
+   * The replica instance ID.
    * 
    * This parameter is required.
    * 

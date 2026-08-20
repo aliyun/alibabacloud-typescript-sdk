@@ -16,6 +16,8 @@ export { CreateApplicationFederatedCredentialRequestOidcVerificationConfigKubern
 export { CreateApplicationFederatedCredentialRequestOidcVerificationConfig } from './CreateApplicationFederatedCredentialRequest';
 export { CreateApplicationFederatedCredentialRequestPkcs7VerificationConfig } from './CreateApplicationFederatedCredentialRequest';
 export { CreateApplicationTokenResponseBodyApplicationTokens } from './CreateApplicationTokenResponseBody';
+export { CreateAuthorizationResourceRequestConditionCredentialCondition } from './CreateAuthorizationResourceRequest';
+export { CreateAuthorizationResourceRequestCondition } from './CreateAuthorizationResourceRequest';
 export { CreateConditionalAccessPolicyRequestConditionsConfigApplications } from './CreateConditionalAccessPolicyRequest';
 export { CreateConditionalAccessPolicyRequestConditionsConfigNetworkZones } from './CreateConditionalAccessPolicyRequest';
 export { CreateConditionalAccessPolicyRequestConditionsConfigUsers } from './CreateConditionalAccessPolicyRequest';
@@ -96,6 +98,8 @@ export { GetApplicationSsoConfigResponseBodyApplicationSsoConfigSamlSsoConfig } 
 export { GetApplicationSsoConfigResponseBodyApplicationSsoConfig } from './GetApplicationSsoConfigResponseBody';
 export { GetApplicationTemplateResponseBodyApplicationTemplateSaleInfo } from './GetApplicationTemplateResponseBody';
 export { GetApplicationTemplateResponseBodyApplicationTemplate } from './GetApplicationTemplateResponseBody';
+export { GetAuthorizationResourceResponseBodyAuthorizationResourceConditionCredentialCondition } from './GetAuthorizationResourceResponseBody';
+export { GetAuthorizationResourceResponseBodyAuthorizationResourceCondition } from './GetAuthorizationResourceResponseBody';
 export { GetAuthorizationResourceResponseBodyAuthorizationResource } from './GetAuthorizationResourceResponseBody';
 export { GetAuthorizationRuleResponseBodyAuthorizationRule } from './GetAuthorizationRuleResponseBody';
 export { GetAuthorizationServerResponseBodyAuthorizationServerProtocolEndpoint } from './GetAuthorizationServerResponseBody';
@@ -272,6 +276,8 @@ export { ListApplicationsForOrganizationalUnitResponseBodyApplications } from '.
 export { ListApplicationsForUserResponseBodyApplicationsApplicationRoles } from './ListApplicationsForUserResponseBody';
 export { ListApplicationsForUserResponseBodyApplications } from './ListApplicationsForUserResponseBody';
 export { ListAuthorizationResourcesRequestFilter } from './ListAuthorizationResourcesRequest';
+export { ListAuthorizationResourcesResponseBodyAuthorizationResourcesConditionCredentialCondition } from './ListAuthorizationResourcesResponseBody';
+export { ListAuthorizationResourcesResponseBodyAuthorizationResourcesCondition } from './ListAuthorizationResourcesResponseBody';
 export { ListAuthorizationResourcesResponseBodyAuthorizationResources } from './ListAuthorizationResourcesResponseBody';
 export { ListAuthorizationRulesRequestFilter } from './ListAuthorizationRulesRequest';
 export { ListAuthorizationRulesResponseBodyAuthorizationRules } from './ListAuthorizationRulesResponseBody';

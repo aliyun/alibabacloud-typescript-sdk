@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instance that is created.
+   * The ID of the instance created by this API call.
    * 
    * @example
    * idaas_wj5htncdvoc4q5xxxxxxxxx
