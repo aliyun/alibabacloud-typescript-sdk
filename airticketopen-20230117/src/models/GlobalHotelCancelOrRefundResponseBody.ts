@@ -104,18 +104,21 @@ export class GlobalHotelCancelOrRefundResponseBodyDataTotalRefundAmount extends 
 
 export class GlobalHotelCancelOrRefundResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The after-sales refund order number. This parameter is returned when an after-sales refund is processed and can be used for polling the refund status. This parameter is null when a cancellation is processed.
+   * 
    * @example
    * RF202606290001
    */
   refundOrderNo?: string;
   /**
    * @remarks
-   * The total penalty amount on the sales side.
+   * The total penalty amount on the sales side. This parameter is returned when an after-sales refund is processed.
    */
   totalPenaltyAmount?: GlobalHotelCancelOrRefundResponseBodyDataTotalPenaltyAmount;
   /**
    * @remarks
-   * The total refund amount.
+   * The total refund amount. This parameter is returned when an after-sales refund is processed. The value equals the total sales price minus the total penalty amount.
    */
   totalRefundAmount?: GlobalHotelCancelOrRefundResponseBodyDataTotalRefundAmount;
   /**
@@ -191,7 +194,7 @@ export class GlobalHotelCancelOrRefundResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful.
+   * Indicates whether the operation is successful.
    * 
    * @example
    * true

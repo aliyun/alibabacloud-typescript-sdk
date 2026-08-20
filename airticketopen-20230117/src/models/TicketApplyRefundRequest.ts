@@ -2,11 +2,9 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class GlobalHotelQueryOrderRequest extends $dara.Model {
+export class TicketApplyRefundRequest extends $dara.Model {
   /**
    * @remarks
-   * The distributor account ID.
-   * 
    * This parameter is required.
    * 
    * @example
@@ -15,43 +13,40 @@ export class GlobalHotelQueryOrderRequest extends $dara.Model {
   accountNo?: number;
   /**
    * @remarks
-   * The external order number. At least one of ExternalOrderNo and OrderNo is required.
+   * This parameter is required.
    * 
    * @example
-   * EXT_ORDER_001
+   * 123456
    */
-  externalOrderNo?: string;
+  distributorOrderId?: string;
   /**
    * @remarks
-   * The sales order number. At least one of OrderNo and ExternalOrderNo is required.
+   * This parameter is required.
    * 
    * @example
-   * SO202606290001
+   * 计划有变
    */
-  orderNo?: string;
+  refundReason?: string;
   /**
-   * @remarks
-   * TracerId
-   * 
    * @example
-   * TracerId
+   * 档期冲突
    */
-  tracerId?: string;
+  refundRemark?: string;
   static names(): { [key: string]: string } {
     return {
       accountNo: 'AccountNo',
-      externalOrderNo: 'ExternalOrderNo',
-      orderNo: 'OrderNo',
-      tracerId: 'TracerId',
+      distributorOrderId: 'DistributorOrderId',
+      refundReason: 'RefundReason',
+      refundRemark: 'RefundRemark',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       accountNo: 'number',
-      externalOrderNo: 'string',
-      orderNo: 'string',
-      tracerId: 'string',
+      distributorOrderId: 'string',
+      refundReason: 'string',
+      refundRemark: 'string',
     };
   }
 

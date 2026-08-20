@@ -505,7 +505,7 @@ export class DataHotelsValueRooms extends $dara.Model {
 export class DataHotelsValueOffersCancelPolicyPenalties extends $dara.Model {
   /**
    * @remarks
-   * The effective start time (UTC millisecond timestamp).
+   * The effective start time as a UTC millisecond timestamp.
    * 
    * @example
    * 1672531200000
@@ -513,7 +513,7 @@ export class DataHotelsValueOffersCancelPolicyPenalties extends $dara.Model {
   start?: string;
   /**
    * @remarks
-   * The effective end time (UTC millisecond timestamp).
+   * The effective end time as a UTC millisecond timestamp.
    * 
    * @example
    * 1672617600000
@@ -537,7 +537,7 @@ export class DataHotelsValueOffersCancelPolicyPenalties extends $dara.Model {
   penaltyValue?: string;
   /**
    * @remarks
-   * The currency code. This field has a value only when the penalty type is AMOUNT.
+   * The currency code. This field is present only when the penalty type is AMOUNT.
    * 
    * @example
    * USD
@@ -796,7 +796,7 @@ export class DataHotelsValueOffers extends $dara.Model {
    * The rate plan name.
    * 
    * @example
-   * Breakfast included
+   * Breakfast Included
    */
   ratePlanName?: string;
   /**

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GlobalHotelQueryOrderResponseBodyDataItemInfoCancelPolicyPenalties extends $dara.Model {
   /**
    * @remarks
-   * The currency code (present only for AMOUNT type penalties).
+   * The currency code (present only for AMOUNT type).
    * 
    * @example
    * USD
@@ -29,7 +29,7 @@ export class GlobalHotelQueryOrderResponseBodyDataItemInfoCancelPolicyPenalties 
   penaltyType?: string;
   /**
    * @remarks
-   * The penalty value (percentage, amount, or number of nights).
+   * The penalty value (percentage/amount/number of nights).
    * 
    * @example
    * 50

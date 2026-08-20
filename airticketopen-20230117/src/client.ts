@@ -1691,6 +1691,717 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 申请退款。
+   * 
+   * @param request - TicketApplyRefundRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns TicketApplyRefundResponse
+   */
+  async ticketApplyRefundWithOptions(request: $_model.TicketApplyRefundRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.TicketApplyRefundResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.accountNo)) {
+      body["AccountNo"] = request.accountNo;
+    }
+
+    if (!$dara.isNull(request.distributorOrderId)) {
+      body["DistributorOrderId"] = request.distributorOrderId;
+    }
+
+    if (!$dara.isNull(request.refundReason)) {
+      body["RefundReason"] = request.refundReason;
+    }
+
+    if (!$dara.isNull(request.refundRemark)) {
+      body["RefundRemark"] = request.refundRemark;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "TicketApplyRefund",
+      version: "2023-01-17",
+      protocol: "HTTPS",
+      pathname: `/TicketApplyRefund`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.TicketApplyRefundResponse>(await this.callApi(params, req, runtime), new $_model.TicketApplyRefundResponse({}));
+  }
+
+  /**
+   * 申请退款。
+   * 
+   * @param request - TicketApplyRefundRequest
+   * @returns TicketApplyRefundResponse
+   */
+  async ticketApplyRefund(request: $_model.TicketApplyRefundRequest): Promise<$_model.TicketApplyRefundResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.ticketApplyRefundWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 取消订单。
+   * 
+   * @param request - TicketCancelOrderRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns TicketCancelOrderResponse
+   */
+  async ticketCancelOrderWithOptions(request: $_model.TicketCancelOrderRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.TicketCancelOrderResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.accountNo)) {
+      body["AccountNo"] = request.accountNo;
+    }
+
+    if (!$dara.isNull(request.distributorOrderId)) {
+      body["DistributorOrderId"] = request.distributorOrderId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "TicketCancelOrder",
+      version: "2023-01-17",
+      protocol: "HTTPS",
+      pathname: `/TicketCancelOrder`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.TicketCancelOrderResponse>(await this.callApi(params, req, runtime), new $_model.TicketCancelOrderResponse({}));
+  }
+
+  /**
+   * 取消订单。
+   * 
+   * @param request - TicketCancelOrderRequest
+   * @returns TicketCancelOrderResponse
+   */
+  async ticketCancelOrder(request: $_model.TicketCancelOrderRequest): Promise<$_model.TicketCancelOrderResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.ticketCancelOrderWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 检查退款。
+   * 
+   * @param request - TicketCheckRefundRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns TicketCheckRefundResponse
+   */
+  async ticketCheckRefundWithOptions(request: $_model.TicketCheckRefundRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.TicketCheckRefundResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.accountNo)) {
+      body["AccountNo"] = request.accountNo;
+    }
+
+    if (!$dara.isNull(request.distributorOrderId)) {
+      body["DistributorOrderId"] = request.distributorOrderId;
+    }
+
+    if (!$dara.isNull(request.refundReason)) {
+      body["RefundReason"] = request.refundReason;
+    }
+
+    if (!$dara.isNull(request.refundRemark)) {
+      body["RefundRemark"] = request.refundRemark;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "TicketCheckRefund",
+      version: "2023-01-17",
+      protocol: "HTTPS",
+      pathname: `/TicketCheckRefund`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.TicketCheckRefundResponse>(await this.callApi(params, req, runtime), new $_model.TicketCheckRefundResponse({}));
+  }
+
+  /**
+   * 检查退款。
+   * 
+   * @param request - TicketCheckRefundRequest
+   * @returns TicketCheckRefundResponse
+   */
+  async ticketCheckRefund(request: $_model.TicketCheckRefundRequest): Promise<$_model.TicketCheckRefundResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.ticketCheckRefundWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 创建订单。
+   * 
+   * @param tmpReq - TicketCreateOrderRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns TicketCreateOrderResponse
+   */
+  async ticketCreateOrderWithOptions(tmpReq: $_model.TicketCreateOrderRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.TicketCreateOrderResponse> {
+    tmpReq.validate();
+    let request = new $_model.TicketCreateOrderShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.contact)) {
+      request.contactShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.contact, "Contact", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.orderProduct)) {
+      request.orderProductShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.orderProduct, "OrderProduct", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.totalDistributionPrice)) {
+      request.totalDistributionPriceShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.totalDistributionPrice, "TotalDistributionPrice", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.travelers)) {
+      request.travelersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.travelers, "Travelers", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.accountNo)) {
+      body["AccountNo"] = request.accountNo;
+    }
+
+    if (!$dara.isNull(request.contactShrink)) {
+      body["Contact"] = request.contactShrink;
+    }
+
+    if (!$dara.isNull(request.distributorOrderId)) {
+      body["DistributorOrderId"] = request.distributorOrderId;
+    }
+
+    if (!$dara.isNull(request.orderProductShrink)) {
+      body["OrderProduct"] = request.orderProductShrink;
+    }
+
+    if (!$dara.isNull(request.quantity)) {
+      body["Quantity"] = request.quantity;
+    }
+
+    if (!$dara.isNull(request.totalDistributionPriceShrink)) {
+      body["TotalDistributionPrice"] = request.totalDistributionPriceShrink;
+    }
+
+    if (!$dara.isNull(request.travelersShrink)) {
+      body["Travelers"] = request.travelersShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "TicketCreateOrder",
+      version: "2023-01-17",
+      protocol: "HTTPS",
+      pathname: `/TicketCreateOrder`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.TicketCreateOrderResponse>(await this.callApi(params, req, runtime), new $_model.TicketCreateOrderResponse({}));
+  }
+
+  /**
+   * 创建订单。
+   * 
+   * @param request - TicketCreateOrderRequest
+   * @returns TicketCreateOrderResponse
+   */
+  async ticketCreateOrder(request: $_model.TicketCreateOrderRequest): Promise<$_model.TicketCreateOrderResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.ticketCreateOrderWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 分页查询门票产品。
+   * 
+   * @param request - TicketPageQueryProductRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns TicketPageQueryProductResponse
+   */
+  async ticketPageQueryProductWithOptions(request: $_model.TicketPageQueryProductRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.TicketPageQueryProductResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.accountNo)) {
+      body["AccountNo"] = request.accountNo;
+    }
+
+    if (!$dara.isNull(request.pageNo)) {
+      body["PageNo"] = request.pageNo;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.scenicId)) {
+      body["ScenicId"] = request.scenicId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "TicketPageQueryProduct",
+      version: "2023-01-17",
+      protocol: "HTTPS",
+      pathname: `/TicketPageQueryProduct`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.TicketPageQueryProductResponse>(await this.callApi(params, req, runtime), new $_model.TicketPageQueryProductResponse({}));
+  }
+
+  /**
+   * 分页查询门票产品。
+   * 
+   * @param request - TicketPageQueryProductRequest
+   * @returns TicketPageQueryProductResponse
+   */
+  async ticketPageQueryProduct(request: $_model.TicketPageQueryProductRequest): Promise<$_model.TicketPageQueryProductResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.ticketPageQueryProductWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 分页查询景区。
+   * 
+   * @param request - TicketPageQueryScenicRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns TicketPageQueryScenicResponse
+   */
+  async ticketPageQueryScenicWithOptions(request: $_model.TicketPageQueryScenicRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.TicketPageQueryScenicResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.accountNo)) {
+      body["AccountNo"] = request.accountNo;
+    }
+
+    if (!$dara.isNull(request.pageNo)) {
+      body["PageNo"] = request.pageNo;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "TicketPageQueryScenic",
+      version: "2023-01-17",
+      protocol: "HTTPS",
+      pathname: `/TicketPageQueryScenic`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.TicketPageQueryScenicResponse>(await this.callApi(params, req, runtime), new $_model.TicketPageQueryScenicResponse({}));
+  }
+
+  /**
+   * 分页查询景区。
+   * 
+   * @param request - TicketPageQueryScenicRequest
+   * @returns TicketPageQueryScenicResponse
+   */
+  async ticketPageQueryScenic(request: $_model.TicketPageQueryScenicRequest): Promise<$_model.TicketPageQueryScenicResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.ticketPageQueryScenicWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 支付订单。
+   * 
+   * @param request - TicketPayOrderRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns TicketPayOrderResponse
+   */
+  async ticketPayOrderWithOptions(request: $_model.TicketPayOrderRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.TicketPayOrderResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.accountNo)) {
+      body["AccountNo"] = request.accountNo;
+    }
+
+    if (!$dara.isNull(request.distributorOrderId)) {
+      body["DistributorOrderId"] = request.distributorOrderId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "TicketPayOrder",
+      version: "2023-01-17",
+      protocol: "HTTPS",
+      pathname: `/TicketPayOrder`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.TicketPayOrderResponse>(await this.callApi(params, req, runtime), new $_model.TicketPayOrderResponse({}));
+  }
+
+  /**
+   * 支付订单。
+   * 
+   * @param request - TicketPayOrderRequest
+   * @returns TicketPayOrderResponse
+   */
+  async ticketPayOrder(request: $_model.TicketPayOrderRequest): Promise<$_model.TicketPayOrderResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.ticketPayOrderWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 查询订单。
+   * 
+   * @param request - TicketQueryOrderRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns TicketQueryOrderResponse
+   */
+  async ticketQueryOrderWithOptions(request: $_model.TicketQueryOrderRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.TicketQueryOrderResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.accountNo)) {
+      body["AccountNo"] = request.accountNo;
+    }
+
+    if (!$dara.isNull(request.distributorOrderId)) {
+      body["DistributorOrderId"] = request.distributorOrderId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "TicketQueryOrder",
+      version: "2023-01-17",
+      protocol: "HTTPS",
+      pathname: `/TicketQueryOrder`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.TicketQueryOrderResponse>(await this.callApi(params, req, runtime), new $_model.TicketQueryOrderResponse({}));
+  }
+
+  /**
+   * 查询订单。
+   * 
+   * @param request - TicketQueryOrderRequest
+   * @returns TicketQueryOrderResponse
+   */
+  async ticketQueryOrder(request: $_model.TicketQueryOrderRequest): Promise<$_model.TicketQueryOrderResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.ticketQueryOrderWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 查询门票价库。
+   * 
+   * @param request - TicketQueryPriceStockRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns TicketQueryPriceStockResponse
+   */
+  async ticketQueryPriceStockWithOptions(request: $_model.TicketQueryPriceStockRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.TicketQueryPriceStockResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.accountNo)) {
+      body["AccountNo"] = request.accountNo;
+    }
+
+    if (!$dara.isNull(request.endDate)) {
+      body["EndDate"] = request.endDate;
+    }
+
+    if (!$dara.isNull(request.productId)) {
+      body["ProductId"] = request.productId;
+    }
+
+    if (!$dara.isNull(request.startDate)) {
+      body["StartDate"] = request.startDate;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "TicketQueryPriceStock",
+      version: "2023-01-17",
+      protocol: "HTTPS",
+      pathname: `/TicketQueryPriceStock`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.TicketQueryPriceStockResponse>(await this.callApi(params, req, runtime), new $_model.TicketQueryPriceStockResponse({}));
+  }
+
+  /**
+   * 查询门票价库。
+   * 
+   * @param request - TicketQueryPriceStockRequest
+   * @returns TicketQueryPriceStockResponse
+   */
+  async ticketQueryPriceStock(request: $_model.TicketQueryPriceStockRequest): Promise<$_model.TicketQueryPriceStockResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.ticketQueryPriceStockWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 查询门票产品。
+   * 
+   * @param request - TicketQueryProductRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns TicketQueryProductResponse
+   */
+  async ticketQueryProductWithOptions(request: $_model.TicketQueryProductRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.TicketQueryProductResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.accountNo)) {
+      body["AccountNo"] = request.accountNo;
+    }
+
+    if (!$dara.isNull(request.productId)) {
+      body["ProductId"] = request.productId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "TicketQueryProduct",
+      version: "2023-01-17",
+      protocol: "HTTPS",
+      pathname: `/TicketQueryProduct`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.TicketQueryProductResponse>(await this.callApi(params, req, runtime), new $_model.TicketQueryProductResponse({}));
+  }
+
+  /**
+   * 查询门票产品。
+   * 
+   * @param request - TicketQueryProductRequest
+   * @returns TicketQueryProductResponse
+   */
+  async ticketQueryProduct(request: $_model.TicketQueryProductRequest): Promise<$_model.TicketQueryProductResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.ticketQueryProductWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 查询退款单。
+   * 
+   * @param request - TicketQueryRefundOrderRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns TicketQueryRefundOrderResponse
+   */
+  async ticketQueryRefundOrderWithOptions(request: $_model.TicketQueryRefundOrderRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.TicketQueryRefundOrderResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.accountNo)) {
+      body["AccountNo"] = request.accountNo;
+    }
+
+    if (!$dara.isNull(request.distributorOrderId)) {
+      body["DistributorOrderId"] = request.distributorOrderId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "TicketQueryRefundOrder",
+      version: "2023-01-17",
+      protocol: "HTTPS",
+      pathname: `/TicketQueryRefundOrder`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.TicketQueryRefundOrderResponse>(await this.callApi(params, req, runtime), new $_model.TicketQueryRefundOrderResponse({}));
+  }
+
+  /**
+   * 查询退款单。
+   * 
+   * @param request - TicketQueryRefundOrderRequest
+   * @returns TicketQueryRefundOrderResponse
+   */
+  async ticketQueryRefundOrder(request: $_model.TicketQueryRefundOrderRequest): Promise<$_model.TicketQueryRefundOrderResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.ticketQueryRefundOrderWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 查询门票景区。
+   * 
+   * @param request - TicketQueryScenicRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns TicketQueryScenicResponse
+   */
+  async ticketQueryScenicWithOptions(request: $_model.TicketQueryScenicRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.TicketQueryScenicResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.accountNo)) {
+      body["AccountNo"] = request.accountNo;
+    }
+
+    if (!$dara.isNull(request.scenicId)) {
+      body["ScenicId"] = request.scenicId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "TicketQueryScenic",
+      version: "2023-01-17",
+      protocol: "HTTPS",
+      pathname: `/TicketQueryScenic`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.TicketQueryScenicResponse>(await this.callApi(params, req, runtime), new $_model.TicketQueryScenicResponse({}));
+  }
+
+  /**
+   * 查询门票景区。
+   * 
+   * @param request - TicketQueryScenicRequest
+   * @returns TicketQueryScenicResponse
+   */
+  async ticketQueryScenic(request: $_model.TicketQueryScenicRequest): Promise<$_model.TicketQueryScenicResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.ticketQueryScenicWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 查询货架。
+   * 
+   * @param request - TicketQueryShelfRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns TicketQueryShelfResponse
+   */
+  async ticketQueryShelfWithOptions(request: $_model.TicketQueryShelfRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.TicketQueryShelfResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.accountNo)) {
+      body["AccountNo"] = request.accountNo;
+    }
+
+    if (!$dara.isNull(request.scenicId)) {
+      body["ScenicId"] = request.scenicId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "TicketQueryShelf",
+      version: "2023-01-17",
+      protocol: "HTTPS",
+      pathname: `/TicketQueryShelf`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.TicketQueryShelfResponse>(await this.callApi(params, req, runtime), new $_model.TicketQueryShelfResponse({}));
+  }
+
+  /**
+   * 查询货架。
+   * 
+   * @param request - TicketQueryShelfRequest
+   * @returns TicketQueryShelfResponse
+   */
+  async ticketQueryShelf(request: $_model.TicketQueryShelfRequest): Promise<$_model.TicketQueryShelfResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.ticketQueryShelfWithOptions(request, headers, runtime);
+  }
+
+  /**
    * Pays for and issues a ticket.
    * 
    * @param request - TicketingRequest
