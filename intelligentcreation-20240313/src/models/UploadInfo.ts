@@ -11,6 +11,7 @@ export class UploadInfo extends $dara.Model {
    * xxxxxx
    */
   accessId?: string;
+  accessUrl?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -51,6 +52,7 @@ export class UploadInfo extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       accessId: 'accessId',
+      accessUrl: 'accessUrl',
       host: 'host',
       key: 'key',
       policy: 'policy',
@@ -62,6 +64,7 @@ export class UploadInfo extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       accessId: 'string',
+      accessUrl: 'string',
       host: 'string',
       key: 'string',
       policy: 'string',
