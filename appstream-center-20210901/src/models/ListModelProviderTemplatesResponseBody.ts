@@ -20,7 +20,7 @@ export class ListModelProviderTemplatesResponseBodyData extends $dara.Model {
    * The model provider template description.
    * 
    * @example
-   * 阿里云百炼服务商
+   * Alibaba Cloud Bailian provider
    */
   description?: string;
   /**
@@ -36,7 +36,7 @@ export class ListModelProviderTemplatesResponseBodyData extends $dara.Model {
    * The model provider template name.
    * 
    * @example
-   * 阿里云百炼
+   * Alibaba Cloud Bailian
    */
   name?: string;
   /**
@@ -63,6 +63,14 @@ export class ListModelProviderTemplatesResponseBodyData extends $dara.Model {
    * WuyingCredit
    */
   providerType?: string;
+  /**
+   * @remarks
+   * The WUYING secure gateway proxy ProviderKey.
+   * 
+   * @example
+   * wuying-key-12345
+   */
+  wuyingProviderKey?: string;
   static names(): { [key: string]: string } {
     return {
       config: 'Config',
@@ -72,6 +80,7 @@ export class ListModelProviderTemplatesResponseBodyData extends $dara.Model {
       providerName: 'ProviderName',
       providerTemplateId: 'ProviderTemplateId',
       providerType: 'ProviderType',
+      wuyingProviderKey: 'WuyingProviderKey',
     };
   }
 
@@ -84,6 +93,7 @@ export class ListModelProviderTemplatesResponseBodyData extends $dara.Model {
       providerName: 'string',
       providerTemplateId: 'string',
       providerType: 'string',
+      wuyingProviderKey: 'string',
     };
   }
 
@@ -104,7 +114,7 @@ export class ListModelProviderTemplatesResponseBody extends $dara.Model {
   data?: ListModelProviderTemplatesResponseBodyData[];
   /**
    * @remarks
-   * The page number of the current query results.
+   * The current page number of the query results.
    * 
    * @example
    * 1

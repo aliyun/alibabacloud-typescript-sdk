@@ -362,7 +362,7 @@ export class ModifyBrowserInstanceGroupRequestPolicyClipboardPolicy extends $dar
   richTextClipboardLimit?: number;
   /**
    * @remarks
-   * The maximum size of rich text that can be downloaded from the cloud via the clipboard.
+   * The maximum size of rich text that can be downloaded from the cloud browser through the clipboard.
    * 
    * @example
    * 1
@@ -370,7 +370,7 @@ export class ModifyBrowserInstanceGroupRequestPolicyClipboardPolicy extends $dar
   richTextClipboardReadLimit?: number;
   /**
    * @remarks
-   * The size unit for rich text clipboard downloads from the cloud.
+   * The size unit for rich text downloaded from the cloud browser through the clipboard.
    * 
    * @example
    * KB
@@ -386,7 +386,7 @@ export class ModifyBrowserInstanceGroupRequestPolicyClipboardPolicy extends $dar
   richTextClipboardSizeUnit?: string;
   /**
    * @remarks
-   * The maximum size of rich text that can be uploaded to the cloud via the clipboard.
+   * The maximum size of rich text that can be uploaded to the cloud browser through the clipboard.
    * 
    * @example
    * 1
@@ -394,7 +394,7 @@ export class ModifyBrowserInstanceGroupRequestPolicyClipboardPolicy extends $dar
   richTextClipboardWriteLimit?: number;
   /**
    * @remarks
-   * The size unit for rich text clipboard uploads to the cloud.
+   * The size unit for rich text uploaded to the cloud browser through the clipboard.
    * 
    * @example
    * KB
@@ -410,7 +410,7 @@ export class ModifyBrowserInstanceGroupRequestPolicyClipboardPolicy extends $dar
   textClipboard?: string;
   /**
    * @remarks
-   * The maximum size of text that can be downloaded from the cloud via the clipboard.
+   * The maximum size of text that can be downloaded from the cloud browser through the clipboard.
    * 
    * @example
    * 1
@@ -418,7 +418,7 @@ export class ModifyBrowserInstanceGroupRequestPolicyClipboardPolicy extends $dar
   textClipboardReadLimit?: number;
   /**
    * @remarks
-   * The size unit for text clipboard downloads from the cloud.
+   * The size unit for text downloaded from the cloud browser through the clipboard.
    * 
    * @example
    * KB
@@ -426,7 +426,7 @@ export class ModifyBrowserInstanceGroupRequestPolicyClipboardPolicy extends $dar
   textClipboardReadSizeUnit?: string;
   /**
    * @remarks
-   * The maximum size of text that can be uploaded to the cloud via the clipboard.
+   * The maximum size of text that can be uploaded to the cloud browser through the clipboard.
    * 
    * @example
    * 1
@@ -434,7 +434,7 @@ export class ModifyBrowserInstanceGroupRequestPolicyClipboardPolicy extends $dar
   textClipboardWriteLimit?: number;
   /**
    * @remarks
-   * The size unit for text clipboard uploads to the cloud.
+   * The size unit for text uploaded to the cloud browser through the clipboard.
    * 
    * @example
    * KB
@@ -495,6 +495,46 @@ export class ModifyBrowserInstanceGroupRequestPolicyClipboardPolicy extends $dar
   }
 }
 
+export class ModifyBrowserInstanceGroupRequestPolicyRevokeAccessPolicyRules extends $dara.Model {
+  /**
+   * @remarks
+   * The IPv4 address or CIDR block to revoke.
+   * 
+   * @example
+   * 192.168.1.0/24
+   */
+  cidrIp?: string;
+  /**
+   * @remarks
+   * The description of the access IP address whitelist rule to revoke.
+   * 
+   * @example
+   * office network
+   */
+  description?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cidrIp: 'CidrIp',
+      description: 'Description',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cidrIp: 'string',
+      description: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyBrowserInstanceGroupRequestPolicyVideoPolicy extends $dara.Model {
   /**
    * @remarks
@@ -528,7 +568,7 @@ export class ModifyBrowserInstanceGroupRequestPolicyVideoPolicy extends $dara.Mo
 export class ModifyBrowserInstanceGroupRequestPolicyWatermarkPolicy extends $dara.Model {
   /**
    * @remarks
-   * The watermark switch.
+   * Specifies whether to enable the watermark.
    * 
    * @example
    * off
@@ -583,7 +623,7 @@ export class ModifyBrowserInstanceGroupRequestPolicy extends $dara.Model {
   clientTypes?: ModifyBrowserInstanceGroupRequestPolicyClientTypes[];
   /**
    * @remarks
-   * The clipboard-related policy.
+   * The clipboard policy.
    */
   clipboardPolicy?: ModifyBrowserInstanceGroupRequestPolicyClipboardPolicy;
   /**
@@ -628,7 +668,7 @@ export class ModifyBrowserInstanceGroupRequestPolicy extends $dara.Model {
   noOperationDisconnect?: string;
   /**
    * @remarks
-   * The time in seconds before a session is disconnected when no operation is performed.
+   * The no-operation disconnect time, in seconds.
    * 
    * @example
    * 1
@@ -652,7 +692,12 @@ export class ModifyBrowserInstanceGroupRequestPolicy extends $dara.Model {
   policyVersion?: string;
   /**
    * @remarks
-   * The display policy.
+   * The server-side access IP address whitelist rules to revoke in this request.
+   */
+  revokeAccessPolicyRules?: ModifyBrowserInstanceGroupRequestPolicyRevokeAccessPolicyRules[];
+  /**
+   * @remarks
+   * The video policy.
    */
   videoPolicy?: ModifyBrowserInstanceGroupRequestPolicyVideoPolicy;
   /**
@@ -674,6 +719,7 @@ export class ModifyBrowserInstanceGroupRequestPolicy extends $dara.Model {
       noOperationDisconnectTime: 'NoOperationDisconnectTime',
       policyId: 'PolicyId',
       policyVersion: 'PolicyVersion',
+      revokeAccessPolicyRules: 'RevokeAccessPolicyRules',
       videoPolicy: 'VideoPolicy',
       watermarkPolicy: 'WatermarkPolicy',
     };
@@ -693,6 +739,7 @@ export class ModifyBrowserInstanceGroupRequestPolicy extends $dara.Model {
       noOperationDisconnectTime: 'number',
       policyId: 'string',
       policyVersion: 'string',
+      revokeAccessPolicyRules: { 'type': 'array', 'itemType': ModifyBrowserInstanceGroupRequestPolicyRevokeAccessPolicyRules },
       videoPolicy: ModifyBrowserInstanceGroupRequestPolicyVideoPolicy,
       watermarkPolicy: ModifyBrowserInstanceGroupRequestPolicyWatermarkPolicy,
     };
@@ -707,6 +754,9 @@ export class ModifyBrowserInstanceGroupRequestPolicy extends $dara.Model {
     }
     if(this.clipboardPolicy && typeof (this.clipboardPolicy as any).validate === 'function') {
       (this.clipboardPolicy as any).validate();
+    }
+    if(Array.isArray(this.revokeAccessPolicyRules)) {
+      $dara.Model.validateArray(this.revokeAccessPolicyRules);
     }
     if(this.videoPolicy && typeof (this.videoPolicy as any).validate === 'function') {
       (this.videoPolicy as any).validate();

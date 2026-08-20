@@ -117,6 +117,7 @@ export { ModifyBrowserInstanceGroupRequestNetwork } from './ModifyBrowserInstanc
 export { ModifyBrowserInstanceGroupRequestPolicyAuthorizeAccessPolicyRules } from './ModifyBrowserInstanceGroupRequest';
 export { ModifyBrowserInstanceGroupRequestPolicyClientTypes } from './ModifyBrowserInstanceGroupRequest';
 export { ModifyBrowserInstanceGroupRequestPolicyClipboardPolicy } from './ModifyBrowserInstanceGroupRequest';
+export { ModifyBrowserInstanceGroupRequestPolicyRevokeAccessPolicyRules } from './ModifyBrowserInstanceGroupRequest';
 export { ModifyBrowserInstanceGroupRequestPolicyVideoPolicy } from './ModifyBrowserInstanceGroupRequest';
 export { ModifyBrowserInstanceGroupRequestPolicyWatermarkPolicy } from './ModifyBrowserInstanceGroupRequest';
 export { ModifyBrowserInstanceGroupRequestPolicy } from './ModifyBrowserInstanceGroupRequest';
