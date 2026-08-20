@@ -88,6 +88,16 @@ export class ListAIAgentEventRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
+   * Sort direction
+   */
+  order?: string;
+  /**
+   * @remarks
+   * Sort field, currently supports CheckTime
+   */
+  orderBy?: string;
+  /**
+   * @remarks
    * The number of entries per page.
    * 
    * @example
@@ -170,6 +180,8 @@ export class ListAIAgentEventRequest extends $dara.Model {
       infraName: 'InfraName',
       infraRegionId: 'InfraRegionId',
       lang: 'Lang',
+      order: 'Order',
+      orderBy: 'OrderBy',
       pageSize: 'PageSize',
       riskLevel: 'RiskLevel',
       riskName: 'RiskName',
@@ -191,6 +203,8 @@ export class ListAIAgentEventRequest extends $dara.Model {
       infraName: 'string',
       infraRegionId: 'string',
       lang: 'string',
+      order: 'string',
+      orderBy: 'string',
       pageSize: 'number',
       riskLevel: 'string',
       riskName: 'string',

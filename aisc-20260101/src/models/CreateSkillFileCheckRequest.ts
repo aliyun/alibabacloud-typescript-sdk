@@ -15,16 +15,25 @@ export class CreateSkillFileCheckRequestFiles extends $dara.Model {
   downloadUrl?: string;
   /**
    * @remarks
-   * The file name. If this parameter is not specified, the file name is parsed from DownloadUrl.
+   * The file name. If not specified, the file name is parsed from DownloadUrl.
    * 
    * @example
    * test-file
    */
   fileName?: string;
+  /**
+   * @remarks
+   * The tenant-isolated OSS temporary object key returned by GenerateSkillOssUploadCredential. Specify either this parameter or DownloadUrl.
+   * 
+   * @example
+   * user-upload/staging/123456789/550e8400-e29b-41d4-a716-446655440000
+   */
+  uploadKey?: string;
   static names(): { [key: string]: string } {
     return {
       downloadUrl: 'DownloadUrl',
       fileName: 'FileName',
+      uploadKey: 'UploadKey',
     };
   }
 
@@ -32,6 +41,7 @@ export class CreateSkillFileCheckRequestFiles extends $dara.Model {
     return {
       downloadUrl: 'string',
       fileName: 'string',
+      uploadKey: 'string',
     };
   }
 
@@ -50,15 +60,25 @@ export class CreateSkillFileCheckRequest extends $dara.Model {
    * The file information.
    */
   files?: CreateSkillFileCheckRequestFiles[];
+  /**
+   * @remarks
+   * The upload source. If left empty, the default value is user_upload. Use sec_ops_agent for the security operations agent.
+   * 
+   * @example
+   * sec_ops_agent
+   */
+  source?: string;
   static names(): { [key: string]: string } {
     return {
       files: 'Files',
+      source: 'Source',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       files: { 'type': 'array', 'itemType': CreateSkillFileCheckRequestFiles },
+      source: 'string',
     };
   }
 

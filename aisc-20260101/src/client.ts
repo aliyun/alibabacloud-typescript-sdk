@@ -70,6 +70,10 @@ export default class Client extends OpenApi {
       query["Files"] = request.files;
     }
 
+    if (!$dara.isNull(request.source)) {
+      query["Source"] = request.source;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -142,6 +146,14 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
+    }
+
+    if (!$dara.isNull(request.order)) {
+      query["Order"] = request.order;
+    }
+
+    if (!$dara.isNull(request.orderBy)) {
+      query["OrderBy"] = request.orderBy;
     }
 
     if (!$dara.isNull(request.pageSize)) {

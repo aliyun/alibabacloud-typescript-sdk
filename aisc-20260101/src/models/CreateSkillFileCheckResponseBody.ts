@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateSkillFileCheckResponseBodyDataUploadResults extends $dara.Model {
   /**
    * @remarks
-   * The error message returned when the file fails to be uploaded.
+   * The error message returned when the file upload fails.
    * 
    * @example
    * Network error.
@@ -85,7 +85,7 @@ export class CreateSkillFileCheckResponseBodyData extends $dara.Model {
   failCount?: number;
   /**
    * @remarks
-   * The ID of the root task returned after the task is submitted.
+   * The root task ID returned after the task is submitted.
    * 
    * @example
    * c6e7fa8a77df6e182ac3fcf1478ab83a
@@ -93,7 +93,7 @@ export class CreateSkillFileCheckResponseBodyData extends $dara.Model {
   rootTaskId?: string;
   /**
    * @remarks
-   * The number of files that are uploaded.
+   * The number of files that are uploaded successfully.
    * 
    * @example
    * 10
