@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class PushV2ResponseBody extends $dara.Model {
   /**
    * @remarks
-   * ID of the push message.
+   * The message ID that identifies a push notification.
    * 
    * @example
    * 11747540****88320
@@ -13,7 +13,7 @@ export class PushV2ResponseBody extends $dara.Model {
   messageId?: string;
   /**
    * @remarks
-   * ID of the request.
+   * The request ID.
    * 
    * @example
    * 159E4422-6624-****-8943-DFD98D34858C

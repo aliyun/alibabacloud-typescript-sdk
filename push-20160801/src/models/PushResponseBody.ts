@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class PushResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the message for a push.
+   * The message ID that identifies a push operation.
    * 
    * @example
    * 501029

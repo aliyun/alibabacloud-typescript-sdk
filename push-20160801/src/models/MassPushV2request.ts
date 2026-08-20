@@ -6,7 +6,7 @@ import { PushTask } from "./PushTask";
 export class MassPushV2Request extends $dara.Model {
   /**
    * @remarks
-   * AppKey value.
+   * The AppKey information.
    * 
    * This parameter is required.
    * 
@@ -16,11 +16,11 @@ export class MassPushV2Request extends $dara.Model {
   appKey?: number;
   /**
    * @remarks
-   * An idempotency token to prevent duplicate pushes caused by API retries. If you call this API with the same IdempotentToken within 15 minutes, only one push is sent. Subsequent calls return the result of the first successful push.
+   * An idempotent parameter used to prevent duplicate pushes caused by API call retries on the client side. If the same IdempotentToken is used for calls within 15 minutes, only one push is performed, and subsequent calls return the result of the first successful push.
    * 
-   * > - The token must be a standard 36-character UUID in 8-4-4-4-12 format. Valid characters are hexadecimal digits 0–9 and a–f. Case does not matter.
-   * >
-   * > - This parameter prevents duplicates only from retries. It does not prevent duplicates from concurrent calls.
+   * > 
+   * > - The parameter format is a standard 36-character UUID (8-4-4-4-12). Each valid character is a hexadecimal digit in the range 0-9 or a-f, case-insensitive.
+   * > - This parameter only prevents duplicate pushes caused by retries. It cannot prevent duplicate pushes caused by concurrent calls.
    * 
    * @example
    * c8016d13-6e76-****-9bda-769383d11787
@@ -28,7 +28,7 @@ export class MassPushV2Request extends $dara.Model {
   idempotentToken?: string;
   /**
    * @remarks
-   * Batch push tasks.
+   * The batch push tasks.
    * 
    * This parameter is required.
    */

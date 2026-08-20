@@ -7,7 +7,7 @@ import * as $dara from '@darabonba/typescript';
 export class PushTaskMessage extends $dara.Model {
   /**
    * @remarks
-   * The content of the message to send.
+   * The body of the message to send.
    * 
    * @example
    * {"key": "value"}
@@ -47,9 +47,7 @@ export class PushTaskMessage extends $dara.Model {
 export class PushTaskNotificationAndroidOptionsAccs extends $dara.Model {
   /**
    * @remarks
-   * The custom Android notification bar style. The value can be from 1 to 100.
-   * 
-   * > The client must complete the style preset configuration. For more information, see the [Custom Notification Style API](https://help.aliyun.com/document_detail/2834944.html) document.
+   * The Android custom notification bar style. Valid values: 1 to 100.
    * 
    * @example
    * 1
@@ -57,15 +55,12 @@ export class PushTaskNotificationAndroidOptionsAccs extends $dara.Model {
   customStyle?: number;
   /**
    * @remarks
-   * The notification reminder method. Valid values:
+   * The notification alert type. Valid values:
    * 
-   * - `VIBRATE`: Vibrate (default)
-   * 
-   * - `SOUND`: Sound
-   * 
-   * - `BOTH`: Sound and vibration
-   * 
-   * - `NONE`: Silent
+   * - `VIBRATE`: vibration (default)
+   * - `SOUND`: sound
+   * - `BOTH`: sound and vibration
+   * - `NONE`: silent
    * 
    * @example
    * NONE
@@ -73,7 +68,7 @@ export class PushTaskNotificationAndroidOptionsAccs extends $dara.Model {
   notifyType?: string;
   /**
    * @remarks
-   * Sets the activity to open when the notification is clicked. This is valid when `OpenType` is `ACTIVITY`.
+   * The activity to open when the notification is tapped. This parameter is valid only when `OpenType` is set to `ACTIVITY`.
    * 
    * @example
    * com.alibaba.cloudpushdemo.bizactivity
@@ -81,15 +76,7 @@ export class PushTaskNotificationAndroidOptionsAccs extends $dara.Model {
   openActivity?: string;
   /**
    * @remarks
-   * The action to take after the notification is clicked. Valid values:
-   * 
-   * - `APPLICATION`: Open the application (default).
-   * 
-   * - `ACTIVITY`: Open the specified page `OpenActivity`.
-   * 
-   * - `URL`: Open a URL.
-   * 
-   * - `NONE`: No action.
+   * The action after tapping the notification. Valid values:
    * 
    * @example
    * APPLICATION
@@ -97,7 +84,7 @@ export class PushTaskNotificationAndroidOptionsAccs extends $dara.Model {
   openType?: string;
   /**
    * @remarks
-   * After an Android device receives a push, clicking the notification opens the corresponding URL. This is valid when `OpenType` is `URL`.
+   * The URL to open when the notification is tapped on Android. This parameter is valid only when `OpenType` is set to `URL`.
    * 
    * @example
    * www.example.com
@@ -105,7 +92,7 @@ export class PushTaskNotificationAndroidOptionsAccs extends $dara.Model {
   openUrl?: string;
   /**
    * @remarks
-   * The priority of the Android notification\\"s position in the notification bar. Valid values: -2, -1, 0, 1, 2.
+   * The priority of the Android notification position in the notification bar. Valid values: -2, -1, 0, 1, 2.
    * 
    * @example
    * 0
@@ -113,9 +100,7 @@ export class PushTaskNotificationAndroidOptionsAccs extends $dara.Model {
   priority?: number;
   /**
    * @remarks
-   * Message grouping. Messages in the same group are displayed collapsed in the notification bar and can be expanded. Different groups of notifications are displayed separately.
-   * 
-   * > This is for Android SDK 3.9.2 and later.
+   * The message group. Messages in the same group are collapsed in the notification bar and can be expanded. Notifications in different groups are displayed separately.
    * 
    * @example
    * order_ORD20231201001
@@ -157,11 +142,10 @@ export class PushTaskNotificationAndroidOptionsAccs extends $dara.Model {
 export class PushTaskNotificationAndroidOptionsHonor extends $dara.Model {
   /**
    * @remarks
-   * Sets the importance parameter for Honor notification message classification, which determines the notification behavior on the user\\"s device. Valid values are:
+   * Specifies the importance parameter for Honor notification message classification, which determines the notification behavior on the user\\"s device. Valid values:
    * 
-   * - `0`: Marketing message
-   * 
-   * - `1`: Service and communication message
+   * - `0`: informational and marketing messages
+   * - `1`: service and communication messages
    * 
    * You must apply for this on the Honor platform. [Application link](https://developer.honor.com/cn/docs/11002/guides/notification-class#%E8%87%AA%E5%88%86%E7%B1%BB%E6%9D%83%E7%9B%8A%E7%94%B3%E8%AF%B7).
    * 
@@ -193,11 +177,7 @@ export class PushTaskNotificationAndroidOptionsHonor extends $dara.Model {
 export class PushTaskNotificationAndroidOptionsHuawei extends $dara.Model {
   /**
    * @remarks
-   * Sets the Huawei quick notification parameters.
-   * 
-   * - **0**: Send a normal Huawei notification (default).
-   * 
-   * - **1**: Send a Huawei quick notification.
+   * The Huawei quick notification parameter.
    * 
    * @example
    * 1
@@ -205,17 +185,15 @@ export class PushTaskNotificationAndroidOptionsHuawei extends $dara.Model {
   businessType?: number;
   /**
    * @remarks
-   * Function 1: After you apply for [self-classification rights](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/message-classification-0000001149358835?#section3410731125514), this is used to identify the message type and determine the [message reminder method](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/message-classification-0000001149358835#ZH-CN_TOPIC_0000001149358835__p3850133955718). It speeds up the sending of specific types of messages. For valid values, see the [message classification standards](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/message-classification-0000001149358835#section1076611477914) in the official Huawei Push documentation. Fill in the "Cloud notification category value" or "Local notification category value" from the document\\"s table.
+   * Purpose 1: After completing the [self-classification privilege](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/message-classification-0000001149358835?#section3410731125514) application, this parameter identifies the message type, determines the [notification method](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/message-classification-0000001149358835#ZH-CN_TOPIC_0000001149358835__p3850133955718), and accelerates the delivery of specific message types. For valid values, refer to the [message classification standard](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/message-classification-0000001149358835#section1076611477914) in the official Huawei Push documentation. Use the "Cloud notification category value" or "Local notification category value" from the table in the documentation.
    * 
-   * Function 2: After [applying for special permissions](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/faq-0000001050042183#section037425218509), this is used to identify high-priority pass-through scenarios. Valid values are:
+   * Purpose 2: After [applying for special permissions](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/faq-0000001050042183#section037425218509), this parameter identifies high-priority pass-through scenarios. Valid values:
    * 
-   * - `VOIP`: Video call
+   * - `VOIP`: audio and video calls
+   * - `PLAY_VOICE`: voice broadcast
    * 
-   * - `PLAY_VOICE`: Voice playback
-   * 
-   * > * For "Cloud notification category value" that is "Not applicable," all messages go through Alibaba Cloud\\"s proprietary channel.
-   * >
-   * > * For "Local notification category value" that is "Not applicable," all messages go through the Huawei channel.
+   * > - For messages where the "Cloud notification category value" is "Not applicable", messages are sent through the Alibaba Cloud proprietary channel.
+   * > - For messages where the "Local notification category value" is "Not applicable", messages are sent through the Huawei channel.
    * 
    * @example
    * VOIP
@@ -223,13 +201,7 @@ export class PushTaskNotificationAndroidOptionsHuawei extends $dara.Model {
   category?: string;
   /**
    * @remarks
-   * Sets the importance parameter for Huawei notification message classification, which determines the notification behavior on the user\\"s device. Valid values are:
-   * 
-   * - `0`: Marketing message
-   * 
-   * - `1`: Service and communication message
-   * 
-   * > We recommend using `Category` for notification classification. You must apply for this on the Huawei platform. [Application link](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/message-classification-0000001149358835#section893184112272).
+   * The importance parameter for Huawei notification message classification, which determines the notification behavior on the user device. Valid values:
    * 
    * @example
    * 0
@@ -237,7 +209,7 @@ export class PushTaskNotificationAndroidOptionsHuawei extends $dara.Model {
   importance?: number;
   /**
    * @remarks
-   * The JSON string of the Huawei Android Live Window data structure [LiveNotificationPayload](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/rest-live-0000001562939968#ZH-CN_TOPIC_0000001700850537__p195121620102511). For developer integration, see the document [Huawei Live Window Push Guide](https://help.aliyun.com/document_detail/2983768.html).
+   * The JSON string of the Huawei Android Live Notification data structure [LiveNotificationPayload](https://developer.huawei.com/consumer/cn/doc/HMSCore-References/rest-live-0000001562939968#ZH-CN_TOPIC_0000001700850537__p195121620102511). For development and integration, refer to [Huawei Live Notification Push Guide](https://help.aliyun.com/document_detail/2983768.html).
    * 
    * @example
    * {
@@ -254,9 +226,7 @@ export class PushTaskNotificationAndroidOptionsHuawei extends $dara.Model {
   liveNotificationPayload?: string;
   /**
    * @remarks
-   * The receipt ID for the Huawei channel. This ID can be found in the receipt parameter settings on the Huawei channel push operations platform.
-   * 
-   * > If the default receipt configuration on the Huawei channel push operations platform is the Alibaba Cloud receipt, you do not need to provide this. If not, we recommend that you first configure the default Huawei channel receipt ID in the Alibaba Cloud EMAS Mobile Push console.
+   * The receipt ID of the Huawei channel. You can view this receipt ID in the receipt parameter settings on the Huawei channel push operation platform.
    * 
    * @example
    * RCP4C123456
@@ -264,13 +234,7 @@ export class PushTaskNotificationAndroidOptionsHuawei extends $dara.Model {
   receiptId?: string;
   /**
    * @remarks
-   * The Huawei channel notification delivery priority. Valid values are:
-   * 
-   * - `HIGH`
-   * 
-   * - `NORMAL`
-   * 
-   * You must apply for permission. For more information, see: [Application link](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/faq-0000001050042183#section037425218509).
+   * The delivery priority of the Huawei channel notification. Valid values:
    * 
    * @example
    * NORMAL
@@ -312,10 +276,6 @@ export class PushTaskNotificationAndroidOptionsMeizu extends $dara.Model {
    * @remarks
    * The Meizu message type.
    * 
-   * - 0 Public message (default)
-   * 
-   * - 1 Private message
-   * 
    * @example
    * 0
    */
@@ -344,33 +304,7 @@ export class PushTaskNotificationAndroidOptionsMeizu extends $dara.Model {
 export class PushTaskNotificationAndroidOptionsOppo extends $dara.Model {
   /**
    * @remarks
-   * OPPO classifies messages into two categories for management: communication and services, and content and marketing.
-   * 
-   * **Communication and services (requires permission application):**
-   * 
-   * - IM: Instant messages
-   * 
-   * - ACCOUNT: Account and asset
-   * 
-   * - TODO: To-do list
-   * 
-   * - DEVICE_REMINDER: Device information
-   * 
-   * - ORDER: Order and logistics
-   * 
-   * - SUBSCRIPTION: Subscription reminder
-   * 
-   * **Content and marketing:**
-   * 
-   * - NEWS: News
-   * 
-   * - CONTENT: Content recommendation
-   * 
-   * - MARKETING: Operational activity
-   * 
-   * - SOCIAL: Social dynamics
-   * 
-   * For more information, see [vivo classification description](https://open.oppomobile.com/new/developmentDoc/info?id=13189).
+   * OPPO classifies messages into two categories for management: Communication & Service, and Content & Marketing.
    * 
    * @example
    * NEWS
@@ -378,7 +312,7 @@ export class PushTaskNotificationAndroidOptionsOppo extends $dara.Model {
   category?: string;
   /**
    * @remarks
-   * The JSON string of the OPPO Fluid Cloud\\"s intent deletion data structure [data](https://open.oppomobile.com/documentation/page/info?id=13578). This parameter is invalid if the AndroidOppoIntelligentIntent parameter is already filled. For developer integration, see the document [OPPO Fluid Cloud Push Guide](https://help.aliyun.com/document_detail/2997310.html).
+   * The JSON character string of the OPPO Fluid Cloud intent delete data structure [data](https://open.oppomobile.com/documentation/page/info?id=13578). This parameter is invalid when the AndroidOppoIntelligentIntent parameter is already specified. For development and integration, see References: [OPPO Fluid Cloud Push Guide](https://help.aliyun.com/document_detail/2997310.html).
    * 
    * @example
    * {
@@ -395,7 +329,7 @@ export class PushTaskNotificationAndroidOptionsOppo extends $dara.Model {
   deleteIntentData?: string;
   /**
    * @remarks
-   * The JSON string of the OPPO Fluid Cloud\\"s intent sharing data structure [IntelligentIntent](https://open.oppomobile.com/documentation/page/info?id=13565). For developer integration, see the document [OPPO Fluid Cloud Push Guide](https://help.aliyun.com/document_detail/2997310.html).
+   * The JSON character string of the OPPO Fluid Cloud intent sharing data structure [IntelligentIntent](https://open.oppomobile.com/documentation/page/info?id=13565). For development and integration, see References: [OPPO Fluid Cloud Push Guide](https://help.aliyun.com/document_detail/2997310.html).
    * 
    * @example
    * {
@@ -417,15 +351,7 @@ export class PushTaskNotificationAndroidOptionsOppo extends $dara.Model {
   intelligentIntent?: string;
   /**
    * @remarks
-   * The OPPO channel notification bar message reminder level. Valid values are:
-   * 
-   * - `1`: Notification bar
-   * 
-   * - `2`: Notification bar, lock screen, ringtone, vibration (default notification level for communication and service messages)
-   * 
-   * - `16`: Notification bar, lock screen, ringtone, vibration, banner (requires permission application)
-   * 
-   * > When you use the `NotifyLevel` parameter, you must also pass the `Category` parameter.
+   * The notification bar message alert level for the OPPO channel. Valid values:
    * 
    * @example
    * 1
@@ -455,7 +381,7 @@ export class PushTaskNotificationAndroidOptionsOppo extends $dara.Model {
    * The OPPO private message template title parameters.
    * 
    * @example
-   * {"name": "张三"}
+   * {"name": "John"}
    */
   privateTitleParameters?: string;
   static names(): { [key: string]: string } {
@@ -494,33 +420,15 @@ export class PushTaskNotificationAndroidOptionsOppo extends $dara.Model {
 export class PushTaskNotificationAndroidOptionsVivo extends $dara.Model {
   /**
    * @remarks
+   * The badge increment value for the vivo channel.
+   * 
+   * @example
+   * true
+   */
+  addBadge?: boolean;
+  /**
+   * @remarks
    * vivo classifies messages into two categories for management: system messages and operational messages.
-   * 
-   * **System messages:**
-   * 
-   * - IM: Instant messages
-   * 
-   * - ACCOUNT: Account and asset
-   * 
-   * - TODO: To-do list
-   * 
-   * - DEVICE_REMINDER: Device information
-   * 
-   * - ORDER: Order and logistics
-   * 
-   * - SUBSCRIPTION: Subscription reminder
-   * 
-   * **Operational messages:**
-   * 
-   * - NEWS: News
-   * 
-   * - CONTENT: Content recommendation
-   * 
-   * - MARKETING: Operational activity
-   * 
-   * - SOCIAL: Social dynamics
-   * 
-   * For more information, see [vivo classification description](https://dev.vivo.com.cn/documentCenter/doc/359#s-ef3qugc3).
    * 
    * @example
    * MARKETING
@@ -528,13 +436,12 @@ export class PushTaskNotificationAndroidOptionsVivo extends $dara.Model {
   category?: string;
   /**
    * @remarks
-   * Sets the vivo notification message classification. Valid values are:
+   * Specifies the vivo notification message category. Valid values:
    * 
-   * - `0`: Operational message (default)
+   * - `0`: Operational message (default).
+   * - `1`: System message.
    * 
-   * - `1`: System message
-   * 
-   * > We recommend using `Category` for notification classification. You must apply for this on the vivo platform. For more information, see: [Application link](https://dev.vivo.com.cn/documentCenter/doc/359).
+   * > Use `Category` for notification classification. You need to apply on the vivo platform. For more information, see [Application link](https://dev.vivo.com.cn/documentCenter/doc/359).
    * 
    * @example
    * 0
@@ -542,7 +449,7 @@ export class PushTaskNotificationAndroidOptionsVivo extends $dara.Model {
   importance?: number;
   /**
    * @remarks
-   * The JSON string of the vivo Atomic Island data structure [liveMessage](https://dev.vivo.com.cn/documentCenter/doc/896#s-fdagzbd4). For developer integration, see the document [vivo Atomic Island Push Guide](https://help.aliyun.com/zh/document_detail/3030718.html).
+   * The JSON character string of the vivo Atomic Island data structure [liveMessage](https://dev.vivo.com.cn/documentCenter/doc/896#s-fdagzbd4). For development and integration, see References: [vivo Atomic Island Push Guide](https://www.alibabacloud.com/help/en/document_detail/3030718.html).
    * 
    * @example
    * {
@@ -559,13 +466,7 @@ export class PushTaskNotificationAndroidOptionsVivo extends $dara.Model {
   liveMessage?: string;
   /**
    * @remarks
-   * The message receipt identifier for the vivo vendor push channel. It is used to receive push result callback notifications.
-   * 
-   * > - Location: vivo Open Platform → Push Service → Application Information → Receipt Configuration
-   * >
-   * > - Recommendation: First, configure the default receipt ID in the Alibaba Cloud EMAS console.
-   * >
-   * > - Condition: This must be configured only if the default receipt on the vivo platform is not the Alibaba Cloud receipt.
+   * The message receipt identifier for the vivo vendor push channel, used to receive push result callback notifications.
    * 
    * @example
    * 1232221
@@ -573,6 +474,7 @@ export class PushTaskNotificationAndroidOptionsVivo extends $dara.Model {
   receiptId?: string;
   static names(): { [key: string]: string } {
     return {
+      addBadge: 'AddBadge',
       category: 'Category',
       importance: 'Importance',
       liveMessage: 'LiveMessage',
@@ -582,6 +484,7 @@ export class PushTaskNotificationAndroidOptionsVivo extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      addBadge: 'boolean',
       category: 'string',
       importance: 'number',
       liveMessage: 'string',
@@ -601,9 +504,9 @@ export class PushTaskNotificationAndroidOptionsVivo extends $dara.Model {
 export class PushTaskNotificationAndroidOptionsXiaomi extends $dara.Model {
   /**
    * @remarks
-   * Sets the channelId for the Xiaomi notification type. You must apply for this on the Xiaomi platform. For more information, see: [Application link](https://dev.mi.com/console/doc/detail?pId=2422#_4).
+   * The channel ID for Xiaomi notification types. You must apply for this on the Xiaomi platform. For more information, see [Application link](https://dev.mi.com/console/doc/detail?pId=2422#_4).
    * 
-   * > A single application can apply for a maximum of 8 channels on the Xiaomi channel. Plan accordingly.
+   * > A single application can apply for a maximum of 8 channels on the Xiaomi channel. Plan ahead.
    * 
    * @example
    * michannel
@@ -611,7 +514,7 @@ export class PushTaskNotificationAndroidOptionsXiaomi extends $dara.Model {
   channel?: string;
   /**
    * @remarks
-   * The JSON string of the Xiaomi Super Island data structure [miui.focus.param](https://dev.mi.com/xiaomihyperos/documentation/detail?pId=2131). For developer integration, see the document [Xiaomi Super Island Push Guide](https://help.aliyun.com/zh/document_detail/3037956.html).
+   * The JSON character string of the Xiaomi Super Island data structure [miui.focus.param](https://dev.mi.com/xiaomihyperos/documentation/detail?pId=2131). For development and integration, see References: [Xiaomi Super Island Push Guide](https://www.alibabacloud.com/help/en/document_detail/3037956.html).
    * 
    * @example
    * {
@@ -633,7 +536,7 @@ export class PushTaskNotificationAndroidOptionsXiaomi extends $dara.Model {
   focusParam?: string;
   /**
    * @remarks
-   * The JSON string of the Xiaomi Super Island data image [miui.focus.pic_xxx](https://dev.mi.com/xiaomihyperos/documentation/detail?pId=2131). For developer integration, see the document [Xiaomi Super Island Push Guide](https://help.aliyun.com/zh/document_detail/3037956.html).
+   * The JSON character string of the Xiaomi Super Island image data [miui.focus.pic_xxx](https://dev.mi.com/xiaomihyperos/documentation/detail?pId=2131). For development and integration, see References: [Xiaomi Super Island Push Guide](https://www.alibabacloud.com/help/en/document_detail/3037956.html).
    * 
    * @example
    * {
@@ -643,7 +546,21 @@ export class PushTaskNotificationAndroidOptionsXiaomi extends $dara.Model {
    * }
    */
   focusPics?: string;
+  /**
+   * @remarks
+   * The Xiaomi private message template ID.
+   * 
+   * @example
+   * P10645
+   */
   templateId?: string;
+  /**
+   * @remarks
+   * The Xiaomi private message template parameters in JSON string format.
+   * 
+   * @example
+   * {"keywords1":"Tom","keywords2":"phone"}
+   */
   templateParams?: string;
   static names(): { [key: string]: string } {
     return {
@@ -677,39 +594,37 @@ export class PushTaskNotificationAndroidOptionsXiaomi extends $dara.Model {
 export class PushTaskNotificationAndroidOptions extends $dara.Model {
   /**
    * @remarks
-   * Alibaba Cloud proprietary configuration
-   * 
-   * > This is only valid when using Alibaba Cloud\\"s proprietary channel.
+   * The Alibaba Cloud proprietary channel configuration.
    */
   accs?: PushTaskNotificationAndroidOptionsAccs;
   /**
    * @remarks
-   * Honor configuration
+   * The Honor channel configuration.
    */
   honor?: PushTaskNotificationAndroidOptionsHonor;
   /**
    * @remarks
-   * Huawei configuration
+   * The Huawei channel configuration.
    */
   huawei?: PushTaskNotificationAndroidOptionsHuawei;
   /**
    * @remarks
-   * Meizu configuration
+   * The Meizu channel configuration.
    */
   meizu?: PushTaskNotificationAndroidOptionsMeizu;
   /**
    * @remarks
-   * OPPO configuration
+   * The OPPO channel configuration.
    */
   oppo?: PushTaskNotificationAndroidOptionsOppo;
   /**
    * @remarks
-   * vivo configuration
+   * The vivo channel configuration.
    */
   vivo?: PushTaskNotificationAndroidOptionsVivo;
   /**
    * @remarks
-   * Xiaomi configuration
+   * The Xiaomi channel configuration.
    */
   xiaomi?: PushTaskNotificationAndroidOptionsXiaomi;
   static names(): { [key: string]: string } {
@@ -769,9 +684,7 @@ export class PushTaskNotificationAndroidOptions extends $dara.Model {
 export class PushTaskNotificationAndroid extends $dara.Model {
   /**
    * @remarks
-   * The full class name of the application entry Activity for badge settings.
-   * 
-   * > This is only valid when pushing through the Huawei or Honor vendor channel.
+   * The full class name of the Activity for the badge setting application entry.
    * 
    * @example
    * com.alibaba.cloudpushdemo.bizactivity
@@ -779,11 +692,10 @@ export class PushTaskNotificationAndroid extends $dara.Model {
   badgeActivity?: string;
   /**
    * @remarks
-   * Sets a cumulative value for the badge, which is added to the original badge number.
+   * The incremental badge count value, which is added to the current badge count.
    * 
-   * > - This is supported by `Huawei` and `Honor` channels.
-   * >
-   * > - If both `BadgeAddNum` and `BadgeSetNum` are present, the latter takes precedence.
+   * > - Supported on `Huawei` and `Honor` channels.
+   * > - If both `BadgeAddNum` and `BadgeSetNum` are specified, `BadgeSetNum` takes precedence.
    * 
    * @example
    * 1
@@ -791,11 +703,7 @@ export class PushTaskNotificationAndroid extends $dara.Model {
   badgeAddNum?: number;
   /**
    * @remarks
-   * Sets a fixed value for the badge number. The value range is [1, 99].
-   * 
-   * > - For vendor channel pushes, this is only effective for Huawei and Honor channels.
-   * >
-   * > - When pushing through Alibaba Cloud\\"s proprietary channel, this is only effective on Huawei, Honor, and vivo models.
+   * The fixed badge number value. Valid values: 1 to 99.
    * 
    * @example
    * 4
@@ -803,13 +711,7 @@ export class PushTaskNotificationAndroid extends $dara.Model {
   badgeSetNum?: number;
   /**
    * @remarks
-   * Sets the channelId for the Android app. It must correspond to the channelId in the vendor\\"s app.
-   * 
-   * > - Because the channel_id for OPPO\\"s private message notification channel is the same as the app\\"s channelId, the channel_id takes this value when pushing through the OPPO channel.
-   * >
-   * > - For pushes through Huawei, FCM, and Alibaba Cloud\\"s proprietary channels, the channel_id takes this value.
-   * >
-   * > - For specific uses, see the FAQ: [Notifications not received on Android 8.0 and later devices](https://help.aliyun.com/document_detail/67398.html).
+   * The channelId of the Android app. This must match the channelId configured in the vendor app.
    * 
    * @example
    * 8.0up
@@ -817,9 +719,9 @@ export class PushTaskNotificationAndroid extends $dara.Model {
   channelId?: string;
   /**
    * @remarks
-   * Custom extension properties for Android notifications.
+   * The custom extension parameters for Android notifications.
    * 
-   * > - The parameter must be passed in a standard JSON Map format. An incorrect format causes parsing to fail.
+   * > - The parameter must be passed in standard JSON Map format. Incorrect format causes parsing failures.
    * 
    * @example
    * {"key1":"value1"}
@@ -827,15 +729,13 @@ export class PushTaskNotificationAndroid extends $dara.Model {
   extParameters?: string;
   /**
    * @remarks
-   * Message grouping. For messages in the same group, only the latest one and the total number of messages received in that group are displayed in the notification bar. Not all messages are displayed, and they cannot be expanded. Currently supported by:
+   * The message group. Only the latest message and the total number of messages received in the group are displayed in the notification bar. All messages are not displayed and cannot be expanded. Currently supported channels:
    * 
    * - Huawei vendor channel
-   * 
    * - Honor vendor channel
+   * - Self-owned channel with Android SDK 3.9.1 and earlier
    * 
-   * - Proprietary channels with Android SDK 3.9.1 and earlier
-   * 
-   * > This parameter is no longer supported by proprietary channels in Android SDK 3.9.2 and later versions.
+   * > The self-owned channel no longer supports this parameter in Android SDK 3.9.2 and later.
    * 
    * @example
    * group-1
@@ -843,13 +743,11 @@ export class PushTaskNotificationAndroid extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
-   * The URL for the icon on the right. Currently supported by:
+   * The URL of the right-side icon. Currently supported:
    * 
-   * - `Huawei EMUI` (only applicable in long text mode and Inbox mode).
-   * 
-   * - `Honor Magic UI` (only applicable in long text mode).
-   * 
-   * - `Proprietary channels` (Android SDK 3.5.0 and later).
+   * - `Huawei EMUI` (applicable only in long text mode and Inbox mode).
+   * - `Honor Magic UI` (applicable only in long text mode).
+   * - `Custom channel` (Android SDK 3.5.0 and later).
    * 
    * @example
    * https://imag.example.com/image.png
@@ -857,22 +755,18 @@ export class PushTaskNotificationAndroid extends $dara.Model {
   imageUrl?: string;
   /**
    * @remarks
-   * The body text in Inbox mode. The content is a valid JSON Array with no more than 5 elements. Currently supported by:
+   * The body content in Inbox mode. The value must be a valid JSON array with no more than 5 elements. Currently supported on:
    * 
    * - Huawei: EMUI 9 and later
-   * 
    * - Honor: Magic UI 4.0 and later
-   * 
    * - Xiaomi: MIUI 10 and later
-   * 
    * - OPPO: ColorOS 5.0 and later
-   * 
-   * - Proprietary channels: Android SDK 3.6.0 and later
+   * - Custom channel: Android SDK 3.6.0 and later
    */
   inboxContent?: string[];
   /**
    * @remarks
-   * The Huawei vendor channel notification sound. Specify the name of the audio file stored in the `app/src/main/res/raw/` directory of the client project, without the file format suffix. If not set, the default ringtone is used.
+   * The notification sound for the Huawei vendor channel. Specify the audio file name stored in the client project directory `app/src/main/res/raw/` without the file format extension. If not set, the default ringtone is used.
    * 
    * @example
    * alicloud_notification_sound
@@ -880,7 +774,7 @@ export class PushTaskNotificationAndroid extends $dara.Model {
   music?: string;
   /**
    * @remarks
-   * The unique identifier for an Android notification bar message. It controls the overwriting and replacement behavior of notifications. A new notification with the same NotifyId automatically overwrites the old one.
+   * The unique identifier of the Android notification bar message, used to control notification override and replacement behavior. A new notification with the same NotifyId automatically overrides the old notification.
    * 
    * @example
    * 233856727
@@ -888,12 +782,12 @@ export class PushTaskNotificationAndroid extends $dara.Model {
   notifyId?: number;
   /**
    * @remarks
-   * Detailed channel configuration.
+   * The detailed channel configuration.
    */
   options?: PushTaskNotificationAndroidOptions;
   /**
    * @remarks
-   * The image URL in large image mode. Currently supported by: proprietary channels with Android SDK 3.6.0 and later.
+   * The image URL in large image mode. Currently supported: proprietary channel: Android SDK 3.6.0 and later.
    * 
    * @example
    * https://imag.example.com/image.png
@@ -901,15 +795,7 @@ export class PushTaskNotificationAndroid extends $dara.Model {
   pictureUrl?: string;
   /**
    * @remarks
-   * The notification style. Valid values are:
-   * 
-   * - `0`: Standard mode (default)
-   * 
-   * - `1`: Long text mode (supported by Huawei, Honor, Xiaomi, OPPO, Meizu, and proprietary channels)
-   * 
-   * - `2`: Large image mode (supported by proprietary channels)
-   * 
-   * - `3`: List mode (supported by Huawei, Honor, Xiaomi, OPPO, and proprietary channels)
+   * The notification style. Valid values:
    * 
    * @example
    * 0
@@ -917,13 +803,12 @@ export class PushTaskNotificationAndroid extends $dara.Model {
   renderStyle?: string;
   /**
    * @remarks
-   * Sets the vendor channel notification type:
+   * Specifies the notification type for the manufacturer channel. Valid values:
    * 
-   * - `false`: Formal notification (default).
-   * 
+   * - `false`: Production notification. This is the default value.
    * - `true`: Test notification.
    * 
-   * > Currently supported by: Huawei channel, Honor channel, vivo channel, and OPPO Fluid Cloud.
+   * > Currently supported: Huawei channel, Honor channel, vivo channel, and OPPO Fluid Cloud.
    * 
    * @example
    * false
@@ -931,11 +816,9 @@ export class PushTaskNotificationAndroid extends $dara.Model {
   testMessage?: boolean;
   /**
    * @remarks
-   * Specifies the Activity to open after the notification is clicked.
+   * The Activity to which the user is redirected after tapping the notification.
    * 
-   * >Warning: 
-   * 
-   * You must fill in this option when you use an Android vendor channel.
+   * >Warning: This parameter is required when you use an Android vendor channel.
    * 
    * @example
    * com.alibaba.cloudpushdemo.bizactivity
@@ -999,9 +882,9 @@ export class PushTaskNotificationAndroid extends $dara.Model {
 export class PushTaskNotificationHmos extends $dara.Model {
   /**
    * @remarks
-   * Specifies the action corresponding to the ability of an in-app page.
+   * The action that corresponds to the ability of the in-app page.
    * 
-   * > For more information, see [ClickAction.action](https://developer.huawei.com/consumer/cn/doc/harmonyos-references-V5/push-scenariozed-api-request-param-V5#section152462191216) on the official HarmonyOS website.
+   * > For more information, refer to [ClickAction.action](https://developer.huawei.com/consumer/cn/doc/harmonyos-references-V5/push-scenariozed-api-request-param-V5#section152462191216) on the HarmonyOS official website.
    * 
    * @example
    * com.example.action
@@ -1009,11 +892,10 @@ export class PushTaskNotificationHmos extends $dara.Model {
   action?: string;
   /**
    * @remarks
-   * The HarmonyOS application badge cumulative number.
+   * The incremental badge number for HarmonyOS applications.
    * 
-   * > - This is supported starting from HarmonyOS SDK 1.2.0.
-   * >
-   * > - See the description of the [addNum field](https://developer.huawei.com/consumer/cn/doc/harmonyos-references-V5/push-scenariozed-api-request-param-V5#section266310382145) for HarmonyOS badges.
+   * > - Supported since HarmonyOS SDK 1.2.0.
+   * > - Refer to the HarmonyOS badge [addNum field description](https://developer.huawei.com/consumer/cn/doc/harmonyos-references-V5/push-scenariozed-api-request-param-V5#section266310382145).
    * 
    * @example
    * 1
@@ -1021,11 +903,10 @@ export class PushTaskNotificationHmos extends $dara.Model {
   badgeAddNum?: number;
   /**
    * @remarks
-   * The HarmonyOS application badge number setting.
+   * The badge number for HarmonyOS applications.
    * 
-   * > - See the description of the [setNum field](https://developer.huawei.com/consumer/cn/doc/harmonyos-references-V5/push-scenariozed-api-request-param-V5#section266310382145) for HarmonyOS badges.
-   * >
-   * > - This is supported starting from HarmonyOS SDK 1.2.0.
+   * > - Refer to the HarmonyOS badge [setNum field](https://developer.huawei.com/consumer/cn/doc/harmonyos-references-V5/push-scenariozed-api-request-param-V5#section266310382145) description.
+   * > - Supported since HarmonyOS SDK version 1.2.0.
    * 
    * @example
    * 1
@@ -1033,9 +914,9 @@ export class PushTaskNotificationHmos extends $dara.Model {
   badgeSetNum?: number;
   /**
    * @remarks
-   * The notification message category. This is an optional parameter. The default category is `MARKETING`.
+   * The category of the notification message. This is an optional parameter. Default value: `MARKETING`.
    * 
-   * > After you apply for the right to self-classify notification messages, this parameter is used to identify the message type. Different notification message types affect how messages are displayed and how users are reminded. For more information, see [Notification.category](https://developer.huawei.com/consumer/cn/doc/harmonyos-references-V5/push-scenariozed-api-request-param-V5#section17371529101117) on the official HarmonyOS website.
+   * > After you complete the application for the notification message self-classification privilege, this parameter identifies the message type. Different notification message types affect how messages are displayed and how reminders are triggered. For more information, refer to [Notification.category](https://developer.huawei.com/consumer/cn/doc/harmonyos-references-V5/push-scenariozed-api-request-param-V5#section17371529101117) on the HarmonyOS official website.
    * 
    * @example
    * IM
@@ -1043,9 +924,9 @@ export class PushTaskNotificationHmos extends $dara.Model {
   category?: string;
   /**
    * @remarks
-   * Sets custom extension properties for the notification message. This is used to pass additional business data.
+   * The custom extension attributes of the notification message, which are used to pass additional business data.
    * 
-   * > The parameter must be passed in a standard JSON Map format. An incorrect format causes parsing to fail.
+   * > The parameter must be passed in standard JSON Map format. Format errors will cause parsing failures.
    * 
    * @example
    * {"key": "value"}
@@ -1053,13 +934,11 @@ export class PushTaskNotificationHmos extends $dara.Model {
   extParameters?: string;
   /**
    * @remarks
-   * Extra data for the notification extension message.
+   * The extra data of the notification extension message.
    * 
-   * > - This is valid when sending a HarmonyOS notification extension message.
-   * >
-   * > - It is conceptually equivalent to the extraData field of a HarmonyOS notification extension message. For a specific definition, see the HarmonyOS [ExtensionPayload](https://developer.huawei.com/consumer/cn/doc/harmonyos-references-V5/push-scenariozed-api-request-param-V5#section161192514234) description.
-   * >
-   * > - This is supported starting from HarmonyOS SDK 1.2.0.
+   * > - Valid when sending HarmonyOS notification extension messages.
+   * > - Conceptually equivalent to the extraData field of HarmonyOS notification extension messages. For the specific definition, refer to the HarmonyOS [ExtensionPayload](https://developer.huawei.com/consumer/cn/doc/harmonyos-references-V5/push-scenariozed-api-request-param-V5#section161192514234) documentation.
+   * > - Supported since HarmonyOS SDK 1.2.0.
    * 
    * @example
    * text
@@ -1067,11 +946,10 @@ export class PushTaskNotificationHmos extends $dara.Model {
   extensionExtraData?: string;
   /**
    * @remarks
-   * Enables the HarmonyOS notification extension.
+   * Enables HarmonyOS notification extension.
    * 
-   * > - You must first apply for permission on the official HarmonyOS website to send notification extension messages. For related content, see the [HarmonyOS documentation](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides-V5/push-send-extend-noti-V5) on sending notification extension messages.
-   * >
-   * > - This is supported starting from HarmonyOS SDK 1.2.0.
+   * > - To send notification extension messages, you must first apply for permissions on the HarmonyOS official website. For more information, refer to [HarmonyOS documentation](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides-V5/push-send-extend-noti-V5) on sending notification extension messages.
+   * > - Supported starting from HarmonyOS SDK 1.2.0.
    * 
    * @example
    * false
@@ -1079,11 +957,10 @@ export class PushTaskNotificationHmos extends $dara.Model {
   extensionPush?: boolean;
   /**
    * @remarks
-   * The URL for the large icon on the right side of the notification. The URL must use the HTTPS protocol.
+   * The URL of the large icon displayed on the right side of the notification. The URL must use the HTTPS protocol.
    * 
-   * > - Supported image formats are png, jpg, jpeg, heif, gif, and bmp. The image dimensions (length × width) must be less than 25,000 pixels.
-   * >
-   * > - For more information, see [Notification.image](https://developer.huawei.com/consumer/cn/doc/harmonyos-references-V5/push-scenariozed-api-request-param-V5#section17371529101117) on the official HarmonyOS website.
+   * > - Supported image formats include png, jpg, jpeg, heif, gif, and bmp. The image length × width must be less than 25000 pixels.
+   * > - For more information, refer to the HarmonyOS official documentation [Notification.image](https://developer.huawei.com/consumer/cn/doc/harmonyos-references-V5/push-scenariozed-api-request-param-V5#section17371529101117).
    * 
    * @example
    * https://example.com/xxx.png
@@ -1091,12 +968,12 @@ export class PushTaskNotificationHmos extends $dara.Model {
   imageUrl?: string;
   /**
    * @remarks
-   * When `RenderStyle` is `MULTI_LINE`, you must fill in this field to define the content for the multi-line text style. It supports up to 3 lines of content.
+   * When `RenderStyle` is set to `MULTI_LINE`, this field is required to define the content in multi-line text style. A maximum of 3 items are supported.
    */
   inboxContent?: string[];
   /**
    * @remarks
-   * The JSON string of the HarmonyOS Live Window data structure [LiveViewPayload](https://developer.huawei.com/consumer/cn/doc/harmonyos-references-V13/push-scenariozed-api-request-param-V13#section66881469306). For developer integration, see the document [HarmonyOS Live Window Push Guide](https://help.aliyun.com/document_detail/2982112.html).
+   * The JSON string of the HarmonyOS Live View data structure [LiveViewPayload](https://developer.huawei.com/consumer/cn/doc/harmonyos-references-V13/push-scenariozed-api-request-param-V13#section66881469306). For development and integration, refer to [HarmonyOS Live View Push Guide](https://help.aliyun.com/document_detail/2982112.html).
    * 
    * @example
    * {
@@ -1114,7 +991,7 @@ export class PushTaskNotificationHmos extends $dara.Model {
   liveViewPayload?: string;
   /**
    * @remarks
-   * Specifies the unique identifier (notifyId) for each message when it is displayed in the notification bar. If not provided, the push service automatically generates a unique identifier. Different notification messages can use the same notifyId to allow new messages to overwrite old ones. For more information, see [Notification.notifyId](https://developer.huawei.com/consumer/cn/doc/harmonyos-references-V5/push-scenariozed-api-request-param-V5#section17371529101117) on the official HarmonyOS website.
+   * The unique identifier (notifyId) for each message displayed in the notification bar. If not provided, the push service automatically generates a unique identifier. Different notification messages can use the same notifyId to enable new messages to overwrite old messages. For more information, see [Notification.notifyId](https://developer.huawei.com/consumer/cn/doc/harmonyos-references-V5/push-scenariozed-api-request-param-V5#section17371529101117) on the HarmonyOS official website.
    * 
    * @example
    * 123456
@@ -1122,11 +999,7 @@ export class PushTaskNotificationHmos extends $dara.Model {
   notifyId?: number;
   /**
    * @remarks
-   * The receipt ID for the HarmonyOS channel. This ID can be found in the receipt parameter settings on the HarmonyOS channel push operations platform.
-   * 
-   * > - If the default receipt configuration on the HarmonyOS channel push operations platform is the Alibaba Cloud receipt, you do not need to provide this. If not, we recommend that you first configure the default HarmonyOS channel receipt ID in the Alibaba Cloud EMAS Mobile Push console.
-   * >
-   * > - For more information, see [pushOptions.receiptId](https://developer.huawei.com/consumer/cn/doc/harmonyos-references-V5/push-scenariozed-api-request-param-V5#section418321011212) on the official HarmonyOS website.
+   * The receipt ID of the HarmonyOS channel. You can view this receipt ID in the receipt parameter settings on the HarmonyOS channel push operation platform.
    * 
    * @example
    * RCPB***DFD5
@@ -1134,7 +1007,7 @@ export class PushTaskNotificationHmos extends $dara.Model {
   receiptId?: string;
   /**
    * @remarks
-   * The notification message style. This is an optional parameter. The default is a normal notification.
+   * The notification message style. This is an optional parameter. Default value: normal notification.
    * 
    * @example
    * NORMAL
@@ -1142,11 +1015,10 @@ export class PushTaskNotificationHmos extends $dara.Model {
   renderStyle?: string;
   /**
    * @remarks
-   * Uses the specified type of notification channel.
+   * Specifies the notification channel type to use.
    * 
-   * > - This is only valid for Alibaba Cloud\\"s proprietary channels.
-   * >
-   * > - For more information, see [SlotType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references-V5/js-apis-notificationmanager-V5#slottype) on the official HarmonyOS website.
+   * > - Valid only for the Alibaba Cloud proprietary channel.
+   * > - For more information, refer to the HarmonyOS official documentation [SlotType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references-V5/js-apis-notificationmanager-V5#slottype).
    * 
    * @example
    * SOCIAL_COMMUNICATION
@@ -1162,7 +1034,7 @@ export class PushTaskNotificationHmos extends $dara.Model {
   sound?: string;
   /**
    * @remarks
-   * The duration of the custom message notification ringtone in seconds. The range is [1, 60]. If the ringtone duration is too short, it will loop.
+   * The custom notification ringtone duration in seconds, with a range of [1,60]. The ringtone loops if its duration is shorter than the specified value.
    * 
    * @example
    * 2
@@ -1170,9 +1042,9 @@ export class PushTaskNotificationHmos extends $dara.Model {
   soundDuration?: number;
   /**
    * @remarks
-   * Enables test messages.
+   * Enables the test message.
    * 
-   * > - For more information, see the HarmonyOS push parameter [TestMessage](https://developer.huawei.com/consumer/cn/doc/harmonyos-references-V5/push-scenariozed-api-request-param-V5#section418321011212).
+   * > - For more information, refer to the HarmonyOS push parameter [TestMessage](https://developer.huawei.com/consumer/cn/doc/harmonyos-references-V5/push-scenariozed-api-request-param-V5#section418321011212).
    * 
    * @example
    * true
@@ -1180,11 +1052,10 @@ export class PushTaskNotificationHmos extends $dara.Model {
   testMessage?: boolean;
   /**
    * @remarks
-   * The URI corresponding to the ability of an in-app page.
+   * The URI that corresponds to the in-app page ability.
    * 
-   * > - If there are multiple abilities, specify the action and URI for each ability separately. The system prioritizes using the action to find the corresponding in-app page.
-   * >
-   * > - For more information, see [ClickAction.uri](https://developer.huawei.com/consumer/cn/doc/harmonyos-references-V5/push-scenariozed-api-request-param-V5#section152462191216) on the official HarmonyOS website.
+   * > - When multiple Abilities exist, specify the action and URI for each Ability separately. The action is used first to find the corresponding in-app page.
+   * > - For more information, see [ClickAction.uri](https://developer.huawei.com/consumer/cn/doc/harmonyos-references-V5/push-scenariozed-api-request-param-V5#section152462191216) on the HarmonyOS official website.
    * 
    * @example
    * https://www.example.com:8080/push/example
@@ -1251,24 +1122,20 @@ export class PushTaskNotificationHmos extends $dara.Model {
 export class PushTaskNotificationIosLiveActivity extends $dara.Model {
   /**
    * @remarks
-   * Static pass-through parameters for iOS Live Activities push. They are used to transmit immutable business identification information.
-   * 
-   * > This is required when `Event` is \\`start\\`.
+   * The static pass-through parameters for iOS Live Activities push, used to pass immutable business identification information.
    * 
    * @example
    * {
    *   "orderId": "ORD20231201001",
-   *   "restaurantName": "美味餐厅",
-   *   "customerAddress": "xx区xx路xx号",
+   *   "restaurantName": "Delicious Restaurant",
+   *   "customerAddress": "No. xx, xx Road, xx District",
    *   "orderType": "delivery"
    * }
    */
   attributes?: string;
   /**
    * @remarks
-   * The type of Live Activity to start.
-   * 
-   * > This is required when `Event` is \\`start\\`.
+   * The type of the Live Activity to start.
    * 
    * @example
    * OrderActivityAttributes
@@ -1276,29 +1143,21 @@ export class PushTaskNotificationIosLiveActivity extends $dara.Model {
   attributesType?: string;
   /**
    * @remarks
-   * Dynamic pass-through parameters for a Live Activity. They contain real-time updatable status information and changing data.
-   * 
-   * > - Avoid overly frequent updates. An interval of 5 seconds or more is recommended.
-   * >
-   * > - Update multiple fields in a batch to reduce the number of pushes.
-   * >
-   * > - Consider the user experience and avoid screen flickering.
-   * >
-   * > - Must be a valid JSON string.
+   * The dynamic pass-through parameters of the Live Activity, containing real-time updatable status information and changing data.
    * 
    * @example
    * {
    *     "status": "delivering",
-   *     "estimatedTime": "10分钟",
+   *     "estimatedTime": "10 minutes",
    *     "progress": 80,
-   *     "driverName": "李师傅",
-   *     "currentStep": "配送员正在路上"}
+   *     "driverName": "Driver Li",
+   *     "currentStep": "The delivery driver is on the way"}
    * }
    */
   contentState?: string;
   /**
    * @remarks
-   * Sets the retention period for a finished Live Activity on the lock screen. This lets users view information after the activity has ended. It is a Unix timestamp in seconds.
+   * The retention time of an ended Live Activity on the lock screen, allowing users to view information after the activity ends. The value is a UNIX timestamp in seconds.
    * 
    * @example
    * 1701439800
@@ -1314,13 +1173,7 @@ export class PushTaskNotificationIosLiveActivity extends $dara.Model {
   event?: string;
   /**
    * @remarks
-   * The unique identifier for a Live Activity. It associates the activity instance on the device with the push target on the server.
-   * 
-   * >Notice: 
-   * 
-   * - This `ID` must be the same as the `forActivityId` parameter of the `registerLiveActivityPushToken` method in the client SDK.
-   * 
-   * - The server uses this `ID` to locate the specific activity instance during a push.
+   * The unique identifier of the Live Activity, used to associate the device-side activity instance with the server-side push target.
    * 
    * @example
    * FOOD_DELIVERY_ORD20231201001
@@ -1328,13 +1181,11 @@ export class PushTaskNotificationIosLiveActivity extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * Sets the expiration timestamp for the content of an iOS Live Activity. It is a Unix timestamp in seconds.
+   * The expiration timestamp for the iOS Live Activity content, specified as a Unix timestamp in seconds.
    * 
    * > - After the specified time is reached, the system automatically marks the activity as expired.
-   * >
-   * > - Expired activities are removed from the Live Activity and the lock screen.
-   * >
-   * > - This prevents outdated information from occupying the user interface for a long time.
+   * > - Expired activities are removed from the Dynamic Island and Lock Screen.
+   * > - This prevents outdated information from occupying the user interface for an extended period.
    * 
    * @example
    * 1701425400
@@ -1376,11 +1227,7 @@ export class PushTaskNotificationIosLiveActivity extends $dara.Model {
 export class PushTaskNotificationIos extends $dara.Model {
   /**
    * @remarks
-   * iOS notifications are sent through the Apple Push Notification service (APNs) center. You must specify the environment information. This is an optional parameter. The default is the production environment.
-   * 
-   * - DEV: Development environment, for applications installed and tested directly from Xcode.
-   * 
-   * - PRODUCT: Production environment, for applications distributed through the App Store, TestFlight, Ad Hoc, and enterprise channels.
+   * iOS notifications are sent through the APNs center. You need to specify the corresponding environment information. Optional parameter. Default value: production environment.
    * 
    * @example
    * DEV
@@ -1388,7 +1235,7 @@ export class PushTaskNotificationIos extends $dara.Model {
   apnsEnv?: string;
   /**
    * @remarks
-   * The iOS application badge.
+   * The iOS application badge number.
    * 
    * @example
    * 1
@@ -1396,11 +1243,7 @@ export class PushTaskNotificationIos extends $dara.Model {
   badge?: number;
   /**
    * @remarks
-   * Specifies whether to enable the badge auto-increment feature. This is an optional parameter. The default value is false.
-   * 
-   * > - This parameter cannot be used with the badge setting parameter.
-   * >
-   * > - The badge auto-increment feature is maintained by the Alibaba Cloud push server, which counts the badges for each device. You must use SDK version 1.9.5 or later and actively sync the badge number to the server through the SDK.
+   * Specifies whether to enable the badge auto-increment feature. Optional parameter. Default value: false.
    * 
    * @example
    * false
@@ -1408,10 +1251,9 @@ export class PushTaskNotificationIos extends $dara.Model {
   badgeAutoIncrement?: boolean;
   /**
    * @remarks
-   * Specifies the category identifier for an iOS notification. This defines the notification\\"s interactive behavior and display style.
+   * The category identifier for the iOS notification, which defines the interaction behavior and display style of the notification.
    * 
    * > - The category must be pre-registered in the app to take effect.
-   * >
    * > - Different categories can define different sets of actions.
    * 
    * @example
@@ -1420,7 +1262,7 @@ export class PushTaskNotificationIos extends $dara.Model {
   category?: string;
   /**
    * @remarks
-   * A unique identifier that controls notification merging. Notifications with the same identifier are overwritten.
+   * The unique identifier for notification collapsing. Notifications with the same identifier are overwritten and displayed as one.
    * 
    * @example
    * order_status_update_12345
@@ -1428,9 +1270,7 @@ export class PushTaskNotificationIos extends $dara.Model {
   collapseId?: string;
   /**
    * @remarks
-   * Custom extension properties for iOS notifications.
-   * 
-   * > - The parameter must be passed in a standard JSON Map format. An incorrect format causes parsing to fail.
+   * The custom extension attributes of the iOS notification.
    * 
    * @example
    * {"attachment": "https://xxxx.xxx/notification_pic.png"}
@@ -1438,15 +1278,7 @@ export class PushTaskNotificationIos extends $dara.Model {
   extParameters?: string;
   /**
    * @remarks
-   * The interruption level. This is an optional parameter. Valid values are:
-   * 
-   * - `passive`: The system adds the notification to the notification list without lighting up the screen or playing a sound.
-   * 
-   * - `active`: The system displays the notification immediately, lights up the screen, and can play a sound.
-   * 
-   * - `time-sensitive`: The system presents the notification immediately, lights up the screen, and can play a sound, but does not override system notification controls.
-   * 
-   * - `critical`: The system displays the notification immediately, lights up the screen, and plays a sound, bypassing the mute switch.
+   * The interruption level. Optional parameter. Valid values:
    * 
    * @example
    * active
@@ -1454,22 +1286,20 @@ export class PushTaskNotificationIos extends $dara.Model {
   interruptionLevel?: string;
   /**
    * @remarks
-   * Live Activities parameter object.
+   * The Live Activity parameter object.
    * 
    * >Notice: 
    * 
-   * - Live Activities push only supports pushing to a single device of the `DEVICE` type.
-   * 
-   * - When you push to Live Activities, you can leave the title and body parameters empty.
+   * - Live Activity push notifications can only be sent to a **single device** by specifying the `DEVICE` type.
+   * - When pushing Live Activity notifications, the title and body parameters are optional.
    */
   liveActivity?: PushTaskNotificationIosLiveActivity;
   /**
    * @remarks
-   * The iOS notification sound. Specify the name of the audio file stored in the app bundle or the sandbox Library/Sounds directory. For more information, see [How to set the notification sound for iOS push](https://help.aliyun.com/document_detail/48906.html).
+   * The notification sound for iOS. Specify the name of an audio file stored in the app bundle or the Library/Sounds directory of the sandbox. For more information, see [How to set notification sounds for iOS push](https://help.aliyun.com/document_detail/48906.html).
    * 
-   * > - If you specify an empty string (""), the notification is silent.
-   * >
-   * > - If this parameter is not set, the default value is \\`default\\`, which is the system prompt sound.
+   * > - If set to an empty string (""), the notification is silent.
+   * > - If not specified, the value defaults to "default", which plays the system alert sound.
    * 
    * @example
    * default
@@ -1477,14 +1307,10 @@ export class PushTaskNotificationIos extends $dara.Model {
   music?: string;
   /**
    * @remarks
-   * Enables extended notifications and controls whether iOS notifications support processing by the Notification Service Extension.
-   * 
-   * > - This must be set to true when you send a silent notification.
-   * >
-   * > - The extension processing time cannot exceed 30 seconds.
-   * >
+   * Specifies whether to enable the notification extension, which controls whether the iOS notification supports processing by Notification Service Extension.
+   * > - When sending silent notifications, this parameter must be set to true.
+   * > - The Extension processing time cannot exceed 30 seconds.
    * > - A timeout causes the notification to display the original content.
-   * >
    * > - You must add a Notification Service Extension to your application.
    * 
    * @example
@@ -1493,7 +1319,7 @@ export class PushTaskNotificationIos extends $dara.Model {
   mutable?: boolean;
   /**
    * @remarks
-   * The relevance score of the notification message. It is used to control the priority and display policy of the notification.
+   * The relevance score of the notification message, used to control the priority and display strategy of the notification.
    * 
    * @example
    * 0.5
@@ -1501,9 +1327,7 @@ export class PushTaskNotificationIos extends $dara.Model {
   relevanceScore?: number;
   /**
    * @remarks
-   * Controls whether to enable silent push mode.
-   * 
-   * > - When you send a silent notification, you can leave the `title` and `body` parameters empty.
+   * Specifies whether to enable silent push mode.
    * 
    * @example
    * false
@@ -1511,20 +1335,18 @@ export class PushTaskNotificationIos extends $dara.Model {
   silent?: boolean;
   /**
    * @remarks
-   * The subtitle of the iOS notification.
+   * The subtitle content of the iOS notification.
    * 
    * @example
-   * 请查收订单。
+   * Please check your order
    */
   subtitle?: string;
   /**
    * @remarks
-   * The thread identifier for iOS notification grouping. It is used to classify and collapse related notifications.
+   * The thread identifier for iOS notification grouping, which is used to categorize and collapse related notifications.
    * 
-   * > - Notifications with the same thread-id are automatically grouped.
-   * >
-   * > - Multiple related notifications are collapsed into one notification group.
-   * >
+   * > - Notifications with the same thread-id are automatically grouped together.
+   * > - Multiple related notifications are collapsed into a single notification group.
    * > - Users can expand the group to view all notifications within it.
    * 
    * @example
@@ -1584,43 +1406,33 @@ export class PushTaskNotificationIos extends $dara.Model {
 export class PushTaskNotification extends $dara.Model {
   /**
    * @remarks
-   * Android notification configuration
+   * The Android notification configuration.
    */
   android?: PushTaskNotificationAndroid;
   /**
    * @remarks
-   * The content of the push notification.
-   * 
-   * > The length limits are as follows:
-   * >
-   * > - For iOS, HarmonyOS, and Android, the character length cannot exceed 200.
+   * The body of the push notification.
    * 
    * @example
-   * 尊敬的客户，您好！您的预约订单已取消成功。
+   * Dear customer, your reservation order has been successfully canceled
    */
   body?: string;
   /**
    * @remarks
-   * HarmonyOS notification configuration.
+   * The HarmonyOS notification configuration.
    */
   hmos?: PushTaskNotificationHmos;
   /**
    * @remarks
-   * iOS notification configuration
+   * The iOS notification configuration.
    */
   ios?: PushTaskNotificationIos;
   /**
    * @remarks
    * The title of the push notification.
    * 
-   * > The length limits are as follows:
-   * >
-   * > - For iOS/HarmonyOS, the byte length cannot exceed 200.
-   * >
-   * > - For Android, the character length cannot exceed 50.
-   * 
    * @example
-   * 您有一条新消息
+   * You have a new message
    */
   title?: string;
   static names(): { [key: string]: string } {
@@ -1664,11 +1476,11 @@ export class PushTaskNotification extends $dara.Model {
 export class PushTaskOptionsSms extends $dara.Model {
   /**
    * @remarks
-   * The delay time to trigger the text message, in seconds.
+   * The delay before triggering the SMS message. Unit: seconds.
    * 
-   * This must be set if you use SMS filter interaction. We recommend setting it to 15 seconds or more, with a maximum of 3 days, to avoid duplicate text messages and pushes.
+   * This parameter is required when SMS linkage is used. We recommend that you set this parameter to at least 15 seconds and no more than 3 days to avoid duplicate notifications from both SMS and push.
    * 
-   * > When you use SMS filter interaction, the ExpireTime parameter is invalid. The notification expiration time is calculated based on the DelaySecs parameter. The expiration time is the current time plus the DelaySecs time.
+   * > When SMS linkage is used, the ExpireTime parameter does not take effect. The notification expiration time is calculated based on the DelaySecs parameter. The expiration time is the current time plus the DelaySecs value.
    * 
    * @example
    * 150
@@ -1676,7 +1488,7 @@ export class PushTaskOptionsSms extends $dara.Model {
   delaySecs?: number;
   /**
    * @remarks
-   * Key-value pairs for the variables in the SMS template.
+   * The key-value pairs of variable names in the SMS template.
    * 
    * @example
    * key1=value1&key2=value2
@@ -1700,7 +1512,7 @@ export class PushTaskOptionsSms extends $dara.Model {
   signName?: string;
   /**
    * @remarks
-   * The SMS template name. You can get this from the SMS template management interface. It is the name assigned by the system, not the name set by the developer.
+   * The SMS template name. You can obtain this name from the SMS template management page. This is the system-assigned name, not the name set by the developer.
    * 
    * @example
    * SMS_123456789
@@ -1738,17 +1550,14 @@ export class PushTaskOptionsSms extends $dara.Model {
 export class PushTaskOptions extends $dara.Model {
   /**
    * @remarks
-   * Sets the expiration time of the message. After this time, the message will no longer be sent. The maximum retention period is 72 hours.
+   * The expiration time of the message. The message will not be sent after it expires. The maximum retention period is 72 hours.
    * 
-   * > - This uses the ISO 8601 standard and UTC time. The format is YYYY-MM-DDThh:mm:ssZ.
-   * >
-   * > - The expiration time must satisfy: ExpireTime > PushTime + 3 seconds (3 seconds is a buffer for network and system delays).
-   * >
-   * > - Recommendation: The expiration time for a single push should be at least 1 minute. For a push to all or a batch push, it should be at least 10 minutes.
+   * > * The time follows the ISO 8601 standard in UTC. Format: YYYY-MM-DDThh:mm:ssZ.
+   * > * The expiration time must meet the following condition: ExpireTime > PushTime + 3 seconds (3 seconds is the redundancy for network and system latency).
+   * > * Recommendation: Set the expiration time to at least 1 minute for single push notifications, and at least 10 minutes for broadcast or batch push notifications.
    * 
-   * >Notice: 
    * 
-   * For pass-through messages, if you do not set an expiration time, the message is only sent to online devices. If the device is offline, the message is discarded.
+   * >Notice: For pass-through messages, if no expiration time is set, the message is sent only to online devices. When the device is offline, the message is discarded.
    * 
    * @example
    * 2025-06-21T12:00:00Z
@@ -1756,7 +1565,7 @@ export class PushTaskOptions extends $dara.Model {
   expireTime?: string;
   /**
    * @remarks
-   * A custom identifier for the push task. If JobKey is not empty, this field will be included in the receipt log. To view receipt logs, see [Receipt logs](https://help.aliyun.com/document_detail/434651.html).
+   * The custom identifier of the push task. If JobKey is not empty, this field is included in the receipt log. For more information about receipt logs, see [Receipt logs](https://help.aliyun.com/document_detail/434651.html).
    * 
    * @example
    * jobkey1727749697913
@@ -1764,7 +1573,7 @@ export class PushTaskOptions extends $dara.Model {
   jobKey?: string;
   /**
    * @remarks
-   * A unique ID used to identify the message. This is only valid when the `Action` parameter is `CONTINUOUS_PUSH`.
+   * The unique ID used to identify the message. This parameter is valid only when the `Action` parameter is set to `CONTINUOUS_PUSH`.
    * 
    * @example
    * 1174754033128****
@@ -1772,9 +1581,9 @@ export class PushTaskOptions extends $dara.Model {
   messageId?: number;
   /**
    * @remarks
-   * Specifies the sending time of the message, up to 7 days in the future. This is only valid when the `Action` parameter is `SCHEDULED_PUSH`.
+   * The scheduled time to send the message. The value cannot be later than 7 days from the current time. This parameter takes effect only when `Action` is set to `SCHEDULED_PUSH`.
    * 
-   * > This uses the ISO 8601 standard and UTC time. The format is yyyy-MM-ddTHH:mm:ssZ.
+   * > The time follows the ISO 8601 standard in UTC in the format of yyyy-MM-ddTHH:mm:ssZ.
    * 
    * @example
    * 2025-06-19T12:00:00Z
@@ -1782,16 +1591,14 @@ export class PushTaskOptions extends $dara.Model {
   pushTime?: string;
   /**
    * @remarks
-   * Resends the message as a text message.
-   * 
-   * > Currently, this is only supported for `Android` and `HarmonyOS` devices.
+   * The supplementary SMS message settings.
    */
   sms?: PushTaskOptionsSms;
   /**
    * @remarks
-   * Specifies whether to automatically truncate oversized titles and content.
+   * Specifies whether to automatically truncate titles and content that exceed the length limit.
    * 
-   * > This is only supported for vendor channels that have explicit limits on title and content length. It does not apply to channels like APNs, Huawei, and Honor, which do not limit title and content length but only the total request body size.
+   * >This parameter applies only to vendor channels that explicitly limit the title and content length. It does not apply to channels such as APNs, Huawei, and Honor that do not limit the title or content length but only limit the total request body size.
    * 
    * @example
    * false
@@ -1799,33 +1606,22 @@ export class PushTaskOptions extends $dara.Model {
   trim?: boolean;
   /**
    * @remarks
-   * Specifies the sending channel. Valid values are:
+   * Specifies the delivery channels. Valid values:
    * 
-   * - `accs`: Alibaba Cloud proprietary channel
+   * - `accs`: Alibaba Cloud proprietary channel.
+   * - `huawei`: Huawei channel.
+   * - `honor`: Honor channel.
+   * - `xiaomi`: Xiaomi channel.
+   * - `oppo`: OPPO channel.
+   * - `vivo`: vivo channel.
+   * - `meizu`: Meizu channel.
+   * - `fcm`: Google Firebase channel (HTTP v1 API).
+   * - `apns`: APNs channel.
+   * - `harmony`: HarmonyOS channel.
    * 
-   * - `huawei`: Huawei channel
-   * 
-   * - `honor`: Honor channel
-   * 
-   * - `xiaomi`: Xiaomi channel
-   * 
-   * - `oppo`: OPPO channel
-   * 
-   * - `vivo`: vivo channel
-   * 
-   * - `meizu`: Meizu channel
-   * 
-   * - `fcm`: Google Firebase channel (HTTP v1 API)
-   * 
-   * - `apns`: APNs channel
-   * 
-   * - `harmony`: HarmonyOS channel
-   * 
-   * > * If this parameter is not configured, all channels can be used.
-   * >
-   * > * If this parameter is configured, only the channels specified in the parameter are used.
-   * >
-   * > * If the configured channel conflicts with the sending policy (for example, iOS notifications only go through the APNs channel, but this parameter does not include \\`apns\\`), the message is not sent.
+   * > - If this parameter is not specified, all channels are available.
+   * > - If this parameter is specified, only the specified channels are used.
+   * > - If the specified channels conflict with the delivery policy (for example, iOS notifications can only be delivered through the APNs channel, but `apns` is not included in this parameter), the message is not sent.
    * 
    * @example
    * accs,apns
@@ -1870,7 +1666,7 @@ export class PushTaskOptions extends $dara.Model {
 export class PushTaskTarget extends $dara.Model {
   /**
    * @remarks
-   * The platform type. This is an optional parameter.
+   * The platform type. Optional parameter.
    * 
    * @example
    * IOS
@@ -1882,12 +1678,10 @@ export class PushTaskTarget extends $dara.Model {
    * 
    * >Notice: 
    * 
-   * The `MassPushV2` batch push API and `CONTINUOUS_PUSH` continuous push support only the following three target types:
+   * The batch push operation `MassPushV2` and continuous push `CONTINUOUS_PUSH` support only the following three target types:
    * 
    * - `DEVICE`
-   * 
    * - `ACCOUNT`
-   * 
    * - `ALIAS`
    * 
    * @example
@@ -1896,17 +1690,7 @@ export class PushTaskTarget extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * Set the push target based on `Target.Type`. Separate multiple targets with commas. The target types and their values are described as follows:
-   * 
-   * > - `DEVICE`: Device ID, such as deviceid1,deviceid2. You can specify up to 1,000 device IDs.
-   * >
-   * > - `ACCOUNT`: Account ID, such as account1,account2. You can specify up to 1,000 account IDs.
-   * >
-   * > - `ALIAS`: Alias, such as alias1,alias2. You can specify up to 1,000 aliases.
-   * >
-   * > - `TAG`: Supports one or more tags. For more information about the format, see [Tag format specifications](https://help.aliyun.com/document_detail/434847.html).
-   * >
-   * > - `ALL`: Push to all devices. You do not need to set a value. Pushing to all devices may increase costs. Use this feature with caution.
+   * The push target based on `Target.Type`. Separate multiple targets with commas. The following describes the target types and target values:
    * 
    * @example
    * value
@@ -1940,15 +1724,7 @@ export class PushTaskTarget extends $dara.Model {
 export class PushTask extends $dara.Model {
   /**
    * @remarks
-   * The push method. This is an optional parameter. The default value is `PUSH_IMMEDIATELY` (immediate push).
-   * 
-   * >Notice: 
-   * 
-   * The `MassPushV2` batch push API supports only the following push methods:
-   * 
-   * - `PUSH_IMMEDIATELY` (immediate push)
-   * 
-   * - `SCHEDULED_PUSH` (scheduled push)
+   * The push method. Optional parameter. Default value: `PUSH_IMMEDIATELY` (push immediately).
    * 
    * @example
    * PUSH_IMMEDIATELY
@@ -1958,34 +1734,24 @@ export class PushTask extends $dara.Model {
    * @remarks
    * The pass-through message data sent to the device. The total length cannot exceed 4,000 bytes.
    * 
-   * > Length calculation
-   * >
-   * > - The length is calculated based on the byte length of the UTF-8 encoded string after the Message object is serialized into JSON.
-   * >
-   * > - A Chinese character typically occupies 3 bytes in UTF-8 encoding.
+   * > Length calculation notes
+   * > - The length is calculated based on the byte length of the UTF-8 encoded string after the Message object is serialized to JSON.
+   * > - Chinese characters typically occupy 3 bytes in UTF-8 encoding.
    */
   message?: PushTaskMessage;
   /**
    * @remarks
    * The vendor notification data sent to the device.
-   * 
-   * >Notice: 
-   * 
-   * If you set both `Message` and `Notification`, the device receives only one. The sending rules are as follows:
-   * 
-   * - If the device is online, pass-through message data is sent.
-   * 
-   * - If the device is offline, a system notification is sent.
    */
   notification?: PushTaskNotification;
   /**
    * @remarks
-   * Push options
+   * The push options.
    */
   options?: PushTaskOptions;
   /**
    * @remarks
-   * The target object for the message push. This parameter is optional when the `Action` operation type is `CREATE_CONTINUOUS_PUSH` (create a continuous push task).
+   * Specifies the target object for message push. This parameter is optional when the operation type `Action` is set to `CREATE_CONTINUOUS_PUSH` (create a continuous push task).
    */
   target?: PushTaskTarget;
   static names(): { [key: string]: string } {

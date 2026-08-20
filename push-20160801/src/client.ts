@@ -638,27 +638,27 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Sends different messages or notifications to multiple devices in batches.
+   * Push different messages/notifications to different devices in batch.
    * 
    * @remarks
-   * *Before you use this API, make sure that you understand the [billing methods and pricing](https://help.aliyun.com/document_detail/434638.html) of EMAS Mobile Push.**
-   * Some business scenarios require you to send many different messages to many devices in a short period. This can generate a high number of Queries Per Second (QPS) and cause requests to exceed the QPS limit for a single source IP address, resulting in push failures.
-   * This API is designed to solve this issue. You can include up to 100 independent push tasks in a single call. This request aggregation reduces the QPS and improves the stability and success rate of individual pushes. A single account is limited to 500 batch push calls per second.
-   * Each independent push task supports pushes to devices, accounts, or aliases. SMS integration is not supported.
-   * > You must upgrade the SDK to version 3.11.0 or later.
-   * ## PushTask properties
-   * - The format for PushTask properties is PushTask.N.Property. These properties include the following:
-   *   - Push target (destination)
-   *   - Push configuration (config)
-   *   - iOS notification task configuration
-   *   - Android notification task configuration
-   *   - Android auxiliary pop-up configuration
-   *   - HarmonyOS notification task configuration
-   *   - Push control
-   * - Each PushTask represents an independent push task. A maximum of 100 tasks are supported per call. The push configurations are the same as those for the Push API.
-   * - The PushTask.N.Target parameter supports only the DEVICE, ACCOUNT, and ALIAS types.
-   * - PushTask does not support SMS filter interaction.
-   * - The product of the parent node and child nodes cannot exceed 10,000. If this limit is exceeded, the parameters are considered invalid.
+   * *Before using this API, make sure you fully understand the [billing methods and pricing](https://help.aliyun.com/document_detail/434638.html) of the EMAS Mobile Push service.**
+   * In certain business scenarios, you may need to push different messages to different devices in a very short time. When the number of devices and messages is extremely large, this can generate high QPS and reach the QPS limit per source IP, causing some pushes to fail.
+   * This API is designed to address this problem. It supports up to 100 independent push tasks in a single call, effectively reducing QPS through request aggregation and improving the stability and success rate of large-scale unicast pushes. Batch push is limited to 500 calls per second per account.
+   * Each independent push task only supports three types of push targets: device, account, and alias, and does not currently support SMS integration configuration.
+   * > The SDK must be upgraded to version 3.11.0 or later.
+   * ## PushTask Properties
+   * - The PushTask property format is: PushTask.N.Property. It includes:
+   *     - Push target (destination)
+   *     - Push configuration (config)
+   *     - iOS notification task configuration
+   *     - Android notification task configuration
+   *     - Android auxiliary popup configuration
+   *     - HarmonyOS notification task configuration 
+   *     - Push control
+   * - Each PushTask represents an independent push task, with a maximum of 100 supported. Push-related configurations are consistent with the Push API.
+   * - The PushTask.N.Target parameter only supports three types: DEVICE, ACCOUNT, and ALIAS.
+   * - PushTask does not support SMS integration configuration.
+   * - The product of parent nodes and child nodes cannot exceed 10,000; otherwise, the parameters are considered invalid.
    * 
    * @param request - MassPushRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -699,27 +699,27 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Sends different messages or notifications to multiple devices in batches.
+   * Push different messages/notifications to different devices in batch.
    * 
    * @remarks
-   * *Before you use this API, make sure that you understand the [billing methods and pricing](https://help.aliyun.com/document_detail/434638.html) of EMAS Mobile Push.**
-   * Some business scenarios require you to send many different messages to many devices in a short period. This can generate a high number of Queries Per Second (QPS) and cause requests to exceed the QPS limit for a single source IP address, resulting in push failures.
-   * This API is designed to solve this issue. You can include up to 100 independent push tasks in a single call. This request aggregation reduces the QPS and improves the stability and success rate of individual pushes. A single account is limited to 500 batch push calls per second.
-   * Each independent push task supports pushes to devices, accounts, or aliases. SMS integration is not supported.
-   * > You must upgrade the SDK to version 3.11.0 or later.
-   * ## PushTask properties
-   * - The format for PushTask properties is PushTask.N.Property. These properties include the following:
-   *   - Push target (destination)
-   *   - Push configuration (config)
-   *   - iOS notification task configuration
-   *   - Android notification task configuration
-   *   - Android auxiliary pop-up configuration
-   *   - HarmonyOS notification task configuration
-   *   - Push control
-   * - Each PushTask represents an independent push task. A maximum of 100 tasks are supported per call. The push configurations are the same as those for the Push API.
-   * - The PushTask.N.Target parameter supports only the DEVICE, ACCOUNT, and ALIAS types.
-   * - PushTask does not support SMS filter interaction.
-   * - The product of the parent node and child nodes cannot exceed 10,000. If this limit is exceeded, the parameters are considered invalid.
+   * *Before using this API, make sure you fully understand the [billing methods and pricing](https://help.aliyun.com/document_detail/434638.html) of the EMAS Mobile Push service.**
+   * In certain business scenarios, you may need to push different messages to different devices in a very short time. When the number of devices and messages is extremely large, this can generate high QPS and reach the QPS limit per source IP, causing some pushes to fail.
+   * This API is designed to address this problem. It supports up to 100 independent push tasks in a single call, effectively reducing QPS through request aggregation and improving the stability and success rate of large-scale unicast pushes. Batch push is limited to 500 calls per second per account.
+   * Each independent push task only supports three types of push targets: device, account, and alias, and does not currently support SMS integration configuration.
+   * > The SDK must be upgraded to version 3.11.0 or later.
+   * ## PushTask Properties
+   * - The PushTask property format is: PushTask.N.Property. It includes:
+   *     - Push target (destination)
+   *     - Push configuration (config)
+   *     - iOS notification task configuration
+   *     - Android notification task configuration
+   *     - Android auxiliary popup configuration
+   *     - HarmonyOS notification task configuration 
+   *     - Push control
+   * - Each PushTask represents an independent push task, with a maximum of 100 supported. Push-related configurations are consistent with the Push API.
+   * - The PushTask.N.Target parameter only supports three types: DEVICE, ACCOUNT, and ALIAS.
+   * - PushTask does not support SMS integration configuration.
+   * - The product of parent nodes and child nodes cannot exceed 10,000; otherwise, the parameters are considered invalid.
    * 
    * @param request - MassPushRequest
    * @returns MassPushResponse
@@ -730,10 +730,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Advanced push API v2.
+   * Pushes notifications in batch by using the advanced push API V2.
    * 
    * @remarks
-   * Before using this API, review the [pricing and billing details](https://help.aliyun.com/document_detail/434638.html) for EMAS Mobile Push.
+   * Before using this operation, make sure that you fully understand the [billing method and pricing](https://help.aliyun.com/document_detail/434638.html) of EMAS Mobile Push.
    * 
    * @param tmpReq - MassPushV2Request
    * @param runtime - runtime options for this request RuntimeOptions
@@ -778,10 +778,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Advanced push API v2.
+   * Pushes notifications in batch by using the advanced push API V2.
    * 
    * @remarks
-   * Before using this API, review the [pricing and billing details](https://help.aliyun.com/document_detail/434638.html) for EMAS Mobile Push.
+   * Before using this operation, make sure that you fully understand the [billing method and pricing](https://help.aliyun.com/document_detail/434638.html) of EMAS Mobile Push.
    * 
    * @param request - MassPushV2Request
    * @returns MassPushV2Response
@@ -792,11 +792,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * This advanced push API sends notifications or messages to various devices. It provides a rich set of custom parameters to implement push behaviors for various scenarios.
+   * Advanced Push API that pushes notifications or messages to different device endpoints. This API provides rich push customization parameters to implement push behavior in different scenarios.
    * 
    * @remarks
-   * *Before you use this API, make sure you understand the [billing methods and pricing](https://help.aliyun.com/document_detail/434638.html) of EMAS Mobile Push.**
-   * This API supports pushes to Android, iOS, and HarmonyOS devices. For each platform, you must provide the corresponding AppKey.
+   * *Please ensure that you have fully understood the [billing methods and pricing](https://help.aliyun.com/document_detail/434638.html) of the EMAS Mobile Push product before using this API.**
+   * This API differentiates between Android, iOS, and HarmonyOS platforms. For push calls on different platforms, you need to pass the corresponding platform\\"s AppKey.
    * 
    * @param tmpReq - PushRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1317,11 +1317,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * This advanced push API sends notifications or messages to various devices. It provides a rich set of custom parameters to implement push behaviors for various scenarios.
+   * Advanced Push API that pushes notifications or messages to different device endpoints. This API provides rich push customization parameters to implement push behavior in different scenarios.
    * 
    * @remarks
-   * *Before you use this API, make sure you understand the [billing methods and pricing](https://help.aliyun.com/document_detail/434638.html) of EMAS Mobile Push.**
-   * This API supports pushes to Android, iOS, and HarmonyOS devices. For each platform, you must provide the corresponding AppKey.
+   * *Please ensure that you have fully understood the [billing methods and pricing](https://help.aliyun.com/document_detail/434638.html) of the EMAS Mobile Push product before using this API.**
+   * This API differentiates between Android, iOS, and HarmonyOS platforms. For push calls on different platforms, you need to pass the corresponding platform\\"s AppKey.
    * 
    * @param request - PushRequest
    * @returns PushResponse
@@ -1640,11 +1640,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * This is the advanced push API v2.
+   * Sends a push notification by using the advanced push API V2.
    * 
    * @remarks
-   * *Before using this API, review the [pricing and billing methods](https://help.aliyun.com/document_detail/434638.html) for EMAS Mobile Push.**
-   * This API supports Android, iOS, and HarmonyOS. For each platform, pass its assigned AppKey.
+   * *Before you use this operation, make sure that you fully understand the [billing rules and pricing](https://help.aliyun.com/document_detail/434638.html) of EMAS mobile push.**
+   * This operation differentiates between the Android, iOS, and HarmonyOS platforms. To send push notifications to different platforms, pass in the AppKey that corresponds to the target platform.
    * 
    * @param tmpReq - PushV2Request
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1689,11 +1689,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * This is the advanced push API v2.
+   * Sends a push notification by using the advanced push API V2.
    * 
    * @remarks
-   * *Before using this API, review the [pricing and billing methods](https://help.aliyun.com/document_detail/434638.html) for EMAS Mobile Push.**
-   * This API supports Android, iOS, and HarmonyOS. For each platform, pass its assigned AppKey.
+   * *Before you use this operation, make sure that you fully understand the [billing rules and pricing](https://help.aliyun.com/document_detail/434638.html) of EMAS mobile push.**
+   * This operation differentiates between the Android, iOS, and HarmonyOS platforms. To send push notifications to different platforms, pass in the AppKey that corresponds to the target platform.
    * 
    * @param request - PushV2Request
    * @returns PushV2Response
