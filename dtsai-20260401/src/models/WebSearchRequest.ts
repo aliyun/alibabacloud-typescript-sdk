@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class WebSearchRequest extends $dara.Model {
+  agentName?: string;
   /**
    * @remarks
    * The maximum number of results to return. Default value: 10. Valid values: 1 to 50.
@@ -31,10 +32,19 @@ export class WebSearchRequest extends $dara.Model {
    * cn-beijing
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The list of domain names.
+   */
   urlScopeDomains?: string;
+  /**
+   * @remarks
+   * The URL scope mode.
+   */
   urlScopeMode?: string;
   static names(): { [key: string]: string } {
     return {
+      agentName: 'AgentName',
       maxResults: 'MaxResults',
       query: 'Query',
       regionId: 'RegionId',
@@ -45,6 +55,7 @@ export class WebSearchRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      agentName: 'string',
       maxResults: 'number',
       query: 'string',
       regionId: 'string',

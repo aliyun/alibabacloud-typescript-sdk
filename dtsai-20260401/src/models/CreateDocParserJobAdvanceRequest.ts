@@ -4,6 +4,11 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateDocParserJobAdvanceRequest extends $dara.Model {
+  agentName?: string;
+  asrLanguage?: string;
+  audioClipOutput?: boolean;
+  audioWindowSeconds?: number;
+  chunkSummary?: boolean;
   /**
    * @remarks
    * The format of the input file. Valid values:
@@ -56,7 +61,15 @@ export class CreateDocParserJobAdvanceRequest extends $dara.Model {
    * https://xxx.oss-cn-beijing.aliyuncs.com/document.pdf?Expires=xxx&OSSAccessKeyId=xxx&Signature=xxx
    */
   fileUrlObject?: Readable;
+  frameOutput?: boolean;
+  globalSummary?: boolean;
   imageMode?: string;
+  imageUnderstanding?: string;
+  mediaChunkIntervalSeconds?: number;
+  mediaChunkStrategy?: string;
+  mediaFramesPerMinute?: number;
+  mediaMaxFrameBudget?: number;
+  mediaMinFrameBudget?: number;
   /**
    * @remarks
    * The OSS file URL.
@@ -74,6 +87,7 @@ export class CreateDocParserJobAdvanceRequest extends $dara.Model {
    * markdown
    */
   outputFormat?: string;
+  parseScene?: string;
   /**
    * @remarks
    * The region ID.
@@ -84,17 +98,33 @@ export class CreateDocParserJobAdvanceRequest extends $dara.Model {
    * cn-beijing
    */
   regionId?: string;
+  responseMode?: string;
   resultType?: string;
   tableFormat?: string;
   static names(): { [key: string]: string } {
     return {
+      agentName: 'AgentName',
+      asrLanguage: 'AsrLanguage',
+      audioClipOutput: 'AudioClipOutput',
+      audioWindowSeconds: 'AudioWindowSeconds',
+      chunkSummary: 'ChunkSummary',
       fileFormat: 'FileFormat',
       fileName: 'FileName',
       fileUrlObject: 'FileUrl',
+      frameOutput: 'FrameOutput',
+      globalSummary: 'GlobalSummary',
       imageMode: 'ImageMode',
+      imageUnderstanding: 'ImageUnderstanding',
+      mediaChunkIntervalSeconds: 'MediaChunkIntervalSeconds',
+      mediaChunkStrategy: 'MediaChunkStrategy',
+      mediaFramesPerMinute: 'MediaFramesPerMinute',
+      mediaMaxFrameBudget: 'MediaMaxFrameBudget',
+      mediaMinFrameBudget: 'MediaMinFrameBudget',
       ossFileUrl: 'OssFileUrl',
       outputFormat: 'OutputFormat',
+      parseScene: 'ParseScene',
       regionId: 'RegionId',
+      responseMode: 'ResponseMode',
       resultType: 'ResultType',
       tableFormat: 'TableFormat',
     };
@@ -102,13 +132,28 @@ export class CreateDocParserJobAdvanceRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      agentName: 'string',
+      asrLanguage: 'string',
+      audioClipOutput: 'boolean',
+      audioWindowSeconds: 'number',
+      chunkSummary: 'boolean',
       fileFormat: 'string',
       fileName: 'string',
       fileUrlObject: 'Readable',
+      frameOutput: 'boolean',
+      globalSummary: 'boolean',
       imageMode: 'string',
+      imageUnderstanding: 'string',
+      mediaChunkIntervalSeconds: 'number',
+      mediaChunkStrategy: 'string',
+      mediaFramesPerMinute: 'number',
+      mediaMaxFrameBudget: 'number',
+      mediaMinFrameBudget: 'number',
       ossFileUrl: 'string',
       outputFormat: 'string',
+      parseScene: 'string',
       regionId: 'string',
+      responseMode: 'string',
       resultType: 'string',
       tableFormat: 'string',
     };

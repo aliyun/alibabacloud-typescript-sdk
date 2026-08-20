@@ -43,6 +43,10 @@ export class CreateDocParserJobResponseBody extends $dara.Model {
    * A30D0930-xxxx-xxxx-xxxx-C2C661CC8B58
    */
   requestId?: string;
+  result?: string;
+  resultType?: string;
+  resultUrl?: string;
+  status?: string;
   /**
    * @remarks
    * Indicates whether the request was successful.
@@ -58,6 +62,10 @@ export class CreateDocParserJobResponseBody extends $dara.Model {
       httpStatusCode: 'HttpStatusCode',
       jobId: 'JobId',
       requestId: 'RequestId',
+      result: 'Result',
+      resultType: 'ResultType',
+      resultUrl: 'ResultUrl',
+      status: 'Status',
       success: 'Success',
     };
   }
@@ -69,6 +77,10 @@ export class CreateDocParserJobResponseBody extends $dara.Model {
       httpStatusCode: 'number',
       jobId: 'string',
       requestId: 'string',
+      result: 'string',
+      resultType: 'string',
+      resultUrl: 'string',
+      status: 'string',
       success: 'boolean',
     };
   }

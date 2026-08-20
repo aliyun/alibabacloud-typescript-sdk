@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class WebFetchRequest extends $dara.Model {
+  agentName?: string;
   /**
    * @remarks
    * The output format. Valid values:
@@ -39,6 +40,7 @@ export class WebFetchRequest extends $dara.Model {
   url?: string;
   static names(): { [key: string]: string } {
     return {
+      agentName: 'AgentName',
       outputFormat: 'OutputFormat',
       regionId: 'RegionId',
       url: 'Url',
@@ -47,6 +49,7 @@ export class WebFetchRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      agentName: 'string',
       outputFormat: 'string',
       regionId: 'string',
       url: 'string',

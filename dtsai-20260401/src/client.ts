@@ -130,6 +130,26 @@ export default class Client extends OpenApi {
   async createDocParserJobWithOptions(request: $_model.CreateDocParserJobRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateDocParserJobResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.agentName)) {
+      query["AgentName"] = request.agentName;
+    }
+
+    if (!$dara.isNull(request.asrLanguage)) {
+      query["AsrLanguage"] = request.asrLanguage;
+    }
+
+    if (!$dara.isNull(request.audioClipOutput)) {
+      query["AudioClipOutput"] = request.audioClipOutput;
+    }
+
+    if (!$dara.isNull(request.audioWindowSeconds)) {
+      query["AudioWindowSeconds"] = request.audioWindowSeconds;
+    }
+
+    if (!$dara.isNull(request.chunkSummary)) {
+      query["ChunkSummary"] = request.chunkSummary;
+    }
+
     if (!$dara.isNull(request.fileFormat)) {
       query["FileFormat"] = request.fileFormat;
     }
@@ -142,8 +162,40 @@ export default class Client extends OpenApi {
       query["FileUrl"] = request.fileUrl;
     }
 
+    if (!$dara.isNull(request.frameOutput)) {
+      query["FrameOutput"] = request.frameOutput;
+    }
+
+    if (!$dara.isNull(request.globalSummary)) {
+      query["GlobalSummary"] = request.globalSummary;
+    }
+
     if (!$dara.isNull(request.imageMode)) {
       query["ImageMode"] = request.imageMode;
+    }
+
+    if (!$dara.isNull(request.imageUnderstanding)) {
+      query["ImageUnderstanding"] = request.imageUnderstanding;
+    }
+
+    if (!$dara.isNull(request.mediaChunkIntervalSeconds)) {
+      query["MediaChunkIntervalSeconds"] = request.mediaChunkIntervalSeconds;
+    }
+
+    if (!$dara.isNull(request.mediaChunkStrategy)) {
+      query["MediaChunkStrategy"] = request.mediaChunkStrategy;
+    }
+
+    if (!$dara.isNull(request.mediaFramesPerMinute)) {
+      query["MediaFramesPerMinute"] = request.mediaFramesPerMinute;
+    }
+
+    if (!$dara.isNull(request.mediaMaxFrameBudget)) {
+      query["MediaMaxFrameBudget"] = request.mediaMaxFrameBudget;
+    }
+
+    if (!$dara.isNull(request.mediaMinFrameBudget)) {
+      query["MediaMinFrameBudget"] = request.mediaMinFrameBudget;
     }
 
     if (!$dara.isNull(request.ossFileUrl)) {
@@ -154,8 +206,16 @@ export default class Client extends OpenApi {
       query["OutputFormat"] = request.outputFormat;
     }
 
+    if (!$dara.isNull(request.parseScene)) {
+      query["ParseScene"] = request.parseScene;
+    }
+
     if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.responseMode)) {
+      query["ResponseMode"] = request.responseMode;
     }
 
     if (!$dara.isNull(request.resultType)) {
@@ -299,12 +359,20 @@ export default class Client extends OpenApi {
   async describeDocParserJobResultWithOptions(request: $_model.DescribeDocParserJobResultRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeDocParserJobResultResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.agentName)) {
+      query["AgentName"] = request.agentName;
+    }
+
     if (!$dara.isNull(request.jobId)) {
       query["JobId"] = request.jobId;
     }
 
     if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resultType)) {
+      query["ResultType"] = request.resultType;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -354,6 +422,10 @@ export default class Client extends OpenApi {
   async describeDocParserJobStatusWithOptions(request: $_model.DescribeDocParserJobStatusRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeDocParserJobStatusResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.agentName)) {
+      query["AgentName"] = request.agentName;
+    }
+
     if (!$dara.isNull(request.jobId)) {
       query["JobId"] = request.jobId;
     }
@@ -408,6 +480,10 @@ export default class Client extends OpenApi {
   async webFetchWithOptions(request: $_model.WebFetchRequest, runtime: $dara.RuntimeOptions): Promise<$_model.WebFetchResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.agentName)) {
+      query["AgentName"] = request.agentName;
+    }
+
     if (!$dara.isNull(request.outputFormat)) {
       query["OutputFormat"] = request.outputFormat;
     }
@@ -457,7 +533,7 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * - Region: Only China (Beijing) and Singapore regions are supported.
-   * - Fees: Free of charge during the public preview. No fees are charged.
+   * - Fees: Free during the public preview period. No fees are charged.
    * 
    * @param request - WebSearchRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -466,6 +542,10 @@ export default class Client extends OpenApi {
   async webSearchWithOptions(request: $_model.WebSearchRequest, runtime: $dara.RuntimeOptions): Promise<$_model.WebSearchResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.agentName)) {
+      query["AgentName"] = request.agentName;
+    }
+
     if (!$dara.isNull(request.maxResults)) {
       query["MaxResults"] = request.maxResults;
     }
@@ -508,7 +588,7 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * - Region: Only China (Beijing) and Singapore regions are supported.
-   * - Fees: Free of charge during the public preview. No fees are charged.
+   * - Fees: Free during the public preview period. No fees are charged.
    * 
    * @param request - WebSearchRequest
    * @returns WebSearchResponse

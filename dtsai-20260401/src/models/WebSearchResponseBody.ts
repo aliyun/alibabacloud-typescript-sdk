@@ -7,7 +7,7 @@ import * as $dara from '@darabonba/typescript';
 export class WebSearchResponseBodySearchResult extends $dara.Model {
   /**
    * @remarks
-   * The summary of the web page content.
+   * The snippet of the web page content.
    * 
    * @example
    * Spring Boot makes it easy to create stand-alone, production-grade Spring based Applications.
@@ -97,7 +97,7 @@ export class WebSearchResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The search result list.
+   * The list of search results.
    */
   searchResult?: WebSearchResponseBodySearchResult[];
   /**
