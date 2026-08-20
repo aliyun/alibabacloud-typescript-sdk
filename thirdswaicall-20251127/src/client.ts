@@ -43,12 +43,20 @@ export default class Client extends OpenApi {
       body["CalledNumber"] = request.calledNumber;
     }
 
+    if (!$dara.isNull(request.callerNumber)) {
+      body["CallerNumber"] = request.callerNumber;
+    }
+
     if (!$dara.isNull(request.callerUacAccountId)) {
       body["CallerUacAccountId"] = request.callerUacAccountId;
     }
 
     if (!$dara.isNull(request.currentWorkspaceId)) {
       body["CurrentWorkspaceId"] = request.currentWorkspaceId;
+    }
+
+    if (!$dara.isNull(request.customerLineCode)) {
+      body["CustomerLineCode"] = request.customerLineCode;
     }
 
     if (!$dara.isNull(request.customerName)) {
