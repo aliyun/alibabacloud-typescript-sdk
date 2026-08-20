@@ -13,21 +13,21 @@ export default class Client extends OpenApi {
     super(config);
     this._endpointRule = "regional";
     this._endpointMap = {
+      'cn-shenzhen': "paimodelgallery.cn-shenzhen.aliyuncs.com",
+      'cn-wulanchabu': "paimodelgallery.cn-wulanchabu.aliyuncs.com",
+      'cn-beijing': "paimodelgallery.cn-beijing.aliyuncs.com",
+      'ap-northeast-2': "paimodelgallery.ap-northeast-2.aliyuncs.com",
+      'ap-northeast-1': "paimodelgallery.ap-northeast-1.aliyuncs.com",
+      'cn-shanghai': "paimodelgallery.cn-shanghai.aliyuncs.com",
+      'cn-guangzhou': "paimodelgallery.cn-guangzhou.aliyuncs.com",
+      'cn-hongkong': "paimodelgallery.cn-hongkong.aliyuncs.com",
+      'ap-southeast-1': "paimodelgallery.ap-southeast-1.aliyuncs.com",
+      'ap-southeast-3': "paimodelgallery.ap-southeast-3.aliyuncs.com",
+      'ap-southeast-5': "paimodelgallery.ap-southeast-5.aliyuncs.com",
+      'cn-hangzhou': "paimodelgallery.cn-hangzhou.aliyuncs.com",
       'us-west-1': "paimodelgallery.us-west-1.aliyuncs.com",
       'us-east-1': "paimodelgallery.us-east-1.aliyuncs.com",
       'eu-central-1': "paimodelgallery.eu-central-1.aliyuncs.com",
-      'cn-wulanchabu': "paimodelgallery.cn-wulanchabu.aliyuncs.com",
-      'cn-shenzhen': "paimodelgallery.cn-shenzhen.aliyuncs.com",
-      'cn-shanghai': "paimodelgallery.cn-shanghai.aliyuncs.com",
-      'cn-hongkong': "paimodelgallery.cn-hongkong.aliyuncs.com",
-      'cn-hangzhou': "paimodelgallery.cn-hangzhou.aliyuncs.com",
-      'cn-guangzhou': "paimodelgallery.cn-guangzhou.aliyuncs.com",
-      'cn-beijing': "paimodelgallery.cn-beijing.aliyuncs.com",
-      'ap-southeast-5': "paimodelgallery.ap-southeast-5.aliyuncs.com",
-      'ap-southeast-3': "paimodelgallery.ap-southeast-3.aliyuncs.com",
-      'ap-southeast-1': "paimodelgallery.ap-southeast-1.aliyuncs.com",
-      'ap-northeast-2': "paimodelgallery.ap-northeast-2.aliyuncs.com",
-      'ap-northeast-1': "paimodelgallery.ap-northeast-1.aliyuncs.com",
     };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("paimodelgallery", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -44,6 +44,173 @@ export default class Client extends OpenApi {
     }
 
     return OpenApiUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+  }
+
+  /**
+   * 获取模型部署方案匹配资源
+   * 
+   * @param request - GetModelDeploymentResourcesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetModelDeploymentResourcesResponse
+   */
+  async getModelDeploymentResourcesWithOptions(ModelId: string, request: $_model.GetModelDeploymentResourcesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetModelDeploymentResourcesResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.bizKey)) {
+      query["BizKey"] = request.bizKey;
+    }
+
+    if (!$dara.isNull(request.modelVersion)) {
+      query["ModelVersion"] = request.modelVersion;
+    }
+
+    if (!$dara.isNull(request.profileId)) {
+      query["ProfileId"] = request.profileId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetModelDeploymentResources",
+      version: "2026-06-03",
+      protocol: "HTTPS",
+      pathname: `/api/v2/modelgallery/models/${$dara.URL.percentEncode(ModelId)}/deployment-resources`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetModelDeploymentResourcesResponse>(await this.callApi(params, req, runtime), new $_model.GetModelDeploymentResourcesResponse({}));
+  }
+
+  /**
+   * 获取模型部署方案匹配资源
+   * 
+   * @param request - GetModelDeploymentResourcesRequest
+   * @returns GetModelDeploymentResourcesResponse
+   */
+  async getModelDeploymentResources(ModelId: string, request: $_model.GetModelDeploymentResourcesRequest): Promise<$_model.GetModelDeploymentResourcesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getModelDeploymentResourcesWithOptions(ModelId, request, headers, runtime);
+  }
+
+  /**
+   * 生成模型部署配置
+   * 
+   * @param request - GetModelDeploymentSpecRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetModelDeploymentSpecResponse
+   */
+  async getModelDeploymentSpecWithOptions(ModelId: string, request: $_model.GetModelDeploymentSpecRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetModelDeploymentSpecResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.bizKey)) {
+      query["BizKey"] = request.bizKey;
+    }
+
+    if (!$dara.isNull(request.modelVersion)) {
+      query["ModelVersion"] = request.modelVersion;
+    }
+
+    if (!$dara.isNull(request.profileId)) {
+      query["ProfileId"] = request.profileId;
+    }
+
+    if (!$dara.isNull(request.resourceSelections)) {
+      query["ResourceSelections"] = request.resourceSelections;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetModelDeploymentSpec",
+      version: "2026-06-03",
+      protocol: "HTTPS",
+      pathname: `/api/v2/modelgallery/models/${$dara.URL.percentEncode(ModelId)}/deployment-spec`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetModelDeploymentSpecResponse>(await this.callApi(params, req, runtime), new $_model.GetModelDeploymentSpecResponse({}));
+  }
+
+  /**
+   * 生成模型部署配置
+   * 
+   * @param request - GetModelDeploymentSpecRequest
+   * @returns GetModelDeploymentSpecResponse
+   */
+  async getModelDeploymentSpec(ModelId: string, request: $_model.GetModelDeploymentSpecRequest): Promise<$_model.GetModelDeploymentSpecResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getModelDeploymentSpecWithOptions(ModelId, request, headers, runtime);
+  }
+
+  /**
+   * 获取模型部署方案列表
+   * 
+   * @param request - ListModelDeploymentProfilesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListModelDeploymentProfilesResponse
+   */
+  async listModelDeploymentProfilesWithOptions(ModelId: string, request: $_model.ListModelDeploymentProfilesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListModelDeploymentProfilesResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.bizKey)) {
+      query["BizKey"] = request.bizKey;
+    }
+
+    if (!$dara.isNull(request.modelVersion)) {
+      query["ModelVersion"] = request.modelVersion;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListModelDeploymentProfiles",
+      version: "2026-06-03",
+      protocol: "HTTPS",
+      pathname: `/api/v2/modelgallery/models/${$dara.URL.percentEncode(ModelId)}/deployment-profiles`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListModelDeploymentProfilesResponse>(await this.callApi(params, req, runtime), new $_model.ListModelDeploymentProfilesResponse({}));
+  }
+
+  /**
+   * 获取模型部署方案列表
+   * 
+   * @param request - ListModelDeploymentProfilesRequest
+   * @returns ListModelDeploymentProfilesResponse
+   */
+  async listModelDeploymentProfiles(ModelId: string, request: $_model.ListModelDeploymentProfilesRequest): Promise<$_model.ListModelDeploymentProfilesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listModelDeploymentProfilesWithOptions(ModelId, request, headers, runtime);
   }
 
   /**
