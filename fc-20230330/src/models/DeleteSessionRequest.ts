@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteSessionRequest extends $dara.Model {
   /**
    * @remarks
-   * The function alias or version associated with the session to be deleted.
+   * The function alias or version associated with the session ID to delete.
    * 
    * @example
    * aliasName1

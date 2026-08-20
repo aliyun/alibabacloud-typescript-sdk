@@ -37,7 +37,7 @@ export class ListSessionsRequest extends $dara.Model {
   sessionId?: string;
   /**
    * @remarks
-   * The session status to filter by. By default, all session information in Active or Expired status is returned. Set this parameter to Active to retrieve only active session information, or to Expired to retrieve only expired session information.
+   * The session status to filter by. By default, all session information in Active or Expired status is returned. You can specify Active to retrieve only active session information, or specify Expired to retrieve only expired session information.
    * 
    * @example
    * Active

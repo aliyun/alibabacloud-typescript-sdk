@@ -4,9 +4,15 @@ import { Snapshot } from "./Snapshot";
 
 
 export class ListSnapshotsOutput extends $dara.Model {
+  /**
+   * @remarks
+   * The token used to retrieve the next page of results. This parameter is not returned if no more results are available.
+   */
   nextToken?: string;
   /**
    * @remarks
+   * The list of snapshots.
+   * 
    * This parameter is required.
    */
   snapshots?: Snapshot[];

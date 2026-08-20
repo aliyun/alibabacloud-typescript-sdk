@@ -6,7 +6,7 @@ import { CreateSessionInput } from "./CreateSessionInput";
 export class CreateSessionRequest extends $dara.Model {
   /**
    * @remarks
-   * The session configuration.
+   * The session configuration for creating the session.
    */
   body?: CreateSessionInput;
   /**

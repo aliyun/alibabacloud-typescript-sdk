@@ -3,9 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class PauseSessionRequest extends $dara.Model {
+  fileSystemOnly?: string;
   /**
    * @remarks
-   * The alias or version of the function associated with the session to save.
+   * The function alias or version associated with the session ID to save.
    * 
    * @example
    * aliasName1
@@ -13,12 +14,14 @@ export class PauseSessionRequest extends $dara.Model {
   qualifier?: string;
   static names(): { [key: string]: string } {
     return {
+      fileSystemOnly: 'fileSystemOnly',
       qualifier: 'qualifier',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      fileSystemOnly: 'string',
       qualifier: 'string',
     };
   }

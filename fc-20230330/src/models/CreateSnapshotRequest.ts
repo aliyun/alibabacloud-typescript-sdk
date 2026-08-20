@@ -4,8 +4,15 @@ import { CreateSnapshotInput } from "./CreateSnapshotInput";
 
 
 export class CreateSnapshotRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The request body for creating a snapshot.
+   */
   body?: CreateSnapshotInput;
   /**
+   * @remarks
+   * The function alias.
+   * 
    * @example
    * alias
    */
