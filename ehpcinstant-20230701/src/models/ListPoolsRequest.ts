@@ -6,11 +6,17 @@ export class ListPoolsRequestFilter extends $dara.Model {
   /**
    * @remarks
    * The list of resource pool names to query.
+   * 
+   * @example
+   * ["MyPool"]
    */
   poolName?: string[];
   /**
    * @remarks
    * The list of resource pool statuses to query.
+   * 
+   * @example
+   * ["Working"]
    */
   status?: string[];
   /**

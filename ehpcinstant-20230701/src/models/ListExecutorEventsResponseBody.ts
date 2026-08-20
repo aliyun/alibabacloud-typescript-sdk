@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListExecutorEventsResponseBodyExecutorEventList extends $dara.Model {
   /**
    * @remarks
-   * The content of the running event.
+   * The content of the runtime event.
    * 
    * @example
    * Executor created successfully
@@ -13,7 +13,7 @@ export class ListExecutorEventsResponseBodyExecutorEventList extends $dara.Model
   content?: string;
   /**
    * @remarks
-   * The ID of the executor. The format is JobId-TaskName-ArrayIndex.
+   * The Executor ID. Format: JobId-TaskName-ArrayIndex.
    * 
    * @example
    * job-xxxx-Task0-1
@@ -29,11 +29,10 @@ export class ListExecutorEventsResponseBodyExecutorEventList extends $dara.Model
   jobId?: string;
   /**
    * @remarks
-   * The level of the running event. Valid values:
-   * 
-   * *   Normal
-   * *   Warning
-   * *   Error
+   * The runtime event level. Valid values:
+   * - Normal
+   * - Warning
+   * - Error
    * 
    * @example
    * Normal
@@ -41,7 +40,7 @@ export class ListExecutorEventsResponseBodyExecutorEventList extends $dara.Model
   level?: string;
   /**
    * @remarks
-   * The event of the running event.
+   * The time when the runtime event occurred.
    * 
    * @example
    * 2024-02-20 10:04:13
@@ -79,12 +78,12 @@ export class ListExecutorEventsResponseBodyExecutorEventList extends $dara.Model
 export class ListExecutorEventsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of the running event.
+   * The list of runtime events.
    */
   executorEventList?: ListExecutorEventsResponseBodyExecutorEventList[];
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number.
    * 
    * @example
    * 1
@@ -92,7 +91,7 @@ export class ListExecutorEventsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries per page for paging.
    * 
    * @example
    * 50
@@ -108,7 +107,7 @@ export class ListExecutorEventsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 40

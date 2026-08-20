@@ -5,14 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class ListExecutorEventsShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * Queries the Executor filter conditions.
+   * The filter conditions for querying Executors.
    */
   filterShrink?: string;
   /**
    * @remarks
-   * The current page number.\\
-   * Starting value: 1\\
-   * Default value: 1
+   * The page number.    
+   * Minimum value: 1.    
+   * Default value: 1.
    * 
    * @example
    * 1
@@ -20,7 +20,7 @@ export class ListExecutorEventsShrinkRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries on the current page. Default value: 50. Maximum value: 100.
+   * The number of entries per page for paging. Default value: 50. Maximum value: 100.
    * 
    * @example
    * 50

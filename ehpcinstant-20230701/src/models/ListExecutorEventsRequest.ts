@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListExecutorEventsRequestFilter extends $dara.Model {
   /**
    * @remarks
-   * The list of executor IDs. A maximum of 100 IDs are supported.
+   * The list of Executor IDs. A maximum of 100 entries are supported.
    */
   executorIds?: string[];
   /**
@@ -18,11 +18,10 @@ export class ListExecutorEventsRequestFilter extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * The level of the running event. Valid value:
-   * 
-   * *   Normal
-   * *   Warning
-   * *   Error
+   * The runtime event level. Valid values:
+   * - Normal
+   * - Warning
+   * - Error
    * 
    * @example
    * Normal
@@ -30,7 +29,7 @@ export class ListExecutorEventsRequestFilter extends $dara.Model {
   level?: string;
   /**
    * @remarks
-   * For jobs submitted after this time, the time in the region is converted into a Unix timestamp (UI8 regionfor Aliyun sites).
+   * Events that occurred after this time. The value is a UNIX timestamp converted from the local time of the region (UTC+8 for Chinese mainland regions).
    * 
    * @example
    * 1703820113
@@ -38,7 +37,7 @@ export class ListExecutorEventsRequestFilter extends $dara.Model {
   timeAfter?: number;
   /**
    * @remarks
-   * For jobs submitted before this time, the time in the region is converted into a Unix timestamp (UI8 regionfor Aliyun sites).
+   * Events that occurred before this time. The value is a UNIX timestamp converted from the local time of the region (UTC+8 for Chinese mainland regions).
    * 
    * @example
    * 1703819914
@@ -79,14 +78,14 @@ export class ListExecutorEventsRequestFilter extends $dara.Model {
 export class ListExecutorEventsRequest extends $dara.Model {
   /**
    * @remarks
-   * Queries the Executor filter conditions.
+   * The filter conditions for querying Executors.
    */
   filter?: ListExecutorEventsRequestFilter;
   /**
    * @remarks
-   * The current page number.\\
-   * Starting value: 1\\
-   * Default value: 1
+   * The page number.    
+   * Minimum value: 1.    
+   * Default value: 1.
    * 
    * @example
    * 1
@@ -94,7 +93,7 @@ export class ListExecutorEventsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries on the current page. Default value: 50. Maximum value: 100.
+   * The number of entries per page for paging. Default value: 50. Maximum value: 100.
    * 
    * @example
    * 50

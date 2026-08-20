@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreatePoolShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The resource pool name.
+   * The name of the resource pool.
    * - The name can be up to 15 characters in length.
    * - The name can contain digits, uppercase letters, lowercase letters, underscores (_), and periods (.).
    * 
@@ -20,7 +20,7 @@ export class CreatePoolShrinkRequest extends $dara.Model {
    * The priority of the resource pool.
    * 
    * - Valid values: 1 to 99. Default value: 1, which indicates the lowest priority.
-   * - Jobs submitted to a resource pool with a higher priority value are scheduled before pending jobs in a resource pool with a lower priority value. The priority of a resource pool takes precedence over the priority of a job.
+   * - Jobs submitted to a resource pool with a higher priority value are scheduled before pending jobs in resource pools with lower priority values. The priority of a resource pool takes precedence over the priority of a job.
    * 
    * @example
    * 1
@@ -39,12 +39,18 @@ export class CreatePoolShrinkRequest extends $dara.Model {
    * policy-xxx
    */
   schedulingPolicyId?: string;
+  /**
+   * @remarks
+   * The tag information.
+   */
+  tagsShrink?: string;
   static names(): { [key: string]: string } {
     return {
       poolName: 'PoolName',
       priority: 'Priority',
       resourceLimitsShrink: 'ResourceLimits',
       schedulingPolicyId: 'SchedulingPolicyId',
+      tagsShrink: 'Tags',
     };
   }
 
@@ -54,6 +60,7 @@ export class CreatePoolShrinkRequest extends $dara.Model {
       priority: 'number',
       resourceLimitsShrink: 'string',
       schedulingPolicyId: 'string',
+      tagsShrink: 'string',
     };
   }
 

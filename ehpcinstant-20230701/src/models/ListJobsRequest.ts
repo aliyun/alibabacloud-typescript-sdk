@@ -60,6 +60,11 @@ export class ListJobsRequestFilter extends $dara.Model {
    */
   jobTemplateId?: string;
   /**
+   * @example
+   * MyPool
+   */
+  poolName?: string;
+  /**
    * @remarks
    * The status of the job. Valid values:
    * 
@@ -112,6 +117,7 @@ export class ListJobsRequestFilter extends $dara.Model {
       jobIds: 'JobIds',
       jobName: 'JobName',
       jobTemplateId: 'JobTemplateId',
+      poolName: 'PoolName',
       status: 'Status',
       tag: 'Tag',
       timeCreatedAfter: 'TimeCreatedAfter',
@@ -125,6 +131,7 @@ export class ListJobsRequestFilter extends $dara.Model {
       jobIds: { 'type': 'array', 'itemType': 'string' },
       jobName: 'string',
       jobTemplateId: 'string',
+      poolName: 'string',
       status: 'string',
       tag: { 'type': 'array', 'itemType': ListJobsRequestFilterTag },
       timeCreatedAfter: 'number',

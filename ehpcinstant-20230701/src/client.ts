@@ -319,6 +319,10 @@ export default class Client extends OpenApi {
       request.resourceLimitsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.resourceLimits, "ResourceLimits", "json");
     }
 
+    if (!$dara.isNull(tmpReq.tags)) {
+      request.tagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tags, "Tags", "json");
+    }
+
     let query = { };
     if (!$dara.isNull(request.poolName)) {
       query["PoolName"] = request.poolName;
@@ -334,6 +338,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.schedulingPolicyId)) {
       query["SchedulingPolicyId"] = request.schedulingPolicyId;
+    }
+
+    if (!$dara.isNull(request.tagsShrink)) {
+      query["Tags"] = request.tagsShrink;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -415,7 +423,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes one or more job records that are in the final state from a specified cluster.
+   * Deletes one or more job records in the desired state from a specified cluster.
    * 
    * @param tmpReq - DeleteJobRecordsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -452,7 +460,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes one or more job records that are in the final state from a specified cluster.
+   * Deletes one or more job records in the desired state from a specified cluster.
    * 
    * @param request - DeleteJobRecordsRequest
    * @returns DeleteJobRecordsResponse
@@ -523,7 +531,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can execute this statement to delete a resource pool.
+   * Deletes a resource pool.
    * 
    * @param request - DeletePoolRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -554,7 +562,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can execute this statement to delete a resource pool.
+   * Deletes a resource pool.
    * 
    * @param request - DeletePoolRequest
    * @returns DeletePoolResponse
@@ -681,7 +689,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the logs for a job.
+   * Queries job logs.
    * 
    * @param request - DescribeJobResultsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -732,7 +740,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the logs for a job.
+   * Queries job logs.
    * 
    * @param request - DescribeJobResultsRequest
    * @returns DescribeJobResultsResponse
@@ -903,7 +911,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of an execution job.
+   * Retrieves the details of a job.
    * 
    * @param request - GetJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -934,7 +942,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of an execution job.
+   * Retrieves the details of a job.
    * 
    * @param request - GetJobRequest
    * @returns GetJobResponse
@@ -980,7 +988,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a specified resource pool.
+   * Retrieves the details of a resource pool.
    * 
    * @param request - GetPoolRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1011,7 +1019,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a specified resource pool.
+   * Retrieves the details of a resource pool.
    * 
    * @param request - GetPoolRequest
    * @returns GetPoolResponse
@@ -1128,10 +1136,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the running event list of one or more executers.
+   * Queries the runtime event list of one or more Executors.
    * 
    * @remarks
-   * Queries job executor information.
+   * Queries the Executor information of a job.
    * 
    * @param tmpReq - ListExecutorEventsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1176,10 +1184,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the running event list of one or more executers.
+   * Queries the runtime event list of one or more Executors.
    * 
    * @remarks
-   * Queries job executor information.
+   * Queries the Executor information of a job.
    * 
    * @param request - ListExecutorEventsRequest
    * @returns ListExecutorEventsResponse
@@ -1322,10 +1330,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves information about job executors.
+   * Queries the executor information of a job.
    * 
    * @remarks
-   * Retrieves information about job executors.
+   * Queries the executor information of a job.
    * 
    * @param request - ListJobExecutorsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1368,10 +1376,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves information about job executors.
+   * Queries the executor information of a job.
    * 
    * @remarks
-   * Retrieves information about job executors.
+   * Queries the executor information of a job.
    * 
    * @param request - ListJobExecutorsRequest
    * @returns ListJobExecutorsResponse
@@ -1708,7 +1716,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Unbind tags from Instant resource list. If the tag is not bound to other resources, the tag is automatically deleted.
+   * Unbinds tags from a list of Instant resources in a unified manner. After a tag is unbound, if it is not bound to any other resources, the tag is automatically deleted.
    * 
    * @param request - UnTagResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1751,7 +1759,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Unbind tags from Instant resource list. If the tag is not bound to other resources, the tag is automatically deleted.
+   * Unbinds tags from a list of Instant resources in a unified manner. After a tag is unbound, if it is not bound to any other resources, the tag is automatically deleted.
    * 
    * @param request - UnTagResourcesRequest
    * @returns UnTagResourcesResponse

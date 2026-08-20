@@ -35,6 +35,11 @@ export class ListExecutorsRequestFilter extends $dara.Model {
    */
   jobTemplateId?: string;
   /**
+   * @example
+   * MyPool
+   */
+  poolName?: string;
+  /**
    * @remarks
    * A list of executor statuses.
    */
@@ -78,6 +83,7 @@ export class ListExecutorsRequestFilter extends $dara.Model {
       ipAddresses: 'IpAddresses',
       jobName: 'JobName',
       jobTemplateId: 'JobTemplateId',
+      poolName: 'PoolName',
       status: 'Status',
       timeCreatedAfter: 'TimeCreatedAfter',
       timeCreatedBefore: 'TimeCreatedBefore',
@@ -93,6 +99,7 @@ export class ListExecutorsRequestFilter extends $dara.Model {
       ipAddresses: { 'type': 'array', 'itemType': 'string' },
       jobName: 'string',
       jobTemplateId: 'string',
+      poolName: 'string',
       status: { 'type': 'array', 'itemType': 'string' },
       timeCreatedAfter: 'number',
       timeCreatedBefore: 'number',

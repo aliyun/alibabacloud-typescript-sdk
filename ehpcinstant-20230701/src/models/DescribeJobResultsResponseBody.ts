@@ -8,8 +8,7 @@ export class DescribeJobResultsResponseBody extends $dara.Model {
    * The exit code of the command.
    * 
    * - For Linux instances, this is the exit code of the shell command.
-   * 
-   * - For Windows instances, this is the exit code of the batch or PowerShell command.
+   * - For Windows instances, this is the exit code of the Bat or PowerShell command.
    * 
    * @example
    * 0
@@ -17,7 +16,7 @@ export class DescribeJobResultsResponseBody extends $dara.Model {
   exitCode?: number;
   /**
    * @remarks
-   * The output of the command. If ContentEncoding is set to PlainText, the original output is returned. If ContentEncoding is set to Base64, the Base64-encoded output is returned.
+   * The output of the command execution. If ContentEncoding is set to PlainText, the original output is returned. If ContentEncoding is set to Base64, the Base64-encoded output is returned.
    * 
    * @example
    * MTU6MzA6MDEK
@@ -25,7 +24,7 @@ export class DescribeJobResultsResponseBody extends $dara.Model {
   output?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * Id of the request
    * 
    * @example
    * BABC742E-04D7-5BA5-8A5F-7D9461D37B19

@@ -161,7 +161,7 @@ export class GetJobResponseBodyJobInfoDeploymentPolicy extends $dara.Model {
    * @remarks
    * The computing power level. Valid values:
    * - General: general-purpose.
-   * - Performance: compute-optimized.
+   * - Performance: performance-optimized.
    * 
    * Default value: General.
    * 
@@ -175,10 +175,17 @@ export class GetJobResponseBodyJobInfoDeploymentPolicy extends $dara.Model {
    */
   network?: GetJobResponseBodyJobInfoDeploymentPolicyNetwork;
   /**
+   * @remarks
+   * The resource pool.
+   * 
    * @example
    * testpool
    */
   pool?: string;
+  /**
+   * @remarks
+   * The priority.
+   */
   priority?: number;
   /**
    * @remarks
@@ -616,7 +623,7 @@ export class GetJobResponseBodyJobInfoTasksTaskSpecTaskExecutorVM extends $dara.
   image?: string;
   /**
    * @remarks
-   * The preprocessing script. The script must be Base64-encoded.
+   * The pre-processing script. The script must be Base64-encoded.
    * 
    * @example
    * ZWNobyAiMTIzNCIgPiBgZGF0ZSArJXNg
@@ -792,7 +799,7 @@ export class GetJobResponseBodyJobInfoTasks extends $dara.Model {
   taskSpec?: GetJobResponseBodyJobInfoTasksTaskSpec;
   /**
    * @remarks
-   * Indicates whether the job is long-running.
+   * Indicates whether the job is a long-running job.
    * 
    * @example
    * true
@@ -905,17 +912,17 @@ export class GetJobResponseBodyJobInfo extends $dara.Model {
    * @remarks
    * The job status. Valid values:
    * 
-   * - Pending: the job is queued.
-   * - Initing: the job is being initialized.
-   * - Succeed: the job succeeded.
-   * - Failed: the job failed.
-   * - Running: the job is running.
-   * - Exception: a scheduling exception occurred.
-   * - Retrying: the job is being retried.
-   * - Expired: the job timed out.
-   * - Deleted: the job is deleted.
-   * - Suspended: the job is suspended.
-   * - Restarting: the job is being restarted.
+   * - Pending: The job is queued.
+   * - Initing: The job is being initialized.
+   * - Succeed: The job ran successfully.
+   * - Failed: The job failed.
+   * - Running: The job is running.
+   * - Exception: A scheduling exception occurred.
+   * - Retrying: The job is being retried.
+   * - Expired: The job timed out.
+   * - Deleted: The job has been deleted.
+   * - Suspended: The job is in hibernation.
+   * - Restarting: The job is being restarted.
    * 
    * @example
    * Succeeded

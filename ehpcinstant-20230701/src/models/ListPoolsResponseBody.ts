@@ -2,6 +2,40 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class ListPoolsResponseBodyPoolListTags extends $dara.Model {
+  /**
+   * @example
+   * TestKey
+   */
+  key?: string;
+  /**
+   * @example
+   * TestValue
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListPoolsResponseBodyPoolList extends $dara.Model {
   /**
    * @remarks
@@ -81,6 +115,7 @@ export class ListPoolsResponseBodyPoolList extends $dara.Model {
    * Working
    */
   status?: string;
+  tags?: ListPoolsResponseBodyPoolListTags[];
   /**
    * @remarks
    * The time when the resource pool was last updated.
@@ -98,6 +133,7 @@ export class ListPoolsResponseBodyPoolList extends $dara.Model {
       priority: 'Priority',
       schedulingPolicyId: 'SchedulingPolicyId',
       status: 'Status',
+      tags: 'Tags',
       updateTime: 'UpdateTime',
     };
   }
@@ -111,11 +147,15 @@ export class ListPoolsResponseBodyPoolList extends $dara.Model {
       priority: 'number',
       schedulingPolicyId: 'string',
       status: 'string',
+      tags: { 'type': 'array', 'itemType': ListPoolsResponseBodyPoolListTags },
       updateTime: 'string',
     };
   }
 
   validate() {
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
     super.validate();
   }
 

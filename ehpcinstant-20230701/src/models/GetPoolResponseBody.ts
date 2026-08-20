@@ -2,136 +2,34 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class GetPoolResponseBodyPoolInfo extends $dara.Model {
+export class GetPoolResponseBodyPoolInfoTags extends $dara.Model {
   /**
    * @remarks
-   * The time when the resource pool was created.
+   * The tag key.
    * 
    * @example
-   * 2024-12-01 20:00:00
+   * TestKey
    */
-  createTime?: string;
+  key?: string;
   /**
    * @remarks
-   * The number of executors that are in use in the resource pool.
+   * The tag value.
    * 
    * @example
-   * 100
+   * TestValue
    */
-  executorUsage?: number;
-  /**
-   * @remarks
-   * Indicates whether the resource pool is the default resource pool. Valid values:
-   * 
-   * - **true**
-   * 
-   * - **false**
-   * 
-   * @example
-   * true
-   */
-  isDefault?: boolean;
-  /**
-   * @remarks
-   * The maximum number of concurrent executors per user in the resource pool.
-   * 
-   * @example
-   * 100
-   */
-  maxExecutorNum?: number;
-  /**
-   * @remarks
-   * The name of the resource pool.
-   * 
-   * - The name can be up to 15 characters long.
-   * 
-   * - The name can contain letters, digits, underscores (_), and periods (.).
-   * 
-   * @example
-   * PoolTest
-   */
-  poolName?: string;
-  /**
-   * @remarks
-   * The priority of the resource pool.
-   * 
-   * - Valid values: 1 to 99. A larger value indicates a higher priority. Default value: 1.
-   * 
-   * - Jobs in a resource pool with a higher priority are scheduled before pending jobs in a resource pool with a lower priority. The priority of the resource pool takes precedence over the priority of a job.
-   * 
-   * @example
-   * 1
-   */
-  priority?: number;
-  /**
-   * @remarks
-   * The reason for the error.
-   * 
-   * @example
-   * Fails to *** pool: ***.
-   */
-  reason?: string;
-  /**
-   * @remarks
-   * The ID of the scheduling policy.
-   * 
-   * @example
-   * policy-xxx
-   */
-  schedulingPolicyId?: string;
-  /**
-   * @remarks
-   * The status of the resource pool. Valid values:
-   * 
-   * - `Creating`: The resource pool is being created.
-   * 
-   * - `Updating`: The resource pool is being updated.
-   * 
-   * - `Deleting`: The resource pool is being deleted.
-   * 
-   * - `Working`: The resource pool is active.
-   * 
-   * - `Deleted`: The resource pool has been deleted.
-   * 
-   * @example
-   * Working
-   */
-  status?: string;
-  /**
-   * @remarks
-   * The time when the resource pool was last updated.
-   * 
-   * @example
-   * 2024-12-01 20:00:00
-   */
-  updateTime?: string;
+  value?: string;
   static names(): { [key: string]: string } {
     return {
-      createTime: 'CreateTime',
-      executorUsage: 'ExecutorUsage',
-      isDefault: 'IsDefault',
-      maxExecutorNum: 'MaxExecutorNum',
-      poolName: 'PoolName',
-      priority: 'Priority',
-      reason: 'Reason',
-      schedulingPolicyId: 'SchedulingPolicyId',
-      status: 'Status',
-      updateTime: 'UpdateTime',
+      key: 'Key',
+      value: 'Value',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      createTime: 'string',
-      executorUsage: 'number',
-      isDefault: 'boolean',
-      maxExecutorNum: 'number',
-      poolName: 'string',
-      priority: 'number',
-      reason: 'string',
-      schedulingPolicyId: 'string',
-      status: 'string',
-      updateTime: 'string',
+      key: 'string',
+      value: 'string',
     };
   }
 
@@ -144,15 +42,169 @@ export class GetPoolResponseBodyPoolInfo extends $dara.Model {
   }
 }
 
+export class GetPoolResponseBodyPoolInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The time when the resource pool was created.
+   * 
+   * @example
+   * 2024-12-01 20:00:00
+   */
+  createTime?: string;
+  /**
+   * @remarks
+   * The ID of the resource pool creator.
+   * 
+   * @example
+   * 200428053788xxxx
+   */
+  creator?: string;
+  /**
+   * @remarks
+   * The number of executor nodes that are currently running in the resource pool.
+   * 
+   * @example
+   * 100
+   */
+  executorUsage?: number;
+  /**
+   * @remarks
+   * Indicates whether the resource pool is the default resource pool. Valid values:
+   * 
+   * - **true**: Yes.
+   * - **false**: No.
+   * 
+   * @example
+   * true
+   */
+  isDefault?: boolean;
+  /**
+   * @remarks
+   * The maximum number of executor nodes that can run concurrently in the resource pool.
+   * 
+   * @example
+   * 100
+   */
+  maxExecutorNum?: number;
+  /**
+   * @remarks
+   * The resource pool name.
+   * - The name can be up to 15 characters in length.
+   * - The name can contain digits, uppercase letters, lowercase letters, underscores (_), and periods (.).
+   * 
+   * @example
+   * PoolTest
+   */
+  poolName?: string;
+  /**
+   * @remarks
+   * The priority of the resource pool.
+   * 
+   * - Valid values: 1 to 99. Default value: 1, which indicates the lowest priority.
+   * - Jobs submitted to a resource pool with a higher priority value are scheduled before pending jobs in a resource pool with a lower priority value. The resource pool priority takes precedence over the job priority.
+   * 
+   * @example
+   * 1
+   */
+  priority?: number;
+  /**
+   * @remarks
+   * The error reason.
+   * 
+   * @example
+   * Fails to *** pool: ***.
+   */
+  reason?: string;
+  /**
+   * @remarks
+   * The scheduling policy ID.
+   * 
+   * @example
+   * policy-xxx
+   */
+  schedulingPolicyId?: string;
+  /**
+   * @remarks
+   * The resource pool status. Valid values:
+   * 
+   * - Creating: The resource pool is being created.
+   * - Updating: The resource pool is being updated.
+   * - Deleting: The resource pool is being deleted.
+   * - Working: The resource pool is running.
+   * - Deleted: The resource pool has been deleted.
+   * 
+   * @example
+   * Working
+   */
+  status?: string;
+  /**
+   * @remarks
+   * The tag information.
+   */
+  tags?: GetPoolResponseBodyPoolInfoTags[];
+  /**
+   * @remarks
+   * The time when the resource pool was last updated.
+   * 
+   * @example
+   * 2024-12-01 20:00:00
+   */
+  updateTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      creator: 'Creator',
+      executorUsage: 'ExecutorUsage',
+      isDefault: 'IsDefault',
+      maxExecutorNum: 'MaxExecutorNum',
+      poolName: 'PoolName',
+      priority: 'Priority',
+      reason: 'Reason',
+      schedulingPolicyId: 'SchedulingPolicyId',
+      status: 'Status',
+      tags: 'Tags',
+      updateTime: 'UpdateTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'string',
+      creator: 'string',
+      executorUsage: 'number',
+      isDefault: 'boolean',
+      maxExecutorNum: 'number',
+      poolName: 'string',
+      priority: 'number',
+      reason: 'string',
+      schedulingPolicyId: 'string',
+      status: 'string',
+      tags: { 'type': 'array', 'itemType': GetPoolResponseBodyPoolInfoTags },
+      updateTime: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetPoolResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the resource pool.
+   * The resource pool information.
    */
   poolInfo?: GetPoolResponseBodyPoolInfo;
   /**
    * @remarks
-   * The ID of the request.
+   * Id of the request
    * 
    * @example
    * 896D338C-E4F4-41EC-A154-D605E5DE****

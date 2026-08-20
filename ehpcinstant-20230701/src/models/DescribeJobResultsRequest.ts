@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeJobResultsRequest extends $dara.Model {
   /**
    * @remarks
-   * The executor number.
+   * The executor index.
    * 
    * @example
    * 0_1
@@ -13,13 +13,12 @@ export class DescribeJobResultsRequest extends $dara.Model {
   arrayIndex?: number;
   /**
    * @remarks
-   * The encoding format for the `CommandContent` and `Output` fields in the response. Valid values:
+   * The encoding method for the CommandContent and Output fields in the response. Valid values:
    * 
-   * - PlainText: Returns the original script content and output.
+   * - PlainText: returns the original script content and output.
+   * - Base64: returns Base64-encoded script content and output.
    * 
-   * - Base64: Returns the Base64-encoded script content and output.
-   * 
-   * The default value is Base64.
+   * Default value: Base64.
    * 
    * @example
    * PlainText
@@ -35,7 +34,7 @@ export class DescribeJobResultsRequest extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * The maximum size of the log in bytes. The value must be between 1 and 1,048,576 (1 MB).
+   * The maximum size of the log. Unit: bytes. Valid values: 1 to 1048576 (1 MB).
    * 
    * @example
    * 1048576
@@ -43,7 +42,7 @@ export class DescribeJobResultsRequest extends $dara.Model {
   limitBytes?: string;
   /**
    * @remarks
-   * The time in UTC, formatted according to RFC 3339.
+   * The start time in UTC, in RFC 3339 format.
    * 
    * @example
    * 2024-09-02T16:00:00Z
