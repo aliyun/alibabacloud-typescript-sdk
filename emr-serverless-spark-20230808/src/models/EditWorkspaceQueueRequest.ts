@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class EditWorkspaceQueueRequestResourceSpec extends $dara.Model {
   /**
    * @remarks
-   * The maximum resource capacity of the Workspace Queue.
+   * The resource upper limit of the workspace queue.
    * 
    * @example
    * 1000
@@ -16,6 +16,7 @@ export class EditWorkspaceQueueRequestResourceSpec extends $dara.Model {
    * 100
    */
   gpu?: number;
+  gpuMachineNum?: number;
   /**
    * @example
    * 0.5
@@ -25,6 +26,7 @@ export class EditWorkspaceQueueRequestResourceSpec extends $dara.Model {
     return {
       cu: 'cu',
       gpu: 'gpu',
+      gpuMachineNum: 'gpuMachineNum',
       maxCu: 'maxCu',
     };
   }
@@ -33,6 +35,7 @@ export class EditWorkspaceQueueRequestResourceSpec extends $dara.Model {
     return {
       cu: 'number',
       gpu: 'number',
+      gpuMachineNum: 'number',
       maxCu: 'number',
     };
   }
@@ -49,10 +52,11 @@ export class EditWorkspaceQueueRequestResourceSpec extends $dara.Model {
 export class EditWorkspaceQueueRequest extends $dara.Model {
   /**
    * @remarks
-   * The environment types.
+   * The queue environment type.
    */
   environments?: string[];
   gpuSpec?: string[];
+  instanceId?: string;
   /**
    * @remarks
    * The resource specifications.
@@ -60,7 +64,7 @@ export class EditWorkspaceQueueRequest extends $dara.Model {
   resourceSpec?: EditWorkspaceQueueRequestResourceSpec;
   /**
    * @remarks
-   * The Workspace ID.
+   * The workspace ID.
    * 
    * @example
    * w-975bcfda9625****
@@ -68,7 +72,7 @@ export class EditWorkspaceQueueRequest extends $dara.Model {
   workspaceId?: string;
   /**
    * @remarks
-   * The name of the Workspace Queue.
+   * The workspace queue name.
    * 
    * @example
    * dev_queue
@@ -86,6 +90,7 @@ export class EditWorkspaceQueueRequest extends $dara.Model {
     return {
       environments: 'environments',
       gpuSpec: 'gpuSpec',
+      instanceId: 'instanceId',
       resourceSpec: 'resourceSpec',
       workspaceId: 'workspaceId',
       workspaceQueueName: 'workspaceQueueName',
@@ -97,6 +102,7 @@ export class EditWorkspaceQueueRequest extends $dara.Model {
     return {
       environments: { 'type': 'array', 'itemType': 'string' },
       gpuSpec: { 'type': 'array', 'itemType': 'string' },
+      instanceId: 'string',
       resourceSpec: EditWorkspaceQueueRequestResourceSpec,
       workspaceId: 'string',
       workspaceQueueName: 'string',

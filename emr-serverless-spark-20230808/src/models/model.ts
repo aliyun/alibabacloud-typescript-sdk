@@ -116,6 +116,7 @@ export { ListWorkspaceQueuesResponseBodyQueuesAllowActions } from './ListWorkspa
 export { ListWorkspaceQueuesResponseBodyQueues } from './ListWorkspaceQueuesResponseBody';
 export { ListWorkspacesRequestTag } from './ListWorkspacesRequest';
 export { ListWorkspacesResponseBodyWorkspacesPrePaidQuota } from './ListWorkspacesResponseBody';
+export { ListWorkspacesResponseBodyWorkspacesPrePaidQuotaGpu } from './ListWorkspacesResponseBody';
 export { ListWorkspacesResponseBodyWorkspacesStateChangeReason } from './ListWorkspacesResponseBody';
 export { ListWorkspacesResponseBodyWorkspacesTags } from './ListWorkspacesResponseBody';
 export { ListWorkspacesResponseBodyWorkspaces } from './ListWorkspacesResponseBody';
@@ -138,6 +139,7 @@ export { UpdateProcessDefinitionWithScheduleRequestTaskRelationJson } from './Up
 export { UpdateProcessDefinitionWithScheduleResponseBodyData } from './UpdateProcessDefinitionWithScheduleResponseBody';
 export { UpdateRayClusterRequestHeadSpec } from './UpdateRayClusterRequest';
 export { UpdateRayClusterRequestWorkerSpec } from './UpdateRayClusterRequest';
+export { UpdateWorkspaceRequestGpuSubscription } from './UpdateWorkspaceRequest';
 export { UpdateWorkspaceRequestSubscription } from './UpdateWorkspaceRequest';
 export { UpdateWorkspaceResponseBodyData } from './UpdateWorkspaceResponseBody';
 export { Artifact } from './Artifact';
@@ -221,6 +223,9 @@ export { DeleteLivyComputeTokenResponseBody } from './DeleteLivyComputeTokenResp
 export { DeleteLivyComputeTokenResponse } from './DeleteLivyComputeTokenResponse';
 export { DeleteRayClusterResponseBody } from './DeleteRayClusterResponseBody';
 export { DeleteRayClusterResponse } from './DeleteRayClusterResponse';
+export { DeleteWorkspaceQueueRequest } from './DeleteWorkspaceQueueRequest';
+export { DeleteWorkspaceQueueResponseBody } from './DeleteWorkspaceQueueResponseBody';
+export { DeleteWorkspaceQueueResponse } from './DeleteWorkspaceQueueResponse';
 export { EditWorkspaceQueueRequest } from './EditWorkspaceQueueRequest';
 export { EditWorkspaceQueueResponseBody } from './EditWorkspaceQueueResponseBody';
 export { EditWorkspaceQueueResponse } from './EditWorkspaceQueueResponse';

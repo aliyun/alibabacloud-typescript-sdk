@@ -13,21 +13,21 @@ export default class Client extends OpenApi {
     super(config);
     this._endpointRule = "regional";
     this._endpointMap = {
-      'us-west-1': "emr-serverless-spark.us-west-1.aliyuncs.com",
-      'us-east-1': "emr-serverless-spark.us-east-1.aliyuncs.com",
-      'na-south-1': "emr-serverless-spark.na-south-1.aliyuncs.com",
-      'eu-central-1': "emr-serverless-spark.eu-central-1.aliyuncs.com",
-      'cn-zhangjiakou': "emr-serverless-spark.cn-zhangjiakou.aliyuncs.com",
-      'cn-wulanchabu': "emr-serverless-spark.cn-wulanchabu.aliyuncs.com",
       'cn-shenzhen': "emr-serverless-spark.cn-shenzhen.aliyuncs.com",
+      'cn-wulanchabu': "emr-serverless-spark.cn-wulanchabu.aliyuncs.com",
+      'cn-beijing': "emr-serverless-spark.cn-beijing.aliyuncs.com",
+      'ap-northeast-1': "emr-serverless-spark.ap-northeast-1.aliyuncs.com",
+      'cn-chengdu': "emr-serverless-spark.cn-chengdu.aliyuncs.com",
       'cn-shanghai': "emr-serverless-spark.cn-shanghai.aliyuncs.com",
       'cn-hongkong': "emr-serverless-spark.cn-hongkong.aliyuncs.com",
-      'cn-hangzhou': "emr-serverless-spark.cn-hangzhou.aliyuncs.com",
-      'cn-chengdu': "emr-serverless-spark.cn-chengdu.aliyuncs.com",
-      'cn-beijing': "emr-serverless-spark.cn-beijing.aliyuncs.com",
-      'ap-southeast-5': "emr-serverless-spark.ap-southeast-5.aliyuncs.com",
       'ap-southeast-1': "emr-serverless-spark.ap-southeast-1.aliyuncs.com",
-      'ap-northeast-1': "emr-serverless-spark.ap-northeast-1.aliyuncs.com",
+      'ap-southeast-5': "emr-serverless-spark.ap-southeast-5.aliyuncs.com",
+      'cn-zhangjiakou': "emr-serverless-spark.cn-zhangjiakou.aliyuncs.com",
+      'cn-hangzhou': "emr-serverless-spark.cn-hangzhou.aliyuncs.com",
+      'us-west-1': "emr-serverless-spark.us-west-1.aliyuncs.com",
+      'us-east-1': "emr-serverless-spark.us-east-1.aliyuncs.com",
+      'eu-central-1': "emr-serverless-spark.eu-central-1.aliyuncs.com",
+      'na-south-1': "emr-serverless-spark.na-south-1.aliyuncs.com",
     };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("emr-serverless-spark", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -231,7 +231,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 停止RayJob
+   * Stops a RayJob.
    * 
    * @param request - CancelRayJobRequest
    * @param headers - map
@@ -258,7 +258,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 停止RayJob
+   * Stops a RayJob.
    * 
    * @param request - CancelRayJobRequest
    * @returns CancelRayJobResponse
@@ -1402,7 +1402,52 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a Workspace Queue.
+   * Deletes a workspace queue.
+   * 
+   * @param request - DeleteWorkspaceQueueRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteWorkspaceQueueResponse
+   */
+  async deleteWorkspaceQueueWithOptions(workspaceId: string, workspaceQueueName: string, request: $_model.DeleteWorkspaceQueueRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteWorkspaceQueueResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.regionId)) {
+      query["regionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteWorkspaceQueue",
+      version: "2023-08-08",
+      protocol: "HTTPS",
+      pathname: `/api/v1/workspaces/${$dara.URL.percentEncode(workspaceId)}/queues/${$dara.URL.percentEncode(workspaceQueueName)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteWorkspaceQueueResponse>(await this.callApi(params, req, runtime), new $_model.DeleteWorkspaceQueueResponse({}));
+  }
+
+  /**
+   * Deletes a workspace queue.
+   * 
+   * @param request - DeleteWorkspaceQueueRequest
+   * @returns DeleteWorkspaceQueueResponse
+   */
+  async deleteWorkspaceQueue(workspaceId: string, workspaceQueueName: string, request: $_model.DeleteWorkspaceQueueRequest): Promise<$_model.DeleteWorkspaceQueueResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteWorkspaceQueueWithOptions(workspaceId, workspaceQueueName, request, headers, runtime);
+  }
+
+  /**
+   * Modifies a workspace queue.
    * 
    * @param request - EditWorkspaceQueueRequest
    * @param headers - map
@@ -1423,6 +1468,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.gpuSpec)) {
       body["gpuSpec"] = request.gpuSpec;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      body["instanceId"] = request.instanceId;
     }
 
     if (!$dara.isNull(request.resourceSpec)) {
@@ -1457,7 +1506,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a Workspace Queue.
+   * Modifies a workspace queue.
    * 
    * @param request - EditWorkspaceQueueRequest
    * @returns EditWorkspaceQueueResponse
@@ -1958,7 +2007,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取Ray集群
+   * Retrieves Ray Job information.
    * 
    * @param request - GetRayJobRequest
    * @param headers - map
@@ -1985,7 +2034,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取Ray集群
+   * Retrieves Ray Job information.
    * 
    * @param request - GetRayJobRequest
    * @returns GetRayJobResponse
@@ -2456,7 +2505,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Call the ListJobRuns operation to retrieve a list of Spark jobs.
+   * Queries a list of Spark jobs.
    * 
    * @param tmpReq - ListJobRunsRequest
    * @param headers - map
@@ -2494,6 +2543,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.endTimeShrink)) {
       query["endTime"] = request.endTimeShrink;
+    }
+
+    if (!$dara.isNull(request.groupByState)) {
+      query["groupByState"] = request.groupByState;
     }
 
     if (!$dara.isNull(request.isWorkflow)) {
@@ -2567,7 +2620,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Call the ListJobRuns operation to retrieve a list of Spark jobs.
+   * Queries a list of Spark jobs.
    * 
    * @param request - ListJobRunsRequest
    * @returns ListJobRunsResponse
@@ -2864,7 +2917,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists Livy Gateway tokens.
+   * Lists the tokens of a Livy Gateway.
    * 
    * @param request - ListLivyComputeTokenRequest
    * @param headers - map
@@ -2897,7 +2950,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists Livy Gateway tokens.
+   * Lists the tokens of a Livy Gateway.
    * 
    * @param request - ListLivyComputeTokenRequest
    * @returns ListLivyComputeTokenResponse
@@ -3113,7 +3166,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出RayJob
+   * Lists Ray Job information.
    * 
    * @param tmpReq - ListRayJobRequest
    * @param headers - map
@@ -3172,7 +3225,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出RayJob
+   * Lists Ray Job information.
    * 
    * @param request - ListRayJobRequest
    * @returns ListRayJobResponse
@@ -3473,7 +3526,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the queues in a workspace.
+   * Queries the list of queues in a workspace.
    * 
    * @param request - ListWorkspaceQueuesRequest
    * @param headers - map
@@ -3510,7 +3563,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the queues in a workspace.
+   * Queries the list of queues in a workspace.
    * 
    * @param request - ListWorkspaceQueuesRequest
    * @returns ListWorkspaceQueuesResponse
@@ -3522,7 +3575,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Call `ListWorkspaces` to get a list of workspaces.
+   * Queries a list of workspaces.
    * 
    * @param tmpReq - ListWorkspacesRequest
    * @param headers - map
@@ -3585,7 +3638,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Call `ListWorkspaces` to get a list of workspaces.
+   * Queries a list of workspaces.
    * 
    * @param request - ListWorkspacesRequest
    * @returns ListWorkspacesResponse
@@ -4286,7 +4339,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 提交Ray Job
+   * Submits a Ray job.
    * 
    * @param request - SubmitRayJobRequest
    * @param headers - map
@@ -4395,7 +4448,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 提交Ray Job
+   * Submits a Ray job.
    * 
    * @param request - SubmitRayJobRequest
    * @returns SubmitRayJobResponse
@@ -4915,7 +4968,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Update workspace properties
+   * Updates the properties of a workspace.
    * 
    * @param request - UpdateWorkspaceRequest
    * @param headers - map
@@ -4940,6 +4993,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.gpuSpec)) {
       body["gpuSpec"] = request.gpuSpec;
+    }
+
+    if (!$dara.isNull(request.gpuSubscription)) {
+      body["gpuSubscription"] = request.gpuSubscription;
     }
 
     if (!$dara.isNull(request.ipWhiteList)) {
@@ -4982,7 +5039,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Update workspace properties
+   * Updates the properties of a workspace.
    * 
    * @param request - UpdateWorkspaceRequest
    * @returns UpdateWorkspaceResponse

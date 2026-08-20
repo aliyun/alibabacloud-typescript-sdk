@@ -2,10 +2,63 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class UpdateWorkspaceRequestGpuSubscription extends $dara.Model {
+  autoRenew?: boolean;
+  duration?: number;
+  /**
+   * @example
+   * 8
+   */
+  gpuMachineNum?: number;
+  instanceId?: string;
+  /**
+   * @example
+   * ecs.gn7i-c8g1.2xlarge
+   */
+  instanceTypeId?: string;
+  /**
+   * @example
+   * BUY
+   */
+  operation?: string;
+  paymentDurationUnit?: string;
+  static names(): { [key: string]: string } {
+    return {
+      autoRenew: 'autoRenew',
+      duration: 'duration',
+      gpuMachineNum: 'gpuMachineNum',
+      instanceId: 'instanceId',
+      instanceTypeId: 'instanceTypeId',
+      operation: 'operation',
+      paymentDurationUnit: 'paymentDurationUnit',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoRenew: 'boolean',
+      duration: 'number',
+      gpuMachineNum: 'number',
+      instanceId: 'string',
+      instanceTypeId: 'string',
+      operation: 'string',
+      paymentDurationUnit: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateWorkspaceRequestSubscription extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether to enable auto-renewal. Required for subscription plans.
+   * Specifies whether to enable auto-renewal. This parameter is required for the pre-paid billing type.
    * 
    * @example
    * true
@@ -13,7 +66,7 @@ export class UpdateWorkspaceRequestSubscription extends $dara.Model {
   autoRenew?: string;
   /**
    * @remarks
-   * The auto-renewal duration. Required for subscription plans.
+   * The auto-renewal duration. This parameter is required for the pre-paid billing type.
    * 
    * @example
    * 1
@@ -21,7 +74,7 @@ export class UpdateWorkspaceRequestSubscription extends $dara.Model {
   autoRenewPeriod?: string;
   /**
    * @remarks
-   * The unit for the auto-renewal duration. Required for subscription plans.
+   * The auto-renewal period unit. This parameter is required for the pre-paid billing type.
    * 
    * @example
    * MONTH
@@ -29,7 +82,7 @@ export class UpdateWorkspaceRequestSubscription extends $dara.Model {
   autoRenewPeriodUnit?: string;
   /**
    * @remarks
-   * A unique, case-sensitive token to ensure request idempotence.
+   * The idempotency token.
    * 
    * @example
    * my-token-asxkxxxxxxx
@@ -37,7 +90,7 @@ export class UpdateWorkspaceRequestSubscription extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The subscription duration. This parameter is required for subscription plans.
+   * The number of subscription periods. This parameter is required for the pre-paid billing type.
    * 
    * @example
    * 1799
@@ -45,7 +98,7 @@ export class UpdateWorkspaceRequestSubscription extends $dara.Model {
   duration?: string;
   /**
    * @remarks
-   * The unit of the subscription period.
+   * The subscription period unit.
    * 
    * @example
    * MONTH
@@ -53,7 +106,7 @@ export class UpdateWorkspaceRequestSubscription extends $dara.Model {
   paymentDurationUnit?: string;
   /**
    * @remarks
-   * The queues to convert to the subscription plan.
+   * The list of running queues to be converted.
    */
   queue?: string[];
   static names(): { [key: string]: string } {
@@ -95,7 +148,7 @@ export class UpdateWorkspaceRequestSubscription extends $dara.Model {
 export class UpdateWorkspaceRequest extends $dara.Model {
   /**
    * @remarks
-   * The resource cap for the workspace.
+   * The upper limit of workspace resources.
    * 
    * @example
    * 5000
@@ -103,7 +156,7 @@ export class UpdateWorkspaceRequest extends $dara.Model {
   cu?: number;
   /**
    * @remarks
-   * The number of GPUs.
+   * The number of GPU cards.
    * 
    * @example
    * 100
@@ -111,13 +164,10 @@ export class UpdateWorkspaceRequest extends $dara.Model {
   gpu?: number;
   /**
    * @remarks
-   * The GPU specifications.
+   * The GPU instance type.
    */
   gpuSpec?: string[];
-  /**
-   * @remarks
-   * The IP whitelist.
-   */
+  gpuSubscription?: UpdateWorkspaceRequestGpuSubscription;
   ipWhiteList?: string[];
   /**
    * @remarks
@@ -129,7 +179,7 @@ export class UpdateWorkspaceRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * Details for converting a pay-as-you-go workspace to a subscription plan.
+   * The information for converting from pay-as-you-go to subscription.
    */
   subscription?: UpdateWorkspaceRequestSubscription;
   /**
@@ -161,6 +211,7 @@ export class UpdateWorkspaceRequest extends $dara.Model {
       cu: 'cu',
       gpu: 'gpu',
       gpuSpec: 'gpuSpec',
+      gpuSubscription: 'gpuSubscription',
       ipWhiteList: 'ipWhiteList',
       resourceGroupId: 'resourceGroupId',
       subscription: 'subscription',
@@ -175,6 +226,7 @@ export class UpdateWorkspaceRequest extends $dara.Model {
       cu: 'number',
       gpu: 'number',
       gpuSpec: { 'type': 'array', 'itemType': 'string' },
+      gpuSubscription: UpdateWorkspaceRequestGpuSubscription,
       ipWhiteList: { 'type': 'array', 'itemType': 'string' },
       resourceGroupId: 'string',
       subscription: UpdateWorkspaceRequestSubscription,
@@ -187,6 +239,9 @@ export class UpdateWorkspaceRequest extends $dara.Model {
   validate() {
     if(Array.isArray(this.gpuSpec)) {
       $dara.Model.validateArray(this.gpuSpec);
+    }
+    if(this.gpuSubscription && typeof (this.gpuSubscription as any).validate === 'function') {
+      (this.gpuSubscription as any).validate();
     }
     if(Array.isArray(this.ipWhiteList)) {
       $dara.Model.validateArray(this.ipWhiteList);

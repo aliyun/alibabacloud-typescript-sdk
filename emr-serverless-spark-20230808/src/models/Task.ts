@@ -6,7 +6,7 @@ import { SparkConf } from "./SparkConf";
 export class TaskCredential extends $dara.Model {
   /**
    * @remarks
-   * The AccessKey ID.
+   * access id
    */
   accessId?: string;
   /**
@@ -31,12 +31,12 @@ export class TaskCredential extends $dara.Model {
   path?: string;
   /**
    * @remarks
-   * The policy.
+   * policy
    */
   policy?: string;
   /**
    * @remarks
-   * The security token.
+   * security token
    */
   securityToken?: string;
   /**
@@ -172,7 +172,7 @@ export class Task extends $dara.Model {
   archives?: string[];
   /**
    * @remarks
-   * The temporary URL to access the resource file.
+   * The temporary URL for accessing the resource file.
    */
   artifactUrl?: string;
   /**
@@ -184,12 +184,12 @@ export class Task extends $dara.Model {
   bizId?: string;
   /**
    * @remarks
-   * The business ID of the folder.
+   * The folder business ID.
    */
   categoryBizId?: string;
   /**
    * @remarks
-   * The content of the Spark job.
+   * The Spark job content.
    */
   content?: string;
   /**
@@ -201,7 +201,7 @@ export class Task extends $dara.Model {
   creator?: number;
   /**
    * @remarks
-   * The information for directly uploading files to Object Storage Service (OSS).
+   * The OSS direct upload credentials.
    */
   credential?: TaskCredential;
   /**
@@ -216,7 +216,7 @@ export class Task extends $dara.Model {
   defaultDatabase?: string;
   /**
    * @remarks
-   * The default queue ID for the task.
+   * The default queue ID of the task.
    */
   defaultResourceQueueId?: string;
   /**
@@ -241,7 +241,7 @@ export class Task extends $dara.Model {
   extraArtifactIds?: string[];
   /**
    * @remarks
-   * The custom parameters for the spark-submit command.
+   * The custom Spark submit configuration parameters.
    */
   extraSparkSubmitParams?: string;
   /**
@@ -251,31 +251,31 @@ export class Task extends $dara.Model {
   files?: string[];
   /**
    * @remarks
-   * Indicates whether to enable fusion.
+   * Indicates whether the fusion switch is enabled.
    */
   fusion?: boolean;
   /**
    * @remarks
-   * The time when the task was created.
+   * The creation time.
    * 
    * This parameter is required.
    */
   gmtCreated?: string;
   /**
    * @remarks
-   * The time when the task was last modified.
+   * The last modification time.
    * 
    * This parameter is required.
    */
   gmtModified?: string;
   /**
    * @remarks
-   * Indicates whether the task has been changed since the last commit.
+   * Indicates whether the task has been changed since the last submission.
    */
   hasChanged?: boolean;
   /**
    * @remarks
-   * Indicates whether the task has been committed.
+   * Indicates whether the task has been submitted.
    * 
    * This parameter is required.
    */
@@ -293,12 +293,12 @@ export class Task extends $dara.Model {
   kernelId?: string;
   /**
    * @remarks
-   * The ID of the resource queue that was used for the last run.
+   * The ID of the resource queue used in the last run.
    */
   lastRunResourceQueueId?: string;
   /**
    * @remarks
-   * The UID of the user who last updated the task.
+   * The UID of the last modifier.
    * 
    * This parameter is required.
    */
@@ -313,7 +313,7 @@ export class Task extends $dara.Model {
   params?: { [key: string]: string };
   /**
    * @remarks
-   * The PySpark dependency pyfiles.
+   * The Spark PySpark dependency pyfiles.
    */
   pyFiles?: string[];
   rayActiveDeadlineSeconds?: number;
@@ -351,40 +351,40 @@ export class Task extends $dara.Model {
   sparkConf?: SparkConf[];
   /**
    * @remarks
-   * The number of cores for the Spark driver.
+   * The number of Spark driver cores.
    * 
    * This parameter is required.
    */
   sparkDriverCores?: number;
   /**
    * @remarks
-   * The memory of the Spark driver.
+   * The Spark driver memory.
    * 
    * This parameter is required.
    */
   sparkDriverMemory?: number;
   /**
    * @remarks
-   * The entrypoint of the Spark main class.
+   * The Spark main class entry point.
    */
   sparkEntrypoint?: string;
   /**
    * @remarks
-   * The number of cores for the Spark executor.
+   * The number of Spark executor cores.
    * 
    * This parameter is required.
    */
   sparkExecutorCores?: number;
   /**
    * @remarks
-   * The memory of the Spark executor.
+   * The Spark executor memory.
    * 
    * This parameter is required.
    */
   sparkExecutorMemory?: number;
   /**
    * @remarks
-   * The log level for Spark.
+   * The Spark log level.
    * 
    * This parameter is required.
    */
@@ -398,7 +398,7 @@ export class Task extends $dara.Model {
   sparkLogPath?: string;
   /**
    * @remarks
-   * The spark-submit statement.
+   * The Spark submit task submission statement.
    */
   sparkSubmitClause?: string;
   /**
@@ -410,12 +410,12 @@ export class Task extends $dara.Model {
   sparkVersion?: string;
   /**
    * @remarks
-   * The task tags.
+   * The task labels.
    */
   tags?: { [key: string]: string };
   /**
    * @remarks
-   * The task timeout duration.
+   * The task timeout period.
    */
   timeout?: number;
   /**

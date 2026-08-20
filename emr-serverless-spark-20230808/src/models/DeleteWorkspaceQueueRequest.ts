@@ -2,34 +2,24 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class SubmitRayJobResponseBody extends $dara.Model {
+export class DeleteWorkspaceQueueRequest extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The region ID.
    * 
    * @example
-   * DD6B1B2A-5837-5237-ABE4-FF0C8944
+   * cn-hangzhou
    */
-  requestId?: string;
-  /**
-   * @remarks
-   * Ray Job ID。
-   * 
-   * @example
-   * rj-k7nm8ahl5te4tg91
-   */
-  submissionId?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'requestId',
-      submissionId: 'submissionId',
+      regionId: 'regionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
-      submissionId: 'string',
+      regionId: 'string',
     };
   }
 

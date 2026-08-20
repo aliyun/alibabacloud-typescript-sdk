@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListWorkspaceQueuesResponseBodyQueuesAllowActions extends $dara.Model {
   /**
    * @remarks
-   * The Alibaba Cloud Resource Name (ARN) of the behavior.
+   * The action ARN.
    * 
    * @example
    * acs:emr::workspaceId:action/create_queue
@@ -78,12 +78,12 @@ export class ListWorkspaceQueuesResponseBodyQueuesAllowActions extends $dara.Mod
 export class ListWorkspaceQueuesResponseBodyQueues extends $dara.Model {
   /**
    * @remarks
-   * The list of allowed operations for the queue.
+   * The list of allowed actions on the queue.
    */
   allowActions?: ListWorkspaceQueuesResponseBodyQueuesAllowActions[];
   /**
    * @remarks
-   * The creation time of the workspace.
+   * The time when the workspace was created.
    * 
    * @example
    * 1684115879955
@@ -99,10 +99,12 @@ export class ListWorkspaceQueuesResponseBodyQueues extends $dara.Model {
   creator?: string;
   /**
    * @remarks
-   * The list of environment types for the queue.
+   * The list of queue environment types.
    */
   environments?: string[];
+  gpuMachineNum?: number;
   gpuSpec?: string[];
+  instanceId?: string;
   /**
    * @remarks
    * The maximum resource capacity of the queue.
@@ -124,7 +126,6 @@ export class ListWorkspaceQueuesResponseBodyQueues extends $dara.Model {
    * The billing method. Valid values:
    * 
    * - PayAsYouGo: pay-as-you-go
-   * 
    * - Pre: subscription
    * 
    * @example
@@ -155,7 +156,7 @@ export class ListWorkspaceQueuesResponseBodyQueues extends $dara.Model {
   queueName?: string;
   /**
    * @remarks
-   * The queue architecture.
+   * The queue scope.
    * 
    * @example
    * {"arch": "x86"}
@@ -173,9 +174,8 @@ export class ListWorkspaceQueuesResponseBodyQueues extends $dara.Model {
    * @remarks
    * The queue type. Valid values:
    * 
-   * - instance: A queue for a single task.
-   * 
-   * - instanceChildren: A queue for a parent task.
+   * - instance: single task type
+   * - instanceChildren: parent task type
    * 
    * @example
    * instance
@@ -211,7 +211,9 @@ export class ListWorkspaceQueuesResponseBodyQueues extends $dara.Model {
       createTime: 'createTime',
       creator: 'creator',
       environments: 'environments',
+      gpuMachineNum: 'gpuMachineNum',
       gpuSpec: 'gpuSpec',
+      instanceId: 'instanceId',
       maxResource: 'maxResource',
       minResource: 'minResource',
       paymentType: 'paymentType',
@@ -234,7 +236,9 @@ export class ListWorkspaceQueuesResponseBodyQueues extends $dara.Model {
       createTime: 'number',
       creator: 'string',
       environments: { 'type': 'array', 'itemType': 'string' },
+      gpuMachineNum: 'number',
       gpuSpec: { 'type': 'array', 'itemType': 'string' },
+      instanceId: 'string',
       maxResource: 'string',
       minResource: 'string',
       paymentType: 'string',
@@ -272,7 +276,7 @@ export class ListWorkspaceQueuesResponseBodyQueues extends $dara.Model {
 export class ListWorkspaceQueuesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of records to return in a single request.
+   * The maximum number of records returned at a time.
    * 
    * @example
    * 20
@@ -280,7 +284,7 @@ export class ListWorkspaceQueuesResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token for the next page of results.
+   * The token for the next page.
    * 
    * @example
    * 1

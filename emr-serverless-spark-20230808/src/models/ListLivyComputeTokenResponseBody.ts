@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListLivyComputeTokenResponseBodyDataTokens extends $dara.Model {
   /**
    * @remarks
-   * The time when the token was created.
+   * The creation time.
    * 
    * @example
    * 1749456094000
@@ -13,7 +13,7 @@ export class ListLivyComputeTokenResponseBodyDataTokens extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * The user who created the token.
+   * The creator of the token.
    * 
    * @example
    * alice
@@ -21,7 +21,7 @@ export class ListLivyComputeTokenResponseBodyDataTokens extends $dara.Model {
   createdby?: string;
   /**
    * @remarks
-   * The time when the token expires.
+   * The expiration time.
    * 
    * @example
    * 1749456994000
@@ -29,7 +29,7 @@ export class ListLivyComputeTokenResponseBodyDataTokens extends $dara.Model {
   expireTime?: number;
   /**
    * @remarks
-   * The time when the token was last used.
+   * The last used time.
    * 
    * @example
    * 1749456098000
@@ -53,7 +53,7 @@ export class ListLivyComputeTokenResponseBodyDataTokens extends $dara.Model {
   token?: string;
   /**
    * @remarks
-   * The token ID.
+   * Token ID。
    * 
    * @example
    * lctk-xxxxxxxxxxx
@@ -125,7 +125,7 @@ export class ListLivyComputeTokenResponseBodyData extends $dara.Model {
 export class ListLivyComputeTokenResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code. A value of 1000000 indicates that the request was successful. Other values indicate that the request failed. See the message parameter for failure details.
+   * The response code. A value of 1000000 indicates success. Any other value indicates failure. You can view the specific error description in the message field.
    * 
    * @example
    * 1000000

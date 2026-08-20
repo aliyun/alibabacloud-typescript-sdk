@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateWorkspaceResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The ID of the order.
+   * The order ID.
    * 
    * @example
    * 1005565802416783361
@@ -40,7 +40,7 @@ export class UpdateWorkspaceResponseBody extends $dara.Model {
   data?: UpdateWorkspaceResponseBodyData;
   /**
    * @remarks
-   * The ID of the order.
+   * The order ID.
    * 
    * @example
    * 979071171373334529
@@ -48,7 +48,7 @@ export class UpdateWorkspaceResponseBody extends $dara.Model {
   orderId?: string;
   /**
    * @remarks
-   * The unique ID of the request.
+   * Id of the request
    * 
    * @example
    * DD6B1B2A-5837-5237-ABE4-FF0C8944****
