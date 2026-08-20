@@ -21,15 +21,15 @@ export class ListUninstallApplicationsResponseBodyApplications extends $dara.Mod
   createTime?: string;
   /**
    * @remarks
-   * The user\\"s department.
+   * The department to which the user belongs.
    * 
    * @example
-   * 测试部
+   * Testing Department
    */
   department?: string;
   /**
    * @remarks
-   * The device ID.
+   * The ID of the terminal device.
    * 
    * @example
    * 36efa42d-2c32-c4dc-e3fc-8541e33a****
@@ -37,19 +37,13 @@ export class ListUninstallApplicationsResponseBodyApplications extends $dara.Mod
   devTag?: string;
   /**
    * @remarks
-   * The operating system of the device. Valid values:
-   * 
-   * - **Windows**
-   * 
-   * - **macOS**
-   * 
-   * - **Linux**
-   * 
-   * - **Android**
-   * 
-   * - **iOS**
-   * 
-   * - **Windows_Wuying**: Elastic Desktop Service.
+   * The operating system type of the terminal device. Valid values:
+   * - **Windows**: Windows.
+   * - **macOS**: macOS.
+   * - **Linux**: Linux.
+   * - **Android**: Android.
+   * - **iOS**: iOS.
+   * - **Windows_Wuying**: WUYING Workspace.
    * 
    * @example
    * Windows
@@ -62,7 +56,7 @@ export class ListUninstallApplicationsResponseBodyApplications extends $dara.Mod
   fullDepartment?: string[];
   /**
    * @remarks
-   * The hostname of the device.
+   * The name of the terminal device.
    * 
    * @example
    * win10-64bit
@@ -70,15 +64,15 @@ export class ListUninstallApplicationsResponseBodyApplications extends $dara.Mod
   hostname?: string;
   /**
    * @remarks
-   * The name of the Identity Provider (IdP).
+   * The name of the user identity source.
    * 
    * @example
-   * 测试身份源
+   * Test identity source
    */
   idpName?: string;
   /**
    * @remarks
-   * Indicates whether the application has been uninstalled.
+   * Indicates whether the uninstallation has been performed.
    * 
    * @example
    * false
@@ -86,7 +80,7 @@ export class ListUninstallApplicationsResponseBodyApplications extends $dara.Mod
   isUninstall?: boolean;
   /**
    * @remarks
-   * The MAC address of the device.
+   * The MAC address of the terminal device.
    * 
    * @example
    * 00:16:XX:XX:7c:46
@@ -97,7 +91,7 @@ export class ListUninstallApplicationsResponseBodyApplications extends $dara.Mod
    * The reason for the application.
    * 
    * @example
-   * 这是一个测试
+   * This is a test
    */
   reason?: string;
   /**
@@ -110,13 +104,10 @@ export class ListUninstallApplicationsResponseBodyApplications extends $dara.Mod
   saseUserId?: string;
   /**
    * @remarks
-   * The status of the uninstall application. Valid values:
-   * 
-   * - **Pending**
-   * 
-   * - **Approved**
-   * 
-   * - **Rejected**
+   * The uninstall application status. Valid values:
+   * - **Pending**: Pending processing.
+   * - **Approved**: Approved.
+   * - **Rejected**: Rejected.
    * 
    * @example
    * Approved
@@ -127,7 +118,7 @@ export class ListUninstallApplicationsResponseBodyApplications extends $dara.Mod
    * The username.
    * 
    * @example
-   * 王先生
+   * Mr. Wang
    */
   username?: string;
   static names(): { [key: string]: string } {
@@ -188,7 +179,7 @@ export class ListUninstallApplicationsResponseBody extends $dara.Model {
   applications?: ListUninstallApplicationsResponseBodyApplications[];
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 58D6B23E-E5DA-5418-8F61-51A3B5A30049

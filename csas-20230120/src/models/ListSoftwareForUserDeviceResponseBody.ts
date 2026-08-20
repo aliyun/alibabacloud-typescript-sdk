@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListSoftwareForUserDeviceResponseBodySoftware extends $dara.Model {
   /**
    * @remarks
-   * The publisher of the software.
+   * The software publisher.
    * 
    * @example
    * Alibaba (China) Network Technology Co.,Ltd.
@@ -13,7 +13,7 @@ export class ListSoftwareForUserDeviceResponseBodySoftware extends $dara.Model {
   inc?: string;
   /**
    * @remarks
-   * The time when the software was installed.
+   * The software installation time.
    * 
    * @example
    * 2023-08-18 02:43:02
@@ -21,15 +21,15 @@ export class ListSoftwareForUserDeviceResponseBodySoftware extends $dara.Model {
   installTime?: string;
   /**
    * @remarks
-   * The name of the software.
+   * The software name.
    * 
    * @example
-   * 钉钉
+   * DingTalk
    */
   name?: string;
   /**
    * @remarks
-   * The versions of the software.
+   * The collection of software versions.
    */
   versions?: string[];
   static names(): { [key: string]: string } {
@@ -73,12 +73,12 @@ export class ListSoftwareForUserDeviceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * A list of software applications.
+   * The list of software installed on the endpoint device.
    */
   software?: ListSoftwareForUserDeviceResponseBodySoftware[];
   /**
    * @remarks
-   * The total number of software applications.
+   * The total number of software installed on the endpoint device.
    * 
    * @example
    * 1

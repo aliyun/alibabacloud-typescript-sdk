@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteEnterpriseAccelerateTargetResponseBody extends $dara.Model {
   /**
    * @remarks
-   * ID of the current request.
+   * The request ID.
    * 
    * @example
    * 655CE28F-2C0C-5801-A31E-C16BF54BD225

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListRiskItemsRequest extends $dara.Model {
   /**
    * @remarks
-   * The current page number in a paging query. Valid values: 1 to 10000.
+   * The page number of the current page in a paging query. Valid values: 1 to 10000.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class ListRiskItemsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The name of the risk analysis policy. Fuzzy matching is supported.
+   * The name of the risk analysis policy. Fuzzy match is supported.
    * 
    * @example
    * Remote logon risk analysis policy
@@ -46,7 +46,7 @@ export class ListRiskItemsRequest extends $dara.Model {
   riskCategory?: string;
   /**
    * @remarks
-   * The risk event ID. If specified, the system performs an exact query for the specified risk event.
+   * The risk event ID. If specified, the exact risk event is queried.
    * 
    * @example
    * 69ef648034cf53d7bac7a9c9c912****
@@ -69,8 +69,9 @@ export class ListRiskItemsRequest extends $dara.Model {
    * * `account_share`: account sharing.
    * * `account_stolen`: account theft.
    * * `device_share`: device sharing.
-   * * `remote_logon`: remote logon.
+   * * `remote_logon`: remote logon from an unusual location.
    * * `sensitive_data_leakage`: sensitive data exfiltration.
+   * * `compressed_archive_exfil`: compressed data exfiltration from the internal network.
    * * `lateral_scanning`: lateral scanning.
    * * `ai_skill_malware`: malicious Skill.
    * * `ai_config_check`: AI configuration check.
@@ -82,7 +83,7 @@ export class ListRiskItemsRequest extends $dara.Model {
   riskScene?: string;
   /**
    * @remarks
-   * The disposition status of the risk event. This parameter cannot be used together with `StatusList`.
+   * The disposition status of the risk event. This parameter cannot be set together with `StatusList`.
    * 
    * @example
    * Unprocess
@@ -90,12 +91,12 @@ export class ListRiskItemsRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The list of disposition statuses of risk events, in Flat serialization format. This parameter cannot be used together with Status.
+   * The list of disposition statuses of risk events, in Flat serialization format. This parameter cannot be set together with Status.
    */
   statusList?: string[];
   /**
    * @remarks
-   * The username associated with the risk event. Fuzzy matching is supported. Maximum length: 128 characters.
+   * The username associated with the risk event. Fuzzy match is supported. Maximum length: 128 characters.
    * 
    * @example
    * zhang***

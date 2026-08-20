@@ -16,7 +16,7 @@ export class UpdateApprovalStatusResponseBodyApprovalApprovalProgressesOperators
    * The username of the operator for the approval progress node.
    * 
    * @example
-   * 王先生
+   * John
    */
   username?: string;
   static names(): { [key: string]: string } {
@@ -45,14 +45,10 @@ export class UpdateApprovalStatusResponseBodyApprovalApprovalProgressesOperators
 export class UpdateApprovalStatusResponseBodyApprovalApprovalProgresses extends $dara.Model {
   /**
    * @remarks
-   * The operation performed on the approval progress node. Valid values:
-   * 
+   * The action performed on the approval progress node. Valid values:
    * - **Approve**: Approve.
-   * 
    * - **Reject**: Reject.
-   * 
    * - **Revoke**: Revoke.
-   * 
    * - **Comment**: Comment.
    * 
    * @example
@@ -61,10 +57,10 @@ export class UpdateApprovalStatusResponseBodyApprovalApprovalProgresses extends 
   action?: string;
   /**
    * @remarks
-   * The comment for the approval progress node operation.
+   * The comment on the approval progress node.
    * 
    * @example
-   * 审核通过
+   * Approved
    */
   comment?: string;
   /**
@@ -83,13 +79,9 @@ export class UpdateApprovalStatusResponseBodyApprovalApprovalProgresses extends 
   /**
    * @remarks
    * The status of the approval progress node. Valid values:
-   * 
    * - **Pending**: Pending approval.
-   * 
    * - **Approved**: Approved.
-   * 
    * - **Rejected**: Rejected.
-   * 
    * - **Revoked**: Revoked.
    * 
    * @example
@@ -98,7 +90,7 @@ export class UpdateApprovalStatusResponseBodyApprovalApprovalProgresses extends 
   status?: string;
   /**
    * @remarks
-   * The execution time of the approval progress node, in seconds as a UNIX timestamp.
+   * The time when the action was performed on the approval progress node. The value is a UNIX timestamp in seconds.
    * 
    * @example
    * 1736752000
@@ -144,12 +136,12 @@ export class UpdateApprovalStatusResponseBodyApproval extends $dara.Model {
    * The details of the approval instance.
    * 
    * @example
-   * {"initiatorName":"王先生","initiatorDept":"测试部","devType":"windows","deviceType":"usbStorage","deviceId":"FC216E9E3****","approvalEndTimestamp":1736524799,"approvalReason":"这是一个测试"}
+   * {"initiatorName":"John","initiatorDept":"QA Department","devType":"windows","deviceType":"usbStorage","deviceId":"FC216E9E3****","approvalEndTimestamp":1736524799,"approvalReason":"This is a test"}
    */
   approvalDetail?: string;
   /**
    * @remarks
-   * The ID of the approval instance.
+   * The approval instance ID.
    * 
    * @example
    * approval-165e6738ad9d****
@@ -157,12 +149,12 @@ export class UpdateApprovalStatusResponseBodyApproval extends $dara.Model {
   approvalId?: string;
   /**
    * @remarks
-   * The list of approval progress nodes for the approval instance.
+   * The list of approval progress nodes.
    */
   approvalProgresses?: UpdateApprovalStatusResponseBodyApprovalApprovalProgresses[];
   /**
    * @remarks
-   * The creation time of the approval instance.
+   * The time when the approval instance was created.
    * 
    * @example
    * 2022-11-15 22:11:55
@@ -170,7 +162,7 @@ export class UpdateApprovalStatusResponseBodyApproval extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The ID of the terminal device that created the approval instance.
+   * The ID of the terminal device from which the approval instance was created.
    * 
    * @example
    * 36efa42d-2c32-c4dc-e3fc-8541e33a****
@@ -186,7 +178,7 @@ export class UpdateApprovalStatusResponseBodyApproval extends $dara.Model {
   creatorUserId?: string;
   /**
    * @remarks
-   * The expiration time of the approval instance, in seconds as a UNIX timestamp.
+   * The expiration time of the approval instance. The value is a UNIX timestamp in seconds.
    * 
    * @example
    * 1757952000
@@ -195,17 +187,11 @@ export class UpdateApprovalStatusResponseBodyApproval extends $dara.Model {
   /**
    * @remarks
    * The policy type associated with the approval instance. Valid values:
-   * 
-   * - **DomainBlacklist**: Domain blacklist.
-   * 
-   * - **DomainWhitelist**: Domain whitelist.
-   * 
-   * - **SoftwareBlock**: Software disablement.
-   * 
-   * - **AppUninstall**: Terminal uninstall.
-   * 
-   * - **DlpSend**: File outbound.
-   * 
+   * - **DomainBlacklist**: Domain name blacklist.
+   * - **DomainWhitelist**: Domain name whitelist.
+   * - **SoftwareBlock**: Software blocking.
+   * - **AppUninstall**: Terminal uninstallation.
+   * - **DlpSend**: File outbound transfer.
    * - **PeripheralBlock**: Peripheral control.
    * 
    * @example
@@ -225,7 +211,7 @@ export class UpdateApprovalStatusResponseBodyApproval extends $dara.Model {
    * The name of the process associated with the approval instance.
    * 
    * @example
-   * 测试
+   * Test
    */
   processName?: string;
   /**
@@ -233,7 +219,7 @@ export class UpdateApprovalStatusResponseBodyApproval extends $dara.Model {
    * The reason for creating the approval instance.
    * 
    * @example
-   * 这是一个测试
+   * This is a test
    */
   reason?: string;
   /**
@@ -257,21 +243,16 @@ export class UpdateApprovalStatusResponseBodyApproval extends $dara.Model {
    * The name of the template associated with the approval instance.
    * 
    * @example
-   * 测试
+   * Test
    */
   schemaName?: string;
   /**
    * @remarks
-   * The status of the approval instance. Valid values:
-   * 
+   * The instance status of the approval. Valid values:
    * - **Pending**: Pending approval.
-   * 
    * - **Approved**: Approved.
-   * 
-   * - **Rejected**: Rejected.
-   * 
+   * - **Rejected**: Deny.
    * - **Revoked**: Revoked.
-   * 
    * - **Expired**: Expired.
    * 
    * @example
@@ -338,7 +319,7 @@ export class UpdateApprovalStatusResponseBody extends $dara.Model {
   approval?: UpdateApprovalStatusResponseBodyApproval[];
   /**
    * @remarks
-   * The ID of this request.
+   * The request ID.
    * 
    * @example
    * 58D6B23E-E5DA-5418-8F61-51A3B5A30049

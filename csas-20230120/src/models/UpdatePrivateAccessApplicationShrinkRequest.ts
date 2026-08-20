@@ -44,17 +44,21 @@ export class UpdatePrivateAccessApplicationShrinkRequestPortRanges extends $dara
 }
 
 export class UpdatePrivateAccessApplicationShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The application address groups. This parameter can be specified when ConfigMode is set to Precise. This parameter cannot be specified when ConfigMode is an empty string.
+   */
   addressGroups?: AddressGroup[];
   /**
    * @remarks
-   * The addresses of the internal-facing access application. You can specify up to 1000 addresses.
+   * The addresses of the private access application. You can specify up to 1000 addresses.
    */
   addresses?: string[];
   /**
    * @remarks
-   * The ID of the internal-facing access application. You can obtain the value from the following operations:
-   * - [ListPrivateAccessApplications](~~ListPrivateAccessApplications~~): lists internal-facing access applications.
-   * - [CreatePrivateAccessApplication](~~CreatePrivateAccessApplication~~): creates an internal-facing access application.
+   * The ID of the private access application. You can obtain the value from:
+   * - [ListPrivateAccessApplications](~~ListPrivateAccessApplications~~): Lists private access applications.
+   * - [CreatePrivateAccessApplication](~~CreatePrivateAccessApplication~~): Creates a private access application.
    * 
    * This parameter is required.
    * 
@@ -62,13 +66,19 @@ export class UpdatePrivateAccessApplicationShrinkRequest extends $dara.Model {
    * pa-application-e12860ef6c48****
    */
   applicationId?: string;
+  /**
+   * @remarks
+   * The configuration mode. Valid values:
+   * * Empty string: default mode.
+   * * Precise: precise mode.
+   */
   configMode?: string;
   /**
    * @remarks
-   * The description of the internal-facing access application. The description must be 1 to 128 characters in length and can contain Chinese characters, uppercase and lowercase letters, digits, periods (.), underscores (_), hyphens (-), and spaces.
+   * The description of the private access application. The description must be 1 to 128 characters in length and can contain Chinese characters, letters, digits, periods (.), underscores (_), hyphens (-), and spaces.
    * 
    * @example
-   * 这是一条内网访问应用
+   * This is a private access application
    * 
    * **if can be null:**
    * true
@@ -107,23 +117,27 @@ export class UpdatePrivateAccessApplicationShrinkRequest extends $dara.Model {
   l7ProxyDomainPrivate?: string;
   /**
    * @remarks
-   * The modification type of the internal-facing access application. Valid values:
+   * The modification type of the private access application. Valid values:
    * - **Cover** (default): overwrites the original addresses, port ranges, and tag IDs with the values of the **Addresses**, **PortRanges**, and **TagIds** parameters.
-   * - **Append**: adds the values of the **Addresses**, **PortRanges**, and **TagIds** parameters to the original addresses, port ranges, and tag IDs.
+   * - **Append**: appends the values of the **Addresses**, **PortRanges**, and **TagIds** parameters to the original addresses, port ranges, and tag IDs.
    * 
    * @example
    * Cover
    */
   modifyType?: string;
+  /**
+   * @remarks
+   * The application name.
+   */
   name?: string;
   /**
    * @remarks
-   * The port ranges of the internal-facing access application. You can specify up to 65535 port ranges. Multiple port ranges cannot be duplicate or overlap.
+   * The port ranges of the private access application. You can specify up to 65535 port ranges. Multiple port ranges cannot overlap.
    */
   portRanges?: UpdatePrivateAccessApplicationShrinkRequestPortRanges[];
   /**
    * @remarks
-   * The protocol of the internal-facing access application. Valid values:
+   * The protocol of the private access application. Valid values:
    * - **All**: all protocols.
    * - **TCP**
    * - **UDP**
@@ -134,7 +148,7 @@ export class UpdatePrivateAccessApplicationShrinkRequest extends $dara.Model {
   protocol?: string;
   /**
    * @remarks
-   * The status of the internal-facing access application. Valid values:
+   * The status of the private access application. Valid values:
    * - **Enabled**: enabled.
    * - **Disabled**: disabled.
    * 
@@ -144,12 +158,16 @@ export class UpdatePrivateAccessApplicationShrinkRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The IDs of internal-facing access tags. You can associate up to 6 custom internal-facing access tags with each internal-facing access application.
+   * The IDs of private access tags. A private access application can be associated with up to 6 custom private access tags.
    * 
    * **if can be null:**
    * true
    */
   tagIds?: string[];
+  /**
+   * @remarks
+   * The configuration for unauthorized application access requests.
+   */
   unauthorizedAccessConfigShrink?: string;
   static names(): { [key: string]: string } {
     return {

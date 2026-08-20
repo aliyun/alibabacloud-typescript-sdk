@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateUninstallApplicationsStatusResponseBodyApplications extends $dara.Model {
   /**
    * @remarks
-   * Uninstall request ID.
+   * The uninstall application ID.
    * 
    * @example
    * uninstall-app-6646831ac314****
@@ -13,7 +13,7 @@ export class UpdateUninstallApplicationsStatusResponseBodyApplications extends $
   applicationId?: string;
   /**
    * @remarks
-   * Time when the uninstall request was created.
+   * The time when the uninstall application was created.
    * 
    * @example
    * 2023-07-17 18:46:55
@@ -21,15 +21,15 @@ export class UpdateUninstallApplicationsStatusResponseBodyApplications extends $
   createTime?: string;
   /**
    * @remarks
-   * Department to which the user belongs.
+   * The department to which the user belongs.
    * 
    * @example
-   * 测试部
+   * Testing Department
    */
   department?: string;
   /**
    * @remarks
-   * Endpoint device ID.
+   * The ID of the endpoint device.
    * 
    * @example
    * 36efa42d-2c32-c4dc-e3fc-8541e33a****
@@ -37,19 +37,13 @@ export class UpdateUninstallApplicationsStatusResponseBodyApplications extends $
   devTag?: string;
   /**
    * @remarks
-   * Operating system type of the endpoint device. Valid values:
-   * 
-   * - **Windows**: Windows operating system.
-   * 
-   * - **macOS**: macOS operating system.
-   * 
-   * - **Linux**: Linux operating system.
-   * 
-   * - **Android**: Android operating system.
-   * 
-   * - **iOS**: iOS operating system.
-   * 
-   * - **Windows_Wuying**: Alibaba Cloud Desktop operating system.
+   * The operating system type of the endpoint device. Valid values:
+   * - **Windows**: Windows.
+   * - **macOS**: macOS.
+   * - **Linux**: Linux.
+   * - **Android**: Android.
+   * - **iOS**: iOS.
+   * - **Windows_Wuying**: WUYING Workspace.
    * 
    * @example
    * Windows
@@ -57,7 +51,7 @@ export class UpdateUninstallApplicationsStatusResponseBodyApplications extends $
   devType?: string;
   /**
    * @remarks
-   * Device name of the endpoint.
+   * The name of the endpoint device.
    * 
    * @example
    * win10-64bit
@@ -65,15 +59,15 @@ export class UpdateUninstallApplicationsStatusResponseBodyApplications extends $
   hostname?: string;
   /**
    * @remarks
-   * Name of the user identity source.
+   * The name of the identity provider.
    * 
    * @example
-   * 测试身份源
+   * Test Identity Provider
    */
   idpName?: string;
   /**
    * @remarks
-   * Indicates whether the uninstall has been executed.
+   * Indicates whether the uninstallation has been performed.
    * 
    * @example
    * false
@@ -81,7 +75,7 @@ export class UpdateUninstallApplicationsStatusResponseBodyApplications extends $
   isUninstall?: boolean;
   /**
    * @remarks
-   * MAC address of the endpoint device.
+   * The MAC address of the endpoint device.
    * 
    * @example
    * 00:16:XX:XX:7c:46
@@ -89,15 +83,15 @@ export class UpdateUninstallApplicationsStatusResponseBodyApplications extends $
   mac?: string;
   /**
    * @remarks
-   * Reason for the request.
+   * The reason for the application.
    * 
    * @example
-   * 这是一个测试
+   * This is a test
    */
   reason?: string;
   /**
    * @remarks
-   * User ID.
+   * The user ID.
    * 
    * @example
    * su_e8f218fb171edd167c2ad917d21f53148bdefc510ca1f3c3cc0249d3643d****
@@ -105,12 +99,9 @@ export class UpdateUninstallApplicationsStatusResponseBodyApplications extends $
   saseUserId?: string;
   /**
    * @remarks
-   * Status of the uninstall request. Valid values:
-   * 
+   * The status of the uninstall application. Valid values:
    * - **Pending**: Pending.
-   * 
    * - **Approved**: Approved.
-   * 
    * - **Rejected**: Rejected.
    * 
    * @example
@@ -119,10 +110,10 @@ export class UpdateUninstallApplicationsStatusResponseBodyApplications extends $
   status?: string;
   /**
    * @remarks
-   * Username.
+   * The username.
    * 
    * @example
-   * 王先生
+   * Mr. Wang
    */
   username?: string;
   static names(): { [key: string]: string } {
@@ -173,12 +164,12 @@ export class UpdateUninstallApplicationsStatusResponseBodyApplications extends $
 export class UpdateUninstallApplicationsStatusResponseBody extends $dara.Model {
   /**
    * @remarks
-   * List of uninstall requests.
+   * The list of uninstall applications.
    */
   applications?: UpdateUninstallApplicationsStatusResponseBodyApplications[];
   /**
    * @remarks
-   * The ID of this request.
+   * The request ID.
    * 
    * @example
    * 9B769522-D50C-5978-8981-52BE800D6099

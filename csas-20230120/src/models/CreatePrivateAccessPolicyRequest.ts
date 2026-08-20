@@ -100,7 +100,7 @@ export class CreatePrivateAccessPolicyRequest extends $dara.Model {
    * Description of the private access policy. The length is 1 to 128 characters, supporting Chinese and uppercase and lowercase English letters, and can include numbers, periods (.), underscores (_), hyphens (-), and spaces.
    * 
    * @example
-   * 这是一条内网访问策略
+   * test
    */
   description?: string;
   /**

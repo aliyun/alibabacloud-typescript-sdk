@@ -21,7 +21,7 @@ export class CreateApprovalProcessRequestMatchSchemas extends $dara.Model {
   deviceRegistrationSchemaId?: string;
   /**
    * @remarks
-   * The ID of the file outbound transfer approval template.
+   * The ID of the file outbound approval template.
    * 
    * @example
    * approval-schema-090134f1ebff****
@@ -104,10 +104,10 @@ export class CreateApprovalProcessRequestMatchSchemas extends $dara.Model {
 export class CreateApprovalProcessRequest extends $dara.Model {
   /**
    * @remarks
-   * The description of the approval process. The description must be 1 to 128 characters in length and can contain letters, digits, periods (.), underscores (_), hyphens (-), and spaces. Chinese characters are supported.
+   * The description of the approval flow. The description must be 1 to 128 characters in length and can contain letters, digits, periods (.), underscores (_), hyphens (-), and spaces. Chinese characters are supported.
    * 
    * @example
-   * 这是一个审批流程
+   * This is an approval flow
    */
   description?: string;
   /**
@@ -117,7 +117,7 @@ export class CreateApprovalProcessRequest extends $dara.Model {
   matchSchemas?: CreateApprovalProcessRequestMatchSchemas;
   /**
    * @remarks
-   * The process name. The name must be 1 to 128 characters in length and can contain letters, digits, periods (.), underscores (_), and hyphens (-). Chinese characters are supported.
+   * The flow name. The name must be 1 to 128 characters in length and can contain letters, digits, periods (.), underscores (_), and hyphens (-). Chinese characters are supported.
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateWmExtractTaskResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The task ID. You can use task IDs to query task results.
+   * The task ID, which is used to query the task result.
    * 
    * @example
    * wmt-9648c22d2eb2cb57bb855dcae7898464********
@@ -35,7 +35,7 @@ export class CreateWmExtractTaskResponseBodyData extends $dara.Model {
 export class CreateWmExtractTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the watermark extraction task.
+   * The watermark extraction task information.
    */
   data?: CreateWmExtractTaskResponseBodyData;
   /**

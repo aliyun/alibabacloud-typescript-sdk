@@ -21,7 +21,7 @@ export class ListRiskItemsResponseBodyRiskItems extends $dara.Model {
   aiConclusion?: string;
   /**
    * @remarks
-   * The risk judgment provided by AI. An empty string is returned if no AI analysis result exists. Valid values:
+   * The risk judgment provided by AI. An empty string is returned if no AI analysis results exist. Valid values:
    * * `Risk`: determined as risky.
    * * `Ignore`: determined as not risky.
    * 
@@ -97,7 +97,7 @@ export class ListRiskItemsResponseBodyRiskItems extends $dara.Model {
   riskCategory?: string;
   /**
    * @remarks
-   * The manually confirmed risk conclusion. An empty string is returned if the event has not been confirmed. Valid values:
+   * The manually confirmed risk conclusion. An empty string is returned if not confirmed. Valid values:
    * * `Risk`: confirmed as risky.
    * * `Ignore`: confirmed as not risky.
    * * `Invalid`: confirmed as a false positive.
@@ -111,7 +111,7 @@ export class ListRiskItemsResponseBodyRiskItems extends $dara.Model {
    * The description of the risk event disposition.
    * 
    * @example
-   * Upon investigation, the logon was not authorized by the user
+   * After verification, the logon was not authorized by the user
    */
   riskConfirmDesc?: string;
   /**
@@ -168,7 +168,7 @@ export class ListRiskItemsResponseBodyRiskItems extends $dara.Model {
    * - `account_share`: account sharing.
    * - `account_stolen`: account theft.
    * - `device_share`: device sharing.
-   * - `remote_logon`: remote logon.
+   * - `remote_logon`: remote logon from an unusual location.
    * - `sensitive_data_leakage`: sensitive data exfiltration.
    * - `lateral_scanning`: lateral scanning.
    * - `ai_skill_malware`: malicious Skill.
@@ -208,7 +208,7 @@ export class ListRiskItemsResponseBodyRiskItems extends $dara.Model {
    * The recommended remediation action for the risk event.
    * 
    * @example
-   * Verify the account user and freeze the account or reset credentials based on the investigation results
+   * Verify the account user and freeze the account or reset credentials based on the verification result
    */
   solution?: string;
   /**
@@ -335,7 +335,7 @@ export class ListRiskItemsResponseBody extends $dara.Model {
   riskItems?: ListRiskItemsResponseBodyRiskItems[];
   /**
    * @remarks
-   * The total number of risk events that match the query conditions.
+   * The total number of risk events that meet the query conditions.
    * 
    * @example
    * 1

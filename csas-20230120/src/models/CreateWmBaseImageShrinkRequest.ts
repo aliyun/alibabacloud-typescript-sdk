@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateWmBaseImageShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * Height of the watermark image, in pixels. Valid values: 100 to 5000.
+   * The height of the watermark image, in pixels. Valid values: 100 to 5000.
    * 
    * This parameter is required.
    * 
@@ -15,12 +15,12 @@ export class CreateWmBaseImageShrinkRequest extends $dara.Model {
   height?: number;
   /**
    * @remarks
-   * Image watermark control parameters.
+   * The image watermark control parameters.
    */
   imageControlShrink?: string;
   /**
    * @remarks
-   * Opacity of the watermark image. Valid values: 1 to 255. Higher values mean lower transparency.
+   * The opacity of the watermark image. Valid values: 1 to 255. A larger value indicates lower transparency.
    * 
    * This parameter is required.
    * 
@@ -30,7 +30,7 @@ export class CreateWmBaseImageShrinkRequest extends $dara.Model {
   opacity?: number;
   /**
    * @remarks
-   * Scaling factor of the watermark image.
+   * The scaling ratio of the watermark image.
    * 
    * This parameter is required.
    * 
@@ -40,7 +40,7 @@ export class CreateWmBaseImageShrinkRequest extends $dara.Model {
   scale?: number;
   /**
    * @remarks
-   * Width of the watermark image, in pixels. Valid values: 100 to 5000.
+   * The width of the watermark image, in pixels. Valid values: 100 to 5000.
    * 
    * This parameter is required.
    * 
@@ -50,7 +50,7 @@ export class CreateWmBaseImageShrinkRequest extends $dara.Model {
   width?: number;
   /**
    * @remarks
-   * Base64-encoded watermark information. Length: 1 to 300 characters. Do not set this parameter if you set WmInfoUint.
+   * The watermark information in Base64-encoded string format. The length is 1 to 300 characters. If this parameter is set, the WmInfoUint parameter cannot be set.
    * 
    * @example
    * aGVsbG8gc2F*****
@@ -58,7 +58,7 @@ export class CreateWmBaseImageShrinkRequest extends $dara.Model {
   wmInfoBytesB64?: string;
   /**
    * @remarks
-   * Bit width of the watermark information. Default value: 32. This value must be the same during embedding and extraction. For example, if you use a 40-bit SDK to embed the watermark, set this value to 40 when extracting it.
+   * The bit width of the watermark information capacity. Default value: 32. This parameter must be consistent between embedding and extraction. For example, if the SDK used for embedding is 40-bit, set this parameter to 40 during extraction as well.
    * 
    * @example
    * 32
@@ -66,9 +66,9 @@ export class CreateWmBaseImageShrinkRequest extends $dara.Model {
   wmInfoSize?: number;
   /**
    * @remarks
-   * Decimal-form watermark information. Do not set this parameter if you set WmInfoBytesB64.
+   * The watermark information in decimal number format. If this parameter is set, WmInfoBytesB64 cannot be set.
    * 
-   * The valid range depends on the WmInfoSize value:
+   * The valid range depends on the WmInfoSize parameter:
    * 
    * - If WmInfoSize is **32**, the valid range is 1 to 4294967295.
    * 
@@ -82,18 +82,12 @@ export class CreateWmBaseImageShrinkRequest extends $dara.Model {
   wmInfoUint?: string;
   /**
    * @remarks
-   * Watermark type. Valid values:
-   * 
-   * - **PureWebappInvisible**: Web watermark.
-   * 
+   * The watermark type. Valid values:
+   * - **PureWebappInvisible**: web watermark.
    * - **PureAppInvisible**: App watermark.
-   * 
-   * - **PureScreenInvisible**: Screen watermark.
-   * 
+   * - **PureScreenInvisible**: screen watermark.
    * - **AigcWebappInvisible**: AIGC web watermark.
-   * 
-   * - **AigcAppInvisible**: AIGC app watermark.
-   * 
+   * - **AigcAppInvisible**: AIGC App watermark.
    * - **AigcScreenInvisible**: AIGC screen watermark.
    * 
    * This parameter is required.
@@ -104,10 +98,10 @@ export class CreateWmBaseImageShrinkRequest extends $dara.Model {
   wmType?: string;
   /**
    * @remarks
-   * Comments.
+   * The remarks.
    * 
    * @example
-   * 备注
+   * Remarks
    */
   comment?: string;
   static names(): { [key: string]: string } {

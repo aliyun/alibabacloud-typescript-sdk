@@ -795,7 +795,7 @@ export class UpdateApprovalProcessRequest extends $dara.Model {
   approvalType?: number;
   /**
    * @remarks
-   * The description of the approval flow. The description must be 1 to 128 characters in length and can contain letters, digits, periods (.), underscores (_), hyphens (-), and spaces. Chinese characters are supported.
+   * The description of the approval process. The description must be 1 to 128 characters in length and can contain letters, digits, periods (.), underscores (_), hyphens (-), and spaces. Chinese characters are supported.
    * 
    * @example
    * This is a test
@@ -811,7 +811,7 @@ export class UpdateApprovalProcessRequest extends $dara.Model {
   matchSchemas?: UpdateApprovalProcessRequestMatchSchemas;
   /**
    * @remarks
-   * The ID of the approval flow.
+   * The ID of the approval process.
    * 
    * This parameter is required.
    * 
@@ -821,7 +821,7 @@ export class UpdateApprovalProcessRequest extends $dara.Model {
   processId?: string;
   /**
    * @remarks
-   * The name of the approval flow. The name must be 1 to 128 characters in length and can contain letters, digits, periods (.), underscores (_), and hyphens (-). Chinese characters are supported.
+   * The name of the approval process. The name must be 1 to 128 characters in length and can contain letters, digits, periods (.), underscores (_), and hyphens (-). Chinese characters are supported.
    * 
    * @example
    * Test

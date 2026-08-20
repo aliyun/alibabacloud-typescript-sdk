@@ -618,7 +618,7 @@ export class UpdateApprovalProcessResponseBodyProcessProcessNodes extends $dara.
    * The approver username.
    * 
    * @example
-   * Wang
+   * Mr. Wang
    */
   username?: string;
   static names(): { [key: string]: string } {
@@ -798,7 +798,7 @@ export class UpdateApprovalProcessResponseBodyProcess extends $dara.Model {
   approvalType?: number;
   /**
    * @remarks
-   * The time when the approval flow was created.
+   * The time when the approval process was created.
    * 
    * @example
    * 2022-07-11 15:31:39
@@ -806,7 +806,7 @@ export class UpdateApprovalProcessResponseBodyProcess extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The description of the approval flow.
+   * The description of the approval process.
    * 
    * @example
    * This is a test
@@ -843,7 +843,7 @@ export class UpdateApprovalProcessResponseBodyProcess extends $dara.Model {
   privateAccessBlockPolicies?: UpdateApprovalProcessResponseBodyProcessPrivateAccessBlockPolicies;
   /**
    * @remarks
-   * The ID of the approval flow.
+   * The ID of the approval process.
    * 
    * @example
    * approval-process-2677fcf063f5****
@@ -851,7 +851,7 @@ export class UpdateApprovalProcessResponseBodyProcess extends $dara.Model {
   processId?: string;
   /**
    * @remarks
-   * The name of the approval flow.
+   * The name of the approval process.
    * 
    * @example
    * Test
@@ -959,7 +959,7 @@ export class UpdateApprovalProcessResponseBodyProcess extends $dara.Model {
 export class UpdateApprovalProcessResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The approval flow.
+   * The approval process.
    */
   process?: UpdateApprovalProcessResponseBodyProcess;
   /**

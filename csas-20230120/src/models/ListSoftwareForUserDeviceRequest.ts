@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListSoftwareForUserDeviceRequest extends $dara.Model {
   /**
    * @remarks
-   * The page number. Valid values: 1 to 10,000.
+   * The page number of the current page in a paged query. Valid values: 1 to 10000.
    * 
    * This parameter is required.
    * 
@@ -15,11 +15,9 @@ export class ListSoftwareForUserDeviceRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The ID of the user device. Call one of the following operations to obtain the device ID:
-   * 
-   * - [GetUserDevice](~~GetUserDevice~~): Get the details of a user device.
-   * 
-   * - [ListUserDevices](~~ListUserDevices~~): Get a list of user devices.
+   * The endpoint device ID. You can obtain this value from the following operations:
+   * - [GetUserDevice](~~GetUserDevice~~): Queries the details of a user endpoint device.
+   * - [ListUserDevices](~~ListUserDevices~~): Queries user endpoint devices in batches.
    * 
    * This parameter is required.
    * 
@@ -29,7 +27,7 @@ export class ListSoftwareForUserDeviceRequest extends $dara.Model {
   deviceTag?: string;
   /**
    * @remarks
-   * The number of entries per page. Valid values: 1 to 500.
+   * The number of entries per page in a paged query. Valid values: 1 to 500.
    * 
    * This parameter is required.
    * 

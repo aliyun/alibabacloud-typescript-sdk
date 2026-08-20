@@ -10,7 +10,7 @@ export class BatchDeleteDomainItemsRequest extends $dara.Model {
   itemIds?: number[];
   /**
    * @remarks
-   * The list ID. This is the unique business identifier used for policy references and add, delete, and modify operations.
+   * The list ID. This is the unique business identifier used for policy references and CRUD operations.
    * 
    * @example
    * ladl-61aae0c0ba715e3b

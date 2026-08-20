@@ -15,7 +15,7 @@ export class CreateEnterpriseAccelerateTargetRequest extends $dara.Model {
   eapId?: string;
   /**
    * @remarks
-   * A list of enterprise acceleration addresses.
+   * The list of enterprise acceleration addresses.
    * 
    * This parameter is required.
    */

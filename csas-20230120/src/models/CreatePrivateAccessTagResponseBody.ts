@@ -13,7 +13,7 @@ export class CreatePrivateAccessTagResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The private access tag ID.
+   * The ID of the internal-facing access tag.
    * 
    * @example
    * tag-d3f64e8bdd4a****

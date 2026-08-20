@@ -6,7 +6,7 @@ export class CreateEnterpriseAcceleratePolicyResponseBody extends $dara.Model {
   eapId?: string;
   /**
    * @remarks
-   * ID of the request.
+   * The request ID.
    * 
    * @example
    * 2CABFEBB-0CE7-575E-833A-266F75D46713

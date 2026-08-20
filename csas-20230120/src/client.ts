@@ -34,6 +34,57 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Appends associated terminal devices to a static device label in batches.
+   * 
+   * @param request - AddDeviceGroupMatchDevicesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddDeviceGroupMatchDevicesResponse
+   */
+  async addDeviceGroupMatchDevicesWithOptions(request: $_model.AddDeviceGroupMatchDevicesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AddDeviceGroupMatchDevicesResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    let bodyFlat : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.devTags)) {
+      bodyFlat["DevTags"] = request.devTags;
+    }
+
+    if (!$dara.isNull(request.deviceGroupId)) {
+      body["DeviceGroupId"] = request.deviceGroupId;
+    }
+
+    body = {
+      ...body,
+      ...OpenApiUtil.query(bodyFlat),
+    };
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AddDeviceGroupMatchDevices",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AddDeviceGroupMatchDevicesResponse>(await this.callApi(params, req, runtime), new $_model.AddDeviceGroupMatchDevicesResponse({}));
+  }
+
+  /**
+   * Appends associated terminal devices to a static device label in batches.
+   * 
+   * @param request - AddDeviceGroupMatchDevicesRequest
+   * @returns AddDeviceGroupMatchDevicesResponse
+   */
+  async addDeviceGroupMatchDevices(request: $_model.AddDeviceGroupMatchDevicesRequest): Promise<$_model.AddDeviceGroupMatchDevicesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.addDeviceGroupMatchDevicesWithOptions(request, runtime);
+  }
+
+  /**
    * Attaches the private access applications of a Connector under the current Alibaba Cloud account.
    * 
    * @param tmpReq - AttachApplication2ConnectorRequest
@@ -258,7 +309,111 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an approval process under the current Alibaba Cloud account.
+   * Deletes internal-facing applications in batches.
+   * 
+   * @remarks
+   * Applications that are referenced by office network recognition or policies cannot be deleted. References:
+   * - [ListPrivateAccessApplications](~~ListPrivateAccessApplications~~): Lists internal-facing access applications in batches.
+   * - [ListPrivateAccessPolices](~~ListPrivateAccessPolices~~): Lists internal-facing access policies in batches.
+   * 
+   * @param request - BatchDeletePrivateAccessApplicationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BatchDeletePrivateAccessApplicationResponse
+   */
+  async batchDeletePrivateAccessApplicationWithOptions(request: $_model.BatchDeletePrivateAccessApplicationRequest, runtime: $dara.RuntimeOptions): Promise<$_model.BatchDeletePrivateAccessApplicationResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    let bodyFlat : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.applicationIds)) {
+      bodyFlat["ApplicationIds"] = request.applicationIds;
+    }
+
+    body = {
+      ...body,
+      ...OpenApiUtil.query(bodyFlat),
+    };
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "BatchDeletePrivateAccessApplication",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.BatchDeletePrivateAccessApplicationResponse>(await this.callApi(params, req, runtime), new $_model.BatchDeletePrivateAccessApplicationResponse({}));
+  }
+
+  /**
+   * Deletes internal-facing applications in batches.
+   * 
+   * @remarks
+   * Applications that are referenced by office network recognition or policies cannot be deleted. References:
+   * - [ListPrivateAccessApplications](~~ListPrivateAccessApplications~~): Lists internal-facing access applications in batches.
+   * - [ListPrivateAccessPolices](~~ListPrivateAccessPolices~~): Lists internal-facing access policies in batches.
+   * 
+   * @param request - BatchDeletePrivateAccessApplicationRequest
+   * @returns BatchDeletePrivateAccessApplicationResponse
+   */
+  async batchDeletePrivateAccessApplication(request: $_model.BatchDeletePrivateAccessApplicationRequest): Promise<$_model.BatchDeletePrivateAccessApplicationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.batchDeletePrivateAccessApplicationWithOptions(request, runtime);
+  }
+
+  /**
+   * Deletes internal network access policies in batches.
+   * 
+   * @param request - BatchDeletePrivateAccessPolicyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BatchDeletePrivateAccessPolicyResponse
+   */
+  async batchDeletePrivateAccessPolicyWithOptions(request: $_model.BatchDeletePrivateAccessPolicyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.BatchDeletePrivateAccessPolicyResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    let bodyFlat : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.policyIds)) {
+      bodyFlat["PolicyIds"] = request.policyIds;
+    }
+
+    body = {
+      ...body,
+      ...OpenApiUtil.query(bodyFlat),
+    };
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "BatchDeletePrivateAccessPolicy",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.BatchDeletePrivateAccessPolicyResponse>(await this.callApi(params, req, runtime), new $_model.BatchDeletePrivateAccessPolicyResponse({}));
+  }
+
+  /**
+   * Deletes internal network access policies in batches.
+   * 
+   * @param request - BatchDeletePrivateAccessPolicyRequest
+   * @returns BatchDeletePrivateAccessPolicyResponse
+   */
+  async batchDeletePrivateAccessPolicy(request: $_model.BatchDeletePrivateAccessPolicyRequest): Promise<$_model.BatchDeletePrivateAccessPolicyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.batchDeletePrivateAccessPolicyWithOptions(request, runtime);
+  }
+
+  /**
+   * Creates an approval flow under the current Alibaba Cloud account.
    * 
    * @param tmpReq - CreateApprovalProcessRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -312,7 +467,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an approval process under the current Alibaba Cloud account.
+   * Creates an approval flow under the current Alibaba Cloud account.
    * 
    * @param request - CreateApprovalProcessRequest
    * @returns CreateApprovalProcessResponse
@@ -386,6 +541,124 @@ export default class Client extends OpenApi {
   async createClientUser(request: $_model.CreateClientUserRequest): Promise<$_model.CreateClientUserResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createClientUserWithOptions(request, runtime);
+  }
+
+  /**
+   * Creates a connector.
+   * 
+   * @param request - CreateConnectorRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateConnectorResponse
+   */
+  async createConnectorWithOptions(request: $_model.CreateConnectorRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateConnectorResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.bandwidth)) {
+      body["Bandwidth"] = request.bandwidth;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.region)) {
+      body["Region"] = request.region;
+    }
+
+    if (!$dara.isNull(request.switchStatus)) {
+      body["SwitchStatus"] = request.switchStatus;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateConnector",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateConnectorResponse>(await this.callApi(params, req, runtime), new $_model.CreateConnectorResponse({}));
+  }
+
+  /**
+   * Creates a connector.
+   * 
+   * @param request - CreateConnectorRequest
+   * @returns CreateConnectorResponse
+   */
+  async createConnector(request: $_model.CreateConnectorRequest): Promise<$_model.CreateConnectorResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createConnectorWithOptions(request, runtime);
+  }
+
+  /**
+   * Creates a device label.
+   * 
+   * @param tmpReq - CreateDeviceGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateDeviceGroupResponse
+   */
+  async createDeviceGroupWithOptions(tmpReq: $_model.CreateDeviceGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateDeviceGroupResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateDeviceGroupShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.dynamicRule)) {
+      request.dynamicRuleShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.dynamicRule, "DynamicRule", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.dynamicOperator)) {
+      body["DynamicOperator"] = request.dynamicOperator;
+    }
+
+    if (!$dara.isNull(request.dynamicRuleShrink)) {
+      body["DynamicRule"] = request.dynamicRuleShrink;
+    }
+
+    if (!$dara.isNull(request.groupType)) {
+      body["GroupType"] = request.groupType;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateDeviceGroup",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateDeviceGroupResponse>(await this.callApi(params, req, runtime), new $_model.CreateDeviceGroupResponse({}));
+  }
+
+  /**
+   * Creates a device label.
+   * 
+   * @param request - CreateDeviceGroupRequest
+   * @returns CreateDeviceGroupResponse
+   */
+  async createDeviceGroup(request: $_model.CreateDeviceGroupRequest): Promise<$_model.CreateDeviceGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createDeviceGroupWithOptions(request, runtime);
   }
 
   /**
@@ -530,7 +803,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an enterprise accelerate policy.
+   * Creates an enterprise acceleration policy.
    * 
    * @param request - CreateEnterpriseAcceleratePolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -593,7 +866,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an enterprise accelerate policy.
+   * Creates an enterprise acceleration policy.
    * 
    * @param request - CreateEnterpriseAcceleratePolicyRequest
    * @returns CreateEnterpriseAcceleratePolicyResponse
@@ -604,7 +877,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates enterprise acceleration addresses.
+   * Creates an enterprise acceleration address.
    * 
    * @param request - CreateEnterpriseAccelerateTargetRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -644,7 +917,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates enterprise acceleration addresses.
+   * Creates an enterprise acceleration address.
    * 
    * @param request - CreateEnterpriseAccelerateTargetRequest
    * @returns CreateEnterpriseAccelerateTargetResponse
@@ -652,6 +925,68 @@ export default class Client extends OpenApi {
   async createEnterpriseAccelerateTarget(request: $_model.CreateEnterpriseAccelerateTargetRequest): Promise<$_model.CreateEnterpriseAccelerateTargetResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createEnterpriseAccelerateTargetWithOptions(request, runtime);
+  }
+
+  /**
+   * Creates a traffic forwarding rule.
+   * 
+   * @param request - CreateForwardStrategyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateForwardStrategyResponse
+   */
+  async createForwardStrategyWithOptions(request: $_model.CreateForwardStrategyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateForwardStrategyResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.destinationId)) {
+      body["DestinationId"] = request.destinationId;
+    }
+
+    if (!$dara.isNull(request.destinationType)) {
+      body["DestinationType"] = request.destinationType;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.priority)) {
+      body["Priority"] = request.priority;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      body["Status"] = request.status;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateForwardStrategy",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateForwardStrategyResponse>(await this.callApi(params, req, runtime), new $_model.CreateForwardStrategyResponse({}));
+  }
+
+  /**
+   * Creates a traffic forwarding rule.
+   * 
+   * @param request - CreateForwardStrategyRequest
+   * @returns CreateForwardStrategyResponse
+   */
+  async createForwardStrategy(request: $_model.CreateForwardStrategyRequest): Promise<$_model.CreateForwardStrategyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createForwardStrategyWithOptions(request, runtime);
   }
 
   /**
@@ -1029,10 +1364,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a private access tag for the current Alibaba Cloud account.
+   * Creates an internal-facing access tag under the current Alibaba Cloud account.
    * 
    * @remarks
-   * By default, you can create up to 500 private access tags.
+   * You can create up to 500 internal-facing access tags by default.
    * 
    * @param request - CreatePrivateAccessTagRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1067,10 +1402,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a private access tag for the current Alibaba Cloud account.
+   * Creates an internal-facing access tag under the current Alibaba Cloud account.
    * 
    * @remarks
-   * By default, you can create up to 500 private access tags.
+   * You can create up to 500 internal-facing access tags by default.
    * 
    * @param request - CreatePrivateAccessTagRequest
    * @returns CreatePrivateAccessTagResponse
@@ -1078,6 +1413,246 @@ export default class Client extends OpenApi {
   async createPrivateAccessTag(request: $_model.CreatePrivateAccessTagRequest): Promise<$_model.CreatePrivateAccessTagResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createPrivateAccessTagWithOptions(request, runtime);
+  }
+
+  /**
+   * Creates a software ban policy.
+   * 
+   * @param request - CreateProhibitedPolicyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateProhibitedPolicyResponse
+   */
+  async createProhibitedPolicyWithOptions(request: $_model.CreateProhibitedPolicyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateProhibitedPolicyResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.allowReport)) {
+      body["AllowReport"] = request.allowReport;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.enabled)) {
+      body["Enabled"] = request.enabled;
+    }
+
+    if (!$dara.isNull(request.forceKill)) {
+      body["ForceKill"] = request.forceKill;
+    }
+
+    if (!$dara.isNull(request.mainButtonTextCh)) {
+      body["MainButtonTextCh"] = request.mainButtonTextCh;
+    }
+
+    if (!$dara.isNull(request.mainButtonTextEn)) {
+      body["MainButtonTextEn"] = request.mainButtonTextEn;
+    }
+
+    if (!$dara.isNull(request.matchMode)) {
+      body["MatchMode"] = request.matchMode;
+    }
+
+    if (!$dara.isNull(request.minorButtonTextCh)) {
+      body["MinorButtonTextCh"] = request.minorButtonTextCh;
+    }
+
+    if (!$dara.isNull(request.minorButtonTextEn)) {
+      body["MinorButtonTextEn"] = request.minorButtonTextEn;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.objectType)) {
+      body["ObjectType"] = request.objectType;
+    }
+
+    if (!$dara.isNull(request.policyType)) {
+      body["PolicyType"] = request.policyType;
+    }
+
+    if (!$dara.isNull(request.priority)) {
+      body["Priority"] = request.priority;
+    }
+
+    if (!$dara.isNull(request.promptCh)) {
+      body["PromptCh"] = request.promptCh;
+    }
+
+    if (!$dara.isNull(request.promptEn)) {
+      body["PromptEn"] = request.promptEn;
+    }
+
+    let bodyFlat : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.softwareIds)) {
+      bodyFlat["SoftwareIds"] = request.softwareIds;
+    }
+
+    if (!$dara.isNull(request.tagIds)) {
+      bodyFlat["TagIds"] = request.tagIds;
+    }
+
+    if (!$dara.isNull(request.titleCh)) {
+      body["TitleCh"] = request.titleCh;
+    }
+
+    if (!$dara.isNull(request.titleEn)) {
+      body["TitleEn"] = request.titleEn;
+    }
+
+    if (!$dara.isNull(request.userGroupIds)) {
+      bodyFlat["UserGroupIds"] = request.userGroupIds;
+    }
+
+    if (!$dara.isNull(request.whitelist)) {
+      bodyFlat["Whitelist"] = request.whitelist;
+    }
+
+    body = {
+      ...body,
+      ...OpenApiUtil.query(bodyFlat),
+    };
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateProhibitedPolicy",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateProhibitedPolicyResponse>(await this.callApi(params, req, runtime), new $_model.CreateProhibitedPolicyResponse({}));
+  }
+
+  /**
+   * Creates a software ban policy.
+   * 
+   * @param request - CreateProhibitedPolicyRequest
+   * @returns CreateProhibitedPolicyResponse
+   */
+  async createProhibitedPolicy(request: $_model.CreateProhibitedPolicyRequest): Promise<$_model.CreateProhibitedPolicyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createProhibitedPolicyWithOptions(request, runtime);
+  }
+
+  /**
+   * Creates a custom disabled software entry.
+   * 
+   * @param request - CreateProhibitedSoftwareRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateProhibitedSoftwareResponse
+   */
+  async createProhibitedSoftwareWithOptions(request: $_model.CreateProhibitedSoftwareRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateProhibitedSoftwareResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    let bodyFlat : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.linuxProcesses)) {
+      bodyFlat["LinuxProcesses"] = request.linuxProcesses;
+    }
+
+    if (!$dara.isNull(request.macOSProcesses)) {
+      bodyFlat["MacOSProcesses"] = request.macOSProcesses;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.tagIds)) {
+      bodyFlat["TagIds"] = request.tagIds;
+    }
+
+    if (!$dara.isNull(request.windowsProcesses)) {
+      bodyFlat["WindowsProcesses"] = request.windowsProcesses;
+    }
+
+    body = {
+      ...body,
+      ...OpenApiUtil.query(bodyFlat),
+    };
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateProhibitedSoftware",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateProhibitedSoftwareResponse>(await this.callApi(params, req, runtime), new $_model.CreateProhibitedSoftwareResponse({}));
+  }
+
+  /**
+   * Creates a custom disabled software entry.
+   * 
+   * @param request - CreateProhibitedSoftwareRequest
+   * @returns CreateProhibitedSoftwareResponse
+   */
+  async createProhibitedSoftware(request: $_model.CreateProhibitedSoftwareRequest): Promise<$_model.CreateProhibitedSoftwareResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createProhibitedSoftwareWithOptions(request, runtime);
+  }
+
+  /**
+   * Creates a custom disabled software tag.
+   * 
+   * @param request - CreateProhibitedTagRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateProhibitedTagResponse
+   */
+  async createProhibitedTagWithOptions(request: $_model.CreateProhibitedTagRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateProhibitedTagResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateProhibitedTag",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateProhibitedTagResponse>(await this.callApi(params, req, runtime), new $_model.CreateProhibitedTagResponse({}));
+  }
+
+  /**
+   * Creates a custom disabled software tag.
+   * 
+   * @param request - CreateProhibitedTagRequest
+   * @returns CreateProhibitedTagResponse
+   */
+  async createProhibitedTag(request: $_model.CreateProhibitedTagRequest): Promise<$_model.CreateProhibitedTagResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createProhibitedTagWithOptions(request, runtime);
   }
 
   /**
@@ -1239,7 +1814,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Generates a transparent base image for web, screen, or app watermarks.
+   * Retrieves the invisible watermark transparent background image for web watermarks, screen watermarks, and App watermarks.
    * 
    * @param tmpReq - CreateWmBaseImageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1314,7 +1889,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Generates a transparent base image for web, screen, or app watermarks.
+   * Retrieves the invisible watermark transparent background image for web watermarks, screen watermarks, and App watermarks.
    * 
    * @param request - CreateWmBaseImageRequest
    * @returns CreateWmBaseImageResponse
@@ -1325,10 +1900,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create a digital watermarking embedding Job.
+   * Creates a digital watermarking embedding task.
    * 
    * @remarks
-   * By default, you can create up to 500 groups.
+   * You can create a maximum of 500 user groups by default.
    * 
    * @param tmpReq - CreateWmEmbedTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1441,10 +2016,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create a digital watermarking embedding Job.
+   * Creates a digital watermarking embedding task.
    * 
    * @remarks
-   * By default, you can create up to 500 groups.
+   * You can create a maximum of 500 user groups by default.
    * 
    * @param request - CreateWmEmbedTaskRequest
    * @returns CreateWmEmbedTaskResponse
@@ -1455,7 +2030,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create a digital watermarking fetch job.
+   * Creates a digital watermarking extraction task.
    * 
    * @param tmpReq - CreateWmExtractTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1534,7 +2109,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create a digital watermarking fetch job.
+   * Creates a digital watermarking extraction task.
    * 
    * @param request - CreateWmExtractTaskRequest
    * @returns CreateWmExtractTaskResponse
@@ -1684,10 +2259,145 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes a connector.
+   * 
+   * @param request - DeleteConnectorRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteConnectorResponse
+   */
+  async deleteConnectorWithOptions(request: $_model.DeleteConnectorRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteConnectorResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.connectorId)) {
+      body["ConnectorId"] = request.connectorId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteConnector",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteConnectorResponse>(await this.callApi(params, req, runtime), new $_model.DeleteConnectorResponse({}));
+  }
+
+  /**
+   * Deletes a connector.
+   * 
+   * @param request - DeleteConnectorRequest
+   * @returns DeleteConnectorResponse
+   */
+  async deleteConnector(request: $_model.DeleteConnectorRequest): Promise<$_model.DeleteConnectorResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteConnectorWithOptions(request, runtime);
+  }
+
+  /**
+   * Deletes a ConnectorClient under the current Alibaba Cloud account.
+   * 
+   * @param request - DeleteConnectorClientRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteConnectorClientResponse
+   */
+  async deleteConnectorClientWithOptions(request: $_model.DeleteConnectorClientRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteConnectorClientResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.connectorId)) {
+      body["ConnectorId"] = request.connectorId;
+    }
+
+    if (!$dara.isNull(request.devTag)) {
+      body["DevTag"] = request.devTag;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteConnectorClient",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteConnectorClientResponse>(await this.callApi(params, req, runtime), new $_model.DeleteConnectorClientResponse({}));
+  }
+
+  /**
+   * Deletes a ConnectorClient under the current Alibaba Cloud account.
+   * 
+   * @param request - DeleteConnectorClientRequest
+   * @returns DeleteConnectorClientResponse
+   */
+  async deleteConnectorClient(request: $_model.DeleteConnectorClientRequest): Promise<$_model.DeleteConnectorClientResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteConnectorClientWithOptions(request, runtime);
+  }
+
+  /**
+   * Deletes instance tags in batches.
+   * 
+   * @param request - DeleteDeviceGroupsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteDeviceGroupsResponse
+   */
+  async deleteDeviceGroupsWithOptions(request: $_model.DeleteDeviceGroupsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteDeviceGroupsResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    let bodyFlat : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.deviceGroupIds)) {
+      bodyFlat["DeviceGroupIds"] = request.deviceGroupIds;
+    }
+
+    body = {
+      ...body,
+      ...OpenApiUtil.query(bodyFlat),
+    };
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteDeviceGroups",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteDeviceGroupsResponse>(await this.callApi(params, req, runtime), new $_model.DeleteDeviceGroupsResponse({}));
+  }
+
+  /**
+   * Deletes instance tags in batches.
+   * 
+   * @param request - DeleteDeviceGroupsRequest
+   * @returns DeleteDeviceGroupsResponse
+   */
+  async deleteDeviceGroups(request: $_model.DeleteDeviceGroupsRequest): Promise<$_model.DeleteDeviceGroupsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteDeviceGroupsWithOptions(request, runtime);
+  }
+
+  /**
    * Deletes a domain name list.
    * 
    * @remarks
-   * Deletes a specified domain name list under the current tenant. Before deletion, the system checks whether any domain name policy references the list. If the list is referenced, the deletion is rejected.
+   * Deletes a specified domain name list under the current tenant. Before deletion, the system checks whether any domain name policy references the list. If a reference exists, the deletion is rejected.
    * 
    * @param request - DeleteDomainMetaRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1725,7 +2435,7 @@ export default class Client extends OpenApi {
    * Deletes a domain name list.
    * 
    * @remarks
-   * Deletes a specified domain name list under the current tenant. Before deletion, the system checks whether any domain name policy references the list. If the list is referenced, the deletion is rejected.
+   * Deletes a specified domain name list under the current tenant. Before deletion, the system checks whether any domain name policy references the list. If a reference exists, the deletion is rejected.
    * 
    * @param request - DeleteDomainMetaRequest
    * @returns DeleteDomainMetaResponse
@@ -1820,7 +2530,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an enterprise acceleration address.
+   * Deletes enterprise acceleration addresses.
    * 
    * @param request - DeleteEnterpriseAccelerateTargetRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1860,7 +2570,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an enterprise acceleration address.
+   * Deletes enterprise acceleration addresses.
    * 
    * @param request - DeleteEnterpriseAccelerateTargetRequest
    * @returns DeleteEnterpriseAccelerateTargetResponse
@@ -1868,6 +2578,48 @@ export default class Client extends OpenApi {
   async deleteEnterpriseAccelerateTarget(request: $_model.DeleteEnterpriseAccelerateTargetRequest): Promise<$_model.DeleteEnterpriseAccelerateTargetResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteEnterpriseAccelerateTargetWithOptions(request, runtime);
+  }
+
+  /**
+   * Deletes a forwarding rule.
+   * 
+   * @param request - DeleteForwardStrategyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteForwardStrategyResponse
+   */
+  async deleteForwardStrategyWithOptions(request: $_model.DeleteForwardStrategyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteForwardStrategyResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.forwardId)) {
+      body["ForwardId"] = request.forwardId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteForwardStrategy",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteForwardStrategyResponse>(await this.callApi(params, req, runtime), new $_model.DeleteForwardStrategyResponse({}));
+  }
+
+  /**
+   * Deletes a forwarding rule.
+   * 
+   * @param request - DeleteForwardStrategyRequest
+   * @returns DeleteForwardStrategyResponse
+   */
+  async deleteForwardStrategy(request: $_model.DeleteForwardStrategyRequest): Promise<$_model.DeleteForwardStrategyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteForwardStrategyWithOptions(request, runtime);
   }
 
   /**
@@ -2104,6 +2856,147 @@ export default class Client extends OpenApi {
   async deletePrivateAccessTag(request: $_model.DeletePrivateAccessTagRequest): Promise<$_model.DeletePrivateAccessTagResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deletePrivateAccessTagWithOptions(request, runtime);
+  }
+
+  /**
+   * Deletes software prohibition policies in batches.
+   * 
+   * @param request - DeleteProhibitedPoliciesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteProhibitedPoliciesResponse
+   */
+  async deleteProhibitedPoliciesWithOptions(request: $_model.DeleteProhibitedPoliciesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteProhibitedPoliciesResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    let bodyFlat : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.policyIds)) {
+      bodyFlat["PolicyIds"] = request.policyIds;
+    }
+
+    body = {
+      ...body,
+      ...OpenApiUtil.query(bodyFlat),
+    };
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteProhibitedPolicies",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteProhibitedPoliciesResponse>(await this.callApi(params, req, runtime), new $_model.DeleteProhibitedPoliciesResponse({}));
+  }
+
+  /**
+   * Deletes software prohibition policies in batches.
+   * 
+   * @param request - DeleteProhibitedPoliciesRequest
+   * @returns DeleteProhibitedPoliciesResponse
+   */
+  async deleteProhibitedPolicies(request: $_model.DeleteProhibitedPoliciesRequest): Promise<$_model.DeleteProhibitedPoliciesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteProhibitedPoliciesWithOptions(request, runtime);
+  }
+
+  /**
+   * Deletes custom prohibited software in batches.
+   * 
+   * @param request - DeleteProhibitedSoftwareRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteProhibitedSoftwareResponse
+   */
+  async deleteProhibitedSoftwareWithOptions(request: $_model.DeleteProhibitedSoftwareRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteProhibitedSoftwareResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    let bodyFlat : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.softwareIds)) {
+      bodyFlat["SoftwareIds"] = request.softwareIds;
+    }
+
+    body = {
+      ...body,
+      ...OpenApiUtil.query(bodyFlat),
+    };
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteProhibitedSoftware",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteProhibitedSoftwareResponse>(await this.callApi(params, req, runtime), new $_model.DeleteProhibitedSoftwareResponse({}));
+  }
+
+  /**
+   * Deletes custom prohibited software in batches.
+   * 
+   * @param request - DeleteProhibitedSoftwareRequest
+   * @returns DeleteProhibitedSoftwareResponse
+   */
+  async deleteProhibitedSoftware(request: $_model.DeleteProhibitedSoftwareRequest): Promise<$_model.DeleteProhibitedSoftwareResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteProhibitedSoftwareWithOptions(request, runtime);
+  }
+
+  /**
+   * 批量删除自定义标签
+   * 
+   * @param request - DeleteProhibitedTagsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteProhibitedTagsResponse
+   */
+  async deleteProhibitedTagsWithOptions(request: $_model.DeleteProhibitedTagsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteProhibitedTagsResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    let bodyFlat : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.tagIds)) {
+      bodyFlat["TagIds"] = request.tagIds;
+    }
+
+    body = {
+      ...body,
+      ...OpenApiUtil.query(bodyFlat),
+    };
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteProhibitedTags",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteProhibitedTagsResponse>(await this.callApi(params, req, runtime), new $_model.DeleteProhibitedTagsResponse({}));
+  }
+
+  /**
+   * 批量删除自定义标签
+   * 
+   * @param request - DeleteProhibitedTagsRequest
+   * @returns DeleteProhibitedTagsResponse
+   */
+  async deleteProhibitedTags(request: $_model.DeleteProhibitedTagsRequest): Promise<$_model.DeleteProhibitedTagsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteProhibitedTagsWithOptions(request, runtime);
   }
 
   /**
@@ -2620,7 +3513,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of an approval flow under the current Alibaba Cloud account.
+   * Queries the details of an approval process under the current Alibaba Cloud account.
    * 
    * @param request - GetApprovalProcessRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2647,7 +3540,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of an approval flow under the current Alibaba Cloud account.
+   * Queries the details of an approval process under the current Alibaba Cloud account.
    * 
    * @param request - GetApprovalProcessRequest
    * @returns GetApprovalProcessResponse
@@ -2696,7 +3589,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of the auto-start and anti-uninstall policy for your Alibaba Cloud account.
+   * Queries the details of the auto-start and anti-uninstall policy under the current Alibaba Cloud account.
    * 
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetBootAndAntiUninstallPolicyResponse
@@ -2718,7 +3611,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of the auto-start and anti-uninstall policy for your Alibaba Cloud account.
+   * Queries the details of the auto-start and anti-uninstall policy under the current Alibaba Cloud account.
    * @returns GetBootAndAntiUninstallPolicyResponse
    */
   async getBootAndAntiUninstallPolicy(): Promise<$_model.GetBootAndAntiUninstallPolicyResponse> {
@@ -2765,6 +3658,174 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the details of a connector.
+   * 
+   * @param request - GetConnectorRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetConnectorResponse
+   */
+  async getConnectorWithOptions(request: $_model.GetConnectorRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetConnectorResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetConnector",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetConnectorResponse>(await this.callApi(params, req, runtime), new $_model.GetConnectorResponse({}));
+  }
+
+  /**
+   * Queries the details of a connector.
+   * 
+   * @param request - GetConnectorRequest
+   * @returns GetConnectorResponse
+   */
+  async getConnector(request: $_model.GetConnectorRequest): Promise<$_model.GetConnectorResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getConnectorWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the details of a ConnectorClient.
+   * 
+   * @param request - GetConnectorClientRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetConnectorClientResponse
+   */
+  async getConnectorClientWithOptions(request: $_model.GetConnectorClientRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetConnectorClientResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetConnectorClient",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetConnectorClientResponse>(await this.callApi(params, req, runtime), new $_model.GetConnectorClientResponse({}));
+  }
+
+  /**
+   * Queries the details of a ConnectorClient.
+   * 
+   * @param request - GetConnectorClientRequest
+   * @returns GetConnectorClientResponse
+   */
+  async getConnectorClient(request: $_model.GetConnectorClientRequest): Promise<$_model.GetConnectorClientResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getConnectorClientWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the details of a specified device label.
+   * 
+   * @param request - GetDeviceGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDeviceGroupResponse
+   */
+  async getDeviceGroupWithOptions(request: $_model.GetDeviceGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetDeviceGroupResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.deviceGroupId)) {
+      query["DeviceGroupId"] = request.deviceGroupId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetDeviceGroup",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetDeviceGroupResponse>(await this.callApi(params, req, runtime), new $_model.GetDeviceGroupResponse({}));
+  }
+
+  /**
+   * Queries the details of a specified device label.
+   * 
+   * @param request - GetDeviceGroupRequest
+   * @returns GetDeviceGroupResponse
+   */
+  async getDeviceGroup(request: $_model.GetDeviceGroupRequest): Promise<$_model.GetDeviceGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getDeviceGroupWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the online time distribution of a specified terminal device on a specified date, aggregated by minute.
+   * 
+   * @param request - GetDeviceOnlineHeatmapRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDeviceOnlineHeatmapResponse
+   */
+  async getDeviceOnlineHeatmapWithOptions(request: $_model.GetDeviceOnlineHeatmapRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetDeviceOnlineHeatmapResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.date)) {
+      query["Date"] = request.date;
+    }
+
+    if (!$dara.isNull(request.devTag)) {
+      query["DevTag"] = request.devTag;
+    }
+
+    if (!$dara.isNull(request.saseUserId)) {
+      query["SaseUserId"] = request.saseUserId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetDeviceOnlineHeatmap",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetDeviceOnlineHeatmapResponse>(await this.callApi(params, req, runtime), new $_model.GetDeviceOnlineHeatmapResponse({}));
+  }
+
+  /**
+   * Queries the online time distribution of a specified terminal device on a specified date, aggregated by minute.
+   * 
+   * @param request - GetDeviceOnlineHeatmapRequest
+   * @returns GetDeviceOnlineHeatmapResponse
+   */
+  async getDeviceOnlineHeatmap(request: $_model.GetDeviceOnlineHeatmapRequest): Promise<$_model.GetDeviceOnlineHeatmapResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getDeviceOnlineHeatmapWithOptions(request, runtime);
+  }
+
+  /**
    * Retrieves details about a dynamic route in your Alibaba Cloud account.
    * 
    * @param request - GetDynamicRouteRequest
@@ -2800,6 +3861,50 @@ export default class Client extends OpenApi {
   async getDynamicRoute(request: $_model.GetDynamicRouteRequest): Promise<$_model.GetDynamicRouteResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getDynamicRouteWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the details of a forwarding rule.
+   * 
+   * @remarks
+   * Creates a domain name list of a specified type (blacklist/whitelist) under the current tenant and returns the ListId of the new list. You can create up to 100 lists of each type per tenant.
+   * 
+   * @param request - GetForwardStrategyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetForwardStrategyResponse
+   */
+  async getForwardStrategyWithOptions(request: $_model.GetForwardStrategyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetForwardStrategyResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetForwardStrategy",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetForwardStrategyResponse>(await this.callApi(params, req, runtime), new $_model.GetForwardStrategyResponse({}));
+  }
+
+  /**
+   * Queries the details of a forwarding rule.
+   * 
+   * @remarks
+   * Creates a domain name list of a specified type (blacklist/whitelist) under the current tenant and returns the ListId of the new list. You can create up to 100 lists of each type per tenant.
+   * 
+   * @param request - GetForwardStrategyRequest
+   * @returns GetForwardStrategyResponse
+   */
+  async getForwardStrategy(request: $_model.GetForwardStrategyRequest): Promise<$_model.GetForwardStrategyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getForwardStrategyWithOptions(request, runtime);
   }
 
   /**
@@ -2996,6 +4101,88 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the details of a specified software prohibition policy.
+   * 
+   * @param request - GetProhibitedPolicyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetProhibitedPolicyResponse
+   */
+  async getProhibitedPolicyWithOptions(request: $_model.GetProhibitedPolicyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetProhibitedPolicyResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetProhibitedPolicy",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetProhibitedPolicyResponse>(await this.callApi(params, req, runtime), new $_model.GetProhibitedPolicyResponse({}));
+  }
+
+  /**
+   * Queries the details of a specified software prohibition policy.
+   * 
+   * @param request - GetProhibitedPolicyRequest
+   * @returns GetProhibitedPolicyResponse
+   */
+  async getProhibitedPolicy(request: $_model.GetProhibitedPolicyRequest): Promise<$_model.GetProhibitedPolicyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getProhibitedPolicyWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the details of a specified prohibited software.
+   * 
+   * @param tmpReq - GetProhibitedSoftwareRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetProhibitedSoftwareResponse
+   */
+  async getProhibitedSoftwareWithOptions(tmpReq: $_model.GetProhibitedSoftwareRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetProhibitedSoftwareResponse> {
+    tmpReq.validate();
+    let request = new $_model.GetProhibitedSoftwareShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.softwareId)) {
+      request.softwareIdShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.softwareId, "SoftwareId", "json");
+    }
+
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetProhibitedSoftware",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetProhibitedSoftwareResponse>(await this.callApi(params, req, runtime), new $_model.GetProhibitedSoftwareResponse({}));
+  }
+
+  /**
+   * Queries the details of a specified prohibited software.
+   * 
+   * @param request - GetProhibitedSoftwareRequest
+   * @returns GetProhibitedSoftwareResponse
+   */
+  async getProhibitedSoftware(request: $_model.GetProhibitedSoftwareRequest): Promise<$_model.GetProhibitedSoftwareResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getProhibitedSoftwareWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the details of a device registration policy within the current Alibaba Cloud account.
    * 
    * @param request - GetRegistrationPolicyRequest
@@ -3069,6 +4256,60 @@ export default class Client extends OpenApi {
   async getUserDevice(request: $_model.GetUserDeviceRequest): Promise<$_model.GetUserDeviceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getUserDeviceWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the workload usage trends of a specified endpoint device.
+   * 
+   * @param request - GetUserDeviceWorkloadTrendRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetUserDeviceWorkloadTrendResponse
+   */
+  async getUserDeviceWorkloadTrendWithOptions(request: $_model.GetUserDeviceWorkloadTrendRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetUserDeviceWorkloadTrendResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.deviceTag)) {
+      query["DeviceTag"] = request.deviceTag;
+    }
+
+    if (!$dara.isNull(request.from)) {
+      query["From"] = request.from;
+    }
+
+    if (!$dara.isNull(request.to)) {
+      query["To"] = request.to;
+    }
+
+    if (!$dara.isNull(request.workloadType)) {
+      query["WorkloadType"] = request.workloadType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetUserDeviceWorkloadTrend",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetUserDeviceWorkloadTrendResponse>(await this.callApi(params, req, runtime), new $_model.GetUserDeviceWorkloadTrendResponse({}));
+  }
+
+  /**
+   * Queries the workload usage trends of a specified endpoint device.
+   * 
+   * @param request - GetUserDeviceWorkloadTrendRequest
+   * @returns GetUserDeviceWorkloadTrendResponse
+   */
+  async getUserDeviceWorkloadTrend(request: $_model.GetUserDeviceWorkloadTrendRequest): Promise<$_model.GetUserDeviceWorkloadTrendResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getUserDeviceWorkloadTrendWithOptions(request, runtime);
   }
 
   /**
@@ -3186,7 +4427,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Batch import acceleration addresses.
+   * Imports acceleration addresses in batches.
    * 
    * @param request - ImportEnterpriseAccelerateTargetsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3221,7 +4462,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Batch import acceleration addresses.
+   * Imports acceleration addresses in batches.
    * 
    * @param request - ImportEnterpriseAccelerateTargetsRequest
    * @returns ImportEnterpriseAccelerateTargetsResponse
@@ -3571,6 +4812,60 @@ export default class Client extends OpenApi {
   async listConnectors(request: $_model.ListConnectorsRequest): Promise<$_model.ListConnectorsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listConnectorsWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the list of device groups under the current Alibaba Cloud account by using paging.
+   * 
+   * @param request - ListDeviceGroupsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDeviceGroupsResponse
+   */
+  async listDeviceGroupsWithOptions(request: $_model.ListDeviceGroupsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListDeviceGroupsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!$dara.isNull(request.deviceGroupIds)) {
+      query["DeviceGroupIds"] = request.deviceGroupIds;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListDeviceGroups",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListDeviceGroupsResponse>(await this.callApi(params, req, runtime), new $_model.ListDeviceGroupsResponse({}));
+  }
+
+  /**
+   * Queries the list of device groups under the current Alibaba Cloud account by using paging.
+   * 
+   * @param request - ListDeviceGroupsRequest
+   * @returns ListDeviceGroupsResponse
+   */
+  async listDeviceGroups(request: $_model.ListDeviceGroupsRequest): Promise<$_model.ListDeviceGroupsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listDeviceGroupsWithOptions(request, runtime);
   }
 
   /**
@@ -4335,6 +5630,44 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the Layer 7 switches of internal-facing applications in batches.
+   * 
+   * @param request - ListPrivateAccessApplicationL7SwitchesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListPrivateAccessApplicationL7SwitchesResponse
+   */
+  async listPrivateAccessApplicationL7SwitchesWithOptions(request: $_model.ListPrivateAccessApplicationL7SwitchesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListPrivateAccessApplicationL7SwitchesResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListPrivateAccessApplicationL7Switches",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListPrivateAccessApplicationL7SwitchesResponse>(await this.callApi(params, req, runtime), new $_model.ListPrivateAccessApplicationL7SwitchesResponse({}));
+  }
+
+  /**
+   * Queries the Layer 7 switches of internal-facing applications in batches.
+   * 
+   * @param request - ListPrivateAccessApplicationL7SwitchesRequest
+   * @returns ListPrivateAccessApplicationL7SwitchesResponse
+   */
+  async listPrivateAccessApplicationL7Switches(request: $_model.ListPrivateAccessApplicationL7SwitchesRequest): Promise<$_model.ListPrivateAccessApplicationL7SwitchesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listPrivateAccessApplicationL7SwitchesWithOptions(request, runtime);
+  }
+
+  /**
    * Queries information about all internal-facing access applications under the current Alibaba Cloud account.
    * 
    * @param request - ListPrivateAccessApplicationsRequest
@@ -4565,6 +5898,162 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the list of software prohibition policies under the current Alibaba Cloud account by paging.
+   * 
+   * @param tmpReq - ListProhibitedPoliciesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListProhibitedPoliciesResponse
+   */
+  async listProhibitedPoliciesWithOptions(tmpReq: $_model.ListProhibitedPoliciesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListProhibitedPoliciesResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListProhibitedPoliciesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.softwareId)) {
+      request.softwareIdShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.softwareId, "SoftwareId", "json");
+    }
+
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListProhibitedPolicies",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListProhibitedPoliciesResponse>(await this.callApi(params, req, runtime), new $_model.ListProhibitedPoliciesResponse({}));
+  }
+
+  /**
+   * Queries the list of software prohibition policies under the current Alibaba Cloud account by paging.
+   * 
+   * @param request - ListProhibitedPoliciesRequest
+   * @returns ListProhibitedPoliciesResponse
+   */
+  async listProhibitedPolicies(request: $_model.ListProhibitedPoliciesRequest): Promise<$_model.ListProhibitedPoliciesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listProhibitedPoliciesWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the list of prohibited software under the current Alibaba Cloud account by using paging.
+   * 
+   * @param tmpReq - ListProhibitedSoftwareRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListProhibitedSoftwareResponse
+   */
+  async listProhibitedSoftwareWithOptions(tmpReq: $_model.ListProhibitedSoftwareRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListProhibitedSoftwareResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListProhibitedSoftwareShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.tagId)) {
+      request.tagIdShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tagId, "TagId", "json");
+    }
+
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListProhibitedSoftware",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListProhibitedSoftwareResponse>(await this.callApi(params, req, runtime), new $_model.ListProhibitedSoftwareResponse({}));
+  }
+
+  /**
+   * Queries the list of prohibited software under the current Alibaba Cloud account by using paging.
+   * 
+   * @param request - ListProhibitedSoftwareRequest
+   * @returns ListProhibitedSoftwareResponse
+   */
+  async listProhibitedSoftware(request: $_model.ListProhibitedSoftwareRequest): Promise<$_model.ListProhibitedSoftwareResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listProhibitedSoftwareWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the list of prohibited software tags under the current Alibaba Cloud account by paging.
+   * 
+   * @param tmpReq - ListProhibitedTagsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListProhibitedTagsResponse
+   */
+  async listProhibitedTagsWithOptions(tmpReq: $_model.ListProhibitedTagsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListProhibitedTagsResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListProhibitedTagsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.softwareId)) {
+      request.softwareIdShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.softwareId, "SoftwareId", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.policyId)) {
+      query["PolicyId"] = request.policyId;
+    }
+
+    if (!$dara.isNull(request.softwareIdShrink)) {
+      query["SoftwareId"] = request.softwareIdShrink;
+    }
+
+    if (!$dara.isNull(request.tagIds)) {
+      query["TagIds"] = request.tagIds;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListProhibitedTags",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListProhibitedTagsResponse>(await this.callApi(params, req, runtime), new $_model.ListProhibitedTagsResponse({}));
+  }
+
+  /**
+   * Queries the list of prohibited software tags under the current Alibaba Cloud account by paging.
+   * 
+   * @param request - ListProhibitedTagsRequest
+   * @returns ListProhibitedTagsResponse
+   */
+  async listProhibitedTags(request: $_model.ListProhibitedTagsRequest): Promise<$_model.ListProhibitedTagsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listProhibitedTagsWithOptions(request, runtime);
+  }
+
+  /**
    * Query the list of device registration policies for your Alibaba Cloud account.
    * 
    * @param request - ListRegistrationPoliciesRequest
@@ -4645,12 +6134,12 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ## Operation description
-   * - This operation performs paging query of risk events based on specified conditional criteria.
+   * - This operation is used for paging query of risk events that meet specified conditional criteria.
    * - `CurrentPage` and `PageSize` are required parameters that specify the current page number and the number of entries per page.
    * - You can set parameters such as `RiskId`, `RiskScene`, and `RiskCategory` to perform exact or fuzzy queries for specific risk events.
    * - The `Status` and `StatusList` parameters cannot be used at the same time. They are used to filter risk events by disposition status.
-   * - Fuzzy matching is supported for `PolicyName` and `Username`.
-   * - The response includes the total number of risk events that match the query conditions and their details.
+   * - Fuzzy match queries are supported by settings `PolicyName` and `Username`.
+   * - The response includes the total number of risk events that meet the query conditions and their details.
    * 
    * @param request - ListRiskItemsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4721,12 +6210,12 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ## Operation description
-   * - This operation performs paging query of risk events based on specified conditional criteria.
+   * - This operation is used for paging query of risk events that meet specified conditional criteria.
    * - `CurrentPage` and `PageSize` are required parameters that specify the current page number and the number of entries per page.
    * - You can set parameters such as `RiskId`, `RiskScene`, and `RiskCategory` to perform exact or fuzzy queries for specific risk events.
    * - The `Status` and `StatusList` parameters cannot be used at the same time. They are used to filter risk events by disposition status.
-   * - Fuzzy matching is supported for `PolicyName` and `Username`.
-   * - The response includes the total number of risk events that match the query conditions and their details.
+   * - Fuzzy match queries are supported by settings `PolicyName` and `Username`.
+   * - The response includes the total number of risk events that meet the query conditions and their details.
    * 
    * @param request - ListRiskItemsRequest
    * @returns ListRiskItemsResponse
@@ -4737,7 +6226,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the software installed on a user device.
+   * Queries the list of software installed on user endpoint devices under the current Alibaba Cloud account.
    * 
    * @param request - ListSoftwareForUserDeviceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4764,7 +6253,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the software installed on a user device.
+   * Queries the list of software installed on user endpoint devices under the current Alibaba Cloud account.
    * 
    * @param request - ListSoftwareForUserDeviceRequest
    * @returns ListSoftwareForUserDeviceResponse
@@ -4851,7 +6340,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of uninstallation requests for your Alibaba Cloud account.
+   * Queries the list of uninstall applications under the current Alibaba Cloud account in batches.
    * 
    * @param request - ListUninstallApplicationsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4878,7 +6367,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of uninstallation requests for your Alibaba Cloud account.
+   * Queries the list of uninstall applications under the current Alibaba Cloud account in batches.
    * 
    * @param request - ListUninstallApplicationsRequest
    * @returns ListUninstallApplicationsResponse
@@ -5375,6 +6864,179 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Modifies a forwarding rule.
+   * 
+   * @param request - ModifyForwardStrategyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyForwardStrategyResponse
+   */
+  async modifyForwardStrategyWithOptions(request: $_model.ModifyForwardStrategyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyForwardStrategyResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.destinationId)) {
+      body["DestinationId"] = request.destinationId;
+    }
+
+    if (!$dara.isNull(request.destinationType)) {
+      body["DestinationType"] = request.destinationType;
+    }
+
+    if (!$dara.isNull(request.forwardId)) {
+      body["ForwardId"] = request.forwardId;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.priority)) {
+      body["Priority"] = request.priority;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      body["Status"] = request.status;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyForwardStrategy",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyForwardStrategyResponse>(await this.callApi(params, req, runtime), new $_model.ModifyForwardStrategyResponse({}));
+  }
+
+  /**
+   * Modifies a forwarding rule.
+   * 
+   * @param request - ModifyForwardStrategyRequest
+   * @returns ModifyForwardStrategyResponse
+   */
+  async modifyForwardStrategy(request: $_model.ModifyForwardStrategyRequest): Promise<$_model.ModifyForwardStrategyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyForwardStrategyWithOptions(request, runtime);
+  }
+
+  /**
+   * Modifies the binding items of a forwarding rule.
+   * 
+   * @param request - ModifyForwardStrategyBindingItemsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyForwardStrategyBindingItemsResponse
+   */
+  async modifyForwardStrategyBindingItemsWithOptions(request: $_model.ModifyForwardStrategyBindingItemsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyForwardStrategyBindingItemsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.itemIds)) {
+      query["ItemIds"] = request.itemIds;
+    }
+
+    if (!$dara.isNull(request.matchMode)) {
+      query["MatchMode"] = request.matchMode;
+    }
+
+    if (!$dara.isNull(request.modifyType)) {
+      query["ModifyType"] = request.modifyType;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.forwardId)) {
+      body["ForwardId"] = request.forwardId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyForwardStrategyBindingItems",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyForwardStrategyBindingItemsResponse>(await this.callApi(params, req, runtime), new $_model.ModifyForwardStrategyBindingItemsResponse({}));
+  }
+
+  /**
+   * Modifies the binding items of a forwarding rule.
+   * 
+   * @param request - ModifyForwardStrategyBindingItemsRequest
+   * @returns ModifyForwardStrategyBindingItemsResponse
+   */
+  async modifyForwardStrategyBindingItems(request: $_model.ModifyForwardStrategyBindingItemsRequest): Promise<$_model.ModifyForwardStrategyBindingItemsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyForwardStrategyBindingItemsWithOptions(request, runtime);
+  }
+
+  /**
+   * Removes associated terminal devices from a static device label in batches.
+   * 
+   * @param request - RemoveDeviceGroupMatchDevicesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RemoveDeviceGroupMatchDevicesResponse
+   */
+  async removeDeviceGroupMatchDevicesWithOptions(request: $_model.RemoveDeviceGroupMatchDevicesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RemoveDeviceGroupMatchDevicesResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    let bodyFlat : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.devTags)) {
+      bodyFlat["DevTags"] = request.devTags;
+    }
+
+    if (!$dara.isNull(request.deviceGroupId)) {
+      body["DeviceGroupId"] = request.deviceGroupId;
+    }
+
+    body = {
+      ...body,
+      ...OpenApiUtil.query(bodyFlat),
+    };
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RemoveDeviceGroupMatchDevices",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RemoveDeviceGroupMatchDevicesResponse>(await this.callApi(params, req, runtime), new $_model.RemoveDeviceGroupMatchDevicesResponse({}));
+  }
+
+  /**
+   * Removes associated terminal devices from a static device label in batches.
+   * 
+   * @param request - RemoveDeviceGroupMatchDevicesRequest
+   * @returns RemoveDeviceGroupMatchDevicesResponse
+   */
+  async removeDeviceGroupMatchDevices(request: $_model.RemoveDeviceGroupMatchDevicesRequest): Promise<$_model.RemoveDeviceGroupMatchDevicesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.removeDeviceGroupMatchDevicesWithOptions(request, runtime);
+  }
+
+  /**
    * Revokes a user device session.
    * 
    * @param request - RevokeUserDeviceSessionRequest
@@ -5472,7 +7134,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates an approval flow under the current Alibaba Cloud account.
+   * Updates an approval process under the current Alibaba Cloud account.
    * 
    * @param tmpReq - UpdateApprovalProcessRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5552,7 +7214,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates an approval flow under the current Alibaba Cloud account.
+   * Updates an approval process under the current Alibaba Cloud account.
    * 
    * @param request - UpdateApprovalProcessRequest
    * @returns UpdateApprovalProcessResponse
@@ -5563,7 +7225,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the status of an approval instance under your Alibaba Cloud account.
+   * Updates the instance status of an approval under the current Alibaba Cloud account.
    * 
    * @param request - UpdateApprovalStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5598,7 +7260,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the status of an approval instance under your Alibaba Cloud account.
+   * Updates the instance status of an approval under the current Alibaba Cloud account.
    * 
    * @param request - UpdateApprovalStatusRequest
    * @returns UpdateApprovalStatusResponse
@@ -5833,6 +7495,168 @@ export default class Client extends OpenApi {
   async updateClientUserStatus(request: $_model.UpdateClientUserStatusRequest): Promise<$_model.UpdateClientUserStatusResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateClientUserStatusWithOptions(request, runtime);
+  }
+
+  /**
+   * Modifies a Connector instance under the current Alibaba Cloud account.
+   * 
+   * @param request - UpdateConnectorRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateConnectorResponse
+   */
+  async updateConnectorWithOptions(request: $_model.UpdateConnectorRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateConnectorResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.accelerateStatus)) {
+      body["AccelerateStatus"] = request.accelerateStatus;
+    }
+
+    if (!$dara.isNull(request.connectorId)) {
+      body["ConnectorId"] = request.connectorId;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.switchStatus)) {
+      body["SwitchStatus"] = request.switchStatus;
+    }
+
+    if (!$dara.isNull(request.vipCidr)) {
+      body["VipCidr"] = request.vipCidr;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateConnector",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateConnectorResponse>(await this.callApi(params, req, runtime), new $_model.UpdateConnectorResponse({}));
+  }
+
+  /**
+   * Modifies a Connector instance under the current Alibaba Cloud account.
+   * 
+   * @param request - UpdateConnectorRequest
+   * @returns UpdateConnectorResponse
+   */
+  async updateConnector(request: $_model.UpdateConnectorRequest): Promise<$_model.UpdateConnectorResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateConnectorWithOptions(request, runtime);
+  }
+
+  /**
+   * Modifies a ConnectorClient under the current Alibaba Cloud account.
+   * 
+   * @param request - UpdateConnectorClientRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateConnectorClientResponse
+   */
+  async updateConnectorClientWithOptions(request: $_model.UpdateConnectorClientRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateConnectorClientResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.connectorId)) {
+      body["ConnectorId"] = request.connectorId;
+    }
+
+    if (!$dara.isNull(request.devTag)) {
+      body["DevTag"] = request.devTag;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      body["Status"] = request.status;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateConnectorClient",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateConnectorClientResponse>(await this.callApi(params, req, runtime), new $_model.UpdateConnectorClientResponse({}));
+  }
+
+  /**
+   * Modifies a ConnectorClient under the current Alibaba Cloud account.
+   * 
+   * @param request - UpdateConnectorClientRequest
+   * @returns UpdateConnectorClientResponse
+   */
+  async updateConnectorClient(request: $_model.UpdateConnectorClientRequest): Promise<$_model.UpdateConnectorClientResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateConnectorClientWithOptions(request, runtime);
+  }
+
+  /**
+   * Updates a device label.
+   * 
+   * @param request - UpdateDeviceGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateDeviceGroupResponse
+   */
+  async updateDeviceGroupWithOptions(request: $_model.UpdateDeviceGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateDeviceGroupResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.deviceGroupId)) {
+      body["DeviceGroupId"] = request.deviceGroupId;
+    }
+
+    if (!$dara.isNull(request.dynamicOperator)) {
+      body["DynamicOperator"] = request.dynamicOperator;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateDeviceGroup",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateDeviceGroupResponse>(await this.callApi(params, req, runtime), new $_model.UpdateDeviceGroupResponse({}));
+  }
+
+  /**
+   * Updates a device label.
+   * 
+   * @param request - UpdateDeviceGroupRequest
+   * @returns UpdateDeviceGroupResponse
+   */
+  async updateDeviceGroup(request: $_model.UpdateDeviceGroupRequest): Promise<$_model.UpdateDeviceGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateDeviceGroupWithOptions(request, runtime);
   }
 
   /**
@@ -6181,7 +8005,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies an internal-facing access application under the current Alibaba Cloud account.
+   * Modifies a private access application under the current Alibaba Cloud account.
    * 
    * @param tmpReq - UpdatePrivateAccessApplicationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6287,7 +8111,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies an internal-facing access application under the current Alibaba Cloud account.
+   * Modifies a private access application under the current Alibaba Cloud account.
    * 
    * @param request - UpdatePrivateAccessApplicationRequest
    * @returns UpdatePrivateAccessApplicationResponse
@@ -6295,6 +8119,85 @@ export default class Client extends OpenApi {
   async updatePrivateAccessApplication(request: $_model.UpdatePrivateAccessApplicationRequest): Promise<$_model.UpdatePrivateAccessApplicationResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updatePrivateAccessApplicationWithOptions(request, runtime);
+  }
+
+  /**
+   * Updates the Layer 7 access switch for an internal-facing application.
+   * 
+   * @param request - UpdatePrivateAccessApplicationL7SwitchRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdatePrivateAccessApplicationL7SwitchResponse
+   */
+  async updatePrivateAccessApplicationL7SwitchWithOptions(request: $_model.UpdatePrivateAccessApplicationL7SwitchRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdatePrivateAccessApplicationL7SwitchResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.applicationId)) {
+      body["ApplicationId"] = request.applicationId;
+    }
+
+    if (!$dara.isNull(request.devTagMarkStatus)) {
+      body["DevTagMarkStatus"] = request.devTagMarkStatus;
+    }
+
+    if (!$dara.isNull(request.downloadAuditStatus)) {
+      body["DownloadAuditStatus"] = request.downloadAuditStatus;
+    }
+
+    let bodyFlat : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.portRanges)) {
+      bodyFlat["PortRanges"] = request.portRanges;
+    }
+
+    if (!$dara.isNull(request.srcIpMarkStatus)) {
+      body["SrcIpMarkStatus"] = request.srcIpMarkStatus;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      body["Status"] = request.status;
+    }
+
+    if (!$dara.isNull(request.timeoutSec)) {
+      body["TimeoutSec"] = request.timeoutSec;
+    }
+
+    if (!$dara.isNull(request.userMarkStatus)) {
+      body["UserMarkStatus"] = request.userMarkStatus;
+    }
+
+    if (!$dara.isNull(request.zeroTrustStatus)) {
+      body["ZeroTrustStatus"] = request.zeroTrustStatus;
+    }
+
+    body = {
+      ...body,
+      ...OpenApiUtil.query(bodyFlat),
+    };
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdatePrivateAccessApplicationL7Switch",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdatePrivateAccessApplicationL7SwitchResponse>(await this.callApi(params, req, runtime), new $_model.UpdatePrivateAccessApplicationL7SwitchResponse({}));
+  }
+
+  /**
+   * Updates the Layer 7 access switch for an internal-facing application.
+   * 
+   * @param request - UpdatePrivateAccessApplicationL7SwitchRequest
+   * @returns UpdatePrivateAccessApplicationL7SwitchResponse
+   */
+  async updatePrivateAccessApplicationL7Switch(request: $_model.UpdatePrivateAccessApplicationL7SwitchRequest): Promise<$_model.UpdatePrivateAccessApplicationL7SwitchResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updatePrivateAccessApplicationL7SwitchWithOptions(request, runtime);
   }
 
   /**
@@ -6429,6 +8332,258 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Updates a software prohibition policy.
+   * 
+   * @param request - UpdateProhibitedPolicyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateProhibitedPolicyResponse
+   */
+  async updateProhibitedPolicyWithOptions(request: $_model.UpdateProhibitedPolicyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateProhibitedPolicyResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.allowReport)) {
+      body["AllowReport"] = request.allowReport;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.enabled)) {
+      body["Enabled"] = request.enabled;
+    }
+
+    if (!$dara.isNull(request.forceKill)) {
+      body["ForceKill"] = request.forceKill;
+    }
+
+    if (!$dara.isNull(request.mainButtonTextCh)) {
+      body["MainButtonTextCh"] = request.mainButtonTextCh;
+    }
+
+    if (!$dara.isNull(request.mainButtonTextEn)) {
+      body["MainButtonTextEn"] = request.mainButtonTextEn;
+    }
+
+    if (!$dara.isNull(request.matchMode)) {
+      body["MatchMode"] = request.matchMode;
+    }
+
+    if (!$dara.isNull(request.minorButtonTextCh)) {
+      body["MinorButtonTextCh"] = request.minorButtonTextCh;
+    }
+
+    if (!$dara.isNull(request.minorButtonTextEn)) {
+      body["MinorButtonTextEn"] = request.minorButtonTextEn;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.objectType)) {
+      body["ObjectType"] = request.objectType;
+    }
+
+    if (!$dara.isNull(request.policyId)) {
+      body["PolicyId"] = request.policyId;
+    }
+
+    if (!$dara.isNull(request.policyType)) {
+      body["PolicyType"] = request.policyType;
+    }
+
+    if (!$dara.isNull(request.priority)) {
+      body["Priority"] = request.priority;
+    }
+
+    if (!$dara.isNull(request.promptCh)) {
+      body["PromptCh"] = request.promptCh;
+    }
+
+    if (!$dara.isNull(request.promptEn)) {
+      body["PromptEn"] = request.promptEn;
+    }
+
+    let bodyFlat : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.softwareIds)) {
+      bodyFlat["SoftwareIds"] = request.softwareIds;
+    }
+
+    if (!$dara.isNull(request.tagIds)) {
+      bodyFlat["TagIds"] = request.tagIds;
+    }
+
+    if (!$dara.isNull(request.titleCh)) {
+      body["TitleCh"] = request.titleCh;
+    }
+
+    if (!$dara.isNull(request.titleEn)) {
+      body["TitleEn"] = request.titleEn;
+    }
+
+    if (!$dara.isNull(request.userGroupIds)) {
+      bodyFlat["UserGroupIds"] = request.userGroupIds;
+    }
+
+    if (!$dara.isNull(request.whitelist)) {
+      bodyFlat["Whitelist"] = request.whitelist;
+    }
+
+    body = {
+      ...body,
+      ...OpenApiUtil.query(bodyFlat),
+    };
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateProhibitedPolicy",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateProhibitedPolicyResponse>(await this.callApi(params, req, runtime), new $_model.UpdateProhibitedPolicyResponse({}));
+  }
+
+  /**
+   * Updates a software prohibition policy.
+   * 
+   * @param request - UpdateProhibitedPolicyRequest
+   * @returns UpdateProhibitedPolicyResponse
+   */
+  async updateProhibitedPolicy(request: $_model.UpdateProhibitedPolicyRequest): Promise<$_model.UpdateProhibitedPolicyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateProhibitedPolicyWithOptions(request, runtime);
+  }
+
+  /**
+   * Updates a custom prohibited software entry.
+   * 
+   * @param request - UpdateProhibitedSoftwareRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateProhibitedSoftwareResponse
+   */
+  async updateProhibitedSoftwareWithOptions(request: $_model.UpdateProhibitedSoftwareRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateProhibitedSoftwareResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    let bodyFlat : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.linuxProcesses)) {
+      bodyFlat["LinuxProcesses"] = request.linuxProcesses;
+    }
+
+    if (!$dara.isNull(request.macOSProcesses)) {
+      bodyFlat["MacOSProcesses"] = request.macOSProcesses;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.softwareId)) {
+      body["SoftwareId"] = request.softwareId;
+    }
+
+    if (!$dara.isNull(request.tagIds)) {
+      bodyFlat["TagIds"] = request.tagIds;
+    }
+
+    if (!$dara.isNull(request.windowsProcesses)) {
+      bodyFlat["WindowsProcesses"] = request.windowsProcesses;
+    }
+
+    body = {
+      ...body,
+      ...OpenApiUtil.query(bodyFlat),
+    };
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateProhibitedSoftware",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateProhibitedSoftwareResponse>(await this.callApi(params, req, runtime), new $_model.UpdateProhibitedSoftwareResponse({}));
+  }
+
+  /**
+   * Updates a custom prohibited software entry.
+   * 
+   * @param request - UpdateProhibitedSoftwareRequest
+   * @returns UpdateProhibitedSoftwareResponse
+   */
+  async updateProhibitedSoftware(request: $_model.UpdateProhibitedSoftwareRequest): Promise<$_model.UpdateProhibitedSoftwareResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateProhibitedSoftwareWithOptions(request, runtime);
+  }
+
+  /**
+   * Updates a custom prohibited software tag.
+   * 
+   * @param request - UpdateProhibitedTagRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateProhibitedTagResponse
+   */
+  async updateProhibitedTagWithOptions(request: $_model.UpdateProhibitedTagRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateProhibitedTagResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.tagId)) {
+      body["TagId"] = request.tagId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateProhibitedTag",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateProhibitedTagResponse>(await this.callApi(params, req, runtime), new $_model.UpdateProhibitedTagResponse({}));
+  }
+
+  /**
+   * Updates a custom prohibited software tag.
+   * 
+   * @param request - UpdateProhibitedTagRequest
+   * @returns UpdateProhibitedTagResponse
+   */
+  async updateProhibitedTag(request: $_model.UpdateProhibitedTagRequest): Promise<$_model.UpdateProhibitedTagResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateProhibitedTagWithOptions(request, runtime);
+  }
+
+  /**
    * Modifies a device registration policy for your Alibaba Cloud account.
    * 
    * @param tmpReq - UpdateRegistrationPolicyRequest
@@ -6530,15 +8685,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the current handling status and conclusion of a specified risk event.
+   * Updates the current processing status and conclusion of a specified risk event.
    * 
    * @remarks
    * ## Request description
-   * - This operation allows you to update the handling status of a specific risk event under your Alibaba Cloud account.
+   * - This operation allows you to update the processing status of a specific risk event under your Alibaba Cloud account.
    * - When `Status` is set to `Processed`, you must provide the `RiskConfirm` parameter to specify the manually confirmed risk conclusion.
    * - If `Status` is `Unprocess` or `Processing`, do not include the `RiskConfirm` parameter.
    * - The `RiskScene` parameter is optional. If not provided, the system automatically populates it based on `RiskId`.
-   * - The `RiskConfirmDesc` field provides additional explanation or remarks for the handling decision. The length must be 1 to 128 characters.
+   * - The `RiskConfirmDesc` field provides additional explanation or remarks for the processing decision. The length must be 1 to 128 characters.
    * 
    * @param request - UpdateRiskStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6585,15 +8740,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the current handling status and conclusion of a specified risk event.
+   * Updates the current processing status and conclusion of a specified risk event.
    * 
    * @remarks
    * ## Request description
-   * - This operation allows you to update the handling status of a specific risk event under your Alibaba Cloud account.
+   * - This operation allows you to update the processing status of a specific risk event under your Alibaba Cloud account.
    * - When `Status` is set to `Processed`, you must provide the `RiskConfirm` parameter to specify the manually confirmed risk conclusion.
    * - If `Status` is `Unprocess` or `Processing`, do not include the `RiskConfirm` parameter.
    * - The `RiskScene` parameter is optional. If not provided, the system automatically populates it based on `RiskId`.
-   * - The `RiskConfirmDesc` field provides additional explanation or remarks for the handling decision. The length must be 1 to 128 characters.
+   * - The `RiskConfirmDesc` field provides additional explanation or remarks for the processing decision. The length must be 1 to 128 characters.
    * 
    * @param request - UpdateRiskStatusRequest
    * @returns UpdateRiskStatusResponse
@@ -6604,7 +8759,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Batch updates the status of uninstall requests for your Alibaba Cloud account.
+   * Updates the status of uninstall applications in batches under the current Alibaba Cloud account.
    * 
    * @param request - UpdateUninstallApplicationsStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6644,7 +8799,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Batch updates the status of uninstall requests for your Alibaba Cloud account.
+   * Updates the status of uninstall applications in batches under the current Alibaba Cloud account.
    * 
    * @param request - UpdateUninstallApplicationsStatusRequest
    * @returns UpdateUninstallApplicationsStatusResponse

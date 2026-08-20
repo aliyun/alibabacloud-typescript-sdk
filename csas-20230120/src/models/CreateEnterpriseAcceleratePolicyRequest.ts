@@ -5,13 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class CreateEnterpriseAcceleratePolicyRequest extends $dara.Model {
   /**
    * @remarks
-   * Acceleration pattern:
-   * 
-   * - **whitelist**: Whitelist acceleration
-   * 
-   * - **global**: Global acceleration
-   * 
-   * - **build-in-list**: Built-in application acceleration
+   * The acceleration mode. Valid values:
+   * - **whiltelist**: whitelist-based acceleration.
+   * - **global**: global acceleration.
+   * - **build-in-list**: built-in application acceleration.
    * 
    * @example
    * whitelist
@@ -19,23 +16,23 @@ export class CreateEnterpriseAcceleratePolicyRequest extends $dara.Model {
   accelerationType?: string;
   /**
    * @remarks
-   * Policy description. Length: 1 to 512 characters.
+   * The description of the enterprise management policy. The description must be 1 to 512 characters in length.
    * 
    * @example
-   * 用于全局网络访问的加速策略
+   * Acceleration policy for global network access
    */
   description?: string;
   /**
    * @remarks
-   * Policy Name.
+   * The policy name.
    * 
    * @example
-   * 全局加速策略
+   * GlobalAccelerationPolicy
    */
   name?: string;
   /**
    * @remarks
-   * Priority.
+   * The priority.
    * 
    * @example
    * 99
@@ -43,11 +40,9 @@ export class CreateEnterpriseAcceleratePolicyRequest extends $dara.Model {
   priority?: string;
   /**
    * @remarks
-   * Whether to display this policy in the client:
-   * 
-   * - **0**: Do not display
-   * 
-   * - **1**: Display
+   * Specifies whether to display the policy in the client. Valid values:
+   * - **0**: not displayed.
+   * - **1**: displayed.
    * 
    * @example
    * 1
@@ -55,7 +50,7 @@ export class CreateEnterpriseAcceleratePolicyRequest extends $dara.Model {
   showInClient?: number;
   /**
    * @remarks
-   * The IP address or domain name of the acceleration instance.
+   * The address (IP address or domain name) of the acceleration instance.
    * 
    * This parameter is required.
    * 
@@ -65,7 +60,7 @@ export class CreateEnterpriseAcceleratePolicyRequest extends $dara.Model {
   upstreamHost?: string;
   /**
    * @remarks
-   * Port for the accelerated instance. The port must be between 1000 and 60000.
+   * The port of the acceleration instance. Valid values: 1000 to 60000.
    * 
    * This parameter is required.
    * 
@@ -75,7 +70,7 @@ export class CreateEnterpriseAcceleratePolicyRequest extends $dara.Model {
   upstreamPort?: number;
   /**
    * @remarks
-   * Accelerated instance.
+   * The acceleration instance.
    * 
    * This parameter is required.
    * 
@@ -85,12 +80,12 @@ export class CreateEnterpriseAcceleratePolicyRequest extends $dara.Model {
   upstreamType?: string;
   /**
    * @remarks
-   * User group for acceleration.
+   * The acceleration user group.
    * 
    * This parameter is required.
    * 
    * @example
-   * 测试用户组
+   * TestUserGroup
    */
   userAttributeGroup?: string;
   static names(): { [key: string]: string } {

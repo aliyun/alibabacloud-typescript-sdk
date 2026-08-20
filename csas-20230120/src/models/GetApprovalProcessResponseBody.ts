@@ -8,7 +8,7 @@ export class GetApprovalProcessResponseBodyProcessAppUninstallPoliciesFieldMap e
    * The display field.
    * 
    * @example
-   * 名称
+   * Name
    */
   displayField?: string;
   displayFieldValue?: string;
@@ -17,7 +17,7 @@ export class GetApprovalProcessResponseBodyProcessAppUninstallPoliciesFieldMap e
    * The system field.
    * 
    * @example
-   * 名称
+   * Name
    */
   systemField?: string;
   static names(): { [key: string]: string } {
@@ -48,12 +48,12 @@ export class GetApprovalProcessResponseBodyProcessAppUninstallPoliciesFieldMap e
 export class GetApprovalProcessResponseBodyProcessAppUninstallPolicies extends $dara.Model {
   /**
    * @remarks
-   * The external flow ID.
+   * The external process ID.
    */
   externalProcessId?: string;
   /**
    * @remarks
-   * The field mapping.
+   * The field mapping table.
    */
   fieldMap?: GetApprovalProcessResponseBodyProcessAppUninstallPoliciesFieldMap[];
   /**
@@ -63,7 +63,7 @@ export class GetApprovalProcessResponseBodyProcessAppUninstallPolicies extends $
   policyIds?: string[];
   /**
    * @remarks
-   * The approval template ID.
+   * The ID of the approval template.
    * 
    * @example
    * approval-schema-090134f1ebff****
@@ -142,12 +142,12 @@ export class GetApprovalProcessResponseBodyProcessDeviceRegistrationPoliciesFiel
 export class GetApprovalProcessResponseBodyProcessDeviceRegistrationPolicies extends $dara.Model {
   /**
    * @remarks
-   * The external flow ID.
+   * The external process ID.
    */
   externalProcessId?: string;
   /**
    * @remarks
-   * The field mapping.
+   * The field mapping table.
    */
   fieldMap?: GetApprovalProcessResponseBodyProcessDeviceRegistrationPoliciesFieldMap[];
   /**
@@ -157,7 +157,7 @@ export class GetApprovalProcessResponseBodyProcessDeviceRegistrationPolicies ext
   policyIds?: string[];
   /**
    * @remarks
-   * The approval template ID.
+   * The ID of the approval template.
    * 
    * @example
    * approval-schema-090134f1ebff****
@@ -236,12 +236,12 @@ export class GetApprovalProcessResponseBodyProcessDlpSendPoliciesFieldMap extend
 export class GetApprovalProcessResponseBodyProcessDlpSendPolicies extends $dara.Model {
   /**
    * @remarks
-   * The external flow ID.
+   * The external process ID.
    */
   externalProcessId?: string;
   /**
    * @remarks
-   * The field mapping.
+   * The field mapping table.
    */
   fieldMap?: GetApprovalProcessResponseBodyProcessDlpSendPoliciesFieldMap[];
   /**
@@ -251,7 +251,7 @@ export class GetApprovalProcessResponseBodyProcessDlpSendPolicies extends $dara.
   policyIds?: string[];
   /**
    * @remarks
-   * The approval template ID.
+   * The ID of the approval template.
    * 
    * @example
    * approval-schema-090134f1ebff****
@@ -330,22 +330,22 @@ export class GetApprovalProcessResponseBodyProcessDomainBlacklistPoliciesFieldMa
 export class GetApprovalProcessResponseBodyProcessDomainBlacklistPolicies extends $dara.Model {
   /**
    * @remarks
-   * The external flow ID.
+   * The external process ID.
    */
   externalProcessId?: string;
   /**
    * @remarks
-   * The field mapping.
+   * The field mapping table.
    */
   fieldMap?: GetApprovalProcessResponseBodyProcessDomainBlacklistPoliciesFieldMap[];
   /**
    * @remarks
-   * The list of domain name blacklist policy IDs.
+   * The list of domain blacklist policy IDs.
    */
   policyIds?: string[];
   /**
    * @remarks
-   * The approval template ID.
+   * The ID of the approval template.
    * 
    * @example
    * approval-schema-090134f1ebff****
@@ -424,7 +424,7 @@ export class GetApprovalProcessResponseBodyProcessDomainWhitelistPoliciesFieldMa
 export class GetApprovalProcessResponseBodyProcessDomainWhitelistPolicies extends $dara.Model {
   /**
    * @remarks
-   * The external flow ID.
+   * The external process ID.
    */
   externalProcessId?: string;
   /**
@@ -434,12 +434,12 @@ export class GetApprovalProcessResponseBodyProcessDomainWhitelistPolicies extend
   fieldMap?: GetApprovalProcessResponseBodyProcessDomainWhitelistPoliciesFieldMap[];
   /**
    * @remarks
-   * The list of domain name whitelist policy IDs.
+   * The list of domain whitelist policy IDs.
    */
   policyIds?: string[];
   /**
    * @remarks
-   * The approval template ID.
+   * The ID of the approval template.
    * 
    * @example
    * approval-schema-090134f1ebff****
@@ -518,17 +518,17 @@ export class GetApprovalProcessResponseBodyProcessEndpointHardeningPoliciesField
 export class GetApprovalProcessResponseBodyProcessEndpointHardeningPolicies extends $dara.Model {
   /**
    * @remarks
-   * The external flow ID.
+   * The external process ID.
    */
   externalProcessId?: string;
   /**
    * @remarks
-   * The field mapping.
+   * The field mapping table.
    */
   fieldMap?: GetApprovalProcessResponseBodyProcessEndpointHardeningPoliciesFieldMap[];
   /**
    * @remarks
-   * The policy IDs.
+   * The policy ID.
    */
   policyIds?: string[];
   /**
@@ -609,12 +609,12 @@ export class GetApprovalProcessResponseBodyProcessPeripheralBlockPoliciesFieldMa
 export class GetApprovalProcessResponseBodyProcessPeripheralBlockPolicies extends $dara.Model {
   /**
    * @remarks
-   * The external flow ID.
+   * The external process ID.
    */
   externalProcessId?: string;
   /**
    * @remarks
-   * The field mapping.
+   * The field mapping table.
    */
   fieldMap?: GetApprovalProcessResponseBodyProcessPeripheralBlockPoliciesFieldMap[];
   /**
@@ -624,7 +624,7 @@ export class GetApprovalProcessResponseBodyProcessPeripheralBlockPolicies extend
   policyIds?: string[];
   /**
    * @remarks
-   * The approval template ID.
+   * The ID of the approval template.
    * 
    * @example
    * approval-schema-090134f1ebff****
@@ -664,8 +664,16 @@ export class GetApprovalProcessResponseBodyProcessPeripheralBlockPolicies extend
 }
 
 export class GetApprovalProcessResponseBodyProcessPrivateAccessBlockPoliciesFieldMap extends $dara.Model {
+  /**
+   * @remarks
+   * The display field.
+   */
   displayField?: string;
   displayFieldValue?: string;
+  /**
+   * @remarks
+   * The system field.
+   */
   systemField?: string;
   static names(): { [key: string]: string } {
     return {
@@ -693,9 +701,25 @@ export class GetApprovalProcessResponseBodyProcessPrivateAccessBlockPoliciesFiel
 }
 
 export class GetApprovalProcessResponseBodyProcessPrivateAccessBlockPolicies extends $dara.Model {
+  /**
+   * @remarks
+   * The external process ID.
+   */
   externalProcessId?: string;
+  /**
+   * @remarks
+   * The field mapping table.
+   */
   fieldMap?: GetApprovalProcessResponseBodyProcessPrivateAccessBlockPoliciesFieldMap[];
+  /**
+   * @remarks
+   * The policy ID.
+   */
   policyIds?: string[];
+  /**
+   * @remarks
+   * The template ID.
+   */
   schemaId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -744,7 +768,7 @@ export class GetApprovalProcessResponseBodyProcessProcessNodes extends $dara.Mod
    * The username of the approver.
    * 
    * @example
-   * 王先生
+   * John
    */
   username?: string;
   static names(): { [key: string]: string } {
@@ -810,12 +834,12 @@ export class GetApprovalProcessResponseBodyProcessSoftwareBlockPoliciesFieldMap 
 export class GetApprovalProcessResponseBodyProcessSoftwareBlockPolicies extends $dara.Model {
   /**
    * @remarks
-   * The external flow ID.
+   * The external process ID.
    */
   externalProcessId?: string;
   /**
    * @remarks
-   * The field mapping.
+   * The field mapping table.
    */
   fieldMap?: GetApprovalProcessResponseBodyProcessSoftwareBlockPoliciesFieldMap[];
   /**
@@ -825,7 +849,7 @@ export class GetApprovalProcessResponseBodyProcessSoftwareBlockPolicies extends 
   policyIds?: string[];
   /**
    * @remarks
-   * The approval template ID.
+   * The ID of the approval template.
    * 
    * @example
    * approval-schema-090134f1ebff****
@@ -904,17 +928,17 @@ export class GetApprovalProcessResponseBodyProcessSoftwareHardeningPoliciesField
 export class GetApprovalProcessResponseBodyProcessSoftwareHardeningPolicies extends $dara.Model {
   /**
    * @remarks
-   * The external flow ID.
+   * The external process ID.
    */
   externalProcessId?: string;
   /**
    * @remarks
-   * The field mapping.
+   * The field mapping table.
    */
   fieldMap?: GetApprovalProcessResponseBodyProcessSoftwareHardeningPoliciesFieldMap[];
   /**
    * @remarks
-   * The policy IDs.
+   * The policy ID.
    */
   policyIds?: string[];
   /**
@@ -968,7 +992,7 @@ export class GetApprovalProcessResponseBodyProcess extends $dara.Model {
   approvalType?: number;
   /**
    * @remarks
-   * The time when the approval flow was created.
+   * The creation time of the approval process.
    * 
    * @example
    * 2022-10-25 10:44:09
@@ -976,10 +1000,10 @@ export class GetApprovalProcessResponseBodyProcess extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The approval flow description.
+   * The description of the approval process.
    * 
    * @example
-   * 这是一个审批流程
+   * This is an approval process
    */
   description?: string;
   /**
@@ -989,22 +1013,22 @@ export class GetApprovalProcessResponseBodyProcess extends $dara.Model {
   deviceRegistrationPolicies?: GetApprovalProcessResponseBodyProcessDeviceRegistrationPolicies;
   /**
    * @remarks
-   * The list of policies associated with file outgoing.
+   * The list of associated policies for file outgoing.
    */
   dlpSendPolicies?: GetApprovalProcessResponseBodyProcessDlpSendPolicies;
   /**
    * @remarks
-   * The list of policies associated with the domain name blacklist.
+   * The list of policies associated with the domain blacklist.
    */
   domainBlacklistPolicies?: GetApprovalProcessResponseBodyProcessDomainBlacklistPolicies;
   /**
    * @remarks
-   * The list of policies associated with the domain name whitelist.
+   * The list of policies associated with the domain whitelist.
    */
   domainWhitelistPolicies?: GetApprovalProcessResponseBodyProcessDomainWhitelistPolicies;
   /**
    * @remarks
-   * The endpoint protection policies.
+   * The endpoint protection policy.
    */
   endpointHardeningPolicies?: GetApprovalProcessResponseBodyProcessEndpointHardeningPolicies;
   /**
@@ -1019,13 +1043,17 @@ export class GetApprovalProcessResponseBodyProcess extends $dara.Model {
   externalConfig?: string;
   /**
    * @remarks
-   * The list of policies associated with peripheral control.
+   * The list of associated policies for peripheral control.
    */
   peripheralBlockPolicies?: GetApprovalProcessResponseBodyProcessPeripheralBlockPolicies;
+  /**
+   * @remarks
+   * The software hardening policy.
+   */
   privateAccessBlockPolicies?: GetApprovalProcessResponseBodyProcessPrivateAccessBlockPolicies;
   /**
    * @remarks
-   * The approval flow ID.
+   * The ID of the approval process.
    * 
    * @example
    * approval-process-35ee09077ee9****
@@ -1033,10 +1061,10 @@ export class GetApprovalProcessResponseBodyProcess extends $dara.Model {
   processId?: string;
   /**
    * @remarks
-   * The approval flow name.
+   * The name of the approval process.
    * 
    * @example
-   * 测试
+   * Test
    */
   processName?: string;
   /**
@@ -1051,7 +1079,7 @@ export class GetApprovalProcessResponseBodyProcess extends $dara.Model {
   softwareBlockPolicies?: GetApprovalProcessResponseBodyProcessSoftwareBlockPolicies;
   /**
    * @remarks
-   * The software hardening policies.
+   * The software hardening policy.
    */
   softwareHardeningPolicies?: GetApprovalProcessResponseBodyProcessSoftwareHardeningPolicies;
   static names(): { [key: string]: string } {
@@ -1145,12 +1173,12 @@ export class GetApprovalProcessResponseBodyProcess extends $dara.Model {
 export class GetApprovalProcessResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The approval flow.
+   * The approval process.
    */
   process?: GetApprovalProcessResponseBodyProcess;
   /**
    * @remarks
-   * The request ID.
+   * The ID of this request.
    * 
    * @example
    * C81E0B4B-AAEB-5FDD-B27E-3F5AF7EBD7EF

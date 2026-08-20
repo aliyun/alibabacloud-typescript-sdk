@@ -193,7 +193,7 @@ export class ListDynamicDisposalProcessesResponseBodyDisposalProcessesDeviceStat
    * Username.
    * 
    * @example
-   * 测试
+   * test
    */
   username?: string;
   /**
@@ -201,7 +201,7 @@ export class ListDynamicDisposalProcessesResponseBodyDisposalProcessesDeviceStat
    * Identified office area name.
    * 
    * @example
-   * 办公地点
+   * office
    */
   workshop?: string;
   /**
@@ -261,7 +261,7 @@ export class ListDynamicDisposalProcessesResponseBodyDisposalProcesses extends $
    * User\\"s department.
    * 
    * @example
-   * 场景险部
+   * IT
    */
   department?: string;
   /**
