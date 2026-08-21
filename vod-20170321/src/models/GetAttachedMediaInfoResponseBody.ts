@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAttachedMediaInfoResponseBodyAttachedMediaListCategories extends $dara.Model {
   /**
    * @remarks
-   * The ID of the category.
+   * The category ID.
    * 
    * @example
    * 1000224338
@@ -13,15 +13,15 @@ export class GetAttachedMediaInfoResponseBodyAttachedMediaListCategories extends
   cateId?: number;
   /**
    * @remarks
-   * The name of the category.
+   * The category name.
    * 
    * @example
-   * category test
+   * Test
    */
   cateName?: string;
   /**
    * @remarks
-   * The level of the category.
+   * The category level.
    * 
    * @example
    * 0
@@ -65,7 +65,7 @@ export class GetAttachedMediaInfoResponseBodyAttachedMediaListCategories extends
 export class GetAttachedMediaInfoResponseBodyAttachedMediaList extends $dara.Model {
   /**
    * @remarks
-   * The ID of the application.
+   * The application ID.
    * 
    * @example
    * app-*****
@@ -73,12 +73,12 @@ export class GetAttachedMediaInfoResponseBodyAttachedMediaList extends $dara.Mod
   appId?: string;
   /**
    * @remarks
-   * The categories.
+   * The list of categories.
    */
   categories?: GetAttachedMediaInfoResponseBodyAttachedMediaListCategories[];
   /**
    * @remarks
-   * The time when the auxiliary media asset was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+   * The time when the auxiliary media asset was created. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
    * 
    * @example
    * 2019-01-01T10:00:00Z
@@ -86,17 +86,16 @@ export class GetAttachedMediaInfoResponseBodyAttachedMediaList extends $dara.Mod
   creationTime?: string;
   /**
    * @remarks
-   * The description of the auxiliary media asset.
-   * 
-   * >  This parameter is returned only when a description is specified for the auxiliary media asset.
+   * The description.
+   * >This parameter is returned only if the auxiliary media asset has a description.
    * 
    * @example
-   * description test
+   * Description test
    */
   description?: string;
   /**
    * @remarks
-   * The ID of the auxiliary media asset.
+   * The auxiliary media asset ID.
    * 
    * @example
    * 0222e203cf80f9c22870a4d2c****
@@ -104,7 +103,7 @@ export class GetAttachedMediaInfoResponseBodyAttachedMediaList extends $dara.Mod
   mediaId?: string;
   /**
    * @remarks
-   * The time when the auxiliary media asset was last updated. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+   * The time when the auxiliary media asset was last updated. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
    * 
    * @example
    * 2020-05-31T11:42:20Z
@@ -113,10 +112,9 @@ export class GetAttachedMediaInfoResponseBodyAttachedMediaList extends $dara.Mod
   /**
    * @remarks
    * The status of the auxiliary media asset. Valid values:
-   * 
-   * *   **Uploading**
-   * *   **Normal**
-   * *   **UploadFail**
+   * - **Uploading**: uploading.
+   * - **Normal**: Normal.
+   * - **UploadFail**: upload failed.
    * 
    * @example
    * Normal
@@ -132,9 +130,8 @@ export class GetAttachedMediaInfoResponseBodyAttachedMediaList extends $dara.Mod
   storageLocation?: string;
   /**
    * @remarks
-   * The tags of the auxiliary media asset.
-   * 
-   * >  This parameter is returned only when tags are specified for the auxiliary media asset.
+   * The tags.
+   * >This parameter is returned only if the auxiliary media asset has tag information.
    * 
    * @example
    * tag1,tag2
@@ -142,19 +139,19 @@ export class GetAttachedMediaInfoResponseBodyAttachedMediaList extends $dara.Mod
   tags?: string;
   /**
    * @remarks
-   * The title of the auxiliary media asset.
+   * The title.
    * 
    * @example
-   * subtitle test
+   * Subtitle test
    */
   title?: string;
   /**
    * @remarks
-   * The type of the auxiliary media asset.
+   * The type of the auxiliary media asset. Valid values:
    * 
-   * *   **watermark**
-   * *   **subtitle**
-   * *   **material**
+   * - **watermark**: watermark.
+   * - **subtitle**: subtitle.
+   * - **material**: material.
    * 
    * @example
    * subtitle
@@ -162,9 +159,9 @@ export class GetAttachedMediaInfoResponseBodyAttachedMediaList extends $dara.Mod
   type?: string;
   /**
    * @remarks
-   * The URL of the auxiliary media asset.
+   * The access URL of the auxiliary media asset.
    * 
-   * >  If a CDN domain name is specified, a CDN URL is returned. Otherwise, an OSS URL is returned.
+   * > If a CDN domain name is configured in ApsaraVideo VOD, the CDN URL is returned. Otherwise, the OSS URL is returned.
    * 
    * @example
    * https://al*****.cn/subtitle/9843C2*****4E186F19B6.vtt?auth_key=159099f60e0b7fd59****
@@ -219,7 +216,7 @@ export class GetAttachedMediaInfoResponseBodyAttachedMediaList extends $dara.Mod
 export class GetAttachedMediaInfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the media assets.
+   * The information about the auxiliary media assets.
    */
   attachedMediaList?: GetAttachedMediaInfoResponseBodyAttachedMediaList[];
   /**
@@ -229,7 +226,7 @@ export class GetAttachedMediaInfoResponseBody extends $dara.Model {
   nonExistMediaIds?: string[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 221BCB57-B217-42BF-619BD13378F9****

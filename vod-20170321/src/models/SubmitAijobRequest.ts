@@ -5,26 +5,22 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitAIJobRequest extends $dara.Model {
   /**
    * @remarks
-   * The configurations of the AI job. The value is a JSON string.
-   * 
-   * *   If you set `Types` to `AIVideoTag`, you can specify `AnalyseTypes` for `Config` to set the analysis algorithm of a smart tagging job. Valid values:
-   * 
-   *     *   ASR: automatic speech recognition (ASR)
-   *     *   OCR: image optical character recognition (OCR)
-   * 
-   * *   If you set `Types` to `AIMediaDNA`, you can specify `DNADBId` for `Config` to set the ID of the media fingerprint library for video fingerprinting jobs.
+   * The AI job configuration in JSON format.
+   * - If `Types` is set to `AIVideoTag`, `Config` supports the `AnalyseTypes` parameter to specify the analysis algorithm types for the intelligent tagging job. Valid values:
+   *   - ASR: speech recognition. Identifies tags from the audio speech in the video.
+   *   - OCR: optical character recognition. Identifies tags from the text in the video images.
+   * - If `Types` is set to `AIMediaDNA`, `Config` supports the `DNADBId` parameter to specify the fingerprint library ID for the media fingerprint job.
    * 
    * @example
-   * {"AIVideoTag": {"AnalyseTypes": "Face,ASR"} }
+   * {"AIVideoTag": {"AnalyseTypes": "ASR"} }
    */
   config?: string;
   /**
    * @remarks
-   * The ID of the video. You can use one of the following methods to obtain the ID:
-   * 
-   * *   Log on to the [ApsaraVideo VOD](https://vod.console.aliyun.com) console. In the left-side navigation pane, choose **Media Files** > **Audio/Video**. On the Video and Audio page, view the ID of the audio or video file. This method is applicable to files that are uploaded by using the ApsaraVideo VOD console.
-   * *   Obtain the value of VideoId from the response to the [CreateUploadVideo](https://help.aliyun.com/document_detail/55407.html) operation that you call to upload media files.
-   * *   Obtain the value of VideoId from the response to the [SearchMedia](https://help.aliyun.com/document_detail/86044.html) operation after you upload media files.
+   * The video ID. You can obtain the video ID by using one of the following methods:
+   * - For videos uploaded in the console, log on to the [ApsaraVideo VOD console](https://vod.console.aliyun.com) and choose **Media Files** > **Audio/Video** to view the video ID.
+   * - When you call the [CreateUploadVideo](https://help.aliyun.com/document_detail/55407.html) operation to obtain the upload URL and credential, the video ID is the value of the VideoId response parameter.
+   * - After the video is uploaded, you can call the [SearchMedia](https://help.aliyun.com/document_detail/86044.html) operation to query the video ID, which is the value of the VideoId response parameter.
    * 
    * @example
    * 3D3D12340d9401fab46a0b847****
@@ -36,10 +32,10 @@ export class SubmitAIJobRequest extends $dara.Model {
   resourceOwnerId?: string;
   /**
    * @remarks
-   * The type of the AI job. Separate multiple types with commas (,). Valid values:
+   * The AI job type. Separate multiple job types with commas (,). Valid values:
    * 
-   * *   **AIMediaDNA**: The media fingerprinting job.
-   * *   **AIVideoTag**: The smart tagging job.
+   * - **AIMediaDNA**: media fingerprint.
+   * - **AIVideoTag**: intelligent tagging.
    * 
    * @example
    * AIVideoTag
@@ -47,7 +43,7 @@ export class SubmitAIJobRequest extends $dara.Model {
   types?: string;
   /**
    * @remarks
-   * The custom settings. The value is a JSON string. For more information, see [Request parameters](~~86952#h2--userdata-div-id-userdata-div-3~~).
+   * The custom settings in JSON format. For more information about the parameter structure, see [UserData](~~86952#h2--userdata-div-id-userdata-div-3~~).
    * 
    * @example
    * {"Extend":{"localId":"***","test":"www"}}

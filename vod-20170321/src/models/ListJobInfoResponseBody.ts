@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListJobInfoResponseBodyJobInfoList extends $dara.Model {
   /**
    * @remarks
-   * The time when the task was complete.
+   * The time when the task was completed.
    * 
    * @example
    * 2024-10-14T07:39:34Z
@@ -13,7 +13,7 @@ export class ListJobInfoResponseBodyJobInfoList extends $dara.Model {
   completeTime?: string;
   /**
    * @remarks
-   * The time when the task was created. The time follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format. The time is displayed in UTC.
+   * The time when the task was created, in UTC. Format: YYYY-MM-DDTHH:MM:SSZ.
    * 
    * @example
    * 2024-10-14T07:39:25Z
@@ -21,7 +21,7 @@ export class ListJobInfoResponseBodyJobInfoList extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The ID of the task.
+   * The task ID.
    * 
    * @example
    * 5c9dff751ba**********59d50a967f5
@@ -29,7 +29,7 @@ export class ListJobInfoResponseBodyJobInfoList extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * The status of the task.
+   * The task status.
    * 
    * @example
    * TranscodeSuccess
@@ -37,7 +37,7 @@ export class ListJobInfoResponseBodyJobInfoList extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The ID of the user who submitted the task.
+   * The ID of the user who initiated the task.
    * 
    * @example
    * 139109*****84930
@@ -75,16 +75,18 @@ export class ListJobInfoResponseBodyJobInfoList extends $dara.Model {
 export class ListJobInfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The historical tasks of the last 6 months.
+   * The historical task list within the last 6 months.
    */
   jobInfoList?: ListJobInfoResponseBodyJobInfoList[];
   /**
    * @remarks
-   * The type of the task. Valid values:
+   * The task type. Valid values:
    * 
-   * *   transcode
-   * *   snapshot
-   * *   ai
+   * - transcode
+   * 
+   * - snapshot
+   * 
+   * - ai
    * 
    * @example
    * transcode
@@ -92,7 +94,7 @@ export class ListJobInfoResponseBody extends $dara.Model {
   jobType?: string;
   /**
    * @remarks
-   * The ID of the media asset.
+   * The media asset ID.
    * 
    * @example
    * 30e5d7**********bd900764de7c0102

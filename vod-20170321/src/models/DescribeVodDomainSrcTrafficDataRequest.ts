@@ -5,9 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeVodDomainSrcTrafficDataRequest extends $dara.Model {
   /**
    * @remarks
-   * The accelerated domain name. You can specify a maximum of 500 domain names in a request. Separate multiple domain names with commas (,). If you specify multiple domain names in a request, aggregation results are returned.
+   * The accelerated domain name to query.
    * 
-   * If you leave this parameter empty, the origin traffic data for all accelerated domain names is queried by default.
+   * - If you do not specify this parameter, the pooled data of all accelerated domain names is returned by default.
+   * - Batch queries are supported. Separate multiple domain names with commas (,). You can specify up to 500 domain names at a time.
+   * - Log on to the [ApsaraVideo VOD console](https://vod.console.aliyun.com), and choose **Configuration Management > CDN Configuration > Domain Names** in the left-side navigation pane to view the accelerated domain names that you have added to ApsaraVideo VOD. You can also call the [DescribeVodUserDomains](~~DescribeVodUserDomains~~) operation to query the list of accelerated domain names.
    * 
    * @example
    * example.com
@@ -15,7 +17,8 @@ export class DescribeVodDomainSrcTrafficDataRequest extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
-   * The end of the time range to query. The end time must be later than the start time. Specify the time in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * The end of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * > The end time must be later than the start time.
    * 
    * @example
    * 2022-09-24T15:59:59Z
@@ -23,13 +26,11 @@ export class DescribeVodDomainSrcTrafficDataRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The time interval between the data entries to return. Unit: seconds. Valid values:
+   * The time granularity of the data entries. Unit: seconds. Valid values: **300**, **3600**, and **86400**. If you do not specify this parameter or specify an unsupported value, the default value is used. Based on the time span specified by `StartTime` and `EndTime`, the supported time granularity values are as follows:
    * 
-   * *   **300**: 5 minutes
-   * *   **3600**: 1 hour
-   * *   **86400**: 1 day
-   * 
-   * > The time granularity supported by the Interval parameter varies based on the time range per query specified by using `StartTime` and `EndTime`. For more information, see the **Time granularity** section of this topic.
+   * - Less than 3 days (exclusive): **300** (default), **3600**, and **86400**.
+   * - 3 to 31 days (exclusive of 31 days): **3600** (default) and **86400**.
+   * - 31 days or more: **86400** (default).
    * 
    * @example
    * 300
@@ -38,9 +39,7 @@ export class DescribeVodDomainSrcTrafficDataRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The beginning of the time range to query. Specify the time in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
-   * 
-   * If you leave this parameter empty, the origin traffic data that is generated in the last 24 hours is queried by default.
+   * The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
    * 
    * @example
    * 2022-03-22T16:00:00Z

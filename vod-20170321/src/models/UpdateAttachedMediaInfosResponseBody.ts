@@ -10,7 +10,7 @@ export class UpdateAttachedMediaInfosResponseBody extends $dara.Model {
   nonExistMediaIds?: string[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 25818875-5F78-4DF6-D7393642CA58****

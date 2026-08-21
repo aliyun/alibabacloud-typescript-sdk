@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePlayTopVideosRequest extends $dara.Model {
   /**
    * @remarks
-   * The time to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * The date to query. Format: yyyy-MM-ddTHH:mm:ssZ (UTC).
    * 
    * This parameter is required.
    * 
@@ -24,7 +24,7 @@ export class DescribePlayTopVideosRequest extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. The default value is **100**. The maximum value is **1000**.
+   * The number of entries per page. Default value: **100**. Maximum value: **1000**.
    * 
    * @example
    * 100

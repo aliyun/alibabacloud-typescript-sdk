@@ -7,7 +7,7 @@ export class DeleteEditingProjectRequest extends $dara.Model {
   ownerId?: string;
   /**
    * @remarks
-   * The ID of the online editing project. Separate multiple IDs with commas (,).
+   * The online editing project IDs. Separate multiple IDs with commas (,).
    * 
    * This parameter is required.
    * 

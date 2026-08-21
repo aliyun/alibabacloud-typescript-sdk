@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteAppInfoRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the application. Default value: **app-1000000**. For more information, see [Overview](https://help.aliyun.com/document_detail/113600.html).
+   * The application ID. Set this parameter to the value of AppId returned by the [CreateApp](https://help.aliyun.com/document_detail/113266.html) or [ListApps](https://help.aliyun.com/document_detail/114000.html) operation.
    * 
    * This parameter is required.
    * 

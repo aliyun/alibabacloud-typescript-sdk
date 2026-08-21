@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteVodDomainRequest extends $dara.Model {
   /**
    * @remarks
-   * The domain name for CDN that you want to delete.
+   * The accelerated domain name for ApsaraVideo VOD that you want to delete.
    * 
    * This parameter is required.
    * 

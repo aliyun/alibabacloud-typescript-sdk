@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateUploadVideoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 25818875-5F78-4AF6-04D5-D7393642****
@@ -15,7 +15,7 @@ export class CreateUploadVideoResponseBody extends $dara.Model {
    * @remarks
    * The upload URL.
    * 
-   * > The returned upload URL is a Base64-encoded URL. You must decode the Base64-encoded URL before you use an SDK or call an API operation to upload media files. You need to parse UploadAddress only if you use the Object Storage Service (OSS) SDK or call an OSS API operation to upload media files.
+   * > The upload URL returned by this operation is a Base64-encoded value. When you use an SDK or API to upload media assets, you must Base64-decode the value before use. Only uploads by using the native OSS SDK or OSS API require you to parse UploadAddress.
    * 
    * @example
    * eyJTZWN1cml0a2VuIjoiQ0FJU3p3TjF****
@@ -25,7 +25,7 @@ export class CreateUploadVideoResponseBody extends $dara.Model {
    * @remarks
    * The upload credential.
    * 
-   * > The returned upload credential is a Base64-encoded value. You must decode the Base64-encoded credential before you use an SDK or call an API operation to upload media files. You need to parse UploadAuth only if you use the OSS SDK or call an OSS API operation to upload media files.
+   * > The upload credential returned by this operation is a Base64-encoded value. When you use an SDK or API to upload media assets, you must Base64-decode the value before use. Only uploads by using the native OSS SDK or OSS API require you to parse UploadAuth.
    * 
    * @example
    * eyJFbmRwb2ludCI6Imm****
@@ -33,7 +33,7 @@ export class CreateUploadVideoResponseBody extends $dara.Model {
   uploadAuth?: string;
   /**
    * @remarks
-   * The ID of the audio or video file. VideoId can be used as a request parameter when you call an operation for media asset management, media processing, or media review.
+   * The audio or video ID. This ID can be used as a request parameter for media asset management, media processing, and content moderation operations.
    * 
    * @example
    * 93ab850b4f6f54b6e91d24d81d44****

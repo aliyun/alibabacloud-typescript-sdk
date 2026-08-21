@@ -5,9 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeVodDomainLogRequest extends $dara.Model {
   /**
    * @remarks
-   * The domain name for CDN.
-   * 
-   * >  You can specify only one domain name in each query.
+   * The accelerated domain name for ApsaraVideo VOD.
+   * > Only a single domain name is supported.
    * 
    * This parameter is required.
    * 
@@ -17,7 +16,7 @@ export class DescribeVodDomainLogRequest extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
-   * The end of the time range to query. The end time must be later than the start time. The maximum time range that can be specified is one year. Specify the time in the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time must be in UTC.
+   * The end of the time range to query. The end time must be later than the start time. The interval between the start time and end time cannot exceed one year. Specify the time in the `yyyy-MM-ddTHH:mm:ssZ` format (UTC).
    * 
    * @example
    * 2016-10-20T05:00:00Z
@@ -35,9 +34,8 @@ export class DescribeVodDomainLogRequest extends $dara.Model {
   /**
    * @remarks
    * The number of entries per page.
-   * 
-   * *   Default value: **300**.
-   * *   Valid values: **1 to 1000**.
+   * - Default value: **300**
+   * - Maximum value: **1000**
    * 
    * @example
    * 300
@@ -45,7 +43,7 @@ export class DescribeVodDomainLogRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The beginning of the time range to query. Specify the time in the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time must be in UTC.
+   * The beginning of the time range to query. Specify the time in the `yyyy-MM-ddTHH:mm:ssZ` format (UTC).
    * 
    * @example
    * 2016-10-20T04:00:00Z

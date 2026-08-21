@@ -60,7 +60,7 @@ export class DescribeVodDomainSrcBpsDataResponseBodySrcBpsDataPerInterval extend
 export class DescribeVodDomainSrcBpsDataResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The time interval at which data is returned, which is the time granularity. Unit: seconds.
+   * The time interval between consecutive data entries, which is the time granularity of the data. Unit: seconds.
    * 
    * @example
    * 300
@@ -68,7 +68,7 @@ export class DescribeVodDomainSrcBpsDataResponseBody extends $dara.Model {
   dataInterval?: string;
   /**
    * @remarks
-   * The accelerated domain name whose ICP filing status you want to update.
+   * The accelerated domain name.
    * 
    * @example
    * sample.com
@@ -76,7 +76,7 @@ export class DescribeVodDomainSrcBpsDataResponseBody extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
-   * The end of the time range.
+   * The end of the time range for the returned data.
    * 
    * @example
    * 2022-08-23T02:02:57Z
@@ -84,7 +84,7 @@ export class DescribeVodDomainSrcBpsDataResponseBody extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 25818875-5F78-4A13-BEF6-****
@@ -93,7 +93,7 @@ export class DescribeVodDomainSrcBpsDataResponseBody extends $dara.Model {
   srcBpsDataPerInterval?: DescribeVodDomainSrcBpsDataResponseBodySrcBpsDataPerInterval;
   /**
    * @remarks
-   * The beginning of the time range.
+   * The beginning of the time range for the returned data.
    * 
    * @example
    * 2022-07-12T16:00:00Z

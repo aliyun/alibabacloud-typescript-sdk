@@ -5,9 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeVodStorageDataRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the application. 
-   * 
-   * *   Default value: **app-1000000**.
+   * The application ID. If you have activated the multi-application feature, you can specify this parameter to query the storage usage of a specific application. If you do not specify this parameter, the total storage usage of all applications is returned. You can obtain the value of this parameter from the AppId response parameter of the [CreateAppInfo](~~CreateAppInfo~~) operation. For more information, see [Multi-application](https://help.aliyun.com/document_detail/113601.html).
    * 
    * @example
    * app-1000000
@@ -15,7 +13,7 @@ export class DescribeVodStorageDataRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The end of the time range to query. The end time must be later than the start time. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+   * The end of the time range to query. The end time must be later than the start time. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
    * 
    * This parameter is required.
    * 
@@ -26,12 +24,12 @@ export class DescribeVodStorageDataRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region in which you want to query storage data. If you leave this parameter empty, data in all regions is returned. Separate multiple regions with commas (,). Valid values:
+   * The storage region. By default, data of all regions is returned. You can specify multiple regions separated by commas (,). Valid values:
    * 
-   * *   **cn-shanghai**: China (Shanghai)
-   * *   **cn-beijing**: China (Beijing)
-   * *   **eu-central-1**: Germany (Frankfurt)
-   * *   **ap-southeast-1**: Singapore
+   * - **cn-shanghai**: Shanghai.
+   * - **cn-beijing**: Beijing.
+   * - **eu-central-1**: Germany.
+   * - **ap-southeast-1**: Singapore.
    * 
    * @example
    * cn-shanghai
@@ -39,7 +37,7 @@ export class DescribeVodStorageDataRequest extends $dara.Model {
   region?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+   * The start of the time range to query. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
    * 
    * This parameter is required.
    * 
@@ -49,7 +47,7 @@ export class DescribeVodStorageDataRequest extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The name of the Object Storage Service (OSS) bucket. If you leave this parameter empty, data of all buckets is returned. Separate multiple transcoding specifications with commas (,).
+   * The storage name (Alibaba Cloud OSS bucket name). By default, data of all storage buckets is returned. You can specify multiple storage names separated by commas (,).
    * 
    * @example
    * bucket
@@ -57,7 +55,7 @@ export class DescribeVodStorageDataRequest extends $dara.Model {
   storage?: string;
   /**
    * @remarks
-   * The storage class. Set the value to **OSS**.
+   * The storage type. Set the value to **OSS**.
    * 
    * @example
    * OSS

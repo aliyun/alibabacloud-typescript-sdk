@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeMediaDistributionResponseBodyMediaDistributionList extends $dara.Model {
   /**
    * @remarks
-   * The number of media assets that are queried during the specified time range.
+   * The number of media assets that match the specified time range within the statistical period.
    * 
    * @example
    * 12
@@ -13,7 +13,7 @@ export class DescribeMediaDistributionResponseBodyMediaDistributionList extends 
   count?: number;
   /**
    * @remarks
-   * The end of the time range during which data is queried (exclusive). The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * The end time (exclusive) of the statistical period. Format: yyyy-MM-ddTHH:mm:ssZ (UTC).
    * 
    * @example
    * 2017-11-14T00:00:00Z
@@ -21,7 +21,7 @@ export class DescribeMediaDistributionResponseBodyMediaDistributionList extends 
   endTime?: string;
   /**
    * @remarks
-   * The start of the time range during which data is queried (inclusive). The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * The start time (inclusive) of the statistical period. Format: yyyy-MM-ddTHH:mm:ssZ (UTC).
    * 
    * @example
    * 2017-11-13T00:00:00Z
@@ -55,7 +55,7 @@ export class DescribeMediaDistributionResponseBodyMediaDistributionList extends 
 export class DescribeMediaDistributionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The distribution list of media assets. The data is displayed based on the statistical cycle of the natural hour, day, week, or month of the start and end time.
+   * The distribution list of audio and video media assets. Statistics are displayed based on the statistical period (calendar hour, day, week, or month) within the specified time range.
    */
   mediaDistributionList?: DescribeMediaDistributionResponseBodyMediaDistributionList[];
   /**
@@ -68,7 +68,7 @@ export class DescribeMediaDistributionResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of media assets returned.
+   * The total number of audio and video media assets.
    * 
    * @example
    * 100

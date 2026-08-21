@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class BatchStartVodDomainRequest extends $dara.Model {
   /**
    * @remarks
-   * The accelerated domain name. Separate multiple domain names with commas (,).
+   * The accelerated domain names for ApsaraVideo VOD. Separate multiple domain names with commas (,).
    * 
    * This parameter is required.
    * 

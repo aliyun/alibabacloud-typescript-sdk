@@ -127,6 +127,7 @@ export class GetPlayInfoResponseBodyVideoBase extends $dara.Model {
   /**
    * @remarks
    * The thumbnail URL of the audio or video file.
+   * > To obtain the thumbnail URL in real time after uploading a video, configure ApsaraVideo VOD callbacks. For more information, refer to [HTTP callback](https://help.aliyun.com/document_detail/67214.html) and [SnapshotComplete event](https://help.aliyun.com/document_detail/57337.html).
    * 
    * @example
    * http://example.aliyundoc.com/sample.jpg?auth_key=2333232-atb****
@@ -134,7 +135,7 @@ export class GetPlayInfoResponseBodyVideoBase extends $dara.Model {
   coverURL?: string;
   /**
    * @remarks
-   * The time when the audio or video file was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+   * The time when the audio or video file was created. The time follows the ISO 8601 standard in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format. The time is displayed in UTC.
    * 
    * @example
    * 2017-06-26T06:38:48Z
@@ -142,7 +143,7 @@ export class GetPlayInfoResponseBodyVideoBase extends $dara.Model {
   creationTime?: string;
   /**
    * @remarks
-   * The URL of the masked live comment data.
+   * The URL of the China-accessible bullet screen mask data.
    * 
    * @example
    * http://example.aliyundoc.com/****?auth_key=abdf2123-6783232****
@@ -160,8 +161,8 @@ export class GetPlayInfoResponseBodyVideoBase extends $dara.Model {
    * @remarks
    * The type of the media file. Valid values:
    * 
-   * *   **video**
-   * *   **audio**
+   * - **video**: video.
+   * - **audio**: audio-only.
    * 
    * @example
    * video
@@ -169,7 +170,7 @@ export class GetPlayInfoResponseBodyVideoBase extends $dara.Model {
   mediaType?: string;
   /**
    * @remarks
-   * The status of the media file. For more information about the value range and description, see the [Status](~~52839#title-vqg-8cz-7p8~~) table.
+   * The status of the audio or video file. For valid values and descriptions, refer to [Status: audio and video status](~~52839#title-vqg-8cz-7p8~~).
    * 
    * @example
    * Normal
@@ -177,17 +178,17 @@ export class GetPlayInfoResponseBodyVideoBase extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The storage class of the audio file. Valid values:
+   * The storage class of the media asset. Valid values:
    * 
-   * *   **Standard**: All media resources are stored as Standard objects.
-   * *   **IA**: All media resources are stored as IA objects.
-   * *   **Archive**: All media resources are stored as Archive objects.
-   * *   **ColdArchive**: All media resources are stored as Cold Archive objects.
-   * *   **SourceIA**: Only the source files are IA objects.
-   * *   **SourceArchive**: Only the source files are Archive objects.
-   * *   **SourceColdArchive**: Only the source file is stored as a Cold Archive object.
-   * *   **Changing**: The storage class of the video file is being changed.
-   * *   **SourceChanging**: The storage class of the source file is being changed.
+   * - **Standard**: standard.
+   * - **IA**: media asset infrequent access.
+   * - **Archive**: media asset archive.
+   * - **ColdArchive**: media asset cold archive.
+   * - **SourceIA**: source file infrequent access.
+   * - **SourceArchive**: source file archive.
+   * - **SourceColdArchive**: source file cold archive.
+   * - **Changing**: media asset storage class is being changed.
+   * - **SourceChanging**: source file storage class is being changed.
    * 
    * @example
    * Standard
@@ -198,12 +199,12 @@ export class GetPlayInfoResponseBodyVideoBase extends $dara.Model {
    * The title of the audio or video file.
    * 
    * @example
-   * ApsaraVideo VOD
+   * Alibaba Cloud VOD
    */
   title?: string;
   /**
    * @remarks
-   * The ID of the media file.
+   * The audio or video ID.
    * 
    * @example
    * 93ab850b4f654b6e91d24d81d44****
@@ -250,7 +251,7 @@ export class GetPlayInfoResponseBody extends $dara.Model {
   playInfoList?: GetPlayInfoResponseBodyPlayInfoList;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * F552E596-967D-5500-842F-17E6364****

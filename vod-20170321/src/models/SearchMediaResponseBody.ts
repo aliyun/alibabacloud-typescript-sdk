@@ -3,29 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class SearchMediaResponseBodyMediaListAiDataAiLabelInfoOccurrences extends $dara.Model {
-  /**
-   * @remarks
-   * The start time of the clip.
-   * 
-   * @example
-   * 1.4
-   */
   from?: number;
-  /**
-   * @remarks
-   * The score.
-   * 
-   * @example
-   * 0.75287705
-   */
   score?: number;
-  /**
-   * @remarks
-   * The end time of the clip.
-   * 
-   * @example
-   * 2.5
-   */
   to?: number;
   static names(): { [key: string]: string } {
     return {
@@ -53,34 +32,9 @@ export class SearchMediaResponseBodyMediaListAiDataAiLabelInfoOccurrences extend
 }
 
 export class SearchMediaResponseBodyMediaListAiDataAiLabelInfo extends $dara.Model {
-  /**
-   * @remarks
-   * The category.
-   * 
-   * @example
-   * Transportation
-   */
   category?: string;
-  /**
-   * @remarks
-   * The ID of the tag.
-   * 
-   * @example
-   * 10310250338
-   */
   labelId?: string;
-  /**
-   * @remarks
-   * The name of the tag.
-   * 
-   * @example
-   * Vehicles
-   */
   labelName?: string;
-  /**
-   * @remarks
-   * The clips.
-   */
   occurrences?: SearchMediaResponseBodyMediaListAiDataAiLabelInfoOccurrences[];
   static names(): { [key: string]: string } {
     return {
@@ -113,29 +67,8 @@ export class SearchMediaResponseBodyMediaListAiDataAiLabelInfo extends $dara.Mod
 }
 
 export class SearchMediaResponseBodyMediaListAiDataOcrInfo extends $dara.Model {
-  /**
-   * @remarks
-   * The text content.
-   * 
-   * @example
-   * I\\"m Jane.
-   */
   content?: string;
-  /**
-   * @remarks
-   * The start time of the subtitle.
-   * 
-   * @example
-   * 1.4
-   */
   from?: number;
-  /**
-   * @remarks
-   * The end time of the subtitle.
-   * 
-   * @example
-   * 2.5
-   */
   to?: number;
   static names(): { [key: string]: string } {
     return {
@@ -163,15 +96,7 @@ export class SearchMediaResponseBodyMediaListAiDataOcrInfo extends $dara.Model {
 }
 
 export class SearchMediaResponseBodyMediaListAiData extends $dara.Model {
-  /**
-   * @remarks
-   * The AI tags.
-   */
   aiLabelInfo?: SearchMediaResponseBodyMediaListAiDataAiLabelInfo[];
-  /**
-   * @remarks
-   * The information about subtitles.
-   */
   ocrInfo?: SearchMediaResponseBodyMediaListAiDataOcrInfo[];
   static names(): { [key: string]: string } {
     return {
@@ -203,37 +128,9 @@ export class SearchMediaResponseBodyMediaListAiData extends $dara.Model {
 }
 
 export class SearchMediaResponseBodyMediaListAiRoughData extends $dara.Model {
-  /**
-   * @remarks
-   * The AI category.
-   * 
-   * @example
-   * TV series
-   */
   aiCategory?: string;
-  /**
-   * @remarks
-   * The ID of the AI task.
-   * 
-   * @example
-   * cd35b0b0025f71edbfcb472190a9xxxx
-   */
   aiJobId?: string;
-  /**
-   * @remarks
-   * The save type.
-   * 
-   * @example
-   * TEXT
-   */
   saveType?: string;
-  /**
-   * @remarks
-   * The data status.
-   * 
-   * @example
-   * SaveSuccess
-   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -265,7 +162,7 @@ export class SearchMediaResponseBodyMediaListAiRoughData extends $dara.Model {
 export class SearchMediaResponseBodyMediaListAttachedMediaCategories extends $dara.Model {
   /**
    * @remarks
-   * The category ID of the auxiliary media asset.
+   * The category ID.
    * 
    * @example
    * 10027394
@@ -273,15 +170,15 @@ export class SearchMediaResponseBodyMediaListAttachedMediaCategories extends $da
   cateId?: number;
   /**
    * @remarks
-   * The name of the category.
+   * The category name.
    * 
    * @example
-   * test1
+   * cate1
    */
   cateName?: string;
   /**
    * @remarks
-   * The level of the category.
+   * The category level.
    * 
    * @example
    * 1
@@ -289,7 +186,7 @@ export class SearchMediaResponseBodyMediaListAttachedMediaCategories extends $da
   level?: number;
   /**
    * @remarks
-   * The ID of the parent node.
+   * The parent node ID.
    * 
    * @example
    * -1
@@ -325,7 +222,7 @@ export class SearchMediaResponseBodyMediaListAttachedMediaCategories extends $da
 export class SearchMediaResponseBodyMediaListAttachedMedia extends $dara.Model {
   /**
    * @remarks
-   * The ID of the application.
+   * The application ID.
    * 
    * @example
    * app-****
@@ -333,11 +230,11 @@ export class SearchMediaResponseBodyMediaListAttachedMedia extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The type of the auxiliary media asset. Valid values:
+   * The business type. Valid values:
    * 
-   * *   **watermark**
-   * *   **subtitle**
-   * *   **material**
+   * - **watermark**: watermark.
+   * - **subtitle**: subtitle.
+   * - **material**: material.
    * 
    * @example
    * watermark
@@ -350,7 +247,7 @@ export class SearchMediaResponseBodyMediaListAttachedMedia extends $dara.Model {
   categories?: SearchMediaResponseBodyMediaListAttachedMediaCategories[];
   /**
    * @remarks
-   * The time when the auxiliary media asset was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*hh:mm:ss*Z format. The time is displayed in UTC.
+   * The creation time. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
    * 
    * @example
    * 2018-07-19T03:45:25Z
@@ -358,15 +255,15 @@ export class SearchMediaResponseBodyMediaListAttachedMedia extends $dara.Model {
   creationTime?: string;
   /**
    * @remarks
-   * The description of the auxiliary media asset.
+   * The description.
    * 
    * @example
-   * test3
+   * Alibaba Cloud VOD-assisted media asset description
    */
   description?: string;
   /**
    * @remarks
-   * The ID of the auxiliary media asset.
+   * The auxiliary media asset ID.
    * 
    * @example
    * a82a2cd7d4e147ba0ed6c1ee372****
@@ -374,7 +271,7 @@ export class SearchMediaResponseBodyMediaListAttachedMedia extends $dara.Model {
   mediaId?: string;
   /**
    * @remarks
-   * The time when the auxiliary media asset was updated. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*hh:mm:ss*Z format. The time is displayed in UTC.
+   * The last modification time. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
    * 
    * @example
    * 2018-07-19T03:48:25Z
@@ -382,11 +279,11 @@ export class SearchMediaResponseBodyMediaListAttachedMedia extends $dara.Model {
   modificationTime?: string;
   /**
    * @remarks
-   * The status of the auxiliary media asset. Valid values:
+   * The status. Valid values:
    * 
-   * *   **Uploading**
-   * *   **Normal**
-   * *   **UploadFail**
+   * - **Uploading** (uploading): the initial state. The auxiliary media asset is being uploaded.
+   * - **Normal** (normal): the auxiliary media asset is uploaded.
+   * - **UploadFail** (failed): the auxiliary media asset failed to be uploaded.
    * 
    * @example
    * Normal
@@ -394,7 +291,7 @@ export class SearchMediaResponseBodyMediaListAttachedMedia extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The region in which the auxiliary media asset is stored.
+   * The storage region.
    * 
    * @example
    * outin-bfefbb90a47c11*****7426.oss-cn-shanghai.aliyuncs.com
@@ -402,23 +299,23 @@ export class SearchMediaResponseBodyMediaListAttachedMedia extends $dara.Model {
   storageLocation?: string;
   /**
    * @remarks
-   * The tags of the auxiliary media asset.
+   * The tags.
    * 
    * @example
-   * test2
+   * tag1
    */
   tags?: string;
   /**
    * @remarks
-   * The title of the auxiliary media asset.
+   * The title.
    * 
    * @example
-   * test
+   * Alibaba Cloud VOD-assisted media asset Title
    */
   title?: string;
   /**
    * @remarks
-   * The URL of the auxiliary media asset.
+   * The auxiliary media asset URL.
    * 
    * @example
    * https://example.com/****.png
@@ -473,7 +370,7 @@ export class SearchMediaResponseBodyMediaListAttachedMedia extends $dara.Model {
 export class SearchMediaResponseBodyMediaListAudio extends $dara.Model {
   /**
    * @remarks
-   * The ID of the application.
+   * The application ID.
    * 
    * @example
    * app-****
@@ -481,7 +378,7 @@ export class SearchMediaResponseBodyMediaListAudio extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The ID of the audio file.
+   * The audio ID.
    * 
    * @example
    * a82a2cd7d4e147bbed6c1ee372****
@@ -489,7 +386,7 @@ export class SearchMediaResponseBodyMediaListAudio extends $dara.Model {
   audioId?: string;
   /**
    * @remarks
-   * The ID of the category.
+   * The category ID.
    * 
    * @example
    * 10000123
@@ -497,15 +394,15 @@ export class SearchMediaResponseBodyMediaListAudio extends $dara.Model {
   cateId?: number;
   /**
    * @remarks
-   * The name of the category.
+   * The category name.
    * 
    * @example
-   * ceshi
+   * cate1
    */
   cateName?: string;
   /**
    * @remarks
-   * The URL of the thumbnail.
+   * The thumbnail URL.
    * 
    * @example
    * http://example.com/image04.jpg
@@ -513,7 +410,7 @@ export class SearchMediaResponseBodyMediaListAudio extends $dara.Model {
   coverURL?: string;
   /**
    * @remarks
-   * The time when the audio stream was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*hh:mm:ss*Z format. The time is displayed in UTC.
+   * The creation time. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
    * 
    * @example
    * 2018-07-19T03:45:25Z
@@ -521,18 +418,18 @@ export class SearchMediaResponseBodyMediaListAudio extends $dara.Model {
   creationTime?: string;
   /**
    * @remarks
-   * The description of the audio file.
+   * The description.
    * 
    * @example
-   * audio description
+   * Alibaba Cloud VOD Audio Description
    */
   description?: string;
   /**
    * @remarks
-   * The download switch. The audio file can be downloaded offline only when the download switch is turned on. Valid values:
+   * The download switch. Offline download is allowed only when the switch is enabled. Valid values:
    * 
-   * *   **on**
-   * *   **off**
+   * - **on** (enabled): the initial state. Offline download is allowed.
+   * - **off** (disabled): offline download is disabled.
    * 
    * @example
    * on
@@ -540,7 +437,7 @@ export class SearchMediaResponseBodyMediaListAudio extends $dara.Model {
   downloadSwitch?: string;
   /**
    * @remarks
-   * The duration of the audio file.
+   * The duration.
    * 
    * @example
    * 123
@@ -548,12 +445,12 @@ export class SearchMediaResponseBodyMediaListAudio extends $dara.Model {
   duration?: number;
   /**
    * @remarks
-   * The source of the audio file. Valid values:
+   * The source. Valid values:
    * 
-   * *   **general**: The audio file is uploaded by using ApsaraVideo VOD.
-   * *   **short_video**: The audio file is uploaded to ApsaraVideo VOD by using the short video SDK. For more information, see [Introduction](https://help.aliyun.com/document_detail/53407.html).
-   * *   **editing**: The audio file is uploaded to ApsaraVideo VOD after online editing and production. For more information, see [ProduceEditingProjectVideo](https://help.aliyun.com/document_detail/68536.html).
-   * *   **live**: The audio file is recorded and uploaded as a file to ApsaraVideo VOD.
+   * - **general** (ApsaraVideo VOD upload): standard upload.
+   * - **short_video** (the short video SDK): files uploaded to ApsaraVideo VOD by using the short video SDK. For more information, see [Short video SDK](https://help.aliyun.com/document_detail/53407.html).
+   * - **editing** (online editing): files uploaded to ApsaraVideo VOD by using online editing. For more information, see [Produce videos](https://help.aliyun.com/document_detail/68536.html).
+   * - **live** (live recording): files uploaded to ApsaraVideo VOD through live recording.
    * 
    * @example
    * general
@@ -561,7 +458,7 @@ export class SearchMediaResponseBodyMediaListAudio extends $dara.Model {
   mediaSource?: string;
   /**
    * @remarks
-   * The time when the audio file was updated. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*hh:mm:ss*Z format. The time is displayed in UTC.
+   * The last modification time. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
    * 
    * @example
    * 2018-07-19T03:48:25Z
@@ -569,25 +466,28 @@ export class SearchMediaResponseBodyMediaListAudio extends $dara.Model {
   modificationTime?: string;
   /**
    * @remarks
-   * The preprocessing status. Only preprocessed videos can be used for live streaming in the production studio. Valid values:
+   * The preprocessing status. Only preprocessed videos can be used for live streaming. Valid values:
    * 
-   * *   **UnPreprocess**
-   * *   **Preprocessing**
-   * *   **PreprocessSucceed**
-   * *   **PreprocessFailed**
+   * - **UnPreprocess**: not preprocessed.
+   * - **Preprocessing**: preprocessing.
+   * - **PreprocessSucceed**: preprocessing complete.
+   * - **PreprocessFailed**: preprocessing failed.
    * 
    * @example
    * UnPreprocess
    */
   preprocessStatus?: string;
   /**
+   * @remarks
+   * The custom ID. Only lowercase letters, uppercase letters, digits, hyphens, and underscores are supported. The value must be 6 to 64 characters in length and is unique at the user level.
+   * 
    * @example
    * 123-123
    */
   referenceId?: string;
   /**
    * @remarks
-   * The period of time in which the audio file remains in the restored state.
+   * The expiration time of the media asset restoration.
    * 
    * @example
    * 2023-03-30T10:14:14Z
@@ -595,11 +495,10 @@ export class SearchMediaResponseBodyMediaListAudio extends $dara.Model {
   restoreExpiration?: string;
   /**
    * @remarks
-   * The restoration status of the audio file. Valid values:
-   * 
-   * *   **Processing**
-   * *   **Success**
-   * *   **Failed**
+   * The media asset restoration status. Valid values:
+   * - **Processing**: restoring.
+   * - **Success**: restoration successful.
+   * - **Failed**: restoration failed.
    * 
    * @example
    * Success
@@ -607,7 +506,7 @@ export class SearchMediaResponseBodyMediaListAudio extends $dara.Model {
   restoreStatus?: string;
   /**
    * @remarks
-   * The size of the audio file.
+   * The size.
    * 
    * @example
    * 123
@@ -615,22 +514,22 @@ export class SearchMediaResponseBodyMediaListAudio extends $dara.Model {
   size?: number;
   /**
    * @remarks
-   * The automatic snapshots.
+   * The list of automatic snapshots.
    */
   snapshots?: string[];
   /**
    * @remarks
-   * The sprite snapshots.
+   * The list of sprites.
    */
   spriteSnapshots?: string[];
   /**
    * @remarks
-   * The status of the audio file. Valid values:
+   * The status. Valid values:
    * 
-   * *   **Uploading**
-   * *   **Normal**
-   * *   **UploadFail**
-   * *   **Deleted**
+   * - **Uploading**: uploading.
+   * - **Normal**: normal.	
+   * - **UploadFail**: upload failed.
+   * - **Deleted**: deleted.
    * 
    * @example
    * Normal
@@ -638,16 +537,15 @@ export class SearchMediaResponseBodyMediaListAudio extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The storage class of the audio file. Valid values:
-   * 
-   * *   **Standard**: All media resources are stored as Standard objects.
-   * *   **IA**: All media resources are stored as IA objects.
-   * *   **Archive**: All media resources are stored as Archive objects.
-   * *   **ColdArchive**: All media resources are stored as Cold Archive objects.
-   * *   **SourceIA**: Only the source file is stored as an IA object.
-   * *   **SourceArchive**: Only the source file is stored as an Archive object.
-   * *   **SourceColdArchive**: Only the source file is stored as a Cold Archive object.
-   * *   **Changing**: The storage class is being modified.
+   * The storage class of the media asset. Valid values:
+   * - **Standard**: standard.
+   * - **IA**: Infrequent Access (media asset).
+   * - **Archive**: Archive (media asset).
+   * - **ColdArchive**: Cold Archive (media asset).
+   * - **SourceIA**: Infrequent Access (source file).
+   * - **SourceArchive**: Archive (source file).
+   * - **SourceColdArchive**: Cold Archive (source file).
+   * - **Changing**: the storage class is being changed.
    * 
    * @example
    * Standard
@@ -655,7 +553,7 @@ export class SearchMediaResponseBodyMediaListAudio extends $dara.Model {
   storageClass?: string;
   /**
    * @remarks
-   * The region in which the audio is stored.
+   * The storage region.
    * 
    * @example
    * outin-aaa*****aa.oss-cn-shanghai.aliyuncs.com
@@ -663,7 +561,7 @@ export class SearchMediaResponseBodyMediaListAudio extends $dara.Model {
   storageLocation?: string;
   /**
    * @remarks
-   * The tags of the audio file.
+   * The tags.
    * 
    * @example
    * tag1,tag2
@@ -671,19 +569,19 @@ export class SearchMediaResponseBodyMediaListAudio extends $dara.Model {
   tags?: string;
   /**
    * @remarks
-   * The title of the audio file
+   * The title.
    * 
    * @example
-   * audio
+   * Alibaba Cloud VOD Audio Title
    */
   title?: string;
   /**
    * @remarks
    * The transcoding mode. Valid values:
    * 
-   * *   **FastTranscode**: The audio file is immediately transcoded after it is uploaded. You cannot play the file before it is transcoded.
-   * *   **NoTranscode**: The audio file can be played without being transcoded. You can immediately play the file after it is uploaded.
-   * *   **AsyncTranscode**: The audio file can be immediately played and asynchronously transcoded after it is uploaded.
+   * - **FastTranscode** (standard transcoding, default): transcoding starts after the upload is complete, and the audio can be played only after transcoding is complete.
+   * - **NoTranscode** (distribution without transcoding): the audio can be played immediately after the upload is complete without transcoding.
+   * - **AsyncTranscode** (distribution and transcoding upon upload): the audio can be played immediately after the upload is complete, and transcoding is performed asynchronously.
    * 
    * @example
    * FastTranscode
@@ -765,7 +663,7 @@ export class SearchMediaResponseBodyMediaListAudio extends $dara.Model {
 export class SearchMediaResponseBodyMediaListImage extends $dara.Model {
   /**
    * @remarks
-   * The ID of the application.
+   * The application ID.
    * 
    * @example
    * app-****
@@ -773,7 +671,7 @@ export class SearchMediaResponseBodyMediaListImage extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The ID of the category.
+   * The category ID.
    * 
    * @example
    * 1000123
@@ -781,15 +679,15 @@ export class SearchMediaResponseBodyMediaListImage extends $dara.Model {
   cateId?: number;
   /**
    * @remarks
-   * The name of the category.
+   * The category name.
    * 
    * @example
-   * beauty
+   * cate1
    */
   cateName?: string;
   /**
    * @remarks
-   * The time when the image was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*hh:mm:ss*Z format. The time is displayed in UTC.
+   * The creation time. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
    * 
    * @example
    * 2018-07-19T03:45:25Z
@@ -797,15 +695,15 @@ export class SearchMediaResponseBodyMediaListImage extends $dara.Model {
   creationTime?: string;
   /**
    * @remarks
-   * The description of the image file.
+   * The description.
    * 
    * @example
-   * image test
+   * Alibaba Cloud VOD Image Description
    */
   description?: string;
   /**
    * @remarks
-   * The ID of the image file.
+   * The image ID.
    * 
    * @example
    * 11130843741se99wqmoes****
@@ -813,7 +711,7 @@ export class SearchMediaResponseBodyMediaListImage extends $dara.Model {
   imageId?: string;
   /**
    * @remarks
-   * The time when the image file was updated. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*hh:mm:ss*Z format. The time is displayed in UTC.
+   * The last modification time. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
    * 
    * @example
    * 2018-07-19T03:48:25Z
@@ -821,11 +719,11 @@ export class SearchMediaResponseBodyMediaListImage extends $dara.Model {
   modificationTime?: string;
   /**
    * @remarks
-   * The status of the image file.
+   * The image status. Valid values:
    * 
-   * *   **Uploading**
-   * *   **Normal**
-   * *   **UploadFail**
+   * - **Uploading** (uploading): the initial state. The image is being uploaded.
+   * - **Normal** (normal): the image is uploaded.
+   * - **UploadFail** (failed): the image failed to be uploaded.
    * 
    * @example
    * Uploading
@@ -833,7 +731,7 @@ export class SearchMediaResponseBodyMediaListImage extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The region in which the image is stored.
+   * The storage region.
    * 
    * @example
    * outin-bfefbb90a47c******163e1c7426.oss-cn-shanghai.aliyuncs.com
@@ -841,7 +739,7 @@ export class SearchMediaResponseBodyMediaListImage extends $dara.Model {
   storageLocation?: string;
   /**
    * @remarks
-   * The tags of the image file.
+   * The tags.
    * 
    * @example
    * tag1
@@ -849,15 +747,15 @@ export class SearchMediaResponseBodyMediaListImage extends $dara.Model {
   tags?: string;
   /**
    * @remarks
-   * The title of the image file.
+   * The title.
    * 
    * @example
-   * image1
+   * Alibaba Cloud VOD Image Title
    */
   title?: string;
   /**
    * @remarks
-   * The URL of the image file.
+   * The image URL.
    * 
    * @example
    * https://example.com/****.png
@@ -909,7 +807,7 @@ export class SearchMediaResponseBodyMediaListImage extends $dara.Model {
 export class SearchMediaResponseBodyMediaListVideo extends $dara.Model {
   /**
    * @remarks
-   * The ID of the application.
+   * The application ID.
    * 
    * @example
    * app-****
@@ -917,7 +815,7 @@ export class SearchMediaResponseBodyMediaListVideo extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The ID of the category.
+   * The category ID.
    * 
    * @example
    * 10000123
@@ -925,7 +823,7 @@ export class SearchMediaResponseBodyMediaListVideo extends $dara.Model {
   cateId?: number;
   /**
    * @remarks
-   * The name of the category.
+   * The category name.
    * 
    * @example
    * video1
@@ -933,7 +831,7 @@ export class SearchMediaResponseBodyMediaListVideo extends $dara.Model {
   cateName?: string;
   /**
    * @remarks
-   * The URL of the thumbnail.
+   * The thumbnail URL.
    * 
    * @example
    * https://example.aliyundoc.com/image01.png
@@ -941,7 +839,7 @@ export class SearchMediaResponseBodyMediaListVideo extends $dara.Model {
   coverURL?: string;
   /**
    * @remarks
-   * The time when the video file was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*hh:mm:ss*Z format. The time is displayed in UTC.
+   * The time when the video information was created. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
    * 
    * @example
    * 2018-07-19T03:45:25Z
@@ -949,18 +847,18 @@ export class SearchMediaResponseBodyMediaListVideo extends $dara.Model {
   creationTime?: string;
   /**
    * @remarks
-   * The description of the video file.
+   * The video description.
    * 
    * @example
-   * Video test
+   * Alibaba Cloud VOD video description
    */
   description?: string;
   /**
    * @remarks
-   * The download switch. The video file can be downloaded offline only when the download switch is turned on. Valid values:
+   * The download switch. Offline download is allowed only when the switch is enabled. Valid values:
    * 
-   * *   **on**
-   * *   **off**
+   * - **on** (enabled): the initial state. Offline download is allowed.
+   * - **off** (disabled): offline download is disabled.
    * 
    * @example
    * on
@@ -968,7 +866,7 @@ export class SearchMediaResponseBodyMediaListVideo extends $dara.Model {
   downloadSwitch?: string;
   /**
    * @remarks
-   * The duration of the video file. Unit: seconds.
+   * The video duration. Unit: seconds.
    * 
    * @example
    * 123
@@ -976,12 +874,12 @@ export class SearchMediaResponseBodyMediaListVideo extends $dara.Model {
   duration?: number;
   /**
    * @remarks
-   * The source of the video file. Valid values:
+   * The source. Valid values:
    * 
-   * *   **general**: The video file is uploaded by using ApsaraVideo VOD.
-   * *   **short_video**: The video file is uploaded by using the short video SDK.
-   * *   **editing**: The video file is produced after online editing.
-   * *   **live**: The video stream is recorded and uploaded as a file.
+   * - **general**: ApsaraVideo VOD upload.
+   * - **short_video**: the short video SDK.
+   * - **editing**: online editing.
+   * - **live**: live recording.
    * 
    * @example
    * general
@@ -989,7 +887,7 @@ export class SearchMediaResponseBodyMediaListVideo extends $dara.Model {
   mediaSource?: string;
   /**
    * @remarks
-   * The time when the video file was updated. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*hh:mm:ss*Z format. The time is displayed in UTC.
+   * The time when the video information was last modified. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
    * 
    * @example
    * 2018-07-19T03:48:25Z
@@ -999,23 +897,26 @@ export class SearchMediaResponseBodyMediaListVideo extends $dara.Model {
    * @remarks
    * The preprocessing status. Valid values:
    * 
-   * *   **UnPreprocess**
-   * *   **Preprocessing**
-   * *   **PreprocessSucceed**
-   * *   **PreprocessFailed**
+   * - **UnPreprocess**: not preprocessed.
+   * - **Preprocessing**: preprocessing.
+   * - **PreprocessSucceed**: preprocessing complete.
+   * - **PreprocessFailed**: preprocessing failed.
    * 
    * @example
    * Preprocessing
    */
   preprocessStatus?: string;
   /**
+   * @remarks
+   * The custom ID. Only lowercase letters, uppercase letters, digits, hyphens, and underscores are supported. The value must be 6 to 64 characters in length and is unique at the user level.
+   * 
    * @example
    * 123-123
    */
   referenceId?: string;
   /**
    * @remarks
-   * The period of time in which the video file remains in the restored state.
+   * The expiration time of the media asset restoration.
    * 
    * @example
    * 2023-03-30T10:14:14Z
@@ -1023,11 +924,10 @@ export class SearchMediaResponseBodyMediaListVideo extends $dara.Model {
   restoreExpiration?: string;
   /**
    * @remarks
-   * The restoration status of the video file. Valid values:
-   * 
-   * *   **Processing**
-   * *   **Success**
-   * *   **Failed**
+   * The media asset restoration status. Valid values:
+   * - **Processing**: restoring.
+   * - **Success**: restoration successful.
+   * - **Failed**: restoration failed.
    * 
    * @example
    * Success
@@ -1035,7 +935,7 @@ export class SearchMediaResponseBodyMediaListVideo extends $dara.Model {
   restoreStatus?: string;
   /**
    * @remarks
-   * The size of the video file.
+   * The video size.
    * 
    * @example
    * 123
@@ -1043,25 +943,25 @@ export class SearchMediaResponseBodyMediaListVideo extends $dara.Model {
   size?: number;
   /**
    * @remarks
-   * The automatic snapshots.
+   * The list of automatic snapshots.
    */
   snapshots?: string[];
   /**
    * @remarks
-   * The sprite snapshots.
+   * The list of sprites.
    */
   spriteSnapshots?: string[];
   /**
    * @remarks
-   * The status of the file. Valid values:
+   * The status. Valid values:
    * 
-   * *   **Uploading**
-   * *   **UploadFail**
-   * *   **UploadSucc**
-   * *   **Transcoding**
-   * *   **TranscodeFail**
-   * *   **Blocked**
-   * *   **Normal**
+   * - **Uploading**: uploading.
+   * - **UploadFail**: upload failed.
+   * - **UploadSucc**: upload complete.
+   * - **Transcoding**: transcoding.
+   * - **TranscodeFail**: transcoding failed.
+   * - **Blocked**: blocked.
+   * - **Normal**: normal.
    * 
    * @example
    * UploadSucc
@@ -1069,17 +969,16 @@ export class SearchMediaResponseBodyMediaListVideo extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The storage class of the video file. Valid values:
-   * 
-   * *   **Standard**: All media resources are stored as Standard objects.
-   * *   **IA**: All media resources are stored as IA objects.
-   * *   **Archive**: All media resources are stored as Archive objects.
-   * *   **ColdArchive**: All media resources are stored as Cold Archive objects.
-   * *   **SourceIA**: Only the source file is stored as an IA object.
-   * *   **SourceArchive**: Only the source file is stored as an Archive object.
-   * *   **SourceColdArchive**: Only the source file is stored as a Cold Archive object.
-   * *   **Changing**: The storage class of the video file is being changed.
-   * *   **SourceChanging**: The storage class of the source file is being changed.
+   * The storage class of the media asset. Valid values:
+   * - **Standard**: standard.
+   * - **IA**: Infrequent Access (media asset).
+   * - **Archive**: Archive (media asset).
+   * - **ColdArchive**: Cold Archive (media asset).
+   * - **SourceIA**: Infrequent Access (source file).
+   * - **SourceArchive**: Archive (source file).
+   * - **SourceColdArchive**: Cold Archive (source file).
+   * - **Changing**: the storage class of the media asset is being changed.
+   * - **SourceChanging**: the storage class of the source file is being changed.
    * 
    * @example
    * Standard
@@ -1087,7 +986,7 @@ export class SearchMediaResponseBodyMediaListVideo extends $dara.Model {
   storageClass?: string;
   /**
    * @remarks
-   * The region in which the video is stored.
+   * The storage region.
    * 
    * @example
    * outin-bfefbb90a47c******163e1c7426.oss-cn-shanghai.aliyuncs.com
@@ -1095,7 +994,7 @@ export class SearchMediaResponseBodyMediaListVideo extends $dara.Model {
   storageLocation?: string;
   /**
    * @remarks
-   * The tags of the video file.
+   * The video tags.
    * 
    * @example
    * tag1
@@ -1103,19 +1002,19 @@ export class SearchMediaResponseBodyMediaListVideo extends $dara.Model {
   tags?: string;
   /**
    * @remarks
-   * The title of the video.
+   * The video title.
    * 
    * @example
-   * ceshi
+   * Alibaba Cloud VOD Video Title
    */
   title?: string;
   /**
    * @remarks
    * The transcoding mode. Valid values:
    * 
-   * *   **FastTranscode**: The video file is immediately transcoded after it is uploaded. You cannot play the file before it is transcoded.
-   * *   **NoTranscode**: The video file can be played without being transcoded. You can immediately play the file after it is uploaded.
-   * *   **AsyncTranscode**: The video file can be immediately played and asynchronously transcoded after it is uploaded.
+   * - **FastTranscode** (standard transcoding): the default mode. Transcoding starts after the upload is complete, and the video can be played only after transcoding is complete.
+   * - **NoTranscode** (distribution without transcoding): the video can be played immediately after the upload is complete without transcoding.
+   * - **AsyncTranscode** (distribution and transcoding upon upload): the video can be played immediately after the upload is complete, and transcoding is performed asynchronously.
    * 
    * @example
    * FastTranscode
@@ -1123,7 +1022,7 @@ export class SearchMediaResponseBodyMediaListVideo extends $dara.Model {
   transcodeMode?: string;
   /**
    * @remarks
-   * The ID of the video file.
+   * The video ID.
    * 
    * @example
    * a82a2asdasqadaf3faa0ed6c1ee372****
@@ -1203,29 +1102,21 @@ export class SearchMediaResponseBodyMediaListVideo extends $dara.Model {
 }
 
 export class SearchMediaResponseBodyMediaList extends $dara.Model {
-  /**
-   * @remarks
-   * Details about AI data.
-   */
   aiData?: SearchMediaResponseBodyMediaListAiData;
-  /**
-   * @remarks
-   * The basic information about AI data.
-   */
   aiRoughData?: SearchMediaResponseBodyMediaListAiRoughData;
   /**
    * @remarks
-   * [The information about the auxiliary media asset](https://help.aliyun.com/document_detail/86991.html).
+   * [Auxiliary media asset information](https://help.aliyun.com/document_detail/86991.html).
    */
   attachedMedia?: SearchMediaResponseBodyMediaListAttachedMedia;
   /**
    * @remarks
-   * [The information about the audio](https://help.aliyun.com/document_detail/86991.html).
+   * [Audio information](https://help.aliyun.com/document_detail/86991.html).
    */
   audio?: SearchMediaResponseBodyMediaListAudio;
   /**
    * @remarks
-   * The time when the media asset was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*hh:mm:ss*Z format. The time is displayed in UTC.
+   * The time when the media asset was created. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
    * 
    * @example
    * 2018-07-19T03:45:25Z
@@ -1233,12 +1124,12 @@ export class SearchMediaResponseBodyMediaList extends $dara.Model {
   creationTime?: string;
   /**
    * @remarks
-   * [The information about the image](https://help.aliyun.com/document_detail/86991.html).
+   * [Image information](https://help.aliyun.com/document_detail/86991.html).
    */
   image?: SearchMediaResponseBodyMediaListImage;
   /**
    * @remarks
-   * The ID of the file.
+   * The media ID.
    * 
    * @example
    * a82a2cd7d4e147bbed6c1ee372****
@@ -1246,12 +1137,12 @@ export class SearchMediaResponseBodyMediaList extends $dara.Model {
   mediaId?: string;
   /**
    * @remarks
-   * The type of the media asset. Valid values:
+   * The media type. Valid values:
    * 
-   * *   **video**
-   * *   **audio**
-   * *   **image**
-   * *   **attached**
+   * - **video**: video.
+   * - **audio**: audio.
+   * - **image**: image.
+   * - **attached**: auxiliary media asset.
    * 
    * @example
    * video
@@ -1259,7 +1150,7 @@ export class SearchMediaResponseBodyMediaList extends $dara.Model {
   mediaType?: string;
   /**
    * @remarks
-   * [The information about the video](https://help.aliyun.com/document_detail/86991.html).
+   * [Video information](https://help.aliyun.com/document_detail/86991.html).
    */
   video?: SearchMediaResponseBodyMediaListVideo;
   static names(): { [key: string]: string } {
@@ -1320,12 +1211,12 @@ export class SearchMediaResponseBodyMediaList extends $dara.Model {
 export class SearchMediaResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the media assets.
+   * The list of media asset information.
    */
   mediaList?: SearchMediaResponseBodyMediaList[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 3E0CEF83-FB09-4E34-BA1451814B03****
@@ -1333,7 +1224,7 @@ export class SearchMediaResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The pagination identifier.
+   * The pagination token.
    * 
    * @example
    * 24e0fba7188fae707e146esa54****
@@ -1341,7 +1232,7 @@ export class SearchMediaResponseBody extends $dara.Model {
   scrollToken?: string;
   /**
    * @remarks
-   * The total number of data records that meet the specified filter criteria.
+   * The total number of media assets that match the search conditions.
    * 
    * @example
    * 10

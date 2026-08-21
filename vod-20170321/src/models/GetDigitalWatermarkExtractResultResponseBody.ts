@@ -13,10 +13,10 @@ export class GetDigitalWatermarkExtractResultResponseBodyAiExtractResultList ext
   createTime?: string;
   /**
    * @remarks
-   * The error message.
+   * The error message. This parameter is returned only when the watermark extraction job fails (the value of `Status` is `Failed`).
    * 
    * @example
-   * successful
+   * query copyright info err
    */
   errorMessage?: string;
   /**
@@ -39,17 +39,17 @@ export class GetDigitalWatermarkExtractResultResponseBodyAiExtractResultList ext
    * @remarks
    * The status of the watermark extraction job. Valid values:
    * 
-   * *   **Success**
-   * *   **Failed**
-   * *   **Processing**
+   * - **Success**: The job succeeded.	
+   * - **Failed**: The job failed.
+   * - **Processing**: The job is being processed.
    * 
    * @example
-   * Success
+   * Failed
    */
   status?: string;
   /**
    * @remarks
-   * The extracted watermark content.
+   * The extracted watermark text.
    * 
    * @example
    * test mark
@@ -89,12 +89,12 @@ export class GetDigitalWatermarkExtractResultResponseBodyAiExtractResultList ext
 export class GetDigitalWatermarkExtractResultResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the watermark extraction job.
+   * The details of the watermark extraction jobs.
    */
   aiExtractResultList?: GetDigitalWatermarkExtractResultResponseBodyAiExtractResultList[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 42E0554B-80F4-4921-****-ACFB22CAAAD0

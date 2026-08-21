@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAppPoliciesForIdentityRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the application. Default value: **app-1000000**. For more information, see [Overview](https://help.aliyun.com/document_detail/113600.html).
+   * The application ID. Default value: **app-1000000**. For more information, see [Multiple applications](https://help.aliyun.com/document_detail/113600.html).
    * 
    * @example
    * app-****
@@ -13,10 +13,10 @@ export class ListAppPoliciesForIdentityRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The name of the identity.
+   * The identity name.
    * 
-   * *   Specifies the ID of the RAM user when the IdentityType parameter is set to RamUser.
-   * *   Specifies the name of the RAM role when the IdentityType parameter is set to RamRole.
+   * - If IdentityType is set to RamUser, specify the Resource Access Management (RAM) user ID.
+   * - If IdentityType is set to RamRole, specify the role name.
    * 
    * @example
    * test****name
@@ -24,10 +24,9 @@ export class ListAppPoliciesForIdentityRequest extends $dara.Model {
   identityName?: string;
   /**
    * @remarks
-   * The type of the identity. Valid values:
-   * 
-   * *   **RamUser**: a RAM user.
-   * *   **RamRole**: a RAM role.
+   * The identity type. Valid values:
+   * - **RamUser**: Resource Access Management (RAM) user.
+   * - **RamRole**: RAM role.
    * 
    * @example
    * RamUser

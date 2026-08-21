@@ -22,7 +22,7 @@ export class DescribeVodSSLCertificateListRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Valid values: integers from 1 to 1000.
+   * The page size. Valid values: any integer from 1 to 1000.
    * 
    * @example
    * 10
@@ -30,7 +30,7 @@ export class DescribeVodSSLCertificateListRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The keyword that is used to query certificates.
+   * The certificate name for fuzzy match.
    * 
    * @example
    * certabc

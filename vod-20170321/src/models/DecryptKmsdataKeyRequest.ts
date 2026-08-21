@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DecryptKMSDataKeyRequest extends $dara.Model {
   /**
    * @remarks
-   * The ciphertext to be decrypted.
+   * The ciphertext to decrypt.
    * 
    * This parameter is required.
    * 

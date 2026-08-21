@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeVodDomainCertificateInfoRequest extends $dara.Model {
   /**
    * @remarks
-   * The accelerated domain name.
+   * The accelerated domain name for ApsaraVideo VOD.
    * 
    * This parameter is required.
    * 

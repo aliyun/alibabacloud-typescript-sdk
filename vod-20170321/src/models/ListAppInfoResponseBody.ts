@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAppInfoResponseBodyAppInfoList extends $dara.Model {
   /**
    * @remarks
-   * The ID of the application.
+   * The application ID.
    * 
    * @example
    * app-****
@@ -13,7 +13,7 @@ export class ListAppInfoResponseBodyAppInfoList extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The name of the application.
+   * The application name.
    * 
    * @example
    * test
@@ -21,7 +21,7 @@ export class ListAppInfoResponseBodyAppInfoList extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * The time when the application was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+   * The time when the application was created. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
    * 
    * @example
    * 2019-03-01T08:00:00Z
@@ -29,7 +29,7 @@ export class ListAppInfoResponseBodyAppInfoList extends $dara.Model {
   creationTime?: string;
   /**
    * @remarks
-   * The description of the application.
+   * The application description.
    * 
    * @example
    * my first app.
@@ -37,7 +37,7 @@ export class ListAppInfoResponseBodyAppInfoList extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The last time when the application was modified. The time follows the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time is displayed in UTC.
+   * The time when the application was last modified. The time is in the `yyyy-MM-ddTHH:mm:ssZ` format (UTC).
    * 
    * @example
    * 2019-03-01T09:00:00Z
@@ -53,7 +53,7 @@ export class ListAppInfoResponseBodyAppInfoList extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The resource group ID.
    * 
    * @example
    * rg-aekzko7fsuj****
@@ -61,10 +61,9 @@ export class ListAppInfoResponseBodyAppInfoList extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The status of the application. Valid values:
-   * 
-   * *   **Normal**
-   * *   **Disable**
+   * The application status. Valid values:
+   * - **Normal**
+   * - **Disable**
    * 
    * @example
    * Normal
@@ -72,10 +71,9 @@ export class ListAppInfoResponseBodyAppInfoList extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The type of the application. Valid values:
-   * 
-   * *   **System**
-   * *   **Custom**
+   * The application type. Valid values:
+   * - **System**: system default.
+   * - **Custom**: user-created.
    * 
    * @example
    * System
@@ -121,12 +119,12 @@ export class ListAppInfoResponseBodyAppInfoList extends $dara.Model {
 export class ListAppInfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of applications.
+   * The list of application information.
    */
   appInfoList?: ListAppInfoResponseBodyAppInfoList[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 25818875-5F78-4A13-4D5C-D7393642****
@@ -134,7 +132,7 @@ export class ListAppInfoResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 10

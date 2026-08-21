@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeVodDomainConfigsRequest extends $dara.Model {
   /**
    * @remarks
-   * The domain name for CDN.
+   * The accelerated domain name for ApsaraVideo VOD. Only a single domain name can be queried at a time.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DescribeVodDomainConfigsRequest extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
-   * The feature name. Separate multiple names with commas (,). For more information, see **Feature description**.
+   * The feature names. You can query multiple feature configurations in a single request. Separate multiple feature names with commas (,). For the features supported by accelerated domain names for ApsaraVideo VOD and their names, see [Feature functions for domain name configuration](https://help.aliyun.com/document_detail/2411639.html).
    * 
    * This parameter is required.
    * 

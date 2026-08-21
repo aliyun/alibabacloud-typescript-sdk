@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetAppPlayKeyRequest extends $dara.Model {
   /**
+   * @remarks
+   * The application ID. Default value: **app-1000000**. For more information, see [Multi-application](https://help.aliyun.com/document_detail/113600.html).
+   * 
    * @example
    * app-1000000
    */

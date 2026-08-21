@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetMessageCallbackResponseBodyMessageCallback extends $dara.Model {
   /**
    * @remarks
-   * The ID of the application.
+   * The application ID.
    * 
    * @example
    * app-1000000
@@ -13,7 +13,7 @@ export class GetMessageCallbackResponseBodyMessageCallback extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The cryptographic key. This parameter is returned only for HTTP callbacks.
+   * The authentication key when the callback method is set to HTTP.
    * 
    * @example
    * 12345678abc
@@ -21,10 +21,9 @@ export class GetMessageCallbackResponseBodyMessageCallback extends $dara.Model {
   authKey?: string;
   /**
    * @remarks
-   * Indicates whether callback authentication is enabled. This parameter is returned only for HTTP callbacks. Valid values:
-   * 
-   * *   **on**
-   * *   **off**
+   * The callback authentication switch when the callback method is set to HTTP. Valid values:
+   * - **on**: enabled.
+   * - **off**: disabled.
    * 
    * @example
    * on
@@ -33,9 +32,8 @@ export class GetMessageCallbackResponseBodyMessageCallback extends $dara.Model {
   /**
    * @remarks
    * The callback method. Valid values:
-   * 
-   * *   **HTTP**
-   * *   **MNS**
+   * - **HTTP**
+   * - **MNS**
    * 
    * @example
    * HTTP
@@ -43,7 +41,7 @@ export class GetMessageCallbackResponseBodyMessageCallback extends $dara.Model {
   callbackType?: string;
   /**
    * @remarks
-   * The callback URL. This parameter is returned only for HTTP callbacks.
+   * The callback URL when the callback method is set to HTTP.
    * 
    * @example
    * http://test.com/test
@@ -51,7 +49,7 @@ export class GetMessageCallbackResponseBodyMessageCallback extends $dara.Model {
   callbackURL?: string;
   /**
    * @remarks
-   * The type of the callback event.
+   * The callback event types.
    * 
    * @example
    * FileUploadComplete,StreamTranscodeComplete,TranscodeComplete,SnapshotComplete,AIComplete,AddLiveRecordVideoComplete,CreateAuditComplete,UploadByURLComplete,ProduceMediaComplete,LiveRecordVideoComposeStart,ImageUploadComplete,VideoAnalysisComplete
@@ -59,7 +57,7 @@ export class GetMessageCallbackResponseBodyMessageCallback extends $dara.Model {
   eventTypeList?: string;
   /**
    * @remarks
-   * The public endpoint of MNS. This parameter is returned only for MNS callbacks.
+   * The public endpoint of the MSMQ when the callback method is set to MNS.
    * 
    * @example
    * http://1234567.mns.cn-shanghai-internal.aliyuncs.com/
@@ -67,7 +65,7 @@ export class GetMessageCallbackResponseBodyMessageCallback extends $dara.Model {
   mnsEndpoint?: string;
   /**
    * @remarks
-   * The name of the Message Service (MNS) queue. This parameter is returned only for MNS callbacks.
+   * The name of the MSMQ when the callback method is set to MNS.
    * 
    * @example
    * vodcallback
@@ -111,12 +109,12 @@ export class GetMessageCallbackResponseBodyMessageCallback extends $dara.Model {
 export class GetMessageCallbackResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The configuration of the event notification.
+   * The event notification configuration.
    */
   messageCallback?: GetMessageCallbackResponseBodyMessageCallback;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 272A222A-F7F7-4A3E-****-F531574F1234

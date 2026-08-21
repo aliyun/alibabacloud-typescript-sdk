@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeVodTranscodeDataRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the application. You can specify this parameter to query the transcoding statistics of a specific application. By default, the transcoding statistics of all applications is returned. You can obtain the application ID from the `AppId` parameter in the response to the [CreateAppInfo](~~CreateAppInfo~~) operation.
+   * The application ID. If you specify this parameter, transcoding usage data for the specified application is returned. By default, transcoding usage data for all applications is returned. You can obtain the value of this parameter from the AppId response parameter of the [CreateAppInfo](~~CreateAppInfo~~) operation.
    * 
    * @example
    * app-1000001
@@ -13,7 +13,7 @@ export class DescribeVodTranscodeDataRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The end of the time range to query. The end time must be later than the start time. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+   * The end of the time range to query. The end time must be later than the start time. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
    * 
    * This parameter is required.
    * 
@@ -23,10 +23,10 @@ export class DescribeVodTranscodeDataRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The interval at which you want to query data. Valid values:
+   * The time granularity. Valid values:
    * 
-   * *   **day**: days
-   * *   **hour**: hours
+   * - **day**: day.
+   * - **hour**: hour.
    * 
    * @example
    * day
@@ -35,12 +35,11 @@ export class DescribeVodTranscodeDataRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region in which you want to query data. If you leave this parameter empty, data in all regions is returned. Separate multiple regions with commas (,). Valid values:
-   * 
-   * *   **cn-shanghai**: China (Shanghai)
-   * *   **cn-beijing**: China (Beijing)
-   * *   **eu-central-1**: Germany (Frankfurt)
-   * *   **ap-southeast-1**: Singapore
+   * The storage region. By default, data for all regions is returned. You can specify multiple regions separated by commas (,). Valid values:
+   * - **cn-shanghai**: Shanghai.
+   * - **cn-beijing**: Beijing.
+   * - **eu-central-1**: Germany.
+   * - **ap-southeast-1**: Singapore.
    * 
    * @example
    * cn-shanghai
@@ -48,11 +47,10 @@ export class DescribeVodTranscodeDataRequest extends $dara.Model {
   region?: string;
   /**
    * @remarks
-   * The transcoding specification. If you leave this parameter empty, data of all transcoding specifications is returned. Separate multiple transcoding specifications with commas (,). Valid values:
-   * 
-   * *   **Audio**: audio transcoding
-   * *   **Segmentation**: container format conversion
-   * *   **H264.LD**, **H264.SD**, **H264.HD**, **H264.2K**, **H264.4K**, and more
+   * The transcoding specification. By default, data for all transcoding specifications is returned. You can specify multiple specifications separated by commas (,). Valid values:
+   * - **Audio**: audio-only.
+   * - **Segmentation**: container format conversion.
+   * - **H264.LD**, **H264.SD**, **H264.HD**, **H264.2K**, **H264.4K**, and more.
    * 
    * @example
    * Audio
@@ -60,7 +58,7 @@ export class DescribeVodTranscodeDataRequest extends $dara.Model {
   specification?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+   * The start of the time range to query. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
    * 
    * This parameter is required.
    * 
@@ -70,7 +68,7 @@ export class DescribeVodTranscodeDataRequest extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The name of the Object Storage Service (OSS) bucket. If you leave this parameter empty, data of all buckets is returned. Separate multiple bucket names with commas (,).
+   * The storage name (Alibaba Cloud OSS bucket name). By default, data for all storage locations is returned. You can specify multiple storage names separated by commas (,).
    * 
    * @example
    * bucket01

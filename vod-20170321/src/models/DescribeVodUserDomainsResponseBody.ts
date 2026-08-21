@@ -140,7 +140,7 @@ export class DescribeVodUserDomainsResponseBody extends $dara.Model {
   domains?: DescribeVodUserDomainsResponseBodyDomains;
   /**
    * @remarks
-   * The page number.
+   * The page number of the returned data.
    * 
    * @example
    * 1
@@ -156,7 +156,7 @@ export class DescribeVodUserDomainsResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * E4EBD2BF-5EB0-4476-****-9D94E1B15267

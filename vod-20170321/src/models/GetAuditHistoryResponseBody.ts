@@ -13,7 +13,7 @@ export class GetAuditHistoryResponseBodyHistories extends $dara.Model {
   auditor?: string;
   /**
    * @remarks
-   * The review comments, which are provided by the reviewer.
+   * The review details, which are the specific comments provided by the reviewer.
    * 
    * @example
    * Contains nudity
@@ -21,7 +21,7 @@ export class GetAuditHistoryResponseBodyHistories extends $dara.Model {
   comment?: string;
   /**
    * @remarks
-   * The time when the review record was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+   * The time when the record was created. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
    * 
    * @example
    * 2017-01-11T12:00:00Z
@@ -29,7 +29,7 @@ export class GetAuditHistoryResponseBodyHistories extends $dara.Model {
   creationTime?: string;
   /**
    * @remarks
-   * The reason why the video failed the review. If the video failed the review, specify the reason.
+   * The reason for rejection. If the review result is rejection, the reason must be provided.
    * 
    * @example
    * Pornographic video
@@ -37,9 +37,9 @@ export class GetAuditHistoryResponseBodyHistories extends $dara.Model {
   reason?: string;
   /**
    * @remarks
-   * The manual review result. Valid values:
-   * - **Normal**: The video can be played.
-   * - **Blocked**: The video is blocked.
+   * The review result. Valid values:
+   * - **Normal**
+   * - **Blocked**
    * 
    * @example
    * Blocked
@@ -77,12 +77,12 @@ export class GetAuditHistoryResponseBodyHistories extends $dara.Model {
 export class GetAuditHistoryResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The review records.
+   * The list of review history records.
    */
   histories?: GetAuditHistoryResponseBodyHistories[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 04F0F334-1335-43*****D7-6C044FE73368
@@ -90,9 +90,9 @@ export class GetAuditHistoryResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The manual review result. Valid values:
-   * - **Normal**: The video can be played.
-   * - **Blocked**: The video is blocked.
+   * The review result. Indicates the result of the current manual review. Valid values:
+   * - **Normal**: the content is normal.
+   * - **Blocked**: the content is blocked.
    * 
    * @example
    * Normal
@@ -100,7 +100,7 @@ export class GetAuditHistoryResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The total number of review records.
+   * The total number of review history records.
    * 
    * @example
    * 2

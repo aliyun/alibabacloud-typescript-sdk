@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetUploadDetailsResponseBodyUploadDetails extends $dara.Model {
   /**
    * @remarks
-   * The time when the upload job was complete. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+   * The completion time. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
    * 
    * @example
    * 2019-04-28T09:45:07Z
@@ -13,7 +13,7 @@ export class GetUploadDetailsResponseBodyUploadDetails extends $dara.Model {
   completionTime?: string;
   /**
    * @remarks
-   * The time when the upload job was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+   * The creation time. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
    * 
    * @example
    * 2019-04-28T09:42:07Z
@@ -29,7 +29,7 @@ export class GetUploadDetailsResponseBodyUploadDetails extends $dara.Model {
   deviceModel?: string;
   /**
    * @remarks
-   * The size of the uploaded file. Unit: byte.
+   * The file size. Unit: bytes.
    * 
    * @example
    * 46
@@ -37,7 +37,7 @@ export class GetUploadDetailsResponseBodyUploadDetails extends $dara.Model {
   fileSize?: number;
   /**
    * @remarks
-   * The ID of the uploaded audio or video.
+   * The ID of the uploaded audio or video file.
    * 
    * @example
    * 61ccbdb06fa83012be4d8083f6****
@@ -45,7 +45,7 @@ export class GetUploadDetailsResponseBodyUploadDetails extends $dara.Model {
   mediaId?: string;
   /**
    * @remarks
-   * The time when the information about the media file was updated. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * The modification time. The time is in the _yyyy-MM-ddTHH:mm:ssZ_ format (UTC).
    * 
    * @example
    * 2019-04-28T09:43:12Z
@@ -53,7 +53,7 @@ export class GetUploadDetailsResponseBodyUploadDetails extends $dara.Model {
   modificationTime?: string;
   /**
    * @remarks
-   * The status of the video. For more information about the valid values and value description of the parameter, see the "Status: the status of a video" section of the [Basic structures](https://help.aliyun.com/document_detail/52839.html) topic.
+   * The video status. For the valid values and descriptions of video statuses, see the value list in [Status: video status](https://help.aliyun.com/document_detail/52839.html).
    * 
    * @example
    * Uploading
@@ -61,15 +61,15 @@ export class GetUploadDetailsResponseBodyUploadDetails extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The title of the media file.
+   * The title.
    * 
    * @example
-   * Test details
+   * Test file upload details
    */
   title?: string;
   /**
    * @remarks
-   * The IP address of the server that uploads the media file.
+   * The upload IP address.
    * 
    * @example
    * 192.168.0.1
@@ -85,7 +85,7 @@ export class GetUploadDetailsResponseBodyUploadDetails extends $dara.Model {
   uploadRatio?: number;
   /**
    * @remarks
-   * The upload size. Unit: byte.
+   * The upload size. Unit: bytes.
    * 
    * @example
    * 346
@@ -93,7 +93,7 @@ export class GetUploadDetailsResponseBodyUploadDetails extends $dara.Model {
   uploadSize?: number;
   /**
    * @remarks
-   * The method that is used to upload the media file.
+   * The upload source.
    * 
    * @example
    * WebSDK
@@ -101,7 +101,7 @@ export class GetUploadDetailsResponseBodyUploadDetails extends $dara.Model {
   uploadSource?: string;
   /**
    * @remarks
-   * The status of the upload job. For more information about the valid values and value description of the parameter, see the "Status: the status of a URL-based upload job" section of the [Basic structures](https://help.aliyun.com/document_detail/52839.html) topic.
+   * The upload task status. For the valid values and descriptions of upload statuses, see the value list in [Status: URL upload task status](https://help.aliyun.com/document_detail/52839.html).
    * 
    * @example
    * Uploading
@@ -155,17 +155,17 @@ export class GetUploadDetailsResponseBodyUploadDetails extends $dara.Model {
 export class GetUploadDetailsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The IDs of the media files that cannot be accessed.
+   * The IDs of media files that cannot be accessed.
    */
   forbiddenMediaIds?: string[];
   /**
    * @remarks
-   * The IDs of the media files that do not exist.
+   * The IDs of media files that do not exist.
    */
   nonExistMediaIds?: string[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 9E290613-04F4-47F4-795D30732077****

@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class AttachAppPolicyToIdentityRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the application. Default value: **app-1000000**. For more information, see [Multi-application service](https://help.aliyun.com/document_detail/113600.html).
+   * The application ID. Default value: **app-1000000**. For more information, see [Multi-application](https://help.aliyun.com/document_detail/113600.html).
    * 
-   * > This parameter is optional only if you set the policy name to VODAppAdministratorAccess.
+   * > If the policy name is VODAppAdministratorAccess, this parameter is optional. For other policies, this parameter is required.
    * 
    * @example
    * app-****
@@ -15,10 +15,10 @@ export class AttachAppPolicyToIdentityRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The ID of the RAM user or the name of the RAM role.
+   * The identity name.
    * 
-   * *   Specify the ID of the RAM user when the IdentityType parameter is set to RamUser.
-   * *   Specify the name of the RAM role when the IdentityType parameter is set to RamRole.
+   * - If the type is RamUser, specify the Resource Access Management (RAM) user ID.
+   * - If the type is RamRole, specify the role name.
    * 
    * This parameter is required.
    * 
@@ -28,10 +28,9 @@ export class AttachAppPolicyToIdentityRequest extends $dara.Model {
   identityName?: string;
   /**
    * @remarks
-   * The type of the identity. Valid values:
-   * 
-   * *   **RamUser**: a RAM user
-   * *   **RamRole**: a RAM role
+   * The identity type. Valid values:
+   * - **RamUser**: Resource Access Management (RAM) user.
+   * - **RamRole**: RAM role.
    * 
    * This parameter is required.
    * 
@@ -41,11 +40,10 @@ export class AttachAppPolicyToIdentityRequest extends $dara.Model {
   identityType?: string;
   /**
    * @remarks
-   * The name of the policy. Only system policies are supported. Separate multiple policy names with commas (,). Valid values:
-   * 
-   * *   **VODAppFullAccess**: permissions to manage all resources in an application.
-   * *   **VODAppReadOnlyAccess**: permissions to read all resources in an application.
-   * *   **VODAppAdministratorAccess**: permissions of the application administrator.
+   * The policy names. Separate multiple names with commas (,). Only system policies are supported. Valid values:
+   * - **VODAppFullAccess**: permissions to manage and operate all resources in the application.
+   * - **VODAppReadOnlyAccess**: read-only permissions on all resources in the application.
+   * - **VODAppAdministratorAccess**: application administrator permissions.
    * 
    * This parameter is required.
    * 

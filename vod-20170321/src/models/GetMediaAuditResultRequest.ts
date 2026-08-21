@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetMediaAuditResultRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the video or image.
+   * The video ID or image ID to query.
    * 
    * This parameter is required.
    * 

@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteTranscodeTemplateGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The IDs of transcoding templates that were not found.
+   * The IDs of transcoding templates that do not exist when you delete transcoding templates by specifying template IDs.
    */
   nonExistTranscodeTemplateIds?: string[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 25818875-5F78-4A*****F6-D7393642CA58

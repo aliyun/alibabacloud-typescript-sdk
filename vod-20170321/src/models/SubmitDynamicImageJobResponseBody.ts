@@ -40,7 +40,7 @@ export class SubmitDynamicImageJobResponseBody extends $dara.Model {
   dynamicImageJob?: SubmitDynamicImageJobResponseBodyDynamicImageJob;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 25818875-5F78-74A6-BEF6-D7393642****

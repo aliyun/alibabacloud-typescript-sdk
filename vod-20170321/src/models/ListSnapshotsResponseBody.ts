@@ -57,7 +57,7 @@ export class ListSnapshotsResponseBodyMediaSnapshotSnapshots extends $dara.Model
 export class ListSnapshotsResponseBodyMediaSnapshot extends $dara.Model {
   /**
    * @remarks
-   * The time when the snapshot job was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+   * The time when the snapshot job was created. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
    * 
    * @example
    * 2017-12-20T12:23:45Z
@@ -65,7 +65,7 @@ export class ListSnapshotsResponseBodyMediaSnapshot extends $dara.Model {
   creationTime?: string;
   /**
    * @remarks
-   * The ID of the snapshot job.
+   * The snapshot job ID.
    * 
    * @example
    * ad90a501b1b9472374ad005046****
@@ -73,7 +73,7 @@ export class ListSnapshotsResponseBodyMediaSnapshot extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * The rule used to generate snapshot URLs.
+   * The rule for generating snapshot URLs.
    * 
    * @example
    * http://example.aliyundoc.com/snapshot/sample{SnapshotCount}.jpg
@@ -123,12 +123,12 @@ export class ListSnapshotsResponseBodyMediaSnapshot extends $dara.Model {
 export class ListSnapshotsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the snapshot.
+   * The video snapshot data.
    */
   mediaSnapshot?: ListSnapshotsResponseBodyMediaSnapshot;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 25818875-5F78-4AF6-D7393642CA58****

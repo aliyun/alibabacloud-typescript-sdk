@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitMediaDNADeleteJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the job.
+   * The job ID.
    * 
    * @example
    * 6805B2EC-CE87-****-8FF6-9C0E97719A26
@@ -13,7 +13,7 @@ export class SubmitMediaDNADeleteJobResponseBody extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * e5b1a2e7bee******b632c2710b9423f

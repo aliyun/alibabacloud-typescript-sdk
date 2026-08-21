@@ -82,7 +82,7 @@ export class DescribePlayTopVideosResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 4B0BCF9F-2FD5-4817-****-7BEBBE3AF90B"
@@ -91,7 +91,7 @@ export class DescribePlayTopVideosResponseBody extends $dara.Model {
   topPlayVideos?: DescribePlayTopVideosResponseBodyTopPlayVideos;
   /**
    * @remarks
-   * The total number of entries that were collected in playback statistics on top videos.
+   * The total number of top videos.
    * 
    * @example
    * 2

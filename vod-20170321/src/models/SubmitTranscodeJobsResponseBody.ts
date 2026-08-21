@@ -54,7 +54,7 @@ export class SubmitTranscodeJobsResponseBodyTranscodeJobs extends $dara.Model {
 export class SubmitTranscodeJobsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * E4EBD2BF-5EB0-4476-8829-9D94E1B1****
@@ -63,7 +63,7 @@ export class SubmitTranscodeJobsResponseBody extends $dara.Model {
   transcodeJobs?: SubmitTranscodeJobsResponseBodyTranscodeJobs;
   /**
    * @remarks
-   * The ID of the transcoding task that was submitted.
+   * The ID of the submitted transcoding task.
    * 
    * @example
    * 9f4a0df7da2c8a81c8c0408c84****

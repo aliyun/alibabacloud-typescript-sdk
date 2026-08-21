@@ -85,7 +85,7 @@ export class UpdateMediaStorageClassResponseBody extends $dara.Model {
   ignoredList?: UpdateMediaStorageClassResponseBodyIgnoredList;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 30FA0B7C-3A81-5449-93CD-ACA149E6****
@@ -93,10 +93,10 @@ export class UpdateMediaStorageClassResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The state of the task. Valid values:
+   * The task status. Valid values:
    * 
-   * *   **Processing**
-   * *   **Failed**
+   * - **Processing**: Processing.
+   * - **Failed**: Failed.
    * 
    * @example
    * Processing

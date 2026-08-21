@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitAIImageAuditJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the image review job.
+   * The image review task ID.
    * 
    * @example
    * b1aa3024aee64*****6dc8ca20dbc328
@@ -13,7 +13,7 @@ export class SubmitAIImageAuditJobResponseBody extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 6F42D500-1956-4B*****30-C09E755F4F4B

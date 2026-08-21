@@ -13,7 +13,7 @@ export class SetDefaultAITemplateResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the AI template.
+   * The AI template ID.
    * 
    * @example
    * 1706a0063dd733f6a823ef32e0a5****

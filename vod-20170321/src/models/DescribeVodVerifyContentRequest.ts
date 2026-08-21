@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeVodVerifyContentRequest extends $dara.Model {
   /**
    * @remarks
-   * The domain name for which you want to verify the ownership. You can specify only one domain name in each call.
+   * The domain name to be verified. Only a single domain name is supported.
    * 
    * This parameter is required.
    * 

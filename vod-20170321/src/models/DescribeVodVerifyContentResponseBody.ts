@@ -13,7 +13,7 @@ export class DescribeVodVerifyContentResponseBody extends $dara.Model {
   content?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 34AB41F1-04A5-4688-634BDBE6****

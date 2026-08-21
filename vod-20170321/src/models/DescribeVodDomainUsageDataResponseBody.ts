@@ -57,7 +57,7 @@ export class DescribeVodDomainUsageDataResponseBodyUsageDataPerInterval extends 
 export class DescribeVodDomainUsageDataResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The billable region where the data was collected.
+   * The usage region.
    * 
    * @example
    * CN
@@ -65,7 +65,7 @@ export class DescribeVodDomainUsageDataResponseBody extends $dara.Model {
   area?: string;
   /**
    * @remarks
-   * The time interval between the entries returned. Unit: seconds.
+   * The time interval between records. Unit: seconds.
    * 
    * @example
    * 300
@@ -73,7 +73,7 @@ export class DescribeVodDomainUsageDataResponseBody extends $dara.Model {
   dataInterval?: string;
   /**
    * @remarks
-   * The accelerated domain name.
+   * The accelerated domain name information.
    * 
    * @example
    * example.com
@@ -81,7 +81,7 @@ export class DescribeVodDomainUsageDataResponseBody extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
-   * The end of the time range during which data was queried. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+   * The end time. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
    * 
    * @example
    * 2015-12-10T12:20:00Z
@@ -89,7 +89,7 @@ export class DescribeVodDomainUsageDataResponseBody extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * B955107D-E658-4E77-****-E0AC3D31693E
@@ -97,7 +97,7 @@ export class DescribeVodDomainUsageDataResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The start of the time range during which data was queried. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+   * The start time. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
    * 
    * @example
    * 2015-12-10T10:20:00Z
@@ -105,13 +105,12 @@ export class DescribeVodDomainUsageDataResponseBody extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The type of the data. Valid values:
-   * 
-   * *   **bps**: bandwidth
-   * *   **traf**: traffic
+   * The data type. Valid values:
+   * - **bps**: bandwidth.
+   *  - **traf**: traffic.
    * 
    * @example
-   * static
+   * bps
    */
   type?: string;
   usageDataPerInterval?: DescribeVodDomainUsageDataResponseBodyUsageDataPerInterval;

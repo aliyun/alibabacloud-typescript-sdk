@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetMediaAuditResultDetailRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the video.
+   * The video ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class GetMediaAuditResultDetailRequest extends $dara.Model {
   mediaId?: string;
   /**
    * @remarks
-   * The page number. The default value is **1**. A maximum of **20** records can be returned on each page.
+   * The page number of the video content review results. Default value: **1**. A maximum of **20** records are returned per page.
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetCategoriesResponseBodyCategory extends $dara.Model {
   /**
    * @remarks
-   * The ID of the category.
+   * The category ID.
    * 
    * @example
    * 100
@@ -13,19 +13,19 @@ export class GetCategoriesResponseBodyCategory extends $dara.Model {
   cateId?: number;
   /**
    * @remarks
-   * The name of the category.
+   * The category name.
    * 
    * @example
-   * film
+   * Movie
    */
   cateName?: string;
   /**
    * @remarks
-   * The level of the category. Valid values:
+   * The category level. Valid values:
    * 
-   * *   **0**: level 1 category
-   * *   **1**: level 2 category
-   * *   **2**: level 3 category
+   * - **0**: level-1 category.
+   * - **1**: level-2 category.
+   * - **2**: level-3 category.
    * 
    * @example
    * 0
@@ -41,10 +41,9 @@ export class GetCategoriesResponseBodyCategory extends $dara.Model {
   parentId?: number;
   /**
    * @remarks
-   * The type of the category. Valid values:
-   * 
-   * *   **default**: audio, video, and image files
-   * *   **material**: short video materials
+   * The category type. Valid values:
+   * - **default**: audio, video, and image category.
+   * - **material**: short video material category.
    * 
    * @example
    * default
@@ -146,12 +145,12 @@ export class GetCategoriesResponseBodySubCategories extends $dara.Model {
 export class GetCategoriesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the category.
+   * The details of the category.
    */
   category?: GetCategoriesResponseBodyCategory;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 25818875-5F78-4AF6-D7393642CA58****
@@ -163,7 +162,7 @@ export class GetCategoriesResponseBody extends $dara.Model {
    * The total number of subcategories.
    * 
    * @example
-   * 3795
+   * 2
    */
   subTotal?: number;
   static names(): { [key: string]: string } {

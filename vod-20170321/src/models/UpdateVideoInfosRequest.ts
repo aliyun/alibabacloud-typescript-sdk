@@ -5,14 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateVideoInfosRequest extends $dara.Model {
   /**
    * @remarks
-   * The new information about audios or videos. You can modify the information about up to 20 audios or videos at a time. Separate multiple audios or videos with commas (,). When you modify the information exceed 20 audios or videos at a time, the update will fail with an error code **CountExceededMax**.
-   * 
-   * The value is a JSON string. For more information, see the **UpdateContent** section of this topic.
+   * The update content. You can modify the information about up to 20 audio and video files at a time. Separate multiple audio and video object information entries with commas (,). If you specify more than 20 objects, the update is failed and the `CountExceededMax` error is returned.
+   * The value is a JSON character string. For more details about the parameters, see the **UpdateContent** table below.
    * 
    * This parameter is required.
    * 
    * @example
-   * [{"VideoId":"f45cf4eba5cb90233389558c39****","Title":"test title1"},{"VideoId":"f45cf4eba5c84233389558c36****","Title":"test title2"}]
+   * [{"VideoId":"f45cf4eba5cb90233389558c39****","Title":"Alibaba Cloud VOD Video Title1"},{"VideoId":"f45cf4eba5c84233389558c36****","Title":"Alibaba Cloud VOD Video Title2"}]
    */
   updateContent?: string;
   static names(): { [key: string]: string } {

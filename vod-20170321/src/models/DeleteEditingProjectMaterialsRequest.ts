@@ -5,7 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteEditingProjectMaterialsRequest extends $dara.Model {
   /**
    * @remarks
-   * The material ID. Separate multiple material IDs with commas (,).
+   * The material IDs. These are media asset IDs, such as VideoId for videos, ImageId for images, and MediaId for auxiliary media assets. Separate multiple material IDs with commas (,).
+   * 
+   * To obtain material IDs, see [Search for media information](https://help.aliyun.com/document_detail/86044.html).
    * 
    * This parameter is required.
    * 
@@ -15,11 +17,11 @@ export class DeleteEditingProjectMaterialsRequest extends $dara.Model {
   materialIds?: string;
   /**
    * @remarks
-   * The type of the material. Valid values:
+   * The material type. Valid values:
    * 
-   * *   **video**
-   * *   **audio**
-   * *   **image**
+   * - **video**: video.
+   * - **audio**: audio-only.
+   * - **image**: image.
    * 
    * This parameter is required.
    * 

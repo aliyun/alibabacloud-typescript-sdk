@@ -144,7 +144,7 @@ export class GetVideoListResponseBodyVideoList extends $dara.Model {
 export class GetVideoListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 25818875-5F78-4AF6-D7393642CA58****
@@ -152,7 +152,7 @@ export class GetVideoListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of media files returned.
+   * The total number of audio and video files.
    * 
    * @example
    * 100

@@ -90,7 +90,7 @@ export class DescribeVodDomainQpsDataResponseBodyQpsDataInterval extends $dara.M
 export class DescribeVodDomainQpsDataResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The time interval between the data entries returned. Unit: seconds.
+   * The time interval between entries. Unit: seconds.
    * 
    * @example
    * 300
@@ -106,7 +106,7 @@ export class DescribeVodDomainQpsDataResponseBody extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
-   * The end of the time range during which data was queried. The time follows the ISO 8601 standard in the *YYYY-MM-DD**Thh:mm:ss* format. The time is displayed in UTC.
+   * The end time. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
    * 
    * @example
    * 2024-05-02T15:59:00Z
@@ -115,7 +115,7 @@ export class DescribeVodDomainQpsDataResponseBody extends $dara.Model {
   qpsDataInterval?: DescribeVodDomainQpsDataResponseBodyQpsDataInterval;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 25818875-5F78-4AF6-D7393642CA58*****
@@ -123,7 +123,7 @@ export class DescribeVodDomainQpsDataResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The beginning of the time range during which data was queried. The time follows the ISO 8601 standard in the *YYYY-MM-DD**Thh:mm:ss* format. The time is displayed in UTC.
+   * The start time. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
    * 
    * @example
    * 2024-05-02T15:50:00Z

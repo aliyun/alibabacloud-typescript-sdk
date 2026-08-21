@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeVodRefreshQuotaResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of Object Storage Service (OSS) buckets that can be refreshed each day.
+   * The maximum number of storage purge operations per day.
    * 
    * @example
    * 500
@@ -13,7 +13,7 @@ export class DescribeVodRefreshQuotaResponseBody extends $dara.Model {
   blockQuota?: string;
   /**
    * @remarks
-   * The maximum number of directories of files that can be refreshed each day.
+   * The maximum number of directory purge operations per day.
    * 
    * @example
    * 100
@@ -21,7 +21,7 @@ export class DescribeVodRefreshQuotaResponseBody extends $dara.Model {
   dirQuota?: string;
   /**
    * @remarks
-   * The remaining number of directories of files that can be refreshed on the current day.
+   * The remaining number of directory purge operations for the current day.
    * 
    * @example
    * 99
@@ -29,7 +29,7 @@ export class DescribeVodRefreshQuotaResponseBody extends $dara.Model {
   dirRemain?: string;
   /**
    * @remarks
-   * The maximum number of URLs of files that can be prefetched each day.
+   * The maximum number of prefetch operations per day.
    * 
    * @example
    * 500
@@ -37,7 +37,7 @@ export class DescribeVodRefreshQuotaResponseBody extends $dara.Model {
   preloadQuota?: string;
   /**
    * @remarks
-   * The remaining number of URLs of files that can be prefetched on the current day.
+   * The remaining number of prefetch operations for the current day.
    * 
    * @example
    * 500
@@ -45,7 +45,7 @@ export class DescribeVodRefreshQuotaResponseBody extends $dara.Model {
   preloadRemain?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 42E0554B-80F4-4921-****-ACFB22CAAAD0
@@ -53,7 +53,7 @@ export class DescribeVodRefreshQuotaResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The maximum number of URLs of files that can be refreshed each day.
+   * The maximum number of URL purge operations per day.
    * 
    * @example
    * 2000
@@ -61,7 +61,7 @@ export class DescribeVodRefreshQuotaResponseBody extends $dara.Model {
   urlQuota?: string;
   /**
    * @remarks
-   * The remaining number of URLs of files that can be refreshed on the current day.
+   * The remaining number of URL purge operations for the current day.
    * 
    * @example
    * 1996
@@ -69,7 +69,7 @@ export class DescribeVodRefreshQuotaResponseBody extends $dara.Model {
   urlRemain?: string;
   /**
    * @remarks
-   * The remaining number of OSS buckets that can be refreshed on the current day.
+   * The remaining number of storage purge operations for the current day.
    * 
    * @example
    * 500

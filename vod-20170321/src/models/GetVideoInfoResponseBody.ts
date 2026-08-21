@@ -31,7 +31,7 @@ export class GetVideoInfoResponseBodyVideoSnapshots extends $dara.Model {
 export class GetVideoInfoResponseBodyVideo extends $dara.Model {
   /**
    * @remarks
-   * The ID of the application.
+   * The application ID.
    * 
    * @example
    * app-****
@@ -41,8 +41,8 @@ export class GetVideoInfoResponseBodyVideo extends $dara.Model {
    * @remarks
    * The final review result of the audio or video file. Valid values:
    * 
-   * *   **Normal**: pass
-   * *   **Blocked**: blocked
+   * - **Normal**: Approved.
+   * - **Blocked**: Blocked.
    * 
    * @example
    * Normal
@@ -50,7 +50,7 @@ export class GetVideoInfoResponseBodyVideo extends $dara.Model {
   auditStatus?: string;
   /**
    * @remarks
-   * The category ID of the media file.
+   * The category ID.
    * 
    * @example
    * 781111****
@@ -58,15 +58,15 @@ export class GetVideoInfoResponseBodyVideo extends $dara.Model {
   cateId?: number;
   /**
    * @remarks
-   * The name of the category.
+   * The category name.
    * 
    * @example
-   * Category name
+   * cate1
    */
   cateName?: string;
   /**
    * @remarks
-   * The thumbnail URL of the media file.
+   * The thumbnail URL of the audio or video file.
    * 
    * @example
    * https://example.aliyundoc.com/****.jpg
@@ -74,7 +74,7 @@ export class GetVideoInfoResponseBodyVideo extends $dara.Model {
   coverURL?: string;
   /**
    * @remarks
-   * The time when the media file was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+   * The time when the audio or video file was created. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
    * 
    * @example
    * 2017-11-14T09:15:50Z
@@ -82,7 +82,9 @@ export class GetVideoInfoResponseBodyVideo extends $dara.Model {
   creationTime?: string;
   /**
    * @remarks
-   * The custom information about the media file.\\n\\n> This parameter has been deprecated. This parameter is no longer returned after you call the operation.
+   * The custom media asset information.
+   * 
+   * > This parameter is deprecated. The API no longer returns this parameter.
    * 
    * @example
    * {"aaa":"test"}
@@ -90,18 +92,18 @@ export class GetVideoInfoResponseBodyVideo extends $dara.Model {
   customMediaInfo?: string;
   /**
    * @remarks
-   * The description of the media file.
+   * The description of the audio or video file.
    * 
    * @example
-   * Video description in ApsaraVideo VOD
+   * Alibaba Cloud VOD video description
    */
   description?: string;
   /**
    * @remarks
-   * Indicates whether the offline download feature is enabled. If you enable the offline download feature, users can download and play videos by using the ApsaraVideo Player on a local PC. For more information, see [Configure download settings](https://help.aliyun.com/document_detail/86107.html). Valid values:
+   * The status of the offline download switch. After the offline download feature is enabled, mobile users can cache videos to their local devices for offline viewing by using ApsaraVideo Player. For more information, see [Offline download](https://help.aliyun.com/document_detail/86107.html). Valid values:
    * 
-   * *   **on**: the offline download feature is enabled.
-   * *   **off**: the offline download feature is not enabled.
+   * - **on**: enabled. Offline download is allowed.
+   * - **off**: disabled. Offline download is not allowed.
    * 
    * @example
    * on
@@ -109,7 +111,7 @@ export class GetVideoInfoResponseBodyVideo extends $dara.Model {
   downloadSwitch?: string;
   /**
    * @remarks
-   * The duration of the media file. Unit: seconds.
+   * The duration of the audio or video file. Unit: seconds.
    * 
    * @example
    * 135.6
@@ -117,20 +119,23 @@ export class GetVideoInfoResponseBodyVideo extends $dara.Model {
   duration?: number;
   /**
    * @remarks
-   * The time when the audio or video file was last updated. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+   * The time when the audio or video file was last updated. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
    * 
    * @example
    * 2017-11-14T10:15:50Z
    */
   modificationTime?: string;
   /**
+   * @remarks
+   * The custom ID. Only lowercase letters, uppercase letters, digits, hyphens, and underscores are supported. The length is 6 to 64 characters. The ID is unique at the user level.
+   * 
    * @example
    * 123-123
    */
   referenceId?: string;
   /**
    * @remarks
-   * The region where the media file is stored.
+   * The region where the audio or video file is stored.
    * 
    * @example
    * cn-shanghai
@@ -138,7 +143,7 @@ export class GetVideoInfoResponseBodyVideo extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The period of time in which the object remains in the restored state.
+   * The expiration time of the media asset restoration.
    * 
    * @example
    * 2023-03-30T10:14:14Z
@@ -146,11 +151,10 @@ export class GetVideoInfoResponseBodyVideo extends $dara.Model {
   restoreExpiration?: string;
   /**
    * @remarks
-   * The restoration status of the audio or video file. Valid values:
-   * 
-   * *   **Processing**
-   * *   **Success**
-   * *   **Failed**
+   * The restoration status of the media asset. Valid values:
+   * - **Processing**: The media asset is being restored.
+   * - **Success**: The media asset is restored.
+   * - **Failed**: The media asset failed to be restored.
    * 
    * @example
    * Success
@@ -158,7 +162,7 @@ export class GetVideoInfoResponseBodyVideo extends $dara.Model {
   restoreStatus?: string;
   /**
    * @remarks
-   * The size of the source file. Unit: bytes.
+   * The size of the audio or video source file. Unit: bytes.
    * 
    * @example
    * 10897890
@@ -167,15 +171,15 @@ export class GetVideoInfoResponseBodyVideo extends $dara.Model {
   snapshots?: GetVideoInfoResponseBodyVideoSnapshots;
   /**
    * @remarks
-   * The status of the media file. For more information about the operations that you can perform on files in different statuses and usage limits, see [Status: the status of a video](~~52839#title-vqg-8cz-7p8~~). Valid values:
+   * The status of the audio or video file. For more information about the operations that can be performed on audio and video files in each status and the limits, see [Status: audio and video status](~~52839#title-vqg-8cz-7p8~~). Valid values:
    * 
-   * *   **Uploading**
-   * *   **UploadFail**
-   * *   **UploadSucc**
-   * *   **Transcoding**
-   * *   **TranscodeFail**
-   * *   **Blocked**
-   * *   **Normal**
+   * - **Uploading**: The file is being uploaded.
+   * - **UploadFail**: The file failed to be uploaded.
+   * - **UploadSucc**: The file is uploaded.
+   * - **Transcoding**: The file is being transcoded.
+   * - **TranscodeFail**: The file failed to be transcoded.
+   * - **Blocked**: The file is blocked.
+   * - **Normal**: The file is in a normal state.
    * 
    * @example
    * Normal
@@ -183,17 +187,17 @@ export class GetVideoInfoResponseBodyVideo extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The storage class of the audio or video file. Valid values:
+   * The storage class of the media asset. Valid values:
    * 
-   * *   **Standard**: All media resources are stored as Standard objects.
-   * *   **IA**: All media resources are stored as IA objects.
-   * *   **Archive**: All media resources are stored as Archive objects.
-   * *   **ColdArchive**: All media resources are stored as Cold Archive objects.
-   * *   **SourceIA**: Only the source files are IA objects.
-   * *   **SourceArchive**: Only the source files are Archive objects.
-   * *   **SourceColdArchive**: Only the source files are Cold Archive objects.
-   * *   **Changing**: The storage class of the audio or video file is being changed.
-   * *   **SourceChanging**: The storage class of the source file is being changed.
+   * - **Standard**: standard.
+   * - **IA**: Infrequent Access (media asset).
+   * - **Archive**: Archive (media asset).
+   * - **ColdArchive**: Cold Archive (media asset).
+   * - **SourceIA**: Infrequent Access (source file).
+   * - **SourceArchive**: Archive (source file).
+   * - **SourceColdArchive**: Cold Archive (source file).
+   * - **Changing**: The storage class of the media asset is being changed.
+   * - **SourceChanging**: The storage class of the source file is being changed.
    * 
    * @example
    * Standard
@@ -201,7 +205,7 @@ export class GetVideoInfoResponseBodyVideo extends $dara.Model {
   storageClass?: string;
   /**
    * @remarks
-   * The storage address of the media file.
+   * The storage address of the audio or video file.
    * 
    * @example
    * out-201703232251****.oss-cn-shanghai.aliyuncs.com
@@ -212,12 +216,12 @@ export class GetVideoInfoResponseBodyVideo extends $dara.Model {
    * The tags of the audio or video file. Multiple tags are separated by commas (,).
    * 
    * @example
-   * Tag 1,Tag 2
+   * tag1, tag2
    */
   tags?: string;
   /**
    * @remarks
-   * The ID of the transcoding template group.
+   * The transcoding template group ID.
    * 
    * @example
    * 9ae2af636ca64835b0c10412f448****
@@ -225,15 +229,15 @@ export class GetVideoInfoResponseBodyVideo extends $dara.Model {
   templateGroupId?: string;
   /**
    * @remarks
-   * The title of the media file.
+   * The title of the audio or video file.
    * 
    * @example
-   * Video title in ApsaraVideo VOD
+   * Alibaba Cloud VOD Video Title
    */
   title?: string;
   /**
    * @remarks
-   * Custom settings. This is a JSON string that supports settings such as message callbacks and upload acceleration. For more information, please refer to [UserData](https://help.aliyun.com/document_detail/86952.html).
+   * The custom settings. The value is a JSON string that supports settings such as message callbacks and upload acceleration. For more information, see [UserData](https://help.aliyun.com/document_detail/86952.html).
    * 
    * @example
    * {"MessageCallback":{"CallbackURL":"http://example.aliyundoc.com"},"Extend":{"localId":"*****","test":"www"}}
@@ -241,7 +245,7 @@ export class GetVideoInfoResponseBodyVideo extends $dara.Model {
   userData?: string;
   /**
    * @remarks
-   * The ID of the media file.
+   * The audio or video ID.
    * 
    * @example
    * 9b73864d75f1d231e9001cd5f8****
@@ -322,7 +326,7 @@ export class GetVideoInfoResponseBodyVideo extends $dara.Model {
 export class GetVideoInfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 25818875-5F78-4AF6-D7393642CA58****
@@ -330,7 +334,7 @@ export class GetVideoInfoResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The information about the audio or video file.
+   * The audio or video information.
    */
   video?: GetVideoInfoResponseBodyVideo;
   static names(): { [key: string]: string } {

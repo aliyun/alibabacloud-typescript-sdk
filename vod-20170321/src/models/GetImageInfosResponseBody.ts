@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetImageInfosResponseBodyImageInfoMezzanine extends $dara.Model {
   /**
    * @remarks
-   * The size of the file to be uploaded. Unit: bytes.
+   * The file size. Unit: byte.
    * 
    * @example
    * 8932
@@ -21,7 +21,7 @@ export class GetImageInfosResponseBodyImageInfoMezzanine extends $dara.Model {
   fileURL?: string;
   /**
    * @remarks
-   * The height of the image. Unit: pixels.
+   * The image height. Unit: pixel.
    * 
    * @example
    * 200
@@ -29,7 +29,7 @@ export class GetImageInfosResponseBodyImageInfoMezzanine extends $dara.Model {
   height?: number;
   /**
    * @remarks
-   * The URL of the source file.
+   * The address of the uploaded source image file.
    * 
    * @example
    * ****.gif
@@ -37,7 +37,7 @@ export class GetImageInfosResponseBodyImageInfoMezzanine extends $dara.Model {
   originalFileName?: string;
   /**
    * @remarks
-   * The width of the image. Unit: pixels.
+   * The image width. Unit: pixel.
    * 
    * @example
    * 200
@@ -75,7 +75,7 @@ export class GetImageInfosResponseBodyImageInfoMezzanine extends $dara.Model {
 export class GetImageInfosResponseBodyImageInfo extends $dara.Model {
   /**
    * @remarks
-   * The ID of the application.
+   * The application ID.
    * 
    * @example
    * app-****
@@ -83,7 +83,7 @@ export class GetImageInfosResponseBodyImageInfo extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The ID of the category.
+   * The category ID.
    * 
    * @example
    * 254766071
@@ -91,7 +91,7 @@ export class GetImageInfosResponseBodyImageInfo extends $dara.Model {
   cateId?: number;
   /**
    * @remarks
-   * The name of the category.
+   * The category name.
    * 
    * @example
    * Test
@@ -99,7 +99,7 @@ export class GetImageInfosResponseBodyImageInfo extends $dara.Model {
   cateName?: string;
   /**
    * @remarks
-   * The time when the image was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+   * The time when the image was created. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
    * 
    * @example
    * 2018-11-21T02:37:23Z
@@ -107,7 +107,7 @@ export class GetImageInfosResponseBodyImageInfo extends $dara.Model {
   creationTime?: string;
   /**
    * @remarks
-   * The description of the image.
+   * The image description.
    * 
    * @example
    * Test description
@@ -115,7 +115,7 @@ export class GetImageInfosResponseBodyImageInfo extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The ID of the image.
+   * The image ID.
    * 
    * @example
    * bbc65bba53f9*****ed90de118a7849
@@ -123,27 +123,26 @@ export class GetImageInfosResponseBodyImageInfo extends $dara.Model {
   imageId?: string;
   /**
    * @remarks
-   * The type of the image. Valid values:
-   * 
-   * *   **default**: regular images
-   * *   **cover**: video thumbnail
+   * The image type. Valid values:
+   * - **default**: regular image.
+   * - **cover**: video thumbnail.
    * 
    * @example
-   * NormalSnapshot
+   * default
    */
   imageType?: string;
   /**
    * @remarks
-   * The source information about the image.
+   * The mezzanine information of the image.
    */
   mezzanine?: GetImageInfosResponseBodyImageInfoMezzanine;
   /**
    * @remarks
-   * The status of the image file. Valid values:
+   * The image status. Valid values:
    * 
-   * *   **Uploading**: The image is being uploaded. This is the initial status.
-   * *   **Normal**: The image is uploaded.
-   * *   **UploadFail**: The image fails to be uploaded.
+   * - **Uploading**: The image is being uploaded. This is the initial status.
+   * - **Normal**: The image is uploaded.
+   * - **UploadFail**: The image failed to be uploaded.
    * 
    * @example
    * Uploading
@@ -151,7 +150,7 @@ export class GetImageInfosResponseBodyImageInfo extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The bucket in which the image is stored.
+   * The storage address of the image file.
    * 
    * @example
    * outin-****..oss-cn-shanghai.aliyuncs.com
@@ -159,7 +158,7 @@ export class GetImageInfosResponseBodyImageInfo extends $dara.Model {
   storageLocation?: string;
   /**
    * @remarks
-   * The tags of the image. Multiple tags are separated by commas (,).
+   * The image tags. Multiple tags are separated by commas (,).
    * 
    * @example
    * tag1,tag2,tag3
@@ -167,7 +166,7 @@ export class GetImageInfosResponseBodyImageInfo extends $dara.Model {
   tags?: string;
   /**
    * @remarks
-   * The title of the image.
+   * The image title.
    * 
    * @example
    * this is a sample
@@ -175,7 +174,7 @@ export class GetImageInfosResponseBodyImageInfo extends $dara.Model {
   title?: string;
   /**
    * @remarks
-   * The image URL. If a domain name for CDN is specified, a CDN URL is returned. Otherwise, an OSS URL is returned.
+   * The image access URL. If a CDN domain name is configured, the CDN URL is returned. Otherwise, the OSS URL is returned.
    * 
    * @example
    * http://example.aliyundoc.com/image/default/****.gif?auth_key=****
@@ -232,17 +231,17 @@ export class GetImageInfosResponseBodyImageInfo extends $dara.Model {
 export class GetImageInfosResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The image information.
+   * The image information list.
    */
   imageInfo?: GetImageInfosResponseBodyImageInfo[];
   /**
    * @remarks
-   * The IDs of the images that do not exist.
+   * The list of image IDs that do not exist.
    */
   nonExistImageIds?: string[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 25818875-5F78-4AF6-D7393642CA58*****

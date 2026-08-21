@@ -5,9 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePlayVideoStatisRequest extends $dara.Model {
   /**
    * @remarks
-   * The end of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
-   * 
-   * >  The end time must be later than the start time. The interval between the start time and the end time cannot exceed 180 days.
+   * The end time of the query. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
+   * > The end time must be later than the start time, and the maximum time span between the start time and end time is 180 days.
    * 
    * This parameter is required.
    * 
@@ -18,7 +17,7 @@ export class DescribePlayVideoStatisRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+   * The start time of the query. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
    * 
    * This parameter is required.
    * 
@@ -28,11 +27,10 @@ export class DescribePlayVideoStatisRequest extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The ID of the video. You can specify only one ID. You can use one of the following methods to obtain the ID:
-   * 
-   * *   Log on to the [ApsaraVideo VOD console](https://vod.console.aliyun.com). In the left-side navigation pane, choose **Media Files** > **Audio/Video**. On the page that appears, view the video ID.
-   * *   Obtain the video ID from the response to the [CreateUploadVideo](~~CreateUploadVideo~~) operation that you call to obtain the upload URL and credential.
-   * *   Obtain the video ID from the response to the [SearchMedia](~~SearchMedia~~) operation that you call to query the audio or video file.
+   * The ID of the video to query. Only one video ID can be specified. You can obtain the video ID by using the following methods:
+   * - Log on to the [ApsaraVideo VOD console](https://vod.console.aliyun.com) and choose **Media Files** > **Audio/Video**.
+   * - Obtain the video ID from the response when you call the [CreateUploadVideo](~~CreateUploadVideo~~) operation to obtain the upload URL and credential.
+   * - Obtain the video ID from the response when you call the [SearchMedia](~~SearchMedia~~) operation to query the video after it is uploaded.
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAppPoliciesForIdentityResponseBodyAppPolicyList extends $dara.Model {
   /**
    * @remarks
-   * The ID of the application.
+   * The application ID.
    * 
    * @example
    * app-****
@@ -13,7 +13,7 @@ export class ListAppPoliciesForIdentityResponseBodyAppPolicyList extends $dara.M
   appId?: string;
   /**
    * @remarks
-   * The time when the application policy was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+   * The time when the application policy was granted to the role. Format: <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
    * 
    * @example
    * 2019-01-01T01:01:01Z
@@ -21,7 +21,7 @@ export class ListAppPoliciesForIdentityResponseBodyAppPolicyList extends $dara.M
   creationTime?: string;
   /**
    * @remarks
-   * The description of the policy.
+   * The policy description.
    * 
    * @example
    * App full access permission
@@ -29,7 +29,7 @@ export class ListAppPoliciesForIdentityResponseBodyAppPolicyList extends $dara.M
   description?: string;
   /**
    * @remarks
-   * The last time when the application policy was modified. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+   * The time when the application policy granted to the role was last modified. Format: <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
    * 
    * @example
    * 2019-01-01T01:08:01Z
@@ -37,7 +37,7 @@ export class ListAppPoliciesForIdentityResponseBodyAppPolicyList extends $dara.M
   modificationTime?: string;
   /**
    * @remarks
-   * The name of the policy.
+   * The policy name.
    * 
    * @example
    * VODAppFullAccess
@@ -45,10 +45,9 @@ export class ListAppPoliciesForIdentityResponseBodyAppPolicyList extends $dara.M
   policyName?: string;
   /**
    * @remarks
-   * The type of the policy. Valid values:
-   * 
-   * *   **System**
-   * *   **Custom**
+   * The policy type. Valid values:
+   * - **System**: system policy.
+   * - **Custom**: user-defined policy.
    * 
    * @example
    * System
@@ -56,7 +55,7 @@ export class ListAppPoliciesForIdentityResponseBodyAppPolicyList extends $dara.M
   policyType?: string;
   /**
    * @remarks
-   * The content of the policy.
+   * The policy value.
    * 
    * @example
    * ****
@@ -98,14 +97,14 @@ export class ListAppPoliciesForIdentityResponseBodyAppPolicyList extends $dara.M
 export class ListAppPoliciesForIdentityResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of each policy.
+   * The list of access policy names.
    * 
-   * > A maximum of 100 entries can be returned.
+   * > A maximum of 100 entries are returned.
    */
   appPolicyList?: ListAppPoliciesForIdentityResponseBodyAppPolicyList[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * C9F3E715-B3B8-4D*****27-3A70346F0E04

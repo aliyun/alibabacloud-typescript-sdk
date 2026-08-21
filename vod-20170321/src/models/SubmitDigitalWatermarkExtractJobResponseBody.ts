@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitDigitalWatermarkExtractJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the watermark extraction job.
+   * The ID of the watermark extraction job. This ID can be used as a request parameter of the [GetDigitalWatermarkExtractResult](https://help.aliyun.com/document_detail/2587769.html) operation.
    * 
    * @example
    * ad90a501b1b9472374ad005046****
@@ -13,7 +13,7 @@ export class SubmitDigitalWatermarkExtractJobResponseBody extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 04F0F334-1335-436C-****-6C044FE73368

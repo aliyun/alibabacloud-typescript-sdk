@@ -32,7 +32,7 @@ export class UpdateImageInfosResponseBody extends $dara.Model {
   nonExistImageIds?: UpdateImageInfosResponseBodyNonExistImageIds;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 25818875-5F78-4AF6-D7393642CA58****

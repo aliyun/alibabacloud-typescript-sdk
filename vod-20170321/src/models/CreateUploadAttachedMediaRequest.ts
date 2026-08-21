@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateUploadAttachedMediaRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the application. Default value: **app-1000000**. If you have activated the multi-application service, specify the ID of the application to add the watermark template in the specified application. For more information, see [Overview](https://help.aliyun.com/document_detail/113600.html).
+   * The application ID. Default value: **app-1000000**. If you have activated the multi-application service, specify the application ID to upload the auxiliary media asset to the specified application. For more information, see [Multi-application](https://help.aliyun.com/document_detail/113600.html).
    * 
    * @example
    * app-****
@@ -15,9 +15,9 @@ export class CreateUploadAttachedMediaRequest extends $dara.Model {
    * @remarks
    * The type of the auxiliary media asset. Valid values:
    * 
-   * *   **watermark**
-   * *   **subtitle**
-   * *   **material**
+   * - **watermark**: watermark.
+   * - **subtitle**: subtitle.
+   * - **material**: material.
    * 
    * This parameter is required.
    * 
@@ -27,11 +27,10 @@ export class CreateUploadAttachedMediaRequest extends $dara.Model {
   businessType?: string;
   /**
    * @remarks
-   * The ID of the category. Separate multiple IDs with commas (,). You can specify up to five IDs. You can use one of the following methods to obtain the ID:
-   * 
-   * *   Log on to the [ApsaraVideo VOD console](https://vod.console.aliyun.com). In the left-side navigation pane, choose **Configuration Management** > **Media Management** > **Categories** to view the category ID of the media file.
-   * *   Obtain the category ID from the response to the [AddCategory](~~AddCategory~~) operation that you call to create a category.
-   * *   Obtain the category ID from the response to the [GetCategories](~~GetCategories~~) operation that you call to query categories.
+   * The category IDs. Separate multiple IDs with commas (,). A maximum of 5 IDs are supported. You can obtain category IDs by using the following methods:
+   * - Log on to the [ApsaraVideo VOD console](https://vod.console.aliyun.com) and choose **Configuration Management** > **Media Management Configuration** > **Category Management** to view category IDs.
+   * - The category ID is returned when you call the [AddCategory](~~AddCategory~~) operation to create a category.
+   * - The category ID is returned when you call the [GetCategories](~~GetCategories~~) operation to query categories.
    * 
    * @example
    * 1298****,0813****
@@ -39,10 +38,10 @@ export class CreateUploadAttachedMediaRequest extends $dara.Model {
   cateIds?: string;
   /**
    * @remarks
-   * The description of the auxiliary media asset. Take note of the following items:
+   * The description of the media asset. Rules:
    * 
-   * *   The description can be up to 1,024 bytes in length.
-   * *   The value must be encoded in UTF-8.
+   * - The description can be up to 1024 bytes in length.
+   * - The description must be encoded in UTF-8.
    * 
    * @example
    * uploadTest
@@ -50,9 +49,8 @@ export class CreateUploadAttachedMediaRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The source file URL of the auxiliary media asset.
-   * 
-   * >  The file name extension is optional. If the file name extension that you specified for this parameter is different from the value of MediaExt, the value of MediaExt takes effect.
+   * The source file address of the auxiliary media asset to be uploaded.
+   * >The file name extension is optional. If a file name extension is specified here and is different from the extension specified in MediaExt, the value of MediaExt takes precedence.
    * 
    * @example
    * D:\\test.png
@@ -60,7 +58,7 @@ export class CreateUploadAttachedMediaRequest extends $dara.Model {
   fileName?: string;
   /**
    * @remarks
-   * The size of the auxiliary media asset. Unit: byte.
+   * The file size. Unit: bytes.
    * 
    * @example
    * 123
@@ -68,11 +66,11 @@ export class CreateUploadAttachedMediaRequest extends $dara.Model {
   fileSize?: string;
   /**
    * @remarks
-   * The file name extension of the auxiliary media asset.
+   * The file name extension of the auxiliary media asset source file to be uploaded. Valid values:
    * 
-   * *   Valid values for watermarks: **png, gif, apng, and mov**
-   * *   Valid values for subtitles: **srt, ass, stl, ttml, and vtt**
-   * *   Valid values for materials: **jpg, gif, png, mp4, mat, zip, and apk**
+   * - Watermark: **png, gif, apng, mov**.
+   * - Subtitle: **srt, ass, stl, ttml, vtt**.
+   * - Material: **jpg, gif, png, mp4, mat, zip, apk**.
    * 
    * @example
    * png
@@ -80,11 +78,11 @@ export class CreateUploadAttachedMediaRequest extends $dara.Model {
   mediaExt?: string;
   /**
    * @remarks
-   * The storage address. Perform the following operations to obtain the storage address:
+   * The storage address. You can obtain the storage address by using the following method:
    * 
-   * Log on to the [ApsaraVideo VOD console](https://vod.console.aliyun.com). In the left-side navigation pane, choose **Configuration Management** > **Media Management** > **Storage**. On the Storage page, view the storage address.
+   * Log on to the [ApsaraVideo VOD console](https://vod.console.aliyun.com) and choose **Configuration Management** > **Media Management Configuration** > **Storage Management** to view the storage address.
    * 
-   * >  If you leave this parameter empty, the auxiliary media asset is uploaded to the default storage address. If you specify this parameter, the auxiliary media asset is uploaded to the specified storage address.
+   * > If you do not specify this parameter, the auxiliary media asset is uploaded to the default storage address. If you specify this parameter, the auxiliary media asset is uploaded to the specified storage address.
    * 
    * @example
    * out-****.oss-cn-shanghai.aliyuncs.com
@@ -92,12 +90,12 @@ export class CreateUploadAttachedMediaRequest extends $dara.Model {
   storageLocation?: string;
   /**
    * @remarks
-   * The one or more tags of the auxiliary media asset. Take note of the following items:
+   * The tags. Rules:
    * 
-   * *   You can specify a maximum of 16 tags.
-   * *   If you need to specify multiple tags, separate the tags with commas (,).
-   * *   Each tag can be up to 32 characters in length.
-   * *   The value must be encoded in UTF-8.
+   * - A maximum of 16 tags are supported.
+   * - Separate multiple tags with commas (,).
+   * - Each tag can be up to 32 characters or Chinese characters in length.
+   * - The tags must be encoded in UTF-8.
    * 
    * @example
    * tag1,tag2
@@ -105,21 +103,21 @@ export class CreateUploadAttachedMediaRequest extends $dara.Model {
   tags?: string;
   /**
    * @remarks
-   * The title of the auxiliary media asset. The following rules apply:
+   * The title of the auxiliary media asset. Rules:
    * 
-   * *   The title cannot exceed 128 bytes.
-   * *   The title must be encoded in UTF-8.
+   * - The title can be up to 128 bytes in length.
+   * - The title must be encoded in UTF-8.
    * 
    * @example
-   * testTitle
+   * Test
    */
   title?: string;
   /**
    * @remarks
-   * The custom configurations. For example, you can specify callback configurations and upload acceleration configurations. The value must be a JSON string. For more information, see [Request parameters](~~86952#section-6fg-qll-v3w~~).
+   * The custom settings, which is a JSON string. The settings support message callbacks, upload acceleration, and other configurations. For more information, see [UserData](~~86952#section-6fg-qll-v3w~~).
    * 
-   * > *   The callback configurations take effect only after you specify the HTTP callback URL and select the specific callback events in the ApsaraVideo VOD console. For more information about how to configure HTTP callback settings in the ApsaraVideo VOD console, see [Configure callback settings](https://help.aliyun.com/document_detail/86071.html).
-   * > *   If you want to enable the upload acceleration feature, submit a ticket. For more information, see [Overview](https://help.aliyun.com/document_detail/55396.html). For more information about how to submit a ticket, see [Contact us](https://help.aliyun.com/document_detail/464625.html).
+   * > - To use message callbacks in this parameter, you must configure an HTTP callback URL and select the corresponding callback event types in the console. Otherwise, the callback settings do not take effect. For information about how to configure HTTP callbacks in the console, see [Callback settings](https://help.aliyun.com/document_detail/86071.html).
+   * > - To use the upload acceleration feature, submit a ticket to activate it. For more information, see [Upload instructions](https://help.aliyun.com/document_detail/55396.html). For information about how to submit a ticket, see [Contact us](https://help.aliyun.com/document_detail/464625.html).
    * 
    * @example
    * {"MessageCallback":{"CallbackURL":"http://example.aliyundoc.com"},"Extend":{"localId":"xxx","test":"www"}}

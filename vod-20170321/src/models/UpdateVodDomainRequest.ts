@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateVodDomainRequest extends $dara.Model {
   /**
    * @remarks
-   * The domain name.
+   * The accelerated domain name.
    * 
    * This parameter is required.
    * 
@@ -17,7 +17,7 @@ export class UpdateVodDomainRequest extends $dara.Model {
   securityToken?: string;
   /**
    * @remarks
-   * The information about the addresses of origin servers.
+   * The addresses of the origin server. For more information about the Sources parameter, see the **Sources** section.
    * 
    * @example
    * [{"content":"1.1.1.1","type":"ipaddr","priority":"20","port":80}]

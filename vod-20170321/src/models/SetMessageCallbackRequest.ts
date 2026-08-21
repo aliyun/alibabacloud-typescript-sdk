@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SetMessageCallbackRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the application. If you leave this parameter empty, the default value **app-1000000** is used.
+   * The application ID. If this parameter is not specified, the ID of the default application is used, which is the fixed value: **app-1000000**.
    * 
    * @example
    * app-1000000
@@ -13,7 +13,7 @@ export class SetMessageCallbackRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The authentication key. The key can be up to 32 characters in length and must contain uppercase letters, lowercase letters, and digits. This parameter takes effect only when you set CallbackType to **HTTP**.
+   * The authentication key. The key can be up to 32 characters in length and must contain uppercase letters, lowercase letters, and digits. This parameter can be set when the callback method is **HTTP**.
    * 
    * @example
    * Dsf346dvet
@@ -21,10 +21,9 @@ export class SetMessageCallbackRequest extends $dara.Model {
   authKey?: string;
   /**
    * @remarks
-   * Specifies whether to enable callback authentication. This parameter takes effect only when you set CallbackType to **HTTP**. Valid values:
-   * 
-   * *   **on**
-   * *   **off**
+   * The authentication switch for HTTP callbacks. This parameter takes effect only when the callback method is set to **HTTP**. Valid values:
+   * - **on**: enabled.
+   * - **off**: disabled.
    * 
    * @example
    * on
@@ -33,9 +32,8 @@ export class SetMessageCallbackRequest extends $dara.Model {
   /**
    * @remarks
    * The callback method. Valid values:
-   * 
-   * *   **HTTP**
-   * *   **Simple Message Queue(formerly MNS)**
+   * - **HTTP**
+   * - **Simple Message Queue (formerly MNS)**
    * 
    * @example
    * HTTP
@@ -43,7 +41,8 @@ export class SetMessageCallbackRequest extends $dara.Model {
   callbackType?: string;
   /**
    * @remarks
-   * The callback URL. This parameter is required if you set CallbackType to **HTTP**. The callback URL cannot exceed 256 bytes in length. You can specify only one callback URL.
+   * The callback URL. This parameter is required when the callback method is set to **HTTP**.
+   * The callback URL cannot exceed 256 bytes in length. Multiple callback URLs are not supported.
    * 
    * @example
    * http://developer.aliyundoc.com
@@ -51,7 +50,10 @@ export class SetMessageCallbackRequest extends $dara.Model {
   callbackURL?: string;
   /**
    * @remarks
-   * The type of the callback event. If you do not set this parameter, notifications for all types of events are disabled. If you set this parameter to **ALL**, notifications for all types of events are enabled. You can specify the event types for which notifications are enabled. Separate multiple event types with commas (,). For more information about the valid values of this parameter, see [Overview](https://help.aliyun.com/document_detail/55627.html).
+   * The event types for callbacks. If this parameter is left empty, all notifications are disabled. If this parameter is set to **ALL**, all notifications are enabled. You can also specify specific event types, separated by commas (,). For the valid event types, see [Event types](https://help.aliyun.com/document_detail/55627.html).
+   * 
+   * <props="china">
+   * > All AI-related events such as AIMediaAuditComplete and AIMediaDNAComplete use the value **AIComplete**.
    * 
    * @example
    * FileUploadComplete
@@ -59,7 +61,7 @@ export class SetMessageCallbackRequest extends $dara.Model {
   eventTypeList?: string;
   /**
    * @remarks
-   * The public endpoint of Message Service (MNS). This parameter only takes effect when the CallbackType parameter is set to **Simple Message Queue(formerly MNS)**. To obtain the public endpoint, log on to the [Simple Message Queue(formerly MNS) console](https://account.aliyun.com/login/login.html) and click **Get Endpoint** in the upper-right corner of the Topics page. For more information, see [Endpoint](https://help.aliyun.com/document_detail/27480.html).
+   * The public endpoint of Simple Message Queue (formerly MNS). This parameter is required when the callback method is set to **Simple Message Queue (formerly MNS)**. Log on to the [Simple Message Queue (formerly MNS) console](https://account.aliyun.com/login/login.html) and click the **Get Endpoint** button in the upper-right corner to obtain the endpoint. For more information, see [Endpoint](https://help.aliyun.com/document_detail/27480.html).
    * 
    * @example
    * http://****.mns.cn-shanghai.aliyuncs.com/
@@ -67,7 +69,7 @@ export class SetMessageCallbackRequest extends $dara.Model {
   mnsEndpoint?: string;
   /**
    * @remarks
-   * The name of the Simple Message Queue(formerly MNS). You can obtain the name of the Simple Message Queue(formerly MNS) on the **Queues** page in the [Simple Message Queue(formerly MNS) console](https://account.aliyun.com/login/login.html). This parameter is required when you set CallbackType to **Simple Message Queue(formerly MNS)**.
+   * The name of the message queue. Log on to the [Simple Message Queue (formerly MNS) console](https://account.aliyun.com/login/login.html) and view the queue in the **Queue List**. This parameter is required when the callback method is set to **Simple Message Queue (formerly MNS)**.
    * 
    * @example
    * quene_name

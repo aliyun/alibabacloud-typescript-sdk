@@ -58,7 +58,7 @@ export class DescribeVodDomainRealTimeBpsDataResponseBody extends $dara.Model {
   data?: DescribeVodDomainRealTimeBpsDataResponseBodyData;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * B49E6DDA-F413-422B-B58E-2FA23F286726

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeVodMediaPlayDataResponseBodyQoeInfoList extends $dara.Model {
   /**
    * @remarks
-   * The number of visits to the audio or video per day.
+   * The number of unique visitors for the audio or video file.
    * 
    * @example
    * 5
@@ -13,7 +13,7 @@ export class DescribeVodMediaPlayDataResponseBodyQoeInfoList extends $dara.Model
   DAU?: number;
   /**
    * @remarks
-   * The ID of the media file (VideoId).
+   * The media ID, which is the audio or video ID (VideoId).
    * 
    * @example
    * 9ae2af636ca6c10412f44891fc****
@@ -21,7 +21,7 @@ export class DescribeVodMediaPlayDataResponseBodyQoeInfoList extends $dara.Model
   mediaId?: string;
   /**
    * @remarks
-   * The total playback duration of the audio or video. Unit: seconds.
+   * The total play duration for the audio or video file. Unit: seconds.
    * 
    * @example
    * 2400
@@ -29,7 +29,7 @@ export class DescribeVodMediaPlayDataResponseBodyQoeInfoList extends $dara.Model
   playDuration?: number;
   /**
    * @remarks
-   * The average playback duration of the audio or video per viewer. Unit: seconds.
+   * The average play duration per user for the audio or video file. Unit: seconds.
    * 
    * @example
    * 120
@@ -37,7 +37,7 @@ export class DescribeVodMediaPlayDataResponseBodyQoeInfoList extends $dara.Model
   playDurationPerUv?: number;
   /**
    * @remarks
-   * The average number of times that the audio or video was played per viewer.
+   * The average number of plays per user for the audio or video file.
    * 
    * @example
    * 4
@@ -45,7 +45,7 @@ export class DescribeVodMediaPlayDataResponseBodyQoeInfoList extends $dara.Model
   playPerVv?: number;
   /**
    * @remarks
-   * The total number of times the audio or video has been played.
+   * The total number of plays for the audio or video file.
    * 
    * @example
    * 20
@@ -61,10 +61,10 @@ export class DescribeVodMediaPlayDataResponseBodyQoeInfoList extends $dara.Model
   videoDuration?: number;
   /**
    * @remarks
-   * The name of the audio or video file.
+   * The title of the audio or video file.
    * 
    * @example
-   * title
+   * Alibaba Cloud VOD video title
    */
   videoTitle?: string;
   static names(): { [key: string]: string } {
@@ -105,7 +105,7 @@ export class DescribeVodMediaPlayDataResponseBodyQoeInfoList extends $dara.Model
 export class DescribeVodMediaPlayDataResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The page number.
+   * The page number of the returned data.
    * 
    * @example
    * 1
@@ -121,12 +121,12 @@ export class DescribeVodMediaPlayDataResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The data returned.
+   * The list of returned data.
    */
   qoeInfoList?: DescribeVodMediaPlayDataResponseBodyQoeInfoList[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 25818875-5F78-4AF6-D7393642CA58****

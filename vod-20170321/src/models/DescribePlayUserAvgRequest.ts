@@ -5,7 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePlayUserAvgRequest extends $dara.Model {
   /**
    * @remarks
-   * The end of the time range to query. The end time must be later than the start time. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+   * The end time of the query. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
+   * > The end time must be later than the start time. The maximum time range between the start time and end time is 180 days.
    * 
    * This parameter is required.
    * 
@@ -16,7 +17,7 @@ export class DescribePlayUserAvgRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+   * The start time of the query. Specify the time in the yyyy-MM-ddTHH:mm:ssZ format (UTC).
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteVodSpecificConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the configuration.
+   * The configuration ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DeleteVodSpecificConfigRequest extends $dara.Model {
   configId?: string;
   /**
    * @remarks
-   * The accelerated domain name.
+   * The accelerated domain name for ApsaraVideo VOD.
    * 
    * This parameter is required.
    * 
@@ -25,10 +25,9 @@ export class DeleteVodSpecificConfigRequest extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
-   * The environment from which the domain name configurations are deleted. Valid values:
-   * 
-   * *   online: production environment
-   * *   gray: simulation environment
+   * The environment from which you want to delete the configuration. Valid values:
+   * - online: production environment
+   * - gray: canary release environment
    * 
    * @example
    * online

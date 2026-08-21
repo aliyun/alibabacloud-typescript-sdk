@@ -13,7 +13,7 @@ export class UploadMediaByURLResponseBodyUploadJobs extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * The URL of the source file that is uploaded in the upload job.
+   * The source file URL of the upload job.
    * 
    * @example
    * http://example****.mp4
@@ -45,7 +45,7 @@ export class UploadMediaByURLResponseBodyUploadJobs extends $dara.Model {
 export class UploadMediaByURLResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 25818875-5F78-4AF6-D7393642CA58****
@@ -53,7 +53,7 @@ export class UploadMediaByURLResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the upload job.
+   * The list of upload jobs.
    */
   uploadJobs?: UploadMediaByURLResponseBodyUploadJobs[];
   static names(): { [key: string]: string } {

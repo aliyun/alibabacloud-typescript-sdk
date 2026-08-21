@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeVodPlayerCollectDataResponseBodyDataList extends $dara.Model {
   /**
+   * @remarks
+   * The returned data metric.
+   * 
    * @example
    * Vv
    */
   metric?: string;
   /**
+   * @remarks
+   * The value of the returned data metric.
+   * 
    * @example
    * 100.0
    */
   value?: number;
   /**
+   * @remarks
+   * The period-over-period percentage.
+   * 
    * @example
    * 0.5
    */
   valueRatio?: number;
   /**
+   * @remarks
+   * The period-over-period value of the returned data metric.
+   * 
    * @example
    * 200.0
    */
@@ -51,6 +63,10 @@ export class DescribeVodPlayerCollectDataResponseBodyDataList extends $dara.Mode
 }
 
 export class DescribeVodPlayerCollectDataResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The returned data list.
+   */
   dataList?: DescribeVodPlayerCollectDataResponseBodyDataList[];
   /**
    * @remarks

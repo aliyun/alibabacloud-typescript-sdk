@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class SetAppPlayKeyResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 25818875-5F78-4A*****F6-D7393642CA58
    */

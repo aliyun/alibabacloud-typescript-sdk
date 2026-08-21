@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetDailyPlayRegionStatisResponseBodyDailyPlayRegionStatisList extends $dara.Model {
   /**
+   * @remarks
+   * The playback date, in days. Format: yyyy-MM-dd.
+   * 
    * @example
    * 2025-03-20
    */
   date?: string;
   /**
+   * @remarks
+   * The download URL of the CSV file.
+   * 
    * @example
    * https://outin-e70266d4ed*******0163e1403e7.oss-cn-shanghai.aliyuncs.com/dataexport/play/cn_hangzhou_20250320_video_traffic.csv?*******
    */
@@ -37,10 +43,25 @@ export class GetDailyPlayRegionStatisResponseBodyDailyPlayRegionStatisList exten
 }
 
 export class GetDailyPlayRegionStatisResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The CSV file information returned.
+   */
   dailyPlayRegionStatisList?: GetDailyPlayRegionStatisResponseBodyDailyPlayRegionStatisList[];
+  /**
+   * @remarks
+   * If no playback data exists on a specific day, the date is displayed in this field.
+   */
   emptyDates?: string[];
+  /**
+   * @remarks
+   * If the playback data export fails on a specific day, the date is displayed in this field.
+   */
   failDates?: string[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 67720502-CDDB-3F1C-8A91-12258*******
    */

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListWatermarkResponseBodyWatermarkInfos extends $dara.Model {
   /**
    * @remarks
-   * The ID of the application.
+   * The application ID.
    * 
    * @example
    * app-****
@@ -13,7 +13,7 @@ export class ListWatermarkResponseBodyWatermarkInfos extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The time when the watermark template was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+   * The time when the watermark template was created. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
    * 
    * @example
    * 2018-11-07T09:05:52Z
@@ -21,9 +21,8 @@ export class ListWatermarkResponseBodyWatermarkInfos extends $dara.Model {
   creationTime?: string;
   /**
    * @remarks
-   * The URL of the watermark file. The URL is an Object Storage Service (OSS) URL or an Alibaba Cloud CDN URL.
-   * 
-   * >  This parameter is returned only for image watermark templates.
+   * The URL of the watermark file (OSS URL or CDN URL).
+   * > This parameter is returned only for image watermark templates.
    * 
    * @example
    * https://outin-3262681cd*****89f4b3e7.oss-cn-shanghai.aliyuncs.com/image/cover/8CC8B715E6F8A72EC6B-6-2.png?Expires=1541600583&OSSAccessKeyId=****&Signature=gmf1eYMoDVg%2BHQCb4UGozB****
@@ -31,10 +30,10 @@ export class ListWatermarkResponseBodyWatermarkInfos extends $dara.Model {
   fileUrl?: string;
   /**
    * @remarks
-   * Indicates whether the watermark template is the default one. Valid values:
+   * Indicates whether the watermark template is the default template. Valid values:
    * 
-   * *   **Default**
-   * *   **NotDefault**
+   * - **Default**: the default watermark template.
+   * - **NotDefault**: not the default watermark template.
    * 
    * @example
    * NotDefault
@@ -45,15 +44,15 @@ export class ListWatermarkResponseBodyWatermarkInfos extends $dara.Model {
    * The name of the watermark template.
    * 
    * @example
-   * testName
+   * Text watermark test
    */
   name?: string;
   /**
    * @remarks
-   * The type of the watermark template.
+   * The type of the watermark template. Valid values:
    * 
-   * *   **Image**: image watermark template
-   * *   **Text**: text watermark template
+   * - **Image**: image watermark template.
+   * - **Text**: text watermark template.
    * 
    * @example
    * Text
@@ -61,10 +60,10 @@ export class ListWatermarkResponseBodyWatermarkInfos extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The configuration information of the watermark such as the display position and special effects. The value is a JSON string. The configuration parameters for image and text watermarks are different. For more information about the parameter structure, see [WatermarkConfig](~~98618#section-h01-44s-2lr~~).
+   * The configuration information of the watermark (JSON string), including the display position and effect of the watermark. The configuration parameters for image watermarks and text watermarks are different. For more information about the parameter structure, see [WatermarkConfig](~~98618#section-h01-44s-2lr~~).
    * 
    * @example
-   * {"FontColor": "Blue","FontSize": 80,"Content": "test watermark"}
+   * {"FontColor": "Blue","FontSize": 80,"Content": " watermark test"}
    */
   watermarkConfig?: string;
   /**
@@ -121,7 +120,7 @@ export class ListWatermarkResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The information about the watermark template.
+   * The watermark template information.
    */
   watermarkInfos?: ListWatermarkResponseBodyWatermarkInfos[];
   static names(): { [key: string]: string } {

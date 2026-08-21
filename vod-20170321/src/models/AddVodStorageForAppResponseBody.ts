@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddVodStorageForAppResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 25818875-5F78-4A*****F6-D7393642CA58
@@ -13,7 +13,7 @@ export class AddVodStorageForAppResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The address of the VOD bucket.
+   * The storage address of the created VOD system bucket.
    * 
    * @example
    * out-****.oss-cn-shanghai.aliyuncs.com

@@ -55,7 +55,7 @@ export class SubmitPreprocessJobsResponseBody extends $dara.Model {
   preprocessJobs?: SubmitPreprocessJobsResponseBodyPreprocessJobs;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * E4EBD2BF-5EB0-4476-8829-9D94E1B1****

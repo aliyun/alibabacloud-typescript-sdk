@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAIImageInfoResponseBodyAIImageInfoList extends $dara.Model {
   /**
    * @remarks
-   * The ID of the image information.
+   * The ID of the image data information.
    * 
    * @example
    * b89a6aabf1b6197ebd6fe6cf29****
@@ -13,7 +13,7 @@ export class ListAIImageInfoResponseBodyAIImageInfoList extends $dara.Model {
   AIImageInfoId?: string;
   /**
    * @remarks
-   * The time when the file was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+   * The time when the data was created. The time follows the ISO 8601 standard in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format. The time is displayed in UTC.
    * 
    * @example
    * 2020-10-15T03:30:03Z
@@ -21,12 +21,12 @@ export class ListAIImageInfoResponseBodyAIImageInfoList extends $dara.Model {
   creationTime?: string;
   /**
    * @remarks
-   * The URL of the image file.
+   * The URL of the AI image file.
    */
   fileURL?: string;
   /**
    * @remarks
-   * The format of the image. Valid values: **gif** and **png**.
+   * The image format. Valid values: **gif** and **png**.
    * 
    * @example
    * gif
@@ -34,7 +34,7 @@ export class ListAIImageInfoResponseBodyAIImageInfoList extends $dara.Model {
   format?: string;
   /**
    * @remarks
-   * The ID of the image AI processing job.
+   * The ID of the AI image processing job.
    * 
    * @example
    * cf08a2c6e11ee1711b738b9067****
@@ -42,7 +42,7 @@ export class ListAIImageInfoResponseBodyAIImageInfoList extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * The score of the image.
+   * The image score.
    * 
    * @example
    * 5.035636554444242
@@ -58,7 +58,7 @@ export class ListAIImageInfoResponseBodyAIImageInfoList extends $dara.Model {
   version?: string;
   /**
    * @remarks
-   * The ID of the video.
+   * The video ID.
    * 
    * @example
    * 357a8748c5789d2726e6436aa****
@@ -102,12 +102,12 @@ export class ListAIImageInfoResponseBodyAIImageInfoList extends $dara.Model {
 export class ListAIImageInfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The image files that are uploaded for AI processing.
+   * The list of AI image files.
    */
   AIImageInfoList?: ListAIImageInfoResponseBodyAIImageInfoList[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * D73420CD-D221-9122-5B8FA995A511****

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetTranscodeSummaryResponseBodyTranscodeSummaryListTranscodeJobInfoSummaryList extends $dara.Model {
   /**
    * @remarks
-   * The average bitrate of the output video. Unit: Kbit/s.
+   * The average bitrate of the transcoded video output. Unit: Kbps.
    * 
    * @example
    * 749
@@ -13,7 +13,7 @@ export class GetTranscodeSummaryResponseBodyTranscodeSummaryListTranscodeJobInfo
   bitrate?: string;
   /**
    * @remarks
-   * The time when the transcoding job was complete. The time is in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+   * The time when the transcoding job was complete. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
    * 
    * @example
    * 2019-02-27T03:40:51Z
@@ -21,7 +21,7 @@ export class GetTranscodeSummaryResponseBodyTranscodeSummaryListTranscodeJobInfo
   completeTime?: string;
   /**
    * @remarks
-   * The time when the transcoding job was created. The time is in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+   * The time when the transcoding job was created. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
    * 
    * @example
    * 2019-02-27T03:34:46Z
@@ -29,7 +29,7 @@ export class GetTranscodeSummaryResponseBodyTranscodeSummaryListTranscodeJobInfo
   creationTime?: string;
   /**
    * @remarks
-   * The duration of the output video. Unit: seconds.
+   * The duration of the transcoded video output. Unit: seconds.
    * 
    * @example
    * 12
@@ -53,7 +53,7 @@ export class GetTranscodeSummaryResponseBodyTranscodeSummaryListTranscodeJobInfo
   errorMessage?: string;
   /**
    * @remarks
-   * The size of the output video. Unit: bytes.
+   * The file size of the transcoded video output. Unit: bytes.
    * 
    * @example
    * 1144259
@@ -61,7 +61,7 @@ export class GetTranscodeSummaryResponseBodyTranscodeSummaryListTranscodeJobInfo
   filesize?: number;
   /**
    * @remarks
-   * The container format of the output video.
+   * The container format of the transcoded video output.
    * 
    * @example
    * mp4
@@ -69,7 +69,7 @@ export class GetTranscodeSummaryResponseBodyTranscodeSummaryListTranscodeJobInfo
   format?: string;
   /**
    * @remarks
-   * The frame rate of the output video. Unit: frames per second.
+   * The frame rate of the transcoded video output. Unit: frames per second.
    * 
    * @example
    * 30
@@ -77,7 +77,7 @@ export class GetTranscodeSummaryResponseBodyTranscodeSummaryListTranscodeJobInfo
   fps?: string;
   /**
    * @remarks
-   * The height of the output video. Unit: pixels.
+   * The height of the transcoded video output. Unit: px.
    * 
    * @example
    * 960
@@ -87,9 +87,9 @@ export class GetTranscodeSummaryResponseBodyTranscodeSummaryListTranscodeJobInfo
    * @remarks
    * The status of the transcoding job. Valid values:
    * 
-   * *   **Transcoding**: Transcoding is in process.
-   * *   **TranscodeSuccess**: The job was successful.
-   * *   **TranscodeFail**: The job failed.
+   * - **Transcoding**: The transcoding job is in progress.
+   * - **TranscodeSuccess**: The transcoding job is successful.
+   * - **TranscodeFail**: The transcoding job failed.
    * 
    * @example
    * Transcoding
@@ -97,7 +97,7 @@ export class GetTranscodeSummaryResponseBodyTranscodeSummaryListTranscodeJobInfo
   transcodeJobStatus?: string;
   /**
    * @remarks
-   * The transcoding progress. Valid values: `[0,100]`.
+   * The transcoding progress. Value range: `[0,100]`.
    * 
    * @example
    * 100
@@ -105,7 +105,7 @@ export class GetTranscodeSummaryResponseBodyTranscodeSummaryListTranscodeJobInfo
   transcodeProgress?: number;
   /**
    * @remarks
-   * The ID of the transcoding template.
+   * The ID of the transcoding template used.
    * 
    * @example
    * 57496724ae2*****0968d6e08acc8f6
@@ -113,12 +113,12 @@ export class GetTranscodeSummaryResponseBodyTranscodeSummaryListTranscodeJobInfo
   transcodeTemplateId?: string;
   /**
    * @remarks
-   * The IDs of the watermarks that are applied to the output video.
+   * The list of watermarks used for transcoding.
    */
   watermarkIdList?: string[];
   /**
    * @remarks
-   * The width of the output video. Unit: pixels.
+   * The width of the transcoded video output. Unit: px.
    * 
    * @example
    * 544
@@ -179,7 +179,7 @@ export class GetTranscodeSummaryResponseBodyTranscodeSummaryListTranscodeJobInfo
 export class GetTranscodeSummaryResponseBodyTranscodeSummaryList extends $dara.Model {
   /**
    * @remarks
-   * The time when the transcoding task was complete. The time is in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+   * The time when the transcoding task was complete. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
    * 
    * @example
    * 2019-01-23T12:40:12Z
@@ -187,7 +187,7 @@ export class GetTranscodeSummaryResponseBodyTranscodeSummaryList extends $dara.M
   completeTime?: string;
   /**
    * @remarks
-   * The time when the transcoding task was created. The time is in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+   * The time when the transcoding task was created. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
    * 
    * @example
    * 2019-01-23T12:35:12Z
@@ -195,18 +195,18 @@ export class GetTranscodeSummaryResponseBodyTranscodeSummaryList extends $dara.M
   creationTime?: string;
   /**
    * @remarks
-   * The summaries of transcoding jobs.
+   * The list of transcoding job summaries.
    */
   transcodeJobInfoSummaryList?: GetTranscodeSummaryResponseBodyTranscodeSummaryListTranscodeJobInfoSummaryList[];
   /**
    * @remarks
-   * The status of the transcoding task. Valid values:
+   * The transcoding status. Valid values:
    * 
-   * *   **Processing**: Transcoding is in process.
-   * *   **Partial**: Some transcoding jobs were complete.
-   * *   **CompleteAllSucc**: All transcoding jobs were successful.
-   * *   **CompleteAllFail**: All transcoding jobs failed. If an exception occurs in the source file, no transcoding job is initiated and the transcoding task fails.
-   * *   **CompletePartialSucc**: All transcoding jobs were complete but only some were successful.
+   * - **Processing**: The transcoding task is in progress.
+   * - **Partial**: The transcoding task is partially complete.
+   * - **CompleteAllSucc**: All transcoding jobs are complete and successful.
+   * - **CompleteAllFail**: All transcoding jobs are complete but all failed. If the source file has issues, no transcoding jobs are initiated and the entire transcoding task fails.
+   * - **CompletePartialSucc**: All transcoding jobs are complete but only some are successful.
    * 
    * @example
    * Processing
@@ -214,7 +214,7 @@ export class GetTranscodeSummaryResponseBodyTranscodeSummaryList extends $dara.M
   transcodeStatus?: string;
   /**
    * @remarks
-   * The ID of the transcoding template group.
+   * The ID of the transcoding template group used for transcoding.
    * 
    * @example
    * 44f9e406bbb*****736a9abe876ecc0
@@ -222,7 +222,7 @@ export class GetTranscodeSummaryResponseBodyTranscodeSummaryList extends $dara.M
   transcodeTemplateGroupId?: string;
   /**
    * @remarks
-   * The ID of the audio or video file.
+   * The audio or video ID.
    * 
    * @example
    * e1db68cc586644b83e562bcd94****
@@ -265,12 +265,12 @@ export class GetTranscodeSummaryResponseBodyTranscodeSummaryList extends $dara.M
 export class GetTranscodeSummaryResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The IDs of the audio or video files that do not exist.
+   * The IDs of audio or video files that do not exist.
    */
   nonExistVideoIds?: string[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 25818875-5F78-4A*****F6-D7393642CA58
@@ -278,7 +278,7 @@ export class GetTranscodeSummaryResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The transcoding summary of the file.
+   * The video transcoding summary list of audio or video files.
    */
   transcodeSummaryList?: GetTranscodeSummaryResponseBodyTranscodeSummaryList[];
   static names(): { [key: string]: string } {

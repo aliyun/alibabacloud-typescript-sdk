@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetVodTemplateResponseBodyVodTemplateInfo extends $dara.Model {
   /**
    * @remarks
-   * The time when the template was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+   * The time when the template was created. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
    * 
    * @example
    * 2018-11-30T08:05:59:57Z
@@ -13,10 +13,10 @@ export class GetVodTemplateResponseBodyVodTemplateInfo extends $dara.Model {
   creationTime?: string;
   /**
    * @remarks
-   * Indicates whether the template is the default one. Valid values:
+   * Indicates whether the template is the default template. Valid values:
    * 
-   * *   **Default**: The template is the default one.
-   * *   **NotDefault**: The template is not the default one.
+   * - **Default**
+   * - **NotDefault**
    * 
    * @example
    * NotDefault
@@ -24,7 +24,7 @@ export class GetVodTemplateResponseBodyVodTemplateInfo extends $dara.Model {
   isDefault?: string;
   /**
    * @remarks
-   * The time when the template was modified. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+   * The time when the template was last modified. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
    * 
    * @example
    * 2018-11-30T09:05:59:57Z
@@ -32,7 +32,7 @@ export class GetVodTemplateResponseBodyVodTemplateInfo extends $dara.Model {
   modifyTime?: string;
   /**
    * @remarks
-   * The name of the template.
+   * The template name.
    * 
    * @example
    * test
@@ -40,7 +40,7 @@ export class GetVodTemplateResponseBodyVodTemplateInfo extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The detailed configurations of the template. The value is a JSON-formatted string. For more information about the data structure, see the "SnapshotTemplateConfig" section of the [Media processing parameters](https://help.aliyun.com/document_detail/98618.html) topic.
+   * The detailed template configuration, in JSON format. For more information about the data structure, see [SnapshotTemplateConfig](https://help.aliyun.com/document_detail/98618.html).
    * 
    * @example
    * {\\"SnapshotConfig\\":{\\"Count\\":10,\\"SpecifiedOffsetTime\\":0,\\"Interval\\":1},\\"SnapshotType\\":\\"NormalSnapshot\\"}
@@ -48,10 +48,10 @@ export class GetVodTemplateResponseBodyVodTemplateInfo extends $dara.Model {
   templateConfig?: string;
   /**
    * @remarks
-   * The type of the template. Valid values:
+   * The templatetype. Valid values:
    * 
-   * *   **Snapshot**
-   * *   **DynamicImage**
+   * - **Snapshot**: snapshot.
+   * - **DynamicImage**: animated image.
    * 
    * @example
    * Snapshot
@@ -59,7 +59,7 @@ export class GetVodTemplateResponseBodyVodTemplateInfo extends $dara.Model {
   templateType?: string;
   /**
    * @remarks
-   * The ID of the template.
+   * The template ID.
    * 
    * @example
    * 7c49f2f4c09*****69fcd446690
@@ -101,7 +101,7 @@ export class GetVodTemplateResponseBodyVodTemplateInfo extends $dara.Model {
 export class GetVodTemplateResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * DE7A1F49-41C1-47*****DF-4CD0C02087DB

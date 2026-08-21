@@ -5,17 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class CancelUrlUploadJobsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The IDs of canceled jobs.
+   * The list of tasks that were successfully canceled.
    */
   canceledJobs?: string[];
   /**
    * @remarks
-   * The jobs that do not exist.
+   * The list of tasks that do not exist.
    */
   nonExists?: string[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 25818875-5F78-4D5C-3C3D-D7393642****

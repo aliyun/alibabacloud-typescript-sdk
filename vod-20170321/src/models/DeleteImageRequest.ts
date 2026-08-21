@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteImageRequest extends $dara.Model {
   /**
    * @remarks
-   * The method that is used to delete images. Valid values:
+   * The type of image deletion operation. Valid values:
    * 
-   * *   **ImageURL**: deletes images based on URLs.
-   * *   **ImageId**: deletes images based on image IDs.
-   * *   **VideoId**: deletes images associated with a video based on the video ID.
+   * - **ImageURL**: deletes images based on image URLs.
+   * - **ImageId**: deletes images based on image IDs.
+   * - **VideoId**: deletes images associated with a video based on the video ID.
    * 
    * This parameter is required.
    * 
@@ -19,13 +19,12 @@ export class DeleteImageRequest extends $dara.Model {
   deleteImageType?: string;
   /**
    * @remarks
-   * The ID of the image. You can specify up to 20 image IDs and separate them with commas (,). You can use one of the following methods to obtain the image ID:
+   * The image IDs. Separate multiple IDs with commas (,). A maximum of 20 IDs are supported. You can obtain image IDs by using the following methods:
+   * - Log on to the [ApsaraVideo VOD console](https://vod.console.aliyun.com) and choose **Media Files** > **Image** to view the IDs.
+   * - Obtain the IDs from the response of the [CreateUploadImage](~~CreateUploadImage~~) operation that is called to obtain the upload URL and credential.
+   * - Obtain the IDs from the response of the [SearchMedia](~~SearchMedia~~) operation that is called to query images.
    * 
-   * *   Log on to the [ApsaraVideo VOD console](https://vod.console.aliyun.com). In the left-side navigation pane, choose **Media Files** > **Image** to view the image ID.
-   * *   Obtain the image ID from the response to the [CreateUploadImage](~~CreateUploadImage~~) operation that you call to obtain the upload credential and URL.
-   * *   Obtain the image ID from the response to the [SearchMedia](~~SearchMedia~~) operation that you call to query images.
-   * 
-   * >  This parameter takes effect and is required only if you set **DeleteImageType** to **ImageId**.
+   * > This parameter is available and required only when **DeleteImageType** is set to **ImageId**.
    * 
    * @example
    * bbc65bba53fed90de118a7849****,594228cdd14b4d069fc17a8c4a****
@@ -33,15 +32,15 @@ export class DeleteImageRequest extends $dara.Model {
   imageIds?: string;
   /**
    * @remarks
-   * The type of images that you want to delete. The images are associated with the video. Valid values:
+   * The type of images associated with the video that you want to delete. Valid values:
    * 
-   * *   **CoverSnapshot**: thumbnail snapshot.
-   * *   **NormalSnapshot**: regular snapshot.
-   * *   **SpriteSnapshot**: sprite snapshot.
-   * *   **SpriteOriginSnapshot**: sprite source snapshot.
-   * *   **All**: images of all the preceding types. You can specify multiple types other than `All` for this parameter. Separate multiple types with commas (,).
+   * - **CoverSnapshot**: thumbnail snapshot.
+   * - **NormalSnapshot**: regular snapshot.
+   * - **SpriteSnapshot**: sprite snapshot.
+   * - **SpriteOriginSnapshot**: sprite source image.
+   * - **All**: all of the preceding image types. If the value is not `All`, you can specify multiple image types. Separate multiple values with commas (,).
    * 
-   * >  This parameter takes effect and is required only if you set **DeleteImageType** to **VideoId**.
+   * > This parameter is available and required only when **DeleteImageType** is set to **VideoId**.
    * 
    * @example
    * All
@@ -49,9 +48,9 @@ export class DeleteImageRequest extends $dara.Model {
   imageType?: string;
   /**
    * @remarks
-   * The URL of the image. You can obtain the value of `ImageURL` from the response to the [CreateUploadImage](~~CreateUploadImage~~) operation. You can specify up to 20 URLs and separate them with commas (,).
+   * The image URLs. The value is the `ImageURL` parameter returned by the [CreateUploadImage](~~CreateUploadImage~~) operation. Separate multiple URLs with commas (,). A maximum of 20 URLs are supported.
    * 
-   * >  This parameter takes effect and is required only if you set **DeleteImageType** to **ImageURL**.
+   * > This parameter is available and required only when **DeleteImageType** is set to **ImageURL**.
    * 
    * @example
    * https://example.aliyundoc.com/image/default/41AE7ADABBE*****.png
@@ -59,13 +58,12 @@ export class DeleteImageRequest extends $dara.Model {
   imageURLs?: string;
   /**
    * @remarks
-   * The ID of the video. You can specify only one ID. You can use one of the following methods to obtain the ID:
+   * The video ID. Only a single video ID is supported. You can obtain the video ID by using the following methods:
+   * - Log on to the [ApsaraVideo VOD console](https://vod.console.aliyun.com) and choose **Media Files** > **Audio/Video** to view the video ID.
+   * - Obtain the ID from the response of the [CreateUploadVideo](~~CreateUploadVideo~~) operation that is called to obtain the upload URL and credential.
+   * - Obtain the ID from the response of the [SearchMedia](~~SearchMedia~~) operation that is called to query videos.
    * 
-   * *   Log on to the [ApsaraVideo VOD console](https://vod.console.aliyun.com). In the left-side navigation pane, choose **Media Files** > **Audio/Video**. On the Video and Audio page, view the ID of the media file.
-   * *   Obtain the video ID from the response to the [CreateUploadVideo](~~CreateUploadVideo~~) operation that you call to obtain the upload credential and URL.
-   * *   Obtain the video ID from the response to the [SearchMedia](~~SearchMedia~~) operation that you call to query videos.
-   * 
-   * >  This parameter takes effect and is required only if you set **DeleteImageType** to **VideoId**.
+   * > This parameter is available and required only when **DeleteImageType** is set to **VideoId**.
    * 
    * @example
    * eb1861d2c9a8842340e989dd56****

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitAIMediaAuditJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the job.
+   * The job ID.
    * 
    * @example
    * bdbc266af6893943a70176d92e99****
@@ -13,7 +13,7 @@ export class SubmitAIMediaAuditJobResponseBody extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * The ID of the media file.
+   * The audio or video ID.
    * 
    * @example
    * fe028d09441afffb138cd7ee****
@@ -21,7 +21,7 @@ export class SubmitAIMediaAuditJobResponseBody extends $dara.Model {
   mediaId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * F4631053-8D9F-42B2-4A67281DB88E****

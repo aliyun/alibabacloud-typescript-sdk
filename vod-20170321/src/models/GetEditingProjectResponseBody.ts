@@ -13,7 +13,7 @@ export class GetEditingProjectResponseBodyProject extends $dara.Model {
   coverURL?: string;
   /**
    * @remarks
-   * The time when the online editing project was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+   * The time when the online editing project was created. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
    * 
    * @example
    * 2017-10-23T13:33:40Z
@@ -29,7 +29,7 @@ export class GetEditingProjectResponseBodyProject extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The last time when the online editing project was modified. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+   * The time when the online editing project was last modified. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
    * 
    * @example
    * 2017-10-23T14:27:26Z
@@ -37,7 +37,7 @@ export class GetEditingProjectResponseBodyProject extends $dara.Model {
   modifiedTime?: string;
   /**
    * @remarks
-   * The ID of the online editing project.
+   * The online editing project ID.
    * 
    * @example
    * fb2101bf24b27*****54cb318787dc
@@ -45,7 +45,7 @@ export class GetEditingProjectResponseBodyProject extends $dara.Model {
   projectId?: string;
   /**
    * @remarks
-   * The region where the online editing project was created.
+   * The region ID.
    * 
    * @example
    * cn-shanghai
@@ -53,12 +53,12 @@ export class GetEditingProjectResponseBodyProject extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The status of the online editing project. Separate multiple states with commas (,). By default, all online editing projects were queried. Valid values:
+   * The status of the online editing project. Multiple statuses are separated by commas (,). By default, all online editing projects are returned. Valid values:
    * 
-   * *   **Normal**: indicates that the online editing project is in draft.
-   * *   **Producing**: indicates that the video is being produced.
-   * *   **Produced**: indicates that the video was produced.
-   * *   **ProduceFailed**: indicates that the video failed to be produced.
+   * - **Normal**: draft.
+   * - **Producing**: being produced.
+   * - **Produced**: produced.
+   * - **ProduceFailed**: failed to be produced.
    * 
    * @example
    * Normal
@@ -66,9 +66,8 @@ export class GetEditingProjectResponseBodyProject extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The path of the Object Storage Service (OSS) bucket where the online editing project is stored.
-   * 
-   * > To view the path of the OSS bucket, log on to the [ApsaraVideo VOD console](https://vod.console.aliyun.com/?spm=a2c4g.11186623.2.15.6948257eaZ4m54#/vod/settings/censored), and choose **Configuration Management** > **Media Management** > **Storage**. On the Storage page, you can view the path of the OSS bucket.
+   * The storage address.
+   * > You can log on to the [ApsaraVideo VOD console](https://vod.console.aliyun.com/?spm=a2c4g.11186623.2.15.6948257eaZ4m54#/vod/settings/censored) and choose **Configuration Management** > **Media Asset Management Configuration** > **Storage Management** to view the storage address.
    * 
    * @example
    * location_s
@@ -87,7 +86,7 @@ export class GetEditingProjectResponseBodyProject extends $dara.Model {
    * The title of the online editing project.
    * 
    * @example
-   * video_1508736815000
+   * Video_1508736815000
    */
   title?: string;
   static names(): { [key: string]: string } {
@@ -132,12 +131,12 @@ export class GetEditingProjectResponseBodyProject extends $dara.Model {
 export class GetEditingProjectResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the online editing project.
+   * The online editing project.
    */
   project?: GetEditingProjectResponseBodyProject;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 63E8B7C7-4812-46*****AD-0FA56029AC86

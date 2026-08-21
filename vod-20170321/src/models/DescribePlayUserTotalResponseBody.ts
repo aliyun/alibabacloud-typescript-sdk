@@ -136,7 +136,7 @@ export class DescribePlayUserTotalResponseBodyUserPlayStatisTotals extends $dara
 export class DescribePlayUserTotalResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 1FAFB884-D5A7-47D1-****-8928AA9C8720

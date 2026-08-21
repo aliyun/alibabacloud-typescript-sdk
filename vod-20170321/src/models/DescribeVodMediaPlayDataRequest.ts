@@ -5,11 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeVodMediaPlayDataRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the media file (VideoId). You can specify this parameter to query all playback data of a media file. You can specify only one media ID. You can use one of the following methods to obtain the ID:
-   * 
-   * *   Log on to the [ApsaraVideo VOD console](https://vod.console.aliyun.com). In the left-side navigation pane, choose **Media Files** > **Audio/Video**. On the page that appears, view the media ID.
-   * *   Obtain the value of the VideoId parameter in the response to the [CreateUploadVideo](~~CreateUploadVideo~~) operation that you called to upload the audio or video file.
-   * *   Obtain the value of VideoId by calling the [SearchMedia](~~SearchMedia~~) operation. This method is applicable to files that have been uploaded.
+   * The media ID, which is the audio or video ID (VideoId). Specify this parameter filtered query playback data for a specific media file. Only one media ID can be specified. You can obtain the media ID by using the following methods:
+   * - For audio or video files uploaded through the console, log on to the [ApsaraVideo VOD console](https://vod.console.aliyun.com) and choose **Media Files** > **Audio/Video** to view the audio or video ID.
+   * - When you upload an audio or video file by calling the [CreateUploadVideo](~~CreateUploadVideo~~) operation, the audio or video ID is the value of the VideoId response parameter.
+   * - After the audio or video file is uploaded, you can call the [SearchMedia](~~SearchMedia~~) operation filtered query the audio or video ID, which is the value of the VideoId response parameter.
    * 
    * @example
    * 9ae2af636ca6c10412f44891fc****
@@ -17,12 +16,11 @@ export class DescribeVodMediaPlayDataRequest extends $dara.Model {
   mediaId?: string;
   /**
    * @remarks
-   * The name of the metric. This parameter must be specified together with the `OrderType` parameter. You can specify this parameter to sort the returned data in ascending or descending order based on specific metrics. Valid values:
-   * 
-   * *   **PlaySuccessVv**: the total number of views.
-   * *   **PlayPerVv**: the average views per viewer.
-   * *   **PlayDuration**: the total playback duration.
-   * *   **PlayDurationPerUv**: the average playback duration per viewer.
+   * The metric name. This parameter is used together with the `OrderType` parameter. Specify this parameter to sort the returned data in ascending or descending order by a specified metric. Valid values:
+   * - **PlaySuccessVv**: total plays.
+   * - **PlayPerVv**: average plays per user.
+   * - **PlayDuration**: total play duration.
+   * - **PlayDurationPerUv**: average play duration per user.
    * 
    * @example
    * PlaySuccessVv
@@ -30,10 +28,9 @@ export class DescribeVodMediaPlayDataRequest extends $dara.Model {
   orderName?: string;
   /**
    * @remarks
-   * The sort type. This parameter must be specified together with the `OrderName` parameter. You can specify this parameter to sort the returned data in ascending or descending order based on specific metrics. Valid values:
-   * 
-   * *   **ASC**: The returned data is sorted in ascending order.
-   * *   **DESC**: The returned data is sorted in descending order.
+   * The sort order. This parameter is used together with the `OrderName` parameter. Specify this parameter to sort the returned data in ascending or descending order by a specified metric. Valid values:
+   * - **ASC**: ascending order. The returned data is sorted from smallest to largest.
+   * - **DESC**: descending order. The returned data is sorted from largest to smallest.
    * 
    * @example
    * ASC
@@ -41,13 +38,12 @@ export class DescribeVodMediaPlayDataRequest extends $dara.Model {
   orderType?: string;
   /**
    * @remarks
-   * The operating system of the player. You can specify this parameter to query all playback data generated on a specific operating system. Valid values:
-   * 
-   * *   **Android**
-   * *   **iOS**
-   * *   **Windows**
-   * *   **macOS**
-   * *   **Linux**
+   * The operating system of the playback device. Specify this parameter to perform a filtered query for playback data of all audio and video files by operating system. Valid values:
+   * - **Android**
+   * - **iOS**
+   * - **Windows**
+   * - **macOS**
+   * - **Linux**
    * 
    * @example
    * Android
@@ -55,7 +51,7 @@ export class DescribeVodMediaPlayDataRequest extends $dara.Model {
   os?: string;
   /**
    * @remarks
-   * The number of the page. You can specify a page number to return data from the specified page.
+   * The page number of the data to return. Specify this parameter to set the page from which data starts to be returned.
    * 
    * This parameter is required.
    * 
@@ -65,7 +61,7 @@ export class DescribeVodMediaPlayDataRequest extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * The number of entries per page. Maximum value: 100.
+   * The number of entries per page. Specify this parameter to set the number of entries displayed on each page. Maximum value: 100.
    * 
    * This parameter is required.
    * 
@@ -75,10 +71,9 @@ export class DescribeVodMediaPlayDataRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The playback time. Specify the value in the yyyyMMdd format.
-   * 
-   * > *   You can query data only by day.
-   * > *   You can query only data within the last 30 days.
+   * The playback date. Unit: day. Format: yyyyMMdd.
+   * > - Only daily queries are supported.
+   * > - Only data within the last 30 days can be queried.
    * 
    * @example
    * 20240322
@@ -86,15 +81,14 @@ export class DescribeVodMediaPlayDataRequest extends $dara.Model {
   playDate?: string;
   /**
    * @remarks
-   * The region in which ApsaraVideo VOD is activated. You can specify this parameter to query all playback data generated only in a specific region. Valid values:
-   * 
-   * *   **cn-beijing**: China (Beijing)
-   * *   **cn-shanghai**: China (Shanghai)
-   * *   **cn-shenzhen**: China (Shenzhen)
-   * *   **ap-northeast-1**: Japan (Tokyo)
-   * *   **ap-southeast-1**: Singapore
-   * *   **ap-southeast-5**: Indonesia (Jakarta)
-   * *   **eu-central-1**: Germany (Frankfurt)
+   * The service region. Specify this parameter to perform a filtered query for playback data of all audio and video files by service region. Valid values:
+   * - **cn-beijing**: China (Beijing)
+   * - **cn-shanghai**: China (Shanghai)
+   * - **cn-shenzhen**: China (Shenzhen)
+   * - **ap-northeast-1**: Japan (Tokyo)
+   * - **ap-southeast-1**: Singapore
+   * - **ap-southeast-5**: Indonesia (Jakarta)
+   * - **eu-central-1**: Germany (Frankfurt)
    * 
    * @example
    * cn-beijing
@@ -102,10 +96,9 @@ export class DescribeVodMediaPlayDataRequest extends $dara.Model {
   region?: string;
   /**
    * @remarks
-   * The type of the player SDK. You can specify this parameter to query all playback data generated by using a specific type of player SDK. Valid values:
-   * 
-   * *   **Native**: ApsaraVideo Player SDK for Android or ApsaraVideo Player SDK for iOS
-   * *   **Web**: ApsaraVideo Player SDK for Web
+   * The terminal type of the Player SDK. Specify this parameter to perform a filtered query for playback data of all audio and video files by terminal type. Valid values:
+   * - **Native**: Android Player SDK or iOS Player SDK.
+   * - **Web**: Web Player SDK.
    * 
    * @example
    * Native

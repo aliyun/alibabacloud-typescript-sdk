@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetMediaAuditResultTimelineRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the video.
+   * The video ID.
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DecryptKMSDataKeyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the customer master key (CMK) that was used to decrypt the ciphertext.
+   * The ID of the master key used to decrypt the ciphertext.
    * 
    * @example
    * 202b9877-5a25-46e3-a763-e20791b5****
@@ -13,7 +13,7 @@ export class DecryptKMSDataKeyResponseBody extends $dara.Model {
   keyId?: string;
   /**
    * @remarks
-   * The plaintext that is generated after decryption.
+   * The decrypted plaintext.
    * 
    * @example
    * tRYXuCwgja12xxO1N/gZERDDCLw9doZEQiPDk/Bv****

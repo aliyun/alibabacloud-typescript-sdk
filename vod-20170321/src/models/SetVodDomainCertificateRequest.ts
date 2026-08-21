@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SetVodDomainCertificateRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the certificate.
+   * The certificate name.
    * 
    * @example
    * cert_name
@@ -13,7 +13,7 @@ export class SetVodDomainCertificateRequest extends $dara.Model {
   certName?: string;
   /**
    * @remarks
-   * The domain name that is secured by the certificate. The domain name must use HTTPS acceleration.
+   * The accelerated domain name to which the certificate belongs. The domain name must be of the HTTPS acceleration type.
    * 
    * This parameter is required.
    * 
@@ -24,7 +24,7 @@ export class SetVodDomainCertificateRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The private key. This parameter is required only if you enable the SSL certificate.
+   * The content of the private key. If you do not enable the certificate, you do not need to enter this parameter. If you configure a certificate, enter the private key content.
    * 
    * @example
    * ****
@@ -32,10 +32,10 @@ export class SetVodDomainCertificateRequest extends $dara.Model {
   SSLPri?: string;
   /**
    * @remarks
-   * Specifies whether to enable the SSL certificate. Default value: off. Valid values:
+   * Specifies whether to enable the HTTPS certificate. Valid values:
    * 
-   * *   **on**
-   * *   **off**
+   * - **on**: enabled.
+   * - **off** (default): disabled.
    * 
    * This parameter is required.
    * 
@@ -45,7 +45,7 @@ export class SetVodDomainCertificateRequest extends $dara.Model {
   SSLProtocol?: string;
   /**
    * @remarks
-   * The content of the certificate. This parameter is required only if you enable the SSL certificate.
+   * The content of the security certificate. If you do not enable the certificate, you do not need to enter this parameter. If you configure a certificate, enter the certificate content.
    * 
    * @example
    * ****

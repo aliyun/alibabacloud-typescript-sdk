@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitWorkflowJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * A01C8FF4-C106-4431-418F973DADB7****

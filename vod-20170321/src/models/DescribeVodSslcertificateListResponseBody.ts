@@ -73,7 +73,7 @@ export class DescribeVodSSLCertificateListResponseBodyCertificateListModel exten
   certList?: DescribeVodSSLCertificateListResponseBodyCertificateListModelCertList;
   /**
    * @remarks
-   * The number of certificates that are returned.
+   * The number of certificates.
    * 
    * @example
    * 2
@@ -81,7 +81,7 @@ export class DescribeVodSSLCertificateListResponseBodyCertificateListModel exten
   count?: number;
   /**
    * @remarks
-   * The page number. Pages start from page 1. Default value: 1.
+   * The current page number. The start value is 1. Default value: 1.
    * 
    * @example
    * 1
@@ -89,7 +89,7 @@ export class DescribeVodSSLCertificateListResponseBodyCertificateListModel exten
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Valid values: integers from 1 to 1000.
+   * The page size. Valid values: any integer from 1 to 1000.
    * 
    * @example
    * 20
@@ -128,12 +128,12 @@ export class DescribeVodSSLCertificateListResponseBodyCertificateListModel exten
 export class DescribeVodSSLCertificateListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about certificates.
+   * The certificate list information.
    */
   certificateListModel?: DescribeVodSSLCertificateListResponseBodyCertificateListModel;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 25818875-5F78-4AF6-D7393642CA58****

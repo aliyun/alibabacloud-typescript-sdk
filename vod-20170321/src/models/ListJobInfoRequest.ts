@@ -5,11 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class ListJobInfoRequest extends $dara.Model {
   /**
    * @remarks
-   * The type of the task. Valid values:
+   * The task type. Valid values:
    * 
-   * *   transcode
-   * *   snapshot
-   * *   ai
+   * - transcode
+   * 
+   * - snapshot
+   * 
+   * - ai
    * 
    * This parameter is required.
    * 
@@ -19,7 +21,7 @@ export class ListJobInfoRequest extends $dara.Model {
   jobType?: string;
   /**
    * @remarks
-   * The ID of the media asset.
+   * The media asset ID.
    * 
    * This parameter is required.
    * 

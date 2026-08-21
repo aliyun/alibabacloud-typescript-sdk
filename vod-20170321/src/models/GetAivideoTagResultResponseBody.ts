@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class GetAIVideoTagResultResponseBodyVideoTagResultCategory extends $dara.Model {
   /**
    * @remarks
-   * The tag string.
+   * The label.
    * 
    * @example
-   * Retouching
+   * Beauty
    */
   tag?: string;
   static names(): { [key: string]: string } {
@@ -35,7 +35,7 @@ export class GetAIVideoTagResultResponseBodyVideoTagResultCategory extends $dara
 export class GetAIVideoTagResultResponseBodyVideoTagResultKeyword extends $dara.Model {
   /**
    * @remarks
-   * The tag string.
+   * The label.
    * 
    * @example
    * Cushion
@@ -43,7 +43,7 @@ export class GetAIVideoTagResultResponseBodyVideoTagResultKeyword extends $dara.
   tag?: string;
   /**
    * @remarks
-   * The points in time when the tags are displayed. Unit: milliseconds.
+   * The collection of time points. Unit: milliseconds.
    */
   times?: string[];
   static names(): { [key: string]: string } {
@@ -75,7 +75,7 @@ export class GetAIVideoTagResultResponseBodyVideoTagResultKeyword extends $dara.
 export class GetAIVideoTagResultResponseBodyVideoTagResultLocation extends $dara.Model {
   /**
    * @remarks
-   * The tag string.
+   * The label.
    * 
    * @example
    * Asia
@@ -83,7 +83,7 @@ export class GetAIVideoTagResultResponseBodyVideoTagResultLocation extends $dara
   tag?: string;
   /**
    * @remarks
-   * The points in time when the tags are displayed. Unit: milliseconds.
+   * The collection of time points. Unit: milliseconds.
    */
   times?: string[];
   static names(): { [key: string]: string } {
@@ -115,9 +115,9 @@ export class GetAIVideoTagResultResponseBodyVideoTagResultLocation extends $dara
 export class GetAIVideoTagResultResponseBodyVideoTagResultPerson extends $dara.Model {
   /**
    * @remarks
-   * The URL of the profile photo.
+   * The face URL.
    * 
-   * > This parameter is returned only when a figure tag was used.
+   * > This field is returned only for person tag results.
    * 
    * @example
    * http://example.com/aivideotag/8829B4DB-AFD9-4F*****F6-12965DBFFA14/Index_****.jpg
@@ -125,15 +125,15 @@ export class GetAIVideoTagResultResponseBodyVideoTagResultPerson extends $dara.M
   faceUrl?: string;
   /**
    * @remarks
-   * The tag string.
+   * The label.
    * 
    * @example
-   * John
+   * Xiao Wang
    */
   tag?: string;
   /**
    * @remarks
-   * The points in time when the tags are displayed. Unit: milliseconds.
+   * The collection of time points. Unit: milliseconds.
    */
   times?: string[];
   static names(): { [key: string]: string } {
@@ -167,15 +167,15 @@ export class GetAIVideoTagResultResponseBodyVideoTagResultPerson extends $dara.M
 export class GetAIVideoTagResultResponseBodyVideoTagResultTime extends $dara.Model {
   /**
    * @remarks
-   * The tag string.
+   * The label.
    * 
    * @example
-   * Milliseconds
+   * Millisecond
    */
   tag?: string;
   /**
    * @remarks
-   * The points in time when the tags are displayed. Unit: milliseconds.
+   * The collection of time points. Unit: milliseconds.
    */
   times?: string[];
   static names(): { [key: string]: string } {
@@ -207,27 +207,27 @@ export class GetAIVideoTagResultResponseBodyVideoTagResultTime extends $dara.Mod
 export class GetAIVideoTagResultResponseBodyVideoTagResult extends $dara.Model {
   /**
    * @remarks
-   * The video categories.
+   * The collection of video categories.
    */
   category?: GetAIVideoTagResultResponseBodyVideoTagResultCategory[];
   /**
    * @remarks
-   * The keyword tags.
+   * The collection of keyword tags.
    */
   keyword?: GetAIVideoTagResultResponseBodyVideoTagResultKeyword[];
   /**
    * @remarks
-   * The location tags.
+   * The collection of location tags.
    */
   location?: GetAIVideoTagResultResponseBodyVideoTagResultLocation[];
   /**
    * @remarks
-   * The figure tags.
+   * The collection of person tags.
    */
   person?: GetAIVideoTagResultResponseBodyVideoTagResultPerson[];
   /**
    * @remarks
-   * The time tags.
+   * The collection of time tags.
    */
   time?: GetAIVideoTagResultResponseBodyVideoTagResultTime[];
   static names(): { [key: string]: string } {
@@ -277,7 +277,7 @@ export class GetAIVideoTagResultResponseBodyVideoTagResult extends $dara.Model {
 export class GetAIVideoTagResultResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 8829B4DB-AFD9-4FF6-12965DBFFA14****
@@ -285,7 +285,7 @@ export class GetAIVideoTagResultResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The returned result.
+   * The result data.
    */
   videoTagResult?: GetAIVideoTagResultResponseBodyVideoTagResult;
   static names(): { [key: string]: string } {

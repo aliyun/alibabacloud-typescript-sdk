@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetMediaAuditAudioResultDetailResponseBodyMediaAuditAudioResultDetailList extends $dara.Model {
   /**
    * @remarks
-   * The end time of the audio that failed the review. Unit: seconds.
+   * The end time of the problematic audio segment. Unit: seconds.
    * 
    * @example
    * 10
@@ -13,14 +13,18 @@ export class GetMediaAuditAudioResultDetailResponseBodyMediaAuditAudioResultDeta
   endTime?: number;
   /**
    * @remarks
-   * The review results. Valid values:
-   * *   **spam**
-   * *   **ad**
-   * *   **abuse**
-   * *   **flood**
-   * *   **contraband**
-   * *   **meaningless**
-   * *   **normal**
+   * The category of the audio review result. Valid values:
+   * 
+   * - **normal**: Normal.
+   * - **spam**: Contains spam.
+   * - **ad**: Advertisement.
+   * - **politics**: Political content.
+   * - **terrorism**: Terrorist content.
+   * - **abuse**: Abusive content.
+   * - **porn**: Pornographic content.
+   * - **flood**: Junk content.
+   * - **contraband**: Prohibited content.
+   * - **meaningless**: Meaningless content.
    * 
    * @example
    * abuse
@@ -28,7 +32,7 @@ export class GetMediaAuditAudioResultDetailResponseBodyMediaAuditAudioResultDeta
   label?: string;
   /**
    * @remarks
-   * The start time of the audio that failed the review. Unit: seconds.
+   * The start time of the problematic audio segment. Unit: seconds.
    * 
    * @example
    * 8
@@ -36,10 +40,10 @@ export class GetMediaAuditAudioResultDetailResponseBodyMediaAuditAudioResultDeta
   startTime?: number;
   /**
    * @remarks
-   * The text that corresponds to the audio.
+   * The text content corresponding to the audio.
    * 
    * @example
-   * beauty
+   * Tiananmen
    */
   text?: string;
   static names(): { [key: string]: string } {
@@ -72,12 +76,12 @@ export class GetMediaAuditAudioResultDetailResponseBodyMediaAuditAudioResultDeta
 export class GetMediaAuditAudioResultDetailResponseBodyMediaAuditAudioResultDetail extends $dara.Model {
   /**
    * @remarks
-   * The list of results.
+   * The result list.
    */
   list?: GetMediaAuditAudioResultDetailResponseBodyMediaAuditAudioResultDetailList[];
   /**
    * @remarks
-   * The page number of the returned page.
+   * The current page number.
    * 
    * @example
    * 1
@@ -85,7 +89,7 @@ export class GetMediaAuditAudioResultDetailResponseBodyMediaAuditAudioResultDeta
   pageTotal?: number;
   /**
    * @remarks
-   * The total number of pages returned.
+   * The total number of pages.
    * 
    * @example
    * 10
@@ -122,12 +126,12 @@ export class GetMediaAuditAudioResultDetailResponseBodyMediaAuditAudioResultDeta
 export class GetMediaAuditAudioResultDetailResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Details of review results.
+   * The review results.
    */
   mediaAuditAudioResultDetail?: GetMediaAuditAudioResultDetailResponseBodyMediaAuditAudioResultDetail;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * CB7D7232-1AB2-40FE-B8D3-****

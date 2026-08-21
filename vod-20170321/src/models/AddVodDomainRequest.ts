@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddVodDomainRequest extends $dara.Model {
   /**
    * @remarks
-   * The URL that is used for health checks.
+   * The health check URL.
    * 
    * @example
    * www.example.com/test.html
@@ -13,7 +13,7 @@ export class AddVodDomainRequest extends $dara.Model {
   checkUrl?: string;
   /**
    * @remarks
-   * The domain name that you want to accelerate. Wildcard domain names that start with periods (.) are supported. Example: .example.com.
+   * The accelerated domain name to be added to ApsaraVideo VOD. Wildcard domain names are supported, starting with a period (.), such as .example.com.
    * 
    * This parameter is required.
    * 
@@ -25,11 +25,10 @@ export class AddVodDomainRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * This parameter is applicable to users of level 3 or higher in the Chinese mainland and users outside the Chinese mainland. Default value: domestic. Valid values:
-   * 
-   * *   **domestic**: Chinese mainland
-   * *   **overseas**: outside the Chinese mainland
-   * *   **global**: regions in and outside the Chinese mainland
+   * This parameter is valid for international users and Chinese mainland users of L3 or higher. Valid values:
+   * - **domestic** (default): the Chinese mainland.
+   * - **overseas**: Hong Kong (China), Macao (China), Taiwan (China), and regions outside China.
+   * - **global**: global acceleration.
    * 
    * @example
    * domestic
@@ -38,7 +37,7 @@ export class AddVodDomainRequest extends $dara.Model {
   securityToken?: string;
   /**
    * @remarks
-   * The information about the addresses of origin servers. For more information, see the **Sources** table in this topic.
+   * The list of origin addresses. For more information about the parameters, see the **Sources** table below.
    * 
    * This parameter is required.
    * 
@@ -48,7 +47,7 @@ export class AddVodDomainRequest extends $dara.Model {
   sources?: string;
   /**
    * @remarks
-   * The top-level domain.
+   * The top-level domain name.
    * 
    * @example
    * example.com

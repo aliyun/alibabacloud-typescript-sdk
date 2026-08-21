@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeVodCertificateListRequest extends $dara.Model {
   /**
    * @remarks
-   * The domain name for CDN.
+   * The accelerated domain name for ApsaraVideo VOD.
    * 
    * @example
    * example.com

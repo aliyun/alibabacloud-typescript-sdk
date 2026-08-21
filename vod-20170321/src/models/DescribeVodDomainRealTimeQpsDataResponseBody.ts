@@ -58,7 +58,7 @@ export class DescribeVodDomainRealTimeQpsDataResponseBody extends $dara.Model {
   data?: DescribeVodDomainRealTimeQpsDataResponseBodyData;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 32DC9806-E9F9-4490-BBDC-B3A9E32FCC1D

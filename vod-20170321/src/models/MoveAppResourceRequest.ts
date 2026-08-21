@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class MoveAppResourceRequest extends $dara.Model {
   /**
    * @remarks
-   * The resource ID. You can specify a maximum of 20 IDs at a time. Separate multiple IDs with commas (,).
+   * The resource IDs. Separate multiple IDs with commas (,). You can specify a maximum of 20 IDs at a time.
    * 
    * This parameter is required.
    * 
@@ -16,10 +16,9 @@ export class MoveAppResourceRequest extends $dara.Model {
   /**
    * @remarks
    * The resource type. Valid values:
-   * 
-   * *   **video**: video files.
-   * *   **image**: image files.
-   * *   **attached**: auxiliary media assets.
+   * - **video**: video.
+   * - **image**: image.
+   * - **attached**: auxiliary media asset.
    * 
    * This parameter is required.
    * 
@@ -29,7 +28,7 @@ export class MoveAppResourceRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The ID of the application to which resources are migrated. Default value: **app-1000000**. For more information, see [Use the multi-application service](https://help.aliyun.com/document_detail/113600.html).
+   * The ID of the destination application. Default value: **app-1000000**. For more information, see [Multi-application](https://help.aliyun.com/document_detail/113600.html).
    * 
    * This parameter is required.
    * 

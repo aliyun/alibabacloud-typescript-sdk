@@ -13,7 +13,7 @@ export class DescribeVodRefreshTasksRequest extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
-   * The end of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+   * The end time. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
    * 
    * @example
    * 2017-01-01T12:30:20Z
@@ -21,7 +21,7 @@ export class DescribeVodRefreshTasksRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The path of the object. The path is used as a condition for exact matching.
+   * The path used to query. Exact match is used.
    * 
    * @example
    * http://example.com/***.txt
@@ -29,13 +29,12 @@ export class DescribeVodRefreshTasksRequest extends $dara.Model {
   objectPath?: string;
   /**
    * @remarks
-   * The type of the task. Valid values:
+   * The task type. Valid values:
+   * - **file**: file purge.
+   * - **directory**: directory purge.
+   * - **preload**: file prefetch.
    * 
-   * *   **file**: refreshes one or more files.
-   * *   **directory**: refreshes files in the specified directories.
-   * *   **preload**: prefetches one or more files.
-   * 
-   * > If you specify the DomainName or Status parameter, you must also specify the ObjectType parameter.
+   * > When DomainName or Status is specified, ObjectType is required.
    * 
    * @example
    * file
@@ -52,7 +51,7 @@ export class DescribeVodRefreshTasksRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Default value: **20**. Maximum value: **50**.
+   * The number of entries per page. Default value: **20**. Maximum value: **50**.
    * 
    * @example
    * 20
@@ -61,9 +60,9 @@ export class DescribeVodRefreshTasksRequest extends $dara.Model {
   securityToken?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+   * The start time. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
    * 
-   * > You can query data that is collected in the last three days.
+   * > Only data within the last 3 days can be queried.
    * 
    * @example
    * 2017-01-01T12:12:20Z
@@ -71,11 +70,11 @@ export class DescribeVodRefreshTasksRequest extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The status of the task. Valid values:
+   * The task status. Valid values:
    * 
-   * *   **Complete**: The task is complete.
-   * *   **Refreshing**: The task is in progress.
-   * *   **Failed**: The task failed.
+   * - **Complete**: completed.
+   * - **Refreshing**: in progress.
+   * - **Failed**: failed.
    * 
    * @example
    * Complete
@@ -83,7 +82,7 @@ export class DescribeVodRefreshTasksRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The ID of the task that you want to query.
+   * The task ID used to query the purge status.
    * 
    * @example
    * 70422****

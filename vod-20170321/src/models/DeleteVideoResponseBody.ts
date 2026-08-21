@@ -5,20 +5,24 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteVideoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The IDs of the videos that cannot be deleted.
-   * > Generally, videos cannot be deleted if you do not have the required [permissions](https://help.aliyun.com/document_detail/113600.html).
+   * The list of video IDs for which the operation is forbidden.
+   * 
+   * > This is typically caused by insufficient [permissions](https://help.aliyun.com/document_detail/113600.html).
    */
   forbiddenVideoIds?: string[];
+  /**
+   * @remarks
+   * The list of custom IDs that do not exist.
+   */
   nonExistReferenceIds?: string[];
   /**
    * @remarks
-   * The IDs of the videos that do not exist.
-   * > If the list of videos to be deleted contains one or more videos that do not exist, the IDs of these non-existing videos are returned. If none of the videos in the list exists, a 404 error is returned.
+   * The list of video IDs that do not exist.
    */
   nonExistVideoIds?: string[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * E4EBD2BF-5EB0-4476-8829-9D94E1B1****

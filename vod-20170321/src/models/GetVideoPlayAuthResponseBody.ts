@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetVideoPlayAuthResponseBodyVideoMeta extends $dara.Model {
   /**
    * @remarks
-   * The thumbnail URL of the media file.
+   * The thumbnail URL of the audio or video file.
    * 
    * @example
    * https://example.aliyundoc.com/****.jpg
@@ -13,7 +13,7 @@ export class GetVideoPlayAuthResponseBodyVideoMeta extends $dara.Model {
   coverURL?: string;
   /**
    * @remarks
-   * The duration of the media file. Unit: seconds.
+   * The duration of the audio or video file. Unit: seconds.
    * 
    * @example
    * 120.0
@@ -21,7 +21,7 @@ export class GetVideoPlayAuthResponseBodyVideoMeta extends $dara.Model {
   duration?: number;
   /**
    * @remarks
-   * The status of the media file. For more information about the value range and description, see [Status: the status of a video](~~52839#title-vqg-8cz-7p8~~).
+   * The status of the audio or video file. For valid values and descriptions, see [Status: audio and video status](~~52839#title-vqg-8cz-7p8~~).
    * 
    * @example
    * Normal
@@ -29,15 +29,15 @@ export class GetVideoPlayAuthResponseBodyVideoMeta extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The title of the media file.
+   * The title of the audio or video file.
    * 
    * @example
-   * VOD
+   * Alibaba Cloud VOD Video Title
    */
   title?: string;
   /**
    * @remarks
-   * The ID of the media file.
+   * The audio or video ID.
    * 
    * @example
    * dfde02284a5c46622a097adaf44a****
@@ -75,7 +75,7 @@ export class GetVideoPlayAuthResponseBodyVideoMeta extends $dara.Model {
 export class GetVideoPlayAuthResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The credential for media playback.
+   * The playback credential for the audio or video file.
    * 
    * @example
    * sstyYuew6789000000xtt7TYUh****
@@ -83,7 +83,7 @@ export class GetVideoPlayAuthResponseBody extends $dara.Model {
   playAuth?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * E4EBD2BF-5EB0-4476-8829-9D94E1B1****

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddCategoryResponseBodyCategory extends $dara.Model {
   /**
    * @remarks
-   * The ID of the category. You can use the value of this parameter when you call the [UpdateCategory](~~UpdateCategory~~), [DeleteCategory](~~DeleteCategory~~), and [GetCategories](~~GetCategories~~) operations.
+   * The category ID. This ID can be used as a request parameter for the [UpdateCategory](~~UpdateCategory~~), [DeleteCategory](~~DeleteCategory~~), and [GetCategories](~~GetCategories~~) operations.
    * 
    * @example
    * 10020
@@ -13,19 +13,18 @@ export class AddCategoryResponseBodyCategory extends $dara.Model {
   cateId?: number;
   /**
    * @remarks
-   * The name of the category.
+   * The category name.
    * 
    * @example
-   * test
+   * Comedy
    */
   cateName?: string;
   /**
    * @remarks
-   * The level of the category. Valid values:
-   * 
-   * *   **0**: level 1 category
-   * *   **1**: level 2 category
-   * *   **1**: level 3 category
+   * The category level. Valid values:
+   * - **0**: level-0 category.
+   * - **1**: level-1 category.
+   * - **2**: level-2 category.
    * 
    * @example
    * 1
@@ -33,7 +32,7 @@ export class AddCategoryResponseBodyCategory extends $dara.Model {
   level?: number;
   /**
    * @remarks
-   * The ID of the parent category.
+   * The parent category ID.
    * 
    * @example
    * 100012
@@ -41,10 +40,10 @@ export class AddCategoryResponseBodyCategory extends $dara.Model {
   parentId?: number;
   /**
    * @remarks
-   * The type of the category. Valid values:
+   * The category type. Valid values:
    * 
-   * *   **default**: audio, video, and image files
-   * *   **material**: short video materials
+   * - **default**: audio/video/image category.
+   * - **material**: short video material category.
    * 
    * @example
    * default
@@ -82,12 +81,12 @@ export class AddCategoryResponseBodyCategory extends $dara.Model {
 export class AddCategoryResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the category.
+   * The media asset category information.
    */
   category?: AddCategoryResponseBodyCategory;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 25818875-5F78-4AF6-D7393642CA58****

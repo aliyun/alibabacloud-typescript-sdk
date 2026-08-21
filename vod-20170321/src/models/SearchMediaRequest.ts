@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class SearchMediaRequest extends $dara.Model {
   /**
    * @remarks
-   * The media asset fields to return in the query results.
+   * The media asset fields to return in the search results.
    * 
-   * By default, only the basic media asset fields are returned. You can specify additional media asset fields that need to be returned in the request. For more information, see the "API examples" section of the [Search for media asset information](https://help.aliyun.com/document_detail/99179.html) topic.
+   * By default, only basic media asset fields are returned. You can specify additional media asset fields to return. For more information, see [Usage examples](https://help.aliyun.com/document_detail/99179.html).
    * 
    * @example
    * Title,CoverURL
@@ -15,7 +15,7 @@ export class SearchMediaRequest extends $dara.Model {
   fields?: string;
   /**
    * @remarks
-   * The filter condition. For more information about the syntax, see [Protocol for media asset search](https://help.aliyun.com/document_detail/86991.html).
+   * The filter conditions. For syntax rules, see [Search protocol syntax](https://help.aliyun.com/document_detail/86991.html).
    * 
    * @example
    * field = value
@@ -23,9 +23,9 @@ export class SearchMediaRequest extends $dara.Model {
   match?: string;
   /**
    * @remarks
-   * The number of the page to return. Default value: **1**.
+   * The page number. Default value: **1**.
    * 
-   * > If the value of this parameter exceeds **200**, we recommend that you set the ScrollToken parameter as well.
+   * > If this parameter exceeds **200**, set the ScrollToken parameter as well.
    * 
    * @example
    * 1
@@ -33,7 +33,7 @@ export class SearchMediaRequest extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Default value: **10**. Maximum value: **100**.
+   * The number of records per page. Default value: **10**. Maximum value: **100**.
    * 
    * @example
    * 10
@@ -41,10 +41,10 @@ export class SearchMediaRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The pagination identifier. The password must be 32 characters in length The first time you call this operation for each new search, you do not need to specify this parameter. The value of this parameter is returned each time data records that meet the specified filter condition are found. The value is used to record the current position of queried data. Record the returned parameter value and set this parameter according to the following requirements during the next search:
-   * 
-   * *   If SearchType is set to **video** or **audio** and you need to traverse all data that meets the filter criteria, you must set the ScrollToken parameter.
-   * *   If the value of the PageNo parameter exceeds **200**, we recommend that you set this parameter to optimize search performance.
+   * The pagination token. The value is a 32-character string.
+   * You do not need to set this parameter for the first search request. When the search request matches data, the server returns this parameter value, which records the current position of the search data. Record the returned value and set this parameter in the next search request based on the following requirements or recommendations:
+   * - If SearchType is set to **video** or **audio** and you need to traverse all data that matches the search conditions, this parameter is required.
+   * - If PageNo exceeds **200**, set this parameter to optimize search performance.
    * 
    * @example
    * 24e0fba7188fae707e146esa54****
@@ -52,14 +52,14 @@ export class SearchMediaRequest extends $dara.Model {
   scrollToken?: string;
   /**
    * @remarks
-   * The type of the media asset that you want to query. Default value: video. Valid values:
+   * The type of media asset to search. Valid values:
    * 
-   * *   **video**
-   * *   **audio**
-   * *   **image**
-   * *   **attached**
+   * - **video** (default): video.
+   * - **audio**: audio.
+   * - **image**: image.
+   * - **attached**: auxiliary media asset.
    * 
-   * > If this parameter is set to **video** or **audio** and you want to traverse all data that meets the filter criteria, you must set the ScrollToken parameter.
+   * > If this parameter is set to **video** or **audio** and you need to traverse all data that matches the search conditions, you must set the ScrollToken parameter.
    * 
    * @example
    * video
@@ -67,14 +67,13 @@ export class SearchMediaRequest extends $dara.Model {
   searchType?: string;
   /**
    * @remarks
-   * The sort field and order. Separate multiple values with commas (,). Default value: CreationTime:Desc. Valid values:
+   * The sort field and sort order. Separate multiple values with commas (,). Valid values:
+   * - **CreationTime:Desc** (default): sorts by creation time in descending order.
+   * - **CreationTime:Asc**: sorts by creation time in ascending order.
    * 
-   * *   **CreationTime:Desc**: The results are sorted in reverse chronological order based on the creation time.
-   * *   **CreationTime:Asc**: The results are sorted in chronological order based on the creation time.
-   * 
-   * > * For more information about the sort field, see "Sort field" in the [Search for media asset information](https://help.aliyun.com/document_detail/99179.html) topic.
-   * > * To obtain the first 5,000 data records that meet the specified filter criteria, you can specify a maximum of three sort fields.
-   * > * To obtain all the data records that meet the specified filter criteria, you can specify only one sort field.
+   * > - For sort field examples, see [Sort fields](https://help.aliyun.com/document_detail/99179.html).
+   * > - When retrieving the first 5,000 records of search results, up to three sort fields are supported.
+   * > - When retrieving all data that matches the search conditions, only one sort field is supported.
    * 
    * @example
    * CreationTime:Desc

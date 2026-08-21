@@ -5,6 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class RefreshUploadVideoRequest extends $dara.Model {
   ownerId?: number;
   /**
+   * @remarks
+   * The custom ID. Only lowercase letters, uppercase letters, digits, hyphens, and underscores are supported. The value must be 6 to 64 characters in length and is unique at the user level.
+   * 
    * @example
    * 123-123
    */
@@ -13,11 +16,10 @@ export class RefreshUploadVideoRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The ID of the audio or video file. You can use one of the following methods to obtain the ID:
-   * 
-   * *   Log on to the [ApsaraVideo VOD console](https://vod.console.aliyun.com) and choose **Media Files** > **Audio/Video** in the left-side navigation pane to view the ID.
-   * *   View the value of the VideoId parameter returned by the [CreateUploadVideo](https://help.aliyun.com/document_detail/55407.html) operation that you called to upload the audio or video file.
-   * *   After an audio or video file is uploaded, obtain the value of VideoId from the response to the [SearchMedia](https://help.aliyun.com/document_detail/86044.html) operation that you call to query the audio or video ID.
+   * The audio or video ID. You can obtain the ID by using one of the following methods:
+   * - For videos uploaded by using the console, log on to the [ApsaraVideo VOD console](https://vod.console.aliyun.com) and choose **Media Files** > **Audio/Video** to view the audio or video ID.
+   * - If the audio or video is uploaded by calling the [CreateUploadVideo](https://help.aliyun.com/document_detail/55407.html) operation, the audio or video ID is the value of the VideoId parameter in the response.
+   * - After the audio or video is uploaded, you can call the [SearchMedia](https://help.aliyun.com/document_detail/86044.html) operation to query the audio or video ID, which is the value of the VideoId parameter in the response.
    * 
    * @example
    * c6a23a870c8c4ffcd40cbd381333****

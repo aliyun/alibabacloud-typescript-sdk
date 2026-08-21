@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAITemplateResponseBodyTemplateInfoList extends $dara.Model {
   /**
    * @remarks
-   * The time when the AI template was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+   * The time when the AI template was created. The time is displayed in UTC in the format of <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z.
    * 
    * @example
    * 2020-07-08T06:50:45Z
@@ -13,10 +13,9 @@ export class ListAITemplateResponseBodyTemplateInfoList extends $dara.Model {
   creationTime?: string;
   /**
    * @remarks
-   * Indicates whether the template is the default AI template. Valid values:
-   * 
-   * *   **Default**
-   * *   **NotDefault**
+   * Indicates whether the AI template is the default template. Valid values:
+   * - **Default**: The template is the default template.
+   * - **NotDefault**: The template is not the default template.
    * 
    * @example
    * NoDefault
@@ -24,7 +23,7 @@ export class ListAITemplateResponseBodyTemplateInfoList extends $dara.Model {
   isDefault?: string;
   /**
    * @remarks
-   * The time when the AI template was modified. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+   * The time when the AI template was last modified. The time is displayed in UTC in the format of <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z.
    * 
    * @example
    * 2020-07-08T06:58:45Z
@@ -33,9 +32,8 @@ export class ListAITemplateResponseBodyTemplateInfoList extends $dara.Model {
   /**
    * @remarks
    * The source of the AI template. Valid values:
-   * 
-   * *   **System**
-   * *   **Custom**
+   * - **System**: system.
+   * - **Custom**: custom.
    * 
    * @example
    * Custom
@@ -43,7 +41,7 @@ export class ListAITemplateResponseBodyTemplateInfoList extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * The detailed configurations of the AI template. The value is a JSON string. For more information, see [AITemplateConfig](~~89863#title-vd3-499-o36~~).
+   * The detailed configuration of the AI template. The value is a JSON string. For more information, see [AITemplateConfig](~~89863#title-vd3-499-o36~~).
    * 
    * @example
    * {"AuditRange":["text-title","video"],"AuditContent":["screen"],"AuditItem":["terrorism","porn"],"AuditAutoBlock":"yes"}
@@ -67,10 +65,9 @@ export class ListAITemplateResponseBodyTemplateInfoList extends $dara.Model {
   templateName?: string;
   /**
    * @remarks
-   * The type of the AI template. Valid values:
-   * 
-   * *   **AIMediaAudit**: automated review
-   * *   **AIImage**: smart thumbnail
+   * The templatetype of the AI template. Valid values:
+   * - **AIMediaAudit**: automated review.
+   * - **AIImage**: smart thumbnail.
    * 
    * @example
    * AIMediaAudit
@@ -114,7 +111,7 @@ export class ListAITemplateResponseBodyTemplateInfoList extends $dara.Model {
 export class ListAITemplateResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 75B7BC67-FB8C-4653-4788-F4B01ED2****
@@ -122,7 +119,7 @@ export class ListAITemplateResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The information about the AI templates.
+   * The list of AI template information.
    */
   templateInfoList?: ListAITemplateResponseBodyTemplateInfoList[];
   static names(): { [key: string]: string } {

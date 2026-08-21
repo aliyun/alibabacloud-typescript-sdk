@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetMediaRefreshJobsResponseBodyMediaRefreshJobs extends $dara.Model {
   /**
    * @remarks
-   * The error code. This parameter is returned if the refresh or prefetch task fails.
+   * The error code. This field is returned when the purge or prefetch task fails to be submitted.
    * 
    * @example
    * PreloadQueueFull
@@ -13,7 +13,7 @@ export class GetMediaRefreshJobsResponseBodyMediaRefreshJobs extends $dara.Model
   errorCode?: string;
   /**
    * @remarks
-   * The error message. This parameter is returned if the refresh or prefetch task fails.
+   * The error message. This field is returned when the purge or prefetch task fails to be submitted.
    * 
    * @example
    * Preload queue is full, please try again later!
@@ -21,7 +21,7 @@ export class GetMediaRefreshJobsResponseBodyMediaRefreshJobs extends $dara.Model
   errorMessage?: string;
   /**
    * @remarks
-   * The filtering conditions for stream playback. The value is a JSON string. This parameter is used as a request parameter of the [RefreshMediaPlayUrls](~~RefreshMediaPlayUrls~~) operation.
+   * The filtering policy for playback streams. The value is in JSON format and contains the request parameters of the [SubmitMediaRefreshJob](https://help.aliyun.com/document_detail/431095.html) operation.
    * 
    * @example
    * {"Formats":"mp4,m3u8", "Definitions":"HD,SD",  " StreamType":"video",  "ResultType":"Single",  " SliceFlag":false, "SliceCount": 3}
@@ -32,20 +32,20 @@ export class GetMediaRefreshJobsResponseBodyMediaRefreshJobs extends $dara.Model
    * The time when the task was created.
    * 
    * @example
-   * 2022-05-20T08:23:22Z
+   * 2022-05-20 08:23:22
    */
   gmtCreate?: string;
   /**
    * @remarks
-   * The time when the task was modified.
+   * The time when the task was last modified.
    * 
    * @example
-   * 2022-05-21T08:23:22Z
+   * 2022-05-21 08:23:22
    */
   gmtModified?: string;
   /**
    * @remarks
-   * The ID of the media file.
+   * The audio or video ID.
    * 
    * @example
    * ca3a8f6e4957b658067095869****
@@ -53,7 +53,7 @@ export class GetMediaRefreshJobsResponseBodyMediaRefreshJobs extends $dara.Model
   mediaId?: string;
   /**
    * @remarks
-   * The ID of the job.
+   * The ID of the audio or video purge or prefetch task.
    * 
    * @example
    * 41d465e31957****
@@ -61,10 +61,9 @@ export class GetMediaRefreshJobsResponseBodyMediaRefreshJobs extends $dara.Model
   mediaRefreshJobId?: string;
   /**
    * @remarks
-   * The status of the job. Valid values:
-   * 
-   * *   **success**
-   * *   **fail**
+   * The task status. Valid values:
+   * - **success**: succeeded
+   * - **fail**: failed
    * 
    * @example
    * success
@@ -72,7 +71,7 @@ export class GetMediaRefreshJobsResponseBodyMediaRefreshJobs extends $dara.Model
   status?: string;
   /**
    * @remarks
-   * The playback URLs that were refreshed or prefetched.
+   * The playback URLs that were successfully purged or prefetched.
    * 
    * @example
    * https://shenzhen.****.aliyuncdn.com/74401a4f546007bf845cd8840****.m3u8,https://shenzhen.****.aliyuncdn.com/24041e7d13582d86604d8****.m3u8
@@ -80,7 +79,7 @@ export class GetMediaRefreshJobsResponseBodyMediaRefreshJobs extends $dara.Model
   successPlayUrls?: string;
   /**
    * @remarks
-   * The IDs of the refresh or prefetch tasks for the playback URLs of media files. Only one URL can be refreshed or prefetched in a task. This value is used in the [DescribeVodRefreshTasks](~~DescribeVodRefreshTasks~~) operation, which queries the status of refresh or prefetch tasks for playback URLs of media files.
+   * The task IDs for the purge or prefetch of playback URLs. Each URL corresponds to one task ID. You can use the task ID to call the [DescribeVodRefreshTasks](https://help.aliyun.com/document_detail/69214.html) operation to query the purge or prefetch status of each playback URL.
    * 
    * @example
    * 70422****,9524****
@@ -88,10 +87,9 @@ export class GetMediaRefreshJobsResponseBodyMediaRefreshJobs extends $dara.Model
   taskIds?: string;
   /**
    * @remarks
-   * The type of the job. Valid values:
-   * 
-   * *   **Refresh**
-   * *   **Preload**
+   * The task type. Valid values:
+   * - **Refresh**: purge
+   * - **Preload**: prefetch
    * 
    * @example
    * Preload
@@ -99,7 +97,7 @@ export class GetMediaRefreshJobsResponseBodyMediaRefreshJobs extends $dara.Model
   taskType?: string;
   /**
    * @remarks
-   * The user data that you passed when you submit a refresh or prefetch task.
+   * The UserData information specified when the purge or prefetch task was submitted.
    * 
    * @example
    * {"MessageCallback":{"CallbackURL":"http://example.aliyundoc.com"}, "Extend":{"localId":"xxx","test":"www"}}
@@ -151,12 +149,12 @@ export class GetMediaRefreshJobsResponseBodyMediaRefreshJobs extends $dara.Model
 export class GetMediaRefreshJobsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The media refresh or prefetch jobs.
+   * The list of audio or video purge or prefetch task information.
    */
   mediaRefreshJobs?: GetMediaRefreshJobsResponseBodyMediaRefreshJobs[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 25818875-5F78-4AF6-D7393642CA58****

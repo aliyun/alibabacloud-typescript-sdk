@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetMediaAuditAudioResultDetailRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the video. You can query the video ID by using the ApsaraVideo VOD console or calling the [SearchMedia](https://help.aliyun.com/document_detail/86044.html) operation.
+   * The audio ID. You can query the audio ID in the ApsaraVideo VOD console or obtain it from the response of the [SearchMedia](https://help.aliyun.com/document_detail/86044.html) operation.
    * 
    * This parameter is required.
    * 
@@ -17,7 +17,7 @@ export class GetMediaAuditAudioResultDetailRequest extends $dara.Model {
   ownerId?: string;
   /**
    * @remarks
-   * The number of the page to return. This parameter is optional. If you do not specify this parameter, all results are returned without pagination.
+   * The page number. This parameter is optional. If you do not specify this parameter, all results are returned without pagination.
    * 
    * @example
    * 1

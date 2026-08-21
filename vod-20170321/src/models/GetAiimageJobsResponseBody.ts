@@ -5,9 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetAIImageJobsResponseBodyAIImageJobList extends $dara.Model {
   /**
    * @remarks
-   * The Object Storage Service (OSS) URL of the image file.
-   * 
-   * > This parameter does not include the complete authentication information. To obtain the authentication information, you must generate a signed URL. Alternatively, you can call the [ListAIImageInfo](~~ListAIImageInfo~~) operation to obtain the image information.
+   * The OSS URL of the AI image.
+   * >This is the task result. The URL does not contain complete authentication information. To obtain authentication information, generate it yourself or call the [ListAIImage](https://help.aliyun.com/document_detail/186924.html) operation to retrieve the media asset result.
    * 
    * @example
    * [{"Score":5.035636554444242,"Url":"http://outin-*****.oss-cn-shanghai.aliyuncs.com/357a8748c577*****789d2726e6436aa/image/ai/b0a7612554d*****5cbe3-00001.gif"}]
@@ -23,7 +22,7 @@ export class GetAIImageJobsResponseBodyAIImageJobList extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The time when the image AI processing job was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+   * The time when the AI image processing task was created. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
    * 
    * @example
    * 2020-10-15T03:30:03Z
@@ -31,7 +30,7 @@ export class GetAIImageJobsResponseBodyAIImageJobList extends $dara.Model {
   creationTime?: string;
   /**
    * @remarks
-   * The ID of the image AI processing job.
+   * The ID of the AI image processing task.
    * 
    * @example
    * cf08a2c6e11e*****de1711b738b9067
@@ -47,10 +46,9 @@ export class GetAIImageJobsResponseBodyAIImageJobList extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The status of the job. Valid values:
-   * 
-   * *   **success**
-   * *   **fail**
+   * The task status. Valid values:
+   * - **success**: The task is successful.
+   * - **fail**: The task failed.
    * 
    * @example
    * success
@@ -58,7 +56,7 @@ export class GetAIImageJobsResponseBodyAIImageJobList extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The configurations of the AI template that was used to submit the job.
+   * The snapshot of the configuration information of the specified template when the task was submitted.
    * 
    * @example
    * {"Format":"gif","SetDefaultCover":"true"}
@@ -66,7 +64,7 @@ export class GetAIImageJobsResponseBodyAIImageJobList extends $dara.Model {
   templateConfig?: string;
   /**
    * @remarks
-   * The ID of the AI template.
+   * The AI template ID.
    * 
    * @example
    * 5a86a00f15194*****d7fe7de1b4a173
@@ -74,13 +72,12 @@ export class GetAIImageJobsResponseBodyAIImageJobList extends $dara.Model {
   templateId?: string;
   /**
    * @remarks
-   * The user data.
+   * The custom settings.
+   * - The value must be a JSON string.
+   * - The value must contain the MessageCallback or Extend parameter.
+   * - The maximum length is 512 bytes.
    * 
-   * *   The value must be a JSON string.
-   * *   The MessageCallback or Extend parameter is returned.
-   * *   The value contains a maximum of 512 bytes.
-   * 
-   * For more information, see the "UserData: specifies the custom configurations for media upload" section of the [Request parameters](https://help.aliyun.com/document_detail/86952.html) topic.
+   * For more information about the parameter structure, see [UserData](https://help.aliyun.com/document_detail/86952.html).
    * 
    * @example
    * {"Extend":{"localId":"****","test":"www"}}
@@ -88,7 +85,7 @@ export class GetAIImageJobsResponseBodyAIImageJobList extends $dara.Model {
   userData?: string;
   /**
    * @remarks
-   * The ID of the video.
+   * The video ID.
    * 
    * @example
    * 357a8748c577*****789d2726e6436aa
@@ -136,12 +133,12 @@ export class GetAIImageJobsResponseBodyAIImageJobList extends $dara.Model {
 export class GetAIImageJobsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The image AI processing jobs.
+   * The list of AI image processing tasks.
    */
   AIImageJobList?: GetAIImageJobsResponseBodyAIImageJobList[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 7721B494-1F78-4E*****E8-A7CEE7315BFA

@@ -5,10 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateTranscodeTemplateGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The lock status of the transcoding template group. Valid values:
+   * The lock state of the template group. Valid values:
    * 
-   * *   **Enabled**: The transcoding template group is locked and cannot be modified.
-   * *   **Disabled** (default): The transcoding template group is not locked.
+   * - **Enabled**: locked. A locked template group cannot be modified.
+   * - **Disabled** (default): unlocked.
+   * 
+   * Default value: **Disabled**. If you specify this parameter, the lock state of the template group is changed, while the name and configurations of the transcoding template group remain unchanged.
    * 
    * @example
    * Disabled
@@ -18,8 +20,8 @@ export class UpdateTranscodeTemplateGroupRequest extends $dara.Model {
    * @remarks
    * The name of the transcoding template group.
    * 
-   * *   The name cannot exceed 128 bytes.
-   * *   The value must be encoded in UTF-8.
+   * - The name can be up to 128 bytes in length.
+   * - The name is encoded in UTF-8.
    * 
    * @example
    * transcodetemplate
@@ -37,7 +39,7 @@ export class UpdateTranscodeTemplateGroupRequest extends $dara.Model {
   transcodeTemplateGroupId?: string;
   /**
    * @remarks
-   * The configurations of the transcoding template. The value must be a JSON string. For more information about the data structure, see [TranscodeTemplate](~~52839#title-9mb-8o2-uu6~~).
+   * The transcoding template configurations (a JSON string). For more information about the parameter structure, see [TranscodeTemplate](~~52839#title-9mb-8o2-uu6~~).
    * 
    * @example
    * [{"Video":{"Bitrate":"400","Codec":"H.264","Fps":"30"},"Audio":{"Codec":"AAC","Bitrate":"64","Definition":"SD","EncryptType":"Private","Container":{"Format":"m3u8"},"PackageType":"HLSPackage"}}]

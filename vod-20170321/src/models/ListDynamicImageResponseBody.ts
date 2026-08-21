@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDynamicImageResponseBodyDynamicImageList extends $dara.Model {
   /**
    * @remarks
-   * The time when the animated sticker was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+   * The time when the animated image was created. The time follows the format: <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
    * 
    * @example
    * 2020-07-28T02:01:06Z
@@ -13,7 +13,7 @@ export class ListDynamicImageResponseBodyDynamicImageList extends $dara.Model {
   creationTime?: string;
   /**
    * @remarks
-   * The duration of the animated sticker. Unit: seconds.
+   * The duration of the animated image. Unit: seconds.
    * 
    * @example
    * 2
@@ -21,7 +21,7 @@ export class ListDynamicImageResponseBodyDynamicImageList extends $dara.Model {
   duration?: string;
   /**
    * @remarks
-   * The ID of the animated sticker.
+   * The animated image ID.
    * 
    * @example
    * 2b4e51df60323ef43d6e336ecf****
@@ -29,7 +29,7 @@ export class ListDynamicImageResponseBodyDynamicImageList extends $dara.Model {
   dynamicImageId?: string;
   /**
    * @remarks
-   * The size of the animated sticker file. Unit: byte.
+   * The size of the animated image file. Unit: bytes.
    * 
    * @example
    * 119866
@@ -37,7 +37,7 @@ export class ListDynamicImageResponseBodyDynamicImageList extends $dara.Model {
   fileSize?: string;
   /**
    * @remarks
-   * The URL of the animated sticker file.
+   * The URL of the animated image file.
    * 
    * @example
    * https://example.aliyundoc.com/2e114f110059*****0c3193918fd449a/image/dynamic/2b4e51df60*****323ef43d6e336ecf.webp?auth_key=1597296785-0-0-4a48e85*****bd2bb358e0b3cade
@@ -45,7 +45,9 @@ export class ListDynamicImageResponseBodyDynamicImageList extends $dara.Model {
   fileURL?: string;
   /**
    * @remarks
-   * The format of the animated sticker. Valid values: gif and webp.
+   * The format of the animated image. Valid values:
+   * - **gif**
+   * - **webp**
    * 
    * @example
    * webp
@@ -53,7 +55,7 @@ export class ListDynamicImageResponseBodyDynamicImageList extends $dara.Model {
   format?: string;
   /**
    * @remarks
-   * The frame rate of the animated sticker. Unit: frames per second.
+   * The frame rate of the animated image. Unit: frames per second.
    * 
    * @example
    * 10
@@ -61,7 +63,7 @@ export class ListDynamicImageResponseBodyDynamicImageList extends $dara.Model {
   fps?: string;
   /**
    * @remarks
-   * The height of the animated sticker. Unit: pixel.
+   * The height of the animated image. Unit: px.
    * 
    * @example
    * 360
@@ -69,7 +71,7 @@ export class ListDynamicImageResponseBodyDynamicImageList extends $dara.Model {
   height?: string;
   /**
    * @remarks
-   * The job ID for creating the animated sticker.
+   * The animated image job ID.
    * 
    * @example
    * 2bf4390af9e5491c09cc720ad****
@@ -77,7 +79,7 @@ export class ListDynamicImageResponseBodyDynamicImageList extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * The ID of the video.
+   * The video ID.
    * 
    * @example
    * 2e114f1100590c3193918fd449a****
@@ -85,7 +87,7 @@ export class ListDynamicImageResponseBodyDynamicImageList extends $dara.Model {
   videoId?: string;
   /**
    * @remarks
-   * The width of the animated sticker. Unit: pixel.
+   * The width of the animated image. Unit: px.
    * 
    * @example
    * 640
@@ -135,12 +137,12 @@ export class ListDynamicImageResponseBodyDynamicImageList extends $dara.Model {
 export class ListDynamicImageResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of animated stickers.
+   * The animated image results.
    */
   dynamicImageList?: ListDynamicImageResponseBodyDynamicImageList[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 570189B6-572E-4953-13B4278EE0D8****

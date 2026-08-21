@@ -5,7 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeVodDomainBpsDataRequest extends $dara.Model {
   /**
    * @remarks
-   * The domain name to be queried. If you do not specify this parameter, the merged data of all your domain names for CDN is returned. You can specify multiple domain names. Separate them with commas (,).
+   * The accelerated domain name to query.
+   * 
+   * - If you do not specify this parameter, the pooled data of all accelerated domain names is returned by default.
+   * - Batch queries are supported. Separate multiple domain names with commas (,). You can specify up to 500 domain names at a time.
+   * - You can log on to the [ApsaraVideo VOD console](https://vod.console.aliyun.com), and choose **Configuration Management > CDN Configuration > Domain Names** in the left-side navigation pane to view the accelerated domain names that you have added to ApsaraVideo VOD. You can also invoke the [DescribeVodUserDomains](~~DescribeVodUserDomains~~) operation to query the list of accelerated domain names.
    * 
    * @example
    * example.com
@@ -13,7 +17,10 @@ export class DescribeVodDomainBpsDataRequest extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
-   * The end of the time range to query. The end time must be later than the start time. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+   * The end of the time range to query.
+   * 
+   * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * > The end time must be later than the start time.
    * 
    * @example
    * 2015-12-10T14:00:00Z
@@ -21,11 +28,11 @@ export class DescribeVodDomainBpsDataRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The query interval. Unit: seconds. Valid values: **300**, **3600**, and **86400**.
+   * The time granularity of the data. Unit: seconds. Valid values: **300**, **3600**, and **86400**. If you do not specify this parameter or specify an unsupported value, the default value is used. The supported time granularity varies based on the time span specified by `StartTime` and `EndTime`:
    * 
-   * *   If the time range to query is less than 3 days, valid values are **300**, **3600**, and **86400**. The default value is 300.
-   * *   If the time range to query is from 3 to less than 31 days, valid values are **3600** and **86400**. The default value is 3600.
-   * *   If the time range to query is from 31 to 90 days, the valid value is **86400**.
+   * - Less than 3 days (excluding exactly 3 days): **300** (default), **3600**, and **86400**.
+   * - 3 to 31 days (excluding exactly 31 days): **3600** (default) and **86400**.
+   * - 31 days or more: **86400** (default).
    * 
    * @example
    * 300
@@ -33,26 +40,24 @@ export class DescribeVodDomainBpsDataRequest extends $dara.Model {
   interval?: string;
   /**
    * @remarks
-   * The name of the Internet service provider (ISP). If you do not specify this parameter, the data of all ISPs is returned.
+   * The name of the Internet service provider (ISP) in English. If you do not specify this parameter, data of all ISPs is queried by default.
    * 
    * @example
-   * Alibaba
+   * unicom
    */
   ispNameEn?: string;
   /**
    * @remarks
-   * The name of the region. If you do not specify this parameter, the data in all regions is returned. Only data in the China (Shanghai) region can be queried.
+   * The name of the region in English. If you do not specify this parameter, data of all regions is queried by default. Currently, only the Shanghai region is supported.
    * 
    * @example
-   * cn-shanghai
+   * shanghai
    */
   locationNameEn?: string;
   ownerId?: number;
   /**
    * @remarks
-   * The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
-   * 
-   * > The minimum query interval is 5 minutes. If you do not specify this parameter, the data in the last 24 hours is queried.
+   * The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
    * 
    * @example
    * 2015-12-10T13:00:00Z

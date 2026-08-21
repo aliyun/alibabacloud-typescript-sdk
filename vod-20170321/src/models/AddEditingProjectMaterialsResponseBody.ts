@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddEditingProjectMaterialsResponseBodyMaterialList extends $dara.Model {
   /**
    * @remarks
-   * The ID of the category.
+   * The category ID.
    * 
    * @example
    * 1000487543
@@ -13,20 +13,20 @@ export class AddEditingProjectMaterialsResponseBodyMaterialList extends $dara.Mo
   cateId?: number;
   /**
    * @remarks
-   * The category name of the material.
+   * The material category name.
    * 
    * @example
-   * cate1
+   * Category 1
    */
   cateName?: string;
   /**
    * @remarks
-   * The thumbnail URL.
+   * The thumbnail URL of the material.
    */
   coverURL?: string;
   /**
    * @remarks
-   * The time when the material was created. The time follows the ISO 8601 standard in the *YYYY-MM-DD**Thh:mm:ss* format. The time is displayed in UTC.
+   * The time when the material was created. The time follows the format: <i>yyyy-mm-dd</i>t<i>hh:mm:ss</i>z (UTC).
    * 
    * @example
    * 2019-10-02T08:26Z
@@ -34,7 +34,7 @@ export class AddEditingProjectMaterialsResponseBodyMaterialList extends $dara.Mo
   createTime?: string;
   /**
    * @remarks
-   * The ID of the user.
+   * The user ID.
    * 
    * @example
    * 1234751840694470
@@ -42,15 +42,15 @@ export class AddEditingProjectMaterialsResponseBodyMaterialList extends $dara.Mo
   customerId?: number;
   /**
    * @remarks
-   * The description of the material.
+   * The material description.
    * 
    * @example
-   * test material
+   * Material description
    */
   description?: string;
   /**
    * @remarks
-   * The duration of the material. Unit: seconds. The value is accurate to four decimal places.
+   * The material duration. Unit: seconds. The value is accurate to four decimal places.
    * 
    * @example
    * 3690.2332
@@ -58,7 +58,7 @@ export class AddEditingProjectMaterialsResponseBodyMaterialList extends $dara.Mo
   duration?: number;
   /**
    * @remarks
-   * The ID of the material.
+   * The material ID.
    * 
    * @example
    * 85befc4118b84c6723e53b80b1****
@@ -66,11 +66,11 @@ export class AddEditingProjectMaterialsResponseBodyMaterialList extends $dara.Mo
   materialId?: string;
   /**
    * @remarks
-   * The type of the material. Valid values:
+   * The material type. Valid values:
    * 
-   * *   **video**
-   * *   **audio**
-   * *   **image**
+   * - **video**: video.
+   * - **audio**: audio-only.
+   * - **image**: image.
    * 
    * @example
    * video
@@ -78,7 +78,7 @@ export class AddEditingProjectMaterialsResponseBodyMaterialList extends $dara.Mo
   materialType?: string;
   /**
    * @remarks
-   * The time when the material was last updated. The time follows the ISO 8601 standard in the *YYYY-MM-DD**Thh:mm:ss* format. The time is displayed in UTC.
+   * The time when the material was last modified. The time follows the format: <i>yyyy-mm-dd</i>t<i>hh:mm:ss</i>z (UTC).
    * 
    * @example
    * 2022-11-25T07:28:34Z
@@ -86,7 +86,7 @@ export class AddEditingProjectMaterialsResponseBodyMaterialList extends $dara.Mo
   modifyTime?: string;
   /**
    * @remarks
-   * The size of the material.
+   * The file size.
    * 
    * @example
    * 1682694
@@ -94,12 +94,12 @@ export class AddEditingProjectMaterialsResponseBodyMaterialList extends $dara.Mo
   size?: number;
   /**
    * @remarks
-   * The URLs of snapshots.
+   * The array of snapshot URLs for the material.
    */
   snapshots?: string[];
   /**
    * @remarks
-   * The configuration of the sprite snapshot.
+   * The sprite configuration.
    * 
    * @example
    * xxx
@@ -107,16 +107,16 @@ export class AddEditingProjectMaterialsResponseBodyMaterialList extends $dara.Mo
   spriteConfig?: string;
   /**
    * @remarks
-   * The URLs of sprite snapshots.
+   * The array of sprite URLs for the material.
    */
   sprites?: string[];
   /**
    * @remarks
-   * The status of the material. Valid values:
+   * The material status. Valid values:
    * 
-   * *   **Normal**
-   * *   **Uploading**
-   * *   **UploadFail**
+   * - **Normal**: Normal.
+   * - **Uploading**: Uploading.
+   * - **UploadFail**: Upload failed.
    * 
    * @example
    * Normal
@@ -124,7 +124,7 @@ export class AddEditingProjectMaterialsResponseBodyMaterialList extends $dara.Mo
   status?: string;
   /**
    * @remarks
-   * The tag of the material. Multiple tags are separated by commas (,).
+   * The material tags. Multiple tags are separated by commas (,).
    * 
    * @example
    * tag1,tag2
@@ -132,7 +132,7 @@ export class AddEditingProjectMaterialsResponseBodyMaterialList extends $dara.Mo
   tags?: string;
   /**
    * @remarks
-   * The title of the material.
+   * The material title.
    * 
    * @example
    * test
@@ -200,12 +200,12 @@ export class AddEditingProjectMaterialsResponseBodyMaterialList extends $dara.Mo
 export class AddEditingProjectMaterialsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The materials.
+   * The list of materials.
    */
   materialList?: AddEditingProjectMaterialsResponseBodyMaterialList[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 85237CDA-0B54-5CED-BA10-A8A71AA13C1A

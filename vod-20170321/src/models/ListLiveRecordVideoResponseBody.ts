@@ -167,7 +167,7 @@ export class ListLiveRecordVideoResponseBody extends $dara.Model {
   liveRecordVideoList?: ListLiveRecordVideoResponseBodyLiveRecordVideoList;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 25818875-5F78-4A13-****-D7393642CA58

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeMediaDistributionRequest extends $dara.Model {
   /**
    * @remarks
-   * The end of the time range to query. The end time must be later than the start time. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC. The maximum time range to query is 6 months.
+   * The end time of CreationTime. The end time must be later than the start time. Format: yyyy-MM-ddTHH:mm:ssZ (UTC). The maximum time span between the start time and end time is six months.
    * 
    * @example
    * 2017-01-11T12:59:00Z
@@ -14,11 +14,10 @@ export class DescribeMediaDistributionRequest extends $dara.Model {
   /**
    * @remarks
    * The statistical interval. Default value: day. Valid values:
-   * 
-   * *   hour: natural hour of the start and end time.
-   * *   day: natural day of the start and end time.
-   * *   week: natural week of the start and end time.
-   * *   month: natural month of the start and end time.
+   * - hour: by hour. Statistics are collected based on the calendar hours within the specified time range.
+   * - day: by day. Statistics are collected based on the calendar days within the specified time range.
+   * - week: by week. Statistics are collected based on the calendar weeks within the specified time range.
+   * - month: by month. Statistics are collected based on the calendar months within the specified time range.
    * 
    * @example
    * day
@@ -26,7 +25,7 @@ export class DescribeMediaDistributionRequest extends $dara.Model {
   interval?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC. The maximum time range to query is 6 months.
+   * The start time of CreationTime. Format: yyyy-MM-ddTHH:mm:ssZ (UTC). The maximum time span between the start time and end time is six months.
    * 
    * @example
    * 2017-01-11T12:00:00Z
@@ -34,17 +33,16 @@ export class DescribeMediaDistributionRequest extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The hierarchical storage type. Valid values:
-   * 
-   * *   Standard
-   * *   IA
-   * *   Archive
-   * *   ColdArchive
-   * *   SourceIA
-   * *   SourceArchive
-   * *   SourceColdArchive
-   * *   Changing
-   * *   SourceChanging
+   * The storage class. Valid values:
+   * - Standard: standard storage.
+   * - IA: Infrequent Access.
+   * - Archive: Archive storage.
+   * - ColdArchive: Cold Archive storage.
+   * - SourceIA: Infrequent Access for source files.
+   * - SourceArchive: Archive storage for source files.
+   * - SourceColdArchive: Cold Archive storage for source files.
+   * - Changing: the media asset storage class is being changed.
+   * - SourceChanging: the source file storage class is being changed.
    * 
    * @example
    * Standard

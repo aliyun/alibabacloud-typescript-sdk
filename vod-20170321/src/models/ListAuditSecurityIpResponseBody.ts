@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAuditSecurityIpResponseBodySecurityIpList extends $dara.Model {
   /**
    * @remarks
-   * The time when the review security group was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+   * The time when the security IP group was created. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
    * 
    * @example
    * 2018-05-22T06:54:23Z
@@ -13,7 +13,7 @@ export class ListAuditSecurityIpResponseBodySecurityIpList extends $dara.Model {
   creationTime?: string;
   /**
    * @remarks
-   * The IP addresses in the review security group.
+   * The list of security IPs.
    * 
    * @example
    * 30.27.14.0/24,30.39.127.245
@@ -21,7 +21,7 @@ export class ListAuditSecurityIpResponseBodySecurityIpList extends $dara.Model {
   ips?: string;
   /**
    * @remarks
-   * The time when the review security group was last modified. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+   * The time when the security IP group was last modified. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
    * 
    * @example
    * 2018-05-22T06:55:14Z
@@ -29,7 +29,7 @@ export class ListAuditSecurityIpResponseBodySecurityIpList extends $dara.Model {
   modificationTime?: string;
   /**
    * @remarks
-   * The name of the review security group.
+   * The name of the security IP group.
    * 
    * @example
    * Default
@@ -73,7 +73,7 @@ export class ListAuditSecurityIpResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The details of the review security group.
+   * The details of the review security IPs.
    */
   securityIpList?: ListAuditSecurityIpResponseBodySecurityIpList[];
   static names(): { [key: string]: string } {

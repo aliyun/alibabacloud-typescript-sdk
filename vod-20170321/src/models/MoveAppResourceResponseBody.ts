@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class MoveAppResourceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The IDs of the resources that failed to be migrated.
+   * The IDs of resources that failed to be migrated.
    */
   failedResourceIds?: string[];
   /**
    * @remarks
-   * The IDs of the resources that were not found.
+   * The IDs of resources that do not exist.
    */
   nonExistResourceIds?: string[];
   /**

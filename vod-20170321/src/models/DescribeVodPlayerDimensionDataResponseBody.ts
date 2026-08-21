@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeVodPlayerDimensionDataResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The returned data list.
+   */
   dataList?: string[];
   /**
    * @remarks

@@ -72,10 +72,10 @@ export class DescribeVodDomainTrafficDataResponseBodyTrafficDataPerInterval exte
 export class DescribeVodDomainTrafficDataResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The time interval at which data is returned, which is the time granularity. Unit: seconds.
+   * The time interval between the data entries, which is the time granularity of the data. Unit: seconds.
    * 
    * @example
-   * 3600
+   * 300
    */
   dataInterval?: string;
   /**
@@ -88,7 +88,7 @@ export class DescribeVodDomainTrafficDataResponseBody extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
-   * The end of the time range.
+   * The end of the time range for the returned data.
    * 
    * @example
    * 2019-01-20T14:59:58Z
@@ -96,7 +96,7 @@ export class DescribeVodDomainTrafficDataResponseBody extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * D94E471F-1A27-442E-552D-D4D2000C****
@@ -104,7 +104,7 @@ export class DescribeVodDomainTrafficDataResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The beginning of the time range.
+   * The beginning of the time range for the returned data.
    * 
    * @example
    * 2019-01-20T13:59:58Z
@@ -112,7 +112,7 @@ export class DescribeVodDomainTrafficDataResponseBody extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The total amount of network traffic.
+   * The total traffic.
    * 
    * @example
    * 5906662826

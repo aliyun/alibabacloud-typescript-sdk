@@ -69,7 +69,7 @@ export class DescribeVodDomainDetailResponseBodyDomainDetailSources extends $dar
 export class DescribeVodDomainDetailResponseBodyDomainDetail extends $dara.Model {
   /**
    * @remarks
-   * The name of the certificate. The value of this parameter is returned if HTTPS is enabled.
+   * The name of the HTTPS certificate. This parameter is returned only if HTTPS secure acceleration is enabled.
    * 
    * @example
    * testCertName
@@ -77,7 +77,7 @@ export class DescribeVodDomainDetailResponseBodyDomainDetail extends $dara.Model
   certName?: string;
   /**
    * @remarks
-   * The CNAME that is assigned to the domain name for CDN. You must add a CNAME record in the system of your Domain Name System (DNS) service provider to map the domain name for CDN to the CNAME.
+   * The CNAME assigned to the accelerated domain name. You must add a CNAME record with your DNS provider to map the accelerated domain name to this CNAME. For more information, see [Configure a CNAME record](https://help.aliyun.com/document_detail/86075.html).
    * 
    * @example
    * example.com.w.alikunlun.net
@@ -85,7 +85,7 @@ export class DescribeVodDomainDetailResponseBodyDomainDetail extends $dara.Model
   cname?: string;
   /**
    * @remarks
-   * The description of the domain name for CDN.
+   * The description of the VOD acceleration domain name.
    * 
    * @example
    * testDescription
@@ -93,7 +93,7 @@ export class DescribeVodDomainDetailResponseBodyDomainDetail extends $dara.Model
   description?: string;
   /**
    * @remarks
-   * The domain name for CDN.
+   * The VOD acceleration domain name.
    * 
    * @example
    * example.com
@@ -101,13 +101,14 @@ export class DescribeVodDomainDetailResponseBodyDomainDetail extends $dara.Model
   domainName?: string;
   /**
    * @remarks
-   * The status of the domain name for CDN. Value values:
-   * *   **online**: indicates that the domain name is enabled.
-   * *   **offline**: indicates that the domain name is disabled.
-   * *   **configuring**: indicates that the domain name is being configured.
-   * *   **configure_failed**: indicates that the domain name failed to be configured.
-   * *   **checking**: indicates that the domain name is under review.
-   * *   **check_failed**: indicates that the domain name failed the review.
+   * The status of the accelerated domain name. Valid values:
+   * 
+   * - **online**: enabled.
+   * - **offline**: disabled.
+   * - **configuring**: being configured.
+   * - **configure_failed**: configuration failed.
+   * - **checking**: being reviewed.
+   * - **check_failed**: review failed.
    * 
    * @example
    * online
@@ -115,7 +116,7 @@ export class DescribeVodDomainDetailResponseBodyDomainDetail extends $dara.Model
   domainStatus?: string;
   /**
    * @remarks
-   * The time when the domain name for CDN was added. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+   * The time when the domain name was created. The time follows the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format. The time is displayed in UTC.
    * 
    * @example
    * 2017-11-27T06:51:26Z
@@ -123,7 +124,7 @@ export class DescribeVodDomainDetailResponseBodyDomainDetail extends $dara.Model
   gmtCreated?: string;
   /**
    * @remarks
-   * The last time when the domain name for CDN was modified. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+   * The time when the domain name was last modified. The time follows the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format. The time is displayed in UTC.
    * 
    * @example
    * 2017-11-27T06:55:26Z
@@ -131,9 +132,10 @@ export class DescribeVodDomainDetailResponseBodyDomainDetail extends $dara.Model
   gmtModified?: string;
   /**
    * @remarks
-   * Indicates whether the Secure Sockets Layer (SSL) certificate is enabled. Valid values:
-   * *   **on**: indicates that the SSL certificate is enabled.
-   * *   **off**: indicates that the SSL certificate is disabled.
+   * Indicates whether the SSL certificate is enabled. Valid values:
+   * 
+   * - **on**: Enabled.
+   * - **off**: Disabled.
    * 
    * @example
    * on
@@ -141,7 +143,7 @@ export class DescribeVodDomainDetailResponseBodyDomainDetail extends $dara.Model
   SSLProtocol?: string;
   /**
    * @remarks
-   * The public key of the certificate. The value of this parameter is returned if HTTPS is enabled.
+   * The public key of the HTTPS certificate. This parameter is returned only if HTTPS secure acceleration is enabled.
    * 
    * @example
    * yourSSLPub
@@ -149,10 +151,11 @@ export class DescribeVodDomainDetailResponseBodyDomainDetail extends $dara.Model
   SSLPub?: string;
   /**
    * @remarks
-   * This parameter is applicable to users of level 3 or higher in mainland China and users outside mainland China. Valid values:
-   * *   **domestic**: mainland China. This is the default value.
-   * *   **overseas**: outside mainland China.
-   * *   **global**: regions in and outside mainland China.
+   * The acceleration region. Valid values:
+   * 
+   * - **domestic** (default): the Chinese mainland only.
+   * - **overseas**: global (excluding the Chinese mainland).
+   * - **global**: global.
    * 
    * @example
    * domestic
@@ -161,7 +164,7 @@ export class DescribeVodDomainDetailResponseBodyDomainDetail extends $dara.Model
   sources?: DescribeVodDomainDetailResponseBodyDomainDetailSources;
   /**
    * @remarks
-   * The weight of the origin server.
+   * The back-to-origin weight.
    * 
    * @example
    * 1
@@ -216,12 +219,12 @@ export class DescribeVodDomainDetailResponseBodyDomainDetail extends $dara.Model
 export class DescribeVodDomainDetailResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The basic information about the domain name for CDN.
+   * The basic configuration information of the domain name.
    */
   domainDetail?: DescribeVodDomainDetailResponseBodyDomainDetail;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 09ABE829-6CD3-4FE0-556113E2****

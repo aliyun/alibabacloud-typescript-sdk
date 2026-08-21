@@ -6,9 +6,8 @@ export class ProduceEditingProjectVideoResponseBody extends $dara.Model {
   /**
    * @remarks
    * The ID of the produced video.
-   * 
-   * > *   This parameter is returned for each request.
-   * > *   If a value is returned for this parameter, the video production task is being asynchronously processed.
+   * > - The video production operation synchronously returns the ID of the produced video.
+   * > - When MediaId is returned, the video production has entered the asynchronous processing phase.
    * 
    * @example
    * 006204a11bb386bb25491f95f****
@@ -16,7 +15,7 @@ export class ProduceEditingProjectVideoResponseBody extends $dara.Model {
   mediaId?: string;
   /**
    * @remarks
-   * The ID of the online editing project.
+   * The online editing project ID.
    * 
    * @example
    * fb2101bf24b4cb318787dc****
@@ -24,7 +23,7 @@ export class ProduceEditingProjectVideoResponseBody extends $dara.Model {
   projectId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 25818875-5F78-4AF6-D7393642CA58****

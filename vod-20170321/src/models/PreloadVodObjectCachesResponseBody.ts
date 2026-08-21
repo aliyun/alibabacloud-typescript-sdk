@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class PreloadVodObjectCachesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the prefetch task. Separate multiple task IDs with commas (,).
+   * The task ID returned for the prefetch operation. Multiple task IDs are separated by commas (,).
    * 
    * @example
    * 9524****
@@ -13,7 +13,7 @@ export class PreloadVodObjectCachesResponseBody extends $dara.Model {
   preloadTaskId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * E5BD4B50-7A02-493A-*****-97B9024B4135

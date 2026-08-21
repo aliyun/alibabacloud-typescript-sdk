@@ -60,7 +60,7 @@ export class DescribePlayUserAvgResponseBodyUserPlayStatisAvgs extends $dara.Mod
 export class DescribePlayUserAvgResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 6C7F90B2-BDA4-4FAC-****-A38A121DFE19

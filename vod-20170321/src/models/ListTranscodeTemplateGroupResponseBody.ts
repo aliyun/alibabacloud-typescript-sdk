@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListTranscodeTemplateGroupResponseBodyTranscodeTemplateGroupList extends $dara.Model {
   /**
    * @remarks
-   * The ID of the application.
+   * The application ID.
    * 
    * @example
    * app-****
@@ -13,7 +13,7 @@ export class ListTranscodeTemplateGroupResponseBodyTranscodeTemplateGroupList ex
   appId?: string;
   /**
    * @remarks
-   * The time when the template group was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+   * The time when the template group was created. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
    * 
    * @example
    * 2018-12-05T10:20:09Z
@@ -23,8 +23,8 @@ export class ListTranscodeTemplateGroupResponseBodyTranscodeTemplateGroupList ex
    * @remarks
    * Indicates whether the template group is the default one. Valid values:
    * 
-   * *   **Default**: The template group is the default one.
-   * *   **NotDefault**: The template group is not the default one.
+   * - **Default**: The template group is the default one.
+   * - **NotDefault**: The template group is not the default one.
    * 
    * @example
    * Default
@@ -33,9 +33,8 @@ export class ListTranscodeTemplateGroupResponseBodyTranscodeTemplateGroupList ex
   /**
    * @remarks
    * The lock status of the transcoding template group. Valid values:
-   * 
-   * *   **Disabled**: The template group is not locked.
-   * *   **Enabled**: The template group is locked.
+   * - **Disabled**: unlocked
+   * - **Enabled**: locked
    * 
    * @example
    * Disabled
@@ -43,7 +42,7 @@ export class ListTranscodeTemplateGroupResponseBodyTranscodeTemplateGroupList ex
   locked?: string;
   /**
    * @remarks
-   * The time when the template group was modified. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+   * The time when the template group was last modified. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
    * 
    * @example
    * 2018-12-05T10:22:09Z
@@ -59,7 +58,7 @@ export class ListTranscodeTemplateGroupResponseBodyTranscodeTemplateGroupList ex
   name?: string;
   /**
    * @remarks
-   * The ID of the transcoding template group.
+   * The transcoding template group ID.
    * 
    * @example
    * 17a9889fc66852*****d791c886700932
@@ -101,7 +100,7 @@ export class ListTranscodeTemplateGroupResponseBodyTranscodeTemplateGroupList ex
 export class ListTranscodeTemplateGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 25818875-5F78-4A*****F6-D7393642CA58
@@ -109,7 +108,7 @@ export class ListTranscodeTemplateGroupResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The transcoding template groups.
+   * The list of transcoding template group data.
    */
   transcodeTemplateGroupList?: ListTranscodeTemplateGroupResponseBodyTranscodeTemplateGroupList[];
   static names(): { [key: string]: string } {

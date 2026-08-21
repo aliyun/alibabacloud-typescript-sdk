@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GenerateKMSDataKeyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ciphertext of the encrypted data key. This is used as CipherText when you create a transcoding job.
+   * The ciphertext of the encrypted data key (DK). This value is used for the CipherText parameter when you submit a transcoding job.
    * 
    * @example
    * ODZhOWVmZDktM2QxNi00ODk0LWJkNGYtMWZjNDNmM2YyYWJmS7FmDBBQ0BkKsQrtRnidtPwirmDcS0ZuJCU41xxAAWk4Z8qsADfbV0b+i6kQmlvj79dJdGOvtX69Uycs901qOjop4bTS****
@@ -13,7 +13,7 @@ export class GenerateKMSDataKeyResponseBody extends $dara.Model {
   ciphertextBlob?: string;
   /**
    * @remarks
-   * The ID of the customer master key (CMK). The ID must be globally unique.
+   * The globally unique identifier of the master key.
    * 
    * @example
    * 7906979c-8e06-46a2-be2d-68e3ccbc****
@@ -21,7 +21,7 @@ export class GenerateKMSDataKeyResponseBody extends $dara.Model {
   keyId?: string;
   /**
    * @remarks
-   * The Base64-encoded plaintext of the data key.
+   * The Base64-encoding plaintext of the data key (DK).
    * 
    * @example
    * QmFzZTY0IGVuY29kZWQgcGxhaW50****
@@ -29,7 +29,7 @@ export class GenerateKMSDataKeyResponseBody extends $dara.Model {
   plaintext?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 25818875-5F78-4A*****F6-D7393642CA58

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateAITemplateResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 25818875-5F78-4A13-BEF6-****
@@ -13,7 +13,7 @@ export class UpdateAITemplateResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the template.
+   * The template ID.
    * 
    * @example
    * 1706a0063dd733f6a823ef32e0a5****

@@ -58,7 +58,7 @@ export class DescribeVodDomainRealTimeByteHitRateDataResponseBody extends $dara.
   data?: DescribeVodDomainRealTimeByteHitRateDataResponseBodyData;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 70A26B11-3673-479C-AEA8-E03FC5D3496D

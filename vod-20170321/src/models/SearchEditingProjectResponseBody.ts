@@ -82,7 +82,7 @@ export class SearchEditingProjectResponseBody extends $dara.Model {
   projectList?: SearchEditingProjectResponseBodyProjectList;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 9262E3DA-07FA-48*****62-FCBB6BC61D08
@@ -90,7 +90,7 @@ export class SearchEditingProjectResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of online editing projects returned.
+   * The total number of online editing projects.
    * 
    * @example
    * 2

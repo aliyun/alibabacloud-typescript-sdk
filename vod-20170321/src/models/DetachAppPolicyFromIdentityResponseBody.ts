@@ -5,17 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class DetachAppPolicyFromIdentityResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The names of the policies that failed to be granted to the RAM user or RAM role.
+   * The policy names that failed to be revoked.
    */
   failedPolicyNames?: string[];
   /**
    * @remarks
-   * The name of the policy that was not found.
+   * The policy names that do not exist.
    */
   nonExistPolicyNames?: string[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 25818875-5F78-4A13-****-D7393642C

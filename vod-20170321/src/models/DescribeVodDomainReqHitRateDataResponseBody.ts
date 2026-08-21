@@ -61,7 +61,7 @@ export class DescribeVodDomainReqHitRateDataResponseBody extends $dara.Model {
   data?: DescribeVodDomainReqHitRateDataResponseBodyData;
   /**
    * @remarks
-   * The time interval at which data is returned, which is the time granularity. Unit: seconds.
+   * The time interval between data entries, which is the time granularity of the data. Unit: seconds.
    * 
    * @example
    * 300
@@ -77,7 +77,7 @@ export class DescribeVodDomainReqHitRateDataResponseBody extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
-   * The end of the time range.
+   * The end of the time range for the returned data.
    * 
    * @example
    * 2023-12-22T08:00:00Z
@@ -85,7 +85,7 @@ export class DescribeVodDomainReqHitRateDataResponseBody extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * D94E471F-1A27-442E-552D-D4D2000C****
@@ -93,7 +93,7 @@ export class DescribeVodDomainReqHitRateDataResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The beginning of the time range.
+   * The beginning of the time range for the returned data.
    * 
    * @example
    * 2023-12-21T08:00:00Z

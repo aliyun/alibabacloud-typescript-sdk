@@ -5,7 +5,18 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeVodDomainRealTimeDetailDataResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned results.
+   * The returned data details. The data is returned as a JSON string. The following table describes the structure and fields:
+   * > If no data exists for a field, the field is not returned.
+   * 
+   * | Field | Type | Description |
+   * | ------------- |------------ | ----------- | 
+   * | domain_name | String | The accelerated domain name. |
+   * | isp | String | The ISP name. |
+   * | location | String | The region name. |
+   * | qps | Long | The queries per second (QPS). |
+   * | bps | Long | The bandwidth data. Unit: bit/s. |
+   * | http_code | Map | The HTTP status code details. The key is the status code name, and the value is the count of the status code. |
+   * | time_stp | String | The data timestamp. The time is in the ISO 8601 standard in UTC. |
    * 
    * @example
    * [
@@ -28,7 +39,7 @@ export class DescribeVodDomainRealTimeDetailDataResponseBody extends $dara.Model
   data?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 1710298E-8AFA-5F6D-A3E9-47103C52177D

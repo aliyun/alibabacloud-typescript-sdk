@@ -13,10 +13,10 @@ export class GetMezzanineInfoResponseBodyMezzanineAudioStreamList extends $dara.
   bitrate?: string;
   /**
    * @remarks
-   * The output layout of the sound channels. Valid values:
+   * The channel layout. Valid values:
    * 
-   * *   **mono**
-   * *   **stereo**
+   * - **mono**: mono.
+   * - **stereo**: stereo.
    * 
    * @example
    * mono
@@ -32,7 +32,7 @@ export class GetMezzanineInfoResponseBodyMezzanineAudioStreamList extends $dara.
   channels?: string;
   /**
    * @remarks
-   * The full name of the encoding format.
+   * The full name of the codec.
    * 
    * @example
    * AAC (Advanced Audio Coding)
@@ -40,7 +40,7 @@ export class GetMezzanineInfoResponseBodyMezzanineAudioStreamList extends $dara.
   codecLongName?: string;
   /**
    * @remarks
-   * The short name of the encoding format.
+   * The short name of the codec.
    * 
    * @example
    * aac
@@ -48,7 +48,7 @@ export class GetMezzanineInfoResponseBodyMezzanineAudioStreamList extends $dara.
   codecName?: string;
   /**
    * @remarks
-   * The tag of the encoding format.
+   * The codec tag.
    * 
    * @example
    * 0x6134706d
@@ -56,7 +56,7 @@ export class GetMezzanineInfoResponseBodyMezzanineAudioStreamList extends $dara.
   codecTag?: string;
   /**
    * @remarks
-   * The tag string of the encoding format.
+   * The codec tag string.
    * 
    * @example
    * mp4a
@@ -72,7 +72,7 @@ export class GetMezzanineInfoResponseBodyMezzanineAudioStreamList extends $dara.
   codecTimeBase?: string;
   /**
    * @remarks
-   * The duration of the audio file.
+   * The duration.
    * 
    * @example
    * 3.227574
@@ -80,7 +80,7 @@ export class GetMezzanineInfoResponseBodyMezzanineAudioStreamList extends $dara.
   duration?: string;
   /**
    * @remarks
-   * The sequence number of the audio stream. The value indicates the position of the audio stream in all audio streams.
+   * The sequence number of the audio stream, which identifies the position of the audio stream in the overall media stream.
    * 
    * @example
    * 0
@@ -104,7 +104,7 @@ export class GetMezzanineInfoResponseBodyMezzanineAudioStreamList extends $dara.
   numFrames?: string;
   /**
    * @remarks
-   * The sampling format.
+   * The sample format.
    * 
    * @example
    * fltp
@@ -112,7 +112,7 @@ export class GetMezzanineInfoResponseBodyMezzanineAudioStreamList extends $dara.
   sampleFmt?: string;
   /**
    * @remarks
-   * The sampling rate of the audio stream.
+   * The sample rate.
    * 
    * @example
    * 44100
@@ -120,7 +120,7 @@ export class GetMezzanineInfoResponseBodyMezzanineAudioStreamList extends $dara.
   sampleRate?: string;
   /**
    * @remarks
-   * The beginning of the time range during which the data was queried. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+   * The start time. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
    * 
    * @example
    * 2017-01-11T12:00:00Z
@@ -128,7 +128,7 @@ export class GetMezzanineInfoResponseBodyMezzanineAudioStreamList extends $dara.
   startTime?: string;
   /**
    * @remarks
-   * The time base of the audio stream.
+   * The time base.
    * 
    * @example
    * 0.000000
@@ -196,7 +196,7 @@ export class GetMezzanineInfoResponseBodyMezzanineVideoStreamList extends $dara.
   avgFPS?: string;
   /**
    * @remarks
-   * The bitrate. Unit: Kbit/s.
+   * The file bitrate. Unit: Kbps.
    * 
    * @example
    * 500
@@ -204,7 +204,7 @@ export class GetMezzanineInfoResponseBodyMezzanineVideoStreamList extends $dara.
   bitrate?: string;
   /**
    * @remarks
-   * The full name of the encoding format.
+   * The full name of the codec.
    * 
    * @example
    * H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10
@@ -212,7 +212,7 @@ export class GetMezzanineInfoResponseBodyMezzanineVideoStreamList extends $dara.
   codecLongName?: string;
   /**
    * @remarks
-   * The short name of the encoding format.
+   * The short name of the codec.
    * 
    * @example
    * h264
@@ -220,7 +220,7 @@ export class GetMezzanineInfoResponseBodyMezzanineVideoStreamList extends $dara.
   codecName?: string;
   /**
    * @remarks
-   * The tag of the encoding format.
+   * The codec tag.
    * 
    * @example
    * 0x31637661
@@ -228,7 +228,7 @@ export class GetMezzanineInfoResponseBodyMezzanineVideoStreamList extends $dara.
   codecTag?: string;
   /**
    * @remarks
-   * The tag string of the encoding format.
+   * The codec tag string.
    * 
    * @example
    * avc1
@@ -244,7 +244,7 @@ export class GetMezzanineInfoResponseBodyMezzanineVideoStreamList extends $dara.
   codecTimeBase?: string;
   /**
    * @remarks
-   * The display aspect ratio (DAR) of the video stream.
+   * The display aspect ratio.
    * 
    * @example
    * 0:1
@@ -252,7 +252,7 @@ export class GetMezzanineInfoResponseBodyMezzanineVideoStreamList extends $dara.
   dar?: string;
   /**
    * @remarks
-   * The duration of the audio file.
+   * The duration.
    * 
    * @example
    * 3.166667
@@ -260,7 +260,7 @@ export class GetMezzanineInfoResponseBodyMezzanineVideoStreamList extends $dara.
   duration?: string;
   /**
    * @remarks
-   * The frame rate of the output file.
+   * The target frame rate.
    * 
    * @example
    * 30.0
@@ -284,7 +284,7 @@ export class GetMezzanineInfoResponseBodyMezzanineVideoStreamList extends $dara.
   hasBFrames?: string;
   /**
    * @remarks
-   * The height of the video stream.
+   * The height of the video resolution.
    * 
    * @example
    * 320
@@ -292,7 +292,7 @@ export class GetMezzanineInfoResponseBodyMezzanineVideoStreamList extends $dara.
   height?: string;
   /**
    * @remarks
-   * The sequence number of the video stream. The value indicates the position of the video stream in all video streams.
+   * The sequence number of the video stream, which identifies the position of the video stream in the overall media stream.
    * 
    * @example
    * 1
@@ -340,7 +340,7 @@ export class GetMezzanineInfoResponseBodyMezzanineVideoStreamList extends $dara.
   profile?: string;
   /**
    * @remarks
-   * The rotation angle of the video. Valid values: **[0,360)**.
+   * The video rotation angle. Value range: **[0, 360)**.
    * 
    * @example
    * 90
@@ -348,7 +348,7 @@ export class GetMezzanineInfoResponseBodyMezzanineVideoStreamList extends $dara.
   rotate?: string;
   /**
    * @remarks
-   * The sample aspect ratio (SAR) of the video stream.
+   * The sample aspect ratio.
    * 
    * @example
    * 0:1
@@ -356,7 +356,7 @@ export class GetMezzanineInfoResponseBodyMezzanineVideoStreamList extends $dara.
   sar?: string;
   /**
    * @remarks
-   * The beginning of the time range during which the data was queried. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+   * The start time. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
    * 
    * @example
    * 2017-01-11T12:00:00Z
@@ -364,7 +364,7 @@ export class GetMezzanineInfoResponseBodyMezzanineVideoStreamList extends $dara.
   startTime?: string;
   /**
    * @remarks
-   * The time base of the audio stream.
+   * The time base.
    * 
    * @example
    * 0.000000
@@ -372,7 +372,7 @@ export class GetMezzanineInfoResponseBodyMezzanineVideoStreamList extends $dara.
   timebase?: string;
   /**
    * @remarks
-   * The width of the video in pixels.
+   * The width of the video resolution.
    * 
    * @example
    * 568
@@ -448,12 +448,12 @@ export class GetMezzanineInfoResponseBodyMezzanineVideoStreamList extends $dara.
 export class GetMezzanineInfoResponseBodyMezzanine extends $dara.Model {
   /**
    * @remarks
-   * The codec time base.
+   * The audio stream information.
    */
   audioStreamList?: GetMezzanineInfoResponseBodyMezzanineAudioStreamList[];
   /**
    * @remarks
-   * The bitrate of the file. Unit: Kbit/s.
+   * The file bitrate. Unit: Kbps.
    * 
    * @example
    * 771.2280
@@ -461,7 +461,7 @@ export class GetMezzanineInfoResponseBodyMezzanine extends $dara.Model {
   bitrate?: string;
   /**
    * @remarks
-   * The time when the file was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+   * The time when the file was created. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
    * 
    * @example
    * 2017-11-14T09:15:50Z
@@ -469,7 +469,7 @@ export class GetMezzanineInfoResponseBodyMezzanine extends $dara.Model {
   creationTime?: string;
   /**
    * @remarks
-   * The duration of the file. Unit: seconds.
+   * The file duration. Unit: seconds.
    * 
    * @example
    * 42.4930
@@ -478,7 +478,7 @@ export class GetMezzanineInfoResponseBodyMezzanine extends $dara.Model {
   fileMD5?: string;
   /**
    * @remarks
-   * The name of the file.
+   * The file name.
    * 
    * @example
    * 27ffc438-164h67f57ef-0005-6884-51a-1****.mp4
@@ -486,7 +486,7 @@ export class GetMezzanineInfoResponseBodyMezzanine extends $dara.Model {
   fileName?: string;
   /**
    * @remarks
-   * The URL of the file.
+   * The source file URL.
    * 
    * @example
    * http://example-bucket-****.oss-cn-shanghai.aliyuncs.com/27ffc438-164h67f57ef-0005-6884-51a-1****.mp4
@@ -494,7 +494,7 @@ export class GetMezzanineInfoResponseBodyMezzanine extends $dara.Model {
   fileURL?: string;
   /**
    * @remarks
-   * The frame rate of the file. Unit: frames per second.
+   * The file frame rate, in frames per second.
    * 
    * @example
    * 25.0000
@@ -502,7 +502,7 @@ export class GetMezzanineInfoResponseBodyMezzanine extends $dara.Model {
   fps?: string;
   /**
    * @remarks
-   * The height of the file. Unit: pixel.
+   * The file height. Unit: px.
    * 
    * @example
    * 540
@@ -510,12 +510,12 @@ export class GetMezzanineInfoResponseBodyMezzanine extends $dara.Model {
   height?: number;
   /**
    * @remarks
-   * The type of the mezzanine file URL. Valid values:
+   * The type of the output URL. Valid values:
    * 
-   * - **oss**: OSS URL
-   * - **cdn** (default): CDN URL
+   * - **oss**: back-to-origin URL.
+   * - **cdn** (default): CDN URL.
    * 
-   * > If you specify an OSS URL for the video stream, the video stream must be in the MP4 format.
+   * > Only OSS URLs in the MP4 playback format are supported.
    * 
    * @example
    * oss
@@ -523,7 +523,12 @@ export class GetMezzanineInfoResponseBodyMezzanine extends $dara.Model {
   outputType?: string;
   /**
    * @remarks
-   * The preprocess status od the media.
+   * The preprocessing status. Valid values:
+   * 
+   * - **UnPreprocess**: Not preprocessed.
+   * - **Preprocessing**: Being preprocessed.
+   * - **PreprocessSucceed**: Preprocessed.
+   * - **PreprocessFailed**: Failed to be preprocessed.
    * 
    * @example
    * UnPreprocess
@@ -531,7 +536,7 @@ export class GetMezzanineInfoResponseBodyMezzanine extends $dara.Model {
   preprocessStatus?: string;
   /**
    * @remarks
-   * The period of time in which the object remains in the restored state.
+   * The expiration time of the media asset restore.
    * 
    * @example
    * 2023-03-30T10:14:14Z
@@ -539,11 +544,10 @@ export class GetMezzanineInfoResponseBodyMezzanine extends $dara.Model {
   restoreExpiration?: string;
   /**
    * @remarks
-   * The restoration status of the audio or video file. Valid values:
-   * 
-   * *   **Processing**
-   * *   **Success**
-   * *   **Failed**
+   * The restore status of the media asset. Valid values:
+   * - **Processing**: Being restored.
+   * - **Success**: Restored.
+   * - **Failed**: Failed to be restored.
    * 
    * @example
    * Success
@@ -551,7 +555,7 @@ export class GetMezzanineInfoResponseBodyMezzanine extends $dara.Model {
   restoreStatus?: string;
   /**
    * @remarks
-   * The size of the file. Unit: byte.
+   * The file size. Unit: bytes.
    * 
    * @example
    * 4096477
@@ -559,12 +563,12 @@ export class GetMezzanineInfoResponseBodyMezzanine extends $dara.Model {
   size?: number;
   /**
    * @remarks
-   * The status of the file. Valid values:
+   * The file status. Valid values:
    * 
-   * *   **Uploading**: The file is being uploaded. This is the initial status.
-   * *   **Normal**: The file is uploaded.
-   * *   **UploadFail**: The file fails to be uploaded.
-   * *   **Deleted**: The file is deleted.
+   * - **Uploading**: The file is being uploaded. This is the initial status.
+   * - **Normal**: The file is uploaded.
+   * - **UploadFail**: The file failed to be uploaded.
+   * - **Deleted**: The file is deleted.
    * 
    * @example
    * Normal
@@ -572,17 +576,17 @@ export class GetMezzanineInfoResponseBodyMezzanine extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The storage class of the audio file. Valid values:
+   * The storage class of the media asset. Valid values:
    * 
-   * *   **Standard**: All media resources are stored as Standard objects.
-   * *   **IA**: All media resources are stored as IA objects.
-   * *   **Archive**: All media resources are stored as Archive objects.
-   * *   **ColdArchive**: All media resources are stored as Cold Archive objects.
-   * *   **SourceIA**: Only the source files are IA objects.
-   * *   **SourceArchive**: Only the source files are Archive objects.
-   * *   **SourceColdArchive**: Only the source files are Cold Archive objects.
-   * *   **Changing**: The storage class of the audio file is being changed.
-   * *   **SourceChanging**: The storage class of the source file is being changed.
+   * - **Standard**: Standard.
+   * - **IA**: Infrequent Access for media assets.
+   * - **Archive**: Archive for media assets.
+   * - **ColdArchive**: Cold Archive for media assets.
+   * - **SourceIA**: Infrequent Access for source files.
+   * - **SourceArchive**: Archive for source files.
+   * - **SourceColdArchive**: Cold Archive for source files.
+   * - **Changing**: The storage class of the media asset is being changed.
+   * - **SourceChanging**: The storage class of the source file is being changed.
    * 
    * @example
    * Standard
@@ -590,7 +594,7 @@ export class GetMezzanineInfoResponseBodyMezzanine extends $dara.Model {
   storageClass?: string;
   /**
    * @remarks
-   * The ID of the video.
+   * The video ID.
    * 
    * @example
    * 1f1a6fc03ca04814031b8a6559e****
@@ -598,12 +602,12 @@ export class GetMezzanineInfoResponseBodyMezzanine extends $dara.Model {
   videoId?: string;
   /**
    * @remarks
-   * The HDR type of the video stream.
+   * The video stream information.
    */
   videoStreamList?: GetMezzanineInfoResponseBodyMezzanineVideoStreamList[];
   /**
    * @remarks
-   * The width of the file. Unit: pixel.
+   * The file width. Unit: px.
    * 
    * @example
    * 960
@@ -675,12 +679,12 @@ export class GetMezzanineInfoResponseBodyMezzanine extends $dara.Model {
 export class GetMezzanineInfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the source file.
+   * The file information.
    */
   mezzanine?: GetMezzanineInfoResponseBodyMezzanine;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 25818875-5F78-4AF6-D7393642CA58****

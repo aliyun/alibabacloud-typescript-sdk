@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAIMediaAuditJobRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the intelligent review job.
+   * The ID of the automated review job.
    * 
    * This parameter is required.
    * 

@@ -61,7 +61,7 @@ export class SubmitAIJobResponseBody extends $dara.Model {
   AIJobList?: SubmitAIJobResponseBodyAIJobList;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 25818875-5F78-4A13-BEF6-D73936****

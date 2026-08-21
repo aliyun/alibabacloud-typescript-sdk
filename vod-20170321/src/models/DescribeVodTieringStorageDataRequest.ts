@@ -3,10 +3,17 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeVodTieringStorageDataRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The application ID.
+   * 
+   * @example
+   * app-1000000
+   */
   appId?: string;
   /**
    * @remarks
-   * The end time at which data is obtained. The end time must be later than the start time. The difference cannot exceed 31 days. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+   * The end time of the query. The end time must be later than the start time. The time range cannot exceed 31 days. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
    * 
    * @example
    * 2023-05-29T02:00:00Z
@@ -15,7 +22,7 @@ export class DescribeVodTieringStorageDataRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region in which you want to query data. If you leave this parameter empty, data in all regions is returned. Separate multiple regions with commas (,).
+   * The storage region. By default, data of all regions is returned. You can specify multiple regions separated by commas (,).
    * 
    * @example
    * cn-beijing
@@ -23,7 +30,7 @@ export class DescribeVodTieringStorageDataRequest extends $dara.Model {
   region?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC. If you leave this parameter empty, data in the last 24 hours is queried.
+   * The start time of the query. Specify the time in the ISO 8601 standard in the YYYY-MM-DDThh:mmZ format. The time must be in UTC. If this parameter is left empty, data of the last 24 hours is returned by default.
    * 
    * @example
    * 2023-05-29T01:00:00Z
@@ -31,11 +38,10 @@ export class DescribeVodTieringStorageDataRequest extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The storage type. By default, all storage types are returned. Valid values:
-   * 
-   * *   **IA**
-   * *   **Archive**
-   * *   **ColdArchive**
+   * The storage class. By default, data of all storage classes is returned. Valid values:
+   * - **IA**: Infrequent Access.
+   * - **Archive**: Archive.
+   * - **ColdArchive**: Cold Archive.
    * 
    * @example
    * IA

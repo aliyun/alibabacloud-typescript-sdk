@@ -91,7 +91,7 @@ export class DescribeVodCertificateListResponseBodyCertificateListModel extends 
   certList?: DescribeVodCertificateListResponseBodyCertificateListModelCertList;
   /**
    * @remarks
-   * The number of certificates that are returned.
+   * The number of certificates.
    * 
    * @example
    * 2
@@ -126,12 +126,12 @@ export class DescribeVodCertificateListResponseBodyCertificateListModel extends 
 export class DescribeVodCertificateListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about each certificate.
+   * The certificate list information.
    */
   certificateListModel?: DescribeVodCertificateListResponseBodyCertificateListModel;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * FC0E34AC-0239-44A7-****-800DE522C8DA

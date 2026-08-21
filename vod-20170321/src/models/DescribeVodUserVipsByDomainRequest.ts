@@ -4,12 +4,20 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeVodUserVipsByDomainRequest extends $dara.Model {
   /**
+   * @remarks
+   * Specifies whether to query healthy VIPs. Valid values:
+   * 
+   * - **on**: Healthy VIPs.
+   * - **off**: All VIPs.
+   * 
    * @example
    * on
    */
   available?: string;
   /**
    * @remarks
+   * The accelerated domain name for ApsaraVideo VOD. Only a single domain name can be queried.
+   * 
    * This parameter is required.
    * 
    * @example

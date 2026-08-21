@@ -161,7 +161,7 @@ export class GetEditingProjectMaterialsResponseBody extends $dara.Model {
   materialList?: GetEditingProjectMaterialsResponseBodyMaterialList;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 746FFA07-8BBB-46B1-3E94E3B2915E****

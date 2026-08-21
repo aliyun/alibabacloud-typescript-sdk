@@ -85,7 +85,7 @@ export class RestoreMediaResponseBody extends $dara.Model {
   ignoredList?: RestoreMediaResponseBodyIgnoredList;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 8E70E3F8-E2EE-47BC-4677-379D6F28****
@@ -93,7 +93,7 @@ export class RestoreMediaResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the operation was successful.
    * 
    * @example
    * true

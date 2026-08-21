@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetMessageCallbackRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the application. If you do not set this parameter, the default value **app-1000000** is used.
+   * The application ID. If this parameter is not specified, the ID of the system default application is used. The fixed value is **app-1000000**.
    * 
    * @example
    * app-1000000

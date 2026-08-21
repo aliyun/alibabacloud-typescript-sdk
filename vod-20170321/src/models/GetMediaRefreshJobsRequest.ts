@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class GetMediaRefreshJobsRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the media file. It is the value of the `MediaIds` parameter that you specify when you call the [RefreshMediaPlayUrls](~~RefreshMediaPlayUrls~~) operation. You can specify only one media ID.
+   * The audio or video ID, which is the `MediaIds` value specified when calling the [SubmitMediaRefreshJob](https://help.aliyun.com/document_detail/431095.html) operation. Only one audio or video ID can be specified.
    * 
-   * If you leave this parameter empty, information about all media files in the refresh or prefetch job specified by `MediaRefreshJobId` is returned. If you set this parameter, only the information about the specified media file is returned.``
+   * If this parameter is not specified, task information for all audio or video files under the specified `MediaRefreshJobId` is returned. If this parameter is specified, only the task information for the specified audio or video ID under the `MediaRefreshJobId` is returned.
    * 
    * @example
    * ca3a8f6e4957b658067095869****
@@ -15,7 +15,7 @@ export class GetMediaRefreshJobsRequest extends $dara.Model {
   mediaId?: string;
   /**
    * @remarks
-   * The ID of the refresh or prefetch job. It is the value of the MediaRefreshJobId parameter that is returned from the call to the [RefreshMediaPlayUrls](~~RefreshMediaPlayUrls~~) operation.
+   * The ID of the audio or video purge or prefetch task. This is the value of MediaRefreshJobId returned by the [SubmitMediaRefreshJob](https://help.aliyun.com/document_detail/431095.html) operation.
    * 
    * This parameter is required.
    * 

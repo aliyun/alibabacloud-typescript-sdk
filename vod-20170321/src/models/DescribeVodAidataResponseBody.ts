@@ -113,10 +113,9 @@ export class DescribeVodAIDataResponseBody extends $dara.Model {
   AIData?: DescribeVodAIDataResponseBodyAIData;
   /**
    * @remarks
-   * The time granularity at which the data was queried. Valid values:
-   * 
-   * *   **hour**
-   * *   **day**
+   * The time granularity of the returned data. Valid values:
+   * - **hour**: hourly data.
+   * - **day**: daily data.
    * 
    * @example
    * day
@@ -124,7 +123,7 @@ export class DescribeVodAIDataResponseBody extends $dara.Model {
   dataInterval?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * C370DAF1-C838-4288-****-9A87633D248E

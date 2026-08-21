@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GenerateDownloadSecretKeyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The key file for secure download.
+   * The generated secure download key.
    * 
    * @example
    * ***
@@ -13,7 +13,7 @@ export class GenerateDownloadSecretKeyResponseBody extends $dara.Model {
   appEncryptKey?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * E99B9BAD-7F9D-552B-A689-B72E92EA040E

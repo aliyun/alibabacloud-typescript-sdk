@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SetCrossdomainContentRequest extends $dara.Model {
   /**
    * @remarks
-   * The content of the cross-domain policy file. The file must be in the XML format and can contain up to 2,048 characters.
+   * The content of the cross-domain file. The content is in XML format and cannot exceed 2,048 characters.
    * 
    * This parameter is required.
    * 
@@ -27,7 +27,7 @@ export class SetCrossdomainContentRequest extends $dara.Model {
   resourceRealOwnerId?: string;
   /**
    * @remarks
-   * The URL of the Object Storage Service (OSS) bucket.
+   * The OSS storage address.
    * 
    * This parameter is required.
    * 

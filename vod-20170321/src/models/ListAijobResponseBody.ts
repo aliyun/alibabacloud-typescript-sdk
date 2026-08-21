@@ -106,7 +106,7 @@ export class ListAIJobResponseBody extends $dara.Model {
   nonExistAIJobIds?: ListAIJobResponseBodyNonExistAIJobIds;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 8233A0E4-E112-44*****58-2BCED1B88173

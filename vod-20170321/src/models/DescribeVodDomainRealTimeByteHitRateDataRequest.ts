@@ -5,7 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeVodDomainRealTimeByteHitRateDataRequest extends $dara.Model {
   /**
    * @remarks
-   * You can specify multiple domain names and separate them with commas (,). You can specify at most 100 domain names in each call.
+   * The accelerated domain name to query.
+   * - Separate multiple domain names with commas (,). You can specify up to 100 domain names at a time.
+   * - When you query multiple domain names, the returned data is the aggregated data of all specified domain names.
+   * - Log on to the [ApsaraVideo VOD console](https://vod.console.aliyun.com), and choose **Configuration Management > CDN Configuration > Domain Names** in the left-side navigation pane to view the accelerated domain names that you have added to ApsaraVideo VOD. You can also call the [DescribeVodUserDomains](https://help.aliyun.com/document_detail/455030.html) operation to query the list of accelerated domain names.
    * 
    * This parameter is required.
    * 
@@ -15,11 +18,8 @@ export class DescribeVodDomainRealTimeByteHitRateDataRequest extends $dara.Model
   domainName?: string;
   /**
    * @remarks
-   * The end of the time range to query.
-   * 
-   * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
-   * 
-   * >  The end time must be later than the start time.
+   * The end of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * > The end time must be later than the start time.
    * 
    * @example
    * 2020-05-15T09:15:00Z
@@ -28,9 +28,7 @@ export class DescribeVodDomainRealTimeByteHitRateDataRequest extends $dara.Model
   ownerId?: number;
   /**
    * @remarks
-   * The beginning of the time range to query.
-   * 
-   * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
    * 
    * @example
    * 2020-05-15T09:13:00Z

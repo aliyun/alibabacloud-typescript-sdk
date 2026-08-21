@@ -64,7 +64,7 @@ export class DescribeVodDomainMax95BpsDataResponseBody extends $dara.Model {
   detailData?: DescribeVodDomainMax95BpsDataResponseBodyDetailData;
   /**
    * @remarks
-   * The domain name for CDN.
+   * The accelerated domain name information.
    * 
    * @example
    * example.com
@@ -80,11 +80,7 @@ export class DescribeVodDomainMax95BpsDataResponseBody extends $dara.Model {
   domesticMax95Bps?: string;
   /**
    * @remarks
-   * The end of the time range to query.
-   * 
-   * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
-   * 
-   * >  The end time must be later than the start time.
+   * The end time of the data.
    * 
    * @example
    * 2017-01-11T13:00:00Z
@@ -116,9 +112,7 @@ export class DescribeVodDomainMax95BpsDataResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The beginning of the time range to query.
-   * 
-   * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * The start time of the data.
    * 
    * @example
    * 2017-01-11T12:00:00Z
