@@ -39,12 +39,12 @@ export class CreateServiceRequestServiceConfigs extends $dara.Model {
   addresses?: string[];
   /**
    * @remarks
-   * The Agent service configuration. This parameter is required when sourceType is set to AGENT.
+   * The Agent service configuration. Required when sourceType is AGENT.
    */
   agentServiceConfig?: AgentServiceConfig;
   /**
    * @remarks
-   * The AI service configuration. This parameter is required when sourceType is set to AI.
+   * The AI service configuration. Required when sourceType is AI.
    */
   aiServiceConfig?: AiServiceConfig;
   /**
@@ -62,7 +62,7 @@ export class CreateServiceRequestServiceConfigs extends $dara.Model {
   expressType?: string;
   /**
    * @remarks
-   * The service group name. This parameter is required when sourceType is set to MSE_NACOS.
+   * The service group name. Required when sourceType is MSE_NACOS.
    * 
    * @example
    * DEFAULT_GROUP
@@ -78,7 +78,7 @@ export class CreateServiceRequestServiceConfigs extends $dara.Model {
   modelProviderId?: string;
   /**
    * @remarks
-   * The service name. This parameter is required when sourceType is set to FC3.
+   * The service name. Required when sourceType is FC3.
    * 
    * @example
    * user-service
@@ -86,12 +86,12 @@ export class CreateServiceRequestServiceConfigs extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The namespace of the service.
+   * The namespace of the service:
    * 
-   * - If sourceType is set to K8S, this parameter specifies the namespace of the Kubernetes service.
-   * - If sourceType is set to MSE_NACOS, this parameter specifies the namespace in Nacos.
+   * - If sourceType is K8S, this indicates the namespace of the Kubernetes service.
+   * - If sourceType is MSE_NACOS, this indicates the namespace in Nacos.
    * 
-   * This parameter is required when sourceType is set to K8S or MSE_NACOS.
+   * Required when sourceType is K8S or MSE_NACOS.
    * 
    * @example
    * PUBLIC
@@ -107,7 +107,7 @@ export class CreateServiceRequestServiceConfigs extends $dara.Model {
   qualifier?: string;
   /**
    * @remarks
-   * The service source ID. This parameter is required in multi-Nacos instance scenarios.
+   * The service source ID. Required in multi-Nacos instance scenarios.
    * 
    * @example
    * nacos-instance-001
@@ -200,7 +200,7 @@ export class CreateServiceRequest extends $dara.Model {
   serviceConfigs?: CreateServiceRequestServiceConfigs[];
   /**
    * @remarks
-   * The service source type. Valid values:
+   * The service source. Valid values:
    * - MSE_NACOS: a service in MSE Nacos.
    * - K8S: a service in a Kubernetes cluster of Container Service.
    * - VIP: a fixed address service.

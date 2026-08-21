@@ -1026,6 +1026,10 @@ export default class Client extends OpenApi {
   async createDomainWithOptions(request: $_model.CreateDomainRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateDomainResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["clientToken"] = request.clientToken;
+    }
+
     if (!$dara.isNull(request.dryRun)) {
       query["dryRun"] = request.dryRun;
     }
