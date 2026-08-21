@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CheckResourceStockResponseBodyResourceStockModels extends $dara.Model {
   /**
    * @remarks
-   * The ID of the region.
+   * The region ID.
    * 
    * @example
    * cn-shanghai
@@ -21,7 +21,7 @@ export class CheckResourceStockResponseBodyResourceStockModels extends $dara.Mod
   stockStatus?: string;
   /**
    * @remarks
-   * The ID of the zone.
+   * The zone ID.
    * 
    * @example
    * cn-shanghai-b
@@ -55,7 +55,7 @@ export class CheckResourceStockResponseBodyResourceStockModels extends $dara.Mod
 export class CheckResourceStockResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 805D8FB6-512A-531C-9E4D-2A807D3C****

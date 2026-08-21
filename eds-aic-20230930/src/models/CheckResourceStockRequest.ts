@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CheckResourceStockRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instance type.
+   * The specification ID.
    * 
    * @example
    * acp.basic.small
@@ -13,7 +13,7 @@ export class CheckResourceStockRequest extends $dara.Model {
   acpSpecId?: string;
   /**
    * @remarks
-   * The number of Cloud Phone instances.
+   * The number of cloud phone instances.
    * 
    * @example
    * 2
@@ -21,7 +21,7 @@ export class CheckResourceStockRequest extends $dara.Model {
   amount?: number;
   /**
    * @remarks
-   * The ID of the region.
+   * The region ID.
    * 
    * This parameter is required.
    * 
@@ -39,7 +39,7 @@ export class CheckResourceStockRequest extends $dara.Model {
   gpuAcceleration?: boolean;
   /**
    * @remarks
-   * The zone where the resource resides.
+   * The zone to which the resource belongs.
    * 
    * @example
    * cn-hangzhou-i

@@ -624,7 +624,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Checks the inventory of Cloud Phone resources. Before you create an instance, call this operation to check whether resources are available in the target region. Create the instance only after you confirm that resources are available.
+   * Checks the inventory status of cloud phone resources. Before creating an instance, you can use this operation to check whether the inventory in the target region is sufficient, and then proceed with creation after confirmation.
    * 
    * @param request - CheckResourceStockRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -671,7 +671,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Checks the inventory of Cloud Phone resources. Before you create an instance, call this operation to check whether resources are available in the target region. Create the instance only after you confirm that resources are available.
+   * Checks the inventory status of cloud phone resources. Before creating an instance, you can use this operation to check whether the inventory in the target region is sufficient, and then proceed with creation after confirmation.
    * 
    * @param request - CheckResourceStockRequest
    * @returns CheckResourceStockResponse
@@ -1360,10 +1360,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Places an order to purchase an edge smart gateway agent package.
+   * Places an order to purchase an edge agent package.
    * 
    * @remarks
-   * This operation involves billing. Before you call this operation, make sure that you fully understand the [billing methods and pricing](https://www.alibabacloud.com/help/en/ecp/jvs-mobile-billing-instructions) of the Cloud Phone product.
+   * This operation involves billing. Before you call this operation, make sure that you fully understand the [billing methods and pricing](https://www.alibabacloud.com/help/en/ecp/jvs-mobile-billing-instructions) of WUYING Cloud Phone.
    * 
    * @param request - CreateEdgeMobileAgentPackageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1426,10 +1426,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Places an order to purchase an edge smart gateway agent package.
+   * Places an order to purchase an edge agent package.
    * 
    * @remarks
-   * This operation involves billing. Before you call this operation, make sure that you fully understand the [billing methods and pricing](https://www.alibabacloud.com/help/en/ecp/jvs-mobile-billing-instructions) of the Cloud Phone product.
+   * This operation involves billing. Before you call this operation, make sure that you fully understand the [billing methods and pricing](https://www.alibabacloud.com/help/en/ecp/jvs-mobile-billing-instructions) of WUYING Cloud Phone.
    * 
    * @param request - CreateEdgeMobileAgentPackageRequest
    * @returns CreateEdgeMobileAgentPackageResponse
