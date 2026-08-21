@@ -47,6 +47,7 @@ export class InstallAgentRequestInstances extends $dara.Model {
 }
 
 export class InstallAgentRequest extends $dara.Model {
+  xDebugId?: string;
   /**
    * @remarks
    * The ID of the component to install.
@@ -70,6 +71,7 @@ export class InstallAgentRequest extends $dara.Model {
   /**
    * @remarks
    * The installation type. Valid values:
+   * 
    * - InstallAndUpgrade: installs the component if it does not exist, or updates it if it exists.
    * - OnlyInstallNotHasAgent: installs the component if it does not exist, or takes no action if it exists.
    * - OnlyUpgradeHasAgent: takes no action if the component does not exist, or updates it if it exists.
@@ -88,21 +90,26 @@ export class InstallAgentRequest extends $dara.Model {
    * This parameter is required.
    */
   instances?: InstallAgentRequestInstances[];
+  xSysomInvokeSource?: string;
   static names(): { [key: string]: string } {
     return {
+      xDebugId: 'X-Debug-Id',
       agentId: 'agent_id',
       agentVersion: 'agent_version',
       installType: 'install_type',
       instances: 'instances',
+      xSysomInvokeSource: 'x-sysom-invoke-source',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      xDebugId: 'string',
       agentId: 'string',
       agentVersion: 'string',
       installType: 'string',
       instances: { 'type': 'array', 'itemType': InstallAgentRequestInstances },
+      xSysomInvokeSource: 'string',
     };
   }
 

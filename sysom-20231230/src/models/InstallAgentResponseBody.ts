@@ -7,7 +7,7 @@ export class InstallAgentResponseBodyData extends $dara.Model {
    * @remarks
    * The task ID.
    * 
-   * You can use this task ID to call the GetAgentTask operation to retrieve the task execution status.
+   * You can use this task ID to call the GetAgentTask operation to query the task execution status.
    * 
    * @example
    * 26b3cd97389c43dcad6bc4901c36fcec
@@ -46,6 +46,7 @@ export class InstallAgentResponseBody extends $dara.Model {
   /**
    * @remarks
    * The status code.
+   * 
    * - If `code == Success`, the authorization is successful.
    * - Other status codes indicate authorization failed. Check the `message` field for the detailed fault information.
    * 
@@ -61,6 +62,7 @@ export class InstallAgentResponseBody extends $dara.Model {
   /**
    * @remarks
    * The error message.
+   * 
    * - If `code == Success`, this field is empty.
    * - Otherwise, this field contains the request error information.
    * 

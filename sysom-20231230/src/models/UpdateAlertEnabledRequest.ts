@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateAlertEnabledRequest extends $dara.Model {
+  xDebugId?: string;
   /**
    * @remarks
    * Specifies whether the alert policy is enabled.
@@ -19,17 +20,22 @@ export class UpdateAlertEnabledRequest extends $dara.Model {
    * 1
    */
   id?: number;
+  xSysomInvokeSource?: string;
   static names(): { [key: string]: string } {
     return {
+      xDebugId: 'X-Debug-Id',
       enabled: 'enabled',
       id: 'id',
+      xSysomInvokeSource: 'x-sysom-invoke-source',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      xDebugId: 'string',
       enabled: 'boolean',
       id: 'number',
+      xSysomInvokeSource: 'string',
     };
   }
 

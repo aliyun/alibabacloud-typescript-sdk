@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class InstallAgentForClusterRequest extends $dara.Model {
+  xDebugId?: string;
   /**
    * @remarks
    * The component ID.
@@ -23,7 +24,7 @@ export class InstallAgentForClusterRequest extends $dara.Model {
    * @remarks
    * The cluster ID.
    * 
-   * > The cluster ID here must be an ACK cluster ID.
+   * > Pass the ID of the ACK cluster for this parameter.
    * 
    * @example
    * c9d7f3fc3d42942afbcb65c1100ffb19d
@@ -39,29 +40,34 @@ export class InstallAgentForClusterRequest extends $dara.Model {
   configId?: string;
   /**
    * @remarks
-   * The canary release configuration.
+   * The canary release environment.
    * 
    * @example
    * {"type":"numeric","config":{"value":2}}
    */
   grayscaleConfig?: string;
+  xSysomInvokeSource?: string;
   static names(): { [key: string]: string } {
     return {
+      xDebugId: 'X-Debug-Id',
       agentId: 'agent_id',
       agentVersion: 'agent_version',
       clusterId: 'cluster_id',
       configId: 'config_id',
       grayscaleConfig: 'grayscale_config',
+      xSysomInvokeSource: 'x-sysom-invoke-source',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      xDebugId: 'string',
       agentId: 'string',
       agentVersion: 'string',
       clusterId: 'string',
       configId: 'string',
       grayscaleConfig: 'string',
+      xSysomInvokeSource: 'string',
     };
   }
 

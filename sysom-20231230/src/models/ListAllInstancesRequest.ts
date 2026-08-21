@@ -3,9 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListAllInstancesRequest extends $dara.Model {
+  xDebugId?: string;
   /**
    * @remarks
-   * Current page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -13,7 +14,7 @@ export class ListAllInstancesRequest extends $dara.Model {
   current?: string;
   /**
    * @remarks
-   * List of filter information.
+   * The list of filter conditions.
    * 
    * @example
    * {}
@@ -21,7 +22,7 @@ export class ListAllInstancesRequest extends $dara.Model {
   filters?: string;
   /**
    * @remarks
-   * Instance type.
+   * The instance type.
    * 
    * @example
    * ecs
@@ -29,7 +30,7 @@ export class ListAllInstancesRequest extends $dara.Model {
   instanceType?: string;
   /**
    * @remarks
-   * Management type.
+   * The management type.
    * 
    * @example
    * managed
@@ -37,7 +38,7 @@ export class ListAllInstancesRequest extends $dara.Model {
   managedType?: string;
   /**
    * @remarks
-   * Maximum number of records to retrieve at a time.
+   * The maximum number of records to retrieve in a single request.
    * 
    * @example
    * 100
@@ -45,7 +46,7 @@ export class ListAllInstancesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * Pagination token.
+   * The pagination token.
    * > If this parameter is not empty, more data is available.
    * 
    * @example
@@ -54,7 +55,7 @@ export class ListAllInstancesRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * Number of entries returned per page. Default value: pageSize=10.
+   * The number of entries per page. Default value: 10.
    * 
    * @example
    * 10
@@ -62,7 +63,7 @@ export class ListAllInstancesRequest extends $dara.Model {
   pageSize?: string;
   /**
    * @remarks
-   * Plugin ID.
+   * The plugin ID.
    * 
    * @example
    * 01fc4a0b-f199-4885-9861-b4054a310fe7
@@ -70,14 +71,16 @@ export class ListAllInstancesRequest extends $dara.Model {
   pluginId?: string;
   /**
    * @remarks
-   * Region ID.
+   * The region ID.
    * 
    * @example
    * cn-hangzhou
    */
   region?: string;
+  xSysomInvokeSource?: string;
   static names(): { [key: string]: string } {
     return {
+      xDebugId: 'X-Debug-Id',
       current: 'current',
       filters: 'filters',
       instanceType: 'instanceType',
@@ -87,11 +90,13 @@ export class ListAllInstancesRequest extends $dara.Model {
       pageSize: 'pageSize',
       pluginId: 'pluginId',
       region: 'region',
+      xSysomInvokeSource: 'x-sysom-invoke-source',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      xDebugId: 'string',
       current: 'string',
       filters: 'string',
       instanceType: 'string',
@@ -101,6 +106,7 @@ export class ListAllInstancesRequest extends $dara.Model {
       pageSize: 'string',
       pluginId: 'string',
       region: 'string',
+      xSysomInvokeSource: 'string',
     };
   }
 

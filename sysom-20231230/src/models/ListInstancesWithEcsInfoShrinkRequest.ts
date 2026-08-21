@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListInstancesWithEcsInfoShrinkRequest extends $dara.Model {
+  xDebugId?: string;
   /**
    * @remarks
    * The page number for pagination. This parameter specifies the current page.
@@ -122,8 +123,10 @@ export class ListInstancesWithEcsInfoShrinkRequest extends $dara.Model {
    * default resource group
    */
   resourceGroupName?: string;
+  xSysomInvokeSource?: string;
   static names(): { [key: string]: string } {
     return {
+      xDebugId: 'X-Debug-Id',
       current: 'current',
       healthStatus: 'health_status',
       instanceId: 'instance_id',
@@ -139,11 +142,13 @@ export class ListInstancesWithEcsInfoShrinkRequest extends $dara.Model {
       resourceGroupId: 'resource_group_id',
       resourceGroupIdName: 'resource_group_id_name',
       resourceGroupName: 'resource_group_name',
+      xSysomInvokeSource: 'x-sysom-invoke-source',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      xDebugId: 'string',
       current: 'number',
       healthStatus: 'string',
       instanceId: 'string',
@@ -159,6 +164,7 @@ export class ListInstancesWithEcsInfoShrinkRequest extends $dara.Model {
       resourceGroupId: 'string',
       resourceGroupIdName: 'string',
       resourceGroupName: 'string',
+      xSysomInvokeSource: 'string',
     };
   }
 

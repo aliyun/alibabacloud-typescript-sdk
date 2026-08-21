@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class StartAIAnalysisResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * AI analysis ID
+   * The AI analysis ID.
    * 
    * @example
    * 16896fa8-37f6-4c70-bb32-67fa9817d426
@@ -35,7 +35,7 @@ export class StartAIAnalysisResponseBodyData extends $dara.Model {
 export class StartAIAnalysisResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Response code.
+   * The return code.
    * 
    * @example
    * Success
@@ -43,12 +43,12 @@ export class StartAIAnalysisResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Response data
+   * The response data.
    */
   data?: StartAIAnalysisResponseBodyData;
   /**
    * @remarks
-   * Error message.
+   * The error message.
    * 
    * @example
    * ""

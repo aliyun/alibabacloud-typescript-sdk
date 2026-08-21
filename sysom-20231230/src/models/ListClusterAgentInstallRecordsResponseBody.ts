@@ -7,7 +7,7 @@ export class ListClusterAgentInstallRecordsResponseBodyData extends $dara.Model 
   agentConfigName?: string;
   /**
    * @remarks
-   * Cluster ID.
+   * The cluster ID.
    * 
    * > This cluster ID is not the ACK cluster ID.
    * 
@@ -17,7 +17,7 @@ export class ListClusterAgentInstallRecordsResponseBodyData extends $dara.Model 
   clusterId?: string;
   /**
    * @remarks
-   * Creation time.
+   * The creation time.
    * 
    * @example
    * 2024-12-25T15:08:19
@@ -25,7 +25,7 @@ export class ListClusterAgentInstallRecordsResponseBodyData extends $dara.Model 
   createdAt?: string;
   /**
    * @remarks
-   * Canary release configuration.
+   * The canary release environment.
    * 
    * @example
    * {}
@@ -33,7 +33,7 @@ export class ListClusterAgentInstallRecordsResponseBodyData extends $dara.Model 
   grayscaleConfig?: string;
   /**
    * @remarks
-   * Component ID.
+   * The component ID.
    * 
    * @example
    * 74a86327-3170-412c-8e67-da3389ec56a9
@@ -41,7 +41,7 @@ export class ListClusterAgentInstallRecordsResponseBodyData extends $dara.Model 
   pluginId?: string;
   /**
    * @remarks
-   * Plugin version.
+   * The plug-in version.
    * 
    * @example
    * 3.4.0-1
@@ -49,7 +49,7 @@ export class ListClusterAgentInstallRecordsResponseBodyData extends $dara.Model 
   pluginVersion?: string;
   /**
    * @remarks
-   * Modification time.
+   * The modification time.
    * 
    * @example
    * 2024-12-25T15:08:19
@@ -93,7 +93,7 @@ export class ListClusterAgentInstallRecordsResponseBodyData extends $dara.Model 
 export class ListClusterAgentInstallRecordsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID, which can be used for end-to-end diagnostics.
+   * The request ID, which can be used for end-to-end diagnostics.
    * 
    * @example
    * B149FD9C-ED5C-5765-B3AD-05AA4A4D64D7
@@ -101,9 +101,9 @@ export class ListClusterAgentInstallRecordsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Status code.
+   * The status code.
    * - `code == Success` indicates that the authorization is successful.
-   * - Other status codes indicate authorization failure. When authorization fails, check the `message` field for detailed error information.
+   * - Other status codes indicate that the authorization failed. Check the `message` field for the detailed fault information.
    * 
    * @example
    * Success
@@ -111,14 +111,14 @@ export class ListClusterAgentInstallRecordsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Response results.
+   * The returned result.
    */
   data?: ListClusterAgentInstallRecordsResponseBodyData[];
   /**
    * @remarks
-   * Error message.
+   * The error message.
    * - If `code == Success`, this field is empty.
-   * - Otherwise, this field contains the request error message.
+   * - Otherwise, this field contains the request error information.
    * 
    * @example
    * success
@@ -126,7 +126,7 @@ export class ListClusterAgentInstallRecordsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Total number of query results.
+   * The total number of query results.
    * 
    * @example
    * 42

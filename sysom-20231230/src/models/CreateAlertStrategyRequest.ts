@@ -8,6 +8,10 @@ export class CreateAlertStrategyRequestStrategy extends $dara.Model {
    * The collection of clusters for which alerts are received.
    */
   clusters?: string[];
+  /**
+   * @remarks
+   * The alert contacts.
+   */
   destinations?: number[];
   /**
    * @remarks
@@ -49,9 +53,10 @@ export class CreateAlertStrategyRequestStrategy extends $dara.Model {
 }
 
 export class CreateAlertStrategyRequest extends $dara.Model {
+  xDebugId?: string;
   /**
    * @remarks
-   * Specifies whether the alert strategy is enabled.
+   * Specifies whether the alert policy is enabled.
    * 
    * This parameter is required.
    * 
@@ -59,10 +64,14 @@ export class CreateAlertStrategyRequest extends $dara.Model {
    * false
    */
   enabled?: boolean;
+  /**
+   * @remarks
+   * The Kubernetes label.
+   */
   k8sLabel?: boolean;
   /**
    * @remarks
-   * The name of the alert strategy.
+   * The Policy Name of the alerting policy.
    * 
    * This parameter is required.
    * 
@@ -72,26 +81,31 @@ export class CreateAlertStrategyRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The details of the alert strategy.
+   * The details of the alert policy.
    * 
    * This parameter is required.
    */
   strategy?: CreateAlertStrategyRequestStrategy;
+  xSysomInvokeSource?: string;
   static names(): { [key: string]: string } {
     return {
+      xDebugId: 'X-Debug-Id',
       enabled: 'enabled',
       k8sLabel: 'k8sLabel',
       name: 'name',
       strategy: 'strategy',
+      xSysomInvokeSource: 'x-sysom-invoke-source',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      xDebugId: 'string',
       enabled: 'boolean',
       k8sLabel: 'boolean',
       name: 'string',
       strategy: CreateAlertStrategyRequestStrategy,
+      xSysomInvokeSource: 'string',
     };
   }
 

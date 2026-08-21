@@ -2,38 +2,39 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class GetHotspotInstanceListResponseBodyData extends $dara.Model {
+export class ListInstanceInfoResponseBodyData extends $dara.Model {
   /**
-   * @remarks
-   * The field names.
+   * @example
+   * sysom
    */
-  columns?: string[];
+  infoKey?: string;
   /**
-   * @remarks
-   * The instance list.
+   * @example
+   * instance_tag
    */
-  values?: string[];
+  infoType?: string;
+  /**
+   * @example
+   * diagnosis
+   */
+  infoValue?: string;
   static names(): { [key: string]: string } {
     return {
-      columns: 'columns',
-      values: 'values',
+      infoKey: 'infoKey',
+      infoType: 'infoType',
+      infoValue: 'infoValue',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      columns: { 'type': 'array', 'itemType': 'string' },
-      values: { 'type': 'array', 'itemType': 'string' },
+      infoKey: 'string',
+      infoType: 'string',
+      infoValue: 'string',
     };
   }
 
   validate() {
-    if(Array.isArray(this.columns)) {
-      $dara.Model.validateArray(this.columns);
-    }
-    if(Array.isArray(this.values)) {
-      $dara.Model.validateArray(this.values);
-    }
     super.validate();
   }
 
@@ -42,28 +43,28 @@ export class GetHotspotInstanceListResponseBodyData extends $dara.Model {
   }
 }
 
-export class GetHotspotInstanceListResponseBody extends $dara.Model {
+export class ListInstanceInfoResponseBody extends $dara.Model {
   /**
-   * @remarks
-   * The error code.
-   * 
    * @example
-   * SysomOpenAPI.ServerError
+   * Success
    */
   code?: string;
+  data?: ListInstanceInfoResponseBodyData[];
   /**
-   * @remarks
-   * The returned data.
+   * @example
+   * 20
    */
-  data?: GetHotspotInstanceListResponseBodyData;
+  maxResults?: number;
   /**
-   * @remarks
-   * The description.
-   * 
    * @example
    * success
    */
   message?: string;
+  /**
+   * @example
+   * U+w1wv2R4ZWR5oZLXD0+Dp4dD+2BRJj42DLT6GrZysw=
+   */
+  nextToken?: string;
   /**
    * @remarks
    * Id of the request
@@ -76,7 +77,9 @@ export class GetHotspotInstanceListResponseBody extends $dara.Model {
     return {
       code: 'code',
       data: 'data',
+      maxResults: 'maxResults',
       message: 'message',
+      nextToken: 'nextToken',
       requestId: 'requestId',
     };
   }
@@ -84,15 +87,17 @@ export class GetHotspotInstanceListResponseBody extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       code: 'string',
-      data: GetHotspotInstanceListResponseBodyData,
+      data: { 'type': 'array', 'itemType': ListInstanceInfoResponseBodyData },
+      maxResults: 'number',
       message: 'string',
+      nextToken: 'string',
       requestId: 'string',
     };
   }
 
   validate() {
-    if(this.data && typeof (this.data as any).validate === 'function') {
-      (this.data as any).validate();
+    if(Array.isArray(this.data)) {
+      $dara.Model.validateArray(this.data);
     }
     super.validate();
   }

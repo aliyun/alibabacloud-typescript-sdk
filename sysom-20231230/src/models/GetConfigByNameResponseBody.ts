@@ -2,12 +2,12 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CpuHighAgentStreamResponseResponseBody extends $dara.Model {
+export class GetConfigByNameResponseBody extends $dara.Model {
   /**
    * @remarks
    * The status code.
-   * - If `code == Success`, the authorization is successful.
-   * - Other status codes indicate authorization failed. Check the `message` field for the detailed fault information.
+   * - `code == Success` indicates that the authorization is successful.
+   * - Other status codes indicate that the authorization has failed. Check the `message` field for the detailed error message.
    * 
    * @example
    * Success
@@ -18,7 +18,7 @@ export class CpuHighAgentStreamResponseResponseBody extends $dara.Model {
    * The response data.
    * 
    * @example
-   * <SSEResponse>
+   * 1
    */
   data?: string;
   /**
@@ -28,7 +28,7 @@ export class CpuHighAgentStreamResponseResponseBody extends $dara.Model {
    * - Otherwise, this field contains the request error information.
    * 
    * @example
-   * SysomOpenAPIAssumeRoleException: EntityNotExist.Role The role not exists: acs:ram::xxxxx:role/aliyunserviceroleforsysom
+   * success
    */
   message?: string;
   /**

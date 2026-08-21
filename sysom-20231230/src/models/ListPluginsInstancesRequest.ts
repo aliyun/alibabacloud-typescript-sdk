@@ -3,9 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListPluginsInstancesRequest extends $dara.Model {
+  xDebugId?: string;
   /**
    * @remarks
-   * The current page number. This field is present when pagination is used.
+   * The page number for pagination. This field indicates the current page.
    * 
    * @example
    * 5
@@ -29,7 +30,7 @@ export class ListPluginsInstancesRequest extends $dara.Model {
   instanceTag?: string;
   /**
    * @remarks
-   * Filters instances by plug-in installation status.
+   * Filters instances by plugin installation status.
    * 
    * This parameter is required.
    * 
@@ -47,7 +48,7 @@ export class ListPluginsInstancesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Filters the instance list by the specified agent. If this parameter is specified, only instances associated with the specified agent are returned.
+   * Specifies the agent ID to filter the instance list for the specified agent.
    * 
    * This parameter is required.
    * 
@@ -65,8 +66,10 @@ export class ListPluginsInstancesRequest extends $dara.Model {
    * cn-shenzhen
    */
   region?: string;
+  xSysomInvokeSource?: string;
   static names(): { [key: string]: string } {
     return {
+      xDebugId: 'X-Debug-Id',
       current: 'current',
       instanceIdName: 'instance_id_name',
       instanceTag: 'instance_tag',
@@ -74,11 +77,13 @@ export class ListPluginsInstancesRequest extends $dara.Model {
       pageSize: 'pageSize',
       pluginId: 'plugin_id',
       region: 'region',
+      xSysomInvokeSource: 'x-sysom-invoke-source',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      xDebugId: 'string',
       current: 'number',
       instanceIdName: 'string',
       instanceTag: 'string',
@@ -86,6 +91,7 @@ export class ListPluginsInstancesRequest extends $dara.Model {
       pageSize: 'number',
       pluginId: 'string',
       region: 'string',
+      xSysomInvokeSource: 'string',
     };
   }
 

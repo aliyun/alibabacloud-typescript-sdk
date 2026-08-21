@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetProblemPercentageResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Abnormal item type.
+   * The type of the abnormal item.
    * 
    * @example
    * saturation
@@ -13,7 +13,7 @@ export class GetProblemPercentageResponseBodyData extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * Number of abnormal items.
+   * The number of abnormal items of this type.
    * 
    * @example
    * 5
@@ -45,9 +45,9 @@ export class GetProblemPercentageResponseBodyData extends $dara.Model {
 export class GetProblemPercentageResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Status code.
-   * - If `code == Success`, the authorization is successful.
-   * - Other status codes indicate authorization failure. Check the `message` field for detailed error information.
+   * The status code.
+   * - `code == Success` indicates that the authorization is successful.
+   * - Other status codes indicate that the authorization failed. Check the `message` field for the detailed fault information.
    * 
    * @example
    * Success
@@ -55,12 +55,12 @@ export class GetProblemPercentageResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Response data.
+   * The returned data.
    */
   data?: GetProblemPercentageResponseBodyData[];
   /**
    * @remarks
-   * Error message.
+   * The error message.
    * - If `code == Success`, this field is empty.
    * - Otherwise, this field contains the request error information.
    * 
@@ -70,7 +70,7 @@ export class GetProblemPercentageResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 35F91AAB-5FDF-5A22-B211-C7C6B00817D0
@@ -78,7 +78,7 @@ export class GetProblemPercentageResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Total number of data entries.
+   * The total amount of data.
    * 
    * @example
    * 19

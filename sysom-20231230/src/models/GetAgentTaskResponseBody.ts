@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class GetAgentTaskResponseBodyDataJobs extends $dara.Model {
   /**
    * @remarks
-   * The cause of the task failure. This field is returned only when the task fails.
+   * The reason that caused the task to fail. This field is returned only when the task execution fails.
    * 
    * @example
-   * 已废弃（误用）
+   * Deprecated (misused)
    */
   error?: string;
   /**
@@ -25,13 +25,13 @@ export class GetAgentTaskResponseBodyDataJobs extends $dara.Model {
    * * AGENT_SAME_VERSION: The version is the same.
    * * HAS_RUNNING_JOB: A running task exists.
    * * RPM_LOCK_HELD: The RPM lock is held.
-   * * DISK_SPACE_INSUFFICIENT: Insufficient disk space.
+   * * DISK_SPACE_INSUFFICIENT: The disk space is insufficient.
    * * NODE_LOAD_HIGH: The node load is high.
-   * * COMMAND_FAILED: Command execution failed.
+   * * COMMAND_FAILED: The command execution failed.
    * * CLIENT_NOT_RUNNING: The Cloud Assistant Agent is not running.
    * * CLIENT_NOT_RESPONSE: The Cloud Assistant Agent is not responding.
-   * * DELIVERY_TIMEOUT: Command delivery timed out.
-   * * EXECUTION_TIMEOUT: Command execution timed out.
+   * * DELIVERY_TIMEOUT: The command delivery timed out.
+   * * EXECUTION_TIMEOUT: The command execution timed out.
    * * TASK_CONCURRENCY_LIMIT: The task concurrency limit is reached.
    * 
    * @example
@@ -51,17 +51,17 @@ export class GetAgentTaskResponseBodyDataJobs extends $dara.Model {
    * * The Agent version is the same. No upgrade is required.
    * * A running task exists. Try again later.
    * * The RPM lock is held. Try again later.
-   * * Insufficient disk space.
+   * * The disk space is insufficient.
    * * The node load is too high. Try again later.
-   * * Command execution failed. Try again later.
+   * * The command execution failed. Try again later.
    * * The Cloud Assistant Agent is not running.
    * * The Cloud Assistant Agent is not responding.
-   * * Command delivery timed out.
-   * * Command execution timed out.
+   * * The command delivery timed out.
+   * * The command execution timed out.
    * * The task concurrency limit is reached.
    * 
    * @example
-   * 磁盘空间不足
+   * The disk space is insufficient
    */
   errorMessage?: string;
   /**
@@ -98,16 +98,16 @@ export class GetAgentTaskResponseBodyDataJobs extends $dara.Model {
    * The subtask execution result.
    * 
    * @example
-   * 已废弃（误用）
+   * Deprecated (misused)
    */
   result?: string;
   /**
    * @remarks
    * The subtask status. Valid values:
-   * - Created: Created.
-   * - Running: Running.
-   * - Success: The task succeeded.
-   * - Fail: The task failed.
+   * - Created: The subtask is created.
+   * - Running: The subtask is running.
+   * - Success: The subtask succeeded.
+   * - Fail: The subtask failed.
    * 
    * @example
    * Running
@@ -204,7 +204,7 @@ export class GetAgentTaskResponseBody extends $dara.Model {
    * @remarks
    * The status code.
    * - `code == Success` indicates that the authorization is successful.
-   * - Other status codes indicate that the authorization failed. Check the `message` field for the detailed fault message.
+   * - Other status codes indicate that the authorization failed. Check the `message` field for the detailed fault information.
    * 
    * @example
    * Success
@@ -219,7 +219,7 @@ export class GetAgentTaskResponseBody extends $dara.Model {
    * @remarks
    * The error message.
    * - If `code == Success`, this field is empty.
-   * - Otherwise, this field contains the request error information.
+   * - Otherwise, this field contains the request error message.
    * 
    * @example
    * SysomOpenAPIException: SysomOpenAPI.InvalidParameter Invalid params, should be json string or dict

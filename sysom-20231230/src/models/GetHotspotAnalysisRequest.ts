@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetHotspotAnalysisRequest extends $dara.Model {
+  xDebugId?: string;
   /**
    * @remarks
    * The application type.
@@ -45,7 +46,7 @@ export class GetHotspotAnalysisRequest extends $dara.Model {
   instance?: string;
   /**
    * @remarks
-   * The process ID (PID).
+   * The process PID.
    * 
    * @example
    * 1657494
@@ -59,25 +60,30 @@ export class GetHotspotAnalysisRequest extends $dara.Model {
    * prof_on
    */
   table?: string;
+  xSysomInvokeSource?: string;
   static names(): { [key: string]: string } {
     return {
+      xDebugId: 'X-Debug-Id',
       appType: 'appType',
       begEnd: 'beg_end',
       begStart: 'beg_start',
       instance: 'instance',
       pid: 'pid',
       table: 'table',
+      xSysomInvokeSource: 'x-sysom-invoke-source',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      xDebugId: 'string',
       appType: 'string',
       begEnd: 'number',
       begStart: 'number',
       instance: 'string',
       pid: 'number',
       table: 'string',
+      xSysomInvokeSource: 'string',
     };
   }
 

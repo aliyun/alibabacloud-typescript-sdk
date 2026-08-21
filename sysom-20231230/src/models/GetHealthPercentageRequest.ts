@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetHealthPercentageRequest extends $dara.Model {
+  xDebugId?: string;
   /**
    * @remarks
    * The cluster ID.
@@ -39,21 +40,26 @@ export class GetHealthPercentageRequest extends $dara.Model {
    * 1725797727754
    */
   start?: number;
+  xSysomInvokeSource?: string;
   static names(): { [key: string]: string } {
     return {
+      xDebugId: 'X-Debug-Id',
       cluster: 'cluster',
       end: 'end',
       instance: 'instance',
       start: 'start',
+      xSysomInvokeSource: 'x-sysom-invoke-source',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      xDebugId: 'string',
       cluster: 'string',
       end: 'number',
       instance: 'string',
       start: 'number',
+      xSysomInvokeSource: 'string',
     };
   }
 

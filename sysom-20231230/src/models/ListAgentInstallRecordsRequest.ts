@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListAgentInstallRecordsRequest extends $dara.Model {
+  xDebugId?: string;
   /**
    * @remarks
    * The current page number. Pages start from page 1.
@@ -59,8 +60,10 @@ export class ListAgentInstallRecordsRequest extends $dara.Model {
    * Installed
    */
   status?: string;
+  xSysomInvokeSource?: string;
   static names(): { [key: string]: string } {
     return {
+      xDebugId: 'X-Debug-Id',
       current: 'current',
       instanceId: 'instance_id',
       pageSize: 'pageSize',
@@ -68,11 +71,13 @@ export class ListAgentInstallRecordsRequest extends $dara.Model {
       pluginVersion: 'plugin_version',
       region: 'region',
       status: 'status',
+      xSysomInvokeSource: 'x-sysom-invoke-source',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      xDebugId: 'string',
       current: 'number',
       instanceId: 'string',
       pageSize: 'number',
@@ -80,6 +85,7 @@ export class ListAgentInstallRecordsRequest extends $dara.Model {
       pluginVersion: 'string',
       region: 'string',
       status: 'string',
+      xSysomInvokeSource: 'string',
     };
   }
 

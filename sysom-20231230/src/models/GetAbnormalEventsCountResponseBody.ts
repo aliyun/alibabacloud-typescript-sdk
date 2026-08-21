@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class GetAbnormalEventsCountResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * List of abnormal events.
+   * The list of abnormal events.
    */
   eventList?: string[];
   /**
    * @remarks
-   * Abnormal event type.
+   * The type of the abnormal event.
    * 
    * @example
    * health
@@ -18,7 +18,7 @@ export class GetAbnormalEventsCountResponseBodyData extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * Count of abnormal event type.
+   * The number of abnormal events of this type.
    * 
    * @example
    * 1
@@ -55,7 +55,7 @@ export class GetAbnormalEventsCountResponseBodyData extends $dara.Model {
 export class GetAbnormalEventsCountResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Response code.
+   * The response code.
    * 
    * @example
    * Success
@@ -63,12 +63,12 @@ export class GetAbnormalEventsCountResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Response data.
+   * The returned data.
    */
   data?: GetAbnormalEventsCountResponseBodyData[];
   /**
    * @remarks
-   * When success is false, this value is not empty, indicating a business error message.
+   * The business error message. This parameter is not empty when success is false.
    * 
    * @example
    * result: code=1 msg=(Request failed, status_code != 200)

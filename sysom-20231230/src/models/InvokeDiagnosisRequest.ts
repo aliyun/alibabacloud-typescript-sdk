@@ -3,9 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class InvokeDiagnosisRequest extends $dara.Model {
+  xDebugId?: string;
   /**
    * @remarks
-   * Diagnosis channel (currently fixed as the ECS channel).
+   * The diagnosis channel (currently fixed to the ECS channel).
    * 
    * This parameter is required.
    * 
@@ -15,9 +16,9 @@ export class InvokeDiagnosisRequest extends $dara.Model {
   channel?: string;
   /**
    * @remarks
-   * Diagnosis parameters. Different types of diagnoses require different diagnosis parameters. For the parameters required by each diagnosis type, refer to the supplementary request parameter description below.
+   * The diagnosis parameters. Different diagnosis types require different parameters. Refer to the supplementary request parameter descriptions below for the parameters required by each diagnosis type.
    * 
-   * >Notice: Please pass a JSON-formatted string.</notice>
+   * >Notice: Pass a JSON-formatted string.
    * 
    * This parameter is required.
    * 
@@ -31,7 +32,7 @@ export class InvokeDiagnosisRequest extends $dara.Model {
   params?: string;
   /**
    * @remarks
-   * Diagnosis type, used to distinguish different types of diagnoses.
+   * The diagnosis type. This parameter distinguishes between different types of diagnostics.
    * 
    * This parameter is required.
    * 
@@ -39,19 +40,24 @@ export class InvokeDiagnosisRequest extends $dara.Model {
    * memgraph
    */
   serviceName?: string;
+  xSysomInvokeSource?: string;
   static names(): { [key: string]: string } {
     return {
+      xDebugId: 'X-Debug-Id',
       channel: 'channel',
       params: 'params',
       serviceName: 'service_name',
+      xSysomInvokeSource: 'x-sysom-invoke-source',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      xDebugId: 'string',
       channel: 'string',
       params: 'string',
       serviceName: 'string',
+      xSysomInvokeSource: 'string',
     };
   }
 

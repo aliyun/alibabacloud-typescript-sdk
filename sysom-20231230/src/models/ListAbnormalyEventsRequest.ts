@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListAbnormalyEventsRequest extends $dara.Model {
+  xDebugId?: string;
   /**
    * @remarks
    * The cluster ID.
@@ -91,8 +92,10 @@ export class ListAbnormalyEventsRequest extends $dara.Model {
    * 1725797727754
    */
   start?: number;
+  xSysomInvokeSource?: string;
   static names(): { [key: string]: string } {
     return {
+      xDebugId: 'X-Debug-Id',
       cluster: 'cluster',
       current: 'current',
       end: 'end',
@@ -104,11 +107,13 @@ export class ListAbnormalyEventsRequest extends $dara.Model {
       pod: 'pod',
       showPod: 'showPod',
       start: 'start',
+      xSysomInvokeSource: 'x-sysom-invoke-source',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      xDebugId: 'string',
       cluster: 'string',
       current: 'number',
       end: 'number',
@@ -120,6 +125,7 @@ export class ListAbnormalyEventsRequest extends $dara.Model {
       pod: 'string',
       showPod: 'number',
       start: 'number',
+      xSysomInvokeSource: 'string',
     };
   }
 

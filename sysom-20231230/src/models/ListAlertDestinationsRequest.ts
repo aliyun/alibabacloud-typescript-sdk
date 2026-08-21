@@ -3,9 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListAlertDestinationsRequest extends $dara.Model {
+  xDebugId?: string;
   /**
    * @remarks
-   * Current page number (starting from 1)
+   * The current page number (starting from 1).
    * 
    * @example
    * 1
@@ -13,7 +14,7 @@ export class ListAlertDestinationsRequest extends $dara.Model {
   current?: number;
   /**
    * @remarks
-   * Maximum number of records to retrieve at a time.
+   * The maximum number of records to retrieve in a single request.
    * 
    * @example
    * 10
@@ -21,7 +22,7 @@ export class ListAlertDestinationsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * Alert contact name
+   * The name of the alert contact.
    * 
    * @example
    * name1
@@ -29,7 +30,7 @@ export class ListAlertDestinationsRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Pagination token for the next request.
+   * The pagination token for the next request.
    * 
    * @example
    * c2f78a783f49457caba6bace6f6f79e4
@@ -37,29 +38,34 @@ export class ListAlertDestinationsRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * Page size
+   * The number of records per page.
    * 
    * @example
    * 10
    */
   pageSize?: number;
+  xSysomInvokeSource?: string;
   static names(): { [key: string]: string } {
     return {
+      xDebugId: 'X-Debug-Id',
       current: 'current',
       maxResults: 'maxResults',
       name: 'name',
       nextToken: 'nextToken',
       pageSize: 'pageSize',
+      xSysomInvokeSource: 'x-sysom-invoke-source',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      xDebugId: 'string',
       current: 'number',
       maxResults: 'number',
       name: 'string',
       nextToken: 'string',
       pageSize: 'number',
+      xSysomInvokeSource: 'string',
     };
   }
 

@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ListAlertDestinationsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Status code
-   * - `code == Success` indicates that the authorization was successful;
-   * - Other status codes indicate authorization failure. When authorization fails, check the `message` field for detailed error information;
+   * The status code.
+   * - `code == Success` indicates that the authorization is successful.
+   * - Other status codes indicate that the authorization failed. Check the `message` field for the detailed fault information.
    * 
    * @example
    * Success
@@ -15,7 +15,7 @@ export class ListAlertDestinationsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Response data.
+   * The returned data.
    * 
    * @example
    * {}
@@ -23,7 +23,7 @@ export class ListAlertDestinationsResponseBody extends $dara.Model {
   data?: any;
   /**
    * @remarks
-   * Maximum number of records to retrieve at a time.
+   * The maximum number of records to retrieve in a single request.
    * 
    * @example
    * 10
@@ -31,9 +31,9 @@ export class ListAlertDestinationsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * Error message
-   * - If `code == Success`, this field is empty;
-   * - Otherwise, this field contains the request error information.
+   * The error message.
+   * - If `code == Success`, this field is empty.
+   * - Otherwise, this field contains the error information for the request.
    * 
    * @example
    * server error
@@ -41,7 +41,7 @@ export class ListAlertDestinationsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Pagination token for the next request.
+   * The pagination token for the next request.
    * 
    * @example
    * c2f78a783f49457caba6bace6f6f79e4
@@ -49,7 +49,7 @@ export class ListAlertDestinationsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 2D693121-C925-5154-8DF6-C09A8B369822
@@ -57,7 +57,7 @@ export class ListAlertDestinationsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Maximum number of records returned by this request
+   * The maximum number of records returned by this request based on MaxResults.
    * 
    * @example
    * 623

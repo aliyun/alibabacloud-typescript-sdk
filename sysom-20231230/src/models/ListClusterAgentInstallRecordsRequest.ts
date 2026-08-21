@@ -3,12 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListClusterAgentInstallRecordsRequest extends $dara.Model {
+  xDebugId?: string;
   agentConfigId?: string;
   /**
    * @remarks
-   * Filter by cluster ID.
+   * Filters by cluster ID.
    * 
-   * > This cluster ID is not the ACK cluster ID, but the `cluster_id` field in the data returned by this API, or the `id` field in the data returned by the ListCluster API.
+   * > This cluster ID is not the ACK cluster ID. It is the `cluster_id` field in the data returned by this operation, or the `id` field in the data returned by the ListCluster operation.
    * 
    * @example
    * cbd80af02b9d6454ebdc579c5e022d0c8
@@ -16,7 +17,7 @@ export class ListClusterAgentInstallRecordsRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * Current page number (starting from 1)
+   * The current page number (starting from 1).
    * 
    * @example
    * 1
@@ -24,7 +25,7 @@ export class ListClusterAgentInstallRecordsRequest extends $dara.Model {
   current?: number;
   /**
    * @remarks
-   * Page size
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -32,7 +33,7 @@ export class ListClusterAgentInstallRecordsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Specify this parameter to filter the installation list for a specific agent. Can be used in combination with the plugin_version parameter.
+   * Specifies the agent ID to filter the installation list for the specified agent. This parameter can be used together with the plugin_version parameter.
    * 
    * @example
    * 74a86327-3170-412c-8e67-da3389ec56a9
@@ -40,31 +41,36 @@ export class ListClusterAgentInstallRecordsRequest extends $dara.Model {
   pluginId?: string;
   /**
    * @remarks
-   * Cannot be used alone. Use in combination with plugin_id to filter the installation list for a specific agent version.
+   * Cannot be used alone. Use this parameter together with plugin_id to filter the installation list for a specified version of the specified agent.
    * 
    * @example
    * 3.4.0-1
    */
   pluginVersion?: string;
+  xSysomInvokeSource?: string;
   static names(): { [key: string]: string } {
     return {
+      xDebugId: 'X-Debug-Id',
       agentConfigId: 'agent_config_id',
       clusterId: 'cluster_id',
       current: 'current',
       pageSize: 'pageSize',
       pluginId: 'plugin_id',
       pluginVersion: 'plugin_version',
+      xSysomInvokeSource: 'x-sysom-invoke-source',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      xDebugId: 'string',
       agentConfigId: 'string',
       clusterId: 'string',
       current: 'number',
       pageSize: 'number',
       pluginId: 'string',
       pluginVersion: 'string',
+      xSysomInvokeSource: 'string',
     };
   }
 

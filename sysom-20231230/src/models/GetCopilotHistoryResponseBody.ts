@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class GetCopilotHistoryResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The text content of the chat message.
+   * The chat content text.
    * 
    * @example
-   * copilot回复的具体内容
+   * Specific content replied by Copilot
    */
   content?: string;
   /**
    * @remarks
-   * The time of the chat record. The value is of the STRING type.
+   * The time of the chat record. The value is of the string type.
    * 
    * @example
    * 2024-09-02 10:02:39
@@ -21,9 +21,9 @@ export class GetCopilotHistoryResponseBodyData extends $dara.Model {
   time?: string;
   /**
    * @remarks
-   * The role of the message sender. Valid values:
-   * - user: the user.
-   * - copilot: the bot.
+   * The role identifier. Valid values:
+   * - user: a user.
+   * - copilot: a bot.
    * 
    * @example
    * user
@@ -66,14 +66,14 @@ export class GetCopilotHistoryResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The list of chat records. The length equals the requested count. If the actual number of chat records is less than the requested count, the actual number is returned. Format: [{"user":"","content":"".question,"time":""},{...}].
+   * The list of chat records. The length equals the requested count. If the actual chat records are fewer than the requested count, the actual number is returned. Format: [{"user":"","content":"".question,"time":""},{...}]
    */
   data?: GetCopilotHistoryResponseBodyData[];
   /**
    * @remarks
    * The error message.
    * - If `code == Success`, this field is empty.
-   * - Otherwise, this field contains the error message of the request.
+   * - Otherwise, this field contains the request error message.
    * 
    * @example
    * SysomOpenAPIAssumeRoleException: EntityNotExist.Role The role not exists: acs:ram::xxxxx:role/aliyunserviceroleforsysom

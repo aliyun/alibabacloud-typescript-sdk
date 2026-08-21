@@ -33,14 +33,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Authorizes SysOM to diagnose ECS instances under the current account. You must call this operation to authorize diagnostics for a specific ECS instance before you can call the InvokeDiagnosis operation to initiate diagnostics on it.
+   * Authorizes SysOM to diagnose ECS instances under the current account. You must call this operation to authorize diagnosis on a specific ECS instance before you can call the InvokeDiagnosis operation to initiate diagnosis on it.
    * 
    * @remarks
-   * >Notice: The diagnostics feature requires a service-linked role to be created under the Resource Access Management (RAM) user. This operation automatically checks whether the service-linked role exists and creates it if it does not. The RAM user that invokes this operation must have the ram:CreateServiceLinkedRole permission.</notice>
-   * Note the following when you invoke this operation to authorize SysOM to diagnose ECS instances:
-   * - Each authorization is valid for 7 days. After the authorization expires, invoke this operation again to re-authorize.
-   * - If the SysOM service-linked role (AliyunServiceRoleForSysom) does not exist when you invoke this operation, automatic creation is performed. The RAM user that invokes this operation must have the `ram:CreateServiceLinkedRole` permission.
-   * - When you invoke this operation to authorize diagnostics for a specific instance, the label `sysom:diagnosis` is automatically associated with the target ECS instance. SysOM only allows diagnostics on instances that have this label.
+   * >Notice: The diagnosis feature requires a service-linked role to be created under the Resource Access Management (RAM) user. Invoking this operation automatically checks whether the service-linked role exists and creates it if it does not. The RAM user that invokes this operation must have the ram:CreateServiceLinkedRole permission.</notice>
+   * Take note of the following items when you invoke this operation to authorize SysOM to diagnose ECS instances:
+   * - Each authorization is valid for 7 days. After 7 days, the authorization expires and you must invoke this operation again to re-authorize.
+   * - If the SysOM service-linked role (AliyunServiceRoleForSysom) does not exist when you invoke this operation, automatic creation is performed. The Resource Access Management (RAM) user that invokes this operation must have the `ram:CreateServiceLinkedRole` permission.
+   * - When you invoke this operation to authorize diagnosis on a specific instance, the label `sysom:diagnosis` is automatically associated with the target ECS instance. SysOM only allows diagnosis on instances that have this label.
    * 
    * @param request - AuthDiagnosisRequest
    * @param headers - map
@@ -49,6 +49,15 @@ export default class Client extends OpenApi {
    */
   async authDiagnosisWithOptions(request: $_model.AuthDiagnosisRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.AuthDiagnosisResponse> {
     request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.xDebugId)) {
+      query["X-Debug-Id"] = request.xDebugId;
+    }
+
+    if (!$dara.isNull(request.xSysomInvokeSource)) {
+      query["x-sysom-invoke-source"] = request.xSysomInvokeSource;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.autoCreateRole)) {
       body["autoCreateRole"] = request.autoCreateRole;
@@ -64,6 +73,7 @@ export default class Client extends OpenApi {
 
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
@@ -81,14 +91,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Authorizes SysOM to diagnose ECS instances under the current account. You must call this operation to authorize diagnostics for a specific ECS instance before you can call the InvokeDiagnosis operation to initiate diagnostics on it.
+   * Authorizes SysOM to diagnose ECS instances under the current account. You must call this operation to authorize diagnosis on a specific ECS instance before you can call the InvokeDiagnosis operation to initiate diagnosis on it.
    * 
    * @remarks
-   * >Notice: The diagnostics feature requires a service-linked role to be created under the Resource Access Management (RAM) user. This operation automatically checks whether the service-linked role exists and creates it if it does not. The RAM user that invokes this operation must have the ram:CreateServiceLinkedRole permission.</notice>
-   * Note the following when you invoke this operation to authorize SysOM to diagnose ECS instances:
-   * - Each authorization is valid for 7 days. After the authorization expires, invoke this operation again to re-authorize.
-   * - If the SysOM service-linked role (AliyunServiceRoleForSysom) does not exist when you invoke this operation, automatic creation is performed. The RAM user that invokes this operation must have the `ram:CreateServiceLinkedRole` permission.
-   * - When you invoke this operation to authorize diagnostics for a specific instance, the label `sysom:diagnosis` is automatically associated with the target ECS instance. SysOM only allows diagnostics on instances that have this label.
+   * >Notice: The diagnosis feature requires a service-linked role to be created under the Resource Access Management (RAM) user. Invoking this operation automatically checks whether the service-linked role exists and creates it if it does not. The RAM user that invokes this operation must have the ram:CreateServiceLinkedRole permission.</notice>
+   * Take note of the following items when you invoke this operation to authorize SysOM to diagnose ECS instances:
+   * - Each authorization is valid for 7 days. After 7 days, the authorization expires and you must invoke this operation again to re-authorize.
+   * - If the SysOM service-linked role (AliyunServiceRoleForSysom) does not exist when you invoke this operation, automatic creation is performed. The Resource Access Management (RAM) user that invokes this operation must have the `ram:CreateServiceLinkedRole` permission.
+   * - When you invoke this operation to authorize diagnosis on a specific instance, the label `sysom:diagnosis` is automatically associated with the target ECS instance. SysOM only allows diagnosis on instances that have this label.
    * 
    * @param request - AuthDiagnosisRequest
    * @returns AuthDiagnosisResponse
@@ -112,6 +122,15 @@ export default class Client extends OpenApi {
    */
   async checkInstanceSupportWithOptions(request: $_model.CheckInstanceSupportRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CheckInstanceSupportResponse> {
     request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.xDebugId)) {
+      query["X-Debug-Id"] = request.xDebugId;
+    }
+
+    if (!$dara.isNull(request.xSysomInvokeSource)) {
+      query["x-sysom-invoke-source"] = request.xSysomInvokeSource;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.instances)) {
       body["instances"] = request.instances;
@@ -123,6 +142,7 @@ export default class Client extends OpenApi {
 
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
@@ -155,7 +175,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls the CPU High Agent streaming SSE interface.
+   * Invokes the CPU high agent streaming SSE interface.
    * 
    * @param request - CpuHighAgentStreamResponseRequest
    * @param headers - map
@@ -164,6 +184,15 @@ export default class Client extends OpenApi {
    */
   async *cpuHighAgentStreamResponseWithSSE(request: $_model.CpuHighAgentStreamResponseRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): AsyncGenerator<$_model.CpuHighAgentStreamResponseResponse, any, unknown> {
     request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.xDebugId)) {
+      query["X-Debug-Id"] = request.xDebugId;
+    }
+
+    if (!$dara.isNull(request.xSysomInvokeSource)) {
+      query["x-sysom-invoke-source"] = request.xSysomInvokeSource;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.llmParamString)) {
       body["llmParamString"] = request.llmParamString;
@@ -171,6 +200,7 @@ export default class Client extends OpenApi {
 
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
@@ -202,7 +232,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls the CPU High Agent streaming SSE interface.
+   * Invokes the CPU high agent streaming SSE interface.
    * 
    * @param request - CpuHighAgentStreamResponseRequest
    * @param headers - map
@@ -211,6 +241,15 @@ export default class Client extends OpenApi {
    */
   async cpuHighAgentStreamResponseWithOptions(request: $_model.CpuHighAgentStreamResponseRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CpuHighAgentStreamResponseResponse> {
     request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.xDebugId)) {
+      query["X-Debug-Id"] = request.xDebugId;
+    }
+
+    if (!$dara.isNull(request.xSysomInvokeSource)) {
+      query["x-sysom-invoke-source"] = request.xSysomInvokeSource;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.llmParamString)) {
       body["llmParamString"] = request.llmParamString;
@@ -218,6 +257,7 @@ export default class Client extends OpenApi {
 
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
@@ -235,7 +275,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls the CPU High Agent streaming SSE interface.
+   * Invokes the CPU high agent streaming SSE interface.
    * 
    * @param request - CpuHighAgentStreamResponseRequest
    * @returns CpuHighAgentStreamResponseResponse
@@ -256,6 +296,15 @@ export default class Client extends OpenApi {
    */
   async createAlertDestinationWithOptions(request: $_model.CreateAlertDestinationRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateAlertDestinationResponse> {
     request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.xDebugId)) {
+      query["X-Debug-Id"] = request.xDebugId;
+    }
+
+    if (!$dara.isNull(request.xSysomInvokeSource)) {
+      query["x-sysom-invoke-source"] = request.xSysomInvokeSource;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.appId)) {
       body["app_id"] = request.appId;
@@ -291,6 +340,7 @@ export default class Client extends OpenApi {
 
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
@@ -320,7 +370,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an alert push strategy.
+   * Creates an alert policy for push notifications.
    * 
    * @param request - CreateAlertStrategyRequest
    * @param headers - map
@@ -329,6 +379,15 @@ export default class Client extends OpenApi {
    */
   async createAlertStrategyWithOptions(request: $_model.CreateAlertStrategyRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateAlertStrategyResponse> {
     request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.xDebugId)) {
+      query["X-Debug-Id"] = request.xDebugId;
+    }
+
+    if (!$dara.isNull(request.xSysomInvokeSource)) {
+      query["x-sysom-invoke-source"] = request.xSysomInvokeSource;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.enabled)) {
       body["enabled"] = request.enabled;
@@ -348,6 +407,7 @@ export default class Client extends OpenApi {
 
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
@@ -365,7 +425,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an alert push strategy.
+   * Creates an alert policy for push notifications.
    * 
    * @param request - CreateAlertStrategyRequest
    * @returns CreateAlertStrategyResponse
@@ -381,8 +441,8 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * - Use this operation with the call_sseapi interface of the aliyun-tea-openapi-inner package.
-   * - Populate parameters according to the general LLM service input parameters, convert them to a string, and assign the string to llmParamString.
-   * - Convert the returned string to a dictionary before use. Refer to the general LLM service response format.
+   * - Populate the parameters based on the general LLM service input parameters, convert them to a string, and assign the string to llmParamString.
+   * - Convert the returned data from a string to a dict before use. Refer to the general LLM service response format.
    * 
    * @param request - CreateClusterVpcEndpointConnectionRequest
    * @param headers - map
@@ -391,6 +451,15 @@ export default class Client extends OpenApi {
    */
   async createClusterVpcEndpointConnectionWithOptions(request: $_model.CreateClusterVpcEndpointConnectionRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateClusterVpcEndpointConnectionResponse> {
     request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.xDebugId)) {
+      query["X-Debug-Id"] = request.xDebugId;
+    }
+
+    if (!$dara.isNull(request.xSysomInvokeSource)) {
+      query["x-sysom-invoke-source"] = request.xSysomInvokeSource;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.clusterId)) {
       body["clusterId"] = request.clusterId;
@@ -406,6 +475,7 @@ export default class Client extends OpenApi {
 
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
@@ -427,8 +497,8 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * - Use this operation with the call_sseapi interface of the aliyun-tea-openapi-inner package.
-   * - Populate parameters according to the general LLM service input parameters, convert them to a string, and assign the string to llmParamString.
-   * - Convert the returned string to a dictionary before use. Refer to the general LLM service response format.
+   * - Populate the parameters based on the general LLM service input parameters, convert them to a string, and assign the string to llmParamString.
+   * - Convert the returned data from a string to a dict before use. Refer to the general LLM service response format.
    * 
    * @param request - CreateClusterVpcEndpointConnectionRequest
    * @returns CreateClusterVpcEndpointConnectionResponse
@@ -449,6 +519,15 @@ export default class Client extends OpenApi {
    */
   async createInstanceInspectionWithOptions(request: $_model.CreateInstanceInspectionRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateInstanceInspectionResponse> {
     request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.xDebugId)) {
+      query["X-Debug-Id"] = request.xDebugId;
+    }
+
+    if (!$dara.isNull(request.xSysomInvokeSource)) {
+      query["x-sysom-invoke-source"] = request.xSysomInvokeSource;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.instance)) {
       body["instance"] = request.instance;
@@ -472,6 +551,7 @@ export default class Client extends OpenApi {
 
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
@@ -501,7 +581,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an intelligent breakdown diagnostic node that diagnoses the specified vmcore or dmesg log file based on the input parameters.
+   * Creates an intelligent diagnostic node for system breakdowns, which diagnoses the vmcore or dmesg log files provided as input parameters.
    * 
    * @param request - CreateVmcoreDiagnosisTaskRequest
    * @param headers - map
@@ -510,6 +590,15 @@ export default class Client extends OpenApi {
    */
   async createVmcoreDiagnosisTaskWithOptions(request: $_model.CreateVmcoreDiagnosisTaskRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateVmcoreDiagnosisTaskResponse> {
     request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.xDebugId)) {
+      query["X-Debug-Id"] = request.xDebugId;
+    }
+
+    if (!$dara.isNull(request.xSysomInvokeSource)) {
+      query["x-sysom-invoke-source"] = request.xSysomInvokeSource;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.debuginfoCommonUrl)) {
       body["debuginfoCommonUrl"] = request.debuginfoCommonUrl;
@@ -533,6 +622,7 @@ export default class Client extends OpenApi {
 
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
@@ -550,7 +640,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an intelligent breakdown diagnostic node that diagnoses the specified vmcore or dmesg log file based on the input parameters.
+   * Creates an intelligent diagnostic node for system breakdowns, which diagnoses the vmcore or dmesg log files provided as input parameters.
    * 
    * @param request - CreateVmcoreDiagnosisTaskRequest
    * @returns CreateVmcoreDiagnosisTaskResponse
@@ -572,8 +662,16 @@ export default class Client extends OpenApi {
   async deleteAlertDestinationWithOptions(request: $_model.DeleteAlertDestinationRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteAlertDestinationResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.xDebugId)) {
+      query["X-Debug-Id"] = request.xDebugId;
+    }
+
     if (!$dara.isNull(request.id)) {
       query["id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.xSysomInvokeSource)) {
+      query["x-sysom-invoke-source"] = request.xSysomInvokeSource;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -617,8 +715,16 @@ export default class Client extends OpenApi {
   async deleteAlertStrategyWithOptions(request: $_model.DeleteAlertStrategyRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteAlertStrategyResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.xDebugId)) {
+      query["X-Debug-Id"] = request.xDebugId;
+    }
+
     if (!$dara.isNull(request.id)) {
       query["id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.xSysomInvokeSource)) {
+      query["x-sysom-invoke-source"] = request.xSysomInvokeSource;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -655,7 +761,7 @@ export default class Client extends OpenApi {
    * Queries metric data.
    * 
    * @remarks
-   * The instance list returned by this operation contains only instances that are managed by SysOM. If an ECS instance exists but is not managed by SysOM, it does not appear in the list.
+   * The instance list retrieved by this operation contains only machines that are managed by SysOM. If an ECS instance exists but is not managed by SysOM, it does not appear in the list.
    * 
    * @param request - DescribeMetricListRequest
    * @param headers - map
@@ -665,6 +771,10 @@ export default class Client extends OpenApi {
   async describeMetricListWithOptions(request: $_model.DescribeMetricListRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeMetricListResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.xDebugId)) {
+      query["X-Debug-Id"] = request.xDebugId;
+    }
+
     if (!$dara.isNull(request.endTime)) {
       query["endTime"] = request.endTime;
     }
@@ -679,6 +789,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.startTime)) {
       query["startTime"] = request.startTime;
+    }
+
+    if (!$dara.isNull(request.xSysomInvokeSource)) {
+      query["x-sysom-invoke-source"] = request.xSysomInvokeSource;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -703,7 +817,7 @@ export default class Client extends OpenApi {
    * Queries metric data.
    * 
    * @remarks
-   * The instance list returned by this operation contains only instances that are managed by SysOM. If an ECS instance exists but is not managed by SysOM, it does not appear in the list.
+   * The instance list retrieved by this operation contains only machines that are managed by SysOM. If an ECS instance exists but is not managed by SysOM, it does not appear in the list.
    * 
    * @param request - DescribeMetricListRequest
    * @returns DescribeMetricListResponse
@@ -728,6 +842,15 @@ export default class Client extends OpenApi {
    */
   async generateCopilotResponseWithOptions(request: $_model.GenerateCopilotResponseRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GenerateCopilotResponseResponse> {
     request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.xDebugId)) {
+      query["X-Debug-Id"] = request.xDebugId;
+    }
+
+    if (!$dara.isNull(request.xSysomInvokeSource)) {
+      query["x-sysom-invoke-source"] = request.xSysomInvokeSource;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.llmParamString)) {
       body["llmParamString"] = request.llmParamString;
@@ -735,6 +858,7 @@ export default class Client extends OpenApi {
 
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
@@ -768,12 +892,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls the streaming SSE endpoint of the OS Copilot service.
+   * Calls the streaming SSE interface of the OS Copilot service.
    * 
    * @remarks
-   * - Use this operation together with the call_sseapi operation in the aliyun-tea-openapi-inner package.
-   * - Populate the parameters based on the standard LLM service input parameters, convert them to a string, and assign the string to llmParamString.
-   * - Convert the returned string to a dictionary before use. Refer to the standard LLM service response format.
+   * - Use this operation together with the call_sseapi interface in the aliyun-tea-openapi-inner package.
+   * - Populate parameters based on the standard LLM service input parameters, convert them to a string, and assign the string to llmParamString.
+   * - Convert the returned string data to a dict before use. Refer to the standard LLM service response format.
    * 
    * @param request - GenerateCopilotStreamResponseRequest
    * @param headers - map
@@ -782,6 +906,15 @@ export default class Client extends OpenApi {
    */
   async *generateCopilotStreamResponseWithSSE(request: $_model.GenerateCopilotStreamResponseRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): AsyncGenerator<$_model.GenerateCopilotStreamResponseResponse, any, unknown> {
     request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.xDebugId)) {
+      query["X-Debug-Id"] = request.xDebugId;
+    }
+
+    if (!$dara.isNull(request.xSysomInvokeSource)) {
+      query["x-sysom-invoke-source"] = request.xSysomInvokeSource;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.llmParamString)) {
       body["llmParamString"] = request.llmParamString;
@@ -789,6 +922,7 @@ export default class Client extends OpenApi {
 
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
@@ -820,12 +954,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls the streaming SSE endpoint of the OS Copilot service.
+   * Calls the streaming SSE interface of the OS Copilot service.
    * 
    * @remarks
-   * - Use this operation together with the call_sseapi operation in the aliyun-tea-openapi-inner package.
-   * - Populate the parameters based on the standard LLM service input parameters, convert them to a string, and assign the string to llmParamString.
-   * - Convert the returned string to a dictionary before use. Refer to the standard LLM service response format.
+   * - Use this operation together with the call_sseapi interface in the aliyun-tea-openapi-inner package.
+   * - Populate parameters based on the standard LLM service input parameters, convert them to a string, and assign the string to llmParamString.
+   * - Convert the returned string data to a dict before use. Refer to the standard LLM service response format.
    * 
    * @param request - GenerateCopilotStreamResponseRequest
    * @param headers - map
@@ -834,6 +968,15 @@ export default class Client extends OpenApi {
    */
   async generateCopilotStreamResponseWithOptions(request: $_model.GenerateCopilotStreamResponseRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GenerateCopilotStreamResponseResponse> {
     request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.xDebugId)) {
+      query["X-Debug-Id"] = request.xDebugId;
+    }
+
+    if (!$dara.isNull(request.xSysomInvokeSource)) {
+      query["x-sysom-invoke-source"] = request.xSysomInvokeSource;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.llmParamString)) {
       body["llmParamString"] = request.llmParamString;
@@ -841,6 +984,7 @@ export default class Client extends OpenApi {
 
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
@@ -858,12 +1002,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls the streaming SSE endpoint of the OS Copilot service.
+   * Calls the streaming SSE interface of the OS Copilot service.
    * 
    * @remarks
-   * - Use this operation together with the call_sseapi operation in the aliyun-tea-openapi-inner package.
-   * - Populate the parameters based on the standard LLM service input parameters, convert them to a string, and assign the string to llmParamString.
-   * - Convert the returned string to a dictionary before use. Refer to the standard LLM service response format.
+   * - Use this operation together with the call_sseapi interface in the aliyun-tea-openapi-inner package.
+   * - Populate parameters based on the standard LLM service input parameters, convert them to a string, and assign the string to llmParamString.
+   * - Convert the returned string data to a dict before use. Refer to the standard LLM service response format.
    * 
    * @param request - GenerateCopilotStreamResponseRequest
    * @returns GenerateCopilotStreamResponseResponse
@@ -884,6 +1028,15 @@ export default class Client extends OpenApi {
    */
   async getAIQueryResultWithOptions(request: $_model.GetAIQueryResultRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetAIQueryResultResponse> {
     request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.xDebugId)) {
+      query["X-Debug-Id"] = request.xDebugId;
+    }
+
+    if (!$dara.isNull(request.xSysomInvokeSource)) {
+      query["x-sysom-invoke-source"] = request.xSysomInvokeSource;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.analysisId)) {
       body["analysisId"] = request.analysisId;
@@ -891,6 +1044,7 @@ export default class Client extends OpenApi {
 
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
@@ -920,7 +1074,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get the count of unhandled (undiagnosed) abnormal events of different levels for nodes/Pods
+   * Retrieves the number of unprocessed (undiagnosed) abnormal events at different severity levels for a node or pod.
    * 
    * @param request - GetAbnormalEventsCountRequest
    * @param headers - map
@@ -930,6 +1084,10 @@ export default class Client extends OpenApi {
   async getAbnormalEventsCountWithOptions(request: $_model.GetAbnormalEventsCountRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetAbnormalEventsCountResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.xDebugId)) {
+      query["X-Debug-Id"] = request.xDebugId;
+    }
+
     if (!$dara.isNull(request.cluster)) {
       query["cluster"] = request.cluster;
     }
@@ -962,6 +1120,10 @@ export default class Client extends OpenApi {
       query["start"] = request.start;
     }
 
+    if (!$dara.isNull(request.xSysomInvokeSource)) {
+      query["x-sysom-invoke-source"] = request.xSysomInvokeSource;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
@@ -981,7 +1143,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get the count of unhandled (undiagnosed) abnormal events of different levels for nodes/Pods
+   * Retrieves the number of unprocessed (undiagnosed) abnormal events at different severity levels for a node or pod.
    * 
    * @param request - GetAbnormalEventsCountRequest
    * @returns GetAbnormalEventsCountResponse
@@ -993,7 +1155,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get details of a specific agent
+   * Retrieves the details of a specified component.
    * 
    * @param request - GetAgentRequest
    * @param headers - map
@@ -1003,8 +1165,16 @@ export default class Client extends OpenApi {
   async getAgentWithOptions(request: $_model.GetAgentRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetAgentResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.xDebugId)) {
+      query["X-Debug-Id"] = request.xDebugId;
+    }
+
     if (!$dara.isNull(request.agentId)) {
       query["agent_id"] = request.agentId;
+    }
+
+    if (!$dara.isNull(request.xSysomInvokeSource)) {
+      query["x-sysom-invoke-source"] = request.xSysomInvokeSource;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -1026,7 +1196,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get details of a specific agent
+   * Retrieves the details of a specified component.
    * 
    * @param request - GetAgentRequest
    * @returns GetAgentResponse
@@ -1048,8 +1218,16 @@ export default class Client extends OpenApi {
   async getAgentTaskWithOptions(request: $_model.GetAgentTaskRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetAgentTaskResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.xDebugId)) {
+      query["X-Debug-Id"] = request.xDebugId;
+    }
+
     if (!$dara.isNull(request.taskId)) {
       query["task_id"] = request.taskId;
+    }
+
+    if (!$dara.isNull(request.xSysomInvokeSource)) {
+      query["x-sysom-invoke-source"] = request.xSysomInvokeSource;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -1093,8 +1271,16 @@ export default class Client extends OpenApi {
   async getAlertDestinationWithOptions(request: $_model.GetAlertDestinationRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetAlertDestinationResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.xDebugId)) {
+      query["X-Debug-Id"] = request.xDebugId;
+    }
+
     if (!$dara.isNull(request.id)) {
       query["id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.xSysomInvokeSource)) {
+      query["x-sysom-invoke-source"] = request.xSysomInvokeSource;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -1138,8 +1324,16 @@ export default class Client extends OpenApi {
   async getAlertStrategyWithOptions(request: $_model.GetAlertStrategyRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetAlertStrategyResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.xDebugId)) {
+      query["X-Debug-Id"] = request.xDebugId;
+    }
+
     if (!$dara.isNull(request.id)) {
       query["id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.xSysomInvokeSource)) {
+      query["x-sysom-invoke-source"] = request.xSysomInvokeSource;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -1173,6 +1367,75 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves configuration information by configuration name.
+   * 
+   * @param request - GetConfigByNameRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetConfigByNameResponse
+   */
+  async getConfigByNameWithOptions(request: $_model.GetConfigByNameRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetConfigByNameResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.xDebugId)) {
+      query["X-Debug-Id"] = request.xDebugId;
+    }
+
+    if (!$dara.isNull(request.configName)) {
+      query["configName"] = request.configName;
+    }
+
+    if (!$dara.isNull(request.configType)) {
+      query["configType"] = request.configType;
+    }
+
+    if (!$dara.isNull(request.entityId)) {
+      query["entityId"] = request.entityId;
+    }
+
+    if (!$dara.isNull(request.useGlobalUid)) {
+      query["useGlobalUid"] = request.useGlobalUid;
+    }
+
+    if (!$dara.isNull(request.versionId)) {
+      query["versionId"] = request.versionId;
+    }
+
+    if (!$dara.isNull(request.xSysomInvokeSource)) {
+      query["x-sysom-invoke-source"] = request.xSysomInvokeSource;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetConfigByName",
+      version: "2023-12-30",
+      protocol: "HTTPS",
+      pathname: `/api/v1/configManage/config/getConfigByName`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetConfigByNameResponse>(await this.callApi(params, req, runtime), new $_model.GetConfigByNameResponse({}));
+  }
+
+  /**
+   * Retrieves configuration information by configuration name.
+   * 
+   * @param request - GetConfigByNameRequest
+   * @returns GetConfigByNameResponse
+   */
+  async getConfigByName(request: $_model.GetConfigByNameRequest): Promise<$_model.GetConfigByNameResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getConfigByNameWithOptions(request, headers, runtime);
+  }
+
+  /**
    * Retrieves the chat history of Copilot.
    * 
    * @param request - GetCopilotHistoryRequest
@@ -1182,6 +1445,15 @@ export default class Client extends OpenApi {
    */
   async getCopilotHistoryWithOptions(request: $_model.GetCopilotHistoryRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetCopilotHistoryResponse> {
     request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.xDebugId)) {
+      query["X-Debug-Id"] = request.xDebugId;
+    }
+
+    if (!$dara.isNull(request.xSysomInvokeSource)) {
+      query["x-sysom-invoke-source"] = request.xSysomInvokeSource;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.count)) {
       body["count"] = request.count;
@@ -1189,6 +1461,7 @@ export default class Client extends OpenApi {
 
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
@@ -1231,8 +1504,16 @@ export default class Client extends OpenApi {
   async getDiagnosisResultWithOptions(request: $_model.GetDiagnosisResultRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetDiagnosisResultResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.xDebugId)) {
+      query["X-Debug-Id"] = request.xDebugId;
+    }
+
     if (!$dara.isNull(request.taskId)) {
       query["task_id"] = request.taskId;
+    }
+
+    if (!$dara.isNull(request.xSysomInvokeSource)) {
+      query["x-sysom-invoke-source"] = request.xSysomInvokeSource;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -1269,7 +1550,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the health status distribution of nodes or pods over a specified time period.
+   * Retrieves the health status distribution of nodes or Pods within a specified time period.
    * 
    * @param request - GetHealthPercentageRequest
    * @param headers - map
@@ -1279,6 +1560,10 @@ export default class Client extends OpenApi {
   async getHealthPercentageWithOptions(request: $_model.GetHealthPercentageRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetHealthPercentageResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.xDebugId)) {
+      query["X-Debug-Id"] = request.xDebugId;
+    }
+
     if (!$dara.isNull(request.cluster)) {
       query["cluster"] = request.cluster;
     }
@@ -1293,6 +1578,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.start)) {
       query["start"] = request.start;
+    }
+
+    if (!$dara.isNull(request.xSysomInvokeSource)) {
+      query["x-sysom-invoke-source"] = request.xSysomInvokeSource;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -1314,7 +1603,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the health status distribution of nodes or pods over a specified time period.
+   * Retrieves the health status distribution of nodes or Pods within a specified time period.
    * 
    * @param request - GetHealthPercentageRequest
    * @returns GetHealthPercentageResponse
@@ -1326,7 +1615,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the number of nodes or the number of Pods on nodes in a cluster.
+   * Retrieves the number of cluster nodes or the number of Pods on a node.
    * 
    * @param request - GetHostCountRequest
    * @param headers - map
@@ -1336,6 +1625,10 @@ export default class Client extends OpenApi {
   async getHostCountWithOptions(request: $_model.GetHostCountRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetHostCountResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.xDebugId)) {
+      query["X-Debug-Id"] = request.xDebugId;
+    }
+
     if (!$dara.isNull(request.cluster)) {
       query["cluster"] = request.cluster;
     }
@@ -1350,6 +1643,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.start)) {
       query["start"] = request.start;
+    }
+
+    if (!$dara.isNull(request.xSysomInvokeSource)) {
+      query["x-sysom-invoke-source"] = request.xSysomInvokeSource;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -1371,7 +1668,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the number of nodes or the number of Pods on nodes in a cluster.
+   * Retrieves the number of cluster nodes or the number of Pods on a node.
    * 
    * @param request - GetHostCountRequest
    * @returns GetHostCountResponse
@@ -1383,7 +1680,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get the list of a specific field under an instance.
+   * Retrieves the list of a specific field under an instance.
    * 
    * @param request - GetHotSpotUniqListRequest
    * @param headers - map
@@ -1392,6 +1689,15 @@ export default class Client extends OpenApi {
    */
   async getHotSpotUniqListWithOptions(request: $_model.GetHotSpotUniqListRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetHotSpotUniqListResponse> {
     request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.xDebugId)) {
+      query["X-Debug-Id"] = request.xDebugId;
+    }
+
+    if (!$dara.isNull(request.xSysomInvokeSource)) {
+      query["x-sysom-invoke-source"] = request.xSysomInvokeSource;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.begEnd)) {
       body["beg_end"] = request.begEnd;
@@ -1419,6 +1725,7 @@ export default class Client extends OpenApi {
 
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
@@ -1436,7 +1743,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get the list of a specific field under an instance.
+   * Retrieves the list of a specific field under an instance.
    * 
    * @param request - GetHotSpotUniqListRequest
    * @returns GetHotSpotUniqListResponse
@@ -1457,6 +1764,15 @@ export default class Client extends OpenApi {
    */
   async getHotspotAnalysisWithOptions(request: $_model.GetHotspotAnalysisRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetHotspotAnalysisResponse> {
     request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.xDebugId)) {
+      query["X-Debug-Id"] = request.xDebugId;
+    }
+
+    if (!$dara.isNull(request.xSysomInvokeSource)) {
+      query["x-sysom-invoke-source"] = request.xSysomInvokeSource;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.appType)) {
       body["appType"] = request.appType;
@@ -1484,6 +1800,7 @@ export default class Client extends OpenApi {
 
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
@@ -1513,7 +1830,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get Hotspot Comparison Tracing Results
+   * Retrieves the hot spot comparison and tracing results.
    * 
    * @param request - GetHotspotCompareRequest
    * @param headers - map
@@ -1522,6 +1839,15 @@ export default class Client extends OpenApi {
    */
   async getHotspotCompareWithOptions(request: $_model.GetHotspotCompareRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetHotspotCompareResponse> {
     request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.xDebugId)) {
+      query["X-Debug-Id"] = request.xDebugId;
+    }
+
+    if (!$dara.isNull(request.xSysomInvokeSource)) {
+      query["x-sysom-invoke-source"] = request.xSysomInvokeSource;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.beg1End)) {
       body["beg1_end"] = request.beg1End;
@@ -1565,6 +1891,7 @@ export default class Client extends OpenApi {
 
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
@@ -1582,7 +1909,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get Hotspot Comparison Tracing Results
+   * Retrieves the hot spot comparison and tracing results.
    * 
    * @param request - GetHotspotCompareRequest
    * @returns GetHotspotCompareResponse
@@ -1594,7 +1921,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get Hotspot Instance List
+   * Retrieves the list of hot spot instances.
    * 
    * @param request - GetHotspotInstanceListRequest
    * @param headers - map
@@ -1603,6 +1930,15 @@ export default class Client extends OpenApi {
    */
   async getHotspotInstanceListWithOptions(request: $_model.GetHotspotInstanceListRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetHotspotInstanceListResponse> {
     request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.xDebugId)) {
+      query["X-Debug-Id"] = request.xDebugId;
+    }
+
+    if (!$dara.isNull(request.xSysomInvokeSource)) {
+      query["x-sysom-invoke-source"] = request.xSysomInvokeSource;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.begEnd)) {
       body["beg_end"] = request.begEnd;
@@ -1618,6 +1954,7 @@ export default class Client extends OpenApi {
 
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
@@ -1635,7 +1972,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get Hotspot Instance List
+   * Retrieves the list of hot spot instances.
    * 
    * @param request - GetHotspotInstanceListRequest
    * @returns GetHotspotInstanceListResponse
@@ -1656,6 +1993,15 @@ export default class Client extends OpenApi {
    */
   async getHotspotPidListWithOptions(request: $_model.GetHotspotPidListRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetHotspotPidListResponse> {
     request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.xDebugId)) {
+      query["X-Debug-Id"] = request.xDebugId;
+    }
+
+    if (!$dara.isNull(request.xSysomInvokeSource)) {
+      query["x-sysom-invoke-source"] = request.xSysomInvokeSource;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.begEnd)) {
       body["beg_end"] = request.begEnd;
@@ -1675,6 +2021,7 @@ export default class Client extends OpenApi {
 
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
@@ -1713,6 +2060,15 @@ export default class Client extends OpenApi {
    */
   async getHotspotTrackingWithOptions(request: $_model.GetHotspotTrackingRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetHotspotTrackingResponse> {
     request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.xDebugId)) {
+      query["X-Debug-Id"] = request.xDebugId;
+    }
+
+    if (!$dara.isNull(request.xSysomInvokeSource)) {
+      query["x-sysom-invoke-source"] = request.xSysomInvokeSource;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.begEnd)) {
       body["beg_end"] = request.begEnd;
@@ -1740,6 +2096,7 @@ export default class Client extends OpenApi {
 
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
@@ -1779,8 +2136,16 @@ export default class Client extends OpenApi {
   async getInspectionReportWithOptions(request: $_model.GetInspectionReportRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetInspectionReportResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.xDebugId)) {
+      query["X-Debug-Id"] = request.xDebugId;
+    }
+
     if (!$dara.isNull(request.reportId)) {
       query["reportId"] = request.reportId;
+    }
+
+    if (!$dara.isNull(request.xSysomInvokeSource)) {
+      query["x-sysom-invoke-source"] = request.xSysomInvokeSource;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -1814,7 +2179,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get real-time cluster/node health score
+   * Retrieves the real-time health score of a cluster or node.
    * 
    * @param request - GetInstantScoreRequest
    * @param headers - map
@@ -1824,12 +2189,20 @@ export default class Client extends OpenApi {
   async getInstantScoreWithOptions(request: $_model.GetInstantScoreRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetInstantScoreResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.xDebugId)) {
+      query["X-Debug-Id"] = request.xDebugId;
+    }
+
     if (!$dara.isNull(request.cluster)) {
       query["cluster"] = request.cluster;
     }
 
     if (!$dara.isNull(request.instance)) {
       query["instance"] = request.instance;
+    }
+
+    if (!$dara.isNull(request.xSysomInvokeSource)) {
+      query["x-sysom-invoke-source"] = request.xSysomInvokeSource;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -1851,7 +2224,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get real-time cluster/node health score
+   * Retrieves the real-time health score of a cluster or node.
    * 
    * @param request - GetInstantScoreRequest
    * @returns GetInstantScoreResponse
@@ -1863,7 +2236,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of AI Infra analysis records.
+   * Retrieves the list of AI Infra analysis records.
    * 
    * @param request - GetListRecordRequest
    * @param headers - map
@@ -1873,6 +2246,10 @@ export default class Client extends OpenApi {
   async getListRecordWithOptions(request: $_model.GetListRecordRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetListRecordResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.xDebugId)) {
+      query["X-Debug-Id"] = request.xDebugId;
+    }
+
     if (!$dara.isNull(request.analysisId)) {
       query["analysisId"] = request.analysisId;
     }
@@ -1891,6 +2268,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.region)) {
       query["region"] = request.region;
+    }
+
+    if (!$dara.isNull(request.xSysomInvokeSource)) {
+      query["x-sysom-invoke-source"] = request.xSysomInvokeSource;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -1912,7 +2293,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of AI Infra analysis records.
+   * Retrieves the list of AI Infra analysis records.
    * 
    * @param request - GetListRecordRequest
    * @returns GetListRecordResponse
@@ -1924,7 +2305,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get the proportion of abnormal issues in cluster nodes/pods within a specified time range
+   * Retrieves the proportion of abnormal issues for nodes in a cluster or pods in a node within a specified time range.
    * 
    * @param request - GetProblemPercentageRequest
    * @param headers - map
@@ -1934,6 +2315,10 @@ export default class Client extends OpenApi {
   async getProblemPercentageWithOptions(request: $_model.GetProblemPercentageRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetProblemPercentageResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.xDebugId)) {
+      query["X-Debug-Id"] = request.xDebugId;
+    }
+
     if (!$dara.isNull(request.cluster)) {
       query["cluster"] = request.cluster;
     }
@@ -1948,6 +2333,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.start)) {
       query["start"] = request.start;
+    }
+
+    if (!$dara.isNull(request.xSysomInvokeSource)) {
+      query["x-sysom-invoke-source"] = request.xSysomInvokeSource;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -1969,7 +2358,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get the proportion of abnormal issues in cluster nodes/pods within a specified time range
+   * Retrieves the proportion of abnormal issues for nodes in a cluster or pods in a node within a specified time range.
    * 
    * @param request - GetProblemPercentageRequest
    * @returns GetProblemPercentageResponse
@@ -1991,6 +2380,10 @@ export default class Client extends OpenApi {
   async getRangeScoreWithOptions(request: $_model.GetRangeScoreRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetRangeScoreResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.xDebugId)) {
+      query["X-Debug-Id"] = request.xDebugId;
+    }
+
     if (!$dara.isNull(request.cluster)) {
       query["cluster"] = request.cluster;
     }
@@ -2005,6 +2398,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.start)) {
       query["start"] = request.start;
+    }
+
+    if (!$dara.isNull(request.xSysomInvokeSource)) {
+      query["x-sysom-invoke-source"] = request.xSysomInvokeSource;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -2048,6 +2445,10 @@ export default class Client extends OpenApi {
   async getResourcesWithOptions(request: $_model.GetResourcesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetResourcesResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.xDebugId)) {
+      query["X-Debug-Id"] = request.xDebugId;
+    }
+
     if (!$dara.isNull(request.cluster)) {
       query["cluster"] = request.cluster;
     }
@@ -2058,6 +2459,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.type)) {
       query["type"] = request.type;
+    }
+
+    if (!$dara.isNull(request.xSysomInvokeSource)) {
+      query["x-sysom-invoke-source"] = request.xSysomInvokeSource;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -2110,6 +2515,10 @@ export default class Client extends OpenApi {
     }
 
     let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.xDebugId)) {
+      query["X-Debug-Id"] = request.xDebugId;
+    }
+
     if (!$dara.isNull(request.channel)) {
       query["channel"] = request.channel;
     }
@@ -2120,6 +2529,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.serviceName)) {
       query["service_name"] = request.serviceName;
+    }
+
+    if (!$dara.isNull(request.xSysomInvokeSource)) {
+      query["x-sysom-invoke-source"] = request.xSysomInvokeSource;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -2166,8 +2579,16 @@ export default class Client extends OpenApi {
   async getVmcoreDiagnosisTaskWithOptions(request: $_model.GetVmcoreDiagnosisTaskRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetVmcoreDiagnosisTaskResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.xDebugId)) {
+      query["X-Debug-Id"] = request.xDebugId;
+    }
+
     if (!$dara.isNull(request.taskId)) {
       query["taskId"] = request.taskId;
+    }
+
+    if (!$dara.isNull(request.xSysomInvokeSource)) {
+      query["x-sysom-invoke-source"] = request.xSysomInvokeSource;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -2201,13 +2622,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Initializes SysOM to ensure that the service-linked role exists.
+   * Initializes SysOM and ensures that the service-linked role exists.
    * 
    * @remarks
    * Some SysOM API operations require role assumption based on the `AliyunServiceRoleForSysom` service-linked role. Before using SysOM features, invoke this operation to perform initialization and ensure that the service-linked role has been created.
-   * - `check_only`: If this parameter is set to True, the operation only checks whether the service-linked role exists and does not create it. If this parameter is set to False or left empty, the operation performs automatic creation of the service-linked role if it does not exist.
+   * - `check_only`: If this parameter is set to True, the operation only checks whether the service-linked role exists and does not create it. If this parameter is set to False or left empty, invoking this operation triggers automatic creation of the service-linked role if it does not exist.
    * > 
-   * > Note: When you call this operation to initialize the role through the API, you agree to the user agreement of the operating system console by default. For more information, see [Operating system console overview](https://www.alibabacloud.com/help/en/alinux/product-overview/os-console-overview) and [Alibaba Cloud Service Trial Terms](https://terms.aliyun.com/legal-agreement/terms/suit_bu1_ali_cloud/suit_bu1_ali_cloud202001091714_51956.html).
+   * > Note: When you call this operation to initialize the role through the API, you agree to the user agreement of the operating system console by default. For more information, refer to: [Operating system console overview](https://www.alibabacloud.com/help/en/alinux/product-overview/os-console-overview), [Alibaba Cloud Service Trial Terms](https://terms.aliyun.com/legal-agreement/terms/suit_bu1_ali_cloud/suit_bu1_ali_cloud202001091714_51956.html)
    * 
    * @param request - InitialSysomRequest
    * @param headers - map
@@ -2216,6 +2637,15 @@ export default class Client extends OpenApi {
    */
   async initialSysomWithOptions(request: $_model.InitialSysomRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.InitialSysomResponse> {
     request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.xDebugId)) {
+      query["X-Debug-Id"] = request.xDebugId;
+    }
+
+    if (!$dara.isNull(request.xSysomInvokeSource)) {
+      query["x-sysom-invoke-source"] = request.xSysomInvokeSource;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.checkOnly)) {
       body["check_only"] = request.checkOnly;
@@ -2227,6 +2657,7 @@ export default class Client extends OpenApi {
 
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
@@ -2244,13 +2675,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Initializes SysOM to ensure that the service-linked role exists.
+   * Initializes SysOM and ensures that the service-linked role exists.
    * 
    * @remarks
    * Some SysOM API operations require role assumption based on the `AliyunServiceRoleForSysom` service-linked role. Before using SysOM features, invoke this operation to perform initialization and ensure that the service-linked role has been created.
-   * - `check_only`: If this parameter is set to True, the operation only checks whether the service-linked role exists and does not create it. If this parameter is set to False or left empty, the operation performs automatic creation of the service-linked role if it does not exist.
+   * - `check_only`: If this parameter is set to True, the operation only checks whether the service-linked role exists and does not create it. If this parameter is set to False or left empty, invoking this operation triggers automatic creation of the service-linked role if it does not exist.
    * > 
-   * > Note: When you call this operation to initialize the role through the API, you agree to the user agreement of the operating system console by default. For more information, see [Operating system console overview](https://www.alibabacloud.com/help/en/alinux/product-overview/os-console-overview) and [Alibaba Cloud Service Trial Terms](https://terms.aliyun.com/legal-agreement/terms/suit_bu1_ali_cloud/suit_bu1_ali_cloud202001091714_51956.html).
+   * > Note: When you call this operation to initialize the role through the API, you agree to the user agreement of the operating system console by default. For more information, refer to: [Operating system console overview](https://www.alibabacloud.com/help/en/alinux/product-overview/os-console-overview), [Alibaba Cloud Service Trial Terms](https://terms.aliyun.com/legal-agreement/terms/suit_bu1_ali_cloud/suit_bu1_ali_cloud202001091714_51956.html)
    * 
    * @param request - InitialSysomRequest
    * @returns InitialSysomResponse
@@ -2265,7 +2696,7 @@ export default class Client extends OpenApi {
    * Installs an Agent on a specified instance.
    * 
    * @remarks
-   * Calling this operation to install an Agent is asynchronous. After the call, a task_id is returned. You can use this ID to call the GetAgentTask operation to retrieve the task execution status.
+   * Calling this operation to install an Agent is asynchronous. After the call, a task_id is returned. You can use this ID to call the GetAgentTask operation to query the task execution status.
    * 
    * @param request - InstallAgentRequest
    * @param headers - map
@@ -2274,6 +2705,15 @@ export default class Client extends OpenApi {
    */
   async installAgentWithOptions(request: $_model.InstallAgentRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.InstallAgentResponse> {
     request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.xDebugId)) {
+      query["X-Debug-Id"] = request.xDebugId;
+    }
+
+    if (!$dara.isNull(request.xSysomInvokeSource)) {
+      query["x-sysom-invoke-source"] = request.xSysomInvokeSource;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.agentId)) {
       body["agent_id"] = request.agentId;
@@ -2293,6 +2733,7 @@ export default class Client extends OpenApi {
 
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
@@ -2313,7 +2754,7 @@ export default class Client extends OpenApi {
    * Installs an Agent on a specified instance.
    * 
    * @remarks
-   * Calling this operation to install an Agent is asynchronous. After the call, a task_id is returned. You can use this ID to call the GetAgentTask operation to retrieve the task execution status.
+   * Calling this operation to install an Agent is asynchronous. After the call, a task_id is returned. You can use this ID to call the GetAgentTask operation to query the task execution status.
    * 
    * @param request - InstallAgentRequest
    * @returns InstallAgentResponse
@@ -2325,12 +2766,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Install component for cluster
+   * Installs a component on an ACK cluster.
    * 
    * @remarks
-   * After installing a component for the target ACK cluster:
-   * 1. First, when the cluster is managed for the first time, the component will be installed on all ECS instances currently in the cluster. If the cluster has more than 50 nodes, only 50 instances will be covered in the first batch.
-   * 2. Then, the SysOM console periodically checks the scaling status of the managed cluster. Once a new ECS instance is added to the cluster, the SysOM console automatically installs the component on it without user intervention.
+   * After you install a component on the target ACK cluster:
+   * 1. First, when the cluster is managed for the first time, the component is installed on all existing ECS instances in the cluster. If the cluster contains more than 50 nodes, only 50 instances are processed in the first batch.
+   * 2. Then, the operating system console periodically checks the scaling status of the managed cluster in each epoch. When a new ECS instance is added to the cluster, the operating system console automatically installs the component on the instance without user intervention.
    * 
    * @param request - InstallAgentForClusterRequest
    * @param headers - map
@@ -2339,6 +2780,15 @@ export default class Client extends OpenApi {
    */
   async installAgentForClusterWithOptions(request: $_model.InstallAgentForClusterRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.InstallAgentForClusterResponse> {
     request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.xDebugId)) {
+      query["X-Debug-Id"] = request.xDebugId;
+    }
+
+    if (!$dara.isNull(request.xSysomInvokeSource)) {
+      query["x-sysom-invoke-source"] = request.xSysomInvokeSource;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.agentId)) {
       body["agent_id"] = request.agentId;
@@ -2362,6 +2812,7 @@ export default class Client extends OpenApi {
 
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
@@ -2379,12 +2830,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Install component for cluster
+   * Installs a component on an ACK cluster.
    * 
    * @remarks
-   * After installing a component for the target ACK cluster:
-   * 1. First, when the cluster is managed for the first time, the component will be installed on all ECS instances currently in the cluster. If the cluster has more than 50 nodes, only 50 instances will be covered in the first batch.
-   * 2. Then, the SysOM console periodically checks the scaling status of the managed cluster. Once a new ECS instance is added to the cluster, the SysOM console automatically installs the component on it without user intervention.
+   * After you install a component on the target ACK cluster:
+   * 1. First, when the cluster is managed for the first time, the component is installed on all existing ECS instances in the cluster. If the cluster contains more than 50 nodes, only 50 instances are processed in the first batch.
+   * 2. Then, the operating system console periodically checks the scaling status of the managed cluster in each epoch. When a new ECS instance is added to the cluster, the operating system console automatically installs the component on the instance without user intervention.
    * 
    * @param request - InstallAgentForClusterRequest
    * @returns InstallAgentForClusterResponse
@@ -2408,6 +2859,15 @@ export default class Client extends OpenApi {
    */
   async installAgentWithTypeWithOptions(request: $_model.InstallAgentWithTypeRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.InstallAgentWithTypeResponse> {
     request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.xDebugId)) {
+      query["X-Debug-Id"] = request.xDebugId;
+    }
+
+    if (!$dara.isNull(request.xSysomInvokeSource)) {
+      query["x-sysom-invoke-source"] = request.xSysomInvokeSource;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.tag)) {
       body["Tag"] = request.tag;
@@ -2435,6 +2895,7 @@ export default class Client extends OpenApi {
 
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
@@ -2477,8 +2938,16 @@ export default class Client extends OpenApi {
   async invokeAnomalyDiagnosisWithOptions(request: $_model.InvokeAnomalyDiagnosisRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.InvokeAnomalyDiagnosisResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.xDebugId)) {
+      query["X-Debug-Id"] = request.xDebugId;
+    }
+
     if (!$dara.isNull(request.uuid)) {
       query["uuid"] = request.uuid;
+    }
+
+    if (!$dara.isNull(request.xSysomInvokeSource)) {
+      query["x-sysom-invoke-source"] = request.xSysomInvokeSource;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -2512,14 +2981,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Initiate Diagnosis.
+   * Initiates a diagnostic task.
    * 
    * @remarks
-   * The following requirements must be met to diagnose a target ECS instance:
-   * - The target ECS instance must be in the Running state.
-   * - The Cloud Assistant must be installed on the target ECS instance. If it is not installed, refer to [Install the Cloud Assistant Agent](https://help.aliyun.com/zh/ecs/user-guide/install-the-cloud-assistant-agent) for installation.
-   * - You must call the AuthDiagnosis API to authorize SysOM to diagnose the target ECS instance. If authorization is not granted, this API will fail directly.
-   * - This API requires that the SysOM service-linked role (AliyunServiceRoleForSysom) has been created. This API does not automatically create the service role. If the service role does not exist, you must first call AuthDiagnosis for authorization, which will create the aforementioned service role.
+   * The following requirements apply when diagnosing a target ECS instance:
+   * - The target ECS instance status must be Running.
+   * - Cloud Assistant must be installed on the target ECS instance. If it is not installed, refer to [Install the Cloud Assistant Agent](https://www.alibabacloud.com/help/en/ecs/user-guide/install-the-cloud-assistant-agent) for installation.
+   * - You must invoke the AuthDiagnosis operation to authorize SysOM to diagnose the target ECS instance. If authorization is not granted, this operation directly returns failed.
+   * - This operation depends on the SysOM service-linked role (AliyunServiceRoleForSysom) being created. This operation does not automatically create the service-linked role. If the service-linked role does not exist, invoke AuthDiagnosis first to associate the authorization. That operation creates the service-linked role.
    * 
    * @param request - InvokeDiagnosisRequest
    * @param headers - map
@@ -2528,6 +2997,15 @@ export default class Client extends OpenApi {
    */
   async invokeDiagnosisWithOptions(request: $_model.InvokeDiagnosisRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.InvokeDiagnosisResponse> {
     request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.xDebugId)) {
+      query["X-Debug-Id"] = request.xDebugId;
+    }
+
+    if (!$dara.isNull(request.xSysomInvokeSource)) {
+      query["x-sysom-invoke-source"] = request.xSysomInvokeSource;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.channel)) {
       body["channel"] = request.channel;
@@ -2543,6 +3021,7 @@ export default class Client extends OpenApi {
 
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
@@ -2560,14 +3039,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Initiate Diagnosis.
+   * Initiates a diagnostic task.
    * 
    * @remarks
-   * The following requirements must be met to diagnose a target ECS instance:
-   * - The target ECS instance must be in the Running state.
-   * - The Cloud Assistant must be installed on the target ECS instance. If it is not installed, refer to [Install the Cloud Assistant Agent](https://help.aliyun.com/zh/ecs/user-guide/install-the-cloud-assistant-agent) for installation.
-   * - You must call the AuthDiagnosis API to authorize SysOM to diagnose the target ECS instance. If authorization is not granted, this API will fail directly.
-   * - This API requires that the SysOM service-linked role (AliyunServiceRoleForSysom) has been created. This API does not automatically create the service role. If the service role does not exist, you must first call AuthDiagnosis for authorization, which will create the aforementioned service role.
+   * The following requirements apply when diagnosing a target ECS instance:
+   * - The target ECS instance status must be Running.
+   * - Cloud Assistant must be installed on the target ECS instance. If it is not installed, refer to [Install the Cloud Assistant Agent](https://www.alibabacloud.com/help/en/ecs/user-guide/install-the-cloud-assistant-agent) for installation.
+   * - You must invoke the AuthDiagnosis operation to authorize SysOM to diagnose the target ECS instance. If authorization is not granted, this operation directly returns failed.
+   * - This operation depends on the SysOM service-linked role (AliyunServiceRoleForSysom) being created. This operation does not automatically create the service-linked role. If the service-linked role does not exist, invoke AuthDiagnosis first to associate the authorization. That operation creates the service-linked role.
    * 
    * @param request - InvokeDiagnosisRequest
    * @returns InvokeDiagnosisResponse
@@ -2589,6 +3068,10 @@ export default class Client extends OpenApi {
   async listAbnormalyEventsWithOptions(request: $_model.ListAbnormalyEventsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListAbnormalyEventsResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.xDebugId)) {
+      query["X-Debug-Id"] = request.xDebugId;
+    }
+
     if (!$dara.isNull(request.cluster)) {
       query["cluster"] = request.cluster;
     }
@@ -2633,6 +3116,10 @@ export default class Client extends OpenApi {
       query["start"] = request.start;
     }
 
+    if (!$dara.isNull(request.xSysomInvokeSource)) {
+      query["x-sysom-invoke-source"] = request.xSysomInvokeSource;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
@@ -2674,6 +3161,10 @@ export default class Client extends OpenApi {
   async listAgentInstallRecordsWithOptions(request: $_model.ListAgentInstallRecordsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListAgentInstallRecordsResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.xDebugId)) {
+      query["X-Debug-Id"] = request.xDebugId;
+    }
+
     if (!$dara.isNull(request.current)) {
       query["current"] = request.current;
     }
@@ -2700,6 +3191,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.status)) {
       query["status"] = request.status;
+    }
+
+    if (!$dara.isNull(request.xSysomInvokeSource)) {
+      query["x-sysom-invoke-source"] = request.xSysomInvokeSource;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -2733,7 +3228,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of agents.
+   * Retrieves a list of Agents.
    * 
    * @param request - ListAgentsRequest
    * @param headers - map
@@ -2743,6 +3238,10 @@ export default class Client extends OpenApi {
   async listAgentsWithOptions(request: $_model.ListAgentsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListAgentsResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.xDebugId)) {
+      query["X-Debug-Id"] = request.xDebugId;
+    }
+
     if (!$dara.isNull(request.current)) {
       query["current"] = request.current;
     }
@@ -2757,6 +3256,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.type)) {
       query["type"] = request.type;
+    }
+
+    if (!$dara.isNull(request.xSysomInvokeSource)) {
+      query["x-sysom-invoke-source"] = request.xSysomInvokeSource;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -2778,7 +3281,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of agents.
+   * Retrieves a list of Agents.
    * 
    * @param request - ListAgentsRequest
    * @returns ListAgentsResponse
@@ -2790,7 +3293,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * This API is used to get the list of alert contacts
+   * Retrieves the list of alert contacts.
    * 
    * @param request - ListAlertDestinationsRequest
    * @param headers - map
@@ -2800,6 +3303,10 @@ export default class Client extends OpenApi {
   async listAlertDestinationsWithOptions(request: $_model.ListAlertDestinationsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListAlertDestinationsResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.xDebugId)) {
+      query["X-Debug-Id"] = request.xDebugId;
+    }
+
     if (!$dara.isNull(request.current)) {
       query["current"] = request.current;
     }
@@ -2818,6 +3325,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.pageSize)) {
       query["pageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.xSysomInvokeSource)) {
+      query["x-sysom-invoke-source"] = request.xSysomInvokeSource;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -2839,7 +3350,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * This API is used to get the list of alert contacts
+   * Retrieves the list of alert contacts.
    * 
    * @param request - ListAlertDestinationsRequest
    * @returns ListAlertDestinationsResponse
@@ -2896,6 +3407,10 @@ export default class Client extends OpenApi {
   async listAlertStrategiesWithOptions(request: $_model.ListAlertStrategiesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListAlertStrategiesResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.xDebugId)) {
+      query["X-Debug-Id"] = request.xDebugId;
+    }
+
     if (!$dara.isNull(request.current)) {
       query["current"] = request.current;
     }
@@ -2914,6 +3429,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.pageSize)) {
       query["pageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.xSysomInvokeSource)) {
+      query["x-sysom-invoke-source"] = request.xSysomInvokeSource;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -2947,7 +3466,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * This API is used to retrieve a list of managed/unmanaged instances along with their instance information.
+   * Retrieves a list of managed or unmanaged instances along with their instance information.
    * 
    * @param request - ListAllInstancesRequest
    * @param headers - map
@@ -2957,6 +3476,10 @@ export default class Client extends OpenApi {
   async listAllInstancesWithOptions(request: $_model.ListAllInstancesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListAllInstancesResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.xDebugId)) {
+      query["X-Debug-Id"] = request.xDebugId;
+    }
+
     if (!$dara.isNull(request.current)) {
       query["current"] = request.current;
     }
@@ -2993,6 +3516,10 @@ export default class Client extends OpenApi {
       query["region"] = request.region;
     }
 
+    if (!$dara.isNull(request.xSysomInvokeSource)) {
+      query["x-sysom-invoke-source"] = request.xSysomInvokeSource;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
@@ -3012,7 +3539,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * This API is used to retrieve a list of managed/unmanaged instances along with their instance information.
+   * Retrieves a list of managed or unmanaged instances along with their instance information.
    * 
    * @param request - ListAllInstancesRequest
    * @returns ListAllInstancesResponse
@@ -3024,7 +3551,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get cluster component installation records
+   * Retrieves the component installation records of a cluster.
    * 
    * @param request - ListClusterAgentInstallRecordsRequest
    * @param headers - map
@@ -3034,6 +3561,10 @@ export default class Client extends OpenApi {
   async listClusterAgentInstallRecordsWithOptions(request: $_model.ListClusterAgentInstallRecordsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListClusterAgentInstallRecordsResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.xDebugId)) {
+      query["X-Debug-Id"] = request.xDebugId;
+    }
+
     if (!$dara.isNull(request.agentConfigId)) {
       query["agent_config_id"] = request.agentConfigId;
     }
@@ -3058,6 +3589,10 @@ export default class Client extends OpenApi {
       query["plugin_version"] = request.pluginVersion;
     }
 
+    if (!$dara.isNull(request.xSysomInvokeSource)) {
+      query["x-sysom-invoke-source"] = request.xSysomInvokeSource;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
@@ -3077,7 +3612,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get cluster component installation records
+   * Retrieves the component installation records of a cluster.
    * 
    * @param request - ListClusterAgentInstallRecordsRequest
    * @returns ListClusterAgentInstallRecordsResponse
@@ -3089,7 +3624,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieve all managed clusters of the current user
+   * Retrieves all managed clusters for the current user.
    * 
    * @param request - ListClustersRequest
    * @param headers - map
@@ -3099,6 +3634,10 @@ export default class Client extends OpenApi {
   async listClustersWithOptions(request: $_model.ListClustersRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListClustersResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.xDebugId)) {
+      query["X-Debug-Id"] = request.xDebugId;
+    }
+
     if (!$dara.isNull(request.clusterId)) {
       query["cluster_id"] = request.clusterId;
     }
@@ -3127,6 +3666,10 @@ export default class Client extends OpenApi {
       query["pageSize"] = request.pageSize;
     }
 
+    if (!$dara.isNull(request.xSysomInvokeSource)) {
+      query["x-sysom-invoke-source"] = request.xSysomInvokeSource;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
@@ -3146,7 +3689,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieve all managed clusters of the current user
+   * Retrieves all managed clusters for the current user.
    * 
    * @param request - ListClustersRequest
    * @returns ListClustersResponse
@@ -3158,7 +3701,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtain the list of diagnostic history.
+   * Retrieves a list of diagnostic history records.
    * 
    * @param request - ListDiagnosisRequest
    * @param headers - map
@@ -3168,6 +3711,10 @@ export default class Client extends OpenApi {
   async listDiagnosisWithOptions(request: $_model.ListDiagnosisRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListDiagnosisResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.xDebugId)) {
+      query["X-Debug-Id"] = request.xDebugId;
+    }
+
     if (!$dara.isNull(request.current)) {
       query["current"] = request.current;
     }
@@ -3186,6 +3733,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.status)) {
       query["status"] = request.status;
+    }
+
+    if (!$dara.isNull(request.xSysomInvokeSource)) {
+      query["x-sysom-invoke-source"] = request.xSysomInvokeSource;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -3207,7 +3758,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtain the list of diagnostic history.
+   * Retrieves a list of diagnostic history records.
    * 
    * @param request - ListDiagnosisRequest
    * @returns ListDiagnosisResponse
@@ -3229,6 +3780,10 @@ export default class Client extends OpenApi {
   async listInstanceHealthWithOptions(request: $_model.ListInstanceHealthRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListInstanceHealthResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.xDebugId)) {
+      query["X-Debug-Id"] = request.xDebugId;
+    }
+
     if (!$dara.isNull(request.cluster)) {
       query["cluster"] = request.cluster;
     }
@@ -3251,6 +3806,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.start)) {
       query["start"] = request.start;
+    }
+
+    if (!$dara.isNull(request.xSysomInvokeSource)) {
+      query["x-sysom-invoke-source"] = request.xSysomInvokeSource;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -3284,6 +3843,83 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 此接口用于获取某类型实例信息的所有值
+   * 
+   * @param request - ListInstanceInfoRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListInstanceInfoResponse
+   */
+  async listInstanceInfoWithOptions(request: $_model.ListInstanceInfoRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListInstanceInfoResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.xDebugId)) {
+      query["X-Debug-Id"] = request.xDebugId;
+    }
+
+    if (!$dara.isNull(request.infoType)) {
+      query["infoType"] = request.infoType;
+    }
+
+    if (!$dara.isNull(request.instanceType)) {
+      query["instanceType"] = request.instanceType;
+    }
+
+    if (!$dara.isNull(request.managedType)) {
+      query["managedType"] = request.managedType;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.pluginId)) {
+      query["pluginId"] = request.pluginId;
+    }
+
+    if (!$dara.isNull(request.region)) {
+      query["region"] = request.region;
+    }
+
+    if (!$dara.isNull(request.xSysomInvokeSource)) {
+      query["x-sysom-invoke-source"] = request.xSysomInvokeSource;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListInstanceInfo",
+      version: "2023-12-30",
+      protocol: "HTTPS",
+      pathname: `/api/v1/am/instance/listInstanceInfo`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListInstanceInfoResponse>(await this.callApi(params, req, runtime), new $_model.ListInstanceInfoResponse({}));
+  }
+
+  /**
+   * 此接口用于获取某类型实例信息的所有值
+   * 
+   * @param request - ListInstanceInfoRequest
+   * @returns ListInstanceInfoResponse
+   */
+  async listInstanceInfo(request: $_model.ListInstanceInfoRequest): Promise<$_model.ListInstanceInfoResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listInstanceInfoWithOptions(request, headers, runtime);
+  }
+
+  /**
    * Retrieves instance statuses.
    * 
    * @remarks
@@ -3297,6 +3933,10 @@ export default class Client extends OpenApi {
   async listInstanceStatusWithOptions(request: $_model.ListInstanceStatusRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListInstanceStatusResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.xDebugId)) {
+      query["X-Debug-Id"] = request.xDebugId;
+    }
+
     if (!$dara.isNull(request.current)) {
       query["current"] = request.current;
     }
@@ -3315,6 +3955,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.status)) {
       query["status"] = request.status;
+    }
+
+    if (!$dara.isNull(request.xSysomInvokeSource)) {
+      query["x-sysom-invoke-source"] = request.xSysomInvokeSource;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -3364,6 +4008,10 @@ export default class Client extends OpenApi {
   async listInstancesWithOptions(request: $_model.ListInstancesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListInstancesResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.xDebugId)) {
+      query["X-Debug-Id"] = request.xDebugId;
+    }
+
     if (!$dara.isNull(request.clusterId)) {
       query["cluster_id"] = request.clusterId;
     }
@@ -3386,6 +4034,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.status)) {
       query["status"] = request.status;
+    }
+
+    if (!$dara.isNull(request.xSysomInvokeSource)) {
+      query["x-sysom-invoke-source"] = request.xSysomInvokeSource;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -3422,7 +4074,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves lists of ECS information for instances, such as tag lists and public IP address lists.
+   * Retrieves ECS information lists for instances, such as tag lists and public IP address lists.
    * 
    * @remarks
    * The instance list retrieved by this operation contains only machines that are managed by SysOM. If an ECS instance exists but is not managed by SysOM, it does not appear in the list.
@@ -3435,6 +4087,10 @@ export default class Client extends OpenApi {
   async listInstancesEcsInfoListWithOptions(request: $_model.ListInstancesEcsInfoListRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListInstancesEcsInfoListResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.xDebugId)) {
+      query["X-Debug-Id"] = request.xDebugId;
+    }
+
     if (!$dara.isNull(request.infoType)) {
       query["info_type"] = request.infoType;
     }
@@ -3453,6 +4109,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.region)) {
       query["region"] = request.region;
+    }
+
+    if (!$dara.isNull(request.xSysomInvokeSource)) {
+      query["x-sysom-invoke-source"] = request.xSysomInvokeSource;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -3474,7 +4134,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves lists of ECS information for instances, such as tag lists and public IP address lists.
+   * Retrieves ECS information lists for instances, such as tag lists and public IP address lists.
    * 
    * @remarks
    * The instance list retrieved by this operation contains only machines that are managed by SysOM. If an ECS instance exists but is not managed by SysOM, it does not appear in the list.
@@ -3508,6 +4168,10 @@ export default class Client extends OpenApi {
     }
 
     let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.xDebugId)) {
+      query["X-Debug-Id"] = request.xDebugId;
+    }
+
     if (!$dara.isNull(request.current)) {
       query["current"] = request.current;
     }
@@ -3568,6 +4232,10 @@ export default class Client extends OpenApi {
       query["resource_group_name"] = request.resourceGroupName;
     }
 
+    if (!$dara.isNull(request.xSysomInvokeSource)) {
+      query["x-sysom-invoke-source"] = request.xSysomInvokeSource;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
@@ -3602,7 +4270,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the list of instances for plug-in installation, update, or uninstallation.
+   * Retrieves the list of instances for plugin installation, update, or uninstallation.
    * 
    * @remarks
    * The instance list retrieved by this operation contains only machines that are managed by SysOM. If an ECS instance exists but is not managed by SysOM, it does not appear in the list.
@@ -3615,6 +4283,10 @@ export default class Client extends OpenApi {
   async listPluginsInstancesWithOptions(request: $_model.ListPluginsInstancesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListPluginsInstancesResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.xDebugId)) {
+      query["X-Debug-Id"] = request.xDebugId;
+    }
+
     if (!$dara.isNull(request.current)) {
       query["current"] = request.current;
     }
@@ -3643,6 +4315,10 @@ export default class Client extends OpenApi {
       query["region"] = request.region;
     }
 
+    if (!$dara.isNull(request.xSysomInvokeSource)) {
+      query["x-sysom-invoke-source"] = request.xSysomInvokeSource;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
@@ -3662,7 +4338,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the list of instances for plug-in installation, update, or uninstallation.
+   * Retrieves the list of instances for plugin installation, update, or uninstallation.
    * 
    * @remarks
    * The instance list retrieved by this operation contains only machines that are managed by SysOM. If an ECS instance exists but is not managed by SysOM, it does not appear in the list.
@@ -3687,6 +4363,10 @@ export default class Client extends OpenApi {
   async listPodsOfInstanceWithOptions(request: $_model.ListPodsOfInstanceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListPodsOfInstanceResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.xDebugId)) {
+      query["X-Debug-Id"] = request.xDebugId;
+    }
+
     if (!$dara.isNull(request.clusterId)) {
       query["cluster_id"] = request.clusterId;
     }
@@ -3701,6 +4381,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.pageSize)) {
       query["pageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.xSysomInvokeSource)) {
+      query["x-sysom-invoke-source"] = request.xSysomInvokeSource;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -3775,7 +4459,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the historical crash diagnosis task list.
+   * Queries the list of historical down diagnosis tasks.
    * 
    * @param request - ListVmcoreDiagnosisTaskRequest
    * @param headers - map
@@ -3785,8 +4469,16 @@ export default class Client extends OpenApi {
   async listVmcoreDiagnosisTaskWithOptions(request: $_model.ListVmcoreDiagnosisTaskRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListVmcoreDiagnosisTaskResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.xDebugId)) {
+      query["X-Debug-Id"] = request.xDebugId;
+    }
+
     if (!$dara.isNull(request.days)) {
       query["days"] = request.days;
+    }
+
+    if (!$dara.isNull(request.xSysomInvokeSource)) {
+      query["x-sysom-invoke-source"] = request.xSysomInvokeSource;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -3808,7 +4500,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the historical crash diagnosis task list.
+   * Queries the list of historical down diagnosis tasks.
    * 
    * @param request - ListVmcoreDiagnosisTaskRequest
    * @returns ListVmcoreDiagnosisTaskResponse
@@ -3820,7 +4512,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Start AI job analysis.
+   * Starts AI job analysis.
    * 
    * @param request - StartAIAnalysisRequest
    * @param headers - map
@@ -3829,6 +4521,15 @@ export default class Client extends OpenApi {
    */
   async startAIAnalysisWithOptions(request: $_model.StartAIAnalysisRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.StartAIAnalysisResponse> {
     request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.xDebugId)) {
+      query["X-Debug-Id"] = request.xDebugId;
+    }
+
+    if (!$dara.isNull(request.xSysomInvokeSource)) {
+      query["x-sysom-invoke-source"] = request.xSysomInvokeSource;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.analysisTool)) {
       body["analysisTool"] = request.analysisTool;
@@ -3888,6 +4589,7 @@ export default class Client extends OpenApi {
 
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
@@ -3905,7 +4607,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Start AI job analysis.
+   * Starts AI job analysis.
    * 
    * @param request - StartAIAnalysisRequest
    * @returns StartAIAnalysisResponse
@@ -3929,6 +4631,15 @@ export default class Client extends OpenApi {
    */
   async startAIDiffAnalysisWithOptions(request: $_model.StartAIDiffAnalysisRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.StartAIDiffAnalysisResponse> {
     request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.xDebugId)) {
+      query["X-Debug-Id"] = request.xDebugId;
+    }
+
+    if (!$dara.isNull(request.xSysomInvokeSource)) {
+      query["x-sysom-invoke-source"] = request.xSysomInvokeSource;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.task1)) {
       body["task1"] = request.task1;
@@ -3940,6 +4651,7 @@ export default class Client extends OpenApi {
 
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
@@ -3975,7 +4687,7 @@ export default class Client extends OpenApi {
    * Uninstalls a specified version of a component.
    * 
    * @remarks
-   * Calling this operation to uninstall an Agent is asynchronous. After the call, a task_id is returned. Use this ID to call the GetAgentTask operation to retrieve the execution status of the task.
+   * Calling this operation to uninstall an Agent is asynchronous. After the call, a task_id is returned. You can use this ID to call the GetAgentTask operation to retrieve the execution status of the task.
    * 
    * @param request - UninstallAgentRequest
    * @param headers - map
@@ -3984,6 +4696,15 @@ export default class Client extends OpenApi {
    */
   async uninstallAgentWithOptions(request: $_model.UninstallAgentRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UninstallAgentResponse> {
     request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.xDebugId)) {
+      query["X-Debug-Id"] = request.xDebugId;
+    }
+
+    if (!$dara.isNull(request.xSysomInvokeSource)) {
+      query["x-sysom-invoke-source"] = request.xSysomInvokeSource;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.agentId)) {
       body["agent_id"] = request.agentId;
@@ -3999,6 +4720,7 @@ export default class Client extends OpenApi {
 
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
@@ -4019,7 +4741,7 @@ export default class Client extends OpenApi {
    * Uninstalls a specified version of a component.
    * 
    * @remarks
-   * Calling this operation to uninstall an Agent is asynchronous. After the call, a task_id is returned. Use this ID to call the GetAgentTask operation to retrieve the execution status of the task.
+   * Calling this operation to uninstall an Agent is asynchronous. After the call, a task_id is returned. You can use this ID to call the GetAgentTask operation to retrieve the execution status of the task.
    * 
    * @param request - UninstallAgentRequest
    * @returns UninstallAgentResponse
@@ -4040,6 +4762,15 @@ export default class Client extends OpenApi {
    */
   async uninstallAgentForClusterWithOptions(request: $_model.UninstallAgentForClusterRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UninstallAgentForClusterResponse> {
     request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.xDebugId)) {
+      query["X-Debug-Id"] = request.xDebugId;
+    }
+
+    if (!$dara.isNull(request.xSysomInvokeSource)) {
+      query["x-sysom-invoke-source"] = request.xSysomInvokeSource;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.agentId)) {
       body["agent_id"] = request.agentId;
@@ -4055,6 +4786,7 @@ export default class Client extends OpenApi {
 
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
@@ -4096,6 +4828,15 @@ export default class Client extends OpenApi {
    */
   async uninstallAgentWithTypeWithOptions(request: $_model.UninstallAgentWithTypeRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UninstallAgentWithTypeResponse> {
     request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.xDebugId)) {
+      query["X-Debug-Id"] = request.xDebugId;
+    }
+
+    if (!$dara.isNull(request.xSysomInvokeSource)) {
+      query["x-sysom-invoke-source"] = request.xSysomInvokeSource;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.agentId)) {
       body["agentId"] = request.agentId;
@@ -4115,6 +4856,7 @@ export default class Client extends OpenApi {
 
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
@@ -4150,7 +4892,7 @@ export default class Client extends OpenApi {
    * Updates an alert contact.
    * 
    * @remarks
-   * .
+   * 、
    * 
    * @param request - UpdateAlertDestinationRequest
    * @param headers - map
@@ -4159,6 +4901,15 @@ export default class Client extends OpenApi {
    */
   async updateAlertDestinationWithOptions(request: $_model.UpdateAlertDestinationRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateAlertDestinationResponse> {
     request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.xDebugId)) {
+      query["X-Debug-Id"] = request.xDebugId;
+    }
+
+    if (!$dara.isNull(request.xSysomInvokeSource)) {
+      query["x-sysom-invoke-source"] = request.xSysomInvokeSource;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.appId)) {
       body["app_id"] = request.appId;
@@ -4198,6 +4949,7 @@ export default class Client extends OpenApi {
 
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
@@ -4218,7 +4970,7 @@ export default class Client extends OpenApi {
    * Updates an alert contact.
    * 
    * @remarks
-   * .
+   * 、
    * 
    * @param request - UpdateAlertDestinationRequest
    * @returns UpdateAlertDestinationResponse
@@ -4239,6 +4991,15 @@ export default class Client extends OpenApi {
    */
   async updateAlertEnabledWithOptions(request: $_model.UpdateAlertEnabledRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateAlertEnabledResponse> {
     request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.xDebugId)) {
+      query["X-Debug-Id"] = request.xDebugId;
+    }
+
+    if (!$dara.isNull(request.xSysomInvokeSource)) {
+      query["x-sysom-invoke-source"] = request.xSysomInvokeSource;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.enabled)) {
       body["enabled"] = request.enabled;
@@ -4250,6 +5011,7 @@ export default class Client extends OpenApi {
 
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
@@ -4288,6 +5050,15 @@ export default class Client extends OpenApi {
    */
   async updateAlertStrategyWithOptions(request: $_model.UpdateAlertStrategyRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateAlertStrategyResponse> {
     request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.xDebugId)) {
+      query["X-Debug-Id"] = request.xDebugId;
+    }
+
+    if (!$dara.isNull(request.xSysomInvokeSource)) {
+      query["x-sysom-invoke-source"] = request.xSysomInvokeSource;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.enabled)) {
       body["enabled"] = request.enabled;
@@ -4311,6 +5082,7 @@ export default class Client extends OpenApi {
 
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
@@ -4349,6 +5121,15 @@ export default class Client extends OpenApi {
    */
   async updateEventsAttentionWithOptions(request: $_model.UpdateEventsAttentionRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateEventsAttentionResponse> {
     request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.xDebugId)) {
+      query["X-Debug-Id"] = request.xDebugId;
+    }
+
+    if (!$dara.isNull(request.xSysomInvokeSource)) {
+      query["x-sysom-invoke-source"] = request.xSysomInvokeSource;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.mode)) {
       body["mode"] = request.mode;
@@ -4364,6 +5145,7 @@ export default class Client extends OpenApi {
 
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
@@ -4413,6 +5195,10 @@ export default class Client extends OpenApi {
     }
 
     let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.xDebugId)) {
+      query["X-Debug-Id"] = request.xDebugId;
+    }
+
     if (!$dara.isNull(request.channel)) {
       query["channel"] = request.channel;
     }
@@ -4423,6 +5209,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.serviceName)) {
       query["service_name"] = request.serviceName;
+    }
+
+    if (!$dara.isNull(request.xSysomInvokeSource)) {
+      query["x-sysom-invoke-source"] = request.xSysomInvokeSource;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -4460,10 +5250,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates an installed component to a specified version.
+   * Updates the version of an installed component to a specified version.
    * 
    * @remarks
-   * Updating the Agent by calling this operation is asynchronous. After you call this operation, a task_id is returned. You can use this ID to call the GetAgentTask operation to query the execution status of the task.
+   * Calling this operation to update the Agent is asynchronous. After the call, a task_id is returned. You can use this ID to call the GetAgentTask operation to retrieve the execution status of the task.
    * 
    * @param request - UpgradeAgentRequest
    * @param headers - map
@@ -4472,6 +5262,15 @@ export default class Client extends OpenApi {
    */
   async upgradeAgentWithOptions(request: $_model.UpgradeAgentRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpgradeAgentResponse> {
     request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.xDebugId)) {
+      query["X-Debug-Id"] = request.xDebugId;
+    }
+
+    if (!$dara.isNull(request.xSysomInvokeSource)) {
+      query["x-sysom-invoke-source"] = request.xSysomInvokeSource;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.agentId)) {
       body["agent_id"] = request.agentId;
@@ -4487,6 +5286,7 @@ export default class Client extends OpenApi {
 
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
@@ -4504,10 +5304,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates an installed component to a specified version.
+   * Updates the version of an installed component to a specified version.
    * 
    * @remarks
-   * Updating the Agent by calling this operation is asynchronous. After you call this operation, a task_id is returned. You can use this ID to call the GetAgentTask operation to query the execution status of the task.
+   * Calling this operation to update the Agent is asynchronous. After the call, a task_id is returned. You can use this ID to call the GetAgentTask operation to retrieve the execution status of the task.
    * 
    * @param request - UpgradeAgentRequest
    * @returns UpgradeAgentResponse
@@ -4519,7 +5319,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates components for a cluster.
+   * Updates a component for an ACK cluster.
    * 
    * @param request - UpgradeAgentForClusterRequest
    * @param headers - map
@@ -4528,6 +5328,15 @@ export default class Client extends OpenApi {
    */
   async upgradeAgentForClusterWithOptions(request: $_model.UpgradeAgentForClusterRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpgradeAgentForClusterResponse> {
     request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.xDebugId)) {
+      query["X-Debug-Id"] = request.xDebugId;
+    }
+
+    if (!$dara.isNull(request.xSysomInvokeSource)) {
+      query["x-sysom-invoke-source"] = request.xSysomInvokeSource;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.agentId)) {
       body["agent_id"] = request.agentId;
@@ -4543,6 +5352,7 @@ export default class Client extends OpenApi {
 
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
@@ -4560,7 +5370,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates components for a cluster.
+   * Updates a component for an ACK cluster.
    * 
    * @param request - UpgradeAgentForClusterRequest
    * @returns UpgradeAgentForClusterResponse
@@ -4584,6 +5394,15 @@ export default class Client extends OpenApi {
    */
   async upgradeAgentWithTypeWithOptions(request: $_model.UpgradeAgentWithTypeRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpgradeAgentWithTypeResponse> {
     request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.xDebugId)) {
+      query["X-Debug-Id"] = request.xDebugId;
+    }
+
+    if (!$dara.isNull(request.xSysomInvokeSource)) {
+      query["x-sysom-invoke-source"] = request.xSysomInvokeSource;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.agentId)) {
       body["agentId"] = request.agentId;
@@ -4603,6 +5422,7 @@ export default class Client extends OpenApi {
 
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({

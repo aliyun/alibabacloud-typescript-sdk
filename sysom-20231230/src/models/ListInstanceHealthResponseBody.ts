@@ -56,7 +56,7 @@ export class ListInstanceHealthResponseBodyData extends $dara.Model {
    * 
    * 
    * 
-   * > An instance in the Offline status indicates that the heartbeat between the node and the SysOM server is lost. It does not mean that the corresponding ECS instance is not running.
+   * > An instance in the Offline state indicates that the heartbeat between the node and the SysOM server is lost. It does not mean that the corresponding ECS instance is not running.
    * 
    * @example
    * Running
@@ -102,8 +102,8 @@ export class ListInstanceHealthResponseBody extends $dara.Model {
   /**
    * @remarks
    * The status code.
-   * - If `code == Success`, the authorization is successful.
-   * - Other status codes indicate authorization failed. Check the `message` field for the detailed fault information.
+   * - `code == Success` indicates that the authorization is successful.
+   * - Other status codes indicate that the authorization failed. Check the `message` field for the detailed fault information.
    * 
    * @example
    * SysomOpenAPI.ServerError
@@ -118,7 +118,7 @@ export class ListInstanceHealthResponseBody extends $dara.Model {
    * @remarks
    * The error message.
    * - If `code == Success`, this field is empty.
-   * - Otherwise, this field contains the request error information.
+   * - Otherwise, this field contains the error information of the request.
    * 
    * @example
    * Query no data

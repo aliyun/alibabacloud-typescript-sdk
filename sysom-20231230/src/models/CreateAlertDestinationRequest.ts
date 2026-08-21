@@ -63,6 +63,7 @@ export class CreateAlertDestinationRequestParams extends $dara.Model {
 }
 
 export class CreateAlertDestinationRequest extends $dara.Model {
+  xDebugId?: string;
   appId?: string;
   appSecret?: string;
   groupId?: string[];
@@ -96,8 +97,10 @@ export class CreateAlertDestinationRequest extends $dara.Model {
    * dingtalk
    */
   target?: string;
+  xSysomInvokeSource?: string;
   static names(): { [key: string]: string } {
     return {
+      xDebugId: 'X-Debug-Id',
       appId: 'app_id',
       appSecret: 'app_secret',
       groupId: 'group_id',
@@ -106,11 +109,13 @@ export class CreateAlertDestinationRequest extends $dara.Model {
       params: 'params',
       source: 'source',
       target: 'target',
+      xSysomInvokeSource: 'x-sysom-invoke-source',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      xDebugId: 'string',
       appId: 'string',
       appSecret: 'string',
       groupId: { 'type': 'array', 'itemType': 'string' },
@@ -119,6 +124,7 @@ export class CreateAlertDestinationRequest extends $dara.Model {
       params: CreateAlertDestinationRequestParams,
       source: 'string',
       target: 'string',
+      xSysomInvokeSource: 'string',
     };
   }
 

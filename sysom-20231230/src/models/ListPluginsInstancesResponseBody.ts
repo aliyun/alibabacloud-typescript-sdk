@@ -61,7 +61,7 @@ export class ListPluginsInstancesResponseBodyData extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * The instance tag.
+   * The instance tags.
    */
   instanceTag?: ListPluginsInstancesResponseBodyDataInstanceTag[];
   /**
@@ -186,7 +186,7 @@ export class ListPluginsInstancesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of query results.
    * 
    * @example
    * 42

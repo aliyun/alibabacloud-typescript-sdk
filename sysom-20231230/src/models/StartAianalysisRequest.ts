@@ -3,9 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class StartAIAnalysisRequest extends $dara.Model {
+  xDebugId?: string;
   /**
    * @remarks
-   * Analysis tool. Not required for OpenAPI access.
+   * The analysis tool. This parameter does not need to be specified when you use OpenAPI.
    * 
    * @example
    * gp/pyki/analysis
@@ -13,12 +14,12 @@ export class StartAIAnalysisRequest extends $dara.Model {
   analysisTool?: string;
   /**
    * @remarks
-   * Data richness
+   * The data richness level.
    */
   analysisParams?: string[];
   /**
    * @remarks
-   * Channel name
+   * The channel name.
    * 
    * @example
    * ecs_sysom
@@ -26,7 +27,7 @@ export class StartAIAnalysisRequest extends $dara.Model {
   channel?: string;
   /**
    * @remarks
-   * Process name, optional parameter
+   * The process name. This parameter is optional.
    * 
    * @example
    * python_test
@@ -34,7 +35,7 @@ export class StartAIAnalysisRequest extends $dara.Model {
   comms?: string;
   /**
    * @remarks
-   * Creator. Not required for OpenAPI access.
+   * The creator. This parameter does not need to be specified when you use OpenAPI.
    * 
    * @example
    * 445333
@@ -42,7 +43,7 @@ export class StartAIAnalysisRequest extends $dara.Model {
   createdBy?: string;
   /**
    * @remarks
-   * Instance ID
+   * The instance ID.
    * 
    * @example
    * i-wz9dej066kii4goqxxxx
@@ -50,7 +51,7 @@ export class StartAIAnalysisRequest extends $dara.Model {
   instance?: string;
   /**
    * @remarks
-   * Instance type. Not required for OpenAPI access.
+   * The instance type. This parameter does not need to be specified when you use OpenAPI.
    * 
    * @example
    * ip/sn/hostname
@@ -58,7 +59,7 @@ export class StartAIAnalysisRequest extends $dara.Model {
   instanceType?: string;
   /**
    * @remarks
-   * Iteration entry function. Required only in iteration mode. Can be left blank.
+   * The iteration entry function. This parameter is required only in iteration mode and can be left empty.
    * 
    * @example
    * Class.function
@@ -66,7 +67,7 @@ export class StartAIAnalysisRequest extends $dara.Model {
   iterationFunc?: string;
   /**
    * @remarks
-   * Iteration entry module. Required only in iteration mode. Can be left blank.
+   * The iteration entry module. This parameter is required only in iteration mode and can be left empty.
    * 
    * @example
    * a.b.module
@@ -74,12 +75,12 @@ export class StartAIAnalysisRequest extends $dara.Model {
   iterationMod?: string;
   /**
    * @remarks
-   * Iteration range (iteration count: refers to the number of iterations when the data collection module is activated, independent of the AI job\\"s iteration count)
+   * The iteration range. The iteration count refers to the number of iterations when the data collection module is activated, which is independent of the AI job iteration count.
    */
   iterationRange?: number[];
   /**
    * @remarks
-   * AI job process PIDs. Supports batch input, separated by commas.
+   * The process IDs (PIDs) of the AI job. Multiple PIDs are supported, separated by commas.
    * 
    * @example
    * 2421,36547,10043
@@ -87,7 +88,7 @@ export class StartAIAnalysisRequest extends $dara.Model {
   pids?: string;
   /**
    * @remarks
-   * Region ID
+   * The region ID.
    * 
    * @example
    * cn-shenzhen
@@ -95,9 +96,7 @@ export class StartAIAnalysisRequest extends $dara.Model {
   region?: string;
   /**
    * @remarks
-   * AI Infra analysis time;
-   * Unit: milliseconds;
-   * Default value: 2000;
+   * The AI Infra analysis duration. Unit: milliseconds. Default value: 2000.
    * 
    * @example
    * 2000
@@ -105,14 +104,16 @@ export class StartAIAnalysisRequest extends $dara.Model {
   timeout?: number;
   /**
    * @remarks
-   * Alibaba Cloud user ID. Not required for OpenAPI access.
+   * The Alibaba Cloud user ID. This parameter does not need to be specified when you use OpenAPI.
    * 
    * @example
    * 123423414
    */
   uid?: string;
+  xSysomInvokeSource?: string;
   static names(): { [key: string]: string } {
     return {
+      xDebugId: 'X-Debug-Id',
       analysisTool: 'analysisTool',
       analysisParams: 'analysis_params',
       channel: 'channel',
@@ -127,11 +128,13 @@ export class StartAIAnalysisRequest extends $dara.Model {
       region: 'region',
       timeout: 'timeout',
       uid: 'uid',
+      xSysomInvokeSource: 'x-sysom-invoke-source',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      xDebugId: 'string',
       analysisTool: 'string',
       analysisParams: { 'type': 'array', 'itemType': 'string' },
       channel: 'string',
@@ -146,6 +149,7 @@ export class StartAIAnalysisRequest extends $dara.Model {
       region: 'string',
       timeout: 'number',
       uid: 'string',
+      xSysomInvokeSource: 'string',
     };
   }
 

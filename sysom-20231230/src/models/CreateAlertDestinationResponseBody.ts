@@ -180,7 +180,7 @@ export class CreateAlertDestinationResponseBody extends $dara.Model {
    * @remarks
    * The error message.
    * - If `code == Success`, this field is empty.
-   * - Otherwise, this field contains the error message of the request.
+   * - Otherwise, this field contains the error message for the request.
    * 
    * @example
    * SysomOpenAPIException: SysomOpenAPI.InvalidParameter Invalid params, should be json string or dict

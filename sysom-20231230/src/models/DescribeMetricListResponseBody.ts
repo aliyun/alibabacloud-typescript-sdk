@@ -56,7 +56,7 @@ export class DescribeMetricListResponseBody extends $dara.Model {
   /**
    * @remarks
    * The status code.
-   * - If `code == Success`, the authorization is successful.
+   * - `code == Success` indicates that the authorization is successful.
    * - Other status codes indicate that the authorization failed. Check the `message` field for the detailed fault information.
    * 
    * @example
@@ -65,18 +65,18 @@ export class DescribeMetricListResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned data.
+   * The response data.
    */
   data?: DescribeMetricListResponseBodyData[];
   /**
    * @remarks
    * The error message.
    * - If `code == Success`, this field is empty.
-   * - Otherwise, this field contains the request error message.
+   * - Otherwise, this field contains the request error information.
    * 
    * @example
-   * 分析ID: 56dae746-ef55-4f77-8373-cb3594c41457
-   * 机器i-bp164ns76pzirbwv0snt分析失败, 失败原因: Not get GPU trace data for \\"56dae746-ef55-4f77-8373-cb3594c41457\\" \\"[\\"93811\\"]\\"!
+   * Analysis ID: 56dae746-ef55-4f77-8373-cb3594c41457
+   * Analysis failed for machine i-bp164ns76pzirbwv0snt. Failure reason: Not get GPU trace data for \\"56dae746-ef55-4f77-8373-cb3594c41457\\" \\"[\\"93811\\"]\\"!
    */
   message?: string;
   /**

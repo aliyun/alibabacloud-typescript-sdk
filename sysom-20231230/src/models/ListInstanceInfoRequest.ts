@@ -2,57 +2,54 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ListAlertStrategiesRequest extends $dara.Model {
+export class ListInstanceInfoRequest extends $dara.Model {
   xDebugId?: string;
   /**
-   * @remarks
-   * The current page number (starting from 1).
-   * 
    * @example
-   * 1
+   * instance_tag
    */
-  current?: number;
+  infoType?: string;
   /**
-   * @remarks
-   * The maximum number of records to retrieve in a single request.
-   * 
    * @example
-   * 20
+   * ecs
    */
-  maxResults?: number;
+  instanceType?: string;
   /**
-   * @remarks
-   * The policy name of the alerting policy.
-   * 
    * @example
-   * strategy1
+   * managed
    */
-  name?: string;
+  managedType?: string;
   /**
-   * @remarks
-   * The pagination token for the next request.
-   * 
-   * @example
-   * c2f78a783f49457caba6bace6f6f79e4
-   */
-  nextToken?: string;
-  /**
-   * @remarks
-   * The number of entries per page.
-   * 
    * @example
    * 10
    */
-  pageSize?: number;
+  maxResults?: number;
+  /**
+   * @example
+   * xiF/wDgaeitjjhVJYYzLwJ4dD+2BRJj42DLT6GrZysw=
+   */
+  nextToken?: string;
+  /**
+   * @example
+   * 01fc4a0b-f199-4885-9861-b4054a310fe7
+   */
+  pluginId?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
+  region?: string;
   xSysomInvokeSource?: string;
   static names(): { [key: string]: string } {
     return {
       xDebugId: 'X-Debug-Id',
-      current: 'current',
+      infoType: 'infoType',
+      instanceType: 'instanceType',
+      managedType: 'managedType',
       maxResults: 'maxResults',
-      name: 'name',
       nextToken: 'nextToken',
-      pageSize: 'pageSize',
+      pluginId: 'pluginId',
+      region: 'region',
       xSysomInvokeSource: 'x-sysom-invoke-source',
     };
   }
@@ -60,11 +57,13 @@ export class ListAlertStrategiesRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       xDebugId: 'string',
-      current: 'number',
+      infoType: 'string',
+      instanceType: 'string',
+      managedType: 'string',
       maxResults: 'number',
-      name: 'string',
       nextToken: 'string',
-      pageSize: 'number',
+      pluginId: 'string',
+      region: 'string',
       xSysomInvokeSource: 'string',
     };
   }

@@ -7,7 +7,7 @@ export class UpgradeAgentForClusterResponseBodyData extends $dara.Model {
    * @remarks
    * The task ID.
    * 
-   * You can use this task ID to call the GetAgentTask operation to query the task execution status.
+   * You can use this task ID to call the GetAgentTask operation to check the execution status of the task.
    * 
    * @example
    * 7523e9e0ddc74d99a5236f4f4d5056e6
@@ -46,8 +46,8 @@ export class UpgradeAgentForClusterResponseBody extends $dara.Model {
   /**
    * @remarks
    * The status code.
-   * - If `code == Success`, the authorization is successful.
-   * - Other status codes indicate authorization failure. In this case, check the `message` field for detailed error information.
+   * - `code == Success` indicates that the authorization is successful.
+   * - Other status codes indicate that the authorization failed. Check the `message` field for the detailed fault information.
    * 
    * @example
    * Success
@@ -62,7 +62,7 @@ export class UpgradeAgentForClusterResponseBody extends $dara.Model {
    * @remarks
    * The error message.
    * - If `code == Success`, this field is empty.
-   * - Otherwise, this field contains the request error message.
+   * - Otherwise, this field contains the request error information.
    * 
    * @example
    * success

@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class GetHotSpotUniqListResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * List of data column names
+   * The list of data names.
    */
   columns?: string[];
   /**
    * @remarks
-   * List of data values
+   * The list of data values.
    */
   values?: string[];
   static names(): { [key: string]: string } {
@@ -45,9 +45,9 @@ export class GetHotSpotUniqListResponseBodyData extends $dara.Model {
 export class GetHotSpotUniqListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Status code
-   * - `code == Success` indicates that the authorization is successful;
-   * - Other status codes indicate that the authorization has failed. When authorization fails, check the `message` field for detailed error information;
+   * The status code.
+   * - `code == Success` indicates that the authorization is successful.
+   * - Other status codes indicate that the authorization failed. Check the `message` field for the detailed error message.
    * 
    * @example
    * Success
@@ -55,12 +55,12 @@ export class GetHotSpotUniqListResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Response data
+   * The returned data.
    */
   data?: GetHotSpotUniqListResponseBodyData;
   /**
    * @remarks
-   * Response message
+   * The response message.
    * 
    * @example
    * success
@@ -68,7 +68,7 @@ export class GetHotSpotUniqListResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * 2D693121-C925-5154-8DF6-C09A8B369822
@@ -76,7 +76,7 @@ export class GetHotSpotUniqListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * true indicates the API call succeeded, false indicates the API call failed
+   * Indicates whether the API call is successful. true: successful. false: failed.
    * 
    * @example
    * true

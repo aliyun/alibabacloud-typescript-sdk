@@ -2,74 +2,61 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class GetHotSpotUniqListRequest extends $dara.Model {
+export class GetConfigByNameRequest extends $dara.Model {
   xDebugId?: string;
   /**
    * @remarks
-   * The end time.
+   * The configuration name.
    * 
    * This parameter is required.
    * 
    * @example
-   * 1735010351000
+   * 节点网络延时检测
    */
-  begEnd?: number;
+  configName?: string;
   /**
    * @remarks
-   * The start time.
+   * The type of the configuration parameter.
    * 
    * This parameter is required.
    * 
    * @example
-   * 1735008551000
+   * attention
    */
-  begStart?: number;
+  configType?: string;
   /**
    * @remarks
-   * The instance ID.
-   * 
-   * This parameter is required.
+   * The entity ID. Default value: "default".
    * 
    * @example
-   * i-bp1g2i0siirefgwnnnvy
+   * i-bptest
    */
-  instance?: string;
+  entityId?: string;
   /**
    * @remarks
-   * The process ID.
+   * Specifies whether to use the global UID.
    * 
    * @example
-   * 12345
+   * false
    */
-  pid?: number;
+  useGlobalUid?: boolean;
   /**
    * @remarks
-   * The table name.
+   * The version ID.
    * 
    * @example
-   * prof_on
+   * 1
    */
-  table?: string;
-  /**
-   * @remarks
-   * The identifier flag.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 默认需要为"flag"，待查询的字段
-   */
-  uniq?: string;
+  versionId?: number;
   xSysomInvokeSource?: string;
   static names(): { [key: string]: string } {
     return {
       xDebugId: 'X-Debug-Id',
-      begEnd: 'beg_end',
-      begStart: 'beg_start',
-      instance: 'instance',
-      pid: 'pid',
-      table: 'table',
-      uniq: 'uniq',
+      configName: 'configName',
+      configType: 'configType',
+      entityId: 'entityId',
+      useGlobalUid: 'useGlobalUid',
+      versionId: 'versionId',
       xSysomInvokeSource: 'x-sysom-invoke-source',
     };
   }
@@ -77,12 +64,11 @@ export class GetHotSpotUniqListRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       xDebugId: 'string',
-      begEnd: 'number',
-      begStart: 'number',
-      instance: 'string',
-      pid: 'number',
-      table: 'string',
-      uniq: 'string',
+      configName: 'string',
+      configType: 'string',
+      entityId: 'string',
+      useGlobalUid: 'boolean',
+      versionId: 'number',
       xSysomInvokeSource: 'string',
     };
   }

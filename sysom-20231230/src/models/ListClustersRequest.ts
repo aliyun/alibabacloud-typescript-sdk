@@ -3,11 +3,12 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListClustersRequest extends $dara.Model {
+  xDebugId?: string;
   /**
    * @remarks
-   * Filter by cluster ID.
+   * Filters by cluster ID.
    * 
-   * > This cluster ID is not the ACK cluster ID, but the `id` field in the data returned by this API.
+   * > This cluster ID is not the ACK cluster ID. It is the `id` field returned by this operation.
    * 
    * @example
    * cb7d4cc26c8f845fb8a8255ffd394820e
@@ -16,9 +17,9 @@ export class ListClustersRequest extends $dara.Model {
   /**
    * @remarks
    * - `Running`: The cluster is managed normally.
-   * - `Installing`: The cluster has an installation task in progress.
-   * - `Uninstalling`: The cluster has an uninstallation task in progress.
-   * - `Upgrading`: The cluster has an upgrade task in progress.
+   * - `Installing`: An installation task is in progress for the cluster.
+   * - `Uninstalling`: An uninstallation task is in progress for the cluster.
+   * - `Upgrading`: An update task is in progress for the cluster.
    * - `Offline`: The cluster is offline and management is abnormal.
    * 
    * @example
@@ -28,7 +29,7 @@ export class ListClustersRequest extends $dara.Model {
   /**
    * @remarks
    * - `ACK`: ACK cluster.
-   * - `CUSTOM`: Custom cluster (the default cluster belongs to custom clusters).
+   * - `CUSTOM`: Custom cluster (default clusters belong to custom clusters).
    * 
    * @example
    * ACK
@@ -36,7 +37,7 @@ export class ListClustersRequest extends $dara.Model {
   clusterType?: string;
   /**
    * @remarks
-   * Current page number (starting from page 1)
+   * The current page number (starting from page 1).
    * 
    * @example
    * 1
@@ -44,7 +45,7 @@ export class ListClustersRequest extends $dara.Model {
   current?: number;
   /**
    * @remarks
-   * This field is deprecated. Use the cluster_id field to filter instead.
+   * **[Deprecated]** Use the cluster_id parameter to filter instead.
    * 
    * @example
    * cb7d4cc26c8f845fb8a8255ffd394820e
@@ -52,7 +53,7 @@ export class ListClustersRequest extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * Filter by plugin name
+   * Filters plugins by plugin name.
    * 
    * @example
    * proxy-next-upstream
@@ -60,14 +61,16 @@ export class ListClustersRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Page size
+   * The number of entries per page.
    * 
    * @example
    * 10
    */
   pageSize?: number;
+  xSysomInvokeSource?: string;
   static names(): { [key: string]: string } {
     return {
+      xDebugId: 'X-Debug-Id',
       clusterId: 'cluster_id',
       clusterStatus: 'cluster_status',
       clusterType: 'cluster_type',
@@ -75,11 +78,13 @@ export class ListClustersRequest extends $dara.Model {
       id: 'id',
       name: 'name',
       pageSize: 'pageSize',
+      xSysomInvokeSource: 'x-sysom-invoke-source',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      xDebugId: 'string',
       clusterId: 'string',
       clusterStatus: 'string',
       clusterType: 'string',
@@ -87,6 +92,7 @@ export class ListClustersRequest extends $dara.Model {
       id: 'string',
       name: 'string',
       pageSize: 'number',
+      xSysomInvokeSource: 'string',
     };
   }
 

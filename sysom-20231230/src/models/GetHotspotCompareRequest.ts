@@ -3,9 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetHotspotCompareRequest extends $dara.Model {
+  xDebugId?: string;
   /**
    * @remarks
-   * End time 1
+   * The end time 1.
    * 
    * This parameter is required.
    * 
@@ -15,7 +16,7 @@ export class GetHotspotCompareRequest extends $dara.Model {
   beg1End?: number;
   /**
    * @remarks
-   * Start time 1
+   * The start time 1.
    * 
    * This parameter is required.
    * 
@@ -25,7 +26,7 @@ export class GetHotspotCompareRequest extends $dara.Model {
   beg1Start?: number;
   /**
    * @remarks
-   * End time 2
+   * The end time 2.
    * 
    * This parameter is required.
    * 
@@ -35,7 +36,7 @@ export class GetHotspotCompareRequest extends $dara.Model {
   beg2End?: number;
   /**
    * @remarks
-   * Start time 2
+   * The start time 2.
    * 
    * This parameter is required.
    * 
@@ -45,7 +46,7 @@ export class GetHotspotCompareRequest extends $dara.Model {
   beg2Start?: number;
   /**
    * @remarks
-   * Hotspot type
+   * The hot spot type.
    * 
    * @example
    * alloc
@@ -53,7 +54,7 @@ export class GetHotspotCompareRequest extends $dara.Model {
   hotType?: string;
   /**
    * @remarks
-   * Instance 1
+   * The instance 1.
    * 
    * This parameter is required.
    * 
@@ -63,7 +64,7 @@ export class GetHotspotCompareRequest extends $dara.Model {
   instance1?: string;
   /**
    * @remarks
-   * Instance 2
+   * The instance 2.
    * 
    * This parameter is required.
    * 
@@ -73,7 +74,7 @@ export class GetHotspotCompareRequest extends $dara.Model {
   instance2?: string;
   /**
    * @remarks
-   * Instance 1 process
+   * The process of instance 1.
    * 
    * @example
    * 0
@@ -81,7 +82,7 @@ export class GetHotspotCompareRequest extends $dara.Model {
   pid1?: number;
   /**
    * @remarks
-   * Instance 2 process
+   * The process of instance 2.
    * 
    * @example
    * i-2zei55fwj8nnu31h3z46
@@ -89,7 +90,7 @@ export class GetHotspotCompareRequest extends $dara.Model {
   pid2?: number;
   /**
    * @remarks
-   * Query table name
+   * The name of the table to query.
    * 
    * This parameter is required.
    * 
@@ -97,8 +98,10 @@ export class GetHotspotCompareRequest extends $dara.Model {
    * prof_on
    */
   table?: string;
+  xSysomInvokeSource?: string;
   static names(): { [key: string]: string } {
     return {
+      xDebugId: 'X-Debug-Id',
       beg1End: 'beg1_end',
       beg1Start: 'beg1_start',
       beg2End: 'beg2_end',
@@ -109,11 +112,13 @@ export class GetHotspotCompareRequest extends $dara.Model {
       pid1: 'pid1',
       pid2: 'pid2',
       table: 'table',
+      xSysomInvokeSource: 'x-sysom-invoke-source',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      xDebugId: 'string',
       beg1End: 'number',
       beg1Start: 'number',
       beg2End: 'number',
@@ -124,6 +129,7 @@ export class GetHotspotCompareRequest extends $dara.Model {
       pid1: 'number',
       pid2: 'number',
       table: 'string',
+      xSysomInvokeSource: 'string',
     };
   }
 

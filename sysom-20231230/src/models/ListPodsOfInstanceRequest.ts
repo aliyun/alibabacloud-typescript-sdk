@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListPodsOfInstanceRequest extends $dara.Model {
+  xDebugId?: string;
   /**
    * @remarks
    * The cluster ID.
@@ -35,21 +36,26 @@ export class ListPodsOfInstanceRequest extends $dara.Model {
    * 10
    */
   pageSize?: number;
+  xSysomInvokeSource?: string;
   static names(): { [key: string]: string } {
     return {
+      xDebugId: 'X-Debug-Id',
       clusterId: 'cluster_id',
       current: 'current',
       instance: 'instance',
       pageSize: 'pageSize',
+      xSysomInvokeSource: 'x-sysom-invoke-source',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      xDebugId: 'string',
       clusterId: 'string',
       current: 'number',
       instance: 'string',
       pageSize: 'number',
+      xSysomInvokeSource: 'string',
     };
   }
 

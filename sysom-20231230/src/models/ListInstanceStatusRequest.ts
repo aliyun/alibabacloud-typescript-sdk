@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListInstanceStatusRequest extends $dara.Model {
+  xDebugId?: string;
   /**
    * @remarks
    * The current page number (starting from 1). This field is present when pagination is used.
@@ -43,23 +44,28 @@ export class ListInstanceStatusRequest extends $dara.Model {
    * Running
    */
   status?: string;
+  xSysomInvokeSource?: string;
   static names(): { [key: string]: string } {
     return {
+      xDebugId: 'X-Debug-Id',
       current: 'current',
       instance: 'instance',
       pageSize: 'pageSize',
       region: 'region',
       status: 'status',
+      xSysomInvokeSource: 'x-sysom-invoke-source',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      xDebugId: 'string',
       current: 'number',
       instance: 'string',
       pageSize: 'number',
       region: 'string',
       status: 'string',
+      xSysomInvokeSource: 'string',
     };
   }
 

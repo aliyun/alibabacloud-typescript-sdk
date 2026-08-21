@@ -48,7 +48,7 @@ export class GetAlertDestinationResponseBodyData extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * The alert notification target. Currently, only DingTalk chatbots are supported.
+   * The alert push target. Currently, only DingTalk chatbots are supported.
    * 
    * @example
    * dingtalk
@@ -109,8 +109,8 @@ export class GetAlertDestinationResponseBody extends $dara.Model {
   /**
    * @remarks
    * The status code.
-   * - If `code == Success`, the authorization is successful.
-   * - Other status codes indicate authorization failed. Check the `message` field for the detailed fault information.
+   * - `code == Success` indicates that the authorization is successful.
+   * - Other status codes indicate that the authorization failed. Check the `message` field for the detailed fault information.
    * 
    * @example
    * Success or Sysom.ServerError

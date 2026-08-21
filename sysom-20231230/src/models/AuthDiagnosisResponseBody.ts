@@ -25,7 +25,7 @@ export class AuthDiagnosisResponseBody extends $dara.Model {
    * @remarks
    * The error message.
    * - If `code == Success`, this field is empty.
-   * - Otherwise, this field contains the error information of the request.
+   * - Otherwise, this field contains the request error information.
    * 
    * @example
    * SysomOpenAPIAssumeRoleException: EntityNotExist.Role The role not exists: acs:ram::xxxxx:role/aliyunserviceroleforsysom

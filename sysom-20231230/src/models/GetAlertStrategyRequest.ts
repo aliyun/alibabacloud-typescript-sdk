@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetAlertStrategyRequest extends $dara.Model {
+  xDebugId?: string;
   /**
    * @remarks
    * The policy ID.
@@ -11,15 +12,20 @@ export class GetAlertStrategyRequest extends $dara.Model {
    * 1
    */
   id?: number;
+  xSysomInvokeSource?: string;
   static names(): { [key: string]: string } {
     return {
+      xDebugId: 'X-Debug-Id',
       id: 'id',
+      xSysomInvokeSource: 'x-sysom-invoke-source',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      xDebugId: 'string',
       id: 'number',
+      xSysomInvokeSource: 'string',
     };
   }
 

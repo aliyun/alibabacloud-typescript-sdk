@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UninstallAgentForClusterResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The task ID. You can use this task ID to call GetAgentTasK to query the execution status of the task.
+   * The task ID. You can use this task ID to call GetAgentTask to query the execution status of the task.
    * 
    * @example
    * 049ea0609515414b9e19c3389d7ba638
@@ -60,7 +60,7 @@ export class UninstallAgentForClusterResponseBody extends $dara.Model {
    * @remarks
    * The error message.
    * - If `code == Success`, this field is empty.
-   * - Otherwise, this field contains the error information of the request.
+   * - Otherwise, this field contains the request error information.
    * 
    * @example
    * SysomOpenAPIException: SysomOpenAPI.NotAuthorizedInstance Instance 21 is not authorized

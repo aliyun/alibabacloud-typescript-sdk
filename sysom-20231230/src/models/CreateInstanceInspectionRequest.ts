@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateInstanceInspectionRequest extends $dara.Model {
+  xDebugId?: string;
   /**
    * @remarks
    * The instance ID.
@@ -13,7 +14,7 @@ export class CreateInstanceInspectionRequest extends $dara.Model {
   instance?: string;
   /**
    * @remarks
-   * 异常项
+   * The anomaly items.
    */
   items?: string[];
   /**
@@ -40,23 +41,28 @@ export class CreateInstanceInspectionRequest extends $dara.Model {
    * console
    */
   source?: string;
+  xSysomInvokeSource?: string;
   static names(): { [key: string]: string } {
     return {
+      xDebugId: 'X-Debug-Id',
       instance: 'instance',
       items: 'items',
       metricSource: 'metricSource',
       region: 'region',
       source: 'source',
+      xSysomInvokeSource: 'x-sysom-invoke-source',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      xDebugId: 'string',
       instance: 'string',
       items: { 'type': 'array', 'itemType': 'string' },
       metricSource: 'string',
       region: 'string',
       source: 'string',
+      xSysomInvokeSource: 'string',
     };
   }
 

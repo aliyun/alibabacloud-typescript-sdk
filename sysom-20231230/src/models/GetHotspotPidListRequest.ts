@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetHotspotPidListRequest extends $dara.Model {
+  xDebugId?: string;
   /**
    * @remarks
    * The end time.
@@ -43,21 +44,26 @@ export class GetHotspotPidListRequest extends $dara.Model {
    * prof_on
    */
   table?: string;
+  xSysomInvokeSource?: string;
   static names(): { [key: string]: string } {
     return {
+      xDebugId: 'X-Debug-Id',
       begEnd: 'beg_end',
       begStart: 'beg_start',
       instance: 'instance',
       table: 'table',
+      xSysomInvokeSource: 'x-sysom-invoke-source',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      xDebugId: 'string',
       begEnd: 'number',
       begStart: 'number',
       instance: 'string',
       table: 'string',
+      xSysomInvokeSource: 'string',
     };
   }
 

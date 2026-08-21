@@ -44,8 +44,8 @@ export class UpgradeAgentResponseBody extends $dara.Model {
   /**
    * @remarks
    * The status code.
-   * - If `code == Success`, the authorization is successful.
-   * - Other status codes indicate that the authorization has failed. Check the `message` field for the detailed fault information.
+   * - `code == Success` indicates that the authorization is successful.
+   * - Other status codes indicate that the authorization failed. Check the `message` field for the detailed fault information.
    * 
    * @example
    * Success
@@ -53,7 +53,7 @@ export class UpgradeAgentResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned data.
+   * The response data.
    */
   data?: UpgradeAgentResponseBodyData;
   /**

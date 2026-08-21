@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UninstallAgentForClusterRequest extends $dara.Model {
+  xDebugId?: string;
   /**
    * @remarks
    * The component ID.
@@ -23,25 +24,30 @@ export class UninstallAgentForClusterRequest extends $dara.Model {
    * @remarks
    * The cluster ID.
    * 
-   * > This parameter must be set to the ID of an ACK cluster.
+   * > This cluster ID must be the ID of an ACK cluster.
    * 
    * @example
    * c822f83bb45994ddbac9326b4c2f04f35
    */
   clusterId?: string;
+  xSysomInvokeSource?: string;
   static names(): { [key: string]: string } {
     return {
+      xDebugId: 'X-Debug-Id',
       agentId: 'agent_id',
       agentVersion: 'agent_version',
       clusterId: 'cluster_id',
+      xSysomInvokeSource: 'x-sysom-invoke-source',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      xDebugId: 'string',
       agentId: 'string',
       agentVersion: 'string',
       clusterId: 'string',
+      xSysomInvokeSource: 'string',
     };
   }
 

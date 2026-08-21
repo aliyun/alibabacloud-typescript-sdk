@@ -21,7 +21,7 @@ export class UpdateFuncSwitchRecordRequestParamsArgs extends $dara.Model {
   cpu?: string;
   /**
    * @remarks
-   * The start duration, in seconds (s).
+   * The start duration. Unit: seconds.
    * 
    * @example
    * 3600
@@ -146,7 +146,7 @@ export class UpdateFuncSwitchRecordRequestParams extends $dara.Model {
   op?: string;
   /**
    * @remarks
-   * The region to which the instance belongs. All instance IDs passed in instances must belong to the same region.
+   * The region to which the instance belongs. Make sure that all instance IDs passed in instances belong to the same region.
    * 
    * @example
    * cn-beijing
@@ -195,6 +195,7 @@ export class UpdateFuncSwitchRecordRequestParams extends $dara.Model {
 }
 
 export class UpdateFuncSwitchRecordRequest extends $dara.Model {
+  xDebugId?: string;
   /**
    * @remarks
    * The diagnostic channel. Currently, this parameter is fixed to the ECS channel.
@@ -207,7 +208,7 @@ export class UpdateFuncSwitchRecordRequest extends $dara.Model {
   channel?: string;
   /**
    * @remarks
-   * The diagnostic parameters. Different types of diagnostics require different diagnostic parameters. You can use this field to filter records whose parameters match the specified values.
+   * The diagnostic parameters. Different types of diagnostics require different diagnostic parameters. You can use this field to filter records whose parameters match specified values.
    * 
    * This parameter is required.
    */
@@ -222,19 +223,24 @@ export class UpdateFuncSwitchRecordRequest extends $dara.Model {
    * livetrace
    */
   serviceName?: string;
+  xSysomInvokeSource?: string;
   static names(): { [key: string]: string } {
     return {
+      xDebugId: 'X-Debug-Id',
       channel: 'channel',
       params: 'params',
       serviceName: 'service_name',
+      xSysomInvokeSource: 'x-sysom-invoke-source',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      xDebugId: 'string',
       channel: 'string',
       params: UpdateFuncSwitchRecordRequestParams,
       serviceName: 'string',
+      xSysomInvokeSource: 'string',
     };
   }
 

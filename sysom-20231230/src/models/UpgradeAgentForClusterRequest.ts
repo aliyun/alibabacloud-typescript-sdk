@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpgradeAgentForClusterRequest extends $dara.Model {
+  xDebugId?: string;
   /**
    * @remarks
    * The component ID.
@@ -23,25 +24,30 @@ export class UpgradeAgentForClusterRequest extends $dara.Model {
    * @remarks
    * The cluster ID.
    * 
-   * > The cluster ID must be the ID of an ACK cluster.
+   * > This must be the ID of an ACK cluster.
    * 
    * @example
    * c1c187fd513cb41a19876bac0e6b05212
    */
   clusterId?: string;
+  xSysomInvokeSource?: string;
   static names(): { [key: string]: string } {
     return {
+      xDebugId: 'X-Debug-Id',
       agentId: 'agent_id',
       agentVersion: 'agent_version',
       clusterId: 'cluster_id',
+      xSysomInvokeSource: 'x-sysom-invoke-source',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      xDebugId: 'string',
       agentId: 'string',
       agentVersion: 'string',
       clusterId: 'string',
+      xSysomInvokeSource: 'string',
     };
   }
 

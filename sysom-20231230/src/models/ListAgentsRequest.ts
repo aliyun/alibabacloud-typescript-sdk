@@ -3,9 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListAgentsRequest extends $dara.Model {
+  xDebugId?: string;
   /**
    * @remarks
-   * The current page number. Pages start from page 1.
+   * The current page number (starting from page 1).
    * 
    * @example
    * 1
@@ -29,27 +30,32 @@ export class ListAgentsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The agent type used to filter the list. For example, set this parameter to control to retrieve all agents of the control type.
+   * Filters the list by Agent type. For example, pass control to retrieve all Agents of the control type.
    * 
    * @example
    * control
    */
   type?: string;
+  xSysomInvokeSource?: string;
   static names(): { [key: string]: string } {
     return {
+      xDebugId: 'X-Debug-Id',
       current: 'current',
       name: 'name',
       pageSize: 'pageSize',
       type: 'type',
+      xSysomInvokeSource: 'x-sysom-invoke-source',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      xDebugId: 'string',
       current: 'number',
       name: 'string',
       pageSize: 'number',
       type: 'string',
+      xSysomInvokeSource: 'string',
     };
   }
 

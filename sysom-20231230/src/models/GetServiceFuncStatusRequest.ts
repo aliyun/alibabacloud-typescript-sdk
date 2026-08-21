@@ -55,6 +55,7 @@ export class GetServiceFuncStatusRequestParams extends $dara.Model {
 }
 
 export class GetServiceFuncStatusRequest extends $dara.Model {
+  xDebugId?: string;
   /**
    * @remarks
    * The channel name.
@@ -82,19 +83,24 @@ export class GetServiceFuncStatusRequest extends $dara.Model {
    * livetrace
    */
   serviceName?: string;
+  xSysomInvokeSource?: string;
   static names(): { [key: string]: string } {
     return {
+      xDebugId: 'X-Debug-Id',
       channel: 'channel',
       params: 'params',
       serviceName: 'service_name',
+      xSysomInvokeSource: 'x-sysom-invoke-source',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      xDebugId: 'string',
       channel: 'string',
       params: GetServiceFuncStatusRequestParams,
       serviceName: 'string',
+      xSysomInvokeSource: 'string',
     };
   }
 

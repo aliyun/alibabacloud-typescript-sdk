@@ -8,10 +8,14 @@ export class UpdateAlertStrategyRequestStrategy extends $dara.Model {
    * The collection of clusters for which alerts are received.
    */
   clusters?: string[];
+  /**
+   * @remarks
+   * The alert contacts.
+   */
   destinations?: number[];
   /**
    * @remarks
-   * 接收告警的异常项合计
+   * The collection of anomaly items for which alerts are received.
    */
   items?: string[];
   static names(): { [key: string]: string } {
@@ -49,6 +53,7 @@ export class UpdateAlertStrategyRequestStrategy extends $dara.Model {
 }
 
 export class UpdateAlertStrategyRequest extends $dara.Model {
+  xDebugId?: string;
   /**
    * @remarks
    * Specifies whether the alert policy is enabled.
@@ -69,6 +74,10 @@ export class UpdateAlertStrategyRequest extends $dara.Model {
    * 1
    */
   id?: number;
+  /**
+   * @remarks
+   * The Kubernetes labels.
+   */
   k8sLabel?: boolean;
   /**
    * @remarks
@@ -87,23 +96,28 @@ export class UpdateAlertStrategyRequest extends $dara.Model {
    * This parameter is required.
    */
   strategy?: UpdateAlertStrategyRequestStrategy;
+  xSysomInvokeSource?: string;
   static names(): { [key: string]: string } {
     return {
+      xDebugId: 'X-Debug-Id',
       enabled: 'enabled',
       id: 'id',
       k8sLabel: 'k8sLabel',
       name: 'name',
       strategy: 'strategy',
+      xSysomInvokeSource: 'x-sysom-invoke-source',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      xDebugId: 'string',
       enabled: 'boolean',
       id: 'number',
       k8sLabel: 'boolean',
       name: 'string',
       strategy: UpdateAlertStrategyRequestStrategy,
+      xSysomInvokeSource: 'string',
     };
   }
 

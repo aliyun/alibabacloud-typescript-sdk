@@ -3,9 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListDiagnosisRequest extends $dara.Model {
+  xDebugId?: string;
   /**
    * @remarks
-   * Current page number
+   * The current page number.
    * 
    * @example
    * 1
@@ -13,7 +14,7 @@ export class ListDiagnosisRequest extends $dara.Model {
   current?: number;
   /**
    * @remarks
-   * Page size
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -21,7 +22,7 @@ export class ListDiagnosisRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Diagnostic parameters. Different types of diagnostics require different diagnostic parameters. You can use this field to filter records whose parameters match the specified values.
+   * The diagnostic parameters. Different diagnostic types require different diagnostic parameters. You can use this field to filter records whose parameters match the specified values.
    * 
    * @example
    * [{\\"key\\":\\"region\\",\\"value\\":\\"cn-beijing\\"}]
@@ -29,7 +30,7 @@ export class ListDiagnosisRequest extends $dara.Model {
   params?: string;
   /**
    * @remarks
-   * Diagnostic type
+   * The diagnostic type.
    * 
    * @example
    * memgraph
@@ -37,34 +38,40 @@ export class ListDiagnosisRequest extends $dara.Model {
   serviceName?: string;
   /**
    * @remarks
-   * Execution status of the diagnostic task.
+   * The execution status of the diagnostic task.
+   * 
    * Valid values:
-   * - **Ready**: Ready
-   * - **Running**: Running
-   * - **Success**: Execution succeeded
-   * - **Fail**: Execution failed
+   * - **Ready**: Ready.
+   * - **Running**: Running.
+   * - **Success**: Succeeded.
+   * - **Fail**: Failed.
    * 
    * @example
    * Running
    */
   status?: string;
+  xSysomInvokeSource?: string;
   static names(): { [key: string]: string } {
     return {
+      xDebugId: 'X-Debug-Id',
       current: 'current',
       pageSize: 'pageSize',
       params: 'params',
       serviceName: 'service_name',
       status: 'status',
+      xSysomInvokeSource: 'x-sysom-invoke-source',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      xDebugId: 'string',
       current: 'number',
       pageSize: 'number',
       params: 'string',
       serviceName: 'string',
       status: 'string',
+      xSysomInvokeSource: 'string',
     };
   }
 

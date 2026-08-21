@@ -3,9 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetAbnormalEventsCountRequest extends $dara.Model {
+  xDebugId?: string;
   /**
    * @remarks
-   * Cluster ID.
+   * The cluster ID.
    * 
    * @example
    * 2ijff4be-bf24-4070-89ca-c47c879b0g32
@@ -13,7 +14,7 @@ export class GetAbnormalEventsCountRequest extends $dara.Model {
   cluster?: string;
   /**
    * @remarks
-   * End time.
+   * The end time.
    * 
    * @example
    * 1725801327754
@@ -21,7 +22,7 @@ export class GetAbnormalEventsCountRequest extends $dara.Model {
   end?: number;
   /**
    * @remarks
-   * Instance ID.
+   * The instance ID.
    * 
    * @example
    * i-wz9d00ut2ska3mlyhn6j
@@ -29,7 +30,7 @@ export class GetAbnormalEventsCountRequest extends $dara.Model {
   instance?: string;
   /**
    * @remarks
-   * Level of abnormal events.
+   * The severity level of abnormal events.
    * 
    * @example
    * potential
@@ -37,7 +38,7 @@ export class GetAbnormalEventsCountRequest extends $dara.Model {
   level?: string;
   /**
    * @remarks
-   * The namespace where the Pod resides.
+   * The namespace of the pod.
    * 
    * @example
    * default
@@ -45,7 +46,7 @@ export class GetAbnormalEventsCountRequest extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * Pod name.
+   * The pod name.
    * 
    * @example
    * test-pod
@@ -53,7 +54,7 @@ export class GetAbnormalEventsCountRequest extends $dara.Model {
   pod?: string;
   /**
    * @remarks
-   * Whether to display Pod abnormal events.
+   * Specifies whether to display abnormal events of the pod.
    * 
    * @example
    * 1
@@ -61,14 +62,16 @@ export class GetAbnormalEventsCountRequest extends $dara.Model {
   showPod?: number;
   /**
    * @remarks
-   * Start time.
+   * The start time.
    * 
    * @example
    * 1725797727754
    */
   start?: number;
+  xSysomInvokeSource?: string;
   static names(): { [key: string]: string } {
     return {
+      xDebugId: 'X-Debug-Id',
       cluster: 'cluster',
       end: 'end',
       instance: 'instance',
@@ -77,11 +80,13 @@ export class GetAbnormalEventsCountRequest extends $dara.Model {
       pod: 'pod',
       showPod: 'showPod',
       start: 'start',
+      xSysomInvokeSource: 'x-sysom-invoke-source',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      xDebugId: 'string',
       cluster: 'string',
       end: 'number',
       instance: 'string',
@@ -90,6 +95,7 @@ export class GetAbnormalEventsCountRequest extends $dara.Model {
       pod: 'string',
       showPod: 'number',
       start: 'number',
+      xSysomInvokeSource: 'string',
     };
   }
 

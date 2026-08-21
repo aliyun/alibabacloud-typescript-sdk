@@ -29,7 +29,7 @@ export class ListAgentsResponseBodyDataVersions extends $dara.Model {
   uninstallScript?: string;
   /**
    * @remarks
-   * The time when the component version was last updated.
+   * The time when the component version was updated.
    * 
    * @example
    * 2024-09-14T20:46:08
@@ -117,7 +117,7 @@ export class ListAgentsResponseBodyData extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The supported architectures. Multiple architectures are separated by commas.
+   * The supported architectures (multiple architectures are separated by commas).
    * 
    * @example
    * x86
@@ -135,7 +135,7 @@ export class ListAgentsResponseBodyData extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The time when the component was last updated.
+   * The time when the component was updated.
    * 
    * @example
    * 2024-09-14T20:46:08
@@ -196,8 +196,8 @@ export class ListAgentsResponseBody extends $dara.Model {
   /**
    * @remarks
    * The status code.
-   * - If code is Success, the authorization is successful.
-   * - Other status codes indicate authorization failed. Check the message field for the detailed fault information.
+   * - `code == Success` indicates that the authorization is successful.
+   * - Other status codes indicate that the authorization failed. Check the `message` field for the detailed fault information.
    * 
    * @example
    * Success
@@ -211,8 +211,8 @@ export class ListAgentsResponseBody extends $dara.Model {
   /**
    * @remarks
    * The error message.
-   * - If code is Success, this field is empty.
-   * - Otherwise, this field contains the request error message.
+   * - If `code == Success`, this field is empty.
+   * - Otherwise, this field contains the request error information.
    * 
    * @example
    * SysomOpenAPIAssumeRoleException: EntityNotExist.Role The role not exists: acs:ram::xxxxx:role/aliyunserviceroleforsysom

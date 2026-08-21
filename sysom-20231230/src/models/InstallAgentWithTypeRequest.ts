@@ -73,6 +73,7 @@ export class InstallAgentWithTypeRequestInstances extends $dara.Model {
 }
 
 export class InstallAgentWithTypeRequest extends $dara.Model {
+  xDebugId?: string;
   tag?: InstallAgentWithTypeRequestTag[];
   /**
    * @remarks
@@ -119,25 +120,30 @@ export class InstallAgentWithTypeRequest extends $dara.Model {
    * This parameter is required.
    */
   instances?: InstallAgentWithTypeRequestInstances[];
+  xSysomInvokeSource?: string;
   static names(): { [key: string]: string } {
     return {
+      xDebugId: 'X-Debug-Id',
       tag: 'Tag',
       agentId: 'agentId',
       agentVersion: 'agentVersion',
       configId: 'configId',
       instanceType: 'instanceType',
       instances: 'instances',
+      xSysomInvokeSource: 'x-sysom-invoke-source',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      xDebugId: 'string',
       tag: { 'type': 'array', 'itemType': InstallAgentWithTypeRequestTag },
       agentId: 'string',
       agentVersion: 'string',
       configId: 'string',
       instanceType: 'string',
       instances: { 'type': 'array', 'itemType': InstallAgentWithTypeRequestInstances },
+      xSysomInvokeSource: 'string',
     };
   }
 

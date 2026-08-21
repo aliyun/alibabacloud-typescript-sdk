@@ -47,6 +47,7 @@ export class UninstallAgentWithTypeRequestInstances extends $dara.Model {
 }
 
 export class UninstallAgentWithTypeRequest extends $dara.Model {
+  xDebugId?: string;
   /**
    * @remarks
    * The ID of the component to uninstall.
@@ -82,21 +83,26 @@ export class UninstallAgentWithTypeRequest extends $dara.Model {
    * This parameter is required.
    */
   instances?: UninstallAgentWithTypeRequestInstances[];
+  xSysomInvokeSource?: string;
   static names(): { [key: string]: string } {
     return {
+      xDebugId: 'X-Debug-Id',
       agentId: 'agentId',
       agentVersion: 'agentVersion',
       instanceType: 'instanceType',
       instances: 'instances',
+      xSysomInvokeSource: 'x-sysom-invoke-source',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      xDebugId: 'string',
       agentId: 'string',
       agentVersion: 'string',
       instanceType: 'string',
       instances: { 'type': 'array', 'itemType': UninstallAgentWithTypeRequestInstances },
+      xSysomInvokeSource: 'string',
     };
   }
 

@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetServiceFuncStatusShrinkRequest extends $dara.Model {
+  xDebugId?: string;
   /**
    * @remarks
    * The channel name.
@@ -30,19 +31,24 @@ export class GetServiceFuncStatusShrinkRequest extends $dara.Model {
    * livetrace
    */
   serviceName?: string;
+  xSysomInvokeSource?: string;
   static names(): { [key: string]: string } {
     return {
+      xDebugId: 'X-Debug-Id',
       channel: 'channel',
       paramsShrink: 'params',
       serviceName: 'service_name',
+      xSysomInvokeSource: 'x-sysom-invoke-source',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      xDebugId: 'string',
       channel: 'string',
       paramsShrink: 'string',
       serviceName: 'string',
+      xSysomInvokeSource: 'string',
     };
   }
 

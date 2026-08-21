@@ -6,8 +6,8 @@ export class GetInspectionReportResponseBody extends $dara.Model {
   /**
    * @remarks
    * The status code.
-   * - If `code == Success`, the authorization is successful.
-   * - Other status codes indicate authorization failed. Check the `message` field for the detailed fault information.
+   * - `code == Success` indicates that the authorization is successful.
+   * - Other status codes indicate that the authorization has failed. Check the `message` field for the detailed error message.
    * 
    * @example
    * SysomOpenAPI.InvalidParameter

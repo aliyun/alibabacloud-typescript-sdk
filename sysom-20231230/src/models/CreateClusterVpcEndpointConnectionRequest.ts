@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateClusterVpcEndpointConnectionRequest extends $dara.Model {
+  xDebugId?: string;
   /**
    * @remarks
    * The ID of the ACK cluster.
@@ -31,19 +32,24 @@ export class CreateClusterVpcEndpointConnectionRequest extends $dara.Model {
    * cn-hangzhou
    */
   region?: string;
+  xSysomInvokeSource?: string;
   static names(): { [key: string]: string } {
     return {
+      xDebugId: 'X-Debug-Id',
       clusterId: 'clusterId',
       dryRun: 'dryRun',
       region: 'region',
+      xSysomInvokeSource: 'x-sysom-invoke-source',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      xDebugId: 'string',
       clusterId: 'string',
       dryRun: 'boolean',
       region: 'string',
+      xSysomInvokeSource: 'string',
     };
   }
 

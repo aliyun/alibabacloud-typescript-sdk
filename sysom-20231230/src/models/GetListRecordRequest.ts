@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetListRecordRequest extends $dara.Model {
+  xDebugId?: string;
   /**
    * @remarks
    * The ID of the analysis record to query the status of.
@@ -36,23 +37,28 @@ export class GetListRecordRequest extends $dara.Model {
    * cn-hangzhou
    */
   region?: string;
+  xSysomInvokeSource?: string;
   static names(): { [key: string]: string } {
     return {
+      xDebugId: 'X-Debug-Id',
       analysisId: 'analysisId',
       current: 'current',
       customId: 'customId',
       pageSize: 'pageSize',
       region: 'region',
+      xSysomInvokeSource: 'x-sysom-invoke-source',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      xDebugId: 'string',
       analysisId: 'string',
       current: 'number',
       customId: 'number',
       pageSize: 'number',
       region: 'string',
+      xSysomInvokeSource: 'string',
     };
   }
 

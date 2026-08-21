@@ -3,9 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListVmcoreDiagnosisTaskRequest extends $dara.Model {
+  xDebugId?: string;
   /**
    * @remarks
-   * Specifies the tasks from the past number of days, up to a maximum of 30 days
+   * The number of past days to query tasks for, up to a maximum of 30 days.
    * 
    * This parameter is required.
    * 
@@ -13,15 +14,20 @@ export class ListVmcoreDiagnosisTaskRequest extends $dara.Model {
    * 3
    */
   days?: number;
+  xSysomInvokeSource?: string;
   static names(): { [key: string]: string } {
     return {
+      xDebugId: 'X-Debug-Id',
       days: 'days',
+      xSysomInvokeSource: 'x-sysom-invoke-source',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      xDebugId: 'string',
       days: 'number',
+      xSysomInvokeSource: 'string',
     };
   }
 

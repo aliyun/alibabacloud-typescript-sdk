@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class InvokeDiagnosisResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Diagnosis task ID. You can use this ID to call the `GetDiagnosisResult` API to query the diagnosis result.
+   * The diagnostic task ID. You can use this ID to call the `GetDiagnosisResult` operation to query the diagnosis result.
    * 
    * @example
    * ihqhAcrt
@@ -35,9 +35,9 @@ export class InvokeDiagnosisResponseBodyData extends $dara.Model {
 export class InvokeDiagnosisResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Status code.
-   * - If `code == Success`, the authorization is successful.
-   * - Other status codes indicate authorization failure. When authorization fails, check the `message` field for detailed error information.
+   * The status code.
+   * - `code == Success` indicates that the authorization is successful.
+   * - Other status codes indicate the authorization is failed. Check the `message` field for the detailed fault information.
    * 
    * @example
    * Success
@@ -45,12 +45,12 @@ export class InvokeDiagnosisResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Response result.
+   * The returned result.
    */
   data?: InvokeDiagnosisResponseBodyData;
   /**
    * @remarks
-   * Error message.
+   * The error message.
    * - If `code == Success`, this field is empty.
    * - Otherwise, this field contains the request error information.
    * 
@@ -60,7 +60,7 @@ export class InvokeDiagnosisResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 43A910E9-A739-525E-855D-A32C257F1826
