@@ -46,11 +46,17 @@ export class ApiKeyIdentityConfigApikeySources extends $dara.Model {
   /**
    * @remarks
    * The credential source type.
+   * 
+   * @example
+   * Default
    */
   source?: string;
   /**
    * @remarks
    * The field name of the HTTP header or query string.
+   * 
+   * @example
+   * Authorization
    */
   value?: string;
   static names(): { [key: string]: string } {
@@ -124,7 +130,7 @@ export class ApiKeyIdentityConfig extends $dara.Model {
   apikeySource?: ApiKeyIdentityConfigApikeySource;
   /**
    * @remarks
-   * The complete set of API key credential sources. The set contains one to three items. Multiple sources are applicable only to AI gateway Header mode. Query String and non-AI gateway allow only a single source. When submitted together with apikeySource, the latter must be consistent with the compatible projection.
+   * The complete set of API key credential sources. The set contains one to three items. Multiple sources are applicable only to the AI gateway Header mode. Query String and non-AI gateway allow only a single source. If submitted together with apikeySource, the latter must be consistent with the compatible projection.
    */
   apikeySources?: ApiKeyIdentityConfigApikeySources[];
   /**

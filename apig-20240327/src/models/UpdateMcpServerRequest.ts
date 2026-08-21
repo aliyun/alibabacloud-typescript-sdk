@@ -284,7 +284,7 @@ export class UpdateMcpServerRequestGrayMcpServerConfigs extends $dara.Model {
   backendConfig?: UpdateMcpServerRequestGrayMcpServerConfigsBackendConfig;
   /**
    * @remarks
-   * The route match rule.
+   * The route match rules.
    */
   match?: HttpRouteMatch;
   /**
@@ -395,7 +395,7 @@ export class UpdateMcpServerRequest extends $dara.Model {
    * The description.
    * 
    * @example
-   * 商品中心服务路由
+   * Product center service routing
    */
   description?: string;
   /**
@@ -413,12 +413,12 @@ export class UpdateMcpServerRequest extends $dara.Model {
   exposedUriPath?: string;
   /**
    * @remarks
-   * The list of canary release MCP server route configurations.
+   * The list of canary release MCP server routing configurations.
    */
   grayMcpServerConfigs?: UpdateMcpServerRequestGrayMcpServerConfigs[];
   /**
    * @remarks
-   * The route match rule.
+   * The route match rules.
    */
   match?: HttpRouteMatch;
   /**
@@ -440,7 +440,7 @@ export class UpdateMcpServerRequest extends $dara.Model {
    * - HTTP: HTTP protocol.
    * - HTTPS: HTTPS protocol.
    * - SSE: Server-Sent Events protocol.
-   * - StreamableHTTP: streamable HTTP protocol.
+   * - StreamableHTTP: Streamable HTTP protocol.
    * 
    * This parameter is required.
    * 

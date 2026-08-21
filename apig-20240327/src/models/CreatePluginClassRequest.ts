@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreatePluginClassRequest extends $dara.Model {
   /**
    * @remarks
-   * The alias of the plugin.
+   * The alias of the plugin class. This parameter is required. If this parameter is not specified, the service returns InvalidParameter.WithValue.
    * 
    * @example
    * My Wasm Plugin
@@ -23,7 +23,7 @@ export class CreatePluginClassRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The execution priority of the plugin.
+   * The execution priority of the plugin. This parameter is required when executeStage is specified. The default value 0 is invalid. Set this parameter to 200.
    * 
    * @example
    * 100
@@ -51,7 +51,7 @@ export class CreatePluginClassRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The minimum gateway version that the plugin is compatible with.
+   * The minimum gateway version supported by the plugin.
    * 
    * @example
    * 2.0.0
@@ -79,7 +79,7 @@ export class CreatePluginClassRequest extends $dara.Model {
   versionDescription?: string;
   /**
    * @remarks
-   * The programming language used to develop the WASM plugin.
+   * The development language of the WASM plugin. Valid values: TinyGo.
    * 
    * This parameter is required.
    * 

@@ -93,7 +93,7 @@ export class UpdateHttpApiRequest extends $dara.Model {
   authConfig?: AuthConfig;
   /**
    * @remarks
-   * The API base path, which must start with /.
+   * The base path of the API. The value must start with a forward slash (/).
    * 
    * This parameter is required.
    * 
@@ -108,10 +108,10 @@ export class UpdateHttpApiRequest extends $dara.Model {
   deployConfigs?: HttpApiDeployConfig[];
   /**
    * @remarks
-   * The API description.
+   * The description of the API.
    * 
    * @example
-   * Updated API description
+   * Update API description
    */
   description?: string;
   /**
@@ -137,7 +137,7 @@ export class UpdateHttpApiRequest extends $dara.Model {
   ingressConfig?: UpdateHttpApiRequestIngressConfig;
   /**
    * @remarks
-   * Specifies whether to only modify the configuration without triggering redeployment. A value of true indicates that only the configuration is modified.
+   * Specifies whether to only modify the configuration. If set to true, only the configuration is modified without triggering a redeployment.
    * 
    * @example
    * true
@@ -158,9 +158,14 @@ export class UpdateHttpApiRequest extends $dara.Model {
   removeBasePathOnForward?: boolean;
   /**
    * @remarks
-   * The API versioning configuration.
+   * The versioning configuration of the API.
    */
   versionConfig?: HttpApiVersionConfig;
+  /**
+   * @remarks
+   * Specifies whether to perform only a dry run. If set to true, all synchronous validations identical to a real update are performed without updating any configurations or producing side effects. If not specified or set to false, the behavior is the same as the existing version.
+   */
+  dryRun?: boolean;
   static names(): { [key: string]: string } {
     return {
       agentProtocols: 'agentProtocols',
@@ -176,6 +181,7 @@ export class UpdateHttpApiRequest extends $dara.Model {
       protocols: 'protocols',
       removeBasePathOnForward: 'removeBasePathOnForward',
       versionConfig: 'versionConfig',
+      dryRun: 'dryRun',
     };
   }
 
@@ -194,6 +200,7 @@ export class UpdateHttpApiRequest extends $dara.Model {
       protocols: { 'type': 'array', 'itemType': 'string' },
       removeBasePathOnForward: 'boolean',
       versionConfig: HttpApiVersionConfig,
+      dryRun: 'boolean',
     };
   }
 

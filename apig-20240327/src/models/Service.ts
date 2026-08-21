@@ -7,10 +7,45 @@ import { LabelDetail } from "./LabelDetail";
 
 
 export class ServiceOutlierDetection extends $dara.Model {
+  /**
+   * @remarks
+   * The base ejection duration in seconds. Valid values: 1 to 3600.
+   * 
+   * @example
+   * 30
+   */
   baseEjectionTime?: number;
+  /**
+   * @remarks
+   * Specifies whether to enable outlier detection.
+   * 
+   * @example
+   * false
+   */
   enable?: boolean;
+  /**
+   * @remarks
+   * The minimum number of hosts. The value must be greater than or equal to 0.
+   * 
+   * @example
+   * 1
+   */
   failurePercentageMinimumHosts?: number;
+  /**
+   * @remarks
+   * The failure rate threshold in percentage. Valid values: 1 to 100.
+   * 
+   * @example
+   * 80
+   */
   failurePercentageThreshold?: number;
+  /**
+   * @remarks
+   * The detection interval in seconds. Valid values: 1 to 3600.
+   * 
+   * @example
+   * 30
+   */
   interval?: number;
   static names(): { [key: string]: string } {
     return {
@@ -195,6 +230,10 @@ export class Service extends $dara.Model {
    * 1725617840096
    */
   createTimestamp?: number;
+  /**
+   * @remarks
+   * The list of DNS servers.
+   */
   dnsServers?: string[];
   /**
    * @remarks
@@ -206,7 +245,7 @@ export class Service extends $dara.Model {
   expressType?: string;
   /**
    * @remarks
-   * The gateway instance ID.
+   * The instance ID of the gateway.
    * 
    * @example
    * gw-xxxx
@@ -233,6 +272,13 @@ export class Service extends $dara.Model {
    * Healthy
    */
   healthStatus?: string;
+  /**
+   * @remarks
+   * The healthy panic threshold.
+   * 
+   * @example
+   * 1
+   */
   healthyPanicThreshold?: number;
   /**
    * @remarks
@@ -240,6 +286,9 @@ export class Service extends $dara.Model {
    */
   labelDetails?: LabelDetail[];
   /**
+   * @remarks
+   * The resource ID of the model provider.
+   * 
    * @example
    * mp-xxxx
    */
@@ -260,6 +309,10 @@ export class Service extends $dara.Model {
    * PUBLIC
    */
   namespace?: string;
+  /**
+   * @remarks
+   * The configuration for removing abnormal instances.
+   */
   outlierDetection?: ServiceOutlierDetection;
   /**
    * @remarks
@@ -296,11 +349,17 @@ export class Service extends $dara.Model {
    */
   resourceGroupId?: string;
   /**
+   * @remarks
+   * The masked error code of the runtime details.
+   * 
    * @example
    * RuntimeEndpointTimeout
    */
   runtimeDetailErrorCode?: string;
   /**
+   * @remarks
+   * The runtime detail status.
+   * 
    * @example
    * Available
    */
@@ -328,7 +387,7 @@ export class Service extends $dara.Model {
   unhealthyEndpoints?: string[];
   /**
    * @remarks
-   * The time when the service was updated.
+   * The time when the service was created.
    * 
    * @example
    * 1725868548440

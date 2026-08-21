@@ -52,7 +52,7 @@ export class QueryConsumerAuthorizationRulesResponseBodyDataItemsResourceInfo ex
 export class QueryConsumerAuthorizationRulesResponseBodyDataItems extends $dara.Model {
   /**
    * @remarks
-   * The API information.
+   * The API information details.
    */
   apiInfo?: HttpApiApiInfo;
   /**
@@ -86,7 +86,7 @@ export class QueryConsumerAuthorizationRulesResponseBodyDataItems extends $dara.
   consumerId?: string;
   /**
    * @remarks
-   * The consumer information.
+   * The consumer information details.
    */
   consumerInfo?: ConsumerInfo;
   /**
@@ -159,7 +159,7 @@ export class QueryConsumerAuthorizationRulesResponseBodyDataItems extends $dara.
   resourceId?: string;
   /**
    * @remarks
-   * The resource information.
+   * The resource information details.
    */
   resourceInfo?: QueryConsumerAuthorizationRulesResponseBodyDataItemsResourceInfo;
   /**

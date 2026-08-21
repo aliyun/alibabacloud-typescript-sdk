@@ -46,7 +46,7 @@ export class DeployHttpApiRequestHttpApiConfig extends $dara.Model {
 export class DeployHttpApiRequestRestApiConfigEnvironmentServiceConfigs extends $dara.Model {
   /**
    * @remarks
-   * The match condition configuration related to API publishing.
+   * The match condition configuration for API publishing.
    * 
    * @example
    * {\\"change_order_revision\\":\\"3.657.33_fc-hz-yunqi.1662568293908382_faas-eerouter\\"}
@@ -62,7 +62,7 @@ export class DeployHttpApiRequestRestApiConfigEnvironmentServiceConfigs extends 
   port?: number;
   /**
    * @remarks
-   * The service protocol. Valid values:
+   * The service protocol:
    * - HTTP.
    * - HTTPS.
    * 
@@ -88,7 +88,7 @@ export class DeployHttpApiRequestRestApiConfigEnvironmentServiceConfigs extends 
   version?: string;
   /**
    * @remarks
-   * The weight. Valid values: 1 to 100. This parameter takes effect only in the by-ratio scenario.
+   * The weight. Valid values: 1 to 100. This parameter takes effect only in ratio-based scenarios.
    * 
    * @example
    * 49
@@ -131,7 +131,7 @@ export class DeployHttpApiRequestRestApiConfigEnvironmentServiceConfigs extends 
 export class DeployHttpApiRequestRestApiConfigEnvironment extends $dara.Model {
   /**
    * @remarks
-   * The API publish scenario.
+   * The API publish scenario. Backend configurations cannot be specified during publishing. Use UpdateHttpApi or UpdateHttpApiOperation to configure the backend before publishing.
    * 
    * @example
    * SingleService
@@ -156,7 +156,7 @@ export class DeployHttpApiRequestRestApiConfigEnvironment extends $dara.Model {
   environmentId?: string;
   /**
    * @remarks
-   * The existing service configurations. In the single service scenario, only one entry is allowed. In the by-ratio or by-content scenarios, multiple entries are allowed.
+   * The existing service configurations. In the single service scenario, only one entry is allowed. In ratio-based or content-based scenarios, multiple entries are allowed. Backend configurations cannot be specified during publishing. Use UpdateHttpApi or UpdateHttpApiOperation to configure the backend before publishing.
    * 
    * **if can be null:**
    * true
@@ -200,7 +200,7 @@ export class DeployHttpApiRequestRestApiConfigEnvironment extends $dara.Model {
 export class DeployHttpApiRequestRestApiConfigOperationDeployments extends $dara.Model {
   /**
    * @remarks
-   * The operation type.
+   * The action type.
    * 
    * @example
    * Publish
@@ -248,6 +248,14 @@ export class DeployHttpApiRequestRestApiConfig extends $dara.Model {
   description?: string;
   /**
    * @remarks
+   * Specifies whether to enable REST API route compression. If omitted or set to false, operations are published individually. If set to true, the API is published as a single prefix route. This parameter is ignored for historical version publishing, which uses the routing mode saved in the historical version.
+   * 
+   * @example
+   * true
+   */
+  enableRouteCompression?: boolean;
+  /**
+   * @remarks
    * The publish environment configuration.
    */
   environment?: DeployHttpApiRequestRestApiConfigEnvironment;
@@ -273,7 +281,7 @@ export class DeployHttpApiRequestRestApiConfig extends $dara.Model {
   operationIds?: string[];
   /**
    * @remarks
-   * The historical version number. If this field is specified, the publish information is based on the historical version.
+   * The historical version number. If specified, the publish uses the information from this historical version.
    * 
    * @example
    * apr-xxx
@@ -282,6 +290,7 @@ export class DeployHttpApiRequestRestApiConfig extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       description: 'description',
+      enableRouteCompression: 'enableRouteCompression',
       environment: 'environment',
       gatewayId: 'gatewayId',
       operationDeployments: 'operationDeployments',
@@ -293,6 +302,7 @@ export class DeployHttpApiRequestRestApiConfig extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       description: 'string',
+      enableRouteCompression: 'boolean',
       environment: DeployHttpApiRequestRestApiConfigEnvironment,
       gatewayId: 'string',
       operationDeployments: { 'type': 'array', 'itemType': DeployHttpApiRequestRestApiConfigOperationDeployments },
@@ -329,7 +339,7 @@ export class DeployHttpApiRequest extends $dara.Model {
   httpApiConfig?: DeployHttpApiRequestHttpApiConfig;
   /**
    * @remarks
-   * The REST API deployment configuration. Required when the HTTP API being published is a REST API.
+   * The REST API deployment configuration. Required when the HTTP API being published is a REST API. At least one of revisionId, environment, or gatewayId must be provided to identify the publish target.
    */
   restApiConfig?: DeployHttpApiRequestRestApiConfig;
   /**

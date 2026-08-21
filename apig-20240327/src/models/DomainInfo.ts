@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DomainInfo extends $dara.Model {
   /**
    * @remarks
-   * The SSL Certificates Service certificate identity.
+   * The certificate identity from SSL Certificates Service.
    * 
    * @example
    * 235556-cn-hangzhou
@@ -65,7 +65,7 @@ export class DomainInfo extends $dara.Model {
   forceHttps?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable mTLS mutual authentication.
+   * Specifies whether to enable mutual TLS (mTLS) authentication.
    * 
    * @example
    * true
@@ -106,7 +106,21 @@ export class DomainInfo extends $dara.Model {
    * Published
    */
   status?: string;
+  /**
+   * @remarks
+   * The maximum TLS version. TLS 1.3 is the maximum supported version.
+   * 
+   * @example
+   * TLS 1.3
+   */
   tlsMax?: string;
+  /**
+   * @remarks
+   * The minimum TLS version. TLS 1.0 is the minimum supported version.
+   * 
+   * @example
+   * TLS 1.0
+   */
   tlsMin?: string;
   /**
    * @remarks

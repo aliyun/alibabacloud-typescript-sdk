@@ -3,6 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetGatewayQuotaRuleSubjectUsageRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to filter zero values.
+   * 
+   * @example
+   * true
+   */
   filterFailedRequests?: boolean;
   /**
    * @remarks

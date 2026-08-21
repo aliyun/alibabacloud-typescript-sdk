@@ -552,7 +552,10 @@ export class GetGatewayResponseBodyData extends $dara.Model {
   expireTimestamp?: number;
   /**
    * @remarks
-   * The gateway instance edition. Valid values:
+   * The edition of the gateway instance. Valid values:
+   * 
+   * - Professional: standard instance.
+   * - Serverless: Serverless.
    * 
    * @example
    * Serverless
@@ -566,6 +569,13 @@ export class GetGatewayResponseBodyData extends $dara.Model {
    * gw-cq2vundlhtg***
    */
   gatewayId?: string;
+  /**
+   * @remarks
+   * The running mode of AI multi-tenant V2. Default value: ENTERPRISE. This parameter can be specified only when AI + MultiTenantServerless is used.
+   * 
+   * @example
+   * STANDARD
+   */
   gatewayMode?: string;
   /**
    * @remarks
@@ -651,6 +661,13 @@ export class GetGatewayResponseBodyData extends $dara.Model {
    * 2.0.2
    */
   targetVersion?: string;
+  /**
+   * @remarks
+   * The tenant ID returned in STANDARD mode.
+   * 
+   * @example
+   * pt-xxx
+   */
   tenantId?: string;
   /**
    * @remarks

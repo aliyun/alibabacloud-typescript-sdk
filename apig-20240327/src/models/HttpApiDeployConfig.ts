@@ -467,6 +467,14 @@ export class HttpApiDeployConfig extends $dara.Model {
   policyConfigs?: HttpApiPolicyConfigs[];
   /**
    * @remarks
+   * The current online routing mode of the REST API. ordinary indicates per-Operation routing. compressed indicates single-prefix routing for the API. This field is not returned for non-REST APIs.
+   * 
+   * @example
+   * ordinary
+   */
+  restApiRouteMode?: string;
+  /**
+   * @remarks
    * The backend service information.
    * 
    * **if can be null:**
@@ -480,7 +488,7 @@ export class HttpApiDeployConfig extends $dara.Model {
   serviceConfigs?: HttpApiDeployConfigServiceConfigs[];
   /**
    * @remarks
-   * The subdomain content list.
+   * The list of subdomain contents.
    */
   subDomains?: HttpApiDeployConfigSubDomains[];
   static names(): { [key: string]: string } {
@@ -499,6 +507,7 @@ export class HttpApiDeployConfig extends $dara.Model {
       gatewayType: 'gatewayType',
       mock: 'mock',
       policyConfigs: 'policyConfigs',
+      restApiRouteMode: 'restApiRouteMode',
       routeBackend: 'routeBackend',
       serviceConfigs: 'serviceConfigs',
       subDomains: 'subDomains',
@@ -521,6 +530,7 @@ export class HttpApiDeployConfig extends $dara.Model {
       gatewayType: 'string',
       mock: HttpApiMockContract,
       policyConfigs: { 'type': 'array', 'itemType': HttpApiPolicyConfigs },
+      restApiRouteMode: 'string',
       routeBackend: Backend,
       serviceConfigs: { 'type': 'array', 'itemType': HttpApiDeployConfigServiceConfigs },
       subDomains: { 'type': 'array', 'itemType': HttpApiDeployConfigSubDomains },

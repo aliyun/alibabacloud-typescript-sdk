@@ -7,12 +7,13 @@ import { AiSecurityGuardConfig } from "./AiSecurityGuardConfig";
 import { AiStatisticsConfig } from "./AiStatisticsConfig";
 import { AiTokenRateLimitConfig } from "./AiTokenRateLimitConfig";
 import { AiToolSelectionConfig } from "./AiToolSelectionConfig";
+import { HttpApiPolicyReference } from "./HttpApiPolicyReference";
 
 
 export class HttpApiPolicyConfigsSemanticRouterConfig extends $dara.Model {
   /**
    * @remarks
-   * Timeout in milliseconds
+   * The timeout period, in milliseconds.
    * 
    * @example
    * 2000
@@ -42,7 +43,7 @@ export class HttpApiPolicyConfigsSemanticRouterConfig extends $dara.Model {
 export class HttpApiPolicyConfigs extends $dara.Model {
   /**
    * @remarks
-   * AiCacheConfig
+   * The AI cache configuration.
    * 
    * **if can be null:**
    * true
@@ -50,7 +51,7 @@ export class HttpApiPolicyConfigs extends $dara.Model {
   aiCacheConfig?: AiCacheConfig;
   /**
    * @remarks
-   * AiFallbackConfig
+   * The AI fallback configuration.
    * 
    * **if can be null:**
    * false
@@ -58,7 +59,7 @@ export class HttpApiPolicyConfigs extends $dara.Model {
   aiFallbackConfig?: AiFallbackConfig;
   /**
    * @remarks
-   * AiNetworkSearchConfig
+   * The AI web search configuration.
    * 
    * **if can be null:**
    * true
@@ -66,7 +67,7 @@ export class HttpApiPolicyConfigs extends $dara.Model {
   aiNetworkSearchConfig?: AiNetworkSearchConfig;
   /**
    * @remarks
-   * AiSecurityGuardConfig
+   * The AI security protection configuration.
    * 
    * **if can be null:**
    * false
@@ -74,7 +75,7 @@ export class HttpApiPolicyConfigs extends $dara.Model {
   aiSecurityGuardConfig?: AiSecurityGuardConfig;
   /**
    * @remarks
-   * AiStatisticsConfig
+   * The AI statistics configuration.
    * 
    * **if can be null:**
    * false
@@ -82,15 +83,17 @@ export class HttpApiPolicyConfigs extends $dara.Model {
   aiStatisticsConfig?: AiStatisticsConfig;
   /**
    * @remarks
-   * AiTokenRateLimitConfig
+   * The AI token rate limiting configuration.
    * 
    * **if can be null:**
    * false
+   * 
+   * @deprecated
    */
   aiTokenRateLimitConfig?: AiTokenRateLimitConfig;
   /**
    * @remarks
-   * AiToolSelectionConfig
+   * The AI tool selection configuration.
    * 
    * **if can be null:**
    * true
@@ -98,15 +101,23 @@ export class HttpApiPolicyConfigs extends $dara.Model {
   aiToolSelectionConfig?: AiToolSelectionConfig;
   /**
    * @remarks
-   * Policy Enable
+   * Indicates whether the policy is enabled.
    * 
    * @example
-   * true
+   * false
    */
   enable?: boolean;
   /**
    * @remarks
-   * SemanticRouterConfig
+   * The read-only compatible reference. GetHttpApi returns policyId/policyAttachmentId for ModelAPI AiTokenRateLimit. This must be stripped before write path persistence and is not used as a bind/unbind instruction.
+   * 
+   * **if can be null:**
+   * true
+   */
+  policyReference?: HttpApiPolicyReference;
+  /**
+   * @remarks
+   * The semantic routing configuration.
    * 
    * **if can be null:**
    * false
@@ -114,10 +125,10 @@ export class HttpApiPolicyConfigs extends $dara.Model {
   semanticRouterConfig?: HttpApiPolicyConfigsSemanticRouterConfig;
   /**
    * @remarks
-   * Policy Type
+   * The policy template type.
    * 
    * @example
-   * AiCache
+   * K8S
    */
   type?: string;
   static names(): { [key: string]: string } {
@@ -130,6 +141,7 @@ export class HttpApiPolicyConfigs extends $dara.Model {
       aiTokenRateLimitConfig: 'aiTokenRateLimitConfig',
       aiToolSelectionConfig: 'aiToolSelectionConfig',
       enable: 'enable',
+      policyReference: 'policyReference',
       semanticRouterConfig: 'semanticRouterConfig',
       type: 'type',
     };
@@ -145,6 +157,7 @@ export class HttpApiPolicyConfigs extends $dara.Model {
       aiTokenRateLimitConfig: AiTokenRateLimitConfig,
       aiToolSelectionConfig: AiToolSelectionConfig,
       enable: 'boolean',
+      policyReference: HttpApiPolicyReference,
       semanticRouterConfig: HttpApiPolicyConfigsSemanticRouterConfig,
       type: 'string',
     };
@@ -171,6 +184,9 @@ export class HttpApiPolicyConfigs extends $dara.Model {
     }
     if(this.aiToolSelectionConfig && typeof (this.aiToolSelectionConfig as any).validate === 'function') {
       (this.aiToolSelectionConfig as any).validate();
+    }
+    if(this.policyReference && typeof (this.policyReference as any).validate === 'function') {
+      (this.policyReference as any).validate();
     }
     if(this.semanticRouterConfig && typeof (this.semanticRouterConfig as any).validate === 'function') {
       (this.semanticRouterConfig as any).validate();

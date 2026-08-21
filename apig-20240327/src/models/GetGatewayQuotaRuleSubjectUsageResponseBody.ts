@@ -180,7 +180,7 @@ export class GetGatewayQuotaRuleSubjectUsageResponseBodyData extends $dara.Model
   outputAmount?: number;
   /**
    * @remarks
-   * Indicates whether the quota limit is exceeded.
+   * Indicates whether the limit is exceeded.
    * 
    * @example
    * false

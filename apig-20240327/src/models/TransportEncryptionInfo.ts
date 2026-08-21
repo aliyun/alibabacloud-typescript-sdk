@@ -4,10 +4,42 @@ import { TransportCertificateInfo } from "./TransportCertificateInfo";
 
 
 export class TransportEncryptionInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The list of transport certificates added by the user.
+   */
   certificates?: TransportCertificateInfo[];
+  /**
+   * @remarks
+   * The reason for the deployment failure.
+   * 
+   * @example
+   * “”
+   */
   deployError?: string;
+  /**
+   * @remarks
+   * The submit status.
+   * 
+   * @example
+   * Success
+   */
   deployStatus?: string;
+  /**
+   * @remarks
+   * Indicates whether HTTP/2 is enabled.
+   * 
+   * @example
+   * true
+   */
   http2Enabled?: boolean;
+  /**
+   * @remarks
+   * The TLS cipher suite policy.
+   * 
+   * @example
+   * tls_cipher_policy_1_2
+   */
   tlsPolicy?: string;
   static names(): { [key: string]: string } {
     return {

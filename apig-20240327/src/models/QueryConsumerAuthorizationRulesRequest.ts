@@ -13,7 +13,7 @@ export class QueryConsumerAuthorizationRulesRequest extends $dara.Model {
   apiNameLike?: string;
   /**
    * @remarks
-   * The consumer group ID. If specified, the authorization rules for the consumer group are queried.
+   * The consumer group ID. If specified, the authorization rules of this consumer group are queried.
    * 
    * @example
    * csg-8c13d2b4f8a1
@@ -22,6 +22,9 @@ export class QueryConsumerAuthorizationRulesRequest extends $dara.Model {
   /**
    * @remarks
    * The consumer group name for fuzzy match.
+   * 
+   * @example
+   * team
    */
   consumerGroupNameLike?: string;
   /**
@@ -34,7 +37,7 @@ export class QueryConsumerAuthorizationRulesRequest extends $dara.Model {
   consumerId?: string;
   /**
    * @remarks
-   * The consumer name.
+   * The consumer name for fuzzy match.
    * 
    * @example
    * consumer-xxx
@@ -106,7 +109,7 @@ export class QueryConsumerAuthorizationRulesRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The service source type.
+   * The service source types.
    * 
    * @example
    * K8S

@@ -66,7 +66,7 @@ export class ListGatewaysShrinkRequest extends $dara.Model {
   tagShrink?: string;
   /**
    * @remarks
-   * The VPC ID.
+   * The virtual private cloud (VPC) ID.
    * 
    * @example
    * vpc-2zeqrgx6jrlb063y06yjo

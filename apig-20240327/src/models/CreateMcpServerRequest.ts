@@ -74,7 +74,7 @@ export class CreateMcpServerRequestBackendConfigServices extends $dara.Model {
   protocol?: string;
   /**
    * @remarks
-   * The service ID.
+   * The service ID. The serviceId is the ID of a backend service registered under the gateway. You can call the ListServices operation (with gatewayId specified) to query available service IDs.
    * 
    * @example
    * svc-crbgq0dlhtgr***
@@ -283,7 +283,7 @@ export class CreateMcpServerRequestGrayMcpServerConfigs extends $dara.Model {
   backendConfig?: CreateMcpServerRequestGrayMcpServerConfigsBackendConfig;
   /**
    * @remarks
-   * The route match rule.
+   * The route matching rule.
    */
   match?: HttpRouteMatch;
   /**
@@ -373,18 +373,18 @@ export class CreateMcpServerRequest extends $dara.Model {
   assembledSources?: CreateMcpServerRequestAssembledSources[];
   /**
    * @remarks
-   * The backend service configuration of the route.
+   * The backend service configuration for the route. This parameter is required. You must provide the backend service configuration (including scene and services). If this parameter is omitted, the API returns InvalidParameter.WithValue(400).
    */
   backendConfig?: CreateMcpServerRequestBackendConfig;
   /**
    * @remarks
    * The creation source type. Valid values:
    * 
-   * - ApiGatewayHttpToMCP: gateway-managed HTTP-to-MCP conversion
-   * - ApiGatewayProxyMcpHosting: gateway-managed direct MCP proxy
-   * - ApiGatewayAssembly: gateway MCP assembly
-   * - NacosHttpToMCP: gateway-managed Nacos-synced HTTP-to-MCP conversion
-   * - NacosMcpHosting: gateway-managed Nacos-synced direct MCP proxy
+   * - ApiGatewayHttpToMCP: gateway-managed HTTP-to-MCP conversion.
+   * - ApiGatewayProxyMcpHosting: gateway-managed MCP direct proxy.
+   * - ApiGatewayAssembly: gateway MCP assembly.
+   * - NacosHttpToMCP: gateway-managed Nacos-synced HTTP-to-MCP conversion.
+   * - NacosMcpHosting: gateway-managed Nacos-synced MCP direct proxy.
    * 
    * @example
    * ApiGatewayMcpHosting
@@ -428,7 +428,7 @@ export class CreateMcpServerRequest extends $dara.Model {
   grayMcpServerConfigs?: CreateMcpServerRequestGrayMcpServerConfigs[];
   /**
    * @remarks
-   * The route match rule.
+   * The route match rule. When type is set to RealMCP, the match parameter is required and you must provide a route matching rule.
    */
   match?: HttpRouteMatch;
   /**
@@ -456,7 +456,7 @@ export class CreateMcpServerRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The protocol type. Valid values: HTTP, HTTPS, SSE, and StreamableHTTP.
+   * The protocol type. This parameter is required. You must explicitly specify the protocol type (HTTP/HTTPS/SSE/StreamableHTTP). If this parameter is omitted, the API returns InvalidParameter.WithValue(400).
    * 
    * @example
    * HTTP
@@ -466,7 +466,7 @@ export class CreateMcpServerRequest extends $dara.Model {
    * @remarks
    * The type. Valid values:
    * 
-   * - RealMCP: standard MCP service
+   * - RealMCP: standard MCP service.
    * 
    * This parameter is required.
    * 

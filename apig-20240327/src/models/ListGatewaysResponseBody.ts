@@ -423,6 +423,13 @@ export class ListGatewaysResponseBodyDataItems extends $dara.Model {
    */
   gatewayId?: string;
   /**
+   * @remarks
+   * The running mode of the AI MultiTenantServerless gateway. Valid values:
+   * - ENTERPRISE: Enterprise Edition.
+   * - STANDARD: Standard Edition.
+   * 
+   * This parameter is returned only for AI MultiTenantServerless gateways.
+   * 
    * @example
    * ENTERPRISE
    */
@@ -437,7 +444,7 @@ export class ListGatewaysResponseBodyDataItems extends $dara.Model {
   gatewayType?: string;
   /**
    * @remarks
-   * Indicates whether the gateway instance was created before AI gateway was released.
+   * Indicates whether the gateway instance was created before the AI gateway was released.
    * 
    * @example
    * true
@@ -505,7 +512,7 @@ export class ListGatewaysResponseBodyDataItems extends $dara.Model {
   tags?: ListGatewaysResponseBodyDataItemsTags[];
   /**
    * @remarks
-   * The target version of the gateway. If this value differs from the version, a version upgrade can be performed.
+   * The target version of the gateway. When this value differs from version, a version upgrade can be performed.
    * 
    * @example
    * 2.0.2

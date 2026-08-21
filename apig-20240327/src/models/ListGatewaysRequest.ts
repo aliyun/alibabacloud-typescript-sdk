@@ -106,7 +106,7 @@ export class ListGatewaysRequest extends $dara.Model {
   tag?: ListGatewaysRequestTag[];
   /**
    * @remarks
-   * The VPC ID.
+   * The virtual private cloud (VPC) ID.
    * 
    * @example
    * vpc-2zeqrgx6jrlb063y06yjo

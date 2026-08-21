@@ -168,7 +168,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Authorizes a security group that allows a gateway to access services.
+   * Authorizes a security group to allow gateway access to services.
    * 
    * @param request - AddGatewaySecurityGroupRuleRequest
    * @param headers - map
@@ -209,7 +209,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Authorizes a security group that allows a gateway to access services.
+   * Authorizes a security group to allow gateway access to services.
    * 
    * @param request - AddGatewaySecurityGroupRuleRequest
    * @returns AddGatewaySecurityGroupRuleResponse
@@ -400,6 +400,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.resourceGroupId)) {
       body["resourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!$dara.isNull(request.specContentBase64)) {
+      body["specContentBase64"] = request.specContentBase64;
     }
 
     if (!$dara.isNull(request.specFileUrl)) {
@@ -1021,6 +1025,11 @@ export default class Client extends OpenApi {
    */
   async createDomainWithOptions(request: $_model.CreateDomainRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateDomainResponse> {
     request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.dryRun)) {
+      query["dryRun"] = request.dryRun;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.caCertIdentifier)) {
       body["caCertIdentifier"] = request.caCertIdentifier;
@@ -1080,6 +1089,7 @@ export default class Client extends OpenApi {
 
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
@@ -2501,13 +2511,21 @@ export default class Client extends OpenApi {
   /**
    * Deletes a specified HTTP API.
    * 
+   * @param request - DeleteHttpApiRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteHttpApiResponse
    */
-  async deleteHttpApiWithOptions(httpApiId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteHttpApiResponse> {
+  async deleteHttpApiWithOptions(httpApiId: string, request: $_model.DeleteHttpApiRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteHttpApiResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.dryRun)) {
+      query["dryRun"] = request.dryRun;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
+      query: OpenApiUtil.query(query),
     });
     let params = new $OpenApiUtil.Params({
       action: "DeleteHttpApi",
@@ -2525,12 +2543,14 @@ export default class Client extends OpenApi {
 
   /**
    * Deletes a specified HTTP API.
+   * 
+   * @param request - DeleteHttpApiRequest
    * @returns DeleteHttpApiResponse
    */
-  async deleteHttpApi(httpApiId: string): Promise<$_model.DeleteHttpApiResponse> {
+  async deleteHttpApi(httpApiId: string, request: $_model.DeleteHttpApiRequest): Promise<$_model.DeleteHttpApiResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteHttpApiWithOptions(httpApiId, headers, runtime);
+    return await this.deleteHttpApiWithOptions(httpApiId, request, headers, runtime);
   }
 
   /**
@@ -3659,7 +3679,7 @@ export default class Client extends OpenApi {
    * Queries the usage details of a subject under a gateway quota throttling rule, including used quota, total quota, whether the limit is exceeded, usage details, and consumption records.
    * 
    * @remarks
-   * Retrieves the usage details of a specific consumer under a quota rule. This operation takes effect only for AI gateways with a version later than 2.1.19.
+   * This operation retrieves the usage details of a consumer under a quota rule. This operation applies only to AI gateways with a version later than 2.1.19.
    * 
    * @param request - GetGatewayQuotaRuleSubjectUsageRequest
    * @param headers - map
@@ -3703,7 +3723,7 @@ export default class Client extends OpenApi {
    * Queries the usage details of a subject under a gateway quota throttling rule, including used quota, total quota, whether the limit is exceeded, usage details, and consumption records.
    * 
    * @remarks
-   * Retrieves the usage details of a specific consumer under a quota rule. This operation takes effect only for AI gateways with a version later than 2.1.19.
+   * This operation retrieves the usage details of a consumer under a quota rule. This operation applies only to AI gateways with a version later than 2.1.19.
    * 
    * @param request - GetGatewayQuotaRuleSubjectUsageRequest
    * @returns GetGatewayQuotaRuleSubjectUsageResponse
@@ -3717,13 +3737,21 @@ export default class Client extends OpenApi {
   /**
    * Retrieves HTTP API information.
    * 
+   * @param request - GetHttpApiRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetHttpApiResponse
    */
-  async getHttpApiWithOptions(httpApiId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetHttpApiResponse> {
+  async getHttpApiWithOptions(httpApiId: string, request: $_model.GetHttpApiRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetHttpApiResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.expandPolicyConfigs)) {
+      query["expandPolicyConfigs"] = request.expandPolicyConfigs;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
+      query: OpenApiUtil.query(query),
     });
     let params = new $OpenApiUtil.Params({
       action: "GetHttpApi",
@@ -3741,12 +3769,14 @@ export default class Client extends OpenApi {
 
   /**
    * Retrieves HTTP API information.
+   * 
+   * @param request - GetHttpApiRequest
    * @returns GetHttpApiResponse
    */
-  async getHttpApi(httpApiId: string): Promise<$_model.GetHttpApiResponse> {
+  async getHttpApi(httpApiId: string, request: $_model.GetHttpApiRequest): Promise<$_model.GetHttpApiResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getHttpApiWithOptions(httpApiId, headers, runtime);
+    return await this.getHttpApiWithOptions(httpApiId, request, headers, runtime);
   }
 
   /**
@@ -5559,7 +5589,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of MCP servers.
+   * Retrieves the list of MCP servers.
    * 
    * @remarks
    * The operation supports creating multiple services.
@@ -5619,7 +5649,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of MCP servers.
+   * Retrieves the list of MCP servers.
    * 
    * @remarks
    * The operation supports creating multiple services.
@@ -7686,6 +7716,11 @@ export default class Client extends OpenApi {
    */
   async updateHttpApiWithOptions(httpApiId: string, request: $_model.UpdateHttpApiRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateHttpApiResponse> {
     request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.dryRun)) {
+      query["dryRun"] = request.dryRun;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.agentProtocols)) {
       body["agentProtocols"] = request.agentProtocols;
@@ -7741,6 +7776,7 @@ export default class Client extends OpenApi {
 
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
@@ -7887,7 +7923,7 @@ export default class Client extends OpenApi {
    * Updates an MCP server.
    * 
    * @remarks
-   * Only sources of the **Container Service** type can update the Ingress listener configuration.
+   * Only sources of the **Container Service** type are allowed to update the Ingress listener configuration.
    * 
    * @param request - UpdateMcpServerRequest
    * @param headers - map
@@ -7967,7 +8003,7 @@ export default class Client extends OpenApi {
    * Updates an MCP server.
    * 
    * @remarks
-   * Only sources of the **Container Service** type can update the Ingress listener configuration.
+   * Only sources of the **Container Service** type are allowed to update the Ingress listener configuration.
    * 
    * @param request - UpdateMcpServerRequest
    * @returns UpdateMcpServerResponse

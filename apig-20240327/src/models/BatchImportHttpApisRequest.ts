@@ -62,6 +62,10 @@ export class BatchImportHttpApisRequest extends $dara.Model {
    * Http
    */
   apiType?: string;
+  /**
+   * @example
+   * true
+   */
   dryRun?: boolean;
   /**
    * @example
@@ -73,6 +77,7 @@ export class BatchImportHttpApisRequest extends $dara.Model {
    * rg-xxx
    */
   resourceGroupId?: string;
+  specContentBase64?: string;
   /**
    * @example
    * https://oss-cn-hangzhou.aliyuncs.com/my-bucket/imports/batch.zip
@@ -84,6 +89,10 @@ export class BatchImportHttpApisRequest extends $dara.Model {
    * ExistFirst
    */
   strategy?: string;
+  /**
+   * @example
+   * false
+   */
   withGatewayExtension?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -92,6 +101,7 @@ export class BatchImportHttpApisRequest extends $dara.Model {
       dryRun: 'dryRun',
       gatewayId: 'gatewayId',
       resourceGroupId: 'resourceGroupId',
+      specContentBase64: 'specContentBase64',
       specFileUrl: 'specFileUrl',
       specOssConfig: 'specOssConfig',
       strategy: 'strategy',
@@ -106,6 +116,7 @@ export class BatchImportHttpApisRequest extends $dara.Model {
       dryRun: 'boolean',
       gatewayId: 'string',
       resourceGroupId: 'string',
+      specContentBase64: 'string',
       specFileUrl: 'string',
       specOssConfig: BatchImportHttpApisRequestSpecOssConfig,
       strategy: 'string',

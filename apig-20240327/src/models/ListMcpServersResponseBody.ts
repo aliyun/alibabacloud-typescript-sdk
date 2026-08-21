@@ -69,7 +69,7 @@ export class ListMcpServersResponseBodyDataItemsNacosMcpSyncInfo extends $dara.M
    * The synced MCP server ID.
    * 
    * @example
-   * 同步的MCP Server ID
+   * The synced MCP server ID
    */
   importMcpServerId?: string;
   /**
@@ -116,7 +116,7 @@ export class ListMcpServersResponseBodyDataItems extends $dara.Model {
   apiId?: string;
   /**
    * @remarks
-   * The list of assembly sources. This parameter is required when type is AssemblyMCP.
+   * The list of assembled sources. This parameter is required when type is AssemblyMCP.
    */
   assembledSources?: ListMcpServersResponseBodyDataItemsAssembledSources[];
   /**
@@ -128,10 +128,10 @@ export class ListMcpServersResponseBodyDataItems extends $dara.Model {
    * @remarks
    * The creation source type. Valid values:
    * 
-   * - ApiGatewayHttpToMCP: gateway-managed HTTP-to-MCP conversion.
+   * - ApiGatewayHttpToMCP: gateway-managed HTTP-to-MCP.
    * - ApiGatewayMcpHosting: gateway-managed MCP direct proxy.
    * - ApiGatewayAssembly: gateway MCP assembly.
-   * - NacosHttpToMCP: gateway-managed Nacos-synced HTTP-to-MCP conversion.
+   * - NacosHttpToMCP: gateway-managed Nacos-synced HTTP-to-MCP.
    * - NacosMcpHosting: gateway-managed Nacos-synced MCP direct proxy.
    * 
    * @example
@@ -151,7 +151,7 @@ export class ListMcpServersResponseBodyDataItems extends $dara.Model {
    * The description.
    * 
    * @example
-   * 这是xxx的xx项目测试环境
+   * This is the test environment for the xx project of xxx
    */
   description?: string;
   /**
@@ -198,7 +198,7 @@ export class ListMcpServersResponseBodyDataItems extends $dara.Model {
    * The HTTP-to-MCP configuration.
    * 
    * @example
-   * HTTP转MCP Config base64值
+   * Base64-encoded value of the HTTP-to-MCP configuration
    */
   mcpServerConfig?: string;
   /**
@@ -219,7 +219,7 @@ export class ListMcpServersResponseBodyDataItems extends $dara.Model {
   mcpServerPath?: string;
   /**
    * @remarks
-   * Indicates whether MCP observability is enabled. Default value: false.
+   * Specifies whether MCP observability is enabled. Default value: false.
    * 
    * @example
    * false
@@ -259,7 +259,7 @@ export class ListMcpServersResponseBodyDataItems extends $dara.Model {
    * The MCP server type.
    * 
    * @example
-   * 可选值：RealMCP、AssemblyMCP
+   * Valid values: RealMCP, AssemblyMCP
    */
   type?: string;
   static names(): { [key: string]: string } {
@@ -344,7 +344,7 @@ export class ListMcpServersResponseBodyDataItems extends $dara.Model {
 export class ListMcpServersResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The list of MCP servers.
+   * The MCP server list information.
    */
   items?: ListMcpServersResponseBodyDataItems[];
   /**

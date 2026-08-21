@@ -3,6 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListGatewayFeaturesResponseBodyDataItemsConstraints extends $dara.Model {
+  /**
+   * @remarks
+   * The maximum body collection size per request in bytes. This value is returned based on the managed form of the gateway deployment cluster. Only the log-request-response feature returns this field.
+   * 
+   * @example
+   * 5120
+   */
   bodyMaxSizeLimit?: number;
   static names(): { [key: string]: string } {
     return {
@@ -28,7 +35,7 @@ export class ListGatewayFeaturesResponseBodyDataItemsConstraints extends $dara.M
 export class ListGatewayFeaturesResponseBodyDataItemsDefinitionValueOptions extends $dara.Model {
   /**
    * @remarks
-   * The pass parameter key.
+   * The key used to pass the parameter.
    * 
    * @example
    * KEEP_UNCHANGED
@@ -39,7 +46,7 @@ export class ListGatewayFeaturesResponseBodyDataItemsDefinitionValueOptions exte
    * The display value.
    * 
    * @example
-   * 保持不变
+   * Keep unchanged
    */
   label?: string;
   static names(): { [key: string]: string } {
@@ -79,7 +86,7 @@ export class ListGatewayFeaturesResponseBodyDataItemsDefinition extends $dara.Mo
    * The parameter description.
    * 
    * @example
-   * 作用于请求与响应环节，启用gzip会对请求响应进行压缩，会减少网关流量，增加网关cpu消耗
+   * Applies to request and response phases. Enabling gzip compresses request responses, which reduces gateway traffic but increases gateway CPU consumption
    */
   description?: string;
   /**
@@ -93,8 +100,8 @@ export class ListGatewayFeaturesResponseBodyDataItemsDefinition extends $dara.Mo
   /**
    * @remarks
    * The parameter group. Valid values:
-   * - Telemetry: observability parameter.
-   * - Engine: engine parameter.
+   * - Telemetry: observability-related parameter.
+   * - Engine: engine-related parameter.
    * 
    * @example
    * Engine
@@ -104,7 +111,7 @@ export class ListGatewayFeaturesResponseBodyDataItemsDefinition extends $dara.Mo
    * @remarks
    * The input type of the parameter. Valid values:
    * - Trigger: toggle.
-   * - Input: input.
+   * - Input: text input.
    * - SingleSelect: single-select.
    * - MultiSelect: multi-select.
    * 
@@ -178,11 +185,11 @@ export class ListGatewayFeaturesResponseBodyDataItemsDefinition extends $dara.Mo
    * The type supported by the parameter value. Valid values:
    * - bool: Boolean.
    * - string: String.
-   * - int32: Integer.
-   * - int64: Long integer.
+   * - int32: 32-bit integer.
+   * - int64: 64-bit integer.
    * - json: JSON format.
    * - array: JSON array format.
-   * - float: Float.
+   * - float: Floating-point.
    * 
    * @example
    * bool
@@ -249,6 +256,10 @@ export class ListGatewayFeaturesResponseBodyDataItemsDefinition extends $dara.Mo
 }
 
 export class ListGatewayFeaturesResponseBodyDataItems extends $dara.Model {
+  /**
+   * @remarks
+   * The runtime constraints calculated based on the current gateway form. Only returned for certain features.
+   */
   constraints?: ListGatewayFeaturesResponseBodyDataItemsConstraints;
   /**
    * @remarks

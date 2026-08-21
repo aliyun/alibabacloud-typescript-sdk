@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class HttpRouteMatchHeaders extends $dara.Model {
   /**
    * @remarks
-   * The header name.
+   * The name of the header.
    * 
    * @example
    * dev
@@ -13,11 +13,10 @@ export class HttpRouteMatchHeaders extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The match type. Valid values:
-   * 
-   * *   Exact: exact match
-   * *   Prefix: prefix match
-   * *   Regex: regular expression
+   * The header matching type. Valid values:
+   * - Exact: exact match.
+   * - Prefix: prefix match. 
+   * - Regex: regular expression match.
    * 
    * @example
    * Exact
@@ -25,7 +24,7 @@ export class HttpRouteMatchHeaders extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The header value.
+   * The value of the header.
    * 
    * @example
    * true
@@ -59,11 +58,10 @@ export class HttpRouteMatchHeaders extends $dara.Model {
 export class HttpRouteMatchPath extends $dara.Model {
   /**
    * @remarks
-   * The path matching type. Valid values:
-   * 
-   * *   Exact: exact match
-   * *   Prefix: prefix match
-   * *   Regex: regular expression
+   * The path matching rule. Valid values:
+   * - Exact: exact match.
+   * - Prefix: prefix match. 
+   * - Regex: regular expression match.
    * 
    * @example
    * Prefix
@@ -111,11 +109,10 @@ export class HttpRouteMatchQueryParams extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The match type. Valid values:
-   * 
-   * *   Exact: exact match
-   * *   Prefix: prefix match
-   * *   Regex: regular expression
+   * The query parameter matching type. Valid values:
+   * - Exact: exact match. 
+   * - Prefix: prefix match. 
+   * - Regex: regular expression match.
    * 
    * @example
    * Exact
@@ -157,7 +154,7 @@ export class HttpRouteMatchQueryParams extends $dara.Model {
 export class HttpRouteMatch extends $dara.Model {
   /**
    * @remarks
-   * The rules for matching based on HTTP request headers.
+   * The list of HTTP request header matching rules.
    */
   headers?: HttpRouteMatchHeaders[];
   /**
@@ -170,7 +167,7 @@ export class HttpRouteMatch extends $dara.Model {
   ignoreUriCase?: boolean;
   /**
    * @remarks
-   * The HTTP methods.
+   * The list of request methods.
    */
   methods?: string[];
   /**
@@ -180,7 +177,7 @@ export class HttpRouteMatch extends $dara.Model {
   path?: HttpRouteMatchPath;
   /**
    * @remarks
-   * The rules for matching based on query parameters.
+   * The list of query request parameter matching rules.
    */
   queryParams?: HttpRouteMatchQueryParams[];
   static names(): { [key: string]: string } {

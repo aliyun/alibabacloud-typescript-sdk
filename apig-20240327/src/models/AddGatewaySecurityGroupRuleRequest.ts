@@ -8,7 +8,7 @@ export class AddGatewaySecurityGroupRuleRequest extends $dara.Model {
    * The description of the security group rule.
    * 
    * @example
-   * 商品中心访问安全组
+   * Product center access security group
    */
   description?: string;
   /**
@@ -18,7 +18,7 @@ export class AddGatewaySecurityGroupRuleRequest extends $dara.Model {
   portRanges?: string[];
   /**
    * @remarks
-   * The security group ID.
+   * The security group ID. This parameter is required. The specified security group must be different from the security group associated with the gateway. Otherwise, an error is returned.
    * 
    * @example
    * sg-wz929kxhcdp****

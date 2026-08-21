@@ -31,7 +31,7 @@ export class ListMcpServersRequest extends $dara.Model {
   gatewayId?: string;
   /**
    * @remarks
-   * The fuzzy match keyword for searching MCP servers by API name.
+   * Fuzzy searches for MCP servers by API name.
    * 
    * @example
    * test
