@@ -19,10 +19,12 @@ export class ModifyDBInstanceClassResponseBody extends $dara.Model {
    * FEA5DC20-6D8A-5979-97AA-FC57546ADC20
    */
   requestId?: string;
+  taskId?: number;
   static names(): { [key: string]: string } {
     return {
       orderId: 'OrderId',
       requestId: 'RequestId',
+      taskId: 'TaskId',
     };
   }
 
@@ -30,6 +32,7 @@ export class ModifyDBInstanceClassResponseBody extends $dara.Model {
     return {
       orderId: 'string',
       requestId: 'string',
+      taskId: 'number',
     };
   }
 

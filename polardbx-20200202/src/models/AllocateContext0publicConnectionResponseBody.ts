@@ -2,10 +2,12 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class AllocateContextDBPublicConnectionResponseBodyAccessDeniedDetail extends $dara.Model {
+/**
+ */
+export class AllocateContext0PublicConnectionResponseBodyAccessDeniedDetail extends $dara.Model {
   /**
    * @remarks
-   * The authentication action.
+   * The description is the same as above.
    * 
    * @example
    * xxx
@@ -21,7 +23,7 @@ export class AllocateContextDBPublicConnectionResponseBodyAccessDeniedDetail ext
   authPrincipalDisplayName?: string;
   /**
    * @remarks
-   * The type of the authentication principal.
+   * The owner ID of the authentication principal.
    * 
    * @example
    * 111
@@ -29,7 +31,7 @@ export class AllocateContextDBPublicConnectionResponseBodyAccessDeniedDetail ext
   authPrincipalOwnerId?: string;
   /**
    * @remarks
-   * The type of the authentication principal.
+   * The description is the same as above.
    * 
    * @example
    * 222
@@ -45,7 +47,7 @@ export class AllocateContextDBPublicConnectionResponseBodyAccessDeniedDetail ext
   encodedDiagnosticMessage?: string;
   /**
    * @remarks
-   * The type of the permission denial.
+   * NoPermissionType
    * 
    * @example
    * ImplicitDeny
@@ -53,10 +55,10 @@ export class AllocateContextDBPublicConnectionResponseBodyAccessDeniedDetail ext
   noPermissionType?: string;
   /**
    * @remarks
-   * PolicyType
+   * The policy type.
    * 
    * @example
-   * System
+   * PRIORITY
    */
   policyType?: string;
   static names(): { [key: string]: string } {
@@ -92,7 +94,7 @@ export class AllocateContextDBPublicConnectionResponseBodyAccessDeniedDetail ext
   }
 }
 
-export class AllocateContextDBPublicConnectionResponseBodyData extends $dara.Model {
+export class AllocateContext0PublicConnectionResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The endpoint.
@@ -103,12 +105,12 @@ export class AllocateContextDBPublicConnectionResponseBodyData extends $dara.Mod
   connectionString?: string;
   /**
    * @remarks
-   * The name of the context service instance.
+   * The context service instance name.
    * 
    * @example
-   * pxt-********
+   * context0-example
    */
-  contextDBInstanceName?: string;
+  context0InstanceName?: string;
   /**
    * @remarks
    * The instance ID.
@@ -122,7 +124,7 @@ export class AllocateContextDBPublicConnectionResponseBodyData extends $dara.Mod
    * The instance ID.
    * 
    * @example
-   * pxsp-*********
+   * pxc-hzjasd****
    */
   DBInstanceName?: string;
   /**
@@ -135,7 +137,7 @@ export class AllocateContextDBPublicConnectionResponseBodyData extends $dara.Mod
   DBInstanceNetType?: number;
   /**
    * @remarks
-   * The type of the target node. Valid values: service and dashboard.
+   * The target node type: service or dashboard.
    * 
    * @example
    * service
@@ -151,7 +153,7 @@ export class AllocateContextDBPublicConnectionResponseBodyData extends $dara.Mod
   port?: string;
   /**
    * @remarks
-   * The backend task ID.
+   * The task ID.
    * 
    * @example
    * 2209883
@@ -168,7 +170,7 @@ export class AllocateContextDBPublicConnectionResponseBodyData extends $dara.Mod
   static names(): { [key: string]: string } {
     return {
       connectionString: 'ConnectionString',
-      contextDBInstanceName: 'ContextDBInstanceName',
+      context0InstanceName: 'Context0InstanceName',
       DBInstanceId: 'DBInstanceId',
       DBInstanceName: 'DBInstanceName',
       DBInstanceNetType: 'DBInstanceNetType',
@@ -182,7 +184,7 @@ export class AllocateContextDBPublicConnectionResponseBodyData extends $dara.Mod
   static types(): { [key: string]: any } {
     return {
       connectionString: 'string',
-      contextDBInstanceName: 'string',
+      context0InstanceName: 'string',
       DBInstanceId: 'number',
       DBInstanceName: 'string',
       DBInstanceNetType: 'number',
@@ -202,20 +204,20 @@ export class AllocateContextDBPublicConnectionResponseBodyData extends $dara.Mod
   }
 }
 
-export class AllocateContextDBPublicConnectionResponseBody extends $dara.Model {
+export class AllocateContext0PublicConnectionResponseBody extends $dara.Model {
   /**
    * @remarks
    * The details of the access denial.
    */
-  accessDeniedDetail?: AllocateContextDBPublicConnectionResponseBodyAccessDeniedDetail;
+  accessDeniedDetail?: AllocateContext0PublicConnectionResponseBodyAccessDeniedDetail;
   /**
    * @remarks
    * The task details.
    */
-  data?: AllocateContextDBPublicConnectionResponseBodyData;
+  data?: AllocateContext0PublicConnectionResponseBodyData;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * C458B1E8-1683-3645-B154-6BA32080EEA
@@ -231,8 +233,8 @@ export class AllocateContextDBPublicConnectionResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      accessDeniedDetail: AllocateContextDBPublicConnectionResponseBodyAccessDeniedDetail,
-      data: AllocateContextDBPublicConnectionResponseBodyData,
+      accessDeniedDetail: AllocateContext0PublicConnectionResponseBodyAccessDeniedDetail,
+      data: AllocateContext0PublicConnectionResponseBodyData,
       requestId: 'string',
     };
   }

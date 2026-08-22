@@ -2,7 +2,7 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class AllocateContextDBPublicConnectionResponseBodyAccessDeniedDetail extends $dara.Model {
+export class CreateOpenSearchResponseBodyAccessDeniedDetail extends $dara.Model {
   /**
    * @remarks
    * The authentication action.
@@ -13,7 +13,7 @@ export class AllocateContextDBPublicConnectionResponseBodyAccessDeniedDetail ext
   authAction?: string;
   /**
    * @remarks
-   * The identity used for authentication in the request.
+   * The display name of the authentication principal.
    * 
    * @example
    * xxx
@@ -21,7 +21,7 @@ export class AllocateContextDBPublicConnectionResponseBodyAccessDeniedDetail ext
   authPrincipalDisplayName?: string;
   /**
    * @remarks
-   * The type of the authentication principal.
+   * The ID of the Alibaba Cloud account to which the authentication principal belongs.
    * 
    * @example
    * 111
@@ -45,7 +45,7 @@ export class AllocateContextDBPublicConnectionResponseBodyAccessDeniedDetail ext
   encodedDiagnosticMessage?: string;
   /**
    * @remarks
-   * The type of the permission denial.
+   * NoPermissionType
    * 
    * @example
    * ImplicitDeny
@@ -53,10 +53,10 @@ export class AllocateContextDBPublicConnectionResponseBodyAccessDeniedDetail ext
   noPermissionType?: string;
   /**
    * @remarks
-   * PolicyType
+   * The policy type.
    * 
    * @example
-   * System
+   * PRIORITY
    */
   policyType?: string;
   static names(): { [key: string]: string } {
@@ -92,34 +92,10 @@ export class AllocateContextDBPublicConnectionResponseBodyAccessDeniedDetail ext
   }
 }
 
-export class AllocateContextDBPublicConnectionResponseBodyData extends $dara.Model {
+export class CreateOpenSearchResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The endpoint.
-   * 
-   * @example
-   * test2.polarx.huhehaote.rds.aliyuncs.com
-   */
-  connectionString?: string;
-  /**
-   * @remarks
-   * The name of the context service instance.
-   * 
-   * @example
-   * pxt-********
-   */
-  contextDBInstanceName?: string;
-  /**
-   * @remarks
-   * The instance ID.
-   * 
-   * @example
-   * pxsp-xxxxxxxxxx
-   */
-  DBInstanceId?: number;
-  /**
-   * @remarks
-   * The instance ID.
+   * The instance name.
    * 
    * @example
    * pxsp-*********
@@ -127,69 +103,23 @@ export class AllocateContextDBPublicConnectionResponseBodyData extends $dara.Mod
   DBInstanceName?: string;
   /**
    * @remarks
-   * The network type of the endpoint.
+   * The order ID.
    * 
    * @example
-   * 1
+   * 265325896860727
    */
-  DBInstanceNetType?: number;
-  /**
-   * @remarks
-   * The type of the target node. Valid values: service and dashboard.
-   * 
-   * @example
-   * service
-   */
-  nodeType?: string;
-  /**
-   * @remarks
-   * The port of the endpoint.
-   * 
-   * @example
-   * 3300
-   */
-  port?: string;
-  /**
-   * @remarks
-   * The backend task ID.
-   * 
-   * @example
-   * 2209883
-   */
-  taskId?: number;
-  /**
-   * @remarks
-   * The IP address of the Anti-DDoS Proxy instance protected by the policy.
-   * 
-   * @example
-   * https://anchashi.aliyun-inc.coM
-   */
-  vip?: string;
+  orderId?: string;
   static names(): { [key: string]: string } {
     return {
-      connectionString: 'ConnectionString',
-      contextDBInstanceName: 'ContextDBInstanceName',
-      DBInstanceId: 'DBInstanceId',
       DBInstanceName: 'DBInstanceName',
-      DBInstanceNetType: 'DBInstanceNetType',
-      nodeType: 'NodeType',
-      port: 'Port',
-      taskId: 'TaskId',
-      vip: 'Vip',
+      orderId: 'OrderId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      connectionString: 'string',
-      contextDBInstanceName: 'string',
-      DBInstanceId: 'number',
       DBInstanceName: 'string',
-      DBInstanceNetType: 'number',
-      nodeType: 'string',
-      port: 'string',
-      taskId: 'number',
-      vip: 'string',
+      orderId: 'string',
     };
   }
 
@@ -202,23 +132,23 @@ export class AllocateContextDBPublicConnectionResponseBodyData extends $dara.Mod
   }
 }
 
-export class AllocateContextDBPublicConnectionResponseBody extends $dara.Model {
+export class CreateOpenSearchResponseBody extends $dara.Model {
   /**
    * @remarks
    * The details of the access denial.
    */
-  accessDeniedDetail?: AllocateContextDBPublicConnectionResponseBodyAccessDeniedDetail;
+  accessDeniedDetail?: CreateOpenSearchResponseBodyAccessDeniedDetail;
   /**
    * @remarks
-   * The task details.
+   * The operation result.
    */
-  data?: AllocateContextDBPublicConnectionResponseBodyData;
+  data?: CreateOpenSearchResponseBodyData;
   /**
    * @remarks
    * The request ID.
    * 
    * @example
-   * C458B1E8-1683-3645-B154-6BA32080EEA
+   * C457B28E-9CAB-4B77-B5C6-5D71B7870B6E
    */
   requestId?: string;
   static names(): { [key: string]: string } {
@@ -231,8 +161,8 @@ export class AllocateContextDBPublicConnectionResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      accessDeniedDetail: AllocateContextDBPublicConnectionResponseBodyAccessDeniedDetail,
-      data: AllocateContextDBPublicConnectionResponseBodyData,
+      accessDeniedDetail: CreateOpenSearchResponseBodyAccessDeniedDetail,
+      data: CreateOpenSearchResponseBodyData,
       requestId: 'string',
     };
   }

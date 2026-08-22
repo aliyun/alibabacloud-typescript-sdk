@@ -2,7 +2,7 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class AllocateContextDBPublicConnectionResponseBodyAccessDeniedDetail extends $dara.Model {
+export class DescribeOpenSearchResourceUsageResponseBodyAccessDeniedDetail extends $dara.Model {
   /**
    * @remarks
    * The authentication action.
@@ -13,7 +13,7 @@ export class AllocateContextDBPublicConnectionResponseBodyAccessDeniedDetail ext
   authAction?: string;
   /**
    * @remarks
-   * The identity used for authentication in the request.
+   * The display name of the authentication principal.
    * 
    * @example
    * xxx
@@ -21,7 +21,7 @@ export class AllocateContextDBPublicConnectionResponseBodyAccessDeniedDetail ext
   authPrincipalDisplayName?: string;
   /**
    * @remarks
-   * The type of the authentication principal.
+   * The owner ID of the authentication principal.
    * 
    * @example
    * 111
@@ -37,7 +37,7 @@ export class AllocateContextDBPublicConnectionResponseBodyAccessDeniedDetail ext
   authPrincipalType?: string;
   /**
    * @remarks
-   * The encoded diagnostic message.
+   * The diagnostic information.
    * 
    * @example
    * AQEAAAAAaKPfwjY0MzMyODRGLUZCQkQtNTA1RS04MUUxLTc5NTkzODk2MUIzMg==
@@ -45,7 +45,7 @@ export class AllocateContextDBPublicConnectionResponseBodyAccessDeniedDetail ext
   encodedDiagnosticMessage?: string;
   /**
    * @remarks
-   * The type of the permission denial.
+   * NoPermissionType
    * 
    * @example
    * ImplicitDeny
@@ -53,10 +53,10 @@ export class AllocateContextDBPublicConnectionResponseBodyAccessDeniedDetail ext
   noPermissionType?: string;
   /**
    * @remarks
-   * PolicyType
+   * The policy type.
    * 
    * @example
-   * System
+   * PRIORITY
    */
   policyType?: string;
   static names(): { [key: string]: string } {
@@ -92,104 +92,64 @@ export class AllocateContextDBPublicConnectionResponseBodyAccessDeniedDetail ext
   }
 }
 
-export class AllocateContextDBPublicConnectionResponseBodyData extends $dara.Model {
+export class DescribeOpenSearchResourceUsageResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The endpoint.
+   * The total number of documents in the cluster.
    * 
    * @example
-   * test2.polarx.huhehaote.rds.aliyuncs.com
+   * 1000000
    */
-  connectionString?: string;
+  docCount?: number;
   /**
    * @remarks
-   * The name of the context service instance.
+   * The number of indexes. This is a filter condition for the number of indexes that the missing index table currently has. The input format is `operator + separator "" + index count`, for example, `>=100`.
    * 
    * @example
-   * pxt-********
+   * >=
    */
-  contextDBInstanceName?: string;
+  indexCount?: number;
   /**
    * @remarks
-   * The instance ID.
+   * The used storage space, in bytes.
    * 
    * @example
-   * pxsp-xxxxxxxxxx
+   * 107374182400
    */
-  DBInstanceId?: number;
+  storageSizeInBytes?: number;
   /**
    * @remarks
-   * The instance ID.
+   * The total storage capacity, in bytes.
    * 
    * @example
-   * pxsp-*********
+   * 536870912000
    */
-  DBInstanceName?: string;
+  storageTotalInBytes?: number;
   /**
    * @remarks
-   * The network type of the endpoint.
+   * The storage space usage.
    * 
    * @example
-   * 1
+   * 20.0
    */
-  DBInstanceNetType?: number;
-  /**
-   * @remarks
-   * The type of the target node. Valid values: service and dashboard.
-   * 
-   * @example
-   * service
-   */
-  nodeType?: string;
-  /**
-   * @remarks
-   * The port of the endpoint.
-   * 
-   * @example
-   * 3300
-   */
-  port?: string;
-  /**
-   * @remarks
-   * The backend task ID.
-   * 
-   * @example
-   * 2209883
-   */
-  taskId?: number;
-  /**
-   * @remarks
-   * The IP address of the Anti-DDoS Proxy instance protected by the policy.
-   * 
-   * @example
-   * https://anchashi.aliyun-inc.coM
-   */
-  vip?: string;
+  storageUsagePercent?: number;
   static names(): { [key: string]: string } {
     return {
-      connectionString: 'ConnectionString',
-      contextDBInstanceName: 'ContextDBInstanceName',
-      DBInstanceId: 'DBInstanceId',
-      DBInstanceName: 'DBInstanceName',
-      DBInstanceNetType: 'DBInstanceNetType',
-      nodeType: 'NodeType',
-      port: 'Port',
-      taskId: 'TaskId',
-      vip: 'Vip',
+      docCount: 'DocCount',
+      indexCount: 'IndexCount',
+      storageSizeInBytes: 'StorageSizeInBytes',
+      storageTotalInBytes: 'StorageTotalInBytes',
+      storageUsagePercent: 'StorageUsagePercent',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      connectionString: 'string',
-      contextDBInstanceName: 'string',
-      DBInstanceId: 'number',
-      DBInstanceName: 'string',
-      DBInstanceNetType: 'number',
-      nodeType: 'string',
-      port: 'string',
-      taskId: 'number',
-      vip: 'string',
+      docCount: 'number',
+      indexCount: 'number',
+      storageSizeInBytes: 'number',
+      storageTotalInBytes: 'number',
+      storageUsagePercent: 'number',
     };
   }
 
@@ -202,23 +162,23 @@ export class AllocateContextDBPublicConnectionResponseBodyData extends $dara.Mod
   }
 }
 
-export class AllocateContextDBPublicConnectionResponseBody extends $dara.Model {
+export class DescribeOpenSearchResourceUsageResponseBody extends $dara.Model {
   /**
    * @remarks
    * The details of the access denial.
    */
-  accessDeniedDetail?: AllocateContextDBPublicConnectionResponseBodyAccessDeniedDetail;
+  accessDeniedDetail?: DescribeOpenSearchResourceUsageResponseBodyAccessDeniedDetail;
   /**
    * @remarks
-   * The task details.
+   * The returned data.
    */
-  data?: AllocateContextDBPublicConnectionResponseBodyData;
+  data?: DescribeOpenSearchResourceUsageResponseBodyData;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
-   * C458B1E8-1683-3645-B154-6BA32080EEA
+   * C457B28E-9CAB-4B77-B5C6-5D71B7870B6E
    */
   requestId?: string;
   static names(): { [key: string]: string } {
@@ -231,8 +191,8 @@ export class AllocateContextDBPublicConnectionResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      accessDeniedDetail: AllocateContextDBPublicConnectionResponseBodyAccessDeniedDetail,
-      data: AllocateContextDBPublicConnectionResponseBodyData,
+      accessDeniedDetail: DescribeOpenSearchResourceUsageResponseBodyAccessDeniedDetail,
+      data: DescribeOpenSearchResourceUsageResponseBodyData,
       requestId: 'string',
     };
   }

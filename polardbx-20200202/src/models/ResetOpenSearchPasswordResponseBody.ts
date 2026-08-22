@@ -2,7 +2,7 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class AllocateContextDBPublicConnectionResponseBodyAccessDeniedDetail extends $dara.Model {
+export class ResetOpenSearchPasswordResponseBodyAccessDeniedDetail extends $dara.Model {
   /**
    * @remarks
    * The authentication action.
@@ -13,7 +13,7 @@ export class AllocateContextDBPublicConnectionResponseBodyAccessDeniedDetail ext
   authAction?: string;
   /**
    * @remarks
-   * The identity used for authentication in the request.
+   * The display name of the authentication principal.
    * 
    * @example
    * xxx
@@ -21,7 +21,7 @@ export class AllocateContextDBPublicConnectionResponseBodyAccessDeniedDetail ext
   authPrincipalDisplayName?: string;
   /**
    * @remarks
-   * The type of the authentication principal.
+   * The owner ID of the authentication principal.
    * 
    * @example
    * 111
@@ -45,7 +45,7 @@ export class AllocateContextDBPublicConnectionResponseBodyAccessDeniedDetail ext
   encodedDiagnosticMessage?: string;
   /**
    * @remarks
-   * The type of the permission denial.
+   * The type of the missing permission.
    * 
    * @example
    * ImplicitDeny
@@ -53,7 +53,7 @@ export class AllocateContextDBPublicConnectionResponseBodyAccessDeniedDetail ext
   noPermissionType?: string;
   /**
    * @remarks
-   * PolicyType
+   * The policy type.
    * 
    * @example
    * System
@@ -92,104 +92,34 @@ export class AllocateContextDBPublicConnectionResponseBodyAccessDeniedDetail ext
   }
 }
 
-export class AllocateContextDBPublicConnectionResponseBodyData extends $dara.Model {
+export class ResetOpenSearchPasswordResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The endpoint.
+   * The additional information returned by the operation. "success" is returned if the operation is successful. Otherwise, the corresponding error code is returned.
    * 
    * @example
-   * test2.polarx.huhehaote.rds.aliyuncs.com
+   * 【环境：huanghe】\\nhuanghe 503_UC_OUTBOUND告警超过阈值！\\n\\n详情请查看: https://grafana-cn-lbj34sreu03.grafana.aliyuncs.com/d/_rOiq2lNk/asm-status-code-monitor?var-datasource=DataSource-HUANGHE\\n
    */
-  connectionString?: string;
+  message?: string;
   /**
    * @remarks
-   * The name of the context service instance.
+   * The time when the password was last modified.
    * 
    * @example
-   * pxt-********
+   * 2026-08-21T12:00:00Z
    */
-  contextDBInstanceName?: string;
-  /**
-   * @remarks
-   * The instance ID.
-   * 
-   * @example
-   * pxsp-xxxxxxxxxx
-   */
-  DBInstanceId?: number;
-  /**
-   * @remarks
-   * The instance ID.
-   * 
-   * @example
-   * pxsp-*********
-   */
-  DBInstanceName?: string;
-  /**
-   * @remarks
-   * The network type of the endpoint.
-   * 
-   * @example
-   * 1
-   */
-  DBInstanceNetType?: number;
-  /**
-   * @remarks
-   * The type of the target node. Valid values: service and dashboard.
-   * 
-   * @example
-   * service
-   */
-  nodeType?: string;
-  /**
-   * @remarks
-   * The port of the endpoint.
-   * 
-   * @example
-   * 3300
-   */
-  port?: string;
-  /**
-   * @remarks
-   * The backend task ID.
-   * 
-   * @example
-   * 2209883
-   */
-  taskId?: number;
-  /**
-   * @remarks
-   * The IP address of the Anti-DDoS Proxy instance protected by the policy.
-   * 
-   * @example
-   * https://anchashi.aliyun-inc.coM
-   */
-  vip?: string;
+  passwordLastModified?: string;
   static names(): { [key: string]: string } {
     return {
-      connectionString: 'ConnectionString',
-      contextDBInstanceName: 'ContextDBInstanceName',
-      DBInstanceId: 'DBInstanceId',
-      DBInstanceName: 'DBInstanceName',
-      DBInstanceNetType: 'DBInstanceNetType',
-      nodeType: 'NodeType',
-      port: 'Port',
-      taskId: 'TaskId',
-      vip: 'Vip',
+      message: 'Message',
+      passwordLastModified: 'PasswordLastModified',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      connectionString: 'string',
-      contextDBInstanceName: 'string',
-      DBInstanceId: 'number',
-      DBInstanceName: 'string',
-      DBInstanceNetType: 'number',
-      nodeType: 'string',
-      port: 'string',
-      taskId: 'number',
-      vip: 'string',
+      message: 'string',
+      passwordLastModified: 'string',
     };
   }
 
@@ -202,20 +132,20 @@ export class AllocateContextDBPublicConnectionResponseBodyData extends $dara.Mod
   }
 }
 
-export class AllocateContextDBPublicConnectionResponseBody extends $dara.Model {
+export class ResetOpenSearchPasswordResponseBody extends $dara.Model {
   /**
    * @remarks
    * The details of the access denial.
    */
-  accessDeniedDetail?: AllocateContextDBPublicConnectionResponseBodyAccessDeniedDetail;
+  accessDeniedDetail?: ResetOpenSearchPasswordResponseBodyAccessDeniedDetail;
   /**
    * @remarks
-   * The task details.
+   * The monitoring data.
    */
-  data?: AllocateContextDBPublicConnectionResponseBodyData;
+  data?: ResetOpenSearchPasswordResponseBodyData;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * C458B1E8-1683-3645-B154-6BA32080EEA
@@ -231,8 +161,8 @@ export class AllocateContextDBPublicConnectionResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      accessDeniedDetail: AllocateContextDBPublicConnectionResponseBodyAccessDeniedDetail,
-      data: AllocateContextDBPublicConnectionResponseBodyData,
+      accessDeniedDetail: ResetOpenSearchPasswordResponseBodyAccessDeniedDetail,
+      data: ResetOpenSearchPasswordResponseBodyData,
       requestId: 'string',
     };
   }

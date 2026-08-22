@@ -2,7 +2,7 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class AllocateContextDBPublicConnectionResponseBodyAccessDeniedDetail extends $dara.Model {
+export class DescribeOpenSearchWhitelistsResponseBodyAccessDeniedDetail extends $dara.Model {
   /**
    * @remarks
    * The authentication action.
@@ -13,7 +13,7 @@ export class AllocateContextDBPublicConnectionResponseBodyAccessDeniedDetail ext
   authAction?: string;
   /**
    * @remarks
-   * The identity used for authentication in the request.
+   * The display name of the authentication principal.
    * 
    * @example
    * xxx
@@ -21,7 +21,7 @@ export class AllocateContextDBPublicConnectionResponseBodyAccessDeniedDetail ext
   authPrincipalDisplayName?: string;
   /**
    * @remarks
-   * The type of the authentication principal.
+   * The owner ID of the authentication principal.
    * 
    * @example
    * 111
@@ -29,7 +29,7 @@ export class AllocateContextDBPublicConnectionResponseBodyAccessDeniedDetail ext
   authPrincipalOwnerId?: string;
   /**
    * @remarks
-   * The type of the authentication principal.
+   * The authentication principal type.
    * 
    * @example
    * 222
@@ -45,7 +45,7 @@ export class AllocateContextDBPublicConnectionResponseBodyAccessDeniedDetail ext
   encodedDiagnosticMessage?: string;
   /**
    * @remarks
-   * The type of the permission denial.
+   * The type of the missing permission.
    * 
    * @example
    * ImplicitDeny
@@ -53,10 +53,10 @@ export class AllocateContextDBPublicConnectionResponseBodyAccessDeniedDetail ext
   noPermissionType?: string;
   /**
    * @remarks
-   * PolicyType
+   * The policy type.
    * 
    * @example
-   * System
+   * PRIORITY
    */
   policyType?: string;
   static names(): { [key: string]: string } {
@@ -92,104 +92,84 @@ export class AllocateContextDBPublicConnectionResponseBodyAccessDeniedDetail ext
   }
 }
 
-export class AllocateContextDBPublicConnectionResponseBodyData extends $dara.Model {
+export class DescribeOpenSearchWhitelistsResponseBodyDataWhitelists extends $dara.Model {
   /**
    * @remarks
-   * The endpoint.
+   * The creation time.
    * 
    * @example
-   * test2.polarx.huhehaote.rds.aliyuncs.com
+   * 2026-07-22T02:26:08Z
    */
-  connectionString?: string;
+  createTime?: string;
   /**
    * @remarks
-   * The name of the context service instance.
+   * The ID of the group to which the instance belongs.
    * 
    * @example
-   * pxt-********
+   * GID_QMPRUNTIME_BROADCAST_TASK_CONSUMER_GROUP
    */
-  contextDBInstanceName?: string;
+  groupId?: string;
   /**
    * @remarks
-   * The instance ID.
+   * The name of the whitelist group.
    * 
    * @example
-   * pxsp-xxxxxxxxxx
+   * ack_worker_new
    */
-  DBInstanceId?: number;
+  groupName?: string;
   /**
    * @remarks
-   * The instance ID.
+   * The IP address list.
    * 
    * @example
-   * pxsp-*********
+   * []
    */
-  DBInstanceName?: string;
+  ips?: string;
   /**
    * @remarks
-   * The network type of the endpoint.
+   * The network type. Only VPC is supported.
    * 
    * @example
-   * 1
+   * vpc
    */
-  DBInstanceNetType?: number;
+  networkType?: string;
   /**
    * @remarks
-   * The type of the target node. Valid values: service and dashboard.
+   * The policy remarks.
    * 
    * @example
-   * service
+   * vpc-t4nt9qxfgbzab587cshhc
    */
-  nodeType?: string;
+  remark?: string;
   /**
    * @remarks
-   * The port of the endpoint.
+   * The time when the task was last updated, in timestamp format.
    * 
    * @example
-   * 3300
+   * 0001-01-01T00:00:00Z
    */
-  port?: string;
-  /**
-   * @remarks
-   * The backend task ID.
-   * 
-   * @example
-   * 2209883
-   */
-  taskId?: number;
-  /**
-   * @remarks
-   * The IP address of the Anti-DDoS Proxy instance protected by the policy.
-   * 
-   * @example
-   * https://anchashi.aliyun-inc.coM
-   */
-  vip?: string;
+  updateTime?: string;
   static names(): { [key: string]: string } {
     return {
-      connectionString: 'ConnectionString',
-      contextDBInstanceName: 'ContextDBInstanceName',
-      DBInstanceId: 'DBInstanceId',
-      DBInstanceName: 'DBInstanceName',
-      DBInstanceNetType: 'DBInstanceNetType',
-      nodeType: 'NodeType',
-      port: 'Port',
-      taskId: 'TaskId',
-      vip: 'Vip',
+      createTime: 'CreateTime',
+      groupId: 'GroupId',
+      groupName: 'GroupName',
+      ips: 'Ips',
+      networkType: 'NetworkType',
+      remark: 'Remark',
+      updateTime: 'UpdateTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      connectionString: 'string',
-      contextDBInstanceName: 'string',
-      DBInstanceId: 'number',
-      DBInstanceName: 'string',
-      DBInstanceNetType: 'number',
-      nodeType: 'string',
-      port: 'string',
-      taskId: 'number',
-      vip: 'string',
+      createTime: 'string',
+      groupId: 'string',
+      groupName: 'string',
+      ips: 'string',
+      networkType: 'string',
+      remark: 'string',
+      updateTime: 'string',
     };
   }
 
@@ -202,23 +182,53 @@ export class AllocateContextDBPublicConnectionResponseBodyData extends $dara.Mod
   }
 }
 
-export class AllocateContextDBPublicConnectionResponseBody extends $dara.Model {
+export class DescribeOpenSearchWhitelistsResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The type of the Internet IPv4 whitelist addresses.
+   */
+  whitelists?: DescribeOpenSearchWhitelistsResponseBodyDataWhitelists[];
+  static names(): { [key: string]: string } {
+    return {
+      whitelists: 'Whitelists',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      whitelists: { 'type': 'array', 'itemType': DescribeOpenSearchWhitelistsResponseBodyDataWhitelists },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.whitelists)) {
+      $dara.Model.validateArray(this.whitelists);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeOpenSearchWhitelistsResponseBody extends $dara.Model {
   /**
    * @remarks
    * The details of the access denial.
    */
-  accessDeniedDetail?: AllocateContextDBPublicConnectionResponseBodyAccessDeniedDetail;
+  accessDeniedDetail?: DescribeOpenSearchWhitelistsResponseBodyAccessDeniedDetail;
   /**
    * @remarks
-   * The task details.
+   * The monitoring data.
    */
-  data?: AllocateContextDBPublicConnectionResponseBodyData;
+  data?: DescribeOpenSearchWhitelistsResponseBodyData;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
-   * C458B1E8-1683-3645-B154-6BA32080EEA
+   * D6A4256F-7B83-5BD7-9AC0-72E1FAC05330
    */
   requestId?: string;
   static names(): { [key: string]: string } {
@@ -231,8 +241,8 @@ export class AllocateContextDBPublicConnectionResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      accessDeniedDetail: AllocateContextDBPublicConnectionResponseBodyAccessDeniedDetail,
-      data: AllocateContextDBPublicConnectionResponseBodyData,
+      accessDeniedDetail: DescribeOpenSearchWhitelistsResponseBodyAccessDeniedDetail,
+      data: DescribeOpenSearchWhitelistsResponseBodyData,
       requestId: 'string',
     };
   }

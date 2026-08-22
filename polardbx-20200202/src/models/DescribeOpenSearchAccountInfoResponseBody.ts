@@ -2,7 +2,7 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class AllocateContextDBPublicConnectionResponseBodyAccessDeniedDetail extends $dara.Model {
+export class DescribeOpenSearchAccountInfoResponseBodyAccessDeniedDetail extends $dara.Model {
   /**
    * @remarks
    * The authentication action.
@@ -13,7 +13,7 @@ export class AllocateContextDBPublicConnectionResponseBodyAccessDeniedDetail ext
   authAction?: string;
   /**
    * @remarks
-   * The identity used for authentication in the request.
+   * The display name of the authentication principal.
    * 
    * @example
    * xxx
@@ -21,7 +21,7 @@ export class AllocateContextDBPublicConnectionResponseBodyAccessDeniedDetail ext
   authPrincipalDisplayName?: string;
   /**
    * @remarks
-   * The type of the authentication principal.
+   * The owner ID of the authentication principal.
    * 
    * @example
    * 111
@@ -29,7 +29,7 @@ export class AllocateContextDBPublicConnectionResponseBodyAccessDeniedDetail ext
   authPrincipalOwnerId?: string;
   /**
    * @remarks
-   * The type of the authentication principal.
+   * The authentication principal type.
    * 
    * @example
    * 222
@@ -37,7 +37,7 @@ export class AllocateContextDBPublicConnectionResponseBodyAccessDeniedDetail ext
   authPrincipalType?: string;
   /**
    * @remarks
-   * The encoded diagnostic message.
+   * The diagnostic information.
    * 
    * @example
    * AQEAAAAAaKPfwjY0MzMyODRGLUZCQkQtNTA1RS04MUUxLTc5NTkzODk2MUIzMg==
@@ -45,7 +45,7 @@ export class AllocateContextDBPublicConnectionResponseBodyAccessDeniedDetail ext
   encodedDiagnosticMessage?: string;
   /**
    * @remarks
-   * The type of the permission denial.
+   * NoPermissionType
    * 
    * @example
    * ImplicitDeny
@@ -53,10 +53,10 @@ export class AllocateContextDBPublicConnectionResponseBodyAccessDeniedDetail ext
   noPermissionType?: string;
   /**
    * @remarks
-   * PolicyType
+   * The policy type.
    * 
    * @example
-   * System
+   * PRIORITY
    */
   policyType?: string;
   static names(): { [key: string]: string } {
@@ -92,104 +92,51 @@ export class AllocateContextDBPublicConnectionResponseBodyAccessDeniedDetail ext
   }
 }
 
-export class AllocateContextDBPublicConnectionResponseBodyData extends $dara.Model {
+export class DescribeOpenSearchAccountInfoResponseBodyDataAccounts extends $dara.Model {
   /**
    * @remarks
-   * The endpoint.
+   * The account status. Valid values: 
    * 
-   * @example
-   * test2.polarx.huhehaote.rds.aliyuncs.com
-   */
-  connectionString?: string;
-  /**
-   * @remarks
-   * The name of the context service instance.
-   * 
-   * @example
-   * pxt-********
-   */
-  contextDBInstanceName?: string;
-  /**
-   * @remarks
-   * The instance ID.
-   * 
-   * @example
-   * pxsp-xxxxxxxxxx
-   */
-  DBInstanceId?: number;
-  /**
-   * @remarks
-   * The instance ID.
-   * 
-   * @example
-   * pxsp-*********
-   */
-  DBInstanceName?: string;
-  /**
-   * @remarks
-   * The network type of the endpoint.
+   * - **Creating**: The account is being created.
+   * - **Available**: The account is available.
+   * - **Deleting**: The account is being deleted.
    * 
    * @example
    * 1
    */
-  DBInstanceNetType?: number;
+  accountStatus?: string;
   /**
    * @remarks
-   * The type of the target node. Valid values: service and dashboard.
+   * The account type.
+   * 
+   * - Before three-role mode is enabled: 0 indicates a standard account, and 1 indicates a privileged account.
+   * - After three-role mode is enabled: 0 indicates a standard account, 2 indicates a system administrator account, 3 indicates a security administrator account, and 4 indicates an audit administrator account.
    * 
    * @example
-   * service
+   * 2,3,4
    */
-  nodeType?: string;
+  accountType?: string;
   /**
    * @remarks
-   * The port of the endpoint.
+   * The account name of the OpenSearch instance.
    * 
    * @example
-   * 3300
+   * elastic
    */
-  port?: string;
-  /**
-   * @remarks
-   * The backend task ID.
-   * 
-   * @example
-   * 2209883
-   */
-  taskId?: number;
-  /**
-   * @remarks
-   * The IP address of the Anti-DDoS Proxy instance protected by the policy.
-   * 
-   * @example
-   * https://anchashi.aliyun-inc.coM
-   */
-  vip?: string;
+  username?: string;
   static names(): { [key: string]: string } {
     return {
-      connectionString: 'ConnectionString',
-      contextDBInstanceName: 'ContextDBInstanceName',
-      DBInstanceId: 'DBInstanceId',
-      DBInstanceName: 'DBInstanceName',
-      DBInstanceNetType: 'DBInstanceNetType',
-      nodeType: 'NodeType',
-      port: 'Port',
-      taskId: 'TaskId',
-      vip: 'Vip',
+      accountStatus: 'AccountStatus',
+      accountType: 'AccountType',
+      username: 'Username',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      connectionString: 'string',
-      contextDBInstanceName: 'string',
-      DBInstanceId: 'number',
-      DBInstanceName: 'string',
-      DBInstanceNetType: 'number',
-      nodeType: 'string',
-      port: 'string',
-      taskId: 'number',
-      vip: 'string',
+      accountStatus: 'string',
+      accountType: 'string',
+      username: 'string',
     };
   }
 
@@ -202,23 +149,73 @@ export class AllocateContextDBPublicConnectionResponseBodyData extends $dara.Mod
   }
 }
 
-export class AllocateContextDBPublicConnectionResponseBody extends $dara.Model {
+export class DescribeOpenSearchAccountInfoResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The list of accounts.
+   */
+  accounts?: DescribeOpenSearchAccountInfoResponseBodyDataAccounts[];
+  /**
+   * @remarks
+   * The time when the password was last modified.
+   * 
+   * @example
+   * 2026-08-21T12:00:00Z
+   */
+  passwordLastModified?: string;
+  /**
+   * @remarks
+   * The account name of the OpenSearch instance.
+   * 
+   * @example
+   * elastic
+   */
+  username?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accounts: 'Accounts',
+      passwordLastModified: 'PasswordLastModified',
+      username: 'Username',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accounts: { 'type': 'array', 'itemType': DescribeOpenSearchAccountInfoResponseBodyDataAccounts },
+      passwordLastModified: 'string',
+      username: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.accounts)) {
+      $dara.Model.validateArray(this.accounts);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeOpenSearchAccountInfoResponseBody extends $dara.Model {
   /**
    * @remarks
    * The details of the access denial.
    */
-  accessDeniedDetail?: AllocateContextDBPublicConnectionResponseBodyAccessDeniedDetail;
+  accessDeniedDetail?: DescribeOpenSearchAccountInfoResponseBodyAccessDeniedDetail;
   /**
    * @remarks
-   * The task details.
+   * The data struct.
    */
-  data?: AllocateContextDBPublicConnectionResponseBodyData;
+  data?: DescribeOpenSearchAccountInfoResponseBodyData;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
-   * C458B1E8-1683-3645-B154-6BA32080EEA
+   * A501A191-BD70-5E50-98A9-C2A486A82****
    */
   requestId?: string;
   static names(): { [key: string]: string } {
@@ -231,8 +228,8 @@ export class AllocateContextDBPublicConnectionResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      accessDeniedDetail: AllocateContextDBPublicConnectionResponseBodyAccessDeniedDetail,
-      data: AllocateContextDBPublicConnectionResponseBodyData,
+      accessDeniedDetail: DescribeOpenSearchAccountInfoResponseBodyAccessDeniedDetail,
+      data: DescribeOpenSearchAccountInfoResponseBodyData,
       requestId: 'string',
     };
   }

@@ -189,6 +189,70 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Enables a public network connection for a specified physical ReplicaSet of the context service.
+   * 
+   * @remarks
+   * This operation is used to confirm that no active connections exist before a rollback task, ensuring operation safety.
+   * 
+   * @param request - AllocateContext0PublicConnectionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AllocateContext0PublicConnectionResponse
+   */
+  async allocateContext0PublicConnectionWithOptions(request: $_model.AllocateContext0PublicConnectionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AllocateContext0PublicConnectionResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.connectionStringPrefix)) {
+      query["ConnectionStringPrefix"] = request.connectionStringPrefix;
+    }
+
+    if (!$dara.isNull(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!$dara.isNull(request.nodeType)) {
+      query["NodeType"] = request.nodeType;
+    }
+
+    if (!$dara.isNull(request.port)) {
+      query["Port"] = request.port;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AllocateContext0PublicConnection",
+      version: "2020-02-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AllocateContext0PublicConnectionResponse>(await this.callApi(params, req, runtime), new $_model.AllocateContext0PublicConnectionResponse({}));
+  }
+
+  /**
+   * Enables a public network connection for a specified physical ReplicaSet of the context service.
+   * 
+   * @remarks
+   * This operation is used to confirm that no active connections exist before a rollback task, ensuring operation safety.
+   * 
+   * @param request - AllocateContext0PublicConnectionRequest
+   * @returns AllocateContext0PublicConnectionResponse
+   */
+  async allocateContext0PublicConnection(request: $_model.AllocateContext0PublicConnectionRequest): Promise<$_model.AllocateContext0PublicConnectionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.allocateContext0PublicConnectionWithOptions(request, runtime);
+  }
+
+  /**
    * Enables a public network connection for a ContextDB-X service ReplicaSet.
    * 
    * @remarks
@@ -897,6 +961,62 @@ export default class Client extends OpenApi {
   async createBackup(request: $_model.CreateBackupRequest): Promise<$_model.CreateBackupResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createBackupWithOptions(request, runtime);
+  }
+
+  /**
+   * Creates a context service.
+   * 
+   * @remarks
+   * <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
+   * 
+   * @param request - CreateContext0Request
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateContext0Response
+   */
+  async createContext0WithOptions(request: $_model.CreateContext0Request, runtime: $dara.RuntimeOptions): Promise<$_model.CreateContext0Response> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!$dara.isNull(request.openSearchInstanceName)) {
+      query["OpenSearchInstanceName"] = request.openSearchInstanceName;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateContext0",
+      version: "2020-02-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateContext0Response>(await this.callApi(params, req, runtime), new $_model.CreateContext0Response({}));
+  }
+
+  /**
+   * Creates a context service.
+   * 
+   * @remarks
+   * <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
+   * 
+   * @param request - CreateContext0Request
+   * @returns CreateContext0Response
+   */
+  async createContext0(request: $_model.CreateContext0Request): Promise<$_model.CreateContext0Response> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createContext0WithOptions(request, runtime);
   }
 
   /**
@@ -1686,6 +1806,254 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates a PolarDBX Search instance.
+   * 
+   * @remarks
+   * <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
+   * 
+   * @param request - CreateOpenSearchRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateOpenSearchResponse
+   */
+  async createOpenSearchWithOptions(request: $_model.CreateOpenSearchRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateOpenSearchResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.autoRenew)) {
+      query["AutoRenew"] = request.autoRenew;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.DBInstanceDescription)) {
+      query["DBInstanceDescription"] = request.DBInstanceDescription;
+    }
+
+    if (!$dara.isNull(request.DBNodeClass)) {
+      query["DBNodeClass"] = request.DBNodeClass;
+    }
+
+    if (!$dara.isNull(request.engineVersion)) {
+      query["EngineVersion"] = request.engineVersion;
+    }
+
+    if (!$dara.isNull(request.instanceSpec)) {
+      query["InstanceSpec"] = request.instanceSpec;
+    }
+
+    if (!$dara.isNull(request.nodeCount)) {
+      query["NodeCount"] = request.nodeCount;
+    }
+
+    if (!$dara.isNull(request.payType)) {
+      query["PayType"] = request.payType;
+    }
+
+    if (!$dara.isNull(request.period)) {
+      query["Period"] = request.period;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!$dara.isNull(request.storageSpace)) {
+      query["StorageSpace"] = request.storageSpace;
+    }
+
+    if (!$dara.isNull(request.storageType)) {
+      query["StorageType"] = request.storageType;
+    }
+
+    if (!$dara.isNull(request.topologyType)) {
+      query["TopologyType"] = request.topologyType;
+    }
+
+    if (!$dara.isNull(request.usedTime)) {
+      query["UsedTime"] = request.usedTime;
+    }
+
+    if (!$dara.isNull(request.VPCId)) {
+      query["VPCId"] = request.VPCId;
+    }
+
+    if (!$dara.isNull(request.vSwitchId)) {
+      query["VSwitchId"] = request.vSwitchId;
+    }
+
+    if (!$dara.isNull(request.zone2)) {
+      query["Zone2"] = request.zone2;
+    }
+
+    if (!$dara.isNull(request.zone3)) {
+      query["Zone3"] = request.zone3;
+    }
+
+    if (!$dara.isNull(request.zoneId)) {
+      query["ZoneId"] = request.zoneId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateOpenSearch",
+      version: "2020-02-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateOpenSearchResponse>(await this.callApi(params, req, runtime), new $_model.CreateOpenSearchResponse({}));
+  }
+
+  /**
+   * Creates a PolarDBX Search instance.
+   * 
+   * @remarks
+   * <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
+   * 
+   * @param request - CreateOpenSearchRequest
+   * @returns CreateOpenSearchResponse
+   */
+  async createOpenSearch(request: $_model.CreateOpenSearchRequest): Promise<$_model.CreateOpenSearchResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createOpenSearchWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建OpenSearch实例账号
+   * 
+   * @remarks
+   * <props="china">更多关于实例账号的信息，请参见[账号管理](https://help.aliyun.com/document_detail/172163.html)。
+   * 
+   * @param request - CreateOpenSearchAccountRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateOpenSearchAccountResponse
+   */
+  async createOpenSearchAccountWithOptions(request: $_model.CreateOpenSearchAccountRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateOpenSearchAccountResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.accountName)) {
+      query["AccountName"] = request.accountName;
+    }
+
+    if (!$dara.isNull(request.accountPassword)) {
+      query["AccountPassword"] = request.accountPassword;
+    }
+
+    if (!$dara.isNull(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateOpenSearchAccount",
+      version: "2020-02-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateOpenSearchAccountResponse>(await this.callApi(params, req, runtime), new $_model.CreateOpenSearchAccountResponse({}));
+  }
+
+  /**
+   * 创建OpenSearch实例账号
+   * 
+   * @remarks
+   * <props="china">更多关于实例账号的信息，请参见[账号管理](https://help.aliyun.com/document_detail/172163.html)。
+   * 
+   * @param request - CreateOpenSearchAccountRequest
+   * @returns CreateOpenSearchAccountResponse
+   */
+  async createOpenSearchAccount(request: $_model.CreateOpenSearchAccountRequest): Promise<$_model.CreateOpenSearchAccountResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createOpenSearchAccountWithOptions(request, runtime);
+  }
+
+  /**
+   * Creates a whitelist group for PolarDB-X Search.
+   * 
+   * @remarks
+   * <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
+   * 
+   * @param request - CreateOpenSearchWhitelistGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateOpenSearchWhitelistGroupResponse
+   */
+  async createOpenSearchWhitelistGroupWithOptions(request: $_model.CreateOpenSearchWhitelistGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateOpenSearchWhitelistGroupResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!$dara.isNull(request.groupName)) {
+      query["GroupName"] = request.groupName;
+    }
+
+    if (!$dara.isNull(request.IPs)) {
+      query["IPs"] = request.IPs;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.remark)) {
+      query["Remark"] = request.remark;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateOpenSearchWhitelistGroup",
+      version: "2020-02-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateOpenSearchWhitelistGroupResponse>(await this.callApi(params, req, runtime), new $_model.CreateOpenSearchWhitelistGroupResponse({}));
+  }
+
+  /**
+   * Creates a whitelist group for PolarDB-X Search.
+   * 
+   * @remarks
+   * <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
+   * 
+   * @param request - CreateOpenSearchWhitelistGroupRequest
+   * @returns CreateOpenSearchWhitelistGroupResponse
+   */
+  async createOpenSearchWhitelistGroup(request: $_model.CreateOpenSearchWhitelistGroupRequest): Promise<$_model.CreateOpenSearchWhitelistGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createOpenSearchWhitelistGroupWithOptions(request, runtime);
+  }
+
+  /**
    * Creates a Supabase instance.
    * 
    * @remarks
@@ -2460,6 +2828,58 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes a context service.
+   * 
+   * @remarks
+   * Deletes the custom endpoint of a specified database instance and disables access through the domain name.
+   * 
+   * @param request - DeleteContext0Request
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteContext0Response
+   */
+  async deleteContext0WithOptions(request: $_model.DeleteContext0Request, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteContext0Response> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteContext0",
+      version: "2020-02-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteContext0Response>(await this.callApi(params, req, runtime), new $_model.DeleteContext0Response({}));
+  }
+
+  /**
+   * Deletes a context service.
+   * 
+   * @remarks
+   * Deletes the custom endpoint of a specified database instance and disables access through the domain name.
+   * 
+   * @param request - DeleteContext0Request
+   * @returns DeleteContext0Response
+   */
+  async deleteContext0(request: $_model.DeleteContext0Request): Promise<$_model.DeleteContext0Response> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteContext0WithOptions(request, runtime);
+  }
+
+  /**
    * Deletes a ContextDB-X.
    * 
    * @remarks
@@ -2811,6 +3231,174 @@ export default class Client extends OpenApi {
   async deleteMem0(request: $_model.DeleteMem0Request): Promise<$_model.DeleteMem0Response> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteMem0WithOptions(request, runtime);
+  }
+
+  /**
+   * 释放OpenSearch实例
+   * 
+   * @remarks
+   * 删除指定数据库实例的自定义连接地址，关闭该域名的访问入口。
+   * 
+   * @param request - DeleteOpenSearchRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteOpenSearchResponse
+   */
+  async deleteOpenSearchWithOptions(request: $_model.DeleteOpenSearchRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteOpenSearchResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteOpenSearch",
+      version: "2020-02-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteOpenSearchResponse>(await this.callApi(params, req, runtime), new $_model.DeleteOpenSearchResponse({}));
+  }
+
+  /**
+   * 释放OpenSearch实例
+   * 
+   * @remarks
+   * 删除指定数据库实例的自定义连接地址，关闭该域名的访问入口。
+   * 
+   * @param request - DeleteOpenSearchRequest
+   * @returns DeleteOpenSearchResponse
+   */
+  async deleteOpenSearch(request: $_model.DeleteOpenSearchRequest): Promise<$_model.DeleteOpenSearchResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteOpenSearchWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除OpenSearch实例账号
+   * 
+   * @remarks
+   * <props="china">更多关于实例账号的信息，请参见[账号管理](https://help.aliyun.com/document_detail/172163.html)。
+   * 
+   * @param request - DeleteOpenSearchAccountRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteOpenSearchAccountResponse
+   */
+  async deleteOpenSearchAccountWithOptions(request: $_model.DeleteOpenSearchAccountRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteOpenSearchAccountResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.accountName)) {
+      query["AccountName"] = request.accountName;
+    }
+
+    if (!$dara.isNull(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteOpenSearchAccount",
+      version: "2020-02-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteOpenSearchAccountResponse>(await this.callApi(params, req, runtime), new $_model.DeleteOpenSearchAccountResponse({}));
+  }
+
+  /**
+   * 删除OpenSearch实例账号
+   * 
+   * @remarks
+   * <props="china">更多关于实例账号的信息，请参见[账号管理](https://help.aliyun.com/document_detail/172163.html)。
+   * 
+   * @param request - DeleteOpenSearchAccountRequest
+   * @returns DeleteOpenSearchAccountResponse
+   */
+  async deleteOpenSearchAccount(request: $_model.DeleteOpenSearchAccountRequest): Promise<$_model.DeleteOpenSearchAccountResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteOpenSearchAccountWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除OpenSearch实例白名单分组
+   * 
+   * @remarks
+   * - binlog文件默认保存15天。
+   * - 返回的日志列表中包含日志记录结束时间在查询开始时间之后，并且日志记录开始时间在查询结束时间之前的所有日志。
+   * - 当DownloadLink不为NULL时，用户可以根据此URL下载备份文件，此URL自生成后2天内有效，请在过期时间之前下载。
+   * 
+   * @param request - DeleteOpenSearchWhitelistGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteOpenSearchWhitelistGroupResponse
+   */
+  async deleteOpenSearchWhitelistGroupWithOptions(request: $_model.DeleteOpenSearchWhitelistGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteOpenSearchWhitelistGroupResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!$dara.isNull(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteOpenSearchWhitelistGroup",
+      version: "2020-02-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteOpenSearchWhitelistGroupResponse>(await this.callApi(params, req, runtime), new $_model.DeleteOpenSearchWhitelistGroupResponse({}));
+  }
+
+  /**
+   * 删除OpenSearch实例白名单分组
+   * 
+   * @remarks
+   * - binlog文件默认保存15天。
+   * - 返回的日志列表中包含日志记录结束时间在查询开始时间之后，并且日志记录开始时间在查询结束时间之前的所有日志。
+   * - 当DownloadLink不为NULL时，用户可以根据此URL下载备份文件，此URL自生成后2天内有效，请在过期时间之前下载。
+   * 
+   * @param request - DeleteOpenSearchWhitelistGroupRequest
+   * @returns DeleteOpenSearchWhitelistGroupResponse
+   */
+  async deleteOpenSearchWhitelistGroup(request: $_model.DeleteOpenSearchWhitelistGroupRequest): Promise<$_model.DeleteOpenSearchWhitelistGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteOpenSearchWhitelistGroupWithOptions(request, runtime);
   }
 
   /**
@@ -4033,6 +4621,162 @@ export default class Client extends OpenApi {
   async describeComponentPropeties(request: $_model.DescribeComponentPropetiesRequest): Promise<$_model.DescribeComponentPropetiesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeComponentPropetiesWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询Context0管理凭证
+   * 
+   * @remarks
+   * > * PolarDB-X 2.0 SQL审计与分析功能本身免费使用，但日志服务会对存储空间、读取流量、请求数量、数据加工、数据投递等进行收费，更多关于SQL审计功能的详情，请参见[开启SQL审计与分析](https://help.aliyun.com/document_detail/184619.html)。
+   * 
+   * @param request - DescribeContext0ConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeContext0ConfigResponse
+   */
+  async describeContext0ConfigWithOptions(request: $_model.DescribeContext0ConfigRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeContext0ConfigResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeContext0Config",
+      version: "2020-02-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeContext0ConfigResponse>(await this.callApi(params, req, runtime), new $_model.DescribeContext0ConfigResponse({}));
+  }
+
+  /**
+   * 查询Context0管理凭证
+   * 
+   * @remarks
+   * > * PolarDB-X 2.0 SQL审计与分析功能本身免费使用，但日志服务会对存储空间、读取流量、请求数量、数据加工、数据投递等进行收费，更多关于SQL审计功能的详情，请参见[开启SQL审计与分析](https://help.aliyun.com/document_detail/184619.html)。
+   * 
+   * @param request - DescribeContext0ConfigRequest
+   * @returns DescribeContext0ConfigResponse
+   */
+  async describeContext0Config(request: $_model.DescribeContext0ConfigRequest): Promise<$_model.DescribeContext0ConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeContext0ConfigWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the information about a context service instance.
+   * 
+   * @remarks
+   * > * The SQL audit and analysis feature of PolarDB-X 2.0 is free of charge. However, Simple Log Service charges fees for storage space, read traffic, number of requests, data transformation, and data shipping. For more information about the SQL audit feature, see [Enable SQL audit and analysis](https://help.aliyun.com/document_detail/184619.html).
+   * 
+   * @param request - DescribeContext0InfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeContext0InfoResponse
+   */
+  async describeContext0InfoWithOptions(request: $_model.DescribeContext0InfoRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeContext0InfoResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeContext0Info",
+      version: "2020-02-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeContext0InfoResponse>(await this.callApi(params, req, runtime), new $_model.DescribeContext0InfoResponse({}));
+  }
+
+  /**
+   * Queries the information about a context service instance.
+   * 
+   * @remarks
+   * > * The SQL audit and analysis feature of PolarDB-X 2.0 is free of charge. However, Simple Log Service charges fees for storage space, read traffic, number of requests, data transformation, and data shipping. For more information about the SQL audit feature, see [Enable SQL audit and analysis](https://help.aliyun.com/document_detail/184619.html).
+   * 
+   * @param request - DescribeContext0InfoRequest
+   * @returns DescribeContext0InfoResponse
+   */
+  async describeContext0Info(request: $_model.DescribeContext0InfoRequest): Promise<$_model.DescribeContext0InfoResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeContext0InfoWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the whitelist of the context service.
+   * 
+   * @remarks
+   * > * The SQL audit and analysis feature of PolarDB-X 2.0 is free of charge. However, Simple Log Service charges fees for storage space, read traffic, number of requests, data transformation, and data shipping. For more information about the SQL audit feature, see [Enable SQL audit and analysis](https://help.aliyun.com/document_detail/184619.html).
+   * 
+   * @param request - DescribeContext0SecurityIpsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeContext0SecurityIpsResponse
+   */
+  async describeContext0SecurityIpsWithOptions(request: $_model.DescribeContext0SecurityIpsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeContext0SecurityIpsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeContext0SecurityIps",
+      version: "2020-02-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeContext0SecurityIpsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeContext0SecurityIpsResponse({}));
+  }
+
+  /**
+   * Queries the whitelist of the context service.
+   * 
+   * @remarks
+   * > * The SQL audit and analysis feature of PolarDB-X 2.0 is free of charge. However, Simple Log Service charges fees for storage space, read traffic, number of requests, data transformation, and data shipping. For more information about the SQL audit feature, see [Enable SQL audit and analysis](https://help.aliyun.com/document_detail/184619.html).
+   * 
+   * @param request - DescribeContext0SecurityIpsRequest
+   * @returns DescribeContext0SecurityIpsResponse
+   */
+  async describeContext0SecurityIps(request: $_model.DescribeContext0SecurityIpsRequest): Promise<$_model.DescribeContext0SecurityIpsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeContext0SecurityIpsWithOptions(request, runtime);
   }
 
   /**
@@ -5373,6 +6117,446 @@ export default class Client extends OpenApi {
   async describeOpenBackupSet(request: $_model.DescribeOpenBackupSetRequest): Promise<$_model.DescribeOpenBackupSetResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeOpenBackupSetWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the account information of PolarDB-X Search.
+   * 
+   * @remarks
+   * <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
+   * 
+   * @param request - DescribeOpenSearchAccountInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeOpenSearchAccountInfoResponse
+   */
+  async describeOpenSearchAccountInfoWithOptions(request: $_model.DescribeOpenSearchAccountInfoRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeOpenSearchAccountInfoResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeOpenSearchAccountInfo",
+      version: "2020-02-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeOpenSearchAccountInfoResponse>(await this.callApi(params, req, runtime), new $_model.DescribeOpenSearchAccountInfoResponse({}));
+  }
+
+  /**
+   * Queries the account information of PolarDB-X Search.
+   * 
+   * @remarks
+   * <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
+   * 
+   * @param request - DescribeOpenSearchAccountInfoRequest
+   * @returns DescribeOpenSearchAccountInfoResponse
+   */
+  async describeOpenSearchAccountInfo(request: $_model.DescribeOpenSearchAccountInfoRequest): Promise<$_model.DescribeOpenSearchAccountInfoResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeOpenSearchAccountInfoWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the connection information of PolarDB-X Search, including internal, public, and Dashboard endpoints and protocols.
+   * 
+   * @remarks
+   * During the data synchronization phase, proactively initiates a diagnostic task for the replication task to check for exceptions such as latency, replication interruption, or data inconsistency.
+   * 
+   * @param request - DescribeOpenSearchConnectionInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeOpenSearchConnectionInfoResponse
+   */
+  async describeOpenSearchConnectionInfoWithOptions(request: $_model.DescribeOpenSearchConnectionInfoRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeOpenSearchConnectionInfoResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeOpenSearchConnectionInfo",
+      version: "2020-02-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeOpenSearchConnectionInfoResponse>(await this.callApi(params, req, runtime), new $_model.DescribeOpenSearchConnectionInfoResponse({}));
+  }
+
+  /**
+   * Queries the connection information of PolarDB-X Search, including internal, public, and Dashboard endpoints and protocols.
+   * 
+   * @remarks
+   * During the data synchronization phase, proactively initiates a diagnostic task for the replication task to check for exceptions such as latency, replication interruption, or data inconsistency.
+   * 
+   * @param request - DescribeOpenSearchConnectionInfoRequest
+   * @returns DescribeOpenSearchConnectionInfoResponse
+   */
+  async describeOpenSearchConnectionInfo(request: $_model.DescribeOpenSearchConnectionInfoRequest): Promise<$_model.DescribeOpenSearchConnectionInfoResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeOpenSearchConnectionInfoWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the information about a PolarDB-X Search instance.
+   * 
+   * @remarks
+   * > * The SQL audit and analysis feature of PolarDB-X 2.0 is free of charge. However, Simple Log Service charges fees for storage space, read traffic, number of requests, data transformation, and data shipping. For more information about the SQL audit feature, see [Enable SQL audit and analysis](https://help.aliyun.com/document_detail/184619.html).
+   * 
+   * @param request - DescribeOpenSearchInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeOpenSearchInfoResponse
+   */
+  async describeOpenSearchInfoWithOptions(request: $_model.DescribeOpenSearchInfoRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeOpenSearchInfoResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeOpenSearchInfo",
+      version: "2020-02-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeOpenSearchInfoResponse>(await this.callApi(params, req, runtime), new $_model.DescribeOpenSearchInfoResponse({}));
+  }
+
+  /**
+   * Queries the information about a PolarDB-X Search instance.
+   * 
+   * @remarks
+   * > * The SQL audit and analysis feature of PolarDB-X 2.0 is free of charge. However, Simple Log Service charges fees for storage space, read traffic, number of requests, data transformation, and data shipping. For more information about the SQL audit feature, see [Enable SQL audit and analysis](https://help.aliyun.com/document_detail/184619.html).
+   * 
+   * @param request - DescribeOpenSearchInfoRequest
+   * @returns DescribeOpenSearchInfoResponse
+   */
+  async describeOpenSearchInfo(request: $_model.DescribeOpenSearchInfoRequest): Promise<$_model.DescribeOpenSearchInfoResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeOpenSearchInfoWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询OpenSearch实例列表
+   * 
+   * @remarks
+   * 该接口用于获取用户已配置的自定义终端节点（Endpoint）列表，便于管理和查看私有连接或VPC终端服务的设置。
+   * 
+   * @param request - DescribeOpenSearchInstancesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeOpenSearchInstancesResponse
+   */
+  async describeOpenSearchInstancesWithOptions(request: $_model.DescribeOpenSearchInstancesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeOpenSearchInstancesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeOpenSearchInstances",
+      version: "2020-02-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeOpenSearchInstancesResponse>(await this.callApi(params, req, runtime), new $_model.DescribeOpenSearchInstancesResponse({}));
+  }
+
+  /**
+   * 查询OpenSearch实例列表
+   * 
+   * @remarks
+   * 该接口用于获取用户已配置的自定义终端节点（Endpoint）列表，便于管理和查看私有连接或VPC终端服务的设置。
+   * 
+   * @param request - DescribeOpenSearchInstancesRequest
+   * @returns DescribeOpenSearchInstancesResponse
+   */
+  async describeOpenSearchInstances(request: $_model.DescribeOpenSearchInstancesRequest): Promise<$_model.DescribeOpenSearchInstancesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeOpenSearchInstancesWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the list of PolarDB-X Search nodes.
+   * 
+   * @remarks
+   * Retrieves the list of virtual private clouds (VPCs) available under your account for an instance, so that you can select an appropriate network environment when creating or managing database instances.
+   * 
+   * @param request - DescribeOpenSearchNodesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeOpenSearchNodesResponse
+   */
+  async describeOpenSearchNodesWithOptions(request: $_model.DescribeOpenSearchNodesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeOpenSearchNodesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeOpenSearchNodes",
+      version: "2020-02-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeOpenSearchNodesResponse>(await this.callApi(params, req, runtime), new $_model.DescribeOpenSearchNodesResponse({}));
+  }
+
+  /**
+   * Queries the list of PolarDB-X Search nodes.
+   * 
+   * @remarks
+   * Retrieves the list of virtual private clouds (VPCs) available under your account for an instance, so that you can select an appropriate network environment when creating or managing database instances.
+   * 
+   * @param request - DescribeOpenSearchNodesRequest
+   * @returns DescribeOpenSearchNodesResponse
+   */
+  async describeOpenSearchNodes(request: $_model.DescribeOpenSearchNodesRequest): Promise<$_model.DescribeOpenSearchNodesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeOpenSearchNodesWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the resource usage of a PolarDB-X Search cluster.
+   * 
+   * @remarks
+   * <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
+   * 
+   * @param request - DescribeOpenSearchResourceUsageRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeOpenSearchResourceUsageResponse
+   */
+  async describeOpenSearchResourceUsageWithOptions(request: $_model.DescribeOpenSearchResourceUsageRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeOpenSearchResourceUsageResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeOpenSearchResourceUsage",
+      version: "2020-02-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeOpenSearchResourceUsageResponse>(await this.callApi(params, req, runtime), new $_model.DescribeOpenSearchResourceUsageResponse({}));
+  }
+
+  /**
+   * Queries the resource usage of a PolarDB-X Search cluster.
+   * 
+   * @remarks
+   * <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
+   * 
+   * @param request - DescribeOpenSearchResourceUsageRequest
+   * @returns DescribeOpenSearchResourceUsageResponse
+   */
+  async describeOpenSearchResourceUsage(request: $_model.DescribeOpenSearchResourceUsageRequest): Promise<$_model.DescribeOpenSearchResourceUsageResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeOpenSearchResourceUsageWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询OpenSearch实例拓扑
+   * 
+   * @remarks
+   * - binlog文件默认保存15天。
+   * - 返回的日志列表中包含日志记录结束时间在查询开始时间之后，并且日志记录开始时间在查询结束时间之前的所有日志。
+   * - 当DownloadLink不为NULL时，用户可以根据此URL下载备份文件，此URL自生成后2天内有效，请在过期时间之前下载。
+   * 
+   * @param request - DescribeOpenSearchTopologyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeOpenSearchTopologyResponse
+   */
+  async describeOpenSearchTopologyWithOptions(request: $_model.DescribeOpenSearchTopologyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeOpenSearchTopologyResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeOpenSearchTopology",
+      version: "2020-02-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeOpenSearchTopologyResponse>(await this.callApi(params, req, runtime), new $_model.DescribeOpenSearchTopologyResponse({}));
+  }
+
+  /**
+   * 查询OpenSearch实例拓扑
+   * 
+   * @remarks
+   * - binlog文件默认保存15天。
+   * - 返回的日志列表中包含日志记录结束时间在查询开始时间之后，并且日志记录开始时间在查询结束时间之前的所有日志。
+   * - 当DownloadLink不为NULL时，用户可以根据此URL下载备份文件，此URL自生成后2天内有效，请在过期时间之前下载。
+   * 
+   * @param request - DescribeOpenSearchTopologyRequest
+   * @returns DescribeOpenSearchTopologyResponse
+   */
+  async describeOpenSearchTopology(request: $_model.DescribeOpenSearchTopologyRequest): Promise<$_model.DescribeOpenSearchTopologyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeOpenSearchTopologyWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the whitelist of a PolarDB-X Search instance. You can filter the results by network type.
+   * 
+   * @remarks
+   * - Binary log files are retained for 15 days by default.
+   * - The returned log list includes all logs whose log record end time is after the query start time and whose log record start time is before the query end time.
+   * - If DownloadLink is not NULL, you can use the URL to download the backup file. The URL is valid for 2 days after it is generated. Download the file before the URL expires.
+   * 
+   * @param request - DescribeOpenSearchWhitelistsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeOpenSearchWhitelistsResponse
+   */
+  async describeOpenSearchWhitelistsWithOptions(request: $_model.DescribeOpenSearchWhitelistsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeOpenSearchWhitelistsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeOpenSearchWhitelists",
+      version: "2020-02-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeOpenSearchWhitelistsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeOpenSearchWhitelistsResponse({}));
+  }
+
+  /**
+   * Queries the whitelist of a PolarDB-X Search instance. You can filter the results by network type.
+   * 
+   * @remarks
+   * - Binary log files are retained for 15 days by default.
+   * - The returned log list includes all logs whose log record end time is after the query start time and whose log record start time is before the query end time.
+   * - If DownloadLink is not NULL, you can use the URL to download the backup file. The URL is valid for 2 days after it is generated. Download the file before the URL expires.
+   * 
+   * @param request - DescribeOpenSearchWhitelistsRequest
+   * @returns DescribeOpenSearchWhitelistsResponse
+   */
+  async describeOpenSearchWhitelists(request: $_model.DescribeOpenSearchWhitelistsRequest): Promise<$_model.DescribeOpenSearchWhitelistsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeOpenSearchWhitelistsWithOptions(request, runtime);
   }
 
   /**
@@ -6843,6 +8027,62 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Disables public network access for PolarDB-X Search.
+   * 
+   * @remarks
+   * <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
+   * 
+   * @param request - DisableOpenSearchPublicEndpointRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DisableOpenSearchPublicEndpointResponse
+   */
+  async disableOpenSearchPublicEndpointWithOptions(request: $_model.DisableOpenSearchPublicEndpointRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DisableOpenSearchPublicEndpointResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!$dara.isNull(request.nodeType)) {
+      query["NodeType"] = request.nodeType;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DisableOpenSearchPublicEndpoint",
+      version: "2020-02-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DisableOpenSearchPublicEndpointResponse>(await this.callApi(params, req, runtime), new $_model.DisableOpenSearchPublicEndpointResponse({}));
+  }
+
+  /**
+   * Disables public network access for PolarDB-X Search.
+   * 
+   * @remarks
+   * <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
+   * 
+   * @param request - DisableOpenSearchPublicEndpointRequest
+   * @returns DisableOpenSearchPublicEndpointResponse
+   */
+  async disableOpenSearchPublicEndpoint(request: $_model.DisableOpenSearchPublicEndpointRequest): Promise<$_model.DisableOpenSearchPublicEndpointResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.disableOpenSearchPublicEndpointWithOptions(request, runtime);
+  }
+
+  /**
    * Disables three-role mode.
    * 
    * @param request - DisableRightsSeparationRequest
@@ -6954,6 +8194,62 @@ export default class Client extends OpenApi {
   async disableSqlAudit(request: $_model.DisableSqlAuditRequest): Promise<$_model.DisableSqlAuditResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.disableSqlAuditWithOptions(request, runtime);
+  }
+
+  /**
+   * Enables public network access for PolarDBX Search.
+   * 
+   * @remarks
+   * <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
+   * 
+   * @param request - EnableOpenSearchPublicEndpointRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns EnableOpenSearchPublicEndpointResponse
+   */
+  async enableOpenSearchPublicEndpointWithOptions(request: $_model.EnableOpenSearchPublicEndpointRequest, runtime: $dara.RuntimeOptions): Promise<$_model.EnableOpenSearchPublicEndpointResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!$dara.isNull(request.nodeType)) {
+      query["NodeType"] = request.nodeType;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "EnableOpenSearchPublicEndpoint",
+      version: "2020-02-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.EnableOpenSearchPublicEndpointResponse>(await this.callApi(params, req, runtime), new $_model.EnableOpenSearchPublicEndpointResponse({}));
+  }
+
+  /**
+   * Enables public network access for PolarDBX Search.
+   * 
+   * @remarks
+   * <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
+   * 
+   * @param request - EnableOpenSearchPublicEndpointRequest
+   * @returns EnableOpenSearchPublicEndpointResponse
+   */
+  async enableOpenSearchPublicEndpoint(request: $_model.EnableOpenSearchPublicEndpointRequest): Promise<$_model.EnableOpenSearchPublicEndpointResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.enableOpenSearchPublicEndpointWithOptions(request, runtime);
   }
 
   /**
@@ -7623,6 +8919,70 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Synchronously modifies the whitelists of the context service (Service) and Dashboard.
+   * 
+   * @remarks
+   * ***
+   * 
+   * @param request - ModifyContext0SecurityIpsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyContext0SecurityIpsResponse
+   */
+  async modifyContext0SecurityIpsWithOptions(request: $_model.ModifyContext0SecurityIpsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyContext0SecurityIpsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!$dara.isNull(request.groupName)) {
+      query["GroupName"] = request.groupName;
+    }
+
+    if (!$dara.isNull(request.modifyMode)) {
+      query["ModifyMode"] = request.modifyMode;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.securityIPList)) {
+      query["SecurityIPList"] = request.securityIPList;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyContext0SecurityIps",
+      version: "2020-02-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyContext0SecurityIpsResponse>(await this.callApi(params, req, runtime), new $_model.ModifyContext0SecurityIpsResponse({}));
+  }
+
+  /**
+   * Synchronously modifies the whitelists of the context service (Service) and Dashboard.
+   * 
+   * @remarks
+   * ***
+   * 
+   * @param request - ModifyContext0SecurityIpsRequest
+   * @returns ModifyContext0SecurityIpsResponse
+   */
+  async modifyContext0SecurityIps(request: $_model.ModifyContext0SecurityIpsRequest): Promise<$_model.ModifyContext0SecurityIpsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyContext0SecurityIpsWithOptions(request, runtime);
+  }
+
+  /**
    * Modifies the whitelist of a ContextDB-X service ReplicaSet.
    * 
    * @remarks
@@ -7840,6 +9200,10 @@ export default class Client extends OpenApi {
   async modifyDBInstanceClassWithOptions(request: $_model.ModifyDBInstanceClassRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyDBInstanceClassResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.alignStoragePrimaryAzone)) {
+      query["AlignStoragePrimaryAzone"] = request.alignStoragePrimaryAzone;
+    }
+
     if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
@@ -7870,6 +9234,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.specifiedDNSpecMapJson)) {
       query["SpecifiedDNSpecMapJson"] = request.specifiedDNSpecMapJson;
+    }
+
+    if (!$dara.isNull(request.storageType)) {
+      query["StorageType"] = request.storageType;
     }
 
     if (!$dara.isNull(request.switchTime)) {
@@ -8385,6 +9753,186 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Switches the access protocol (HTTP/HTTPS) for PolarDB-X Search.
+   * 
+   * @remarks
+   * ***
+   * 
+   * @param request - ModifyOpenSearchAccessProtocolRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyOpenSearchAccessProtocolResponse
+   */
+  async modifyOpenSearchAccessProtocolWithOptions(request: $_model.ModifyOpenSearchAccessProtocolRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyOpenSearchAccessProtocolResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!$dara.isNull(request.protocol)) {
+      query["Protocol"] = request.protocol;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyOpenSearchAccessProtocol",
+      version: "2020-02-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyOpenSearchAccessProtocolResponse>(await this.callApi(params, req, runtime), new $_model.ModifyOpenSearchAccessProtocolResponse({}));
+  }
+
+  /**
+   * Switches the access protocol (HTTP/HTTPS) for PolarDB-X Search.
+   * 
+   * @remarks
+   * ***
+   * 
+   * @param request - ModifyOpenSearchAccessProtocolRequest
+   * @returns ModifyOpenSearchAccessProtocolResponse
+   */
+  async modifyOpenSearchAccessProtocol(request: $_model.ModifyOpenSearchAccessProtocolRequest): Promise<$_model.ModifyOpenSearchAccessProtocolResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyOpenSearchAccessProtocolWithOptions(request, runtime);
+  }
+
+  /**
+   * Changes the specifications of a PolarDB-X Search instance.
+   * 
+   * @remarks
+   * ***
+   * 
+   * @param request - ModifyOpenSearchClassRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyOpenSearchClassResponse
+   */
+  async modifyOpenSearchClassWithOptions(request: $_model.ModifyOpenSearchClassRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyOpenSearchClassResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceDiskSize)) {
+      query["DBInstanceDiskSize"] = request.DBInstanceDiskSize;
+    }
+
+    if (!$dara.isNull(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.searchClassCode)) {
+      query["SearchClassCode"] = request.searchClassCode;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyOpenSearchClass",
+      version: "2020-02-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyOpenSearchClassResponse>(await this.callApi(params, req, runtime), new $_model.ModifyOpenSearchClassResponse({}));
+  }
+
+  /**
+   * Changes the specifications of a PolarDB-X Search instance.
+   * 
+   * @remarks
+   * ***
+   * 
+   * @param request - ModifyOpenSearchClassRequest
+   * @returns ModifyOpenSearchClassResponse
+   */
+  async modifyOpenSearchClass(request: $_model.ModifyOpenSearchClassRequest): Promise<$_model.ModifyOpenSearchClassResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyOpenSearchClassWithOptions(request, runtime);
+  }
+
+  /**
+   * Modifies a PolarDB-X Search whitelist group.
+   * 
+   * @remarks
+   * ***
+   * 
+   * @param request - ModifyOpenSearchWhitelistGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyOpenSearchWhitelistGroupResponse
+   */
+  async modifyOpenSearchWhitelistGroupWithOptions(request: $_model.ModifyOpenSearchWhitelistGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyOpenSearchWhitelistGroupResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!$dara.isNull(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!$dara.isNull(request.IPs)) {
+      query["IPs"] = request.IPs;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.remark)) {
+      query["Remark"] = request.remark;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyOpenSearchWhitelistGroup",
+      version: "2020-02-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyOpenSearchWhitelistGroupResponse>(await this.callApi(params, req, runtime), new $_model.ModifyOpenSearchWhitelistGroupResponse({}));
+  }
+
+  /**
+   * Modifies a PolarDB-X Search whitelist group.
+   * 
+   * @remarks
+   * ***
+   * 
+   * @param request - ModifyOpenSearchWhitelistGroupRequest
+   * @returns ModifyOpenSearchWhitelistGroupResponse
+   */
+  async modifyOpenSearchWhitelistGroup(request: $_model.ModifyOpenSearchWhitelistGroupRequest): Promise<$_model.ModifyOpenSearchWhitelistGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyOpenSearchWhitelistGroupWithOptions(request, runtime);
+  }
+
+  /**
    * Modifies instance parameters, including parameters at the compute layer and storage layer.
    * 
    * @param request - ModifyParameterRequest
@@ -8843,6 +10391,66 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Shuts down the public network connection of a specified physical ReplicaSet for the context service.
+   * 
+   * @remarks
+   * This operation is used to confirm that no active connections exist before a rollback task, ensuring operation safety.
+   * 
+   * @param request - ReleaseContext0PublicConnectionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ReleaseContext0PublicConnectionResponse
+   */
+  async releaseContext0PublicConnectionWithOptions(request: $_model.ReleaseContext0PublicConnectionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ReleaseContext0PublicConnectionResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.currentConnectionString)) {
+      query["CurrentConnectionString"] = request.currentConnectionString;
+    }
+
+    if (!$dara.isNull(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!$dara.isNull(request.nodeType)) {
+      query["NodeType"] = request.nodeType;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ReleaseContext0PublicConnection",
+      version: "2020-02-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ReleaseContext0PublicConnectionResponse>(await this.callApi(params, req, runtime), new $_model.ReleaseContext0PublicConnectionResponse({}));
+  }
+
+  /**
+   * Shuts down the public network connection of a specified physical ReplicaSet for the context service.
+   * 
+   * @remarks
+   * This operation is used to confirm that no active connections exist before a rollback task, ensuring operation safety.
+   * 
+   * @param request - ReleaseContext0PublicConnectionRequest
+   * @returns ReleaseContext0PublicConnectionResponse
+   */
+  async releaseContext0PublicConnection(request: $_model.ReleaseContext0PublicConnectionRequest): Promise<$_model.ReleaseContext0PublicConnectionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.releaseContext0PublicConnectionWithOptions(request, runtime);
+  }
+
+  /**
    * Shuts down the public network connection for a ContextDB-X service ReplicaSet.
    * 
    * @remarks
@@ -9195,6 +10803,66 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Resets the password of a PolarDB-X Search instance without requiring the old password (RAM permission check required).
+   * 
+   * @remarks
+   * ***
+   * 
+   * @param request - ResetOpenSearchPasswordRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ResetOpenSearchPasswordResponse
+   */
+  async resetOpenSearchPasswordWithOptions(request: $_model.ResetOpenSearchPasswordRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ResetOpenSearchPasswordResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.accountName)) {
+      query["AccountName"] = request.accountName;
+    }
+
+    if (!$dara.isNull(request.accountPassword)) {
+      query["AccountPassword"] = request.accountPassword;
+    }
+
+    if (!$dara.isNull(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ResetOpenSearchPassword",
+      version: "2020-02-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ResetOpenSearchPasswordResponse>(await this.callApi(params, req, runtime), new $_model.ResetOpenSearchPasswordResponse({}));
+  }
+
+  /**
+   * Resets the password of a PolarDB-X Search instance without requiring the old password (RAM permission check required).
+   * 
+   * @remarks
+   * ***
+   * 
+   * @param request - ResetOpenSearchPasswordRequest
+   * @returns ResetOpenSearchPasswordResponse
+   */
+  async resetOpenSearchPassword(request: $_model.ResetOpenSearchPasswordRequest): Promise<$_model.ResetOpenSearchPasswordResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.resetOpenSearchPasswordWithOptions(request, runtime);
+  }
+
+  /**
    * Restarts an instance by calling the RestartDBInstance operation.
    * 
    * @param request - RestartDBInstanceRequest
@@ -9292,6 +10960,58 @@ export default class Client extends OpenApi {
   async restartDataImportTask(request: $_model.RestartDataImportTaskRequest): Promise<$_model.RestartDataImportTaskResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.restartDataImportTaskWithOptions(request, runtime);
+  }
+
+  /**
+   * 重启OpenSearch实例
+   * 
+   * @remarks
+   * ***
+   * 
+   * @param request - RestartOpenSearchRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RestartOpenSearchResponse
+   */
+  async restartOpenSearchWithOptions(request: $_model.RestartOpenSearchRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RestartOpenSearchResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RestartOpenSearch",
+      version: "2020-02-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RestartOpenSearchResponse>(await this.callApi(params, req, runtime), new $_model.RestartOpenSearchResponse({}));
+  }
+
+  /**
+   * 重启OpenSearch实例
+   * 
+   * @remarks
+   * ***
+   * 
+   * @param request - RestartOpenSearchRequest
+   * @returns RestartOpenSearchResponse
+   */
+  async restartOpenSearch(request: $_model.RestartOpenSearchRequest): Promise<$_model.RestartOpenSearchResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.restartOpenSearchWithOptions(request, runtime);
   }
 
   /**
@@ -9512,6 +11232,118 @@ export default class Client extends OpenApi {
   async restoreDBInstance(request: $_model.RestoreDBInstanceRequest): Promise<$_model.RestoreDBInstanceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.restoreDBInstanceWithOptions(request, runtime);
+  }
+
+  /**
+   * Scales in nodes of a PolarDB-X Search cluster.
+   * 
+   * @remarks
+   * ***
+   * 
+   * @param request - ScaleInOpenSearchRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ScaleInOpenSearchResponse
+   */
+  async scaleInOpenSearchWithOptions(request: $_model.ScaleInOpenSearchRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ScaleInOpenSearchResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.searchNodeCount)) {
+      query["SearchNodeCount"] = request.searchNodeCount;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ScaleInOpenSearch",
+      version: "2020-02-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ScaleInOpenSearchResponse>(await this.callApi(params, req, runtime), new $_model.ScaleInOpenSearchResponse({}));
+  }
+
+  /**
+   * Scales in nodes of a PolarDB-X Search cluster.
+   * 
+   * @remarks
+   * ***
+   * 
+   * @param request - ScaleInOpenSearchRequest
+   * @returns ScaleInOpenSearchResponse
+   */
+  async scaleInOpenSearch(request: $_model.ScaleInOpenSearchRequest): Promise<$_model.ScaleInOpenSearchResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.scaleInOpenSearchWithOptions(request, runtime);
+  }
+
+  /**
+   * Scales out nodes in a PolarDB-X Search cluster.
+   * 
+   * @remarks
+   * <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
+   * 
+   * @param request - ScaleOutOpenSearchRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ScaleOutOpenSearchResponse
+   */
+  async scaleOutOpenSearchWithOptions(request: $_model.ScaleOutOpenSearchRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ScaleOutOpenSearchResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.searchNodeCount)) {
+      query["SearchNodeCount"] = request.searchNodeCount;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ScaleOutOpenSearch",
+      version: "2020-02-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ScaleOutOpenSearchResponse>(await this.callApi(params, req, runtime), new $_model.ScaleOutOpenSearchResponse({}));
+  }
+
+  /**
+   * Scales out nodes in a PolarDB-X Search cluster.
+   * 
+   * @remarks
+   * <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
+   * 
+   * @param request - ScaleOutOpenSearchRequest
+   * @returns ScaleOutOpenSearchResponse
+   */
+  async scaleOutOpenSearch(request: $_model.ScaleOutOpenSearchRequest): Promise<$_model.ScaleOutOpenSearchResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.scaleOutOpenSearchWithOptions(request, runtime);
   }
 
   /**

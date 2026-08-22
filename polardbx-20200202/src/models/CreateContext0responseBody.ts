@@ -2,7 +2,7 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class AllocateContextDBPublicConnectionResponseBodyAccessDeniedDetail extends $dara.Model {
+export class CreateContext0ResponseBodyAccessDeniedDetail extends $dara.Model {
   /**
    * @remarks
    * The authentication action.
@@ -13,7 +13,7 @@ export class AllocateContextDBPublicConnectionResponseBodyAccessDeniedDetail ext
   authAction?: string;
   /**
    * @remarks
-   * The identity used for authentication in the request.
+   * The display name of the authentication principal.
    * 
    * @example
    * xxx
@@ -21,7 +21,7 @@ export class AllocateContextDBPublicConnectionResponseBodyAccessDeniedDetail ext
   authPrincipalDisplayName?: string;
   /**
    * @remarks
-   * The type of the authentication principal.
+   * The owner ID of the authentication principal.
    * 
    * @example
    * 111
@@ -45,7 +45,7 @@ export class AllocateContextDBPublicConnectionResponseBodyAccessDeniedDetail ext
   encodedDiagnosticMessage?: string;
   /**
    * @remarks
-   * The type of the permission denial.
+   * NoPermissionType
    * 
    * @example
    * ImplicitDeny
@@ -53,7 +53,7 @@ export class AllocateContextDBPublicConnectionResponseBodyAccessDeniedDetail ext
   noPermissionType?: string;
   /**
    * @remarks
-   * PolicyType
+   * The policy type.
    * 
    * @example
    * System
@@ -92,63 +92,55 @@ export class AllocateContextDBPublicConnectionResponseBodyAccessDeniedDetail ext
   }
 }
 
-export class AllocateContextDBPublicConnectionResponseBodyData extends $dara.Model {
+export class CreateContext0ResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The endpoint.
+   * The administrator key of the context service.
    * 
    * @example
-   * test2.polarx.huhehaote.rds.aliyuncs.com
+   * admin-key-example
    */
-  connectionString?: string;
+  context0AdminKey?: string;
   /**
    * @remarks
    * The name of the context service instance.
    * 
    * @example
-   * pxt-********
+   * context0-example
    */
-  contextDBInstanceName?: string;
+  context0InstanceName?: string;
   /**
    * @remarks
-   * The instance ID.
+   * The instance name.
    * 
    * @example
-   * pxsp-xxxxxxxxxx
-   */
-  DBInstanceId?: number;
-  /**
-   * @remarks
-   * The instance ID.
-   * 
-   * @example
-   * pxsp-*********
+   * pxc-*********
    */
   DBInstanceName?: string;
   /**
    * @remarks
-   * The network type of the endpoint.
+   * The name of the context service dashboard instance.
    * 
    * @example
-   * 1
+   * pxt-*********-d
    */
-  DBInstanceNetType?: number;
+  dashboardReplicaSetName?: string;
   /**
    * @remarks
-   * The type of the target node. Valid values: service and dashboard.
+   * The name of the PolarDB-X Search instance.
    * 
    * @example
-   * service
+   * pxs-*********
    */
-  nodeType?: string;
+  openSearchInstanceName?: string;
   /**
    * @remarks
-   * The port of the endpoint.
+   * The name of the context service instance.
    * 
    * @example
-   * 3300
+   * pxt-*********-s
    */
-  port?: string;
+  serviceReplicaSetName?: string;
   /**
    * @remarks
    * The backend task ID.
@@ -157,39 +149,27 @@ export class AllocateContextDBPublicConnectionResponseBodyData extends $dara.Mod
    * 2209883
    */
   taskId?: number;
-  /**
-   * @remarks
-   * The IP address of the Anti-DDoS Proxy instance protected by the policy.
-   * 
-   * @example
-   * https://anchashi.aliyun-inc.coM
-   */
-  vip?: string;
   static names(): { [key: string]: string } {
     return {
-      connectionString: 'ConnectionString',
-      contextDBInstanceName: 'ContextDBInstanceName',
-      DBInstanceId: 'DBInstanceId',
+      context0AdminKey: 'Context0AdminKey',
+      context0InstanceName: 'Context0InstanceName',
       DBInstanceName: 'DBInstanceName',
-      DBInstanceNetType: 'DBInstanceNetType',
-      nodeType: 'NodeType',
-      port: 'Port',
+      dashboardReplicaSetName: 'DashboardReplicaSetName',
+      openSearchInstanceName: 'OpenSearchInstanceName',
+      serviceReplicaSetName: 'ServiceReplicaSetName',
       taskId: 'TaskId',
-      vip: 'Vip',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      connectionString: 'string',
-      contextDBInstanceName: 'string',
-      DBInstanceId: 'number',
+      context0AdminKey: 'string',
+      context0InstanceName: 'string',
       DBInstanceName: 'string',
-      DBInstanceNetType: 'number',
-      nodeType: 'string',
-      port: 'string',
+      dashboardReplicaSetName: 'string',
+      openSearchInstanceName: 'string',
+      serviceReplicaSetName: 'string',
       taskId: 'number',
-      vip: 'string',
     };
   }
 
@@ -202,23 +182,23 @@ export class AllocateContextDBPublicConnectionResponseBodyData extends $dara.Mod
   }
 }
 
-export class AllocateContextDBPublicConnectionResponseBody extends $dara.Model {
+export class CreateContext0ResponseBody extends $dara.Model {
   /**
    * @remarks
    * The details of the access denial.
    */
-  accessDeniedDetail?: AllocateContextDBPublicConnectionResponseBodyAccessDeniedDetail;
+  accessDeniedDetail?: CreateContext0ResponseBodyAccessDeniedDetail;
   /**
    * @remarks
-   * The task details.
+   * The instance data.
    */
-  data?: AllocateContextDBPublicConnectionResponseBodyData;
+  data?: CreateContext0ResponseBodyData;
   /**
    * @remarks
    * The request ID.
    * 
    * @example
-   * C458B1E8-1683-3645-B154-6BA32080EEA
+   * 9B2F3840-5C98-475C-B269-2D5C3A31797C
    */
   requestId?: string;
   static names(): { [key: string]: string } {
@@ -231,8 +211,8 @@ export class AllocateContextDBPublicConnectionResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      accessDeniedDetail: AllocateContextDBPublicConnectionResponseBodyAccessDeniedDetail,
-      data: AllocateContextDBPublicConnectionResponseBodyData,
+      accessDeniedDetail: CreateContext0ResponseBodyAccessDeniedDetail,
+      data: CreateContext0ResponseBodyData,
       requestId: 'string',
     };
   }
