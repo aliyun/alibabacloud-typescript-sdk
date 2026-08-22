@@ -962,7 +962,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of threat types for custom rules.
+   * Retrieves the list of available threat types for custom rules.
    * 
    * @param request - DescribeAlertTypeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1005,7 +1005,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of threat types for custom rules.
+   * Retrieves the list of available threat types for custom rules.
    * 
    * @param request - DescribeAlertTypeRequest
    * @returns DescribeAlertTypeResponse

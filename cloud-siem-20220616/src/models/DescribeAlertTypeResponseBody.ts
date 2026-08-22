@@ -13,23 +13,73 @@ export class DescribeAlertTypeResponseBodyData extends $dara.Model {
   alertType?: string;
   /**
    * @remarks
+   * The threat type category identifier.
+   * 
+   * @example
+   * identity_access
+   */
+  alertTypeCategory?: string;
+  /**
+   * @remarks
+   * The threat type category name in the language of the current request. Empty if no translation is available.
+   * 
+   * @example
+   * Identity and Access
+   */
+  alertTypeCategoryMds?: string;
+  /**
+   * @remarks
+   * The display order of the threat type category.
+   * 
+   * @example
+   * 10
+   */
+  alertTypeCategoryOrder?: number;
+  /**
+   * @remarks
    * The Medusa code of the threat type.
    * 
    * @example
    * siem_rule_type_process_abnormal_command
    */
   alertTypeMds?: string;
+  /**
+   * @remarks
+   * The English name of the threat type. Empty if no translation is available.
+   * 
+   * @example
+   * Unusual Logon
+   */
+  alertTypeNameEn?: string;
+  /**
+   * @remarks
+   * The Chinese name of the threat type. Empty if no translation is available.
+   * 
+   * @example
+   * 异常登录
+   */
+  alertTypeNameZh?: string;
   static names(): { [key: string]: string } {
     return {
       alertType: 'AlertType',
+      alertTypeCategory: 'AlertTypeCategory',
+      alertTypeCategoryMds: 'AlertTypeCategoryMds',
+      alertTypeCategoryOrder: 'AlertTypeCategoryOrder',
       alertTypeMds: 'AlertTypeMds',
+      alertTypeNameEn: 'AlertTypeNameEn',
+      alertTypeNameZh: 'AlertTypeNameZh',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       alertType: 'string',
+      alertTypeCategory: 'string',
+      alertTypeCategoryMds: 'string',
+      alertTypeCategoryOrder: 'number',
       alertTypeMds: 'string',
+      alertTypeNameEn: 'string',
+      alertTypeNameZh: 'string',
     };
   }
 
@@ -53,7 +103,7 @@ export class DescribeAlertTypeResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The data returned.
+   * The response data.
    * 
    * @example
    * 123456
@@ -61,7 +111,7 @@ export class DescribeAlertTypeResponseBody extends $dara.Model {
   data?: DescribeAlertTypeResponseBodyData[];
   /**
    * @remarks
-   * The returned message.
+   * The response message.
    * 
    * @example
    * success
@@ -78,10 +128,8 @@ export class DescribeAlertTypeResponseBody extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the request was successful. Valid values:
-   * 
-   * - true: The request was successful.
-   * 
-   * - false: The request failed.
+   * - true: successful.
+   * - false: failed.
    * 
    * @example
    * true

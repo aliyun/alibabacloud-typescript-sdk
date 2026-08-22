@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCloudSiemEventDetailResponseBodyDataAttckStages extends $dara.Model {
   /**
    * @remarks
-   * The number of alerts that are associated with the tactic.
+   * The number of alerts associated with the attack stage.
    * 
    * @example
    * 21
@@ -13,7 +13,7 @@ export class DescribeCloudSiemEventDetailResponseBodyDataAttckStages extends $da
   alertNum?: number;
   /**
    * @remarks
-   * The ID of the ATT\\&CK tactic.
+   * The ATT&CK attack stage ID.
    * 
    * @example
    * TA0008
@@ -21,7 +21,7 @@ export class DescribeCloudSiemEventDetailResponseBodyDataAttckStages extends $da
   tacticId?: string;
   /**
    * @remarks
-   * The name of the tactic.
+   * The name of the attack stage.
    * 
    * @example
    * Persistence
@@ -55,7 +55,7 @@ export class DescribeCloudSiemEventDetailResponseBodyDataAttckStages extends $da
 export class DescribeCloudSiemEventDetailResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The number of alerts that are associated with the event.
+   * The number of alerts associated with the event.
    * 
    * @example
    * 4
@@ -71,7 +71,7 @@ export class DescribeCloudSiemEventDetailResponseBodyData extends $dara.Model {
   aliuid?: number;
   /**
    * @remarks
-   * The number of assets that are associated with the event.
+   * The number of assets associated with the event.
    * 
    * @example
    * 4
@@ -79,7 +79,7 @@ export class DescribeCloudSiemEventDetailResponseBodyData extends $dara.Model {
   assetNum?: number;
   /**
    * @remarks
-   * The ATT\\&CK technique labels.
+   * The collection of ATT&CK attack technique labels.
    * 
    * @example
    * ["T1595.002 Vulnerability Scanning"]
@@ -87,12 +87,12 @@ export class DescribeCloudSiemEventDetailResponseBodyData extends $dara.Model {
   attCkLabels?: string[];
   /**
    * @remarks
-   * The attack stages.
+   * The list of attack stages.
    */
   attckStages?: DescribeCloudSiemEventDetailResponseBodyDataAttckStages[];
   /**
    * @remarks
-   * The cloud services that generated the alerts associated with the event.
+   * The source products of the alerts associated with the event.
    * 
    * @example
    * [sas,waf]
@@ -116,7 +116,7 @@ export class DescribeCloudSiemEventDetailResponseBodyData extends $dara.Model {
   descriptionEn?: string;
   /**
    * @remarks
-   * The extended information about the event, in JSON format.
+   * The extended information of the event in JSON format.
    * 
    * @example
    * {"event_transfer_type":"customize_rule"}
@@ -156,15 +156,11 @@ export class DescribeCloudSiemEventDetailResponseBodyData extends $dara.Model {
   incidentNameEn?: string;
   /**
    * @remarks
-   * The type of the event.
-   * 
-   * - net-attack: Expert rule
-   * 
-   * - graph: Graph computing
-   * 
-   * - singleToSingle: Alert pass-through
-   * 
-   * - allToSingle: Alert aggregation
+   * The event type. Valid values:
+   * - net-attack: expert rule.
+   * - graph: graph computing.
+   * - singleToSingle: alert pass-through.
+   * - allToSingle: alert aggregation.
    * 
    * @example
    * graph
@@ -172,7 +168,7 @@ export class DescribeCloudSiemEventDetailResponseBodyData extends $dara.Model {
   incidentType?: string;
   /**
    * @remarks
-   * The globally unique ID of the event.
+   * The globally unique UUID of the event.
    * 
    * @example
    * 85ea4241-798f-4684-a876-65d4f0c3****
@@ -180,12 +176,12 @@ export class DescribeCloudSiemEventDetailResponseBodyData extends $dara.Model {
   incidentUuid?: string;
   /**
    * @remarks
-   * The linked accounts.
+   * The associated account.
    */
   referAccount?: string;
   /**
    * @remarks
-   * The remarks for the event.
+   * The remarks of the event.
    * 
    * @example
    * dealed
@@ -193,7 +189,7 @@ export class DescribeCloudSiemEventDetailResponseBodyData extends $dara.Model {
   remark?: string;
   /**
    * @remarks
-   * The rule that is used to generate the event.
+   * The rule that generated the event.
    * 
    * @example
    * net-attack/101
@@ -201,15 +197,12 @@ export class DescribeCloudSiemEventDetailResponseBodyData extends $dara.Model {
   ruleId?: string;
   /**
    * @remarks
-   * The status of the event. Valid values:
+   * The event status. Valid values:
    * 
-   * - 0: unhandled
-   * 
-   * - 1: handling
-   * 
-   * - 5: handling failed
-   * 
-   * - 10: handled
+   * - 0: unhandled.  
+   * - 1: handling. 
+   * - 5: handling failed. 
+   * - 10: handled.
    * 
    * @example
    * 0
@@ -218,12 +211,9 @@ export class DescribeCloudSiemEventDetailResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The threat level. Valid values:
-   * 
-   * - serious: high
-   * 
-   * - suspicious: medium
-   * 
-   * - remind: low
+   * - serious: high.
+   * - suspicious: medium.
+   * - remind: low.
    * 
    * @example
    * remind
@@ -231,7 +221,7 @@ export class DescribeCloudSiemEventDetailResponseBodyData extends $dara.Model {
   threatLevel?: string;
   /**
    * @remarks
-   * The threat score of the event. The score is a value from 0 to 100. A higher score indicates a higher threat level.
+   * The threat score of the event, ranging from 0 to 100. A higher score indicates a higher risk level.
    * 
    * @example
    * 90.2
@@ -310,7 +300,7 @@ export class DescribeCloudSiemEventDetailResponseBodyData extends $dara.Model {
 export class DescribeCloudSiemEventDetailResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code.
+   * The status code of the request.
    * 
    * @example
    * 200
@@ -318,7 +308,7 @@ export class DescribeCloudSiemEventDetailResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The returned data.
+   * The response data.
    * 
    * @example
    * 123456
@@ -326,7 +316,7 @@ export class DescribeCloudSiemEventDetailResponseBody extends $dara.Model {
   data?: DescribeCloudSiemEventDetailResponseBodyData;
   /**
    * @remarks
-   * The returned message.
+   * The response message.
    * 
    * @example
    * success
@@ -343,10 +333,8 @@ export class DescribeCloudSiemEventDetailResponseBody extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the request was successful. Valid values:
-   * 
-   * - true: The request was successful.
-   * 
-   * - false: The request failed.
+   * - true: successful.
+   * - false: failed.
    * 
    * @example
    * true
