@@ -173,6 +173,7 @@ export { CreateInvoiceShrinkRequest } from './CreateInvoiceShrinkRequest';
 export { CreateInvoiceResponseBody } from './CreateInvoiceResponseBody';
 export { CreateInvoiceResponse } from './CreateInvoiceResponse';
 export { CreateReportDefinitionRequest } from './CreateReportDefinitionRequest';
+export { CreateReportDefinitionShrinkRequest } from './CreateReportDefinitionShrinkRequest';
 export { CreateReportDefinitionResponseBody } from './CreateReportDefinitionResponseBody';
 export { CreateReportDefinitionResponse } from './CreateReportDefinitionResponse';
 export { DeleteBudgetRequest } from './DeleteBudgetRequest';

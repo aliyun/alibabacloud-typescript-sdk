@@ -70,6 +70,7 @@ export class ListReportDefinitionsResponseBodyReportDefinitions extends $dara.Mo
    * BillingItemDetailForBillingPeriod
    */
   reportType?: string;
+  selectedFields?: string[];
   /**
    * @remarks
    * The time when the subscription was created.
@@ -88,6 +89,7 @@ export class ListReportDefinitionsResponseBodyReportDefinitions extends $dara.Mo
       reportSourceType: 'ReportSourceType',
       reportTaskId: 'ReportTaskId',
       reportType: 'ReportType',
+      selectedFields: 'SelectedFields',
       subscribeCreateTime: 'SubscribeCreateTime',
     };
   }
@@ -102,11 +104,15 @@ export class ListReportDefinitionsResponseBodyReportDefinitions extends $dara.Mo
       reportSourceType: 'string',
       reportTaskId: 'number',
       reportType: 'string',
+      selectedFields: { 'type': 'array', 'itemType': 'string' },
       subscribeCreateTime: 'string',
     };
   }
 
   validate() {
+    if(Array.isArray(this.selectedFields)) {
+      $dara.Model.validateArray(this.selectedFields);
+    }
     super.validate();
   }
 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateReportDefinitionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The start billing cycle for push. After the subscription succeeds, the system automatically pushes data from the start billing cycle to the current time. This parameter is invalid for monthly bill PDF subscriptions, and historical data will not be re-pushed. You can push data within the last year.
+   * The start billing cycle for push. After successful subscription, the system automatically pushes data from the start billing cycle to the current time. This parameter is invalid for monthly bill PDF subscriptions and does not re-push historical data. Data within the last year can be pushed.
    * 
    * @example
    * 2025-05
@@ -13,7 +13,7 @@ export class CreateReportDefinitionResponseBody extends $dara.Model {
   beginBillingCycle?: string;
   /**
    * @remarks
-   * The metadata of the response.
+   * The response struct metadata.
    * 
    * @example
    * {}
@@ -29,7 +29,7 @@ export class CreateReportDefinitionResponseBody extends $dara.Model {
   ossBucketName?: string;
   /**
    * @remarks
-   * The UID of the OSS bucket owner that stores the files. If this is a Bid/Reseller subscription and you need to push data to a sub-account\\"s OSS, specify this parameter. The account must be a sub-account of the calling account, and the AliyunConsumeDump2OSSRole permission must be granted to this account. Regular users do not need to specify this parameter. The default value is the calling account.
+   * The UID of the OSS owner that stores the files. If this is a Bid/Reseller subscription and you need to push to a sub-account\\"s OSS, specify this parameter. The account must be a sub-account of the calling account, and the AliyunConsumeDump2OSSRole permission must be granted to this account. Regular users do not need to specify this parameter. The default value is the calling account.
    * 
    * @example
    * 1234567812345678
@@ -37,7 +37,7 @@ export class CreateReportDefinitionResponseBody extends $dara.Model {
   ossBucketOwnerAccountId?: number;
   /**
    * @remarks
-   * The storage path of the OSS bucket.
+   * The OSS bucket storage path.
    * 
    * @example
    * bill/
@@ -45,7 +45,7 @@ export class CreateReportDefinitionResponseBody extends $dara.Model {
   ossBucketPath?: string;
   /**
    * @remarks
-   * The name of the subscription source.
+   * The subscription source name.
    * 
    * @example
    * OSS
@@ -53,7 +53,7 @@ export class CreateReportDefinitionResponseBody extends $dara.Model {
   reportSourceName?: string;
   /**
    * @remarks
-   * The subscription source. Valid values: OSS and MC.
+   * The subscription source. Valid values: OSS or MC.
    * 
    * @example
    * OSS
@@ -61,7 +61,7 @@ export class CreateReportDefinitionResponseBody extends $dara.Model {
   reportSourceType?: string;
   /**
    * @remarks
-   * The ID of the billing subscription task.
+   * The bill subscription task ID.
    * 
    * @example
    * 123123
@@ -70,11 +70,11 @@ export class CreateReportDefinitionResponseBody extends $dara.Model {
   /**
    * @remarks
    * The subscription type. Valid values:
-   * - consumeDetailBillV2: consumption details. This value is supported only by OSS/MC subscriptions.
-   * - splitDetailBillV2: split details. This value is supported only by OSS/MC subscriptions.
-   * - costDetailBillV2: cost details. This value is supported only by OSS/MC subscriptions.
-   * - monthBillOverview: monthly bill overview. This value is supported only by OSS/MSC_EMAIL subscriptions.
-   * - focus: FOCUS bill. This value is supported only by OSS/MC subscriptions.
+   * - consumeDetailBillV2: consumption details (supported only for OSS/MC subscriptions).
+   * - splitDetailBillV2: split details (supported only for OSS/MC subscriptions).
+   * - costDetailBillV2: cost details (supported only for OSS/MC subscriptions).
+   * - monthBillOverview: monthly bill summary (supported only for OSS/MSC_EMAIL subscriptions).
+   * - focus: FOCUS bill (supported only for OSS/MC subscriptions).
    * 
    * @example
    * consumeDetailBillV2
@@ -90,7 +90,7 @@ export class CreateReportDefinitionResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The time when the subscription was created.
+   * The subscription creation time.
    * 
    * @example
    * 2025-05-21 10:36:31

@@ -2,7 +2,7 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CreateReportDefinitionRequest extends $dara.Model {
+export class CreateReportDefinitionShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The start billing cycle for push. After successful subscription, the system automatically pushes data from the start billing cycle to the current time. This parameter is invalid for monthly bill PDF subscriptions and does not re-push historical data. Data within the last year can be pushed.
@@ -102,7 +102,7 @@ export class CreateReportDefinitionRequest extends $dara.Model {
    * @remarks
    * The user-specified subscription fields.
    */
-  selectedFields?: string[];
+  selectedFieldsShrink?: string;
   /**
    * @remarks
    * Email subscription configuration. Specifies whether to include bill attachments in emails.
@@ -132,7 +132,7 @@ export class CreateReportDefinitionRequest extends $dara.Model {
       ossBucketPath: 'OssBucketPath',
       reportSourceType: 'ReportSourceType',
       reportType: 'ReportType',
-      selectedFields: 'SelectedFields',
+      selectedFieldsShrink: 'SelectedFields',
       sendWithAttach: 'SendWithAttach',
       splitFileOnUserId: 'SplitFileOnUserId',
     };
@@ -151,16 +151,13 @@ export class CreateReportDefinitionRequest extends $dara.Model {
       ossBucketPath: 'string',
       reportSourceType: 'string',
       reportType: 'string',
-      selectedFields: { 'type': 'array', 'itemType': 'string' },
+      selectedFieldsShrink: 'string',
       sendWithAttach: 'string',
       splitFileOnUserId: 'string',
     };
   }
 
   validate() {
-    if(Array.isArray(this.selectedFields)) {
-      $dara.Model.validateArray(this.selectedFields);
-    }
     super.validate();
   }
 
