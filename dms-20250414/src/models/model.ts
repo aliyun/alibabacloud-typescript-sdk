@@ -1,5 +1,6 @@
 export { AgenticDmsInstanceSyncTaskInstanceDmsInstanceSummary } from './AgenticDmsInstanceSyncTaskInstance';
 export { OpenClawInstanceVOImageInfo } from './OpenClawInstanceVo';
+export { AddDataAgentMemoryResponseBodyData } from './AddDataAgentMemoryResponseBody';
 export { AddUserToDataAgentWorkspaceResponseBodyData } from './AddUserToDataAgentWorkspaceResponseBody';
 export { CheckDataAgentMemoryConfigResponseBodyData } from './CheckDataAgentMemoryConfigResponseBody';
 export { ConfigAirflowResponseBodyRoot } from './ConfigAirflowResponseBody';
@@ -179,6 +180,9 @@ export { OpenClawInstanceVO } from './OpenClawInstanceVo';
 export { OssieModelView } from './OssieModelView';
 export { PartitionError } from './PartitionError';
 export { TrialOrderEligibilityVO } from './TrialOrderEligibilityVo';
+export { AddDataAgentMemoryRequest } from './AddDataAgentMemoryRequest';
+export { AddDataAgentMemoryResponseBody } from './AddDataAgentMemoryResponseBody';
+export { AddDataAgentMemoryResponse } from './AddDataAgentMemoryResponse';
 export { AddUserToDataAgentWorkspaceRequest } from './AddUserToDataAgentWorkspaceRequest';
 export { AddUserToDataAgentWorkspaceResponseBody } from './AddUserToDataAgentWorkspaceResponseBody';
 export { AddUserToDataAgentWorkspaceResponse } from './AddUserToDataAgentWorkspaceResponse';

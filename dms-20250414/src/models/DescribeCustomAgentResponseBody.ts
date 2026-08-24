@@ -172,7 +172,7 @@ export class DescribeCustomAgentResponseBodyDataScheduleTaskConfig extends $dara
   cronExpression?: string;
   /**
    * @remarks
-   * The query for the periodic task.
+   * The query for the scheduled task.
    * 
    * @example
    * Analyze this data and provide a brief report
@@ -278,7 +278,7 @@ export class DescribeCustomAgentResponseBodyData extends $dara.Model {
    * The description of the custom agent.
    * 
    * @example
-   * AgentTestDescription
+   * Agent test description
    */
   description?: string;
   /**
@@ -323,7 +323,7 @@ export class DescribeCustomAgentResponseBodyData extends $dara.Model {
   instruction?: string;
   /**
    * @remarks
-   * Specifies whether a periodic task is configured.
+   * Specifies whether a scheduled task is configured.
    * 
    * @example
    * true
@@ -338,7 +338,7 @@ export class DescribeCustomAgentResponseBodyData extends $dara.Model {
    * 1. GMV (Gross Merchandise Volume) refers to the total order amount, including paid and unpaid orders;
    * 2. Order volume is the number of valid orders placed per day;
    * 3. UV (Unique Visitors) refers to the deduplicated number of users who visit the website or app;
-   * 4. Conversion rate = paid orders / UV, reflecting traffic conversion efficiency;
+   * 4. Conversion rate = number of paid orders / UV, reflecting traffic conversion efficiency;
    */
   knowledge?: string;
   knowledgeConfigList?: DescribeCustomAgentResponseBodyDataKnowledgeConfigList[];
@@ -364,12 +364,12 @@ export class DescribeCustomAgentResponseBodyData extends $dara.Model {
    * The name of the custom agent.
    * 
    * @example
-   * AgentTestName
+   * Agent test name
    */
   name?: string;
   /**
    * @remarks
-   * The next run time of the periodic task.
+   * The next run time of the scheduled task.
    * 
    * @example
    * 1767715200
@@ -409,7 +409,7 @@ export class DescribeCustomAgentResponseBodyData extends $dara.Model {
   releaseTime?: string;
   /**
    * @remarks
-   * The periodic task configuration.
+   * The scheduled task configuration.
    */
   scheduleTaskConfig?: DescribeCustomAgentResponseBodyDataScheduleTaskConfig;
   /**
@@ -428,6 +428,7 @@ export class DescribeCustomAgentResponseBodyData extends $dara.Model {
    * The text report requires all numbers to be converted from Arabic numerals to Chinese numerals
    */
   textReportConfig?: string;
+  userSpecifiedSkillList?: string[];
   /**
    * @remarks
    * The web report format.
@@ -476,6 +477,7 @@ export class DescribeCustomAgentResponseBodyData extends $dara.Model {
       scheduleTaskConfig: 'ScheduleTaskConfig',
       status: 'Status',
       textReportConfig: 'TextReportConfig',
+      userSpecifiedSkillList: 'UserSpecifiedSkillList',
       webReportConfig: 'WebReportConfig',
       webReportTheme: 'WebReportTheme',
       workspaceId: 'WorkspaceId',
@@ -513,6 +515,7 @@ export class DescribeCustomAgentResponseBodyData extends $dara.Model {
       scheduleTaskConfig: DescribeCustomAgentResponseBodyDataScheduleTaskConfig,
       status: 'string',
       textReportConfig: 'string',
+      userSpecifiedSkillList: { 'type': 'array', 'itemType': 'string' },
       webReportConfig: 'string',
       webReportTheme: 'string',
       workspaceId: 'string',
@@ -534,6 +537,9 @@ export class DescribeCustomAgentResponseBodyData extends $dara.Model {
     }
     if(this.scheduleTaskConfig && typeof (this.scheduleTaskConfig as any).validate === 'function') {
       (this.scheduleTaskConfig as any).validate();
+    }
+    if(Array.isArray(this.userSpecifiedSkillList)) {
+      $dara.Model.validateArray(this.userSpecifiedSkillList);
     }
     super.validate();
   }
@@ -559,7 +565,7 @@ export class DescribeCustomAgentResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The error message returned if the request failed.
+   * The error message returned if the call failed.
    * 
    * @example
    * Specified parameter Tid is not valid.

@@ -14,19 +14,19 @@ export class CreateCustomAgentShrinkRequest extends $dara.Model {
   DMSUnit?: string;
   /**
    * @remarks
-   * The specified data range in **JSON string format**.
-   * - Common parameter description
-   *   - tableFlag: true indicates a specified data range.
+   * The specified data scope in **JSON character string format**.
+   * - Common metric description
+   *   - tableFlag: true indicates that a data scope is specified.
    *   - scope: personal is a fixed value.
    *   - personal: pass parameters for file or database types.
    * 
    * **File type**. Pass parameters in the following format:
    * - DataSourceType: remote_data_center is a fixed value.
-   * - FileId: The file ID.
-   * - Database: The database name returned by the ListDataCenterTable operation, which is usually the file name.
-   * - Tables: The table name returned by the ListDataCenterTable operation.
-   * - TableIds: The TableId returned by the ListDataCenterTable operation.
-   * - RegionId: The current region.
+   * - FileId: the file ID.
+   * - Database: the database name returned by the ListDataCenterTable operation, which is typically the file name.
+   * - Tables: the table name returned by the ListDataCenterTable operation.
+   * - TableIds: the TableId returned by the ListDataCenterTable operation.
+   * - RegionId: the current region.
    * ```
    * {
    *   "tableFlag": true,
@@ -48,15 +48,15 @@ export class CreateCustomAgentShrinkRequest extends $dara.Model {
    * 
    * **Database type**. Pass parameters as follows:
    * - DataSourceType: database is a fixed value.
-   * - DmsInstanceId: The DMS instance ID returned by the data center operation.
-   * - DmsDatabaseId: The DMS database ID returned by the data center operation.
-   * - FileId: The instance name (deprecated).
-   * - DbName: The database name returned by the data center operation.
-   * - Database: The database name returned by the data center operation.
-   * - Tables: The table name returned by the data center operation.
-   * - TableIds: The TableId returned by the data center operation.
-   * - Engine: The engine type (mysql or postgresql).
-   * - RegionId: The current region.
+   * - DmsInstanceId: the DMS instance ID returned by the data center operation.
+   * - DmsDatabaseId: the DMS database ID returned by the data center operation.
+   * - FileId: the instance name (deprecated).
+   * - DbName: the database name returned by the data center operation.
+   * - Database: the database name returned by the data center operation.
+   * - Tables: the table name returned by the data center operation.
+   * - TableIds: the TableId returned by the data center operation.
+   * - Engine: the DPI engine type (mysql or postgresql).
+   * - RegionId: the current region.
    * ```
    * {
    *   "tableFlag": true,
@@ -87,7 +87,7 @@ export class CreateCustomAgentShrinkRequest extends $dara.Model {
    *   "personal" : {
    *     "DataSourceType" : "remote_data_center",
    *     "FileId" : "f-5qlrwaw10********s3gpw1z",
-   *     "Database" : "TestTable******.xlsx",
+   *     "Database" : "测试表格******.xlsx",
    *     "Tables" : [ "Sheet1" ],
    *     "TableIds" : [ "******" ],
    *     "RegionId" : "cn-hangzhou"
@@ -111,30 +111,32 @@ export class CreateCustomAgentShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The instruction.
+   * - Input limit: a maximum of 10000 characters.
    * 
    * @example
    * Core metric definitions:
-   * 1. GMV (Gross Merchandise Volume) refers to the total order amount, including both paid and unpaid orders;
-   * 2. Order volume is the number of valid orders placed per day;
-   * 3. UV (Unique Visitors) refers to the deduplicated number of users who visit the website or app;
-   * 4. Conversion rate = number of paid orders / UV, reflecting traffic conversion efficiency;
+   * 1. GMV (Gross Merchandise Volume) refers to the total order amount, including paid and unpaid orders.
+   * 2. Order volume is the number of valid orders placed per day.
+   * 3. UV (Unique Visitors) refers to the deduplicated number of users who visit the website or app.
+   * 4. Conversion rate = number of paid orders / UV, reflecting traffic conversion efficiency
    */
   instruction?: string;
   /**
    * @remarks
    * The knowledge.
+   * - Input limit: a maximum of 10000 characters.
    * 
    * @example
    * Core metric definitions:
-   * 1. GMV (Gross Merchandise Volume) refers to the total order amount, including both paid and unpaid orders.
+   * 1. GMV (Gross Merchandise Volume) refers to the total order amount, including paid and unpaid orders.
    * 2. Order volume is the number of valid orders placed per day.
    * 3. UV (Unique Visitors) refers to the deduplicated number of users who visit the website or app.
-   * 4. Conversion rate = number of paid orders / UV, reflecting traffic conversion efficiency.
+   * 4. Conversion rate = number of paid orders / UV, reflecting traffic conversion efficiency
    */
   knowledge?: string;
   /**
    * @remarks
-   * The external knowledge base configurations.
+   * The external knowledge base.
    */
   knowledgeConfigListShrink?: string;
   knowledgeSemanticConfigListShrink?: string;
@@ -161,15 +163,16 @@ export class CreateCustomAgentShrinkRequest extends $dara.Model {
    * The text report format.
    * 
    * @example
-   * The text report requires all numbers to be written in Chinese characters instead of Arabic numerals
+   * The text report requires all numbers to be expressed in Chinese characters instead of Arabic numerals
    */
   textReportConfig?: string;
+  userSpecifiedSkillListShrink?: string;
   /**
    * @remarks
    * The web report format.
    * 
    * @example
-   * The web report requires all numbers to be written in Chinese characters instead of Arabic numerals
+   * The web report requires all numbers to be expressed in Chinese characters instead of Arabic numerals
    */
   webReportConfig?: string;
   webReportTheme?: string;
@@ -196,6 +199,7 @@ export class CreateCustomAgentShrinkRequest extends $dara.Model {
       relatedSessionId: 'RelatedSessionId',
       scheduleTaskConfigShrink: 'ScheduleTaskConfig',
       textReportConfig: 'TextReportConfig',
+      userSpecifiedSkillListShrink: 'UserSpecifiedSkillList',
       webReportConfig: 'WebReportConfig',
       webReportTheme: 'WebReportTheme',
       workspaceId: 'WorkspaceId',
@@ -217,6 +221,7 @@ export class CreateCustomAgentShrinkRequest extends $dara.Model {
       relatedSessionId: 'string',
       scheduleTaskConfigShrink: 'string',
       textReportConfig: 'string',
+      userSpecifiedSkillListShrink: 'string',
       webReportConfig: 'string',
       webReportTheme: 'string',
       workspaceId: 'string',

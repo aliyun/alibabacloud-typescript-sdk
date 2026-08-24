@@ -65,7 +65,7 @@ export class CreateCustomAgentResponseBodyDataExecutionConfig extends $dara.Mode
   skipSqlConfirm?: boolean;
   /**
    * @remarks
-   * Specifies whether to skip the web report rendering confirmation.
+   * Specifies whether to skip the web report generation confirmation.
    * 
    * @example
    * true
@@ -104,6 +104,8 @@ export class CreateCustomAgentResponseBodyDataKnowledgeConfigList extends $dara.
   /**
    * @remarks
    * The access type.
+   * 
+   * - mcp: access through MCP.
    * 
    * @example
    * mcp
@@ -228,7 +230,7 @@ export class CreateCustomAgentResponseBodyDataScheduleTaskConfig extends $dara.M
 export class CreateCustomAgentResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The Alibaba Cloud account ID of the primary account.
+   * The Alibaba Cloud account ID of the parent account.
    * 
    * @example
    * 16738266********
@@ -329,9 +331,9 @@ export class CreateCustomAgentResponseBodyData extends $dara.Model {
    * 
    * @example
    * Analysis framework:
-   * 1. Monitor core metrics (GMV, order volume, UV, conversion rate) on a daily, weekly, and monthly basis, analyze trends and year-over-year/month-over-month fluctuations;
-   * 2. Segment by new/existing customers, channels, and regions to identify growth drivers and weaknesses;
-   * 3. Conduct funnel analysis based on user behavior paths (browsing → add to cart → payment) to pinpoint drop-off stages;
+   * 1. Monitor core metrics (GMV, order volume, UV, conversion rate) on a daily, weekly, and monthly basis, and analyze trends and year-over-year/month-over-month fluctuations.
+   * 2. Segment by new/existing customers, channels, and regions to identify growth drivers and weaknesses.
+   * 3. Conduct funnel analysis based on user behavior paths (browse → add to cart → payment) to identify drop-off points
    */
   instruction?: string;
   /**
@@ -348,15 +350,15 @@ export class CreateCustomAgentResponseBodyData extends $dara.Model {
    * 
    * @example
    * Core metric definitions:
-   * 1. GMV (Gross Merchandise Volume) refers to the total order amount, including both paid and unpaid orders;
-   * 2. Order volume is the number of valid orders placed per day;
-   * 3. UV (Unique Visitors) refers to the deduplicated number of users who visit the website or app;
-   * 4. Conversion rate = number of paid orders / UV, reflecting traffic conversion efficiency;
+   * 1. GMV (Gross Merchandise Volume) refers to the total order amount, including paid and unpaid orders.
+   * 2. Order volume is the number of valid orders placed per day.
+   * 3. UV (Unique Visitors) refers to the deduplicated number of users who visit the website or app.
+   * 4. Conversion rate = number of paid orders / UV, reflecting traffic conversion efficiency
    */
   knowledge?: string;
   /**
    * @remarks
-   * The external knowledge base configurations.
+   * The external knowledge base.
    */
   knowledgeConfigList?: CreateCustomAgentResponseBodyDataKnowledgeConfigList[];
   knowledgeSemanticConfigList?: CreateCustomAgentResponseBodyDataKnowledgeSemanticConfigList[];
@@ -387,6 +389,7 @@ export class CreateCustomAgentResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The next run time of the periodic task.
+   * - Timestamp format.
    * 
    * @example
    * 1767715200
@@ -439,15 +442,16 @@ export class CreateCustomAgentResponseBodyData extends $dara.Model {
    * The text report format.
    * 
    * @example
-   * The text report requires all numbers to be written in Chinese characters instead of Arabic numerals
+   * The text report requires all numbers to be expressed in Chinese characters instead of Arabic numerals
    */
   textReportConfig?: string;
+  userSpecifiedSkillList?: string[];
   /**
    * @remarks
    * The web report format.
    * 
    * @example
-   * The web report requires all numbers to be written in Chinese characters instead of Arabic numerals
+   * The web report requires all numbers to be expressed in Chinese characters instead of Arabic numerals
    */
   webReportConfig?: string;
   webReportTheme?: string;
@@ -489,6 +493,7 @@ export class CreateCustomAgentResponseBodyData extends $dara.Model {
       scheduleTaskConfig: 'ScheduleTaskConfig',
       status: 'Status',
       textReportConfig: 'TextReportConfig',
+      userSpecifiedSkillList: 'UserSpecifiedSkillList',
       webReportConfig: 'WebReportConfig',
       webReportTheme: 'WebReportTheme',
       workspaceId: 'WorkspaceId',
@@ -525,6 +530,7 @@ export class CreateCustomAgentResponseBodyData extends $dara.Model {
       scheduleTaskConfig: CreateCustomAgentResponseBodyDataScheduleTaskConfig,
       status: 'string',
       textReportConfig: 'string',
+      userSpecifiedSkillList: { 'type': 'array', 'itemType': 'string' },
       webReportConfig: 'string',
       webReportTheme: 'string',
       workspaceId: 'string',
@@ -546,6 +552,9 @@ export class CreateCustomAgentResponseBodyData extends $dara.Model {
     }
     if(this.scheduleTaskConfig && typeof (this.scheduleTaskConfig as any).validate === 'function') {
       (this.scheduleTaskConfig as any).validate();
+    }
+    if(Array.isArray(this.userSpecifiedSkillList)) {
+      $dara.Model.validateArray(this.userSpecifiedSkillList);
     }
     super.validate();
   }
@@ -571,7 +580,7 @@ export class CreateCustomAgentResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The error message returned if the call failed.
+   * The error message returned when the request failed.
    * 
    * @example
    * Specified parameter Tid is not valid.
@@ -587,10 +596,10 @@ export class CreateCustomAgentResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful. Valid values:
+   * Indicates whether the request was successful. Valid values:
    * 
-   * - True: The request is successful.
-   * - False: The request fails.
+   * - True: The request was successful.                                 
+   * - False: The request failed.
    * 
    * @example
    * true

@@ -421,6 +421,7 @@ export class ListCustomAgentResponseBodyDataContent extends $dara.Model {
    * 文字报告要求所有数字不使用阿拉伯数字，全部转为中文数字
    */
   textReportConfig?: string;
+  userSpecifiedSkillList?: string[];
   /**
    * @remarks
    * The formatting instructions for the web report.
@@ -469,6 +470,7 @@ export class ListCustomAgentResponseBodyDataContent extends $dara.Model {
       scheduleTaskConfig: 'ScheduleTaskConfig',
       status: 'Status',
       textReportConfig: 'TextReportConfig',
+      userSpecifiedSkillList: 'UserSpecifiedSkillList',
       webReportConfig: 'WebReportConfig',
       webReportTheme: 'WebReportTheme',
       workspaceId: 'WorkspaceId',
@@ -506,6 +508,7 @@ export class ListCustomAgentResponseBodyDataContent extends $dara.Model {
       scheduleTaskConfig: ListCustomAgentResponseBodyDataContentScheduleTaskConfig,
       status: 'string',
       textReportConfig: 'string',
+      userSpecifiedSkillList: { 'type': 'array', 'itemType': 'string' },
       webReportConfig: 'string',
       webReportTheme: 'string',
       workspaceId: 'string',
@@ -527,6 +530,9 @@ export class ListCustomAgentResponseBodyDataContent extends $dara.Model {
     }
     if(this.scheduleTaskConfig && typeof (this.scheduleTaskConfig as any).validate === 'function') {
       (this.scheduleTaskConfig as any).validate();
+    }
+    if(Array.isArray(this.userSpecifiedSkillList)) {
+      $dara.Model.validateArray(this.userSpecifiedSkillList);
     }
     super.validate();
   }

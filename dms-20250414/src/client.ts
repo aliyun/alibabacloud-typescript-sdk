@@ -40,6 +40,68 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * AddDataAgentMemory
+   * 
+   * @param request - AddDataAgentMemoryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddDataAgentMemoryResponse
+   */
+  async addDataAgentMemoryWithOptions(request: $_model.AddDataAgentMemoryRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AddDataAgentMemoryResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.content)) {
+      query["Content"] = request.content;
+    }
+
+    if (!$dara.isNull(request.DMSUnit)) {
+      query["DMSUnit"] = request.DMSUnit;
+    }
+
+    if (!$dara.isNull(request.fromId)) {
+      query["FromId"] = request.fromId;
+    }
+
+    if (!$dara.isNull(request.label)) {
+      query["Label"] = request.label;
+    }
+
+    if (!$dara.isNull(request.memFrom)) {
+      query["MemFrom"] = request.memFrom;
+    }
+
+    if (!$dara.isNull(request.sessionUuid)) {
+      query["SessionUuid"] = request.sessionUuid;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AddDataAgentMemory",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AddDataAgentMemoryResponse>(await this.callApi(params, req, runtime), new $_model.AddDataAgentMemoryResponse({}));
+  }
+
+  /**
+   * AddDataAgentMemory
+   * 
+   * @param request - AddDataAgentMemoryRequest
+   * @returns AddDataAgentMemoryResponse
+   */
+  async addDataAgentMemory(request: $_model.AddDataAgentMemoryRequest): Promise<$_model.AddDataAgentMemoryResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.addDataAgentMemoryWithOptions(request, runtime);
+  }
+
+  /**
    * Adds a user to a specified workspace.
    * 
    * @param request - AddUserToDataAgentWorkspaceRequest
@@ -664,6 +726,10 @@ export default class Client extends OpenApi {
       request.scheduleTaskConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.scheduleTaskConfig, "ScheduleTaskConfig", "json");
     }
 
+    if (!$dara.isNull(tmpReq.userSpecifiedSkillList)) {
+      request.userSpecifiedSkillListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.userSpecifiedSkillList, "UserSpecifiedSkillList", "json");
+    }
+
     let query = { };
     if (!$dara.isNull(request.callbackConfigShrink)) {
       query["CallbackConfig"] = request.callbackConfigShrink;
@@ -715,6 +781,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.textReportConfig)) {
       query["TextReportConfig"] = request.textReportConfig;
+    }
+
+    if (!$dara.isNull(request.userSpecifiedSkillListShrink)) {
+      query["UserSpecifiedSkillList"] = request.userSpecifiedSkillListShrink;
     }
 
     if (!$dara.isNull(request.webReportConfig)) {
@@ -5766,6 +5836,10 @@ export default class Client extends OpenApi {
       request.scheduleTaskConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.scheduleTaskConfig, "ScheduleTaskConfig", "json");
     }
 
+    if (!$dara.isNull(tmpReq.userSpecifiedSkillList)) {
+      request.userSpecifiedSkillListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.userSpecifiedSkillList, "UserSpecifiedSkillList", "json");
+    }
+
     let query = { };
     if (!$dara.isNull(request.callbackConfigShrink)) {
       query["CallbackConfig"] = request.callbackConfigShrink;
@@ -5821,6 +5895,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.textReportConfig)) {
       query["TextReportConfig"] = request.textReportConfig;
+    }
+
+    if (!$dara.isNull(request.userSpecifiedSkillListShrink)) {
+      query["UserSpecifiedSkillList"] = request.userSpecifiedSkillListShrink;
     }
 
     if (!$dara.isNull(request.webReportConfig)) {
@@ -6263,7 +6341,13 @@ export default class Client extends OpenApi {
    * Sends a user message to a specified session or cancels a session.
    * 
    * @remarks
-   * ## Request description.
+   * ## Request description
+   * - `agent_id` and `session_id` are required fields.
+   * - `message_type` defaults to `primary`. Set it to `additional` or `cancel` when you need to append information or cancel a session.
+   * - The `reply_to` field indicates which Agent message this message is responding to. The default value is `0`.
+   * - When `message_type` is `additional`, the `question` field is required.
+   * - `quoted_message` can be used to quote the user\\"s previous message content.
+   * - Fields such as `data_source`, `dms_user`, `db_metadata`, and `session_config` are optional but provide more detailed context information.
    * 
    * @param tmpReq - SendChatMessageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6371,7 +6455,13 @@ export default class Client extends OpenApi {
    * Sends a user message to a specified session or cancels a session.
    * 
    * @remarks
-   * ## Request description.
+   * ## Request description
+   * - `agent_id` and `session_id` are required fields.
+   * - `message_type` defaults to `primary`. Set it to `additional` or `cancel` when you need to append information or cancel a session.
+   * - The `reply_to` field indicates which Agent message this message is responding to. The default value is `0`.
+   * - When `message_type` is `additional`, the `question` field is required.
+   * - `quoted_message` can be used to quote the user\\"s previous message content.
+   * - Fields such as `data_source`, `dms_user`, `db_metadata`, and `session_config` are optional but provide more detailed context information.
    * 
    * @param request - SendChatMessageRequest
    * @returns SendChatMessageResponse

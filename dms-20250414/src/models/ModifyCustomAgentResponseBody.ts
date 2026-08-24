@@ -442,6 +442,7 @@ export class ModifyCustomAgentResponseBodyData extends $dara.Model {
    * The text report requires all numbers to be written in Chinese characters instead of Arabic numerals
    */
   textReportConfig?: string;
+  userSpecifiedSkillList?: string[];
   /**
    * @remarks
    * The web report format.
@@ -489,6 +490,7 @@ export class ModifyCustomAgentResponseBodyData extends $dara.Model {
       scheduleTaskConfig: 'ScheduleTaskConfig',
       status: 'Status',
       textReportConfig: 'TextReportConfig',
+      userSpecifiedSkillList: 'UserSpecifiedSkillList',
       webReportConfig: 'WebReportConfig',
       webReportTheme: 'WebReportTheme',
       workspaceId: 'WorkspaceId',
@@ -525,6 +527,7 @@ export class ModifyCustomAgentResponseBodyData extends $dara.Model {
       scheduleTaskConfig: ModifyCustomAgentResponseBodyDataScheduleTaskConfig,
       status: 'string',
       textReportConfig: 'string',
+      userSpecifiedSkillList: { 'type': 'array', 'itemType': 'string' },
       webReportConfig: 'string',
       webReportTheme: 'string',
       workspaceId: 'string',
@@ -546,6 +549,9 @@ export class ModifyCustomAgentResponseBodyData extends $dara.Model {
     }
     if(this.scheduleTaskConfig && typeof (this.scheduleTaskConfig as any).validate === 'function') {
       (this.scheduleTaskConfig as any).validate();
+    }
+    if(Array.isArray(this.userSpecifiedSkillList)) {
+      $dara.Model.validateArray(this.userSpecifiedSkillList);
     }
     super.validate();
   }

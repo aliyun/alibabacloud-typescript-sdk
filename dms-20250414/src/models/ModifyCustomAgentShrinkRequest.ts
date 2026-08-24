@@ -170,6 +170,7 @@ export class ModifyCustomAgentShrinkRequest extends $dara.Model {
    * The text report requires all numbers to be written in Chinese characters instead of Arabic numerals
    */
   textReportConfig?: string;
+  userSpecifiedSkillListShrink?: string;
   /**
    * @remarks
    * The web report format.
@@ -203,6 +204,7 @@ export class ModifyCustomAgentShrinkRequest extends $dara.Model {
       relatedSessionId: 'RelatedSessionId',
       scheduleTaskConfigShrink: 'ScheduleTaskConfig',
       textReportConfig: 'TextReportConfig',
+      userSpecifiedSkillListShrink: 'UserSpecifiedSkillList',
       webReportConfig: 'WebReportConfig',
       webReportTheme: 'WebReportTheme',
       workspaceId: 'WorkspaceId',
@@ -225,6 +227,7 @@ export class ModifyCustomAgentShrinkRequest extends $dara.Model {
       relatedSessionId: 'string',
       scheduleTaskConfigShrink: 'string',
       textReportConfig: 'string',
+      userSpecifiedSkillListShrink: 'string',
       webReportConfig: 'string',
       webReportTheme: 'string',
       workspaceId: 'string',
