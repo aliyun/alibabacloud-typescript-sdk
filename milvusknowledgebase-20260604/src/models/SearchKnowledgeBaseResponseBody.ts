@@ -221,6 +221,14 @@ export class SearchKnowledgeBaseResponseBodyResults extends $dara.Model {
   parentChunkId?: string;
   /**
    * @remarks
+   * The scalar columns of the structured knowledge base. The columns are returned by their original column names and are not used in retrieval.
+   * 
+   * @example
+   * {"question":"How do I reset it?","category":"account"}
+   */
+  scalarFields?: any;
+  /**
+   * @remarks
    * The overall relevance score.
    * 
    * @example
@@ -248,6 +256,7 @@ export class SearchKnowledgeBaseResponseBodyResults extends $dara.Model {
       knowledgeBaseId: 'knowledgeBaseId',
       locations: 'locations',
       parentChunkId: 'parentChunkId',
+      scalarFields: 'scalarFields',
       score: 'score',
       scoreDetails: 'scoreDetails',
       tags: 'tags',
@@ -265,6 +274,7 @@ export class SearchKnowledgeBaseResponseBodyResults extends $dara.Model {
       knowledgeBaseId: 'string',
       locations: { 'type': 'array', 'itemType': SearchKnowledgeBaseResponseBodyResultsLocations },
       parentChunkId: 'string',
+      scalarFields: 'any',
       score: 'number',
       scoreDetails: SearchKnowledgeBaseResponseBodyResultsScoreDetails,
       tags: { 'type': 'array', 'itemType': 'string' },
@@ -303,7 +313,7 @@ export class SearchKnowledgeBaseResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The response status code.
+   * The status code.
    * 
    * @example
    * 0
@@ -319,7 +329,7 @@ export class SearchKnowledgeBaseResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The response message.
+   * The returned message.
    * 
    * @example
    * success

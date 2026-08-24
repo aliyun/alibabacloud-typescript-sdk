@@ -257,7 +257,7 @@ export class SearchKnowledgeBaseRequest extends $dara.Model {
   query?: string;
   /**
    * @remarks
-   * The reranking model ID.
+   * The rerank model ID.
    * 
    * @example
    * 123
@@ -265,7 +265,7 @@ export class SearchKnowledgeBaseRequest extends $dara.Model {
   rerankModelId?: number;
   /**
    * @remarks
-   * 租户已开通的重排模型名称。同时填写 rerankModelId 时，本参数优先生效。
+   * The name of the rerank model that the tenant has activated. If both rerankModelName and rerankModelId are specified, this parameter takes precedence.
    * 
    * @example
    * qwen3-rerank

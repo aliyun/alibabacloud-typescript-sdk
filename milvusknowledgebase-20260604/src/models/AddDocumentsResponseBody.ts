@@ -4,61 +4,97 @@ import * as $dara from '@darabonba/typescript';
 
 export class AddDocumentsResponseBodyDataDocuments extends $dara.Model {
   /**
+   * @remarks
+   * The chunk count.
+   * 
    * @example
    * 0
    */
   chunkCount?: number;
   /**
+   * @remarks
+   * The chunk method.
+   * 
    * @example
    * naive
    */
   chunkMethod?: string;
   /**
+   * @remarks
+   * The ID of the knowledge base.
+   * 
    * @example
    * kb-123
    */
   datasetId?: string;
   /**
+   * @remarks
+   * The document ID.
+   * 
    * @example
    * doc-123
    */
   id?: string;
   /**
+   * @remarks
+   * The object path.
+   * 
    * @example
    * uploaded/doc-id/example.pdf
    */
   location?: string;
   /**
+   * @remarks
+   * The name of the document.
+   * 
    * @example
    * example.pdf
    */
   name?: string;
   /**
+   * @remarks
+   * The processing progress.
+   * 
    * @example
    * 0
    */
   progress?: number;
   /**
+   * @remarks
+   * The processing status.
+   * 
    * @example
    * RUNNING
    */
   run?: string;
   /**
+   * @remarks
+   * The size of the file.
+   * 
    * @example
    * 1024
    */
   size?: number;
   /**
+   * @remarks
+   * The file extension.
+   * 
    * @example
    * pdf
    */
   suffix?: string;
   /**
+   * @remarks
+   * The thumbnail.
+   * 
    * @example
    * ""
    */
   thumbnail?: string;
   /**
+   * @remarks
+   * The token count.
+   * 
    * @example
    * 0
    */
@@ -107,7 +143,15 @@ export class AddDocumentsResponseBodyDataDocuments extends $dara.Model {
 }
 
 export class AddDocumentsResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The list of documents.
+   */
   documents?: AddDocumentsResponseBodyDataDocuments[];
+  /**
+   * @remarks
+   * The list of errors.
+   */
   errors?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -140,32 +184,54 @@ export class AddDocumentsResponseBodyData extends $dara.Model {
 
 export class AddDocumentsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The details of the permission verification failure.
+   * 
    * @example
    * {"PolicyType":"AccountLevelIdentityBasedPolicy","AuthPrincipalOwnerId":"1234567890123456","AuthPrincipalType":"SubUser","AuthPrincipalDisplayName":"1234567890123456","NoPermissionType":"ImplicitDeny","AuthAction":"milvusknowledgebase:ListDatasets"}
    */
   accessDeniedDetail?: string;
   /**
+   * @remarks
+   * The status code.
+   * 
    * @example
    * 0
    */
   code?: number;
+  /**
+   * @remarks
+   * The response data.
+   */
   data?: AddDocumentsResponseBodyData;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 403
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The response message.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * DDDBE0E5-4314-156F-B7F1-C4BCFD25A509
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

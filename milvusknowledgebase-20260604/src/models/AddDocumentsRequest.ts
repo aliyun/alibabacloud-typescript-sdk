@@ -6,11 +6,17 @@ import * as $dara from '@darabonba/typescript';
  */
 export class AddDocumentsRequestDedup extends $dara.Model {
   /**
+   * @remarks
+   * Specifies whether to enable content deduplication.
+   * 
    * @example
    * true
    */
   contentDedup?: boolean;
   /**
+   * @remarks
+   * Specifies whether to enable document name deduplication.
+   * 
    * @example
    * true
    */
@@ -40,19 +46,25 @@ export class AddDocumentsRequestDedup extends $dara.Model {
 
 export class AddDocumentsRequestDocuments extends $dara.Model {
   /**
+   * @remarks
+   * The name of the document.
+   * 
    * @example
    * CHANGELOG.md
    */
   name?: string;
   /**
    * @remarks
-   * 本地上传时为预签名上传使用的批次相对路径；不同 ImportType 下含义由导入类型定义。
+   * The document path. This is the file name or relative path used during upload, which must be consistent with the pre-signed request.
    * 
    * @example
    * 2026_06_23_17_49_52WwGSUezpG2u2iHWxyYGzkf9KtormhkxN/CHANGELOG.md
    */
   path?: string;
   /**
+   * @remarks
+   * The size of the file.
+   * 
    * @example
    * 1024
    */
@@ -84,36 +96,57 @@ export class AddDocumentsRequestDocuments extends $dara.Model {
 
 export class AddDocumentsRequestDingTalkConfiguration extends $dara.Model {
   /**
+   * @remarks
+   * Not supported. Ignore this parameter.
+   * 
    * @example
    * ignore
    */
   appId?: string;
   /**
+   * @remarks
+   * Not supported. Ignore this parameter.
+   * 
    * @example
    * ignore
    */
   appPassword?: string;
   /**
+   * @remarks
+   * Not supported. Ignore this parameter.
+   * 
    * @example
    * ignore
    */
   dingDocMcpLink?: string;
   /**
+   * @remarks
+   * Not supported. Ignore this parameter.
+   * 
    * @example
    * ignore
    */
   dingTableMcpLink?: string;
   /**
+   * @remarks
+   * Not supported. Ignore this parameter.
+   * 
    * @example
    * ignore
    */
   knowledgeId?: string;
   /**
+   * @remarks
+   * Not supported. Ignore this parameter.
+   * 
    * @example
    * ignore
    */
   knowledgeType?: string;
   /**
+   * @remarks
+   * Not supported. Ignore this parameter.
+   * 
    * @example
    * ignore
    */
@@ -152,35 +185,61 @@ export class AddDocumentsRequestDingTalkConfiguration extends $dara.Model {
 }
 
 export class AddDocumentsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The deduplication configuration.
+   */
   dedup?: AddDocumentsRequestDedup;
+  /**
+   * @remarks
+   * The list of documents.
+   */
   documents?: AddDocumentsRequestDocuments[];
   /**
    * @remarks
-   * 当前支持 LOCAL_UPLOAD；OSS_IMPORT 和 PUBLIC_URL 为后续导入方式预留。
+   * The import type.
    * 
    * @example
    * LOCAL_UPLOAD
    */
   importType?: string;
   /**
+   * @remarks
+   * The ID of the knowledge base.
+   * 
    * @example
    * kb-3bd02617e9be335f
    */
   knowledgeBaseId?: string;
   /**
    * @remarks
-   * 导入时批量设置到本批次所有知识数据的标签键值。Key 必须为知识库已定义标签字段；Value 支持 string、int64、float32、bool、list。
+   * The batch label configuration. The key must be a label field defined in the knowledge base. The value supports string, int64, float32, bool, and list types.
    * 
    * @example
    * {"department":"legal","topics":["policy","contract"],"reviewed":true}
    */
   metaFields?: any;
   /**
+   * @remarks
+   * The ID of the processing strategy.
+   * 
    * @example
    * kb-strategy-7043984ca395eabd
    */
   strategyId?: string;
+  /**
+   * @remarks
+   * Not supported. Ignore this parameter.
+   */
   dingTalkConfiguration?: AddDocumentsRequestDingTalkConfiguration;
+  /**
+   * @remarks
+   * Defaults to root when omitted.
+   * 
+   * @example
+   * root
+   */
+  parentId?: string;
   static names(): { [key: string]: string } {
     return {
       dedup: 'Dedup',
@@ -190,6 +249,7 @@ export class AddDocumentsRequest extends $dara.Model {
       metaFields: 'MetaFields',
       strategyId: 'StrategyId',
       dingTalkConfiguration: 'dingTalkConfiguration',
+      parentId: 'parentId',
     };
   }
 
@@ -202,6 +262,7 @@ export class AddDocumentsRequest extends $dara.Model {
       metaFields: 'any',
       strategyId: 'string',
       dingTalkConfiguration: AddDocumentsRequestDingTalkConfiguration,
+      parentId: 'string',
     };
   }
 
