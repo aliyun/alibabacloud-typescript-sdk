@@ -1811,9 +1811,9 @@ export default class Client extends OpenApi {
    * Queries the data detection results of data tables and files.
    * 
    * @remarks
-   * Queries the detection results of data tables and files. This allows you to query data detection results of assets from a global perspective.
+   * Queries the detection results of data tables and files, allowing you to view asset data detection results from a global perspective.
    * ## QPS limit
-   * The queries per second (QPS) limit for a single user is 10. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation at an appropriate frequency.
+   * The single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, the API call is throttled, which may affect your business. Call this operation as needed.
    * 
    * @param request - DescribeDataObjectsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1854,6 +1854,10 @@ export default class Client extends OpenApi {
       query["EngineType"] = request.engineType;
     }
 
+    if (!$dara.isNull(request.facetType)) {
+      query["FacetType"] = request.facetType;
+    }
+
     if (!$dara.isNull(request.featureType)) {
       query["FeatureType"] = request.featureType;
     }
@@ -1868,6 +1872,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.isRevision)) {
+      query["IsRevision"] = request.isRevision;
     }
 
     if (!$dara.isNull(request.lang)) {
@@ -1975,9 +1983,9 @@ export default class Client extends OpenApi {
    * Queries the data detection results of data tables and files.
    * 
    * @remarks
-   * Queries the detection results of data tables and files. This allows you to query data detection results of assets from a global perspective.
+   * Queries the detection results of data tables and files, allowing you to view asset data detection results from a global perspective.
    * ## QPS limit
-   * The queries per second (QPS) limit for a single user is 10. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation at an appropriate frequency.
+   * The single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, the API call is throttled, which may affect your business. Call this operation as needed.
    * 
    * @param request - DescribeDataObjectsRequest
    * @returns DescribeDataObjectsResponse

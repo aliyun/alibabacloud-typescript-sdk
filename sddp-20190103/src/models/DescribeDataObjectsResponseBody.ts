@@ -16,7 +16,10 @@ export class DescribeDataObjectsResponseBodyItemsModelTags extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The data tag name. Valid values:
+   * The data label name. Valid values:
+   * - **Personal sensitive information.**
+   * - **Personal information.**
+   * - **General information.**
    * 
    * @example
    * Personal sensitive information
@@ -49,6 +52,11 @@ export class DescribeDataObjectsResponseBodyItemsRuleList extends $dara.Model {
   /**
    * @remarks
    * The risk level ID of the sensitive data detection rule. Valid values:
+   * - **1**: N/A. No sensitive data is detected.
+   * - **2**: S1. Level 1 sensitive data.
+   * - **3**: S2. Level 2 sensitive data.
+   * - **4**: S3. Level 3 sensitive data.
+   * - **5**: S4. Level 4 sensitive data.
    * 
    * @example
    * 2
@@ -58,10 +66,10 @@ export class DescribeDataObjectsResponseBodyItemsRuleList extends $dara.Model {
    * @remarks
    * The risk level name of the data asset table. Valid values:
    * - **N/A**: No sensitive data is detected.
-   * - **S1**: Level-1 sensitive data.
-   * - **S2**: Level-2 sensitive data.
-   * - **S3**: Level-3 sensitive data.
-   * - **S4**: Level-4 sensitive data.
+   * - **S1**: Level 1 sensitive data.
+   * - **S2**: Level 2 sensitive data.
+   * - **S3**: Level 3 sensitive data.
+   * - **S4**: Level 4 sensitive data.
    * 
    * @example
    * S1
@@ -77,7 +85,7 @@ export class DescribeDataObjectsResponseBodyItemsRuleList extends $dara.Model {
   ruleCategoryNameList?: string;
   /**
    * @remarks
-   * The number of detection models that are hit.
+   * The number of matched detection models.
    * 
    * @example
    * 590
@@ -85,7 +93,7 @@ export class DescribeDataObjectsResponseBodyItemsRuleList extends $dara.Model {
   ruleCount?: number;
   /**
    * @remarks
-   * The ID of the detection model.
+   * The detection model ID.
    * 
    * @example
    * 1080
@@ -93,7 +101,7 @@ export class DescribeDataObjectsResponseBodyItemsRuleList extends $dara.Model {
   ruleId?: number;
   /**
    * @remarks
-   * The name of the detection model.
+   * The detection model name.
    * 
    * @example
    * name
@@ -261,7 +269,7 @@ export class DescribeDataObjectsResponseBodyItems extends $dara.Model {
   memberAccount?: number;
   /**
    * @remarks
-   * The list of data tags.
+   * The list of data labels.
    */
   modelTags?: DescribeDataObjectsResponseBodyItemsModelTags[];
   /**
@@ -282,7 +290,7 @@ export class DescribeDataObjectsResponseBodyItems extends $dara.Model {
   objectFileCategory?: string;
   /**
    * @remarks
-   * The data object type.
+   * The object type of the data object.
    * 
    * @example
    * text type
@@ -299,6 +307,18 @@ export class DescribeDataObjectsResponseBodyItems extends $dara.Model {
   /**
    * @remarks
    * The product name to which the data object belongs. Valid values:
+   * - **MaxCompute**
+   * - **OSS**
+   * - **ADB-MYSQL**
+   * - **TableStore**
+   * - **RDS**
+   * - **SELF_DB**
+   * - **PolarDB-X**
+   * - **PolarDB**
+   * - **ADB-PG**
+   * - **OceanBase**
+   * - **MongoDB**
+   * - **Redis**
    * 
    * @example
    * RDS
@@ -358,7 +378,7 @@ export class DescribeDataObjectsResponseBodyItems extends $dara.Model {
   riskLevelId?: number;
   /**
    * @remarks
-   * The number of rules that are hit.
+   * The number of matched rules.
    * 
    * @example
    * 10
@@ -366,7 +386,7 @@ export class DescribeDataObjectsResponseBodyItems extends $dara.Model {
   ruleCount?: number;
   /**
    * @remarks
-   * The list of detection models that are hit.
+   * The list of matched detection models.
    */
   ruleList?: DescribeDataObjectsResponseBodyItemsRuleList[];
   /**
@@ -387,7 +407,7 @@ export class DescribeDataObjectsResponseBodyItems extends $dara.Model {
   size?: number;
   /**
    * @remarks
-   * An array that consists of the number of rules hit for each sensitivity level, in the format "S1,S2,S3,S4,S5,S6,S7,S8,S9,S10", where S1 represents the number of rules hit at sensitivity level S1.
+   * The array that consists of the number of rules matched at each sensitivity level, in the format "S1,S2,S3,S4,S5,S6,S7,S8,S9,S10", where S1 represents the number of rules matched at sensitivity level S1.
    * 
    * @example
    * 1,2,3,0,0,0,0,5,0,0
@@ -548,7 +568,7 @@ export class DescribeDataObjectsResponseBodyItems extends $dara.Model {
 export class DescribeDataObjectsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The page number of the current page in a paged query. Settings the current page number for paging. Default value: **1**.
+   * The page number of the current page in a paged query. Settings for paging. Default value: **1**.
    * 
    * @example
    * 1
@@ -558,6 +578,14 @@ export class DescribeDataObjectsResponseBody extends $dara.Model {
   errorMessage?: string;
   hasNext?: boolean;
   hasPrevious?: boolean;
+  /**
+   * @remarks
+   * The associate filter values used to return filtered values.
+   * 
+   * @example
+   * ["linxiu","sddptest"]
+   */
+  hitValues?: string[];
   /**
    * @remarks
    * The list of data objects.
@@ -597,6 +625,7 @@ export class DescribeDataObjectsResponseBody extends $dara.Model {
       errorMessage: 'ErrorMessage',
       hasNext: 'HasNext',
       hasPrevious: 'HasPrevious',
+      hitValues: 'HitValues',
       items: 'Items',
       nextCursor: 'NextCursor',
       pageSize: 'PageSize',
@@ -614,6 +643,7 @@ export class DescribeDataObjectsResponseBody extends $dara.Model {
       errorMessage: 'string',
       hasNext: 'boolean',
       hasPrevious: 'boolean',
+      hitValues: { 'type': 'array', 'itemType': 'string' },
       items: { 'type': 'array', 'itemType': DescribeDataObjectsResponseBodyItems },
       nextCursor: 'string',
       pageSize: 'number',
@@ -625,6 +655,9 @@ export class DescribeDataObjectsResponseBody extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.hitValues)) {
+      $dara.Model.validateArray(this.hitValues);
+    }
     if(Array.isArray(this.items)) {
       $dara.Model.validateArray(this.items);
     }
