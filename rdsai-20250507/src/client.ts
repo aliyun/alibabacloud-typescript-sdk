@@ -445,10 +445,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建上下文数据库 API Key
+   * Creates a context database API key.
    * 
    * @remarks
-   * 创建 API Key（返回明文 apiKey）。
+   * Creates an API key and returns the plaintext apiKey.
    * 
    * @param request - CreateContextDatabaseApiKeyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -487,10 +487,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建上下文数据库 API Key
+   * Creates a context database API key.
    * 
    * @remarks
-   * 创建 API Key（返回明文 apiKey）。
+   * Creates an API key and returns the plaintext apiKey.
    * 
    * @param request - CreateContextDatabaseApiKeyRequest
    * @returns CreateContextDatabaseApiKeyResponse
@@ -501,10 +501,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建上下文数据库成员
+   * Creates a ContextDB member.
    * 
    * @remarks
-   * 创建成员；当 GenerateInitialKey=true 时同时签发首把 API Key，并在响应中返回明文 ApiKey（敏感字段，仅此一次返回，请妥善保存）。创建成功后可通过 List / Get 查询成员及其名下 API Key 的元数据。
+   * Creates a member. When GenerateInitialKey is set to true, the first API key is issued at the same time, and the plaintext ApiKey is returned in the response. This is a sensitive field and is returned only once. Store it securely. After the member is created, you can use the List or Get operation to query the member and the metadata of the API keys under the member.
    * 
    * @param request - CreateContextDatabaseMemberRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -551,10 +551,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建上下文数据库成员
+   * Creates a ContextDB member.
    * 
    * @remarks
-   * 创建成员；当 GenerateInitialKey=true 时同时签发首把 API Key，并在响应中返回明文 ApiKey（敏感字段，仅此一次返回，请妥善保存）。创建成功后可通过 List / Get 查询成员及其名下 API Key 的元数据。
+   * Creates a member. When GenerateInitialKey is set to true, the first API key is issued at the same time, and the plaintext ApiKey is returned in the response. This is a sensitive field and is returned only once. Store it securely. After the member is created, you can use the List or Get operation to query the member and the metadata of the API keys under the member.
    * 
    * @param request - CreateContextDatabaseMemberRequest
    * @returns CreateContextDatabaseMemberResponse
@@ -565,10 +565,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建上下文数据库工作区
+   * Creates a workspace, the first member, and the first API key in a one-time onboarding flow.
    * 
    * @remarks
-   * 创建 workspace + 首位成员 + 首把 API Key 的一次性引导，返回明文 apiKey。
+   * Creates a workspace, the first member, and the first API key in a one-time onboarding flow. Returns the plaintext API key.
    * 
    * @param request - CreateContextDatabaseWorkspaceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -603,10 +603,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建上下文数据库工作区
+   * Creates a workspace, the first member, and the first API key in a one-time onboarding flow.
    * 
    * @remarks
-   * 创建 workspace + 首位成员 + 首把 API Key 的一次性引导，返回明文 apiKey。
+   * Creates a workspace, the first member, and the first API key in a one-time onboarding flow. Returns the plaintext API key.
    * 
    * @param request - CreateContextDatabaseWorkspaceRequest
    * @returns CreateContextDatabaseWorkspaceResponse
@@ -837,12 +837,18 @@ export default class Client extends OpenApi {
    * ### Related documentation
    * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
    * 
-   * @param request - CreateSandboxTemplateRequest
+   * @param tmpReq - CreateSandboxTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateSandboxTemplateResponse
    */
-  async createSandboxTemplateWithOptions(request: $_model.CreateSandboxTemplateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateSandboxTemplateResponse> {
-    request.validate();
+  async createSandboxTemplateWithOptions(tmpReq: $_model.CreateSandboxTemplateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateSandboxTemplateResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateSandboxTemplateShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.tags)) {
+      request.tagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tags, "Tags", "json");
+    }
+
     let query = { };
     if (!$dara.isNull(request.defaultCpu)) {
       query["DefaultCpu"] = request.defaultCpu;
@@ -856,6 +862,10 @@ export default class Client extends OpenApi {
       query["Description"] = request.description;
     }
 
+    if (!$dara.isNull(request.image)) {
+      query["Image"] = request.image;
+    }
+
     if (!$dara.isNull(request.instanceName)) {
       query["InstanceName"] = request.instanceName;
     }
@@ -866,6 +876,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.replicas)) {
       query["Replicas"] = request.replicas;
+    }
+
+    if (!$dara.isNull(request.tagsShrink)) {
+      query["Tags"] = request.tagsShrink;
     }
 
     if (!$dara.isNull(request.templateName)) {
@@ -1195,10 +1209,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除上下文数据库成员
+   * Deletes a ContextDB member.
    * 
    * @remarks
-   * 删除成员（硬删除，不可恢复）。
+   * Deletes a member (hard delete, not recoverable).
    * 
    * @param request - DeleteContextDatabaseMemberRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1233,10 +1247,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除上下文数据库成员
+   * Deletes a ContextDB member.
    * 
    * @remarks
-   * 删除成员（硬删除，不可恢复）。
+   * Deletes a member (hard delete, not recoverable).
    * 
    * @param request - DeleteContextDatabaseMemberRequest
    * @returns DeleteContextDatabaseMemberResponse
@@ -1247,10 +1261,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除上下文数据库工作区
+   * Deletes a ContextDB workspace.
    * 
    * @remarks
-   * 删除业务空间（Workspace），硬删除、不可恢复。删除成功后本地元数据同步软删除，已删除的业务空间不再计入配额。
+   * Deletes a workspace. This is a hard delete and cannot be recovered. After successful deletion, local metadata is soft-deleted synchronously. Deleted workspaces no longer count toward the quota.
    * 
    * @param request - DeleteContextDatabaseWorkspaceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1281,10 +1295,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除上下文数据库工作区
+   * Deletes a ContextDB workspace.
    * 
    * @remarks
-   * 删除业务空间（Workspace），硬删除、不可恢复。删除成功后本地元数据同步软删除，已删除的业务空间不再计入配额。
+   * Deletes a workspace. This is a hard delete and cannot be recovered. After successful deletion, local metadata is soft-deleted synchronously. Deleted workspaces no longer count toward the quota.
    * 
    * @param request - DeleteContextDatabaseWorkspaceRequest
    * @returns DeleteContextDatabaseWorkspaceResponse
@@ -2441,7 +2455,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of sandbox templates used to create Supabase sandboxes.
+   * Queries the list of sandbox templates available for creating a Supabase sandbox.
    * 
    * @remarks
    * ### Applicable engine
@@ -2506,7 +2520,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of sandbox templates used to create Supabase sandboxes.
+   * Queries the list of sandbox templates available for creating a Supabase sandbox.
    * 
    * @remarks
    * ### Applicable engine
@@ -2762,6 +2776,41 @@ export default class Client extends OpenApi {
   async getAvailableLLMModels(request: $_model.GetAvailableLLMModelsRequest): Promise<$_model.GetAvailableLLMModelsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getAvailableLLMModelsWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取会话可选模型
+   * 
+   * @param request - GetChatModelRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetChatModelResponse
+   */
+  async getChatModelWithOptions(request: $_model.GetChatModelRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetChatModelResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({ });
+    let params = new $OpenApiUtil.Params({
+      action: "GetChatModel",
+      version: "2025-05-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetChatModelResponse>(await this.callApi(params, req, runtime), new $_model.GetChatModelResponse({}));
+  }
+
+  /**
+   * 获取会话可选模型
+   * 
+   * @param request - GetChatModelRequest
+   * @returns GetChatModelResponse
+   */
+  async getChatModel(request: $_model.GetChatModelRequest): Promise<$_model.GetChatModelResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getChatModelWithOptions(request, runtime);
   }
 
   /**
@@ -3276,10 +3325,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出成员名下 API Key
+   * Lists the API keys for a context database.
    * 
    * @remarks
-   * 列出指定成员名下的 API Key（不返回明文）。
+   * Lists the API keys under a specified member. The plaintext key values are not returned.
    * 
    * @param request - ListContextDatabaseApiKeysRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3322,10 +3371,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出成员名下 API Key
+   * Lists the API keys for a context database.
    * 
    * @remarks
-   * 列出指定成员名下的 API Key（不返回明文）。
+   * Lists the API keys under a specified member. The plaintext key values are not returned.
    * 
    * @param request - ListContextDatabaseApiKeysRequest
    * @returns ListContextDatabaseApiKeysResponse
@@ -3336,10 +3385,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出工作区成员
+   * Lists the members of a context database.
    * 
    * @remarks
-   * 列出指定业务空间下的全部成员，每个成员附带其名下 API Key 列表（不返回明文）。
+   * Lists all members in a specified workspace. Each member includes a list of API keys associated with the member (plaintext values are not returned).
    * 
    * @param request - ListContextDatabaseMembersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3378,10 +3427,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出工作区成员
+   * Lists the members of a context database.
    * 
    * @remarks
-   * 列出指定业务空间下的全部成员，每个成员附带其名下 API Key 列表（不返回明文）。
+   * Lists all members in a specified workspace. Each member includes a list of API keys associated with the member (plaintext values are not returned).
    * 
    * @param request - ListContextDatabaseMembersRequest
    * @returns ListContextDatabaseMembersResponse
@@ -3392,10 +3441,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 根据workspaceId和状态过滤调用方账号下的工作区列表。
+   * Lists ContextDB workspaces.
    * 
    * @remarks
-   * 列出上下文数据库工作空间
+   * Lists ContextDB workspaces.
    * 
    * @param request - ListContextDatabaseWorkspacesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3438,10 +3487,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 根据workspaceId和状态过滤调用方账号下的工作区列表。
+   * Lists ContextDB workspaces.
    * 
    * @remarks
-   * 列出上下文数据库工作空间
+   * Lists ContextDB workspaces.
    * 
    * @param request - ListContextDatabaseWorkspacesRequest
    * @returns ListContextDatabaseWorkspacesResponse
@@ -4353,12 +4402,18 @@ export default class Client extends OpenApi {
    * ### Related documentation
    * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
    * 
-   * @param request - ModifySandboxTemplateRequest
+   * @param tmpReq - ModifySandboxTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifySandboxTemplateResponse
    */
-  async modifySandboxTemplateWithOptions(request: $_model.ModifySandboxTemplateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifySandboxTemplateResponse> {
-    request.validate();
+  async modifySandboxTemplateWithOptions(tmpReq: $_model.ModifySandboxTemplateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifySandboxTemplateResponse> {
+    tmpReq.validate();
+    let request = new $_model.ModifySandboxTemplateShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.tags)) {
+      request.tagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tags, "Tags", "json");
+    }
+
     let query = { };
     if (!$dara.isNull(request.defaultCpu)) {
       query["DefaultCpu"] = request.defaultCpu;
@@ -4366,6 +4421,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.defaultMemory)) {
       query["DefaultMemory"] = request.defaultMemory;
+    }
+
+    if (!$dara.isNull(request.image)) {
+      query["Image"] = request.image;
     }
 
     if (!$dara.isNull(request.instanceName)) {
@@ -4378,6 +4437,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.replicas)) {
       query["Replicas"] = request.replicas;
+    }
+
+    if (!$dara.isNull(request.tagsShrink)) {
+      query["Tags"] = request.tagsShrink;
     }
 
     if (!$dara.isNull(request.templateId)) {
@@ -4863,10 +4926,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 吊销上下文数据库 API Key
+   * Revokes a context database API key.
    * 
    * @remarks
-   * 吊销 API Key。
+   * Revokes an API key.
    * 
    * @param request - RevokeContextDatabaseApiKeyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4905,10 +4968,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 吊销上下文数据库 API Key
+   * Revokes a context database API key.
    * 
    * @remarks
-   * 吊销 API Key。
+   * Revokes an API key.
    * 
    * @param request - RevokeContextDatabaseApiKeyRequest
    * @returns RevokeContextDatabaseApiKeyResponse
@@ -5107,10 +5170,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新上下文数据库 API Key 元数据
+   * Updates the display metadata of a ContextDB API key.
    * 
    * @remarks
-   * 更新 API Key 的展示元数据。Name 与 Description 至少传其一；明文 Key 不重新签发。
+   * Updates the display metadata of an API key. At least one of Name or Description must be specified. The plaintext key is not reissued.
    * 
    * @param request - UpdateContextDatabaseApiKeyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5157,10 +5220,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新上下文数据库 API Key 元数据
+   * Updates the display metadata of a ContextDB API key.
    * 
    * @remarks
-   * 更新 API Key 的展示元数据。Name 与 Description 至少传其一；明文 Key 不重新签发。
+   * Updates the display metadata of an API key. At least one of Name or Description must be specified. The plaintext key is not reissued.
    * 
    * @param request - UpdateContextDatabaseApiKeyRequest
    * @returns UpdateContextDatabaseApiKeyResponse
@@ -5171,10 +5234,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新上下文数据库成员
+   * Updates a context database member.
    * 
    * @remarks
-   * 更新成员的角色 / 状态。
+   * Updates the role or status of a member.
    * 
    * @param request - UpdateContextDatabaseMemberRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5217,10 +5280,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新上下文数据库成员
+   * Updates a context database member.
    * 
    * @remarks
-   * 更新成员的角色 / 状态。
+   * Updates the role or status of a member.
    * 
    * @param request - UpdateContextDatabaseMemberRequest
    * @returns UpdateContextDatabaseMemberResponse
@@ -5231,10 +5294,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改上下文数据库工作区
+   * Updates a ContextDB workspace.
    * 
    * @remarks
-   * 修改 workspace 名称。
+   * Modifies the name of a workspace.
    * 
    * @param request - UpdateContextDatabaseWorkspaceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5269,10 +5332,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改上下文数据库工作区
+   * Updates a ContextDB workspace.
    * 
    * @remarks
-   * 修改 workspace 名称。
+   * Modifies the name of a workspace.
    * 
    * @param request - UpdateContextDatabaseWorkspaceRequest
    * @returns UpdateContextDatabaseWorkspaceResponse

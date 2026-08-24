@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateContextDatabaseWorkspaceRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the target workspace.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class UpdateContextDatabaseWorkspaceRequest extends $dara.Model {
   workspaceId?: string;
   /**
    * @remarks
+   * The new name of the workspace.
+   * 
    * This parameter is required.
    * 
    * @example

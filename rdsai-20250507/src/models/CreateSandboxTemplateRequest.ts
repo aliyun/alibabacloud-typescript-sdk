@@ -27,6 +27,7 @@ export class CreateSandboxTemplateRequest extends $dara.Model {
    * code-interpreter
    */
   description?: string;
+  image?: string;
   /**
    * @remarks
    * The instance ID of the AI application.
@@ -53,6 +54,7 @@ export class CreateSandboxTemplateRequest extends $dara.Model {
    * 1
    */
   replicas?: number;
+  tags?: { [key: string]: string };
   /**
    * @remarks
    * The name of the sandbox template.
@@ -68,9 +70,11 @@ export class CreateSandboxTemplateRequest extends $dara.Model {
       defaultCpu: 'DefaultCpu',
       defaultMemory: 'DefaultMemory',
       description: 'Description',
+      image: 'Image',
       instanceName: 'InstanceName',
       regionId: 'RegionId',
       replicas: 'Replicas',
+      tags: 'Tags',
       templateName: 'TemplateName',
     };
   }
@@ -80,14 +84,19 @@ export class CreateSandboxTemplateRequest extends $dara.Model {
       defaultCpu: 'string',
       defaultMemory: 'string',
       description: 'string',
+      image: 'string',
       instanceName: 'string',
       regionId: 'string',
       replicas: 'number',
+      tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       templateName: 'string',
     };
   }
 
   validate() {
+    if(this.tags) {
+      $dara.Model.validateMap(this.tags);
+    }
     super.validate();
   }
 

@@ -2,7 +2,7 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ModifySandboxTemplateRequest extends $dara.Model {
+export class ModifySandboxTemplateShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The number of CPUs for sandboxes created from this template. Valid values: 1 to 4.
@@ -46,7 +46,7 @@ export class ModifySandboxTemplateRequest extends $dara.Model {
    * 2
    */
   replicas?: number;
-  tags?: { [key: string]: string };
+  tagsShrink?: string;
   /**
    * @remarks
    * The sandbox template ID.
@@ -65,7 +65,7 @@ export class ModifySandboxTemplateRequest extends $dara.Model {
       instanceName: 'InstanceName',
       regionId: 'RegionId',
       replicas: 'Replicas',
-      tags: 'Tags',
+      tagsShrink: 'Tags',
       templateId: 'TemplateId',
     };
   }
@@ -78,15 +78,12 @@ export class ModifySandboxTemplateRequest extends $dara.Model {
       instanceName: 'string',
       regionId: 'string',
       replicas: 'number',
-      tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      tagsShrink: 'string',
       templateId: 'string',
     };
   }
 
   validate() {
-    if(this.tags) {
-      $dara.Model.validateMap(this.tags);
-    }
     super.validate();
   }
 

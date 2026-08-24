@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class RevokeContextDatabaseApiKeyRequest extends $dara.Model {
   /**
    * @remarks
+   * API Key ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class RevokeContextDatabaseApiKeyRequest extends $dara.Model {
   keyId?: number;
   /**
    * @remarks
+   * The member ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class RevokeContextDatabaseApiKeyRequest extends $dara.Model {
   memberId?: string;
   /**
    * @remarks
+   * The workspace ID.
+   * 
    * This parameter is required.
    * 
    * @example

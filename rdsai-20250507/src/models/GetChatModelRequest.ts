@@ -2,26 +2,14 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DeleteContextDatabaseWorkspaceRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the target workspace.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * ws-as1llqmkol****
-   */
-  workspaceId?: string;
+export class GetChatModelRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
-      workspaceId: 'WorkspaceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      workspaceId: 'string',
     };
   }
 

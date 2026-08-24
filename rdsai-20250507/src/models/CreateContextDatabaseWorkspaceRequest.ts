@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CreateContextDatabaseWorkspaceRequest extends $dara.Model {
   /**
    * @remarks
+   * The name of the first member.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class CreateContextDatabaseWorkspaceRequest extends $dara.Model {
   memberName?: string;
   /**
    * @remarks
+   * The workspace name.
+   * 
    * This parameter is required.
    * 
    * @example

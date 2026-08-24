@@ -2,10 +2,10 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ModifySandboxTemplateRequest extends $dara.Model {
+export class CreateSandboxTemplateShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The number of CPUs for sandboxes created from this template. Valid values: 1 to 4.
+   * The number of CPUs for sandboxes created by using this template. Valid values: 1 to 4.
    * 
    * @example
    * 1
@@ -13,12 +13,20 @@ export class ModifySandboxTemplateRequest extends $dara.Model {
   defaultCpu?: string;
   /**
    * @remarks
-   * The memory size for sandboxes created from this template. Unit: Gi. Valid values: 1Gi to 8Gi.
+   * The memory size for sandboxes created by using this template. Unit: Gi. Valid values: 1Gi to 8Gi.
    * 
    * @example
    * 1Gi
    */
   defaultMemory?: string;
+  /**
+   * @remarks
+   * The description of the sandbox template. The description must be unique within the VPC.
+   * 
+   * @example
+   * code-interpreter
+   */
+  description?: string;
   image?: string;
   /**
    * @remarks
@@ -40,33 +48,34 @@ export class ModifySandboxTemplateRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The initial number of instances. Valid values: 1 to 1000.
+   * The number of prewarmed sandboxes. Valid values: 1 to 1000.
    * 
    * @example
-   * 2
+   * 1
    */
   replicas?: number;
-  tags?: { [key: string]: string };
+  tagsShrink?: string;
   /**
    * @remarks
-   * The sandbox template ID.
+   * The name of the sandbox template.
    * 
    * This parameter is required.
    * 
    * @example
-   * desktop-xxx
+   * code-interpreter
    */
-  templateId?: string;
+  templateName?: string;
   static names(): { [key: string]: string } {
     return {
       defaultCpu: 'DefaultCpu',
       defaultMemory: 'DefaultMemory',
+      description: 'Description',
       image: 'Image',
       instanceName: 'InstanceName',
       regionId: 'RegionId',
       replicas: 'Replicas',
-      tags: 'Tags',
-      templateId: 'TemplateId',
+      tagsShrink: 'Tags',
+      templateName: 'TemplateName',
     };
   }
 
@@ -74,19 +83,17 @@ export class ModifySandboxTemplateRequest extends $dara.Model {
     return {
       defaultCpu: 'string',
       defaultMemory: 'string',
+      description: 'string',
       image: 'string',
       instanceName: 'string',
       regionId: 'string',
       replicas: 'number',
-      tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      templateId: 'string',
+      tagsShrink: 'string',
+      templateName: 'string',
     };
   }
 
   validate() {
-    if(this.tags) {
-      $dara.Model.validateMap(this.tags);
-    }
     super.validate();
   }
 

@@ -4,17 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateContextDatabaseMemberRequest extends $dara.Model {
   /**
+   * @remarks
+   * Specifies whether to issue the first API key when the member is created. Default value: false.
+   * 
    * @example
    * true
    */
   generateInitialKey?: boolean;
   /**
+   * @remarks
+   * The name of the first API key. This parameter takes effect only when GenerateInitialKey is set to true.
+   * 
    * @example
    * my-key
    */
   initialKeyName?: string;
   /**
    * @remarks
+   * The member name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -23,6 +31,12 @@ export class CreateContextDatabaseMemberRequest extends $dara.Model {
   memberName?: string;
   /**
    * @remarks
+   * The member role. Valid values:
+   * 
+   * - owner
+   * - admin
+   * - member
+   * 
    * This parameter is required.
    * 
    * @example
@@ -31,6 +45,8 @@ export class CreateContextDatabaseMemberRequest extends $dara.Model {
   role?: string;
   /**
    * @remarks
+   * The workspace ID.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateContextDatabaseMemberRequest extends $dara.Model {
   /**
    * @remarks
+   * The member ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,17 +14,25 @@ export class UpdateContextDatabaseMemberRequest extends $dara.Model {
    */
   memberId?: string;
   /**
+   * @remarks
+   * The new role. Valid values: owner, admin, and member. If not specified, the current role is retained.
+   * 
    * @example
    * admin
    */
   role?: string;
   /**
+   * @remarks
+   * The new status. Valid values: active, disabled, and deleted. If not specified, the current status is retained.
+   * 
    * @example
    * disabled
    */
   status?: string;
   /**
    * @remarks
+   * The workspace ID.
+   * 
    * This parameter is required.
    * 
    * @example

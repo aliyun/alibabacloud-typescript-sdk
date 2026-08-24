@@ -6,7 +6,7 @@ export class DescribeSandboxTemplatesResponseBodySandboxTemplates extends $dara.
   createdBy?: string;
   /**
    * @remarks
-   * The number of CPUs for the sandbox created by using this template.
+   * The number of CPUs for the sandbox created with this template.
    * 
    * @example
    * 2
@@ -14,7 +14,7 @@ export class DescribeSandboxTemplatesResponseBodySandboxTemplates extends $dara.
   defaultCpu?: string;
   /**
    * @remarks
-   * The memory size of the sandbox created by using this template.
+   * The memory size of the sandbox created with this template.
    * 
    * @example
    * 4Gi
@@ -30,12 +30,13 @@ export class DescribeSandboxTemplatesResponseBodySandboxTemplates extends $dara.
   description?: string;
   /**
    * @remarks
-   * Indicates whether the sandbox created by using this template can access resources within the VPC where Supabase resides.
+   * Indicates whether the sandbox created with this template can access resources in the VPC where Supabase resides.
    * 
    * @example
    * true
    */
   enableVpcAccess?: string;
+  image?: string;
   /**
    * @remarks
    * The sandbox template name.
@@ -45,9 +46,10 @@ export class DescribeSandboxTemplatesResponseBodySandboxTemplates extends $dara.
    */
   name?: string;
   replicas?: number;
+  tags?: { [key: string]: string };
   /**
    * @remarks
-   * The sandbox template ID. Specify this ID when you create a sandbox by using this template.
+   * The sandbox template ID. Specify this ID when creating a sandbox with this template.
    * 
    * @example
    * code-interpreter-asdxxxx
@@ -60,8 +62,10 @@ export class DescribeSandboxTemplatesResponseBodySandboxTemplates extends $dara.
       defaultMemory: 'DefaultMemory',
       description: 'Description',
       enableVpcAccess: 'EnableVpcAccess',
+      image: 'Image',
       name: 'Name',
       replicas: 'Replicas',
+      tags: 'Tags',
       templateId: 'TemplateId',
     };
   }
@@ -73,13 +77,18 @@ export class DescribeSandboxTemplatesResponseBodySandboxTemplates extends $dara.
       defaultMemory: 'string',
       description: 'string',
       enableVpcAccess: 'string',
+      image: 'string',
       name: 'string',
       replicas: 'number',
+      tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       templateId: 'string',
     };
   }
 
   validate() {
+    if(this.tags) {
+      $dara.Model.validateMap(this.tags);
+    }
     super.validate();
   }
 
@@ -99,7 +108,7 @@ export class DescribeSandboxTemplatesResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The position from which to start the current read. An empty value indicates that the read starts from the beginning.
+   * The token that indicates the position from which the current read operation starts. An empty value indicates that the read operation starts from the beginning.
    * 
    * @example
    * AAAAAc3HCuYhJi/wvpk4xOr0VLYz/NvD85HpgBeRBCusEIeVQ0dHZH9jr+NP3X9Jx0iSoql55b9nd4PIDm252/a0f+U=
@@ -136,7 +145,7 @@ export class DescribeSandboxTemplatesResponseBody extends $dara.Model {
   sandboxTemplates?: DescribeSandboxTemplatesResponseBodySandboxTemplates[];
   /**
    * @remarks
-   * The total number of records that match the query conditions. This is an optional response element and may not be returned by default.
+   * The total number of records that match the request conditions.
    * 
    * @example
    * 20

@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateContextDatabaseApiKeyRequest extends $dara.Model {
   /**
+   * @remarks
+   * The new description.
+   * 
    * @example
    * for nightly cron
    */
   description?: string;
   /**
    * @remarks
+   * API Key ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18,6 +23,8 @@ export class UpdateContextDatabaseApiKeyRequest extends $dara.Model {
   keyId?: number;
   /**
    * @remarks
+   * The member ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -25,12 +32,17 @@ export class UpdateContextDatabaseApiKeyRequest extends $dara.Model {
    */
   memberId?: string;
   /**
+   * @remarks
+   * The new display name.
+   * 
    * @example
    * my-key
    */
   name?: string;
   /**
    * @remarks
+   * The workspace ID.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -39,6 +39,7 @@ export { DescribeMonitorDataResponseBodyDataValue } from './DescribeMonitorDataR
 export { DescribeMonitorDataResponseBodyData } from './DescribeMonitorDataResponseBody';
 export { DescribeSandboxTemplatesResponseBodySandboxTemplates } from './DescribeSandboxTemplatesResponseBody';
 export { DescribeWhitelistIpsResponseBodyData } from './DescribeWhitelistIpsResponseBody';
+export { GetChatModelResponseBodyData } from './GetChatModelResponseBody';
 export { GetConversationsResponseBodyData } from './GetConversationsResponseBody';
 export { GetCustomAgentResponseBodySkills } from './GetCustomAgentResponseBody';
 export { GetInspectionReportResponseBodyDataDataItemsData } from './GetInspectionReportResponseBody';
@@ -114,6 +115,7 @@ export { CreateMOUsageDetailExportRequest } from './CreateMousageDetailExportReq
 export { CreateMOUsageDetailExportResponseBody } from './CreateMousageDetailExportResponseBody';
 export { CreateMOUsageDetailExportResponse } from './CreateMousageDetailExportResponse';
 export { CreateSandboxTemplateRequest } from './CreateSandboxTemplateRequest';
+export { CreateSandboxTemplateShrinkRequest } from './CreateSandboxTemplateShrinkRequest';
 export { CreateSandboxTemplateResponseBody } from './CreateSandboxTemplateResponseBody';
 export { CreateSandboxTemplateResponse } from './CreateSandboxTemplateResponse';
 export { CreateScheduledTaskRequest } from './CreateScheduledTaskRequest';
@@ -208,6 +210,9 @@ export { EnableAgentRuntimeResponse } from './EnableAgentRuntimeResponse';
 export { GetAvailableLLMModelsRequest } from './GetAvailableLlmmodelsRequest';
 export { GetAvailableLLMModelsResponseBody } from './GetAvailableLlmmodelsResponseBody';
 export { GetAvailableLLMModelsResponse } from './GetAvailableLlmmodelsResponse';
+export { GetChatModelRequest } from './GetChatModelRequest';
+export { GetChatModelResponseBody } from './GetChatModelResponseBody';
+export { GetChatModelResponse } from './GetChatModelResponse';
 export { GetConversationsRequest } from './GetConversationsRequest';
 export { GetConversationsResponseBody } from './GetConversationsResponseBody';
 export { GetConversationsResponse } from './GetConversationsResponse';
@@ -294,6 +299,7 @@ export { ModifyMessagesFeedbacksRequest } from './ModifyMessagesFeedbacksRequest
 export { ModifyMessagesFeedbacksResponseBody } from './ModifyMessagesFeedbacksResponseBody';
 export { ModifyMessagesFeedbacksResponse } from './ModifyMessagesFeedbacksResponse';
 export { ModifySandboxTemplateRequest } from './ModifySandboxTemplateRequest';
+export { ModifySandboxTemplateShrinkRequest } from './ModifySandboxTemplateShrinkRequest';
 export { ModifySandboxTemplateResponseBody } from './ModifySandboxTemplateResponseBody';
 export { ModifySandboxTemplateResponse } from './ModifySandboxTemplateResponse';
 export { ModifyScheduledTaskRequest } from './ModifyScheduledTaskRequest';
