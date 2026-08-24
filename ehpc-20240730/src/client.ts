@@ -13,8 +13,6 @@ export default class Client extends OpenApi {
     super(config);
     this._endpointRule = "regional";
     this._endpointMap = {
-      'me-east-1': "ehpc.me-east-1.aliyuncs.com",
-      'eu-central-1': "ehpc.eu-central-1.aliyuncs.com",
       'cn-zhangjiakou': "ehpc.cn-zhangjiakou.aliyuncs.com",
       'cn-wulanchabu': "ehpc.cn-wulanchabu.aliyuncs.com",
       'cn-wuhan-lr': "ehpc.cn-wuhan-lr.aliyuncs.com",
@@ -31,6 +29,8 @@ export default class Client extends OpenApi {
       'ap-southeast-5': "ehpc.ap-southeast-5.aliyuncs.com",
       'ap-southeast-1': "ehpc.ap-southeast-1.aliyuncs.com",
       'ap-northeast-1': "ehpc.ap-northeast-1.aliyuncs.com",
+      'eu-central-1': "ehpc.eu-central-1.aliyuncs.com",
+      'me-east-1': "ehpc.me-east-1.aliyuncs.com",
     };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("ehpc", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -648,7 +648,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds users to an Elastic High Performance Computing (E-HPC) cluster.
+   * Adds one or more users to a specified cluster.
    * 
    * @param tmpReq - CreateUsersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -689,7 +689,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds users to an Elastic High Performance Computing (E-HPC) cluster.
+   * Adds one or more users to a specified cluster.
    * 
    * @param request - CreateUsersRequest
    * @returns CreateUsersResponse
@@ -1373,6 +1373,44 @@ export default class Client extends OpenApi {
   async getQueue(request: $_model.GetQueueRequest): Promise<$_model.GetQueueResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getQueueWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the details of a cluster user.
+   * 
+   * @param request - GetUserRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetUserResponse
+   */
+  async getUserWithOptions(request: $_model.GetUserRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetUserResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetUser",
+      version: "2024-07-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetUserResponse>(await this.callApi(params, req, runtime), new $_model.GetUserResponse({}));
+  }
+
+  /**
+   * Queries the details of a cluster user.
+   * 
+   * @param request - GetUserRequest
+   * @returns GetUserResponse
+   */
+  async getUser(request: $_model.GetUserRequest): Promise<$_model.GetUserResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getUserWithOptions(request, runtime);
   }
 
   /**
@@ -2690,7 +2728,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the information of a user in an Elastic High Performance Computing (E-HPC) cluster, including the user group and password.
+   * Updates the information of a specified cluster user, including properties such as user group and password.
    * 
    * @param request - UpdateUserRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2733,7 +2771,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the information of a user in an Elastic High Performance Computing (E-HPC) cluster, including the user group and password.
+   * Updates the information of a specified cluster user, including properties such as user group and password.
    * 
    * @param request - UpdateUserRequest
    * @returns UpdateUserResponse

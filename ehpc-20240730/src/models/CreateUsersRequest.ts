@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class CreateUsersRequestUser extends $dara.Model {
   /**
    * @remarks
-   * The public key of the user.
+   * The public key of the Nth user to add.
    * 
-   * You can add up to 20 users in a call.
+   * Valid values of N: 1 to 20.
    * 
-   * Specify one of the Password and AuthKey parameters. The AuthKey parameter takes effect only when the cluster authentication method is set to Key. Key authentication is not recommended.
+   * This parameter is mutually exclusive with the Password parameter. This parameter takes effect when the cluster authentication method is set to key (not recommended).
    * 
    * @example
    * Abc****
@@ -17,9 +17,12 @@ export class CreateUsersRequestUser extends $dara.Model {
   authKey?: string;
   /**
    * @remarks
-   * The permission group to which the user belongs. Valid values:
+   * The user group of the Nth user to add. Valid values:
    * 
-   * users: ordinary permissions, which are suitable for ordinary users that need only to submit and debug jobs. wheel: sudo permissions, which are suitable for administrators who need to manage clusters. In addition to submitting and debugging jobs, you can also run sudo commands to install software and restart nodes. You can add up to 20 users in a call.
+   * - users: ordinary permission group. This group is suitable for regular users who only need to commit and debug jobs.
+   * - wheel: sudo permission group. This group is suitable for administrators who need to perform cluster management. In addition to committing and debugging jobs, users in this group can execute sudo commands to install software, restart nodes, and perform other operations.
+   * 
+   * Valid values of N: 1 to 20.
    * 
    * @example
    * users
@@ -27,16 +30,15 @@ export class CreateUsersRequestUser extends $dara.Model {
   group?: string;
   /**
    * @remarks
-   * The password of the user. The password must be 6 to 30 characters in length and must contain three of the following character types:
+   * The password of the Nth user to add. The password must be 8 to 30 characters in length and contain at least three of the following four character types:
+   * - Uppercase letters
+   * - Lowercase letters
+   * - Digits
+   * - Special characters: ()~!@#$%^&*-_+=|{}[]:;\\"/<>,.?/
    * 
-   * *   Uppercase letters
-   * *   Lowercase letters
-   * *   Digits
-   * *   Special characters ()~!@#$%^&\\*-_+=|{}[]:;\\"/<>,.?/
+   * Valid values of N: 1 to 20.
    * 
-   * You can add up to 20 users in a call.
-   * 
-   * Specify one of the Password and AuthKey parameters. The Password parameter takes effect only when the cluster authentication method is set to Password. Password authentication is recommended.
+   * This parameter is mutually exclusive with the AuthKey parameter. This parameter takes effect when the cluster authentication method is set to password (recommended).
    * 
    * @example
    * 1@a2****
@@ -44,9 +46,9 @@ export class CreateUsersRequestUser extends $dara.Model {
   password?: string;
   /**
    * @remarks
-   * The username. The username must be 1 to 30 characters in length. It must start with a letter and can contain digits, letters, and periods (.).
+   * The username of the Nth user to add. The username must be 1 to 30 characters in length, start with a letter, and can contain digits and special characters (.).
    * 
-   * You can add up to 20 users in a call.
+   * Valid values of N: 1 to 20.
    * 
    * @example
    * testuser
@@ -92,7 +94,7 @@ export class CreateUsersRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The users that you want to add.
+   * The list of users.
    */
   user?: CreateUsersRequestUser[];
   static names(): { [key: string]: string } {

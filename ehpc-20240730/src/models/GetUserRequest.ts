@@ -2,10 +2,12 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CreateUsersShrinkRequest extends $dara.Model {
+export class GetUserRequest extends $dara.Model {
   /**
    * @remarks
    * The cluster ID.
+   * 
+   * You can call [ListClusters](https://help.aliyun.com/document_detail/87116.html) to obtain the cluster ID.
    * 
    * This parameter is required.
    * 
@@ -15,20 +17,25 @@ export class CreateUsersShrinkRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The list of users.
+   * The username.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * testuser
    */
-  userShrink?: string;
+  userName?: string;
   static names(): { [key: string]: string } {
     return {
       clusterId: 'ClusterId',
-      userShrink: 'User',
+      userName: 'UserName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       clusterId: 'string',
-      userShrink: 'string',
+      userName: 'string',
     };
   }
 

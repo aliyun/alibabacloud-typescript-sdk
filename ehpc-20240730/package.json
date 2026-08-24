@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/ehpc20240730",
-  "version": "2.3.3",
+  "version": "2.4.0",
   "description": "",
   "main": "dist/client.js",
   "scripts": {

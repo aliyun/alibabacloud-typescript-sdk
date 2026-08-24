@@ -29,9 +29,6 @@ export class NodeTemplateDataDisks extends $dara.Model {
    */
   deleteWithInstance?: boolean;
   /**
-   * @remarks
-   * Device
-   * 
    * @example
    * /dev/xvdb
    */
@@ -77,9 +74,6 @@ export class NodeTemplateDataDisks extends $dara.Model {
    */
   size?: number;
   /**
-   * @remarks
-   * SnapshotId
-   * 
    * @example
    * s-bp1ei2b44ripxuo46hym
    */
