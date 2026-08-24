@@ -2,24 +2,24 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ConfigSetDetailRequest extends $dara.Model {
+export class ModifyTemplateResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The configuration set ID. This parameter is required.
+   * The unique request identifier.
    * 
    * @example
-   * xxx
+   * C5AB05E9-D3CA-582E-9538-8C6C554040F6
    */
-  id?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      id: 'Id',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      id: 'string',
+      requestId: 'string',
     };
   }
 

@@ -2,13 +2,13 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DescTemplateRequest extends $dara.Model {
+export class DeleteTemplateRequest extends $dara.Model {
   /**
    * @remarks
-   * Deprecated. Retained for backward compatibility.
+   * The channel through which the user accesses the service. Default value: 1.
    * 
    * @example
-   * Abandoned, historical reasons for compatibility
+   * 1
    */
   fromType?: number;
   ownerId?: number;
@@ -21,7 +21,7 @@ export class DescTemplateRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 3xxxx2
+   * 409481
    */
   templateId?: number;
   static names(): { [key: string]: string } {

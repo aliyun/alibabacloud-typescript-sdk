@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateMailAddressRequest extends $dara.Model {
   /**
    * @remarks
-   * Sender\\"s email address
+   * The sender address.
    * 
    * This parameter is required.
    * 
@@ -13,10 +13,17 @@ export class CreateMailAddressRequest extends $dara.Model {
    * Account+@+domain
    */
   accountName?: string;
+  /**
+   * @remarks
+   * The type of the address to create. Valid values:
+   * EXTERNAL: The domain name of the address to create has not been created in this system.
+   * INTERNAL: The domain name of the address to create has already been created in this system.
+   */
+  addressType?: string;
   ownerId?: number;
   /**
    * @remarks
-   * Reply-to address
+   * The reply-to address.
    * 
    * @example
    * test1***@example.net
@@ -26,11 +33,11 @@ export class CreateMailAddressRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * Type of sending. Values:
+   * The type of email. Valid values:
    * 
-   * - batch: Bulk emails
+   * - batch: batch email
    * 
-   * - trigger: Triggered emails
+   * - trigger: triggered email
    * 
    * This parameter is required.
    * 
@@ -41,6 +48,7 @@ export class CreateMailAddressRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       accountName: 'AccountName',
+      addressType: 'AddressType',
       ownerId: 'OwnerId',
       replyAddress: 'ReplyAddress',
       resourceOwnerAccount: 'ResourceOwnerAccount',
@@ -52,6 +60,7 @@ export class CreateMailAddressRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       accountName: 'string',
+      addressType: 'string',
       ownerId: 'number',
       replyAddress: 'string',
       resourceOwnerAccount: 'string',

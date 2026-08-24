@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateMailAddressResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Mail address ID
+   * The ID of the sender address.
    * 
    * @example
    * 15123
@@ -13,7 +13,7 @@ export class CreateMailAddressResponseBody extends $dara.Model {
   mailAddressId?: string;
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * 95A7D497-F8DD-4834-B81E-C1783236E55F

@@ -81,7 +81,7 @@ export class QueryTemplateByParamResponseBodyData extends $dara.Model {
 export class QueryTemplateByParamResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The page number.
+   * The current page number.
    * 
    * @example
    * 1

@@ -42,6 +42,41 @@ export class ConfigSetListResponseBodyConfigSetsIpPool extends $dara.Model {
   }
 }
 
+export class ConfigSetListResponseBodyConfigSetsValidationOption extends $dara.Model {
+  enabled?: boolean;
+  forbiddenStatusList?: string[];
+  forbiddenSubStatusList?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      enabled: 'Enabled',
+      forbiddenStatusList: 'ForbiddenStatusList',
+      forbiddenSubStatusList: 'ForbiddenSubStatusList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enabled: 'boolean',
+      forbiddenStatusList: { 'type': 'array', 'itemType': 'string' },
+      forbiddenSubStatusList: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.forbiddenStatusList)) {
+      $dara.Model.validateArray(this.forbiddenStatusList);
+    }
+    if(Array.isArray(this.forbiddenSubStatusList)) {
+      $dara.Model.validateArray(this.forbiddenSubStatusList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ConfigSetListResponseBodyConfigSets extends $dara.Model {
   /**
    * @remarks
@@ -53,12 +88,12 @@ export class ConfigSetListResponseBodyConfigSets extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The list of from addresses associated with the ConfigSet.
+   * The list of associated sender addresses.
    */
   fromAddresses?: string[];
   /**
    * @remarks
-   * The ConfigSet ID.
+   * The configuration set ID.
    * 
    * @example
    * xxx
@@ -66,18 +101,19 @@ export class ConfigSetListResponseBodyConfigSets extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The IP pool associated with the ConfigSet.
+   * The IP pool.
    */
   ipPool?: ConfigSetListResponseBodyConfigSetsIpPool;
   isPublicChannelBackoff?: boolean;
   /**
    * @remarks
-   * The ConfigSet name.
+   * The configuration set name.
    * 
    * @example
    * xxx
    */
   name?: string;
+  validationOption?: ConfigSetListResponseBodyConfigSetsValidationOption;
   static names(): { [key: string]: string } {
     return {
       description: 'Description',
@@ -86,6 +122,7 @@ export class ConfigSetListResponseBodyConfigSets extends $dara.Model {
       ipPool: 'IpPool',
       isPublicChannelBackoff: 'IsPublicChannelBackoff',
       name: 'Name',
+      validationOption: 'ValidationOption',
     };
   }
 
@@ -97,6 +134,7 @@ export class ConfigSetListResponseBodyConfigSets extends $dara.Model {
       ipPool: ConfigSetListResponseBodyConfigSetsIpPool,
       isPublicChannelBackoff: 'boolean',
       name: 'string',
+      validationOption: ConfigSetListResponseBodyConfigSetsValidationOption,
     };
   }
 
@@ -106,6 +144,9 @@ export class ConfigSetListResponseBodyConfigSets extends $dara.Model {
     }
     if(this.ipPool && typeof (this.ipPool as any).validate === 'function') {
       (this.ipPool as any).validate();
+    }
+    if(this.validationOption && typeof (this.validationOption as any).validate === 'function') {
+      (this.validationOption as any).validate();
     }
     super.validate();
   }
@@ -118,7 +159,7 @@ export class ConfigSetListResponseBodyConfigSets extends $dara.Model {
 export class ConfigSetListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of ConfigSets.
+   * The list of configuration sets.
    */
   configSets?: ConfigSetListResponseBodyConfigSets[];
   /**
@@ -131,7 +172,9 @@ export class ConfigSetListResponseBody extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * Indicates whether more results are available.
+   * Indicates whether there is a next page. Valid values:
+   * - true: Yes.
+   * - false: No.
    * 
    * @example
    * false
@@ -139,7 +182,7 @@ export class ConfigSetListResponseBody extends $dara.Model {
   hasMore?: boolean;
   /**
    * @remarks
-   * The page size.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -155,7 +198,7 @@ export class ConfigSetListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of matching entries.
+   * The total number of entries that match the request conditions.
    * 
    * @example
    * 5

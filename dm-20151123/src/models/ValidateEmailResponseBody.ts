@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ValidateEmailResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The domain part of the email address parsed from syntax validation (lowercased)
+   * The domain part of the email address parsed from syntax validation (converted to lowercase).
    * 
    * @example
    * yyy.com
@@ -13,7 +13,7 @@ export class ValidateEmailResponseBody extends $dara.Model {
   domainPart?: string;
   /**
    * @remarks
-   * Indicates whether the address is a free email
+   * Indicates whether the address is a free mailbox.
    * 
    * @example
    * true
@@ -21,7 +21,7 @@ export class ValidateEmailResponseBody extends $dara.Model {
   isFreeMail?: boolean;
   /**
    * @remarks
-   * The local part of the email address parsed from syntax validation (lowercased with the plus sign portion removed)
+   * The local part of the email address parsed from syntax validation (converted to lowercase with the plus-sign portion removed).
    * 
    * @example
    * xxx
@@ -29,7 +29,7 @@ export class ValidateEmailResponseBody extends $dara.Model {
   localPart?: string;
   /**
    * @remarks
-   * Email provider classification of the address
+   * The email provider classification of the address.
    * 
    * @example
    * Gmail
@@ -37,7 +37,7 @@ export class ValidateEmailResponseBody extends $dara.Model {
   provider?: string;
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * xxxx-xxxx-xxxx-xxxx
@@ -45,7 +45,7 @@ export class ValidateEmailResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The email address status obtained from validation
+   * The email address status obtained from validation.
    * 
    * This parameter is required.
    * 
@@ -55,7 +55,7 @@ export class ValidateEmailResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The email address sub-status obtained from validation, which provides a detailed description of the status
+   * The email address sub-status obtained from validation, which provides a detailed description of the status.
    * 
    * This parameter is required.
    * 

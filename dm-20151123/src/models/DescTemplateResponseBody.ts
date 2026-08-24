@@ -13,7 +13,7 @@ export class DescTemplateResponseBody extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * This parameter is deprecated. It is retained for historical compatibility.
+   * Deprecated. Retained for backward compatibility.
    * 
    * @example
    * Abandoned, historical reasons for compatibility
@@ -29,7 +29,7 @@ export class DescTemplateResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * This parameter is deprecated. It is retained for historical compatibility.
+   * Deprecated. Retained for backward compatibility.
    * 
    * @example
    * Abandoned, historical reasons for compatibility
@@ -37,7 +37,7 @@ export class DescTemplateResponseBody extends $dara.Model {
   smsContent?: string;
   /**
    * @remarks
-   * This parameter is deprecated. It is retained for historical compatibility.
+   * Deprecated. Retained for backward compatibility.
    * 
    * @example
    * Abandoned, historical reasons for compatibility
@@ -53,7 +53,7 @@ export class DescTemplateResponseBody extends $dara.Model {
   templateName?: string;
   /**
    * @remarks
-   * This parameter is deprecated. It is retained for historical compatibility.
+   * Deprecated. Retained for backward compatibility.
    * 
    * @example
    * Abandoned, historical reasons for compatibility
@@ -61,15 +61,11 @@ export class DescTemplateResponseBody extends $dara.Model {
   templateNickName?: string;
   /**
    * @remarks
-   * The status of the template. Valid values:
-   * 
-   * - 0: The template is a draft.
-   * 
-   * - 1: The template is pending approval.
-   * 
-   * - 2: The template is approved.
-   * 
-   * - 3: The template is rejected.
+   * The template status. Valid values:
+   * - 0: draft.
+   * - 1: pending review.
+   * - 2: approved.
+   * - 3: rejected.
    * 
    * @example
    * 2
@@ -77,7 +73,7 @@ export class DescTemplateResponseBody extends $dara.Model {
   templateStatus?: string;
   /**
    * @remarks
-   * The template subject, which is used to create the email subject.
+   * The template subject, which is used to compose the email subject.
    * 
    * @example
    * test
@@ -93,7 +89,7 @@ export class DescTemplateResponseBody extends $dara.Model {
   templateText?: string;
   /**
    * @remarks
-   * This parameter is deprecated. It is retained for historical compatibility.
+   * Deprecated. Retained for backward compatibility.
    * 
    * @example
    * Abandoned, historical reasons for compatibility

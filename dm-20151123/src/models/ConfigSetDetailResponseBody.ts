@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ConfigSetDetailResponseBodyDetailIpPool extends $dara.Model {
   /**
    * @remarks
-   * The ID of the associated IP pool.
+   * The associated IP pool ID.
    * 
    * @example
    * xxx
@@ -13,7 +13,7 @@ export class ConfigSetDetailResponseBodyDetailIpPool extends $dara.Model {
   ipPoolId?: string;
   /**
    * @remarks
-   * The name of the associated IP pool.
+   * The associated IP pool name.
    * 
    * @example
    * xxx
@@ -42,10 +42,45 @@ export class ConfigSetDetailResponseBodyDetailIpPool extends $dara.Model {
   }
 }
 
+export class ConfigSetDetailResponseBodyDetailValidationOption extends $dara.Model {
+  enabled?: boolean;
+  forbiddenStatusList?: string[];
+  forbiddenSubStatusList?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      enabled: 'Enabled',
+      forbiddenStatusList: 'ForbiddenStatusList',
+      forbiddenSubStatusList: 'ForbiddenSubStatusList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enabled: 'boolean',
+      forbiddenStatusList: { 'type': 'array', 'itemType': 'string' },
+      forbiddenSubStatusList: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.forbiddenStatusList)) {
+      $dara.Model.validateArray(this.forbiddenStatusList);
+    }
+    if(Array.isArray(this.forbiddenSubStatusList)) {
+      $dara.Model.validateArray(this.forbiddenSubStatusList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ConfigSetDetailResponseBodyDetail extends $dara.Model {
   /**
    * @remarks
-   * A description of the configuration set.
+   * The description.
    * 
    * @example
    * xxx
@@ -53,7 +88,7 @@ export class ConfigSetDetailResponseBodyDetail extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The ID of the configuration set.
+   * The configuration set ID.
    * 
    * @example
    * xxx
@@ -67,12 +102,13 @@ export class ConfigSetDetailResponseBodyDetail extends $dara.Model {
   isPublicChannelBackoff?: boolean;
   /**
    * @remarks
-   * The name of the configuration set.
+   * The configuration set name.
    * 
    * @example
    * xxx
    */
   name?: string;
+  validationOption?: ConfigSetDetailResponseBodyDetailValidationOption;
   static names(): { [key: string]: string } {
     return {
       description: 'Description',
@@ -80,6 +116,7 @@ export class ConfigSetDetailResponseBodyDetail extends $dara.Model {
       ipPool: 'IpPool',
       isPublicChannelBackoff: 'IsPublicChannelBackoff',
       name: 'Name',
+      validationOption: 'ValidationOption',
     };
   }
 
@@ -90,12 +127,16 @@ export class ConfigSetDetailResponseBodyDetail extends $dara.Model {
       ipPool: ConfigSetDetailResponseBodyDetailIpPool,
       isPublicChannelBackoff: 'boolean',
       name: 'string',
+      validationOption: ConfigSetDetailResponseBodyDetailValidationOption,
     };
   }
 
   validate() {
     if(this.ipPool && typeof (this.ipPool as any).validate === 'function') {
       (this.ipPool as any).validate();
+    }
+    if(this.validationOption && typeof (this.validationOption as any).validate === 'function') {
+      (this.validationOption as any).validate();
     }
     super.validate();
   }
@@ -108,7 +149,7 @@ export class ConfigSetDetailResponseBodyDetail extends $dara.Model {
 export class ConfigSetDetailResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the configuration set.
+   * The configuration set information.
    */
   detail?: ConfigSetDetailResponseBodyDetail;
   /**

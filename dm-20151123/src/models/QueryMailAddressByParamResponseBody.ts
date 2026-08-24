@@ -5,6 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryMailAddressByParamResponseBodyDataMailAddress extends $dara.Model {
   accountName?: string;
   accountStatus?: string;
+  addressType?: string;
   configSetId?: string;
   configSetName?: string;
   createTime?: string;
@@ -12,15 +13,18 @@ export class QueryMailAddressByParamResponseBodyDataMailAddress extends $dara.Mo
   dailyReqCount?: string;
   domainStatus?: string;
   mailAddressId?: string;
+  mailAddressVerificationStatus?: string;
   monthCount?: string;
   monthReqCount?: string;
   replyAddress?: string;
   replyStatus?: string;
+  senderAddress?: string;
   sendtype?: string;
   static names(): { [key: string]: string } {
     return {
       accountName: 'AccountName',
       accountStatus: 'AccountStatus',
+      addressType: 'AddressType',
       configSetId: 'ConfigSetId',
       configSetName: 'ConfigSetName',
       createTime: 'CreateTime',
@@ -28,10 +32,12 @@ export class QueryMailAddressByParamResponseBodyDataMailAddress extends $dara.Mo
       dailyReqCount: 'DailyReqCount',
       domainStatus: 'DomainStatus',
       mailAddressId: 'MailAddressId',
+      mailAddressVerificationStatus: 'MailAddressVerificationStatus',
       monthCount: 'MonthCount',
       monthReqCount: 'MonthReqCount',
       replyAddress: 'ReplyAddress',
       replyStatus: 'ReplyStatus',
+      senderAddress: 'SenderAddress',
       sendtype: 'Sendtype',
     };
   }
@@ -40,6 +46,7 @@ export class QueryMailAddressByParamResponseBodyDataMailAddress extends $dara.Mo
     return {
       accountName: 'string',
       accountStatus: 'string',
+      addressType: 'string',
       configSetId: 'string',
       configSetName: 'string',
       createTime: 'string',
@@ -47,10 +54,12 @@ export class QueryMailAddressByParamResponseBodyDataMailAddress extends $dara.Mo
       dailyReqCount: 'string',
       domainStatus: 'string',
       mailAddressId: 'string',
+      mailAddressVerificationStatus: 'string',
       monthCount: 'string',
       monthReqCount: 'string',
       replyAddress: 'string',
       replyStatus: 'string',
+      senderAddress: 'string',
       sendtype: 'string',
     };
   }

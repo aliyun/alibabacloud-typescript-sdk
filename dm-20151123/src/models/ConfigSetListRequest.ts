@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ConfigSetListRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to retrieve all ConfigSets. Optional.
+   * Specifies whether to query all configuration sets. Optional.
    * 
    * @example
    * false
@@ -13,7 +13,7 @@ export class ConfigSetListRequest extends $dara.Model {
   all?: boolean;
   /**
    * @remarks
-   * The keyword for filtering ConfigSets by name.
+   * The keyword for searching by name.
    * 
    * @example
    * xxx

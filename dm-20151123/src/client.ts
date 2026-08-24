@@ -13,10 +13,11 @@ export default class Client extends OpenApi {
     super(config);
     this._endpointRule = "regional";
     this._endpointMap = {
+      'ap-southeast-1': "dm.ap-southeast-1.aliyuncs.com",
+      'ap-southeast-2': "dm.ap-southeast-2.aliyuncs.com",
+      'cn-hangzhou': "dm.aliyuncs.com",
       'us-east-1': "dm.us-east-1.aliyuncs.com",
       'eu-central-1': "dm.eu-central-1.aliyuncs.com",
-      'cn-hangzhou': "dm.aliyuncs.com",
-      'ap-southeast-1': "dm.ap-southeast-1.aliyuncs.com",
     };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("dm", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -228,7 +229,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Sends emails in batch.
+   * Sends emails in batches.
    * 
    * @param tmpReq - BatchSendMailRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -339,7 +340,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Sends emails in batch.
+   * Sends emails in batches.
    * 
    * @param request - BatchSendMailRequest
    * @returns BatchSendMailResponse
@@ -612,14 +613,20 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a configuration set. You can create up to 100 configuration sets.
+   * Creates a configuration set. A maximum of 100 configuration sets can be created.
    * 
-   * @param request - ConfigSetCreateRequest
+   * @param tmpReq - ConfigSetCreateRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ConfigSetCreateResponse
    */
-  async configSetCreateWithOptions(request: $_model.ConfigSetCreateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ConfigSetCreateResponse> {
-    request.validate();
+  async configSetCreateWithOptions(tmpReq: $_model.ConfigSetCreateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ConfigSetCreateResponse> {
+    tmpReq.validate();
+    let request = new $_model.ConfigSetCreateShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.validationOption)) {
+      request.validationOptionShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.validationOption, "ValidationOption", "json");
+    }
+
     let query = { };
     if (!$dara.isNull(request.description)) {
       query["Description"] = request.description;
@@ -635,6 +642,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.name)) {
       query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.validationOptionShrink)) {
+      query["ValidationOption"] = request.validationOptionShrink;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -655,7 +666,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a configuration set. You can create up to 100 configuration sets.
+   * Creates a configuration set. A maximum of 100 configuration sets can be created.
    * 
    * @param request - ConfigSetCreateRequest
    * @returns ConfigSetCreateResponse
@@ -712,7 +723,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a specified configuration set.
+   * Retrieves the details of a configuration set.
    * 
    * @param request - ConfigSetDetailRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -743,7 +754,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a specified configuration set.
+   * Retrieves the details of a configuration set.
    * 
    * @param request - ConfigSetDetailRequest
    * @returns ConfigSetDetailResponse
@@ -754,7 +765,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists ConfigSets.
+   * Lists configuration sets.
    * 
    * @param request - ConfigSetListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -797,7 +808,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists ConfigSets.
+   * Lists configuration sets.
    * 
    * @param request - ConfigSetListRequest
    * @returns ConfigSetListResponse
@@ -856,12 +867,18 @@ export default class Client extends OpenApi {
   /**
    * Updates a configuration set.
    * 
-   * @param request - ConfigSetUpdateRequest
+   * @param tmpReq - ConfigSetUpdateRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ConfigSetUpdateResponse
    */
-  async configSetUpdateWithOptions(request: $_model.ConfigSetUpdateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ConfigSetUpdateResponse> {
-    request.validate();
+  async configSetUpdateWithOptions(tmpReq: $_model.ConfigSetUpdateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ConfigSetUpdateResponse> {
+    tmpReq.validate();
+    let request = new $_model.ConfigSetUpdateShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.validationOption)) {
+      request.validationOptionShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.validationOption, "ValidationOption", "json");
+    }
+
     let query = { };
     if (!$dara.isNull(request.description)) {
       query["Description"] = request.description;
@@ -881,6 +898,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.name)) {
       query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.validationOptionShrink)) {
+      query["ValidationOption"] = request.validationOptionShrink;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -970,7 +991,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create a mail address.
+   * Creates a sender address.
    * 
    * @param request - CreateMailAddressRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -981,6 +1002,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.accountName)) {
       query["AccountName"] = request.accountName;
+    }
+
+    if (!$dara.isNull(request.addressType)) {
+      query["AddressType"] = request.addressType;
     }
 
     if (!$dara.isNull(request.ownerId)) {
@@ -1021,7 +1046,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create a mail address.
+   * Creates a sender address.
    * 
    * @param request - CreateMailAddressRequest
    * @returns CreateMailAddressResponse
@@ -2061,6 +2086,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries template information.
+   * 
+   * @param request - DeleteTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteTemplateResponse
+   */
+  async deleteTemplateWithOptions(request: $_model.DeleteTemplateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteTemplateResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.fromType)) {
+      query["FromType"] = request.fromType;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.templateId)) {
+      query["TemplateId"] = request.templateId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteTemplate",
+      version: "2015-11-23",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteTemplateResponse>(await this.callApi(params, req, runtime), new $_model.DeleteTemplateResponse({}));
+  }
+
+  /**
+   * Queries template information.
+   * 
+   * @param request - DeleteTemplateRequest
+   * @returns DeleteTemplateResponse
+   */
+  async deleteTemplate(request: $_model.DeleteTemplateRequest): Promise<$_model.DeleteTemplateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteTemplateWithOptions(request, runtime);
+  }
+
+  /**
    * Deletes the verification file after the verification process is complete.
    * 
    * @param request - DeleteValidateFileRequest
@@ -2211,10 +2294,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the information about an email template.
+   * Queries template information.
    * 
    * @remarks
-   * Retrieves information about a specific email template, including its name, creation time, and content.
+   * Queries template information.
    * 
    * @param request - DescTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2261,10 +2344,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the information about an email template.
+   * Queries template information.
    * 
    * @remarks
-   * Retrieves information about a specific email template, including its name, creation time, and content.
+   * Queries template information.
    * 
    * @param request - DescTemplateRequest
    * @returns DescTemplateResponse
@@ -3335,6 +3418,92 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Modifies an email template.
+   * 
+   * @param request - ModifyTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyTemplateResponse
+   */
+  async modifyTemplateWithOptions(request: $_model.ModifyTemplateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyTemplateResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.fromType)) {
+      query["FromType"] = request.fromType;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.remark)) {
+      query["Remark"] = request.remark;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.smsContent)) {
+      query["SmsContent"] = request.smsContent;
+    }
+
+    if (!$dara.isNull(request.smsType)) {
+      query["SmsType"] = request.smsType;
+    }
+
+    if (!$dara.isNull(request.templateId)) {
+      query["TemplateId"] = request.templateId;
+    }
+
+    if (!$dara.isNull(request.templateName)) {
+      query["TemplateName"] = request.templateName;
+    }
+
+    if (!$dara.isNull(request.templateNickName)) {
+      query["TemplateNickName"] = request.templateNickName;
+    }
+
+    if (!$dara.isNull(request.templateSubject)) {
+      query["TemplateSubject"] = request.templateSubject;
+    }
+
+    if (!$dara.isNull(request.templateText)) {
+      query["TemplateText"] = request.templateText;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyTemplate",
+      version: "2015-11-23",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyTemplateResponse>(await this.callApi(params, req, runtime), new $_model.ModifyTemplateResponse({}));
+  }
+
+  /**
+   * Modifies an email template.
+   * 
+   * @param request - ModifyTemplateRequest
+   * @returns ModifyTemplateResponse
+   */
+  async modifyTemplate(request: $_model.ModifyTemplateRequest): Promise<$_model.ModifyTemplateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyTemplateWithOptions(request, runtime);
+  }
+
+  /**
    * 免费试用Sendify
    * 
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3508,7 +3677,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of sender addresses.
+   * Queries the list of sender addresses.
    * 
    * @param request - QueryMailAddressByParamRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3563,7 +3732,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of sender addresses.
+   * Queries the list of sender addresses.
    * 
    * @param request - QueryMailAddressByParamRequest
    * @returns QueryMailAddressByParamResponse
@@ -3834,10 +4003,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a paged query to retrieve a list of templates.
+   * Queries template list information by paging.
    * 
    * @remarks
-   * Performs a paged query to retrieve a list of templates.
+   * Queries template list information by paging.
    * 
    * @param request - QueryTemplateByParamRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3896,10 +4065,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a paged query to retrieve a list of templates.
+   * Queries template list information by paging.
    * 
    * @remarks
-   * Performs a paged query to retrieve a list of templates.
+   * Queries template list information by paging.
    * 
    * @param request - QueryTemplateByParamRequest
    * @returns QueryTemplateByParamResponse
@@ -4256,7 +4425,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves sending statistics that match specified criteria.
+   * Retrieves sending data based on specified conditions.
    * 
    * @param request - SenderStatisticsByTagNameAndBatchIDRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4327,7 +4496,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves sending statistics that match specified criteria.
+   * Retrieves sending data based on specified conditions.
    * 
    * @param request - SenderStatisticsByTagNameAndBatchIDRequest
    * @returns SenderStatisticsByTagNameAndBatchIDResponse
@@ -4482,7 +4651,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Send a single email.
+   * Sends a single email.
    * 
    * @param tmpReq - SingleSendMailRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4609,7 +4778,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Send a single email.
+   * Sends a single email.
    * 
    * @param request - SingleSendMailRequest
    * @returns SingleSendMailResponse
@@ -4867,7 +5036,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Validate an email address.
+   * Validates an email address.
    * 
    * @param request - ValidateEmailRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4910,7 +5079,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Validate an email address.
+   * Validates an email address.
    * 
    * @param request - ValidateEmailRequest
    * @returns ValidateEmailResponse

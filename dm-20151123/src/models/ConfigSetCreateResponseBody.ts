@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ConfigSetCreateResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The new configuration set ID.
+   * The configuration set ID.
    * 
    * @example
    * XXX
@@ -13,7 +13,7 @@ export class ConfigSetCreateResponseBody extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The unique ID for the request. Provide this request ID when contacting support.
+   * The request ID.
    * 
    * @example
    * XXX

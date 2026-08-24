@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryTemplateByParamRequest extends $dara.Model {
   /**
    * @remarks
-   * This parameter is deprecated. It is retained for historical compatibility.
+   * Deprecated. Retained for backward compatibility.
    * 
    * @example
    * Abandoned, historical reasons for compatibility
@@ -13,7 +13,7 @@ export class QueryTemplateByParamRequest extends $dara.Model {
   fromType?: number;
   /**
    * @remarks
-   * The keyword of the template name. By default, a paged query is performed for all templates.
+   * The keyword of the template name. By default, a paging query is performed on all templates.
    * 
    * @example
    * test
@@ -22,7 +22,7 @@ export class QueryTemplateByParamRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The page number. The default value is 1.
+   * The current page number. Default value: 1.
    * 
    * @example
    * 1
@@ -30,7 +30,7 @@ export class QueryTemplateByParamRequest extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * The number of entries per page. The default value is 20.
+   * The number of entries per page. Default value: 20.
    * 
    * @example
    * 20
@@ -40,7 +40,7 @@ export class QueryTemplateByParamRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * This parameter is deprecated. It is retained for historical compatibility.
+   * Deprecated. Retained for backward compatibility.
    * 
    * @example
    * Abandoned, historical reasons for compatibility
