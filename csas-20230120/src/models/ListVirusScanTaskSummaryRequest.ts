@@ -2,28 +2,28 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DeleteProhibitedTagsResponseBody extends $dara.Model {
+export class ListVirusScanTaskSummaryRequest extends $dara.Model {
   /**
    * @remarks
-   * Id of the request
-   * 
-   * @example
-   * A900F300-AF09-5A39-954F-50B8CF733FD6
+   * This parameter is required.
    */
-  requestId?: string;
+  taskIds?: string[];
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
+      taskIds: 'TaskIds',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
+      taskIds: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
   validate() {
+    if(Array.isArray(this.taskIds)) {
+      $dara.Model.validateArray(this.taskIds);
+    }
     super.validate();
   }
 

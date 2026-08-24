@@ -85,6 +85,57 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Appends entries in batches to the virus scan blacklists and whitelists for a specified operating system without overwriting existing entries. Quotas are calculated independently for each combination of matching dimension and list type. Each combination allows a maximum of 10,000 whitelist entries and 1,000 blacklist entries. If the quota is exceeded after appending, the entire batch fails.
+   * 
+   * @param request - AddVirusScanAdditionalListsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddVirusScanAdditionalListsResponse
+   */
+  async addVirusScanAdditionalListsWithOptions(request: $_model.AddVirusScanAdditionalListsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AddVirusScanAdditionalListsResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    let bodyFlat : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.additionalLists)) {
+      bodyFlat["AdditionalLists"] = request.additionalLists;
+    }
+
+    if (!$dara.isNull(request.devType)) {
+      body["DevType"] = request.devType;
+    }
+
+    body = {
+      ...body,
+      ...OpenApiUtil.query(bodyFlat),
+    };
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AddVirusScanAdditionalLists",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AddVirusScanAdditionalListsResponse>(await this.callApi(params, req, runtime), new $_model.AddVirusScanAdditionalListsResponse({}));
+  }
+
+  /**
+   * Appends entries in batches to the virus scan blacklists and whitelists for a specified operating system without overwriting existing entries. Quotas are calculated independently for each combination of matching dimension and list type. Each combination allows a maximum of 10,000 whitelist entries and 1,000 blacklist entries. If the quota is exceeded after appending, the entire batch fails.
+   * 
+   * @param request - AddVirusScanAdditionalListsRequest
+   * @returns AddVirusScanAdditionalListsResponse
+   */
+  async addVirusScanAdditionalLists(request: $_model.AddVirusScanAdditionalListsRequest): Promise<$_model.AddVirusScanAdditionalListsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.addVirusScanAdditionalListsWithOptions(request, runtime);
+  }
+
+  /**
    * Attaches the private access applications of a Connector under the current Alibaba Cloud account.
    * 
    * @param tmpReq - AttachApplication2ConnectorRequest
@@ -410,6 +461,100 @@ export default class Client extends OpenApi {
   async batchDeletePrivateAccessPolicy(request: $_model.BatchDeletePrivateAccessPolicyRequest): Promise<$_model.BatchDeletePrivateAccessPolicyResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.batchDeletePrivateAccessPolicyWithOptions(request, runtime);
+  }
+
+  /**
+   * Cancels multiple virus scan tasks that have not yet expired in a batch. After cancellation, terminals no longer pull and execute the tasks. Scans already running on terminals are not interrupted.
+   * 
+   * @param request - CancelVirusScanTasksRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CancelVirusScanTasksResponse
+   */
+  async cancelVirusScanTasksWithOptions(request: $_model.CancelVirusScanTasksRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CancelVirusScanTasksResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    let bodyFlat : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.taskIds)) {
+      bodyFlat["TaskIds"] = request.taskIds;
+    }
+
+    body = {
+      ...body,
+      ...OpenApiUtil.query(bodyFlat),
+    };
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CancelVirusScanTasks",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CancelVirusScanTasksResponse>(await this.callApi(params, req, runtime), new $_model.CancelVirusScanTasksResponse({}));
+  }
+
+  /**
+   * Cancels multiple virus scan tasks that have not yet expired in a batch. After cancellation, terminals no longer pull and execute the tasks. Scans already running on terminals are not interrupted.
+   * 
+   * @param request - CancelVirusScanTasksRequest
+   * @returns CancelVirusScanTasksResponse
+   */
+  async cancelVirusScanTasks(request: $_model.CancelVirusScanTasksRequest): Promise<$_model.CancelVirusScanTasksResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.cancelVirusScanTasksWithOptions(request, runtime);
+  }
+
+  /**
+   * Cancels multiple vulnerability scanning tasks that have not yet expired in a batch.
+   * 
+   * @param request - CancelVulScanTasksRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CancelVulScanTasksResponse
+   */
+  async cancelVulScanTasksWithOptions(request: $_model.CancelVulScanTasksRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CancelVulScanTasksResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    let bodyFlat : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.taskIds)) {
+      bodyFlat["TaskIds"] = request.taskIds;
+    }
+
+    body = {
+      ...body,
+      ...OpenApiUtil.query(bodyFlat),
+    };
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CancelVulScanTasks",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CancelVulScanTasksResponse>(await this.callApi(params, req, runtime), new $_model.CancelVulScanTasksResponse({}));
+  }
+
+  /**
+   * Cancels multiple vulnerability scanning tasks that have not yet expired in a batch.
+   * 
+   * @param request - CancelVulScanTasksRequest
+   * @returns CancelVulScanTasksResponse
+   */
+  async cancelVulScanTasks(request: $_model.CancelVulScanTasksRequest): Promise<$_model.CancelVulScanTasksResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.cancelVulScanTasksWithOptions(request, runtime);
   }
 
   /**
@@ -1814,6 +1959,443 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates a scheduled virus scan policy that automatically sends scan tasks to user terminal devices within the effective scope based on the configured cycle.
+   * 
+   * @param request - CreateVirusScanScheduledStrategyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateVirusScanScheduledStrategyResponse
+   */
+  async createVirusScanScheduledStrategyWithOptions(request: $_model.CreateVirusScanScheduledStrategyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateVirusScanScheduledStrategyResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.highRiskOperation)) {
+      body["HighRiskOperation"] = request.highRiskOperation;
+    }
+
+    if (!$dara.isNull(request.lowRiskOperation)) {
+      body["LowRiskOperation"] = request.lowRiskOperation;
+    }
+
+    if (!$dara.isNull(request.matchMode)) {
+      body["MatchMode"] = request.matchMode;
+    }
+
+    if (!$dara.isNull(request.maxCpuUsage)) {
+      body["MaxCpuUsage"] = request.maxCpuUsage;
+    }
+
+    if (!$dara.isNull(request.midRiskOperation)) {
+      body["MidRiskOperation"] = request.midRiskOperation;
+    }
+
+    if (!$dara.isNull(request.performanceMode)) {
+      body["PerformanceMode"] = request.performanceMode;
+    }
+
+    if (!$dara.isNull(request.priority)) {
+      body["Priority"] = request.priority;
+    }
+
+    if (!$dara.isNull(request.scanBeginTime)) {
+      body["ScanBeginTime"] = request.scanBeginTime;
+    }
+
+    if (!$dara.isNull(request.scanEndTime)) {
+      body["ScanEndTime"] = request.scanEndTime;
+    }
+
+    if (!$dara.isNull(request.scanFrequency)) {
+      body["ScanFrequency"] = request.scanFrequency;
+    }
+
+    if (!$dara.isNull(request.scanInterval)) {
+      body["ScanInterval"] = request.scanInterval;
+    }
+
+    if (!$dara.isNull(request.scanMode)) {
+      body["ScanMode"] = request.scanMode;
+    }
+
+    let bodyFlat : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.scanPath)) {
+      bodyFlat["ScanPath"] = request.scanPath;
+    }
+
+    if (!$dara.isNull(request.scanTargets)) {
+      bodyFlat["ScanTargets"] = request.scanTargets;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      body["Status"] = request.status;
+    }
+
+    if (!$dara.isNull(request.strategyDescription)) {
+      body["StrategyDescription"] = request.strategyDescription;
+    }
+
+    if (!$dara.isNull(request.strategyName)) {
+      body["StrategyName"] = request.strategyName;
+    }
+
+    if (!$dara.isNull(request.userGroupIds)) {
+      bodyFlat["UserGroupIds"] = request.userGroupIds;
+    }
+
+    if (!$dara.isNull(request.whitelist)) {
+      bodyFlat["Whitelist"] = request.whitelist;
+    }
+
+    body = {
+      ...body,
+      ...OpenApiUtil.query(bodyFlat),
+    };
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateVirusScanScheduledStrategy",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateVirusScanScheduledStrategyResponse>(await this.callApi(params, req, runtime), new $_model.CreateVirusScanScheduledStrategyResponse({}));
+  }
+
+  /**
+   * Creates a scheduled virus scan policy that automatically sends scan tasks to user terminal devices within the effective scope based on the configured cycle.
+   * 
+   * @param request - CreateVirusScanScheduledStrategyRequest
+   * @returns CreateVirusScanScheduledStrategyResponse
+   */
+  async createVirusScanScheduledStrategy(request: $_model.CreateVirusScanScheduledStrategyRequest): Promise<$_model.CreateVirusScanScheduledStrategyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createVirusScanScheduledStrategyWithOptions(request, runtime);
+  }
+
+  /**
+   * Creates an instant virus scan task and delivers it to user endpoint devices within the effective scope. The task takes effect immediately after creation. A maximum of 10 tasks can be created per Alibaba Cloud account per minute.
+   * 
+   * @param request - CreateVirusScanTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateVirusScanTaskResponse
+   */
+  async createVirusScanTaskWithOptions(request: $_model.CreateVirusScanTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateVirusScanTaskResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.endTime)) {
+      body["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.highRiskOperation)) {
+      body["HighRiskOperation"] = request.highRiskOperation;
+    }
+
+    if (!$dara.isNull(request.lowRiskOperation)) {
+      body["LowRiskOperation"] = request.lowRiskOperation;
+    }
+
+    if (!$dara.isNull(request.matchMode)) {
+      body["MatchMode"] = request.matchMode;
+    }
+
+    if (!$dara.isNull(request.maxCpuUsage)) {
+      body["MaxCpuUsage"] = request.maxCpuUsage;
+    }
+
+    if (!$dara.isNull(request.midRiskOperation)) {
+      body["MidRiskOperation"] = request.midRiskOperation;
+    }
+
+    if (!$dara.isNull(request.performanceMode)) {
+      body["PerformanceMode"] = request.performanceMode;
+    }
+
+    if (!$dara.isNull(request.scanMode)) {
+      body["ScanMode"] = request.scanMode;
+    }
+
+    let bodyFlat : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.scanPath)) {
+      bodyFlat["ScanPath"] = request.scanPath;
+    }
+
+    if (!$dara.isNull(request.scanTargets)) {
+      bodyFlat["ScanTargets"] = request.scanTargets;
+    }
+
+    if (!$dara.isNull(request.taskDescription)) {
+      body["TaskDescription"] = request.taskDescription;
+    }
+
+    if (!$dara.isNull(request.userGroupIds)) {
+      bodyFlat["UserGroupIds"] = request.userGroupIds;
+    }
+
+    if (!$dara.isNull(request.whitelist)) {
+      bodyFlat["Whitelist"] = request.whitelist;
+    }
+
+    body = {
+      ...body,
+      ...OpenApiUtil.query(bodyFlat),
+    };
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateVirusScanTask",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateVirusScanTaskResponse>(await this.callApi(params, req, runtime), new $_model.CreateVirusScanTaskResponse({}));
+  }
+
+  /**
+   * Creates an instant virus scan task and delivers it to user endpoint devices within the effective scope. The task takes effect immediately after creation. A maximum of 10 tasks can be created per Alibaba Cloud account per minute.
+   * 
+   * @param request - CreateVirusScanTaskRequest
+   * @returns CreateVirusScanTaskResponse
+   */
+  async createVirusScanTask(request: $_model.CreateVirusScanTaskRequest): Promise<$_model.CreateVirusScanTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createVirusScanTaskWithOptions(request, runtime);
+  }
+
+  /**
+   * Creates a scheduled vulnerability scanning policy that automatically sends vulnerability scanning tasks to user endpoint devices within the effective scope based on the configured cycle.
+   * 
+   * @param request - CreateVulScanScheduledStrategyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateVulScanScheduledStrategyResponse
+   */
+  async createVulScanScheduledStrategyWithOptions(request: $_model.CreateVulScanScheduledStrategyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateVulScanScheduledStrategyResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.matchMode)) {
+      body["MatchMode"] = request.matchMode;
+    }
+
+    if (!$dara.isNull(request.priority)) {
+      body["Priority"] = request.priority;
+    }
+
+    if (!$dara.isNull(request.scanBeginTime)) {
+      body["ScanBeginTime"] = request.scanBeginTime;
+    }
+
+    if (!$dara.isNull(request.scanEndTime)) {
+      body["ScanEndTime"] = request.scanEndTime;
+    }
+
+    if (!$dara.isNull(request.scanFrequency)) {
+      body["ScanFrequency"] = request.scanFrequency;
+    }
+
+    if (!$dara.isNull(request.scanInterval)) {
+      body["ScanInterval"] = request.scanInterval;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      body["Status"] = request.status;
+    }
+
+    if (!$dara.isNull(request.strategyDescription)) {
+      body["StrategyDescription"] = request.strategyDescription;
+    }
+
+    if (!$dara.isNull(request.strategyName)) {
+      body["StrategyName"] = request.strategyName;
+    }
+
+    let bodyFlat : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.userGroupIds)) {
+      bodyFlat["UserGroupIds"] = request.userGroupIds;
+    }
+
+    if (!$dara.isNull(request.whitelist)) {
+      bodyFlat["Whitelist"] = request.whitelist;
+    }
+
+    body = {
+      ...body,
+      ...OpenApiUtil.query(bodyFlat),
+    };
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateVulScanScheduledStrategy",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateVulScanScheduledStrategyResponse>(await this.callApi(params, req, runtime), new $_model.CreateVulScanScheduledStrategyResponse({}));
+  }
+
+  /**
+   * Creates a scheduled vulnerability scanning policy that automatically sends vulnerability scanning tasks to user endpoint devices within the effective scope based on the configured cycle.
+   * 
+   * @param request - CreateVulScanScheduledStrategyRequest
+   * @returns CreateVulScanScheduledStrategyResponse
+   */
+  async createVulScanScheduledStrategy(request: $_model.CreateVulScanScheduledStrategyRequest): Promise<$_model.CreateVulScanScheduledStrategyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createVulScanScheduledStrategyWithOptions(request, runtime);
+  }
+
+  /**
+   * Creates an instant vulnerability scanning task and delivers it to user endpoint devices within the effective scope.
+   * 
+   * @param request - CreateVulScanTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateVulScanTaskResponse
+   */
+  async createVulScanTaskWithOptions(request: $_model.CreateVulScanTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateVulScanTaskResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.endTimestamp)) {
+      body["EndTimestamp"] = request.endTimestamp;
+    }
+
+    if (!$dara.isNull(request.matchMode)) {
+      body["MatchMode"] = request.matchMode;
+    }
+
+    if (!$dara.isNull(request.taskDescription)) {
+      body["TaskDescription"] = request.taskDescription;
+    }
+
+    if (!$dara.isNull(request.taskName)) {
+      body["TaskName"] = request.taskName;
+    }
+
+    let bodyFlat : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.userGroupIds)) {
+      bodyFlat["UserGroupIds"] = request.userGroupIds;
+    }
+
+    if (!$dara.isNull(request.whitelist)) {
+      bodyFlat["Whitelist"] = request.whitelist;
+    }
+
+    body = {
+      ...body,
+      ...OpenApiUtil.query(bodyFlat),
+    };
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateVulScanTask",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateVulScanTaskResponse>(await this.callApi(params, req, runtime), new $_model.CreateVulScanTaskResponse({}));
+  }
+
+  /**
+   * Creates an instant vulnerability scanning task and delivers it to user endpoint devices within the effective scope.
+   * 
+   * @param request - CreateVulScanTaskRequest
+   * @returns CreateVulScanTaskResponse
+   */
+  async createVulScanTask(request: $_model.CreateVulScanTaskRequest): Promise<$_model.CreateVulScanTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createVulScanTaskWithOptions(request, runtime);
+  }
+
+  /**
+   * Creates a vulnerability fix task that delivers the patch for a specified vulnerability to user endpoint devices and performs the installation.
+   * 
+   * @param tmpReq - CreateVulnerabilityFixTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateVulnerabilityFixTaskResponse
+   */
+  async createVulnerabilityFixTaskWithOptions(tmpReq: $_model.CreateVulnerabilityFixTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateVulnerabilityFixTaskResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateVulnerabilityFixTaskShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.wuyingVulFixConfig)) {
+      request.wuyingVulFixConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.wuyingVulFixConfig, "WuyingVulFixConfig", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    let bodyFlat : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.devTags)) {
+      bodyFlat["DevTags"] = request.devTags;
+    }
+
+    if (!$dara.isNull(request.fixMode)) {
+      body["FixMode"] = request.fixMode;
+    }
+
+    if (!$dara.isNull(request.maxDownloadSpeed)) {
+      body["MaxDownloadSpeed"] = request.maxDownloadSpeed;
+    }
+
+    if (!$dara.isNull(request.updateId)) {
+      body["UpdateId"] = request.updateId;
+    }
+
+    if (!$dara.isNull(request.wuyingVulFixConfigShrink)) {
+      body["WuyingVulFixConfig"] = request.wuyingVulFixConfigShrink;
+    }
+
+    body = {
+      ...body,
+      ...OpenApiUtil.query(bodyFlat),
+    };
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateVulnerabilityFixTask",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateVulnerabilityFixTaskResponse>(await this.callApi(params, req, runtime), new $_model.CreateVulnerabilityFixTaskResponse({}));
+  }
+
+  /**
+   * Creates a vulnerability fix task that delivers the patch for a specified vulnerability to user endpoint devices and performs the installation.
+   * 
+   * @param request - CreateVulnerabilityFixTaskRequest
+   * @returns CreateVulnerabilityFixTaskResponse
+   */
+  async createVulnerabilityFixTask(request: $_model.CreateVulnerabilityFixTaskRequest): Promise<$_model.CreateVulnerabilityFixTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createVulnerabilityFixTaskWithOptions(request, runtime);
+  }
+
+  /**
    * Retrieves the invisible watermark transparent background image for web watermarks, screen watermarks, and App watermarks.
    * 
    * @param tmpReq - CreateWmBaseImageRequest
@@ -2394,6 +2976,57 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes detection records of a specified vulnerability from specified user endpoint devices in batches.
+   * 
+   * @param request - DeleteDevicesVulnerabilityRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteDevicesVulnerabilityResponse
+   */
+  async deleteDevicesVulnerabilityWithOptions(request: $_model.DeleteDevicesVulnerabilityRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteDevicesVulnerabilityResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    let bodyFlat : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.devTags)) {
+      bodyFlat["DevTags"] = request.devTags;
+    }
+
+    if (!$dara.isNull(request.updateId)) {
+      body["UpdateId"] = request.updateId;
+    }
+
+    body = {
+      ...body,
+      ...OpenApiUtil.query(bodyFlat),
+    };
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteDevicesVulnerability",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteDevicesVulnerabilityResponse>(await this.callApi(params, req, runtime), new $_model.DeleteDevicesVulnerabilityResponse({}));
+  }
+
+  /**
+   * Deletes detection records of a specified vulnerability from specified user endpoint devices in batches.
+   * 
+   * @param request - DeleteDevicesVulnerabilityRequest
+   * @returns DeleteDevicesVulnerabilityResponse
+   */
+  async deleteDevicesVulnerability(request: $_model.DeleteDevicesVulnerabilityRequest): Promise<$_model.DeleteDevicesVulnerabilityResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteDevicesVulnerabilityWithOptions(request, runtime);
+  }
+
+  /**
    * Deletes a domain name list.
    * 
    * @remarks
@@ -2953,7 +3586,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量删除自定义标签
+   * Deletes custom prohibited software labels in batches.
    * 
    * @param request - DeleteProhibitedTagsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2989,7 +3622,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量删除自定义标签
+   * Deletes custom prohibited software labels in batches.
    * 
    * @param request - DeleteProhibitedTagsRequest
    * @returns DeleteProhibitedTagsResponse
@@ -3147,6 +3780,145 @@ export default class Client extends OpenApi {
   async deleteUserGroup(request: $_model.DeleteUserGroupRequest): Promise<$_model.DeleteUserGroupResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteUserGroupWithOptions(request, runtime);
+  }
+
+  /**
+   * Deletes a virus file record that failed to be handled. Only records with a handling action of Fail can be deleted. This operation does not delete the actual file on the user\\"s endpoint device.
+   * 
+   * @param request - DeleteVirusFileRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteVirusFileResponse
+   */
+  async deleteVirusFileWithOptions(request: $_model.DeleteVirusFileRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteVirusFileResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.devTag)) {
+      body["DevTag"] = request.devTag;
+    }
+
+    if (!$dara.isNull(request.fileMd5)) {
+      body["FileMd5"] = request.fileMd5;
+    }
+
+    if (!$dara.isNull(request.filePath)) {
+      body["FilePath"] = request.filePath;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteVirusFile",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteVirusFileResponse>(await this.callApi(params, req, runtime), new $_model.DeleteVirusFileResponse({}));
+  }
+
+  /**
+   * Deletes a virus file record that failed to be handled. Only records with a handling action of Fail can be deleted. This operation does not delete the actual file on the user\\"s endpoint device.
+   * 
+   * @param request - DeleteVirusFileRequest
+   * @returns DeleteVirusFileResponse
+   */
+  async deleteVirusFile(request: $_model.DeleteVirusFileRequest): Promise<$_model.DeleteVirusFileResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteVirusFileWithOptions(request, runtime);
+  }
+
+  /**
+   * Deletes virus scheduled scan policies in batches. After deletion, no new scan tasks are triggered, but scan tasks that have already been dispatched are not affected. If any policy ID does not belong to the current Alibaba Cloud account, the entire deletion fails.
+   * 
+   * @param request - DeleteVirusScanScheduledStrategiesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteVirusScanScheduledStrategiesResponse
+   */
+  async deleteVirusScanScheduledStrategiesWithOptions(request: $_model.DeleteVirusScanScheduledStrategiesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteVirusScanScheduledStrategiesResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    let bodyFlat : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.strategyIds)) {
+      bodyFlat["StrategyIds"] = request.strategyIds;
+    }
+
+    body = {
+      ...body,
+      ...OpenApiUtil.query(bodyFlat),
+    };
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteVirusScanScheduledStrategies",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteVirusScanScheduledStrategiesResponse>(await this.callApi(params, req, runtime), new $_model.DeleteVirusScanScheduledStrategiesResponse({}));
+  }
+
+  /**
+   * Deletes virus scheduled scan policies in batches. After deletion, no new scan tasks are triggered, but scan tasks that have already been dispatched are not affected. If any policy ID does not belong to the current Alibaba Cloud account, the entire deletion fails.
+   * 
+   * @param request - DeleteVirusScanScheduledStrategiesRequest
+   * @returns DeleteVirusScanScheduledStrategiesResponse
+   */
+  async deleteVirusScanScheduledStrategies(request: $_model.DeleteVirusScanScheduledStrategiesRequest): Promise<$_model.DeleteVirusScanScheduledStrategiesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteVirusScanScheduledStrategiesWithOptions(request, runtime);
+  }
+
+  /**
+   * Deletes a specified scheduled vulnerability scanning policy.
+   * 
+   * @param request - DeleteVulScanScheduledStrategyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteVulScanScheduledStrategyResponse
+   */
+  async deleteVulScanScheduledStrategyWithOptions(request: $_model.DeleteVulScanScheduledStrategyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteVulScanScheduledStrategyResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.strategyId)) {
+      body["StrategyId"] = request.strategyId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteVulScanScheduledStrategy",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteVulScanScheduledStrategyResponse>(await this.callApi(params, req, runtime), new $_model.DeleteVulScanScheduledStrategyResponse({}));
+  }
+
+  /**
+   * Deletes a specified scheduled vulnerability scanning policy.
+   * 
+   * @param request - DeleteVulScanScheduledStrategyRequest
+   * @returns DeleteVulScanScheduledStrategyResponse
+   */
+  async deleteVulScanScheduledStrategy(request: $_model.DeleteVulScanScheduledStrategyRequest): Promise<$_model.DeleteVulScanScheduledStrategyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteVulScanScheduledStrategyWithOptions(request, runtime);
   }
 
   /**
@@ -3472,6 +4244,41 @@ export default class Client extends OpenApi {
   async getActiveIdpConfig(): Promise<$_model.GetActiveIdpConfigResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getActiveIdpConfigWithOptions(runtime);
+  }
+
+  /**
+   * Queries the real-time antivirus defense policy of the current Alibaba Cloud account.
+   * 
+   * @param request - GetAntiVirusRealTimeDefenceStrategyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAntiVirusRealTimeDefenceStrategyResponse
+   */
+  async getAntiVirusRealTimeDefenceStrategyWithOptions(request: $_model.GetAntiVirusRealTimeDefenceStrategyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetAntiVirusRealTimeDefenceStrategyResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({ });
+    let params = new $OpenApiUtil.Params({
+      action: "GetAntiVirusRealTimeDefenceStrategy",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetAntiVirusRealTimeDefenceStrategyResponse>(await this.callApi(params, req, runtime), new $_model.GetAntiVirusRealTimeDefenceStrategyResponse({}));
+  }
+
+  /**
+   * Queries the real-time antivirus defense policy of the current Alibaba Cloud account.
+   * 
+   * @param request - GetAntiVirusRealTimeDefenceStrategyRequest
+   * @returns GetAntiVirusRealTimeDefenceStrategyResponse
+   */
+  async getAntiVirusRealTimeDefenceStrategy(request: $_model.GetAntiVirusRealTimeDefenceStrategyRequest): Promise<$_model.GetAntiVirusRealTimeDefenceStrategyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getAntiVirusRealTimeDefenceStrategyWithOptions(request, runtime);
   }
 
   /**
@@ -4351,6 +5158,190 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the global anti-virus configuration of the current Alibaba Cloud account, including the virus file upload switch and upload limits. If the current Alibaba Cloud account does not have its own configuration record, the default configurations are returned.
+   * 
+   * @param request - GetVirusScanGlobalConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetVirusScanGlobalConfigResponse
+   */
+  async getVirusScanGlobalConfigWithOptions(request: $_model.GetVirusScanGlobalConfigRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetVirusScanGlobalConfigResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({ });
+    let params = new $OpenApiUtil.Params({
+      action: "GetVirusScanGlobalConfig",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetVirusScanGlobalConfigResponse>(await this.callApi(params, req, runtime), new $_model.GetVirusScanGlobalConfigResponse({}));
+  }
+
+  /**
+   * Queries the global anti-virus configuration of the current Alibaba Cloud account, including the virus file upload switch and upload limits. If the current Alibaba Cloud account does not have its own configuration record, the default configurations are returned.
+   * 
+   * @param request - GetVirusScanGlobalConfigRequest
+   * @returns GetVirusScanGlobalConfigResponse
+   */
+  async getVirusScanGlobalConfig(request: $_model.GetVirusScanGlobalConfigRequest): Promise<$_model.GetVirusScanGlobalConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getVirusScanGlobalConfigWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the details of a specified scheduled virus scan policy.
+   * 
+   * @param request - GetVirusScanScheduledStrategyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetVirusScanScheduledStrategyResponse
+   */
+  async getVirusScanScheduledStrategyWithOptions(request: $_model.GetVirusScanScheduledStrategyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetVirusScanScheduledStrategyResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetVirusScanScheduledStrategy",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetVirusScanScheduledStrategyResponse>(await this.callApi(params, req, runtime), new $_model.GetVirusScanScheduledStrategyResponse({}));
+  }
+
+  /**
+   * Queries the details of a specified scheduled virus scan policy.
+   * 
+   * @param request - GetVirusScanScheduledStrategyRequest
+   * @returns GetVirusScanScheduledStrategyResponse
+   */
+  async getVirusScanScheduledStrategy(request: $_model.GetVirusScanScheduledStrategyRequest): Promise<$_model.GetVirusScanScheduledStrategyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getVirusScanScheduledStrategyWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the global configuration of vulnerability scanning for the current Alibaba Cloud account.
+   * 
+   * @param request - GetVulScanGlobalConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetVulScanGlobalConfigResponse
+   */
+  async getVulScanGlobalConfigWithOptions(request: $_model.GetVulScanGlobalConfigRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetVulScanGlobalConfigResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({ });
+    let params = new $OpenApiUtil.Params({
+      action: "GetVulScanGlobalConfig",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetVulScanGlobalConfigResponse>(await this.callApi(params, req, runtime), new $_model.GetVulScanGlobalConfigResponse({}));
+  }
+
+  /**
+   * Queries the global configuration of vulnerability scanning for the current Alibaba Cloud account.
+   * 
+   * @param request - GetVulScanGlobalConfigRequest
+   * @returns GetVulScanGlobalConfigResponse
+   */
+  async getVulScanGlobalConfig(request: $_model.GetVulScanGlobalConfigRequest): Promise<$_model.GetVulScanGlobalConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getVulScanGlobalConfigWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the complete configuration of a specified vulnerability scheduled scan policy.
+   * 
+   * @param request - GetVulScanScheduledStrategyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetVulScanScheduledStrategyResponse
+   */
+  async getVulScanScheduledStrategyWithOptions(request: $_model.GetVulScanScheduledStrategyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetVulScanScheduledStrategyResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetVulScanScheduledStrategy",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetVulScanScheduledStrategyResponse>(await this.callApi(params, req, runtime), new $_model.GetVulScanScheduledStrategyResponse({}));
+  }
+
+  /**
+   * Queries the complete configuration of a specified vulnerability scheduled scan policy.
+   * 
+   * @param request - GetVulScanScheduledStrategyRequest
+   * @returns GetVulScanScheduledStrategyResponse
+   */
+  async getVulScanScheduledStrategy(request: $_model.GetVulScanScheduledStrategyRequest): Promise<$_model.GetVulScanScheduledStrategyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getVulScanScheduledStrategyWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the details of a specified vulnerability.
+   * 
+   * @param request - GetVulnerabilityRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetVulnerabilityResponse
+   */
+  async getVulnerabilityWithOptions(request: $_model.GetVulnerabilityRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetVulnerabilityResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetVulnerability",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetVulnerabilityResponse>(await this.callApi(params, req, runtime), new $_model.GetVulnerabilityResponse({}));
+  }
+
+  /**
+   * Queries the details of a specified vulnerability.
+   * 
+   * @param request - GetVulnerabilityRequest
+   * @returns GetVulnerabilityResponse
+   */
+  async getVulnerability(request: $_model.GetVulnerabilityRequest): Promise<$_model.GetVulnerabilityResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getVulnerabilityWithOptions(request, runtime);
+  }
+
+  /**
    * Use the job ID obtained from creating a watermark embedding job to query the embedding job result.
    * 
    * @param request - GetWmEmbedTaskRequest
@@ -4866,6 +5857,44 @@ export default class Client extends OpenApi {
   async listDeviceGroups(request: $_model.ListDeviceGroupsRequest): Promise<$_model.ListDeviceGroupsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listDeviceGroupsWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries user endpoint devices affected by a specified vulnerability and their remediation status by paging.
+   * 
+   * @param request - ListDevicesForVulnerabilityRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDevicesForVulnerabilityResponse
+   */
+  async listDevicesForVulnerabilityWithOptions(request: $_model.ListDevicesForVulnerabilityRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListDevicesForVulnerabilityResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListDevicesForVulnerability",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListDevicesForVulnerabilityResponse>(await this.callApi(params, req, runtime), new $_model.ListDevicesForVulnerabilityResponse({}));
+  }
+
+  /**
+   * Queries user endpoint devices affected by a specified vulnerability and their remediation status by paging.
+   * 
+   * @param request - ListDevicesForVulnerabilityRequest
+   * @returns ListDevicesForVulnerabilityResponse
+   */
+  async listDevicesForVulnerability(request: $_model.ListDevicesForVulnerabilityRequest): Promise<$_model.ListDevicesForVulnerabilityResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listDevicesForVulnerabilityWithOptions(request, runtime);
   }
 
   /**
@@ -6744,6 +7773,348 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries virus files detected under the current Alibaba Cloud account and their disposition status with paging. Supports filtering by virus type, risk level, user terminal device, user, and discovery time.
+   * 
+   * @param request - ListVirusFileStatusesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListVirusFileStatusesResponse
+   */
+  async listVirusFileStatusesWithOptions(request: $_model.ListVirusFileStatusesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListVirusFileStatusesResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListVirusFileStatuses",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListVirusFileStatusesResponse>(await this.callApi(params, req, runtime), new $_model.ListVirusFileStatusesResponse({}));
+  }
+
+  /**
+   * Queries virus files detected under the current Alibaba Cloud account and their disposition status with paging. Supports filtering by virus type, risk level, user terminal device, user, and discovery time.
+   * 
+   * @param request - ListVirusFileStatusesRequest
+   * @returns ListVirusFileStatusesResponse
+   */
+  async listVirusFileStatuses(request: $_model.ListVirusFileStatusesRequest): Promise<$_model.ListVirusFileStatusesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listVirusFileStatusesWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询病毒扫描额外名单
+   * 
+   * @param request - ListVirusScanAdditionalListsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListVirusScanAdditionalListsResponse
+   */
+  async listVirusScanAdditionalListsWithOptions(request: $_model.ListVirusScanAdditionalListsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListVirusScanAdditionalListsResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListVirusScanAdditionalLists",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListVirusScanAdditionalListsResponse>(await this.callApi(params, req, runtime), new $_model.ListVirusScanAdditionalListsResponse({}));
+  }
+
+  /**
+   * 查询病毒扫描额外名单
+   * 
+   * @param request - ListVirusScanAdditionalListsRequest
+   * @returns ListVirusScanAdditionalListsResponse
+   */
+  async listVirusScanAdditionalLists(request: $_model.ListVirusScanAdditionalListsRequest): Promise<$_model.ListVirusScanAdditionalListsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listVirusScanAdditionalListsWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries virus scheduled scan policies under the current Alibaba Cloud account with paging.
+   * 
+   * @param request - ListVirusScanScheduledStrategiesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListVirusScanScheduledStrategiesResponse
+   */
+  async listVirusScanScheduledStrategiesWithOptions(request: $_model.ListVirusScanScheduledStrategiesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListVirusScanScheduledStrategiesResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListVirusScanScheduledStrategies",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListVirusScanScheduledStrategiesResponse>(await this.callApi(params, req, runtime), new $_model.ListVirusScanScheduledStrategiesResponse({}));
+  }
+
+  /**
+   * Queries virus scheduled scan policies under the current Alibaba Cloud account with paging.
+   * 
+   * @param request - ListVirusScanScheduledStrategiesRequest
+   * @returns ListVirusScanScheduledStrategiesResponse
+   */
+  async listVirusScanScheduledStrategies(request: $_model.ListVirusScanScheduledStrategiesRequest): Promise<$_model.ListVirusScanScheduledStrategiesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listVirusScanScheduledStrategiesWithOptions(request, runtime);
+  }
+
+  /**
+   * 批量查询病毒扫描任务的状态
+   * 
+   * @param request - ListVirusScanTaskStatusesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListVirusScanTaskStatusesResponse
+   */
+  async listVirusScanTaskStatusesWithOptions(request: $_model.ListVirusScanTaskStatusesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListVirusScanTaskStatusesResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListVirusScanTaskStatuses",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListVirusScanTaskStatusesResponse>(await this.callApi(params, req, runtime), new $_model.ListVirusScanTaskStatusesResponse({}));
+  }
+
+  /**
+   * 批量查询病毒扫描任务的状态
+   * 
+   * @param request - ListVirusScanTaskStatusesRequest
+   * @returns ListVirusScanTaskStatusesResponse
+   */
+  async listVirusScanTaskStatuses(request: $_model.ListVirusScanTaskStatusesRequest): Promise<$_model.ListVirusScanTaskStatusesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listVirusScanTaskStatusesWithOptions(request, runtime);
+  }
+
+  /**
+   * 批量查询病毒扫描任务统计数据
+   * 
+   * @param request - ListVirusScanTaskSummaryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListVirusScanTaskSummaryResponse
+   */
+  async listVirusScanTaskSummaryWithOptions(request: $_model.ListVirusScanTaskSummaryRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListVirusScanTaskSummaryResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListVirusScanTaskSummary",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListVirusScanTaskSummaryResponse>(await this.callApi(params, req, runtime), new $_model.ListVirusScanTaskSummaryResponse({}));
+  }
+
+  /**
+   * 批量查询病毒扫描任务统计数据
+   * 
+   * @param request - ListVirusScanTaskSummaryRequest
+   * @returns ListVirusScanTaskSummaryResponse
+   */
+  async listVirusScanTaskSummary(request: $_model.ListVirusScanTaskSummaryRequest): Promise<$_model.ListVirusScanTaskSummaryResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listVirusScanTaskSummaryWithOptions(request, runtime);
+  }
+
+  /**
+   * 批量查询病毒扫描任务
+   * 
+   * @param request - ListVirusScanTasksRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListVirusScanTasksResponse
+   */
+  async listVirusScanTasksWithOptions(request: $_model.ListVirusScanTasksRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListVirusScanTasksResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListVirusScanTasks",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListVirusScanTasksResponse>(await this.callApi(params, req, runtime), new $_model.ListVirusScanTasksResponse({}));
+  }
+
+  /**
+   * 批量查询病毒扫描任务
+   * 
+   * @param request - ListVirusScanTasksRequest
+   * @returns ListVirusScanTasksResponse
+   */
+  async listVirusScanTasks(request: $_model.ListVirusScanTasksRequest): Promise<$_model.ListVirusScanTasksResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listVirusScanTasksWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries scheduled vulnerability scan policies under the current Alibaba Cloud account by paging.
+   * 
+   * @param request - ListVulScanScheduledStrategiesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListVulScanScheduledStrategiesResponse
+   */
+  async listVulScanScheduledStrategiesWithOptions(request: $_model.ListVulScanScheduledStrategiesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListVulScanScheduledStrategiesResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListVulScanScheduledStrategies",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListVulScanScheduledStrategiesResponse>(await this.callApi(params, req, runtime), new $_model.ListVulScanScheduledStrategiesResponse({}));
+  }
+
+  /**
+   * Queries scheduled vulnerability scan policies under the current Alibaba Cloud account by paging.
+   * 
+   * @param request - ListVulScanScheduledStrategiesRequest
+   * @returns ListVulScanScheduledStrategiesResponse
+   */
+  async listVulScanScheduledStrategies(request: $_model.ListVulScanScheduledStrategiesRequest): Promise<$_model.ListVulScanScheduledStrategiesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listVulScanScheduledStrategiesWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries vulnerability scanning tasks under the current Alibaba Cloud account by paged query.
+   * 
+   * @param request - ListVulScanTasksRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListVulScanTasksResponse
+   */
+  async listVulScanTasksWithOptions(request: $_model.ListVulScanTasksRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListVulScanTasksResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListVulScanTasks",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListVulScanTasksResponse>(await this.callApi(params, req, runtime), new $_model.ListVulScanTasksResponse({}));
+  }
+
+  /**
+   * Queries vulnerability scanning tasks under the current Alibaba Cloud account by paged query.
+   * 
+   * @param request - ListVulScanTasksRequest
+   * @returns ListVulScanTasksResponse
+   */
+  async listVulScanTasks(request: $_model.ListVulScanTasksRequest): Promise<$_model.ListVulScanTasksResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listVulScanTasksWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries vulnerabilities detected by scans under the current Alibaba Cloud account by using paged query with paging.
+   * 
+   * @param request - ListVulnerabilitiesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListVulnerabilitiesResponse
+   */
+  async listVulnerabilitiesWithOptions(request: $_model.ListVulnerabilitiesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListVulnerabilitiesResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListVulnerabilities",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListVulnerabilitiesResponse>(await this.callApi(params, req, runtime), new $_model.ListVulnerabilitiesResponse({}));
+  }
+
+  /**
+   * Queries vulnerabilities detected by scans under the current Alibaba Cloud account by using paged query with paging.
+   * 
+   * @param request - ListVulnerabilitiesRequest
+   * @returns ListVulnerabilitiesResponse
+   */
+  async listVulnerabilities(request: $_model.ListVulnerabilitiesRequest): Promise<$_model.ListVulnerabilitiesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listVulnerabilitiesWithOptions(request, runtime);
+  }
+
+  /**
    * Look up an existing watermark information mapping to retrieve the corresponding string-formatted watermark information from numeric-formatted watermark data.
    * 
    * @param request - LookupWmInfoMappingRequest
@@ -7037,6 +8408,53 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Removes virus scan blacklists and whitelists entries in batch by entry IDs. The entire removal operation is failed if any of the specified entry IDs do not belong to the current Alibaba Cloud account.
+   * 
+   * @param request - RemoveVirusScanAdditionalListsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RemoveVirusScanAdditionalListsResponse
+   */
+  async removeVirusScanAdditionalListsWithOptions(request: $_model.RemoveVirusScanAdditionalListsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RemoveVirusScanAdditionalListsResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    let bodyFlat : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.listIds)) {
+      bodyFlat["ListIds"] = request.listIds;
+    }
+
+    body = {
+      ...body,
+      ...OpenApiUtil.query(bodyFlat),
+    };
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RemoveVirusScanAdditionalLists",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RemoveVirusScanAdditionalListsResponse>(await this.callApi(params, req, runtime), new $_model.RemoveVirusScanAdditionalListsResponse({}));
+  }
+
+  /**
+   * Removes virus scan blacklists and whitelists entries in batch by entry IDs. The entire removal operation is failed if any of the specified entry IDs do not belong to the current Alibaba Cloud account.
+   * 
+   * @param request - RemoveVirusScanAdditionalListsRequest
+   * @returns RemoveVirusScanAdditionalListsResponse
+   */
+  async removeVirusScanAdditionalLists(request: $_model.RemoveVirusScanAdditionalListsRequest): Promise<$_model.RemoveVirusScanAdditionalListsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.removeVirusScanAdditionalListsWithOptions(request, runtime);
+  }
+
+  /**
    * Revokes a user device session.
    * 
    * @param request - RevokeUserDeviceSessionRequest
@@ -7131,6 +8549,85 @@ export default class Client extends OpenApi {
   async revokeUserSession(request: $_model.RevokeUserSessionRequest): Promise<$_model.RevokeUserSessionResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.revokeUserSessionWithOptions(request, runtime);
+  }
+
+  /**
+   * Configures the real-time anti-virus defense policy for the current Alibaba Cloud account. The first call creates the policy, and subsequent calls update it. The complete updated configuration is returned. When configuring for the first time, Status, MatchMode, HighRiskOperation, MidRiskOperation, LowRiskOperation, and ScanTargets are all required. ScanTargets and Whitelist are full replacements. The collection you pass in replaces the existing configuration. When MatchMode is set to UserGroupNormal, you must pass in the complete UserGroupIds on every call. When Status is not set to Disabled, the system validates the endpoint hardening license count. The call fails if the count exceeds the purchased licenses.
+   * 
+   * @param request - UpdateAntiVirusRealTimeDefenceStrategyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateAntiVirusRealTimeDefenceStrategyResponse
+   */
+  async updateAntiVirusRealTimeDefenceStrategyWithOptions(request: $_model.UpdateAntiVirusRealTimeDefenceStrategyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateAntiVirusRealTimeDefenceStrategyResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.highRiskOperation)) {
+      body["HighRiskOperation"] = request.highRiskOperation;
+    }
+
+    if (!$dara.isNull(request.lowRiskOperation)) {
+      body["LowRiskOperation"] = request.lowRiskOperation;
+    }
+
+    if (!$dara.isNull(request.matchMode)) {
+      body["MatchMode"] = request.matchMode;
+    }
+
+    if (!$dara.isNull(request.maxCpuUsage)) {
+      body["MaxCpuUsage"] = request.maxCpuUsage;
+    }
+
+    if (!$dara.isNull(request.midRiskOperation)) {
+      body["MidRiskOperation"] = request.midRiskOperation;
+    }
+
+    let bodyFlat : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.scanTargets)) {
+      bodyFlat["ScanTargets"] = request.scanTargets;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      body["Status"] = request.status;
+    }
+
+    if (!$dara.isNull(request.userGroupIds)) {
+      bodyFlat["UserGroupIds"] = request.userGroupIds;
+    }
+
+    if (!$dara.isNull(request.whitelist)) {
+      bodyFlat["Whitelist"] = request.whitelist;
+    }
+
+    body = {
+      ...body,
+      ...OpenApiUtil.query(bodyFlat),
+    };
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateAntiVirusRealTimeDefenceStrategy",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateAntiVirusRealTimeDefenceStrategyResponse>(await this.callApi(params, req, runtime), new $_model.UpdateAntiVirusRealTimeDefenceStrategyResponse({}));
+  }
+
+  /**
+   * Configures the real-time anti-virus defense policy for the current Alibaba Cloud account. The first call creates the policy, and subsequent calls update it. The complete updated configuration is returned. When configuring for the first time, Status, MatchMode, HighRiskOperation, MidRiskOperation, LowRiskOperation, and ScanTargets are all required. ScanTargets and Whitelist are full replacements. The collection you pass in replaces the existing configuration. When MatchMode is set to UserGroupNormal, you must pass in the complete UserGroupIds on every call. When Status is not set to Disabled, the system validates the endpoint hardening license count. The call fails if the count exceeds the purchased licenses.
+   * 
+   * @param request - UpdateAntiVirusRealTimeDefenceStrategyRequest
+   * @returns UpdateAntiVirusRealTimeDefenceStrategyResponse
+   */
+  async updateAntiVirusRealTimeDefenceStrategy(request: $_model.UpdateAntiVirusRealTimeDefenceStrategyRequest): Promise<$_model.UpdateAntiVirusRealTimeDefenceStrategyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateAntiVirusRealTimeDefenceStrategyWithOptions(request, runtime);
   }
 
   /**
@@ -9014,6 +10511,389 @@ export default class Client extends OpenApi {
   async updateUsersStatus(request: $_model.UpdateUsersStatusRequest): Promise<$_model.UpdateUsersStatusResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateUsersStatusWithOptions(request, runtime);
+  }
+
+  /**
+   * Quarantines or trusts a virus file on a specified user terminal device. DevTag, FilePath, and FileMd5 together identify a virus file record. The call fails if the record does not exist. Quarantine is an asynchronous operation. After the server creates a disposal task, the user terminal device pulls and executes it. The same virus file record can only be disposed of once within one minute.
+   * 
+   * @param request - UpdateVirusFileStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateVirusFileStatusResponse
+   */
+  async updateVirusFileStatusWithOptions(request: $_model.UpdateVirusFileStatusRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateVirusFileStatusResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.devTag)) {
+      body["DevTag"] = request.devTag;
+    }
+
+    if (!$dara.isNull(request.fileMd5)) {
+      body["FileMd5"] = request.fileMd5;
+    }
+
+    if (!$dara.isNull(request.filePath)) {
+      body["FilePath"] = request.filePath;
+    }
+
+    if (!$dara.isNull(request.operation)) {
+      body["Operation"] = request.operation;
+    }
+
+    if (!$dara.isNull(request.virusType)) {
+      body["VirusType"] = request.virusType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateVirusFileStatus",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateVirusFileStatusResponse>(await this.callApi(params, req, runtime), new $_model.UpdateVirusFileStatusResponse({}));
+  }
+
+  /**
+   * Quarantines or trusts a virus file on a specified user terminal device. DevTag, FilePath, and FileMd5 together identify a virus file record. The call fails if the record does not exist. Quarantine is an asynchronous operation. After the server creates a disposal task, the user terminal device pulls and executes it. The same virus file record can only be disposed of once within one minute.
+   * 
+   * @param request - UpdateVirusFileStatusRequest
+   * @returns UpdateVirusFileStatusResponse
+   */
+  async updateVirusFileStatus(request: $_model.UpdateVirusFileStatusRequest): Promise<$_model.UpdateVirusFileStatusResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateVirusFileStatusWithOptions(request, runtime);
+  }
+
+  /**
+   * Modifies the anti-virus global configuration for the current Alibaba Cloud account. The four configuration items are treated as a whole and are entirely overwritten with each call. Therefore, pass in the complete configuration with each call: set VirusFileUpload to false, UploadFileSuffixBlacklist to empty, and UploadFileMaxSize and UploadFileMaxSpeed to 0 (no limit). After VirusFileUpload is changed, the virus file upload module switch is synchronously updated, which affects whether cloud-based STS tokens are issued to user terminal devices.
+   * 
+   * @param request - UpdateVirusScanGlobalConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateVirusScanGlobalConfigResponse
+   */
+  async updateVirusScanGlobalConfigWithOptions(request: $_model.UpdateVirusScanGlobalConfigRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateVirusScanGlobalConfigResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.uploadFileMaxSize)) {
+      body["UploadFileMaxSize"] = request.uploadFileMaxSize;
+    }
+
+    if (!$dara.isNull(request.uploadFileMaxSpeed)) {
+      body["UploadFileMaxSpeed"] = request.uploadFileMaxSpeed;
+    }
+
+    let bodyFlat : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.uploadFileSuffixBlacklist)) {
+      bodyFlat["UploadFileSuffixBlacklist"] = request.uploadFileSuffixBlacklist;
+    }
+
+    if (!$dara.isNull(request.virusFileUpload)) {
+      body["VirusFileUpload"] = request.virusFileUpload;
+    }
+
+    body = {
+      ...body,
+      ...OpenApiUtil.query(bodyFlat),
+    };
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateVirusScanGlobalConfig",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateVirusScanGlobalConfigResponse>(await this.callApi(params, req, runtime), new $_model.UpdateVirusScanGlobalConfigResponse({}));
+  }
+
+  /**
+   * Modifies the anti-virus global configuration for the current Alibaba Cloud account. The four configuration items are treated as a whole and are entirely overwritten with each call. Therefore, pass in the complete configuration with each call: set VirusFileUpload to false, UploadFileSuffixBlacklist to empty, and UploadFileMaxSize and UploadFileMaxSpeed to 0 (no limit). After VirusFileUpload is changed, the virus file upload module switch is synchronously updated, which affects whether cloud-based STS tokens are issued to user terminal devices.
+   * 
+   * @param request - UpdateVirusScanGlobalConfigRequest
+   * @returns UpdateVirusScanGlobalConfigResponse
+   */
+  async updateVirusScanGlobalConfig(request: $_model.UpdateVirusScanGlobalConfigRequest): Promise<$_model.UpdateVirusScanGlobalConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateVirusScanGlobalConfigWithOptions(request, runtime);
+  }
+
+  /**
+   * Modifies the configuration of a specified scheduled virus scan policy. The Whitelist parameter performs a full overwrite, meaning the provided list replaces the existing exception user list of the policy.
+   * 
+   * @param request - UpdateVirusScanScheduledStrategyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateVirusScanScheduledStrategyResponse
+   */
+  async updateVirusScanScheduledStrategyWithOptions(request: $_model.UpdateVirusScanScheduledStrategyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateVirusScanScheduledStrategyResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.highRiskOperation)) {
+      body["HighRiskOperation"] = request.highRiskOperation;
+    }
+
+    if (!$dara.isNull(request.lowRiskOperation)) {
+      body["LowRiskOperation"] = request.lowRiskOperation;
+    }
+
+    if (!$dara.isNull(request.matchMode)) {
+      body["MatchMode"] = request.matchMode;
+    }
+
+    if (!$dara.isNull(request.maxCpuUsage)) {
+      body["MaxCpuUsage"] = request.maxCpuUsage;
+    }
+
+    if (!$dara.isNull(request.midRiskOperation)) {
+      body["MidRiskOperation"] = request.midRiskOperation;
+    }
+
+    if (!$dara.isNull(request.performanceMode)) {
+      body["PerformanceMode"] = request.performanceMode;
+    }
+
+    if (!$dara.isNull(request.priority)) {
+      body["Priority"] = request.priority;
+    }
+
+    if (!$dara.isNull(request.scanBeginTime)) {
+      body["ScanBeginTime"] = request.scanBeginTime;
+    }
+
+    if (!$dara.isNull(request.scanEndTime)) {
+      body["ScanEndTime"] = request.scanEndTime;
+    }
+
+    if (!$dara.isNull(request.scanFrequency)) {
+      body["ScanFrequency"] = request.scanFrequency;
+    }
+
+    if (!$dara.isNull(request.scanInterval)) {
+      body["ScanInterval"] = request.scanInterval;
+    }
+
+    if (!$dara.isNull(request.scanMode)) {
+      body["ScanMode"] = request.scanMode;
+    }
+
+    let bodyFlat : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.scanPath)) {
+      bodyFlat["ScanPath"] = request.scanPath;
+    }
+
+    if (!$dara.isNull(request.scanTargets)) {
+      bodyFlat["ScanTargets"] = request.scanTargets;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      body["Status"] = request.status;
+    }
+
+    if (!$dara.isNull(request.strategyDescription)) {
+      body["StrategyDescription"] = request.strategyDescription;
+    }
+
+    if (!$dara.isNull(request.strategyId)) {
+      body["StrategyId"] = request.strategyId;
+    }
+
+    if (!$dara.isNull(request.strategyName)) {
+      body["StrategyName"] = request.strategyName;
+    }
+
+    if (!$dara.isNull(request.userGroupIds)) {
+      bodyFlat["UserGroupIds"] = request.userGroupIds;
+    }
+
+    if (!$dara.isNull(request.whitelist)) {
+      bodyFlat["Whitelist"] = request.whitelist;
+    }
+
+    body = {
+      ...body,
+      ...OpenApiUtil.query(bodyFlat),
+    };
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateVirusScanScheduledStrategy",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateVirusScanScheduledStrategyResponse>(await this.callApi(params, req, runtime), new $_model.UpdateVirusScanScheduledStrategyResponse({}));
+  }
+
+  /**
+   * Modifies the configuration of a specified scheduled virus scan policy. The Whitelist parameter performs a full overwrite, meaning the provided list replaces the existing exception user list of the policy.
+   * 
+   * @param request - UpdateVirusScanScheduledStrategyRequest
+   * @returns UpdateVirusScanScheduledStrategyResponse
+   */
+  async updateVirusScanScheduledStrategy(request: $_model.UpdateVirusScanScheduledStrategyRequest): Promise<$_model.UpdateVirusScanScheduledStrategyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateVirusScanScheduledStrategyWithOptions(request, runtime);
+  }
+
+  /**
+   * Modifies the global vulnerability scanning configuration for the current Alibaba Cloud account and returns the complete updated configuration.
+   * 
+   * @param tmpReq - UpdateVulScanGlobalConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateVulScanGlobalConfigResponse
+   */
+  async updateVulScanGlobalConfigWithOptions(tmpReq: $_model.UpdateVulScanGlobalConfigRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateVulScanGlobalConfigResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateVulScanGlobalConfigShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.wuyingVulFixConfig)) {
+      request.wuyingVulFixConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.wuyingVulFixConfig, "WuyingVulFixConfig", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.maxDownloadSpeed)) {
+      body["MaxDownloadSpeed"] = request.maxDownloadSpeed;
+    }
+
+    if (!$dara.isNull(request.wuyingVulFixConfigShrink)) {
+      body["WuyingVulFixConfig"] = request.wuyingVulFixConfigShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateVulScanGlobalConfig",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateVulScanGlobalConfigResponse>(await this.callApi(params, req, runtime), new $_model.UpdateVulScanGlobalConfigResponse({}));
+  }
+
+  /**
+   * Modifies the global vulnerability scanning configuration for the current Alibaba Cloud account and returns the complete updated configuration.
+   * 
+   * @param request - UpdateVulScanGlobalConfigRequest
+   * @returns UpdateVulScanGlobalConfigResponse
+   */
+  async updateVulScanGlobalConfig(request: $_model.UpdateVulScanGlobalConfigRequest): Promise<$_model.UpdateVulScanGlobalConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateVulScanGlobalConfigWithOptions(request, runtime);
+  }
+
+  /**
+   * Modifies the configuration of a specified vulnerability scheduled scan policy and returns the complete updated configuration.
+   * 
+   * @param request - UpdateVulScanScheduledStrategyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateVulScanScheduledStrategyResponse
+   */
+  async updateVulScanScheduledStrategyWithOptions(request: $_model.UpdateVulScanScheduledStrategyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateVulScanScheduledStrategyResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.matchMode)) {
+      body["MatchMode"] = request.matchMode;
+    }
+
+    if (!$dara.isNull(request.priority)) {
+      body["Priority"] = request.priority;
+    }
+
+    if (!$dara.isNull(request.scanBeginTime)) {
+      body["ScanBeginTime"] = request.scanBeginTime;
+    }
+
+    if (!$dara.isNull(request.scanEndTime)) {
+      body["ScanEndTime"] = request.scanEndTime;
+    }
+
+    if (!$dara.isNull(request.scanFrequency)) {
+      body["ScanFrequency"] = request.scanFrequency;
+    }
+
+    if (!$dara.isNull(request.scanInterval)) {
+      body["ScanInterval"] = request.scanInterval;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      body["Status"] = request.status;
+    }
+
+    if (!$dara.isNull(request.strategyDescription)) {
+      body["StrategyDescription"] = request.strategyDescription;
+    }
+
+    if (!$dara.isNull(request.strategyId)) {
+      body["StrategyId"] = request.strategyId;
+    }
+
+    if (!$dara.isNull(request.strategyName)) {
+      body["StrategyName"] = request.strategyName;
+    }
+
+    let bodyFlat : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.userGroupIds)) {
+      bodyFlat["UserGroupIds"] = request.userGroupIds;
+    }
+
+    if (!$dara.isNull(request.whitelist)) {
+      bodyFlat["Whitelist"] = request.whitelist;
+    }
+
+    body = {
+      ...body,
+      ...OpenApiUtil.query(bodyFlat),
+    };
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateVulScanScheduledStrategy",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateVulScanScheduledStrategyResponse>(await this.callApi(params, req, runtime), new $_model.UpdateVulScanScheduledStrategyResponse({}));
+  }
+
+  /**
+   * Modifies the configuration of a specified vulnerability scheduled scan policy and returns the complete updated configuration.
+   * 
+   * @param request - UpdateVulScanScheduledStrategyRequest
+   * @returns UpdateVulScanScheduledStrategyResponse
+   */
+  async updateVulScanScheduledStrategy(request: $_model.UpdateVulScanScheduledStrategyRequest): Promise<$_model.UpdateVulScanScheduledStrategyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateVulScanScheduledStrategyWithOptions(request, runtime);
   }
 
 }

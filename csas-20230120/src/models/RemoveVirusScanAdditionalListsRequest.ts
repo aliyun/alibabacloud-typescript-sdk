@@ -2,29 +2,29 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DeleteProhibitedTagsRequest extends $dara.Model {
+export class RemoveVirusScanAdditionalListsRequest extends $dara.Model {
   /**
    * @remarks
-   * The IDs of the custom prohibited software labels to delete. Duplicate IDs are not allowed. You can specify up to 100 IDs.
+   * The collection of entry IDs to remove. At least one entry ID must be specified.
    * 
    * This parameter is required.
    */
-  tagIds?: string[];
+  listIds?: string[];
   static names(): { [key: string]: string } {
     return {
-      tagIds: 'TagIds',
+      listIds: 'ListIds',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      tagIds: { 'type': 'array', 'itemType': 'string' },
+      listIds: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
   validate() {
-    if(Array.isArray(this.tagIds)) {
-      $dara.Model.validateArray(this.tagIds);
+    if(Array.isArray(this.listIds)) {
+      $dara.Model.validateArray(this.listIds);
     }
     super.validate();
   }

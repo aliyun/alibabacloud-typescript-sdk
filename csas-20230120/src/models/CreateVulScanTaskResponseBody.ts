@@ -2,24 +2,34 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DeleteProhibitedTagsResponseBody extends $dara.Model {
+export class CreateVulScanTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
-   * A900F300-AF09-5A39-954F-50B8CF733FD6
+   * 3D7EC0AF-DB2A-5D9C-90EC-F090A6BAAEA7
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The ID of the created vulnerability scanning task.
+   * 
+   * @example
+   * vul-scan-task-4d7b1e9a6c38****
+   */
+  taskId?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
+      taskId: 'TaskId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
+      taskId: 'string',
     };
   }
 
