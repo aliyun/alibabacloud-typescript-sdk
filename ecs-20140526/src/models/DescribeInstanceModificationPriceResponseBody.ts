@@ -123,10 +123,6 @@ export class DescribeInstanceModificationPriceResponseBodyPriceInfoPrice extends
    * @remarks
    * The currency unit. Valid values:
    * 
-   * - China site: CNY.
-   * 
-   * - International site: USD.
-   * 
    * @example
    * CNY
    */
@@ -190,21 +186,33 @@ export class DescribeInstanceModificationPriceResponseBodyPriceInfoPrice extends
 
 export class DescribeInstanceModificationPriceResponseBodyPriceInfoRelatedPriceMarketplaceImagePrice extends $dara.Model {
   /**
+   * @remarks
+   * The currency unit.
+   * 
    * @example
    * CNY
    */
   currency?: string;
   /**
+   * @remarks
+   * The discount.
+   * 
    * @example
    * 0
    */
   discountPrice?: number;
   /**
+   * @remarks
+   * The original price.
+   * 
    * @example
    * 100
    */
   originalPrice?: number;
   /**
+   * @remarks
+   * The transaction price, which is equal to the original price minus the discount.
+   * 
    * @example
    * 100
    */
@@ -237,6 +245,10 @@ export class DescribeInstanceModificationPriceResponseBodyPriceInfoRelatedPriceM
 }
 
 export class DescribeInstanceModificationPriceResponseBodyPriceInfoRelatedPrice extends $dara.Model {
+  /**
+   * @remarks
+   * The Alibaba Cloud Marketplace image price.
+   */
   marketplaceImagePrice?: DescribeInstanceModificationPriceResponseBodyPriceInfoRelatedPriceMarketplaceImagePrice;
   static names(): { [key: string]: string } {
     return {
@@ -320,6 +332,10 @@ export class DescribeInstanceModificationPriceResponseBodyPriceInfo extends $dar
    * The price.
    */
   price?: DescribeInstanceModificationPriceResponseBodyPriceInfoPrice;
+  /**
+   * @remarks
+   * The related price.
+   */
   relatedPrice?: DescribeInstanceModificationPriceResponseBodyPriceInfoRelatedPrice;
   rules?: DescribeInstanceModificationPriceResponseBodyPriceInfoRules;
   static names(): { [key: string]: string } {
@@ -359,7 +375,7 @@ export class DescribeInstanceModificationPriceResponseBodyPriceInfo extends $dar
 export class DescribeInstanceModificationPriceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The price information, including the price and discount rule information.
+   * The price information, including the price and discount rule details.
    */
   priceInfo?: DescribeInstanceModificationPriceResponseBodyPriceInfo;
   /**

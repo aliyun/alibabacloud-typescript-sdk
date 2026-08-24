@@ -123,10 +123,6 @@ export class DescribePriceResponseBodyPriceInfoPrice extends $dara.Model {
    * @remarks
    * The currency unit.
    * 
-   * China site: CNY.
-   * 
-   * International site: USD.
-   * 
    * @example
    * CNY
    */
@@ -150,7 +146,7 @@ export class DescribePriceResponseBodyPriceInfoPrice extends $dara.Model {
   originalPrice?: number;
   /**
    * @remarks
-   * The hourly price of a reserved instance with no upfront or partial upfront payment.
+   * The hourly price of the reserved instance with no upfront or partial upfront payment.
    * 
    * @example
    * 1
@@ -158,7 +154,7 @@ export class DescribePriceResponseBodyPriceInfoPrice extends $dara.Model {
   reservedInstanceHourPrice?: number;
   /**
    * @remarks
-   * The transaction price, which is the original price minus the discount.
+   * The transaction price, which is equal to the original price minus the discount.
    * 
    * @example
    * 3712.8
@@ -203,10 +199,6 @@ export class DescribePriceResponseBodyPriceInfoRelatedPriceMarketplaceImagePrice
    * @remarks
    * The currency unit.
    * 
-   * China site: CNY.
-   * 
-   * International site: USD.
-   * 
    * @example
    * CNY
    */
@@ -229,7 +221,7 @@ export class DescribePriceResponseBodyPriceInfoRelatedPriceMarketplaceImagePrice
   originalPrice?: number;
   /**
    * @remarks
-   * The transaction price, which is the original price minus the discount.
+   * The transaction price, which is equal to the original price minus the discount.
    * 
    * @example
    * 100
@@ -393,7 +385,7 @@ export class DescribePriceResponseBodyPriceInfo extends $dara.Model {
 export class DescribePriceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The price information, including the price and promotion rules.
+   * The price information, including the price and discount rules.
    */
   priceInfo?: DescribePriceResponseBodyPriceInfo;
   /**

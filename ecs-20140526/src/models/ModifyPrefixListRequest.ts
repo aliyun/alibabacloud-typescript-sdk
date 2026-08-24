@@ -9,8 +9,8 @@ export class ModifyPrefixListRequestAddEntry extends $dara.Model {
    * 
    * Take note of the following items:
    * - The total number of entries in the prefix list cannot exceed the maximum number of entries supported by the prefix list. You can invoke [DescribePrefixListAttributes](https://help.aliyun.com/document_detail/205872.html) to query the maximum number of entries supported by a specified prefix list.
-   * - Duplicate CIDR blocks are not allowed in Settings.
-   * - The value cannot be the same as the value of the `RemoveEntry.N.Cidr` parameter.
+   * - You cannot specify duplicate CIDR block values in the settings.
+   * - The value of this parameter cannot be the same as the value of `RemoveEntry.N.Cidr`.
    * 
    * This parameter is required.
    * 
@@ -55,8 +55,8 @@ export class ModifyPrefixListRequestRemoveEntry extends $dara.Model {
    * The Classless Inter-Domain Routing (CIDR) block of the prefix list entry to delete. Valid values of N: 0 to 200.
    * 
    * Take note of the following items:
-   * - Duplicate CIDR blocks are not allowed in Settings.
-   * - The value cannot be the same as the value of the `AddEntry.N.Cidr` parameter.
+   * - You cannot specify duplicate CIDR block values in the settings.
+   * - The value of this parameter cannot be the same as the value of `AddEntry.N.Cidr`.
    * 
    * This parameter is required.
    * 
@@ -88,7 +88,7 @@ export class ModifyPrefixListRequestRemoveEntry extends $dara.Model {
 export class ModifyPrefixListRequest extends $dara.Model {
   /**
    * @remarks
-   * The prefix list entries to add.
+   * The information about entries to add to the prefix list.
    */
   addEntry?: ModifyPrefixListRequestAddEntry[];
   /**
@@ -131,7 +131,7 @@ export class ModifyPrefixListRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The prefix list entries to delete.
+   * The information about entries to delete from the prefix list.
    */
   removeEntry?: ModifyPrefixListRequestRemoveEntry[];
   resourceOwnerAccount?: string;

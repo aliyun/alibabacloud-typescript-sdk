@@ -13,7 +13,7 @@ export class RunCommandResponseBody extends $dara.Model {
   commandId?: string;
   /**
    * @remarks
-   * The command execution ID.
+   * The invocation ID.
    * 
    * @example
    * t-7d2a745b412b4601b2d47f6a768d****

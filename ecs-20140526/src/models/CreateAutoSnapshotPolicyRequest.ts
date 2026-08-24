@@ -252,7 +252,7 @@ export class CreateAutoSnapshotPolicyRequest extends $dara.Model {
   tag?: CreateAutoSnapshotPolicyRequestTag[];
   /**
    * @remarks
-   * The destination region to which snapshots are replicated. You can set only one destination region.
+   * The destination region to which snapshots are replicated. You can specify one destination region.
    * 
    * @example
    * ["cn-hangzhou"]
@@ -261,7 +261,7 @@ export class CreateAutoSnapshotPolicyRequest extends $dara.Model {
   /**
    * @remarks
    * The list of target resource tags. The automatic snapshot policy matches target resources based on tags.
-   * This parameter is required when AssociationType is set to AssociatedWithInstanceTag.
+   * When AssociationType is set to AssociatedWithInstanceTag, this parameter is required.
    */
   targetTags?: CreateAutoSnapshotPolicyRequestTargetTags[];
   /**

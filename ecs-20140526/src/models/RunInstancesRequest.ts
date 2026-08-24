@@ -90,7 +90,7 @@ export class RunInstancesRequestCpuOptions extends $dara.Model {
 export class RunInstancesRequestHibernationOptions extends $dara.Model {
   /**
    * @remarks
-   * > This parameter is in invitational preview and is not publicly available.
+   * >This parameter is in invitational preview and is not publicly available.
    * 
    * @example
    * false
@@ -160,7 +160,7 @@ export class RunInstancesRequestPrivatePoolOptions extends $dara.Model {
 export class RunInstancesRequestSchedulerOptions extends $dara.Model {
   /**
    * @remarks
-   * Specifies the dedicated host cluster for the ECS instance. The system automatically selects a dedicated host from the specified cluster to deploy the ECS instance.
+   * The ID of the dedicated host cluster to which the ECS instance belongs. The system automatically selects a dedicated host in the cluster to deploy the ECS instance.
    * 
    * > This parameter takes effect only when `Tenancy` is set to `host`.
    * 
@@ -291,7 +291,7 @@ export class RunInstancesRequestSystemDisk extends $dara.Model {
   diskName?: string;
   /**
    * @remarks
-   * The performance level of the enterprise SSD used as the system disk. Settings for the performance level when you create an enterprise SSD (standard SSD not applicable). Valid values:
+   * The performance level of the enterprise SSD (ESSD) used as the system disk. When you create an ESSD as the system disk, you can set the performance level of the disk. Valid values:
    * 
    * @example
    * PL0
@@ -328,7 +328,7 @@ export class RunInstancesRequestSystemDisk extends $dara.Model {
   burstingEnabled?: boolean;
   /**
    * @remarks
-   * > This parameter is not publicly available.
+   * >This parameter is not publicly available.
    * 
    * @example
    * null
@@ -354,7 +354,7 @@ export class RunInstancesRequestSystemDisk extends $dara.Model {
   encrypted?: string;
   /**
    * @remarks
-   * The ID of the KMS key used for the system disk.
+   * The ID of the KMS key for the system disk.
    * 
    * > If Encrypted is set to true and KMSKeyId is not specified, the default key is used for encryption, and the KMSKeyId value is returned after the instance is created.
    * > - - The disk is created from a non-shared encrypted snapshot: The encryption key used by the snapshot is used by default.
@@ -428,7 +428,7 @@ export class RunInstancesRequestSystemDisk extends $dara.Model {
 export class RunInstancesRequestArn extends $dara.Model {
   /**
    * @remarks
-   * > This parameter is not publicly available.
+   * >This parameter is not publicly available.
    * 
    * @example
    * null
@@ -436,7 +436,7 @@ export class RunInstancesRequestArn extends $dara.Model {
   assumeRoleFor?: number;
   /**
    * @remarks
-   * > This parameter is not publicly available.
+   * >This parameter is not publicly available.
    * 
    * @example
    * null
@@ -444,7 +444,7 @@ export class RunInstancesRequestArn extends $dara.Model {
   roleType?: string;
   /**
    * @remarks
-   * > This parameter is not publicly available.
+   * >This parameter is not publicly available.
    * 
    * @example
    * null
@@ -478,7 +478,7 @@ export class RunInstancesRequestArn extends $dara.Model {
 export class RunInstancesRequestClockOptions extends $dara.Model {
   /**
    * @remarks
-   * The PTP status. Valid values:
+   * The Precision Time Protocol (PTP) status. Valid values:
    * 
    * @example
    * enabled
@@ -533,15 +533,15 @@ export class RunInstancesRequestDataDisk extends $dara.Model {
    * - cloud_auto: ESSD AutoPL disk.
    * - cloud_regional_disk_auto: regional Enterprise SSD (ESSD).
    * - cloud_essd_entry: ESSD Entry disk.
-   *   >The `cloud_essd_entry` value is supported only when `InstanceType` is set to an instance type in the `ecs.u1` or `ecs.e` instance family.
-   * - elastic_ephemeral_disk_standard: elastic ephemeral disk - Standard.
-   * - elastic_ephemeral_disk_premium: elastic ephemeral disk - Premium.
+   *   >cloud_essd_entry is supported only when `InstanceType` is set to an instance type in the `ecs.u1` or `ecs.e` instance family.
+   * - elastic_ephemeral_disk_standard: elastic ephemeral disk - Standard Edition.
+   * - elastic_ephemeral_disk_premium: elastic ephemeral disk - Premium Edition.
    * 
    * For I/O optimized instances, the default value is cloud_efficiency. For non-I/O optimized instances, the default value is cloud.
-   * Default value description:
+   * Notes on default values:
    * 
    * - If InstanceType is set to a retired instance type that is not I/O optimized, the default value is `cloud`.
-   * - In other cases, the default value is `cloud_efficiency`.<props="china">After January 30, 2026, if the I/O optimized instance type does not support cloud_auto, the default value is cloud_efficiency. Otherwise, the default value is cloud_auto, and performance burst is enabled by default (which incurs additional fees. For more information, see [Billing examples](~~368372#p_75k_2hp_7gp~~)). For more information, see [Change announcement](https://www.aliyun.com/notice/117844).
+   * - In other cases, the default value is `cloud_efficiency`.<props="china">After January 30, 2026, if the I/O optimized instance type does not support cloud_auto, the default value is cloud_efficiency. Otherwise, the default value is cloud_auto, and performance burst is enabled by default (which incurs additional fees. For more information, see [Billing examples](~~368372#p_75k_2hp_7gp~~)). For more information, see [Change notice](https://www.aliyun.com/notice/117844).
    * 
    * @example
    * cloud_ssd
@@ -573,7 +573,7 @@ export class RunInstancesRequestDataDisk extends $dara.Model {
   device?: string;
   /**
    * @remarks
-   * The name of the data disk. The name must be 2 to 128 characters in length and can contain letters, digits, and characters categorized as letter in Unicode. The name can contain colons (:), underscores (_), periods (.), or hyphens (-).
+   * The name of the data disk. The name must be 2 to 128 characters in length and can contain letters, digits, and characters that are supported by Unicode in the letter category. The name can contain colons (:), underscores (_), periods (.), or hyphens (-).
    * 
    * @example
    * cloud_ssdData
@@ -581,7 +581,7 @@ export class RunInstancesRequestDataDisk extends $dara.Model {
   diskName?: string;
   /**
    * @remarks
-   * > This parameter is not publicly available.
+   * >This parameter is not publicly available.
    * 
    * @example
    * null
@@ -611,7 +611,14 @@ export class RunInstancesRequestDataDisk extends $dara.Model {
   KMSKeyId?: string;
   /**
    * @remarks
-   * Settings for the performance level of the data disk when you create an enterprise SSD as a data disk. The value of N must be the same as that in `DataDisk.N.Category=cloud_essd`. Valid values:
+   * The performance level of the data disk when you create an enterprise SSD as a data disk. The value of N must be the same as the N in `DataDisk.N.Category=cloud_essd`. Valid values:
+   * 
+   * - PL0: A single disk can deliver up to 10,000 random read/write IOPS.
+   * - PL1 (default): A single disk can deliver up to 50,000 random read/write IOPS.
+   * - PL2: A single disk can deliver up to 100,000 random read/write IOPS.
+   * - PL3: A single disk can deliver up to 1,000,000 random read/write IOPS.
+   * 
+   * For more information about how to select an ESSD performance level, see [ESSD](https://help.aliyun.com/document_detail/122389.html).
    * 
    * @example
    * PL1
@@ -632,12 +639,12 @@ export class RunInstancesRequestDataDisk extends $dara.Model {
    * - cloud_efficiency: 20 to 32768.
    * - cloud_ssd: 20 to 32768.
    * - cloud_essd: The valid values depend on the value of `DataDisk.N.PerformanceLevel`. 
-   *     - PL0: 1 to 65536.
-   *     - PL1: 20 to 65536.
-   *     - PL2: 461 to 65536.
-   *     - PL3: 1261 to 65536.
+   *     - PL0: 1 to 65,536.
+   *     - PL1: 20 to 65,536.
+   *     - PL2: 461 to 65,536.
+   *     - PL3: 1261 to 65,536.
    * - cloud: 5 to 2000.
-   * - cloud_auto: 1 to 65536.
+   * - cloud_auto: 1 to 65,536.
    * - cloud_essd_entry: 10 to 32768.
    * 
    * >The value of this parameter must be greater than or equal to the size of the snapshot specified by `SnapshotId`.
@@ -809,9 +816,9 @@ export class RunInstancesRequestNetworkInterface extends $dara.Model {
   networkCardIndex?: number;
   /**
    * @remarks
-   * The ID of the ENI to attach to the instance.
+   * The ID of the Elastic Network Interface (ENI) to attach to the instance.
    * 
-   * After you set this parameter, the value of `Amount` can only be 1.
+   * If you set this parameter, the value of `Amount` can only be 1.
    * 
    * >This parameter takes effect only for secondary ENIs. After you specify an existing secondary ENI, you cannot configure other ENI creation parameters.
    * 
@@ -821,13 +828,7 @@ export class RunInstancesRequestNetworkInterface extends $dara.Model {
   networkInterfaceId?: string;
   /**
    * @remarks
-   * The name of the ENI. The name must be 2 to 128 characters in length and can contain characters that are categorized as letter in Unicode, including but not limited to English letters, Chinese characters, and digits. The name can contain colons (:), underscores (_), periods (.), or hyphens (-).
-   * 
-   * Take note of the following items:
-   * 
-   * - Valid values of N cannot exceed the maximum number of ENIs supported by the instance type. For more information, see [Instance families](https://help.aliyun.com/document_detail/25378.html) or call [DescribeInstanceTypes](https://help.aliyun.com/document_detail/2679699.html) to query the maximum number of ENIs supported by the target instance type.
-   * 
-   * - If `NetworkInterface.N.InstanceType` is set to `Primary`, you do not need to set this parameter.
+   * The name of the network interface controller (NIC). The name must be 2 to 128 characters in length and can contain letters, digits, and characters that are supported by Unicode in the letter categorization. The name can contain colons (:), underscores (_), periods (.), or hyphens (-).
    * 
    * @example
    * Network_Name
@@ -836,13 +837,6 @@ export class RunInstancesRequestNetworkInterface extends $dara.Model {
   /**
    * @remarks
    * The communication mode of the ENI. Valid values:
-   * 
-   * - Standard: Uses the TCP communication mode.
-   * - HighPerformance: Enables the Elastic RDMA Interface (ERI) and uses the RDMA communication mode.
-   * 
-   * Default value: Standard.
-   * 
-   * >The number of ENIs in RDMA mode cannot exceed the limit of the instance family. For more information, see [Instance families](https://help.aliyun.com/document_detail/25378.html).
    * 
    * @example
    * Standard
@@ -896,7 +890,10 @@ export class RunInstancesRequestNetworkInterface extends $dara.Model {
   rxQueueSize?: number;
   /**
    * @remarks
-   * The number of secondary private IPv4 addresses for the ENI. Valid values: 1 to 49.
+   * The number of secondary private IPv4 addresses to assign to the network interface. Valid values: 1 to 49.
+   * 
+   * - The value cannot exceed the maximum number of IP addresses allowed for the instance type. For more information, see [Instance families](~~~25378~~).
+   * - NetworkInterface.N.SecondaryPrivateIpAddressCount specifies the number of secondary private IPv4 addresses to assign to the network interface (excluding the primary private IP address of the network interface). The system randomly assigns IP addresses from the available CIDR block of the vSwitch (NetworkInterface.N.VSwitchId) to which the network interface belongs.
    * 
    * @example
    * 10
@@ -914,8 +911,8 @@ export class RunInstancesRequestNetworkInterface extends $dara.Model {
    * @remarks
    * One or more security group IDs to which the ENI belongs.
    * 
-   * - The valid values of N for the first index do not exceed the number of ENIs supported by the instance type. For more information, see [Instance families](https://help.aliyun.com/document_detail/25378.html) or call [DescribeInstanceTypes](https://help.aliyun.com/document_detail/2679699.html) to query the number of ENIs supported by the target instance type.
-   * - The second N indicates that you can specify one or more security group IDs. The valid values of N are related to the quota of security groups that an instance can join. For more information, see [Security group limits](~~25412#SecurityGroupQuota1~~).
+   * - The valid values of N for the first dimension do not exceed the number of ENIs supported by the instance type. For more information, see [Instance families](https://help.aliyun.com/document_detail/25378.html) or call [DescribeInstanceTypes](https://help.aliyun.com/document_detail/2679699.html) to query the number of ENIs supported by the target instance type.
+   * - The second N indicates that you can specify one or more security group IDs. The valid values of N are related to the quota for the number of security groups to which an instance can belong. For more information, see [Security group limits](~~25412#SecurityGroupQuota1~~).
    * 
    * Take note of the following items:
    * 
@@ -929,11 +926,11 @@ export class RunInstancesRequestNetworkInterface extends $dara.Model {
   securityGroupIds?: string[];
   /**
    * @remarks
-   * Specifies whether to enable source/destination checking. Enable this feature to improve network security. Valid values:
+   * Specifies whether to enable source/destination checking. We recommend that you enable this feature to improve network security. Valid values:
    * 
-   * - true: Enabled.
+   * - true: enabled.
    * 
-   * - false: Not enabled.
+   * - false: disabled.
    * 
    * Default value: false.
    * 
@@ -1080,7 +1077,7 @@ export class RunInstancesRequestNetworkOptions extends $dara.Model {
 export class RunInstancesRequestPrivateDnsNameOptions extends $dara.Model {
   /**
    * @remarks
-   * Enables or disables DNS AAAA record resolution from the instance ID-based domain name to the IPv6 address. Valid values:
+   * Specifies whether to enable DNS AAAA record resolution from the instance ID-based domain name to IPv6. Valid values:
    * 
    * - true: Enabled.
    * 
@@ -1108,7 +1105,12 @@ export class RunInstancesRequestPrivateDnsNameOptions extends $dara.Model {
   enableInstanceIdDnsARecord?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable DNS resolution from the IP-based domain name to the IPv4 address. Valid values:
+   * Specifies whether to enable DNS resolution from IP-based domain names to IPv4 addresses. Valid values:
+   * 
+   * - true: Enabled.
+   * - false: Disabled.
+   * 
+   * Default value: false.
    * 
    * @example
    * true
@@ -1116,7 +1118,7 @@ export class RunInstancesRequestPrivateDnsNameOptions extends $dara.Model {
   enableIpDnsARecord?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable reverse DNS resolution from IPv4 addresses to domain names. Valid values:
+   * Specifies whether to enable reverse DNS resolution from IPv4 addresses to IP-type domain names. Valid values:
    * 
    * - true: Enabled.
    * - false: Disabled.
@@ -1213,13 +1215,7 @@ export class RunInstancesRequest extends $dara.Model {
   systemDisk?: RunInstancesRequestSystemDisk;
   /**
    * @remarks
-   * Specifies whether the instance is associated with a dedicated host. Valid values:
-   * 
-   * - default: The instance is not associated with a dedicated host. When an instance that has economical mode enabled is restarted after it is stopped, the instance is deployed to another dedicated host in the automatic deployment resource pool if the resources of the original dedicated host are insufficient.
-   * 
-   * - host: The instance is associated with a dedicated host. When an instance that has economical mode enabled is restarted after it is stopped, the instance remains on the original dedicated host. If the resources of the original dedicated host are insufficient, the instance fails to restart.
-   * 
-   * Default value: default.
+   * Specifies whether the instance on a dedicated host is associated with the dedicated host. Valid values:
    * 
    * @example
    * default
@@ -1231,12 +1227,12 @@ export class RunInstancesRequest extends $dara.Model {
    * 
    * The number of ECS instances that are created depends on the values of Amount and MinAmount:
    * 
-   * - If MinAmount is not specified, instances are created based on the value of Amount. If the inventory is insufficient, the API returns a failure and no instances are created.
+   * - If MinAmount is not specified: instances are created based on the Amount value. If the inventory is insufficient, the API returns a failure and no instances are created.
    * 
    * - If MinAmount is specified:
-   *   - If the available inventory < MinAmount, no ECS instances are created and the API returns a failure.
-   *   - If MinAmount ≤ available inventory < Amount, instances are created based on the available inventory and the API returns a success.
-   *   - If the available inventory ≥ Amount, instances are created based on the value of Amount and the API returns a success.
+   *   - If the available inventory < MinAmount: no ECS instances are created, and the API returns a failure.
+   *   - If MinAmount ≤ available inventory < Amount: instances are created based on the available inventory, and the API returns a success.
+   *   - If the available inventory ≥ Amount: instances are created based on the specified Amount value, and the API returns a success.
    * 
    * Default value: 1.
    * 
@@ -1246,7 +1242,7 @@ export class RunInstancesRequest extends $dara.Model {
   amount?: number;
   /**
    * @remarks
-   * > This parameter is not publicly available.
+   * >This parameter is not publicly available.
    */
   arn?: RunInstancesRequestArn[];
   /**
@@ -1255,7 +1251,7 @@ export class RunInstancesRequest extends $dara.Model {
    * 
    * - true: The payment is automatically completed.
    * 
-   *     > If the balance of your payment method is insufficient, an abnormal order is generated and can only be canceled. If your payment method has an insufficient balance, set `AutoPay` to `false`. An unpaid order is generated, and you can log on to the ECS console to complete the payment.
+   *     > If the balance of your payment method is insufficient, an abnormal order is generated and can only be canceled. If the balance of your payment method is insufficient, set AutoPay to `false`. In this case, an unpaid order is generated. You can then log on to the ECS console to complete the payment.
    * 
    * - false: An order is generated but the payment is not completed.
    * 
@@ -1271,13 +1267,24 @@ export class RunInstancesRequest extends $dara.Model {
    * @remarks
    * The automatic release time of the pay-as-you-go instance. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the UTC+0 time zone. The format is `yyyy-MM-ddTHH:mm:ssZ`.
    * 
+   * - If the value of seconds (`ss`) is not `00`, the start time of the current minute (`mm`) is used.
+   * 
+   * - The earliest release time is half an hour after the current time.
+   * 
+   * - The latest release time cannot be more than three years from the current time.
+   * 
    * @example
    * 2018-01-01T12:05:00Z
    */
   autoReleaseTime?: string;
   /**
    * @remarks
-   * Specifies whether to enable auto-renewal. This parameter takes effect only when `InstanceChargeType` is set to `PrePaid`. Valid values:
+   * Specifies whether to enable auto-renewal. This parameter takes effect only when InstanceChargeType is set to PrePaid. Valid values:
+   * 
+   * - true: Auto-renewal is enabled.
+   * - false: Auto-renewal is not enabled.
+   * 
+   * Default value: false.
    * 
    * @example
    * true
@@ -1334,7 +1341,7 @@ export class RunInstancesRequest extends $dara.Model {
    * 
    * <props="intl">You can call [DescribeDedicatedHosts](https://help.aliyun.com/document_detail/134242.html) to query the list of dedicated host IDs.
    * 
-   * >Notice: Dedicated hosts do not support the creation of spot instances. If you specify the `DedicatedHostId` parameter, the `SpotStrategy` and `SpotPriceLimit` settings in the request are automatically ignored.
+   * >Notice: Dedicated hosts do not support spot instances. If you specify the DedicatedHostId parameter, the SpotStrategy and SpotPriceLimit settings in the request are automatically ignored.
    * 
    * @example
    * dh-bp67acfmxazb4p****
@@ -1357,7 +1364,7 @@ export class RunInstancesRequest extends $dara.Model {
   deletionProtection?: boolean;
   /**
    * @remarks
-   * If the deployment set uses the high availability group strategy (AvailabilityGroup), you can use this parameter to specify the group number of the instance in the deployment set. Valid values: 1 to 7.
+   * The group number of the instance in the deployment set. If the deployment set uses the high availability group strategy (AvailabilityGroup), you can use this parameter to specify the group number. Valid values: 1 to 7.
    * 
    * @example
    * 1
@@ -1382,9 +1389,6 @@ export class RunInstancesRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to perform only a dry run. Valid values:
-   * 
-   * -  true: performs a dry run without creating the instance. The system checks the required parameters, request syntax, business restrictions, and ECS inventory. If the check fails, the corresponding error is returned. If the check passes, the error code `DryRunOperation` is returned.
-   * -  false (default): performs a dry run and sends the request. If the check passes, the instance is created.
    * 
    * @example
    * false
@@ -1424,7 +1428,7 @@ export class RunInstancesRequest extends $dara.Model {
   httpEndpoint?: string;
   /**
    * @remarks
-   * > This parameter is not publicly available.
+   * >This parameter is not publicly available.
    * 
    * @example
    * 0
@@ -1432,9 +1436,9 @@ export class RunInstancesRequest extends $dara.Model {
   httpPutResponseHopLimit?: number;
   /**
    * @remarks
-   * Specifies whether to forcefully use the China Reinforced mode (IMDSv2) for accessing instance metadata. Valid values:
-   * - optional: does not forcefully use the China Reinforced mode.
-   * - required: forcefully uses the China Reinforced mode. After this value is set, the normal mode cannot be used to access instance metadata.
+   * Specifies whether to forcefully use the China Reinforced Mode (IMDSv2) for accessing instance metadata. Valid values:
+   * - optional: does not forcefully use the China Reinforced Mode.
+   * - required: forcefully uses the China Reinforced Mode. After this value is set, the normal mode cannot be used to access instance metadata.
    * 
    * Default value: optional.
    * >For more information about the modes for accessing instance metadata, see [Instance metadata access mode](https://help.aliyun.com/document_detail/150575.html).
@@ -1455,7 +1459,7 @@ export class RunInstancesRequest extends $dara.Model {
    * - If you do not set the ImageId parameter but the launch template specified by LaunchTemplateId or LaunchTemplateName has ImageId configured, you cannot set this parameter.
    * - If you do not set ImageId and the launch template specified by LaunchTemplateId or LaunchTemplateName does not have ImageId configured, you can set this parameter.
    * - If you do not set ImageId and do not set LaunchTemplateId or LaunchTemplateName, you can set this parameter.
-   * > For information about image families associated with Alibaba Cloud public images, see [Overview of public images](https://help.aliyun.com/document_detail/108393.html).
+   * > For information about image families associated with Alibaba Cloud public images, see [Public image overview](https://help.aliyun.com/document_detail/108393.html).
    * 
    * @example
    * hangzhou-daily-update
@@ -1501,10 +1505,10 @@ export class RunInstancesRequest extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * The instance type of the instance. If you do not specify `LaunchTemplateId` or `LaunchTemplateName` to determine the launch template, `InstanceType` is required.  
+   * The instance type of the instance. If you do not specify `LaunchTemplateId` or `LaunchTemplateName` to determine the launch template, `InstanceType` is required.
    * 
-   * - Instance type selection: See [Instance families](https://help.aliyun.com/document_detail/25378.html) or call [DescribeInstanceTypes](https://help.aliyun.com/document_detail/25620.html) to query the performance data of an instance type. You can also see [Best practices for instance type selection](https://help.aliyun.com/document_detail/58291.html) to learn how to select instance types.
-   * - Stock query: Call [DescribeAvailableResource](https://help.aliyun.com/document_detail/66186.html) to query the resource availability in a specific region or zone.
+   * - Instance type selection: See [Instance families](https://help.aliyun.com/document_detail/25378.html) or call [DescribeInstanceTypes](https://help.aliyun.com/document_detail/25620.html) to query the performance data of the target instance type, or see [Best practices for instance type selection](https://help.aliyun.com/document_detail/58291.html) to learn how to select an instance type.
+   * - Inventory query: Call [DescribeAvailableResource](https://help.aliyun.com/document_detail/66186.html) to query the resource availability in a specific region or zone.
    * 
    * @example
    * ecs.g6.large
@@ -1543,7 +1547,7 @@ export class RunInstancesRequest extends $dara.Model {
   internetMaxBandwidthOut?: number;
   /**
    * @remarks
-   * Specifies whether the instance is an I/O optimized instance. The default value for [retired instance types](https://help.aliyun.com/document_detail/55263.html) is none, which indicates that I/O optimization is disabled. The default value for other instance types is optimized. Valid values:
+   * Specifies whether the instance is I/O optimization enabled. The default value for [retired instance types](https://help.aliyun.com/document_detail/55263.html) is none. The default value for other instance types is optimized. Valid values:
    * 
    * @example
    * optimized
@@ -1567,13 +1571,7 @@ export class RunInstancesRequest extends $dara.Model {
   ipv6Address?: string[];
   /**
    * @remarks
-   * The number of randomly generated IPv6 addresses to assign to the primary ENI. Valid values: 1 to 10.
-   * 
-   * Take note of the following items:
-   * 
-   * - You cannot specify both `Ipv6Address.N` and `Ipv6AddressCount`.
-   * 
-   * - If `NetworkInterface.N.InstanceType` is set to `Primary`, you cannot specify `Ipv6Address.N` or `Ipv6AddressCount`. Instead, specify `NetworkInterface.N.Ipv6Address.N` or `NetworkInterface.N.Ipv6AddressCount`.
+   * The number of randomly generated IPv6 addresses for the primary ENI. Valid values: 1 to 10.
    * 
    * @example
    * 1
@@ -1581,7 +1579,7 @@ export class RunInstancesRequest extends $dara.Model {
   ipv6AddressCount?: number;
   /**
    * @remarks
-   * > This parameter is in invitational preview and is not publicly available.
+   * >This parameter is in invitational preview and is not publicly available.
    * 
    * @example
    * null
@@ -1621,7 +1619,7 @@ export class RunInstancesRequest extends $dara.Model {
   launchTemplateVersion?: number;
   /**
    * @remarks
-   * The minimum number of ECS instances to purchase. Valid values: 1 to 100.
+   * The minimum Quantity of ECS instances to purchase. Valid values: 1 to 100.
    * 
    * @example
    * 2
@@ -1638,9 +1636,9 @@ export class RunInstancesRequest extends $dara.Model {
    * 
    * - The value cannot exceed the maximum number of queues per ENI allowed by the instance type.
    * 
-   * - The total number of queues for all ENIs on the instance cannot exceed the queue quota allowed by the instance type. You can call the [DescribeInstanceTypes](https://help.aliyun.com/document_detail/25620.html) operation to query the MaximumQueueNumberPerEni and TotalEniQueueQuantity fields for the maximum number of queues per ENI and the total queue quota of an instance type.
+   * - The total number of queues for all ENIs on the instance cannot exceed the queue quota allowed by the instance type. You can call the [DescribeInstanceTypes](https://help.aliyun.com/document_detail/25620.html) operation to query the MaximumQueueNumberPerEni and TotalEniQueueQuantity fields to obtain the maximum number of queues per ENI and the total queue quota for an instance type.
    * 
-   * - If `NetworkInterface.N.InstanceType` is set to `Primary`, you cannot set `NetworkInterfaceQueueNumber`. Set `NetworkInterface.N.QueueNumber` instead.
+   * - If NetworkInterface.N.InstanceType is set to Primary, you cannot set NetworkInterfaceQueueNumber. Set NetworkInterface.N.QueueNumber instead.
    * 
    * @example
    * 8
@@ -1663,14 +1661,7 @@ export class RunInstancesRequest extends $dara.Model {
   password?: string;
   /**
    * @remarks
-   * Specifies whether to use the preset password of the image. Valid values:
-   * 
-   * - true: The preset password of the image is used.
-   * - false: The preset password of the image is not used.
-   * 
-   * Default value: false.
-   * 
-   * > When you use this parameter, the Password parameter must be empty. Make sure that the image has a preset password.
+   * Specifies whether to use the password preset in the image. Valid values:
    * 
    * @example
    * false
@@ -1678,15 +1669,15 @@ export class RunInstancesRequest extends $dara.Model {
   passwordInherit?: boolean;
   /**
    * @remarks
-   * The duration of the subscription. Unit: specified by PeriodUnit. This parameter is required and takes effect only when InstanceChargeType is set to PrePaid. If DedicatedHostId is specified, the value of this parameter cannot exceed the remaining subscription duration of the dedicated host. Valid values:
+   * The duration of the subscription. Unit: specified by `PeriodUnit`. This parameter is required and takes effect only when `InstanceChargeType` is set to `PrePaid`. If `DedicatedHostId` is specified, the value of this parameter cannot exceed the subscription duration of the dedicated host. Valid values:
    * 
    * <props="china">
-   * - If PeriodUnit is set to Week, valid values of Period: 1, 2, 3, and 4.
-   * - If PeriodUnit is set to Month, valid values of Period: 1, 2, 3, 4, 5, 6, 7, 8, 9, 12, 24, 36, 48, and 60.
+   * - PeriodUnit=Week: 1, 2, 3, and 4.
+   * - PeriodUnit=Month: 1, 2, 3, 4, 5, 6, 7, 8, 9, 12, 24, 36, 48, and 60.
    * 
    * 
    * 
-   * <props="intl">If PeriodUnit is set to Month, valid values of Period: 1, 2, 3, 4, 5, 6, 7, 8, 9, 12, 24, 36, 48, and 60.
+   * <props="intl">PeriodUnit=Month: 1, 2, 3, 4, 5, 6, 7, 8, 9, 12, 24, 36, 48, and 60.
    * 
    * @example
    * 1
@@ -1694,15 +1685,7 @@ export class RunInstancesRequest extends $dara.Model {
   period?: number;
   /**
    * @remarks
-   * The unit of the subscription duration. Valid values:
-   * 
-   * <props="china">
-   * - Week
-   * - Month (default)
-   * 
-   * 
-   * 
-   * <props="intl">Month (default).
+   * The unit of the subscription billable methods duration. Valid values:
    * 
    * @example
    * Month
@@ -1715,7 +1698,18 @@ export class RunInstancesRequest extends $dara.Model {
   privateDnsNameOptions?: RunInstancesRequestPrivateDnsNameOptions;
   /**
    * @remarks
-   * The private IP address of the instance. For a VPC-type ECS instance, the private IP address must be from the idle CIDR block of the vSwitch specified by `VSwitchId`.
+   * The private IP address of the instance. When you specify a private IP address for a VPC-connected ECS instance, the IP address must be an available address within the CIDR block of the vSwitch specified by `VSwitchId`.
+   * 
+   * Take note of the following items:
+   * 
+   * - After you set `PrivateIpAddress`:
+   *     - If `Amount` is set to 1, the specified private IP address is assigned to the created ECS instance.
+   *     - If `Amount` is set to a value greater than 1, the specified private IP address is used as the start address to sequentially assign consecutive private IP addresses to multiple ECS instances during batch creation. In this case, you cannot attach secondary ENIs to the instances (that is, you cannot set `NetworkInterface.N.*` parameters).
+   * 
+   * - If `NetworkInterface.N.InstanceType` is set to `Primary`, you cannot set `PrivateIpAddress`. Set `NetworkInterface.N.PrimaryIpAddress` instead.
+   * 
+   * >The first and last three IP addresses of each vSwitch CIDR block are reserved by the system and cannot be specified.
+   * For example, if the CIDR block of a vSwitch is 192.168.1.0/24, the IP addresses 192.168.1.0, 192.168.1.253, 192.168.1.254, and 192.168.1.255 are reserved by the system.
    * 
    * @example
    * ``10.1.**.**``
@@ -1759,13 +1753,13 @@ export class RunInstancesRequest extends $dara.Model {
   securityEnhancementStrategy?: string;
   /**
    * @remarks
-   * The ID of the security group to which the new instance belongs. Instances within the same security group can communicate with each other. The maximum number of instances that a security group can contain depends on the security group type. For more information, see the security group section in [Limits](~~25412#SecurityGroupQuota~~).
+   * The ID of the security group to which the new instance belongs. Instances within the same security group can communicate with each other. The maximum number of instances that a security group can contain varies based on the security group type. For more information, see the security group section in [Limits](~~25412#SecurityGroupQuota~~).
    * 
-   * > The `SecurityGroupId` parameter determines the network type of the instance. For example, if the specified security group is of the Virtual Private Cloud (VPC) type, the instance is a VPC-type instance, and you must also specify the `VSwitchId` parameter.
+   * > `SecurityGroupId` determines the network type of the instance. For example, if the specified security group is of the Virtual Private Cloud (VPC) type, the instance is a VPC-type instance, and you must also specify the `VSwitchId` parameter.
    * 
-   * If you do not set `LaunchTemplateId` or `LaunchTemplateName` to specify a launch template, the security group ID is required. Take note of the following items:
+   * If you do not set `LaunchTemplateId` or `LaunchTemplateName` to specify a launch template, the security group ID is required. Note the following items:
    * 
-   * - You can set `SecurityGroupId` to specify a single security group, or set `SecurityGroupIds.N` to specify one or more security groups. However, you cannot specify both `SecurityGroupId` and `SecurityGroupIds.N` at the same time.
+   * - You can set one security group by using `SecurityGroupId`, or set one or more security groups by using `SecurityGroupIds.N`. However, you cannot specify both `SecurityGroupId` and `SecurityGroupIds.N` at the same time.
    * 
    * - If `NetworkInterface.N.InstanceType` is set to `Primary`, you cannot set `SecurityGroupId` or `SecurityGroupIds.N`. In this case, you can only set `NetworkInterface.N.SecurityGroupId` or `NetworkInterface.N.SecurityGroupIds.N`.
    * 
@@ -1783,7 +1777,15 @@ export class RunInstancesRequest extends $dara.Model {
   securityGroupIds?: string[];
   /**
    * @remarks
-   * The retention period of the spot instance, in hours. Valid values:
+   * The protection period of the spot instance. Unit: hours. Valid values:
+   * - 1: After the instance is created, Alibaba Cloud guarantees that the instance runs for 1 hour without being automatically released. After 1 hour, the system compares the bid price with the market price and checks resource inventory to determine whether to retain or reclaim the instance.
+   * - 0: After the instance is created, Alibaba Cloud does not guarantee the instance running duration. The system compares the bid price with the market price and checks resource inventory to determine whether to retain or reclaim the instance.
+   * 
+   * Default value: 1.
+   * > 
+   * > - This parameter supports only the value 0 or 1.
+   * > - Spot instances are billed by second. Set an appropriate protection period based on the expected task execution duration.
+   * > - Alibaba Cloud sends a notification to you through an ECS system event 5 minutes before the instance is reclaimed.
    * 
    * @example
    * 1
@@ -1799,7 +1801,7 @@ export class RunInstancesRequest extends $dara.Model {
   spotInterruptionBehavior?: string;
   /**
    * @remarks
-   * The maximum hourly price of the instance. This value supports up to three decimal places. This parameter takes effect when the `SpotStrategy` parameter is set to `SpotWithPriceLimit`.
+   * The maximum hourly price of the instance. A maximum of three decimal places is supported. This parameter takes effect when the `SpotStrategy` parameter is set to `SpotWithPriceLimit`.
    * 
    * @example
    * 0.97
@@ -1807,13 +1809,7 @@ export class RunInstancesRequest extends $dara.Model {
   spotPriceLimit?: number;
   /**
    * @remarks
-   * The bidding policy for the pay-as-you-go instance. This parameter takes effect only when `InstanceChargeType` is set to `PostPaid`. Valid values:
-   * 
-   * - NoSpot: a regular pay-as-you-go instance.
-   * - SpotWithPriceLimit: a spot instance with a maximum hourly price.
-   * - SpotAsPriceGo: a spot instance for which the system automatically bids, following the current market price.
-   * 
-   * Default value: NoSpot.
+   * The bidding policy for the pay-as-you-go instance. This parameter takes effect when the `InstanceChargeType` parameter is set to `PostPaid`. Valid values:
    * 
    * @example
    * NoSpot
@@ -1821,7 +1817,7 @@ export class RunInstancesRequest extends $dara.Model {
   spotStrategy?: string;
   /**
    * @remarks
-   * The ID of the storage set.
+   * The storage set ID.
    * 
    * @example
    * ss-bp67acfmxazb4p****
@@ -1850,7 +1846,15 @@ export class RunInstancesRequest extends $dara.Model {
   tenancy?: string;
   /**
    * @remarks
-   * Specifies whether to automatically append sequential suffixes to `HostName` and `InstanceName` when you create multiple instances. The sequential suffix ranges from 001 to 999. Valid values:
+   * Specifies whether to automatically append sequential suffixes to `HostName` and `InstanceName` when you create multiple instances. Sequential suffixes start from 001 and can be up to 999. Valid values:
+   * - true: Appends sequential suffixes.
+   * - false: Does not append sequential suffixes.
+   * 
+   * Default value: false.
+   * 
+   * If `HostName` or `InstanceName` is configured in a specified sorting format without the naming suffix `name_suffix`, that is, the naming format is `name_prefix[begin_number,bits]`, `UniqueSuffix` does not take effect, and names are sorted only in the specified order.
+   * 
+   * For more information, see [Batch configure sequential instance names or hostnames](https://help.aliyun.com/document_detail/196048.html).
    * 
    * @example
    * true

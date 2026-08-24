@@ -3,13 +3,23 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeInstanceModificationPriceRequestSystemDisk extends $dara.Model {
+  /**
+   * @remarks
+   * The category of the system disk.
+   */
   category?: string;
   /**
+   * @remarks
+   * The performance level of the system disk.
+   * 
    * @example
    * PL0
    */
   performanceLevel?: string;
   /**
+   * @remarks
+   * The size of the system disk.
+   * 
    * @example
    * 40
    */
@@ -42,7 +52,7 @@ export class DescribeInstanceModificationPriceRequestSystemDisk extends $dara.Mo
 export class DescribeInstanceModificationPriceRequestDataDisk extends $dara.Model {
   /**
    * @remarks
-   * The category of the data disk. Specify this parameter when you want to query the price of new subscription data disks to be attached to the ECS instance. Valid values of N: 1 to 16. Valid values:
+   * The type of the data disk. Specify this parameter to query the price of a new subscription data disk attached to an ECS instance. Valid values of N: 1 to 16. Valid values:
    * 
    * - cloud_efficiency: ultra disk.
    * - cloud_ssd: standard SSD.
@@ -51,25 +61,28 @@ export class DescribeInstanceModificationPriceRequestDataDisk extends $dara.Mode
    * 
    * Default value: null.
    * 
-   * > The instance type parameter (`InstanceType`) and data disk parameters (`DataDisk.N.*`) cannot both be empty. You must specify at least one.
+   * > When you call this operation, the instance type parameter (`InstanceType`) and the data disk parameters (`DataDisk.N.*`) cannot both be empty. Specify at least one of them.
    * 
    * @example
    * cloud_essd
    */
   category?: string;
   /**
+   * @remarks
+   * The ID of the data disk.
+   * 
    * @example
    * d-bf4rupt9****
    */
   diskId?: string;
   /**
    * @remarks
-   * The performance level of the data disk when the data disk is an enterprise SSD. The value of N must be the same as that in `DataDisk.N.Category=cloud_essd`. Valid values:
+   * The performance level of the data disk when the disk type is enterprise SSD. The value of N must be the same as that in `DataDisk.N.Category=cloud_essd`. Valid values:
    * 
-   * - PL0: a single disk can deliver up to 10,000 random read/write IOPS.
-   * - PL1: a single disk can deliver up to 50,000 random read/write IOPS.
-   * - PL2: a single disk can deliver up to 100,000 random read/write IOPS.
-   * - PL3: a single disk can deliver up to 1,000,000 random read/write IOPS.
+   * - PL0: A single disk can deliver up to 10,000 random read/write IOPS.
+   * - PL1: A single disk can deliver up to 50,000 random read/write IOPS.
+   * - PL2: A single disk can deliver up to 100,000 random read/write IOPS.
+   * - PL3: A single disk can deliver up to 1,000,000 random read/write IOPS.
    * 
    * Default value: PL1.
    * 
@@ -85,14 +98,14 @@ export class DescribeInstanceModificationPriceRequestDataDisk extends $dara.Mode
    * 
    * - cloud_efficiency: 20 to 32768.
    * - cloud_ssd: 20 to 32768.
-   * - cloud_essd: The valid values depend on the value of `DataDisk.N.PerformanceLevel`.    
+   * - cloud_essd: The valid value range depends on the value of `DataDisk.N.PerformanceLevel`.    
    *     - PL0: 1 to 32768.
    *     - PL1: 20 to 32768.
    *     - PL2: 461 to 32768.
    *     - PL3: 1261 to 32768.
    * - cloud: 5 to 2000.
    * 
-   * Default value: the minimum capacity for the specified data disk category.
+   * Default value: the minimum capacity for the specified data disk type.
    * 
    * @example
    * 100
@@ -133,16 +146,25 @@ export class DescribeInstanceModificationPriceRequest extends $dara.Model {
    */
   dataDisk?: DescribeInstanceModificationPriceRequestDataDisk[];
   /**
+   * @remarks
+   * The end time of the temporary bandwidth upgrade.
+   * 
    * @example
    * 2025-12-06T22Z
    */
   endTime?: string;
   /**
+   * @remarks
+   * The Internet Service Provider.
+   * 
    * @example
    * BGP
    */
   ISP?: string;
   /**
+   * @remarks
+   * The image ID.
+   * 
    * @example
    * aliyun_2_1903_x64_20G_alibase_20200324.vhd
    */
@@ -159,20 +181,24 @@ export class DescribeInstanceModificationPriceRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The target instance type for the upgrade. Call [DescribeResourcesModification](https://help.aliyun.com/document_detail/66187.html) to query the instance types available for upgrade in a specified zone.
-   * 
-   * > The instance type parameter (`InstanceType`) and data disk parameters (`DataDisk.N.*`) cannot both be empty. You must specify at least one.
+   * The target instance type for the upgrade. We recommend that you call [DescribeResourcesModification](https://help.aliyun.com/document_detail/66187.html) to query the instance types available for upgrade in a specified zone.
    * 
    * @example
    * ecs.g6e.large
    */
   instanceType?: string;
   /**
+   * @remarks
+   * The network billing method to convert to.
+   * 
    * @example
    * PayByTraffic
    */
   internetChargeType?: string;
   /**
+   * @remarks
+   * The maximum outbound public bandwidth.
+   * 
    * @example
    * 10
    */
@@ -192,6 +218,9 @@ export class DescribeInstanceModificationPriceRequest extends $dara.Model {
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   /**
+   * @remarks
+   * The start time of the temporary bandwidth upgrade.
+   * 
    * @example
    * 2025-12-05T22:40Z
    */

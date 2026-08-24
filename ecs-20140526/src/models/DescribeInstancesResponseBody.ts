@@ -1265,6 +1265,8 @@ export class DescribeInstancesResponseBody extends $dara.Model {
    * @remarks
    * The total number of queried instances.
    * 
+   * > When you use the `MaxResults` and `NextToken` parameters for paging query, the returned `TotalCount` parameter value is meaningless.
+   * 
    * @example
    * 1
    */

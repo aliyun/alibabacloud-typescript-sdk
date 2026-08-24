@@ -2,33 +2,23 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ModifyDiskChargeTypeResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the generated order.
-   * 
-   * @example
-   * 123456****
-   */
-  orderId?: string;
+export class SendDiagnosticInterruptResponseBody extends $dara.Model {
   /**
    * @remarks
    * The request ID.
    * 
    * @example
-   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3****
    */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      orderId: 'OrderId',
       requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      orderId: 'string',
       requestId: 'string',
     };
   }

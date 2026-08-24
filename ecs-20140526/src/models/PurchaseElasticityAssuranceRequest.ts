@@ -17,8 +17,8 @@ export class PurchaseElasticityAssuranceRequestPrivatePoolOptions extends $dara.
    * @remarks
    * The matching mode of the elastic capacity reservation service. Valid values:
    * 
-   * - Open: open mode. The system automatically matches the capacity of open private pools when instances are started. If no matching private pool capacity is available, public pool resources are used to start the instances.
-   * - Target: targeted mode. Instances are started by using the capacity of the specified private pool. If the specified private pool capacity is unavailable, the instances fail to start.
+   * - Open: open mode. The system automatically matches available open private pool capacity when instances are launched. If no matching private pool capacity is available, public pool resources are used.
+   * - Target: targeted mode. Instances are launched by using the specified private pool capacity. If the specified private pool capacity is unavailable, the instances fail to be launched.
    * 
    * Default value: Open.
    * 
@@ -53,7 +53,7 @@ export class PurchaseElasticityAssuranceRequest extends $dara.Model {
   privatePoolOptions?: PurchaseElasticityAssuranceRequestPrivatePoolOptions;
   /**
    * @remarks
-   * Ensures the idempotence of the request. The value is generated from your client and must be unique among different requests. The ClientToken value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+   * Ensures the idempotence of the request. The value is generated from your client and must be unique among different requests. The `ClientToken` value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -101,7 +101,7 @@ export class PurchaseElasticityAssuranceRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The effective period of the elastic capacity reservation service. By default, the service takes effect when this operation is invoked. Specify the time in the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time must be in UTC. For more information, see [ISO 8601](https://help.aliyun.com/document_detail/25696.html).
+   * The effective period of the elastic capacity reservation service. By default, the service takes effect when the operation is invoked. Specify the time in the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time must be in UTC. For more information, see [ISO 8601](https://help.aliyun.com/document_detail/25696.html).
    * 
    * @example
    * 2024-06-18T00:00:00Z

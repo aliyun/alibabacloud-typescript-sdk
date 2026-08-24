@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyNetworkInterfaceAttributeRequestConnectionTrackingConfiguration extends $dara.Model {
   /**
    * @remarks
-   * The timeout period for TCP connections in the TIME_WAIT and CLOSED states. Unit: seconds. Valid values: integers from 3 to 15.
+   * The timeout period for TCP connections in the TIME_WAIT or CLOSED state. Unit: seconds. Valid values: integers from 3 to 15.
    * 
    * @example
    * 3
@@ -104,7 +104,15 @@ export class ModifyNetworkInterfaceAttributeRequestEnhancedNetwork extends $dara
 export class ModifyNetworkInterfaceAttributeRequestNetworkInterfaceTrafficConfig extends $dara.Model {
   /**
    * @remarks
-   * The communication mode of the ENI. Valid values:
+   * The communication mode of the network interface. Valid values:
+   * 
+   * - Standard: Uses TCP communication mode.
+   * - HighPerformance: Enables the Elastic RDMA Interface (ERI) and uses RDMA communication mode.
+   * 
+   * When the ENI is in the attached state, note the following:
+   * - The total number of RDMA network interfaces on an instance cannot exceed the RDMA network interface quota allowed by the instance type. You can query the EriQuantity field by calling the DescribeInstanceTypes operation to obtain the RDMA network interface quota allowed by the instance type.
+   * 
+   * > This parameter is in invitational preview and is not yet publicly available.
    * 
    * @example
    * HighPerformance
@@ -112,7 +120,12 @@ export class ModifyNetworkInterfaceAttributeRequestNetworkInterfaceTrafficConfig
   networkInterfaceTrafficMode?: string;
   /**
    * @remarks
-   * The number of queues for the network interface controller (NIC).
+   * The number of queues for the ENI.
+   * When the ENI is in the attached state, take note of the following items:
+   * - The value cannot exceed the maximum number of queues allowed per ENI for the instance type.
+   * - The total number of queues across all ENIs of the instance cannot exceed the total queue quota allowed for the instance type. You can call the DescribeInstanceTypes operation to query the MaximumQueueNumberPerEni and TotalEniQueueQuantity fields for the maximum number of queues per ENI and the total quota of the instance type.
+   * 
+   * > This parameter is in invitational preview and is not yet publicly available.
    * 
    * @example
    * 8
@@ -120,7 +133,11 @@ export class ModifyNetworkInterfaceAttributeRequestNetworkInterfaceTrafficConfig
   queueNumber?: number;
   /**
    * @remarks
-   * The number of queues for the RDMA ENI.
+   * The number of queues on the RDMA network interface.
+   * When the ENI is in the attached state, take note of the following:
+   * - The value cannot exceed the maximum number of queues allowed per RDMA network interface for the instance type. You can call the DescribeInstanceTypes operation to query the QueuePairNumber field for the maximum number of queues allowed per RDMA network interface for the instance type.
+   * 
+   * > This parameter is in invitational preview and is not publicly available.
    * 
    * @example
    * 8
@@ -187,7 +204,9 @@ export class ModifyNetworkInterfaceAttributeRequest extends $dara.Model {
   deleteOnRelease?: boolean;
   /**
    * @remarks
-   * The description of the network interface controller (NIC). The description must be 2 to 255 characters in length and cannot start with http:// or https://.
+   * The description of the ENI. The description must be 2 to 255 characters in length and cannot start with http:// or https://.
+   * 
+   * Default value: empty.
    * 
    * @example
    * testDescription
@@ -201,7 +220,7 @@ export class ModifyNetworkInterfaceAttributeRequest extends $dara.Model {
   enhancedNetwork?: ModifyNetworkInterfaceAttributeRequestEnhancedNetwork;
   /**
    * @remarks
-   * The ID of the network interface controller (NIC).
+   * The ID of the ENI.
    * 
    * This parameter is required.
    * 
@@ -211,7 +230,7 @@ export class ModifyNetworkInterfaceAttributeRequest extends $dara.Model {
   networkInterfaceId?: string;
   /**
    * @remarks
-   * The name of the network interface controller (NIC). The name must be 2 to 128 characters in length and must start with a letter or a Chinese character. It cannot start with `http://` or `https://`. The name can contain characters under the letter categorization in Unicode, including English letters, Chinese characters, and digits. It can also contain colons (:), underscores (_), periods (.), and hyphens (-).
+   * The name of the ENI. The name must be 2 to 128 characters in length and must start with a letter or a Chinese character. It cannot start with `http://` or `https://`. The name can contain characters under the letter categorization in Unicode, including English letters, Chinese characters, and digits. It can also contain colons (:), underscores (_), periods (.), or hyphens (-).
    * 
    * @example
    * eniTestName
@@ -219,7 +238,7 @@ export class ModifyNetworkInterfaceAttributeRequest extends $dara.Model {
   networkInterfaceName?: string;
   /**
    * @remarks
-   * The communication parameter of the network interface controller (NIC).
+   * The communication parameters of the network interface controller (NIC).
    */
   networkInterfaceTrafficConfig?: ModifyNetworkInterfaceAttributeRequestNetworkInterfaceTrafficConfig;
   ownerAccount?: string;
@@ -234,7 +253,7 @@ export class ModifyNetworkInterfaceAttributeRequest extends $dara.Model {
   queueNumber?: number;
   /**
    * @remarks
-   * The region ID of the network interface controller (NIC). You can invoke [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
+   * The region ID of the ENI. You can invoke [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
    * 
    * This parameter is required.
    * 
@@ -254,7 +273,11 @@ export class ModifyNetworkInterfaceAttributeRequest extends $dara.Model {
   rxQueueSize?: number;
   /**
    * @remarks
-   * The list of security group IDs. The secondary network interface controller (NIC) is added to the specified security groups and removed from the existing security groups.
+   * The IDs of security groups. The secondary ENI is added to the specified security groups and removed from the existing security groups.
+   * 
+   * - The valid values of N depend on the quota for the maximum number of security groups to which an ENI can belong. For more information, see [Before you begin](~~25412#SecurityGroupQuota~~).
+   * 
+   * - The modification takes effect shortly, but a slight delay may occur.
    */
   securityGroupId?: string[];
   /**
