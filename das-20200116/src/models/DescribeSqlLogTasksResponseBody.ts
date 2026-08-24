@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSqlLogTasksResponseBodyDataListFilters extends $dara.Model {
   /**
    * @remarks
-   * The name of the filter parameter.
+   * The filter parameter.
    * 
-   * >  For more information about the filter parameters, see the **Valid values of Key** section of this topic.
+   * > For information about the supported filter parameters and their valid values, see **Additional information about request parameters**.
    * 
    * @example
-   * delimiter
+   * keyWords
    */
   key?: string;
   /**
@@ -18,7 +18,7 @@ export class DescribeSqlLogTasksResponseBodyDataListFilters extends $dara.Model 
    * The value of the filter parameter.
    * 
    * @example
-   * ,
+   * select
    */
   value?: string;
   static names(): { [key: string]: string } {
@@ -47,7 +47,7 @@ export class DescribeSqlLogTasksResponseBodyDataListFilters extends $dara.Model 
 export class DescribeSqlLogTasksResponseBodyDataList extends $dara.Model {
   /**
    * @remarks
-   * The time when the analysis task was complete. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The analysis completion time, represented as a unix timestamp in milliseconds.
    * 
    * @example
    * 1712751923000
@@ -55,9 +55,9 @@ export class DescribeSqlLogTasksResponseBodyDataList extends $dara.Model {
   analysisTaskFinishTime?: number;
   /**
    * @remarks
-   * The state of the analysis task.
+   * The status of the analysis task.
    * 
-   * >  This parameter is a system parameter. You do not need to pay attention to the parameter.
+   * > This is an internal parameter. You can ignore it.
    * 
    * @example
    * SCAN_ANALYZE_COMPLETED
@@ -65,7 +65,7 @@ export class DescribeSqlLogTasksResponseBodyDataList extends $dara.Model {
   analysisTaskStatus?: string;
   /**
    * @remarks
-   * The time when the task was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The task creation time, represented as a unix timestamp in milliseconds.
    * 
    * @example
    * 1681363254423
@@ -73,7 +73,7 @@ export class DescribeSqlLogTasksResponseBodyDataList extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * The time when the task ended. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The task end time, represented as a unix timestamp in milliseconds.
    * 
    * @example
    * 1705975320000
@@ -81,10 +81,11 @@ export class DescribeSqlLogTasksResponseBodyDataList extends $dara.Model {
   end?: number;
   /**
    * @remarks
-   * Indicates whether the task expired. Valid values:
+   * Indicates whether the task has expired. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: The task has expired.
+   * 
+   * - **false**: The task has not expired.
    * 
    * @example
    * false
@@ -92,21 +93,29 @@ export class DescribeSqlLogTasksResponseBodyDataList extends $dara.Model {
   expire?: boolean;
   /**
    * @remarks
-   * The filter parameters.
+   * A list of filter conditions.
    */
   filters?: DescribeSqlLogTasksResponseBodyDataListFilters[];
+  /**
+   * @remarks
+   * The VPC-internal URL for accessing the task result.
+   * 
+   * @example
+   * https://das-sqllog-download-oss-cn-shanghai-internal.aliyuncs.com
+   * /la
+   */
   innerResult?: string;
   /**
    * @remarks
    * The ID of the database instance.
    * 
    * @example
-   * rm-2zew761kf7ho18752
+   * r-bp1nti25tc7bq5****
    */
   instanceId?: string;
   /**
    * @remarks
-   * The number of log records.
+   * The total number of logs.
    * 
    * @example
    * 99999
@@ -114,15 +123,15 @@ export class DescribeSqlLogTasksResponseBodyDataList extends $dara.Model {
   logCount?: number;
   /**
    * @remarks
-   * The task name.
+   * The name of the task.
    * 
    * @example
-   * test01
+   * SQL audit export 1
    */
   name?: string;
   /**
    * @remarks
-   * The task progress.
+   * The progress of the task.
    * 
    * @example
    * 100
@@ -130,7 +139,7 @@ export class DescribeSqlLogTasksResponseBodyDataList extends $dara.Model {
   progress?: number;
   /**
    * @remarks
-   * The URL that is returned if the value of TaskType is **Export**.
+   * The URL that is returned when **TaskType** is set to **Export**.
    * 
    * @example
    * https://das-sqllog-download-cn-shanghai.oss-cn-shanghai.aliyuncs.com/la
@@ -138,7 +147,7 @@ export class DescribeSqlLogTasksResponseBodyDataList extends $dara.Model {
   result?: string;
   /**
    * @remarks
-   * The number of files that are scanned.
+   * The total size of the scanned files, in bytes.
    * 
    * @example
    * 3000
@@ -146,7 +155,7 @@ export class DescribeSqlLogTasksResponseBodyDataList extends $dara.Model {
   scanFileSize?: number;
   /**
    * @remarks
-   * The time when the task started. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The task start time, represented as a unix timestamp in milliseconds.
    * 
    * @example
    * 1683859555482
@@ -154,15 +163,19 @@ export class DescribeSqlLogTasksResponseBodyDataList extends $dara.Model {
   start?: number;
   /**
    * @remarks
-   * The task state. Valid values:
+   * The task status. Valid values:
    * 
-   * *   **INIT**: The task is to be scheduled.
-   * *   **RUNNING**: The task is running.
-   * *   **FAILED**: The task failed.
-   * *   **CANCELED**: The task is canceled.
-   * *   **COMPLETED**: The task is complete.
+   * - **INIT**: pending scheduling.
    * 
-   * >  If a task is in the **COMPLETED** state, you can view the results of the task.
+   * - **RUNNING**: running.
+   * 
+   * - **FAILED**: failed.
+   * 
+   * - **CANCELED**: canceled.
+   * 
+   * - **COMPLETED**: completed.
+   * 
+   * > You can view the result of an offline task only when its status is **COMPLETED**.
    * 
    * @example
    * RUNNING
@@ -180,8 +193,9 @@ export class DescribeSqlLogTasksResponseBodyDataList extends $dara.Model {
    * @remarks
    * The task type. Valid values:
    * 
-   * *   **Export**
-   * *   **Query**
+   * - **Export**: an export task.
+   * 
+   * - **Query**: a query task.
    * 
    * @example
    * Export
@@ -246,7 +260,7 @@ export class DescribeSqlLogTasksResponseBodyDataList extends $dara.Model {
 export class DescribeSqlLogTasksResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The details of the data returned.
+   * The list of tasks.
    */
   list?: DescribeSqlLogTasksResponseBodyDataList[];
   /**
@@ -259,7 +273,7 @@ export class DescribeSqlLogTasksResponseBodyData extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The page size.
    * 
    * @example
    * 10
@@ -267,7 +281,7 @@ export class DescribeSqlLogTasksResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The number of tasks.
+   * The total number of tasks.
    * 
    * @example
    * 40
@@ -306,7 +320,7 @@ export class DescribeSqlLogTasksResponseBodyData extends $dara.Model {
 export class DescribeSqlLogTasksResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code.
+   * The returned status code.
    * 
    * @example
    * 200
@@ -314,14 +328,14 @@ export class DescribeSqlLogTasksResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The data returned.
+   * The returned data.
    */
   data?: DescribeSqlLogTasksResponseBodyData;
   /**
    * @remarks
-   * The returned message.
+   * The response message.
    * 
-   * >  If the request was successful, **Successful** is returned. If the request failed, an error message is returned.
+   * > If the request is successful, **Successful** is returned. If the request fails, an error message is returned.
    * 
    * @example
    * Successful
@@ -339,8 +353,9 @@ export class DescribeSqlLogTasksResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: The request was successful.
+   * 
+   * - **false**: The request failed.
    * 
    * @example
    * true

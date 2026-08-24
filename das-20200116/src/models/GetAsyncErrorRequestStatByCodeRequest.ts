@@ -15,7 +15,7 @@ export class GetAsyncErrorRequestStatByCodeRequest extends $dara.Model {
    * @remarks
    * The end of the time range to query. Set this parameter to a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
    * 
-   * >  The end time must be later than the start time. The interval between the start time and the end time cannot exceed 24 hours.
+   * > The end time must be later than the start time. The interval between the start time and the end time cannot exceed 24 hours.
    * 
    * @example
    * 1642566830000
@@ -35,7 +35,7 @@ export class GetAsyncErrorRequestStatByCodeRequest extends $dara.Model {
    * @remarks
    * The node ID.
    * 
-   * >  This parameter must be specified for PolarDB for MySQL clusters.
+   * > This parameter must be specified for PolarDB for MySQL clusters.
    * 
    * @example
    * pi-wz9s658475e58****
@@ -45,7 +45,7 @@ export class GetAsyncErrorRequestStatByCodeRequest extends $dara.Model {
    * @remarks
    * The beginning of the time range to query. Set this parameter to a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
    * 
-   * >  The start time must be within the storage duration of the SQL Explorer feature of the database instance and can be up to 90 days earlier than the current time.
+   * > The start time must be within the storage duration of the SQL Explorer feature of the database instance and can be up to 90 days earlier than the current time.
    * 
    * @example
    * 1642556990714

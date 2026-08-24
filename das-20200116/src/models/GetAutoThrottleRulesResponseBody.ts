@@ -41,8 +41,9 @@ export class GetAutoThrottleRulesResponseBodyDataEnableAutoThrottleList extends 
    * 
    * > Abnormal SQL statements use the same template as the SQL statements that need to be throttled.
    * 
-   * * **true**
-   * * **false**
+   * - **true**
+   * 
+   * - **false**
    * 
    * @example
    * true
@@ -52,8 +53,9 @@ export class GetAutoThrottleRulesResponseBodyDataEnableAutoThrottleList extends 
    * @remarks
    * The logical relationship between the CPU utilization threshold and the maximum number of active sessions. Valid values:
    * 
-   * * **AND**
-   * * **OR**
+   * - **AND**
+   * 
+   * - **OR**
    * 
    * @example
    * AND
@@ -95,8 +97,9 @@ export class GetAutoThrottleRulesResponseBodyDataEnableAutoThrottleList extends 
    * @remarks
    * Indicates whether the automatic SQL throttling feature is enabled. Valid values:
    * 
-   * * **true**
-   * * **false**
+   * - **true**
+   * 
+   * - **false**
    * 
    * @example
    * true
@@ -182,8 +185,9 @@ export class GetAutoThrottleRulesResponseBodyDataTurnOffAutoThrottleList extends
    * 
    * > Abnormal SQL statements use the same template as the SQL statements that need to be throttled.
    * 
-   * * **true**
-   * * **false**
+   * - **true**
+   * 
+   * - **false**
    * 
    * @example
    * true
@@ -193,8 +197,9 @@ export class GetAutoThrottleRulesResponseBodyDataTurnOffAutoThrottleList extends
    * @remarks
    * The logical relationship between the CPU utilization threshold and the maximum number of active sessions. Valid values:
    * 
-   * * **AND**
-   * * **OR**
+   * - **AND**
+   * 
+   * - **OR**
    * 
    * @example
    * OR
@@ -236,8 +241,9 @@ export class GetAutoThrottleRulesResponseBodyDataTurnOffAutoThrottleList extends
    * @remarks
    * Indicates whether the automatic SQL throttling feature is enabled. Valid values:
    * 
-   * * **true**
-   * * **false**
+   * - **true**
+   * 
+   * - **false**
    * 
    * @example
    * false
@@ -302,7 +308,7 @@ export class GetAutoThrottleRulesResponseBodyData extends $dara.Model {
    * @remarks
    * The number of database instances that do not exist or for which the automatic SQL throttling feature has never been enabled.
    * 
-   * >  If a database instance does not exist, the instance has been released or the specified instance ID is invalid.
+   * > If a database instance does not exist, the instance has been released or the specified instance ID is invalid.
    * 
    * @example
    * 1
@@ -312,7 +318,7 @@ export class GetAutoThrottleRulesResponseBodyData extends $dara.Model {
    * @remarks
    * The number of database instances that do not exist or for which the automatic SQL throttling feature has never been enabled.
    * 
-   * >  If a database instance does not exist, the instance has been released or the specified instance ID is invalid.
+   * > If a database instance does not exist, the instance has been released or the specified instance ID is invalid.
    */
   neverEnableAutoThrottleOrReleasedInstanceIdList?: string[];
   /**
@@ -396,7 +402,7 @@ export class GetAutoThrottleRulesResponseBody extends $dara.Model {
    * @remarks
    * The returned message.
    * 
-   * >  If the request was successful, **Successful** is returned. If the request failed, an error message that contains information such as an error code is returned.
+   * > If the request was successful, **Successful** is returned. If the request failed, an error message that contains information such as an error code is returned.
    * 
    * @example
    * Successful
@@ -414,8 +420,9 @@ export class GetAutoThrottleRulesResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**
+   * 
+   * - **false**
    * 
    * @example
    * true

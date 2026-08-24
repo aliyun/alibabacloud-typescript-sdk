@@ -8,7 +8,7 @@ export class GetDeadLockDetailListRequest extends $dara.Model {
    * The name of the database. When you specify multiple databases, you must separate the database names with commas (,).
    * 
    * @example
-   * school1,school2
+   * testdb1,testdb2
    */
   dbNameList?: string;
   /**
@@ -28,7 +28,7 @@ export class GetDeadLockDetailListRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * rm-2ze2016723b328gs2
+   * rm-2ze2016723b32****
    */
   instanceId?: string;
   /**

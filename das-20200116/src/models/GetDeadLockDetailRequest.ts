@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetDeadLockDetailRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the database instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,17 +14,31 @@ export class GetDeadLockDetailRequest extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The node ID.
+   * 
+   * > Required for PolarDB for MySQL cluster instances.
+   * 
    * @example
    * pi-bp16v3824rt73****
    */
   nodeId?: string;
   /**
+   * @remarks
+   * The source of the analysis task:
+   * 
+   * - **MANUAL** or **not specified**: queries the recent deadlock analysis task.
+   * 
+   * - **AUTO**: queries the full deadlock analysis task.
+   * 
    * @example
    * AUTO
    */
   source?: string;
   /**
    * @remarks
+   * The ID of the deadlock text. This value is returned from the GetDeadLockHistory operation.
+   * 
    * This parameter is required.
    * 
    * @example

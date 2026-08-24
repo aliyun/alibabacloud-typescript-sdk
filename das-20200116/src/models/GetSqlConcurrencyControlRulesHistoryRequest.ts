@@ -15,7 +15,7 @@ export class GetSqlConcurrencyControlRulesHistoryRequest extends $dara.Model {
    * @remarks
    * The instance ID.
    * 
-   * >  Only ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters are supported.
+   * > Only ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters are supported.
    * 
    * This parameter is required.
    * 

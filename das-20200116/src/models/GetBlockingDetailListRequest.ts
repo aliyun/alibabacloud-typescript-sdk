@@ -8,7 +8,7 @@ export class GetBlockingDetailListRequest extends $dara.Model {
    * The name of the database. Separate multiple database names with commas (,).
    * 
    * @example
-   * school1,school2
+   * testdb1,testdb2
    */
   dbNameList?: string;
   /**
@@ -28,7 +28,7 @@ export class GetBlockingDetailListRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * rm-t4nfalp2ap421312z
+   * rm-t4nfalp2ap421****
    */
   instanceId?: string;
   /**

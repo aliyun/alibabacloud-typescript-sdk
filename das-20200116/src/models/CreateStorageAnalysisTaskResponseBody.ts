@@ -7,8 +7,9 @@ export class CreateStorageAnalysisTaskResponseBodyData extends $dara.Model {
    * @remarks
    * Indicates whether the task is created. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**
+   * 
+   * - **false**
    * 
    * @example
    * false
@@ -73,7 +74,7 @@ export class CreateStorageAnalysisTaskResponseBody extends $dara.Model {
    * @remarks
    * The returned message.
    * 
-   * >  If the request is successful, **Successful** is returned. Otherwise, an error message such as an error code is returned.
+   * > If the request is successful, **Successful** is returned. Otherwise, an error message such as an error code is returned.
    * 
    * @example
    * Successful
@@ -91,8 +92,9 @@ export class CreateStorageAnalysisTaskResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request is successful. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**
+   * 
+   * - **false**
    * 
    * @example
    * true

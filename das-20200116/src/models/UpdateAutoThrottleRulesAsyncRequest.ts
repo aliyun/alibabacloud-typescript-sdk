@@ -17,8 +17,9 @@ export class UpdateAutoThrottleRulesAsyncRequest extends $dara.Model {
    * @remarks
    * The threshold for the number of active sessions.
    * 
-   * *   If this parameter and CpuUsage are in the **OR** relationship, set this parameter to an integer that is greater than or equal to 16.
-   * *   If this parameter and CpuUsage are in the **AND** relationship, set this parameter to an integer that is greater than or equal to 2.
+   * - If this parameter and CpuUsage are in the **OR** relationship, set this parameter to an integer that is greater than or equal to 16.
+   * 
+   * - If this parameter and CpuUsage are in the **AND** relationship, set this parameter to an integer that is greater than or equal to 2.
    * 
    * This parameter is required.
    * 
@@ -50,10 +51,11 @@ export class UpdateAutoThrottleRulesAsyncRequest extends $dara.Model {
    * @remarks
    * Specifies whether to terminate abnormal SQL statements in execution at the same time. Valid values:
    * 
-   * >  Abnormal SQL statements use the same template as the SQL statements to be throttled.
+   * > Abnormal SQL statements use the same template as the SQL statements to be throttled.
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**
+   * 
+   * - **false**
    * 
    * This parameter is required.
    * 
@@ -73,8 +75,9 @@ export class UpdateAutoThrottleRulesAsyncRequest extends $dara.Model {
    * @remarks
    * The logical relationship between the CPU utilization threshold and the maximum number of active sessions. Valid values:
    * 
-   * *   **AND**
-   * *   **OR**
+   * - **AND**
+   * 
+   * - **OR**
    * 
    * This parameter is required.
    * 
@@ -96,7 +99,7 @@ export class UpdateAutoThrottleRulesAsyncRequest extends $dara.Model {
    * @remarks
    * The database instance IDs.
    * 
-   * >  Set this parameter to a JSON array that consists of multiple instance IDs. Separate instance IDs with commas (,). Example: `[\\"Instance ID1\\", \\"Instance ID2\\"]`.
+   * > Set this parameter to a JSON array that consists of multiple instance IDs. Separate instance IDs with commas (,). Example: `[\\"Instance ID1\\", \\"Instance ID2\\"]`.
    * 
    * This parameter is required.
    * 
@@ -118,7 +121,7 @@ export class UpdateAutoThrottleRulesAsyncRequest extends $dara.Model {
    * @remarks
    * The ID of the asynchronous request.
    * 
-   * >  You can leave this parameter empty when you call the operation to initiate the request for the first time, and use the value of this parameter contained in the response to the first request for subsequent requests.
+   * > You can leave this parameter empty when you call the operation to initiate the request for the first time, and use the value of this parameter contained in the response to the first request for subsequent requests.
    * 
    * @example
    * async__507044db6c4eadfa2dab9b084e80****

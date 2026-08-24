@@ -32,7 +32,7 @@ export class GetBlockingDetailListResponseBodyDataList extends $dara.Model {
    * The name of the database.
    * 
    * @example
-   * school
+   * testdb1
    */
   dataBase?: string;
   /**
@@ -48,7 +48,7 @@ export class GetBlockingDetailListResponseBodyDataList extends $dara.Model {
    * The username that is used for the logon.
    * 
    * @example
-   * Cheney603
+   * Testuser
    */
   loginId?: string;
   /**
@@ -56,7 +56,7 @@ export class GetBlockingDetailListResponseBodyDataList extends $dara.Model {
    * The hash value of the SQL statement.
    * 
    * @example
-   * 6977DD06CD9CAFF2
+   * DC08B955CAD25E7B
    */
   queryHash?: string;
   /**
@@ -220,7 +220,7 @@ export class GetBlockingDetailListResponseBody extends $dara.Model {
    * @remarks
    * The returned message.
    * 
-   * >  If the request is successful, **Successful** is returned. Otherwise, an error message such as an error code is returned.
+   * > If the request is successful, **Successful** is returned. Otherwise, an error message such as an error code is returned.
    * 
    * @example
    * Successful
@@ -238,8 +238,9 @@ export class GetBlockingDetailListResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**
+   * 
+   * - **false**
    * 
    * @example
    * true

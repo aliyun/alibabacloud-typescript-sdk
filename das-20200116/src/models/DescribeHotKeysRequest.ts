@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeHotKeysRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the ApsaraDB for Redis instance.
+   * The instance ID of the Redis instance.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DescribeHotKeysRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the data shard on the ApsaraDB for Redis instance.
+   * The ID of the data shard in the Redis instance.
    * 
    * @example
    * r-x****-db-0

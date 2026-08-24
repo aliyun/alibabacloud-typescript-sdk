@@ -57,14 +57,21 @@ export class GetKillInstanceSessionTaskResultResponseBodyDataResult extends $dar
    * @remarks
    * The description of the session when the session was terminated.
    * 
-   * *   **SESSION_KILLED**: The session is terminated.
-   * *   **SESSION_EXPIRED**: The session has expired.
-   * *   **SESSION_NO_PERMISSION**: The account used to terminate the session has insufficient permissions.
-   * *   **SESSION_ACCOUNT_ERROR**: The account or password used to terminate the session is invalid.
-   * *   **SESSION_IGNORED_USER**: The session of the account does not need to be terminated.
-   * *   **SESSION_INTERNAL_USER_OR_COMMAND**: The session is a session initiated by or a command run by an Alibaba Cloud O\\&M account.
-   * *   **SESSION_KILL_TASK_TIMEOUT**: Timeout occurs when the session is terminated.
-   * *   **SESSION_OTHER_ERROR**: Other errors occurred.
+   * - **SESSION_KILLED**: The session is terminated.
+   * 
+   * - **SESSION_EXPIRED**: The session has expired.
+   * 
+   * - **SESSION_NO_PERMISSION**: The account used to terminate the session has insufficient permissions.
+   * 
+   * - **SESSION_ACCOUNT_ERROR**: The account or password used to terminate the session is invalid.
+   * 
+   * - **SESSION_IGNORED_USER**: The session of the account does not need to be terminated.
+   * 
+   * - **SESSION_INTERNAL_USER_OR_COMMAND**: The session is a session initiated by or a command run by an Alibaba Cloud O\\&M account.
+   * 
+   * - **SESSION_KILL_TASK_TIMEOUT**: Timeout occurs when the session is terminated.
+   * 
+   * - **SESSION_OTHER_ERROR**: Other errors occurred.
    * 
    * @example
    * SESSION_KILLED
@@ -180,7 +187,7 @@ export class GetKillInstanceSessionTaskResultResponseBodyData extends $dara.Mode
    * @remarks
    * The node ID.
    * 
-   * >  This parameter is returned only if the instance is a PolarDB for MySQL cluster.
+   * > This parameter is returned only if the instance is a PolarDB for MySQL cluster.
    * 
    * @example
    * pi-bp1h12rv501cv****
@@ -195,7 +202,7 @@ export class GetKillInstanceSessionTaskResultResponseBodyData extends $dara.Mode
    * @remarks
    * The session IDs.
    * 
-   * >  If all sessions are terminated, the IDs of all sessions on the instance or node are returned.
+   * > If all sessions are terminated, the IDs of all sessions on the instance or node are returned.
    */
   sessions?: number[];
   /**
@@ -210,10 +217,13 @@ export class GetKillInstanceSessionTaskResultResponseBodyData extends $dara.Mode
    * @remarks
    * The state of the task that terminates sessions.
    * 
-   * *   **RUNNING**: The task is in progress.
-   * *   **SUCCESS**: The task is successful.
-   * *   **FAILURE**: The task failed.
-   * *   **ERROR**: Other errors occur.
+   * - **RUNNING**: The task is in progress.
+   * 
+   * - **SUCCESS**: The task is successful.
+   * 
+   * - **FAILURE**: The task failed.
+   * 
+   * - **ERROR**: Other errors occur.
    * 
    * @example
    * SUCCESS
@@ -290,7 +300,7 @@ export class GetKillInstanceSessionTaskResultResponseBody extends $dara.Model {
    * @remarks
    * The returned message.
    * 
-   * >  If the request was successful, Successful is returned. If the request failed, an error message such as an error code is returned.
+   * > If the request was successful, Successful is returned. If the request failed, an error message such as an error code is returned.
    * 
    * @example
    * Successful
@@ -308,8 +318,9 @@ export class GetKillInstanceSessionTaskResultResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**
+   * 
+   * - **false**
    * 
    * @example
    * true

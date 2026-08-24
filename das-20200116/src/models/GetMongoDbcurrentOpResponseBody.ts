@@ -9,8 +9,9 @@ export class GetMongoDBCurrentOpResponseBodyDataSessionList extends $dara.Model 
    * @remarks
    * Indicates whether the operation is active. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**
+   * 
+   * - **false**
    * 
    * @example
    * true
@@ -21,7 +22,7 @@ export class GetMongoDBCurrentOpResponseBodyDataSessionList extends $dara.Model 
    * The IP address of the client.
    * 
    * @example
-   * 219.143.177.4:52324
+   * 219.143.XX.XX:52324
    */
   client?: string;
   /**
@@ -68,15 +69,16 @@ export class GetMongoDBCurrentOpResponseBodyDataSessionList extends $dara.Model 
    * The host.
    * 
    * @example
-   * a79******.cloud.et15:3328
+   * a79****.cloud.et15:3328
    */
   host?: string;
   /**
    * @remarks
    * Indicates whether the operation is marked as terminated.
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**
+   * 
+   * - **false**
    * 
    * @example
    * true
@@ -111,7 +113,7 @@ export class GetMongoDBCurrentOpResponseBodyDataSessionList extends $dara.Model 
    * The architecture of the operating system.
    * 
    * @example
-   * amd64
+   * AMD64
    */
   osArch?: string;
   /**
@@ -158,7 +160,7 @@ export class GetMongoDBCurrentOpResponseBodyDataSessionList extends $dara.Model 
    * @remarks
    * The ID of the data shard.
    * 
-   * >  This parameter is returned for sharded cluster instances.
+   * > This parameter is returned for sharded cluster instances.
    * 
    * @example
    * d-bp1689995b78****
@@ -251,7 +253,7 @@ export class GetMongoDBCurrentOpResponseBodyDataSessionStat extends $dara.Model 
    * The total number of sessions.
    * 
    * @example
-   * 55
+   * 11
    */
   totalCount?: number;
   static names(): { [key: string]: string } {
@@ -357,7 +359,7 @@ export class GetMongoDBCurrentOpResponseBody extends $dara.Model {
    * @remarks
    * The returned message.
    * 
-   * >  If the request was successful, **Successful** is returned. Otherwise, an error message such as an error code is returned.
+   * > If the request was successful, **Successful** is returned. Otherwise, an error message such as an error code is returned.
    * 
    * @example
    * Successful
@@ -375,8 +377,9 @@ export class GetMongoDBCurrentOpResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**
+   * 
+   * - **false**
    * 
    * @example
    * true

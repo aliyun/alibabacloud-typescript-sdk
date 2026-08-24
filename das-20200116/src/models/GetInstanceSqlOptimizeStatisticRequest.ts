@@ -17,10 +17,11 @@ export class GetInstanceSqlOptimizeStatisticRequest extends $dara.Model {
    * @remarks
    * Specifies whether to filter instances for which DAS Enterprise Edition is enabled. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**
    * 
-   * >  If you set this parameter to **true**, only database instances for which DAS Enterprise Edition is disabled are queried. If you set this parameter to **false**, all database instances are queried.
+   * - **false**
+   * 
+   * > If you set this parameter to **true**, only database instances for which DAS Enterprise Edition is disabled are queried. If you set this parameter to **false**, all database instances are queried.
    * 
    * @example
    * false
@@ -30,7 +31,7 @@ export class GetInstanceSqlOptimizeStatisticRequest extends $dara.Model {
    * @remarks
    * The database instance ID.
    * 
-   * >  The database instance must be an ApsaraDB RDS for MySQL instance or a PolarDB for MySQL cluster.
+   * > The database instance must be an ApsaraDB RDS for MySQL instance or a PolarDB for MySQL cluster.
    * 
    * This parameter is required.
    * 
@@ -42,7 +43,7 @@ export class GetInstanceSqlOptimizeStatisticRequest extends $dara.Model {
    * @remarks
    * The node ID.
    * 
-   * >  For ApsaraDB RDS for MySQL Cluster Edition instances or PolarDB for MySQL clusters, you must specify the node ID.
+   * > For ApsaraDB RDS for MySQL Cluster Edition instances or PolarDB for MySQL clusters, you must specify the node ID.
    * 
    * @example
    * pi-bp12v7243x012****
@@ -62,7 +63,7 @@ export class GetInstanceSqlOptimizeStatisticRequest extends $dara.Model {
    * @remarks
    * The duration threshold for automatic SQL optimization events. After this parameter is specified, the system collects statistics on automatic SQL optimization events whose duration does not exceed the specified threshold.
    * 
-   * >  This parameter is a reserved parameter and does not take effect.
+   * > This parameter is a reserved parameter and does not take effect.
    * 
    * @example
    * None
@@ -72,10 +73,11 @@ export class GetInstanceSqlOptimizeStatisticRequest extends $dara.Model {
    * @remarks
    * Specifies whether to merge automatic SQL optimization events. Valid values:
    * 
-   * *   **true**: merges automatic SQL optimization events.
-   * *   **false**: does not merge automatic SQL optimization events.
+   * - **true**: merges automatic SQL optimization events.
    * 
-   * >  This parameter is a reserved parameter and does not take effect.
+   * - **false**: does not merge automatic SQL optimization events.
+   * 
+   * > This parameter is a reserved parameter and does not take effect.
    * 
    * @example
    * true

@@ -15,8 +15,9 @@ export class GetQueryOptimizeDataTopResponseBodyDataList extends $dara.Model {
    * @remarks
    * The metric name. Valid values:
    * 
-   * * **sqlExecuteCount**: the number of slow SQL executions.
-   * * **optimizedSqlExecuteCount**: the number of slow SQL executions that need to be optimized.
+   * - **sqlExecuteCount**: the number of slow SQL executions.
+   * 
+   * - **optimizedSqlExecuteCount**: the number of slow SQL executions that need to be optimized.
    * 
    * @example
    * sqlExecuteCount
@@ -159,8 +160,9 @@ export class GetQueryOptimizeDataTopResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * *   **true**: The request was successful.
-   * *   **false**: The request failed.
+   * - **true**: The request was successful.
+   * 
+   * - **false**: The request failed.
    * 
    * @example
    * true

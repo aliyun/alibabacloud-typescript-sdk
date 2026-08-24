@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class GetDasSQLLogHotDataRequest extends $dara.Model {
   /**
    * @remarks
-   * The account of the database.
+   * The database account.
    * 
-   * >  You can specify multiple database accounts that are separated by spaces. Example: `user1 user2 user3`.
+   * > You can specify multiple database accounts. Separate multiple accounts with a space. For example: `user1 user2 user3`.
    * 
    * @example
    * testuser
@@ -17,7 +17,7 @@ export class GetDasSQLLogHotDataRequest extends $dara.Model {
    * @remarks
    * The node ID.
    * 
-   * >  This parameter must be specified if the database instance is a PolarDB for MySQL cluster.
+   * > This parameter is required if the database instance is a PolarDB for MySQL cluster.
    * 
    * @example
    * pi-bp179lg03445l****
@@ -25,9 +25,9 @@ export class GetDasSQLLogHotDataRequest extends $dara.Model {
   childDBInstanceIDs?: string;
   /**
    * @remarks
-   * The name of the database.
+   * The database name.
    * 
-   * >  You can specify multiple database names that are separated by spaces. Example: `DB1 DB2 DB3`.
+   * > You can specify multiple database names. Separate multiple names with a space. For example: `DB1 DB2 DB3`.
    * 
    * @example
    * testDB
@@ -35,9 +35,9 @@ export class GetDasSQLLogHotDataRequest extends $dara.Model {
   DBName?: string;
   /**
    * @remarks
-   * The end of the time range to query. Set this parameter to a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The end of the time range to query. This value must be a Unix timestamp in milliseconds.
    * 
-   * >  The end time must be later than the start time. The interval between the start time and the end time cannot exceed 24 hours.
+   * > The end time must be later than the start time. The time range cannot exceed one day.
    * 
    * This parameter is required.
    * 
@@ -47,7 +47,7 @@ export class GetDasSQLLogHotDataRequest extends $dara.Model {
   end?: number;
   /**
    * @remarks
-   * The error code of SQL execution. You can call the [GetAsyncErrorRequestStatByCode](https://help.aliyun.com/document_detail/409804.html) operation to query MySQL error codes in SQL Explorer data.
+   * The SQL execution error code. You can call the [GetAsyncErrorRequestStatByCode](https://help.aliyun.com/document_detail/409804.html) operation to obtain the error code.
    * 
    * @example
    * 1064
@@ -55,9 +55,9 @@ export class GetDasSQLLogHotDataRequest extends $dara.Model {
   fail?: string;
   /**
    * @remarks
-   * The IP address of the client.
+   * The client IP address.
    * 
-   * >  You can specify multiple IP addresses that are separated by spaces. Example: `IP1 IP2 IP3`.
+   * > You can specify multiple client IP addresses. Separate multiple IP addresses with a space. For example: `IP1 IP2 IP3`.
    * 
    * @example
    * 47.100.XX.XX
@@ -75,10 +75,11 @@ export class GetDasSQLLogHotDataRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The logical relationship among multiple keywords.
+   * The logical operator to use with multiple keywords. Valid values:
    * 
-   * *   **or**
-   * *   **and**
+   * - **or**
+   * 
+   * - **and**
    * 
    * @example
    * or
@@ -86,7 +87,7 @@ export class GetDasSQLLogHotDataRequest extends $dara.Model {
   logicalOperator?: string;
   /**
    * @remarks
-   * The maximum execution duration. Unit: microseconds. You can specify this parameter to query the SQL statements whose execution duration is smaller than the value of this parameter.
+   * The maximum execution time in microseconds. Returns SQL statements that have an execution time less than this value.
    * 
    * @example
    * 100
@@ -102,7 +103,7 @@ export class GetDasSQLLogHotDataRequest extends $dara.Model {
   maxRecordsPerPage?: number;
   /**
    * @remarks
-   * The reserved parameter. This parameter is not supported.
+   * A reserved parameter.
    * 
    * @example
    * None
@@ -110,7 +111,7 @@ export class GetDasSQLLogHotDataRequest extends $dara.Model {
   maxRows?: number;
   /**
    * @remarks
-   * The maximum number of scanned rows. You can specify this parameter to query the SQL statements that scan a smaller number of rows than the value of this parameter.
+   * The maximum number of scanned rows. Returns SQL statements that scanned fewer than this number of rows.
    * 
    * @example
    * 10000
@@ -118,7 +119,7 @@ export class GetDasSQLLogHotDataRequest extends $dara.Model {
   maxScanRows?: number;
   /**
    * @remarks
-   * The reserved parameter. This parameter is not supported.
+   * A reserved parameter.
    * 
    * @example
    * None
@@ -126,7 +127,7 @@ export class GetDasSQLLogHotDataRequest extends $dara.Model {
   maxSpillCnt?: number;
   /**
    * @remarks
-   * The minimum execution duration. Unit: microseconds. You can specify this parameter to query the SQL statements whose execution duration is greater than or equal to the value of this parameter.
+   * The minimum execution time in microseconds. Returns SQL statements with an execution time greater than or equal to this value.
    * 
    * @example
    * 10
@@ -134,7 +135,7 @@ export class GetDasSQLLogHotDataRequest extends $dara.Model {
   minLatancy?: number;
   /**
    * @remarks
-   * The reserved parameter. This parameter is not supported.
+   * A reserved parameter.
    * 
    * @example
    * None
@@ -142,7 +143,7 @@ export class GetDasSQLLogHotDataRequest extends $dara.Model {
   minRows?: number;
   /**
    * @remarks
-   * The minimum number of scanned rows. You can specify this parameter to query the SQL statements that scan a larger or an equal number of rows than the value of this parameter.
+   * The minimum number of scanned rows. Returns SQL statements that scanned at least this number of rows.
    * 
    * @example
    * 10
@@ -150,7 +151,7 @@ export class GetDasSQLLogHotDataRequest extends $dara.Model {
   minScanRows?: number;
   /**
    * @remarks
-   * The reserved parameter. This parameter is not supported.
+   * A reserved parameter.
    * 
    * @example
    * None
@@ -158,7 +159,7 @@ export class GetDasSQLLogHotDataRequest extends $dara.Model {
   minSpillCnt?: number;
   /**
    * @remarks
-   * The page number. Pages start from page 1. Default value: 1.
+   * The page number to return. Pages start from 1. The default value is 1.
    * 
    * @example
    * 2
@@ -166,17 +167,17 @@ export class GetDasSQLLogHotDataRequest extends $dara.Model {
   pageNumbers?: number;
   /**
    * @remarks
-   * The keyword that is used for the query.
+   * The query keyword.
    * 
-   * >  Fuzzy search is not supported. You can query data by using multiple keywords. Separate keywords with spaces.
+   * > Fuzzy search is supported. You can specify up to 10 keywords. Separate multiple keywords with a space. For example: a1 b2 c3.
    * 
    * @example
-   * test
+   * a1 b2
    */
   queryKeyword?: string;
   /**
    * @remarks
-   * The reserved parameter. This parameter is not supported.
+   * A reserved parameter.
    * 
    * @example
    * None
@@ -184,45 +185,47 @@ export class GetDasSQLLogHotDataRequest extends $dara.Model {
   role?: string;
   /**
    * @remarks
-   * The basis on which you want to sort the query results.
+   * The sort key. Valid values:
    * 
-   * *   **SCAN_ROWS**: the number of scanned rows.
-   * *   **UPDATE_ROWS**: the number of updated rows.
-   * *   **CONSUME**: the time consumed.
-   * *   **ORIGIN_TIME**: the execution duration.
+   * - **ScanRows**: scanned rows.
+   * 
+   * - **UpdateRows**: updated rows.
+   * 
+   * - **Consume**: execution time.
+   * 
+   * - **OriginTime**: The execution start time.
+   * 
+   * - **ReturnRows**: returned rows.
    * 
    * @example
-   * SCAN_ROWS
+   * ScanRows
    */
   sortKey?: string;
   /**
    * @remarks
-   * The order in which you want to sort the query results.
+   * The sort order. Valid values:
    * 
-   * *   **ase**: ascending order.
-   * *   **desc**: descending order.
+   * - **ASC**: ascending
+   * 
+   * - **DESC**: descending
    * 
    * @example
-   * ase
+   * ASC
    */
   sortMethod?: string;
   /**
    * @remarks
-   * The type of the SQL statement. Valid values:
-   * 
-   * *   **SELECT**
-   * *   **UPDATE**
-   * *   **DELETE**
+   * The SQL type.
    * 
    * @example
-   * SELECT
+   * select
    */
   sqlType?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. Specify a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The start of the time range to query. This value must be a Unix timestamp in milliseconds.
    * 
-   * >  The beginning of the time range to query must be later than the time when DAS Enterprise Edition is enabled, and can be up to seven days earlier than the current time.
+   * > You can query only data that is generated after you enable DAS Enterprise Edition. The start time cannot be earlier than seven days before the current time.
    * 
    * This parameter is required.
    * 
@@ -232,7 +235,7 @@ export class GetDasSQLLogHotDataRequest extends $dara.Model {
   start?: number;
   /**
    * @remarks
-   * The execution results. You can specify **0** to query the SQL statements that are successfully executed. You can also specify an error code to query the corresponding SQL statements that fail to be executed.
+   * The execution state. Set this parameter to **0** to query for successfully executed SQL statements. You can also specify an error code to query for the corresponding SQL statements.
    * 
    * @example
    * 0
@@ -242,7 +245,7 @@ export class GetDasSQLLogHotDataRequest extends $dara.Model {
    * @remarks
    * The thread ID.
    * 
-   * >  You can specify multiple thread IDs that are separated by spaces. Example: `Thread ID1 Thread ID2 Thread ID3`.
+   * > You can specify multiple thread IDs. Separate multiple IDs with a space. For example: `657 658 659`.
    * 
    * @example
    * 657
@@ -250,7 +253,7 @@ export class GetDasSQLLogHotDataRequest extends $dara.Model {
   threadID?: string;
   /**
    * @remarks
-   * The reserved parameter. This parameter is not supported.
+   * A reserved parameter.
    * 
    * @example
    * None

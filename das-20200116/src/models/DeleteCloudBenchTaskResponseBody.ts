@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteCloudBenchTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The returned status code.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class DeleteCloudBenchTaskResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The reserved parameter.
+   * Reserved parameter.
    * 
    * @example
    * None
@@ -21,9 +21,9 @@ export class DeleteCloudBenchTaskResponseBody extends $dara.Model {
   data?: string;
   /**
    * @remarks
-   * The returned message.
+   * The returned message of the request.
    * 
-   * >  If the request was successful, **Successful** is returned. If the request failed, an error message such as an error code is returned.
+   * > When the request is successful, this parameter returns **Successful**. When the request fails, it returns exception information (such as error codes).
    * 
    * @example
    * Successful
@@ -39,10 +39,11 @@ export class DeleteCloudBenchTaskResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the request was successful:
    * 
-   * *   **true**: The request was successful.
-   * *   **false**: The request failed.
+   * - **true**: The request was successful.
+   * 
+   * - **false**: The request failed.
    * 
    * @example
    * true

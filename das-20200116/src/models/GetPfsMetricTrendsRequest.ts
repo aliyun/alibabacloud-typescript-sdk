@@ -7,7 +7,7 @@ export class GetPfsMetricTrendsRequest extends $dara.Model {
    * @remarks
    * The end of the time range to query. Set this parameter to a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
    * 
-   * >  The end time must be later than the start time. You can view the data of up to seven days in the previous 30 days.
+   * > The end time must be later than the start time. You can view the data of up to seven days in the previous 30 days.
    * 
    * @example
    * 1678432430967
@@ -25,10 +25,13 @@ export class GetPfsMetricTrendsRequest extends $dara.Model {
    * @remarks
    * The metric whose trend you want to query. Valid values:
    * 
-   * *   **count**: the number of executions.
-   * *   **avgRt**: the average execution duration.
-   * *   **rtRate**: the execution duration percentage.
-   * *   **rowsExamined**: the total number of scanned rows.
+   * - **count**: the number of executions.
+   * 
+   * - **avgRt**: the average execution duration.
+   * 
+   * - **rtRate**: the execution duration percentage.
+   * 
+   * - **rowsExamined**: the total number of scanned rows.
    * 
    * @example
    * Count
@@ -38,7 +41,7 @@ export class GetPfsMetricTrendsRequest extends $dara.Model {
    * @remarks
    * The node ID.
    * 
-   * >  This parameter is required if the database instance is an ApsaraDB RDS for MySQL Cluster Edition instance or a PolarDB for MySQL clusters.
+   * > This parameter is required if the database instance is an ApsaraDB RDS for MySQL Cluster Edition instance or a PolarDB for MySQL clusters.
    * 
    * @example
    * r-x****-db-0

@@ -7,7 +7,7 @@ export class GetAutonomousNotifyEventsInRangeRequest extends $dara.Model {
    * @remarks
    * The end of the time range to query. Set this parameter to a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
    * 
-   * >  The end time must be later than the start time.
+   * > The end time must be later than the start time.
    * 
    * This parameter is required.
    * 
@@ -35,10 +35,13 @@ export class GetAutonomousNotifyEventsInRangeRequest extends $dara.Model {
    * @remarks
    * The urgency level of the events. If you specify this parameter, the MinLevel parameter does not take effect. Valid values:
    * 
-   * *   **Notice**: events for which the system sends notifications.
-   * *   **Optimization**: events that need to be optimized.
-   * *   **Warn**: events for which the system sends warnings.
-   * *   **Critical**: critical events.
+   * - **Notice**: events for which the system sends notifications.
+   * 
+   * - **Optimization**: events that need to be optimized.
+   * 
+   * - **Warn**: events for which the system sends warnings.
+   * 
+   * - **Critical**: critical events.
    * 
    * @example
    * Warn
@@ -48,10 +51,13 @@ export class GetAutonomousNotifyEventsInRangeRequest extends $dara.Model {
    * @remarks
    * The minimum urgency level of the events. Valid values:
    * 
-   * *   **Notice**: events for which the system sends notifications.
-   * *   **Optimization**: events that need to be optimized.
-   * *   **Warn**: events for which the system sends warnings.
-   * *   **Critical**: critical events.
+   * - **Notice**: events for which the system sends notifications.
+   * 
+   * - **Optimization**: events that need to be optimized.
+   * 
+   * - **Warn**: events for which the system sends warnings.
+   * 
+   * - **Critical**: critical events.
    * 
    * @example
    * Notice
@@ -61,7 +67,7 @@ export class GetAutonomousNotifyEventsInRangeRequest extends $dara.Model {
    * @remarks
    * The ID of the node in a PolarDB for MySQL cluster. You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/98094.html) operation to query the node ID returned by the DBNodeId response parameter.
    * 
-   * >  You must specify the node ID if your database instance is a PolarDB for MySQL cluster.
+   * > You must specify the node ID if your database instance is a PolarDB for MySQL cluster.
    * 
    * @example
    * r-x****-db-0

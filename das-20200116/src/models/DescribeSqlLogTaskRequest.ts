@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSqlLogTaskRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the database instance.
+   * The database instance ID.
    * 
    * @example
    * r-bp1nti25tc7bq5****
@@ -13,7 +13,7 @@ export class DescribeSqlLogTaskRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The page number. Pages start from page 1. Default value: 1.
+   * The page number. Pages are numbered starting from 1. Default value: 1.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class DescribeSqlLogTaskRequest extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * The number of entries per page. Default value: 10.
+   * The page size. Maximum value: 100. Default value: 10.
    * 
    * @example
    * 10

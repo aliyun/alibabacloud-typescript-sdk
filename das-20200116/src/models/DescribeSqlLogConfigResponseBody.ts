@@ -5,10 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSqlLogConfigResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the cold data storage is enabled. Valid values:
-   * 
-   * *   **true**
-   * *   **false**
+   * Indicates whether cold data storage is enabled. Valid values:
+   * - **true**: Enabled.
+   * - **false**: Disabled.
    * 
    * @example
    * true
@@ -16,7 +15,7 @@ export class DescribeSqlLogConfigResponseBodyData extends $dara.Model {
   coldEnable?: boolean;
   /**
    * @remarks
-   * The number of days for which the SQL Explorer and Audit data is stored in cold storage.
+   * The cold data storage duration. Unit: days.
    * 
    * @example
    * 23
@@ -24,7 +23,7 @@ export class DescribeSqlLogConfigResponseBodyData extends $dara.Model {
   coldRetention?: number;
   /**
    * @remarks
-   * The time when the cold data storage was enabled. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The start time of cold data storage. The value is a UNIX timestamp. Unit: milliseconds.
    * 
    * @example
    * 1683712800000
@@ -34,24 +33,24 @@ export class DescribeSqlLogConfigResponseBodyData extends $dara.Model {
    * @remarks
    * The collector version. Valid values:
    * 
-   * *   **MYSQL_V0**
-   * *   **MYSQL_V1**
-   * *   **MYSQL_V2**
-   * *   **MYSQL_V3**
-   * *   **PG_V1**
-   * *   **rdspg_v1**
-   * *   **polarpg_v1**
+   * - **MYSQL_V0**: MySQL V0.
+   * - **MYSQL_V1**: MySQL V1.
+   * - **MYSQL_V2**: MySQL V2.
+   * - **MYSQL_V3**: MySQL V3.
+   * - **PG_V1**: PostgreSQL V1.
+   * - **rdspg_v1**: ApsaraDB RDS for PostgreSQL V1.
+   * - **polarpg_v1**: PolarDB for PostgreSQL V1.
    * 
    * @example
    * MYSQL_V3
    */
   collectorVersion?: string;
+  enable?: boolean;
   /**
    * @remarks
-   * Indicates whether the hot data storage is enabled. Valid values:
-   * 
-   * *   **true**
-   * *   **false**
+   * Indicates whether hot data storage is enabled. Valid values:
+   * - **true**: Enabled.
+   * - **false**: Disabled.
    * 
    * @example
    * true
@@ -59,7 +58,7 @@ export class DescribeSqlLogConfigResponseBodyData extends $dara.Model {
   hotEnable?: boolean;
   /**
    * @remarks
-   * The number of days for which the SQL Explorer and Audit data is stored in hot storage.
+   * The hot data storage duration. Unit: days.
    * 
    * @example
    * 7
@@ -67,7 +66,7 @@ export class DescribeSqlLogConfigResponseBodyData extends $dara.Model {
   hotRetention?: number;
   /**
    * @remarks
-   * The time when the hot data storage was enabled. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The start time of hot data storage. The value is a UNIX timestamp. Unit: milliseconds.
    * 
    * @example
    * 1683712800000
@@ -83,10 +82,9 @@ export class DescribeSqlLogConfigResponseBodyData extends $dara.Model {
   logFilter?: string;
   /**
    * @remarks
-   * Indicates whether the SQL Explorer feature is enabled. Valid values:
-   * 
-   * *   **true**
-   * *   **false**
+   * Indicates whether SQL Explorer is enabled. Valid values:
+   * - **true**: Enabled.
+   * - **false**: Disabled.
    * 
    * @example
    * true
@@ -94,7 +92,7 @@ export class DescribeSqlLogConfigResponseBodyData extends $dara.Model {
   requestEnable?: boolean;
   /**
    * @remarks
-   * The time when the SQL Explorer feature was enabled. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The time when SQL Explorer was enabled. The value is a UNIX timestamp. Unit: milliseconds.
    * 
    * @example
    * 1683712800000
@@ -102,7 +100,7 @@ export class DescribeSqlLogConfigResponseBodyData extends $dara.Model {
   requestStartTime?: number;
   /**
    * @remarks
-   * The time when DAS Enterprise Edition V1 expired. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The expiration time of DAS Enterprise Edition V1. The value is a UNIX timestamp. Unit: milliseconds.
    * 
    * @example
    * 1715335200000
@@ -110,7 +108,7 @@ export class DescribeSqlLogConfigResponseBodyData extends $dara.Model {
   requestStopTime?: number;
   /**
    * @remarks
-   * The total storage duration of the SQL Explorer and Audit data. The value of this parameter is the sum of the values of **HotRetention** and **ColdRetention**. Unit: day.
+   * The total data storage duration, which is the sum of **HotRetention** and **ColdRetention**. Unit: days.
    * 
    * @example
    * 30
@@ -119,9 +117,8 @@ export class DescribeSqlLogConfigResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * Indicates whether DAS Enterprise Edition is enabled. Valid values:
-   * 
-   * *   **true**
-   * *   **false**
+   * - **true**: Enabled.
+   * - **false**: Disabled.
    * 
    * @example
    * true
@@ -137,11 +134,11 @@ export class DescribeSqlLogConfigResponseBodyData extends $dara.Model {
   sqlLogSource?: string;
   /**
    * @remarks
-   * The state of data migration. Valid values:
+   * The data migration status. Valid values:
    * 
-   * *   **FINISH**: The historical data is migrated.
-   * *   **RUNNING**: The historical data is being migrated.
-   * *   **FAILURE**: The historical data fails to be migrated.
+   * - **FINISH**: Historical data migration is complete.
+   * - **RUNNING**: Historical data migration is in progress.
+   * - **FAILURE**: Historical data migration failed.
    * 
    * @example
    * FINISH
@@ -149,7 +146,7 @@ export class DescribeSqlLogConfigResponseBodyData extends $dara.Model {
   sqlLogState?: string;
   /**
    * @remarks
-   * The time when DAS Enterprise Edition was enabled. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The time when DAS Enterprise Edition was enabled. The value is a UNIX timestamp. Unit: milliseconds.
    * 
    * @example
    * 1683712800000
@@ -163,16 +160,16 @@ export class DescribeSqlLogConfigResponseBodyData extends $dara.Model {
    * None
    */
   supportMigration?: boolean;
+  supportSecurityAudit?: boolean;
   /**
    * @remarks
-   * The latest version of DAS Enterprise Edition that supports the database instance. Valid values:
-   * 
-   * *   **SQL_LOG_V0**: DAS Enterprise Edition V0.
-   * *   **SQL_LOG_V1**: DAS Enterprise version V1.
-   * *   **SQL_LOG_V2**: DAS Enterprise Edition V2.
-   * *   **SQL_LOG_V3**: DAS Enterprise Edition V3.
-   * *   **SQL_LOG_NOT_ENABLE**: DAS Enterprise Edition is not enabled.
-   * *   **SQL_LOG_NOT_SUPPORT**: DAS Enterprise Edition is not supported.
+   * The latest DAS Enterprise Edition version supported by the instance. Valid values:
+   * - **SQL_LOG_V0**: Enterprise Edition V0.
+   * - **SQL_LOG_V1**: Enterprise Edition V1.
+   * - **SQL_LOG_V2**: Enterprise Edition V2.
+   * - **SQL_LOG_V3**: Enterprise Edition V3.
+   * - **SQL_LOG_NOT_ENABLE**: Enterprise Edition is not enabled.
+   * - **SQL_LOG_NOT_SUPPORT**: Enterprise Edition is not supported.
    * 
    * @example
    * SQL_LOG_V3
@@ -180,14 +177,13 @@ export class DescribeSqlLogConfigResponseBodyData extends $dara.Model {
   supportVersion?: string;
   /**
    * @remarks
-   * The version of DAS Enterprise Edition that is enabled for the database instance. Valid values:
-   * 
-   * *   **SQL_LOG_V0**: DAS Enterprise Edition V0.
-   * *   **SQL_LOG_V1**: DAS Enterprise version V1.
-   * *   **SQL_LOG_V2**: DAS Enterprise Edition V2.
-   * *   **SQL_LOG_V3**: DAS Enterprise Edition V3.
-   * *   **SQL_LOG_NOT_ENABLE**: DAS Enterprise Edition is not enabled.
-   * *   **SQL_LOG_NOT_SUPPORT**: DAS Enterprise Edition is not supported.
+   * The current DAS Enterprise Edition version that is enabled. Valid values:
+   * - **SQL_LOG_V0**: Enterprise Edition V0.
+   * - **SQL_LOG_V1**: Enterprise Edition V1.
+   * - **SQL_LOG_V2**: Enterprise Edition V2.
+   * - **SQL_LOG_V3**: Enterprise Edition V3.
+   * - **SQL_LOG_NOT_ENABLE**: Enterprise Edition is not enabled.
+   * - **SQL_LOG_NOT_SUPPORT**: Enterprise Edition is not supported.
    * 
    * @example
    * SQL_LOG_V3
@@ -199,6 +195,7 @@ export class DescribeSqlLogConfigResponseBodyData extends $dara.Model {
       coldRetention: 'ColdRetention',
       coldStartTime: 'ColdStartTime',
       collectorVersion: 'CollectorVersion',
+      enable: 'Enable',
       hotEnable: 'HotEnable',
       hotRetention: 'HotRetention',
       hotStartTime: 'HotStartTime',
@@ -212,6 +209,7 @@ export class DescribeSqlLogConfigResponseBodyData extends $dara.Model {
       sqlLogState: 'SqlLogState',
       sqlLogVisibleTime: 'SqlLogVisibleTime',
       supportMigration: 'SupportMigration',
+      supportSecurityAudit: 'SupportSecurityAudit',
       supportVersion: 'SupportVersion',
       version: 'Version',
     };
@@ -223,6 +221,7 @@ export class DescribeSqlLogConfigResponseBodyData extends $dara.Model {
       coldRetention: 'number',
       coldStartTime: 'number',
       collectorVersion: 'string',
+      enable: 'boolean',
       hotEnable: 'boolean',
       hotRetention: 'number',
       hotStartTime: 'number',
@@ -236,6 +235,7 @@ export class DescribeSqlLogConfigResponseBodyData extends $dara.Model {
       sqlLogState: 'string',
       sqlLogVisibleTime: 'number',
       supportMigration: 'boolean',
+      supportSecurityAudit: 'boolean',
       supportVersion: 'string',
       version: 'string',
     };
@@ -253,7 +253,7 @@ export class DescribeSqlLogConfigResponseBodyData extends $dara.Model {
 export class DescribeSqlLogConfigResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code.
+   * The returned status code.
    * 
    * @example
    * 200
@@ -261,14 +261,13 @@ export class DescribeSqlLogConfigResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The data that is returned.
+   * The returned data.
    */
   data?: DescribeSqlLogConfigResponseBodyData;
   /**
    * @remarks
    * The returned message.
-   * 
-   * >  If the request was successful, **Successful** is returned. If the request failed, an error message is returned.
+   * >If the request is successful, **Successful** is returned. If the request fails, an error message that contains information such as an error code is returned.
    * 
    * @example
    * Successful
@@ -285,9 +284,8 @@ export class DescribeSqlLogConfigResponseBody extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the request was successful. Valid values:
-   * 
-   * *   **true**
-   * *   **false**
+   * * **true**: The request was successful.
+   * * **false**: The request failed.
    * 
    * @example
    * true

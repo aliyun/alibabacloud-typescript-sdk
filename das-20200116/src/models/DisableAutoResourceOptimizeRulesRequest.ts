@@ -15,7 +15,7 @@ export class DisableAutoResourceOptimizeRulesRequest extends $dara.Model {
    * @remarks
    * The database instance ID.
    * 
-   * >  Set this parameter to a JSON array that consists of multiple instance IDs. Separate instance IDs with commas (,). Example: `[\\"Instance ID1\\", \\"Instance ID2\\"]`.
+   * > Set this parameter to a JSON array that consists of multiple instance IDs. Separate instance IDs with commas (,). Example: `[\\"Instance ID1\\", \\"Instance ID2\\"]`.
    * 
    * This parameter is required.
    * 

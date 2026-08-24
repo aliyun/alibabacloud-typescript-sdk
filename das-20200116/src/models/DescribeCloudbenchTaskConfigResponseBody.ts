@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCloudbenchTaskConfigResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The path in which the files are archived.
+   * The path of archived objects.
    * 
    * @example
    * /tmp/das/cloudbench/archive-sqls/
@@ -13,7 +13,7 @@ export class DescribeCloudbenchTaskConfigResponseBodyData extends $dara.Model {
   archiveFolder?: string;
   /**
    * @remarks
-   * The command that was run to start the stress testing task.
+   * The stress testing command.
    * 
    * @example
    * java -jar /tmp/das/cloudbench/CloudBenchClient.jar --bench --rocksdb /tmp/das/cloudbench/rocksdb --meta /tmp/das/cloudbench/cl-1621353601000-360****.meta --task_name 2777bba9-a836-49e6-9f70-1c3822fc9239 --result_file /tmp/das/cloudbench/null.result --user cloudb**** --pwd \\"cloudbench@****\\" --host rm-bp1j5f8s5x26kq79216****.mysql.rds.aliyuncs.com --port 3306 --charset utf8mb4 --interval 1 --bench_time 3600 --rate_factor 1.0 --start_time 1621353601 --rt > /tmp/das/cloudbench/null.log
@@ -21,7 +21,7 @@ export class DescribeCloudbenchTaskConfigResponseBodyData extends $dara.Model {
   benchCmd?: string;
   /**
    * @remarks
-   * The path to the JAR file that is used for stress testing.
+   * The path of the stress testing JAR package.
    * 
    * @example
    * /tmp/das/cloudbench/CloudBenchClient.jar
@@ -29,7 +29,7 @@ export class DescribeCloudbenchTaskConfigResponseBodyData extends $dara.Model {
   clientJarPath?: string;
   /**
    * @remarks
-   * The path to the JAR file that is stored in OSS. The JAR file is used for stress testing.
+   * The path of the stress testing JAR package in OSS.
    * 
    * @example
    * https://cloudbench-cn-hangzhou.oss-cn-hangzhou.aliyuncs.com/CloudBenchClient.jar?OSSAccessKeyId=LTAI5tKj8B4wikkVtupK****&Expires=1622441372&Signature=28p%2BCe4tNHpr9VPOcHc3Si9iOb****
@@ -37,7 +37,7 @@ export class DescribeCloudbenchTaskConfigResponseBodyData extends $dara.Model {
   jarOnOss?: string;
   /**
    * @remarks
-   * The command that was run to preload the file that stores the analysis result of full SQL statistics.
+   * The command for preloading the SQL file.
    * 
    * @example
    * java -jar /tmp/das/cloudbench/CloudBenchClient.jar --load --out /tmp/das/cloudbench/cl-1621353601000-360****.sc --meta /tmp/das/cloudbench/cl-1621353601000-360****.meta --task_name 2777bba9-****-49e6-9f70-1c3822fc**** --rocksdb /tmp/das/cloudbench/rocksdb
@@ -53,7 +53,7 @@ export class DescribeCloudbenchTaskConfigResponseBodyData extends $dara.Model {
   metaFileName?: string;
   /**
    * @remarks
-   * The name of the metadata file stored in Object Storage Service (OSS).
+   * The name of the metadata file in OSS.
    * 
    * @example
    * "https://cb-rm-bp1w9g06h560l****.oss-cn-hangzhou.aliyuncs.com/cl-1621353601000-360****.meta?OSSAccessKeyId=LTAI5tKj8B4wikkVtupK****&Expires=1622441372&Signature=Qsehg3tzeA57M%2BIixAbWPWAtvl****
@@ -61,7 +61,7 @@ export class DescribeCloudbenchTaskConfigResponseBodyData extends $dara.Model {
   metaFileOnOss?: string;
   /**
    * @remarks
-   * The path to the metadata file.
+   * The path of the metadata file.
    * 
    * @example
    * /tmp/das/cloudbench/cl-1621353601000-360****.meta
@@ -69,7 +69,7 @@ export class DescribeCloudbenchTaskConfigResponseBodyData extends $dara.Model {
   metaFilePath?: string;
   /**
    * @remarks
-   * The command that was run to parse the file that stores the analysis result of full SQL statistics.
+   * The command for parsing the SQL file.
    * 
    * @example
    * cd /tmp/das/cloudbench && java -jar CloudBenchClient.jar --parse --threads 32 --file /tmp/das/cloudbench/2777bba9-a836-49e6-9f70-1c3822fc9239.archiveSql --meta /tmp/das/cloudbench/cl-1621353601000-360****.meta --out /tmp/das/cloudbench/cl-1621353601000-360****.sc --parent_patmp/das/cloudbench --source RDS --h /thost rm-bp1j5f8s5x266****.mysql.rds.aliyuncs.com --port 3306 --user cloudb**** --pwd \\"cloudbench@****\\" --cutSqlLen 8192 --db_black_list=information_schema,test,unknow,null
@@ -77,7 +77,7 @@ export class DescribeCloudbenchTaskConfigResponseBodyData extends $dara.Model {
   parseCmd?: string;
   /**
    * @remarks
-   * The path to the file that is parsed. The file stores the analysis result of full SQL statistics.
+   * The path of the parsed SQL file.
    * 
    * @example
    * /tmp/das/cloudbench/2777bba9-a836-49e6-9f70-1c3822fc****.archiveSql
@@ -85,7 +85,7 @@ export class DescribeCloudbenchTaskConfigResponseBodyData extends $dara.Model {
   parseFilePath?: string;
   /**
    * @remarks
-   * The location where the RocksDB storage system is deployed in the stress testing client.
+   * The location of the RocksDB storage system in the stress testing machine.
    * 
    * @example
    * /tmp/das/cloudbench/rocksdb
@@ -93,7 +93,7 @@ export class DescribeCloudbenchTaskConfigResponseBodyData extends $dara.Model {
   rocksDbPath?: string;
   /**
    * @remarks
-   * The name of the file that stores the analysis result of full SQL statistics.
+   * The name of the full SQL file.
    * 
    * @example
    * cl-1621353601000-360****.sc
@@ -101,7 +101,7 @@ export class DescribeCloudbenchTaskConfigResponseBodyData extends $dara.Model {
   sqlFileName?: string;
   /**
    * @remarks
-   * The name of the file that stores the analysis result of full SQL statistics and that is stored in OSS.
+   * The name of the full SQL file in OSS.
    * 
    * @example
    * https://cb-rm-bp1w9g06h560l****.oss-cn-hangzhou.aliyuncs.com/cl-1621353601000-360****.sc?OSSAccessKeyId=LTAI5tKj8B4wikkVtupK****&Expires=1622441372&Signature=LYMADwo%2BRrJeqR3e4d8OlIkVmw****
@@ -109,7 +109,7 @@ export class DescribeCloudbenchTaskConfigResponseBodyData extends $dara.Model {
   sqlFileOnOss?: string;
   /**
    * @remarks
-   * The path to the file that stores the analysis result of full SQL statistics.
+   * The path of the SQL file.
    * 
    * @example
    * /tmp/das/cloudbench/cl-1621353601000-360****.sc
@@ -133,7 +133,7 @@ export class DescribeCloudbenchTaskConfigResponseBodyData extends $dara.Model {
   userId?: string;
   /**
    * @remarks
-   * The path of the temporary directory that is generated for stress testing.
+   * The temporary directory generated for stress testing.
    * 
    * @example
    * /tmp/bench/
@@ -195,7 +195,7 @@ export class DescribeCloudbenchTaskConfigResponseBodyData extends $dara.Model {
 export class DescribeCloudbenchTaskConfigResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The returned status code.
    * 
    * @example
    * 200
@@ -203,14 +203,14 @@ export class DescribeCloudbenchTaskConfigResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The detailed information, including the error codes and the number of entries that are returned.
+   * The list of detailed information, including the total number of information items, error codes, and other details.
    */
   data?: DescribeCloudbenchTaskConfigResponseBodyData;
   /**
    * @remarks
    * The returned message.
    * 
-   * >  If the request was successful, **Successful** is returned. If the request failed, an error message such as an error code is returned.
+   * > When the request is successful, this parameter returns **Successful**. When the request fails, this parameter returns exception information (such as error codes).
    * 
    * @example
    * Successful
@@ -226,10 +226,11 @@ export class DescribeCloudbenchTaskConfigResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the request is successful:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: The request is successful.
+   * 
+   * - **false**: The request fails.
    * 
    * @example
    * true

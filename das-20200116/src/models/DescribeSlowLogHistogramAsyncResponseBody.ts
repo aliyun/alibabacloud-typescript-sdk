@@ -3,17 +3,36 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeSlowLogHistogramAsyncResponseBodyDataDataItemInsItems extends $dara.Model {
+  /**
+   * @remarks
+   * The number of executions.
+   */
   count?: number[];
   /**
+   * @remarks
+   * The instance role ID.
+   * >Supported only for ApsaraDB for MongoDB instances.
+   * 
    * @example
    * 2492
    */
   insId?: string;
   /**
+   * @remarks
+   * The instance role.
+   * >Supported only for ApsaraDB for MongoDB instances.
+   * 
    * @example
    * userAdmin
    */
   insRole?: string;
+  /**
+   * @remarks
+   * The number of slow logs on the physical node.
+   * 
+   * @example
+   * 10
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -46,14 +65,38 @@ export class DescribeSlowLogHistogramAsyncResponseBodyDataDataItemInsItems exten
 }
 
 export class DescribeSlowLogHistogramAsyncResponseBodyDataDataItem extends $dara.Model {
+  /**
+   * @remarks
+   * The number of slow logs.
+   */
   count?: number[];
+  /**
+   * @remarks
+   * The trend metrics.
+   * >Supported only for ApsaraDB for MongoDB instances.
+   */
   insItems?: DescribeSlowLogHistogramAsyncResponseBodyDataDataItemInsItems[];
+  /**
+   * @remarks
+   * The instance role.
+   * >Supported only for ApsaraDB for MongoDB instances.
+   */
   insRole?: string;
   /**
+   * @remarks
+   * The node ID.
+   * 
    * @example
    * r-bp1hi0wg57s3n0i3n8-db-0
    */
   nodeId?: string;
+  /**
+   * @remarks
+   * The total number of slow logs.
+   * 
+   * @example
+   * 20
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -91,63 +134,315 @@ export class DescribeSlowLogHistogramAsyncResponseBodyDataDataItem extends $dara
 }
 
 export class DescribeSlowLogHistogramAsyncResponseBodyDataData extends $dara.Model {
+  /**
+   * @remarks
+   * The average CPU processing duration. Unit: seconds (s).
+   * >Only ApsaraDB RDS for SQL Server instances are supported.
+   */
   avgCPUTime?: number[];
+  /**
+   * @remarks
+   * The average number of document rows scanned.
+   * >Supported only for ApsaraDB for MongoDB instances.
+   */
   avgDocExamined?: number[];
+  /**
+   * @remarks
+   * The average number of rows fetched.
+   */
   avgFrows?: number[];
+  /**
+   * @remarks
+   * The average number of I/O writes.
+   * >Only ApsaraDB RDS for SQL Server instances are supported.
+   */
   avgIOWrites?: number[];
+  /**
+   * @remarks
+   * The average number of index rows scanned.
+   * >Supported only for ApsaraDB for MongoDB instances.
+   */
   avgKeysExamined?: number[];
+  /**
+   * @remarks
+   * The average number of rows affected by the last statement.
+   * >Only ApsaraDB RDS for SQL Server instances are supported.
+   */
   avgLastRowsCountAffected?: number[];
+  /**
+   * @remarks
+   * The average lock wait time. Unit: seconds.
+   */
   avgLockTime?: number[];
+  /**
+   * @remarks
+   * The average number of logical reads.
+   * >Only ApsaraDB RDS for SQL Server instances are supported.
+   */
   avgLogicalIOReads?: number[];
+  /**
+   * @remarks
+   * The average number of physical reads.
+   * >Only ApsaraDB RDS for SQL Server instances are supported.
+   */
   avgPhysicalIOReads?: number[];
+  /**
+   * @remarks
+   * The average number of rows returned.
+   * >Supported only for ApsaraDB for MongoDB instances.
+   */
   avgReturnNum?: number[];
+  /**
+   * @remarks
+   * The average number of rows.
+   */
   avgRows?: number[];
+  /**
+   * @remarks
+   * The average number of rows affected.
+   * >Only ApsaraDB RDS for SQL Server instances are supported.
+   */
   avgRowsCountAffected?: number[];
+  /**
+   * @remarks
+   * The average number of rows scanned.
+   */
   avgRowsExamined?: number[];
+  /**
+   * @remarks
+   * The average number of rows returned.
+   */
   avgRowsSent?: number[];
+  /**
+   * @remarks
+   * The average execution duration.
+   */
   avgRt?: number[];
+  /**
+   * @remarks
+   * The average number of requests.
+   */
   avgScnt?: number[];
+  /**
+   * @remarks
+   * The CPU processing duration. Unit: seconds (s).
+   * >Only ApsaraDB RDS for SQL Server instances are supported.
+   */
   CPUTime?: number[];
+  /**
+   * @remarks
+   * The slow log count trend.
+   */
   count?: number[];
+  /**
+   * @remarks
+   * The number of document rows scanned.
+   * >Supported only for ApsaraDB for MongoDB instances.
+   */
   docExamined?: number[];
+  /**
+   * @remarks
+   * The number of rows fetched by the compute node (CN) of the PolarDB-X 2.0 database instance.
+   * 
+   * > Only ApsaraDB PolarDB-X 2.0 instances are supported.
+   */
   frows?: number[];
+  /**
+   * @remarks
+   * The number of I/O writes.
+   * >Only ApsaraDB RDS for SQL Server instances are supported.
+   */
   IOWrites?: number[];
+  /**
+   * @remarks
+   * The trend metrics.
+   */
   item?: DescribeSlowLogHistogramAsyncResponseBodyDataDataItem[];
+  /**
+   * @remarks
+   * The number of index rows scanned.
+   * >Supported only for ApsaraDB for MongoDB instances.
+   */
   keysExamined?: number[];
+  /**
+   * @remarks
+   * The number of rows affected by the last statement.
+   * >Only ApsaraDB RDS for SQL Server instances are supported.
+   */
   lastRowsCountAffected?: number[];
+  /**
+   * @remarks
+   * The total lock wait time. Unit: seconds.
+   */
   lockTime?: number[];
+  /**
+   * @remarks
+   * The number of logical reads.
+   * >Only ApsaraDB RDS for SQL Server instances are supported.
+   */
   logicalIOReads?: number[];
+  /**
+   * @remarks
+   * The maximum CPU processing duration. Unit: seconds (s).
+   * >Only ApsaraDB RDS for SQL Server instances are supported.
+   */
   maxCPUTime?: number[];
+  /**
+   * @remarks
+   * The maximum number of document rows scanned.
+   * >Supported only for ApsaraDB for MongoDB instances.
+   */
   maxDocExamined?: number[];
+  /**
+   * @remarks
+   * The maximum number of rows fetched.
+   */
   maxFrows?: number[];
+  /**
+   * @remarks
+   * The maximum number of I/O writes.
+   * >Only ApsaraDB RDS for SQL Server instances are supported.
+   */
   maxIOWrites?: number[];
+  /**
+   * @remarks
+   * The maximum number of index rows scanned.
+   * >Supported only for ApsaraDB for MongoDB instances.
+   */
   maxKeysExamined?: number[];
+  /**
+   * @remarks
+   * The maximum number of rows affected by the last statement.
+   * >Only ApsaraDB RDS for SQL Server instances are supported.
+   */
   maxLastRowsCountAffected?: number[];
+  /**
+   * @remarks
+   * The maximum lock wait time. Unit: seconds.
+   */
   maxLockTime?: number[];
+  /**
+   * @remarks
+   * The maximum number of logical reads.
+   * >Only ApsaraDB RDS for SQL Server instances are supported.
+   */
   maxLogicalIOReads?: number[];
+  /**
+   * @remarks
+   * The maximum number of physical reads.
+   * >Only ApsaraDB RDS for SQL Server instances are supported.
+   */
   maxPhysicalIOReads?: number[];
+  /**
+   * @remarks
+   * The maximum number of rows returned.
+   * >Supported only for ApsaraDB for MongoDB instances.
+   */
   maxReturnNum?: number[];
+  /**
+   * @remarks
+   * The maximum number of rows.
+   */
   maxRows?: number[];
+  /**
+   * @remarks
+   * The maximum number of rows affected.
+   * >Only ApsaraDB RDS for SQL Server instances are supported.
+   */
   maxRowsCountAffected?: number[];
+  /**
+   * @remarks
+   * The maximum number of rows scanned.
+   */
   maxRowsExamined?: number[];
+  /**
+   * @remarks
+   * The maximum number of rows returned.
+   */
   maxRowsSent?: number[];
+  /**
+   * @remarks
+   * The maximum execution duration. Unit: seconds.
+   */
   maxRt?: number[];
+  /**
+   * @remarks
+   * The maximum number of requests.
+   */
   maxScnt?: number[];
+  /**
+   * @remarks
+   * The number of physical reads.
+   * >Only ApsaraDB RDS for SQL Server instances are supported.
+   */
   physicalIOReads?: number[];
+  /**
+   * @remarks
+   * The number of rows returned.
+   * >Supported only for ApsaraDB for MongoDB instances.
+   */
   returnNum?: number[];
+  /**
+   * @remarks
+   * The total number of rows updated or returned by compute nodes of the PolarDB-X 2.0 database instance.
+   * 
+   * > Only ApsaraDB PolarDB-X 2.0 instances are supported.
+   */
   rows?: number[];
+  /**
+   * @remarks
+   * The number of rows affected.
+   * >Only ApsaraDB RDS for SQL Server instances are supported.
+   */
   rowsCountAffected?: number[];
+  /**
+   * @remarks
+   * The total number of rows scanned.
+   * > Databases that currently support this field: ApsaraDB RDS for MySQL, ApsaraDB RDS for PostgreSQL, and PolarDB for MySQL.
+   */
   rowsExamined?: number[];
+  /**
+   * @remarks
+   * The number of rows returned.
+   */
   rowsSent?: number[];
+  /**
+   * @remarks
+   * The total execution duration. Unit: seconds.
+   */
   rt?: number[];
+  /**
+   * @remarks
+   * The number of DN requests from the compute node (CN) of the PolarDB-X 2.0 database instance.
+   * 
+   * > Only ApsaraDB PolarDB-X 2.0 instances are supported.
+   */
   scnt?: number[];
   /**
+   * @remarks
+   * The total number of records queried.
+   * 
    * @example
    * 1
    */
   total?: number;
+  /**
+   * @remarks
+   * The total number of slow query logs.
+   * 
+   * @example
+   * 5
+   */
   totalCount?: number;
+  /**
+   * @remarks
+   * Used only for relational databases.
+   */
   ts?: number[];
+  /**
+   * @remarks
+   * Not used. Reserved field.
+   */
   tsEnd?: number[];
   static names(): { [key: string]: string } {
     return {
@@ -433,34 +728,66 @@ export class DescribeSlowLogHistogramAsyncResponseBodyDataData extends $dara.Mod
 }
 
 export class DescribeSlowLogHistogramAsyncResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The data.
+   */
   data?: DescribeSlowLogHistogramAsyncResponseBodyDataData;
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * 10910
    */
   errorCode?: number;
   /**
+   * @remarks
+   * Indicates whether the task is finished.
+   * 
    * @example
    * true
    */
   isFinish?: boolean;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * Successful
    */
   message?: string;
+  /**
+   * @remarks
+   * The key of the request parameter.
+   * 
+   * @example
+   * None
+   */
   requestKey?: string;
   /**
+   * @remarks
+   * The result ID.
+   * 
    * @example
    * async__20ee808e72257f16a4fe024057ca****
    */
   resultId?: string;
   /**
+   * @remarks
+   * The current state. Valid values:
+   * - **RUNNING**: Running.
+   * - **SUCCESS**: Succeeded.
+   * - **FAIL**: Failed.
+   * 
    * @example
    * SUCCESS
    */
   state?: string;
   /**
+   * @remarks
+   * The request time.
+   * 
    * @example
    * 1645668213000
    */
@@ -505,6 +832,9 @@ export class DescribeSlowLogHistogramAsyncResponseBodyData extends $dara.Model {
 
 export class DescribeSlowLogHistogramAsyncResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The status code returned.
+   * 
    * @example
    * 200
    */
@@ -515,16 +845,29 @@ export class DescribeSlowLogHistogramAsyncResponseBody extends $dara.Model {
    */
   data?: DescribeSlowLogHistogramAsyncResponseBodyData;
   /**
+   * @remarks
+   * The message returned for the request.
+   * >  This parameter returns **Successful** when the request succeeds. If the request fails, an exception message (such as an error code) is returned.
+   * 
    * @example
    * Successful
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * B6D17591-B48B-4D31-9CD6-9B9796B2****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful:
+   * 
+   * - **true**: The request was successful.
+   * - **false**: The request failed.
+   * 
    * @example
    * true
    */

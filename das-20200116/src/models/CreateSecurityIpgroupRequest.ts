@@ -5,6 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class CreateSecurityIPGroupRequest extends $dara.Model {
   /**
    * @remarks
+   * The IP addresses in the whitelist template.
+   * 
+   * > Separate multiple IP addresses with commas (,). IP addresses cannot be duplicated. A maximum of 1000 IP addresses are supported.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +17,14 @@ export class CreateSecurityIPGroupRequest extends $dara.Model {
   GIpList?: string;
   /**
    * @remarks
+   * The name of the IP whitelist template. The name must meet the following requirements:
+   * 
+   * - Contains only lowercase letters, digits, and underscores (_).
+   * 
+   * - Starts with a letter and ends with a letter or digit.
+   * 
+   * - Is 2 to 120 characters in length.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +33,8 @@ export class CreateSecurityIPGroupRequest extends $dara.Model {
   globalIgName?: string;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example

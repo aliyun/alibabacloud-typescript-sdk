@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeErrorLogRecordsRequestFilters extends $dara.Model {
   /**
+   * @remarks
+   * The filter parameter. Set this parameter to filters.
+   * 
    * @example
    * filters
    */
   key?: string;
   /**
+   * @remarks
+   * The error log content to filter.
+   * 
    * @example
    * deadlock
    */
@@ -39,15 +45,26 @@ export class DescribeErrorLogRecordsRequestFilters extends $dara.Model {
 export class DescribeErrorLogRecordsRequest extends $dara.Model {
   /**
    * @remarks
+   * The end time of the query. The value is in the format of a UNIX timestamp. Unit: milliseconds.
+   * >Notice: The value is of the Long type. Precision loss may occur during serialization/deserialization. The value must not be greater than 9007199254740991.
+   * 
    * This parameter is required.
    * 
    * @example
    * 1732069466000
    */
   endTime?: number;
+  /**
+   * @remarks
+   * The filter conditions.
+   * 
+   * > Filtering is supported only for error logs of ApsaraDB RDS for MySQL, ApsaraDB RDS for PostgreSQL, PolarDB for MySQL, PolarDB for PostgreSQL, and PolarDB for PostgreSQL (Compatible with Oracle).
+   */
   filters?: DescribeErrorLogRecordsRequestFilters[];
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -55,27 +72,48 @@ export class DescribeErrorLogRecordsRequest extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The node ID.
+   * 
    * @example
    * pi-bp16v3824rt73****
    */
   nodeId?: string;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page. Maximum value: 100.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The node role. Valid values:
+   * 
+   * - db
+   * - mongos
+   * 
+   * > This parameter is supported only for ApsaraDB for MongoDB instances.
+   * 
    * @example
    * db
    */
   role?: string;
   /**
    * @remarks
+   * The start time of the query. The value is in the format of a UNIX timestamp. Unit: milliseconds.
+   * 
+   * >Notice: The value is of the Long type. Precision loss may occur during serialization/deserialization. The value must not be greater than 9007199254740991.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -81,7 +81,7 @@ export class GetFullRequestStatResultByInstanceIdResponseBodyDataResultList exte
    * @remarks
    * The average number of updated rows.
    * 
-   *  > This parameter is returned only for ApsaraDB RDS for MySQL and PolarDB-X 2.0 databases.
+   * > This parameter is returned only for ApsaraDB RDS for MySQL and PolarDB-X 2.0 databases.
    * 
    * @example
    * 10000
@@ -393,8 +393,9 @@ export class GetFullRequestStatResultByInstanceIdResponseBodyData extends $dara.
    * @remarks
    * Indicates whether the asynchronous request failed. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**
+   * 
+   * - **false**
    * 
    * @example
    * false
@@ -404,8 +405,9 @@ export class GetFullRequestStatResultByInstanceIdResponseBodyData extends $dara.
    * @remarks
    * Indicates whether the asynchronous request was complete. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**
+   * 
+   * - **false**
    * 
    * @example
    * true
@@ -428,9 +430,11 @@ export class GetFullRequestStatResultByInstanceIdResponseBodyData extends $dara.
    * @remarks
    * The state of the asynchronous request. Valid values:
    * 
-   * *   **RUNNING**
-   * *   **SUCCESS**
-   * *   **FAIL**
+   * - **RUNNING**
+   * 
+   * - **SUCCESS**
+   * 
+   * - **FAIL**
    * 
    * @example
    * SUCCESS
@@ -496,7 +500,7 @@ export class GetFullRequestStatResultByInstanceIdResponseBody extends $dara.Mode
    * @remarks
    * The returned message.
    * 
-   * >  If the request was successful, **Successful** is returned. If the request failed, an error message that contains information such as an error code is returned.
+   * > If the request was successful, **Successful** is returned. If the request failed, an error message that contains information such as an error code is returned.
    * 
    * @example
    * Successful
@@ -514,8 +518,9 @@ export class GetFullRequestStatResultByInstanceIdResponseBody extends $dara.Mode
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**
+   * 
+   * - **false**
    * 
    * @example
    * true

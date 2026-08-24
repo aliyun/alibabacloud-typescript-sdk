@@ -27,7 +27,7 @@ export class GetRequestDiagnosisPageRequest extends $dara.Model {
    * @remarks
    * The node ID.
    * 
-   * >  You must specify the node ID if your database instance is a PolarDB for MySQL, PolarDB for PostgreSQL (Compatible with Oracle), or ApsaraDB for MongoDB instance.
+   * > You must specify the node ID if your database instance is a PolarDB for MySQL, PolarDB for PostgreSQL (Compatible with Oracle), or ApsaraDB for MongoDB instance.
    * 
    * @example
    * 202****

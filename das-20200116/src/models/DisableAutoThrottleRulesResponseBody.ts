@@ -7,9 +7,9 @@ export class DisableAutoThrottleRulesResponseBodyDataConfigFailInstanceList exte
    * @remarks
    * Indicates whether the automatic SQL throttling feature is disabled. Valid values:
    * 
-   * * **true**
+   * - **true**
    * 
-   * * **false**
+   * - **false**
    * 
    * @example
    * false
@@ -61,9 +61,9 @@ export class DisableAutoThrottleRulesResponseBodyDataConfigSuccessInstanceList e
    * @remarks
    * Indicates whether the automatic SQL throttling feature is disabled. Valid values:
    * 
-   * * **true**
+   * - **true**
    * 
-   * * **false**
+   * - **false**
    * 
    * @example
    * true
@@ -188,7 +188,7 @@ export class DisableAutoThrottleRulesResponseBody extends $dara.Model {
    * @remarks
    * The returned message.
    * 
-   * >  If the request was successful, **Successful** is returned. If the request failed, an error message such as an error code is returned.
+   * > If the request was successful, **Successful** is returned. If the request failed, an error message such as an error code is returned.
    * 
    * @example
    * Successful
@@ -206,8 +206,9 @@ export class DisableAutoThrottleRulesResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**
+   * 
+   * - **false**
    * 
    * @example
    * true

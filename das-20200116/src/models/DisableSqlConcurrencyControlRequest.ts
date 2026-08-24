@@ -15,7 +15,7 @@ export class DisableSqlConcurrencyControlRequest extends $dara.Model {
    * @remarks
    * The instance ID.
    * 
-   * >  The database instance must be an ApsaraDB RDS for MySQL instance or a PolarDB for MySQL cluster.
+   * > The database instance must be an ApsaraDB RDS for MySQL instance or a PolarDB for MySQL cluster.
    * 
    * This parameter is required.
    * 

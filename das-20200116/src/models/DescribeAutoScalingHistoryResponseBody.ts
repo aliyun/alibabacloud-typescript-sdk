@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAutoScalingHistoryResponseBodyDataSpecHistory extends $dara.Model {
   /**
    * @remarks
-   * The error code returned by the scaling task. Valid values:
+   * The error code returned by the internal scaling task. Valid values:
    * 
-   * *   **Insufficient_Balance**: The account has insufficient balance or an unpaid order.
-   * *   **REACH_SPEC_UPPERBOUND**: The instance type reaches the upper limit.
-   * *   **Control_Error_Timeout_Msg**: The management task timed out.
-   * *   **Invoke_Rds_Api_Error_Msg**: Failed to call the ApsaraDB RDS API.
+   * - **Insufficient_Balance**: The account balance is insufficient or there are unpaid orders.
+   * - **REACH_SPEC_UPPERBOUND**: The upper limit of the instance specification has been reached.
+   * - **Control_Error_Timeout_Msg**: The control task timed out.
+   * - **Invoke_Rds_Api_Error_Msg**: Failed to call the RDS API.
    * 
    * @example
    * Insufficient_Balance
@@ -18,7 +18,7 @@ export class DescribeAutoScalingHistoryResponseBodyDataSpecHistory extends $dara
   errorCode?: string;
   /**
    * @remarks
-   * The original number of CPU cores of the instance.
+   * The number of CPU cores of the original instance.
    * 
    * @example
    * 4
@@ -34,7 +34,7 @@ export class DescribeAutoScalingHistoryResponseBodyDataSpecHistory extends $dara
   originInstanceClass?: string;
   /**
    * @remarks
-   * The original memory size of the instance. Unit: GB.
+   * The memory size of the original instance. Unit: GB.
    * 
    * @example
    * 8
@@ -42,10 +42,9 @@ export class DescribeAutoScalingHistoryResponseBodyDataSpecHistory extends $dara
   originMemory?: number;
   /**
    * @remarks
-   * The type of the automatic performance scaling task. Valid values:
-   * 
-   * *   **SCALE_UP**: automatic instance type scale-up task.
-   * *   **SCALE_DOWN**: automatic instance type scale-down task.
+   * The type of the automatic performance extension task. Valid values:
+   * - **SCALE_UP**: Automatic specification extension.
+   * - **SCALE_DOWN**: Automatic specification scale-down.
    * 
    * @example
    * SCALE_UP
@@ -53,7 +52,7 @@ export class DescribeAutoScalingHistoryResponseBodyDataSpecHistory extends $dara
   scaleType?: string;
   /**
    * @remarks
-   * The destination number of CPU cores of the instance.
+   * The number of CPU cores of the target instance.
    * 
    * @example
    * 8
@@ -61,7 +60,7 @@ export class DescribeAutoScalingHistoryResponseBodyDataSpecHistory extends $dara
   targetCore?: number;
   /**
    * @remarks
-   * The destination instance type.
+   * The target instance type.
    * 
    * @example
    * mysql.n2.xlarge.2c
@@ -69,7 +68,7 @@ export class DescribeAutoScalingHistoryResponseBodyDataSpecHistory extends $dara
   targetInstanceClass?: string;
   /**
    * @remarks
-   * The destination memory size of the instance. Unit: GB.
+   * The memory size of the target instance. Unit: GB.
    * 
    * @example
    * 16
@@ -77,10 +76,9 @@ export class DescribeAutoScalingHistoryResponseBodyDataSpecHistory extends $dara
   targetMemory?: number;
   /**
    * @remarks
-   * The status of the task. Valid values:
-   * 
-   * *   **true**: The task was successful.
-   * *   **false**: The task failed.
+   * The task execution status. Valid values:
+   * - **true**: The task was executed successfully.
+   * - **false**: The task failed.
    * 
    * @example
    * true
@@ -88,7 +86,7 @@ export class DescribeAutoScalingHistoryResponseBodyDataSpecHistory extends $dara
   taskExcuteStatus?: boolean;
   /**
    * @remarks
-   * The time when the task was run. Set this parameter to a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The task execution time. The value is a UNIX timestamp. Unit: milliseconds.
    * 
    * @example
    * 1684830763000
@@ -136,7 +134,7 @@ export class DescribeAutoScalingHistoryResponseBodyDataSpecHistory extends $dara
 export class DescribeAutoScalingHistoryResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The history of automatic bandwidth scaling of ApsaraDB for Redis instances. This feature is not supported.
+   * The Redis bandwidth elastic scaling history records. This parameter is not supported.
    */
   bandwidth?: { [key: string]: any }[];
   /**
@@ -149,22 +147,22 @@ export class DescribeAutoScalingHistoryResponseBodyData extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The history of resource scale-out of ApsaraDB for Redis instances. This feature is not supported.
+   * The Redis resource scaling history records. This parameter is not supported.
    */
   resource?: { [key: string]: any }[];
   /**
    * @remarks
-   * The history of automatic shard scale-out of ApsaraDB for Redis instances. This feature is not supported.
+   * The Redis automatic shard scaling history records. This parameter is not supported.
    */
   shard?: { [key: string]: any }[];
   /**
    * @remarks
-   * The history of automatic performance scaling.
+   * The automatic performance extension history records.
    */
   specHistory?: DescribeAutoScalingHistoryResponseBodyDataSpecHistory[];
   /**
    * @remarks
-   * The history of storage expansion. This feature is not supported.
+   * The storage expansion history records. This parameter is not supported.
    */
   storage?: { [key: string]: any }[];
   static names(): { [key: string]: string } {
@@ -216,7 +214,7 @@ export class DescribeAutoScalingHistoryResponseBodyData extends $dara.Model {
 export class DescribeAutoScalingHistoryResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code returned. The status code 200 indicates that the request was successful.
+   * The status code. A value of 200 indicates success.
    * 
    * @example
    * 200
@@ -224,14 +222,13 @@ export class DescribeAutoScalingHistoryResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The history of auto scaling.
+   * The elastic scaling history records.
    */
   data?: DescribeAutoScalingHistoryResponseBodyData;
   /**
    * @remarks
    * The returned message.
-   * 
-   * > If the request was successful, **Successful** is returned. Otherwise, an error message such as an error code is returned.
+   * > If the request is successful, **Successful** is returned. If the request fails, an error message such as an error code is returned.
    * 
    * @example
    * Successful
@@ -249,8 +246,8 @@ export class DescribeAutoScalingHistoryResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: The request was successful.
+   * - **false**: The request failed.
    * 
    * @example
    * true

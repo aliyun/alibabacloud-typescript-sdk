@@ -39,12 +39,12 @@ export class GetInstanceMissingIndexListRequest extends $dara.Model {
    * @remarks
    * The database instance ID.
    * 
-   * >  Only ApsaraDB RDS for SQL Server instances are supported.
+   * > Only ApsaraDB RDS for SQL Server instances are supported.
    * 
    * This parameter is required.
    * 
    * @example
-   * rm-************
+   * rm-t4nfalp2ap421****
    */
   instanceId?: string;
   /**

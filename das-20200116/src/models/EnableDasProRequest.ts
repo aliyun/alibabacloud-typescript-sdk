@@ -17,11 +17,15 @@ export class EnableDasProRequest extends $dara.Model {
    * @remarks
    * The storage duration of SQL Explorer data. Unit: day. Default value: **30**. Valid values:
    * 
-   * *   **30**
-   * *   **180**
-   * *   **365**
-   * *   **1095**
-   * *   **1825**
+   * - **30**
+   * 
+   * - **180**
+   * 
+   * - **365**
+   * 
+   * - **1095**
+   * 
+   * - **1825**
    * 
    * @example
    * 30
@@ -31,7 +35,7 @@ export class EnableDasProRequest extends $dara.Model {
    * @remarks
    * The ID of the Alibaba Cloud account that is used to create the database instance.
    * 
-   * >  This parameter is optional. The system can automatically obtain the account ID based on the value of InstanceId when you call this operation.
+   * > This parameter is optional. The system can automatically obtain the account ID based on the value of InstanceId when you call this operation.
    * 
    * @example
    * 196278346919****

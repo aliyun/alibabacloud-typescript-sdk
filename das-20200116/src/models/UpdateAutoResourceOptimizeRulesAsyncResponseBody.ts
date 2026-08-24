@@ -7,9 +7,9 @@ export class UpdateAutoResourceOptimizeRulesAsyncResponseBodyDataConfigResponseC
    * @remarks
    * Indicates whether the parameters are configured. Valid values:
    * 
-   * * **true**
+   * - **true**
    * 
-   * * **false**
+   * - **false**
    * 
    * @example
    * false
@@ -61,9 +61,9 @@ export class UpdateAutoResourceOptimizeRulesAsyncResponseBodyDataConfigResponseC
    * @remarks
    * Indicates whether the parameters are configured. Valid values:
    * 
-   * * **true**
+   * - **true**
    * 
-   * * **false**
+   * - **false**
    * 
    * @example
    * true
@@ -175,8 +175,9 @@ export class UpdateAutoResourceOptimizeRulesAsyncResponseBodyData extends $dara.
    * @remarks
    * Indicates whether the asynchronous request was complete. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**
+   * 
+   * - **false**
    * 
    * @example
    * true
@@ -186,15 +187,16 @@ export class UpdateAutoResourceOptimizeRulesAsyncResponseBodyData extends $dara.
    * @remarks
    * The returned data of the configuration.
    * 
-   * >  The data is returned only if the value of isFinish is **true**. This value indicates that the asynchronous request is complete.
+   * > The data is returned only if the value of isFinish is **true**. This value indicates that the asynchronous request is complete.
    */
   configResponse?: UpdateAutoResourceOptimizeRulesAsyncResponseBodyDataConfigResponse;
   /**
    * @remarks
    * Indicates whether the asynchronous request failed. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**
+   * 
+   * - **false**
    * 
    * @example
    * false
@@ -204,8 +206,9 @@ export class UpdateAutoResourceOptimizeRulesAsyncResponseBodyData extends $dara.
    * @remarks
    * Indicates whether the asynchronous request was complete. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**
+   * 
+   * - **false**
    * 
    * @example
    * true
@@ -223,9 +226,11 @@ export class UpdateAutoResourceOptimizeRulesAsyncResponseBodyData extends $dara.
    * @remarks
    * The state of the asynchronous request. Valid values:
    * 
-   * *   **RUNNING**
-   * *   **SUCCESS**
-   * *   **FAIL**
+   * - **RUNNING**
+   * 
+   * - **SUCCESS**
+   * 
+   * - **FAIL**
    * 
    * @example
    * SUCCESS
@@ -293,7 +298,7 @@ export class UpdateAutoResourceOptimizeRulesAsyncResponseBody extends $dara.Mode
    * @remarks
    * The returned message.
    * 
-   * >  If the request was successful, **Successful** is returned. If the request failed, an error message such as an error code is returned.
+   * > If the request was successful, **Successful** is returned. If the request failed, an error message such as an error code is returned.
    * 
    * @example
    * Successful
@@ -311,8 +316,9 @@ export class UpdateAutoResourceOptimizeRulesAsyncResponseBody extends $dara.Mode
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**
+   * 
+   * - **false**
    * 
    * @example
    * true

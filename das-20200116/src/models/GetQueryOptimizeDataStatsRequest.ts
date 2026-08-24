@@ -7,8 +7,9 @@ export class GetQueryOptimizeDataStatsRequest extends $dara.Model {
    * @remarks
    * Specifies whether to sort the returned entries in ascending order. Default value: **true**. Valid values:
    * 
-   * *   **true**: sorts the returned entries in ascending order.
-   * *   **false**: does not sort the returned entries in ascending order.
+   * - **true**: sorts the returned entries in ascending order.
+   * 
+   * - **false**: does not sort the returned entries in ascending order.
    * 
    * @example
    * true
@@ -26,9 +27,11 @@ export class GetQueryOptimizeDataStatsRequest extends $dara.Model {
    * @remarks
    * The database engine. Valid values:
    * 
-   * *   **MySQL**
-   * *   **PolarDBMySQL**
-   * *   **PostgreSQL**
+   * - **MySQL**
+   * 
+   * - **PolarDBMySQL**
+   * 
+   * - **PostgreSQL**
    * 
    * This parameter is required.
    * 
@@ -56,8 +59,9 @@ export class GetQueryOptimizeDataStatsRequest extends $dara.Model {
    * @remarks
    * The logical relationship between multiple keywords. Valid values:
    * 
-   * *   **or**
-   * *   **and**
+   * - **or**
+   * 
+   * - **and**
    * 
    * @example
    * or
@@ -67,8 +71,9 @@ export class GetQueryOptimizeDataStatsRequest extends $dara.Model {
    * @remarks
    * Specifies whether to query only SQL templates that need to be optimized. Default value: **false**. Valid values:
    * 
-   * *   **true**: queries only SQL templates that need to be optimized.
-   * *   **false**: does not query only SQL statements that need to be optimized.
+   * - **true**: queries only SQL templates that need to be optimized.
+   * 
+   * - **false**: does not query only SQL statements that need to be optimized.
    * 
    * @example
    * false
@@ -78,15 +83,23 @@ export class GetQueryOptimizeDataStatsRequest extends $dara.Model {
    * @remarks
    * The field by which to sort the returned entries. Default value: **count**. Valid values:
    * 
-   * *   **count**: the number of executions.
-   * *   **maxQueryTime**: the longest execution time.
-   * *   **avgQueryTime**: the average execution time.
-   * *   **maxLockTime**: the longest lock wait time.
-   * *   **avgLockTime**: the longest lock wait time.
-   * *   **maxRowsExamined**: the largest number of scanned rows.
-   * *   **avgRowsExamined**: the average number of scanned rows.
-   * *   **maxRowsSent**: the largest number of returned rows.
-   * *   **avgRowsSent**: the average number of returned rows.
+   * - **count**: the number of executions.
+   * 
+   * - **maxQueryTime**: the longest execution time.
+   * 
+   * - **avgQueryTime**: the average execution time.
+   * 
+   * - **maxLockTime**: the longest lock wait time.
+   * 
+   * - **avgLockTime**: the longest lock wait time.
+   * 
+   * - **maxRowsExamined**: the largest number of scanned rows.
+   * 
+   * - **avgRowsExamined**: the average number of scanned rows.
+   * 
+   * - **maxRowsSent**: the largest number of returned rows.
+   * 
+   * - **avgRowsSent**: the average number of returned rows.
    * 
    * @example
    * count
@@ -112,13 +125,15 @@ export class GetQueryOptimizeDataStatsRequest extends $dara.Model {
    * @remarks
    * The region in which the instance resides. Valid values:
    * 
-   * *   **cn-china**: Chinese mainland
-   * *   **cn-hongkong**: China (Hong Kong)
-   * *   **ap-southeast-1**: Singapore
+   * - **cn-china**: Chinese mainland
    * 
-   * This parameter takes effect only if **InstanceIds** is left empty. If you leave **InstanceIds** empty, the system obtains data from the region set by **Region**. By default, Region is set to **cn-china**. If you specify **InstanceIds**, **Region** does not take effect and the system obtains data from the region in which the first specified instance resides.****
+   * - **cn-hongkong**: China (Hong Kong)
    * 
-   * >  Set this parameter to **cn-china** for the instances that are created in the regions in the Chinese mainland.
+   * - **ap-southeast-1**: Singapore
+   * 
+   * This parameter takes effect only if **InstanceIds** is left empty. If you leave **InstanceIds** empty, the system obtains data from the region set by **Region**. By default, Region is set to **cn-china**. If you specify **InstanceIds**, **Region** does not take effect and the system obtains data from the region in which the first specified instance resides.\\*\\*\\*\\*
+   * 
+   * > Set this parameter to **cn-china** for the instances that are created in the regions in the Chinese mainland.
    * 
    * @example
    * cn-china

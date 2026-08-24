@@ -7,14 +7,21 @@ export class GetQueryOptimizeDataTrendResponseBodyDataList extends $dara.Model {
    * @remarks
    * The name of the metric. Valid values:
    * 
-   * * **sqlExecuteCount**: the number of executions of slow SQL queries.
-   * * **sqlExecuteCountDiff**: the difference in the number of executions of slow SQL queries compared to the previous day.
-   * * **sqlCount**: the number of slow SQL templates.
-   * * **sqlCountDiff**: the difference in the number of slow SQL templates compared to the previous day.
-   * * **optimizedSqlExecuteCount**: the number of optimizable executions of slow SQL queries.
-   * * **optimizedSqlExecuteCountDiff**: the difference in the number of optimizable executions of slow SQL queries compared to the previous day.
-   * * **optimizedSqlCount**: the number of optimizable slow SQL templates.
-   * * **optimizedSqlCountDiff**: the difference in the number of optimizable slow SQL templates compared to the previous day.
+   * - **sqlExecuteCount**: the number of executions of slow SQL queries.
+   * 
+   * - **sqlExecuteCountDiff**: the difference in the number of executions of slow SQL queries compared to the previous day.
+   * 
+   * - **sqlCount**: the number of slow SQL templates.
+   * 
+   * - **sqlCountDiff**: the difference in the number of slow SQL templates compared to the previous day.
+   * 
+   * - **optimizedSqlExecuteCount**: the number of optimizable executions of slow SQL queries.
+   * 
+   * - **optimizedSqlExecuteCountDiff**: the difference in the number of optimizable executions of slow SQL queries compared to the previous day.
+   * 
+   * - **optimizedSqlCount**: the number of optimizable slow SQL templates.
+   * 
+   * - **optimizedSqlCountDiff**: the difference in the number of optimizable slow SQL templates compared to the previous day.
    * 
    * @example
    * sqlExecuteCount
@@ -165,8 +172,9 @@ export class GetQueryOptimizeDataTrendResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**
+   * 
+   * - **false**
    * 
    * @example
    * true

@@ -15,11 +15,15 @@ export class DescribeDiagnosticReportListResponseBody extends $dara.Model {
    * @remarks
    * The information of the diagnostics reports. Valid values:
    * 
-   * *   **total**: the number of diagnostics reports.
-   * *   **score**: the health score.
-   * *   **diagnosticTime**: the time when the diagnostics report was generated. The time is displayed in UTC.
-   * *   **startTime**: the start time of the query. The time is displayed in UTC.
-   * *   **endTime**: the end time of the query. The time is displayed in UTC.
+   * - **total**: the number of diagnostics reports.
+   * 
+   * - **score**: the health score.
+   * 
+   * - **diagnosticTime**: the time when the diagnostics report was generated. The time is displayed in UTC.
+   * 
+   * - **startTime**: the start time of the query. The time is displayed in UTC.
+   * 
+   * - **endTime**: the end time of the query. The time is displayed in UTC.
    * 
    * @example
    * {     "total": 1,     "list": [       {         "score": 100,         "diagnosticTime": "2022-11-14T08:17:00Z",         "startTime": "2022-11-14T07:16:59Z",         "endTime": "2022-11-14T08:16:59Z"       }     ]   }
@@ -29,7 +33,7 @@ export class DescribeDiagnosticReportListResponseBody extends $dara.Model {
    * @remarks
    * The returned message.
    * 
-   * >  If the request was successful, **Successful** is returned. If the request failed, an error message such as an error code is returned.
+   * > If the request was successful, **Successful** is returned. If the request failed, an error message such as an error code is returned.
    * 
    * @example
    * Successful
@@ -47,8 +51,9 @@ export class DescribeDiagnosticReportListResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**
+   * 
+   * - **false**
    * 
    * @example
    * true

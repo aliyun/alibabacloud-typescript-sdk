@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSqlLogTasksRequestFilters extends $dara.Model {
   /**
    * @remarks
-   * The name of the filter parameter.
+   * The filter parameter.
    * 
-   * >  For more information about the filter parameters, see the **Valid values of Key** section of this topic.
+   * > See **Additional information about request parameters** for the supported filter parameters and their valid values.
    * 
    * @example
-   * delimiter
+   * keyWords
    */
   key?: string;
   /**
@@ -18,7 +18,7 @@ export class DescribeSqlLogTasksRequestFilters extends $dara.Model {
    * The value of the filter parameter.
    * 
    * @example
-   * ,
+   * select
    */
   value?: string;
   static names(): { [key: string]: string } {
@@ -47,7 +47,7 @@ export class DescribeSqlLogTasksRequestFilters extends $dara.Model {
 export class DescribeSqlLogTasksRequest extends $dara.Model {
   /**
    * @remarks
-   * The end of the time range to query. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The end time of the query range. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
    * 
    * @example
    * 1608888296000
@@ -55,7 +55,7 @@ export class DescribeSqlLogTasksRequest extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * The filter parameters.
+   * An array of filter conditions.
    */
   filters?: DescribeSqlLogTasksRequestFilters[];
   /**
@@ -70,15 +70,15 @@ export class DescribeSqlLogTasksRequest extends $dara.Model {
    * @remarks
    * The node ID.
    * 
-   * >  This parameter is available only for instances that are deployed in the cluster architecture. You can specify this parameter to query the tasks of a specific node. If this parameter is not specified, the tasks of the primary node are returned by default.
+   * > For cluster instances only. You can specify a node ID to query its offline tasks. If this parameter is omitted, the offline tasks of the primary node are returned by default.
    * 
    * @example
-   * pi-bp1o58x3ib7e6z496
+   * pi-bp1o58x3ib7e6****
    */
   nodeId?: string;
   /**
    * @remarks
-   * The page number. Pages start from page 1. Default value: 1.
+   * The page number. The value must be a positive integer. Default value: 1.
    * 
    * @example
    * 1
@@ -86,7 +86,7 @@ export class DescribeSqlLogTasksRequest extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * The number of entries per page. Valid values: 1 to 100. Default value: 10.
+   * The number of entries per page. Maximum value: 100. Default value: 10.
    * 
    * @example
    * 10
@@ -94,7 +94,7 @@ export class DescribeSqlLogTasksRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The beginning of the time range to query. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The start time of the query range. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
    * 
    * @example
    * 1596177993000

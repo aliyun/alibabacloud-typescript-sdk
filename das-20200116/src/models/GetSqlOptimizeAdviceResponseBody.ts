@@ -23,7 +23,7 @@ export class GetSqlOptimizeAdviceResponseBodyData extends $dara.Model {
    * @remarks
    * The time when the file expires. The value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
    * 
-   * >  The file expires three days after the task is created.
+   * > The file expires three days after the task is created.
    * 
    * @example
    * 1632563061000
@@ -33,10 +33,13 @@ export class GetSqlOptimizeAdviceResponseBodyData extends $dara.Model {
    * @remarks
    * The status of the task. Valid values:
    * 
-   * *   **INIT**: The task is being initialized.
-   * *   **RUNNING**: The task is running.
-   * *   **FINISH**: The task is complete.
-   * *   **FAILED**: The task failed.
+   * - **INIT**: The task is being initialized.
+   * 
+   * - **RUNNING**: The task is running.
+   * 
+   * - **FINISH**: The task is complete.
+   * 
+   * - **FAILED**: The task failed.
    * 
    * @example
    * FINISH
@@ -46,9 +49,11 @@ export class GetSqlOptimizeAdviceResponseBodyData extends $dara.Model {
    * @remarks
    * The status code of the task. Valid values:
    * 
-   * *   **NO_DATA**: No data is returned.
-   * *   **INTERNAL_ERROR**: An internal error occurred.
-   * *   **SUCCESS**: The task is successful.
+   * - **NO_DATA**: No data is returned.
+   * 
+   * - **INTERNAL_ERROR**: An internal error occurred.
+   * 
+   * - **SUCCESS**: The task is successful.
    * 
    * @example
    * SUCCESS
@@ -111,7 +116,7 @@ export class GetSqlOptimizeAdviceResponseBody extends $dara.Model {
    * @remarks
    * The returned message.
    * 
-   * >  If the request was successful, Successful is returned. If the request failed, an error message such as an error code is returned.
+   * > If the request was successful, Successful is returned. If the request failed, an error message such as an error code is returned.
    * 
    * @example
    * Successful
@@ -129,8 +134,9 @@ export class GetSqlOptimizeAdviceResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**
+   * 
+   * - **false**
    * 
    * @example
    * true

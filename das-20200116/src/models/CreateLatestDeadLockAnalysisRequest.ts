@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CreateLatestDeadLockAnalysisRequest extends $dara.Model {
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,6 +14,11 @@ export class CreateLatestDeadLockAnalysisRequest extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The node ID.
+   * 
+   * > For PolarDB for MySQL instances, you must specify the node ID.
+   * 
    * @example
    * pi-bp16v3824rt73****
    */

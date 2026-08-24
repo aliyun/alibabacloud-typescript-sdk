@@ -7,7 +7,7 @@ export class UpdateAutoSqlOptimizeStatusRequest extends $dara.Model {
    * @remarks
    * The database instance IDs. Separate multiple IDs with commas (,).
    * 
-   * >  You can specify up to 50 instance IDs.
+   * > You can specify up to 50 instance IDs.
    * 
    * This parameter is required.
    * 
@@ -19,9 +19,11 @@ export class UpdateAutoSqlOptimizeStatusRequest extends $dara.Model {
    * @remarks
    * The status of the automatic SQL optimization feature. Valid values:
    * 
-   * *   **0**: The automatic SQL optimization feature is disabled.
-   * *   **1**: **SQL diagnosis and automatic index creation** is specified.
-   * *   **3**: **SQL diagnosis only** is specified.
+   * - **0**: The automatic SQL optimization feature is disabled.
+   * 
+   * - **1**: **SQL diagnosis and automatic index creation** is specified.
+   * 
+   * - **3**: **SQL diagnosis only** is specified.
    * 
    * This parameter is required.
    * 

@@ -10,17 +10,17 @@ export class GetStorageAnalysisResultRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * rm-bp10xxxxxxxxx
+   * rm-2ze1jdv45i7l6****
    */
   instanceId?: string;
   /**
    * @remarks
    * The node ID.
    * 
-   * >  This parameter is reserved.
+   * > This parameter is reserved.
    * 
    * @example
-   * 202****
+   * None
    */
   nodeId?: string;
   /**

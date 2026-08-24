@@ -32,7 +32,7 @@ export class GetInstanceMissingIndexListResponseBodyDataList extends $dara.Model
    * The database name.
    * 
    * @example
-   * school
+   * testdb
    */
   databaseName?: string;
   /**
@@ -306,8 +306,9 @@ export class GetInstanceMissingIndexListResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request is successful. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**
+   * 
+   * - **false**
    * 
    * @example
    * true

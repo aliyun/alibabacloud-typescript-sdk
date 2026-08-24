@@ -15,9 +15,9 @@ export class GetRequestDiagnosisResultRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The unique ID of the diagnostic task.[](~~341609~~)
+   * The unique diagnosis ID returned by the [CreateRequestDiagnosis](https://help.aliyun.com/document_detail/341609.html) operation.
    * 
-   * >  If you set MessageId to the task ID of the automatic SQL optimization feature, no result is returned.
+   * > If `MessageId` is the diagnosis ID for automatic SQL optimization, this operation does not return diagnosis results.
    * 
    * This parameter is required.
    * 
@@ -29,7 +29,7 @@ export class GetRequestDiagnosisResultRequest extends $dara.Model {
    * @remarks
    * The node ID.
    * 
-   * >  You must specify the node ID if your database instance is a PolarDB for MySQL cluster, a PolarDB for PostgreSQL (compatible with Oracle) instance, or an ApsaraDB for MongoDB database.
+   * > This parameter is required for cluster instances such as PolarDB for MySQL, PolarDB for PostgreSQL (Oracle-compatible), and ApsaraDB for MongoDB.
    * 
    * @example
    * 202****
@@ -39,7 +39,7 @@ export class GetRequestDiagnosisResultRequest extends $dara.Model {
    * @remarks
    * The source of the task.
    * 
-   * >  This parameter is required if you call this operation in the DAS console. You do not need to specify this parameter when you call this operation.
+   * > This parameter is for internal use by the DAS console. You do not need to specify this parameter.
    * 
    * @example
    * None
@@ -49,7 +49,7 @@ export class GetRequestDiagnosisResultRequest extends $dara.Model {
    * @remarks
    * The SQL template ID.
    * 
-   * >  This parameter is required if you call this operation in the DAS console. You do not need to specify this parameter when you call this operation.
+   * > This parameter is for internal use by the DAS console. You do not need to specify this parameter.
    * 
    * @example
    * None

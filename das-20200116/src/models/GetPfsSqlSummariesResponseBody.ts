@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetPfsSqlSummariesResponseBodyDataList extends $dara.Model {
   /**
    * @remarks
-   * The average execution latency. Unit: millisecond.
+   * Average SQL execution duration, in milliseconds.
    * 
    * @example
    * 0.1717
@@ -13,7 +13,7 @@ export class GetPfsSqlSummariesResponseBodyDataList extends $dara.Model {
   avgLatency?: number;
   /**
    * @remarks
-   * The total number of executions.
+   * Total number of executions.
    * 
    * @example
    * 100000
@@ -21,7 +21,7 @@ export class GetPfsSqlSummariesResponseBodyDataList extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The percentage of the number of executions.
+   * Percentage of total executions.
    * 
    * @example
    * 0.0586
@@ -29,7 +29,7 @@ export class GetPfsSqlSummariesResponseBodyDataList extends $dara.Model {
   countRate?: number;
   /**
    * @remarks
-   * The ratio of the CPU execution duration to the total execution duration of the SQL statement.
+   * Ratio of CPU execution time to total SQL execution time.
    * 
    * @example
    * 0
@@ -37,7 +37,7 @@ export class GetPfsSqlSummariesResponseBodyDataList extends $dara.Model {
   cpuRate?: number;
   /**
    * @remarks
-   * The CPU execution duration. Unit: millisecond.
+   * CPU runtime, in milliseconds.
    * 
    * @example
    * 0
@@ -45,7 +45,7 @@ export class GetPfsSqlSummariesResponseBodyDataList extends $dara.Model {
   cpuTime?: number;
   /**
    * @remarks
-   * The data read duration. Unit: millisecond.
+   * Data read time, in milliseconds.
    * 
    * @example
    * 0
@@ -53,7 +53,7 @@ export class GetPfsSqlSummariesResponseBodyDataList extends $dara.Model {
   dataReadTime?: number;
   /**
    * @remarks
-   * The number of nodes from which data can be read.
+   * Number of readable data nodes.
    * 
    * @example
    * 0
@@ -61,7 +61,7 @@ export class GetPfsSqlSummariesResponseBodyDataList extends $dara.Model {
   dataReads?: number;
   /**
    * @remarks
-   * The data write duration. Unit: millisecond.
+   * Data write time, in milliseconds.
    * 
    * @example
    * 0
@@ -69,7 +69,7 @@ export class GetPfsSqlSummariesResponseBodyDataList extends $dara.Model {
   dataWriteTime?: number;
   /**
    * @remarks
-   * The number of nodes to which data can be written.
+   * Number of writable data nodes.
    * 
    * @example
    * 0
@@ -77,7 +77,7 @@ export class GetPfsSqlSummariesResponseBodyDataList extends $dara.Model {
   dataWrites?: number;
   /**
    * @remarks
-   * The name of the database.
+   * Database name.
    * 
    * @example
    * testDB
@@ -85,7 +85,7 @@ export class GetPfsSqlSummariesResponseBodyDataList extends $dara.Model {
   db?: string;
   /**
    * @remarks
-   * The execution duration. Unit: millisecond.
+   * Actual runtime, in milliseconds.
    * 
    * @example
    * 0
@@ -93,7 +93,7 @@ export class GetPfsSqlSummariesResponseBodyDataList extends $dara.Model {
   elapsedTime?: number;
   /**
    * @remarks
-   * The number of errors.
+   * Number of errors.
    * 
    * @example
    * 0
@@ -101,7 +101,7 @@ export class GetPfsSqlSummariesResponseBodyDataList extends $dara.Model {
   errCount?: number;
   /**
    * @remarks
-   * The time when the SQL statement was executed for the first time. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * First execution time, in Unix time format, in milliseconds.
    * 
    * @example
    * 1659308149000
@@ -109,10 +109,11 @@ export class GetPfsSqlSummariesResponseBodyDataList extends $dara.Model {
   firstTime?: number;
   /**
    * @remarks
-   * Indicates whether full table scan was enabled. Valid values:
+   * Indicates whether a full table scan occurred. Valid values:
    * 
-   * * **true**
-   * * **false**
+   * - **true**: Yes.
+   * 
+   * - **false**: No.
    * 
    * @example
    * true
@@ -120,7 +121,7 @@ export class GetPfsSqlSummariesResponseBodyDataList extends $dara.Model {
   fullScan?: boolean;
   /**
    * @remarks
-   * The primary key ID.
+   * Primary key ID.
    * 
    * @example
    * 26186357
@@ -128,7 +129,7 @@ export class GetPfsSqlSummariesResponseBodyDataList extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The instance ID.
+   * Instance ID.
    * 
    * @example
    * rm-2ze8g2am97624****
@@ -136,7 +137,7 @@ export class GetPfsSqlSummariesResponseBodyDataList extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The time when the SQL statement was last modified. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * Last update time, in Unix time format, in milliseconds.
    * 
    * @example
    * 1661306520000
@@ -144,7 +145,7 @@ export class GetPfsSqlSummariesResponseBodyDataList extends $dara.Model {
   lastTime?: number;
   /**
    * @remarks
-   * The average lock wait latency. Unit: millisecond.
+   * Average lock wait time, in milliseconds.
    * 
    * @example
    * 0
@@ -152,7 +153,7 @@ export class GetPfsSqlSummariesResponseBodyDataList extends $dara.Model {
   lockLatencyAvg?: number;
   /**
    * @remarks
-   * The logical database ID.
+   * Logical database ID.
    * 
    * @example
    * 58275984
@@ -160,7 +161,7 @@ export class GetPfsSqlSummariesResponseBodyDataList extends $dara.Model {
   logicId?: number;
   /**
    * @remarks
-   * The number of logical nodes.
+   * Number of logical nodes.
    * 
    * @example
    * 0
@@ -168,7 +169,7 @@ export class GetPfsSqlSummariesResponseBodyDataList extends $dara.Model {
   logicReads?: number;
   /**
    * @remarks
-   * The maximum execution latency. Unit: millisecond.
+   * Maximum execution duration, in milliseconds.
    * 
    * @example
    * 36.233
@@ -176,7 +177,7 @@ export class GetPfsSqlSummariesResponseBodyDataList extends $dara.Model {
   maxLatency?: number;
   /**
    * @remarks
-   * The number of mutex spins.
+   * Number of mutex spins.
    * 
    * @example
    * 1
@@ -184,7 +185,7 @@ export class GetPfsSqlSummariesResponseBodyDataList extends $dara.Model {
   mutexSpins?: number;
   /**
    * @remarks
-   * The number of mutex waits.
+   * Number of mutex waits.
    * 
    * @example
    * 1
@@ -192,9 +193,9 @@ export class GetPfsSqlSummariesResponseBodyDataList extends $dara.Model {
   mutexWaits?: number;
   /**
    * @remarks
-   * The node ID.
+   * Node ID.
    * 
-   * >  This parameter is returned only if the database instance is an ApsaraDB RDS for MySQL Cluster Edition instance or a PolarDB for MySQL cluster.
+   * > This parameter is returned for ApsaraDB RDS for MySQL Cluster Edition or PolarDB for MySQL database instances.
    * 
    * @example
    * r-x****-db-0
@@ -202,7 +203,7 @@ export class GetPfsSqlSummariesResponseBodyDataList extends $dara.Model {
   nodeId?: string;
   /**
    * @remarks
-   * The number of physical asynchronous nodes.
+   * Number of physical asynchronous nodes.
    * 
    * @example
    * 0
@@ -210,7 +211,7 @@ export class GetPfsSqlSummariesResponseBodyDataList extends $dara.Model {
   physicalAsyncReads?: number;
   /**
    * @remarks
-   * The number of physical nodes.
+   * Number of physical nodes.
    * 
    * @example
    * 0
@@ -218,7 +219,7 @@ export class GetPfsSqlSummariesResponseBodyDataList extends $dara.Model {
   physicalReads?: number;
   /**
    * @remarks
-   * The SQL template.
+   * SQL template.
    * 
    * @example
    * select ?
@@ -226,7 +227,7 @@ export class GetPfsSqlSummariesResponseBodyDataList extends $dara.Model {
   psql?: string;
   /**
    * @remarks
-   * The number of redo nodes.
+   * Number of redo nodes.
    * 
    * @example
    * 0
@@ -234,7 +235,7 @@ export class GetPfsSqlSummariesResponseBodyDataList extends $dara.Model {
   redoWrites?: number;
   /**
    * @remarks
-   * The number of rows that are affected by the SQL statement.
+   * Number of rows affected.
    * 
    * @example
    * 0
@@ -242,7 +243,7 @@ export class GetPfsSqlSummariesResponseBodyDataList extends $dara.Model {
   rowsAffected?: number;
   /**
    * @remarks
-   * The average number of rows affected by the SQL statement.
+   * Average number of rows affected.
    * 
    * @example
    * 0
@@ -250,7 +251,7 @@ export class GetPfsSqlSummariesResponseBodyDataList extends $dara.Model {
   rowsAffectedAvg?: number;
   /**
    * @remarks
-   * The total number of scanned rows.
+   * Total number of rows scanned.
    * 
    * @example
    * 100
@@ -258,7 +259,7 @@ export class GetPfsSqlSummariesResponseBodyDataList extends $dara.Model {
   rowsExamined?: number;
   /**
    * @remarks
-   * The average number of scanned rows.
+   * Average number of rows scanned.
    * 
    * @example
    * 0
@@ -266,7 +267,7 @@ export class GetPfsSqlSummariesResponseBodyDataList extends $dara.Model {
   rowsExaminedAvg?: number;
   /**
    * @remarks
-   * The average number of returned rows.
+   * Average number of rows sent.
    * 
    * @example
    * 0
@@ -274,7 +275,7 @@ export class GetPfsSqlSummariesResponseBodyDataList extends $dara.Model {
   rowsSendAvg?: number;
   /**
    * @remarks
-   * The number of rows returned by the SQL statement.
+   * Number of rows returned.
    * 
    * @example
    * 0
@@ -282,7 +283,7 @@ export class GetPfsSqlSummariesResponseBodyDataList extends $dara.Model {
   rowsSent?: number;
   /**
    * @remarks
-   * The average number of rows returned for the SQL statement.
+   * Average number of rows returned per SQL statement.
    * 
    * @example
    * 0.52
@@ -290,7 +291,7 @@ export class GetPfsSqlSummariesResponseBodyDataList extends $dara.Model {
   rowsSentAvg?: number;
   /**
    * @remarks
-   * The number of sorted rows.
+   * Number of rows sorted.
    * 
    * @example
    * 0
@@ -298,7 +299,7 @@ export class GetPfsSqlSummariesResponseBodyDataList extends $dara.Model {
   rowsSorted?: number;
   /**
    * @remarks
-   * The execution duration percentage.
+   * Percentage of total execution duration.
    * 
    * @example
    * 0.1384
@@ -306,10 +307,11 @@ export class GetPfsSqlSummariesResponseBodyDataList extends $dara.Model {
   rtRate?: number;
   /**
    * @remarks
-   * Indicates whether read/write splitting was enabled. Valid values:
+   * Indicates whether read/write splitting is enabled. Valid values:
    * 
-   * * **0:** Read/write splitting was disabled.
-   * * **1:** Read/write splitting was enabled.
+   * - **0**: Disabled.
+   * 
+   * - **1**: Enabled.
    * 
    * @example
    * 0
@@ -317,7 +319,7 @@ export class GetPfsSqlSummariesResponseBodyDataList extends $dara.Model {
   rwlockOsWaits?: number;
   /**
    * @remarks
-   * The read/write splitting parameters.
+   * Read/write splitting parameter.
    * 
    * @example
    * 0
@@ -325,10 +327,11 @@ export class GetPfsSqlSummariesResponseBodyDataList extends $dara.Model {
   rwlockSpinRounds?: number;
   /**
    * @remarks
-   * Indices whether multi-index scanning was enabled. Valid values:
+   * Indicates whether multiple index scans are enabled. Valid values:
    * 
-   * * **0:** Multi-index scanning was disabled.
-   * * **1:** Multi-index scanning was enabled.
+   * - **0**: Disabled.
+   * 
+   * - **1**: Enabled.
    * 
    * @example
    * 0
@@ -336,9 +339,8 @@ export class GetPfsSqlSummariesResponseBodyDataList extends $dara.Model {
   rwlockSpinWaits?: number;
   /**
    * @remarks
-   * The average number of joins that performed table scans without using indexes.
-   * 
-   * > If the value of this parameter is not 0, check the table indexes.
+   * The average number of connections that perform table scans without using an index.
+   * >Notice: If this parameter value is not 0, carefully check the indexes of the table.
    * 
    * @example
    * 0
@@ -346,7 +348,7 @@ export class GetPfsSqlSummariesResponseBodyDataList extends $dara.Model {
   selectFullJoinAvg?: number;
   /**
    * @remarks
-   * The average number of joins that selected a range.
+   * Average number of range joins.
    * 
    * @example
    * 0
@@ -354,7 +356,7 @@ export class GetPfsSqlSummariesResponseBodyDataList extends $dara.Model {
   selectFullRangeJoinAvg?: number;
   /**
    * @remarks
-   * The average selected range.
+   * Average range selection.
    * 
    * @example
    * 0
@@ -362,7 +364,7 @@ export class GetPfsSqlSummariesResponseBodyDataList extends $dara.Model {
   selectRangeAvg?: number;
   /**
    * @remarks
-   * The average number of scanned rows.
+   * Average number of scans.
    * 
    * @example
    * 0
@@ -370,7 +372,7 @@ export class GetPfsSqlSummariesResponseBodyDataList extends $dara.Model {
   selectScanAvg?: number;
   /**
    * @remarks
-   * The semi-synchronous replication latency. Unit: millisecond.
+   * Semi-synchronous replication delay, in milliseconds.
    * 
    * @example
    * 0.12
@@ -378,7 +380,7 @@ export class GetPfsSqlSummariesResponseBodyDataList extends $dara.Model {
   semisyncDelayTime?: number;
   /**
    * @remarks
-   * The amount of time consumed for locking the server. Unit: millisecond.
+   * Server lock time, in milliseconds.
    * 
    * @example
    * 0
@@ -386,7 +388,7 @@ export class GetPfsSqlSummariesResponseBodyDataList extends $dara.Model {
   serverLockTime?: number;
   /**
    * @remarks
-   * The number of merges that the sorting algorithm must perform.
+   * Number of merge passes required by the sort algorithm.
    * 
    * @example
    * 0
@@ -394,7 +396,7 @@ export class GetPfsSqlSummariesResponseBodyDataList extends $dara.Model {
   sortMergePasses?: number;
   /**
    * @remarks
-   * The average number of sorts that were performed by using a range.
+   * Average number of range-based sorts.
    * 
    * @example
    * 0
@@ -402,7 +404,7 @@ export class GetPfsSqlSummariesResponseBodyDataList extends $dara.Model {
   sortRangeAvg?: number;
   /**
    * @remarks
-   * The average number of sorted rows.
+   * Average number of sorted rows.
    * 
    * @example
    * 0
@@ -410,7 +412,7 @@ export class GetPfsSqlSummariesResponseBodyDataList extends $dara.Model {
   sortRowsAvg?: number;
   /**
    * @remarks
-   * The average number of sorts that were performed during table scans.
+   * Average number of sorted scans.
    * 
    * @example
    * 0
@@ -418,7 +420,7 @@ export class GetPfsSqlSummariesResponseBodyDataList extends $dara.Model {
   sortScanAvg?: number;
   /**
    * @remarks
-   * The SQL template ID.
+   * SQL template ID.
    * 
    * @example
    * 2e8147b5ca2dfc640dfd5e43d96a****
@@ -426,11 +428,13 @@ export class GetPfsSqlSummariesResponseBodyDataList extends $dara.Model {
   sqlId?: string;
   /**
    * @remarks
-   * The type of the SQL statement. Valid values:
+   * SQL type. Valid values:
    * 
-   * * **SELECT**
-   * * **UPDATE**
-   * * **DELETE**
+   * - **SELECT**
+   * 
+   * - **UPDATE**
+   * 
+   * - **DELETE**
    * 
    * @example
    * SELECT
@@ -438,12 +442,12 @@ export class GetPfsSqlSummariesResponseBodyDataList extends $dara.Model {
   sqlType?: string;
   /**
    * @remarks
-   * The names of tables in the database.
+   * Database table names.
    */
   tables?: string[];
   /**
    * @remarks
-   * The reserved parameter.
+   * Reserved parameter.
    * 
    * @example
    * None
@@ -451,7 +455,7 @@ export class GetPfsSqlSummariesResponseBodyDataList extends $dara.Model {
   timerWaitAvg?: number;
   /**
    * @remarks
-   * The data timestamp. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * Data timestamp in Unix time format, in milliseconds.
    * 
    * @example
    * 1643040000000
@@ -459,7 +463,7 @@ export class GetPfsSqlSummariesResponseBodyDataList extends $dara.Model {
   timestamp?: number;
   /**
    * @remarks
-   * The number of on-disk temporary tables.
+   * Number of temporary disk tables.
    * 
    * @example
    * 0
@@ -467,7 +471,7 @@ export class GetPfsSqlSummariesResponseBodyDataList extends $dara.Model {
   tmpDiskTables?: number;
   /**
    * @remarks
-   * The average number of on-disk temporary tables.
+   * Average number of temporary disk tables.
    * 
    * @example
    * 0
@@ -475,7 +479,7 @@ export class GetPfsSqlSummariesResponseBodyDataList extends $dara.Model {
   tmpDiskTablesAvg?: number;
   /**
    * @remarks
-   * The number of temporary tables.
+   * Number of temporary tables.
    * 
    * @example
    * 0
@@ -483,7 +487,7 @@ export class GetPfsSqlSummariesResponseBodyDataList extends $dara.Model {
   tmpTables?: number;
   /**
    * @remarks
-   * The average number of temporary tables.
+   * Average number of temporary tables.
    * 
    * @example
    * 0
@@ -491,7 +495,7 @@ export class GetPfsSqlSummariesResponseBodyDataList extends $dara.Model {
   tmpTablesAvg?: number;
   /**
    * @remarks
-   * The execution latency. Unit: millisecond.
+   * Total execution duration, in milliseconds.
    * 
    * @example
    * 60913.256
@@ -499,7 +503,7 @@ export class GetPfsSqlSummariesResponseBodyDataList extends $dara.Model {
   totalLatency?: number;
   /**
    * @remarks
-   * The amount of time consumed for locking the storage transaction. Unit: millisecond.
+   * Transaction lock time, in milliseconds.
    * 
    * @example
    * 0
@@ -507,7 +511,7 @@ export class GetPfsSqlSummariesResponseBodyDataList extends $dara.Model {
   transactionLockTime?: number;
   /**
    * @remarks
-   * The user ID.
+   * User ID.
    * 
    * @example
    * 196278346919****
@@ -515,7 +519,7 @@ export class GetPfsSqlSummariesResponseBodyDataList extends $dara.Model {
   userId?: string;
   /**
    * @remarks
-   * The number of warnings.
+   * Number of warnings.
    * 
    * @example
    * 0
@@ -672,7 +676,7 @@ export class GetPfsSqlSummariesResponseBodyDataList extends $dara.Model {
 export class GetPfsSqlSummariesResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The reserved parameter.
+   * Reserved parameter.
    * 
    * @example
    * None
@@ -680,12 +684,12 @@ export class GetPfsSqlSummariesResponseBodyData extends $dara.Model {
   extra?: any;
   /**
    * @remarks
-   * The details of the data returned.
+   * Detailed information list.
    */
   list?: GetPfsSqlSummariesResponseBodyDataList[];
   /**
    * @remarks
-   * The page number.
+   * Page number.
    * 
    * @example
    * 1
@@ -693,7 +697,7 @@ export class GetPfsSqlSummariesResponseBodyData extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * Maximum number of records per page.
    * 
    * @example
    * 10
@@ -701,7 +705,7 @@ export class GetPfsSqlSummariesResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of entries returned.
+   * Total number of records.
    * 
    * @example
    * 264
@@ -742,7 +746,7 @@ export class GetPfsSqlSummariesResponseBodyData extends $dara.Model {
 export class GetPfsSqlSummariesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code returned.
+   * Response status code.
    * 
    * @example
    * 200
@@ -750,14 +754,14 @@ export class GetPfsSqlSummariesResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The returned data.
+   * Response data.
    */
   data?: GetPfsSqlSummariesResponseBodyData;
   /**
    * @remarks
-   * The returned message.
+   * Response message.
    * 
-   * >  If the request was successful, **Successful** is returned. If the request failed, an error message such as an error code is returned.
+   * > If the request succeeds, this parameter returns **Successful**. If it fails, it returns error details such as an error code.
    * 
    * @example
    * Successful
@@ -765,7 +769,7 @@ export class GetPfsSqlSummariesResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * Request ID.
    * 
    * @example
    * 54F3DBAE-9420-511A-9C29-265E8C04****
@@ -773,10 +777,11 @@ export class GetPfsSqlSummariesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the request succeeded:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: Succeeded.
+   * 
+   * - **false**: Failed.
    * 
    * @example
    * true

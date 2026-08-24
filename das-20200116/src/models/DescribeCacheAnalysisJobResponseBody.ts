@@ -426,7 +426,7 @@ export class DescribeCacheAnalysisJobResponseBodyData extends $dara.Model {
    * @remarks
    * The message that is returned for the request.
    * 
-   * >  If the request is successful, **Successful** is returned. If the request fails, an error message that contains information such as an error code is returned.
+   * > If the request is successful, **Successful** is returned. If the request fails, an error message that contains information such as an error code is returned.
    * 
    * @example
    * Successful
@@ -444,10 +444,13 @@ export class DescribeCacheAnalysisJobResponseBodyData extends $dara.Model {
    * @remarks
    * The state of the cache analysis task. Valid values:
    * 
-   * *   **BACKUP**: The data is being backed up.
-   * *   **ANALYZING**: The data is being analyzed.
-   * *   **FINISHED**: The data is analyzed.
-   * *   **FAILED**: An error occurred.
+   * - **BACKUP**: The data is being backed up.
+   * 
+   * - **ANALYZING**: The data is being analyzed.
+   * 
+   * - **FINISHED**: The data is analyzed.
+   * 
+   * - **FAILED**: An error occurred.
    * 
    * @example
    * BACKUP
@@ -532,7 +535,7 @@ export class DescribeCacheAnalysisJobResponseBody extends $dara.Model {
    * @remarks
    * The message that is returned for the request.
    * 
-   * >  If the request is successful, **Successful** is returned. If the request fails, an error message that contains information such as an error code is returned.
+   * > If the request is successful, **Successful** is returned. If the request fails, an error message that contains information such as an error code is returned.
    * 
    * @example
    * Successful
@@ -550,8 +553,9 @@ export class DescribeCacheAnalysisJobResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**
+   * 
+   * - **false**
    * 
    * @example
    * true

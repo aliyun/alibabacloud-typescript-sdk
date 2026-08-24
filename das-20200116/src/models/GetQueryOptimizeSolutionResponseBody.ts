@@ -7,8 +7,9 @@ export class GetQueryOptimizeSolutionResponseBodyDataList extends $dara.Model {
    * @remarks
    * The severity level. Valid values:
    * 
-   * * **INFO**
-   * * **WARN**
+   * - **INFO**
+   * 
+   * - **WARN**
    * 
    * @example
    * INFO
@@ -169,8 +170,9 @@ export class GetQueryOptimizeSolutionResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**
+   * 
+   * - **false**
    * 
    * @example
    * true

@@ -78,7 +78,7 @@ export class DescribeTopHotKeysResponseBodyData extends $dara.Model {
 export class DescribeTopHotKeysResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The response code.
    * 
    * @example
    * 200
@@ -87,7 +87,7 @@ export class DescribeTopHotKeysResponseBody extends $dara.Model {
   data?: DescribeTopHotKeysResponseBodyData;
   /**
    * @remarks
-   * The returned message.
+   * The response message.
    * 
    * @example
    * Successful
@@ -105,8 +105,9 @@ export class DescribeTopHotKeysResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * *   **true**: The request was successful.
-   * *   **false**: The request failed.
+   * - **true**: The request was successful.
+   * 
+   * - **false**: The request failed.
    * 
    * @example
    * true

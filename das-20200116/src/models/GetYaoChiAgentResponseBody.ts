@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetYaoChiAgentResponseBodyFunctionCall extends $dara.Model {
   /**
+   * @remarks
+   * The parameters of the called tool.
+   * 
    * @example
    * {"arg": "xxx"}
    */
   arguments?: string;
   /**
+   * @remarks
+   * The tool ID.
+   * 
    * @example
-   * 123447
+   * 12345
    */
   id?: string;
   /**
+   * @remarks
+   * The name of the called tool.
+   * 
    * @example
    * sqlReview
    */
   name?: string;
   /**
+   * @remarks
+   * The tool calling invoke status.
+   * 
    * @example
    * RUNNING
    */
@@ -51,8 +63,29 @@ export class GetYaoChiAgentResponseBodyFunctionCall extends $dara.Model {
 }
 
 export class GetYaoChiAgentResponseBodySubAgentCall extends $dara.Model {
+  /**
+   * @remarks
+   * The sub-agent status.
+   * 
+   * @example
+   * running
+   */
   status?: string;
+  /**
+   * @remarks
+   * The sub-agent ID.
+   * 
+   * @example
+   * 12345
+   */
   subAgentId?: string;
+  /**
+   * @remarks
+   * The sub-agent name.
+   * 
+   * @example
+   * XX Agent
+   */
   subAgentName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -81,11 +114,17 @@ export class GetYaoChiAgentResponseBodySubAgentCall extends $dara.Model {
 
 export class GetYaoChiAgentResponseBodyUiFunctionCall extends $dara.Model {
   /**
+   * @remarks
+   * The parameters of the card tool.
+   * 
    * @example
    * {"arg": "xxx"}
    */
   argsText?: string;
   /**
+   * @remarks
+   * The name of the card tool.
+   * 
    * @example
    * card
    */
@@ -115,38 +154,75 @@ export class GetYaoChiAgentResponseBodyUiFunctionCall extends $dara.Model {
 
 export class GetYaoChiAgentResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response content.
+   * 
    * @example
    * xxx
    */
   content?: string;
+  /**
+   * @remarks
+   * The tool calling invoke list.
+   */
   functionCall?: GetYaoChiAgentResponseBodyFunctionCall[];
+  /**
+   * @remarks
+   * The ParentId field. This field exists only when the message is output by a sub-agent, and the value is the sub-agent ID.
+   * 
+   * @example
+   * 12345
+   */
   parentId?: string;
   /**
+   * @remarks
+   * The cloud service type.
+   * 
    * @example
    * polardb
    */
   product?: string;
   /**
+   * @remarks
+   * The query ID. This value is the same as the QueryId request parameter.
+   * 
    * @example
    * 123e4567-e89b-12d3-a456-xxxxxxxxxxxx
    */
   queryId?: string;
   /**
+   * @remarks
+   * The reasoning content of the model.
+   * 
    * @example
    * xxx
    */
   reasoningContent?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 7172BECE-588A-5961-8126-C216E16B****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The session ID. This value is the same as the SessionId request parameter.
+   * 
    * @example
    * 123e4567-e89b-12d3-a456-xxxxxxxxxxxx
    */
   sessionId?: string;
+  /**
+   * @remarks
+   * The list of sub-agent call information.
+   */
   subAgentCall?: GetYaoChiAgentResponseBodySubAgentCall[];
+  /**
+   * @remarks
+   * The card tool calling invoke list.
+   */
   uiFunctionCall?: GetYaoChiAgentResponseBodyUiFunctionCall[];
   static names(): { [key: string]: string } {
     return {

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSecurityIPGroupRelationRequest extends $dara.Model {
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class DescribeSecurityIPGroupRelationRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeSlowLogHistogramAsyncRequestFilters extends $dara.Model {
   /**
+   * @remarks
+   * The filter parameter.
+   * 
    * @example
    * None
    */
   key?: string;
   /**
+   * @remarks
+   * The value of the filter parameter.
+   * 
    * @example
    * None
    */
@@ -39,15 +45,24 @@ export class DescribeSlowLogHistogramAsyncRequestFilters extends $dara.Model {
 export class DescribeSlowLogHistogramAsyncRequest extends $dara.Model {
   /**
    * @remarks
+   * The end time of the query. Specify a UNIX timestamp in milliseconds.
+   * > The end time must be later than the start time.
+   * 
    * This parameter is required.
    * 
    * @example
    * 1662518540764
    */
   endTime?: number;
+  /**
+   * @remarks
+   * The list of query filter conditions.
+   */
   filters?: DescribeSlowLogHistogramAsyncRequestFilters[];
   /**
    * @remarks
+   * The database instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -55,12 +70,18 @@ export class DescribeSlowLogHistogramAsyncRequest extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The node ID.
+   * > For PolarDB for MySQL instances, specify the node ID.
+   * 
    * @example
    * r-****-db-0
    */
   nodeId?: string;
   /**
    * @remarks
+   * The start time of the query. Specify a UNIX timestamp in milliseconds.
+   * 
    * This parameter is required.
    * 
    * @example

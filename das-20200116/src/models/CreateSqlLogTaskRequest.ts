@@ -7,7 +7,7 @@ export class CreateSqlLogTaskRequestFilters extends $dara.Model {
    * @remarks
    * The name of the filter parameter.
    * 
-   * >  For more information about the supported filter parameters and their valid values, see the following **supplement about the Key parameter**.
+   * > For the supported filter parameters and values, see **Request parameters description**.
    * 
    * @example
    * KeyWords
@@ -47,7 +47,7 @@ export class CreateSqlLogTaskRequestFilters extends $dara.Model {
 export class CreateSqlLogTaskRequest extends $dara.Model {
   /**
    * @remarks
-   * The end of the time range to query. Specify the time in the UNIX timestamp format. Unit: milliseconds.
+   * The end time of the task. Specify the value as a UNIX timestamp. Unit: milliseconds.
    * 
    * This parameter is required.
    * 
@@ -57,12 +57,12 @@ export class CreateSqlLogTaskRequest extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * The filter conditions.
+   * The list of filter conditions.
    */
   filters?: CreateSqlLogTaskRequestFilters[];
   /**
    * @remarks
-   * The ID of the database instance.
+   * The database instance ID.
    * 
    * @example
    * pc-2ze8g2am97624****
@@ -70,28 +70,28 @@ export class CreateSqlLogTaskRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The name of the task.
+   * The task name.
    * 
    * @example
-   * test01
+   * SQL audit export 1
    */
   name?: string;
   /**
    * @remarks
    * The node ID.
-   * 
-   * >  This parameter is available only for instances that run in a cluster architecture. You can specify this parameter to query the offline tasks of a specific node. By default, if this parameter is not specified, the information about the offline tasks of the primary node is returned.
+   * >This parameter is applicable only to cluster instances. You can specify this parameter to query the batch task of a specific node. If you do not specify this parameter, the batch task of the primary node is returned by default.
    * 
    * @example
-   * pi-uf6k5f6g3912i0dqz
+   * pi-uf6k5f6g3912i****
    */
   nodeId?: string;
   /**
    * @remarks
-   * The role of the node of the PolarDB-X 2.0 database instance. Valid values:
+   * The node information of the PolarDB-X 2.0 database instance.
    * 
-   * *   **polarx_cn**: compute node
-   * *   **polarx_dn**: data node
+   * - **polarx_cn**: compute node.
+   * 
+   * - **polarx_dn**: data node.
    * 
    * @example
    * polarx_cn
@@ -99,7 +99,7 @@ export class CreateSqlLogTaskRequest extends $dara.Model {
   role?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. Specify the time in the UNIX timestamp format. Unit: milliseconds.
+   * The start time of the task. Specify the value as a UNIX timestamp. Unit: milliseconds.
    * 
    * This parameter is required.
    * 
@@ -109,11 +109,11 @@ export class CreateSqlLogTaskRequest extends $dara.Model {
   startTime?: number;
   /**
    * @remarks
-   * The type of the task. Valid values:
+   * The task type.
    * 
-   * *   **Export**
-   * *   **Query**
-   * *   **Insight**
+   * - **Export**: export task.
+   * > For the filter parameters and values supported by **Export**, see **Request parameters description**.
+   * - **Query**: query task.
    * 
    * @example
    * Export

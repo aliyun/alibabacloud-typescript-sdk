@@ -4,31 +4,53 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModifySecurityIPGroupResponseBodyDataGlobalSecurityIPGroup extends $dara.Model {
   /**
+   * @remarks
+   * The IP addresses in the whitelist template.
+   * 
+   * > Separate multiple IP addresses with commas. All IP address whitelists support a combined total of 1,000 IP addresses or address segments.
+   * 
    * @example
    * 192.168.0.1
    */
   GIpList?: string;
   /**
+   * @remarks
+   * The name of the IP address whitelist template.
+   * 
    * @example
    * test
    */
   globalIgName?: string;
   /**
+   * @remarks
+   * The ID of the IP address whitelist template.
+   * 
    * @example
    * g-b1asblm5ae****
    */
   globalSecurityGroupId?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
+   * Example: cn-hangzhou
+   * 
    * @example
    * cn-beijing
    */
   regionId?: string;
   /**
+   * @remarks
+   * The IP type.
+   * 
    * @example
    * ipv4
    */
   securityIpType?: string;
   /**
+   * @remarks
+   * The network type of the whitelist.
+   * 
    * @example
    * mix
    */
@@ -65,6 +87,10 @@ export class ModifySecurityIPGroupResponseBodyDataGlobalSecurityIPGroup extends 
 }
 
 export class ModifySecurityIPGroupResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The information about the cross-product whitelist template.
+   */
   globalSecurityIPGroup?: ModifySecurityIPGroupResponseBodyDataGlobalSecurityIPGroup[];
   static names(): { [key: string]: string } {
     return {
@@ -92,26 +118,44 @@ export class ModifySecurityIPGroupResponseBodyData extends $dara.Model {
 
 export class ModifySecurityIPGroupResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The status code.
+   * 
    * @example
    * 200
    */
   code?: string;
   /**
    * @remarks
-   * ListResult<InstanceSSL>
+   * The returned data.
    */
   data?: ModifySecurityIPGroupResponseBodyData;
   /**
+   * @remarks
+   * The returned message.
+   * 
+   * > If the request is successful, **Successful** is returned. If the request fails, an error message is returned, such as an error code.
+   * 
    * @example
    * Successful
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * B6D17591-B48B-4D31-9CD6-9B9796B2****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful:
+   * 
+   * - **true**: The request was successful.
+   * 
+   * - **false**: The request failed.
+   * 
    * @example
    * true
    */

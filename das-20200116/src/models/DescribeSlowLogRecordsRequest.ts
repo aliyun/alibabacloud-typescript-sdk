@@ -4,11 +4,19 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeSlowLogRecordsRequestFilters extends $dara.Model {
   /**
+   * @remarks
+   * The filter parameter.
+   * 
+   * > For more information, refer to the supplementary description.
+   * 
    * @example
    * None
    */
   key?: string;
   /**
+   * @remarks
+   * The value of the filter parameter.
+   * 
    * @example
    * None
    */
@@ -38,21 +46,35 @@ export class DescribeSlowLogRecordsRequestFilters extends $dara.Model {
 
 export class DescribeSlowLogRecordsRequest extends $dara.Model {
   /**
+   * @remarks
+   * Specifies whether to sort results in ascending order. Default value: **true**.
+   * 
+   * - **true**: ascending order.
+   * - **false**: descending order.
+   * 
    * @example
    * true
    */
   asc?: boolean;
   /**
    * @remarks
+   * The end time.
+   * 
    * This parameter is required.
    * 
    * @example
    * 1634972640000
    */
   endTime?: number;
+  /**
+   * @remarks
+   * The list of filter conditions.
+   */
   filters?: DescribeSlowLogRecordsRequestFilters[];
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -60,27 +82,56 @@ export class DescribeSlowLogRecordsRequest extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The node ID.
+   * 
    * @example
    * pi-d9j9fe7wq7t9i****
    */
   nodeId?: string;
   /**
+   * @remarks
+   * - **MySQL** 
+   *   - QueryTimeSeconds: query duration in seconds.
+   *   - LockTimeSeconds: lock time in seconds.
+   *   - RowsSent: rows sent.
+   *   - RowsExamined: rows examined.
+   * - **Redis**
+   *   - QueryTime: query duration.
+   *   - Timestamp: execution end time.
+   * - **MongoDB**
+   *   - QueryTime: query duration.
+   *   - Timestamp: execution end time.
+   *   - KeysExamined: keys examined.
+   *   - DocExamined: documents examined.
+   *   - ReturnNum: rows returned.
+   * 
+   * <notice>RDS PostgreSQL, PolarDB for PostgreSQL, and SQL Server do not support sorting.</notice>
+   * 
    * @example
    * QueryTimeSeconds
    */
   orderBy?: string;
   /**
+   * @remarks
+   * The page number. Pages start from page 1.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
    * @remarks
+   * The start time.
+   * 
    * This parameter is required.
    * 
    * @example

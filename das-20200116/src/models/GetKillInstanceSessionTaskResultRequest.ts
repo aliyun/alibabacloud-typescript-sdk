@@ -17,7 +17,7 @@ export class GetKillInstanceSessionTaskResultRequest extends $dara.Model {
    * @remarks
    * The node ID.
    * 
-   * >  You must specify this parameter if your database instance is a PolarDB for MySQL cluster.
+   * > You must specify this parameter if your database instance is a PolarDB for MySQL cluster.
    * 
    * @example
    * pi-8vbkfj5a756um****

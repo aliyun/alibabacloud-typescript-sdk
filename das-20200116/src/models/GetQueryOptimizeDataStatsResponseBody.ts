@@ -15,8 +15,9 @@ export class GetQueryOptimizeDataStatsResponseBodyDataListRuleList extends $dara
    * @remarks
    * The type of the rule. Valid values:
    * 
-   * * **Predefined**
-   * * **UserDefined**
+   * - **Predefined**
+   * 
+   * - **UserDefined**
    * 
    * @example
    * Predefined
@@ -363,8 +364,9 @@ export class GetQueryOptimizeDataStatsResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * *   **true**: The request was successful.
-   * *   **false**: The request failed.
+   * - **true**: The request was successful.
+   * 
+   * - **false**: The request failed.
    * 
    * @example
    * true

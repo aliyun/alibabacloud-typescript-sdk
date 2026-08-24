@@ -191,7 +191,7 @@ export class DescribeCloudBenchTasksResponseBodyData extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The maximum number of records per page.
    * 
    * @example
    * 10
@@ -199,7 +199,7 @@ export class DescribeCloudBenchTasksResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of results.
    * 
    * @example
    * 2
@@ -240,7 +240,7 @@ export class DescribeCloudBenchTasksResponseBodyData extends $dara.Model {
 export class DescribeCloudBenchTasksResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The returned status code.
    * 
    * @example
    * 200
@@ -248,14 +248,13 @@ export class DescribeCloudBenchTasksResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The detailed information, including the error codes and the number of entries that are returned.
+   * The detailed information list, including the total number of entries and error codes.
    */
   data?: DescribeCloudBenchTasksResponseBodyData;
   /**
    * @remarks
    * The returned message.
-   * 
-   * >  If the request was successful, **Successful** is returned. If the request failed, an error message such as an error code is returned.
+   * >If the request is successful, **Successful** is returned. If the request fails, an error message such as an error code is returned.
    * 
    * @example
    * Successful
@@ -271,10 +270,10 @@ export class DescribeCloudBenchTasksResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the request is successful. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: The request is successful.
+   * - **false**: The request fails.
    * 
    * @example
    * true

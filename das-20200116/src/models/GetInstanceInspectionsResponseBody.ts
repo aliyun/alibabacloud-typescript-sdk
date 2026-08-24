@@ -7,9 +7,11 @@ export class GetInstanceInspectionsResponseBodyDataListAutoFunction extends $dar
    * @remarks
    * Indicates whether the feature of automatically creating and deleting indexes is enabled. Valid values:
    * 
-   * *   **0**: disabled.
-   * *   **1**: enabled.
-   * *   **2**: not supported.
+   * - **0**: disabled.
+   * 
+   * - **1**: enabled.
+   * 
+   * - **2**: not supported.
    * 
    * @example
    * 2
@@ -19,9 +21,11 @@ export class GetInstanceInspectionsResponseBodyDataListAutoFunction extends $dar
    * @remarks
    * Indicates whether the automatic throttling feature is enabled. Valid values:
    * 
-   * *   **0**: disabled.
-   * *   **1**: enabled.
-   * *   **2**: not supported.
+   * - **0**: disabled.
+   * 
+   * - **1**: enabled.
+   * 
+   * - **2**: not supported.
    * 
    * @example
    * 2
@@ -31,9 +35,11 @@ export class GetInstanceInspectionsResponseBodyDataListAutoFunction extends $dar
    * @remarks
    * Indicates whether the automatic fragment recycling feature is enabled. Valid values:
    * 
-   * *   **0**: disabled.
-   * *   **1**: enabled.
-   * *   **2**: not supported.
+   * - **0**: disabled.
+   * 
+   * - **1**: enabled.
+   * 
+   * - **2**: not supported.
    * 
    * @example
    * 0
@@ -43,9 +49,11 @@ export class GetInstanceInspectionsResponseBodyDataListAutoFunction extends $dar
    * @remarks
    * Indicates whether the auto scaling feature is enabled. Valid values:
    * 
-   * *   **0**: disabled.
-   * *   **1**: enabled.
-   * *   **2**: not supported.
+   * - **0**: disabled.
+   * 
+   * - **1**: enabled.
+   * 
+   * - **2**: not supported.
    * 
    * @example
    * 0
@@ -55,9 +63,11 @@ export class GetInstanceInspectionsResponseBodyDataListAutoFunction extends $dar
    * @remarks
    * Indicates whether the event subscription feature is enabled. Valid values:
    * 
-   * *   **0**: disabled.
-   * *   **1**: enabled.
-   * *   **2**: not supported.
+   * - **0**: disabled.
+   * 
+   * - **1**: enabled.
+   * 
+   * - **2**: not supported.
    * 
    * @example
    * 0
@@ -105,8 +115,9 @@ export class GetInstanceInspectionsResponseBodyDataListInstance extends $dara.Mo
    * @remarks
    * The connection mode of the instance. Valid values:
    * 
-   * *   **standard**: standard mode.
-   * *   **safe**: database proxy mode.
+   * - **standard**: standard mode.
+   * 
+   * - **safe**: database proxy mode.
    * 
    * @example
    * standard
@@ -124,9 +135,11 @@ export class GetInstanceInspectionsResponseBodyDataListInstance extends $dara.Mo
    * @remarks
    * The database engine. Valid values:
    * 
-   * *   **MySQL**
-   * *   **Redis**
-   * *   **PolarDBMySQL**
+   * - **MySQL**
+   * 
+   * - **Redis**
+   * 
+   * - **PolarDBMySQL**
    * 
    * @example
    * MySQL
@@ -152,11 +165,13 @@ export class GetInstanceInspectionsResponseBodyDataListInstance extends $dara.Mo
    * @remarks
    * The type of the instance on which the database is deployed. Valid values:
    * 
-   * *   **RDS**: an Alibaba Cloud database instance.
-   * *   **ECS**: an Elastic Compute Service (ECS) instance on which a self-managed database is deployed.
-   * *   **IDC**: a self-managed database instance that is not deployed on Alibaba Cloud.
+   * - **RDS**: an Alibaba Cloud database instance.
    * 
-   * >  The value IDC indicates that the instance is deployed in a data center.
+   * - **ECS**: an Elastic Compute Service (ECS) instance on which a self-managed database is deployed.
+   * 
+   * - **IDC**: a self-managed database instance that is not deployed on Alibaba Cloud.
+   * 
+   * > The value IDC indicates that the instance is deployed in a data center.
    * 
    * @example
    * RDS
@@ -303,9 +318,11 @@ export class GetInstanceInspectionsResponseBodyDataList extends $dara.Model {
    * @remarks
    * Indicates whether DAS Enterprise Edition is enabled. Valid values:
    * 
-   * *   **0**: disabled.
-   * *   **1**: enabled.
-   * *   **2**: not supported.
+   * - **0**: disabled.
+   * 
+   * - **1**: enabled.
+   * 
+   * - **2**: not supported.
    * 
    * @example
    * 0
@@ -315,7 +332,7 @@ export class GetInstanceInspectionsResponseBodyDataList extends $dara.Model {
    * @remarks
    * The end time of the inspection and scoring task. The value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
    * 
-   * >  The end time must be later than the start time.
+   * > The end time must be later than the start time.
    * 
    * @example
    * 1608888296001
@@ -359,9 +376,11 @@ export class GetInstanceInspectionsResponseBodyDataList extends $dara.Model {
    * @remarks
    * The state of the inspection and scoring task. Valid values:
    * 
-   * *   **0**: The task is waiting for execution.
-   * *   **1**: The task is in progress.
-   * *   **2**: The task is complete.
+   * - **0**: The task is waiting for execution.
+   * 
+   * - **1**: The task is in progress.
+   * 
+   * - **2**: The task is complete.
    * 
    * @example
    * 2
@@ -371,8 +390,9 @@ export class GetInstanceInspectionsResponseBodyDataList extends $dara.Model {
    * @remarks
    * The mode in which the inspection and scoring task was initiated. Valid values:
    * 
-   * *   **0**: automatic mode.
-   * *   **1**: manual mode.
+   * - **0**: automatic mode.
+   * 
+   * - **1**: manual mode.
    * 
    * @example
    * 0
@@ -509,7 +529,7 @@ export class GetInstanceInspectionsResponseBody extends $dara.Model {
    * @remarks
    * The returned message.
    * 
-   * >  If the request was successful, Successful is returned. If the request failed, an error message such as an error code is returned.
+   * > If the request was successful, Successful is returned. If the request failed, an error message such as an error code is returned.
    * 
    * @example
    * Successful
@@ -527,8 +547,9 @@ export class GetInstanceInspectionsResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**
+   * 
+   * - **false**
    * 
    * @example
    * true

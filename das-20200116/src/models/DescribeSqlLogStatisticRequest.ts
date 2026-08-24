@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSqlLogStatisticRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the database instance.
+   * The database instance ID.
    * 
    * This parameter is required.
    * 

@@ -45,17 +45,25 @@ export class ModifySqlLogConfigRequestFilters extends $dara.Model {
 export class ModifySqlLogConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable DAS Enterprise Edition. Valid values:
+   * Indicates whether to enable DAS Enterprise Edition. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: enables DAS Enterprise Edition.
    * 
-   * >  This parameter is required if you want to enable DAS Enterprise Edition. By default, the latest version of DAS Enterprise Edition that supports the database instance is enabled.
+   * - **false**: disables DAS Enterprise Edition.
+   * 
+   * > This parameter is required when you enable DAS Enterprise Edition. By default, this operation enables the latest supported version.
    * 
    * @example
    * true
    */
   enable?: boolean;
+  /**
+   * @remarks
+   * Indicates whether to enable security audit.
+   * 
+   * @example
+   * true
+   */
   enableAudit?: boolean;
   /**
    * @remarks
@@ -64,9 +72,9 @@ export class ModifySqlLogConfigRequest extends $dara.Model {
   filters?: ModifySqlLogConfigRequestFilters[];
   /**
    * @remarks
-   * The number of days for which the SQL Explorer and Audit data is stored in hot storage. Valid values: 1 to 7.
+   * The hot storage retention period, in days. The value must be an integer from 1 to 7.
    * 
-   * >  This parameter is required if only DAS Enterprise Edition V3 can be enabled for the database instance.
+   * > This parameter is required only if you enable DAS Enterprise Edition V3.
    * 
    * @example
    * 1
@@ -79,17 +87,18 @@ export class ModifySqlLogConfigRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * rr-2ze770smbq3tpr2o9
+   * rr-2ze770smbq3tp****
    */
   instanceId?: string;
   /**
    * @remarks
-   * Specifies whether to enable the SQL Explorer feature. Valid values:
+   * Indicates whether to enable SQL Explorer. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: enables SQL Explorer.
    * 
-   * >  This parameter is required if only DAS Enterprise Edition V3 can be enabled for the database instance.
+   * - **false**: disables SQL Explorer.
+   * 
+   * > This parameter is required only if you enable DAS Enterprise Edition V3.
    * 
    * @example
    * true
@@ -97,14 +106,17 @@ export class ModifySqlLogConfigRequest extends $dara.Model {
   requestEnable?: boolean;
   /**
    * @remarks
-   * The total storage duration of the SQL Explorer and Audit data. Unit: day. Valid values:
+   * The data retention period, in days. Valid values:
    * 
-   * *   7
-   * *   30
-   * *   180
-   * *   365
+   * - 7
    * 
-   * >  If you want to enable DAS Enterprise Edition V3, the value of this parameter must be greater than or equal to 30.
+   * - 30
+   * 
+   * - 180
+   * 
+   * - 365
+   * 
+   * > If you enable DAS Enterprise Edition V3, the value of this parameter must be 30 or greater.
    * 
    * @example
    * 30

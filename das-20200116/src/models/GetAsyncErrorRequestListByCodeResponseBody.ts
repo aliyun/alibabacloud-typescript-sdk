@@ -47,8 +47,9 @@ export class GetAsyncErrorRequestListByCodeResponseBodyData extends $dara.Model 
    * @remarks
    * Indicates whether the asynchronous request was complete.
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**
+   * 
+   * - **false**
    * 
    * @example
    * true
@@ -58,8 +59,9 @@ export class GetAsyncErrorRequestListByCodeResponseBodyData extends $dara.Model 
    * @remarks
    * Indicates whether the asynchronous request failed. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**
+   * 
+   * - **false**
    * 
    * @example
    * false
@@ -69,8 +71,9 @@ export class GetAsyncErrorRequestListByCodeResponseBodyData extends $dara.Model 
    * @remarks
    * Indicates whether the asynchronous request was complete. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**
+   * 
+   * - **false**
    * 
    * @example
    * true
@@ -93,9 +96,11 @@ export class GetAsyncErrorRequestListByCodeResponseBodyData extends $dara.Model 
    * @remarks
    * The state of the asynchronous request. Valid values:
    * 
-   * *   **RUNNING**
-   * *   **SUCCESS**
-   * *   **FAIL**
+   * - **RUNNING**
+   * 
+   * - **SUCCESS**
+   * 
+   * - **FAIL**
    * 
    * @example
    * SUCCESS
@@ -166,7 +171,7 @@ export class GetAsyncErrorRequestListByCodeResponseBody extends $dara.Model {
    * @remarks
    * The returned message.
    * 
-   * >  If the request was successful, **Successful** is returned. If the request failed, an error message such as an error code is returned.
+   * > If the request was successful, **Successful** is returned. If the request failed, an error message such as an error code is returned.
    * 
    * @example
    * Successful
@@ -184,8 +189,9 @@ export class GetAsyncErrorRequestListByCodeResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**
+   * 
+   * - **false**
    * 
    * @example
    * true

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ModifySecurityIPGroupRelationRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the IP address whitelist template.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class ModifySecurityIPGroupRelationRequest extends $dara.Model {
   globalSecurityGroupId?: string;
   /**
    * @remarks
+   * The database instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class ModifySecurityIPGroupRelationRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example

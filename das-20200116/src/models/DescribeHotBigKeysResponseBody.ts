@@ -264,24 +264,38 @@ export class DescribeHotBigKeysResponseBodyDataLargeKeys extends $dara.Model {
 export class DescribeHotBigKeysResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The reason why the large key failed to be queried.
+   * The reason why the big keys sorted by the number of child elements failed to be retrieved.
    * 
    * @example
    * current version doesn\\"t support
    */
   bigKeyMsg?: string;
   bigKeys?: DescribeHotBigKeysResponseBodyDataBigKeys;
+  /**
+   * @remarks
+   * The reason why the hot keys sorted by traffic failed to be retrieved.
+   * 
+   * @example
+   * current version doesn\\"t support
+   */
   highTrafficKeyMsg?: string;
   highTrafficKeys?: DescribeHotBigKeysResponseBodyDataHighTrafficKeys;
   /**
    * @remarks
-   * The reason why the hot key failed to be queried.
+   * The reason why the hot keys sorted by QPS failed to be retrieved.
    * 
    * @example
    * current version doesn\\"t support
    */
   hotKeyMsg?: string;
   hotKeys?: DescribeHotBigKeysResponseBodyDataHotKeys;
+  /**
+   * @remarks
+   * The reason why the big keys sorted by memory usage failed to be retrieved.
+   * 
+   * @example
+   * current version doesn\\"t support
+   */
   largeKeyMsg?: string;
   largeKeys?: DescribeHotBigKeysResponseBodyDataLargeKeys;
   static names(): { [key: string]: string } {
@@ -334,7 +348,7 @@ export class DescribeHotBigKeysResponseBodyData extends $dara.Model {
 export class DescribeHotBigKeysResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The returned status code.
    * 
    * @example
    * 200
@@ -342,7 +356,7 @@ export class DescribeHotBigKeysResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The list of hot keys and large keys.
+   * The details.
    */
   data?: DescribeHotBigKeysResponseBodyData;
   /**
@@ -365,8 +379,8 @@ export class DescribeHotBigKeysResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * *   **true**: The request was successful.
-   * *   **false**: The request failed.
+   * - **true**: The request was successful.
+   * - **false**: The request failed.
    * 
    * @example
    * true

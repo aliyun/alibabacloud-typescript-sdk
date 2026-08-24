@@ -6,10 +6,11 @@ import { DataResultValue } from "./DataResultValue";
 export class GetAsyncErrorRequestStatResultResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the asynchronous request was complete.
+   * Indicates whether the asynchronous request is complete.
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: The request is complete.
+   * 
+   * - **false**: The request is in progress.
    * 
    * @example
    * true
@@ -17,10 +18,11 @@ export class GetAsyncErrorRequestStatResultResponseBodyData extends $dara.Model 
   complete?: boolean;
   /**
    * @remarks
-   * Indicates whether the request failed. Valid values:
+   * Indicates whether the request failed.
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: The request failed.
+   * 
+   * - **false**: The request succeeded.
    * 
    * @example
    * false
@@ -28,10 +30,11 @@ export class GetAsyncErrorRequestStatResultResponseBodyData extends $dara.Model 
   fail?: boolean;
   /**
    * @remarks
-   * Indicates whether the asynchronous request was successful. Valid values:
+   * Indicates whether the asynchronous request is complete.
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: The request is complete.
+   * 
+   * - **false**: The request is in progress.
    * 
    * @example
    * true
@@ -39,12 +42,12 @@ export class GetAsyncErrorRequestStatResultResponseBodyData extends $dara.Model 
   isFinish?: boolean;
   /**
    * @remarks
-   * The returned data of the asynchronous request.
+   * The data returned by the asynchronous request.
    */
   result?: { [key: string]: DataResultValue };
   /**
    * @remarks
-   * The ID of the asynchronous request.
+   * The asynchronous request ID.
    * 
    * @example
    * async__61f45ee381b2fa4e8a6545e3bee9****
@@ -54,9 +57,11 @@ export class GetAsyncErrorRequestStatResultResponseBodyData extends $dara.Model 
    * @remarks
    * The state of the asynchronous request. Valid values:
    * 
-   * *   **RUNNING**: The asynchronous request is running.
-   * *   **SUCCESS**: The asynchronous request is successful.
-   * *   **FAIL**: The asynchronous request fails.
+   * - **RUNNING**: The request is running.
+   * 
+   * - **SUCCESS**: The request succeeded.
+   * 
+   * - **FAIL**: The request failed.
    * 
    * @example
    * SUCCESS
@@ -64,7 +69,7 @@ export class GetAsyncErrorRequestStatResultResponseBodyData extends $dara.Model 
   state?: string;
   /**
    * @remarks
-   * The time when the asynchronous request was made. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The time when the asynchronous request was complete. The time is a Unix timestamp in milliseconds.
    * 
    * @example
    * 1644558576717
@@ -109,7 +114,7 @@ export class GetAsyncErrorRequestStatResultResponseBodyData extends $dara.Model 
 export class GetAsyncErrorRequestStatResultResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The response status code.
    * 
    * @example
    * 200
@@ -117,7 +122,7 @@ export class GetAsyncErrorRequestStatResultResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The data returned.
+   * The returned data.
    * 
    * @example
    * {         "fail": false,         "data": {             "ad78a4e7d3ce81590c9dc2d5f4bc****": {                 "sqlId": "ad78a4e7d3ce81590c9dc2d5f4bc****",                 "instanceId": "rm-2ze8g2am97624****",                 "count": 1             },             "0f92feacd92c048b06a16617a633****": {                 "sqlId": "0f92feacd92c048b06a16617a633****",                 "instanceId": "rm-2ze8g2am97624****",                 "count": 2             }         },         "resultId": "async__61f45ee381b2fa4e8a6545e3bee9****",         "isFinish": true,         "state": "SUCCESS",         "complete": true,         "timestamp": 1644558576717     }
@@ -125,9 +130,9 @@ export class GetAsyncErrorRequestStatResultResponseBody extends $dara.Model {
   data?: GetAsyncErrorRequestStatResultResponseBodyData;
   /**
    * @remarks
-   * The returned message.
+   * The response message.
    * 
-   * >  If the request was successful, **Successful** is returned. If the request failed, an error message such as an error code is returned.
+   * > If the request succeeds, this parameter returns **Successful**. If the request fails, this parameter returns an error message.
    * 
    * @example
    * Successful
@@ -143,10 +148,11 @@ export class GetAsyncErrorRequestStatResultResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the request was successful.
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: The request was successful.
+   * 
+   * - **false**: The request failed.
    * 
    * @example
    * true

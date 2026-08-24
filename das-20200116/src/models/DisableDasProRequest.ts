@@ -17,7 +17,7 @@ export class DisableDasProRequest extends $dara.Model {
    * @remarks
    * The ID of the Alibaba Cloud account that is used to create the database instance.
    * 
-   * >  This parameter is optional. The system can automatically obtain the account ID based on the value of InstanceId that you set when you call this operation.
+   * > This parameter is optional. The system can automatically obtain the account ID based on the value of InstanceId that you set when you call this operation.
    * 
    * @example
    * 196278346919****

@@ -23,8 +23,9 @@ export class DescribeAutoScalingConfigResponseBodyDataBandwidth extends $dara.Mo
    * @remarks
    * Indicates whether the automatic bandwidth downgrade feature is enabled. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**
+   * 
+   * - **false**
    * 
    * @example
    * true
@@ -34,12 +35,15 @@ export class DescribeAutoScalingConfigResponseBodyDataBandwidth extends $dara.Mo
    * @remarks
    * The observation window of the automatic bandwidth adjustment feature. The return value consists of a numeric value and a time unit suffix. Valid values of the time unit suffix:
    * 
-   * *   **s**: seconds.
-   * *   **m**: minutes.
-   * *   **h**: hours.
-   * *   **d**: days.
+   * - **s**: seconds.
    * 
-   * >  A value of **5m** indicates 5 minutes.
+   * - **m**: minutes.
+   * 
+   * - **h**: hours.
+   * 
+   * - **d**: days.
+   * 
+   * > A value of **5m** indicates 5 minutes.
    * 
    * @example
    * 5m
@@ -49,8 +53,9 @@ export class DescribeAutoScalingConfigResponseBodyDataBandwidth extends $dara.Mo
    * @remarks
    * Indicates whether the automatic bandwidth adjustment feature is enabled. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**
+   * 
+   * - **false**
    * 
    * @example
    * true
@@ -106,12 +111,15 @@ export class DescribeAutoScalingConfigResponseBodyDataResource extends $dara.Mod
    * @remarks
    * The observation window of the automatic scale-in feature for local resources. The return value consists of a numeric value and a time unit suffix. Valid values of the time unit suffix:
    * 
-   * *   **s**: seconds.
-   * *   **m**: minutes.
-   * *   **h**: hours.
-   * *   **d**: days.
+   * - **s**: seconds.
    * 
-   * >  A value of **5m** indicates 5 minutes.
+   * - **m**: minutes.
+   * 
+   * - **h**: hours.
+   * 
+   * - **d**: days.
+   * 
+   * > A value of **5m** indicates 5 minutes.
    * 
    * @example
    * 5m
@@ -121,8 +129,9 @@ export class DescribeAutoScalingConfigResponseBodyDataResource extends $dara.Mod
    * @remarks
    * Indicates whether the auto scaling feature is enabled for local resources. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**
+   * 
+   * - **false**
    * 
    * @example
    * true
@@ -132,12 +141,15 @@ export class DescribeAutoScalingConfigResponseBodyDataResource extends $dara.Mod
    * @remarks
    * The observation window of the automatic scale-out feature for local resources. The return value consists of a numeric value and a time unit suffix. Valid values of the time unit suffix:
    * 
-   * *   **s**: seconds.
-   * *   **m**: minutes.
-   * *   **h**: hours.
-   * *   **d**: days.
+   * - **s**: seconds.
    * 
-   * >  A value of **5m** indicates 5 minutes.
+   * - **m**: minutes.
+   * 
+   * - **h**: hours.
+   * 
+   * - **d**: days.
+   * 
+   * > A value of **5m** indicates 5 minutes.
    * 
    * @example
    * 5m
@@ -177,8 +189,9 @@ export class DescribeAutoScalingConfigResponseBodyDataShard extends $dara.Model 
    * @remarks
    * Indicates whether the feature of automatically removing shards is enabled. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**
+   * 
+   * - **false**
    * 
    * @example
    * true
@@ -188,12 +201,15 @@ export class DescribeAutoScalingConfigResponseBodyDataShard extends $dara.Model 
    * @remarks
    * The observation window of the feature of automatically removing shards. The return value consists of a numeric value and a time unit suffix. Valid values of the time unit suffix:
    * 
-   * *   **s**: seconds.
-   * *   **m**: minutes.
-   * *   **h**: hours.
-   * *   **d**: days.
+   * - **s**: seconds.
    * 
-   * >  A value of **1d** indicates one day.
+   * - **m**: minutes.
+   * 
+   * - **h**: hours.
+   * 
+   * - **d**: days.
+   * 
+   * > A value of **1d** indicates one day.
    * 
    * @example
    * 1d
@@ -235,8 +251,9 @@ export class DescribeAutoScalingConfigResponseBodyDataShard extends $dara.Model 
    * @remarks
    * Indicates whether the feature of automatically adding shards is enabled. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**
+   * 
+   * - **false**
    * 
    * @example
    * true
@@ -246,12 +263,15 @@ export class DescribeAutoScalingConfigResponseBodyDataShard extends $dara.Model 
    * @remarks
    * The observation window of the feature of automatically adding shards. The return value consists of a numeric value and a time unit suffix. Valid values of the time unit suffix:
    * 
-   * *   **s**: seconds.
-   * *   **m**: minutes.
-   * *   **h**: hours.
-   * *   **d**: days.
+   * - **s**: seconds.
    * 
-   * >  A value of **5m** indicates 5 minutes.
+   * - **m**: minutes.
+   * 
+   * - **h**: hours.
+   * 
+   * - **d**: days.
+   * 
+   * > A value of **5m** indicates 5 minutes.
    * 
    * @example
    * 5m
@@ -297,12 +317,15 @@ export class DescribeAutoScalingConfigResponseBodyDataSpec extends $dara.Model {
    * @remarks
    * The quiescent period. The return value consists of a numeric value and a time unit suffix. Valid values of the time unit suffix:
    * 
-   * *   **s**: seconds.
-   * *   **m**: minutes.
-   * *   **h**: hours.
-   * *   **d**: days.
+   * - **s**: seconds.
    * 
-   * >  A value of **5m** indicates 5 minutes.
+   * - **m**: minutes.
+   * 
+   * - **h**: hours.
+   * 
+   * - **d**: days.
+   * 
+   * > A value of **5m** indicates 5 minutes.
    * 
    * @example
    * 5m
@@ -320,8 +343,9 @@ export class DescribeAutoScalingConfigResponseBodyDataSpec extends $dara.Model {
    * @remarks
    * Indicates whether the automatic specification scale-down feature is enabled. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**
+   * 
+   * - **false**
    * 
    * @example
    * true
@@ -339,8 +363,9 @@ export class DescribeAutoScalingConfigResponseBodyDataSpec extends $dara.Model {
    * @remarks
    * The maximum specifications to which the cluster can be scaled up. For more information about the specifications of each type of supported database instances, see the following topics:
    * 
-   * *   PolarDB for MySQL Cluster Edition instances: [Compute node specifications of PolarDB for MySQL Enterprise Edition](https://help.aliyun.com/document_detail/102542.html)
-   * *   ApsaraDB RDS for MySQL High-availability Edition instances that use standard SSDs or ESSDs: [Specifications](https://help.aliyun.com/document_detail/276974.html)
+   * - PolarDB for MySQL Cluster Edition instances: [Compute node specifications of PolarDB for MySQL Enterprise Edition](https://help.aliyun.com/document_detail/102542.html)
+   * 
+   * - ApsaraDB RDS for MySQL High-availability Edition instances that use standard SSDs or ESSDs: [Specifications](https://help.aliyun.com/document_detail/276974.html)
    * 
    * @example
    * polar.mysql.x8.12xlarge
@@ -358,12 +383,15 @@ export class DescribeAutoScalingConfigResponseBodyDataSpec extends $dara.Model {
    * @remarks
    * The observation window. The return value consists of a numeric value and a time unit suffix. Valid values of the time unit suffix:
    * 
-   * *   **s**: seconds.
-   * *   **m**: minutes.
-   * *   **h**: hours.
-   * *   **d**: days.
+   * - **s**: seconds.
    * 
-   * >  A value of **5m** indicates 5 minutes.
+   * - **m**: minutes.
+   * 
+   * - **h**: hours.
+   * 
+   * - **d**: days.
+   * 
+   * > A value of **5m** indicates 5 minutes.
    * 
    * @example
    * 5m
@@ -373,8 +401,9 @@ export class DescribeAutoScalingConfigResponseBodyDataSpec extends $dara.Model {
    * @remarks
    * Indicates whether the automatic specification scale-up feature is enabled. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**
+   * 
+   * - **false**
    * 
    * @example
    * true
@@ -436,8 +465,9 @@ export class DescribeAutoScalingConfigResponseBodyDataStorage extends $dara.Mode
    * @remarks
    * Indicates whether the automatic storage expansion feature is enabled. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**
+   * 
+   * - **false**
    * 
    * @example
    * true
@@ -556,7 +586,7 @@ export class DescribeAutoScalingConfigResponseBody extends $dara.Model {
    * @remarks
    * The returned message.
    * 
-   * >  If the request was successful, **Successful** is returned. If the request failed, an error message such as an error code is returned.
+   * > If the request was successful, **Successful** is returned. If the request failed, an error message such as an error code is returned.
    * 
    * @example
    * Successful
@@ -574,8 +604,9 @@ export class DescribeAutoScalingConfigResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**
+   * 
+   * - **false**
    * 
    * @example
    * true

@@ -7,9 +7,11 @@ export class GetQueryOptimizeSolutionRequest extends $dara.Model {
    * @remarks
    * The database engine. Valid values:
    * 
-   * *   **MySQL**
-   * *   **PolarDBMySQL**
-   * *   **PostgreSQL**
+   * - **MySQL**
+   * 
+   * - **PolarDBMySQL**
+   * 
+   * - **PostgreSQL**
    * 
    * This parameter is required.
    * 

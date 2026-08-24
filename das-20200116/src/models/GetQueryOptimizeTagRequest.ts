@@ -7,9 +7,9 @@ export class GetQueryOptimizeTagRequest extends $dara.Model {
    * @remarks
    * The database engine. Valid values:
    * 
-   * *   **MySQL**: ApsaraDB RDS for MySQL
-   * *   **PolarDBMySQL**: PolarDB for MySQL
-   * *   **PostgreSQL**: ApsaraDB RDS for PostgreSQL
+   * - **MySQL**: RDS MySQL
+   * - **PolarDBMySQL**: PolarDB for MySQL
+   * - **PostgreSQL**: RDS PostgreSQL
    * 
    * This parameter is required.
    * 
@@ -29,12 +29,13 @@ export class GetQueryOptimizeTagRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The SQL template ID. You can call the [GetQueryOptimizeDataStats](https://help.aliyun.com/document_detail/405261.html) operation to query the SQL template ID.
+   * The SQL template ID.
+   * You can call the [GetQueryOptimizeDataStats](https://help.aliyun.com/document_detail/405261.html) operation to query the SQL template ID.
    * 
    * This parameter is required.
    * 
    * @example
-   * 29d9fef63e347d39c3436658a5fe5f2b
+   * 29d9fef63e347d39c3436658a5fe****
    */
   sqlId?: string;
   static names(): { [key: string]: string } {

@@ -7,8 +7,9 @@ export class GetAutoResourceOptimizeRulesResponseBodyDataEnableAutoResourceOptim
    * @remarks
    * Indicates whether the automatic fragment recycling feature is enabled. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**
+   * 
+   * - **false**
    * 
    * @example
    * true
@@ -18,8 +19,9 @@ export class GetAutoResourceOptimizeRulesResponseBodyDataEnableAutoResourceOptim
    * @remarks
    * Indicates whether DAS Enterprise Edition is enabled. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**
+   * 
+   * - **false**
    * 
    * @example
    * true
@@ -93,8 +95,9 @@ export class GetAutoResourceOptimizeRulesResponseBodyDataHasEnableRuleButNotDasP
    * @remarks
    * Indicates whether the automatic fragment recycling feature is enabled. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**
+   * 
+   * - **false**
    * 
    * @example
    * true
@@ -104,8 +107,9 @@ export class GetAutoResourceOptimizeRulesResponseBodyDataHasEnableRuleButNotDasP
    * @remarks
    * Indicates whether DAS Enterprise Edition is enabled. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**
+   * 
+   * - **false**
    * 
    * @example
    * false
@@ -179,8 +183,9 @@ export class GetAutoResourceOptimizeRulesResponseBodyDataTurnOffAutoResourceOpti
    * @remarks
    * Indicates whether the automatic fragment recycling feature is enabled. Valid values:
    * 
-   * *   **true**:
-   * *   **false**
+   * - **true**:
+   * 
+   * - **false**
    * 
    * @example
    * false
@@ -190,8 +195,9 @@ export class GetAutoResourceOptimizeRulesResponseBodyDataTurnOffAutoResourceOpti
    * @remarks
    * Indicates whether DAS Enterprise Edition is enabled. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**
+   * 
+   * - **false**
    * 
    * @example
    * true
@@ -286,14 +292,14 @@ export class GetAutoResourceOptimizeRulesResponseBodyData extends $dara.Model {
    * @remarks
    * The database instances for which the automatic fragment recycling feature is enabled and DAS Enterprise Edition is disabled.
    * 
-   * >  Automatic fragment recycling tasks are run on this type of database instances only if DAS Enterprise Edition is enabled for the database instances again.
+   * > Automatic fragment recycling tasks are run on this type of database instances only if DAS Enterprise Edition is enabled for the database instances again.
    */
   hasEnableRuleButNotDasProList?: GetAutoResourceOptimizeRulesResponseBodyDataHasEnableRuleButNotDasProList[];
   /**
    * @remarks
    * The number of database instances that do not exist or for which the automatic fragment recycling feature has never been enabled.
    * 
-   * >  If a database instance does not exist, the instance has been released or the specified instance ID is invalid.
+   * > If a database instance does not exist, the instance has been released or the specified instance ID is invalid.
    * 
    * @example
    * 1
@@ -392,7 +398,7 @@ export class GetAutoResourceOptimizeRulesResponseBody extends $dara.Model {
    * @remarks
    * The returned message.
    * 
-   * >  If the request was successful, **Successful** is returned. If the request failed, an error message such as an error code is returned.
+   * > If the request was successful, **Successful** is returned. If the request failed, an error message such as an error code is returned.
    * 
    * @example
    * Successful
@@ -410,8 +416,9 @@ export class GetAutoResourceOptimizeRulesResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**
+   * 
+   * - **false**
    * 
    * @example
    * true

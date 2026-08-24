@@ -7,7 +7,7 @@ export class GetMySQLAllSessionAsyncResponseBodyDataSessionDataClientStats exten
    * @remarks
    * The number of active sessions that belong to the client IP address.
    * 
-   * >  If the type of the command executed in the session is Query or Execute and the session in the transaction is not terminated, the session is active.
+   * > If the type of the command executed in the session is Query or Execute and the session in the transaction is not terminated, the session is active.
    * 
    * @example
    * 1
@@ -79,7 +79,7 @@ export class GetMySQLAllSessionAsyncResponseBodyDataSessionDataDbStats extends $
    * @remarks
    * The number of active sessions of the database.
    * 
-   * >  If the type of the command executed in the session is Query or Execute and the session in the transaction is not terminated, the session is active.
+   * > If the type of the command executed in the session is Query or Execute and the session in the transaction is not terminated, the session is active.
    * 
    * @example
    * 1
@@ -183,7 +183,7 @@ export class GetMySQLAllSessionAsyncResponseBodyDataSessionDataSessionList exten
    * @remarks
    * The SQL template ID.
    * 
-   * >  This parameter is returned only when you use a PolarDB-X 2.0 instance.
+   * > This parameter is returned only when you use a PolarDB-X 2.0 instance.
    * 
    * @example
    * a7cac1a9
@@ -293,7 +293,7 @@ export class GetMySQLAllSessionAsyncResponseBodyDataSessionDataUserStats extends
    * @remarks
    * The number of active sessions within the account.
    * 
-   * >  If the type of the command executed in the session is Query or Execute and the session in the transaction is not terminated, the session is active.
+   * > If the type of the command executed in the session is Query or Execute and the session in the transaction is not terminated, the session is active.
    * 
    * @example
    * 1
@@ -465,8 +465,9 @@ export class GetMySQLAllSessionAsyncResponseBodyData extends $dara.Model {
    * @remarks
    * Indicates whether the asynchronous request was complete. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**
+   * 
+   * - **false**
    * 
    * @example
    * true
@@ -476,8 +477,9 @@ export class GetMySQLAllSessionAsyncResponseBodyData extends $dara.Model {
    * @remarks
    * Indicates whether the asynchronous request failed. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**
+   * 
+   * - **false**
    * 
    * @example
    * false
@@ -487,8 +489,9 @@ export class GetMySQLAllSessionAsyncResponseBodyData extends $dara.Model {
    * @remarks
    * Indicates whether the asynchronous request was complete. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**
+   * 
+   * - **false**
    * 
    * @example
    * true
@@ -511,9 +514,11 @@ export class GetMySQLAllSessionAsyncResponseBodyData extends $dara.Model {
    * @remarks
    * The state of the asynchronous request. Valid values:
    * 
-   * *   **RUNNING**
-   * *   **SUCCESS**
-   * *   **FAIL**
+   * - **RUNNING**
+   * 
+   * - **SUCCESS**
+   * 
+   * - **FAIL**
    * 
    * @example
    * SUCCESS
@@ -581,7 +586,7 @@ export class GetMySQLAllSessionAsyncResponseBody extends $dara.Model {
    * @remarks
    * The returned message.
    * 
-   * >  If the request was successful, **Successful** is returned. If the request failed, an error message such as an error code is returned.
+   * > If the request was successful, **Successful** is returned. If the request failed, an error message such as an error code is returned.
    * 
    * @example
    * Successful
@@ -599,8 +604,9 @@ export class GetMySQLAllSessionAsyncResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**
+   * 
+   * - **false**
    * 
    * @example
    * true

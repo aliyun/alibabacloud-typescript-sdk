@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeQueryExplainRequest extends $dara.Model {
   /**
+   * @remarks
+   * The name of the database.
+   * 
    * @example
    * dbtest01
    */
   dbName?: string;
   /**
    * @remarks
+   * The ID of the instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -17,13 +22,27 @@ export class DescribeQueryExplainRequest extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The ID of the node.
+   * 
+   * > For PolarDB for MySQL instances, if you specify a node ID, the system queries the execution plan on that node. Otherwise, it queries the execution plan on a secondary node.For high availability ApsaraDB RDS for MySQL instances, if you specify an instance ID, the system queries the execution plan on that node. Otherwise, it queries the execution plan on a secondary node.
+   * 
    * @example
    * pi-bp1v203xzzh0a****
    */
   nodeId?: string;
+  /**
+   * @remarks
+   * Schema information. This is a reserved parameter.
+   * 
+   * @example
+   * 无
+   */
   schema?: string;
   /**
    * @remarks
+   * The SQL statement for which you want to get the execution plan.
+   * 
    * This parameter is required.
    * 
    * @example

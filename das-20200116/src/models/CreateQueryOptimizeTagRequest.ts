@@ -10,16 +10,18 @@ export class CreateQueryOptimizeTagRequest extends $dara.Model {
    * The remarks can be 1 to 300 characters in length.
    * 
    * @example
-   * Slow SQL queries of offline synchronization. No optimization is required.
+   * Slow SQL from offline synchronization. No optimization needed.
    */
   comments?: string;
   /**
    * @remarks
    * The database engine. Valid values:
    * 
-   * *   **MySQL**: ApsaraDB RDS for MySQL
-   * *   **PolarDBMySQL**: PolarDB for MySQL
-   * *   **PostgreSQL**: ApsaraDB RDS for PostgreSQL
+   * - **MySQL**: ApsaraDB RDS for MySQL
+   * 
+   * - **PolarDBMySQL**: PolarDB for MySQL
+   * 
+   * - **PostgreSQL**: ApsaraDB RDS for PostgreSQL
    * 
    * This parameter is required.
    * 
@@ -44,15 +46,16 @@ export class CreateQueryOptimizeTagRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 6068ce044e3dc9b903979672fb0b69df,d12515c015fc9f41a0778a9e1de0e941
+   * 6068ce044e3dc9b903979672fb0b69df,d12515c015fc9f41a0778a9e1de0****
    */
   sqlIds?: string;
   /**
    * @remarks
    * The status of **Tags**. Valid values:
    * 
-   * *   **0**: removes all tags added to the SQL templates that are specified by **SqlIds** and leaves **Tags** empty.
-   * *   **1**: adds the tags specified by **Tags** to the SQL templates that are specified by **SqlIds**.
+   * - **0**: removes all tags added to the SQL templates that are specified by **SqlIds** and leaves **Tags** empty.
+   * 
+   * - **1**: adds the tags specified by **Tags** to the SQL templates that are specified by **SqlIds**.
    * 
    * This parameter is required.
    * 
@@ -64,10 +67,13 @@ export class CreateQueryOptimizeTagRequest extends $dara.Model {
    * @remarks
    * The SQL tags. Separate multiple SQL tags with commas (,). Valid values:
    * 
-   * *   **DAS_IMPORTANT**: The SQL template is important.
-   * *   **DAS_NOT_IMPORTANT**: The SQL template is unimportant.
-   * *   **USER_IGNORE**: The scheduling of the SQL template does not need to be optimized.
-   * *   **DAS_IN_PLAN**: The scheduling of the SQL template needs to be optimized.
+   * - **DAS_IMPORTANT**: The SQL template is important.
+   * 
+   * - **DAS_NOT_IMPORTANT**: The SQL template is unimportant.
+   * 
+   * - **USER_IGNORE**: The scheduling of the SQL template does not need to be optimized.
+   * 
+   * - **DAS_IN_PLAN**: The scheduling of the SQL template needs to be optimized.
    * 
    * This parameter is required.
    * 

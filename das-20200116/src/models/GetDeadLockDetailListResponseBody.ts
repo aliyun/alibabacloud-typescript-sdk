@@ -16,7 +16,7 @@ export class GetDeadLockDetailListResponseBodyDataListBlockProcessList extends $
    * The name of the database.
    * 
    * @example
-   * school
+   * testdb1
    */
   databaseName?: string;
   /**
@@ -24,7 +24,7 @@ export class GetDeadLockDetailListResponseBodyDataListBlockProcessList extends $
    * The hostname.
    * 
    * @example
-   * sd74020124
+   * sd7402****
    */
   hostName?: string;
   /**
@@ -56,7 +56,7 @@ export class GetDeadLockDetailListResponseBodyDataListBlockProcessList extends $
    * The logon name of the user.
    * 
    * @example
-   * sd74020124\\\\Administrator
+   * sd7402****\\\\Administrator
    */
   loginName?: string;
   /**
@@ -64,7 +64,7 @@ export class GetDeadLockDetailListResponseBodyDataListBlockProcessList extends $
    * The locked object.
    * 
    * @example
-   * school.dbo.test2
+   * testdb1.dbo.test2
    */
   objectOwned?: string;
   /**
@@ -72,7 +72,7 @@ export class GetDeadLockDetailListResponseBodyDataListBlockProcessList extends $
    * The object that the transaction requested to lock.
    * 
    * @example
-   * school.dbo.test1
+   * testdb1.dbo.test1
    */
   objectRequested?: string;
   /**
@@ -111,8 +111,9 @@ export class GetDeadLockDetailListResponseBodyDataListBlockProcessList extends $
    * @remarks
    * Indicates whether the session is the victim of the deadlock. Valid values:
    * 
-   * *   **0**: no.
-   * *   **1**: yes.
+   * - **0**: no.
+   * 
+   * - **1**: yes.
    * 
    * @example
    * 0
@@ -222,7 +223,7 @@ export class GetDeadLockDetailListResponseBodyDataList extends $dara.Model {
    * The name of the database.
    * 
    * @example
-   * school
+   * testdb1
    */
   databaseName?: string;
   /**
@@ -230,7 +231,7 @@ export class GetDeadLockDetailListResponseBodyDataList extends $dara.Model {
    * The hostname.
    * 
    * @example
-   * sd74020124
+   * sd7402****
    */
   hostName?: string;
   /**
@@ -262,7 +263,7 @@ export class GetDeadLockDetailListResponseBodyDataList extends $dara.Model {
    * The logon name of the user.
    * 
    * @example
-   * sd74020124\\\\Administrator
+   * sd7402****\\\\Administrator
    */
   loginName?: string;
   /**
@@ -270,7 +271,7 @@ export class GetDeadLockDetailListResponseBodyDataList extends $dara.Model {
    * The locked object.
    * 
    * @example
-   * school.dbo.test1
+   * testdb1.dbo.test1
    */
   objectOwned?: string;
   /**
@@ -278,7 +279,7 @@ export class GetDeadLockDetailListResponseBodyDataList extends $dara.Model {
    * The object that the transaction requested to lock.
    * 
    * @example
-   * school.dbo.test2
+   * testdb1.dbo.test2
    */
   objectRequested?: string;
   /**
@@ -317,8 +318,9 @@ export class GetDeadLockDetailListResponseBodyDataList extends $dara.Model {
    * @remarks
    * Indicates whether the session is the victim of the deadlock. Valid values:
    * 
-   * *   **0**: no.
-   * *   **1**: yes.
+   * - **0**: no.
+   * 
+   * - **1**: yes.
    * 
    * @example
    * 1
@@ -486,7 +488,7 @@ export class GetDeadLockDetailListResponseBody extends $dara.Model {
    * @remarks
    * The returned message.
    * 
-   * >  If the request is successful, **Successful** is returned. Otherwise, an error message such as an error code is returned.
+   * > If the request is successful, **Successful** is returned. Otherwise, an error message such as an error code is returned.
    * 
    * @example
    * Successful
@@ -504,8 +506,9 @@ export class GetDeadLockDetailListResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request is successful. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**
+   * 
+   * - **false**
    * 
    * @example
    * true

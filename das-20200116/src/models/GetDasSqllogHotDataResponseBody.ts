@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetDasSQLLogHotDataResponseBodyDataList extends $dara.Model {
   /**
    * @remarks
-   * The account of the database.
+   * The database account.
    * 
    * @example
    * testuser
@@ -13,7 +13,7 @@ export class GetDasSQLLogHotDataResponseBodyDataList extends $dara.Model {
   accountName?: string;
   /**
    * @remarks
-   * The name of the database.
+   * The database name.
    * 
    * @example
    * testDB
@@ -21,7 +21,7 @@ export class GetDasSQLLogHotDataResponseBodyDataList extends $dara.Model {
   DBName?: string;
   /**
    * @remarks
-   * The execution time. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * The UTC time when the execution was recorded, formatted as `yyyy-MM-ddTHH:mm:ssZ`.
    * 
    * @example
    * 2023-05-23 T12:11:20Z
@@ -29,7 +29,7 @@ export class GetDasSQLLogHotDataResponseBodyDataList extends $dara.Model {
   executeTime?: string;
   /**
    * @remarks
-   * The extended information. This parameter is a reserved parameter.
+   * A reserved parameter.
    * 
    * @example
    * None
@@ -37,7 +37,7 @@ export class GetDasSQLLogHotDataResponseBodyDataList extends $dara.Model {
   ext?: string;
   /**
    * @remarks
-   * The IP address of the client.
+   * The client IP address.
    * 
    * @example
    * 47.100.XX.XX
@@ -45,7 +45,7 @@ export class GetDasSQLLogHotDataResponseBodyDataList extends $dara.Model {
   hostAddress?: string;
   /**
    * @remarks
-   * The execution duration. Unit: microseconds.
+   * The latency, in microseconds.
    * 
    * @example
    * 10000
@@ -53,7 +53,7 @@ export class GetDasSQLLogHotDataResponseBodyDataList extends $dara.Model {
   latancy?: number;
   /**
    * @remarks
-   * The lock wait duration. Unit: microseconds.
+   * The lock wait time, in microseconds.
    * 
    * @example
    * 1
@@ -67,10 +67,17 @@ export class GetDasSQLLogHotDataResponseBodyDataList extends $dara.Model {
    * 12
    */
   logicRead?: number;
+  /**
+   * @remarks
+   * The node ID.
+   * 
+   * @example
+   * pi-bp120roy76f3qbd84
+   */
   nodeId?: string;
   /**
    * @remarks
-   * The execution time. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * The precise UTC time when the execution was recorded, formatted as `yyyy-MM-ddTHH:mm:ss.SSSZ`.
    * 
    * @example
    * 2023-05-23 T12:11:20.999Z
@@ -94,7 +101,7 @@ export class GetDasSQLLogHotDataResponseBodyDataList extends $dara.Model {
   physicSyncRead?: number;
   /**
    * @remarks
-   * The number of rows returned.
+   * The number of returned rows.
    * 
    * @example
    * 1
@@ -102,7 +109,7 @@ export class GetDasSQLLogHotDataResponseBodyDataList extends $dara.Model {
   returnRows?: number;
   /**
    * @remarks
-   * The content of the SQL statement.
+   * The SQL statement.
    * 
    * @example
    * select 1
@@ -110,7 +117,7 @@ export class GetDasSQLLogHotDataResponseBodyDataList extends $dara.Model {
   SQLText?: string;
   /**
    * @remarks
-   * The number of rows scanned by the SQL statement.
+   * The number of scanned rows.
    * 
    * @example
    * 29
@@ -118,19 +125,21 @@ export class GetDasSQLLogHotDataResponseBodyDataList extends $dara.Model {
   scanRows?: number;
   /**
    * @remarks
-   * The type of the SQL statement. Valid values:
+   * The SQL type. Valid values:
    * 
-   * * **SELECT**
-   * * **UPDATE**
-   * * **DELETE**
+   * - **select**
+   * 
+   * - **update**
+   * 
+   * - **delete**
    * 
    * @example
-   * SELECT
+   * select
    */
   sqlType?: string;
   /**
    * @remarks
-   * The execution result. If a **0** is returned, the SQL statement was successfully executed. If an error code is returned, the SQL statement failed to be executed.
+   * The execution status. A value of **0** indicates success. Any other value is an error code.
    * 
    * @example
    * 0
@@ -222,7 +231,7 @@ export class GetDasSQLLogHotDataResponseBodyDataList extends $dara.Model {
 export class GetDasSQLLogHotDataResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The reserved parameter.
+   * A reserved parameter.
    * 
    * @example
    * None
@@ -230,7 +239,7 @@ export class GetDasSQLLogHotDataResponseBodyData extends $dara.Model {
   extra?: any;
   /**
    * @remarks
-   * The details of the data returned.
+   * A list of the returned data.
    */
   list?: GetDasSQLLogHotDataResponseBodyDataList[];
   /**
@@ -243,7 +252,7 @@ export class GetDasSQLLogHotDataResponseBodyData extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The page size.
    * 
    * @example
    * 10
@@ -251,7 +260,7 @@ export class GetDasSQLLogHotDataResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of records.
    * 
    * @example
    * 20
@@ -292,7 +301,7 @@ export class GetDasSQLLogHotDataResponseBodyData extends $dara.Model {
 export class GetDasSQLLogHotDataResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The status code.
    * 
    * @example
    * 200
@@ -300,14 +309,14 @@ export class GetDasSQLLogHotDataResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The data returned.
+   * The returned data.
    */
   data?: GetDasSQLLogHotDataResponseBodyData;
   /**
    * @remarks
-   * The returned message.
+   * The response message.
    * 
-   * > If the request was successful, **Successful** is returned. If the request failed, an error message such as an error code is returned.
+   * > If the request succeeds, **Successful** is returned. If the request fails, an error message is returned, which may include an error code.
    * 
    * @example
    * Successful
@@ -315,7 +324,7 @@ export class GetDasSQLLogHotDataResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The unique request ID generated by Alibaba Cloud.
    * 
    * @example
    * 0A74B755-98B7-59DB-8724-1321B394****
@@ -323,10 +332,11 @@ export class GetDasSQLLogHotDataResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the request succeeded:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: The request succeeded.
+   * 
+   * - **false**: The request failed.
    * 
    * @example
    * true

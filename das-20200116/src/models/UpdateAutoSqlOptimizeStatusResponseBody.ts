@@ -7,8 +7,9 @@ export class UpdateAutoSqlOptimizeStatusResponseBodyData extends $dara.Model {
    * @remarks
    * The error code. Valid values:
    * 
-   * *   **-1001**: indicates that the specified parameter is invalid.
-   * *   **-91029**: indicates that a system error occurred.
+   * - **-1001**: indicates that the specified parameter is invalid.
+   * 
+   * - **-91029**: indicates that a system error occurred.
    * 
    * @example
    * -1001
@@ -26,8 +27,9 @@ export class UpdateAutoSqlOptimizeStatusResponseBodyData extends $dara.Model {
    * @remarks
    * Indicates whether the request initiated to configure the automatic SQL optimization feature was successful. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**
+   * 
+   * - **false**
    * 
    * @example
    * false
@@ -76,7 +78,7 @@ export class UpdateAutoSqlOptimizeStatusResponseBody extends $dara.Model {
    * @remarks
    * The returned message.
    * 
-   * >  If the request was successful, **Successful** is returned. If the request failed, an error message such as an error code is returned.
+   * > If the request was successful, **Successful** is returned. If the request failed, an error message such as an error code is returned.
    * 
    * @example
    * Successful
@@ -94,8 +96,9 @@ export class UpdateAutoSqlOptimizeStatusResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**
+   * 
+   * - **false**
    * 
    * @example
    * true

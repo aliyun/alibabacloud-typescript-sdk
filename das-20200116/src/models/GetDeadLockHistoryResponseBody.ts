@@ -4,11 +4,35 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetDeadLockHistoryResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The returned status code.
+   * 
    * @example
    * 200
    */
   code?: string;
   /**
+   * @remarks
+   * The data returned as a JSON string.
+   * 
+   * - total: The total number of deadlocks.
+   * 
+   * - list: The list of deadlocks.
+   * 
+   *   - accountId: The user ID.
+   * 
+   *   - textId: The text ID of the deadlock.
+   * 
+   *   - gmtModified: The time when the diagnostics were generated.
+   * 
+   *   - lockTime: The time when the deadlock occurred.
+   * 
+   *   - gmtCreate: The time when the diagnostics were created.
+   * 
+   *   - nodeId: The node ID.
+   * 
+   *   - uuid: The instance ID.
+   * 
    * @example
    * {
    *     "total": 2,
@@ -36,21 +60,39 @@ export class GetDeadLockHistoryResponseBody extends $dara.Model {
    */
   data?: string;
   /**
+   * @remarks
+   * The returned message.
+   * 
+   * > If the request is successful, **Successful** is returned. If the request fails, an error message such as an error code is returned.
+   * 
    * @example
    * Successful
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * B6D17591-B48B-4D31-9CD6-9B9796B2****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful:
+   * 
+   * - **true**: The request was successful.
+   * 
+   * - **false**: The request failed.
+   * 
    * @example
    * true
    */
   success?: string;
   /**
+   * @remarks
+   * A reserved parameter.
+   * 
    * @example
    * None
    */

@@ -8,7 +8,7 @@ export class GetEventSubscriptionResponseBodyDataContactGroups extends $dara.Mod
    * The members of the alert contact group.
    * 
    * @example
-   * "[\\"Mr. Zhang\\",\\"Ms. Wang\\",\\"Mr. Li\\"]"
+   * "[\\"Mr. Zhang\\",\\"Mr. Wang\\",\\"Mr. Li\\"]"
    */
   contacts?: string;
   /**
@@ -24,7 +24,7 @@ export class GetEventSubscriptionResponseBodyDataContactGroups extends $dara.Mod
    * The name of the alert contact group.
    * 
    * @example
-   * Mr. Zhang
+   * 张先生
    */
   name?: string;
   /**
@@ -82,14 +82,18 @@ export class GetEventSubscriptionResponseBodyDataContacts extends $dara.Model {
   /**
    * @remarks
    * The contact groups to which the alert contact belongs.
+   * 
+   * @example
+   * Mr. Zhang
    */
   groups?: string[];
   /**
    * @remarks
    * Indicates whether the alert contact name is the same as the contact name on CloudMonitor.
    * 
-   * * **true**
-   * * **false**
+   * - **true**
+   * 
+   * - **false**
    * 
    * @example
    * true
@@ -160,8 +164,9 @@ export class GetEventSubscriptionResponseBodyData extends $dara.Model {
    * @remarks
    * Indicates whether the event subscription feature is enabled. Valid values:
    * 
-   * *   **0**: The event subscription feature is disabled.
-   * *   **1**: The event subscription feature is enabled.
+   * - **0**: The event subscription feature is disabled.
+   * 
+   * - **1**: The event subscription feature is enabled.
    * 
    * @example
    * 1
@@ -171,10 +176,13 @@ export class GetEventSubscriptionResponseBodyData extends $dara.Model {
    * @remarks
    * The notification method. Valid values:
    * 
-   * *   **hdm_alarm_sms**: text message.
-   * *   **dingtalk**: DingTalk chatbot.
-   * *   **hdm_alarm_sms_and_email**: text message and email.
-   * *   **hdm_alarm_sms,dingtalk**: text message and DingTalk chatbot.
+   * - **hdm_alarm_sms**: text message.
+   * 
+   * - **dingtalk**: DingTalk chatbot.
+   * 
+   * - **hdm_alarm_sms_and_email**: text message and email.
+   * 
+   * - **hdm_alarm_sms,dingtalk**: text message and DingTalk chatbot.
    * 
    * @example
    * hdm_alarm_sms,dingtalk
@@ -263,10 +271,13 @@ export class GetEventSubscriptionResponseBodyData extends $dara.Model {
    * @remarks
    * The risk level of the events that trigger notifications. Valid values:
    * 
-   * *   **Notice**
-   * *   **Optimization**
-   * *   **Warn**
-   * *   **Critical**
+   * - **Notice**
+   * 
+   * - **Optimization**
+   * 
+   * - **Warn**
+   * 
+   * - **Critical**
    * 
    * @example
    * Optimization
@@ -366,7 +377,7 @@ export class GetEventSubscriptionResponseBody extends $dara.Model {
    * @remarks
    * The returned message.
    * 
-   * >  If the request was successful, **Successful** is returned. If the request failed, an error message such as an error code is returned.
+   * > If the request was successful, **Successful** is returned. If the request failed, an error message such as an error code is returned.
    * 
    * @example
    * Successful
@@ -384,8 +395,9 @@ export class GetEventSubscriptionResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**
+   * 
+   * - **false**
    * 
    * @example
    * true

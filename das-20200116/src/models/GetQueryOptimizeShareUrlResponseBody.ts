@@ -16,14 +16,14 @@ export class GetQueryOptimizeShareUrlResponseBody extends $dara.Model {
    * The share URL.
    * 
    * @example
-   * https://hdm.console.aliyun.com/#/queryOptimize?Keywords=&OnlyOptimizedSql=true&Time=1684771200000&Engine=MySQL&InstanceIds=&Rules=&PageNo=1&PageSize=10&OrderBy=count&Asc=false&SqlIds=&dbNames=&region=cn-china&user=
+   * https://hdm.console.aliyun.com/#/queryOptimize****
    */
   data?: string;
   /**
    * @remarks
    * The returned message.
    * 
-   * >  If the request was successful, Successful is returned. If the request failed, an error message that contains information such as an error code is returned.
+   * > If the request was successful, Successful is returned. If the request failed, an error message that contains information such as an error code is returned.
    * 
    * @example
    * Successful
@@ -41,8 +41,9 @@ export class GetQueryOptimizeShareUrlResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**
+   * 
+   * - **false**
    * 
    * @example
    * true

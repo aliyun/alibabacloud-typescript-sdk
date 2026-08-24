@@ -5,43 +5,55 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSqlLogRecordsResponseBodyDataItemsSQLLogRecord extends $dara.Model {
   /**
    * @remarks
-   * The account of the database.
+   * The database account.
    * 
    * @example
    * testname
    */
   accountName?: string;
   /**
+   * @remarks
+   * The affected columns.
+   * 
    * @example
    * ["col1"]
    */
   affectColumns?: string;
   /**
+   * @remarks
+   * The client IP address.
+   * 
    * @example
    * 10.0.0.1xx
    */
   clientIp?: string;
   /**
+   * @remarks
+   * The client port.
+   * 
    * @example
    * 3306
    */
   clientPort?: number;
   /**
    * @remarks
-   * A reserved parameter.
+   * This parameter is reserved.
    * 
    * @example
    * None
    */
   collection?: string;
   /**
+   * @remarks
+   * The connection ID.
+   * 
    * @example
    * ld-******
    */
   connectionId?: string;
   /**
    * @remarks
-   * The amount of time that is consumed to execute the SQL statement. Unit: millisecond.
+   * The execution duration. Unit: microseconds (μs).
    * 
    * @example
    * 58
@@ -49,7 +61,7 @@ export class DescribeSqlLogRecordsResponseBodyDataItemsSQLLogRecord extends $dar
   consume?: number;
   /**
    * @remarks
-   * The CPU execution duration. Unit: microsecond.
+   * The CPU execution time. Unit: microseconds (μs).
    * 
    * @example
    * 100
@@ -65,7 +77,7 @@ export class DescribeSqlLogRecordsResponseBodyDataItemsSQLLogRecord extends $dar
   DBName?: string;
   /**
    * @remarks
-   * The time when the SQL statement was executed. The time follows the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time is displayed in UTC.
+   * The execution time. The time is in UTC. Format: `yyyy-MM-ddTHH:mm:ssZ`.
    * 
    * @example
    * 2023-12-07T02:15:32Z
@@ -73,7 +85,7 @@ export class DescribeSqlLogRecordsResponseBodyDataItemsSQLLogRecord extends $dar
   executeTime?: string;
   /**
    * @remarks
-   * The extended information. This parameter is a reserved parameter.
+   * The extended information. This parameter is reserved.
    * 
    * @example
    * None
@@ -81,7 +93,7 @@ export class DescribeSqlLogRecordsResponseBodyDataItemsSQLLogRecord extends $dar
   ext?: string;
   /**
    * @remarks
-   * The number of rows that are pulled by the compute nodes of the PolarDB-X 2.0 instance.
+   * The number of rows fetched by the compute node (CN) in a PolarDB-X 2.0 instance.
    * 
    * @example
    * 10
@@ -89,7 +101,7 @@ export class DescribeSqlLogRecordsResponseBodyDataItemsSQLLogRecord extends $dar
   frows?: number;
   /**
    * @remarks
-   * The IP address of the client.
+   * The client IP address.
    * 
    * @example
    * 11.197.XX.XX
@@ -97,7 +109,7 @@ export class DescribeSqlLogRecordsResponseBodyDataItemsSQLLogRecord extends $dar
   hostAddress?: string;
   /**
    * @remarks
-   * The lock wait duration. Unit: millisecond.
+   * The lock wait time. Unit: milliseconds.
    * 
    * @example
    * 0
@@ -121,7 +133,7 @@ export class DescribeSqlLogRecordsResponseBodyDataItemsSQLLogRecord extends $dar
   nodeId?: string;
   /**
    * @remarks
-   * The timestamp generated when the SQL statement was executed. The value of this parameter is a UNIX timestamp. Unit: millisecond.
+   * The execution time. This value is a UNIX timestamp. Unit: milliseconds.
    * 
    * @example
    * 1701886532000
@@ -129,7 +141,7 @@ export class DescribeSqlLogRecordsResponseBodyDataItemsSQLLogRecord extends $dar
   originTime?: number;
   /**
    * @remarks
-   * The parallel queue time of the PolarDB for MySQL instance. Unit: millisecond.
+   * The degree of parallelism (DOP) for the PolarDB for MySQL instance.
    * 
    * @example
    * 10
@@ -137,20 +149,23 @@ export class DescribeSqlLogRecordsResponseBodyDataItemsSQLLogRecord extends $dar
   parallelDegree?: string;
   /**
    * @remarks
-   * The parallelism of the PolarDB for MySQL cluster.
+   * The parallel queue time for the PolarDB for MySQL instance. Unit: milliseconds.
    * 
    * @example
    * 2
    */
   parallelQueueTime?: string;
   /**
+   * @remarks
+   * The SQL parameters.
+   * 
    * @example
    * [1, "das"]
    */
   params?: string;
   /**
    * @remarks
-   * The number of physical asynchronous reads.
+   * The number of asynchronous physical reads.
    * 
    * @example
    * 0
@@ -158,7 +173,7 @@ export class DescribeSqlLogRecordsResponseBodyDataItemsSQLLogRecord extends $dar
   physicAsyncRead?: number;
   /**
    * @remarks
-   * The total number of physical reads.
+   * The number of physical reads.
    * 
    * @example
    * 0
@@ -166,33 +181,39 @@ export class DescribeSqlLogRecordsResponseBodyDataItemsSQLLogRecord extends $dar
   physicRead?: number;
   /**
    * @remarks
-   * The number of physical synchronous reads.
+   * The number of synchronous physical reads.
    * 
    * @example
    * 0
    */
   physicSyncRead?: number;
   /**
+   * @remarks
+   * The protocol type.
+   * 
    * @example
    * MySQL
    */
   protocol?: string;
   /**
    * @remarks
-   * The number of rows returned by the SQL statement.
+   * The number of returned rows.
    * 
    * @example
    * 0
    */
   returnRows?: number;
   /**
+   * @remarks
+   * The row key of the SQL log record.
+   * 
    * @example
    * 23
    */
   rowKey?: string;
   /**
    * @remarks
-   * The total number of rows that are updated or returned by the compute nodes of the PolarDB-X 2.0 instance.
+   * The total number of rows updated or returned by the compute node (CN) of a PolarDB-X 2.0 instance.
    * 
    * @example
    * 10
@@ -208,7 +229,7 @@ export class DescribeSqlLogRecordsResponseBodyDataItemsSQLLogRecord extends $dar
   scanRows?: number;
   /**
    * @remarks
-   * The number of requests that are sent from the compute nodes to the data nodes of the PolarDB-X 2.0 instance.
+   * The number of requests sent from a compute node (CN) to data nodes (DNs) in a PolarDB-X 2.0 instance.
    * 
    * @example
    * 10
@@ -216,7 +237,7 @@ export class DescribeSqlLogRecordsResponseBodyDataItemsSQLLogRecord extends $dar
   scnt?: number;
   /**
    * @remarks
-   * The SQL statement ID.
+   * The SQL ID.
    * 
    * @example
    * c67649d4a7fb62c4f8c7a447c52b5b17
@@ -240,16 +261,20 @@ export class DescribeSqlLogRecordsResponseBodyDataItemsSQLLogRecord extends $dar
   sqlType?: string;
   /**
    * @remarks
-   * The execution status of the SQL statement.
+   * The execution status. Valid values:
    * 
-   * *   **0**: The execution was successful.
-   * *   **1**: The execution failed.
+   * - **0**: The execution was successful.
+   * 
+   * - **1**: The execution failed.
    * 
    * @example
    * 0
    */
   state?: string;
   /**
+   * @remarks
+   * The name of the table that the SQL statement references.
+   * 
    * @example
    * das
    */
@@ -264,7 +289,7 @@ export class DescribeSqlLogRecordsResponseBodyDataItemsSQLLogRecord extends $dar
   threadId?: number;
   /**
    * @remarks
-   * The trace ID of the PolarDB-X 2.0 instance. The value is the execution ID of the SQL statement on the data node.
+   * The trace ID for a PolarDB-X 2.0 instance. This is the ID of the SQL statement that was executed on a data node (DN).
    * 
    * @example
    * 14c93b7c7bf00000
@@ -280,7 +305,7 @@ export class DescribeSqlLogRecordsResponseBodyDataItemsSQLLogRecord extends $dar
   trxId?: string;
   /**
    * @remarks
-   * The number of rows that are updated.
+   * The number of updated rows.
    * 
    * @example
    * 0
@@ -288,10 +313,11 @@ export class DescribeSqlLogRecordsResponseBodyDataItemsSQLLogRecord extends $dar
   updateRows?: number;
   /**
    * @remarks
-   * Indicates whether the In-Memory Column Index (IMCI) feature is enabled for the PolarDB for MySQL cluster. Valid values:
+   * Indicates whether an In-Memory Column Index (IMCI) is used for the PolarDB for MySQL instance.
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**
+   * 
+   * - **false**
    * 
    * @example
    * true
@@ -299,7 +325,7 @@ export class DescribeSqlLogRecordsResponseBodyDataItemsSQLLogRecord extends $dar
   useImciEngine?: string;
   /**
    * @remarks
-   * The IP address that is resolved from the endpoint of the query link.
+   * The endpoint that is resolved from the query connection string.
    * 
    * @example
    * 100.115.XX.XX
@@ -307,7 +333,7 @@ export class DescribeSqlLogRecordsResponseBodyDataItemsSQLLogRecord extends $dar
   vip?: string;
   /**
    * @remarks
-   * The number of writes to the ApsaraDB RDS for SQL Server instance.
+   * The number of write operations on an ApsaraDB RDS for SQL Server instance.
    * 
    * @example
    * 10
@@ -447,7 +473,7 @@ export class DescribeSqlLogRecordsResponseBodyDataItems extends $dara.Model {
 export class DescribeSqlLogRecordsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The end of the time range to query. This value is a UNIX timestamp. Unit: millisecond.
+   * The end time of the query. This value is a UNIX timestamp. Unit: milliseconds.
    * 
    * @example
    * 1608888296000
@@ -455,12 +481,13 @@ export class DescribeSqlLogRecordsResponseBodyData extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * Indicates whether the task was complete. Valid values:
+   * Indicates whether the task is complete. Valid values:
    * 
-   * *   **0**: no
-   * *   **1**: yes
+   * - **0**: The task is in progress.
    * 
-   * >  If the value of **Finish** is 0 and the value of **JobId** is returned, the request is an asynchronous request and the return result cannot be directly obtained. You must query the return result based on the value of **JobId**. Specify JobId as the key of **Filters** and the value of **JobId** as the value of Filters. Example: `Filters=[{"Key": "JobId", "Value": "******"}]`.
+   * - **1**: The task is complete.
+   * 
+   * > If this parameter is **0** and the **JobId** parameter is returned, the current request is an asynchronous request and you cannot obtain the returned results. You must use the value of **JobId** to initiate another request. Set the **Filters** parameter to the value of **JobId**. Example: `Filters=[{"Key": "JobId", "Value": "******"}]`.
    * 
    * @example
    * 1
@@ -468,12 +495,12 @@ export class DescribeSqlLogRecordsResponseBodyData extends $dara.Model {
   finish?: string;
   /**
    * @remarks
-   * The data.
+   * The details of the SQL logs.
    */
   items?: DescribeSqlLogRecordsResponseBodyDataItems;
   /**
    * @remarks
-   * The ID of the asynchronous task.
+   * The asynchronous task ID.
    * 
    * @example
    * MzI4NTZfUUlOR0RBT19DTTlfTlUyMF9NWVNRTF9PREJTX0xWU18zMjg1Nl9teXNxbF9XZWQgTWFyIDA2IDE0OjUwOjQ3IENTVCAyMDI0XzBfMzBfRXhlY3V0ZVRpbWVfREVTQ19XZWQgTWFyIDA2IDE0OjM1OjQ3IENTVCAyMDI0Xw==_1709708406465
@@ -481,7 +508,7 @@ export class DescribeSqlLogRecordsResponseBodyData extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. This value is a UNIX timestamp. Unit: millisecond.
+   * The start time of the query. This value is a UNIX timestamp. Unit: milliseconds.
    * 
    * @example
    * 1596177993000
@@ -489,7 +516,7 @@ export class DescribeSqlLogRecordsResponseBodyData extends $dara.Model {
   startTime?: number;
   /**
    * @remarks
-   * The total number of entries.
+   * The total number of entries returned.
    * 
    * @example
    * 1
@@ -532,7 +559,7 @@ export class DescribeSqlLogRecordsResponseBodyData extends $dara.Model {
 export class DescribeSqlLogRecordsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code that is returned.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -540,14 +567,14 @@ export class DescribeSqlLogRecordsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The data that is returned.
+   * The returned data.
    */
   data?: DescribeSqlLogRecordsResponseBodyData;
   /**
    * @remarks
-   * The message that is returned.
+   * The returned message.
    * 
-   * >  If the request is successful, **Successful** is returned. If the request fails, an error message that contains information such as an error code is returned.
+   * > If the request is successful, **Successful** is returned. Otherwise, an error message is returned.
    * 
    * @example
    * Successful
@@ -565,8 +592,9 @@ export class DescribeSqlLogRecordsResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: The request was successful.
+   * 
+   * - **false**: The request failed.
    * 
    * @example
    * true

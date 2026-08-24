@@ -95,8 +95,9 @@ export class GetPfsSqlSampleResponseBodyData extends $dara.Model {
    * @remarks
    * Indicates whether the server failed to find an index that can be used for the SQL statement. Valid values:
    * 
-   * *   **1**: yes.
-   * *   **0**: no.
+   * - **1**: yes.
+   * 
+   * - **0**: no.
    * 
    * @example
    * 1
@@ -106,8 +107,9 @@ export class GetPfsSqlSampleResponseBodyData extends $dara.Model {
    * @remarks
    * Indicates whether table scans were performed when indexes were not used. Valid values:
    * 
-   * *   **1**: yes.
-   * *   **0**: no.
+   * - **1**: yes.
+   * 
+   * - **0**: no.
    * 
    * @example
    * 1
@@ -117,7 +119,7 @@ export class GetPfsSqlSampleResponseBodyData extends $dara.Model {
    * @remarks
    * The node ID.
    * 
-   * >  This parameter is returned only for ApsaraDB RDS for MySQL Cluster Edition instances or PolarDB for MySQL clusters.
+   * > This parameter is returned only for ApsaraDB RDS for MySQL Cluster Edition instances or PolarDB for MySQL clusters.
    * 
    * @example
    * r-x****-db-0
@@ -372,7 +374,7 @@ export class GetPfsSqlSampleResponseBody extends $dara.Model {
    * @remarks
    * The returned message.
    * 
-   * >  If the request was successful, **Successful** is returned. If the request failed, an error message such as an error code is returned.
+   * > If the request was successful, **Successful** is returned. If the request failed, an error message such as an error code is returned.
    * 
    * @example
    * Successful
@@ -390,8 +392,9 @@ export class GetPfsSqlSampleResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * *   **true**: The request was successful.
-   * *   **false**: The request failed.
+   * - **true**: The request was successful.
+   * 
+   * - **false**: The request failed.
    * 
    * @example
    * true

@@ -5,9 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCloudBenchTasksRequest extends $dara.Model {
   /**
    * @remarks
-   * The end of the time range to query. Set this parameter to a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
-   * 
-   * >  The end time must be later than the start time.
+   * The end time of the query task. Specify the value as a UNIX timestamp. Unit: milliseconds.
+   * >The end time of the query task must be later than the start time.
    * 
    * @example
    * 1596177993001
@@ -15,7 +14,7 @@ export class DescribeCloudBenchTasksRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The page number. The value must be a positive integer. Default value: 1.
+   * The page number. The value must be greater than 0 and cannot exceed the maximum value of the Integer data type. Default value: 1.
    * 
    * @example
    * 1
@@ -23,7 +22,7 @@ export class DescribeCloudBenchTasksRequest extends $dara.Model {
   pageNo?: string;
   /**
    * @remarks
-   * The number of entries per page. The value must be a positive integer. Default value: 10.
+   * The maximum number of records per page. The value must be greater than 0 and cannot exceed the maximum value of the Integer data type. Default value: 10.
    * 
    * @example
    * 10
@@ -31,7 +30,7 @@ export class DescribeCloudBenchTasksRequest extends $dara.Model {
   pageSize?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. Set this parameter to a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The start time of the query task. Specify the value as a UNIX timestamp. Unit: milliseconds.
    * 
    * @example
    * 1596177993000
@@ -39,12 +38,12 @@ export class DescribeCloudBenchTasksRequest extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The status of the stress testing task. Valid values:
+   * The running status of the task. Valid values:
    * 
-   * *   **SUCCESS**: The task is successful.
-   * *   **IGNORED**: The task is ignored.
-   * *   **RUNNING**: The task is running.
-   * *   **EXCEPTION**: The task is abnormal.
+   * - **SUCCESS**: Successful.
+   * - **IGNORED**: Ignored.
+   * - **RUNNING**: Running.
+   * - **EXCEPTION**: Exception.
    * 
    * @example
    * SUCCESS
@@ -53,9 +52,8 @@ export class DescribeCloudBenchTasksRequest extends $dara.Model {
   /**
    * @remarks
    * The type of the stress testing task. Valid values:
-   * 
-   * *   **pressure test** (default): A task of this type replays the traffic that is captured from the source instance on the destination instance at the maximum playback rate that is supported by the destination instance.
-   * *   **smart pressure test**: A task of this type analyzes the traffic that is captured from the source instance over a short period of time and generates traffic on the destination instance for continuous stress testing. The business model based on which the traffic is generated on the destination instance and the traffic distribution are consistent with those on the source instance. Stress testing tasks of this type can help you reduce the amount of time that is consumed to collect data from the source instance and reduce storage costs and performance overheads.
+   * - **pressure test** (default): intelligent stress testing. Traffic captured from the target instance is replayed on the destination instance at the maximum speed supported by the destination instance specifications.
+   * - **smart pressure test**: generated stress testing. By analyzing and learning from traffic captured from the target instance within a short period, traffic that is consistent with the business model and traffic distribution of the original traffic is generated for continuous stress testing. This reduces the time required to collect data from the target instance and lowers storage costs and performance overhead.
    * 
    * @example
    * pressure test

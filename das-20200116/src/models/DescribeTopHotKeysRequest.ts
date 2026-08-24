@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeTopHotKeysRequest extends $dara.Model {
   /**
    * @remarks
-   * The reserved parameter.
+   * A reserved parameter.
    * 
    * @example
    * None
@@ -13,15 +13,13 @@ export class DescribeTopHotKeysRequest extends $dara.Model {
   consoleContext?: string;
   /**
    * @remarks
-   * The end of the time range to query. Set this parameter to a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The end of the query time range, specified as a UNIX timestamp in milliseconds.
    * 
-   * > 
-   * 
-   * *   The end time must be later than the start time.
-   * 
-   * *   Only data within the last four days can be queried.
-   * 
-   * *   The maximum interval between the **start time** and the** end time** is 3 hours.
+   * > - The end time must be later than the start time.
+   * >
+   * > - You can query data within the last four days.
+   * >
+   * > - The maximum time interval between **StartTime** and **EndTime** is three hours.
    * 
    * This parameter is required.
    * 
@@ -31,7 +29,7 @@ export class DescribeTopHotKeysRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The ID of the ApsaraDB for Redis instance.
+   * The ID of the Redis instance.
    * 
    * This parameter is required.
    * 
@@ -41,7 +39,7 @@ export class DescribeTopHotKeysRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the data shard on the ApsaraDB for Redis instance.
+   * The ID of the data shard of the Redis instance.
    * 
    * @example
    * r-****-db-0
@@ -49,7 +47,7 @@ export class DescribeTopHotKeysRequest extends $dara.Model {
   nodeId?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. Set this parameter to a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The start of the query time range, specified as a UNIX timestamp in milliseconds.
    * 
    * This parameter is required.
    * 

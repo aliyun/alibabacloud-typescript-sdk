@@ -100,8 +100,9 @@ export class GetAutoIncrementUsageStatisticResponseBodyData extends $dara.Model 
    * @remarks
    * Indicates whether the task is complete. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**
+   * 
+   * - **false**
    * 
    * @example
    * false
@@ -111,10 +112,13 @@ export class GetAutoIncrementUsageStatisticResponseBodyData extends $dara.Model 
    * @remarks
    * The task status. Valid values:
    * 
-   * *   **INIT**: The task is being initialized.
-   * *   **RUNNING**: The task is being executed.
-   * *   **SUCCESS**: The task succeeds.
-   * *   **FAIL**: The task fails.
+   * - **INIT**: The task is being initialized.
+   * 
+   * - **RUNNING**: The task is being executed.
+   * 
+   * - **SUCCESS**: The task succeeds.
+   * 
+   * - **FAIL**: The task fails.
    * 
    * @example
    * INIT
@@ -178,7 +182,7 @@ export class GetAutoIncrementUsageStatisticResponseBody extends $dara.Model {
    * @remarks
    * The returned message.
    * 
-   * >  If the request is successful, **Successful** is returned. Otherwise, an error message such as an error code is returned.
+   * > If the request is successful, **Successful** is returned. Otherwise, an error message such as an error code is returned.
    * 
    * @example
    * Successful
@@ -196,8 +200,9 @@ export class GetAutoIncrementUsageStatisticResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request is successful. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**
+   * 
+   * - **false**
    * 
    * @example
    * true

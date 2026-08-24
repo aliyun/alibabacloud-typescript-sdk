@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSqlLogStatisticResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The size of the SQL Explorer and Audit data that is stored in cold storage. Unit: bytes.
+   * The total cold storage data. Unit: bytes.
    * 
    * @example
    * 8585901
@@ -13,7 +13,7 @@ export class DescribeSqlLogStatisticResponseBodyData extends $dara.Model {
   coldSqlSize?: number;
   /**
    * @remarks
-   * The free quota for cold data storage. Unit: bytes.
+   * The free cold storage data. Unit: bytes.
    * 
    * @example
    * 5041450
@@ -21,7 +21,7 @@ export class DescribeSqlLogStatisticResponseBodyData extends $dara.Model {
   freeColdSqlSize?: number;
   /**
    * @remarks
-   * The free quota for hot data storage. Unit: bytes.
+   * The free hot storage data. Unit: bytes.
    * 
    * @example
    * 297245
@@ -29,7 +29,7 @@ export class DescribeSqlLogStatisticResponseBodyData extends $dara.Model {
   freeHotSqlSize?: number;
   /**
    * @remarks
-   * The size of the SQL Explorer and Audit data that is stored in hot storage. Unit: bytes.
+   * The total hot storage data. Unit: bytes.
    * 
    * @example
    * 1118042
@@ -37,20 +37,27 @@ export class DescribeSqlLogStatisticResponseBodyData extends $dara.Model {
   hotSqlSize?: number;
   /**
    * @remarks
-   * The size of the SQL Explorer and Audit data that was generated in the most recent day. Unit: bytes.
+   * The amount of data imported in the last day. Unit: bytes.
    * 
    * @example
-   * 23
+   * 297245
    */
   importSqlSize?: number;
   /**
    * @remarks
-   * The timestamp. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The timestamp in UNIX timestamp format. Unit: milliseconds.
    * 
    * @example
    * 1712568564928
    */
   timestamp?: number;
+  /**
+   * @remarks
+   * The total storage data (cold data + hot data).
+   * 
+   * @example
+   * 9703943
+   */
   totalSqlSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -88,7 +95,7 @@ export class DescribeSqlLogStatisticResponseBodyData extends $dara.Model {
 export class DescribeSqlLogStatisticResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code.
+   * The returned status code.
    * 
    * @example
    * 200
@@ -96,14 +103,14 @@ export class DescribeSqlLogStatisticResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The data returned.
+   * The returned data.
    */
   data?: DescribeSqlLogStatisticResponseBodyData;
   /**
    * @remarks
    * The returned message.
    * 
-   * >  If the request was successful, **Successful** is returned. If the request failed, an error message is returned.
+   * > If the request is successful, **Successful** is returned. If the request fails, an error message such as an error code is returned.
    * 
    * @example
    * Successful
@@ -119,10 +126,9 @@ export class DescribeSqlLogStatisticResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * *   true
-   * *   false
+   * Indicates whether the request is successful. Valid values:
+   * * true: The request is successful.
+   * * false: The request fails.
    * 
    * @example
    * true

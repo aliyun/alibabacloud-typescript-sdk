@@ -27,7 +27,7 @@ export class CreateRequestDiagnosisRequest extends $dara.Model {
    * @remarks
    * The node ID.
    * 
-   * >  This parameter must be specified for PolarDB for MySQL, PolarDB for PostgreSQL (Compatible with Oracle), and ApsaraDB for MongoDB instances.
+   * > This parameter must be specified for PolarDB for MySQL, PolarDB for PostgreSQL (Compatible with Oracle), and ApsaraDB for MongoDB instances.
    * 
    * @example
    * 202****
