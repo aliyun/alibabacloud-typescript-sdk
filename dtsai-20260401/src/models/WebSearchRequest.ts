@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class WebSearchRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The agent name.
+   */
   agentName?: string;
   /**
    * @remarks

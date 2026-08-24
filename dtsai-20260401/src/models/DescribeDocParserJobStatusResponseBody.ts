@@ -21,7 +21,7 @@ export class DescribeDocParserJobStatusResponseBody extends $dara.Model {
   errorMessage?: string;
   /**
    * @remarks
-   * The failure cause. This parameter has a value only when Status is failed.
+   * The failure reason. This parameter has a value only when Status is failed.
    * 
    * @example
    * Failed Message
@@ -55,9 +55,9 @@ export class DescribeDocParserJobStatusResponseBody extends $dara.Model {
    * 
    * - **success**: Completed. You can call DescribeDocParserJobResult to obtain the result.
    * 
-   * - **failed**: Failed. The cause is provided in FailureMessage.
+   * - **failed**: Failed. The reason is provided in FailureMessage.
    * 
-   * - **cancelled**: Canceled.
+   * - **cancelled**: Cancelled.
    * 
    * @example
    * running

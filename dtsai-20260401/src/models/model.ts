@@ -1,4 +1,7 @@
 export { WebSearchResponseBodySearchResult } from './WebSearchResponseBody';
+export { AuthorizeFileUploadRequest } from './AuthorizeFileUploadRequest';
+export { AuthorizeFileUploadResponseBody } from './AuthorizeFileUploadResponseBody';
+export { AuthorizeFileUploadResponse } from './AuthorizeFileUploadResponse';
 export { CreateDocParserJobRequest } from './CreateDocParserJobRequest';
 export { CreateDocParserJobAdvanceRequest } from './CreateDocParserJobAdvanceRequest';
 export { CreateDocParserJobResponseBody } from './CreateDocParserJobResponseBody';

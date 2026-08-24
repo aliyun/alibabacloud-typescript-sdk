@@ -2,25 +2,26 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DescribeDocParserJobStatusRequest extends $dara.Model {
+export class AuthorizeFileUploadRequest extends $dara.Model {
   /**
    * @remarks
-   * The agent name.
+   * The Agent or client source that initiates the call, such as codex, cursor, or openapi. Maximum length: 32 characters. Used only for statistics and does not participate in authentication, throttling, quota, or billing.
+   * 
+   * @example
+   * codex
    */
   agentName?: string;
   /**
    * @remarks
-   * The ID of the document parsing task. You can obtain this ID by calling CreateDocParserJob.
-   * 
-   * This parameter is required.
+   * The format of the file to be uploaded.
    * 
    * @example
-   * job_abc123
+   * pdf
    */
-  jobId?: string;
+  fileFormat?: string;
   /**
    * @remarks
-   * The region ID.
+   * The region ID, such as cn-beijing.
    * 
    * This parameter is required.
    * 
@@ -31,7 +32,7 @@ export class DescribeDocParserJobStatusRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       agentName: 'AgentName',
-      jobId: 'JobId',
+      fileFormat: 'FileFormat',
       regionId: 'RegionId',
     };
   }
@@ -39,7 +40,7 @@ export class DescribeDocParserJobStatusRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       agentName: 'string',
-      jobId: 'string',
+      fileFormat: 'string',
       regionId: 'string',
     };
   }

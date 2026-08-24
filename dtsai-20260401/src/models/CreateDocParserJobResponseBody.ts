@@ -43,9 +43,25 @@ export class CreateDocParserJobResponseBody extends $dara.Model {
    * A30D0930-xxxx-xxxx-xxxx-C2C661CC8B58
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The result data.
+   */
   result?: string;
+  /**
+   * @remarks
+   * The result type.
+   */
   resultType?: string;
+  /**
+   * @remarks
+   * The result URL.
+   */
   resultUrl?: string;
+  /**
+   * @remarks
+   * The status information.
+   */
   status?: string;
   /**
    * @remarks

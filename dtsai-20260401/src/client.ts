@@ -117,11 +117,61 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Uploads a file directly to the Bucket/ObjectKey specified in the response, and then uses the object URL as OssFileUrl to create a parsing task.
+   * 
+   * @param request - AuthorizeFileUploadRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AuthorizeFileUploadResponse
+   */
+  async authorizeFileUploadWithOptions(request: $_model.AuthorizeFileUploadRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AuthorizeFileUploadResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.agentName)) {
+      query["AgentName"] = request.agentName;
+    }
+
+    if (!$dara.isNull(request.fileFormat)) {
+      query["FileFormat"] = request.fileFormat;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AuthorizeFileUpload",
+      version: "2026-04-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AuthorizeFileUploadResponse>(await this.callApi(params, req, runtime), new $_model.AuthorizeFileUploadResponse({}));
+  }
+
+  /**
+   * Uploads a file directly to the Bucket/ObjectKey specified in the response, and then uses the object URL as OssFileUrl to create a parsing task.
+   * 
+   * @param request - AuthorizeFileUploadRequest
+   * @returns AuthorizeFileUploadResponse
+   */
+  async authorizeFileUpload(request: $_model.AuthorizeFileUploadRequest): Promise<$_model.AuthorizeFileUploadResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.authorizeFileUploadWithOptions(request, runtime);
+  }
+
+  /**
    * Creates a document parsing task.
    * 
    * @remarks
    * - Region: Only China (Beijing) is supported.
-   * - Fees: Free during the public preview period. No fees are charged.
+   * - Fees: The service is free of charge during the public preview period.
    * 
    * @param request - CreateDocParserJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -248,7 +298,7 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * - Region: Only China (Beijing) is supported.
-   * - Fees: Free during the public preview period. No fees are charged.
+   * - Fees: The service is free of charge during the public preview period.
    * 
    * @param request - CreateDocParserJobRequest
    * @returns CreateDocParserJobResponse
@@ -471,7 +521,7 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * - Region: Only China (Beijing) and Singapore regions are supported.
-   * - Pricing: Free of charge during the public preview period.
+   * - Fees: Free of charge during the public preview period.
    * 
    * @param request - WebFetchRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -518,7 +568,7 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * - Region: Only China (Beijing) and Singapore regions are supported.
-   * - Pricing: Free of charge during the public preview period.
+   * - Fees: Free of charge during the public preview period.
    * 
    * @param request - WebFetchRequest
    * @returns WebFetchResponse

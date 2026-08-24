@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class WebFetchRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The agent name.
+   */
   agentName?: string;
   /**
    * @remarks

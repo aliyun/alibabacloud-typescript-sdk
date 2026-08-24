@@ -3,10 +3,14 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeDocParserJobResultRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The agent name.
+   */
   agentName?: string;
   /**
    * @remarks
-   * The document parsing task ID. You can obtain this ID by calling CreateDocParserJob.
+   * The document parsing task ID, obtained by calling CreateDocParserJob.
    * 
    * This parameter is required.
    * 
@@ -24,6 +28,10 @@ export class DescribeDocParserJobResultRequest extends $dara.Model {
    * cn-beijing
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The result type.
+   */
   resultType?: string;
   static names(): { [key: string]: string } {
     return {

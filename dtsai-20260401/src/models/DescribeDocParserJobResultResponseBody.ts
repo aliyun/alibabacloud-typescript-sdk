@@ -43,7 +43,15 @@ export class DescribeDocParserJobResultResponseBody extends $dara.Model {
    * # Document Title
    */
   result?: string;
+  /**
+   * @remarks
+   * The result format.
+   */
   resultType?: string;
+  /**
+   * @remarks
+   * oss url
+   */
   resultUrl?: string;
   /**
    * @remarks
