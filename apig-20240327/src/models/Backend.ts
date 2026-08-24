@@ -1,11 +1,28 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import { HttpDubboTranscoder } from "./HttpDubboTranscoder";
 
 
 export class BackendServices extends $dara.Model {
   /**
    * @remarks
-   * The target model name. This field is shared by multiple existing model backend scenarios. The specific routing or model rewrite semantics are determined by scene. This field is required in the SemanticRouter scenario. In the AiAutoRouter scenario, the default model of the AI service is used if this field is not configured.
+   * The service group. Used in HTTP-to-Dubbo conversion scenarios.
+   * 
+   * @example
+   * DEFAULT_GROUP
+   */
+  groupName?: string;
+  /**
+   * @remarks
+   * The HTTP-to-Dubbo protocol conversion configuration. Only supported for SingleService MSE_NACOS DUBBO backends of HTTP APIs.
+   * 
+   * @example
+   * {"dubboServiceName":"com.alibaba.nacos.example.dubbo.service.DemoService","dubboServiceVersion":"1.0.0","dubboServiceGroup":"DEV","methodMapList":[{"dubboMethodName":"sayName","httpMethod":"ALL_GET","methodPath":"/dubbo/sayName","passThroughAllHeaders":"PASS_ALL"}]}
+   */
+  httpDubboTranscoder?: HttpDubboTranscoder;
+  /**
+   * @remarks
+   * The target model name. This field is shared by multiple existing model backend scenarios. The specific routing or model rewrite semantics are determined by the scene field. This field is required for the SemanticRouter scenario. If not specified in the AiAutoRouter scenario, the default model of the AI service is used.
    * 
    * @example
    * qwen-plus
@@ -21,6 +38,14 @@ export class BackendServices extends $dara.Model {
   name?: string;
   /**
    * @remarks
+   * The service namespace. Used in HTTP-to-Dubbo conversion scenarios.
+   * 
+   * @example
+   * public
+   */
+  namespace?: string;
+  /**
+   * @remarks
    * The service port. Do not specify this parameter for dynamic ports.
    * 
    * @example
@@ -29,7 +54,7 @@ export class BackendServices extends $dara.Model {
   port?: number;
   /**
    * @remarks
-   * The service protocol. Valid values: [HTTP, TCP, DUBBO].
+   * The service protocol. Valid values: [HTTP, TCP, DUBBO]
    * 
    * @example
    * HTTP
@@ -43,6 +68,14 @@ export class BackendServices extends $dara.Model {
    * service-cq2bmmdlhtgj***
    */
   serviceId?: string;
+  /**
+   * @remarks
+   * The service source type. Set this to MSE_NACOS for HTTP-to-Dubbo conversion scenarios.
+   * 
+   * @example
+   * MSE_NACOS
+   */
+  sourceType?: string;
   /**
    * @remarks
    * The service version.
@@ -61,11 +94,15 @@ export class BackendServices extends $dara.Model {
   weight?: number;
   static names(): { [key: string]: string } {
     return {
+      groupName: 'groupName',
+      httpDubboTranscoder: 'httpDubboTranscoder',
       modelName: 'modelName',
       name: 'name',
+      namespace: 'namespace',
       port: 'port',
       protocol: 'protocol',
       serviceId: 'serviceId',
+      sourceType: 'sourceType',
       version: 'version',
       weight: 'weight',
     };
@@ -73,17 +110,24 @@ export class BackendServices extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      groupName: 'string',
+      httpDubboTranscoder: HttpDubboTranscoder,
       modelName: 'string',
       name: 'string',
+      namespace: 'string',
       port: 'number',
       protocol: 'string',
       serviceId: 'string',
+      sourceType: 'string',
       version: 'string',
       weight: 'number',
     };
   }
 
   validate() {
+    if(this.httpDubboTranscoder && typeof (this.httpDubboTranscoder as any).validate === 'function') {
+      (this.httpDubboTranscoder as any).validate();
+    }
     super.validate();
   }
 
@@ -103,7 +147,7 @@ export class Backend extends $dara.Model {
   enableSystemModels?: boolean;
   /**
    * @remarks
-   * The backend service scenario. Valid values: [Single, MultiServiceByRatio, MultiServiceByTag, Mock, Redirect].
+   * The backend service scenario. Valid values: [Single, MultiServiceByRatio, MultiServiceByTag, Mock, Redirect]
    * 
    * @example
    * Single

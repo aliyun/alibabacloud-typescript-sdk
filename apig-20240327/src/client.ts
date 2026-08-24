@@ -7855,7 +7855,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the route of an HTTP API.
+   * Updates a route of an HTTP API.
    * 
    * @param request - UpdateHttpApiRouteRequest
    * @param headers - map
@@ -7912,7 +7912,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the route of an HTTP API.
+   * Updates a route of an HTTP API.
    * 
    * @param request - UpdateHttpApiRouteRequest
    * @returns UpdateHttpApiRouteResponse

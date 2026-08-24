@@ -64,6 +64,8 @@ export class GetGatewayResponseBodyDataLoadBalancersPorts extends $dara.Model {
   /**
    * @remarks
    * The protocol. Valid values:
+   * - TCP
+   * - UDP
    * 
    * @example
    * TCP
@@ -104,6 +106,8 @@ export class GetGatewayResponseBodyDataLoadBalancers extends $dara.Model {
   /**
    * @remarks
    * The protocol version. Valid values:
+   * - ipv4: IPv4.
+   * - ipv6: IPv6.
    * 
    * @example
    * ipv4
@@ -112,6 +116,8 @@ export class GetGatewayResponseBodyDataLoadBalancers extends $dara.Model {
   /**
    * @remarks
    * The load balancing address type. Valid values:
+   * - Internet: public network.
+   * - Intranet: private network.
    * 
    * @example
    * Internet
@@ -146,6 +152,7 @@ export class GetGatewayResponseBodyDataLoadBalancers extends $dara.Model {
   /**
    * @remarks
    * The load balancing mode of the gateway. Valid values:
+   * - Managed: managed by Cloud-native API Gateway.
    * 
    * @example
    * Managed
@@ -159,6 +166,8 @@ export class GetGatewayResponseBodyDataLoadBalancers extends $dara.Model {
   /**
    * @remarks
    * The status of load balancing. Valid values:
+   * - Ready: active.
+   * - NotCreate: not associated with an instance.
    * 
    * @example
    * Ready
@@ -166,7 +175,9 @@ export class GetGatewayResponseBodyDataLoadBalancers extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The load balancing type.
+   * The load balancing type. Valid values:
+   * - NLB: Network Load Balancer (NLB).
+   * - CLB: Classic Load Balancer (CLB).
    * 
    * @example
    * NLB
@@ -515,7 +526,9 @@ export class GetGatewayResponseBodyDataZones extends $dara.Model {
 export class GetGatewayResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The billing method.
+   * The billing method. Valid values:
+   * - POSTPAY: pay-as-you-go.
+   * - PREPAY: subscription.
    * 
    * @example
    * POSTPAY
@@ -524,6 +537,7 @@ export class GetGatewayResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The source from which the gateway was created. Valid values:
+   * - Console: the console.
    * 
    * @example
    * Console
@@ -544,7 +558,7 @@ export class GetGatewayResponseBodyData extends $dara.Model {
   environments?: GetGatewayResponseBodyDataEnvironments[];
   /**
    * @remarks
-   * The subscription expiration timestamp. Unit: milliseconds.
+   * The expiration timestamp for subscription instances. Unit: milliseconds.
    * 
    * @example
    * 1719386834548
@@ -552,10 +566,11 @@ export class GetGatewayResponseBodyData extends $dara.Model {
   expireTimestamp?: number;
   /**
    * @remarks
-   * The edition of the gateway instance. Valid values:
+   * The gateway instance edition. Valid values:
    * 
    * - Professional: standard instance.
-   * - Serverless: Serverless.
+   * 
+   * - Serverless: Serverless instance.
    * 
    * @example
    * Serverless
@@ -571,7 +586,7 @@ export class GetGatewayResponseBodyData extends $dara.Model {
   gatewayId?: string;
   /**
    * @remarks
-   * The running mode of AI multi-tenant V2. Default value: ENTERPRISE. This parameter can be specified only when AI + MultiTenantServerless is used.
+   * The running mode of AI multi-tenant V2. Default value: ENTERPRISE. Only AI + MultiTenantServerless allows this parameter.
    * 
    * @example
    * STANDARD
@@ -580,6 +595,8 @@ export class GetGatewayResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The gateway type. Valid values:
+   * - API: API gateway.
+   * - AI: AI gateway.
    * 
    * @example
    * API
@@ -635,6 +652,7 @@ export class GetGatewayResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The gateway specification. Valid values:
+   * - apigw.small.x1: small specification.
    * 
    * @example
    * apigw.small.x1
@@ -643,6 +661,15 @@ export class GetGatewayResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The gateway status. Valid values:
+   * - Running: The gateway is running.
+   * - Creating: The gateway is being created.
+   * - CreateFailed: The gateway failed to be created.
+   * - Upgrading: The gateway is being upgraded.
+   * - UpgradeFailed: The gateway failed to be upgraded.
+   * - Restarting: The gateway is being restarted.
+   * - RestartFailed: The gateway failed to be restarted.
+   * - Deleting: The gateway is being released.
+   * - DeleteFailed: The gateway failed to be released.
    * 
    * @example
    * Running

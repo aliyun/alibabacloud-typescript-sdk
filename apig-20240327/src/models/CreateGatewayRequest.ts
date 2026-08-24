@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateGatewayRequestLogConfigSls extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable log collection.
+   * Specifies whether to enable SLS log collection.
    * 
    * @example
    * false
@@ -146,7 +146,7 @@ export class CreateGatewayRequestZoneConfigZones extends $dara.Model {
    * The zone ID.
    * 
    * @example
-   * cn-wulanchabu-a
+   * cn-hangzhou-j
    */
   zoneId?: string;
   static names(): { [key: string]: string } {
@@ -191,7 +191,7 @@ export class CreateGatewayRequestZoneConfig extends $dara.Model {
   vSwitchId?: string;
   /**
    * @remarks
-   * The list of supported zones.
+   * The list of supported zones. At least two zones are required.
    */
   zones?: CreateGatewayRequestZoneConfigZones[];
   static names(): { [key: string]: string } {
@@ -237,9 +237,9 @@ export class CreateGatewayRequest extends $dara.Model {
    * 
    * - Professional: standard instance.
    * 
-   * - Serverless: Serverless instance.
+   * - Serverless: Serverless.
    * 
-   * - MultiTenantServerless: multi-tenant Serverless instance.
+   * - MultiTenantServerless: multi-tenant Serverless.
    * 
    * - Unknown: unknown.
    * 
@@ -249,7 +249,7 @@ export class CreateGatewayRequest extends $dara.Model {
   gatewayEdition?: string;
   /**
    * @remarks
-   * The running mode for AI multi-tenant V2. Default value: ENTERPRISE. Only allowed when the gateway type is AI and the edition is MultiTenantServerless.
+   * The running mode for AI multi-tenant V2. Default value: ENTERPRISE. This parameter can be specified only when gatewayType is AI and gatewayEdition is MultiTenantServerless.
    * 
    * @example
    * ENTERPRISE
@@ -294,7 +294,7 @@ export class CreateGatewayRequest extends $dara.Model {
    * The node specifications. Required for the Serverless edition.
    * 
    * @example
-   * apigw.dev.x2
+   * apigw.dev.x1
    */
   spec?: string;
   /**

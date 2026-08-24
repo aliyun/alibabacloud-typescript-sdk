@@ -45,7 +45,7 @@ export class ListTagResourcesRequestTag extends $dara.Model {
 export class ListTagResourcesRequest extends $dara.Model {
   /**
    * @remarks
-   * The token for the next query.
+   * The token for the next query start position.
    * 
    * @example
    * caeb235b-xxx
@@ -53,7 +53,7 @@ export class ListTagResourcesRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The resource ID. You can specify up to 50 subkeys.
+   * The resource ID. Up to 50 subkeys are supported. At least one of ResourceId and Tag must be provided. If both are empty, the API returns InvalidParameter.BothEmpty (400).
    * 
    * @example
    * ["gw-xxx","gw-yyy"]
@@ -69,7 +69,7 @@ export class ListTagResourcesRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The list of labels to add. You can specify up to 20 subkeys.
+   * The label list. Up to 20 subkeys are supported. At least one of ResourceId and Tag must be provided. If both are empty, the API returns InvalidParameter.BothEmpty (400).
    * 
    * @example
    * [{"key":"env","value":"prod"}]

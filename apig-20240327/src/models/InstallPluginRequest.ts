@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class InstallPluginRequest extends $dara.Model {
   /**
    * @remarks
-   * The list of gateway IDs.
+   * The list of gateway IDs. This parameter is required. If this parameter is not specified, the service returns InvalidParameter.IsEmpty. This field must be included in the body object.
    */
   gatewayIds?: string[];
   /**
    * @remarks
-   * The plug-in type ID.
+   * The plug-in type ID. This parameter is required. If this parameter is not specified, the service returns InvalidParameter.IsEmpty. This field must be included in the body object.
    * 
    * @example
    * pls-csqmjndlhtguk0loef21

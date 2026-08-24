@@ -80,8 +80,8 @@ export { HttpApiPublishRevisionInfoServiceConfigs } from './HttpApiPublishRevisi
 export { HttpApiPublishRevisionInfoVipConfigs } from './HttpApiPublishRevisionInfo';
 export { HttpApiRequestContractBody } from './HttpApiRequestContract';
 export { HttpApiResponseContractItems } from './HttpApiResponseContract';
-export { HttpDubboTranscoderMothedMapListParamMapsList } from './HttpDubboTranscoder';
-export { HttpDubboTranscoderMothedMapList } from './HttpDubboTranscoder';
+export { HttpDubboTranscoderMethodMapListParamMapsList } from './HttpDubboTranscoder';
+export { HttpDubboTranscoderMethodMapList } from './HttpDubboTranscoder';
 export { HttpRouteDomainInfos } from './HttpRoute';
 export { HttpRouteEnvironmentInfoGatewayInfo } from './HttpRoute';
 export { HttpRouteEnvironmentInfoSubDomains } from './HttpRoute';

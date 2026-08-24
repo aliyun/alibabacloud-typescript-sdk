@@ -3,17 +3,42 @@ import * as $dara from '@darabonba/typescript';
 import { HttpApiDeployConfig } from "./HttpApiDeployConfig";
 import { HttpRouteMatch } from "./HttpRouteMatch";
 import { HttpApiPolicyConfigs } from "./HttpApiPolicyConfigs";
+import { HttpDubboTranscoder } from "./HttpDubboTranscoder";
 
 
 export class CreateHttpApiRouteRequestBackendConfigServices extends $dara.Model {
   /**
    * @remarks
-   * The target model name. This field is shared by multiple existing model backend scenarios. The specific routing or model rewrite semantics are determined by backendConfig.scene. This field is required for the SemanticRouter scenario. If not specified in the AiAutoRouter scenario, the default model of the AI service is used.
+   * The service group. Used in the HTTP-to-Dubbo conversion scenario.
+   * 
+   * @example
+   * DEFAULT_GROUP
+   */
+  groupName?: string;
+  /**
+   * @remarks
+   * The HTTP-to-Dubbo protocol conversion configuration. Only supported for SingleService MSE_NACOS DUBBO backends of HTTP APIs.
+   * 
+   * @example
+   * {"dubboServiceName":"com.alibaba.nacos.example.dubbo.service.DemoService","dubboServiceVersion":"1.0.0","dubboServiceGroup":"DEV","methodMapList":[{"dubboMethodName":"sayName","httpMethod":"ALL_GET","methodPath":"/dubbo/sayName","passThroughAllHeaders":"PASS_ALL"}]}
+   */
+  httpDubboTranscoder?: HttpDubboTranscoder;
+  /**
+   * @remarks
+   * The target model name. This field is shared by multiple model backend scenarios. The specific routing or model rewrite semantics are determined by backendConfig.scene. This field is required for the SemanticRouter scenario. If not specified in the AiAutoRouter scenario, the default model of the AI service is used.
    * 
    * @example
    * qwen-plus
    */
   modelName?: string;
+  /**
+   * @remarks
+   * The service namespace. Used in the HTTP-to-Dubbo conversion scenario.
+   * 
+   * @example
+   * public
+   */
+  namespace?: string;
   /**
    * @remarks
    * The service port. Do not specify this parameter for dynamic ports.
@@ -25,8 +50,8 @@ export class CreateHttpApiRouteRequestBackendConfigServices extends $dara.Model 
   /**
    * @remarks
    * The service protocol. Valid values:
-   * - HTTP
-   * - HTTPS
+   * - HTTP.
+   * - HTTPS.
    * 
    * @example
    * HTTP
@@ -42,7 +67,15 @@ export class CreateHttpApiRouteRequestBackendConfigServices extends $dara.Model 
   serviceId?: string;
   /**
    * @remarks
-   * The service version. This parameter is valid only in the by-tag scenario.
+   * The service source type. Used in the HTTP-to-Dubbo conversion scenario.
+   * 
+   * @example
+   * MSE_NACOS
+   */
+  sourceType?: string;
+  /**
+   * @remarks
+   * The service version. This parameter is valid only in the tag-based scenario.
    * 
    * @example
    * v1
@@ -50,7 +83,7 @@ export class CreateHttpApiRouteRequestBackendConfigServices extends $dara.Model 
   version?: string;
   /**
    * @remarks
-   * The percentage value of the traffic ratio.
+   * The traffic ratio percentage value.
    * 
    * @example
    * 49
@@ -58,10 +91,14 @@ export class CreateHttpApiRouteRequestBackendConfigServices extends $dara.Model 
   weight?: number;
   static names(): { [key: string]: string } {
     return {
+      groupName: 'groupName',
+      httpDubboTranscoder: 'httpDubboTranscoder',
       modelName: 'modelName',
+      namespace: 'namespace',
       port: 'port',
       protocol: 'protocol',
       serviceId: 'serviceId',
+      sourceType: 'sourceType',
       version: 'version',
       weight: 'weight',
     };
@@ -69,16 +106,23 @@ export class CreateHttpApiRouteRequestBackendConfigServices extends $dara.Model 
 
   static types(): { [key: string]: any } {
     return {
+      groupName: 'string',
+      httpDubboTranscoder: HttpDubboTranscoder,
       modelName: 'string',
+      namespace: 'string',
       port: 'number',
       protocol: 'string',
       serviceId: 'string',
+      sourceType: 'string',
       version: 'string',
       weight: 'number',
     };
   }
 
   validate() {
+    if(this.httpDubboTranscoder && typeof (this.httpDubboTranscoder as any).validate === 'function') {
+      (this.httpDubboTranscoder as any).validate();
+    }
     super.validate();
   }
 
@@ -91,10 +135,10 @@ export class CreateHttpApiRouteRequestBackendConfig extends $dara.Model {
   /**
    * @remarks
    * The backend service scenario. Valid values:
-   * - SingleService: Single service.
-   * - MultiServiceByRatio: Multiple services with ratio-based canary release.
-   * - Mock: Mock service.
-   * - Redirect: Redirect service.
+   * - SingleService: single service.
+   * - MultiServiceByRatio: multiple services with ratio-based canary release.
+   * - Mock: mock service.
+   * - Redirect: redirect service.
    * 
    * @example
    * SingleService
@@ -151,9 +195,9 @@ export class CreateHttpApiRouteRequestMcpRouteConfig extends $dara.Model {
   /**
    * @remarks
    * The service protocol. Valid values:
-   * - TCP
-   * - HTTP
-   * - DUBBO
+   * - TCP.
+   * - HTTP.
+   * - DUBBO.
    * 
    * @example
    * HTTP,HTTPS
@@ -192,7 +236,7 @@ export class CreateHttpApiRouteRequest extends $dara.Model {
   backendConfig?: CreateHttpApiRouteRequestBackendConfig;
   /**
    * @remarks
-   * The API deployment configurations.
+   * The API deployment configuration.
    * 
    * @deprecated
    */
@@ -220,7 +264,7 @@ export class CreateHttpApiRouteRequest extends $dara.Model {
   environmentId?: string;
   /**
    * @remarks
-   * The route match rules.
+   * The route match rule.
    */
   match?: HttpRouteMatch;
   /**

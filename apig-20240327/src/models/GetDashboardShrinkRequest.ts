@@ -6,8 +6,8 @@ export class GetDashboardShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The language. Valid values:
-   * - zh: Chinese
-   * - en: English
+   * - zh: Chinese.
+   * - en: English.
    * 
    * @example
    * zh
@@ -29,8 +29,8 @@ export class GetDashboardShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The dashboard name. Valid values:
-   * - LOG: access log
-   * - PLUGIN: plug-in log
+   * - LOG: access log.
+   * - PLUGIN: plugin log.
    * 
    * @example
    * PLUGIN
@@ -38,7 +38,7 @@ export class GetDashboardShrinkRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The plug-in type ID.
+   * The plugin type ID.
    * 
    * @example
    * pls-dn82a9djd8z****
@@ -46,7 +46,7 @@ export class GetDashboardShrinkRequest extends $dara.Model {
   pluginClassId?: string;
   /**
    * @remarks
-   * The plug-in ID.
+   * The plugin ID.
    * 
    * @example
    * inner-ai-search-cvd3mcum1hks660icn10
@@ -63,7 +63,7 @@ export class GetDashboardShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The dashboard source. Valid values:
-   * - SLS: log dashboard
+   * - SLS: log dashboard.
    * 
    * @example
    * SLS

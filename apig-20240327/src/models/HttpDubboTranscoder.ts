@@ -2,18 +2,27 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class HttpDubboTranscoderMothedMapListParamMapsList extends $dara.Model {
+export class HttpDubboTranscoderMethodMapListParamMapsList extends $dara.Model {
   /**
+   * @remarks
+   * The key used to extract the input parameter.
+   * 
    * @example
    * name
    */
   extractKey?: string;
   /**
+   * @remarks
+   * The input parameter location. Valid values: ALL_QUERY_PARAMETER: request parameter. ALL_HEADER: request header. ALL_PATH: URI of the request. ALL_BODY: request body.
+   * 
    * @example
    * ALL_QUERY_PARAMETER
    */
   extractKeySpec?: string;
   /**
+   * @remarks
+   * The backend parameter type.
+   * 
    * @example
    * java.lang.String
    */
@@ -43,30 +52,51 @@ export class HttpDubboTranscoderMothedMapListParamMapsList extends $dara.Model {
   }
 }
 
-export class HttpDubboTranscoderMothedMapList extends $dara.Model {
-  dubboMothedName?: string;
+export class HttpDubboTranscoderMethodMapList extends $dara.Model {
   /**
+   * @remarks
+   * The Dubbo method name.
+   */
+  dubboMethodName?: string;
+  /**
+   * @remarks
+   * The HTTP method. Valid values: ALL_GET. ALL_POST. ALL_PUT. ALL_DELETE. ALL_PATCH.
+   * 
    * @example
    * ALL_GET
    */
-  httpMothed?: string;
+  httpMethod?: string;
   /**
+   * @remarks
+   * The method matching path.
+   * 
    * @example
    * /mytestzbk/sayhello
    */
-  mothedpath?: string;
-  paramMapsList?: HttpDubboTranscoderMothedMapListParamMapsList[];
+  methodPath?: string;
   /**
+   * @remarks
+   * The parameter mapping list.
+   */
+  paramMapsList?: HttpDubboTranscoderMethodMapListParamMapsList[];
+  /**
+   * @remarks
+   * The header pass-through type. Valid values: PASS_ALL: passes through all headers. PASS_NOT: does not pass through any headers. PASS_ASSIGN: passes through specified headers.
+   * 
    * @example
    * PASS_NOT
    */
   passThroughAllHeaders?: string;
+  /**
+   * @remarks
+   * The list of specified pass-through headers.
+   */
   passThroughList?: string[];
   static names(): { [key: string]: string } {
     return {
-      dubboMothedName: 'dubboMothedName',
-      httpMothed: 'httpMothed',
-      mothedpath: 'mothedpath',
+      dubboMethodName: 'dubboMethodName',
+      httpMethod: 'httpMethod',
+      methodPath: 'methodPath',
       paramMapsList: 'paramMapsList',
       passThroughAllHeaders: 'passThroughAllHeaders',
       passThroughList: 'passThroughList',
@@ -75,10 +105,10 @@ export class HttpDubboTranscoderMothedMapList extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      dubboMothedName: 'string',
-      httpMothed: 'string',
-      mothedpath: 'string',
-      paramMapsList: { 'type': 'array', 'itemType': HttpDubboTranscoderMothedMapListParamMapsList },
+      dubboMethodName: 'string',
+      httpMethod: 'string',
+      methodPath: 'string',
+      paramMapsList: { 'type': 'array', 'itemType': HttpDubboTranscoderMethodMapListParamMapsList },
       passThroughAllHeaders: 'string',
       passThroughList: { 'type': 'array', 'itemType': 'string' },
     };
@@ -100,16 +130,32 @@ export class HttpDubboTranscoderMothedMapList extends $dara.Model {
 }
 
 export class HttpDubboTranscoder extends $dara.Model {
+  /**
+   * @remarks
+   * The Dubbo service group.
+   */
   dubboServiceGroup?: string;
+  /**
+   * @remarks
+   * The Dubbo service name.
+   */
   dubboServiceName?: string;
+  /**
+   * @remarks
+   * The Dubbo service version.
+   */
   dubboServiceVersion?: string;
-  mothedMapList?: HttpDubboTranscoderMothedMapList[];
+  /**
+   * @remarks
+   * The method mapping list.
+   */
+  methodMapList?: HttpDubboTranscoderMethodMapList[];
   static names(): { [key: string]: string } {
     return {
       dubboServiceGroup: 'dubboServiceGroup',
       dubboServiceName: 'dubboServiceName',
       dubboServiceVersion: 'dubboServiceVersion',
-      mothedMapList: 'mothedMapList',
+      methodMapList: 'methodMapList',
     };
   }
 
@@ -118,13 +164,13 @@ export class HttpDubboTranscoder extends $dara.Model {
       dubboServiceGroup: 'string',
       dubboServiceName: 'string',
       dubboServiceVersion: 'string',
-      mothedMapList: { 'type': 'array', 'itemType': HttpDubboTranscoderMothedMapList },
+      methodMapList: { 'type': 'array', 'itemType': HttpDubboTranscoderMethodMapList },
     };
   }
 
   validate() {
-    if(Array.isArray(this.mothedMapList)) {
-      $dara.Model.validateArray(this.mothedMapList);
+    if(Array.isArray(this.methodMapList)) {
+      $dara.Model.validateArray(this.methodMapList);
     }
     super.validate();
   }

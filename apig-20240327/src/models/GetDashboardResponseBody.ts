@@ -29,7 +29,7 @@ export class GetDashboardResponseBodyData extends $dara.Model {
   title?: string;
   /**
    * @remarks
-   * The dashboard URL.
+   * The URL of the dashboard.
    * 
    * @example
    * https://sls.console.aliyun.com/lognext/project/xxxxx
