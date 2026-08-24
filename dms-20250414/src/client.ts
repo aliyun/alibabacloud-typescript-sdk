@@ -40,7 +40,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * AddDataAgentMemory
+   * Adds a memory entry to a DataAgent.
    * 
    * @param request - AddDataAgentMemoryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -91,7 +91,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * AddDataAgentMemory
+   * Adds a memory entry to a DataAgent.
    * 
    * @param request - AddDataAgentMemoryRequest
    * @returns AddDataAgentMemoryResponse
@@ -1380,6 +1380,76 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建sql模版
+   * 
+   * @param request - CreateOneMetaSqlTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateOneMetaSqlTemplateResponse
+   */
+  async createOneMetaSqlTemplateWithOptions(request: $_model.CreateOneMetaSqlTemplateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateOneMetaSqlTemplateResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.catalogUuid)) {
+      query["CatalogUuid"] = request.catalogUuid;
+    }
+
+    if (!$dara.isNull(request.databaseUuid)) {
+      query["DatabaseUuid"] = request.databaseUuid;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.expr)) {
+      query["Expr"] = request.expr;
+    }
+
+    if (!$dara.isNull(request.source)) {
+      query["Source"] = request.source;
+    }
+
+    if (!$dara.isNull(request.sqlParams)) {
+      query["SqlParams"] = request.sqlParams;
+    }
+
+    if (!$dara.isNull(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
+    if (!$dara.isNull(request.title)) {
+      query["Title"] = request.title;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateOneMetaSqlTemplate",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateOneMetaSqlTemplateResponse>(await this.callApi(params, req, runtime), new $_model.CreateOneMetaSqlTemplateResponse({}));
+  }
+
+  /**
+   * 创建sql模版
+   * 
+   * @param request - CreateOneMetaSqlTemplateRequest
+   * @returns CreateOneMetaSqlTemplateResponse
+   */
+  async createOneMetaSqlTemplate(request: $_model.CreateOneMetaSqlTemplateRequest): Promise<$_model.CreateOneMetaSqlTemplateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createOneMetaSqlTemplateWithOptions(request, runtime);
+  }
+
+  /**
    * Deletes an Airflow instance.
    * 
    * @param request - DeleteAirflowRequest
@@ -2163,6 +2233,90 @@ export default class Client extends OpenApi {
   async deleteFileUpload(request: $_model.DeleteFileUploadRequest): Promise<$_model.DeleteFileUploadResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteFileUploadWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除onemeta3.0的Ossie模型
+   * 
+   * @param request - DeleteOneMetaOssieModelRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteOneMetaOssieModelResponse
+   */
+  async deleteOneMetaOssieModelWithOptions(request: $_model.DeleteOneMetaOssieModelRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteOneMetaOssieModelResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.knowledgeUuid)) {
+      query["KnowledgeUuid"] = request.knowledgeUuid;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteOneMetaOssieModel",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteOneMetaOssieModelResponse>(await this.callApi(params, req, runtime), new $_model.DeleteOneMetaOssieModelResponse({}));
+  }
+
+  /**
+   * 删除onemeta3.0的Ossie模型
+   * 
+   * @param request - DeleteOneMetaOssieModelRequest
+   * @returns DeleteOneMetaOssieModelResponse
+   */
+  async deleteOneMetaOssieModel(request: $_model.DeleteOneMetaOssieModelRequest): Promise<$_model.DeleteOneMetaOssieModelResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteOneMetaOssieModelWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除sql模版
+   * 
+   * @param request - DeleteOneMetaSqlTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteOneMetaSqlTemplateResponse
+   */
+  async deleteOneMetaSqlTemplateWithOptions(request: $_model.DeleteOneMetaSqlTemplateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteOneMetaSqlTemplateResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.knowledgeUuid)) {
+      query["KnowledgeUuid"] = request.knowledgeUuid;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteOneMetaSqlTemplate",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteOneMetaSqlTemplateResponse>(await this.callApi(params, req, runtime), new $_model.DeleteOneMetaSqlTemplateResponse({}));
+  }
+
+  /**
+   * 删除sql模版
+   * 
+   * @param request - DeleteOneMetaSqlTemplateRequest
+   * @returns DeleteOneMetaSqlTemplateResponse
+   */
+  async deleteOneMetaSqlTemplate(request: $_model.DeleteOneMetaSqlTemplateRequest): Promise<$_model.DeleteOneMetaSqlTemplateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteOneMetaSqlTemplateWithOptions(request, runtime);
   }
 
   /**
@@ -3550,6 +3704,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取onemeta3.0的Ossie模型
+   * 
+   * @param request - GetOneMetaOssieModelRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetOneMetaOssieModelResponse
+   */
+  async getOneMetaOssieModelWithOptions(request: $_model.GetOneMetaOssieModelRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetOneMetaOssieModelResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.docFormat)) {
+      body["DocFormat"] = request.docFormat;
+    }
+
+    if (!$dara.isNull(request.knowledgeUuid)) {
+      body["KnowledgeUuid"] = request.knowledgeUuid;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetOneMetaOssieModel",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetOneMetaOssieModelResponse>(await this.callApi(params, req, runtime), new $_model.GetOneMetaOssieModelResponse({}));
+  }
+
+  /**
+   * 获取onemeta3.0的Ossie模型
+   * 
+   * @param request - GetOneMetaOssieModelRequest
+   * @returns GetOneMetaOssieModelResponse
+   */
+  async getOneMetaOssieModel(request: $_model.GetOneMetaOssieModelRequest): Promise<$_model.GetOneMetaOssieModelResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getOneMetaOssieModelWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the operation logs of the SQL window.
    * 
    * @param request - GetSqlConsoleOperationLogRequest
@@ -3769,6 +3969,76 @@ export default class Client extends OpenApi {
   async getWorkspaceQuota(request: $_model.GetWorkspaceQuotaRequest): Promise<$_model.GetWorkspaceQuotaResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getWorkspaceQuotaWithOptions(request, runtime);
+  }
+
+  /**
+   * 导入Ossie模型
+   * 
+   * @param request - ImportOneMetaOssieModelRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ImportOneMetaOssieModelResponse
+   */
+  async importOneMetaOssieModelWithOptions(request: $_model.ImportOneMetaOssieModelRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ImportOneMetaOssieModelResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.catalogUuid)) {
+      query["CatalogUuid"] = request.catalogUuid;
+    }
+
+    if (!$dara.isNull(request.databaseUuid)) {
+      query["DatabaseUuid"] = request.databaseUuid;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.docFormat)) {
+      query["DocFormat"] = request.docFormat;
+    }
+
+    if (!$dara.isNull(request.document)) {
+      query["Document"] = request.document;
+    }
+
+    if (!$dara.isNull(request.source)) {
+      query["Source"] = request.source;
+    }
+
+    if (!$dara.isNull(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
+    if (!$dara.isNull(request.title)) {
+      query["Title"] = request.title;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ImportOneMetaOssieModel",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ImportOneMetaOssieModelResponse>(await this.callApi(params, req, runtime), new $_model.ImportOneMetaOssieModelResponse({}));
+  }
+
+  /**
+   * 导入Ossie模型
+   * 
+   * @param request - ImportOneMetaOssieModelRequest
+   * @returns ImportOneMetaOssieModelResponse
+   */
+  async importOneMetaOssieModel(request: $_model.ImportOneMetaOssieModelRequest): Promise<$_model.ImportOneMetaOssieModelResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.importOneMetaOssieModelWithOptions(request, runtime);
   }
 
   /**
@@ -5754,6 +6024,142 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取ossie模型列表
+   * 
+   * @param request - ListOneMetaOssieModelsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListOneMetaOssieModelsResponse
+   */
+  async listOneMetaOssieModelsWithOptions(request: $_model.ListOneMetaOssieModelsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListOneMetaOssieModelsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.catalogUuid)) {
+      query["CatalogUuid"] = request.catalogUuid;
+    }
+
+    if (!$dara.isNull(request.databaseUuid)) {
+      query["DatabaseUuid"] = request.databaseUuid;
+    }
+
+    if (!$dara.isNull(request.enableVectorSearch)) {
+      query["EnableVectorSearch"] = request.enableVectorSearch;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.query)) {
+      query["Query"] = request.query;
+    }
+
+    if (!$dara.isNull(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListOneMetaOssieModels",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListOneMetaOssieModelsResponse>(await this.callApi(params, req, runtime), new $_model.ListOneMetaOssieModelsResponse({}));
+  }
+
+  /**
+   * 获取ossie模型列表
+   * 
+   * @param request - ListOneMetaOssieModelsRequest
+   * @returns ListOneMetaOssieModelsResponse
+   */
+  async listOneMetaOssieModels(request: $_model.ListOneMetaOssieModelsRequest): Promise<$_model.ListOneMetaOssieModelsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listOneMetaOssieModelsWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取sql模版
+   * 
+   * @param request - ListOneMetaSqlTemplatesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListOneMetaSqlTemplatesResponse
+   */
+  async listOneMetaSqlTemplatesWithOptions(request: $_model.ListOneMetaSqlTemplatesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListOneMetaSqlTemplatesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.catalogUuid)) {
+      query["CatalogUuid"] = request.catalogUuid;
+    }
+
+    if (!$dara.isNull(request.databaseUuid)) {
+      query["DatabaseUuid"] = request.databaseUuid;
+    }
+
+    if (!$dara.isNull(request.enableVectorSearch)) {
+      query["EnableVectorSearch"] = request.enableVectorSearch;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.query)) {
+      query["Query"] = request.query;
+    }
+
+    if (!$dara.isNull(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
+    if (!$dara.isNull(request.uuids)) {
+      query["Uuids"] = request.uuids;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListOneMetaSqlTemplates",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListOneMetaSqlTemplatesResponse>(await this.callApi(params, req, runtime), new $_model.ListOneMetaSqlTemplatesResponse({}));
+  }
+
+  /**
+   * 获取sql模版
+   * 
+   * @param request - ListOneMetaSqlTemplatesRequest
+   * @returns ListOneMetaSqlTemplatesResponse
+   */
+  async listOneMetaSqlTemplates(request: $_model.ListOneMetaSqlTemplatesRequest): Promise<$_model.ListOneMetaSqlTemplatesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listOneMetaSqlTemplatesWithOptions(request, runtime);
+  }
+
+  /**
    * Lists code files and directories at a specified path in a workspace.
    * 
    * @remarks
@@ -7509,6 +7915,146 @@ export default class Client extends OpenApi {
   async updateKnowledgeBase(request: $_model.UpdateKnowledgeBaseRequest): Promise<$_model.UpdateKnowledgeBaseResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateKnowledgeBaseWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新Ossie模型
+   * 
+   * @param request - UpdateOneMetaOssieModelRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateOneMetaOssieModelResponse
+   */
+  async updateOneMetaOssieModelWithOptions(request: $_model.UpdateOneMetaOssieModelRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateOneMetaOssieModelResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.catalogUuid)) {
+      query["CatalogUuid"] = request.catalogUuid;
+    }
+
+    if (!$dara.isNull(request.databaseUuid)) {
+      query["DatabaseUuid"] = request.databaseUuid;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.docFormat)) {
+      query["DocFormat"] = request.docFormat;
+    }
+
+    if (!$dara.isNull(request.document)) {
+      query["Document"] = request.document;
+    }
+
+    if (!$dara.isNull(request.knowledgeUuid)) {
+      query["KnowledgeUuid"] = request.knowledgeUuid;
+    }
+
+    if (!$dara.isNull(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
+    if (!$dara.isNull(request.title)) {
+      query["Title"] = request.title;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateOneMetaOssieModel",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateOneMetaOssieModelResponse>(await this.callApi(params, req, runtime), new $_model.UpdateOneMetaOssieModelResponse({}));
+  }
+
+  /**
+   * 更新Ossie模型
+   * 
+   * @param request - UpdateOneMetaOssieModelRequest
+   * @returns UpdateOneMetaOssieModelResponse
+   */
+  async updateOneMetaOssieModel(request: $_model.UpdateOneMetaOssieModelRequest): Promise<$_model.UpdateOneMetaOssieModelResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateOneMetaOssieModelWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新sql模版
+   * 
+   * @param request - UpdateOneMetaSqlTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateOneMetaSqlTemplateResponse
+   */
+  async updateOneMetaSqlTemplateWithOptions(request: $_model.UpdateOneMetaSqlTemplateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateOneMetaSqlTemplateResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.catalogUuid)) {
+      query["CatalogUuid"] = request.catalogUuid;
+    }
+
+    if (!$dara.isNull(request.databaseUuid)) {
+      query["DatabaseUuid"] = request.databaseUuid;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.expr)) {
+      query["Expr"] = request.expr;
+    }
+
+    if (!$dara.isNull(request.knowledgeUuid)) {
+      query["KnowledgeUuid"] = request.knowledgeUuid;
+    }
+
+    if (!$dara.isNull(request.sqlParams)) {
+      query["SqlParams"] = request.sqlParams;
+    }
+
+    if (!$dara.isNull(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
+    if (!$dara.isNull(request.title)) {
+      query["Title"] = request.title;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateOneMetaSqlTemplate",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateOneMetaSqlTemplateResponse>(await this.callApi(params, req, runtime), new $_model.UpdateOneMetaSqlTemplateResponse({}));
+  }
+
+  /**
+   * 更新sql模版
+   * 
+   * @param request - UpdateOneMetaSqlTemplateRequest
+   * @returns UpdateOneMetaSqlTemplateResponse
+   */
+  async updateOneMetaSqlTemplate(request: $_model.UpdateOneMetaSqlTemplateRequest): Promise<$_model.UpdateOneMetaSqlTemplateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateOneMetaSqlTemplateWithOptions(request, runtime);
   }
 
   /**

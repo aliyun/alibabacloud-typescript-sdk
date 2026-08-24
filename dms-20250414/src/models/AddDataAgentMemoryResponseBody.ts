@@ -4,11 +4,20 @@ import * as $dara from '@darabonba/typescript';
 
 export class AddDataAgentMemoryResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The task ID.
+   * 
    * @example
    * dlc1********63eqm
    */
   jobId?: string;
   /**
+   * @remarks
+   * Indicates whether the task submission request is successful. Valid values:
+   * 
+   * - True: The request is successful.                                 
+   * - False: The request failed.
+   * 
    * @example
    * true
    */
@@ -37,23 +46,42 @@ export class AddDataAgentMemoryResponseBodyData extends $dara.Model {
 }
 
 export class AddDataAgentMemoryResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response struct.
+   */
   data?: AddDataAgentMemoryResponseBodyData;
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * InvalidTid
    */
   errorCode?: string;
   /**
+   * @remarks
+   * The error message returned if the call failed.
+   * 
    * @example
    * Specified parameter Tid is not valid.
    */
   errorMessage?: string;
   /**
+   * @remarks
+   * Id of the request
+   * 
    * @example
    * 67E910F2-4B62-5B0C-ACA3-7547695C****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request is successful. Valid values:
+   * 
+   * - **true**: The request is successful.
+   * - **false**: The request failed.
+   * 
    * @example
    * true
    */
