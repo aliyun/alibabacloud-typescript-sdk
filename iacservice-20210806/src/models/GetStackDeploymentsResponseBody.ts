@@ -141,7 +141,7 @@ export class GetStackDeploymentsResponseBodyDeploymentsParameters extends $dara.
   name?: string;
   /**
    * @remarks
-   * Specifies whether the parameter is sensitive. Sensitive parameter values are not visible in the console or API.
+   * Specifies whether the parameter is sensitive. Sensitive parameter values are not visible in the console or API. Valid values:
    * - true: Sensitive.
    * - false: Not sensitive.
    */
@@ -246,7 +246,7 @@ export class GetStackDeploymentsResponseBodyDeploymentsPlanOutputsModuleActionDe
 export class GetStackDeploymentsResponseBodyDeploymentsPlanOutputsResourceChanges extends $dara.Model {
   /**
    * @remarks
-   * The difference information of the resource change.
+   * The diff information of the resource change.
    * 
    * @example
    * ~ resource \\"alicloud_log_store\\" \\"default\\" {\\n        id                    = \\"alb-log-project-v1-ph-xxxxx:alb-log-store-ph\\"\\n      ~ max_split_shard_count = 64 -> 32\\n        name                  = \\"alb-log-store-ph\\"\\n\\n        # (13 unchanged attributes hidden)\\n    }
@@ -441,6 +441,11 @@ export class GetStackDeploymentsResponseBodyDeployments extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
+   * OSS object key prefix for deployment logs
+   */
+  logOutputPath?: string;
+  /**
+   * @remarks
    * The outputs.
    */
   outputs?: GetStackDeploymentsResponseBodyDeploymentsOutputs[];
@@ -460,22 +465,22 @@ export class GetStackDeploymentsResponseBodyDeployments extends $dara.Model {
    * | Name | Description |
    * |------|------|
    * | Pending | The initial status after the deployment is created. |
-   * | PriorityQueued | The deployment is queued by priority. |
-   * | PlanQueued | The deployment is queued because no workflow is available after creation. |
-   * | ApplyQueued | The deployment is queued because no workflow is available during execution. |
+   * | PriorityQueued | Priority queuing in progress. |
+   * | PlanQueued | The deployment is queuing because no workflow is available after creation. |
+   * | ApplyQueued | The deployment is queuing because no workflow is available during execution. |
    * | Planning | The resource deployment is in the Plan phase. |
    * | Planned | The resource deployment has completed the Plan phase. |
-   * | ConfigProactiveInProgress | Compliance pre-check is in progress. |
+   * | ConfigProactiveInProgress | Compliance pre-check in progress. |
    * | ConfigProactiveSuccess | Compliance pre-check succeeded. |
-   * | DetectInProgress | Drift detection is in progress. |
-   * | ImportQueued | The deployment is queued because no workflow is available during the Import phase. |
+   * | DetectInProgress | Drift detection in progress. |
+   * | ImportQueued | The deployment is queuing because no workflow is available during Import execution. |
    * | Importing | The resource deployment is in the Import phase. |
    * | Imported | The resource deployment has completed the Import phase. |
-   * | StateQueued | The deployment is queued because no workflow is available during the state command execution. |
+   * | StateQueued | The deployment is queuing because no workflow is available during state command execution. |
    * | Stating | The resource deployment is executing the state command. |
    * | Stated | The resource deployment has completed the state command execution. |
    * | Confirmed | The resource deployment has been confirmed after the Plan phase. |
-   * | PlannedAndFinished | No differences were found after the Plan phase. The deployment is in a final status. |
+   * | PlannedAndFinished | No diff was found after the Plan phase. The deployment is in a final status. |
    * | Applying | The resource deployment is in the Apply phase. |
    * | Applied | The resource deployment has completed the Apply phase. |
    * | Discarded | The resource deployment has been discarded and is in a final status. |
@@ -507,6 +512,7 @@ export class GetStackDeploymentsResponseBodyDeployments extends $dara.Model {
       executeType: 'executeType',
       failedReason: 'failedReason',
       jobId: 'jobId',
+      logOutputPath: 'logOutputPath',
       outputs: 'outputs',
       parameters: 'parameters',
       planOutputs: 'planOutputs',
@@ -527,6 +533,7 @@ export class GetStackDeploymentsResponseBodyDeployments extends $dara.Model {
       executeType: 'string',
       failedReason: 'string',
       jobId: 'string',
+      logOutputPath: 'string',
       outputs: { 'type': 'array', 'itemType': GetStackDeploymentsResponseBodyDeploymentsOutputs },
       parameters: { 'type': 'array', 'itemType': GetStackDeploymentsResponseBodyDeploymentsParameters },
       planOutputs: { 'type': 'array', 'itemType': GetStackDeploymentsResponseBodyDeploymentsPlanOutputs },

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AssociateDetectConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * Drift detection configuration ID
+   * The ID of the drift detection configuration.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class AssociateDetectConfigRequest extends $dara.Model {
   detectConfigId?: string;
   /**
    * @remarks
-   * Target ID to associate. StackId or TaskId
+   * The ID of the association target. The value is a StackId or TaskId.
    * 
    * This parameter is required.
    * 
@@ -25,9 +25,9 @@ export class AssociateDetectConfigRequest extends $dara.Model {
   targetId?: string;
   /**
    * @remarks
-   * Target type to associate  
-   * - Task: orchestration job  
-   * - Stack: resource stack
+   * The type of the association target. Valid values:
+   * - Task: orchestration task.
+   * - Stack: resource stack.
    * 
    * This parameter is required.
    * 

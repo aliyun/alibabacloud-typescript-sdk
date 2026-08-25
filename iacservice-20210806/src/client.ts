@@ -176,7 +176,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Associate drift detection configuration
+   * Associates a drift detection configuration.
    * 
    * @param request - AssociateDetectConfigRequest
    * @param headers - map
@@ -217,7 +217,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Associate drift detection configuration
+   * Associates a drift detection configuration.
    * 
    * @param request - AssociateDetectConfigRequest
    * @returns AssociateDetectConfigResponse
@@ -1346,7 +1346,64 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete drift detection configuration
+   * Creates a node from a resource import result.
+   * 
+   * @param request - CreateTaskFromResourceImportRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateTaskFromResourceImportResponse
+   */
+  async createTaskFromResourceImportWithOptions(request: $_model.CreateTaskFromResourceImportRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateTaskFromResourceImportResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientToken)) {
+      body["clientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.exportTaskId)) {
+      body["exportTaskId"] = request.exportTaskId;
+    }
+
+    if (!$dara.isNull(request.exportVersion)) {
+      body["exportVersion"] = request.exportVersion;
+    }
+
+    if (!$dara.isNull(request.taskName)) {
+      body["taskName"] = request.taskName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateTaskFromResourceImport",
+      version: "2021-08-06",
+      protocol: "HTTPS",
+      pathname: `/tasks/operations/createTaskFromResourceImport`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateTaskFromResourceImportResponse>(await this.callApi(params, req, runtime), new $_model.CreateTaskFromResourceImportResponse({}));
+  }
+
+  /**
+   * Creates a node from a resource import result.
+   * 
+   * @param request - CreateTaskFromResourceImportRequest
+   * @returns CreateTaskFromResourceImportResponse
+   */
+  async createTaskFromResourceImport(request: $_model.CreateTaskFromResourceImportRequest): Promise<$_model.CreateTaskFromResourceImportResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createTaskFromResourceImportWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * Deletes a bias detection configuration.
    * 
    * @param request - DeleteDetectConfigRequest
    * @param headers - map
@@ -1373,7 +1430,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete drift detection configuration
+   * Deletes a bias detection configuration.
    * 
    * @param request - DeleteDetectConfigRequest
    * @returns DeleteDetectConfigResponse
@@ -1786,7 +1843,7 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * Single-user call frequency: 100 calls per second.
-   * Deletes a node. If the node has resources that have not been destroyed, the node cannot be deleted.
+   * Deletes a node. If the node has resources that have not been destroyed, the deletion is not allowed.
    * 
    * @param request - DeleteTaskRequest
    * @param headers - map
@@ -1795,8 +1852,14 @@ export default class Client extends OpenApi {
    */
   async deleteTaskWithOptions(taskId: string, request: $_model.DeleteTaskRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteTaskResponse> {
     request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.resourceRetentionPolicy)) {
+      query["resourceRetentionPolicy"] = request.resourceRetentionPolicy;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
+      query: OpenApiUtil.query(query),
     });
     let params = new $OpenApiUtil.Params({
       action: "DeleteTask",
@@ -1817,7 +1880,7 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * Single-user call frequency: 100 calls per second.
-   * Deletes a node. If the node has resources that have not been destroyed, the node cannot be deleted.
+   * Deletes a node. If the node has resources that have not been destroyed, the deletion is not allowed.
    * 
    * @param request - DeleteTaskRequest
    * @returns DeleteTaskResponse
@@ -1888,7 +1951,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disassociate drift detection configuration
+   * Dissociates a drift detection configuration.
    * 
    * @param request - DissociateDetectConfigRequest
    * @param headers - map
@@ -1929,7 +1992,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disassociate drift detection configuration
+   * Dissociates a drift detection configuration.
    * 
    * @param request - DissociateDetectConfigRequest
    * @returns DissociateDetectConfigResponse

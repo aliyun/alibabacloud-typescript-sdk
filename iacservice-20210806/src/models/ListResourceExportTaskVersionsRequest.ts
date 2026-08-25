@@ -13,7 +13,7 @@ export class ListResourceExportTaskVersionsRequest extends $dara.Model {
   exportVersion?: string;
   /**
    * @remarks
-   * The search keyword. Fuzzy match is supported for export version names.
+   * The search keyword. Fuzzy search on export version names is supported.
    * 
    * @example
    * key
@@ -43,7 +43,7 @@ export class ListResourceExportTaskVersionsRequest extends $dara.Model {
    * - Pending: preparing to run
    * - Success: succeeded
    * - Errored: failed
-   * - Canceled: canceled.
+   * - Canceled: canceled
    * 
    * @example
    * Errored

@@ -49,22 +49,22 @@ export class GetStackDeploymentsRequest extends $dara.Model {
    * | Name | Description |
    * |------|------|
    * | Pending | The initial status after the deployment is created. |
-   * | PriorityQueued | The deployment is queued by priority. |
-   * | PlanQueued | The deployment is queued because no workflow is available after creation. |
-   * | ApplyQueued | The deployment is queued because no workflow is available during execution. |
+   * | PriorityQueued | Priority queuing in progress. |
+   * | PlanQueued | The deployment is queuing because no workflow is available after creation. |
+   * | ApplyQueued | The deployment is queuing because no workflow is available during execution. |
    * | Planning | The resource deployment is in the Plan phase. |
    * | Planned | The resource deployment has completed the Plan phase. |
-   * | ConfigProactiveInProgress | Compliance pre-check is in progress. |
+   * | ConfigProactiveInProgress | Compliance pre-check in progress. |
    * | ConfigProactiveSuccess | Compliance pre-check succeeded. |
-   * | DetectInProgress | Drift detection is in progress. |
-   * | ImportQueued | The deployment is queued because no workflow is available during the Import phase. |
+   * | DetectInProgress | Drift detection in progress. |
+   * | ImportQueued | The deployment is queuing because no workflow is available during Import execution. |
    * | Importing | The resource deployment is in the Import phase. |
    * | Imported | The resource deployment has completed the Import phase. |
-   * | StateQueued | The deployment is queued because no workflow is available during the state command execution. |
+   * | StateQueued | The deployment is queuing because no workflow is available during state command execution. |
    * | Stating | The resource deployment is executing the state command. |
    * | Stated | The resource deployment has completed the state command execution. |
    * | Confirmed | The resource deployment has been confirmed after the Plan phase. |
-   * | PlannedAndFinished | No differences were found after the Plan phase. The deployment is in a final status. |
+   * | PlannedAndFinished | No diff was found after the Plan phase. The deployment is in a final status. |
    * | Applying | The resource deployment is in the Apply phase. |
    * | Applied | The resource deployment has completed the Apply phase. |
    * | Discarded | The resource deployment has been discarded and is in a final status. |
