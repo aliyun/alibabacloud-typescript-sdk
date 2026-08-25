@@ -13,12 +13,15 @@ export default class Client extends OpenApi {
     super(config);
     this._endpointRule = "regional";
     this._endpointMap = {
-      'cn-shenzhen': "adbai.cn-shenzhen.aliyuncs.com",
-      'cn-shanghai': "adbai.cn-shanghai.aliyuncs.com",
-      'cn-hangzhou': "adbai.cn-hangzhou.aliyuncs.com",
-      'cn-beijing': "adbai.cn-beijing.aliyuncs.com",
-      'ap-southeast-1': "adbai.ap-southeast-1.aliyuncs.com",
       'ap-northeast-1': "adbai.ap-northeast-1.aliyuncs.com",
+      'ap-southeast-1': "adbai.ap-southeast-1.aliyuncs.com",
+      'cn-beijing': "adbai.cn-beijing.aliyuncs.com",
+      'cn-hangzhou': "adbai.cn-hangzhou.aliyuncs.com",
+      'cn-shanghai': "adbai.cn-shanghai.aliyuncs.com",
+      'cn-shenzhen': "adbai.cn-shenzhen.aliyuncs.com",
+      'cn-guangzhou': "adbai.cn-guangzhou.aliyuncs.com",
+      'cn-wulanchabu': "adbai.cn-wulanchabu.aliyuncs.com",
+      'us-west-1': "adbai.us-west-1.aliyuncs.com",
     };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("adbai", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -180,6 +183,58 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates an AnalyticDB multimodal knowledge base.
+   * 
+   * @remarks
+   * Creates an AnalyticDB multimodal knowledge base.
+   * 
+   * @param request - CreateMultiModelKnowledgeBaseRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateMultiModelKnowledgeBaseResponse
+   */
+  async createMultiModelKnowledgeBaseWithOptions(request: $_model.CreateMultiModelKnowledgeBaseRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateMultiModelKnowledgeBaseResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateMultiModelKnowledgeBase",
+      version: "2025-08-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateMultiModelKnowledgeBaseResponse>(await this.callApi(params, req, runtime), new $_model.CreateMultiModelKnowledgeBaseResponse({}));
+  }
+
+  /**
+   * Creates an AnalyticDB multimodal knowledge base.
+   * 
+   * @remarks
+   * Creates an AnalyticDB multimodal knowledge base.
+   * 
+   * @param request - CreateMultiModelKnowledgeBaseRequest
+   * @returns CreateMultiModelKnowledgeBaseResponse
+   */
+  async createMultiModelKnowledgeBase(request: $_model.CreateMultiModelKnowledgeBaseRequest): Promise<$_model.CreateMultiModelKnowledgeBaseResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createMultiModelKnowledgeBaseWithOptions(request, runtime);
+  }
+
+  /**
    * Deletes a metrics platform.
    * 
    * @param request - DeleteAgentPlatformRequest
@@ -277,6 +332,58 @@ export default class Client extends OpenApi {
   async deleteEmbodiedAIPlatform(request: $_model.DeleteEmbodiedAIPlatformRequest): Promise<$_model.DeleteEmbodiedAIPlatformResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteEmbodiedAIPlatformWithOptions(request, runtime);
+  }
+
+  /**
+   * Deletes an ADB multimodal knowledge base.
+   * 
+   * @remarks
+   * Deletes an ADB multimodal knowledge base.
+   * 
+   * @param request - DeleteMultiModalKnowledgeBaseRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteMultiModalKnowledgeBaseResponse
+   */
+  async deleteMultiModalKnowledgeBaseWithOptions(request: $_model.DeleteMultiModalKnowledgeBaseRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteMultiModalKnowledgeBaseResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteMultiModalKnowledgeBase",
+      version: "2025-08-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteMultiModalKnowledgeBaseResponse>(await this.callApi(params, req, runtime), new $_model.DeleteMultiModalKnowledgeBaseResponse({}));
+  }
+
+  /**
+   * Deletes an ADB multimodal knowledge base.
+   * 
+   * @remarks
+   * Deletes an ADB multimodal knowledge base.
+   * 
+   * @param request - DeleteMultiModalKnowledgeBaseRequest
+   * @returns DeleteMultiModalKnowledgeBaseResponse
+   */
+  async deleteMultiModalKnowledgeBase(request: $_model.DeleteMultiModalKnowledgeBaseRequest): Promise<$_model.DeleteMultiModalKnowledgeBaseResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteMultiModalKnowledgeBaseWithOptions(request, runtime);
   }
 
   /**
@@ -408,10 +515,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the resource allocation plan for Embodied Intelligence platform devices
+   * Queries the resource allocation plan for devices on the embodied intelligence platform.
    * 
    * @remarks
-   * Used to view the actual resource amount corresponding to the backend of the instance ontology count
+   * Queries the actual resource capacity corresponding to the backend of the instance device count.
    * 
    * @param request - DescribeEapDeviceResourceAllocationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -450,10 +557,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the resource allocation plan for Embodied Intelligence platform devices
+   * Queries the resource allocation plan for devices on the embodied intelligence platform.
    * 
    * @remarks
-   * Used to view the actual resource amount corresponding to the backend of the instance ontology count
+   * Queries the actual resource capacity corresponding to the backend of the instance device count.
    * 
    * @param request - DescribeEapDeviceResourceAllocationRequest
    * @returns DescribeEapDeviceResourceAllocationResponse

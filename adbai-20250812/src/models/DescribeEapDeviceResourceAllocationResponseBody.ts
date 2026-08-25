@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeEapDeviceResourceAllocationResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * Total number of devices
+   * The total number of devices.
    * 
    * @example
    * 3
@@ -13,7 +13,7 @@ export class DescribeEapDeviceResourceAllocationResponseBodyItems extends $dara.
   deviceCount?: number;
   /**
    * @remarks
-   * Total ACU count for the Ray Cluster Head of the Embodied Intelligence platform
+   * The total number of ACUs for the Ray Cluster Head of the embodied intelligence platform.
    * 
    * @example
    * 2.0
@@ -21,7 +21,7 @@ export class DescribeEapDeviceResourceAllocationResponseBodyItems extends $dara.
   headAcu?: number;
   /**
    * @remarks
-   * Number of vCPU cores for the Ray Cluster Head node on the Intelligent Embodiment platform
+   * The number of vCPU cores for the Ray Cluster Head of the embodied intelligence platform.
    * 
    * @example
    * 2
@@ -29,7 +29,7 @@ export class DescribeEapDeviceResourceAllocationResponseBodyItems extends $dara.
   headCpu?: number;
   /**
    * @remarks
-   * Ray Cluster Head specification of the Embodied Intelligence platform
+   * The Ray Cluster Head specification of the embodied intelligence platform.
    * 
    * @example
    * "medium"
@@ -37,7 +37,7 @@ export class DescribeEapDeviceResourceAllocationResponseBodyItems extends $dara.
   headSpecName?: string;
   /**
    * @remarks
-   * Total number of ACUs actually deployed on the Intelligent Embodiment platform
+   * The total number of actually deployed ACUs on the embodied intelligence platform.
    * 
    * @example
    * 26
@@ -45,7 +45,7 @@ export class DescribeEapDeviceResourceAllocationResponseBodyItems extends $dara.
   totalAcu?: number;
   /**
    * @remarks
-   * Total number of vCPU cores actually deployed on the Intelligent Embodiment platform
+   * The total number of actually deployed vCPU cores on the embodied intelligence platform.
    * 
    * @example
    * 26
@@ -53,7 +53,7 @@ export class DescribeEapDeviceResourceAllocationResponseBodyItems extends $dara.
   totalDeployedCpu?: number;
   /**
    * @remarks
-   * Total target number of vCPU cores
+   * The total number of target vCPU cores.
    * 
    * @example
    * 24
@@ -61,7 +61,7 @@ export class DescribeEapDeviceResourceAllocationResponseBodyItems extends $dara.
   totalTargetCpu?: number;
   /**
    * @remarks
-   * Total ACU count for the Embodied Intelligence platform
+   * The total number of ACUs for the embodied intelligence platform.
    * 
    * @example
    * 8.0
@@ -69,7 +69,7 @@ export class DescribeEapDeviceResourceAllocationResponseBodyItems extends $dara.
   webserverAcu?: number;
   /**
    * @remarks
-   * Total number of vCPU cores for the Embodied Intelligence platform
+   * The total number of vCPU cores for the embodied intelligence platform.
    * 
    * @example
    * 8
@@ -77,7 +77,7 @@ export class DescribeEapDeviceResourceAllocationResponseBodyItems extends $dara.
   webserverCpu?: number;
   /**
    * @remarks
-   * Webserver specification of the Embodied Intelligence platform.
+   * The Webserver specification of the embodied intelligence platform.
    * 
    * @example
    * "xlarge"
@@ -85,7 +85,7 @@ export class DescribeEapDeviceResourceAllocationResponseBodyItems extends $dara.
   webserverSpecName?: string;
   /**
    * @remarks
-   * Total ACU count per Ray Cluster Worker of the Embodied Intelligence platform
+   * The total number of ACUs for a single Ray Cluster Worker of the embodied intelligence platform.
    * 
    * @example
    * 16.0
@@ -93,7 +93,7 @@ export class DescribeEapDeviceResourceAllocationResponseBodyItems extends $dara.
   workerAcu?: number;
   /**
    * @remarks
-   * Total number of Ray Cluster Worker nodes on the Intelligent Embodiment platform
+   * The total number of Ray Cluster Workers of the embodied intelligence platform.
    * 
    * @example
    * 2
@@ -101,7 +101,7 @@ export class DescribeEapDeviceResourceAllocationResponseBodyItems extends $dara.
   workerCount?: number;
   /**
    * @remarks
-   * Number of vCPU cores per Ray Cluster Worker of the Embodied Intelligence platform
+   * The number of vCPU cores for a single Ray Cluster Worker of the embodied intelligence platform.
    * 
    * @example
    * 8
@@ -109,7 +109,7 @@ export class DescribeEapDeviceResourceAllocationResponseBodyItems extends $dara.
   workerCpu?: number;
   /**
    * @remarks
-   * Ray Cluster Worker specification of the Embodied Intelligence platform
+   * The Ray Cluster Worker specification of the embodied intelligence platform.
    * 
    * @example
    * "xlarge"
@@ -165,7 +165,7 @@ export class DescribeEapDeviceResourceAllocationResponseBodyItems extends $dara.
 export class DescribeEapDeviceResourceAllocationResponseBody extends $dara.Model {
   /**
    * @remarks
-   * List of specification recommendations.
+   * The list of specification recommendations.
    */
   items?: DescribeEapDeviceResourceAllocationResponseBodyItems[];
   /**

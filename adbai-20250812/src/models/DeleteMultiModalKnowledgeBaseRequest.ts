@@ -2,10 +2,10 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DescribeEapDeviceResourceAllocationRequest extends $dara.Model {
+export class DeleteMultiModalKnowledgeBaseRequest extends $dara.Model {
   /**
    * @remarks
-   * The cluster ID of the instance.
+   * The cluster ID.
    * 
    * This parameter is required.
    * 
@@ -15,15 +15,7 @@ export class DescribeEapDeviceResourceAllocationRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The total number of devices.
-   * 
-   * @example
-   * 3
-   */
-  deviceCount?: number;
-  /**
-   * @remarks
-   * The region ID of the instance.
+   * The region ID.
    * 
    * > You can call the DescribeRegions operation to query the region ID of a specified Data Lakehouse Edition cluster.
    * 
@@ -36,7 +28,6 @@ export class DescribeEapDeviceResourceAllocationRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       DBClusterId: 'DBClusterId',
-      deviceCount: 'DeviceCount',
       regionId: 'RegionId',
     };
   }
@@ -44,7 +35,6 @@ export class DescribeEapDeviceResourceAllocationRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       DBClusterId: 'string',
-      deviceCount: 'number',
       regionId: 'string',
     };
   }
