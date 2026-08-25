@@ -28,6 +28,7 @@ export class E2BTeam extends $dara.Model {
    */
   description?: string;
   plan?: string;
+  readOnly?: boolean;
   /**
    * @remarks
    * The resource group ID.
@@ -74,6 +75,7 @@ export class E2BTeam extends $dara.Model {
       createdTime: 'createdTime',
       description: 'description',
       plan: 'plan',
+      readOnly: 'readOnly',
       resourceGroupID: 'resourceGroupID',
       status: 'status',
       teamID: 'teamID',
@@ -88,6 +90,7 @@ export class E2BTeam extends $dara.Model {
       createdTime: 'string',
       description: 'string',
       plan: 'string',
+      readOnly: 'boolean',
       resourceGroupID: 'string',
       status: 'string',
       teamID: 'string',

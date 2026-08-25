@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetVolumeRequest extends $dara.Model {
   /**
+   * @remarks
+   * The unique identifier of the Team.
+   * 
    * @example
    * 70d1c834-0383-58d8-97ac-5336eb91abcd
    */

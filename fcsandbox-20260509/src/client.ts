@@ -281,7 +281,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除 Volume
+   * Deletes a Volume.
    * 
    * @param request - DeleteVolumeRequest
    * @param headers - map
@@ -314,7 +314,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除 Volume
+   * Deletes a Volume.
    * 
    * @param request - DeleteVolumeRequest
    * @returns DeleteVolumeResponse
@@ -449,7 +449,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查看 Volume
+   * Queries a Volume.
    * 
    * @param request - GetVolumeRequest
    * @param headers - map
@@ -482,7 +482,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查看 Volume
+   * Queries a Volume.
    * 
    * @param request - GetVolumeRequest
    * @returns GetVolumeResponse
@@ -612,7 +612,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of teams.
+   * Queries the list of teams.
    * 
    * @param request - ListTeamsRequest
    * @param headers - map
@@ -661,7 +661,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of teams.
+   * Queries the list of teams.
    * 
    * @param request - ListTeamsRequest
    * @returns ListTeamsResponse
@@ -673,7 +673,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 分页查询 Volumes
+   * Queries volumes by using paging.
    * 
    * @param request - ListVolumesRequest
    * @param headers - map
@@ -730,7 +730,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 分页查询 Volumes
+   * Queries volumes by using paging.
    * 
    * @param request - ListVolumesRequest
    * @returns ListVolumesResponse
@@ -901,7 +901,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新 Volume
+   * Updates a volume.
    * 
    * @param request - UpdateVolumeRequest
    * @param headers - map
@@ -929,7 +929,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新 Volume
+   * Updates a volume.
    * 
    * @param request - UpdateVolumeRequest
    * @returns UpdateVolumeResponse

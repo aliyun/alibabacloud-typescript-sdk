@@ -4,6 +4,10 @@ import { UpdateVolumeInput } from "./UpdateVolumeInput";
 
 
 export class UpdateVolumeRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The parameters for updating the volume.
+   */
   body?: UpdateVolumeInput;
   static names(): { [key: string]: string } {
     return {

@@ -2,8 +2,6 @@
 import * as $dara from '@darabonba/typescript';
 
 
-/**
- */
 export class AgenticFSVolumeConfig extends $dara.Model {
   groupID?: number;
   serverAddr?: string;

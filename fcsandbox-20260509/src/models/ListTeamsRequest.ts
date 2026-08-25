@@ -19,6 +19,17 @@ export class ListTeamsRequest extends $dara.Model {
    * 20
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * The subscription plan of the team. Valid values:
+   * 
+   * - eco
+   * - std
+   * - pro
+   * 
+   * @example
+   * pro
+   */
   plan?: string;
   /**
    * @remarks

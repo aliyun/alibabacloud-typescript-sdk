@@ -1,3 +1,4 @@
+export { ContainerConfigurationRegistryCredential } from './ContainerConfiguration';
 export { AgenticFSVolumeConfig } from './AgenticFsvolumeConfig';
 export { ApiKey } from './ApiKey';
 export { CertConfig } from './CertConfig';
