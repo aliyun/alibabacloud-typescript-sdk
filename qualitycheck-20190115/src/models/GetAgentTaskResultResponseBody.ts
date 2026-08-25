@@ -3,12 +3,40 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetAgentTaskResultResponseBodyDataDialogues extends $dara.Model {
+  /**
+   * @example
+   * 980
+   */
   begin?: number;
+  /**
+   * @example
+   * 7
+   */
   emotionValue?: number;
+  /**
+   * @example
+   * 80000
+   */
   end?: number;
+  /**
+   * @example
+   * 00:08
+   */
   hourMinSec?: string;
+  /**
+   * @example
+   * 客服
+   */
   role?: string;
+  /**
+   * @example
+   * 200
+   */
   speechRate?: number;
+  /**
+   * @example
+   * 你好有什么可以帮您
+   */
   words?: string;
   static names(): { [key: string]: string } {
     return {
@@ -49,7 +77,7 @@ export class GetAgentTaskResultResponseBodyDataResponseCustomerPromptResponse ex
    * The result returned by the large language model.
    * 
    * @example
-   * 175/XL the fabric feels very comfortable, looks slim when worn, great clothes super good-looking, quality and feel are top-notch, very satisfied with this purchase.
+   * 175/XL the fabric feels very comfortable, looks slim when worn, great clothes super good-looking, quality and feel are top-notch, very satisfied with this purchase
    */
   text?: string;
   static names(): { [key: string]: string } {
@@ -76,7 +104,7 @@ export class GetAgentTaskResultResponseBodyDataResponseCustomerPromptResponse ex
 export class GetAgentTaskResultResponseBodyDataResponseFieldResponseFieldVoList extends $dara.Model {
   /**
    * @remarks
-   * The property name.
+   * The attribute name.
    * 
    * @example
    * phone
@@ -92,12 +120,12 @@ export class GetAgentTaskResultResponseBodyDataResponseFieldResponseFieldVoList 
    * The reasoning for the judgment.
    * 
    * @example
-   * Determined based on the first sentence of the agent.
+   * Determined based on the first sentence of the agent
    */
   remarks?: string;
   /**
    * @remarks
-   * The property value.
+   * The attribute value.
    * 
    * @example
    * 1234561
@@ -136,7 +164,7 @@ export class GetAgentTaskResultResponseBodyDataResponseFieldResponseFieldVoList 
 export class GetAgentTaskResultResponseBodyDataResponseFieldResponse extends $dara.Model {
   /**
    * @remarks
-   * The list of properties.
+   * The list of attributes.
    */
   fieldVoList?: GetAgentTaskResultResponseBodyDataResponseFieldResponseFieldVoList[];
   static names(): { [key: string]: string } {
@@ -349,12 +377,12 @@ export class GetAgentTaskResultResponseBodyDataResponseServiceInspectionResponse
    * The inspection dimension.
    * 
    * @example
-   * Service attitude.
+   * Service attitude
    */
   dimension?: string;
   /**
    * @remarks
-   * Indicates whether the label is matched.
+   * Indicates whether the tag is matched.
    * 
    * @example
    * true
@@ -370,7 +398,7 @@ export class GetAgentTaskResultResponseBodyDataResponseServiceInspectionResponse
    * The reasoning for the judgment.
    * 
    * @example
-   * Determined based on the first sentence of the agent.
+   * Determined based on the first sentence of the agent
    */
   remarks?: string;
   static names(): { [key: string]: string } {
@@ -436,15 +464,15 @@ export class GetAgentTaskResultResponseBodyDataResponseServiceInspectionResponse
 export class GetAgentTaskResultResponseBodyDataResponseTagCategoryResponseTagCategoryVoList extends $dara.Model {
   /**
    * @remarks
-   * The label dimension.
+   * The tag dimension.
    * 
    * @example
-   * Customer intent.
+   * Customer intent
    */
   dimension?: string;
   /**
    * @remarks
-   * Indicates whether the label is matched.
+   * Indicates whether the tag is matched.
    * 
    * @example
    * true
@@ -460,7 +488,7 @@ export class GetAgentTaskResultResponseBodyDataResponseTagCategoryResponseTagCat
    * The reasoning for the judgment.
    * 
    * @example
-   * Determined based on the first sentence of the agent.
+   * Determined based on the first sentence of the agent
    */
   remarks?: string;
   /**
@@ -506,7 +534,7 @@ export class GetAgentTaskResultResponseBodyDataResponseTagCategoryResponseTagCat
 export class GetAgentTaskResultResponseBodyDataResponseTagCategoryResponse extends $dara.Model {
   /**
    * @remarks
-   * The list of labels.
+   * The list of tags.
    */
   tagCategoryVoList?: GetAgentTaskResultResponseBodyDataResponseTagCategoryResponseTagCategoryVoList[];
   static names(): { [key: string]: string } {
@@ -534,15 +562,55 @@ export class GetAgentTaskResultResponseBodyDataResponseTagCategoryResponse exten
 }
 
 export class GetAgentTaskResultResponseBodyDataResponseVoiceprintResponseDialogueAdditions extends $dara.Model {
+  /**
+   * @example
+   * 38
+   */
   age?: string;
+  /**
+   * @example
+   * 中年
+   */
   ageGroup?: string;
+  /**
+   * @example
+   * 0.9
+   */
   ageScore?: number;
+  /**
+   * @example
+   * 0.6
+   */
   bestVoiceprintScore?: number;
+  /**
+   * @example
+   * 中立/neutral
+   */
   emotion?: string;
+  /**
+   * @example
+   * 0.9
+   */
   emotionScore?: number;
+  /**
+   * @example
+   * 女
+   */
   gender?: string;
+  /**
+   * @example
+   * 0.8
+   */
   genderScore?: number;
+  /**
+   * @example
+   * true
+   */
   isKnownVoiceprint?: boolean;
+  /**
+   * @example
+   * 12
+   */
   speaker?: string;
   static names(): { [key: string]: string } {
     return {
@@ -585,8 +653,20 @@ export class GetAgentTaskResultResponseBodyDataResponseVoiceprintResponseDialogu
 
 export class GetAgentTaskResultResponseBodyDataResponseVoiceprintResponseDialogue extends $dara.Model {
   additions?: GetAgentTaskResultResponseBodyDataResponseVoiceprintResponseDialogueAdditions;
+  /**
+   * @example
+   * 443
+   */
   begin?: number;
+  /**
+   * @example
+   * 1767492840000
+   */
   end?: number;
+  /**
+   * @example
+   * 不清楚
+   */
   words?: string;
   static names(): { [key: string]: string } {
     return {
@@ -619,7 +699,15 @@ export class GetAgentTaskResultResponseBodyDataResponseVoiceprintResponseDialogu
 }
 
 export class GetAgentTaskResultResponseBodyDataResponseVoiceprintResponseErrors extends $dara.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @example
+   * successful
+   */
   message?: string;
   static names(): { [key: string]: string } {
     return {
@@ -684,7 +772,7 @@ export class GetAgentTaskResultResponseBodyDataResponse extends $dara.Model {
   customerPromptResponse?: GetAgentTaskResultResponseBodyDataResponseCustomerPromptResponse;
   /**
    * @remarks
-   * The property extraction result.
+   * The attribute extraction result.
    */
   fieldResponse?: GetAgentTaskResultResponseBodyDataResponseFieldResponse;
   multiLevelTagResponse?: GetAgentTaskResultResponseBodyDataResponseMultiLevelTagResponse;
@@ -751,6 +839,10 @@ export class GetAgentTaskResultResponseBodyDataResponse extends $dara.Model {
 export class GetAgentTaskResultResponseBodyDataUsage extends $dara.Model {
   inputTokens?: string;
   outputTokens?: string;
+  /**
+   * @example
+   * 0
+   */
   totalTokens?: string;
   tymxPlusCount?: string;
   tymxTurboCount?: string;
@@ -785,6 +877,10 @@ export class GetAgentTaskResultResponseBodyDataUsage extends $dara.Model {
 
 export class GetAgentTaskResultResponseBodyData extends $dara.Model {
   dialogues?: GetAgentTaskResultResponseBodyDataDialogues[];
+  /**
+   * @example
+   * xxxx
+   */
   errorMessage?: string;
   /**
    * @remarks
