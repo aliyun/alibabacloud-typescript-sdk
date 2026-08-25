@@ -163,6 +163,186 @@ export class GetAgentTaskResultResponseBodyDataResponseFieldResponse extends $da
   }
 }
 
+export class GetAgentTaskResultResponseBodyDataResponseMultiLevelTagResponseTagListChildrenChildrenChildrenChildren extends $dara.Model {
+  remarks?: string;
+  tagName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      remarks: 'Remarks',
+      tagName: 'TagName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      remarks: 'string',
+      tagName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAgentTaskResultResponseBodyDataResponseMultiLevelTagResponseTagListChildrenChildrenChildren extends $dara.Model {
+  children?: GetAgentTaskResultResponseBodyDataResponseMultiLevelTagResponseTagListChildrenChildrenChildrenChildren[];
+  remarks?: string;
+  tagName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      children: 'Children',
+      remarks: 'Remarks',
+      tagName: 'TagName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      children: { 'type': 'array', 'itemType': GetAgentTaskResultResponseBodyDataResponseMultiLevelTagResponseTagListChildrenChildrenChildrenChildren },
+      remarks: 'string',
+      tagName: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.children)) {
+      $dara.Model.validateArray(this.children);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAgentTaskResultResponseBodyDataResponseMultiLevelTagResponseTagListChildrenChildren extends $dara.Model {
+  children?: GetAgentTaskResultResponseBodyDataResponseMultiLevelTagResponseTagListChildrenChildrenChildren[];
+  remarks?: string;
+  tagName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      children: 'Children',
+      remarks: 'Remarks',
+      tagName: 'TagName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      children: { 'type': 'array', 'itemType': GetAgentTaskResultResponseBodyDataResponseMultiLevelTagResponseTagListChildrenChildrenChildren },
+      remarks: 'string',
+      tagName: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.children)) {
+      $dara.Model.validateArray(this.children);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAgentTaskResultResponseBodyDataResponseMultiLevelTagResponseTagListChildren extends $dara.Model {
+  children?: GetAgentTaskResultResponseBodyDataResponseMultiLevelTagResponseTagListChildrenChildren[];
+  remarks?: string;
+  tagName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      children: 'Children',
+      remarks: 'Remarks',
+      tagName: 'TagName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      children: { 'type': 'array', 'itemType': GetAgentTaskResultResponseBodyDataResponseMultiLevelTagResponseTagListChildrenChildren },
+      remarks: 'string',
+      tagName: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.children)) {
+      $dara.Model.validateArray(this.children);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAgentTaskResultResponseBodyDataResponseMultiLevelTagResponseTagList extends $dara.Model {
+  children?: GetAgentTaskResultResponseBodyDataResponseMultiLevelTagResponseTagListChildren[];
+  remarks?: string;
+  tagName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      children: 'Children',
+      remarks: 'Remarks',
+      tagName: 'TagName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      children: { 'type': 'array', 'itemType': GetAgentTaskResultResponseBodyDataResponseMultiLevelTagResponseTagListChildren },
+      remarks: 'string',
+      tagName: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.children)) {
+      $dara.Model.validateArray(this.children);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAgentTaskResultResponseBodyDataResponseMultiLevelTagResponse extends $dara.Model {
+  tagList?: GetAgentTaskResultResponseBodyDataResponseMultiLevelTagResponseTagList[];
+  static names(): { [key: string]: string } {
+    return {
+      tagList: 'TagList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagList: { 'type': 'array', 'itemType': GetAgentTaskResultResponseBodyDataResponseMultiLevelTagResponseTagList },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.tagList)) {
+      $dara.Model.validateArray(this.tagList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetAgentTaskResultResponseBodyDataResponseServiceInspectionResponseServiceInspectionVoList extends $dara.Model {
   /**
    * @remarks
@@ -507,6 +687,7 @@ export class GetAgentTaskResultResponseBodyDataResponse extends $dara.Model {
    * The property extraction result.
    */
   fieldResponse?: GetAgentTaskResultResponseBodyDataResponseFieldResponse;
+  multiLevelTagResponse?: GetAgentTaskResultResponseBodyDataResponseMultiLevelTagResponse;
   /**
    * @remarks
    * The service quality inspection result.
@@ -522,6 +703,7 @@ export class GetAgentTaskResultResponseBodyDataResponse extends $dara.Model {
     return {
       customerPromptResponse: 'CustomerPromptResponse',
       fieldResponse: 'FieldResponse',
+      multiLevelTagResponse: 'MultiLevelTagResponse',
       serviceInspectionResponse: 'ServiceInspectionResponse',
       tagCategoryResponse: 'TagCategoryResponse',
       voiceprintResponse: 'VoiceprintResponse',
@@ -532,6 +714,7 @@ export class GetAgentTaskResultResponseBodyDataResponse extends $dara.Model {
     return {
       customerPromptResponse: GetAgentTaskResultResponseBodyDataResponseCustomerPromptResponse,
       fieldResponse: GetAgentTaskResultResponseBodyDataResponseFieldResponse,
+      multiLevelTagResponse: GetAgentTaskResultResponseBodyDataResponseMultiLevelTagResponse,
       serviceInspectionResponse: GetAgentTaskResultResponseBodyDataResponseServiceInspectionResponse,
       tagCategoryResponse: GetAgentTaskResultResponseBodyDataResponseTagCategoryResponse,
       voiceprintResponse: GetAgentTaskResultResponseBodyDataResponseVoiceprintResponse,
@@ -544,6 +727,9 @@ export class GetAgentTaskResultResponseBodyDataResponse extends $dara.Model {
     }
     if(this.fieldResponse && typeof (this.fieldResponse as any).validate === 'function') {
       (this.fieldResponse as any).validate();
+    }
+    if(this.multiLevelTagResponse && typeof (this.multiLevelTagResponse as any).validate === 'function') {
+      (this.multiLevelTagResponse as any).validate();
     }
     if(this.serviceInspectionResponse && typeof (this.serviceInspectionResponse as any).validate === 'function') {
       (this.serviceInspectionResponse as any).validate();

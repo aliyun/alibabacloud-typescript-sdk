@@ -44,6 +44,12 @@ export { GetAgentTaskResultResponseBodyDataDialogues } from './GetAgentTaskResul
 export { GetAgentTaskResultResponseBodyDataResponseCustomerPromptResponse } from './GetAgentTaskResultResponseBody';
 export { GetAgentTaskResultResponseBodyDataResponseFieldResponseFieldVoList } from './GetAgentTaskResultResponseBody';
 export { GetAgentTaskResultResponseBodyDataResponseFieldResponse } from './GetAgentTaskResultResponseBody';
+export { GetAgentTaskResultResponseBodyDataResponseMultiLevelTagResponseTagListChildrenChildrenChildrenChildren } from './GetAgentTaskResultResponseBody';
+export { GetAgentTaskResultResponseBodyDataResponseMultiLevelTagResponseTagListChildrenChildrenChildren } from './GetAgentTaskResultResponseBody';
+export { GetAgentTaskResultResponseBodyDataResponseMultiLevelTagResponseTagListChildrenChildren } from './GetAgentTaskResultResponseBody';
+export { GetAgentTaskResultResponseBodyDataResponseMultiLevelTagResponseTagListChildren } from './GetAgentTaskResultResponseBody';
+export { GetAgentTaskResultResponseBodyDataResponseMultiLevelTagResponseTagList } from './GetAgentTaskResultResponseBody';
+export { GetAgentTaskResultResponseBodyDataResponseMultiLevelTagResponse } from './GetAgentTaskResultResponseBody';
 export { GetAgentTaskResultResponseBodyDataResponseServiceInspectionResponseServiceInspectionVoList } from './GetAgentTaskResultResponseBody';
 export { GetAgentTaskResultResponseBodyDataResponseServiceInspectionResponse } from './GetAgentTaskResultResponseBody';
 export { GetAgentTaskResultResponseBodyDataResponseTagCategoryResponseTagCategoryVoList } from './GetAgentTaskResultResponseBody';
