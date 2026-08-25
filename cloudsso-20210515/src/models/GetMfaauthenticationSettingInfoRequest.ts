@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetMFAAuthenticationSettingInfoRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the directory.
+   * The directory ID.
    * 
    * @example
    * u-00q8wbq42wiltcrk****

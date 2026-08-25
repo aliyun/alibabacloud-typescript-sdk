@@ -42,12 +42,19 @@ export class ListAccessConfigurationProvisioningsRequest extends $dara.Model {
    */
   nextToken?: string;
   /**
+   * @example
+   * 114240524784****
+   */
+  originTargetId?: string;
+  /**
    * @remarks
    * The status of the access configuration. The value can be used to filter accounts. Valid values:
    * 
-   * *   Provisioned: The access configuration is provisioned.
-   * *   ReprovisionRequired: The access configuration needs to be re-provisioned.
-   * *   DeprovisionFailed: The access configuration failed to be provisioned.
+   * - Provisioned: The access configuration is provisioned.
+   * 
+   * - ReprovisionRequired: The access configuration needs to be re-provisioned.
+   * 
+   * - DeprovisionFailed: The access configuration failed to be provisioned.
    * 
    * @example
    * Provisioned
@@ -57,7 +64,7 @@ export class ListAccessConfigurationProvisioningsRequest extends $dara.Model {
    * @remarks
    * The ID of the task object. The ID can be used to filter access permissions.
    * 
-   * >  You can use the type to filter access permissions only if you specify both `TargetId` and `TargetType`.
+   * > You can use the type to filter access permissions only if you specify both `TargetId` and `TargetType`.
    * 
    * @example
    * 114240524784****
@@ -69,7 +76,7 @@ export class ListAccessConfigurationProvisioningsRequest extends $dara.Model {
    * 
    * Set the value to RD-Account, which specifies the accounts in the resource directory.
    * 
-   * >  You can use the type to filter access permissions only if you specify both `TargetId` and `TargetType`.
+   * > You can use the type to filter access permissions only if you specify both `TargetId` and `TargetType`.
    * 
    * @example
    * RD-Account
@@ -81,6 +88,7 @@ export class ListAccessConfigurationProvisioningsRequest extends $dara.Model {
       directoryId: 'DirectoryId',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
+      originTargetId: 'OriginTargetId',
       provisioningStatus: 'ProvisioningStatus',
       targetId: 'TargetId',
       targetType: 'TargetType',
@@ -93,6 +101,7 @@ export class ListAccessConfigurationProvisioningsRequest extends $dara.Model {
       directoryId: 'string',
       maxResults: 'number',
       nextToken: 'string',
+      originTargetId: 'string',
       provisioningStatus: 'string',
       targetId: 'string',
       targetType: 'string',

@@ -23,8 +23,9 @@ export class UpdateUserMFAAuthenticationSettingsRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable MFA for the user. Valid values:
    * 
-   * *   Enabled: enables MFA for the user.
-   * *   Disabled: disables MFA for the user.
+   * - Enabled: enables MFA for the user.
+   * 
+   * - Disabled: disables MFA for the user.
    * 
    * @example
    * Enabled

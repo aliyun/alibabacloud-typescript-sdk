@@ -7,10 +7,11 @@ export class DeleteUserProvisioningRequest extends $dara.Model {
    * @remarks
    * The deletion policy. The policy is used to manage synchronized users when you delete the RAM user provisioning. Valid values:
    * 
-   * *   Delete: When you delete the RAM user provisioning, the system deletes the synchronized users.
-   * *   Keep: When you delete the RAM user provisioning, the system retains the synchronized users.
+   * - Delete: When you delete the RAM user provisioning, the system deletes the synchronized users.
    * 
-   * >  If you do not specify this parameter, the deletion policy that is configured when you create the RAM user provisioning is used.
+   * - Keep: When you delete the RAM user provisioning, the system retains the synchronized users.
+   * 
+   * > If you do not specify this parameter, the deletion policy that is configured when you create the RAM user provisioning is used.
    * 
    * @example
    * Delete

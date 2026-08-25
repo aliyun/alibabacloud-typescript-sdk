@@ -15,8 +15,9 @@ export class DeleteAccessAssignmentRequest extends $dara.Model {
    * @remarks
    * Specifies whether to de-provision the access configuration when you remove the access permissions from the CloudSSO identity. The access configuration is used to assign the access permissions, and the identity is the only one that uses the access configuration and is associated with the account. Valid values:
    * 
-   * *   DeprovisionForLastAccessAssignmentOnAccount: de-provisions the access configuration.
-   * *   None: does not de-provision the access configuration. This is the default value.
+   * - DeprovisionForLastAccessAssignmentOnAccount: de-provisions the access configuration.
+   * 
+   * - None: does not de-provision the access configuration. This is the default value.
    * 
    * @example
    * None
@@ -31,11 +32,17 @@ export class DeleteAccessAssignmentRequest extends $dara.Model {
    */
   directoryId?: string;
   /**
+   * @example
+   * 114240524784****
+   */
+  originTargetId?: string;
+  /**
    * @remarks
    * The ID of the CloudSSO identity.
    * 
-   * *   If you set `PrincipalType` to `User`, set `PrincipalId` to the ID of the CloudSSO user.
-   * *   If you set `PrincipalType` to `Group`, set `PrincipalId` to the ID of the CloudSSO group.
+   * - If you set `PrincipalType` to `User`, set `PrincipalId` to the ID of the CloudSSO user.
+   * 
+   * - If you set `PrincipalType` to `Group`, set `PrincipalId` to the ID of the CloudSSO group.
    * 
    * @example
    * u-00q8wbq42wiltcrk****
@@ -45,8 +52,9 @@ export class DeleteAccessAssignmentRequest extends $dara.Model {
    * @remarks
    * The type of the CloudSSO identity. Valid values:
    * 
-   * *   User
-   * *   Group
+   * - User
+   * 
+   * - Group
    * 
    * @example
    * User
@@ -73,6 +81,7 @@ export class DeleteAccessAssignmentRequest extends $dara.Model {
       accessConfigurationId: 'AccessConfigurationId',
       deprovisionStrategy: 'DeprovisionStrategy',
       directoryId: 'DirectoryId',
+      originTargetId: 'OriginTargetId',
       principalId: 'PrincipalId',
       principalType: 'PrincipalType',
       targetId: 'TargetId',
@@ -85,6 +94,7 @@ export class DeleteAccessAssignmentRequest extends $dara.Model {
       accessConfigurationId: 'string',
       deprovisionStrategy: 'string',
       directoryId: 'string',
+      originTargetId: 'string',
       principalId: 'string',
       principalType: 'string',
       targetId: 'string',

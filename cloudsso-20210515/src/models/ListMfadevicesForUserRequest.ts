@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListMFADevicesForUserRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the directory.
+   * The directory ID.
    * 
    * @example
    * d-00fc2p61****
@@ -13,7 +13,7 @@ export class ListMFADevicesForUserRequest extends $dara.Model {
   directoryId?: string;
   /**
    * @remarks
-   * The ID of the user.
+   * The user ID.
    * 
    * @example
    * u-00q8wbq42wiltcrk****

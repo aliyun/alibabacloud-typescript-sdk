@@ -35,8 +35,9 @@ export class AddPermissionPolicyToAccessConfigurationRequest extends $dara.Model
    * @remarks
    * The name of the policy.
    * 
-   * *   If you set `PermissionPolicyType` to `System`, you must set PermissionPolicyName to the name of a system policy. You can obtain the name of the system policy from RAM.
-   * *   If you set `PermissionPolicyType` to `Inline`, you must set PermissionPolicyName to the name of an inline policy. A custom value is supported. The value can be up to 32 characters in length.
+   * - If you set `PermissionPolicyType` to `System`, you must set PermissionPolicyName to the name of a system policy. You can obtain the name of the system policy from RAM.
+   * 
+   * - If you set `PermissionPolicyType` to `Inline`, you must set PermissionPolicyName to the name of an inline policy. A custom value is supported. The value can be up to 32 characters in length.
    * 
    * @example
    * AliyunECSFullAccess
@@ -46,8 +47,9 @@ export class AddPermissionPolicyToAccessConfigurationRequest extends $dara.Model
    * @remarks
    * The type of the policy. Valid values:
    * 
-   * *   System: system policy. Resource Access Management (RAM) system policies are reused.
-   * *   Inline: inline policy. Inline policies are created based on the RAM policy syntax and structure.
+   * - System: system policy. Resource Access Management (RAM) system policies are reused.
+   * 
+   * - Inline: inline policy. Inline policies are created based on the RAM policy syntax and structure.
    * 
    * @example
    * System

@@ -27,7 +27,7 @@ export class ListTasksRequest extends $dara.Model {
    * 
    * For example, if you set the Filter parameter to StartTime ge 2021-03-15T01:12:23Z, the operation queries the tasks from 2021-03-15T01:12:23 GMT.
    * 
-   * >  If you do not specify this parameter, the operation queries the tasks within the previous 24 hours by default.
+   * > If you do not specify this parameter, the operation queries the tasks within the previous 24 hours by default.
    * 
    * @example
    * StartTime ge 2021-03-15T01:12:23Z
@@ -59,10 +59,11 @@ export class ListTasksRequest extends $dara.Model {
    * @remarks
    * The ID of the CloudSSO identity. The ID can be used to filter access permissions.
    * 
-   * *   If you set `PrincipalType` to `User`, set `PrincipalId` to the ID of the CloudSSO user.
-   * *   If you set `PrincipalType` to `Group`, set `PrincipalId` to the ID of the CloudSSO group.
+   * - If you set `PrincipalType` to `User`, set `PrincipalId` to the ID of the CloudSSO user.
    * 
-   * >  You can use the type to filter access permissions only if you specify both `PrincipalId` and `PrincipalType`.
+   * - If you set `PrincipalType` to `Group`, set `PrincipalId` to the ID of the CloudSSO group.
+   * 
+   * > You can use the type to filter access permissions only if you specify both `PrincipalId` and `PrincipalType`.
    * 
    * @example
    * u-00q8wbq42wiltcrk****
@@ -72,10 +73,11 @@ export class ListTasksRequest extends $dara.Model {
    * @remarks
    * The type of the CloudSSO identity. The type can be used to filter access permissions. Valid values:
    * 
-   * *   User
-   * *   Group
+   * - User
    * 
-   * >  You can use the type to filter access permissions only if you specify both `PrincipalId` and `PrincipalType`.
+   * - Group
+   * 
+   * > You can use the type to filter access permissions only if you specify both `PrincipalId` and `PrincipalType`.
    * 
    * @example
    * User
@@ -85,9 +87,11 @@ export class ListTasksRequest extends $dara.Model {
    * @remarks
    * The ID of the task. The ID can be used to filter tasks. Valid values:
    * 
-   * *   InProgress: The task is running.
-   * *   Success: The task is successful.
-   * *   Failed: The task failed.
+   * - InProgress: The task is running.
+   * 
+   * - Success: The task is successful.
+   * 
+   * - Failed: The task failed.
    * 
    * @example
    * Success
@@ -97,7 +101,7 @@ export class ListTasksRequest extends $dara.Model {
    * @remarks
    * The ID of the task object. The ID can be used to filter access permissions.
    * 
-   * >  You can use the type to filter access permissions only if you specify both `TargetId` and `TargetType`.
+   * > You can use the type to filter access permissions only if you specify both `TargetId` and `TargetType`.
    * 
    * @example
    * 114240524784****
@@ -109,7 +113,7 @@ export class ListTasksRequest extends $dara.Model {
    * 
    * Set the value to RD-Account, which specifies the accounts in the resource directory.
    * 
-   * >  You can use the type to filter access permissions only if you specify both `TargetId` and `TargetType`.
+   * > You can use the type to filter access permissions only if you specify both `TargetId` and `TargetType`.
    * 
    * @example
    * RD-Account
@@ -119,10 +123,13 @@ export class ListTasksRequest extends $dara.Model {
    * @remarks
    * The type of the task. The type can be used to filter tasks. Valid values:
    * 
-   * *   ProvisionAccessConfiguration: An access configuration is provisioned.
-   * *   DeprovisionAccessConfiguration: An access configuration is de-provisioned.
-   * *   CreateAccessAssignment: Access permissions on an account in the resource directory are assigned.
-   * *   DeleteAccessAssignment: Access permissions on an account in the resource directory are removed.
+   * - ProvisionAccessConfiguration: An access configuration is provisioned.
+   * 
+   * - DeprovisionAccessConfiguration: An access configuration is de-provisioned.
+   * 
+   * - CreateAccessAssignment: Access permissions on an account in the resource directory are assigned.
+   * 
+   * - DeleteAccessAssignment: Access permissions on an account in the resource directory are removed.
    * 
    * @example
    * CreateAccessAssignment

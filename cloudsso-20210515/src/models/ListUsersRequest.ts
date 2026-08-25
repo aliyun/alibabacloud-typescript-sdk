@@ -1,12 +1,51 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { ListUsersRequestTags } from "./ListUsersRequestTags";
 
+
+export class ListUsersRequestTags extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * TestKey
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * TestValue
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class ListUsersRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the resource directory.
+   * The directory ID.
    * 
    * @example
    * d-00fc2p61****
@@ -16,9 +55,9 @@ export class ListUsersRequest extends $dara.Model {
    * @remarks
    * The filter condition.
    * 
-   * You must specify the value in the `<Attribute> <Operator> <Value>` format. The value is not case-sensitive. You can set `<Attribute>` only to `UserName` and `Operator` only to `eq` or `sw`. The value eq indicates Equals, and the value sw indicates Start With.
+   * Format: `<Attribute> <Operator> <Value>`. This value is case-insensitive. Currently, `<Attribute>` supports only `UserName`, and `Operator` supports only `eq` (Equals) and `sw` (Start With).
    * 
-   * For example, if you set the Filter parameter to UserName sw test, the operation queries the users whose names start with test. If you set the Filter parameter to UserName eq testuser, the operation queries the user whose name is `testuser`.
+   * Example: Filter = "UserName sw test" queries all users whose usernames start with test. Filter = "UserName eq testuser" queries the user whose username is `testuser`.
    * 
    * @example
    * UserName sw test
@@ -26,7 +65,7 @@ export class ListUsersRequest extends $dara.Model {
   filter?: string;
   /**
    * @remarks
-   * The number of entries per page.
+   * The maximum number of entries per page.
    * 
    * Valid values: 1 to 100.
    * 
@@ -38,9 +77,9 @@ export class ListUsersRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of the `NextToken` parameter.
+   * The token for the next page of results. You do not need to specify `NextToken` for the first API call.
    * 
-   * When you call this operation for the first time, if the total number of entries to return is larger than the value of the `MaxResults` parameter, the entries are truncated. The system returns entries based on the value of the `MaxResults` parameter, and does not return the excess entries. In this case, the value of the response parameter `IsTruncated` is `true`, and the `NextToken` parameter is returned. In the next call, you can use the value of the `NextToken` parameter and maintain the settings of the other request parameters to query the excess entries. You can repeat the call until the value of the `IsTruncated` parameter becomes `false`. This way, all entries are returned.
+   * When you call the API for the first time, if the total number of entries exceeds the `MaxResults` limit, the data is truncated and only `MaxResults` entries are returned. In this case, the response parameter `IsTruncated` is `true` and a `NextToken` is returned. You can use the `NextToken` returned from the previous call to continue calling the API while keeping other request parameters unchanged to query the truncated data. You can repeat this process until `IsTruncated` is `false`, which indicates that all data has been retrieved.
    * 
    * @example
    * K1c3o9K7pFxoTtxH1Nm7MMLb7zrDGvftYBQBPDVv7AD3a8yhRb3Mk8L9ivmN6bFSjfkZNTAg3h4****
@@ -48,10 +87,10 @@ export class ListUsersRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The type of the user. The parameter can be used to filter users. Valid values:
+   * The user type. This parameter is used as a filter condition. Valid values:
    * 
-   * *   Manual: The user is manually created.
-   * *   Synchronized: The user is synchronized from an external identity provider (IdP).
+   * - Manual: The user is manually created.
+   * - Synchronized: The user is synchronized from an external identity provider.
    * 
    * @example
    * Manual
@@ -59,15 +98,19 @@ export class ListUsersRequest extends $dara.Model {
   provisionType?: string;
   /**
    * @remarks
-   * The status of the user. The parameter can be used to filter users. Valid values:
+   * The user status. This parameter is used as a filter condition. Valid values:
    * 
-   * *   Enabled: The logon of the user is enabled.
-   * *   Disabled: The logon of the user is disabled.
+   * - Enabled: The user is enabled.
+   * - Disabled: The user is disabled.
    * 
    * @example
    * Enabled
    */
   status?: string;
+  /**
+   * @remarks
+   * The tag list.
+   */
   tags?: ListUsersRequestTags[];
   static names(): { [key: string]: string } {
     return {

@@ -12,6 +12,14 @@ export default class Client extends OpenApi {
   constructor(config: $OpenApiUtil.Config) {
     super(config);
     this._endpointRule = "regional";
+    this._endpointMap = {
+      'cn-shanghai': "cloudsso.cn-shanghai.aliyuncs.com",
+      'cn-hongkong': "cloudsso.cn-hongkong.aliyuncs.com",
+      'ap-northeast-2': "cloudsso.ap-northeast-2.aliyuncs.com",
+      'ap-southeast-1': "cloudsso.ap-southeast-1.aliyuncs.com",
+      'us-west-1': "cloudsso.us-west-1.aliyuncs.com",
+      'eu-central-1': "cloudsso.eu-central-1.aliyuncs.com",
+    };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("cloudsso", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
@@ -278,6 +286,10 @@ export default class Client extends OpenApi {
       query["DirectoryId"] = request.directoryId;
     }
 
+    if (!$dara.isNull(request.originTargetId)) {
+      query["OriginTargetId"] = request.originTargetId;
+    }
+
     if (!$dara.isNull(request.principalId)) {
       query["PrincipalId"] = request.principalId;
     }
@@ -331,7 +343,7 @@ export default class Client extends OpenApi {
    * Creates an access configuration.
    * 
    * @remarks
-   * For more information about access configurations, see [Overview of access configurations](https://help.aliyun.com/document_detail/266737.html).
+   * For more information about access configurations, see [Access configuration overview](https://help.aliyun.com/document_detail/266737.html).
    * This topic provides an example on how to create an access configuration named `ECS-Admin`.
    * 
    * @param request - CreateAccessConfigurationRequest
@@ -386,7 +398,7 @@ export default class Client extends OpenApi {
    * Creates an access configuration.
    * 
    * @remarks
-   * For more information about access configurations, see [Overview of access configurations](https://help.aliyun.com/document_detail/266737.html).
+   * For more information about access configurations, see [Access configuration overview](https://help.aliyun.com/document_detail/266737.html).
    * This topic provides an example on how to create an access configuration named `ECS-Admin`.
    * 
    * @param request - CreateAccessConfigurationRequest
@@ -564,10 +576,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a user.
-   * 
-   * @remarks
-   * This topic provides an example on how to create a user named `Alice`.
+   * Creates a user by calling CreateUser.
    * 
    * @param request - CreateUserRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -630,10 +639,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a user.
-   * 
-   * @remarks
-   * This topic provides an example on how to create a user named `Alice`.
+   * Creates a user by calling CreateUser.
    * 
    * @param request - CreateUserRequest
    * @returns CreateUserResponse
@@ -743,6 +749,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.directoryId)) {
       query["DirectoryId"] = request.directoryId;
+    }
+
+    if (!$dara.isNull(request.originTargetId)) {
+      query["OriginTargetId"] = request.originTargetId;
     }
 
     if (!$dara.isNull(request.principalId)) {
@@ -927,8 +937,8 @@ export default class Client extends OpenApi {
    * @remarks
    * ### [](#)Prerequisites
    * The group that you want to delete is not associated with the following resources. If the group is associated with the resources, the deletion fails.
-   * *   Users: You must remove users from the group. For more information, see [RemoveUserFromGroup](https://help.aliyun.com/document_detail/335116.html).
-   * *   Access permissions: You must remove the access permissions on the accounts in your resource directory from the group. For more information, see [DeleteAccessAssignment](https://help.aliyun.com/document_detail/338350.html).
+   * - Users: You must remove users from the group. For more information, see [RemoveUserFromGroup](https://help.aliyun.com/document_detail/335116.html).
+   * - Access permissions: You must remove the access permissions on the accounts in your resource directory from the group. For more information, see [DeleteAccessAssignment](https://help.aliyun.com/document_detail/338350.html).
    * ### [](#)Operation description
    * If System for Cross-domain Identity Management (SCIM) synchronization is enabled, you cannot delete a group that is synchronized by using SCIM.
    * This topic provides an example on how to delete the group `g-00jqzghi2n3o5hkh****`.
@@ -971,8 +981,8 @@ export default class Client extends OpenApi {
    * @remarks
    * ### [](#)Prerequisites
    * The group that you want to delete is not associated with the following resources. If the group is associated with the resources, the deletion fails.
-   * *   Users: You must remove users from the group. For more information, see [RemoveUserFromGroup](https://help.aliyun.com/document_detail/335116.html).
-   * *   Access permissions: You must remove the access permissions on the accounts in your resource directory from the group. For more information, see [DeleteAccessAssignment](https://help.aliyun.com/document_detail/338350.html).
+   * - Users: You must remove users from the group. For more information, see [RemoveUserFromGroup](https://help.aliyun.com/document_detail/335116.html).
+   * - Access permissions: You must remove the access permissions on the accounts in your resource directory from the group. For more information, see [DeleteAccessAssignment](https://help.aliyun.com/document_detail/338350.html).
    * ### [](#)Operation description
    * If System for Cross-domain Identity Management (SCIM) synchronization is enabled, you cannot delete a group that is synchronized by using SCIM.
    * This topic provides an example on how to delete the group `g-00jqzghi2n3o5hkh****`.
@@ -986,10 +996,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Unbinds a multi-factor authentication (MFA) device from a user.
+   * Deletes the MFA device of a user.
    * 
    * @remarks
-   * This topic provides an example on how to unbind the MFA device whose ID is `mfa-00ujhet8pycljj7j****` from the user whose ID is `u-00q8wbq42wiltcrk****`.
+   * This topic provides an example on how to delete the MFA device `mfa-00ujhet8pycljj7j****` that is attached to the user `u-00q8wbq42wiltcrk****`.
    * 
    * @param request - DeleteMFADeviceForUserRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1004,6 +1014,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.MFADeviceId)) {
       query["MFADeviceId"] = request.MFADeviceId;
+    }
+
+    if (!$dara.isNull(request.mfaType)) {
+      query["MfaType"] = request.mfaType;
     }
 
     if (!$dara.isNull(request.userId)) {
@@ -1028,10 +1042,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Unbinds a multi-factor authentication (MFA) device from a user.
+   * Deletes the MFA device of a user.
    * 
    * @remarks
-   * This topic provides an example on how to unbind the MFA device whose ID is `mfa-00ujhet8pycljj7j****` from the user whose ID is `u-00q8wbq42wiltcrk****`.
+   * This topic provides an example on how to delete the MFA device `mfa-00ujhet8pycljj7j****` that is attached to the user `u-00q8wbq42wiltcrk****`.
    * 
    * @param request - DeleteMFADeviceForUserRequest
    * @returns DeleteMFADeviceForUserResponse
@@ -1283,6 +1297,10 @@ export default class Client extends OpenApi {
       query["DirectoryId"] = request.directoryId;
     }
 
+    if (!$dara.isNull(request.originTargetId)) {
+      query["OriginTargetId"] = request.originTargetId;
+    }
+
     if (!$dara.isNull(request.targetId)) {
       query["TargetId"] = request.targetId;
     }
@@ -1369,9 +1387,8 @@ export default class Client extends OpenApi {
    * Disables CloudSSO.
    * 
    * @remarks
-   * If your CloudSSO has no directory, you can disable CloudSSO based on your business requirements. After you disable CloudSSO, you can enable it at any time.
+   * You can disable CloudSSO only when no directories exist in CloudSSO. After you disable CloudSSO, you can re-enable it at any time.
    * 
-   * @param request - DisableServiceRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DisableServiceResponse
    */
@@ -1395,7 +1412,7 @@ export default class Client extends OpenApi {
    * Disables CloudSSO.
    * 
    * @remarks
-   * If your CloudSSO has no directory, you can disable CloudSSO based on your business requirements. After you disable CloudSSO, you can enable it at any time.
+   * You can disable CloudSSO only when no directories exist in CloudSSO. After you disable CloudSSO, you can re-enable it at any time.
    * @returns DisableServiceResponse
    */
   async disableService(): Promise<$_model.DisableServiceResponse> {
@@ -1457,10 +1474,9 @@ export default class Client extends OpenApi {
    * Enables CloudSSO.
    * 
    * @remarks
-   * You can call this operation only if your account belongs to the management account that is used to enable a resource directory and has the permissions to enable CloudSSO. For more information, see [Enable CloudSSO](https://help.aliyun.com/document_detail/262819.html).
-   * If you call this operation, you agree to the [Alibaba Cloud International Website Product Terms of Service](https://www.alibabacloud.com/help/doc-detail/42416.htm).
+   * Only users under the management account of a resource directory who have the permissions to enable CloudSSO can call this operation. For more information, see [Enable CloudSSO](https://help.aliyun.com/document_detail/262819.html).
+   * By calling this operation, you agree to the [Alibaba Cloud International Website Product Terms of Service](https://www.alibabacloud.com/help/doc-detail/42416.htm).
    * 
-   * @param request - EnableServiceRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns EnableServiceResponse
    */
@@ -1484,8 +1500,8 @@ export default class Client extends OpenApi {
    * Enables CloudSSO.
    * 
    * @remarks
-   * You can call this operation only if your account belongs to the management account that is used to enable a resource directory and has the permissions to enable CloudSSO. For more information, see [Enable CloudSSO](https://help.aliyun.com/document_detail/262819.html).
-   * If you call this operation, you agree to the [Alibaba Cloud International Website Product Terms of Service](https://www.alibabacloud.com/help/doc-detail/42416.htm).
+   * Only users under the management account of a resource directory who have the permissions to enable CloudSSO can call this operation. For more information, see [Enable CloudSSO](https://help.aliyun.com/document_detail/262819.html).
+   * By calling this operation, you agree to the [Alibaba Cloud International Website Product Terms of Service](https://www.alibabacloud.com/help/doc-detail/42416.htm).
    * @returns EnableServiceResponse
    */
   async enableService(): Promise<$_model.EnableServiceResponse> {
@@ -1494,10 +1510,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries information about an access configuration.
+   * Queries the information about an access configuration.
    * 
    * @remarks
-   * This topic provides an example on how to query information about the access configuration whose ID is `ac-00ccule7tadaijxc****`.
+   * This topic provides an example on how to query the information about the access configuration whose ID is `ac-00ccule7tadaijxc****`.
    * 
    * @param request - GetAccessConfigurationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1532,10 +1548,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries information about an access configuration.
+   * Queries the information about an access configuration.
    * 
    * @remarks
-   * This topic provides an example on how to query information about the access configuration whose ID is `ac-00ccule7tadaijxc****`.
+   * This topic provides an example on how to query the information about the access configuration whose ID is `ac-00ccule7tadaijxc****`.
    * 
    * @param request - GetAccessConfigurationRequest
    * @returns GetAccessConfigurationResponse
@@ -1834,11 +1850,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the multi-factor authentication (MFA) setting of all users.
+   * Queries the global multi-factor authentication (MFA) configuration.
    * 
    * @remarks
-   * If you enable username-password logon for CloudSSO users, you can query the MFA setting for the users.
-   * This topic provides an example on how to query the MFA setting of all CloudSSO users that belong to the directory named `u-00q8wbq42wiltcrk****`.
+   * When username-password logon is enabled, you can retrieve the global MFA verification policy for user logon.
+   * This topic provides an example on how to query the global MFA verification policy for CloudSSO users in the directory `u-00q8wbq42wiltcrk****`.
    * 
    * @param request - GetMFAAuthenticationSettingInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1869,11 +1885,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the multi-factor authentication (MFA) setting of all users.
+   * Queries the global multi-factor authentication (MFA) configuration.
    * 
    * @remarks
-   * If you enable username-password logon for CloudSSO users, you can query the MFA setting for the users.
-   * This topic provides an example on how to query the MFA setting of all CloudSSO users that belong to the directory named `u-00q8wbq42wiltcrk****`.
+   * When username-password logon is enabled, you can retrieve the global MFA verification policy for user logon.
+   * This topic provides an example on how to query the global MFA verification policy for CloudSSO users in the directory `u-00q8wbq42wiltcrk****`.
    * 
    * @param request - GetMFAAuthenticationSettingInfoRequest
    * @returns GetMFAAuthenticationSettingInfoResponse
@@ -2074,7 +2090,6 @@ export default class Client extends OpenApi {
   /**
    * Queries the status of CloudSSO.
    * 
-   * @param request - GetServiceStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetServiceStatusResponse
    */
@@ -2210,10 +2225,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries information about a user.
-   * 
-   * @remarks
-   * This topic provides an example on how to query information about the user whose ID is `u-00q8wbq42wiltcrk****` in the `d-00fc2p61****` directory.
+   * Queries the information about a specified user.
    * 
    * @param request - GetUserRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2248,10 +2260,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries information about a user.
-   * 
-   * @remarks
-   * This topic provides an example on how to query information about the user whose ID is `u-00q8wbq42wiltcrk****` in the `d-00fc2p61****` directory.
+   * Queries the information about a specified user.
    * 
    * @param request - GetUserRequest
    * @returns GetUserResponse
@@ -2620,6 +2629,10 @@ export default class Client extends OpenApi {
       query["NextToken"] = request.nextToken;
     }
 
+    if (!$dara.isNull(request.originTargetId)) {
+      query["OriginTargetId"] = request.originTargetId;
+    }
+
     if (!$dara.isNull(request.principalId)) {
       query["PrincipalId"] = request.principalId;
     }
@@ -2696,6 +2709,10 @@ export default class Client extends OpenApi {
       query["NextToken"] = request.nextToken;
     }
 
+    if (!$dara.isNull(request.originTargetId)) {
+      query["OriginTargetId"] = request.originTargetId;
+    }
+
     if (!$dara.isNull(request.provisioningStatus)) {
       query["ProvisioningStatus"] = request.provisioningStatus;
     }
@@ -2740,10 +2757,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries access configurations.
+   * Queries the list of access configurations.
    * 
    * @remarks
-   * This topic provides an example on how to query the access configurations within the directory `d-00fc2p61****`. The returned result shows that the directory contains the `VPC-Admin` and `ECS-Admin` access configurations.
+   * This topic provides an example on how to query the access configurations in the directory `d-00fc2p61****`. The response shows that there are two access configurations: `VPC-Admin` and `ECS-Admin`.
    * 
    * @param request - ListAccessConfigurationsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2794,10 +2811,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries access configurations.
+   * Queries the list of access configurations.
    * 
    * @remarks
-   * This topic provides an example on how to query the access configurations within the directory `d-00fc2p61****`. The returned result shows that the directory contains the `VPC-Admin` and `ECS-Admin` access configurations.
+   * This topic provides an example on how to query the access configurations in the directory `d-00fc2p61****`. The response shows that there are two access configurations: `VPC-Admin` and `ECS-Admin`.
    * 
    * @param request - ListAccessConfigurationsRequest
    * @returns ListAccessConfigurationsResponse
@@ -2813,7 +2830,6 @@ export default class Client extends OpenApi {
    * @remarks
    * This topic provides an example on how to query the directories within your Alibaba Cloud account. The returned result shows that only one directory with the ID `d-00fc2p61****` is created within your Alibaba Cloud account.
    * 
-   * @param request - ListDirectoriesRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListDirectoriesResponse
    */
@@ -3078,10 +3094,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the multi-factor authentication (MFA) devices that are bound to a user. Up to two MFA devices can be bound to a user.
+   * Queries the MFA device list of a user. Each user can have a maximum of two MFA devices.
    * 
    * @remarks
-   * This topic provides an example on how to query the MFA devices that are bound to the user `u-00q8wbq42wiltcrk****`. The returned result shows that the MFA device named `Alice-MFA1` is bound to the user.
+   * This topic provides an example on how to query the MFA device list of the user `u-00q8wbq42wiltcrk****`. The response shows that the user has one MFA device named `Alice-MFA1`.
    * 
    * @param request - ListMFADevicesForUserRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3116,10 +3132,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the multi-factor authentication (MFA) devices that are bound to a user. Up to two MFA devices can be bound to a user.
+   * Queries the MFA device list of a user. Each user can have a maximum of two MFA devices.
    * 
    * @remarks
-   * This topic provides an example on how to query the MFA devices that are bound to the user `u-00q8wbq42wiltcrk****`. The returned result shows that the MFA device named `Alice-MFA1` is bound to the user.
+   * This topic provides an example on how to query the MFA device list of the user `u-00q8wbq42wiltcrk****`. The response shows that the user has one MFA device named `Alice-MFA1`.
    * 
    * @param request - ListMFADevicesForUserRequest
    * @returns ListMFADevicesForUserResponse
@@ -3444,10 +3460,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries users.
-   * 
-   * @remarks
-   * This topic provides an example on how to query users in the `d-00fc2p61****` directory. The returned result shows that the directory contains two users. The user `AliceLee` is synchronized from an external identity provider (IdP). The user `user1` is manually created within CloudSSO.
+   * Queries a list of users.
    * 
    * @param request - ListUsersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3502,10 +3515,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries users.
-   * 
-   * @remarks
-   * This topic provides an example on how to query users in the `d-00fc2p61****` directory. The returned result shows that the directory contains two users. The user `AliceLee` is synchronized from an external identity provider (IdP). The user `user1` is manually created within CloudSSO.
+   * Queries a list of users.
    * 
    * @param request - ListUsersRequest
    * @returns ListUsersResponse
@@ -3535,6 +3545,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.directoryId)) {
       query["DirectoryId"] = request.directoryId;
+    }
+
+    if (!$dara.isNull(request.originTargetId)) {
+      query["OriginTargetId"] = request.originTargetId;
     }
 
     if (!$dara.isNull(request.targetId)) {
@@ -3754,7 +3768,7 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * If a user forgets the password, the password expires, or the password poses security risks, a CloudSSO administrator can reset the password for the user.
-   * >  After you enable single sign-on (SSO) logon, the password of a user cannot be reset.
+   * > After you enable single sign-on (SSO) logon, the password of a user cannot be reset.
    * This topic provides an example on how to reset the password of the user `u-00q8wbq42wiltcrk****`. The new password is automatically generated by the system.
    * 
    * @param request - ResetUserPasswordRequest
@@ -3806,7 +3820,7 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * If a user forgets the password, the password expires, or the password poses security risks, a CloudSSO administrator can reset the password for the user.
-   * >  After you enable single sign-on (SSO) logon, the password of a user cannot be reset.
+   * > After you enable single sign-on (SSO) logon, the password of a user cannot be reset.
    * This topic provides an example on how to reset the password of the user `u-00q8wbq42wiltcrk****`. The new password is automatically generated by the system.
    * 
    * @param request - ResetUserPasswordRequest
@@ -4312,7 +4326,7 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * You can modify `GroupName` and `Description` for a group.
-   * >  If System for Cross-domain Identity Management (SCIM) synchronization is enabled, you cannot modify information about a group that is synchronized by using SCIM.
+   * > If System for Cross-domain Identity Management (SCIM) synchronization is enabled, you cannot modify information about a group that is synchronized by using SCIM.
    * This topic provides an example on how to modify the name of the group `g-00jqzghi2n3o5hkh****` to `NewTestGroup`.
    * 
    * @param request - UpdateGroupRequest
@@ -4360,7 +4374,7 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * You can modify `GroupName` and `Description` for a group.
-   * >  If System for Cross-domain Identity Management (SCIM) synchronization is enabled, you cannot modify information about a group that is synchronized by using SCIM.
+   * > If System for Cross-domain Identity Management (SCIM) synchronization is enabled, you cannot modify information about a group that is synchronized by using SCIM.
    * This topic provides an example on how to modify the name of the group `g-00jqzghi2n3o5hkh****` to `NewTestGroup`.
    * 
    * @param request - UpdateGroupRequest
@@ -4432,19 +4446,29 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the multi-factor authentication (MFA) setting of all users.
+   * Modifies the global multi-factor authentication (MFA) settings.
    * 
    * @remarks
-   * If you enable username-password logon for CloudSSO users, you can also configure MFA for the users.
-   * This topic provides an example on how to enable MFA for all CloudSSO users that belong to the directory named `d-00fc2p61****`.
+   * When username-password logon is enabled, you can configure the global MFA verification policy for user logon.
+   * This topic provides an example on how to enable MFA verification for all CloudSSO users in the directory `d-00fc2p61****`.
    * 
-   * @param request - UpdateMFAAuthenticationSettingsRequest
+   * @param tmpReq - UpdateMFAAuthenticationSettingsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateMFAAuthenticationSettingsResponse
    */
-  async updateMFAAuthenticationSettingsWithOptions(request: $_model.UpdateMFAAuthenticationSettingsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateMFAAuthenticationSettingsResponse> {
-    request.validate();
+  async updateMFAAuthenticationSettingsWithOptions(tmpReq: $_model.UpdateMFAAuthenticationSettingsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateMFAAuthenticationSettingsResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateMFAAuthenticationSettingsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.allowedVerificationTypes)) {
+      request.allowedVerificationTypesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.allowedVerificationTypes, "AllowedVerificationTypes", "json");
+    }
+
     let query = { };
+    if (!$dara.isNull(request.allowedVerificationTypesShrink)) {
+      query["AllowedVerificationTypes"] = request.allowedVerificationTypesShrink;
+    }
+
     if (!$dara.isNull(request.directoryId)) {
       query["DirectoryId"] = request.directoryId;
     }
@@ -4475,11 +4499,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the multi-factor authentication (MFA) setting of all users.
+   * Modifies the global multi-factor authentication (MFA) settings.
    * 
    * @remarks
-   * If you enable username-password logon for CloudSSO users, you can also configure MFA for the users.
-   * This topic provides an example on how to enable MFA for all CloudSSO users that belong to the directory named `d-00fc2p61****`.
+   * When username-password logon is enabled, you can configure the global MFA verification policy for user logon.
+   * This topic provides an example on how to enable MFA verification for all CloudSSO users in the directory `d-00fc2p61****`.
    * 
    * @param request - UpdateMFAAuthenticationSettingsRequest
    * @returns UpdateMFAAuthenticationSettingsResponse
@@ -4550,7 +4574,7 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * You can modify `FirstName`, `LastName`, `DisplayName`, `Email`, and `Description` for a user. You cannot modify `UserName` for a user.
-   * >  If System for Cross-domain Identity Management (SCIM) synchronization is enabled, you cannot modify information about a user that is synchronized by using SCIM.
+   * > If System for Cross-domain Identity Management (SCIM) synchronization is enabled, you cannot modify information about a user that is synchronized by using SCIM.
    * 
    * @param request - UpdateUserRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4609,7 +4633,7 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * You can modify `FirstName`, `LastName`, `DisplayName`, `Email`, and `Description` for a user. You cannot modify `UserName` for a user.
-   * >  If System for Cross-domain Identity Management (SCIM) synchronization is enabled, you cannot modify information about a user that is synchronized by using SCIM.
+   * > If System for Cross-domain Identity Management (SCIM) synchronization is enabled, you cannot modify information about a user that is synchronized by using SCIM.
    * 
    * @param request - UpdateUserRequest
    * @returns UpdateUserResponse

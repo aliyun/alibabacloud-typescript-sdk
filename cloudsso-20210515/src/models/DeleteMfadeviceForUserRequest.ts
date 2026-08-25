@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteMFADeviceForUserRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the directory.
+   * The directory ID.
    * 
    * @example
    * d-00fc2p61****
@@ -13,17 +13,18 @@ export class DeleteMFADeviceForUserRequest extends $dara.Model {
   directoryId?: string;
   /**
    * @remarks
-   * The ID of the MFA device.
+   * The MFA device ID.
    * 
-   * You can call the [ListMFADevicesForUser](https://help.aliyun.com/document_detail/333531.html) operation to query the IDs of MFA devices.
+   * You can call [ListMFADevicesForUser](https://help.aliyun.com/document_detail/333531.html) to query the MFA device ID.
    * 
    * @example
    * mfa-00ujhet8pycljj7j****
    */
   MFADeviceId?: string;
+  mfaType?: string;
   /**
    * @remarks
-   * The ID of the user.
+   * The user ID.
    * 
    * @example
    * u-00q8wbq42wiltcrk****
@@ -33,6 +34,7 @@ export class DeleteMFADeviceForUserRequest extends $dara.Model {
     return {
       directoryId: 'DirectoryId',
       MFADeviceId: 'MFADeviceId',
+      mfaType: 'MfaType',
       userId: 'UserId',
     };
   }
@@ -41,6 +43,7 @@ export class DeleteMFADeviceForUserRequest extends $dara.Model {
     return {
       directoryId: 'string',
       MFADeviceId: 'string',
+      mfaType: 'string',
       userId: 'string',
     };
   }

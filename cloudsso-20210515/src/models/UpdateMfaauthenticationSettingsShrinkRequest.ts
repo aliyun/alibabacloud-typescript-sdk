@@ -2,8 +2,8 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class UpdateMFAAuthenticationSettingsRequest extends $dara.Model {
-  allowedVerificationTypes?: string[];
+export class UpdateMFAAuthenticationSettingsShrinkRequest extends $dara.Model {
+  allowedVerificationTypesShrink?: string;
   /**
    * @remarks
    * The directory ID.
@@ -38,7 +38,7 @@ export class UpdateMFAAuthenticationSettingsRequest extends $dara.Model {
   operationForRiskLogin?: string;
   static names(): { [key: string]: string } {
     return {
-      allowedVerificationTypes: 'AllowedVerificationTypes',
+      allowedVerificationTypesShrink: 'AllowedVerificationTypes',
       directoryId: 'DirectoryId',
       MFAAuthenticationSettings: 'MFAAuthenticationSettings',
       operationForRiskLogin: 'OperationForRiskLogin',
@@ -47,7 +47,7 @@ export class UpdateMFAAuthenticationSettingsRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      allowedVerificationTypes: { 'type': 'array', 'itemType': 'string' },
+      allowedVerificationTypesShrink: 'string',
       directoryId: 'string',
       MFAAuthenticationSettings: 'string',
       operationForRiskLogin: 'string',
@@ -55,9 +55,6 @@ export class UpdateMFAAuthenticationSettingsRequest extends $dara.Model {
   }
 
   validate() {
-    if(Array.isArray(this.allowedVerificationTypes)) {
-      $dara.Model.validateArray(this.allowedVerificationTypes);
-    }
     super.validate();
   }
 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAccessConfigurationRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the access configuration.
+   * The access configuration ID.
    * 
    * @example
    * ac-00ccule7tadaijxc****
@@ -13,7 +13,7 @@ export class GetAccessConfigurationRequest extends $dara.Model {
   accessConfigurationId?: string;
   /**
    * @remarks
-   * The ID of the directory.
+   * The directory ID.
    * 
    * @example
    * d-00fc2p61****

@@ -20,6 +20,11 @@ export class DeprovisionAccessConfigurationRequest extends $dara.Model {
    */
   directoryId?: string;
   /**
+   * @example
+   * 114240524784****
+   */
+  originTargetId?: string;
+  /**
    * @remarks
    * The ID of the task object.
    * 
@@ -39,6 +44,7 @@ export class DeprovisionAccessConfigurationRequest extends $dara.Model {
     return {
       accessConfigurationId: 'AccessConfigurationId',
       directoryId: 'DirectoryId',
+      originTargetId: 'OriginTargetId',
       targetId: 'TargetId',
       targetType: 'TargetType',
     };
@@ -48,6 +54,7 @@ export class DeprovisionAccessConfigurationRequest extends $dara.Model {
     return {
       accessConfigurationId: 'string',
       directoryId: 'string',
+      originTargetId: 'string',
       targetId: 'string',
       targetType: 'string',
     };

@@ -42,13 +42,19 @@ export class ListAccessAssignmentsRequest extends $dara.Model {
    */
   nextToken?: string;
   /**
+   * @example
+   * 114240524784****
+   */
+  originTargetId?: string;
+  /**
    * @remarks
    * The ID of the CloudSSO identity. The ID can be used to filter access permissions.
    * 
-   * *   If you set `PrincipalType` to User, set `PrincipalId` to the ID of the CloudSSO user.
-   * *   If you set `PrincipalType` to Group, set `PrincipalId` to the ID of the CloudSSO group.
+   * - If you set `PrincipalType` to User, set `PrincipalId` to the ID of the CloudSSO user.
    * 
-   * >  You can use the type to filter access permissions only if you specify both PrincipalId and `PrincipalType`.``
+   * - If you set `PrincipalType` to Group, set `PrincipalId` to the ID of the CloudSSO group.
+   * 
+   * > You can use the type to filter access permissions only if you specify both PrincipalId and `PrincipalType`.\\`\\`
    * 
    * @example
    * u-00q8wbq42wiltcrk****
@@ -58,10 +64,11 @@ export class ListAccessAssignmentsRequest extends $dara.Model {
    * @remarks
    * The type of the CloudSSO identity. The type can be used to filter access permissions. Valid values:
    * 
-   * *   User
-   * *   Group
+   * - User
    * 
-   * >  You can use the type to filter access permissions only if you specify both PrincipalId and `PrincipalType`.``
+   * - Group
+   * 
+   * > You can use the type to filter access permissions only if you specify both PrincipalId and `PrincipalType`.\\`\\`
    * 
    * @example
    * User
@@ -71,7 +78,7 @@ export class ListAccessAssignmentsRequest extends $dara.Model {
    * @remarks
    * The ID of the task object. The ID can be used to filter access permissions.
    * 
-   * >  You can use the type to filter access permissions only if you specify both `TargetId` and `TargetType`.
+   * > You can use the type to filter access permissions only if you specify both `TargetId` and `TargetType`.
    * 
    * @example
    * 114240524784****
@@ -83,7 +90,7 @@ export class ListAccessAssignmentsRequest extends $dara.Model {
    * 
    * Set the value to RD-Account, which specifies the accounts in the resource directory.
    * 
-   * >  You can use the type to filter access permissions only if you specify both `TargetId` and `TargetType`.
+   * > You can use the type to filter access permissions only if you specify both `TargetId` and `TargetType`.
    * 
    * @example
    * RD-Account
@@ -95,6 +102,7 @@ export class ListAccessAssignmentsRequest extends $dara.Model {
       directoryId: 'DirectoryId',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
+      originTargetId: 'OriginTargetId',
       principalId: 'PrincipalId',
       principalType: 'PrincipalType',
       targetId: 'TargetId',
@@ -108,6 +116,7 @@ export class ListAccessAssignmentsRequest extends $dara.Model {
       directoryId: 'string',
       maxResults: 'number',
       nextToken: 'string',
+      originTargetId: 'string',
       principalId: 'string',
       principalType: 'string',
       targetId: 'string',

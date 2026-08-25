@@ -1,12 +1,51 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { ListAccessConfigurationsRequestTags } from "./ListAccessConfigurationsRequestTags";
 
+
+export class ListAccessConfigurationsRequestTags extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * TestKey
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * TestValue
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class ListAccessConfigurationsRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the directory.
+   * The directory ID.
    * 
    * @example
    * d-00fc2p61****
@@ -16,9 +55,9 @@ export class ListAccessConfigurationsRequest extends $dara.Model {
    * @remarks
    * The filter condition.
    * 
-   * The value is not case-sensitive. You must specify the value in the \\<Attribute> \\<Operator> \\<Value> format. You can set \\<Attribute> only to AccessConfigurationName and \\<Operator> only to eq or sw. The value eq indicates Equals. The value sw indicates Starts With.
+   * Format: <Attribute> <Operator> <Value>. The filter is case-insensitive. Currently, <Attribute> supports only AccessConfigurationName, and <Operator> supports only eq (Equals) and sw (Start With).
    * 
-   * For example, if you set Filter to AccessConfigurationName sw test, the operation queries all access configurations whose names start with test. If you set Filter to AccessConfigurationName eq TestAccessConfiguration, the operation queries the access configuration whose name is TestAccessConfiguration.
+   * Example: Filter = "AccessConfigurationName sw test" queries all access configurations whose names start with test. Filter = "AccessConfigurationName eq TestAccessConfiguration" queries the access configuration named TestAccessConfiguration.
    * 
    * @example
    * AccessConfigurationName sw test
@@ -26,7 +65,7 @@ export class ListAccessConfigurationsRequest extends $dara.Model {
   filter?: string;
   /**
    * @remarks
-   * The number of entries per page.
+   * The maximum number of entries per page.
    * 
    * Valid values: 1 to 100.
    * 
@@ -38,9 +77,9 @@ export class ListAccessConfigurationsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of `NextToken`.
+   * The token for the next page of results. You do not need to specify `NextToken` for the first API call.
    * 
-   * When you call this operation for the first time, if the total number of entries to return is larger than the value of the `MaxResults` parameter, the entries are truncated. The system returns entries based on the value of the `MaxResults` parameter, and does not return the excess entries. In this case, the value of the response parameter `IsTruncated` is `true`, and the `NextToken` parameter is returned. In the next call, you can use the value of the `NextToken` parameter and maintain the settings of the other request parameters to query the excess entries. You can repeat the call until the value of `IsTruncated` becomes `false`. This way, all entries are returned.
+   * When you call this API operation for the first time, if the total number of results exceeds the `MaxResults` limit, the results are truncated and only `MaxResults` entries are returned. In this case, the `IsTruncated` parameter is set to `true` and a `NextToken` is returned. You can use the `NextToken` returned from the previous call to continue calling this API operation while keeping other request parameters unchanged to query the truncated results. You can repeat this process until `IsTruncated` is `false`, which indicates that all data has been retrieved.
    * 
    * @example
    * K1c3o9K7pFxoTtxH1Nm7MMLb7zrDGvftYBQBPDVv7AD3a8yhRb3Mk8L9ivmN6bFSjfkZNTAg3h4****
@@ -48,14 +87,18 @@ export class ListAccessConfigurationsRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The status notification. The status notification can be used to filter access configurations.
+   * The status notification information, which is used as a filter condition for the query.
    * 
-   * Set the value to ReprovisionRequired, which indicates that the operation queries all access configurations that need to be re-provisioned.
+   * Valid values: ReprovisionRequired, which queries access configurations that need to be reprovisioned.
    * 
    * @example
    * ReprovisionRequired
    */
   statusNotifications?: string;
+  /**
+   * @remarks
+   * The list of tags.
+   */
   tags?: ListAccessConfigurationsRequestTags[];
   static names(): { [key: string]: string } {
     return {

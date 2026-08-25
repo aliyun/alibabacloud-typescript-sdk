@@ -20,11 +20,17 @@ export class CreateAccessAssignmentRequest extends $dara.Model {
    */
   directoryId?: string;
   /**
+   * @example
+   * 114240524784****
+   */
+  originTargetId?: string;
+  /**
    * @remarks
    * The ID of the CloudSSO identity.
    * 
-   * *   If you set `PrincipalType` to `User`, set `PrincipalId` to the ID of the CloudSSO user.
-   * *   If you set `PrincipalType` to `Group`, set `PrincipalId` to the ID of the CloudSSO group.
+   * - If you set `PrincipalType` to `User`, set `PrincipalId` to the ID of the CloudSSO user.
+   * 
+   * - If you set `PrincipalType` to `Group`, set `PrincipalId` to the ID of the CloudSSO group.
    * 
    * @example
    * u-00q8wbq42wiltcrk****
@@ -34,8 +40,9 @@ export class CreateAccessAssignmentRequest extends $dara.Model {
    * @remarks
    * The type of the CloudSSO identity. Valid values:
    * 
-   * *   User
-   * *   Group
+   * - User
+   * 
+   * - Group
    * 
    * @example
    * User
@@ -61,6 +68,7 @@ export class CreateAccessAssignmentRequest extends $dara.Model {
     return {
       accessConfigurationId: 'AccessConfigurationId',
       directoryId: 'DirectoryId',
+      originTargetId: 'OriginTargetId',
       principalId: 'PrincipalId',
       principalType: 'PrincipalType',
       targetId: 'TargetId',
@@ -72,6 +80,7 @@ export class CreateAccessAssignmentRequest extends $dara.Model {
     return {
       accessConfigurationId: 'string',
       directoryId: 'string',
+      originTargetId: 'string',
       principalId: 'string',
       principalType: 'string',
       targetId: 'string',

@@ -15,8 +15,9 @@ export class UpdateUserProvisioningRequest extends $dara.Model {
    * @remarks
    * The new deletion policy. The policy is used to manage synchronized users when you delete the RAM user provisioning. Valid values:
    * 
-   * *   Delete: When you delete the RAM user provisioning, the system deletes the synchronized users.
-   * *   Keep: When you delete the RAM user provisioning, the system retains the synchronized users.
+   * - Delete: When you delete the RAM user provisioning, the system deletes the synchronized users.
+   * 
+   * - Keep: When you delete the RAM user provisioning, the system retains the synchronized users.
    * 
    * @example
    * Delete
@@ -34,8 +35,9 @@ export class UpdateUserProvisioningRequest extends $dara.Model {
    * @remarks
    * The new conflict handling policy. The policy is used when a RAM user has the same username as the CloudSSO user who is synchronized to RAM. Valid values:
    * 
-   * *   KeepBoth: When a CloudSSO user is synchronized to RAM, if a RAM user who has the same username as the CloudSSO user exists, the system creates a RAM user whose username is the username of the CloudSSO user plus the suffix `_sso`.
-   * *   TakeOver: When a CloudSSO user is synchronized to RAM, if a RAM user who has the same username as the CloudSSO user exists, the system replaces the RAM user with the CloudSSO user.
+   * - KeepBoth: When a CloudSSO user is synchronized to RAM, if a RAM user who has the same username as the CloudSSO user exists, the system creates a RAM user whose username is the username of the CloudSSO user plus the suffix `_sso`.
+   * 
+   * - TakeOver: When a CloudSSO user is synchronized to RAM, if a RAM user who has the same username as the CloudSSO user exists, the system replaces the RAM user with the CloudSSO user.
    * 
    * @example
    * KeepBoth

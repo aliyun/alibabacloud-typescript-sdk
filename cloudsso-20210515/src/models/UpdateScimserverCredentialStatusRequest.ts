@@ -23,8 +23,9 @@ export class UpdateSCIMServerCredentialStatusRequest extends $dara.Model {
    * @remarks
    * The new status of the SCIM credential. Valid values:
    * 
-   * *   Enabled: The SCIM credential is enabled.
-   * *   Disabled: The SCIM credential is disabled.
+   * - Enabled: The SCIM credential is enabled.
+   * 
+   * - Disabled: The SCIM credential is disabled.
    * 
    * @example
    * Disabled

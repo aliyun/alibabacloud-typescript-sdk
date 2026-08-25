@@ -37,8 +37,9 @@ export class ListUserProvisioningsRequest extends $dara.Model {
    * @remarks
    * The identity ID of the RAM user provisioning. Valid values:
    * 
-   * *   If `Group` is returned for the `PrincipalType` parameter, the value of this parameter is the ID of a CloudSSO user group (g-\\*\\*\\*\\*\\*\\*\\*\\*).
-   * *   If `User` is returned for the `PrincipalType` parameter, the value of this parameter is the ID of a CloudSSO user (u-\\*\\*\\*\\*\\*\\*\\*\\*).
+   * - If `Group` is returned for the `PrincipalType` parameter, the value of this parameter is the ID of a CloudSSO user group (g-\\*\\*\\*\\*\\*\\*\\*\\*).
+   * 
+   * - If `User` is returned for the `PrincipalType` parameter, the value of this parameter is the ID of a CloudSSO user (u-\\*\\*\\*\\*\\*\\*\\*\\*).
    * 
    * @example
    * u-88d73u*****
@@ -48,8 +49,9 @@ export class ListUserProvisioningsRequest extends $dara.Model {
    * @remarks
    * The identity type of the RAM user provisioning. Valid values:
    * 
-   * *   User: The identity of the RAM user provisioning is a CloudSSO user.
-   * *   Group: The identity of the RAM user provisioning is a CloudSSO user group.
+   * - User: The identity of the RAM user provisioning is a CloudSSO user.
+   * 
+   * - Group: The identity of the RAM user provisioning is a CloudSSO user group.
    * 
    * @example
    * RD-Account

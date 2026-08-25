@@ -15,8 +15,9 @@ export class UpdateUserStatusRequest extends $dara.Model {
    * @remarks
    * The new status of the user. Valid values:
    * 
-   * *   Enabled: The logon of the user is enabled.
-   * *   Disabled: The logon of the user is disabled.
+   * - Enabled: The logon of the user is enabled.
+   * 
+   * - Disabled: The logon of the user is disabled.
    * 
    * @example
    * Disabled

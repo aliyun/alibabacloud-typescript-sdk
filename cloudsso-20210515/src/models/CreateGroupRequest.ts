@@ -25,7 +25,7 @@ export class CreateGroupRequest extends $dara.Model {
    * @remarks
    * The name of the group.
    * 
-   * The name can contain letters, digits, underscores (_), hyphens (-), and periods (.).``
+   * The name can contain letters, digits, underscores (_), hyphens (-), and periods (.).\\`\\`
    * 
    * The name can be up to 128 characters in length.
    * 

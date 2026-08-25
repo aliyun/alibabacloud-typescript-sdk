@@ -31,8 +31,9 @@ export class RemovePermissionPolicyFromAccessConfigurationRequest extends $dara.
    * @remarks
    * The type of the policy. Valid values:
    * 
-   * *   System: system policy.
-   * *   Inline: inline policy.
+   * - System: system policy.
+   * 
+   * - Inline: inline policy.
    * 
    * @example
    * System
