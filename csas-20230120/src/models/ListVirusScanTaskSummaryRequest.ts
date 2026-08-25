@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListVirusScanTaskSummaryRequest extends $dara.Model {
   /**
    * @remarks
+   * The collection of virus scan task IDs. The collection must contain at least one ID. Duplicate IDs are not allowed.
+   * 
    * This parameter is required.
    */
   taskIds?: string[];

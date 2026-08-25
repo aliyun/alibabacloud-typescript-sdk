@@ -1898,6 +1898,215 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates a software distribution task.
+   * 
+   * @remarks
+   * - After a task is created, its initial status is disabled.
+   * - MatchMode determines how to specify the matching target parameters: when set to UserGroupNormal, you must pass only UserGroupIds. When set to DeviceGroupNormal, you must pass only DeviceGroupIds. When set to DevTagNormal, you must pass only DevTags. Requests that contain parameters not matching the MatchMode value are rejected.
+   * - SupportOs supports only a single operating system value.
+   * 
+   * @param request - CreateSoftwarelibDistributeTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateSoftwarelibDistributeTaskResponse
+   */
+  async createSoftwarelibDistributeTaskWithOptions(request: $_model.CreateSoftwarelibDistributeTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateSoftwarelibDistributeTaskResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    let bodyFlat : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.devTags)) {
+      bodyFlat["DevTags"] = request.devTags;
+    }
+
+    if (!$dara.isNull(request.deviceGroupIds)) {
+      bodyFlat["DeviceGroupIds"] = request.deviceGroupIds;
+    }
+
+    if (!$dara.isNull(request.executeMode)) {
+      body["ExecuteMode"] = request.executeMode;
+    }
+
+    if (!$dara.isNull(request.executeParameters)) {
+      body["ExecuteParameters"] = request.executeParameters;
+    }
+
+    if (!$dara.isNull(request.executePeriod)) {
+      body["ExecutePeriod"] = request.executePeriod;
+    }
+
+    if (!$dara.isNull(request.expireMode)) {
+      body["ExpireMode"] = request.expireMode;
+    }
+
+    if (!$dara.isNull(request.gmtExpired)) {
+      body["GmtExpired"] = request.gmtExpired;
+    }
+
+    if (!$dara.isNull(request.matchMode)) {
+      body["MatchMode"] = request.matchMode;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.retryTimes)) {
+      body["RetryTimes"] = request.retryTimes;
+    }
+
+    if (!$dara.isNull(request.runAsAccount)) {
+      body["RunAsAccount"] = request.runAsAccount;
+    }
+
+    if (!$dara.isNull(request.softwareId)) {
+      body["SoftwareId"] = request.softwareId;
+    }
+
+    if (!$dara.isNull(request.softwareName)) {
+      body["SoftwareName"] = request.softwareName;
+    }
+
+    if (!$dara.isNull(request.supportOs)) {
+      body["SupportOs"] = request.supportOs;
+    }
+
+    if (!$dara.isNull(request.taskType)) {
+      body["TaskType"] = request.taskType;
+    }
+
+    if (!$dara.isNull(request.timeout)) {
+      body["Timeout"] = request.timeout;
+    }
+
+    if (!$dara.isNull(request.userGroupIds)) {
+      bodyFlat["UserGroupIds"] = request.userGroupIds;
+    }
+
+    if (!$dara.isNull(request.versionId)) {
+      body["VersionId"] = request.versionId;
+    }
+
+    body = {
+      ...body,
+      ...OpenApiUtil.query(bodyFlat),
+    };
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateSoftwarelibDistributeTask",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateSoftwarelibDistributeTaskResponse>(await this.callApi(params, req, runtime), new $_model.CreateSoftwarelibDistributeTaskResponse({}));
+  }
+
+  /**
+   * Creates a software distribution task.
+   * 
+   * @remarks
+   * - After a task is created, its initial status is disabled.
+   * - MatchMode determines how to specify the matching target parameters: when set to UserGroupNormal, you must pass only UserGroupIds. When set to DeviceGroupNormal, you must pass only DeviceGroupIds. When set to DevTagNormal, you must pass only DevTags. Requests that contain parameters not matching the MatchMode value are rejected.
+   * - SupportOs supports only a single operating system value.
+   * 
+   * @param request - CreateSoftwarelibDistributeTaskRequest
+   * @returns CreateSoftwarelibDistributeTaskResponse
+   */
+  async createSoftwarelibDistributeTask(request: $_model.CreateSoftwarelibDistributeTaskRequest): Promise<$_model.CreateSoftwarelibDistributeTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createSoftwarelibDistributeTaskWithOptions(request, runtime);
+  }
+
+  /**
+   * Creates a software version.
+   * 
+   * @remarks
+   * - Within the same software, the combination of operating system and version number must be unique. If a duplicate is created, a ResourceDuplicated error is returned.
+   * - A newly created version has an initial publish status of unpublished.
+   * - A newly created version has the highest priority. The priorities of other versions under the same software are shifted down accordingly.
+   * 
+   * @param request - CreateSoftwarelibVersionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateSoftwarelibVersionResponse
+   */
+  async createSoftwarelibVersionWithOptions(request: $_model.CreateSoftwarelibVersionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateSoftwarelibVersionResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.md5)) {
+      body["Md5"] = request.md5;
+    }
+
+    if (!$dara.isNull(request.os)) {
+      body["Os"] = request.os;
+    }
+
+    if (!$dara.isNull(request.publisherType)) {
+      body["PublisherType"] = request.publisherType;
+    }
+
+    if (!$dara.isNull(request.softwareId)) {
+      body["SoftwareId"] = request.softwareId;
+    }
+
+    if (!$dara.isNull(request.softwareName)) {
+      body["SoftwareName"] = request.softwareName;
+    }
+
+    if (!$dara.isNull(request.softwarePkgName)) {
+      body["SoftwarePkgName"] = request.softwarePkgName;
+    }
+
+    if (!$dara.isNull(request.softwarePkgSize)) {
+      body["SoftwarePkgSize"] = request.softwarePkgSize;
+    }
+
+    if (!$dara.isNull(request.softwareUrl)) {
+      body["SoftwareUrl"] = request.softwareUrl;
+    }
+
+    if (!$dara.isNull(request.softwareVersion)) {
+      body["SoftwareVersion"] = request.softwareVersion;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateSoftwarelibVersion",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateSoftwarelibVersionResponse>(await this.callApi(params, req, runtime), new $_model.CreateSoftwarelibVersionResponse({}));
+  }
+
+  /**
+   * Creates a software version.
+   * 
+   * @remarks
+   * - Within the same software, the combination of operating system and version number must be unique. If a duplicate is created, a ResourceDuplicated error is returned.
+   * - A newly created version has an initial publish status of unpublished.
+   * - A newly created version has the highest priority. The priorities of other versions under the same software are shifted down accordingly.
+   * 
+   * @param request - CreateSoftwarelibVersionRequest
+   * @returns CreateSoftwarelibVersionResponse
+   */
+  async createSoftwarelibVersion(request: $_model.CreateSoftwarelibVersionRequest): Promise<$_model.CreateSoftwarelibVersionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createSoftwarelibVersionWithOptions(request, runtime);
+  }
+
+  /**
    * Creates a user group for your Alibaba Cloud account.
    * 
    * @remarks
@@ -6507,6 +6716,94 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries administrator operation audit logs in batches.
+   * 
+   * @remarks
+   * - StartTime and EndTime are UNIX timestamps in seconds. StartTime must be earlier than EndTime. The interval between them cannot exceed 30 days, and StartTime cannot be more than 31 days before the current time.
+   * - If OperationStatus is not specified, only successful operation records are returned.
+   * - Results are sorted by operation time in descending order.
+   * - The return values of OperationFunc, OperationPage, and OperationType are localized based on the request language.
+   * - The values of filter parameters cannot contain single quotation marks (\\"), double quotation marks ("), or backslashes (\\\\). Otherwise, an InvalidParameter error is returned.
+   * 
+   * @param request - ListOperationAuditLogsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListOperationAuditLogsResponse
+   */
+  async listOperationAuditLogsWithOptions(request: $_model.ListOperationAuditLogsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListOperationAuditLogsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.eventType)) {
+      query["EventType"] = request.eventType;
+    }
+
+    if (!$dara.isNull(request.operationFunc)) {
+      query["OperationFunc"] = request.operationFunc;
+    }
+
+    if (!$dara.isNull(request.operationStatus)) {
+      query["OperationStatus"] = request.operationStatus;
+    }
+
+    if (!$dara.isNull(request.operationType)) {
+      query["OperationType"] = request.operationType;
+    }
+
+    if (!$dara.isNull(request.operatorId)) {
+      query["OperatorId"] = request.operatorId;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListOperationAuditLogs",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListOperationAuditLogsResponse>(await this.callApi(params, req, runtime), new $_model.ListOperationAuditLogsResponse({}));
+  }
+
+  /**
+   * Queries administrator operation audit logs in batches.
+   * 
+   * @remarks
+   * - StartTime and EndTime are UNIX timestamps in seconds. StartTime must be earlier than EndTime. The interval between them cannot exceed 30 days, and StartTime cannot be more than 31 days before the current time.
+   * - If OperationStatus is not specified, only successful operation records are returned.
+   * - Results are sorted by operation time in descending order.
+   * - The return values of OperationFunc, OperationPage, and OperationType are localized based on the request language.
+   * - The values of filter parameters cannot contain single quotation marks (\\"), double quotation marks ("), or backslashes (\\\\). Otherwise, an InvalidParameter error is returned.
+   * 
+   * @param request - ListOperationAuditLogsRequest
+   * @returns ListOperationAuditLogsResponse
+   */
+  async listOperationAuditLogs(request: $_model.ListOperationAuditLogsRequest): Promise<$_model.ListOperationAuditLogsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listOperationAuditLogsWithOptions(request, runtime);
+  }
+
+  /**
    * Queries policies for private access applications in your Alibaba Cloud account in batches.
    * 
    * @param request - ListPolicesForPrivateAccessApplicationRequest
@@ -7293,6 +7590,86 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries software in the software library in batches.
+   * 
+   * @remarks
+   * - Use CurrentPage and PageSize for pagination. NextToken and MaxResults do not take effect.
+   * - SoftwareName supports fuzzy match.
+   * - The Versions field (software version list) is not returned in the response. To query software versions, call [ListSoftwarelibVersion](~~ListSoftwarelibVersion~~).
+   * 
+   * @param request - ListSoftwarelibSoftwareRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListSoftwarelibSoftwareResponse
+   */
+  async listSoftwarelibSoftwareWithOptions(request: $_model.ListSoftwarelibSoftwareRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListSoftwarelibSoftwareResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.classifyId)) {
+      query["ClassifyId"] = request.classifyId;
+    }
+
+    if (!$dara.isNull(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.os)) {
+      query["Os"] = request.os;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.softwareName)) {
+      query["SoftwareName"] = request.softwareName;
+    }
+
+    if (!$dara.isNull(request.sourceType)) {
+      query["SourceType"] = request.sourceType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListSoftwarelibSoftware",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListSoftwarelibSoftwareResponse>(await this.callApi(params, req, runtime), new $_model.ListSoftwarelibSoftwareResponse({}));
+  }
+
+  /**
+   * Queries software in the software library in batches.
+   * 
+   * @remarks
+   * - Use CurrentPage and PageSize for pagination. NextToken and MaxResults do not take effect.
+   * - SoftwareName supports fuzzy match.
+   * - The Versions field (software version list) is not returned in the response. To query software versions, call [ListSoftwarelibVersion](~~ListSoftwarelibVersion~~).
+   * 
+   * @param request - ListSoftwarelibSoftwareRequest
+   * @returns ListSoftwarelibSoftwareResponse
+   */
+  async listSoftwarelibSoftware(request: $_model.ListSoftwarelibSoftwareRequest): Promise<$_model.ListSoftwarelibSoftwareResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listSoftwarelibSoftwareWithOptions(request, runtime);
+  }
+
+  /**
    * Batch query tags for private network access applications under the current Alibaba Cloud account.
    * 
    * @param request - ListTagsForPrivateAccessApplicationRequest
@@ -7887,7 +8264,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量查询病毒扫描任务的状态
+   * Queries the execution progress of specified virus scan tasks on user terminal devices in batches.
    * 
    * @param request - ListVirusScanTaskStatusesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7914,7 +8291,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量查询病毒扫描任务的状态
+   * Queries the execution progress of specified virus scan tasks on user terminal devices in batches.
    * 
    * @param request - ListVirusScanTaskStatusesRequest
    * @returns ListVirusScanTaskStatusesResponse
@@ -7925,7 +8302,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量查询病毒扫描任务统计数据
+   * Queries the detection result statistics of specified virus scan tasks in batches.
    * 
    * @param request - ListVirusScanTaskSummaryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7952,7 +8329,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量查询病毒扫描任务统计数据
+   * Queries the detection result statistics of specified virus scan tasks in batches.
    * 
    * @param request - ListVirusScanTaskSummaryRequest
    * @returns ListVirusScanTaskSummaryResponse
@@ -7963,7 +8340,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量查询病毒扫描任务
+   * Queries instant virus scan tasks under the current Alibaba Cloud account by paging.
    * 
    * @param request - ListVirusScanTasksRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7990,7 +8367,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量查询病毒扫描任务
+   * Queries instant virus scan tasks under the current Alibaba Cloud account by paging.
    * 
    * @param request - ListVirusScanTasksRequest
    * @returns ListVirusScanTasksResponse

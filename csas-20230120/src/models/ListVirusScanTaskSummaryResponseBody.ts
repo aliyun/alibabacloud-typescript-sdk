@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListVirusScanTaskSummaryResponseBodyTasks extends $dara.Model {
   /**
+   * @remarks
+   * The virus scan task ID.
+   * 
    * @example
    * v1:1024772
    */
   taskId?: string;
   /**
+   * @remarks
+   * The number of virus files detected by the task.
+   * 
    * @example
    * 7
    */
@@ -38,10 +44,17 @@ export class ListVirusScanTaskSummaryResponseBodyTasks extends $dara.Model {
 
 export class ListVirusScanTaskSummaryResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 3D7EC0AF-DB2A-5D9C-90EC-F090A6BAAEA7
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The list of detection statistics for virus scan tasks.
+   */
   tasks?: ListVirusScanTaskSummaryResponseBodyTasks[];
   static names(): { [key: string]: string } {
     return {
