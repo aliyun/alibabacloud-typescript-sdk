@@ -2,44 +2,44 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class GetOrCreateInvitationCodeResponseBodyData extends $dara.Model {
+export class ListVersionDistributionResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The authentication code for device enrollment.
+   * The number of terminals corresponding to this version.
    * 
    * @example
-   * 000000
+   * 60
    */
-  authCode?: string;
+  deviceCount?: number;
   /**
    * @remarks
-   * The expiration time of the compute group.
+   * The version percentage. Valid values: 0 to 1.
    * 
    * @example
-   * 1772162247
+   * 0.6
    */
-  expireTime?: string;
+  percentage?: number;
   /**
    * @remarks
-   * Indicates whether the invitation code has expired.
+   * The version number.
    * 
    * @example
-   * True
+   * 2.3.0
    */
-  expired?: boolean;
+  version?: string;
   static names(): { [key: string]: string } {
     return {
-      authCode: 'AuthCode',
-      expireTime: 'ExpireTime',
-      expired: 'Expired',
+      deviceCount: 'DeviceCount',
+      percentage: 'Percentage',
+      version: 'Version',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      authCode: 'string',
-      expireTime: 'string',
-      expired: 'boolean',
+      deviceCount: 'number',
+      percentage: 'number',
+      version: 'string',
     };
   }
 
@@ -52,34 +52,34 @@ export class GetOrCreateInvitationCodeResponseBodyData extends $dara.Model {
   }
 }
 
-export class GetOrCreateInvitationCodeResponseBody extends $dara.Model {
+export class ListVersionDistributionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code returned when the call fails.
+   * The status code. A value of 200 is returned if the call is successful. An error code is returned if the call fails.
    * 
    * @example
-   * PARAMETER_ERROR
+   * PARAMETER_MISSING
    */
   code?: string;
   /**
    * @remarks
-   * The data returned when the call is successful.
+   * The list of version distribution information.
    */
-  data?: GetOrCreateInvitationCodeResponseBodyData;
+  data?: ListVersionDistributionResponseBodyData[];
   /**
    * @remarks
    * The HTTP status code.
    * 
    * @example
-   * 200
+   * 400
    */
   httpStatusCode?: number;
   /**
    * @remarks
-   * The error message returned when the call fails.
+   * The error message. This parameter is empty if the call is successful.
    * 
    * @example
-   * parameter error
+   * parameter missing
    */
   message?: string;
   /**
@@ -93,9 +93,6 @@ export class GetOrCreateInvitationCodeResponseBody extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the call was successful.
-   * 
-   * @example
-   * true
    */
   success?: boolean;
   static names(): { [key: string]: string } {
@@ -112,7 +109,7 @@ export class GetOrCreateInvitationCodeResponseBody extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       code: 'string',
-      data: GetOrCreateInvitationCodeResponseBodyData,
+      data: { 'type': 'array', 'itemType': ListVersionDistributionResponseBodyData },
       httpStatusCode: 'number',
       message: 'string',
       requestId: 'string',
@@ -121,8 +118,8 @@ export class GetOrCreateInvitationCodeResponseBody extends $dara.Model {
   }
 
   validate() {
-    if(this.data && typeof (this.data as any).validate === 'function') {
-      (this.data as any).validate();
+    if(Array.isArray(this.data)) {
+      $dara.Model.validateArray(this.data);
     }
     super.validate();
   }

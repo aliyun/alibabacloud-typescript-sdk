@@ -2,44 +2,54 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class GetOrCreateInvitationCodeResponseBodyData extends $dara.Model {
+export class GetTerminalCountResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The authentication code for device enrollment.
+   * The number of hardware terminals that are bound to users. This parameter is returned only when ClientType is set to 1.
    * 
    * @example
-   * 000000
+   * 60
    */
-  authCode?: string;
+  bindUserCount?: number;
   /**
    * @remarks
-   * The expiration time of the compute group.
+   * The number of managed terminals.
    * 
    * @example
-   * 1772162247
+   * 80
    */
-  expireTime?: string;
+  inManageCount?: number;
   /**
    * @remarks
-   * Indicates whether the invitation code has expired.
+   * The number of unmanaged terminals.
    * 
    * @example
-   * True
+   * 20
    */
-  expired?: boolean;
+  notInManageCount?: number;
+  /**
+   * @remarks
+   * The total number of terminals.
+   * 
+   * @example
+   * 100
+   */
+  totalCount?: number;
   static names(): { [key: string]: string } {
     return {
-      authCode: 'AuthCode',
-      expireTime: 'ExpireTime',
-      expired: 'Expired',
+      bindUserCount: 'BindUserCount',
+      inManageCount: 'InManageCount',
+      notInManageCount: 'NotInManageCount',
+      totalCount: 'TotalCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      authCode: 'string',
-      expireTime: 'string',
-      expired: 'boolean',
+      bindUserCount: 'number',
+      inManageCount: 'number',
+      notInManageCount: 'number',
+      totalCount: 'number',
     };
   }
 
@@ -52,31 +62,31 @@ export class GetOrCreateInvitationCodeResponseBodyData extends $dara.Model {
   }
 }
 
-export class GetOrCreateInvitationCodeResponseBody extends $dara.Model {
+export class GetTerminalCountResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code returned when the call fails.
+   * The status code. 200 is returned if the call is successful. An error code is returned if the call fails.
    * 
    * @example
-   * PARAMETER_ERROR
+   * PARAM_ERROR
    */
   code?: string;
   /**
    * @remarks
-   * The data returned when the call is successful.
+   * The terminal count statistics information.
    */
-  data?: GetOrCreateInvitationCodeResponseBodyData;
+  data?: GetTerminalCountResponseBodyData;
   /**
    * @remarks
    * The HTTP status code.
    * 
    * @example
-   * 200
+   * 400
    */
   httpStatusCode?: number;
   /**
    * @remarks
-   * The error message returned when the call fails.
+   * The error message. This parameter is empty if the call is successful.
    * 
    * @example
    * parameter error
@@ -93,9 +103,6 @@ export class GetOrCreateInvitationCodeResponseBody extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the call was successful.
-   * 
-   * @example
-   * true
    */
   success?: boolean;
   static names(): { [key: string]: string } {
@@ -112,7 +119,7 @@ export class GetOrCreateInvitationCodeResponseBody extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       code: 'string',
-      data: GetOrCreateInvitationCodeResponseBodyData,
+      data: GetTerminalCountResponseBodyData,
       httpStatusCode: 'number',
       message: 'string',
       requestId: 'string',

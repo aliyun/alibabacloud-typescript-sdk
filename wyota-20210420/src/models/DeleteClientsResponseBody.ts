@@ -4,26 +4,41 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteClientsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The error code returned if the call failed.
+   * 
    * @example
    * TERMINAL_NOT_FOUND
    */
   code?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The error message returned if the call failed.
+   * 
    * @example
    * terminal not found
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * C5DCE54A-B266-522E-A6ED-468AF45F5AAA
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the call was successful.
+   * 
    * @example
    * true
    */

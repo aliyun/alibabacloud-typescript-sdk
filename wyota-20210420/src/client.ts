@@ -11,7 +11,7 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApiUtil.Config) {
     super(config);
-    this._endpointRule = "";
+    this._endpointRule = "regional";
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("wyota", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
@@ -247,7 +247,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 解除桌面端、移动端纳管
+   * Removes managed terminal devices by UUID.
    * 
    * @param request - DeleteClientsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -293,7 +293,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 解除桌面端、移动端纳管
+   * Removes managed terminal devices by UUID.
    * 
    * @param request - DeleteClientsRequest
    * @returns DeleteClientsResponse
@@ -304,7 +304,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询桌面端、移动端详细信息
+   * Queries information about all managed clients.
    * 
    * @param request - DescribeClientsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -398,7 +398,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询桌面端、移动端详细信息
+   * Queries information about all managed clients.
    * 
    * @param request - DescribeClientsRequest
    * @returns DescribeClientsResponse
@@ -409,7 +409,51 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取桌面端纳管邀请码
+   * Retrieves custom resource statistics information.
+   * 
+   * @param request - GetCustomResourceStatsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetCustomResourceStatsResponse
+   */
+  async getCustomResourceStatsWithOptions(request: $_model.GetCustomResourceStatsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetCustomResourceStatsResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.mainBizType)) {
+      body["MainBizType"] = request.mainBizType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetCustomResourceStats",
+      version: "2021-04-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetCustomResourceStatsResponse>(await this.callApi(params, req, runtime), new $_model.GetCustomResourceStatsResponse({}));
+  }
+
+  /**
+   * Retrieves custom resource statistics information.
+   * 
+   * @param request - GetCustomResourceStatsRequest
+   * @returns GetCustomResourceStatsResponse
+   */
+  async getCustomResourceStats(request: $_model.GetCustomResourceStatsRequest): Promise<$_model.GetCustomResourceStatsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getCustomResourceStatsWithOptions(request, runtime);
+  }
+
+  /**
+   * Retrieves or creates an invitation code for desktop device enrollment.
+   * Query mode: Pass only terminalGroupId to return the current invitation code and its expiration status in read-only mode.
+   * Creation mode: Pass terminalGroupId along with an expiration duration (expireDays or expireMinutes) to generate a new code that overwrites the existing invitation code.
    * 
    * @param request - GetOrCreateInvitationCodeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -452,7 +496,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取桌面端纳管邀请码
+   * Retrieves or creates an invitation code for desktop device enrollment.
+   * Query mode: Pass only terminalGroupId to return the current invitation code and its expiration status in read-only mode.
+   * Creation mode: Pass terminalGroupId along with an expiration duration (expireDays or expireMinutes) to generate a new code that overwrites the existing invitation code.
    * 
    * @param request - GetOrCreateInvitationCodeRequest
    * @returns GetOrCreateInvitationCodeResponse
@@ -460,6 +506,48 @@ export default class Client extends OpenApi {
   async getOrCreateInvitationCode(request: $_model.GetOrCreateInvitationCodeRequest): Promise<$_model.GetOrCreateInvitationCodeResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getOrCreateInvitationCodeWithOptions(request, runtime);
+  }
+
+  /**
+   * Retrieves the number of terminals.
+   * 
+   * @param request - GetTerminalCountRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetTerminalCountResponse
+   */
+  async getTerminalCountWithOptions(request: $_model.GetTerminalCountRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetTerminalCountResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientType)) {
+      body["ClientType"] = request.clientType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetTerminalCount",
+      version: "2021-04-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetTerminalCountResponse>(await this.callApi(params, req, runtime), new $_model.GetTerminalCountResponse({}));
+  }
+
+  /**
+   * Retrieves the number of terminals.
+   * 
+   * @param request - GetTerminalCountRequest
+   * @returns GetTerminalCountResponse
+   */
+  async getTerminalCount(request: $_model.GetTerminalCountRequest): Promise<$_model.GetTerminalCountResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getTerminalCountWithOptions(request, runtime);
   }
 
   /**
@@ -553,6 +641,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the version distribution of terminals.
+   * 
+   * @param request - ListVersionDistributionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListVersionDistributionResponse
+   */
+  async listVersionDistributionWithOptions(request: $_model.ListVersionDistributionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListVersionDistributionResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientType)) {
+      body["ClientType"] = request.clientType;
+    }
+
+    if (!$dara.isNull(request.inManage)) {
+      body["InManage"] = request.inManage;
+    }
+
+    if (!$dara.isNull(request.mainBizType)) {
+      body["MainBizType"] = request.mainBizType;
+    }
+
+    if (!$dara.isNull(request.model)) {
+      body["Model"] = request.model;
+    }
+
+    if (!$dara.isNull(request.versionType)) {
+      body["VersionType"] = request.versionType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListVersionDistribution",
+      version: "2021-04-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListVersionDistributionResponse>(await this.callApi(params, req, runtime), new $_model.ListVersionDistributionResponse({}));
+  }
+
+  /**
+   * Queries the version distribution of terminals.
+   * 
+   * @param request - ListVersionDistributionRequest
+   * @returns ListVersionDistributionResponse
+   */
+  async listVersionDistribution(request: $_model.ListVersionDistributionRequest): Promise<$_model.ListVersionDistributionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listVersionDistributionWithOptions(request, runtime);
+  }
+
+  /**
    * 向终端发送运维命令
    * 
    * @param request - SendOpsMessageToTerminalsRequest
@@ -569,6 +715,10 @@ export default class Client extends OpenApi {
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.msg)) {
       body["Msg"] = request.msg;
+    }
+
+    if (!$dara.isNull(request.opDomain)) {
+      body["OpDomain"] = request.opDomain;
     }
 
     if (!$dara.isNull(request.opsAction)) {

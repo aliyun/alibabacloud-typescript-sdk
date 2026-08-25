@@ -2,44 +2,54 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class GetOrCreateInvitationCodeResponseBodyData extends $dara.Model {
+export class GetCustomResourceStatsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The authentication code for device enrollment.
+   * The number of terminals with custom resources configured.
    * 
    * @example
-   * 000000
+   * 10
    */
-  authCode?: string;
+  customResourceCount?: number;
   /**
    * @remarks
-   * The expiration time of the compute group.
+   * The number of terminals on which custom resources have taken effect.
    * 
    * @example
-   * 1772162247
+   * 8
    */
-  expireTime?: string;
+  effectiveCount?: number;
   /**
    * @remarks
-   * Indicates whether the invitation code has expired.
+   * The number of terminals without custom resources configured.
    * 
    * @example
-   * True
+   * 90
    */
-  expired?: boolean;
+  noCustomResourceCount?: number;
+  /**
+   * @remarks
+   * The number of terminals on which custom resources have not taken effect.
+   * 
+   * @example
+   * 2
+   */
+  unEffectiveCount?: number;
   static names(): { [key: string]: string } {
     return {
-      authCode: 'AuthCode',
-      expireTime: 'ExpireTime',
-      expired: 'Expired',
+      customResourceCount: 'CustomResourceCount',
+      effectiveCount: 'EffectiveCount',
+      noCustomResourceCount: 'NoCustomResourceCount',
+      unEffectiveCount: 'UnEffectiveCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      authCode: 'string',
-      expireTime: 'string',
-      expired: 'boolean',
+      customResourceCount: 'number',
+      effectiveCount: 'number',
+      noCustomResourceCount: 'number',
+      unEffectiveCount: 'number',
     };
   }
 
@@ -52,31 +62,31 @@ export class GetOrCreateInvitationCodeResponseBodyData extends $dara.Model {
   }
 }
 
-export class GetOrCreateInvitationCodeResponseBody extends $dara.Model {
+export class GetCustomResourceStatsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code returned when the call fails.
+   * The status code. 200 is returned if the call is successful. An error code is returned if the call fails.
    * 
    * @example
-   * PARAMETER_ERROR
+   * PARAM_ERROR
    */
   code?: string;
   /**
    * @remarks
-   * The data returned when the call is successful.
+   * The custom resource statistics information.
    */
-  data?: GetOrCreateInvitationCodeResponseBodyData;
+  data?: GetCustomResourceStatsResponseBodyData;
   /**
    * @remarks
    * The HTTP status code.
    * 
    * @example
-   * 200
+   * 400
    */
   httpStatusCode?: number;
   /**
    * @remarks
-   * The error message returned when the call fails.
+   * The error message. This parameter is empty if the call is successful.
    * 
    * @example
    * parameter error
@@ -93,9 +103,6 @@ export class GetOrCreateInvitationCodeResponseBody extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the call was successful.
-   * 
-   * @example
-   * true
    */
   success?: boolean;
   static names(): { [key: string]: string } {
@@ -112,7 +119,7 @@ export class GetOrCreateInvitationCodeResponseBody extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       code: 'string',
-      data: GetOrCreateInvitationCodeResponseBodyData,
+      data: GetCustomResourceStatsResponseBodyData,
       httpStatusCode: 'number',
       message: 'string',
       requestId: 'string',

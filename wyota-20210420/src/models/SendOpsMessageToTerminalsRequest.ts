@@ -5,6 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SendOpsMessageToTerminalsRequest extends $dara.Model {
   delay?: boolean;
   msg?: string;
+  opDomain?: string;
   opsAction?: string;
   uuids?: string[];
   waitForAck?: boolean;
@@ -12,6 +13,7 @@ export class SendOpsMessageToTerminalsRequest extends $dara.Model {
     return {
       delay: 'Delay',
       msg: 'Msg',
+      opDomain: 'OpDomain',
       opsAction: 'OpsAction',
       uuids: 'Uuids',
       waitForAck: 'WaitForAck',
@@ -22,6 +24,7 @@ export class SendOpsMessageToTerminalsRequest extends $dara.Model {
     return {
       delay: 'boolean',
       msg: 'string',
+      opDomain: 'string',
       opsAction: 'string',
       uuids: { 'type': 'array', 'itemType': 'string' },
       waitForAck: 'boolean',
