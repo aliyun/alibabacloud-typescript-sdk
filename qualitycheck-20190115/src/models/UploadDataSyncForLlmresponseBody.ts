@@ -377,7 +377,7 @@ export class UploadDataSyncForLLMResponseBodyData extends $dara.Model {
 export class UploadDataSyncForLLMResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code. A value of 200 indicates success. Other values indicate failure. You can use this field to determine the cause of a failure.
+   * The result code. A value of 200 indicates success. Other values indicate failure. You can use this field to determine the cause of failure.
    * 
    * @example
    * 200
@@ -386,7 +386,7 @@ export class UploadDataSyncForLLMResponseBody extends $dara.Model {
   data?: UploadDataSyncForLLMResponseBodyData;
   /**
    * @remarks
-   * The error message if the request fails. If the request is successful, the value is **successful**.
+   * The error message if the request fails. The value is **successful** if the request succeeds.
    * 
    * @example
    * successful
@@ -402,7 +402,7 @@ export class UploadDataSyncForLLMResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful. Valid values: true and false/null.
+   * Indicates whether the request was successful. Valid values: true: The request was successful. false/null: The request failed.
    * 
    * @example
    * true

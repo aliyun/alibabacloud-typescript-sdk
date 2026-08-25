@@ -230,17 +230,80 @@ export class AgentInfoInstructionTypeParamTagCategoryParam extends $dara.Model {
   }
 }
 
+export class AgentInfoInstructionTypeParamTagTreeLevelParamTagTreeLevels extends $dara.Model {
+  prompt?: string;
+  tagTreeIds?: number[];
+  static names(): { [key: string]: string } {
+    return {
+      prompt: 'Prompt',
+      tagTreeIds: 'TagTreeIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      prompt: 'string',
+      tagTreeIds: { 'type': 'array', 'itemType': 'number' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.tagTreeIds)) {
+      $dara.Model.validateArray(this.tagTreeIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AgentInfoInstructionTypeParamTagTreeLevelParam extends $dara.Model {
+  tagIds?: number[];
+  tagTreeLevels?: AgentInfoInstructionTypeParamTagTreeLevelParamTagTreeLevels[];
+  static names(): { [key: string]: string } {
+    return {
+      tagIds: 'TagIds',
+      tagTreeLevels: 'TagTreeLevels',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagIds: { 'type': 'array', 'itemType': 'number' },
+      tagTreeLevels: { 'type': 'array', 'itemType': AgentInfoInstructionTypeParamTagTreeLevelParamTagTreeLevels },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.tagIds)) {
+      $dara.Model.validateArray(this.tagIds);
+    }
+    if(Array.isArray(this.tagTreeLevels)) {
+      $dara.Model.validateArray(this.tagTreeLevels);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AgentInfoInstructionTypeParam extends $dara.Model {
   customPromptParam?: AgentInfoInstructionTypeParamCustomPromptParam;
   fieldsParam?: AgentInfoInstructionTypeParamFieldsParam;
   serviceInspectionParam?: AgentInfoInstructionTypeParamServiceInspectionParam;
   tagCategoryParam?: AgentInfoInstructionTypeParamTagCategoryParam;
+  tagTreeLevelParam?: AgentInfoInstructionTypeParamTagTreeLevelParam;
   static names(): { [key: string]: string } {
     return {
       customPromptParam: 'CustomPromptParam',
       fieldsParam: 'FieldsParam',
       serviceInspectionParam: 'ServiceInspectionParam',
       tagCategoryParam: 'TagCategoryParam',
+      tagTreeLevelParam: 'TagTreeLevelParam',
     };
   }
 
@@ -250,6 +313,7 @@ export class AgentInfoInstructionTypeParam extends $dara.Model {
       fieldsParam: AgentInfoInstructionTypeParamFieldsParam,
       serviceInspectionParam: AgentInfoInstructionTypeParamServiceInspectionParam,
       tagCategoryParam: AgentInfoInstructionTypeParamTagCategoryParam,
+      tagTreeLevelParam: AgentInfoInstructionTypeParamTagTreeLevelParam,
     };
   }
 
@@ -265,6 +329,9 @@ export class AgentInfoInstructionTypeParam extends $dara.Model {
     }
     if(this.tagCategoryParam && typeof (this.tagCategoryParam as any).validate === 'function') {
       (this.tagCategoryParam as any).validate();
+    }
+    if(this.tagTreeLevelParam && typeof (this.tagTreeLevelParam as any).validate === 'function') {
+      (this.tagTreeLevelParam as any).validate();
     }
     super.validate();
   }

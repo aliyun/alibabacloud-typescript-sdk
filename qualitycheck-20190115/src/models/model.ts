@@ -6,6 +6,8 @@ export { AgentInfoInstructionTypeParamServiceInspectionParamDimensions } from '.
 export { AgentInfoInstructionTypeParamServiceInspectionParam } from './AgentInfo';
 export { AgentInfoInstructionTypeParamTagCategoryParamNameDescPairList } from './AgentInfo';
 export { AgentInfoInstructionTypeParamTagCategoryParam } from './AgentInfo';
+export { AgentInfoInstructionTypeParamTagTreeLevelParamTagTreeLevels } from './AgentInfo';
+export { AgentInfoInstructionTypeParamTagTreeLevelParam } from './AgentInfo';
 export { AgentInfoInstructionTypeParam } from './AgentInfo';
 export { ConditionBasicInfoCheckRangeAnchor } from './ConditionBasicInfo';
 export { ConditionBasicInfoCheckRangeRange } from './ConditionBasicInfo';
