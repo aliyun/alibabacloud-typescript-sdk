@@ -2,6 +2,46 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class InstallNodePoolComponentsRequestComponentsConfigEnvs extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the environment variable.
+   * 
+   * @example
+   * LOG_LEVEL
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The value of the environment variable.
+   * 
+   * @example
+   * info
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'name',
+      value: 'value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class InstallNodePoolComponentsRequestComponentsConfig extends $dara.Model {
   /**
    * @remarks
@@ -11,21 +51,31 @@ export class InstallNodePoolComponentsRequestComponentsConfig extends $dara.Mode
    * {"cpuManagerPolicy":"static"}
    */
   customConfig?: { [key: string]: any };
+  /**
+   * @remarks
+   * The environment variables of the node component.
+   */
+  envs?: InstallNodePoolComponentsRequestComponentsConfigEnvs[];
   static names(): { [key: string]: string } {
     return {
       customConfig: 'customConfig',
+      envs: 'envs',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       customConfig: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      envs: { 'type': 'array', 'itemType': InstallNodePoolComponentsRequestComponentsConfigEnvs },
     };
   }
 
   validate() {
     if(this.customConfig) {
       $dara.Model.validateMap(this.customConfig);
+    }
+    if(Array.isArray(this.envs)) {
+      $dara.Model.validateArray(this.envs);
     }
     super.validate();
   }
@@ -98,7 +148,7 @@ export class InstallNodePoolComponentsRequestRollingPolicy extends $dara.Model {
   batchInterval?: number;
   /**
    * @remarks
-   * The maximum number of nodes that are allowed to fail during the rolling process. Default value: 0, which indicates that the task fails if any node fails. If the value is greater than 0, the task fails and stops when the cumulative number of failed nodes exceeds this value.
+   * The maximum number of nodes that are allowed to fail during the rolling process. Default value: 0, which indicates that the task is considered failed if any node fails. If the value is greater than 0, the task is considered failed and stops when the cumulative number of failed nodes exceeds this value.
    * 
    * @example
    * 0
@@ -155,7 +205,7 @@ export class InstallNodePoolComponentsRequest extends $dara.Model {
   components?: InstallNodePoolComponentsRequestComponents[];
   /**
    * @remarks
-   * The list of node names for the rolling operation. Default value: all nodes.
+   * The list of node names for the rolling operation. By default, all nodes are included.
    */
   nodeNames?: string[];
   /**

@@ -8,6 +8,7 @@ export { NodepoolManagementAutoUpgradePolicy } from './Nodepool';
 export { NodepoolManagementAutoVulFixPolicy } from './Nodepool';
 export { NodepoolManagementUpgradeConfig } from './Nodepool';
 export { NodepoolManagement } from './Nodepool';
+export { NodepoolNodeComponentsConfigEnvs } from './Nodepool';
 export { NodepoolNodeComponentsConfig } from './Nodepool';
 export { NodepoolNodeComponents } from './Nodepool';
 export { NodepoolNodeConfig } from './Nodepool';
@@ -48,6 +49,7 @@ export { CreateClusterNodePoolRequestManagementAutoUpgradePolicy } from './Creat
 export { CreateClusterNodePoolRequestManagementAutoVulFixPolicy } from './CreateClusterNodePoolRequest';
 export { CreateClusterNodePoolRequestManagementUpgradeConfig } from './CreateClusterNodePoolRequest';
 export { CreateClusterNodePoolRequestManagement } from './CreateClusterNodePoolRequest';
+export { CreateClusterNodePoolRequestNodeComponentsConfigEnvs } from './CreateClusterNodePoolRequest';
 export { CreateClusterNodePoolRequestNodeComponentsConfig } from './CreateClusterNodePoolRequest';
 export { CreateClusterNodePoolRequestNodeComponents } from './CreateClusterNodePoolRequest';
 export { CreateClusterNodePoolRequestNodeConfig } from './CreateClusterNodePoolRequest';
@@ -59,6 +61,7 @@ export { CreateClusterNodePoolRequestScalingGroupSpotPriceLimit } from './Create
 export { CreateClusterNodePoolRequestScalingGroupTags } from './CreateClusterNodePoolRequest';
 export { CreateClusterNodePoolRequestScalingGroup } from './CreateClusterNodePoolRequest';
 export { CreateClusterNodePoolRequestTeeConfig } from './CreateClusterNodePoolRequest';
+export { CreateNodePoolComponentInstancesRequestComponentsConfigEnvs } from './CreateNodePoolComponentInstancesRequest';
 export { CreateNodePoolComponentInstancesRequestComponentsConfig } from './CreateNodePoolComponentInstancesRequest';
 export { CreateNodePoolComponentInstancesRequestComponents } from './CreateNodePoolComponentInstancesRequest';
 export { CreateNodePoolComponentInstancesRequestRollingPolicy } from './CreateNodePoolComponentInstancesRequest';
@@ -97,6 +100,7 @@ export { DescribeClusterNodePoolDetailResponseBodyManagementAutoUpgradePolicy } 
 export { DescribeClusterNodePoolDetailResponseBodyManagementAutoVulFixPolicy } from './DescribeClusterNodePoolDetailResponseBody';
 export { DescribeClusterNodePoolDetailResponseBodyManagementUpgradeConfig } from './DescribeClusterNodePoolDetailResponseBody';
 export { DescribeClusterNodePoolDetailResponseBodyManagement } from './DescribeClusterNodePoolDetailResponseBody';
+export { DescribeClusterNodePoolDetailResponseBodyNodeComponentsConfigEnvs } from './DescribeClusterNodePoolDetailResponseBody';
 export { DescribeClusterNodePoolDetailResponseBodyNodeComponentsConfig } from './DescribeClusterNodePoolDetailResponseBody';
 export { DescribeClusterNodePoolDetailResponseBodyNodeComponents } from './DescribeClusterNodePoolDetailResponseBody';
 export { DescribeClusterNodePoolDetailResponseBodyNodeConfigNodeOsConfig } from './DescribeClusterNodePoolDetailResponseBody';
@@ -120,6 +124,7 @@ export { DescribeClusterNodePoolsResponseBodyNodepoolsManagementAutoUpgradePolic
 export { DescribeClusterNodePoolsResponseBodyNodepoolsManagementAutoVulFixPolicy } from './DescribeClusterNodePoolsResponseBody';
 export { DescribeClusterNodePoolsResponseBodyNodepoolsManagementUpgradeConfig } from './DescribeClusterNodePoolsResponseBody';
 export { DescribeClusterNodePoolsResponseBodyNodepoolsManagement } from './DescribeClusterNodePoolsResponseBody';
+export { DescribeClusterNodePoolsResponseBodyNodepoolsNodeComponentsConfigEnvs } from './DescribeClusterNodePoolsResponseBody';
 export { DescribeClusterNodePoolsResponseBodyNodepoolsNodeComponentsConfig } from './DescribeClusterNodePoolsResponseBody';
 export { DescribeClusterNodePoolsResponseBodyNodepoolsNodeComponents } from './DescribeClusterNodePoolsResponseBody';
 export { DescribeClusterNodePoolsResponseBodyNodepoolsNodeConfigNodeOsConfig } from './DescribeClusterNodePoolsResponseBody';
@@ -196,6 +201,7 @@ export { GetKubernetesTriggerResponseBody } from './GetKubernetesTriggerResponse
 export { GetUpgradeStatusResponseBodyUpgradeTask } from './GetUpgradeStatusResponseBody';
 export { GrantPermissionsRequestBody } from './GrantPermissionsRequest';
 export { InstallClusterAddonsRequestBody } from './InstallClusterAddonsRequest';
+export { InstallNodePoolComponentsRequestComponentsConfigEnvs } from './InstallNodePoolComponentsRequest';
 export { InstallNodePoolComponentsRequestComponentsConfig } from './InstallNodePoolComponentsRequest';
 export { InstallNodePoolComponentsRequestComponents } from './InstallNodePoolComponentsRequest';
 export { InstallNodePoolComponentsRequestRollingPolicy } from './InstallNodePoolComponentsRequest';
@@ -216,6 +222,7 @@ export { ListClusterInspectReportsResponseBodyReports } from './ListClusterInspe
 export { ListClusterKubeconfigStatesResponseBodyPage } from './ListClusterKubeconfigStatesResponseBody';
 export { ListClusterKubeconfigStatesResponseBodyStatesCloudServiceRoles } from './ListClusterKubeconfigStatesResponseBody';
 export { ListClusterKubeconfigStatesResponseBodyStates } from './ListClusterKubeconfigStatesResponseBody';
+export { ListNodePoolComponentInstancesResponseBodyComponentInstancesConfigEnvs } from './ListNodePoolComponentInstancesResponseBody';
 export { ListNodePoolComponentInstancesResponseBodyComponentInstancesConfig } from './ListNodePoolComponentInstancesResponseBody';
 export { ListNodePoolComponentInstancesResponseBodyComponentInstances } from './ListNodePoolComponentInstancesResponseBody';
 export { ListNodePoolComponentsResponseBodyComponents } from './ListNodePoolComponentsResponseBody';
@@ -259,8 +266,10 @@ export { ModifyNodePoolNodeConfigRequestRollingPolicy } from './ModifyNodePoolNo
 export { RepairClusterNodePoolRequestOperations } from './RepairClusterNodePoolRequest';
 export { ScaleOutClusterRequestWorkerDataDisks } from './ScaleOutClusterRequest';
 export { UnInstallClusterAddonsRequestAddons } from './UnInstallClusterAddonsRequest';
+export { UpdateNodePoolComponentRequestConfigEnvs } from './UpdateNodePoolComponentRequest';
 export { UpdateNodePoolComponentRequestConfig } from './UpdateNodePoolComponentRequest';
 export { UpdateNodePoolComponentRequestRollingPolicy } from './UpdateNodePoolComponentRequest';
+export { UpdateNodePoolComponentInstanceRequestConfigEnvs } from './UpdateNodePoolComponentInstanceRequest';
 export { UpdateNodePoolComponentInstanceRequestConfig } from './UpdateNodePoolComponentInstanceRequest';
 export { UpdateNodePoolComponentInstanceRequestRollingPolicy } from './UpdateNodePoolComponentInstanceRequest';
 export { UpdateUserPermissionsRequestBody } from './UpdateUserPermissionsRequest';

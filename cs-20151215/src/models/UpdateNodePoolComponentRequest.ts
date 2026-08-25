@@ -2,6 +2,46 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class UpdateNodePoolComponentRequestConfigEnvs extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the environment variable.
+   * 
+   * @example
+   * LOG_LEVEL
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The value of the environment variable.
+   * 
+   * @example
+   * info
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'name',
+      value: 'value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateNodePoolComponentRequestConfig extends $dara.Model {
   /**
    * @remarks
@@ -11,21 +51,31 @@ export class UpdateNodePoolComponentRequestConfig extends $dara.Model {
    * {"cpuManagerPolicy":"static"}
    */
   customConfig?: { [key: string]: any };
+  /**
+   * @remarks
+   * The environment variables of the node component.
+   */
+  envs?: UpdateNodePoolComponentRequestConfigEnvs[];
   static names(): { [key: string]: string } {
     return {
       customConfig: 'customConfig',
+      envs: 'envs',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       customConfig: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      envs: { 'type': 'array', 'itemType': UpdateNodePoolComponentRequestConfigEnvs },
     };
   }
 
   validate() {
     if(this.customConfig) {
       $dara.Model.validateMap(this.customConfig);
+    }
+    if(Array.isArray(this.envs)) {
+      $dara.Model.validateArray(this.envs);
     }
     super.validate();
   }
@@ -38,7 +88,7 @@ export class UpdateNodePoolComponentRequestConfig extends $dara.Model {
 export class UpdateNodePoolComponentRequestRollingPolicy extends $dara.Model {
   /**
    * @remarks
-   * The interval between batches during the upgrade. Unit: seconds.
+   * The upgrade interval between batches. Unit: seconds.
    * 
    * @example
    * 0
@@ -46,7 +96,7 @@ export class UpdateNodePoolComponentRequestRollingPolicy extends $dara.Model {
   batchInterval?: number;
   /**
    * @remarks
-   * The maximum number of nodes that are allowed to fail during the rolling update. Default value: 0, which indicates that the task fails if any node fails. If the value is greater than 0, the task fails and stops when the cumulative number of failed nodes exceeds this value.
+   * The maximum number of nodes that can fail during the rolling update. Default value: 0, which means the task fails if any node fails. If the value is greater than 0, the task fails and stops when the cumulative number of failed nodes exceeds this value.
    * 
    * @example
    * 0
@@ -54,7 +104,7 @@ export class UpdateNodePoolComponentRequestRollingPolicy extends $dara.Model {
   maxFailedNodes?: number;
   /**
    * @remarks
-   * The maximum number of nodes that can be updated in parallel per batch. Default value: 1.
+   * The maximum number of parallel operations per batch. Default value: 1.
    * 
    * @example
    * 1
@@ -62,7 +112,7 @@ export class UpdateNodePoolComponentRequestRollingPolicy extends $dara.Model {
   maxParallelism?: number;
   /**
    * @remarks
-   * The automatic pause policy during the node upgrade process.
+   * The automatic pause policy during node upgrade.
    * 
    * @example
    * NotPause
@@ -103,7 +153,7 @@ export class UpdateNodePoolComponentRequest extends $dara.Model {
   config?: UpdateNodePoolComponentRequestConfig;
   /**
    * @remarks
-   * Specifies whether to disable rolling. Default value: false. If set to false, updating the baseline configuration triggers a rolling update of nodes.
+   * Specifies whether to disable log rotation. Default value: false. Updating the baseline configuration triggers log rotation on nodes.
    */
   disableRolling?: boolean;
   /**
@@ -116,12 +166,12 @@ export class UpdateNodePoolComponentRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The list of nodes to be included in the rolling update. By default, all nodes are included.
+   * The list of nodes for log rotation. By default, all nodes are included.
    */
   nodeNames?: string[];
   /**
    * @remarks
-   * The rolling update policy.
+   * The log rotation configuration.
    */
   rollingPolicy?: UpdateNodePoolComponentRequestRollingPolicy;
   /**

@@ -2,27 +2,67 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class ListNodePoolComponentInstancesResponseBodyComponentInstancesConfigEnvs extends $dara.Model {
+  /**
+   * @example
+   * LOG_LEVEL
+   */
+  name?: string;
+  /**
+   * @example
+   * info
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'name',
+      value: 'value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListNodePoolComponentInstancesResponseBodyComponentInstancesConfig extends $dara.Model {
   /**
    * @example
    * {"cpuManagerPolicy":"static"}
    */
   customConfig?: { [key: string]: any };
+  envs?: ListNodePoolComponentInstancesResponseBodyComponentInstancesConfigEnvs[];
   static names(): { [key: string]: string } {
     return {
       customConfig: 'custom_config',
+      envs: 'envs',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       customConfig: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      envs: { 'type': 'array', 'itemType': ListNodePoolComponentInstancesResponseBodyComponentInstancesConfigEnvs },
     };
   }
 
   validate() {
     if(this.customConfig) {
       $dara.Model.validateMap(this.customConfig);
+    }
+    if(Array.isArray(this.envs)) {
+      $dara.Model.validateArray(this.envs);
     }
     super.validate();
   }
