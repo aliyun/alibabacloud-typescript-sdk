@@ -3,16 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class FindGuestTicketRecordResponseBodyDataChannelLevelInfoLevelOneOwner extends $dara.Model {
-  /**
-   * @example
-   * IjEqZpp8Wn29+sqOr3hxXuOqn6CyKYNSQ5dmMA0txiM=
-   */
   ownerEmpIdOrTelephone?: string;
   ownerName?: string;
-  /**
-   * @example
-   * dUffKUpLXP5LFGeJa+Rs8Q==
-   */
   ownerNickName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -40,16 +32,8 @@ export class FindGuestTicketRecordResponseBodyDataChannelLevelInfoLevelOneOwner 
 }
 
 export class FindGuestTicketRecordResponseBodyDataChannelLevelInfoLevelThreeOwner extends $dara.Model {
-  /**
-   * @example
-   * IjEqZpp8Wn29+sqOr3hxXuOqn6CyKYNSQ5dmMA0txiM=
-   */
   ownerEmpIdOrTelephone?: string;
   ownerName?: string;
-  /**
-   * @example
-   * dUffKUpLXP5LFGeJa+Rs8Q==
-   */
   ownerNickName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -77,16 +61,8 @@ export class FindGuestTicketRecordResponseBodyDataChannelLevelInfoLevelThreeOwne
 }
 
 export class FindGuestTicketRecordResponseBodyDataChannelLevelInfoLevelTwoOwner extends $dara.Model {
-  /**
-   * @example
-   * IjEqZpp8Wn29+sqOr3hxXuOqn6CyKYNSQ5dmMA0txiM=
-   */
   ownerEmpIdOrTelephone?: string;
   ownerName?: string;
-  /**
-   * @example
-   * dUffKUpLXP5LFGeJa+Rs8Q==
-   */
   ownerNickName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -114,32 +90,12 @@ export class FindGuestTicketRecordResponseBodyDataChannelLevelInfoLevelTwoOwner 
 }
 
 export class FindGuestTicketRecordResponseBodyDataChannelLevelInfo extends $dara.Model {
-  /**
-   * @example
-   * 1401
-   */
   channelId?: number;
-  /**
-   * @example
-   * VIP
-   */
   channelName?: string;
-  /**
-   * @example
-   * VIP
-   */
   levelOneChannelName?: string;
   levelOneOwner?: FindGuestTicketRecordResponseBodyDataChannelLevelInfoLevelOneOwner[];
-  /**
-   * @example
-   * VIP
-   */
   levelThreeChannelName?: string;
   levelThreeOwner?: FindGuestTicketRecordResponseBodyDataChannelLevelInfoLevelThreeOwner[];
-  /**
-   * @example
-   * VIP
-   */
   levelTwoChannelName?: string;
   levelTwoOwner?: FindGuestTicketRecordResponseBodyDataChannelLevelInfoLevelTwoOwner[];
   static names(): { [key: string]: string } {
@@ -189,45 +145,25 @@ export class FindGuestTicketRecordResponseBodyDataChannelLevelInfo extends $dara
 export class FindGuestTicketRecordResponseBodyData extends $dara.Model {
   channelLevelInfo?: FindGuestTicketRecordResponseBodyDataChannelLevelInfo;
   companyName?: string;
-  /**
-   * @example
-   * 2023-10-31,2023-11-02
-   */
   equityDates?: string;
-  /**
-   * @example
-   * -1
-   */
+  faceFeature?: string;
+  faceFeatureWriteTime?: string;
   healthCommitmentStatus?: number;
-  /**
-   * @example
-   * IjEqZpp8Wn29+sqOr3hxXuOqn6CyKYNSQ5dmMA0txiM=
-   */
   idNumber?: string;
   idType?: string;
   name?: string;
-  /**
-   * @example
-   * 1
-   */
   status?: number;
-  /**
-   * @example
-   * 3702-10240842
-   */
   ticketCode?: string;
   ticketName?: string;
   ticketReceiveDates?: string;
-  /**
-   * @example
-   * 1
-   */
   ticketType?: string;
   static names(): { [key: string]: string } {
     return {
       channelLevelInfo: 'ChannelLevelInfo',
       companyName: 'CompanyName',
       equityDates: 'EquityDates',
+      faceFeature: 'FaceFeature',
+      faceFeatureWriteTime: 'FaceFeatureWriteTime',
       healthCommitmentStatus: 'HealthCommitmentStatus',
       idNumber: 'IdNumber',
       idType: 'IdType',
@@ -245,6 +181,8 @@ export class FindGuestTicketRecordResponseBodyData extends $dara.Model {
       channelLevelInfo: FindGuestTicketRecordResponseBodyDataChannelLevelInfo,
       companyName: 'string',
       equityDates: 'string',
+      faceFeature: 'string',
+      faceFeatureWriteTime: 'string',
       healthCommitmentStatus: 'number',
       idNumber: 'string',
       idType: 'string',
@@ -271,25 +209,9 @@ export class FindGuestTicketRecordResponseBodyData extends $dara.Model {
 
 export class FindGuestTicketRecordResponseBody extends $dara.Model {
   data?: FindGuestTicketRecordResponseBodyData[];
-  /**
-   * @example
-   * Success
-   */
   errCode?: string;
-  /**
-   * @example
-   * error
-   */
   errMessage?: string;
-  /**
-   * @example
-   * 8D190CE8-7D76-5781-8055-0990BBD2249F
-   */
   requestId?: string;
-  /**
-   * @example
-   * true
-   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

@@ -3,20 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class FindGuestCredentialsRecordResponseBodyDataChannelLevelInfoLevelOneOwner extends $dara.Model {
-  /**
-   * @example
-   * hBCycGELqJd6LEqSWKiLCQ==
-   */
   ownerEmpIdOrTelephone?: string;
-  /**
-   * @example
-   * buc_396545
-   */
   ownerName?: string;
-  /**
-   * @example
-   * hBCycGELqJd6LEqSWKiLCQ==
-   */
   ownerNickName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -44,20 +32,8 @@ export class FindGuestCredentialsRecordResponseBodyDataChannelLevelInfoLevelOneO
 }
 
 export class FindGuestCredentialsRecordResponseBodyDataChannelLevelInfoLevelThreeOwner extends $dara.Model {
-  /**
-   * @example
-   * hBCycGELqJd6LEqSWKiLCQ==
-   */
   ownerEmpIdOrTelephone?: string;
-  /**
-   * @example
-   * buc_160953
-   */
   ownerName?: string;
-  /**
-   * @example
-   * hBCycGELqJd6LEqSWKiLCQ==
-   */
   ownerNickName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -85,20 +61,8 @@ export class FindGuestCredentialsRecordResponseBodyDataChannelLevelInfoLevelThre
 }
 
 export class FindGuestCredentialsRecordResponseBodyDataChannelLevelInfoLevelTwoOwner extends $dara.Model {
-  /**
-   * @example
-   * hBCycGELqJd6LEqSWKiLCQ==
-   */
   ownerEmpIdOrTelephone?: string;
-  /**
-   * @example
-   * buc_87239
-   */
   ownerName?: string;
-  /**
-   * @example
-   * hBCycGELqJd6LEqSWKiLCQ==
-   */
   ownerNickName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -126,10 +90,6 @@ export class FindGuestCredentialsRecordResponseBodyDataChannelLevelInfoLevelTwoO
 }
 
 export class FindGuestCredentialsRecordResponseBodyDataChannelLevelInfo extends $dara.Model {
-  /**
-   * @example
-   * 1401
-   */
   channelId?: number;
   channelName?: string;
   levelOneChannelName?: string;
@@ -183,35 +143,15 @@ export class FindGuestCredentialsRecordResponseBodyDataChannelLevelInfo extends 
 }
 
 export class FindGuestCredentialsRecordResponseBodyData extends $dara.Model {
-  /**
-   * @example
-   * {}
-   */
   admin?: { [key: string]: any };
-  /**
-   * @example
-   * 1401
-   */
   channelId?: number;
   channelLevelInfo?: FindGuestCredentialsRecordResponseBodyDataChannelLevelInfo;
   companyName?: string;
-  /**
-   * @example
-   * 3602-10010215
-   */
   credentialsCode?: string;
   credentialsName?: string;
-  /**
-   * @example
-   * IjEqZpp8Wn29+sqOr3hxXuOqn6CyKYNSQ5dmMA0txiM=
-   */
   idNumber?: string;
   idType?: string;
   name?: string;
-  /**
-   * @example
-   * 1
-   */
   status?: number;
   static names(): { [key: string]: string } {
     return {
@@ -260,25 +200,9 @@ export class FindGuestCredentialsRecordResponseBodyData extends $dara.Model {
 
 export class FindGuestCredentialsRecordResponseBody extends $dara.Model {
   data?: FindGuestCredentialsRecordResponseBodyData[];
-  /**
-   * @example
-   * 0
-   */
   errCode?: string;
-  /**
-   * @example
-   * error
-   */
   errMessage?: string;
-  /**
-   * @example
-   * 25294484-D133-5BDC-8952-243AD90CDF66
-   */
   requestId?: string;
-  /**
-   * @example
-   * True
-   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

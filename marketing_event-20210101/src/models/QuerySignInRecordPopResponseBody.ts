@@ -9,17 +9,11 @@ export class QuerySignInRecordPopResponseBodyData extends $dara.Model {
    */
   event?: string;
   /**
-   * @remarks
-   * nfcid
-   * 
    * @example
    * cshdsaodhoashd
    */
   rfid?: string;
   /**
-   * @remarks
-   * sessionId
-   * 
    * @example
    * 2001
    */

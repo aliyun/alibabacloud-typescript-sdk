@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class QueryQwenConferenceSgTicketPopRequest extends $dara.Model {
-  /**
-   * @example
-   * bPbXgB8nSzI9UIbdqAWaOhtr7T3p1Ryr
-   */
   ticketToken?: string;
   static names(): { [key: string]: string } {
     return {

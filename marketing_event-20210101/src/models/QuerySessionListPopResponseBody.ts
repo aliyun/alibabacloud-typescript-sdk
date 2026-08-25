@@ -4,9 +4,6 @@ import * as $dara from '@darabonba/typescript';
 
 export class QuerySessionListPopResponseBodyData extends $dara.Model {
   /**
-   * @remarks
-   * code
-   * 
    * @example
    * code
    */
@@ -17,25 +14,16 @@ export class QuerySessionListPopResponseBodyData extends $dara.Model {
    */
   endTime?: string;
   /**
-   * @remarks
-   * id
-   * 
    * @example
    * 1
    */
   id?: number;
   /**
-   * @remarks
-   * location
-   * 
    * @example
    * location
    */
   location?: string;
   /**
-   * @remarks
-   * name
-   * 
    * @example
    * name
    */

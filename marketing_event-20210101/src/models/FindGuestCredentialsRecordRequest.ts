@@ -3,15 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class FindGuestCredentialsRecordRequest extends $dara.Model {
-  /**
-   * @example
-   * 34429
-   */
   activityId?: string;
-  /**
-   * @example
-   * 2023-08-07 12:00:00
-   */
   dateTimeString?: string;
   endDateTime?: string;
   startDateTime?: string;

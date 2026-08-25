@@ -6,17 +6,10 @@ export class QuerySingleActivityInfoRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 123
    */
   activityId?: string;
   companyName?: string;
   customerName?: string;
-  /**
-   * @example
-   * 12233445
-   */
   mobile?: string;
   QRCode?: string;
   static names(): { [key: string]: string } {

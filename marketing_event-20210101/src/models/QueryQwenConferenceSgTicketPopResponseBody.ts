@@ -4,30 +4,10 @@ import * as $dara from '@darabonba/typescript';
 
 export class QueryQwenConferenceSgTicketPopResponseBodyData extends $dara.Model {
   companyName?: string;
-  /**
-   * @example
-   * placeholder
-   */
   extFields?: string;
-  /**
-   * @example
-   * ***
-   */
   firstName?: string;
-  /**
-   * @example
-   * ***
-   */
   lastName?: string;
-  /**
-   * @example
-   * 23808009
-   */
   submitId?: number;
-  /**
-   * @example
-   * bPbXgB8nSzI9UIbdqAWaOhtr7T3p1Ryr
-   */
   ticketToken?: string;
   static names(): { [key: string]: string } {
     return {
@@ -61,29 +41,10 @@ export class QueryQwenConferenceSgTicketPopResponseBodyData extends $dara.Model 
 }
 
 export class QueryQwenConferenceSgTicketPopResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * Id of the request
-   * 
-   * @example
-   * 200
-   */
   code?: string;
   data?: QueryQwenConferenceSgTicketPopResponseBodyData;
-  /**
-   * @example
-   * SUCCESS
-   */
   message?: string;
-  /**
-   * @example
-   * 1skladklasmda
-   */
   requestId?: string;
-  /**
-   * @example
-   * true
-   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

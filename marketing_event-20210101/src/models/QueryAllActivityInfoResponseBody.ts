@@ -3,43 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class QueryAllActivityInfoResponseBodyData extends $dara.Model {
-  /**
-   * @example
-   * 1234
-   */
   activityId?: number;
-  /**
-   * @example
-   * vip
-   */
   channelName?: string;
   companyName?: string;
-  /**
-   * @example
-   * test
-   */
   customerName?: string;
-  /**
-   * @example
-   * xx@aliyun.com
-   */
   email?: string;
   id?: number;
-  /**
-   * @example
-   * true
-   */
   isVipCustomer?: string;
-  /**
-   * @example
-   * 12123455
-   */
   mobile?: string;
   QRCode?: string;
-  /**
-   * @example
-   * {}
-   */
   reportFields?: string;
   static names(): { [key: string]: string } {
     return {
@@ -82,23 +54,11 @@ export class QueryAllActivityInfoResponseBodyData extends $dara.Model {
 
 export class QueryAllActivityInfoResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
-  /**
-   * @example
-   * 200
-   */
   code?: string;
   data?: QueryAllActivityInfoResponseBodyData[];
   httpStatusCode?: number;
-  /**
-   * @example
-   * null
-   */
   message?: string;
   requestId?: string;
-  /**
-   * @example
-   * true
-   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
