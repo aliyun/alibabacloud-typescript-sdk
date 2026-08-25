@@ -5,16 +5,16 @@ import * as $dara from '@darabonba/typescript';
 export class GetSecretValueRequest extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether to enable DryRun mode.
+   * Specifies whether to enable DryRun mode. Valid values:
    * 
-   * - true: Enabled  
-   * - false (Default Value): Disabled  
+   * - true: enables DryRun mode.
+   * - false (default): disables DryRun mode.
    * 
-   * DryRun mode is used for Testing API Calls to authenticate whether you have the required permissions on the specified resource and whether the Request Parameters are correctly configured. When DryRun mode is enabled, KMS always returns a failed response along with the failure reason. Possible failure reasons include:
+   * DryRun mode is used to test API calls and verify whether you have the required permissions on the corresponding resources and whether the request parameters are correctly configured. When DryRun mode is enabled, KMS always returns a failure and provides the failure reason. Failure reasons include:
    * 
-   * - DryRunOperationError: The request would succeed if the DryRun parameter were not specified.  
-   * - ValidationError: One or more parameters in the request are invalid.  
-   * - AccessDeniedError: You do not have permission to execute this operation on the KMS resource.
+   * - DryRunOperationError: The request would succeed without the DryRun parameter.
+   * - ValidationError: The parameters specified in the request are invalid.
+   * - AccessDeniedError: You are not authorized to perform this operation on the KMS resource.
    * 
    * @example
    * false
@@ -22,21 +22,26 @@ export class GetSecretValueRequest extends $dara.Model {
   dryRun?: string;
   /**
    * @remarks
-   * Indicates whether to retrieve the extended configuration of the credential. Valid values:
+   * Specifies whether to retrieve the extended configuration of the secret. Valid values:
    * 
-   * - true: Retrieve  
-   * - false (Default Value): Do not retrieve  
+   * - true: retrieves the extended configuration.
+   * - false (default): does not retrieve the extended configuration.
    * 
-   * > Generic secrets do not support extended configuration. If you specify this parameter, it will be ignored.
+   * > Generic secrets do not support extended configurations. This parameter is ignored if specified.
    * 
    * @example
    * true
    */
   fetchExtendedConfig?: boolean;
   /**
+   * @example
+   * { "AttestationDocument":"base64-encoded-attestion-document",  "KeyEncryptionAlgorithm":"RSAES_OAEP_SHA_256" }
+   */
+  recipient?: string;
+  /**
    * @remarks
-   * The name or ARN of the credential.  
-   * > When accessing a credential under another Alibaba Cloud account, you must specify the credential ARN. The ARN format is `acs:kms:${region}:${account}:secret/${secret-name}`.
+   * The secret name or secret Alibaba Cloud Resource Name (ARN).
+   * >To access a secret in another Alibaba Cloud account, you must specify the secret ARN. The format of the secret ARN is `acs:kms:${region}:${account}:secret/${secret-name}`.
    * 
    * This parameter is required.
    * 
@@ -46,9 +51,9 @@ export class GetSecretValueRequest extends $dara.Model {
   secretName?: string;
   /**
    * @remarks
-   * Version number.
+   * The version number.
    * 
-   * > The VersionId parameter is not supported for RDS credentials, PolarDB credentials, Redis/Tair credentials, RAM credentials, and ECS credentials. If you specify this parameter, it will be ignored.
+   * > ApsaraDB RDS secrets, PolarDB secrets, Redis/Tair secrets, RAM secrets, and ECS secrets do not support specifying VersionId. This parameter is ignored if specified.
    * 
    * @example
    * v1
@@ -56,10 +61,10 @@ export class GetSecretValueRequest extends $dara.Model {
   versionId?: string;
   /**
    * @remarks
-   * The version stage. Default value: ACSCurrent.  
+   * The version stage. Default value: ACSCurrent.
    * 
-   * If you specify this parameter, the credential value of the specified version stage is returned. If you do not specify this parameter, the credential value of the ACSCurrent version stage is returned.  
-   * > For RDS credentials, PolarDB credentials, Redis/Tair credentials, RAM credentials, and ECS credentials, you can retrieve only the credential values corresponding to the ACSPrevious or ACSCurrent version stages.
+   * If you specify this parameter, the secret value of the specified version stage is returned. If you do not specify this parameter, the secret value of the ACSCurrent version stage is returned.
+   * > For ApsaraDB RDS secrets, PolarDB secrets, Redis/Tair secrets, RAM secrets, and ECS secrets, you can retrieve only the secret values of the ACSPrevious and ACSCurrent versions.
    * 
    * @example
    * ACSCurrent
@@ -69,6 +74,7 @@ export class GetSecretValueRequest extends $dara.Model {
     return {
       dryRun: 'DryRun',
       fetchExtendedConfig: 'FetchExtendedConfig',
+      recipient: 'Recipient',
       secretName: 'SecretName',
       versionId: 'VersionId',
       versionStage: 'VersionStage',
@@ -79,6 +85,7 @@ export class GetSecretValueRequest extends $dara.Model {
     return {
       dryRun: 'string',
       fetchExtendedConfig: 'boolean',
+      recipient: 'string',
       secretName: 'string',
       versionId: 'string',
       versionStage: 'string',

@@ -17,40 +17,40 @@ export default class Client extends OpenApi {
     this._spi = gatewayClient;
     this._endpointRule = "regional";
     this._endpointMap = {
-      'us-west-1': "kms.us-west-1.aliyuncs.com",
-      'us-east-1': "kms.us-east-1.aliyuncs.com",
-      'na-south-1': "kms.na-south-1.aliyuncs.com",
-      'me-east-1': "kms.me-east-1.aliyuncs.com",
-      'me-central-1': "kms.me-central-1.aliyuncs.com",
-      'eu-west-1': "kms.eu-west-1.aliyuncs.com",
-      'eu-central-1': "kms.eu-central-1.aliyuncs.com",
-      'cn-zhengzhou-jva': "kms.cn-zhengzhou-jva.aliyuncs.com",
-      'cn-zhangjiakou': "kms.cn-zhangjiakou.aliyuncs.com",
-      'cn-wulanchabu': "kms.cn-wulanchabu.aliyuncs.com",
-      'cn-wuhan-lr': "kms.cn-wuhan-lr.aliyuncs.com",
-      'cn-shenzhen-finance-1': "kms.cn-shenzhen-finance-1.aliyuncs.com",
-      'cn-shenzhen': "kms.cn-shenzhen.aliyuncs.com",
-      'cn-shanghai-finance-1': "kms.cn-shanghai-finance-1.aliyuncs.com",
-      'cn-shanghai': "kms.cn-shanghai.aliyuncs.com",
-      'cn-qingdao': "kms.cn-qingdao.aliyuncs.com",
-      'cn-huhehaote': "kms.cn-huhehaote.aliyuncs.com",
-      'cn-hongkong': "kms.cn-hongkong.aliyuncs.com",
-      'cn-heyuan-acdr-1': "kms.cn-heyuan-acdr-1.aliyuncs.com",
-      'cn-heyuan': "kms.cn-heyuan.aliyuncs.com",
-      'cn-hangzhou-finance': "kms.cn-hangzhou-finance.aliyuncs.com",
-      'cn-hangzhou': "kms.cn-hangzhou.aliyuncs.com",
-      'cn-guangzhou': "kms.cn-guangzhou.aliyuncs.com",
-      'cn-fuzhou': "kms.cn-fuzhou.aliyuncs.com",
-      'cn-chengdu': "kms.cn-chengdu.aliyuncs.com",
-      'cn-beijing-finance-1': "kms.cn-beijing-finance-1.aliyuncs.com",
-      'cn-beijing': "kms.cn-beijing.aliyuncs.com",
+      'ap-northeast-1': "kms.ap-northeast-1.aliyuncs.com",
+      'ap-northeast-2': "kms.ap-northeast-2.aliyuncs.com",
       'ap-southeast-7': "kms.ap-southeast-7.aliyuncs.com",
       'ap-southeast-6': "kms.ap-southeast-6.aliyuncs.com",
       'ap-southeast-5': "kms.ap-southeast-5.aliyuncs.com",
       'ap-southeast-3': "kms.ap-southeast-3.aliyuncs.com",
       'ap-southeast-1': "kms.ap-southeast-1.aliyuncs.com",
-      'ap-northeast-2': "kms.ap-northeast-2.aliyuncs.com",
-      'ap-northeast-1': "kms.ap-northeast-1.aliyuncs.com",
+      'cn-hongkong': "kms.cn-hongkong.aliyuncs.com",
+      'cn-chengdu': "kms.cn-chengdu.aliyuncs.com",
+      'cn-wulanchabu': "kms.cn-wulanchabu.aliyuncs.com",
+      'cn-huhehaote': "kms.cn-huhehaote.aliyuncs.com",
+      'cn-zhangjiakou': "kms.cn-zhangjiakou.aliyuncs.com",
+      'cn-beijing': "kms.cn-beijing.aliyuncs.com",
+      'cn-qingdao': "kms.cn-qingdao.aliyuncs.com",
+      'cn-guangzhou': "kms.cn-guangzhou.aliyuncs.com",
+      'cn-heyuan': "kms.cn-heyuan.aliyuncs.com",
+      'cn-shenzhen': "kms.cn-shenzhen.aliyuncs.com",
+      'cn-shanghai': "kms.cn-shanghai.aliyuncs.com",
+      'cn-hangzhou': "kms.cn-hangzhou.aliyuncs.com",
+      'cn-fuzhou': "kms.cn-fuzhou.aliyuncs.com",
+      'cn-wuhan-lr': "kms.cn-wuhan-lr.aliyuncs.com",
+      'cn-zhengzhou-jva': "kms.cn-zhengzhou-jva.aliyuncs.com",
+      'na-south-1': "kms.na-south-1.aliyuncs.com",
+      'eu-central-1': "kms.eu-central-1.aliyuncs.com",
+      'eu-west-1': "kms.eu-west-1.aliyuncs.com",
+      'us-west-1': "kms.us-west-1.aliyuncs.com",
+      'us-east-1': "kms.us-east-1.aliyuncs.com",
+      'me-central-1': "kms.me-central-1.aliyuncs.com",
+      'me-east-1': "kms.me-east-1.aliyuncs.com",
+      'cn-heyuan-acdr-1': "kms.cn-heyuan-acdr-1.aliyuncs.com",
+      'cn-hangzhou-finance': "kms.cn-hangzhou-finance.aliyuncs.com",
+      'cn-shanghai-finance-1': "kms.cn-shanghai-finance-1.aliyuncs.com",
+      'cn-shenzhen-finance-1': "kms.cn-shenzhen-finance-1.aliyuncs.com",
+      'cn-beijing-finance-1': "kms.cn-beijing-finance-1.aliyuncs.com",
     };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("kms", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -119,8 +119,14 @@ export default class Client extends OpenApi {
       query["KeyVersionId"] = request.keyVersionId;
     }
 
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.recipient)) {
+      body["Recipient"] = request.recipient;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
       action: "AsymmetricDecrypt",
@@ -1291,12 +1297,14 @@ export default class Client extends OpenApi {
       query["EncryptionContext"] = request.encryptionContextShrink;
     }
 
+    let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.recipient)) {
-      query["Recipient"] = request.recipient;
+      body["Recipient"] = request.recipient;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
       action: "Decrypt",
@@ -2481,12 +2489,14 @@ export default class Client extends OpenApi {
       query["NumberOfBytes"] = request.numberOfBytes;
     }
 
+    let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.recipient)) {
-      query["Recipient"] = request.recipient;
+      body["Recipient"] = request.recipient;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
       action: "GenerateDataKey",
@@ -2693,6 +2703,41 @@ export default class Client extends OpenApi {
   async generateMac(request: $_model.GenerateMacRequest): Promise<$_model.GenerateMacResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.generateMacWithOptions(request, runtime);
+  }
+
+  /**
+   * 从kms获取挑战
+   * 
+   * @param request - GetChallengeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetChallengeResponse
+   */
+  async getChallengeWithOptions(request: $_model.GetChallengeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetChallengeResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({ });
+    let params = new $OpenApiUtil.Params({
+      action: "GetChallenge",
+      version: "2016-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetChallengeResponse>(await this.callApi(params, req, runtime), new $_model.GetChallengeResponse({}));
+  }
+
+  /**
+   * 从kms获取挑战
+   * 
+   * @param request - GetChallengeRequest
+   * @returns GetChallengeResponse
+   */
+  async getChallenge(request: $_model.GetChallengeRequest): Promise<$_model.GetChallengeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getChallengeWithOptions(request, runtime);
   }
 
   /**
@@ -3255,13 +3300,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieve the credential value.
+   * Retrieves a secret value.
    * 
    * @remarks
-   * - For details about the access policy that must be granted to a Resource Access Management (RAM) user or RAM role to invoke this OpenAPI operation, see [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html).
-   * - If you do not specify a version number or version status, Key Management Service (KMS) returns the credential value of the version marked as ACSCurrent by default.
-   * - If a customer-managed key is used to protect the credential value, the caller must also have the `kms:Decrypt` permission on the corresponding master key.
-   * This topic provides a sample request to retrieve the credential value of a credential named `secret001`. The returned result shows that the credential value `SecretData` is `testdata1`.
+   * - For details about the access policy required for a Resource Access Management (RAM) user or RAM role to invoke this operation, see [Access control](https://help.aliyun.com/document_detail/2767210.html).
+   * - If you do not specify a version number or version stage, KMS returns the secret value of the version marked as ACSCurrent by default.
+   * - If the secret uses a user-specified key to protect the secret value, the caller must also have the `kms:Decrypt` permission on the corresponding master key.
+   * This topic provides an example of how to retrieve the secret value of a secret named `secret001`. The response shows that the secret value `SecretData` is `testdata1`.
    * 
    * @param request - GetSecretValueRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3290,8 +3335,14 @@ export default class Client extends OpenApi {
       query["VersionStage"] = request.versionStage;
     }
 
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.recipient)) {
+      body["Recipient"] = request.recipient;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
       action: "GetSecretValue",
@@ -3308,13 +3359,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieve the credential value.
+   * Retrieves a secret value.
    * 
    * @remarks
-   * - For details about the access policy that must be granted to a Resource Access Management (RAM) user or RAM role to invoke this OpenAPI operation, see [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html).
-   * - If you do not specify a version number or version status, Key Management Service (KMS) returns the credential value of the version marked as ACSCurrent by default.
-   * - If a customer-managed key is used to protect the credential value, the caller must also have the `kms:Decrypt` permission on the corresponding master key.
-   * This topic provides a sample request to retrieve the credential value of a credential named `secret001`. The returned result shows that the credential value `SecretData` is `testdata1`.
+   * - For details about the access policy required for a Resource Access Management (RAM) user or RAM role to invoke this operation, see [Access control](https://help.aliyun.com/document_detail/2767210.html).
+   * - If you do not specify a version number or version stage, KMS returns the secret value of the version marked as ACSCurrent by default.
+   * - If the secret uses a user-specified key to protect the secret value, the caller must also have the `kms:Decrypt` permission on the corresponding master key.
+   * This topic provides an example of how to retrieve the secret value of a secret named `secret001`. The response shows that the secret value `SecretData` is `testdata1`.
    * 
    * @param request - GetSecretValueRequest
    * @returns GetSecretValueResponse

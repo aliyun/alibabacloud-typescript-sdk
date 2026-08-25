@@ -49,6 +49,10 @@ export class DecryptRequest extends $dara.Model {
    * {"Example":"Example"}
    */
   encryptionContext?: { [key: string]: any };
+  /**
+   * @example
+   * { "AttestationDocument":"base64-encoded-attestion-document",  "KeyEncryptionAlgorithm":"RSAES_OAEP_SHA_256" }
+   */
   recipient?: string;
   static names(): { [key: string]: string } {
     return {

@@ -75,6 +75,10 @@ export class GenerateDataKeyShrinkRequest extends $dara.Model {
    * 256
    */
   numberOfBytes?: number;
+  /**
+   * @example
+   * { "AttestationDocument":"base64-encoded-attestion-document",  "KeyEncryptionAlgorithm":"RSAES_OAEP_SHA_256" }
+   */
   recipient?: string;
   static names(): { [key: string]: string } {
     return {

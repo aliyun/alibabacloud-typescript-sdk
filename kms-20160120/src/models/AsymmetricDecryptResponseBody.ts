@@ -4,6 +4,11 @@ import * as $dara from '@darabonba/typescript';
 
 export class AsymmetricDecryptResponseBody extends $dara.Model {
   /**
+   * @example
+   * ***Ciphertext***
+   */
+  ciphertextForRecipient?: string;
+  /**
    * @remarks
    * The ID of the key. If the KeyId parameter in the request is a key alias or key ARN, the key ID is also returned in the response.
    * 
@@ -37,6 +42,7 @@ export class AsymmetricDecryptResponseBody extends $dara.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      ciphertextForRecipient: 'CiphertextForRecipient',
       keyId: 'KeyId',
       keyVersionId: 'KeyVersionId',
       plaintext: 'Plaintext',
@@ -46,6 +52,7 @@ export class AsymmetricDecryptResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      ciphertextForRecipient: 'string',
       keyId: 'string',
       keyVersionId: 'string',
       plaintext: 'string',

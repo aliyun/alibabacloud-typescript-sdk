@@ -67,6 +67,11 @@ export class AsymmetricDecryptRequest extends $dara.Model {
    * 2ab1a983-7072-4bbc-a582-584b5bd8****
    */
   keyVersionId?: string;
+  /**
+   * @example
+   * { "AttestationDocument":"base64-encoded-attestion-document",  "KeyEncryptionAlgorithm":"RSAES_OAEP_SHA_256" }
+   */
+  recipient?: string;
   static names(): { [key: string]: string } {
     return {
       algorithm: 'Algorithm',
@@ -74,6 +79,7 @@ export class AsymmetricDecryptRequest extends $dara.Model {
       dryRun: 'DryRun',
       keyId: 'KeyId',
       keyVersionId: 'KeyVersionId',
+      recipient: 'Recipient',
     };
   }
 
@@ -84,6 +90,7 @@ export class AsymmetricDecryptRequest extends $dara.Model {
       dryRun: 'string',
       keyId: 'string',
       keyVersionId: 'string',
+      recipient: 'string',
     };
   }
 

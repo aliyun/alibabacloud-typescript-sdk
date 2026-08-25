@@ -173,6 +173,9 @@ export { GenerateDataKeyWithoutPlaintextResponse } from './GenerateDataKeyWithou
 export { GenerateMacRequest } from './GenerateMacRequest';
 export { GenerateMacResponseBody } from './GenerateMacResponseBody';
 export { GenerateMacResponse } from './GenerateMacResponse';
+export { GetChallengeRequest } from './GetChallengeRequest';
+export { GetChallengeResponseBody } from './GetChallengeResponseBody';
+export { GetChallengeResponse } from './GetChallengeResponse';
 export { GetClientKeyRequest } from './GetClientKeyRequest';
 export { GetClientKeyResponseBody } from './GetClientKeyResponseBody';
 export { GetClientKeyResponse } from './GetClientKeyResponse';

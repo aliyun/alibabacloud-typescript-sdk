@@ -49,6 +49,10 @@ export class DecryptShrinkRequest extends $dara.Model {
    * {"Example":"Example"}
    */
   encryptionContextShrink?: string;
+  /**
+   * @example
+   * { "AttestationDocument":"base64-encoded-attestion-document",  "KeyEncryptionAlgorithm":"RSAES_OAEP_SHA_256" }
+   */
   recipient?: string;
   static names(): { [key: string]: string } {
     return {
