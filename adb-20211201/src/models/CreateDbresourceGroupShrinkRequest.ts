@@ -3,10 +3,14 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateDBResourceGroupShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The PromQL resource group configuration.
+   */
   atmConfigShrink?: string;
   /**
    * @remarks
-   * The automatic stop interval. Unit: minutes (m).
+   * The automatic stop interval, in minutes (m).
    * 
    * @example
    * 5m
@@ -42,7 +46,7 @@ export class CreateDBResourceGroupShrinkRequest extends $dara.Model {
   clusterSizeResource?: string;
   /**
    * @remarks
-   * The ID of the Dedicated Edition, Basic Edition, or Data Lakehouse Edition cluster.
+   * The ID of the Enterprise Edition, Basic Edition, or Data Lakehouse Edition cluster.
    * 
    * This parameter is required.
    * 
@@ -102,7 +106,7 @@ export class CreateDBResourceGroupShrinkRequest extends $dara.Model {
    * The type of the resource group. Valid values:
    * - **Interactive**
    * - **Job**
-   * > For more information about Data Lakehouse Edition resource groups, see [Resource group overview (Data Lakehouse Edition)](https://help.aliyun.com/document_detail/428610.html).
+   * > For more information about resource groups of the Data Lakehouse Edition, see [Resource group overview (Data Lakehouse Edition)](https://help.aliyun.com/document_detail/428610.html).
    * 
    * This parameter is required.
    * 
@@ -120,9 +124,9 @@ export class CreateDBResourceGroupShrinkRequest extends $dara.Model {
   maxClusterCount?: number;
   /**
    * @remarks
-   * The maximum amount of reserved computing resources. Unit: ACUs.
-   * - If the resource group type is Interactive, the maximum reserved computing resources is the current unallocated resources of the cluster, in increments of 16 ACUs.
-   * - If the resource group type is Job, the maximum reserved computing resources is the current unallocated resources of the cluster, in increments of 8 ACUs.
+   * The maximum reserved computing resources, in ACUs.
+   * - If the resource group type is Interactive, the maximum reserved computing resources is the current unallocated resources of the cluster, with a step size of 16 ACUs.
+   * - If the resource group type is Job, the maximum reserved computing resources is the current unallocated resources of the cluster, with a step size of 8 ACUs.
    * 
    * @example
    * 48ACU
@@ -146,7 +150,7 @@ export class CreateDBResourceGroupShrinkRequest extends $dara.Model {
   minClusterCount?: number;
   /**
    * @remarks
-   * The minimum amount of reserved computing resources. Unit: ACUs.
+   * The minimum reserved computing resources, in ACUs.
    * - If the resource group type is Interactive, the minimum reserved computing resources is 16 ACUs.
    * - If the resource group type is Job, the minimum reserved computing resources is 0 ACUs.
    * 
@@ -164,7 +168,7 @@ export class CreateDBResourceGroupShrinkRequest extends $dara.Model {
   minGpuQuantity?: number;
   /**
    * @remarks
-   * The Ray configuration.
+   * The Ray configuration information.
    * > This parameter is required when the resource group is an AI resource group and the corresponding engine is RayCluster.
    */
   rayConfigShrink?: string;
@@ -204,7 +208,7 @@ export class CreateDBResourceGroupShrinkRequest extends $dara.Model {
   specName?: string;
   /**
    * @remarks
-   * The name of the destination resource group.
+   * The name of the target resource group.
    * 
    * @example
    * test

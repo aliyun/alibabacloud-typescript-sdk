@@ -5,8 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDBResourceGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * <props="china">The cluster ID of the Enterprise Edition, Basic Edition, or Data Lakehouse Edition cluster.
-   * <props="intl">The cluster ID of the Data Lakehouse Edition cluster.
+   * <props="china">The ID of the cluster. The cluster is of Enterprise Edition, Basic Edition, or Data Lakehouse Edition.
+   * <props="intl">The ID of the Data Lakehouse Edition cluster.
    * 
    * This parameter is required.
    * 
@@ -16,8 +16,8 @@ export class DescribeDBResourceGroupRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The resource group name.
-   * > If this parameter is not specified, information about all resource groups in the specified cluster is returned by default.
+   * The name of the resource group.
+   * > If you do not specify this parameter, information about all resource groups in the specified cluster is returned.
    * 
    * @example
    * test_group
@@ -25,10 +25,10 @@ export class DescribeDBResourceGroupRequest extends $dara.Model {
   groupName?: string;
   /**
    * @remarks
-   * The resource group type. Valid values:
+   * The type of the resource group. Valid values:
    * - **Interactive**
    * - **Job**
-   * > For more information about resource groups in Data Lakehouse Edition, see [Resource group overview](https://help.aliyun.com/document_detail/428610.html).
+   * > For more information about resource groups in Data Lakehouse Edition, see [Resource group introduction](https://help.aliyun.com/document_detail/428610.html).
    * 
    * @example
    * Job

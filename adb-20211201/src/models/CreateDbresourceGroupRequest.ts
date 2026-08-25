@@ -4,56 +4,89 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateDBResourceGroupRequestAtmConfig extends $dara.Model {
   /**
+   * @remarks
+   * The number of authentication nodes.
+   * 
    * @example
    * 2
    */
   authNodeNum?: number;
   /**
+   * @remarks
+   * The authentication node specifications ([0-9+]ACU).
+   * 
    * @example
    * 8ACU
    */
   authNodeSpec?: string;
   /**
+   * @remarks
+   * The number of insert nodes.
+   * 
    * @example
    * 2
    */
   insertNodeNum?: number;
   /**
+   * @remarks
+   * The insert node specifications ([0-9+]ACU).
+   * 
    * @example
    * 8ACU
    */
   insertNodeSpec?: string;
   /**
+   * @remarks
+   * The cache size of query nodes (GB).
+   * 
    * @example
    * 10
    */
   selectNodeCacheSize?: number;
   /**
+   * @remarks
+   * The number of query nodes.
+   * 
    * @example
    * 1
    */
   selectNodeNum?: number;
   /**
+   * @remarks
+   * The query node specifications ([0-9+]ACU).
+   * 
    * @example
    * 8ACU
    */
   selectNodeSpec?: string;
   /**
+   * @remarks
+   * The disk size of storage nodes.
+   * 
    * @example
    * 1
    */
   storageNodeDiskSize?: number;
   /**
+   * @remarks
+   * The disk type of storage nodes (essd_pl1, essd_pl2).
+   * 
    * @example
    * essd_pl1
    */
   storageNodeDiskType?: string;
   /**
+   * @remarks
+   * The number of storage nodes.
+   * 
    * @example
    * 2
    */
   storageNodeNum?: number;
   /**
+   * @remarks
+   * The storage node specifications ([0-9+]ACU).
+   * 
    * @example
    * 8ACU
    */
@@ -102,7 +135,7 @@ export class CreateDBResourceGroupRequestAtmConfig extends $dara.Model {
 export class CreateDBResourceGroupRequestGpuElasticPlanRules extends $dara.Model {
   /**
    * @remarks
-   * The end time as a cron expression. The interval must be at least 1 hour.
+   * The end time, specified as a cron expression. The interval must be at least 1 hour.
    * 
    * @example
    * 0 0 3 * * ?
@@ -110,7 +143,7 @@ export class CreateDBResourceGroupRequestGpuElasticPlanRules extends $dara.Model
   endCronExpression?: string;
   /**
    * @remarks
-   * The start time as a cron expression. The interval must be at least 1 hour.
+   * The start time, specified as a cron expression. The interval must be at least 1 hour.
    * 
    * @example
    * 0 0 2 * * ?
@@ -173,6 +206,35 @@ export class CreateDBResourceGroupRequestGpuElasticPlan extends $dara.Model {
     if(Array.isArray(this.rules)) {
       $dara.Model.validateArray(this.rules);
     }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDBResourceGroupRequestRayConfigStorageMounts extends $dara.Model {
+  mountPath?: string;
+  storageId?: number;
+  storageName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      mountPath: 'MountPath',
+      storageId: 'StorageId',
+      storageName: 'StorageName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mountPath: 'string',
+      storageId: 'number',
+      storageName: 'string',
+    };
+  }
+
+  validate() {
     super.validate();
   }
 
@@ -276,8 +338,9 @@ export class CreateDBResourceGroupRequestRayConfig extends $dara.Model {
    * @remarks
    * The Ray cluster type. Valid values:
    * 
-   * - BASIC: basic type, non-high-availability
-   * - HIGH_AVAILABILITY: high-availability type
+   * - BASIC: basic type, non-high-availability.
+   * 
+   * - HIGH_AVAILABILITY: high-availability type.
    * 
    * @example
    * BASIC
@@ -320,6 +383,7 @@ export class CreateDBResourceGroupRequestRayConfig extends $dara.Model {
    * CPU
    */
   headSpecType?: string;
+  storageMounts?: CreateDBResourceGroupRequestRayConfigStorageMounts[];
   userDefinedRequirements?: string;
   /**
    * @remarks
@@ -334,6 +398,7 @@ export class CreateDBResourceGroupRequestRayConfig extends $dara.Model {
       headDiskCapacity: 'HeadDiskCapacity',
       headSpec: 'HeadSpec',
       headSpecType: 'HeadSpecType',
+      storageMounts: 'StorageMounts',
       userDefinedRequirements: 'UserDefinedRequirements',
       workerGroups: 'WorkerGroups',
     };
@@ -347,12 +412,16 @@ export class CreateDBResourceGroupRequestRayConfig extends $dara.Model {
       headDiskCapacity: 'string',
       headSpec: 'string',
       headSpecType: 'string',
+      storageMounts: { 'type': 'array', 'itemType': CreateDBResourceGroupRequestRayConfigStorageMounts },
       userDefinedRequirements: 'string',
       workerGroups: { 'type': 'array', 'itemType': CreateDBResourceGroupRequestRayConfigWorkerGroups },
     };
   }
 
   validate() {
+    if(Array.isArray(this.storageMounts)) {
+      $dara.Model.validateArray(this.storageMounts);
+    }
     if(Array.isArray(this.workerGroups)) {
       $dara.Model.validateArray(this.workerGroups);
     }
@@ -378,7 +447,7 @@ export class CreateDBResourceGroupRequestRules extends $dara.Model {
   groupName?: string;
   /**
    * @remarks
-   * The query execution time threshold. Unit: milliseconds (ms).
+   * The query execution time threshold, in milliseconds (ms).
    * 
    * @example
    * 180000
@@ -386,7 +455,7 @@ export class CreateDBResourceGroupRequestRules extends $dara.Model {
   queryTime?: string;
   /**
    * @remarks
-   * The name of the destination resource group.
+   * The name of the target resource group.
    * 
    * @example
    * job
@@ -418,10 +487,14 @@ export class CreateDBResourceGroupRequestRules extends $dara.Model {
 }
 
 export class CreateDBResourceGroupRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The PromQL resource group configuration.
+   */
   atmConfig?: CreateDBResourceGroupRequestAtmConfig;
   /**
    * @remarks
-   * The automatic stop interval. Unit: minutes (m).
+   * The automatic stop interval, in minutes (m).
    * 
    * @example
    * 5m
@@ -457,7 +530,7 @@ export class CreateDBResourceGroupRequest extends $dara.Model {
   clusterSizeResource?: string;
   /**
    * @remarks
-   * The ID of the Dedicated Edition, Basic Edition, or Data Lakehouse Edition cluster.
+   * The ID of the Enterprise Edition, Basic Edition, or Data Lakehouse Edition cluster.
    * 
    * This parameter is required.
    * 
@@ -517,7 +590,7 @@ export class CreateDBResourceGroupRequest extends $dara.Model {
    * The type of the resource group. Valid values:
    * - **Interactive**
    * - **Job**
-   * > For more information about Data Lakehouse Edition resource groups, see [Resource group overview (Data Lakehouse Edition)](https://help.aliyun.com/document_detail/428610.html).
+   * > For more information about resource groups of the Data Lakehouse Edition, see [Resource group overview (Data Lakehouse Edition)](https://help.aliyun.com/document_detail/428610.html).
    * 
    * This parameter is required.
    * 
@@ -535,9 +608,9 @@ export class CreateDBResourceGroupRequest extends $dara.Model {
   maxClusterCount?: number;
   /**
    * @remarks
-   * The maximum amount of reserved computing resources. Unit: ACUs.
-   * - If the resource group type is Interactive, the maximum reserved computing resources is the current unallocated resources of the cluster, in increments of 16 ACUs.
-   * - If the resource group type is Job, the maximum reserved computing resources is the current unallocated resources of the cluster, in increments of 8 ACUs.
+   * The maximum reserved computing resources, in ACUs.
+   * - If the resource group type is Interactive, the maximum reserved computing resources is the current unallocated resources of the cluster, with a step size of 16 ACUs.
+   * - If the resource group type is Job, the maximum reserved computing resources is the current unallocated resources of the cluster, with a step size of 8 ACUs.
    * 
    * @example
    * 48ACU
@@ -561,7 +634,7 @@ export class CreateDBResourceGroupRequest extends $dara.Model {
   minClusterCount?: number;
   /**
    * @remarks
-   * The minimum amount of reserved computing resources. Unit: ACUs.
+   * The minimum reserved computing resources, in ACUs.
    * - If the resource group type is Interactive, the minimum reserved computing resources is 16 ACUs.
    * - If the resource group type is Job, the minimum reserved computing resources is 0 ACUs.
    * 
@@ -579,7 +652,7 @@ export class CreateDBResourceGroupRequest extends $dara.Model {
   minGpuQuantity?: number;
   /**
    * @remarks
-   * The Ray configuration.
+   * The Ray configuration information.
    * > This parameter is required when the resource group is an AI resource group and the corresponding engine is RayCluster.
    */
   rayConfig?: CreateDBResourceGroupRequestRayConfig;
@@ -619,7 +692,7 @@ export class CreateDBResourceGroupRequest extends $dara.Model {
   specName?: string;
   /**
    * @remarks
-   * The name of the destination resource group.
+   * The name of the target resource group.
    * 
    * @example
    * test

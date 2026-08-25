@@ -4,56 +4,89 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeDBResourceGroupResponseBodyGroupsInfoAtmConfig extends $dara.Model {
   /**
+   * @remarks
+   * The number of authentication nodes.
+   * 
    * @example
    * 2
    */
   authNodeNum?: string;
   /**
+   * @remarks
+   * The authentication node specifications.
+   * 
    * @example
    * 8ACU
    */
   authNodeSpec?: string;
   /**
+   * @remarks
+   * The number of write nodes.
+   * 
    * @example
    * 1
    */
   insertNodeNum?: string;
   /**
+   * @remarks
+   * The write node specifications.
+   * 
    * @example
    * 8ACU
    */
   insertNodeSpec?: string;
   /**
+   * @remarks
+   * The cache size of query nodes.
+   * 
    * @example
    * 10
    */
   selectNodeCacheSize?: string;
   /**
+   * @remarks
+   * The number of query nodes.
+   * 
    * @example
    * 1
    */
   selectNodeNum?: string;
   /**
+   * @remarks
+   * The query node specifications.
+   * 
    * @example
    * 8ACU
    */
   selectNodeSpec?: string;
   /**
+   * @remarks
+   * The disk size of storage nodes.
+   * 
    * @example
    * 100
    */
   storageNodeDiskSize?: string;
   /**
+   * @remarks
+   * The disk type of storage nodes.
+   * 
    * @example
    * essd_pl1
    */
   storageNodeDiskType?: string;
   /**
+   * @remarks
+   * The number of storage nodes.
+   * 
    * @example
    * 2
    */
   storageNodeNum?: string;
   /**
+   * @remarks
+   * The storage node specifications.
+   * 
    * @example
    * 8ACU
    */
@@ -102,7 +135,7 @@ export class DescribeDBResourceGroupResponseBodyGroupsInfoAtmConfig extends $dar
 export class DescribeDBResourceGroupResponseBodyGroupsInfoGpuElasticPlanRules extends $dara.Model {
   /**
    * @remarks
-   * The end time, specified as a cron expression. The interval must be at least 1 hour.
+   * The end time in Cron expression format. The interval must be at least 1 hour.
    * 
    * @example
    * 0 0 3 * * ?
@@ -110,7 +143,7 @@ export class DescribeDBResourceGroupResponseBodyGroupsInfoGpuElasticPlanRules ex
   endCronExpression?: string;
   /**
    * @remarks
-   * The start time, specified as a cron expression. The interval must be at least 1 hour.
+   * The start time in Cron expression format. The interval must be at least 1 hour.
    * 
    * @example
    * 0 0 2 * * ?
@@ -299,10 +332,12 @@ export class DescribeDBResourceGroupResponseBodyGroupsInfoRayConfigStorageMounts
    * 1
    */
   storageId?: number;
+  storageName?: string;
   static names(): { [key: string]: string } {
     return {
       mountPath: 'MountPath',
       storageId: 'StorageId',
+      storageName: 'StorageName',
     };
   }
 
@@ -310,6 +345,7 @@ export class DescribeDBResourceGroupResponseBodyGroupsInfoRayConfigStorageMounts
     return {
       mountPath: 'string',
       storageId: 'number',
+      storageName: 'string',
     };
   }
 
@@ -333,7 +369,7 @@ export class DescribeDBResourceGroupResponseBodyGroupsInfoRayConfigWorkerGroups 
   allocateUnit?: string;
   /**
    * @remarks
-   * The name of the Ray worker group.
+   * The Ray worker group name.
    * 
    * @example
    * g01
@@ -357,7 +393,7 @@ export class DescribeDBResourceGroupResponseBodyGroupsInfoRayConfigWorkerGroups 
   minWorkerQuantity?: number;
   /**
    * @remarks
-   * The disk size per worker.
+   * The disk capacity per worker.
    * 
    * @example
    * 100G
@@ -451,7 +487,7 @@ export class DescribeDBResourceGroupResponseBodyGroupsInfoRayConfig extends $dar
   headAllocateUnit?: string;
   /**
    * @remarks
-   * The disk size of the head node.
+   * The disk capacity of the head node.
    * 
    * @example
    * 100Gi
@@ -498,6 +534,9 @@ export class DescribeDBResourceGroupResponseBodyGroupsInfoRayConfig extends $dar
    */
   rayGrafanaAddress?: string;
   /**
+   * @remarks
+   * The Ray Serve public address.
+   * 
    * @example
    * 1.2.3.4:8100
    */
@@ -580,7 +619,7 @@ export class DescribeDBResourceGroupResponseBodyGroupsInfoRules extends $dara.Mo
   groupName?: string;
   /**
    * @remarks
-   * The query execution time threshold. Unit: milliseconds (ms).
+   * The query execution time threshold, in milliseconds (ms).
    * 
    * @example
    * 180000
@@ -620,6 +659,10 @@ export class DescribeDBResourceGroupResponseBodyGroupsInfoRules extends $dara.Mo
 }
 
 export class DescribeDBResourceGroupResponseBodyGroupsInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The PromQL resource group configuration.
+   */
   atmConfig?: DescribeDBResourceGroupResponseBodyGroupsInfoAtmConfig;
   /**
    * @remarks
@@ -660,7 +703,7 @@ export class DescribeDBResourceGroupResponseBodyGroupsInfo extends $dara.Model {
   clusterSizeResource?: string;
   /**
    * @remarks
-   * The time when the resource group was created. The time is in UTC and in the format of <i>yyyy-MM-ddTHH:mm:ssZ</i>.
+   * The time when the resource group was created, in UTC. Format: <i>yyyy-MM-ddTHH:mm:ssZ</i>.
    * 
    * @example
    * 2022-08-29T03:34:30Z
@@ -668,7 +711,7 @@ export class DescribeDBResourceGroupResponseBodyGroupsInfo extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The minimum elastic computing resources. Unit: ACUs.
+   * The minimum elastic computing resources, in ACUs.
    * 
    * @example
    * 16ACU
@@ -676,7 +719,7 @@ export class DescribeDBResourceGroupResponseBodyGroupsInfo extends $dara.Model {
   elasticMinComputeResource?: string;
   /**
    * @remarks
-   * Indicates whether the spot instance feature is enabled for the resource group. When the spot instance feature is enabled, the unit price of resources is reduced, but the resources may be released. Valid values:
+   * Indicates whether the spot instance feature is enabled for the resource group. When the spot instance feature is enabled, the unit price of resources is reduced, but instances may be released. Valid values:
    * - **True**: The spot instance feature is enabled.
    * - **False**: The spot instance feature is disabled.
    * 
@@ -717,7 +760,7 @@ export class DescribeDBResourceGroupResponseBodyGroupsInfo extends $dara.Model {
    * The resource group type. Valid values:
    * - **Interactive**
    * - **Job**
-   * > For more information about resource groups in Data Lakehouse Edition, see [Resource group overview (Data Lakehouse Edition)](https://help.aliyun.com/document_detail/428610.html).
+   * > For more information about resource groups in Data Lakehouse Edition, see [Resource group introduction (Data Lakehouse Edition)](https://help.aliyun.com/document_detail/428610.html).
    * 
    * @example
    * Job
@@ -741,7 +784,7 @@ export class DescribeDBResourceGroupResponseBodyGroupsInfo extends $dara.Model {
   maxClusterCount?: number;
   /**
    * @remarks
-   * The maximum reserved computing resources. Unit: ACUs.
+   * The maximum reserved computing resources, in ACUs.
    * 
    * @example
    * 512ACU
@@ -775,7 +818,7 @@ export class DescribeDBResourceGroupResponseBodyGroupsInfo extends $dara.Model {
   minClusterCount?: number;
   /**
    * @remarks
-   * The minimum reserved computing resources. Unit: ACUs.
+   * The minimum reserved computing resources, in ACUs.
    * 
    * @example
    * 0ACU
@@ -809,7 +852,7 @@ export class DescribeDBResourceGroupResponseBodyGroupsInfo extends $dara.Model {
   runningClusterCount?: number;
   /**
    * @remarks
-   * The scale-out policy of the resource group. Valid values:
+   * The scaling policy of the resource group. Valid values:
    * 
    * - AutoScaling: enables the AutoScaling automatic scaling policy.
    * - Disable: disables automatic scaling.
@@ -829,7 +872,7 @@ export class DescribeDBResourceGroupResponseBodyGroupsInfo extends $dara.Model {
   specName?: string;
   /**
    * @remarks
-   * The status of the resource group. Valid values:
+   * The resource group status. Valid values:
    * - **creating**: being created
    * - **ok**: created
    * - **pendingdelete**: pending deletion
@@ -848,7 +891,7 @@ export class DescribeDBResourceGroupResponseBodyGroupsInfo extends $dara.Model {
   targetResourceGroupName?: string;
   /**
    * @remarks
-   * The time when the resource group was last updated. The time is in UTC and in the format of <i>yyyy-MM-ddTHH:mm:ssZ</i>.
+   * The time when the resource group was last updated, in UTC. Format: <i>yyyy-MM-ddTHH:mm:ssZ</i>.
    * 
    * @example
    * 2022-08-31T03:34:30Z

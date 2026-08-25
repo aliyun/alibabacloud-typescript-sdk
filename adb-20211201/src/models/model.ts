@@ -24,6 +24,7 @@ export { CreateDBClusterRequestTag } from './CreateDbclusterRequest';
 export { CreateDBResourceGroupRequestAtmConfig } from './CreateDbresourceGroupRequest';
 export { CreateDBResourceGroupRequestGpuElasticPlanRules } from './CreateDbresourceGroupRequest';
 export { CreateDBResourceGroupRequestGpuElasticPlan } from './CreateDbresourceGroupRequest';
+export { CreateDBResourceGroupRequestRayConfigStorageMounts } from './CreateDbresourceGroupRequest';
 export { CreateDBResourceGroupRequestRayConfigWorkerGroups } from './CreateDbresourceGroupRequest';
 export { CreateDBResourceGroupRequestRayConfig } from './CreateDbresourceGroupRequest';
 export { CreateDBResourceGroupRequestRules } from './CreateDbresourceGroupRequest';
