@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateAutoThrottleRulesAsyncRequest extends $dara.Model {
   /**
    * @remarks
-   * The duration threshold for triggering automatic SQL throttling. Set this parameter to an integer that is greater than or equal to 2. Unit: minutes.
+   * The duration threshold of the anomaly that triggers automatic SQL throttling. The value must be a positive integer greater than or equal to 2. Unit: minutes.
    * 
    * This parameter is required.
    * 
@@ -15,11 +15,10 @@ export class UpdateAutoThrottleRulesAsyncRequest extends $dara.Model {
   abnormalDuration?: number;
   /**
    * @remarks
-   * The threshold for the number of active sessions.
+   * The active sessions threshold.	
    * 
-   * - If this parameter and CpuUsage are in the **OR** relationship, set this parameter to an integer that is greater than or equal to 16.
-   * 
-   * - If this parameter and CpuUsage are in the **AND** relationship, set this parameter to an integer that is greater than or equal to 2.
+   * - If the relationship with the CPU utilization threshold is **OR**, the value must be greater than or equal to 16.
+   * - If the relationship with the CPU utilization threshold is **AND**, the value must be greater than or equal to 2.
    * 
    * This parameter is required.
    * 
@@ -29,7 +28,7 @@ export class UpdateAutoThrottleRulesAsyncRequest extends $dara.Model {
   activeSessions?: number;
   /**
    * @remarks
-   * The end time of the throttling window. The time must be in UTC.
+   * The end time of the throttling time window (UTC).
    * 
    * This parameter is required.
    * 
@@ -39,7 +38,7 @@ export class UpdateAutoThrottleRulesAsyncRequest extends $dara.Model {
   allowThrottleEndTime?: string;
   /**
    * @remarks
-   * The start time of the throttling window. The time must be in UTC.
+   * The start time of the throttling time window (UTC).
    * 
    * This parameter is required.
    * 
@@ -49,13 +48,12 @@ export class UpdateAutoThrottleRulesAsyncRequest extends $dara.Model {
   allowThrottleStartTime?: string;
   /**
    * @remarks
-   * Specifies whether to terminate abnormal SQL statements in execution at the same time. Valid values:
+   * Specifies whether to simultaneously kill abnormal SQL statements that are being executed.
+   * > Abnormal SQL statements are those that match the SQL templates to be throttled.
    * 
-   * > Abnormal SQL statements use the same template as the SQL statements to be throttled.
-   * 
-   * - **true**
-   * 
-   * - **false**
+   * Valid values:
+   * - **true**: Yes.
+   * - **false**: No.
    * 
    * This parameter is required.
    * 
@@ -65,7 +63,7 @@ export class UpdateAutoThrottleRulesAsyncRequest extends $dara.Model {
   autoKillSession?: boolean;
   /**
    * @remarks
-   * The reserved parameter.
+   * A reserved parameter.
    * 
    * @example
    * None
@@ -73,11 +71,9 @@ export class UpdateAutoThrottleRulesAsyncRequest extends $dara.Model {
   consoleContext?: string;
   /**
    * @remarks
-   * The logical relationship between the CPU utilization threshold and the maximum number of active sessions. Valid values:
-   * 
-   * - **AND**
-   * 
-   * - **OR**
+   * The logical relationship between the CPU utilization threshold and the active sessions threshold. Valid values:
+   * - **AND**: both conditions must be met.
+   * - **OR**: either condition must be met.
    * 
    * This parameter is required.
    * 
@@ -87,7 +83,7 @@ export class UpdateAutoThrottleRulesAsyncRequest extends $dara.Model {
   cpuSessionRelation?: string;
   /**
    * @remarks
-   * The threshold for CPU utilization. Valid values: 70% to 100%.
+   * The CPU utilization threshold. Valid values: 70% to 100%.
    * 
    * This parameter is required.
    * 
@@ -99,7 +95,7 @@ export class UpdateAutoThrottleRulesAsyncRequest extends $dara.Model {
    * @remarks
    * The database instance IDs.
    * 
-   * > Set this parameter to a JSON array that consists of multiple instance IDs. Separate instance IDs with commas (,). Example: `[\\"Instance ID1\\", \\"Instance ID2\\"]`.
+   * > The data format is JSONArray, such as `[\\"Instance ID 1\\",\\"Instance ID 2\\"]`. Separate instance IDs with commas (,).
    * 
    * This parameter is required.
    * 
@@ -109,7 +105,7 @@ export class UpdateAutoThrottleRulesAsyncRequest extends $dara.Model {
   instanceIds?: string;
   /**
    * @remarks
-   * The maximum throttling duration. Set this parameter to a positive integer. Unit: minutes.
+   * The maximum throttling duration. The value must be a positive integer. Unit: minutes.
    * 
    * This parameter is required.
    * 
@@ -120,8 +116,7 @@ export class UpdateAutoThrottleRulesAsyncRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the asynchronous request.
-   * 
-   * > You can leave this parameter empty when you call the operation to initiate the request for the first time, and use the value of this parameter contained in the response to the first request for subsequent requests.
+   * > An asynchronous call does not immediately return complete results. First, call this operation to obtain the **ResultId**. Then, use the returned **ResultId** to initiate the call again until **isFinish** is **true**, at which point the complete results are returned. This means that you must call this operation at least twice to obtain complete data.
    * 
    * @example
    * async__507044db6c4eadfa2dab9b084e80****

@@ -5,15 +5,16 @@ import * as $dara from '@darabonba/typescript';
 export class ChatResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates the current activity status of the agent.
+   * The heartbeat.
    * 
    * @example
    * waiting_for_agent_thinking
    */
   activityType?: string;
+  agentId?: string;
   /**
    * @remarks
-   * The content of the response.
+   * The response content.
    * 
    * @example
    * I see you have several PolarDB instances, and I will query them for you shortly
@@ -21,12 +22,14 @@ export class ChatResponseBody extends $dara.Model {
   content?: string;
   /**
    * @remarks
-   * The incremental content of the response.
+   * Indicates whether the content is incremental.
    * 
    * @example
    * hello
    */
   delta?: string;
+  kind?: string;
+  label?: string;
   /**
    * @remarks
    * The message ID.
@@ -37,15 +40,17 @@ export class ChatResponseBody extends $dara.Model {
   messageId?: string;
   /**
    * @remarks
-   * The key for the additional information.
+   * The extension key.
    * 
    * @example
    * summary
    */
   name?: string;
+  originatingToolCallId?: string;
+  parentAgentId?: string;
   /**
    * @remarks
-   * The ID of the parent message.
+   * The parent message ID.
    * 
    * @example
    * 76bee207-31ee-4707-8851-6b9d4da033aa
@@ -53,7 +58,7 @@ export class ChatResponseBody extends $dara.Model {
   parentMessageId?: string;
   /**
    * @remarks
-   * The role in the conversation.
+   * The conversation role ID.
    * 
    * @example
    * assistant
@@ -69,15 +74,16 @@ export class ChatResponseBody extends $dara.Model {
   runId?: string;
   /**
    * @remarks
-   * The name of the execution step.
+   * The execution step name.
    * 
    * @example
    * sub_agent_performance_diagnose_mysql
    */
   stepName?: string;
+  stepStatus?: string;
   /**
    * @remarks
-   * The identifier of the callback tool.
+   * The callback tool class.
    * 
    * @example
    * das_api
@@ -91,9 +97,11 @@ export class ChatResponseBody extends $dara.Model {
    * 8e481be1-21d5-4a92-a2fb-fb54be0ab4f6
    */
   threadId?: string;
+  timestamp?: number;
+  toolCallError?: string;
   /**
    * @remarks
-   * The tool call ID.
+   * The tool calling invoke ID.
    * 
    * @example
    * call_edf9cdb69e0e4c9796a6a5a6
@@ -101,7 +109,7 @@ export class ChatResponseBody extends $dara.Model {
   toolCallId?: string;
   /**
    * @remarks
-   * The name of the tool.
+   * The tool name.
    * 
    * @example
    * das_api
@@ -117,7 +125,7 @@ export class ChatResponseBody extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The value of the additional information.
+   * The extension value.
    * 
    * @example
    * {"CharCount":393,"End":1777428785996,"RequestId":"BE59AED5-D831-5811-BBAD-590B917B2089","SessionId":"123e4567-e89b-12d3-a456-xxxxxxxxxxxx","Start":1777428707927}
@@ -126,16 +134,24 @@ export class ChatResponseBody extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       activityType: 'ActivityType',
+      agentId: 'AgentId',
       content: 'Content',
       delta: 'Delta',
+      kind: 'Kind',
+      label: 'Label',
       messageId: 'MessageId',
       name: 'Name',
+      originatingToolCallId: 'OriginatingToolCallId',
+      parentAgentId: 'ParentAgentId',
       parentMessageId: 'ParentMessageId',
       role: 'Role',
       runId: 'RunId',
       stepName: 'StepName',
+      stepStatus: 'StepStatus',
       taskTrackerId: 'TaskTrackerId',
       threadId: 'ThreadId',
+      timestamp: 'Timestamp',
+      toolCallError: 'ToolCallError',
       toolCallId: 'ToolCallId',
       toolCallName: 'ToolCallName',
       type: 'Type',
@@ -146,16 +162,24 @@ export class ChatResponseBody extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       activityType: 'string',
+      agentId: 'string',
       content: 'string',
       delta: 'string',
+      kind: 'string',
+      label: 'string',
       messageId: 'string',
       name: 'string',
+      originatingToolCallId: 'string',
+      parentAgentId: 'string',
       parentMessageId: 'string',
       role: 'string',
       runId: 'string',
       stepName: 'string',
+      stepStatus: 'string',
       taskTrackerId: 'string',
       threadId: 'string',
+      timestamp: 'number',
+      toolCallError: 'string',
       toolCallId: 'string',
       toolCallName: 'string',
       type: 'string',

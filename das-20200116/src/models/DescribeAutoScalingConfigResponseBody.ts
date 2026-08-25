@@ -13,7 +13,7 @@ export class DescribeAutoScalingConfigResponseBodyDataBandwidth extends $dara.Mo
   bandwidthUsageLowerThreshold?: number;
   /**
    * @remarks
-   * The average bandwidth usage threshold that triggers automatic bandwidth adjustment. Unit: %.
+   * The average bandwidth usage threshold that triggers automatic bandwidth upgrade. Unit: %.
    * 
    * @example
    * 70
@@ -21,11 +21,10 @@ export class DescribeAutoScalingConfigResponseBodyDataBandwidth extends $dara.Mo
   bandwidthUsageUpperThreshold?: number;
   /**
    * @remarks
-   * Indicates whether the automatic bandwidth downgrade feature is enabled. Valid values:
+   * Indicates whether automatic bandwidth downgrade is enabled. Valid values:
    * 
-   * - **true**
-   * 
-   * - **false**
+   * - **true**: Enabled.
+   * - **false**: Disabled.
    * 
    * @example
    * true
@@ -33,17 +32,14 @@ export class DescribeAutoScalingConfigResponseBodyDataBandwidth extends $dara.Mo
   downgrade?: boolean;
   /**
    * @remarks
-   * The observation window of the automatic bandwidth adjustment feature. The return value consists of a numeric value and a time unit suffix. Valid values of the time unit suffix:
+   * The observation window for automatic bandwidth upgrade. The value consists of a number and a time unit suffix. The time unit suffixes are:
    * 
    * - **s**: seconds.
-   * 
    * - **m**: minutes.
-   * 
    * - **h**: hours.
+   * - **d**: days. 
    * 
-   * - **d**: days.
-   * 
-   * > A value of **5m** indicates 5 minutes.
+   * > For example, **5m** indicates 5 minutes.
    * 
    * @example
    * 5m
@@ -51,11 +47,9 @@ export class DescribeAutoScalingConfigResponseBodyDataBandwidth extends $dara.Mo
   observationWindowSize?: string;
   /**
    * @remarks
-   * Indicates whether the automatic bandwidth adjustment feature is enabled. Valid values:
-   * 
-   * - **true**
-   * 
-   * - **false**
+   * Indicates whether automatic bandwidth upgrade is enabled. Valid values:
+   * - **true**: Enabled.
+   * - **false**: Disabled.
    * 
    * @example
    * true
@@ -93,7 +87,7 @@ export class DescribeAutoScalingConfigResponseBodyDataBandwidth extends $dara.Mo
 export class DescribeAutoScalingConfigResponseBodyDataResource extends $dara.Model {
   /**
    * @remarks
-   * The scale-out step size of CPU.
+   * The CPU scale-up increment.
    * 
    * @example
    * 2
@@ -101,7 +95,7 @@ export class DescribeAutoScalingConfigResponseBodyDataResource extends $dara.Mod
   cpuStep?: number;
   /**
    * @remarks
-   * The average CPU utilization threshold that triggers automatic scale-out of local resources. Unit: %.
+   * The average CPU utilization threshold that triggers automatic local resource scale-up. Unit: %.
    * 
    * @example
    * 70
@@ -109,17 +103,14 @@ export class DescribeAutoScalingConfigResponseBodyDataResource extends $dara.Mod
   cpuUsageUpperThreshold?: number;
   /**
    * @remarks
-   * The observation window of the automatic scale-in feature for local resources. The return value consists of a numeric value and a time unit suffix. Valid values of the time unit suffix:
+   * The scale-down observation window. The value consists of a number and a time unit suffix. The time unit suffixes are:
    * 
    * - **s**: seconds.
-   * 
    * - **m**: minutes.
-   * 
    * - **h**: hours.
+   * - **d**: days. 
    * 
-   * - **d**: days.
-   * 
-   * > A value of **5m** indicates 5 minutes.
+   * > For example, **5m** indicates 5 minutes.
    * 
    * @example
    * 5m
@@ -127,11 +118,10 @@ export class DescribeAutoScalingConfigResponseBodyDataResource extends $dara.Mod
   downgradeObservationWindowSize?: string;
   /**
    * @remarks
-   * Indicates whether the auto scaling feature is enabled for local resources. Valid values:
+   * Indicates whether local resource elastic scaling is enabled. Valid values:
    * 
-   * - **true**
-   * 
-   * - **false**
+   * - **true**: Enabled.
+   * - **false**: Disabled.
    * 
    * @example
    * true
@@ -139,17 +129,14 @@ export class DescribeAutoScalingConfigResponseBodyDataResource extends $dara.Mod
   enable?: boolean;
   /**
    * @remarks
-   * The observation window of the automatic scale-out feature for local resources. The return value consists of a numeric value and a time unit suffix. Valid values of the time unit suffix:
+   * The scale-up observation window. The value consists of a number and a time unit suffix. The time unit suffixes are:
    * 
    * - **s**: seconds.
-   * 
    * - **m**: minutes.
-   * 
    * - **h**: hours.
+   * - **d**: days. 
    * 
-   * - **d**: days.
-   * 
-   * > A value of **5m** indicates 5 minutes.
+   * > For example, **5m** indicates 5 minutes.
    * 
    * @example
    * 5m
@@ -187,11 +174,10 @@ export class DescribeAutoScalingConfigResponseBodyDataResource extends $dara.Mod
 export class DescribeAutoScalingConfigResponseBodyDataShard extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the feature of automatically removing shards is enabled. Valid values:
+   * Indicates whether automatic shard removal is enabled. Valid values:
    * 
-   * - **true**
-   * 
-   * - **false**
+   * - **true**: Enabled.
+   * - **false**: Disabled.
    * 
    * @example
    * true
@@ -199,17 +185,13 @@ export class DescribeAutoScalingConfigResponseBodyDataShard extends $dara.Model 
   downgrade?: boolean;
   /**
    * @remarks
-   * The observation window of the feature of automatically removing shards. The return value consists of a numeric value and a time unit suffix. Valid values of the time unit suffix:
-   * 
+   * The observation window for automatic shard removal. The value consists of a number and a time unit suffix. The time unit suffixes are:
    * - **s**: seconds.
-   * 
    * - **m**: minutes.
-   * 
    * - **h**: hours.
+   * - **d**: days. 
    * 
-   * - **d**: days.
-   * 
-   * > A value of **1d** indicates one day.
+   * > For example, **1d** indicates 1 day.
    * 
    * @example
    * 1d
@@ -217,7 +199,7 @@ export class DescribeAutoScalingConfigResponseBodyDataShard extends $dara.Model 
   downgradeObservationWindowSize?: string;
   /**
    * @remarks
-   * The maximum number of shards in the instance.
+   * The maximum total number of shards for the instance.
    * 
    * @example
    * 16
@@ -225,7 +207,7 @@ export class DescribeAutoScalingConfigResponseBodyDataShard extends $dara.Model 
   maxShards?: number;
   /**
    * @remarks
-   * The average memory usage threshold that triggers automatic removal of shards. Unit: %.
+   * The average memory utilization threshold that triggers automatic shard removal. Unit: %.
    * 
    * @example
    * 30
@@ -233,7 +215,7 @@ export class DescribeAutoScalingConfigResponseBodyDataShard extends $dara.Model 
   memUsageLowerThreshold?: number;
   /**
    * @remarks
-   * The average memory usage threshold that triggers automatic adding of shards. Unit: %.
+   * The average memory utilization threshold that triggers automatic shard addition. Unit: %.
    * 
    * @example
    * 70
@@ -241,7 +223,7 @@ export class DescribeAutoScalingConfigResponseBodyDataShard extends $dara.Model 
   memUsageUpperThreshold?: number;
   /**
    * @remarks
-   * The minimum number of shards in the instance.
+   * The minimum total number of shards for the instance.
    * 
    * @example
    * 4
@@ -249,11 +231,10 @@ export class DescribeAutoScalingConfigResponseBodyDataShard extends $dara.Model 
   minShards?: number;
   /**
    * @remarks
-   * Indicates whether the feature of automatically adding shards is enabled. Valid values:
+   * Indicates whether automatic shard addition is enabled. Valid values:
    * 
-   * - **true**
-   * 
-   * - **false**
+   * - **true**: Enabled.
+   * - **false**: Disabled.
    * 
    * @example
    * true
@@ -261,17 +242,14 @@ export class DescribeAutoScalingConfigResponseBodyDataShard extends $dara.Model 
   upgrade?: boolean;
   /**
    * @remarks
-   * The observation window of the feature of automatically adding shards. The return value consists of a numeric value and a time unit suffix. Valid values of the time unit suffix:
+   * The observation window for automatic shard addition. The value consists of a number and a time unit suffix. The time unit suffixes are:
    * 
    * - **s**: seconds.
-   * 
    * - **m**: minutes.
-   * 
    * - **h**: hours.
+   * - **d**: days. 
    * 
-   * - **d**: days.
-   * 
-   * > A value of **5m** indicates 5 minutes.
+   * > For example, **5m** indicates 5 minutes.
    * 
    * @example
    * 5m
@@ -315,17 +293,14 @@ export class DescribeAutoScalingConfigResponseBodyDataShard extends $dara.Model 
 export class DescribeAutoScalingConfigResponseBodyDataSpec extends $dara.Model {
   /**
    * @remarks
-   * The quiescent period. The return value consists of a numeric value and a time unit suffix. Valid values of the time unit suffix:
+   * The cool-down period. The value consists of a number and a time unit suffix. The time unit suffixes are:
    * 
    * - **s**: seconds.
-   * 
    * - **m**: minutes.
-   * 
    * - **h**: hours.
+   * - **d**: days. 
    * 
-   * - **d**: days.
-   * 
-   * > A value of **5m** indicates 5 minutes.
+   * > For example, **5m** indicates 5 minutes.
    * 
    * @example
    * 5m
@@ -341,11 +316,10 @@ export class DescribeAutoScalingConfigResponseBodyDataSpec extends $dara.Model {
   cpuUsageUpperThreshold?: number;
   /**
    * @remarks
-   * Indicates whether the automatic specification scale-down feature is enabled. Valid values:
+   * Indicates whether automatic specification scale-down is enabled. Valid values:
    * 
-   * - **true**
-   * 
-   * - **false**
+   * - **true**: Enabled.
+   * - **false**: Disabled.
    * 
    * @example
    * true
@@ -353,7 +327,7 @@ export class DescribeAutoScalingConfigResponseBodyDataSpec extends $dara.Model {
   downgrade?: boolean;
   /**
    * @remarks
-   * The maximum number of read-only nodes of the instance.
+   * The maximum number of read-only nodes for the instance.
    * 
    * @example
    * 10
@@ -361,11 +335,19 @@ export class DescribeAutoScalingConfigResponseBodyDataSpec extends $dara.Model {
   maxReadOnlyNodes?: number;
   /**
    * @remarks
-   * The maximum specifications to which the cluster can be scaled up. For more information about the specifications of each type of supported database instances, see the following topics:
+   * The maximum specification for automatic scale-up. For details, refer to the product specification documentation for each database instance:
+   * <props="china">
    * 
-   * - PolarDB for MySQL Cluster Edition instances: [Compute node specifications of PolarDB for MySQL Enterprise Edition](https://help.aliyun.com/document_detail/102542.html)
+   * - For PolarDB for MySQL Cluster Edition, see [Compute node specifications](https://help.aliyun.com/document_detail/102542.html).
+   * - For ApsaraDB RDS for MySQL high-availability series with cloud disks, see [Product specifications](https://help.aliyun.com/document_detail/276974.html).
+   * - For Redis community cloud disk edition, see [Instance specifications](https://help.aliyun.com/document_detail/144986.html).
    * 
-   * - ApsaraDB RDS for MySQL High-availability Edition instances that use standard SSDs or ESSDs: [Specifications](https://help.aliyun.com/document_detail/276974.html)
+   * 
+   * 
+   * <props="intl">
+   * 
+   * - For PolarDB for MySQL Cluster Edition, see [Compute node specifications](https://help.aliyun.com/document_detail/102542.html).
+   * - For ApsaraDB RDS for MySQL high-availability series with cloud disks, see [Product specifications](https://help.aliyun.com/document_detail/276974.html).
    * 
    * @example
    * polar.mysql.x8.12xlarge
@@ -373,7 +355,7 @@ export class DescribeAutoScalingConfigResponseBodyDataSpec extends $dara.Model {
   maxSpec?: string;
   /**
    * @remarks
-   * The average memory usage threshold that triggers automatic specification scale-up. Unit: %.
+   * The average memory utilization threshold that triggers automatic specification scale-up. Unit: %.
    * 
    * @example
    * 70
@@ -381,17 +363,14 @@ export class DescribeAutoScalingConfigResponseBodyDataSpec extends $dara.Model {
   memUsageUpperThreshold?: number;
   /**
    * @remarks
-   * The observation window. The return value consists of a numeric value and a time unit suffix. Valid values of the time unit suffix:
+   * The observation window. The value consists of a number and a time unit suffix. The time unit suffixes are:
    * 
    * - **s**: seconds.
-   * 
    * - **m**: minutes.
-   * 
    * - **h**: hours.
+   * - **d**: days. 
    * 
-   * - **d**: days.
-   * 
-   * > A value of **5m** indicates 5 minutes.
+   * > For example, **5m** indicates 5 minutes.
    * 
    * @example
    * 5m
@@ -399,11 +378,10 @@ export class DescribeAutoScalingConfigResponseBodyDataSpec extends $dara.Model {
   observationWindowSize?: string;
   /**
    * @remarks
-   * Indicates whether the automatic specification scale-up feature is enabled. Valid values:
+   * Indicates whether automatic specification scale-up is enabled. Valid values:
    * 
-   * - **true**
-   * 
-   * - **false**
+   * - **true**: Enabled.
+   * - **false**: Disabled.
    * 
    * @example
    * true
@@ -447,7 +425,7 @@ export class DescribeAutoScalingConfigResponseBodyDataSpec extends $dara.Model {
 export class DescribeAutoScalingConfigResponseBodyDataStorage extends $dara.Model {
   /**
    * @remarks
-   * The average storage usage threshold that triggers automatic storage expansion. Unit: %.
+   * The average storage utilization threshold that triggers automatic storage scaling. Unit: %.
    * 
    * @example
    * 70
@@ -455,7 +433,7 @@ export class DescribeAutoScalingConfigResponseBodyDataStorage extends $dara.Mode
   diskUsageUpperThreshold?: number;
   /**
    * @remarks
-   * The maximum storage size. Unit: GB.
+   * The maximum storage capacity. Unit: GB.
    * 
    * @example
    * 32000
@@ -463,11 +441,10 @@ export class DescribeAutoScalingConfigResponseBodyDataStorage extends $dara.Mode
   maxStorage?: number;
   /**
    * @remarks
-   * Indicates whether the automatic storage expansion feature is enabled. Valid values:
+   * Indicates whether automatic storage scaling is enabled. Valid values:
    * 
-   * - **true**
-   * 
-   * - **false**
+   * - **true**: Enabled.
+   * - **false**: Disabled.
    * 
    * @example
    * true
@@ -501,27 +478,27 @@ export class DescribeAutoScalingConfigResponseBodyDataStorage extends $dara.Mode
 export class DescribeAutoScalingConfigResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The configurations of the automatic bandwidth adjustment feature.
+   * The bandwidth elastic scaling feature configuration of the instance.
    */
   bandwidth?: DescribeAutoScalingConfigResponseBodyDataBandwidth;
   /**
    * @remarks
-   * The configurations of the auto scaling feature for local resources.
+   * The local resource elastic scaling feature configuration of the instance.
    */
   resource?: DescribeAutoScalingConfigResponseBodyDataResource;
   /**
    * @remarks
-   * The configurations of the auto scaling feature for shards.
+   * The shard elastic scaling feature configuration of the instance.
    */
   shard?: DescribeAutoScalingConfigResponseBodyDataShard;
   /**
    * @remarks
-   * The configurations of the auto scaling feature for specifications.
+   * The specification elastic scaling feature configuration.
    */
   spec?: DescribeAutoScalingConfigResponseBodyDataSpec;
   /**
    * @remarks
-   * The configurations of the automatic storage expansion feature.
+   * The Automatic storage scaling feature configuration of the instance.
    */
   storage?: DescribeAutoScalingConfigResponseBodyDataStorage;
   static names(): { [key: string]: string } {
@@ -571,7 +548,7 @@ export class DescribeAutoScalingConfigResponseBodyData extends $dara.Model {
 export class DescribeAutoScalingConfigResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The returned status code.
    * 
    * @example
    * 200
@@ -579,14 +556,14 @@ export class DescribeAutoScalingConfigResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The configurations of the auto scaling feature for instances.
+   * The elastic scaling feature configuration of the instance.
    */
   data?: DescribeAutoScalingConfigResponseBodyData;
   /**
    * @remarks
    * The returned message.
    * 
-   * > If the request was successful, **Successful** is returned. If the request failed, an error message such as an error code is returned.
+   * > If the request is successful, **Successful** is returned. If the request fails, an error message such as an error code is returned.
    * 
    * @example
    * Successful
@@ -602,11 +579,10 @@ export class DescribeAutoScalingConfigResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the request is successful. Valid values:
    * 
-   * - **true**
-   * 
-   * - **false**
+   * - **true**: The request is successful.
+   * - **false**: The request fails.
    * 
    * @example
    * true

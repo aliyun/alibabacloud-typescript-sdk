@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ChatRequest extends $dara.Model {
   /**
    * @remarks
-   * Optional. The agent ID. You can use the ID of an agent that is automatically generated when you enable DAS Agent, or the ID of a custom agent. If this parameter is omitted, the default agent is used.
+   * The Agent ID used for the service. You can specify an Agent generated after enabling DAS Agent or an Agent that you manually created. If not specified, the default Agent is used.
    * 
    * @example
    * ag-472T0DxtmjIxxxxx
@@ -13,7 +13,7 @@ export class ChatRequest extends $dara.Model {
   agentId?: string;
   /**
    * @remarks
-   * The message object.
+   * The message content.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class ChatRequest extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Optional. The session ID, which must be a UUID. If unspecified, a new session is created. To maintain conversational context, use the same session ID for all subsequent requests.
+   * The session ID in UUID string format. If not specified, a new session is created by default. To maintain context across conversations, use the same session ID.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-xxxxxxxxxxxx
@@ -31,7 +31,7 @@ export class ChatRequest extends $dara.Model {
   sessionId?: string;
   /**
    * @remarks
-   * Specifies whether to return summary information.
+   * Specifies whether to output summary information.
    * 
    * @example
    * false

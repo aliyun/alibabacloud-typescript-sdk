@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateAutoThrottleRulesAsyncResponseBodyDataConfigResponseConfigFailInstanceList extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the parameters are configured. Valid values:
+   * Indicates whether the configuration was successful. Valid values:
    * 
-   * - **true**
+   * - **true**: The configuration was successful.
    * 
-   * - **false**
+   * - **false**: The configuration failed.
    * 
    * @example
    * false
@@ -17,7 +17,7 @@ export class UpdateAutoThrottleRulesAsyncResponseBodyDataConfigResponseConfigFai
   configSuccess?: boolean;
   /**
    * @remarks
-   * The error message returned.
+   * The error message.
    * 
    * @example
    * instance das autonomy service is off or can not find instance
@@ -59,11 +59,11 @@ export class UpdateAutoThrottleRulesAsyncResponseBodyDataConfigResponseConfigFai
 export class UpdateAutoThrottleRulesAsyncResponseBodyDataConfigResponseConfigSuccessInstanceList extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the parameters are configured. Valid values:
+   * Indicates whether the configuration was successful. Valid values:
    * 
-   * - **true**
+   * - **true**: The configuration was successful.
    * 
-   * - **false**
+   * - **false**: The configuration failed.
    * 
    * @example
    * true
@@ -103,7 +103,7 @@ export class UpdateAutoThrottleRulesAsyncResponseBodyDataConfigResponseConfigSuc
 export class UpdateAutoThrottleRulesAsyncResponseBodyDataConfigResponse extends $dara.Model {
   /**
    * @remarks
-   * The number of database instances for which the parameters failed to be configured.
+   * The number of database instances that failed to be configured.
    * 
    * @example
    * 1
@@ -111,12 +111,12 @@ export class UpdateAutoThrottleRulesAsyncResponseBodyDataConfigResponse extends 
   configFailInstanceCount?: number;
   /**
    * @remarks
-   * The database instances for which the parameters failed to be configured.
+   * The list of database instances that failed to be configured.
    */
   configFailInstanceList?: UpdateAutoThrottleRulesAsyncResponseBodyDataConfigResponseConfigFailInstanceList[];
   /**
    * @remarks
-   * The number of database instances for which the parameters are configured.
+   * The number of database instances that were configured successfully.
    * 
    * @example
    * 1
@@ -124,7 +124,7 @@ export class UpdateAutoThrottleRulesAsyncResponseBodyDataConfigResponse extends 
   configSuccessInstanceCount?: number;
   /**
    * @remarks
-   * The database instances for which the parameters are configured.
+   * The list of database instances that were configured successfully.
    */
   configSuccessInstanceList?: UpdateAutoThrottleRulesAsyncResponseBodyDataConfigResponseConfigSuccessInstanceList[];
   /**
@@ -173,11 +173,11 @@ export class UpdateAutoThrottleRulesAsyncResponseBodyDataConfigResponse extends 
 export class UpdateAutoThrottleRulesAsyncResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the asynchronous request was complete. Valid values:
+   * Indicates whether the asynchronous request is complete. Valid values:
    * 
-   * - **true**
+   * - **true**: The request is complete.
    * 
-   * - **false**
+   * - **false**: The request is not complete.
    * 
    * @example
    * true
@@ -185,18 +185,17 @@ export class UpdateAutoThrottleRulesAsyncResponseBodyData extends $dara.Model {
   complete?: boolean;
   /**
    * @remarks
-   * The returned data of the configuration.
-   * 
-   * > The data is returned only if the value of isFinish is **true**. This value indicates that the asynchronous request is complete.
+   * The response data of the batch configuration.
+   * > This data is returned only when the asynchronous request is complete (that is, when isFinish is **true**).
    */
   configResponse?: UpdateAutoThrottleRulesAsyncResponseBodyDataConfigResponse;
   /**
    * @remarks
-   * Indicates whether the asynchronous request failed. Valid values:
+   * Indicates whether the request failed. Valid values:
    * 
-   * - **true**
+   * - **true**: The request failed.
    * 
-   * - **false**
+   * - **false**: The request did not fail.
    * 
    * @example
    * false
@@ -204,11 +203,11 @@ export class UpdateAutoThrottleRulesAsyncResponseBodyData extends $dara.Model {
   fail?: boolean;
   /**
    * @remarks
-   * Indicates whether the asynchronous request was complete. Valid values:
+   * Indicates whether the asynchronous request is complete. Valid values:
    * 
-   * - **true**
+   * - **true**: The request is complete.
    * 
-   * - **false**
+   * - **false**: The request is not complete.
    * 
    * @example
    * true
@@ -224,13 +223,13 @@ export class UpdateAutoThrottleRulesAsyncResponseBodyData extends $dara.Model {
   resultId?: string;
   /**
    * @remarks
-   * The state of the asynchronous request. Valid values:
+   * The execution status of the asynchronous request. Valid values:
    * 
-   * - **RUNNING**
+   * - **RUNNING**: The request is running.
    * 
-   * - **SUCCESS**
+   * - **SUCCESS**: The request succeeded.
    * 
-   * - **FAIL**
+   * - **FAIL**: The request failed.
    * 
    * @example
    * SUCCESS
@@ -238,7 +237,7 @@ export class UpdateAutoThrottleRulesAsyncResponseBodyData extends $dara.Model {
   state?: string;
   /**
    * @remarks
-   * The time when the asynchronous request was made. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The execution time. The value is a UNIX timestamp. Unit: milliseconds.
    * 
    * @example
    * 1645668213000
@@ -283,7 +282,7 @@ export class UpdateAutoThrottleRulesAsyncResponseBodyData extends $dara.Model {
 export class UpdateAutoThrottleRulesAsyncResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The returned status code.
    * 
    * @example
    * 200
@@ -291,14 +290,13 @@ export class UpdateAutoThrottleRulesAsyncResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The data returned.
+   * The returned data.
    */
   data?: UpdateAutoThrottleRulesAsyncResponseBodyData;
   /**
    * @remarks
    * The returned message.
-   * 
-   * > If the request was successful, **Successful** is returned. If the request failed, an error message such as an error code is returned.
+   * > If the request is successful, **Successful** is returned. If the request fails, an error message such as an error code is returned.
    * 
    * @example
    * Successful
@@ -316,9 +314,8 @@ export class UpdateAutoThrottleRulesAsyncResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * - **true**
-   * 
-   * - **false**
+   * - **true**: The request was successful.
+   * - **false**: The request failed.
    * 
    * @example
    * true

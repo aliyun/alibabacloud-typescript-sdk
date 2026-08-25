@@ -134,14 +134,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * An asynchronous API to access the large language model capabilities of DAS.
+   * Provides an asynchronous interface for interacting with DAS Agent powered by large language model capabilities.
    * 
    * @remarks
-   * Prerequisites:
-   * - Use the latest version of the Alibaba Cloud SDK or the DAS SDK.
-   * - When you use an SDK to call the DAS service, you must specify the region as cn-shanghai.
-   * - You can create offline tasks only for database instances that have DAS Enterprise Edition enabled. For information about the databases and regions that are supported by different versions of DAS Enterprise Edition, see [DAS product editions and features](https://help.aliyun.com/document_detail/156204.html).
-   * For more information about using the Chat API with DAS Agent, see [Best practices for DAS Agent interaction (integrating with the Chat API)](https://help.aliyun.com/zh/das/developer-reference/chat-api-best-practice).
+   * Before you begin:
+   * - Use the latest version of the Alibaba Cloud or DAS SDK.
+   * - When calling DAS by using the SDK, set the region to cn-shanghai.
+   * - Only database instances with DAS Enterprise Edition activated support creating batch tasks. For databases and regions supported by each DAS Enterprise Edition version, see [DAS editions and supported features](https://help.aliyun.com/document_detail/156204.html).
+   * For more methods and examples of interacting with DAS Agent by using the Chat API, see [Best practices for DAS Agent interaction (integrating Chat API)](https://www.alibabacloud.com/help/en/das/developer-reference/chat-api-best-practice).
    * 
    * @param request - ChatRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -198,14 +198,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * An asynchronous API to access the large language model capabilities of DAS.
+   * Provides an asynchronous interface for interacting with DAS Agent powered by large language model capabilities.
    * 
    * @remarks
-   * Prerequisites:
-   * - Use the latest version of the Alibaba Cloud SDK or the DAS SDK.
-   * - When you use an SDK to call the DAS service, you must specify the region as cn-shanghai.
-   * - You can create offline tasks only for database instances that have DAS Enterprise Edition enabled. For information about the databases and regions that are supported by different versions of DAS Enterprise Edition, see [DAS product editions and features](https://help.aliyun.com/document_detail/156204.html).
-   * For more information about using the Chat API with DAS Agent, see [Best practices for DAS Agent interaction (integrating with the Chat API)](https://help.aliyun.com/zh/das/developer-reference/chat-api-best-practice).
+   * Before you begin:
+   * - Use the latest version of the Alibaba Cloud or DAS SDK.
+   * - When calling DAS by using the SDK, set the region to cn-shanghai.
+   * - Only database instances with DAS Enterprise Edition activated support creating batch tasks. For databases and regions supported by each DAS Enterprise Edition version, see [DAS editions and supported features](https://help.aliyun.com/document_detail/156204.html).
+   * For more methods and examples of interacting with DAS Agent by using the Chat API, see [Best practices for DAS Agent interaction (integrating Chat API)](https://www.alibabacloud.com/help/en/das/developer-reference/chat-api-best-practice).
    * 
    * @param request - ChatRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -248,14 +248,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * An asynchronous API to access the large language model capabilities of DAS.
+   * Provides an asynchronous interface for interacting with DAS Agent powered by large language model capabilities.
    * 
    * @remarks
-   * Prerequisites:
-   * - Use the latest version of the Alibaba Cloud SDK or the DAS SDK.
-   * - When you use an SDK to call the DAS service, you must specify the region as cn-shanghai.
-   * - You can create offline tasks only for database instances that have DAS Enterprise Edition enabled. For information about the databases and regions that are supported by different versions of DAS Enterprise Edition, see [DAS product editions and features](https://help.aliyun.com/document_detail/156204.html).
-   * For more information about using the Chat API with DAS Agent, see [Best practices for DAS Agent interaction (integrating with the Chat API)](https://help.aliyun.com/zh/das/developer-reference/chat-api-best-practice).
+   * Before you begin:
+   * - Use the latest version of the Alibaba Cloud or DAS SDK.
+   * - When calling DAS by using the SDK, set the region to cn-shanghai.
+   * - Only database instances with DAS Enterprise Edition activated support creating batch tasks. For databases and regions supported by each DAS Enterprise Edition version, see [DAS editions and supported features](https://help.aliyun.com/document_detail/156204.html).
+   * For more methods and examples of interacting with DAS Agent by using the Chat API, see [Best practices for DAS Agent interaction (integrating Chat API)](https://www.alibabacloud.com/help/en/das/developer-reference/chat-api-best-practice).
    * 
    * @param request - ChatRequest
    * @returns ChatResponse
@@ -1448,12 +1448,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the configurations of the auto scaling feature for an instance.
+   * Invokes the DescribeAutoScalingConfig operation to query the elastic scaling feature configuration of an instance.
    * 
    * @remarks
-   * Before you call this operation, take note of the following items:
-   * - If you use an Alibaba Cloud SDK or a Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
-   * - If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
+   * Before you begin:
+   * - Use the latest version of the Alibaba Cloud or DAS SDK.
+   * - When calling DAS by using the SDK, set the region to cn-shanghai.
    * 
    * @param request - DescribeAutoScalingConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1484,12 +1484,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the configurations of the auto scaling feature for an instance.
+   * Invokes the DescribeAutoScalingConfig operation to query the elastic scaling feature configuration of an instance.
    * 
    * @remarks
-   * Before you call this operation, take note of the following items:
-   * - If you use an Alibaba Cloud SDK or a Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
-   * - If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
+   * Before you begin:
+   * - Use the latest version of the Alibaba Cloud or DAS SDK.
+   * - When calling DAS by using the SDK, set the region to cn-shanghai.
    * 
    * @param request - DescribeAutoScalingConfigRequest
    * @returns DescribeAutoScalingConfigResponse
@@ -4206,13 +4206,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the diagnosis of network connectivity when a user accesses a specific database instance by specifying an IP address.
+   * Retrieves the network connectivity diagnosis result from a user-specified IP address to a specified database instance.
    * 
    * @remarks
-   * Before you call this operation, take note of the following items:
-   * *   If you use an Alibaba Cloud SDK or Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
-   * *   If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
-   * *   The database instance that you want to manage is connected to DAS.
+   * Before you begin:
+   * - Use the latest version of Alibaba Cloud SDK or DAS SDK.
+   * - When calling DAS by using the SDK, set the region to cn-shanghai.
+   * - The database instance is connected to DAS.
    * 
    * @param request - GetDBInstanceConnectivityDiagnosisRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4247,13 +4247,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the diagnosis of network connectivity when a user accesses a specific database instance by specifying an IP address.
+   * Retrieves the network connectivity diagnosis result from a user-specified IP address to a specified database instance.
    * 
    * @remarks
-   * Before you call this operation, take note of the following items:
-   * *   If you use an Alibaba Cloud SDK or Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
-   * *   If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
-   * *   The database instance that you want to manage is connected to DAS.
+   * Before you begin:
+   * - Use the latest version of Alibaba Cloud SDK or DAS SDK.
+   * - When calling DAS by using the SDK, set the region to cn-shanghai.
+   * - The database instance is connected to DAS.
    * 
    * @param request - GetDBInstanceConnectivityDiagnosisRequest
    * @returns GetDBInstanceConnectivityDiagnosisResponse
@@ -7232,15 +7232,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries optimization suggestions that are generated by the SQL diagnostics feature of Database Autonomy Service (DAS).
+   * Queries the diagnostic suggestions generated by the DAS automatic SQL optimization feature.
    * 
    * @remarks
-   * The SQL diagnostics feature provides optimization suggestions for instances based on diagnostics results. You can use the optimization suggestions to optimize instance indexes. For more information, see [Automatic SQL optimization](https://help.aliyun.com/document_detail/167895.html).
-   * > Returns only optimization suggestions that the SQL diagnostics feature automatically generates.
-   * Before you call this operation, take note of the following items:
-   * - This operation is applicable to ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters.
-   * - If you use an Alibaba Cloud SDK or DAS SDK to call this operation, we recommend that you use the latest version of the SDK.
-   * - If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
+   * The SQL diagnostics feature provides instance diagnosis suggestions. You can use the suggestions to optimize instance indexes. For details, see [Automatic SQL optimization](https://help.aliyun.com/document_detail/167895.html).
+   * > You can invoke this operation only to query diagnostic suggestions generated by the DAS automatic SQL optimization feature.
+   * Before you begin:
+   * - The database DPI engine is RDS MySQL or PolarDB for MySQL.
+   * - If you use the China site (aliyun.com) or DAS SDK, use the latest version.
+   * - When you invoke DAS by using the SDK, set the region to cn-shanghai.
    * 
    * @param request - GetSqlOptimizeAdviceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7291,15 +7291,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries optimization suggestions that are generated by the SQL diagnostics feature of Database Autonomy Service (DAS).
+   * Queries the diagnostic suggestions generated by the DAS automatic SQL optimization feature.
    * 
    * @remarks
-   * The SQL diagnostics feature provides optimization suggestions for instances based on diagnostics results. You can use the optimization suggestions to optimize instance indexes. For more information, see [Automatic SQL optimization](https://help.aliyun.com/document_detail/167895.html).
-   * > Returns only optimization suggestions that the SQL diagnostics feature automatically generates.
-   * Before you call this operation, take note of the following items:
-   * - This operation is applicable to ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters.
-   * - If you use an Alibaba Cloud SDK or DAS SDK to call this operation, we recommend that you use the latest version of the SDK.
-   * - If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
+   * The SQL diagnostics feature provides instance diagnosis suggestions. You can use the suggestions to optimize instance indexes. For details, see [Automatic SQL optimization](https://help.aliyun.com/document_detail/167895.html).
+   * > You can invoke this operation only to query diagnostic suggestions generated by the DAS automatic SQL optimization feature.
+   * Before you begin:
+   * - The database DPI engine is RDS MySQL or PolarDB for MySQL.
+   * - If you use the China site (aliyun.com) or DAS SDK, use the latest version.
+   * - When you invoke DAS by using the SDK, set the region to cn-shanghai.
    * 
    * @param request - GetSqlOptimizeAdviceRequest
    * @returns GetSqlOptimizeAdviceResponse
@@ -7493,13 +7493,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Terminates all sessions on an instance.
+   * Calls the KillInstanceAllSession operation to terminate all sessions on a specified instance.
    * 
    * @remarks
-   * - This operation is applicable only to ApsaraDB for Redis.
-   * - If you use Alibaba Cloud SDK, make sure that the aliyun-sdk-core version is later than V4.3.3. We recommend that you use the latest version.
-   * - The version of your Database Autonomy Service (DAS) SDK must be V1.0.2 or later.
-   * - If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
+   * - This operation is applicable only to the Redis engine.
+   * - When using the Alibaba Cloud SDK, ensure that the version of aliyun-sdk-core is later than 4.3.3. Use the latest version.
+   * - The version of the DAS SDK must be 1.0.2 or later.
+   * - When calling DAS by using the SDK, set the region to cn-shanghai.
    * 
    * @param request - KillInstanceAllSessionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7534,13 +7534,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Terminates all sessions on an instance.
+   * Calls the KillInstanceAllSession operation to terminate all sessions on a specified instance.
    * 
    * @remarks
-   * - This operation is applicable only to ApsaraDB for Redis.
-   * - If you use Alibaba Cloud SDK, make sure that the aliyun-sdk-core version is later than V4.3.3. We recommend that you use the latest version.
-   * - The version of your Database Autonomy Service (DAS) SDK must be V1.0.2 or later.
-   * - If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
+   * - This operation is applicable only to the Redis engine.
+   * - When using the Alibaba Cloud SDK, ensure that the version of aliyun-sdk-core is later than 4.3.3. Use the latest version.
+   * - The version of the DAS SDK must be 1.0.2 or later.
+   * - When calling DAS by using the SDK, set the region to cn-shanghai.
    * 
    * @param request - KillInstanceAllSessionRequest
    * @returns KillInstanceAllSessionResponse
@@ -8129,16 +8129,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Asynchronously configures parameters related to the automatic SQL throttling feature for multiple database instances at a time.
+   * Calls the UpdateAutoThrottleRulesAsync operation to asynchronously configure automatic SQL throttling parameters for specified database instances in batches.
    * 
    * @remarks
-   * > Asynchronous calls do not immediately return the complete results. To obtain the complete results, you must use the value of **ResultId** returned in the response to re-initiate the call until the value of **isFinish** is **true**.\\*\\*\\*\\* In this case, you must call this operation at least twice.
-   * Before you call this operation, take note of the following items:
-   * - If you use an SDK to call API operations of Database Autonomy Service (DAS), you must set the region ID to cn-shanghai.
-   * - The autonomy service must be enabled for the database instance that you want to manage. For more information, see [Autonomy center](https://help.aliyun.com/document_detail/152139.html).
-   * - The database instance that you want to manage must be of one of the following types:
-   *   - ApsaraDB RDS for MySQL High-availability Edition or Enterprise Edition that runs MySQL 5.6, MySQL 5.7, or MySQL 8.0
-   *   - PolarDB for MySQL Cluster Edition that runs MySQL 5.6, MySQL 5.7, or MySQL 8.0
+   * > An asynchronous call does not immediately return complete results. First, call this operation to obtain the **ResultId**. Then, use the returned **ResultId** to initiate the call again until **isFinish** is **true**, at which point the complete results are returned. This means that you must call this operation at least twice to obtain complete data.
+   * Before you begin:
+   * - When using the SDK to call DAS, specify the region as cn-shanghai.
+   * - The autonomy service is enabled for the target database instance. For more information, see [Autonomy center](https://help.aliyun.com/document_detail/152139.html).
+   * - The target database instance is one of the following:
+   *     - ApsaraDB RDS for MySQL 5.6, 5.7, or 8.0 high-availability series or RDS Enterprise Edition.
+   *     - PolarDB for MySQL 5.6 Cluster Edition, 5.7 Cluster Edition, or 8.0 Cluster Edition.
    * 
    * @param request - UpdateAutoThrottleRulesAsyncRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8209,16 +8209,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Asynchronously configures parameters related to the automatic SQL throttling feature for multiple database instances at a time.
+   * Calls the UpdateAutoThrottleRulesAsync operation to asynchronously configure automatic SQL throttling parameters for specified database instances in batches.
    * 
    * @remarks
-   * > Asynchronous calls do not immediately return the complete results. To obtain the complete results, you must use the value of **ResultId** returned in the response to re-initiate the call until the value of **isFinish** is **true**.\\*\\*\\*\\* In this case, you must call this operation at least twice.
-   * Before you call this operation, take note of the following items:
-   * - If you use an SDK to call API operations of Database Autonomy Service (DAS), you must set the region ID to cn-shanghai.
-   * - The autonomy service must be enabled for the database instance that you want to manage. For more information, see [Autonomy center](https://help.aliyun.com/document_detail/152139.html).
-   * - The database instance that you want to manage must be of one of the following types:
-   *   - ApsaraDB RDS for MySQL High-availability Edition or Enterprise Edition that runs MySQL 5.6, MySQL 5.7, or MySQL 8.0
-   *   - PolarDB for MySQL Cluster Edition that runs MySQL 5.6, MySQL 5.7, or MySQL 8.0
+   * > An asynchronous call does not immediately return complete results. First, call this operation to obtain the **ResultId**. Then, use the returned **ResultId** to initiate the call again until **isFinish** is **true**, at which point the complete results are returned. This means that you must call this operation at least twice to obtain complete data.
+   * Before you begin:
+   * - When using the SDK to call DAS, specify the region as cn-shanghai.
+   * - The autonomy service is enabled for the target database instance. For more information, see [Autonomy center](https://help.aliyun.com/document_detail/152139.html).
+   * - The target database instance is one of the following:
+   *     - ApsaraDB RDS for MySQL 5.6, 5.7, or 8.0 high-availability series or RDS Enterprise Edition.
+   *     - PolarDB for MySQL 5.6 Cluster Edition, 5.7 Cluster Edition, or 8.0 Cluster Edition.
    * 
    * @param request - UpdateAutoThrottleRulesAsyncRequest
    * @returns UpdateAutoThrottleRulesAsyncResponse

@@ -7,7 +7,7 @@ export class DescribeSqlLogConfigResponseBodyData extends $dara.Model {
    * @remarks
    * Indicates whether cold data storage is enabled. Valid values:
    * - **true**: Enabled.
-   * - **false**: Disabled.
+   * - **false**: Not enabled.
    * 
    * @example
    * true
@@ -32,25 +32,28 @@ export class DescribeSqlLogConfigResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The collector version. Valid values:
-   * 
    * - **MYSQL_V0**: MySQL V0.
    * - **MYSQL_V1**: MySQL V1.
    * - **MYSQL_V2**: MySQL V2.
    * - **MYSQL_V3**: MySQL V3.
    * - **PG_V1**: PostgreSQL V1.
-   * - **rdspg_v1**: ApsaraDB RDS for PostgreSQL V1.
+   * - **rdspg_v1**: RDS PostgreSQL V1.
    * - **polarpg_v1**: PolarDB for PostgreSQL V1.
    * 
    * @example
    * MYSQL_V3
    */
   collectorVersion?: string;
+  /**
+   * @remarks
+   * Indicates whether SQL Explorer is enabled. This parameter is an alias of SqlLogEnable.
+   */
   enable?: boolean;
   /**
    * @remarks
    * Indicates whether hot data storage is enabled. Valid values:
    * - **true**: Enabled.
-   * - **false**: Disabled.
+   * - **false**: Not enabled.
    * 
    * @example
    * true
@@ -84,7 +87,7 @@ export class DescribeSqlLogConfigResponseBodyData extends $dara.Model {
    * @remarks
    * Indicates whether SQL Explorer is enabled. Valid values:
    * - **true**: Enabled.
-   * - **false**: Disabled.
+   * - **false**: Not enabled.
    * 
    * @example
    * true
@@ -118,7 +121,7 @@ export class DescribeSqlLogConfigResponseBodyData extends $dara.Model {
    * @remarks
    * Indicates whether DAS Enterprise Edition is enabled. Valid values:
    * - **true**: Enabled.
-   * - **false**: Disabled.
+   * - **false**: Not enabled.
    * 
    * @example
    * true
@@ -160,10 +163,14 @@ export class DescribeSqlLogConfigResponseBodyData extends $dara.Model {
    * None
    */
   supportMigration?: boolean;
+  /**
+   * @remarks
+   * Indicates whether the engine and region of the current instance support security audit activation. This field only indicates product capability and does not indicate that security audit is already enabled.
+   */
   supportSecurityAudit?: boolean;
   /**
    * @remarks
-   * The latest DAS Enterprise Edition version supported by the instance. Valid values:
+   * The latest DAS Enterprise Edition version supported by the current instance. Valid values:
    * - **SQL_LOG_V0**: Enterprise Edition V0.
    * - **SQL_LOG_V1**: Enterprise Edition V1.
    * - **SQL_LOG_V2**: Enterprise Edition V2.
@@ -267,7 +274,7 @@ export class DescribeSqlLogConfigResponseBody extends $dara.Model {
   /**
    * @remarks
    * The returned message.
-   * >If the request is successful, **Successful** is returned. If the request fails, an error message that contains information such as an error code is returned.
+   * >If the request is successful, **Successful** is returned. If the request fails, an error message is returned, such as an error code.
    * 
    * @example
    * Successful

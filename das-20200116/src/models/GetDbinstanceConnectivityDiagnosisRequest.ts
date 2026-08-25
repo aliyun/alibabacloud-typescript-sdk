@@ -20,7 +20,7 @@ export class GetDBInstanceConnectivityDiagnosisRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 47.110.180.62
+   * 47.100.XX.XX
    */
   srcIp?: string;
   static names(): { [key: string]: string } {
