@@ -35,6 +35,7 @@ export { GetAppInstanceGroupResponseBodyAppInstanceGroupModelsNodePool } from '.
 export { GetAppInstanceGroupResponseBodyAppInstanceGroupModelsOtaInfo } from './GetAppInstanceGroupResponseBody';
 export { GetAppInstanceGroupResponseBodyAppInstanceGroupModelsTags } from './GetAppInstanceGroupResponseBody';
 export { GetAppInstanceGroupResponseBodyAppInstanceGroupModels } from './GetAppInstanceGroupResponseBody';
+export { GetFileUploadInfoResponseBodyData } from './GetFileUploadInfoResponseBody';
 export { GetModelProviderTemplateResponseBodyData } from './GetModelProviderTemplateResponseBody';
 export { GetResourcePriceResponseBodyPriceListPricePromotions } from './GetResourcePriceResponseBody';
 export { GetResourcePriceResponseBodyPriceListPrice } from './GetResourcePriceResponseBody';
@@ -217,6 +218,9 @@ export { GetConnectionTicketResponse } from './GetConnectionTicketResponse';
 export { GetDebugAppInstanceRequest } from './GetDebugAppInstanceRequest';
 export { GetDebugAppInstanceResponseBody } from './GetDebugAppInstanceResponseBody';
 export { GetDebugAppInstanceResponse } from './GetDebugAppInstanceResponse';
+export { GetFileUploadInfoRequest } from './GetFileUploadInfoRequest';
+export { GetFileUploadInfoResponseBody } from './GetFileUploadInfoResponseBody';
+export { GetFileUploadInfoResponse } from './GetFileUploadInfoResponse';
 export { GetModelProviderTemplateRequest } from './GetModelProviderTemplateRequest';
 export { GetModelProviderTemplateResponseBody } from './GetModelProviderTemplateResponseBody';
 export { GetModelProviderTemplateResponse } from './GetModelProviderTemplateResponse';

@@ -1831,6 +1831,54 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves file upload information.
+   * 
+   * @remarks
+   * Visitor information is filled in on the lead capture page when visitors execute a cloud flow. Therefore, the usage mode of cloud applications does not generate visitor information.
+   * 
+   * @param request - GetFileUploadInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetFileUploadInfoResponse
+   */
+  async getFileUploadInfoWithOptions(request: $_model.GetFileUploadInfoRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetFileUploadInfoResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.fileType)) {
+      query["FileType"] = request.fileType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetFileUploadInfo",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetFileUploadInfoResponse>(await this.callApi(params, req, runtime), new $_model.GetFileUploadInfoResponse({}));
+  }
+
+  /**
+   * Retrieves file upload information.
+   * 
+   * @remarks
+   * Visitor information is filled in on the lead capture page when visitors execute a cloud flow. Therefore, the usage mode of cloud applications does not generate visitor information.
+   * 
+   * @param request - GetFileUploadInfoRequest
+   * @returns GetFileUploadInfoResponse
+   */
+  async getFileUploadInfo(request: $_model.GetFileUploadInfoRequest): Promise<$_model.GetFileUploadInfoResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getFileUploadInfoWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the details of a model provider template.
    * 
    * @remarks
