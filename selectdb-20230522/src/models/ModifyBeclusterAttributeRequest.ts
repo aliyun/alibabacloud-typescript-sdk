@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyBEClusterAttributeRequest extends $dara.Model {
   /**
    * @remarks
-   * Cluster ID.
+   * The cluster ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ModifyBEClusterAttributeRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * Instance ID.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -25,8 +25,7 @@ export class ModifyBEClusterAttributeRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * Attribute type to modify.
-   * Set to DBInstanceDescription.
+   * The type of the attribute to modify. Set this parameter to DBInstanceDescription.
    * 
    * This parameter is required.
    * 
@@ -36,7 +35,7 @@ export class ModifyBEClusterAttributeRequest extends $dara.Model {
   instanceAttributeType?: string;
   /**
    * @remarks
-   * Region ID.
+   * The region ID.
    * 
    * This parameter is required.
    * 
@@ -47,7 +46,7 @@ export class ModifyBEClusterAttributeRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * Target cluster name.
+   * The new cluster name.
    * 
    * This parameter is required.
    * 

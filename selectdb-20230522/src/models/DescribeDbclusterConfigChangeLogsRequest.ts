@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDBClusterConfigChangeLogsRequest extends $dara.Model {
   /**
    * @remarks
-   * The configuration file that was modified. The value is \\`be.conf\\` for a compute cluster and \\`fe.conf\\` for an FE cluster.
+   * The configuration file that was modified. For compute clusters, this value is fixed as be.conf. For FE clusters, this value is fixed as fe.conf.
    * 
    * @example
    * be.conf
@@ -33,7 +33,7 @@ export class DescribeDBClusterConfigChangeLogsRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The end time to query change logs. The format is \\`yyyy-MM-dd HH:mm:ss\\`.
+   * The end time for querying change records. Format: yyyy-MM-dd HH:mm:ss.
    * 
    * This parameter is required.
    * 
@@ -53,7 +53,7 @@ export class DescribeDBClusterConfigChangeLogsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The start time to query change logs. The format is \\`yyyy-MM-dd HH:mm:ss\\`.
+   * The start time for querying change records. Format: yyyy-MM-dd HH:mm:ss.
    * 
    * This parameter is required.
    * 

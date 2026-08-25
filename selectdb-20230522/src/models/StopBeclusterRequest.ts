@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class StopBEClusterRequest extends $dara.Model {
   /**
    * @remarks
-   * Cluster ID.
+   * The cluster ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class StopBEClusterRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * Instance ID.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class StopBEClusterRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * Region ID.
+   * The region ID.
    * 
    * This parameter is required.
    * 

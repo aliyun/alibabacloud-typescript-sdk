@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAllDBInstanceClassResponseBodyClassCodeList extends $dara.Model {
   /**
    * @remarks
-   * Type code.
+   * The specification code.
    * 
    * @example
    * selectdb.xlarge
@@ -13,7 +13,7 @@ export class DescribeAllDBInstanceClassResponseBodyClassCodeList extends $dara.M
   classCode?: string;
   /**
    * @remarks
-   * Number of CPU cores.
+   * The number of CPU cores.
    * 
    * @example
    * 4
@@ -21,7 +21,7 @@ export class DescribeAllDBInstanceClassResponseBodyClassCodeList extends $dara.M
   cpuCores?: number;
   /**
    * @remarks
-   * Default cache.
+   * The default cache size.
    * 
    * @example
    * 200
@@ -29,7 +29,7 @@ export class DescribeAllDBInstanceClassResponseBodyClassCodeList extends $dara.M
   defaultStorageInGB?: number;
   /**
    * @remarks
-   * Maximum cache.
+   * The maximum cache size.
    * 
    * @example
    * 2000
@@ -37,7 +37,7 @@ export class DescribeAllDBInstanceClassResponseBodyClassCodeList extends $dara.M
   maxStorageInGB?: number;
   /**
    * @remarks
-   * Memory.
+   * The memory size.
    * 
    * @example
    * 16
@@ -45,7 +45,7 @@ export class DescribeAllDBInstanceClassResponseBodyClassCodeList extends $dara.M
   memoryInGB?: number;
   /**
    * @remarks
-   * Minimum cache.
+   * The minimum cache size.
    * 
    * @example
    * 100
@@ -53,7 +53,7 @@ export class DescribeAllDBInstanceClassResponseBodyClassCodeList extends $dara.M
   minStorageInGB?: number;
   /**
    * @remarks
-   * Cache increment.
+   * The cache step size.
    * 
    * @example
    * 100
@@ -95,12 +95,12 @@ export class DescribeAllDBInstanceClassResponseBodyClassCodeList extends $dara.M
 export class DescribeAllDBInstanceClassResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Instance type list.
+   * The list of instance specifications.
    */
   classCodeList?: DescribeAllDBInstanceClassResponseBodyClassCodeList[];
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 4773E4EC-025D-509F-AEA9-D53123FDFB0F

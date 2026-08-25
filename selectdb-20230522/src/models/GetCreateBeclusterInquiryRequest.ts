@@ -13,7 +13,7 @@ export class GetCreateBEClusterInquiryRequest extends $dara.Model {
   cacheSize?: number;
   /**
    * @remarks
-   * The billing method.
+   * The billing type.
    * 
    * This parameter is required.
    * 
@@ -31,7 +31,7 @@ export class GetCreateBEClusterInquiryRequest extends $dara.Model {
   commodityCode?: string;
   /**
    * @remarks
-   * The elastic computing resources.
+   * The elastic compute resources.
    * 
    * @example
    * 4
@@ -57,7 +57,7 @@ export class GetCreateBEClusterInquiryRequest extends $dara.Model {
   preCacheSize?: number;
   /**
    * @remarks
-   * The reserved computing resources.
+   * The reserved compute resources.
    * 
    * @example
    * 4

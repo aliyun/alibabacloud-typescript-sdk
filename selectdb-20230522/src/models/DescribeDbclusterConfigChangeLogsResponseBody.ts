@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDBClusterConfigChangeLogsResponseBodyDataParamChangeLogs extends $dara.Model {
   /**
    * @remarks
-   * The time when the task was created. The time is in GMT.
+   * The task creation time (GMT).
    * 
    * @example
    * 2022-10-11T08:53:32Z
@@ -13,7 +13,7 @@ export class DescribeDBClusterConfigChangeLogsResponseBodyDataParamChangeLogs ex
   gmtCreated?: string;
   /**
    * @remarks
-   * The time when the task was last modified. The time is in GMT.
+   * The task modification time (GMT).
    * 
    * @example
    * 2024-03-08T10:08Z
@@ -53,7 +53,7 @@ export class DescribeDBClusterConfigChangeLogsResponseBodyDataParamChangeLogs ex
   newValue?: string;
   /**
    * @remarks
-   * The original parameter value.
+   * The old parameter value.
    * 
    * @example
    * 10
@@ -119,7 +119,7 @@ export class DescribeDBClusterConfigChangeLogsResponseBodyData extends $dara.Mod
   dbInstanceName?: string;
   /**
    * @remarks
-   * The parameter change logs.
+   * The parameter change records.
    */
   paramChangeLogs?: DescribeDBClusterConfigChangeLogsResponseBodyDataParamChangeLogs[];
   /**
@@ -178,7 +178,7 @@ export class DescribeDBClusterConfigChangeLogsResponseBody extends $dara.Model {
   data?: DescribeDBClusterConfigChangeLogsResponseBodyData;
   /**
    * @remarks
-   * The dynamic code. This parameter is not used. Ignore this parameter.
+   * The dynamic code. This parameter is not in use. Ignore this parameter.
    * 
    * @example
    * 0
@@ -186,7 +186,7 @@ export class DescribeDBClusterConfigChangeLogsResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * The dynamic message. This parameter is not used. Ignore this parameter.
+   * The dynamic message. This parameter is not in use. Ignore this parameter.
    * 
    * @example
    * An error occurred while processing your request.

@@ -55,12 +55,12 @@ export class DescribeVSwitchesResponseBodyItems extends $dara.Model {
 export class DescribeVSwitchesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of results.
+   * The result list.
    */
   items?: DescribeVSwitchesResponseBodyItems[];
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries per page for a paged query.
    * 
    * @example
    * 10
@@ -68,7 +68,7 @@ export class DescribeVSwitchesResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that is used to start the next query. If this parameter is empty, all results have been returned.
+   * The token for the next query. An empty value of NextToken indicates that no more results exist.
    * 
    * @example
    * 459a0909c0315bfbe0b5e8707e68181f
@@ -84,7 +84,7 @@ export class DescribeVSwitchesResponseBody extends $dara.Model {
   pageNumber?: string;
   /**
    * @remarks
-   * The number of entries on the current page.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -92,7 +92,7 @@ export class DescribeVSwitchesResponseBody extends $dara.Model {
   pageSize?: string;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * 4773E4EC-025D-509F-AEA9-D53123FDFB0F

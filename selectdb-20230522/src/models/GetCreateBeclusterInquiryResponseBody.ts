@@ -15,12 +15,12 @@ export class GetCreateBEClusterInquiryResponseBodyDataOptionalPromotions extends
   optionCode?: string;
   /**
    * @example
-   * 通用优惠券可抵扣100
+   * General coupon with a deduction of 100
    */
   promotionDesc?: string;
   /**
    * @example
-   * 通用优惠券
+   * General coupon
    */
   promotionName?: string;
   /**
@@ -70,7 +70,7 @@ export class GetCreateBEClusterInquiryResponseBodyData extends $dara.Model {
   pricingRules?: { [key: string]: string };
   /**
    * @remarks
-   * The amount.
+   * The trade amount.
    * 
    * @example
    * 1.76
@@ -112,7 +112,7 @@ export class GetCreateBEClusterInquiryResponseBodyData extends $dara.Model {
 export class GetCreateBEClusterInquiryResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned data.
+   * The response data.
    */
   data?: GetCreateBEClusterInquiryResponseBodyData;
   /**

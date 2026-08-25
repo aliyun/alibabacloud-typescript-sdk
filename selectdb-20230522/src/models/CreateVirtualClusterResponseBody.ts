@@ -45,12 +45,12 @@ export class CreateVirtualClusterResponseBodyData extends $dara.Model {
 export class CreateVirtualClusterResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned data.
+   * The response data.
    */
   data?: CreateVirtualClusterResponseBodyData;
   /**
    * @remarks
-   * The ID of the request.
+   * Id of the request
    * 
    * @example
    * 5ED62C81-9948-5612-81E1-EA3853752306

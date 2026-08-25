@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyDBClusterRequest extends $dara.Model {
   /**
    * @remarks
-   * The size of the reserved cache.
+   * The reserved cache size.
    * 
    * @example
    * 200
@@ -15,20 +15,14 @@ export class ModifyDBClusterRequest extends $dara.Model {
   clusterNodeType?: string;
   /**
    * @remarks
-   * The instance class of the cluster. Valid values:
+   * The cluster specifications. Valid values:
    * 
    * - **selectdb.xlarge**: 4 cores, 32 GB memory.
-   * 
    * - **selectdb.2xlarge**: 8 cores, 64 GB memory.
-   * 
    * - **selectdb.4xlarge**: 16 cores, 128 GB memory.
-   * 
    * - **selectdb.8xlarge**: 32 cores, 256 GB memory.
-   * 
    * - **selectdb.16xlarge**: 16 cores, 512 GB memory.
-   * 
    * - **selectdb.24xlarge**: 24 cores, 768 GB memory.
-   * 
    * - **selectdb.32xlarge**: 32 cores, 1024 GB memory.
    * 
    * This parameter is required.
@@ -59,7 +53,7 @@ export class ModifyDBClusterRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The database type. The value is fixed to selectdb.
+   * The database type. Set the value to selectdb.
    * 
    * @example
    * selectdb

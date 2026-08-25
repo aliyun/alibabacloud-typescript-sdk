@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyDBClusterConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * Configuration file to modify. For compute clusters, it is fixed as be.conf. For fe clusters, it is fixed as fe.conf.
+   * The configuration file to modify. Set this parameter to be.conf for compute clusters or fe.conf for FE clusters.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ModifyDBClusterConfigRequest extends $dara.Model {
   configKey?: string;
   /**
    * @remarks
-   * Cluster ID.
+   * The cluster ID.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class ModifyDBClusterConfigRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * Instance ID.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -35,7 +35,7 @@ export class ModifyDBClusterConfigRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * Whether to operate cluster nodes in parallel
+   * Specifies whether to perform operations on cluster nodes in parallel.
    * 
    * @example
    * false
@@ -43,7 +43,7 @@ export class ModifyDBClusterConfigRequest extends $dara.Model {
   parallelOperation?: boolean;
   /**
    * @remarks
-   * JSON string of parameters and parameter values.
+   * The JSON string of parameters and parameter values.
    * 
    * This parameter is required.
    * 
@@ -53,7 +53,7 @@ export class ModifyDBClusterConfigRequest extends $dara.Model {
   parameters?: string;
   /**
    * @remarks
-   * Region ID.
+   * The region ID.
    * 
    * @example
    * cn-hangzhou
@@ -61,7 +61,7 @@ export class ModifyDBClusterConfigRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * Upgrade method. If not specified, the upgrade will be performed immediately. If set to 1, the upgrade will be performed during the maintenance window.
+   * The upgrade mode. If this parameter is not specified, the upgrade takes effect immediately. Set this parameter to 1 to perform the upgrade during the maintenance window.
    * 
    * @example
    * 1

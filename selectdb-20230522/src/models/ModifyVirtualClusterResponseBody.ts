@@ -50,7 +50,7 @@ export class ModifyVirtualClusterResponseBody extends $dara.Model {
   data?: ModifyVirtualClusterResponseBodyData;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * 06758CAB-1204-5852-A471-29C87D5C1D0F

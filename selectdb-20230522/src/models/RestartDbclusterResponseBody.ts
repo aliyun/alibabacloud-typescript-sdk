@@ -13,7 +13,7 @@ export class RestartDBClusterResponseBodyData extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * @example
    * selectdb-cn-7213cjv****
@@ -45,7 +45,7 @@ export class RestartDBClusterResponseBodyData extends $dara.Model {
 export class RestartDBClusterResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned information.
+   * The response data.
    */
   data?: RestartDBClusterResponseBodyData;
   /**

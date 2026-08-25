@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyDBClusterConfigResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Cluster ID.
+   * The cluster ID.
    * 
    * @example
    * selectdb-cn-7213c8*****
@@ -13,7 +13,7 @@ export class ModifyDBClusterConfigResponseBodyData extends $dara.Model {
   dbClusterId?: string;
   /**
    * @remarks
-   * Instance numeric ID.
+   * The numeric ID of the instance.
    * 
    * @example
    * 6585
@@ -21,7 +21,7 @@ export class ModifyDBClusterConfigResponseBodyData extends $dara.Model {
   dbInstanceId?: string;
   /**
    * @remarks
-   * Instance ID.
+   * The instance ID.
    * 
    * @example
    * selectdb-cn-7213c8*****
@@ -29,7 +29,7 @@ export class ModifyDBClusterConfigResponseBodyData extends $dara.Model {
   dbInstanceName?: string;
   /**
    * @remarks
-   * Task ID
+   * The task ID.
    * 
    * @example
    * 107878719
@@ -65,7 +65,7 @@ export class ModifyDBClusterConfigResponseBodyData extends $dara.Model {
 export class ModifyDBClusterConfigResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Access denied details.
+   * The details about the access denial.
    * 
    * @example
    * failed
@@ -73,12 +73,12 @@ export class ModifyDBClusterConfigResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Return data.
+   * The returned data.
    */
   data?: ModifyDBClusterConfigResponseBodyData;
   /**
    * @remarks
-   * Dynamic code, currently not in use, please ignore.
+   * The dynamic code. This parameter is not in use. Ignore this parameter.
    * 
    * @example
    * 0
@@ -86,7 +86,7 @@ export class ModifyDBClusterConfigResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * Dynamic message, currently not in use, please ignore.
+   * The dynamic message. This parameter is not in use. Ignore this parameter.
    * 
    * @example
    * An error occurred while processing your request.
@@ -94,7 +94,7 @@ export class ModifyDBClusterConfigResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * BC854513-E85E-54F3-9842-B9CCD3308CDD

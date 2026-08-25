@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyVirtualClusterRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the primary cluster.
+   * The primary cluster ID.
    * 
    * @example
    * selectdb-o2yg***-be
@@ -43,7 +43,7 @@ export class ModifyVirtualClusterRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the standby cluster.
+   * The secondary cluster ID.
    * 
    * @example
    * selectdb-pu6y****-be

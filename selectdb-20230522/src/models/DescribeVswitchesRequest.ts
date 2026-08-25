@@ -5,8 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeVSwitchesRequest extends $dara.Model {
   /**
    * @remarks
-   * The number of entries to return on each page.
-   * >Warning: This is a reserved parameter and is not supported.
+   * The number of entries per page for a paged query.
+   * >Warning: This is a reserved parameter and is not supported.</warning>
    * 
    * @example
    * 20
@@ -14,8 +14,8 @@ export class DescribeVSwitchesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that is used to start the next query.
-   * >Warning: This is a reserved parameter and is not supported.
+   * The token for the next query.
+   * >Warning: This is a reserved parameter and is not supported.</warning>
    * 
    * @example
    * 4ea98363565e4951e0b5e8707e68181f
@@ -23,7 +23,7 @@ export class DescribeVSwitchesRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The page number to return.
+   * The page number.
    * 
    * @example
    * 1
@@ -31,7 +31,7 @@ export class DescribeVSwitchesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The number of entries per page.
    * 
    * @example
    * 10
