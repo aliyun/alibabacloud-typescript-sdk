@@ -11,6 +11,7 @@ export { CreatePolicyBindingsRequestPolicyBindingListAdvancedOptionsOssDetail } 
 export { CreatePolicyBindingsRequestPolicyBindingListAdvancedOptionsUdmDetail } from './CreatePolicyBindingsRequest';
 export { CreatePolicyBindingsRequestPolicyBindingListAdvancedOptions } from './CreatePolicyBindingsRequest';
 export { CreatePolicyBindingsRequestPolicyBindingList } from './CreatePolicyBindingsRequest';
+export { CreatePolicyV2RequestRulesDataSourceFiltersAccounts } from './CreatePolicyV2request';
 export { CreatePolicyV2RequestRulesDataSourceFilters } from './CreatePolicyV2request';
 export { CreatePolicyV2RequestRulesRetentionRules } from './CreatePolicyV2request';
 export { CreatePolicyV2RequestRulesTagFilters } from './CreatePolicyV2request';
@@ -65,6 +66,8 @@ export { DescribeHanaRestoresResponseBodyHanaRestoreHanaRestores } from './Descr
 export { DescribeHanaRestoresResponseBodyHanaRestore } from './DescribeHanaRestoresResponseBody';
 export { DescribeOtsTableSnapshotsRequestOtsInstances } from './DescribeOtsTableSnapshotsRequest';
 export { DescribeOtsTableSnapshotsResponseBodySnapshots } from './DescribeOtsTableSnapshotsResponseBody';
+export { DescribePoliciesV2RequestAccounts } from './DescribePoliciesV2request';
+export { DescribePoliciesV2ResponseBodyPoliciesRulesDataSourceFiltersAccounts } from './DescribePoliciesV2responseBody';
 export { DescribePoliciesV2ResponseBodyPoliciesRulesDataSourceFilters } from './DescribePoliciesV2responseBody';
 export { DescribePoliciesV2ResponseBodyPoliciesRulesRetentionRules } from './DescribePoliciesV2responseBody';
 export { DescribePoliciesV2ResponseBodyPoliciesRulesTagFilters } from './DescribePoliciesV2responseBody';
@@ -115,11 +118,13 @@ export { UpdatePolicyBindingRequestAdvancedOptionsCommonFileSystemDetail } from 
 export { UpdatePolicyBindingRequestAdvancedOptionsOssDetail } from './UpdatePolicyBindingRequest';
 export { UpdatePolicyBindingRequestAdvancedOptionsUdmDetail } from './UpdatePolicyBindingRequest';
 export { UpdatePolicyBindingRequestAdvancedOptions } from './UpdatePolicyBindingRequest';
+export { UpdatePolicyV2RequestRulesDataSourceFiltersAccounts } from './UpdatePolicyV2request';
 export { UpdatePolicyV2RequestRulesDataSourceFilters } from './UpdatePolicyV2request';
 export { UpdatePolicyV2RequestRulesRetentionRules } from './UpdatePolicyV2request';
 export { UpdatePolicyV2RequestRulesTagFilters } from './UpdatePolicyV2request';
 export { UpdatePolicyV2RequestRules } from './UpdatePolicyV2request';
 export { UpgradeBackupClientsResponseBodyInstanceStatuses } from './UpgradeBackupClientsResponseBody';
+export { CrossAccountUser } from './CrossAccountUser';
 export { OtsDetail } from './OtsDetail';
 export { OtsTableRestoreDetail } from './OtsTableRestoreDetail';
 export { Report } from './Report';
@@ -293,6 +298,7 @@ export { DescribeOtsTableSnapshotsRequest } from './DescribeOtsTableSnapshotsReq
 export { DescribeOtsTableSnapshotsResponseBody } from './DescribeOtsTableSnapshotsResponseBody';
 export { DescribeOtsTableSnapshotsResponse } from './DescribeOtsTableSnapshotsResponse';
 export { DescribePoliciesV2Request } from './DescribePoliciesV2request';
+export { DescribePoliciesV2ShrinkRequest } from './DescribePoliciesV2shrinkRequest';
 export { DescribePoliciesV2ResponseBody } from './DescribePoliciesV2responseBody';
 export { DescribePoliciesV2Response } from './DescribePoliciesV2response';
 export { DescribePolicyBindingsRequest } from './DescribePolicyBindingsRequest';

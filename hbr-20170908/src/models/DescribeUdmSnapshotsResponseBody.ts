@@ -29,7 +29,7 @@ export class DescribeUdmSnapshotsResponseBodySnapshotsDetail extends $dara.Model
   diskCategory?: string;
   /**
    * @remarks
-   * The name of the disk.
+   * The name of the disk device.
    * 
    * @example
    * /dev/xvdb
@@ -37,7 +37,7 @@ export class DescribeUdmSnapshotsResponseBodySnapshotsDetail extends $dara.Model
   diskDevName?: string;
   /**
    * @remarks
-   * The mapping between the device and the recovery point ID.
+   * The mapping between devices and backup point IDs.
    * 
    * @example
    * {
@@ -48,7 +48,7 @@ export class DescribeUdmSnapshotsResponseBodySnapshotsDetail extends $dara.Model
   diskHbrSnapshotIdWithDeviceMap?: { [key: string]: any };
   /**
    * @remarks
-   * The IDs of the disks that are backed up at the recovery point.
+   * The list of disk IDs that are included in the backup point.
    */
   diskIdList?: string[];
   /**
@@ -69,7 +69,7 @@ export class DescribeUdmSnapshotsResponseBodySnapshotsDetail extends $dara.Model
   hostName?: string;
   /**
    * @remarks
-   * The mapping between the instance ID and the disk ID.
+   * The mapping between instance IDs and disk IDs.
    * 
    * @example
    * {
@@ -88,7 +88,7 @@ export class DescribeUdmSnapshotsResponseBodySnapshotsDetail extends $dara.Model
   instanceName?: string;
   /**
    * @remarks
-   * The specifications of the source instance.
+   * The instance type of the source instance.
    * 
    * @example
    * ecs.c6.xlarge
@@ -96,7 +96,7 @@ export class DescribeUdmSnapshotsResponseBodySnapshotsDetail extends $dara.Model
   instanceType?: string;
   /**
    * @remarks
-   * Indicates whether the backup is created by the instant clone feature.
+   * Indicates whether the backup is created for the instant clone feature.
    * 
    * @example
    * false
@@ -104,7 +104,7 @@ export class DescribeUdmSnapshotsResponseBodySnapshotsDetail extends $dara.Model
   instantAccess?: boolean;
   /**
    * @remarks
-   * The list of snapshot IDs, corresponding to DiskIdList.
+   * The list of native snapshot IDs. The native snapshot IDs in this list have a one-to-one correspondence with the disk IDs in the DiskIdList.
    */
   nativeSnapshotIdList?: string[];
   /**
@@ -133,7 +133,7 @@ export class DescribeUdmSnapshotsResponseBodySnapshotsDetail extends $dara.Model
   osNameEn?: string;
   /**
    * @remarks
-   * The type of the operating system. Valid values: linux and windows.
+   * The type of the operating system. Valid values: linux, windows.
    * 
    * @example
    * windows
@@ -149,7 +149,7 @@ export class DescribeUdmSnapshotsResponseBodySnapshotsDetail extends $dara.Model
   performanceLevel?: string;
   /**
    * @remarks
-   * The system platform.
+   * The operating system.
    * 
    * @example
    * CentOS
@@ -257,7 +257,7 @@ export class DescribeUdmSnapshotsResponseBodySnapshotsDetail extends $dara.Model
 export class DescribeUdmSnapshotsResponseBodySnapshots extends $dara.Model {
   /**
    * @remarks
-   * The size of the backup snapshot. Unit: bytes.
+   * The actual size of the snapshot. Unit: bytes.
    * 
    * @example
    * 600
@@ -265,22 +265,45 @@ export class DescribeUdmSnapshotsResponseBodySnapshots extends $dara.Model {
   actualBytes?: string;
   /**
    * @remarks
-   * The special retention type, which is valid only for special backups. Valid values:
+   * The special retention type. This parameter is valid only for special retention backups. Valid values:
    * 
-   * *   **WEEKLY**: weekly backups
-   * *   **MONTHLY**: monthly backups
-   * *   **YEARLY**: yearly backups
+   * - **WEEKLY**: weekly special retention backup
+   * 
+   * - **MONTHLY**: monthly special retention backup
+   * 
+   * - **YEARLY**: yearly special retention backup
    * 
    * @example
    * WEEKLY
    */
   advancedRetentionType?: string;
+  /**
+   * @remarks
+   * The error message that is returned if the archiving fails.
+   * 
+   * @example
+   * InternalError
+   */
   archiveErrorMessage?: string;
+  /**
+   * @remarks
+   * The archiving status.
+   * 
+   * @example
+   * ARCHIVED
+   */
   archiveStatus?: string;
+  /**
+   * @remarks
+   * The time when the archiving was triggered.
+   * 
+   * @example
+   * 1763373304
+   */
   archiveTriggerTime?: number;
   /**
    * @remarks
-   * The backup type. Valid value: **COMPLETE**, which indicates full backup.
+   * The backup type. The value **COMPLETE** indicates a full backup.
    * 
    * @example
    * COMPLETE
@@ -288,7 +311,7 @@ export class DescribeUdmSnapshotsResponseBodySnapshots extends $dara.Model {
   backupType?: string;
   /**
    * @remarks
-   * The total amount of data. Unit: bytes.
+   * The total size of the data source. Unit: bytes.
    * 
    * @example
    * 1000
@@ -296,7 +319,7 @@ export class DescribeUdmSnapshotsResponseBodySnapshots extends $dara.Model {
   bytesTotal?: number;
   /**
    * @remarks
-   * Indicates whether the disk backup point can be deleted. This parameter is valid only if the value of SourceType is UDM_ECS_DISK.
+   * Indicates whether the disk backup point can be deleted. This parameter is valid only if **SourceType** is set to **UDM_ECS_DISK**.
    * 
    * @example
    * false
@@ -307,7 +330,7 @@ export class DescribeUdmSnapshotsResponseBodySnapshots extends $dara.Model {
   canBeDeleted?: boolean;
   /**
    * @remarks
-   * The time when the backup snapshot was completed. The value is a UNIX timestamp. Unit: seconds.
+   * The time when the backup snapshot was completed. This value is a UNIX timestamp in seconds.
    * 
    * @example
    * 1646895666
@@ -323,7 +346,7 @@ export class DescribeUdmSnapshotsResponseBodySnapshots extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * The time when the backup snapshot was created. The value is a UNIX timestamp. Unit: seconds.
+   * The time when the backup snapshot was created. This value is a UNIX timestamp in seconds.
    * 
    * @example
    * 1642496679
@@ -331,12 +354,12 @@ export class DescribeUdmSnapshotsResponseBodySnapshots extends $dara.Model {
   createdTime?: number;
   /**
    * @remarks
-   * The snapshot details.
+   * The details of the snapshot.
    */
   detail?: DescribeUdmSnapshotsResponseBodySnapshotsDetail;
   /**
    * @remarks
-   * The ID of the cloud disk or local disk.
+   * The ID of the disk. The disk can be a cloud disk or a local disk.
    * 
    * @example
    * d-2ze86h5fga5rfwxxa8ef
@@ -344,7 +367,7 @@ export class DescribeUdmSnapshotsResponseBodySnapshots extends $dara.Model {
   diskId?: string;
   /**
    * @remarks
-   * The expiration time of the backup.
+   * The time when the backup expires.
    * 
    * @example
    * 1640334062
@@ -368,7 +391,7 @@ export class DescribeUdmSnapshotsResponseBodySnapshots extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * The ID of the backup snapshot.
+   * The ID of the native snapshot.
    * 
    * @example
    * s-00047mg17p26x*****b
@@ -376,7 +399,7 @@ export class DescribeUdmSnapshotsResponseBodySnapshots extends $dara.Model {
   nativeSnapshotId?: string;
   /**
    * @remarks
-   * The snapshot information.
+   * The information about the native snapshot.
    * 
    * @example
    * {
@@ -410,7 +433,7 @@ export class DescribeUdmSnapshotsResponseBodySnapshots extends $dara.Model {
   nativeSnapshotInfo?: string;
   /**
    * @remarks
-   * The hash value of the parent backup snapshot.
+   * The hash value of the parent snapshot.
    * 
    * @example
    * f2fe..
@@ -418,7 +441,7 @@ export class DescribeUdmSnapshotsResponseBodySnapshots extends $dara.Model {
   parentSnapshotHash?: string;
   /**
    * @remarks
-   * The prefix of the backup snapshot.
+   * The prefix of the snapshot.
    * 
    * @example
    * example/
@@ -426,7 +449,7 @@ export class DescribeUdmSnapshotsResponseBodySnapshots extends $dara.Model {
   prefix?: string;
   /**
    * @remarks
-   * The timestamp of the backup snapshot. The value is a UNIX timestamp. Unit: seconds.
+   * The timestamp of the snapshot. This value is a UNIX timestamp in seconds.
    * 
    * @example
    * 1642496679
@@ -434,7 +457,7 @@ export class DescribeUdmSnapshotsResponseBodySnapshots extends $dara.Model {
   realSnapshotTime?: number;
   /**
    * @remarks
-   * The retention period of the backup snapshot. Unit: days.
+   * The retention period of the snapshot in days.
    * 
    * @example
    * 7
@@ -442,7 +465,7 @@ export class DescribeUdmSnapshotsResponseBodySnapshots extends $dara.Model {
   retention?: number;
   /**
    * @remarks
-   * The hash value of the backup snapshot.
+   * The hash value of the snapshot.
    * 
    * @example
    * f2fe...
@@ -460,9 +483,11 @@ export class DescribeUdmSnapshotsResponseBodySnapshots extends $dara.Model {
    * @remarks
    * The type of the data source. Valid values:
    * 
-   * *   **UDM_ECS**: ECS instance backup
-   * *   **UDM_ECS_DISK**: disk backup subtask of ECS instance backup
-   * *   **UDM_DISK**: disk backup
+   * - **UDM_ECS**: ECS instance backup
+   * 
+   * - **UDM_ECS_DISK**: a disk backup subtask of an ECS instance backup
+   * 
+   * - **UDM_DISK**: disk backup
    * 
    * @example
    * UDM_ECS
@@ -470,7 +495,7 @@ export class DescribeUdmSnapshotsResponseBodySnapshots extends $dara.Model {
   sourceType?: string;
   /**
    * @remarks
-   * The time when the backup snapshot was created. The value is a UNIX timestamp. Unit: seconds.
+   * The time when the snapshot was started. This value is a UNIX timestamp in seconds.
    * 
    * @example
    * 1554347313
@@ -478,11 +503,13 @@ export class DescribeUdmSnapshotsResponseBodySnapshots extends $dara.Model {
   startTime?: number;
   /**
    * @remarks
-   * The status of the backup job. Valid values:
+   * The status of the backup snapshot. Valid values:
    * 
-   * *   **COMPLETE**: The backup job is completed.
-   * *   **PARTIAL_COMPLETE**: The backup job is partially completed.
-   * *   **FAILED**: The backup job has failed.
+   * - **COMPLETE**: The backup is successful.
+   * 
+   * - **PARTIAL_COMPLETE**: The backup is partially successful.
+   * 
+   * - **FAILED**: The backup failed.
    * 
    * @example
    * COMPLETE
@@ -490,7 +517,7 @@ export class DescribeUdmSnapshotsResponseBodySnapshots extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The time when the backup snapshot was updated. The value is a UNIX timestamp. Unit: seconds.
+   * The time when the backup snapshot was updated. This value is a UNIX timestamp in seconds.
    * 
    * @example
    * 1642496679
@@ -577,7 +604,7 @@ export class DescribeUdmSnapshotsResponseBodySnapshots extends $dara.Model {
 export class DescribeUdmSnapshotsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code. The status code 200 indicates that the call is successful.
+   * The HTTP status code. A value of 200 indicates that the request was successful.
    * 
    * @example
    * 200
@@ -585,7 +612,7 @@ export class DescribeUdmSnapshotsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The message that is returned. If the call is successful, "successful" is returned. If the call fails, an error message is returned.
+   * The message that is returned. If the request was successful, **successful** is returned. If the request failed, an error message is returned.
    * 
    * @example
    * successful
@@ -593,7 +620,7 @@ export class DescribeUdmSnapshotsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 51CDEECB-7001-51CC-94AC-2A0F2A4B71D2
@@ -601,15 +628,16 @@ export class DescribeUdmSnapshotsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The details about snapshots.
+   * The details of the snapshots.
    */
   snapshots?: DescribeUdmSnapshotsResponseBodySnapshots[];
   /**
    * @remarks
-   * Indicates whether the call is successful. Valid values:
+   * Indicates whether the request was successful.
    * 
-   * *   true: The call is successful.
-   * *   false: The call fails.
+   * - true: The request was successful.
+   * 
+   * - false: The request failed.
    * 
    * @example
    * true
@@ -617,7 +645,7 @@ export class DescribeUdmSnapshotsResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The total number of backup snapshots.
+   * The total number of snapshots.
    * 
    * @example
    * 3

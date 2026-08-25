@@ -3,7 +3,18 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeBackupClientsRequestFilters extends $dara.Model {
+  /**
+   * @remarks
+   * The key of the query filter.
+   * 
+   * @example
+   * InstanceId
+   */
   key?: string;
+  /**
+   * @remarks
+   * The values to match in the query filter.
+   */
   values?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -36,9 +47,9 @@ export class DescribeBackupClientsRequestTag extends $dara.Model {
    * @remarks
    * The tag key of the backup vault. Valid values of N: 1 to 20.
    * 
-   * *   The tag key cannot start with `aliyun` or `acs:`.
-   * *   The tag key cannot contain `http://` or `https://`.
-   * *   The tag key cannot be an empty string.
+   * - The tag key cannot start with `aliyun` or `acs:`. 
+   * - The tag key cannot contain `http://` or `https://`.
+   * - The tag key cannot be an empty string.
    * 
    * @example
    * TestKey
@@ -48,9 +59,9 @@ export class DescribeBackupClientsRequestTag extends $dara.Model {
    * @remarks
    * The tag value of the backup vault. Valid values of N: 1 to 20.
    * 
-   * *   The tag value cannot start with `aliyun` or `acs:`.
-   * *   The tag value cannot contain `http://` or `https://`.
-   * *   The tag value cannot be an empty string.
+   * - The tag value cannot start with `aliyun` or `acs:`. 
+   * - The tag value cannot contain `http://` or `https://`.
+   * - The tag value cannot be an empty string.
    * 
    * @example
    * TestValue
@@ -82,7 +93,7 @@ export class DescribeBackupClientsRequestTag extends $dara.Model {
 export class DescribeBackupClientsRequest extends $dara.Model {
   /**
    * @remarks
-   * The IDs of HBR clients.
+   * The list of backup client IDs.
    * 
    * @example
    * ["c-*********************"]
@@ -90,10 +101,10 @@ export class DescribeBackupClientsRequest extends $dara.Model {
   clientIds?: string[];
   /**
    * @remarks
-   * The type of the HBR client. Valid values:
-   * 
-   * *   **ECS_CLIENT**: HBR client for Elastic Compute Service (ECS) file backup
-   * *   **CONTAINER_CLIENT**: HBR client for container backup
+   * The type of the backup client. Valid values:
+   * - **ECS_CLIENT**: ECS File Backup client.
+   * - **CONTAINER_CLIENT**: container backup client.
+   * - **LOCAL_CLIENT**: local NAS backup, CPFS backup, archive, or data synchronization client.
    * 
    * This parameter is required.
    * 
@@ -103,7 +114,7 @@ export class DescribeBackupClientsRequest extends $dara.Model {
   clientType?: string;
   /**
    * @remarks
-   * The ID of the cluster for the backup.
+   * The ID of the backup cluster.
    * 
    * @example
    * cl-000ge4wa61b4d337xblq
@@ -111,7 +122,7 @@ export class DescribeBackupClientsRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The name of the RAM role that is created within the source Alibaba Cloud account and assigned to the current Alibaba Cloud account to authorize the current Alibaba Cloud account to back up data across Alibaba Cloud accounts.
+   * The name of the RAM role created in the source account for cross-account backup.
    * 
    * @example
    * hbrcrossrole
@@ -119,10 +130,9 @@ export class DescribeBackupClientsRequest extends $dara.Model {
   crossAccountRoleName?: string;
   /**
    * @remarks
-   * Specifies whether data is backed up within the same Alibaba Cloud account or across Alibaba Cloud accounts. Valid values:
-   * 
-   * *   SELF_ACCOUNT: Data is backed up within the same Alibaba Cloud account.
-   * *   CROSS_ACCOUNT: Data is backed up across Alibaba Cloud accounts.
+   * The type of cross-account backup. Valid values: 
+   * - SELF_ACCOUNT: backup within the current account. 
+   * - CROSS_ACCOUNT: cross-account backup.
    * 
    * @example
    * CROSS_ACCOUNT
@@ -130,16 +140,20 @@ export class DescribeBackupClientsRequest extends $dara.Model {
   crossAccountType?: string;
   /**
    * @remarks
-   * The ID of the source Alibaba Cloud account that authorizes the current Alibaba Cloud account to back up data across Alibaba Cloud accounts.
+   * The ID of the source account used for cross-account backup.
    * 
    * @example
    * 129374672382xxxx
    */
   crossAccountUserId?: number;
+  /**
+   * @remarks
+   * The query filters.
+   */
   filters?: DescribeBackupClientsRequestFilters[];
   /**
    * @remarks
-   * The IDs of ECS instances.
+   * The list of ECS instance IDs.
    * 
    * @example
    * ["i-*********************"]
@@ -147,7 +161,7 @@ export class DescribeBackupClientsRequest extends $dara.Model {
   instanceIds?: string[];
   /**
    * @remarks
-   * The page number. Pages start from page 1. Default value: 1.
+   * The page number. Pages start from 1. Default value: 1.
    * 
    * @example
    * 1
@@ -155,7 +169,7 @@ export class DescribeBackupClientsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Valid values: 1 to 99. Default value: 10.
+   * The number of entries per page. Minimum value: 1. Maximum value: 99. Default value: 10.
    * 
    * @example
    * 10
@@ -163,7 +177,7 @@ export class DescribeBackupClientsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The tags.
+   * The tag information to return.
    * 
    * @example
    * 33738719#

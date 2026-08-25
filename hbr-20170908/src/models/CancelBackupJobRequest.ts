@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class CancelBackupJobRequest extends $dara.Model {
   /**
+   * @remarks
+   * The edition type. Valid values are BASIC and STANDARD. The default value is STANDARD.
+   * 
    * @example
    * STANDARD
    */
@@ -20,7 +23,7 @@ export class CancelBackupJobRequest extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * The ID of the backup vault.
+   * The ID of the backup repository.
    * 
    * @example
    * v-*****************************

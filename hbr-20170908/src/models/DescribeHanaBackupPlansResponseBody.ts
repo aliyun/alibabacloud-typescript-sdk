@@ -81,7 +81,7 @@ export class DescribeHanaBackupPlansResponseBodyHanaBackupPlans extends $dara.Mo
 export class DescribeHanaBackupPlansResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code. The status code 200 indicates that the request was successful.
+   * The return code. A value of 200 indicates that the request was successful.
    * 
    * @example
    * 200
@@ -90,7 +90,7 @@ export class DescribeHanaBackupPlansResponseBody extends $dara.Model {
   hanaBackupPlans?: DescribeHanaBackupPlansResponseBodyHanaBackupPlans;
   /**
    * @remarks
-   * The returned message. If the request was successful, "successful" is returned. If the request failed, an error message is returned.
+   * The message that is returned. If the request was successful, "successful" is returned. If the request failed, an error message is returned.
    * 
    * @example
    * successful
@@ -98,7 +98,7 @@ export class DescribeHanaBackupPlansResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The page number. Pages start from page 1. Default value: 1.
+   * The page number. The value must be a number that starts from 1. Default value: 1.
    * 
    * @example
    * 1
@@ -122,10 +122,11 @@ export class DescribeHanaBackupPlansResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the request was successful.
    * 
-   * *   true
-   * *   false
+   * - true: The request was successful.
+   * 
+   * - false: The request failed.
    * 
    * @example
    * true
@@ -133,7 +134,7 @@ export class DescribeHanaBackupPlansResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of records.
    * 
    * @example
    * 6

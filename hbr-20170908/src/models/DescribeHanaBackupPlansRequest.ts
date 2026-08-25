@@ -15,7 +15,7 @@ export class DescribeHanaBackupPlansRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The database name.
+   * The name of the database.
    * 
    * @example
    * SYSTEMDB
@@ -23,7 +23,7 @@ export class DescribeHanaBackupPlansRequest extends $dara.Model {
   databaseName?: string;
   /**
    * @remarks
-   * The page number. Pages start from page 1. Default value: 1.
+   * The page number. The value must be a number that starts from 1. Default value: 1.
    * 
    * @example
    * 1

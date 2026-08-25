@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class CreatePolicyBindingsShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The data sources that you want to bind to the backup policy.
+   * The list of policy bindings.
    */
   policyBindingListShrink?: string;
   /**
    * @remarks
-   * The ID of the backup policy.
+   * The policy ID.
    * 
    * @example
    * po-000************8ep

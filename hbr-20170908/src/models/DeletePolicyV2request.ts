@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeletePolicyV2Request extends $dara.Model {
   /**
    * @remarks
-   * The ID of the backup policy.
+   * The policy ID.
    * 
    * @example
    * po-000************2l6

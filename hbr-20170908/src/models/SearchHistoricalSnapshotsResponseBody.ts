@@ -207,7 +207,7 @@ export class SearchHistoricalSnapshotsResponseBodySnapshots extends $dara.Model 
 export class SearchHistoricalSnapshotsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code. The status code 200 indicates that the call is successful.
+   * The return code. A value of 200 indicates that the request was successful.
    * 
    * @example
    * 200
@@ -215,7 +215,7 @@ export class SearchHistoricalSnapshotsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The number of historical backup snapshots that are displayed on the current page.
+   * The number of historical snapshots displayed on the current page.
    * 
    * @example
    * 10
@@ -223,7 +223,7 @@ export class SearchHistoricalSnapshotsResponseBody extends $dara.Model {
   limit?: number;
   /**
    * @remarks
-   * The message that is returned. If the call is successful, "successful" is returned. If the call fails, an error message is returned.
+   * The returned message. If the request is successful, \\`successful\\` is returned. If the request fails, an error message is returned.
    * 
    * @example
    * successful
@@ -231,7 +231,7 @@ export class SearchHistoricalSnapshotsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The token that is required to obtain the next page of backup snapshots.
+   * The token that is required to obtain the next page of snapshots.
    * 
    * @example
    * BE
@@ -239,7 +239,7 @@ export class SearchHistoricalSnapshotsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
@@ -248,10 +248,11 @@ export class SearchHistoricalSnapshotsResponseBody extends $dara.Model {
   snapshots?: SearchHistoricalSnapshotsResponseBodySnapshots;
   /**
    * @remarks
-   * Indicates whether the call is successful. Valid values:
+   * Indicates whether the request was successful.
    * 
-   * *   true: The call is successful.
-   * *   false: The call fails.
+   * - true: The request was successful.
+   * 
+   * - false: The request failed.
    * 
    * @example
    * true
@@ -259,7 +260,7 @@ export class SearchHistoricalSnapshotsResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The total number of returned backup snapshots that meet the specified conditions.
+   * The total number of snapshots that meet the specified criteria.
    * 
    * @example
    * 20

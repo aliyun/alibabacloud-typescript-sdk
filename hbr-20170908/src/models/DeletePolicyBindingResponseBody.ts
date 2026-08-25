@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeletePolicyBindingResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code. The status code 200 indicates that the call is successful.
+   * The return code. A value of 200 indicates success.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class DeletePolicyBindingResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The message that is returned. If the call is successful, "successful" is returned. If the call fails, an error message is returned.
+   * The returned message. The value "successful" is returned for a successful request. An error message is returned for a failed request.
    * 
    * @example
    * successful
@@ -21,7 +21,7 @@ export class DeletePolicyBindingResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 3E961A5E-C5C6-566D-BFC3-0362A6A52EBA
@@ -29,10 +29,10 @@ export class DeletePolicyBindingResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call is successful. Valid values:
+   * Indicates whether the request was successful.
    * 
-   * *   true: The call is successful.
-   * *   false: The call fails.
+   * - true: Successful.
+   * - false: Failed.
    * 
    * @example
    * true

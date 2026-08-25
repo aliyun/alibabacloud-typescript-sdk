@@ -4,21 +4,37 @@ import * as $dara from '@darabonba/typescript';
 
 export class AddCrossAccountResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The return code. A value of 200 indicates success.
+   * 
    * @example
    * 200
    */
   code?: string;
   /**
+   * @remarks
+   * The message returned. If the call is successful, \\`successful\\` is returned. If the call fails, an error message is returned.
+   * 
    * @example
    * successful
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * - true: The request was successful.
+   * 
+   * - false: The request failed.
+   * 
    * @example
    * true
    */

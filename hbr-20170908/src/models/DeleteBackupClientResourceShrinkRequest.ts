@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteBackupClientResourceShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The IDs of HBR clients. The value can be a JSON array that consists of up to 100 client IDs. Separate the IDs with commas (,).
+   * A list of client IDs. The list can contain up to 100 client IDs.
    * 
    * This parameter is required.
    * 
    * @example
-   * ["c-0007kyu045r0********", "c-000b6818umvo********"]
+   * ["c-*********************"]
    */
   clientIdsShrink?: string;
   static names(): { [key: string]: string } {

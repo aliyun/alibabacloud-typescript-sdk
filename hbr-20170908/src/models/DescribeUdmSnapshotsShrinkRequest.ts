@@ -13,7 +13,7 @@ export class DescribeUdmSnapshotsShrinkRequest extends $dara.Model {
   diskId?: string;
   /**
    * @remarks
-   * The end of the time range to query. The value must be a UNIX timestamp. Unit: seconds.
+   * The end of the time range to query. This value is a UNIX timestamp in seconds.
    * 
    * This parameter is required.
    * 
@@ -39,7 +39,7 @@ export class DescribeUdmSnapshotsShrinkRequest extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * The list of backup snapshots.
+   * The list of snapshot IDs.
    * 
    * @example
    * [\\"s-000e3vhhu62xsm6v92r0\\"]
@@ -49,9 +49,11 @@ export class DescribeUdmSnapshotsShrinkRequest extends $dara.Model {
    * @remarks
    * The type of the data source. Valid values:
    * 
-   * *   **UDM_ECS**: ECS instance backup
-   * *   **UDM_ECS_DISK**: disk backup subtask of ECS instance backup
-   * *   **UDM_DISK**: disk backup
+   * - **UDM_ECS**: ECS instance backup
+   * 
+   * - **UDM_ECS_DISK**: a disk backup subtask of an ECS instance backup
+   * 
+   * - **UDM_DISK**: disk backup
    * 
    * This parameter is required.
    * 
@@ -61,7 +63,7 @@ export class DescribeUdmSnapshotsShrinkRequest extends $dara.Model {
   sourceType?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. The value must be a UNIX timestamp. Unit: seconds.
+   * The beginning of the time range to query. This value is a UNIX timestamp in seconds.
    * 
    * This parameter is required.
    * 
@@ -71,7 +73,7 @@ export class DescribeUdmSnapshotsShrinkRequest extends $dara.Model {
   startTime?: number;
   /**
    * @remarks
-   * The ID of the region where the ECS instance resides.
+   * The region ID of the ECS instance.
    * 
    * This parameter is required.
    * 

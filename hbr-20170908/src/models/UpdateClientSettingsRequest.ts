@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateClientSettingsRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to generate alert for partially completed jobs. This parameter is valid only for on-premises file backup and ECS file backup.
+   * Specifies whether to trigger an alert for partially completed jobs. This parameter takes effect only for local File Backup and ECS File Backup Essential Edition.
    * 
    * @example
    * false
@@ -13,7 +13,7 @@ export class UpdateClientSettingsRequest extends $dara.Model {
   alertOnPartialComplete?: boolean;
   /**
    * @remarks
-   * The ID of the HBR client.
+   * The backup client ID.
    * 
    * This parameter is required.
    * 
@@ -23,11 +23,10 @@ export class UpdateClientSettingsRequest extends $dara.Model {
   clientId?: string;
   /**
    * @remarks
-   * The type of the endpoint on the data plane. Valid values:
-   * 
-   * *   **PUBLIC**: Internet
-   * *   **VPC**: virtual private cloud (VPC)
-   * *   **CLASSIC**: classic network
+   * The data plane access point type. Valid values:
+   * * **PUBLIC**: public network
+   * * **VPC**: VPC network
+   * * **CLASSIC**: classic network
    * 
    * @example
    * VPC
@@ -35,11 +34,10 @@ export class UpdateClientSettingsRequest extends $dara.Model {
   dataNetworkType?: string;
   /**
    * @remarks
-   * The proxy configuration on the data plane. Valid values:
-   * 
-   * *   **DISABLE**: The proxy is not used.
-   * *   **USE_CONTROL_PROXY** (default): The configuration is the same as that on the control plane.
-   * *   **CUSTOM**: The configuration is customized (HTTP).
+   * The data plane proxy setting. Valid values:
+   * * **DISABLE**: does not use a proxy.
+   * * **USE_CONTROL_PROXY** (default): uses the same configuration as the control plane.
+   * * **CUSTOM**: uses a custom configuration (HTTP protocol).
    * 
    * @example
    * USE_CONTROL_PROXY
@@ -47,7 +45,7 @@ export class UpdateClientSettingsRequest extends $dara.Model {
   dataProxySetting?: string;
   /**
    * @remarks
-   * The number of CPU cores used by a single backup job. The value 0 indicates that the number is unlimited.
+   * The number of CPU cores used by a single backup job. A value of 0 indicates no limit.
    * 
    * @example
    * 1
@@ -55,7 +53,7 @@ export class UpdateClientSettingsRequest extends $dara.Model {
   maxCpuCore?: number;
   /**
    * @remarks
-   * The maximum memory that can be used by the client. Unit: bytes. Only V2.13.0 and later are supported.
+   * The maximum memory that the client can use, in bytes. Only version 2.13.0 and later are supported.
    * 
    * @example
    * 4096
@@ -63,7 +61,7 @@ export class UpdateClientSettingsRequest extends $dara.Model {
   maxMemory?: number;
   /**
    * @remarks
-   * The number of concurrent backup jobs. The value 0 indicates that the number is unlimited.
+   * The number of concurrent workers for a single backup job. A value of 0 indicates no limit.
    * 
    * @example
    * 1
@@ -71,7 +69,7 @@ export class UpdateClientSettingsRequest extends $dara.Model {
   maxWorker?: number;
   /**
    * @remarks
-   * The custom host IP address of the proxy server on the data plane.
+   * The IP address of the custom data plane proxy server host.
    * 
    * @example
    * 192.168.11.100
@@ -79,7 +77,7 @@ export class UpdateClientSettingsRequest extends $dara.Model {
   proxyHost?: string;
   /**
    * @remarks
-   * The custom password of the proxy server on the data plane.
+   * The password of the custom data plane proxy server.
    * 
    * @example
    * ******
@@ -87,7 +85,7 @@ export class UpdateClientSettingsRequest extends $dara.Model {
   proxyPassword?: string;
   /**
    * @remarks
-   * The custom host port of the proxy server on the data plane.
+   * The port of the custom data plane proxy server host.
    * 
    * @example
    * 3128
@@ -95,7 +93,7 @@ export class UpdateClientSettingsRequest extends $dara.Model {
   proxyPort?: number;
   /**
    * @remarks
-   * The custom username of the proxy server on the data plane.
+   * The username of the custom data plane proxy server.
    * 
    * @example
    * user
@@ -103,7 +101,7 @@ export class UpdateClientSettingsRequest extends $dara.Model {
   proxyUser?: string;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The resource group ID.
    * 
    * @example
    * rg-*********************
@@ -111,10 +109,10 @@ export class UpdateClientSettingsRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * Specifies whether to transmit the data on the data plane over HTTPS. Valid values:
+   * Specifies whether to use HTTPS to transmit data plane data.
    * 
-   * *   true: Data is transmitted over HTTPS.
-   * *   false: Data is transmitted over HTTP.
+   * - true: Uses HTTPS for transmission.
+   * - false: Uses HTTP for transmission.
    * 
    * @example
    * false
@@ -122,7 +120,7 @@ export class UpdateClientSettingsRequest extends $dara.Model {
   useHttps?: boolean;
   /**
    * @remarks
-   * The ID of the backup vault. This parameter is required for the old HBR client.
+   * The backup vault ID. This parameter is required for legacy clients.
    * 
    * @example
    * v-*********************

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteBackupClientResourceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code. The status code 200 indicates that the call is successful.
+   * The return code. A value of 200 indicates success.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class DeleteBackupClientResourceResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The message that is returned. If the call is successful, "successful" is returned. If the call fails, an error message is returned.
+   * The returned message. If the request is successful, \\`successful\\` is returned. If the request fails, an error message is returned.
    * 
    * @example
    * successful
@@ -21,7 +21,7 @@ export class DeleteBackupClientResourceResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
@@ -29,10 +29,11 @@ export class DeleteBackupClientResourceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call is successful. Valid values:
+   * Indicates whether the request was successful.
    * 
-   * *   true: The call is successful.
-   * *   false: The call fails.
+   * - true: The request was successful.
+   * 
+   * - false: The request failed.
    * 
    * @example
    * true

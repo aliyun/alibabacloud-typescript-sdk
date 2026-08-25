@@ -2,20 +2,53 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class DescribePoliciesV2ResponseBodyPoliciesRulesDataSourceFiltersAccounts extends $dara.Model {
+  crossAccountRoleName?: string;
+  crossAccountType?: string;
+  crossAccountUserId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      crossAccountRoleName: 'CrossAccountRoleName',
+      crossAccountType: 'CrossAccountType',
+      crossAccountUserId: 'CrossAccountUserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      crossAccountRoleName: 'string',
+      crossAccountType: 'string',
+      crossAccountUserId: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribePoliciesV2ResponseBodyPoliciesRulesDataSourceFilters extends $dara.Model {
+  accountScope?: string;
+  accounts?: DescribePoliciesV2ResponseBodyPoliciesRulesDataSourceFiltersAccounts[];
   /**
    * @remarks
    * Deprecated.
+   * 
+   * @deprecated
    */
   dataSourceIds?: string[];
   /**
    * @remarks
-   * Data source type. The value range is as follows: 
-   * - **UDM_ECS**: Indicates ECS server backup. 
-   * - **OSS**: Indicates OSS backup. 
-   * - **NAS**: Indicates Alibaba Cloud NAS backup. 
-   * - **ECS_FILE**: Indicates ECS file backup. 
-   * - **OTS**: Indicates Tablestore backup.
+   * The data source type. Valid values:
+   * - **UDM_ECS**: ECS instance backup.
+   * - **OSS**: OSS backup.
+   * - **NAS**: Alibaba Cloud NAS backup.
+   * - **ECS_FILE**: ECS File Backup Essential Edition.
+   * - **OTS**: Tablestore backup.
    * 
    * @example
    * UDM_ECS
@@ -23,6 +56,8 @@ export class DescribePoliciesV2ResponseBodyPoliciesRulesDataSourceFilters extend
   sourceType?: string;
   static names(): { [key: string]: string } {
     return {
+      accountScope: 'AccountScope',
+      accounts: 'Accounts',
       dataSourceIds: 'DataSourceIds',
       sourceType: 'SourceType',
     };
@@ -30,12 +65,17 @@ export class DescribePoliciesV2ResponseBodyPoliciesRulesDataSourceFilters extend
 
   static types(): { [key: string]: any } {
     return {
+      accountScope: 'string',
+      accounts: { 'type': 'array', 'itemType': DescribePoliciesV2ResponseBodyPoliciesRulesDataSourceFiltersAccounts },
       dataSourceIds: { 'type': 'array', 'itemType': 'string' },
       sourceType: 'string',
     };
   }
 
   validate() {
+    if(Array.isArray(this.accounts)) {
+      $dara.Model.validateArray(this.accounts);
+    }
     if(Array.isArray(this.dataSourceIds)) {
       $dara.Model.validateArray(this.dataSourceIds);
     }
@@ -51,10 +91,9 @@ export class DescribePoliciesV2ResponseBodyPoliciesRulesRetentionRules extends $
   /**
    * @remarks
    * The type of the special retention rule. Valid values:
-   * 
-   * *   **WEEKLY**: weekly backups
-   * *   **MONTHLY**: monthly backups
-   * *   **YEARLY**: yearly backups
+   * - **WEEKLY**: weekly backup.
+   * - **MONTHLY**: monthly backup.
+   * - **YEARLY**: yearly backup.
    * 
    * @example
    * YEARLY
@@ -62,7 +101,7 @@ export class DescribePoliciesV2ResponseBodyPoliciesRulesRetentionRules extends $
   advancedRetentionType?: string;
   /**
    * @remarks
-   * The special retention period of backups. Minimum value: 1. Unit: days.
+   * The special retention period of the backup. Minimum value: 1. Unit: days.
    * 
    * @example
    * 730
@@ -70,7 +109,7 @@ export class DescribePoliciesV2ResponseBodyPoliciesRulesRetentionRules extends $
   retention?: number;
   /**
    * @remarks
-   * Indicates which backup is retained based on the special retention rule. Only the first backup can be retained.
+   * The backup to which the rule applies. Currently, only the first backup is supported. The value is 1.
    * 
    * @example
    * 1
@@ -104,7 +143,7 @@ export class DescribePoliciesV2ResponseBodyPoliciesRulesRetentionRules extends $
 export class DescribePoliciesV2ResponseBodyPoliciesRulesTagFilters extends $dara.Model {
   /**
    * @remarks
-   * Tag key
+   * The tag key.
    * 
    * @example
    * env
@@ -112,7 +151,9 @@ export class DescribePoliciesV2ResponseBodyPoliciesRulesTagFilters extends $dara
   key?: string;
   /**
    * @remarks
-   * Tag matching rules, supporting: - **EQUAL**: Matches both the tag key and tag value. - **NOT**: Matches the tag key but not the tag value.
+   * The tag matching rule. Valid values:
+   * - **EQUAL**: matches both the tag key and the tag value.
+   * - **NOT**: matches the tag key but not the tag value.
    * 
    * @example
    * EQUAL
@@ -120,7 +161,7 @@ export class DescribePoliciesV2ResponseBodyPoliciesRulesTagFilters extends $dara
   operator?: string;
   /**
    * @remarks
-   * Tag value.
+   * The tag value. An empty value indicates any value.
    * 
    * @example
    * prod
@@ -154,7 +195,7 @@ export class DescribePoliciesV2ResponseBodyPoliciesRulesTagFilters extends $dara
 export class DescribePoliciesV2ResponseBodyPoliciesRules extends $dara.Model {
   /**
    * @remarks
-   * This parameter is returned only if the value of the **RuleType** parameter is **TRANSITION**. This parameter indicates the time when data is dumped from a backup vault to an archive vault. Unit: days.
+   * This parameter is required only when **RuleType** is set to **TRANSITION**. The number of days after which the backup is converted to archive storage. Unit: days.
    * 
    * @example
    * 30
@@ -162,7 +203,7 @@ export class DescribePoliciesV2ResponseBodyPoliciesRules extends $dara.Model {
   archiveDays?: number;
   /**
    * @remarks
-   * This parameter is returned only if the value of the **RuleType** parameter is **BACKUP**. This parameter indicates the backup type. Valid value: **COMPLETE**, which indicates full backup.
+   * This parameter is required only when **RuleType** is set to **BACKUP**. The backup type. The value is **COMPLETE**, which indicates a full backup.
    * 
    * @example
    * COMPLETE
@@ -170,12 +211,12 @@ export class DescribePoliciesV2ResponseBodyPoliciesRules extends $dara.Model {
   backupType?: string;
   /**
    * @remarks
-   * This parameter is required only when **RuleType** is set to **TAG**. It defines the data source filtering rule.
+   * This parameter is required only when **RuleType** is set to **TAG**. The data source filter rules.
    */
   dataSourceFilters?: DescribePoliciesV2ResponseBodyPoliciesRulesDataSourceFilters[];
   /**
    * @remarks
-   * This parameter is returned only if the **PolicyType** is **UDM_ECS_ONLY**. This parameter indicates whether the immutable backup feature is enabled.
+   * This parameter is valid only when **PolicyType** is set to **UDM_ECS_ONLY**. Specifies whether to enable backup locking.
    * 
    * @example
    * true
@@ -183,10 +224,9 @@ export class DescribePoliciesV2ResponseBodyPoliciesRules extends $dara.Model {
   immutable?: boolean;
   /**
    * @remarks
-   * Indicates whether the feature of keeping at least one backup version is enabled. Valid values:
-   * 
-   * *   **0**: The feature is disabled.
-   * *   **1**: The feature is enabled.
+   * Specifies whether to retain at least one backup version. Valid values:
+   * - **0**: Do not retain.
+   * - **1**: Retain.
    * 
    * @example
    * 1
@@ -194,7 +234,7 @@ export class DescribePoliciesV2ResponseBodyPoliciesRules extends $dara.Model {
   keepLatestSnapshots?: number;
   /**
    * @remarks
-   * This parameter is returned only if the value of the **RuleType** parameter is **REPLICATION**. This parameter indicates the ID of the destination region.
+   * This parameter is required only when **RuleType** is set to **REPLICATION**. The destination region ID for replication.
    * 
    * @example
    * cn-shanghai
@@ -202,10 +242,9 @@ export class DescribePoliciesV2ResponseBodyPoliciesRules extends $dara.Model {
   replicationRegionId?: string;
   /**
    * @remarks
-   * This parameter is returned only if the value of the **RuleType** parameter is **TRANSITION** or **REPLICATION**.
-   * 
-   * *   If the value of the **RuleType** parameter is **TRANSITION**, this parameter indicates the retention period of the backup data. Minimum value: 1. Unit: days.
-   * *   If the value of the **RuleType** parameter is **REPLICATION**, this parameter indicates the retention period of remote backups. Minimum value: 1. Unit: days.
+   * This parameter is required only when **RuleType** is set to **TRANSITION** or **REPLICATION**.
+   * - **RuleType** is set to **TRANSITION**: the retention period of the backup. Minimum value: 1. Unit: days.
+   * - **RuleType** is set to **REPLICATION**: the retention period of the geo-redundancy backup. Minimum value: 1. Unit: days.
    * 
    * @example
    * 7
@@ -213,7 +252,7 @@ export class DescribePoliciesV2ResponseBodyPoliciesRules extends $dara.Model {
   retention?: number;
   /**
    * @remarks
-   * This parameter is returned only if the value of the **RuleType** parameter is **TRANSITION**. This parameter indicates the special retention rules.
+   * This parameter is required only when **RuleType** is set to **TRANSITION**. The list of special retention rules.
    */
   retentionRules?: DescribePoliciesV2ResponseBodyPoliciesRulesRetentionRules[];
   /**
@@ -226,11 +265,10 @@ export class DescribePoliciesV2ResponseBodyPoliciesRules extends $dara.Model {
   ruleId?: string;
   /**
    * @remarks
-   * The type of the rule. Each backup policy must have at least one rule of the **BACKUP** type and only one rule of the **TRANSITION** type. Valid values:
-   * 
-   * *   **BACKUP**: backup rule
-   * *   **TRANSITION**: lifecycle rule
-   * *   **REPLICATION**: replication rule
+   * The rule type. Each policy must have at least one **BACKUP** rule and exactly one **TRANSITION** rule. Valid values:
+   * - **BACKUP**: backup rule.
+   * - **TRANSITION**: lifecycle rule.
+   * - **REPLICATION**: replication rule.
    * 
    * @example
    * BACKUP
@@ -238,10 +276,10 @@ export class DescribePoliciesV2ResponseBodyPoliciesRules extends $dara.Model {
   ruleType?: string;
   /**
    * @remarks
-   * This parameter is returned only if the value of the **RuleType** parameter is **BACKUP**. This parameter indicates the backup schedule settings. Format: `I|{startTime}|{interval}`. The system runs the first backup job at a point in time that is specified in the {startTime} parameter and the subsequent backup jobs at an interval that is specified in the {interval} parameter. The system does not run a backup job before the specified point in time. Each backup job, except the first one, starts only after the previous backup job is completed. For example, `I|1631685600|P1D` indicates that the system runs the first backup job at 14:00:00 on September 15, 2021 and the subsequent backup jobs once a day.
+   * This parameter is required only when **RuleType** is set to **BACKUP**. The backup schedule. Optional format: `I|{startTime}|{interval}`. This indicates that a backup job is executed at every {interval} starting from {startTime}. Backup jobs for past time periods are not compensated. If the previous backup job is not completed, the next backup job is not triggered. For example, `I|1631685600|P1D` indicates that a backup is performed once a day starting from 2021-09-15 14:00:00.
    * 
-   * *   startTime: the time at which the system starts to run a backup job. The time follows the UNIX time format. Unit: seconds.
-   * *   interval: the interval at which the system runs a backup job. The interval follows the ISO 8601 standard. For example, PT1H indicates an interval of 1 hour. P1D indicates an interval of one day.
+   * * startTime: the start time of the backup. UNIX timestamp, in seconds.
+   * * interval: the ISO 8601 time interval. For example, PT1H indicates an interval of one hour. P1D indicates an interval of one day.
    * 
    * @example
    * I|1648647166|P1D
@@ -249,12 +287,12 @@ export class DescribePoliciesV2ResponseBodyPoliciesRules extends $dara.Model {
   schedule?: string;
   /**
    * @remarks
-   * This parameter is required only when **RuleType** is set to **TAG**. It defines the resource tag filtering rule.
+   * This parameter is required only when **RuleType** is set to **TAG**. The resource tag filter rules.
    */
   tagFilters?: DescribePoliciesV2ResponseBodyPoliciesRulesTagFilters[];
   /**
    * @remarks
-   * This parameter is returned only if the value of the RuleType parameter is BACKUP. The ID of the backup vault.
+   * This parameter is required only when RuleType is set to BACKUP. The backup vault ID.
    * 
    * @example
    * v-000**************kgm
@@ -315,10 +353,17 @@ export class DescribePoliciesV2ResponseBodyPoliciesRules extends $dara.Model {
 }
 
 export class DescribePoliciesV2ResponseBodyPolicies extends $dara.Model {
+  /**
+   * @remarks
+   * The user business status.
+   * 
+   * @example
+   * ACTIVE
+   */
   businessStatus?: string;
   /**
    * @remarks
-   * The time when the backup policy was created. The value is a UNIX timestamp. Unit: seconds.
+   * The creation time. UNIX timestamp, in seconds.
    * 
    * @example
    * 1650248136
@@ -326,7 +371,7 @@ export class DescribePoliciesV2ResponseBodyPolicies extends $dara.Model {
   createdTime?: number;
   /**
    * @remarks
-   * The number of data sources that are bound to the backup policy.
+   * The number of data sources bound to the policy.
    * 
    * @example
    * 5
@@ -334,15 +379,15 @@ export class DescribePoliciesV2ResponseBodyPolicies extends $dara.Model {
   policyBindingCount?: number;
   /**
    * @remarks
-   * The description of the backup policy.
+   * The policy description.
    * 
    * @example
-   * Data is backed up at 10:00:00 every day and replicated to the China (Shanghai) region for geo-redundancy.
+   * Back up every day at 10:00 AM and replicate to Shanghai
    */
   policyDescription?: string;
   /**
    * @remarks
-   * The ID of the backup policy.
+   * The policy ID.
    * 
    * @example
    * po-000************bkz
@@ -350,18 +395,17 @@ export class DescribePoliciesV2ResponseBodyPolicies extends $dara.Model {
   policyId?: string;
   /**
    * @remarks
-   * The name of the backup policy.
+   * The policy name.
    * 
    * @example
-   * Daily Local Backup + Remote Backup
+   * Daily backup + geo-redundancy backup
    */
   policyName?: string;
   /**
    * @remarks
    * The policy type. Valid values:
-   * 
-   * *   **STANDARD**: the general backup policy. This type of policy applies to backups other than Elastic Compute Service (ECS) instance backup.
-   * *   **UDM_ECS_ONLY**: the ECS instance backup policy. This type of policy applies only to ECS instance backup.
+   * - **STANDARD**: general backup policy. Supports backing up data sources other than ECS instance backup.
+   * - **UDM_ECS_ONLY**: ECS instance backup policy. Supports backing up only ECS instances.
    * 
    * @example
    * STANDARD
@@ -369,12 +413,12 @@ export class DescribePoliciesV2ResponseBodyPolicies extends $dara.Model {
   policyType?: string;
   /**
    * @remarks
-   * The rules in the backup policy.
+   * The list of policy rules.
    */
   rules?: DescribePoliciesV2ResponseBodyPoliciesRules[];
   /**
    * @remarks
-   * The time when the backup policy was updated. The value is a UNIX timestamp. Unit: seconds.
+   * The update time. UNIX timestamp, in seconds.
    * 
    * @example
    * 1662080404
@@ -423,7 +467,7 @@ export class DescribePoliciesV2ResponseBodyPolicies extends $dara.Model {
 export class DescribePoliciesV2ResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code. The status code 200 indicates that the call is successful.
+   * The response code. 200 indicates success.
    * 
    * @example
    * 200
@@ -431,7 +475,7 @@ export class DescribePoliciesV2ResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The number of results for each query.
+   * The number of results per query.
    * 
    * Valid values: 10 to 100. Default value: 10.
    * 
@@ -441,7 +485,7 @@ export class DescribePoliciesV2ResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The message that is returned. If the call is successful, "successful" is returned. If the call fails, an error message is returned.
+   * The returned message. The value "successful" is returned for a successful request. An error message is returned for a failed request.
    * 
    * @example
    * successful
@@ -449,7 +493,7 @@ export class DescribePoliciesV2ResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The token that is used to obtain the next page of backup policies.
+   * The token required to retrieve the next page of policies.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a
@@ -457,12 +501,12 @@ export class DescribePoliciesV2ResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The backup policies.
+   * The list of policies.
    */
   policies?: DescribePoliciesV2ResponseBodyPolicies[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
@@ -470,10 +514,10 @@ export class DescribePoliciesV2ResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call is successful. Valid values:
+   * Indicates whether the request was successful. Valid values:
    * 
-   * *   true: The call is successful.
-   * *   false: The call fails.
+   * - true: Successful.
+   * - false: Failed.
    * 
    * @example
    * true
@@ -481,7 +525,7 @@ export class DescribePoliciesV2ResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The total number of returned entries.
+   * The total number of records.
    * 
    * @example
    * 12

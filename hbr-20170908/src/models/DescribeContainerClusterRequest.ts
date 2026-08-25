@@ -8,7 +8,7 @@ export class DescribeContainerClusterRequest extends $dara.Model {
    * The cluster ID.
    * 
    * @example
-   * cc-000*************hg9
+   * cc-000**************hg9
    */
   clusterId?: string;
   /**
@@ -16,7 +16,7 @@ export class DescribeContainerClusterRequest extends $dara.Model {
    * The identifier of the container cluster. For a Container Service for Kubernetes (ACK) cluster, specify the cluster ID.
    * 
    * @example
-   * cca*******************************87a
+   * cca***************************87a
    */
   identifier?: string;
   /**

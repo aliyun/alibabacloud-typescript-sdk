@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreatePolicyBindingsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code. The status code 200 indicates that the call is successful.
+   * The return code. A value of 200 indicates success.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class CreatePolicyBindingsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The message that is returned. If the call is successful, "successful" is returned. If the call fails, an error message is returned.
+   * The returned message. "successful" is returned on success. An error message is returned on failure.
    * 
    * @example
    * successful
@@ -21,7 +21,7 @@ export class CreatePolicyBindingsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 82CC5B6C-72F7-5D39-92F6-67887DF9AD46
@@ -29,10 +29,10 @@ export class CreatePolicyBindingsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call is successful. Valid values:
+   * Indicates whether the request was successful.
    * 
-   * *   true: The call is successful.
-   * *   false: The call fails.
+   * - true: Successful.
+   * - false: Failed.
    * 
    * @example
    * true

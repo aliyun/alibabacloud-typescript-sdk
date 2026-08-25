@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeBackupClientsResponseBodyClientsSettings extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether alerts are generated for partially completed jobs. This parameter is valid only for on-premises file backup and ECS file backup.
+   * Specifies whether to send alerts for partially completed jobs. This setting applies only to File Backup and ECS File Backup Essential Edition.
    * 
    * @example
    * false
@@ -13,11 +13,11 @@ export class DescribeBackupClientsResponseBodyClientsSettings extends $dara.Mode
   alertOnPartialComplete?: boolean;
   /**
    * @remarks
-   * The type of the endpoint on the data plane. Valid values:
+   * The type of the data plane endpoint. Valid values:
    * 
-   * *   **PUBLIC**: Internet
-   * *   **VPC**: virtual private cloud (VPC)
-   * *   **CLASSIC**: classic network
+   * - **PUBLIC**: public network.
+   * - **VPC**: VPC network.
+   * - **CLASSIC**: classic network.
    * 
    * @example
    * VPC
@@ -25,11 +25,11 @@ export class DescribeBackupClientsResponseBodyClientsSettings extends $dara.Mode
   dataNetworkType?: string;
   /**
    * @remarks
-   * The proxy configuration on the data plane. Valid values:
+   * The data plane proxy setting. Valid values:
    * 
-   * *   **DISABLE**: The proxy is not used.
-   * *   **USE_CONTROL_PROXY** (default): The configuration is the same as that on the control plane.
-   * *   **CUSTOM**: The configuration is customized (HTTP).
+   * - **DISABLE**: No proxy is used.
+   * - **USE_CONTROL_PROXY** (default): The same configuration as the control plane is used.
+   * - **CUSTOM**: A custom configuration is used (HTTP protocol).
    * 
    * @example
    * USE_CONTROL_PROXY
@@ -37,7 +37,7 @@ export class DescribeBackupClientsResponseBodyClientsSettings extends $dara.Mode
   dataProxySetting?: string;
   /**
    * @remarks
-   * The number of CPU cores used by a single backup job. The value 0 indicates that the number is unlimited.
+   * The number of CPU cores used by a single backup job. A value of 0 indicates no limit.
    * 
    * @example
    * 1
@@ -45,7 +45,7 @@ export class DescribeBackupClientsResponseBodyClientsSettings extends $dara.Mode
   maxCpuCore?: string;
   /**
    * @remarks
-   * The maximum memory that can be used by the client. Unit: bytes. Only V2.13.0 and later are supported.
+   * The maximum memory that the client can use. Unit: bytes. Only versions 2.13.0 and later are supported.
    * 
    * @example
    * 0
@@ -53,7 +53,7 @@ export class DescribeBackupClientsResponseBodyClientsSettings extends $dara.Mode
   maxMemory?: number;
   /**
    * @remarks
-   * The number of concurrent backup jobs. The value 0 indicates that the number is unlimited.
+   * The number of concurrent workers for a single backup job. A value of 0 indicates no limit.
    * 
    * @example
    * 1
@@ -61,7 +61,7 @@ export class DescribeBackupClientsResponseBodyClientsSettings extends $dara.Mode
   maxWorker?: string;
   /**
    * @remarks
-   * The custom host IP address of the proxy server on the data plane.
+   * The IP address of the custom data plane proxy server.
    * 
    * @example
    * 192.168.11.100
@@ -69,7 +69,7 @@ export class DescribeBackupClientsResponseBodyClientsSettings extends $dara.Mode
   proxyHost?: string;
   /**
    * @remarks
-   * The custom password of the proxy server on the data plane.
+   * The password of the custom data plane proxy server.
    * 
    * @example
    * ******
@@ -77,7 +77,7 @@ export class DescribeBackupClientsResponseBodyClientsSettings extends $dara.Mode
   proxyPassword?: string;
   /**
    * @remarks
-   * The custom host port of the proxy server on the data plane.
+   * The port of the custom data plane proxy server.
    * 
    * @example
    * 3128
@@ -85,7 +85,7 @@ export class DescribeBackupClientsResponseBodyClientsSettings extends $dara.Mode
   proxyPort?: number;
   /**
    * @remarks
-   * The custom username of the proxy server on the data plane.
+   * The username of the custom data plane proxy server.
    * 
    * @example
    * user
@@ -93,10 +93,10 @@ export class DescribeBackupClientsResponseBodyClientsSettings extends $dara.Mode
   proxyUser?: string;
   /**
    * @remarks
-   * Indicates whether data on the data plane is transmitted over HTTPS. Valid values:
+   * Indicates whether HTTPS is used to transmit data plane data.
    * 
-   * *   true: Data is transmitted over HTTPS.
-   * *   false: Data is transmitted over HTTP.
+   * - true: HTTPS is used for transmission.
+   * - false: HTTP is used for transmission.
    * 
    * @example
    * false
@@ -146,11 +146,11 @@ export class DescribeBackupClientsResponseBodyClientsSettings extends $dara.Mode
 export class DescribeBackupClientsResponseBodyClientsTags extends $dara.Model {
   /**
    * @remarks
-   * The tag key of the backup vault. Valid values of N: 1 to 20
+   * The tag key of the backup vault. Valid values of N: 1 to 20.
    * 
-   * *   The tag key cannot start with `aliyun` or `acs:`.
-   * *   The tag key cannot contain `http://` or `https://`.
-   * *   The tag key cannot be an empty string.
+   * - The tag key cannot start with `aliyun` or `acs:`. 
+   * - The tag key cannot contain `http://` or `https://`.
+   * - The tag key cannot be an empty string.
    * 
    * @example
    * TestKey
@@ -158,11 +158,11 @@ export class DescribeBackupClientsResponseBodyClientsTags extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value of the backup vault. Valid values of N: 1 to 20
+   * The tag value of the backup vault. Valid values of N: 1 to 20.
    * 
-   * *   The tag value cannot start with `aliyun` or `acs:`.
-   * *   The tag value cannot contain `http://` or `https://`.
-   * *   The tag value cannot be an empty string.
+   * - The tag value cannot start with `aliyun` or `acs:`. 
+   * - The tag value cannot contain `http://` or `https://`.
+   * - The tag value cannot be an empty string.
    * 
    * @example
    * TestValue
@@ -194,10 +194,10 @@ export class DescribeBackupClientsResponseBodyClientsTags extends $dara.Model {
 export class DescribeBackupClientsResponseBodyClients extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the client is installed on an all-in-one PC that integrates hardware and monitoring program. Valid values:
+   * Indicates whether the client is a hardware monitoring appliance client.
    * 
-   * *   true: The client is installed on an all-in-one PC that integrates hardware and monitoring program.
-   * *   false: The client is not installed on an all-in-one PC that integrates hardware and monitoring program.
+   * - true: The client is a hardware monitoring appliance client.
+   * - false: The client is not a hardware monitoring appliance client.
    * 
    * @example
    * false
@@ -205,10 +205,9 @@ export class DescribeBackupClientsResponseBodyClients extends $dara.Model {
   appliance?: boolean;
   /**
    * @remarks
-   * This parameter is valid only if the **ClientType** parameter is set to **ECS_CLIENT**. This parameter indicates the system architecture where the backup client resides. Valid values:
-   * 
-   * *   **amd64**
-   * *   **386**
+   * This parameter is valid only when **ClientType** is set to **ECS_CLIENT**. The system architecture of the backup client. Valid values:
+   * * **amd64**
+   * * **386**
    * 
    * @example
    * amd64
@@ -217,9 +216,8 @@ export class DescribeBackupClientsResponseBodyClients extends $dara.Model {
   /**
    * @remarks
    * The protection status of the backup client. Valid values:
-   * 
-   * *   **UNPROTECTED**: The backup client is not protected.
-   * *   **PROTECTED**: The backup client is protected.
+   * * **UNPROTECTED**: The server is not protected.
+   * * **PROTECTED**: The server is protected.
    * 
    * @example
    * PROTECTED
@@ -235,7 +233,7 @@ export class DescribeBackupClientsResponseBodyClients extends $dara.Model {
   clientId?: string;
   /**
    * @remarks
-   * The type of the backup client. Valid value: **ECS_CLIENT**, which indicates a client for ECS file backup.
+   * The type of the backup client. The value **ECS_CLIENT** indicates an ECS File Backup client.
    * 
    * @example
    * ECS_CLIENT
@@ -251,7 +249,7 @@ export class DescribeBackupClientsResponseBodyClients extends $dara.Model {
   clientVersion?: string;
   /**
    * @remarks
-   * The time when the backup client was created. The value is a UNIX timestamp. Unit: seconds.
+   * The time when the backup client was created. This value is a UNIX timestamp. Unit: seconds.
    * 
    * @example
    * 1554347313
@@ -269,8 +267,8 @@ export class DescribeBackupClientsResponseBodyClients extends $dara.Model {
    * @remarks
    * The instance ID.
    * 
-   * *   If the client is used to back up ECS files, this parameter indicates the ID of an ECS instance.
-   * *   If the client is used to back up on-premises files, this parameter indicates the hardware fingerprint that is generated based on the system information.
+   * - If the client type is ECS File Backup client, this parameter indicates the ECS instance ID.
+   * - If the client type is local file backup client, this parameter indicates the hardware fingerprint generated based on system information.
    * 
    * @example
    * i-*********************
@@ -278,7 +276,7 @@ export class DescribeBackupClientsResponseBodyClients extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * This parameter is valid only if the **ClientType** parameter is set to **ECS_CLIENT**. This parameter indicates the name of the ECS instance.
+   * This parameter is valid only when **ClientType** is set to **ECS_CLIENT**. The name of the ECS instance.
    * 
    * @example
    * instancename
@@ -286,7 +284,7 @@ export class DescribeBackupClientsResponseBodyClients extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * The last heartbeat time of the backup client. The value is a UNIX timestamp. Unit: seconds.
+   * The time of the last heartbeat of the backup client. This value is a UNIX timestamp. Unit: seconds.
    * 
    * @example
    * 1554347313
@@ -302,10 +300,9 @@ export class DescribeBackupClientsResponseBodyClients extends $dara.Model {
   maxClientVersion?: string;
   /**
    * @remarks
-   * This parameter is valid only if the **ClientType** parameter is set to **ECS_CLIENT**. This parameter indicates the operating system type of the backup client. Valid values:
-   * 
-   * *   **windows**
-   * *   **linux**
+   * This parameter is valid only when **ClientType** is set to **ECS_CLIENT**. The operating system type of the client. Valid values:
+   * * **windows**
+   * * **linux**
    * 
    * @example
    * linux
@@ -313,7 +310,7 @@ export class DescribeBackupClientsResponseBodyClients extends $dara.Model {
   osType?: string;
   /**
    * @remarks
-   * This parameter is valid only if the **ClientType** parameter is set to **ECS_CLIENT**. This parameter indicates the internal IP address of the ECS instance.
+   * This parameter is valid only when **ClientType** is set to **ECS_CLIENT**. The internal IP address of the ECS instance.
    * 
    * @example
    * 192.168.1.1
@@ -327,19 +324,18 @@ export class DescribeBackupClientsResponseBodyClients extends $dara.Model {
   /**
    * @remarks
    * The status of the backup client. Valid values:
-   * 
-   * *   **REGISTERED**: The backup client is registered.
-   * *   **ACTIVATED**: The backup client is activated.
-   * *   **DEACTIVATED**: The backup client fails to be activated.
-   * *   **INSTALLING**: The backup client is being installed.
-   * *   **INSTALL_FAILED**: The backup client fails to be installed.
-   * *   **NOT_INSTALLED**: The backup client is not installed.
-   * *   **UPGRADING**: The backup client is being upgraded.
-   * *   **UPGRADE_FAILED**: The backup client fails to be upgraded.
-   * *   **UNINSTALLING**: The backup client is being uninstalled.
-   * *   **UNINSTALL_FAILED**: The backup client fails to be uninstalled.
-   * *   **STOPPED**: The backup client is out of service.
-   * *   **UNKNOWN**: The backup client is disconnected.
+   * * **REGISTERED**: The client is registered.
+   * * **ACTIVATED**: The client is activated.
+   * * **DEACTIVATED**: The client activation has expired.
+   * * **INSTALLING**: The client is being installed.
+   * * **INSTALL_FAILED**: The client installation failed.
+   * * **NOT_INSTALLED**: The client is not installed.
+   * * **UPGRADING**: The client is being upgraded.
+   * * **UPGRADE_FAILED**: The client upgrade failed.
+   * * **UNINSTALLING**: The client is being uninstalled.
+   * * **UNINSTALL_FAILED**: The client uninstallation failed.
+   * * **STOPPED**: The client service is stopped.
+   * * **UNKNOWN**: The client is disconnected.
    * 
    * @example
    * ACTIVATED
@@ -352,7 +348,7 @@ export class DescribeBackupClientsResponseBodyClients extends $dara.Model {
   tags?: DescribeBackupClientsResponseBodyClientsTags[];
   /**
    * @remarks
-   * The time when the backup client was updated. The value is a UNIX timestamp. Unit: seconds.
+   * The time when the backup client was last updated. This value is a UNIX timestamp. Unit: seconds.
    * 
    * @example
    * 1554347313
@@ -360,7 +356,7 @@ export class DescribeBackupClientsResponseBodyClients extends $dara.Model {
   updatedTime?: number;
   /**
    * @remarks
-   * This parameter is valid only if the **ClientType** parameter is set to **ECS_CLIENT**. This parameter indicates the zone of the backup client.
+   * This parameter is valid only when **ClientType** is set to **ECS_CLIENT**. The zone ID.
    * 
    * @example
    * cn-hangzhou-f
@@ -432,7 +428,7 @@ export class DescribeBackupClientsResponseBodyClients extends $dara.Model {
 export class DescribeBackupClientsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The queried backup clients.
+   * The list of backup clients.
    * 
    * @example
    * {\\"Client\\": []}
@@ -440,7 +436,7 @@ export class DescribeBackupClientsResponseBody extends $dara.Model {
   clients?: DescribeBackupClientsResponseBodyClients[];
   /**
    * @remarks
-   * The HTTP status code. The status code 200 indicates that the call is successful.
+   * The response code. 200 indicates success.
    * 
    * @example
    * 200
@@ -448,7 +444,7 @@ export class DescribeBackupClientsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The message that is returned. If the call is successful, "successful" is returned. If the call fails, an error message is returned.
+   * The returned message. The value "successful" is returned for successful requests. An error message is returned for failed requests.
    * 
    * @example
    * successful
@@ -456,7 +452,7 @@ export class DescribeBackupClientsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The page number of the returned page. Pages start from page 1. Default value: 1.
+   * The page number. Pages start from 1. Default value: 1.
    * 
    * @example
    * 1
@@ -464,7 +460,7 @@ export class DescribeBackupClientsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned on each page. Valid values: 1 to 99. Default value: 10.
+   * The number of entries per page. Minimum value: 1. Maximum value: 99. Default value: 10.
    * 
    * @example
    * 10
@@ -472,7 +468,7 @@ export class DescribeBackupClientsResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
@@ -480,10 +476,10 @@ export class DescribeBackupClientsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call is successful. Valid values:
+   * Indicates whether the request was successful.
    * 
-   * *   true: The call is successful.
-   * *   false: The call fails.
+   * - true: The request was successful.
+   * - false: The request failed.
    * 
    * @example
    * true
@@ -491,7 +487,7 @@ export class DescribeBackupClientsResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The total number of returned HBR clients that meet the specified conditions.
+   * The total number of backup clients that meet the specified conditions.
    * 
    * @example
    * 8

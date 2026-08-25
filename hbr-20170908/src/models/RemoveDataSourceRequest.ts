@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class RemoveDataSourceRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the data source.
+   * 
    * This parameter is required.
    * 
    * @example

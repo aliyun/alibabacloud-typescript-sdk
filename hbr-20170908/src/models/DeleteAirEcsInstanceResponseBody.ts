@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteAirEcsInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code. The status code 200 indicates that the request was successful.
+   * The return code. A value of 200 indicates success.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class DeleteAirEcsInstanceResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned message. If the request was successful, "successful" is returned. If the request failed, an error message is returned.
+   * The returned message. The value "successful" is returned for a successful request. An error message is returned for a failed request.
    * 
    * @example
    * successful
@@ -31,8 +31,8 @@ export class DeleteAirEcsInstanceResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: The request was successful.
+   * - false: The request failed.
    * 
    * @example
    * true
@@ -40,7 +40,7 @@ export class DeleteAirEcsInstanceResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The ID of the asynchronous job. You can call the DescribeTask operation to query the execution result of an asynchronous job.
+   * The asynchronous task ID. You can call DescribeTask to obtain the task result.
    * 
    * @example
    * t-*********************

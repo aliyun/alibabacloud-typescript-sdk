@@ -2,21 +2,53 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class UpdatePolicyV2RequestRulesDataSourceFiltersAccounts extends $dara.Model {
+  crossAccountRoleName?: string;
+  crossAccountType?: string;
+  crossAccountUserId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      crossAccountRoleName: 'CrossAccountRoleName',
+      crossAccountType: 'CrossAccountType',
+      crossAccountUserId: 'CrossAccountUserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      crossAccountRoleName: 'string',
+      crossAccountType: 'string',
+      crossAccountUserId: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdatePolicyV2RequestRulesDataSourceFilters extends $dara.Model {
+  accountScope?: string;
+  accounts?: UpdatePolicyV2RequestRulesDataSourceFiltersAccounts[];
   /**
    * @remarks
-   * This parameter is deprecated.
+   * Deprecated.
+   * 
+   * @deprecated
    */
   dataSourceIds?: string[];
   /**
    * @remarks
-   * The type of the data source. Valid values:
-   * 
-   * *   **UDM_ECS**: Elastic Compute Service (ECS) instance This type of data source is supported only if the **RuleType** parameter is set to **UDM_ECS_ONLY**.
-   * *   **OSS**: Object Storage Service (OSS) bucket This type of data source is supported only if the **RuleType** parameter is set to **STANDARD**.
-   * *   **NAS**: File Storage NAS (NAS) file system This type of data source is supported only if the **RuleType** parameter is set to **STANDARD**.
-   * *   **ECS_FILE**: ECS file This type of data source is supported only if the **RuleType** parameter is set to **STANDARD**.
-   * *   **OTS**: Tablestore instance This type of data source is supported only if the **RuleType** parameter is set to **STANDARD**.
+   * The data source type. Valid values:
+   * - **UDM_ECS**: ECS instance backup. This data source type is supported only when **RuleType** is set to **UDM_ECS_ONLY**.
+   * - **OSS**: OSS backup. This data source type is supported only when **RuleType** is set to **STANDARD**.
+   * - **NAS**: Alibaba Cloud NAS backup. This data source type is supported only when **RuleType** is set to **STANDARD**.
+   * - **ECS_FILE**: ECS File Backup Essential Edition. This data source type is supported only when **RuleType** is set to **STANDARD**.
+   * - **OTS**: Tablestore backup. This data source type is supported only when **RuleType** is set to **STANDARD**.
    * 
    * @example
    * UDM_ECS
@@ -24,6 +56,8 @@ export class UpdatePolicyV2RequestRulesDataSourceFilters extends $dara.Model {
   sourceType?: string;
   static names(): { [key: string]: string } {
     return {
+      accountScope: 'AccountScope',
+      accounts: 'Accounts',
       dataSourceIds: 'DataSourceIds',
       sourceType: 'SourceType',
     };
@@ -31,12 +65,17 @@ export class UpdatePolicyV2RequestRulesDataSourceFilters extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accountScope: 'string',
+      accounts: { 'type': 'array', 'itemType': UpdatePolicyV2RequestRulesDataSourceFiltersAccounts },
       dataSourceIds: { 'type': 'array', 'itemType': 'string' },
       sourceType: 'string',
     };
   }
 
   validate() {
+    if(Array.isArray(this.accounts)) {
+      $dara.Model.validateArray(this.accounts);
+    }
     if(Array.isArray(this.dataSourceIds)) {
       $dara.Model.validateArray(this.dataSourceIds);
     }
@@ -52,10 +91,9 @@ export class UpdatePolicyV2RequestRulesRetentionRules extends $dara.Model {
   /**
    * @remarks
    * The type of the special retention rule. Valid values:
-   * 
-   * *   **WEEKLY**: retains weekly backups
-   * *   **MONTHLY**: retains monthly backups
-   * *   **YEARLY**: retains yearly backups
+   * - **WEEKLY**: weekly backup.
+   * - **MONTHLY**: monthly backup.
+   * - **YEARLY**: yearly backup.
    * 
    * @example
    * YEARLY
@@ -63,7 +101,7 @@ export class UpdatePolicyV2RequestRulesRetentionRules extends $dara.Model {
   advancedRetentionType?: string;
   /**
    * @remarks
-   * The special retention period of backups. Minimum value: 1. Unit: days.
+   * The special retention period of the backup. Minimum value: 1. Unit: days.
    * 
    * @example
    * 365
@@ -71,7 +109,7 @@ export class UpdatePolicyV2RequestRulesRetentionRules extends $dara.Model {
   retention?: number;
   /**
    * @remarks
-   * Specifies which backup is retained based on the special retention rule. Only the first backup can be retained.
+   * The backup to which the rule applies. Currently, only the first backup is supported. Set the value to 1.
    * 
    * @example
    * 1
@@ -113,10 +151,9 @@ export class UpdatePolicyV2RequestRulesTagFilters extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag-based matching rule. Valid values:
-   * 
-   * *   **EQUAL**: Both the tag key and tag value are matched.
-   * *   **NOT**: The tag key is matched and the tag value is not matched.
+   * The tag matching rule. Valid values:
+   * - **EQUAL**: matches both the tag key and tag value.
+   * - **NOT**: matches the tag key but not the tag value.
    * 
    * @example
    * EQUAL
@@ -124,7 +161,7 @@ export class UpdatePolicyV2RequestRulesTagFilters extends $dara.Model {
   operator?: string;
   /**
    * @remarks
-   * The tag value. If you leave this parameter empty, the value is any value.
+   * The tag value. An empty value indicates any value.
    * 
    * @example
    * prod
@@ -158,7 +195,7 @@ export class UpdatePolicyV2RequestRulesTagFilters extends $dara.Model {
 export class UpdatePolicyV2RequestRules extends $dara.Model {
   /**
    * @remarks
-   * This parameter is required only if the **RuleType** parameter is set to **TRANSITION**. This parameter specifies the time when data is dumped from a backup vault to an archive vault. Unit: days.
+   * This parameter is required only when **RuleType** is set to **TRANSITION**. The number of days after which the backup is converted to archive storage. Unit: days.
    * 
    * @example
    * 90
@@ -166,7 +203,7 @@ export class UpdatePolicyV2RequestRules extends $dara.Model {
   archiveDays?: number;
   /**
    * @remarks
-   * This parameter is required only if the **RuleType** parameter is set to **BACKUP**. This parameter specifies the backup type. Valid value: **COMPLETE**, which indicates full backup.
+   * This parameter is required only when **RuleType** is set to **BACKUP**. The backup type. Set the value to **COMPLETE**, which indicates full backup.
    * 
    * @example
    * COMPLETE
@@ -174,7 +211,7 @@ export class UpdatePolicyV2RequestRules extends $dara.Model {
   backupType?: string;
   /**
    * @remarks
-   * This parameter is required only if the **RuleType** parameter is set to **TRANSITION**. This parameter specifies the time when data is dumped from a backup vault to a cold archive vault. Unit: days.
+   * This parameter is required only when **RuleType** is set to **TRANSITION**. The number of days after which the backup is converted to cold archive storage. Unit: days.
    * 
    * @example
    * 365
@@ -182,12 +219,12 @@ export class UpdatePolicyV2RequestRules extends $dara.Model {
   coldArchiveDays?: number;
   /**
    * @remarks
-   * This parameter is required only if the **RuleType** parameter is set to **TAG**. This parameter specifies the data source filter rule.
+   * This parameter is required only when **RuleType** is set to **TAG**. The data source filter rules.
    */
   dataSourceFilters?: UpdatePolicyV2RequestRulesDataSourceFilters[];
   /**
    * @remarks
-   * This parameter is required only if the **PolicyType** parameter is set to **UDM_ECS_ONLY**. This parameter specifies whether to enable the immutable backup feature.
+   * This parameter is required only when **PolicyType** is set to **UDM_ECS_ONLY** and **RuleType** is set to **SECURITY**. Specifies whether to enable backup locking.
    * 
    * @example
    * true
@@ -195,10 +232,9 @@ export class UpdatePolicyV2RequestRules extends $dara.Model {
   immutable?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable the feature of keeping at least one backup version. Valid values:
-   * 
-   * *   0: The feature is disabled.
-   * *   1: The feature is enabled.
+   * Specifies whether to retain at least one backup version. Valid values:
+   * - 0: do not retain.
+   * - 1: retain.
    * 
    * @example
    * 1
@@ -206,7 +242,7 @@ export class UpdatePolicyV2RequestRules extends $dara.Model {
   keepLatestSnapshots?: number;
   /**
    * @remarks
-   * This parameter is required only if the **RuleType** parameter is set to **REPLICATION**. This parameter specifies the ID of the destination region.
+   * This parameter is required only when **RuleType** is set to **REPLICATION**. The ID of the destination region for replication.
    * 
    * @example
    * cn-shanghai
@@ -214,10 +250,9 @@ export class UpdatePolicyV2RequestRules extends $dara.Model {
   replicationRegionId?: string;
   /**
    * @remarks
-   * This parameter is required only if the **RuleType** parameter is set to **TRANSITION** or **REPLICATION**.
-   * 
-   * *   If the **RuleType** parameter is set to **TRANSITION**, this parameter specifies the retention period of the backup data. Minimum value: 1. Unit: days.
-   * *   If the **RuleType** parameter is set to **REPLICATION**, this parameter specifies the retention period of remote backups. Minimum value: 1. Unit: days.
+   * This parameter is required only when **RuleType** is set to **TRANSITION** or **REPLICATION**.
+   * - If **RuleType** is set to **TRANSITION**: the retention period of the backup. Minimum value: 1. Unit: days.
+   * - If **RuleType** is set to **REPLICATION**: the retention period of the cross-region backup. Minimum value: 1. Unit: days.
    * 
    * @example
    * 7
@@ -225,7 +260,7 @@ export class UpdatePolicyV2RequestRules extends $dara.Model {
   retention?: number;
   /**
    * @remarks
-   * This parameter is required only if the **RuleType** parameter is set to **TRANSITION**. This parameter specifies the special retention rules.
+   * This parameter is required only when **RuleType** is set to **TRANSITION**. The special retention rules.
    */
   retentionRules?: UpdatePolicyV2RequestRulesRetentionRules[];
   /**
@@ -238,11 +273,10 @@ export class UpdatePolicyV2RequestRules extends $dara.Model {
   ruleId?: string;
   /**
    * @remarks
-   * The type of the rule. Each backup policy must have at least one rule of the **BACKUP** type and only one rule of the **TRANSITION** type. Valid values:
-   * 
-   * *   **BACKUP**: backup rule
-   * *   **TRANSITION**: lifecycle rule
-   * *   **REPLICATION**: replication rule
+   * The rule type. Each policy must have at least one **BACKUP** rule and exactly one **TRANSITION** rule. Valid values:
+   * - **BACKUP**: backup rule.
+   * - **TRANSITION**: lifecycle rule.
+   * - **REPLICATION**: replication rule.
    * 
    * @example
    * BACKUP
@@ -250,19 +284,16 @@ export class UpdatePolicyV2RequestRules extends $dara.Model {
   ruleType?: string;
   /**
    * @remarks
-   * This parameter is required only if the **RuleType** parameter is set to **BACKUP**. This parameter specifies the backup schedule settings. Formats:
+   * This parameter is required only when **RuleType** is set to **BACKUP**. The backup schedule settings. Supported formats:
+   * - `I|{startTime}|{interval}`: specifies that a backup job is run at the {interval} from the {startTime}. Example: `I|1631685600|P1D` specifies that a backup job is run once a day starting from 2021-09-15 14:00:00.
    * 
-   * *   `I|{startTime}|{interval}`: The system runs the first backup job at a point in time that is specified in the {startTime} parameter and the subsequent backup jobs at an interval that is specified in the {interval} parameter. For example, `I|1631685600|P1D` indicates that the system runs the first backup job at 14:00:00 on September 15, 2021 and the subsequent backup jobs once a day.
+   *   * startTime: the start time of the backup. This value is a UNIX timestamp. Unit: seconds.
+   *   * interval: the ISO 8601 time interval. Example: `PT1H` specifies an interval of one hour. `P1D` specifies an interval of one day.
+   * - `C|{startTime}|{crontab}`: specifies that a backup job is run based on the {crontab} expression from the {startTime}. Example: `C|1631685600|0 0 2 ? * 3,5,7` specifies that a backup job is run at 02:00:00 every Tuesday, Thursday, and Saturday starting from 2021-09-15 14:00:00.
+   *   * startTime: the start time of the backup. This value is a UNIX timestamp. Unit: seconds.
+   *   * crontab: the crontab expression. Example: `0 0 2 ? * 3,5,7` specifies every Tuesday, Thursday, and Saturday at 02:00:00.
    * 
-   *     *   startTime: the time at which the system starts to run a backup job. The time must follow the UNIX time format. Unit: seconds.
-   *     *   interval: the interval at which the system runs a backup job. The interval must follow the ISO 8601 standard. For example, `PT1H` specifies an interval of 1 hour. `P1D` specifies an interval of one day.
-   * 
-   * *   `C|{startTime}|{crontab}`: The system runs backup jobs at a point in time that is specified in the {startTime} parameter based on the {crontab} expression. For example, C|1631685600|0 0 2 ?\\* 3,5,7 indicates that the system runs backup jobs at 02:00:00 every Tuesday, Thursday, and Saturday from14:00:00 on September 15, 2021.``
-   * 
-   *     *   startTime: the time at which the system starts to run a backup job. The time must follow the UNIX time format. Unit: seconds.
-   *     *   crontab: the crontab expression. For example, 0 0 2 ?\\* 3,5,7 indicates 02:00:00 every Tuesday, Thursday, and Saturday.``
-   * 
-   * The system does not run a backup job before the specified point in time. Each backup job, except the first one, starts only after the previous backup job is completed.
+   * Backup jobs for elapsed time periods are not compensated. If the previous backup job is not completed, the next backup job is not triggered.
    * 
    * @example
    * I|1648647166|P1D
@@ -270,12 +301,12 @@ export class UpdatePolicyV2RequestRules extends $dara.Model {
   schedule?: string;
   /**
    * @remarks
-   * This parameter is required only if the **RuleType** parameter is set to **TAG**. This parameter specifies the resource tag filter rule.
+   * This parameter is required only when **RuleType** is set to **TAG**. The resource tag filter rules.
    */
   tagFilters?: UpdatePolicyV2RequestRulesTagFilters[];
   /**
    * @remarks
-   * This parameter is required only if the RuleType parameter is set to BACKUP. The ID of the backup vault.
+   * This parameter is required only when RuleType is set to BACKUP. The backup vault ID.
    * 
    * @example
    * v-0001************aseg
@@ -340,15 +371,15 @@ export class UpdatePolicyV2RequestRules extends $dara.Model {
 export class UpdatePolicyV2Request extends $dara.Model {
   /**
    * @remarks
-   * The description of the backup policy.
+   * The policy description.
    * 
    * @example
-   * Data is backed up at 10:00:00 every day and replicated to the China (Shanghai) region for geo-redundancy.
+   * Back up once every day at 10:00 AM, with cross-region backup to Shanghai.
    */
   policyDescription?: string;
   /**
    * @remarks
-   * The ID of the backup policy.
+   * The policy ID.
    * 
    * @example
    * po-000************viy
@@ -356,15 +387,15 @@ export class UpdatePolicyV2Request extends $dara.Model {
   policyId?: string;
   /**
    * @remarks
-   * The name of the backup policy.
+   * The policy name.
    * 
    * @example
-   * Daily Local Backup + Remote Backup
+   * Daily backup + geo-redundancy
    */
   policyName?: string;
   /**
    * @remarks
-   * The rules in the backup policy.
+   * The list of policy rules.
    */
   rules?: UpdatePolicyV2RequestRules[];
   static names(): { [key: string]: string } {

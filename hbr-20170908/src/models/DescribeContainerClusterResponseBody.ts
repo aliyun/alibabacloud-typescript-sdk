@@ -7,9 +7,11 @@ export class DescribeContainerClusterResponseBodyClusters extends $dara.Model {
    * @remarks
    * The status of the client. Valid values:
    * 
-   * *   **MISS**: The client is disconnected.
-   * *   **UNKNOWN**: The client is in an unknown state.
-   * *   **READY**: The client is ready.
+   * - **MISS**: The client is disconnected.
+   * 
+   * - **UNKNOWN**: The client is in an unknown state.
+   * 
+   * - **READY**: The client is ready.
    * 
    * @example
    * READY
@@ -49,7 +51,7 @@ export class DescribeContainerClusterResponseBodyClusters extends $dara.Model {
   identifier?: string;
   /**
    * @remarks
-   * The name of the instance.
+   * The cluster name.
    * 
    * @example
    * ack_pv_backup_location
@@ -59,8 +61,9 @@ export class DescribeContainerClusterResponseBodyClusters extends $dara.Model {
    * @remarks
    * The network type of the cluster. Valid values:
    * 
-   * *   **CLASSIC**: the classic network
-   * *   **VPC**: virtual private cloud (VPC)
+   * - **CLASSIC**: the classic network
+   * 
+   * - **VPC**: virtual private cloud (VPC)
    * 
    * @example
    * VPC
@@ -159,8 +162,9 @@ export class DescribeContainerClusterResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the call is successful. Valid values:
    * 
-   * *   true: The call is successful.
-   * *   false: The call fails.
+   * - true: The call is successful.
+   * 
+   * - false: The call fails.
    * 
    * @example
    * true

@@ -13,7 +13,7 @@ export class DescribeVaultsRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The Value of the tag.
+   * The value of the tag.
    * 
    * @example
    * value1
@@ -45,7 +45,7 @@ export class DescribeVaultsRequestTag extends $dara.Model {
 export class DescribeVaultsRequest extends $dara.Model {
   /**
    * @remarks
-   * The page number. Pages start from page 1. Default value: 1.
+   * The page number. Pages start from 1. Default value: 1.
    * 
    * @example
    * 1
@@ -53,16 +53,23 @@ export class DescribeVaultsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Valid values: 1 to 99. Default value: 10.
+   * The number of entries per page. Minimum value: 1. Maximum value: 99. Default value: 10.
    * 
    * @example
    * 10
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * Specifies whether to query replication target vaults.
+   * 
+   * @example
+   * true
+   */
   replication?: boolean;
   /**
    * @remarks
-   * Resource group ID.
+   * The resource group ID.
    * 
    * @example
    * rg-*********************
@@ -72,10 +79,10 @@ export class DescribeVaultsRequest extends $dara.Model {
    * @remarks
    * The status of the backup vault. Valid values:
    * 
-   * *   **UNKNOWN**: The backup vault is in an unknown state.
-   * *   **INITIALIZING**: The backup vault is being initialized.
-   * *   **CREATED**: The backup vault is created.
-   * *   **ERROR**: An error occurs on the backup vault.
+   * - **UNKNOWN**: unknown
+   * - **INITIALIZING**: initializing
+   * - **CREATED**: created
+   * - **ERROR**: error
    * 
    * @example
    * CREATED
@@ -83,7 +90,7 @@ export class DescribeVaultsRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Tag information. Supports up to 20 tags.
+   * The tag information. A maximum of 20 tags are supported.
    * 
    * @example
    * 6a745bceffb042959b3b5206d6f12ad1
@@ -91,7 +98,7 @@ export class DescribeVaultsRequest extends $dara.Model {
   tag?: DescribeVaultsRequestTag[];
   /**
    * @remarks
-   * Backup vault ID.
+   * The backup vault ID.
    * 
    * @example
    * v-*********************
@@ -105,10 +112,17 @@ export class DescribeVaultsRequest extends $dara.Model {
    * vaultname
    */
   vaultName?: string;
+  /**
+   * @remarks
+   * The ID of the account to which the backup vault belongs.
+   * 
+   * @example
+   * 144******732
+   */
   vaultOwnerId?: number;
   /**
    * @remarks
-   * The region ID to which the backup vault belongs.
+   * The region ID of the backup vault.
    * 
    * @example
    * cn-shanghai
@@ -116,9 +130,7 @@ export class DescribeVaultsRequest extends $dara.Model {
   vaultRegionId?: string;
   /**
    * @remarks
-   * Backup repository type. The values are as follows: 
-   * - **STANDARD**: Represents a standard repository, which can be used for ECS file backups, OSS backups, NAS backups, etc. 
-   * - **OTS_BACKUP**: Represents a TableStore repository, which is only used for TableStore backups, and TableStore must use this type of repository.
+   * The type of the backup vault. Valid values.
    * 
    * @example
    * STANDARD

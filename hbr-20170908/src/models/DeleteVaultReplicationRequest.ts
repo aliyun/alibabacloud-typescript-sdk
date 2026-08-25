@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteVaultReplicationRequest extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the source region. If you leave this parameter empty, the region where you call the API is used.
+   * 
    * @example
    * cn-hangzhou
    */
   replicationSourceRegionId?: string;
   /**
    * @remarks
+   * The ID of the source backup vault.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18,6 +23,8 @@ export class DeleteVaultReplicationRequest extends $dara.Model {
   replicationSourceVaultId?: string;
   /**
    * @remarks
+   * The ID of the destination backup vault.
+   * 
    * This parameter is required.
    * 
    * @example

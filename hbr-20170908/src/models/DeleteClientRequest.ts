@@ -21,7 +21,7 @@ export class DeleteClientRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The ID of the backup vault.
+   * The ID of the backup repository.
    * 
    * @example
    * v-000************gs3

@@ -5,6 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class GetBasicStatisticsRequest extends $dara.Model {
   /**
    * @remarks
+   * The data source type. The valid value is:
+   * 
+   * - **ECS_FILE**: ECS File Backup.
+   * 
    * This parameter is required.
    * 
    * @example

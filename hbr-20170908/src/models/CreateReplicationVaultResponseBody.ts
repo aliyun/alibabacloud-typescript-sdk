@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateReplicationVaultResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code. The status code 200 indicates that the request was successful.
+   * The return code. A value of 200 indicates success.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class CreateReplicationVaultResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned message. If the request was successful, "successful" is returned. If the request failed, an error message is returned.
+   * The returned message. The value "successful" is returned for successful requests. An error message is returned for failed requests.
    * 
    * @example
    * successful
@@ -29,10 +29,10 @@ export class CreateReplicationVaultResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the request was successful.
    * 
-   * *   true
-   * *   false
+   * - true: The request was successful.
+   * - false: The request failed.
    * 
    * @example
    * true
@@ -40,7 +40,7 @@ export class CreateReplicationVaultResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The ID of the job that is used to initialize the backup vault. You can call the DescribeTask operation to query the job status.
+   * The initialization task ID of the backup vault. You can call DescribeTask to query the task status.
    * 
    * @example
    * t-*********************

@@ -499,7 +499,7 @@ export class DescribeBackupPlansResponseBody extends $dara.Model {
   backupPlans?: DescribeBackupPlansResponseBodyBackupPlans;
   /**
    * @remarks
-   * The HTTP status code. The status code 200 indicates that the call is successful.
+   * The return code. A value of 200 indicates success.
    * 
    * @example
    * 200
@@ -507,7 +507,7 @@ export class DescribeBackupPlansResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The message that is returned. If the call is successful, "successful" is returned. If the call fails, an error message is returned.
+   * The returned message. If the request was successful, "successful" is returned. If the request failed, the corresponding error message is returned.
    * 
    * @example
    * successful
@@ -515,7 +515,7 @@ export class DescribeBackupPlansResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The page number of the returned page. Pages start from page 1. Default value: 1.
+   * The page number. Pages start from 1. Default value: 1.
    * 
    * @example
    * 1
@@ -523,7 +523,7 @@ export class DescribeBackupPlansResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned on each page. Valid values: 1 to 99. Default value: 10.
+   * The number of entries per page. Minimum value: 1. Maximum value: 99. Default value: 10.
    * 
    * @example
    * 10
@@ -531,7 +531,7 @@ export class DescribeBackupPlansResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
@@ -539,10 +539,7 @@ export class DescribeBackupPlansResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call is successful. Valid values:
-   * 
-   * *   true: The call is successful.
-   * *   false: The call fails.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true
@@ -550,7 +547,7 @@ export class DescribeBackupPlansResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The total number of returned backup plans that meet the specified conditions.
+   * The total number of backup plans that meet the specified conditions.
    * 
    * @example
    * 8

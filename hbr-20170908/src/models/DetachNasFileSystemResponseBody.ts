@@ -31,8 +31,9 @@ export class DetachNasFileSystemResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request is successful.
    * 
-   * *   true: The request is successful.
-   * *   false: The request fails.
+   * - true: The request is successful.
+   * 
+   * - false: The request fails.
    * 
    * @example
    * true

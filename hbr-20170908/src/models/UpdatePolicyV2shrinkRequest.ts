@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class UpdatePolicyV2ShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The description of the backup policy.
+   * The policy description.
    * 
    * @example
-   * Data is backed up at 10:00:00 every day and replicated to the China (Shanghai) region for geo-redundancy.
+   * Back up once every day at 10:00 AM, with cross-region backup to Shanghai.
    */
   policyDescription?: string;
   /**
    * @remarks
-   * The ID of the backup policy.
+   * The policy ID.
    * 
    * @example
    * po-000************viy
@@ -21,15 +21,15 @@ export class UpdatePolicyV2ShrinkRequest extends $dara.Model {
   policyId?: string;
   /**
    * @remarks
-   * The name of the backup policy.
+   * The policy name.
    * 
    * @example
-   * Daily Local Backup + Remote Backup
+   * Daily backup + geo-redundancy
    */
   policyName?: string;
   /**
    * @remarks
-   * The rules in the backup policy.
+   * The list of policy rules.
    */
   rulesShrink?: string;
   static names(): { [key: string]: string } {

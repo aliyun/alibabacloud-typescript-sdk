@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePolicyBindingsResponseBodyPolicyBindingsAdvancedOptionsCommonFileSystemDetail extends $dara.Model {
   /**
    * @remarks
-   * Backup shard size (number of files).
+   * The sub-task slice size (number of files).
    * 
    * @example
    * 100000
@@ -13,9 +13,9 @@ export class DescribePolicyBindingsResponseBodyPolicyBindingsAdvancedOptionsComm
   fetchSliceSize?: number;
   /**
    * @remarks
-   * Whether to switch to a full backup when an incremental backup fails. Values:
-   * - **true**: Switch to full backup on failure.
-   * - **false**: Do not switch to full backup on failure.
+   * Specifies whether to switch to a full backup when an incremental backup fails. Valid values:
+   * - **true**: Switches to a full backup upon failure.
+   * - **false**: Does not switch to a full backup upon failure.
    * 
    * @example
    * true
@@ -47,7 +47,7 @@ export class DescribePolicyBindingsResponseBodyPolicyBindingsAdvancedOptionsComm
 export class DescribePolicyBindingsResponseBodyPolicyBindingsAdvancedOptionsCommonNasDetail extends $dara.Model {
   /**
    * @remarks
-   * Backup client ID.
+   * The backup client ID.
    * 
    * @example
    * c-0001eg6mcvjs93f46s2d
@@ -55,7 +55,7 @@ export class DescribePolicyBindingsResponseBodyPolicyBindingsAdvancedOptionsComm
   clientId?: string;
   /**
    * @remarks
-   * Client group ID.
+   * The client group ID.
    * 
    * @example
    * cl-000gkcofngi04j6k680a
@@ -63,7 +63,7 @@ export class DescribePolicyBindingsResponseBodyPolicyBindingsAdvancedOptionsComm
   clusterId?: string;
   /**
    * @remarks
-   * Backup slice size (number of files).
+   * The sub-task slice size (number of files).
    * 
    * @example
    * 100000
@@ -71,9 +71,9 @@ export class DescribePolicyBindingsResponseBodyPolicyBindingsAdvancedOptionsComm
   fetchSliceSize?: number;
   /**
    * @remarks
-   * Whether to switch to a full backup when an incremental backup fails. Values:
-   * - **true**: Switch to full backup on failure.
-   * - **false**: Do not switch to full backup on failure.
+   * Specifies whether to switch to a full backup when an incremental backup fails. Valid values:
+   * - **true**: Switches to a full backup upon failure.
+   * - **false**: Does not switch to a full backup upon failure.
    * 
    * @example
    * true
@@ -109,9 +109,9 @@ export class DescribePolicyBindingsResponseBodyPolicyBindingsAdvancedOptionsComm
 export class DescribePolicyBindingsResponseBodyPolicyBindingsAdvancedOptionsFileDetail extends $dara.Model {
   /**
    * @remarks
-   * Whether to use advanced policies. Values:
-   * - **true**: Use.
-   * - **false**: Do not use.
+   * Specifies whether to use an advanced policy. Valid values:
+   * - **true**: Used.
+   * - **false**: Not used.
    * 
    * @example
    * false
@@ -119,9 +119,9 @@ export class DescribePolicyBindingsResponseBodyPolicyBindingsAdvancedOptionsFile
   advPolicy?: boolean;
   /**
    * @remarks
-   * Whether to enable VSS (Windows) functionality. Values:
-   * - **true**: Enable.
-   * - **false**: Disable.
+   * Specifies whether to enable the Volume Shadow Copy Service (VSS) feature (Windows). Valid values:
+   * - **true**: Enabled.
+   * - **false**: Disabled.
    * 
    * @example
    * false
@@ -153,7 +153,7 @@ export class DescribePolicyBindingsResponseBodyPolicyBindingsAdvancedOptionsFile
 export class DescribePolicyBindingsResponseBodyPolicyBindingsAdvancedOptionsOssDetail extends $dara.Model {
   /**
    * @remarks
-   * Do not prompt for archive-type objects in the task statistics and failed file list.
+   * Specifies whether to exclude archive objects from task statistics and failed file lists.
    * 
    * @example
    * true
@@ -161,7 +161,7 @@ export class DescribePolicyBindingsResponseBodyPolicyBindingsAdvancedOptionsOssD
   ignoreArchiveObject?: boolean;
   /**
    * @remarks
-   * Whether to delete the inventory file after the backup. This is only effective when using an OSS inventory. Supported values:
+   * Specifies whether to delete inventory files after backup. This parameter is valid only when OSS inventory is used. Valid values:
    * - **NO_CLEANUP**: Do not delete.
    * - **DELETE_CURRENT**: Delete the current file.
    * - **DELETE_CURRENT_AND_PREVIOUS**: Delete all files.
@@ -172,9 +172,9 @@ export class DescribePolicyBindingsResponseBodyPolicyBindingsAdvancedOptionsOssD
   inventoryCleanupPolicy?: string;
   /**
    * @remarks
-   * The name of the OSS inventory. If this value is not empty, the OSS inventory will be used for performance optimization.
-   * - It is recommended to use an inventory for backing up more than 100 million OSS objects to improve incremental performance. Storage costs for the inventory files are charged separately by the OSS service.
-   * - The generation of the OSS inventory file takes time, and the backup may fail before the inventory file is generated. You can wait for the next cycle to execute.
+   * The OSS inventory name. If this value is not empty, the OSS inventory is used for performance tuning.
+   * - Using an inventory to improve incremental performance is recommended when backing up more than 100 million OSS objects. Storage fees generated by inventory files are charged separately by OSS.
+   * - OSS inventory files take time to generate. Backup may fail before the OSS inventory file is generated. Wait for the next cycle to execute.
    * 
    * @example
    * inventory_test
@@ -208,7 +208,7 @@ export class DescribePolicyBindingsResponseBodyPolicyBindingsAdvancedOptionsOssD
 export class DescribePolicyBindingsResponseBodyPolicyBindingsAdvancedOptionsUdmDetail extends $dara.Model {
   /**
    * @remarks
-   * 是否创建应用一致性。仅云盘类型全部为ESSD时，支持创建快照应用一致性。
+   * Specifies whether to create an application-consistent snapshot. Creating an application-consistent snapshot is supported only when all cloud disk types are ESSD.
    * 
    * @example
    * false
@@ -216,7 +216,7 @@ export class DescribePolicyBindingsResponseBodyPolicyBindingsAdvancedOptionsUdmD
   appConsistent?: boolean;
   /**
    * @remarks
-   * The custom KMS key ID in the destination region. When this field is not empty and cross-region replication is enabled, the specified key will be used for encrypting the cross-region replication.
+   * The custom KMS key ID in the destination region. If this field is not empty and cross-region replication is enabled, this key is used to encrypt the cross-region replication.
    * 
    * @example
    * 4ed37b1e-da51-4187-aceb-9db4f9b7148b
@@ -224,12 +224,12 @@ export class DescribePolicyBindingsResponseBodyPolicyBindingsAdvancedOptionsUdmD
   destinationKmsKeyId?: string;
   /**
    * @remarks
-   * List of disk IDs that need protection. This value is empty when protecting all disks.
+   * The list of cloud disk IDs that need to be protected. This value is empty when all cloud disks are protected.
    */
   diskIdList?: string[];
   /**
    * @remarks
-   * This parameter is required when **AppConsistent** is **true**. It indicates whether to use the Linux FsFreeze mechanism to ensure the file system is in a read-only consistent state before creating an application-consistent snapshot. The default value is true.
+   * This parameter is required only when **AppConsistent** is set to **true**. Specifies whether to use the Linux FsFreeze mechanism to ensure the file system is in read consistency before creating an application-consistent snapshot. Default value: true.
    * 
    * @example
    * true
@@ -237,11 +237,11 @@ export class DescribePolicyBindingsResponseBodyPolicyBindingsAdvancedOptionsUdmD
   enableFsFreeze?: boolean;
   /**
    * @remarks
-   * This parameter is required when **AppConsistent** is **true**. It determines whether to set an application-consistent snapshot:
-   * - **true**: Create an application-consistent snapshot
-   * - **false**: Create a file system-consistent snapshot
+   * This parameter is required only when **AppConsistent** is set to **true**. Specifies whether to create an application-consistent snapshot:
+   * - true: Creates an application-consistent snapshot.
+   * - false: Creates a file system-consistent snapshot.
    * 
-   * The default value is true.
+   * Default value: true.
    * 
    * @example
    * true
@@ -249,12 +249,12 @@ export class DescribePolicyBindingsResponseBodyPolicyBindingsAdvancedOptionsUdmD
   enableWriters?: boolean;
   /**
    * @remarks
-   * List of disk IDs that do not need protection. This parameter is ignored if DiskIdList is not empty.
+   * The list of cloud disk IDs that do not need to be protected. This parameter is ignored when DiskIdList is not empty.
    */
   excludeDiskIdList?: string[];
   /**
    * @remarks
-   * This parameter is required when **AppConsistent** is **true**. It specifies the path of the unfreeze script to be executed after creating an application-consistent snapshot.
+   * This parameter is required only when **AppConsistent** is set to **true**. The path of the post-thaw script to execute after creating an application-consistent snapshot.
    * 
    * @example
    * /tmp/postscript.sh
@@ -262,7 +262,7 @@ export class DescribePolicyBindingsResponseBodyPolicyBindingsAdvancedOptionsUdmD
   postScriptPath?: string;
   /**
    * @remarks
-   * This parameter is required when **AppConsistent** is **true**. It specifies the path of the freeze script to be executed before creating an application-consistent snapshot.
+   * This parameter is required only when **AppConsistent** is set to **true**. The path of the pre-freeze script to execute before creating an application-consistent snapshot.
    * 
    * @example
    * /tmp/prescript.sh
@@ -270,7 +270,7 @@ export class DescribePolicyBindingsResponseBodyPolicyBindingsAdvancedOptionsUdmD
   preScriptPath?: string;
   /**
    * @remarks
-   * This parameter is required when **AppConsistent** is **true**. It specifies the RAM role name needed for creating an application-consistent snapshot.
+   * This parameter is required only when **AppConsistent** is set to **true**. The RAM role name required for creating application-consistent snapshots.
    * 
    * @example
    * AliyunECSInstanceForHbrRole
@@ -278,7 +278,7 @@ export class DescribePolicyBindingsResponseBodyPolicyBindingsAdvancedOptionsUdmD
   ramRoleName?: string;
   /**
    * @remarks
-   * Indicates whether to create a snapshot consistency group. Only supported when all disk types are ESSD.
+   * Specifies whether to create a snapshot-consistent group. Creating a snapshot-consistent group is supported only when all cloud disk types are ESSD.
    * 
    * @example
    * true
@@ -286,7 +286,7 @@ export class DescribePolicyBindingsResponseBodyPolicyBindingsAdvancedOptionsUdmD
   snapshotGroup?: boolean;
   /**
    * @remarks
-   * This parameter is required when **AppConsistent** is **true**. It specifies the IO freeze timeout duration. The default value is 30 seconds.
+   * This parameter is required only when **AppConsistent** is set to **true**. The I/O freeze timeout period. Unit: seconds. Default value: 30.
    * 
    * @example
    * 30
@@ -342,27 +342,27 @@ export class DescribePolicyBindingsResponseBodyPolicyBindingsAdvancedOptionsUdmD
 export class DescribePolicyBindingsResponseBodyPolicyBindingsAdvancedOptions extends $dara.Model {
   /**
    * @remarks
-   * Advanced options for large-scale file system backup.
+   * The advanced options for large-scale file system backup.
    */
   commonFileSystemDetail?: DescribePolicyBindingsResponseBodyPolicyBindingsAdvancedOptionsCommonFileSystemDetail;
   /**
    * @remarks
-   * Advanced options for local NAS.
+   * The advanced options for on-premises NAS.
    */
   commonNasDetail?: DescribePolicyBindingsResponseBodyPolicyBindingsAdvancedOptionsCommonNasDetail;
   /**
    * @remarks
-   * Advanced options for file backup.
+   * The advanced options for file backup.
    */
   fileDetail?: DescribePolicyBindingsResponseBodyPolicyBindingsAdvancedOptionsFileDetail;
   /**
    * @remarks
-   * Advanced options for OSS backup.
+   * The advanced options for OSS backup.
    */
   ossDetail?: DescribePolicyBindingsResponseBodyPolicyBindingsAdvancedOptionsOssDetail;
   /**
    * @remarks
-   * Advanced options for full machine backup.
+   * The advanced options for ECS instance backup.
    */
   udmDetail?: DescribePolicyBindingsResponseBodyPolicyBindingsAdvancedOptionsUdmDetail;
   static names(): { [key: string]: string } {
@@ -412,7 +412,7 @@ export class DescribePolicyBindingsResponseBodyPolicyBindingsAdvancedOptions ext
 export class DescribePolicyBindingsResponseBodyPolicyBindingsHitTags extends $dara.Model {
   /**
    * @remarks
-   * Tag key.
+   * The tag key.
    * 
    * @example
    * env
@@ -420,9 +420,9 @@ export class DescribePolicyBindingsResponseBodyPolicyBindingsHitTags extends $da
   key?: string;
   /**
    * @remarks
-   * Tag matching rule.
+   * The tag matching rule.
    * - **EQUAL**: Matches both the tag key and tag value.
-   * - **NOT**: Matches the tag key but not the tag value.
+   * - **NOT**: Matches the tag key but does not match the tag value.
    * 
    * @example
    * EQUAL
@@ -430,7 +430,7 @@ export class DescribePolicyBindingsResponseBodyPolicyBindingsHitTags extends $da
   operator?: string;
   /**
    * @remarks
-   * Tag value.
+   * The tag value.
    * 
    * @example
    * prod
@@ -464,12 +464,12 @@ export class DescribePolicyBindingsResponseBodyPolicyBindingsHitTags extends $da
 export class DescribePolicyBindingsResponseBodyPolicyBindings extends $dara.Model {
   /**
    * @remarks
-   * Advanced options.
+   * The advanced options.
    */
   advancedOptions?: DescribePolicyBindingsResponseBodyPolicyBindingsAdvancedOptions;
   /**
    * @remarks
-   * Whether the resource is automatically associated through the backup policy resource tag.
+   * Indicates whether the resource is automatically associated through a backup policy resource tag.
    * 
    * @example
    * false
@@ -477,7 +477,7 @@ export class DescribePolicyBindingsResponseBodyPolicyBindings extends $dara.Mode
   createdByTag?: boolean;
   /**
    * @remarks
-   * Creation time. UNIX timestamp, in seconds.
+   * The creation time. UNIX timestamp, in seconds.
    * 
    * @example
    * 1661399570
@@ -485,7 +485,7 @@ export class DescribePolicyBindingsResponseBodyPolicyBindings extends $dara.Mode
   createdTime?: number;
   /**
    * @remarks
-   * The name of the role created in the RAM of the original account for cross-account backup.
+   * The RAM role name created in the source account for cross-account backup.
    * 
    * @example
    * hbrcrossrole
@@ -493,9 +493,9 @@ export class DescribePolicyBindingsResponseBodyPolicyBindings extends $dara.Mode
   crossAccountRoleName?: string;
   /**
    * @remarks
-   * Cross-account backup type. Supported values: 
-   * - SELF_ACCOUNT: Backup within the same account
-   * - CROSS_ACCOUNT: Cross-account backup
+   * The cross-account backup type. Valid values: 
+   * - SELF_ACCOUNT: backup within the current account.
+   * - CROSS_ACCOUNT: cross-account backup.
    * 
    * @example
    * CROSS_ACCOUNT
@@ -503,7 +503,7 @@ export class DescribePolicyBindingsResponseBodyPolicyBindings extends $dara.Mode
   crossAccountType?: string;
   /**
    * @remarks
-   * The ID of the original account for cross-account backup.
+   * The ID of the source account for cross-account backup.
    * 
    * @example
    * 1480************
@@ -511,7 +511,7 @@ export class DescribePolicyBindingsResponseBodyPolicyBindings extends $dara.Mode
   crossAccountUserId?: number;
   /**
    * @remarks
-   * Data source ID.
+   * The data source ID.
    * 
    * @example
    * i-8vb************5ly
@@ -519,9 +519,9 @@ export class DescribePolicyBindingsResponseBodyPolicyBindings extends $dara.Mode
   dataSourceId?: string;
   /**
    * @remarks
-   * Whether the policy is disbaled for this data source.
-   * - true: disabled
-   * - false: Not disabled
+   * Indicates whether the policy is effective for the data source.
+   * - true: paused.
+   * - false: not paused.
    * 
    * @example
    * true
@@ -529,7 +529,7 @@ export class DescribePolicyBindingsResponseBodyPolicyBindings extends $dara.Mode
   disabled?: boolean;
   /**
    * @remarks
-   * This parameter is required only when **SourceType** is **ECS_FILE** or **File**. It specifies the file types that should not be backed up, and all files of these types will be excluded. Supports up to 255 characters.
+   * This parameter is required only when **SourceType** is set to **ECS_FILE** or **File**. Specifies the file types to exclude from backup. All files of these types are not backed up. Maximum of 255 characters.
    * 
    * @example
    * [\\"*.doc\\",\\"*.xltm\\"]
@@ -537,12 +537,12 @@ export class DescribePolicyBindingsResponseBodyPolicyBindings extends $dara.Mode
   exclude?: string;
   /**
    * @remarks
-   * Hit tag rules.
+   * The matched tag rules.
    */
   hitTags?: DescribePolicyBindingsResponseBodyPolicyBindingsHitTags[];
   /**
    * @remarks
-   * This parameter is required only when **SourceType** is **ECS_FILE** or **File**. It specifies the file types to be backed up, and all files of these types will be backed up. Supports up to 255 characters.
+   * This parameter is required only when **SourceType** is set to **ECS_FILE** or **File**. Specifies the file types to back up. All files of these types are backed up. Maximum of 255 characters.
    * 
    * @example
    * [\\"*.doc\\",\\"*.xltm\\"]
@@ -550,7 +550,7 @@ export class DescribePolicyBindingsResponseBodyPolicyBindings extends $dara.Mode
   include?: string;
   /**
    * @remarks
-   * Bound policy description.
+   * The description of the policy binding.
    * 
    * @example
    * po-000************eslc-i-uf6************y5g
@@ -558,7 +558,7 @@ export class DescribePolicyBindingsResponseBodyPolicyBindings extends $dara.Mode
   policyBindingDescription?: string;
   /**
    * @remarks
-   * Bound policy ID.
+   * The policy binding ID.
    * 
    * @example
    * pd-000************slc
@@ -566,7 +566,7 @@ export class DescribePolicyBindingsResponseBodyPolicyBindings extends $dara.Mode
   policyBindingId?: string;
   /**
    * @remarks
-   * Policy ID.
+   * The policy ID.
    * 
    * @example
    * po-000************56y
@@ -574,8 +574,8 @@ export class DescribePolicyBindingsResponseBodyPolicyBindings extends $dara.Mode
   policyId?: string;
   /**
    * @remarks
-   * - When **SourceType** is **OSS**, it indicates the prefix to be backed up. If not specified, it means backing up the entire root directory of the Bucket.
-   * - When **SourceType** is **ECS_FILE** or **File**, it indicates the file directory to be backed up. If not specified, it means backing up all directories.
+   * - If SourceType is set to **OSS**, this parameter specifies the prefix to back up. If not specified, the entire Bucket root directory is backed up.
+   * - If SourceType is set to **ECS_FILE** or **File**, this parameter specifies the file directory to back up. If not specified, all directories are backed up.
    * 
    * @example
    * backup/
@@ -583,8 +583,15 @@ export class DescribePolicyBindingsResponseBodyPolicyBindings extends $dara.Mode
   source?: string;
   /**
    * @remarks
-   * Data source type, with the value range:
-   * - **UDM_ECS**: indicates ECS full machine backup
+   * The data source type. Valid values:
+   * - **UDM_ECS**: ECS instance backup.
+   * - **OSS**: OSS backup.
+   * - **NAS**: Alibaba Cloud NAS backup.
+   * - **COMMON_NAS**: On-premises NAS backup.
+   * - **ECS_FILE**: ECS File Backup Essential Edition.
+   * - **File**: On-premises file backup.
+   * - **COMMON_FILE_SYSTEM**: CPFS backup.
+   * - **OTS**: Tablestore backup.
    * 
    * @example
    * UDM_ECS
@@ -592,11 +599,11 @@ export class DescribePolicyBindingsResponseBodyPolicyBindings extends $dara.Mode
   sourceType?: string;
   /**
    * @remarks
-   * This parameter is required only when **SourceType** is **ECS_FILE** or **File**. It specifies the backup traffic control. The format is `{start}{end}{bandwidth}`. Multiple traffic control configurations are separated by commas, and the configured times must not overlap.
+   * This parameter is required only when **SourceType** is set to **ECS_FILE** or **File**. Specifies the backup traffic control. Format: `{start}{end}{bandwidth}`. Multiple traffic control configurations are separated by delimiters, and configuration times cannot overlap.
    * 
-   * - **start**: Start hour.
-   * - **end**: End hour.
-   * - **bandwidth**: Limit rate, in KB/s.
+   * - **start**: start hour.
+   * - **end**: end hour.
+   * - **bandwidth**: rate limit, in KB/s.
    * 
    * @example
    * 0:24:10240
@@ -604,7 +611,7 @@ export class DescribePolicyBindingsResponseBodyPolicyBindings extends $dara.Mode
   speedLimit?: string;
   /**
    * @remarks
-   * Update time. UNIX timestamp, in seconds.
+   * The update time. UNIX timestamp, in seconds.
    * 
    * @example
    * 1653611573
@@ -674,7 +681,7 @@ export class DescribePolicyBindingsResponseBodyPolicyBindings extends $dara.Mode
 export class DescribePolicyBindingsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Return code, 200 indicates success.
+   * The response code. 200 indicates success.
    * 
    * @example
    * 200
@@ -682,9 +689,9 @@ export class DescribePolicyBindingsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The number of results per query.
+   * The number of results for each query.
    * 
-   * Range: 10~100. Default: 10.
+   * Valid values: 10 to 100. Default value: 10.
    * 
    * @example
    * 10
@@ -692,7 +699,7 @@ export class DescribePolicyBindingsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * Description of the return message. A successful response usually returns \\"successful\\", while an error will return a corresponding error message.
+   * The returned message. "successful" is returned for success. An error message is returned for failure.
    * 
    * @example
    * successful
@@ -700,7 +707,7 @@ export class DescribePolicyBindingsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The token required to fetch the next page of policy and data source bindings.
+   * The token required to obtain the next page of policy-data source bindings.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a
@@ -708,12 +715,12 @@ export class DescribePolicyBindingsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * List of bound policies.
+   * The list of policy bindings.
    */
   policyBindings?: DescribePolicyBindingsResponseBodyPolicyBindings[];
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 5225929A-4EBD-55EE-9FE1-4A130E582A76
@@ -723,8 +730,8 @@ export class DescribePolicyBindingsResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful.
    * 
-   * - true: Success
-   * - false: Failure
+   * - true: Successful.
+   * - false: Failed.
    * 
    * @example
    * true
@@ -732,7 +739,7 @@ export class DescribePolicyBindingsResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * Total number of records.
+   * The total number of records.
    * 
    * @example
    * 38

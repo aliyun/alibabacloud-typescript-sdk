@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class InstallBackupClientsRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the RAM role that is created within the source Alibaba Cloud account and assigned to the current Alibaba Cloud account to authorize the current Alibaba Cloud account to back up data across Alibaba Cloud accounts.
+   * The name of the RAM role that is created in the source account for cross-account backup.
    * 
    * @example
    * BackupRole
@@ -13,10 +13,11 @@ export class InstallBackupClientsRequest extends $dara.Model {
   crossAccountRoleName?: string;
   /**
    * @remarks
-   * Specifies whether data is backed up within the same Alibaba Cloud account or across Alibaba Cloud accounts. Valid values:
+   * The type of cross-account backup. Valid values:
    * 
-   * *   SELF_ACCOUNT: Data is backed up within the same Alibaba Cloud account.
-   * *   CROSS_ACCOUNT: Data is backed up across Alibaba Cloud accounts.
+   * - SELF_ACCOUNT: Backs up data within the current account.
+   * 
+   * - CROSS_ACCOUNT: Backs up data across accounts.
    * 
    * @example
    * CROSS_ACCOUNT
@@ -24,7 +25,7 @@ export class InstallBackupClientsRequest extends $dara.Model {
   crossAccountType?: string;
   /**
    * @remarks
-   * The ID of the source Alibaba Cloud account that authorizes the current Alibaba Cloud account to back up data across Alibaba Cloud accounts.
+   * The ID of the source account that is used for cross-account backup.
    * 
    * @example
    * 16392782xxxxxx
@@ -32,7 +33,7 @@ export class InstallBackupClientsRequest extends $dara.Model {
   crossAccountUserId?: number;
   /**
    * @remarks
-   * The IDs of the ECS instances. You can specify up to 20 IDs.
+   * The IDs of the ECS instances. You can specify a maximum of 20 instance IDs.
    * 
    * This parameter is required.
    * 

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteContainerClusterRequest extends $dara.Model {
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,6 +14,9 @@ export class DeleteContainerClusterRequest extends $dara.Model {
    */
   clusterId?: string;
   /**
+   * @remarks
+   * Specifies whether to forcibly delete active container backup clients.
+   * 
    * @example
    * false
    */

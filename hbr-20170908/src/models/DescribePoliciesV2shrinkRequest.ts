@@ -2,38 +2,9 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DescribePoliciesV2RequestAccounts extends $dara.Model {
-  crossAccountRoleName?: string;
-  crossAccountType?: string;
-  crossAccountUserId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      crossAccountRoleName: 'CrossAccountRoleName',
-      crossAccountType: 'CrossAccountType',
-      crossAccountUserId: 'CrossAccountUserId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      crossAccountRoleName: 'string',
-      crossAccountType: 'string',
-      crossAccountUserId: 'number',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribePoliciesV2Request extends $dara.Model {
+export class DescribePoliciesV2ShrinkRequest extends $dara.Model {
   accountScope?: string;
-  accounts?: DescribePoliciesV2RequestAccounts[];
+  accountsShrink?: string;
   /**
    * @remarks
    * The number of results per query.
@@ -64,7 +35,7 @@ export class DescribePoliciesV2Request extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       accountScope: 'AccountScope',
-      accounts: 'Accounts',
+      accountsShrink: 'Accounts',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
       policyId: 'PolicyId',
@@ -75,7 +46,7 @@ export class DescribePoliciesV2Request extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       accountScope: 'string',
-      accounts: { 'type': 'array', 'itemType': DescribePoliciesV2RequestAccounts },
+      accountsShrink: 'string',
       maxResults: 'number',
       nextToken: 'string',
       policyId: 'string',
@@ -84,9 +55,6 @@ export class DescribePoliciesV2Request extends $dara.Model {
   }
 
   validate() {
-    if(Array.isArray(this.accounts)) {
-      $dara.Model.validateArray(this.accounts);
-    }
     super.validate();
   }
 

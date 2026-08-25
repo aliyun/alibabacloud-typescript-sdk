@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteAirEcsInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Elastic Compute Service (ECS) instance.
+   * The instance ID of the ECS instance.
    * 
    * @example
    * i-uf6ir9y******hvisj
@@ -13,7 +13,7 @@ export class DeleteAirEcsInstanceRequest extends $dara.Model {
   ecsInstanceId?: string;
   /**
    * @remarks
-   * The data sources for which the client needs to be uninstalled.
+   * The list of data sources for which the client needs to be uninstalled.
    */
   uninstallClientSourceTypes?: string[];
   static names(): { [key: string]: string } {

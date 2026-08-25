@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class EnableBackupPlanRequest extends $dara.Model {
   /**
+   * @remarks
+   * The edition. Valid values are BASIC and STANDARD. The default value is STANDARD.
+   * 
    * @example
    * STANDARD
    */
@@ -22,9 +25,11 @@ export class EnableBackupPlanRequest extends $dara.Model {
    * @remarks
    * The type of the data source. Valid values:
    * 
-   * *   **ECS_FILE**: ECS files
-   * *   **OSS**: Object Storage Service (OSS) buckets
-   * *   **NAS**: Apsara File Storage NAS (NAS) file systems
+   * - **ECS_FILE**: Backs up ECS files.
+   * 
+   * - **OSS**: Backs up Alibaba Cloud OSS.
+   * 
+   * - **NAS**: Backs up Alibaba Cloud NAS.
    * 
    * @example
    * ECS_FILE

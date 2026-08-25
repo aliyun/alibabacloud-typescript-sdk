@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateRestoreJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Return code, 200 indicates success.
+   * The response code. The value 200 indicates success.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class CreateRestoreJobResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Description of the return message, usually \\"successful\\" when successful, and corresponding error messages when there is an error.
+   * The response message. The value "successful" is returned for a success. An error message is returned for a failure.
    * 
    * @example
    * successful
@@ -21,7 +21,7 @@ export class CreateRestoreJobResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
@@ -29,7 +29,7 @@ export class CreateRestoreJobResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Restore job ID.
+   * The ID of the restore job.
    * 
    * @example
    * r-*********************
@@ -37,9 +37,9 @@ export class CreateRestoreJobResponseBody extends $dara.Model {
   restoreId?: string;
   /**
    * @remarks
-   * Whether the request was successful.
-   *   - true: Success
-   *   - false: Failure
+   * Indicates whether the request was successful.
+   *   - true: The request was successful.
+   *   - false: The request failed.
    * 
    * @example
    * true

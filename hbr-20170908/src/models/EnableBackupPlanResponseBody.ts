@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class EnableBackupPlanResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code. The status code 200 indicates that the request was successful.
+   * The response code. A value of 200 indicates success.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class EnableBackupPlanResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned message. If the request was successful, "successful" is returned. If the request failed, an error message is returned.
+   * The response message. If the call is successful, \\`successful\\` is returned. If the call fails, an error message is returned.
    * 
    * @example
    * successful
@@ -29,10 +29,11 @@ export class EnableBackupPlanResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the request was successful.
    * 
-   * *   true
-   * *   false
+   * - true: The request was successful.
+   * 
+   * - false: The request failed.
    * 
    * @example
    * true
