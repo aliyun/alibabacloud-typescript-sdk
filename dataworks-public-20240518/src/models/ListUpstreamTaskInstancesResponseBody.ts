@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListUpstreamTaskInstancesResponseBodyPagingInfoTaskInstancesDataSource extends $dara.Model {
   /**
    * @remarks
-   * The name of the data source.
+   * The data source name.
    * 
    * @example
    * mysql_test
@@ -35,7 +35,7 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfoTaskInstancesDataSou
 export class ListUpstreamTaskInstancesResponseBodyPagingInfoTaskInstancesRuntime extends $dara.Model {
   /**
    * @remarks
-   * The host for running.
+   * The machine on which the task runs.
    * 
    * @example
    * cn-shanghai.1.2
@@ -43,7 +43,7 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfoTaskInstancesRuntime
   gateway?: string;
   /**
    * @remarks
-   * The instance run ID.
+   * The unique run ID.
    * 
    * @example
    * T3_123
@@ -75,7 +75,7 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfoTaskInstancesRuntime
 export class ListUpstreamTaskInstancesResponseBodyPagingInfoTaskInstancesRuntimeResource extends $dara.Model {
   /**
    * @remarks
-   * The default number of compute units (CUs) configured for task running.
+   * The compute unit (CU) consumption configured for the task.
    * 
    * @example
    * 0.25
@@ -83,7 +83,7 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfoTaskInstancesRuntime
   cu?: string;
   /**
    * @remarks
-   * The ID of the image configured for task running.
+   * The image ID configured for the task.
    * 
    * @example
    * i-xxxxxx
@@ -91,7 +91,7 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfoTaskInstancesRuntime
   image?: string;
   /**
    * @remarks
-   * The ID of the resource group for scheduling configured for task running.
+   * The identifier of the schedule resource group configured for the task.
    * 
    * @example
    * S_res_group_524258031846018_1684XXXXXXXXX
@@ -133,7 +133,7 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfoTaskInstances extend
   baselineId?: number;
   /**
    * @remarks
-   * The data timestamp.
+   * The business date.
    * 
    * @example
    * 1710239005403
@@ -149,7 +149,7 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfoTaskInstances extend
   createTime?: number;
   /**
    * @remarks
-   * The account ID of the creator.
+   * The account ID of the user who created the instance.
    * 
    * @example
    * 1000
@@ -157,7 +157,7 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfoTaskInstances extend
   createUser?: string;
   /**
    * @remarks
-   * The information about the associated data source.
+   * The data source information associated with the instance.
    */
   dataSource?: ListUpstreamTaskInstancesResponseBodyPagingInfoTaskInstancesDataSource;
   /**
@@ -170,11 +170,7 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfoTaskInstances extend
   description?: string;
   /**
    * @remarks
-   * The environment of the workspace. Valid values:
-   * 
-   * - Prod
-   * 
-   * - Dev
+   * The project environment.
    * 
    * @example
    * Prod
@@ -190,7 +186,7 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfoTaskInstances extend
   finishedTime?: number;
   /**
    * @remarks
-   * The instance ID.
+   * The unique identifier of the task instance.
    * 
    * @example
    * 1234
@@ -206,7 +202,7 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfoTaskInstances extend
   modifyTime?: number;
   /**
    * @remarks
-   * The account ID of the modifier.
+   * The account ID of the user who last modified the instance.
    * 
    * @example
    * 1000
@@ -222,7 +218,7 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfoTaskInstances extend
   owner?: string;
   /**
    * @remarks
-   * The sequence number of the period. Indicates which cycle of the day the task instance is in.
+   * The period number. Indicates which scheduling cycle of the day the task instance belongs to.
    * 
    * @example
    * 1
@@ -230,7 +226,7 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfoTaskInstances extend
   periodNumber?: number;
   /**
    * @remarks
-   * The priority of the task. Valid values: 1 to 8. A larger value indicates a higher priority. Default value: 1.
+   * The task running priority. Minimum value: 1. Maximum value: 8. A larger value indicates a higher priority. Default value: 1.
    * 
    * @example
    * 1
@@ -238,11 +234,7 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfoTaskInstances extend
   priority?: number;
   /**
    * @remarks
-   * The environment of the workspace. Valid values:
-   * 
-   * - Prod: production environment
-   * 
-   * - Dev: development environment
+   * The project environment.
    * 
    * @example
    * Prod
@@ -252,7 +244,7 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfoTaskInstances extend
   projectEnv?: string;
   /**
    * @remarks
-   * The workspace ID.
+   * The project ID.
    * 
    * @example
    * 100
@@ -260,13 +252,10 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfoTaskInstances extend
   projectId?: number;
   /**
    * @remarks
-   * The rerun mode. Valid values:
-   * 
-   * - AllDenied: The task cannot be rerun regardless of whether the task is successfully run or fails to run.
-   * 
-   * - FailureAllowed: The task can be rerun only after it fails to run.
-   * 
-   * - AllAllowed: The task can be rerun regardless of whether the task is successfully run or fails to run.
+   * The rerun configuration of the node. Valid values:
+   * - AllDenied: The node cannot be rerun regardless of whether it fails or succeeds.
+   * - FailureAllowed: The node can be rerun only after it fails.
+   * - AllAllowed: The node can be rerun regardless of whether it fails or succeeds.
    * 
    * @example
    * AllAllowed
@@ -274,7 +263,7 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfoTaskInstances extend
   rerunMode?: string;
   /**
    * @remarks
-   * The number of times the instance is run. By default, the value starts from 1.
+   * The current run number, starting from 1 by default.
    * 
    * @example
    * 1
@@ -282,17 +271,17 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfoTaskInstances extend
   runNumber?: number;
   /**
    * @remarks
-   * The runtime information about the instance.
+   * The instance runtime information.
    */
   runtime?: ListUpstreamTaskInstancesResponseBodyPagingInfoTaskInstancesRuntime;
   /**
    * @remarks
-   * The configurations of the runtime environment, such as the resource group information.
+   * The runtime environment configuration, such as resource group information.
    */
   runtimeResource?: ListUpstreamTaskInstancesResponseBodyPagingInfoTaskInstancesRuntimeResource;
   /**
    * @remarks
-   * The time when the instance started to run.
+   * The time when the instance started running.
    * 
    * @example
    * 1710239005403
@@ -300,23 +289,7 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfoTaskInstances extend
   startedTime?: number;
   /**
    * @remarks
-   * The status of the instance. Valid values:
-   * 
-   * - NotRun: The instance is not run.
-   * 
-   * - Running: The instance is running.
-   * 
-   * - WaitTime: The instance is waiting for the scheduling time to arrive.
-   * 
-   * - CheckingCondition: Branch conditions are being checked for the instance.
-   * 
-   * - WaitResource: The instance is waiting for resources.
-   * 
-   * - Failure: The instance fails to be run.
-   * 
-   * - Success: The instance is successfully run.
-   * 
-   * - Checking: Data quality is being checked for the instance.
+   * The instance running status.
    * 
    * @example
    * Success
@@ -324,11 +297,7 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfoTaskInstances extend
   status?: string;
   /**
    * @remarks
-   * The scheduling dependency type. Valid values:
-   * 
-   * - Normal: same-cycle scheduling dependency
-   * 
-   * - CrossCycle: cross-cycle scheduling dependency
+   * The dependency type.
    * 
    * @example
    * Normal
@@ -336,7 +305,7 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfoTaskInstances extend
   stepType?: string;
   /**
    * @remarks
-   * The ID of the task for which the instance is generated.
+   * The ID of the corresponding task.
    * 
    * @example
    * 1234
@@ -344,7 +313,7 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfoTaskInstances extend
   taskId?: number;
   /**
    * @remarks
-   * The name of the task for which the instance is generated.
+   * The name of the corresponding task.
    * 
    * @example
    * SQL node
@@ -352,7 +321,7 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfoTaskInstances extend
   taskName?: string;
   /**
    * @remarks
-   * The type of the task for which the instance is generated.
+   * The type of the corresponding task.
    * 
    * @example
    * ODPS_SQL
@@ -360,7 +329,7 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfoTaskInstances extend
   taskType?: string;
   /**
    * @remarks
-   * The timeout period of task running. Unit: seconds.
+   * The timeout period for task execution, in seconds.
    * 
    * @example
    * 3600
@@ -368,13 +337,12 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfoTaskInstances extend
   timeout?: number;
   /**
    * @remarks
-   * The running mode of the instance after it is triggered. This parameter takes effect only if the TriggerType parameter is set to Scheduler. Valid values:
+   * The run mode when the instance is triggered. This parameter takes effect when TriggerType is set to Scheduler.
    * 
-   * - Pause
-   * 
-   * - Skip
-   * 
-   * - Normal
+   * Valid values:
+   * - Pause: paused
+   * - Skip: dry run
+   * - Normal: normal execution
    * 
    * @example
    * Normal
@@ -382,7 +350,7 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfoTaskInstances extend
   triggerRecurrence?: string;
   /**
    * @remarks
-   * The scheduling time.
+   * The scheduled trigger time.
    * 
    * @example
    * 1710239005403
@@ -390,11 +358,7 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfoTaskInstances extend
   triggerTime?: number;
   /**
    * @remarks
-   * The trigger type. Valid values:
-   * 
-   * - Scheduler: scheduling cycle-based trigger
-   * 
-   * - Manual: manual trigger
+   * The trigger type.
    * 
    * @example
    * Scheduler
@@ -410,7 +374,7 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfoTaskInstances extend
   workflowId?: number;
   /**
    * @remarks
-   * The workflow instance ID.
+   * The ID of the workflow instance to which the instance belongs.
    * 
    * @example
    * 1234
@@ -418,19 +382,7 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfoTaskInstances extend
   workflowInstanceId?: number;
   /**
    * @remarks
-   * The type of the workflow instance. Valid values:
-   * 
-   * - SmokeTest
-   * 
-   * - SupplementData
-   * 
-   * - Manual
-   * 
-   * - ManualWorkflow
-   * 
-   * - Normal
-   * 
-   * - ManualFlow
+   * The type of the workflow instance to which the instance belongs.
    * 
    * @example
    * Normal
@@ -543,7 +495,7 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfoTaskInstances extend
 export class ListUpstreamTaskInstancesResponseBodyPagingInfoUpstreamTaskInstancesTaskInstanceDataSource extends $dara.Model {
   /**
    * @remarks
-   * The name of the data source.
+   * The data source name.
    * 
    * @example
    * mysql_test
@@ -573,7 +525,7 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfoUpstreamTaskInstance
 export class ListUpstreamTaskInstancesResponseBodyPagingInfoUpstreamTaskInstancesTaskInstanceRuntime extends $dara.Model {
   /**
    * @remarks
-   * The host for running.
+   * The machine on which the task runs.
    * 
    * @example
    * cn-shanghai.1.2
@@ -581,7 +533,7 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfoUpstreamTaskInstance
   gateway?: string;
   /**
    * @remarks
-   * The instance run ID.
+   * The unique run ID.
    * 
    * @example
    * T3_123
@@ -613,7 +565,7 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfoUpstreamTaskInstance
 export class ListUpstreamTaskInstancesResponseBodyPagingInfoUpstreamTaskInstancesTaskInstanceRuntimeResource extends $dara.Model {
   /**
    * @remarks
-   * The default number of compute units (CUs) configured for task running.
+   * The compute unit (CU) consumption configured for the task.
    * 
    * @example
    * 0.25
@@ -621,7 +573,7 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfoUpstreamTaskInstance
   cu?: string;
   /**
    * @remarks
-   * The ID of the image configured for task running.
+   * The image ID configured for the task.
    * 
    * @example
    * i-xxxxxx
@@ -629,7 +581,7 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfoUpstreamTaskInstance
   image?: string;
   /**
    * @remarks
-   * The ID of the resource group for scheduling configured for task running.
+   * The identifier of the schedule resource group configured for the task.
    * 
    * @example
    * S_res_group_524258031846018_1684XXXXXXXXX
@@ -671,7 +623,7 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfoUpstreamTaskInstance
   baselineId?: number;
   /**
    * @remarks
-   * The data timestamp.
+   * The business date.
    * 
    * @example
    * 1710239005403
@@ -687,7 +639,7 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfoUpstreamTaskInstance
   createTime?: number;
   /**
    * @remarks
-   * The account ID of the creator.
+   * The account ID of the user who created the instance.
    * 
    * @example
    * 1000
@@ -695,7 +647,7 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfoUpstreamTaskInstance
   createUser?: string;
   /**
    * @remarks
-   * The information about the associated data source.
+   * The data source information associated with the instance.
    */
   dataSource?: ListUpstreamTaskInstancesResponseBodyPagingInfoUpstreamTaskInstancesTaskInstanceDataSource;
   /**
@@ -708,11 +660,7 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfoUpstreamTaskInstance
   description?: string;
   /**
    * @remarks
-   * The environment in which the data source is used. Valid values:
-   * 
-   * - Dev
-   * 
-   * - Prod
+   * The environment of the target data source. Valid values:
    * 
    * @example
    * Prod
@@ -728,7 +676,7 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfoUpstreamTaskInstance
   finishedTime?: number;
   /**
    * @remarks
-   * The instance ID.
+   * The unique identifier of the task instance.
    * 
    * @example
    * 1234
@@ -744,7 +692,7 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfoUpstreamTaskInstance
   modifyTime?: number;
   /**
    * @remarks
-   * The account ID of the modifier.
+   * The account ID of the user who last modified the instance.
    * 
    * @example
    * 1000
@@ -760,7 +708,7 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfoUpstreamTaskInstance
   owner?: string;
   /**
    * @remarks
-   * The sequence number of the cycle. This parameter indicates the cycle of the task instance on the current day.
+   * The period number. Indicates which scheduling cycle of the day the task instance belongs to.
    * 
    * @example
    * 1
@@ -768,7 +716,7 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfoUpstreamTaskInstance
   periodNumber?: number;
   /**
    * @remarks
-   * The priority of the task. Minimum value: 1. Maximum value: 8. A larger value indicates a higher priority. Default value: 1.
+   * The task running priority. Minimum value: 1. Maximum value: 8. A larger value indicates a higher priority. Default value: 1.
    * 
    * @example
    * 1
@@ -776,7 +724,7 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfoUpstreamTaskInstance
   priority?: number;
   /**
    * @remarks
-   * The workspace ID.
+   * The project ID.
    * 
    * @example
    * 100
@@ -784,7 +732,7 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfoUpstreamTaskInstance
   projectId?: number;
   /**
    * @remarks
-   * The rerun mode.
+   * The configuration that specifies whether the task can be rerun.
    * 
    * @example
    * AllAllowed
@@ -792,7 +740,7 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfoUpstreamTaskInstance
   rerunMode?: string;
   /**
    * @remarks
-   * The number of times the instance is run. By default, the value starts from 1.
+   * The current run number, starting from 1 by default.
    * 
    * @example
    * 1
@@ -800,17 +748,17 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfoUpstreamTaskInstance
   runNumber?: number;
   /**
    * @remarks
-   * The runtime information about the instance.
+   * The instance runtime information.
    */
   runtime?: ListUpstreamTaskInstancesResponseBodyPagingInfoUpstreamTaskInstancesTaskInstanceRuntime;
   /**
    * @remarks
-   * The configurations of the runtime environment, such as the resource group information.
+   * The runtime environment configuration, such as resource group information.
    */
   runtimeResource?: ListUpstreamTaskInstancesResponseBodyPagingInfoUpstreamTaskInstancesTaskInstanceRuntimeResource;
   /**
    * @remarks
-   * The time when the instance started to run.
+   * The time when the instance started running.
    * 
    * @example
    * 1710239005403
@@ -818,25 +766,7 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfoUpstreamTaskInstance
   startedTime?: number;
   /**
    * @remarks
-   * The status of the instance. Valid values:
-   * 
-   * - NotRun: The instance is not run.
-   * 
-   * - Running: The instance is running.
-   * 
-   * - WaitTime: The instance is waiting for the scheduling time to arrive.
-   * 
-   * - CheckingCondition: Branch conditions are being checked for the instance.
-   * 
-   * - WaitResource: The instance is waiting for resources.
-   * 
-   * - Failure: The instance fails to be run.
-   * 
-   * - Success: The instance is successfully run.
-   * 
-   * - Checking: Data quality is being checked for the instance.
-   * 
-   * - WaitTrigger: The instance is waiting to be triggered by external scheduling systems.
+   * The instance running status.
    * 
    * @example
    * Success
@@ -844,7 +774,7 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfoUpstreamTaskInstance
   status?: string;
   /**
    * @remarks
-   * The ID of the task for which the instance is generated.
+   * The ID of the corresponding task.
    * 
    * @example
    * 1234
@@ -852,7 +782,7 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfoUpstreamTaskInstance
   taskId?: number;
   /**
    * @remarks
-   * The name of the task for which the instance is generated.
+   * The name of the corresponding task.
    * 
    * @example
    * SQL node
@@ -860,7 +790,7 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfoUpstreamTaskInstance
   taskName?: string;
   /**
    * @remarks
-   * The type of the task for which the instance is generated.
+   * The type of the corresponding task.
    * 
    * @example
    * ODPS_SQL
@@ -868,9 +798,7 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfoUpstreamTaskInstance
   taskType?: string;
   /**
    * @remarks
-   * The timeout period of task running. Unit: seconds.
-   * 
-   * Note: The value of this parameter is rounded up by hour.
+   * The timeout period for task execution, in seconds.
    * 
    * @example
    * 3600
@@ -878,13 +806,12 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfoUpstreamTaskInstance
   timeout?: number;
   /**
    * @remarks
-   * The running mode of the instance after it is triggered. This parameter takes effect only if the TriggerType parameter is set to Scheduler. Valid values:
+   * The run mode when the instance is triggered. This parameter takes effect when TriggerType is set to Scheduler.
    * 
-   * - Pause
-   * 
-   * - Skip
-   * 
-   * - Normal
+   * Valid values:
+   * - Pause: paused.
+   * - Skip: dry run.
+   * - Normal: normal run.
    * 
    * @example
    * Normal
@@ -892,7 +819,7 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfoUpstreamTaskInstance
   triggerRecurrence?: string;
   /**
    * @remarks
-   * The scheduling time.
+   * The scheduled trigger time.
    * 
    * @example
    * 1710239005403
@@ -900,11 +827,7 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfoUpstreamTaskInstance
   triggerTime?: number;
   /**
    * @remarks
-   * The trigger type. Valid values:
-   * 
-   * - Scheduler: scheduling cycle-based trigger
-   * 
-   * - Manual: manual trigger
+   * The trigger type.
    * 
    * @example
    * Scheduler
@@ -920,7 +843,7 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfoUpstreamTaskInstance
   workflowId?: number;
   /**
    * @remarks
-   * The workflow instance ID.
+   * The ID of the workflow instance to which the instance belongs.
    * 
    * @example
    * 1234
@@ -928,17 +851,7 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfoUpstreamTaskInstance
   workflowInstanceId?: number;
   /**
    * @remarks
-   * The type of the workflow instance. Valid values:
-   * 
-   * - Normal
-   * 
-   * - Manual
-   * 
-   * - SmokeTest
-   * 
-   * - SupplementData
-   * 
-   * - ManualWorkflow
+   * The type of the workflow instance to which the instance belongs.
    * 
    * @example
    * Normal
@@ -1047,11 +960,7 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfoUpstreamTaskInstance
 export class ListUpstreamTaskInstancesResponseBodyPagingInfoUpstreamTaskInstances extends $dara.Model {
   /**
    * @remarks
-   * The scheduling dependency type. Valid values:
-   * 
-   * - Normal
-   * 
-   * - CrossCycle
+   * The dependency type.
    * 
    * @example
    * Normal
@@ -1059,7 +968,7 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfoUpstreamTaskInstance
   dependencyType?: string;
   /**
    * @remarks
-   * The information about a task instance.
+   * The details of the task instance.
    */
   taskInstance?: ListUpstreamTaskInstancesResponseBodyPagingInfoUpstreamTaskInstancesTaskInstance;
   static names(): { [key: string]: string } {
@@ -1107,12 +1016,12 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfo extends $dara.Model
   pageSize?: number;
   /**
    * @remarks
-   * The instances. This parameter is deprecated and replaced by the UpstreamTaskInstances parameter.
+   * **[Deprecated]** The list of task instances. This field is deprecated. Use UpstreamTaskInstances instead.
    */
   taskInstances?: ListUpstreamTaskInstancesResponseBodyPagingInfoTaskInstances[];
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of records.
    * 
    * @example
    * 100
@@ -1120,7 +1029,7 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfo extends $dara.Model
   totalCount?: number;
   /**
    * @remarks
-   * The ancestor instances.
+   * The list of upstream task instances.
    */
   upstreamTaskInstances?: ListUpstreamTaskInstancesResponseBodyPagingInfoUpstreamTaskInstances[];
   static names(): { [key: string]: string } {
@@ -1166,7 +1075,7 @@ export class ListUpstreamTaskInstancesResponseBody extends $dara.Model {
   pagingInfo?: ListUpstreamTaskInstancesResponseBodyPagingInfo;
   /**
    * @remarks
-   * The request ID.
+   * The request ID, which is used to locate logs and troubleshoot issues.
    * 
    * @example
    * 22C97E95-F023-56B5-8852-B1A77A17XXXX

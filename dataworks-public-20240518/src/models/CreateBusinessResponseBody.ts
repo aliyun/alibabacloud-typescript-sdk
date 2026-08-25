@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateBusinessResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Business Process ID.
+   * The ID of the business process.
    * 
    * @example
    * 100001
@@ -13,13 +13,11 @@ export class CreateBusinessResponseBody extends $dara.Model {
   businessId?: number;
   /**
    * @remarks
-   * Error code. The value is as follows:
+   * The error code. Description:
+   * - If the request was successful, this parameter is not returned.
+   * - If the request failed, this parameter is returned.
    * 
-   * - If the request succeeds, the ErrorCode field is not returned.
-   * 
-   * - If the request fails, the ErrorCode field is returned.
-   * 
-   * For more information, see the error code list in this topic.
+   * For more information, see the error codes in this topic.
    * 
    * @example
    * Invalid.Tenant.ConnectionNotExists
@@ -27,7 +25,7 @@ export class CreateBusinessResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * Error message.
+   * The error message.
    * 
    * @example
    * The connection does not exist.
@@ -35,7 +33,7 @@ export class CreateBusinessResponseBody extends $dara.Model {
   errorMessage?: string;
   /**
    * @remarks
-   * HTTP status code.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -43,8 +41,7 @@ export class CreateBusinessResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The unique ID of this request.<br>
-   * If an error occurs, you can use this ID to troubleshoot the issue.
+   * The unique ID of the request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * 0000-ABCD-EFG****
@@ -52,11 +49,10 @@ export class CreateBusinessResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the invocation succeeded. Valid values:
+   * Indicates whether the request was successful. Valid values:
    * 
-   * - true: The invocation succeeded.
-   * 
-   * - false: The invocation failed.
+   * - true: The request was successful.
+   * - false: The request failed.
    * 
    * @example
    * true

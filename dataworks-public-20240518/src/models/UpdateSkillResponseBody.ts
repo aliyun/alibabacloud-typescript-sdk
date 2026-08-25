@@ -48,7 +48,7 @@ export class UpdateSkillResponseBodySkill extends $dara.Model {
    * The SKILL.md body content.
    * 
    * @example
-   * 把大象放冰箱分为三步，把冰箱门打开，把大象放进去，把冰箱门关上。
+   * Putting an elephant in a refrigerator takes three steps: open the refrigerator door, put the elephant in, and close the refrigerator door
    */
   body?: string;
   /**
@@ -64,7 +64,7 @@ export class UpdateSkillResponseBodySkill extends $dara.Model {
    * The Skill description.
    * 
    * @example
-   * 数据分析技能
+   * Data analytics skill
    */
   description?: string;
   /**
@@ -167,7 +167,7 @@ export class UpdateSkillResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * -
+   * The Skill details.
    */
   skill?: UpdateSkillResponseBodySkill;
   static names(): { [key: string]: string } {

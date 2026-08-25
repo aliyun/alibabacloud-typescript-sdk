@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class LineageTask extends $dara.Model {
   /**
    * @remarks
-   * The properties of the task.
+   * The task attributes.
    */
   attributes?: { [key: string]: string };
   /**
@@ -18,7 +18,7 @@ export class LineageTask extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The type of the task.
+   * The task type.
    * 
    * @example
    * custom-sql

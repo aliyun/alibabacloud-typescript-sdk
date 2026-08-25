@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEvaluationTasksHooks extends $dara.Model {
   /**
    * @remarks
-   * Hook触发条件
+   * The cause that triggers the hook.
    * 
    * @example
    * ${severity} == "High" AND ${status} == "Critical"
@@ -13,8 +13,8 @@ export class ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEval
   condition?: string;
   /**
    * @remarks
-   * 后续处理动作类型
-   * - BlockTaskInstance：阻塞DataWorks任务实例执行
+   * The type of the follow-up action. Valid values:
+   * - BlockTaskInstance: Blocks the execution of a DataWorks node instance.
    * 
    * @example
    * BlockTaskInstance
@@ -46,7 +46,7 @@ export class ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEval
 export class ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEvaluationTasksNotificationsNotificationsNotificationChannels extends $dara.Model {
   /**
    * @remarks
-   * 告警方式
+   * The alert channel.
    */
   channels?: string[];
   static names(): { [key: string]: string } {
@@ -76,7 +76,7 @@ export class ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEval
 export class ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEvaluationTasksNotificationsNotificationsNotificationReceivers extends $dara.Model {
   /**
    * @remarks
-   * 扩展信息，格式为 json，例如钉钉机器人支持 at 所有人
+   * The extension information in JSON format. For example, DingTalk chatbots support mentioning all members.
    * 
    * @example
    * {"atAll":"true"}
@@ -84,12 +84,12 @@ export class ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEval
   extension?: string;
   /**
    * @remarks
-   * 告警接收人类型
-   * - AliUid - 阿里云账号Uid
-   * - WebhookUrl - 自定义 webhook URL
-   * - DingdingUrl - 钉钉机器人Url
-   * - FeishuUrl - 飞书机器人Url
-   * - WeixinUrl - 企微机器人Url
+   * The type of the alert recipient. Valid values:
+   * - AliUid: Alibaba Cloud account UID.
+   * - WebhookUrl: custom webhook URL.
+   * - DingdingUrl: DingTalk chatbot URL.
+   * - FeishuUrl: Lark chatbot URL.
+   * - WeixinUrl: WeCom chatbot URL.
    * 
    * @example
    * AliUid
@@ -97,7 +97,7 @@ export class ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEval
   receiverType?: string;
   /**
    * @remarks
-   * 告警接收人具体值
+   * The specific values of the alert recipients.
    */
   receiverValues?: string[];
   static names(): { [key: string]: string } {
@@ -131,12 +131,12 @@ export class ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEval
 export class ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEvaluationTasksNotificationsNotifications extends $dara.Model {
   /**
    * @remarks
-   * 告警方式配置
+   * The alert channel configurations.
    */
   notificationChannels?: ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEvaluationTasksNotificationsNotificationsNotificationChannels[];
   /**
    * @remarks
-   * 告警接收人配置
+   * The alert recipient configurations.
    */
   notificationReceivers?: ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEvaluationTasksNotificationsNotificationsNotificationReceivers[];
   static names(): { [key: string]: string } {
@@ -171,7 +171,7 @@ export class ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEval
 export class ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEvaluationTasksNotifications extends $dara.Model {
   /**
    * @remarks
-   * Notification触发条件
+   * The cause that triggers the notification.
    * 
    * @example
    * ${severity} == "High"
@@ -179,7 +179,7 @@ export class ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEval
   condition?: string;
   /**
    * @remarks
-   * 具体的告警设置
+   * The alert settings.
    */
   notifications?: ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEvaluationTasksNotificationsNotifications[];
   static names(): { [key: string]: string } {
@@ -211,7 +211,7 @@ export class ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEval
 export class ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEvaluationTasksTarget extends $dara.Model {
   /**
    * @remarks
-   * 表类型的数据集，表所属的数据库类型
+   * The database type of the table dataset. Valid values:
    * - maxcompute
    * - emr
    * - cdh
@@ -226,7 +226,7 @@ export class ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEval
   databaseType?: string;
   /**
    * @remarks
-   * 分区表的分区设置
+   * The partition settings of the partitioned table.
    * 
    * @example
    * ds=$[yyyymmdd-1]
@@ -234,7 +234,7 @@ export class ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEval
   partitionSpec?: string;
   /**
    * @remarks
-   * 表在数据地图中的唯一ID
+   * The unique ID of the table in DataWorks Data Map.
    * 
    * @example
    * odps.unit_test.tb_unit_test
@@ -242,7 +242,7 @@ export class ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEval
   tableGuid?: string;
   /**
    * @remarks
-   * 监控对象类型
+   * The monitored object type. Valid values:
    * 
    * - Table
    * 
@@ -280,15 +280,14 @@ export class ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEval
 export class ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEvaluationTasksTrigger extends $dara.Model {
   /**
    * @remarks
-   * type=ByScheduledTaskInstance时生效
-   * ,具体指明哪些调度节点的实例执行成功后可以触发
+   * This parameter takes effect when type is set to ByScheduledTaskInstance. Specifies the scheduled node IDs whose successful instance execution can trigger the task.
    */
   taskIds?: number[];
   /**
    * @remarks
-   * 何种事件可以触发质量校验任务执行
+   * The type of event that triggers the quality evaluation task. Valid values:
    * 
-   * - ByScheduledTaskInstance：调度实例运行成功
+   * - ByScheduledTaskInstance: Triggered when a scheduled node instance runs successfully.
    * 
    * @example
    * ByScheduledTaskInstance
@@ -324,7 +323,7 @@ export class ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEval
   dataSourceId?: number;
   /**
    * @remarks
-   * 数据质量校验任务描述，最长65535个字符
+   * The description of the data quality evaluation task. The description can be up to 65,535 characters in length.
    * 
    * @example
    * This is a daily run data quality evaluation plan
@@ -332,12 +331,12 @@ export class ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEval
   description?: string;
   /**
    * @remarks
-   * 数据质量校验任务实例生命周期中的回调设置，目前只支持一个阻塞调度任务的Hook
+   * The callback settings during the epoch of data quality evaluation task instances. Currently, only one hook that blocks a scheduling node instance is supported.
    */
   hooks?: ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEvaluationTasksHooks[];
   /**
    * @remarks
-   * 数据质量校验任务ID
+   * The ID of the data quality evaluation task.
    * 
    * @example
    * 10001
@@ -345,7 +344,7 @@ export class ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEval
   id?: number;
   /**
    * @remarks
-   * 数据质量校验任务名称，数字、英文字母、汉字、半角全角标点符号组合，最长255个字符。
+   * The name of the data quality evaluation task. The name can contain digits, letters, Chinese characters, and half-width or full-width punctuation marks. The name can be up to 255 characters in length.
    * 
    * @example
    * Data quality verification task
@@ -353,12 +352,12 @@ export class ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEval
   name?: string;
   /**
    * @remarks
-   * 告警配置
+   * The alert configuration.
    */
   notifications?: ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEvaluationTasksNotifications;
   /**
    * @remarks
-   * DataWorks工作空间ID
+   * The DataWorks workspace ID.
    * 
    * @example
    * 100
@@ -366,7 +365,7 @@ export class ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEval
   projectId?: number;
   /**
    * @remarks
-   * 使用数据源时的一些设置，目前只支持指定EMR的yarn队列、采集EMR表时SQL引擎指定为SPARK_SQL|KYUUBI|PRESTO_SQL|HIVE_SQL
+   * The runtime settings for data sources. Currently, only specifying the EMR YARN queue and the SQL engine for collecting EMR tables is supported. Valid SQL engine values: SPARK_SQL, KYUUBI, PRESTO_SQL, and HIVE_SQL.
    * 
    * @example
    * { "queue": "default", "sqlEngine": "SPARK_SQL" }
@@ -374,12 +373,12 @@ export class ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEval
   runtimeConf?: string;
   /**
    * @remarks
-   * 数据质量校验任务的监控对象
+   * The monitored object of the data quality evaluation task.
    */
   target?: ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEvaluationTasksTarget;
   /**
    * @remarks
-   * 数据质量校验任务的触发配置
+   * The trigger configuration of the data quality evaluation task.
    */
   trigger?: ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEvaluationTasksTrigger;
   static names(): { [key: string]: string } {
@@ -436,12 +435,12 @@ export class ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEval
 export class ListDataQualityEvaluationTasksResponseBodyPagingInfo extends $dara.Model {
   /**
    * @remarks
-   * 质量校验任务
+   * The quality evaluation tasks.
    */
   dataQualityEvaluationTasks?: ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEvaluationTasks[];
   /**
    * @remarks
-   * 页码
+   * The page number.
    * 
    * @example
    * 1
@@ -449,7 +448,7 @@ export class ListDataQualityEvaluationTasksResponseBodyPagingInfo extends $dara.
   pageNumber?: string;
   /**
    * @remarks
-   * 页大小
+   * The page size.
    * 
    * @example
    * 10
@@ -457,7 +456,7 @@ export class ListDataQualityEvaluationTasksResponseBodyPagingInfo extends $dara.
   pageSize?: string;
   /**
    * @remarks
-   * 总条数
+   * The total number of records.
    * 
    * @example
    * 131
@@ -496,12 +495,12 @@ export class ListDataQualityEvaluationTasksResponseBodyPagingInfo extends $dara.
 export class ListDataQualityEvaluationTasksResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 质量校验任务分页查询结果
+   * The paged query result of quality evaluation nodes.
    */
   pagingInfo?: ListDataQualityEvaluationTasksResponseBodyPagingInfo;
   /**
    * @remarks
-   * API请求ID
+   * The API request ID.
    * 
    * @example
    * 691CA452-D37A-4ED0-****

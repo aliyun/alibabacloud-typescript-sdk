@@ -776,6 +776,68 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Builds an image.
+   * 
+   * @remarks
+   * 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+   * 2. **Before calling this operation, make sure that the service-linked role AliyunServiceRoleForDataWorks has been created.**
+   * 
+   * @param request - BuildImageRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BuildImageResponse
+   */
+  async buildImageWithOptions(request: $_model.BuildImageRequest, runtime: $dara.RuntimeOptions): Promise<$_model.BuildImageResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.cu)) {
+      body["Cu"] = request.cu;
+    }
+
+    if (!$dara.isNull(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.processId)) {
+      body["ProcessId"] = request.processId;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      body["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "BuildImage",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.BuildImageResponse>(await this.callApi(params, req, runtime), new $_model.BuildImageResponse({}));
+  }
+
+  /**
+   * Builds an image.
+   * 
+   * @remarks
+   * 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+   * 2. **Before calling this operation, make sure that the service-linked role AliyunServiceRoleForDataWorks has been created.**
+   * 
+   * @param request - BuildImageRequest
+   * @returns BuildImageResponse
+   */
+  async buildImage(request: $_model.BuildImageRequest): Promise<$_model.BuildImageResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.buildImageWithOptions(request, runtime);
+  }
+
+  /**
    * Interrupts the Agent call for a specified session, supporting interruption during streaming responses.
    * 
    * @remarks
@@ -839,6 +901,60 @@ export default class Client extends OpenApi {
   async cancelAgentSession(request: $_model.CancelAgentSessionRequest): Promise<$_model.CancelAgentSessionResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.cancelAgentSessionWithOptions(request, runtime);
+  }
+
+  /**
+   * Cancels an image test.
+   * 
+   * @remarks
+   * 1. You must purchase DataWorks Basic Edition or a higher edition to use this feature.
+   * 2. **Make sure that the service-linked role AliyunServiceRoleForDataWorks is created before you call this operation.**
+   * 
+   * @param request - CancelImageTestRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CancelImageTestResponse
+   */
+  async cancelImageTestWithOptions(request: $_model.CancelImageTestRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CancelImageTestResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.processId)) {
+      body["ProcessId"] = request.processId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CancelImageTest",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CancelImageTestResponse>(await this.callApi(params, req, runtime), new $_model.CancelImageTestResponse({}));
+  }
+
+  /**
+   * Cancels an image test.
+   * 
+   * @remarks
+   * 1. You must purchase DataWorks Basic Edition or a higher edition to use this feature.
+   * 2. **Make sure that the service-linked role AliyunServiceRoleForDataWorks is created before you call this operation.**
+   * 
+   * @param request - CancelImageTestRequest
+   * @returns CancelImageTestResponse
+   */
+  async cancelImageTest(request: $_model.CancelImageTestRequest): Promise<$_model.CancelImageTestResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.cancelImageTestWithOptions(request, runtime);
   }
 
   /**
@@ -1166,7 +1282,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a workflow in DataStudio.
+   * Creates a business process in DataStudio for data development.
    * 
    * @param request - CreateBusinessRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1217,7 +1333,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a workflow in DataStudio.
+   * Creates a business process in DataStudio for data development.
    * 
    * @param request - CreateBusinessRequest
    * @returns CreateBusinessResponse
@@ -3096,6 +3212,118 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates an image.
+   * 
+   * @remarks
+   * 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+   * 2. **Before calling this operation, make sure that the service-linked role AliyunServiceRoleForDataWorks has been created.**
+   * 
+   * @param tmpReq - CreateImageRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateImageResponse
+   */
+  async createImageWithOptions(tmpReq: $_model.CreateImageRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateImageResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateImageShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.buildConfig)) {
+      request.buildConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.buildConfig, "BuildConfig", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.supported)) {
+      request.supportedShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.supported, "Supported", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.accessibility)) {
+      body["Accessibility"] = request.accessibility;
+    }
+
+    if (!$dara.isNull(request.acrAssociatedVpcId)) {
+      body["AcrAssociatedVpcId"] = request.acrAssociatedVpcId;
+    }
+
+    if (!$dara.isNull(request.acrInstanceId)) {
+      body["AcrInstanceId"] = request.acrInstanceId;
+    }
+
+    if (!$dara.isNull(request.buildConfigShrink)) {
+      body["BuildConfig"] = request.buildConfigShrink;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      body["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.enableSyncMaxCompute)) {
+      body["EnableSyncMaxCompute"] = request.enableSyncMaxCompute;
+    }
+
+    if (!$dara.isNull(request.imageUri)) {
+      body["ImageUri"] = request.imageUri;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.namespace)) {
+      body["Namespace"] = request.namespace;
+    }
+
+    if (!$dara.isNull(request.providerImageId)) {
+      body["ProviderImageId"] = request.providerImageId;
+    }
+
+    if (!$dara.isNull(request.providerType)) {
+      body["ProviderType"] = request.providerType;
+    }
+
+    if (!$dara.isNull(request.repositoryName)) {
+      body["RepositoryName"] = request.repositoryName;
+    }
+
+    if (!$dara.isNull(request.supportedShrink)) {
+      body["Supported"] = request.supportedShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateImage",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateImageResponse>(await this.callApi(params, req, runtime), new $_model.CreateImageResponse({}));
+  }
+
+  /**
+   * Creates an image.
+   * 
+   * @remarks
+   * 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+   * 2. **Before calling this operation, make sure that the service-linked role AliyunServiceRoleForDataWorks has been created.**
+   * 
+   * @param request - CreateImageRequest
+   * @returns CreateImageResponse
+   */
+  async createImage(request: $_model.CreateImageRequest): Promise<$_model.CreateImageResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createImageWithOptions(request, runtime);
+  }
+
+  /**
    * Registers a data lineage relationship in DataWorks Data Map. You can use this operation to establish lineage relationships between metadata entities managed by DataWorks, including table-to-table, column-to-column, table-to-column, and dataset-to-table scenarios. You can also establish lineage relationships between managed entities and custom entity objects registered by users. This operation is compatible with non-managed custom objects, but this approach is no longer recommended. Before calling this operation, make sure that the managed entities involved in the lineage registration already exist on the DataWorks platform.
    * 
    * @remarks
@@ -4864,10 +5092,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a workflow instance, such as a data backfill workflow instance, based on configurations.
+   * Creates a workflow instance based on configurations, such as a data backfill workflow instance.
    * 
    * @remarks
-   * DataWorks Basic Edition or higher is required.
+   * DataWorks Basic Edition or a higher edition is required.
    * 
    * @param tmpReq - CreateWorkflowInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4960,10 +5188,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a workflow instance, such as a data backfill workflow instance, based on configurations.
+   * Creates a workflow instance based on configurations, such as a data backfill workflow instance.
    * 
    * @remarks
-   * DataWorks Basic Edition or higher is required.
+   * DataWorks Basic Edition or a higher edition is required.
    * 
    * @param request - CreateWorkflowInstancesRequest
    * @returns CreateWorkflowInstancesResponse
@@ -7008,6 +7236,54 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes a specified personal development environment instance.
+   * 
+   * @remarks
+   * Deletes a specified personal development environment (ServerIDE) instance and returns the instance ID.
+   * 
+   * @param request - DeleteServerIdeInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteServerIdeInstanceResponse
+   */
+  async deleteServerIdeInstanceWithOptions(request: $_model.DeleteServerIdeInstanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteServerIdeInstanceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteServerIdeInstance",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteServerIdeInstanceResponse>(await this.callApi(params, req, runtime), new $_model.DeleteServerIdeInstanceResponse({}));
+  }
+
+  /**
+   * Deletes a specified personal development environment instance.
+   * 
+   * @remarks
+   * Deletes a specified personal development environment (ServerIDE) instance and returns the instance ID.
+   * 
+   * @param request - DeleteServerIdeInstanceRequest
+   * @returns DeleteServerIdeInstanceResponse
+   */
+  async deleteServerIdeInstance(request: $_model.DeleteServerIdeInstanceRequest): Promise<$_model.DeleteServerIdeInstanceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteServerIdeInstanceWithOptions(request, runtime);
+  }
+
+  /**
    * Delete Skill
    * 
    * @remarks
@@ -7116,10 +7392,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a workflow.
+   * Deletes a specified workflow.
    * 
    * @remarks
-   * This API operation is available for all DataWorks editions.
+   * DataWorks Basic Edition or a more advanced edition is required.
    * 
    * @param request - DeleteWorkflowRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7160,10 +7436,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a workflow.
+   * Deletes a specified workflow.
    * 
    * @remarks
-   * This API operation is available for all DataWorks editions.
+   * DataWorks Basic Edition or a more advanced edition is required.
    * 
    * @param request - DeleteWorkflowRequest
    * @returns DeleteWorkflowResponse
@@ -7348,6 +7624,56 @@ export default class Client extends OpenApi {
   async detachDataQualityRulesFromEvaluationTask(request: $_model.DetachDataQualityRulesFromEvaluationTaskRequest): Promise<$_model.DetachDataQualityRulesFromEvaluationTaskResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.detachDataQualityRulesFromEvaluationTaskWithOptions(request, runtime);
+  }
+
+  /**
+   * Disables an image.
+   * 
+   * @remarks
+   * 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+   * 2. **Before using this operation, make sure that the service-linked role AliyunServiceRoleForDataWorks has been created.**
+   * 
+   * @param request - DisableImageRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DisableImageResponse
+   */
+  async disableImageWithOptions(request: $_model.DisableImageRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DisableImageResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DisableImage",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DisableImageResponse>(await this.callApi(params, req, runtime), new $_model.DisableImageResponse({}));
+  }
+
+  /**
+   * Disables an image.
+   * 
+   * @remarks
+   * 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+   * 2. **Before using this operation, make sure that the service-linked role AliyunServiceRoleForDataWorks has been created.**
+   * 
+   * @param request - DisableImageRequest
+   * @returns DisableImageResponse
+   */
+  async disableImage(request: $_model.DisableImageRequest): Promise<$_model.DisableImageResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.disableImageWithOptions(request, runtime);
   }
 
   /**
@@ -7582,6 +7908,56 @@ export default class Client extends OpenApi {
   async downloadSemanticResults(request: $_model.DownloadSemanticResultsRequest): Promise<$_model.DownloadSemanticResultsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.downloadSemanticResultsWithOptions(request, runtime);
+  }
+
+  /**
+   * Enables an image.
+   * 
+   * @remarks
+   * 1. You must purchase DataWorks Basic Edition or a higher edition to use this feature.
+   * 2. **Make sure that the service-linked role AliyunServiceRoleForDataWorks is created before you call this operation.**
+   * 
+   * @param request - EnableImageRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns EnableImageResponse
+   */
+  async enableImageWithOptions(request: $_model.EnableImageRequest, runtime: $dara.RuntimeOptions): Promise<$_model.EnableImageResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "EnableImage",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.EnableImageResponse>(await this.callApi(params, req, runtime), new $_model.EnableImageResponse({}));
+  }
+
+  /**
+   * Enables an image.
+   * 
+   * @remarks
+   * 1. You must purchase DataWorks Basic Edition or a higher edition to use this feature.
+   * 2. **Make sure that the service-linked role AliyunServiceRoleForDataWorks is created before you call this operation.**
+   * 
+   * @param request - EnableImageRequest
+   * @returns EnableImageResponse
+   */
+  async enableImage(request: $_model.EnableImageRequest): Promise<$_model.EnableImageResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.enableImageWithOptions(request, runtime);
   }
 
   /**
@@ -9720,6 +10096,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves the details of an image test result.
+   * 
+   * @remarks
+   * 1. You must purchase DataWorks Basic Edition or a higher edition to use this feature.
+   * 2. **Before using this operation, make sure that the service-linked role AliyunServiceRoleForDataWorks has been created.**
+   * 
+   * @param request - GetImageTestResultRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetImageTestResultResponse
+   */
+  async getImageTestResultWithOptions(request: $_model.GetImageTestResultRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetImageTestResultResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.processId)) {
+      query["ProcessId"] = request.processId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetImageTestResult",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetImageTestResultResponse>(await this.callApi(params, req, runtime), new $_model.GetImageTestResultResponse({}));
+  }
+
+  /**
+   * Retrieves the details of an image test result.
+   * 
+   * @remarks
+   * 1. You must purchase DataWorks Basic Edition or a higher edition to use this feature.
+   * 2. **Before using this operation, make sure that the service-linked role AliyunServiceRoleForDataWorks has been created.**
+   * 
+   * @param request - GetImageTestResultRequest
+   * @returns GetImageTestResultResponse
+   */
+  async getImageTestResult(request: $_model.GetImageTestResultRequest): Promise<$_model.GetImageTestResultResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getImageTestResultWithOptions(request, runtime);
+  }
+
+  /**
    * Returns the status of an asynchronous task. After calling an asynchronous API, poll this API to obtain the success status.
    * 
    * @param request - GetJobStatusRequest
@@ -10859,6 +11289,54 @@ export default class Client extends OpenApi {
   async getSemanticJobLog(request: $_model.GetSemanticJobLogRequest): Promise<$_model.GetSemanticJobLogResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getSemanticJobLogWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the details of a specified personal development environment instance.
+   * 
+   * @remarks
+   * Queries the basic information, running status, image, network, dataset, and credential configurations of a specified personal development environment (ServerIDE) instance.
+   * 
+   * @param request - GetServerIdeInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetServerIdeInstanceResponse
+   */
+  async getServerIdeInstanceWithOptions(request: $_model.GetServerIdeInstanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetServerIdeInstanceResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetServerIdeInstance",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetServerIdeInstanceResponse>(await this.callApi(params, req, runtime), new $_model.GetServerIdeInstanceResponse({}));
+  }
+
+  /**
+   * Queries the details of a specified personal development environment instance.
+   * 
+   * @remarks
+   * Queries the basic information, running status, image, network, dataset, and credential configurations of a specified personal development environment (ServerIDE) instance.
+   * 
+   * @param request - GetServerIdeInstanceRequest
+   * @returns GetServerIdeInstanceResponse
+   */
+  async getServerIdeInstance(request: $_model.GetServerIdeInstanceRequest): Promise<$_model.GetServerIdeInstanceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getServerIdeInstanceWithOptions(request, runtime);
   }
 
   /**
@@ -13012,10 +13490,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists quality monitoring nodes by paging query.
+   * Queries a paged list of quality monitoring nodes by using paging.
    * 
    * @remarks
-   * 需要购买DataWorks基础版及以上版本才能使用
+   * You must purchase DataWorks Basic Edition or a higher edition to use this feature.
    * 
    * @deprecated OpenAPI ListDataQualityEvaluationTasks is deprecated, please use dataworks-public::2024-05-18::ListDataQualityScans instead.
    * 
@@ -13044,10 +13522,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists quality monitoring nodes by paging query.
+   * Queries a paged list of quality monitoring nodes by using paging.
    * 
    * @remarks
-   * 需要购买DataWorks基础版及以上版本才能使用
+   * You must purchase DataWorks Basic Edition or a higher edition to use this feature.
    * 
    * @deprecated OpenAPI ListDataQualityEvaluationTasks is deprecated, please use dataworks-public::2024-05-18::ListDataQualityScans instead.
    * 
@@ -14323,6 +14801,64 @@ export default class Client extends OpenApi {
   async listImageAssociatedProjects(request: $_model.ListImageAssociatedProjectsRequest): Promise<$_model.ListImageAssociatedProjectsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listImageAssociatedProjectsWithOptions(request, runtime);
+  }
+
+  /**
+   * Retrieves the list of image test results.
+   * 
+   * @remarks
+   * 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+   * 2. **Before using this operation, make sure that the service-linked role AliyunServiceRoleForDataWorks has been created.**
+   * 
+   * @param request - ListImageTestResultsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListImageTestResultsResponse
+   */
+  async listImageTestResultsWithOptions(request: $_model.ListImageTestResultsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListImageTestResultsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListImageTestResults",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListImageTestResultsResponse>(await this.callApi(params, req, runtime), new $_model.ListImageTestResultsResponse({}));
+  }
+
+  /**
+   * Retrieves the list of image test results.
+   * 
+   * @remarks
+   * 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+   * 2. **Before using this operation, make sure that the service-linked role AliyunServiceRoleForDataWorks has been created.**
+   * 
+   * @param request - ListImageTestResultsRequest
+   * @returns ListImageTestResultsResponse
+   */
+  async listImageTestResults(request: $_model.ListImageTestResultsRequest): Promise<$_model.ListImageTestResultsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listImageTestResultsWithOptions(request, runtime);
   }
 
   /**
@@ -16448,6 +16984,214 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the list of available ECS instance types for personal development environments.
+   * 
+   * @remarks
+   * Queries the ECS instance types available when creating a personal development environment (ServerIDE). You can filter by CPU or GPU type. If no type is specified, both CPU and GPU instance types are returned.
+   * 
+   * @param request - ListServerIdeEcsSpecsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListServerIdeEcsSpecsResponse
+   */
+  async listServerIdeEcsSpecsWithOptions(request: $_model.ListServerIdeEcsSpecsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListServerIdeEcsSpecsResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.acceleratorType)) {
+      body["AcceleratorType"] = request.acceleratorType;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      body["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      body["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      body["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListServerIdeEcsSpecs",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListServerIdeEcsSpecsResponse>(await this.callApi(params, req, runtime), new $_model.ListServerIdeEcsSpecsResponse({}));
+  }
+
+  /**
+   * Queries the list of available ECS instance types for personal development environments.
+   * 
+   * @remarks
+   * Queries the ECS instance types available when creating a personal development environment (ServerIDE). You can filter by CPU or GPU type. If no type is specified, both CPU and GPU instance types are returned.
+   * 
+   * @param request - ListServerIdeEcsSpecsRequest
+   * @returns ListServerIdeEcsSpecsResponse
+   */
+  async listServerIdeEcsSpecs(request: $_model.ListServerIdeEcsSpecsRequest): Promise<$_model.ListServerIdeEcsSpecsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listServerIdeEcsSpecsWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the list of available images for personal development environments by using paging.
+   * 
+   * @remarks
+   * Queries the available images for creating a personal development environment (ServerIDE) by using paging. Supports filtering by image name and labels.
+   * 
+   * @param request - ListServerIdeImagesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListServerIdeImagesResponse
+   */
+  async listServerIdeImagesWithOptions(request: $_model.ListServerIdeImagesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListServerIdeImagesResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.labels)) {
+      body["Labels"] = request.labels;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      body["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      body["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListServerIdeImages",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListServerIdeImagesResponse>(await this.callApi(params, req, runtime), new $_model.ListServerIdeImagesResponse({}));
+  }
+
+  /**
+   * Queries the list of available images for personal development environments by using paging.
+   * 
+   * @remarks
+   * Queries the available images for creating a personal development environment (ServerIDE) by using paging. Supports filtering by image name and labels.
+   * 
+   * @param request - ListServerIdeImagesRequest
+   * @returns ListServerIdeImagesResponse
+   */
+  async listServerIdeImages(request: $_model.ListServerIdeImagesRequest): Promise<$_model.ListServerIdeImagesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listServerIdeImagesWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries a paged query list of personal development environment instances with paging support.
+   * 
+   * @remarks
+   * Queries a paged query list of personal development environment (ServerIDE) instances with paging. You can filter results by workspace, resource group, keyword, owner, and instance child class.
+   * 
+   * @param request - ListServerIdeInstancesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListServerIdeInstancesResponse
+   */
+  async listServerIdeInstancesWithOptions(request: $_model.ListServerIdeInstancesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListServerIdeInstancesResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.keyword)) {
+      body["Keyword"] = request.keyword;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      body["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      body["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.relatedUserId)) {
+      body["RelatedUserId"] = request.relatedUserId;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      body["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!$dara.isNull(request.subType)) {
+      body["SubType"] = request.subType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListServerIdeInstances",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListServerIdeInstancesResponse>(await this.callApi(params, req, runtime), new $_model.ListServerIdeInstancesResponse({}));
+  }
+
+  /**
+   * Queries a paged query list of personal development environment instances with paging support.
+   * 
+   * @remarks
+   * Queries a paged query list of personal development environment (ServerIDE) instances with paging. You can filter results by workspace, resource group, keyword, owner, and instance child class.
+   * 
+   * @param request - ListServerIdeInstancesRequest
+   * @returns ListServerIdeInstancesResponse
+   */
+  async listServerIdeInstances(request: $_model.ListServerIdeInstancesRequest): Promise<$_model.ListServerIdeInstancesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listServerIdeInstancesWithOptions(request, runtime);
+  }
+
+  /**
    * Lists the Skills in your account.
    * 
    * @remarks
@@ -16970,7 +17714,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of ancestor instances of an instance by page.
+   * Retrieves the upstream instances of a specified instance by page.
+   * 
+   * @remarks
+   * DataWorks Basic Edition or a more advanced edition is required.
    * 
    * @param request - ListUpstreamTaskInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16997,7 +17744,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of ancestor instances of an instance by page.
+   * Retrieves the upstream instances of a specified instance by page.
+   * 
+   * @remarks
+   * DataWorks Basic Edition or a more advanced edition is required.
    * 
    * @param request - ListUpstreamTaskInstancesRequest
    * @returns ListUpstreamTaskInstancesResponse
@@ -17823,6 +18573,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Publishes an image.
+   * 
+   * @remarks
+   * 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+   * 2. **Make sure that the service-linked role AliyunServiceRoleForDataWorks has been created before you call this operation.**
+   * 
+   * @param request - PublishImageRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns PublishImageResponse
+   */
+  async publishImageWithOptions(request: $_model.PublishImageRequest, runtime: $dara.RuntimeOptions): Promise<$_model.PublishImageResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.processId)) {
+      body["ProcessId"] = request.processId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "PublishImage",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.PublishImageResponse>(await this.callApi(params, req, runtime), new $_model.PublishImageResponse({}));
+  }
+
+  /**
+   * Publishes an image.
+   * 
+   * @remarks
+   * 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+   * 2. **Make sure that the service-linked role AliyunServiceRoleForDataWorks has been created before you call this operation.**
+   * 
+   * @param request - PublishImageRequest
+   * @returns PublishImageResponse
+   */
+  async publishImage(request: $_model.PublishImageRequest): Promise<$_model.PublishImageResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.publishImageWithOptions(request, runtime);
+  }
+
+  /**
    * Remove an entity object from a Data Map collection. The collection supports Data Map categories and data albums, and the entity currently supports only the Data Table type.
    * When removing an entity from a data album, the caller must have the AliyunDataWorksFullAccess permission or be the creator or administrator of the album.
    * 
@@ -18415,6 +19219,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Rolls back an image.
+   * 
+   * @remarks
+   * 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+   * 2. **Before calling this operation, make sure that the service-linked role AliyunServiceRoleForDataWorks has been created.**
+   * 
+   * @param request - RollbackImageRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RollbackImageResponse
+   */
+  async rollbackImageWithOptions(request: $_model.RollbackImageRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RollbackImageResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.imageVersion)) {
+      body["ImageVersion"] = request.imageVersion;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RollbackImage",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RollbackImageResponse>(await this.callApi(params, req, runtime), new $_model.RollbackImageResponse({}));
+  }
+
+  /**
+   * Rolls back an image.
+   * 
+   * @remarks
+   * 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+   * 2. **Before calling this operation, make sure that the service-linked role AliyunServiceRoleForDataWorks has been created.**
+   * 
+   * @param request - RollbackImageRequest
+   * @returns RollbackImageResponse
+   */
+  async rollbackImage(request: $_model.RollbackImageRequest): Promise<$_model.RollbackImageResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.rollbackImageWithOptions(request, runtime);
+  }
+
+  /**
    * Rolls back a specified parameter.
    * 
    * @remarks
@@ -18536,6 +19394,68 @@ export default class Client extends OpenApi {
   async runCrawler(request: $_model.RunCrawlerRequest): Promise<$_model.RunCrawlerResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.runCrawlerWithOptions(request, runtime);
+  }
+
+  /**
+   * Runs an image test.
+   * 
+   * @remarks
+   * 1. You must purchase DataWorks Basic Edition or a higher edition to use this feature.
+   * 2. **Make sure that the service-linked role AliyunServiceRoleForDataWorks is created before you call this operation.**
+   * 
+   * @param request - RunImageTestRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RunImageTestResponse
+   */
+  async runImageTestWithOptions(request: $_model.RunImageTestRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RunImageTestResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.cu)) {
+      body["Cu"] = request.cu;
+    }
+
+    if (!$dara.isNull(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.processId)) {
+      body["ProcessId"] = request.processId;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      body["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RunImageTest",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RunImageTestResponse>(await this.callApi(params, req, runtime), new $_model.RunImageTestResponse({}));
+  }
+
+  /**
+   * Runs an image test.
+   * 
+   * @remarks
+   * 1. You must purchase DataWorks Basic Edition or a higher edition to use this feature.
+   * 2. **Make sure that the service-linked role AliyunServiceRoleForDataWorks is created before you call this operation.**
+   * 
+   * @param request - RunImageTestRequest
+   * @returns RunImageTestResponse
+   */
+  async runImageTest(request: $_model.RunImageTestRequest): Promise<$_model.RunImageTestResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.runImageTestWithOptions(request, runtime);
   }
 
   /**
@@ -18706,6 +19626,54 @@ export default class Client extends OpenApi {
   async startDIJob(request: $_model.StartDIJobRequest): Promise<$_model.StartDIJobResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.startDIJobWithOptions(request, runtime);
+  }
+
+  /**
+   * Starts a specified personal development environment instance.
+   * 
+   * @remarks
+   * Starts a specified personal development environment (ServerIDE) instance and returns the instance ID.
+   * 
+   * @param request - StartServerIdeInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StartServerIdeInstanceResponse
+   */
+  async startServerIdeInstanceWithOptions(request: $_model.StartServerIdeInstanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.StartServerIdeInstanceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "StartServerIdeInstance",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.StartServerIdeInstanceResponse>(await this.callApi(params, req, runtime), new $_model.StartServerIdeInstanceResponse({}));
+  }
+
+  /**
+   * Starts a specified personal development environment instance.
+   * 
+   * @remarks
+   * Starts a specified personal development environment (ServerIDE) instance and returns the instance ID.
+   * 
+   * @param request - StartServerIdeInstanceRequest
+   * @returns StartServerIdeInstanceResponse
+   */
+  async startServerIdeInstance(request: $_model.StartServerIdeInstanceRequest): Promise<$_model.StartServerIdeInstanceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.startServerIdeInstanceWithOptions(request, runtime);
   }
 
   /**
@@ -18932,6 +19900,54 @@ export default class Client extends OpenApi {
   async stopProcessInstance(request: $_model.StopProcessInstanceRequest): Promise<$_model.StopProcessInstanceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.stopProcessInstanceWithOptions(request, runtime);
+  }
+
+  /**
+   * Stops a specified personal development environment instance.
+   * 
+   * @remarks
+   * Stops a specified personal development environment (ServerIDE) instance and returns the instance ID.
+   * 
+   * @param request - StopServerIdeInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StopServerIdeInstanceResponse
+   */
+  async stopServerIdeInstanceWithOptions(request: $_model.StopServerIdeInstanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.StopServerIdeInstanceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "StopServerIdeInstance",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.StopServerIdeInstanceResponse>(await this.callApi(params, req, runtime), new $_model.StopServerIdeInstanceResponse({}));
+  }
+
+  /**
+   * Stops a specified personal development environment instance.
+   * 
+   * @remarks
+   * Stops a specified personal development environment (ServerIDE) instance and returns the instance ID.
+   * 
+   * @param request - StopServerIdeInstanceRequest
+   * @returns StopServerIdeInstanceResponse
+   */
+  async stopServerIdeInstance(request: $_model.StopServerIdeInstanceRequest): Promise<$_model.StopServerIdeInstanceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.stopServerIdeInstanceWithOptions(request, runtime);
   }
 
   /**
@@ -21193,6 +22209,112 @@ export default class Client extends OpenApi {
   async updateIDEEventResult(request: $_model.UpdateIDEEventResultRequest): Promise<$_model.UpdateIDEEventResultResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateIDEEventResultWithOptions(request, runtime);
+  }
+
+  /**
+   * Updates an image.
+   * 
+   * @remarks
+   * 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+   * 2. **Before calling this operation, make sure that the service-linked role AliyunServiceRoleForDataWorks has been created.**
+   * 
+   * @param tmpReq - UpdateImageRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateImageResponse
+   */
+  async updateImageWithOptions(tmpReq: $_model.UpdateImageRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateImageResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateImageShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.buildConfig)) {
+      request.buildConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.buildConfig, "BuildConfig", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.supported)) {
+      request.supportedShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.supported, "Supported", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.acrAssociatedVpcId)) {
+      query["AcrAssociatedVpcId"] = request.acrAssociatedVpcId;
+    }
+
+    if (!$dara.isNull(request.acrInstanceId)) {
+      query["AcrInstanceId"] = request.acrInstanceId;
+    }
+
+    if (!$dara.isNull(request.imageUri)) {
+      query["ImageUri"] = request.imageUri;
+    }
+
+    if (!$dara.isNull(request.namespace)) {
+      query["Namespace"] = request.namespace;
+    }
+
+    if (!$dara.isNull(request.repositoryName)) {
+      query["RepositoryName"] = request.repositoryName;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.accessibility)) {
+      body["Accessibility"] = request.accessibility;
+    }
+
+    if (!$dara.isNull(request.buildConfigShrink)) {
+      body["BuildConfig"] = request.buildConfigShrink;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.providerImageId)) {
+      body["ProviderImageId"] = request.providerImageId;
+    }
+
+    if (!$dara.isNull(request.supportedShrink)) {
+      body["Supported"] = request.supportedShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateImage",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateImageResponse>(await this.callApi(params, req, runtime), new $_model.UpdateImageResponse({}));
+  }
+
+  /**
+   * Updates an image.
+   * 
+   * @remarks
+   * 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+   * 2. **Before calling this operation, make sure that the service-linked role AliyunServiceRoleForDataWorks has been created.**
+   * 
+   * @param request - UpdateImageRequest
+   * @returns UpdateImageResponse
+   */
+  async updateImage(request: $_model.UpdateImageRequest): Promise<$_model.UpdateImageResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateImageWithOptions(request, runtime);
   }
 
   /**
