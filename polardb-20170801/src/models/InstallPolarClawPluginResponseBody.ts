@@ -37,7 +37,7 @@ export class InstallPolarClawPluginResponseBody extends $dara.Model {
   npmPackage?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the operation is successful.
    * 
    * @example
    * true
@@ -45,7 +45,7 @@ export class InstallPolarClawPluginResponseBody extends $dara.Model {
   ok?: boolean;
   /**
    * @remarks
-   * The ID of the installed plugin.
+   * The ID of the installed plug-in.
    * 
    * @example
    * openclaw-lark
@@ -53,7 +53,7 @@ export class InstallPolarClawPluginResponseBody extends $dara.Model {
   pluginId?: string;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * CDB3258F-B5DE-43C4-8935-CBA0CA******
@@ -61,7 +61,7 @@ export class InstallPolarClawPluginResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the gateway restarted.
+   * Indicates whether the gateway has been restarted.
    * 
    * @example
    * true

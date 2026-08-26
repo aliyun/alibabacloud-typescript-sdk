@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteAIDBClusterRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the AI cluster.
+   * The AI cluster ID.
    * 
    * This parameter is required.
    * 
@@ -14,6 +14,9 @@ export class DeleteAIDBClusterRequest extends $dara.Model {
    */
   DBClusterId?: string;
   /**
+   * @remarks
+   * The model operator space.
+   * 
    * @example
    * pms-xxx
    */

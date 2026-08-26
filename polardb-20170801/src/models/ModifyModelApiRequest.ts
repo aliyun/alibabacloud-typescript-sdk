@@ -5,6 +5,22 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyModelApiRequest extends $dara.Model {
   /**
    * @remarks
+   * The gateway retry configuration.
+   * 
+   * @example
+   * {
+   * 	"failover": {
+   * 		"enabled": true,
+   * 		"max_provider_retries": 2,
+   * 		"max_failover_providers": 1,
+   * 		"retryable_status_codes": [429, 500, 502, 503, 504],
+   * 		"retry_delay": 0.5
+   * 	}
+   * }
+   */
+  config?: string;
+  /**
+   * @remarks
    * The gateway instance ID.
    * 
    * This parameter is required.
@@ -25,13 +41,10 @@ export class ModifyModelApiRequest extends $dara.Model {
   modelApiId?: string;
   /**
    * @remarks
-   * The model category. Valid values:
-   * 
-   * - `text`
-   * 
-   * - `embedding`
-   * 
-   * - `rerank`
+   * The category. Valid values:
+   * * **text**
+   * * **embedding**
+   * * **rerank**
    * 
    * This parameter is required.
    * 
@@ -53,13 +66,10 @@ export class ModifyModelApiRequest extends $dara.Model {
    * @remarks
    * The protocol. Valid values:
    * 
-   * - `openai`
-   * 
-   * - `anthropic`
-   * 
-   * - `Model Studio`
-   * 
-   * - `vllm`
+   * * **openai**
+   * * **anthropic**
+   * * **bailian**
+   * * **vllm**
    * 
    * This parameter is required.
    * 
@@ -69,7 +79,7 @@ export class ModifyModelApiRequest extends $dara.Model {
   protocol?: string;
   /**
    * @remarks
-   * The number of input units.
+   * The number of input points.
    * 
    * @example
    * 10
@@ -77,7 +87,7 @@ export class ModifyModelApiRequest extends $dara.Model {
   recordInput?: string;
   /**
    * @remarks
-   * The number of output units.
+   * The number of output points.
    * 
    * @example
    * 10
@@ -93,7 +103,7 @@ export class ModifyModelApiRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * A JSON array of routing rules, provided as a string.
+   * The list of routing rules (JSON array string).
    * 
    * This parameter is required.
    * 
@@ -126,6 +136,7 @@ export class ModifyModelApiRequest extends $dara.Model {
   routeRules?: string;
   static names(): { [key: string]: string } {
     return {
+      config: 'Config',
       gwClusterId: 'GwClusterId',
       modelApiId: 'ModelApiId',
       modelCategory: 'ModelCategory',
@@ -140,6 +151,7 @@ export class ModifyModelApiRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      config: 'string',
       gwClusterId: 'string',
       modelApiId: 'string',
       modelCategory: 'string',

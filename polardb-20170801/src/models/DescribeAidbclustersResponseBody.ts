@@ -177,10 +177,6 @@ export class DescribeAIDBClustersResponseBodyItems extends $dara.Model {
 }
 
 export class DescribeAIDBClustersResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The details of the AI clusters.
-   */
   items?: DescribeAIDBClustersResponseBodyItems;
   /**
    * @remarks
@@ -192,7 +188,7 @@ export class DescribeAIDBClustersResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries on the current page.
+   * The number of records on the current page.
    * 
    * @example
    * 7
@@ -200,7 +196,7 @@ export class DescribeAIDBClustersResponseBody extends $dara.Model {
   pageRecordCount?: number;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * 9D6CE7C6-1C52-5BF6-B3D7-10977D44542C
@@ -208,7 +204,7 @@ export class DescribeAIDBClustersResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries.
+   * The total number of records.
    * 
    * @example
    * 5

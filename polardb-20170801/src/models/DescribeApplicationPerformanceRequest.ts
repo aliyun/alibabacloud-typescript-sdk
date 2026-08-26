@@ -55,6 +55,7 @@ export class DescribeApplicationPerformanceRequest extends $dara.Model {
    * 2020-09-23T01:00Z
    */
   endTime?: string;
+  filter?: { [key: string]: any };
   /**
    * @remarks
    * The data granularity of performance data. Valid values:
@@ -74,7 +75,7 @@ export class DescribeApplicationPerformanceRequest extends $dara.Model {
    * @remarks
    * The performance metrics to query. Separate multiple values with commas (,).
    * 
-   * > **Note** You can specify up to 5 performance metrics.
+   * >  You can specify up to 5 performance metrics.
    * 
    * This parameter is required.
    * 
@@ -116,7 +117,6 @@ export class DescribeApplicationPerformanceRequest extends $dara.Model {
    * 2020-09-23T01:01Z
    */
   startTime?: string;
-  filter?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
       applicationId: 'ApplicationId',
@@ -125,13 +125,13 @@ export class DescribeApplicationPerformanceRequest extends $dara.Model {
       downsample: 'Downsample',
       endStep: 'EndStep',
       endTime: 'EndTime',
+      filter: 'Filter',
       interval: 'Interval',
       key: 'Key',
       maxPoints: 'MaxPoints',
       modelService: 'ModelService',
       startStep: 'StartStep',
       startTime: 'StartTime',
-      filter: 'filter',
     };
   }
 
@@ -143,13 +143,13 @@ export class DescribeApplicationPerformanceRequest extends $dara.Model {
       downsample: 'string',
       endStep: 'number',
       endTime: 'string',
+      filter: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       interval: 'string',
       key: 'string',
       maxPoints: 'number',
       modelService: 'string',
       startStep: 'number',
       startTime: 'string',
-      filter: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
     };
   }
 

@@ -2,36 +2,34 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DescribeAIDBClusterApiKeysRequest extends $dara.Model {
+export class DeleteKnowledgeBaseResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The model space ID.
+   * The unique ID of the knowledge base.
    * 
    * @example
-   * pms-xxx
+   * pkb-xxxxx
    */
-  modelSpaceName?: string;
+  knowledgeBaseId?: string;
   /**
    * @remarks
-   * The region ID.
-   * 
-   * This parameter is required.
+   * Id of the request
    * 
    * @example
-   * cn-beijing
+   * 2FED790E-FB61-4721-8C1C-07C627******
    */
-  regionId?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      modelSpaceName: 'ModelSpaceName',
-      regionId: 'RegionId',
+      knowledgeBaseId: 'KnowledgeBaseId',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      modelSpaceName: 'string',
-      regionId: 'string',
+      knowledgeBaseId: 'string',
+      requestId: 'string',
     };
   }
 

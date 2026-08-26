@@ -14,6 +14,9 @@ export class DeleteAIDBClusterApiKeyRequest extends $dara.Model {
    */
   apiKey?: string;
   /**
+   * @remarks
+   * The model space ID.
+   * 
    * @example
    * pms-xxx
    */
@@ -21,7 +24,7 @@ export class DeleteAIDBClusterApiKeyRequest extends $dara.Model {
   /**
    * @remarks
    * The region ID.
-   * >You can call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to query region IDs.
+   * >You can call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to query available region IDs.
    * 
    * This parameter is required.
    * 

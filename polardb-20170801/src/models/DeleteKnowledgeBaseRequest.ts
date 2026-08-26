@@ -2,15 +2,17 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DescribeAIDBClusterApiKeysRequest extends $dara.Model {
+export class DeleteKnowledgeBaseRequest extends $dara.Model {
   /**
    * @remarks
-   * The model space ID.
+   * The unique ID of the knowledge base.
+   * 
+   * This parameter is required.
    * 
    * @example
-   * pms-xxx
+   * pkb-xxxxx
    */
-  modelSpaceName?: string;
+  knowledgeBaseId?: string;
   /**
    * @remarks
    * The region ID.
@@ -23,14 +25,14 @@ export class DescribeAIDBClusterApiKeysRequest extends $dara.Model {
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      modelSpaceName: 'ModelSpaceName',
+      knowledgeBaseId: 'KnowledgeBaseId',
       regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      modelSpaceName: 'string',
+      knowledgeBaseId: 'string',
       regionId: 'string',
     };
   }

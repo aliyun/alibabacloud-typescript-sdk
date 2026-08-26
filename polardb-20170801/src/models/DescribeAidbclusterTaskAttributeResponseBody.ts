@@ -48,7 +48,7 @@ export class DescribeAIDBClusterTaskAttributeResponseBodyDataSets extends $dara.
   path?: string;
   /**
    * @remarks
-   * The ratio of data split from the training set.
+   * The ratio split from the training set.
    * 
    * @example
    * 0.1
@@ -148,8 +148,8 @@ export class DescribeAIDBClusterTaskAttributeResponseBodyTaskInfo extends $dara.
    * @remarks
    * The task type. Valid values:
    * 
-   * * **sft**: SFT-efficient training.
-   * * **grpo**: GRPO-reinforcement learning.
+   * * **sft**: SFT efficient training.
+   * * **grpo**: GRPO reinforcement learning.
    * 
    * @example
    * stf
@@ -160,7 +160,7 @@ export class DescribeAIDBClusterTaskAttributeResponseBodyTaskInfo extends $dara.
    * The training method. Valid values:
    * 
    * * **lora**
-   * * **full**: full-parameter training.
+   * * **full**: full-parameter fine-tuning.
    * 
    * @example
    * lora
@@ -309,8 +309,8 @@ export class DescribeAIDBClusterTaskAttributeResponseBody extends $dara.Model {
    * @remarks
    * The lock mode. Valid values:
    * 
-   * * **0**: Locked.
-   * * **1**: Unlocked.
+   * * **0**: locked.
+   * * **1**: unlocked.
    * 
    * @example
    * 1
@@ -334,7 +334,7 @@ export class DescribeAIDBClusterTaskAttributeResponseBody extends $dara.Model {
   maintainStartTime?: string;
   /**
    * @remarks
-   * The list of output model paths in the model fine-tuning scenario.
+   * The list of model paths output in the model fine-tuning scenario.
    */
   modelPath?: string;
   /**
@@ -353,7 +353,7 @@ export class DescribeAIDBClusterTaskAttributeResponseBody extends $dara.Model {
   tuneArch?: string;
   /**
    * @remarks
-   * The virtual private cloud (VPC) ID.
+   * The VPC ID.
    * 
    * @example
    * vpc-**********

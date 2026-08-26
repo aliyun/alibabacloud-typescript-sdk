@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class AddPolarOSSAuthorizedAccountRequest extends $dara.Model {
   /**
    * @remarks
+   * The list of authorized accounts to add, separated by commas. You can pass in UIDs and RAM role ARNs in mixed parameter notation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,12 +14,17 @@ export class AddPolarOSSAuthorizedAccountRequest extends $dara.Model {
    */
   authorizedUserIds?: string;
   /**
+   * @remarks
+   * The ID of the PolarDB cluster.
+   * 
    * @example
    * pc-xxxxxxxxxxxxxxxxx
    */
   DBClusterId?: string;
   /**
    * @remarks
+   * The cold storage instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -25,6 +32,9 @@ export class AddPolarOSSAuthorizedAccountRequest extends $dara.Model {
    */
   pfsInstanceId?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-beijing
    */

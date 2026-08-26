@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAIDBClustersRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The tag key. Use this parameter with `Tag.n.Value` to filter clusters by tag. You can specify up to 20 tag pairs. The index n must be a unique, consecutive integer starting from 1.
+   * The tag key. You can filter the cluster list by tag. You can specify up to 20 tag pairs. The number n for each tag pair must be unique and must be a consecutive integer starting from 1. The value of Tag.n.Key corresponds to Tag.n.Value.
    * 
    * @example
    * testKey
@@ -13,7 +13,7 @@ export class DescribeAIDBClustersRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value.
+   * The tag value that corresponds to the tag key.
    * 
    * @example
    * testValueData
@@ -45,13 +45,11 @@ export class DescribeAIDBClustersRequestTag extends $dara.Model {
 export class DescribeAIDBClustersRequest extends $dara.Model {
   /**
    * @remarks
-   * The node type. To specify multiple types, separate them with a comma. Valid values:
+   * The node type. Multiple types are supported. Separate two values with a comma (,).
    * 
-   * - **vnode**: a node managed by Kubernetes
-   * 
-   * - **container**: a container that you can log on to
-   * 
-   * - **maas**: model service
+   * - vnode: managed by Kubernetes.
+   * - container: logon-enabled container.
+   * - maas: model service.
    * 
    * @example
    * vnode,container
@@ -59,7 +57,7 @@ export class DescribeAIDBClustersRequest extends $dara.Model {
   aiNodeType?: string;
   /**
    * @remarks
-   * The cluster description. Fuzzy search is supported.
+   * The cluster description. Fuzzy match is supported.
    * 
    * @example
    * pc-****************
@@ -67,7 +65,7 @@ export class DescribeAIDBClustersRequest extends $dara.Model {
   DBClusterDescription?: string;
   /**
    * @remarks
-   * The cluster ID. To specify multiple clusters, separate their IDs with a comma.
+   * The cluster ID. Separate multiple cluster IDs with commas (,).
    * 
    * @example
    * pc-***************
@@ -77,29 +75,18 @@ export class DescribeAIDBClustersRequest extends $dara.Model {
    * @remarks
    * The cluster status. Valid values:
    * 
-   * - **Creating**: The cluster is being created.
-   * 
-   * - **Running**: The cluster is running.
-   * 
-   * - **Deleting**: The cluster is being released.
-   * 
-   * - **Rebooting**: The cluster is restarting.
-   * 
-   * - **DBNodeCreating**: A node is being added.
-   * 
-   * - **DBNodeDeleting**: A node is being deleted.
-   * 
-   * - **ClassChanging**: The node specifications are being changed.
-   * 
-   * - **NetAddressCreating**: A network connection is being created.
-   * 
-   * - **NetAddressDeleting**: A network connection is being deleted.
-   * 
-   * - **NetAddressModifying**: A network connection is being modified.
-   * 
-   * - **Deleted**: The cluster is released.
-   * 
-   * * **ClassChanged**: Resources are being reclaimed after the upgrade or downgrade.
+   * - **Creating**: being created.
+   * - **Running**: running.
+   * - **Deleting**: being released.
+   * - **Rebooting**: being restarted.
+   * - **DBNodeCreating**: a node is being added (increase).
+   * - **DBNodeDeleting**: a node is being deleted.
+   * - **ClassChanging**: node specifications are being changed.
+   * - **NetAddressCreating**: a network connectivity is being created.
+   * - **NetAddressDeleting**: a network connectivity is being deleted.
+   * - **NetAddressModifying**: a network connectivity is being modified. 
+   * - **Deleted**: released.
+   * * **ClassChanged**: resources are being revoked after a decrease the quota operation.
    * 
    * @example
    * Running
@@ -118,7 +105,7 @@ export class DescribeAIDBClustersRequest extends $dara.Model {
   /**
    * @remarks
    * The number of entries per page. Valid values: **30**, **50**, and **100**.
-   * 
+   *                               
    * Default value: **30**.
    * 
    * @example
@@ -127,11 +114,10 @@ export class DescribeAIDBClustersRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The billing method. Valid values:
+   * The billing method. Valid values: 
    * 
-   * - **Postpaid**: pay-as-you-go
-   * 
-   * - **Prepaid**: subscription
+   * - **Postpaid**: pay-as-you-go.
+   * - **Prepaid**: subscription.
    * 
    * @example
    * Prepaid
@@ -151,7 +137,7 @@ export class DescribeAIDBClustersRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * A list of tags.
+   * The list of tags.
    */
   tag?: DescribeAIDBClustersRequestTag[];
   static names(): { [key: string]: string } {

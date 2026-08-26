@@ -17,15 +17,13 @@ export class InstallPolarClawPluginRequest extends $dara.Model {
    * @remarks
    * The npm package name, including the version number.
    * 
-   * This parameter is required.
-   * 
    * @example
    * @larksuite/openclaw-lark@2026.4.7
    */
   npmPackage?: string;
   /**
    * @remarks
-   * The plugin ID.
+   * The plug-in ID.
    * 
    * This parameter is required.
    * 
@@ -35,7 +33,7 @@ export class InstallPolarClawPluginRequest extends $dara.Model {
   pluginId?: string;
   /**
    * @remarks
-   * Specifies whether to restart the gateway after installation. Defaults to true.
+   * Specifies whether to restart the gateway after installation. Default value: true.
    * 
    * @example
    * true

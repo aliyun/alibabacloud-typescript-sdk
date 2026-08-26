@@ -13,7 +13,7 @@ export class DescribeAIDBClusterAttributeResponseBodyDBNodesChildVolumes extends
   mountPath?: string;
   /**
    * @remarks
-   * The cloud disk name.
+   * The disk name.
    * 
    * @example
    * jueming
@@ -21,7 +21,7 @@ export class DescribeAIDBClusterAttributeResponseBodyDBNodesChildVolumes extends
   name?: string;
   /**
    * @remarks
-   * The storage size.
+   * The storage disk size.
    * 
    * @example
    * 8192
@@ -73,9 +73,21 @@ export class DescribeAIDBClusterAttributeResponseBodyDBNodesChildVolumes extends
 }
 
 export class DescribeAIDBClusterAttributeResponseBodyDBNodesSupportedApis extends $dara.Model {
+  /**
+   * @remarks
+   * The API name supported by the database node.
+   */
   apiName?: string;
   generationMode?: string;
+  /**
+   * @remarks
+   * The supported API path.
+   */
   path?: string;
+  /**
+   * @remarks
+   * The supported API protocol type.
+   */
   protocol?: string;
   static names(): { [key: string]: string } {
     return {
@@ -153,16 +165,16 @@ export class DescribeAIDBClusterAttributeResponseBodyDBNodes extends $dara.Model
   /**
    * @remarks
    * The node status. Valid values:
-   * * **Creating**: being created 
-   * * **Running**: running 
-   * * **Deleting**: being deleted  
-   * * **Rebooting**: being restarted  
-   * * **DBNodeCreating**: adding a node  
-   * * **DBNodeDeleting**: deleting a node 
-   * * **ClassChanging**: changing node specifications  
-   * * **MinorVersionUpgrading**: upgrading the minor version
-   * * **Maintaining**: being maintained  
-   * * **Switching**: being switched
+   * * **Creating**: Being created.
+   * * **Running**: Running.
+   * * **Deleting**: Being deleted.
+   * * **Rebooting**: Being restarted.
+   * * **DBNodeCreating**: A node is being added.
+   * * **DBNodeDeleting**: A node is being deleted.
+   * * **ClassChanging**: The node specifications are being changed.
+   * * **MinorVersionUpgrading**: A minor engine version update is in progress.
+   * * **Maintaining**: The instance is under maintenance.
+   * * **Switching**: A switchover is in progress.
    * 
    * @example
    * Running
@@ -201,6 +213,10 @@ export class DescribeAIDBClusterAttributeResponseBodyDBNodes extends $dara.Model
    * 101.101.101.101
    */
   publicIp?: string;
+  /**
+   * @remarks
+   * The supported APIs.
+   */
   supportedApis?: DescribeAIDBClusterAttributeResponseBodyDBNodesSupportedApis[];
   /**
    * @remarks
@@ -304,10 +320,10 @@ export class DescribeAIDBClusterAttributeResponseBodyEndpointListNetInfoItems ex
   connectionString?: string;
   /**
    * @remarks
-   * The network type of the connection string. Valid values:
-   * * **Public**: public endpoint
-   * * **Private**: private endpoint
-   * * **Inner**: private endpoint (classic network)
+   * The network type of the endpoint. Valid values:
+   * * **Public**: public endpoint.
+   * * **Private**: private endpoint.
+   * * **Inner**: private endpoint (classic network).
    * 
    * @example
    * Public
@@ -518,7 +534,7 @@ export class DescribeAIDBClusterAttributeResponseBodyVnodeKubernetesConfig exten
 export class DescribeAIDBClusterAttributeResponseBodyVolumes extends $dara.Model {
   /**
    * @remarks
-   * The mount path inside the container.
+   * The mount path in the container.
    * 
    * @example
    * /var/run/secrets/kubernetes.io/serviceaccount
@@ -526,7 +542,7 @@ export class DescribeAIDBClusterAttributeResponseBodyVolumes extends $dara.Model
   mountPath?: string;
   /**
    * @remarks
-   * The cloud disk name.
+   * The disk name.
    * 
    * @example
    * jueming
@@ -633,13 +649,13 @@ export class DescribeAIDBClusterAttributeResponseBody extends $dara.Model {
    * @remarks
    * The cluster status. Valid values:
    * 
-   * - **Creating**: being created
-   * - **Running**: running
-   * - **Deleting**: being released
-   * - **DBNodeCreating**: adding a node
-   * - **DBNodeDeleting**: deleting a node
-   * - **ClassChanging**: changing node specifications 
-   * - **Deleted**: released
+   * - **Creating**: being created.
+   * - **Running**: running.
+   * - **Deleting**: being released.
+   * - **DBNodeCreating**: a node is being added.
+   * - **DBNodeDeleting**: a node is being deleted.
+   * - **ClassChanging**: node specifications are being changed.
+   * - **Deleted**: released.
    * 
    * @example
    * Running
@@ -648,23 +664,18 @@ export class DescribeAIDBClusterAttributeResponseBody extends $dara.Model {
   DBInstanceStatusDesc?: string;
   /**
    * @remarks
-   * The node details.
+   * The node information.
    */
   DBNodes?: DescribeAIDBClusterAttributeResponseBodyDBNodes[];
   /**
    * @remarks
    * The cluster version. Valid values:
    * 
-   * **1.0**
-   * 
-   * **2.0**
-   * 
-   * **3.0**
-   * 
    * @example
    * 1.0
    */
   DBVersion?: string;
+  dedicatedHostModel?: boolean;
   /**
    * @remarks
    * The security group ID.
@@ -680,9 +691,9 @@ export class DescribeAIDBClusterAttributeResponseBody extends $dara.Model {
   endpointList?: DescribeAIDBClusterAttributeResponseBodyEndpointList[];
   /**
    * @remarks
-   * The cluster expiration time.
+   * The expiration time of the cluster.
    * 
-   * > A specific value is returned only for clusters whose billing method is **Prepaid** (subscription). An empty value is returned for **Postpaid** (pay-as-you-go) clusters.
+   * > Only clusters whose billing method is **Prepaid** (subscription) return a specific value for this parameter. **Postpaid** (pay-as-you-go) clusters return an empty value.
    * 
    * @example
    * 2020-11-14T16:00:00Z
@@ -691,10 +702,6 @@ export class DescribeAIDBClusterAttributeResponseBody extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the cluster has expired. Valid values:
-   * 
-   * - **true**
-   * 
-   * - **false**
    * 
    * @example
    * false
@@ -797,8 +804,6 @@ export class DescribeAIDBClusterAttributeResponseBody extends $dara.Model {
   /**
    * @remarks
    * The architecture type. Valid values:
-   * - container: AI container
-   * - ainode: AI node
    * 
    * @example
    * container
@@ -807,15 +812,6 @@ export class DescribeAIDBClusterAttributeResponseBody extends $dara.Model {
   /**
    * @remarks
    * The storage type for Enterprise Edition. Valid values:
-   * - **PSL5**
-   * - **PSL4**
-   * 
-   * The storage type for Standard Edition. Valid values:
-   * - **ESSDPL0**
-   * - **ESSDPL1**
-   * - **ESSDPL2**
-   * - **ESSDPL3**
-   * - **ESSDAUTOPL**
    * 
    * @example
    * essdpl1
@@ -825,7 +821,7 @@ export class DescribeAIDBClusterAttributeResponseBody extends $dara.Model {
   timeSlicesType?: string;
   /**
    * @remarks
-   * The VPC ID that can be specified when switching zones.
+   * The VPC ID specified for the zone switchover.
    * 
    * @example
    * vpc-*******************
@@ -834,8 +830,6 @@ export class DescribeAIDBClusterAttributeResponseBody extends $dara.Model {
   /**
    * @remarks
    * The vSwitch ID.
-   * 
-   * > If VPCId is specified, VSwitchId is required.
    * 
    * @example
    * vsw-*********************
@@ -857,7 +851,7 @@ export class DescribeAIDBClusterAttributeResponseBody extends $dara.Model {
   zoneId?: string;
   /**
    * @remarks
-   * The zone ID.
+   * The zone IDs.
    * 
    * @example
    * cn-hangzhou-i,cn-hangzhou-g
@@ -874,6 +868,7 @@ export class DescribeAIDBClusterAttributeResponseBody extends $dara.Model {
       DBInstanceStatusDesc: 'DBInstanceStatusDesc',
       DBNodes: 'DBNodes',
       DBVersion: 'DBVersion',
+      dedicatedHostModel: 'DedicatedHostModel',
       ecsSecurityGroupId: 'EcsSecurityGroupId',
       endpointList: 'EndpointList',
       expireTime: 'ExpireTime',
@@ -916,6 +911,7 @@ export class DescribeAIDBClusterAttributeResponseBody extends $dara.Model {
       DBInstanceStatusDesc: 'string',
       DBNodes: { 'type': 'array', 'itemType': DescribeAIDBClusterAttributeResponseBodyDBNodes },
       DBVersion: 'string',
+      dedicatedHostModel: 'boolean',
       ecsSecurityGroupId: 'string',
       endpointList: { 'type': 'array', 'itemType': DescribeAIDBClusterAttributeResponseBodyEndpointList },
       expireTime: 'string',

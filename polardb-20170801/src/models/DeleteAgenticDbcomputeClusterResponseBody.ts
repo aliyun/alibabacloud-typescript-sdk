@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteAgenticDBComputeClusterResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * D4E5F6A7-B8C9-0123-DEFA-456789012DEF
    */

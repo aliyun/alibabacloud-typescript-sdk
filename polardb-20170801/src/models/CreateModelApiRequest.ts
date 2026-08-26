@@ -5,7 +5,23 @@ import * as $dara from '@darabonba/typescript';
 export class CreateModelApiRequest extends $dara.Model {
   /**
    * @remarks
-   * The model to which requests are forcibly routed.
+   * The gateway retry configuration.
+   * 
+   * @example
+   * {
+   * 	"failover": {
+   * 		"enabled": true,
+   * 		"max_provider_retries": 2,
+   * 		"max_failover_providers": 1,
+   * 		"retryable_status_codes": [429, 500, 502, 503, 504],
+   * 		"retry_delay": 0.5
+   * 	}
+   * }
+   */
+  config?: string;
+  /**
+   * @remarks
+   * The forced model.
    * 
    * @example
    * xxx
@@ -23,13 +39,10 @@ export class CreateModelApiRequest extends $dara.Model {
   gwClusterId?: string;
   /**
    * @remarks
-   * The model API category. Valid values:
-   * 
-   * - **text**
-   * 
-   * - **embedding**
-   * 
-   * - **rerank**
+   * The category. Valid values:
+   * * **text**
+   * * **embedding**
+   * * **rerank**
    * 
    * This parameter is required.
    * 
@@ -49,7 +62,7 @@ export class CreateModelApiRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The path prefix.
+   * The API path prefix.
    * 
    * This parameter is required.
    * 
@@ -59,15 +72,12 @@ export class CreateModelApiRequest extends $dara.Model {
   pathPrefix?: string;
   /**
    * @remarks
-   * The model API protocol. Valid values:
+   * The protocol. Valid values:
    * 
-   * - **OpenAI**
-   * 
-   * - **Anthropic**
-   * 
-   * - **Model Studio**
-   * 
-   * - **vLLM**
+   * * **openai**
+   * * **anthropic**
+   * * **bailian**
+   * * **vllm**
    * 
    * This parameter is required.
    * 
@@ -77,7 +87,7 @@ export class CreateModelApiRequest extends $dara.Model {
   protocol?: string;
   /**
    * @remarks
-   * Specifies whether to record input for billing.
+   * The number of input points.
    * 
    * @example
    * 10
@@ -85,7 +95,7 @@ export class CreateModelApiRequest extends $dara.Model {
   recordInput?: string;
   /**
    * @remarks
-   * Specifies whether to record output for billing.
+   * The number of output points.
    * 
    * @example
    * 10
@@ -101,7 +111,7 @@ export class CreateModelApiRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * A list of routing rules, provided as a JSON array string.
+   * The list of routing rules (JSON array string).
    * 
    * This parameter is required.
    * 
@@ -134,6 +144,7 @@ export class CreateModelApiRequest extends $dara.Model {
   routeRules?: string;
   static names(): { [key: string]: string } {
     return {
+      config: 'Config',
       forceModel: 'ForceModel',
       gwClusterId: 'GwClusterId',
       modelCategory: 'ModelCategory',
@@ -149,6 +160,7 @@ export class CreateModelApiRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      config: 'string',
       forceModel: 'string',
       gwClusterId: 'string',
       modelCategory: 'string',

@@ -52,28 +52,28 @@ export default class Client extends OpenApi {
       'cn-zhengzhou-nebula-1': "polardb.aliyuncs.com",
       'eu-west-1-oxs': "polardb.aliyuncs.com",
       'rus-west-1-pop': "polardb.aliyuncs.com",
-      'us-west-1': "polardb.us-west-1.aliyuncs.com",
-      'us-east-1': "polardb.us-east-1.aliyuncs.com",
-      'na-south-1': "polardb.na-south-1.aliyuncs.com",
-      'me-east-1': "polardb.me-east-1.aliyuncs.com",
-      'eu-west-1': "polardb.eu-west-1.aliyuncs.com",
-      'eu-central-1': "polardb.eu-central-1.aliyuncs.com",
-      'cn-zhangjiakou': "polardb.cn-zhangjiakou.aliyuncs.com",
-      'cn-shenzhen-finance-1': "polardb.cn-shenzhen-finance-1.aliyuncs.com",
-      'cn-shenzhen': "polardb.cn-shenzhen.aliyuncs.com",
-      'cn-shanghai-finance-1': "polardb.cn-shanghai-finance-1.aliyuncs.com",
-      'cn-huhehaote': "polardb.cn-huhehaote.aliyuncs.com",
       'cn-hongkong': "polardb.cn-hongkong.aliyuncs.com",
-      'cn-guangzhou': "polardb.cn-guangzhou.aliyuncs.com",
-      'cn-chengdu': "polardb.cn-chengdu.aliyuncs.com",
-      'ap-southeast-8': "polardb.ap-southeast-8.aliyuncs.com",
-      'ap-southeast-7': "polardb.ap-southeast-7.aliyuncs.com",
-      'ap-southeast-6': "polardb.ap-southeast-6.aliyuncs.com",
-      'ap-southeast-5': "polardb.ap-southeast-5.aliyuncs.com",
-      'ap-southeast-3': "polardb.ap-southeast-3.aliyuncs.com",
-      'ap-southeast-1': "polardb.ap-southeast-1.aliyuncs.com",
+      'cn-zhangjiakou': "polardb.cn-zhangjiakou.aliyuncs.com",
+      'cn-shenzhen': "polardb.cn-shenzhen.aliyuncs.com",
       'ap-northeast-2': "polardb.ap-northeast-2.aliyuncs.com",
       'ap-northeast-1': "polardb.ap-northeast-1.aliyuncs.com",
+      'cn-chengdu': "polardb.cn-chengdu.aliyuncs.com",
+      'cn-guangzhou': "polardb.cn-guangzhou.aliyuncs.com",
+      'ap-southeast-1': "polardb.ap-southeast-1.aliyuncs.com",
+      'ap-southeast-3': "polardb.ap-southeast-3.aliyuncs.com",
+      'cn-huhehaote': "polardb.cn-huhehaote.aliyuncs.com",
+      'ap-southeast-5': "polardb.ap-southeast-5.aliyuncs.com",
+      'ap-southeast-6': "polardb.ap-southeast-6.aliyuncs.com",
+      'ap-southeast-7': "polardb.ap-southeast-7.aliyuncs.com",
+      'ap-southeast-8': "polardb.ap-southeast-8.aliyuncs.com",
+      'na-south-1': "polardb.na-south-1.aliyuncs.com",
+      'eu-central-1': "polardb.eu-central-1.aliyuncs.com",
+      'us-west-1': "polardb.us-west-1.aliyuncs.com",
+      'eu-west-1': "polardb.eu-west-1.aliyuncs.com",
+      'us-east-1': "polardb.us-east-1.aliyuncs.com",
+      'me-east-1': "polardb.me-east-1.aliyuncs.com",
+      'cn-shanghai-finance-1': "polardb.cn-shanghai-finance-1.aliyuncs.com",
+      'cn-shenzhen-finance-1': "polardb.cn-shenzhen-finance-1.aliyuncs.com",
     };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("polardb", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -493,7 +493,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 添加冷存授权账号
+   * Adds authorized accounts for cold storage.
    * 
    * @param request - AddPolarOSSAuthorizedAccountRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -536,7 +536,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 添加冷存授权账号
+   * Adds authorized accounts for cold storage.
    * 
    * @param request - AddPolarOSSAuthorizedAccountRequest
    * @returns AddPolarOSSAuthorizedAccountResponse
@@ -1947,7 +1947,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * This topic describes how to create an AI cluster.
+   * Creates an AI cluster.
    * 
    * @param request - CreateAIDBClusterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2114,7 +2114,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * This topic describes how to create an AI cluster.
+   * Creates an AI cluster.
    * 
    * @param request - CreateAIDBClusterRequest
    * @returns CreateAIDBClusterResponse
@@ -2125,7 +2125,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a model service API key.
+   * Creates a model creation service API key.
    * 
    * @param request - CreateAIDBClusterApiKeyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2164,7 +2164,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a model service API key.
+   * Creates a model creation service API key.
    * 
    * @param request - CreateAIDBClusterApiKeyRequest
    * @returns CreateAIDBClusterApiKeyResponse
@@ -2815,7 +2815,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建 AgenticDB 租户 API Key
+   * Creates an API key for an AgenticDB tenant.
    * 
    * @param request - CreateAgenticDBTenantApiKeyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2862,7 +2862,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建 AgenticDB 租户 API Key
+   * Creates an API key for an AgenticDB tenant.
    * 
    * @param request - CreateAgenticDBTenantApiKeyRequest
    * @returns CreateAgenticDBTenantApiKeyResponse
@@ -5405,6 +5405,178 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates a knowledge base.
+   * 
+   * @param request - CreateKnowledgeBaseRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateKnowledgeBaseResponse
+   */
+  async createKnowledgeBaseWithOptions(request: $_model.CreateKnowledgeBaseRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateKnowledgeBaseResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.knowledgeBaseType)) {
+      query["KnowledgeBaseType"] = request.knowledgeBaseType;
+    }
+
+    if (!$dara.isNull(request.knowledgeSpaceId)) {
+      query["KnowledgeSpaceId"] = request.knowledgeSpaceId;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.searchMode)) {
+      query["SearchMode"] = request.searchMode;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateKnowledgeBase",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateKnowledgeBaseResponse>(await this.callApi(params, req, runtime), new $_model.CreateKnowledgeBaseResponse({}));
+  }
+
+  /**
+   * Creates a knowledge base.
+   * 
+   * @param request - CreateKnowledgeBaseRequest
+   * @returns CreateKnowledgeBaseResponse
+   */
+  async createKnowledgeBase(request: $_model.CreateKnowledgeBaseRequest): Promise<$_model.CreateKnowledgeBaseResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createKnowledgeBaseWithOptions(request, runtime);
+  }
+
+  /**
+   * Creates a knowledge space.
+   * 
+   * @param request - CreateKnowledgeSpaceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateKnowledgeSpaceResponse
+   */
+  async createKnowledgeSpaceWithOptions(request: $_model.CreateKnowledgeSpaceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateKnowledgeSpaceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBType)) {
+      query["DBType"] = request.DBType;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.embeddingDimension)) {
+      query["EmbeddingDimension"] = request.embeddingDimension;
+    }
+
+    if (!$dara.isNull(request.embeddingModel)) {
+      query["EmbeddingModel"] = request.embeddingModel;
+    }
+
+    if (!$dara.isNull(request.enforceAcl)) {
+      query["EnforceAcl"] = request.enforceAcl;
+    }
+
+    if (!$dara.isNull(request.LLMModel)) {
+      query["LLMModel"] = request.LLMModel;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.OSSAccessKey)) {
+      query["OSSAccessKey"] = request.OSSAccessKey;
+    }
+
+    if (!$dara.isNull(request.OSSBucket)) {
+      query["OSSBucket"] = request.OSSBucket;
+    }
+
+    if (!$dara.isNull(request.OSSSecretKey)) {
+      query["OSSSecretKey"] = request.OSSSecretKey;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.rerankModel)) {
+      query["RerankModel"] = request.rerankModel;
+    }
+
+    if (!$dara.isNull(request.securityGroupId)) {
+      query["SecurityGroupId"] = request.securityGroupId;
+    }
+
+    if (!$dara.isNull(request.shardingSize)) {
+      query["ShardingSize"] = request.shardingSize;
+    }
+
+    if (!$dara.isNull(request.shardingStrategy)) {
+      query["ShardingStrategy"] = request.shardingStrategy;
+    }
+
+    if (!$dara.isNull(request.vSwitchId)) {
+      query["VSwitchId"] = request.vSwitchId;
+    }
+
+    if (!$dara.isNull(request.vpcId)) {
+      query["VpcId"] = request.vpcId;
+    }
+
+    if (!$dara.isNull(request.zoneId)) {
+      query["ZoneId"] = request.zoneId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateKnowledgeSpace",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateKnowledgeSpaceResponse>(await this.callApi(params, req, runtime), new $_model.CreateKnowledgeSpaceResponse({}));
+  }
+
+  /**
+   * Creates a knowledge space.
+   * 
+   * @param request - CreateKnowledgeSpaceRequest
+   * @returns CreateKnowledgeSpaceResponse
+   */
+  async createKnowledgeSpace(request: $_model.CreateKnowledgeSpaceRequest): Promise<$_model.CreateKnowledgeSpaceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createKnowledgeSpaceWithOptions(request, runtime);
+  }
+
+  /**
    * Creates a PolarFS S3 account.
    * 
    * @param request - CreateLakebaseS3AccountRequest
@@ -5463,7 +5635,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a model API.
+   * Creates a routing rule.
    * 
    * @param request - CreateModelApiRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5472,6 +5644,10 @@ export default class Client extends OpenApi {
   async createModelApiWithOptions(request: $_model.CreateModelApiRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateModelApiResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.config)) {
+      query["Config"] = request.config;
+    }
+
     if (!$dara.isNull(request.forceModel)) {
       query["ForceModel"] = request.forceModel;
     }
@@ -5530,7 +5706,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a model API.
+   * Creates a routing rule.
    * 
    * @param request - CreateModelApiRequest
    * @returns CreateModelApiResponse
@@ -7074,6 +7250,10 @@ export default class Client extends OpenApi {
   async deleteAgenticDBComputeClusterWithOptions(request: $_model.DeleteAgenticDBComputeClusterRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteAgenticDBComputeClusterResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.branchId)) {
+      query["BranchId"] = request.branchId;
+    }
+
     if (!$dara.isNull(request.computeClusterId)) {
       query["ComputeClusterId"] = request.computeClusterId;
     }
@@ -7082,8 +7262,16 @@ export default class Client extends OpenApi {
       query["DBClusterId"] = request.DBClusterId;
     }
 
+    if (!$dara.isNull(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
     if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.tenantId)) {
+      query["TenantId"] = request.tenantId;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -8633,6 +8821,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes a knowledge base.
+   * 
+   * @param request - DeleteKnowledgeBaseRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteKnowledgeBaseResponse
+   */
+  async deleteKnowledgeBaseWithOptions(request: $_model.DeleteKnowledgeBaseRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteKnowledgeBaseResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.knowledgeBaseId)) {
+      query["KnowledgeBaseId"] = request.knowledgeBaseId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteKnowledgeBase",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteKnowledgeBaseResponse>(await this.callApi(params, req, runtime), new $_model.DeleteKnowledgeBaseResponse({}));
+  }
+
+  /**
+   * Deletes a knowledge base.
+   * 
+   * @param request - DeleteKnowledgeBaseRequest
+   * @returns DeleteKnowledgeBaseResponse
+   */
+  async deleteKnowledgeBase(request: $_model.DeleteKnowledgeBaseRequest): Promise<$_model.DeleteKnowledgeBaseResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteKnowledgeBaseWithOptions(request, runtime);
+  }
+
+  /**
    * Deletes a PolarFS S3 account.
    * 
    * @param request - DeleteLakebaseS3AccountRequest
@@ -9397,7 +9631,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除冷存授权账号
+   * Deletes authorized accounts for cold storage.
    * 
    * @param request - DeletePolarOSSAuthorizedAccountRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9440,7 +9674,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除冷存授权账号
+   * Deletes authorized accounts for cold storage.
    * 
    * @param request - DeletePolarOSSAuthorizedAccountRequest
    * @returns DeletePolarOSSAuthorizedAccountResponse
@@ -9673,7 +9907,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a custom instance.
+   * Queries the detailed attributes of a custom instance.
    * 
    * @param request - DescribeAIDBClusterAttributeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9720,7 +9954,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a custom instance.
+   * Queries the detailed attributes of a custom instance.
    * 
    * @param request - DescribeAIDBClusterAttributeRequest
    * @returns DescribeAIDBClusterAttributeResponse
@@ -10163,7 +10397,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * View custom clusters.
+   * Queries the list of custom AI clusters.
    * 
    * @param request - DescribeAIDBClustersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10242,7 +10476,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * View custom clusters.
+   * Queries the list of custom AI clusters.
    * 
    * @param request - DescribeAIDBClustersRequest
    * @returns DescribeAIDBClustersResponse
@@ -11207,7 +11441,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询 AgenticDB 项目列表
+   * Queries the list of AgenticDB projects.
    * 
    * @param request - DescribeAgenticDBProjectsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11262,7 +11496,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询 AgenticDB 项目列表
+   * Queries the list of AgenticDB projects.
    * 
    * @param request - DescribeAgenticDBProjectsRequest
    * @returns DescribeAgenticDBProjectsResponse
@@ -11590,7 +11824,7 @@ export default class Client extends OpenApi {
     let request = new $_model.DescribeApplicationPerformanceShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
     if (!$dara.isNull(tmpReq.filter)) {
-      request.filterShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.filter, "filter", "json");
+      request.filterShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.filter, "Filter", "json");
     }
 
     let query = { };
@@ -11618,6 +11852,10 @@ export default class Client extends OpenApi {
       query["EndTime"] = request.endTime;
     }
 
+    if (!$dara.isNull(request.filterShrink)) {
+      query["Filter"] = request.filterShrink;
+    }
+
     if (!$dara.isNull(request.interval)) {
       query["Interval"] = request.interval;
     }
@@ -11640,10 +11878,6 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.startTime)) {
       query["StartTime"] = request.startTime;
-    }
-
-    if (!$dara.isNull(request.filterShrink)) {
-      query["filter"] = request.filterShrink;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -14509,7 +14743,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the transparent data encryption (TDE) settings for a specified PolarDB cluster.
+   * Queries the Transparent Data Encryption (TDE) settings of a PolarDB cluster.
    * 
    * @param request - DescribeDBClusterTDERequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14556,7 +14790,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the transparent data encryption (TDE) settings for a specified PolarDB cluster.
+   * Queries the Transparent Data Encryption (TDE) settings of a PolarDB cluster.
    * 
    * @param request - DescribeDBClusterTDERequest
    * @returns DescribeDBClusterTDEResponse
@@ -17095,6 +17329,114 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the details of a knowledge base.
+   * 
+   * @param request - DescribeKnowledgeBaseAttributeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeKnowledgeBaseAttributeResponse
+   */
+  async describeKnowledgeBaseAttributeWithOptions(request: $_model.DescribeKnowledgeBaseAttributeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeKnowledgeBaseAttributeResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.knowledgeBaseId)) {
+      query["KnowledgeBaseId"] = request.knowledgeBaseId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeKnowledgeBaseAttribute",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeKnowledgeBaseAttributeResponse>(await this.callApi(params, req, runtime), new $_model.DescribeKnowledgeBaseAttributeResponse({}));
+  }
+
+  /**
+   * Queries the details of a knowledge base.
+   * 
+   * @param request - DescribeKnowledgeBaseAttributeRequest
+   * @returns DescribeKnowledgeBaseAttributeResponse
+   */
+  async describeKnowledgeBaseAttribute(request: $_model.DescribeKnowledgeBaseAttributeRequest): Promise<$_model.DescribeKnowledgeBaseAttributeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeKnowledgeBaseAttributeWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries a list of knowledge bases.
+   * 
+   * @param request - DescribeKnowledgeBasesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeKnowledgeBasesResponse
+   */
+  async describeKnowledgeBasesWithOptions(request: $_model.DescribeKnowledgeBasesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeKnowledgeBasesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.keyword)) {
+      query["Keyword"] = request.keyword;
+    }
+
+    if (!$dara.isNull(request.knowledgeSpaceId)) {
+      query["KnowledgeSpaceId"] = request.knowledgeSpaceId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeKnowledgeBases",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeKnowledgeBasesResponse>(await this.callApi(params, req, runtime), new $_model.DescribeKnowledgeBasesResponse({}));
+  }
+
+  /**
+   * Queries a list of knowledge bases.
+   * 
+   * @param request - DescribeKnowledgeBasesRequest
+   * @returns DescribeKnowledgeBasesResponse
+   */
+  async describeKnowledgeBases(request: $_model.DescribeKnowledgeBasesRequest): Promise<$_model.DescribeKnowledgeBasesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeKnowledgeBasesWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the details of a PolarFS S3 account.
    * 
    * @param request - DescribeLakebaseS3AccountRequest
@@ -17537,7 +17879,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Model Query API
+   * Queries model APIs.
    * 
    * @param request - DescribeModelApisRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17604,7 +17946,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Model Query API
+   * Queries model APIs.
    * 
    * @param request - DescribeModelApisRequest
    * @returns DescribeModelApisResponse
@@ -22103,7 +22445,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Installs a PolarClaw plugin.
+   * Installs the PolarClaw plug-in.
    * 
    * @param request - InstallPolarClawPluginRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -22146,7 +22488,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Installs a PolarClaw plugin.
+   * Installs the PolarClaw plug-in.
    * 
    * @param request - InstallPolarClawPluginRequest
    * @returns InstallPolarClawPluginResponse
@@ -27504,6 +27846,10 @@ export default class Client extends OpenApi {
   async modifyModelApiWithOptions(request: $_model.ModifyModelApiRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyModelApiResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.config)) {
+      query["Config"] = request.config;
+    }
+
     if (!$dara.isNull(request.gwClusterId)) {
       query["GwClusterId"] = request.gwClusterId;
     }

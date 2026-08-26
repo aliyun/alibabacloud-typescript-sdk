@@ -13,7 +13,7 @@ export class ModifyModelApiResponseBody extends $dara.Model {
   modelApiId?: string;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * 925B84D9-CA72-432C-95CF-738C22******

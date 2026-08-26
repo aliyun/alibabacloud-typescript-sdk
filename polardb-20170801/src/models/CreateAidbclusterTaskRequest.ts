@@ -104,7 +104,7 @@ export class CreateAIDBClusterTaskRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The running parameters in JSON string format.
+   * The running parameters in a JSON string.
    * 
    * This parameter is required.
    * 
@@ -122,7 +122,7 @@ export class CreateAIDBClusterTaskRequest extends $dara.Model {
   securityGroupId?: string;
   /**
    * @remarks
-   * The description of the model service.
+   * The model service description.
    * 
    * @example
    * xxxx

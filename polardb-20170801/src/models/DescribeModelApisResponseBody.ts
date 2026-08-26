@@ -6,17 +6,15 @@ export class DescribeModelApisResponseBodyItems extends $dara.Model {
   /**
    * @remarks
    * The model category. Valid values:
-   * 
-   * - **text**
-   * 
-   * - **embedding**
-   * 
-   * - **rerank**
+   * * **text**
+   * * **embedding**
+   * * **rerank**
    * 
    * @example
    * text
    */
   category?: string;
+  config?: string;
   /**
    * @remarks
    * The creation time.
@@ -27,7 +25,7 @@ export class DescribeModelApisResponseBodyItems extends $dara.Model {
   gmtCreated?: string;
   /**
    * @remarks
-   * The Model API ID.
+   * The model API IDs.
    * 
    * @example
    * mi-xxxx
@@ -35,7 +33,7 @@ export class DescribeModelApisResponseBodyItems extends $dara.Model {
   modelApiId?: string;
   /**
    * @remarks
-   * The Model API name.
+   * The model API name.
    * 
    * @example
    * testName
@@ -53,13 +51,10 @@ export class DescribeModelApisResponseBodyItems extends $dara.Model {
    * @remarks
    * The protocol. Valid values:
    * 
-   * - **openai**
-   * 
-   * - **anthropic**
-   * 
-   * - **bailian**
-   * 
-   * - **vllm**
+   * * **openai**
+   * * **anthropic**
+   * * **bailian**
+   * * **vllm**
    * 
    * @example
    * openai
@@ -67,7 +62,7 @@ export class DescribeModelApisResponseBodyItems extends $dara.Model {
   protocol?: string;
   /**
    * @remarks
-   * The number of input records.
+   * The number of input tokens.
    * 
    * @example
    * 10
@@ -75,7 +70,7 @@ export class DescribeModelApisResponseBodyItems extends $dara.Model {
   recordInput?: string;
   /**
    * @remarks
-   * The number of output records.
+   * The number of output tokens.
    * 
    * @example
    * 10
@@ -83,7 +78,7 @@ export class DescribeModelApisResponseBodyItems extends $dara.Model {
   recordOutput?: string;
   /**
    * @remarks
-   * A JSON array of routing rules, formatted as a string.
+   * The routing rules list (JSON array string).
    * 
    * @example
    * [
@@ -114,7 +109,7 @@ export class DescribeModelApisResponseBodyItems extends $dara.Model {
   routeRules?: string;
   /**
    * @remarks
-   * The Model API status.
+   * The model API status.
    * 
    * @example
    * Enable
@@ -123,6 +118,7 @@ export class DescribeModelApisResponseBodyItems extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       category: 'Category',
+      config: 'Config',
       gmtCreated: 'GmtCreated',
       modelApiId: 'ModelApiId',
       name: 'Name',
@@ -138,6 +134,7 @@ export class DescribeModelApisResponseBodyItems extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       category: 'string',
+      config: 'string',
       gmtCreated: 'string',
       modelApiId: 'string',
       name: 'string',
@@ -162,7 +159,7 @@ export class DescribeModelApisResponseBodyItems extends $dara.Model {
 export class DescribeModelApisResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A list of Model API objects.
+   * The list of model APIs.
    */
   items?: DescribeModelApisResponseBodyItems[];
   /**
@@ -175,7 +172,7 @@ export class DescribeModelApisResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of records returned on the current page.
+   * The number of records on the current page.
    * 
    * @example
    * 30
@@ -183,7 +180,7 @@ export class DescribeModelApisResponseBody extends $dara.Model {
   pageRecordCount?: number;
   /**
    * @remarks
-   * The number of records to return on each page. Valid values: **30**, **50**, and **100**.
+   * The number of entries per page. Valid values: **30**, **50**, or **100**.
    * 
    * Default value: **30**.
    * 
@@ -193,7 +190,7 @@ export class DescribeModelApisResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * Id of the request
    * 
    * @example
    * C61892A4-0850-4516-9E26-44D96C1782DE
@@ -201,7 +198,7 @@ export class DescribeModelApisResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of records that match the query.
+   * The total number of records.
    * 
    * @example
    * 1

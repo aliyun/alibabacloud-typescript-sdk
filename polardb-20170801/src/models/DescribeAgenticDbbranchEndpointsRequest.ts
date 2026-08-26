@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAgenticDBBranchEndpointsRequest extends $dara.Model {
   /**
    * @remarks
+   * The branch ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class DescribeAgenticDBBranchEndpointsRequest extends $dara.Model {
   branchId?: string;
   /**
    * @remarks
+   * The AgenticDB cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class DescribeAgenticDBBranchEndpointsRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
+   * The ID of the project to which the branch belongs.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,6 +35,8 @@ export class DescribeAgenticDBBranchEndpointsRequest extends $dara.Model {
   projectId?: string;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -37,6 +45,8 @@ export class DescribeAgenticDBBranchEndpointsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
+   * The ID of the tenant to which the branch belongs.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeModelApisRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the gateway instance.
+   * The gateway instance ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DescribeModelApisRequest extends $dara.Model {
   gwClusterId?: string;
   /**
    * @remarks
-   * The IDs of the model APIs. Separate multiple IDs with a comma.
+   * The model API IDs.
    * 
    * @example
    * mi-xxx,mi-xxxx
@@ -24,12 +24,9 @@ export class DescribeModelApisRequest extends $dara.Model {
   /**
    * @remarks
    * The model category. Valid values:
-   * 
-   * - **text**
-   * 
-   * - **embedding**
-   * 
-   * - **rerank**
+   * * **text**
+   * * **embedding**
+   * * **rerank**
    * 
    * @example
    * text
@@ -37,7 +34,7 @@ export class DescribeModelApisRequest extends $dara.Model {
   modelCategory?: string;
   /**
    * @remarks
-   * The name of the model API.
+   * The model API name.
    * 
    * @example
    * testName
@@ -54,13 +51,11 @@ export class DescribeModelApisRequest extends $dara.Model {
   /**
    * @remarks
    * The number of entries per page. Valid values:
+   * * **30**
+   * * **50**
+   * * **100**
    * 
-   * - **30**
-   * 
-   * - **50**
-   * 
-   * - **100**
-   *   The default value is **30**.
+   * Default value: **30**.
    * 
    * @example
    * 30
@@ -78,13 +73,10 @@ export class DescribeModelApisRequest extends $dara.Model {
    * @remarks
    * The protocol. Valid values:
    * 
-   * - **openai**
-   * 
-   * - **anthropic**
-   * 
-   * - **bailian**
-   * 
-   * - **vllm**
+   * * **openai**
+   * * **anthropic**
+   * * **bailian**
+   * * **vllm**
    * 
    * @example
    * openai
@@ -92,7 +84,7 @@ export class DescribeModelApisRequest extends $dara.Model {
   protocol?: string;
   /**
    * @remarks
-   * The ID of the region.
+   * The region ID.
    * 
    * @example
    * cn-beijing

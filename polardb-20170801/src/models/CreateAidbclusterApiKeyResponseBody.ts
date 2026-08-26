@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAIDBClusterApiKeyResponseBodyApiKey extends $dara.Model {
   /**
    * @remarks
-   * The API key of the model service.
+   * The API key for model serving.
    * 
    * @example
    * xxx

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAgenticDBTenantApiKeyRequest extends $dara.Model {
   /**
    * @remarks
+   * The AgenticDB cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,17 +14,25 @@ export class CreateAgenticDBTenantApiKeyRequest extends $dara.Model {
    */
   DBClusterId?: string;
   /**
+   * @remarks
+   * The description of the API key usage.
+   * 
    * @example
-   * MCP Server专用Key
+   * Dedicated key for MCP Server
    */
   description?: string;
   /**
+   * @remarks
+   * The expiration time in ISO 8601 format. If this parameter is not specified, the API key never expires.
+   * 
    * @example
    * 2027-01-01T00:00:00Z
    */
   expireTime?: string;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -31,6 +41,8 @@ export class CreateAgenticDBTenantApiKeyRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
+   * The tenant name. The name must be unique within the cluster and contain 2 to 64 characters.
+   * 
    * This parameter is required.
    * 
    * @example
