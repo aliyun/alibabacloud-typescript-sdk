@@ -4858,6 +4858,112 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates a personal development environment instance.
+   * 
+   * @remarks
+   * Creates a personal development environment (ServerIDE) instance. After you specify the DataWorks workspace, resource group, image, and specifications, the instance is created and the instance ID is returned.
+   * 
+   * @param tmpReq - CreateServerIdeInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateServerIdeInstanceResponse
+   */
+  async createServerIdeInstanceWithOptions(tmpReq: $_model.CreateServerIdeInstanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateServerIdeInstanceResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateServerIdeInstanceShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.credentialConfig)) {
+      request.credentialConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.credentialConfig, "CredentialConfig", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.datasets)) {
+      request.datasetsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.datasets, "Datasets", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.userCommand)) {
+      request.userCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.userCommand, "UserCommand", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.userVpc)) {
+      request.userVpcShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.userVpc, "UserVpc", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.credentialConfigShrink)) {
+      body["CredentialConfig"] = request.credentialConfigShrink;
+    }
+
+    if (!$dara.isNull(request.cu)) {
+      body["Cu"] = request.cu;
+    }
+
+    if (!$dara.isNull(request.datasetsShrink)) {
+      body["Datasets"] = request.datasetsShrink;
+    }
+
+    if (!$dara.isNull(request.imageId)) {
+      body["ImageId"] = request.imageId;
+    }
+
+    if (!$dara.isNull(request.imageUrl)) {
+      body["ImageUrl"] = request.imageUrl;
+    }
+
+    if (!$dara.isNull(request.instanceName)) {
+      body["InstanceName"] = request.instanceName;
+    }
+
+    if (!$dara.isNull(request.owner)) {
+      body["Owner"] = request.owner;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      body["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!$dara.isNull(request.userCommandShrink)) {
+      body["UserCommand"] = request.userCommandShrink;
+    }
+
+    if (!$dara.isNull(request.userVpcShrink)) {
+      body["UserVpc"] = request.userVpcShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateServerIdeInstance",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateServerIdeInstanceResponse>(await this.callApi(params, req, runtime), new $_model.CreateServerIdeInstanceResponse({}));
+  }
+
+  /**
+   * Creates a personal development environment instance.
+   * 
+   * @remarks
+   * Creates a personal development environment (ServerIDE) instance. After you specify the DataWorks workspace, resource group, image, and specifications, the instance is created and the instance ID is returned.
+   * 
+   * @param request - CreateServerIdeInstanceRequest
+   * @returns CreateServerIdeInstanceResponse
+   */
+  async createServerIdeInstance(request: $_model.CreateServerIdeInstanceRequest): Promise<$_model.CreateServerIdeInstanceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createServerIdeInstanceWithOptions(request, runtime);
+  }
+
+  /**
    * Creates a new Skill in DataWorks.
    * 
    * @remarks
@@ -23293,6 +23399,102 @@ export default class Client extends OpenApi {
   async updateSecurityStrategy(request: $_model.UpdateSecurityStrategyRequest): Promise<$_model.UpdateSecurityStrategyResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateSecurityStrategyWithOptions(request, runtime);
+  }
+
+  /**
+   * Updates the configuration of a specified personal development environment instance.
+   * 
+   * @remarks
+   * Updates the configuration of a specified personal development environment (ServerIDE) instance. You can modify the CU, image, instance name, VPC, dataset, and credential configurations. If the CU and image parameters are not specified, the existing instance configurations are retained.
+   * 
+   * @param tmpReq - UpdateServerIdeInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateServerIdeInstanceResponse
+   */
+  async updateServerIdeInstanceWithOptions(tmpReq: $_model.UpdateServerIdeInstanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateServerIdeInstanceResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateServerIdeInstanceShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.credentialConfig)) {
+      request.credentialConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.credentialConfig, "CredentialConfig", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.datasets)) {
+      request.datasetsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.datasets, "Datasets", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.userVpc)) {
+      request.userVpcShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.userVpc, "UserVpc", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.credentialConfigShrink)) {
+      body["CredentialConfig"] = request.credentialConfigShrink;
+    }
+
+    if (!$dara.isNull(request.cu)) {
+      body["Cu"] = request.cu;
+    }
+
+    if (!$dara.isNull(request.datasetsShrink)) {
+      body["Datasets"] = request.datasetsShrink;
+    }
+
+    if (!$dara.isNull(request.imageId)) {
+      body["ImageId"] = request.imageId;
+    }
+
+    if (!$dara.isNull(request.imageUrl)) {
+      body["ImageUrl"] = request.imageUrl;
+    }
+
+    if (!$dara.isNull(request.instanceName)) {
+      body["InstanceName"] = request.instanceName;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.userVpcShrink)) {
+      body["UserVpc"] = request.userVpcShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateServerIdeInstance",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateServerIdeInstanceResponse>(await this.callApi(params, req, runtime), new $_model.UpdateServerIdeInstanceResponse({}));
+  }
+
+  /**
+   * Updates the configuration of a specified personal development environment instance.
+   * 
+   * @remarks
+   * Updates the configuration of a specified personal development environment (ServerIDE) instance. You can modify the CU, image, instance name, VPC, dataset, and credential configurations. If the CU and image parameters are not specified, the existing instance configurations are retained.
+   * 
+   * @param request - UpdateServerIdeInstanceRequest
+   * @returns UpdateServerIdeInstanceResponse
+   */
+  async updateServerIdeInstance(request: $_model.UpdateServerIdeInstanceRequest): Promise<$_model.UpdateServerIdeInstanceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateServerIdeInstanceWithOptions(request, runtime);
   }
 
   /**
