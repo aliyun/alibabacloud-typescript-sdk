@@ -5,52 +5,92 @@ import * as $dara from '@darabonba/typescript';
 export class SlsMultiConditionCaseConfig extends $dara.Model {
   /**
    * @remarks
-   * The count comparison operator. Valid values: GTE, GT, EQ, LTE, LT.
+   * The match expression (corresponds to V1 condition, preserved as-is without structured parsing).
+   */
+  condition?: string;
+  /**
+   * @remarks
+   * The count match expression (corresponds to V1 countCondition, preserved as-is without structured parsing).
+   */
+  countCondition?: string;
+  /**
+   * @remarks
+   * **[Deprecated]** The write path is disabled. Use countCondition instead.
+   * 
+   * @deprecated
    */
   countOperator?: string;
   /**
    * @remarks
-   * The count threshold. The alert is triggered when this threshold is met.
+   * **[Deprecated]** The write path is disabled. Use countCondition instead.
+   * 
+   * @deprecated
    */
   countThreshold?: number;
   /**
    * @remarks
-   * The log field name. Required when matchOperator is set to CONTAINS, EQUALS, or REGEX. Specify the field name when matchOperator is set to PRESENT or NOT_PRESENT.
+   * **[Deprecated]** The write path is disabled. Use condition instead.
+   * 
+   * @deprecated
    */
   matchField?: string;
   /**
    * @remarks
-   * The log matching operator. Valid values: PRESENT (field exists), NOT_PRESENT (field does not exist), CONTAINS (contains), EQUALS (equals), REGEX (regular expression). If left empty, any data matches.
+   * **[Deprecated]** The write path is disabled. Use condition instead.
+   * 
+   * @deprecated
    */
   matchOperator?: string;
   /**
    * @remarks
-   * The log match value. Required when matchOperator is set to CONTAINS, EQUALS, or REGEX.
+   * **[Deprecated]** The write path is disabled. Use condition instead.
+   * 
+   * @deprecated
    */
   matchValue?: string;
   /**
    * @remarks
-   * The severity level.
+   * The detection operator (aligned with V1 caseList.type): HAS_DATA / HAS_DATA_COUNT / HAS_DATA_MATCH / HAS_DATA_MATCH_COUNT.
+   */
+  operator?: string;
+  /**
+   * @remarks
+   * **[Deprecated]** The write path is disabled. Use condition instead.
+   * 
+   * @deprecated
+   */
+  rawCondition?: string;
+  /**
+   * @remarks
+   * The severity level (corresponds to V1 level).
    */
   severity?: string;
   static names(): { [key: string]: string } {
     return {
+      condition: 'condition',
+      countCondition: 'countCondition',
       countOperator: 'countOperator',
       countThreshold: 'countThreshold',
       matchField: 'matchField',
       matchOperator: 'matchOperator',
       matchValue: 'matchValue',
+      operator: 'operator',
+      rawCondition: 'rawCondition',
       severity: 'severity',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      condition: 'string',
+      countCondition: 'string',
       countOperator: 'string',
       countThreshold: 'number',
       matchField: 'string',
       matchOperator: 'string',
       matchValue: 'string',
+      operator: 'string',
+      rawCondition: 'string',
       severity: 'string',
     };
   }

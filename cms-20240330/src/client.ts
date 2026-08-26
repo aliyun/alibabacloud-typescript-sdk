@@ -8886,6 +8886,10 @@ export default class Client extends OpenApi {
       body["storageDuration"] = request.storageDuration;
     }
 
+    if (!$dara.isNull(request.storeConfig)) {
+      body["storeConfig"] = request.storeConfig;
+    }
+
     if (!$dara.isNull(request.workspace)) {
       body["workspace"] = request.workspace;
     }

@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import { PrometheusInstanceStoreConfig } from "./PrometheusInstanceStoreConfig";
 
 
 export class GetPrometheusInstanceResponseBodyPrometheusInstanceTags extends $dara.Model {
@@ -45,7 +46,7 @@ export class GetPrometheusInstanceResponseBodyPrometheusInstanceTags extends $da
 export class GetPrometheusInstanceResponseBodyPrometheusInstance extends $dara.Model {
   /**
    * @remarks
-   * The access type. Valid values:
+   * The permission type. Valid values:
    * - readWrite
    * - readOnly
    * - httpReadOnly
@@ -56,7 +57,7 @@ export class GetPrometheusInstanceResponseBodyPrometheusInstance extends $dara.M
   accessType?: string;
   /**
    * @remarks
-   * The number of days that data is automatically archived after the storage period expires. A value of 0 indicates that data is not archived. A value of 3650 indicates that data is permanently retained.
+   * The number of days for automatic archiving after storage expires. A value of 0 indicates no archiving, and a value of 3650 indicates permanent retention.
    * 
    * @example
    * 90
@@ -98,7 +99,7 @@ export class GetPrometheusInstanceResponseBodyPrometheusInstance extends $dara.M
   authFreeWritePolicy?: string;
   /**
    * @remarks
-   * The authentication token.
+   * The authentication token string.
    * 
    * @example
    * eJwixxxxx
@@ -106,7 +107,7 @@ export class GetPrometheusInstanceResponseBodyPrometheusInstance extends $dara.M
   authToken?: string;
   /**
    * @remarks
-   * The time when the instance was created. The time is in UTC+0 and in the yyyy-MM-ddTHH:mmZ format.
+   * The instance creation time in UTC+0, in the format of yyyy-MM-ddTHH:mmZ.
    * 
    * @example
    * 2025-08-10T02:07:53Z
@@ -162,7 +163,7 @@ export class GetPrometheusInstanceResponseBodyPrometheusInstance extends $dara.M
    * The name of the associated managed Grafana instance.
    * 
    * @example
-   * 共享版
+   * Shared Edition
    */
   grafanaInstanceName?: string;
   /**
@@ -200,8 +201,8 @@ export class GetPrometheusInstanceResponseBodyPrometheusInstance extends $dara.M
   /**
    * @remarks
    * The billing method. Valid values:
-   * - POSTPAY: pay-as-you-go based on the number of reported metrics.
-   * - POSTPAY_GB: pay-as-you-go based on the volume of written metrics.
+   * - POSTPAY: pay-as-you-go by metric reporting volume.
+   * - POSTPAY_GB: pay-as-you-go by metric write volume.
    * 
    * @example
    * POSTPAY
@@ -209,7 +210,7 @@ export class GetPrometheusInstanceResponseBodyPrometheusInstance extends $dara.M
   paymentType?: string;
   /**
    * @remarks
-   * The time when the billing method of the instance was last modified, in UTC format.
+   * The time when the instance billing method was modified, in UTC format.
    * 
    * @example
    * 2025-08-10T02:07:53Z
@@ -329,7 +330,7 @@ export class GetPrometheusInstanceResponseBodyPrometheusInstance extends $dara.M
   resourceGroupId?: string;
   /**
    * @remarks
-   * Fixed value: PrometheusInstance.
+   * The fixed value: PrometheusInstance.
    * 
    * @example
    * Prometheus
@@ -345,12 +346,17 @@ export class GetPrometheusInstanceResponseBodyPrometheusInstance extends $dara.M
   status?: string;
   /**
    * @remarks
-   * The storage duration, in days.
+   * The storage duration in days.
    * 
    * @example
    * 90
    */
   storageDuration?: number;
+  /**
+   * @remarks
+   * The Prometheus storage configuration.
+   */
+  storeConfig?: PrometheusInstanceStoreConfig;
   /**
    * @remarks
    * The supported authentication types.
@@ -423,6 +429,7 @@ export class GetPrometheusInstanceResponseBodyPrometheusInstance extends $dara.M
       resourceType: 'resourceType',
       status: 'status',
       storageDuration: 'storageDuration',
+      storeConfig: 'storeConfig',
       supportAuthTypes: 'supportAuthTypes',
       tags: 'tags',
       userId: 'userId',
@@ -469,6 +476,7 @@ export class GetPrometheusInstanceResponseBodyPrometheusInstance extends $dara.M
       resourceType: 'string',
       status: 'string',
       storageDuration: 'number',
+      storeConfig: PrometheusInstanceStoreConfig,
       supportAuthTypes: { 'type': 'array', 'itemType': 'string' },
       tags: { 'type': 'array', 'itemType': GetPrometheusInstanceResponseBodyPrometheusInstanceTags },
       userId: 'string',
@@ -480,6 +488,9 @@ export class GetPrometheusInstanceResponseBodyPrometheusInstance extends $dara.M
   validate() {
     if(this.extraInfo) {
       $dara.Model.validateMap(this.extraInfo);
+    }
+    if(this.storeConfig && typeof (this.storeConfig as any).validate === 'function') {
+      (this.storeConfig as any).validate();
     }
     if(Array.isArray(this.supportAuthTypes)) {
       $dara.Model.validateArray(this.supportAuthTypes);

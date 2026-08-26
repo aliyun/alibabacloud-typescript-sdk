@@ -5,6 +5,7 @@ import { DatasourceTypeFilter } from "./DatasourceTypeFilter";
 import { DisplayNameFilter } from "./DisplayNameFilter";
 import { EnabledFilter } from "./EnabledFilter";
 import { LabelsFilter } from "./LabelsFilter";
+import { MigrationStatusFilter } from "./MigrationStatusFilter";
 import { NotificationChannelsFilter } from "./NotificationChannelsFilter";
 import { NotifyStrategyIdFilter } from "./NotifyStrategyIdFilter";
 import { ObserveResourceConfigFilter } from "./ObserveResourceConfigFilter";
@@ -23,11 +24,23 @@ export class QueryAlertRulesFilter extends $dara.Model {
   displayName?: DisplayNameFilter;
   enabled?: EnabledFilter;
   labels?: LabelsFilter;
+  /**
+   * @remarks
+   * Filters by migration status. isMigrated=true queries migrated rules (migration_status is not 0 or NULL). isMigrated=false queries native rules (migration_status=0).
+   */
+  migrationStatus?: MigrationStatusFilter;
   notificationChannels?: NotificationChannelsFilter;
   notifyStrategyId?: NotifyStrategyIdFilter;
+  /**
+   * @remarks
+   * Filters by the observeResourceConfig structure. This takes priority over the standalone observeResourceType / observeResourceGlobalScope / observeResourceList fields below. If both are specified and their semantics conflict, the request is rejected.
+   */
   observeResourceConfig?: ObserveResourceConfigFilter;
   observeResourceGlobalScope?: ObserveResourceGlobalScopeFilter;
   /**
+   * @remarks
+   * **[Deprecated]** Filters by a single resource entity ID. This field is retained only for backward compatibility with legacy SDKs. For new integrations, use observeResourceList.contains instead. If this field is not empty and observeResourceList is not specified, it is equivalent to observeResourceList.contains=[observeResourceInstanceId].
+   * 
    * @example
    * i-bp1abcxxxxxxxx
    * 
@@ -36,6 +49,9 @@ export class QueryAlertRulesFilter extends $dara.Model {
   observeResourceInstanceId?: string;
   observeResourceList?: ObserveResourceListFilter;
   /**
+   * @remarks
+   * **[Deprecated]** Filters by observable resource type. For new integrations, use observeResourceConfig.entityType instead.
+   * 
    * @deprecated
    */
   observeResourceType?: ObserveResourceTypeFilter;
@@ -50,6 +66,7 @@ export class QueryAlertRulesFilter extends $dara.Model {
       displayName: 'displayName',
       enabled: 'enabled',
       labels: 'labels',
+      migrationStatus: 'migrationStatus',
       notificationChannels: 'notificationChannels',
       notifyStrategyId: 'notifyStrategyId',
       observeResourceConfig: 'observeResourceConfig',
@@ -71,6 +88,7 @@ export class QueryAlertRulesFilter extends $dara.Model {
       displayName: DisplayNameFilter,
       enabled: EnabledFilter,
       labels: LabelsFilter,
+      migrationStatus: MigrationStatusFilter,
       notificationChannels: NotificationChannelsFilter,
       notifyStrategyId: NotifyStrategyIdFilter,
       observeResourceConfig: ObserveResourceConfigFilter,
@@ -100,6 +118,9 @@ export class QueryAlertRulesFilter extends $dara.Model {
     }
     if(this.labels && typeof (this.labels as any).validate === 'function') {
       (this.labels as any).validate();
+    }
+    if(this.migrationStatus && typeof (this.migrationStatus as any).validate === 'function') {
+      (this.migrationStatus as any).validate();
     }
     if(this.notificationChannels && typeof (this.notificationChannels as any).validate === 'function') {
       (this.notificationChannels as any).validate();

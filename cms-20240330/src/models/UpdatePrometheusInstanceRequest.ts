@@ -1,12 +1,13 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import { PrometheusInstanceStoreConfig } from "./PrometheusInstanceStoreConfig";
 
 
 export class UpdatePrometheusInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * The number of days for automatic archiving after storage expires. A value of 0 indicates no archiving. Valid values for archiving days:
-   * V1: 1 to 365 days. Supported only for billing by metric write volume.
+   * The number of days for automatic archiving after storage expires. A value of 0 indicates no archiving. Valid values for archive days:
+   * V1: 1 to 365 days. Only supported for billing by metric write volume.
    * V2: 1 to 3650 days (3650 indicates permanent retention).
    * 
    * @example
@@ -76,9 +77,9 @@ export class UpdatePrometheusInstanceRequest extends $dara.Model {
   enableAuthToken?: boolean;
   /**
    * @remarks
-   * The billing method. This parameter can be modified only once during the instance lifetime. Valid values:
-   * - POSTPAY: pay-as-you-go by metric reporting volume.
-   * - POSTPAY_GB: pay-as-you-go by metric write volume.
+   * The billing method. This can be modified only once during the instance lifetime:
+   * POSTPAY: pay-as-you-go by metric reporting volume.
+   * POSTPAY_GB: pay-as-you-go by metric write volume.
    * 
    * @example
    * POSTPAY_GB
@@ -94,7 +95,7 @@ export class UpdatePrometheusInstanceRequest extends $dara.Model {
   prometheusInstanceName?: string;
   /**
    * @remarks
-   * Instance storage database status of the instance. Only RUNNING is supported. If this parameter is left empty, instance storage database status remains unchanged.
+   * Instance storage database status of the instance. Only RUNNING is supported. If left empty, instance storage database status is not changed.
    * 
    * @example
    * RUNNING
@@ -103,13 +104,18 @@ export class UpdatePrometheusInstanceRequest extends $dara.Model {
   /**
    * @remarks
    * The storage duration (days):
-   * By write volume: 90 or 180.
-   * By metric reporting volume: 15, 30, 60, 90, or 180.
+   * By write volume: 90, 180.
+   * By metric reporting volume: 15, 30, 60, 90, 180.
    * 
    * @example
    * 90
    */
   storageDuration?: number;
+  /**
+   * @remarks
+   * The Prometheus storage configuration.
+   */
+  storeConfig?: PrometheusInstanceStoreConfig;
   /**
    * @remarks
    * The workspace to which the instance belongs.
@@ -130,6 +136,7 @@ export class UpdatePrometheusInstanceRequest extends $dara.Model {
       prometheusInstanceName: 'prometheusInstanceName',
       status: 'status',
       storageDuration: 'storageDuration',
+      storeConfig: 'storeConfig',
       workspace: 'workspace',
     };
   }
@@ -146,11 +153,15 @@ export class UpdatePrometheusInstanceRequest extends $dara.Model {
       prometheusInstanceName: 'string',
       status: 'string',
       storageDuration: 'number',
+      storeConfig: PrometheusInstanceStoreConfig,
       workspace: 'string',
     };
   }
 
   validate() {
+    if(this.storeConfig && typeof (this.storeConfig as any).validate === 'function') {
+      (this.storeConfig as any).validate();
+    }
     super.validate();
   }
 
