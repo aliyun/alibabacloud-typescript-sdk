@@ -2,18 +2,18 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class UpdateModelShrinkRequest extends $dara.Model {
+export class CreateWorkspaceShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The request body.
+   * The request body for creating a workspace.
    */
   bodyShrink?: string;
   /**
    * @remarks
-   * The client token for idempotence. Not currently supported.
+   * The client idempotency token.
    * 
    * @example
-   * client-token-1
+   * workspace-create-20260805-001
    */
   clientToken?: string;
   static names(): { [key: string]: string } {

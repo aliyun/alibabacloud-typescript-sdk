@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateModelRequestBody extends $dara.Model {
   /**
    * @remarks
+   * The model description. Maximum length: 255 characters.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -33,8 +35,15 @@ export class UpdateModelRequestBody extends $dara.Model {
 }
 
 export class UpdateModelRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The request body.
+   */
   body?: UpdateModelRequestBody;
   /**
+   * @remarks
+   * The client token for idempotence. Not currently supported.
+   * 
    * @example
    * client-token-1
    */

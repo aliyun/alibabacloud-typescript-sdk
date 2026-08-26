@@ -195,6 +195,63 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates a managed agent in a specified workspace.
+   * 
+   * @param tmpReq - CreateManagedAgentRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateManagedAgentResponse
+   */
+  async createManagedAgentWithOptions(workspaceId: string, tmpReq: $_model.CreateManagedAgentRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateManagedAgentResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateManagedAgentShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.body)) {
+      request.bodyShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.body, "body", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["clientToken"] = request.clientToken;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.bodyShrink)) {
+      body["body"] = request.bodyShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateManagedAgent",
+      version: "2026-08-04",
+      protocol: "HTTPS",
+      pathname: `/workspaces/${$dara.URL.percentEncode(workspaceId)}/managed-agents`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateManagedAgentResponse>(await this.callApi(params, req, runtime), new $_model.CreateManagedAgentResponse({}));
+  }
+
+  /**
+   * Creates a managed agent in a specified workspace.
+   * 
+   * @param request - CreateManagedAgentRequest
+   * @returns CreateManagedAgentResponse
+   */
+  async createManagedAgent(workspaceId: string, request: $_model.CreateManagedAgentRequest): Promise<$_model.CreateManagedAgentResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createManagedAgentWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
    * Creates a model configuration under a specified model connection in a workspace.
    * 
    * @param tmpReq - CreateModelRequest
@@ -423,6 +480,69 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates an AgentCore workspace control plane record. The server completes the state transition from Initializing to Initialized within the same transaction.
+   * 
+   * @remarks
+   * ## Operation description\\nCreates an AgentCore workspace control plane record. The server completes the state transition from `Initializing` to `Initialized` within the same transaction. The network configuration uses `Enabled` to specify whether to enable VPC networking. When enabled, you must provide `VpcId` and at least one `VSwitchIds`.\\n.
+   * 
+   * @param tmpReq - CreateWorkspaceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateWorkspaceResponse
+   */
+  async createWorkspaceWithOptions(tmpReq: $_model.CreateWorkspaceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateWorkspaceResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateWorkspaceShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.body)) {
+      request.bodyShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.body, "body", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["clientToken"] = request.clientToken;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.bodyShrink)) {
+      body["body"] = request.bodyShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateWorkspace",
+      version: "2026-08-04",
+      protocol: "HTTPS",
+      pathname: `/workspaces`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateWorkspaceResponse>(await this.callApi(params, req, runtime), new $_model.CreateWorkspaceResponse({}));
+  }
+
+  /**
+   * Creates an AgentCore workspace control plane record. The server completes the state transition from Initializing to Initialized within the same transaction.
+   * 
+   * @remarks
+   * ## Operation description\\nCreates an AgentCore workspace control plane record. The server completes the state transition from `Initializing` to `Initialized` within the same transaction. The network configuration uses `Enabled` to specify whether to enable VPC networking. When enabled, you must provide `VpcId` and at least one `VSwitchIds`.\\n.
+   * 
+   * @param request - CreateWorkspaceRequest
+   * @returns CreateWorkspaceResponse
+   */
+  async createWorkspace(request: $_model.CreateWorkspaceRequest): Promise<$_model.CreateWorkspaceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createWorkspaceWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 调试模型
    * 
    * @param tmpReq - DebugModelRequest
@@ -561,6 +681,45 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteIdentityProviderWithOptions(workspaceId, identityProviderType, request, headers, runtime);
+  }
+
+  /**
+   * Deletes a specified managed agent.
+   * 
+   * @param request - DeleteManagedAgentRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteManagedAgentResponse
+   */
+  async deleteManagedAgentWithOptions(workspaceId: string, agentId: string, request: $_model.DeleteManagedAgentRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteManagedAgentResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteManagedAgent",
+      version: "2026-08-04",
+      protocol: "HTTPS",
+      pathname: `/workspaces/${$dara.URL.percentEncode(workspaceId)}/managed-agents/${$dara.URL.percentEncode(agentId)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteManagedAgentResponse>(await this.callApi(params, req, runtime), new $_model.DeleteManagedAgentResponse({}));
+  }
+
+  /**
+   * Deletes a specified managed agent.
+   * 
+   * @param request - DeleteManagedAgentRequest
+   * @returns DeleteManagedAgentResponse
+   */
+  async deleteManagedAgent(workspaceId: string, agentId: string, request: $_model.DeleteManagedAgentRequest): Promise<$_model.DeleteManagedAgentResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteManagedAgentWithOptions(workspaceId, agentId, request, headers, runtime);
   }
 
   /**
@@ -744,6 +903,51 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes the control plane record of a specified workspace. The server completes the state transition from Deleting to Deleted within the same transaction. When you repeatedly delete a workspace that is in the Deleting or Deleted state, the server handles the request with idempotence semantics.
+   * 
+   * @remarks
+   * ## Request description\\nDeletes the control plane record of a specified workspace. The server completes the state transition from `Deleting` to `Deleted` within the same transaction. When you repeatedly delete a workspace that is in the `Deleting` or `Deleted` state, the server handles the request with idempotence semantics.\\n.
+   * 
+   * @param request - DeleteWorkspaceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteWorkspaceResponse
+   */
+  async deleteWorkspaceWithOptions(workspaceId: string, request: $_model.DeleteWorkspaceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteWorkspaceResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteWorkspace",
+      version: "2026-08-04",
+      protocol: "HTTPS",
+      pathname: `/workspaces/${$dara.URL.percentEncode(workspaceId)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteWorkspaceResponse>(await this.callApi(params, req, runtime), new $_model.DeleteWorkspaceResponse({}));
+  }
+
+  /**
+   * Deletes the control plane record of a specified workspace. The server completes the state transition from Deleting to Deleted within the same transaction. When you repeatedly delete a workspace that is in the Deleting or Deleted state, the server handles the request with idempotence semantics.
+   * 
+   * @remarks
+   * ## Request description\\nDeletes the control plane record of a specified workspace. The server completes the state transition from `Deleting` to `Deleted` within the same transaction. When you repeatedly delete a workspace that is in the `Deleting` or `Deleted` state, the server handles the request with idempotence semantics.\\n.
+   * 
+   * @param request - DeleteWorkspaceRequest
+   * @returns DeleteWorkspaceResponse
+   */
+  async deleteWorkspace(workspaceId: string, request: $_model.DeleteWorkspaceRequest): Promise<$_model.DeleteWorkspaceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteWorkspaceWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
    * 查询凭证
    * 
    * @param request - GetCredentialRequest
@@ -819,6 +1023,45 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getIdentityProviderWithOptions(workspaceId, identityProviderType, request, headers, runtime);
+  }
+
+  /**
+   * Queries the details of a specified managed agent.
+   * 
+   * @param request - GetManagedAgentRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetManagedAgentResponse
+   */
+  async getManagedAgentWithOptions(workspaceId: string, agentId: string, request: $_model.GetManagedAgentRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetManagedAgentResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetManagedAgent",
+      version: "2026-08-04",
+      protocol: "HTTPS",
+      pathname: `/workspaces/${$dara.URL.percentEncode(workspaceId)}/managed-agents/${$dara.URL.percentEncode(agentId)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetManagedAgentResponse>(await this.callApi(params, req, runtime), new $_model.GetManagedAgentResponse({}));
+  }
+
+  /**
+   * Queries the details of a specified managed agent.
+   * 
+   * @param request - GetManagedAgentRequest
+   * @returns GetManagedAgentResponse
+   */
+  async getManagedAgent(workspaceId: string, agentId: string, request: $_model.GetManagedAgentRequest): Promise<$_model.GetManagedAgentResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getManagedAgentWithOptions(workspaceId, agentId, request, headers, runtime);
   }
 
   /**
@@ -978,6 +1221,51 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries workspace details by workspace ID, including lifecycle status, CMS Workspace, AIRegistry Namespace, and current network policy.
+   * 
+   * @remarks
+   * ## Operation description\\nQueries workspace details by workspace ID, including lifecycle status, CMS Workspace, AIRegistry Namespace, and current network policy.\\n.
+   * 
+   * @param request - GetWorkspaceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetWorkspaceResponse
+   */
+  async getWorkspaceWithOptions(workspaceId: string, request: $_model.GetWorkspaceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetWorkspaceResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetWorkspace",
+      version: "2026-08-04",
+      protocol: "HTTPS",
+      pathname: `/workspaces/${$dara.URL.percentEncode(workspaceId)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetWorkspaceResponse>(await this.callApi(params, req, runtime), new $_model.GetWorkspaceResponse({}));
+  }
+
+  /**
+   * Queries workspace details by workspace ID, including lifecycle status, CMS Workspace, AIRegistry Namespace, and current network policy.
+   * 
+   * @remarks
+   * ## Operation description\\nQueries workspace details by workspace ID, including lifecycle status, CMS Workspace, AIRegistry Namespace, and current network policy.\\n.
+   * 
+   * @param request - GetWorkspaceRequest
+   * @returns GetWorkspaceResponse
+   */
+  async getWorkspace(workspaceId: string, request: $_model.GetWorkspaceRequest): Promise<$_model.GetWorkspaceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getWorkspaceWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
    * 查询凭证列表
    * 
    * @param request - ListCredentialsRequest
@@ -1081,6 +1369,61 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listIdentityProvidersWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
+   * Queries the list of managed agents in a specified workspace.
+   * 
+   * @remarks
+   * Queries the list of managed agents in a specified workspace by using paging. Returns summary information for each agent, including the identity, name, status, template, and specifications.
+   * 
+   * @param request - ListManagedAgentsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListManagedAgentsResponse
+   */
+  async listManagedAgentsWithOptions(workspaceId: string, request: $_model.ListManagedAgentsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListManagedAgentsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListManagedAgents",
+      version: "2026-08-04",
+      protocol: "HTTPS",
+      pathname: `/workspaces/${$dara.URL.percentEncode(workspaceId)}/managed-agents`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListManagedAgentsResponse>(await this.callApi(params, req, runtime), new $_model.ListManagedAgentsResponse({}));
+  }
+
+  /**
+   * Queries the list of managed agents in a specified workspace.
+   * 
+   * @remarks
+   * Queries the list of managed agents in a specified workspace by using paging. Returns summary information for each agent, including the identity, name, status, template, and specifications.
+   * 
+   * @param request - ListManagedAgentsRequest
+   * @returns ListManagedAgentsResponse
+   */
+  async listManagedAgents(workspaceId: string, request: $_model.ListManagedAgentsRequest): Promise<$_model.ListManagedAgentsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listManagedAgentsWithOptions(workspaceId, request, headers, runtime);
   }
 
   /**
@@ -1394,6 +1737,65 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries workspaces under the current tenant with paging. The list does not return soft-deleted records with a status of Deleted by default. Results are stably sorted by creation order on the server side.
+   * 
+   * @remarks
+   * ## Request description\\nQueries workspaces under the current tenant with paging. The list does not return soft-deleted records with a status of `Deleted` by default. Results are stably sorted by creation order on the server side. Use `nextToken` to retrieve the next page, `skip` to skip a specified number of workspaces, `maxResults` to specify the maximum number of records per page, and `nameLike` to filter workspaces by name using fuzzy match. If `maxResults` is not specified or is set to 0, the server returns 20 records by default.\\n
+   * 
+   * @param request - ListWorkspacesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListWorkspacesResponse
+   */
+  async listWorkspacesWithOptions(request: $_model.ListWorkspacesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListWorkspacesResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.skip)) {
+      query["skip"] = request.skip;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListWorkspaces",
+      version: "2026-08-04",
+      protocol: "HTTPS",
+      pathname: `/workspaces`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListWorkspacesResponse>(await this.callApi(params, req, runtime), new $_model.ListWorkspacesResponse({}));
+  }
+
+  /**
+   * Queries workspaces under the current tenant with paging. The list does not return soft-deleted records with a status of Deleted by default. Results are stably sorted by creation order on the server side.
+   * 
+   * @remarks
+   * ## Request description\\nQueries workspaces under the current tenant with paging. The list does not return soft-deleted records with a status of `Deleted` by default. Results are stably sorted by creation order on the server side. Use `nextToken` to retrieve the next page, `skip` to skip a specified number of workspaces, `maxResults` to specify the maximum number of records per page, and `nameLike` to filter workspaces by name using fuzzy match. If `maxResults` is not specified or is set to 0, the server returns 20 records by default.\\n
+   * 
+   * @param request - ListWorkspacesRequest
+   * @returns ListWorkspacesResponse
+   */
+  async listWorkspaces(request: $_model.ListWorkspacesRequest): Promise<$_model.ListWorkspacesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listWorkspacesWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 重置用户密码
    * 
    * @param tmpReq - ResetUserPasswordRequest
@@ -1553,7 +1955,64 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新模型
+   * Updates the configuration of a specified managed agent.
+   * 
+   * @param tmpReq - UpdateManagedAgentRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateManagedAgentResponse
+   */
+  async updateManagedAgentWithOptions(workspaceId: string, agentId: string, tmpReq: $_model.UpdateManagedAgentRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateManagedAgentResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateManagedAgentShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.body)) {
+      request.bodyShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.body, "body", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["clientToken"] = request.clientToken;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.bodyShrink)) {
+      body["body"] = request.bodyShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateManagedAgent",
+      version: "2026-08-04",
+      protocol: "HTTPS",
+      pathname: `/workspaces/${$dara.URL.percentEncode(workspaceId)}/managed-agents/${$dara.URL.percentEncode(agentId)}`,
+      method: "PATCH",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateManagedAgentResponse>(await this.callApi(params, req, runtime), new $_model.UpdateManagedAgentResponse({}));
+  }
+
+  /**
+   * Updates the configuration of a specified managed agent.
+   * 
+   * @param request - UpdateManagedAgentRequest
+   * @returns UpdateManagedAgentResponse
+   */
+  async updateManagedAgent(workspaceId: string, agentId: string, request: $_model.UpdateManagedAgentRequest): Promise<$_model.UpdateManagedAgentResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateManagedAgentWithOptions(workspaceId, agentId, request, headers, runtime);
+  }
+
+  /**
+   * Updates the description of a specified model. Other model configurations cannot be modified through this operation.
    * 
    * @param tmpReq - UpdateModelRequest
    * @param headers - map
@@ -1598,7 +2057,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新模型
+   * Updates the description of a specified model. Other model configurations cannot be modified through this operation.
    * 
    * @param request - UpdateModelRequest
    * @returns UpdateModelResponse
@@ -1778,6 +2237,69 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateUserWithOptions(workspaceId, agentCoreUserId, request, headers, runtime);
+  }
+
+  /**
+   * Updates the name or network configuration of a workspace. Only workspaces in the Initialized status can be updated. Status, TenantId, and RegionId are maintained by the server and cannot be modified through this operation.
+   * 
+   * @remarks
+   * ## Operation description\\nUpdates the name or network configuration of a workspace. Only workspaces in the `Initialized` status can be updated. `Status`, `TenantId`, and `RegionId` are maintained by the server and cannot be modified through this operation. The network configuration uses `Enabled` to specify whether to enable VPC networking. When enabled, you must also provide `VpcId` and at least one `VSwitchIds`.\\n.
+   * 
+   * @param tmpReq - UpdateWorkspaceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateWorkspaceResponse
+   */
+  async updateWorkspaceWithOptions(workspaceId: string, tmpReq: $_model.UpdateWorkspaceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateWorkspaceResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateWorkspaceShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.body)) {
+      request.bodyShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.body, "body", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["clientToken"] = request.clientToken;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.bodyShrink)) {
+      body["body"] = request.bodyShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateWorkspace",
+      version: "2026-08-04",
+      protocol: "HTTPS",
+      pathname: `/workspaces/${$dara.URL.percentEncode(workspaceId)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateWorkspaceResponse>(await this.callApi(params, req, runtime), new $_model.UpdateWorkspaceResponse({}));
+  }
+
+  /**
+   * Updates the name or network configuration of a workspace. Only workspaces in the Initialized status can be updated. Status, TenantId, and RegionId are maintained by the server and cannot be modified through this operation.
+   * 
+   * @remarks
+   * ## Operation description\\nUpdates the name or network configuration of a workspace. Only workspaces in the `Initialized` status can be updated. `Status`, `TenantId`, and `RegionId` are maintained by the server and cannot be modified through this operation. The network configuration uses `Enabled` to specify whether to enable VPC networking. When enabled, you must also provide `VpcId` and at least one `VSwitchIds`.\\n.
+   * 
+   * @param request - UpdateWorkspaceRequest
+   * @returns UpdateWorkspaceResponse
+   */
+  async updateWorkspace(workspaceId: string, request: $_model.UpdateWorkspaceRequest): Promise<$_model.UpdateWorkspaceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateWorkspaceWithOptions(workspaceId, request, headers, runtime);
   }
 
 }

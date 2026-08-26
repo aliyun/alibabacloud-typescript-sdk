@@ -2,7 +2,7 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class UpdateModelShrinkRequest extends $dara.Model {
+export class UpdateManagedAgentShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The request body.
@@ -10,7 +10,7 @@ export class UpdateModelShrinkRequest extends $dara.Model {
   bodyShrink?: string;
   /**
    * @remarks
-   * The client token for idempotence. Not currently supported.
+   * The reserved idempotency token. The backend does not provide idempotency guarantees in the current version.
    * 
    * @example
    * client-token-1

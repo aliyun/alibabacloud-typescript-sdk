@@ -3,13 +3,45 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateModelResponseBodyDataCapabilities extends $dara.Model {
+  /**
+   * @remarks
+   * Indicates whether the model supports audio input or output.
+   */
   audio?: boolean;
+  /**
+   * @remarks
+   * Indicates whether the model supports document input.
+   */
   document?: boolean;
+  /**
+   * @remarks
+   * Indicates whether the model is able to invoke multiple tool calling requests in a single response.
+   */
   multiToolCall?: boolean;
+  /**
+   * @remarks
+   * Indicates whether the model supports reasoning capabilities.
+   */
   reasoning?: boolean;
+  /**
+   * @remarks
+   * Indicates whether the model supports streaming tool calling.
+   */
   streamToolCall?: boolean;
+  /**
+   * @remarks
+   * Indicates whether the model supports tool calling.
+   */
   toolCall?: boolean;
+  /**
+   * @remarks
+   * Indicates whether the model supports video input.
+   */
   video?: boolean;
+  /**
+   * @remarks
+   * Indicates whether the model supports image input.
+   */
   vision?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -47,48 +79,79 @@ export class UpdateModelResponseBodyDataCapabilities extends $dara.Model {
 }
 
 export class UpdateModelResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The model capability configurations.
+   */
   capabilities?: UpdateModelResponseBodyDataCapabilities;
   /**
+   * @remarks
+   * The model connection ID.
+   * 
    * @example
    * mc-1
    */
   connectionId?: string;
   /**
+   * @remarks
+   * The model context window size, in tokens. Must be a positive integer.
+   * 
    * @example
    * 128000
    */
   contextSize?: number;
   /**
+   * @remarks
+   * The time when the resource was created, in RFC 3339 UTC format.
+   * 
    * @example
    * 2026-08-09T00:00:00Z
    */
   createdAt?: string;
   /**
+   * @remarks
+   * The model description. Maximum length: 255 characters.
+   * 
    * @example
    * description
    */
   description?: string;
   /**
+   * @remarks
+   * The maximum number of output tokens supported per model generation.
+   * 
    * @example
    * 131072
    */
   maxTokens?: number;
   /**
+   * @remarks
+   * The model ID.
+   * 
    * @example
    * model-1
    */
   modelId?: string;
   /**
+   * @remarks
+   * The upstream model name.
+   * 
    * @example
    * qwen-max
    */
   modelName?: string;
   /**
+   * @remarks
+   * The time when the resource was last updated, in RFC 3339 UTC format.
+   * 
    * @example
    * 2026-08-09T00:00:00Z
    */
   updatedAt?: string;
   /**
+   * @remarks
+   * The workspace ID.
+   * 
    * @example
    * ws-1
    */
@@ -137,26 +200,46 @@ export class UpdateModelResponseBodyData extends $dara.Model {
 
 export class UpdateModelResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The business status code. The value SUCCESS indicates success.
+   * 
    * @example
    * SUCCESS
    */
   code?: string;
+  /**
+   * @remarks
+   * The updated model information.
+   */
   data?: UpdateModelResponseBodyData;
   /**
+   * @remarks
+   * The HTTP status code. The value 200 indicates success.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The message of the request processing result.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * request-1
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
