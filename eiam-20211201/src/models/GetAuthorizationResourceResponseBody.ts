@@ -6,6 +6,9 @@ export class GetAuthorizationResourceResponseBodyAuthorizationResourceConditionC
   /**
    * @remarks
    * Specifies whether same-name identity accounts are supported.
+   * 
+   * @example
+   * true
    */
   allowSameNameIdentity?: boolean;
   static names(): { [key: string]: string } {

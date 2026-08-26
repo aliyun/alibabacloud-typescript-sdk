@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RevokeResourceServerScopesFromClientRequest extends $dara.Model {
   /**
    * @remarks
-   * The unique identifier of the client application.
+   * The unique identifier of the Client application.
    * 
    * This parameter is required.
    * 
@@ -35,7 +35,7 @@ export class RevokeResourceServerScopesFromClientRequest extends $dara.Model {
   resourceServerApplicationId?: string;
   /**
    * @remarks
-   * The list of scope permission IDs under the ResourceServer.
+   * The list of Scope permission IDs under the ResourceServer.
    * 
    * This parameter is required.
    * 

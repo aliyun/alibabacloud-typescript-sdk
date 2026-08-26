@@ -6,6 +6,9 @@ export class ListAuthorizationResourcesResponseBodyAuthorizationResourcesConditi
   /**
    * @remarks
    * Specifies whether same-name identity accounts are supported.
+   * 
+   * @example
+   * true
    */
   allowSameNameIdentity?: boolean;
   static names(): { [key: string]: string } {
@@ -62,7 +65,7 @@ export class ListAuthorizationResourcesResponseBodyAuthorizationResourcesConditi
 export class ListAuthorizationResourcesResponseBodyAuthorizationResources extends $dara.Model {
   /**
    * @remarks
-   * The ID of the resource entity associated with the authorization resource.
+   * The resource entity ID associated with the authorization resource.
    * 
    * @example
    * carole_01kmek49aqxxxx
@@ -70,8 +73,8 @@ export class ListAuthorizationResourcesResponseBodyAuthorizationResources extend
   authorizationResourceEntityId?: string;
   /**
    * @remarks
-   * The type of the resource entity associated with the authorization resource. Valid values:
-   * - cloud_account_role: cloud role.
+   * The resource entity type associated with the authorization resource. Valid values:
+   * - cloud_account_role: cloud role
    * 
    * @example
    * cloud_account_role
@@ -111,7 +114,7 @@ export class ListAuthorizationResourcesResponseBodyAuthorizationResources extend
    * The creation time.
    * 
    * @example
-   * 1787023451494
+   * 1768789292000
    */
   createTime?: number;
   /**
@@ -127,7 +130,7 @@ export class ListAuthorizationResourcesResponseBodyAuthorizationResources extend
    * The update time.
    * 
    * @example
-   * 1787023451494
+   * 1768789292000
    */
   updateTime?: number;
   static names(): { [key: string]: string } {
@@ -178,7 +181,7 @@ export class ListAuthorizationResourcesResponseBody extends $dara.Model {
   authorizationResources?: ListAuthorizationResourcesResponseBodyAuthorizationResources[];
   /**
    * @remarks
-   * The number of entries per page in a paged query. This parameter is used for paging.
+   * The number of rows per page in a paging query.
    * 
    * @example
    * 20
@@ -186,7 +189,7 @@ export class ListAuthorizationResourcesResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token returned for the next page query.
+   * The pagination token returned by this call, used for the next page query.
    * 
    * @example
    * NTxxxexample

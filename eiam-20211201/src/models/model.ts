@@ -236,6 +236,7 @@ export { GetSynchronizationJobResponseBodySynchronizationJobResultUserStatistics
 export { GetSynchronizationJobResponseBodySynchronizationJobResultUserStatistics } from './GetSynchronizationJobResponseBody';
 export { GetSynchronizationJobResponseBodySynchronizationJobResult } from './GetSynchronizationJobResponseBody';
 export { GetSynchronizationJobResponseBodySynchronizationJob } from './GetSynchronizationJobResponseBody';
+export { GetTrustedOriginResponseBodyTrustedOrigin } from './GetTrustedOriginResponseBody';
 export { GetUserResponseBodyUserCustomFields } from './GetUserResponseBody';
 export { GetUserResponseBodyUserGroups } from './GetUserResponseBody';
 export { GetUserResponseBodyUserOrganizationalUnits } from './GetUserResponseBody';
@@ -414,6 +415,7 @@ export { ListSynchronizationJobsResponseBodySynchronizationJobsResultUserStatist
 export { ListSynchronizationJobsResponseBodySynchronizationJobsResultUserStatistics } from './ListSynchronizationJobsResponseBody';
 export { ListSynchronizationJobsResponseBodySynchronizationJobsResult } from './ListSynchronizationJobsResponseBody';
 export { ListSynchronizationJobsResponseBodySynchronizationJobs } from './ListSynchronizationJobsResponseBody';
+export { ListTrustedOriginsResponseBodyTrustedOrigins } from './ListTrustedOriginsResponseBody';
 export { ListUserAuthnSourceMappingsResponseBodyUserAuthnSourceMappings } from './ListUserAuthnSourceMappingsResponseBody';
 export { ListUsersResponseBodyUsers } from './ListUsersResponseBody';
 export { ListUsersForApplicationResponseBodyUsersApplicationRoles } from './ListUsersForApplicationResponseBody';
@@ -641,6 +643,9 @@ export { CreateOrganizationalUnitResponse } from './CreateOrganizationalUnitResp
 export { CreateResourceServerScopeRequest } from './CreateResourceServerScopeRequest';
 export { CreateResourceServerScopeResponseBody } from './CreateResourceServerScopeResponseBody';
 export { CreateResourceServerScopeResponse } from './CreateResourceServerScopeResponse';
+export { CreateTrustedOriginRequest } from './CreateTrustedOriginRequest';
+export { CreateTrustedOriginResponseBody } from './CreateTrustedOriginResponseBody';
+export { CreateTrustedOriginResponse } from './CreateTrustedOriginResponse';
 export { CreateUserRequest } from './CreateUserRequest';
 export { CreateUserResponseBody } from './CreateUserResponseBody';
 export { CreateUserResponse } from './CreateUserResponse';
@@ -725,6 +730,9 @@ export { DeleteOrganizationalUnitChildrenResponse } from './DeleteOrganizational
 export { DeleteResourceServerScopeRequest } from './DeleteResourceServerScopeRequest';
 export { DeleteResourceServerScopeResponseBody } from './DeleteResourceServerScopeResponseBody';
 export { DeleteResourceServerScopeResponse } from './DeleteResourceServerScopeResponse';
+export { DeleteTrustedOriginRequest } from './DeleteTrustedOriginRequest';
+export { DeleteTrustedOriginResponseBody } from './DeleteTrustedOriginResponseBody';
+export { DeleteTrustedOriginResponse } from './DeleteTrustedOriginResponse';
 export { DeleteUserRequest } from './DeleteUserRequest';
 export { DeleteUserResponseBody } from './DeleteUserResponseBody';
 export { DeleteUserResponse } from './DeleteUserResponse';
@@ -812,6 +820,9 @@ export { DisableInternalAuthenticationSourceResponse } from './DisableInternalAu
 export { DisableResourceServerCustomSubjectRequest } from './DisableResourceServerCustomSubjectRequest';
 export { DisableResourceServerCustomSubjectResponseBody } from './DisableResourceServerCustomSubjectResponseBody';
 export { DisableResourceServerCustomSubjectResponse } from './DisableResourceServerCustomSubjectResponse';
+export { DisableTrustedOriginRequest } from './DisableTrustedOriginRequest';
+export { DisableTrustedOriginResponseBody } from './DisableTrustedOriginResponseBody';
+export { DisableTrustedOriginResponse } from './DisableTrustedOriginResponse';
 export { DisableUserRequest } from './DisableUserRequest';
 export { DisableUserResponseBody } from './DisableUserResponseBody';
 export { DisableUserResponse } from './DisableUserResponse';
@@ -893,6 +904,9 @@ export { EnableInternalAuthenticationSourceResponse } from './EnableInternalAuth
 export { EnableResourceServerCustomSubjectRequest } from './EnableResourceServerCustomSubjectRequest';
 export { EnableResourceServerCustomSubjectResponseBody } from './EnableResourceServerCustomSubjectResponseBody';
 export { EnableResourceServerCustomSubjectResponse } from './EnableResourceServerCustomSubjectResponse';
+export { EnableTrustedOriginRequest } from './EnableTrustedOriginRequest';
+export { EnableTrustedOriginResponseBody } from './EnableTrustedOriginResponseBody';
+export { EnableTrustedOriginResponse } from './EnableTrustedOriginResponse';
 export { EnableUserRequest } from './EnableUserRequest';
 export { EnableUserResponseBody } from './EnableUserResponseBody';
 export { EnableUserResponse } from './EnableUserResponse';
@@ -1070,6 +1084,9 @@ export { GetServiceQuotaResponse } from './GetServiceQuotaResponse';
 export { GetSynchronizationJobRequest } from './GetSynchronizationJobRequest';
 export { GetSynchronizationJobResponseBody } from './GetSynchronizationJobResponseBody';
 export { GetSynchronizationJobResponse } from './GetSynchronizationJobResponse';
+export { GetTrustedOriginRequest } from './GetTrustedOriginRequest';
+export { GetTrustedOriginResponseBody } from './GetTrustedOriginResponseBody';
+export { GetTrustedOriginResponse } from './GetTrustedOriginResponse';
 export { GetUserRequest } from './GetUserRequest';
 export { GetUserResponseBody } from './GetUserResponseBody';
 export { GetUserResponse } from './GetUserResponse';
@@ -1253,6 +1270,9 @@ export { ListResourceServersForUserResponse } from './ListResourceServersForUser
 export { ListSynchronizationJobsRequest } from './ListSynchronizationJobsRequest';
 export { ListSynchronizationJobsResponseBody } from './ListSynchronizationJobsResponseBody';
 export { ListSynchronizationJobsResponse } from './ListSynchronizationJobsResponse';
+export { ListTrustedOriginsRequest } from './ListTrustedOriginsRequest';
+export { ListTrustedOriginsResponseBody } from './ListTrustedOriginsResponseBody';
+export { ListTrustedOriginsResponse } from './ListTrustedOriginsResponse';
 export { ListUserAuthnSourceMappingsRequest } from './ListUserAuthnSourceMappingsRequest';
 export { ListUserAuthnSourceMappingsResponseBody } from './ListUserAuthnSourceMappingsResponseBody';
 export { ListUserAuthnSourceMappingsResponse } from './ListUserAuthnSourceMappingsResponse';
@@ -1538,6 +1558,9 @@ export { UpdateOrganizationalUnitParentIdResponse } from './UpdateOrganizational
 export { UpdateResourceServerScopeRequest } from './UpdateResourceServerScopeRequest';
 export { UpdateResourceServerScopeResponseBody } from './UpdateResourceServerScopeResponseBody';
 export { UpdateResourceServerScopeResponse } from './UpdateResourceServerScopeResponse';
+export { UpdateTrustedOriginRequest } from './UpdateTrustedOriginRequest';
+export { UpdateTrustedOriginResponseBody } from './UpdateTrustedOriginResponseBody';
+export { UpdateTrustedOriginResponse } from './UpdateTrustedOriginResponse';
 export { UpdateUserRequest } from './UpdateUserRequest';
 export { UpdateUserResponseBody } from './UpdateUserResponseBody';
 export { UpdateUserResponse } from './UpdateUserResponse';

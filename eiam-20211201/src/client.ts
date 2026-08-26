@@ -825,7 +825,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Authorizes a specified ResourceServer for a Client application.
+   * Grants a specified ResourceServer to a Client application.
    * 
    * @param request - AuthorizeResourceServerToClientRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -864,7 +864,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Authorizes a specified ResourceServer for a Client application.
+   * Grants a specified ResourceServer to a Client application.
    * 
    * @param request - AuthorizeResourceServerToClientRequest
    * @returns AuthorizeResourceServerToClientResponse
@@ -2901,6 +2901,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates a trusted origin.
+   * 
+   * @param request - CreateTrustedOriginRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateTrustedOriginResponse
+   */
+  async createTrustedOriginWithOptions(request: $_model.CreateTrustedOriginRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateTrustedOriginResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.origin)) {
+      query["Origin"] = request.origin;
+    }
+
+    if (!$dara.isNull(request.trustOriginName)) {
+      query["TrustOriginName"] = request.trustOriginName;
+    }
+
+    if (!$dara.isNull(request.trustedOriginScene)) {
+      query["TrustedOriginScene"] = request.trustedOriginScene;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateTrustedOrigin",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateTrustedOriginResponse>(await this.callApi(params, req, runtime), new $_model.CreateTrustedOriginResponse({}));
+  }
+
+  /**
+   * Creates a trusted origin.
+   * 
+   * @param request - CreateTrustedOriginRequest
+   * @returns CreateTrustedOriginResponse
+   */
+  async createTrustedOrigin(request: $_model.CreateTrustedOriginRequest): Promise<$_model.CreateTrustedOriginResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createTrustedOriginWithOptions(request, runtime);
+  }
+
+  /**
    * Creates an EIAM account in a specified EIAM instance.
    * 
    * @param request - CreateUserRequest
@@ -4298,6 +4356,56 @@ export default class Client extends OpenApi {
   async deleteResourceServerScope(request: $_model.DeleteResourceServerScopeRequest): Promise<$_model.DeleteResourceServerScopeResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteResourceServerScopeWithOptions(request, runtime);
+  }
+
+  /**
+   * Deletes a trusted origin.
+   * 
+   * @param request - DeleteTrustedOriginRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteTrustedOriginResponse
+   */
+  async deleteTrustedOriginWithOptions(request: $_model.DeleteTrustedOriginRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteTrustedOriginResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.trustedOriginId)) {
+      query["TrustedOriginId"] = request.trustedOriginId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteTrustedOrigin",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteTrustedOriginResponse>(await this.callApi(params, req, runtime), new $_model.DeleteTrustedOriginResponse({}));
+  }
+
+  /**
+   * Deletes a trusted origin.
+   * 
+   * @param request - DeleteTrustedOriginRequest
+   * @returns DeleteTrustedOriginResponse
+   */
+  async deleteTrustedOrigin(request: $_model.DeleteTrustedOriginRequest): Promise<$_model.DeleteTrustedOriginResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteTrustedOriginWithOptions(request, runtime);
   }
 
   /**
@@ -5701,6 +5809,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Disables a trusted origin.
+   * 
+   * @param request - DisableTrustedOriginRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DisableTrustedOriginResponse
+   */
+  async disableTrustedOriginWithOptions(request: $_model.DisableTrustedOriginRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DisableTrustedOriginResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.trustedOriginId)) {
+      query["TrustedOriginId"] = request.trustedOriginId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DisableTrustedOrigin",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DisableTrustedOriginResponse>(await this.callApi(params, req, runtime), new $_model.DisableTrustedOriginResponse({}));
+  }
+
+  /**
+   * Disables a trusted origin.
+   * 
+   * @param request - DisableTrustedOriginRequest
+   * @returns DisableTrustedOriginResponse
+   */
+  async disableTrustedOrigin(request: $_model.DisableTrustedOriginRequest): Promise<$_model.DisableTrustedOriginResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.disableTrustedOriginWithOptions(request, runtime);
+  }
+
+  /**
    * Sets an account status to disabled. If the account is already disabled, the operation returns success directly.
    * 
    * @param request - DisableUserRequest
@@ -6996,6 +7150,52 @@ export default class Client extends OpenApi {
   async enableResourceServerCustomSubject(request: $_model.EnableResourceServerCustomSubjectRequest): Promise<$_model.EnableResourceServerCustomSubjectResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.enableResourceServerCustomSubjectWithOptions(request, runtime);
+  }
+
+  /**
+   * Enables a trusted origin.
+   * 
+   * @param request - EnableTrustedOriginRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns EnableTrustedOriginResponse
+   */
+  async enableTrustedOriginWithOptions(request: $_model.EnableTrustedOriginRequest, runtime: $dara.RuntimeOptions): Promise<$_model.EnableTrustedOriginResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.trustedOriginId)) {
+      query["TrustedOriginId"] = request.trustedOriginId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "EnableTrustedOrigin",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.EnableTrustedOriginResponse>(await this.callApi(params, req, runtime), new $_model.EnableTrustedOriginResponse({}));
+  }
+
+  /**
+   * Enables a trusted origin.
+   * 
+   * @param request - EnableTrustedOriginRequest
+   * @returns EnableTrustedOriginResponse
+   */
+  async enableTrustedOrigin(request: $_model.EnableTrustedOriginRequest): Promise<$_model.EnableTrustedOriginResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.enableTrustedOriginWithOptions(request, runtime);
   }
 
   /**
@@ -9749,6 +9949,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the details of a trusted origin.
+   * 
+   * @param request - GetTrustedOriginRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetTrustedOriginResponse
+   */
+  async getTrustedOriginWithOptions(request: $_model.GetTrustedOriginRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetTrustedOriginResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.trustedOriginId)) {
+      query["TrustedOriginId"] = request.trustedOriginId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetTrustedOrigin",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetTrustedOriginResponse>(await this.callApi(params, req, runtime), new $_model.GetTrustedOriginResponse({}));
+  }
+
+  /**
+   * Queries the details of a trusted origin.
+   * 
+   * @param request - GetTrustedOriginRequest
+   * @returns GetTrustedOriginResponse
+   */
+  async getTrustedOrigin(request: $_model.GetTrustedOriginRequest): Promise<$_model.GetTrustedOriginResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getTrustedOriginWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the details of an EIAM account.
    * 
    * @param request - GetUserRequest
@@ -10737,6 +10983,9 @@ export default class Client extends OpenApi {
   /**
    * Queries a list of authorization resource information.
    * 
+   * @remarks
+   * This operation queries only the direct permissions of an organization, that is, applications directly assigned to the organization. When calling this operation, you can use the **ApplicationIds** parameter to filter applications.
+   * 
    * @param request - ListAuthorizationResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListAuthorizationResourcesResponse
@@ -10783,6 +11032,9 @@ export default class Client extends OpenApi {
 
   /**
    * Queries a list of authorization resource information.
+   * 
+   * @remarks
+   * This operation queries only the direct permissions of an organization, that is, applications directly assigned to the organization. When calling this operation, you can use the **ApplicationIds** parameter to filter applications.
    * 
    * @param request - ListAuthorizationResourcesRequest
    * @returns ListAuthorizationResourcesResponse
@@ -13240,6 +13492,72 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the list of trusted origins.
+   * 
+   * @param request - ListTrustedOriginsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListTrustedOriginsResponse
+   */
+  async listTrustedOriginsWithOptions(request: $_model.ListTrustedOriginsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListTrustedOriginsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.origin)) {
+      query["Origin"] = request.origin;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!$dara.isNull(request.trustOriginName)) {
+      query["TrustOriginName"] = request.trustOriginName;
+    }
+
+    if (!$dara.isNull(request.trustedOriginScene)) {
+      query["TrustedOriginScene"] = request.trustedOriginScene;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListTrustedOrigins",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListTrustedOriginsResponse>(await this.callApi(params, req, runtime), new $_model.ListTrustedOriginsResponse({}));
+  }
+
+  /**
+   * Queries the list of trusted origins.
+   * 
+   * @param request - ListTrustedOriginsRequest
+   * @returns ListTrustedOriginsResponse
+   */
+  async listTrustedOrigins(request: $_model.ListTrustedOriginsRequest): Promise<$_model.ListTrustedOriginsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listTrustedOriginsWithOptions(request, runtime);
+  }
+
+  /**
    * Lists the mappings for third-party logon accounts.
    * 
    * @remarks
@@ -14426,7 +14744,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Cancels the authorization granted by a specified ResourceServer to a Client application.
+   * Revokes the authorization granted by a specified ResourceServer to a Client application.
    * 
    * @param request - RevokeResourceServerFromClientRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14465,7 +14783,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Cancels the authorization granted by a specified ResourceServer to a Client application.
+   * Revokes the authorization granted by a specified ResourceServer to a Client application.
    * 
    * @param request - RevokeResourceServerFromClientRequest
    * @returns RevokeResourceServerFromClientResponse
@@ -14476,7 +14794,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Revokes the scope permissions of a specified ResourceServer from a client application.
+   * Revokes the Scope permissions of a specified ResourceServer from a Client application.
    * 
    * @param request - RevokeResourceServerScopesFromClientRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14519,7 +14837,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Revokes the scope permissions of a specified ResourceServer from a client application.
+   * Revokes the Scope permissions of a specified ResourceServer from a Client application.
    * 
    * @param request - RevokeResourceServerScopesFromClientRequest
    * @returns RevokeResourceServerScopesFromClientResponse
@@ -18593,6 +18911,64 @@ export default class Client extends OpenApi {
   async updateResourceServerScope(request: $_model.UpdateResourceServerScopeRequest): Promise<$_model.UpdateResourceServerScopeResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateResourceServerScopeWithOptions(request, runtime);
+  }
+
+  /**
+   * Modifies a trusted origin.
+   * 
+   * @param request - UpdateTrustedOriginRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateTrustedOriginResponse
+   */
+  async updateTrustedOriginWithOptions(request: $_model.UpdateTrustedOriginRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateTrustedOriginResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.trustOriginName)) {
+      query["TrustOriginName"] = request.trustOriginName;
+    }
+
+    if (!$dara.isNull(request.trustedOriginId)) {
+      query["TrustedOriginId"] = request.trustedOriginId;
+    }
+
+    if (!$dara.isNull(request.trustedOriginScene)) {
+      query["TrustedOriginScene"] = request.trustedOriginScene;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateTrustedOrigin",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateTrustedOriginResponse>(await this.callApi(params, req, runtime), new $_model.UpdateTrustedOriginResponse({}));
+  }
+
+  /**
+   * Modifies a trusted origin.
+   * 
+   * @param request - UpdateTrustedOriginRequest
+   * @returns UpdateTrustedOriginResponse
+   */
+  async updateTrustedOrigin(request: $_model.UpdateTrustedOriginRequest): Promise<$_model.UpdateTrustedOriginResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateTrustedOriginWithOptions(request, runtime);
   }
 
   /**
