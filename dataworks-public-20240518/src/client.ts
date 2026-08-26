@@ -6516,6 +6516,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes an image.
+   * 
+   * @remarks
+   * 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+   * 2. **Before calling this operation, make sure that the service-linked role AliyunServiceRoleForDataWorks has been created.**
+   * 
+   * @param request - DeleteImageRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteImageResponse
+   */
+  async deleteImageWithOptions(request: $_model.DeleteImageRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteImageResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteImage",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteImageResponse>(await this.callApi(params, req, runtime), new $_model.DeleteImageResponse({}));
+  }
+
+  /**
+   * Deletes an image.
+   * 
+   * @remarks
+   * 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+   * 2. **Before calling this operation, make sure that the service-linked role AliyunServiceRoleForDataWorks has been created.**
+   * 
+   * @param request - DeleteImageRequest
+   * @returns DeleteImageResponse
+   */
+  async deleteImage(request: $_model.DeleteImageRequest): Promise<$_model.DeleteImageResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteImageWithOptions(request, runtime);
+  }
+
+  /**
    * Deletes a specified data lineage relationship from DataWorks Data Map.
    * 
    * @remarks
