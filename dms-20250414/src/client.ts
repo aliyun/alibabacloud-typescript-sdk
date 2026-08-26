@@ -1044,6 +1044,68 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates a DataAgent theme.
+   * 
+   * @param request - CreateDataAgentThemeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateDataAgentThemeResponse
+   */
+  async createDataAgentThemeWithOptions(request: $_model.CreateDataAgentThemeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateDataAgentThemeResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.category)) {
+      query["Category"] = request.category;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.fileFrom)) {
+      query["FileFrom"] = request.fileFrom;
+    }
+
+    if (!$dara.isNull(request.themeId)) {
+      query["ThemeId"] = request.themeId;
+    }
+
+    if (!$dara.isNull(request.themeName)) {
+      query["ThemeName"] = request.themeName;
+    }
+
+    if (!$dara.isNull(request.themeType)) {
+      query["ThemeType"] = request.themeType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateDataAgentTheme",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateDataAgentThemeResponse>(await this.callApi(params, req, runtime), new $_model.CreateDataAgentThemeResponse({}));
+  }
+
+  /**
+   * Creates a DataAgent theme.
+   * 
+   * @param request - CreateDataAgentThemeRequest
+   * @returns CreateDataAgentThemeResponse
+   */
+  async createDataAgentTheme(request: $_model.CreateDataAgentThemeRequest): Promise<$_model.CreateDataAgentThemeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createDataAgentThemeWithOptions(request, runtime);
+  }
+
+  /**
    * Creates a DataAgent workspace.
    * 
    * @param request - CreateDataAgentWorkspaceRequest
@@ -1380,7 +1442,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建sql模版
+   * Creates an SQL template.
    * 
    * @param request - CreateOneMetaSqlTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1439,7 +1501,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建sql模版
+   * Creates an SQL template.
    * 
    * @param request - CreateOneMetaSqlTemplateRequest
    * @returns CreateOneMetaSqlTemplateResponse
@@ -2236,7 +2298,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除onemeta3.0的Ossie模型
+   * Deletes an Ossie model from onemeta 3.0.
    * 
    * @param request - DeleteOneMetaOssieModelRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2267,7 +2329,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除onemeta3.0的Ossie模型
+   * Deletes an Ossie model from onemeta 3.0.
    * 
    * @param request - DeleteOneMetaOssieModelRequest
    * @returns DeleteOneMetaOssieModelResponse
@@ -2278,7 +2340,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除sql模版
+   * Deletes a knowledge base in OneMeta 3.0.
    * 
    * @param request - DeleteOneMetaSqlTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2309,7 +2371,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除sql模版
+   * Deletes a knowledge base in OneMeta 3.0.
    * 
    * @param request - DeleteOneMetaSqlTemplateRequest
    * @returns DeleteOneMetaSqlTemplateResponse
@@ -2527,6 +2589,48 @@ export default class Client extends OpenApi {
   async describeDataAgentSession(request: $_model.DescribeDataAgentSessionRequest): Promise<$_model.DescribeDataAgentSessionResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeDataAgentSessionWithOptions(request, runtime);
+  }
+
+  /**
+   * Invokes the DescribeDataAgentTheme operation to query the details of a single DataAgent theme, including the theme name, stage, source, common scenarios, description, and creation and modification time.
+   * 
+   * @param request - DescribeDataAgentThemeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDataAgentThemeResponse
+   */
+  async describeDataAgentThemeWithOptions(request: $_model.DescribeDataAgentThemeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeDataAgentThemeResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.themeId)) {
+      query["ThemeId"] = request.themeId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeDataAgentTheme",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeDataAgentThemeResponse>(await this.callApi(params, req, runtime), new $_model.DescribeDataAgentThemeResponse({}));
+  }
+
+  /**
+   * Invokes the DescribeDataAgentTheme operation to query the details of a single DataAgent theme, including the theme name, stage, source, common scenarios, description, and creation and modification time.
+   * 
+   * @param request - DescribeDataAgentThemeRequest
+   * @returns DescribeDataAgentThemeResponse
+   */
+  async describeDataAgentTheme(request: $_model.DescribeDataAgentThemeRequest): Promise<$_model.DescribeDataAgentThemeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeDataAgentThemeWithOptions(request, runtime);
   }
 
   /**
@@ -3210,6 +3314,50 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Calls the GetDataAgentThemeUploadSignature operation to obtain OSS direct upload credentials for uploading a DataAgent theme file. After obtaining the credentials, use the PostObject method to upload the theme file directly to OSS. After the upload is complete, call the CreateDataAgentTheme operation with the returned ThemeId to complete theme creation.
+   * Refer to https://www.alibabacloud.com/help/en/oss/user-guide/client-direct-transmission/ for instructions on uploading the theme file.
+   * 
+   * @param request - GetDataAgentThemeUploadSignatureRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDataAgentThemeUploadSignatureResponse
+   */
+  async getDataAgentThemeUploadSignatureWithOptions(request: $_model.GetDataAgentThemeUploadSignatureRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetDataAgentThemeUploadSignatureResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.themeId)) {
+      query["ThemeId"] = request.themeId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetDataAgentThemeUploadSignature",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetDataAgentThemeUploadSignatureResponse>(await this.callApi(params, req, runtime), new $_model.GetDataAgentThemeUploadSignatureResponse({}));
+  }
+
+  /**
+   * Calls the GetDataAgentThemeUploadSignature operation to obtain OSS direct upload credentials for uploading a DataAgent theme file. After obtaining the credentials, use the PostObject method to upload the theme file directly to OSS. After the upload is complete, call the CreateDataAgentTheme operation with the returned ThemeId to complete theme creation.
+   * Refer to https://www.alibabacloud.com/help/en/oss/user-guide/client-direct-transmission/ for instructions on uploading the theme file.
+   * 
+   * @param request - GetDataAgentThemeUploadSignatureRequest
+   * @returns GetDataAgentThemeUploadSignatureResponse
+   */
+  async getDataAgentThemeUploadSignature(request: $_model.GetDataAgentThemeUploadSignatureRequest): Promise<$_model.GetDataAgentThemeUploadSignatureResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getDataAgentThemeUploadSignatureWithOptions(request, runtime);
+  }
+
+  /**
    * Retrieves the details of a collaborative workspace.
    * 
    * @param request - GetDataAgentWorkspaceInfoRequest
@@ -3704,7 +3852,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取onemeta3.0的Ossie模型
+   * Retrieves the Ossie model of onemeta 3.0.
    * 
    * @param request - GetOneMetaOssieModelRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3739,7 +3887,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取onemeta3.0的Ossie模型
+   * Retrieves the Ossie model of onemeta 3.0.
    * 
    * @param request - GetOneMetaOssieModelRequest
    * @returns GetOneMetaOssieModelResponse
@@ -3972,7 +4120,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 导入Ossie模型
+   * Creates an SQL template.
    * 
    * @param request - ImportOneMetaOssieModelRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4031,7 +4179,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 导入Ossie模型
+   * Creates an SQL template.
    * 
    * @param request - ImportOneMetaOssieModelRequest
    * @returns ImportOneMetaOssieModelResponse
@@ -4791,6 +4939,72 @@ export default class Client extends OpenApi {
   async listDataAgentSession(request: $_model.ListDataAgentSessionRequest): Promise<$_model.ListDataAgentSessionResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listDataAgentSessionWithOptions(request, runtime);
+  }
+
+  /**
+   * Invokes the ListDataAgentTheme operation to query the DataAgent theme list by paging. You can filter themes by theme stage, source, and common scenarios.
+   * 
+   * @param request - ListDataAgentThemeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDataAgentThemeResponse
+   */
+  async listDataAgentThemeWithOptions(request: $_model.ListDataAgentThemeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListDataAgentThemeResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.category)) {
+      query["Category"] = request.category;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.themeFrom)) {
+      query["ThemeFrom"] = request.themeFrom;
+    }
+
+    if (!$dara.isNull(request.themeType)) {
+      query["ThemeType"] = request.themeType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListDataAgentTheme",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListDataAgentThemeResponse>(await this.callApi(params, req, runtime), new $_model.ListDataAgentThemeResponse({}));
+  }
+
+  /**
+   * Invokes the ListDataAgentTheme operation to query the DataAgent theme list by paging. You can filter themes by theme stage, source, and common scenarios.
+   * 
+   * @param request - ListDataAgentThemeRequest
+   * @returns ListDataAgentThemeResponse
+   */
+  async listDataAgentTheme(request: $_model.ListDataAgentThemeRequest): Promise<$_model.ListDataAgentThemeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listDataAgentThemeWithOptions(request, runtime);
   }
 
   /**
@@ -6024,7 +6238,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取ossie模型列表
+   * Retrieves a list of OSSIE models.
    * 
    * @param request - ListOneMetaOssieModelsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6079,7 +6293,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取ossie模型列表
+   * Retrieves a list of OSSIE models.
    * 
    * @param request - ListOneMetaOssieModelsRequest
    * @returns ListOneMetaOssieModelsResponse
@@ -6090,7 +6304,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取sql模版
+   * Retrieves SQL templates.
    * 
    * @param request - ListOneMetaSqlTemplatesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6149,7 +6363,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取sql模版
+   * Retrieves SQL templates.
    * 
    * @param request - ListOneMetaSqlTemplatesRequest
    * @returns ListOneMetaSqlTemplatesResponse
@@ -6425,6 +6639,56 @@ export default class Client extends OpenApi {
   async modifyDataAgentMcp(request: $_model.ModifyDataAgentMcpRequest): Promise<$_model.ModifyDataAgentMcpResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyDataAgentMcpWithOptions(request, runtime);
+  }
+
+  /**
+   * ModifyDataAgentTheme
+   * 
+   * @param request - ModifyDataAgentThemeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyDataAgentThemeResponse
+   */
+  async modifyDataAgentThemeWithOptions(request: $_model.ModifyDataAgentThemeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyDataAgentThemeResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.themeId)) {
+      query["ThemeId"] = request.themeId;
+    }
+
+    if (!$dara.isNull(request.themeName)) {
+      query["ThemeName"] = request.themeName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyDataAgentTheme",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyDataAgentThemeResponse>(await this.callApi(params, req, runtime), new $_model.ModifyDataAgentThemeResponse({}));
+  }
+
+  /**
+   * ModifyDataAgentTheme
+   * 
+   * @param request - ModifyDataAgentThemeRequest
+   * @returns ModifyDataAgentThemeResponse
+   */
+  async modifyDataAgentTheme(request: $_model.ModifyDataAgentThemeRequest): Promise<$_model.ModifyDataAgentThemeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyDataAgentThemeWithOptions(request, runtime);
   }
 
   /**
@@ -6748,12 +7012,10 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ## Request description
-   * - `agent_id` and `session_id` are required fields.
    * - `message_type` defaults to `primary`. Set it to `additional` or `cancel` when you need to append information or cancel a session.
    * - The `reply_to` field indicates which Agent message this message is responding to. The default value is `0`.
    * - When `message_type` is `additional`, the `question` field is required.
-   * - `quoted_message` can be used to quote the user\\"s previous message content.
-   * - Fields such as `data_source`, `dms_user`, `db_metadata`, and `session_config` are optional but provide more detailed context information.
+   * - `quoted_message` can be used to quote the content of a previous user message.
    * 
    * @param tmpReq - SendChatMessageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6862,12 +7124,10 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ## Request description
-   * - `agent_id` and `session_id` are required fields.
    * - `message_type` defaults to `primary`. Set it to `additional` or `cancel` when you need to append information or cancel a session.
    * - The `reply_to` field indicates which Agent message this message is responding to. The default value is `0`.
    * - When `message_type` is `additional`, the `question` field is required.
-   * - `quoted_message` can be used to quote the user\\"s previous message content.
-   * - Fields such as `data_source`, `dms_user`, `db_metadata`, and `session_config` are optional but provide more detailed context information.
+   * - `quoted_message` can be used to quote the content of a previous user message.
    * 
    * @param request - SendChatMessageRequest
    * @returns SendChatMessageResponse
@@ -7918,7 +8178,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新Ossie模型
+   * Updates an SQL template.
    * 
    * @param request - UpdateOneMetaOssieModelRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7977,7 +8237,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新Ossie模型
+   * Updates an SQL template.
    * 
    * @param request - UpdateOneMetaOssieModelRequest
    * @returns UpdateOneMetaOssieModelResponse
@@ -7988,7 +8248,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新sql模版
+   * Updates an SQL template.
    * 
    * @param request - UpdateOneMetaSqlTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8047,7 +8307,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新sql模版
+   * Updates an SQL template.
    * 
    * @param request - UpdateOneMetaSqlTemplateRequest
    * @returns UpdateOneMetaSqlTemplateResponse

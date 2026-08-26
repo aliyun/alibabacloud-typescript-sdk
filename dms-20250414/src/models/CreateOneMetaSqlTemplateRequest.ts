@@ -4,22 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateOneMetaSqlTemplateRequest extends $dara.Model {
   /**
+   * @remarks
+   * The UUID of the associated folder.
+   * 
    * @example
    * mc-HZ-OfjcNc2z***
    */
   catalogUuid?: string;
   /**
+   * @remarks
+   * The UUID of the associated database.
+   * 
    * @example
    * md-HZ-fp9K7r***
    */
   databaseUuid?: string;
   /**
+   * @remarks
+   * The description of the SQL template.
+   * 
    * @example
    * sales template
    */
   description?: string;
   /**
    * @remarks
+   * The content of the SQL template.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -28,6 +39,8 @@ export class CreateOneMetaSqlTemplateRequest extends $dara.Model {
   expr?: string;
   /**
    * @remarks
+   * The knowledge source of the SQL template.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -35,17 +48,25 @@ export class CreateOneMetaSqlTemplateRequest extends $dara.Model {
    */
   source?: string;
   /**
+   * @remarks
+   * The custom template parameters.
+   * 
    * @example
    * {"start_day_id": "2026-08-01", "end_day_id": "2026-08-16"}
    */
   sqlParams?: string;
   /**
+   * @remarks
+   * The tag of the SQL template.
+   * 
    * @example
    * sales
    */
   tag?: string;
   /**
    * @remarks
+   * The title of the SQL template.
+   * 
    * This parameter is required.
    * 
    * @example

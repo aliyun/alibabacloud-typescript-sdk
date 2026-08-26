@@ -2,26 +2,24 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DeleteOneMetaOssieModelRequest extends $dara.Model {
+export class DescribeDataAgentThemeRequest extends $dara.Model {
   /**
    * @remarks
-   * The UUID of the knowledge base.
-   * 
-   * This parameter is required.
+   * The business ID of the theme.
    * 
    * @example
-   * 86c5c290052147c***
+   * 0f8b2c1d************9a3e5f7b1c2d
    */
-  knowledgeUuid?: string;
+  themeId?: string;
   static names(): { [key: string]: string } {
     return {
-      knowledgeUuid: 'KnowledgeUuid',
+      themeId: 'ThemeId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      knowledgeUuid: 'string',
+      themeId: 'string',
     };
   }
 

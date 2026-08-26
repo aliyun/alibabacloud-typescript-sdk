@@ -3,16 +3,63 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListOneMetaOssieModelsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The UUID of the associated folder.
+   * 
+   * @example
+   * mc-HZ-OfjcNc2z***
+   */
   catalogUuid?: string;
+  /**
+   * @remarks
+   * The UUID of the associated database.
+   * 
+   * @example
+   * md-HZ-fp9K7r***
+   */
   databaseUuid?: string;
+  /**
+   * @remarks
+   * Specifies whether to use semantic search.
+   * 
+   * @example
+   * true
+   */
   enableVectorSearch?: boolean;
+  /**
+   * @remarks
+   * The maximum number of records per page.
+   * 
+   * @example
+   * 20
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The token for the next query.
+   * 
+   * @example
+   * NesLoKLEdIZrKhDT7I2gS****
+   */
   nextToken?: string;
   /**
    * @remarks
+   * The search keyword.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * sale
    */
   query?: string;
+  /**
+   * @remarks
+   * The semantic model tag.
+   * 
+   * @example
+   * new_sales
+   */
   tag?: string;
   static names(): { [key: string]: string } {
     return {

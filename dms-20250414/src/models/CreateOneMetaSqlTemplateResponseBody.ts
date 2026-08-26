@@ -4,23 +4,42 @@ import { OneMetaSqlTemplateView } from "./OneMetaSqlTemplateView";
 
 
 export class CreateOneMetaSqlTemplateResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response struct.
+   */
   data?: OneMetaSqlTemplateView;
   /**
+   * @remarks
+   * The error code returned if the request failed.
+   * 
    * @example
    * InternalError
    */
   errorCode?: string;
   /**
+   * @remarks
+   * The error message returned if the call failed.
+   * 
    * @example
    * ServerUnrecognizedException
    */
   errorMessage?: string;
   /**
+   * @remarks
+   * Id of the request
+   * 
    * @example
    * 67E910F2-4B62-5B0C-ACA3-7547695C****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * - **true**: The request was successful.                                 
+   * - **false**: The request failed.
+   * 
    * @example
    * true
    */
