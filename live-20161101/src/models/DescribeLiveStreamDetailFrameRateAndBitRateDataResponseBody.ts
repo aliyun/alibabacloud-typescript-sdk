@@ -37,7 +37,7 @@ export class DescribeLiveStreamDetailFrameRateAndBitRateDataResponseBodyFrameRat
   streamUrl?: string;
   /**
    * @remarks
-   * The timestamp of the data. The time is in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+   * The statistical time. Format: <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC+8).
    * 
    * @example
    * 2016-09-13T16:04:00Z

@@ -4868,6 +4868,10 @@ export default class Client extends OpenApi {
     }
 
     let query = { };
+    if (!$dara.isNull(request.authKey)) {
+      query["AuthKey"] = request.authKey;
+    }
+
     if (!$dara.isNull(request.callbackUrl)) {
       query["CallbackUrl"] = request.callbackUrl;
     }
@@ -4882,6 +4886,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.fileIndex)) {
       query["FileIndex"] = request.fileIndex;
+    }
+
+    if (!$dara.isNull(request.notifyItemSwitch)) {
+      query["NotifyItemSwitch"] = request.notifyItemSwitch;
     }
 
     if (!$dara.isNull(request.offset)) {
@@ -4902,6 +4910,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.repeatNumber)) {
       query["RepeatNumber"] = request.repeatNumber;
+    }
+
+    if (!$dara.isNull(request.reqAuth)) {
+      query["ReqAuth"] = request.reqAuth;
     }
 
     if (!$dara.isNull(request.retryCount)) {
@@ -14708,13 +14720,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls DescribeLivePullToPush to query a pull-to-push streaming task.
+   * Queries a stream pulling-to-pushing task.
    * 
    * @remarks
-   * - Call this API operation to query a pull-to-push streaming task.
-   * - Supports querying the configuration information and status information of a task with a specified ID.
-   * ## QPS Limit
-   * The single-user QPS limit for this API is 10 calls per second. Exceeding the limit will result in API throttling, which may affect your business. Please call this API appropriately.
+   * - Queries a stream pulling-to-pushing task.
+   * - You can query the configuration and status information of a task with a specified ID.
+   * ## QPS limit
+   * The single-user QPS limit for this API is 10 calls per second. If the limit is exceeded, the API call is throttled, which may affect your business. Call this API appropriately.
    * 
    * @param request - DescribeLivePullToPushRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14741,13 +14753,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls DescribeLivePullToPush to query a pull-to-push streaming task.
+   * Queries a stream pulling-to-pushing task.
    * 
    * @remarks
-   * - Call this API operation to query a pull-to-push streaming task.
-   * - Supports querying the configuration information and status information of a task with a specified ID.
-   * ## QPS Limit
-   * The single-user QPS limit for this API is 10 calls per second. Exceeding the limit will result in API throttling, which may affect your business. Please call this API appropriately.
+   * - Queries a stream pulling-to-pushing task.
+   * - You can query the configuration and status information of a task with a specified ID.
+   * ## QPS limit
+   * The single-user QPS limit for this API is 10 calls per second. If the limit is exceeded, the API call is throttled, which may affect your business. Call this API appropriately.
    * 
    * @param request - DescribeLivePullToPushRequest
    * @returns DescribeLivePullToPushResponse
@@ -14758,13 +14770,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Fuzzy query for stream pulling and pushing tasks.
+   * Queries stream pulling and pushing tasks by using fuzzy match.
    * 
    * @remarks
-   * - Call this API to query the list of stream pulling and pushing tasks.
-   * - Supports paginated query of the task list, and supports fuzzy search by task ID, task name, and destination push stream URL.
-   * ## QPS Limit
-   * The single-user QPS limit for this API is 10 calls per second. Exceeding the limit will result in API throttling, which may affect your business. Please call this API appropriately.
+   * - Invoke this operation to query the list of stream pulling and stream ingest nodes.
+   * - Supports paging query of the node list, and fuzzy search by node ID, node name, and destination stream ingest URL.
+   * ## QPS limit
+   * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, the API call is throttled, which may affect your business. Invoke this operation appropriately.
    * 
    * @param request - DescribeLivePullToPushListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14791,13 +14803,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Fuzzy query for stream pulling and pushing tasks.
+   * Queries stream pulling and pushing tasks by using fuzzy match.
    * 
    * @remarks
-   * - Call this API to query the list of stream pulling and pushing tasks.
-   * - Supports paginated query of the task list, and supports fuzzy search by task ID, task name, and destination push stream URL.
-   * ## QPS Limit
-   * The single-user QPS limit for this API is 10 calls per second. Exceeding the limit will result in API throttling, which may affect your business. Please call this API appropriately.
+   * - Invoke this operation to query the list of stream pulling and stream ingest nodes.
+   * - Supports paging query of the node list, and fuzzy search by node ID, node name, and destination stream ingest URL.
+   * ## QPS limit
+   * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, the API call is throttled, which may affect your business. Invoke this operation appropriately.
    * 
    * @param request - DescribeLivePullToPushListRequest
    * @returns DescribeLivePullToPushListResponse
@@ -15988,14 +16000,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the detailed audio and video frame rates and bitrates of a live stream that uses the Real-Time Messaging Protocol (RTMP).
+   * Queries the detailed audio and video frame rates and bitrates of an RTMP live stream.
    * 
    * @remarks
-   * - You can call this operation to query the audio and video frame rates and bitrates of a live stream that uses RTMP within a specified time range.
-   * - This operation is used to query monitoring data. Because the data collection method is different from the one used for billing, do not use the returned data for billing purposes.
-   * - You can query data from the last 90 days.
-   * - The data returned by this operation has a latency of 3 to 5 minutes.
-   * - The maximum time range that you can specify in a single request is 1 hour.
+   * - Call this operation to query a set of audio and video frame rates and bitrates of an RTMP live stream within a specified time range.
+   * - This operation is a monitoring data operation. The data collection and processing method differs from that used for billing. Do not use this operation to calculate usage for billing reconciliation.
+   * - You can query historical data within the last 90 days.
+   * - Data latency is 3 to 5 minutes.
+   * - The maximum time span for a single request is 1 hour.
    * 
    * @param request - DescribeLiveStreamDetailFrameRateAndBitRateDataRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16050,14 +16062,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the detailed audio and video frame rates and bitrates of a live stream that uses the Real-Time Messaging Protocol (RTMP).
+   * Queries the detailed audio and video frame rates and bitrates of an RTMP live stream.
    * 
    * @remarks
-   * - You can call this operation to query the audio and video frame rates and bitrates of a live stream that uses RTMP within a specified time range.
-   * - This operation is used to query monitoring data. Because the data collection method is different from the one used for billing, do not use the returned data for billing purposes.
-   * - You can query data from the last 90 days.
-   * - The data returned by this operation has a latency of 3 to 5 minutes.
-   * - The maximum time range that you can specify in a single request is 1 hour.
+   * - Call this operation to query a set of audio and video frame rates and bitrates of an RTMP live stream within a specified time range.
+   * - This operation is a monitoring data operation. The data collection and processing method differs from that used for billing. Do not use this operation to calculate usage for billing reconciliation.
+   * - You can query historical data within the last 90 days.
+   * - Data latency is 3 to 5 minutes.
+   * - The maximum time span for a single request is 1 hour.
    * 
    * @param request - DescribeLiveStreamDetailFrameRateAndBitRateDataRequest
    * @returns DescribeLiveStreamDetailFrameRateAndBitRateDataResponse
@@ -30396,15 +30408,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a stream pulling and pushing task by calling UpdateLivePullToPush.
+   * Updates a stream pulling task by calling UpdateLivePullToPush.
    * 
    * @remarks
-   * - Call this operation to update a stream pulling and pushing task.
+   * - Call this operation to update a stream pulling task.
    * - If the task has not reached the configured start time, you can update the Region parameter.
-   * - While the task is running (including during abnormal retry states), only CallbackUrl and RepeatTime can be updated, and the updates take effect immediately.
+   * - If the task is running (including in an abnormal retry state), only CallbackUrl and RepeatTime can be updated, and the updates take effect immediately.
    * - If the task is stopped, all parameters except Region can be updated.
    * ## QPS limit
-   * The single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this operation appropriately.
+   * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, the API call is throttled, which may affect your business. Call this operation appropriately.
    * 
    * @param tmpReq - UpdateLivePullToPushRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -30437,15 +30449,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a stream pulling and pushing task by calling UpdateLivePullToPush.
+   * Updates a stream pulling task by calling UpdateLivePullToPush.
    * 
    * @remarks
-   * - Call this operation to update a stream pulling and pushing task.
+   * - Call this operation to update a stream pulling task.
    * - If the task has not reached the configured start time, you can update the Region parameter.
-   * - While the task is running (including during abnormal retry states), only CallbackUrl and RepeatTime can be updated, and the updates take effect immediately.
+   * - If the task is running (including in an abnormal retry state), only CallbackUrl and RepeatTime can be updated, and the updates take effect immediately.
    * - If the task is stopped, all parameters except Region can be updated.
    * ## QPS limit
-   * The single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this operation appropriately.
+   * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, the API call is throttled, which may affect your business. Call this operation appropriately.
    * 
    * @param request - UpdateLivePullToPushRequest
    * @returns UpdateLivePullToPushResponse

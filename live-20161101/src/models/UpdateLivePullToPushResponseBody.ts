@@ -23,8 +23,8 @@ export class UpdateLivePullToPushResponseBody extends $dara.Model {
    * @remarks
    * The return code.
    * 
-   * > - The value "0" is returned if the call is successful.
-   * > - For exceptions, refer to the error code list below.
+   * > - The value "0" is returned if the operation is successful.
+   * > - For exceptions, refer to the error codes listed below.
    * 
    * @example
    * 0

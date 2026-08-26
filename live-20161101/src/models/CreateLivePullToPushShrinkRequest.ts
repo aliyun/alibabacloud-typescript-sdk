@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateLivePullToPushShrinkRequest extends $dara.Model {
+  authKey?: string;
   /**
    * @remarks
    * HTTP callback URL. Default value: empty.
@@ -50,6 +51,7 @@ export class CreateLivePullToPushShrinkRequest extends $dara.Model {
    * 0
    */
   fileIndex?: number;
+  notifyItemSwitch?: string;
   /**
    * @remarks
    * Start offset. The offset value from the beginning of the video file. Unit: seconds. Valid values: greater than 0.
@@ -100,6 +102,7 @@ export class CreateLivePullToPushShrinkRequest extends $dara.Model {
    * 0
    */
   repeatNumber?: number;
+  reqAuth?: string;
   /**
    * @remarks
    * Number of retries. Default value: 3.
@@ -180,15 +183,18 @@ export class CreateLivePullToPushShrinkRequest extends $dara.Model {
   taskName?: string;
   static names(): { [key: string]: string } {
     return {
+      authKey: 'AuthKey',
       callbackUrl: 'CallbackUrl',
       dstUrl: 'DstUrl',
       endTime: 'EndTime',
       fileIndex: 'FileIndex',
+      notifyItemSwitch: 'NotifyItemSwitch',
       offset: 'Offset',
       ownerId: 'OwnerId',
       region: 'Region',
       regionId: 'RegionId',
       repeatNumber: 'RepeatNumber',
+      reqAuth: 'ReqAuth',
       retryCount: 'RetryCount',
       retryInterval: 'RetryInterval',
       sourceProtocol: 'SourceProtocol',
@@ -201,15 +207,18 @@ export class CreateLivePullToPushShrinkRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      authKey: 'string',
       callbackUrl: 'string',
       dstUrl: 'string',
       endTime: 'string',
       fileIndex: 'number',
+      notifyItemSwitch: 'string',
       offset: 'number',
       ownerId: 'number',
       region: 'string',
       regionId: 'string',
       repeatNumber: 'number',
+      reqAuth: 'string',
       retryCount: 'number',
       retryInterval: 'number',
       sourceProtocol: 'string',

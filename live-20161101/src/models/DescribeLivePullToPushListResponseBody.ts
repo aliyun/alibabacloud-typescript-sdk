@@ -3,9 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeLivePullToPushListResponseBodyTaskListTaskInfo extends $dara.Model {
+  authKey?: string;
   /**
    * @remarks
-   * HTTP callback URL.
+   * The HTTP callback URL.
    * 
    * @example
    * hahaha.com
@@ -13,7 +14,7 @@ export class DescribeLivePullToPushListResponseBodyTaskListTaskInfo extends $dar
   callbackURL?: string;
   /**
    * @remarks
-   * Destination push stream URL.
+   * The destination ingest URL.
    * 
    * @example
    * rtmp://qd.push.lgg.alivecdn.com/testhsc/streamhsc?live_rtmp_*******
@@ -21,7 +22,7 @@ export class DescribeLivePullToPushListResponseBodyTaskListTaskInfo extends $dar
   dstUrl?: string;
   /**
    * @remarks
-   * Task end time. Format: <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC time).
+   * The task end time. Format: <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
    * 
    * @example
    * 2024-12-30T14:30:00Z
@@ -29,17 +30,18 @@ export class DescribeLivePullToPushListResponseBodyTaskListTaskInfo extends $dar
   endTime?: string;
   /**
    * @remarks
-   * File index, starts playback from the nth file.
+   * The file index. Playback starts from the nth file.
    * 
    * @example
    * 0
    */
   fileIndex?: number;
+  notifyItemSwitch?: string;
   /**
    * @remarks
-   * Start offset, the starting offset value of the video file. Unit: seconds. Value: greater than 0.
+   * The start offset, which is the start offset value of the video file. Unit: seconds. The value must be greater than 0.
    * > - Indicates the position to start reading from, relative to the first frame.
-   * > - Only valid for VOD resources or video files.
+   * > - Valid only for video-on-demand resources or video files.
    * 
    * @example
    * 0
@@ -47,20 +49,21 @@ export class DescribeLivePullToPushListResponseBodyTaskListTaskInfo extends $dar
   offset?: number;
   /**
    * @remarks
-   * Number of times to repeat playback after completion. Valid values:
-   * - 0 (default): No repeat playback.
+   * The number of times to repeat playback after the playlist finishes. Valid values:
+   * - 0 (default): Do not repeat.
    * - -1: Loop indefinitely.
-   * - Other positive integers: Number of times to repeat playback after completion.
+   * - Other positive integers: The number of times to repeat playback after the playlist finishes.
    * 
-   * > This parameter only applies to VOD or third-party video streams.
+   * > This parameter applies only to video-on-demand or third-party video streams.
    * 
    * @example
    * 0
    */
   repeatNumber?: number;
+  reqAuth?: string;
   /**
    * @remarks
-   * Number of retries.
+   * The number of retries.
    * 
    * @example
    * 3
@@ -68,7 +71,7 @@ export class DescribeLivePullToPushListResponseBodyTaskListTaskInfo extends $dar
   retryCount?: number;
   /**
    * @remarks
-   * Retry interval, in seconds.
+   * The retry interval. Unit: seconds.
    * 
    * @example
    * 60
@@ -76,7 +79,7 @@ export class DescribeLivePullToPushListResponseBodyTaskListTaskInfo extends $dar
   retryInterval?: number;
   /**
    * @remarks
-   * Source stream protocol name.
+   * The source stream protocol name.
    * 
    * @example
    * flv
@@ -84,11 +87,11 @@ export class DescribeLivePullToPushListResponseBodyTaskListTaskInfo extends $dar
   sourceProtocol?: string;
   /**
    * @remarks
-   * Source stream type. Valid values:
+   * The source stream type. Valid values:
    * 
-   * - live: Live stream.
-   * - vod: Alibaba Cloud Video on Demand resource.
-   * - url: Third-party video file resource.
+   * - live: live stream.
+   * - vod: ApsaraVideo VOD resource.
+   * - url: third-party video file resource.
    * 
    * @example
    * vod
@@ -96,12 +99,12 @@ export class DescribeLivePullToPushListResponseBodyTaskListTaskInfo extends $dar
   sourceType?: string;
   /**
    * @remarks
-   * Source stream URL addresses.
+   * The source stream URL addresses.
    */
   sourceUrls?: string[];
   /**
    * @remarks
-   * Task start time. Format: <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC time).
+   * The task start time. Format: <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
    * 
    * @example
    * 2024-12-04T09:16:00Z
@@ -109,7 +112,7 @@ export class DescribeLivePullToPushListResponseBodyTaskListTaskInfo extends $dar
   startTime?: string;
   /**
    * @remarks
-   * Task ID.
+   * The task ID.
    * 
    * @example
    * fb0d4ac7-c7e3-4978-9743-0bf2f6e8****
@@ -117,7 +120,7 @@ export class DescribeLivePullToPushListResponseBodyTaskListTaskInfo extends $dar
   taskId?: string;
   /**
    * @remarks
-   * Task name.
+   * The task name.
    * 
    * @example
    * taskname
@@ -125,12 +128,15 @@ export class DescribeLivePullToPushListResponseBodyTaskListTaskInfo extends $dar
   taskName?: string;
   static names(): { [key: string]: string } {
     return {
+      authKey: 'AuthKey',
       callbackURL: 'CallbackURL',
       dstUrl: 'DstUrl',
       endTime: 'EndTime',
       fileIndex: 'FileIndex',
+      notifyItemSwitch: 'NotifyItemSwitch',
       offset: 'Offset',
       repeatNumber: 'RepeatNumber',
+      reqAuth: 'ReqAuth',
       retryCount: 'RetryCount',
       retryInterval: 'RetryInterval',
       sourceProtocol: 'SourceProtocol',
@@ -144,12 +150,15 @@ export class DescribeLivePullToPushListResponseBodyTaskListTaskInfo extends $dar
 
   static types(): { [key: string]: any } {
     return {
+      authKey: 'string',
       callbackURL: 'string',
       dstUrl: 'string',
       endTime: 'string',
       fileIndex: 'number',
+      notifyItemSwitch: 'string',
       offset: 'number',
       repeatNumber: 'number',
+      reqAuth: 'string',
       retryCount: 'number',
       retryInterval: 'number',
       sourceProtocol: 'string',
@@ -176,7 +185,7 @@ export class DescribeLivePullToPushListResponseBodyTaskListTaskInfo extends $dar
 export class DescribeLivePullToPushListResponseBodyTaskList extends $dara.Model {
   /**
    * @remarks
-   * Currently effective playlist sequence offset.
+   * The currently effective playlist sequence offset.
    * 
    * @example
    * 0
@@ -184,7 +193,7 @@ export class DescribeLivePullToPushListResponseBodyTaskList extends $dara.Model 
   currentFileIndex?: number;
   /**
    * @remarks
-   * Currently effective video playback offset.
+   * The currently effective video playback offset.
    * 
    * @example
    * 0
@@ -192,12 +201,12 @@ export class DescribeLivePullToPushListResponseBodyTaskList extends $dara.Model 
   currentOffset?: number;
   /**
    * @remarks
-   * Task exit reason:
+   * The reason why the task exited. Valid values:
    * 
-   * - TriggerByUser: Actively ended by user.
+   * - TriggerByUser: Actively ended by the user.
    * - OverEndTime: Exceeded the preset end time.
    * 
-   * > Only returned when the task is in exited state.
+   * > Returned only when the task is in the exited state.
    * 
    * @example
    * TriggerByUser
@@ -205,8 +214,8 @@ export class DescribeLivePullToPushListResponseBodyTaskList extends $dara.Model 
   taskExitReason?: string;
   /**
    * @remarks
-   * Task exit time, Unix timestamp in seconds.
-   * > Only returned when the task is in exited state.
+   * The task exit time, in Unix seconds timestamp.
+   * > Returned only when the task is in the exited state.
    * 
    * @example
    * 1726354625
@@ -214,7 +223,7 @@ export class DescribeLivePullToPushListResponseBodyTaskList extends $dara.Model 
   taskExitTime?: number;
   /**
    * @remarks
-   * Task ID.
+   * The task ID.
    * 
    * @example
    * fb0d4ac7-c7e3-4978-9743-0bf2f6e8****
@@ -222,18 +231,18 @@ export class DescribeLivePullToPushListResponseBodyTaskList extends $dara.Model 
   taskId?: string;
   /**
    * @remarks
-   * Task information.
+   * The task information.
    */
   taskInfo?: DescribeLivePullToPushListResponseBodyTaskListTaskInfo;
   /**
    * @remarks
-   * Reason for task stopping:
+   * The reason why the task stopped running. Valid values:
    * 
-   * - PullStreamFailed: Source stream pulling exception, retrying.
-   * - PushStreamFailed: Destination stream pushing exception, retrying.
+   * - PullStreamFailed: Source stream pulling exception. Retrying.
+   * - PushStreamFailed: Destination stream pushing exception. Retrying.
    * - UnknownError: Unknown exception.
    * 
-   * > Only returned when the task is in stopped state.
+   * > Returned only when the task is in the stopped state.
    * 
    * @example
    * PullStreamFailed
@@ -241,11 +250,11 @@ export class DescribeLivePullToPushListResponseBodyTaskList extends $dara.Model 
   taskInvalidReason?: string;
   /**
    * @remarks
-   * Current task status:
-   * - 0: Not started (start time has not been reached).
+   * The current task status. Valid values:
+   * - 0: Not started (the start time has not been reached).
    * - 1: Running normally (stream pulling and pushing are normal).
    * - 2: Running abnormally.
-   * - 3: Stopped (stream pulling or pushing is abnormal, or the task was actively stopped by calling the API).
+   * - 3: Stopped (stream pulling or pushing is abnormal, or the task was actively stopped by calling an operation).
    * - -1: Exited.
    * 
    * @example
@@ -293,7 +302,7 @@ export class DescribeLivePullToPushListResponseBodyTaskList extends $dara.Model 
 export class DescribeLivePullToPushListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Page number.
+   * The page number.
    * 
    * @example
    * 1
@@ -301,7 +310,7 @@ export class DescribeLivePullToPushListResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * Number of query records per page.
+   * The number of records per page.
    * 
    * @example
    * 10
@@ -309,7 +318,7 @@ export class DescribeLivePullToPushListResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * a05e6b15-15af-405b-a4a2-0152245*****
@@ -317,12 +326,12 @@ export class DescribeLivePullToPushListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Task information list.
+   * The list of task information.
    */
   taskList?: DescribeLivePullToPushListResponseBodyTaskList[];
   /**
    * @remarks
-   * Total number of query results.
+   * The total number of query results.
    * 
    * @example
    * 3

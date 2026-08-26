@@ -6,7 +6,7 @@ export class DescribeLivePullToPushRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region where the task is launched. Valid values:
+   * The region where the task is started. Valid values:
    * - ap-southeast-1 (Singapore)
    * - ap-southeast-5 (Indonesia)
    * - cn-beijing (Beijing)

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeLivePullToPushListRequest extends $dara.Model {
   /**
    * @remarks
-   * Destination push stream URL. Fuzzy search based on destination push stream URL.
+   * The destination ingest URL. Fuzzy search is performed based on the destination ingest URL.
    * 
    * @example
    * rtmp://qd
@@ -14,8 +14,8 @@ export class DescribeLivePullToPushListRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * Page number.
-   * > The value of this parameter must be greater than 0 and cannot exceed the maximum value of Integer data type. Default value: 1.
+   * The page number.
+   * > The value of this parameter must be greater than 0 and cannot exceed the maximum value of the Integer data type. Default value: 1.
    * 
    * @example
    * 1
@@ -23,8 +23,8 @@ export class DescribeLivePullToPushListRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * Number of records displayed per page.
-   * > Default value: 10. Value range: [1, 100].
+   * The number of records per page.
+   * > Default value: 10. Valid values: 1 to 100.
    * 
    * @example
    * 10
@@ -32,7 +32,7 @@ export class DescribeLivePullToPushListRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Specifies the live center for query. Valid values:
+   * The live center to query. Valid values:
    * - ap-southeast-1 (Singapore)
    * - ap-southeast-5 (Indonesia)
    * - cn-beijing (Beijing)
@@ -46,7 +46,7 @@ export class DescribeLivePullToPushListRequest extends $dara.Model {
   region?: string;
   /**
    * @remarks
-   * Region ID.
+   * The region ID.
    * 
    * @example
    * cn-shanghai
@@ -54,8 +54,8 @@ export class DescribeLivePullToPushListRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * Task ID. Fuzzy search based on task ID.
-   * > The task ID consists of uppercase and lowercase letters, digits, underscores, and hyphens (-), with a maximum of 55 characters.
+   * The task ID. Fuzzy search is performed based on the task ID.
+   * > The task ID consists of uppercase and lowercase letters, digits, underscores (_), and hyphens (-), with a maximum of 55 characters.
    * 
    * @example
    * 861009
@@ -63,7 +63,7 @@ export class DescribeLivePullToPushListRequest extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * Task name. Fuzzy search based on task name.
+   * The task name. Fuzzy search is performed based on the task name.
    * 
    * @example
    * task

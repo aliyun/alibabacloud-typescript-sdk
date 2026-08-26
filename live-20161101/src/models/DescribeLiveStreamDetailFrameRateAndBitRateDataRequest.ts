@@ -15,7 +15,7 @@ export class DescribeLiveStreamDetailFrameRateAndBitRateDataRequest extends $dar
   appName?: string;
   /**
    * @remarks
-   * Your ingest domain or streaming domain.
+   * The ingest domain.
    * 
    * This parameter is required.
    * 
@@ -25,9 +25,9 @@ export class DescribeLiveStreamDetailFrameRateAndBitRateDataRequest extends $dar
   domainName?: string;
   /**
    * @remarks
-   * The end of the time range to query. Specify the time in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+   * The end time. Format: <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC+8).
    * 
-   * > If you specify an invalid time range, or if you leave both StartTime and EndTime empty, data from the last hour is queried by default.
+   * > If StartTime and EndTime are invalid or not specified, data from the last 1 hour is returned by default.
    * 
    * @example
    * 2017-12-22T08:00:00Z
@@ -44,7 +44,7 @@ export class DescribeLiveStreamDetailFrameRateAndBitRateDataRequest extends $dar
   regionId?: string;
   /**
    * @remarks
-   * The start of the time range to query. Specify the time in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+   * The start time. Format: <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC+8).
    * 
    * @example
    * 2017-12-21T08:00:00Z
