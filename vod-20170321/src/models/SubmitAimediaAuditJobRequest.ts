@@ -3,11 +3,12 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class SubmitAIMediaAuditJobRequest extends $dara.Model {
+  censorProvider?: string;
   /**
    * @remarks
    * The configuration of the review job.
-   * - Other configuration items of the review job. Currently, only the ResourceType field is supported, which is used to specify the media file type. You can adjust the review standards and rules for this type.
-   * - To adjust the review standards and rules for ResourceType, submit a ticket for technical support. For information about how to submit a ticket, see [Contact us](https://help.aliyun.com/document_detail/464625.html).
+   * - For other configuration items of the review job, only the ResourceType field is currently supported. This field controls the media file type, and you can adjust the review standards and rules for the specified type.
+   * - To adjust the review standards and rules for a ResourceType, submit a ticket for technical support. For information about how to submit a ticket, refer to [Contact us](https://help.aliyun.com/document_detail/464625.html).
    * - Usage notes for ResourceType: Only letters, digits, and underscores (_) are allowed.
    * 
    * @example
@@ -32,6 +33,7 @@ export class SubmitAIMediaAuditJobRequest extends $dara.Model {
    * video
    */
   mediaType?: string;
+  serviceParameters?: string;
   /**
    * @remarks
    * The AI template ID. You can obtain the ID by using one of the following methods:
@@ -46,31 +48,41 @@ export class SubmitAIMediaAuditJobRequest extends $dara.Model {
   templateId?: string;
   /**
    * @remarks
-   * The custom settings. The value is a JSON string that supports settings such as message callbacks. For more information, see [UserData](https://help.aliyun.com/document_detail/86952.html).
+   * The custom settings. The value is a JSON string that supports settings such as message callbacks. For more information, refer to [UserData](https://help.aliyun.com/document_detail/86952.html).
    * 
-   * > To use the message callback in this parameter, you must configure an HTTP callback URL and select the corresponding callback event types in the console. Otherwise, the callback settings do not take effect. For information about how to configure HTTP callbacks in the console, see [Callback settings](https://help.aliyun.com/document_detail/86071.html).
+   * > To use message callbacks in this parameter, you must configure an HTTP callback URL and select the corresponding callback event types in the console. Otherwise, the callback settings do not take effect. For information about how to configure HTTP callbacks in the console, refer to [Callback settings](https://help.aliyun.com/document_detail/86071.html).
    * 
    * @example
    * {"MessageCallback":{"CallbackURL":"http://test.test.com"},"Extend":{"localId":"xxx","test":"www"}}
    */
   userData?: string;
+  videoService?: string;
+  voiceService?: string;
   static names(): { [key: string]: string } {
     return {
+      censorProvider: 'CensorProvider',
       mediaAuditConfiguration: 'MediaAuditConfiguration',
       mediaId: 'MediaId',
       mediaType: 'MediaType',
+      serviceParameters: 'ServiceParameters',
       templateId: 'TemplateId',
       userData: 'UserData',
+      videoService: 'VideoService',
+      voiceService: 'VoiceService',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      censorProvider: 'string',
       mediaAuditConfiguration: 'string',
       mediaId: 'string',
       mediaType: 'string',
+      serviceParameters: 'string',
       templateId: 'string',
       userData: 'string',
+      videoService: 'string',
+      voiceService: 'string',
     };
   }
 

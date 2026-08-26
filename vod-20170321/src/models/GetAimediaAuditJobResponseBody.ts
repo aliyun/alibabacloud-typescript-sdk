@@ -42,7 +42,7 @@ export class GetAIMediaAuditJobResponseBodyMediaAuditJobDataAudioResult extends 
    * @remarks
    * The review result suggestion. Valid values:
    * 
-   * - **block**: Violation detected.
+   * - **block**: Violation.
    * - **review**: Suspected violation.
    * - **pass**: Passed.
    * 
@@ -92,44 +92,44 @@ export class GetAIMediaAuditJobResponseBodyMediaAuditJobDataImageResultResult ex
    * 
    * - **normal**: normal.
    * - **bloody**: bloody content.
-   * - **explosion**: explosion or smoke.
-   * - **outfit**: special outfit.
-   * - **logo**: special logo.
-   * - **weapon**: weapon.
+   * - **explosion**: explosions and smoke.
+   * - **outfit**: special outfits.
+   * - **logo**: special logos.
+   * - **weapon**: weapons.
    * - **politics**: politically sensitive content.
-   * - **violence**: violence.
-   * - **crowd**: crowd gathering.
-   * - **parade**: parade.
-   * - **carcrash**: car crash scene.
-   * - **flag**: flag.
-   * - **location**: landmark.
+   * - **violence**: fighting.
+   * - **crowd**: crowds.
+   * - **parade**: parades.
+   * - **carcrash**: car accident scenes.
+   * - **flag**: flags.
+   * - **location**: landmarks.
    * - **others**: others.
    * 
    * When scene is **ad**, valid values:
    * 
    * - **normal**: normal.
-   * - **ad**: other advertisement.
-   * - **politics**: text contains politically sensitive content.
-   * - **porn**: text contains pornographic content.
-   * - **abuse**: text contains abusive content.
-   * - **terrorism**: text contains terrorist content.
-   * - **contraband**: text contains prohibited content.
-   * - **spam**: text contains other spam content.
-   * - **npx**: psoriasis advertisement.
-   * - **qrcode**: contains a QR code.
-   * - **programCode**: contains a mini program code.
+   * - **ad**: other advertisements.
+   * - **politics**: text containing politically sensitive content.
+   * - **porn**: text containing pornographic content.
+   * - **abuse**: text containing abusive content.
+   * - **terrorism**: text containing terrorist content.
+   * - **contraband**: text containing prohibited content.
+   * - **spam**: text containing other spam content.
+   * - **npx**: psoriasis advertisements.
+   * - **qrcode**: contains QR codes.
+   * - **programCode**: contains mini program codes.
    * 
    * When scene is **live**, valid values:
    * - **normal**: normal.
-   * - **meaningless**: no content in the image (such as black screen or white screen).
+   * - **meaningless**: no content in the image (such as a black or white screen).
    * - **PIP**: Picture-in-Picture (PiP).
    * - **smoking**: smoking.
    * - **drivelive**: in-car live streaming.
    * 
    * When scene is **logo**, valid values:
    * - **normal**: normal.
-   * - **TV**: contains a controlled logo.
-   * - **trademark**: contains a trademark.
+   * - **TV**: contains regulated logos.
+   * - **trademark**: contains trademarks.
    * 
    * @example
    * porn
@@ -140,10 +140,10 @@ export class GetAIMediaAuditJobResponseBodyMediaAuditJobDataImageResultResult ex
    * The review scene. Valid values:
    * 
    * - **porn**: pornography detection.
-   * - **terrorism**: terrorist content or politically sensitive content.
-   * - **ad**: image or text violation.
-   * - **live**: undesirable scene.
-   * - **logo**: logo in image.
+   * - **terrorism**: terrorist content and political sensitivity.
+   * - **ad**: image and text violations.
+   * - **live**: undesirable scenes.
+   * - **logo**: logo in images.
    * 
    * @example
    * porn
@@ -151,7 +151,7 @@ export class GetAIMediaAuditJobResponseBodyMediaAuditJobDataImageResultResult ex
   scene?: string;
   /**
    * @remarks
-   * The score of the image that hits the label. Value range: `[0, 100]`. The score indicates the probability of the corresponding label. A higher score indicates higher accuracy.
+   * The score of the image that hits the label. Value range: `[0, 100]`. The score indicates the probability of the corresponding label. A higher value indicates higher accuracy.
    * 
    * @example
    * 0
@@ -161,7 +161,7 @@ export class GetAIMediaAuditJobResponseBodyMediaAuditJobDataImageResultResult ex
    * @remarks
    * The review result suggestion. Valid values:
    * 
-   * - **block**: Violation detected.
+   * - **block**: Violation.
    * - **review**: Suspected violation.
    * - **pass**: Passed.
    * 
@@ -202,10 +202,10 @@ export class GetAIMediaAuditJobResponseBodyMediaAuditJobDataImageResult extends 
    * The category of the image review result. Multiple values are separated by commas (,). Valid values:
    * 
    * - **porn**: pornography.
-   * - **terrorism**: terrorist content or politically sensitive content.
-   * - **ad**: image or text violation.
-   * - **live**: undesirable scene.
-   * - **logo**: logo in image.
+   * - **terrorism**: terrorist content and political sensitivity.
+   * - **ad**: image and text violations.
+   * - **live**: undesirable scenes.
+   * - **logo**: logo in images.
    * - **normal**: normal.
    * 
    * @example
@@ -221,7 +221,7 @@ export class GetAIMediaAuditJobResponseBodyMediaAuditJobDataImageResult extends 
    * @remarks
    * The review result suggestion. Valid values:
    * 
-   * - **block**: Violation detected.
+   * - **block**: Violation.
    * - **review**: Suspected violation.
    * - **pass**: Passed.
    * 
@@ -231,7 +231,7 @@ export class GetAIMediaAuditJobResponseBodyMediaAuditJobDataImageResult extends 
   suggestion?: string;
   /**
    * @remarks
-   * The image type. Valid values: **cover** (thumbnail).
+   * The image category. Valid values: **cover** (thumbnail).
    * 
    * @example
    * cover
@@ -311,7 +311,7 @@ export class GetAIMediaAuditJobResponseBodyMediaAuditJobDataTextResult extends $
   scene?: string;
   /**
    * @remarks
-   * The score of the image that hits the label. Value range: `[0, 100]`. The score indicates the probability of the corresponding label. A higher score indicates higher accuracy.
+   * The score of the image that hits the label. Value range: `[0, 100]`. The score indicates the probability of the corresponding label. A higher value indicates higher accuracy.
    * 
    * @example
    * 100
@@ -321,7 +321,7 @@ export class GetAIMediaAuditJobResponseBodyMediaAuditJobDataTextResult extends $
    * @remarks
    * The review result suggestion. Valid values:
    * 
-   * - **block**: Violation detected.
+   * - **block**: Violation.
    * - **review**: Suspected violation.
    * - **pass**: Passed.
    * 
@@ -381,16 +381,16 @@ export class GetAIMediaAuditJobResponseBodyMediaAuditJobDataVideoResultAdResultC
    * @remarks
    * The category of the advertisement review result. Valid values:
    * - **normal**: normal.
-   * - **ad**: other advertisement.
-   * - **politics**: text contains politically sensitive content.
-   * - **porn**: text contains pornographic content.
-   * - **abuse**: text contains abusive content.
-   * - **terrorism**: text contains terrorist content.
-   * - **contraband**: text contains prohibited content.
-   * - **spam**: text contains other spam content.
-   * - **npx**: psoriasis advertisement.
-   * - **qrcode**: contains a QR code.
-   * - **programCode**: contains a mini program code.
+   * - **ad**: other advertisements.
+   * - **politics**: text containing politically sensitive content.
+   * - **porn**: text containing pornographic content.
+   * - **abuse**: text containing abusive content.
+   * - **terrorism**: text containing terrorist content.
+   * - **contraband**: text containing prohibited content.
+   * - **spam**: text containing other spam content.
+   * - **npx**: psoriasis advertisements.
+   * - **qrcode**: contains QR codes.
+   * - **programCode**: contains mini program codes.
    * 
    * @example
    * ad
@@ -424,16 +424,16 @@ export class GetAIMediaAuditJobResponseBodyMediaAuditJobDataVideoResultAdResultT
    * @remarks
    * The category of the advertisement review result. Valid values:
    * - **normal**: normal.
-   * - **ad**: other advertisement.
-   * - **politics**: text contains politically sensitive content.
-   * - **porn**: text contains pornographic content.
-   * - **abuse**: text contains abusive content.
-   * - **terrorism**: text contains terrorist content.
-   * - **contraband**: text contains prohibited content.
-   * - **spam**: text contains other spam content.
-   * - **npx**: psoriasis advertisement.
-   * - **qrcode**: contains a QR code.
-   * - **programCode**: contains a mini program code.
+   * - **ad**: other advertisements.
+   * - **politics**: text containing politically sensitive content.
+   * - **porn**: text containing pornographic content.
+   * - **abuse**: text containing abusive content.
+   * - **terrorism**: text containing terrorist content.
+   * - **contraband**: text containing prohibited content.
+   * - **spam**: text containing other spam content.
+   * - **npx**: psoriasis advertisements.
+   * - **qrcode**: contains QR codes.
+   * - **programCode**: contains mini program codes.
    * 
    * @example
    * ad
@@ -501,23 +501,23 @@ export class GetAIMediaAuditJobResponseBodyMediaAuditJobDataVideoResultAdResult 
   averageScore?: string;
   /**
    * @remarks
-   * The categories of the review results and the number of video snapshots in each category.
+   * The review result categories and the number of video snapshots for each category.
    */
   counterList?: GetAIMediaAuditJobResponseBodyMediaAuditJobDataVideoResultAdResultCounterList[];
   /**
    * @remarks
    * The category of the advertisement review result. Valid values:
    * - **normal**: normal.
-   * - **ad**: other advertisement.
-   * - **politics**: text contains politically sensitive content.
-   * - **porn**: text contains pornographic content.
-   * - **abuse**: text contains abusive content.
-   * - **terrorism**: text contains terrorist content.
-   * - **contraband**: text contains prohibited content.
-   * - **spam**: text contains other spam content.
-   * - **npx**: psoriasis advertisement.
-   * - **qrcode**: contains a QR code.
-   * - **programCode**: contains a mini program code.
+   * - **ad**: other advertisements.
+   * - **politics**: text containing politically sensitive content.
+   * - **porn**: text containing pornographic content.
+   * - **abuse**: text containing abusive content.
+   * - **terrorism**: text containing terrorist content.
+   * - **contraband**: text containing prohibited content.
+   * - **spam**: text containing other spam content.
+   * - **npx**: psoriasis advertisements.
+   * - **qrcode**: contains QR codes.
+   * - **programCode**: contains mini program codes.
    * 
    * @example
    * ad
@@ -535,7 +535,7 @@ export class GetAIMediaAuditJobResponseBodyMediaAuditJobDataVideoResultAdResult 
    * @remarks
    * The review result suggestion. Valid values:
    * 
-   * - **block**: Violation detected.
+   * - **block**: Violation.
    * - **review**: Suspected violation.
    * - **pass**: Passed.
    * 
@@ -585,6 +585,156 @@ export class GetAIMediaAuditJobResponseBodyMediaAuditJobDataVideoResultAdResult 
   }
 }
 
+export class GetAIMediaAuditJobResponseBodyMediaAuditJobDataVideoResultGreenEnhancedResultCounterList extends $dara.Model {
+  /**
+   * @remarks
+   * The number of captured video frames for the corresponding label.
+   */
+  count?: number;
+  /**
+   * @remarks
+   * The review result category.
+   */
+  label?: string;
+  static names(): { [key: string]: string } {
+    return {
+      count: 'Count',
+      label: 'Label',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      count: 'number',
+      label: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAIMediaAuditJobResponseBodyMediaAuditJobDataVideoResultGreenEnhancedResultTopList extends $dara.Model {
+  /**
+   * @remarks
+   * The review result category.
+   */
+  label?: string;
+  /**
+   * @remarks
+   * The confidence score of the video snapshot that hit the label.
+   */
+  score?: string;
+  /**
+   * @remarks
+   * The position of the video snapshot in the video.
+   */
+  timestamp?: string;
+  /**
+   * @remarks
+   * The URL of the video snapshot.
+   */
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      label: 'Label',
+      score: 'Score',
+      timestamp: 'Timestamp',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      label: 'string',
+      score: 'string',
+      timestamp: 'string',
+      url: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAIMediaAuditJobResponseBodyMediaAuditJobDataVideoResultGreenEnhancedResult extends $dara.Model {
+  /**
+   * @remarks
+   * The average confidence score of hit frames. This field is not returned if no frame is hit.
+   */
+  averageScore?: string;
+  /**
+   * @remarks
+   * The violation label count aggregation: Label (Green label) / Count (number of hit frames for the label).
+   */
+  counterList?: GetAIMediaAuditJobResponseBodyMediaAuditJobDataVideoResultGreenEnhancedResultCounterList[];
+  /**
+   * @remarks
+   * The union of hit Green native labels (comma-separated, such as pornographic_adultContent_tii). The value is normal if no label is hit.
+   */
+  label?: string;
+  /**
+   * @remarks
+   * The highest confidence score of hit frames. This field is not returned if no frame is hit.
+   */
+  maxScore?: string;
+  /**
+   * @remarks
+   * The frame review conclusion mapped from frameResult.riskLevel: high→block, medium/low→review, none→pass.
+   */
+  suggestion?: string;
+  /**
+   * @remarks
+   * The hit frame details (sorted by confidence in descending order).
+   */
+  topList?: GetAIMediaAuditJobResponseBodyMediaAuditJobDataVideoResultGreenEnhancedResultTopList[];
+  static names(): { [key: string]: string } {
+    return {
+      averageScore: 'AverageScore',
+      counterList: 'CounterList',
+      label: 'Label',
+      maxScore: 'MaxScore',
+      suggestion: 'Suggestion',
+      topList: 'TopList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      averageScore: 'string',
+      counterList: { 'type': 'array', 'itemType': GetAIMediaAuditJobResponseBodyMediaAuditJobDataVideoResultGreenEnhancedResultCounterList },
+      label: 'string',
+      maxScore: 'string',
+      suggestion: 'string',
+      topList: { 'type': 'array', 'itemType': GetAIMediaAuditJobResponseBodyMediaAuditJobDataVideoResultGreenEnhancedResultTopList },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.counterList)) {
+      $dara.Model.validateArray(this.counterList);
+    }
+    if(Array.isArray(this.topList)) {
+      $dara.Model.validateArray(this.topList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetAIMediaAuditJobResponseBodyMediaAuditJobDataVideoResultLiveResultCounterList extends $dara.Model {
   /**
    * @remarks
@@ -597,11 +747,11 @@ export class GetAIMediaAuditJobResponseBodyMediaAuditJobDataVideoResultLiveResul
   /**
    * @remarks
    * The category of the review result. Valid values:
-   * - **normal**: normal.
-   * - **meaningless**: no content in the image (such as black screen or white screen).
+   * - **normal**: Normal.
+   * - **meaningless**: No content in the image (for example, black screen or white screen).
    * - **PIP**: Picture-in-Picture (PiP).
-   * - **smoking**: smoking.
-   * - **drivelive**: in-car live streaming.
+   * - **smoking**: Smoking.
+   * - **drivelive**: In-car live streaming.
    * 
    * @example
    * smoking
@@ -634,11 +784,11 @@ export class GetAIMediaAuditJobResponseBodyMediaAuditJobDataVideoResultLiveResul
   /**
    * @remarks
    * The category of the review result. Valid values:
-   * - **normal**: normal.
-   * - **meaningless**: no content in the image (such as black screen or white screen).
+   * - **normal**: Normal.
+   * - **meaningless**: No content in the image (for example, black screen or white screen).
    * - **PIP**: Picture-in-Picture (PiP).
-   * - **smoking**: smoking.
-   * - **drivelive**: in-car live streaming.
+   * - **smoking**: Smoking.
+   * - **drivelive**: In-car live streaming.
    * 
    * @example
    * smoking
@@ -712,11 +862,11 @@ export class GetAIMediaAuditJobResponseBodyMediaAuditJobDataVideoResultLiveResul
   /**
    * @remarks
    * The category of the review result. Valid values:
-   * - **normal**: normal.
-   * - **meaningless**: no content in the image (such as black screen or white screen).
+   * - **normal**: Normal.
+   * - **meaningless**: No content in the image (for example, black screen or white screen).
    * - **PIP**: Picture-in-Picture (PiP).
-   * - **smoking**: smoking.
-   * - **drivelive**: in-car live streaming.
+   * - **smoking**: Smoking.
+   * - **drivelive**: In-car live streaming.
    * 
    * @example
    * smoking
@@ -733,7 +883,7 @@ export class GetAIMediaAuditJobResponseBodyMediaAuditJobDataVideoResultLiveResul
   /**
    * @remarks
    * The review result suggestion. Valid values:
-   * - **block**: Violation detected.
+   * - **block**: Violation.
    * - **review**: Suspected violation.
    * - **pass**: Passed.
    * 
@@ -795,9 +945,9 @@ export class GetAIMediaAuditJobResponseBodyMediaAuditJobDataVideoResultLogoResul
   /**
    * @remarks
    * The category of the logo review result. Valid values:
-   * - **normal**: normal.
-   * - **TV**: contains a controlled logo.
-   * - **trademark**: contains a trademark.
+   * - **normal**: Normal.
+   * - **TV**: Contains a regulated logo.
+   * - **trademark**: Contains a trademark.
    * 
    * @example
    * TV
@@ -830,9 +980,9 @@ export class GetAIMediaAuditJobResponseBodyMediaAuditJobDataVideoResultLogoResul
   /**
    * @remarks
    * The category of the logo review result. Valid values:
-   * - **normal**: normal.
-   * - **TV**: contains a controlled logo.
-   * - **trademark**: contains a trademark.
+   * - **normal**: Normal.
+   * - **TV**: Contains a regulated logo.
+   * - **trademark**: Contains a trademark.
    * 
    * @example
    * TV
@@ -892,7 +1042,7 @@ export class GetAIMediaAuditJobResponseBodyMediaAuditJobDataVideoResultLogoResul
 export class GetAIMediaAuditJobResponseBodyMediaAuditJobDataVideoResultLogoResult extends $dara.Model {
   /**
    * @remarks
-   * The average score of the video snapshots that hit the label.
+   * The average score of video snapshots that hit the label.
    * 
    * @example
    * 100
@@ -906,9 +1056,9 @@ export class GetAIMediaAuditJobResponseBodyMediaAuditJobDataVideoResultLogoResul
   /**
    * @remarks
    * The category of the logo review result. Valid values:
-   * - **normal**: normal.
-   * - **TV**: contains a controlled logo.
-   * - **trademark**: contains a trademark.
+   * - **normal**: Normal.
+   * - **TV**: Contains a regulated logo.
+   * - **trademark**: Contains a trademark.
    * 
    * @example
    * TV
@@ -916,7 +1066,7 @@ export class GetAIMediaAuditJobResponseBodyMediaAuditJobDataVideoResultLogoResul
   label?: string;
   /**
    * @remarks
-   * The highest score of the video snapshots that hit the label.
+   * The highest score of video snapshots that hit the label.
    * 
    * @example
    * 100
@@ -926,7 +1076,7 @@ export class GetAIMediaAuditJobResponseBodyMediaAuditJobDataVideoResultLogoResul
    * @remarks
    * The logo review suggestion. Valid values:
    * 
-   * - **block**: Violation detected.
+   * - **block**: Violation.
    * - **review**: Suspected violation.
    * - **pass**: Passed.
    * 
@@ -1035,7 +1185,7 @@ export class GetAIMediaAuditJobResponseBodyMediaAuditJobDataVideoResultPornResul
   label?: string;
   /**
    * @remarks
-   * The score of the video snapshot that hits the label. Value range: `[0, 100]`. The value is accurate to 10 decimal places. The score indicates the probability of the corresponding label. A higher score indicates higher accuracy.
+   * The score of the video snapshot that hits the label. Value range: `[0, 100]`, with a precision of 10 decimal places. The score indicates the probability of the corresponding label. A higher value indicates higher accuracy.
    * 
    * @example
    * 100
@@ -1087,7 +1237,7 @@ export class GetAIMediaAuditJobResponseBodyMediaAuditJobDataVideoResultPornResul
 export class GetAIMediaAuditJobResponseBodyMediaAuditJobDataVideoResultPornResult extends $dara.Model {
   /**
    * @remarks
-   * The average score of the video snapshots that hit the label. Value range: `[0, 100]`. The value is accurate to 10 decimal places. The score indicates the probability of the corresponding label. A higher score indicates higher accuracy.
+   * The average score of video snapshots that hit the label. Value range: `[0, 100]`, with a precision of 10 decimal places. The score indicates the probability of the corresponding label. A higher value indicates higher accuracy.
    * 
    * @example
    * 100
@@ -1095,7 +1245,7 @@ export class GetAIMediaAuditJobResponseBodyMediaAuditJobDataVideoResultPornResul
   averageScore?: string;
   /**
    * @remarks
-   * The categories of the review results and the number of video snapshots in each category.
+   * The review result categories and the number of video snapshots for each category.
    */
   counterList?: GetAIMediaAuditJobResponseBodyMediaAuditJobDataVideoResultPornResultCounterList[];
   /**
@@ -1112,7 +1262,7 @@ export class GetAIMediaAuditJobResponseBodyMediaAuditJobDataVideoResultPornResul
   label?: string;
   /**
    * @remarks
-   * The highest score of the video snapshots that hit the label. Value range: `[0, 100]`. The value is accurate to 10 decimal places. The score indicates the probability of the corresponding label. A higher score indicates higher accuracy.
+   * The highest score of video snapshots that hit the label. Value range: `[0, 100]`, with a precision of 10 decimal places. The score indicates the probability of the corresponding label. A higher value indicates higher accuracy.
    * 
    * @example
    * 100
@@ -1122,7 +1272,7 @@ export class GetAIMediaAuditJobResponseBodyMediaAuditJobDataVideoResultPornResul
    * @remarks
    * The pornography detection suggestion. Valid values:
    * 
-   * - **block**: Violation detected.
+   * - **block**: Violation.
    * - **review**: Suspected violation.
    * - **pass**: Passed.
    * 
@@ -1183,20 +1333,20 @@ export class GetAIMediaAuditJobResponseBodyMediaAuditJobDataVideoResultTerrorism
   count?: number;
   /**
    * @remarks
-   * The terrorism and politically sensitive content review result. Valid values:
+   * The terrorism and political sensitivity review result. Valid values:
    * - **normal**: normal.
    * - **bloody**: bloody content.
-   * - **explosion**: explosion or smoke.
-   * - **outfit**: special outfit.
-   * - **logo**: special logo.
-   * - **weapon**: weapon.
+   * - **explosion**: explosions and smoke.
+   * - **outfit**: special outfits.
+   * - **logo**: special logos.
+   * - **weapon**: weapons.
    * - **politics**: politically sensitive content.
-   * - **violence**: violence.
-   * - **crowd**: crowd gathering.
-   * - **parade**: parade.
-   * - **carcrash**: car crash scene.
-   * - **flag**: flag.
-   * - **location**: landmark.
+   * - **violence**: fighting.
+   * - **crowd**: crowds.
+   * - **parade**: parades.
+   * - **carcrash**: car accident scenes.
+   * - **flag**: flags.
+   * - **location**: landmarks.
    * - **others**: others.
    * 
    * @example
@@ -1229,21 +1379,21 @@ export class GetAIMediaAuditJobResponseBodyMediaAuditJobDataVideoResultTerrorism
 export class GetAIMediaAuditJobResponseBodyMediaAuditJobDataVideoResultTerrorismResultTopList extends $dara.Model {
   /**
    * @remarks
-   * The terrorism and politically sensitive content review result. Valid values:
+   * The terrorism and political sensitivity review result. Valid values:
    * 
    * - **normal**: normal.
    * - **bloody**: bloody content.
-   * - **explosion**: explosion or smoke.
-   * - **outfit**: special outfit.
-   * - **logo**: special logo.
-   * - **weapon**: weapon.
+   * - **explosion**: explosions and smoke.
+   * - **outfit**: special outfits.
+   * - **logo**: special logos.
+   * - **weapon**: weapons.
    * - **politics**: politically sensitive content.
-   * - **violence**: violence.
-   * - **crowd**: crowd gathering.
-   * - **parade**: parade.
-   * - **carcrash**: car crash scene.
-   * - **flag**: flag.
-   * - **location**: landmark.
+   * - **violence**: fighting.
+   * - **crowd**: crowds.
+   * - **parade**: parades.
+   * - **carcrash**: car accident scenes.
+   * - **flag**: flags.
+   * - **location**: landmarks.
    * - **others**: others.
    * 
    * @example
@@ -1252,7 +1402,7 @@ export class GetAIMediaAuditJobResponseBodyMediaAuditJobDataVideoResultTerrorism
   label?: string;
   /**
    * @remarks
-   * The score of the video snapshot that hits the label. Value range: `[0, 100]`. The value is accurate to 10 decimal places. The score indicates the probability of the corresponding label. A higher score indicates higher accuracy.
+   * The score of the video snapshot that hits the label. Value range: `[0, 100]`, with a precision of 10 decimal places. The score indicates the probability of the corresponding label. A higher value indicates higher accuracy.
    * 
    * @example
    * 100
@@ -1304,7 +1454,7 @@ export class GetAIMediaAuditJobResponseBodyMediaAuditJobDataVideoResultTerrorism
 export class GetAIMediaAuditJobResponseBodyMediaAuditJobDataVideoResultTerrorismResult extends $dara.Model {
   /**
    * @remarks
-   * The average score of the video snapshots that hit the label. Value range: `[0, 100]`. The value is accurate to 10 decimal places. The score indicates the probability of the corresponding label. A higher score indicates higher accuracy.
+   * The average score of video snapshots that hit the label. Value range: `[0, 100]`, with a precision of 10 decimal places. The score indicates the probability of the corresponding label. A higher value indicates higher accuracy.
    * 
    * @example
    * 100
@@ -1312,26 +1462,26 @@ export class GetAIMediaAuditJobResponseBodyMediaAuditJobDataVideoResultTerrorism
   averageScore?: string;
   /**
    * @remarks
-   * The categories of the terrorism and politically sensitive content review results and the number of video snapshots in each category.
+   * The terrorism and political sensitivity result categories and the number of video snapshots for each category.
    */
   counterList?: GetAIMediaAuditJobResponseBodyMediaAuditJobDataVideoResultTerrorismResultCounterList[];
   /**
    * @remarks
-   * The terrorism and politically sensitive content review result. Valid values:
+   * The terrorism and political sensitivity review result. Valid values:
    * 
    * - **normal**: normal.
    * - **bloody**: bloody content.
-   * - **explosion**: explosion or smoke.
-   * - **outfit**: special outfit.
-   * - **logo**: special logo.
-   * - **weapon**: weapon.
+   * - **explosion**: explosions and smoke.
+   * - **outfit**: special outfits.
+   * - **logo**: special logos.
+   * - **weapon**: weapons.
    * - **politics**: politically sensitive content.
-   * - **violence**: violence.
-   * - **crowd**: crowd gathering.
-   * - **parade**: parade.
-   * - **carcrash**: car crash scene.
-   * - **flag**: flag.
-   * - **location**: landmark.
+   * - **violence**: fighting.
+   * - **crowd**: crowds.
+   * - **parade**: parades.
+   * - **carcrash**: car accident scenes.
+   * - **flag**: flags.
+   * - **location**: landmarks.
    * - **others**: others.
    * 
    * @example
@@ -1340,7 +1490,7 @@ export class GetAIMediaAuditJobResponseBodyMediaAuditJobDataVideoResultTerrorism
   label?: string;
   /**
    * @remarks
-   * The highest score of the video snapshots that hit the label. Value range: `[0, 100]`. The value is accurate to 10 decimal places. The score indicates the probability of the corresponding label. A higher score indicates higher accuracy.
+   * The highest score of video snapshots that hit the label. Value range: `[0, 100]`, with a precision of 10 decimal places. The score indicates the probability of the corresponding label. A higher value indicates higher accuracy.
    * 
    * @example
    * 100
@@ -1348,9 +1498,9 @@ export class GetAIMediaAuditJobResponseBodyMediaAuditJobDataVideoResultTerrorism
   maxScore?: string;
   /**
    * @remarks
-   * The terrorism and politically sensitive content review suggestion. Valid values:
+   * The terrorism and political sensitivity review suggestion. Valid values:
    * 
-   * - **block**: Violation detected.
+   * - **block**: Violation.
    * - **review**: Suspected violation.
    * - **pass**: Passed.
    * 
@@ -1408,12 +1558,17 @@ export class GetAIMediaAuditJobResponseBodyMediaAuditJobDataVideoResult extends 
   adResult?: GetAIMediaAuditJobResponseBodyMediaAuditJobDataVideoResultAdResult;
   /**
    * @remarks
+   * The GreenEnhanced review result.
+   */
+  greenEnhancedResult?: GetAIMediaAuditJobResponseBodyMediaAuditJobDataVideoResultGreenEnhancedResult;
+  /**
+   * @remarks
    * The category of the review result. Valid values:
    * - **porn**: pornography.
-   * - **terrorism**: terrorist content or politically sensitive content.
-   * - **ad**: image or text violation.
-   * - **live**: undesirable scene.
-   * - **logo**: logo in image.
+   * - **terrorism**: terrorist content and political sensitivity.
+   * - **ad**: image and text violations.
+   * - **live**: undesirable scenes.
+   * - **logo**: logo in images.
    * - **normal**: normal.
    * 
    * @example
@@ -1422,7 +1577,7 @@ export class GetAIMediaAuditJobResponseBodyMediaAuditJobDataVideoResult extends 
   label?: string;
   /**
    * @remarks
-   * The undesirable content review result.
+   * The review results for inappropriate content.
    */
   liveResult?: GetAIMediaAuditJobResponseBodyMediaAuditJobDataVideoResultLiveResult;
   /**
@@ -1439,7 +1594,7 @@ export class GetAIMediaAuditJobResponseBodyMediaAuditJobDataVideoResult extends 
    * @remarks
    * The video review result suggestion. Valid values:
    * 
-   * - **block**: Violation detected.
+   * - **block**: Violation.
    * - **review**: Suspected violation.
    * - **pass**: Passed.
    * 
@@ -1449,12 +1604,13 @@ export class GetAIMediaAuditJobResponseBodyMediaAuditJobDataVideoResult extends 
   suggestion?: string;
   /**
    * @remarks
-   * The terrorism and politically sensitive content review result.
+   * The terrorism and political sensitivity review result.
    */
   terrorismResult?: GetAIMediaAuditJobResponseBodyMediaAuditJobDataVideoResultTerrorismResult;
   static names(): { [key: string]: string } {
     return {
       adResult: 'AdResult',
+      greenEnhancedResult: 'GreenEnhancedResult',
       label: 'Label',
       liveResult: 'LiveResult',
       logoResult: 'LogoResult',
@@ -1467,6 +1623,7 @@ export class GetAIMediaAuditJobResponseBodyMediaAuditJobDataVideoResult extends 
   static types(): { [key: string]: any } {
     return {
       adResult: GetAIMediaAuditJobResponseBodyMediaAuditJobDataVideoResultAdResult,
+      greenEnhancedResult: GetAIMediaAuditJobResponseBodyMediaAuditJobDataVideoResultGreenEnhancedResult,
       label: 'string',
       liveResult: GetAIMediaAuditJobResponseBodyMediaAuditJobDataVideoResultLiveResult,
       logoResult: GetAIMediaAuditJobResponseBodyMediaAuditJobDataVideoResultLogoResult,
@@ -1479,6 +1636,9 @@ export class GetAIMediaAuditJobResponseBodyMediaAuditJobDataVideoResult extends 
   validate() {
     if(this.adResult && typeof (this.adResult as any).validate === 'function') {
       (this.adResult as any).validate();
+    }
+    if(this.greenEnhancedResult && typeof (this.greenEnhancedResult as any).validate === 'function') {
+      (this.greenEnhancedResult as any).validate();
     }
     if(this.liveResult && typeof (this.liveResult as any).validate === 'function') {
       (this.liveResult as any).validate();
@@ -1503,7 +1663,7 @@ export class GetAIMediaAuditJobResponseBodyMediaAuditJobDataVideoResult extends 
 export class GetAIMediaAuditJobResponseBodyMediaAuditJobData extends $dara.Model {
   /**
    * @remarks
-   * The content types that contain violations. Multiple values are separated by commas (,). Valid values:
+   * The content that violates the moderation rules. Multiple values are separated by commas (,). Valid values:
    * 
    * - **video**: video.
    * - **image-cover**: thumbnail.
@@ -1528,10 +1688,10 @@ export class GetAIMediaAuditJobResponseBodyMediaAuditJobData extends $dara.Model
    * The category of the review result. Multiple values are separated by commas (,). Valid values:
    * 
    * - **porn**: pornography.
-   * - **terrorism**: terrorist content or politically sensitive content.
-   * - **ad**: image or text violation.
-   * - **live**: undesirable scene.
-   * - **logo**: logo in image.
+   * - **terrorism**: terrorist content and political sensitivity.
+   * - **ad**: image and text violations.
+   * - **live**: undesirable scenes.
+   * - **logo**: logo in images.
    * - **audio**: audio anti-spam.
    * - **normal**: normal.
    * 
@@ -1543,7 +1703,7 @@ export class GetAIMediaAuditJobResponseBodyMediaAuditJobData extends $dara.Model
    * @remarks
    * The review result suggestion. Valid values:
    * 
-   * - **block**: Violation detected.
+   * - **block**: Violation.
    * - **review**: Suspected violation.
    * - **pass**: Passed.
    * 
@@ -1609,7 +1769,7 @@ export class GetAIMediaAuditJobResponseBodyMediaAuditJobData extends $dara.Model
 export class GetAIMediaAuditJobResponseBodyMediaAuditJob extends $dara.Model {
   /**
    * @remarks
-   * The error code of the job. Check this field when Status is fail.
+   * The error code of the job. This field is relevant when Status is fail.
    * 
    * @example
    * 0
@@ -1654,7 +1814,7 @@ export class GetAIMediaAuditJobResponseBodyMediaAuditJob extends $dara.Model {
   mediaId?: string;
   /**
    * @remarks
-   * The error message of the job. Check this field when Status is fail.
+   * The error message of the job. This field is relevant when Status is fail.
    * 
    * @example
    * OK
@@ -1667,7 +1827,7 @@ export class GetAIMediaAuditJobResponseBodyMediaAuditJob extends $dara.Model {
    * - **success**: The job is successful.
    * - **fail**: The job failed.
    * - **init**: The job is being initialized.
-   * - **processing**: The job is being processed.
+   * - **processing**: The job is in progress.
    * 
    * @example
    * success
@@ -1675,7 +1835,7 @@ export class GetAIMediaAuditJobResponseBodyMediaAuditJob extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The job type. Only automated review is supported.
+   * The job type. Only "automated review" is supported.
    * 
    * @example
    * AIMediaAudit
@@ -1724,7 +1884,7 @@ export class GetAIMediaAuditJobResponseBodyMediaAuditJob extends $dara.Model {
 export class GetAIMediaAuditJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the automated review job.
+   * The automated review job information.
    */
   mediaAuditJob?: GetAIMediaAuditJobResponseBodyMediaAuditJob;
   /**

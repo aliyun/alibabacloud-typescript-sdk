@@ -108,6 +108,9 @@ export { GetAIMediaAuditJobResponseBodyMediaAuditJobDataTextResult } from './Get
 export { GetAIMediaAuditJobResponseBodyMediaAuditJobDataVideoResultAdResultCounterList } from './GetAimediaAuditJobResponseBody';
 export { GetAIMediaAuditJobResponseBodyMediaAuditJobDataVideoResultAdResultTopList } from './GetAimediaAuditJobResponseBody';
 export { GetAIMediaAuditJobResponseBodyMediaAuditJobDataVideoResultAdResult } from './GetAimediaAuditJobResponseBody';
+export { GetAIMediaAuditJobResponseBodyMediaAuditJobDataVideoResultGreenEnhancedResultCounterList } from './GetAimediaAuditJobResponseBody';
+export { GetAIMediaAuditJobResponseBodyMediaAuditJobDataVideoResultGreenEnhancedResultTopList } from './GetAimediaAuditJobResponseBody';
+export { GetAIMediaAuditJobResponseBodyMediaAuditJobDataVideoResultGreenEnhancedResult } from './GetAimediaAuditJobResponseBody';
 export { GetAIMediaAuditJobResponseBodyMediaAuditJobDataVideoResultLiveResultCounterList } from './GetAimediaAuditJobResponseBody';
 export { GetAIMediaAuditJobResponseBodyMediaAuditJobDataVideoResultLiveResultTopList } from './GetAimediaAuditJobResponseBody';
 export { GetAIMediaAuditJobResponseBodyMediaAuditJobDataVideoResultLiveResult } from './GetAimediaAuditJobResponseBody';
@@ -166,6 +169,9 @@ export { GetMediaAuditResultResponseBodyMediaAuditResultTextResult } from './Get
 export { GetMediaAuditResultResponseBodyMediaAuditResultVideoResultAdResultCounterList } from './GetMediaAuditResultResponseBody';
 export { GetMediaAuditResultResponseBodyMediaAuditResultVideoResultAdResultTopList } from './GetMediaAuditResultResponseBody';
 export { GetMediaAuditResultResponseBodyMediaAuditResultVideoResultAdResult } from './GetMediaAuditResultResponseBody';
+export { GetMediaAuditResultResponseBodyMediaAuditResultVideoResultGreenEnhancedResultCounterList } from './GetMediaAuditResultResponseBody';
+export { GetMediaAuditResultResponseBodyMediaAuditResultVideoResultGreenEnhancedResultTopList } from './GetMediaAuditResultResponseBody';
+export { GetMediaAuditResultResponseBodyMediaAuditResultVideoResultGreenEnhancedResult } from './GetMediaAuditResultResponseBody';
 export { GetMediaAuditResultResponseBodyMediaAuditResultVideoResultLiveResultCounterList } from './GetMediaAuditResultResponseBody';
 export { GetMediaAuditResultResponseBodyMediaAuditResultVideoResultLiveResultTopList } from './GetMediaAuditResultResponseBody';
 export { GetMediaAuditResultResponseBodyMediaAuditResultVideoResultLiveResult } from './GetMediaAuditResultResponseBody';
