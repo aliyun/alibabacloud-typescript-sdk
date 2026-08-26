@@ -58,7 +58,7 @@ export class ListSoftwarelibSoftwareResponseBodyDataListVersions extends $dara.M
   publisherType?: string;
   /**
    * @remarks
-   * The ID of the software to which the version belongs.
+   * The ID of the software to which this version belongs.
    * 
    * @example
    * softwarelib-software-1da844a39729****
@@ -91,8 +91,8 @@ export class ListSoftwarelibSoftwareResponseBodyDataListVersions extends $dara.M
   /**
    * @remarks
    * The version publish status. Valid values:
-   * - **published**: Published.
-   * - **unpublished**: Not published.
+   * - **published**: published.
+   * - **unpublished**: not published.
    * 
    * @example
    * published
@@ -282,6 +282,14 @@ export class ListSoftwarelibSoftwareResponseBodyDataList extends $dara.Model {
   officialDownloadUrl?: string;
   /**
    * @remarks
+   * The execution account (only supported on Windows).
+   * 
+   * @example
+   * admin
+   */
+  runAsAccount?: string;
+  /**
+   * @remarks
    * The software ID.
    * 
    * @example
@@ -298,7 +306,7 @@ export class ListSoftwarelibSoftwareResponseBodyDataList extends $dara.Model {
   softwareName?: string;
   /**
    * @remarks
-   * Indicates whether the built-in library source has been removed.
+   * Indicates whether the built-in library source has been deleted.
    * 
    * @example
    * false
@@ -349,6 +357,7 @@ export class ListSoftwarelibSoftwareResponseBodyDataList extends $dara.Model {
       macIntelVersion: 'MacIntelVersion',
       matchMode: 'MatchMode',
       officialDownloadUrl: 'OfficialDownloadUrl',
+      runAsAccount: 'RunAsAccount',
       softwareId: 'SoftwareId',
       softwareName: 'SoftwareName',
       sourceRemoved: 'SourceRemoved',
@@ -376,6 +385,7 @@ export class ListSoftwarelibSoftwareResponseBodyDataList extends $dara.Model {
       macIntelVersion: 'string',
       matchMode: 'string',
       officialDownloadUrl: 'string',
+      runAsAccount: 'string',
       softwareId: 'string',
       softwareName: 'string',
       sourceRemoved: 'boolean',

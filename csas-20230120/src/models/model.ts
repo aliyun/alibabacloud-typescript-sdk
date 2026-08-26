@@ -276,6 +276,7 @@ export { ListRegistrationPoliciesForUserGroupResponseBodyUserGroupsPoliciesLimit
 export { ListRegistrationPoliciesForUserGroupResponseBodyUserGroupsPolicies } from './ListRegistrationPoliciesForUserGroupResponseBody';
 export { ListRegistrationPoliciesForUserGroupResponseBodyUserGroups } from './ListRegistrationPoliciesForUserGroupResponseBody';
 export { ListRiskItemsResponseBodyRiskItems } from './ListRiskItemsResponseBody';
+export { ListSaseUserTagsResponseBodyDataList } from './ListSaseUserTagsResponseBody';
 export { ListSoftwareForUserDeviceResponseBodySoftware } from './ListSoftwareForUserDeviceResponseBody';
 export { ListSoftwarelibSoftwareResponseBodyDataListVersions } from './ListSoftwarelibSoftwareResponseBody';
 export { ListSoftwarelibSoftwareResponseBodyDataList } from './ListSoftwarelibSoftwareResponseBody';
@@ -891,6 +892,10 @@ export { ListRegistrationPoliciesForUserGroupResponse } from './ListRegistration
 export { ListRiskItemsRequest } from './ListRiskItemsRequest';
 export { ListRiskItemsResponseBody } from './ListRiskItemsResponseBody';
 export { ListRiskItemsResponse } from './ListRiskItemsResponse';
+export { ListSaseUserTagsRequest } from './ListSaseUserTagsRequest';
+export { ListSaseUserTagsShrinkRequest } from './ListSaseUserTagsShrinkRequest';
+export { ListSaseUserTagsResponseBody } from './ListSaseUserTagsResponseBody';
+export { ListSaseUserTagsResponse } from './ListSaseUserTagsResponse';
 export { ListSoftwareForUserDeviceRequest } from './ListSoftwareForUserDeviceRequest';
 export { ListSoftwareForUserDeviceResponseBody } from './ListSoftwareForUserDeviceResponseBody';
 export { ListSoftwareForUserDeviceResponse } from './ListSoftwareForUserDeviceResponse';

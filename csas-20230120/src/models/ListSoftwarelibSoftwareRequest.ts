@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListSoftwarelibSoftwareRequest extends $dara.Model {
   /**
    * @remarks
-   * The software classification ID. You can obtain the value from [ListSoftwarelibClassify](~~ListSoftwarelibClassify~~).
+   * The software classification ID. You can call [ListSoftwarelibClassify](~~ListSoftwarelibClassify~~) to obtain the value.
    * 
    * @example
    * softwarelib-classify-61b7ccc63cae****

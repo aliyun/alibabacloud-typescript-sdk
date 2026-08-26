@@ -7552,6 +7552,66 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves a list of user labels.
+   * 
+   * @param tmpReq - ListSaseUserTagsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListSaseUserTagsResponse
+   */
+  async listSaseUserTagsWithOptions(tmpReq: $_model.ListSaseUserTagsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListSaseUserTagsResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListSaseUserTagsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.tagIds)) {
+      request.tagIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tagIds, "TagIds", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.currentPage)) {
+      body["CurrentPage"] = request.currentPage;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.tagIdsShrink)) {
+      body["TagIds"] = request.tagIdsShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListSaseUserTags",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListSaseUserTagsResponse>(await this.callApi(params, req, runtime), new $_model.ListSaseUserTagsResponse({}));
+  }
+
+  /**
+   * Retrieves a list of user labels.
+   * 
+   * @param request - ListSaseUserTagsRequest
+   * @returns ListSaseUserTagsResponse
+   */
+  async listSaseUserTags(request: $_model.ListSaseUserTagsRequest): Promise<$_model.ListSaseUserTagsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listSaseUserTagsWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the list of software installed on user endpoint devices under the current Alibaba Cloud account.
    * 
    * @param request - ListSoftwareForUserDeviceRequest
