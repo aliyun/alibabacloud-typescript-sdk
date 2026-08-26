@@ -2,24 +2,20 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class UpdateDatasetVersionResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * Id of the request
-   * 
-   * @example
-   * 8D7B2E70-F770-505B-A672-09F1D8F2EC1E
-   */
-  requestId?: string;
+export class UserMetricsEndpoint extends $dara.Model {
+  path?: string;
+  port?: number;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
+      path: 'Path',
+      port: 'Port',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
+      path: 'string',
+      port: 'number',
     };
   }
 

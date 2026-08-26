@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateWorkspaceRoleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The job ID for the request.
+   * The task ID corresponding to the request.
    * 
    * @example
    * CreateWorkspaceCustomRole-role-***abc*******

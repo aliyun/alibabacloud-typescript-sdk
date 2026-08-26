@@ -6,7 +6,7 @@ import { DatasetFileMetaResponse } from "./DatasetFileMetaResponse";
 export class CreateDatasetFileMetasResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A list of file metadata records that failed to be created.
+   * The list of file metadata entries that failed to be created.
    */
   failedDetails?: DatasetFileMetaResponse[];
   /**
@@ -19,7 +19,7 @@ export class CreateDatasetFileMetasResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The status of the batch metadata creation. A value of \\`true\\` indicates that all records were created successfully. If the value is \\`false\\`, check \\`FailedDetails\\`.
+   * The status of the batch metadata creation result. A value of true indicates that all entries are created. If the value is false, check FailedDetails.
    * 
    * @example
    * true
@@ -27,7 +27,7 @@ export class CreateDatasetFileMetasResponseBody extends $dara.Model {
   status?: boolean;
   /**
    * @remarks
-   * A list of file metadata records that were successfully created.
+   * The list of file metadata entries that were created.
    */
   succeedDetails?: DatasetFileMetaResponse[];
   static names(): { [key: string]: string } {

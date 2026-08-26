@@ -566,6 +566,10 @@ export default class Client extends OpenApi {
       body["DataType"] = request.dataType;
     }
 
+    if (!$dara.isNull(request.datasetTaskRamRole)) {
+      body["DatasetTaskRamRole"] = request.datasetTaskRamRole;
+    }
+
     if (!$dara.isNull(request.description)) {
       body["Description"] = request.description;
     }
@@ -630,6 +634,10 @@ export default class Client extends OpenApi {
       body["UserId"] = request.userId;
     }
 
+    if (!$dara.isNull(request.userMetricsEndpoints)) {
+      body["UserMetricsEndpoints"] = request.userMetricsEndpoints;
+    }
+
     if (!$dara.isNull(request.versionDescription)) {
       body["VersionDescription"] = request.versionDescription;
     }
@@ -673,7 +681,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates file metadata records for a dataset in a batch.
+   * Creates file metadata records in a dataset in batches.
    * 
    * @param request - CreateDatasetFileMetasRequest
    * @param headers - map
@@ -714,7 +722,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates file metadata records for a dataset in a batch.
+   * Creates file metadata records in a dataset in batches.
    * 
    * @param request - CreateDatasetFileMetasRequest
    * @returns CreateDatasetFileMetasResponse
@@ -925,6 +933,10 @@ export default class Client extends OpenApi {
       body["DataSourceType"] = request.dataSourceType;
     }
 
+    if (!$dara.isNull(request.datasetTaskRamRole)) {
+      body["DatasetTaskRamRole"] = request.datasetTaskRamRole;
+    }
+
     if (!$dara.isNull(request.description)) {
       body["Description"] = request.description;
     }
@@ -955,6 +967,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.uri)) {
       body["Uri"] = request.uri;
+    }
+
+    if (!$dara.isNull(request.userMetricsEndpoints)) {
+      body["UserMetricsEndpoints"] = request.userMetricsEndpoints;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -1823,7 +1839,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a workspace role.
+   * Adds a workspace role.
    * 
    * @param request - CreateWorkspaceRoleRequest
    * @param headers - map
@@ -1868,7 +1884,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a workspace role.
+   * Adds a workspace role.
    * 
    * @param request - CreateWorkspaceRoleRequest
    * @returns CreateWorkspaceRoleResponse
@@ -3310,7 +3326,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves information about a specific dataset version.
+   * Retrieves the information of a specified dataset version.
    * 
    * @param request - GetDatasetVersionRequest
    * @param headers - map
@@ -3337,7 +3353,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves information about a specific dataset version.
+   * Retrieves the information of a specified dataset version.
    * 
    * @param request - GetDatasetVersionRequest
    * @returns GetDatasetVersionResponse
@@ -4538,7 +4554,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the datasets in a workspace.
+   * Retrieves the list of datasets in a specified workspace.
    * 
    * @param request - ListDatasetsRequest
    * @param headers - map
@@ -4639,7 +4655,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the datasets in a workspace.
+   * Retrieves the list of datasets in a specified workspace.
    * 
    * @param request - ListDatasetsRequest
    * @returns ListDatasetsResponse
@@ -6807,7 +6823,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the information for a specific version of a dataset.
+   * Updates the information of a specified dataset version.
    * 
    * @param request - UpdateDatasetVersionRequest
    * @param headers - map
@@ -6825,12 +6841,20 @@ export default class Client extends OpenApi {
       body["DataSize"] = request.dataSize;
     }
 
+    if (!$dara.isNull(request.datasetTaskRamRole)) {
+      body["DatasetTaskRamRole"] = request.datasetTaskRamRole;
+    }
+
     if (!$dara.isNull(request.description)) {
       body["Description"] = request.description;
     }
 
     if (!$dara.isNull(request.options)) {
       body["Options"] = request.options;
+    }
+
+    if (!$dara.isNull(request.userMetricsEndpoints)) {
+      body["UserMetricsEndpoints"] = request.userMetricsEndpoints;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -6852,7 +6876,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the information for a specific version of a dataset.
+   * Updates the information of a specified dataset version.
    * 
    * @param request - UpdateDatasetVersionRequest
    * @returns UpdateDatasetVersionResponse

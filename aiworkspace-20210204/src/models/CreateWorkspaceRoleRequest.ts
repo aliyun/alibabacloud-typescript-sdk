@@ -181,12 +181,12 @@ export class CreateWorkspaceRoleRequestModulePermissions extends $dara.Model {
 export class CreateWorkspaceRoleRequest extends $dara.Model {
   /**
    * @remarks
-   * The permission settings for the role.
+   * (Required) The role permission configurations.
    */
   modulePermissions?: CreateWorkspaceRoleRequestModulePermissions[];
   /**
    * @remarks
-   * The unique name for the custom role within the workspace. It can contain letters, digits, underscores (_), and hyphens (-), and be up to 64 characters long.
+   * (Required) The custom role name. The name must be unique within the same workspace. The name can contain letters, digits, underscores (_), and hyphens (-), and cannot exceed 64 characters in length.
    * 
    * @example
    * dev-test
@@ -194,7 +194,7 @@ export class CreateWorkspaceRoleRequest extends $dara.Model {
   roleName?: string;
   /**
    * @remarks
-   * The role type. This operation only creates custom roles. Valid value: custom.
+   * The role type. Valid values: custom (custom role). Only custom roles are supported. This is the default value.
    * 
    * @example
    * custom

@@ -1,11 +1,12 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import { UserMetricsEndpoint } from "./UserMetricsEndpoint";
 
 
 export class UpdateDatasetVersionRequest extends $dara.Model {
   /**
    * @remarks
-   * The number of files in the dataset.
+   * The number of dataset files.
    * 
    * @example
    * 100
@@ -13,7 +14,7 @@ export class UpdateDatasetVersionRequest extends $dara.Model {
   dataCount?: number;
   /**
    * @remarks
-   * The size of the dataset files, in bytes.
+   * The size of the space occupied by dataset files. Unit: bytes.
    * 
    * @example
    * 100000
@@ -21,7 +22,15 @@ export class UpdateDatasetVersionRequest extends $dara.Model {
   dataSize?: number;
   /**
    * @remarks
-   * A custom description of the dataset to distinguish it from other datasets.
+   * DatasetTaskRamRole
+   * 
+   * @example
+   * acs:ram::1234567890123456:role/role-name
+   */
+  datasetTaskRamRole?: string;
+  /**
+   * @remarks
+   * The custom description of the dataset, which is used to distinguish different datasets.
    * 
    * @example
    * This is a description of a dataset version.
@@ -29,8 +38,7 @@ export class UpdateDatasetVersionRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * An extension field in the JSON String format.
-   * When DLC uses the dataset, you can configure the mountPath field to specify the default mount path.
+   * The extended field in JsonString format. When DLC uses the dataset, you can specify the default mount path of the dataset by configuring the mountPath field.
    * 
    * @example
    * {
@@ -38,12 +46,15 @@ export class UpdateDatasetVersionRequest extends $dara.Model {
    * }
    */
   options?: string;
+  userMetricsEndpoints?: UserMetricsEndpoint[];
   static names(): { [key: string]: string } {
     return {
       dataCount: 'DataCount',
       dataSize: 'DataSize',
+      datasetTaskRamRole: 'DatasetTaskRamRole',
       description: 'Description',
       options: 'Options',
+      userMetricsEndpoints: 'UserMetricsEndpoints',
     };
   }
 
@@ -51,12 +62,17 @@ export class UpdateDatasetVersionRequest extends $dara.Model {
     return {
       dataCount: 'number',
       dataSize: 'number',
+      datasetTaskRamRole: 'string',
       description: 'string',
       options: 'string',
+      userMetricsEndpoints: { 'type': 'array', 'itemType': UserMetricsEndpoint },
     };
   }
 
   validate() {
+    if(Array.isArray(this.userMetricsEndpoints)) {
+      $dara.Model.validateArray(this.userMetricsEndpoints);
+    }
     super.validate();
   }
 

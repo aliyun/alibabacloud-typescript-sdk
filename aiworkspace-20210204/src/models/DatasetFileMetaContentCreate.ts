@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DatasetFileMetaContentCreate extends $dara.Model {
   /**
    * @remarks
-   * The comment on the file.
+   * The file comment.
    * 
    * @example
    * The first image file in the dataset.
@@ -13,7 +13,7 @@ export class DatasetFileMetaContentCreate extends $dara.Model {
   comment?: string;
   /**
    * @remarks
-   * The MIME type of the file. It includes a type and a subtype.
+   * The MIME type of the file. Contains Type and SubType.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class DatasetFileMetaContentCreate extends $dara.Model {
   contentType?: string;
   /**
    * @remarks
-   * The size of the file in bytes.
+   * The file size in bytes.
    * 
    * @example
    * 10000
@@ -31,7 +31,7 @@ export class DatasetFileMetaContentCreate extends $dara.Model {
   dataSize?: number;
   /**
    * @remarks
-   * The time when the file was created. The time is in ISO 8601 format.
+   * The file creation time in ISO 8601 format.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mmZ
    * 
@@ -41,7 +41,7 @@ export class DatasetFileMetaContentCreate extends $dara.Model {
   fileCreateTime?: string;
   /**
    * @remarks
-   * The fingerprint of the file. This value ensures the uniqueness of the file content and changes if the content is modified. For OSS files, this is the ETag. For NAS files, this is the MD5 value.
+   * The file fingerprint value. Used to determine the uniqueness of file content. This value changes when the file content is modified. OSS files use ETag, and NAS files use MD5 values.
    * 
    * This parameter is required.
    * 
@@ -51,7 +51,7 @@ export class DatasetFileMetaContentCreate extends $dara.Model {
   fileFingerPrint?: string;
   /**
    * @remarks
-   * The name of the file.
+   * The file name.
    * 
    * @example
    * 00001.jpeg
@@ -59,7 +59,7 @@ export class DatasetFileMetaContentCreate extends $dara.Model {
   fileName?: string;
   /**
    * @remarks
-   * The type of the file. This is the same as the Multipurpose Internet Mail Extensions (MIME) type.
+   * The file type. Same as MIME Type.
    * 
    * This parameter is required.
    * 
@@ -69,7 +69,7 @@ export class DatasetFileMetaContentCreate extends $dara.Model {
   fileType?: string;
   /**
    * @remarks
-   * The time when the file was last modified. The time is in ISO 8601 format.
+   * The last modification time of the file in ISO 8601 format.
    * 
    * This parameter is required.
    * 
@@ -81,64 +81,47 @@ export class DatasetFileMetaContentCreate extends $dara.Model {
   fileUpdateTime?: string;
   /**
    * @remarks
-   * The specific metadata of the file. This metadata cannot be used for retrieval. The value must be a JSON string.
+   * The specific metadata of the file, not searchable. In JSON string format.
    * 
    * @example
    * {
-   *     "Image":
-   *     {
-   *         "Width": 1920,
-   *         "Height": 1080,
-   *         "Channel": 3
-   *     }
+   *     "ImageHeight": 1080,
+   *     "ImageWidth": 1920
    * }
    */
   metaAttributes?: string;
   /**
    * @remarks
-   * The tags that are manually added by users. The \\`add\\` operation is used to add tags to a tag group. The value must be a JSON string.
-   * The following tag group is available:
-   * 
-   * - user: A list of tag names added to a single piece of metadata.
+   * User manual tagging: (add indicates adding tags to the tag group). In JSON string format.
+   * The operable tag groups are:
+   * - user: The list of tag names manually added by the user for a single metadata entry.
    * 
    * ```
    * {
    *     "user":{
-   *         "add":["Lane line","Sunny day"]
+   *         "add":["lane_line","sunny"]
    *     }
    * }
    * ```
    * 
    * @example
-   * {"user":["cat", "White"]}
+   * {
+   *     "user":{
+   *         "add":["Lane line","Sunny day"]
+   *     }
+   * }
    */
   tags?: string;
   /**
    * @remarks
-   * The unique URI of the file. This URI records the unique path of the file. The path can be an OSS or NAS path.
-   * 
+   * The unique URI of the file. Used to record the unique file path. Supports file paths in OSS and NAS.
    * <details>
-   * 
-   * <summary>
-   * 
-   * OSS
-   * 
-   * </summary>
-   * 
-   * oss\\://${bucket}/${path}
-   * 
+   * <summary>OSS</summary>
+   * oss://${bucket}/${path}
    * </details>
-   * 
    * <details>
-   * 
-   * <summary>
-   * 
-   * NAS
-   * 
-   * </summary>
-   * 
-   * nas\\://${fileSystemId}/${path}
-   * 
+   * <summary>NAS</summary>
+   * nas://${fileSystemId}/${path}
    * </details>
    * 
    * This parameter is required.

@@ -47,9 +47,8 @@ export class AddImageRequest extends $dara.Model {
    * @remarks
    * The visibility of the image. Valid values:
    * 
-   * - PUBLIC: All members of the workspace can perform operations on the image.
-   * 
-   * - PRIVATE: Only the creator can perform operations on the image.
+   * - PUBLIC: All members in the current workspace can access the image.
+   * - PRIVATE: Only the creator can access the image.
    * 
    * @example
    * PUBLIC
@@ -65,8 +64,7 @@ export class AddImageRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The ID of the image. If you leave this parameter empty, the system automatically generates an ID.
-   * The format is \\`image-\\` followed by 18 uppercase letters, lowercase letters, or digits.
+   * The image ID. If this parameter is not specified, the system automatically generates one. The format is image- followed by 18 uppercase or lowercase letters or digits.
    * 
    * @example
    * image-k83*****cv
@@ -74,7 +72,7 @@ export class AddImageRequest extends $dara.Model {
   imageId?: string;
   /**
    * @remarks
-   * The URI of the image. The URI can be reused. For more information, see [ListImage](https://help.aliyun.com/document_detail/449118.html).
+   * The image URI, which can be duplicated. For information about how to view the image URI, see [ListImage](https://help.aliyun.com/document_detail/449118.html).
    * 
    * This parameter is required.
    * 
@@ -84,56 +82,36 @@ export class AddImageRequest extends $dara.Model {
   imageUri?: string;
   /**
    * @remarks
-   * The labels of the image. This is an array where each item contains a key and a value.
+   * The image labels. This is an array in which each item contains a key field and a value field.
    * Official images have the following label: system.official=true
    * The following keys are supported:
    * 
    * - system.chipType
-   * 
-   * - system.dsw\\.cudaVersion
-   * 
-   * - system.dsw\\.fromImageId
-   * 
-   * - system.dsw\\.fromInstanceId
-   * 
-   * - system.dsw\\.id
-   * 
-   * - system.dsw\\.os
-   * 
-   * - system.dsw\\.osVersion
-   * 
-   * - system.dsw\\.resourceType
-   * 
-   * - system.dsw\\.rootImageId
-   * 
-   * - system.dsw\\.stage
-   * 
-   * - system.dsw\\.tag
-   * 
-   * - system.dsw\\.type
-   * 
+   * - system.dsw.cudaVersion
+   * - system.dsw.fromImageId
+   * - system.dsw.fromInstanceId
+   * - system.dsw.id
+   * - system.dsw.os
+   * - system.dsw.osVersion
+   * - system.dsw.resourceType
+   * - system.dsw.rootImageId
+   * - system.dsw.stage
+   * - system.dsw.tag
+   * - system.dsw.type
    * - system.framework
-   * 
    * - system.origin
-   * 
    * - system.pythonVersion
-   * 
    * - system.source
-   * 
    * - system.supported.dlc
-   * 
    * - system.supported.dsw
    */
   labels?: AddImageRequestLabels[];
   /**
    * @remarks
-   * The image name. The naming convention is as follows:
-   * 
-   * - The name must be 1 to 50 characters long.
-   * 
-   * - The name can contain lowercase letters, digits, and hyphens (-). It must start with a letter.
-   * 
-   * - The name must be unique within the workspace.
+   * The image name. Naming rules:
+   * - The name must be 1 to 50 characters in length.
+   * - The name can contain lowercase letters, digits, and hyphens (-), and must start with a letter.
+   * - The name must be unique within the same workspace.
    * 
    * This parameter is required.
    * 
@@ -143,7 +121,7 @@ export class AddImageRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The size of the image, in GB.
+   * The image size, in GB.
    * 
    * @example
    * 2
@@ -151,20 +129,20 @@ export class AddImageRequest extends $dara.Model {
   size?: number;
   /**
    * @remarks
-   * The source ID of the image. If the source type is Build, this ID corresponds to the image build ID.
+   * The image source ID. When the image source type is Build, the source ID corresponds to the image build ID.
    */
   sourceId?: string;
   /**
    * @remarks
-   * The source type of the image. Valid values:
-   * Import
-   * Build
+   * The image source type. Valid values:
+   * - Import: import.
+   * - Build: generate.
    */
   sourceType?: string;
   userId?: string;
   /**
    * @remarks
-   * The ID of the workspace to which the image belongs. For more information, see [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html).
+   * The ID of the workspace to which the image belongs. For information about how to obtain the workspace ID, see [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html).
    * 
    * @example
    * 15******45

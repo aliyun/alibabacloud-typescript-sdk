@@ -19,7 +19,7 @@ export class ListDatasetVersionsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The page size.
+   * The current page size.
    * 
    * @example
    * 10
@@ -35,7 +35,7 @@ export class ListDatasetVersionsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The number of resources that match the filter conditions.
+   * The resource count that matches the conditional filter criteria.
    * 
    * @example
    * 5

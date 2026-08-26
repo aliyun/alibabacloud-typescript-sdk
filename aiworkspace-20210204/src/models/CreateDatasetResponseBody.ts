@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDatasetResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the dataset.
+   * The dataset ID.
    * 
    * @example
    * d-rbvg5*****jhc9ks92
@@ -13,7 +13,7 @@ export class CreateDatasetResponseBody extends $dara.Model {
   datasetId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * B2C51F93-1C07-5477-9705-5FDB****F19F

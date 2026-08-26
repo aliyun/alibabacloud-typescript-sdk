@@ -106,6 +106,7 @@ export { RunMetric } from './RunMetric';
 export { RunParam } from './RunParam';
 export { Trial } from './Trial';
 export { TrialLabel } from './TrialLabel';
+export { UserMetricsEndpoint } from './UserMetricsEndpoint';
 export { AcceptDataworksEventRequest } from './AcceptDataworksEventRequest';
 export { AcceptDataworksEventResponseBody } from './AcceptDataworksEventResponseBody';
 export { AcceptDataworksEventResponse } from './AcceptDataworksEventResponse';

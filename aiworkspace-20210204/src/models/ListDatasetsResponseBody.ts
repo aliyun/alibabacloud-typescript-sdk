@@ -19,7 +19,7 @@ export class ListDatasetsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total count of datasets.
+   * The total number of entries returned.
    * 
    * @example
    * 15

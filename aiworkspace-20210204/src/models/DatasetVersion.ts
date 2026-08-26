@@ -1,12 +1,13 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
 import { Label } from "./Label";
+import { UserMetricsEndpoint } from "./UserMetricsEndpoint";
 
 
 export class DatasetVersion extends $dara.Model {
   /**
    * @remarks
-   * The total number of data items in the version.
+   * DataCount
    * 
    * @example
    * 10000
@@ -14,7 +15,7 @@ export class DatasetVersion extends $dara.Model {
   dataCount?: number;
   /**
    * @remarks
-   * The total size of the data in the version, in bytes.
+   * DataSize
    * 
    * @example
    * 10000
@@ -22,7 +23,7 @@ export class DatasetVersion extends $dara.Model {
   dataSize?: number;
   /**
    * @remarks
-   * The data source type. For example, the value `OSS` indicates Object Storage Service.
+   * DataSourceType
    * 
    * @example
    * OSS
@@ -30,7 +31,15 @@ export class DatasetVersion extends $dara.Model {
   dataSourceType?: string;
   /**
    * @remarks
-   * A custom description for the dataset version.
+   * DatasetTaskRamRole
+   * 
+   * @example
+   * acs:ram::1234567890123456:role/role-name
+   */
+  datasetTaskRamRole?: string;
+  /**
+   * @remarks
+   * Description
    * 
    * @example
    * base model v1
@@ -38,7 +47,7 @@ export class DatasetVersion extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The creation time of the dataset version, in UTC.
+   * create time
    * 
    * @example
    * 2021-01-21T17:12:35.232Z
@@ -46,7 +55,7 @@ export class DatasetVersion extends $dara.Model {
   gmtCreateTime?: string;
   /**
    * @remarks
-   * The time the dataset version was last modified, in UTC.
+   * modify time
    * 
    * @example
    * 2021-01-21T17:12:35.232Z
@@ -54,7 +63,7 @@ export class DatasetVersion extends $dara.Model {
   gmtModifiedTime?: string;
   /**
    * @remarks
-   * Information about the import source, in JSON format.
+   * ImportInfo
    * 
    * @example
    * {
@@ -68,12 +77,12 @@ export class DatasetVersion extends $dara.Model {
   importInfo?: string;
   /**
    * @remarks
-   * A list of labels applied to the dataset version.
+   * Labels
    */
   labels?: Label[];
   /**
    * @remarks
-   * The access permission for the mounted dataset. For example, `RO` means read-only.
+   * MountAccess
    * 
    * @example
    * RO
@@ -81,7 +90,7 @@ export class DatasetVersion extends $dara.Model {
   mountAccess?: string;
   /**
    * @remarks
-   * Additional configurations for the dataset version, in JSON format.
+   * Options
    * 
    * @example
    * {
@@ -91,7 +100,7 @@ export class DatasetVersion extends $dara.Model {
   options?: string;
   /**
    * @remarks
-   * The data format of the dataset.
+   * property
    * 
    * @example
    * FILE
@@ -99,7 +108,7 @@ export class DatasetVersion extends $dara.Model {
   property?: string;
   /**
    * @remarks
-   * The ID of the source from which the version was created.
+   * SourceId
    * 
    * @example
    * d-65mrsr5fub4u74lej3
@@ -107,7 +116,7 @@ export class DatasetVersion extends $dara.Model {
   sourceId?: string;
   /**
    * @remarks
-   * The method used to create the dataset version.
+   * SourceType
    * 
    * @example
    * USER
@@ -115,7 +124,7 @@ export class DatasetVersion extends $dara.Model {
   sourceType?: string;
   /**
    * @remarks
-   * The URI of the data source.
+   * Uri
    * 
    * @example
    * OSS://xxx
@@ -123,7 +132,12 @@ export class DatasetVersion extends $dara.Model {
   uri?: string;
   /**
    * @remarks
-   * The name of the dataset version.
+   * UserMetricsEndpoints
+   */
+  userMetricsEndpoints?: UserMetricsEndpoint[];
+  /**
+   * @remarks
+   * version name
    * 
    * @example
    * v1
@@ -134,6 +148,7 @@ export class DatasetVersion extends $dara.Model {
       dataCount: 'DataCount',
       dataSize: 'DataSize',
       dataSourceType: 'DataSourceType',
+      datasetTaskRamRole: 'DatasetTaskRamRole',
       description: 'Description',
       gmtCreateTime: 'GmtCreateTime',
       gmtModifiedTime: 'GmtModifiedTime',
@@ -145,6 +160,7 @@ export class DatasetVersion extends $dara.Model {
       sourceId: 'SourceId',
       sourceType: 'SourceType',
       uri: 'Uri',
+      userMetricsEndpoints: 'UserMetricsEndpoints',
       versionName: 'VersionName',
     };
   }
@@ -154,6 +170,7 @@ export class DatasetVersion extends $dara.Model {
       dataCount: 'number',
       dataSize: 'number',
       dataSourceType: 'string',
+      datasetTaskRamRole: 'string',
       description: 'string',
       gmtCreateTime: 'string',
       gmtModifiedTime: 'string',
@@ -165,6 +182,7 @@ export class DatasetVersion extends $dara.Model {
       sourceId: 'string',
       sourceType: 'string',
       uri: 'string',
+      userMetricsEndpoints: { 'type': 'array', 'itemType': UserMetricsEndpoint },
       versionName: 'string',
     };
   }
@@ -172,6 +190,9 @@ export class DatasetVersion extends $dara.Model {
   validate() {
     if(Array.isArray(this.labels)) {
       $dara.Model.validateArray(this.labels);
+    }
+    if(Array.isArray(this.userMetricsEndpoints)) {
+      $dara.Model.validateArray(this.userMetricsEndpoints);
     }
     super.validate();
   }

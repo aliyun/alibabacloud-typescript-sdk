@@ -6,14 +6,14 @@ import { DatasetFileMetaContentCreate } from "./DatasetFileMetaContentCreate";
 export class CreateDatasetFileMetasRequest extends $dara.Model {
   /**
    * @remarks
-   * A list of file metadata content.
+   * The list of file metadata entries.
    * 
    * This parameter is required.
    */
   datasetFileMetas?: DatasetFileMetaContentCreate[];
   /**
    * @remarks
-   * The name of the dataset version.
+   * The dataset version name.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class CreateDatasetFileMetasRequest extends $dara.Model {
   datasetVersion?: string;
   /**
    * @remarks
-   * The ID of the workspace where the dataset is located. For more information about how to obtain a workspace ID, see [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html).
+   * The ID of the workspace where the dataset resides. For information about how to obtain the workspace ID, see [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html).
    * 
    * This parameter is required.
    * 

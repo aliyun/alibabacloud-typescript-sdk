@@ -1,12 +1,13 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
 import { Label } from "./Label";
+import { UserMetricsEndpoint } from "./UserMetricsEndpoint";
 
 
 export class GetDatasetVersionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of data entries.
+   * The data volume.
    * 
    * @example
    * 10000
@@ -14,7 +15,7 @@ export class GetDatasetVersionResponseBody extends $dara.Model {
   dataCount?: number;
   /**
    * @remarks
-   * The size of the dataset.
+   * The dataset size.
    * 
    * @example
    * 10000
@@ -22,7 +23,7 @@ export class GetDatasetVersionResponseBody extends $dara.Model {
   dataSize?: number;
   /**
    * @remarks
-   * The type of the data source.
+   * The data source type.
    * 
    * This parameter is required.
    * 
@@ -32,7 +33,7 @@ export class GetDatasetVersionResponseBody extends $dara.Model {
   dataSourceType?: string;
   /**
    * @remarks
-   * The ID of the dataset.
+   * The primary resource ID.
    * 
    * @example
    * d-dkdbnnap0g7b6su4yg
@@ -40,7 +41,15 @@ export class GetDatasetVersionResponseBody extends $dara.Model {
   datasetId?: string;
   /**
    * @remarks
-   * The description of the version.
+   * DatasetTaskRamRole
+   * 
+   * @example
+   * acs:ram::1234567890123456:role/role-name
+   */
+  datasetTaskRamRole?: string;
+  /**
+   * @remarks
+   * The version description.
    * 
    * @example
    * This is a description of the dataset version.
@@ -48,7 +57,7 @@ export class GetDatasetVersionResponseBody extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The time when the dataset version was created.
+   * The creation time.
    * 
    * @example
    * 2023-12-13T10:22:05.694Z
@@ -56,7 +65,7 @@ export class GetDatasetVersionResponseBody extends $dara.Model {
   gmtCreateTime?: string;
   /**
    * @remarks
-   * The time when the dataset version was last modified.
+   * The last modification time.
    * 
    * @example
    * 2023-12-13T10:22:05.694Z
@@ -64,56 +73,31 @@ export class GetDatasetVersionResponseBody extends $dara.Model {
   gmtModifiedTime?: string;
   /**
    * @remarks
-   * The storage import configuration of the dataset. Supported storage services include OSS, NAS, and CPFS.
+   * The storage import configuration of the dataset. OSS, NAS, and CPFS are supported.
    * 
    * <details>
-   * 
-   * <summary>
-   * 
-   * OSS
-   * 
-   * </summary>
-   * 
+   * <summary>OSS</summary>
    * {
-   * "region": "${region}",// Region ID
-   * "bucket": "${bucket}",// Bucket name
-   * "path": "${path}" // File path
+   * "region": "${region}",//The region ID.
+   * "bucket": "${bucket}",//The bucket name.
+   * "path": "${path}" //The file path.
    * }
+   * </details>
+   * 
+   * <details>
+   * <summary>NAS</summary>
    * 
    * </details>
    * 
    * <details>
-   * 
-   * <summary>
-   * 
-   * NAS
-   * 
-   * </summary>
-   * 
-   * </details>
-   * 
-   * <details>
-   * 
-   * <summary>
-   * 
-   * CPFS
-   * 
-   * </summary>
-   * 
+   * <summary>CPFS</summary>
    * Block content
-   * 
    * </details>
    * 
+   * 
    * <details>
-   * 
-   * <summary>
-   * 
-   * AI Computing CPFS
-   * 
-   * </summary>
-   * 
+   * <summary>Intelligent computing CPFS</summary>
    * Block content
-   * 
    * </details>
    * 
    * @example
@@ -128,16 +112,14 @@ export class GetDatasetVersionResponseBody extends $dara.Model {
   importInfo?: string;
   /**
    * @remarks
-   * The tags of the resource.
+   * The resource labels.
    */
   labels?: Label[];
   /**
    * @remarks
-   * The access permissions when the dataset is mounted.
-   * 
-   * - RO: Read-only mount
-   * 
-   * - RW: Read-write mount
+   * The permission when the dataset is mounted. Valid values:
+   * - RO: read-only mount
+   * - RW: read and write mount
    * 
    * @example
    * RO
@@ -145,7 +127,7 @@ export class GetDatasetVersionResponseBody extends $dara.Model {
   mountAccess?: string;
   /**
    * @remarks
-   * Additional options.
+   * The extension field.
    * 
    * @example
    * {
@@ -165,7 +147,7 @@ export class GetDatasetVersionResponseBody extends $dara.Model {
   property?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * Id of the request
    * 
    * @example
    * C55DF3DA-F120-5E37-A374-F49365531701
@@ -173,7 +155,7 @@ export class GetDatasetVersionResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the dataset source.
+   * The dataset source ID.
    * 
    * @example
    * d-rbvg5wzljzjhc9ks92
@@ -181,7 +163,7 @@ export class GetDatasetVersionResponseBody extends $dara.Model {
   sourceId?: string;
   /**
    * @remarks
-   * The source type.
+   * The data source type.
    * 
    * @example
    * USER
@@ -189,7 +171,7 @@ export class GetDatasetVersionResponseBody extends $dara.Model {
   sourceType?: string;
   /**
    * @remarks
-   * The URI of the dataset version.
+   * The URI configuration example.
    * 
    * This parameter is required.
    * 
@@ -197,9 +179,10 @@ export class GetDatasetVersionResponseBody extends $dara.Model {
    * oss://ai4d-br7hx9ngzelo2o6uip.oss-cn-shanghai.aliyuncs.com/365349/data-1157703270994901/datasets/aka108o/
    */
   uri?: string;
+  userMetricsEndpoints?: UserMetricsEndpoint[];
   /**
    * @remarks
-   * The name of the dataset version.
+   * The dataset version.
    * 
    * @example
    * v1
@@ -211,6 +194,7 @@ export class GetDatasetVersionResponseBody extends $dara.Model {
       dataSize: 'DataSize',
       dataSourceType: 'DataSourceType',
       datasetId: 'DatasetId',
+      datasetTaskRamRole: 'DatasetTaskRamRole',
       description: 'Description',
       gmtCreateTime: 'GmtCreateTime',
       gmtModifiedTime: 'GmtModifiedTime',
@@ -223,6 +207,7 @@ export class GetDatasetVersionResponseBody extends $dara.Model {
       sourceId: 'SourceId',
       sourceType: 'SourceType',
       uri: 'Uri',
+      userMetricsEndpoints: 'UserMetricsEndpoints',
       versionName: 'VersionName',
     };
   }
@@ -233,6 +218,7 @@ export class GetDatasetVersionResponseBody extends $dara.Model {
       dataSize: 'number',
       dataSourceType: 'string',
       datasetId: 'string',
+      datasetTaskRamRole: 'string',
       description: 'string',
       gmtCreateTime: 'string',
       gmtModifiedTime: 'string',
@@ -245,6 +231,7 @@ export class GetDatasetVersionResponseBody extends $dara.Model {
       sourceId: 'string',
       sourceType: 'string',
       uri: 'string',
+      userMetricsEndpoints: { 'type': 'array', 'itemType': UserMetricsEndpoint },
       versionName: 'string',
     };
   }
@@ -252,6 +239,9 @@ export class GetDatasetVersionResponseBody extends $dara.Model {
   validate() {
     if(Array.isArray(this.labels)) {
       $dara.Model.validateArray(this.labels);
+    }
+    if(Array.isArray(this.userMetricsEndpoints)) {
+      $dara.Model.validateArray(this.userMetricsEndpoints);
     }
     super.validate();
   }

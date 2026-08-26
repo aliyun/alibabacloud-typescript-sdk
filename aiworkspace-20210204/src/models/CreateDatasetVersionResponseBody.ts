@@ -13,7 +13,7 @@ export class CreateDatasetVersionResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The name of the dataset version.
+   * The dataset version name.
    * 
    * @example
    * v1
