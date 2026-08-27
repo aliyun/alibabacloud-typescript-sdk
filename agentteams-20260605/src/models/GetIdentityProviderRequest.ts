@@ -5,12 +5,22 @@ import * as $dara from '@darabonba/typescript';
 export class GetIdentityProviderRequest extends $dara.Model {
   /**
    * @remarks
+   * The identity provider type. Currently, only DingTalk is supported.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * DingTalk
    */
   identityProviderType?: string;
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * agentteams-xxx
    */
   instanceId?: string;
   static names(): { [key: string]: string } {

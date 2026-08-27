@@ -3,8 +3,29 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListWorkersRequestGroup extends $dara.Model {
+  /**
+   * @remarks
+   * The returned data.
+   * 
+   * @example
+   * worker-demo
+   */
   name?: string;
+  /**
+   * @remarks
+   * The returned data.
+   * 
+   * @example
+   * member
+   */
   role?: string;
+  /**
+   * @remarks
+   * The returned data.
+   * 
+   * @example
+   * team
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -32,8 +53,29 @@ export class ListWorkersRequestGroup extends $dara.Model {
 }
 
 export class ListWorkersRequestTemplate extends $dara.Model {
+  /**
+   * @remarks
+   * The returned data.
+   * 
+   * @example
+   * 标签
+   */
   label?: string;
+  /**
+   * @remarks
+   * The returned data.
+   * 
+   * @example
+   * worker-demo
+   */
   name?: string;
+  /**
+   * @remarks
+   * The returned data.
+   * 
+   * @example
+   * 1.0.0
+   */
   version?: string;
   static names(): { [key: string]: string } {
     return {
@@ -61,21 +103,103 @@ export class ListWorkersRequestTemplate extends $dara.Model {
 }
 
 export class ListWorkersRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The Agent runtime type filter.
+   * 
+   * @example
+   * Qwenpaw
+   */
   agentType?: string;
+  /**
+   * @remarks
+   * The credential name filter.
+   * 
+   * @example
+   * cred-demo
+   */
   credential?: string;
+  /**
+   * @remarks
+   * The team group filter.
+   * 
+   * @example
+   * {}
+   */
   group?: ListWorkersRequestGroup;
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * inst-demo
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * The maximum number of entries to return per page. Valid values: 1 to 100. Default value: 10.
+   * 
+   * @example
+   * 10
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The MCP server name filter.
+   * 
+   * @example
+   * mcp-demo
+   */
   mcp?: string;
+  /**
+   * @remarks
+   * The model name filter.
+   * 
+   * @example
+   * qwen-max
+   */
   modelName?: string;
+  /**
+   * @remarks
+   * The model provider filter.
+   * 
+   * @example
+   * dashscope
+   */
   modelProvider?: string;
+  /**
+   * @remarks
+   * The fuzzy match filter for the Worker name.
+   * 
+   * @example
+   * worker
+   */
   nameLike?: string;
+  /**
+   * @remarks
+   * The pagination token used to query the next page of data.
+   * 
+   * @example
+   * 0
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The template filter.
+   * 
+   * @example
+   * {}
+   */
   template?: ListWorkersRequestTemplate;
+  /**
+   * @remarks
+   * The Worker version number filter.
+   * 
+   * @example
+   * v1.0.0
+   */
   versionCode?: string;
   static names(): { [key: string]: string } {
     return {

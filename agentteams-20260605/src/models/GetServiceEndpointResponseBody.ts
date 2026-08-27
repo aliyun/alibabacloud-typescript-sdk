@@ -3,17 +3,110 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetServiceEndpointResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The certificate identifier.
+   * 
+   * @example
+   * cert-xxx
+   */
   certIdentifier?: string;
+  /**
+   * @remarks
+   * The component type. Valid values:
+   *  * ELEMENT: element
+   *  * TUNNEL: tunnel
+   *  * MATRIX: matrix
+   *  * WORKER: worker
+   * 
+   * @example
+   * WORKER
+   */
   component?: string;
+  /**
+   * @remarks
+   * The creation time.
+   * 
+   * @example
+   * 2024-01-01T00:00:00Z
+   */
   createTime?: string;
+  /**
+   * @remarks
+   * The domain name.
+   * 
+   * @example
+   * matrix.example.com
+   */
   domain?: string;
+  /**
+   * @remarks
+   * The domain name type. Valid values:
+   *  * BUILTIN: built-in
+   *  * CUSTOM: custom
+   * 
+   * @example
+   * CUSTOM
+   */
   domainType?: string;
+  /**
+   * @remarks
+   * Endpoint ID
+   * 
+   * @example
+   * mep-test0001
+   */
   endpointId?: string;
+  /**
+   * @remarks
+   * The service name.
+   * 
+   * @example
+   * matrix-service
+   */
   endpointName?: string;
+  /**
+   * @remarks
+   * The instance ID.
+   * 
+   * @example
+   * agentteams-demo
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The network type. Valid values:
+   *  * NONE: none
+   *  * INTRANET: internal network
+   *  * INTERNET: Internet
+   * 
+   * @example
+   * INTERNET
+   */
   networkType?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The status.
+   * 
+   * @example
+   * CONFIGURED
+   */
   status?: string;
+  /**
+   * @remarks
+   * The update time.
+   * 
+   * @example
+   * 2024-01-01T00:00:00Z
+   */
   updateTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -60,22 +153,41 @@ export class GetServiceEndpointResponseBodyData extends $dara.Model {
 
 export class GetServiceEndpointResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response code returned on success.
+   * 
    * @example
    * SUCCESS
    */
   code?: string;
+  /**
+   * @remarks
+   * The details of the endpoint.
+   * 
+   * @example
+   * {}
+   */
   data?: GetServiceEndpointResponseBodyData;
   /**
+   * @remarks
+   * **message**
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * **requestId**
+   * 
    * @example
    * req-xxx
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the operation was successful.
+   * 
    * @example
    * true
    */

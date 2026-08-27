@@ -5,15 +5,26 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateInstanceAsyncTaskRequest extends $dara.Model {
   /**
    * @remarks
+   * The AgentTeams instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
    * at-xxx
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * Specifies whether to resume the task.
+   * 
+   * @example
+   * true
+   */
   isResume?: boolean;
   /**
    * @remarks
+   * The asynchronous task code. Only `agentteams:pay-order:create` is supported.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -22,6 +33,8 @@ export class UpdateInstanceAsyncTaskRequest extends $dara.Model {
   taskCode?: string;
   /**
    * @remarks
+   * The asynchronous task ID.
+   * 
    * This parameter is required.
    * 
    * @example

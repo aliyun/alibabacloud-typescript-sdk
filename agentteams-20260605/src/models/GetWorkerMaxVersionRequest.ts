@@ -5,7 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class GetWorkerMaxVersionRequest extends $dara.Model {
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * inst-demo
    */
   instanceId?: string;
   static names(): { [key: string]: string } {

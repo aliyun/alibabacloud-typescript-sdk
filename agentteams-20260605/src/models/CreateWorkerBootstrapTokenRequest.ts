@@ -5,17 +5,32 @@ import * as $dara from '@darabonba/typescript';
 export class CreateWorkerBootstrapTokenRequest extends $dara.Model {
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * inst-demo
    */
   instanceId?: string;
   /**
    * @remarks
+   * The name.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * worker-demo
    */
   name?: string;
   /**
    * @remarks
+   * The network type.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * INTRANET
    */
   networkType?: string;
   static names(): { [key: string]: string } {

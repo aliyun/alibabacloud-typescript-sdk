@@ -3,12 +3,61 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateModelProviderResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The address of the model provider.
+   * 
+   * @example
+   * https://api.example.com
+   */
   address?: string;
+  /**
+   * @remarks
+   * The time when the model provider was created.
+   * 
+   * @example
+   * 2026-06-11T10:00:00Z
+   */
   createTime?: string;
+  /**
+   * @remarks
+   * The description of the model provider.
+   * 
+   * @example
+   * my provider
+   */
   description?: string;
+  /**
+   * @remarks
+   * The ID of the model provider.
+   * 
+   * @example
+   * p-xxx
+   */
   id?: string;
+  /**
+   * @remarks
+   * The name of the model provider.
+   * 
+   * @example
+   * my-provider
+   */
   name?: string;
+  /**
+   * @remarks
+   * The list of protocols supported by the model provider.
+   * 
+   * @example
+   * ["openai"]
+   */
   protocols?: string[];
+  /**
+   * @remarks
+   * The provider identifier.
+   * 
+   * @example
+   * openai
+   */
   provider?: string;
   static names(): { [key: string]: string } {
     return {
@@ -47,10 +96,45 @@ export class CreateModelProviderResponseBodyData extends $dara.Model {
 }
 
 export class CreateModelProviderResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response code.
+   * 
+   * @example
+   * SUCCESS
+   */
   code?: string;
+  /**
+   * @remarks
+   * The response data.
+   * 
+   * @example
+   * {}
+   */
   data?: CreateModelProviderResponseBodyData;
+  /**
+   * @remarks
+   * The response message.
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * req-xxx
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

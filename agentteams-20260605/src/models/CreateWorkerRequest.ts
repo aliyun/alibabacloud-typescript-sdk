@@ -3,13 +3,69 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateWorkerRequestChannelsConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The returned data.
+   * 
+   * @example
+   * tpl-demo
+   */
   cardTemplateId?: string;
+  /**
+   * @remarks
+   * The returned data.
+   * 
+   * @example
+   * cli-demo
+   */
   clientId?: string;
+  /**
+   * @remarks
+   * The returned data.
+   * 
+   * @example
+   * extension-demo
+   */
   extension?: string;
+  /**
+   * @remarks
+   * The returned data.
+   * 
+   * @example
+   * markdown
+   */
   messageType?: string;
+  /**
+   * @remarks
+   * The returned data.
+   * 
+   * @example
+   * robot-demo
+   */
   robotCode?: string;
+  /**
+   * @remarks
+   * The returned data.
+   * 
+   * @example
+   * true
+   */
   showThinking?: boolean;
+  /**
+   * @remarks
+   * The returned data.
+   * 
+   * @example
+   * false
+   */
   showToolCalls?: boolean;
+  /**
+   * @remarks
+   * The returned data.
+   * 
+   * @example
+   * true
+   */
   streamingEnabled?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -47,6 +103,13 @@ export class CreateWorkerRequestChannelsConfig extends $dara.Model {
 }
 
 export class CreateWorkerRequestChannelsSecrets extends $dara.Model {
+  /**
+   * @remarks
+   * The returned data.
+   * 
+   * @example
+   * secret-demo
+   */
   clientSecret?: string;
   static names(): { [key: string]: string } {
     return {
@@ -70,9 +133,37 @@ export class CreateWorkerRequestChannelsSecrets extends $dara.Model {
 }
 
 export class CreateWorkerRequestChannels extends $dara.Model {
+  /**
+   * @remarks
+   * The channel configuration.
+   * 
+   * @example
+   * {}
+   */
   config?: CreateWorkerRequestChannelsConfig;
+  /**
+   * @remarks
+   * Specifies whether the channel is enabled.
+   * 
+   * @example
+   * true
+   */
   enabled?: boolean;
+  /**
+   * @remarks
+   * The channel secrets.
+   * 
+   * @example
+   * {}
+   */
   secrets?: CreateWorkerRequestChannelsSecrets;
+  /**
+   * @remarks
+   * The channel type.
+   * 
+   * @example
+   * dingtalk
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -108,6 +199,13 @@ export class CreateWorkerRequestChannels extends $dara.Model {
 }
 
 export class CreateWorkerRequestCredentials extends $dara.Model {
+  /**
+   * @remarks
+   * The credential name.
+   * 
+   * @example
+   * cred-demo
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -131,8 +229,29 @@ export class CreateWorkerRequestCredentials extends $dara.Model {
 }
 
 export class CreateWorkerRequestGroups extends $dara.Model {
+  /**
+   * @remarks
+   * The group name.
+   * 
+   * @example
+   * team-demo
+   */
   name?: string;
+  /**
+   * @remarks
+   * The group role.
+   * 
+   * @example
+   * member
+   */
   role?: string;
+  /**
+   * @remarks
+   * The group type.
+   * 
+   * @example
+   * team
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -161,15 +280,28 @@ export class CreateWorkerRequestGroups extends $dara.Model {
 
 export class CreateWorkerRequestLimitConfig extends $dara.Model {
   /**
+   * @remarks
+   * The quota type.
+   * 
    * @example
    * token
    */
   limitType?: string;
   /**
+   * @remarks
+   * The period type.
+   * 
    * @example
    * day
    */
   periodType?: string;
+  /**
+   * @remarks
+   * The quota limit.
+   * 
+   * @example
+   * 1000000
+   */
   usageLimit?: number;
   static names(): { [key: string]: string } {
     return {
@@ -197,6 +329,13 @@ export class CreateWorkerRequestLimitConfig extends $dara.Model {
 }
 
 export class CreateWorkerRequestMcpServers extends $dara.Model {
+  /**
+   * @remarks
+   * The MCP server name.
+   * 
+   * @example
+   * mcp-server-demo
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -220,7 +359,21 @@ export class CreateWorkerRequestMcpServers extends $dara.Model {
 }
 
 export class CreateWorkerRequestModel extends $dara.Model {
+  /**
+   * @remarks
+   * The returned data.
+   * 
+   * @example
+   * qwen-max
+   */
   modelName?: string;
+  /**
+   * @remarks
+   * The returned data.
+   * 
+   * @example
+   * default
+   */
   modelProvider?: string;
   static names(): { [key: string]: string } {
     return {
@@ -246,8 +399,29 @@ export class CreateWorkerRequestModel extends $dara.Model {
 }
 
 export class CreateWorkerRequestSkills extends $dara.Model {
+  /**
+   * @remarks
+   * The skill label.
+   * 
+   * @example
+   * Code Review.
+   */
   label?: string;
+  /**
+   * @remarks
+   * The skill name.
+   * 
+   * @example
+   * code-review
+   */
   name?: string;
+  /**
+   * @remarks
+   * The skill version.
+   * 
+   * @example
+   * 1.0.0
+   */
   version?: string;
   static names(): { [key: string]: string } {
     return {
@@ -275,8 +449,29 @@ export class CreateWorkerRequestSkills extends $dara.Model {
 }
 
 export class CreateWorkerRequestSubagentsSkills extends $dara.Model {
+  /**
+   * @remarks
+   * The returned data.
+   * 
+   * @example
+   * Label.
+   */
   label?: string;
+  /**
+   * @remarks
+   * The returned data.
+   * 
+   * @example
+   * worker-demo
+   */
   name?: string;
+  /**
+   * @remarks
+   * The returned data.
+   * 
+   * @example
+   * 1.0.0
+   */
   version?: string;
   static names(): { [key: string]: string } {
     return {
@@ -304,8 +499,29 @@ export class CreateWorkerRequestSubagentsSkills extends $dara.Model {
 }
 
 export class CreateWorkerRequestSubagents extends $dara.Model {
+  /**
+   * @remarks
+   * The sub-agent configuration.
+   * 
+   * @example
+   * agents-demo
+   */
   agents?: string;
+  /**
+   * @remarks
+   * The list of sub-agent skills.
+   * 
+   * @example
+   * [...]
+   */
   skills?: CreateWorkerRequestSubagentsSkills[];
+  /**
+   * @remarks
+   * The sub-agent ID.
+   * 
+   * @example
+   * sub-demo
+   */
   subagentId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -336,8 +552,29 @@ export class CreateWorkerRequestSubagents extends $dara.Model {
 }
 
 export class CreateWorkerRequestTemplate extends $dara.Model {
+  /**
+   * @remarks
+   * The returned data.
+   * 
+   * @example
+   * Label.
+   */
   label?: string;
+  /**
+   * @remarks
+   * The returned data.
+   * 
+   * @example
+   * worker-demo
+   */
   name?: string;
+  /**
+   * @remarks
+   * The returned data.
+   * 
+   * @example
+   * 1.0.0
+   */
   version?: string;
   static names(): { [key: string]: string } {
     return {
@@ -365,22 +602,141 @@ export class CreateWorkerRequestTemplate extends $dara.Model {
 }
 
 export class CreateWorkerRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The Agent runtime type.
+   * 
+   * @example
+   * Qwenpaw
+   */
   agentType?: string;
+  /**
+   * @remarks
+   * The Agents configuration.
+   * 
+   * @example
+   * agents-demo
+   */
   agents?: string;
+  /**
+   * @remarks
+   * The list of channel configurations.
+   * 
+   * @example
+   * [...]
+   */
   channels?: CreateWorkerRequestChannels[];
+  /**
+   * @remarks
+   * The idempotency token that ensures the idempotence of the request.
+   * 
+   * @example
+   * client-token-demo
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * The list of credential bindings.
+   * 
+   * @example
+   * [...]
+   */
   credentials?: CreateWorkerRequestCredentials[];
+  /**
+   * @remarks
+   * The deployment type.
+   * 
+   * @example
+   * SelfHosted
+   */
   deployType?: string;
+  /**
+   * @remarks
+   * The list of team groups.
+   * 
+   * @example
+   * [...]
+   */
   groups?: CreateWorkerRequestGroups[];
+  /**
+   * @remarks
+   * The instance ID.
+   * 
+   * @example
+   * inst-demo
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The quota configuration.
+   * 
+   * @example
+   * {}
+   */
   limitConfig?: CreateWorkerRequestLimitConfig;
+  /**
+   * @remarks
+   * The list of MCP servers.
+   * 
+   * @example
+   * [...]
+   */
   mcpServers?: CreateWorkerRequestMcpServers[];
+  /**
+   * @remarks
+   * The model configuration.
+   * 
+   * @example
+   * {}
+   */
   model?: CreateWorkerRequestModel;
+  /**
+   * @remarks
+   * The name.
+   * 
+   * @example
+   * worker-demo
+   */
   name?: string;
+  /**
+   * @remarks
+   * The list of skills.
+   * 
+   * @example
+   * [...]
+   */
   skills?: CreateWorkerRequestSkills[];
+  /**
+   * @remarks
+   * The Soul configuration.
+   * 
+   * @example
+   * soul-demo
+   */
   soul?: string;
+  /**
+   * @remarks
+   * The list of sub-agents.
+   * 
+   * @example
+   * [...]
+   */
   subagents?: CreateWorkerRequestSubagents[];
+  /**
+   * @remarks
+   * The template configuration.
+   * 
+   * @example
+   * {}
+   */
   template?: CreateWorkerRequestTemplate;
+  /**
+   * @remarks
+   * The Worker version number.
+   * 
+   * @example
+   * v1.0.0
+   */
   versionCode?: string;
   static names(): { [key: string]: string } {
     return {

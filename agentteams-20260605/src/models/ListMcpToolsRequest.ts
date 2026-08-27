@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListMcpToolsRequest extends $dara.Model {
   /**
    * @remarks
+   * Optional. The exact match filter for instance status.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,7 +15,12 @@ export class ListMcpToolsRequest extends $dara.Model {
   id?: string;
   /**
    * @remarks
+   * The AgentTeams instance ID.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * ins-xxx
    */
   instanceId?: string;
   static names(): { [key: string]: string } {

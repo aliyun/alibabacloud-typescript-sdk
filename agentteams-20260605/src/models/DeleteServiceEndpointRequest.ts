@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteServiceEndpointRequest extends $dara.Model {
   /**
    * @remarks
+   * **Endpoint ID**
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,7 +15,12 @@ export class DeleteServiceEndpointRequest extends $dara.Model {
   endpointId?: string;
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * agentteams-demo
    */
   instanceId?: string;
   static names(): { [key: string]: string } {

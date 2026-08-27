@@ -3,7 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListServiceEndpointsResponseBodyItemsEndpointConfigAuth extends $dara.Model {
+  /**
+   * @remarks
+   * API Key
+   * 
+   * @example
+   * xxx
+   */
   apiKey?: string;
+  /**
+   * @remarks
+   * The API key name.
+   * 
+   * @example
+   * Authorization
+   */
   apiKeyName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -29,6 +43,13 @@ export class ListServiceEndpointsResponseBodyItemsEndpointConfigAuth extends $da
 }
 
 export class ListServiceEndpointsResponseBodyItemsEndpointConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The authentication configuration.
+   * 
+   * @example
+   * {}
+   */
   auth?: ListServiceEndpointsResponseBodyItemsEndpointConfigAuth;
   static names(): { [key: string]: string } {
     return {
@@ -56,44 +77,100 @@ export class ListServiceEndpointsResponseBodyItemsEndpointConfig extends $dara.M
 
 export class ListServiceEndpointsResponseBodyItems extends $dara.Model {
   /**
+   * @remarks
+   * The certificate identifier.
+   * 
    * @example
    * cert-xxx
    */
   certIdentifier?: string;
   /**
+   * @remarks
+   * The endpoint component. Valid values: `ELEMENT`, `MATRIX`, `WORKER`, and `TUNNEL`.
+   * 
    * @example
    * MATRIX
    */
   component?: string;
+  /**
+   * @remarks
+   * The creation time.
+   * 
+   * @example
+   * 2024-01-01T00:00:00Z
+   */
   createTime?: string;
   /**
+   * @remarks
+   * The domain name.
+   * 
    * @example
    * matrix.example.com
    */
   domain?: string;
   /**
+   * @remarks
+   * The domain name type. Valid values: `BUILTIN` and `CUSTOM`.
+   * 
    * @example
    * CUSTOM
    */
   domainType?: string;
+  /**
+   * @remarks
+   * The configuration information of the endpoint.
+   * 
+   * @example
+   * {}
+   */
   endpointConfig?: ListServiceEndpointsResponseBodyItemsEndpointConfig;
+  /**
+   * @remarks
+   * Endpoint ID
+   * 
+   * @example
+   * ep-xxx
+   */
   endpointId?: string;
   /**
+   * @remarks
+   * The service name. Exact match is used.
+   * 
    * @example
    * matrix-service
    */
   endpointName?: string;
+  /**
+   * @remarks
+   * The instance ID.
+   * 
+   * @example
+   * agentteams-cn-xxxx
+   */
   instanceId?: string;
   /**
+   * @remarks
+   * The network type. Valid values: `INTRANET` and `INTERNET`.
+   * 
    * @example
    * INTERNET
    */
   networkType?: string;
   /**
+   * @remarks
+   * The status.
+   * 
    * @example
    * CONFIGURED
    */
   status?: string;
+  /**
+   * @remarks
+   * The update time.
+   * 
+   * @example
+   * 2024-01-01T00:00:00Z
+   */
   updateTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -143,33 +220,65 @@ export class ListServiceEndpointsResponseBodyItems extends $dara.Model {
 
 export class ListServiceEndpointsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The status code.
+   * 
    * @example
    * SUCCESS
    */
   code?: string;
+  /**
+   * @remarks
+   * items
+   * 
+   * @example
+   * [...]
+   */
   items?: ListServiceEndpointsResponseBodyItems[];
   /**
+   * @remarks
+   * The maximum number of results returned.
+   * 
    * @example
    * 1
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The response message.
+   * 
    * @example
    * success
    */
   message?: string;
+  /**
+   * @remarks
+   * nextToken
+   * 
+   * @example
+   * 2
+   */
   nextToken?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * xxx
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */
   success?: boolean;
   /**
+   * @remarks
+   * totalCount
+   * 
    * @example
    * 1
    */

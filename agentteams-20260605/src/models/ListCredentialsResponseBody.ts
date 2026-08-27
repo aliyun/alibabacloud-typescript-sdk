@@ -3,11 +3,53 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListCredentialsResponseBodyItems extends $dara.Model {
+  /**
+   * @remarks
+   * The number of bound Workers.
+   * 
+   * @example
+   * 1
+   */
   boundWorkerCount?: number;
+  /**
+   * @remarks
+   * The creation time in ISO 8601 format.
+   * 
+   * @example
+   * 2026-07-13T12:00:00Z
+   */
   createTime?: string;
+  /**
+   * @remarks
+   * The credential description.
+   * 
+   * @example
+   * OpenAI API key for the team
+   */
   description?: string;
+  /**
+   * @remarks
+   * The instance ID.
+   * 
+   * @example
+   * ami-2ze8x9c6f
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The credential key.
+   * 
+   * @example
+   * OPENAI_API_KEY
+   */
   name?: string;
+  /**
+   * @remarks
+   * The update time in ISO 8601 format.
+   * 
+   * @example
+   * 2026-07-13T12:00:00Z
+   */
   updateTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -41,14 +83,77 @@ export class ListCredentialsResponseBodyItems extends $dara.Model {
 }
 
 export class ListCredentialsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response code.
+   * 
+   * @example
+   * SUCCESS
+   */
   code?: string;
+  /**
+   * @remarks
+   * The HTTP status code.
+   * 
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @remarks
+   * The list of credential summaries.
+   * 
+   * @example
+   * []
+   */
   items?: ListCredentialsResponseBodyItems[];
+  /**
+   * @remarks
+   * The maximum number of entries per page.
+   * 
+   * @example
+   * 10
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The response message.
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The pagination token for the next page. An empty value indicates that the last page has been reached.
+   * 
+   * @example
+   * 10
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * req-xxx
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @remarks
+   * The total number of records that match the query conditions.
+   * 
+   * @example
+   * 2
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {

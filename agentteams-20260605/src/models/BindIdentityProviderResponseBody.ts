@@ -5,7 +5,21 @@ import * as $dara from '@darabonba/typescript';
 /**
  */
 export class BindIdentityProviderResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The identity provider type.
+   * 
+   * @example
+   * DingTalk
+   */
   identityProviderType?: string;
+  /**
+   * @remarks
+   * The instance ID.
+   * 
+   * @example
+   * agentteams-xxx
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31,11 +45,53 @@ export class BindIdentityProviderResponseBodyData extends $dara.Model {
 }
 
 export class BindIdentityProviderResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response code.
+   * 
+   * @example
+   * SUCCESS
+   */
   code?: string;
+  /**
+   * @remarks
+   * The response data.
+   * 
+   * @example
+   * {}
+   */
   data?: BindIdentityProviderResponseBodyData;
+  /**
+   * @remarks
+   * The HTTP status code.
+   * 
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @remarks
+   * The response message.
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * req-xxx
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

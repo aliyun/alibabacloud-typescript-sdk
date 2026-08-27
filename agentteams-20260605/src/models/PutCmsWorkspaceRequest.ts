@@ -5,7 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class PutCmsWorkspaceRequest extends $dara.Model {
   /**
    * @remarks
+   * The AgentTeams instance ID.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * at-xxx
    */
   instanceId?: string;
   static names(): { [key: string]: string } {

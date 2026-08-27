@@ -5,14 +5,31 @@ import * as $dara from '@darabonba/typescript';
 export class ResetUserPasswordRequest extends $dara.Model {
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * agentteams-test-001
    */
   instanceId?: string;
   /**
    * @remarks
+   * The name.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * worker-demo
    */
   name?: string;
+  /**
+   * @remarks
+   * The new password.
+   * 
+   * @example
+   * NewP@ssw0rd456
+   */
   password?: string;
   static names(): { [key: string]: string } {
     return {

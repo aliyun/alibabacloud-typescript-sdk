@@ -3,9 +3,37 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateModelProviderResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response code.
+   * 
+   * @example
+   * SUCCESS
+   */
   code?: string;
+  /**
+   * @remarks
+   * The response message.
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * req-xxx
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

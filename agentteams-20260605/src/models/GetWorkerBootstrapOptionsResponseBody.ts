@@ -3,7 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetWorkerBootstrapOptionsResponseBodyDataNetworkOptions extends $dara.Model {
+  /**
+   * @remarks
+   * Indicates whether the network type is available.
+   * 
+   * @example
+   * true
+   */
   available?: boolean;
+  /**
+   * @remarks
+   * The network type.
+   * 
+   * @example
+   * INTRANET
+   */
   networkType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -29,8 +43,29 @@ export class GetWorkerBootstrapOptionsResponseBodyDataNetworkOptions extends $da
 }
 
 export class GetWorkerBootstrapOptionsResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The instance ID.
+   * 
+   * @example
+   * inst-demo
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The Worker name.
+   * 
+   * @example
+   * worker-demo
+   */
   name?: string;
+  /**
+   * @remarks
+   * The list of network options.
+   * 
+   * @example
+   * {}
+   */
   networkOptions?: GetWorkerBootstrapOptionsResponseBodyDataNetworkOptions[];
   static names(): { [key: string]: string } {
     return {
@@ -61,11 +96,53 @@ export class GetWorkerBootstrapOptionsResponseBodyData extends $dara.Model {
 }
 
 export class GetWorkerBootstrapOptionsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response code.
+   * 
+   * @example
+   * SUCCESS
+   */
   code?: string;
+  /**
+   * @remarks
+   * The returned data.
+   * 
+   * @example
+   * {}
+   */
   data?: GetWorkerBootstrapOptionsResponseBodyData;
+  /**
+   * @remarks
+   * The HTTP status code.
+   * 
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @remarks
+   * The response message.
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 473469C7-XX-XX-XX
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

@@ -4,51 +4,81 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListSslCertsResponseBodyItems extends $dara.Model {
   /**
+   * @remarks
+   * The certificate algorithm.
+   * 
    * @example
    * RSA
    */
   algorithm?: string;
   /**
+   * @remarks
+   * The certificate ID.
+   * 
    * @example
    * 123
    */
   certId?: number;
   /**
+   * @remarks
+   * The certificate identifier used by APIG. Pass this value when creating or updating an HTTPS domain name.
+   * 
    * @example
    * 22584627-cn-hangzhou
    */
   certIdentifier?: string;
   /**
+   * @remarks
+   * The certificate name.
+   * 
    * @example
    * example-cert
    */
   certName?: string;
   /**
+   * @remarks
+   * Indicates whether the certificate chain is complete.
+   * 
    * @example
    * true
    */
   chainCompleted?: boolean;
   /**
+   * @remarks
+   * The certificate common name.
+   * 
    * @example
    * example.com
    */
   commonName?: string;
   /**
+   * @remarks
+   * The certificate domain name.
+   * 
    * @example
    * example.com
    */
   domain?: string;
   /**
+   * @remarks
+   * The certificate issuer.
+   * 
    * @example
    * DigiCert
    */
   issuer?: string;
   /**
+   * @remarks
+   * The expiration timestamp, in milliseconds.
+   * 
    * @example
    * 1893456000000
    */
   notAfterTimestamp?: number;
   /**
+   * @remarks
+   * The effective period UNIX timestamp, in milliseconds.
+   * 
    * @example
    * 1704067200000
    */
@@ -93,26 +123,66 @@ export class ListSslCertsResponseBodyItems extends $dara.Model {
 }
 
 export class ListSslCertsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The error code. This field is typically empty when the request is successful.
+   * 
+   * @example
+   * null
+   */
   code?: string;
+  /**
+   * @remarks
+   * The list of certificates.
+   * 
+   * @example
+   * [...]
+   */
   items?: ListSslCertsResponseBodyItems[];
+  /**
+   * @remarks
+   * The maximum number of records to return in this request.
+   * 
+   * @example
+   * 10
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The response message.
+   * 
+   * @example
+   * success
+   */
   message?: string;
   /**
+   * @remarks
+   * The pagination token for the next page. The value is `null` if no more pages are available.
+   * 
    * @example
    * 2
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * req-123
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */
   success?: boolean;
   /**
+   * @remarks
+   * The total number of certificates.
+   * 
    * @example
    * 11
    */

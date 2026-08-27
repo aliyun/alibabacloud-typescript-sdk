@@ -3,9 +3,37 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListMcpToolsResponseBodyItems extends $dara.Model {
+  /**
+   * @remarks
+   * The tool description.
+   * 
+   * @example
+   * Perform a search operation.
+   */
   description?: string;
+  /**
+   * @remarks
+   * The input parameter schema of the tool.
+   * 
+   * @example
+   * {"type":"object","properties":{"query":{"type":"string"}}}
+   */
   inputSchema?: string;
+  /**
+   * @remarks
+   * The tool name.
+   * 
+   * @example
+   * search
+   */
   name?: string;
+  /**
+   * @remarks
+   * The tool title.
+   * 
+   * @example
+   * Search tool.
+   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -35,13 +63,69 @@ export class ListMcpToolsResponseBodyItems extends $dara.Model {
 }
 
 export class ListMcpToolsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response code.
+   * 
+   * @example
+   * SUCCESS
+   */
   code?: string;
+  /**
+   * @remarks
+   * The list of tools.
+   * 
+   * @example
+   * [...]
+   */
   items?: ListMcpToolsResponseBodyItems[];
+  /**
+   * @remarks
+   * The maximum number of records per page.
+   * 
+   * @example
+   * 20
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The response message.
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The token for the next page.
+   * 
+   * @example
+   * next-token-xxx
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * req-xxx
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @remarks
+   * The total number of records.
+   * 
+   * @example
+   * 2
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {

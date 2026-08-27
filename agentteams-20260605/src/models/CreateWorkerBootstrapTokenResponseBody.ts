@@ -3,8 +3,29 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateWorkerBootstrapTokenResponseBodyDataCms extends $dara.Model {
+  /**
+   * @remarks
+   * The access endpoint.
+   * 
+   * @example
+   * https://cms-demo
+   */
   endpoint?: string;
+  /**
+   * @remarks
+   * The license key.
+   * 
+   * @example
+   * lk-xxx
+   */
   licenseKey?: string;
+  /**
+   * @remarks
+   * The workspace.
+   * 
+   * @example
+   * ws-demo
+   */
   workspace?: string;
   static names(): { [key: string]: string } {
     return {
@@ -32,11 +53,53 @@ export class CreateWorkerBootstrapTokenResponseBodyDataCms extends $dara.Model {
 }
 
 export class CreateWorkerBootstrapTokenResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The bootstrap token.
+   * 
+   * @example
+   * bt-xxx
+   */
   bootstrapToken?: string;
+  /**
+   * @remarks
+   * The CMS configuration.
+   * 
+   * @example
+   * {}
+   */
   cms?: CreateWorkerBootstrapTokenResponseBodyDataCms;
+  /**
+   * @remarks
+   * The instance ID.
+   * 
+   * @example
+   * inst-demo
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The Worker name.
+   * 
+   * @example
+   * worker-demo
+   */
   name?: string;
+  /**
+   * @remarks
+   * The network type.
+   * 
+   * @example
+   * INTRANET
+   */
   networkType?: string;
+  /**
+   * @remarks
+   * The token fingerprint.
+   * 
+   * @example
+   * sha256:xxx
+   */
   tokenFingerprint?: string;
   static names(): { [key: string]: string } {
     return {
@@ -73,11 +136,53 @@ export class CreateWorkerBootstrapTokenResponseBodyData extends $dara.Model {
 }
 
 export class CreateWorkerBootstrapTokenResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response code.
+   * 
+   * @example
+   * SUCCESS
+   */
   code?: string;
+  /**
+   * @remarks
+   * The returned data.
+   * 
+   * @example
+   * {}
+   */
   data?: CreateWorkerBootstrapTokenResponseBodyData;
+  /**
+   * @remarks
+   * The HTTP status code.
+   * 
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @remarks
+   * The response message.
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 473469C7-XX-XX-XX
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

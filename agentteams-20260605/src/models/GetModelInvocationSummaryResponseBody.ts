@@ -3,8 +3,29 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetModelInvocationSummaryResponseBodyDataProviderDistribution extends $dara.Model {
+  /**
+   * @remarks
+   * The number of calls.
+   * 
+   * @example
+   * 455
+   */
   count?: number;
+  /**
+   * @remarks
+   * The percentage.
+   * 
+   * @example
+   * 0.65
+   */
   percentage?: number;
+  /**
+   * @remarks
+   * The provider name.
+   * 
+   * @example
+   * my-provider
+   */
   providerName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -32,11 +53,53 @@ export class GetModelInvocationSummaryResponseBodyDataProviderDistribution exten
 }
 
 export class GetModelInvocationSummaryResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The call frequency. Unit: calls per minute.
+   * 
+   * @example
+   * 0.5
+   */
   callFrequency?: number;
+  /**
+   * @remarks
+   * The provider call distribution.
+   * 
+   * @example
+   * [...]
+   */
   providerDistribution?: GetModelInvocationSummaryResponseBodyDataProviderDistribution[];
+  /**
+   * @remarks
+   * The number of calls made today.
+   * 
+   * @example
+   * 100
+   */
   todayCallCount?: number;
+  /**
+   * @remarks
+   * The change rate of calls made today.
+   * 
+   * @example
+   * 0.15
+   */
   todayChangeRate?: number;
+  /**
+   * @remarks
+   * The number of calls made this week.
+   * 
+   * @example
+   * 700
+   */
   weekCallCount?: number;
+  /**
+   * @remarks
+   * The change rate of calls made this week.
+   * 
+   * @example
+   * 0.05
+   */
   weekChangeRate?: number;
   static names(): { [key: string]: string } {
     return {
@@ -73,11 +136,53 @@ export class GetModelInvocationSummaryResponseBodyData extends $dara.Model {
 }
 
 export class GetModelInvocationSummaryResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response code.
+   * 
+   * @example
+   * SUCCESS
+   */
   code?: string;
+  /**
+   * @remarks
+   * The returned data.
+   * 
+   * @example
+   * {}
+   */
   data?: GetModelInvocationSummaryResponseBodyData;
+  /**
+   * @remarks
+   * The HTTP status code.
+   * 
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @remarks
+   * The response message.
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * req-xxx
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

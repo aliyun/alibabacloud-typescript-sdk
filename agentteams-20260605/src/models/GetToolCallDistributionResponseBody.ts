@@ -3,7 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetToolCallDistributionResponseBodyDataItems extends $dara.Model {
+  /**
+   * @remarks
+   * The number of calls for the tool.
+   * 
+   * @example
+   * 300
+   */
   callCount?: number;
+  /**
+   * @remarks
+   * The tool name.
+   * 
+   * @example
+   * web_search
+   */
   toolName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -29,7 +43,21 @@ export class GetToolCallDistributionResponseBodyDataItems extends $dara.Model {
 }
 
 export class GetToolCallDistributionResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The tool calling distribution list.
+   * 
+   * @example
+   * [...]
+   */
   items?: GetToolCallDistributionResponseBodyDataItems[];
+  /**
+   * @remarks
+   * The total number of tool invocations.
+   * 
+   * @example
+   * 500
+   */
   totalCalls?: number;
   static names(): { [key: string]: string } {
     return {
@@ -58,11 +86,53 @@ export class GetToolCallDistributionResponseBodyData extends $dara.Model {
 }
 
 export class GetToolCallDistributionResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response code.
+   * 
+   * @example
+   * SUCCESS
+   */
   code?: string;
+  /**
+   * @remarks
+   * The returned data.
+   * 
+   * @example
+   * {}
+   */
   data?: GetToolCallDistributionResponseBodyData;
+  /**
+   * @remarks
+   * The HTTP status code.
+   * 
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @remarks
+   * The response message.
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * req-xxx
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

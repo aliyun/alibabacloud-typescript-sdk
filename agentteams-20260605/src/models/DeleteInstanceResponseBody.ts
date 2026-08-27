@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteInstanceResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the released instance.
+   * 
    * @example
    * inst-xxx
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The ID of the asynchronous release task. You can use this ID to query the task status.
+   * 
    * @example
    * task-xxx
    */
@@ -38,22 +44,41 @@ export class DeleteInstanceResponseBodyData extends $dara.Model {
 
 export class DeleteInstanceResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The status code.
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * The object that contains the released instance ID and the asynchronous release task ID.
+   * 
+   * @example
+   * {}
+   */
   data?: DeleteInstanceResponseBodyData;
   /**
+   * @remarks
+   * The response message.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * req-xxx
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

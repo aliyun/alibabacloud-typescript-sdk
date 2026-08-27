@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class QueryFeaturesRequest extends $dara.Model {
   /**
    * @remarks
+   * The AgentTeams instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,12 +14,17 @@ export class QueryFeaturesRequest extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The target resource name. Required for `WORKER`, `TEAM`, and `HUMAN`. Not required for `INSTANCE`.
+   * 
    * @example
    * worker-a
    */
   resourceName?: string;
   /**
    * @remarks
+   * The query target type: `INSTANCE` / `WORKER` / `TEAM` / `HUMAN`.
+   * 
    * This parameter is required.
    * 
    * @example

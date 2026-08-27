@@ -3,12 +3,61 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class TestModelProviderResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The error message. This parameter is returned when the test fails.
+   * 
+   * @example
+   * The model provider returned an error
+   */
   errorMessage?: string;
+  /**
+   * @remarks
+   * The number of input tokens.
+   * 
+   * @example
+   * 10
+   */
   inputTokens?: number;
+  /**
+   * @remarks
+   * The call latency, in milliseconds.
+   * 
+   * @example
+   * 500
+   */
   latencyMs?: number;
+  /**
+   * @remarks
+   * The number of output tokens.
+   * 
+   * @example
+   * 20
+   */
   outputTokens?: number;
+  /**
+   * @remarks
+   * The response content returned by the model.
+   * 
+   * @example
+   * I am fine, thank you!
+   */
   response?: string;
+  /**
+   * @remarks
+   * The test status.
+   * 
+   * @example
+   * success
+   */
   status?: string;
+  /**
+   * @remarks
+   * Indicates whether the test was successful.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -44,10 +93,45 @@ export class TestModelProviderResponseBodyData extends $dara.Model {
 }
 
 export class TestModelProviderResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response code.
+   * 
+   * @example
+   * SUCCESS
+   */
   code?: string;
+  /**
+   * @remarks
+   * The returned data.
+   * 
+   * @example
+   * {}
+   */
   data?: TestModelProviderResponseBodyData;
+  /**
+   * @remarks
+   * The response message.
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * req-xxx
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

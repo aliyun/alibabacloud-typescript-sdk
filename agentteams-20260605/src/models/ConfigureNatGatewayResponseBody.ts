@@ -4,22 +4,41 @@ import * as $dara from '@darabonba/typescript';
 
 export class ConfigureNatGatewayResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The business status code.
+   * 
    * @example
    * SUCCESS
    */
   code?: string;
+  /**
+   * @remarks
+   * The data object that contains the AgentTeams instance ID and the asynchronous task ID.
+   * 
+   * @example
+   * {}
+   */
   data?: { [key: string]: any };
   /**
+   * @remarks
+   * The response message.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * req-xxxx
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

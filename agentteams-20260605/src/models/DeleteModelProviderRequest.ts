@@ -5,12 +5,22 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteModelProviderRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the model provider.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * p-xxx
    */
   id?: string;
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * i-xxx
    */
   instanceId?: string;
   static names(): { [key: string]: string } {

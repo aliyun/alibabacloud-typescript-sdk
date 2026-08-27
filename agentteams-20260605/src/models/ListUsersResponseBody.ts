@@ -3,11 +3,53 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListUsersResponseBodyItems extends $dara.Model {
+  /**
+   * @remarks
+   * The authentication method.
+   * 
+   * @example
+   * password
+   */
   authMethod?: string;
+  /**
+   * @remarks
+   * The display name.
+   * 
+   * @example
+   * Demo User
+   */
   displayName?: string;
+  /**
+   * @remarks
+   * The email address.
+   * 
+   * @example
+   * demo@example.com
+   */
   email?: string;
+  /**
+   * @remarks
+   * The instance ID.
+   * 
+   * @example
+   * agentteams-test-001
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The username.
+   * 
+   * @example
+   * demo-user
+   */
   name?: string;
+  /**
+   * @remarks
+   * The user status.
+   * 
+   * @example
+   * Active
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -41,14 +83,77 @@ export class ListUsersResponseBodyItems extends $dara.Model {
 }
 
 export class ListUsersResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response code.
+   * 
+   * @example
+   * SUCCESS
+   */
   code?: string;
+  /**
+   * @remarks
+   * The HTTP status code.
+   * 
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @remarks
+   * The list of users on the current page.
+   * 
+   * @example
+   * [...]
+   */
   items?: ListUsersResponseBodyItems[];
+  /**
+   * @remarks
+   * The page size used in this response.
+   * 
+   * @example
+   * 10
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The response message.
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The pagination token for the next page. This parameter is null if no more pages exist.
+   * 
+   * @example
+   * 10
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * req-list-users-001
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @remarks
+   * The total number of records.
+   * 
+   * @example
+   * 23
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {

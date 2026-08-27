@@ -5,11 +5,18 @@ import * as $dara from '@darabonba/typescript';
 export class TestModelProviderRequest extends $dara.Model {
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * i-xxx
    */
   instanceId?: string;
   /**
    * @remarks
+   * The model name. Optional. Filters by fuzzy match on instance name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18,11 +25,18 @@ export class TestModelProviderRequest extends $dara.Model {
   modelName?: string;
   /**
    * @remarks
+   * The content of the test prompt.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * Hello, how are you?
    */
   prompt?: string;
   /**
    * @remarks
+   * The provider ID. Optional. Filters by exact match on instance status.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -31,7 +45,12 @@ export class TestModelProviderRequest extends $dara.Model {
   providerId?: string;
   /**
    * @remarks
+   * The name of the model provider.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * my-provider
    */
   providerName?: string;
   static names(): { [key: string]: string } {

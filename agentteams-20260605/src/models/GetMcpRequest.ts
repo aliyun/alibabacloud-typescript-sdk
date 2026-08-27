@@ -5,11 +5,18 @@ import * as $dara from '@darabonba/typescript';
 export class GetMcpRequest extends $dara.Model {
   /**
    * @remarks
+   * The MCP server ID.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * mcp-xxx
    */
   id?: string;
   /**
    * @remarks
+   * Optional. The instance name for fuzzy matching.
+   * 
    * This parameter is required.
    * 
    * @example

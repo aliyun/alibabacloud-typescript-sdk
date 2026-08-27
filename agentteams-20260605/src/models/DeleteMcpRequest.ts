@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteMcpRequest extends $dara.Model {
   /**
    * @remarks
+   * Optional. Fuzzy matches by instance name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,7 +15,12 @@ export class DeleteMcpRequest extends $dara.Model {
   id?: string;
   /**
    * @remarks
+   * The ID of the AgentTeams instance.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * ins-xxx
    */
   instanceId?: string;
   static names(): { [key: string]: string } {

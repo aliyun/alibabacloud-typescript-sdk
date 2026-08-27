@@ -5,29 +5,68 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateModelProviderShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The address of the model provider.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * https://api.example.com
    */
   address?: string;
   /**
    * @remarks
+   * The list of API keys for the model provider, in JSON format.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * ["sk-xxx"]
    */
   apiKeysShrink?: string;
+  /**
+   * @remarks
+   * The idempotency token that is used to ensure the idempotence of the request.
+   * 
+   * @example
+   * ct-xxx
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * The description of the model provider.
+   * 
+   * @example
+   * updated provider
+   */
   description?: string;
   /**
    * @remarks
+   * The model provider ID.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * p-xxx
    */
   id?: string;
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * i-xxx
    */
   instanceId?: string;
   /**
    * @remarks
+   * The list of protocols supported by the model provider, in JSON format.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * ["openai"]
    */
   protocolsShrink?: string;
   static names(): { [key: string]: string } {

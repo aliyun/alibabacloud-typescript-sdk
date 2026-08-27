@@ -5,23 +5,54 @@ import * as $dara from '@darabonba/typescript';
 export class CreateModelProviderRequest extends $dara.Model {
   /**
    * @remarks
+   * The address of the model provider.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * https://api.example.com
    */
   address?: string;
   /**
    * @remarks
+   * The list of API keys for the model provider, in JSON format.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * ["sk-xxx"]
    */
   apiKeys?: string[];
+  /**
+   * @remarks
+   * The idempotency token that ensures the idempotence of the request.
+   * 
+   * @example
+   * ct-xxx
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * The description of the model provider.
+   * 
+   * @example
+   * my provider
+   */
   description?: string;
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * i-xxx
    */
   instanceId?: string;
   /**
    * @remarks
+   * Optional. The instance name for fuzzy matching.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -30,11 +61,18 @@ export class CreateModelProviderRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
+   * The list of protocols supported by the model provider, in JSON format.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * ["openai"]
    */
   protocols?: string[];
   /**
    * @remarks
+   * Optional. The instance status for exact matching.
+   * 
    * This parameter is required.
    * 
    * @example

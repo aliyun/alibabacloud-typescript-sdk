@@ -5,19 +5,48 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateCredentialRequest extends $dara.Model {
   /**
    * @remarks
+   * The credential value.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * sk-yyyyyyyyyyyy
    */
   apiKey?: string;
+  /**
+   * @remarks
+   * The idempotency token that is used to ensure the idempotence of the request.
+   * 
+   * @example
+   * a1b2c3d4-e5f6-7890-1234-567890abcdef
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * The credential description.
+   * 
+   * @example
+   * OpenAI API key for the team
+   */
   description?: string;
   /**
    * @remarks
+   * The AgentTeams instance ID.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * ami-2ze8x9c6f
    */
   instanceId?: string;
   /**
    * @remarks
+   * The name.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * worker-demo
    */
   name?: string;
   static names(): { [key: string]: string } {

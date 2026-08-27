@@ -3,13 +3,69 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetWorkerResponseBodyDataChannelsConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The card template ID.
+   * 
+   * @example
+   * tpl-demo
+   */
   cardTemplateId?: string;
+  /**
+   * @remarks
+   * The client ID.
+   * 
+   * @example
+   * cli-demo
+   */
   clientId?: string;
+  /**
+   * @remarks
+   * The extension configuration.
+   * 
+   * @example
+   * extension-demo
+   */
   extension?: string;
+  /**
+   * @remarks
+   * The message type.
+   * 
+   * @example
+   * markdown
+   */
   messageType?: string;
+  /**
+   * @remarks
+   * The robot code.
+   * 
+   * @example
+   * robot-demo
+   */
   robotCode?: string;
+  /**
+   * @remarks
+   * Indicates whether the thinking process is displayed.
+   * 
+   * @example
+   * true
+   */
   showThinking?: boolean;
+  /**
+   * @remarks
+   * Indicates whether tool invocations are displayed.
+   * 
+   * @example
+   * false
+   */
   showToolCalls?: boolean;
+  /**
+   * @remarks
+   * Indicates whether streaming output is enabled.
+   * 
+   * @example
+   * true
+   */
   streamingEnabled?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -47,6 +103,13 @@ export class GetWorkerResponseBodyDataChannelsConfig extends $dara.Model {
 }
 
 export class GetWorkerResponseBodyDataChannelsSecretStatus extends $dara.Model {
+  /**
+   * @remarks
+   * Indicates whether the client secret has been set.
+   * 
+   * @example
+   * true
+   */
   clientSecret?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -70,9 +133,37 @@ export class GetWorkerResponseBodyDataChannelsSecretStatus extends $dara.Model {
 }
 
 export class GetWorkerResponseBodyDataChannels extends $dara.Model {
+  /**
+   * @remarks
+   * The channel configuration.
+   * 
+   * @example
+   * {}
+   */
   config?: GetWorkerResponseBodyDataChannelsConfig;
+  /**
+   * @remarks
+   * Indicates whether the channel is enabled.
+   * 
+   * @example
+   * true
+   */
   enabled?: boolean;
+  /**
+   * @remarks
+   * The secret status.
+   * 
+   * @example
+   * {}
+   */
   secretStatus?: GetWorkerResponseBodyDataChannelsSecretStatus;
+  /**
+   * @remarks
+   * The channel type.
+   * 
+   * @example
+   * dingtalk
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -108,6 +199,13 @@ export class GetWorkerResponseBodyDataChannels extends $dara.Model {
 }
 
 export class GetWorkerResponseBodyDataCredentials extends $dara.Model {
+  /**
+   * @remarks
+   * The credential name.
+   * 
+   * @example
+   * cred-demo
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -131,8 +229,29 @@ export class GetWorkerResponseBodyDataCredentials extends $dara.Model {
 }
 
 export class GetWorkerResponseBodyDataGroups extends $dara.Model {
+  /**
+   * @remarks
+   * The group name.
+   * 
+   * @example
+   * team-demo
+   */
   name?: string;
+  /**
+   * @remarks
+   * The group role.
+   * 
+   * @example
+   * member
+   */
   role?: string;
+  /**
+   * @remarks
+   * The group type.
+   * 
+   * @example
+   * team
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -160,11 +279,53 @@ export class GetWorkerResponseBodyDataGroups extends $dara.Model {
 }
 
 export class GetWorkerResponseBodyDataLimitConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The quota type.
+   * 
+   * @example
+   * token
+   */
   limitType?: string;
+  /**
+   * @remarks
+   * Indicates whether the quota is exceeded.
+   * 
+   * @example
+   * false
+   */
   overLimit?: boolean;
+  /**
+   * @remarks
+   * The period type.
+   * 
+   * @example
+   * day
+   */
   periodType?: string;
+  /**
+   * @remarks
+   * The quota rule status.
+   * 
+   * @example
+   * active
+   */
   ruleStatus?: string;
+  /**
+   * @remarks
+   * The quota upper limit.
+   * 
+   * @example
+   * 1000000
+   */
   usageLimit?: number;
+  /**
+   * @remarks
+   * The used amount.
+   * 
+   * @example
+   * 50000
+   */
   usedAmount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -198,8 +359,29 @@ export class GetWorkerResponseBodyDataLimitConfig extends $dara.Model {
 }
 
 export class GetWorkerResponseBodyDataMcpServers extends $dara.Model {
+  /**
+   * @remarks
+   * The MCP server name.
+   * 
+   * @example
+   * mcp-server-demo
+   */
   name?: string;
+  /**
+   * @remarks
+   * The MCP transport protocol.
+   * 
+   * @example
+   * sse
+   */
   transport?: string;
+  /**
+   * @remarks
+   * The MCP server URL.
+   * 
+   * @example
+   * https://mcp-demo/mcp
+   */
   url?: string;
   static names(): { [key: string]: string } {
     return {
@@ -227,7 +409,21 @@ export class GetWorkerResponseBodyDataMcpServers extends $dara.Model {
 }
 
 export class GetWorkerResponseBodyDataModel extends $dara.Model {
+  /**
+   * @remarks
+   * The model name.
+   * 
+   * @example
+   * qwen-max
+   */
   modelName?: string;
+  /**
+   * @remarks
+   * The model provider.
+   * 
+   * @example
+   * dashscope
+   */
   modelProvider?: string;
   static names(): { [key: string]: string } {
     return {
@@ -253,8 +449,29 @@ export class GetWorkerResponseBodyDataModel extends $dara.Model {
 }
 
 export class GetWorkerResponseBodyDataSkills extends $dara.Model {
+  /**
+   * @remarks
+   * The skill label.
+   * 
+   * @example
+   * Code Review.
+   */
   label?: string;
+  /**
+   * @remarks
+   * The skill name.
+   * 
+   * @example
+   * code-review
+   */
   name?: string;
+  /**
+   * @remarks
+   * The skill version.
+   * 
+   * @example
+   * 1.0.0
+   */
   version?: string;
   static names(): { [key: string]: string } {
     return {
@@ -282,8 +499,29 @@ export class GetWorkerResponseBodyDataSkills extends $dara.Model {
 }
 
 export class GetWorkerResponseBodyDataSubagentsSkills extends $dara.Model {
+  /**
+   * @remarks
+   * Indicates whether the skill contains a skill.md file.
+   * 
+   * @example
+   * true
+   */
   hasSkillMd?: boolean;
+  /**
+   * @remarks
+   * The skill name.
+   * 
+   * @example
+   * search
+   */
   name?: string;
+  /**
+   * @remarks
+   * The skill ID.
+   * 
+   * @example
+   * skill-demo
+   */
   skillId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -311,11 +549,53 @@ export class GetWorkerResponseBodyDataSubagentsSkills extends $dara.Model {
 }
 
 export class GetWorkerResponseBodyDataSubagents extends $dara.Model {
+  /**
+   * @remarks
+   * The sub-Agent description.
+   * 
+   * @example
+   * Sub-Agent description.
+   */
   description?: string;
+  /**
+   * @remarks
+   * Indicates whether the sub-Agent contains an agents.md file.
+   * 
+   * @example
+   * true
+   */
   hasAgentsMd?: boolean;
+  /**
+   * @remarks
+   * The sub-Agent name.
+   * 
+   * @example
+   * sub-worker-demo
+   */
   name?: string;
+  /**
+   * @remarks
+   * The skill list of the sub-Agent.
+   * 
+   * @example
+   * [...]
+   */
   skills?: GetWorkerResponseBodyDataSubagentsSkills[];
+  /**
+   * @remarks
+   * The source path.
+   * 
+   * @example
+   * /workspace/sub
+   */
   sourcePath?: string;
+  /**
+   * @remarks
+   * The sub-Agent ID.
+   * 
+   * @example
+   * sub-demo
+   */
   subagentId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -352,8 +632,29 @@ export class GetWorkerResponseBodyDataSubagents extends $dara.Model {
 }
 
 export class GetWorkerResponseBodyDataTemplate extends $dara.Model {
+  /**
+   * @remarks
+   * The template label.
+   * 
+   * @example
+   * Default template.
+   */
   label?: string;
+  /**
+   * @remarks
+   * The template name.
+   * 
+   * @example
+   * default-template
+   */
   name?: string;
+  /**
+   * @remarks
+   * The template version.
+   * 
+   * @example
+   * 1.0.0
+   */
   version?: string;
   static names(): { [key: string]: string } {
     return {
@@ -381,24 +682,157 @@ export class GetWorkerResponseBodyDataTemplate extends $dara.Model {
 }
 
 export class GetWorkerResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The Agent runtime type.
+   * 
+   * @example
+   * Qwenpaw
+   */
   agentType?: string;
+  /**
+   * @remarks
+   * The Agents configuration.
+   * 
+   * @example
+   * agents-demo
+   */
   agents?: string;
+  /**
+   * @remarks
+   * The channel list.
+   * 
+   * @example
+   * [...]
+   */
   channels?: GetWorkerResponseBodyDataChannels[];
+  /**
+   * @remarks
+   * The credential binding list.
+   * 
+   * @example
+   * [...]
+   */
   credentials?: GetWorkerResponseBodyDataCredentials[];
+  /**
+   * @remarks
+   * The deployment type.
+   * 
+   * @example
+   * Managed
+   */
   deployType?: string;
+  /**
+   * @remarks
+   * The team group list.
+   * 
+   * @example
+   * [...]
+   */
   groups?: GetWorkerResponseBodyDataGroups[];
+  /**
+   * @remarks
+   * The instance ID.
+   * 
+   * @example
+   * inst-demo
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The quota configuration.
+   * 
+   * @example
+   * {}
+   */
   limitConfig?: GetWorkerResponseBodyDataLimitConfig;
+  /**
+   * @remarks
+   * The MCP server list.
+   * 
+   * @example
+   * [...]
+   */
   mcpServers?: GetWorkerResponseBodyDataMcpServers[];
+  /**
+   * @remarks
+   * The model configuration.
+   * 
+   * @example
+   * {}
+   */
   model?: GetWorkerResponseBodyDataModel;
+  /**
+   * @remarks
+   * The Worker name.
+   * 
+   * @example
+   * worker-demo
+   */
   name?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The skill list.
+   * 
+   * @example
+   * [...]
+   */
   skills?: GetWorkerResponseBodyDataSkills[];
+  /**
+   * @remarks
+   * The Soul configuration.
+   * 
+   * @example
+   * soul-demo
+   */
   soul?: string;
+  /**
+   * @remarks
+   * The start time.
+   * 
+   * @example
+   * 2026-07-13T10:00:00Z
+   */
   startTime?: string;
+  /**
+   * @remarks
+   * The Worker status.
+   * 
+   * @example
+   * Running
+   */
   status?: string;
+  /**
+   * @remarks
+   * The sub-Agent list.
+   * 
+   * @example
+   * [...]
+   */
   subagents?: GetWorkerResponseBodyDataSubagents[];
+  /**
+   * @remarks
+   * The template configuration.
+   * 
+   * @example
+   * {}
+   */
   template?: GetWorkerResponseBodyDataTemplate;
+  /**
+   * @remarks
+   * The Worker version number.
+   * 
+   * @example
+   * v1.0.0
+   */
   versionCode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -485,11 +919,53 @@ export class GetWorkerResponseBodyData extends $dara.Model {
 }
 
 export class GetWorkerResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response code.
+   * 
+   * @example
+   * SUCCESS
+   */
   code?: string;
+  /**
+   * @remarks
+   * The response data.
+   * 
+   * @example
+   * {}
+   */
   data?: GetWorkerResponseBodyData;
+  /**
+   * @remarks
+   * The HTTP status code.
+   * 
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @remarks
+   * The response message.
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 473469C7-XX-XX-XX
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

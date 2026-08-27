@@ -5,11 +5,18 @@ import * as $dara from '@darabonba/typescript';
 export class GetModelProviderRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the model provider.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * p-xxx
    */
   id?: string;
   /**
    * @remarks
+   * Optional. Fuzzy matches by instance name.
+   * 
    * This parameter is required.
    * 
    * @example

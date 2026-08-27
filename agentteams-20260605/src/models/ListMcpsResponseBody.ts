@@ -3,15 +3,85 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListMcpsResponseBodyItems extends $dara.Model {
+  /**
+   * @remarks
+   * The list of MCP server addresses.
+   * 
+   * @example
+   * ["https://example.com/mcp"]
+   */
   addresses?: string[];
+  /**
+   * @remarks
+   * The creation type.
+   * 
+   * @example
+   * DIRECT_PROXY
+   */
   createType?: string;
+  /**
+   * @remarks
+   * The deployment status.
+   * 
+   * @example
+   * DEPLOYED
+   */
   deployStatus?: string;
+  /**
+   * @remarks
+   * The MCP server description.
+   * 
+   * @example
+   * This is an MCP server.
+   */
   description?: string;
+  /**
+   * @remarks
+   * The MCP server ID.
+   * 
+   * @example
+   * mcp-xxx
+   */
   id?: string;
+  /**
+   * @remarks
+   * The AgentTeams instance ID.
+   * 
+   * @example
+   * ins-xxx
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The MCP server configuration.
+   * 
+   * @example
+   * {}
+   */
   mcpServerConfig?: string;
+  /**
+   * @remarks
+   * The MCP server name.
+   * 
+   * @example
+   * my-mcp-server
+   */
   name?: string;
+  /**
+   * @remarks
+   * The protocol type.
+   * 
+   * @example
+   * streamable
+   */
   protocol?: string;
+  /**
+   * @remarks
+   * The MCP server access URL.
+   * 
+   * @example
+   * https://example.com/mcp
+   */
   url?: string;
   static names(): { [key: string]: string } {
     return {
@@ -56,13 +126,69 @@ export class ListMcpsResponseBodyItems extends $dara.Model {
 }
 
 export class ListMcpsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response code.
+   * 
+   * @example
+   * SUCCESS
+   */
   code?: string;
+  /**
+   * @remarks
+   * The list of MCP servers.
+   * 
+   * @example
+   * [...]
+   */
   items?: ListMcpsResponseBodyItems[];
+  /**
+   * @remarks
+   * The maximum number of records per page.
+   * 
+   * @example
+   * 20
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The response message.
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The token for the next page.
+   * 
+   * @example
+   * next-token-xxx
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * req-xxx
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @remarks
+   * The total number of records.
+   * 
+   * @example
+   * 10
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {

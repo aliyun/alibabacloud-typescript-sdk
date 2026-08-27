@@ -3,7 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateInstanceRequestZones extends $dara.Model {
+  /**
+   * @remarks
+   * The vSwitch ID.
+   * 
+   * @example
+   * vsw-bp1xxxx
+   */
   vSwitchId?: string;
+  /**
+   * @remarks
+   * The zone ID.
+   * 
+   * @example
+   * cn-hangzhou-h
+   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -29,9 +43,18 @@ export class UpdateInstanceRequestZones extends $dara.Model {
 }
 
 export class UpdateInstanceRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The idempotency token that is used to ensure the idempotence of the request.
+   * 
+   * @example
+   * client-token-xxx
+   */
   clientToken?: string;
   /**
    * @remarks
+   * **The ID of the AgentTeams instance.**
+   * 
    * This parameter is required.
    * 
    * @example
@@ -39,11 +62,28 @@ export class UpdateInstanceRequest extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * **The new instance name. This parameter cannot be empty.**
+   * 
    * @example
-   * 新的实例名称
+   * New instance name.
    */
   instanceName?: string;
+  /**
+   * @remarks
+   * The network type.
+   * 
+   * @example
+   * PrivateNet
+   */
   networkType?: string;
+  /**
+   * @remarks
+   * The list of zones and vSwitches.
+   * 
+   * @example
+   * [...]
+   */
   zones?: UpdateInstanceRequestZones[];
   static names(): { [key: string]: string } {
     return {

@@ -3,16 +3,93 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetUserResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The authentication method.
+   * 
+   * @example
+   * password
+   */
   authMethod?: string;
+  /**
+   * @remarks
+   * The resource creation time.
+   * 
+   * @example
+   * 2026-06-05T10:00:00Z
+   */
   createTime?: string;
+  /**
+   * @remarks
+   * The creation time.
+   * 
+   * @example
+   * 2026-06-05T10:00:00
+   */
   createdAt?: string;
+  /**
+   * @remarks
+   * The display name.
+   * 
+   * @example
+   * Demo User
+   */
   displayName?: string;
+  /**
+   * @remarks
+   * The email address.
+   * 
+   * @example
+   * demo@example.com
+   */
   email?: string;
+  /**
+   * @remarks
+   * The instance ID.
+   * 
+   * @example
+   * agentteams-test-001
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The username.
+   * 
+   * @example
+   * demo-user
+   */
   name?: string;
+  /**
+   * @remarks
+   * The remarks.
+   * 
+   * @example
+   * Test user.
+   */
   note?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The resource group ID.
+   * 
+   * @example
+   * rg-xxx
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The user status.
+   * 
+   * @example
+   * Active
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -56,11 +133,53 @@ export class GetUserResponseBodyData extends $dara.Model {
 }
 
 export class GetUserResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response code.
+   * 
+   * @example
+   * SUCCESS
+   */
   code?: string;
+  /**
+   * @remarks
+   * The returned data.
+   * 
+   * @example
+   * {}
+   */
   data?: GetUserResponseBodyData;
+  /**
+   * @remarks
+   * The HTTP status code.
+   * 
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @remarks
+   * The response message.
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * req-get-user-001
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

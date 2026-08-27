@@ -3,7 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class PutCmsWorkspaceResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * req-xxx
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The workspace name.
+   * 
+   * @example
+   * magic-workspace-at-xxx
+   */
   workspaceName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -29,11 +43,53 @@ export class PutCmsWorkspaceResponseBodyData extends $dara.Model {
 }
 
 export class PutCmsWorkspaceResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response code.
+   * 
+   * @example
+   * SUCCESS
+   */
   code?: string;
+  /**
+   * @remarks
+   * The returned data.
+   * 
+   * @example
+   * {}
+   */
   data?: PutCmsWorkspaceResponseBodyData;
+  /**
+   * @remarks
+   * The HTTP status code.
+   * 
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @remarks
+   * The response message.
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * req-xxx
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

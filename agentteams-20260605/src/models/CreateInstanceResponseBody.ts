@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateInstanceResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * **The instance ID.**
+   * 
    * @example
    * agentteams-test-001
    */
   instanceId?: string;
   /**
+   * @remarks
+   * **The order ID.**
+   * 
    * @example
    * open-create-agentteams-test-001-req-create-001
    */
@@ -38,32 +44,57 @@ export class CreateInstanceResponseBodyData extends $dara.Model {
 
 export class CreateInstanceResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * **The response code.**
+   * 
    * @example
    * SUCCESS
    */
   code?: string;
+  /**
+   * @remarks
+   * The returned data.
+   * 
+   * @example
+   * {}
+   */
   data?: CreateInstanceResponseBodyData;
   /**
+   * @remarks
+   * **The HTTP status code.**
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
    * @remarks
-   * InstanceId
+   * The instance ID.
+   * 
+   * @example
+   * agentteams-test-001
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The response message.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * req-create-001
    */
   requestId?: string;
   /**
+   * @remarks
+   * **Indicates whether the request was successful.**
+   * 
    * @example
    * true
    */

@@ -3,8 +3,29 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetUserPasswordResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The initial password.
+   * 
+   * @example
+   * P@ssw0rd123
+   */
   initialPassword?: string;
+  /**
+   * @remarks
+   * The instance ID.
+   * 
+   * @example
+   * agentteams-test-001
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The username.
+   * 
+   * @example
+   * demo-user
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -32,11 +53,53 @@ export class GetUserPasswordResponseBodyData extends $dara.Model {
 }
 
 export class GetUserPasswordResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response code.
+   * 
+   * @example
+   * SUCCESS
+   */
   code?: string;
+  /**
+   * @remarks
+   * The returned data.
+   * 
+   * @example
+   * {}
+   */
   data?: GetUserPasswordResponseBodyData;
+  /**
+   * @remarks
+   * The HTTP status code.
+   * 
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @remarks
+   * The response message.
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * req-get-password-001
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

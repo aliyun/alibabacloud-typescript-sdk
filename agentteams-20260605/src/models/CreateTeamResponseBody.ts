@@ -3,6 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateTeamResponseBodyDataTeamMembers extends $dara.Model {
+  /**
+   * @remarks
+   * The member name.
+   * 
+   * @example
+   * member-user
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -26,10 +33,45 @@ export class CreateTeamResponseBodyDataTeamMembers extends $dara.Model {
 }
 
 export class CreateTeamResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The team administrator name.
+   * 
+   * @example
+   * admin-user
+   */
   adminName?: string;
+  /**
+   * @remarks
+   * The team description.
+   * 
+   * @example
+   * This is a team.
+   */
   description?: string;
+  /**
+   * @remarks
+   * The instance ID.
+   * 
+   * @example
+   * agentteams-test-001
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The team name.
+   * 
+   * @example
+   * my-team
+   */
   name?: string;
+  /**
+   * @remarks
+   * The team member list.
+   * 
+   * @example
+   * [...]
+   */
   teamMembers?: CreateTeamResponseBodyDataTeamMembers[];
   static names(): { [key: string]: string } {
     return {
@@ -64,11 +106,53 @@ export class CreateTeamResponseBodyData extends $dara.Model {
 }
 
 export class CreateTeamResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response code.
+   * 
+   * @example
+   * SUCCESS
+   */
   code?: string;
+  /**
+   * @remarks
+   * The response data.
+   * 
+   * @example
+   * {}
+   */
   data?: CreateTeamResponseBodyData;
+  /**
+   * @remarks
+   * The HTTP status code.
+   * 
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @remarks
+   * The response message.
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * req-create-team-001
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

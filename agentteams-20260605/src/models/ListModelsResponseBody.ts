@@ -3,14 +3,77 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListModelsResponseBodyItems extends $dara.Model {
+  /**
+   * @remarks
+   * The model description.
+   * 
+   * @example
+   * my model
+   */
   description?: string;
+  /**
+   * @remarks
+   * The model ID.
+   * 
+   * @example
+   * m-xxx
+   */
   id?: string;
+  /**
+   * @remarks
+   * The instance ID.
+   * 
+   * @example
+   * i-xxx
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The model name.
+   * 
+   * @example
+   * my-model
+   */
   name?: string;
+  /**
+   * @remarks
+   * The list of protocols supported by the model.
+   * 
+   * @example
+   * ["openai"]
+   */
   protocols?: string[];
+  /**
+   * @remarks
+   * The provider identifier.
+   * 
+   * @example
+   * openai
+   */
   provider?: string;
+  /**
+   * @remarks
+   * The model provider ID.
+   * 
+   * @example
+   * p-xxx
+   */
   providerId?: string;
+  /**
+   * @remarks
+   * The model provider name.
+   * 
+   * @example
+   * my-provider
+   */
   providerName?: string;
+  /**
+   * @remarks
+   * The number of associated workers.
+   * 
+   * @example
+   * 3
+   */
   workerNum?: number;
   static names(): { [key: string]: string } {
     return {
@@ -53,13 +116,69 @@ export class ListModelsResponseBodyItems extends $dara.Model {
 }
 
 export class ListModelsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response code.
+   * 
+   * @example
+   * SUCCESS
+   */
   code?: string;
+  /**
+   * @remarks
+   * The list of models.
+   * 
+   * @example
+   * [...]
+   */
   items?: ListModelsResponseBodyItems[];
+  /**
+   * @remarks
+   * The maximum number of entries to return per page.
+   * 
+   * @example
+   * 20
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The response message.
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The pagination token.
+   * 
+   * @example
+   * nt-xxx
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * req-xxx
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @remarks
+   * The total number of records.
+   * 
+   * @example
+   * 10
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {

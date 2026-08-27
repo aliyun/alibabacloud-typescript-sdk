@@ -3,13 +3,69 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateMcpResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The list of MCP server addresses.
+   * 
+   * @example
+   * ["https://example.com/mcp"]
+   */
   addresses?: string[];
+  /**
+   * @remarks
+   * The creation type.
+   * 
+   * @example
+   * 7
+   */
   createType?: string;
+  /**
+   * @remarks
+   * The deployment status.
+   * 
+   * @example
+   * DEPLOYED
+   */
   deployStatus?: string;
+  /**
+   * @remarks
+   * The description of the MCP server.
+   * 
+   * @example
+   * This is an MCP server.
+   */
   description?: string;
+  /**
+   * @remarks
+   * The export task ID.
+   * 
+   * @example
+   * 418273109406496841-cn-shenzhen
+   */
   id?: string;
+  /**
+   * @remarks
+   * The MCP server configuration.
+   * 
+   * @example
+   * {}
+   */
   mcpServerConfig?: string;
+  /**
+   * @remarks
+   * The MCP server name.
+   * 
+   * @example
+   * my-mcp-server
+   */
   name?: string;
+  /**
+   * @remarks
+   * The protocol type.
+   * 
+   * @example
+   * streamable
+   */
   protocol?: string;
   static names(): { [key: string]: string } {
     return {
@@ -50,10 +106,45 @@ export class CreateMcpResponseBodyData extends $dara.Model {
 }
 
 export class CreateMcpResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response code.
+   * 
+   * @example
+   * SUCCESS
+   */
   code?: string;
+  /**
+   * @remarks
+   * The returned data.
+   * 
+   * @example
+   * {}
+   */
   data?: CreateMcpResponseBodyData;
+  /**
+   * @remarks
+   * The response message.
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * req-xxx
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * @example
+   * True
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

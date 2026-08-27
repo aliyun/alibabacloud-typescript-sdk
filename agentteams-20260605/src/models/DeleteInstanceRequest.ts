@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteInstanceRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the AgentTeams instance to release.
+   * 
    * This parameter is required.
    * 
    * @example
