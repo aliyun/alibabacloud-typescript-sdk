@@ -43,7 +43,7 @@ export class DescribeMetricMetaListResponseBodyResources extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The dimension description.
+   * The dimension information description.
    */
   dimensionDescription?: DescribeMetricMetaListResponseBodyResourcesDimensionDescription[];
   /**
@@ -58,9 +58,9 @@ export class DescribeMetricMetaListResponseBodyResources extends $dara.Model {
   labels?: { [key: string]: string };
   /**
    * @remarks
-   * The metadata source. CMS indicates CloudMonitor Basic monitoring metrics. PROM_BASIC indicates Prometheus CloudMonitor basic monitoring metrics.
+   * The metadata source. CMS indicates CloudMonitor Basic monitoring metrics. PROM_BASIC indicates Prometheus CloudMonitor Basic monitoring metrics.
    * 
-   * Sample value:
+   * Example value:
    * CMS
    * Valid values:
    * CMS

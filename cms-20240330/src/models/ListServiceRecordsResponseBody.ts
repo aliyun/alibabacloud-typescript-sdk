@@ -36,6 +36,14 @@ export class ListServiceRecordsResponseBodyRecords extends $dara.Model {
   serviceId?: string;
   /**
    * @remarks
+   * The service name.
+   * 
+   * @example
+   * agentrun-ai-customer-sales-test-qa
+   */
+  serviceName?: string;
+  /**
+   * @remarks
    * The workspace.
    * 
    * @example
@@ -47,6 +55,7 @@ export class ListServiceRecordsResponseBodyRecords extends $dara.Model {
       recordContent: 'recordContent',
       recordType: 'recordType',
       serviceId: 'serviceId',
+      serviceName: 'serviceName',
       workspace: 'workspace',
     };
   }
@@ -56,6 +65,7 @@ export class ListServiceRecordsResponseBodyRecords extends $dara.Model {
       recordContent: 'string',
       recordType: 'string',
       serviceId: 'string',
+      serviceName: 'string',
       workspace: 'string',
     };
   }
@@ -88,7 +98,7 @@ export class ListServiceRecordsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The list of ticket operation records.
+   * The list of operation records.
    */
   records?: ListServiceRecordsResponseBodyRecords[];
   /**

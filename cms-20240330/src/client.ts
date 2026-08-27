@@ -3112,6 +3112,14 @@ export default class Client extends OpenApi {
     }
 
     let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.aliyunLang)) {
+      query["aliyunLang"] = request.aliyunLang;
+    }
+
+    if (!$dara.isNull(request.category)) {
+      query["category"] = request.category;
+    }
+
     if (!$dara.isNull(request.keywords)) {
       query["keywords"] = request.keywords;
     }

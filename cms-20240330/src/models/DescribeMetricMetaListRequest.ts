@@ -45,10 +45,26 @@ export class DescribeMetricMetaListRequestLabels extends $dara.Model {
 export class DescribeMetricMetaListRequest extends $dara.Model {
   /**
    * @remarks
+   * The language.
+   * 
+   * @example
+   * zh
+   */
+  aliyunLang?: string;
+  /**
+   * @remarks
+   * The category.
+   * 
+   * @example
+   * ecs
+   */
+  category?: string;
+  /**
+   * @remarks
    * The keyword.
    * 
    * @example
-   * 实例理论
+   * Instance theory
    */
   keywords?: string;
   /**
@@ -59,14 +75,15 @@ export class DescribeMetricMetaListRequest extends $dara.Model {
    * - alertUnit: the recommended alert unit.
    * - unitFactor: the unit conversion factor.
    * - minAlertPeriod: the minimum alert period.
-   * - productCategory: the service type category.
+   * - productCategory: the product type category.
    */
   labels?: DescribeMetricMetaListRequestLabels[];
   /**
    * @remarks
    * The metadata source. Valid values:
+   * 
    * - CMS: CloudMonitor Basic monitoring metrics.
-   * - PROM_BASIC: Prometheus CloudMonitor basic monitoring metrics.
+   * - PROM_BASIC: Prometheus CloudMonitor Basic monitoring metrics.
    * 
    * @example
    * CMS
@@ -106,6 +123,8 @@ export class DescribeMetricMetaListRequest extends $dara.Model {
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
+      aliyunLang: 'aliyunLang',
+      category: 'category',
       keywords: 'keywords',
       labels: 'labels',
       metaFormat: 'metaFormat',
@@ -118,6 +137,8 @@ export class DescribeMetricMetaListRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      aliyunLang: 'string',
+      category: 'string',
       keywords: 'string',
       labels: { 'type': 'array', 'itemType': DescribeMetricMetaListRequestLabels },
       metaFormat: 'string',
