@@ -21,7 +21,7 @@ export class DescribeAIDBClusterAttributeResponseBodyDBNodesChildVolumes extends
   name?: string;
   /**
    * @remarks
-   * The storage disk size.
+   * The storage size.
    * 
    * @example
    * 8192
@@ -165,16 +165,16 @@ export class DescribeAIDBClusterAttributeResponseBodyDBNodes extends $dara.Model
   /**
    * @remarks
    * The node status. Valid values:
-   * * **Creating**: Being created.
-   * * **Running**: Running.
-   * * **Deleting**: Being deleted.
-   * * **Rebooting**: Being restarted.
-   * * **DBNodeCreating**: A node is being added.
-   * * **DBNodeDeleting**: A node is being deleted.
-   * * **ClassChanging**: The node specifications are being changed.
-   * * **MinorVersionUpgrading**: A minor engine version update is in progress.
-   * * **Maintaining**: The instance is under maintenance.
-   * * **Switching**: A switchover is in progress.
+   * * **Creating**: Being created. 
+   * * **Running**: Running. 
+   * * **Deleting**: Being deleted.  
+   * * **Rebooting**: Restarting.  
+   * * **DBNodeCreating**: Adding a node.  
+   * * **DBNodeDeleting**: Deleting a node. 
+   * * **ClassChanging**: Changing node specifications.  
+   * * **MinorVersionUpgrading**: Performing a minor version upgrade.
+   * * **Maintaining**: Under maintenance.  
+   * * **Switching**: Switching.
    * 
    * @example
    * Running
@@ -312,7 +312,7 @@ export class DescribeAIDBClusterAttributeResponseBodyDBNodes extends $dara.Model
 export class DescribeAIDBClusterAttributeResponseBodyEndpointListNetInfoItems extends $dara.Model {
   /**
    * @remarks
-   * The database endpoint.
+   * The database connection address.
    * 
    * @example
    * pc-**********.rwlb.rds.aliyuncs.com
@@ -320,7 +320,7 @@ export class DescribeAIDBClusterAttributeResponseBodyEndpointListNetInfoItems ex
   connectionString?: string;
   /**
    * @remarks
-   * The network type of the endpoint. Valid values:
+   * The network type of the connection string. Valid values:
    * * **Public**: public endpoint.
    * * **Private**: private endpoint.
    * * **Inner**: private endpoint (classic network).
@@ -534,7 +534,7 @@ export class DescribeAIDBClusterAttributeResponseBodyVnodeKubernetesConfig exten
 export class DescribeAIDBClusterAttributeResponseBodyVolumes extends $dara.Model {
   /**
    * @remarks
-   * The mount path in the container.
+   * The mount path inside the container.
    * 
    * @example
    * /var/run/secrets/kubernetes.io/serviceaccount
@@ -605,9 +605,9 @@ export class DescribeAIDBClusterAttributeResponseBody extends $dara.Model {
   /**
    * @remarks
    * The node type. Valid values:
-   * - vnode: managed by ACK
-   * - container: loginable container
-   * - maas: model service
+   * - vnode: ACK-managed.
+   * - container: loginable container.
+   * - maas: model service.
    * 
    * @example
    * vnode
@@ -649,13 +649,13 @@ export class DescribeAIDBClusterAttributeResponseBody extends $dara.Model {
    * @remarks
    * The cluster status. Valid values:
    * 
-   * - **Creating**: being created.
-   * - **Running**: running.
-   * - **Deleting**: being released.
-   * - **DBNodeCreating**: a node is being added.
-   * - **DBNodeDeleting**: a node is being deleted.
-   * - **ClassChanging**: node specifications are being changed.
-   * - **Deleted**: released.
+   * - **Creating**: Being created.
+   * - **Running**: Running.
+   * - **Deleting**: Being released.
+   * - **DBNodeCreating**: Adding a node.
+   * - **DBNodeDeleting**: Deleting a node.
+   * - **ClassChanging**: Changing node specifications. 
+   * - **Deleted**: Released.
    * 
    * @example
    * Running
@@ -670,6 +670,12 @@ export class DescribeAIDBClusterAttributeResponseBody extends $dara.Model {
   /**
    * @remarks
    * The cluster version. Valid values:
+   * 
+   * **1.0**
+   * 
+   * **2.0**
+   * 
+   * **3.0**
    * 
    * @example
    * 1.0
@@ -691,9 +697,9 @@ export class DescribeAIDBClusterAttributeResponseBody extends $dara.Model {
   endpointList?: DescribeAIDBClusterAttributeResponseBodyEndpointList[];
   /**
    * @remarks
-   * The expiration time of the cluster.
+   * The cluster expiration time.
    * 
-   * > Only clusters whose billing method is **Prepaid** (subscription) return a specific value for this parameter. **Postpaid** (pay-as-you-go) clusters return an empty value.
+   * > Only clusters with the billing method set to **Prepaid** (subscription) return a specific value. **Postpaid** (pay-as-you-go) clusters return an empty value.
    * 
    * @example
    * 2020-11-14T16:00:00Z
@@ -703,11 +709,16 @@ export class DescribeAIDBClusterAttributeResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the cluster has expired. Valid values:
    * 
+   * - **true**
+   * 
+   * - **false**
+   * 
    * @example
    * false
    */
   expired?: boolean;
   gatewayId?: string;
+  inferenceEngine?: string;
   /**
    * @remarks
    * The internal IP address.
@@ -804,6 +815,8 @@ export class DescribeAIDBClusterAttributeResponseBody extends $dara.Model {
   /**
    * @remarks
    * The architecture type. Valid values:
+   * - container: AI container.
+   * - ainode: AI node.
    * 
    * @example
    * container
@@ -812,6 +825,15 @@ export class DescribeAIDBClusterAttributeResponseBody extends $dara.Model {
   /**
    * @remarks
    * The storage type for Enterprise Edition. Valid values:
+   * - **PSL5**
+   * - **PSL4**
+   * 
+   * The storage type for Standard Edition. Valid values:
+   * - **ESSDPL0**
+   * - **ESSDPL1**
+   * - **ESSDPL2**
+   * - **ESSDPL3**
+   * - **ESSDAUTOPL**
    * 
    * @example
    * essdpl1
@@ -830,6 +852,8 @@ export class DescribeAIDBClusterAttributeResponseBody extends $dara.Model {
   /**
    * @remarks
    * The vSwitch ID.
+   * 
+   * > If VPCId is specified, VSwitchId is required.
    * 
    * @example
    * vsw-*********************
@@ -851,7 +875,7 @@ export class DescribeAIDBClusterAttributeResponseBody extends $dara.Model {
   zoneId?: string;
   /**
    * @remarks
-   * The zone IDs.
+   * The zone ID.
    * 
    * @example
    * cn-hangzhou-i,cn-hangzhou-g
@@ -874,6 +898,7 @@ export class DescribeAIDBClusterAttributeResponseBody extends $dara.Model {
       expireTime: 'ExpireTime',
       expired: 'Expired',
       gatewayId: 'GatewayId',
+      inferenceEngine: 'InferenceEngine',
       internalIp: 'InternalIp',
       KVCacheInstanceId: 'KVCacheInstanceId',
       kubeClusterId: 'KubeClusterId',
@@ -917,6 +942,7 @@ export class DescribeAIDBClusterAttributeResponseBody extends $dara.Model {
       expireTime: 'string',
       expired: 'boolean',
       gatewayId: 'string',
+      inferenceEngine: 'string',
       internalIp: 'string',
       KVCacheInstanceId: 'string',
       kubeClusterId: 'string',

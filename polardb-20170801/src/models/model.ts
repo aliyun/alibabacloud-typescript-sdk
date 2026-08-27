@@ -90,6 +90,7 @@ export { DescribeApplicationAttributeResponseBodyComponentsSecurityIPArrays } fr
 export { DescribeApplicationAttributeResponseBodyComponentsTopology } from './DescribeApplicationAttributeResponseBody';
 export { DescribeApplicationAttributeResponseBodyComponents } from './DescribeApplicationAttributeResponseBody';
 export { DescribeApplicationAttributeResponseBodyEndpoints } from './DescribeApplicationAttributeResponseBody';
+export { DescribeApplicationAttributeResponseBodyMemApplicationAttributeSessionStore } from './DescribeApplicationAttributeResponseBody';
 export { DescribeApplicationAttributeResponseBodyMemApplicationAttribute } from './DescribeApplicationAttributeResponseBody';
 export { DescribeApplicationAttributeResponseBodyPolarClawSaaSApplicationAttribute } from './DescribeApplicationAttributeResponseBody';
 export { DescribeApplicationAttributeResponseBodySecurityGroups } from './DescribeApplicationAttributeResponseBody';
@@ -919,6 +920,9 @@ export { DescribeApplicationPerformanceResponse } from './DescribeApplicationPer
 export { DescribeApplicationPromptsRequest } from './DescribeApplicationPromptsRequest';
 export { DescribeApplicationPromptsResponseBody } from './DescribeApplicationPromptsResponseBody';
 export { DescribeApplicationPromptsResponse } from './DescribeApplicationPromptsResponse';
+export { DescribeApplicationSSLRequest } from './DescribeApplicationSslrequest';
+export { DescribeApplicationSSLResponseBody } from './DescribeApplicationSslresponseBody';
+export { DescribeApplicationSSLResponse } from './DescribeApplicationSslresponse';
 export { DescribeApplicationServerlessConfRequest } from './DescribeApplicationServerlessConfRequest';
 export { DescribeApplicationServerlessConfResponseBody } from './DescribeApplicationServerlessConfResponseBody';
 export { DescribeApplicationServerlessConfResponse } from './DescribeApplicationServerlessConfResponse';

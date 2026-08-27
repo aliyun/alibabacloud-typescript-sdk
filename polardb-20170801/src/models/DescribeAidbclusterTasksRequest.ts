@@ -15,6 +15,16 @@ export class DescribeAIDBClusterTasksRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
+   * The page number.
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * The number of items per page.
+   */
+  pageSize?: number;
+  /**
+   * @remarks
    * The region ID.
    * 
    * @example
@@ -36,6 +46,8 @@ export class DescribeAIDBClusterTasksRequest extends $dara.Model {
       kubeType: 'KubeType',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
       regionId: 'RegionId',
       relativeDBClusterId: 'RelativeDBClusterId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
@@ -48,6 +60,8 @@ export class DescribeAIDBClusterTasksRequest extends $dara.Model {
       kubeType: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
+      pageNumber: 'number',
+      pageSize: 'number',
       regionId: 'string',
       relativeDBClusterId: 'string',
       resourceOwnerAccount: 'string',

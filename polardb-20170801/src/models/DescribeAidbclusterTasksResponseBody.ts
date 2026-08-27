@@ -29,7 +29,7 @@ export class DescribeAIDBClusterTasksResponseBodyItems extends $dara.Model {
   DBNodeDescription?: string;
   /**
    * @remarks
-   * The instance ID of the model operator.
+   * The template operator instance ID.
    * 
    * @example
    * pm-2ze***
@@ -131,6 +131,10 @@ export class DescribeAIDBClusterTasksResponseBodyItems extends $dara.Model {
    * lora
    */
   trainType?: string;
+  /**
+   * @remarks
+   * The tuning framework.
+   */
   tuneArch?: string;
   static names(): { [key: string]: string } {
     return {
@@ -209,6 +213,21 @@ export class DescribeAIDBClusterTasksResponseBody extends $dara.Model {
   items?: DescribeAIDBClusterTasksResponseBodyItems[];
   /**
    * @remarks
+   * The page number.
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * The total number of records on the current page.
+   */
+  pageRecordCount?: string;
+  /**
+   * @remarks
+   * The number of records per page.
+   */
+  pageSize?: string;
+  /**
+   * @remarks
    * The ID of the PolarDB cluster.
    * 
    * @example
@@ -231,14 +250,23 @@ export class DescribeAIDBClusterTasksResponseBody extends $dara.Model {
    * train
    */
   taskType?: string;
+  /**
+   * @remarks
+   * The total number of records.
+   */
+  totalRecordCount?: string;
   static names(): { [key: string]: string } {
     return {
       engine: 'Engine',
       engineVersion: 'EngineVersion',
       items: 'Items',
+      pageNumber: 'PageNumber',
+      pageRecordCount: 'PageRecordCount',
+      pageSize: 'PageSize',
       relativeDBClusterId: 'RelativeDBClusterId',
       requestId: 'RequestId',
       taskType: 'TaskType',
+      totalRecordCount: 'TotalRecordCount',
     };
   }
 
@@ -247,9 +275,13 @@ export class DescribeAIDBClusterTasksResponseBody extends $dara.Model {
       engine: 'string',
       engineVersion: 'string',
       items: { 'type': 'array', 'itemType': DescribeAIDBClusterTasksResponseBodyItems },
+      pageNumber: 'number',
+      pageRecordCount: 'string',
+      pageSize: 'string',
       relativeDBClusterId: 'string',
       requestId: 'string',
       taskType: 'string',
+      totalRecordCount: 'string',
     };
   }
 

@@ -10321,11 +10321,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the list of model operators for a specified PolarDB database instance.
+   * Retrieves the list of template operators for a specified PolarDB database instance.
    * 
    * @remarks
-   * ## Description
-   * - This operation supports filtering and returning the list of model operators based on the `RelativeDBClusterId` and `KubeType` parameters.
+   * ## Request description
+   * - This operation supports filtering and returning the list of template operators based on the `RelativeDBClusterId` and `KubeType` parameters.
    * - Note: Ensure that the `RelativeDBClusterId` provided in the request matches an existing PolarDB database instance ID. Otherwise, data cannot be retrieved correctly.
    * 
    * @param request - DescribeAIDBClusterTasksRequest
@@ -10345,6 +10345,14 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
     }
 
     if (!$dara.isNull(request.regionId)) {
@@ -10381,11 +10389,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the list of model operators for a specified PolarDB database instance.
+   * Retrieves the list of template operators for a specified PolarDB database instance.
    * 
    * @remarks
-   * ## Description
-   * - This operation supports filtering and returning the list of model operators based on the `RelativeDBClusterId` and `KubeType` parameters.
+   * ## Request description
+   * - This operation supports filtering and returning the list of template operators based on the `RelativeDBClusterId` and `KubeType` parameters.
    * - Note: Ensure that the `RelativeDBClusterId` provided in the request matches an existing PolarDB database instance ID. Otherwise, data cannot be retrieved correctly.
    * 
    * @param request - DescribeAIDBClusterTasksRequest
@@ -11619,10 +11627,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the detailed information of a specified PolarDB application.
+   * Retrieves the details of a specified PolarDB instance application.
    * 
    * @remarks
-   * This API is used to query all related information of a specific PolarDB application, including but not limited to component details and endpoints.
+   * This API operation queries all information about a specific PolarDB application, including but not limited to component details and endpoints.
    * 
    * @param request - DescribeApplicationAttributeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11653,10 +11661,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the detailed information of a specified PolarDB application.
+   * Retrieves the details of a specified PolarDB instance application.
    * 
    * @remarks
-   * This API is used to query all related information of a specific PolarDB application, including but not limited to component details and endpoints.
+   * This API operation queries all information about a specific PolarDB application, including but not limited to component details and endpoints.
    * 
    * @param request - DescribeApplicationAttributeRequest
    * @returns DescribeApplicationAttributeResponse
@@ -11956,6 +11964,48 @@ export default class Client extends OpenApi {
   async describeApplicationPrompts(request: $_model.DescribeApplicationPromptsRequest): Promise<$_model.DescribeApplicationPromptsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeApplicationPromptsWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the SSL configuration of an application.
+   * 
+   * @param request - DescribeApplicationSSLRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeApplicationSSLResponse
+   */
+  async describeApplicationSSLWithOptions(request: $_model.DescribeApplicationSSLRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeApplicationSSLResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.applicationId)) {
+      query["ApplicationId"] = request.applicationId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeApplicationSSL",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeApplicationSSLResponse>(await this.callApi(params, req, runtime), new $_model.DescribeApplicationSSLResponse({}));
+  }
+
+  /**
+   * Queries the SSL configuration of an application.
+   * 
+   * @param request - DescribeApplicationSSLRequest
+   * @returns DescribeApplicationSSLResponse
+   */
+  async describeApplicationSSL(request: $_model.DescribeApplicationSSLRequest): Promise<$_model.DescribeApplicationSSLResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeApplicationSSLWithOptions(request, runtime);
   }
 
   /**
@@ -20660,7 +20710,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries one or more vSwitches.
+   * 查询交换机
    * 
    * @param request - DescribeVSwitchesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -20735,7 +20785,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries one or more vSwitches.
+   * 查询交换机
    * 
    * @param request - DescribeVSwitchesRequest
    * @returns DescribeVSwitchesResponse

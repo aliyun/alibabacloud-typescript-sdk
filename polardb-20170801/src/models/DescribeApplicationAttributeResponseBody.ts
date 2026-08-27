@@ -23,7 +23,7 @@ export class DescribeApplicationAttributeResponseBodyComponentsSecurityGroups ex
   regionId?: string;
   /**
    * @remarks
-   * The ID of the security group.
+   * The security group ID.
    * 
    * @example
    * sg-*******************
@@ -83,7 +83,7 @@ export class DescribeApplicationAttributeResponseBodyComponentsSecurityIPArrays 
   securityIPArrayTag?: string;
   /**
    * @remarks
-   * The IP addresses in the whitelist, separated by commas (,).
+   * The whitelisted IP addresses, separated by commas (,).
    * 
    * @example
    * 127.0.0.1
@@ -137,7 +137,7 @@ export class DescribeApplicationAttributeResponseBodyComponentsSecurityIPArrays 
 export class DescribeApplicationAttributeResponseBodyComponentsTopology extends $dara.Model {
   /**
    * @remarks
-   * The list of child node IDs or child node component types in the topology of the current application subcomponent.
+   * The list of topology child node IDs or child node subcomponent types of the current application subcomponent.
    */
   children?: string[];
   /**
@@ -150,7 +150,7 @@ export class DescribeApplicationAttributeResponseBodyComponentsTopology extends 
   layer?: string;
   /**
    * @remarks
-   * The list of parent node IDs or parent node component types in the topology of the current application subcomponent.
+   * The list of topology parent node IDs or parent node subcomponent types of the current application subcomponent.
    */
   parents?: string[];
   static names(): { [key: string]: string } {
@@ -243,16 +243,16 @@ export class DescribeApplicationAttributeResponseBodyComponents extends $dara.Mo
   componentType?: string;
   /**
    * @remarks
-   * The list of security groups at the subcomponent level.
+   * The list of subcomponent-level security groups.
    * 
-   * If the security groups at the subcomponent level are the same as those at the application level, this response element is omitted.
+   * If the subcomponent-level security groups are the same as the application-level security groups, this response element is omitted.
    */
   securityGroups?: DescribeApplicationAttributeResponseBodyComponentsSecurityGroups[];
   /**
    * @remarks
-   * The list of whitelists at the subcomponent level.
+   * The list of subcomponent-level whitelist addresses.
    * 
-   * If the whitelists at the subcomponent level are the same as those at the application level, this response element is omitted.
+   * If the subcomponent-level whitelists are the same as the application-level whitelists, this response element is omitted.
    */
   securityIPArrays?: DescribeApplicationAttributeResponseBodyComponentsSecurityIPArrays[];
   /**
@@ -403,6 +403,66 @@ export class DescribeApplicationAttributeResponseBodyEndpoints extends $dara.Mod
   }
 }
 
+export class DescribeApplicationAttributeResponseBodyMemApplicationAttributeSessionStore extends $dara.Model {
+  /**
+   * @remarks
+   * The account source. Valid values: reuse_vector and existing. This parameter is returned only when the status is ENABLED.
+   * 
+   * @example
+   * existing
+   */
+  accountMode?: string;
+  /**
+   * @remarks
+   * The PolarDB cluster ID used for session storage. This parameter is returned only when the status is ENABLED.
+   * 
+   * @example
+   * pc-xxx
+   */
+  DBClusterId?: string;
+  /**
+   * @remarks
+   * The session database name. This parameter is returned only when the status is ENABLED.
+   * 
+   * @example
+   * contextdb_example
+   */
+  DBName?: string;
+  /**
+   * @remarks
+   * The session storage status. Valid values: DISABLED, ENABLING, ENABLED, and DISABLING.
+   * 
+   * @example
+   * ENABLED
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountMode: 'AccountMode',
+      DBClusterId: 'DBClusterId',
+      DBName: 'DBName',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountMode: 'string',
+      DBClusterId: 'string',
+      DBName: 'string',
+      status: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeApplicationAttributeResponseBodyMemApplicationAttribute extends $dara.Model {
   /**
    * @remarks
@@ -421,6 +481,9 @@ export class DescribeApplicationAttributeResponseBodyMemApplicationAttribute ext
    */
   embedderModelName?: string;
   /**
+   * @remarks
+   * The graph LLM model support.
+   * 
    * @example
    * qwen3-max
    */
@@ -451,6 +514,11 @@ export class DescribeApplicationAttributeResponseBodyMemApplicationAttribute ext
   rerankerModelName?: string;
   /**
    * @remarks
+   * The Mem0 full session information storage configuration.
+   */
+  sessionStore?: DescribeApplicationAttributeResponseBodyMemApplicationAttributeSessionStore;
+  /**
+   * @remarks
    * The username.
    * 
    * @example
@@ -465,6 +533,7 @@ export class DescribeApplicationAttributeResponseBodyMemApplicationAttribute ext
       llmModelName: 'LlmModelName',
       projectName: 'ProjectName',
       rerankerModelName: 'RerankerModelName',
+      sessionStore: 'SessionStore',
       userName: 'UserName',
     };
   }
@@ -477,11 +546,15 @@ export class DescribeApplicationAttributeResponseBodyMemApplicationAttribute ext
       llmModelName: 'string',
       projectName: 'string',
       rerankerModelName: 'string',
+      sessionStore: DescribeApplicationAttributeResponseBodyMemApplicationAttributeSessionStore,
       userName: 'string',
     };
   }
 
   validate() {
+    if(this.sessionStore && typeof (this.sessionStore as any).validate === 'function') {
+      (this.sessionStore as any).validate();
+    }
     super.validate();
   }
 
@@ -557,7 +630,7 @@ export class DescribeApplicationAttributeResponseBodySecurityGroups extends $dar
   regionId?: string;
   /**
    * @remarks
-   * The ID of the security group.
+   * The security group ID.
    * 
    * @example
    * sg-**************
@@ -617,7 +690,7 @@ export class DescribeApplicationAttributeResponseBodySecurityIPArrays extends $d
   securityIPArrayTag?: string;
   /**
    * @remarks
-   * The IP addresses in the whitelist, separated by commas (,).
+   * The whitelisted IP addresses, separated by commas (,).
    * 
    * @example
    * 127.0.0.1
@@ -754,6 +827,10 @@ export class DescribeApplicationAttributeResponseBody extends $dara.Model {
    * x86
    */
   architecture?: string;
+  /**
+   * @remarks
+   * Indicates whether SNAT can be disabled.
+   */
   canDisableSnat?: boolean;
   /**
    * @remarks
@@ -786,14 +863,14 @@ export class DescribeApplicationAttributeResponseBody extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The list of endpoints of the application.
+   * The list of endpoints for the application.
    */
   endpoints?: DescribeApplicationAttributeResponseBodyEndpoints[];
   /**
    * @remarks
    * The expiration time.
    * 
-   * This value is empty when the billing method is Postpaid.
+   * This value is empty when the billing type is Postpaid.
    * 
    * @example
    * 2025-06-25T09:37:10Z
@@ -809,7 +886,7 @@ export class DescribeApplicationAttributeResponseBody extends $dara.Model {
   expired?: boolean;
   /**
    * @remarks
-   * Indicates whether the current version is the latest version.
+   * Indicates whether this is the latest version.
    * 
    * @example
    * true
@@ -836,7 +913,7 @@ export class DescribeApplicationAttributeResponseBody extends $dara.Model {
   lockMode?: string;
   /**
    * @remarks
-   * The end time of the maintenance window.
+   * The maintenance end time.
    * 
    * @example
    * 19:00Z
@@ -844,7 +921,7 @@ export class DescribeApplicationAttributeResponseBody extends $dara.Model {
   maintainEndTime?: string;
   /**
    * @remarks
-   * The start time of the maintenance window.
+   * The maintenance start time.
    * 
    * @example
    * 18:00Z
@@ -864,13 +941,16 @@ export class DescribeApplicationAttributeResponseBody extends $dara.Model {
    */
   minorVersion?: string;
   /**
+   * @remarks
+   * The NAT gateway ID.
+   * 
    * @example
    * pc-xxx
    */
   natGatewayId?: string;
   /**
    * @remarks
-   * The billing method.
+   * The billing type.
    * 
    * @example
    * Postpaid
@@ -883,7 +963,7 @@ export class DescribeApplicationAttributeResponseBody extends $dara.Model {
   polarClawSaaSApplicationAttribute?: DescribeApplicationAttributeResponseBodyPolarClawSaaSApplicationAttribute;
   /**
    * @remarks
-   * The instance ID of PolarFS cold storage or high-performance edition.
+   * The instance ID of PolarFS Cold Storage Edition or High Performance Edition.
    * 
    * @example
    * pfs-**************
@@ -907,12 +987,12 @@ export class DescribeApplicationAttributeResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The list of security groups at the application level.
+   * The list of application-level security groups.
    */
   securityGroups?: DescribeApplicationAttributeResponseBodySecurityGroups[];
   /**
    * @remarks
-   * The list of whitelists at the application level.
+   * The list of application-level whitelists.
    */
   securityIPArrays?: DescribeApplicationAttributeResponseBodySecurityIPArrays[];
   /**
@@ -926,6 +1006,9 @@ export class DescribeApplicationAttributeResponseBody extends $dara.Model {
    */
   serverlessType?: string;
   /**
+   * @remarks
+   * The SNAT status. Valid values: on and off.
+   * 
    * @example
    * off
    */
@@ -937,12 +1020,12 @@ export class DescribeApplicationAttributeResponseBody extends $dara.Model {
    * - Creating: Being created.
    * - Activated: Running.
    * - Maintaining: Under maintenance.
-   * - ClassChanging: Changing specifications.
+   * - ClassChanging: Configuration is being changed.
    * - Transing: Being migrated.
-   * - MinorVersionUpgrading: Minor version being upgraded.
-   * - NetCreating: Endpoint being created.
-   * - NetDeleting: Endpoint being deleted.
-   * - NetModifying: Endpoint being modified.
+   * - MinorVersionUpgrading: Minor version is being upgraded.
+   * - NetCreating: Endpoint is being created.
+   * - NetDeleting: Endpoint is being deleted.
+   * - NetModifying: Endpoint is being modified.
    * - Restarting: Being restarted.
    * - Locking: Being locked.
    * - Locked: Locked.
