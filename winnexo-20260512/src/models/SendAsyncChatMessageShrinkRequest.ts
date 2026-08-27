@@ -44,7 +44,7 @@ export class SendAsyncChatMessageShrinkRequest extends $dara.Model {
   filesShrink?: string;
   /**
    * @remarks
-   * The abstract model tier. Valid values: quick, standard, and flagship. If not specified, a new session uses standard, and an existing session retains its current tier.
+   * The abstract model tier. Valid values: quick, standard, and flagship. If not specified, new sessions use standard, and existing sessions retain their current tier.
    * 
    * @example
    * quick
@@ -76,7 +76,7 @@ export class SendAsyncChatMessageShrinkRequest extends $dara.Model {
   stream?: boolean;
   /**
    * @remarks
-   * The task execution metadata returned by executeScheduledTask. If specified, the request is processed through the task execution pipeline.
+   * The task execution metadata returned by executeScheduledTask. When provided, the request is processed through the task execution pipeline.
    */
   taskExecutionShrink?: string;
   /**

@@ -2,37 +2,23 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class GetGraphSchemaRequest extends $dara.Model {
+export class ListUserGroupsRequest extends $dara.Model {
   /**
    * @remarks
-   * The graph name. Call listGraphs first to obtain this value.
-   * 
-   * This parameter is required.
+   * The tenant ID. This is a common parameter. In winnexo-cli, pass this parameter explicitly by using `--tenant-id`.
    * 
    * @example
-   * string_value
-   */
-  graphName?: string;
-  /**
-   * @remarks
-   * The effective tenant ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 21577
+   * 10000
    */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
-      graphName: 'graphName',
       tenantId: 'tenantId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      graphName: 'string',
       tenantId: 'string',
     };
   }

@@ -13,7 +13,7 @@ export class GetGraphSchemaResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The knowledge graph name.
+   * The graph name.
    * 
    * This parameter is required.
    * 
@@ -37,6 +37,14 @@ export class GetGraphSchemaResponseBody extends $dara.Model {
    * 019FF406-1B10-0065-A97D-2D1920C2A03D
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The active QueryAgent registered schema ID corresponding to the graph. The value is null if not yet registered.
+   * 
+   * @example
+   * schema_123456
+   */
+  schemaId?: string;
   /**
    * @remarks
    * The version.
@@ -63,6 +71,7 @@ export class GetGraphSchemaResponseBody extends $dara.Model {
       graphName: 'graphName',
       message: 'message',
       requestId: 'requestId',
+      schemaId: 'schemaId',
       schemaVersion: 'schemaVersion',
       yamlEdit: 'yamlEdit',
     };
@@ -74,6 +83,7 @@ export class GetGraphSchemaResponseBody extends $dara.Model {
       graphName: 'string',
       message: 'string',
       requestId: 'string',
+      schemaId: 'string',
       schemaVersion: 'string',
       yamlEdit: 'string',
     };
