@@ -130,6 +130,10 @@ export default class Client extends OpenApi {
       query["AgentName"] = request.agentName;
     }
 
+    if (!$dara.isNull(request.batchSize)) {
+      query["BatchSize"] = request.batchSize;
+    }
+
     if (!$dara.isNull(request.fileFormat)) {
       query["FileFormat"] = request.fileFormat;
     }

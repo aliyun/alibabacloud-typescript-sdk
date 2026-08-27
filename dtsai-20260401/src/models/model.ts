@@ -1,3 +1,4 @@
+export { AuthorizeFileUploadResponseBodyAuthorizations } from './AuthorizeFileUploadResponseBody';
 export { WebSearchResponseBodySearchResult } from './WebSearchResponseBody';
 export { AuthorizeFileUploadRequest } from './AuthorizeFileUploadRequest';
 export { AuthorizeFileUploadResponseBody } from './AuthorizeFileUploadResponseBody';

@@ -2,6 +2,37 @@
 import * as $dara from '@darabonba/typescript';
 
 
+/**
+ */
+export class AuthorizeFileUploadResponseBodyAuthorizations extends $dara.Model {
+  encodedPolicy?: string;
+  objectKey?: string;
+  signature?: string;
+  static names(): { [key: string]: string } {
+    return {
+      encodedPolicy: 'EncodedPolicy',
+      objectKey: 'ObjectKey',
+      signature: 'Signature',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      encodedPolicy: 'string',
+      objectKey: 'string',
+      signature: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AuthorizeFileUploadResponseBody extends $dara.Model {
   /**
    * @remarks
@@ -11,6 +42,7 @@ export class AuthorizeFileUploadResponseBody extends $dara.Model {
    * STS.NV5xxx
    */
   accessKeyId?: string;
+  authorizations?: AuthorizeFileUploadResponseBodyAuthorizations[];
   /**
    * @remarks
    * The destination OSS bucket.
@@ -51,6 +83,7 @@ export class AuthorizeFileUploadResponseBody extends $dara.Model {
    * The parameter [Query] is not valid.
    */
   errorMessage?: string;
+  expireTime?: number;
   /**
    * @remarks
    * The business-level HTTP status code.
@@ -77,7 +110,7 @@ export class AuthorizeFileUploadResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The Security Token Service (STS) token.
+   * The Security Token Service (STS) temporary security token.
    * 
    * @example
    * CAISxxx
@@ -102,11 +135,13 @@ export class AuthorizeFileUploadResponseBody extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       accessKeyId: 'AccessKeyId',
+      authorizations: 'Authorizations',
       bucket: 'Bucket',
       encodedPolicy: 'EncodedPolicy',
       endpoint: 'Endpoint',
       errorCode: 'ErrorCode',
       errorMessage: 'ErrorMessage',
+      expireTime: 'ExpireTime',
       httpStatusCode: 'HttpStatusCode',
       objectKey: 'ObjectKey',
       requestId: 'RequestId',
@@ -119,11 +154,13 @@ export class AuthorizeFileUploadResponseBody extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       accessKeyId: 'string',
+      authorizations: { 'type': 'array', 'itemType': AuthorizeFileUploadResponseBodyAuthorizations },
       bucket: 'string',
       encodedPolicy: 'string',
       endpoint: 'string',
       errorCode: 'string',
       errorMessage: 'string',
+      expireTime: 'number',
       httpStatusCode: 'number',
       objectKey: 'string',
       requestId: 'string',
@@ -134,6 +171,9 @@ export class AuthorizeFileUploadResponseBody extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.authorizations)) {
+      $dara.Model.validateArray(this.authorizations);
+    }
     super.validate();
   }
 

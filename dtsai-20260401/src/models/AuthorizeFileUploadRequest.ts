@@ -11,6 +11,7 @@ export class AuthorizeFileUploadRequest extends $dara.Model {
    * codex
    */
   agentName?: string;
+  batchSize?: string;
   /**
    * @remarks
    * The format of the file to be uploaded.
@@ -32,6 +33,7 @@ export class AuthorizeFileUploadRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       agentName: 'AgentName',
+      batchSize: 'BatchSize',
       fileFormat: 'FileFormat',
       regionId: 'RegionId',
     };
@@ -40,6 +42,7 @@ export class AuthorizeFileUploadRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       agentName: 'string',
+      batchSize: 'string',
       fileFormat: 'string',
       regionId: 'string',
     };
