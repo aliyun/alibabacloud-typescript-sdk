@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/realtranslationagent20260622",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "dist/client.js",
   "scripts": {
@@ -21,7 +21,7 @@
   "dependencies": {
     "@darabonba/typescript": "^1.0.0",
     "@alicloud/credentials": "^2.4.2",
-    "@alicloud/openapi-core": "^1.0.0"
+    "@alicloud/openapi-core": "^1.0.8"
   },
   "files": [
     "dist",

@@ -5,7 +5,21 @@ import * as $dara from '@darabonba/typescript';
 /**
  */
 export class CancelTranslationTaskResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The task status.
+   * 
+   * @example
+   * CANCEL
+   */
   status?: string;
+  /**
+   * @remarks
+   * The task ID.
+   * 
+   * @example
+   * f9c35b0453b
+   */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31,10 +45,42 @@ export class CancelTranslationTaskResponseBodyData extends $dara.Model {
 }
 
 export class CancelTranslationTaskResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The return code.
+   * 
+   * @example
+   * success
+   */
   code?: string;
+  /**
+   * @remarks
+   * The business data.
+   */
   data?: CancelTranslationTaskResponseBodyData;
+  /**
+   * @remarks
+   * The return message.
+   * 
+   * @example
+   * successful
+   */
   message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * F22CA868-601F-50D1-99B2-520491F25EB7
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request is successful.
+   * 
+   * @example
+   * True
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
