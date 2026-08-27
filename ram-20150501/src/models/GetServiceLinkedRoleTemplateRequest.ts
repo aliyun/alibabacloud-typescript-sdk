@@ -2,26 +2,26 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class GetRoleRequest extends $dara.Model {
+export class GetServiceLinkedRoleTemplateRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the role.
+   * The cloud service name.
    * 
-   * The name must be 1 to 64 characters in length and can contain letters, digits, periods (.), and hyphens (-).
+   * For more information, see the **Cloud service identity** column in [Cloud services that support service-linked roles](https://help.aliyun.com/document_detail/461722.html).
    * 
    * @example
-   * ECSAdmin
+   * polardb.aliyuncs.com
    */
-  roleName?: string;
+  serviceName?: string;
   static names(): { [key: string]: string } {
     return {
-      roleName: 'RoleName',
+      serviceName: 'ServiceName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      roleName: 'string',
+      serviceName: 'string',
     };
   }
 

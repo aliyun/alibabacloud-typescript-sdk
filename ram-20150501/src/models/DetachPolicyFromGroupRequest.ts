@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DetachPolicyFromGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the RAM user group.
+   * The name of the user group.
    * 
    * @example
    * dev
@@ -13,7 +13,7 @@ export class DetachPolicyFromGroupRequest extends $dara.Model {
   groupName?: string;
   /**
    * @remarks
-   * The name of the policy.
+   * The name of the access policy.
    * 
    * @example
    * OSS-Administrator
@@ -21,12 +21,19 @@ export class DetachPolicyFromGroupRequest extends $dara.Model {
   policyName?: string;
   /**
    * @remarks
-   * The type of the policy. Valid values: `System` and `Custom`.
+   * The type of the access policy. Valid values: `System` or `Custom`.
    * 
    * @example
    * Custom
    */
   policyType?: string;
+  /**
+   * @remarks
+   * The resource group ID.
+   * 
+   * @example
+   * rg-9gLOoK****
+   */
   resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {

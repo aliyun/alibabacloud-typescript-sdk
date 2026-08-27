@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetPolicyResponseBodyDefaultPolicyVersion extends $dara.Model {
   /**
    * @remarks
-   * The time when the default policy version was created.
+   * The time when the policy was created. The time is in UTC. Format: `YYYY-MM-DDThh:mm:ssZ`.
    * 
    * @example
    * 2015-01-23T12:33:18Z
@@ -13,7 +13,7 @@ export class GetPolicyResponseBodyDefaultPolicyVersion extends $dara.Model {
   createDate?: string;
   /**
    * @remarks
-   * An attribute in the `DefaultPolicyVersion` parameter. The value of the `IsDefaultVersion` parameter is `true`.
+   * The data structure returned by `DefaultPolicyVersion` is always the default version. Therefore, the value of `IsDefaultVersion` is always `true`.
    * 
    * @example
    * true
@@ -21,7 +21,7 @@ export class GetPolicyResponseBodyDefaultPolicyVersion extends $dara.Model {
   isDefaultVersion?: boolean;
   /**
    * @remarks
-   * The document of the policy.
+   * The policy document of the access policy.
    * 
    * @example
    * { "Statement": [{ "Action": ["oss:*"], "Effect": "Allow", "Resource": ["acs:oss:*:*:*"]}], "Version": "1"}
@@ -29,7 +29,7 @@ export class GetPolicyResponseBodyDefaultPolicyVersion extends $dara.Model {
   policyDocument?: string;
   /**
    * @remarks
-   * The ID of the default policy version.
+   * The version of the access policy.
    * 
    * @example
    * v1
@@ -65,7 +65,7 @@ export class GetPolicyResponseBodyDefaultPolicyVersion extends $dara.Model {
 export class GetPolicyResponseBodyPolicy extends $dara.Model {
   /**
    * @remarks
-   * The number of references to the policy.
+   * The number of references.
    * 
    * @example
    * 0
@@ -73,7 +73,7 @@ export class GetPolicyResponseBodyPolicy extends $dara.Model {
   attachmentCount?: number;
   /**
    * @remarks
-   * The time when the policy was created.
+   * The time when the policy was created. The time is in UTC. Format: `YYYY-MM-DDThh:mm:ssZ`.
    * 
    * @example
    * 2015-01-23T12:33:18Z
@@ -81,7 +81,7 @@ export class GetPolicyResponseBodyPolicy extends $dara.Model {
   createDate?: string;
   /**
    * @remarks
-   * The default version of the policy.
+   * The default version.
    * 
    * @example
    * v1
@@ -89,15 +89,15 @@ export class GetPolicyResponseBodyPolicy extends $dara.Model {
   defaultVersion?: string;
   /**
    * @remarks
-   * The description of the policy.
+   * The description of the access policy.
    * 
    * @example
-   * OSS administrator
+   * OSS administrator permissions
    */
   description?: string;
   /**
    * @remarks
-   * This parameter is deprecated.
+   * Deprecated.
    * 
    * @example
    * N/A
@@ -105,7 +105,7 @@ export class GetPolicyResponseBodyPolicy extends $dara.Model {
   policyDocument?: string;
   /**
    * @remarks
-   * The name of the policy.
+   * The name of the access policy.
    * 
    * @example
    * OSS-Administrator
@@ -113,7 +113,7 @@ export class GetPolicyResponseBodyPolicy extends $dara.Model {
   policyName?: string;
   /**
    * @remarks
-   * The type of the policy.
+   * The type of the access policy.
    * 
    * @example
    * Custom
@@ -121,7 +121,7 @@ export class GetPolicyResponseBodyPolicy extends $dara.Model {
   policyType?: string;
   /**
    * @remarks
-   * The time when the policy was modified.
+   * The time when the policy was last modified. The time is in UTC. Format: `YYYY-MM-DDThh:mm:ssZ`.
    * 
    * @example
    * 2015-01-23T12:33:18Z
@@ -165,12 +165,12 @@ export class GetPolicyResponseBodyPolicy extends $dara.Model {
 export class GetPolicyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the default policy version.
+   * The default version of the access policy.
    */
   defaultPolicyVersion?: GetPolicyResponseBodyDefaultPolicyVersion;
   /**
    * @remarks
-   * The basic information about the policy.
+   * The basic information of the access policy.
    */
   policy?: GetPolicyResponseBodyPolicy;
   /**

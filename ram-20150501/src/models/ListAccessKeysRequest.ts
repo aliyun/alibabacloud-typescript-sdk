@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAccessKeysRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the RAM user. If a RAM user calls this operation and does not specify this parameter, the AccessKey pairs of the RAM user are returned.
+   * The username. If a Resource Access Management (RAM) user calls this operation without specifying this parameter, the AccessKey pairs of the RAM user are listed.
    * 
    * @example
    * zhangq****

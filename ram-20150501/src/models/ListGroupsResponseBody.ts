@@ -67,10 +67,10 @@ export class ListGroupsResponseBody extends $dara.Model {
   groups?: ListGroupsResponseBodyGroups;
   /**
    * @remarks
-   * Indicates whether the response is truncated. Valid values:
+   * Indicates whether the returned results are truncated. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true
+   * - false
    * 
    * @example
    * true
@@ -78,9 +78,8 @@ export class ListGroupsResponseBody extends $dara.Model {
   isTruncated?: boolean;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results.
-   * 
-   * >  This parameter is returned only when `IsTruncated` is `true`.
+   * The token for querying the next page of results.
+   * > This parameter is returned only when `IsTruncated` is `true`.
    * 
    * @example
    * EXAMPLE
@@ -88,7 +87,7 @@ export class ListGroupsResponseBody extends $dara.Model {
   marker?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 065527AA-2F2E-AD7C-7484-F2626CFE4934

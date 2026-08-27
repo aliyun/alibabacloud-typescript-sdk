@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetPolicyVersionRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the policy.
+   * The access policy name.
    * 
    * @example
    * OSS-Administrator
@@ -13,7 +13,7 @@ export class GetPolicyVersionRequest extends $dara.Model {
   policyName?: string;
   /**
    * @remarks
-   * The type of the policy. Valid values: `System` and `Custom`.
+   * The type of the access policy. Valid values: `System`, `Custom`.
    * 
    * @example
    * Custom
@@ -21,7 +21,7 @@ export class GetPolicyVersionRequest extends $dara.Model {
   policyType?: string;
   /**
    * @remarks
-   * The ID of the policy version.
+   * The ID of the target version.
    * 
    * @example
    * v3

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetLoginProfileRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the RAM user.
+   * The username.
    * 
    * @example
    * zhangq****

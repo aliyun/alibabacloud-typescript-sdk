@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListEntitiesForPolicyRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the policy.
+   * The name of the access policy.
    * 
    * @example
    * OSS-Administrator
@@ -13,7 +13,7 @@ export class ListEntitiesForPolicyRequest extends $dara.Model {
   policyName?: string;
   /**
    * @remarks
-   * The type of the policy. Valid values: `System` and `Custom`.
+   * The type of the access policy. Valid values: `System` or `Custom`.
    * 
    * @example
    * Custom

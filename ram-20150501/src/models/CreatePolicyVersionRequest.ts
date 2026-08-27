@@ -25,8 +25,9 @@ export class CreatePolicyVersionRequest extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   `None`: disables the rotation strategy.
-   * *   `DeleteOldestNonDefaultVersionWhenLimitExceeded`: deletes the earliest non-active version if the number of versions exceeds the limit.
+   * - `None`: disables the rotation strategy.
+   * 
+   * - `DeleteOldestNonDefaultVersionWhenLimitExceeded`: deletes the earliest non-active version if the number of versions exceeds the limit.
    * 
    * Default value: `None`.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListPoliciesForRoleRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the RAM role.
+   * The name of the role.
    * 
    * @example
    * AdminRole

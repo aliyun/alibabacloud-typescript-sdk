@@ -2,24 +2,26 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ListPoliciesForGroupRequest extends $dara.Model {
+export class DeleteServiceLinkedRoleRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the user group.
+   * The role name.
+   * 
+   * This parameter is required.
    * 
    * @example
-   * dev
+   * AliyunServiceRoleForPolarDB
    */
-  groupName?: string;
+  roleName?: string;
   static names(): { [key: string]: string } {
     return {
-      groupName: 'GroupName',
+      roleName: 'RoleName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      groupName: 'string',
+      roleName: 'string',
     };
   }
 

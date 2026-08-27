@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetLoginProfileResponseBodyLoginProfile extends $dara.Model {
   /**
    * @remarks
-   * The creation time.
+   * The creation time in UTC. Format: `YYYY-MM-DDThh:mm:ssZ`.
    * 
    * @example
    * 2015-01-23T12:33:18Z
@@ -13,7 +13,7 @@ export class GetLoginProfileResponseBodyLoginProfile extends $dara.Model {
   createDate?: string;
   /**
    * @remarks
-   * Indicates whether a multi-factor authentication (MFA) device must be bound to the RAM user.
+   * Indicates whether the user must bind a multi-factor authentication device.
    * 
    * @example
    * true
@@ -21,7 +21,7 @@ export class GetLoginProfileResponseBodyLoginProfile extends $dara.Model {
   MFABindRequired?: boolean;
   /**
    * @remarks
-   * Indicates whether the RAM user must change the password upon logon.
+   * Indicates whether the user must reset the password at the next logon.
    * 
    * @example
    * true
@@ -29,7 +29,7 @@ export class GetLoginProfileResponseBodyLoginProfile extends $dara.Model {
   passwordResetRequired?: boolean;
   /**
    * @remarks
-   * The name of the RAM user.
+   * The username.
    * 
    * @example
    * zhangq****
@@ -65,7 +65,7 @@ export class GetLoginProfileResponseBodyLoginProfile extends $dara.Model {
 export class GetLoginProfileResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The logon configurations of the RAM user.
+   * The logon configuration information.
    */
   loginProfile?: GetLoginProfileResponseBodyLoginProfile;
   /**

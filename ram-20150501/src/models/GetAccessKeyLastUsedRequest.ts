@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetAccessKeyLastUsedRequest extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the AccessKey pair.
+   * 
    * @example
    * LTAI4GFTgcR8m8cZQDTH****
    */
   userAccessKeyId?: string;
   /**
+   * @remarks
+   * The name of the RAM user.
+   * 
    * @example
    * test
    */

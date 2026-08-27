@@ -39,8 +39,9 @@ export class UpdatePolicyDescriptionResponseBodyPolicy extends $dara.Model {
    * @remarks
    * The type of the policy. Valid values:
    * 
-   * *   Custom
-   * *   System
+   * - Custom
+   * 
+   * - System
    * 
    * @example
    * Custom

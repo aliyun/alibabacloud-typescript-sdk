@@ -7,8 +7,9 @@ export class GetSecurityPreferenceResponseBodySecurityPreferenceAccessKeyPrefere
    * @remarks
    * Indicates whether Resource Access Management (RAM) users can manage their AccessKey pairs. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true
+   * 
+   * - false
    * 
    * @example
    * false
@@ -40,8 +41,9 @@ export class GetSecurityPreferenceResponseBodySecurityPreferenceLoginProfilePref
    * @remarks
    * Indicates whether RAM users can change their passwords. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true
+   * 
+   * - false
    * 
    * @example
    * true
@@ -51,8 +53,9 @@ export class GetSecurityPreferenceResponseBodySecurityPreferenceLoginProfilePref
    * @remarks
    * Indicates whether RAM users can save security codes for MFA during logon. Each security code is valid for seven days. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true
+   * 
+   * - false
    * 
    * @example
    * false
@@ -62,8 +65,9 @@ export class GetSecurityPreferenceResponseBodySecurityPreferenceLoginProfilePref
    * @remarks
    * The subnet mask that indicates the IP addresses from which logon to the Alibaba Cloud Management Console is allowed. This parameter applies to password-based logon and single sign-on (SSO). However, this parameter does not apply to API calls that are authenticated based on AccessKey pairs.
    * 
-   * *   If you specify a subnet mask, RAM users can use only the IP addresses in the subnet mask to log on to the Alibaba Cloud Management Console.
-   * *   If you do not specify a subnet mask, RAM users can use all IP addresses to log on to the Alibaba Cloud Management Console.
+   * - If you specify a subnet mask, RAM users can use only the IP addresses in the subnet mask to log on to the Alibaba Cloud Management Console.
+   * 
+   * - If you do not specify a subnet mask, RAM users can use all IP addresses to log on to the Alibaba Cloud Management Console.
    * 
    * If you want to specify more than one subnet mask, separate the masks with semicolons (;). Example: 192.168.0.0/16;10.0.0.0/8.
    * 
@@ -111,8 +115,9 @@ export class GetSecurityPreferenceResponseBodySecurityPreferenceMFAPreference ex
    * @remarks
    * Indicates whether RAM users can manage their MFA devices. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true
+   * 
+   * - false
    * 
    * @example
    * true
@@ -144,8 +149,9 @@ export class GetSecurityPreferenceResponseBodySecurityPreferencePublicKeyPrefere
    * @remarks
    * Indicates whether RAM users can manage their public keys. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true
+   * 
+   * - false
    * 
    * @example
    * false
@@ -192,7 +198,7 @@ export class GetSecurityPreferenceResponseBodySecurityPreference extends $dara.M
    * @remarks
    * The public key preference.
    * 
-   * >  This parameter is valid only for the Japan site.
+   * > This parameter is valid only for the Japan site.
    */
   publicKeyPreference?: GetSecurityPreferenceResponseBodySecurityPreferencePublicKeyPreference;
   static names(): { [key: string]: string } {

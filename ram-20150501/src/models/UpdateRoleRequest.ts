@@ -5,7 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateRoleRequest extends $dara.Model {
   /**
    * @remarks
-   * The trust policy that specifies the trusted entity to assume the RAM role.
+   * Specifies whether the RAM role is allowed to log on to the console.
+   * 
+   * @example
+   * true
+   */
+  newAllowConsoleLogin?: boolean;
+  /**
+   * @remarks
+   * The trust policy of the RAM role.
    * 
    * @example
    * { "Statement": [ { "Action": "sts:AssumeRole", "Effect": "Allow", "Principal": { "RAM": "acs:ram::12345678901234****:root" } } ], "Version": "1" }
@@ -13,21 +21,19 @@ export class UpdateRoleRequest extends $dara.Model {
   newAssumeRolePolicyDocument?: string;
   /**
    * @remarks
-   * The new description of the RAM role.
+   * The description of the RAM role.
    * 
-   * The description must be 1 to 1,024 characters in length.
+   * The description must be 1 to 1024 characters in length.
    * 
    * @example
-   * ECS administrator
+   * ECS management role
    */
   newDescription?: string;
   /**
    * @remarks
-   * The maximum session time of the RAM role.
+   * The maximum session duration of the RAM role.
    * 
    * Valid values: 3600 to 43200. Unit: seconds. Default value: 3600.
-   * 
-   * If you do not specify this parameter, the default value is used.
    * 
    * @example
    * 3600
@@ -37,7 +43,7 @@ export class UpdateRoleRequest extends $dara.Model {
    * @remarks
    * The name of the RAM role.
    * 
-   * The name must be 1 to 64 characters in length, and can contain letters, digits, periods (.), and hyphens (-).
+   * The name must be 1 to 64 characters in length and can contain letters, digits, periods (.), and hyphens (-).
    * 
    * @example
    * ECSAdmin
@@ -45,6 +51,7 @@ export class UpdateRoleRequest extends $dara.Model {
   roleName?: string;
   static names(): { [key: string]: string } {
     return {
+      newAllowConsoleLogin: 'NewAllowConsoleLogin',
       newAssumeRolePolicyDocument: 'NewAssumeRolePolicyDocument',
       newDescription: 'NewDescription',
       newMaxSessionDuration: 'NewMaxSessionDuration',
@@ -54,6 +61,7 @@ export class UpdateRoleRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      newAllowConsoleLogin: 'boolean',
       newAssumeRolePolicyDocument: 'string',
       newDescription: 'string',
       newMaxSessionDuration: 'number',

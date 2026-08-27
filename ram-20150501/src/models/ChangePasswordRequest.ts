@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ChangePasswordRequest extends $dara.Model {
   /**
    * @remarks
-   * The new password that is used to log on to the console.
+   * The new console logon password of the Resource Access Management (RAM) user.
    * 
-   * The password must meet the complexity requirements. For more information, see [SetPasswordPolicy](https://help.aliyun.com/document_detail/28739.html).
+   * The password must meet the password strength requirements. For more information, see [SetPasswordPolicy](https://help.aliyun.com/document_detail/28739.html).
    * 
    * @example
    * aw$2****
@@ -15,7 +15,7 @@ export class ChangePasswordRequest extends $dara.Model {
   newPassword?: string;
   /**
    * @remarks
-   * The old password that is used to log on to the console.
+   * The old console logon password of the Resource Access Management (RAM) user.
    * 
    * @example
    * 12****

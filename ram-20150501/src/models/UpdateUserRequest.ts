@@ -27,7 +27,7 @@ export class UpdateUserRequest extends $dara.Model {
    * @remarks
    * The new email address of the RAM user.
    * 
-   * >  This parameter applies only to the China site (aliyun.com).
+   * > This parameter applies only to the China site (aliyun.com).
    * 
    * @example
    * xiaoq****@example.com
@@ -39,7 +39,7 @@ export class UpdateUserRequest extends $dara.Model {
    * 
    * Format: \\<Country code>-\\<Mobile phone number>.
    * 
-   * >  This parameter applies only to the China site (aliyun.com).
+   * > This parameter applies only to the China site (aliyun.com).
    * 
    * @example
    * 86-1860000****

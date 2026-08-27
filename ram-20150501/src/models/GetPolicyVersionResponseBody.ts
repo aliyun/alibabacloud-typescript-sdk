@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetPolicyVersionResponseBodyPolicyVersion extends $dara.Model {
   /**
    * @remarks
-   * The creation time.
+   * The time when the version was created. The time is in UTC and in the format of `YYYY-MM-DDThh:mm:ssZ`.
    * 
    * @example
    * 2015-01-23T12:33:18Z
@@ -13,7 +13,7 @@ export class GetPolicyVersionResponseBodyPolicyVersion extends $dara.Model {
   createDate?: string;
   /**
    * @remarks
-   * Indicates whether the policy version is the default version.
+   * Indicates whether this is the default version.
    * 
    * @example
    * false
@@ -21,7 +21,7 @@ export class GetPolicyVersionResponseBodyPolicyVersion extends $dara.Model {
   isDefaultVersion?: boolean;
   /**
    * @remarks
-   * The document of the policy.
+   * The policy document of the permission.
    * 
    * @example
    * { "Statement": [{ "Action": ["oss:*"], "Effect": "Allow", "Resource": ["acs:oss:*:*:*"]}], "Version": "1"}
@@ -29,7 +29,7 @@ export class GetPolicyVersionResponseBodyPolicyVersion extends $dara.Model {
   policyDocument?: string;
   /**
    * @remarks
-   * The ID of the policy version.
+   * The ID of the access policy version.
    * 
    * @example
    * v3
@@ -65,7 +65,7 @@ export class GetPolicyVersionResponseBodyPolicyVersion extends $dara.Model {
 export class GetPolicyVersionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the policy version.
+   * The version information of the access policy.
    */
   policyVersion?: GetPolicyVersionResponseBodyPolicyVersion;
   /**

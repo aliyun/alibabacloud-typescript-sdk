@@ -2,10 +2,58 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class GetRoleResponseBodyRoleLatestDeletionTask extends $dara.Model {
+  /**
+   * @remarks
+   * The time when the deletion task was created. The time is in UTC in the `YYYY-MM-DDThh:mm:ssZ` format.
+   * 
+   * @example
+   * 2018-10-23T12:33:18Z
+   */
+  createDate?: string;
+  /**
+   * @remarks
+   * The ID of the deletion task.
+   * 
+   * @example
+   * task/acs-service-role/sas.aliyuncs.com/AliyunServiceRoleForSas/20843430-bb43-44fe-a7ff-02ab09183436
+   */
+  deletionTaskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createDate: 'CreateDate',
+      deletionTaskId: 'DeletionTaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createDate: 'string',
+      deletionTaskId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetRoleResponseBodyRole extends $dara.Model {
   /**
    * @remarks
-   * The Alibaba Cloud Resource Name (ARN) of the RAM role.
+   * Indicates whether console logon is allowed for the RAM role.
+   * 
+   * @example
+   * true
+   */
+  allowConsoleLogin?: boolean;
+  /**
+   * @remarks
+   * The resource descriptor of the role.
    * 
    * @example
    * acs:ram::123456789012****:role/ECSAdmin
@@ -13,7 +61,7 @@ export class GetRoleResponseBodyRole extends $dara.Model {
   arn?: string;
   /**
    * @remarks
-   * The policy that specifies the trusted entity to assume the RAM role.
+   * The access policy that specifies the permission to assume the role.
    * 
    * @example
    * { "Statement": [ { "Action": "sts:AssumeRole", "Effect": "Allow", "Principal": { "RAM": "acs:ram::123456789012****:root" } } ], "Version": "1" }
@@ -21,7 +69,7 @@ export class GetRoleResponseBodyRole extends $dara.Model {
   assumeRolePolicyDocument?: string;
   /**
    * @remarks
-   * The time when the RAM role was created.
+   * The time when the role was created. The time is in UTC in the `YYYY-MM-DDThh:mm:ssZ` format.
    * 
    * @example
    * 2015-01-23T12:33:18Z
@@ -29,15 +77,28 @@ export class GetRoleResponseBodyRole extends $dara.Model {
   createDate?: string;
   /**
    * @remarks
-   * The description of the RAM role.
+   * The description of the role.
    * 
    * @example
-   * ECS administrator
+   * ECS management role
    */
   description?: string;
   /**
    * @remarks
-   * The maximum session duration of the RAM role.
+   * Indicates whether the role is a service-linked role.
+   * 
+   * @example
+   * true
+   */
+  isServiceLinkedRole?: boolean;
+  /**
+   * @remarks
+   * The information about the most recent deletion task.
+   */
+  latestDeletionTask?: GetRoleResponseBodyRoleLatestDeletionTask;
+  /**
+   * @remarks
+   * The maximum session duration of the role.
    * 
    * @example
    * 3600
@@ -45,7 +106,7 @@ export class GetRoleResponseBodyRole extends $dara.Model {
   maxSessionDuration?: number;
   /**
    * @remarks
-   * The ID of the RAM role.
+   * The ID of the role.
    * 
    * @example
    * 901234567890****
@@ -53,7 +114,7 @@ export class GetRoleResponseBodyRole extends $dara.Model {
   roleId?: string;
   /**
    * @remarks
-   * The name of the RAM role.
+   * The name of the role.
    * 
    * @example
    * ECSAdmin
@@ -61,7 +122,15 @@ export class GetRoleResponseBodyRole extends $dara.Model {
   roleName?: string;
   /**
    * @remarks
-   * The time when the RAM role was modified.
+   * The name of the role with the domain name suffix.
+   * 
+   * @example
+   * ECSAdmin@role.123456.onaliyunservice.com
+   */
+  rolePrincipalName?: string;
+  /**
+   * @remarks
+   * The time when the role was last updated. The time is in UTC in the `YYYY-MM-DDThh:mm:ssZ` format.
    * 
    * @example
    * 2015-01-23T12:33:18Z
@@ -69,31 +138,42 @@ export class GetRoleResponseBodyRole extends $dara.Model {
   updateDate?: string;
   static names(): { [key: string]: string } {
     return {
+      allowConsoleLogin: 'AllowConsoleLogin',
       arn: 'Arn',
       assumeRolePolicyDocument: 'AssumeRolePolicyDocument',
       createDate: 'CreateDate',
       description: 'Description',
+      isServiceLinkedRole: 'IsServiceLinkedRole',
+      latestDeletionTask: 'LatestDeletionTask',
       maxSessionDuration: 'MaxSessionDuration',
       roleId: 'RoleId',
       roleName: 'RoleName',
+      rolePrincipalName: 'RolePrincipalName',
       updateDate: 'UpdateDate',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      allowConsoleLogin: 'boolean',
       arn: 'string',
       assumeRolePolicyDocument: 'string',
       createDate: 'string',
       description: 'string',
+      isServiceLinkedRole: 'boolean',
+      latestDeletionTask: GetRoleResponseBodyRoleLatestDeletionTask,
       maxSessionDuration: 'number',
       roleId: 'string',
       roleName: 'string',
+      rolePrincipalName: 'string',
       updateDate: 'string',
     };
   }
 
   validate() {
+    if(this.latestDeletionTask && typeof (this.latestDeletionTask as any).validate === 'function') {
+      (this.latestDeletionTask as any).validate();
+    }
     super.validate();
   }
 
@@ -113,7 +193,7 @@ export class GetRoleResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The information about the RAM role.
+   * The role information.
    */
   role?: GetRoleResponseBodyRole;
   static names(): { [key: string]: string } {

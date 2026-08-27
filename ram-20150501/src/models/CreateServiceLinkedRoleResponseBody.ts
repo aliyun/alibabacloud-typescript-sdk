@@ -2,79 +2,73 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CreateRoleResponseBodyRole extends $dara.Model {
+export class CreateServiceLinkedRoleResponseBodyRole extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether console logon is allowed for the RAM role.
+   * The resource descriptor of the role.
    * 
    * @example
-   * true
-   */
-  allowConsoleLogin?: boolean;
-  /**
-   * @remarks
-   * The resource descriptor of the RAM role.
-   * 
-   * @example
-   * acs:ram::123456789012****:role/ECSAdmin
+   * acs:ram::177242285274****:role/aliyunserviceroleforpolardb
    */
   arn?: string;
   /**
    * @remarks
-   * The trust policy of the RAM role.
+   * The trust policy document of the role.
    * 
    * @example
-   * { "Statement": [ { "Action": "sts:AssumeRole", "Effect": "Allow", "Principal": { "RAM": "acs:ram::123456789012****:root" } } ], "Version": "1" }
+   * {\\"Statement\\":[{\\"Action\\":\\"sts:AssumeRole\\",\\"Effect\\":\\"Allow\\",\\"Principal\\":{\\"Service\\":[\\"polardb.aliyuncs.com\\"]}}],\\"Version\\":\\"1\\"}
    */
   assumeRolePolicyDocument?: string;
   /**
    * @remarks
-   * The time when the RAM role was created.
+   * The time when the role was created (UTC).
    * 
    * @example
-   * 2015-01-23T12:33:18Z
+   * 2024-06-30T08:14:16Z
    */
   createDate?: string;
   /**
    * @remarks
-   * The description of the RAM role.
+   * The description of the role.
    * 
    * @example
-   * ECS management role.
+   * Service Linked Role for PolarDB. PolarDB will use this role to access your resources in other services.
    */
   description?: string;
   /**
    * @remarks
-   * The maximum session duration of the RAM role.
+   * Indicates whether the role is a service-linked role. Valid values:
+   * 
+   * - true: The role is a service-linked role.
+   * - false: The role is not a service-linked role.
    * 
    * @example
-   * 3600
+   * true
    */
-  maxSessionDuration?: number;
+  isServiceLinkedRole?: boolean;
   /**
    * @remarks
-   * The ID of the RAM role.
+   * The role ID.
    * 
    * @example
-   * 901234567890****
+   * 32833240981067****
    */
   roleId?: string;
   /**
    * @remarks
-   * The name of the RAM role.
+   * The role name.
    * 
    * @example
-   * ECSAdmin
+   * AliyunServiceRoleForPolarDB
    */
   roleName?: string;
   static names(): { [key: string]: string } {
     return {
-      allowConsoleLogin: 'AllowConsoleLogin',
       arn: 'Arn',
       assumeRolePolicyDocument: 'AssumeRolePolicyDocument',
       createDate: 'CreateDate',
       description: 'Description',
-      maxSessionDuration: 'MaxSessionDuration',
+      isServiceLinkedRole: 'IsServiceLinkedRole',
       roleId: 'RoleId',
       roleName: 'RoleName',
     };
@@ -82,12 +76,11 @@ export class CreateRoleResponseBodyRole extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      allowConsoleLogin: 'boolean',
       arn: 'string',
       assumeRolePolicyDocument: 'string',
       createDate: 'string',
       description: 'string',
-      maxSessionDuration: 'number',
+      isServiceLinkedRole: 'boolean',
       roleId: 'string',
       roleName: 'string',
     };
@@ -102,20 +95,20 @@ export class CreateRoleResponseBodyRole extends $dara.Model {
   }
 }
 
-export class CreateRoleResponseBody extends $dara.Model {
+export class CreateServiceLinkedRoleResponseBody extends $dara.Model {
   /**
    * @remarks
    * The request ID.
    * 
    * @example
-   * 04F0F334-1335-436C-A1D7-6C044FE73368
+   * FE58D7CF-03BC-432A-B42D-BC3390C8C2E1
    */
   requestId?: string;
   /**
    * @remarks
-   * The information about the RAM role.
+   * The role information.
    */
-  role?: CreateRoleResponseBodyRole;
+  role?: CreateServiceLinkedRoleResponseBodyRole;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
@@ -126,7 +119,7 @@ export class CreateRoleResponseBody extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      role: CreateRoleResponseBodyRole,
+      role: CreateServiceLinkedRoleResponseBodyRole,
     };
   }
 

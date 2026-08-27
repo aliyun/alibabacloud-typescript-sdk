@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class GetGroupResponseBodyGroup extends $dara.Model {
   /**
    * @remarks
-   * The description of the RAM user group.
+   * The remarks.
    * 
    * @example
-   * Dev-Team
+   * Development team
    */
   comments?: string;
   /**
    * @remarks
-   * The time when the RAM user group was created.
+   * The creation time in UTC. The time is displayed in the `YYYY-MM-DDThh:mm:ssZ` format.
    * 
    * @example
    * 2015-01-23T12:33:18Z
@@ -21,7 +21,7 @@ export class GetGroupResponseBodyGroup extends $dara.Model {
   createDate?: string;
   /**
    * @remarks
-   * The ID of the RAM user group.
+   * The ID of the user group.
    * 
    * @example
    * g-FpMEHiMysofp****
@@ -29,7 +29,7 @@ export class GetGroupResponseBodyGroup extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
-   * The name of the RAM user group.
+   * The name of the user group.
    * 
    * @example
    * Dev-Team
@@ -37,7 +37,7 @@ export class GetGroupResponseBodyGroup extends $dara.Model {
   groupName?: string;
   /**
    * @remarks
-   * The modification time.
+   * The update time in UTC. The time is displayed in the `YYYY-MM-DDThh:mm:ssZ` format.
    * 
    * @example
    * 2015-02-11T03:15:21Z
@@ -75,7 +75,7 @@ export class GetGroupResponseBodyGroup extends $dara.Model {
 export class GetGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the RAM user group.
+   * The user group information.
    */
   group?: GetGroupResponseBodyGroup;
   /**

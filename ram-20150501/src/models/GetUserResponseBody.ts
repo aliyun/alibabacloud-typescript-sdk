@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class GetUserResponseBodyUser extends $dara.Model {
   /**
    * @remarks
-   * The description of the RAM user.
+   * The description.
    * 
    * @example
-   * Cloud computing engineer
+   * This is a cloud computing engineer.
    */
   comments?: string;
   /**
    * @remarks
-   * The point in time when the RAM user was created. The time is displayed in UTC.
+   * The time when the RAM user was created. The time is in UTC.
    * 
    * @example
    * 2015-01-23T12:33:18Z
@@ -21,7 +21,7 @@ export class GetUserResponseBodyUser extends $dara.Model {
   createDate?: string;
   /**
    * @remarks
-   * The display name of the RAM user.
+   * The display name.
    * 
    * @example
    * alice
@@ -31,7 +31,7 @@ export class GetUserResponseBodyUser extends $dara.Model {
    * @remarks
    * The email address of the RAM user.
    * 
-   * >  This parameter can be returned only on the China site (aliyun.com).
+   * > This parameter is available only on the China site (aliyun.com).
    * 
    * @example
    * alice@example.com
@@ -39,7 +39,7 @@ export class GetUserResponseBodyUser extends $dara.Model {
   email?: string;
   /**
    * @remarks
-   * The point in time when the RAM user last logged on to the Alibaba Cloud Management Console by using the password. The time is displayed in UTC.
+   * The last time the user logged on with a password. The time is in UTC.
    * 
    * @example
    * 2015-01-23T12:33:18Z
@@ -49,7 +49,7 @@ export class GetUserResponseBodyUser extends $dara.Model {
    * @remarks
    * The mobile phone number of the RAM user.
    * 
-   * >  This parameter can be returned only on the China site (aliyun.com).
+   * > This parameter is available only on the China site (aliyun.com).
    * 
    * @example
    * 86-1860000****
@@ -57,7 +57,7 @@ export class GetUserResponseBodyUser extends $dara.Model {
   mobilePhone?: string;
   /**
    * @remarks
-   * The point in time when the information about the RAM user was last modified. The time is displayed in UTC.
+   * The time when the RAM user was last updated. The time is in UTC.
    * 
    * @example
    * 2015-02-11T03:15:21Z
@@ -65,7 +65,7 @@ export class GetUserResponseBodyUser extends $dara.Model {
   updateDate?: string;
   /**
    * @remarks
-   * The ID of the RAM user.
+   * The unique ID of the RAM user.
    * 
    * @example
    * 222748924538****
@@ -73,7 +73,7 @@ export class GetUserResponseBodyUser extends $dara.Model {
   userId?: string;
   /**
    * @remarks
-   * The username of the RAM user.
+   * The name of the RAM user.
    * 
    * @example
    * alice
@@ -119,7 +119,7 @@ export class GetUserResponseBodyUser extends $dara.Model {
 export class GetUserResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 2D69A58F-345C-4FDE-88E4-BF5189484043

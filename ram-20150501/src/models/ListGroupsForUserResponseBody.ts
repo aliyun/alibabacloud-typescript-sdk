@@ -64,7 +64,7 @@ export class ListGroupsForUserResponseBody extends $dara.Model {
   groups?: ListGroupsForUserResponseBodyGroups;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * DA772B52-BF9F-54CA-AC77-AA7A2DA89D46

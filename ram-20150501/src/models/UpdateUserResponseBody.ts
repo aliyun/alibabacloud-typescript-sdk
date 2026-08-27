@@ -31,7 +31,7 @@ export class UpdateUserResponseBodyUser extends $dara.Model {
    * @remarks
    * The email address of the RAM user.
    * 
-   * >  This parameter can be returned only on the China site (aliyun.com).
+   * > This parameter can be returned only on the China site (aliyun.com).
    * 
    * @example
    * xiaoq****@example.com
@@ -41,7 +41,7 @@ export class UpdateUserResponseBodyUser extends $dara.Model {
    * @remarks
    * The mobile phone number of the RAM user.
    * 
-   * >  This parameter can be returned only on the China site (aliyun.com).
+   * > This parameter can be returned only on the China site (aliyun.com).
    * 
    * @example
    * 86-1860000****

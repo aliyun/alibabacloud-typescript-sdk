@@ -83,7 +83,7 @@ export class ListUsersResponseBody extends $dara.Model {
   isTruncated?: boolean;
   /**
    * @remarks
-   * The marker. This parameter is returned only if the value of `IsTruncated` is `true`. If the parameter is returned, you can call this operation again and set `Marker` to obtain the truncated part.``
+   * The marker. This parameter is returned only if the value of `IsTruncated` is `true`. If the parameter is returned, you can call this operation again and set `Marker` to obtain the truncated part.\\`\\`
    * 
    * @example
    * EXAMPLE

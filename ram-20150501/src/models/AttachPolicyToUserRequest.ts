@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AttachPolicyToUserRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the policy.
+   * The name of the access policy.
    * 
    * @example
    * OSS-Administrator
@@ -13,16 +13,23 @@ export class AttachPolicyToUserRequest extends $dara.Model {
   policyName?: string;
   /**
    * @remarks
-   * The type of the policy. Valid values: `System` and `Custom`.
+   * The type of the access policy. Valid values: `System` or `Custom`.
    * 
    * @example
    * Custom
    */
   policyType?: string;
+  /**
+   * @remarks
+   * The resource group ID.
+   * 
+   * @example
+   * rg-9gLOoK****
+   */
   resourceGroupId?: string;
   /**
    * @remarks
-   * The name of the RAM user.
+   * The username.
    * 
    * @example
    * zhangq****

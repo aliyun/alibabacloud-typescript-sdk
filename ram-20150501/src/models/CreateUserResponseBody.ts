@@ -13,7 +13,7 @@ export class CreateUserResponseBodyUser extends $dara.Model {
   comments?: string;
   /**
    * @remarks
-   * The point in time when the RAM user was created. The time is displayed in UTC.
+   * The point in time when the RAM user was created. It is displayed in UTC.
    * 
    * @example
    * 2015-01-23T12:33:18Z
@@ -31,7 +31,7 @@ export class CreateUserResponseBodyUser extends $dara.Model {
    * @remarks
    * The email address of the RAM user.
    * 
-   * >  This parameter applies only to the China site (aliyun.com).
+   * > This parameter applies only to the China site (aliyun.com).
    * 
    * @example
    * alice@example.com
@@ -41,7 +41,7 @@ export class CreateUserResponseBodyUser extends $dara.Model {
    * @remarks
    * The mobile phone number of the RAM user.
    * 
-   * >  This parameter applies only to the China site (aliyun.com).
+   * > This parameter applies only to the China site (aliyun.com).
    * 
    * @example
    * 86-1868888****

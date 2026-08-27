@@ -7,7 +7,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAccessKeyResponseBodyAccessKey extends $dara.Model {
   /**
    * @remarks
-   * The AccessKey ID.
+   * The identity of the AccessKey pair.
    * 
    * @example
    * 0wNEpMMlzy7s****
@@ -15,7 +15,7 @@ export class CreateAccessKeyResponseBodyAccessKey extends $dara.Model {
   accessKeyId?: string;
   /**
    * @remarks
-   * The AccessKey secret.
+   * The AccessKey pair.
    * 
    * @example
    * PupkTg8jdmau1cXxYacgE736PJ****
@@ -23,7 +23,7 @@ export class CreateAccessKeyResponseBodyAccessKey extends $dara.Model {
   accessKeySecret?: string;
   /**
    * @remarks
-   * The time when the AccessKey pair was created.
+   * The time when the AccessKey pair was created. The time is in UTC. Format: `YYYY-MM-DDThh:mm:ssZ`.
    * 
    * @example
    * 2015-01-23T12:33:18Z
@@ -31,7 +31,7 @@ export class CreateAccessKeyResponseBodyAccessKey extends $dara.Model {
   createDate?: string;
   /**
    * @remarks
-   * The status of the AccessKey pair. Valid values: Active and Inactive.
+   * The status. Valid values: Active and Inactive.
    * 
    * @example
    * Active
@@ -67,7 +67,7 @@ export class CreateAccessKeyResponseBodyAccessKey extends $dara.Model {
 export class CreateAccessKeyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the AccessKey pair.
+   * The AccessKey pair.
    */
   accessKey?: CreateAccessKeyResponseBodyAccessKey;
   /**

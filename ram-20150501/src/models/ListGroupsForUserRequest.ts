@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListGroupsForUserRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the RAM user.
+   * The username of the Resource Access Management (RAM) user.
    * 
    * @example
    * Alice

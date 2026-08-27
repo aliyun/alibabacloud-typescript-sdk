@@ -17,8 +17,9 @@ export class ListTagResourcesResponseBodyTagResources extends $dara.Model {
    * 
    * Enumerated values:
    * 
-   * *   role: RAM roles.
-   * *   policy: policies.
+   * - role: RAM roles.
+   * 
+   * - policy: policies.
    * 
    * @example
    * role

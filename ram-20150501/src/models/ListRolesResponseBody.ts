@@ -55,6 +55,7 @@ export class ListRolesResponseBodyRolesRoleTags extends $dara.Model {
 }
 
 export class ListRolesResponseBodyRolesRole extends $dara.Model {
+  allowConsoleLogin?: boolean;
   arn?: string;
   createDate?: string;
   description?: string;
@@ -65,6 +66,7 @@ export class ListRolesResponseBodyRolesRole extends $dara.Model {
   updateDate?: string;
   static names(): { [key: string]: string } {
     return {
+      allowConsoleLogin: 'AllowConsoleLogin',
       arn: 'Arn',
       createDate: 'CreateDate',
       description: 'Description',
@@ -78,6 +80,7 @@ export class ListRolesResponseBodyRolesRole extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      allowConsoleLogin: 'boolean',
       arn: 'string',
       createDate: 'string',
       description: 'string',
@@ -138,7 +141,7 @@ export class ListRolesResponseBody extends $dara.Model {
   isTruncated?: boolean;
   /**
    * @remarks
-   * The marker. This parameter is returned only if the value of `IsTruncated` is `true`. If the parameter is returned, you can call this operation again and set this parameter to obtain the truncated part.````
+   * This parameter is returned only when `IsTruncated` is `true`. If the value of `IsTruncated` is `true`, call this operation again and use `Marker` to retrieve the truncated content.
    * 
    * @example
    * EXAMPLE

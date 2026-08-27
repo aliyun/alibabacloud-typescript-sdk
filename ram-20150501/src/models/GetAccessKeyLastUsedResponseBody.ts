@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAccessKeyLastUsedResponseBodyAccessKeyLastUsed extends $dara.Model {
   /**
    * @remarks
-   * The time when the AccessKey pair was used for the last time.
+   * The last time the AccessKey pair was used.
    * 
    * @example
    * 2020-10-21T06:37:40Z
@@ -35,7 +35,7 @@ export class GetAccessKeyLastUsedResponseBodyAccessKeyLastUsed extends $dara.Mod
 export class GetAccessKeyLastUsedResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the time when the AccessKey pair was used for the last time.
+   * Information about the last time the AccessKey pair was used.
    */
   accessKeyLastUsed?: GetAccessKeyLastUsedResponseBodyAccessKeyLastUsed;
   /**

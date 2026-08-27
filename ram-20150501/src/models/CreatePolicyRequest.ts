@@ -50,7 +50,7 @@ export class CreatePolicyRequest extends $dara.Model {
    * The description must be 1 to 1,024 characters in length.
    * 
    * @example
-   * Query ECS instances in a specific region
+   * View ECS instances in a specified region
    */
   description?: string;
   /**

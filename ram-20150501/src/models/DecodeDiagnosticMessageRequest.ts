@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DecodeDiagnosticMessageRequest extends $dara.Model {
   /**
    * @remarks
-   * The encoded diagnostic information in the response that contains an access denied error. The error is caused by no RAM permissions.
+   * The encoded diagnostic message obtained from the `AccessDeniedDetail.EncodedDiagnosticMessage` field in the response body when an API request is denied due to insufficient permissions. Pass this parameter to decode the permission diagnostic information when calling this operation.
    * 
    * @example
    * AQEAAAAAZBgxr0U1MjA1NTM1LUM4BBktMzE5RS1CODgxLUU1QTI0RDNFQTM1****

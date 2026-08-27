@@ -24,7 +24,7 @@ export class CreatePolicyResponseBodyPolicy extends $dara.Model {
    * The description of the policy.
    * 
    * @example
-   * Query ECS instances in a specific region
+   * View ECS instances in a specified region
    */
   description?: string;
   /**
@@ -39,8 +39,9 @@ export class CreatePolicyResponseBodyPolicy extends $dara.Model {
    * @remarks
    * The type of the policy. Valid values:
    * 
-   * *   Custom
-   * *   System
+   * - Custom
+   * 
+   * - System
    * 
    * @example
    * Custom

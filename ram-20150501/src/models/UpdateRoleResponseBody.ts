@@ -5,7 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateRoleResponseBodyRole extends $dara.Model {
   /**
    * @remarks
-   * The Alibaba Cloud Resource Name (ARN) of the RAM role.
+   * Specifies whether the RAM role is allowed to log on to the console.
+   * 
+   * @example
+   * true
+   */
+  allowConsoleLogin?: boolean;
+  /**
+   * @remarks
+   * The resource descriptor of the RAM role.
    * 
    * @example
    * acs:ram::123456789012****:role/ECSAdmin
@@ -13,7 +21,7 @@ export class UpdateRoleResponseBodyRole extends $dara.Model {
   arn?: string;
   /**
    * @remarks
-   * The trust policy that specifies the trusted entity to assume the RAM role.
+   * The trust policy of the RAM role.
    * 
    * @example
    * { "Statement": [ { "Action": "sts:AssumeRole", "Effect": "Allow", "Principal": { "RAM": "acs:ram::123456789012****:root" } } ], "Version": "1" }
@@ -32,12 +40,12 @@ export class UpdateRoleResponseBodyRole extends $dara.Model {
    * The description of the RAM role.
    * 
    * @example
-   * ECS administrator
+   * ECS management role
    */
   description?: string;
   /**
    * @remarks
-   * The maximum session time of the RAM role.
+   * The maximum session duration of the RAM role.
    * 
    * @example
    * 3600
@@ -61,7 +69,7 @@ export class UpdateRoleResponseBodyRole extends $dara.Model {
   roleName?: string;
   /**
    * @remarks
-   * The time when the description of the RAM role was changed.
+   * The time when the RAM role was updated.
    * 
    * @example
    * 2015-01-23T12:33:18Z
@@ -69,6 +77,7 @@ export class UpdateRoleResponseBodyRole extends $dara.Model {
   updateDate?: string;
   static names(): { [key: string]: string } {
     return {
+      allowConsoleLogin: 'AllowConsoleLogin',
       arn: 'Arn',
       assumeRolePolicyDocument: 'AssumeRolePolicyDocument',
       createDate: 'CreateDate',
@@ -82,6 +91,7 @@ export class UpdateRoleResponseBodyRole extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      allowConsoleLogin: 'boolean',
       arn: 'string',
       assumeRolePolicyDocument: 'string',
       createDate: 'string',
@@ -113,7 +123,7 @@ export class UpdateRoleResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The information about the RAM role.
+   * The information of the RAM role.
    */
   role?: UpdateRoleResponseBodyRole;
   static names(): { [key: string]: string } {

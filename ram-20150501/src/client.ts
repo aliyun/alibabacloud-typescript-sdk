@@ -11,7 +11,31 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApiUtil.Config) {
     super(config);
-    this._endpointRule = "central";
+    this._endpointRule = "regional";
+    this._endpointMap = {
+      'cn-beijing': "ram.aliyuncs.com",
+      'cn-qingdao': "ram.aliyuncs.com",
+      'cn-shanghai': "ram.aliyuncs.com",
+      'cn-hongkong': "ram.aliyuncs.com",
+      'cn-zhangjiakou': "ram.aliyuncs.com",
+      'cn-shenzhen': "ram.aliyuncs.com",
+      'ap-northeast-1': "ram.aliyuncs.com",
+      'cn-chengdu': "ram.aliyuncs.com",
+      'ap-southeast-1': "ram.aliyuncs.com",
+      'ap-southeast-3': "ram.aliyuncs.com",
+      'cn-huhehaote': "ram.aliyuncs.com",
+      'ap-southeast-5': "ram.aliyuncs.com",
+      'cn-hangzhou': "ram.aliyuncs.com",
+      'us-east-1': "ram.aliyuncs.com",
+      'eu-west-1': "ram.aliyuncs.com",
+      'us-west-1': "ram.aliyuncs.com",
+      'eu-central-1': "ram.aliyuncs.com",
+      'me-east-1': "ram.aliyuncs.com",
+      'cn-shenzhen-finance-1': "ram.aliyuncs.com",
+      'cn-shanghai-finance-1': "ram.aliyuncs.com",
+      'cn-beijing-finance-1': "ram.aliyuncs.com",
+      'cn-hangzhou-finance': "ram.aliyuncs.com",
+    };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("ram", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
@@ -76,7 +100,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Attaches a policy to a Resource Access Management (RAM) user group.
+   * Calls the AttachPolicyToGroup operation to attach a permission to a specified user group.
    * 
    * @param request - AttachPolicyToGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -119,7 +143,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Attaches a policy to a Resource Access Management (RAM) user group.
+   * Calls the AttachPolicyToGroup operation to attach a permission to a specified user group.
    * 
    * @param request - AttachPolicyToGroupRequest
    * @returns AttachPolicyToGroupResponse
@@ -130,7 +154,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Attaches a policy to a Resource Access Management (RAM) role.
+   * Calls the AttachPolicyToRole operation to add a permission to a specified role.
    * 
    * @param request - AttachPolicyToRoleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -173,7 +197,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Attaches a policy to a Resource Access Management (RAM) role.
+   * Calls the AttachPolicyToRole operation to add a permission to a specified role.
    * 
    * @param request - AttachPolicyToRoleRequest
    * @returns AttachPolicyToRoleResponse
@@ -184,7 +208,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Attaches a policy to a Resource Access Management (RAM) user.
+   * Attaches an access policy to a specified user.
    * 
    * @param request - AttachPolicyToUserRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -227,7 +251,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Attaches a policy to a Resource Access Management (RAM) user.
+   * Attaches an access policy to a specified user.
    * 
    * @param request - AttachPolicyToUserRequest
    * @returns AttachPolicyToUserResponse
@@ -292,10 +316,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the password that is used to log on to the console for a Resource Access Management (RAM) user.
+   * Allows a Resource Access Management (RAM) user to invoke ChangePassword to change their own console logon password.
    * 
    * @remarks
-   * >  This operation is available only for RAM users. Before you call this operation, make sure that `AllowUserToChangePassword` in [SetSecurityPreference](https://help.aliyun.com/document_detail/43765.html) is set to `True`. The value True indicates that RAM users can manage their passwords.
+   * > This API operation can be invoked only by Resource Access Management (RAM) users. Before invoking this operation, make sure that `AllowUserToChangePassword` in [SetSecurityPreference](https://help.aliyun.com/document_detail/43765.html) is set to `True` in Settings, which allows RAM users to manage their own passwords.
+   * This operation is used only by the current RAM user to change their own console logon password. The `OldPassword` parameter must be provided when invoking this operation. If an administrator needs to set or reset the password for another RAM user, invoke `UpdateLoginProfile`.
    * 
    * @param request - ChangePasswordRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -330,10 +355,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the password that is used to log on to the console for a Resource Access Management (RAM) user.
+   * Allows a Resource Access Management (RAM) user to invoke ChangePassword to change their own console logon password.
    * 
    * @remarks
-   * >  This operation is available only for RAM users. Before you call this operation, make sure that `AllowUserToChangePassword` in [SetSecurityPreference](https://help.aliyun.com/document_detail/43765.html) is set to `True`. The value True indicates that RAM users can manage their passwords.
+   * > This API operation can be invoked only by Resource Access Management (RAM) users. Before invoking this operation, make sure that `AllowUserToChangePassword` in [SetSecurityPreference](https://help.aliyun.com/document_detail/43765.html) is set to `True` in Settings, which allows RAM users to manage their own passwords.
+   * This operation is used only by the current RAM user to change their own console logon password. The `OldPassword` parameter must be provided when invoking this operation. If an administrator needs to set or reset the password for another RAM user, invoke `UpdateLoginProfile`.
    * 
    * @param request - ChangePasswordRequest
    * @returns ChangePasswordResponse
@@ -346,7 +372,6 @@ export default class Client extends OpenApi {
   /**
    * Deletes the alias of an Alibaba Cloud account.
    * 
-   * @param request - ClearAccountAliasRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ClearAccountAliasResponse
    */
@@ -376,7 +401,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an AccessKey pair for a Resource Access Management (RAM) user.
+   * Invokes the CreateAccessKey operation to create an AccessKey pair for a Resource Access Management (RAM) user.
+   * 
+   * @remarks
+   * Each RAM user can have a maximum of two AccessKey pairs.
    * 
    * @param request - CreateAccessKeyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -407,7 +435,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an AccessKey pair for a Resource Access Management (RAM) user.
+   * Invokes the CreateAccessKey operation to create an AccessKey pair for a Resource Access Management (RAM) user.
+   * 
+   * @remarks
+   * Each RAM user can have a maximum of two AccessKey pairs.
    * 
    * @param request - CreateAccessKeyRequest
    * @returns CreateAccessKeyResponse
@@ -640,11 +671,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a Resource Access Management (RAM) role.
+   * Creates a RAM role.
    * 
    * @remarks
-   * ### [](#)Operation description
-   * For more information about RAM roles, see [Overview of RAM roles](https://help.aliyun.com/document_detail/93689.html).
+   * ### Operation description
+   * For more information about RAM roles, see [RAM role overview](https://help.aliyun.com/document_detail/93689.html).
    * 
    * @param tmpReq - CreateRoleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -659,6 +690,10 @@ export default class Client extends OpenApi {
     }
 
     let query = { };
+    if (!$dara.isNull(request.allowConsoleLogin)) {
+      query["AllowConsoleLogin"] = request.allowConsoleLogin;
+    }
+
     if (!$dara.isNull(request.assumeRolePolicyDocument)) {
       query["AssumeRolePolicyDocument"] = request.assumeRolePolicyDocument;
     }
@@ -697,11 +732,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a Resource Access Management (RAM) role.
+   * Creates a RAM role.
    * 
    * @remarks
-   * ### [](#)Operation description
-   * For more information about RAM roles, see [Overview of RAM roles](https://help.aliyun.com/document_detail/93689.html).
+   * ### Operation description
+   * For more information about RAM roles, see [RAM role overview](https://help.aliyun.com/document_detail/93689.html).
    * 
    * @param request - CreateRoleRequest
    * @returns CreateRoleResponse
@@ -712,10 +747,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates a service-linked role.
+   * 
+   * @param request - CreateServiceLinkedRoleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateServiceLinkedRoleResponse
+   */
+  async createServiceLinkedRoleWithOptions(request: $_model.CreateServiceLinkedRoleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateServiceLinkedRoleResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.customSuffix)) {
+      query["CustomSuffix"] = request.customSuffix;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.serviceName)) {
+      query["ServiceName"] = request.serviceName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateServiceLinkedRole",
+      version: "2015-05-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateServiceLinkedRoleResponse>(await this.callApi(params, req, runtime), new $_model.CreateServiceLinkedRoleResponse({}));
+  }
+
+  /**
+   * Creates a service-linked role.
+   * 
+   * @param request - CreateServiceLinkedRoleRequest
+   * @returns CreateServiceLinkedRoleResponse
+   */
+  async createServiceLinkedRole(request: $_model.CreateServiceLinkedRoleRequest): Promise<$_model.CreateServiceLinkedRoleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createServiceLinkedRoleWithOptions(request, runtime);
+  }
+
+  /**
    * Creates a Resource Access Management (RAM) user.
    * 
    * @remarks
-   * This topic provides an example on how to create a RAM user named `alice`.
+   * This topic provides an example on how to create a RAM user named `alice`.
    * 
    * @param request - CreateUserRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -765,7 +850,7 @@ export default class Client extends OpenApi {
    * Creates a Resource Access Management (RAM) user.
    * 
    * @remarks
-   * This topic provides an example on how to create a RAM user named `alice`.
+   * This topic provides an example on how to create a RAM user named `alice`.
    * 
    * @param request - CreateUserRequest
    * @returns CreateUserResponse
@@ -818,7 +903,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Decodes the diagnostic information in the response that contains an access denied error. The error is caused by no RAM permissions.
+   * Decodes the permission diagnostic information from the response body of a request that was denied due to missing RAM permissions.
    * 
    * @param request - DecodeDiagnosticMessageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -849,7 +934,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Decodes the diagnostic information in the response that contains an access denied error. The error is caused by no RAM permissions.
+   * Decodes the permission diagnostic information from the response body of a request that was denied due to missing RAM permissions.
    * 
    * @param request - DecodeDiagnosticMessageRequest
    * @returns DecodeDiagnosticMessageResponse
@@ -1138,6 +1223,48 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes a service-linked role.
+   * 
+   * @param request - DeleteServiceLinkedRoleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteServiceLinkedRoleResponse
+   */
+  async deleteServiceLinkedRoleWithOptions(request: $_model.DeleteServiceLinkedRoleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteServiceLinkedRoleResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.roleName)) {
+      query["RoleName"] = request.roleName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteServiceLinkedRole",
+      version: "2015-05-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteServiceLinkedRoleResponse>(await this.callApi(params, req, runtime), new $_model.DeleteServiceLinkedRoleResponse({}));
+  }
+
+  /**
+   * Deletes a service-linked role.
+   * 
+   * @param request - DeleteServiceLinkedRoleRequest
+   * @returns DeleteServiceLinkedRoleResponse
+   */
+  async deleteServiceLinkedRole(request: $_model.DeleteServiceLinkedRoleRequest): Promise<$_model.DeleteServiceLinkedRoleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteServiceLinkedRoleWithOptions(request, runtime);
+  }
+
+  /**
    * Deletes a Resource Access Management (RAM) user.
    * 
    * @remarks
@@ -1228,7 +1355,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Detaches a policy from a Resource Access Management (RAM) user group.
+   * Calls the DetachPolicyFromGroup operation to revoke a specified permission from a user group.
    * 
    * @param request - DetachPolicyFromGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1271,7 +1398,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Detaches a policy from a Resource Access Management (RAM) user group.
+   * Calls the DetachPolicyFromGroup operation to revoke a specified permission from a user group.
    * 
    * @param request - DetachPolicyFromGroupRequest
    * @returns DetachPolicyFromGroupResponse
@@ -1282,7 +1409,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Detaches a policy from a Resource Access Management (RAM) role.
+   * Revokes a specified access policy from a role.
    * 
    * @param request - DetachPolicyFromRoleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1325,7 +1452,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Detaches a policy from a Resource Access Management (RAM) role.
+   * Revokes a specified access policy from a role.
    * 
    * @param request - DetachPolicyFromRoleRequest
    * @returns DetachPolicyFromRoleResponse
@@ -1336,7 +1463,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Detaches a policy from a Resource Access Management (RAM) user.
+   * Revokes a specified permission from a user by calling the DetachPolicyFromUser operation.
    * 
    * @param request - DetachPolicyFromUserRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1379,7 +1506,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Detaches a policy from a Resource Access Management (RAM) user.
+   * Revokes a specified permission from a user by calling the DetachPolicyFromUser operation.
    * 
    * @param request - DetachPolicyFromUserRequest
    * @returns DetachPolicyFromUserResponse
@@ -1390,6 +1517,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the last time when an AccessKey pair was used.
+   * 
    * @param request - GetAccessKeyLastUsedRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetAccessKeyLastUsedResponse
@@ -1423,6 +1552,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the last time when an AccessKey pair was used.
+   * 
    * @param request - GetAccessKeyLastUsedRequest
    * @returns GetAccessKeyLastUsedResponse
    */
@@ -1434,7 +1565,6 @@ export default class Client extends OpenApi {
   /**
    * Queries the alias of an Alibaba Cloud account.
    * 
-   * @param request - GetAccountAliasRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetAccountAliasResponse
    */
@@ -1464,7 +1594,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries information about a Resource Access Management (RAM) user group.
+   * Queries the information of a user group by calling the GetGroup operation.
    * 
    * @param request - GetGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1495,7 +1625,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries information about a Resource Access Management (RAM) user group.
+   * Queries the information of a user group by calling the GetGroup operation.
    * 
    * @param request - GetGroupRequest
    * @returns GetGroupResponse
@@ -1506,7 +1636,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the logon configurations of a Resource Access Management (RAM) user.
+   * Invokes the GetLoginProfile operation to view the logon configuration of a Resource Access Management (RAM) user.
    * 
    * @param request - GetLoginProfileRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1537,7 +1667,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the logon configurations of a Resource Access Management (RAM) user.
+   * Invokes the GetLoginProfile operation to view the logon configuration of a Resource Access Management (RAM) user.
    * 
    * @param request - GetLoginProfileRequest
    * @returns GetLoginProfileResponse
@@ -1550,7 +1680,6 @@ export default class Client extends OpenApi {
   /**
    * Queries the password policy of Resource Access Management (RAM) users, including the password strength.
    * 
-   * @param request - GetPasswordPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetPasswordPolicyResponse
    */
@@ -1580,7 +1709,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries information about a policy.
+   * Retrieves the information of a specified access policy.
    * 
    * @param request - GetPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1615,7 +1744,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries information about a policy.
+   * Retrieves the information of a specified access policy.
    * 
    * @param request - GetPolicyRequest
    * @returns GetPolicyResponse
@@ -1626,7 +1755,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about a policy version.
+   * Retrieves a specific version of an access policy.
    * 
    * @param request - GetPolicyVersionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1665,7 +1794,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about a policy version.
+   * Retrieves a specific version of an access policy.
    * 
    * @param request - GetPolicyVersionRequest
    * @returns GetPolicyVersionResponse
@@ -1676,7 +1805,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries information about a Resource Access Management (RAM) role.
+   * Retrieves the information about a role.
    * 
    * @param request - GetRoleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1707,7 +1836,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries information about a Resource Access Management (RAM) role.
+   * Retrieves the information about a role.
    * 
    * @param request - GetRoleRequest
    * @returns GetRoleResponse
@@ -1720,7 +1849,6 @@ export default class Client extends OpenApi {
   /**
    * Queries the security preferences.
    * 
-   * @param request - GetSecurityPreferenceRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetSecurityPreferenceResponse
    */
@@ -1750,10 +1878,52 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries information about a Resource Access Management (RAM) user.
+   * Retrieves the template of a service-linked role.
+   * 
+   * @param request - GetServiceLinkedRoleTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetServiceLinkedRoleTemplateResponse
+   */
+  async getServiceLinkedRoleTemplateWithOptions(request: $_model.GetServiceLinkedRoleTemplateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetServiceLinkedRoleTemplateResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.serviceName)) {
+      query["ServiceName"] = request.serviceName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetServiceLinkedRoleTemplate",
+      version: "2015-05-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetServiceLinkedRoleTemplateResponse>(await this.callApi(params, req, runtime), new $_model.GetServiceLinkedRoleTemplateResponse({}));
+  }
+
+  /**
+   * Retrieves the template of a service-linked role.
+   * 
+   * @param request - GetServiceLinkedRoleTemplateRequest
+   * @returns GetServiceLinkedRoleTemplateResponse
+   */
+  async getServiceLinkedRoleTemplate(request: $_model.GetServiceLinkedRoleTemplateRequest): Promise<$_model.GetServiceLinkedRoleTemplateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getServiceLinkedRoleTemplateWithOptions(request, runtime);
+  }
+
+  /**
+   * You can call the GetUser operation to query the details of a Resource Access Management (RAM) user.
    * 
    * @remarks
-   * This topic provides an example on how to query information about the RAM user `alice`.
+   * This topic provides an example of how to query the details of the RAM user `alice`.
    * 
    * @param request - GetUserRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1784,10 +1954,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries information about a Resource Access Management (RAM) user.
+   * You can call the GetUser operation to query the details of a Resource Access Management (RAM) user.
    * 
    * @remarks
-   * This topic provides an example on how to query information about the RAM user `alice`.
+   * This topic provides an example of how to query the details of the RAM user `alice`.
    * 
    * @param request - GetUserRequest
    * @returns GetUserResponse
@@ -1840,7 +2010,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries all AccessKey pairs that belong to a Resource Access Management (RAM) user.
+   * Lists the AccessKey pairs of a specified user.
    * 
    * @param request - ListAccessKeysRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1871,7 +2041,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries all AccessKey pairs that belong to a Resource Access Management (RAM) user.
+   * Lists the AccessKey pairs of a specified user.
    * 
    * @param request - ListAccessKeysRequest
    * @returns ListAccessKeysResponse
@@ -1882,7 +2052,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the entities to which a policy is attached.
+   * Lists the entities that reference an access policy.
    * 
    * @param request - ListEntitiesForPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1917,7 +2087,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the entities to which a policy is attached.
+   * Lists the entities that reference an access policy.
    * 
    * @param request - ListEntitiesForPolicyRequest
    * @returns ListEntitiesForPolicyResponse
@@ -1928,7 +2098,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries Resource Access Management (RAM) user groups.
+   * Queries the list of user groups by calling the ListGroups operation.
    * 
    * @param request - ListGroupsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1963,7 +2133,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries Resource Access Management (RAM) user groups.
+   * Queries the list of user groups by calling the ListGroups operation.
    * 
    * @param request - ListGroupsRequest
    * @returns ListGroupsResponse
@@ -1974,11 +2144,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the Resource Access Management (RAM) user groups to which a RAM user belongs.
+   * Invokes the ListGroupsForUser operation to query the information about the groups to which a specified Resource Access Management (RAM) user is added.
    * 
    * @remarks
-   * ### [](#)
-   * This topic provides an example on how to query the RAM user groups to which the RAM user `Alice` belongs. The response shows that `Alice` belongs to the RAM user group named `Dev-Team`.
+   * ### Usage notes
+   * This topic provides an example on how to query the information about the groups to which the Resource Access Management (RAM) user `Alice` is added. The response shows that `Alice` is added to the group named `Dev-Team`.
    * 
    * @param request - ListGroupsForUserRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2009,11 +2179,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the Resource Access Management (RAM) user groups to which a RAM user belongs.
+   * Invokes the ListGroupsForUser operation to query the information about the groups to which a specified Resource Access Management (RAM) user is added.
    * 
    * @remarks
-   * ### [](#)
-   * This topic provides an example on how to query the RAM user groups to which the RAM user `Alice` belongs. The response shows that `Alice` belongs to the RAM user group named `Dev-Team`.
+   * ### Usage notes
+   * This topic provides an example on how to query the information about the groups to which the Resource Access Management (RAM) user `Alice` is added. The response shows that `Alice` is added to the group named `Dev-Team`.
    * 
    * @param request - ListGroupsForUserRequest
    * @returns ListGroupsForUserResponse
@@ -2024,7 +2194,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of policies.
+   * Invokes the ListPolicies operation to list access policies.
    * 
    * @param tmpReq - ListPoliciesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2073,7 +2243,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of policies.
+   * Invokes the ListPolicies operation to list access policies.
    * 
    * @param request - ListPoliciesRequest
    * @returns ListPoliciesResponse
@@ -2084,7 +2254,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the policies that are attached to a Resource Access Management (RAM) user group.
+   * Lists the permission policies attached to a user group.
    * 
    * @param request - ListPoliciesForGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2115,7 +2285,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the policies that are attached to a Resource Access Management (RAM) user group.
+   * Lists the permission policies attached to a user group.
    * 
    * @param request - ListPoliciesForGroupRequest
    * @returns ListPoliciesForGroupResponse
@@ -2126,7 +2296,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the policies that are attached to a Resource Access Management (RAM) role.
+   * Lists the access policies attached to a role.
    * 
    * @param request - ListPoliciesForRoleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2157,7 +2327,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the policies that are attached to a Resource Access Management (RAM) role.
+   * Lists the access policies attached to a role.
    * 
    * @param request - ListPoliciesForRoleRequest
    * @returns ListPoliciesForRoleResponse
@@ -2216,7 +2386,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the versions of a policy.
+   * Lists the versions of an access policy.
    * 
    * @param request - ListPolicyVersionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2251,7 +2421,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the versions of a policy.
+   * Lists the versions of an access policy.
    * 
    * @param request - ListPolicyVersionsRequest
    * @returns ListPolicyVersionsResponse
@@ -2262,7 +2432,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries all Resource Access Management (RAM) roles.
+   * Lists RAM roles.
    * 
    * @param tmpReq - ListRolesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2307,7 +2477,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries all Resource Access Management (RAM) roles.
+   * Lists RAM roles.
    * 
    * @param request - ListRolesRequest
    * @returns ListRolesResponse
@@ -2432,7 +2602,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries Resource Access Management (RAM) users in a RAM user group.
+   * Lists the Resource Access Management (RAM) users in a specified user group.
    * 
    * @param request - ListUsersForGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2471,7 +2641,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries Resource Access Management (RAM) users in a RAM user group.
+   * Lists the Resource Access Management (RAM) users in a specified user group.
    * 
    * @param request - ListUsersForGroupRequest
    * @returns ListUsersForGroupResponse
@@ -2484,7 +2654,6 @@ export default class Client extends OpenApi {
   /**
    * Queries multi-factor authentication (MFA) devices.
    * 
-   * @param request - ListVirtualMFADevicesRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListVirtualMFADevicesResponse
    */
@@ -3162,10 +3331,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies information about a Resource Access Management (RAM) role.
+   * Calls the UpdateRole operation to update the information of a RAM role.
    * 
    * @remarks
-   * This topic provides an example on how to change the description of `ECSAdmin` to `ECS administrator`.
+   * This topic provides an example on how to update the description of the RAM role `ECSAdmin` to `ECS administrator`.
    * 
    * @param request - UpdateRoleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3174,6 +3343,10 @@ export default class Client extends OpenApi {
   async updateRoleWithOptions(request: $_model.UpdateRoleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateRoleResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.newAllowConsoleLogin)) {
+      query["NewAllowConsoleLogin"] = request.newAllowConsoleLogin;
+    }
+
     if (!$dara.isNull(request.newAssumeRolePolicyDocument)) {
       query["NewAssumeRolePolicyDocument"] = request.newAssumeRolePolicyDocument;
     }
@@ -3208,10 +3381,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies information about a Resource Access Management (RAM) role.
+   * Calls the UpdateRole operation to update the information of a RAM role.
    * 
    * @remarks
-   * This topic provides an example on how to change the description of `ECSAdmin` to `ECS administrator`.
+   * This topic provides an example on how to update the description of the RAM role `ECSAdmin` to `ECS administrator`.
    * 
    * @param request - UpdateRoleRequest
    * @returns UpdateRoleResponse
