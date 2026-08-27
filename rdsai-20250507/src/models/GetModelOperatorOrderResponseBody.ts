@@ -4,13 +4,16 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetModelOperatorOrderResponseBodyDataInstanceList extends $dara.Model {
   /**
+   * @remarks
+   * The instance type.
+   * 
    * @example
    * PREPAY
    */
   chargeType?: string;
   /**
    * @remarks
-   * The instance end time (format: Timestamp).
+   * The end time of the instance. Format: Timestamp.
    * 
    * @example
    * 1775145600000
@@ -18,7 +21,7 @@ export class GetModelOperatorOrderResponseBodyDataInstanceList extends $dara.Mod
   endTime?: number;
   /**
    * @remarks
-   * instance type
+   * The instance type.
    * 
    * @example
    * xlarge
@@ -34,7 +37,7 @@ export class GetModelOperatorOrderResponseBodyDataInstanceList extends $dara.Mod
   instanceId?: string;
   /**
    * @remarks
-   * The instance start time (format: Timestamp).
+   * The start time of the instance. Format: Timestamp.
    * 
    * @example
    * 1772439028000
@@ -90,7 +93,7 @@ export class GetModelOperatorOrderResponseBodyData extends $dara.Model {
   hasValidOrder?: boolean;
   /**
    * @remarks
-   * The instance list.
+   * The list of instances.
    */
   instanceList?: GetModelOperatorOrderResponseBodyDataInstanceList[];
   static names(): { [key: string]: string } {
@@ -127,7 +130,7 @@ export class GetModelOperatorOrderResponseBody extends $dara.Model {
   data?: GetModelOperatorOrderResponseBodyData;
   /**
    * @remarks
-   * The returned message.
+   * The response message.
    * 
    * @example
    * success
@@ -143,7 +146,7 @@ export class GetModelOperatorOrderResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Request result.
+   * The request result.
    * 
    * @example
    * true

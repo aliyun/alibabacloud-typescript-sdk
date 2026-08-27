@@ -3,13 +3,16 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetModelOperatorOrderRequest extends $dara.Model {
+  region?: string;
   static names(): { [key: string]: string } {
     return {
+      region: 'Region',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      region: 'string',
     };
   }
 

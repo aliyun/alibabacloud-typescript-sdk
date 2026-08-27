@@ -2329,11 +2329,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * View basic information and usage for the RDS AI Assistant Ultimate Edition.
+   * Queries the basic information and usage of RDS AI Assistant Ultimate Edition.
    * 
    * @remarks
-   * ### Supported engines
-   * [RDS AI Assistant Enterprise Edition](https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
+   * ### Applicable engine
+   * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
    * 
    * @param request - DescribeModelOperatorRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2344,6 +2344,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.region)) {
+      query["Region"] = request.region;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -2364,11 +2368,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * View basic information and usage for the RDS AI Assistant Ultimate Edition.
+   * Queries the basic information and usage of RDS AI Assistant Ultimate Edition.
    * 
    * @remarks
-   * ### Supported engines
-   * [RDS AI Assistant Enterprise Edition](https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
+   * ### Applicable engine
+   * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
    * 
    * @param request - DescribeModelOperatorRequest
    * @returns DescribeModelOperatorResponse
@@ -3014,10 +3018,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtain RDS AI Assistant Ultimate order information
+   * Retrieves order information for the RDS AI Assistant Ultimate Edition.
    * 
    * @remarks
-   * ### Applicable DPI engine
+   * ### Applicable engine
+   * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
    * 
    * @param request - GetModelOperatorOrderRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3025,7 +3030,14 @@ export default class Client extends OpenApi {
    */
   async getModelOperatorOrderWithOptions(request: $_model.GetModelOperatorOrderRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetModelOperatorOrderResponse> {
     request.validate();
-    let req = new $OpenApiUtil.OpenApiRequest({ });
+    let query = { };
+    if (!$dara.isNull(request.region)) {
+      query["Region"] = request.region;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
     let params = new $OpenApiUtil.Params({
       action: "GetModelOperatorOrder",
       version: "2025-05-07",
@@ -3041,10 +3053,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtain RDS AI Assistant Ultimate order information
+   * Retrieves order information for the RDS AI Assistant Ultimate Edition.
    * 
    * @remarks
-   * ### Applicable DPI engine
+   * ### Applicable engine
+   * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
    * 
    * @param request - GetModelOperatorOrderRequest
    * @returns GetModelOperatorOrderResponse

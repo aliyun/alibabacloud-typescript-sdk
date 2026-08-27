@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeModelOperatorResponseBodyDataDailyUsage extends $dara.Model {
   /**
    * @remarks
-   * The date of the usage record.
+   * The date (accurate to the day).
    * 
    * @example
    * 2026-03-31
@@ -13,7 +13,7 @@ export class DescribeModelOperatorResponseBodyDataDailyUsage extends $dara.Model
   date?: string;
   /**
    * @remarks
-   * The number of tokens used on this date.
+   * The token usage.
    * 
    * @example
    * 100000
@@ -45,7 +45,7 @@ export class DescribeModelOperatorResponseBodyDataDailyUsage extends $dara.Model
 export class DescribeModelOperatorResponseBodyDataKeyUsageListDailyUsage extends $dara.Model {
   /**
    * @remarks
-   * The date of the usage record.
+   * The date (accurate to the day).
    * 
    * @example
    * 2026-03-31
@@ -53,7 +53,7 @@ export class DescribeModelOperatorResponseBodyDataKeyUsageListDailyUsage extends
   date?: string;
   /**
    * @remarks
-   * The number of tokens used by the API key on this date.
+   * The number of tokens used.
    * 
    * @example
    * 2000
@@ -85,7 +85,7 @@ export class DescribeModelOperatorResponseBodyDataKeyUsageListDailyUsage extends
 export class DescribeModelOperatorResponseBodyDataKeyUsageList extends $dara.Model {
   /**
    * @remarks
-   * The API key.
+   * API Key
    * 
    * @example
    * sk-rds-*****
@@ -93,12 +93,12 @@ export class DescribeModelOperatorResponseBodyDataKeyUsageList extends $dara.Mod
   apiKey?: string;
   /**
    * @remarks
-   * The daily usage for the API key.
+   * The daily usage of the API key.
    */
   dailyUsage?: DescribeModelOperatorResponseBodyDataKeyUsageListDailyUsage[];
   /**
    * @remarks
-   * Indicates whether the API key has been deleted.
+   * Indicates whether the API key is deleted.
    * 
    * @example
    * fase
@@ -106,7 +106,7 @@ export class DescribeModelOperatorResponseBodyDataKeyUsageList extends $dara.Mod
   deleted?: boolean;
   /**
    * @remarks
-   * The name of the API key.
+   * The API key name.
    * 
    * @example
    * api-*****
@@ -114,7 +114,7 @@ export class DescribeModelOperatorResponseBodyDataKeyUsageList extends $dara.Mod
   keyName?: string;
   /**
    * @remarks
-   * The type of the API key.
+   * The key type.
    * 
    * @example
    * fixed
@@ -122,7 +122,7 @@ export class DescribeModelOperatorResponseBodyDataKeyUsageList extends $dara.Mod
   keyType?: string;
   /**
    * @remarks
-   * The total number of tokens used by this API key.
+   * The total token usage.
    * 
    * @example
    * 100000
@@ -130,7 +130,7 @@ export class DescribeModelOperatorResponseBodyDataKeyUsageList extends $dara.Mod
   keyUsed?: string;
   /**
    * @remarks
-   * The token usage for the current cycle.
+   * The used token quota.
    * 
    * @example
    * 2000000
@@ -175,7 +175,7 @@ export class DescribeModelOperatorResponseBodyDataKeyUsageList extends $dara.Mod
 export class DescribeModelOperatorResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The API key.
+   * The system API key.
    * 
    * @example
    * sk-rds-xxx
@@ -185,9 +185,8 @@ export class DescribeModelOperatorResponseBodyData extends $dara.Model {
    * @remarks
    * Indicates whether auto-renewal is enabled for the instance. Valid values:
    * 
-   * - **true**: Enabled.
-   * 
-   * - **false** (default): Disabled.
+   * * **true**: Enabled.
+   * * **false** (default): Disabled.
    * 
    * @example
    * False
@@ -195,7 +194,7 @@ export class DescribeModelOperatorResponseBodyData extends $dara.Model {
   autoRenew?: boolean;
   /**
    * @remarks
-   * The endpoint URL for model requests.
+   * The URL for model invocation.
    * 
    * @example
    * http://xxx.yy/v1
@@ -203,7 +202,7 @@ export class DescribeModelOperatorResponseBodyData extends $dara.Model {
   baseUrl?: string;
   /**
    * @remarks
-   * The billing method. Valid values: `PREPAY` (subscription) and `POSTPAY` (pay-as-you-go).
+   * The billing type.
    * 
    * @example
    * PREPAY / POSTPAY
@@ -211,12 +210,12 @@ export class DescribeModelOperatorResponseBodyData extends $dara.Model {
   chargeType?: string;
   /**
    * @remarks
-   * The daily token usage.
+   * The daily usage list.
    */
   dailyUsage?: DescribeModelOperatorResponseBodyDataDailyUsage[];
   /**
    * @remarks
-   * The UNIX timestamp, in milliseconds, indicating when the instance expires.
+   * The end time of the instance. Format: Timestamp.
    * 
    * @example
    * 1775145600000
@@ -232,7 +231,7 @@ export class DescribeModelOperatorResponseBodyData extends $dara.Model {
   instanceClass?: string;
   /**
    * @remarks
-   * The instance ID.
+   * The instance name.
    * 
    * @example
    * rds_copilot***_public_cn-*********6
@@ -240,21 +239,25 @@ export class DescribeModelOperatorResponseBodyData extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The usage of each API key, including deleted keys.
+   * The usage of each key (including deleted keys).
    */
   keyUsageList?: DescribeModelOperatorResponseBodyDataKeyUsageList[];
   /**
    * @remarks
-   * Indicates whether prefix caching is enabled.
+   * Indicates whether the prefix routing persistence feature is enabled.
    * 
    * @example
    * false
    */
   prefixCacheEnabled?: boolean;
+  /**
+   * @remarks
+   * The list of headers used for routing persistence. The headers consist of lowercase letters, digits, and hyphens (-).
+   */
   sessionIds?: string[];
   /**
    * @remarks
-   * The UNIX timestamp, in milliseconds, indicating when the instance started.
+   * The start time of the instance. Format: Timestamp.
    * 
    * @example
    * 1772439028000
@@ -262,7 +265,7 @@ export class DescribeModelOperatorResponseBodyData extends $dara.Model {
   startTime?: number;
   /**
    * @remarks
-   * The status.
+   * The module status.
    * 
    * @example
    * active/creating
@@ -270,7 +273,7 @@ export class DescribeModelOperatorResponseBodyData extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The total quota for the current cycle, such as the monthly quota.
+   * The total quota for the current cycle (such as the monthly total).
    * 
    * @example
    * 200000000
@@ -278,7 +281,7 @@ export class DescribeModelOperatorResponseBodyData extends $dara.Model {
   totalQuota?: number;
   /**
    * @remarks
-   * The usage in the current cycle, such as the monthly usage.
+   * The used quota for the current cycle (such as the monthly usage).
    * 
    * @example
    * 1000000
@@ -345,7 +348,7 @@ export class DescribeModelOperatorResponseBodyData extends $dara.Model {
 export class DescribeModelOperatorResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response data.
+   * The request result.
    */
   data?: DescribeModelOperatorResponseBodyData;
   /**
@@ -358,7 +361,7 @@ export class DescribeModelOperatorResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * FE9C65D7-930F-57A5-A207-8C396329241C
@@ -366,7 +369,7 @@ export class DescribeModelOperatorResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * The request result.
    * 
    * @example
    * true
