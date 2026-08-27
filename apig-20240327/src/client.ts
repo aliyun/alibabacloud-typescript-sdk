@@ -498,6 +498,59 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 批量更新消费者鉴权
+   * 
+   * @param request - BatchUpdateHttpApiOperationRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BatchUpdateHttpApiOperationResponse
+   */
+  async batchUpdateHttpApiOperationWithOptions(httpApiId: string, request: $_model.BatchUpdateHttpApiOperationRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.BatchUpdateHttpApiOperationResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.authConfig)) {
+      body["authConfig"] = request.authConfig;
+    }
+
+    if (!$dara.isNull(request.enableAuth)) {
+      body["enableAuth"] = request.enableAuth;
+    }
+
+    if (!$dara.isNull(request.operationIds)) {
+      body["operationIds"] = request.operationIds;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "BatchUpdateHttpApiOperation",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/http-apis/${$dara.URL.percentEncode(httpApiId)}/operations`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.BatchUpdateHttpApiOperationResponse>(await this.callApi(params, req, runtime), new $_model.BatchUpdateHttpApiOperationResponse({}));
+  }
+
+  /**
+   * 批量更新消费者鉴权
+   * 
+   * @param request - BatchUpdateHttpApiOperationRequest
+   * @returns BatchUpdateHttpApiOperationResponse
+   */
+  async batchUpdateHttpApiOperation(httpApiId: string, request: $_model.BatchUpdateHttpApiOperationRequest): Promise<$_model.BatchUpdateHttpApiOperationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.batchUpdateHttpApiOperationWithOptions(httpApiId, request, headers, runtime);
+  }
+
+  /**
    * Moves a resource to a different resource group.
    * 
    * @param request - ChangeResourceGroupRequest
@@ -1517,6 +1570,57 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建API版本
+   * 
+   * @remarks
+   * 接口支持创建多个服务。
+   * 
+   * @param request - CreateHttpApiVersionRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateHttpApiVersionResponse
+   */
+  async createHttpApiVersionWithOptions(httpApiId: string, request: $_model.CreateHttpApiVersionRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateHttpApiVersionResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.versionConfig)) {
+      body["versionConfig"] = request.versionConfig;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateHttpApiVersion",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/http-apis/${$dara.URL.percentEncode(httpApiId)}/versions`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateHttpApiVersionResponse>(await this.callApi(params, req, runtime), new $_model.CreateHttpApiVersionResponse({}));
+  }
+
+  /**
+   * 创建API版本
+   * 
+   * @remarks
+   * 接口支持创建多个服务。
+   * 
+   * @param request - CreateHttpApiVersionRequest
+   * @returns CreateHttpApiVersionResponse
+   */
+  async createHttpApiVersion(httpApiId: string, request: $_model.CreateHttpApiVersionRequest): Promise<$_model.CreateHttpApiVersionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createHttpApiVersionWithOptions(httpApiId, request, headers, runtime);
+  }
+
+  /**
    * Creates a Model Context Protocol (MCP) server.
    * 
    * @param request - CreateMcpServerRequest
@@ -1611,6 +1715,79 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createMcpServerWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 创建迁移任务
+   * 
+   * @param request - CreateMigrationTaskRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateMigrationTaskResponse
+   */
+  async createMigrationTaskWithOptions(request: $_model.CreateMigrationTaskRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateMigrationTaskResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clusterId)) {
+      body["clusterId"] = request.clusterId;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      body["description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.environmentId)) {
+      body["environmentId"] = request.environmentId;
+    }
+
+    if (!$dara.isNull(request.gatewayId)) {
+      body["gatewayId"] = request.gatewayId;
+    }
+
+    if (!$dara.isNull(request.httpApiId)) {
+      body["httpApiId"] = request.httpApiId;
+    }
+
+    if (!$dara.isNull(request.ingressClass)) {
+      body["ingressClass"] = request.ingressClass;
+    }
+
+    if (!$dara.isNull(request.migrationType)) {
+      body["migrationType"] = request.migrationType;
+    }
+
+    if (!$dara.isNull(request.watchNamespace)) {
+      body["watchNamespace"] = request.watchNamespace;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateMigrationTask",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/migration-tasks`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateMigrationTaskResponse>(await this.callApi(params, req, runtime), new $_model.CreateMigrationTaskResponse({}));
+  }
+
+  /**
+   * 创建迁移任务
+   * 
+   * @param request - CreateMigrationTaskRequest
+   * @returns CreateMigrationTaskResponse
+   */
+  async createMigrationTask(request: $_model.CreateMigrationTaskRequest): Promise<$_model.CreateMigrationTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createMigrationTaskWithOptions(request, headers, runtime);
   }
 
   /**
@@ -1764,6 +1941,63 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建插件webide工作空间
+   * 
+   * @param request - CreatePluginWorkspaceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreatePluginWorkspaceResponse
+   */
+  async createPluginWorkspaceWithOptions(request: $_model.CreatePluginWorkspaceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreatePluginWorkspaceResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.gatewayType)) {
+      body["gatewayType"] = request.gatewayType;
+    }
+
+    if (!$dara.isNull(request.organizationId)) {
+      body["organizationId"] = request.organizationId;
+    }
+
+    if (!$dara.isNull(request.repoName)) {
+      body["repoName"] = request.repoName;
+    }
+
+    if (!$dara.isNull(request.workspaceName)) {
+      body["workspaceName"] = request.workspaceName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreatePluginWorkspace",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/plugin-workspaces`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreatePluginWorkspaceResponse>(await this.callApi(params, req, runtime), new $_model.CreatePluginWorkspaceResponse({}));
+  }
+
+  /**
+   * 创建插件webide工作空间
+   * 
+   * @param request - CreatePluginWorkspaceRequest
+   * @returns CreatePluginWorkspaceResponse
+   */
+  async createPluginWorkspace(request: $_model.CreatePluginWorkspaceRequest): Promise<$_model.CreatePluginWorkspaceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createPluginWorkspaceWithOptions(request, headers, runtime);
+  }
+
+  /**
    * Creates a policy.
    * 
    * @param request - CreatePolicyRequest
@@ -1879,6 +2113,45 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createPolicyAttachmentWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 创建风险检查任务
+   * 
+   * @param request - CreateRiskCheckTaskRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateRiskCheckTaskResponse
+   */
+  async createRiskCheckTaskWithOptions(gatewayId: string, request: $_model.CreateRiskCheckTaskRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateRiskCheckTaskResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateRiskCheckTask",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/gateways/${$dara.URL.percentEncode(gatewayId)}/risk-check/tasks`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateRiskCheckTaskResponse>(await this.callApi(params, req, runtime), new $_model.CreateRiskCheckTaskResponse({}));
+  }
+
+  /**
+   * 创建风险检查任务
+   * 
+   * @param request - CreateRiskCheckTaskRequest
+   * @returns CreateRiskCheckTaskResponse
+   */
+  async createRiskCheckTask(gatewayId: string, request: $_model.CreateRiskCheckTaskRequest): Promise<$_model.CreateRiskCheckTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createRiskCheckTaskWithOptions(gatewayId, request, headers, runtime);
   }
 
   /**
@@ -2663,6 +2936,45 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除迁移任务
+   * 
+   * @param request - DeleteMigrationTaskRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteMigrationTaskResponse
+   */
+  async deleteMigrationTaskWithOptions(taskId: string, request: $_model.DeleteMigrationTaskRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteMigrationTaskResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteMigrationTask",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/migration-tasks/${$dara.URL.percentEncode(taskId)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteMigrationTaskResponse>(await this.callApi(params, req, runtime), new $_model.DeleteMigrationTaskResponse({}));
+  }
+
+  /**
+   * 删除迁移任务
+   * 
+   * @param request - DeleteMigrationTaskRequest
+   * @returns DeleteMigrationTaskResponse
+   */
+  async deleteMigrationTask(taskId: string, request: $_model.DeleteMigrationTaskRequest): Promise<$_model.DeleteMigrationTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteMigrationTaskWithOptions(taskId, request, headers, runtime);
+  }
+
+  /**
    * Deletes a plugin mount.
    * 
    * @param headers - map
@@ -3083,6 +3395,51 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.describeRegionsWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * Disassociates and deletes a policy.
+   * 
+   * @param request - DetachAndDeletePolicyRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DetachAndDeletePolicyResponse
+   */
+  async detachAndDeletePolicyWithOptions(policyId: string, request: $_model.DetachAndDeletePolicyRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DetachAndDeletePolicyResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.policyAttachmentId)) {
+      query["policyAttachmentId"] = request.policyAttachmentId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DetachAndDeletePolicy",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/policies/${$dara.URL.percentEncode(policyId)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DetachAndDeletePolicyResponse>(await this.callApi(params, req, runtime), new $_model.DetachAndDeletePolicyResponse({}));
+  }
+
+  /**
+   * Disassociates and deletes a policy.
+   * 
+   * @param request - DetachAndDeletePolicyRequest
+   * @returns DetachAndDeletePolicyResponse
+   */
+  async detachAndDeletePolicy(policyId: string, request: $_model.DetachAndDeletePolicyRequest): Promise<$_model.DetachAndDeletePolicyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.detachAndDeletePolicyWithOptions(policyId, request, headers, runtime);
   }
 
   /**
@@ -3621,6 +3978,45 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取网关弹性策略
+   * 
+   * @param request - GetGatewayElasticPolicyRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetGatewayElasticPolicyResponse
+   */
+  async getGatewayElasticPolicyWithOptions(gatewayId: string, request: $_model.GetGatewayElasticPolicyRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetGatewayElasticPolicyResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetGatewayElasticPolicy",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/gateways/${$dara.URL.percentEncode(gatewayId)}/elastic-policy`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetGatewayElasticPolicyResponse>(await this.callApi(params, req, runtime), new $_model.GetGatewayElasticPolicyResponse({}));
+  }
+
+  /**
+   * 获取网关弹性策略
+   * 
+   * @param request - GetGatewayElasticPolicyRequest
+   * @returns GetGatewayElasticPolicyResponse
+   */
+  async getGatewayElasticPolicy(gatewayId: string, request: $_model.GetGatewayElasticPolicyRequest): Promise<$_model.GetGatewayElasticPolicyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getGatewayElasticPolicyWithOptions(gatewayId, request, headers, runtime);
+  }
+
+  /**
    * Queries the details of a gateway quota rate limiting rule.
    * 
    * @remarks
@@ -3895,6 +4291,84 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取迁移任务中的命名空间和服务映射
+   * 
+   * @param request - GetMigrationNamespacedServicesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetMigrationNamespacedServicesResponse
+   */
+  async getMigrationNamespacedServicesWithOptions(taskId: string, request: $_model.GetMigrationNamespacedServicesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetMigrationNamespacedServicesResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetMigrationNamespacedServices",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/migration-tasks/${$dara.URL.percentEncode(taskId)}/namespaced-services`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetMigrationNamespacedServicesResponse>(await this.callApi(params, req, runtime), new $_model.GetMigrationNamespacedServicesResponse({}));
+  }
+
+  /**
+   * 获取迁移任务中的命名空间和服务映射
+   * 
+   * @param request - GetMigrationNamespacedServicesRequest
+   * @returns GetMigrationNamespacedServicesResponse
+   */
+  async getMigrationNamespacedServices(taskId: string, request: $_model.GetMigrationNamespacedServicesRequest): Promise<$_model.GetMigrationNamespacedServicesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getMigrationNamespacedServicesWithOptions(taskId, request, headers, runtime);
+  }
+
+  /**
+   * 获取迁移任务详情
+   * 
+   * @param request - GetMigrationTaskRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetMigrationTaskResponse
+   */
+  async getMigrationTaskWithOptions(taskId: string, request: $_model.GetMigrationTaskRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetMigrationTaskResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetMigrationTask",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/migration-tasks/${$dara.URL.percentEncode(taskId)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetMigrationTaskResponse>(await this.callApi(params, req, runtime), new $_model.GetMigrationTaskResponse({}));
+  }
+
+  /**
+   * 获取迁移任务详情
+   * 
+   * @param request - GetMigrationTaskRequest
+   * @returns GetMigrationTaskResponse
+   */
+  async getMigrationTask(taskId: string, request: $_model.GetMigrationTaskRequest): Promise<$_model.GetMigrationTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getMigrationTaskWithOptions(taskId, request, headers, runtime);
+  }
+
+  /**
    * Queries a plugin mount.
    * 
    * @param headers - map
@@ -3966,6 +4440,45 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getPluginClassWithOptions(pluginClassId, request, headers, runtime);
+  }
+
+  /**
+   * 查询插件webide工作空间
+   * 
+   * @param request - GetPluginWorkspaceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetPluginWorkspaceResponse
+   */
+  async getPluginWorkspaceWithOptions(workspaceId: string, request: $_model.GetPluginWorkspaceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetPluginWorkspaceResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetPluginWorkspace",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/plugin-workspaces/${$dara.URL.percentEncode(workspaceId)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetPluginWorkspaceResponse>(await this.callApi(params, req, runtime), new $_model.GetPluginWorkspaceResponse({}));
+  }
+
+  /**
+   * 查询插件webide工作空间
+   * 
+   * @param request - GetPluginWorkspaceRequest
+   * @returns GetPluginWorkspaceResponse
+   */
+  async getPluginWorkspace(workspaceId: string, request: $_model.GetPluginWorkspaceRequest): Promise<$_model.GetPluginWorkspaceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getPluginWorkspaceWithOptions(workspaceId, request, headers, runtime);
   }
 
   /**
@@ -4081,6 +4594,51 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getResourceOverviewWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 获取风险项通知配置
+   * 
+   * @param request - GetRiskNotificationRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetRiskNotificationResponse
+   */
+  async getRiskNotificationWithOptions(gatewayId: string, request: $_model.GetRiskNotificationRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetRiskNotificationResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.riskCode)) {
+      query["riskCode"] = request.riskCode;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetRiskNotification",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/gateways/${$dara.URL.percentEncode(gatewayId)}/risk-check/notifications`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetRiskNotificationResponse>(await this.callApi(params, req, runtime), new $_model.GetRiskNotificationResponse({}));
+  }
+
+  /**
+   * 获取风险项通知配置
+   * 
+   * @param request - GetRiskNotificationRequest
+   * @returns GetRiskNotificationResponse
+   */
+  async getRiskNotification(gatewayId: string, request: $_model.GetRiskNotificationRequest): Promise<$_model.GetRiskNotificationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getRiskNotificationWithOptions(gatewayId, request, headers, runtime);
   }
 
   /**
@@ -4424,6 +4982,130 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.installPluginWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 调用AIAgent
+   * 
+   * @param request - InvokeAIAgentRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns InvokeAIAgentResponse
+   */
+  async *invokeAIAgentWithSSE(request: $_model.InvokeAIAgentRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): AsyncGenerator<$_model.InvokeAIAgentResponse, any, unknown> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.agentName)) {
+      body["agentName"] = request.agentName;
+    }
+
+    if (!$dara.isNull(request.bizParams)) {
+      body["bizParams"] = request.bizParams;
+    }
+
+    if (!$dara.isNull(request.history)) {
+      body["history"] = request.history;
+    }
+
+    if (!$dara.isNull(request.outputLanguage)) {
+      body["outputLanguage"] = request.outputLanguage;
+    }
+
+    if (!$dara.isNull(request.prompt)) {
+      body["prompt"] = request.prompt;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "InvokeAIAgent",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/ai-agents/invoke`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    let sseResp = await this.callSSEApi(params, req, runtime);
+
+    for await (let resp of sseResp) {
+      if (!$dara.isNull(resp.event) && !$dara.isNull(resp.event.data)) {
+        let data = JSON.parse(resp.event.data);
+        yield $dara.cast<$_model.InvokeAIAgentResponse>({
+          statusCode: resp.statusCode,
+          headers: resp.headers,
+          id: resp.event.id,
+          event: resp.event.event,
+          body: data,
+        }, new $_model.InvokeAIAgentResponse({}));
+      }
+
+    }
+  }
+
+  /**
+   * 调用AIAgent
+   * 
+   * @param request - InvokeAIAgentRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns InvokeAIAgentResponse
+   */
+  async invokeAIAgentWithOptions(request: $_model.InvokeAIAgentRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.InvokeAIAgentResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.agentName)) {
+      body["agentName"] = request.agentName;
+    }
+
+    if (!$dara.isNull(request.bizParams)) {
+      body["bizParams"] = request.bizParams;
+    }
+
+    if (!$dara.isNull(request.history)) {
+      body["history"] = request.history;
+    }
+
+    if (!$dara.isNull(request.outputLanguage)) {
+      body["outputLanguage"] = request.outputLanguage;
+    }
+
+    if (!$dara.isNull(request.prompt)) {
+      body["prompt"] = request.prompt;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "InvokeAIAgent",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/ai-agents/invoke`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.InvokeAIAgentResponse>(await this.callApi(params, req, runtime), new $_model.InvokeAIAgentResponse({}));
+  }
+
+  /**
+   * 调用AIAgent
+   * 
+   * @param request - InvokeAIAgentRequest
+   * @returns InvokeAIAgentResponse
+   */
+  async invokeAIAgent(request: $_model.InvokeAIAgentRequest): Promise<$_model.InvokeAIAgentResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.invokeAIAgentWithOptions(request, headers, runtime);
   }
 
   /**
@@ -5105,6 +5787,159 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the security groups of an instance that can be used for authorization.
+   * 
+   * @param request - ListGatewayAuthorizableSecurityGroupsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListGatewayAuthorizableSecurityGroupsResponse
+   */
+  async listGatewayAuthorizableSecurityGroupsWithOptions(gatewayId: string, request: $_model.ListGatewayAuthorizableSecurityGroupsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListGatewayAuthorizableSecurityGroupsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.csClusterId)) {
+      query["csClusterId"] = request.csClusterId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListGatewayAuthorizableSecurityGroups",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/gateways/${$dara.URL.percentEncode(gatewayId)}/authorizable-security-groups`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListGatewayAuthorizableSecurityGroupsResponse>(await this.callApi(params, req, runtime), new $_model.ListGatewayAuthorizableSecurityGroupsResponse({}));
+  }
+
+  /**
+   * Queries the security groups of an instance that can be used for authorization.
+   * 
+   * @param request - ListGatewayAuthorizableSecurityGroupsRequest
+   * @returns ListGatewayAuthorizableSecurityGroupsResponse
+   */
+  async listGatewayAuthorizableSecurityGroups(gatewayId: string, request: $_model.ListGatewayAuthorizableSecurityGroupsRequest): Promise<$_model.ListGatewayAuthorizableSecurityGroupsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listGatewayAuthorizableSecurityGroupsWithOptions(gatewayId, request, headers, runtime);
+  }
+
+  /**
+   * Queries the security group rules of an instance that are in effect.
+   * 
+   * @param request - ListGatewayAuthorizedSecurityGroupRulesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListGatewayAuthorizedSecurityGroupRulesResponse
+   */
+  async listGatewayAuthorizedSecurityGroupRulesWithOptions(gatewayId: string, request: $_model.ListGatewayAuthorizedSecurityGroupRulesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListGatewayAuthorizedSecurityGroupRulesResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListGatewayAuthorizedSecurityGroupRules",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/gateways/${$dara.URL.percentEncode(gatewayId)}/authorized-security-groups-rules`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListGatewayAuthorizedSecurityGroupRulesResponse>(await this.callApi(params, req, runtime), new $_model.ListGatewayAuthorizedSecurityGroupRulesResponse({}));
+  }
+
+  /**
+   * Queries the security group rules of an instance that are in effect.
+   * 
+   * @param request - ListGatewayAuthorizedSecurityGroupRulesRequest
+   * @returns ListGatewayAuthorizedSecurityGroupRulesResponse
+   */
+  async listGatewayAuthorizedSecurityGroupRules(gatewayId: string, request: $_model.ListGatewayAuthorizedSecurityGroupRulesRequest): Promise<$_model.ListGatewayAuthorizedSecurityGroupRulesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listGatewayAuthorizedSecurityGroupRulesWithOptions(gatewayId, request, headers, runtime);
+  }
+
+  /**
+   * 获取网关的错误访问日志
+   * 
+   * @param request - ListGatewayErrorAccessLogsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListGatewayErrorAccessLogsResponse
+   */
+  async listGatewayErrorAccessLogsWithOptions(gatewayId: string, request: $_model.ListGatewayErrorAccessLogsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListGatewayErrorAccessLogsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.authority)) {
+      query["authority"] = request.authority;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      query["endTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.gatewayRequestId)) {
+      query["gatewayRequestId"] = request.gatewayRequestId;
+    }
+
+    if (!$dara.isNull(request.path)) {
+      query["path"] = request.path;
+    }
+
+    if (!$dara.isNull(request.responseCode)) {
+      query["responseCode"] = request.responseCode;
+    }
+
+    if (!$dara.isNull(request.routeName)) {
+      query["routeName"] = request.routeName;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["startTime"] = request.startTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListGatewayErrorAccessLogs",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/gateways/${$dara.URL.percentEncode(gatewayId)}/error-access-logs`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListGatewayErrorAccessLogsResponse>(await this.callApi(params, req, runtime), new $_model.ListGatewayErrorAccessLogsResponse({}));
+  }
+
+  /**
+   * 获取网关的错误访问日志
+   * 
+   * @param request - ListGatewayErrorAccessLogsRequest
+   * @returns ListGatewayErrorAccessLogsResponse
+   */
+  async listGatewayErrorAccessLogs(gatewayId: string, request: $_model.ListGatewayErrorAccessLogsRequest): Promise<$_model.ListGatewayErrorAccessLogsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listGatewayErrorAccessLogsWithOptions(gatewayId, request, headers, runtime);
+  }
+
+  /**
    * Queries the list of gateway attribute parameter settings.
    * 
    * @param headers - map
@@ -5137,6 +5972,71 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listGatewayFeaturesWithOptions(gatewayId, headers, runtime);
+  }
+
+  /**
+   * 获取网关负载均衡器列表
+   * 
+   * @param request - ListGatewayLoadBalancersRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListGatewayLoadBalancersResponse
+   */
+  async listGatewayLoadBalancersWithOptions(gatewayId: string, request: $_model.ListGatewayLoadBalancersRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListGatewayLoadBalancersResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.all)) {
+      query["all"] = request.all;
+    }
+
+    if (!$dara.isNull(request.loadBalancerId)) {
+      query["loadBalancerId"] = request.loadBalancerId;
+    }
+
+    if (!$dara.isNull(request.network)) {
+      query["network"] = request.network;
+    }
+
+    if (!$dara.isNull(request.related)) {
+      query["related"] = request.related;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      query["type"] = request.type;
+    }
+
+    if (!$dara.isNull(request.vpcId)) {
+      query["vpcId"] = request.vpcId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListGatewayLoadBalancers",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/gateways/${$dara.URL.percentEncode(gatewayId)}/list-load-balancers`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListGatewayLoadBalancersResponse>(await this.callApi(params, req, runtime), new $_model.ListGatewayLoadBalancersResponse({}));
+  }
+
+  /**
+   * 获取网关负载均衡器列表
+   * 
+   * @param request - ListGatewayLoadBalancersRequest
+   * @returns ListGatewayLoadBalancersResponse
+   */
+  async listGatewayLoadBalancers(gatewayId: string, request: $_model.ListGatewayLoadBalancersRequest): Promise<$_model.ListGatewayLoadBalancersResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listGatewayLoadBalancersWithOptions(gatewayId, request, headers, runtime);
   }
 
   /**
@@ -5287,6 +6187,99 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listGatewaysWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * ListGlobalPolicies
+   * 
+   * @param request - ListGlobalPoliciesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListGlobalPoliciesResponse
+   */
+  async listGlobalPoliciesWithOptions(request: $_model.ListGlobalPoliciesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListGlobalPoliciesResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.attachResourceType)) {
+      query["attachResourceType"] = request.attachResourceType;
+    }
+
+    if (!$dara.isNull(request.className)) {
+      query["className"] = request.className;
+    }
+
+    if (!$dara.isNull(request.enable)) {
+      query["enable"] = request.enable;
+    }
+
+    if (!$dara.isNull(request.environmentId)) {
+      query["environmentId"] = request.environmentId;
+    }
+
+    if (!$dara.isNull(request.gatewayId)) {
+      query["gatewayId"] = request.gatewayId;
+    }
+
+    if (!$dara.isNull(request.globalPolicyType)) {
+      query["globalPolicyType"] = request.globalPolicyType;
+    }
+
+    if (!$dara.isNull(request.ipAccessControlContent)) {
+      query["ipAccessControlContent"] = request.ipAccessControlContent;
+    }
+
+    if (!$dara.isNull(request.ipAccessControlProtocolLayer)) {
+      query["ipAccessControlProtocolLayer"] = request.ipAccessControlProtocolLayer;
+    }
+
+    if (!$dara.isNull(request.ipAccessControlResourceName)) {
+      query["ipAccessControlResourceName"] = request.ipAccessControlResourceName;
+    }
+
+    if (!$dara.isNull(request.ipAccessControlType)) {
+      query["ipAccessControlType"] = request.ipAccessControlType;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["pageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListGlobalPolicies",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/global-policies`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListGlobalPoliciesResponse>(await this.callApi(params, req, runtime), new $_model.ListGlobalPoliciesResponse({}));
+  }
+
+  /**
+   * ListGlobalPolicies
+   * 
+   * @param request - ListGlobalPoliciesRequest
+   * @returns ListGlobalPoliciesResponse
+   */
+  async listGlobalPolicies(request: $_model.ListGlobalPoliciesRequest): Promise<$_model.ListGlobalPoliciesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listGlobalPoliciesWithOptions(request, headers, runtime);
   }
 
   /**
@@ -5593,6 +6586,104 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * ListInstallableGateways
+   * 
+   * @param request - ListInstallableGatewaysRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListInstallableGatewaysResponse
+   */
+  async listInstallableGatewaysWithOptions(pluginClassId: string, request: $_model.ListInstallableGatewaysRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListInstallableGatewaysResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.gatewayType)) {
+      query["gatewayType"] = request.gatewayType;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["pageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListInstallableGateways",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/plugin-classes/${$dara.URL.percentEncode(pluginClassId)}/installable-gateways`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListInstallableGatewaysResponse>(await this.callApi(params, req, runtime), new $_model.ListInstallableGatewaysResponse({}));
+  }
+
+  /**
+   * ListInstallableGateways
+   * 
+   * @param request - ListInstallableGatewaysRequest
+   * @returns ListInstallableGatewaysResponse
+   */
+  async listInstallableGateways(pluginClassId: string, request: $_model.ListInstallableGatewaysRequest): Promise<$_model.ListInstallableGatewaysResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listInstallableGatewaysWithOptions(pluginClassId, request, headers, runtime);
+  }
+
+  /**
+   * Queries the Kubernetes (K8s) clusters that can be added as sources.
+   * 
+   * @param request - ListK8sClusterSourcesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListK8sClusterSourcesResponse
+   */
+  async listK8sClusterSourcesWithOptions(gatewayId: string, request: $_model.ListK8sClusterSourcesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListK8sClusterSourcesResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.vpcId)) {
+      query["vpcId"] = request.vpcId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListK8sClusterSources",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v2/gateways/${$dara.URL.percentEncode(gatewayId)}/service-sources/k8s-clusters`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListK8sClusterSourcesResponse>(await this.callApi(params, req, runtime), new $_model.ListK8sClusterSourcesResponse({}));
+  }
+
+  /**
+   * Queries the Kubernetes (K8s) clusters that can be added as sources.
+   * 
+   * @param request - ListK8sClusterSourcesRequest
+   * @returns ListK8sClusterSourcesResponse
+   */
+  async listK8sClusterSources(gatewayId: string, request: $_model.ListK8sClusterSourcesRequest): Promise<$_model.ListK8sClusterSourcesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listK8sClusterSourcesWithOptions(gatewayId, request, headers, runtime);
+  }
+
+  /**
    * Retrieves the list of MCP servers.
    * 
    * @remarks
@@ -5665,6 +6756,94 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listMcpServersWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 获取迁移任务列表
+   * 
+   * @param request - ListMigrationTasksRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListMigrationTasksResponse
+   */
+  async listMigrationTasksWithOptions(request: $_model.ListMigrationTasksRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListMigrationTasksResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.pageNumber)) {
+      query["pageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListMigrationTasks",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/migration-tasks`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListMigrationTasksResponse>(await this.callApi(params, req, runtime), new $_model.ListMigrationTasksResponse({}));
+  }
+
+  /**
+   * 获取迁移任务列表
+   * 
+   * @param request - ListMigrationTasksRequest
+   * @returns ListMigrationTasksResponse
+   */
+  async listMigrationTasks(request: $_model.ListMigrationTasksRequest): Promise<$_model.ListMigrationTasksResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listMigrationTasksWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * Queries the MSE Nacos instances that can be added as sources.
+   * 
+   * @param request - ListMseNacosSourcesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListMseNacosSourcesResponse
+   */
+  async listMseNacosSourcesWithOptions(gatewayId: string, request: $_model.ListMseNacosSourcesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListMseNacosSourcesResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListMseNacosSources",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/gateways/${$dara.URL.percentEncode(gatewayId)}/service-sources/mse-nacos-instances`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListMseNacosSourcesResponse>(await this.callApi(params, req, runtime), new $_model.ListMseNacosSourcesResponse({}));
+  }
+
+  /**
+   * Queries the MSE Nacos instances that can be added as sources.
+   * 
+   * @param request - ListMseNacosSourcesRequest
+   * @returns ListMseNacosSourcesResponse
+   */
+  async listMseNacosSources(gatewayId: string, request: $_model.ListMseNacosSourcesRequest): Promise<$_model.ListMseNacosSourcesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listMseNacosSourcesWithOptions(gatewayId, request, headers, runtime);
   }
 
   /**
@@ -5833,6 +7012,45 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listPluginClassesWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 查询自定义插件托管在云效上的仓库列表和组织信息
+   * 
+   * @param request - ListPluginRepositoriesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListPluginRepositoriesResponse
+   */
+  async listPluginRepositoriesWithOptions(request: $_model.ListPluginRepositoriesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListPluginRepositoriesResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListPluginRepositories",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/plugin-repositories`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListPluginRepositoriesResponse>(await this.callApi(params, req, runtime), new $_model.ListPluginRepositoriesResponse({}));
+  }
+
+  /**
+   * 查询自定义插件托管在云效上的仓库列表和组织信息
+   * 
+   * @param request - ListPluginRepositoriesRequest
+   * @returns ListPluginRepositoriesResponse
+   */
+  async listPluginRepositories(request: $_model.ListPluginRepositoriesRequest): Promise<$_model.ListPluginRepositoriesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listPluginRepositoriesWithOptions(request, headers, runtime);
   }
 
   /**
@@ -7223,6 +8441,9 @@ export default class Client extends OpenApi {
   /**
    * Updates a consumer authorization rule.
    * 
+   * @remarks
+   * 该 API 已被 UpdateAuthorizationRule 替代，新路径为 /v1/authorization-rules/{consumerAuthorizationRuleId}
+   * 
    * @param request - UpdateConsumerAuthorizationRuleRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7263,6 +8484,9 @@ export default class Client extends OpenApi {
 
   /**
    * Updates a consumer authorization rule.
+   * 
+   * @remarks
+   * 该 API 已被 UpdateAuthorizationRule 替代，新路径为 /v1/authorization-rules/{consumerAuthorizationRuleId}
    * 
    * @param request - UpdateConsumerAuthorizationRuleRequest
    * @returns UpdateConsumerAuthorizationRuleResponse
@@ -7510,6 +8734,51 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateGatewayFeatureWithOptions(gatewayId, name, request, headers, runtime);
+  }
+
+  /**
+   * 修改网关运维时间
+   * 
+   * @param request - UpdateGatewayMaintenancePeriodRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateGatewayMaintenancePeriodResponse
+   */
+  async updateGatewayMaintenancePeriodWithOptions(gatewayId: string, request: $_model.UpdateGatewayMaintenancePeriodRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateGatewayMaintenancePeriodResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.maintenancePeriod)) {
+      body["maintenancePeriod"] = request.maintenancePeriod;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateGatewayMaintenancePeriod",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/gateways/${$dara.URL.percentEncode(gatewayId)}/maintenance-period`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateGatewayMaintenancePeriodResponse>(await this.callApi(params, req, runtime), new $_model.UpdateGatewayMaintenancePeriodResponse({}));
+  }
+
+  /**
+   * 修改网关运维时间
+   * 
+   * @param request - UpdateGatewayMaintenancePeriodRequest
+   * @returns UpdateGatewayMaintenancePeriodResponse
+   */
+  async updateGatewayMaintenancePeriod(gatewayId: string, request: $_model.UpdateGatewayMaintenancePeriodRequest): Promise<$_model.UpdateGatewayMaintenancePeriodResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateGatewayMaintenancePeriodWithOptions(gatewayId, request, headers, runtime);
   }
 
   /**
@@ -8019,6 +9288,124 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 更新迁移任务
+   * 
+   * @param request - UpdateMigrationTaskRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateMigrationTaskResponse
+   */
+  async updateMigrationTaskWithOptions(taskId: string, request: $_model.UpdateMigrationTaskRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateMigrationTaskResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clusterNamespace)) {
+      body["clusterNamespace"] = request.clusterNamespace;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      body["description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.serviceName)) {
+      body["serviceName"] = request.serviceName;
+    }
+
+    if (!$dara.isNull(request.slbId)) {
+      body["slbId"] = request.slbId;
+    }
+
+    if (!$dara.isNull(request.switchType)) {
+      body["switchType"] = request.switchType;
+    }
+
+    if (!$dara.isNull(request.target)) {
+      body["target"] = request.target;
+    }
+
+    if (!$dara.isNull(request.virtualServices)) {
+      body["virtualServices"] = request.virtualServices;
+    }
+
+    if (!$dara.isNull(request.weight)) {
+      body["weight"] = request.weight;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateMigrationTask",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/migration-tasks/${$dara.URL.percentEncode(taskId)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateMigrationTaskResponse>(await this.callApi(params, req, runtime), new $_model.UpdateMigrationTaskResponse({}));
+  }
+
+  /**
+   * 更新迁移任务
+   * 
+   * @param request - UpdateMigrationTaskRequest
+   * @returns UpdateMigrationTaskResponse
+   */
+  async updateMigrationTask(taskId: string, request: $_model.UpdateMigrationTaskRequest): Promise<$_model.UpdateMigrationTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateMigrationTaskWithOptions(taskId, request, headers, runtime);
+  }
+
+  /**
+   * 更改网关网络访问类型
+   * 
+   * @param request - UpdateNetworkAccessRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateNetworkAccessResponse
+   */
+  async updateNetworkAccessWithOptions(gatewayId: string, request: $_model.UpdateNetworkAccessRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateNetworkAccessResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.networkAccessType)) {
+      query["networkAccessType"] = request.networkAccessType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateNetworkAccess",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/gateways/${$dara.URL.percentEncode(gatewayId)}/network-type`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateNetworkAccessResponse>(await this.callApi(params, req, runtime), new $_model.UpdateNetworkAccessResponse({}));
+  }
+
+  /**
+   * 更改网关网络访问类型
+   * 
+   * @param request - UpdateNetworkAccessRequest
+   * @returns UpdateNetworkAccessResponse
+   */
+  async updateNetworkAccess(gatewayId: string, request: $_model.UpdateNetworkAccessRequest): Promise<$_model.UpdateNetworkAccessResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateNetworkAccessWithOptions(gatewayId, request, headers, runtime);
+  }
+
+  /**
    * Updates a plugin mount.
    * 
    * @param request - UpdatePluginAttachmentRequest
@@ -8122,6 +9509,55 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updatePolicyWithOptions(policyId, request, headers, runtime);
+  }
+
+  /**
+   * 更新风险项通知配置
+   * 
+   * @param request - UpdateRiskNotificationRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateRiskNotificationResponse
+   */
+  async updateRiskNotificationWithOptions(gatewayId: string, request: $_model.UpdateRiskNotificationRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateRiskNotificationResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.isMute)) {
+      body["isMute"] = request.isMute;
+    }
+
+    if (!$dara.isNull(request.riskCode)) {
+      body["riskCode"] = request.riskCode;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateRiskNotification",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/gateways/${$dara.URL.percentEncode(gatewayId)}/risk-check/notifications`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateRiskNotificationResponse>(await this.callApi(params, req, runtime), new $_model.UpdateRiskNotificationResponse({}));
+  }
+
+  /**
+   * 更新风险项通知配置
+   * 
+   * @param request - UpdateRiskNotificationRequest
+   * @returns UpdateRiskNotificationResponse
+   */
+  async updateRiskNotification(gatewayId: string, request: $_model.UpdateRiskNotificationRequest): Promise<$_model.UpdateRiskNotificationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateRiskNotificationWithOptions(gatewayId, request, headers, runtime);
   }
 
   /**
@@ -8344,6 +9780,45 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.upgradeGatewayWithOptions(gatewayId, request, headers, runtime);
+  }
+
+  /**
+   * 检查迁移任务
+   * 
+   * @param request - VerifyMigrationTaskRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns VerifyMigrationTaskResponse
+   */
+  async verifyMigrationTaskWithOptions(taskId: string, request: $_model.VerifyMigrationTaskRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.VerifyMigrationTaskResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "VerifyMigrationTask",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/migration-tasks/${$dara.URL.percentEncode(taskId)}/verify`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.VerifyMigrationTaskResponse>(await this.callApi(params, req, runtime), new $_model.VerifyMigrationTaskResponse({}));
+  }
+
+  /**
+   * 检查迁移任务
+   * 
+   * @param request - VerifyMigrationTaskRequest
+   * @returns VerifyMigrationTaskResponse
+   */
+  async verifyMigrationTask(taskId: string, request: $_model.VerifyMigrationTaskRequest): Promise<$_model.VerifyMigrationTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.verifyMigrationTaskWithOptions(taskId, request, headers, runtime);
   }
 
 }

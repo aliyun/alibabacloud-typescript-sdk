@@ -166,8 +166,8 @@ export class GetGatewayResponseBodyDataLoadBalancers extends $dara.Model {
   /**
    * @remarks
    * The status of load balancing. Valid values:
-   * - Ready: active.
-   * - NotCreate: not associated with an instance.
+   * - Ready: Active.
+   * - NotCreate: No associated instance.
    * 
    * @example
    * Ready
@@ -586,7 +586,9 @@ export class GetGatewayResponseBodyData extends $dara.Model {
   gatewayId?: string;
   /**
    * @remarks
-   * The running mode of AI multi-tenant V2. Default value: ENTERPRISE. Only AI + MultiTenantServerless allows this parameter.
+   * The running mode for AI multi-tenant V2. Default value: ENTERPRISE. Only AI + MultiTenantServerless allows this parameter. Valid values:
+   * - ENTERPRISE: default.
+   * - STANDARD: allowed only for AI multi-tenant V2.
    * 
    * @example
    * STANDARD

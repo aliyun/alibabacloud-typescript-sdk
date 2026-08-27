@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AiStatisticsPathField extends $dara.Model {
   /**
    * @remarks
-   * The secondary category.
+   * The secondary business category of the field. Optional. Valid values: conversation (conversation content), config (configuration parameters), tools (tool calling), usage (usage statistics), metadata (metadata), choices (candidate results), identity (identity identifier), cache (cache information), media (multimedia content), logprobs (log probabilities), and custom (custom field). Set custom fields to custom.
    * 
    * @example
    * conversation
@@ -16,12 +16,12 @@ export class AiStatisticsPathField extends $dara.Model {
    * The field description.
    * 
    * @example
-   * 用户输入的问题内容
+   * The question content entered by the user
    */
   description?: string;
   /**
    * @remarks
-   * The log key.
+   * The log key (field name).
    * 
    * @example
    * question
@@ -29,7 +29,7 @@ export class AiStatisticsPathField extends $dara.Model {
   fieldKey?: string;
   /**
    * @remarks
-   * The request or response direction.
+   * The request or response attribution. The backend normalizes this to request or response based on source.
    * 
    * @example
    * request
@@ -37,7 +37,7 @@ export class AiStatisticsPathField extends $dara.Model {
   io?: string;
   /**
    * @remarks
-   * The corresponding JSON path (GJSON syntax).
+   * The corresponding jsonPath (gjson syntax).
    * 
    * @example
    * messages.#.content
@@ -45,15 +45,15 @@ export class AiStatisticsPathField extends $dara.Model {
   jsonPath?: string;
   /**
    * @remarks
-   * The display name of the field.
+   * The annotation for the field key name.
    * 
    * @example
-   * 问题内容
+   * Question content
    */
   name?: string;
   /**
    * @remarks
-   * Specifies whether collection is enabled.
+   * Indicates whether collection is enabled to create a log record for the corresponding field in AI request logs.
    * 
    * @example
    * true
@@ -61,10 +61,7 @@ export class AiStatisticsPathField extends $dara.Model {
   recordEnabled?: boolean;
   /**
    * @remarks
-   * The rule used for streaming response extraction. Valid values:
-   * - append: appends content
-   * - first: retrieves the first value
-   * - replace: retrieves the last value
+   * The aggregation rule for streaming response fields. Valid values: append, first, and replace. append: appends the matched values from each streaming chunk in sequence. first: retains the first matched value. replace: uses the last matched value. When source is response_streaming_body and rule is not specified, first is used by default. This field is not required for non-streaming scenarios.
    * 
    * @example
    * append
@@ -72,7 +69,7 @@ export class AiStatisticsPathField extends $dara.Model {
   rule?: string;
   /**
    * @remarks
-   * Indicates whether the field is sensitive.
+   * Specifies whether the field is sensitive.
    * 
    * @example
    * false
@@ -80,7 +77,7 @@ export class AiStatisticsPathField extends $dara.Model {
   sensitive?: boolean;
   /**
    * @remarks
-   * The data source.
+   * The source of the field value. Valid values: fixed_value (fixed value), request_body (request body), request_header (request header), response_header (response header), response_body (non-streaming response body), and response_streaming_body (streaming response body).
    * 
    * @example
    * request_body

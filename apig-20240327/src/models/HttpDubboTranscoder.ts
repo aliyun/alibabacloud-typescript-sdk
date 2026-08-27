@@ -13,7 +13,11 @@ export class HttpDubboTranscoderMethodMapListParamMapsList extends $dara.Model {
   extractKey?: string;
   /**
    * @remarks
-   * The input parameter location. Valid values: ALL_QUERY_PARAMETER: request parameter. ALL_HEADER: request header. ALL_PATH: URI of the request. ALL_BODY: request body.
+   * The input parameter location. Valid values:
+   * - ALL_QUERY_PARAMETER: Request parameter.
+   * - ALL_HEADER: Request header.
+   * - ALL_PATH: URI of the request.
+   * - ALL_BODY: Request body.
    * 
    * @example
    * ALL_QUERY_PARAMETER
@@ -56,6 +60,9 @@ export class HttpDubboTranscoderMethodMapList extends $dara.Model {
   /**
    * @remarks
    * The Dubbo method name.
+   * 
+   * @example
+   * sayName
    */
   dubboMethodName?: string;
   /**
@@ -81,7 +88,10 @@ export class HttpDubboTranscoderMethodMapList extends $dara.Model {
   paramMapsList?: HttpDubboTranscoderMethodMapListParamMapsList[];
   /**
    * @remarks
-   * The header pass-through type. Valid values: PASS_ALL: passes through all headers. PASS_NOT: does not pass through any headers. PASS_ASSIGN: passes through specified headers.
+   * The header pass-through type. Valid values:
+   * - PASS_ALL: Pass through all headers.
+   * - PASS_NOT: Do not pass through headers.
+   * - PASS_ASSIGN: Pass through specified headers.
    * 
    * @example
    * PASS_NOT
@@ -133,16 +143,25 @@ export class HttpDubboTranscoder extends $dara.Model {
   /**
    * @remarks
    * The Dubbo service group.
+   * 
+   * @example
+   * DEV
    */
   dubboServiceGroup?: string;
   /**
    * @remarks
    * The Dubbo service name.
+   * 
+   * @example
+   * com.example.DemoService
    */
   dubboServiceName?: string;
   /**
    * @remarks
    * The Dubbo service version.
+   * 
+   * @example
+   * 1.0.0
    */
   dubboServiceVersion?: string;
   /**
