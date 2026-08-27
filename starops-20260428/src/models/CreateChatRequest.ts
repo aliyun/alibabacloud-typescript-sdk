@@ -47,12 +47,12 @@ export class CreateChatRequestMessagesContents extends $dara.Model {
 export class CreateChatRequestMessages extends $dara.Model {
   /**
    * @remarks
-   * The multimodal content of the message.
+   * The text or multimodal array.
    */
   contents?: CreateChatRequestMessagesContents[];
   /**
    * @remarks
-   * A unique identifier for the message.
+   * The unique identifier of the current message.
    * 
    * @example
    * message_id02
@@ -68,7 +68,7 @@ export class CreateChatRequestMessages extends $dara.Model {
   role?: string;
   /**
    * @remarks
-   * The tool call list.
+   * The list of tool invocations.
    */
   tools?: { [key: string]: any }[];
   static names(): { [key: string]: string } {
@@ -107,7 +107,13 @@ export class CreateChatRequestMessages extends $dara.Model {
 export class CreateChatRequest extends $dara.Model {
   /**
    * @remarks
-   * The operation type. Valid values: `create` (default), `reconnect`, and `stop`.
+   * The action type. Valid values:
+   * 
+   * - create: creates a conversation.
+   * - reconnect: reconnects to an existing conversation.
+   * - stop: stops the conversation.
+   * 
+   * Default value: create.
    * 
    * @example
    * create
@@ -123,12 +129,12 @@ export class CreateChatRequest extends $dara.Model {
   digitalEmployeeName?: string;
   /**
    * @remarks
-   * The message list.
+   * The list of messages.
    */
   messages?: CreateChatRequestMessages[];
   /**
    * @remarks
-   * The session thread ID.
+   * The conversation thread ID.
    * 
    * @example
    * thread_id01
@@ -136,7 +142,7 @@ export class CreateChatRequest extends $dara.Model {
   threadId?: string;
   /**
    * @remarks
-   * The set of variables.
+   * The list of variables.
    * 
    * @example
    * {

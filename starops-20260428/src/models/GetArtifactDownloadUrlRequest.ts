@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetArtifactDownloadUrlRequest extends $dara.Model {
   /**
    * @remarks
+   * The artifact file path, relative to the digital worker artifact root directory.
+   * 
    * This parameter is required.
    * 
    * @example

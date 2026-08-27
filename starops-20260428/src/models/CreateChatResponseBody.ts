@@ -5,17 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class CreateChatResponseBodyMessages extends $dara.Model {
   /**
    * @remarks
-   * A list of invoked agents.
+   * The list of invoked agents.
    */
   agents?: { [key: string]: any }[];
   /**
    * @remarks
-   * A list of generated artifacts.
+   * The artifact output information.
    */
   artifacts?: { [key: string]: any }[];
   /**
    * @remarks
-   * The ID of the current call.
+   * The current execution ID.
    * 
    * @example
    * call_search_001
@@ -23,12 +23,12 @@ export class CreateChatResponseBodyMessages extends $dara.Model {
   callId?: string;
   /**
    * @remarks
-   * A list of content objects.
+   * The content information.
    */
   contents?: { [key: string]: any }[];
   /**
    * @remarks
-   * Message details.
+   * The message details.
    * 
    * @example
    * test
@@ -36,12 +36,12 @@ export class CreateChatResponseBodyMessages extends $dara.Model {
   detail?: string;
   /**
    * @remarks
-   * A list of events.
+   * The list of events.
    */
   events?: { [key: string]: any }[];
   /**
    * @remarks
-   * The ID of the parent call.
+   * The execution ID of the parent level.
    * 
    * @example
    * sess_abc123
@@ -49,7 +49,7 @@ export class CreateChatResponseBodyMessages extends $dara.Model {
   parentCallId?: string;
   /**
    * @remarks
-   * The role of the message sender.
+   * The role that initiated the message.
    * 
    * @example
    * tool
@@ -57,7 +57,7 @@ export class CreateChatResponseBodyMessages extends $dara.Model {
   role?: string;
   /**
    * @remarks
-   * The message sequence number.
+   * The sequence number of the message.
    * 
    * @example
    * 1
@@ -65,7 +65,7 @@ export class CreateChatResponseBodyMessages extends $dara.Model {
   seq?: number;
   /**
    * @remarks
-   * The timestamp, in nanoseconds.
+   * The timestamp in nanoseconds.
    * 
    * @example
    * 1765000005
@@ -73,12 +73,12 @@ export class CreateChatResponseBodyMessages extends $dara.Model {
   timestamp?: string;
   /**
    * @remarks
-   * A list of tool calls.
+   * The list of tools used.
    */
   tools?: { [key: string]: any }[];
   /**
    * @remarks
-   * The message type.
+   * The specific type of the message.
    * 
    * @example
    * done
@@ -86,7 +86,7 @@ export class CreateChatResponseBodyMessages extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The message version.
+   * The version number of the message.
    * 
    * @example
    * v0.1.0
@@ -155,12 +155,12 @@ export class CreateChatResponseBodyMessages extends $dara.Model {
 export class CreateChatResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A list of message objects in the session.
+   * The list of messages in the session.
    */
   messages?: CreateChatResponseBodyMessages[];
   /**
    * @remarks
-   * A unique identifier for the API request, useful for troubleshooting.
+   * The ID data of the current message request. The first request ID in the root data.
    * 
    * @example
    * 0CEC5375-XXXX-XXXX-XXXX-9A629907C1F0
@@ -168,7 +168,7 @@ export class CreateChatResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Uniquely identifies the request chain for tracing.
+   * The ID data of the current message request. The first trace ID in the root data.
    * 
    * @example
    * 21504600000008405622576e3b48

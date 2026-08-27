@@ -14,7 +14,7 @@ export class ListDigitalEmployeesResponseBodyDigitalEmployeesKnowledgesBailian e
   attributes?: string;
   /**
    * @remarks
-   * The ID of the Model Studio index.
+   * The Bailian index ID.
    * 
    * @example
    * index-xxxx
@@ -30,7 +30,7 @@ export class ListDigitalEmployeesResponseBodyDigitalEmployeesKnowledgesBailian e
   region?: string;
   /**
    * @remarks
-   * The ID of the Model Studio workspace.
+   * The Bailian workspace ID.
    * 
    * @example
    * llm-xxxx
@@ -66,12 +66,12 @@ export class ListDigitalEmployeesResponseBodyDigitalEmployeesKnowledgesBailian e
 export class ListDigitalEmployeesResponseBodyDigitalEmployeesKnowledges extends $dara.Model {
   /**
    * @remarks
-   * A list of Model Studio knowledge bases.
+   * The list of Bailian knowledge bases.
    */
   bailian?: ListDigitalEmployeesResponseBodyDigitalEmployeesKnowledgesBailian[];
   /**
    * @remarks
-   * A list of SOP knowledge bases.
+   * The list of SOP knowledge bases.
    */
   sop?: { [key: string]: any }[];
   static names(): { [key: string]: string } {
@@ -104,10 +104,6 @@ export class ListDigitalEmployeesResponseBodyDigitalEmployeesKnowledges extends 
 }
 
 export class ListDigitalEmployeesResponseBodyDigitalEmployees extends $dara.Model {
-  /**
-   * @remarks
-   * The custom attributes of the digital employee.
-   */
   attributes?: { [key: string]: string };
   /**
    * @remarks
@@ -153,7 +149,7 @@ export class ListDigitalEmployeesResponseBodyDigitalEmployees extends $dara.Mode
   employeeType?: string;
   /**
    * @remarks
-   * A list of knowledge bases.
+   * The list of knowledge bases.
    */
   knowledges?: ListDigitalEmployeesResponseBodyDigitalEmployeesKnowledges;
   /**
@@ -166,7 +162,7 @@ export class ListDigitalEmployeesResponseBodyDigitalEmployees extends $dara.Mode
   name?: string;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The resource group ID.
    * 
    * @example
    * rg-ae******ey
@@ -174,7 +170,7 @@ export class ListDigitalEmployeesResponseBodyDigitalEmployees extends $dara.Mode
   resourceGroupId?: string;
   /**
    * @remarks
-   * The RAM role ARN.
+   * The ARN of the RAM role.
    * 
    * @example
    * acs:ram::12345678912:role/testrole
@@ -182,7 +178,7 @@ export class ListDigitalEmployeesResponseBodyDigitalEmployees extends $dara.Mode
   roleArn?: string;
   /**
    * @remarks
-   * A list of tags.
+   * The tags.
    */
   tags?: Tag[];
   /**
@@ -250,12 +246,12 @@ export class ListDigitalEmployeesResponseBodyDigitalEmployees extends $dara.Mode
 export class ListDigitalEmployeesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A list of digital employees.
+   * The list of digital employees.
    */
   digitalEmployees?: ListDigitalEmployeesResponseBodyDigitalEmployees[];
   /**
    * @remarks
-   * The maximum number of entries returned.
+   * The maximum number of results returned.
    * 
    * @example
    * 10
@@ -263,7 +259,7 @@ export class ListDigitalEmployeesResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token to retrieve the next page of results.
+   * The token for the next query.
    * 
    * @example
    * xxxxx
@@ -271,7 +267,7 @@ export class ListDigitalEmployeesResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 8FDE2569-626B-5176-9844-28877A*****
@@ -279,7 +275,7 @@ export class ListDigitalEmployeesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total count.
+   * The total number of records.
    * 
    * @example
    * 56

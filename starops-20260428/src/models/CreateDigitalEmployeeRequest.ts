@@ -6,7 +6,7 @@ import { Tag } from "./Tag";
 export class CreateDigitalEmployeeRequestKnowledgesBailian extends $dara.Model {
   /**
    * @remarks
-   * The attributes of the knowledge base.
+   * The knowledge base attributes.
    * 
    * @example
    * test
@@ -66,12 +66,12 @@ export class CreateDigitalEmployeeRequestKnowledgesBailian extends $dara.Model {
 export class CreateDigitalEmployeeRequestKnowledges extends $dara.Model {
   /**
    * @remarks
-   * The list of Bailian knowledge bases.
+   * The Bailian knowledge base list.
    */
   bailian?: CreateDigitalEmployeeRequestKnowledgesBailian[];
   /**
    * @remarks
-   * The list of SOP knowledge bases.
+   * The SOP knowledge base list.
    */
   sop?: { [key: string]: any }[];
   static names(): { [key: string]: string } {
@@ -111,7 +111,7 @@ export class CreateDigitalEmployeeRequestSandboxNetworkPolicy extends $dara.Mode
   allowCidrs?: string[];
   /**
    * @remarks
-   * The list of allowed FQDNs. A maximum of 50 FQDNs are supported.
+   * The list of allowed FQDNs. A maximum of 50 entries are supported.
    */
   allowFqdns?: string[];
   /**
@@ -156,7 +156,7 @@ export class CreateDigitalEmployeeRequestSandboxNetworkPolicy extends $dara.Mode
 export class CreateDigitalEmployeeRequestToolPolicyAliyunStatements extends $dara.Model {
   /**
    * @remarks
-   * The list of Aliyun OpenAPI actions. The format is product:ApiName, product:Prefix*, or product:*.
+   * The list of Aliyun OpenAPI actions. Format: product:ApiName, product:Prefix*, or product:*.
    * 
    * @example
    * ["log:GetProject","log:CreateDashboard"]
@@ -221,7 +221,23 @@ export class CreateDigitalEmployeeRequestToolPolicyAliyunStatements extends $dar
 export class CreateDigitalEmployeeRequestToolPolicyAliyun extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable the Aliyun MCP tool policy.
+   * The auto-pass policy. Entries are RAM Action strings in the format of product:ApiName, product:Prefix*, or product:*. Matched requests are automatically passed without human confirmation. If this parameter is empty or not configured, built-in read-only actions (Get*, List*, Describe*) are automatically passed. Unmatched requests require human-in-the-loop (HIL) confirmation.
+   * 
+   * @example
+   * ["log:Get*","log:List*"]
+   */
+  autoPassPolicy?: string[];
+  /**
+   * @remarks
+   * The explicit deny policy with the highest priority. Entries are RAM Action strings in the format of product:ApiName, product:Prefix*, or product:*. If this parameter is empty or not configured, no operations are actively denied. When matched by STAROps, the request is directly denied. Pop performs a secondary fallback check.
+   * 
+   * @example
+   * ["ecs:RunCommand","ecs:Delete*"]
+   */
+  denyPolicy?: string[];
+  /**
+   * @remarks
+   * Specifies whether to enable the Aliyun MCP tool policy. The policy is enabled by default and is disabled only when this parameter is explicitly set to false.
    * 
    * @example
    * true
@@ -229,14 +245,18 @@ export class CreateDigitalEmployeeRequestToolPolicyAliyun extends $dara.Model {
   enable?: boolean;
   /**
    * @remarks
-   * The list of Aliyun OpenAPI tool policy statements.
+   * **[Deprecated]** Use denyPolicy and autoPassPolicy instead. This parameter is still returned during the transition period. Original description: The list of Aliyun OpenAPI tool policy statements.
    * 
    * @example
    * [{"decision":"user_ack","product":"Sls","apiVersion":"2020-12-30","actions":["log:GetProject","log:CreateDashboard"]}]
+   * 
+   * @deprecated
    */
   statements?: CreateDigitalEmployeeRequestToolPolicyAliyunStatements[];
   static names(): { [key: string]: string } {
     return {
+      autoPassPolicy: 'autoPassPolicy',
+      denyPolicy: 'denyPolicy',
       enable: 'enable',
       statements: 'statements',
     };
@@ -244,12 +264,20 @@ export class CreateDigitalEmployeeRequestToolPolicyAliyun extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      autoPassPolicy: { 'type': 'array', 'itemType': 'string' },
+      denyPolicy: { 'type': 'array', 'itemType': 'string' },
       enable: 'boolean',
       statements: { 'type': 'array', 'itemType': CreateDigitalEmployeeRequestToolPolicyAliyunStatements },
     };
   }
 
   validate() {
+    if(Array.isArray(this.autoPassPolicy)) {
+      $dara.Model.validateArray(this.autoPassPolicy);
+    }
+    if(Array.isArray(this.denyPolicy)) {
+      $dara.Model.validateArray(this.denyPolicy);
+    }
     if(Array.isArray(this.statements)) {
       $dara.Model.validateArray(this.statements);
     }
@@ -267,7 +295,7 @@ export class CreateDigitalEmployeeRequestToolPolicy extends $dara.Model {
    * The Aliyun MCP tool calling security policy configuration.
    * 
    * @example
-   * {"enable":true,"statements":[{"decision":"user_ack","product":"Sls","apiVersion":"2020-12-30","actions":["log:GetProject","log:CreateDashboard"]}]}
+   * {"enable":true,"denyPolicy":["ecs:RunCommand","ecs:Delete*"],"autoPassPolicy":["log:Get*","log:List*"],"statements":[{"decision":"user_ack","product":"Sls","apiVersion":"2020-12-30","actions":["log:GetProject","log:CreateDashboard"]}]}
    */
   aliyun?: CreateDigitalEmployeeRequestToolPolicyAliyun;
   static names(): { [key: string]: string } {
@@ -295,6 +323,10 @@ export class CreateDigitalEmployeeRequestToolPolicy extends $dara.Model {
 }
 
 export class CreateDigitalEmployeeRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The attributes.
+   */
   attributes?: { [key: string]: string };
   /**
    * @remarks
@@ -322,7 +354,7 @@ export class CreateDigitalEmployeeRequest extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * The list of knowledge bases.
+   * The knowledge base list.
    */
   knowledges?: CreateDigitalEmployeeRequestKnowledges;
   /**
@@ -371,7 +403,7 @@ export class CreateDigitalEmployeeRequest extends $dara.Model {
    * The tool calling security policy configuration of the digital employee.
    * 
    * @example
-   * {"aliyun":{"enable":true,"statements":[{"decision":"user_ack","product":"Sls","apiVersion":"2020-12-30","actions":["log:GetProject","log:CreateDashboard"]}]}}
+   * {"aliyun":{"enable":true,"denyPolicy":["ecs:RunCommand","ecs:Delete*"],"autoPassPolicy":["log:Get*","log:List*"],"statements":[{"decision":"user_ack","product":"Sls","apiVersion":"2020-12-30","actions":["log:GetProject","log:CreateDashboard"]}]}}
    */
   toolPolicy?: CreateDigitalEmployeeRequestToolPolicy;
   static names(): { [key: string]: string } {

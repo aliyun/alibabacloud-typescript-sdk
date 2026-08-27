@@ -22,7 +22,7 @@ export class ListDigitalEmployeesRequest extends $dara.Model {
   employeeType?: string;
   /**
    * @remarks
-   * The number of entries to return on each page. Valid values: 1 to 100. Default value: 20.
+   * The page size. Default value: 20. Maximum value: 100.
    * 
    * @example
    * 10
@@ -38,7 +38,7 @@ export class ListDigitalEmployeesRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The token that is used to retrieve the next page of results.
+   * The token for the next query.
    * 
    * @example
    * xxxxxx
@@ -46,7 +46,7 @@ export class ListDigitalEmployeesRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The resource group ID.
    * 
    * @example
    * rg-ae******ey

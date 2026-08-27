@@ -223,6 +223,22 @@ export class GetDigitalEmployeeResponseBodyToolPolicyAliyunStatements extends $d
 export class GetDigitalEmployeeResponseBodyToolPolicyAliyun extends $dara.Model {
   /**
    * @remarks
+   * The auto-pass policy. Each entry is a RAM Action string in the format of product:ApiName, product:Prefix*, or product:*. Matched requests are automatically approved without human confirmation. If empty or not configured, built-in read-only operations (Get*, List*, Describe*) are automatically approved. Unmatched requests require human-in-the-loop (HIL) confirmation.
+   * 
+   * @example
+   * ["log:Get*","log:List*"]
+   */
+  autoPassPolicy?: string[];
+  /**
+   * @remarks
+   * The explicit deny policy with the highest priority. Each entry is a RAM Action string in the format of product:ApiName, product:Prefix*, or product:*. If empty or not configured, no operations are actively denied. STAROps directly rejects matched requests. The Pop side performs a secondary fallback check.
+   * 
+   * @example
+   * ["ecs:RunCommand","ecs:Delete*"]
+   */
+  denyPolicy?: string[];
+  /**
+   * @remarks
    * Indicates whether the policy is enabled.
    * 
    * @example
@@ -235,10 +251,14 @@ export class GetDigitalEmployeeResponseBodyToolPolicyAliyun extends $dara.Model 
    * 
    * @example
    * [{"decision":"user_ack","product":"Sls","apiVersion":"2020-12-30","actions":["log:GetProject","log:CreateDashboard"]}]
+   * 
+   * @deprecated
    */
   statements?: GetDigitalEmployeeResponseBodyToolPolicyAliyunStatements[];
   static names(): { [key: string]: string } {
     return {
+      autoPassPolicy: 'autoPassPolicy',
+      denyPolicy: 'denyPolicy',
       enable: 'enable',
       statements: 'statements',
     };
@@ -246,12 +266,20 @@ export class GetDigitalEmployeeResponseBodyToolPolicyAliyun extends $dara.Model 
 
   static types(): { [key: string]: any } {
     return {
+      autoPassPolicy: { 'type': 'array', 'itemType': 'string' },
+      denyPolicy: { 'type': 'array', 'itemType': 'string' },
       enable: 'boolean',
       statements: { 'type': 'array', 'itemType': GetDigitalEmployeeResponseBodyToolPolicyAliyunStatements },
     };
   }
 
   validate() {
+    if(Array.isArray(this.autoPassPolicy)) {
+      $dara.Model.validateArray(this.autoPassPolicy);
+    }
+    if(Array.isArray(this.denyPolicy)) {
+      $dara.Model.validateArray(this.denyPolicy);
+    }
     if(Array.isArray(this.statements)) {
       $dara.Model.validateArray(this.statements);
     }
@@ -383,7 +411,7 @@ export class GetDigitalEmployeeResponseBody extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The ARN of the RAM role.
+   * The Alibaba Cloud Resource Name (ARN) of the RAM role.
    * 
    * @example
    * acs:ram::12345678912:role/testrole

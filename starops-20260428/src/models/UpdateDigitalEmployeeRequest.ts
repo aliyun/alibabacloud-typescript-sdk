@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateDigitalEmployeeRequestKnowledgesBailian extends $dara.Model {
   /**
    * @remarks
-   * The attributes of the knowledge base.
+   * The knowledge base attributes.
    * 
    * @example
    * test
@@ -65,12 +65,12 @@ export class UpdateDigitalEmployeeRequestKnowledgesBailian extends $dara.Model {
 export class UpdateDigitalEmployeeRequestKnowledges extends $dara.Model {
   /**
    * @remarks
-   * The list of Bailian knowledge bases.
+   * The Bailian knowledge base list.
    */
   bailian?: UpdateDigitalEmployeeRequestKnowledgesBailian[];
   /**
    * @remarks
-   * The list of SOP knowledge bases.
+   * The SOP knowledge base list.
    */
   sop?: { [key: string]: any }[];
   static names(): { [key: string]: string } {
@@ -163,7 +163,7 @@ export class UpdateDigitalEmployeeRequestToolPolicyAliyunStatements extends $dar
   actions?: string[];
   /**
    * @remarks
-   * The API version. This parameter is deprecated.
+   * **[Deprecated]** The API version.
    * 
    * @example
    * 2024-03-30
@@ -181,7 +181,7 @@ export class UpdateDigitalEmployeeRequestToolPolicyAliyunStatements extends $dar
   decision?: string;
   /**
    * @remarks
-   * The cloud service code.
+   * The cloud product code.
    * 
    * @example
    * Cms
@@ -220,6 +220,22 @@ export class UpdateDigitalEmployeeRequestToolPolicyAliyunStatements extends $dar
 export class UpdateDigitalEmployeeRequestToolPolicyAliyun extends $dara.Model {
   /**
    * @remarks
+   * The automatic pass-through policy. Each entry is a RAM Action string in the format of product:ApiName, product:Prefix*, or product:*. Matched actions are automatically allowed without human confirmation. If this parameter is empty or not configured, built-in read-only actions (Get*, List*, Describe*) are automatically allowed. Unmatched actions require human-in-the-loop (HIL) confirmation.
+   * 
+   * @example
+   * ["log:Get*","log:List*"]
+   */
+  autoPassPolicy?: string[];
+  /**
+   * @remarks
+   * The explicit deny policy with the highest priority. Each entry is a RAM Action string in the format of product:ApiName, product:Prefix*, or product:*. If this parameter is empty or not configured, no operations are actively denied. STAROps directly denies matched actions. Pop performs secondary enforcement.
+   * 
+   * @example
+   * ["ecs:RunCommand","ecs:Delete*"]
+   */
+  denyPolicy?: string[];
+  /**
+   * @remarks
    * Specifies whether to enable the policy.
    * 
    * @example
@@ -232,10 +248,14 @@ export class UpdateDigitalEmployeeRequestToolPolicyAliyun extends $dara.Model {
    * 
    * @example
    * [{"decision":"user_ack","product":"Sls","apiVersion":"2020-12-30","actions":["log:GetProject","log:CreateDashboard"]}]
+   * 
+   * @deprecated
    */
   statements?: UpdateDigitalEmployeeRequestToolPolicyAliyunStatements[];
   static names(): { [key: string]: string } {
     return {
+      autoPassPolicy: 'autoPassPolicy',
+      denyPolicy: 'denyPolicy',
       enable: 'enable',
       statements: 'statements',
     };
@@ -243,12 +263,20 @@ export class UpdateDigitalEmployeeRequestToolPolicyAliyun extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      autoPassPolicy: { 'type': 'array', 'itemType': 'string' },
+      denyPolicy: { 'type': 'array', 'itemType': 'string' },
       enable: 'boolean',
       statements: { 'type': 'array', 'itemType': UpdateDigitalEmployeeRequestToolPolicyAliyunStatements },
     };
   }
 
   validate() {
+    if(Array.isArray(this.autoPassPolicy)) {
+      $dara.Model.validateArray(this.autoPassPolicy);
+    }
+    if(Array.isArray(this.denyPolicy)) {
+      $dara.Model.validateArray(this.denyPolicy);
+    }
     if(Array.isArray(this.statements)) {
       $dara.Model.validateArray(this.statements);
     }
@@ -263,7 +291,7 @@ export class UpdateDigitalEmployeeRequestToolPolicyAliyun extends $dara.Model {
 export class UpdateDigitalEmployeeRequestToolPolicy extends $dara.Model {
   /**
    * @remarks
-   * The security policy configuration for Aliyun CLI tool calling.
+   * The Aliyun CLI tool calling security policy configuration.
    * 
    * @example
    * {"enable":true,"statements":[{"decision":"user_ack","product":"Sls","apiVersion":"2020-12-30","actions":["log:GetProject","log:CreateDashboard"]}]}
@@ -325,7 +353,7 @@ export class UpdateDigitalEmployeeRequest extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * The list of knowledge bases.
+   * The knowledge base list.
    */
   knowledges?: UpdateDigitalEmployeeRequestKnowledges;
   /**
@@ -346,7 +374,7 @@ export class UpdateDigitalEmployeeRequest extends $dara.Model {
   sandboxNetworkPolicy?: UpdateDigitalEmployeeRequestSandboxNetworkPolicy;
   /**
    * @remarks
-   * The security policy configuration for tool calling of the digital employee.
+   * The tool calling security policy configuration of the digital employee.
    * 
    * @example
    * {"aliyun":{"enable":true,"statements":[{"decision":"user_ack","product":"Sls","apiVersion":"2020-12-30","actions":["log:GetProject","log:CreateDashboard"]}]}}
