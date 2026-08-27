@@ -3547,7 +3547,7 @@ export default class Client extends OpenApi {
    * Creates a Supabase project.
    * 
    * @remarks
-   * Creates a Supabase project in a specified region and zone. This operation supports Free, pay-as-you-go, and subscription billing methods. You can specify the network, specifications, storage, access IP address whitelist, DPI engine version, and auto start/stop configurations.
+   * Creates a Supabase project in a specified region and zone. This operation supports the Free, pay-as-you-go, and subscription billing methods. You can specify the network, specifications, storage, access IP address whitelist, DPI engine version, and auto start/stop configurations.
    * 
    * @param request - CreateSupabaseProjectRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3649,7 +3649,7 @@ export default class Client extends OpenApi {
    * Creates a Supabase project.
    * 
    * @remarks
-   * Creates a Supabase project in a specified region and zone. This operation supports Free, pay-as-you-go, and subscription billing methods. You can specify the network, specifications, storage, access IP address whitelist, DPI engine version, and auto start/stop configurations.
+   * Creates a Supabase project in a specified region and zone. This operation supports the Free, pay-as-you-go, and subscription billing methods. You can specify the network, specifications, storage, access IP address whitelist, DPI engine version, and auto start/stop configurations.
    * 
    * @param request - CreateSupabaseProjectRequest
    * @returns CreateSupabaseProjectResponse
@@ -7393,6 +7393,52 @@ export default class Client extends OpenApi {
   async describeDBResourceManagementMode(request: $_model.DescribeDBResourceManagementModeRequest): Promise<$_model.DescribeDBResourceManagementModeResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeDBResourceManagementModeWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the kernel update version information.
+   * 
+   * @param request - DescribeDBVersionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDBVersionResponse
+   */
+  async describeDBVersionWithOptions(request: $_model.DescribeDBVersionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeDBVersionResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeDBVersion",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeDBVersionResponse>(await this.callApi(params, req, runtime), new $_model.DescribeDBVersionResponse({}));
+  }
+
+  /**
+   * Queries the kernel update version information.
+   * 
+   * @param request - DescribeDBVersionRequest
+   * @returns DescribeDBVersionResponse
+   */
+  async describeDBVersion(request: $_model.DescribeDBVersionRequest): Promise<$_model.DescribeDBVersionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeDBVersionWithOptions(request, runtime);
   }
 
   /**
@@ -11440,10 +11486,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves details of a Supabase instance.
+   * Queries the details of a Supabase instance.
    * 
    * @remarks
-   * Gets the details of a Supabase instance.
+   * Queries the details of a Supabase instance.
    * 
    * @param request - GetSupabaseProjectRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11478,10 +11524,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves details of a Supabase instance.
+   * Queries the details of a Supabase instance.
    * 
    * @remarks
-   * Gets the details of a Supabase instance.
+   * Queries the details of a Supabase instance.
    * 
    * @param request - GetSupabaseProjectRequest
    * @returns GetSupabaseProjectResponse

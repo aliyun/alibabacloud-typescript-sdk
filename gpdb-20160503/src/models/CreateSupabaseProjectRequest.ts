@@ -55,7 +55,7 @@ export class CreateSupabaseProjectRequest extends $dara.Model {
   autoScale?: boolean;
   /**
    * @remarks
-   * The idempotency token. Ensures that repeated requests do not execute the same operation more than once.
+   * The idempotency token. Ensures that duplicate requests do not result in duplicate operations.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -92,7 +92,7 @@ export class CreateSupabaseProjectRequest extends $dara.Model {
   lightweight?: boolean;
   /**
    * @remarks
-   * The billing method. If this parameter is not specified, the default value Free is used.
+   * The billing type. If this parameter is not specified, the default value Free is used.
    * 
    * Valid values:
    * 
@@ -163,7 +163,7 @@ export class CreateSupabaseProjectRequest extends $dara.Model {
   securityIPList?: string;
   /**
    * @remarks
-   * The storage size. Unit: GB. If this parameter is not specified for non-Free billing types, the default value is 1 GB.
+   * The storage size, in GB. If this parameter is not specified for non-Free billing types, the default value is 1 GB.
    * 
    * @example
    * 50

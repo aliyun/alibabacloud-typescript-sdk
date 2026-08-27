@@ -13,7 +13,7 @@ export class CreateSupabaseProjectResponseBody extends $dara.Model {
   orderId?: string;
   /**
    * @remarks
-   * The Supabase instance ID.
+   * The instance ID.
    * 
    * @example
    * spb-xxxx

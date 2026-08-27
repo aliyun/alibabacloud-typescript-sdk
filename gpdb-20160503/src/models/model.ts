@@ -616,6 +616,9 @@ export { DescribeDBResourceGroupResponse } from './DescribeDbresourceGroupRespon
 export { DescribeDBResourceManagementModeRequest } from './DescribeDbresourceManagementModeRequest';
 export { DescribeDBResourceManagementModeResponseBody } from './DescribeDbresourceManagementModeResponseBody';
 export { DescribeDBResourceManagementModeResponse } from './DescribeDbresourceManagementModeResponse';
+export { DescribeDBVersionRequest } from './DescribeDbversionRequest';
+export { DescribeDBVersionResponseBody } from './DescribeDbversionResponseBody';
+export { DescribeDBVersionResponse } from './DescribeDbversionResponse';
 export { DescribeDBVersionInfosRequest } from './DescribeDbversionInfosRequest';
 export { DescribeDBVersionInfosResponseBody } from './DescribeDbversionInfosResponseBody';
 export { DescribeDBVersionInfosResponse } from './DescribeDbversionInfosResponse';

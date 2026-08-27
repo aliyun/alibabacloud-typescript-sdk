@@ -5,12 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class GetSupabaseProjectResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the **auto pause and resume** feature is enabled.
-   * Valid values:
-   * 
-   * - `true`: The feature is enabled. The project automatically pauses and resumes based on traffic.
-   * 
-   * - `false`: The feature is disabled.
+   * Indicates whether **auto start/stop** is enabled. Valid values:
+   * - true: Enabled. When enabled, Supabase automatically pauses and resumes based on traffic conditions.
+   * - false: Disabled. When disabled, the auto start/stop feature of Supabase is turned off.
    * 
    * @example
    * false
@@ -18,7 +15,7 @@ export class GetSupabaseProjectResponseBody extends $dara.Model {
   autoScale?: string;
   /**
    * @remarks
-   * The creation time of the project.
+   * The creation time.
    * 
    * @example
    * 2019-09-08T16:00:00Z
@@ -26,7 +23,7 @@ export class GetSupabaseProjectResponseBody extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The database IP address whitelist, specified as a comma-separated string.
+   * The database whitelist.
    * 
    * @example
    * 127.0.0.1,100.64.XX.XX/10
@@ -34,7 +31,7 @@ export class GetSupabaseProjectResponseBody extends $dara.Model {
   DBSecurityIpList?: string;
   /**
    * @remarks
-   * The password for the Supabase Dashboard. This parameter is not used.
+   * The Supabase Dashboard password (not currently in use).
    * 
    * @example
    * xxpassword
@@ -42,7 +39,7 @@ export class GetSupabaseProjectResponseBody extends $dara.Model {
   dashboardPassword?: string;
   /**
    * @remarks
-   * The username for the Supabase Dashboard. This parameter is not used.
+   * The Supabase Dashboard username (not currently in use).
    * 
    * @example
    * username
@@ -50,10 +47,8 @@ export class GetSupabaseProjectResponseBody extends $dara.Model {
   dashboardUserName?: string;
   /**
    * @remarks
-   * The performance level (PL) of the cloud disk. Valid values:
-   * 
+   * The cloud disk performance level. Valid values:
    * - PL0
-   * 
    * - PL1
    * 
    * @example
@@ -62,7 +57,7 @@ export class GetSupabaseProjectResponseBody extends $dara.Model {
   diskPerformanceLevel?: string;
   /**
    * @remarks
-   * The database engine.
+   * The database engine type.
    * 
    * @example
    * postgres
@@ -70,7 +65,7 @@ export class GetSupabaseProjectResponseBody extends $dara.Model {
   engine?: string;
   /**
    * @remarks
-   * The engine version.
+   * The DPI engine version.
    * 
    * @example
    * 15
@@ -78,7 +73,7 @@ export class GetSupabaseProjectResponseBody extends $dara.Model {
   engineVersion?: string;
   /**
    * @remarks
-   * The elastic network interface (ENI) ID.
+   * The elastic network interfaces (ENIs) ID, which identifies the network interface controller (NIC).
    * 
    * @example
    * eni-xxxxxx
@@ -95,11 +90,11 @@ export class GetSupabaseProjectResponseBody extends $dara.Model {
   lightweight?: string;
   /**
    * @remarks
-   * The billing method. Valid values:
+   * The billing type. Valid values:
    * 
-   * - `POSTPAY`: pay-as-you-go
+   * - POSTPAY: Pay-as-you-go.
    * 
-   * - `PREPAY`: subscription
+   * - PREPAY: Subscription.
    * 
    * @example
    * POSTPAY
@@ -107,7 +102,7 @@ export class GetSupabaseProjectResponseBody extends $dara.Model {
   payType?: string;
   /**
    * @remarks
-   * The private connection URL for the Supabase Dashboard.
+   * The internal network connection string of the Supabase Dashboard.
    * 
    * @example
    * 192.168.0.11
@@ -115,7 +110,7 @@ export class GetSupabaseProjectResponseBody extends $dara.Model {
   privateConnectUrl?: string;
   /**
    * @remarks
-   * The description of the Supabase project.
+   * The detailed description of the Supabase project.
    * 
    * @example
    * for-test-project
@@ -123,7 +118,7 @@ export class GetSupabaseProjectResponseBody extends $dara.Model {
   projectDescription?: string;
   /**
    * @remarks
-   * The Supabase project ID.
+   * The Supabase instance ID.
    * 
    * @example
    * sbp-545434
@@ -139,7 +134,7 @@ export class GetSupabaseProjectResponseBody extends $dara.Model {
   projectName?: string;
   /**
    * @remarks
-   * The Supabase instance specification.
+   * The Supabase instance specifications.
    * 
    * @example
    * 1C1G
@@ -147,7 +142,7 @@ export class GetSupabaseProjectResponseBody extends $dara.Model {
   projectSpec?: string;
   /**
    * @remarks
-   * The public connection URL for the Supabase Dashboard.
+   * The public network connection string of the Supabase Dashboard.
    * 
    * @example
    * 10.154.11.10
@@ -157,7 +152,7 @@ export class GetSupabaseProjectResponseBody extends $dara.Model {
    * @remarks
    * The region ID.
    * 
-   * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query the available regions.
+   * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query available region IDs.
    * 
    * @example
    * cn-hangzhou
@@ -173,7 +168,7 @@ export class GetSupabaseProjectResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The IP address whitelist, specified as a comma-separated string.
+   * The list of IP addresses in the IP whitelist group, separated by commas (,).
    * 
    * @example
    * 127.0.0.1
@@ -189,7 +184,7 @@ export class GetSupabaseProjectResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The storage space, in GB.
+   * The storage size. Unit: GB.
    * 
    * @example
    * 2
@@ -198,13 +193,9 @@ export class GetSupabaseProjectResponseBody extends $dara.Model {
   /**
    * @remarks
    * The storage type. Valid values:
-   * 
    * - **cloud_essd_pl0**
-   * 
    * - **cloud_essd_pl1**
-   * 
    * - **cloud_essd_pl2**
-   * 
    * - **cloud_essd_pl3**
    * 
    * @example
@@ -213,7 +204,7 @@ export class GetSupabaseProjectResponseBody extends $dara.Model {
   storageType?: string;
   /**
    * @remarks
-   * The vSwitch ID.
+   * The vSwitch ID. This parameter is required if a VPC ID is specified.
    * 
    * @example
    * vsw-bp1cpq8mr64paltkb****
@@ -222,9 +213,7 @@ export class GetSupabaseProjectResponseBody extends $dara.Model {
   /**
    * @remarks
    * The VPC ID.
-   * 
-   * > - You can call the [DescribeRdsVpcs](https://help.aliyun.com/document_detail/208327.html) operation to query the available VPCs.
-   * >
+   * >  - You can call the [DescribeRdsVpcs](https://help.aliyun.com/document_detail/208327.html) operation to query available VPC IDs.
    * > - This parameter is required.
    * 
    * @example
@@ -235,7 +224,7 @@ export class GetSupabaseProjectResponseBody extends $dara.Model {
    * @remarks
    * The zone ID.
    * 
-   * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query the available zones.
+   * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query available zone IDs.
    * 
    * @example
    * cn-hangzhou-i
