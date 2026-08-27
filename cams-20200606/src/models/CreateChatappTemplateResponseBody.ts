@@ -45,7 +45,7 @@ export class CreateChatappTemplateResponseBodyData extends $dara.Model {
 export class CreateChatappTemplateResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details about the access denial.
+   * The access denied details.
    * 
    * @example
    * None
@@ -53,11 +53,11 @@ export class CreateChatappTemplateResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The status code of the request.
+   * The request status code.
    * 
-   * - An \\`OK\\` response indicates that the request was successful.
+   * - OK indicates that the request was successful.
    * 
-   * - For other error codes, see [API error codes](https://www.alibabacloud.com/help/en/cams/latest/api-error-codes).
+   * - For other error codes, see [Error codes](https://www.alibabacloud.com/help/zh/cams/latest/api-error-codes).
    * 
    * @example
    * OK
@@ -87,6 +87,11 @@ export class CreateChatappTemplateResponseBody extends $dara.Model {
    * 90E63D28-E31D-1EB2-8939-A94866411B2D
    */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
   static names(): { [key: string]: string } {
     return {
       accessDeniedDetail: 'AccessDeniedDetail',
@@ -94,6 +99,7 @@ export class CreateChatappTemplateResponseBody extends $dara.Model {
       data: 'Data',
       message: 'Message',
       requestId: 'RequestId',
+      success: 'Success',
     };
   }
 
@@ -104,6 +110,7 @@ export class CreateChatappTemplateResponseBody extends $dara.Model {
       data: CreateChatappTemplateResponseBodyData,
       message: 'string',
       requestId: 'string',
+      success: 'boolean',
     };
   }
 

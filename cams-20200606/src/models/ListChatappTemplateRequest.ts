@@ -15,7 +15,7 @@ export class ListChatappTemplateRequestPage extends $dara.Model {
   index?: number;
   /**
    * @remarks
-   * The number of entries per page. Default value: 10.
+   * The number of templates to query per page. Default value: 10.
    * 
    * This parameter is required.
    * 
@@ -49,28 +49,31 @@ export class ListChatappTemplateRequestPage extends $dara.Model {
 export class ListChatappTemplateRequest extends $dara.Model {
   /**
    * @remarks
-   * The review state of the template. Valid values:
+   * The review status. Valid values:
    * 
-   * - **pass**: The template is approved.
+   * - **pass**: Approved.
    * 
-   * - **fail**: The template is rejected.
+   * - **fail**: Rejected.
    * 
-   * - **auditing**: The template is being reviewed.
+   * - **auditing**: Under review.
    * 
-   * - **unaudit**: The review is suspended.
+   * - **unaudit**: Review suspended.
    * 
    * @example
    * pass
    */
   auditStatus?: string;
   /**
+   * @remarks
+   * The category of the template.
+   * 
    * @example
    * AUTHENTICATION
    */
   category?: string;
   /**
    * @remarks
-   * The code of the message template.
+   * The code of the template.
    * 
    * @example
    * 838888822*****
@@ -78,7 +81,7 @@ export class ListChatappTemplateRequest extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The space ID of the RAM user within the ISV account.
+   * The space ID of the ISV sub-customer, or the instance ID of a direct customer.
    * 
    * @example
    * 28251486512358****
@@ -86,9 +89,9 @@ export class ListChatappTemplateRequest extends $dara.Model {
   custSpaceId?: string;
   /**
    * @remarks
-   * The WhatsApp Business Account (WABA) ID of the RAM user within the independent software vendor (ISV) account.
+   * The WabaId of the ISV customer.
    * 
-   * > CustWabaId is an obsolete parameter. Use CustSpaceId instead.
+   * > This is a deprecated parameter. Use CustSpaceId instead.
    * 
    * @example
    * 65921621816****
@@ -98,7 +101,7 @@ export class ListChatappTemplateRequest extends $dara.Model {
   custWabaId?: string;
   /**
    * @remarks
-   * The ISV verification code. This parameter is used to verify whether the RAM user is authorized by the ISV account.
+   * The ISV verification code, which is used to verify whether the RAM user is authorized by the ISV.
    * 
    * @example
    * skdi3kksloslikdkkdk
@@ -106,7 +109,7 @@ export class ListChatappTemplateRequest extends $dara.Model {
   isvCode?: string;
   /**
    * @remarks
-   * The language that is used in the message template. For more information, see [Language codes](https://help.aliyun.com/document_detail/463420.html).
+   * The language of the template. For more information about language codes, see [Language codes](https://help.aliyun.com/document_detail/463420.html).
    * 
    * @example
    * en
@@ -133,7 +136,7 @@ export class ListChatappTemplateRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The type of the message template.
+   * The templatetype. Valid values:
    * 
    * - **WHATSAPP**
    * 

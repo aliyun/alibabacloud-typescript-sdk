@@ -5,10 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class ListBindDmAccountRequest extends $dara.Model {
   /**
    * @remarks
+   * The SpaceId of the ISV sub-customer or the instance ID of the direct customer.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 示例值示例值
+   * Sample value.
    */
   custSpaceId?: string;
   ownerId?: number;

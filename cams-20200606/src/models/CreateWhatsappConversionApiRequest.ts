@@ -4,16 +4,26 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateWhatsappConversionApiRequest extends $dara.Model {
   /**
+   * @remarks
+   * The embedded code.
+   * 
    * @example
    * code
    */
   code?: string;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * 131
    */
   instanceId?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The list of embedded permissions.
+   */
   permissions?: string[];
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;

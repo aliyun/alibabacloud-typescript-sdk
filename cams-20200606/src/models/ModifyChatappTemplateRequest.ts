@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyChatappTemplateRequestComponentsButtonsSupportedApps extends $dara.Model {
   /**
    * @remarks
-   * Required when the WhatsApp template Category is AUTHENTICATION and Button Type is ONE_TAP or ZERO_TAP. The package name for WhatsApp to launch the application.
+   * Required for WhatsApp templates when Category is AUTHENTICATION and Button Type is ONE_TAP/ZERO_TAP. The package name of the application invoked by WhatsApp.
    * 
    * @example
    * com.example.myapplication
@@ -13,7 +13,7 @@ export class ModifyChatappTemplateRequestComponentsButtonsSupportedApps extends 
   packageName?: string;
   /**
    * @remarks
-   * Required when the WhatsApp template Category is AUTHENTICATION and Button Type is ONE_TAP or ZERO_TAP. The signature hash value for WhatsApp to launch the application.
+   * Required for WhatsApp templates when Category is AUTHENTICATION and Button Type is ONE_TAP/ZERO_TAP. The signature hash value of the application invoked by WhatsApp.
    * 
    * @example
    * fk39kd93ks9
@@ -45,7 +45,7 @@ export class ModifyChatappTemplateRequestComponentsButtonsSupportedApps extends 
 export class ModifyChatappTemplateRequestComponentsButtons extends $dara.Model {
   /**
    * @remarks
-   * Required when the WhatsApp template Category is AUTHENTICATION and Button Type is ONE_TAP or ZERO_TAP. The button text for the WhatsApp autofill operation.
+   * Required for WhatsApp templates when Category is AUTHENTICATION and Button Type is ONE_TAP/ZERO_TAP. The button text for the WhatsApp Autofill operation.
    * 
    * @example
    * Autofill
@@ -61,7 +61,7 @@ export class ModifyChatappTemplateRequestComponentsButtons extends $dara.Model {
   couponCode?: string;
   /**
    * @remarks
-   * The flow data event type. Valid values:
+   * The Flow data event type. Valid values:
    * 
    * - DATA_EXCHANGE: data exchange.
    * 
@@ -81,7 +81,7 @@ export class ModifyChatappTemplateRequestComponentsButtons extends $dara.Model {
   flowId?: string;
   /**
    * @remarks
-   * Valid when the WhatsApp template Category is Marketing and Button type is QUICK_REPLY. Indicates the button is a marketing opt-out button. If the customer clicks this button and the send control operation is configured in ChatApp, subsequent Marketing messages will not be sent to the customer.
+   * Valid for WhatsApp templates when Category is Marketing and Button type is QUICK_REPLY. Indicates the button is a marketing opt-out button. If the customer clicks this button and send control is configured on ChatApp, subsequent Marketing messages will not be sent to the customer.
    * 
    * @example
    * false
@@ -89,7 +89,7 @@ export class ModifyChatappTemplateRequestComponentsButtons extends $dara.Model {
   isOptOut?: boolean;
   /**
    * @remarks
-   * The navigate screen. Required when FlowAction is set to NAVIGATE.
+   * The navigate screen. Required when FlowAction is NAVIGATE.
    * 
    * @example
    * DETAILS
@@ -101,8 +101,6 @@ export class ModifyChatappTemplateRequestComponentsButtons extends $dara.Model {
    * 
    * @example
    * com.demo
-   * 
-   * @deprecated
    */
   packageName?: string;
   /**
@@ -119,8 +117,6 @@ export class ModifyChatappTemplateRequestComponentsButtons extends $dara.Model {
    * 
    * @example
    * 29dkeke
-   * 
-   * @deprecated
    */
   signatureHash?: string;
   /**
@@ -156,9 +152,9 @@ export class ModifyChatappTemplateRequestComponentsButtons extends $dara.Model {
    * 
    * - **CATALOG**: catalog
    * 
-   * - **FLOW**: open a WhatsApp flow
+   * - **FLOW**: open WhatsApp flow
    * 
-   * > - For WhatsApp templates with Category set to AUTHENTICATION, only one button is allowed, and the type can only be COPY_CODE or ONE_TAP. When the type is COPY_CODE, Text is required. When the type is ONE_TAP, Text (displayed when the target application is not installed on the device, indicating the name of the copy verification code button) is required, and SignatureHash, PackageName, and AutofillText are required.
+   * > - For WhatsApp templates with Category set to AUTHENTICATION, only one button is allowed, and the type can only be COPY_CODE or ONE_TAP. When the type is COPY_CODE, Text is required. When the type is ONE_TAP, Text (displayed when the target application is not installed on the device, representing the copy verification code button name), SignatureHash, PackageName, and AutofillText are required.
    * 
    * This parameter is required.
    * 
@@ -321,12 +317,12 @@ export class ModifyChatappTemplateRequestComponentsCardsCardComponentsButtons ex
 export class ModifyChatappTemplateRequestComponentsCardsCardComponents extends $dara.Model {
   /**
    * @remarks
-   * The button list. This parameter applies only to the BUTTONS component. Each Carousel card can have a maximum of two buttons.
+   * The list of buttons. Applicable only to BUTTONS components. Each Carousel card can have a maximum of two buttons.
    */
   buttons?: ModifyChatappTemplateRequestComponentsCardsCardComponentsButtons[];
   /**
    * @remarks
-   * The media resource type. Valid when Type is set to HEADER.
+   * The media resource type. Valid when Type is HEADER.
    * 
    * - **IMAGE**: image 
    * 
@@ -338,7 +334,7 @@ export class ModifyChatappTemplateRequestComponentsCardsCardComponents extends $
   format?: string;
   /**
    * @remarks
-   * The BODY content in the Carousel card.
+   * The BODY content in a Carousel card.
    * 
    * @example
    * Who is the very powerful team
@@ -362,7 +358,7 @@ export class ModifyChatappTemplateRequestComponentsCardsCardComponents extends $
   type?: string;
   /**
    * @remarks
-   * The material path.
+   * The media resource path.
    */
   url?: string;
   static names(): { [key: string]: string } {
@@ -400,7 +396,7 @@ export class ModifyChatappTemplateRequestComponentsCardsCardComponents extends $
 export class ModifyChatappTemplateRequestComponentsCards extends $dara.Model {
   /**
    * @remarks
-   * The list of components in the Carousel card.
+   * The list of controls in a Carousel card.
    * 
    * This parameter is required.
    */
@@ -432,7 +428,7 @@ export class ModifyChatappTemplateRequestComponentsCards extends $dara.Model {
 export class ModifyChatappTemplateRequestComponents extends $dara.Model {
   /**
    * @remarks
-   * Valid for WhatsApp templates when Category is AUTHENTICATION and Component Type is Body. Displays a message in the Body section advising not to share the verification code with others.
+   * Valid for WhatsApp templates when Category is AUTHENTICATION and Component Type is Body. Displays a prompt above the Body advising not to share the verification code with others.
    * 
    * @example
    * false
@@ -440,19 +436,19 @@ export class ModifyChatappTemplateRequestComponents extends $dara.Model {
   addSecretRecommendation?: boolean;
   /**
    * @remarks
-   * The button list. This parameter applies only to the **BUTTONS** component.
+   * The list of buttons. Applicable only to **BUTTONS** components.
    * 
-   * > WhatsApp button limits:
-   * > - For WhatsApp templates with Category set to MARKETING or UTILITY, a maximum of 10 buttons are allowed.
-   * > - Only one PHONE_NUMBER button is allowed.
-   * > - A maximum of two URL buttons are allowed.
-   * > - QUICK_REPLY buttons cannot be mixed in random order with PHONE_NUMBER or URL buttons.
+   * > WhatsApp button quantity rules:
+   * > - When Category is MARKETING/UTILITY, a maximum of 10 buttons are allowed.
+   * > - Only 1 PHONE_NUMBER button is allowed.
+   * > - A maximum of 2 URL buttons are allowed.
+   * > - QUICK_REPLY buttons cannot appear out of order with PHONE_NUMBER/URL buttons.
    */
   buttons?: ModifyChatappTemplateRequestComponentsButtons[];
   /**
    * @remarks
    * The description.
-   * > A description can be added when Type is set to **HEADER** and Format is set to **IMAGE/DOCUMENT/VIDEO**.
+   * > A description can be added when Type is **HEADER** and Format is **IMAGE/DOCUMENT/VIDEO**.
    * 
    * @example
    * This is a video
@@ -465,7 +461,7 @@ export class ModifyChatappTemplateRequestComponents extends $dara.Model {
   cards?: ModifyChatappTemplateRequestComponentsCards[];
   /**
    * @remarks
-   * The validity period (in minutes) of the verification code in WhatsApp AUTHENTICATION templates. Valid only for WhatsApp messages when Category is AUTHENTICATION and Component Type is Footer. This information is displayed in the Footer section.
+   * The validity period (in minutes) of the verification code for WhatsApp AUTHENTICATION templates. Valid only for WhatsApp messages when Category is AUTHENTICATION and Component Type is Footer. This information is displayed in the Footer position.
    * 
    * @example
    * 5
@@ -482,7 +478,7 @@ export class ModifyChatappTemplateRequestComponents extends $dara.Model {
   /**
    * @remarks
    * The file name.
-   * > A file name can be specified when Type is set to **HEADER** and Format is set to **DOCUMENT**.
+   * > Specifies the file name when Type is **HEADER** and Format is **DOCUMENT**.
    * 
    * @example
    * video
@@ -514,7 +510,7 @@ export class ModifyChatappTemplateRequestComponents extends $dara.Model {
   format?: string;
   /**
    * @remarks
-   * Specifies whether the coupon code has an expiration time. Used when type is set to LIMITED_TIME_OFFER.
+   * Specifies whether the coupon code has an expiration time. This parameter is used when type is LIMITED_TIME_OFFER.
    * 
    * @example
    * true
@@ -524,7 +520,7 @@ export class ModifyChatappTemplateRequestComponents extends $dara.Model {
    * @remarks
    * The text of the message to be sent.
    * 
-   * > When Category is set to AUTHENTICATION, this property value is empty.
+   * > When Category is AUTHENTICATION, this property value is empty.
    * 
    * @example
    * hello chatapp
@@ -554,7 +550,7 @@ export class ModifyChatappTemplateRequestComponents extends $dara.Model {
    * 
    * - **LIMITED_TIME_OFFER**
    * 
-   * > - For WhatsApp templates, the character length of the **BODY** component cannot exceed 1024 characters. The character length of the **HEADER** and **FOOTER** components cannot exceed 60 characters.
+   * > - For WhatsApp templates, the **BODY** component cannot exceed 1024 characters. The **HEADER** and **FOOTER** components cannot exceed 60 characters.
    * 
    * This parameter is required.
    * 
@@ -564,7 +560,7 @@ export class ModifyChatappTemplateRequestComponents extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The material path.
+   * The media resource path.
    * 
    * @example
    * https://img.****.com/png_preview/00/10/24/1GygxVK3F4.jpg
@@ -634,7 +630,7 @@ export class ModifyChatappTemplateRequest extends $dara.Model {
   category?: string;
   /**
    * @remarks
-   * Specifies whether to pause sending when a Utility template is changed to Marketing type.
+   * When a Utility template is changed to Marketing type, the template is paused for sending.
    * 
    * @example
    * 120
@@ -644,14 +640,14 @@ export class ModifyChatappTemplateRequest extends $dara.Model {
    * @remarks
    * The list of message template components.
    * 
-   * > When Category is set to AUTHENTICATION, Components cannot contain a node with Type set to HEADER. When Type is set to BODY or FOOTER and the Text content is empty, the content is automatically generated.
+   * > When Category is AUTHENTICATION, Components cannot contain a node with Type set to HEADER. When Type is BODY/FOOTER, the Text content is empty and is automatically generated.
    * 
    * This parameter is required.
    */
   components?: ModifyChatappTemplateRequestComponents[];
   /**
    * @remarks
-   * The SpaceId of the ISV sub-customer or the instance ID of a direct customer.
+   * The SpaceId of the ISV sub-customer or the instance ID of the direct customer.
    * 
    * @example
    * 28251486512358****
@@ -661,30 +657,30 @@ export class ModifyChatappTemplateRequest extends $dara.Model {
    * @remarks
    * The ISV customer WabaId.
    * 
-   * > Deprecated parameter. Use CustSpaceId instead.
+   * > This parameter is deprecated. Use CustSpaceId instead.
    * 
    * @example
    * 65921621816****
-   * 
-   * @deprecated
    */
   custWabaId?: string;
   /**
    * @remarks
-   * The examples for creating the template.
+   * The example for creating a template.
    */
   example?: { [key: string]: string };
   /**
    * @remarks
-   * The ISV verification code used to verify whether the RAM user is authorized by the ISV.
+   * The ISV verification code used to verify whether the sub-account is authorized by the ISV.
    * 
    * @example
    * ksiekdki39ksks93939
+   * 
+   * @deprecated
    */
   isvCode?: string;
   /**
    * @remarks
-   * The template language. For detailed language codes, see [Language codes](https://help.aliyun.com/document_detail/463420.html).
+   * The template language. For language codes, see [Language codes](https://help.aliyun.com/document_detail/463420.html).
    * 
    * This parameter is required.
    * 
@@ -695,13 +691,21 @@ export class ModifyChatappTemplateRequest extends $dara.Model {
   /**
    * @remarks
    * The validity period for sending template messages in WhatsApp.
-   * - AUTHENTICATION: valid values are 30 to 900. 
-   * - UTILITY: valid values are 30 to 43200.
+   * - AUTHENTICATION: valid values range from 30 to 900. 
+   * - UTILITY: valid values range from 30 to 43200.
    * 
    * @example
    * 120
    */
   messageSendTtlSeconds?: number;
+  /**
+   * @remarks
+   * productSetId
+   * 
+   * @example
+   * 939***
+   */
+  productSetId?: string;
   /**
    * @remarks
    * The message template code.
@@ -739,6 +743,7 @@ export class ModifyChatappTemplateRequest extends $dara.Model {
       isvCode: 'IsvCode',
       language: 'Language',
       messageSendTtlSeconds: 'MessageSendTtlSeconds',
+      productSetId: 'ProductSetId',
       templateCode: 'TemplateCode',
       templateName: 'TemplateName',
       templateType: 'TemplateType',
@@ -756,6 +761,7 @@ export class ModifyChatappTemplateRequest extends $dara.Model {
       isvCode: 'string',
       language: 'string',
       messageSendTtlSeconds: 'number',
+      productSetId: 'string',
       templateCode: 'string',
       templateName: 'string',
       templateType: 'string',

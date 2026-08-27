@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class OnlineFlowVersionRequest extends $dara.Model {
   /**
    * @remarks
-   * The business tenant code. The default value is ALICOM_OPAAS.
+   * The business tenant code. Default value: ALICOM_OPAAS.
    * 
    * @example
    * ALICOM_OPAAS
@@ -13,7 +13,7 @@ export class OnlineFlowVersionRequest extends $dara.Model {
   bizCode?: string;
   /**
    * @remarks
-   * Business extension information. The default value is an empty object.
+   * The business extension information. Default value: an empty collection.
    * 
    * @example
    * {}
@@ -21,7 +21,7 @@ export class OnlineFlowVersionRequest extends $dara.Model {
   bizExtend?: { [key: string]: any };
   /**
    * @remarks
-   * The flow code. View the flow code in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder).
+   * The flow code. You can view the flow code on the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) page.
    * 
    * @example
    * f4912c16943b4dfba44bd6fedacf****
@@ -29,7 +29,7 @@ export class OnlineFlowVersionRequest extends $dara.Model {
   flowCode?: string;
   /**
    * @remarks
-   * The flow version. In the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder), click the flow name to open the orchestration canvas and view the flow version.
+   * The flow version. You can click a flow name on the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) page to go to the canvas page and view the flow version.
    * 
    * @example
    * 1
@@ -38,10 +38,10 @@ export class OnlineFlowVersionRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The remarks for the flow. You can view the remarks in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder).
+   * The flow remark. You can view the flow remark on the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) page.
    * 
    * @example
-   * 通过API触发下发验证模板
+   * Trigger verification template delivery through API.
    */
   remark?: string;
   resourceOwnerAccount?: string;

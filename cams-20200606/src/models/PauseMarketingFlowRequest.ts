@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class PauseMarketingFLowRequest extends $dara.Model {
   /**
+   * @remarks
+   * The activity code.
+   * 
    * @example
    * 439859845**234
    */
   activityCode?: string;
   /**
+   * @remarks
+   * The activity ID (deprecated).
+   * 
    * @example
    * N/A
    */

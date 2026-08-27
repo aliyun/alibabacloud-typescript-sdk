@@ -13,7 +13,7 @@ export class OfflineFlowVersionShrinkRequest extends $dara.Model {
   bizCode?: string;
   /**
    * @remarks
-   * The business extension information. The default value is an empty collection.
+   * The business extension information. Default value: an empty collection.
    * 
    * @example
    * {}
@@ -21,7 +21,7 @@ export class OfflineFlowVersionShrinkRequest extends $dara.Model {
   bizExtendShrink?: string;
   /**
    * @remarks
-   * The code of the flow. View the code in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder).
+   * The flow code. View it in the [flow editor](https://chatapp.console.aliyun.com/ChatFlowBuilder).
    * 
    * @example
    * 9ccc41**************************
@@ -29,7 +29,7 @@ export class OfflineFlowVersionShrinkRequest extends $dara.Model {
   flowCode?: string;
   /**
    * @remarks
-   * The version of the flow. View the version on the orchestration canvas in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder).
+   * The flow version. Click the flow name in the [flow editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) to enter the flow editor canvas page and view the flow version.
    * 
    * @example
    * 1
@@ -38,10 +38,10 @@ export class OfflineFlowVersionShrinkRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The remarks for the flow. View the remarks in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder).
+   * The flow remark. View it in the [flow editor](https://chatapp.console.aliyun.com/ChatFlowBuilder).
    * 
    * @example
-   * 不再需要此版本
+   * No longer need this version.
    */
   remark?: string;
   resourceOwnerAccount?: string;

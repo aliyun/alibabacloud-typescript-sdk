@@ -37,7 +37,7 @@ export class ListInstanceResponseBodyData extends $dara.Model {
   custSpaceId?: string;
   /**
    * @remarks
-   * The ID of the associated Facebook Business Manager account.
+   * The bound Facebook ID.
    * 
    * @example
    * 1
@@ -69,7 +69,7 @@ export class ListInstanceResponseBodyData extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * The ISV terms.
+   * The ISV/Client agreement file name.
    * 
    * @example
    * aa
@@ -77,7 +77,7 @@ export class ListInstanceResponseBodyData extends $dara.Model {
   isvTerms?: string;
   /**
    * @remarks
-   * The office address.
+   * The enterprise address.
    * 
    * @example
    * example
@@ -93,7 +93,7 @@ export class ListInstanceResponseBodyData extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The ID of the region where the resource is located.
+   * The region to which the resource belongs.
    * 
    * @example
    * 11
@@ -101,7 +101,7 @@ export class ListInstanceResponseBodyData extends $dara.Model {
   resourceRegionId?: string;
   /**
    * @remarks
-   * The state of the instance.
+   * The status.
    * 
    * @example
    * published
@@ -109,7 +109,7 @@ export class ListInstanceResponseBodyData extends $dara.Model {
   state?: string;
   /**
    * @remarks
-   * The time when the instance was submitted.
+   * The submit time.
    * 
    * @example
    * 2023-12-12 00:00:00
@@ -165,7 +165,7 @@ export class ListInstanceResponseBodyData extends $dara.Model {
 export class ListInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the access denial.
+   * The details about the access denial.
    * 
    * @example
    * {}
@@ -173,11 +173,11 @@ export class ListInstanceResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The request status code.
+   * The response code.
    * 
-   * - `OK` indicates that the request was successful.
+   * - OK indicates that the request was successful.
    * 
-   * - For other error codes, see the [Error Code List](https://help.aliyun.com/document_detail/196974.html).
+   * - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
    * 
    * @example
    * OK
@@ -185,7 +185,7 @@ export class ListInstanceResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * An array of objects, each representing an instance.
+   * The returned data.
    */
   data?: ListInstanceResponseBodyData[];
   /**
@@ -206,10 +206,8 @@ export class ListInstanceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call succeeded.
-   * 
-   * - **true**: The call succeeded.
-   * 
+   * Indicates whether the call was successful. Valid values:
+   * - **true**: The call was successful.
    * - **false**: The call failed.
    * 
    * @example
@@ -218,7 +216,7 @@ export class ListInstanceResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The total number of entries that match the specified criteria.
+   * The total number of records that meet the conditions.
    * 
    * @example
    * 15

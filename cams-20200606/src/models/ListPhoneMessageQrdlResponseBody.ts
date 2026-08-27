@@ -29,7 +29,7 @@ export class ListPhoneMessageQrdlResponseBodyData extends $dara.Model {
   phoneNumber?: string;
   /**
    * @remarks
-   * The prefilled message content.
+   * The message content.
    * 
    * @example
    * Hello
@@ -85,7 +85,7 @@ export class ListPhoneMessageQrdlResponseBodyData extends $dara.Model {
 export class ListPhoneMessageQrdlResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The access denied details.
+   * The details about the access denial.
    * 
    * @example
    * None
@@ -109,7 +109,7 @@ export class ListPhoneMessageQrdlResponseBody extends $dara.Model {
    * The error message.
    * 
    * @example
-   * 无
+   * None.
    */
   message?: string;
   /**

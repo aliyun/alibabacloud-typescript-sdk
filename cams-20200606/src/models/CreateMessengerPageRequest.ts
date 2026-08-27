@@ -5,40 +5,50 @@ import * as $dara from '@darabonba/typescript';
 export class CreateMessengerPageRequest extends $dara.Model {
   /**
    * @remarks
+   * The IDs of the authorized ad accounts.
+   * 
    * This parameter is required.
    */
   adAccountIds?: string[];
   /**
    * @remarks
+   * The authorization code obtained after the embedded authorization is completed.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 示例值
+   * EAA****
    */
   authenticationCode?: string;
   /**
    * @remarks
+   * The Business platform ID.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 示例值示例值
+   * 293***
    */
   businessId?: string;
   /**
    * @remarks
+   * The SpaceId of the ISV sub-customer or the instance ID of the direct customer.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 示例值示例值
+   * cams-s***
    */
   custSpaceId?: string;
   ownerId?: number;
   /**
    * @remarks
+   * The PageId of the messenger.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 示例值示例值示例值
+   * 19283***
    */
   pageId?: string;
   resourceOwnerAccount?: string;

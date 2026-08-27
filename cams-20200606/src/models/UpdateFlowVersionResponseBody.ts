@@ -37,7 +37,7 @@ export class UpdateFlowVersionResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The content of the returned data.
+   * The response content.
    * 
    * @example
    * 436489

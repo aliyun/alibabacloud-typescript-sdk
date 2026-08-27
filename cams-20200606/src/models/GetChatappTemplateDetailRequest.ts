@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetChatappTemplateDetailRequest extends $dara.Model {
   /**
    * @remarks
-   * The SpaceId of the ISV sub-customer or the instance ID of a direct customer.
+   * The SpaceId of the ISV sub-customer or the instance ID of the direct customer.
    * 
    * @example
    * 28251486512358****
@@ -15,7 +15,7 @@ export class GetChatappTemplateDetailRequest extends $dara.Model {
    * @remarks
    * The WabaId of the ISV customer.
    * 
-   * > This parameter is deprecated. Use CustSpaceId instead.
+   * > Deprecated parameter. Use CustSpaceId instead.
    * 
    * @example
    * 65921621816****
@@ -29,6 +29,8 @@ export class GetChatappTemplateDetailRequest extends $dara.Model {
    * 
    * @example
    * skdi3kksloslikdkkdk
+   * 
+   * @deprecated
    */
   isvCode?: string;
   /**
@@ -59,7 +61,7 @@ export class GetChatappTemplateDetailRequest extends $dara.Model {
   templateName?: string;
   /**
    * @remarks
-   * The templatetype.
+   * The templatetype. Valid values:
    * 
    * - **WHATSAPP**
    * 

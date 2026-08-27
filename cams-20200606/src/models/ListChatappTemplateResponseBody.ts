@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class ListChatappTemplateResponseBodyListTemplate extends $dara.Model {
   /**
    * @remarks
-   * The review state of the template. Valid values:
+   * The review status. Valid values:
    * 
-   * - **pass**: The template is approved.
+   * - **pass**: Approved.
    * 
-   * - **fail**: The template is rejected.
+   * - **fail**: Rejected.
    * 
-   * - **auditing**: The template is being reviewed.
+   * - **auditing**: Under review.
    * 
-   * - **unaudit**: The review is suspended.
+   * - **unaudit**: Review suspended.
    * 
    * @example
    * pass
@@ -21,33 +21,21 @@ export class ListChatappTemplateResponseBodyListTemplate extends $dara.Model {
   auditStatus?: string;
   /**
    * @remarks
-   * The category of the WhatsApp message template. Valid values:
+   * The WhatsApp template category. Valid values:
    * 
-   * - **UTILITY**
+   * - **UTILITY**: Transaction-related.
    * 
-   * - **MARKETING**
+   * - **MARKETING**: Marketing template.
    * 
-   * - **AUTHENTICATION**
+   * - **AUTHENTICATION**: Identity verification.
    * 
-   * The category of the Viber template. Valid values:
+   * Viber template category. Valid values:
    * 
-   * - **text**: template that contains only text
+   * - **UTILITY**: Transaction-related.
    * 
-   * - **image**: template that contains only images
+   * - **MARKETING**: Marketing template.
    * 
-   * - **text_image_button**: template that contains text, images, and buttons
-   * 
-   * - **text_button**: template that contains text and buttons
-   * 
-   * - **document**: template that contains only documents
-   * 
-   * - **video**: template that contains only videos
-   * 
-   * - **text_video**: template that contains text and videos
-   * 
-   * - **text_video_button**: template that contains text, videos, and buttons
-   * 
-   * - **text_image**: template that contains text and images
+   * - **AUTHENTICATION**: Identity verification.
    * 
    * @example
    * UTILITY
@@ -55,7 +43,7 @@ export class ListChatappTemplateResponseBodyListTemplate extends $dara.Model {
   category?: string;
   /**
    * @remarks
-   * The language that is used in the message template. For more information, see [Language codes](https://help.aliyun.com/document_detail/463420.html).
+   * The language of the template. For more information about language codes, see [Language codes](https://help.aliyun.com/document_detail/463420.html).
    * 
    * @example
    * en
@@ -63,7 +51,7 @@ export class ListChatappTemplateResponseBodyListTemplate extends $dara.Model {
   language?: string;
   /**
    * @remarks
-   * The time when the template was last modified. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The time when the template was last updated.
    * 
    * @example
    * 1711006633000
@@ -71,7 +59,7 @@ export class ListChatappTemplateResponseBodyListTemplate extends $dara.Model {
   lastUpdateTime?: number;
   /**
    * @remarks
-   * The reason why the template was rejected.
+   * The reason why the template was rejected during review.
    * 
    * @example
    * None
@@ -79,7 +67,7 @@ export class ListChatappTemplateResponseBodyListTemplate extends $dara.Model {
   reason?: string;
   /**
    * @remarks
-   * The code of the message template.
+   * The code of the template.
    * 
    * @example
    * 744c4b5c79c9432497a075bdfca3****
@@ -87,7 +75,7 @@ export class ListChatappTemplateResponseBodyListTemplate extends $dara.Model {
   templateCode?: string;
   /**
    * @remarks
-   * The name of the message template.
+   * The name of the template.
    * 
    * @example
    * hello_whatsapp
@@ -95,7 +83,7 @@ export class ListChatappTemplateResponseBodyListTemplate extends $dara.Model {
   templateName?: string;
   /**
    * @remarks
-   * The type of the template. Valid values: WHATSAPP and VIBER.
+   * The templatetype. Valid values: WHATSAPP and VIBER.
    * 
    * @example
    * WHATSAPP
@@ -142,16 +130,16 @@ export class ListChatappTemplateResponseBody extends $dara.Model {
    * The details about the access denial.
    * 
    * @example
-   * 无
+   * None
    */
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The response code.
    * 
-   * - A value of OK indicates that the call is successful.
+   * - A value of OK indicates that the request was successful.
    * 
-   * - Other values indicate that the call fails. For more information, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
+   * - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
    * 
    * @example
    * OK
@@ -159,12 +147,12 @@ export class ListChatappTemplateResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The message templates.
+   * The list data.
    */
   listTemplate?: ListChatappTemplateResponseBodyListTemplate[];
   /**
    * @remarks
-   * The error message returned.
+   * The error message.
    * 
    * @example
    * User not authorized to operate on the specified resource.
@@ -172,20 +160,25 @@ export class ListChatappTemplateResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 90E63D28-E31D-1EB2-8939-A9486641****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * - **true**: The request was successful.
+   * - **false**: The request failed.
+   * 
    * @example
    * false
    */
   success?: boolean;
   /**
    * @remarks
-   * The total number of returned entries.
+   * The total number of records.
    * 
    * @example
    * 1

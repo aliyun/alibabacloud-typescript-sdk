@@ -13,7 +13,7 @@ export class GetFlowJSONAssestResponseBodyData extends $dara.Model {
   filePath?: string;
   /**
    * @remarks
-   * The flow ID.
+   * Flow ID。
    * 
    * @example
    * 92675332812643****
@@ -45,7 +45,10 @@ export class GetFlowJSONAssestResponseBodyData extends $dara.Model {
 export class GetFlowJSONAssestResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Details about the access denial.
+   * The details about the access denial.
+   * 
+   * @example
+   * None
    */
   accessDeniedDetail?: string;
   /**

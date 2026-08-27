@@ -13,9 +13,7 @@ export class FlowUnbindPhoneShrinkRequest extends $dara.Model {
    * 
    * - MESSENGER
    * 
-   * <props="intl">
-   * 
-   * - VIBER
+   * <props="intl">- VIBER
    * 
    * @example
    * WHATSAPP
@@ -23,7 +21,7 @@ export class FlowUnbindPhoneShrinkRequest extends $dara.Model {
   channelType?: string;
   /**
    * @remarks
-   * The flow code. View the flow code in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder).
+   * The flow code. You can view the flow code on the [Flow Builder](https://chatapp.console.aliyun.com/ChatFlowBuilder) page.
    * 
    * This parameter is required.
    * 
@@ -33,7 +31,7 @@ export class FlowUnbindPhoneShrinkRequest extends $dara.Model {
   flowCode?: string;
   /**
    * @remarks
-   * The flow version. In the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder), click the flow name to go to the orchestration canvas and view the flow version.
+   * The flow version. You can view the flow version by going to the [Flow Builder](https://chatapp.console.aliyun.com/ChatFlowBuilder) page, clicking the flow name, and entering the flow editor canvas page.
    * 
    * @example
    * 1
@@ -42,7 +40,7 @@ export class FlowUnbindPhoneShrinkRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * A list of phone numbers, Page IDs, Account IDs, or Service IDs for the channel instance.
+   * The list of phone numbers, PageIds, AccountIds,<props="intl"> or ServiceIds under the channel instance.
    */
   phoneNumbersShrink?: string;
   resourceOwnerAccount?: string;

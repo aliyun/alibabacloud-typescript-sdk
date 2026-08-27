@@ -4,31 +4,57 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteInstagramPageResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The details about the access denial.
+   * 
    * @example
    * {}
    */
   accessDeniedDetail?: string;
   /**
+   * @remarks
+   * The request status code.
+   * 
+   * - OK indicates that the request was successful.
+   * 
+   * - For other error codes, refer to [Error codes](https://help.aliyun.com/document_detail/196974.html).
+   * 
    * @example
    * OK
    */
   code?: string;
   /**
+   * @remarks
+   * The returned data.
+   * 
    * @example
    * true
    */
   data?: string;
   /**
+   * @remarks
+   * The response message.
+   * 
    * @example
    * ok
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID, which is used to locate logs and troubleshoot issues.
+   * 
    * @example
    * gfdg435t-hf544**
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the operation was successful. Valid values:
+   * 
+   * - true: Successful.
+   * 
+   * - false: Failed.
+   * 
    * @example
    * false
    */

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListFlowVersionShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The business tenant code. The default value is ALICOM_OPAAS.
+   * The business tenant code. Default value: ALICOM_OPAAS.
    * 
    * @example
    * ALICOM_OPAAS
@@ -13,7 +13,7 @@ export class ListFlowVersionShrinkRequest extends $dara.Model {
   bizCode?: string;
   /**
    * @remarks
-   * Business extension information. The default value is an empty collection.
+   * The business extension information. Default value: an empty collection.
    * 
    * @example
    * {}
@@ -21,7 +21,7 @@ export class ListFlowVersionShrinkRequest extends $dara.Model {
   bizExtendShrink?: string;
   /**
    * @remarks
-   * The flow code. Find the flow code in the [flow editor](https://chatapp.console.aliyun.com/ChatFlowBuilder).
+   * The flow code. You can query the flow code on the [flow editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) page.
    * 
    * @example
    * 9ccc41**************************
@@ -30,7 +30,7 @@ export class ListFlowVersionShrinkRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -38,7 +38,7 @@ export class ListFlowVersionShrinkRequest extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of records per page.
    * 
    * @example
    * 5
@@ -48,15 +48,11 @@ export class ListFlowVersionShrinkRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The status of the flow version. Valid values:
-   * 
-   * - DRAFT: The flow is a draft.
-   * 
-   * - DELETED: The flow is deleted.
-   * 
-   * - ONLINE: The flow is published.
-   * 
-   * - OFFLINE: The flow is unpublished.
+   * The flow version status. Valid values:
+   * - DRAFT: draft.
+   * - DELETED: deleted.
+   * - ONLINE: online.
+   * - OFFLINE: offline.
    * 
    * @example
    * DRAFT

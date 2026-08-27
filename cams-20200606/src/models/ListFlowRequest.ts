@@ -3,7 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListFlowRequestPage extends $dara.Model {
+  /**
+   * @remarks
+   * The page number.
+   * 
+   * @example
+   * 1
+   */
   index?: number;
+  /**
+   * @remarks
+   * The number of entries per page.
+   * 
+   * @example
+   * 20
+   */
   size?: number;
   static names(): { [key: string]: string } {
     return {
@@ -30,16 +44,26 @@ export class ListFlowRequestPage extends $dara.Model {
 
 export class ListFlowRequest extends $dara.Model {
   /**
+   * @remarks
+   * The SpaceId of the ISV sub-customer.
+   * 
    * @example
-   * 示例值示例值
+   * cams-sa2ksj21jksd
    */
   custSpaceId?: string;
   /**
+   * @remarks
+   * The Flow name.
+   * 
    * @example
-   * 示例值
+   * flow-21101
    */
   flowName?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The pagination information.
+   */
   page?: ListFlowRequestPage;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;

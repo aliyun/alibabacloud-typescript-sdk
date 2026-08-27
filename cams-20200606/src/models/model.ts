@@ -30,6 +30,8 @@ export { CreateFlowResponseBodyData } from './CreateFlowResponseBody';
 export { CreateInstanceResponseBodyData } from './CreateInstanceResponseBody';
 export { CreatePhoneMessageQrdlResponseBodyData } from './CreatePhoneMessageQrdlResponseBody';
 export { DeleteChatGroupParticipantsRequestList } from './DeleteChatGroupParticipantsRequest';
+export { FlowBindPhoneRequestMultiWabaPhoneNumbers } from './FlowBindPhoneRequest';
+export { FlowRebindPhoneRequestMultiWabaPhoneNumbers } from './FlowRebindPhoneRequest';
 export { GeneratePresignedUrlResponseBodyData } from './GeneratePresignedUrlResponseBody';
 export { GetAuditRequestByTypeUnAuditResponseBodyDataAuditRecordCompanyAddress } from './GetAuditRequestByTypeUnAuditResponseBody';
 export { GetAuditRequestByTypeUnAuditResponseBodyDataAuditRecordCompanyTel } from './GetAuditRequestByTypeUnAuditResponseBody';

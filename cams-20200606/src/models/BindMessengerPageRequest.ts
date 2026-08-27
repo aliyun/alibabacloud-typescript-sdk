@@ -5,15 +5,19 @@ import * as $dara from '@darabonba/typescript';
 export class BindMessengerPageRequest extends $dara.Model {
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 示例值示例值示例值
+   * Sample value sample value sample value.
    */
   instanceId?: string;
   ownerId?: number;
   /**
    * @remarks
+   * The PageId of the Messenger.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,9 @@ export class BindMessengerPageRequest extends $dara.Model {
    */
   pageId?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * ap-southeast-1
    */

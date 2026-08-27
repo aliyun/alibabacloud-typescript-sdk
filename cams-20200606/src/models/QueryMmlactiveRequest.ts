@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class QueryMMLActiveRequest extends $dara.Model {
   /**
+   * @remarks
+   * The SpaceId of the ISV sub-customer.
+   * 
    * @example
    * erer-retreerew**
    */

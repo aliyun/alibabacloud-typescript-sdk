@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class RemoveContactByIdRequest extends $dara.Model {
   /**
    * @remarks
+   * The contact ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class RemoveContactByIdRequest extends $dara.Model {
   contactId?: string;
   /**
    * @remarks
+   * The contact group ID.
+   * 
    * This parameter is required.
    * 
    * @example

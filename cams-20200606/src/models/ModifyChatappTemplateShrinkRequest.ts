@@ -13,7 +13,7 @@ export class ModifyChatappTemplateShrinkRequest extends $dara.Model {
   category?: string;
   /**
    * @remarks
-   * Specifies whether to pause sending when a Utility template is changed to Marketing type.
+   * When a Utility template is changed to Marketing type, the template is paused for sending.
    * 
    * @example
    * 120
@@ -23,14 +23,14 @@ export class ModifyChatappTemplateShrinkRequest extends $dara.Model {
    * @remarks
    * The list of message template components.
    * 
-   * > When Category is set to AUTHENTICATION, Components cannot contain a node with Type set to HEADER. When Type is set to BODY or FOOTER and the Text content is empty, the content is automatically generated.
+   * > When Category is AUTHENTICATION, Components cannot contain a node with Type set to HEADER. When Type is BODY/FOOTER, the Text content is empty and is automatically generated.
    * 
    * This parameter is required.
    */
   componentsShrink?: string;
   /**
    * @remarks
-   * The SpaceId of the ISV sub-customer or the instance ID of a direct customer.
+   * The SpaceId of the ISV sub-customer or the instance ID of the direct customer.
    * 
    * @example
    * 28251486512358****
@@ -40,30 +40,30 @@ export class ModifyChatappTemplateShrinkRequest extends $dara.Model {
    * @remarks
    * The ISV customer WabaId.
    * 
-   * > Deprecated parameter. Use CustSpaceId instead.
+   * > This parameter is deprecated. Use CustSpaceId instead.
    * 
    * @example
    * 65921621816****
-   * 
-   * @deprecated
    */
   custWabaId?: string;
   /**
    * @remarks
-   * The examples for creating the template.
+   * The example for creating a template.
    */
   exampleShrink?: string;
   /**
    * @remarks
-   * The ISV verification code used to verify whether the RAM user is authorized by the ISV.
+   * The ISV verification code used to verify whether the sub-account is authorized by the ISV.
    * 
    * @example
    * ksiekdki39ksks93939
+   * 
+   * @deprecated
    */
   isvCode?: string;
   /**
    * @remarks
-   * The template language. For detailed language codes, see [Language codes](https://help.aliyun.com/document_detail/463420.html).
+   * The template language. For language codes, see [Language codes](https://help.aliyun.com/document_detail/463420.html).
    * 
    * This parameter is required.
    * 
@@ -74,13 +74,21 @@ export class ModifyChatappTemplateShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The validity period for sending template messages in WhatsApp.
-   * - AUTHENTICATION: valid values are 30 to 900. 
-   * - UTILITY: valid values are 30 to 43200.
+   * - AUTHENTICATION: valid values range from 30 to 900. 
+   * - UTILITY: valid values range from 30 to 43200.
    * 
    * @example
    * 120
    */
   messageSendTtlSeconds?: number;
+  /**
+   * @remarks
+   * productSetId
+   * 
+   * @example
+   * 939***
+   */
+  productSetId?: string;
   /**
    * @remarks
    * The message template code.
@@ -118,6 +126,7 @@ export class ModifyChatappTemplateShrinkRequest extends $dara.Model {
       isvCode: 'IsvCode',
       language: 'Language',
       messageSendTtlSeconds: 'MessageSendTtlSeconds',
+      productSetId: 'ProductSetId',
       templateCode: 'TemplateCode',
       templateName: 'TemplateName',
       templateType: 'TemplateType',
@@ -135,6 +144,7 @@ export class ModifyChatappTemplateShrinkRequest extends $dara.Model {
       isvCode: 'string',
       language: 'string',
       messageSendTtlSeconds: 'number',
+      productSetId: 'string',
       templateCode: 'string',
       templateName: 'string',
       templateType: 'string',

@@ -5,18 +5,22 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateGroupNameRequest extends $dara.Model {
   /**
    * @remarks
+   * The group ID.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 示例值示例值示例值
+   * Sample value sample value sample value.
    */
   groupId?: string;
   /**
    * @remarks
+   * The group name.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 示例值示例值
+   * Sample value sample value.
    */
   groupName?: string;
   ownerId?: number;

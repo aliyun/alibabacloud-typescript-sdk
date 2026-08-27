@@ -5,9 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class FlowRebindPhoneShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The message channel code, which is the channel ID. You can view the channel ID on the [Channel Management](https://chatapp.console.aliyun.com/ChannelsManagement) page.
-   * 
-   * This parameter is required.
+   * The message channel code, which is the channel ID. You can view the channel ID in the [Channel Management](https://chatapp.console.aliyun.com/ChannelsManagement) console.
    * 
    * @example
    * cams-8c8*********
@@ -33,7 +31,7 @@ export class FlowRebindPhoneShrinkRequest extends $dara.Model {
   channelType?: string;
   /**
    * @remarks
-   * The flow code. You can view it on the [Flow Builder](https://chatapp.console.aliyun.com/ChatFlowBuilder) page.
+   * The flow code. You can view this in the [Flow Builder](https://chatapp.console.aliyun.com/ChatFlowBuilder) console.
    * 
    * This parameter is required.
    * 
@@ -43,12 +41,17 @@ export class FlowRebindPhoneShrinkRequest extends $dara.Model {
   flowCode?: string;
   /**
    * @remarks
-   * The flow version. On the [Flow Builder](https://chatapp.console.aliyun.com/ChatFlowBuilder) page, click the flow name to open the flow builder canvas and view the flow version.
+   * The flow version. In the [Flow Builder](https://chatapp.console.aliyun.com/ChatFlowBuilder) console, click the flow name to open the flow editor canvas and view the flow version.
    * 
    * @example
    * 1
    */
   flowVersion?: string;
+  /**
+   * @remarks
+   * The multi-WABA binding configurations.
+   */
+  multiWabaPhoneNumbersShrink?: string;
   ownerId?: number;
   /**
    * @remarks
@@ -61,11 +64,9 @@ export class FlowRebindPhoneShrinkRequest extends $dara.Model {
    * @remarks
    * The WABA account ID, PageId, or AccountId<props="intl">, or ServiceId.
    * 
-   * - If ChannelType is set to WHATSAPP, specify the WABA account ID. You can view the WABA account ID on the Channel Management > Manage > WABA Management page.
+   * - If ChannelType is set to WHATSAPP, specify the WABA account ID. You can view the WABA account ID in Channel Management > Manage > WABA Management.
    * 
    * - If ChannelType is not set to WHATSAPP, specify the PageId for MESSENGER, the AccountId for INSTAGRAM<props="intl">, or the ServiceId for VIBER.
-   * 
-   * This parameter is required.
    * 
    * @example
    * 1952************
@@ -77,6 +78,7 @@ export class FlowRebindPhoneShrinkRequest extends $dara.Model {
       channelType: 'ChannelType',
       flowCode: 'FlowCode',
       flowVersion: 'FlowVersion',
+      multiWabaPhoneNumbersShrink: 'MultiWabaPhoneNumbers',
       ownerId: 'OwnerId',
       phoneNumbersShrink: 'PhoneNumbers',
       resourceOwnerAccount: 'ResourceOwnerAccount',
@@ -91,6 +93,7 @@ export class FlowRebindPhoneShrinkRequest extends $dara.Model {
       channelType: 'string',
       flowCode: 'string',
       flowVersion: 'string',
+      multiWabaPhoneNumbersShrink: 'string',
       ownerId: 'number',
       phoneNumbersShrink: 'string',
       resourceOwnerAccount: 'string',

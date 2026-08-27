@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class FlowBindPhoneResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Details about the access denial.
+   * The details about the access denial.
    * 
    * @example
    * None
@@ -29,11 +29,11 @@ export class FlowBindPhoneResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Indicates whether the result was successful. Valid values:
+   * Indicates whether the operation is successful. Valid values:
    * 
-   * - true: Yes.
+   * - true: The operation is successful.
    * 
-   * - false: No.
+   * - false: The operation failed.
    * 
    * @example
    * false
@@ -49,9 +49,9 @@ export class FlowBindPhoneResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the operation was successful. Valid values:
+   * Indicates whether the operation is successful. Valid values:
    * 
-   * - true: The operation was successful.
+   * - true: The operation is successful.
    * 
    * - false: The operation failed.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetFlowPreviewUrlResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The flow ID.
+   * Flow ID。
    * 
    * @example
    * 92675332812643****
@@ -56,6 +56,9 @@ export class GetFlowPreviewUrlResponseBody extends $dara.Model {
   /**
    * @remarks
    * The details about the access denial.
+   * 
+   * @example
+   * None
    */
   accessDeniedDetail?: string;
   /**

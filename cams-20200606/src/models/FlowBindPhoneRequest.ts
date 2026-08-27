@@ -2,12 +2,60 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class FlowBindPhoneRequestMultiWabaPhoneNumbers extends $dara.Model {
+  /**
+   * @remarks
+   * The channel code.
+   * 
+   * @example
+   * 示例值示例值
+   */
+  channelCode?: string;
+  /**
+   * @remarks
+   * The list of phone numbers.
+   */
+  phoneNumbers?: string[];
+  /**
+   * @remarks
+   * wabaId
+   * 
+   * @example
+   * 示例值示例值
+   */
+  wabaId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      channelCode: 'ChannelCode',
+      phoneNumbers: 'PhoneNumbers',
+      wabaId: 'WabaId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      channelCode: 'string',
+      phoneNumbers: { 'type': 'array', 'itemType': 'string' },
+      wabaId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.phoneNumbers)) {
+      $dara.Model.validateArray(this.phoneNumbers);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class FlowBindPhoneRequest extends $dara.Model {
   /**
    * @remarks
-   * The message channel code. This is the channel ID. View the channel ID on the [Channel Management](https://chatapp.console.aliyun.com/ChannelsManagement) page.
-   * 
-   * This parameter is required.
+   * The message channel code, which is the channel ID. View the channel ID in the [Channel Management](https://chatapp.console.aliyun.com/ChannelsManagement) page.
    * 
    * @example
    * cams-8c8*********
@@ -16,16 +64,11 @@ export class FlowBindPhoneRequest extends $dara.Model {
   /**
    * @remarks
    * The message channel type. Valid values:
-   * 
    * - INSTAGRAM
-   * 
    * - WHATSAPP
-   * 
    * - MESSENGER
    * 
-   * <props="intl">
-   * 
-   * - VIBER
+   * <props="intl">- VIBER
    * 
    * This parameter is required.
    * 
@@ -35,7 +78,7 @@ export class FlowBindPhoneRequest extends $dara.Model {
   channelType?: string;
   /**
    * @remarks
-   * The flow code. View the flow code on the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) page.
+   * The flow code. View the flow code in the [Flow Builder](https://chatapp.console.aliyun.com/ChatFlowBuilder) page.
    * 
    * This parameter is required.
    * 
@@ -45,29 +88,32 @@ export class FlowBindPhoneRequest extends $dara.Model {
   flowCode?: string;
   /**
    * @remarks
-   * The flow version. On the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) page, click the flow name to go to the flow editor canvas and view the flow version.
+   * The flow version. Click the flow name in the [Flow Builder](https://chatapp.console.aliyun.com/ChatFlowBuilder) page to enter the flow builder canvas and view the flow version.
    * 
    * @example
    * 1
    */
   flowVersion?: string;
+  /**
+   * @remarks
+   * The multi-WABA binding configuration.
+   */
+  multiWabaPhoneNumbers?: FlowBindPhoneRequestMultiWabaPhoneNumbers[];
   ownerId?: number;
   /**
    * @remarks
-   * A list of phone numbers, PageIds, AccountIds<props="intl">, or ServiceIds for the channel instance.
+   * The list of phone numbers, PageIds, or AccountIds<props="intl">, or ServiceIds under the channel instance.
    */
   phoneNumbers?: string[];
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The WABA account ID, PageId, AccountId<props="intl">, or ServiceId.
+   * The WABA account ID, PageId, or AccountId<props="intl">, or ServiceId.
    * 
-   * - If \\`ChannelType\\` is \\`WHATSAPP\\`, pass the WABA account ID. View the WABA account ID on the **WABA Management** page by navigating to **Channel Management** > **Manage**.
+   * - If the ChannelType parameter is set to WHATSAPP, specify the WABA account ID. View the WABA account ID in [**Channel Management**](https://chatapp.console.aliyun.com/ChannelsManagement) > **Manage** > **WABA Management**.
    * 
-   * - If \\`ChannelType\\` is not \\`WHATSAPP\\`, pass the PageId for \\`MESSENGER\\` or the AccountId for \\`INSTAGRAM\\`<props="intl">. For \\`VIBER\\`, pass the ServiceId.
-   * 
-   * This parameter is required.
+   * - If the ChannelType parameter is not set to WHATSAPP, specify the PageId for MESSENGER, the AccountId for INSTAGRAM<props="intl">, or the ServiceId for VIBER.
    * 
    * @example
    * 1952************
@@ -79,6 +125,7 @@ export class FlowBindPhoneRequest extends $dara.Model {
       channelType: 'ChannelType',
       flowCode: 'FlowCode',
       flowVersion: 'FlowVersion',
+      multiWabaPhoneNumbers: 'MultiWabaPhoneNumbers',
       ownerId: 'OwnerId',
       phoneNumbers: 'PhoneNumbers',
       resourceOwnerAccount: 'ResourceOwnerAccount',
@@ -93,6 +140,7 @@ export class FlowBindPhoneRequest extends $dara.Model {
       channelType: 'string',
       flowCode: 'string',
       flowVersion: 'string',
+      multiWabaPhoneNumbers: { 'type': 'array', 'itemType': FlowBindPhoneRequestMultiWabaPhoneNumbers },
       ownerId: 'number',
       phoneNumbers: { 'type': 'array', 'itemType': 'string' },
       resourceOwnerAccount: 'string',
@@ -102,6 +150,9 @@ export class FlowBindPhoneRequest extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.multiWabaPhoneNumbers)) {
+      $dara.Model.validateArray(this.multiWabaPhoneNumbers);
+    }
     if(Array.isArray(this.phoneNumbers)) {
       $dara.Model.validateArray(this.phoneNumbers);
     }

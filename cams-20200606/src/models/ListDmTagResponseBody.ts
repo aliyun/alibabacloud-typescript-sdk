@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListDmTagResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The tag description.
+   * 
    * @example
    * xx
    */
   tagDescription?: string;
   /**
+   * @remarks
+   * The tag ID.
+   * 
    * @example
    * xx
    */
   tagId?: string;
   /**
+   * @remarks
+   * The tag name.
+   * 
    * @example
    * xx
    */
@@ -45,32 +54,62 @@ export class ListDmTagResponseBodyData extends $dara.Model {
 
 export class ListDmTagResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The details about the access denial.
+   * 
    * @example
    * None
    */
   accessDeniedDetail?: string;
   /**
+   * @remarks
+   * The response status code.
+   * 
+   * - OK indicates that the request was successful.
+   * 
+   * - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * The returned data object.
+   */
   data?: ListDmTagResponseBodyData[];
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * OK
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * hgfh77-gfh55***
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the operation was successful. Valid values:
+   * 
+   * - true: The operation was successful.
+   * 
+   * - false: The operation failed.
+   * 
    * @example
    * false
    */
   success?: boolean;
   /**
+   * @remarks
+   * The total number of records.
+   * 
    * @example
    * 42
    */

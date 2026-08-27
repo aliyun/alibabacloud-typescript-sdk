@@ -16,7 +16,7 @@ export class CreatePhoneMessageQrdlRequest extends $dara.Model {
   custSpaceId?: string;
   /**
    * @remarks
-   * The type of the generated image. Valid values:
+   * The type of image to generate. Valid values:
    * 
    * - PNG
    * 
@@ -31,9 +31,9 @@ export class CreatePhoneMessageQrdlRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The phone number. You can view the phone number on the
+   * The phone number. You can view it on the
    * <props="china">[**Channel Management**](https://chatapp.console.aliyun.com/ChannelsManagement)
-   * <props="intl">[Channel Management](https://chatapp.console.alibabacloud.com/CustomerList)> **Manage** > **WABA Management** > **Number Management** page.
+   * <props="intl">[Channel Management](https://chatapp.console.alibabacloud.com/CustomerList)>**Manage**>**WABA Management**>**Number Management** page.
    * 
    * This parameter is required.
    * 

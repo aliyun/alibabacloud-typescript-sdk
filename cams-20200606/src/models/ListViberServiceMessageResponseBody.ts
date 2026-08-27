@@ -4,25 +4,53 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListViberServiceMessageResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The business account name.
+   * 
    * @example
-   * 测试
+   * Test.
    */
   businessAccountName?: string;
+  /**
+   * @remarks
+   * The destination country or region ID.
+   */
   destinationCountryId?: string[];
+  /**
+   * @remarks
+   * The destination country or region ID.
+   */
   destinationInternationalCountryId?: string[];
   /**
+   * @remarks
+   * The industry involved.
+   * 
    * @example
-   * 医疗服务
+   * Healthcare.
    */
   industryInvolved?: string;
+  /**
+   * @remarks
+   * The collection of destination countries or regions.
+   */
   messageDestinationCountry?: string[];
+  /**
+   * @remarks
+   * The list of international destination countries or regions.
+   */
   messageDestinationInternationalCountry?: string[];
   /**
+   * @remarks
+   * The service ID.
+   * 
    * @example
    * 25644
    */
   serviceId?: string;
   /**
+   * @remarks
+   * The resource status.
+   * 
    * @example
    * stop
    */
@@ -76,27 +104,54 @@ export class ListViberServiceMessageResponseBodyData extends $dara.Model {
 
 export class ListViberServiceMessageResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The access denial details.
+   * 
    * @example
    * {}
    */
   accessDeniedDetail?: string;
   /**
+   * @remarks
+   * The request status code.
+   * 
+   * - OK indicates that the request was successful.
+   * 
+   * - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * The returned data object.
+   */
   data?: ListViberServiceMessageResponseBodyData[];
   /**
+   * @remarks
+   * The returned message.
+   * 
    * @example
    * successful
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID. This is used for troubleshooting when an error occurs.
+   * 
    * @example
    * ddhjdn-dnjdnkdjknd**
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the operation was successful. Valid values:
+   * 
+   * - true: Successful.
+   * 
+   * - false: Failed.
+   * 
    * @example
    * true
    */

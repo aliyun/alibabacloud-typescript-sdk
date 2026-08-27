@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListInstanceRequest extends $dara.Model {
+  bindId?: string;
   /**
    * @remarks
    * The channel type. Valid values:
@@ -10,12 +11,9 @@ export class ListInstanceRequest extends $dara.Model {
    * - **whatsapp**
    * 
    * - **messenger**
-   * 
    * - **instagram**
    * 
-   * <props="intl">
-   * 
-   * - **viber**
+   * <props="intl">- **viber**
    * 
    * @example
    * VIBER
@@ -23,7 +21,7 @@ export class ListInstanceRequest extends $dara.Model {
   channelType?: string;
   /**
    * @remarks
-   * The filter string for the query.
+   * The filter condition.
    * 
    * @example
    * aa
@@ -31,7 +29,7 @@ export class ListInstanceRequest extends $dara.Model {
   filterStr?: string;
   /**
    * @remarks
-   * The instance ID. Use this parameter for non-Alibaba Cloud hosts only.
+   * The instance ID. Only non-Alibaba Cloud hosts are supported.
    * 
    * @example
    * r-uf6wd7pkyjwxvlxfhk
@@ -45,9 +43,10 @@ export class ListInstanceRequest extends $dara.Model {
    * viber_ins
    */
   instanceName?: string;
+  isBind?: boolean;
   /**
    * @remarks
-   * The page number to return.
+   * The page number.
    * 
    * @example
    * 92
@@ -55,7 +54,7 @@ export class ListInstanceRequest extends $dara.Model {
   pageIndex?: number;
   /**
    * @remarks
-   * The number of items to return per page.
+   * The number of records per page.
    * 
    * @example
    * 87
@@ -63,7 +62,7 @@ export class ListInstanceRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the resource group that contains the instance.
+   * The ID of the enterprise resource group to which the instance belongs.
    * 
    * @example
    * 11
@@ -71,7 +70,7 @@ export class ListInstanceRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The submission time, in `YYYY-MM-DD HH:MM:SS` format.
+   * The submit time.
    * 
    * @example
    * 2023-12-12 00:00:00
@@ -79,10 +78,12 @@ export class ListInstanceRequest extends $dara.Model {
   submitTime?: string;
   static names(): { [key: string]: string } {
     return {
+      bindId: 'BindId',
       channelType: 'ChannelType',
       filterStr: 'FilterStr',
       instanceId: 'InstanceId',
       instanceName: 'InstanceName',
+      isBind: 'IsBind',
       pageIndex: 'PageIndex',
       pageSize: 'PageSize',
       resourceGroupId: 'ResourceGroupId',
@@ -92,10 +93,12 @@ export class ListInstanceRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      bindId: 'string',
       channelType: 'string',
       filterStr: 'string',
       instanceId: 'string',
       instanceName: 'string',
+      isBind: 'boolean',
       pageIndex: 'number',
       pageSize: 'number',
       resourceGroupId: 'string',

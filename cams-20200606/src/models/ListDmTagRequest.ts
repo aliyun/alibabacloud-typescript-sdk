@@ -4,17 +4,26 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListDmTagRequest extends $dara.Model {
   /**
+   * @remarks
+   * The search keyword.
+   * 
    * @example
    * a
    */
   keyword?: string;
   ownerId?: number;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageIndex?: number;
   /**
+   * @remarks
+   * The number of entries to return on each page.
+   * 
    * @example
    * 10
    */

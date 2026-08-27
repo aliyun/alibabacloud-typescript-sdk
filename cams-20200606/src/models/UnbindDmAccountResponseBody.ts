@@ -4,31 +4,55 @@ import * as $dara from '@darabonba/typescript';
 
 export class UnbindDmAccountResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The details about the access denial.
+   * 
    * @example
    * None
    */
   accessDeniedDetail?: string;
   /**
+   * @remarks
+   * The request status code.
+   * 
+   * - OK indicates that the request was successful.
+   * 
+   * - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
+   * 
    * @example
    * OK
    */
   code?: string;
   /**
+   * @remarks
+   * The returned data object.
+   * 
    * @example
    * NONE
    */
   data?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * OK
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * xx-xx***
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the call was successful.
+   * - **true**: The call was successful.
+   * - **false**: The call failed.
+   * 
    * @example
    * true
    */

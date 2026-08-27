@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateChatFlowRequest extends $dara.Model {
   /**
    * @remarks
-   * The business tenant code. The default value is ALICOM_OPAAS.
+   * The business tenant code. Default value: ALICOM_OPAAS.
    * 
    * @example
    * ALICOM_OPAAS
@@ -13,7 +13,7 @@ export class CreateChatFlowRequest extends $dara.Model {
   bizCode?: string;
   /**
    * @remarks
-   * Business extension information. The default value is an empty collection.
+   * The business extension information. Default value: an empty collection.
    * 
    * @example
    * {}
@@ -21,46 +21,65 @@ export class CreateChatFlowRequest extends $dara.Model {
   bizExtend?: { [key: string]: any };
   /**
    * @remarks
-   * The trigger type for the flow. Valid values:
+   * The source flowCode for creation.
    * 
-   * - TriggeredManually
+   * @example
+   * 示例值
+   */
+  createFromFlowCode?: string;
+  /**
+   * @remarks
+   * The source flowVersion for creation.
    * 
+   * @example
+   * 示例值示例值示例值
+   */
+  createFromFlowVersion?: string;
+  /**
+   * @remarks
+   * The flow trigger type. Valid values:
+   *  - TriggeredManually
    * - TriggeredByWhatsApp
-   * 
    * - TriggeredByMessenger
-   * 
    * - TriggeredByInstagram
-   * 
    * - TriggeredByViber
    * 
    * @example
    * TriggeredByWhatsApp
    */
   flowTriggerType?: string;
+  /**
+   * @remarks
+   * The lifecycle extension input parameters.
+   */
+  lifeCycleExtendData?: { [key: string]: string };
   ownerId?: number;
   /**
    * @remarks
-   * The remarks for the flow.
+   * The flow remarks.
    * 
    * @example
-   * 通过API触发下发验证模板
+   * Send verification template triggered by API
    */
   remark?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The title of the flow.
+   * The flow title.
    * 
    * @example
-   * WhatsApp自动回复
+   * WhatsApp auto-reply
    */
   title?: string;
   static names(): { [key: string]: string } {
     return {
       bizCode: 'BizCode',
       bizExtend: 'BizExtend',
+      createFromFlowCode: 'CreateFromFlowCode',
+      createFromFlowVersion: 'CreateFromFlowVersion',
       flowTriggerType: 'FlowTriggerType',
+      lifeCycleExtendData: 'LifeCycleExtendData',
       ownerId: 'OwnerId',
       remark: 'Remark',
       resourceOwnerAccount: 'ResourceOwnerAccount',
@@ -73,7 +92,10 @@ export class CreateChatFlowRequest extends $dara.Model {
     return {
       bizCode: 'string',
       bizExtend: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      createFromFlowCode: 'string',
+      createFromFlowVersion: 'string',
       flowTriggerType: 'string',
+      lifeCycleExtendData: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       ownerId: 'number',
       remark: 'string',
       resourceOwnerAccount: 'string',
@@ -85,6 +107,9 @@ export class CreateChatFlowRequest extends $dara.Model {
   validate() {
     if(this.bizExtend) {
       $dara.Model.validateMap(this.bizExtend);
+    }
+    if(this.lifeCycleExtendData) {
+      $dara.Model.validateMap(this.lifeCycleExtendData);
     }
     super.validate();
   }

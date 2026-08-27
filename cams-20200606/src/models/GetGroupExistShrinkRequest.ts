@@ -4,13 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetGroupExistShrinkRequest extends $dara.Model {
   /**
+   * @remarks
+   * The business tenant code. Default value: ALICOM_OPAAS.
+   * 
    * @example
-   * 示例值示例值
+   * ALICOM_OPAAS
    */
   bizCode?: string;
+  /**
+   * @remarks
+   * The business extension information. Default value: "{}".
+   * 
+   * @example
+   * {}
+   */
   bizExtendShrink?: string;
   /**
    * @remarks
+   * The group name.
+   * 
    * This parameter is required.
    * 
    * @example

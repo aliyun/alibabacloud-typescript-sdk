@@ -21,6 +21,14 @@ export class ReadFlowVersionShrinkRequest extends $dara.Model {
   bizExtendShrink?: string;
   /**
    * @remarks
+   * The draft version.
+   * 
+   * @example
+   * Sample valueSample value
+   */
+  draftVersion?: string;
+  /**
+   * @remarks
    * The flow code. You can view the flow code on the [flow editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) page.
    * 
    * @example
@@ -54,6 +62,7 @@ export class ReadFlowVersionShrinkRequest extends $dara.Model {
     return {
       bizCode: 'BizCode',
       bizExtendShrink: 'BizExtend',
+      draftVersion: 'DraftVersion',
       flowCode: 'FlowCode',
       flowVersion: 'FlowVersion',
       ownerId: 'OwnerId',
@@ -67,6 +76,7 @@ export class ReadFlowVersionShrinkRequest extends $dara.Model {
     return {
       bizCode: 'string',
       bizExtendShrink: 'string',
+      draftVersion: 'string',
       flowCode: 'string',
       flowVersion: 'string',
       ownerId: 'number',

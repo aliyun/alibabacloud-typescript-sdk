@@ -15,7 +15,7 @@ export class ListChatFlowTemplateRequest extends $dara.Model {
   bizCode?: string;
   /**
    * @remarks
-   * The keyword for the search. The operation performs a fuzzy query for template names based on this keyword.
+   * The search keyword. Used for fuzzy match of template names.
    * 
    * @example
    * LLM
@@ -32,7 +32,7 @@ export class ListChatFlowTemplateRequest extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of records per page.
    * 
    * @example
    * 10
@@ -42,16 +42,12 @@ export class ListChatFlowTemplateRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The trigger type of the flow. Valid values:
+   * The flow trigger type. Valid values:
    * 
    * - TriggeredManually
-   * 
    * - TriggeredByWhatsApp
-   * 
    * - TriggeredByInstagram
-   * 
    * - TriggeredByViber
-   * 
    * - TriggeredByMessenger
    * 
    * @example

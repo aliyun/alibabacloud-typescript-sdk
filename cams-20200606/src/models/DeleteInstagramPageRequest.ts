@@ -5,15 +5,19 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteInstagramPageRequest extends $dara.Model {
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 示例值示例值
+   * Sample value.
    */
   instanceId?: string;
   ownerId?: number;
   /**
    * @remarks
+   * The PageId of the Messenger page.
+   * 
    * This parameter is required.
    * 
    * @example

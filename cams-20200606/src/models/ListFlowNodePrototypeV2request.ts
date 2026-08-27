@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListFlowNodePrototypeV2Request extends $dara.Model {
   /**
    * @remarks
-   * The business tenant code. The default value is ALICOM_OPAAS.
+   * The business tenant code. Default value: ALICOM_OPAAS.
    * 
    * This parameter is required.
    * 
@@ -15,15 +15,15 @@ export class ListFlowNodePrototypeV2Request extends $dara.Model {
   bizCode?: string;
   /**
    * @remarks
-   * The code for the component group. Valid values:
+   * The component group code. Valid values:
    * 
-   * - Messaging: Message components.
+   * - Messaging: messaging components.
    * 
-   * - Core: Core components.
+   * - Core: core components.
    * 
-   * - Intelligence: Intelligence components.
+   * - Intelligence: intelligent components.
    * 
-   * - Contact: Contact management components.
+   * - Contact: contact management components.
    * 
    * @example
    * Core
@@ -31,7 +31,7 @@ export class ListFlowNodePrototypeV2Request extends $dara.Model {
   groupCode?: string;
   /**
    * @remarks
-   * The search keyword. This parameter is used to perform a fuzzy query by flow component name.
+   * The search keyword. This parameter is used for fuzzy match based on the flow component name.
    * 
    * @example
    * WhatsApp
@@ -40,7 +40,7 @@ export class ListFlowNodePrototypeV2Request extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The page number.
+   * The current page number.
    * 
    * This parameter is required.
    * 

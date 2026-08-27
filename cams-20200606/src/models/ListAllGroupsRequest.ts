@@ -4,10 +4,20 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListAllGroupsRequest extends $dara.Model {
   /**
+   * @remarks
+   * The business tenant code. Default value: ALICOM_OPAAS.
+   * 
    * @example
-   * 示例值示例值示例值
+   * ALICOM_OPAAS
    */
   bizCode?: string;
+  /**
+   * @remarks
+   * The business extension information. Default value: an empty collection.
+   * 
+   * @example
+   * {}
+   */
   bizExtend?: { [key: string]: any };
   ownerId?: number;
   resourceOwnerAccount?: string;

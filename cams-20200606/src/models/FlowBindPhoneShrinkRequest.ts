@@ -5,9 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class FlowBindPhoneShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The message channel code. This is the channel ID. View the channel ID on the [Channel Management](https://chatapp.console.aliyun.com/ChannelsManagement) page.
-   * 
-   * This parameter is required.
+   * The message channel code, which is the channel ID. View the channel ID in the [Channel Management](https://chatapp.console.aliyun.com/ChannelsManagement) page.
    * 
    * @example
    * cams-8c8*********
@@ -16,16 +14,11 @@ export class FlowBindPhoneShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The message channel type. Valid values:
-   * 
    * - INSTAGRAM
-   * 
    * - WHATSAPP
-   * 
    * - MESSENGER
    * 
-   * <props="intl">
-   * 
-   * - VIBER
+   * <props="intl">- VIBER
    * 
    * This parameter is required.
    * 
@@ -35,7 +28,7 @@ export class FlowBindPhoneShrinkRequest extends $dara.Model {
   channelType?: string;
   /**
    * @remarks
-   * The flow code. View the flow code on the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) page.
+   * The flow code. View the flow code in the [Flow Builder](https://chatapp.console.aliyun.com/ChatFlowBuilder) page.
    * 
    * This parameter is required.
    * 
@@ -45,29 +38,32 @@ export class FlowBindPhoneShrinkRequest extends $dara.Model {
   flowCode?: string;
   /**
    * @remarks
-   * The flow version. On the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) page, click the flow name to go to the flow editor canvas and view the flow version.
+   * The flow version. Click the flow name in the [Flow Builder](https://chatapp.console.aliyun.com/ChatFlowBuilder) page to enter the flow builder canvas and view the flow version.
    * 
    * @example
    * 1
    */
   flowVersion?: string;
+  /**
+   * @remarks
+   * The multi-WABA binding configuration.
+   */
+  multiWabaPhoneNumbersShrink?: string;
   ownerId?: number;
   /**
    * @remarks
-   * A list of phone numbers, PageIds, AccountIds<props="intl">, or ServiceIds for the channel instance.
+   * The list of phone numbers, PageIds, or AccountIds<props="intl">, or ServiceIds under the channel instance.
    */
   phoneNumbersShrink?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The WABA account ID, PageId, AccountId<props="intl">, or ServiceId.
+   * The WABA account ID, PageId, or AccountId<props="intl">, or ServiceId.
    * 
-   * - If \\`ChannelType\\` is \\`WHATSAPP\\`, pass the WABA account ID. View the WABA account ID on the **WABA Management** page by navigating to **Channel Management** > **Manage**.
+   * - If the ChannelType parameter is set to WHATSAPP, specify the WABA account ID. View the WABA account ID in [**Channel Management**](https://chatapp.console.aliyun.com/ChannelsManagement) > **Manage** > **WABA Management**.
    * 
-   * - If \\`ChannelType\\` is not \\`WHATSAPP\\`, pass the PageId for \\`MESSENGER\\` or the AccountId for \\`INSTAGRAM\\`<props="intl">. For \\`VIBER\\`, pass the ServiceId.
-   * 
-   * This parameter is required.
+   * - If the ChannelType parameter is not set to WHATSAPP, specify the PageId for MESSENGER, the AccountId for INSTAGRAM<props="intl">, or the ServiceId for VIBER.
    * 
    * @example
    * 1952************
@@ -79,6 +75,7 @@ export class FlowBindPhoneShrinkRequest extends $dara.Model {
       channelType: 'ChannelType',
       flowCode: 'FlowCode',
       flowVersion: 'FlowVersion',
+      multiWabaPhoneNumbersShrink: 'MultiWabaPhoneNumbers',
       ownerId: 'OwnerId',
       phoneNumbersShrink: 'PhoneNumbers',
       resourceOwnerAccount: 'ResourceOwnerAccount',
@@ -93,6 +90,7 @@ export class FlowBindPhoneShrinkRequest extends $dara.Model {
       channelType: 'string',
       flowCode: 'string',
       flowVersion: 'string',
+      multiWabaPhoneNumbersShrink: 'string',
       ownerId: 'number',
       phoneNumbersShrink: 'string',
       resourceOwnerAccount: 'string',

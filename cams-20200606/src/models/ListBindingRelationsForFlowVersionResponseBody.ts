@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListBindingRelationsForFlowVersionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details about the access denial.
+   * The access denied detail.
    * 
    * @example
    * None
@@ -21,7 +21,7 @@ export class ListBindingRelationsForFlowVersionResponseBody extends $dara.Model 
   code?: string;
   /**
    * @remarks
-   * The list of returned data.
+   * The returned data list.
    */
   data?: { [key: string]: any }[];
   /**
@@ -44,9 +44,9 @@ export class ListBindingRelationsForFlowVersionResponseBody extends $dara.Model 
    * @remarks
    * Indicates whether the operation was successful. Valid values:
    * 
-   * - true: The operation was successful.
+   * - true: Successful.
    * 
-   * - false: The operation failed.
+   * - false: Failed.
    * 
    * @example
    * true

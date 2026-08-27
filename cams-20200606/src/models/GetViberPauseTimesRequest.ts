@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetViberPauseTimesRequest extends $dara.Model {
   /**
    * @remarks
+   * The space ID of the ISV sub-customer or the instance ID of the direct customer.
+   * 
    * This parameter is required.
    * 
    * @example

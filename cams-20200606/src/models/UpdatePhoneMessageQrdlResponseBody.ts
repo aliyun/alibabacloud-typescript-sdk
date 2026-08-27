@@ -37,7 +37,7 @@ export class UpdatePhoneMessageQrdlResponseBodyData extends $dara.Model {
   prefilledMessage?: string;
   /**
    * @remarks
-   * The QR code image URL.
+   * The URL of the QR code image.
    * 
    * @example
    * https://img.png
@@ -85,7 +85,7 @@ export class UpdatePhoneMessageQrdlResponseBodyData extends $dara.Model {
 export class UpdatePhoneMessageQrdlResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The access denial details.
+   * The details about the access denial.
    * 
    * @example
    * None

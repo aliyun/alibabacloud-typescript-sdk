@@ -4,27 +4,52 @@ import * as $dara from '@darabonba/typescript';
 
 export class MoveContactToGroupResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The details about the access denial. This field is returned only when RAM authentication fails.
+   * 
    * @example
    * None
    */
   accessDeniedDetail?: string;
   /**
+   * @remarks
+   * The request status code.
+   * 
+   * - OK indicates that the request was successful.
+   * 
+   * - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * The returned object.
+   */
   data?: { [key: string]: any };
   /**
+   * @remarks
+   * The message returned with the result.
+   * 
    * @example
-   * 示例值
+   * Sample value.
    */
   message?: string;
   /**
+   * @remarks
+   * The unique request ID.
+   * 
    * @example
-   * 示例值
+   * Sample value.
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the call was successful.
+   * - **true**: The call was successful.
+   * - **false**: The call failed.
+   * 
    * @example
    * true
    */

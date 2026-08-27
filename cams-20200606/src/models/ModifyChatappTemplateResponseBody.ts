@@ -53,9 +53,9 @@ export class ModifyChatappTemplateResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The request status code.
+   * The response code.
    * 
-   * - OK indicates the request was successful.
+   * - OK indicates that the request was successful.
    * 
    * - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
    * 
@@ -84,6 +84,11 @@ export class ModifyChatappTemplateResponseBody extends $dara.Model {
    * 90E63D28-E31D-1EB2-8939-A9486641****
    */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
   static names(): { [key: string]: string } {
     return {
       accessDeniedDetail: 'AccessDeniedDetail',
@@ -91,6 +96,7 @@ export class ModifyChatappTemplateResponseBody extends $dara.Model {
       data: 'Data',
       message: 'Message',
       requestId: 'RequestId',
+      success: 'Success',
     };
   }
 
@@ -101,6 +107,7 @@ export class ModifyChatappTemplateResponseBody extends $dara.Model {
       data: ModifyChatappTemplateResponseBodyData,
       message: 'string',
       requestId: 'string',
+      success: 'boolean',
     };
   }
 

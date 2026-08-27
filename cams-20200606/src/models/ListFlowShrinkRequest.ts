@@ -4,16 +4,26 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListFlowShrinkRequest extends $dara.Model {
   /**
+   * @remarks
+   * The SpaceId of the ISV sub-customer.
+   * 
    * @example
-   * 示例值示例值
+   * cams-sa2ksj21jksd
    */
   custSpaceId?: string;
   /**
+   * @remarks
+   * The Flow name.
+   * 
    * @example
-   * 示例值
+   * flow-21101
    */
   flowName?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The pagination information.
+   */
   pageShrink?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListChatGroupParticipantsResponseBodyDataList extends $dara.Model {
   /**
    * @remarks
-   * The phone number of the group member.
+   * The group member number.
    * 
    * @example
    * 861382***
@@ -40,7 +40,7 @@ export class ListChatGroupParticipantsResponseBodyData extends $dara.Model {
   list?: ListChatGroupParticipantsResponseBodyDataList[];
   /**
    * @remarks
-   * The total number of participants.
+   * The total number of records.
    * 
    * @example
    * 8
@@ -87,7 +87,7 @@ export class ListChatGroupParticipantsResponseBody extends $dara.Model {
    * 
    * - OK: The request was successful.
    * 
-   * - For other values, see the [error code list](https://help.aliyun.com/document_detail/196974.html).
+   * - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
    * 
    * @example
    * OK
@@ -95,7 +95,7 @@ export class ListChatGroupParticipantsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The response data.
+   * The returned data.
    */
   data?: ListChatGroupParticipantsResponseBodyData;
   /**
@@ -116,11 +116,9 @@ export class ListChatGroupParticipantsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * - **true**: The request was successful.
-   * 
-   * - **false**: The request failed.
+   * Indicates whether the call was successful. Valid values:
+   * - **true**: The call was successful.
+   * - **false**: The call failed.
    * 
    * @example
    * true

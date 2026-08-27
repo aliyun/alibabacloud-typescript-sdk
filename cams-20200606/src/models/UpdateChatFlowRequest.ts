@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateChatFlowRequest extends $dara.Model {
   /**
    * @remarks
-   * The business tenant code. The default value is ALICOM_OPAAS.
+   * The business tenant code. Default value: ALICOM_OPAAS.
    * 
    * @example
    * ALICOM_OPAAS
@@ -13,7 +13,7 @@ export class UpdateChatFlowRequest extends $dara.Model {
   bizCode?: string;
   /**
    * @remarks
-   * The business extension information. The default value is an empty collection.
+   * The business extension information. Default value: an empty collection.
    * 
    * @example
    * {}
@@ -21,7 +21,7 @@ export class UpdateChatFlowRequest extends $dara.Model {
   bizExtend?: { [key: string]: any };
   /**
    * @remarks
-   * The flow code. You can view the flow code in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder).
+   * The flow code. View the flow code in the [Flow Builder](https://chatapp.console.aliyun.com/ChatFlowBuilder).
    * 
    * @example
    * 9ccc41**************************
@@ -30,20 +30,20 @@ export class UpdateChatFlowRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The updated remarks for the flow.
+   * The updated flow remark.
    * 
    * @example
-   * 流程备注
+   * FlowRemark.
    */
   remark?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The updated name of the flow.
+   * The updated flow name.
    * 
    * @example
-   * 测试流程
+   * TestFlow.
    */
   title?: string;
   static names(): { [key: string]: string } {

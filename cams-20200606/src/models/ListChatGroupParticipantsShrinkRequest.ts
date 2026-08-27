@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListChatGroupParticipantsShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The business number. You can call the [ListChatGroup](https://help.aliyun.com/document_detail/2932629.html) operation to obtain the business number.
+   * The business phone number. You can view the business phone number by calling the [ListChatGroup](https://help.aliyun.com/document_detail/2932629.html) operation.
    * 
    * This parameter is required.
    * 
@@ -15,11 +15,11 @@ export class ListChatGroupParticipantsShrinkRequest extends $dara.Model {
   businessNumber?: string;
   /**
    * @remarks
-   * The channel type. Valid value:
+   * The channel type. Valid values:
    * 
    * - **WHATSAPP**
    * 
-   * > This operation supports only the WhatsApp channel.
+   * > Only the WhatsApp channel type is supported.
    * 
    * @example
    * WHATSAPP
@@ -27,7 +27,7 @@ export class ListChatGroupParticipantsShrinkRequest extends $dara.Model {
   channelType?: string;
   /**
    * @remarks
-   * This is the instance ID for direct customers or the SpaceId for ISV sub-customers. You can find the ID on the [Channel Management](https://chatapp.console.aliyun.com/ChannelsManagement) page.
+   * The space ID of the ISV sub-customer, which is also the instance ID. This is the channel ID, which can be viewed on the [Channel Management](https://chatapp.console.aliyun.com/ChannelsManagement) page.
    * 
    * This parameter is required.
    * 
@@ -37,7 +37,7 @@ export class ListChatGroupParticipantsShrinkRequest extends $dara.Model {
   custSpaceId?: string;
   /**
    * @remarks
-   * The group ID. You can call the [ListChatGroup](https://help.aliyun.com/document_detail/2932629.html) operation to obtain the group ID.
+   * The group ID. You can view the group ID by calling the [ListChatGroup](https://help.aliyun.com/document_detail/2932629.html) operation.
    * 
    * This parameter is required.
    * 
@@ -48,7 +48,7 @@ export class ListChatGroupParticipantsShrinkRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The paging information.
+   * The pagination information.
    */
   pageShrink?: string;
   resourceOwnerAccount?: string;

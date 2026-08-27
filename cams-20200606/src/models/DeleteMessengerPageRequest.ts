@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteMessengerPageRequest extends $dara.Model {
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -14,6 +16,8 @@ export class DeleteMessengerPageRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
+   * The PageId of the Messenger page.
+   * 
    * This parameter is required.
    * 
    * @example

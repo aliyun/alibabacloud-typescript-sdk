@@ -4,34 +4,64 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetDownloadExcelListRequest extends $dara.Model {
   /**
+   * @remarks
+   * The business tenant code. Default value: ALICOM_OPAAS.
+   * 
    * @example
-   * 示例值示例值示例值
+   * ALICOM_OPAAS
    */
   bizCode?: string;
+  /**
+   * @remarks
+   * The business extension information. Default value: "{}".
+   * 
+   * @example
+   * {}
+   */
   bizExtend?: { [key: string]: any };
   /**
+   * @remarks
+   * The query conditions.
+   * 
    * @example
    * aa
    */
   condition?: string;
+  /**
+   * @remarks
+   * The country names.
+   */
   countryNames?: string[];
   /**
+   * @remarks
+   * The end time.
+   * 
    * @example
-   * 示例值示例值
+   * 2025-12-01
    */
   endDate?: string;
   /**
+   * @remarks
+   * The group ID.
+   * 
    * @example
-   * 示例值
+   * 111
    */
   groupId?: string;
+  /**
+   * @remarks
+   * The contact group IDs.
+   */
   groupIds?: string[];
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   /**
+   * @remarks
+   * The start time.
+   * 
    * @example
-   * 示例值示例值
+   * 2025-11-01
    */
   startDate?: string;
   static names(): { [key: string]: string } {

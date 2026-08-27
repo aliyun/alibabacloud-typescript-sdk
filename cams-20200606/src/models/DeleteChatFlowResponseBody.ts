@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteChatFlowResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details about the access denial.
+   * The access denied details.
    * 
    * @example
    * None
@@ -29,7 +29,7 @@ export class DeleteChatFlowResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The unique request ID.
    * 
    * @example
    * 90E63D28-E31D-1EB2-8939-A94866411B2O
@@ -42,11 +42,11 @@ export class DeleteChatFlowResponseBody extends $dara.Model {
   response?: { [key: string]: any };
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the operation was successful. Valid values:
    * 
-   * - true: The request was successful.
+   * - true: Successful.
    * 
-   * - false: The request failed.
+   * - false: Failed.
    * 
    * @example
    * true

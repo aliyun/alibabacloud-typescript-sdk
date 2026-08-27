@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SyncFlowRequest extends $dara.Model {
   /**
    * @remarks
-   * 通道实例
+   * The channel instance.
    * 
    * This parameter is required.
    * 

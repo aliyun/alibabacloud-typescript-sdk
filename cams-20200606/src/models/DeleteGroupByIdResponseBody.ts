@@ -4,31 +4,55 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteGroupByIdResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The details about the access denial.
+   * 
    * @example
    * None
    */
   accessDeniedDetail?: string;
   /**
+   * @remarks
+   * The request status code.
+   * 
+   * - OK indicates that the request was successful.
+   * 
+   * - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
+   * 
    * @example
    * OK
    */
   code?: string;
   /**
+   * @remarks
+   * The returned data.
+   * 
    * @example
-   * 示例值示例值示例值
+   * Sample value sample value sample value.
    */
   data?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
-   * 示例值示例值示例值
+   * Sample value sample value sample value.
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 1223-1111
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the call was successful:
+   * - **true**: The call was successful.
+   * - **false**: The call failed.
+   * 
    * @example
    * true
    */

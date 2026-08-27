@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListPhoneMessageQrdlRequest extends $dara.Model {
   /**
    * @remarks
-   * The space ID of the ISV sub-customer, or the instance ID of the direct customer.
+   * The space ID of the ISV sub-customer or the instance ID of the direct customer.
    * 
    * @example
    * cams-8filvjc8snw

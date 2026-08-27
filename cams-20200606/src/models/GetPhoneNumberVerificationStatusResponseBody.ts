@@ -5,7 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class GetPhoneNumberVerificationStatusResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The verification status.
+   * The verification status of the phone number. Valid values:
+   * - NOT_VERIFIED: Not verified.
+   * - VERIFIED: Verified.
+   * - EXPIRED: Verification expired.
    * 
    * @example
    * VERIFIED
@@ -13,7 +16,7 @@ export class GetPhoneNumberVerificationStatusResponseBodyData extends $dara.Mode
   codeVerificationStatus?: string;
   /**
    * @remarks
-   * The ID of the phone number.
+   * The phone number ID.
    * 
    * @example
    * 222434****
@@ -56,13 +59,16 @@ export class GetPhoneNumberVerificationStatusResponseBody extends $dara.Model {
   /**
    * @remarks
    * The details about the access denial.
+   * 
+   * @example
+   * None
    */
   accessDeniedDetail?: string;
   /**
    * @remarks
    * The request status code.
    * 
-   * - A value of OK indicates that the request was successful.
+   * - OK: The request was successful.
    * 
    * - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
    * 

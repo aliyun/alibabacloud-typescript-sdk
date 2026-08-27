@@ -4,16 +4,21 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeprecateFlowRequest extends $dara.Model {
   /**
+   * @remarks
+   * The space ID of the ISV sub-customer.
+   * 
    * @example
-   * 示例值示例值
+   * cams-awsd12312o3j
    */
   custSpaceId?: string;
   /**
    * @remarks
+   * The Flow ID.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 示例值示例值
+   * 1212323
    */
   flowId?: string;
   ownerId?: number;

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class WhatsappCallResponseBodyModel extends $dara.Model {
   /**
    * @remarks
-   * The unique identifier for each call.
+   * The unique identifier of each call.
    * 
    * @example
    * wamid-xx**
@@ -35,7 +35,7 @@ export class WhatsappCallResponseBodyModel extends $dara.Model {
 export class WhatsappCallResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Details about the access denial.
+   * The details about the access denial.
    * 
    * @example
    * None
@@ -55,7 +55,7 @@ export class WhatsappCallResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The error description.
+   * The error message.
    * 
    * @example
    * None
@@ -63,7 +63,7 @@ export class WhatsappCallResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The returned result.
+   * The response result.
    */
   model?: WhatsappCallResponseBodyModel;
   /**
@@ -77,9 +77,7 @@ export class WhatsappCallResponseBody extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the call was successful.
-   * 
    * - **true**: The call was successful.
-   * 
    * - **false**: The call failed.
    * 
    * @example

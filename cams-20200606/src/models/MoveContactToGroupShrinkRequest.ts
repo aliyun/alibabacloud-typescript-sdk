@@ -4,13 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class MoveContactToGroupShrinkRequest extends $dara.Model {
   /**
+   * @remarks
+   * The business tenant code. Default value: ALICOM_OPAAS.
+   * 
    * @example
-   * 示例值示例值示例值
+   * ALICOM_OPAAS
    */
   bizCode?: string;
+  /**
+   * @remarks
+   * The business extension information. Default value: an empty collection.
+   * 
+   * @example
+   * {}
+   */
   bizExtendShrink?: string;
   /**
    * @remarks
+   * The list of contacts whose group associations are to be modified.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18,11 +30,17 @@ export class MoveContactToGroupShrinkRequest extends $dara.Model {
    */
   contacts?: string;
   /**
+   * @remarks
+   * The list of existing group IDs to associate with.
+   * 
    * @example
    * [{"id":1}]
    */
   linkExistGroups?: string;
   /**
+   * @remarks
+   * The list of new group names to associate with.
+   * 
    * @example
    * [{"groupName":"aaa"}]
    */

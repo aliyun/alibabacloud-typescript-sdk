@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteGroupByIdRequest extends $dara.Model {
   /**
    * @remarks
+   * The group ID.
+   * 
    * This parameter is required.
    * 
    * @example

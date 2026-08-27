@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetFbMessengerPagesRequest extends $dara.Model {
   /**
    * @remarks
+   * The token of the Meta public page.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class GetFbMessengerPagesRequest extends $dara.Model {
   accessToken?: string;
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example

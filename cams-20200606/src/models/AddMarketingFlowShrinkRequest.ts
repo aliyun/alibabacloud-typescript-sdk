@@ -4,60 +4,105 @@ import * as $dara from '@darabonba/typescript';
 
 export class AddMarketingFlowShrinkRequest extends $dara.Model {
   /**
+   * @remarks
+   * The description of the campaign.
+   * 
    * @example
-   * 示例值示例值
+   * Example value example value.
    */
   activityDesc?: string;
   /**
    * @remarks
+   * The name of the node instance.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 示例值示例值
+   * Example value example value.
    */
   activityName?: string;
   /**
+   * @remarks
+   * The business code.
+   * 
    * @example
-   * 示例值
+   * Example value.
    */
   bizCode?: string;
+  /**
+   * @remarks
+   * The business extension information. Default value: an empty collection.
+   * 
+   * @example
+   * {}
+   */
   bizExtendShrink?: string;
   /**
+   * @remarks
+   * The cron expression.
+   * 
    * @example
-   * 示例值示例值示例值
+   * Example value example value example value.
    */
   cronExpression?: string;
   /**
+   * @remarks
+   * The end time.
+   * 
    * @example
-   * 示例值示例值示例值
+   * Example value example value example value.
    */
   endDate?: string;
   /**
    * @remarks
+   * The trigger method of the baseline scan. Valid values:
+   * 
+   * - **Schedule**: Triggered by a periodic configuration task.
+   * - **Manual**: Manually triggered.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 示例值
+   * Example value.
    */
   executionType?: string;
   ownerId?: number;
   /**
+   * @remarks
+   * The parameter flag.
+   * 
    * @example
-   * 示例值
+   * Example value.
    */
   paramFlag?: string;
+  /**
+   * @remarks
+   * The API parameters.
+   * 
+   * @example
+   * {}
+   */
   paramsShrink?: string;
   /**
+   * @remarks
+   * The code of the associated flow.
+   * 
    * @example
-   * 示例值
+   * Example value.
    */
   relatedFlowCode?: string;
   /**
+   * @remarks
+   * The name of the associated flow.
+   * 
    * @example
-   * 示例值
+   * Example value.
    */
   relatedFlowName?: string;
   /**
+   * @remarks
+   * The ID of the related group.
+   * 
    * @example
    * 43
    */
@@ -65,8 +110,11 @@ export class AddMarketingFlowShrinkRequest extends $dara.Model {
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   /**
+   * @remarks
+   * The start time.
+   * 
    * @example
-   * 示例值
+   * Example value.
    */
   startDate?: string;
   static names(): { [key: string]: string } {

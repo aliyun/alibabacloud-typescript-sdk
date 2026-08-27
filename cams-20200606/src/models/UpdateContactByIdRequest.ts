@@ -4,50 +4,74 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateContactByIdRequest extends $dara.Model {
   /**
+   * @remarks
+   * The business code.
+   * 
    * @example
-   * 示例值
+   * Sample value.
    */
   bizCode?: string;
+  /**
+   * @remarks
+   * The business extension information. Default value: an empty collection.
+   * 
+   * @example
+   * {}
+   */
   bizExtend?: { [key: string]: any };
   /**
    * @remarks
+   * The description of the contact.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 示例值示例值
+   * Sample value sample value.
    */
   contactDetails?: string;
   /**
    * @remarks
+   * The ID of the contact.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 示例值示例值示例值
+   * Sample value sample value sample value.
    */
   contactId?: string;
   /**
    * @remarks
+   * The name of the contact.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 示例值示例值
+   * Sample value sample value.
    */
   contactName?: string;
   /**
    * @remarks
+   * The country code.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 示例值示例值
+   * Sample value sample value.
    */
   country?: string;
   /**
+   * @remarks
+   * The email address.
+   * 
    * @example
-   * 示例值
+   * Sample value.
    */
   email?: string;
   ownerId?: number;
   /**
+   * @remarks
+   * The remarks.
+   * 
    * @example
    * test
    */

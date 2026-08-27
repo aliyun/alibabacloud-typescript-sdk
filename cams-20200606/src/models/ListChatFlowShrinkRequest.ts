@@ -21,6 +21,22 @@ export class ListChatFlowShrinkRequest extends $dara.Model {
   bizExtendShrink?: string;
   /**
    * @remarks
+   * flowCode
+   * 
+   * @example
+   * SampleValueSampleValue
+   */
+  flowCode?: string;
+  /**
+   * @remarks
+   * The flow status.
+   * 
+   * @example
+   * SampleValueSampleValue
+   */
+  flowStatus?: string;
+  /**
+   * @remarks
    * The flow trigger type. Valid values:
    * - TriggeredManually
    * - TriggeredByWhatsApp
@@ -40,6 +56,10 @@ export class ListChatFlowShrinkRequest extends $dara.Model {
    * LLM
    */
   keyword?: string;
+  /**
+   * @example
+   * 1
+   */
   ownerId?: number;
   /**
    * @remarks
@@ -57,7 +77,23 @@ export class ListChatFlowShrinkRequest extends $dara.Model {
    * 20
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * The phone number.
+   * 
+   * @example
+   * SampleValue
+   */
+  phoneNumber?: string;
+  /**
+   * @example
+   * 1
+   */
   resourceOwnerAccount?: string;
+  /**
+   * @example
+   * 1
+   */
   resourceOwnerId?: number;
   /**
    * @remarks
@@ -79,19 +115,31 @@ export class ListChatFlowShrinkRequest extends $dara.Model {
    * NORMAL
    */
   status?: string;
+  /**
+   * @remarks
+   * The title.
+   * 
+   * @example
+   * SampleValueSampleValue
+   */
+  title?: string;
   static names(): { [key: string]: string } {
     return {
       bizCode: 'BizCode',
       bizExtendShrink: 'BizExtend',
+      flowCode: 'FlowCode',
+      flowStatus: 'FlowStatus',
       flowTriggerType: 'FlowTriggerType',
       keyword: 'Keyword',
       ownerId: 'OwnerId',
       pageNo: 'PageNo',
       pageSize: 'PageSize',
+      phoneNumber: 'PhoneNumber',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       returnWithOnlineVersion: 'ReturnWithOnlineVersion',
       status: 'Status',
+      title: 'Title',
     };
   }
 
@@ -99,15 +147,19 @@ export class ListChatFlowShrinkRequest extends $dara.Model {
     return {
       bizCode: 'string',
       bizExtendShrink: 'string',
+      flowCode: 'string',
+      flowStatus: 'string',
       flowTriggerType: 'string',
       keyword: 'string',
       ownerId: 'number',
       pageNo: 'number',
       pageSize: 'number',
+      phoneNumber: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       returnWithOnlineVersion: 'boolean',
       status: 'string',
+      title: 'string',
     };
   }
 

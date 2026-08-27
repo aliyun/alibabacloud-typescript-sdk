@@ -37,7 +37,7 @@ export class ReadFlowVersionResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The response content.
+   * The response data.
    */
   response?: { [key: string]: any };
   /**

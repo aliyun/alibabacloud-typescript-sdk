@@ -10,20 +10,23 @@ export class GetFlowResponseBodyData extends $dara.Model {
   categories?: string[];
   /**
    * @remarks
-   * The API version.
+   * The API version information.
    * 
    * @example
    * 3.0
    */
   dataApiVersion?: string;
   /**
+   * @remarks
+   * The URL of the WA Flow Endpoint
+   * 
    * @example
    * http://abc.com
    */
   endpointUri?: string;
   /**
    * @remarks
-   * The flow ID.
+   * Flow ID。
    * 
    * @example
    * 92675332812643****
@@ -31,7 +34,7 @@ export class GetFlowResponseBodyData extends $dara.Model {
   flowId?: string;
   /**
    * @remarks
-   * The flow name.
+   * The Flow name.
    * 
    * @example
    * flow_001
@@ -39,7 +42,7 @@ export class GetFlowResponseBodyData extends $dara.Model {
   flowName?: string;
   /**
    * @remarks
-   * The JSON version.
+   * The JSON version information.
    * 
    * @example
    * 2.1
@@ -63,7 +66,10 @@ export class GetFlowResponseBodyData extends $dara.Model {
   previewUrlExpires?: number;
   /**
    * @remarks
-   * The status of the flow.
+   * The status of the Flow. Valid values:
+   * - PUBLISHED: Published.
+   * - DRAFT: Draft.
+   * - DEPRECATED: Deprecated.
    * 
    * @example
    * DRAFT
@@ -110,6 +116,13 @@ export class GetFlowResponseBodyData extends $dara.Model {
 }
 
 export class GetFlowResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The details about the access denial.
+   * 
+   * @example
+   * None
+   */
   accessDeniedDetail?: string;
   /**
    * @remarks
