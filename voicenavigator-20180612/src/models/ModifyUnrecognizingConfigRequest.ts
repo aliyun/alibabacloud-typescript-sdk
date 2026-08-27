@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyUnrecognizingConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * The rejection action performed after the final rejection prompt is played.
+   * The rejection action.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ModifyUnrecognizingConfigRequest extends $dara.Model {
   finalAction?: string;
   /**
    * @remarks
-   * The action parameters for the rejection action, in JSON format.
+   * The action parameters.
    * 
    * @example
    * {}
@@ -23,12 +23,12 @@ export class ModifyUnrecognizingConfigRequest extends $dara.Model {
   finalActionParams?: string;
   /**
    * @remarks
-   * The final rejection prompt. The service plays this prompt when the rejection threshold is met.
+   * The final rejection prompt.
    * 
    * This parameter is required.
    * 
    * @example
-   * 再见
+   * Goodbye
    */
   finalPrompt?: string;
   /**
@@ -43,17 +43,17 @@ export class ModifyUnrecognizingConfigRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The rejection prompt played when the service fails to recognize user input.
+   * The rejection prompt.
    * 
    * This parameter is required.
    * 
    * @example
-   * 我不理解您的意思，请再说一遍
+   * I don\\"t understand what you mean, please say it again
    */
   prompt?: string;
   /**
    * @remarks
-   * The rejection threshold. The maximum number of consecutive rejections before the service triggers the rejection action.
+   * The maximum number of rejections.
    * 
    * This parameter is required.
    * 

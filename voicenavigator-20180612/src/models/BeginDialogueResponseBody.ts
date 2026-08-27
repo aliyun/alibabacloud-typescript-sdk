@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class BeginDialogueResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The action to perform.
+   * The action.
    * 
    * @example
    * Broadcast
@@ -21,7 +21,7 @@ export class BeginDialogueResponseBody extends $dara.Model {
   actionParams?: string;
   /**
    * @remarks
-   * Specifies whether the IVR playback can be interrupted.
+   * Indicates whether the IVR announcement can be interrupted.
    * 
    * @example
    * true
@@ -40,7 +40,7 @@ export class BeginDialogueResponseBody extends $dara.Model {
    * The text response.
    * 
    * @example
-   * 您好，欢迎致电智能助手
+   * Hello, welcome to the intelligent assistant
    */
   textResponse?: string;
   static names(): { [key: string]: string } {

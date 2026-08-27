@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DebugCollectedNumberResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The next action that Voice Navigator performs.
+   * The action.
    * 
    * @example
    * Broadcast
@@ -13,7 +13,7 @@ export class DebugCollectedNumberResponseBody extends $dara.Model {
   action?: string;
   /**
    * @remarks
-   * The parameters for the next action.
+   * The action parameters.
    * 
    * @example
    * {}
@@ -21,7 +21,7 @@ export class DebugCollectedNumberResponseBody extends $dara.Model {
   actionParams?: string;
   /**
    * @remarks
-   * Indicates whether the voice response can be interrupted.
+   * Indicates whether the IVR announcement can be interrupted.
    * 
    * @example
    * true
@@ -29,7 +29,7 @@ export class DebugCollectedNumberResponseBody extends $dara.Model {
   interruptible?: boolean;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * abb4aa26-3a8e-43dd-82f8-0c3898c9c67f
@@ -37,10 +37,10 @@ export class DebugCollectedNumberResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The text that Voice Navigator plays to the user.
+   * The text content of the announcement.
    * 
    * @example
-   * 您好，欢迎致电智能助手
+   * Hello, welcome to the intelligent assistant
    */
   textResponse?: string;
   static names(): { [key: string]: string } {

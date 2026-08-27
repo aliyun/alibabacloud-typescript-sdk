@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SaveRecordingRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the conversation.
+   * The session ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class SaveRecordingRequest extends $dara.Model {
   conversationId?: string;
   /**
    * @remarks
-   * The duration of the recording, in seconds.
+   * The duration of the recording.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class SaveRecordingRequest extends $dara.Model {
   duration?: string;
   /**
    * @remarks
-   * The name of the recording file.
+   * The file name.
    * 
    * This parameter is required.
    * 
@@ -35,7 +35,7 @@ export class SaveRecordingRequest extends $dara.Model {
   fileName?: string;
   /**
    * @remarks
-   * The storage path of the recording file, such as a path in Object Storage Service (OSS).
+   * The file path.
    * 
    * This parameter is required.
    * 
@@ -45,7 +45,7 @@ export class SaveRecordingRequest extends $dara.Model {
   filePath?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -55,7 +55,7 @@ export class SaveRecordingRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the account that owns the instance.
+   * The ID of the account to which the instance belongs.
    * 
    * @example
    * 1971226538081821
@@ -63,7 +63,7 @@ export class SaveRecordingRequest extends $dara.Model {
   instanceOwnerId?: number;
   /**
    * @remarks
-   * The Unix timestamp, in milliseconds, when the recording started.
+   * The start time of the recording.
    * 
    * This parameter is required.
    * 
@@ -73,7 +73,7 @@ export class SaveRecordingRequest extends $dara.Model {
   startTime?: number;
   /**
    * @remarks
-   * The type of the recording file. Example: Source.
+   * The type of the recording file.
    * 
    * This parameter is required.
    * 

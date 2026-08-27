@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SilenceTimeoutResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The system\\"s next action.
+   * The action.
    * 
    * @example
    * TransferToAgent
@@ -13,7 +13,7 @@ export class SilenceTimeoutResponseBody extends $dara.Model {
   action?: string;
   /**
    * @remarks
-   * Parameters for the action defined in the Action parameter.
+   * The action parameters.
    * 
    * @example
    * { "skillGroupId": "ABC"}
@@ -21,7 +21,7 @@ export class SilenceTimeoutResponseBody extends $dara.Model {
   actionParams?: string;
   /**
    * @remarks
-   * Indicates whether the action is interruptible.
+   * Indicates whether the action can be interrupted.
    * 
    * @example
    * false
@@ -37,10 +37,10 @@ export class SilenceTimeoutResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The text response to play to the user.
+   * The text response.
    * 
    * @example
-   * 正在为你转接人工坐席
+   * Transferring you to a human agent
    */
   textResponse?: string;
   static names(): { [key: string]: string } {

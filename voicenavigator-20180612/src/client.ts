@@ -96,7 +96,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Previews a TTS voice.
+   * Auditions a TTS voice.
    * 
    * @param request - AuditTTSVoiceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -123,6 +123,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.nlsServiceType)) {
+      query["NlsServiceType"] = request.nlsServiceType;
     }
 
     if (!$dara.isNull(request.pitchRate)) {
@@ -167,7 +171,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Previews a TTS voice.
+   * Auditions a TTS voice.
    * 
    * @param request - AuditTTSVoiceRequest
    * @returns AuditTTSVoiceResponse
@@ -178,7 +182,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Starts a conversation.
+   * Starts a session.
    * 
    * @param request - BeginDialogueRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -229,7 +233,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Starts a conversation.
+   * Starts a session.
    * 
    * @param request - BeginDialogueRequest
    * @returns BeginDialogueResponse
@@ -460,7 +464,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Debugs the number collection process.
+   * Collects digits in the debug environment.
    * 
    * @param request - DebugCollectedNumberRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -499,7 +503,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Debugs the number collection process.
+   * Collects digits in the debug environment.
    * 
    * @param request - DebugCollectedNumberRequest
    * @returns DebugCollectedNumberResponse
@@ -644,7 +648,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the context of a specified conversation.
+   * Queries the context data of a session.
    * 
    * @param request - DescribeConversationContextRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -671,7 +675,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the context of a specified conversation.
+   * Queries the context data of a session.
    * 
    * @param request - DescribeConversationContextRequest
    * @returns DescribeConversationContextResponse
@@ -2068,7 +2072,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Handles the silence timeout event in a conversation.
+   * Triggers a silence timeout.
    * 
    * @param request - SilenceTimeoutRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2111,7 +2115,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Handles the silence timeout event in a conversation.
+   * Triggers a silence timeout.
    * 
    * @param request - SilenceTimeoutRequest
    * @returns SilenceTimeoutResponse

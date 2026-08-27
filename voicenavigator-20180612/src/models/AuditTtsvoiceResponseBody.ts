@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AuditTTSVoiceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The preview URL.
+   * The audition URL.
    * 
    * @example
    * http://voicenavigator-cn-shanghai.oss-cn-shanghai.aliyuncs.com/exported_files/2020-02-20/ttsConfig-1582188148528-abd8e407de0a49b381bb591bd91fc073.wav?Expires=1582188208&OSSAccessKeyId=LTAIppQY*******&Signature=FaBassElzqGEB0H2TvTKPJsOJHs%3D

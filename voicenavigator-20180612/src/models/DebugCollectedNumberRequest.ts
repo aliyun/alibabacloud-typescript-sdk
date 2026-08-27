@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DebugCollectedNumberRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the conversation.
+   * The session ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DebugCollectedNumberRequest extends $dara.Model {
   conversationId?: string;
   /**
    * @remarks
-   * The ID of the Voice Navigator instance.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class DebugCollectedNumberRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The collected number.
+   * The collected digit input.
    * 
    * @example
    * 123

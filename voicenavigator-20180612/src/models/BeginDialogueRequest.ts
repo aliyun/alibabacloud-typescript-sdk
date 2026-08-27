@@ -23,7 +23,7 @@ export class BeginDialogueRequest extends $dara.Model {
   callingNumber?: string;
   /**
    * @remarks
-   * The conversation ID.
+   * The session ID.
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class BeginDialogueRequest extends $dara.Model {
   conversationId?: string;
   /**
    * @remarks
-   * The conversation context.
+   * The session context.
    * 
    * @example
    * {\\"channelId\\":\\"fe2559d3-5fc9-4fa5-8314-32b9f762791d\\"}

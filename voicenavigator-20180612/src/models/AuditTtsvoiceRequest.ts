@@ -45,6 +45,7 @@ export class AuditTTSVoiceRequest extends $dara.Model {
    * af81a389-91f0-4157-8d82-720edd02b66a
    */
   instanceId?: string;
+  nlsServiceType?: string;
   /**
    * @example
    * 0
@@ -70,12 +71,12 @@ export class AuditTTSVoiceRequest extends $dara.Model {
   speechRate?: string;
   /**
    * @remarks
-   * The preview text.
+   * The audition text.
    * 
    * This parameter is required.
    * 
    * @example
-   * 你好
+   * Hello
    */
   text?: string;
   /**
@@ -105,6 +106,7 @@ export class AuditTTSVoiceRequest extends $dara.Model {
       engine: 'Engine',
       extParams: 'ExtParams',
       instanceId: 'InstanceId',
+      nlsServiceType: 'NlsServiceType',
       pitchRate: 'PitchRate',
       secretKey: 'SecretKey',
       speechRate: 'SpeechRate',
@@ -121,6 +123,7 @@ export class AuditTTSVoiceRequest extends $dara.Model {
       engine: 'string',
       extParams: 'string',
       instanceId: 'string',
+      nlsServiceType: 'string',
       pitchRate: 'string',
       secretKey: 'string',
       speechRate: 'string',

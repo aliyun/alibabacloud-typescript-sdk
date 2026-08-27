@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeConversationContextResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The conversation context, returned as a JSON string.
+   * The session context data.
    * 
    * @example
    * {         "CallingNumber": "135815***",         "AdditionalContext": "",         "ConversationId": "361c8a53-0e29-42f3-8aa7-c7752d010399"     }
@@ -13,7 +13,7 @@ export class DescribeConversationContextResponseBody extends $dara.Model {
   conversationContext?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * b19af5ce5314ac08108d1b33fe20e15

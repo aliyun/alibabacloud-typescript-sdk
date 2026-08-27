@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SilenceTimeoutRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the conversation.
+   * The session ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class SilenceTimeoutRequest extends $dara.Model {
   conversationId?: string;
   /**
    * @remarks
-   * The context of the conversation.
+   * The session information context.
    * 
    * @example
    * {}
@@ -23,7 +23,7 @@ export class SilenceTimeoutRequest extends $dara.Model {
   initialContext?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
