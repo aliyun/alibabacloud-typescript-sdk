@@ -1044,6 +1044,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates and registers a DataAgent skill.
+   * 
+   * @param request - CreateDataAgentSkillMetaRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateDataAgentSkillMetaResponse
+   */
+  async createDataAgentSkillMetaWithOptions(request: $_model.CreateDataAgentSkillMetaRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateDataAgentSkillMetaResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.skillName)) {
+      query["SkillName"] = request.skillName;
+    }
+
+    if (!$dara.isNull(request.uploadLocation)) {
+      query["UploadLocation"] = request.uploadLocation;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateDataAgentSkillMeta",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateDataAgentSkillMetaResponse>(await this.callApi(params, req, runtime), new $_model.CreateDataAgentSkillMetaResponse({}));
+  }
+
+  /**
+   * Creates and registers a DataAgent skill.
+   * 
+   * @param request - CreateDataAgentSkillMetaRequest
+   * @returns CreateDataAgentSkillMetaResponse
+   */
+  async createDataAgentSkillMeta(request: $_model.CreateDataAgentSkillMetaRequest): Promise<$_model.CreateDataAgentSkillMetaResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createDataAgentSkillMetaWithOptions(request, runtime);
+  }
+
+  /**
    * Creates a DataAgent theme.
    * 
    * @param request - CreateDataAgentThemeRequest
@@ -1855,6 +1909,52 @@ export default class Client extends OpenApi {
   async deleteDataAgentMemory(request: $_model.DeleteDataAgentMemoryRequest): Promise<$_model.DeleteDataAgentMemoryResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteDataAgentMemoryWithOptions(request, runtime);
+  }
+
+  /**
+   * Deletes a DataAgent skill.
+   * 
+   * @param request - DeleteDataAgentSkillMetaRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteDataAgentSkillMetaResponse
+   */
+  async deleteDataAgentSkillMetaWithOptions(request: $_model.DeleteDataAgentSkillMetaRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteDataAgentSkillMetaResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.skillId)) {
+      query["SkillId"] = request.skillId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteDataAgentSkillMeta",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteDataAgentSkillMetaResponse>(await this.callApi(params, req, runtime), new $_model.DeleteDataAgentSkillMetaResponse({}));
+  }
+
+  /**
+   * Deletes a DataAgent skill.
+   * 
+   * @param request - DeleteDataAgentSkillMetaRequest
+   * @returns DeleteDataAgentSkillMetaResponse
+   */
+  async deleteDataAgentSkillMeta(request: $_model.DeleteDataAgentSkillMetaRequest): Promise<$_model.DeleteDataAgentSkillMetaResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteDataAgentSkillMetaWithOptions(request, runtime);
   }
 
   /**
@@ -2814,6 +2914,48 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves the signature information for uploading skill files.
+   * 
+   * @param request - DescribeSkillFileUploadSignatureRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeSkillFileUploadSignatureResponse
+   */
+  async describeSkillFileUploadSignatureWithOptions(request: $_model.DescribeSkillFileUploadSignatureRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeSkillFileUploadSignatureResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeSkillFileUploadSignature",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeSkillFileUploadSignatureResponse>(await this.callApi(params, req, runtime), new $_model.DescribeSkillFileUploadSignatureResponse({}));
+  }
+
+  /**
+   * Retrieves the signature information for uploading skill files.
+   * 
+   * @param request - DescribeSkillFileUploadSignatureRequest
+   * @returns DescribeSkillFileUploadSignatureResponse
+   */
+  async describeSkillFileUploadSignature(request: $_model.DescribeSkillFileUploadSignatureRequest): Promise<$_model.DescribeSkillFileUploadSignatureResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeSkillFileUploadSignatureWithOptions(request, runtime);
+  }
+
+  /**
    * Calls back after a file is uploaded.
    * 
    * @param request - FileUploadCallbackRequest
@@ -3189,14 +3331,20 @@ export default class Client extends OpenApi {
    * Queries the model usage summary of DataAgent analysis tasks within a specified time range, including the number of models used, total call count, total tokens consumed, and peak TPM.
    * 
    * @remarks
-   * Queries the model usage summary of DataAgent analysis tasks within a specified time range, including the number of models used, total model call count, total tokens consumed, and peak TPM. This operation is used to analyze and monitor model resource consumption of DataAgent analysis tasks.
+   * Queries the model usage summary of DataAgent analysis tasks within a specified time range, including the number of models used, total model call count, total tokens consumed, and peak TPM. This operation is used to analyze and monitor the model resource consumption of DataAgent analysis tasks.
    * 
-   * @param request - GetDataAgentTaskModelUsageRequest
+   * @param tmpReq - GetDataAgentTaskModelUsageRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetDataAgentTaskModelUsageResponse
    */
-  async getDataAgentTaskModelUsageWithOptions(request: $_model.GetDataAgentTaskModelUsageRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetDataAgentTaskModelUsageResponse> {
-    request.validate();
+  async getDataAgentTaskModelUsageWithOptions(tmpReq: $_model.GetDataAgentTaskModelUsageRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetDataAgentTaskModelUsageResponse> {
+    tmpReq.validate();
+    let request = new $_model.GetDataAgentTaskModelUsageShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.instanceIds)) {
+      request.instanceIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.instanceIds, "InstanceIds", "json");
+    }
+
     let query = { };
     if (!$dara.isNull(request.beginTime)) {
       query["BeginTime"] = request.beginTime;
@@ -3208,6 +3356,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.endTime)) {
       query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.instanceIdsShrink)) {
+      query["InstanceIds"] = request.instanceIdsShrink;
     }
 
     if (!$dara.isNull(request.payLevel)) {
@@ -3239,7 +3391,7 @@ export default class Client extends OpenApi {
    * Queries the model usage summary of DataAgent analysis tasks within a specified time range, including the number of models used, total call count, total tokens consumed, and peak TPM.
    * 
    * @remarks
-   * Queries the model usage summary of DataAgent analysis tasks within a specified time range, including the number of models used, total model call count, total tokens consumed, and peak TPM. This operation is used to analyze and monitor model resource consumption of DataAgent analysis tasks.
+   * Queries the model usage summary of DataAgent analysis tasks within a specified time range, including the number of models used, total model call count, total tokens consumed, and peak TPM. This operation is used to analyze and monitor the model resource consumption of DataAgent analysis tasks.
    * 
    * @param request - GetDataAgentTaskModelUsageRequest
    * @returns GetDataAgentTaskModelUsageResponse
@@ -3255,12 +3407,18 @@ export default class Client extends OpenApi {
    * @remarks
    * Queries the TPM time series metrics of DataAgent analysis task model usage within a specified time range. The metrics are returned at minute-level granularity, showing the number of tokens consumed in each statistical interval for analyzing model usage trends over time.
    * 
-   * @param request - GetDataAgentTaskModelUsageMetricsRequest
+   * @param tmpReq - GetDataAgentTaskModelUsageMetricsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetDataAgentTaskModelUsageMetricsResponse
    */
-  async getDataAgentTaskModelUsageMetricsWithOptions(request: $_model.GetDataAgentTaskModelUsageMetricsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetDataAgentTaskModelUsageMetricsResponse> {
-    request.validate();
+  async getDataAgentTaskModelUsageMetricsWithOptions(tmpReq: $_model.GetDataAgentTaskModelUsageMetricsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetDataAgentTaskModelUsageMetricsResponse> {
+    tmpReq.validate();
+    let request = new $_model.GetDataAgentTaskModelUsageMetricsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.instanceIds)) {
+      request.instanceIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.instanceIds, "InstanceIds", "json");
+    }
+
     let query = { };
     if (!$dara.isNull(request.beginTime)) {
       query["BeginTime"] = request.beginTime;
@@ -3272,6 +3430,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.endTime)) {
       query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.instanceIdsShrink)) {
+      query["InstanceIds"] = request.instanceIdsShrink;
     }
 
     if (!$dara.isNull(request.payLevel)) {
@@ -4939,6 +5101,72 @@ export default class Client extends OpenApi {
   async listDataAgentSession(request: $_model.ListDataAgentSessionRequest): Promise<$_model.ListDataAgentSessionResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listDataAgentSessionWithOptions(request, runtime);
+  }
+
+  /**
+   * Retrieves the list of DataAgent skills.
+   * 
+   * @param request - ListDataAgentSkillMetaRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDataAgentSkillMetaResponse
+   */
+  async listDataAgentSkillMetaWithOptions(request: $_model.ListDataAgentSkillMetaRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListDataAgentSkillMetaResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.searchKey)) {
+      query["SearchKey"] = request.searchKey;
+    }
+
+    if (!$dara.isNull(request.skillFrom)) {
+      query["SkillFrom"] = request.skillFrom;
+    }
+
+    if (!$dara.isNull(request.skillId)) {
+      query["SkillId"] = request.skillId;
+    }
+
+    if (!$dara.isNull(request.skillName)) {
+      query["SkillName"] = request.skillName;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListDataAgentSkillMeta",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListDataAgentSkillMetaResponse>(await this.callApi(params, req, runtime), new $_model.ListDataAgentSkillMetaResponse({}));
+  }
+
+  /**
+   * Retrieves the list of DataAgent skills.
+   * 
+   * @param request - ListDataAgentSkillMetaRequest
+   * @returns ListDataAgentSkillMetaResponse
+   */
+  async listDataAgentSkillMeta(request: $_model.ListDataAgentSkillMetaRequest): Promise<$_model.ListDataAgentSkillMetaResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listDataAgentSkillMetaWithOptions(request, runtime);
   }
 
   /**
@@ -6642,7 +6870,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * ModifyDataAgentTheme
+   * Calls the ModifyDataAgentTheme operation to modify the display name and description of a DataAgent theme. Passing null for a parameter value indicates that the corresponding field is not modified. Passing an empty string clears the field.
    * 
    * @param request - ModifyDataAgentThemeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6681,7 +6909,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * ModifyDataAgentTheme
+   * Calls the ModifyDataAgentTheme operation to modify the display name and description of a DataAgent theme. Passing null for a parameter value indicates that the corresponding field is not modified. Passing an empty string clears the field.
    * 
    * @param request - ModifyDataAgentThemeRequest
    * @returns ModifyDataAgentThemeResponse

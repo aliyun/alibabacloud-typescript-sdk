@@ -2,7 +2,7 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class GetDataAgentTaskModelUsageMetricsRequest extends $dara.Model {
+export class GetDataAgentTaskModelUsageShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The start time of the query time range. The value is a UNIX timestamp in seconds. The recommended interval length is no longer than one month.
@@ -10,10 +10,10 @@ export class GetDataAgentTaskModelUsageMetricsRequest extends $dara.Model {
    * @example
    * 1735660800
    */
-  beginTime?: string;
+  beginTime?: number;
   /**
    * @remarks
-   * The current DMS unit.
+   * The current Data Management unit.
    * 
    * @example
    * cn-hangzhou
@@ -26,8 +26,8 @@ export class GetDataAgentTaskModelUsageMetricsRequest extends $dara.Model {
    * @example
    * 1735747200
    */
-  endTime?: string;
-  instanceIds?: string[];
+  endTime?: number;
+  instanceIdsShrink?: string;
   payLevel?: string;
   /**
    * @remarks
@@ -42,7 +42,7 @@ export class GetDataAgentTaskModelUsageMetricsRequest extends $dara.Model {
       beginTime: 'BeginTime',
       DMSUnit: 'DMSUnit',
       endTime: 'EndTime',
-      instanceIds: 'InstanceIds',
+      instanceIdsShrink: 'InstanceIds',
       payLevel: 'PayLevel',
       regionId: 'RegionId',
     };
@@ -50,19 +50,16 @@ export class GetDataAgentTaskModelUsageMetricsRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      beginTime: 'string',
+      beginTime: 'number',
       DMSUnit: 'string',
-      endTime: 'string',
-      instanceIds: { 'type': 'array', 'itemType': 'string' },
+      endTime: 'number',
+      instanceIdsShrink: 'string',
       payLevel: 'string',
       regionId: 'string',
     };
   }
 
   validate() {
-    if(Array.isArray(this.instanceIds)) {
-      $dara.Model.validateArray(this.instanceIds);
-    }
     super.validate();
   }
 

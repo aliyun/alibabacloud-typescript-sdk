@@ -82,7 +82,7 @@ export class GetDataAgentTaskModelUsageResponseBody extends $dara.Model {
   data?: GetDataAgentTaskModelUsageResponseBodyData;
   /**
    * @remarks
-   * The error code returned if the request fails.
+   * The error code returned if the request failed.
    * 
    * @example
    * DMS-DA-40411
@@ -90,7 +90,7 @@ export class GetDataAgentTaskModelUsageResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The error message returned if the request fails.
+   * The error message returned if the call failed.
    * 
    * @example
    * UnknownError
@@ -106,10 +106,10 @@ export class GetDataAgentTaskModelUsageResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful. Valid values:
+   * Indicates whether the request was successful. Valid values:
    * 
-   * - **true**: The request is successful.
-   * - **false**: The request fails.
+   * - **true**: The request was successful.
+   * - **false**: The request failed.
    * 
    * @example
    * true
