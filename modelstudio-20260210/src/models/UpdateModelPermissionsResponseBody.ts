@@ -4,26 +4,41 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateModelPermissionsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The error code. This parameter is empty when the call is successful.
+   * 
    * @example
    * 200
    */
   code?: string;
   /**
+   * @remarks
+   * The error message. This parameter is empty when the call is successful.
+   * 
    * @example
    * The specified parameter is invalid
    */
   errorMessage?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The unique request ID.
+   * 
    * @example
    * 36045E0A-551D-592D-B1BC-4C56596CE59E
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the API call is successful.
+   * 
    * @example
    * true
    */

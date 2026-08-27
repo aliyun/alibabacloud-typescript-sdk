@@ -16,7 +16,6 @@ export default class Client extends OpenApi {
       'cn-beijing': "modelstudio.cn-beijing.aliyuncs.com",
       'cn-hongkong': "modelstudio.cn-hongkong.aliyuncs.com",
       'ap-southeast-1': "modelstudio.ap-southeast-1.aliyuncs.com",
-      'ap-northeast-1': "modelstudio.ap-northeast-1.aliyuncs.com",
       'us-east-1': "modelstudio.us-east-1.aliyuncs.com",
       'eu-central-1': "modelstudio.eu-central-1.aliyuncs.com",
     };
@@ -627,6 +626,172 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getApiKeyWithOptions(apiKeyId, headers, runtime);
+  }
+
+  /**
+   * 查询账单概览
+   * 
+   * @param tmpReq - GetBillingOverviewRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetBillingOverviewResponse
+   */
+  async getBillingOverviewWithOptions(tmpReq: $_model.GetBillingOverviewRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetBillingOverviewResponse> {
+    tmpReq.validate();
+    let request = new $_model.GetBillingOverviewShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.filter)) {
+      request.filterShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.filter, "filter", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.groupBy)) {
+      request.groupByShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.groupBy, "groupBy", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.billMonth)) {
+      query["billMonth"] = request.billMonth;
+    }
+
+    if (!$dara.isNull(request.filterShrink)) {
+      query["filter"] = request.filterShrink;
+    }
+
+    if (!$dara.isNull(request.groupByShrink)) {
+      query["groupBy"] = request.groupByShrink;
+    }
+
+    if (!$dara.isNull(request.locale)) {
+      query["locale"] = request.locale;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["regionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.topNum)) {
+      query["topNum"] = request.topNum;
+    }
+
+    if (!$dara.isNull(request.zeroFilter)) {
+      query["zeroFilter"] = request.zeroFilter;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetBillingOverview",
+      version: "2026-02-10",
+      protocol: "HTTPS",
+      pathname: `/modelstudio/billing/overview`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetBillingOverviewResponse>(await this.callApi(params, req, runtime), new $_model.GetBillingOverviewResponse({}));
+  }
+
+  /**
+   * 查询账单概览
+   * 
+   * @param request - GetBillingOverviewRequest
+   * @returns GetBillingOverviewResponse
+   */
+  async getBillingOverview(request: $_model.GetBillingOverviewRequest): Promise<$_model.GetBillingOverviewResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getBillingOverviewWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 查询账单趋势
+   * 
+   * @param tmpReq - GetBillingTrendRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetBillingTrendResponse
+   */
+  async getBillingTrendWithOptions(tmpReq: $_model.GetBillingTrendRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetBillingTrendResponse> {
+    tmpReq.validate();
+    let request = new $_model.GetBillingTrendShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.filter)) {
+      request.filterShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.filter, "filter", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.groupBy)) {
+      request.groupByShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.groupBy, "groupBy", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.timePeriod)) {
+      request.timePeriodShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.timePeriod, "timePeriod", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.filterShrink)) {
+      query["filter"] = request.filterShrink;
+    }
+
+    if (!$dara.isNull(request.granularity)) {
+      query["granularity"] = request.granularity;
+    }
+
+    if (!$dara.isNull(request.groupByShrink)) {
+      query["groupBy"] = request.groupByShrink;
+    }
+
+    if (!$dara.isNull(request.locale)) {
+      query["locale"] = request.locale;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["regionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.timePeriodShrink)) {
+      query["timePeriod"] = request.timePeriodShrink;
+    }
+
+    if (!$dara.isNull(request.topNum)) {
+      query["topNum"] = request.topNum;
+    }
+
+    if (!$dara.isNull(request.zeroFilter)) {
+      query["zeroFilter"] = request.zeroFilter;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetBillingTrend",
+      version: "2026-02-10",
+      protocol: "HTTPS",
+      pathname: `/modelstudio/billing/trend`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetBillingTrendResponse>(await this.callApi(params, req, runtime), new $_model.GetBillingTrendResponse({}));
+  }
+
+  /**
+   * 查询账单趋势
+   * 
+   * @param request - GetBillingTrendRequest
+   * @returns GetBillingTrendResponse
+   */
+  async getBillingTrend(request: $_model.GetBillingTrendRequest): Promise<$_model.GetBillingTrendResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getBillingTrendWithOptions(request, headers, runtime);
   }
 
   /**
@@ -1765,7 +1930,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新业务空间模型授权
+   * Updates model authorization for a workspace.
    * 
    * @param request - UpdateModelPermissionsRequest
    * @param headers - map
@@ -1806,7 +1971,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新业务空间模型授权
+   * Updates model authorization for a workspace.
    * 
    * @param request - UpdateModelPermissionsRequest
    * @returns UpdateModelPermissionsResponse

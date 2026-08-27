@@ -3,11 +3,25 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateModelPermissionsRequestModels extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to grant model deployment permission.
+   */
   deploy?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to grant model training permission.
+   */
   fineTune?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to grant model invocation permission.
+   */
   inference?: boolean;
   /**
    * @remarks
+   * The model.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -43,13 +57,25 @@ export class UpdateModelPermissionsRequestModels extends $dara.Model {
 
 export class UpdateModelPermissionsRequest extends $dara.Model {
   /**
+   * @remarks
+   * The tri-state value for one-click authorization. Valid values:
+   * - OPEN: grants authorization to all models with one click.
+   * - CLOSE: cancels one-click authorization.
+   * - KEEP: keeps per-model authorization.
+   * 
    * @example
    * OPEN
    */
   accessAllEntities?: string;
+  /**
+   * @remarks
+   * The list of per-model authorization items.
+   */
   models?: UpdateModelPermissionsRequestModels[];
   /**
    * @remarks
+   * The workspace ID.
+   * 
    * This parameter is required.
    * 
    * @example
