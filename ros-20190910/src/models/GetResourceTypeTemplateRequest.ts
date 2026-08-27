@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetResourceTypeTemplateRequest extends $dara.Model {
   /**
    * @remarks
-   * The resource type.
+   * The type of the resource. Call the [ListResourceTypes](https://help.aliyun.com/document_detail/133957.html) operation to query supported resource types.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class GetResourceTypeTemplateRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The version ID. If you want to query a specific version of the resource type, you must specify this parameter. If you do not specify this parameter, only the resource type is queried.
+   * The version ID. Specify this parameter to query a specific version of the resource type. If you do not specify this parameter, the default version of the resource type is queried.
    * 
    * > This parameter is supported only for modules.
    * 

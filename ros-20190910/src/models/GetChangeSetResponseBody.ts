@@ -5,14 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class GetChangeSetResponseBodyLogTerraformLogs extends $dara.Model {
   /**
    * @remarks
-   * The name of the Terraform command that is run. Valid values:
+   * The name of the Terraform command that was executed. Valid values:
    * 
-   * *   apply
-   * *   plan
-   * *   destroy
-   * *   version
+   * - apply
    * 
-   * For more information about Terraform commands, see [Command](https://www.terraform.io/cli/commands).
+   * - plan
+   * 
+   * - destroy
+   * 
+   * - version
+   * 
+   * For more information about the commands, see [Command](https://www.terraform.io/cli/commands).
    * 
    * @example
    * apply
@@ -20,7 +23,7 @@ export class GetChangeSetResponseBodyLogTerraformLogs extends $dara.Model {
   command?: string;
   /**
    * @remarks
-   * The content of the output stream that is returned after the command is run.
+   * The content that the command wrote to the specified stream.
    * 
    * @example
    * Apply complete! Resources: 42 added, 0 changed, 0 destroyed.
@@ -30,8 +33,9 @@ export class GetChangeSetResponseBodyLogTerraformLogs extends $dara.Model {
    * @remarks
    * The output stream. Valid values:
    * 
-   * *   stdout: standard output stream
-   * *   stderr: standard error stream
+   * - `stdout`: standard output
+   * 
+   * - `stderr`: standard error
    * 
    * @example
    * stdout
@@ -65,9 +69,9 @@ export class GetChangeSetResponseBodyLogTerraformLogs extends $dara.Model {
 export class GetChangeSetResponseBodyLog extends $dara.Model {
   /**
    * @remarks
-   * The Terraform logs. This parameter is returned only for change sets of Terraform stacks.
+   * The Terraform output logs. This parameter is returned only for change sets of Terraform-based stacks.
    * 
-   * > This parameter is not returned for change sets that are in the Creating state. This parameter indicates the logs of the change set creation operation for Terraform stacks.
+   * > This parameter is unavailable while a change set is being created because the logs are generated only after the creation is complete.
    */
   terraformLogs?: GetChangeSetResponseBodyLogTerraformLogs[];
   static names(): { [key: string]: string } {
@@ -97,7 +101,7 @@ export class GetChangeSetResponseBodyLog extends $dara.Model {
 export class GetChangeSetResponseBodyParameters extends $dara.Model {
   /**
    * @remarks
-   * The key of the parameter.
+   * The name of the parameter.
    * 
    * @example
    * ALIYUN::Region
@@ -135,7 +139,21 @@ export class GetChangeSetResponseBodyParameters extends $dara.Model {
 }
 
 export class GetChangeSetResponseBodyTags extends $dara.Model {
+  /**
+   * @remarks
+   * The key of the tag.
+   * 
+   * @example
+   * usage
+   */
   key?: string;
+  /**
+   * @remarks
+   * The value of the tag.
+   * 
+   * @example
+   * test
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -187,12 +205,15 @@ export class GetChangeSetResponseBody extends $dara.Model {
   changeSetType?: string;
   /**
    * @remarks
-   * The changes of the change set.
+   * The changes in the change set.
+   * 
+   * @example
+   * See examples.
    */
   changes?: { [key: string]: any }[];
   /**
    * @remarks
-   * The time when the change set was created. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
+   * The time when the change set was created. The time is in UTC and uses the `YYYY-MM-DDThh:mm:ss` format.
    * 
    * @example
    * 2021-12-01T02:20:56
@@ -208,7 +229,7 @@ export class GetChangeSetResponseBody extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Indicates whether rollback was performed when the stack failed to be created or updated.
+   * Indicates whether to disable rollback when a stack creation or update fails.
    * 
    * @example
    * false
@@ -224,7 +245,7 @@ export class GetChangeSetResponseBody extends $dara.Model {
   executionStatus?: string;
   /**
    * @remarks
-   * The output logs of the change set.
+   * Logs for the change set.
    */
   log?: GetChangeSetResponseBodyLog;
   /**
@@ -234,7 +255,7 @@ export class GetChangeSetResponseBody extends $dara.Model {
   parameters?: GetChangeSetResponseBodyParameters[];
   /**
    * @remarks
-   * The region ID of the change set.
+   * The region ID.
    * 
    * @example
    * cn-hangzhou
@@ -242,16 +263,23 @@ export class GetChangeSetResponseBody extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 3766EE04-76DD-50F9-9C23-3AF136CD5708
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The ID of the resource group.<br>For more information about resource groups, see [What is a resource group?](https://help.aliyun.com/document_detail/94475.html).<br>
+   * 
+   * @example
+   * rg-acfmxazb4ph6aiy****
+   */
   resourceGroupId?: string;
   /**
    * @remarks
-   * The ID of the stack with which the change set is associated.
+   * The ID of the stack to which the change set belongs.
    * 
    * @example
    * a486fc19-ebb7-4ce9-a70b-554a7c3d****
@@ -259,7 +287,7 @@ export class GetChangeSetResponseBody extends $dara.Model {
   stackId?: string;
   /**
    * @remarks
-   * The name of the stack with which the change set is associated.
+   * The name of the stack to which the change set belongs.
    * 
    * @example
    * stack_2021-10-13
@@ -275,18 +303,22 @@ export class GetChangeSetResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The reason why the change set is in its current state.
+   * The reason for the change set\\"s abnormal status.
    * 
    * @example
    * too many changes.
    */
   statusReason?: string;
+  /**
+   * @remarks
+   * The tags of the change set.
+   */
   tags?: GetChangeSetResponseBodyTags[];
   /**
    * @remarks
    * The template body of the change set.
    * 
-   * > This parameter takes effect only if you set ShowTemplate to true.
+   * > This parameter is returned only when `ShowTemplate` is set to `true`.
    * 
    * @example
    * {"ROSTemplateFormatVersion": "2015-09-01"}
@@ -294,7 +326,7 @@ export class GetChangeSetResponseBody extends $dara.Model {
   templateBody?: string;
   /**
    * @remarks
-   * The timeout period that is specified for the stack creation or update operation.
+   * The timeout period for creating or updating the stack.
    * 
    * @example
    * 60

@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class GetTemplateParameterConstraintsShrinkRequestParameters extends $dara.Model {
   /**
    * @remarks
-   * The name of parameter N in the template.
+   * The name of the parameter that is defined in the template.
    * 
-   * >  The Parameters parameter is optional. If you specify the Parameters parameter, you must specify the Parameters.N.ParameterKey parameter.
+   * > The Parameters parameter is optional. If you specify Parameters, you must specify ParameterKey.
    * 
    * This parameter is required.
    * 
@@ -17,9 +17,9 @@ export class GetTemplateParameterConstraintsShrinkRequestParameters extends $dar
   parameterKey?: string;
   /**
    * @remarks
-   * The value of parameter N in the template.
+   * The value of the parameter that is defined in the template.
    * 
-   * >  The Parameters parameter is optional. If you specify the Parameters parameter, you must specify the Parameters.N.ParameterValue parameter.
+   * > The Parameters parameter is optional. If you specify Parameters, you must specify ParameterValue.
    * 
    * This parameter is required.
    * 
@@ -53,11 +53,7 @@ export class GetTemplateParameterConstraintsShrinkRequestParameters extends $dar
 export class GetTemplateParameterConstraintsShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request.
-   * 
-   * You can use the client to generate the value, but you must make sure that the value is unique among different requests. The token can be up to 64 characters in length, and can contain letters, digits, hyphens (-), and underscores (_).
-   * 
-   * For more information, see [Ensure idempotence](https://help.aliyun.com/document_detail/134212.html).
+   * A client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can be up to 64 characters in length, and can contain letters, digits, hyphens (-), and underscores (_). For more information, refer to [How to ensure idempotence](https://help.aliyun.com/document_detail/134212.html).
    * 
    * @example
    * 123e4567-e89b-12d3-a456-42665544****
@@ -65,26 +61,22 @@ export class GetTemplateParameterConstraintsShrinkRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The name of parameter N in the template.
+   * The parameters that are defined in the template.
    */
   parameters?: GetTemplateParameterConstraintsShrinkRequestParameters[];
   /**
    * @remarks
-   * The parameters whose values you want to query.
+   * The list of parameters to be queried.
    */
   parametersKeyFilterShrink?: string;
   /**
    * @remarks
-   * The order in which associated parameters are arranged.
-   * 
-   * >  By default, the order of the associated parameters specified in the `Metadata` section of the template is used.
+   * The dependency of the parameters.
    */
   parametersOrderShrink?: string;
   /**
    * @remarks
-   * The region ID of the template.
-   * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/131035.html) operation to query the most recent region list.
+   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/131035.html) operation to query the most recent region list.
    * 
    * This parameter is required.
    * 
@@ -96,27 +88,50 @@ export class GetTemplateParameterConstraintsShrinkRequest extends $dara.Model {
    * @remarks
    * The ID of the stack.
    * 
+   * If you specify this parameter, the parameter constraints for an upgrade or downgrade scenario are queried.
+   * 
    * @example
    * c754d2a4-28f1-46df-b557-9586173a****
    */
   stackId?: string;
   /**
    * @remarks
-   * The structure that contains the template body.
+   * The structure of the template body. The template body must be 1 to 524,288 bytes in length. If the length of the template body exceeds the upper limit, we recommended to use the HTTP POST + Body Param method to pass the parameter in the request body to avoid request failures caused by an excessively long URL.
    * 
-   * The template body must be 1 to 524,288 bytes in length. If the length of the template body exceeds the upper limit, we recommend that you add parameters to the HTTP POST request body to prevent request failures caused by excessively long URLs.
-   * 
-   * >  You must specify only one of the following parameters: TemplateBody, TemplateURL, and TemplateId.
+   * > You can specify only one of the following parameters: TemplateBody, TemplateURL, TemplateId, and TemplateScratchId.
    * 
    * @example
-   * {"Parameters":{"ZoneInfo":{"Type": "String"},"InstanceType": {"Type": "String"}},"ROSTemplateFormatVersion": "2015-09-01","Resources":{"ECS":{"Properties":{"ZoneId":{"Ref": "ZoneInfo"},"InstanceType": {"Ref": "InstanceType"}},"Type": "ALIYUN::ECS::Instance"}}}
+   * {
+   *   "ROSTemplateFormatVersion": "2015-09-01",
+   *   "Parameters": {
+   *     "ZoneInfo": {
+   *       "Type": "String"
+   *     },
+   *     "InstanceType": {
+   *       "Type": "String"
+   *     }
+   *   },
+   *   "Resources": {
+   *     "ECS": {
+   *       "Type": "ALIYUN::ECS::Instance",
+   *       "Properties": {
+   *         "ZoneId": {
+   *           "Ref": "ZoneInfo"
+   *         },
+   *         "InstanceType": {
+   *           "Ref": "InstanceType"
+   *         }
+   *       }
+   *     }
+   *   }
+   * }
    */
   templateBody?: string;
   /**
    * @remarks
-   * The ID of the template. This parameter applies to shared and private templates.
+   * The ID of the template. This parameter applies to shared templates and private templates.
    * 
-   * >  You must specify only one of the following parameters: TemplateBody, TemplateURL, and TemplateId.
+   * > You can specify only one of the TemplateBody, TemplateURL, and TemplateId parameters.
    * 
    * @example
    * 5ecd1e10-b0e9-4389-a565-e4c15efc****
@@ -124,9 +139,9 @@ export class GetTemplateParameterConstraintsShrinkRequest extends $dara.Model {
   templateId?: string;
   /**
    * @remarks
-   * The URL of the file that contains the template body. The URL must point to a template that is located on an HTTP or HTTPS web server or in an Object Storage Service (OSS) bucket, such as oss://ros/stack-policy/demo or oss://ros/stack-policy/demo?RegionId=cn-hangzhou. The template body can be up to 524,288 bytes in length. If you do not specify the region ID of the OSS bucket, the value of the RegionId parameter is used.
+   * The URL of the file that contains the template body. The URL must point to a template that is located on an HTTP or HTTPS web server or in an Alibaba Cloud OSS bucket, such as oss\\://ros/template/demo or oss\\://ros/template/demo?RegionId=cn-hangzhou. The template must be 1 to 524,288 bytes in length. If the OSS region is not specified, the default is the same as the RegionId parameter.
    * 
-   * >  You must specify only one of the following parameters: TemplateBody, TemplateURL, and TemplateId.
+   * > You can specify only one of the TemplateBody, TemplateURL, and TemplateId parameters.
    * 
    * @example
    * oss://ros-template/demo
@@ -136,7 +151,7 @@ export class GetTemplateParameterConstraintsShrinkRequest extends $dara.Model {
    * @remarks
    * The version of the template. If you do not specify this parameter, the latest version is used.
    * 
-   * >  This parameter takes effect only if the TemplateId parameter is specified.
+   * > TemplateVersion is valid only when TemplateId is specified.
    * 
    * @example
    * v1

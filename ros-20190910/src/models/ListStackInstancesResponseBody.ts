@@ -45,9 +45,11 @@ export class ListStackInstancesResponseBodyStackInstances extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   DRIFTED: The stack has drifted.
-   * *   NOT_CHECKED: No successful drift detection is performed on the stack.
-   * *   IN_SYNC: The stack is being synchronized.
+   * - DRIFTED: The stack has drifted.
+   * 
+   * - NOT_CHECKED: No successful drift detection is performed on the stack.
+   * 
+   * - IN_SYNC: The stack is being synchronized.
    * 
    * > This parameter is returned only if drift detection is performed on the stack group.
    * 
@@ -87,13 +89,15 @@ export class ListStackInstancesResponseBodyStackInstances extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   CURRENT: The stack is up-to-date with the stack group.
+   * - CURRENT: The stack is up-to-date with the stack group.
    * 
-   * *   OUTDATED: The stack is not up-to-date with the stack group. Stacks are in the OUTDATED state due to the following possible reasons:
+   * - OUTDATED: The stack is not up-to-date with the stack group. Stacks are in the OUTDATED state due to the following possible reasons:
    * 
-   *     *   When the CreateStackInstances operation is called to create stacks, the stacks fail to be created.
-   *     *   When the UpdateStackInstances or UpdateStackGroup operation is called to update stacks, the stacks fail to be updated, or only specific stacks are updated.
-   *     *   The creation or update operation is not complete.
+   *   - When the CreateStackInstances operation is called to create stacks, the stacks fail to be created.
+   * 
+   *   - When the UpdateStackInstances or UpdateStackGroup operation is called to update stacks, the stacks fail to be updated, or only specific stacks are updated.
+   * 
+   *   - The creation or update operation is not complete.
    * 
    * @example
    * CURRENT

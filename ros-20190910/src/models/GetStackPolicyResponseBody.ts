@@ -13,7 +13,7 @@ export class GetStackPolicyResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The structure that contains the stack policy body. The stack policy body must be 1 to 16,384 bytes in length.
+   * The stack policy body. Length: 1 to 16,384 bytes.
    * 
    * @example
    * {"Statement": [{"Action": "Update:*", "Effect": "Allow","Principal": "*","Resource": "*"}]}

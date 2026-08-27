@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListStackEventsResponseBodyEvents extends $dara.Model {
   /**
    * @remarks
-   * The time when the event was created. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
+   * The time when the event was created. The time is displayed in UTC+0 and follows the ISO 8601 standard without the Z suffix. Format: YYYY-MM-DDThh:mm:ss.
    * 
    * @example
    * 2019-08-01T04:07:39
@@ -21,7 +21,7 @@ export class ListStackEventsResponseBodyEvents extends $dara.Model {
   eventId?: string;
   /**
    * @remarks
-   * The logical ID of the resource. The logical ID indicates the name of the resource that is defined in the template.
+   * The logical resource ID, which is the resource name defined in the template.
    * 
    * @example
    * WebServer
@@ -61,7 +61,7 @@ export class ListStackEventsResponseBodyEvents extends $dara.Model {
   stackName?: string;
   /**
    * @remarks
-   * The state of the resource.
+   * The status of the resource.
    * 
    * @example
    * CREATE_COMPLETE
@@ -69,7 +69,7 @@ export class ListStackEventsResponseBodyEvents extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The reason why the resource is in the current state.
+   * The reason for the status.
    * 
    * @example
    * state changed
@@ -115,13 +115,13 @@ export class ListStackEventsResponseBodyEvents extends $dara.Model {
 export class ListStackEventsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The events.
+   * The list of event objects.
    */
   events?: ListStackEventsResponseBodyEvents[];
   /**
    * @remarks
-   * The page number of the returned page.\\
-   * Pages start from page 1.\\
+   * The page number of the event list.  
+   * Minimum value: 1.  
    * Default value: 1.
    * 
    * @example
@@ -130,8 +130,8 @@ export class ListStackEventsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.\\
-   * Maximum value: 50.\\
+   * The number of entries per page in a paged query. Settings for paging.  
+   * Maximum value: 50.  
    * Default value: 10.
    * 
    * @example
@@ -148,7 +148,7 @@ export class ListStackEventsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of returned events.
+   * The total number of events.
    * 
    * @example
    * 20

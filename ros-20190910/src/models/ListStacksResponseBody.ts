@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListStacksResponseBodyStacksOperationInfo extends $dara.Model {
   /**
    * @remarks
-   * The name of the API operation that belongs to another Alibaba Cloud service.
+   * The name of the API operation called on another cloud service.
    * 
    * @example
    * DeleteSecurityGroup
@@ -13,7 +13,14 @@ export class ListStacksResponseBodyStacksOperationInfo extends $dara.Model {
   action?: string;
   /**
    * @remarks
-   * The error code.
+   * The error code. Valid values:
+   * 
+   * - Forbidden.RAM: Access denied by RAM.
+   * - InvalidAccountStatus.NotEnoughBalance: Insufficient account balance.
+   * - OrderError.EIP: EIP order error.
+   * - QuotaExceeded.Eip: EIP quota exceeded.
+   * 
+   * This information is generated based on call logs and may be incomplete. Verify the information.
    * 
    * @example
    * DependencyViolation
@@ -37,7 +44,7 @@ export class ListStacksResponseBodyStacksOperationInfo extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request that is initiated to call the API operation of another Alibaba Cloud service.
+   * The request ID of the API call to another cloud service.
    * 
    * @example
    * 071D6166-3F6B-5C7B-A1F0-0113FBB643A8
@@ -45,7 +52,7 @@ export class ListStacksResponseBodyStacksOperationInfo extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The type of the resource on which the operation error occurred.
+   * The resource type on which the operation error occurred.
    * 
    * @example
    * ALIYUN::ECS::SecurityGroup
@@ -125,7 +132,7 @@ export class ListStacksResponseBodyStacksTags extends $dara.Model {
 export class ListStacksResponseBodyStacks extends $dara.Model {
   /**
    * @remarks
-   * The time when the stack was created. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
+   * The time when the stack was created. The time is displayed in UTC+0 in the ISO 8601 standard format without the Z suffix. Format: YYYY-MM-DDThh:mm:ss.
    * 
    * @example
    * 2022-03-10T06:44:36
@@ -134,11 +141,10 @@ export class ListStacksResponseBodyStacks extends $dara.Model {
   /**
    * @remarks
    * Indicates whether deletion protection is enabled for the stack. Valid values:
+   * - Enabled: Deletion protection is enabled.
+   * - Disabled: Deletion protection is disabled. You can delete the stack by using the console or by calling the [DeleteStack](https://help.aliyun.com/document_detail/610812.html) operation.
    * 
-   * *   Enabled: Deletion protection is enabled for the stack.
-   * *   Disabled: Deletion protection is disabled for the stack. In this case, you can delete the stack by using the console or calling the [DeleteStack](https://help.aliyun.com/document_detail/610812.html) operation.
-   * 
-   * >  Deletion protection of a nested stack is the same as that of its root stack.
+   * > The deletion protection mechanism of a nested stack is the same as that of the root stack.
    * 
    * @example
    * Disabled
@@ -148,8 +154,8 @@ export class ListStacksResponseBodyStacks extends $dara.Model {
    * @remarks
    * Indicates whether rollback is disabled when the stack fails to be created. Valid values:
    * 
-   * *   true
-   * *   false (default)
+   * - true: Rollback is disabled.
+   * - false (default): Rollback is enabled.
    * 
    * @example
    * false
@@ -165,9 +171,9 @@ export class ListStacksResponseBodyStacks extends $dara.Model {
   driftDetectionTime?: string;
   /**
    * @remarks
-   * The supplementary information that is returned if an error occurs on a stack operation.
+   * The supplementary information that is returned when an error occurs during a stack operation.
    * 
-   * >  This parameter is returned only under specific conditions, and is returned together with at least one sub-parameter. For example, an error occurred when an API operation of another Alibaba Cloud service was called.
+   * > This response property is returned only in specific cases and contains at least one sub-property. For example, an error occurs when another cloud service API is called.
    */
   operationInfo?: ListStacksResponseBodyStacksOperationInfo;
   /**
@@ -180,7 +186,7 @@ export class ListStacksResponseBodyStacks extends $dara.Model {
   parentStackId?: string;
   /**
    * @remarks
-   * The region ID of the stack. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/131035.html) operation to query the most recent region list.
+   * The region ID of the stack. You can call [DescribeRegions](https://help.aliyun.com/document_detail/131035.html) to query the most recent region list.
    * 
    * @example
    * cn-hangzhou
@@ -188,7 +194,7 @@ export class ListStacksResponseBodyStacks extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The resource group ID.
    * 
    * @example
    * rg-aek2frunvw7****
@@ -196,10 +202,11 @@ export class ListStacksResponseBodyStacks extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * Indicates whether the stack is a managed stack. Valid values:
+   * Indicates whether the stack is a managed stack. Valid values:  
    * 
-   * *   true
-   * *   false
+   * - true: The stack is a managed stack.  
+   * 
+   * - false: The stack is not a managed stack.
    * 
    * @example
    * false
@@ -207,7 +214,7 @@ export class ListStacksResponseBodyStacks extends $dara.Model {
   serviceManaged?: boolean;
   /**
    * @remarks
-   * The name of the service to which the managed stack belongs.
+   * The service name to which the managed stack belongs.
    * 
    * @example
    * ACVS
@@ -215,11 +222,10 @@ export class ListStacksResponseBodyStacks extends $dara.Model {
   serviceName?: string;
   /**
    * @remarks
-   * The state of the stack on which the most recent successful drift detection was performed. Valid values:
-   * 
-   * *   DRIFTED: The stack has drifted.
-   * *   NOT_CHECKED: No successful drift detection is performed on the stack.
-   * *   IN_SYNC: The stack is being synchronized.
+   * The drift status of the stack in the most recent successful drift detection. Valid values:
+   * - DRIFTED: The stack has drifted.
+   * - NOT_CHECKED: No successful drift detection has been performed on the stack.
+   * - IN_SYNC: The stack is in sync.
    * 
    * @example
    * IN_SYNC
@@ -245,8 +251,8 @@ export class ListStacksResponseBodyStacks extends $dara.Model {
    * @remarks
    * The stack type. Valid values:
    * 
-   * *   ROS: ROS stack. The stack is created by using a ROS template.
-   * *   Terraform: Terraform stack. The stack is created by using a Terraform template.
+   * - ROS: The stack uses an ROS template.
+   * - Terraform: The stack uses a Terraform template.
    * 
    * @example
    * ROS
@@ -254,7 +260,7 @@ export class ListStacksResponseBodyStacks extends $dara.Model {
   stackType?: string;
   /**
    * @remarks
-   * The state of the stack.
+   * The stack status.
    * 
    * @example
    * CREATE_COMPLETE
@@ -262,7 +268,7 @@ export class ListStacksResponseBodyStacks extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The reason why the stack is in its current state.
+   * The reason why the stack is in its current status.
    * 
    * @example
    * Stack CREATE completed successfully
@@ -275,7 +281,9 @@ export class ListStacksResponseBodyStacks extends $dara.Model {
   tags?: ListStacksResponseBodyStacksTags[];
   /**
    * @remarks
-   * The timeout period for creating the stack. Unit: minutes.
+   * The timeout period for creating the stack. Unit: minutes. Valid values: 10, 20, 60, 120, and 1440.
+   * 
+   * This information is generated based on call logs and may be incomplete. Verify the information.
    * 
    * @example
    * 60
@@ -283,7 +291,7 @@ export class ListStacksResponseBodyStacks extends $dara.Model {
   timeoutInMinutes?: number;
   /**
    * @remarks
-   * The time when the stack was updated. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
+   * The time when the stack was last updated. The time is displayed in UTC+0 in the ISO 8601 standard format without the Z suffix. Format: YYYY-MM-DDThh:mm:ss.
    * 
    * @example
    * 2022-03-10T07:44:36
@@ -355,7 +363,7 @@ export class ListStacksResponseBodyStacks extends $dara.Model {
 export class ListStacksResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The page number.
+   * The page number of the stack list.
    * 
    * @example
    * 1
@@ -363,10 +371,10 @@ export class ListStacksResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries per page in paging Settings.  
    * 
    * Maximum value: 50.
-   * 
+   *   
    * Default value: 10.
    * 
    * @example
@@ -383,7 +391,7 @@ export class ListStacksResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Details of the stacks.
+   * The list of stacks.
    */
   stacks?: ListStacksResponseBodyStacks[];
   /**

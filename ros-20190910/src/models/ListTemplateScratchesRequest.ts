@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ListTemplateScratchesRequestTags extends $dara.Model {
   /**
    * @remarks
-   * The tag key of the scenario.
+   * The tag key of the resource scenario.
    * 
-   * > Tags is optional. If you want to specify Tags, you must specify Key.
+   * > Tags is optional. If you specify Tags, you must specify Tags.N.Key.
    * 
    * This parameter is required.
    * 
@@ -17,7 +17,7 @@ export class ListTemplateScratchesRequestTags extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value of the scenario.
+   * The tag value of the resource scenario.
    * 
    * @example
    * test
@@ -49,11 +49,11 @@ export class ListTemplateScratchesRequestTags extends $dara.Model {
 export class ListTemplateScratchesRequest extends $dara.Model {
   /**
    * @remarks
-   * The number of the page to return.
+   * The page number of the resource scenario list.
    * 
-   * Pages start from page 1.
+   * Start value: 1.
    * 
-   * Default value: 1
+   * Default value: 1.
    * 
    * @example
    * 1
@@ -61,7 +61,7 @@ export class ListTemplateScratchesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The number of entries per page in a paged query. Settings for paging.
    * 
    * Maximum value: 50.
    * 
@@ -73,9 +73,9 @@ export class ListTemplateScratchesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region ID of the scenario.
+   * The region ID of the resource scenario.
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/131035.html) operation to query the most recent region list.
+   * You can call [DescribeRegions](https://help.aliyun.com/document_detail/131035.html) to query the most recent region list.
    * 
    * This parameter is required.
    * 
@@ -85,7 +85,7 @@ export class ListTemplateScratchesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The resource group ID.
    * 
    * @example
    * rg-acfmxazb4ph6aiy****
@@ -93,11 +93,11 @@ export class ListTemplateScratchesRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The status of the scenario. Valid values:
+   * The status of the resource scenario. Valid values:
    * 
-   * *   GENERATE_IN_PROGRESS: The scenario is being created.
-   * *   GENERATE_COMPLETE: The scenario is created.
-   * *   GENERATE_FAILED: The scenario fails to be created.
+   * - GENERATE_IN_PROGRESS: being generated.
+   * - GENERATE_COMPLETE: generated.
+   * - GENERATE_FAILED: failed to be generated.
    * 
    * @example
    * ["GENERATE_COMPLETE"]
@@ -105,12 +105,12 @@ export class ListTemplateScratchesRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The tags of the scenario.
+   * The tags of the resource scenario.
    */
   tags?: ListTemplateScratchesRequestTags[];
   /**
    * @remarks
-   * The ID of the scenario.
+   * The ID of the resource scenario.
    * 
    * @example
    * ts-7f7a704cf71c49a6****
@@ -120,10 +120,13 @@ export class ListTemplateScratchesRequest extends $dara.Model {
    * @remarks
    * The type of the resource scenario. Valid values:
    * 
-   * *   ArchitectureReplication: resource replication
-   * *   ArchitectureDetection: resource detection
-   * *   ResourceImport: resource management
-   * *   ResourceMigration: resource migration
+   * - ArchitectureReplication: resource replication.
+   * 
+   * - ArchitectureDetection: resource detection.
+   * 
+   * - ResourceImport: resource management.
+   * 
+   * - ResourceMigration: resource migration.
    * 
    * @example
    * ArchitectureReplication

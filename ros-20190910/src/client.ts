@@ -11,7 +11,51 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApiUtil.Config) {
     super(config);
-    this._endpointRule = "central";
+    this._endpointRule = "regional";
+    this._endpointMap = {
+      'ap-northeast-1': "ros.aliyuncs.com",
+      'ap-northeast-2': "ros.aliyuncs.com",
+      'ap-southeast-1': "ros.aliyuncs.com",
+      'ap-southeast-2': "ros.aliyuncs.com",
+      'ap-southeast-3': "ros.aliyuncs.com",
+      'ap-southeast-5': "ros.aliyuncs.com",
+      'ap-southeast-6': "ros.aliyuncs.com",
+      'ap-southeast-7': "ros.aliyuncs.com",
+      'ap-southeast-8': "ros.aliyuncs.com",
+      'cn-beijing': "ros.aliyuncs.com",
+      'cn-chengdu': "ros.aliyuncs.com",
+      'cn-fuzhou': "ros.aliyuncs.com",
+      'cn-guangzhou': "ros.aliyuncs.com",
+      'cn-hangzhou': "ros.aliyuncs.com",
+      'cn-heyuan': "ros.aliyuncs.com",
+      'cn-hongkong': "ros.aliyuncs.com",
+      'cn-huhehaote': "ros.aliyuncs.com",
+      'cn-nanjing': "ros.aliyuncs.com",
+      'cn-qingdao': "ros.aliyuncs.com",
+      'cn-shanghai': "ros.aliyuncs.com",
+      'cn-shenzhen': "ros.aliyuncs.com",
+      'cn-wuhan-lr': "ros.aliyuncs.com",
+      'cn-wulanchabu': "ros.aliyuncs.com",
+      'cn-zhangjiakou': "ros.aliyuncs.com",
+      'cn-zhengzhou-jva': "ros.aliyuncs.com",
+      'cn-zhongwei': "ros.aliyuncs.com",
+      'eu-central-1': "ros.aliyuncs.com",
+      'eu-west-1': "ros.aliyuncs.com",
+      'eu-west-2': "ros.aliyuncs.com",
+      'na-south-1': "ros.aliyuncs.com",
+      'sa-east-1': "ros.aliyuncs.com",
+      'us-east-1': "ros.aliyuncs.com",
+      'us-southeast-1': "ros.aliyuncs.com",
+      'us-west-1': "ros.aliyuncs.com",
+      'ap-south-1': "ros.aliyuncs.com",
+      'me-central-1': "ros.aliyuncs.com",
+      'me-east-1': "ros.aliyuncs.com",
+      'cn-hangzhou-finance': "ros.aliyuncs.com",
+      'cn-heyuan-acdr-1': "ros.aliyuncs.com",
+      'cn-shanghai-finance-1': "ros.aliyuncs.com",
+      'cn-shenzhen-finance-1': "ros.aliyuncs.com",
+      'cn-wulanchabu-gic-1': "ros.aliyuncs.com",
+    };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("ros", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
@@ -292,24 +336,24 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a change set for a stack. You can view proposed changes before you execute the change set.
+   * Creates a change set for a stack so you can preview changes before execution.
    * 
    * @remarks
-   * ### [](#)Scenarios
-   * #### [](#)Use a change set to create a stack
-   * If you want to manage a large number of cloud resources and preview the creation effect of the resources before a stack that contains the resources is created, you can create the stack by using a change set. In this case, you must set `ChangeSetType` to CREATE and configure the relevant parameters. For more information about change sets, see [Change set](https://help.aliyun.com/document_detail/155649.html).
-   * #### [](#)Use a change set to update a stack
-   * If you want to preview the impacts of changes to an existing stack before you update the stack resources, you can create a change set for the stack. In this case, you must set ChangeSetType to UPDATE and configure the relevant parameters. For more information about change sets, see [Change set](https://help.aliyun.com/document_detail/155649.html).
-   * #### [](#)Use a change set and existing resources to create a stack
-   * If you want to add existing cloud resources to a new stack for centralized management, you can use a change set to create a stack and import the resources to the stack. In this case, you must set ChangeSetType to IMPORT and configure the relevant parameters. For more information about the resource import feature, see [Overview](https://help.aliyun.com/document_detail/193454.html).
-   * #### [](#)Use a change set and existing resources to update a stack
-   * If you want to import existing resources to an existing stack for centralized management, you can use a change set to update the stack. In this case, you must set ChangeSetType to IMPORT and configure the relevant parameters. For more information about the resource import feature, see [Overview](https://help.aliyun.com/document_detail/193454.html).
-   * ### [](#)Limits
-   * *   You can use change sets to update only stacks that are in specific states. For more information, see [Use a change set to update a stack](https://help.aliyun.com/document_detail/155873.html).
-   * *   A stack can have up to 20 change sets.
-   * *   Change sets reflect only the changes to stacks. Change sets do not reflect whether stacks can be successfully updated.
-   * *   A change set does not check if you exceed an account limit, if you update resources that cannot be updated, or if you have insufficient permissions to modify resources, all of which can cause a stack update to fail. If a stack update fails, Resource Orchestration Service (ROS) attempts to roll back your resources to their original status.
-   * This topic provides an example on how to use a change set to update a stack. In this example, a change set named `MyChangeSet` is created in the `China (Hangzhou)` region. The template of a stack whose ID is `4a6c9851-3b0f-4f5f-b4ca-a14bf691****` is updated to `{"ROSTemplateFormatVersion":"2015-09-01"}`.
+   * ### Scenarios
+   * #### Create a stack using a change set
+   * To manage cloud resources and preview creation results before the stack is created, set `ChangeSetType` to CREATE. [Change sets](https://help.aliyun.com/document_detail/155649.html).
+   * #### Update a stack using a change set
+   * To preview the impact of an update before applying changes, set `ChangeSetType` to UPDATE. [Change sets](https://help.aliyun.com/document_detail/155649.html).
+   * #### Create a stack from existing resources
+   * To import existing cloud resources into a new stack, set `ChangeSetType` to IMPORT. [Overview](https://help.aliyun.com/document_detail/193454.html).
+   * #### Import existing resources to a stack
+   * To import existing resources into an existing stack, set `ChangeSetType` to IMPORT. [Overview](https://help.aliyun.com/document_detail/193454.html).
+   * ### Limits
+   * - Only stacks in specific states can be updated using change sets. [Update a stack using a change set](https://help.aliyun.com/document_detail/155873.html).
+   * - A stack can have a maximum of 20 change sets at a time.
+   * - A change set shows only the changes to a stack. It does not indicate whether the stack will be successfully updated.
+   * - A change set does not check for issues such as exceeded account quotas, non-updatable resources, or insufficient permissions. These issues can cause the stack update to fail. If the update fails, ROS attempts to roll back resources to their previous state.
+   * In this example, a change set named `MyChangeSet` is created in the China (Hangzhou) region (`cn-hangzhou`) to update the template of stack `4a6c9851-3b0f-4f5f-b4ca-a14bf691****` to `{"ROSTemplateFormatVersion":"2015-09-01"}`.
    * 
    * @param request - CreateChangeSetRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -450,24 +494,24 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a change set for a stack. You can view proposed changes before you execute the change set.
+   * Creates a change set for a stack so you can preview changes before execution.
    * 
    * @remarks
-   * ### [](#)Scenarios
-   * #### [](#)Use a change set to create a stack
-   * If you want to manage a large number of cloud resources and preview the creation effect of the resources before a stack that contains the resources is created, you can create the stack by using a change set. In this case, you must set `ChangeSetType` to CREATE and configure the relevant parameters. For more information about change sets, see [Change set](https://help.aliyun.com/document_detail/155649.html).
-   * #### [](#)Use a change set to update a stack
-   * If you want to preview the impacts of changes to an existing stack before you update the stack resources, you can create a change set for the stack. In this case, you must set ChangeSetType to UPDATE and configure the relevant parameters. For more information about change sets, see [Change set](https://help.aliyun.com/document_detail/155649.html).
-   * #### [](#)Use a change set and existing resources to create a stack
-   * If you want to add existing cloud resources to a new stack for centralized management, you can use a change set to create a stack and import the resources to the stack. In this case, you must set ChangeSetType to IMPORT and configure the relevant parameters. For more information about the resource import feature, see [Overview](https://help.aliyun.com/document_detail/193454.html).
-   * #### [](#)Use a change set and existing resources to update a stack
-   * If you want to import existing resources to an existing stack for centralized management, you can use a change set to update the stack. In this case, you must set ChangeSetType to IMPORT and configure the relevant parameters. For more information about the resource import feature, see [Overview](https://help.aliyun.com/document_detail/193454.html).
-   * ### [](#)Limits
-   * *   You can use change sets to update only stacks that are in specific states. For more information, see [Use a change set to update a stack](https://help.aliyun.com/document_detail/155873.html).
-   * *   A stack can have up to 20 change sets.
-   * *   Change sets reflect only the changes to stacks. Change sets do not reflect whether stacks can be successfully updated.
-   * *   A change set does not check if you exceed an account limit, if you update resources that cannot be updated, or if you have insufficient permissions to modify resources, all of which can cause a stack update to fail. If a stack update fails, Resource Orchestration Service (ROS) attempts to roll back your resources to their original status.
-   * This topic provides an example on how to use a change set to update a stack. In this example, a change set named `MyChangeSet` is created in the `China (Hangzhou)` region. The template of a stack whose ID is `4a6c9851-3b0f-4f5f-b4ca-a14bf691****` is updated to `{"ROSTemplateFormatVersion":"2015-09-01"}`.
+   * ### Scenarios
+   * #### Create a stack using a change set
+   * To manage cloud resources and preview creation results before the stack is created, set `ChangeSetType` to CREATE. [Change sets](https://help.aliyun.com/document_detail/155649.html).
+   * #### Update a stack using a change set
+   * To preview the impact of an update before applying changes, set `ChangeSetType` to UPDATE. [Change sets](https://help.aliyun.com/document_detail/155649.html).
+   * #### Create a stack from existing resources
+   * To import existing cloud resources into a new stack, set `ChangeSetType` to IMPORT. [Overview](https://help.aliyun.com/document_detail/193454.html).
+   * #### Import existing resources to a stack
+   * To import existing resources into an existing stack, set `ChangeSetType` to IMPORT. [Overview](https://help.aliyun.com/document_detail/193454.html).
+   * ### Limits
+   * - Only stacks in specific states can be updated using change sets. [Update a stack using a change set](https://help.aliyun.com/document_detail/155873.html).
+   * - A stack can have a maximum of 20 change sets at a time.
+   * - A change set shows only the changes to a stack. It does not indicate whether the stack will be successfully updated.
+   * - A change set does not check for issues such as exceeded account quotas, non-updatable resources, or insufficient permissions. These issues can cause the stack update to fail. If the update fails, ROS attempts to roll back resources to their previous state.
+   * In this example, a change set named `MyChangeSet` is created in the China (Hangzhou) region (`cn-hangzhou`) to update the template of stack `4a6c9851-3b0f-4f5f-b4ca-a14bf691****` to `{"ROSTemplateFormatVersion":"2015-09-01"}`.
    * 
    * @param request - CreateChangeSetRequest
    * @returns CreateChangeSetResponse
@@ -532,14 +576,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a stack that contains a collection of resources by using a Resource Orchestration Service (ROS) template.
+   * Creates a stack from a ROS template to deploy a group of resources.
    * 
    * @remarks
-   * A stack is a collection of ROS resources that you can manage as a single unit. To create a collection of resources, you can create a stack. For more information about stacks, see [Overview](https://help.aliyun.com/document_detail/172973.html).\\
-   * When you call the operation, take note of the following limits:
-   * *   You can create up to 200 stacks within an Alibaba Cloud account.
-   * *   You can create up to 200 resources in a stack.
-   * This topic provides an example on how to create a stack named `MyStack` in the China (Hangzhou) region by using a template. In this example, `TemplateBody` is set to `{"ROSTemplateFormatVersion":"2015-09-01"}`.
+   * A stack is the management unit for ROS resources ([Overview](https://help.aliyun.com/document_detail/172973.html)). Limits:
+   * - Each Alibaba Cloud account can create up to 200 stacks.
+   * - Each stack can contain up to 200 resources.
+   * The following example creates a stack named `MyStack` in the China (Hangzhou) region with `TemplateBody` set to `{"ROSTemplateFormatVersion":"2015-09-01"}`.
    * 
    * @param request - CreateStackRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -656,14 +699,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a stack that contains a collection of resources by using a Resource Orchestration Service (ROS) template.
+   * Creates a stack from a ROS template to deploy a group of resources.
    * 
    * @remarks
-   * A stack is a collection of ROS resources that you can manage as a single unit. To create a collection of resources, you can create a stack. For more information about stacks, see [Overview](https://help.aliyun.com/document_detail/172973.html).\\
-   * When you call the operation, take note of the following limits:
-   * *   You can create up to 200 stacks within an Alibaba Cloud account.
-   * *   You can create up to 200 resources in a stack.
-   * This topic provides an example on how to create a stack named `MyStack` in the China (Hangzhou) region by using a template. In this example, `TemplateBody` is set to `{"ROSTemplateFormatVersion":"2015-09-01"}`.
+   * A stack is the management unit for ROS resources ([Overview](https://help.aliyun.com/document_detail/172973.html)). Limits:
+   * - Each Alibaba Cloud account can create up to 200 stacks.
+   * - Each stack can contain up to 200 resources.
+   * The following example creates a stack named `MyStack` in the China (Hangzhou) region with `TemplateBody` set to `{"ROSTemplateFormatVersion":"2015-09-01"}`.
    * 
    * @param request - CreateStackRequest
    * @returns CreateStackResponse
@@ -674,15 +716,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates stack groups based on Resource Orchestration Service (ROS) templates. Stack groups allow you to create stacks within multiple Alibaba Cloud accounts across regions.
+   * Creates a stack group from an ROS template to create stacks across multiple Alibaba Cloud accounts and regions.
    * 
    * @remarks
-   * A stack group is a collection of ROS stacks that you can manage as a unit. You can use an ROS template of a stack group to create stacks within Alibaba Cloud accounts across regions.
-   * You can create a stack group that is granted self-managed or service-managed permissions:
-   * *   If you use an Alibaba Cloud account to create a self-managed stack group, the administrator account and the execution account are Alibaba Cloud accounts.
-   * *   If you enable a resource directory and use the management account or a delegated administrator account of the resource directory to create a service-managed stack group, the administrator account is the management account or delegated administrator account, and the execution account is a member account of the resource directory.
-   * For more information about stack groups, see [Overview](https://help.aliyun.com/document_detail/154578.html).
-   * In this topic, a stack group named `MyStackGroup` is created in the `China (Hangzhou)` region and granted the self-managed permissions. In this example, the template whose ID is `5ecd1e10-b0e9-4389-a565-e4c15efc****` is used.
+   * A stack group manages multiple ROS stacks as a unit, enabling you to create stacks across Alibaba Cloud accounts and regions.
+   * Stack groups support two permission models:
+   * - Self-managed: Both the administrator and execution accounts are Alibaba Cloud accounts.
+   * - Service-managed: The administrator account is the management account or delegated administrator account of a resource directory. The execution account is a member account of that directory.
+   * [Overview](https://help.aliyun.com/document_detail/154578.html).
+   * This example creates a self-managed stack group named `MyStackGroup` in the `China (Hangzhou)` region using template `5ecd1e10-b0e9-4389-a565-e4c15efc****`.
    * 
    * @param tmpReq - CreateStackGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -785,15 +827,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates stack groups based on Resource Orchestration Service (ROS) templates. Stack groups allow you to create stacks within multiple Alibaba Cloud accounts across regions.
+   * Creates a stack group from an ROS template to create stacks across multiple Alibaba Cloud accounts and regions.
    * 
    * @remarks
-   * A stack group is a collection of ROS stacks that you can manage as a unit. You can use an ROS template of a stack group to create stacks within Alibaba Cloud accounts across regions.
-   * You can create a stack group that is granted self-managed or service-managed permissions:
-   * *   If you use an Alibaba Cloud account to create a self-managed stack group, the administrator account and the execution account are Alibaba Cloud accounts.
-   * *   If you enable a resource directory and use the management account or a delegated administrator account of the resource directory to create a service-managed stack group, the administrator account is the management account or delegated administrator account, and the execution account is a member account of the resource directory.
-   * For more information about stack groups, see [Overview](https://help.aliyun.com/document_detail/154578.html).
-   * In this topic, a stack group named `MyStackGroup` is created in the `China (Hangzhou)` region and granted the self-managed permissions. In this example, the template whose ID is `5ecd1e10-b0e9-4389-a565-e4c15efc****` is used.
+   * A stack group manages multiple ROS stacks as a unit, enabling you to create stacks across Alibaba Cloud accounts and regions.
+   * Stack groups support two permission models:
+   * - Self-managed: Both the administrator and execution accounts are Alibaba Cloud accounts.
+   * - Service-managed: The administrator account is the management account or delegated administrator account of a resource directory. The execution account is a member account of that directory.
+   * [Overview](https://help.aliyun.com/document_detail/154578.html).
+   * This example creates a self-managed stack group named `MyStackGroup` in the `China (Hangzhou)` region using template `5ecd1e10-b0e9-4389-a565-e4c15efc****`.
    * 
    * @param request - CreateStackGroupRequest
    * @returns CreateStackGroupResponse
@@ -804,11 +846,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates stack instances in the specified accounts and regions.
+   * Creates stack instances for one or more accounts in the specified regions.
    * 
    * @remarks
-   * Before you call this operation, make sure that a stack group is created. For more information, see [CreateStackGroup](https://help.aliyun.com/document_detail/151333.html).
-   * In this topic, the stack group named `MyStackGroup` is used. The stack group is created in the China (Hangzhou) region and granted the self-managed permissions. In this example, stacks are created by using Alibaba Cloud accounts whose IDs are `151266687691****` and `141261387191****` in the China (Hangzhou) region and China (Beijing) region.
+   * ### Prerequisites
+   * Ensure that a stack group is created. For more information, see [CreateStackGroup](https://help.aliyun.com/document_detail/151333.html).
+   * ### Scenarios
+   * #### Create stacks across accounts
+   * To create identical resources in multiple accounts, an administrator account can create a stack group, add multiple destination accounts, and deploy resources in a single region. This process creates multiple stacks in different accounts within the same region, improving deployment efficiency.
+   * #### Create stacks across regions
+   * To create identical resources in multiple regions, an administrator account can create a stack group, add a destination account, and deploy resources in multiple regions. This process creates multiple stacks in different regions within the same account, improving deployment efficiency.
+   * #### Create stacks across accounts and regions
+   * To create identical resources in multiple accounts across multiple regions, an administrator account can create a stack group, add multiple destination accounts, and deploy resources in multiple regions. This process creates multiple stacks in different accounts across different regions, improving deployment efficiency.
+   * This topic provides an example of creating stacks in the China (Hangzhou) and China (Beijing) regions in the Alibaba Cloud accounts `151266687691****` and `141261387191****`. The example uses a stack group named `MyStackGroup` that is created in the China (Hangzhou) region and uses self-managed permissions.
    * 
    * @param tmpReq - CreateStackInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -901,11 +951,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates stack instances in the specified accounts and regions.
+   * Creates stack instances for one or more accounts in the specified regions.
    * 
    * @remarks
-   * Before you call this operation, make sure that a stack group is created. For more information, see [CreateStackGroup](https://help.aliyun.com/document_detail/151333.html).
-   * In this topic, the stack group named `MyStackGroup` is used. The stack group is created in the China (Hangzhou) region and granted the self-managed permissions. In this example, stacks are created by using Alibaba Cloud accounts whose IDs are `151266687691****` and `141261387191****` in the China (Hangzhou) region and China (Beijing) region.
+   * ### Prerequisites
+   * Ensure that a stack group is created. For more information, see [CreateStackGroup](https://help.aliyun.com/document_detail/151333.html).
+   * ### Scenarios
+   * #### Create stacks across accounts
+   * To create identical resources in multiple accounts, an administrator account can create a stack group, add multiple destination accounts, and deploy resources in a single region. This process creates multiple stacks in different accounts within the same region, improving deployment efficiency.
+   * #### Create stacks across regions
+   * To create identical resources in multiple regions, an administrator account can create a stack group, add a destination account, and deploy resources in multiple regions. This process creates multiple stacks in different regions within the same account, improving deployment efficiency.
+   * #### Create stacks across accounts and regions
+   * To create identical resources in multiple accounts across multiple regions, an administrator account can create a stack group, add multiple destination accounts, and deploy resources in multiple regions. This process creates multiple stacks in different accounts across different regions, improving deployment efficiency.
+   * This topic provides an example of creating stacks in the China (Hangzhou) and China (Beijing) regions in the Alibaba Cloud accounts `151266687691****` and `141261387191****`. The example uses a stack group named `MyStackGroup` that is created in the China (Hangzhou) region and uses self-managed permissions.
    * 
    * @param request - CreateStackInstancesRequest
    * @returns CreateStackInstancesResponse
@@ -919,7 +977,7 @@ export default class Client extends OpenApi {
    * Creates a custom template.
    * 
    * @remarks
-   * In this topic, a custom template named `MyTemplate` is created in the `cn-hangzhou` region. The `TemplateBody` parameter of the template is set to `{"ROSTemplateFormatVersion": "2015-09-01"}`.
+   * This topic provides an example of how to create a template named `MyTemplate` in the China (Hangzhou) region (`cn-hangzhou`). The `TemplateBody` parameter is set to `{"ROSTemplateFormatVersion": "2015-09-01"}`.
    * 
    * @param request - CreateTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -979,7 +1037,7 @@ export default class Client extends OpenApi {
    * Creates a custom template.
    * 
    * @remarks
-   * In this topic, a custom template named `MyTemplate` is created in the `cn-hangzhou` region. The `TemplateBody` parameter of the template is set to `{"ROSTemplateFormatVersion": "2015-09-01"}`.
+   * This topic provides an example of how to create a template named `MyTemplate` in the China (Hangzhou) region (`cn-hangzhou`). The `TemplateBody` parameter is set to `{"ROSTemplateFormatVersion": "2015-09-01"}`.
    * 
    * @param request - CreateTemplateRequest
    * @returns CreateTemplateResponse
@@ -990,22 +1048,22 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a resource scenario.
+   * Creates templatescratch: scenario.
    * 
    * @remarks
-   * ### [](#)Limits
-   * Only specific resource types support the resource scenario feature. For more information, see [Resource types that support the scenario feature](https://help.aliyun.com/document_detail/353175.htmll).
-   * ### [](#)Description
-   * Resource Orchestration Service (ROS) provides the resource scenario feature that allows you to specify the scope of a collection of resources on a user interface (UI) and perform operations, such as replication and management, on the resources. This helps you manage resources in a simplified manner. For more information about resource scenarios, see [Overview](https://help.aliyun.com/document_detail/352074.html).
-   * #### [](#)Resource replication scenario
-   * If you want to replicate a collection of resources and dependencies between the resources, you can create a resource replication scenario. This type of resource scenario allows you to replicate all existing resources within the specified scope and generate a collection of resources that have the same architecture as the existing resources. For more information, see [Resource replication scenario](https://help.aliyun.com/document_detail/353133.html).
-   * #### [](#)Resource detection scenario
-   * If the relationships between resources that you want to create are complicated, you can create a resource detection scenario to preview the overall resource architecture or the architecture of a specific resource. This facilitates resource management. For more information, see [Resource detection scenario](https://help.aliyun.com/document_detail/2591901.html).
-   * #### [](#)Resource management scenario
-   * If you want to import a collection of existing resources to a stack and manage the resources in a centralized manner, you can create a resource management scenario. For more information, see [Resource management scenario](https://help.aliyun.com/document_detail/353163.html).
-   * #### [](#)Resource migration scenario
-   * If you want to migrate a collection of resources and dependencies between the resources, you can create a resource migration scenario. When you migrate the resources, ROS generates a stack. You can view the migration progress on the Stacks tab of the scenario details page. After you migrate the resources, you can delete source resources. For more information, see [Resource migration scenario](https://help.aliyun.com/document_detail/379902.html).
-   * This topic provides an example on how to create a resource replication scenario in the China (Hangzhou) region to replicate a resource. In this example, a virtual private cloud (VPC) whose ID is `vpc-bp1m6fww66xbntjyc****` is replicated.
+   * ### Limits
+   * Only specific resource types support the resource scenario feature. For more information, refer to [Resource types that support scenarios](https://help.aliyun.com/document_detail/353175.html).
+   * ### Description
+   * Resource Orchestration Service (ROS) provides the resource scenario feature. You can select a resource scope in the UI and perform operations such as replication or management of a group of resources, helping simplify resource management. For more information about resource scenarios, refer to [Overview](https://help.aliyun.com/document_detail/352074.html).
+   * #### Resource replication scenario
+   * If you want to replicate a collection of resources and dependencies between the resources, you can create a resource replication scenario. This type of scenario lets you replicate all existing resources within the specified scope and generate a collection of resources that have the same architecture as the existing resources. For more information, refer to [Resource replication scenario](https://help.aliyun.com/document_detail/353133.html).
+   * #### Resource profiling scenario
+   * If the relationships between resources that you want to create are complicated, you can create a resource profiling scenario to preview the overall resource architecture or the architecture starting from a specific resource. This helps simplify resource management. For more information, refer to [Resource detection scenario](https://help.aliyun.com/document_detail/2591901.html).
+   * #### Resource management scenario
+   * If you need to import a collection of existing resources into a new resource stack for unified management, you can create a resource management scenario. For more information, refer to [Resource management scenario](https://help.aliyun.com/document_detail/353163.html).
+   * #### Resource migration scenario
+   * If you want to migrate a collection of resources and dependencies between the resources, you can create a resource migration scenario. When you migrate the resources, ROS generates a stack. You can view the migration progress on the Stacks tab of the scenario details page. After you migrate the resources, you can delete source resources. For more information, refer to [Resource migration scenario](https://help.aliyun.com/document_detail/379902.html).
+   * This topic provides an example of how to create a resource replication scenario in the China (Hangzhou) region to replicate a virtual private cloud (VPC) with the ID of `vpc-bp1m6fww66xbntjyc****`.
    * 
    * @param tmpReq - CreateTemplateScratchRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1098,22 +1156,22 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a resource scenario.
+   * Creates templatescratch: scenario.
    * 
    * @remarks
-   * ### [](#)Limits
-   * Only specific resource types support the resource scenario feature. For more information, see [Resource types that support the scenario feature](https://help.aliyun.com/document_detail/353175.htmll).
-   * ### [](#)Description
-   * Resource Orchestration Service (ROS) provides the resource scenario feature that allows you to specify the scope of a collection of resources on a user interface (UI) and perform operations, such as replication and management, on the resources. This helps you manage resources in a simplified manner. For more information about resource scenarios, see [Overview](https://help.aliyun.com/document_detail/352074.html).
-   * #### [](#)Resource replication scenario
-   * If you want to replicate a collection of resources and dependencies between the resources, you can create a resource replication scenario. This type of resource scenario allows you to replicate all existing resources within the specified scope and generate a collection of resources that have the same architecture as the existing resources. For more information, see [Resource replication scenario](https://help.aliyun.com/document_detail/353133.html).
-   * #### [](#)Resource detection scenario
-   * If the relationships between resources that you want to create are complicated, you can create a resource detection scenario to preview the overall resource architecture or the architecture of a specific resource. This facilitates resource management. For more information, see [Resource detection scenario](https://help.aliyun.com/document_detail/2591901.html).
-   * #### [](#)Resource management scenario
-   * If you want to import a collection of existing resources to a stack and manage the resources in a centralized manner, you can create a resource management scenario. For more information, see [Resource management scenario](https://help.aliyun.com/document_detail/353163.html).
-   * #### [](#)Resource migration scenario
-   * If you want to migrate a collection of resources and dependencies between the resources, you can create a resource migration scenario. When you migrate the resources, ROS generates a stack. You can view the migration progress on the Stacks tab of the scenario details page. After you migrate the resources, you can delete source resources. For more information, see [Resource migration scenario](https://help.aliyun.com/document_detail/379902.html).
-   * This topic provides an example on how to create a resource replication scenario in the China (Hangzhou) region to replicate a resource. In this example, a virtual private cloud (VPC) whose ID is `vpc-bp1m6fww66xbntjyc****` is replicated.
+   * ### Limits
+   * Only specific resource types support the resource scenario feature. For more information, refer to [Resource types that support scenarios](https://help.aliyun.com/document_detail/353175.html).
+   * ### Description
+   * Resource Orchestration Service (ROS) provides the resource scenario feature. You can select a resource scope in the UI and perform operations such as replication or management of a group of resources, helping simplify resource management. For more information about resource scenarios, refer to [Overview](https://help.aliyun.com/document_detail/352074.html).
+   * #### Resource replication scenario
+   * If you want to replicate a collection of resources and dependencies between the resources, you can create a resource replication scenario. This type of scenario lets you replicate all existing resources within the specified scope and generate a collection of resources that have the same architecture as the existing resources. For more information, refer to [Resource replication scenario](https://help.aliyun.com/document_detail/353133.html).
+   * #### Resource profiling scenario
+   * If the relationships between resources that you want to create are complicated, you can create a resource profiling scenario to preview the overall resource architecture or the architecture starting from a specific resource. This helps simplify resource management. For more information, refer to [Resource detection scenario](https://help.aliyun.com/document_detail/2591901.html).
+   * #### Resource management scenario
+   * If you need to import a collection of existing resources into a new resource stack for unified management, you can create a resource management scenario. For more information, refer to [Resource management scenario](https://help.aliyun.com/document_detail/353163.html).
+   * #### Resource migration scenario
+   * If you want to migrate a collection of resources and dependencies between the resources, you can create a resource migration scenario. When you migrate the resources, ROS generates a stack. You can view the migration progress on the Stacks tab of the scenario details page. After you migrate the resources, you can delete source resources. For more information, refer to [Resource migration scenario](https://help.aliyun.com/document_detail/379902.html).
+   * This topic provides an example of how to create a resource replication scenario in the China (Hangzhou) region to replicate a virtual private cloud (VPC) with the ID of `vpc-bp1m6fww66xbntjyc****`.
    * 
    * @param request - CreateTemplateScratchRequest
    * @returns CreateTemplateScratchResponse
@@ -1127,12 +1185,12 @@ export default class Client extends OpenApi {
    * Deletes change sets.
    * 
    * @remarks
-   *   Before you call this operation, make sure that the following requirements are met:
-   *     *   The status of the change set is CREATE_COMPLETE, CREATE_FAILED, or DELETE_FAILED.
-   *     *   The execution status is UNAVAILABLE or AVAILABLE.
-   * *   After a change set is executed, other change sets associated with the same stack as this change set are also deleted.
-   * *   After a stack is deleted, change sets associated with the stack are deleted.
-   * *   If a change set of the CREATE type is deleted, you must delete stacks associated with the change set.
+   * - Before you call this operation, make sure that the following requirements are met:
+   *   - The status of the change set is CREATE_COMPLETE, CREATE_FAILED, or DELETE_FAILED.
+   *   - The execution status is UNAVAILABLE or AVAILABLE.
+   * - After a change set is executed, other change sets associated with the same stack as this change set are also deleted.
+   * - After a stack is deleted, change sets associated with the stack are deleted.
+   * - If a change set of the CREATE type is deleted, you must delete stacks associated with the change set.
    * In this example, a change set whose ID is `1f6521a4-05af-4975-afe9-bc4b45ad****` is deleted. The change set is created in the China (Hangzhou) region.
    * 
    * @param request - DeleteChangeSetRequest
@@ -1171,12 +1229,12 @@ export default class Client extends OpenApi {
    * Deletes change sets.
    * 
    * @remarks
-   *   Before you call this operation, make sure that the following requirements are met:
-   *     *   The status of the change set is CREATE_COMPLETE, CREATE_FAILED, or DELETE_FAILED.
-   *     *   The execution status is UNAVAILABLE or AVAILABLE.
-   * *   After a change set is executed, other change sets associated with the same stack as this change set are also deleted.
-   * *   After a stack is deleted, change sets associated with the stack are deleted.
-   * *   If a change set of the CREATE type is deleted, you must delete stacks associated with the change set.
+   * - Before you call this operation, make sure that the following requirements are met:
+   *   - The status of the change set is CREATE_COMPLETE, CREATE_FAILED, or DELETE_FAILED.
+   *   - The execution status is UNAVAILABLE or AVAILABLE.
+   * - After a change set is executed, other change sets associated with the same stack as this change set are also deleted.
+   * - After a stack is deleted, change sets associated with the stack are deleted.
+   * - If a change set of the CREATE type is deleted, you must delete stacks associated with the change set.
    * In this example, a change set whose ID is `1f6521a4-05af-4975-afe9-bc4b45ad****` is deleted. The change set is created in the China (Hangzhou) region.
    * 
    * @param request - DeleteChangeSetRequest
@@ -1230,7 +1288,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a stack. You can specify whether to retain resources.
+   * Deletes a stack, optionally retaining resources.
    * 
    * @param request - DeleteStackRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1285,7 +1343,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a stack. You can specify whether to retain resources.
+   * Deletes a stack, optionally retaining resources.
    * 
    * @param request - DeleteStackRequest
    * @returns DeleteStackResponse
@@ -1350,10 +1408,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes stack instances in the specified accounts and regions. You can retain specific resources based on your business requirements when you call this operation.
+   * Deletes stack instances from specified accounts and regions. You can choose to retain the resources.
    * 
    * @remarks
-   * In this topic, the stack group named `MyStackGroup` that is created in the China (Hangzhou) region is used. In this example, the stacks of the stack group that are deployed in the China (Beijing) region by using the Alibaba Cloud account whose ID is `151266687691****` are deleted.
+   * This topic provides an example of how to delete a stack instance from the `MyStackGroup` stack group. The stack group uses self-managed permissions and is in the China (Hangzhou) region. This example deletes the stack instance that is deployed in the China (Beijing) region for the Alibaba Cloud account `151266687691****`.
    * 
    * @param tmpReq - DeleteStackInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1434,10 +1492,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes stack instances in the specified accounts and regions. You can retain specific resources based on your business requirements when you call this operation.
+   * Deletes stack instances from specified accounts and regions. You can choose to retain the resources.
    * 
    * @remarks
-   * In this topic, the stack group named `MyStackGroup` that is created in the China (Hangzhou) region is used. In this example, the stacks of the stack group that are deployed in the China (Beijing) region by using the Alibaba Cloud account whose ID is `151266687691****` are deleted.
+   * This topic provides an example of how to delete a stack instance from the `MyStackGroup` stack group. The stack group uses self-managed permissions and is in the China (Hangzhou) region. This example deletes the stack instance that is deployed in the China (Beijing) region for the Alibaba Cloud account `151266687691****`.
    * 
    * @param request - DeleteStackInstancesRequest
    * @returns DeleteStackInstancesResponse
@@ -1451,7 +1509,7 @@ export default class Client extends OpenApi {
    * Deletes a template.
    * 
    * @remarks
-   * If a template is shared with other Alibaba Cloud accounts, you must unshare the template before you delete it.
+   * If a template is shared with other Alibaba Cloud accounts, unshare it before deletion.
    * 
    * @param request - DeleteTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1485,7 +1543,7 @@ export default class Client extends OpenApi {
    * Deletes a template.
    * 
    * @remarks
-   * If a template is shared with other Alibaba Cloud accounts, you must unshare the template before you delete it.
+   * If a template is shared with other Alibaba Cloud accounts, unshare it before deletion.
    * 
    * @param request - DeleteTemplateRequest
    * @returns DeleteTemplateResponse
@@ -1548,14 +1606,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a resource type or a version of a resource type.
+   * Deletes a resource type or a specific version of a resource type.
    * 
    * @remarks
-   *   If you delete a resource type, you can no longer use the resource type in Resource Orchestration Service (ROS).
-   * *   If you delete a version of a resource type, you can no longer use the version in ROS.
-   * *   If a resource type has only one version, you can delete the version by calling the operation. If a resource type has more than one version, you must manually delete the remaining versions.
-   * *   When a resource type has more than one version, you cannot delete the default version by calling the operation.
-   * *   When a resource type has only one version, you can delete the resource type and the version by calling the operation.
+   * - If you delete a resource type, it can no longer be used in ROS.
+   * - If you delete a version of a resource type, that version can no longer be used in ROS.
+   * - You can delete a resource type only if it has a single version. If a resource type has multiple versions, you must delete the other versions first.
+   * - You cannot delete the default version if the resource type has more than one version.
+   * - If a resource type has only one version, deleting that version also deletes the resource type.
    * 
    * @param request - DeregisterResourceTypeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1590,14 +1648,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a resource type or a version of a resource type.
+   * Deletes a resource type or a specific version of a resource type.
    * 
    * @remarks
-   *   If you delete a resource type, you can no longer use the resource type in Resource Orchestration Service (ROS).
-   * *   If you delete a version of a resource type, you can no longer use the version in ROS.
-   * *   If a resource type has only one version, you can delete the version by calling the operation. If a resource type has more than one version, you must manually delete the remaining versions.
-   * *   When a resource type has more than one version, you cannot delete the default version by calling the operation.
-   * *   When a resource type has only one version, you can delete the resource type and the version by calling the operation.
+   * - If you delete a resource type, it can no longer be used in ROS.
+   * - If you delete a version of a resource type, that version can no longer be used in ROS.
+   * - You can delete a resource type only if it has a single version. If a resource type has multiple versions, you must delete the other versions first.
+   * - You cannot delete the default version if the resource type has more than one version.
+   * - If a resource type has only one version, deleting that version also deletes the resource type.
    * 
    * @param request - DeregisterResourceTypeRequest
    * @returns DeregisterResourceTypeResponse
@@ -1818,7 +1876,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 开启可信服务访问
+   * Enables trusted service access.
+   * 
+   * @remarks
+   * ### Description
+   * Enables trusted service access.
    * 
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns EnableServiceAccessResponse
@@ -1840,7 +1902,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 开启可信服务访问
+   * Enables trusted service access.
+   * 
+   * @remarks
+   * ### Description
+   * Enables trusted service access.
    * @returns EnableServiceAccessResponse
    */
   async enableServiceAccess(): Promise<$_model.EnableServiceAccessResponse> {
@@ -1849,7 +1915,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量开通
+   * Enables services in a batch.
+   * 
+   * @remarks
+   * ### Description
+   * This operation enables multiple Alibaba Cloud services in a batch.
    * 
    * @param tmpReq - EnableServicesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1890,7 +1960,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量开通
+   * Enables services in a batch.
+   * 
+   * @remarks
+   * ### Description
+   * This operation enables multiple Alibaba Cloud services in a batch.
    * 
    * @param request - EnableServicesRequest
    * @returns EnableServicesResponse
@@ -1961,7 +2035,7 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * In this example, a template is generated for a resource management scenario that resides in the China (Hangzhou) region. The ID of the resource scenario is `ts-aa9c62feab844a6b****`.
-   * >  You cannot generate a template for a resource detection scenario.
+   * > You cannot generate a template for a resource detection scenario.
    * 
    * @param request - GenerateTemplateByScratchRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2008,7 +2082,7 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * In this example, a template is generated for a resource management scenario that resides in the China (Hangzhou) region. The ID of the resource scenario is `ts-aa9c62feab844a6b****`.
-   * >  You cannot generate a template for a resource detection scenario.
+   * > You cannot generate a template for a resource detection scenario.
    * 
    * @param request - GenerateTemplateByScratchRequest
    * @returns GenerateTemplateByScratchResponse
@@ -2019,11 +2093,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Generates the information about a policy that is required by a template.
+   * Generates the policy information required by a specified template.
    * 
    * @remarks
-   * If the policy information is related to Enterprise Distributed Application Service (EDAS), you must log on to your Alibaba Cloud account and grant the required permissions to the relevant RAM users.
-   * In this example, a policy is generated for a template whose ID is `5ecd1e10-b0e9-4389-a565-e4c15efc****`.
+   * If the policies required by the template include Enterprise Distributed Application Service (EDAS), log on to your Alibaba Cloud account and upgrade the RAM permissions for the Resource Access Management (RAM) users that require authorization.
+   * This topic provides an example of how to generate access policies for a template whose ID is `5ecd1e10-b0e9-4389-a565-e4c15efc****`.
    * 
    * @param request - GenerateTemplatePolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2078,11 +2152,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Generates the information about a policy that is required by a template.
+   * Generates the policy information required by a specified template.
    * 
    * @remarks
-   * If the policy information is related to Enterprise Distributed Application Service (EDAS), you must log on to your Alibaba Cloud account and grant the required permissions to the relevant RAM users.
-   * In this example, a policy is generated for a template whose ID is `5ecd1e10-b0e9-4389-a565-e4c15efc****`.
+   * If the policies required by the template include Enterprise Distributed Application Service (EDAS), log on to your Alibaba Cloud account and upgrade the RAM permissions for the Resource Access Management (RAM) users that require authorization.
+   * This topic provides an example of how to generate access policies for a template whose ID is `5ecd1e10-b0e9-4389-a565-e4c15efc****`.
    * 
    * @param request - GenerateTemplatePolicyRequest
    * @returns GenerateTemplatePolicyResponse
@@ -2139,10 +2213,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries change sets. You can determine whether to query the templates of change sets.
+   * Returns details for a specified change set, optionally including the details of its associated template.
    * 
    * @remarks
-   * In this example, the details of a change set whose ID is `4c11658d-bd47-4dd0-ba64-727edc62****` is queried. The change set is created in the China (Hangzhou) region.
+   * This topic demonstrates how to query a change set with the ID `4c11658d-bd47-4dd0-ba64-727edc62****` in the China (Hangzhou) region.
    * 
    * @param request - GetChangeSetRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2181,10 +2255,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries change sets. You can determine whether to query the templates of change sets.
+   * Returns details for a specified change set, optionally including the details of its associated template.
    * 
    * @remarks
-   * In this example, the details of a change set whose ID is `4c11658d-bd47-4dd0-ba64-727edc62****` is queried. The change set is created in the China (Hangzhou) region.
+   * This topic demonstrates how to query a change set with the ID `4c11658d-bd47-4dd0-ba64-727edc62****` in the China (Hangzhou) region.
    * 
    * @param request - GetChangeSetRequest
    * @returns GetChangeSetResponse
@@ -2242,7 +2316,7 @@ export default class Client extends OpenApi {
    * @remarks
    * You can call this operation to query the Terraform hosting, resource cleaner, and scenario features.
    * This topic provides an example on how to query the details of features supported by ROS in the China (Hangzhou) region. The details include Terraform versions, provider versions, and supported resource types.
-   * >  In the Examples section, only part of the sample code is provided.
+   * > In the Examples section, only part of the sample code is provided.
    * 
    * @param request - GetFeatureDetailsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2282,7 +2356,7 @@ export default class Client extends OpenApi {
    * @remarks
    * You can call this operation to query the Terraform hosting, resource cleaner, and scenario features.
    * This topic provides an example on how to query the details of features supported by ROS in the China (Hangzhou) region. The details include Terraform versions, provider versions, and supported resource types.
-   * >  In the Examples section, only part of the sample code is provided.
+   * > In the Examples section, only part of the sample code is provided.
    * 
    * @param request - GetFeatureDetailsRequest
    * @returns GetFeatureDetailsResponse
@@ -2293,10 +2367,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * This topic provides an example on how to query the details of \\`ALIYUN::ROS::WaitConditionHandle\\`.
+   * Queries the details of a resource type.
    * 
    * @remarks
-   * For more information about common request parameters, see [Common parameters](https://help.aliyun.com/document_detail/131957.html).
+   * This topic provides an example of how to query the details of the `ALIYUN::ROS::WaitConditionHandle` resource type.
    * 
    * @param request - GetResourceTypeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2331,10 +2405,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * This topic provides an example on how to query the details of \\`ALIYUN::ROS::WaitConditionHandle\\`.
+   * Queries the details of a resource type.
    * 
    * @remarks
-   * For more information about common request parameters, see [Common parameters](https://help.aliyun.com/document_detail/131957.html).
+   * This topic provides an example of how to query the details of the `ALIYUN::ROS::WaitConditionHandle` resource type.
    * 
    * @param request - GetResourceTypeRequest
    * @returns GetResourceTypeResponse
@@ -2391,7 +2465,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a trusted service.
+   * Queries the access status of a trusted service.
    * 
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetServiceAccessResponse
@@ -2413,7 +2487,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a trusted service.
+   * Queries the access status of a trusted service.
    * @returns GetServiceAccessResponse
    */
   async getServiceAccess(): Promise<$_model.GetServiceAccessResponse> {
@@ -2422,11 +2496,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the activation status and the RAM roles of an Alibaba Cloud service.
+   * Queries the activation status of an Alibaba Cloud service and information about its service-linked roles.
    * 
    * @remarks
-   * ### Description
-   * This topic describes how to query the activation status and the RAM roles of an Alibaba Cloud service. In this example, the Elastic High Performance Computing (E-HPC) service that is deployed in the China (Hangzhou) region is queried.
+   * ### Usage notes
+   * This topic provides an example of how to query the activation status of Elastic High Performance Computing (EHPC) and information about the service-linked roles for EHPC in the China (Hangzhou) region.
    * > Make sure that you have the permissions to call the [GetRole](https://help.aliyun.com/document_detail/28711.html) operation.
    * 
    * @param request - GetServiceProvisionsRequest
@@ -2484,11 +2558,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the activation status and the RAM roles of an Alibaba Cloud service.
+   * Queries the activation status of an Alibaba Cloud service and information about its service-linked roles.
    * 
    * @remarks
-   * ### Description
-   * This topic describes how to query the activation status and the RAM roles of an Alibaba Cloud service. In this example, the Elastic High Performance Computing (E-HPC) service that is deployed in the China (Hangzhou) region is queried.
+   * ### Usage notes
+   * This topic provides an example of how to query the activation status of Elastic High Performance Computing (EHPC) and information about the service-linked roles for EHPC in the China (Hangzhou) region.
    * > Make sure that you have the permissions to call the [GetRole](https://help.aliyun.com/document_detail/28711.html) operation.
    * 
    * @param request - GetServiceProvisionsRequest
@@ -2500,10 +2574,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about a stack in Resource Orchestration Service (ROS).
+   * Queries stack information.
    * 
    * @remarks
-   * In this example, the information about a stack whose ID is `c754d2a4-28f1-46df-b557-9586173a****` in the China (Hangzhou) region is queried.
+   * This topic provides an example of how to query the information of a stack whose ID is `c754d2a4-28f1-46df-b557-9586173a****` in the China (Hangzhou) region.
    * 
    * @param request - GetStackRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2554,10 +2628,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about a stack in Resource Orchestration Service (ROS).
+   * Queries stack information.
    * 
    * @remarks
-   * In this example, the information about a stack whose ID is `c754d2a4-28f1-46df-b557-9586173a****` in the China (Hangzhou) region is queried.
+   * This topic provides an example of how to query the information of a stack whose ID is `c754d2a4-28f1-46df-b557-9586173a****` in the China (Hangzhou) region.
    * 
    * @param request - GetStackRequest
    * @returns GetStackResponse
@@ -2620,10 +2694,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * In this example, the information about a stack group named \\\\`MyStackGroup\\\\` is queried. The stack group is granted self-managed permissions and created in the China (Hangzhou) region.
+   * Queries the details of a stack group by its name in an Alibaba Cloud region.
    * 
    * @remarks
-   * For more information about common request parameters, see [Common parameters](https://help.aliyun.com/document_detail/131957.html).
+   * This topic provides an example of how to query a stack group named `MyStackGroup`. The stack group is in the China (Hangzhou) region and uses the self-managed permission mode.
    * 
    * @param request - GetStackGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2662,10 +2736,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * In this example, the information about a stack group named \\\\`MyStackGroup\\\\` is queried. The stack group is granted self-managed permissions and created in the China (Hangzhou) region.
+   * Queries the details of a stack group by its name in an Alibaba Cloud region.
    * 
    * @remarks
-   * For more information about common request parameters, see [Common parameters](https://help.aliyun.com/document_detail/131957.html).
+   * This topic provides an example of how to query a stack group named `MyStackGroup`. The stack group is in the China (Hangzhou) region and uses the self-managed permission mode.
    * 
    * @param request - GetStackGroupRequest
    * @returns GetStackGroupResponse
@@ -2792,10 +2866,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about a stack policy in an Alibaba Cloud region.
+   * Queries the stack policy of a specified stack.
    * 
    * @remarks
-   * In this example, the stack policy of a stack whose ID is `4a6c9851-3b0f-4f5f-b4ca-a14bf691****` is queried. The stack is deployed in the China (Hangzhou) region.
+   * This example queries the stack policy of stack `4a6c9851-3b0f-4f5f-b4ca-a14bf691****` in the China (Hangzhou) region.
    * 
    * @param request - GetStackPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2830,10 +2904,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about a stack policy in an Alibaba Cloud region.
+   * Queries the stack policy of a specified stack.
    * 
    * @remarks
-   * In this example, the stack policy of a stack whose ID is `4a6c9851-3b0f-4f5f-b4ca-a14bf691****` is queried. The stack is deployed in the China (Hangzhou) region.
+   * This example queries the stack policy of stack `4a6c9851-3b0f-4f5f-b4ca-a14bf691****` in the China (Hangzhou) region.
    * 
    * @param request - GetStackPolicyRequest
    * @returns GetStackPolicyResponse
@@ -2844,13 +2918,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * For more information about common request parameters, see [Common parameters]\\(~~131957~~).
+   * Query a resource in a specific stack.
    * 
    * @remarks
-   * | Http status code | Error code | Error message | Description |
-   * | ---------------- | ---------- | ------------- | ----------- |
-   * | 404 | ResourceNotFound | The Resource ({name}) could not be found in Stack {stack}. | The error message returned because the specified resource does not exist in the stack. name indicates the resource name. stack indicates the stack name or ID. |
-   * | 404 | StackNotFound | The Stack ({name}) could not be found. | The error message returned because the stack does not exist. name indicates the name or ID of the stack. |
+   * This topic provides an example on how to query the details of a resource named `WebServer` in a stack whose ID is `4a6c9851-3b0f-4f5f-b4ca-a14bf691****` in the China (Hangzhou) region.
    * 
    * @param request - GetStackResourceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2901,13 +2972,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * For more information about common request parameters, see [Common parameters]\\(~~131957~~).
+   * Query a resource in a specific stack.
    * 
    * @remarks
-   * | Http status code | Error code | Error message | Description |
-   * | ---------------- | ---------- | ------------- | ----------- |
-   * | 404 | ResourceNotFound | The Resource ({name}) could not be found in Stack {stack}. | The error message returned because the specified resource does not exist in the stack. name indicates the resource name. stack indicates the stack name or ID. |
-   * | 404 | StackNotFound | The Stack ({name}) could not be found. | The error message returned because the stack does not exist. name indicates the name or ID of the stack. |
+   * This topic provides an example on how to query the details of a resource named `WebServer` in a stack whose ID is `4a6c9851-3b0f-4f5f-b4ca-a14bf691****` in the China (Hangzhou) region.
    * 
    * @param request - GetStackResourceRequest
    * @returns GetStackResourceResponse
@@ -3002,55 +3070,57 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ###
-   * *   For more information about the resources that support price inquiry in Resource Orchestration Service (ROS) templates, see the "**Resource types that support price inquiry**" section of the [Estimate resource prices](https://help.aliyun.com/document_detail/203165.html) topic.
-   * *   For more information about the resources that support price inquiry in Terraform templates, see the "**ROS resources supported by Terraform**" section of the [ROS features and resources supported by Terraform](https://help.aliyun.com/document_detail/184389.html) topic.
+   * - For more information about the resources that support price inquiry in Resource Orchestration Service (ROS) templates, see the "**Resource types that support price inquiry**" section of the [Estimate resource prices](https://help.aliyun.com/document_detail/203165.html) topic.
+   * - For more information about the resources that support price inquiry in Terraform templates, see the "**ROS resources supported by Terraform**" section of the [ROS features and resources supported by Terraform](https://help.aliyun.com/document_detail/184389.html) topic.
    * The following sample code provides an example on how to query the estimated price of an elastic IP address (EIP) that you want to create based on a template. In this example, the following template is used:
-   *     {
-   *       "ROSTemplateFormatVersion": "2015-09-01",
-   *       "Parameters": {
+   * ```
+   * {
+   *   "ROSTemplateFormatVersion": "2015-09-01",
+   *   "Parameters": {
+   *     "Isp": {
+   *       "Type": "String",
+   *       "Default": "BGP"
+   *     },
+   *     "Name": {
+   *       "Type": "String",
+   *       "Default": "test"
+   *     },
+   *     "Netmode": {
+   *       "Type": "String",
+   *       "Default": "public"
+   *     },
+   *     "Bandwidth": {
+   *       "Type": "Number",
+   *       "Default": 5
+   *     }
+   *   },
+   *   "Resources": {
+   *     "NewEip": {
+   *       "Type": "ALIYUN::VPC::EIP",
+   *       "Properties": {
+   *         "InstanceChargeType": "Prepaid",
+   *         "PricingCycle": "Month",
    *         "Isp": {
-   *           "Type": "String",
-   *           "Default": "BGP"
+   *           "Ref": "Isp"
    *         },
+   *         "Period": 1,
+   *         "DeletionProtection": false,
+   *         "AutoPay": false,
    *         "Name": {
-   *           "Type": "String",
-   *           "Default": "test"
+   *           "Ref": "Name"
    *         },
+   *         "InternetChargeType": "PayByTraffic",
    *         "Netmode": {
-   *           "Type": "String",
-   *           "Default": "public"
+   *           "Ref": "Netmode"
    *         },
    *         "Bandwidth": {
-   *           "Type": "Number",
-   *           "Default": 5
-   *         }
-   *       },
-   *       "Resources": {
-   *         "NewEip": {
-   *           "Type": "ALIYUN::VPC::EIP",
-   *           "Properties": {
-   *             "InstanceChargeType": "Prepaid",
-   *             "PricingCycle": "Month",
-   *             "Isp": {
-   *               "Ref": "Isp"
-   *             },
-   *             "Period": 1,
-   *             "DeletionProtection": false,
-   *             "AutoPay": false,
-   *             "Name": {
-   *               "Ref": "Name"
-   *             },
-   *             "InternetChargeType": "PayByTraffic",
-   *             "Netmode": {
-   *               "Ref": "Netmode"
-   *             },
-   *             "Bandwidth": {
-   *               "Ref": "Bandwidth"
-   *             }
-   *           }
+   *           "Ref": "Bandwidth"
    *         }
    *       }
    *     }
+   *   }
+   * }
+   * ```
    * 
    * @param request - GetTemplateEstimateCostRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3123,55 +3193,57 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ###
-   * *   For more information about the resources that support price inquiry in Resource Orchestration Service (ROS) templates, see the "**Resource types that support price inquiry**" section of the [Estimate resource prices](https://help.aliyun.com/document_detail/203165.html) topic.
-   * *   For more information about the resources that support price inquiry in Terraform templates, see the "**ROS resources supported by Terraform**" section of the [ROS features and resources supported by Terraform](https://help.aliyun.com/document_detail/184389.html) topic.
+   * - For more information about the resources that support price inquiry in Resource Orchestration Service (ROS) templates, see the "**Resource types that support price inquiry**" section of the [Estimate resource prices](https://help.aliyun.com/document_detail/203165.html) topic.
+   * - For more information about the resources that support price inquiry in Terraform templates, see the "**ROS resources supported by Terraform**" section of the [ROS features and resources supported by Terraform](https://help.aliyun.com/document_detail/184389.html) topic.
    * The following sample code provides an example on how to query the estimated price of an elastic IP address (EIP) that you want to create based on a template. In this example, the following template is used:
-   *     {
-   *       "ROSTemplateFormatVersion": "2015-09-01",
-   *       "Parameters": {
+   * ```
+   * {
+   *   "ROSTemplateFormatVersion": "2015-09-01",
+   *   "Parameters": {
+   *     "Isp": {
+   *       "Type": "String",
+   *       "Default": "BGP"
+   *     },
+   *     "Name": {
+   *       "Type": "String",
+   *       "Default": "test"
+   *     },
+   *     "Netmode": {
+   *       "Type": "String",
+   *       "Default": "public"
+   *     },
+   *     "Bandwidth": {
+   *       "Type": "Number",
+   *       "Default": 5
+   *     }
+   *   },
+   *   "Resources": {
+   *     "NewEip": {
+   *       "Type": "ALIYUN::VPC::EIP",
+   *       "Properties": {
+   *         "InstanceChargeType": "Prepaid",
+   *         "PricingCycle": "Month",
    *         "Isp": {
-   *           "Type": "String",
-   *           "Default": "BGP"
+   *           "Ref": "Isp"
    *         },
+   *         "Period": 1,
+   *         "DeletionProtection": false,
+   *         "AutoPay": false,
    *         "Name": {
-   *           "Type": "String",
-   *           "Default": "test"
+   *           "Ref": "Name"
    *         },
+   *         "InternetChargeType": "PayByTraffic",
    *         "Netmode": {
-   *           "Type": "String",
-   *           "Default": "public"
+   *           "Ref": "Netmode"
    *         },
    *         "Bandwidth": {
-   *           "Type": "Number",
-   *           "Default": 5
-   *         }
-   *       },
-   *       "Resources": {
-   *         "NewEip": {
-   *           "Type": "ALIYUN::VPC::EIP",
-   *           "Properties": {
-   *             "InstanceChargeType": "Prepaid",
-   *             "PricingCycle": "Month",
-   *             "Isp": {
-   *               "Ref": "Isp"
-   *             },
-   *             "Period": 1,
-   *             "DeletionProtection": false,
-   *             "AutoPay": false,
-   *             "Name": {
-   *               "Ref": "Name"
-   *             },
-   *             "InternetChargeType": "PayByTraffic",
-   *             "Netmode": {
-   *               "Ref": "Netmode"
-   *             },
-   *             "Bandwidth": {
-   *               "Ref": "Bandwidth"
-   *             }
-   *           }
+   *           "Ref": "Bandwidth"
    *         }
    *       }
    *     }
+   *   }
+   * }
+   * ```
    * 
    * @param request - GetTemplateEstimateCostRequest
    * @returns GetTemplateEstimateCostResponse
@@ -3182,11 +3254,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the values of one or more parameters in a template.
+   * Queries the valid values of the parameters in a template.
    * 
    * @remarks
-   * This topic provides an example on how to query the values of a parameter. In this example, the values of the `ZoneInfo` parameter in a template that is created in the China (Hangzhou) region are queried. The template body is `{"Parameters":{"ZoneInfo":{"Type": "String"},"InstanceType": {"Type": "String"}},"ROSTemplateFormatVersion": "2015-09-01","Resources":{"ECS":{"Properties":{"ZoneId":{"Ref": "ZoneInfo"},"InstanceType": {"Ref": "InstanceType"}},"Type": "ALIYUN::ECS::Instance"}}}`.
-   * For more information about the template parameters whose values you can query by calling this operation and the sample code of the template, see [Query the constraints of parameters](https://help.aliyun.com/document_detail/432820.html).
+   * ### Description
+   * This topic provides an example of how to query the valid values for the `ZoneInfo` parameter in a template specific to the China (Hangzhou) region. The template is `{ "ROSTemplateFormatVersion": "2015-09-01", "Parameters": { "ZoneInfo": { "Type": "String" }, "InstanceType": { "Type": "String" } }, "Resources": { "ECS": { "Type": "ALIYUN::ECS::Instance", "Properties": { "ZoneId": { "Ref": "ZoneInfo" }, "InstanceType": { "Ref": "InstanceType" } } } } }`.
+   * For more information about the queryable parameters and template content, refer to [Query parameter constraints](https://help.aliyun.com/document_detail/432820.html).
    * 
    * @param tmpReq - GetTemplateParameterConstraintsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3265,11 +3338,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the values of one or more parameters in a template.
+   * Queries the valid values of the parameters in a template.
    * 
    * @remarks
-   * This topic provides an example on how to query the values of a parameter. In this example, the values of the `ZoneInfo` parameter in a template that is created in the China (Hangzhou) region are queried. The template body is `{"Parameters":{"ZoneInfo":{"Type": "String"},"InstanceType": {"Type": "String"}},"ROSTemplateFormatVersion": "2015-09-01","Resources":{"ECS":{"Properties":{"ZoneId":{"Ref": "ZoneInfo"},"InstanceType": {"Ref": "InstanceType"}},"Type": "ALIYUN::ECS::Instance"}}}`.
-   * For more information about the template parameters whose values you can query by calling this operation and the sample code of the template, see [Query the constraints of parameters](https://help.aliyun.com/document_detail/432820.html).
+   * ### Description
+   * This topic provides an example of how to query the valid values for the `ZoneInfo` parameter in a template specific to the China (Hangzhou) region. The template is `{ "ROSTemplateFormatVersion": "2015-09-01", "Parameters": { "ZoneInfo": { "Type": "String" }, "InstanceType": { "Type": "String" } }, "Resources": { "ECS": { "Type": "ALIYUN::ECS::Instance", "Properties": { "ZoneId": { "Ref": "ZoneInfo" }, "InstanceType": { "Ref": "InstanceType" } } } } }`.
+   * For more information about the queryable parameters and template content, refer to [Query parameter constraints](https://help.aliyun.com/document_detail/432820.html).
    * 
    * @param request - GetTemplateParameterConstraintsRequest
    * @returns GetTemplateParameterConstraintsResponse
@@ -3280,7 +3354,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries recommended parameters.
+   * 推荐参数
    * 
    * @param request - GetTemplateRecommendParametersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3335,7 +3409,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries recommended parameters.
+   * 推荐参数
    * 
    * @param request - GetTemplateRecommendParametersRequest
    * @returns GetTemplateRecommendParametersResponse
@@ -3346,10 +3420,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a resource scenario.
+   * Retrieves the details of a resource scenario.
    * 
    * @remarks
-   * In this example, the details of the resource scenario whose ID is `ts-7f7a704cf71c49a6****` is queried. In the response, the source node data is displayed.
+   * This topic provides an example of how to query the details of the resource scenario `ts-7f7a704cf71c49a6****` in the China (Hangzhou) region and display source node data.
    * 
    * @param request - GetTemplateScratchRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3388,10 +3462,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a resource scenario.
+   * Retrieves the details of a resource scenario.
    * 
    * @remarks
-   * In this example, the details of the resource scenario whose ID is `ts-7f7a704cf71c49a6****` is queried. In the response, the source node data is displayed.
+   * This topic provides an example of how to query the details of the resource scenario `ts-7f7a704cf71c49a6****` in the China (Hangzhou) region and display source node data.
    * 
    * @param request - GetTemplateScratchRequest
    * @returns GetTemplateScratchResponse
@@ -3664,7 +3738,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries change sets.
+   * Queries the details of created change sets.
    * 
    * @param request - ListChangeSetsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3723,7 +3797,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries change sets.
+   * Queries the details of created change sets.
    * 
    * @param request - ListChangeSetsRequest
    * @returns ListChangeSetsResponse
@@ -3731,6 +3805,148 @@ export default class Client extends OpenApi {
   async listChangeSets(request: $_model.ListChangeSetsRequest): Promise<$_model.ListChangeSetsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listChangeSetsWithOptions(request, runtime);
+  }
+
+  /**
+   * Retrieves the message history and Pipeline snapshot temporary download URL for a specified session by session ID.
+   * 
+   * @remarks
+   * ## Request description
+   * - When calling the V2 service, set the `AgentVersion` parameter to `V2`.
+   * - This operation only accepts the `SessionId` of the current user\\"s session. It does not directly return a message array. Instead, it returns pre-signed download URLs for `session.jsonl` and `a2a-snapshot.json`.
+   * - The download URLs are valid for 1800 seconds (30 minutes). Complete the download within the validity period.
+   * - The URLs in the response contain signature parameters. Do not log, share, or cache them for extended periods.
+   * - `MaxResults` and `NextToken` are compatibility fields that are not consumed in V2.
+   * 
+   * @param request - ListChatMessagesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListChatMessagesResponse
+   */
+  async listChatMessagesWithOptions(request: $_model.ListChatMessagesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListChatMessagesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.agentVersion)) {
+      query["AgentVersion"] = request.agentVersion;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.sessionId)) {
+      query["SessionId"] = request.sessionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListChatMessages",
+      version: "2019-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListChatMessagesResponse>(await this.callApi(params, req, runtime), new $_model.ListChatMessagesResponse({}));
+  }
+
+  /**
+   * Retrieves the message history and Pipeline snapshot temporary download URL for a specified session by session ID.
+   * 
+   * @remarks
+   * ## Request description
+   * - When calling the V2 service, set the `AgentVersion` parameter to `V2`.
+   * - This operation only accepts the `SessionId` of the current user\\"s session. It does not directly return a message array. Instead, it returns pre-signed download URLs for `session.jsonl` and `a2a-snapshot.json`.
+   * - The download URLs are valid for 1800 seconds (30 minutes). Complete the download within the validity period.
+   * - The URLs in the response contain signature parameters. Do not log, share, or cache them for extended periods.
+   * - `MaxResults` and `NextToken` are compatibility fields that are not consumed in V2.
+   * 
+   * @param request - ListChatMessagesRequest
+   * @returns ListChatMessagesResponse
+   */
+  async listChatMessages(request: $_model.ListChatMessagesRequest): Promise<$_model.ListChatMessagesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listChatMessagesWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the ROS Agent V2 session list of the current user by paging.
+   * 
+   * @remarks
+   * ## Operation description
+   * - Set `AgentVersion` to `V2` when calling the V2 service.
+   * - This operation returns only sessions of the current user, sorted by `UpdatedAt` in descending order by default.
+   * - Use the `Mode` parameter to filter sessions by mode. Valid values: `IaCCodeNormal` and `IaCCodePipeline`.
+   * - Do not reuse an old `NextToken` after switching `Mode`.
+   * - Use the `CreatedAt` and `UpdatedAt` fields for time information. The `UpdatedTime` field in the metadata is a compatibility field and is not returned in the current response.
+   * - Set the `MaxResults` request parameter to specify the number of entries per page. Valid values: 1 to 100.
+   * 
+   * @param request - ListChatSessionsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListChatSessionsResponse
+   */
+  async listChatSessionsWithOptions(request: $_model.ListChatSessionsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListChatSessionsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.agentVersion)) {
+      query["AgentVersion"] = request.agentVersion;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.mode)) {
+      query["Mode"] = request.mode;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListChatSessions",
+      version: "2019-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListChatSessionsResponse>(await this.callApi(params, req, runtime), new $_model.ListChatSessionsResponse({}));
+  }
+
+  /**
+   * Queries the ROS Agent V2 session list of the current user by paging.
+   * 
+   * @remarks
+   * ## Operation description
+   * - Set `AgentVersion` to `V2` when calling the V2 service.
+   * - This operation returns only sessions of the current user, sorted by `UpdatedAt` in descending order by default.
+   * - Use the `Mode` parameter to filter sessions by mode. Valid values: `IaCCodeNormal` and `IaCCodePipeline`.
+   * - Do not reuse an old `NextToken` after switching `Mode`.
+   * - Use the `CreatedAt` and `UpdatedAt` fields for time information. The `UpdatedTime` field in the metadata is a compatibility field and is not returned in the current response.
+   * - Set the `MaxResults` request parameter to specify the number of entries per page. Valid values: 1 to 100.
+   * 
+   * @param request - ListChatSessionsRequest
+   * @returns ListChatSessionsResponse
+   */
+  async listChatSessions(request: $_model.ListChatSessionsRequest): Promise<$_model.ListChatSessionsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listChatSessionsWithOptions(request, runtime);
   }
 
   /**
@@ -3792,7 +4008,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the registration records of a resource.
+   * Queries a list of resource registration records.
    * 
    * @param request - ListResourceTypeRegistrationsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3843,7 +4059,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the registration records of a resource.
+   * Queries a list of resource registration records.
    * 
    * @param request - ListResourceTypeRegistrationsRequest
    * @returns ListResourceTypeRegistrationsResponse
@@ -3854,7 +4070,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the versions of resource types, including the resource types created by you and provided by Resource Orchestration Service (ROS).
+   * Queries the list of resource type versions, including resource types created by the user and those provided by Resource Orchestration Service (ROS).
    * 
    * @param request - ListResourceTypeVersionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3885,7 +4101,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the versions of resource types, including the resource types created by you and provided by Resource Orchestration Service (ROS).
+   * Queries the list of resource type versions, including resource types created by the user and those provided by Resource Orchestration Service (ROS).
    * 
    * @param request - ListResourceTypeVersionsRequest
    * @returns ListResourceTypeVersionsResponse
@@ -3896,10 +4112,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * This topic provides an example on how to query the list of resource types supported by Resource Orchestration Service (ROS).
+   * Queries the list of supported resource types.
    * 
    * @remarks
-   * For more information about errors common to all operations, see [Common error codes](/help/en/resource-orchestration-service/latest/common-error-codes).
+   * This topic provides an example of how to query the list of regular resource types supported by ROS.
    * 
    * @param request - ListResourceTypesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3938,10 +4154,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * This topic provides an example on how to query the list of resource types supported by Resource Orchestration Service (ROS).
+   * Queries the list of supported resource types.
    * 
    * @remarks
-   * For more information about errors common to all operations, see [Common error codes](/help/en/resource-orchestration-service/latest/common-error-codes).
+   * This topic provides an example of how to query the list of regular resource types supported by ROS.
    * 
    * @param request - ListResourceTypesRequest
    * @returns ListResourceTypesResponse
@@ -3952,7 +4168,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a stack and the resource events of the stack.
+   * Queries events of a stack and the resources in the stack.
    * 
    * @param request - ListStackEventsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4007,7 +4223,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a stack and the resource events of the stack.
+   * Queries events of a stack and the resources in the stack.
    * 
    * @param request - ListStackEventsRequest
    * @returns ListStackEventsResponse
@@ -4132,10 +4348,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of stack groups in an Alibaba Cloud region.
+   * Queries stack groups in a region.
    * 
    * @remarks
-   * In this example, the list of stack groups that are in the ACTIVE state and deployed in the China (Hangzhou) region is queried.
+   * This example queries stack groups in the ACTIVE state in the China (Hangzhou) region.
    * 
    * @param request - ListStackGroupsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4186,10 +4402,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of stack groups in an Alibaba Cloud region.
+   * Queries stack groups in a region.
    * 
    * @remarks
-   * In this example, the list of stack groups that are in the ACTIVE state and deployed in the China (Hangzhou) region is queried.
+   * This example queries stack groups in the ACTIVE state in the China (Hangzhou) region.
    * 
    * @param request - ListStackGroupsRequest
    * @returns ListStackGroupsResponse
@@ -4272,8 +4488,8 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * The ListStackOperationRisks operation is suitable for the following scenarios:
-   * *   You want to detect high risks that may arise in resources when you delete a stack that contains the resources, and query the cause of each risk in a resource.
-   * *   When you create a stack, the creation may fail. In this case, you can call this operation to check which types of permissions that are required to create stacks are missing.
+   * - You want to detect high risks that may arise in resources when you delete a stack that contains the resources, and query the cause of each risk in a resource.
+   * - When you create a stack, the creation may fail. In this case, you can call this operation to check which types of permissions that are required to create stacks are missing.
    * 
    * @param request - ListStackOperationRisksRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4350,8 +4566,8 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * The ListStackOperationRisks operation is suitable for the following scenarios:
-   * *   You want to detect high risks that may arise in resources when you delete a stack that contains the resources, and query the cause of each risk in a resource.
-   * *   When you create a stack, the creation may fail. In this case, you can call this operation to check which types of permissions that are required to create stacks are missing.
+   * - You want to detect high risks that may arise in resources when you delete a stack that contains the resources, and query the cause of each risk in a resource.
+   * - When you create a stack, the creation may fail. In this case, you can call this operation to check which types of permissions that are required to create stacks are missing.
    * 
    * @param request - ListStackOperationRisksRequest
    * @returns ListStackOperationRisksResponse
@@ -4420,10 +4636,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * This topic provides an example on how to query the resources in a specified stack. In this example, the resources in the stack whose ID is \\`4a6c9851-3b0f-4f5f-b4ca-a14bf691\\*\\*\\*\\*\\` in the China (Hangzhou) region are queried.
+   * Queries the resources in a specified stack.
    * 
    * @remarks
-   * For more information about common request parameters, see [Common parameters](https://help.aliyun.com/document_detail/131957.html).
+   * This topic provides an example on how to query the resources in a stack whose ID is `4a6c9851-3b0f-4f5f-b4ca-a14bf691****` in the China (Hangzhou) region.
    * 
    * @param request - ListStackResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4458,10 +4674,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * This topic provides an example on how to query the resources in a specified stack. In this example, the resources in the stack whose ID is \\`4a6c9851-3b0f-4f5f-b4ca-a14bf691\\*\\*\\*\\*\\` in the China (Hangzhou) region are queried.
+   * Queries the resources in a specified stack.
    * 
    * @remarks
-   * For more information about common request parameters, see [Common parameters](https://help.aliyun.com/document_detail/131957.html).
+   * This topic provides an example on how to query the resources in a stack whose ID is `4a6c9851-3b0f-4f5f-b4ca-a14bf691****` in the China (Hangzhou) region.
    * 
    * @param request - ListStackResourcesRequest
    * @returns ListStackResourcesResponse
@@ -4472,11 +4688,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of stacks.
+   * Queries the list of stacks.
    * 
    * @remarks
-   * ###
-   * This topic provides an example on how to query a list of stacks. In this example, the stacks that are deployed in the China (Hangzhou) region are queried.
+   * ### Operation description
+   * This topic provides an example of how to query the list of stacks in the China (Hangzhou) region.
    * 
    * @param request - ListStacksRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4555,11 +4771,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of stacks.
+   * Queries the list of stacks.
    * 
    * @remarks
-   * ###
-   * This topic provides an example on how to query a list of stacks. In this example, the stacks that are deployed in the China (Hangzhou) region are queried.
+   * ### Operation description
+   * This topic provides an example of how to query the list of stacks in the China (Hangzhou) region.
    * 
    * @param request - ListStacksRequest
    * @returns ListStacksResponse
@@ -4570,7 +4786,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries summaries.
+   * Queries for an overview.
+   * 
+   * @remarks
+   * ### Usage notes
+   * This topic provides an example of how to query a list of stacks in the China (Hangzhou) region.
    * 
    * @param request - ListSummariesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4601,7 +4821,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries summaries.
+   * Queries for an overview.
+   * 
+   * @remarks
+   * ### Usage notes
+   * This topic provides an example of how to query a list of stacks in the China (Hangzhou) region.
    * 
    * @param request - ListSummariesRequest
    * @returns ListSummariesResponse
@@ -4612,10 +4836,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the tag keys that are added to resources in a template or stack in an Alibaba Cloud region.
+   * Queries the tag keys for stacks or templates in a specified region.
    * 
    * @remarks
-   * In this example, the tag keys that are added to a stack in the China (Hangzhou) region are queried.
+   * This topic provides an example of how to query the tag keys that are attached to a stack in the China (Hangzhou) region.
    * 
    * @param request - ListTagKeysRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4654,10 +4878,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the tag keys that are added to resources in a template or stack in an Alibaba Cloud region.
+   * Queries the tag keys for stacks or templates in a specified region.
    * 
    * @remarks
-   * In this example, the tag keys that are added to a stack in the China (Hangzhou) region are queried.
+   * This topic provides an example of how to query the tag keys that are attached to a stack in the China (Hangzhou) region.
    * 
    * @param request - ListTagKeysRequest
    * @returns ListTagKeysResponse
@@ -4672,8 +4896,8 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ###
-   * *   To specify the query object, specify ResourceId or Tag in the request. Tag consists of Key and Value.
-   * *   If you specify Tag and ResourceId, ROS resources that match both the parameters are returned.
+   * - To specify the query object, specify ResourceId or Tag in the request. Tag consists of Key and Value.
+   * - If you specify Tag and ResourceId, ROS resources that match both the parameters are returned.
    * This topic provides an example on how to query the tags that are added to a stack. In this example, the stack ID is `6bc589b5-9c02-4944-8fc3-f3624234****`. The stack is deployed in the China (Hangzhou) region.
    * 
    * @param request - ListTagResourcesRequest
@@ -4725,8 +4949,8 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ###
-   * *   To specify the query object, specify ResourceId or Tag in the request. Tag consists of Key and Value.
-   * *   If you specify Tag and ResourceId, ROS resources that match both the parameters are returned.
+   * - To specify the query object, specify ResourceId or Tag in the request. Tag consists of Key and Value.
+   * - If you specify Tag and ResourceId, ROS resources that match both the parameters are returned.
    * This topic provides an example on how to query the tags that are added to a stack. In this example, the stack ID is `6bc589b5-9c02-4944-8fc3-f3624234****`. The stack is deployed in the China (Hangzhou) region.
    * 
    * @param request - ListTagResourcesRequest
@@ -4798,10 +5022,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries scenarios.
+   * Queries a list of resource scenarios.
    * 
    * @remarks
-   * In this example, the scenarios that are created in the China (Hangzhou) region are queried. In the response, a scenario of the Resource Management and a scenario of the Resource Replication type are returned.
+   * This topic provides an example of how to query the list of resource scenarios in the China (Hangzhou) region. The response shows that there are two resource scenarios in the China (Hangzhou) region: resource management and resource replication.
    * 
    * @param request - ListTemplateScratchesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4860,10 +5084,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries scenarios.
+   * Queries a list of resource scenarios.
    * 
    * @remarks
-   * In this example, the scenarios that are created in the China (Hangzhou) region are queried. In the response, a scenario of the Resource Management and a scenario of the Resource Replication type are returned.
+   * This topic provides an example of how to query the list of resource scenarios in the China (Hangzhou) region. The response shows that there are two resource scenarios in the China (Hangzhou) region: resource management and resource replication.
    * 
    * @param request - ListTemplateScratchesRequest
    * @returns ListTemplateScratchesResponse
@@ -4924,7 +5148,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * List Templates
+   * Queries a list of private and shared templates.
    * 
    * @param request - ListTemplatesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4983,7 +5207,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * List Templates
+   * Queries a list of private and shared templates.
    * 
    * @param request - ListTemplatesRequest
    * @returns ListTemplatesResponse
@@ -5054,10 +5278,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Previews the information about a stack that you want to create based on a template. You can call this operation to verify whether the template resources are valid.
+   * Previews the information about a stack that you want to create or update based on a template. You can call this operation to verify whether the template resources are valid.
    * 
    * @remarks
-   * This topic provides an example on how to create a stack named `MyStack` in the China (Hangzhou) region by using a template and preview the information about the stack. In this example, the `template body` is `{"ROSTemplateFormatVersion":"2015-09-01"}`.
+   * In this example, a stack named `MyStack` is created in the China (Hangzhou) region and previewed. The `TemplateBody` parameter of the stack is set to `{"ROSTemplateFormatVersion":"2015-09-01"}`.
    * 
    * @param request - PreviewStackRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5162,10 +5386,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Previews the information about a stack that you want to create based on a template. You can call this operation to verify whether the template resources are valid.
+   * Previews the information about a stack that you want to create or update based on a template. You can call this operation to verify whether the template resources are valid.
    * 
    * @remarks
-   * This topic provides an example on how to create a stack named `MyStack` in the China (Hangzhou) region by using a template and preview the information about the stack. In this example, the `template body` is `{"ROSTemplateFormatVersion":"2015-09-01"}`.
+   * In this example, a stack named `MyStack` is created in the China (Hangzhou) region and previewed. The `TemplateBody` parameter of the stack is set to `{"ROSTemplateFormatVersion":"2015-09-01"}`.
    * 
    * @param request - PreviewStackRequest
    * @returns PreviewStackResponse
@@ -5179,8 +5403,8 @@ export default class Client extends OpenApi {
    * Creates a new resource type, or creates a new version for an existing resource type.
    * 
    * @remarks
-   *   Versions increase from v1.
-   * *   If you create a new resource type, v1 is used as the default version of the resource type. You can call the SetResourceType operation to change the default version of a resource type.
+   * - Versions increase from v1.
+   * - If you create a new resource type, v1 is used as the default version of the resource type. You can call the SetResourceType operation to change the default version of a resource type.
    * 
    * @param request - RegisterResourceTypeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5236,8 +5460,8 @@ export default class Client extends OpenApi {
    * Creates a new resource type, or creates a new version for an existing resource type.
    * 
    * @remarks
-   *   Versions increase from v1.
-   * *   If you create a new resource type, v1 is used as the default version of the resource type. You can call the SetResourceType operation to change the default version of a resource type.
+   * - Versions increase from v1.
+   * - If you create a new resource type, v1 is used as the default version of the resource type. You can call the SetResourceType operation to change the default version of a resource type.
    * 
    * @param request - RegisterResourceTypeRequest
    * @returns RegisterResourceTypeResponse
@@ -5298,7 +5522,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies a resource type or a version of a resource type.
+   * Modifies the description of a resource type or a version of that type.
    * 
    * @param request - SetResourceTypeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5341,7 +5565,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies a resource type or a version of a resource type.
+   * Modifies the description of a resource type or a version of that type.
    * 
    * @param request - SetResourceTypeRequest
    * @returns SetResourceTypeResponse
@@ -5540,10 +5764,246 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Returns agent events through SSE streaming. Supports creating a new session or continuing an existing session.
+   * 
+   * @remarks
+   * ## Operation description
+   * - When calling this API, ensure that `AgentVersion` is set to `V2`.
+   * - If `SessionId` is not provided, a new session is created. If `SessionId` is provided, the existing session is continued.
+   * - The default value of `Mode` is `IaCCodeNormal`. Only `IaCCodeNormal` and `IaCCodePipeline` modes are supported. An existing session cannot switch modes.
+   * - `EnableThinking` defaults to `true`, which specifies whether to output thinking content. This can be reset in each request.
+   * - A maximum of 5 image attachments are supported. Each attachment can be up to 5 MiB and must be accessed through an OssObjectKey under the current user directory.
+   * - `ClientContext` is a page context JSON string with a maximum size of 16 KiB. It is valid only in `IaCCodeNormal` mode.
+   * - The response type is `text/event-stream`. A successful HTTP connection does not indicate that the operation is complete. Continue reading SSE events until a terminal state is reached.
+   * - When the `TASK_STATE_INPUT_REQUIRED` status is received, it indicates that user input is required. This is not a failure state.
+   * 
+   * @param request - StartChatRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StartChatResponse
+   */
+  async *startChatWithSSE(request: $_model.StartChatRequest, runtime: $dara.RuntimeOptions): AsyncGenerator<$_model.StartChatResponse, any, unknown> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.agentVersion)) {
+      query["AgentVersion"] = request.agentVersion;
+    }
+
+    if (!$dara.isNull(request.attachments)) {
+      query["Attachments"] = request.attachments;
+    }
+
+    if (!$dara.isNull(request.enablePartialMessage)) {
+      query["EnablePartialMessage"] = request.enablePartialMessage;
+    }
+
+    if (!$dara.isNull(request.enableThinking)) {
+      query["EnableThinking"] = request.enableThinking;
+    }
+
+    if (!$dara.isNull(request.mode)) {
+      query["Mode"] = request.mode;
+    }
+
+    if (!$dara.isNull(request.query)) {
+      query["Query"] = request.query;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.sessionId)) {
+      query["SessionId"] = request.sessionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "StartChat",
+      version: "2019-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "string",
+    });
+    let sseResp = await this.callSSEApi(params, req, runtime);
+
+    for await (let resp of sseResp) {
+      if (!$dara.isNull(resp.event) && !$dara.isNull(resp.event.data)) {
+        let data = resp.event.data;
+        yield $dara.cast<$_model.StartChatResponse>({
+          statusCode: resp.statusCode,
+          headers: resp.headers,
+          id: resp.event.id,
+          event: resp.event.event,
+          body: data,
+        }, new $_model.StartChatResponse({}));
+      }
+
+    }
+  }
+
+  /**
+   * Returns agent events through SSE streaming. Supports creating a new session or continuing an existing session.
+   * 
+   * @remarks
+   * ## Operation description
+   * - When calling this API, ensure that `AgentVersion` is set to `V2`.
+   * - If `SessionId` is not provided, a new session is created. If `SessionId` is provided, the existing session is continued.
+   * - The default value of `Mode` is `IaCCodeNormal`. Only `IaCCodeNormal` and `IaCCodePipeline` modes are supported. An existing session cannot switch modes.
+   * - `EnableThinking` defaults to `true`, which specifies whether to output thinking content. This can be reset in each request.
+   * - A maximum of 5 image attachments are supported. Each attachment can be up to 5 MiB and must be accessed through an OssObjectKey under the current user directory.
+   * - `ClientContext` is a page context JSON string with a maximum size of 16 KiB. It is valid only in `IaCCodeNormal` mode.
+   * - The response type is `text/event-stream`. A successful HTTP connection does not indicate that the operation is complete. Continue reading SSE events until a terminal state is reached.
+   * - When the `TASK_STATE_INPUT_REQUIRED` status is received, it indicates that user input is required. This is not a failure state.
+   * 
+   * @param request - StartChatRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StartChatResponse
+   */
+  async startChatWithOptions(request: $_model.StartChatRequest, runtime: $dara.RuntimeOptions): Promise<$_model.StartChatResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.agentVersion)) {
+      query["AgentVersion"] = request.agentVersion;
+    }
+
+    if (!$dara.isNull(request.attachments)) {
+      query["Attachments"] = request.attachments;
+    }
+
+    if (!$dara.isNull(request.enablePartialMessage)) {
+      query["EnablePartialMessage"] = request.enablePartialMessage;
+    }
+
+    if (!$dara.isNull(request.enableThinking)) {
+      query["EnableThinking"] = request.enableThinking;
+    }
+
+    if (!$dara.isNull(request.mode)) {
+      query["Mode"] = request.mode;
+    }
+
+    if (!$dara.isNull(request.query)) {
+      query["Query"] = request.query;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.sessionId)) {
+      query["SessionId"] = request.sessionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "StartChat",
+      version: "2019-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "string",
+    });
+    return $dara.cast<$_model.StartChatResponse>(await this.callApi(params, req, runtime), new $_model.StartChatResponse({}));
+  }
+
+  /**
+   * Returns agent events through SSE streaming. Supports creating a new session or continuing an existing session.
+   * 
+   * @remarks
+   * ## Operation description
+   * - When calling this API, ensure that `AgentVersion` is set to `V2`.
+   * - If `SessionId` is not provided, a new session is created. If `SessionId` is provided, the existing session is continued.
+   * - The default value of `Mode` is `IaCCodeNormal`. Only `IaCCodeNormal` and `IaCCodePipeline` modes are supported. An existing session cannot switch modes.
+   * - `EnableThinking` defaults to `true`, which specifies whether to output thinking content. This can be reset in each request.
+   * - A maximum of 5 image attachments are supported. Each attachment can be up to 5 MiB and must be accessed through an OssObjectKey under the current user directory.
+   * - `ClientContext` is a page context JSON string with a maximum size of 16 KiB. It is valid only in `IaCCodeNormal` mode.
+   * - The response type is `text/event-stream`. A successful HTTP connection does not indicate that the operation is complete. Continue reading SSE events until a terminal state is reached.
+   * - When the `TASK_STATE_INPUT_REQUIRED` status is received, it indicates that user input is required. This is not a failure state.
+   * 
+   * @param request - StartChatRequest
+   * @returns StartChatResponse
+   */
+  async startChat(request: $_model.StartChatRequest): Promise<$_model.StartChatResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.startChatWithOptions(request, runtime);
+  }
+
+  /**
+   * Stops a running task in a specified ROS Agent V2 session.
+   * 
+   * @remarks
+   * ## Request description
+   * - When calling this operation, ensure that `AgentVersion` is set to `V2` to route to the correct backend service.
+   * - `SessionId` is required to identify the specific session to stop.
+   * - In a multi-process environment, if the target session is within the calling process, a cancel signal is sent directly and the system waits for cleanup to complete. If the session is managed by another process, a cancel request is sent to the remote end through the persisted active session state, and a `Stopping` status is returned immediately.
+   * - When no active task exists, the API returns the `NoActiveStream` status code, which is not considered an error condition.
+   * 
+   * @param request - StopChatRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StopChatResponse
+   */
+  async stopChatWithOptions(request: $_model.StopChatRequest, runtime: $dara.RuntimeOptions): Promise<$_model.StopChatResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.agentVersion)) {
+      query["AgentVersion"] = request.agentVersion;
+    }
+
+    if (!$dara.isNull(request.sessionId)) {
+      query["SessionId"] = request.sessionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "StopChat",
+      version: "2019-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.StopChatResponse>(await this.callApi(params, req, runtime), new $_model.StopChatResponse({}));
+  }
+
+  /**
+   * Stops a running task in a specified ROS Agent V2 session.
+   * 
+   * @remarks
+   * ## Request description
+   * - When calling this operation, ensure that `AgentVersion` is set to `V2` to route to the correct backend service.
+   * - `SessionId` is required to identify the specific session to stop.
+   * - In a multi-process environment, if the target session is within the calling process, a cancel signal is sent directly and the system waits for cleanup to complete. If the session is managed by another process, a cancel request is sent to the remote end through the persisted active session state, and a `Stopping` status is returned immediately.
+   * - When no active task exists, the API returns the `NoActiveStream` status code, which is not considered an error condition.
+   * 
+   * @param request - StopChatRequest
+   * @returns StopChatResponse
+   */
+  async stopChat(request: $_model.StopChatRequest): Promise<$_model.StopChatResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.stopChatWithOptions(request, runtime);
+  }
+
+  /**
    * Stops an ongoing operation in a stack group.
    * 
    * @remarks
-   * This topic provides an example on how to stop a stack group operation whose ID is `6da106ca-1784-4a6f-a7e1-e723863****` in the China (Hangzhou) region.
+   * This example stops the stack group operation `6da106ca-1784-4a6f-a7e1-e723863****` in the China (Hangzhou) region.
    * 
    * @param request - StopStackGroupOperationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5581,7 +6041,7 @@ export default class Client extends OpenApi {
    * Stops an ongoing operation in a stack group.
    * 
    * @remarks
-   * This topic provides an example on how to stop a stack group operation whose ID is `6da106ca-1784-4a6f-a7e1-e723863****` in the China (Hangzhou) region.
+   * This example stops the stack group operation `6da106ca-1784-4a6f-a7e1-e723863****` in the China (Hangzhou) region.
    * 
    * @param request - StopStackGroupOperationRequest
    * @returns StopStackGroupOperationResponse
@@ -5595,7 +6055,7 @@ export default class Client extends OpenApi {
    * Creates and adds tags to resources.
    * 
    * @remarks
-   * This topic provides an example on how to create a tag and add the tag to a stack. In this example, the stack ID is `7fee80e1-8c48-4c2f-8300-0f6dc40b****`, the tag key is `FinanceDept`, and the tag value is `FinanceJoshua`.
+   * This topic provides an example of how to create and add a tag to a resource stack in China (Hangzhou) region. The resource stack ID is `7fee80e1-8c48-4c2f-8300-0f6dc40b****`, with the tag key of `FinanceDept` and the tag value of `FinanceJoshua`.
    * 
    * @param request - TagResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5641,7 +6101,7 @@ export default class Client extends OpenApi {
    * Creates and adds tags to resources.
    * 
    * @remarks
-   * This topic provides an example on how to create a tag and add the tag to a stack. In this example, the stack ID is `7fee80e1-8c48-4c2f-8300-0f6dc40b****`, the tag key is `FinanceDept`, and the tag value is `FinanceJoshua`.
+   * This topic provides an example of how to create and add a tag to a resource stack in China (Hangzhou) region. The resource stack ID is `7fee80e1-8c48-4c2f-8300-0f6dc40b****`, with the tag key of `FinanceDept` and the tag value of `FinanceJoshua`.
    * 
    * @param request - TagResourcesRequest
    * @returns TagResourcesResponse
@@ -5716,13 +6176,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a stack.
+   * Updates the resource information of a created stack.
    * 
    * @remarks
-   * The values of parameters in the Parameters section vary based on the value that you specify for the UsePreviousParameters parameter in the request. If you do not add the parameters that are defined in the template to the Parameters section, take note of the following items:
-   * *   UsePreviousParameters is set to false: If the template parameters have default values, the default values are used. Otherwise, you must specify values for the template parameters in the Parameters section.
-   * *   UsePreviousParameters is set to true: If you specify values for the template parameters when you create a stack, the values are used. If you leave the template parameters empty when you create a stack but the template parameters have default values, the default values are used.
-   * This topic describes how to update a stack. In this example, the template body of a stack whose ID is `4a6c9851-3b0f-4f5f-b4ca-a14bf691****` in the China (Beijing) region is updated to `{"ROSTemplateFormatVersion": "2015-09-01"}`.
+   * The values of Parameters and UsePreviousParameters are related. If a parameter defined in the template is not specified in Parameters:  
+   * - If UsePreviousParameters is set to false: the default value of the parameter in the template is used if available. If no default value exists, you must specify the parameter in Parameters.  
+   * - If UsePreviousParameters is set to true: if the parameter was specified when the stack was created, the specified value is used. If the parameter was not specified when the stack was created and the parameter has a default value in the template, the default value is used.  
+   *   
+   * This topic provides an example to show how to update the template content of a stack in the China (Beijing) region to `{"ROSTemplateFormatVersion": "2015-09-01"}`. The stack ID is `4a6c9851-3b0f-4f5f-b4ca-a14bf691****`.
    * 
    * @param request - UpdateStackRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5843,13 +6304,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a stack.
+   * Updates the resource information of a created stack.
    * 
    * @remarks
-   * The values of parameters in the Parameters section vary based on the value that you specify for the UsePreviousParameters parameter in the request. If you do not add the parameters that are defined in the template to the Parameters section, take note of the following items:
-   * *   UsePreviousParameters is set to false: If the template parameters have default values, the default values are used. Otherwise, you must specify values for the template parameters in the Parameters section.
-   * *   UsePreviousParameters is set to true: If you specify values for the template parameters when you create a stack, the values are used. If you leave the template parameters empty when you create a stack but the template parameters have default values, the default values are used.
-   * This topic describes how to update a stack. In this example, the template body of a stack whose ID is `4a6c9851-3b0f-4f5f-b4ca-a14bf691****` in the China (Beijing) region is updated to `{"ROSTemplateFormatVersion": "2015-09-01"}`.
+   * The values of Parameters and UsePreviousParameters are related. If a parameter defined in the template is not specified in Parameters:  
+   * - If UsePreviousParameters is set to false: the default value of the parameter in the template is used if available. If no default value exists, you must specify the parameter in Parameters.  
+   * - If UsePreviousParameters is set to true: if the parameter was specified when the stack was created, the specified value is used. If the parameter was not specified when the stack was created and the parameter has a default value in the template, the default value is used.  
+   *   
+   * This topic provides an example to show how to update the template content of a stack in the China (Beijing) region to `{"ROSTemplateFormatVersion": "2015-09-01"}`. The stack ID is `4a6c9851-3b0f-4f5f-b4ca-a14bf691****`.
    * 
    * @param request - UpdateStackRequest
    * @returns UpdateStackResponse
@@ -5860,11 +6322,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Update an already created stack group.
+   * Updates an existing stack group.
    * 
    * @remarks
-   * The name of the stack group. The name must be unique within a region.
-   * The name can be up to 255 characters in length and can contain digits, letters, hyphens (-), and underscores (_). The name must start with a digit or a letter.
+   * This topic provides an example of how to update the template of the stack group `MyStackGroup` to `{"ROSTemplateFormatVersion": "2015-09-01"}`. The stack group is in the China (Hangzhou) region and uses self-managed permissions.
    * 
    * @param tmpReq - UpdateStackGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5995,11 +6456,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Update an already created stack group.
+   * Updates an existing stack group.
    * 
    * @remarks
-   * The name of the stack group. The name must be unique within a region.
-   * The name can be up to 255 characters in length and can contain digits, letters, hyphens (-), and underscores (_). The name must start with a digit or a letter.
+   * This topic provides an example of how to update the template of the stack group `MyStackGroup` to `{"ROSTemplateFormatVersion": "2015-09-01"}`. The stack group is in the China (Hangzhou) region and uses self-managed permissions.
    * 
    * @param request - UpdateStackGroupRequest
    * @returns UpdateStackGroupResponse
@@ -6010,10 +6470,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates stack instances in the specified accounts and regions.
+   * Updates stack instances for one or more accounts in specified regions.
    * 
    * @remarks
-   * In this topic, the stack group named `MyStackGroup` that is created in the China (Hangzhou) region is used. The stack group is granted the self-managed permissions. In this example, stacks of the stack group are updated by using the Alibaba Cloud accounts whose IDs are `151266687691****` and `141261387191****` in the China (Hangzhou) region and China (Beijing) region.
+   * This topic provides an example of how to update stacks for the stack group `MyStackGroup`, which is in the China (Hangzhou) region and uses self-managed permissions. The stacks are updated for the Alibaba Cloud accounts `151266687691****` and `141261387191****` in the China (Hangzhou) and China (Beijing) regions.
    * 
    * @param tmpReq - UpdateStackInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6098,10 +6558,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates stack instances in the specified accounts and regions.
+   * Updates stack instances for one or more accounts in specified regions.
    * 
    * @remarks
-   * In this topic, the stack group named `MyStackGroup` that is created in the China (Hangzhou) region is used. The stack group is granted the self-managed permissions. In this example, stacks of the stack group are updated by using the Alibaba Cloud accounts whose IDs are `151266687691****` and `141261387191****` in the China (Hangzhou) region and China (Beijing) region.
+   * This topic provides an example of how to update stacks for the stack group `MyStackGroup`, which is in the China (Hangzhou) region and uses self-managed permissions. The stacks are updated for the Alibaba Cloud accounts `151266687691****` and `141261387191****` in the China (Hangzhou) and China (Beijing) regions.
    * 
    * @param request - UpdateStackInstancesRequest
    * @returns UpdateStackInstancesResponse
@@ -6185,7 +6645,7 @@ export default class Client extends OpenApi {
    * Update Template
    * 
    * @remarks
-   * When updating a template, please note:   
+   * When updating a template, please note:
    * - If you specify `TemplateBody` or `TemplateURL`, the template version will be incremented by 1 after a successful update. For example, the version changes from v1 to v2.
    * - If neither `TemplateBody` nor `TemplateURL` is specified, the template version remains unchanged.
    * - A template can have up to 100 versions. If the version limit is reached, the template update will fail, and you need to recreate the template.
@@ -6252,7 +6712,7 @@ export default class Client extends OpenApi {
    * Update Template
    * 
    * @remarks
-   * When updating a template, please note:   
+   * When updating a template, please note:
    * - If you specify `TemplateBody` or `TemplateURL`, the template version will be incremented by 1 after a successful update. For example, the version changes from v1 to v2.
    * - If neither `TemplateBody` nor `TemplateURL` is specified, the template version remains unchanged.
    * - A template can have up to 100 versions. If the version limit is reached, the template update will fail, and you need to recreate the template.
@@ -6272,10 +6732,10 @@ export default class Client extends OpenApi {
    * ### [](#)Resource replication scenario
    * Resource Orchestration Service (ROS) allows you to update a resource replication scenario. The updates that you make to a resource replication scenario do not affect the stack that is generated by using the resource scenario. You can call the [GenerateTemplateByScratch](https://help.aliyun.com/document_detail/610829.html) operation to generate a template for the resource scenario.
    * ### [](#)Resource migration scenario
-   * *   If you want to update a resource migration scenario in which the migrated source resources are retained, you can delete the source resources to manage the updated resource migration scenario. You can also call the [GenerateTemplateByScratch](https://help.aliyun.com/document_detail/610829.html) operation to generate a template for the resource scenario.
-   *     **
-   *     **Note** Make sure that the source resources that you want to delete from a resource migration scenario are associated only with the resource scenario. Otherwise, the source resources fail to be deleted.
-   * *   If you want to update a resource migration scenario in which the migrated source resources are deleted, you can only call the [GenerateTemplateByScratch](https://help.aliyun.com/document_detail/610829.html) operation to generate a template for the resource scenario.
+   * - If you want to update a resource migration scenario in which the migrated source resources are retained, you can delete the source resources to manage the updated resource migration scenario. You can also call the [GenerateTemplateByScratch](https://help.aliyun.com/document_detail/610829.html) operation to generate a template for the resource scenario.
+   *   \\*\\*
+   *   **Note** Make sure that the source resources that you want to delete from a resource migration scenario are associated only with the resource scenario. Otherwise, the source resources fail to be deleted.
+   * - If you want to update a resource migration scenario in which the migrated source resources are deleted, you can only call the [GenerateTemplateByScratch](https://help.aliyun.com/document_detail/610829.html) operation to generate a template for the resource scenario.
    * ### [](#)Resource management scenario
    * If you want to update a resource management scenario after you use the resource scenario to manage resources, you can only call the [GenerateTemplateByScratch](https://help.aliyun.com/document_detail/610829.html) operation to generate a template for the resource scenario.
    * ### [](#)Resource detection scenario
@@ -6375,10 +6835,10 @@ export default class Client extends OpenApi {
    * ### [](#)Resource replication scenario
    * Resource Orchestration Service (ROS) allows you to update a resource replication scenario. The updates that you make to a resource replication scenario do not affect the stack that is generated by using the resource scenario. You can call the [GenerateTemplateByScratch](https://help.aliyun.com/document_detail/610829.html) operation to generate a template for the resource scenario.
    * ### [](#)Resource migration scenario
-   * *   If you want to update a resource migration scenario in which the migrated source resources are retained, you can delete the source resources to manage the updated resource migration scenario. You can also call the [GenerateTemplateByScratch](https://help.aliyun.com/document_detail/610829.html) operation to generate a template for the resource scenario.
-   *     **
-   *     **Note** Make sure that the source resources that you want to delete from a resource migration scenario are associated only with the resource scenario. Otherwise, the source resources fail to be deleted.
-   * *   If you want to update a resource migration scenario in which the migrated source resources are deleted, you can only call the [GenerateTemplateByScratch](https://help.aliyun.com/document_detail/610829.html) operation to generate a template for the resource scenario.
+   * - If you want to update a resource migration scenario in which the migrated source resources are retained, you can delete the source resources to manage the updated resource migration scenario. You can also call the [GenerateTemplateByScratch](https://help.aliyun.com/document_detail/610829.html) operation to generate a template for the resource scenario.
+   *   \\*\\*
+   *   **Note** Make sure that the source resources that you want to delete from a resource migration scenario are associated only with the resource scenario. Otherwise, the source resources fail to be deleted.
+   * - If you want to update a resource migration scenario in which the migrated source resources are deleted, you can only call the [GenerateTemplateByScratch](https://help.aliyun.com/document_detail/610829.html) operation to generate a template for the resource scenario.
    * ### [](#)Resource management scenario
    * If you want to update a resource management scenario after you use the resource scenario to manage resources, you can only call the [GenerateTemplateByScratch](https://help.aliyun.com/document_detail/610829.html) operation to generate a template for the resource scenario.
    * ### [](#)Resource detection scenario
@@ -6394,10 +6854,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Validates a template by using a template URL or template body. The template is used to create a stack.
+   * Validates a template that is used to create a stack by specifying template URL or body.
    * 
    * @remarks
-   * In this example, a template that you want to use to create a stack is validated. `TemplateURL` is set to `oss://ros/template/demo`.
+   * This API operation validates only templates and does not involve user data. RAM authentication is not required.
+   * This topic provides an example of how to validate a stack template. In this example, the `TemplateURL` of the template file is `oss://ros/template/demo`.
    * 
    * @param request - ValidateTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6450,10 +6911,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Validates a template by using a template URL or template body. The template is used to create a stack.
+   * Validates a template that is used to create a stack by specifying template URL or body.
    * 
    * @remarks
-   * In this example, a template that you want to use to create a stack is validated. `TemplateURL` is set to `oss://ros/template/demo`.
+   * This API operation validates only templates and does not involve user data. RAM authentication is not required.
+   * This topic provides an example of how to validate a stack template. In this example, the `TemplateURL` of the template file is `oss://ros/template/demo`.
    * 
    * @param request - ValidateTemplateRequest
    * @returns ValidateTemplateResponse

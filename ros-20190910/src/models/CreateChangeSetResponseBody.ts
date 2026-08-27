@@ -13,7 +13,7 @@ export class CreateChangeSetResponseBody extends $dara.Model {
   changeSetId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * B288A0BE-D927-4888-B0F7-B35EF84B6E6F
@@ -21,7 +21,7 @@ export class CreateChangeSetResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the stack.
+   * The stack ID.
    * 
    * @example
    * 4a6c9851-3b0f-4f5f-b4ca-a14bf691****

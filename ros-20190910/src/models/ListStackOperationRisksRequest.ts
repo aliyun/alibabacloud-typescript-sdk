@@ -15,8 +15,9 @@ export class ListStackOperationRisksRequest extends $dara.Model {
    * @remarks
    * The type of the operation of which you want to detect risks. Valid values:
    * 
-   * *   DeleteStack: detects high risks that may arise in resources when you delete a stack.
-   * *   CreateStack: detects the missing permissions when you fail to create a stack.
+   * - DeleteStack: detects high risks that may arise in resources when you delete a stack.
+   * 
+   * - CreateStack: detects the missing permissions when you fail to create a stack.
    * 
    * @example
    * DeleteStack
@@ -26,8 +27,9 @@ export class ListStackOperationRisksRequest extends $dara.Model {
    * @remarks
    * The name of the RAM role.
    * 
-   * *   If you specify a RAM role, ROS creates stacks based on the permissions that are granted to the RAM role and uses the credentials of the RAM role to call the API operations of Alibaba Cloud services.
-   * *   If you do not specify a RAM role, ROS creates stacks based on the permissions of your Alibaba Cloud account.
+   * - If you specify a RAM role, ROS creates stacks based on the permissions that are granted to the RAM role and uses the credentials of the RAM role to call the API operations of Alibaba Cloud services.
+   * 
+   * - If you do not specify a RAM role, ROS creates stacks based on the permissions of your Alibaba Cloud account.
    * 
    * The name of the RAM role can be up to 64 bytes in length.
    * 
@@ -49,8 +51,9 @@ export class ListStackOperationRisksRequest extends $dara.Model {
    * @remarks
    * Specifies whether to retain all resources in the stack. Valid values:
    * 
-   * *   true
-   * *   false (default)
+   * - true
+   * 
+   * - false (default)
    * 
    * > This parameter takes effect only if you set OperationType to DeleteStack.
    * 
@@ -80,7 +83,7 @@ export class ListStackOperationRisksRequest extends $dara.Model {
    * @remarks
    * The structure that contains the template body. The template body must be 1 to 524,288 bytes in length. If the length of the template body exceeds the upper limit, we recommend that you add parameters to the HTTP POST request body to prevent request failures caused by excessively long URLs.
    * 
-   * >  You must and can specify only one of the following parameters: TemplateBody, TemplateURL, TemplateId, and TemplateScratchId.
+   * > You must and can specify only one of the following parameters: TemplateBody, TemplateURL, TemplateId, and TemplateScratchId.
    * 
    * @example
    * {"ROSTemplateFormatVersion":"2015-09-01"}
@@ -98,7 +101,7 @@ export class ListStackOperationRisksRequest extends $dara.Model {
   templateId?: string;
   /**
    * @remarks
-   * The URL of the file that contains the template body. The URL must point to a template that is located on an HTTP or HTTPS web server or in an Object Storage Service (OSS) bucket, such as oss://ros/stack-policy/demo and oss://ros/stack-policy/demo?RegionId=cn-hangzhou. The template body can be up to 524,288 bytes in length. If you do not specify RegionId in the URL, the region ID of the stack is used.
+   * The URL of the file that contains the template body. The URL must point to a template that is located on an HTTP or HTTPS web server or in an Object Storage Service (OSS) bucket, such as oss\\://ros/stack-policy/demo and oss\\://ros/stack-policy/demo?RegionId=cn-hangzhou. The template body can be up to 524,288 bytes in length. If you do not specify RegionId in the URL, the region ID of the stack is used.
    * 
    * > You must specify one of TemplateBody, TemplateURL, TemplateId, and TemplateScratchId.
    * 

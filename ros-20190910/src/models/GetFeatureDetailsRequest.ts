@@ -7,10 +7,13 @@ export class GetFeatureDetailsRequest extends $dara.Model {
    * @remarks
    * The one or more features that you want to query. Valid values:
    * 
-   * *   Terraform: the Terraform hosting feature.
-   * *   ResourceCleaner: the resource cleaner feature. You can use ALIYUN::ROS::ResourceCleaner to create a resource cleaner.
-   * *   TemplateScratch: the scenario feature.
-   * *   All: all features that are supported by ROS.
+   * - Terraform: the Terraform hosting feature.
+   * 
+   * - ResourceCleaner: the resource cleaner feature. You can use ALIYUN::ROS::ResourceCleaner to create a resource cleaner.
+   * 
+   * - TemplateScratch: the scenario feature.
+   * 
+   * - All: all features that are supported by ROS.
    * 
    * This parameter is required.
    * 

@@ -53,7 +53,7 @@ export class GetTemplateScratchResponseBodyTemplateScratchSourceResourceGroup ex
   resourceGroupId?: string;
   /**
    * @remarks
-   * The resource type filters.
+   * The resource type filter.
    */
   resourceTypeFilter?: string[];
   static names(): { [key: string]: string } {
@@ -85,7 +85,7 @@ export class GetTemplateScratchResponseBodyTemplateScratchSourceResourceGroup ex
 export class GetTemplateScratchResponseBodyTemplateScratchSourceResources extends $dara.Model {
   /**
    * @remarks
-   * The related resource type filters.
+   * The filter for related resource types.
    */
   relatedResourceTypeFilter?: string[];
   /**
@@ -135,7 +135,7 @@ export class GetTemplateScratchResponseBodyTemplateScratchSourceResources extend
 export class GetTemplateScratchResponseBodyTemplateScratchSourceTag extends $dara.Model {
   /**
    * @remarks
-   * The source tags.
+   * The source tag.
    * 
    * @example
    * {"a": "b"}
@@ -143,7 +143,7 @@ export class GetTemplateScratchResponseBodyTemplateScratchSourceTag extends $dar
   resourceTags?: { [key: string]: any };
   /**
    * @remarks
-   * The resource type filters.
+   * The resource type filter.
    */
   resourceTypeFilter?: string[];
   static names(): { [key: string]: string } {
@@ -178,10 +178,11 @@ export class GetTemplateScratchResponseBodyTemplateScratchSourceTag extends $dar
 export class GetTemplateScratchResponseBodyTemplateScratchStackProvision extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the resource is replicated by calling the [CreateStack](https://help.aliyun.com/document_detail/132086.html) operation. Valid values:
+   * Indicates whether you can call [CreateStack](https://help.aliyun.com/document_detail/132086.html) to create a stack for resource replication. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: Supported.
+   * 
+   * - false: Not supported.
    * 
    * @example
    * true
@@ -189,10 +190,11 @@ export class GetTemplateScratchResponseBodyTemplateScratchStackProvision extends
   creatable?: boolean;
   /**
    * @remarks
-   * Indicates whether the resource is managed by calling the [CreateChangeSet](https://help.aliyun.com/document_detail/131051.html) operation. Valid values:
+   * Indicates whether you can call [CreateChangeSet](https://help.aliyun.com/document_detail/131051.html) to create a change set for resource management. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: Supported.
+   * 
+   * - false: Not supported.
    * 
    * @example
    * false
@@ -242,8 +244,9 @@ export class GetTemplateScratchResponseBodyTemplateScratchStacks extends $dara.M
    * @remarks
    * The purpose of the stack. Valid values:
    * 
-   * *   ResourceImport: resource management
-   * *   ArchitectureReplication: resource replication
+   * - ResourceImport: resource management.
+   * 
+   * - ArchitectureReplication: resource replication.
    * 
    * @example
    * ArchitectureReplication
@@ -277,9 +280,7 @@ export class GetTemplateScratchResponseBodyTemplateScratchStacks extends $dara.M
 export class GetTemplateScratchResponseBodyTemplateScratch extends $dara.Model {
   /**
    * @remarks
-   * The time at which the resource scenario was created.
-   * 
-   * The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
+   * The time when the resource scenario was created. The time is displayed in UTC+0 and follows the ISO 8601 standard without the trailing Z. Format: YYYY-MM-DDThh:mm:ss.
    * 
    * @example
    * 2021-12-22T01:49:22
@@ -290,14 +291,14 @@ export class GetTemplateScratchResponseBodyTemplateScratch extends $dara.Model {
    * The description of the resource scenario.
    * 
    * @example
-   * The description of the resource scenario.
+   * 复制VPC资源。
    */
   description?: string;
   /**
    * @remarks
-   * The status code of the resource scenario that fails to be created.
+   * The status code that indicates why the resource scenario failed to be generated.
    * 
-   * > This parameter is returned only if you set Status to GENERATE_FAILED.
+   * > This parameter is returned only when Status is set to GENERATE_FAILED.
    * 
    * @example
    * InvalidZoneId
@@ -305,11 +306,13 @@ export class GetTemplateScratchResponseBodyTemplateScratch extends $dara.Model {
   failedCode?: string;
   /**
    * @remarks
-   * The policy based on which the logical ID is generated. Valid values:
+   * The logical ID generation strategy. Valid values:
    * 
-   * *   LongTypePrefixAndIndexSuffix (default): long-type prefix + index-type suffix
-   * *   LongTypePrefixAndHashSuffix: long-type prefix + hash-type suffix
-   * *   ShortTypePrefixAndHashSuffix: short-type prefix + hash-type suffix
+   * - LongTypePrefixAndIndexSuffix (default): long type prefix with index suffix.
+   * 
+   * - LongTypePrefixAndHashSuffix: long type prefix with hash suffix.
+   * 
+   * - ShortTypePrefixAndHashSuffix: short type prefix with hash suffix.
    * 
    * @example
    * LongTypePrefixAndIndexSuffix
@@ -317,12 +320,12 @@ export class GetTemplateScratchResponseBodyTemplateScratch extends $dara.Model {
   logicalIdStrategy?: string;
   /**
    * @remarks
-   * The preference parameters of the resource scenario.
+   * The configuration parameters of the resource scenario.
    */
   preferenceParameters?: GetTemplateScratchResponseBodyTemplateScratchPreferenceParameters[];
   /**
    * @remarks
-   * The ID of the resource group.
+   * The resource group ID.
    * 
    * @example
    * rg-acfmzmhzoaad5oq
@@ -345,21 +348,23 @@ export class GetTemplateScratchResponseBodyTemplateScratch extends $dara.Model {
   sourceTag?: GetTemplateScratchResponseBodyTemplateScratchSourceTag;
   /**
    * @remarks
-   * The preset information of the stack.
+   * The stack provisioning information.
    */
   stackProvision?: GetTemplateScratchResponseBodyTemplateScratchStackProvision;
   /**
    * @remarks
-   * The stacks that are associated with the resource scenario.
+   * The list of stacks associated with the resource scenario.
    */
   stacks?: GetTemplateScratchResponseBodyTemplateScratchStacks[];
   /**
    * @remarks
-   * The state of the resource scenario. Valid values:
+   * The status of the resource scenario. Valid values:
    * 
-   * *   GENERATE_IN_PROGRESS: The resource scenario is being created.
-   * *   GENERATE_COMPLETE: The resource scenario is created.
-   * *   GENERATE_FAILED: The resource scenario fails to be created.
+   * - GENERATE_IN_PROGRESS: being generated.
+   * 
+   * - GENERATE_COMPLETE: generated.
+   * 
+   * - GENERATE_FAILED: failed to be generated.
    * 
    * @example
    * GENERATE_COMPLETE
@@ -367,9 +372,9 @@ export class GetTemplateScratchResponseBodyTemplateScratch extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The reason why the resource scenario fails to be created.
+   * The reason why the resource scenario failed to be generated.
    * 
-   * > This parameter is returned only if you set Status to GENERATE_FAILED.
+   * > This parameter is returned only when Status is set to GENERATE_FAILED.
    * 
    * @example
    * Resource ALIYUN::ECS::VPC vpc-m5eauuq80anx59v28**** could not be found for template scratch.
@@ -378,6 +383,9 @@ export class GetTemplateScratchResponseBodyTemplateScratch extends $dara.Model {
   /**
    * @remarks
    * The resource scenario data.
+   * 
+   * @example
+   * 参见返回示例
    */
   templateScratchData?: { [key: string]: any };
   /**
@@ -392,8 +400,9 @@ export class GetTemplateScratchResponseBodyTemplateScratch extends $dara.Model {
    * @remarks
    * The type of the resource scenario. Valid values:
    * 
-   * *   ResourceImport: resource management
-   * *   ArchitectureReplication: resource replication
+   * - ResourceImport: resource management.
+   * 
+   * - ArchitectureReplication: resource replication.
    * 
    * @example
    * ArchitectureReplication
@@ -401,9 +410,7 @@ export class GetTemplateScratchResponseBodyTemplateScratch extends $dara.Model {
   templateScratchType?: string;
   /**
    * @remarks
-   * The time at which the resource scenario was updated.
-   * 
-   * The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
+   * The time when the resource scenario was last updated. The time is displayed in UTC+0 and follows the ISO 8601 standard without the trailing Z. Format: YYYY-MM-DDThh:mm:ss.
    * 
    * @example
    * 2021-12-22T01:49:23
@@ -486,7 +493,7 @@ export class GetTemplateScratchResponseBodyTemplateScratch extends $dara.Model {
 export class GetTemplateScratchResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * A8E0EF98-6FBD-5656-8298-FC8194F0F7B7

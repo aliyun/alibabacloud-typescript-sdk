@@ -9,10 +9,13 @@ export class ListStackGroupOperationsResponseBodyStackGroupOperations extends $d
    * 
    * Valid values:
    * 
-   * *   CREATE
-   * *   UPDATE
-   * *   DELETE
-   * *   DETECT_DRIFT
+   * - CREATE
+   * 
+   * - UPDATE
+   * 
+   * - DELETE
+   * 
+   * - DETECT_DRIFT
    * 
    * @example
    * CREATE
@@ -72,11 +75,15 @@ export class ListStackGroupOperationsResponseBodyStackGroupOperations extends $d
    * 
    * Valid values:
    * 
-   * *   RUNNING
-   * *   SUCCEEDED
-   * *   FAILED
-   * *   STOPPING
-   * *   STOPPED
+   * - RUNNING
+   * 
+   * - SUCCEEDED
+   * 
+   * - FAILED
+   * 
+   * - STOPPING
+   * 
+   * - STOPPED
    * 
    * @example
    * SUCCEEDED

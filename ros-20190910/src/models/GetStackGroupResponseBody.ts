@@ -5,14 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class GetStackGroupResponseBodyStackGroupAutoDeployment extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether stacks in the member account are retained when the member account is deleted from the folder.
+   * Indicates whether automatic deployment is enabled or disabled.
    * 
    * Valid values:
    * 
-   * *   true: The stacks are retained.
-   * *   false: The stacks are deleted.
+   * - true: Automatic deployment is enabled. If you add a new member account to the folder, the stack group automatically deploys stack instances in the specified region of the new account. If you remove a member account from the folder, the stack group automatically deletes stack instances from the specified region of the account.
    * 
-   * >  This parameter is returned only when the Enabled parameter is set to true.
+   * - false: Automatic deployment is disabled. After automatic deployment is disabled, the stack instances remain unchanged when the member accounts in the folder change.
    * 
    * @example
    * true
@@ -20,9 +19,15 @@ export class GetStackGroupResponseBodyStackGroupAutoDeployment extends $dara.Mod
   enabled?: boolean;
   /**
    * @remarks
-   * The folder IDs of the resource directory. This parameter is used to deploy stack instances within all the accounts in the folders.
+   * Indicates whether to retain the stacks in the member account when the member account is removed from the folder.
    * 
-   * >  This parameter is returned only when the PermissionModel parameter is set to SERVICE_MANAGED.
+   * Valid values:
+   * 
+   * - true: retains the stacks.
+   * 
+   * - false: deletes the stacks.
+   * 
+   * > This parameter is returned only if Enabled is set to true.
    * 
    * @example
    * true
@@ -94,7 +99,7 @@ export class GetStackGroupResponseBodyStackGroupParameters extends $dara.Model {
 export class GetStackGroupResponseBodyStackGroupStackGroupDriftDetectionDetail extends $dara.Model {
   /**
    * @remarks
-   * The number of stack instances that have drifted.
+   * The number of stack instances for which the drift detection operation was canceled.
    * 
    * @example
    * 0
@@ -102,13 +107,19 @@ export class GetStackGroupResponseBodyStackGroupStackGroupDriftDetectionDetail e
   cancelledStackInstancesCount?: number;
   /**
    * @remarks
-   * The drift status of the stack group.
+   * The drift detection status of the stack group.
    * 
    * Valid values:
    * 
-   * *   DRIFTED: At least one stack instance in the stack group has drifted.
-   * *   NOT_CHECKED: No drift detection is completed on the stack group.
-   * *   IN_SYNC: All the stack instances in the stack group are being synchronized.
+   * - COMPLETED: The drift detection operation is completed for the stack group. All stack instances have been successfully drift-detected.
+   * 
+   * - FAILED: The drift detection operation is completed for the stack group. The number of stack instances that failed the drift detection exceeds the specified threshold.
+   * 
+   * - PARTIAL_SUCCESS: The drift detection operation is completed for the stack group. The drift detection operation failed for some stack instances, but the number of failures did not exceed the threshold.
+   * 
+   * - IN_PROGRESS: The drift detection operation is in progress for the stack group.
+   * 
+   * - STOPPED: The drift detection operation on the stack group was canceled.
    * 
    * @example
    * COMPLETED
@@ -116,7 +127,7 @@ export class GetStackGroupResponseBodyStackGroupStackGroupDriftDetectionDetail e
   driftDetectionStatus?: string;
   /**
    * @remarks
-   * The number of stack instances.
+   * The time when the drift detection operation was performed on the stack group.
    * 
    * @example
    * 2020-02-27T07:47:47
@@ -124,7 +135,7 @@ export class GetStackGroupResponseBodyStackGroupStackGroupDriftDetectionDetail e
   driftDetectionTime?: string;
   /**
    * @remarks
-   * The ID of the resource group. This parameter is specified when you create the stack group.
+   * The number of stack instances that are in the DRIFTED state.
    * 
    * @example
    * 1
@@ -132,15 +143,7 @@ export class GetStackGroupResponseBodyStackGroupStackGroupDriftDetectionDetail e
   driftedStackInstancesCount?: number;
   /**
    * @remarks
-   * The status of drift detection on the stack group.
-   * 
-   * Valid values:
-   * 
-   * *   COMPLETED: Drift detection is performed and completed on all stack instances.
-   * *   FAILED: Drift detection is performed. The number of stack instances that failed the drift detection exceeds the specified threshold.
-   * *   PARTIAL_SUCCESS: Drift detection is performed. The number of stack instances that failed the drift detection does not exceed the specified threshold.
-   * *   IN_PROGRESS: Drift detection is being performed on the stack group.
-   * *   STOPPED: Drift detection is canceled for the stack group.
+   * The number of stack instances for which the drift detection operation failed.
    * 
    * @example
    * 0
@@ -148,7 +151,7 @@ export class GetStackGroupResponseBodyStackGroupStackGroupDriftDetectionDetail e
   failedStackInstancesCount?: number;
   /**
    * @remarks
-   * The number of stack instances that were being synchronized.
+   * The number of stack instances on which a drift detection operation is in progress.
    * 
    * @example
    * 0
@@ -156,7 +159,7 @@ export class GetStackGroupResponseBodyStackGroupStackGroupDriftDetectionDetail e
   inProgressStackInstancesCount?: number;
   /**
    * @remarks
-   * The number of stack instances for which drift detection was canceled.
+   * The number of stack instances that are in the IN_SYNC state.
    * 
    * @example
    * 1
@@ -164,7 +167,15 @@ export class GetStackGroupResponseBodyStackGroupStackGroupDriftDetectionDetail e
   inSyncStackInstancesCount?: number;
   /**
    * @remarks
-   * The number of stack instances on which drift detection was being performed.
+   * The drift status of the stack group.
+   * 
+   * Valid values:
+   * 
+   * - DRIFTED: At least one stack instance has drifted.
+   * 
+   * - NOT_CHECKED: No successful drift detection has been performed on the stack group.
+   * 
+   * - IN_SYNC: All stack instances are in the IN_SYNC state.
    * 
    * @example
    * DRIFTED
@@ -172,7 +183,7 @@ export class GetStackGroupResponseBodyStackGroupStackGroupDriftDetectionDetail e
   stackGroupDriftStatus?: string;
   /**
    * @remarks
-   * The number of stack instances that failed drift detection.
+   * The number of stack instances.
    * 
    * @example
    * 2
@@ -218,7 +229,7 @@ export class GetStackGroupResponseBodyStackGroupStackGroupDriftDetectionDetail e
 export class GetStackGroupResponseBodyStackGroup extends $dara.Model {
   /**
    * @remarks
-   * The parameters of the stack group.
+   * The name of the RAM administrator role that is assumed by ROS. This parameter is specified when you create a stack group in self-managed permission mode. If you do not specify this parameter, the default value AliyunROSStackGroupAdministrationRole is returned.
    * 
    * @example
    * AliyunROSStackGroupAdministrationRole
@@ -226,18 +237,22 @@ export class GetStackGroupResponseBodyStackGroup extends $dara.Model {
   administrationRoleName?: string;
   /**
    * @remarks
-   * Indicates whether automatic deployment is enabled.
+   * The information about automatic deployment settings.
    * 
-   * Valid values:
-   * 
-   * *   true: Automatic deployment is enabled. If a member account is added to the folder to which the stack group belongs after automatic deployment is enabled, the stack group deploys its stack instances in the specified region where the added account is deployed. If the account is deleted from the folder, the stack instances in the specified region are deleted from the stack group.
-   * *   false: Automatic deployment is disabled. After automatic deployment is disabled, the stack instances remain unchanged when the member account in the folder is changed.
+   * > This parameter is returned only if PermissionModel is set to SERVICE_MANAGED.
    */
   autoDeployment?: GetStackGroupResponseBodyStackGroupAutoDeployment;
+  /**
+   * @remarks
+   * The time when the stack group was created.
+   * 
+   * @example
+   * 2024-06-14T02:13:50
+   */
   createTime?: string;
   /**
    * @remarks
-   * The name of the stack group.
+   * The description of the stack group.
    * 
    * @example
    * StackGroup Description
@@ -245,7 +260,7 @@ export class GetStackGroupResponseBodyStackGroup extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The template body.
+   * The name of the RAM execution role that is assumed by the administrator role AliyunROSStackGroupAdministrationRole. This parameter is specified when you create a stack group in self-managed permission mode. If you do not specify this parameter, the default value AliyunROSStackGroupExecutionRole is returned.
    * 
    * @example
    * AliyunROSStackGroupExecutionRole
@@ -253,14 +268,20 @@ export class GetStackGroupResponseBodyStackGroup extends $dara.Model {
   executionRoleName?: string;
   /**
    * @remarks
-   * The key of the parameter.
+   * The list of the parameters of the stack group.
    */
   parameters?: GetStackGroupResponseBodyStackGroupParameters[];
   /**
    * @remarks
-   * The information about automatic deployment settings.
+   * The permission model.
    * 
-   * >  This parameter is returned only when the PermissionModel parameter is set to SERVICE_MANAGED.
+   * Valid values:
+   * 
+   * - SELF_MANAGED: self-managed permissions.
+   * 
+   * - SERVICE_MANAGED: service-managed permissions.
+   * 
+   * > For more information about the permission models of stack groups, refer to [Overview](https://help.aliyun.com/document_detail/154578.html).
    * 
    * @example
    * SELF_MANAGED
@@ -268,21 +289,14 @@ export class GetStackGroupResponseBodyStackGroup extends $dara.Model {
   permissionModel?: string;
   /**
    * @remarks
-   * The folder IDs of the resource directory. This parameter is used to deploy stack instances within all the accounts in the folders.
+   * The IDs of the folders in the resource directory. Stack instances are deployed in all the accounts in the folders.
    * 
-   * >  This parameter is returned only when the PermissionModel parameter is set to SERVICE_MANAGED.
+   * > This parameter is returned only if PermissionModel is set to SERVICE_MANAGED.
    */
   rdFolderIds?: string[];
   /**
    * @remarks
-   * The permission model.
-   * 
-   * Valid values:
-   * 
-   * *   SELF_MANAGED: the self-managed permission model
-   * *   SERVICE_MANAGED: the service-managed permission model
-   * 
-   * >  For more information about the permission models of stack groups, see [Overview](https://help.aliyun.com/document_detail/154578.html).
+   * The ID of the resource group. This value is determined by the resource group ID that you specify when you create the stack group.
    * 
    * @example
    * rg-acfmxazb4ph6aiy****
@@ -290,17 +304,12 @@ export class GetStackGroupResponseBodyStackGroup extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The time when drift detection was performed on the stack group.
+   * The details of the last successful drift detection operation on the stack group.
    */
   stackGroupDriftDetectionDetail?: GetStackGroupResponseBodyStackGroupStackGroupDriftDetectionDetail;
   /**
    * @remarks
-   * The status of the stack group.
-   * 
-   * Valid values:
-   * 
-   * *   ACTIVE
-   * *   DELETED
+   * The ID of the stack group.
    * 
    * @example
    * fd0ddef9-9540-4b42-a464-94f77835****
@@ -308,7 +317,7 @@ export class GetStackGroupResponseBodyStackGroup extends $dara.Model {
   stackGroupId?: string;
   /**
    * @remarks
-   * The name of the RAM role that is specified for the execution account when you create the self-managed stack group. The administrator role AliyunROSStackGroupAdministrationRole assumes the execution role. If this parameter is not specified, the default value AliyunROSStackGroupExecutionRole is returned.
+   * The name of the stack group.
    * 
    * @example
    * MyStackGroup
@@ -316,7 +325,13 @@ export class GetStackGroupResponseBodyStackGroup extends $dara.Model {
   stackGroupName?: string;
   /**
    * @remarks
-   * The name of the RAM role that is specified for the administrator account in Resource Orchestration Service (ROS) when you create the self-managed stack group. If this parameter is not specified, the default value AliyunROSStackGroupAdministrationRole is returned.
+   * The status of the stack group.
+   * 
+   * Valid values:
+   * 
+   * - ACTIVE: The stack group is active.
+   * 
+   * - DELETED: The stack group is deleted.
    * 
    * @example
    * ACTIVE
@@ -324,9 +339,9 @@ export class GetStackGroupResponseBodyStackGroup extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The structure that contains the template body.
+   * The structure of the template body.
    * 
-   * > We recommend that you use TemplateContent instead of TemplateBody.
+   * > We recommend that you do not use this parameter. Use TemplateContent instead.
    * 
    * @example
    * {"ROSTemplateFormatVersion": "2015-09-01"}
@@ -334,7 +349,7 @@ export class GetStackGroupResponseBodyStackGroup extends $dara.Model {
   templateBody?: string;
   /**
    * @remarks
-   * The JSON-formatted structure that contains the template body. For more information, see [Template syntax](https://help.aliyun.com/document_detail/28857.html).
+   * The structure of the template body. The structure is in the JSON format. For more information, refer to [Template syntax](https://help.aliyun.com/document_detail/28857.html).
    * 
    * @example
    * {
@@ -342,6 +357,13 @@ export class GetStackGroupResponseBodyStackGroup extends $dara.Model {
    * }
    */
   templateContent?: string;
+  /**
+   * @remarks
+   * The time when the stack group was updated.
+   * 
+   * @example
+   * 2024-06-15T02:01:00
+   */
   updateTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -409,7 +431,7 @@ export class GetStackGroupResponseBodyStackGroup extends $dara.Model {
 export class GetStackGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the stack group.
+   * The request ID.
    * 
    * @example
    * 14A07460-EBE7-47CA-9757-12CC4761D47A
@@ -417,7 +439,7 @@ export class GetStackGroupResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Details of the stack group.
+   * The details of the stack group.
    */
   stackGroup?: GetStackGroupResponseBodyStackGroup;
   static names(): { [key: string]: string } {

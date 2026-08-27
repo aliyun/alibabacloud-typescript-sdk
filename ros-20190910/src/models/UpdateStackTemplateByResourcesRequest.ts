@@ -19,10 +19,11 @@ export class UpdateStackTemplateByResourcesRequest extends $dara.Model {
    * @remarks
    * Specifies whether to only preview the corrected template in this request. Default value: false. Valid values:
    * 
-   * *   true: returns the content of the corrected template and does not correct the template. After Resource Orchestration Service (ROS) compares the corrected template with the original template, ROS determines whether to execute the correction.
-   * *   false: corrects the template to eliminate drift.
+   * - true: returns the content of the corrected template and does not correct the template. After Resource Orchestration Service (ROS) compares the corrected template with the original template, ROS determines whether to execute the correction.
    * 
-   * >  We recommend that you set the DryRun parameter to true to preview the corrected template. If the template content meets expectations, set the DryRun parameter to false to execute the correction.
+   * - false: corrects the template to eliminate drift.
+   * 
+   * > We recommend that you set the DryRun parameter to true to preview the corrected template. If the template content meets expectations, set the DryRun parameter to false to execute the correction.
    * 
    * @example
    * false
@@ -60,8 +61,9 @@ export class UpdateStackTemplateByResourcesRequest extends $dara.Model {
    * @remarks
    * The format of the returned template. Default value: JSON. Valid values:
    * 
-   * *   JSON
-   * *   YAML
+   * - JSON
+   * 
+   * - YAML
    * 
    * @example
    * JSON

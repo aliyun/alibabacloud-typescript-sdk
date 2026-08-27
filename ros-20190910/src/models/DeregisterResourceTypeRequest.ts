@@ -15,7 +15,7 @@ export class DeregisterResourceTypeRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The version ID. If you want to delete a version of the resource type, you must specify this parameter.
+   * The version ID. Specify this parameter to delete a specific version of the resource type.
    * 
    * @example
    * v1

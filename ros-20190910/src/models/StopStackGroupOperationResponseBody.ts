@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class StopStackGroupOperationResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 14A07460-EBE7-47CA-9757-12CC4761D47A

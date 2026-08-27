@@ -3,6 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListSummariesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Output information options.
+   * 
+   * @example
+   * StackDetail
+   */
   option?: string;
   static names(): { [key: string]: string } {
     return {

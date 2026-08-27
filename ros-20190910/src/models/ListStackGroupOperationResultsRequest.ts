@@ -19,8 +19,9 @@ export class ListStackGroupOperationResultsRequest extends $dara.Model {
    * @remarks
    * The number of the page to return.
    * 
-   * *   Pages start from page 1.
-   * *   Default value: 1.
+   * - Pages start from page 1.
+   * 
+   * - Default value: 1.
    * 
    * @example
    * 1
@@ -30,8 +31,9 @@ export class ListStackGroupOperationResultsRequest extends $dara.Model {
    * @remarks
    * The number of entries to return on each page.
    * 
-   * *   Valid values: 1 to 50.
-   * *   Default value: 10.
+   * - Valid values: 1 to 50.
+   * 
+   * - Default value: 10.
    * 
    * @example
    * 10

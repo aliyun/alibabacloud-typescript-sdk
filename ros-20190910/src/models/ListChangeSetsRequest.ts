@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListChangeSetsRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the change set. If detailed information about the change set is not required, you can use this parameter to replace the GetChangeSet operation.
+   * The change set ID. If you do not need detailed information about the change set, you can use this parameter instead of calling the GetChangeSet operation.
    * 
    * @example
    * 1f6521a4-05af-4975-afe9-bc4b45ad****
@@ -13,7 +13,7 @@ export class ListChangeSetsRequest extends $dara.Model {
   changeSetId?: string;
   /**
    * @remarks
-   * The name of change set N. Maximum value of N: 5. You can use an asterisk (\\*) as a wildcard for fuzzy search.
+   * The name of the change set. Maximum value of N: 5. You can use the wildcard character asterisk (\\*) for fuzzy match.
    * 
    * @example
    * MyChangeSet
@@ -21,14 +21,13 @@ export class ListChangeSetsRequest extends $dara.Model {
   changeSetName?: string[];
   /**
    * @remarks
-   * The execution status of change set N. Maximum value of N: 5. Valid values:
-   * 
-   * *   UNAVAILABLE
-   * *   AVAILABLE
-   * *   EXECUTE_IN_PROGRESS
-   * *   EXECUTE_COMPLETE
-   * *   EXECUTE_FAILED
-   * *   OBSOLETE
+   * The execution status of the change set. Maximum value of N: 5. Valid values:
+   * - UNAVAILABLE
+   * - AVAILABLE
+   * - EXECUTE_IN_PROGRESS
+   * - EXECUTE_COMPLETE
+   * - EXECUTE_FAILED
+   * - OBSOLETE.
    * 
    * @example
    * AVAILABLE
@@ -36,8 +35,8 @@ export class ListChangeSetsRequest extends $dara.Model {
   executionStatus?: string[];
   /**
    * @remarks
-   * The page number.\\
-   * Pages start from page 1.\\
+   * The page number of the change set list.  
+   * Minimum value: 1.  
    * Default value: 1.
    * 
    * @example
@@ -46,8 +45,8 @@ export class ListChangeSetsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.\\
-   * Valid values: 1 to 50.\\
+   * The number of entries per page in paging query. The value must be an integer.
+   * Valid values: 1 to 50.
    * Default value: 10.
    * 
    * @example
@@ -56,7 +55,7 @@ export class ListChangeSetsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region ID of the change set. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/131035.html) operation to query the most recent region list.
+   * The region ID of the change set. You can call [DescribeRegions](https://help.aliyun.com/document_detail/131035.html) to query the most recent region list.
    * 
    * This parameter is required.
    * 
@@ -66,7 +65,7 @@ export class ListChangeSetsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the stack.
+   * The stack ID.
    * 
    * This parameter is required.
    * 
@@ -76,14 +75,13 @@ export class ListChangeSetsRequest extends $dara.Model {
   stackId?: string;
   /**
    * @remarks
-   * The status of change set N. Maximum value of N: 5. Valid values:
-   * 
-   * *   CREATE_PENDING
-   * *   CREATE_IN_PROGRESS
-   * *   CREATE_COMPLETE
-   * *   CREATE_FAILED
-   * *   DELETE_FAILED
-   * *   DELETE_COMPLETE
+   * The status of the change set. Maximum value of N: 5. Valid values:
+   * - CREATE_PENDING
+   * - CREATE_IN_PROGRESS
+   * - CREATE_COMPLETE
+   * - CREATE_FAILED
+   * - DELETE_FAILED
+   * - DELETE_COMPLETE.
    * 
    * @example
    * CREATE_COMPLETE

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListResourceTypeVersionsResponseBodyResourceTypeVersions extends $dara.Model {
   /**
    * @remarks
-   * The time when the version was created. The time is displayed in UTC. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format.
+   * The time when the version was created. The time is displayed in UTC+0 based on the ISO 8601 standard but without the Z suffix. Format: YYYY-MM-DDThh:mm:ss.
    * 
    * @example
    * 2023-02-24T08:25:21
@@ -13,7 +13,7 @@ export class ListResourceTypeVersionsResponseBodyResourceTypeVersions extends $d
   createTime?: string;
   /**
    * @remarks
-   * The description of the version.
+   * The version description.
    * 
    * @example
    * It is a demo.
@@ -21,7 +21,7 @@ export class ListResourceTypeVersionsResponseBodyResourceTypeVersions extends $d
   description?: string;
   /**
    * @remarks
-   * The entity type. Only Module may be returned.
+   * The entity type. Valid values: Module, which indicates a module.
    * 
    * @example
    * Module
@@ -30,9 +30,8 @@ export class ListResourceTypeVersionsResponseBodyResourceTypeVersions extends $d
   /**
    * @remarks
    * Indicates whether the version is the default version. Valid values:
-   * 
-   * *   true
-   * *   false
+   * - true: The version is the default version.
+   * - false: The version is not the default version.
    * 
    * @example
    * true
@@ -40,10 +39,9 @@ export class ListResourceTypeVersionsResponseBodyResourceTypeVersions extends $d
   isDefaultVersion?: boolean;
   /**
    * @remarks
-   * The provider of the resource type. Valid values:
-   * 
-   * *   ROS: ROS
-   * *   Self: yourself
+   * The resource type provider. Valid values:
+   * - ROS: Resource Orchestration Service.
+   * - Self: The user.
    * 
    * @example
    * ROS
@@ -59,7 +57,7 @@ export class ListResourceTypeVersionsResponseBodyResourceTypeVersions extends $d
   resourceType?: string;
   /**
    * @remarks
-   * The time when the version was updated. The time is displayed in UTC. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format.
+   * The time when the version was last updated. The time is displayed in UTC+0 based on the ISO 8601 standard but without the Z suffix. Format: YYYY-MM-DDThh:mm:ss.
    * 
    * @example
    * 2023-02-24T08:25:21
@@ -119,7 +117,7 @@ export class ListResourceTypeVersionsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The versions of the resource types.
+   * The list of resource type version information.
    */
   resourceTypeVersions?: ListResourceTypeVersionsResponseBodyResourceTypeVersions[];
   static names(): { [key: string]: string } {

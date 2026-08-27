@@ -15,7 +15,7 @@ export class GetChangeSetRequest extends $dara.Model {
   changeSetId?: string;
   /**
    * @remarks
-   * The region ID of the change set. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/131035.html) operation to query the most recent region list.
+   * The ID of the region to which the change set belongs. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/131035.html) operation to query the latest list of Alibaba Cloud regions.
    * 
    * This parameter is required.
    * 
@@ -25,10 +25,11 @@ export class GetChangeSetRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * Specifies whether to obtain the template. Valid values:
+   * Specifies whether to return the template. Valid values:
    * 
-   * *   true
-   * *   false (default)
+   * - true: The template is returned.
+   * 
+   * - false (default): The template is not returned.
    * 
    * @example
    * false

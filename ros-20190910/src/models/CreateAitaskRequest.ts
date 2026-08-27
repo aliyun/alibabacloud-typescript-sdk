@@ -11,7 +11,7 @@ export class CreateAITaskRequest extends $dara.Model {
    * - When the task type is FixTemplate, this parameter can describe how the template should be repaired.
    * 
    * @example
-   * 创建一台ECS，部署nignx服务
+   * Create oneECS, and deploynignx service
    */
   prompt?: string;
   /**

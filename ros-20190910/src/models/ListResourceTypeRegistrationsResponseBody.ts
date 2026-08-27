@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListResourceTypeRegistrationsResponseBodyRegistrations extends $dara.Model {
   /**
    * @remarks
-   * The creation time. The time is displayed in UTC. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format.
+   * The time when the registration record was created. The time is displayed in UTC+0 based on the ISO 8601 standard but without the Z suffix. Format: YYYY-MM-DDThh:mm:ss.
    * 
    * @example
    * 2023-03-02T07:28:35
@@ -13,7 +13,7 @@ export class ListResourceTypeRegistrationsResponseBodyRegistrations extends $dar
   createTime?: string;
   /**
    * @remarks
-   * The entity type. Only Module may be returned.
+   * The entity type. Valid values: Module.
    * 
    * @example
    * Module
@@ -21,7 +21,7 @@ export class ListResourceTypeRegistrationsResponseBodyRegistrations extends $dar
   entityType?: string;
   /**
    * @remarks
-   * The ID of the registration record.
+   * The registration ID.
    * 
    * @example
    * 4a6c9851-3b0f-4f5f-b4ca-a14bf691****
@@ -37,11 +37,10 @@ export class ListResourceTypeRegistrationsResponseBodyRegistrations extends $dar
   resourceType?: string;
   /**
    * @remarks
-   * The registration state. Valid values:
-   * 
-   * *   IN_PROGRESS: The registration is in progress.
-   * *   COMPLETE: The registration is successful.
-   * *   FAILED: The registration failed.
+   * The registration status. Valid values:
+   * - IN_PROGRESS: In progress.
+   * - COMPLETE: Succeeded.
+   * - FAILED: Failed.
    * 
    * @example
    * COMPLETE
@@ -49,7 +48,7 @@ export class ListResourceTypeRegistrationsResponseBodyRegistrations extends $dar
   status?: string;
   /**
    * @remarks
-   * The reason for the state.
+   * The reason for the status.
    * 
    * @example
    * Module is created successfully
@@ -99,7 +98,7 @@ export class ListResourceTypeRegistrationsResponseBodyRegistrations extends $dar
 export class ListResourceTypeRegistrationsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The page number.
+   * The page number for paging.
    * 
    * @example
    * 1
@@ -107,7 +106,7 @@ export class ListResourceTypeRegistrationsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The registration records of the resource.
+   * The list of resource registration records.
    */
   registrations?: ListResourceTypeRegistrationsResponseBodyRegistrations[];
   /**

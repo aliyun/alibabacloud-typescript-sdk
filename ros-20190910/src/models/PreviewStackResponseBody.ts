@@ -7,10 +7,13 @@ export class PreviewStackResponseBodyStackLogTerraformLogs extends $dara.Model {
    * @remarks
    * The name of the Terraform command that is run. Valid values:
    * 
-   * *   apply
-   * *   plan
-   * *   destroy
-   * *   version
+   * - apply
+   * 
+   * - plan
+   * 
+   * - destroy
+   * 
+   * - version
    * 
    * For more information about Terraform commands, see [Basic CLI Features](https://www.terraform.io/cli/commands).
    * 
@@ -30,8 +33,9 @@ export class PreviewStackResponseBodyStackLogTerraformLogs extends $dara.Model {
    * @remarks
    * The output stream. Valid values:
    * 
-   * *   stdout: standard output stream
-   * *   stderr: standard error stream
+   * - stdout: standard output stream
+   * 
+   * - stderr: standard error stream
    * 
    * @example
    * stdout
@@ -147,10 +151,13 @@ export class PreviewStackResponseBodyStackResources extends $dara.Model {
    * @remarks
    * The action that is performed on the resource. Valid values:
    * 
-   * *   Add
-   * *   Modify
-   * *   Remove
-   * *   None
+   * - Add
+   * 
+   * - Modify
+   * 
+   * - Remove
+   * 
+   * - None
    * 
    * @example
    * Add
@@ -194,9 +201,11 @@ export class PreviewStackResponseBodyStackResources extends $dara.Model {
    * @remarks
    * Indicates whether a replacement update is performed on the template. Valid values:
    * 
-   * *   True: A replacement update is performed on the template.
-   * *   False: A change is made on the template.
-   * *   Conditional: A replacement update may be performed on the template. You can check whether a replacement update is performed when the template is in use.
+   * - True: A replacement update is performed on the template.
+   * 
+   * - False: A change is made on the template.
+   * 
+   * - Conditional: A replacement update may be performed on the template. You can check whether a replacement update is performed when the template is in use.
    * 
    * > This parameter is returned only if Action is set to Modify.
    * 

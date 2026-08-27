@@ -5,12 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class ListResourceTypesRequest extends $dara.Model {
   /**
    * @remarks
-   * The entity type. Valid values:
+   * The entity type. Valid values:  
    * 
-   * *   All: all types of resources.
-   * *   Resource (default): regular resources. For more information, see [Resources](https://help.aliyun.com/document_detail/28863.html).
-   * *   DataSource: DataSource resources. For more information, see [DataSource resources](https://help.aliyun.com/document_detail/404753.html).
-   * *   Module: modules.
+   * - All: all resource types.
+   * 
+   * - Resource (default): regular resource types. For more information, see [Resources](https://help.aliyun.com/document_detail/28863.html).
+   * 
+   * - DataSource: data source resource types. For more information, see [Data source resources](https://help.aliyun.com/document_detail/404753.html).
+   * 
+   * - Module: modules.
    * 
    * @example
    * Resource
@@ -18,10 +21,9 @@ export class ListResourceTypesRequest extends $dara.Model {
   entityType?: string;
   /**
    * @remarks
-   * The provider of the resource type. Valid values:
-   * 
-   * *   ROS (default): The resource type is provided by Resource Orchestration Service (ROS).
-   * *   Self: The resource type is provided by you.
+   * The resource type provider. Valid values:
+   * - ROS (default): Resource Orchestration Service.
+   * - Self: the user.
    * 
    * @example
    * ROS
@@ -29,7 +31,7 @@ export class ListResourceTypesRequest extends $dara.Model {
   provider?: string;
   /**
    * @remarks
-   * The resource type. The resource type can contain letters, digits, colons (:), and asterisks (\\*). You can use an asterisk (\\*) to perform a fuzzy match.
+   * The resource type. The value can contain uppercase and lowercase letters, digits, colons (:), and asterisks (\\*). If an asterisk is used, fuzzy match is performed.
    * 
    * @example
    * MODULE::MyOrganization::MyService::MyUsecase

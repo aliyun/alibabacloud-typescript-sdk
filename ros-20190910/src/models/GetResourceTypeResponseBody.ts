@@ -5,12 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class GetResourceTypeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The type of the resource.
+   * The return values of the resource.
+   * 
+   * @example
+   * 参见示例
    */
   attributes?: { [key: string]: any };
   /**
    * @remarks
-   * The creation time. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
+   * The time when the resource type was created. The time is displayed in UTC+0 and follows the ISO 8601 standard without the trailing Z. Format: YYYY-MM-DDThh:mm:ss.
    * 
    * @example
    * 2023-02-24T08:25:21
@@ -20,7 +23,7 @@ export class GetResourceTypeResponseBody extends $dara.Model {
    * @remarks
    * The default version ID.
    * 
-   * > This parameter is returned only if the resource type is queried.
+   * > This parameter is returned only when the resource type is queried.
    * 
    * @example
    * v1
@@ -38,9 +41,12 @@ export class GetResourceTypeResponseBody extends $dara.Model {
    * @remarks
    * The entity type. Valid values:
    * 
-   * *   Resource: regular resource. For more information, see [Resources](https://help.aliyun.com/document_detail/28863.html).
-   * *   DataSource: DataSource resource. For more information, see [DataSource resources](https://help.aliyun.com/document_detail/404753.html).
-   * *   module: module.
+   * 
+   * - Resource: a regular resource type. For more information, see [Resources](https://help.aliyun.com/document_detail/28863.html).
+   * 
+   * - DataSource: a data source resource type. For more information, see [Data source resources](https://help.aliyun.com/document_detail/404753.html).
+   * 
+   * - Module: a module.
    * 
    * @example
    * Resource
@@ -49,11 +55,9 @@ export class GetResourceTypeResponseBody extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the version is the default version. Valid values:
-   * 
-   * *   true
-   * *   false
-   * 
-   * > This parameter is returned only if a specific version of the resource type is queried.
+   * - true: The version is the default version.
+   * - false: The version is not the default version.
+   * > This parameter is returned only when a specific version of the resource type is queried.
    * 
    * @example
    * true
@@ -62,8 +66,7 @@ export class GetResourceTypeResponseBody extends $dara.Model {
   /**
    * @remarks
    * The latest version ID.
-   * 
-   * > This parameter is returned only if the resource type is queried.
+   * > This parameter is returned only when the resource type is queried.
    * 
    * @example
    * v10
@@ -71,18 +74,17 @@ export class GetResourceTypeResponseBody extends $dara.Model {
   latestVersionId?: string;
   /**
    * @remarks
-   * Indicates whether the resource supports drift detection. Default value: false. Valid values:
+   * The properties of the resource.
    * 
-   * *   true: Drift detection is supported.
-   * *   false: Drift detection is not supported.
+   * @example
+   * 参见示例
    */
   properties?: { [key: string]: any };
   /**
    * @remarks
-   * The provider of the resource type. Valid values:
-   * 
-   * *   ROS: The resource type is provided by Resource Orchestration Service (ROS).
-   * *   Self: The resource type is provided by you.
+   * The resource type provider. Valid values:
+   * - ROS: Resource Orchestration Service.
+   * - Self: the user.
    * 
    * @example
    * ROS
@@ -90,7 +92,7 @@ export class GetResourceTypeResponseBody extends $dara.Model {
   provider?: string;
   /**
    * @remarks
-   * The attributes of the resource.
+   * The request ID.
    * 
    * @example
    * A28FBA2E-B6B3-5822-AA45-AB875EF23641
@@ -98,7 +100,7 @@ export class GetResourceTypeResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The properties of the resource.
+   * The resource type.
    * 
    * @example
    * ALIYUN::ROS::WaitConditionHandle
@@ -106,10 +108,11 @@ export class GetResourceTypeResponseBody extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * Indicates whether the resource supports scratch detection. Default value: false. Valid values:
+   * Indicates whether the resource supports drift detection. Valid values:
    * 
-   * *   true: Scratch detection is supported.
-   * *   false: Scratch detection is not supported.
+   * - true: Supported.
+   * 
+   * - false: Not supported.
    * 
    * @example
    * false
@@ -117,10 +120,11 @@ export class GetResourceTypeResponseBody extends $dara.Model {
   supportDriftDetection?: boolean;
   /**
    * @remarks
-   * The entity type. Valid values:
+   * Indicates whether the resource supports resource scenarios. Valid values:
    * 
-   * *   Resource: resources other than DataSource resources. For more information, see [Resources](https://help.aliyun.com/document_detail/28863.html).
-   * *   DataSource: DataSource resources.
+   * - true: Supported.
+   * 
+   * - false: Not supported.
    * 
    * @example
    * false
@@ -128,9 +132,8 @@ export class GetResourceTypeResponseBody extends $dara.Model {
   supportScratchDetection?: boolean;
   /**
    * @remarks
-   * The template content in the module.
-   * 
-   * > This parameter is returned only if a specific version of the resource type is queried.
+   * The template content of the module.
+   * > This parameter is returned only when a specific version of the resource type is queried.
    * 
    * @example
    * {"ROSTemplateFormatVersion":"2015-09-01"}
@@ -139,8 +142,7 @@ export class GetResourceTypeResponseBody extends $dara.Model {
   /**
    * @remarks
    * The total number of versions.
-   * 
-   * > This parameter is returned only if the resource type is queried.
+   * > This parameter is returned only when the resource type is queried.
    * 
    * @example
    * 10
@@ -148,7 +150,7 @@ export class GetResourceTypeResponseBody extends $dara.Model {
   totalVersionCount?: number;
   /**
    * @remarks
-   * The update time. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
+   * The time when the resource type was updated. The time is displayed in UTC+0 and follows the ISO 8601 standard without the trailing Z. Format: YYYY-MM-DDThh:mm:ss.
    * 
    * @example
    * 2023-02-24T08:25:21

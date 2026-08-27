@@ -16,7 +16,40 @@ export class GetTemplateEstimateCostResponseBody extends $dara.Model {
    * The resource details.
    * 
    * @example
-   * [{\\"LogicalResourceIdPattern\\": \\"wait1\\", \\"ResourceType\\": \\"time_sleep\\", \\"ResourcePath\\": \\"wait1\\"}, {\\"LogicalResourceIdPattern\\": \\"wait2\\", \\"ResourceType\\": \\"time_sleep\\", \\"ResourcePath\\": \\"wait2\\"}]
+   * {
+   *   "NewEip": {
+   *     "Type": "ALIYUN::VPC::EIP",
+   *     "Success": true,
+   *     "Result": {
+   *       "Order": {
+   *         "TaxAmount": 0.0,
+   *         "Currency": "CNY",
+   *         "RuleIds": [
+   *           "102204102264****"
+   *         ],
+   *         "TradeAmount": 87.5,
+   *         "OriginalAmount": 125.0,
+   *         "DiscountAmount": 37.5
+   *       },
+   *       "OrderSupplement": {
+   *         "ChargeType": "PrePaid",
+   *         "Period": 1,
+   *         "Quantity": 1,
+   *         "PriceType": "Total",
+   *         "PeriodUnit": "Month"
+   *       },
+   *       "InquiryType": "Buy",
+   *       "Rules": {
+   *         "Rule": [
+   *           {
+   *             "RuleDescId": "102204102264****",
+   *             "Name": "Contract_Discount_Full_Order_30%_Off"
+   *           }
+   *         ]
+   *       }
+   *     }
+   *   }
+   * }
    */
   resources?: { [key: string]: any };
   static names(): { [key: string]: string } {

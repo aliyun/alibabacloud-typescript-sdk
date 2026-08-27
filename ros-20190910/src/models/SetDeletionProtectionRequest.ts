@@ -7,10 +7,11 @@ export class SetDeletionProtectionRequest extends $dara.Model {
    * @remarks
    * Indicates whether stack deletion protection is enabled. Valid values:
    * 
-   * *   Enabled: enables the stack deletion protection.
-   * *   Disabled (default): Resource stack deletion protection is Disabled. You can use the console or API(DeleteStack) to release the stack resources.
+   * - Enabled: enables the stack deletion protection.
    * 
-   * >  The deletion of nested stacks is the same as the root stack.
+   * - Disabled (default): Resource stack deletion protection is Disabled. You can use the console or API(DeleteStack) to release the stack resources.
+   * 
+   * > The deletion of nested stacks is the same as the root stack.
    * 
    * This parameter is required.
    * 

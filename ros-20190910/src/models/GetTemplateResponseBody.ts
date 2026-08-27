@@ -26,10 +26,14 @@ export class GetTemplateResponseBodyPermissions extends $dara.Model {
    * The service that is used for resource sharing. Valid values:
    * 
    * - ROS: Resources are shared from ROS by using the ROS console or calling the ROS API.
+   * 
    * - ResourceDirectory: Resources are shared with accounts in a resource directory from Resource Management by using the resource sharing feature.
-   * > -  The number of accounts with which resources are shared from ROS is independent of the number of accounts with which resources are shared from the resource directory.
-   * > -  The shared resources from ROS cannot override or overwrite the shared resources from the resource directory.
-   * > -  The shared resources from the resource directory can overwrite the shared resources from ROS.
+   * 
+   * > * The number of accounts with which resources are shared from ROS is independent of the number of accounts with which resources are shared from the resource directory.
+   * >
+   * > * The shared resources from ROS cannot override or overwrite the shared resources from the resource directory.
+   * >
+   * > * The shared resources from the resource directory can overwrite the shared resources from ROS.
    * 
    * @example
    * ROS
@@ -51,10 +55,13 @@ export class GetTemplateResponseBodyPermissions extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   AllVersions: All template versions are shared.
-   * *   Latest: Only the latest template version is shared. When the version of the template is updated, Resource Orchestration Service (ROS) updates the shared version to the latest version.
-   * *   Current: Only the latest template version is shared. When the version of the template is updated, ROS does not update the shared version.
-   * *   Specified: Only the specified template version is shared.
+   * - AllVersions: All template versions are shared.
+   * 
+   * - Latest: Only the latest template version is shared. When the version of the template is updated, Resource Orchestration Service (ROS) updates the shared version to the latest version.
+   * 
+   * - Current: Only the latest template version is shared. When the version of the template is updated, ROS does not update the shared version.
+   * 
+   * - Specified: Only the specified template version is shared.
    * 
    * @example
    * AllVersions
@@ -135,7 +142,7 @@ export class GetTemplateResponseBody extends $dara.Model {
    * Supplementary information for the public template.
    * 
    * @example
-   * {"DeploymentDuration":null,"Title":"Self-Built_ElasticSearch_Snapshot_Saved_To_OSS","Labels":{"ResourceTypes":["ALIYUN::ECS::Instance","ALIYUN::ECS::SecurityGroup","ALIYUN::ECS::VPC","ALIYUN::ECS::VSwitch","ALIYUN::OSS::Bucket","ALIYUN::ROS::WaitCondition","ALIYUN::ROS::WaitConditionHandle"],"DeployTypes":["ROS"],"ApplicationScenes":["其他"]},"Provider":"ROS","Categories":["Solution"]}
+   * {"DeploymentDuration":null,"Title":"Self-Built_ElasticSearch_Snapshot_Saved_To_OSS","Labels":{"ResourceTypes":["ALIYUN::ECS::Instance","ALIYUN::ECS::SecurityGroup","ALIYUN::ECS::VPC","ALIYUN::ECS::VSwitch","ALIYUN::OSS::Bucket","ALIYUN::ROS::WaitCondition","ALIYUN::ROS::WaitConditionHandle"],"DeployTypes":["ROS"],"ApplicationScenes":["other"]},"Provider":"ROS","Categories":["Solution"]}
    */
   additionalInfo?: { [key: string]: any };
   /**
@@ -151,6 +158,7 @@ export class GetTemplateResponseBody extends $dara.Model {
    * The time when the template was created. This parameter is returned only if you specify TemplateId.
    * 
    * > - If you specify TemplateVersion, the creation time of the template whose version is specified by TemplateVersion is returned.
+   * >
    * > - If you do not specify TemplateVersion, the creation time of the template whose version is the default version is returned.
    * 
    * @example
@@ -186,6 +194,7 @@ export class GetTemplateResponseBody extends $dara.Model {
    * Details of the sharing status of the template. This parameter is returned only if you specify TemplateId and set IncludePermission to Enabled.
    * 
    * > - If TemplateVersion is not specified or does not take effect, the details of the sharing status of the template whose version is the default version is returned.
+   * >
    * > - If TemplateVersion is specified and takes effect, the details of the sharing status of the template whose version is specified by TemplateVersion is returned.
    */
   permissions?: GetTemplateResponseBodyPermissions[];
@@ -219,8 +228,9 @@ export class GetTemplateResponseBody extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   Private: The template belongs to the template owner.
-   * *   Shared: The template is shared by other users.
+   * - Private: The template belongs to the template owner.
+   * 
+   * - Shared: The template is shared by other users.
    * 
    * @example
    * Private
@@ -277,8 +287,9 @@ export class GetTemplateResponseBody extends $dara.Model {
    * @remarks
    * The name of the template. This parameter is returned only if you specify TemplateId.
    * 
-   * > -   If you specify TemplateVersion, the name of the template whose version is specified by TemplateVersion is returned.
-   * > -  If you not specify TemplateVersion, the name of the template whose version is the default version is returned.
+   * > - If you specify TemplateVersion, the name of the template whose version is specified by TemplateVersion is returned.
+   * >
+   * > - If you not specify TemplateVersion, the name of the template whose version is the default version is returned.
    * 
    * @example
    * MyTemplate
@@ -286,7 +297,7 @@ export class GetTemplateResponseBody extends $dara.Model {
   templateName?: string;
   /**
    * @remarks
-   * The version of the template. This parameter is returned only if you specify TemplateId.\\
+   * The version of the template. This parameter is returned only if you specify TemplateId.<br>
    * If TemplateVersion is not specified or does not take effect, the default version is used.
    * 
    * If the template is a shared template, this parameter is returned only if you set VersionOption to AllVersions.
@@ -300,6 +311,7 @@ export class GetTemplateResponseBody extends $dara.Model {
    * The time when the template was last updated. This parameter is returned only if you specify TemplateId.
    * 
    * > - If you specify TemplateVersion, the last update time of the template whose version is specified by TemplateVersion is returned.
+   * >
    * > - If you do not specify TemplateVersion, the last update time of the template whose version is the default version is returned.
    * 
    * @example

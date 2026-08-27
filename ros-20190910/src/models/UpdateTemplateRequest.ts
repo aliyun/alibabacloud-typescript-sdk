@@ -14,7 +14,9 @@ export class UpdateTemplateRequest extends $dara.Model {
   /**
    * @remarks
    * Whether to update the Draft (draft) version. Values:
+   * 
    * - false (default): If template content is provided, a new version is created, and the Draft version is cleared. Otherwise, the current latest version is modified.
+   * 
    * - true: Modifies the Draft version. The Draft version can only be retrieved via the GetTemplate interface. The ListTemplateVersions interface will not return it. The TemplateVersion parameter in other interfaces cannot specify Draft.
    * 
    * @example
@@ -24,12 +26,16 @@ export class UpdateTemplateRequest extends $dara.Model {
   /**
    * @remarks
    * Template version rotation strategy. Values:
+   * 
    * - None (default): No rotation. An error occurs when the version limit is reached.
+   * 
    * - DeleteOldestNonSharedVersionWhenLimitExceeded: Rotates and deletes non-shared template versions.
-   * > 
-   * > - If all versions of the template are shared, they cannot be rotated and deleted.
-   * > - The current latest version will not be rotated and deleted.
-   * > - Regardless of whether rotation deletion is used, the template version number cannot exceed v65000.
+   * 
+   * > * If all versions of the template are shared, they cannot be rotated and deleted.
+   * >
+   * > * The current latest version will not be rotated and deleted.
+   * >
+   * > * Regardless of whether rotation deletion is used, the template version number cannot exceed v65000.
    * 
    * @example
    * None
@@ -57,7 +63,7 @@ export class UpdateTemplateRequest extends $dara.Model {
   templateId?: string;
   /**
    * @remarks
-   * The name of the template.  
+   * The name of the template.<br>
    * The length should not exceed 255 characters (utf-8 encoding), and it must start with a number, letter, or Chinese character. It can include numbers, letters, Chinese characters, hyphens (-), and underscores (_).
    * 
    * @example
@@ -66,11 +72,11 @@ export class UpdateTemplateRequest extends $dara.Model {
   templateName?: string;
   /**
    * @remarks
-   * The location of the file containing the template body. The URL must point to a template located on a web server (HTTP or HTTPS) or in an Alibaba Cloud OSS bucket (e.g., oss://ros/template/demo, oss://ros/template/demo?RegionId=cn-hangzhou), with a maximum size of 524,288 bytes.   
+   * The location of the file containing the template body. The URL must point to a template located on a web server (HTTP or HTTPS) or in an Alibaba Cloud OSS bucket (e.g., oss\\://ros/template/demo, oss\\://ros/template/demo?RegionId=cn-hangzhou), with a maximum size of 524,288 bytes.
    * 
    * > If the OSS region is not specified, it defaults to the same as the `RegionId` parameter in the request.
-   *    
-   * You can only specify one of `TemplateBody` or `TemplateURL`.   
+   * 
+   * You can only specify one of `TemplateBody` or `TemplateURL`.<br>
    * The maximum length of the URL is 1,024 bytes.
    * 
    * @example

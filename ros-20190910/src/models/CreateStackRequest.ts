@@ -5,12 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class CreateStackRequestParameters extends $dara.Model {
   /**
    * @remarks
-   * The key of parameter N that is defined in the template. If you do not specify the name and value of a parameter, ROS uses the default name and value that are specified in the template.
+   * The name of parameter N defined in the template. If you do not specify the name and value of a parameter, ROS uses the default value in the template.
    * 
-   * Maximum value of N: 200.\\
-   * The name must be 1 to 128 characters in length, and cannot contain `http://` or `https://`. It cannot start with `aliyun` or `acs:`.
+   * The maximum value of N is 200. The name must be 1 to 128 characters and cannot start with `aliyun` or `acs:`. The name cannot contain `http://` or `https://`.
    * 
-   * > The Parameters parameter is optional. If you specify Parameters, you must specify Parameters.N.ParameterKey and Parameters.N.ParameterValue.
+   * > Parameters is an optional parameter. To specify Parameters, you must specify both Parameters.N.ParameterKey and Parameters.N.ParameterValue.
    * 
    * This parameter is required.
    * 
@@ -20,12 +19,11 @@ export class CreateStackRequestParameters extends $dara.Model {
   parameterKey?: string;
   /**
    * @remarks
-   * The value of parameter N that is defined in the template.
+   * The value of parameter N defined in the template.
    * 
-   * Maximum value of N: 200.\\
-   * The value can be up to 128 characters in length, and cannot contain `http://` or `https://`. It cannot start with `aliyun` or `acs:`.
+   * The maximum value of N is 200. The value must be 0 to 128 characters and cannot start with `aliyun` or `acs:`. The value cannot contain `http://` or `https://`.
    * 
-   * > The Parameters parameter is optional. If you specify Parameters, you must specify Parameters.N.ParameterKey and Parameters.N.ParameterValue.
+   * > Parameters is an optional parameter. To specify Parameters, you must specify both Parameters.N.ParameterKey and Parameters.N.ParameterValue.
    * 
    * This parameter is required.
    * 
@@ -59,12 +57,13 @@ export class CreateStackRequestParameters extends $dara.Model {
 export class CreateStackRequestTags extends $dara.Model {
   /**
    * @remarks
-   * The key of tag N that you want to add to the stack.
+   * The key of tag N of the stack.
    * 
-   * Valid values of N: 1 to 20.
+   * Valid values: 1 to 20.
    * 
-   * > - The Tags parameter is optional. If you specify Tags, you must specify Tags.N.Key.
-   * > -  The tag of a stack is propagated to each resource that supports the tag feature in the stack. For more information, see [Propagate tags](https://help.aliyun.com/document_detail/201421.html).
+   * > - Tags is an optional parameter. To specify Tags, you must specify Tags.N.Key.
+   * >
+   * > - Stack tags propagate to each resource that supports tagging. [Tag propagation](https://help.aliyun.com/document_detail/201421.html).
    * 
    * This parameter is required.
    * 
@@ -74,11 +73,11 @@ export class CreateStackRequestTags extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of tag N that you want to add to the stack.
+   * The value of tag N of the stack.
    * 
-   * Valid values of N: 1 to 20.
+   * Valid values: 1 to 20.
    * 
-   * > The tag of a stack is propagated to each resource that supports the tag feature in the stack. For more information, see [Propagate tags](https://help.aliyun.com/document_detail/201421.html).
+   * > Stack tags propagate to taggable resources. [Tag propagation](https://help.aliyun.com/document_detail/201421.html).
    * 
    * @example
    * test
@@ -110,9 +109,9 @@ export class CreateStackRequestTags extends $dara.Model {
 export class CreateStackRequest extends $dara.Model {
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can be up to 64 characters in length, and can contain letters, digits, hyphens (-), and underscores (_).
+   * Ensures request idempotency. Must be client-generated and globally unique. Maximum length: 64 characters. Can contain **letters**, **digits**,**&#x20;hyphens (-)**, an&#x64;**&#x20;underscores (_)**.
    * 
-   * For more information, see [Ensure idempotence](https://help.aliyun.com/document_detail/134212.html).
+   * [How to ensure idempotence](https://help.aliyun.com/document_detail/134212.html)
    * 
    * @example
    * 123e4567-e89b-12d3-a456-42665544****
@@ -120,14 +119,19 @@ export class CreateStackRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The creation option for the stack. Valid values:
+   * The post-creation behavior for the stack. Valid values:
    * 
-   * *   KeepStackOnCreationComplete (default): After the stack is created, the stack and its resources are retained. The quota for the maximum number of stacks that can be created in ROS is consumed.
-   * *   AbandonStackOnCreationComplete: After the stack is created, the stack is deleted, but its resources are retained. The quota for the maximum number of stacks that can be created in ROS is not consumed. If the stack fails to be created, the stack is retained.
-   * *   AbandonStackOnCreationRollbackComplete: When the resources of the stack are rolled back after the stack fails to be created, the stack is deleted. The quota for the maximum number of stacks that can be created in ROS is not consumed. In other rollback scenarios, the stack is retained.
-   * *   ManuallyPay: When you create the stack, you must manually pay for the subscription resources that are used. The following resource types support manual payment: `ALIYUN::ECS::InstanceGroup`, `ALIYUN::RDS::DBInstance`, `ALIYUN::SLB::LoadBalancer`, `ALIYUN::VPC::EIP`, and `ALIYUN::VPC::VpnGateway`.
+   * - KeepStackOnCreationComplete (default): retains the stack and resources after creation. Counts toward the stack quota.
    * 
-   * >  You can specify only one of CreateOption and CreateOptions.
+   * - AbandonStackOnCreationComplete: deletes the stack but retains resources after creation. Does not count toward the stack quota. The stack is retained if creation fails.
+   * 
+   * - AbandonStackOnCreationRollbackComplete: deletes the stack after a creation rollback. Does not count toward the stack quota. The stack is retained in other rollback scenarios.
+   * 
+   * - ManuallyPay: requires manual payment for subscription resources during stack creation. Supported resource types: `ALIYUN::ECS::InstanceGroup`, `ALIYUN::RDS::DBInstance`, `ALIYUN::SLB::LoadBalancer`, `ALIYUN::VPC::EIP`, and `ALIYUN::VPC::VpnGateway`.
+   * 
+   * - RetryOnNoStock: automatically retries resource creation on insufficient inventory. Supported resource type: `ALIYUN::RDS::DBInstance`.
+   * 
+   * > You can specify only one of the following parameters: CreateOption or CreateOptions.
    * 
    * @example
    * KeepStackOnCreationComplete
@@ -140,12 +144,13 @@ export class CreateStackRequest extends $dara.Model {
   createOptions?: string[];
   /**
    * @remarks
-   * Specifies whether to enable deletion protection for the stack. Valid values:
+   * Specifies whether to enable deletion protection on the stack. Valid values:
    * 
-   * *   Enabled.
-   * *   Disabled (default). If deletion protection is disabled, you can delete the stack by using the ROS console or by calling the DeleteStack operation.
+   * - Enabled: enables deletion protection.
    * 
-   * > The value of DeletionProtection that you specify for the root stack applies to its nested stacks.
+   * - Disabled (default): allows stack deletion via the ROS console or the DeleteStack API.
+   * 
+   * > The deletion protection of a nested stack is the same as that of its root stack.
    * 
    * @example
    * Enabled
@@ -153,12 +158,13 @@ export class CreateStackRequest extends $dara.Model {
   deletionProtection?: string;
   /**
    * @remarks
-   * Specifies whether to disable rollback for the resources when the stack fails to be created.
+   * Specifies whether to disable rollback when stack creation fails.
    * 
    * Valid values:
    * 
-   * *   true
-   * *   false (default)
+   * - true: disables rollback.
+   * 
+   * - false (default): enables rollback.
    * 
    * @example
    * false
@@ -166,33 +172,30 @@ export class CreateStackRequest extends $dara.Model {
   disableRollback?: boolean;
   /**
    * @remarks
-   * The callback URLs that are used to receive stack events. Valid values:
+   * The callback URL for stack events. Valid values:
    * 
-   * *   HTTP POST URL
+   * - HTTP POST URL. Maximum length: 1,024 bytes.
    * 
-   * Each URL can be up to 1,024 bytes in length.
+   * - EventBridge receives stack status change notifications. View events in the [EventBridge console](https://eventbridge.console.aliyun.com).
    * 
-   * *   eventbridge
+   * > Supported regions: China (Hangzhou), China (Shanghai), China (Beijing), China (Hong Kong), and China (Zhangjiakou).
    * 
-   * When the status of a stack changes, ROS sends notifications to the EventBridge service. You can view the event information in the [EventBridge](https://eventbridge.console.aliyun.com) console.
+   * Maximum value of N: 5. ROS sends notifications on stack status changes, except for IN_PROGRESS events. With rollback enabled, CREATE_ROLLBACK and ROLLBACK events replace CREATE_FAILED and UPDATE_FAILED notifications. Notifications always include Outputs. Example notification:
    * 
-   * > This feature is supported in the China (Hangzhou), China (Shanghai), China (Beijing), China (Hong Kong), and China (Zhangjiakou) regions.
-   * 
-   * Maximum value of N: 5. When the status of a stack changes, ROS sends a notification to the specified URL. When rollback is enabled for the stack, notifications are sent if the stack is in the CREATE_ROLLBACK or ROLLBACK state, but are not sent if the stack is in the CREATE_FAILED, UPDATE_FAILED, or IN_PROGRESS state.\\
-   * ROS sends notifications regardless of whether you specify the Outputs section. The following sample code provides an example on the content of a notification:
-   * 
-   *     {
-   *        "Outputs": [
-   *            {
-   *                "Description": "No description given",
-   *                "OutputKey": "InstanceId",
-   *                "OutputValue": "i-xxx"
-   *            }
-   *        ],
-   *        "StackId": "80bd6b6c-e888-4573-ae3b-93d29113****",
-   *        "StackName": "test-notification-url",
-   *        "Status": "CREATE_COMPLETE"
-   *     }
+   * ```
+   * {
+   *    "Outputs": [
+   *        {
+   *            "Description": "No description given",
+   *            "OutputKey": "InstanceId",
+   *            "OutputValue": "i-xxx"
+   *        }
+   *    ],
+   *    "StackId": "80bd6b6c-e888-4573-ae3b-93d29113****",
+   *    "StackName": "test-notification-url",
+   *    "Status": "CREATE_COMPLETE"
+   * }
+   * ```
    * 
    * @example
    * http://my-site.com/ros-event
@@ -200,14 +203,13 @@ export class CreateStackRequest extends $dara.Model {
   notificationURLs?: string[];
   /**
    * @remarks
-   * The maximum number of concurrent operations that can be performed on resources.
+   * The maximum number of concurrent operations on resources.
    * 
-   * By default, this parameter is empty. You can set this parameter to an integer that is greater than or equal to 0.
+   * Default: empty. Accepts integers greater than or equal to 0.
    * 
-   * 
-   * 
-   * > -  If you set this parameter to an integer that is greater than 0, the integer is used. If you set this parameter to 0 or leave this parameter empty, no limit is imposed on ROS stacks. However, the default value in Terraform is used for Terraform stacks. In most cases, the default value in Terraform is 10.
-   * > -  If you set this parameter to a specific value, ROS associates the value with the stack. The value affects subsequent operations on the stack, such as an update operation.
+   * > - If greater than 0, the specified value is used. If 0 or empty, no limit applies to ROS stacks; Terraform stacks use the Terraform default (typically 10).
+   * >
+   * > - The specified value persists with the stack and affects subsequent operations such as updates.
    * 
    * @example
    * 1
@@ -220,12 +222,11 @@ export class CreateStackRequest extends $dara.Model {
   parameters?: CreateStackRequestParameters[];
   /**
    * @remarks
-   * The name of the RAM role. ROS assumes the RAM role to create the stack and uses the credentials of the role to call the APIs of Alibaba Cloud services.\\
-   * ROS assumes the RAM role to perform operations on the stack. If you have permissions to perform operations on the stack but do not have permissions to use the RAM role, ROS still assumes the RAM role. You must make sure that the least privileges are granted to the RAM role.
+   * The RAM role name. ROS assumes this role for all stack API calls, even when the user has direct permissions, ensuring least-privilege access. [Use a stack role](https://help.aliyun.com/document_detail/2568025.html).
    * 
-   * If you do not specify this parameter, ROS assumes the existing role that is associated with the stack. If no roles are available, ROS uses a temporary credential that is generated from the credentials of your account.
+   * If not specified, ROS uses the role associated with the stack, or a temporary credential from your account if no role exists.
    * 
-   * The RAM role name can be up to 64 characters in length.
+   * Maximum length: 64 characters.
    * 
    * @example
    * test-role
@@ -233,7 +234,7 @@ export class CreateStackRequest extends $dara.Model {
   ramRoleName?: string;
   /**
    * @remarks
-   * The region ID of the stack. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/131035.html) operation to query the most recent region list.
+   * The region ID of the stack. Call [DescribeRegions](https://help.aliyun.com/document_detail/131035.html) to query available regions.
    * 
    * This parameter is required.
    * 
@@ -243,9 +244,9 @@ export class CreateStackRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource group. If you leave this parameter empty, the stack is added to the default resource group.
+   * The ID of the resource group. If not specified, the stack is added to the default resource group.
    * 
-   * For more information about resource groups, see the "Resource group" section of the [What is Resource Management?](https://help.aliyun.com/document_detail/94475.html) topic.
+   * [What is a resource group](https://help.aliyun.com/document_detail/94475.html)
    * 
    * @example
    * rg-acfmxazb4ph6aiy****
@@ -253,8 +254,7 @@ export class CreateStackRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The name of the stack.\\
-   * The name can be up to 255 characters in length, and can contain digits, letters, hyphens (-), and underscores (_). It must start with a letter.
+   * The stack name. Maximum length: 255 characters. Must start with a **letter** and can contain **letters**, **digits**, **hyphens (-)**, and **underscores (_)**.
    * 
    * This parameter is required.
    * 
@@ -264,9 +264,9 @@ export class CreateStackRequest extends $dara.Model {
   stackName?: string;
   /**
    * @remarks
-   * The structure that contains the stack policy body. The policy body must be 1 to 16,384 bytes in length.
+   * The stack policy body. Length: 1 to 16,384 bytes.
    * 
-   * > You can specify only one of StackPolicyBody and StackPolicyURL.
+   * > You can specify only one of the following parameters: StackPolicyBody or StackPolicyURL.
    * 
    * @example
    * {"Statement": [{"Action": "Update:*", "Resource": "*", "Effect": "Allow", "Principal": "*"}]}
@@ -274,11 +274,11 @@ export class CreateStackRequest extends $dara.Model {
   stackPolicyBody?: string;
   /**
    * @remarks
-   * The URL of the file that contains the stack policy. The URL must point to a policy that is located on an HTTP or HTTPS web server or in an Object Storage Service (OSS) bucket, such as oss://ros/stack-policy/demo or oss://ros/stack-policy/demo?RegionId=cn-hangzhou. The policy file can be up to 16,384 bytes in length. If you do not specify the region ID of the OSS bucket, the value of RegionId is used.
+   * The URL of the stack policy file. Supports HTTP, HTTPS, and OSS URLs (for example, oss\\://ros/stack-policy/demo or oss\\://ros/stack-policy/demo?RegionId=cn-hangzhou). Maximum file size: 16,384 bytes. If no OSS region is specified, the RegionId value is used.
    * 
-   * > You can specify only one of StackPolicyBody and StackPolicyURL.
+   * > You can specify only one of the following parameters: StackPolicyBody or StackPolicyURL.
    * 
-   * The URL can be up to 1,350 bytes in length.
+   * Maximum URL length: 1,350 bytes.
    * 
    * @example
    * oss://ros-stack-policy/demo
@@ -286,14 +286,14 @@ export class CreateStackRequest extends $dara.Model {
   stackPolicyURL?: string;
   /**
    * @remarks
-   * The tags that you want to add to the stack.
+   * The tags of the stack.
    */
   tags?: CreateStackRequestTags[];
   /**
    * @remarks
-   * The structure that contains the template body. The template body must be 1 to 524,288 bytes in length. If the length of the template body exceeds the upper limit, we recommend that you add parameters to the HTTP POST request body to prevent request failures caused by excessively long URLs.
+   * The template body. Length: **1 to 524,288 bytes**. Use **HTTP POST** with **Body parameters** for large content to avoid URL length limits.
    * 
-   * > You must and can specify only one of the following parameters: TemplateBody, TemplateURL, TemplateId, and TemplateScratchId.
+   * > You must specify only one of the following parameters: TemplateBody, TemplateURL, TemplateId, or TemplateScratchId.
    * 
    * @example
    * {"ROSTemplateFormatVersion":"2015-09-01"}
@@ -301,9 +301,9 @@ export class CreateStackRequest extends $dara.Model {
   templateBody?: string;
   /**
    * @remarks
-   * The template ID. This parameter applies to shared templates and private templates.
+   * The template ID. This parameter applies to shared and private templates.
    * 
-   * > You must and can specify only one of the following parameters: TemplateBody, TemplateURL, TemplateId, and TemplateScratchId.
+   * > You must specify only one of the following parameters: TemplateBody, TemplateURL, TemplateId, or TemplateScratchId.
    * 
    * @example
    * 5ecd1e10-b0e9-4389-a565-e4c15efc****
@@ -311,11 +311,11 @@ export class CreateStackRequest extends $dara.Model {
   templateId?: string;
   /**
    * @remarks
-   * The scenario ID.
+   * The ID of the resource scenario.
    * 
-   * For more information about how to query the scenario ID, see [ListTemplateScratches](https://help.aliyun.com/document_detail/363050.html).
+   * Call [ListTemplateScratches](https://help.aliyun.com/document_detail/363050.html) to query resource scenario IDs.
    * 
-   * > You must and can specify only one of the following parameters: TemplateBody, TemplateURL, TemplateId, and TemplateScratchId.
+   * > You must specify only one of the following parameters: TemplateBody, TemplateURL, TemplateId, or TemplateScratchId.
    * 
    * @example
    * ts-aa9c62feab844a6b****
@@ -323,9 +323,9 @@ export class CreateStackRequest extends $dara.Model {
   templateScratchId?: string;
   /**
    * @remarks
-   * The region ID of the scenario. The default value is the same as the value of RegionId.
+   * The region ID of the resource scenario. Default value: the value of RegionId.
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/131035.html) operation to query the most recent region list.
+   * Call [DescribeRegions](https://help.aliyun.com/document_detail/131035.html) to query available regions.
    * 
    * @example
    * cn-hangzhou
@@ -333,9 +333,9 @@ export class CreateStackRequest extends $dara.Model {
   templateScratchRegionId?: string;
   /**
    * @remarks
-   * The URL of the file that contains the template body. The URL must point to a template that is located on an HTTP or HTTPS web server or in an OSS bucket, such as oss://ros/template/demo or oss://ros/template/demo?RegionId=cn-hangzhou. The template body can be up to 524,288 bytes in length. If you do not specify the region ID of the OSS bucket, the value of RegionId is used.
+   * The URL of the template file. Supports HTTP, HTTPS, and OSS URLs (for example, oss\\://ros/stack-policy/demo or oss\\://ros/stack-policy/demo?RegionId=cn-hangzhou). Maximum template size: 524,288 bytes. If no OSS region is specified, the RegionId value is used.
    * 
-   * > You must and can specify only one of the following parameters: TemplateBody, TemplateURL, TemplateId, and TemplateScratchId.
+   * > You must specify only one of the following parameters: TemplateBody, TemplateURL, TemplateId, or TemplateScratchId.
    * 
    * @example
    * oss://ros-template/demo
@@ -343,7 +343,7 @@ export class CreateStackRequest extends $dara.Model {
   templateURL?: string;
   /**
    * @remarks
-   * The version of the template. This parameter takes effect only when TemplateId is specified.
+   * The version of the template. This parameter takes effect only when you specify TemplateId.
    * 
    * @example
    * v1
@@ -351,11 +351,11 @@ export class CreateStackRequest extends $dara.Model {
   templateVersion?: string;
   /**
    * @remarks
-   * The timeout period for creating the stack.
+   * The stack creation timeout. Unit: minutes.
    * 
-   * *   Default value: 60.
-   * *   Unit: minutes.
-   * *   Valid values: 10 to 1440.
+   * - Default value: 60.
+   * 
+   * - Valid values: 10 to 1440.
    * 
    * @example
    * 10

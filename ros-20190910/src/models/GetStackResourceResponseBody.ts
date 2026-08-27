@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class GetStackResourceResponseBodyModuleInfo extends $dara.Model {
   /**
    * @remarks
-   * The concatenated logical IDs of one or more modules that contain the resource. The modules are listed from the outermost layer and separated by forward slashes (`/`).
+   * A concatenated list of the logical IDs of one or more modules that contain the resource. The modules are listed starting from the outermost module, separated by `/`.
    * 
-   * In the following example, the resource is created from Module B nested within Parent Module A:
+   * In the following example, the resource was created from moduleB, which is nested in the parent module moduleA.
    * 
    * `moduleA/moduleB`
    * 
@@ -17,9 +17,9 @@ export class GetStackResourceResponseBodyModuleInfo extends $dara.Model {
   logicalIdHierarchy?: string;
   /**
    * @remarks
-   * The concatenated types of one or more modules that contain the resource. The module types are listed from the outermost layer and separated by forward slashes (`/`).
+   * A concatenated list of the types of one or more modules that contain the resource. The module types are listed starting from the outermost module, separated by `/`.
    * 
-   * In the following example, the resource is created from a module of the `MODULE::ROS::Child::Example` type that is nested within a parent module of the `MODULE::ROS::Parent::Example` type:
+   * In the following example, the resource was created from a module of the `MODULE::ROS::Child::Example` type, which is nested in a parent module of the `MODULE::ROS::Parent::Example` type.
    * 
    * `MODULE::ROS::Parent::Example/MODULE::ROS::Child::Example`
    * 
@@ -53,7 +53,7 @@ export class GetStackResourceResponseBodyModuleInfo extends $dara.Model {
 export class GetStackResourceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The resource type.
+   * The time when the resource was created. The time is displayed in UTC+0 and in the ISO 8601 standard format without the Z suffix. Format: YYYY-MM-DDThh:mm:ss.
    * 
    * @example
    * 2019-08-01T06:01:23
@@ -61,7 +61,7 @@ export class GetStackResourceResponseBody extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The reason why the resource is in its current state.
+   * The resource description.
    * 
    * @example
    * no description
@@ -69,7 +69,7 @@ export class GetStackResourceResponseBody extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The ID of the stack.
+   * The time when the resource was last successfully checked for drift detection of the stack.
    * 
    * @example
    * 2020-02-27T07:47:47
@@ -77,9 +77,7 @@ export class GetStackResourceResponseBody extends $dara.Model {
   driftDetectionTime?: string;
   /**
    * @remarks
-   * The time when the resource was updated.
-   * 
-   * The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
+   * The logical ID of the resource, which is the resource name defined in the template.
    * 
    * @example
    * WebServer
@@ -87,7 +85,7 @@ export class GetStackResourceResponseBody extends $dara.Model {
   logicalResourceId?: string;
   /**
    * @remarks
-   * The list of the resource properties.
+   * The metadata.
    * 
    * @example
    * {"key": "value"}
@@ -95,12 +93,12 @@ export class GetStackResourceResponseBody extends $dara.Model {
   metadata?: { [key: string]: any };
   /**
    * @remarks
-   * The information about the modules from which the resource is created. This parameter is returned only if the resource is created from modules.
+   * The information about the module from which the resource was created. This parameter is returned only when the resource is created from a module.
    */
   moduleInfo?: GetStackResourceResponseBodyModuleInfo;
   /**
    * @remarks
-   * The metadata.
+   * The physical ID of the resource, which is the actual resource ID.
    * 
    * @example
    * d04af923-e6b7-4272-aeaa-47ec9777****
@@ -108,7 +106,7 @@ export class GetStackResourceResponseBody extends $dara.Model {
   physicalResourceId?: string;
   /**
    * @remarks
-   * The physical ID of the resource.
+   * The request ID.
    * 
    * @example
    * B288A0BE-D927-4888-B0F7-B35EF84B6E6
@@ -116,17 +114,16 @@ export class GetStackResourceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The status of the resource in the last successful drift detection. Valid values:
-   * 
-   * *   DELETED: The actual configuration of the resource differs from its expected template configuration because the resource is deleted.
-   * *   MODIFIED: The actual configuration of the resource differs from its expected template configuration.
-   * *   NOT_CHECKED: ROS has not checked whether the actual configuration of the resource differs from its expected template configuration.
-   * *   IN_SYNC: The actual configuration of the resource matches its expected template configuration.
+   * The resource attribute list.
    */
   resourceAttributes?: { [key: string]: any }[];
   /**
    * @remarks
-   * The time when the last successful drift detection was performed on the stack.
+   * The drift status of the resource in the most recent successful drift detection of the stack. Valid values:
+   * - DELETED: The resource differs from its expected template configuration because the resource has been deleted.
+   * - MODIFIED: The resource differs from its expected template configuration.
+   * - NOT_CHECKED: ROS has not checked whether the resource differs from its expected template configuration.
+   * - IN_SYNC: The current configuration of the resource matches its expected template configuration.
    * 
    * @example
    * IN_SYNC
@@ -134,7 +131,7 @@ export class GetStackResourceResponseBody extends $dara.Model {
   resourceDriftStatus?: string;
   /**
    * @remarks
-   * The logical ID of the resource defined in the template.
+   * The resource type.
    * 
    * @example
    * ALIYUN::ROS::WaitConditionHandle
@@ -142,7 +139,7 @@ export class GetStackResourceResponseBody extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The ID of the stack.
+   * The stack ID.
    * 
    * @example
    * efdf5c10-96a5-4fd7-ab89-68e7baa2****
@@ -150,7 +147,8 @@ export class GetStackResourceResponseBody extends $dara.Model {
   stackId?: string;
   /**
    * @remarks
-   * The name of the stack.
+   * The stack name.
+   * The name can be up to 255 characters in length, and must start with a digit or letter. It can contain digits, letters, hyphens (-), and underscores (_).
    * 
    * @example
    * test-describe-resource
@@ -158,7 +156,21 @@ export class GetStackResourceResponseBody extends $dara.Model {
   stackName?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The resource status. Valid values:
+   * - CREATE_COMPLETE
+   * - CREATE_FAILED
+   * - CREATE_IN_PROGRESS
+   * - UPDATE_IN_PROGRESS
+   * - UPDATE_FAILED
+   * - UPDATE_COMPLETE
+   * - DELETE_IN_PROGRESS
+   * - DELETE_FAILED
+   * - CHECK_IN_PROGRESS
+   * - CHECK_FAILED
+   * - CHECK_COMPLETE
+   * - IMPORT_IN_PROGRESS
+   * - IMPORT_FAILED
+   * - IMPORT_COMPLETE
    * 
    * @example
    * CREATE_COMPLETE
@@ -166,9 +178,7 @@ export class GetStackResourceResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The time when the resource was created.
-   * 
-   * The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
+   * The reason why the resource is in the current state.
    * 
    * @example
    * state changed
@@ -176,9 +186,7 @@ export class GetStackResourceResponseBody extends $dara.Model {
   statusReason?: string;
   /**
    * @remarks
-   * The name of the stack.
-   * 
-   * The name can be up to 255 characters in length, and can contain digits, letters, hyphens (-), and underscores (_). The name must start with a digit or letter.
+   * The time when the resource was last updated. The time is displayed in UTC+0 and in the ISO 8601 standard format without the Z suffix. Format: YYYY-MM-DDThh:mm:ss.
    * 
    * @example
    * 2019-08-01T06:01:29

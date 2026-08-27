@@ -17,8 +17,9 @@ export class GetTemplateRequest extends $dara.Model {
    * @remarks
    * Specifies whether to query the shared information about the template. Valid values:
    * 
-   * *   Enabled
-   * *   Disabled (default)
+   * - Enabled
+   * 
+   * - Disabled (default)
    * 
    * > Only the template owner can query the shared information of a template.
    * 
@@ -30,8 +31,9 @@ export class GetTemplateRequest extends $dara.Model {
    * @remarks
    * Specifies whether to query the information about tags. Valid values:
    * 
-   * *   Enabled
-   * *   Disabled (default)
+   * - Enabled
+   * 
+   * - Disabled (default)
    * 
    * > This parameter takes effect only if you specify TemplateId.
    * 
@@ -85,8 +87,9 @@ export class GetTemplateRequest extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   Processed (default): returns the processed template.
-   * *   Original: returns the original template.
+   * - Processed (default): returns the processed template.
+   * 
+   * - Original: returns the original template.
    * 
    * @example
    * Processed
@@ -94,7 +97,7 @@ export class GetTemplateRequest extends $dara.Model {
   templateStage?: string;
   /**
    * @remarks
-   * The version of the template. This parameter takes effect only if you specify TemplateId.\\
+   * The version of the template. This parameter takes effect only if you specify TemplateId.<br>
    * If the template is a shared template, you can specify this parameter only if VersionOption is set to AllVersions. For more information, see [SetTemplatePermission](https://help.aliyun.com/document_detail/194768.html).
    * 
    * Valid values: v1 to v100.

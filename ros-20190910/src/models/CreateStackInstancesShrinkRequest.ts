@@ -5,12 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class CreateStackInstancesShrinkRequestParameterOverrides extends $dara.Model {
   /**
    * @remarks
-   * The key of parameter N that you want to use to override a specific parameter. If you do not specify this parameter, ROS uses the name that you specified when you created the stack group.
+   * The name of the parameter to overwrite. If you do not specify this parameter, ROS uses the parameter name that was specified when the stack group was created.
    * 
-   * Maximum value of N: 200.
+   * You can specify up to 200 parameters.
    * 
-   * >-   ParameterOverrides is optional.
-   * >-   If you specify ParameterOverrides, you must specify ParameterOverrides.N.ParameterKey and ParameterOverrides.N.ParameterValue.
+   * > - ParameterOverrides is optional.
+   * >
+   * > - If you specify ParameterOverrides, you must specify both ParameterOverrides.N.ParameterKey and ParameterOverrides.N.ParameterValue.
    * 
    * This parameter is required.
    * 
@@ -20,12 +21,13 @@ export class CreateStackInstancesShrinkRequestParameterOverrides extends $dara.M
   parameterKey?: string;
   /**
    * @remarks
-   * The value of parameter N that you want to use to override a specific parameter. If you do not specify this parameter, ROS uses the value that you specify when you create the stack group.
+   * The value of the parameter to overwrite. If you do not specify this parameter, ROS uses the parameter value that was specified when the stack group was created.
    * 
-   * Maximum value of N: 200.
+   * You can specify up to 200 parameters.
    * 
-   * >-  ParameterOverrides is optional.
-   * >-  If you specify ParameterOverrides, you must specify ParameterOverrides.N.ParameterKey and ParameterOverrides.N.ParameterValue.
+   * > - ParameterOverrides is optional.
+   * >
+   * > - If you specify ParameterOverrides, you must specify both ParameterOverrides.N.ParameterKey and ParameterOverrides.N.ParameterValue.
    * 
    * This parameter is required.
    * 
@@ -59,9 +61,9 @@ export class CreateStackInstancesShrinkRequestParameterOverrides extends $dara.M
 export class CreateStackInstancesShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The IDs of the execution accounts within which you want to deploy stacks in self-managed mode. You can specify up to 20 execution account IDs.
+   * The IDs of the destination accounts where you want to create stacks using self-managed permissions. You can specify up to 50 account IDs.
    * 
-   * > You must specify one of the following parameters: `AccountIds` and `DeploymentTargets`.
+   * > You can specify only one of the `AccountIds` and `DeploymentTargets` parameters.
    * 
    * @example
    * ["151266687691****","141261387191****"]
@@ -69,20 +71,22 @@ export class CreateStackInstancesShrinkRequest extends $dara.Model {
   accountIdsShrink?: string;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests.\\
-   * The token can contain letters, digits, hyphens (-), and underscores (_), and cannot exceed 64 characters in length.\\
-   * For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/134212.html).
+   * A client token that is used to ensure the idempotence of the request. The client generates the token, which must be globally unique.<br>The token can be up to 64 characters in length and can contain letters, digits, hyphens (-), and underscores (_).<br>For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/134212.html).
    * 
    * @example
    * 123e4567-e89b-12d3-a456-42665544****
    */
   clientToken?: string;
+  /**
+   * @remarks
+   * The deployment options for deploying stacks in service-managed permission mode. You can specify up to one deployment option.
+   */
   deploymentOptions?: string[];
   /**
    * @remarks
-   * The folders in which ROS deploy stacks in service-managed permission model.
+   * The deployment targets for deploying stacks in service-managed permission mode.
    * 
-   * > You must specify one of the following parameters: `AccountIds` and `DeploymentTargets`.
+   * > You can specify only one of the `AccountIds` and `DeploymentTargets` parameters.
    * 
    * @example
    * {"RdFolderId": "fd-4PvlVLOL8v"}
@@ -90,12 +94,13 @@ export class CreateStackInstancesShrinkRequest extends $dara.Model {
   deploymentTargetsShrink?: string;
   /**
    * @remarks
-   * Specifies whether to disable rollback when the stack fails to be created.
+   * Indicates whether to disable rollback when a stack fails to be created.
    * 
    * Valid values:
    * 
-   * *   true
-   * *   false (default)
+   * - true: Disables rollback.
+   * 
+   * - false (default): Enables rollback.
    * 
    * @example
    * false
@@ -103,7 +108,7 @@ export class CreateStackInstancesShrinkRequest extends $dara.Model {
   disableRollback?: boolean;
   /**
    * @remarks
-   * The description of the stack creation operation.
+   * The description of the operation to create the stacks.
    * 
    * The description must be 1 to 256 characters in length.
    * 
@@ -113,51 +118,53 @@ export class CreateStackInstancesShrinkRequest extends $dara.Model {
   operationDescription?: string;
   /**
    * @remarks
-   * The preference settings of the stack creation operation.
+   * The preferences for the operation.
    * 
    * The following parameters are available:
    * 
-   * -  {"FailureToleranceCount": N}
+   * - {"FailureToleranceCount": N}
    * 
-   *     The number of accounts within which stack operation failures are allowed in each region. If the value of this parameter is exceeded in a region, Resource Orchestration Service (ROS) stops the operation in the region. If ROS stops the operation in one region, ROS stops the operation in other regions.
+   *   The number of accounts per region in which the operation can fail. If the number of failed operations in a region exceeds this value, Resource Orchestration Service (ROS) stops the operation in that region. If the operation is stopped in a region, the operation is not performed in other regions.
    * 
-   *     Valid values of N: 0 to 20.
+   *   The value of N can be an integer from 0 to 20.
    * 
-   *     If you do not specify FailureToleranceCount, 0 is used as the default value.
+   *   If you do not specify this parameter, the default value is 0.
    * 
-   * -  {"FailureTolerancePercentage": N}
+   * - {"FailureTolerancePercentage": N}
    * 
-   *     The percentage of the number of accounts within which stack operation failures are allowed to the total number of accounts in each region. If the value of this parameter is exceeded, ROS stops the operation in the region.
+   *   The percentage of accounts per region in which the operation can fail, relative to the total number of accounts. If the percentage of failed operations in a region exceeds this value, ROS stops the operation in that region.
    * 
-   *     Valid values of N: 0 to 100. If the numeric value in the percentage is not an integer, ROS rounds the value down to the nearest integer.
+   *   The value of N can be an integer from 0 to 100. If the percentage is not an integer, ROS rounds down the value.
    * 
-   *     If you do not specify FailureTolerancePercentage, 0 is used as the default value.
+   *   If you do not specify this parameter, the default value is 0.
    * 
-   * -  {"MaxConcurrentCount": N}
+   * - {"MaxConcurrentCount": N}
    * 
-   *    The maximum number of accounts within which multiple stacks are deployed at the same time in each region.
+   *   The maximum number of accounts in each region where stacks can be deployed at the same time.
    * 
-   *    Valid values of N: 1 to 20.
+   *   The value of N can be an integer from 1 to 20.
    * 
-   *    If you do not specify MaxConcurrentCount, 1 is used as the default value.
+   *   If you do not specify this parameter, the default value is 1.
    * 
-   * -  {"MaxConcurrentPercentage": N}
+   * - {"MaxConcurrentPercentage": N}
    * 
-   *     The percentage of the maximum number of accounts within which multiple stacks are deployed at the same time to the total number of accounts in each region.
+   *   The percentage of accounts in each region where stacks can be deployed at the same time, relative to the total number of accounts.
    * 
-   *     Valid values: 1 to 100. If the numeric value in the percentage is not an integer, ROS rounds the number down to the nearest integer.
+   *   The value of N can be an integer from 1 to 100. If the percentage is not an integer, ROS rounds down the value.
    * 
-   *     If you do not specify MaxConcurrentPercentage, 1 is used as the default value.
+   *   If you do not specify this parameter, the default value is 1.
    * 
-   * -  {"RegionConcurrencyType": N}\\
-   *     The mode that you want to use to deploy stacks across regions. Valid values: 
-   *    - SEQUENTIAL (default): deploys stacks in each specified region based on the specified sequence of regions. ROS deploys stacks in one region at a time. 
-   *    - PARALLEL: deploys stacks in parallel across all specified regions.
+   * - {"RegionConcurrencyType": N}<br>The concurrency type of deployment regions. Valid values:
+   * 
+   *   - SEQUENTIAL (default): Deploys stacks in the specified regions one by one. Stacks are deployed in only one region at a time.
+   * 
+   *   - PARALLEL: Deploys stacks in all specified regions at the same time.
    * 
    * Separate multiple parameters with commas (,).
    * 
-   * >-  You can specify only one of the following parameters: MaxConcurrentCount and MaxConcurrentPercentage.
-   * >-  You can specify only one of the following parameters: FailureToleranceCount and FailureTolerancePercentage.
+   * > - You cannot specify MaxConcurrentCount and MaxConcurrentPercentage at the same time.
+   * >
+   * > - You cannot specify FailureToleranceCount and FailureTolerancePercentage at the same time.
    * 
    * @example
    * {"FailureToleranceCount": 1, "MaxConcurrentCount": 2}
@@ -165,12 +172,14 @@ export class CreateStackInstancesShrinkRequest extends $dara.Model {
   operationPreferencesShrink?: string;
   /**
    * @remarks
-   * The parameters that are used to override specific parameters.
+   * A list of parameters that overwrite the template parameters.
    */
   parameterOverrides?: CreateStackInstancesShrinkRequestParameterOverrides[];
   /**
    * @remarks
-   * The region ID of the stack group. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/131035.html) operation to query the most recent region list.
+   * The region ID of the stack group.
+   * 
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/131035.html) operation to query the latest list of Alibaba Cloud regions.
    * 
    * This parameter is required.
    * 
@@ -180,7 +189,7 @@ export class CreateStackInstancesShrinkRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The IDs of the regions where you want to create the stacks. You can specify up to 20 region IDs.
+   * The IDs of the destination regions. You can specify up to 20 region IDs.
    * 
    * This parameter is required.
    * 
@@ -190,8 +199,7 @@ export class CreateStackInstancesShrinkRequest extends $dara.Model {
   regionIdsShrink?: string;
   /**
    * @remarks
-   * The name of the stack group. The name must be unique within a region.\\
-   * The name can be up to 255 characters in length and can contain digits, letters, hyphens (-), and underscores (_). It must start with a digit or a letter.
+   * The name of the stack group. The name must be unique within a region.<br>The name can be up to 255 characters in length. It must start with a letter or a digit and can contain letters, digits, hyphens (-), and underscores (_).
    * 
    * This parameter is required.
    * 
@@ -201,10 +209,11 @@ export class CreateStackInstancesShrinkRequest extends $dara.Model {
   stackGroupName?: string;
   /**
    * @remarks
-   * The timeout period within which you can create the stack.
+   * The timeout period for creating the stacks.
    * 
-   * *   Default value: 60.
-   * *   Unit: minutes.
+   * - Default value: 60.
+   * 
+   * - Unit: minutes.
    * 
    * @example
    * 10

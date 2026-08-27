@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetStackPolicyRequest extends $dara.Model {
   /**
    * @remarks
-   * The region ID of the stack. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/131035.html) operation to query the most recent region list.
+   * The region ID of the stack. Call [DescribeRegions](https://help.aliyun.com/document_detail/131035.html) to query available regions.
    * 
    * This parameter is required.
    * 

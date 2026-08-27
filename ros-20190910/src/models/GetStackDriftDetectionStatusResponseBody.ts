@@ -15,9 +15,11 @@ export class GetStackDriftDetectionStatusResponseBody extends $dara.Model {
    * @remarks
    * The drift detection status. Valid values:
    * 
-   * *   DETECTION_COMPLETE: The drift detection operation has been completed for all resources that support drift detection in the stack.
-   * *   DETECTION_FAILED: The stack drift detection operation has failed for at least one resource in the stack.
-   * *   DETECTION_IN_PROGRESS: The stack drift detection operation is in progress.
+   * - DETECTION_COMPLETE: The drift detection operation has been completed for all resources that support drift detection in the stack.
+   * 
+   * - DETECTION_FAILED: The stack drift detection operation has failed for at least one resource in the stack.
+   * 
+   * - DETECTION_IN_PROGRESS: The stack drift detection operation is in progress.
    * 
    * @example
    * DETECTION_COMPLETE
@@ -59,9 +61,11 @@ export class GetStackDriftDetectionStatusResponseBody extends $dara.Model {
    * @remarks
    * The drift status of the stack. Valid values:
    * 
-   * *   DRIFTED: The actual configuration of the stack differs, or has drifted, from its expected template configuration. A stack is considered to have drifted if one or more of its resources have drifted.
-   * *   NOT_CHECKED: Resource Orchestration Service (ROS) has not checked whether the actual configuration of the resource differs from its expected template configuration.
-   * *   IN_SYNC: The current configuration of each supported resource matches its expected template configuration. A stack with no resources that support drift detection also has a status of IN_SYNC.
+   * - DRIFTED: The actual configuration of the stack differs, or has drifted, from its expected template configuration. A stack is considered to have drifted if one or more of its resources have drifted.
+   * 
+   * - NOT_CHECKED: Resource Orchestration Service (ROS) has not checked whether the actual configuration of the resource differs from its expected template configuration.
+   * 
+   * - IN_SYNC: The current configuration of each supported resource matches its expected template configuration. A stack with no resources that support drift detection also has a status of IN_SYNC.
    * 
    * @example
    * DRIFTED

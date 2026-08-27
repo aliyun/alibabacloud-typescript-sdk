@@ -5,12 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class CreateStackGroupRequestAutoDeployment extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether automatic deployment is enabled.
+   * Whether automatic deployment is enabled.
    * 
    * Valid values:
    * 
-   * *   true: Automatic deployment is enabled. If you add a member account to the folder to which the stack group belongs after you enable automatic deployment, ROS automatically adds the stacks in the stack group to the member account. If you remove a member account from the folder, ROS automatically deletes the stacks from the member account.
-   * *   false: Automatic deployment is disabled. After you disable automatic deployment, the stacks remain unchanged when you add member accounts to or remove member accounts from the folder.
+   * - true: ROS automatically creates stacks for new member accounts added to the folder and deletes stacks for removed accounts.
+   * 
+   * - false: Stacks remain unchanged when member accounts are added to or removed from the folder.
    * 
    * @example
    * true
@@ -18,14 +19,15 @@ export class CreateStackGroupRequestAutoDeployment extends $dara.Model {
   enabled?: boolean;
   /**
    * @remarks
-   * Indicates whether the stacks within a member account are retained when you remove the member account from the folder.
+   * Whether to retain stacks when a member account is removed from the folder.
    * 
    * Valid values:
    * 
-   * *   true
-   * *   false
+   * - true
    * 
-   * > You must specify RetainStacksOnAccountRemoval if Enabled is set to true.
+   * - false
+   * 
+   * > You must specify RetainStacksOnAccountRemoval if Enabled is true.
    * 
    * @example
    * true
@@ -57,7 +59,7 @@ export class CreateStackGroupRequestAutoDeployment extends $dara.Model {
 export class CreateStackGroupRequestParameters extends $dara.Model {
   /**
    * @remarks
-   * The key of parameter N. If you do not specify the key and value of a parameter, ROS uses the default name and value that are defined in the template.
+   * The key of parameter N. If not specified, ROS uses the default name and value defined in the template.
    * 
    * Maximum value of N: 200.
    * 
@@ -153,9 +155,11 @@ export class CreateStackGroupRequestTags extends $dara.Model {
 export class CreateStackGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the RAM role that you specify for the administrator account when you create a self-managed stack group. ROS assumes the administrator role to perform operations. If you do not specify this parameter, AliyunROSStackGroupAdministrationRole is used as the default value. ROS uses the administrator role to assume the execution role AliyunROSStackGroupExecutionRole to perform operations on the stacks in the stack group.
+   * The RAM role for the administrator account in a self-managed stack group. ROS assumes this role to perform operations. Default: AliyunROSStackGroupAdministrationRole.
    * 
-   * The name must be 1 to 64 characters in length and can contain letters, digits, and hyphens (-).
+   * 1 to 64 characters. Can contain letters, digits, and hyphens (-).
+   * 
+   * > This parameter is required when PermissionModel is set to SELF_MANAGED.
    * 
    * @example
    * AliyunROSStackGroupAdministrationRole
@@ -163,7 +167,7 @@ export class CreateStackGroupRequest extends $dara.Model {
   administrationRoleName?: string;
   /**
    * @remarks
-   * The information about automatic deployment settings.
+   * The automatic deployment settings.
    * 
    * > You must specify this parameter if PermissionModel is set to SERVICE_MANAGED.
    * 
@@ -173,14 +177,12 @@ export class CreateStackGroupRequest extends $dara.Model {
   autoDeployment?: CreateStackGroupRequestAutoDeployment;
   /**
    * @remarks
-   * The options for the stack group. You can specify up to one option.
+   * The options for the stack group. Maximum: one option.
    */
   capabilities?: string[];
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests.\\
-   * The token can contain letters, digits, underscores (_), and hyphens (-) and cannot exceed 64 characters in length.\\
-   * For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/134212.html).
+   * The client token for idempotency. Must be unique across requests. Can contain letters, digits, underscores (_), and hyphens (-), up to 64 characters. [How to ensure idempotence](https://help.aliyun.com/document_detail/134212.html).
    * 
    * @example
    * 123e4567-e89b-12d3-a456-42665544****
@@ -188,8 +190,7 @@ export class CreateStackGroupRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The description of the stack group.\\
-   * The description must be 1 to 256 characters in length.
+   * The stack group description. 1 to 256 characters.
    * 
    * @example
    * StackGroup Description
@@ -197,9 +198,11 @@ export class CreateStackGroupRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The name of the RAM role that you specify for the execution account when you create a self-managed stack group. The administrator role AliyunROSStackGroupAdministrationRole assumes the execution role to perform operations. If you do not specify this parameter, AliyunROSStackGroupExecutionRole is used as the default value. ROS assumes the execution role to perform operations on the stacks in the stack group.
+   * The RAM role for the execution account in a self-managed stack group. The administrator role assumes this role to perform stack operations. Default: AliyunROSStackGroupExecutionRole.
    * 
-   * The name must be 1 to 64 characters in length and can contain letters, digits, and hyphens (-).
+   * 1 to 64 characters. Can contain letters, digits, and hyphens (-).
+   * 
+   * > This parameter is required when PermissionModel is set to SELF_MANAGED.
    * 
    * @example
    * AliyunROSStackGroupExecutionRole
@@ -216,10 +219,11 @@ export class CreateStackGroupRequest extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   SELF_MANAGED (default): the self-managed permission model. If you create a self-managed stack group, you must create RAM roles within the administrator and execution accounts and establish a trust relationship between the accounts. Then, you can deploy stacks within the execution account.
-   * *   SERVICE_MANAGED: the service-managed permission model. If you create a service-managed stack group, ROS creates service-linked roles for the administrator and execution accounts, and the administrator account uses its role to deploy stacks within the execution account.
+   * - SELF_MANAGED (default): Create RAM roles for the administrator and execution accounts and establish a trust relationship between them.
    * 
-   * > If you want to use the service-managed permission model to deploy stacks, your account must be the management account or a delegated administrator account of your resource directory and the trusted access feature is enabled for the account. For more information, see [Manage a delegated administrator account](https://help.aliyun.com/document_detail/308253.html) and [Enable trusted access](https://help.aliyun.com/document_detail/298229.html).
+   * - SERVICE_MANAGED: ROS automatically creates service-linked roles for the administrator and execution accounts.
+   * 
+   * > To use SERVICE_MANAGED, your account must be the management account or a delegated administrator account of a resource directory with trusted access enabled. [Manage a delegated administrator account](https://help.aliyun.com/document_detail/308253.html) and [Enable trusted access](https://help.aliyun.com/document_detail/298229.html).
    * 
    * @example
    * SELF_MANAGED
@@ -227,7 +231,7 @@ export class CreateStackGroupRequest extends $dara.Model {
   permissionModel?: string;
   /**
    * @remarks
-   * The region ID of the stack group. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/131035.html) operation to query the most recent region list.
+   * The region ID of the stack group. Call [DescribeRegions](https://help.aliyun.com/document_detail/131035.html) to query available regions.
    * 
    * This parameter is required.
    * 
@@ -237,18 +241,29 @@ export class CreateStackGroupRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource group. If you do not specify this parameter, the stack group is added to the default resource group.\\
-   * For more information about resource groups, see [Resource groups](https://help.aliyun.com/document_detail/94475.html).
+   * The resource group ID. Defaults to the default resource group. [Resource groups](https://help.aliyun.com/document_detail/94475.html).
    * 
    * @example
    * rg-acfmxazb4ph6aiy****
    */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The stack ARN in the format acs:ros:${RegionId}:${AccountId}:stack/${StackId}. The stack group uses the template and parameters of this stack.
+   * 
+   * > - Only supported in self-managed permission mode.
+   * >
+   * > - If StackArn is specified, Parameters must not be specified.
+   * >
+   * > - You must specify **only one** of TemplateBody, TemplateURL, TemplateId, or StackArn.
+   * 
+   * @example
+   * acs:ros:cn-hangzhou:175458000000****:stack/4a65f506-c3cc-43b6-af06-3f000000****
+   */
   stackArn?: string;
   /**
    * @remarks
-   * The name of the stack group. The name must be unique within a region.\\
-   * The name can be up to 255 characters in length, and can contain digits, letters, hyphens (-), and underscores (_). It must start with a digit or a letter.
+   * The stack group name. Must be unique within a region. 1 to 255 characters. Can contain letters, digits, hyphens (-), and underscores (_). Must start with a letter or digit.
    * 
    * This parameter is required.
    * 
@@ -263,9 +278,9 @@ export class CreateStackGroupRequest extends $dara.Model {
   tags?: CreateStackGroupRequestTags[];
   /**
    * @remarks
-   * The template body. The template body must be 1 to 524,288 bytes in length. If the length of the template body exceeds the upper limit, we recommend that you add parameters to the HTTP POST request body to prevent request failures caused by excessively long URLs.
+   * The template body. 1 to 524,288 bytes. For large templates, pass the body in the HTTP POST request body to avoid URL length limits.
    * 
-   * > You must and can specify only one of the following parameters: TemplateBody, TemplateURL, and TemplateId.
+   * > Specify exactly one of TemplateBody, TemplateURL, and TemplateId.
    * 
    * @example
    * {"ROSTemplateFormatVersion":"2015-09-01"}
@@ -273,9 +288,9 @@ export class CreateStackGroupRequest extends $dara.Model {
   templateBody?: string;
   /**
    * @remarks
-   * The ID of the template. This parameter applies to shared and private templates.
+   * The template ID. Applies to shared and private templates.
    * 
-   * > You must and can specify only one of the following parameters: TemplateBody, TemplateURL, and TemplateId.
+   * > Specify exactly one of TemplateBody, TemplateURL, and TemplateId.
    * 
    * @example
    * 5ecd1e10-b0e9-4389-a565-e4c15efc****
@@ -283,9 +298,9 @@ export class CreateStackGroupRequest extends $dara.Model {
   templateId?: string;
   /**
    * @remarks
-   * The URL of the file that contains the template body. The URL must point to a template that is located on an HTTP or HTTPS web server or in an Alibaba Cloud Object Storage Service (OSS) bucket. The template body must be 1 to 524,288 bytes in length. Examples: oss://ros/template/demo and oss://ros/template/demo?RegionId=cn-hangzhou. If you do not specify the region ID of the OSS bucket, the value of RegionId is used.
+   * The URL of the template file. Supports HTTP, HTTPS, and OSS URLs. 1 to 524,288 bytes. Examples: oss\\://ros/template/demo, oss\\://ros/template/demo?RegionId=cn-hangzhou. If no region ID is specified for the OSS bucket, the RegionId value applies.
    * 
-   * > You must and can specify only one of the following parameters: TemplateBody, TemplateURL, and TemplateId.
+   * > Specify exactly one of TemplateBody, TemplateURL, and TemplateId.
    * 
    * @example
    * oss://ros-template/demo
@@ -293,7 +308,7 @@ export class CreateStackGroupRequest extends $dara.Model {
   templateURL?: string;
   /**
    * @remarks
-   * The version of the template. If you do not specify this parameter, the latest version is used.
+   * The template version. Defaults to the latest version.
    * 
    * > TemplateVersion takes effect only if you specify TemplateId.
    * 

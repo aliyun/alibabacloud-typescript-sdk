@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListResourceTypesResponseBodyResourceTypeSummaries extends $dara.Model {
   /**
    * @remarks
-   * The creation time. The time is displayed in UTC. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format.
+   * The creation time. The time is displayed in UTC+0 based on the ISO 8601 standard but without the Z suffix. Format: YYYY-MM-DDThh:mm:ss.
    * 
    * @example
    * 2023-02-24T08:25:21
@@ -13,7 +13,7 @@ export class ListResourceTypesResponseBodyResourceTypeSummaries extends $dara.Mo
   createTime?: string;
   /**
    * @remarks
-   * The ID of the default version.
+   * The default version ID.
    * 
    * @example
    * v1
@@ -21,7 +21,7 @@ export class ListResourceTypesResponseBodyResourceTypeSummaries extends $dara.Mo
   defaultVersionId?: string;
   /**
    * @remarks
-   * The description of the resource type.
+   * The resource type description.
    * 
    * @example
    * It is a demo.
@@ -29,11 +29,10 @@ export class ListResourceTypesResponseBodyResourceTypeSummaries extends $dara.Mo
   description?: string;
   /**
    * @remarks
-   * The entity type. Valid values:
-   * 
-   * *   Resource: regular resources.
-   * *   DataSource: DataSource resources.
-   * *   Module: modules.
+   * The entity type. Valid values: 
+   * - Resource: regular resource type.
+   * - DataSource: data source resource type. 
+   * - Module: module.
    * 
    * @example
    * Module
@@ -41,7 +40,7 @@ export class ListResourceTypesResponseBodyResourceTypeSummaries extends $dara.Mo
   entityType?: string;
   /**
    * @remarks
-   * The ID of the latest version.
+   * The latest version ID.
    * 
    * @example
    * v10
@@ -49,10 +48,9 @@ export class ListResourceTypesResponseBodyResourceTypeSummaries extends $dara.Mo
   latestVersionId?: string;
   /**
    * @remarks
-   * The provider of the resource type. Valid values:
-   * 
-   * *   ROS: The resource type is provided by ROS.
-   * *   Self: The resource type is provided by you.
+   * The resource type provider. Valid values:
+   * - ROS: Resource Orchestration Service.
+   * - Self: the user.
    * 
    * @example
    * ROS
@@ -68,7 +66,7 @@ export class ListResourceTypesResponseBodyResourceTypeSummaries extends $dara.Mo
   resourceType?: string;
   /**
    * @remarks
-   * The number of versions.
+   * The total number of versions.
    * 
    * @example
    * 10
@@ -76,7 +74,7 @@ export class ListResourceTypesResponseBodyResourceTypeSummaries extends $dara.Mo
   totalVersionCount?: number;
   /**
    * @remarks
-   * The update time. The time is displayed in UTC. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format.
+   * The update time. The time is displayed in UTC+0 based on the ISO 8601 standard but without the Z suffix. Format: YYYY-MM-DDThh:mm:ss.
    * 
    * @example
    * 2023-02-24T08:25:21
@@ -122,7 +120,7 @@ export class ListResourceTypesResponseBodyResourceTypeSummaries extends $dara.Mo
 export class ListResourceTypesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * EA00860C-ECAF-5253-A1F9-8198695A7157
@@ -130,12 +128,12 @@ export class ListResourceTypesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The resource type summaries.
+   * The resource type summary list.
    */
   resourceTypeSummaries?: ListResourceTypesResponseBodyResourceTypeSummaries[];
   /**
    * @remarks
-   * The array of resource types.
+   * The resource type array.
    */
   resourceTypes?: string[];
   static names(): { [key: string]: string } {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateStackGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 14A07460-EBE7-47CA-9757-12CC4761D47A
@@ -13,7 +13,7 @@ export class CreateStackGroupResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the stack group.
+   * The stack group ID.
    * 
    * @example
    * 2c036e78-9e82-428e-afd6-177f5d04****

@@ -5,12 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class ListStackGroupsResponseBodyStackGroupsAutoDeployment extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether automatic deployment is enabled.
+   * Whether automatic deployment is enabled.
    * 
    * Valid values:
    * 
-   * *   true: Automatic deployment is enabled. If you add a member to the folder to which the stack group belongs after automatic deployment is enabled, Resource Orchestration Service (ROS) automatically adds the stack instances in the stack group to the specified region of the member. If you delete the member from the folder, ROS automatically deletes the stack instances in the stack group from the specified region of the member.
-   * *   false: Automatic deployment is disabled. After you disable automatic deployment, the stack instances remain unchanged when you change the member in the folder.
+   * - true: Automatic deployment is enabled. When a member account is added to the target folder, ROS deploys a stack instance for it. When a member account is removed, ROS deletes the stack instance.
+   * 
+   * - false: Automatic deployment is disabled. Stack instances remain unchanged when folder membership changes.
    * 
    * @example
    * true
@@ -18,14 +19,15 @@ export class ListStackGroupsResponseBodyStackGroupsAutoDeployment extends $dara.
   enabled?: boolean;
   /**
    * @remarks
-   * Indicates whether the stacks within a member are retained when you delete the member from the folder.
+   * Whether stacks are retained when member accounts are removed from the folder.
    * 
    * Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: The stacks are retained.
    * 
-   * > This parameter is returned only if Enabled is set to true.
+   * - false: The stacks are deleted.
+   * 
+   * > Returned only when Enabled is true.
    * 
    * @example
    * true
@@ -57,7 +59,7 @@ export class ListStackGroupsResponseBodyStackGroupsAutoDeployment extends $dara.
 export class ListStackGroupsResponseBodyStackGroupsTags extends $dara.Model {
   /**
    * @remarks
-   * The key of the tag that is added to the stack group.
+   * The tag key of the stack group.
    * 
    * @example
    * usage1
@@ -65,7 +67,7 @@ export class ListStackGroupsResponseBodyStackGroupsTags extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of the tag that is added to the stack group.
+   * The tag value of the stack group.
    * 
    * @example
    * test1
@@ -97,9 +99,16 @@ export class ListStackGroupsResponseBodyStackGroupsTags extends $dara.Model {
 export class ListStackGroupsResponseBodyStackGroups extends $dara.Model {
   /**
    * @remarks
-   * The information about automatic deployment settings.
+   * The automatic deployment settings.
    */
   autoDeployment?: ListStackGroupsResponseBodyStackGroupsAutoDeployment;
+  /**
+   * @remarks
+   * The creation time of the stack group.
+   * 
+   * @example
+   * 2024-01-05T05:38:31
+   */
   createTime?: string;
   /**
    * @remarks
@@ -111,7 +120,7 @@ export class ListStackGroupsResponseBodyStackGroups extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The time when the most recent successful drift detection was performed on the stack group.
+   * The time of the last successful drift detection on the stack group.
    * 
    * @example
    * 2020-02-27T07:47:47
@@ -119,14 +128,15 @@ export class ListStackGroupsResponseBodyStackGroups extends $dara.Model {
   driftDetectionTime?: string;
   /**
    * @remarks
-   * The permission model of the stack group.
+   * The permission model.
    * 
    * Valid values:
    * 
-   * *   SELF_MANAGED
-   * *   SERVICE_MANAGED
+   * - SELF_MANAGED: self-managed permissions.
    * 
-   * > For more information about the permission models of stack groups, see [Overview](https://help.aliyun.com/document_detail/154578.html).
+   * - SERVICE_MANAGED: service-managed permissions.
+   * 
+   * > For details on permission models of stack groups, see [Overview](https://help.aliyun.com/document_detail/154578.html).
    * 
    * @example
    * SELF_MANAGED
@@ -142,13 +152,15 @@ export class ListStackGroupsResponseBodyStackGroups extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The drift state of the stack group on which the most recent successful drift detection was performed.
+   * The drift status of the stack group from the last successful drift detection.
    * 
    * Valid values:
    * 
-   * *   DRIFTED: The stack group has drifted.
-   * *   NOT_CHECKED: No drift detection is performed on the stack group.
-   * *   IN_SYNC: No drifts are detected on the stack group.
+   * - DRIFTED: The stack group has drifted from its template.
+   * 
+   * - NOT_CHECKED: No drift detection has been performed.
+   * 
+   * - IN_SYNC: The stack group matches its template.
    * 
    * @example
    * IN_SYNC
@@ -172,12 +184,13 @@ export class ListStackGroupsResponseBodyStackGroups extends $dara.Model {
   stackGroupName?: string;
   /**
    * @remarks
-   * The state of the stack group.
+   * The status of the stack group.
    * 
    * Valid values:
    * 
-   * *   ACTIVE
-   * *   DELETED
+   * - ACTIVE
+   * 
+   * - DELETED
    * 
    * @example
    * ACTIVE
@@ -185,9 +198,16 @@ export class ListStackGroupsResponseBodyStackGroups extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The tags that are added to the stack group.
+   * The tags of the stack group.
    */
   tags?: ListStackGroupsResponseBodyStackGroupsTags[];
+  /**
+   * @remarks
+   * The last update time of the stack group.
+   * 
+   * @example
+   * 2024-02-15T16:40:25
+   */
   updateTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -241,7 +261,7 @@ export class ListStackGroupsResponseBodyStackGroups extends $dara.Model {
 export class ListStackGroupsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number.
    * 
    * @example
    * 1

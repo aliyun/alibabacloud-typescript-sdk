@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class EnableServicesResponseBodyFailedServices extends $dara.Model {
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * 400
    */
   code?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * Failed
    */
   message?: string;
   /**
+   * @remarks
+   * The name of the Alibaba Cloud service.
+   * 
    * @example
    * ACVS
    */
@@ -44,8 +53,15 @@ export class EnableServicesResponseBodyFailedServices extends $dara.Model {
 }
 
 export class EnableServicesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * A list of services that failed to be enabled.
+   */
   failedServices?: EnableServicesResponseBodyFailedServices[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * E1BD3327-6BEE-53AD-8788-D892EB575962
    */

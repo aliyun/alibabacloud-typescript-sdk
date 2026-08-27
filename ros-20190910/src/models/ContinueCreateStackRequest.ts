@@ -23,8 +23,9 @@ export class ContinueCreateStackRequestParameters extends $dara.Model {
    * 
    * For ROS stacks, the template parameters that you use to override specific parameters are subject to the following limits:
    * 
-   * *   You cannot change the condition values in the Conditions section of a template from true to false or from false to true.
-   * *   The template parameters can be referenced only by resources that ROS continues to create.
+   * - You cannot change the condition values in the Conditions section of a template from true to false or from false to true.
+   * 
+   * - The template parameters can be referenced only by resources that ROS continues to create.
    * 
    * > This parameter takes effect only when Mode is set to Recreate.
    * 
@@ -62,8 +63,9 @@ export class ContinueCreateStackRequest extends $dara.Model {
    * @remarks
    * Specifies whether only to validate the stack in the request. Valid values:
    * 
-   * *   true: only validates the stack.
-   * *   false (default): validates and continues to create the stack.
+   * - true: only validates the stack.
+   * 
+   * - false (default): validates and continues to create the stack.
    * 
    * @example
    * false
@@ -73,21 +75,25 @@ export class ContinueCreateStackRequest extends $dara.Model {
    * @remarks
    * The mode in which ROS continues to create the stack. Valid values:
    * 
-   * *   Recreate (default)
+   * - Recreate (default)
    * 
-   *     If you set this parameter to Recreate, ROS continues to create only the following types of resources:
+   *   If you set this parameter to Recreate, ROS continues to create only the following types of resources:
    * 
-   *     *   Resources that fail to be created
-   *     *   Resources that you specify for RecreatingResources.N
-   *     *   Dependencies of the resources that you specify for RecreatingResources.N
-   *     *   Resources that you have not created
+   *   - Resources that fail to be created
+   * 
+   *   - Resources that you specify for RecreatingResources.N
+   * 
+   *   - Dependencies of the resources that you specify for RecreatingResources.N
+   * 
+   *   - Resources that you have not created
    * 
    * > RecreatingResources.N, TemplateBody, TemplateURL, and Parameters take effect only when Mode is set to Recreate.
    * 
-   * *   Ignore
+   * - Ignore
    * 
-   *     *   ROS ignores and discards resources that fail to be created and you have not created, and considers that the stack is successfully created.
-   *     *   The body of the template that you use to create the stack is changed.
+   *   - ROS ignores and discards resources that fail to be created and you have not created, and considers that the stack is successfully created.
+   * 
+   *   - The body of the template that you use to create the stack is changed.
    * 
    * > This mode is available only for ROS stacks.
    * 
@@ -102,8 +108,11 @@ export class ContinueCreateStackRequest extends $dara.Model {
    * By default, this parameter is empty. You can set this parameter to an integer that is greater than or equal to 0.
    * 
    * > - If you set this parameter to an integer that is greater than 0, the integer is used.
+   * >
    * > - If you set this parameter to 0, no limit is imposed on ROS stacks. However, the default value in Terraform is used for Terraform stacks. In most cases, the default value in Terraform is 10.
+   * >
    * > - If you leave this parameter empty, the value that you specified for this parameter in the previous request is used. If you left this parameter empty in the previous request, no limit is imposed on ROS stacks. However, the default value in Terraform is used for Terraform stacks. In most cases, the default value in Terraform is 10.
+   * >
    * > - If you set this parameter to a specific value, ROS associates the value with the stack. The value affects subsequent operations on the stack.
    * 
    * @example
@@ -117,9 +126,9 @@ export class ContinueCreateStackRequest extends $dara.Model {
   parameters?: ContinueCreateStackRequestParameters[];
   /**
    * @remarks
-   * The name of the RAM role. Resource Orchestration Service (ROS) assumes the RAM role to create the stack and uses the credentials of the role to call the APIs of Alibaba Cloud services.\\
-   * ROS assumes the RAM role to perform operations on the stack. If you have permissions to perform operations on the stack but do not have permissions to use the RAM role, ROS still assumes the RAM role. You must make sure that the least privileges are granted to the RAM role.\\
-   * If you do not specify this parameter, ROS assumes the existing role that is associated with the stack. If no roles are available, ROS uses a temporary credential that is generated from the credentials of your account.\\
+   * The name of the RAM role. Resource Orchestration Service (ROS) assumes the RAM role to create the stack and uses the credentials of the role to call the APIs of Alibaba Cloud services.<br>
+   * ROS assumes the RAM role to perform operations on the stack. If you have permissions to perform operations on the stack but do not have permissions to use the RAM role, ROS still assumes the RAM role. You must make sure that the least privileges are granted to the RAM role.<br>
+   * If you do not specify this parameter, ROS assumes the existing role that is associated with the stack. If no roles are available, ROS uses a temporary credential that is generated from the credentials of your account.<br>
    * The name of the RAM role can be up to 64 bytes in length.
    * 
    * @example
@@ -163,25 +172,26 @@ export class ContinueCreateStackRequest extends $dara.Model {
   stackId?: string;
   /**
    * @remarks
-   * The structure that contains the template body. The template body must be 1 to 524,288 bytes in length.\\
+   * The structure that contains the template body. The template body must be 1 to 524,288 bytes in length.<br>
    * If the length of the template body exceeds the upper limit, we recommend that you add parameters to the HTTP POST request body to prevent request failures caused by excessively long URLs.
    * 
    * A ROS template is subject to the following limits:
    * 
-   * *   You can modify only the following sections in the template: Description, Metadata, Resources, and Outputs.
+   * - You can modify only the following sections in the template: Description, Metadata, Resources, and Outputs.
    * 
-   * *   You cannot add sections to or remove sections from the template.
+   * - You cannot add sections to or remove sections from the template.
    * 
-   * *   The Resources section is subject to the following limits:
+   * - The Resources section is subject to the following limits:
    * 
-   *     *   You cannot delete the resources or change the template body for the resources that you do not want to continue to create.
-   *     *   You can delete the resources or change the template body for the resources that you want to continue to create.
-   *     *   You can add resources to this section.
+   *   - You cannot delete the resources or change the template body for the resources that you do not want to continue to create.
    * 
-   *  
+   *   - You can delete the resources or change the template body for the resources that you want to continue to create.
    * 
-   * > - This parameter takes effect only when Mode is set to Recreate.
-   * > - You can specify only one of the following parameters: TemplateBody, TemplateURL, and TemplateId. If you do not specify the parameters, the existing template is used.
+   *   - You can add resources to this section.
+   * 
+   * > * This parameter takes effect only when Mode is set to Recreate.
+   * >
+   * > * You can specify only one of the following parameters: TemplateBody, TemplateURL, and TemplateId. If you do not specify the parameters, the existing template is used.
    * 
    * @example
    * {"ROSTemplateFormatVersion": "2015-09-01"}
@@ -192,6 +202,7 @@ export class ContinueCreateStackRequest extends $dara.Model {
    * The template ID. This parameter applies to shared and private templates.
    * 
    * > - This parameter takes effect when `Mode` is set to `Recreate`. When you specify TemplateId of a template, the template is subject to the limits that are described for `TemplateBody` in this topic.
+   * >
    * > - You can specify only one of the following parameters: `TemplateBody`, `TemplateURL`, and `TemplateId`. If you do not specify the parameters, the existing template is used.
    * 
    * @example
@@ -200,11 +211,12 @@ export class ContinueCreateStackRequest extends $dara.Model {
   templateId?: string;
   /**
    * @remarks
-   * The URL of the file that contains the template body. The URL must point to a template that is located on an HTTP or HTTPS web server or in an Object Storage Service (OSS) bucket, such as oss://ros/template/demo or oss://ros/template/demo?RegionId=cn-hangzhou. The template body can be up to 524,288 bytes in length.
+   * The URL of the file that contains the template body. The URL must point to a template that is located on an HTTP or HTTPS web server or in an Object Storage Service (OSS) bucket, such as oss\\://ros/template/demo or oss\\://ros/template/demo?RegionId=cn-hangzhou. The template body can be up to 524,288 bytes in length.
    * 
    * If you do not specify the region ID of the OSS bucket, the value of RegionId is used.
    * 
    * > - This parameter takes effect only when Mode is set to Recreate. When you specify TemplateURL of a template, the template is subject to the limits that are described for TemplateBody in this topic.
+   * >
    * > - You can specify only one of the following parameters: TemplateBody, TemplateURL, and TemplateId. If you do not specify the parameters, the existing template is used.
    * 
    * @example

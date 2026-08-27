@@ -5,7 +5,32 @@ import * as $dara from '@darabonba/typescript';
 export class ListTemplateScratchesResponseBodyTemplateScratchesPreferenceParameters extends $dara.Model {
   /**
    * @remarks
-   * The parameter name.
+   * The parameter name. Valid values:
+   * 
+   * - AlbAddressIpVersion: the IP version of the ALB address.
+   * - AlbAddressType: the ALB address type.
+   * - AlbLoadBalancerEdition: the ALB load balancing edition.
+   * - AlbZoneMappings: the ALB active zone mappings.
+   * - RamAttachedPolicyReplication: RAM policy replication.
+   * - DeletionPolicy: the delete policy.
+   * - DisableNameUnique: specifies whether to disable name uniqueness.
+   * - InstanceAmount: the number of instances.
+   * - InstanceDataReplication: instance data replication.
+   * - InstancePeriod: the instance epoch.
+   * - InstancePeriodUnit: the instance epoch unit.
+   * - NamePrefix: the name prefix.
+   * - RamAttachedPolicyReplication: RAM attached policy replication.
+   * - RegionId: the region ID.
+   * - RegionIds: the list of region IDs.
+   * - ResourceView: the resource view.
+   * - ReuseStrategy: the reuse strategy.
+   * - SlbListenerProtocols: the SLB listener protocols.
+   * - TemplateType: the template type.
+   * - VSwitchId: the vSwitch ID.
+   * - VpcId: the VPC ID.
+   * - ZoneId: the zone ID.
+   * 
+   * This information is generated based on call logs and may be incomplete. Verify the information.
    * 
    * @example
    * DeletionPolicy
@@ -45,7 +70,7 @@ export class ListTemplateScratchesResponseBodyTemplateScratchesPreferenceParamet
 export class ListTemplateScratchesResponseBodyTemplateScratchesSourceResourceGroup extends $dara.Model {
   /**
    * @remarks
-   * The ID of the source resource group.
+   * The source resource group ID.
    * 
    * @example
    * rg-acfmzawhxxc****
@@ -53,7 +78,7 @@ export class ListTemplateScratchesResponseBodyTemplateScratchesSourceResourceGro
   resourceGroupId?: string;
   /**
    * @remarks
-   * The resource types for filtering resources.
+   * The resource type filter.
    */
   resourceTypeFilter?: string[];
   static names(): { [key: string]: string } {
@@ -93,7 +118,13 @@ export class ListTemplateScratchesResponseBodyTemplateScratchesSourceResources e
   resourceId?: string;
   /**
    * @remarks
-   * The resource type.
+   * The resource type. Valid values:
+   * 
+   * - ALIYUN::ALB::LoadBalancer: Application Load Balancer (ALB) for load balancing.
+   * - ALIYUN::ECS::Instance: Elastic Compute Service (ECS) instance.
+   * - ALIYUN::RAM::Role: RAM role.
+   * 
+   * This information is generated based on call logs and may be incomplete. Verify the information.
    * 
    * @example
    * ALIYUN::ECS::VPC
@@ -125,7 +156,7 @@ export class ListTemplateScratchesResponseBodyTemplateScratchesSourceResources e
 export class ListTemplateScratchesResponseBodyTemplateScratchesSourceTag extends $dara.Model {
   /**
    * @remarks
-   * The source tags.
+   * The source tag.
    * 
    * @example
    * {"a": "b"}
@@ -133,7 +164,7 @@ export class ListTemplateScratchesResponseBodyTemplateScratchesSourceTag extends
   resourceTags?: { [key: string]: any };
   /**
    * @remarks
-   * The resource types for filtering resources.
+   * The resource type filter.
    */
   resourceTypeFilter?: string[];
   static names(): { [key: string]: string } {
@@ -208,9 +239,7 @@ export class ListTemplateScratchesResponseBodyTemplateScratchesTags extends $dar
 export class ListTemplateScratchesResponseBodyTemplateScratches extends $dara.Model {
   /**
    * @remarks
-   * The time when the resource scenario was created.
-   * 
-   * The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
+   * The time when the resource scenario was created. The time is displayed in UTC+0 and follows the ISO 8601 standard without the Z suffix. Format: YYYY-MM-DDThh:mm:ss.
    * 
    * @example
    * 2021-12-07T08:06:44
@@ -221,14 +250,21 @@ export class ListTemplateScratchesResponseBodyTemplateScratches extends $dara.Mo
    * The description of the resource scenario.
    * 
    * @example
-   * The description of the scenario.
+   * 纳管VPC资源。
    */
   description?: string;
   /**
    * @remarks
-   * The status code of the resource scenario that failed to be generated.
+   * The status code that indicates why the resource scenario failed to be generated. Valid values:
    * 
-   * >  This parameter is returned only if the value of Status is GENERATE_FAILED.
+   * - InvalidZoneId: invalid zone ID.
+   * - IncorrectInstanceStatus: the instance status does not support this operation.
+   * - RecommendEmpty.DiskCategoryNotRecommended: the cloud disk category is unavailable.
+   * - Forbidden.RAM: insufficient RAM permissions.
+   * 
+   * > This parameter is returned only if Status is GENERATE_FAILED.
+   * 
+   * This information is generated based on call logs and may be incomplete. Verify the information.
    * 
    * @example
    * InvalidZoneId
@@ -236,11 +272,13 @@ export class ListTemplateScratchesResponseBodyTemplateScratches extends $dara.Mo
   failedCode?: string;
   /**
    * @remarks
-   * The policy based on which the logical ID is generated. Valid values:
+   * The logical ID generation strategy. Valid values:
    * 
-   * *   LongTypePrefixAndIndexSuffix (default): long-type prefix + index-type suffix
-   * *   LongTypePrefixAndHashSuffix: long-type prefix + hash-type suffix
-   * *   ShortTypePrefixAndHashSuffix: short-type prefix + hash-type suffix
+   * - LongTypePrefixAndIndexSuffix (default): long type prefix with index suffix.
+   * 
+   * - LongTypePrefixAndHashSuffix: long type prefix with hash suffix.
+   * 
+   * - ShortTypePrefixAndHashSuffix: short type prefix with hash suffix.
    * 
    * @example
    * LongTypePrefixAndIndexSuffix
@@ -248,12 +286,12 @@ export class ListTemplateScratchesResponseBodyTemplateScratches extends $dara.Mo
   logicalIdStrategy?: string;
   /**
    * @remarks
-   * The preference parameters of the resource scenario.
+   * The configuration parameters of the resource scenario.
    */
   preferenceParameters?: ListTemplateScratchesResponseBodyTemplateScratchesPreferenceParameters[];
   /**
    * @remarks
-   * The ID of the resource group.
+   * The resource group ID.
    * 
    * @example
    * rg-acfm4nxcvht4pmi
@@ -276,7 +314,7 @@ export class ListTemplateScratchesResponseBodyTemplateScratches extends $dara.Mo
   sourceTag?: ListTemplateScratchesResponseBodyTemplateScratchesSourceTag;
   /**
    * @remarks
-   * The state of the resource scenario.
+   * The status of the resource scenario.
    * 
    * @example
    * GENERATE_COMPLETE
@@ -286,7 +324,7 @@ export class ListTemplateScratchesResponseBodyTemplateScratches extends $dara.Mo
    * @remarks
    * The reason why the resource scenario failed to be generated.
    * 
-   * >  This parameter is returned only if the value of Status is GENERATE_FAILED.
+   * > This parameter is returned only if Status is GENERATE_FAILED.
    * 
    * @example
    * Resource ALIYUN::ECS::VPC vpc-m5eauuq80anx59v28**** could not be found for template scratch.
@@ -309,8 +347,9 @@ export class ListTemplateScratchesResponseBodyTemplateScratches extends $dara.Mo
    * @remarks
    * The type of the resource scenario. Valid values:
    * 
-   * *   ResourceImport: resource management
-   * *   ArchitectureReplication: resource replication
+   * - ResourceImport: resource management.
+   * 
+   * - ArchitectureReplication: resource replication.
    * 
    * @example
    * ResourceImport
@@ -318,9 +357,7 @@ export class ListTemplateScratchesResponseBodyTemplateScratches extends $dara.Mo
   templateScratchType?: string;
   /**
    * @remarks
-   * The time when the resource scenario was updated.
-   * 
-   * The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
+   * The time when the resource scenario was last updated. The time is displayed in UTC+0 and follows the ISO 8601 standard without the Z suffix. Format: YYYY-MM-DDThh:mm:ss.
    * 
    * @example
    * 2021-12-07T08:06:44
@@ -393,7 +430,7 @@ export class ListTemplateScratchesResponseBodyTemplateScratches extends $dara.Mo
 export class ListTemplateScratchesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number of the resource scenario list.
    * 
    * @example
    * 1
@@ -401,7 +438,7 @@ export class ListTemplateScratchesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries per page in a paged query. Settings for paging.
    * 
    * @example
    * 10
@@ -409,7 +446,7 @@ export class ListTemplateScratchesResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * D1C09606-C58B-558F-9B4E-5BF263D17D09
@@ -422,7 +459,7 @@ export class ListTemplateScratchesResponseBody extends $dara.Model {
   templateScratches?: ListTemplateScratchesResponseBodyTemplateScratches[];
   /**
    * @remarks
-   * The total number of scenarios.
+   * The total number of resource scenarios.
    * 
    * @example
    * 2

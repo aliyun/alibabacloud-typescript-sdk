@@ -55,10 +55,11 @@ export class GetTemplateEstimateCostRequest extends $dara.Model {
    * 
    * Examples:
    * 
-   * *   Parameters.1.ParameterKey: `Name`
-   * *   Parameters.2.ParameterKey: `Netmode`
+   * - Parameters.1.ParameterKey: `Name`
    * 
-   * >  The Parameters parameter is optional. If you want to specify Parameters, you must specify both Parameters.N.ParameterKey and Parameters.N.ParameterValue.
+   * - Parameters.2.ParameterKey: `Netmode`
+   * 
+   * > The Parameters parameter is optional. If you want to specify Parameters, you must specify both Parameters.N.ParameterKey and Parameters.N.ParameterValue.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-42665544****
@@ -75,7 +76,7 @@ export class GetTemplateEstimateCostRequest extends $dara.Model {
    * @remarks
    * The ID of the template. This parameter applies to shared and private templates.
    * 
-   * >  You must specify only one of the following parameters: TemplateBody, TemplateURL, TemplateId, and TemplateScratchId.
+   * > You must specify only one of the following parameters: TemplateBody, TemplateURL, TemplateId, and TemplateScratchId.
    * 
    * This parameter is required.
    * 
@@ -102,7 +103,7 @@ export class GetTemplateEstimateCostRequest extends $dara.Model {
    * > You must and can specify only one of the following parameters: TemplateBody, TemplateURL, TemplateId, and TemplateScratchId.
    * 
    * @example
-   * The parameters.
+   * ROSTemplateFormatVersion: \\"2015-09-01\\"\\nResources:\\n  vpc:\\n    Type: ALIYUN::ECS::VPC
    */
   templateBody?: string;
   /**
@@ -113,10 +114,11 @@ export class GetTemplateEstimateCostRequest extends $dara.Model {
    * 
    * Examples:
    * 
-   * *   Parameters.1.ParameterValue: `DemoEip`
-   * *   Parameters.2.ParameterValue: `public`
+   * - Parameters.1.ParameterValue: `DemoEip`
    * 
-   * >  The Parameters parameter is optional. If you want to specify Parameters, you must specify both Parameters.N.ParameterKey and Parameters.N.ParameterValue.
+   * - Parameters.2.ParameterValue: `public`
+   * 
+   * > The Parameters parameter is optional. If you want to specify Parameters, you must specify both Parameters.N.ParameterKey and Parameters.N.ParameterValue.
    * 
    * @example
    * 5ecd1e10-b0e9-4389-a565-e4c15efc****
@@ -158,7 +160,7 @@ export class GetTemplateEstimateCostRequest extends $dara.Model {
    * 
    * For more information about how to query the IDs of scenarios, see [ListTemplateScratches](https://help.aliyun.com/document_detail/363050.html).
    * 
-   * >  You must specify only one of the following parameters: TemplateBody, TemplateURL, TemplateId, and TemplateScratchId.
+   * > You must specify only one of the following parameters: TemplateBody, TemplateURL, TemplateId, and TemplateScratchId.
    * 
    * @example
    * v1

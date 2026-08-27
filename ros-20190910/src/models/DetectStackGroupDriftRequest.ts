@@ -19,7 +19,7 @@ export class DetectStackGroupDriftRequest extends $dara.Model {
    * @remarks
    * The operation settings, in JSON format. The following fields are supported:
    * 
-   * *   FailureToleranceCount
+   * - FailureToleranceCount
    * 
    * The maximum number of stack group operation failures that can occur. In a stack group operation, if the total number of failures does not exceed the FailureToleranceCount value, the operation succeeds. Otherwise, the operation fails.
    * 
@@ -27,7 +27,7 @@ export class DetectStackGroupDriftRequest extends $dara.Model {
    * 
    * Valid values: 0 to 20.
    * 
-   * *   FailureTolerancePercentage
+   * - FailureTolerancePercentage
    * 
    * The percentage of stack group operation failures that can occur. In a stack group operation, if the percentage of failures does not exceed the FailureTolerancePercentage value, the operation succeeds. Otherwise, the operation fails.
    * 
@@ -35,7 +35,7 @@ export class DetectStackGroupDriftRequest extends $dara.Model {
    * 
    * Valid values: 0 to 100.
    * 
-   * *   MaxConcurrentCount
+   * - MaxConcurrentCount
    * 
    * The maximum number of target accounts in which a drift detection operation can be performed at a time.
    * 
@@ -43,7 +43,7 @@ export class DetectStackGroupDriftRequest extends $dara.Model {
    * 
    * Valid values: 1 to 20.
    * 
-   * *   MaxConcurrentPercentage
+   * - MaxConcurrentPercentage
    * 
    * The maximum percentage of target accounts in which a drift detection operation can be performed at a time.
    * 

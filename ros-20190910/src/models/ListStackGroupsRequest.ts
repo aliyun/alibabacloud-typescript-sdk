@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ListStackGroupsRequestTags extends $dara.Model {
   /**
    * @remarks
-   * The key of the tag that is added to the stack group.
+   * The tag key of the stack group.
    * 
-   * > Tags is optional. If you specify Tags, you must specify Tags.N.Key.
+   * > Tags is optional. If you specify Tags, Tags.N.Key is required.
    * 
    * This parameter is required.
    * 
@@ -17,7 +17,7 @@ export class ListStackGroupsRequestTags extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of the tag that is added to the stack group.
+   * The tag value of the stack group.
    * 
    * @example
    * test
@@ -49,10 +49,11 @@ export class ListStackGroupsRequestTags extends $dara.Model {
 export class ListStackGroupsRequest extends $dara.Model {
   /**
    * @remarks
-   * The number of the page to return.
+   * The page number.
    * 
-   * *   Pages start from page 1.
-   * *   Default value: 1.
+   * - Starts from 1.
+   * 
+   * - Default value: 1.
    * 
    * @example
    * 1
@@ -62,8 +63,9 @@ export class ListStackGroupsRequest extends $dara.Model {
    * @remarks
    * The number of entries to return on each page.
    * 
-   * *   Valid values: 1 to 50.
-   * *   Default value: 10.
+   * - Valid values: 1 to 50.
+   * 
+   * - Default value: 10.
    * 
    * @example
    * 10
@@ -71,7 +73,7 @@ export class ListStackGroupsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region ID of the stack group. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/131035.html) operation to query the most recent region list.
+   * The region ID of the stack group. Call [DescribeRegions](https://help.aliyun.com/document_detail/131035.html) to query available regions.
    * 
    * This parameter is required.
    * 
@@ -81,9 +83,9 @@ export class ListStackGroupsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource group. If you do not specify this parameter, the stack groups in all the resource groups are queried.
+   * The ID of the resource group. If not specified, stack groups in all resource groups are returned.
    * 
-   * > To obtain the resource group ID, go to the **Resource Group** page in the **Resource Management** console. For more information, see [View the basic information about a resource group](https://help.aliyun.com/document_detail/151181.html).
+   * > You can find the resource group ID on the **Resource Groups** page in the **Resource Management** console. [View the basic information of a resource group](https://help.aliyun.com/document_detail/151181.html).
    * 
    * @example
    * rg-acfmzawhxxcj****
@@ -91,12 +93,13 @@ export class ListStackGroupsRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The state of the stack group. If you do not specify this parameter, the stack groups in all states in the specified region are queried.
+   * The status of the stack group. If not specified, stack groups in all states are returned.
    * 
    * Valid values:
    * 
-   * *   ACTIVE
-   * *   DELETED
+   * - ACTIVE: The stack group is active.
+   * 
+   * - DELETED: The stack group is deleted.
    * 
    * @example
    * ACTIVE
@@ -104,7 +107,7 @@ export class ListStackGroupsRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The tags that are added to the stack group.
+   * The tags of the stack group.
    */
   tags?: ListStackGroupsRequestTags[];
   static names(): { [key: string]: string } {

@@ -15,7 +15,7 @@ export class MoveResourceGroupRequest extends $dara.Model {
   newResourceGroupId?: string;
   /**
    * @remarks
-   * The region ID of the resource.\\
+   * The region ID of the resource.<br>
    * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/131035.html) operation to query the most recent region list.
    * 
    * This parameter is required.
@@ -38,9 +38,11 @@ export class MoveResourceGroupRequest extends $dara.Model {
    * @remarks
    * The type of the resource. Valid values:
    * 
-   * *   stack: stack
-   * *   stackgroup: stack group
-   * *   template: template
+   * - stack: stack
+   * 
+   * - stackgroup: stack group
+   * 
+   * - template: template
    * 
    * This parameter is required.
    * 

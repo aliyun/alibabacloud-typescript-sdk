@@ -63,9 +63,11 @@ export class ListStackResourceDriftsResponseBodyResourceDriftsPropertyDifference
    * @remarks
    * The drift type of the resource property. Valid values:
    * 
-   * *   ADD: The value is added to a resource property whose data type is Array or List.
-   * *   REMOVE: The property is deleted from the current resource configuration.
-   * *   NOT_EQUAL: The current property value differs from the expected value that is defined in the stack template.
+   * - ADD: The value is added to a resource property whose data type is Array or List.
+   * 
+   * - REMOVE: The property is deleted from the current resource configuration.
+   * 
+   * - NOT_EQUAL: The current property value differs from the expected value that is defined in the stack template.
    * 
    * @example
    * NOT_EQUAL
@@ -169,10 +171,13 @@ export class ListStackResourceDriftsResponseBodyResourceDrifts extends $dara.Mod
    * @remarks
    * The drift state of the resource. Valid values:
    * 
-   * *   DELETED: The actual configuration of the resource differs from its expected template configuration because the resource is deleted.
-   * *   MODIFIED: The actual configuration of the resource differs from its expected template configuration.
-   * *   NOT_CHECKED: Resource Orchestration Service (ROS) has not checked whether the actual configuration of the resource differs from its expected template configuration.
-   * *   IN_SYNC: The actual configuration of the resource matches its expected template configuration.
+   * - DELETED: The actual configuration of the resource differs from its expected template configuration because the resource is deleted.
+   * 
+   * - MODIFIED: The actual configuration of the resource differs from its expected template configuration.
+   * 
+   * - NOT_CHECKED: Resource Orchestration Service (ROS) has not checked whether the actual configuration of the resource differs from its expected template configuration.
+   * 
+   * - IN_SYNC: The actual configuration of the resource matches its expected template configuration.
    * 
    * @example
    * MODIFIED

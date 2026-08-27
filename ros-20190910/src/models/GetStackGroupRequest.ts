@@ -5,11 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetStackGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the stack group. The name must be unique within a region.
-   * 
-   * The name can be up to 255 characters in length, and can contain digits, letters, hyphens (-), and underscores (_). It must start with a digit or letter.
-   * 
-   * >  You must specify one of the StackGroupName and StackGroupId parameters.
+   * The region ID of the stack group. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/131035.html) operation to query the most recent region list.
    * 
    * This parameter is required.
    * 
@@ -19,7 +15,9 @@ export class GetStackGroupRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The ID of the stack group.
+   * 
+   * > You must specify only one of the StackGroupName and StackGroupId parameters.
    * 
    * @example
    * fd0ddef9-9540-4b42-a464-94f77835****
@@ -27,9 +25,9 @@ export class GetStackGroupRequest extends $dara.Model {
   stackGroupId?: string;
   /**
    * @remarks
-   * The ID of the stack group.
+   * The name of the stack group. The name must be unique within a region. The name can be up to 255 characters in length, and must start with a digit or a letter. It can contain digits, letters, hyphens (-), and underscores (_).
    * 
-   * >  You must specify one of the StackGroupName and StackGroupId parameters.
+   * > You must specify only one of the StackGroupName and StackGroupId parameters.
    * 
    * @example
    * MyStackGroup

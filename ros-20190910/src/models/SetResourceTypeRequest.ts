@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class SetResourceTypeRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the default version. You can use this parameter to specify the default version of the resource type.
+   * The ID of the default version. Specify this parameter to set the default version for the resource type.
    * 
-   * > You can specify only one of the VersionId and DefaultVersionId parameters.
+   * > You can specify either VersionId or DefaultVersionId.
    * 
    * @example
    * v1
@@ -15,7 +15,7 @@ export class SetResourceTypeRequest extends $dara.Model {
   defaultVersionId?: string;
   /**
    * @remarks
-   * The description of the resource type or resource type version. The description can be up to 512 characters in length.
+   * The description of the resource type or a version of the resource type. The description can be up to 512 characters in length.
    * 
    * @example
    * It is a demo.
@@ -33,9 +33,9 @@ export class SetResourceTypeRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The version ID. If you want to modify a version of the resource type, you must specify this parameter. If you do not specify this parameter, only the resource type is modified.
+   * The version ID. Specify this parameter to modify a specific version of the resource type. Otherwise, the description of the resource type itself is modified.
    * 
-   * > You can specify only one of the VersionId and DefaultVersionId parameters.
+   * > You can specify either VersionId or DefaultVersionId.
    * 
    * @example
    * v1

@@ -9,7 +9,8 @@ export class UpdateTemplateScratchRequestPreferenceParameters extends $dara.Mode
    * 
    * For more information about the valid values of ParameterKey, see the "**Additional information about request parameters**" section of this topic.
    * 
-   * >- PreferenceParameters is optional. If you specify PreferenceParameters, you must specify both ParameterKey and ParameterValue.
+   * > - PreferenceParameters is optional. If you specify PreferenceParameters, you must specify both ParameterKey and ParameterValue.
+   * >
    * > - If you set TemplateScratchType to ResourceImport, you must set ParameterKey to DeletionPolicy.
    * 
    * This parameter is required.
@@ -24,7 +25,7 @@ export class UpdateTemplateScratchRequestPreferenceParameters extends $dara.Mode
    * 
    * For more information about the valid values of ParameterKey, see the "**Additional information about request parameters**" section of this topic.
    * 
-   * >  PreferenceParameters is optional. If you specify PreferenceParameters, you must specify both ParameterKey and ParameterValue.
+   * > PreferenceParameters is optional. If you specify PreferenceParameters, you must specify both ParameterKey and ParameterValue.
    * 
    * This parameter is required.
    * 
@@ -206,15 +207,16 @@ export class UpdateTemplateScratchRequest extends $dara.Model {
    * The description of the scenario.
    * 
    * @example
-   * The description of the scenario.
+   * Copy VPC resources.
    */
   description?: string;
   /**
    * @remarks
    * The execution mode. Valid values:
    * 
-   * *   Async (default)
-   * *   Sync
+   * - Async (default)
+   * 
+   * - Sync
    * 
    * > If you have a wide scope of resources, Sync takes longer. If you set ExecutionMode to Sync, we recommend that you specify ClientToken to prevent the execution timeout.
    * 
@@ -226,11 +228,13 @@ export class UpdateTemplateScratchRequest extends $dara.Model {
    * @remarks
    * The policy based on which the logical ID is generated. Valid values:
    * 
-   * *   LongTypePrefixAndIndexSuffix: long-type prefix + index-type suffix
-   * *   LongTypePrefixAndHashSuffix: long-type prefix + hash-type suffix
-   * *   ShortTypePrefixAndHashSuffix: short-type prefix + hash-type suffix
+   * - LongTypePrefixAndIndexSuffix: long-type prefix + index-type suffix
    * 
-   * >  If you set TemplateScratchType to ArchitectureDetection, the default value of LogicalIdStrategy is LongTypePrefixAndHashSuffix. In other cases, the default value of LogicalIdStrategy is LongTypePrefixAndIndexSuffix.
+   * - LongTypePrefixAndHashSuffix: long-type prefix + hash-type suffix
+   * 
+   * - ShortTypePrefixAndHashSuffix: short-type prefix + hash-type suffix
+   * 
+   * > If you set TemplateScratchType to ArchitectureDetection, the default value of LogicalIdStrategy is LongTypePrefixAndHashSuffix. In other cases, the default value of LogicalIdStrategy is LongTypePrefixAndIndexSuffix.
    * 
    * @example
    * LongTypePrefixAndIndexSuffix
@@ -265,21 +269,21 @@ export class UpdateTemplateScratchRequest extends $dara.Model {
    * @remarks
    * The source resource group.
    * 
-   * >  You must specify only one of the following parameters: SourceResources, SourceTag, and SourceResourceGroup.
+   * > You must specify only one of the following parameters: SourceResources, SourceTag, and SourceResourceGroup.
    */
   sourceResourceGroup?: UpdateTemplateScratchRequestSourceResourceGroup;
   /**
    * @remarks
    * The source resources.
    * 
-   * >  You must specify only one of the following parameters: SourceResources, SourceTag, and SourceResourceGroup.
+   * > You must specify only one of the following parameters: SourceResources, SourceTag, and SourceResourceGroup.
    */
   sourceResources?: UpdateTemplateScratchRequestSourceResources[];
   /**
    * @remarks
    * The source tag.
    * 
-   * >  You must specify only one of the following parameters: SourceResources, SourceTag, and SourceResourceGroup.
+   * > You must specify only one of the following parameters: SourceResources, SourceTag, and SourceResourceGroup.
    */
   sourceTag?: UpdateTemplateScratchRequestSourceTag;
   /**
@@ -288,7 +292,7 @@ export class UpdateTemplateScratchRequest extends $dara.Model {
    * 
    * The valid values of the ParameterKey and ParameterValue request parameters vary based on the IDs of different types of resource scenarios. For more information, see the "Additional information about request parameters" section of this topic.
    * 
-   * >  You can call the [ListTemplateScratches](https://help.aliyun.com/document_detail/610832.html) operation to query the ID of a resource scenario.
+   * > You can call the [ListTemplateScratches](https://help.aliyun.com/document_detail/610832.html) operation to query the ID of a resource scenario.
    * 
    * This parameter is required.
    * 

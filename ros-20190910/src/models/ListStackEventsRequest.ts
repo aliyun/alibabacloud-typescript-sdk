@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListStackEventsRequest extends $dara.Model {
   /**
    * @remarks
-   * The logical IDs of the resources.
+   * The logical resource ID.
    * 
    * @example
    * WebServer
@@ -13,8 +13,8 @@ export class ListStackEventsRequest extends $dara.Model {
   logicalResourceId?: string[];
   /**
    * @remarks
-   * The number of the page to return.\\
-   * Pages start from page 1.\\
+   * The page number of the event list.  
+   * Minimum value: 1.  
    * Default value: 1.
    * 
    * @example
@@ -23,8 +23,8 @@ export class ListStackEventsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page.\\
-   * Maximum value: 50.\\
+   * The number of entries per page in a paged query. Settings for paging.  
+   * Maximum value: 50.  
    * Default value: 10.
    * 
    * @example
@@ -33,7 +33,7 @@ export class ListStackEventsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region ID of the stack. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/131035.html) operation to query the most recent region list.
+   * The region ID of the stack. You can call [DescribeRegions](https://help.aliyun.com/document_detail/131035.html) to query the most recent region list.
    * 
    * This parameter is required.
    * 
@@ -43,7 +43,7 @@ export class ListStackEventsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource types.
+   * The resource type list.
    * 
    * @example
    * ALIYUN::ECS::Instance
@@ -61,7 +61,7 @@ export class ListStackEventsRequest extends $dara.Model {
   stackId?: string;
   /**
    * @remarks
-   * The status of the resource.
+   * The resource status.
    * 
    * @example
    * CREATE_IN_PROGRESS

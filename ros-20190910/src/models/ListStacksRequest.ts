@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListStacksRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The key of tag N.\\
+   * The tag key of the stack.  
    * Valid values of N: 1 to 20.
    * 
    * @example
@@ -14,7 +14,7 @@ export class ListStacksRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of tag N.\\
+   * The tag value of the stack.  
    * Valid values of N: 1 to 20.
    * 
    * @example
@@ -47,7 +47,7 @@ export class ListStacksRequestTag extends $dara.Model {
 export class ListStacksRequest extends $dara.Model {
   /**
    * @remarks
-   * The end of the time range during which data was queried. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+   * The end of the time range for filtering by creation time. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC+0.
    * 
    * @example
    * 2023-04-01T15:16:00Z
@@ -55,10 +55,10 @@ export class ListStacksRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The page number.
+   * The page number of the stack list.  
    * 
-   * Pages start from page 1.
-   * 
+   * Start value: 1.
+   *   
    * Default value: 1.
    * 
    * @example
@@ -67,10 +67,10 @@ export class ListStacksRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries per page when paging is used.  
    * 
    * Maximum value: 50.
-   * 
+   *   
    * Default value: 10.
    * 
    * @example
@@ -87,7 +87,7 @@ export class ListStacksRequest extends $dara.Model {
   parentStackId?: string;
   /**
    * @remarks
-   * The region ID of the stack. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/131035.html) operation to query the most recent region list.
+   * The region ID of the stack. You can call [DescribeRegions](https://help.aliyun.com/document_detail/131035.html) to query the most recent region list.
    * 
    * This parameter is required.
    * 
@@ -97,8 +97,8 @@ export class ListStacksRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource group.\\
-   * For more information about resource groups, see the "Resource Group" section of the [What is Resource Management?](https://help.aliyun.com/document_detail/94475.html) topic.
+   * The resource group ID.  
+   * For more information about resource groups, see [What is a resource group?](https://help.aliyun.com/document_detail/94475.html).
    * 
    * @example
    * rg-acfmxazb4ph6aiy****
@@ -106,12 +106,12 @@ export class ListStacksRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * Specifies whether to return nested stacks. Valid values:
+   * Specifies whether to list nested stacks. Valid values:
    * 
-   * *   true
-   * *   false (default)
-   * 
-   * > If you specify ParentStackId, you must set ShowNestedStack to true.
+   * - true
+   * - false (default)
+   *   
+   * > If ParentStackId is specified, this value is set to true.
    * 
    * @example
    * true
@@ -119,7 +119,7 @@ export class ListStacksRequest extends $dara.Model {
   showNestedStack?: boolean;
   /**
    * @remarks
-   * The stack ID. You can specify this parameter to query only the stack ID. If you want to query the detailed information about the stack, call the GetStack operation.
+   * The stack ID. If you do not need detailed stack information, you can specify this parameter instead of calling the GetStack operation.
    * 
    * @example
    * 4a6c9851-3b0f-4f5f-b4ca-a14bf691****
@@ -127,12 +127,12 @@ export class ListStacksRequest extends $dara.Model {
   stackId?: string;
   /**
    * @remarks
-   * The IDs of the stacks.
+   * The list of stack IDs.
    */
   stackIds?: string[];
   /**
    * @remarks
-   * The names of the stacks.
+   * The stack name.
    * 
    * @example
    * MyStack
@@ -140,7 +140,7 @@ export class ListStacksRequest extends $dara.Model {
   stackName?: string[];
   /**
    * @remarks
-   * The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+   * The beginning of the time range for filtering by creation time. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC+0.
    * 
    * @example
    * 2023-04-01T15:10:00Z
@@ -148,7 +148,7 @@ export class ListStacksRequest extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The status of the stack.
+   * The stack status.
    * 
    * @example
    * CREATE_COMPLETE

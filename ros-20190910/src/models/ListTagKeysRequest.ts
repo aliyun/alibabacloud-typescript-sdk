@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListTagKeysRequest extends $dara.Model {
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results.
+   * The token that is used to start the next query.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0*****
@@ -13,7 +13,7 @@ export class ListTagKeysRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The region ID of the tag key. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/131035.html) operation to query the most recent region list.
+   * The ID of the region. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/131035.html) operation to query the latest list of Alibaba Cloud regions.
    * 
    * This parameter is required.
    * 
@@ -23,12 +23,15 @@ export class ListTagKeysRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The type of the resource. Valid values:
+   * The resource type. Valid values:
    * 
-   * *   stack: stack
-   * *   stackgroup: stack group
-   * *   template: template
-   * *   templatescratch: scenario
+   * - stack: stack.
+   * 
+   * - stackgroup: stack group.
+   * 
+   * - template: template.
+   * 
+   * - templatescratch: resource scenario.
    * 
    * This parameter is required.
    * 

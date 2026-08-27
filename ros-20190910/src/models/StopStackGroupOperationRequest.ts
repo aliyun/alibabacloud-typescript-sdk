@@ -5,9 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class StopStackGroupOperationRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the operation.
-   * 
-   * You can call the [ListStackGroupOperations](https://help.aliyun.com/document_detail/151342.html) operation to obtain the operation ID.
+   * The operation ID. Call the [ListStackGroupOperations](https://help.aliyun.com/document_detail/151342.html) operation to query operation IDs.
    * 
    * This parameter is required.
    * 
@@ -17,7 +15,7 @@ export class StopStackGroupOperationRequest extends $dara.Model {
   operationId?: string;
   /**
    * @remarks
-   * The region ID of the stack. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/131035.html) operation to query the most recent region list.
+   * The region ID of the stack. Call the [DescribeRegions](https://help.aliyun.com/document_detail/131035.html) operation to query available regions.
    * 
    * This parameter is required.
    * 

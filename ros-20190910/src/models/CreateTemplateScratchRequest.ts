@@ -5,15 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class CreateTemplateScratchRequestPreferenceParameters extends $dara.Model {
   /**
    * @remarks
-   * The parameter name.
+   * The parameter key.
    * 
-   * For more information about the valid values of ParameterKey, see the "**Additional information about request parameters**" section of this topic.
+   * For more information about the valid values, refer to **Supplementary description of request parameters** section in this topic.
    * 
-   * > 
-   * 
-   * *   PreferenceParameters is optional. If you specify PreferenceParameters, you must specify ParameterKey and ParameterValue.
-   * 
-   * *   You must set ParameterKey to DeletionPolicy when TemplateScratchType is set to ResourceImport.
+   * > - PreferenceParameters is optional. If you specify PreferenceParameters, you must specify ParameterKey and ParameterValue.
+   * >
+   * > - You must set ParameterKey to DeletionPolicy when TemplateScratchType is set to ResourceImport.
    * 
    * This parameter is required.
    * 
@@ -23,11 +21,11 @@ export class CreateTemplateScratchRequestPreferenceParameters extends $dara.Mode
   parameterKey?: string;
   /**
    * @remarks
-   * The parameter value. The value is an assignment to the parameter key.
+   * Parameter value. The value is an assignment to the ParameterKey.
    * 
-   * For more information about the valid values of ParameterValue, see the "**Additional information about request parameters**" section of this topic.
+   * For more information about the valid values, refer to **Supplementary description of request parameters** section in this topic.
    * 
-   * >  PreferenceParameters is optional. If you specify PreferenceParameters, you must specify ParameterKey and ParameterValue.
+   * > PreferenceParameters is optional. If you specify PreferenceParameters, you must specify ParameterKey and ParameterValue.
    * 
    * This parameter is required.
    * 
@@ -105,13 +103,11 @@ export class CreateTemplateScratchRequestSourceResources extends $dara.Model {
    * @remarks
    * The region ID of the resource.
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/131035.html) operation to query the most recent region list.
+   * You can call [DescribeRegions](https://help.aliyun.com/document_detail/131035.html) to query the most recent region list.
    * 
-   * > 
-   * 
-   * *   This parameter takes effect only when TemplateScratchType is set to ArchitectureDetection.
-   * 
-   * *   The region ID of a global resource is `global`. For example, the region ID of the ALIYUN::CDN::Domain global resource is `global`.
+   * > - This parameter takes effect only when TemplateScratchType is set to ArchitectureDetection.
+   * >
+   * > - The region ID of a global resource is `global`. For example, ALIYUN::CDN::Domain is a global resource, and its region ID is `global`.
    * 
    * @example
    * cn-beijing
@@ -175,9 +171,9 @@ export class CreateTemplateScratchRequestSourceResources extends $dara.Model {
 export class CreateTemplateScratchRequestSourceTag extends $dara.Model {
   /**
    * @remarks
-   * The source tags that consist of key-value pairs. If you want to specify only the tag key, you must leave the tag value empty. Example: `{"TagKey": ""}`.
+   * The source tags that consist of key-value pairs. If you want to specify only a tag key, set the tag value to an empty string, for example: `{"TagKey": ""}`.
    * 
-   * You can add up to 10 source tags.
+   * You can add up to 10 source tags. If you set TemplateScratchType to ArchitectureDetection, you can add up to 5 source tags.
    * 
    * This parameter is required.
    * 
@@ -187,7 +183,7 @@ export class CreateTemplateScratchRequestSourceTag extends $dara.Model {
   resourceTags?: { [key: string]: any };
   /**
    * @remarks
-   * The resource types for filtering resources.
+   * The resource types filter.
    */
   resourceTypeFilter?: string[];
   static names(): { [key: string]: string } {
@@ -222,9 +218,9 @@ export class CreateTemplateScratchRequestSourceTag extends $dara.Model {
 export class CreateTemplateScratchRequestTags extends $dara.Model {
   /**
    * @remarks
-   * The tag key of the resource scenario.
+   * The key of tag N that you want to add to the resource scenario.
    * 
-   * > Tags is optional. If you want to specify Tags, you must specify Key.
+   * > Tags is optional. If you specify Tags, you must specify Tags.N.Key.
    * 
    * This parameter is required.
    * 
@@ -234,7 +230,7 @@ export class CreateTemplateScratchRequestTags extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value of the resource scenario.
+   * The value of tag N that you want to add to the resource scenario.
    * 
    * @example
    * test
@@ -266,9 +262,11 @@ export class CreateTemplateScratchRequestTags extends $dara.Model {
 export class CreateTemplateScratchRequest extends $dara.Model {
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * Ensures the idempotency of the request. This value must be generated by the client and must be globally unique.
    * 
-   * For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/134212.html).
+   * It must be no more than 64 characters in length and can contain letters, digits, hyphens (**-**), and underscores (**_**).
+   * 
+   * For more information, refer to [How to ensure idempotence](https://help.aliyun.com/document_detail/134212.html).
    * 
    * @example
    * 123e4567-e89b-12d3-a456-42665544****
@@ -279,17 +277,18 @@ export class CreateTemplateScratchRequest extends $dara.Model {
    * The description of the resource scenario.
    * 
    * @example
-   * Replicate a VPC.
+   * Copy VPC resources.
    */
   description?: string;
   /**
    * @remarks
    * The execution mode. Valid values:
    * 
-   * *   Async (default)
-   * *   Sync
+   * - Async (default): asynchronous mode
    * 
-   * > If you have a wide scope of resources, Sync takes longer. If you set ExecutionMode to Sync, we recommend that you specify ClientToken to prevent the execution timeout.
+   * - Sync: synchronous mode
+   * 
+   * > If the resource scope is large, the synchronous execution takes a long time. We recommend that you specify ClientToken to avoid timeout issues.
    * 
    * @example
    * Sync
@@ -297,11 +296,15 @@ export class CreateTemplateScratchRequest extends $dara.Model {
   executionMode?: string;
   /**
    * @remarks
-   * The policy based on which the logical ID is generated. Valid values:
+   * Logical ID generation strategy. Valid values:
    * 
-   * *   LongTypePrefixAndIndexSuffix (default): long-type prefix + index-type suffix
-   * *   LongTypePrefixAndHashSuffix: long-type prefix + hash-type suffix
-   * *   ShortTypePrefixAndHashSuffix: short-type prefix + hash-type suffix
+   * - LongTypePrefixAndIndexSuffix: long-type prefix + index-type suffix
+   * 
+   * - LongTypePrefixAndHashSuffix: long-type prefix + hash-type suffix
+   * 
+   * - ShortTypePrefixAndHashSuffix: short-type prefix + hash-type suffix
+   * 
+   * > Default value: LongTypePrefixAndIndexSuffix. If TemplateScratchType is set to ArchitectureDetection, the default value is LongTypePrefixAndHashSuffix.
    * 
    * @example
    * LongTypePrefixAndIndexSuffix
@@ -309,14 +312,14 @@ export class CreateTemplateScratchRequest extends $dara.Model {
   logicalIdStrategy?: string;
   /**
    * @remarks
-   * The preference parameters of the resource scenario.
+   * Configuration parameters for resource scenario
    */
   preferenceParameters?: CreateTemplateScratchRequestPreferenceParameters[];
   /**
    * @remarks
    * The region ID of the resource scenario.
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/131035.html) operation to query the most recent region list.
+   * You can call [DescribeRegions](https://help.aliyun.com/document_detail/131035.html) to query the most recent region list.
    * 
    * This parameter is required.
    * 
@@ -326,7 +329,7 @@ export class CreateTemplateScratchRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The ID of the resource group to which you want to assign the snapshot policy. If you leave this parameter empty, the resource scenario is added to the default resource group.
    * 
    * @example
    * rg-acfmxazb4ph6aiy****
@@ -341,14 +344,16 @@ export class CreateTemplateScratchRequest extends $dara.Model {
    * @remarks
    * The source resources.
    * 
-   * When you set TemplateScratchType to ArchitectureDetection, you can specify SourceResources to detect the architecture data of all resources associated with the specified source resources. For example, if you set SourceResources to the ID of a Classic Load Balancer (CLB) instance, the architecture data of all resources, such as the Elastic Compute Service (ECS) instance, vSwitch, and VPC, associated with the CLB instance is detected.
+   * When you set TemplateScratchType to ArchitectureDetection, you can specify SourceResources to detect the architecture data of all resources associated with the specified source resources. For example, if you specify a CLB instance ID, the system will detect and identify its associated resources such as ECS instances, vSwitches, and VPCs.
    * 
-   * If you set TemplateScratchType to ArchitectureDetection, you can specify up to 20 source resources. In other cases, you can specify up to 200 source resources.
+   * If TemplateScratchType is set to ArchitectureDetection, you can specify up to **20 source resources**.
+   * 
+   * In other cases, up to **200 source resources** are supported.
    */
   sourceResources?: CreateTemplateScratchRequestSourceResources[];
   /**
    * @remarks
-   * The source tag.
+   * The source tags.
    */
   sourceTag?: CreateTemplateScratchRequestSourceTag;
   /**
@@ -360,12 +365,15 @@ export class CreateTemplateScratchRequest extends $dara.Model {
    * @remarks
    * The type of the resource scenario. Valid values:
    * 
-   * *   ArchitectureReplication: resource replication
-   * *   ArchitectureDetection: resource detection
-   * *   ResourceImport: resource management
-   * *   ResourceMigration: resource migration
+   * - ArchitectureReplication: resource replication
    * 
-   * >  The valid values of the ParameterKey and ParameterValue request parameters vary based on the value of TemplateScratchType. For more information, see the "**Additional information about request parameters**" section of this topic.
+   * - ArchitectureDetection: resource profiling
+   * 
+   * - ResourceImport: resource management
+   * 
+   * - ResourceMigration: resource migration
+   * 
+   * > When you specify different values for the TemplateScratchType parameter, the optional parameters in the supplementary description of request parameters are also different. For more information, refer to **Supplementary description of request parameters** section below.
    * 
    * This parameter is required.
    * 

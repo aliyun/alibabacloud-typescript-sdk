@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class ListTagKeysResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The tag keys.
+   * The list of tag keys.
    */
   keys?: string[];
   /**
    * @remarks
-   * A pagination token. It can be used in the next request to retrieve a new page of results.
+   * The token that is used to start the next query.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0*****
@@ -18,7 +18,7 @@ export class ListTagKeysResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * C429473A-5C66-4661-B5F8-4F900CD4330A

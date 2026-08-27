@@ -55,12 +55,12 @@ export class ValidateTemplateResponseBodyOutputs extends $dara.Model {
 export class ValidateTemplateResponseBodyResourceTypes extends $dara.Model {
   /**
    * @remarks
-   * The DataSource resource types that are used in the template. The value is deduplicated.
+   * The list of data source resource types. Duplicates are removed.
    */
   dataSources?: string[];
   /**
    * @remarks
-   * The regular resource types that are used in the template. The value is deduplicated.
+   * The list of regular resource types. Duplicates are removed.
    */
   resources?: string[];
   static names(): { [key: string]: string } {
@@ -95,32 +95,39 @@ export class ValidateTemplateResponseBodyResourceTypes extends $dara.Model {
 export class ValidateTemplateResponseBodyResources extends $dara.Model {
   /**
    * @remarks
-   * The pattern in which the logical IDs of regular resources are formed.
+   * The string pattern for the logical ID of the regular resource.
    * 
-   * If resources are defined in a ROS template, the following rules apply:
+   * For ROS templates, the following two cases exist:
    * 
-   * *   Resource whose definition does not contain `Count`: If the resource name defined in the template is `server`, the values of LogicalResourceIdPattern and `ResourcePath` are both `server`.``
-   * *   Resource whose definition contains `Count`: If the resource name defined in the template is `server`, the value of LogicalResourceIdPattern is `server[*]`, and the value of `ResourcePath` is `server`.
+   * - The resource definition does not contain the `Count` field: If the resource name defined in the template is `server`, the value of this parameter is `server`, and the value of `ResourcePath` is `server`.
    * 
-   * If resources and [modules](https://www.terraform.io/language/modules) are defined in a Terraform template, the following rules apply:
+   * - The resource definition contains the `Count` field: If the resource name defined in the template is `server`, the value of this parameter is `server[*]`, and the value of `ResourcePath` is `server`.
    * 
-   * *   Resource and module whose definitions do not contain [`count`](https://www.terraform.io/language/meta-arguments/count) or [`for_each`](https://www.terraform.io/language/meta-arguments/for_each): If the resource name defined in the template is `server`, the values of LogicalResourceIdPattern and `ResourcePath` are both `server`.``
-   * *   Resource and module whose definitions contain [`count`](https://www.terraform.io/language/meta-arguments/count) or [`for_each`](https://www.terraform.io/language/meta-arguments/for_each): If the resource name defined in the template is `server`, the value of LogicalResourceIdPattern is `server[*]`, and the value of `ResourcePath` is `server`.
+   * For resources and [modules](https://www.terraform.io/language/modules) in Terraform templates, the following two cases exist:
    * 
-   * Examples of LogicalResourceIdPattern for resources in a Terraform template:
+   * - The definition does not contain [`count`](https://www.terraform.io/language/meta-arguments/count) or [`for_each`](https://www.terraform.io/language/meta-arguments/for_each): If the name is `server`, the value of this parameter is `server`, and the value of `ResourcePath` is `server`.
    * 
-   * *   Valid values of LogicalResourceIdPattern if a resource belongs to the root module:
+   * - The definition contains [`count`](https://www.terraform.io/language/meta-arguments/count) or [`for_each`](https://www.terraform.io/language/meta-arguments/for_each): If the name is `server`, the value of this parameter is `server[*]`, and the value of `ResourcePath` is `server`.
    * 
-   *     *   `server`: In this case, `count` and `for_each` are not contained in the resource. The value of `ResourcePath` is `server`.
-   *     *   `server[*]`: In this case, `count` or `for_each` is contained in the resource. The value of `ResourcePath` is `server`.
+   * The following examples show the values for Terraform templates:
    * 
-   * *   Valid values of LogicalResourceIdPattern if a resource belongs to a child module:
+   * - Resources in the root module:
    * 
-   *     *   `app.server`: In this case, `count` and `for_each` are not contained in the `app` module and the `server` resource. The value of `ResourcePath` is `app.server`.````
-   *     *   `app.server[*]`: In this case, `count` or `for_each` is contained in the `server` resource, but `count` and `for_each` are not contained in the `app` module. The value of `ResourcePath` is `app.server`.
-   *     *   `app[*].server`: In this case, `count` or `for_each` is contained in the `app` module, but `count` and `for_each` are not contained in the `server` resource. The value of `ResourcePath` is `app.server`.
-   *     *   `app[*].server[*]`: In this case, `count` or `for_each` is contained in the `app` module and the `server` resource. The value of `ResourcePath` is `app.server`.````
-   *     *   `app.app_group[*].server`: In this case, `count` or `for_each` is contained in the `app_group` module, but `count` and `for_each` are not contained in the `app` module and the `server` resource. The value of `ResourcePath` is `app.app_group.server`. The `app_group` module is a child module of the `app` module.````
+   *   - `server`: `count` and `for_each` are not used. The value of `ResourcePath` is `server`.
+   * 
+   *   - `server[*]`: `count` or `for_each` is used. The value of `ResourcePath` is `server`.
+   * 
+   * - Resources in a child module:
+   * 
+   *   - `app.server`: The `app` module does not use `count` or `for_each`, and the `server` resource does not use `count` or `for_each`. The value of `ResourcePath` is `app.server`.
+   * 
+   *   - `app.server[*]`: The `app` module does not use `count` or `for_each`, but the `server` resource uses `count` or `for_each`. The value of `ResourcePath` is `app.server`.
+   * 
+   *   - `app[*].server`: The `app` module uses `count` or `for_each`, but the `server` resource does not use `count` or `for_each`. The value of `ResourcePath` is `app.server`.
+   * 
+   *   - `app[*].server[*]`: The `app` module uses `count` or `for_each`, and the `server` resource uses `count` or `for_each`. The value of `ResourcePath` is `app.server`.
+   * 
+   *   - `app.app_group[*].server`: The `app` module does not use `count` or `for_each`, the `app_group` module uses `count` or `for_each` (the `app_group` module is a child module of the `app` module), and the `server` resource does not use `count` or `for_each`. The value of `ResourcePath` is `app.app_group.server`.
    * 
    * @example
    * server
@@ -128,7 +135,7 @@ export class ValidateTemplateResponseBodyResources extends $dara.Model {
   logicalResourceIdPattern?: string;
   /**
    * @remarks
-   * The path of the regular resource. In most cases, the path of a regular resource is the same as the resource name.
+   * The path of the regular resource. The path is usually the same as the resource name.
    * 
    * @example
    * server
@@ -170,70 +177,76 @@ export class ValidateTemplateResponseBodyResources extends $dara.Model {
 export class ValidateTemplateResponseBodyUpdateInfo extends $dara.Model {
   /**
    * @remarks
-   * The parameters that can be modified.
+   * The list of parameters that can be modified.
    */
   parametersAllowedToBeModified?: string[];
   /**
    * @remarks
-   * The parameters whose changes cause service interruptions.
+   * The list of parameters that cause resource interruptions if they are modified.
    * 
-   * > - This parameter is supported only for a small number of resource types.
-   * > - This parameter is valid only for updates on ROS stacks.
+   * > - This parameter is supported for only a few resource types.
+   * >
+   * > - This parameter is applicable only to ROS stacks.
    */
   parametersCauseInterruptionIfModified?: string[];
   /**
    * @remarks
-   * The parameters whose changes trigger replacement updates for resources.
+   * The list of parameters that cause replacement updates if they are modified.
    * 
-   * > -  This parameter can be returned only if the value of UpdateInfoOptions contains EnableReplacement.
-   * > -  This parameter is valid only for updates on ROS stacks.
+   * > - This parameter is returned only if EnableReplacement is specified for UpdateInfoOptions.
+   * >
+   * > - This parameter is applicable only to ROS stacks.
    */
   parametersCauseReplacementIfModified?: string[];
   /**
    * @remarks
-   * The parameters that can be modified under specific conditions.
+   * The list of parameters that may be allowed to be modified.
    */
   parametersConditionallyAllowedToBeModified?: string[];
   /**
    * @remarks
-   * The parameters whose changes cause service interruptions under specific conditions.
+   * The list of parameters that may cause resource interruptions if they are modified.
    * 
-   * > - This parameter is supported only for a small number of resource types.
-   * > - This parameter is valid only for updates on ROS stacks.
+   * > - This parameter is supported for only a few resource types.
+   * >
+   * > - This parameter is applicable only to ROS stacks.
    */
   parametersConditionallyCauseInterruptionIfModified?: string[];
   /**
    * @remarks
-   * The parameters whose changes trigger replacement updates for resources under specific conditions.
+   * The list of parameters that may cause replacement updates if they are modified.
    * 
-   * > - This parameter can be returned only if the value of UpdateInfoOptions contains EnableReplacement.
-   * > - This parameter is valid only for updates on ROS stacks.
+   * > - This parameter is returned only if EnableReplacement is specified for UpdateInfoOptions.
+   * >
+   * > - This parameter is applicable only to ROS stacks.
    */
   parametersConditionallyCauseReplacementIfModified?: string[];
   /**
    * @remarks
-   * The parameters that cannot be modified.
+   * The list of parameters that cannot be modified.
    */
   parametersNotAllowedToBeModified?: string[];
   /**
    * @remarks
-   * The parameters that can be modified under uncertain conditions.
+   * The list of parameters whose modification permissions are uncertain.
    */
   parametersUncertainlyAllowedToBeModified?: string[];
   /**
    * @remarks
-   * The parameters whose changes cause service interruptions under uncertain conditions.
+   * The list of parameters that cause resource interruptions under uncertain conditions if they are modified.
    * 
-   * > - This parameter is supported only for a small number of resource types.
-   * > - This parameter is valid only for updates on ROS stacks.
+   * > - This parameter is supported for only a few resource types.
+   * >
+   * > - This parameter is applicable only to ROS stacks.
    */
   parametersUncertainlyCauseInterruptionIfModified?: string[];
   /**
    * @remarks
-   * The parameters whose changes trigger replacement updates for resources under uncertain conditions.
+   * The list of parameters that cause replacement updates under uncertain conditions if they are modified.
    * 
-   * > -  This parameter can be returned only if the value of UpdateInfoOptions contains EnableReplacement.
-   * > -  This parameter is valid only for updates on ROS stacks.
+   * > - This parameter is returned only if EnableReplacement is specified for UpdateInfoOptions.
+   * >
+   * > - This parameter is applicable only to ROS stacks.
    */
   parametersUncertainlyCauseReplacementIfModified?: string[];
   static names(): { [key: string]: string } {
@@ -308,7 +321,7 @@ export class ValidateTemplateResponseBodyUpdateInfo extends $dara.Model {
 export class ValidateTemplateResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The description of the template.
+   * The description of the stack template.
    * 
    * @example
    * No description
@@ -316,12 +329,12 @@ export class ValidateTemplateResponseBody extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The outputs of the template.
+   * The list of template outputs.
    */
   outputs?: ValidateTemplateResponseBodyOutputs[];
   /**
    * @remarks
-   * The parameters that are defined in the Parameters section of the template.
+   * The list of input parameters.
    */
   parameters?: { [key: string]: any }[];
   /**
@@ -334,20 +347,21 @@ export class ValidateTemplateResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The resource types that are used in the template.
+   * The information about the resource types that are used in the template.
    */
   resourceTypes?: ValidateTemplateResponseBodyResourceTypes;
   /**
    * @remarks
-   * The regular resources that are defined in the template.
+   * The list of regular resources that are defined in the template.
    * 
-   * > - For a Resource Orchestration Service (ROS) template, the resource whose definition contains `Count` is not displayed as a list.
-   * > -  For a Terraform template, the resource whose definition contains `count` or `for_each` is not displayed as a list.
+   * > - For ROS templates, resources whose definitions contain the `Count` field are not expanded.
+   * >
+   * > - For Terraform templates, resources whose definitions contain `count` or `for_each` are not expanded.
    */
   resources?: ValidateTemplateResponseBodyResources[];
   /**
    * @remarks
-   * The information about the stack update. This parameter cannot be returned if the value of UpdateInfoOptions contains Disabled.
+   * The information about the stack update. This parameter is not returned if Disabled is specified for UpdateInfoOptions.
    */
   updateInfo?: ValidateTemplateResponseBodyUpdateInfo;
   static names(): { [key: string]: string } {

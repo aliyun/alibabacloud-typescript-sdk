@@ -5,16 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class SetTemplatePermissionRequest extends $dara.Model {
   /**
    * @remarks
-   * The Alibaba Cloud accounts with or from which you want to share or unshare the template.\\
+   * The Alibaba Cloud accounts with or from which you want to share or unshare the template.<br>
    * Valid values of N: 1, 2, 3, 4, and 5.
    * 
    * > - This parameter cannot be set to the ID of the Alibaba Cloud account that owns the template, or the RAM users of this Alibaba Cloud account.
+   * >
    * > - When ShareOption is set to CancelSharing, you can unshare the template from all the specified Alibaba Cloud accounts by using an asterisk (\\*).
    * 
    * This parameter is required.
    * 
    * @example
-   * 123456789
+   * 151266687691****
    */
   accountIds?: string[];
   /**
@@ -23,8 +24,9 @@ export class SetTemplatePermissionRequest extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   ShareToAccounts: shares the template with other Alibaba Cloud accounts.
-   * *   CancelSharing: unshares the template.
+   * - ShareToAccounts: shares the template with other Alibaba Cloud accounts.
+   * 
+   * - CancelSharing: unshares the template.
    * 
    * This parameter is required.
    * 
@@ -58,10 +60,13 @@ export class SetTemplatePermissionRequest extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   AllVersions (default): shares all versions of the template.
-   * *   Latest: shares only the latest version of template. When the version of the template is updated, ROS updates the shared version to the latest version.
-   * *   Current: shares only the current version of the template. When the version of the template is updated, ROS does not update the shared version.
-   * *   Specified: shares only the specified version of the template.
+   * - AllVersions (default): shares all versions of the template.
+   * 
+   * - Latest: shares only the latest version of template. When the version of the template is updated, ROS updates the shared version to the latest version.
+   * 
+   * - Current: shares only the current version of the template. When the version of the template is updated, ROS does not update the shared version.
+   * 
+   * - Specified: shares only the specified version of the template.
    * 
    * @example
    * Specified

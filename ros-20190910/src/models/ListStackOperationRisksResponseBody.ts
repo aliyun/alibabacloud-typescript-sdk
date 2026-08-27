@@ -7,7 +7,7 @@ export class ListStackOperationRisksResponseBodyRiskResources extends $dara.Mode
    * @remarks
    * The error code that is returned when the risk detection fails.
    * 
-   * >  This parameter is not returned if the risk detection is successful.
+   * > This parameter is not returned if the risk detection is successful.
    * 
    * @example
    * NoPermission
@@ -25,7 +25,7 @@ export class ListStackOperationRisksResponseBodyRiskResources extends $dara.Mode
    * @remarks
    * The error message that is returned when the risk detection fails.
    * 
-   * >  This parameter is not returned if the risk detection is successful.
+   * > This parameter is not returned if the risk detection is successful.
    * 
    * @example
    * You are not authorized to complete this action.
@@ -51,7 +51,7 @@ export class ListStackOperationRisksResponseBodyRiskResources extends $dara.Mode
    * @remarks
    * The ID of the request when the risk detection fails.
    * 
-   * >  This parameter is not returned if the risk detection is successful.
+   * > This parameter is not returned if the risk detection is successful.
    * 
    * @example
    * DF4296CF-F45F-4845-A72B-BE617601DB25
@@ -69,10 +69,13 @@ export class ListStackOperationRisksResponseBodyRiskResources extends $dara.Mode
    * @remarks
    * The type of the risk. Valid values:
    * 
-   * *   Referenced: The resource is referenced by other resources.
-   * *   MaybeReferenced: The resource may be referenced by other resources.
-   * *   AdditionalRiskCheckRequired: An additional risk detection is required for a nested stack.
-   * *   OperationIgnored: The operation does not take effect for the resource.
+   * - Referenced: The resource is referenced by other resources.
+   * 
+   * - MaybeReferenced: The resource may be referenced by other resources.
+   * 
+   * - AdditionalRiskCheckRequired: An additional risk detection is required for a nested stack.
+   * 
+   * - OperationIgnored: The operation does not take effect for the resource.
    * 
    * @example
    * Referenced

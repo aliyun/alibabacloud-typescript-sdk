@@ -53,8 +53,8 @@ export class PreviewStackRequestParameters extends $dara.Model {
 export class PreviewStackRequest extends $dara.Model {
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests.\\
-   * The token can be up to 64 characters in length, and can contain letters, digits, underscores (_), and hyphens (-).\\
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests.
+   * The token can be up to 64 characters in length, and can contain letters, digits, underscores (_), and hyphens (-).
    * For more information, see [Ensure idempotence](https://help.aliyun.com/document_detail/134212.html).
    * 
    * @example
@@ -65,8 +65,9 @@ export class PreviewStackRequest extends $dara.Model {
    * @remarks
    * Specifies whether to disable rollback for the resources when the stack fails to be created. Valid values:
    * 
-   * *   true
-   * *   false (default)
+   * - true
+   * 
+   * - false (default)
    * 
    * @example
    * false
@@ -78,8 +79,9 @@ export class PreviewStackRequest extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   true
-   * *   false (default)
+   * - true
+   * 
+   * - false (default)
    * 
    * @example
    * false
@@ -116,9 +118,8 @@ export class PreviewStackRequest extends $dara.Model {
    * @remarks
    * The stack ID. You can use this parameter to preview a stack that you want to update.
    * 
-   * 
-   * 
-   * > -  You must and can specify only one of StackName and StackId.
+   * > - You must and can specify only one of StackName and StackId.
+   * >
    * > - In the scenario in which you preview a stack that you want to create or update, you cannot preview the resources in its nested stacks.
    * 
    * @example
@@ -147,7 +148,7 @@ export class PreviewStackRequest extends $dara.Model {
   stackPolicyBody?: string;
   /**
    * @remarks
-   * The URL of the file that contains the stack policy. The URL must point to a policy that is located on an HTTP or HTTPS web server or in an Object Storage Service (OSS) bucket, such as oss://ros/stack-policy/demo or oss://ros/stack-policy/demo?RegionId=cn-hangzhou. The policy file can be up to 16,384 bytes in length. If you do not specify the region ID of the OSS bucket, the value of RegionId is used.
+   * The URL of the file that contains the stack policy. The URL must point to a policy that is located on an HTTP or HTTPS web server or in an Object Storage Service (OSS) bucket, such as oss\\://ros/stack-policy/demo or oss\\://ros/stack-policy/demo?RegionId=cn-hangzhou. The policy file can be up to 16,384 bytes in length. If you do not specify the region ID of the OSS bucket, the value of RegionId is used.
    * 
    * > You can specify only one of StackPolicyBody and StackPolicyURL.
    * 
@@ -157,6 +158,10 @@ export class PreviewStackRequest extends $dara.Model {
    * oss://ros-stack-policy/demo
    */
   stackPolicyURL?: string;
+  /**
+   * @remarks
+   * The resources marked as tainted.
+   */
   taintResources?: string[];
   /**
    * @remarks
@@ -202,7 +207,7 @@ export class PreviewStackRequest extends $dara.Model {
   templateScratchRegionId?: string;
   /**
    * @remarks
-   * The URL of the file that contains the template body. The URL must point to a template that is located on an HTTP or HTTPS web server or in an OSS bucket, such as oss://ros/template/demo or oss://ros/template/demo?RegionId=cn-hangzhou. The template body can be up to 524,288 bytes in length. If you do not specify the region ID of the OSS bucket, the value of RegionId is used.
+   * The URL of the file that contains the template body. The URL must point to a template that is located on an HTTP or HTTPS web server or in an OSS bucket, such as oss\\://ros/template/demo or oss\\://ros/template/demo?RegionId=cn-hangzhou. The template body can be up to 524,288 bytes in length. If you do not specify the region ID of the OSS bucket, the value of RegionId is used.
    * 
    * > You must and can specify only one of the following parameters: TemplateBody, TemplateURL, TemplateId, and TemplateScratchId.
    * 
@@ -230,6 +235,19 @@ export class PreviewStackRequest extends $dara.Model {
    * 60
    */
   timeoutInMinutes?: number;
+  /**
+   * @remarks
+   * Specifies whether to use the values of parameters that were last used.
+   * 
+   * Valid values:
+   * 
+   * - true: The parameters that were last used are reused.
+   * 
+   * - false: The parameters that were last used are not reused.
+   * 
+   * @example
+   * true
+   */
   usePreviousParameters?: boolean;
   static names(): { [key: string]: string } {
     return {

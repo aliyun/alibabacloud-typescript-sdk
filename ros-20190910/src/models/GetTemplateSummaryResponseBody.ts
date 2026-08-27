@@ -86,7 +86,7 @@ export class GetTemplateSummaryResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The resource identifier summaries.\\
+   * The resource identifier summaries.<br>
    * A summary describes the resource that you want to import and the properties that are used to identify the resource during the import. For example, VpcId is an identifier property of ALIYUN::ECS::VPC.
    */
   resourceIdentifierSummaries?: GetTemplateSummaryResponseBodyResourceIdentifierSummaries[];

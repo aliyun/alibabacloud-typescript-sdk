@@ -7,10 +7,11 @@ export class GetStackInstanceRequest extends $dara.Model {
    * @remarks
    * Specifies whether to return the Outputs parameter. The Outputs parameter specifies the outputs of the stack. Valid values:
    * 
-   * *   Enabled: returns the Outputs parameter.
-   * *   Disabled (default): does not return the Outputs parameter.
+   * - Enabled: returns the Outputs parameter.
    * 
-   * >  The Outputs parameter requires a long period of time to calculate. If you do not require the outputs of the stack, we recommend that you set OutputOption to Disabled to improve the response speed of the API operation.
+   * - Disabled (default): does not return the Outputs parameter.
+   * 
+   * > The Outputs parameter requires a long period of time to calculate. If you do not require the outputs of the stack, we recommend that you set OutputOption to Disabled to improve the response speed of the API operation.
    * 
    * @example
    * Disabled
@@ -28,7 +29,7 @@ export class GetStackInstanceRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The name of the stack group. The name must be unique within a region.\\
+   * The name of the stack group. The name must be unique within a region.<br>
    * The name can be up to 255 characters in length, and can contain digits, letters, hyphens (-), and underscores (_). It must start with a digit or letter.
    * 
    * This parameter is required.
@@ -41,8 +42,9 @@ export class GetStackInstanceRequest extends $dara.Model {
    * @remarks
    * The ID of the destination account to which the stack belongs.
    * 
-   * *   If the stack group is granted self-managed permissions, the stack belongs to an Alibaba Cloud account.
-   * *   If the stack group is granted service-managed permissions, the stack belongs to a member in a resource directory.
+   * - If the stack group is granted self-managed permissions, the stack belongs to an Alibaba Cloud account.
+   * 
+   * - If the stack group is granted service-managed permissions, the stack belongs to a member in a resource directory.
    * 
    * > For more information about the destination account, see [Overview](https://help.aliyun.com/document_detail/154578.html).
    * 

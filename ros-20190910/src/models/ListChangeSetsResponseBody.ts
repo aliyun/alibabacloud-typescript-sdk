@@ -3,7 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListChangeSetsResponseBodyChangeSetsTags extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * usage
+   */
   key?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * test
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -47,7 +61,7 @@ export class ListChangeSetsResponseBodyChangeSets extends $dara.Model {
   changeSetName?: string;
   /**
    * @remarks
-   * The type of the change set.
+   * The type of the change set. Valid values: CREATE, UPDATE, and DELETE.
    * 
    * @example
    * UPDATE
@@ -55,7 +69,7 @@ export class ListChangeSetsResponseBodyChangeSets extends $dara.Model {
   changeSetType?: string;
   /**
    * @remarks
-   * The time when the change set was created. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
+   * The time when the change set was created. The time is displayed in UTC+0 based on the ISO 8601 standard without the Z suffix. Format: YYYY-MM-DDThh:mm:ss.
    * 
    * @example
    * 2019-08-01T05:16:31
@@ -79,16 +93,24 @@ export class ListChangeSetsResponseBodyChangeSets extends $dara.Model {
   executionStatus?: string;
   /**
    * @remarks
-   * The region ID of the change set.
+   * The region ID.
    * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The resource group ID.  
+   * For more information about resource groups, see [What is a resource group?](https://help.aliyun.com/document_detail/94475.html).
+   * 
+   * @example
+   * rg-acfmxazb4ph6aiy****
+   */
   resourceGroupId?: string;
   /**
    * @remarks
-   * The ID of the stack with which the change set is associated.
+   * The ID of the stack to which the change set belongs.
    * 
    * @example
    * 4a6c9851-3b0f-4f5f-b4ca-a14bf691****
@@ -96,7 +118,7 @@ export class ListChangeSetsResponseBodyChangeSets extends $dara.Model {
   stackId?: string;
   /**
    * @remarks
-   * The name of the stack with which the change set is associated.
+   * The name of the stack to which the change set belongs.
    * 
    * @example
    * MyStack
@@ -112,12 +134,16 @@ export class ListChangeSetsResponseBodyChangeSets extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The reason why the change set is in its current state.
+   * The reason why the change set is in its current status.
    * 
    * @example
    * too many changes
    */
   statusReason?: string;
+  /**
+   * @remarks
+   * The tags of the change set.
+   */
   tags?: ListChangeSetsResponseBodyChangeSetsTags[];
   static names(): { [key: string]: string } {
     return {
@@ -175,7 +201,7 @@ export class ListChangeSetsResponseBody extends $dara.Model {
   changeSets?: ListChangeSetsResponseBodyChangeSets[];
   /**
    * @remarks
-   * The page number.
+   * The page number in paging query. The value is an integer with a minimum value of 1.
    * 
    * @example
    * 1
@@ -183,7 +209,7 @@ export class ListChangeSetsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries per page in paging query.
    * 
    * @example
    * 10
@@ -191,7 +217,7 @@ export class ListChangeSetsResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * B288A0BE-D927-4888-B0F7-B35EF84B6E6F

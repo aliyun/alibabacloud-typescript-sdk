@@ -5,19 +5,18 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteStackRequest extends $dara.Model {
   /**
    * @remarks
-   * The options for deleting the stack.
+   * Stack deletion options.
    */
   deleteOptions?: string[];
   /**
    * @remarks
-   * The maximum number of concurrent operations that can be performed on resources.
+   * Maximum number of concurrent resource operations.
    * 
-   * By default, this parameter is empty. You can set this parameter to an integer that is greater than or equal to 0.
+   * Default: empty. Accepts an integer >= 0.
    * 
-   * 
-   * 
-   * > -  If you set this parameter to an integer that is greater than 0, the integer is used. If you set this parameter to 0 or leave this parameter empty, no limit is imposed on ROS stacks. However, the default value in Terraform is used for Terraform stacks. In most cases, the default value in Terraform is 10.
-   * > -  If you set this parameter to a specific value, ROS associates the value with the stack. The value affects subsequent operations on the stack, such as an update operation.
+   * > - A value greater than 0 is used as-is. A value of 0 or empty imposes no limit on ROS stacks. For Terraform stacks, the Terraform default (typically 10) applies.
+   * >
+   * > - This value persists on the stack and affects subsequent operations such as updates.
    * 
    * @example
    * 1
@@ -25,10 +24,7 @@ export class DeleteStackRequest extends $dara.Model {
   parallelism?: number;
   /**
    * @remarks
-   * The name of the RAM role. Resource Orchestration Service (ROS) assumes the RAM role to create the stack and uses the credentials of the role to call the APIs of Alibaba Cloud services.\\
-   * ROS assumes the role to perform operations on the stack. If you have permissions to perform operations on the stack but do not have permissions to use the RAM role, ROS still assumes the RAM role. You must make sure that the least privileges are granted to the RAM role.\\
-   * If you leave this parameter empty when you call the DeleteStack operation, ROS cannot assume the existing RAM role that is associated with the stack. If you want ROS to assume a RAM role, you must specify this parameter. If no RAM roles are available, ROS uses a temporary credential that is generated from the credentials of your account.\\
-   * The name of the RAM role can be up to 64 bytes in length.
+   * The RAM role name. ROS assumes this role to create the stack and call Alibaba Cloud service APIs.<br> Even if you have stack operation permissions but lack RAM role permissions, ROS still assumes the role. Ensure the role follows the least-privilege principle.<br> If empty, ROS cannot assume the existing RAM role associated with the stack. To have ROS assume a role, specify this parameter. If no RAM role is available, ROS uses a temporary credential from your account credentials.<br> Maximum length: 64 bytes.
    * 
    * @example
    * test-role
@@ -36,7 +32,7 @@ export class DeleteStackRequest extends $dara.Model {
   ramRoleName?: string;
   /**
    * @remarks
-   * The region ID of the stack. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/131035.html) operation to query the most recent region list.
+   * The region ID of the stack. Call [DescribeRegions](https://help.aliyun.com/document_detail/131035.html) to query available regions.
    * 
    * This parameter is required.
    * 
@@ -46,12 +42,13 @@ export class DeleteStackRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * Specifies whether to retain all resources in the stack.
+   * Whether to retain all resources in the stack.
    * 
    * Valid values:
    * 
-   * *   true
-   * *   false (default)
+   * - true
+   * 
+   * - false (default)
    * 
    * @example
    * false
@@ -59,7 +56,7 @@ export class DeleteStackRequest extends $dara.Model {
   retainAllResources?: boolean;
   /**
    * @remarks
-   * The resources that you want to retain.
+   * Resources to retain.
    * 
    * @example
    * WebServer

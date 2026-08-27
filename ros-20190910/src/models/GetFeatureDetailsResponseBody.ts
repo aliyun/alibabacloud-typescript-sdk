@@ -265,8 +265,9 @@ export class GetFeatureDetailsResponseBodyTemplateScratchSupportedResourceTypes 
    * @remarks
    * Indicates whether the resource scope can be specified by source resource group. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true
+   * 
+   * - false
    * 
    * @example
    * true
@@ -276,8 +277,9 @@ export class GetFeatureDetailsResponseBodyTemplateScratchSupportedResourceTypes 
    * @remarks
    * Indicates whether the resource scope can be specified by source resource. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true
+   * 
+   * - false
    * 
    * @example
    * true
@@ -287,8 +289,9 @@ export class GetFeatureDetailsResponseBodyTemplateScratchSupportedResourceTypes 
    * @remarks
    * Indicates whether the resource scope can be specified by source tag, resource group, or resource. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true
+   * 
+   * - false
    * 
    * @example
    * true
@@ -298,8 +301,9 @@ export class GetFeatureDetailsResponseBodyTemplateScratchSupportedResourceTypes 
    * @remarks
    * Indicates whether the resource scope can be specified by source tag. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true
+   * 
+   * - false
    * 
    * @example
    * true

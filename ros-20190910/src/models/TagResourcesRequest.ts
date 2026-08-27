@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class TagResourcesRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The tag key of the resource. You can specify up to 20 tag keys.
+   * The key of the tag to add to the resource. You can specify up to 20 tag keys.
    * 
-   * The tag key can be up to 128 characters in length and cannot contain `http://` or `https://`. The tag key cannot start with `aliyun` or `acs:`.
+   * The length must not exceed 128 characters. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
    * 
    * This parameter is required.
    * 
@@ -17,9 +17,9 @@ export class TagResourcesRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value of the resource. You can specify up to 20 tag values.
+   * The value of the tag to add to the resource. You can specify up to 20 tag values.
    * 
-   * The tag value can be up to 128 characters in length and cannot contain `http://` or `https://`. The tag value cannot start with `aliyun` or `acs:`.
+   * The length must not exceed 128 characters. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
    * 
    * This parameter is required.
    * 
@@ -53,7 +53,7 @@ export class TagResourcesRequestTag extends $dara.Model {
 export class TagResourcesRequest extends $dara.Model {
   /**
    * @remarks
-   * The region ID of the tag that you want to create. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/131035.html) operation to query the most recent region list.
+   * The region ID of the tag. You can call [DescribeRegions](https://help.aliyun.com/document_detail/131035.html) to query the most recent region list.
    * 
    * This parameter is required.
    * 
@@ -63,7 +63,7 @@ export class TagResourcesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The IDs of the resources.
+   * The resource IDs.
    * 
    * This parameter is required.
    * 
@@ -73,12 +73,15 @@ export class TagResourcesRequest extends $dara.Model {
   resourceId?: string[];
   /**
    * @remarks
-   * The type of the resource. Valid values:
+   * The resource type. Valid values:
    * 
-   * *   stack: stack
-   * *   stackgroup: stack group
-   * *   template: template
-   * *   templatescratch: scenario
+   * - stack
+   * 
+   * - stackgroup
+   * 
+   * - template
+   * 
+   * - templatescratch: resource scenario.
    * 
    * This parameter is required.
    * 
@@ -88,7 +91,7 @@ export class TagResourcesRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The tags of the resource. You can specify up to 20 tags.
+   * The tags of the resources. You can specify up to 20 tags.
    * 
    * This parameter is required.
    */

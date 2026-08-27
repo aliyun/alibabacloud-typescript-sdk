@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetStackResponseBodyLogResourceLogsLogs extends $dara.Model {
   /**
    * @remarks
-   * The content of a resource log.
+   * The content of a log entry associated with the resource.
    * 
    * @example
    * []
@@ -13,7 +13,7 @@ export class GetStackResponseBodyLogResourceLogsLogs extends $dara.Model {
   content?: string;
   /**
    * @remarks
-   * The keywords of a resource log.
+   * The list of keywords for a log entry associated with the resource.
    */
   keys?: string[];
   static names(): { [key: string]: string } {
@@ -45,12 +45,12 @@ export class GetStackResponseBodyLogResourceLogsLogs extends $dara.Model {
 export class GetStackResponseBodyLogResourceLogs extends $dara.Model {
   /**
    * @remarks
-   * All the logs that are associated with the resources.
+   * All logs associated with the resource.
    */
   logs?: GetStackResponseBodyLogResourceLogsLogs[];
   /**
    * @remarks
-   * The name of the resource that is defined in the template.
+   * The resource name defined in the template.
    * 
    * @example
    * MyResourceCleaner
@@ -87,12 +87,15 @@ export class GetStackResponseBodyLogTerraformLogs extends $dara.Model {
    * @remarks
    * The name of the Terraform command that is run. Valid values:
    * 
-   * *   apply
-   * *   plan
-   * *   destroy
-   * *   version
+   * - apply
    * 
-   * For more information about Terraform commands, see [Basic CLI Features](https://www.terraform.io/cli/commands).
+   * - plan
+   * 
+   * - destroy
+   * 
+   * - version
+   * 
+   * For more information about the commands, see [Command](https://www.terraform.io/cli/commands).
    * 
    * @example
    * apply
@@ -100,7 +103,7 @@ export class GetStackResponseBodyLogTerraformLogs extends $dara.Model {
   command?: string;
   /**
    * @remarks
-   * The content of the output stream that is returned after the command is run.
+   * The content that is output by the current command in the current output stream.
    * 
    * @example
    * Apply complete! Resources: 42 added, 0 changed, 0 destroyed.
@@ -110,8 +113,9 @@ export class GetStackResponseBodyLogTerraformLogs extends $dara.Model {
    * @remarks
    * The output stream. Valid values:
    * 
-   * *   stdout: standard output stream
-   * *   stderr: standard error stream
+   * - stdout: standard output.
+   * 
+   * - stderr: standard error.
    * 
    * @example
    * stdout
@@ -145,16 +149,17 @@ export class GetStackResponseBodyLogTerraformLogs extends $dara.Model {
 export class GetStackResponseBodyLog extends $dara.Model {
   /**
    * @remarks
-   * The logs of resources in the stack. This parameter is returned if LogOption is set to Resource or All.
+   * The resource output logs. This parameter is returned when LogOption is set to Resource or All.
    * 
-   * >  The logs are returned only for resources of specific types, such as the `ALIYUN::ROS::ResourceCleaner` type.
+   * > Only certain resource types return resource logs, such as `ALIYUN::ROS::ResourceCleaner`.
    */
   resourceLogs?: GetStackResponseBodyLogResourceLogs[];
   /**
    * @remarks
-   * The logs generated when the Terraform stack is run. This parameter is returned only for a Terraform stack. This parameter is returned if LogOption is left empty or set to Stack or All.
+   * The Terraform output logs. This parameter is returned only for Terraform stacks.
+   * This parameter is returned when LogOption is not specified, or when LogOption is set to Stack or All.
    * 
-   * >  This parameter is not returned for a running stack. The logs are generated from the most recent operation on the stack, such as the creation, resumed creation, update, or deletion operation.
+   * > This parameter is not returned for stacks that are running. This parameter indicates the logs of the most recent operation (creation, continued creation, update, or deletion) on the stack.
    */
   terraformLogs?: GetStackResponseBodyLogTerraformLogs[];
   static names(): { [key: string]: string } {
@@ -189,7 +194,7 @@ export class GetStackResponseBodyLog extends $dara.Model {
 export class GetStackResponseBodyOperationInfo extends $dara.Model {
   /**
    * @remarks
-   * The name of the API operation that belongs to another Alibaba Cloud service.
+   * The name of the API operation called on another cloud service.
    * 
    * @example
    * DeleteSecurityGroup
@@ -205,7 +210,7 @@ export class GetStackResponseBodyOperationInfo extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The logical ID of the resource on which the operation error occurs.
+   * The logical ID of the resource on which the operation error occurred.
    * 
    * @example
    * EcsSecurityGroup
@@ -221,7 +226,7 @@ export class GetStackResponseBodyOperationInfo extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request that is initiated to call the API operation of another Alibaba Cloud service.
+   * The request ID of the API call to another cloud service.
    * 
    * @example
    * 071D6166-3F6B-5C7B-A1F0-0113FBB643A8
@@ -229,7 +234,7 @@ export class GetStackResponseBodyOperationInfo extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The type of the resource on which the operation error occurs.
+   * The resource type on which the operation error occurred.
    * 
    * @example
    * ALIYUN::ECS::SecurityGroup
@@ -309,7 +314,7 @@ export class GetStackResponseBodyParameters extends $dara.Model {
 export class GetStackResponseBodyResourceProgressInProgressResourceDetails extends $dara.Model {
   /**
    * @remarks
-   * The desired progress value of the resource.
+   * The target progress value of the resource.
    * 
    * @example
    * 10
@@ -369,9 +374,9 @@ export class GetStackResponseBodyResourceProgressInProgressResourceDetails exten
 export class GetStackResponseBodyResourceProgress extends $dara.Model {
   /**
    * @remarks
-   * The number of resources that failed to be created.
+   * The number of resources that failed to be processed.
    * 
-   * >  This parameter is returned only if `ShowResourceProgress` is set to `EnabledIfCreateStack`.
+   * > This parameter is returned only when ShowResourceProgress is set to EnabledIfCreateStack.
    * 
    * @example
    * 0
@@ -379,9 +384,9 @@ export class GetStackResponseBodyResourceProgress extends $dara.Model {
   failedResourceCount?: number;
   /**
    * @remarks
-   * The number of resources that are being created.
+   * The number of resources that are being processed.
    * 
-   * >  This parameter is returned only if `ShowResourceProgress` is set to `EnabledIfCreateStack`.
+   * > This parameter is returned only when ShowResourceProgress is set to EnabledIfCreateStack.
    * 
    * @example
    * 1
@@ -389,16 +394,16 @@ export class GetStackResponseBodyResourceProgress extends $dara.Model {
   inProgressResourceCount?: number;
   /**
    * @remarks
-   * The progress details of resources that are being created.
+   * The list of progress details for resources that are being processed.
    * 
-   * >  This parameter is returned only if `ShowResourceProgress` is set to `EnabledIfCreateStack`.
+   * > This parameter is returned only when ShowResourceProgress is set to EnabledIfCreateStack.
    */
   inProgressResourceDetails?: GetStackResponseBodyResourceProgressInProgressResourceDetails[];
   /**
    * @remarks
-   * The number of resources to be created.
+   * The number of resources that are pending processing.
    * 
-   * >  This parameter is returned only if `ShowResourceProgress` is set to `EnabledIfCreateStack`.
+   * > This parameter is returned only when ShowResourceProgress is set to EnabledIfCreateStack.
    * 
    * @example
    * 0
@@ -406,11 +411,11 @@ export class GetStackResponseBodyResourceProgress extends $dara.Model {
   pendingResourceCount?: number;
   /**
    * @remarks
-   * The creation or rollback progress of the stack, in percentage. Valid values: 0 to 100.
+   * The stack action progress percentage. Value range: 0 to 100.
    * 
-   * The value progressively increases from 0 to 100 during a stack creation operation. If the stack is created, the value reaches 100. If the stack fails to be created, a rollback is started for the stack resources, and the value progressively increases from the percentage of the remaining progress (100 - Progress value generated when the stack fails to be created). The value increases to 100 when the stack resources are rolled back. This parameter indicates the creation progress during a stack creation operation and indicates the rollback progress during a stack rollback operation.
+   * Example: During stack creation, the value starts from 0 and increases. If the creation succeeds, the value reaches 100. If the creation fails and rollback begins, the value starts from another value (100 minus the progress value when the resource creation failed) and increases. When the rollback succeeds, the value reaches 100. During stack creation, this parameter indicates the progress of the creation action. During stack rollback, this parameter indicates the progress of the rollback action.
    * 
-   * >  This parameter is returned only if `ShowResourceProgress` is set to `PercentageOnly`.
+   * > This parameter is returned only when ShowResourceProgress is set to PercentageOnly.
    * 
    * @example
    * 100
@@ -418,11 +423,11 @@ export class GetStackResponseBodyResourceProgress extends $dara.Model {
   stackActionProgress?: number;
   /**
    * @remarks
-   * The overall creation progress of the stack, in percentage. Valid values: 0 to 100.
+   * The stack operation progress percentage. Value range: 0 to 100.
    * 
-   * The value progressively increases from 0 to 100 during a stack creation operation. If the stack is created, the value reaches 100. If the stack fails to be created, a rollback is started for the stack resources, and the value progressively decreases. The value decreases to 0 when the stack resources are rolled back. This parameter indicates only the overall creation progress, regardless of whether during a stack creation or rollback operation.
+   * Example: During stack creation, the value starts from 0 and increases. If the creation succeeds, the value reaches 100. If the creation fails and rollback begins, the value decreases. When the rollback succeeds, the value reaches 0. This parameter indicates the overall progress of the creation operation, regardless of whether the stack status is creating or rolling back.
    * 
-   * >  This parameter is returned only if `ShowResourceProgress` is set to `PercentageOnly`.
+   * > This parameter is returned only when ShowResourceProgress is set to PercentageOnly.
    * 
    * @example
    * 100
@@ -430,9 +435,9 @@ export class GetStackResponseBodyResourceProgress extends $dara.Model {
   stackOperationProgress?: number;
   /**
    * @remarks
-   * The number of resources that are created.
+   * The number of resources that are successfully processed.
    * 
-   * >  This parameter is returned only if `ShowResourceProgress` is set to `EnabledIfCreateStack`.
+   * > This parameter is returned only when ShowResourceProgress is set to EnabledIfCreateStack.
    * 
    * @example
    * 1
@@ -442,7 +447,7 @@ export class GetStackResponseBodyResourceProgress extends $dara.Model {
    * @remarks
    * The total number of resources.
    * 
-   * >  This parameter is returned only if `ShowResourceProgress` is set to `EnabledIfCreateStack`.
+   * > This parameter is returned only when ShowResourceProgress is set to EnabledIfCreateStack.
    * 
    * @example
    * 2
@@ -529,9 +534,8 @@ export class GetStackResponseBodyTags extends $dara.Model {
 export class GetStackResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of resources on which drift detection was performed.
-   * 
-   * >  This parameter is returned only if the most recent drift detection on the stack was successful.
+   * The number of resources on which drift detection has been performed.
+   * > This parameter is returned only when the most recent drift detection on the stack was successful.
    * 
    * @example
    * 1
@@ -539,7 +543,7 @@ export class GetStackResponseBody extends $dara.Model {
   checkedStackResourceCount?: number;
   /**
    * @remarks
-   * The time when the stack was created. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
+   * The time when the stack was created. The time is displayed in UTC+0 and follows the ISO 8601 standard without the trailing Z. Format: YYYY-MM-DDThh:mm:ss.
    * 
    * @example
    * 2020-09-16T08:21:40
@@ -548,11 +552,10 @@ export class GetStackResponseBody extends $dara.Model {
   /**
    * @remarks
    * Indicates whether deletion protection is enabled for the stack. Valid values:
+   * - Enabled: Deletion protection is enabled.
+   * - Disabled: Deletion protection is disabled. In this case, you can release the stack by using the console or by calling the DeleteStack operation.
    * 
-   * *   Enabled: Deletion protection is enabled for the stack.
-   * *   Disabled: Deletion protection is disabled for the stack. You can delete the stack by using the ROS console or by calling the DeleteStack operation.
-   * 
-   * >  Deletion protection of a nested stack is the same as deletion protection of its root stack.
+   * > The deletion protection mechanism of a nested stack is the same as that of the root stack.
    * 
    * @example
    * Disabled
@@ -570,8 +573,8 @@ export class GetStackResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether rollback is disabled when the stack fails to be created. Valid values:
    * 
-   * *   true
-   * *   false (default)
+   * - true: Rollback is disabled. No rollback is performed when the stack fails to be created.
+   * - false (default): Rollback is enabled. Rollback is performed when the stack fails to be created.
    * 
    * @example
    * false
@@ -587,7 +590,7 @@ export class GetStackResponseBody extends $dara.Model {
   driftDetectionTime?: string;
   /**
    * @remarks
-   * The description of the console user interface (UI).
+   * The interface description.
    * 
    * @example
    * {}
@@ -595,14 +598,13 @@ export class GetStackResponseBody extends $dara.Model {
   interface?: string;
   /**
    * @remarks
-   * The log of the stack.
+   * The stack-related output logs.
    */
   log?: GetStackResponseBodyLog;
   /**
    * @remarks
-   * The number of resources on which drift detection was not performed.
-   * 
-   * >  This parameter is returned only if the most recent drift detection on the stack was successful.
+   * The number of resources on which drift detection has not been performed.
+   * > This parameter is returned only when the most recent drift detection on the stack was successful.
    * 
    * @example
    * 1
@@ -615,29 +617,29 @@ export class GetStackResponseBody extends $dara.Model {
   notificationURLs?: string[];
   /**
    * @remarks
-   * The supplementary information that is returned if an error occurs on a stack operation.
+   * The supplementary information that is returned when an error occurs during a stack operation.
    * 
-   * >  This parameter is returned together with at least one sub-parameter and only under specific conditions. For example, the supplementary information is returned when an API operation of another Alibaba Cloud service fails to be called.
+   * > This property is returned only in specific cases and contains at least one sub-property. For example, an error occurs when another cloud service API is called.
    */
   operationInfo?: GetStackResponseBodyOperationInfo;
   /**
    * @remarks
-   * The order IDs. This parameter is returned only if you configured manual payment when you created a subscription stack.
+   * The list of order IDs. This parameter is returned only when manual payment for subscription orders is configured during stack creation.
    */
   orderIds?: string[];
   /**
    * @remarks
-   * The outputs of the stack.
+   * The list of stack outputs.
    */
   outputs?: { [key: string]: any }[];
   /**
    * @remarks
-   * The parameters of the stack.
+   * The stack parameters.
    */
   parameters?: GetStackResponseBodyParameters[];
   /**
    * @remarks
-   * The ID of the parent stack.
+   * The parent stack ID.
    * 
    * @example
    * 4a6c9851-3b0f-4f5f-b4ca-a14bf692****
@@ -645,10 +647,10 @@ export class GetStackResponseBody extends $dara.Model {
   parentStackId?: string;
   /**
    * @remarks
-   * The name of the Resource Access Management (RAM) role. ROS assumes the RAM role to create the stack and uses the credentials of the role to call the APIs of Alibaba Cloud services.\\
-   * ROS assumes the RAM role to perform operations on the stack. If you have permissions to perform operations on the stack, ROS assumes the RAM role even if you do not have permissions to use the RAM role. You must make sure that permissions are granted to the RAM role based on the principle of least privilege.\\
-   * If this parameter is not specified, ROS uses the existing role that is associated with the stack. If no roles are available, ROS uses a temporary credential that is generated from the credentials of your account.\\
-   * The RAM role name can be up to 64 characters in length.
+   * The RAM role name. Resource Orchestration Service (ROS) assumes this role to create the stack and calls API operations on behalf of the user by using the credentials of the role.   
+   * ROS always uses this role for all operations that are performed on the stack. As long as the user has the permission to perform operations on the stack, ROS uses this role even if the user does not have the permission to use the role. This ensures that the role grants the least privilege.  
+   * If no value is specified, ROS uses the role that was previously associated with the stack. If no role is available, ROS uses a temporary credential generated from the user credentials.  
+   * The RAM role name can be up to 64 bytes in length.
    * 
    * @example
    * test-role
@@ -656,7 +658,7 @@ export class GetStackResponseBody extends $dara.Model {
   ramRoleName?: string;
   /**
    * @remarks
-   * The region ID of the stack. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/131035.html) operation to query the most recent region list.
+   * The region ID of the stack. You can call [DescribeRegions](https://help.aliyun.com/document_detail/131035.html) to query the most recent region list.
    * 
    * @example
    * cn-hangzhou
@@ -672,7 +674,7 @@ export class GetStackResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The resource group ID.
    * 
    * @example
    * rg-acfmxazb4ph6aiy****
@@ -680,12 +682,12 @@ export class GetStackResponseBody extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The resource creation progress.
+   * The resource processing progress.
    */
   resourceProgress?: GetStackResponseBodyResourceProgress;
   /**
    * @remarks
-   * 当资源栈状态为回滚失败时，该字段展示导致回滚的前一阶段执行失败的原因。
+   * When the stack status is rollback failed, this field displays the root cause of the failure in the previous phase that triggered the rollback.
    * 
    * @example
    * Resource UPDATE failed: Exception: resources.FailToCreate: FailToCreate: reason
@@ -693,7 +695,7 @@ export class GetStackResponseBody extends $dara.Model {
   rollbackFailedRootReason?: string;
   /**
    * @remarks
-   * The ID of the root stack. This parameter is returned if the specified stack is a nested stack.
+   * The root stack ID. This parameter is returned only when the stack is a nested stack.
    * 
    * @example
    * 4a6c9851-3b0f-4f5f-b4ca-a14bf692****
@@ -701,10 +703,11 @@ export class GetStackResponseBody extends $dara.Model {
   rootStackId?: string;
   /**
    * @remarks
-   * Indicates whether the stack is a managed stack. Valid values:
+   * Indicates whether the stack is a managed stack. Valid values:  
    * 
-   * *   true
-   * *   false
+   * - true: The stack is a managed stack.  
+   * 
+   * - false: The stack is not a managed stack.
    * 
    * @example
    * false
@@ -712,7 +715,7 @@ export class GetStackResponseBody extends $dara.Model {
   serviceManaged?: boolean;
   /**
    * @remarks
-   * The name of the service to which the managed stack belongs.
+   * The service name to which the managed stack belongs.
    * 
    * @example
    * ACVS
@@ -720,11 +723,10 @@ export class GetStackResponseBody extends $dara.Model {
   serviceName?: string;
   /**
    * @remarks
-   * The state of the stack on which the most recent successful drift detection was performed. Valid values:
-   * 
-   * *   DRIFTED: The stack has drifted.
-   * *   NOT_CHECKED: No successful drift detection is performed on the stack.
-   * *   IN_SYNC: The stack is being synchronized.
+   * The drift status of the stack in the most recent successful drift detection. Valid values:
+   * - DRIFTED: The stack has drifted.
+   * - NOT_CHECKED: No successful drift detection has been performed on the stack.
+   * - IN_SYNC: The stack is in sync.
    * 
    * @example
    * IN_SYNC
@@ -740,8 +742,8 @@ export class GetStackResponseBody extends $dara.Model {
   stackId?: string;
   /**
    * @remarks
-   * The stack name.\\
-   * The name can be up to 255 characters in length, and can contain digits, letters, hyphens (-), and underscores (_). The name must start with a digit or letter.
+   * The stack name.   
+   * The name can be up to 255 characters in length and must start with a digit or letter. It can contain digits, letters, hyphens (-), and underscores (_).
    * 
    * @example
    * MyStack
@@ -750,9 +752,8 @@ export class GetStackResponseBody extends $dara.Model {
   /**
    * @remarks
    * The stack type. Valid values:
-   * 
-   * *   ROS: ROS stack. The stack is created by using a ROS template.
-   * *   Terraform: Terraform stack. The stack is created by using a Terraform template.
+   * - ROS: The stack uses an ROS template.
+   * - Terraform: The stack uses a Terraform template.
    * 
    * @example
    * ROS
@@ -760,38 +761,38 @@ export class GetStackResponseBody extends $dara.Model {
   stackType?: string;
   /**
    * @remarks
-   * The state of the stack. Valid values:
-   * 
-   * *   CREATE_IN_PROGRESS: The stack is being created.
-   * *   CREATE_FAILED: The stack failed to be created.
-   * *   CREATE_COMPLETE: The stack is created.
-   * *   UPDATE_IN_PROGRESS: The stack is being updated.
-   * *   UPDATE_FAILED: The stack failed to be updated.
-   * *   UPDATE_COMPLETE: The stack is updated.
-   * *   DELETE_IN_PROGRESS: The stack is being deleted.
-   * *   DELETE_FAILED: The stack failed to be deleted.
-   * *   CREATE_ROLLBACK_IN_PROGRESS: The resources are being rolled back after the stack failed to be created.
-   * *   CREATE_ROLLBACK_FAILED: The resources failed to be rolled back after the stack failed to be created.
-   * *   CREATE_ROLLBACK_COMPLETE: The resources are rolled back after the stack failed to be created.
-   * *   ROLLBACK_IN_PROGRESS: The resources of the stack are being rolled back.
-   * *   ROLLBACK_FAILED: The resources of the stack failed to be rolled back.
-   * *   ROLLBACK_COMPLETE: The resources of the stack are rolled back.
-   * *   CHECK_IN_PROGRESS: The stack is being validated.
-   * *   CHECK_FAILED: The stack failed to be validated.
-   * *   CHECK_COMPLETE: The stack is validated.
-   * *   REVIEW_IN_PROGRESS: The stack is being reviewed.
-   * *   IMPORT_CREATE_IN_PROGRESS: The stack is being created by using imported resources.
-   * *   IMPORT_CREATE_FAILED: The stack failed to be created by using imported resources.
-   * *   IMPORT_CREATE_COMPLETE: The stack is created by using imported resources.
-   * *   IMPORT_CREATE_ROLLBACK_IN_PROGRESS: The resources are being rolled back after the stack failed to be created by using imported resources.
-   * *   IMPORT_CREATE_ROLLBACK_FAILED: The resources failed to be rolled back after the stack failed to be created by using imported resources.
-   * *   IMPORT_CREATE_ROLLBACK_COMPLETE: The resources are rolled back after the stack failed to be created by using imported resources.
-   * *   IMPORT_UPDATE_IN_PROGRESS: The stack is being updated by using imported resources.
-   * *   IMPORT_UPDATE_FAILED: The stack failed to be updated by using imported resources.
-   * *   IMPORT_UPDATE_COMPLETE: The stack is updated by using imported resources.
-   * *   IMPORT_UPDATE_ROLLBACK_IN_PROGRESS: The resources are being rolled back after the stack failed to be updated by using imported resources.
-   * *   IMPORT_UPDATE_ROLLBACK_FAILED: The resources failed to be rolled back after the stack failed to be updated by using imported resources.
-   * *   IMPORT_UPDATE_ROLLBACK_COMPLETE: The resources are rolled back after the stack failed to be updated by using imported resources.
+   * The stack status. Valid values:  
+   * - CREATE_IN_PROGRESS: The stack is being created.
+   * - CREATE_FAILED: The stack failed to be created.
+   * - CREATE_COMPLETE: The stack is created.
+   * - UPDATE_IN_PROGRESS: The stack is being updated.
+   * - UPDATE_FAILED: The stack failed to be updated.
+   * - UPDATE_COMPLETE: The stack is updated.
+   * - DELETE_IN_PROGRESS: The stack is being deleted.
+   * - DELETE_FAILED: The stack failed to be deleted.
+   * - DELETE_COMPLETE: The stack is deleted.
+   * - CREATE_ROLLBACK_IN_PROGRESS: The stack creation is being rolled back.
+   * - CREATE_ROLLBACK_FAILED: The stack creation failed to be rolled back.
+   * - CREATE_ROLLBACK_COMPLETE: The stack creation is rolled back.
+   * - ROLLBACK_IN_PROGRESS: The stack is being rolled back.
+   * - ROLLBACK_FAILED: The stack failed to be rolled back.
+   * - ROLLBACK_COMPLETE: The stack is rolled back.
+   * - CHECK_IN_PROGRESS: The stack is being validated.
+   * - CHECK_FAILED: The stack failed to be validated.
+   * - CHECK_COMPLETE: The stack is validated.
+   * - REVIEW_IN_PROGRESS: The stack is being reviewed.
+   * - IMPORT_CREATE_IN_PROGRESS: The stack is being created through resource import.
+   * - IMPORT_CREATE_FAILED: The stack failed to be created through resource import.
+   * - IMPORT_CREATE_COMPLETE: The stack is created through resource import.
+   * - IMPORT_CREATE_ROLLBACK_IN_PROGRESS: The stack creation through resource import is being rolled back.
+   * - IMPORT_CREATE_ROLLBACK_FAILED: The stack creation through resource import failed to be rolled back.
+   * - IMPORT_CREATE_ROLLBACK_COMPLETE: The stack creation through resource import is rolled back.
+   * - IMPORT_UPDATE_IN_PROGRESS: The stack is being updated through resource import.
+   * - IMPORT_UPDATE_FAILED: The stack failed to be updated through resource import.
+   * - IMPORT_UPDATE_COMPLETE: The stack is updated through resource import.
+   * - IMPORT_UPDATE_ROLLBACK_IN_PROGRESS: The stack update through resource import is being rolled back.
+   * - IMPORT_UPDATE_ROLLBACK_FAILED: The stack update through resource import failed to be rolled back.
+   * - IMPORT_UPDATE_ROLLBACK_COMPLETE: The stack update through resource import is rolled back.
    * 
    * @example
    * CREATE_COMPLETE
@@ -812,7 +813,7 @@ export class GetStackResponseBody extends $dara.Model {
   tags?: GetStackResponseBodyTags[];
   /**
    * @remarks
-   * The description of the template.
+   * The template description.
    * 
    * @example
    * Create a VPC.
@@ -820,9 +821,9 @@ export class GetStackResponseBody extends $dara.Model {
   templateDescription?: string;
   /**
    * @remarks
-   * The template ID. This parameter is returned only if the current stack template is a custom template or shared template.
+   * The template ID. This parameter is returned only when the template used by the stack is a private template or a shared template.
    * 
-   * If the template is a shared template, the value of this parameter is the same as the value of TemplateARN.
+   * If the template is a shared template, the returned value is the same as the TemplateARN of the template.
    * 
    * @example
    * a52f81be-496f-4e1c-a286-8852ab54****
@@ -830,7 +831,7 @@ export class GetStackResponseBody extends $dara.Model {
   templateId?: string;
   /**
    * @remarks
-   * The ID of the resource scenario. This parameter is returned only if the current template of the stack is generated from a resource scenario.
+   * The resource scenario ID. This parameter is returned only when the template used by the stack is generated from a resource scenario.
    * 
    * @example
    * ts-7f7a704cf71c49a6****
@@ -838,7 +839,7 @@ export class GetStackResponseBody extends $dara.Model {
   templateScratchId?: string;
   /**
    * @remarks
-   * The URL of the file that contains the template body. This parameter is returned only if the current template of the stack is from a URL. The URL can point to a template that is located on an HTTP or HTTPS web server or in an Object Storage Service (OSS) bucket.
+   * The URL of the file that contains the template body. This parameter is returned only when the template used by the stack is from a URL, including a web server (HTTP or HTTPS) or an Alibaba Cloud OSS bucket.
    * 
    * @example
    * oss://ros/template/demo
@@ -846,9 +847,9 @@ export class GetStackResponseBody extends $dara.Model {
   templateURL?: string;
   /**
    * @remarks
-   * The version of the template. This parameter is returned only if the current stack template is a custom template or shared template.
+   * The template version. This parameter is returned only when the template used by the stack is a private template or a shared template.
    * 
-   * If the template is a shared template, this parameter is returned only if VersionOption is set to AllVersions.
+   * If the template is a shared template, this parameter is returned only when VersionOption is set to AllVersions during sharing.
    * 
    * Valid values: v1 to v100.
    * 
@@ -866,7 +867,7 @@ export class GetStackResponseBody extends $dara.Model {
   timeoutInMinutes?: number;
   /**
    * @remarks
-   * The time when the stack was updated. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
+   * The time when the stack was last updated. The time is displayed in UTC+0 and follows the ISO 8601 standard without the trailing Z. Format: YYYY-MM-DDThh:mm:ss.
    * 
    * @example
    * 2020-09-17T08:21:40

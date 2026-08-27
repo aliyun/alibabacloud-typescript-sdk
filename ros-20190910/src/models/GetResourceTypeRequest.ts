@@ -5,7 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetResourceTypeRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The resource type.  
+   * For more information about the resource types supported by ROS, see [Resource type index](https://help.aliyun.com/document_detail/127039.html).
    * 
    * This parameter is required.
    * 
@@ -15,9 +16,9 @@ export class GetResourceTypeRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The version ID. If you want to query a specific version of the resource type, you must specify this parameter. If you do not specify this parameter, only the resource type is queried.
+   * The version ID. To query a specific version of the resource type, specify this parameter. Otherwise, the resource type is queried.
    * 
-   * > This parameter is supported only for modules.
+   * > Only modules support versions.
    * 
    * @example
    * v1

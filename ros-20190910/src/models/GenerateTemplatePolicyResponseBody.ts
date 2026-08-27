@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class GenerateTemplatePolicyResponseBodyPolicyStatement extends $dara.Model {
   /**
    * @remarks
-   * The operations that are performed on the specified resource.
+   * The operation on the specific resource.
    */
   action?: string[];
   /**
    * @remarks
-   * The condition that is required for the policy to take effect.
+   * The condition for the authorization to take effect.
    * 
    * @example
    * {
@@ -22,10 +22,11 @@ export class GenerateTemplatePolicyResponseBodyPolicyStatement extends $dara.Mod
   condition?: { [key: string]: any };
   /**
    * @remarks
-   * The effect of the statement. Valid values:
+   * The authorization effect. Valid values:  
    * 
-   * *   Allow
-   * *   Deny
+   * - Allow: Allowed.  
+   * 
+   * - Deny: Denied.
    * 
    * @example
    * Allow
@@ -33,7 +34,7 @@ export class GenerateTemplatePolicyResponseBodyPolicyStatement extends $dara.Mod
   effect?: string;
   /**
    * @remarks
-   * The objects that the statement covers. An asterisk (\\*) indicates all resources.
+   * The specific resource that is authorized. An asterisk (*) indicates all resources.
    * 
    * @example
    * *
@@ -75,7 +76,7 @@ export class GenerateTemplatePolicyResponseBodyPolicyStatement extends $dara.Mod
 export class GenerateTemplatePolicyResponseBodyPolicy extends $dara.Model {
   /**
    * @remarks
-   * The statements that are contained in the policy.
+   * The access policy statement details.
    */
   statement?: GenerateTemplatePolicyResponseBodyPolicyStatement[];
   /**
@@ -113,9 +114,31 @@ export class GenerateTemplatePolicyResponseBodyPolicy extends $dara.Model {
 }
 
 export class GenerateTemplatePolicyResponseBodyPolicyFunctionsActionPolicyFunctionsFunctions extends $dara.Model {
+  /**
+   * @remarks
+   * The function in the policy function.
+   * 
+   * @example
+   * notContains
+   */
   function?: string;
+  /**
+   * @remarks
+   * The operation type.
+   * 
+   * @example
+   * CreateStack
+   */
   operationType?: string;
+  /**
+   * @remarks
+   * The list of related properties.
+   */
   relatedProperties?: string[];
+  /**
+   * @remarks
+   * The requirement level of the function.
+   */
   requirementLevel?: string;
   static names(): { [key: string]: string } {
     return {
@@ -148,8 +171,26 @@ export class GenerateTemplatePolicyResponseBodyPolicyFunctionsActionPolicyFuncti
 }
 
 export class GenerateTemplatePolicyResponseBodyPolicyFunctionsActionPolicyFunctions extends $dara.Model {
+  /**
+   * @remarks
+   * The policy function list.
+   */
   functions?: GenerateTemplatePolicyResponseBodyPolicyFunctionsActionPolicyFunctionsFunctions[];
+  /**
+   * @remarks
+   * The logical resource ID of the policy function.
+   * 
+   * @example
+   * SLBLoadBalancer_00001
+   */
   logicalResourceId?: string;
+  /**
+   * @remarks
+   * The resource type associated with the policy function.
+   * 
+   * @example
+   * stack
+   */
   resourceType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -180,8 +221,23 @@ export class GenerateTemplatePolicyResponseBodyPolicyFunctionsActionPolicyFuncti
 }
 
 export class GenerateTemplatePolicyResponseBodyPolicyFunctions extends $dara.Model {
+  /**
+   * @remarks
+   * The action in the policy function.
+   * 
+   * @example
+   * accept
+   */
   action?: string;
+  /**
+   * @remarks
+   * The policy function list.
+   */
   actionPolicyFunctions?: GenerateTemplatePolicyResponseBodyPolicyFunctionsActionPolicyFunctions[];
+  /**
+   * @remarks
+   * The requirement level of the policy function.
+   */
   requirementLevel?: string;
   static names(): { [key: string]: string } {
     return {
@@ -214,13 +270,17 @@ export class GenerateTemplatePolicyResponseBodyPolicyFunctions extends $dara.Mod
 export class GenerateTemplatePolicyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the policy.
+   * The access policy information.
    */
   policy?: GenerateTemplatePolicyResponseBodyPolicy;
+  /**
+   * @remarks
+   * The policy function configurations.
+   */
   policyFunctions?: GenerateTemplatePolicyResponseBodyPolicyFunctions[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * B288A0BE-D927-4888-B0F7-B35EF84B6E6

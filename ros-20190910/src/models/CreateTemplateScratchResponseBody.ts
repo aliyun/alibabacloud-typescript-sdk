@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateTemplateScratchResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 84980977-22F0-5421-B30D-B201311D5DCF

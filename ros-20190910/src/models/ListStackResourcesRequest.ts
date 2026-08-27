@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListStackResourcesRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The region ID of the stack. You can call [DescribeRegions](https://help.aliyun.com/document_detail/131035.html) to query the most recent region list.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ListStackResourcesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the region to which the stack belongs. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/131035.html) operation to query the most recent region list.
+   * The stack ID.
    * 
    * This parameter is required.
    * 

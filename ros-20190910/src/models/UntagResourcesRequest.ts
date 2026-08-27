@@ -7,8 +7,9 @@ export class UntagResourcesRequest extends $dara.Model {
    * @remarks
    * Specifies whether to remove all tags from the resource. This parameter takes effect when TagKey is not specified in the request. Valid values:
    * 
-   * *   true
-   * *   false (default)
+   * - true
+   * 
+   * - false (default)
    * 
    * @example
    * true
@@ -40,10 +41,13 @@ export class UntagResourcesRequest extends $dara.Model {
    * @remarks
    * The type of the resource. Valid values:
    * 
-   * *   stack: stack
-   * *   stackgroup: stack group
-   * *   template: template
-   * *   templatescratch: scenario
+   * - stack: stack
+   * 
+   * - stackgroup: stack group
+   * 
+   * - template: template
+   * 
+   * - templatescratch: scenario
    * 
    * This parameter is required.
    * 

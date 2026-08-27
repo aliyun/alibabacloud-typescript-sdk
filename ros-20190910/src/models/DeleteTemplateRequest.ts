@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteTemplateRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the template. This parameter applies to only private templates.
+   * The template ID. Applies to private templates only.
    * 
    * This parameter is required.
    * 

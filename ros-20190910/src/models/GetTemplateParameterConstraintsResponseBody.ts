@@ -45,12 +45,12 @@ export class GetTemplateParameterConstraintsResponseBodyParameterConstraintsNotS
 export class GetTemplateParameterConstraintsResponseBodyParameterConstraintsOriginalConstraints extends $dara.Model {
   /**
    * @remarks
-   * The values of the parameter.
+   * The list of valid values of the parameter.
    */
   allowedValues?: any[];
   /**
    * @remarks
-   * Behavior of the parameter
+   * The behavior of the parameter.
    * 
    * @example
    * QueryError
@@ -58,21 +58,38 @@ export class GetTemplateParameterConstraintsResponseBodyParameterConstraintsOrig
   behavior?: string;
   /**
    * @remarks
-   * The reason for the parameter behavior
+   * The reason for the behavior of the parameter.
    * 
    * @example
    * No resource property refer to the parameter
    */
   behaviorReason?: string;
+  /**
+   * @remarks
+   * The query parameters that are used during the query of parameter constraints.
+   * 
+   * @example
+   * {
+   *     "ZoneId":"cn-hangzhou-h",
+   *     "SystemDiskCategory":"cloud_essd"
+   * }
+   */
   propertiesData?: string;
   /**
    * @remarks
-   * The name of the resource property.
+   * The name of the property.
    * 
    * @example
    * ZoneId
    */
   propertyName?: string;
+  /**
+   * @remarks
+   * The request information of the operation that is called to query the parameter constraints of a cloud service.
+   * 
+   * @example
+   * ecs:2014-05-26:DescribeAvailableResource:4C5B6929-EB64-5086-A821-9CCB553A5AE9
+   */
   requestInfo?: string;
   /**
    * @remarks
@@ -131,7 +148,7 @@ export class GetTemplateParameterConstraintsResponseBodyParameterConstraintsOrig
 export class GetTemplateParameterConstraintsResponseBodyParameterConstraintsQueryErrors extends $dara.Model {
   /**
    * @remarks
-   * The error message.
+   * The error details.
    * 
    * @example
    * ALIYUN::ECS::InstanceGroup
@@ -139,7 +156,7 @@ export class GetTemplateParameterConstraintsResponseBodyParameterConstraintsQuer
   errorMessage?: string;
   /**
    * @remarks
-   * The resource name.
+   * The name of the resource.
    * 
    * @example
    * MyECS
@@ -181,7 +198,7 @@ export class GetTemplateParameterConstraintsResponseBodyParameterConstraintsQuer
 export class GetTemplateParameterConstraintsResponseBodyParameterConstraintsQueryTimeoutDetails extends $dara.Model {
   /**
    * @remarks
-   * Error message.
+   * The error message.
    * 
    * @example
    * query property SlaveZoneIds.* in resource rds error, error message: query 8 seconds timeout
@@ -189,7 +206,7 @@ export class GetTemplateParameterConstraintsResponseBodyParameterConstraintsQuer
   errorMessage?: string;
   /**
    * @remarks
-   * Resource name.
+   * The name of the resource.
    * 
    * @example
    * rds
@@ -197,7 +214,7 @@ export class GetTemplateParameterConstraintsResponseBodyParameterConstraintsQuer
   resourceName?: string;
   /**
    * @remarks
-   * Resource type.
+   * The resource type.
    * 
    * @example
    * ALIYUN::RDS::DBInstance
@@ -231,7 +248,7 @@ export class GetTemplateParameterConstraintsResponseBodyParameterConstraintsQuer
 export class GetTemplateParameterConstraintsResponseBodyParameterConstraints extends $dara.Model {
   /**
    * @remarks
-   * The values of the parameter.
+   * The list of valid values of the parameter.
    */
   allowedValues?: string[];
   /**
@@ -243,11 +260,13 @@ export class GetTemplateParameterConstraintsResponseBodyParameterConstraints ext
    * @remarks
    * The behavior of the parameter. Valid values:
    * 
-   * *   NoLimit: No limit is imposed on the value of this parameter.
-   * *   NotSupport: The value of this parameter cannot be queried.
-   * *   QueryError: This parameter failed to be queried.
+   * - NoLimit: The parameter has no limit on its valid values.
    * 
-   * > If AllowedValues is not returned, Behavior and BehaviorReason are returned.
+   * - NotSupport: The valid values of the parameter cannot be queried.
+   * 
+   * - QueryError: The query failed.
+   * 
+   * > If AllowedValues is not returned, Behavior and BehaviorReason are returned to indicate the behavior of the parameter and the reason for the behavior.
    * 
    * @example
    * NoLimit
@@ -255,7 +274,7 @@ export class GetTemplateParameterConstraintsResponseBodyParameterConstraints ext
   behavior?: string;
   /**
    * @remarks
-   * The reason why the behavior of the parameter is returned.
+   * The reason for the behavior of the parameter.
    * 
    * @example
    * No resource property refer to the parameter
@@ -263,26 +282,26 @@ export class GetTemplateParameterConstraintsResponseBodyParameterConstraints ext
   behaviorReason?: string;
   /**
    * @remarks
-   * The values that do not conform to the parameter constraints.
+   * The values that do not match the parameter constraints.
    * 
-   * > If AllowedValues is returned, IllegalValueByParameterConstraints and IllegalValueByRules are returned at the same time.
+   * > If AllowedValues is returned, IllegalValueByParameterConstraints and IllegalValueByRules are returned to indicate the invalid values that are filtered out by the parameter constraints and template rules.
    */
   illegalValueByParameterConstraints?: any[];
   /**
    * @remarks
-   * The values that do not match the rules in the template.
+   * The values that do not match the template rules.
    * 
-   * > If AllowedValues is returned, IllegalValueByParameterConstraints and IllegalValueByRules are returned at the same time.
+   * > If AllowedValues is returned, IllegalValueByParameterConstraints and IllegalValueByRules are returned to indicate the invalid values that are filtered out by the parameter constraints and template rules.
    */
   illegalValueByRules?: any[];
   /**
    * @remarks
-   * The unsupported resource in the template.
+   * The details of the unsupported resources.
    */
   notSupportResources?: GetTemplateParameterConstraintsResponseBodyParameterConstraintsNotSupportResources[];
   /**
    * @remarks
-   * The original constraint information.
+   * The information about the original constraints.
    */
   originalConstraints?: GetTemplateParameterConstraintsResponseBodyParameterConstraintsOriginalConstraints[];
   /**
@@ -295,17 +314,17 @@ export class GetTemplateParameterConstraintsResponseBodyParameterConstraints ext
   parameterKey?: string;
   /**
    * @remarks
-   * The error that is returned when the request fails.
+   * The details of the query failure.
    */
   queryErrors?: GetTemplateParameterConstraintsResponseBodyParameterConstraintsQueryErrors[];
   /**
    * @remarks
-   * Query the details of timeout.
+   * The details of the query timeout.
    */
   queryTimeoutDetails?: GetTemplateParameterConstraintsResponseBodyParameterConstraintsQueryTimeoutDetails[];
   /**
    * @remarks
-   * The data type of the parameter.
+   * The type of the parameter.
    * 
    * @example
    * String
@@ -381,7 +400,7 @@ export class GetTemplateParameterConstraintsResponseBodyParameterConstraints ext
 export class GetTemplateParameterConstraintsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The constraints of the parameters.
+   * The information about the parameter constraints.
    */
   parameterConstraints?: GetTemplateParameterConstraintsResponseBodyParameterConstraints[];
   /**

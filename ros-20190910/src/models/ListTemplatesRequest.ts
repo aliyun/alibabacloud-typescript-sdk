@@ -5,14 +5,19 @@ import * as $dara from '@darabonba/typescript';
 export class ListTemplatesRequestFilters extends $dara.Model {
   /**
    * @remarks
-   * The name of the filter. You can choose one or more names for the query. Value range:  
+   * The filter name. You can select one or more names to query. Valid values:
    * 
-   * - Categories: Template categories  
-   * - DeployTypes: Deployment types  
-   * - ApplicationScenes: Application scenarios  
-   * - BasicServices: Basic services  
-   * - ResourceTypes: Resource types  
-   * - TemplateNames: Template names
+   * - Categories: template category
+   * 
+   * - DeployTypes: deployment type
+   * 
+   * - ApplicationScenes: application scenario
+   * 
+   * - BasicServices: basic service
+   * 
+   * - ResourceTypes: resource type
+   * 
+   * - TemplateNames: template name
    * 
    * @example
    * Categories
@@ -52,9 +57,9 @@ export class ListTemplatesRequestFilters extends $dara.Model {
 export class ListTemplatesRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The key of the tag. This parameter is effective only when ShareType is Private.  
+   * The tag key. This parameter takes effect only when ShareType is set to Private.
    * 
-   * A maximum of 20 tag keys are supported.
+   * You can specify up to 20 tag keys.
    * 
    * @example
    * usage
@@ -62,9 +67,9 @@ export class ListTemplatesRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of the tag. This parameter is effective only when ShareType is Private.  
+   * The tag value. This parameter takes effect only when ShareType is set to Private.
    * 
-   * A maximum of 20 tag values are supported.
+   * You can specify up to 20 tag values.
    * 
    * @example
    * deploy
@@ -96,15 +101,16 @@ export class ListTemplatesRequestTag extends $dara.Model {
 export class ListTemplatesRequest extends $dara.Model {
   /**
    * @remarks
-   * Filter.
+   * The filter.
    */
   filters?: ListTemplatesRequestFilters[];
   /**
    * @remarks
-   * Whether to query tag information. Values:  
+   * Specifies whether to query tag information. Valid values:
    * 
-   * - Enabled: Query.  
-   * - Disabled (default): Do not query.
+   * - Enabled: queries tag information.
+   * 
+   * - Disabled (default): does not query tag information.
    * 
    * @example
    * Enabled
@@ -112,9 +118,7 @@ export class ListTemplatesRequest extends $dara.Model {
   includeTags?: string;
   /**
    * @remarks
-   * The page number of the template list.  
-   * Start value: 1.  
-   * Default value: 1.
+   * The page number of the template list.<br> The value starts from 1.<br> Default value: 1.<br><br>
    * 
    * @example
    * 1
@@ -122,9 +126,7 @@ export class ListTemplatesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page in a paginated query.  
-   * Value range: 1~50.  
-   * Default value: 10.
+   * The number of entries to return on each page for a paged query.<br> Valid values: 1 to 50.<br> Default value: 10.<br><br>
    * 
    * @example
    * 10
@@ -132,8 +134,7 @@ export class ListTemplatesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the resource group.  
-   * For more information about resource groups, see [What is a Resource Group](https://help.aliyun.com/document_detail/94475.html).
+   * The ID of the resource group.<br> For more information about resource groups, see [What is a resource group?](https://help.aliyun.com/document_detail/94475.html).<br>
    * 
    * @example
    * rg-acfmxazb4ph6aiy****
@@ -141,12 +142,15 @@ export class ListTemplatesRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The sharing type of the template.  
+   * The share type of the template.
    * 
-   * Values:  
-   * - Private (default): The template is owned by the user.  
-   * - Shared: The template is shared by other users.  
-   * - Official: The template is officially shared.
+   * Valid values:
+   * 
+   * - Private (default): The template is owned by the user.
+   * 
+   * - Shared: The template is shared by other users.
+   * 
+   * - Official: The template is a shared official template.
    * 
    * @example
    * Private
@@ -154,13 +158,12 @@ export class ListTemplatesRequest extends $dara.Model {
   shareType?: string;
   /**
    * @remarks
-   * Tags. A maximum of 20 tags are supported.
+   * The tags. You can specify up to 20 tags.
    */
   tag?: ListTemplatesRequestTag[];
   /**
    * @remarks
-   * The name of the template. This parameter is effective only when ShareType is Private.  
-   * The length must not exceed 255 characters and must start with a digit or a letter. It can contain digits, letters, hyphens (-), and underscores (_).
+   * The name of the template. This parameter takes effect only when ShareType is set to Private. The name can be up to 255 characters in length. It must start with a digit or a letter and can contain digits, letters, hyphens (-), and underscores (_).
    * 
    * @example
    * MyTemplate

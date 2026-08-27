@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class EnableServiceAccessResponseBodyServiceAccessInfo extends $dara.Model {
   /**
+   * @remarks
+   * The trusted service access status.
+   * 
    * @example
    * ENABLED
    */
@@ -31,10 +34,17 @@ export class EnableServiceAccessResponseBodyServiceAccessInfo extends $dara.Mode
 
 export class EnableServiceAccessResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 23045A5D-720E-5D11-A752-E1568F725C93
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The trusted service access information.
+   */
   serviceAccessInfo?: EnableServiceAccessResponseBodyServiceAccessInfo;
   static names(): { [key: string]: string } {
     return {

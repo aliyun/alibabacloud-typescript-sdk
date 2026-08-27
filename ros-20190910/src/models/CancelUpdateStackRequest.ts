@@ -7,8 +7,9 @@ export class CancelUpdateStackRequest extends $dara.Model {
    * @remarks
    * The method to cancel the update operation. Valid values:
    * 
-   * *   Quick: cancels the update of a stack as soon as possible.
-   * *   Safe: cancels the update of a stack as safely as possible.
+   * - Quick: cancels the update of a stack as soon as possible.
+   * 
+   * - Safe: cancels the update of a stack as safely as possible.
    * 
    * @example
    * Safe

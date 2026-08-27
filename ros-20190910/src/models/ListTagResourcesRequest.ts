@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListTagResourcesRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The tag key of the resource. You can specify up to 20 tag keys. The tag key cannot be an empty string.\\
+   * The tag key of the resource. You can specify up to 20 tag keys. The tag key cannot be an empty string.<br>
    * The tag key can be up to 128 characters in length and cannot contain `http://` or `https://`. The tag key cannot start with `aliyun` or `acs:`.
    * 
    * @example
@@ -14,7 +14,7 @@ export class ListTagResourcesRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value of the resource. You can specify up to 20 tag values. The tag value can be an empty string.\\
+   * The tag value of the resource. You can specify up to 20 tag values. The tag value can be an empty string.<br>
    * The tag value can be up to 128 characters in length, and cannot contain `http://` or `https://`. The tag value cannot start with `aliyun` or `acs:`.
    * 
    * @example
@@ -75,10 +75,13 @@ export class ListTagResourcesRequest extends $dara.Model {
    * @remarks
    * The type of the resource. Valid values:
    * 
-   * *   stack: stack
-   * *   stackgroup: stack group
-   * *   template: template
-   * *   templatescratch: scenario
+   * - stack: stack
+   * 
+   * - stackgroup: stack group
+   * 
+   * - template: template
+   * 
+   * - templatescratch: scenario
    * 
    * This parameter is required.
    * 

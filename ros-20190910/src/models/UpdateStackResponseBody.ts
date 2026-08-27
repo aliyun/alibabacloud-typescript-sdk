@@ -5,69 +5,66 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateStackResponseBodyDryRunResult extends $dara.Model {
   /**
    * @remarks
-   * The parameters that can be modified. If you change only values of the parameters in a stack template and use the template to update the stack, no validation errors are caused.
+   * The parameters that are allowed to be modified.
    */
   parametersAllowedToBeModified?: string[];
   /**
    * @remarks
-   * The parameters whose changes cause service interruptions.
-   * > - This parameter is supported only for a small number of resource types.
-   * > - This parameter is valid only for updates on ROS stacks.
+   * The list of parameters that will definitely cause resource interruption.
+   * > - Only a small number of resource types are supported.
+   * > - This applies only to updating ROS stacks.
    */
   parametersCauseInterruptionIfModified?: string[];
   /**
    * @remarks
-   * The parameters whose changes trigger replacement updates for resources.
+   * The list of parameters that will definitely cause resource replacement update.
    * 
-   * > -  This parameter can be returned only if ReplacementOption is set to Enabled.
-   * > -  This parameter is valid only for updates on ROS stacks.
+   * > - This is returned only when ReplacementOption is set to Enabled.
+   * > - This applies only to updating ROS stacks.
    */
   parametersCauseReplacementIfModified?: string[];
   /**
    * @remarks
-   * The parameters that can be modified under specific conditions. If you change only values of the parameters in a stack template and use the template to update the stack, the new values of the parameters determine whether validation errors are caused.
+   * The parameters that may be allowed to be modified.
    */
   parametersConditionallyAllowedToBeModified?: string[];
   /**
    * @remarks
-   * The parameters whose changes cause service interruptions under specific conditions.
-   * 
-   * > - This parameter is supported only for a small number of resource types.
-   * > -  This parameter is valid only for updates on ROS stacks.
+   * The list of parameters that may cause resource interruption.
+   * > - Only a small number of resource types are supported.
+   * > - This applies only to updating ROS stacks.
    */
   parametersConditionallyCauseInterruptionIfModified?: string[];
   /**
    * @remarks
-   * The parameters whose changes trigger replacement updates for resources under specific conditions.
-   * 
-   * > - This parameter can be returned only if ReplacementOption is set to Enabled.
-   * > - This parameter is valid only for updates on ROS stacks.
+   * The list of parameters that may cause resource replacement update.
+   * > - This is returned only when ReplacementOption is set to Enabled.
+   * > - This applies only to updating ROS stacks.
    */
   parametersConditionallyCauseReplacementIfModified?: string[];
   /**
    * @remarks
-   * The parameters that cannot be modified. If you change only values of the parameters in a stack template and use the template to update the stack, validation errors are caused.
+   * The parameters that are not allowed to be modified.
    */
   parametersNotAllowedToBeModified?: string[];
   /**
    * @remarks
-   * The parameters that can be modified under uncertain conditions. If you change only values of the parameters in a stack template and use the template to update the stack, the actual running environment determines whether validation errors are caused.
+   * The parameters that are uncertain to be allowed to be modified.
    */
   parametersUncertainlyAllowedToBeModified?: string[];
   /**
    * @remarks
-   * The parameters whose changes cause service interruptions under uncertain conditions.
-   * 
-   * > - This parameter is supported only for a small number of resource types.
-   * > - This parameter is valid only for updates on ROS stacks.
+   * The list of parameters that are uncertain to cause resource interruption.
+   * > - Only a small number of resource types are supported.
+   * > - This applies only to updating ROS stacks.
    */
   parametersUncertainlyCauseInterruptionIfModified?: string[];
   /**
    * @remarks
-   * The parameters whose changes trigger replacement updates for resources under uncertain conditions.
+   * The list of parameters that are uncertain to cause resource replacement update.
    * 
-   * > - This parameter can be returned only if ReplacementOption is set to Enabled.
-   * > - This parameter is valid only for updates on ROS stacks.
+   * > - This is returned only when ReplacementOption is set to Enabled.
+   * > - This applies only to updating ROS stacks.
    */
   parametersUncertainlyCauseReplacementIfModified?: string[];
   static names(): { [key: string]: string } {
@@ -142,12 +139,12 @@ export class UpdateStackResponseBodyDryRunResult extends $dara.Model {
 export class UpdateStackResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The dry run result. This parameter is returned only if DryRun is set to true.
+   * The validation result. This parameter is returned only when DryRun is set to true.
    */
   dryRunResult?: UpdateStackResponseBodyDryRunResult;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * B288A0BE-D927-4888-B0F7-B35EF84B6E6F
@@ -155,7 +152,7 @@ export class UpdateStackResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the stack.
+   * The stack ID.
    * 
    * @example
    * 4a6c9851-3b0f-4f5f-b4ca-a14bf691****

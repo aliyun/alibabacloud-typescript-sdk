@@ -7,7 +7,7 @@ export class GetServiceProvisionsRequestParameters extends $dara.Model {
    * @remarks
    * The name of the parameter. If you do not specify the name and value of a parameter, Resource Orchestration Service (ROS) uses the default name and value that are specified in the template.
    * 
-   * > The Parameters parameter is optional. If you specify Parameters, you must specify ParameterKey.
+   * > Parameters is optional. If you specify Parameters, you must specify ParameterKey.
    * 
    * This parameter is required.
    * 
@@ -19,7 +19,7 @@ export class GetServiceProvisionsRequestParameters extends $dara.Model {
    * @remarks
    * The value of the parameter.
    * 
-   * > The Parameters parameter is optional. If you specify Parameters, you must specify ParameterValue.
+   * > Parameters is optional. If you specify Parameters, you must specify ParameterValue.
    * 
    * This parameter is required.
    * 
@@ -53,43 +53,77 @@ export class GetServiceProvisionsRequestParameters extends $dara.Model {
 export class GetServiceProvisionsRequestServices extends $dara.Model {
   /**
    * @remarks
-   * The name of the service or feature. Valid values:
+   * The name of the Alibaba Cloud service. Valid values:
    * 
-   * *   AHAS: Application High Availability Service
-   * *   ARMS: Application Real-Time Monitoring Service (ARMS)
-   * *   ApiGateway: API Gateway
-   * *   BatchCompute: Batch Compute
-   * *   BrainIndustrial: Industrial Brain
-   * *   CloudStorageGateway: Cloud Storage Gateway (CSG)
-   * *   CMS: CloudMonitor
-   * *   CR: Container Registry
-   * *   CS: Container Service for Kubernetes (ACK)
-   * *   DCDN: Dynamic Content Delivery Network (DCDN)
-   * *   DataHub: DataHub
-   * *   DataWorks: DataWorks
-   * *   EDAS: Enterprise Distributed Application Service (EDAS)
-   * *   EHPC: E-HPC
-   * *   EMAS: Enterprise Mobile Application Studio (EMAS)
-   * *   FC: Function Compute
-   * *   FNF: CloudFlow (SWF)
-   * *   MaxCompute: MaxCompute
-   * *   MNS: Message Service (MNS)
-   * *   HBR: Cloud Backup
-   * *   IMM: Intelligent Media Management (IMM)
-   * *   IOT: IoT Platform
-   * *   KMS: Key Management Service (KMS)
-   * *   NAS: File Storage NAS (NAS)
-   * *   NLP: Natural Language Processing (NLP)
-   * *   OSS: Object Storage Service (OSS)
-   * *   OTS: Tablestore
-   * *   PrivateLink: PrivateLink
-   * *   PrivateZone: Alibaba Cloud DNS PrivateZone
-   * *   RocketMQ: ApsaraMQ for RocketMQ
-   * *   SAE: Serverless App Engine (SAE)
-   * *   SLS: Simple Log Service (SLS)
-   * *   TrafficMirror: traffic mirroring
-   * *   VS: Video Surveillance System
-   * *   Xtrace: Managed Service for OpenTelemetry
+   * - AHAS: Application High Availability Service.
+   * 
+   * - ARMS: Application Real-Time Monitoring Service.
+   * 
+   * - ApiGateway: API Gateway.
+   * 
+   * - BatchCompute: Batch Compute.
+   * 
+   * - BrainIndustrial: Industrial Intelligence.
+   * 
+   * - CloudStorageGateway: Cloud Storage Gateway.
+   * 
+   * - CMS: Cloud Monitor.
+   * 
+   * - CR: Container Registry.
+   * 
+   * - CS: Container Service.
+   * 
+   * - DCDN: DCDN.
+   * 
+   * - DataHub: DataHub.
+   * 
+   * - DataWorks: DataWorks.
+   * 
+   * - EDAS: Enterprise Distributed Application Service.
+   * 
+   * - EHPC: Elastic High Performance Computing.
+   * 
+   * - EMAS: Enterprise Mobile Application Studio.
+   * 
+   * - FC: Function Compute.
+   * 
+   * - FNF: CloudFlow.
+   * 
+   * - MaxCompute: MaxCompute.
+   * 
+   * - SMQ: Simple Message Queue (formerly MNS).
+   * 
+   * - HBR: Cloud Backup.
+   * 
+   * - IMM: Intelligent Media Management.
+   * 
+   * - IOT: IoT Platform.
+   * 
+   * - KMS: Key Management Service.
+   * 
+   * - NAS: File Storage NAS.
+   * 
+   * - NLP: Natural Language Processing.
+   * 
+   * - OSS: Object Storage Service.
+   * 
+   * - OTS: Tablestore.
+   * 
+   * - PrivateLink: PrivateLink.
+   * 
+   * - PrivateZone: PrivateZone.
+   * 
+   * - RocketMQ: Message Queue for Apache RocketMQ.
+   * 
+   * - SAE: Serverless App Engine.
+   * 
+   * - SLS: Simple Log Service.
+   * 
+   * - TrafficMirror: Traffic Mirroring.
+   * 
+   * - VS: Video Surveillance.
+   * 
+   * - Xtrace: Tracing Analysis.
    * 
    * This parameter is required.
    * 
@@ -136,22 +170,24 @@ export class GetServiceProvisionsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The services.
+   * The list of Alibaba Cloud services.
    */
   services?: GetServiceProvisionsRequestServices[];
   /**
    * @remarks
-   * The structure that contains the template body. The template body must be 1 to 524,288 bytes in length. If the length of the template body exceeds the upper limit, we recommend that you add parameters to the HTTP POST request body to prevent request failures caused by excessively long URLs. You must and can specify only one of the following parameters: TemplateBody, TemplateURL, TemplateId, and TemplateScratchId.
+   * The structure of the template body. The template body must be 1 to 524,288 bytes in length. If the length of the template body exceeds the upper limit, we recommend to use the HTTP POST + Body Param method to pass the parameter in the request body to avoid request failures caused by an excessively long URL.
+   * 
+   * > You can specify only one of the TemplateBody, TemplateURL, TemplateId, and Services parameters.
    * 
    * @example
-   * {"ROSTemplateFormatVersion": "2015-09-01","Resources": {"ApiGateway": {"Type": "ALIYUN::ApiGateway::Group","Properties": { "GroupName": "ros_example" }},"FC": {"Type": "ALIYUN::FC::Service","Properties": {"ServiceName": "ros_example"}}}}
+   * ROSTemplateFormatVersion: \\"2015-09-01\\"\\r\\nResources:\\r\\n  Vpc:\\r\\n    Type: ALIYUN::ECS::VPC\\r\\n    Properties:\\r\\n      CidrBlock: 192.168.0.0/24\\r\\n      VpcName: TestVpc
    */
   templateBody?: string;
   /**
    * @remarks
    * The template ID. This parameter applies to shared and private templates.
    * 
-   * You must and can specify only one of the following parameters: TemplateBody, TemplateURL, TemplateId, and Services.
+   * You can specify only one of the TemplateBody, TemplateURL, TemplateId, and Services parameters.
    * 
    * @example
    * 5ecd1e10-b0e9-4389-a565-e4c15efc****
@@ -159,9 +195,9 @@ export class GetServiceProvisionsRequest extends $dara.Model {
   templateId?: string;
   /**
    * @remarks
-   * The URL of the file that contains the template body. The URL must point to a template that is located on an HTTP or HTTPS web server or in an Object Storage Service (OSS) bucket, such as oss://ros/template/demo or oss://ros/template/demo?RegionId=cn-hangzhou. The template body must be 1 to 524,288 bytes in length. If you do not specify the region ID of the OSS bucket, the value of RegionId is used.
+   * The URL of the file that contains the template body. The URL must point to a template that is located on an HTTP or HTTPS web server or in an Object Storage Service (OSS) bucket. The template body must be 1 to 524,288 bytes in length. Examples of OSS URLs: oss\\://ros/template/demo and oss\\://ros/template/demo?RegionId=cn-hangzhou. If you do not specify the region ID of the OSS bucket, the value of the RegionId parameter is used.
    * 
-   * You must and can specify only one of the following parameters: TemplateBody, TemplateURL, TemplateId, and Services.
+   * You can specify only one of the TemplateBody, TemplateURL, TemplateId, and Services parameters.
    * 
    * @example
    * oss://ros-template/demo
@@ -171,7 +207,7 @@ export class GetServiceProvisionsRequest extends $dara.Model {
    * @remarks
    * The version of the template. If you do not specify this parameter, the latest version is used.
    * 
-   * This parameter takes effect only when TemplateId is specified.
+   * This parameter takes effect only when you specify TemplateId.
    * 
    * @example
    * v1

@@ -35,10 +35,13 @@ export class ListTagValuesRequest extends $dara.Model {
    * @remarks
    * The type of the resource. Valid values:
    * 
-   * *   stack: stack
-   * *   stackgroup: stack group
-   * *   template: template
-   * *   templatescratch: scenario
+   * - stack: stack
+   * 
+   * - stackgroup: stack group
+   * 
+   * - template: template
+   * 
+   * - templatescratch: scenario
    * 
    * This parameter is required.
    * 

@@ -5,12 +5,18 @@ import * as $dara from '@darabonba/typescript';
 export class EnableServicesRequest extends $dara.Model {
   /**
    * @remarks
+   * The region where the service is enabled.
+   * 
    * This parameter is required.
    * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @remarks
+   * A list of services to enable.
+   */
   serviceNames?: string[];
   static names(): { [key: string]: string } {
     return {

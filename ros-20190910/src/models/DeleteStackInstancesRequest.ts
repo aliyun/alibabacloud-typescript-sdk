@@ -5,18 +5,18 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteStackInstancesRequestDeploymentTargets extends $dara.Model {
   /**
    * @remarks
-   * The IDs of the execution accounts within which you want to deploy stacks in self-managed mode. You can specify up to 20 execution account IDs.
+   * The IDs of member accounts in the resource directory. You can specify up to 30 member account IDs.
    * 
-   * > To view the folder IDs, go to the **Overview** page in the **Resource Management** console. For more information, see [View the basic information about a folder](https://help.aliyun.com/document_detail/111223.html).
+   * > You can find the member account IDs on the Overview page in the Resource Management console. For more information, see [View the details of a member](https://help.aliyun.com/document_detail/111624.html).
    */
   accountIds?: string[];
   /**
    * @remarks
-   * The IDs of the folders in the resource directory. You can add up to five folder IDs.
+   * The IDs of folders in the resource directory. You can specify up to 20 folder IDs.
    * 
-   * You can create stacks within all the member accounts in the specified folders. If you create stacks in the Root folder, the stacks are created within all member accounts in the resource directory.
+   * Stack instances are deleted from all member accounts in the specified folders. If you specify the Root folder, stack instances are deleted from all member accounts in your resource directory.
    * 
-   * > To view the folder IDs, go to the **Overview** page in the **Resource Management** console. For more information, see [View the basic information about a folder](https://help.aliyun.com/document_detail/111223.html).
+   * > You can find the folder IDs on the Overview page in the Resource Management console. For more information, see [View the basic information of a folder](https://help.aliyun.com/document_detail/111223.html).
    */
   rdFolderIds?: string[];
   static names(): { [key: string]: string } {
@@ -51,7 +51,7 @@ export class DeleteStackInstancesRequestDeploymentTargets extends $dara.Model {
 export class DeleteStackInstancesRequest extends $dara.Model {
   /**
    * @remarks
-   * The IDs of the execution accounts within which you want to deploy stacks in self-managed mode. You can specify up to 20 execution account IDs.
+   * The IDs of the accounts from which to delete stack instances. This parameter applies only to stack groups that use self-managed permissions. You can specify up to 50 account IDs.
    * 
    * @example
    * ["151266687691****"]
@@ -59,9 +59,7 @@ export class DeleteStackInstancesRequest extends $dara.Model {
   accountIds?: string[];
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests.\\
-   * The token can contain letters, digits, hyphens (-), and underscores (_), and cannot exceed 64 characters in length.\\
-   * For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/134212.html).
+   * A client token that is used to ensure the idempotence of the request. You can use your client to generate the token, but you must make sure that the token is unique among different requests.<br>The token can be up to 64 characters long and can contain letters, digits, hyphens (-), and underscores (_).<br>For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/134212.html).
    * 
    * @example
    * 123e4567-e89b-12d3-a456-42665544****
@@ -69,14 +67,14 @@ export class DeleteStackInstancesRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The folders in which you want to deploy stacks in service-managed mode.
+   * The deployment targets from which to delete stack instances. This parameter applies only to stack groups that use service-managed permissions.
    */
   deploymentTargets?: DeleteStackInstancesRequestDeploymentTargets;
   /**
    * @remarks
-   * The description of the delete operation.
+   * The description of the operation to delete stack instances.
    * 
-   * The description must be 1 to 256 characters in length.
+   * The description can be 1 to 256 characters long.
    * 
    * @example
    * Delete stack instances in hangzhou and beijing
@@ -84,53 +82,54 @@ export class DeleteStackInstancesRequest extends $dara.Model {
   operationDescription?: string;
   /**
    * @remarks
-   * The preference settings of the delete operation.
+   * The preferences for the operation to delete stack instances.
    * 
-   * The following parameters are available:
+   * This parameter contains the following subparameters:
    * 
-   * -  {"FailureToleranceCount": N}
+   * - {"FailureToleranceCount": N}
    * 
-   *     The number of accounts within which stack operation failures are allowed in each region. If the value of this parameter is exceeded in a region, ROS stops the operation in the region. If ROS stops the operation in one region, ROS stops the operation in other regions.
+   *   The number of accounts in each region for which the deletion of stack instances can fail. If the number of failures in a region exceeds this value, the operation stops in that region. If the operation stops in one region, it does not continue in other regions.
    * 
-   *     Valid values of N: 0 to 20.
+   *   The value of N must be an integer from 0 to 20.
    * 
-   *     If you do not specify FailureToleranceCount, 0 is used as the default value.
+   *   If you do not specify FailureToleranceCount, the default value is 0.
    * 
-   * -  {"FailureTolerancePercentage": N}
+   * - {"FailureTolerancePercentage": N}
    * 
-   *     The percentage of the number of accounts within which stack operation failures are allowed to the total number of accounts in each region. If the value of this parameter is exceeded, ROS stops the operation in the region.
+   *   The percentage of accounts in each region for which the deletion of stack instances can fail. If the percentage of failures in a region exceeds this value, the operation stops in that region.
    * 
-   *     Valid values of N: 0 to 100. If the numeric value in the percentage is not an integer, ROS rounds the value down to the nearest integer.
+   *   The value of N must be an integer from 0 to 100. If the calculated percentage is not an integer, ROS rounds it down to the nearest integer.
    * 
-   *     If you do not specify FailureTolerancePercentage, 0 is used as the default value.
+   *   If you do not specify FailureTolerancePercentage, the default value is 0.
    * 
-   * -  {"MaxConcurrentCount": N}
+   * - {"MaxConcurrentCount": N}
    * 
-   *     The maximum number of accounts within which multiple stacks are deployed at the same time in each region.
+   *   The maximum number of accounts in each region for which stack instances can be deleted at the same time.
    * 
-   *     Valid values of N: 1 to 20.
+   *   The value of N must be an integer from 1 to 20.
    * 
-   *     If you do not specify MaxConcurrentCount, 1 is used as the default value.
+   *   If you do not specify MaxConcurrentCount, the default value is 1.
    * 
-   * -  {"MaxConcurrentPercentage": N}
+   * - {"MaxConcurrentPercentage": N}
    * 
-   *     The percentage of the maximum number of accounts within which stacks are deployed at the same time to the total number of accounts in each region.
+   *   The maximum percentage of accounts in each region for which stack instances can be deleted at the same time.
    * 
-   *     Valid values of N: 1 to 100. If the numeric value in the percentage is not an integer, ROS rounds the number down to the nearest integer.
+   *   The value of N must be an integer from 1 to 100. If the calculated percentage is not an integer, ROS rounds it down to the nearest integer.
    * 
-   *     If you do not specify MaxConcurrentPercentage, 1 is used as the default value.
+   *   If you do not specify MaxConcurrentPercentage, the default value is 1.
    * 
-   * -   {"RegionConcurrencyType": N}
+   * - {"RegionConcurrencyType": N}
+   *   The concurrency model for deleting stack instances in different regions. Valid values:
    * 
-   *     The mode that you want to use to deploy stacks across regions. Valid values:
-   *     - SEQUENTIAL (default): deploys stacks in the specified regions one by one in sequence. This way, ROS deploys stacks in only one region at a time. 
+   *   - SEQUENTIAL (default): Deletes stack instances in each specified region sequentially. At any given time, the operation deletes stack instances in only one region.
    * 
-   *      - PARALLEL: deploys stacks in all the specified regions in parallel. 
+   *   - PARALLEL: Deletes stack instances in all specified regions in parallel.
    * 
    * Separate multiple parameters with commas (,).
    * 
-   * > - You can specify only one of the following parameters: MaxConcurrentCount and MaxConcurrentPercentage.
-   * > - You can specify only one of the following parameters: FailureToleranceCount and FailureTolerancePercentage.
+   * > - You cannot specify both MaxConcurrentCount and MaxConcurrentPercentage.
+   * >
+   * > - You cannot specify both FailureToleranceCount and FailureTolerancePercentage.
    * 
    * @example
    * {"FailureToleranceCount": 1, "MaxConcurrentCount": 2}
@@ -138,7 +137,7 @@ export class DeleteStackInstancesRequest extends $dara.Model {
   operationPreferences?: { [key: string]: any };
   /**
    * @remarks
-   * The region ID of the stack group. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/131035.html) operation to query the most recent region list.
+   * The region ID of the stack group. Call the [DescribeRegions](https://help.aliyun.com/document_detail/131035.html) operation to query the most recent list of Alibaba Cloud regions.
    * 
    * This parameter is required.
    * 
@@ -148,7 +147,7 @@ export class DeleteStackInstancesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The IDs of the regions where you want to delete the stacks. You can specify up to 20 region IDs.
+   * The IDs of the regions where the stack instances are deployed. You can specify up to 20 region IDs.
    * 
    * This parameter is required.
    * 
@@ -158,12 +157,13 @@ export class DeleteStackInstancesRequest extends $dara.Model {
   regionIds?: string[];
   /**
    * @remarks
-   * Specifies whether to delete the stacks.
+   * Specifies whether to retain the stacks.
    * 
    * Valid values:
    * 
-   * *   true: retains the stacks.
-   * *   false: deletes the stacks.
+   * - true: The stacks are retained.
+   * 
+   * - false: The stacks are deleted.
    * 
    * This parameter is required.
    * 
@@ -173,8 +173,7 @@ export class DeleteStackInstancesRequest extends $dara.Model {
   retainStacks?: boolean;
   /**
    * @remarks
-   * The name of the stack group. The name must be unique within a region.\\
-   * The name can be up to 255 characters in length and can contain digits, letters, hyphens (-), and underscores (_). It must start with a digit or a letter.
+   * The name of the stack group. The name must be unique within a region.<br>The name can be up to 255 characters long. It must start with a letter or a digit and can contain letters, digits, hyphens (-), and underscores (_).
    * 
    * This parameter is required.
    * 

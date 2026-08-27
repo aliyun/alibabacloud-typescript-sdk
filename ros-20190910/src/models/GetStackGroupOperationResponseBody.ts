@@ -145,11 +145,15 @@ export class GetStackGroupOperationResponseBodyStackGroupOperationStackGroupDrif
    * 
    * Valid values:
    * 
-   * *   COMPLETED: Drift detection is performed on the stack group and all stack instances passed the drift detection.
-   * *   FAILED: Drift detection is performed on the stack group. The number of stack instances that failed the drift detection exceeds the specified threshold.
-   * *   PARTIAL_SUCCESS: Drift detection is performed on the stack group. The number of stack instances that failed the drift detection does not exceed the specified threshold.
-   * *   IN_PROGRESS: Drift detection is being performed on the stack group.
-   * *   STOPPED: Drift detection is canceled for the stack group.
+   * - COMPLETED: Drift detection is performed on the stack group and all stack instances passed the drift detection.
+   * 
+   * - FAILED: Drift detection is performed on the stack group. The number of stack instances that failed the drift detection exceeds the specified threshold.
+   * 
+   * - PARTIAL_SUCCESS: Drift detection is performed on the stack group. The number of stack instances that failed the drift detection does not exceed the specified threshold.
+   * 
+   * - IN_PROGRESS: Drift detection is being performed on the stack group.
+   * 
+   * - STOPPED: Drift detection is canceled for the stack group.
    * 
    * @example
    * COMPLETED
@@ -201,9 +205,11 @@ export class GetStackGroupOperationResponseBodyStackGroupOperationStackGroupDrif
    * 
    * Valid values:
    * 
-   * *   DRIFTED: At least one stack instance in the stack group has drifted.
-   * *   NOT_CHECKED: No successful drift detection is performed in the stack group.
-   * *   IN_SYNC: All the stack instances in the stack group are being synchronized.
+   * - DRIFTED: At least one stack instance in the stack group has drifted.
+   * 
+   * - NOT_CHECKED: No successful drift detection is performed in the stack group.
+   * 
+   * - IN_SYNC: All the stack instances in the stack group are being synchronized.
    * 
    * @example
    * DRIFTED
@@ -261,10 +267,13 @@ export class GetStackGroupOperationResponseBodyStackGroupOperation extends $dara
    * 
    * Valid values:
    * 
-   * *   CREATE
-   * *   UPDATE
-   * *   DELETE
-   * *   DETECT_DRIFT
+   * - CREATE
+   * 
+   * - UPDATE
+   * 
+   * - DELETE
+   * 
+   * - DETECT_DRIFT
    * 
    * @example
    * DELETE
@@ -336,8 +345,9 @@ export class GetStackGroupOperationResponseBodyStackGroupOperation extends $dara
    * 
    * Valid values:
    * 
-   * *   true: Stacks are retained when the associated stack instances are deleted.
-   * *   false: Stacks are deleted when the associated stack instances are deleted. Proceed with caution.
+   * - true: Stacks are retained when the associated stack instances are deleted.
+   * 
+   * - false: Stacks are deleted when the associated stack instances are deleted. Proceed with caution.
    * 
    * > This parameter is returned only if you delete stack instances.
    * 
@@ -374,11 +384,15 @@ export class GetStackGroupOperationResponseBodyStackGroupOperation extends $dara
    * 
    * Valid values:
    * 
-   * *   RUNNING
-   * *   SUCCEEDED
-   * *   FAILED
-   * *   STOPPING
-   * *   STOPPED
+   * - RUNNING
+   * 
+   * - SUCCEEDED
+   * 
+   * - FAILED
+   * 
+   * - STOPPING
+   * 
+   * - STOPPED
    * 
    * @example
    * SUCCEEDED

@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class ListStackResourcesResponseBodyResourcesModuleInfo extends $dara.Model {
   /**
    * @remarks
-   * The concatenated logical IDs of one or more modules that contain the resource. The modules are listed from the outermost layer and separated by forward slashes (`/`).
+   * The concatenated list of logical IDs of one or more modules that contain the resource. The modules are listed starting from the outermost module and are separated by `/`.
    * 
-   * In the following example, the resource is created from Module B nested within Parent Module A:
+   * In the following example, the resource is created from a module moduleB that is nested in a parent module moduleA.
    * 
-   * `moduleA/moduleB`
+   * `moduleA/moduleB`.
    * 
    * @example
    * moduleA/moduleB
@@ -17,11 +17,11 @@ export class ListStackResourcesResponseBodyResourcesModuleInfo extends $dara.Mod
   logicalIdHierarchy?: string;
   /**
    * @remarks
-   * The concatenated types of one or more modules that contain the resource. The module types are listed from the outermost layer and separated by forward slashes (`/`).
+   * The concatenated list of module types of one or more modules that contain the resource. The module types are listed starting from the outermost module and are separated by `/`.
    * 
-   * In the following example, the resource is created from a module of the `MODULE::ROS::Child::Example` type that is nested within a parent module of the `MODULE::ROS::Parent::Example` type:
+   * In the following example, the resource is created from a module of the `MODULE::ROS::Child::Example` type, which is nested in a parent module of the `MODULE::ROS::Parent::Example` type.
    * 
-   * `MODULE::ROS::Parent::Example/MODULE::ROS::Child::Example`
+   * `MODULE::ROS::Parent::Example/MODULE::ROS::Child::Example`.
    * 
    * @example
    * MODULE::ROS::Parent::Example/MODULE::ROS::Child::Example
@@ -53,7 +53,7 @@ export class ListStackResourcesResponseBodyResourcesModuleInfo extends $dara.Mod
 export class ListStackResourcesResponseBodyResources extends $dara.Model {
   /**
    * @remarks
-   * The time when the resource was created. The time is displayed in UTC. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format.
+   * The time when the resource was created. The time is displayed in UTC+0 and follows the ISO 8601 standard. The time is in the YYYY-MM-DDThh:mm:ss format without the Z suffix.
    * 
    * @example
    * 2019-08-01T06:01:23
@@ -61,7 +61,7 @@ export class ListStackResourcesResponseBodyResources extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The time when the most recent successful drift detection was performed on the stack.
+   * The time when the resource drift was detected during the most recent successful drift detection on the stack.
    * 
    * @example
    * 2020-02-27T07:47:47
@@ -69,7 +69,7 @@ export class ListStackResourcesResponseBodyResources extends $dara.Model {
   driftDetectionTime?: string;
   /**
    * @remarks
-   * The logical ID of the resource. The logical ID is the resource name that is defined in the template.
+   * The logical resource ID, which is the name defined in the template.
    * 
    * @example
    * dummy
@@ -77,12 +77,12 @@ export class ListStackResourcesResponseBodyResources extends $dara.Model {
   logicalResourceId?: string;
   /**
    * @remarks
-   * The information about the modules from which the resource is created. This parameter is returned only if the resource is created from modules.
+   * The information about the module from which the resource is created. This parameter is returned only if the resource is created from a module.
    */
   moduleInfo?: ListStackResourcesResponseBodyResourcesModuleInfo;
   /**
    * @remarks
-   * The physical ID of the resource.
+   * The physical resource ID, which is the actual resource ID.
    * 
    * @example
    * d04af923-e6b7-4272-aeaa-47ec9777****
@@ -90,12 +90,11 @@ export class ListStackResourcesResponseBodyResources extends $dara.Model {
   physicalResourceId?: string;
   /**
    * @remarks
-   * The drift state of the resource in the most recent successful drift detection. Valid values:
-   * 
-   * *   DELETED: The actual configuration of the resource differs from its expected template configuration because the resource is deleted.
-   * *   MODIFIED: The actual configuration of the resource differs from its expected template configuration.
-   * *   NOT_CHECKED: Resource Orchestration Service (ROS) has not checked whether the actual configuration of the resource differs from its expected template configuration.
-   * *   IN_SYNC: The actual configuration of the resource matches its expected template configuration.
+   * The drift status of the resource in the most recent successful drift detection on the stack. Valid values:
+   * - DELETED: The resource differs from the expected template configuration because the resource is deleted.
+   * - MODIFIED: The resource differs from the expected template configuration.
+   * - NOT_CHECKED: Resource Orchestration Service (ROS) has not checked whether the resource differs from the expected template configuration.
+   * - IN_SYNC: The current configuration of the resource matches the expected template configuration.
    * 
    * @example
    * IN_SYNC
@@ -119,8 +118,7 @@ export class ListStackResourcesResponseBodyResources extends $dara.Model {
   stackId?: string;
   /**
    * @remarks
-   * The stack name.\\
-   * The name can be up to 255 characters in length, and can contain digits, letters, hyphens (-), and underscores (_). It must start with a digit or letter.
+   * The stack name. The name can be up to 255 characters in length and must start with a digit or a letter. It can contain digits, letters, hyphens (-), and underscores (_).
    * 
    * @example
    * test-describe-resource
@@ -128,24 +126,24 @@ export class ListStackResourcesResponseBodyResources extends $dara.Model {
   stackName?: string;
   /**
    * @remarks
-   * The state of the resource. Valid values:
+   * The resource status. Valid values:
+   * - INIT_COMPLETE: The resource is pending creation.
    * 
-   * *   INIT_COMPLETE: The resource is pending to be created.
-   * *   CREATE_COMPLETE: The resource is created.
-   * *   CREATE_FAILED: The resource failed to be created.
-   * *   CREATE_IN_PROGRESS: The resource is being created.
-   * *   UPDATE_IN_PROGRESS: The resource is being updated.
-   * *   UPDATE_FAILED: The resource failed to be updated.
-   * *   UPDATE_COMPLETE: The resource is updated.
-   * *   DELETE_IN_PROGRESS: The resource is being deleted.
-   * *   DELETE_FAILED: The resource failed to be deleted.
-   * *   DELETE_COMPLETE: The resource is deleted.
-   * *   CHECK_IN_PROGRESS: The resource is being validated.
-   * *   CHECK_FAILED: The resource failed to be validated.
-   * *   CHECK_COMPLETE: The resource is validated.
-   * *   IMPORT_IN_PROGRESS: The resource is being imported.
-   * *   IMPORT_FAILED: The resource failed to be imported.
-   * *   IMPORT_COMPLETE: The resource is imported.
+   * - CREATE_COMPLETE: The resource is created.
+   * - CREATE_FAILED: The resource failed to be created.
+   * - CREATE_IN_PROGRESS: The resource is being created.
+   * - UPDATE_IN_PROGRESS: The resource is being updated.
+   * - UPDATE_FAILED: The resource failed to be updated.
+   * - UPDATE_COMPLETE: The resource is updated.
+   * - DELETE_IN_PROGRESS: The resource is being deleted.
+   * - DELETE_FAILED: The resource failed to be deleted.
+   * - DELETE_COMPLETE: The resource is deleted.
+   * - CHECK_IN_PROGRESS: The resource is being checked.
+   * - CHECK_FAILED: The resource failed to be checked.
+   * - CHECK_COMPLETE: The resource is checked.
+   * - IMPORT_IN_PROGRESS: The resource import is in progress.
+   * - IMPORT_FAILED: The resource import failed.
+   * - IMPORT_COMPLETE: The resource import is complete.
    * 
    * @example
    * UPDATE_COMPLETE
@@ -153,7 +151,7 @@ export class ListStackResourcesResponseBodyResources extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The reason why the resource is in its current state.
+   * The reason for the resource status.
    * 
    * @example
    * state changed
@@ -161,7 +159,7 @@ export class ListStackResourcesResponseBodyResources extends $dara.Model {
   statusReason?: string;
   /**
    * @remarks
-   * The time when the resource was updated. The time is displayed in UTC. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format.
+   * The time when the resource was last updated. The time is displayed in UTC+0 and follows the ISO 8601 standard. The time is in the YYYY-MM-DDThh:mm:ss format without the Z suffix.
    * 
    * @example
    * 2019-08-01T06:01:29
@@ -216,7 +214,7 @@ export class ListStackResourcesResponseBodyResources extends $dara.Model {
 export class ListStackResourcesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Details about resources.
+   * The request ID.
    * 
    * @example
    * B288A0BE-D927-4888-B0F7-B35EF84B6E6
@@ -224,7 +222,7 @@ export class ListStackResourcesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The resources.
+   * The list of resource objects.
    */
   resources?: ListStackResourcesResponseBodyResources[];
   static names(): { [key: string]: string } {

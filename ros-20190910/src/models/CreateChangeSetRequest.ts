@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class CreateChangeSetRequestParameters extends $dara.Model {
   /**
    * @remarks
-   * The key of parameter N that is defined in the template. If you do not specify the key and value of a parameter, ROS uses the default name and value that are defined in the template. Maximum value of N: 200.
+   * The name of the parameter that is defined in the template. If you do not specify the name and value of a parameter, ROS uses the default name and value that are specified in the template. The value of N can be up to 200.
    * 
-   * >  Parameters is optional. If you specify Parameters, you must also specify Parameters.N.ParameterKey.
+   * > The Parameters parameter is optional. If you specify Parameters, you must also specify Parameters.N.ParameterKey.
    * 
    * This parameter is required.
    * 
@@ -17,9 +17,9 @@ export class CreateChangeSetRequestParameters extends $dara.Model {
   parameterKey?: string;
   /**
    * @remarks
-   * The value of parameter N that is defined in the template. Maximum value of N: 200.
+   * The value of the parameter that is defined in the template. The value of N can be up to 200.
    * 
-   * >  Parameters is optional. If you specify Parameters, you must also specify Parameters.N.ParameterValue.
+   * > The Parameters parameter is optional. If you specify Parameters, you must also specify Parameters.N.ParameterValue.
    * 
    * This parameter is required.
    * 
@@ -53,9 +53,9 @@ export class CreateChangeSetRequestParameters extends $dara.Model {
 export class CreateChangeSetRequestResourcesToImport extends $dara.Model {
   /**
    * @remarks
-   * The logical ID of resource N. The logical ID is the name of the resource defined in the template.
+   * The logical ID of the resource. The logical ID is the resource name that is defined in the template.
    * 
-   * >  This parameter takes effect only when ChangeSetType is set to IMPORT. ResourcesToImport is optional. If you specify ResourcesToImport, you must specify ResourcesToImport.N.LogicalResourceId.
+   * > This parameter takes effect only when ChangeSetType is set to IMPORT. The ResourcesToImport parameter is optional. If you specify ResourcesToImport, you must also specify ResourcesToImport.N.LogicalResourceId.
    * 
    * @example
    * Vpc
@@ -63,12 +63,11 @@ export class CreateChangeSetRequestResourcesToImport extends $dara.Model {
   logicalResourceId?: string;
   /**
    * @remarks
-   * The key-value mapping between strings. The key-value mapping is used to identify resource N that you want to import. The key-value mapping must be a JSON string.\\
-   * A key is an identifier property of a resource and a value is the property value. For example, the key of the ALIYUN::ECS::VPC resource is VpcId and the value is `vpc-2zevx9ios****`.
+   * A key-value mapping between strings. The value is a JSON string that is used to identify the resource to be imported. The key is the identifier property of the resource, such as the VpcId of an ALIYUN::ECS::VPC resource. The value is the value of the property, such as `vpc-2zevx9ios****`.
    * 
-   * You can call the [GetTemplateSummary](https://help.aliyun.com/document_detail/172485.html) operation to query the identifier property of the resource.
+   * Call [GetTemplateSummary](https://help.aliyun.com/document_detail/172485.html) to query resource identifier properties.
    * 
-   * >  This parameter takes effect only when ChangeSetType is set to IMPORT. ResourcesToImport is optional. If you specify ResourcesToImport, you must specify ResourcesToImport.N.ResourceIdentifier.
+   * > This parameter takes effect only when ChangeSetType is set to IMPORT. The ResourcesToImport parameter is optional. If you specify ResourcesToImport, you must also specify ResourcesToImport.N.ResourceIdentifier.
    * 
    * @example
    * {"VpcId": "vpc-2zevx9ios******"}
@@ -76,9 +75,9 @@ export class CreateChangeSetRequestResourcesToImport extends $dara.Model {
   resourceIdentifier?: string;
   /**
    * @remarks
-   * The type of resource N. The resource type must be the same as the resource type that is defined in the template.
+   * The type of the resource. The resource type must be the same as the resource type that is defined in the template.
    * 
-   * >  This parameter takes effect only when ChangeSetType is set to IMPORT. ResourcesToImport is optional. If you specify ResourcesToImport, you must specify ResourcesToImport.N.ResourceType.
+   * > This parameter takes effect only when ChangeSetType is set to IMPORT. The ResourcesToImport parameter is optional. If you specify ResourcesToImport, you must also specify ResourcesToImport.N.ResourceType.
    * 
    * @example
    * ALIYUN::ECS::VPC
@@ -110,7 +109,31 @@ export class CreateChangeSetRequestResourcesToImport extends $dara.Model {
 }
 
 export class CreateChangeSetRequestTags extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key of the stack.
+   * 
+   * The value of N can be from 1 to 20.
+   * 
+   * > - The Tags parameter is optional. If you specify Tags, you must also specify Tags.N.Key.
+   * >
+   * > - The tag is propagated to each stack resource that supports tags. [Propagate tags](https://help.aliyun.com/document_detail/201421.html).
+   * 
+   * @example
+   * usage
+   */
   key?: string;
+  /**
+   * @remarks
+   * The tag value of the stack.
+   * 
+   * The value of N can be from 1 to 20.
+   * 
+   * > The tag is propagated to each stack resource that supports tags. For more information, see [Propagate tags](https://help.aliyun.com/document_detail/201421.html).
+   * 
+   * @example
+   * test
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -138,10 +161,9 @@ export class CreateChangeSetRequestTags extends $dara.Model {
 export class CreateChangeSetRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the change set.\\
-   * The name can be up to 255 characters in length and can contain digits, letters, hyphens (-), and underscores (_). The name must start with a digit or a letter.
+   * The change set name. Maximum length: 255 characters. The name can contain digits, letters, hyphens (-), and underscores (_), and must start with a digit or letter.
    * 
-   * > Make sure that the name is unique among all names of change sets that are associated with the specified stack.
+   * > The name of the change set must be unique within the stack.
    * 
    * This parameter is required.
    * 
@@ -153,17 +175,17 @@ export class CreateChangeSetRequest extends $dara.Model {
    * @remarks
    * The type of the change set. Valid values:
    * 
-   * *   CREATE: creates a change set for a new stack.
-   * *   UPDATE (default): creates a change set for an existing stack.
-   * *   IMPORT: creates a change set for a new stack or an existing stack to import resources that are not managed by ROS.
+   * - CREATE: creates a change set for a new stack.
    * 
-   * If you set ChangeSetType to CREATE, ROS creates a stack. The stack remains in the `REVIEW_IN_PROGRESS` state until you execute the change set.
+   * - UPDATE (default): creates a change set for an existing stack.
    * 
-   * > 
+   * - IMPORT: creates a change set for a new stack or an existing stack to import resources that are not managed by ROS.
    * 
-   * *   You cannot set ChangeSetType to UPDATE when you create a change set for a new stack. You cannot set ChangeSetType to CREATE when you create a change set for an existing stack.
+   * If you set the value of ChangeSetType to CREATE, ROS creates a new stack. The stack is in the `REVIEW_IN_PROGRESS` state until you execute the change set.
    * 
-   * *   If you set ChangeSetType to Import, you cannot configure a stack policy. You can specify ChangeSetType only when you create or update a stack.
+   * > - You cannot use the UPDATE type to create a change set for a new stack or the CREATE type to create a change set for an existing stack.
+   * >
+   * > - You cannot set a stack policy for a change set of the IMPORT type. You can set a stack policy when you create or update a stack.
    * 
    * @example
    * UPDATE
@@ -171,9 +193,7 @@ export class CreateChangeSetRequest extends $dara.Model {
   changeSetType?: string;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that the value is unique among different requests.\\
-   * The token can contain letters, digits, hyphens (-), and underscores (_) and cannot exceed 64 characters in length.\\
-   * For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/134212.html).
+   * The client token used to ensure request idempotence. The token must be unique across requests and can be up to 64 characters in length, containing letters, digits, hyphens (-), and underscores (_). [How to ensure idempotence](https://help.aliyun.com/document_detail/134212.html).
    * 
    * @example
    * 123e4567-e89b-12d3-a456-42665544****
@@ -189,13 +209,13 @@ export class CreateChangeSetRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Specifies whether to disable rollback when the stack fails to be created.\\
-   * Valid values:
+   * Specifies whether to disable rollback on stack creation failure. Valid values:
    * 
-   * *   true: disables rollback for the stack when the stack fails to be created.
-   * *   false (default): enables rollback for the stack when the stack fails to be created.
+   * - true: disables rollback on creation failure.
    * 
-   * > This parameter takes effect only if you set ChangeSetType to CREATE or IMPORT.
+   * - false (default): enables rollback on creation failure.
+   * 
+   * > This parameter takes effect only when ChangeSetType is set to CREATE or IMPORT.
    * 
    * @example
    * false
@@ -203,7 +223,7 @@ export class CreateChangeSetRequest extends $dara.Model {
   disableRollback?: boolean;
   /**
    * @remarks
-   * The callback URLs that are used to receive stack events.
+   * The list of webhook addresses for receiving stack event notifications.
    * 
    * @example
    * http://my-site.com/ros-notify
@@ -211,20 +231,23 @@ export class CreateChangeSetRequest extends $dara.Model {
   notificationURLs?: string[];
   /**
    * @remarks
-   * The maximum number of concurrent operations that can be performed on resources. By default, this parameter is empty. You can set this parameter to an integer that is greater than or equal to 0. If you set this parameter to a specific value, ROS associates the value with the stack. The value can affect subsequent operations on the stack.
+   * The maximum number of concurrent resource operations. By default, this value is empty. Once set, the value is associated with the stack and affects subsequent operations.
    * 
-   * This parameter takes effect only if you set ChangeSetType to CREATE or UPDATE.
+   * This parameter takes effect only when ChangeSetType is set to CREATE or UPDATE. Valid values:
    * 
-   * *   Valid values for change sets of the CREATE type:
+   * - If ChangeSetType is set to CREATE
    * 
-   *     *   If you set this parameter to an integer that is greater than 0, the integer is used.
-   *     *   If you set this parameter to 0 or leave this parameter empty, no limit is imposed on ROS stacks. However, the default value in Terraform is used for Terraform stacks. In most cases, the default value in Terraform is 10.
+   *   - If you set this parameter to an integer that is greater than 0, the integer is used.
    * 
-   * *   Valid values for change sets of the UPDATE type:
+   *   - If you set this parameter to 0 or do not set this parameter, no limit is imposed on ROS stacks. For Terraform stacks, the default value of Terraform is used, which is 10.
    * 
-   *     *   If you set this parameter to an integer that is greater than 0, the integer is used.
-   *     *   If you set this parameter to 0, no limit is imposed on ROS stacks. However, the default value in Terraform is used for Terraform stacks. In most cases, the default value in Terraform is 10.
-   *     *   If you leave this parameter empty, the value that you specified for this parameter in the previous request is used. If you left this parameter empty in the previous request, no limit is imposed on ROS stacks. However, the default value in Terraform is used for Terraform stacks. In most cases, the default value in Terraform is 10.
+   * - If ChangeSetType is set to UPDATE
+   * 
+   *   - If you set this parameter to an integer that is greater than 0, the integer is used.
+   * 
+   *   - If you set this parameter to 0, no limit is imposed on ROS stacks. For Terraform stacks, the default value of Terraform is used, which is 10.
+   * 
+   *   - If you do not set this parameter, the value that you specified in the previous operation is used. If you did not set this parameter in the previous operation, no limit is imposed on ROS stacks. For Terraform stacks, the default value of Terraform is used, which is 10.
    * 
    * @example
    * 1
@@ -237,12 +260,9 @@ export class CreateChangeSetRequest extends $dara.Model {
   parameters?: CreateChangeSetRequestParameters[];
   /**
    * @remarks
-   * The name of the Resource Access Management (RAM) role. ROS assumes the RAM role to create the stack and uses the credentials of the role to call the APIs of Alibaba Cloud services.\\
-   * ROS assumes the RAM role to perform operations on the stack. If you have permissions to perform operations on the stack, ROS assumes the RAM role even if you do not have permissions to use the RAM role. You must make sure that permissions are granted to the RAM role based on the principle of least privilege.\\
-   * If you do not specify this parameter, ROS assumes the existing role of the stack. If no roles are available, ROS uses a temporary credential that is generated from the credentials of your account.\\
-   * The RAM role name can be up to 64 characters in length.
+   * The RAM role name. ROS assumes this role to call Alibaba Cloud service APIs and always uses it for all stack operations. If you lack the required permissions, ROS assumes the role specified by RamRoleName. If unspecified, ROS uses the existing stack role. If no role is available, ROS uses a temporary credential from your account. Maximum length: 64 bytes.
    * 
-   * For more information about RAM roles, see [Use a stack role](https://help.aliyun.com/document_detail/2568025.html).
+   * [Stack roles](https://help.aliyun.com/document_detail/2568025.html).
    * 
    * @example
    * test-role
@@ -252,7 +272,7 @@ export class CreateChangeSetRequest extends $dara.Model {
    * @remarks
    * The region ID of the change set.
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/131035.html) operation to query the most recent region list.
+   * Call [DescribeRegions](https://help.aliyun.com/document_detail/131035.html) to query available regions.
    * 
    * This parameter is required.
    * 
@@ -262,29 +282,36 @@ export class CreateChangeSetRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * Specifies whether to enable replacement update if a resource property is changed and you cannot modify the new resource property. For a change, the physical ID of the resource remains unchanged. For a replacement update, the existing resource is deleted, a new resource is created, and the physical ID of the resource is changed. Valid values:
+   * Specifies whether to enable replacement update when a resource property change does not support modification updates. A replacement update deletes the existing resource and creates a new one with a new physical ID. Valid values:
    * 
-   * *   Enabled
-   * *   Disabled (default)
+   * - Enabled: enables replacement update.
    * 
-   * > Operations that you perform to modify the resource properties for an update take precedence over operations you perform to replace the resource properties for an update. This parameter takes effect only if you set ChangeSetType to UPDATE.
+   * - Disabled (default): disables replacement update.
+   * 
+   * > Modification updates are preferentially used. This parameter takes effect only when ChangeSetType is set to UPDATE.
    * 
    * @example
    * Disabled
    */
   replacementOption?: string;
+  /**
+   * @remarks
+   * The resource group ID. If unspecified, the stack is added to the default resource group. [What is a resource group?](https://help.aliyun.com/document_detail/94475.html).
+   * 
+   * @example
+   * rg-acfmxazb4ph6aiy****
+   */
   resourceGroupId?: string;
   /**
    * @remarks
-   * The resources that you want to import to the stack.
+   * The list of resources to be imported.
    */
   resourcesToImport?: CreateChangeSetRequestResourcesToImport[];
   /**
    * @remarks
-   * The ID of the stack for which you want to create the change set. ROS compares the stack information with the information that you submit, such as an updated template or parameter value, to generate the change set.\\
-   * You can call the [ListStacks](https://help.aliyun.com/document_detail/610818.html) operation to query the stack ID.
+   * The stack ID. ROS compares the stack information with the submitted changes, such as a modified template or different parameter values, to generate the change set. Call [ListStacks](https://help.aliyun.com/document_detail/610818.html) to query stack IDs.
    * 
-   * >  This parameter takes effect only when ChangeSetType is set to UPDATE or IMPORT.
+   * > This parameter takes effect only when ChangeSetType is set to UPDATE or IMPORT.
    * 
    * @example
    * 4a6c9851-3b0f-4f5f-b4ca-a14bf691****
@@ -292,10 +319,9 @@ export class CreateChangeSetRequest extends $dara.Model {
   stackId?: string;
   /**
    * @remarks
-   * The name of the stack for which you want to create the change set.\\
-   * The name can be up to 255 characters in length and can contain digits, letters, hyphens (-), and underscores (_). The name must start with a digit or a letter.
+   * The stack name. Maximum length: 255 characters. The name can contain digits, letters, hyphens (-), and underscores (_), and must start with a digit or letter.
    * 
-   * > This parameter takes effect only if you set ChangeSetType to CREATE or IMPORT.
+   * > This parameter takes effect only when ChangeSetType is set to CREATE or IMPORT.
    * 
    * @example
    * MyStack
@@ -303,16 +329,19 @@ export class CreateChangeSetRequest extends $dara.Model {
   stackName?: string;
   /**
    * @remarks
-   * The structure that contains the stack policy body. The policy body must be 1 to 16,384 bytes in length.
+   * The structure of the stack policy. The policy body must be 1 to 16,384 bytes in length.
    * 
-   * If you set ChangeSetType to **CREATE**, you can specify StackPolicyBody or StackPolicyURL.
+   * When ChangeSetType is set to **CREATE**, you can specify only one of the StackPolicyBody and StackPolicyURL parameters.
    * 
-   * If you set ChangeSetType to **UPDATE**, you can specify only one of the following parameters:
+   * When ChangeSetType is set to **UPDATE**, you can specify only one of the following parameters:
    * 
-   * *   StackPolicyBody
-   * *   StackPolicyURL
-   * *   StackPolicyDuringUpdateBody
-   * *   StackPolicyDuringUpdateURL
+   * - StackPolicyBody
+   * 
+   * - StackPolicyURL
+   * 
+   * - StackPolicyDuringUpdateBody
+   * 
+   * - StackPolicyDuringUpdateURL
    * 
    * @example
    * {"Statement":[{"Effect":"Allow","Action":"Update:*","Principal":"*","Resource":"*"}]}
@@ -320,14 +349,15 @@ export class CreateChangeSetRequest extends $dara.Model {
   stackPolicyBody?: string;
   /**
    * @remarks
-   * The structure of the temporary overriding stack policy. The policy body must be 1 to 16,384 bytes in length.\\
-   * If you need to update protected resources, specify a temporary overriding stack policy for the resources during the update. If you do not specify a temporary overriding stack policy, the existing stack policy that is associated with the stack is used.\\
-   * This parameter takes effect only if you set ChangeSetType to UPDATE. You can specify only one of the following parameters:
+   * The temporary overriding stack policy body. Length: 1 to 16,384 bytes. To update protected resources, specify a temporary overriding policy. If unspecified, the current stack policy applies. This parameter takes effect only when ChangeSetType is set to UPDATE. You can specify only one of the following parameters:
    * 
-   * *   StackPolicyBody
-   * *   StackPolicyURL
-   * *   StackPolicyDuringUpdateBody
-   * *   StackPolicyDuringUpdateURL
+   * - StackPolicyBody
+   * 
+   * - StackPolicyURL
+   * 
+   * - StackPolicyDuringUpdateBody
+   * 
+   * - StackPolicyDuringUpdateURL
    * 
    * @example
    * {"Statement":[{"Effect":"Allow","Action":"Update:*","Principal":"*","Resource":"*"}]}
@@ -335,17 +365,19 @@ export class CreateChangeSetRequest extends $dara.Model {
   stackPolicyDuringUpdateBody?: string;
   /**
    * @remarks
-   * The URL of the stack policy based on which the stack is updated. The URL must point to a policy that is located on an HTTP or HTTPS web server or in an OSS bucket, such as oss://ros/stack-policy/demo and oss://ros/stack-policy/demo?RegionId=cn-hangzhou. The policy file can be up to 16,384 bytes in length.
+   * The URL of the temporary overriding stack policy file. The URL must point to a policy on a web server (HTTP or HTTPS) or in an OSS bucket, such as oss\\://ros/stack-policy/demo or oss\\://ros/stack-policy/demo?RegionId=cn-hangzhou. Maximum policy file size: 16,384 bytes.
    * 
    * > If you do not specify the region of the OSS bucket, the value of RegionId is used.
    * 
-   * The URL can be up to 1,350 bytes in length.\\
-   * If you need to update protected resources, specify a temporary overriding stack policy for the resources during the update. If you do not specify a stack policy, the existing policy that is associated with the stack is used. This parameter takes effect only if you set ChangeSetType to UPDATE. You can specify only one of the following parameters:
+   * Maximum URL length: 1,350 bytes. To update protected resources, specify a temporary overriding stack policy. If unspecified, the current stack policy applies. This parameter takes effect only when ChangeSetType is set to UPDATE. You can specify only one of the following parameters:
    * 
-   * *   StackPolicyBody
-   * *   StackPolicyURL
-   * *   StackPolicyDuringUpdateBody
-   * *   StackPolicyDuringUpdateURL
+   * - StackPolicyBody
+   * 
+   * - StackPolicyURL
+   * 
+   * - StackPolicyDuringUpdateBody
+   * 
+   * - StackPolicyDuringUpdateURL
    * 
    * @example
    * oss://ros/stack-policy/demo
@@ -353,32 +385,43 @@ export class CreateChangeSetRequest extends $dara.Model {
   stackPolicyDuringUpdateURL?: string;
   /**
    * @remarks
-   * The URL of the file that contains the stack policy. The URL must point to a policy that is located on an HTTP or HTTPS web server or in an Object Storage Service (OSS) bucket, such as oss://ros/stack-policy/demo or oss://ros/stack-policy/demo?RegionId=cn-hangzhou. The policy file can be up to 16,384 bytes in length.
+   * The URL of the stack policy file. The URL must point to a policy on a web server (HTTP or HTTPS) or in an OSS bucket, such as oss\\://ros/stack-policy/demo or oss\\://ros/stack-policy/demo?RegionId=cn-hangzhou. Maximum policy file size: 16,384 bytes.
    * 
-   * The URL can be up to 1,350 bytes in length.
+   * Maximum URL length: 1,350 bytes.
    * 
-   * >  If you do not specify the region ID of the OSS bucket, the value of RegionId is used.
+   * > If you do not specify the region of the OSS bucket, the value of RegionId is used.
    * 
-   * If you set ChangeSetType to **CREATE**, you can specify StackPolicyBody or StackPolicyURL.
+   * When ChangeSetType is set to **CREATE**, you can specify only one of the StackPolicyBody and StackPolicyURL parameters.
    * 
-   * If you set ChangeSetType to **UPDATE**, you can specify only one of the following parameters:
+   * When ChangeSetType is set to **UPDATE**, you can specify only one of the following parameters:
    * 
-   * *   StackPolicyBody
-   * *   StackPolicyURL
-   * *   StackPolicyDuringUpdateBody
-   * *   StackPolicyDuringUpdateURL
+   * - StackPolicyBody
+   * 
+   * - StackPolicyURL
+   * 
+   * - StackPolicyDuringUpdateBody
+   * 
+   * - StackPolicyDuringUpdateURL
    * 
    * @example
    * oss://ros/stack-policy/demo
    */
   stackPolicyURL?: string;
+  /**
+   * @remarks
+   * The tags of the change set.
+   */
   tags?: CreateChangeSetRequestTags[];
+  /**
+   * @remarks
+   * The list of resources to be marked as dirty.
+   */
   taintResources?: string[];
   /**
    * @remarks
-   * The structure that contains the template body. The template body must be 1 to 524,288 bytes in length. If the length of the template body exceeds the upper limit, we recommend that you add parameters to the HTTP POST request body to prevent request failures caused by excessively long URLs.
+   * The template body. Length: 1 to 524,288 bytes. For large templates, use HTTP POST with a body parameter to avoid URL length limits.
    * 
-   * >  You must and can specify only one of the following parameters: TemplateBody, TemplateURL, and TemplateId.
+   * > You can specify only one of the TemplateBody, TemplateURL, and TemplateId parameters.
    * 
    * @example
    * {"ROSTemplateFormatVersion":"2015-09-01"}
@@ -388,9 +431,9 @@ export class CreateChangeSetRequest extends $dara.Model {
    * @remarks
    * The template ID. This parameter applies to shared templates and private templates.
    * 
-   * You can call the [ListTemplates](https://help.aliyun.com/document_detail/610842.html) operation to query the template ID.
+   * Call [ListTemplates](https://help.aliyun.com/document_detail/610842.html) to query template IDs.
    * 
-   * >  You can specify only one of the following parameters: TemplateBody, TemplateURL, and TemplateId.
+   * > You can specify only one of the TemplateBody, TemplateURL, and TemplateId parameters.
    * 
    * @example
    * 5ecd1e10-b0e9-4389-a565-e4c15efc****
@@ -398,13 +441,13 @@ export class CreateChangeSetRequest extends $dara.Model {
   templateId?: string;
   /**
    * @remarks
-   * The ID of the resource scenario. In this example, this parameter specifies the ID of a resource management scenario.
+   * The resource scenario ID, which is the resource management scenario ID.
    * 
-   * This parameter takes effect only when ChangeSetType is set to IMPORT. TemplateScratchId is supported only when you import resources to create a new stack.
+   * This parameter takes effect only when ChangeSetType is set to IMPORT. This parameter supports only the creation of new stacks for resource import.
    * 
-   * If you want to use a resource management scenario to import resources, you can specify only TemplateScratchId rather than configuring parameters related to templates.
+   * If you want to import resources in a resource management scenario, specify only this parameter. Do not specify parameters related to templates.
    * 
-   * You can call the [ListTemplateScratches](https://help.aliyun.com/document_detail/610832.html) operation to query the ID of the resource management scenario.
+   * Call [ListTemplateScratches](https://help.aliyun.com/document_detail/610832.html) to query scenario IDs.
    * 
    * @example
    * 4a6c9851-3b0f-4f5f-b4ca-a14bf691****
@@ -412,11 +455,11 @@ export class CreateChangeSetRequest extends $dara.Model {
   templateScratchId?: string;
   /**
    * @remarks
-   * The URL of the file that contains the template body. The URL must point to a template that is located on an HTTP or HTTPS web server or in an OSS bucket, such as oss://ros/template/demo and oss://ros/template/demo?RegionId=cn-hangzhou. The template body can be up to 524,288 bytes in length.
+   * The URL of the template file. The URL must point to a template on a web server (HTTP or HTTPS) or in an OSS bucket, such as oss\\://ros/template/demo or oss\\://ros/template/demo?RegionId=cn-hangzhou. Maximum template body size: 524,288 bytes.
    * 
    * > If you do not specify the region of the OSS bucket, the value of RegionId is used.
    * 
-   * You can specify only one of the following parameters: TemplateBody, TemplateURL, and TemplateId.
+   * You can specify only one of the TemplateBody, TemplateURL, and TemplateId parameters.
    * 
    * The URL can be up to 1,024 bytes in length.
    * 
@@ -428,7 +471,7 @@ export class CreateChangeSetRequest extends $dara.Model {
    * @remarks
    * The version of the template.
    * 
-   * > This parameter takes effect only if you specify TemplateId.
+   * > This parameter takes effect only when TemplateId is specified.
    * 
    * @example
    * v1
@@ -436,12 +479,13 @@ export class CreateChangeSetRequest extends $dara.Model {
   templateVersion?: string;
   /**
    * @remarks
-   * The amount of time that can elapse before the stack enters the CREATE_FAILED or UPDATE_FAILED state.\\
-   * If you set ChangeSetType to CREATE, this parameter is required. If you set ChangeSetType to UPDATE, this parameter is optional.
+   * The timeout period before the stack enters CREATE_FAILED or UPDATE_FAILED state. Required when ChangeSetType is CREATE. Optional when ChangeSetType is UPDATE.
    * 
-   * *   Unit: minutes.
-   * *   Valid values: 10 to 1440.
-   * *   Default value: 60.
+   * - Unit: minutes.
+   * 
+   * - Valid values: 10 to 1440.
+   * 
+   * - Default value: 60.
    * 
    * @example
    * 12
@@ -449,12 +493,13 @@ export class CreateChangeSetRequest extends $dara.Model {
   timeoutInMinutes?: number;
   /**
    * @remarks
-   * Specifies whether to use the values that were passed last time for the parameters that you do not specify in the current request. Valid values:
+   * Specifies whether to use the values of parameters that were last used. Valid values:
    * 
-   * *   true
-   * *   false (default)
+   * - true
    * 
-   * > This parameter takes effect only if you set ChangeSetType to UPDATE or IMPORT.
+   * - false (default)
+   * 
+   * > This parameter takes effect only when ChangeSetType is set to UPDATE or IMPORT.
    * 
    * @example
    * true

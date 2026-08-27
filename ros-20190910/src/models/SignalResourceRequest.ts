@@ -49,9 +49,11 @@ export class SignalResourceRequest extends $dara.Model {
    * @remarks
    * The status of the signal. Failure signals can cause stack creation or update to fail. If all signals are warnings, the stack cannot be created or updated. Valid values:
    * 
-   * *   SUCCESS
-   * *   FAILURE
-   * *   WARNING
+   * - SUCCESS
+   * 
+   * - FAILURE
+   * 
+   * - WARNING
    * 
    * This parameter is required.
    * 

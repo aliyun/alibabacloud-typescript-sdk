@@ -16,7 +16,7 @@ export class ListAITasksResponseBodyTasks extends $dara.Model {
    * The description of the AI task.
    * 
    * @example
-   * Create an ECS instance and deploy the Nginx service.
+   * Create an ECS instance and deploy an Nginx service
    */
   prompt?: string;
   /**
