@@ -197,7 +197,7 @@ export class TongyiChatDebugInfoResponseBodyAnswerInfo extends $dara.Model {
 export class TongyiChatDebugInfoResponseBodyPipeline extends $dara.Model {
   /**
    * @remarks
-   * The input data for the node.
+   * The debugging input information.
    * 
    * @example
    * 用户问句：转人工\\n命中规则：[转]人工[客服|服务|坐席]
@@ -205,15 +205,12 @@ export class TongyiChatDebugInfoResponseBodyPipeline extends $dara.Model {
   input?: any;
   /**
    * @remarks
-   * The name of the strategy. Possible values include:
+   * The Policy Name. Valid values:
+   * - High-frequency Q&A direct response
+   * - Keyword-based transfer to agent
+   * - Global sensitive words
    * 
-   * - FAQ
-   * 
-   * - Hit Keywords
-   * 
-   * - Global Sensitive Words
-   * 
-   * This parameter is returned only when `NodeType` is set to `system_strategy`.
+   * This field is returned only when NodeType is system_strategy.
    * 
    * @example
    * 关键词转人工
@@ -222,14 +219,10 @@ export class TongyiChatDebugInfoResponseBodyPipeline extends $dara.Model {
   /**
    * @remarks
    * The node type. Valid values:
-   * 
-   * - **system_strategy**: system strategy.
-   * 
-   * - **rewrite_query**: retrieval query.
-   * 
-   * - **invoke_llm**: LLM invocation.
-   * 
-   * - **invoke_tools**: tool invocation.
+   * * **system_strategy**: system strategy.
+   * * **rewrite_query**: retrieval query.
+   * * **invoke_llm**: LLM invocation.
+   * * **invoke_tools**: tool calling.
    * 
    * @example
    * system_strategy
@@ -237,7 +230,7 @@ export class TongyiChatDebugInfoResponseBodyPipeline extends $dara.Model {
   nodeType?: string;
   /**
    * @remarks
-   * The output data from the node.
+   * The output information.
    * 
    * @example
    * commands:{\\"sysToAgent\\":\\"{\\\\\\"skillGroup\\\\\\":\\\\\\"\\\\\\",\\\\\\"ext\\\\\\":\\\\\\"\\\\\\",\\\\\\"toAgentReason\\\\\\":\\\\\\"HitKeywords\\\\\\"}\\"}\\nresponse:正在为您转接人工客服
@@ -282,23 +275,25 @@ export class TongyiChatDebugInfoResponseBody extends $dara.Model {
   messageId?: string;
   /**
    * @remarks
-   * The array of nodes that constitute the Q\\&A workflow.
+   * The information about the entire Q&A pipeline.
    */
   pipeline?: TongyiChatDebugInfoResponseBodyPipeline[];
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * E3E5C779-A630-45AC-B0F2-A4506A4212F1
    */
   requestId?: string;
+  sessionId?: string;
   static names(): { [key: string]: string } {
     return {
       answerInfo: 'AnswerInfo',
       messageId: 'MessageId',
       pipeline: 'Pipeline',
       requestId: 'RequestId',
+      sessionId: 'SessionId',
     };
   }
 
@@ -308,6 +303,7 @@ export class TongyiChatDebugInfoResponseBody extends $dara.Model {
       messageId: 'string',
       pipeline: { 'type': 'array', 'itemType': TongyiChatDebugInfoResponseBodyPipeline },
       requestId: 'string',
+      sessionId: 'string',
     };
   }
 

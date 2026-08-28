@@ -11,7 +11,10 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApiUtil.Config) {
     super(config);
-    this._endpointRule = "";
+    this._endpointRule = "regional";
+    this._endpointMap = {
+      'cn-shanghai': "chatbot.cn-shanghai.aliyuncs.com",
+    };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("chatbot", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
@@ -4532,10 +4535,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * This operation returns debugging information for the large language model (LLM) Q&A process.
+   * Debugging information for large language model Q&A.
    * 
    * @remarks
-   * This operation supports only the latest version of chatbots and can query data from only the last 90 days.
+   * Only supported for new version chatbots. Only data within the last 90 days can be queried.
    * 
    * @param request - TongyiChatDebugInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4574,10 +4577,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * This operation returns debugging information for the large language model (LLM) Q&A process.
+   * Debugging information for large language model Q&A.
    * 
    * @remarks
-   * This operation supports only the latest version of chatbots and can query data from only the last 90 days.
+   * Only supported for new version chatbots. Only data within the last 90 days can be queried.
    * 
    * @param request - TongyiChatDebugInfoRequest
    * @returns TongyiChatDebugInfoResponse
