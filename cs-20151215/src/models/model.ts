@@ -222,6 +222,9 @@ export { ListClusterInspectReportsResponseBodyReports } from './ListClusterInspe
 export { ListClusterKubeconfigStatesResponseBodyPage } from './ListClusterKubeconfigStatesResponseBody';
 export { ListClusterKubeconfigStatesResponseBodyStatesCloudServiceRoles } from './ListClusterKubeconfigStatesResponseBody';
 export { ListClusterKubeconfigStatesResponseBodyStates } from './ListClusterKubeconfigStatesResponseBody';
+export { ListNodePoolComponentInstanceNodesResponseBodyNodeListComponentConfig } from './ListNodePoolComponentInstanceNodesResponseBody';
+export { ListNodePoolComponentInstanceNodesResponseBodyNodeListComponent } from './ListNodePoolComponentInstanceNodesResponseBody';
+export { ListNodePoolComponentInstanceNodesResponseBodyNodeList } from './ListNodePoolComponentInstanceNodesResponseBody';
 export { ListNodePoolComponentInstancesResponseBodyComponentInstancesConfigEnvs } from './ListNodePoolComponentInstancesResponseBody';
 export { ListNodePoolComponentInstancesResponseBodyComponentInstancesConfig } from './ListNodePoolComponentInstancesResponseBody';
 export { ListNodePoolComponentInstancesResponseBodyComponentInstances } from './ListNodePoolComponentInstancesResponseBody';
@@ -525,6 +528,10 @@ export { ListClusterInspectReportsResponse } from './ListClusterInspectReportsRe
 export { ListClusterKubeconfigStatesRequest } from './ListClusterKubeconfigStatesRequest';
 export { ListClusterKubeconfigStatesResponseBody } from './ListClusterKubeconfigStatesResponseBody';
 export { ListClusterKubeconfigStatesResponse } from './ListClusterKubeconfigStatesResponse';
+export { ListNodePoolComponentInstanceNodesRequest } from './ListNodePoolComponentInstanceNodesRequest';
+export { ListNodePoolComponentInstanceNodesShrinkRequest } from './ListNodePoolComponentInstanceNodesShrinkRequest';
+export { ListNodePoolComponentInstanceNodesResponseBody } from './ListNodePoolComponentInstanceNodesResponseBody';
+export { ListNodePoolComponentInstanceNodesResponse } from './ListNodePoolComponentInstanceNodesResponse';
 export { ListNodePoolComponentInstancesRequest } from './ListNodePoolComponentInstancesRequest';
 export { ListNodePoolComponentInstancesResponseBody } from './ListNodePoolComponentInstancesResponseBody';
 export { ListNodePoolComponentInstancesResponse } from './ListNodePoolComponentInstancesResponse';

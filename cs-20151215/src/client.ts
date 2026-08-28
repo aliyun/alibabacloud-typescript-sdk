@@ -5459,6 +5459,73 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询节点组件在节点上的状态
+   * 
+   * @param tmpReq - ListNodePoolComponentInstanceNodesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListNodePoolComponentInstanceNodesResponse
+   */
+  async listNodePoolComponentInstanceNodesWithOptions(clusterId: string, nodepoolId: string, name: string, tmpReq: $_model.ListNodePoolComponentInstanceNodesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListNodePoolComponentInstanceNodesResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListNodePoolComponentInstanceNodesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.nodeNames)) {
+      request.nodeNamesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.nodeNames, "node_names", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.configRevision)) {
+      query["config_revision"] = request.configRevision;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["max_results"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["next_token"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.nodeNamesShrink)) {
+      query["node_names"] = request.nodeNamesShrink;
+    }
+
+    if (!$dara.isNull(request.version)) {
+      query["version"] = request.version;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListNodePoolComponentInstanceNodes",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/clusters/${$dara.URL.percentEncode(clusterId)}/nodepools/${$dara.URL.percentEncode(nodepoolId)}/component_instances/${$dara.URL.percentEncode(name)}/nodes`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListNodePoolComponentInstanceNodesResponse>(await this.callApi(params, req, runtime), new $_model.ListNodePoolComponentInstanceNodesResponse({}));
+  }
+
+  /**
+   * 查询节点组件在节点上的状态
+   * 
+   * @param request - ListNodePoolComponentInstanceNodesRequest
+   * @returns ListNodePoolComponentInstanceNodesResponse
+   */
+  async listNodePoolComponentInstanceNodes(clusterId: string, nodepoolId: string, name: string, request: $_model.ListNodePoolComponentInstanceNodesRequest): Promise<$_model.ListNodePoolComponentInstanceNodesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listNodePoolComponentInstanceNodesWithOptions(clusterId, nodepoolId, name, request, headers, runtime);
+  }
+
+  /**
    * 查询节点组件实例列表
    * 
    * @param request - ListNodePoolComponentInstancesRequest
