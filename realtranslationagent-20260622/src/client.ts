@@ -399,17 +399,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Submits a translation task. You can submit a new translation task by passing in a TaskId, or resubmit a historical task for translation by passing in a BaseTaskId. After successful submission, the translation task ID and current task status are returned. You can use the task ID to call subsequent operations to query the translation progress and results.
+   * Submits a translation task. You can submit a new translation task by passing in a TaskId, or resubmit a historical task for translation by passing in a BaseTaskId. After successful submission, the translation task ID and current task status are returned. You can use the task ID to call subsequent operations to query translation progress and results.
    * 
    * @remarks
-   * *Billing**
+   * *Billing description**
    * This operation involves Credits consumption. Before submitting a translation task, ensure that your account has sufficient Credits balance. After calling `UploadTranslationFile`, you can check the `CreditsAvailable` field in the response to confirm whether your current balance meets the requirements of this translation task. For detailed billing information, refer to the `CreditBreakdown` field.
-   * **Task submission**
+   * **Task submission description**
    * - To submit a new translation task, pass in the `TaskId` returned by the `UploadTranslationFile` operation.
-   * - To resubmit a historical task for translation, pass in the task ID of a previously submitted translation task as `BaseTaskId`.
+   * - To resubmit a historical task for translation, pass in the task ID of a previously submitted translation task, which is the `BaseTaskId`.
    * - You must pass in either `TaskId` or `BaseTaskId`. You cannot pass in both at the same time.
    * **Precautions**
-   * - The `Style` parameter takes effect only when the translation file is a PPT file. Passing in this parameter for other file formats has no effect.
+   * - The `Style` parameter takes effect only when the translation file is a PPT file. Passing in this parameter for files in other formats has no effect.
    * - For new tasks, you can obtain the list of available fonts from the `Fonts` field in the response of `UploadTranslationFile`. For retranslation of historical tasks, you can obtain the list of available fonts by calling the `GetTranslationTask` operation.
    * 
    * @param tmpReq - SubmitTranslationTaskRequest
@@ -469,17 +469,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Submits a translation task. You can submit a new translation task by passing in a TaskId, or resubmit a historical task for translation by passing in a BaseTaskId. After successful submission, the translation task ID and current task status are returned. You can use the task ID to call subsequent operations to query the translation progress and results.
+   * Submits a translation task. You can submit a new translation task by passing in a TaskId, or resubmit a historical task for translation by passing in a BaseTaskId. After successful submission, the translation task ID and current task status are returned. You can use the task ID to call subsequent operations to query translation progress and results.
    * 
    * @remarks
-   * *Billing**
+   * *Billing description**
    * This operation involves Credits consumption. Before submitting a translation task, ensure that your account has sufficient Credits balance. After calling `UploadTranslationFile`, you can check the `CreditsAvailable` field in the response to confirm whether your current balance meets the requirements of this translation task. For detailed billing information, refer to the `CreditBreakdown` field.
-   * **Task submission**
+   * **Task submission description**
    * - To submit a new translation task, pass in the `TaskId` returned by the `UploadTranslationFile` operation.
-   * - To resubmit a historical task for translation, pass in the task ID of a previously submitted translation task as `BaseTaskId`.
+   * - To resubmit a historical task for translation, pass in the task ID of a previously submitted translation task, which is the `BaseTaskId`.
    * - You must pass in either `TaskId` or `BaseTaskId`. You cannot pass in both at the same time.
    * **Precautions**
-   * - The `Style` parameter takes effect only when the translation file is a PPT file. Passing in this parameter for other file formats has no effect.
+   * - The `Style` parameter takes effect only when the translation file is a PPT file. Passing in this parameter for files in other formats has no effect.
    * - For new tasks, you can obtain the list of available fonts from the `Fonts` field in the response of `UploadTranslationFile`. For retranslation of historical tasks, you can obtain the list of available fonts by calling the `GetTranslationTask` operation.
    * 
    * @param request - SubmitTranslationTaskRequest

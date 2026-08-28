@@ -6,6 +6,14 @@ export class SubmitTranslationTaskRequestConfig extends $dara.Model {
   agent?: string;
   /**
    * @remarks
+   * The agent ID passed to the Agent Console platform.
+   * 
+   * @example
+   * app-11111111
+   */
+  agentId?: string;
+  /**
+   * @remarks
    * The font.
    * - For new tasks, obtain this from UploadTranslationFile.
    * - For retranslation of historical tasks, obtain this from GetTranslationTask.
@@ -26,7 +34,7 @@ export class SubmitTranslationTaskRequestConfig extends $dara.Model {
   sourceLanguage?: string;
   /**
    * @remarks
-   * The translation style. This parameter takes effect only when the translation file is a PPT file.
+   * The translation style. Takes effect only when the translation file is a PPT file.
    * 
    * @example
    * minimal
@@ -45,6 +53,7 @@ export class SubmitTranslationTaskRequestConfig extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       agent: 'Agent',
+      agentId: 'AgentId',
       font: 'Font',
       sourceLanguage: 'SourceLanguage',
       style: 'Style',
@@ -55,6 +64,7 @@ export class SubmitTranslationTaskRequestConfig extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       agent: 'string',
+      agentId: 'string',
       font: 'string',
       sourceLanguage: 'string',
       style: 'string',
@@ -114,7 +124,7 @@ export class SubmitTranslationTaskRequestCustomTerms extends $dara.Model {
 export class SubmitTranslationTaskRequest extends $dara.Model {
   /**
    * @remarks
-   * The API key that is the identity of the member accounts. You can obtain this from the RuiYiBao console.
+   * The API key that identifies the identity of the member account. You can obtain this from the RuiYiBao console.
    * 
    * @example
    * ***
@@ -122,7 +132,7 @@ export class SubmitTranslationTaskRequest extends $dara.Model {
   APIKey?: string;
   /**
    * @remarks
-   * The task ID of a previously submitted translation task. Pass in this parameter when resubmitting a translation task.
+   * The translation task ID of a previously submitted translation task. Pass in this parameter when resubmitting a translation task.
    * - You must pass in either this parameter or TaskId.
    * 
    * @example
@@ -147,7 +157,7 @@ export class SubmitTranslationTaskRequest extends $dara.Model {
   /**
    * @remarks
    * The custom terms.
-   * >Notice: Custom terms are for reference only. The actual translation results may differ. Refer to the final output as the definitive result.</notice>
+   * >Notice: Custom terms are for reference only. Actual translation results may differ. Refer to the final output for the definitive result.</notice>
    * 
    * @example
    * [{"SourceTerm":"dog", "TargetTerm":"dog"}]
