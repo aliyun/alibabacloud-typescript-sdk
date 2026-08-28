@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ImageRemoveResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The height of the result image, in pixels.
+   * The height of the result image in pixels.
    * 
    * @example
    * 800
@@ -13,10 +13,11 @@ export class ImageRemoveResponseBodyData extends $dara.Model {
   height?: number;
   /**
    * @remarks
-   * The URL of the result image after erasure.
+   * The URL of the result image after removal.
    * 
    * @example
-   * http://dashscope-7c2c.oss-cn-shanghai.aliyuncs.com/xxx.jpg
+   * “http://dashscope-7c2c.oss-cn-shanghai.aliyuncs.com/xxx.jpg
+   * ”
    */
   imageUrl?: string;
   /**
@@ -29,7 +30,7 @@ export class ImageRemoveResponseBodyData extends $dara.Model {
   usageMap?: { [key: string]: number };
   /**
    * @remarks
-   * The width of the result image, in pixels.
+   * The width of the result image in pixels.
    * 
    * @example
    * 800
@@ -68,15 +69,15 @@ export class ImageRemoveResponseBodyData extends $dara.Model {
 export class ImageRemoveResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code.
+   * The status code.
    * 
    * @example
-   * 200
+   * "success"
    */
   code?: string;
   /**
    * @remarks
-   * The intelligent erasure result.
+   * The intelligent removal result.
    */
   data?: ImageRemoveResponseBodyData;
   /**
@@ -84,7 +85,7 @@ export class ImageRemoveResponseBody extends $dara.Model {
    * The error message.
    * 
    * @example
-   * OK
+   * “The parameters contain sensitive information, please try other inputs”
    */
   message?: string;
   /**

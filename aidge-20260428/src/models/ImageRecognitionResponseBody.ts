@@ -168,7 +168,7 @@ export class ImageRecognitionResponseBodyData extends $dara.Model {
 export class ImageRecognitionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. This parameter is not returned if the call is successful.
+   * The error code. This parameter is not returned for successful calls.
    * 
    * @example
    * 200
@@ -181,7 +181,7 @@ export class ImageRecognitionResponseBody extends $dara.Model {
   data?: ImageRecognitionResponseBodyData;
   /**
    * @remarks
-   * The error message. This parameter is not returned if the call is successful.
+   * The error message. This parameter is not returned for successful calls.
    * 
    * @example
    * OK

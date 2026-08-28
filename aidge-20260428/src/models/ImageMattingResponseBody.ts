@@ -108,6 +108,7 @@ export class ImageMattingResponseBody extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the call is successful. Valid values:
+   * 
    * - true: Successful.
    * - false: Failed.
    * 

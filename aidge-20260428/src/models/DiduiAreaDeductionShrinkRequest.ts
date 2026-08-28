@@ -12,7 +12,7 @@ export class DiduiAreaDeductionShrinkRequest extends $dara.Model {
   productsShrink?: string;
   /**
    * @remarks
-   * The ID of the customer-specific SKU vector database that determines which database is used for retrieval. The database must be created in advance through the database creation process.
+   * The ID of the customer-specific SKU vector store that determines which store is used for retrieval. The store must be created in advance through the store creation process.
    * 
    * @example
    * rag_xxx

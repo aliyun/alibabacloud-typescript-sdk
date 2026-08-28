@@ -13,7 +13,7 @@ export class MerchandisePlacementDetectionRequest extends $dara.Model {
   apiId?: string;
   /**
    * @remarks
-   * The URL of the shelf or floor-stack image to be recognized (accessible via the public network or OSS).
+   * The URL of the shelf or floor-stack image to be recognized (accessible over the public network or from OSS).
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class MerchandisePlacementDetectionRequest extends $dara.Model {
   imageUrl?: string;
   /**
    * @remarks
-   * The customer-specific SKU vector library ID that determines which library to retrieve from. The library must be created in advance through the library creation process.
+   * The ID of the customer\\"s dedicated SKU vector library, which determines which library is used for retrieval. The library must be created in advance through the library creation process.
    * 
    * @example
    * rag_xxx
@@ -31,10 +31,10 @@ export class MerchandisePlacementDetectionRequest extends $dara.Model {
   ragId?: string;
   /**
    * @remarks
-   * The business type (reserved for future routing by business line). The current release supports skincare & lotion.
+   * The business type (reserved for future routing by business line). The current phase supports skincare & lotion.
    * 
    * @example
-   * Lotion.
+   * 水乳
    */
   type?: string;
   static names(): { [key: string]: string } {

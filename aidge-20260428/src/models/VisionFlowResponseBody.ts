@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class VisionFlowResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The asynchronous task ID. Use this ID to query the processing result through QueryAsyncTaskResult.
+   * The asynchronous task ID, used to query processing results later through QueryAsyncTaskResult.
    * 
    * @example
    * e4c48e88-3c34-91e3-ab8a-08484dc4d402
@@ -43,7 +43,7 @@ export class VisionFlowResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The submit status data of the asynchronous task, which contains the asynchronous task ID.
+   * The asynchronous task submit status data, which contains the asynchronous task ID.
    */
   data?: VisionFlowResponseBodyData;
   /**
@@ -56,7 +56,7 @@ export class VisionFlowResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID, which uniquely identifies the API call.
+   * The request ID, used to uniquely identify a single API call.
    * 
    * @example
    * F3E65785-0180-1227-91B0-2F5F52F679FB
@@ -64,7 +64,7 @@ export class VisionFlowResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call is successful. Valid values: true and false.
+   * Indicates whether the call is successful. A value of true indicates success. A value of false indicates failure.
    * 
    * @example
    * true

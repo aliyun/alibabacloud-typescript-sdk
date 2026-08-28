@@ -7,7 +7,7 @@ import * as $dara from '@darabonba/typescript';
 export class AssetOptimizeLiteResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Asynchronous task ID, used for subsequent result queries
+   * The asynchronous task ID, used to query results later.
    * 
    * @example
    * task-xxxxxx
@@ -37,7 +37,7 @@ export class AssetOptimizeLiteResponseBodyData extends $dara.Model {
 export class AssetOptimizeLiteResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Error code
+   * The error code.
    * 
    * @example
    * 200
@@ -45,12 +45,12 @@ export class AssetOptimizeLiteResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Asynchronous task submission result
+   * The submit result of the asynchronous task.
    */
   data?: AssetOptimizeLiteResponseBodyData;
   /**
    * @remarks
-   * Error message
+   * The error message.
    * 
    * @example
    * OK
@@ -66,7 +66,7 @@ export class AssetOptimizeLiteResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Whether the call was successful
+   * Indicates whether the call is successful.
    * 
    * @example
    * True

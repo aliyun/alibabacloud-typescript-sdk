@@ -5,17 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class CategoryMatchRequest extends $dara.Model {
   /**
    * @remarks
-   * The product details.
+   * The product description.
    * 
    * This parameter is required.
    * 
    * @example
-   * 真丝，春季新款
+   * Silk, new spring style
    */
   description?: string;
   /**
    * @remarks
-   * The product attributes that describe the characteristics of the product, such as material. Specify the attribute names and attribute values.
+   * The product attributes that describe the characteristics of the product, such as material. Provide the attribute names and values.
    * 
    * @example
    * 材质:涤纶,适用对象:通用,品牌:艾马逊AMASON PET
@@ -23,7 +23,7 @@ export class CategoryMatchRequest extends $dara.Model {
   itemSpec?: string;
   /**
    * @remarks
-   * The SKU title of the product.
+   * The product SKU title.
    * 
    * @example
    * 0:0:颜色:黑(不含定位器);0:1:颜色:智能定位(不含项圈);0:2:颜色:范围定位(不含项圈);0:3:颜色:蓝(不含定位器);0:4:颜色:橙(不含定位器);0:5:颜色:粉(不含定位器);0:6:颜色:红(不含定位器);0:7:颜色:黄(不含定位器);0:8:颜色:紫(不含定位器)
@@ -36,12 +36,12 @@ export class CategoryMatchRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 衣服
+   * Clothing
    */
   sourceCategory?: string;
   /**
    * @remarks
-   * The source platform from which products are sourced.
+   * The source platform where products are sourced from.
    * 
    * This parameter is required.
    * 
@@ -51,7 +51,7 @@ export class CategoryMatchRequest extends $dara.Model {
   sourcePlatform?: string;
   /**
    * @remarks
-   * The target listing platform. Currently, only temu is supported.
+   * The target listing platform. Currently only temu is supported.
    * 
    * This parameter is required.
    * 
@@ -66,7 +66,7 @@ export class CategoryMatchRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 女士春季新款衣服
+   * Women\\"s new spring clothing
    */
   title?: string;
   static names(): { [key: string]: string } {

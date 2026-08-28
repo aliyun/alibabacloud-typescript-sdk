@@ -78,6 +78,7 @@ export class SizeChartDetectResponseBody extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the call is successful. Valid values:
+   * 
    * - true: The call is successful.
    * - false: The call failed.
    * 

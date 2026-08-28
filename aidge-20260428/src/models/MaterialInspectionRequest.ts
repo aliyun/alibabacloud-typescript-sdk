@@ -13,7 +13,7 @@ export class MaterialInspectionRequest extends $dara.Model {
   apiId?: string;
   /**
    * @remarks
-   * The URL of the reference image. When this parameter is not empty, multi-image comparison mode is used.
+   * The URL of the reference image. Optional. When this parameter is not empty, the system performs multi-image differential comparison.
    * 
    * @example
    * https://example.com/reference.jpg
@@ -21,7 +21,7 @@ export class MaterialInspectionRequest extends $dara.Model {
   imageRefer?: string;
   /**
    * @remarks
-   * The URL of the target image to inspect.
+   * The URL of the target image to be inspected.
    * 
    * This parameter is required.
    * 
@@ -31,7 +31,7 @@ export class MaterialInspectionRequest extends $dara.Model {
   imageUrl?: string;
   /**
    * @remarks
-   * The business request identity. This value is returned as-is in the response for Tracing Analysis purposes.
+   * The business request identity. Optional. This value is returned as-is in the response for Tracing Analysis purposes.
    * 
    * @example
    * req-2026-06-04-001
@@ -39,10 +39,10 @@ export class MaterialInspectionRequest extends $dara.Model {
   reqId?: string;
   /**
    * @remarks
-   * The rule prompt in natural language that defines the inspection criteria.
+   * The rule prompt in natural language that describes the inspection criteria.
    * 
    * @example
-   * 门型展架必须摆放在入口区域；功能台卡必须摆放在中柜台面
+   * The door-shaped display stand must be placed in the entrance area; the functional display card must be placed on the counter surface
    */
   rules?: string;
   static names(): { [key: string]: string } {

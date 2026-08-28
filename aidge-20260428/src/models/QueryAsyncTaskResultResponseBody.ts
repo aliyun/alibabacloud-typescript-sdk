@@ -13,7 +13,7 @@ export class QueryAsyncTaskResultResponseBodyData extends $dara.Model {
   result?: string;
   /**
    * @remarks
-   * The status of the task.
+   * The task status.
    * 
    * @example
    * COMPLETED
@@ -21,7 +21,7 @@ export class QueryAsyncTaskResultResponseBodyData extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The ID of the downstream task.
+   * The downstream task ID.
    * 
    * @example
    * task-xxxxx
@@ -73,7 +73,7 @@ export class QueryAsyncTaskResultResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The asynchronous node result.
+   * The asynchronous task result.
    */
   data?: QueryAsyncTaskResultResponseBodyData;
   /**
@@ -94,8 +94,8 @@ export class QueryAsyncTaskResultResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful. Valid values:
-   * - true: The call was successful.
+   * Indicates whether the call is successful. Valid values:
+   * - true: The call is successful.
    * - false: The call failed.
    * 
    * @example

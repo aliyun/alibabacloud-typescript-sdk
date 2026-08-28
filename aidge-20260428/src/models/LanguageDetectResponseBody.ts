@@ -48,7 +48,7 @@ export class LanguageDetectResponseBodyData extends $dara.Model {
 export class LanguageDetectResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code. A value of 200 indicates success. For other response codes, refer to the error code documentation.
+   * The response code. A value of 200 indicates a successful call. For other response codes, refer to the error code information.
    * 
    * @example
    * 200
@@ -56,12 +56,12 @@ export class LanguageDetectResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The language detection result data, including the detected language and usage information.
+   * The language identification result data, including the detected language and usage information.
    */
   data?: LanguageDetectResponseBodyData;
   /**
    * @remarks
-   * The error message. Returns "Success" for successful calls. Returns a specific error message for failed calls, such as "The parameters contain sensitive information. Try other input.".
+   * The error message. "Success" is returned for a successful call. A specific error message is returned for a failed call, such as "The parameters contain sensitive information. Try other input."
    * 
    * @example
    * Success
@@ -77,9 +77,7 @@ export class LanguageDetectResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful. Valid values:
-   * - true: Successful.
-   * - false: Failed.
+   * Indicates whether the call is successful. A value of true indicates success. A value of false indicates failure.
    * 
    * @example
    * true

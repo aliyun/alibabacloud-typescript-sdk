@@ -13,7 +13,7 @@ export class CategoryAttributeMatchResponseBodyDataAttributes extends $dara.Mode
   attrId?: number;
   /**
    * @remarks
-   * The matching confidence score. Valid values: 0 to 100.
+   * The matching confidence score, ranging from 0 to 100.
    * 
    * @example
    * 50
@@ -21,7 +21,7 @@ export class CategoryAttributeMatchResponseBodyDataAttributes extends $dara.Mode
   confidence?: number;
   /**
    * @remarks
-   * The input type of the attribute.
+   * The attribute input type.
    * 
    * @example
    * 单选下拉
@@ -53,7 +53,7 @@ export class CategoryAttributeMatchResponseBodyDataAttributes extends $dara.Mode
   nameEn?: string;
   /**
    * @remarks
-   * The reason for the matching result.
+   * The explanation for the matching result.
    * 
    * @example
    * a_reason
@@ -198,7 +198,7 @@ export class CategoryAttributeMatchResponseBodyData extends $dara.Model {
   totalAttributes?: number;
   /**
    * @remarks
-   * The usage fields.
+   * The usage information.
    */
   usageMap?: CategoryAttributeMatchResponseBodyDataUsageMap;
   static names(): { [key: string]: string } {
@@ -245,7 +245,7 @@ export class CategoryAttributeMatchResponseBodyData extends $dara.Model {
 export class CategoryAttributeMatchResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. This parameter is not returned if the call is successful.
+   * The error code. This parameter is not returned for successful calls.
    * 
    * @example
    * 200
@@ -253,12 +253,12 @@ export class CategoryAttributeMatchResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned result.
+   * The response data.
    */
   data?: CategoryAttributeMatchResponseBodyData;
   /**
    * @remarks
-   * The error message. This parameter is not returned if the call is successful.
+   * The error message. This parameter is not returned for successful calls.
    * 
    * @example
    * null

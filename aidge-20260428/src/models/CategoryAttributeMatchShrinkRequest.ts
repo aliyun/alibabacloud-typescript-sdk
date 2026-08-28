@@ -8,12 +8,12 @@ export class CategoryAttributeMatchShrinkRequest extends $dara.Model {
    * The product details.
    * 
    * @example
-   * 真丝，春季新款
+   * Silk, new spring style
    */
   description?: string;
   /**
    * @remarks
-   * The product image URLs. A maximum of 10 images are supported.
+   * The product image URLs (up to 10 images are supported).
    * 
    * @example
    * https://frametour-assets.oss-cn-shanghai.aliyuncs.com/user-faces/viid_face/dd0dd06c-9351-4e5f-bc70-24166a754d7f.jpg
@@ -26,7 +26,7 @@ export class CategoryAttributeMatchShrinkRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 例如商品的材质等。输入商品属性名称和属性内容
+   * For example, the material of the product. Enter the attribute name and attribute value
    */
   itemSpec?: string;
   /**
@@ -46,12 +46,12 @@ export class CategoryAttributeMatchShrinkRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 衣服
+   * Clothing
    */
   sourceCategory?: string;
   /**
    * @remarks
-   * The source platform from which the product originates.
+   * The source platform where the product originates.
    * 
    * This parameter is required.
    * 
@@ -61,7 +61,7 @@ export class CategoryAttributeMatchShrinkRequest extends $dara.Model {
   sourcePlatform?: string;
   /**
    * @remarks
-   * The target listing platform. Currently, only temu is supported.
+   * The target listing platform. Currently only temu is supported.
    * 
    * This parameter is required.
    * 
@@ -76,7 +76,7 @@ export class CategoryAttributeMatchShrinkRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 女士春季新款衣服
+   * Women\\"s new spring clothing
    */
   title?: string;
   static names(): { [key: string]: string } {

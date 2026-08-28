@@ -64,7 +64,9 @@ export class ImageTranslationPlusResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call is successful. Valid values: true: successful. false: failed.
+   * Indicates whether the call is successful. Valid values:
+   * - true: The call is successful.
+   * - false: The call failed.
    * 
    * @example
    * True

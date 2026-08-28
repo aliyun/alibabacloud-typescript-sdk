@@ -24,7 +24,7 @@ export class MerchandisePlacementDetectionResponseBodyDataDataTop1 extends $dara
    * The name of the recalled product.
    * 
    * @example
-   * Bright Milk 500ml.
+   * 光明牛奶500ml
    */
   skuName?: string;
   static names(): { [key: string]: string } {
@@ -82,7 +82,7 @@ export class MerchandisePlacementDetectionResponseBodyDataDataTopk extends $dara
    * The name of the recalled product.
    * 
    * @example
-   * Bright Milk 500ml.
+   * 光明牛奶500ml
    */
   skuName?: string;
   static names(): { [key: string]: string } {
@@ -115,7 +115,7 @@ export class MerchandisePlacementDetectionResponseBodyDataDataTopk extends $dara
 export class MerchandisePlacementDetectionResponseBodyDataData extends $dara.Model {
   /**
    * @remarks
-   * The position coordinates of the detection box in the format [x1,y1,x2,y2].
+   * The position coordinates of the detection box in the format [x1, y1, x2, y2].
    */
   bbox?: number[];
   /**
@@ -198,7 +198,7 @@ export class MerchandisePlacementDetectionResponseBodyData extends $dara.Model {
   data?: MerchandisePlacementDetectionResponseBodyDataData[];
   /**
    * @remarks
-   * The usage information. The key is the usage metric name, and the value is the count.
+   * The usage information. The key is the usage name and the value is the count.
    * 
    * @example
    * {"ProcessingCount":1}
@@ -238,7 +238,7 @@ export class MerchandisePlacementDetectionResponseBodyData extends $dara.Model {
 export class MerchandisePlacementDetectionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. This parameter is not returned if the call is successful.
+   * The error code. This parameter is not returned for successful calls.
    * 
    * @example
    * 200
@@ -251,7 +251,7 @@ export class MerchandisePlacementDetectionResponseBody extends $dara.Model {
   data?: MerchandisePlacementDetectionResponseBodyData;
   /**
    * @remarks
-   * The error message. This parameter is not returned if the call is successful.
+   * The error message. This parameter is not returned for successful calls.
    * 
    * @example
    * OK
@@ -267,8 +267,8 @@ export class MerchandisePlacementDetectionResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call is successful. Valid values:
-   * - true: The call is successful.
+   * Indicates whether the call was successful. Valid values:
+   * - true: The call was successful.
    * - false: The call failed.
    * 
    * @example

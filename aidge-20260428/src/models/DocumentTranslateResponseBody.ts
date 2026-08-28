@@ -48,7 +48,8 @@ export class DocumentTranslateResponseBody extends $dara.Model {
   data?: DocumentTranslateResponseBodyData;
   /**
    * @remarks
-   * The error message. Not returned for successful calls.
+   * The error message, such as "The parameters contain sensitive information. Try other input."
+   * This parameter is not returned for successful calls.
    * 
    * @example
    * Success
@@ -56,7 +57,7 @@ export class DocumentTranslateResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Id of the request
+   * The unique request identity, used for troubleshooting and tracing.
    * 
    * @example
    * 39E8A74B-F99E-1195-A5FF-3ECC5F94F304
@@ -64,7 +65,7 @@ export class DocumentTranslateResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call is successful. true: successful. false: failed.
+   * Indicates whether the call was successful. Valid values: true: The call was successful. false: The call failed.
    * 
    * @example
    * True

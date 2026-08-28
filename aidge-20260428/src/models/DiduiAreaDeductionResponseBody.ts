@@ -117,7 +117,7 @@ export class DiduiAreaDeductionResponseBodyData extends $dara.Model {
   latencyMs?: number;
   /**
    * @remarks
-   * The workflow description.
+   * The workflow description message.
    * 
    * @example
    * Success

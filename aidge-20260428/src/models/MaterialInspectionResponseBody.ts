@@ -5,7 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class MaterialInspectionResponseBodyDataResultSteps extends $dara.Model {
   /**
    * @remarks
-   * The step result. Valid values: PASS, FAIL, and UNABLE_TO_JUDGE.
+   * The determination result of the step. Valid values:
+   * - PASS: The step is compliant.
+   * - FAIL: The step is non-compliant.
+   * - UNABLE_TO_JUDGE: The system cannot determine the result.
    * 
    * @example
    * PASS
@@ -45,7 +48,7 @@ export class MaterialInspectionResponseBodyDataResultSteps extends $dara.Model {
 export class MaterialInspectionResponseBodyDataResult extends $dara.Model {
   /**
    * @remarks
-   * The natural language summary, such as "1 rule: 1 PASS, all inspection items are compliant."
+   * The natural language summary of the inspection result, such as "1 rule: 1 PASS, all inspection items are compliant."
    * 
    * @example
    * 1项规则：1 PASS，所有检测项合规
@@ -53,7 +56,9 @@ export class MaterialInspectionResponseBodyDataResult extends $dara.Model {
   evidence?: string;
   /**
    * @remarks
-   * The overall result. Valid values: PASS and FAIL.
+   * The overall determination result. Valid values:
+   * - PASS: All inspection items are compliant.
+   * - FAIL: One or more inspection items are non-compliant.
    * 
    * @example
    * PASS
@@ -74,7 +79,7 @@ export class MaterialInspectionResponseBodyDataResult extends $dara.Model {
   steps?: MaterialInspectionResponseBodyDataResultSteps[];
   /**
    * @remarks
-   * The detection type.
+   * The detection type that indicates the identified material category.
    * 
    * @example
    * Stamp
@@ -158,7 +163,7 @@ export class MaterialInspectionResponseBodyData extends $dara.Model {
 export class MaterialInspectionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. This parameter is not returned for successful calls.
+   * The error code. This parameter is not returned if the call is successful.
    * 
    * @example
    * 200
@@ -171,7 +176,7 @@ export class MaterialInspectionResponseBody extends $dara.Model {
   data?: MaterialInspectionResponseBodyData;
   /**
    * @remarks
-   * The error message. This parameter is not returned for successful calls.
+   * The error message. This parameter is not returned if the call is successful.
    * 
    * @example
    * OK
@@ -187,7 +192,9 @@ export class MaterialInspectionResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful. Valid values: true: The call was successful. false: The call failed.
+   * Indicates whether the call is successful. Valid values:
+   * - true: The call is successful.
+   * - false: The call failed.
    * 
    * @example
    * True

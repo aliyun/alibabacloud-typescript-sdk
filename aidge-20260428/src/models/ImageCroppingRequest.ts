@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ImageCroppingRequest extends $dara.Model {
   /**
    * @remarks
-   * URL of the image to be processed
+   * The URL of the image to process.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ImageCroppingRequest extends $dara.Model {
   imageUrl?: string;
   /**
    * @remarks
-   * Target height
+   * The target height.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class ImageCroppingRequest extends $dara.Model {
   targetHeight?: number;
   /**
    * @remarks
-   * Target width
+   * The target width.
    * 
    * This parameter is required.
    * 

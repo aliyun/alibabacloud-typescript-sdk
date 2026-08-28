@@ -43,12 +43,12 @@ export class VideoTranslationResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The asynchronous task submit status.
+   * The asynchronous task submit result.
    */
   data?: VideoTranslationResponseBodyData;
   /**
    * @remarks
-   * The description message.
+   * The description.
    * 
    * @example
    * Translation processing
@@ -64,7 +64,7 @@ export class VideoTranslationResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call is successful. Valid values: true: The call is successful. false: The call failed.
+   * Indicates whether the call is successful. Valid values: true: The call is successful. false: The call fails.
    * 
    * @example
    * True

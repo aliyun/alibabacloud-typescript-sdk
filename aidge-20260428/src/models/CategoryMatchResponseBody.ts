@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CategoryMatchResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The ID of the matched category.
+   * The matched category ID.
    * 
    * @example
    * 1522
@@ -13,7 +13,7 @@ export class CategoryMatchResponseBodyData extends $dara.Model {
   categoryId?: string;
   /**
    * @remarks
-   * The name of the matched category.
+   * The matched category name.
    * 
    * @example
    * 位置和活动跟踪器
@@ -21,7 +21,7 @@ export class CategoryMatchResponseBodyData extends $dara.Model {
   categoryName?: string;
   /**
    * @remarks
-   * The full path of the category, separated by forward slashes (/).
+   * The full path of the category, separated by "/".
    * 
    * @example
    * 宠物用品/猫用品/猫挂饰、项圈、牵引带/位置和活动跟踪器
@@ -37,7 +37,7 @@ export class CategoryMatchResponseBodyData extends $dara.Model {
   confidence?: number;
   /**
    * @remarks
-   * Indicates whether the match is successful.
+   * Indicates whether the matching is successful.
    * 
    * @example
    * true
@@ -45,10 +45,10 @@ export class CategoryMatchResponseBodyData extends $dara.Model {
   matchSuccessful?: boolean;
   /**
    * @remarks
-   * The reason for the match.
+   * The explanation of the matching reason.
    * 
    * @example
-   * 商品核心为带 AirTag 定位功能的猫项圈，属\\"位置和活动跟踪器\\"类目，叶子节点语义精准匹配其追踪功能与猫用属性。
+   * The product core is a cat collar with AirTag positioning function, belonging to the \\"Location and Activity Trackers\\" category, with leaf node semantics precisely matching its tracking function and cat-use attributes
    */
   reason?: string;
   /**
@@ -95,7 +95,7 @@ export class CategoryMatchResponseBodyData extends $dara.Model {
 export class CategoryMatchResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code. The value "success" is returned for a successful call.
+   * The status code. The value "success" is returned for successful calls.
    * 
    * @example
    * success
@@ -108,7 +108,7 @@ export class CategoryMatchResponseBody extends $dara.Model {
   data?: CategoryMatchResponseBodyData;
   /**
    * @remarks
-   * The error message. The value "Success" is returned for a successful call.
+   * The error message. The value "Success" is returned for successful calls.
    * 
    * @example
    * Success
@@ -116,7 +116,7 @@ export class CategoryMatchResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID, which uniquely identifies the request.
+   * The request ID, which uniquely identifies the API call.
    * 
    * @example
    * 2157065A-D6C8-1F3E-A4D0-B1234567890
@@ -124,7 +124,7 @@ export class CategoryMatchResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call is successful. Valid values: true and false.
+   * Indicates whether the call is successful. A value of true indicates success. A value of false indicates failure.
    * 
    * @example
    * true

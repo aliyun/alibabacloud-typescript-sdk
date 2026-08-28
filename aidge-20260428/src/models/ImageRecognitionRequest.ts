@@ -15,7 +15,7 @@ export class ImageRecognitionRequest extends $dara.Model {
   imageUrl?: string;
   /**
    * @remarks
-   * The list of non-subject element types to detect. Valid values: 1 (background), 2 (border), 3 (watermark), and 4 (collage).
+   * The list of non-subject element types to detect. Valid values: 1 (background), 2 (border), 3 (watermark), 4 (splice).
    * 
    * @example
    * [1,2,3,4]
@@ -23,7 +23,7 @@ export class ImageRecognitionRequest extends $dara.Model {
   nonObjectDetectElements?: number[];
   /**
    * @remarks
-   * The list of subject element types to detect. Valid values: 1 (product subject), 2 (model), 3 (text), and 4 (logo).
+   * The list of subject element types to detect. Valid values: 1 (product subject), 2 (model), 3 (text), 4 (logo).
    * 
    * @example
    * [1,2,3,4]
@@ -47,7 +47,7 @@ export class ImageRecognitionRequest extends $dara.Model {
   returnCharacter?: number;
   /**
    * @remarks
-   * Specifies whether to return text property information. Valid values: 1 (return) and 0 (do not return).
+   * Specifies whether to return text attribute information. Valid values: 1 (return) and 0 (do not return).
    * 
    * @example
    * 1
@@ -63,7 +63,7 @@ export class ImageRecognitionRequest extends $dara.Model {
   returnProductNum?: number;
   /**
    * @remarks
-   * Specifies whether to return product property information. Valid values: 1 (return) and 0 (do not return).
+   * Specifies whether to return product attribute information. Valid values: 1 (return) and 0 (do not return).
    * 
    * @example
    * 1

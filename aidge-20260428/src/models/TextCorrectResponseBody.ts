@@ -13,7 +13,7 @@ export class TextCorrectResponseBodyData extends $dara.Model {
   correctedText?: string;
   /**
    * @remarks
-   * Usage information, including the number of input characters.
+   * The usage information, including the number of input characters.
    * 
    * @example
    * {"InputCharacterCount":9}
@@ -48,7 +48,7 @@ export class TextCorrectResponseBodyData extends $dara.Model {
 export class TextCorrectResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Response code. Returns "success" during normal calls.
+   * The response code. The value "success" is returned if the call is successful.
    * 
    * @example
    * success
@@ -56,12 +56,12 @@ export class TextCorrectResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Intelligent error correction result data.
+   * The intelligent correction result data.
    */
   data?: TextCorrectResponseBodyData;
   /**
    * @remarks
-   * Error message. Returns "Success" during normal calls. Returns specific error information during exceptions, such as "The parameters contain sensitive information. Please try a different input."
+   * The error message. The value "Success" is returned if the call is successful. A specific error message is returned if an exception occurs, such as "The parameters contain sensitive information. Try other input."
    * 
    * @example
    * Success
@@ -69,7 +69,7 @@ export class TextCorrectResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID, used to identify a unique request call.
+   * The request ID, which uniquely identifies the request.
    * 
    * @example
    * 32882AD0-50D1-1D90-A221-3987325EC03E
@@ -77,7 +77,7 @@ export class TextCorrectResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Whether the call was successful. true indicates success, false indicates failure.
+   * Indicates whether the call is successful. A value of true indicates success. A value of false indicates failure.
    * 
    * @example
    * true

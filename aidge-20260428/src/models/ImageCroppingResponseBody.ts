@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ImageCroppingResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Image height
+   * The image height.
    * 
    * @example
    * 800
@@ -13,7 +13,7 @@ export class ImageCroppingResponseBodyData extends $dara.Model {
   height?: number;
   /**
    * @remarks
-   * URL of the cropped image
+   * The URL of the cropped image.
    * 
    * @example
    * https://example.com/cropped.jpg
@@ -21,7 +21,7 @@ export class ImageCroppingResponseBodyData extends $dara.Model {
   imageUrl?: string;
   /**
    * @remarks
-   * Usage information
+   * The usage information.
    * 
    * @example
    * {"ProcessedImageCount":1}
@@ -29,7 +29,7 @@ export class ImageCroppingResponseBodyData extends $dara.Model {
   usageMap?: { [key: string]: number };
   /**
    * @remarks
-   * Image width
+   * The image width.
    * 
    * @example
    * 800
@@ -68,7 +68,7 @@ export class ImageCroppingResponseBodyData extends $dara.Model {
 export class ImageCroppingResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Response code
+   * The response code.
    * 
    * @example
    * success
@@ -76,12 +76,12 @@ export class ImageCroppingResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Crop result
+   * The cropping result.
    */
   data?: ImageCroppingResponseBodyData;
   /**
    * @remarks
-   * Error message
+   * The error message.
    * 
    * @example
    * Success
@@ -97,7 +97,9 @@ export class ImageCroppingResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Whether the call was successful: true indicates success, false indicates failure
+   * Indicates whether the call is successful. Valid values:
+   * - true: Successful.
+   * - false: Failed.
    * 
    * @example
    * True

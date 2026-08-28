@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SizeChartExtractResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The asynchronous task ID, which is used to query the result later.
+   * The asynchronous task ID, used to query the result later.
    * 
    * @example
    * task-xxxxx

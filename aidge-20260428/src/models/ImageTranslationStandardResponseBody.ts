@@ -231,7 +231,7 @@ export class ImageTranslationStandardResponseBodyDataEditInfoTextAreasTexts exte
    * The text value.
    * 
    * @example
-   * Solid Wood Wardrobe.
+   * Solid Wood Wardrobe
    */
   value?: string;
   /**
@@ -388,7 +388,7 @@ export class ImageTranslationStandardResponseBodyDataEditInfo extends $dara.Mode
   font?: string[];
   /**
    * @remarks
-   * The product area rectangles.
+   * The product area rectangle.
    */
   goodsRects?: ImageTranslationStandardResponseBodyDataEditInfoGoodsRects;
   /**
@@ -409,7 +409,7 @@ export class ImageTranslationStandardResponseBodyDataEditInfo extends $dara.Mode
   languages?: string[];
   /**
    * @remarks
-   * The original image URL.
+   * The URL of the original image.
    * 
    * @example
    * https://xiuxiu-pro.meitudata.com/posters/34d78f9157e5560a4d612949ca6f6485.jpg
@@ -417,7 +417,7 @@ export class ImageTranslationStandardResponseBodyDataEditInfo extends $dara.Mode
   pictUrl?: string;
   /**
    * @remarks
-   * The repaired image URL.
+   * The URL of the repaired image.
    * 
    * @example
    * http://dashscope-a717.oss-cn-beijing.aliyuncs.com/xxx.png
@@ -520,7 +520,7 @@ export class ImageTranslationStandardResponseBodyData extends $dara.Model {
   editInfo?: ImageTranslationStandardResponseBodyDataEditInfo;
   /**
    * @remarks
-   * The URL of the image generated after image translation.
+   * The URL of the image generated from the image translation result.
    * 
    * @example
    * http://dashscope-a717.oss-cn-beijing.aliyuncs.com/xxx.jpg
@@ -528,7 +528,7 @@ export class ImageTranslationStandardResponseBodyData extends $dara.Model {
   imageUrl?: string;
   /**
    * @remarks
-   * The usage information, including the number of images processed.
+   * The usage information, including the number of processed images.
    * 
    * @example
    * {"ProcessedImageCount":1}
@@ -581,7 +581,7 @@ export class ImageTranslationStandardResponseBody extends $dara.Model {
   data?: ImageTranslationStandardResponseBodyData;
   /**
    * @remarks
-   * The error message. Returns "Success" for successful calls, and returns specific error information for failed calls.
+   * The error message. "Success" is returned for successful calls, and a specific error message is returned for failed calls.
    * 
    * @example
    * Success
@@ -589,7 +589,7 @@ export class ImageTranslationStandardResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID, which uniquely identifies the request.
+   * The request ID, used to uniquely identify a request.
    * 
    * @example
    * 1CEC4D94-905A-1ED1-A7B4-1BFEFFB3D850

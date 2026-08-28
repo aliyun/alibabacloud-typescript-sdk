@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class AssetOptimizeLiteRequest extends $dara.Model {
   /**
    * @remarks
-   * Custom glossary
+   * The custom glossary for term intervention.
    * 
    * @example
-   * 测试
+   * test
    */
   glossary?: string;
   /**
    * @remarks
-   * Whether to include product region translation
+   * Specifies whether product area translation is included.
    * 
    * @example
    * false
@@ -21,7 +21,7 @@ export class AssetOptimizeLiteRequest extends $dara.Model {
   includingProductArea?: boolean;
   /**
    * @remarks
-   * Whether translation is required
+   * Specifies whether translation is needed.
    * 
    * This parameter is required.
    * 
@@ -31,7 +31,7 @@ export class AssetOptimizeLiteRequest extends $dara.Model {
   needTrans?: boolean;
   /**
    * @remarks
-   * Product Link URL
+   * The product URL.
    * 
    * This parameter is required.
    * 
@@ -41,7 +41,7 @@ export class AssetOptimizeLiteRequest extends $dara.Model {
   productUrl?: string;
   /**
    * @remarks
-   * Source language code, e.g., zh
+   * The source language code, such as zh.
    * 
    * @example
    * zh
@@ -49,7 +49,7 @@ export class AssetOptimizeLiteRequest extends $dara.Model {
   sourceLanguage?: string;
   /**
    * @remarks
-   * Source platform, e.g., 1688
+   * The source platform, such as 1688.
    * 
    * This parameter is required.
    * 
@@ -59,7 +59,7 @@ export class AssetOptimizeLiteRequest extends $dara.Model {
   sourcePlatform?: string;
   /**
    * @remarks
-   * Target language code, e.g., en
+   * The target language code, such as en.
    * 
    * @example
    * en
@@ -67,7 +67,7 @@ export class AssetOptimizeLiteRequest extends $dara.Model {
   targetLanguage?: string;
   /**
    * @remarks
-   * Target platform, e.g., temu
+   * The target platform, such as temu.
    * 
    * This parameter is required.
    * 
@@ -77,7 +77,7 @@ export class AssetOptimizeLiteRequest extends $dara.Model {
   targetPlatform?: string;
   /**
    * @remarks
-   * Whether to translate brand names in images, default false
+   * Specifies whether to translate brand names in images. Default value: false.
    * 
    * @example
    * false
