@@ -4,15 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetBillingOverviewRequestFilterDimensions extends $dara.Model {
   /**
+   * @remarks
+   * The filter field. For more information, see the "Additional information" section below.
+   * 
    * @example
    * CHARGE_TYPE
    */
   code?: string;
   /**
+   * @remarks
+   * The filter type.
+   * 
    * @example
    * IN
    */
   selectType?: string;
+  /**
+   * @remarks
+   * The list of filter values.
+   */
   values?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -43,6 +53,10 @@ export class GetBillingOverviewRequestFilterDimensions extends $dara.Model {
 }
 
 export class GetBillingOverviewRequestFilter extends $dara.Model {
+  /**
+   * @remarks
+   * The list of dimension filters.
+   */
   dimensions?: GetBillingOverviewRequestFilterDimensions[];
   static names(): { [key: string]: string } {
     return {
@@ -70,6 +84,9 @@ export class GetBillingOverviewRequestFilter extends $dara.Model {
 
 export class GetBillingOverviewRequestGroupBy extends $dara.Model {
   /**
+   * @remarks
+   * The grouping dimension code. For more information, see the "Additional information" section below.
+   * 
    * @example
    * BASE_MODEL
    */
@@ -97,28 +114,51 @@ export class GetBillingOverviewRequestGroupBy extends $dara.Model {
 
 export class GetBillingOverviewRequest extends $dara.Model {
   /**
+   * @remarks
+   * The billing month. This parameter is required.
+   * 
    * @example
    * 2026-08
    */
   billMonth?: string;
+  /**
+   * @remarks
+   * The filter condition.
+   */
   filter?: GetBillingOverviewRequestFilter;
+  /**
+   * @remarks
+   * The list of grouping conditions. Currently, you must specify exactly one grouping dimension.
+   */
   groupBy?: GetBillingOverviewRequestGroupBy[];
   /**
+   * @remarks
+   * The response language. Default value: en-US.
+   * 
    * @example
    * zh-CN
    */
   locale?: string;
   /**
+   * @remarks
+   * The region.
+   * 
    * @example
    * cn-beijing
    */
   regionId?: string;
   /**
+   * @remarks
+   * The number of groups to return. Valid values: 1 to 20. Default value: 20.
+   * 
    * @example
    * 20
    */
   topNum?: number;
   /**
+   * @remarks
+   * Specifies whether to filter out groups with a zero amount. Default value: true.
+   * 
    * @example
    * true
    */

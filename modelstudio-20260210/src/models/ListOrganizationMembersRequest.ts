@@ -13,10 +13,10 @@ export class ListOrganizationMembersRequest extends $dara.Model {
   hasSeat?: boolean;
   /**
    * @remarks
-   * Fuzzy filter by member name. Matches accountName or email and is case-insensitive.
+   * Fuzzy filter by member name. Matches accountName or email, case-insensitive.
    * 
    * @example
-   * 成员名称
+   * MemberName
    */
   name?: string;
   /**
@@ -37,7 +37,7 @@ export class ListOrganizationMembersRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Filters by member status, such as ACTIVE or FROZEN. Set to null to disable filtering.
+   * Filters by member status, such as ACTIVE or FROZEN. A value of null indicates no filtering.
    * 
    * @example
    * ACTIVE

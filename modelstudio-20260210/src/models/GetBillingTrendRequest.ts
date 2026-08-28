@@ -4,15 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetBillingTrendRequestFilterDimensions extends $dara.Model {
   /**
+   * @remarks
+   * The filter dimension code. For more information, see the "Additional information" section below.
+   * 
    * @example
    * CHARGE_TYPE
    */
   code?: string;
   /**
+   * @remarks
+   * The filter method.
+   * 
    * @example
    * IN
    */
   selectType?: string;
+  /**
+   * @remarks
+   * The filter value list.
+   */
   values?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -43,6 +53,10 @@ export class GetBillingTrendRequestFilterDimensions extends $dara.Model {
 }
 
 export class GetBillingTrendRequestFilter extends $dara.Model {
+  /**
+   * @remarks
+   * The dimension filter list.
+   */
   dimensions?: GetBillingTrendRequestFilterDimensions[];
   static names(): { [key: string]: string } {
     return {
@@ -70,6 +84,9 @@ export class GetBillingTrendRequestFilter extends $dara.Model {
 
 export class GetBillingTrendRequestGroupBy extends $dara.Model {
   /**
+   * @remarks
+   * The grouping dimension code. For more information, see the "Additional information" section below.
+   * 
    * @example
    * BASE_MODEL
    */
@@ -97,11 +114,17 @@ export class GetBillingTrendRequestGroupBy extends $dara.Model {
 
 export class GetBillingTrendRequestTimePeriod extends $dara.Model {
   /**
+   * @remarks
+   * The end time.
+   * 
    * @example
    * 2026-08-25
    */
   end?: string;
   /**
+   * @remarks
+   * The start time.
+   * 
    * @example
    * 2026-08-01
    */
@@ -130,30 +153,57 @@ export class GetBillingTrendRequestTimePeriod extends $dara.Model {
 }
 
 export class GetBillingTrendRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The dimension filter conditions.
+   */
   filter?: GetBillingTrendRequestFilter;
   /**
+   * @remarks
+   * The query granularity. This parameter is required.
+   * 
    * @example
    * DAY
    */
   granularity?: string;
+  /**
+   * @remarks
+   * The grouping conditions. This parameter must contain one and only one element.
+   */
   groupBy?: GetBillingTrendRequestGroupBy[];
   /**
+   * @remarks
+   * The response language. Default value: en-US.
+   * 
    * @example
    * zh-CN
    */
   locale?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-beijing
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The query time range, including the start time and end time. This parameter is required.
+   */
   timePeriod?: GetBillingTrendRequestTimePeriod;
   /**
+   * @remarks
+   * The number of groups to return. Valid values: 1 to 20. Default value: 20. The remaining groups are merged into "Others".
+   * 
    * @example
    * 20
    */
   topNum?: number;
   /**
+   * @remarks
+   * Specifies whether to filter out groups with a zero amount. Default value: true.
+   * 
    * @example
    * true
    */

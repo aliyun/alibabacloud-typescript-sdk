@@ -4,22 +4,38 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetBillingOverviewResponseBodyDataGroups extends $dara.Model {
   /**
+   * @remarks
+   * The amount of the current group.
+   * 
    * @example
    * 3000
    */
   amount?: string;
+  /**
+   * @remarks
+   * The list of commodity codes associated with the current group.
+   */
   articleCodes?: string[];
   /**
+   * @remarks
+   * The grouping dimension value. A null value is returned as DIMENSION_FILTER_NULL_VALUE.
+   * 
    * @example
    * inference
    */
   key?: string;
   /**
+   * @remarks
+   * The display name of the group, which is affected by the locale parameter. A null value is displayed as -.
+   * 
    * @example
-   * 模型调用
+   * Model invocation
    */
   name?: string;
   /**
+   * @remarks
+   * The ratio of the group amount to the total amount of the top N groups.
+   * 
    * @example
    * 0.10
    */
@@ -58,22 +74,38 @@ export class GetBillingOverviewResponseBodyDataGroups extends $dara.Model {
 
 export class GetBillingOverviewResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The currency of the amount.
+   * 
    * @example
    * USD
    */
   currency?: string;
+  /**
+   * @remarks
+   * The top N groups sorted by amount in descending order.
+   */
   groups?: GetBillingOverviewResponseBodyDataGroups[];
   /**
+   * @remarks
+   * The total pretax amount.
+   * 
    * @example
    * 28729.32
    */
   pretaxAmount?: string;
   /**
+   * @remarks
+   * The total tax amount.
+   * 
    * @example
    * 2499.28
    */
   taxAmount?: string;
   /**
+   * @remarks
+   * The total amount.
+   * 
    * @example
    * 31228.60
    */
@@ -112,22 +144,38 @@ export class GetBillingOverviewResponseBodyData extends $dara.Model {
 
 export class GetBillingOverviewResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request result code.
+   * 
    * @example
    * 200
    */
   code?: string;
+  /**
+   * @remarks
+   * The bill overview data.
+   */
   data?: GetBillingOverviewResponseBodyData;
   /**
+   * @remarks
+   * The request result message.
+   * 
    * @example
    * null
    */
   message?: string;
   /**
+   * @remarks
+   * Id of the request
+   * 
    * @example
    * BB521414-5D38-5E66-AA66-963B2B4200E2
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

@@ -629,7 +629,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询账单概览
+   * Queries the bill overview.
    * 
    * @param tmpReq - GetBillingOverviewRequest
    * @param headers - map
@@ -696,7 +696,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询账单概览
+   * Queries the bill overview.
    * 
    * @param request - GetBillingOverviewRequest
    * @returns GetBillingOverviewResponse
@@ -708,7 +708,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询账单趋势
+   * Queries bill trends.
    * 
    * @param tmpReq - GetBillingTrendRequest
    * @param headers - map
@@ -783,7 +783,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询账单趋势
+   * Queries bill trends.
    * 
    * @param request - GetBillingTrendRequest
    * @returns GetBillingTrendResponse
@@ -1420,7 +1420,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of organization members including seat information. Supports filtering by name, status, and seat assignment, and supports pagination.
+   * Queries the list of organization members (including seat information). Supports filtering by name, status, and seat assignment, and supports pagination.
    * 
    * @param request - ListOrganizationMembersRequest
    * @param headers - map
@@ -1469,7 +1469,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of organization members including seat information. Supports filtering by name, status, and seat assignment, and supports pagination.
+   * Queries the list of organization members (including seat information). Supports filtering by name, status, and seat assignment, and supports pagination.
    * 
    * @param request - ListOrganizationMembersRequest
    * @returns ListOrganizationMembersResponse
