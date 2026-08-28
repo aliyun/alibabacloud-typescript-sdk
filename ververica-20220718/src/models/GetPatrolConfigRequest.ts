@@ -2,24 +2,14 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class GetDatabasesRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The database name. If this parameter is left empty, information about all databases is returned.
-   * 
-   * @example
-   * paimon-ods
-   */
-  databaseName?: string;
+export class GetPatrolConfigRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
-      databaseName: 'databaseName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      databaseName: 'string',
     };
   }
 

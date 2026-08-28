@@ -32,7 +32,7 @@ export class Logging extends $dara.Model {
    * - oss: Logs are delivered to Object Storage Service (OSS).
    * 
    * @example
-   * default
+   * oss
    */
   loggingProfile?: string;
   static names(): { [key: string]: string } {

@@ -7,12 +7,12 @@ import { StreamingResourceSetting } from "./StreamingResourceSetting";
 export class BriefResourceSetting extends $dara.Model {
   /**
    * @remarks
-   * The resource configuration for the deployment in batch mode. This parameter is required for a deployment in batch mode.
+   * The resource settings for running in batch mode. This parameter is required when batch mode is selected.
    */
   batchResourceSetting?: BatchResourceSetting;
   /**
    * @remarks
-   * The Realtime Compute for Apache Flink configuration.
+   * The Flink configuration.
    * 
    * @example
    * “execution.checkpointing.interval: 180s”
@@ -20,7 +20,7 @@ export class BriefResourceSetting extends $dara.Model {
   flinkConf?: { [key: string]: any };
   /**
    * @remarks
-   * The resource configuration for the deployment in streaming mode. This parameter is required for a deployment in streaming mode.
+   * The resource settings for running in streaming mode. This parameter is required when streaming mode is selected.
    */
   streamingResourceSetting?: StreamingResourceSetting;
   static names(): { [key: string]: string } {

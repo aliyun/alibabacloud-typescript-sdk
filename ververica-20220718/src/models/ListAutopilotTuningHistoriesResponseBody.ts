@@ -87,7 +87,7 @@ export class ListAutopilotTuningHistoriesResponseBody extends $dara.Model {
   errorMessage?: string;
   /**
    * @remarks
-   * The business status code, which is always 200. Use success to determine whether the business request is successful.
+   * The business status code, which is always 200. Use success to determine whether the business request was successful.
    * 
    * @example
    * 200
@@ -103,7 +103,7 @@ export class ListAutopilotTuningHistoriesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the business request is successful.
+   * Indicates whether the business request was successful.
    * 
    * @example
    * true

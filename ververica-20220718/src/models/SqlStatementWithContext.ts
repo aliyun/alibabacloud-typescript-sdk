@@ -36,6 +36,16 @@ export class SqlStatementWithContext extends $dara.Model {
    * ) WITH (
    *    \\"connector\\" = \\"datagen\\"
    * );
+   * CREATE TEMPORARY TABLE print_table (
+   *    name VARCHAR,
+   *    score BIGINT
+   * ) WITH (
+   *   \\"connector\\"=\\"print\\",
+   *   \\"logger\\"=\\"true\\"
+   * );
+   * 
+   * INSERT INTO print_table
+   * select * from datagen_source;
    */
   statement?: string;
   /**

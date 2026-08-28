@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetTablesRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the table. If this parameter is left empty, information about all tables is returned.
+   * The table name. If this parameter is left empty, information about all tables is returned.
    * 
    * @example
    * item

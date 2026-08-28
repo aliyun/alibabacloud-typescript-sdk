@@ -6,7 +6,7 @@ export class GetCatalogsHeaders extends $dara.Model {
   commonHeaders?: { [key: string]: string };
   /**
    * @remarks
-   * The ID of the workspace.
+   * The workspace ID.
    * 
    * This parameter is required.
    * 

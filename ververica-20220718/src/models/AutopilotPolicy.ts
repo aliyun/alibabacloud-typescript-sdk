@@ -5,7 +5,18 @@ import * as $dara from '@darabonba/typescript';
 /**
  */
 export class AutopilotPolicyAdvancedRules extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to enable advanced rules.
+   * 
+   * @example
+   * false
+   */
   enabled?: boolean;
+  /**
+   * @remarks
+   * The advanced rule parameters. An empty map indicates that internal default parameters are used. You can override specific internal parameters by using key-value pairs. The entire map is replaced.
+   */
   parameters?: { [key: string]: string };
   static names(): { [key: string]: string } {
     return {
@@ -34,10 +45,45 @@ export class AutopilotPolicyAdvancedRules extends $dara.Model {
 }
 
 export class AutopilotPolicyLimits extends $dara.Model {
+  /**
+   * @remarks
+   * The minimum cool-down time between two tuning operations, in minutes.
+   * 
+   * @example
+   * 10
+   */
   coolDownMinutes?: number;
+  /**
+   * @remarks
+   * The maximum CPU.
+   * 
+   * @example
+   * 16
+   */
   jobMaxCpu?: number;
+  /**
+   * @remarks
+   * The maximum memory. Format examples: 4Gi, 256GiB.
+   * 
+   * @example
+   * 64GiB
+   */
   jobMaxMemory?: string;
+  /**
+   * @remarks
+   * The maximum parallelism.
+   * 
+   * @example
+   * 10
+   */
   jobMaxParallelism?: number;
+  /**
+   * @remarks
+   * The minimum parallelism.
+   * 
+   * @example
+   * 1
+   */
   jobMinParallelism?: number;
   static names(): { [key: string]: string } {
     return {
@@ -69,8 +115,29 @@ export class AutopilotPolicyLimits extends $dara.Model {
 }
 
 export class AutopilotPolicyScaleDownRulesMemoryScaleDownRule extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to enable memory scale-down.
+   * 
+   * @example
+   * true
+   */
   enabled?: boolean;
+  /**
+   * @remarks
+   * The memory scale-down sampling interval. Format examples: 4h, 5m.
+   * 
+   * @example
+   * 25h
+   */
   memUsageScaleDownSampleInterval?: string;
+  /**
+   * @remarks
+   * The memory scale-down threshold. Valid values: 0.0 to 1.0. Scale-down is triggered when memory usage falls below this value. This value must be less than the scale-up threshold.
+   * 
+   * @example
+   * 0.3
+   */
   memUsageScaleDownThreshold?: number;
   static names(): { [key: string]: string } {
     return {
@@ -98,8 +165,29 @@ export class AutopilotPolicyScaleDownRulesMemoryScaleDownRule extends $dara.Mode
 }
 
 export class AutopilotPolicyScaleDownRulesSlotBusyScaleDownRule extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to enable slot idle scale-down.
+   * 
+   * @example
+   * true
+   */
   enabled?: boolean;
+  /**
+   * @remarks
+   * The slot idle sampling interval. Format examples: 4h, 5m.
+   * 
+   * @example
+   * 24h
+   */
   slotBusyScaleDownSampleInterval?: string;
+  /**
+   * @remarks
+   * The slot idle scale-down threshold. Valid values: 0.0 to 1.0. Scale-down is triggered when the slot busy ratio falls below this value. This value must be less than the scale-up threshold.
+   * 
+   * @example
+   * 0.2
+   */
   slotBusyScaleDownThreshold?: number;
   static names(): { [key: string]: string } {
     return {
@@ -127,7 +215,15 @@ export class AutopilotPolicyScaleDownRulesSlotBusyScaleDownRule extends $dara.Mo
 }
 
 export class AutopilotPolicyScaleDownRules extends $dara.Model {
+  /**
+   * @remarks
+   * The memory scale-down rule. Scale-down is triggered when memory usage falls below the threshold.
+   */
   memoryScaleDownRule?: AutopilotPolicyScaleDownRulesMemoryScaleDownRule;
+  /**
+   * @remarks
+   * The slot idle scale-down rule. Scale-down is triggered when the slot busy ratio falls below the threshold.
+   */
   slotBusyScaleDownRule?: AutopilotPolicyScaleDownRulesSlotBusyScaleDownRule;
   static names(): { [key: string]: string } {
     return {
@@ -159,8 +255,29 @@ export class AutopilotPolicyScaleDownRules extends $dara.Model {
 }
 
 export class AutopilotPolicyScaleUpRulesDelayRule extends $dara.Model {
+  /**
+   * @remarks
+   * The delay sampling interval. Format examples: 3min, 5m, 1h.
+   * 
+   * @example
+   * 3min
+   */
   delaySampleInterval?: string;
+  /**
+   * @remarks
+   * The latency threshold. Format examples: 1min, 10m. Scale-up is triggered when the delay continuously exceeds this threshold.
+   * 
+   * @example
+   * 1min
+   */
   delayThreshold?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable delay detection scale-up.
+   * 
+   * @example
+   * true
+   */
   enabled?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -188,8 +305,29 @@ export class AutopilotPolicyScaleUpRulesDelayRule extends $dara.Model {
 }
 
 export class AutopilotPolicyScaleUpRulesGcRule extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to enable GC tuning.
+   * 
+   * @example
+   * true
+   */
   enabled?: boolean;
+  /**
+   * @remarks
+   * The GC sampling interval. Format examples: 3min, 5m.
+   * 
+   * @example
+   * 3min
+   */
   gcSampleInterval?: string;
+  /**
+   * @remarks
+   * The GC time ratio threshold. Valid values: 0.0 to 1.0. Scale-up is triggered when the GC time ratio exceeds this value.
+   * 
+   * @example
+   * 0.2
+   */
   gcTimeRatioThreshold?: number;
   static names(): { [key: string]: string } {
     return {
@@ -217,7 +355,21 @@ export class AutopilotPolicyScaleUpRulesGcRule extends $dara.Model {
 }
 
 export class AutopilotPolicyScaleUpRulesMemoryScaleUpRule extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to enable memory scale-up.
+   * 
+   * @example
+   * true
+   */
   enabled?: boolean;
+  /**
+   * @remarks
+   * The memory scale-up threshold. Valid values: 0.0 to 1.0. Scale-up is triggered when memory usage exceeds this value.
+   * 
+   * @example
+   * 0.95
+   */
   memUsageScaleUpThreshold?: number;
   static names(): { [key: string]: string } {
     return {
@@ -243,6 +395,13 @@ export class AutopilotPolicyScaleUpRulesMemoryScaleUpRule extends $dara.Model {
 }
 
 export class AutopilotPolicyScaleUpRulesOomScaleUpRule extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to enable OOM scale-up.
+   * 
+   * @example
+   * true
+   */
   enabled?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -266,8 +425,29 @@ export class AutopilotPolicyScaleUpRulesOomScaleUpRule extends $dara.Model {
 }
 
 export class AutopilotPolicyScaleUpRulesSlotBusyScaleUpRule extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to enable slot busy scale-up.
+   * 
+   * @example
+   * true
+   */
   enabled?: boolean;
+  /**
+   * @remarks
+   * The slot busy sampling interval. Format examples: 6min, 5m.
+   * 
+   * @example
+   * 6min
+   */
   slotBusyScaleUpSampleInterval?: string;
+  /**
+   * @remarks
+   * The slot busy scale-up threshold. Valid values: 0.0 to 1.0. Scale-up is triggered when the slot busy ratio exceeds this value.
+   * 
+   * @example
+   * 0.8
+   */
   slotBusyScaleUpThreshold?: number;
   static names(): { [key: string]: string } {
     return {
@@ -295,10 +475,30 @@ export class AutopilotPolicyScaleUpRulesSlotBusyScaleUpRule extends $dara.Model 
 }
 
 export class AutopilotPolicyScaleUpRules extends $dara.Model {
+  /**
+   * @remarks
+   * The delay detection scale-up rule. Scale-up is triggered when the job delay exceeds the threshold.
+   */
   delayRule?: AutopilotPolicyScaleUpRulesDelayRule;
+  /**
+   * @remarks
+   * The GC tuning rule. Scale-up is triggered when the GC time ratio exceeds the threshold.
+   */
   gcRule?: AutopilotPolicyScaleUpRulesGcRule;
+  /**
+   * @remarks
+   * The memory scale-up rule. Scale-up is triggered when memory usage exceeds the threshold.
+   */
   memoryScaleUpRule?: AutopilotPolicyScaleUpRulesMemoryScaleUpRule;
+  /**
+   * @remarks
+   * The OOM scale-up rule. Scale-up is triggered when an OOM risk is detected.
+   */
   oomScaleUpRule?: AutopilotPolicyScaleUpRulesOomScaleUpRule;
+  /**
+   * @remarks
+   * The slot busy scale-up rule. Scale-up is triggered when the slot busy ratio exceeds the threshold.
+   */
   slotBusyScaleUpRule?: AutopilotPolicyScaleUpRulesSlotBusyScaleUpRule;
   static names(): { [key: string]: string } {
     return {
@@ -345,8 +545,29 @@ export class AutopilotPolicyScaleUpRules extends $dara.Model {
 }
 
 export class AutopilotPolicySilentPeriodConfigSilentPeriods extends $dara.Model {
+  /**
+   * @remarks
+   * The start time. For the DAY level: 0-1439, representing the minute offset of the day (for example, 540 represents 9:00). For the WEEK level: 1-7, representing the day of the week (ISO 8601, 1=Monday, 7=Sunday).
+   * 
+   * @example
+   * 540
+   */
   beginTime?: number;
+  /**
+   * @remarks
+   * The end time. The format is the same as beginTime. For the WEEK level, if endTime is less than beginTime, it indicates a cross-week period (for example, beginTime=6, endTime=2 means silent from Saturday to the following Tuesday).
+   * 
+   * @example
+   * 1080
+   */
   endTime?: number;
+  /**
+   * @remarks
+   * The silent level. DAY indicates daily repetition. WEEK indicates weekly repetition.
+   * 
+   * @example
+   * DAY
+   */
   level?: string;
   static names(): { [key: string]: string } {
     return {
@@ -374,7 +595,18 @@ export class AutopilotPolicySilentPeriodConfigSilentPeriods extends $dara.Model 
 }
 
 export class AutopilotPolicySilentPeriodConfig extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to enable silent periods.
+   * 
+   * @example
+   * false
+   */
   enabled?: boolean;
+  /**
+   * @remarks
+   * The list of silent periods. This is a full replacement, not an append operation.
+   */
   silentPeriods?: AutopilotPolicySilentPeriodConfigSilentPeriods[];
   static names(): { [key: string]: string } {
     return {
@@ -403,10 +635,30 @@ export class AutopilotPolicySilentPeriodConfig extends $dara.Model {
 }
 
 export class AutopilotPolicy extends $dara.Model {
+  /**
+   * @remarks
+   * The advanced rule configuration. This includes advanced parameters such as chain-break optimization, minimum parallelism, and TM CPU scaling. Disabled by default and must be explicitly enabled.
+   */
   advancedRules?: AutopilotPolicyAdvancedRules;
+  /**
+   * @remarks
+   * The upper and lower limits for tuning resources.
+   */
   limits?: AutopilotPolicyLimits;
+  /**
+   * @remarks
+   * The scale-down rule configuration.
+   */
   scaleDownRules?: AutopilotPolicyScaleDownRules;
+  /**
+   * @remarks
+   * The scale-up rule configuration.
+   */
   scaleUpRules?: AutopilotPolicyScaleUpRules;
+  /**
+   * @remarks
+   * The silent period configuration. Automatic tuning operations are not performed during silent periods.
+   */
   silentPeriodConfig?: AutopilotPolicySilentPeriodConfig;
   static names(): { [key: string]: string } {
     return {

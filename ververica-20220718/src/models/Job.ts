@@ -162,7 +162,7 @@ export class Job extends $dara.Model {
    * If the job instance runs on a Session cluster, this shows the Session cluster name; otherwise, it is null.
    * 
    * @example
-   * null
+   * preview
    */
   sessionClusterName?: string;
   /**

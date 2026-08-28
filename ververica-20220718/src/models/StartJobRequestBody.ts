@@ -7,7 +7,7 @@ import { DeploymentRestoreStrategy } from "./DeploymentRestoreStrategy";
 export class StartJobRequestBody extends $dara.Model {
   /**
    * @remarks
-   * The deployment ID.
+   * The ID of the deployed job.
    * 
    * @example
    * 5a19a71b-1c42-4f34-94fd-86cf6078****
@@ -15,12 +15,12 @@ export class StartJobRequestBody extends $dara.Model {
   deploymentId?: string;
   /**
    * @remarks
-   * The resource configuration of the deployment.
+   * The job resource settings.
    */
   resourceSettingSpec?: BriefResourceSetting;
   /**
    * @remarks
-   * The start offset of the job.
+   * The startup position settings for the job instance.
    */
   restoreStrategy?: DeploymentRestoreStrategy;
   static names(): { [key: string]: string } {

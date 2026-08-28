@@ -5,7 +5,15 @@ import { UpdateJobConfigParam } from "./UpdateJobConfigParam";
 
 
 export class HotUpdateJobParams extends $dara.Model {
+  /**
+   * @remarks
+   * The dynamic update of resources.
+   */
   rescaleJobParam?: RescaleJobParam;
+  /**
+   * @remarks
+   * The dynamic update of runtime parameters.
+   */
   updateJobConfigParam?: UpdateJobConfigParam;
   static names(): { [key: string]: string } {
     return {

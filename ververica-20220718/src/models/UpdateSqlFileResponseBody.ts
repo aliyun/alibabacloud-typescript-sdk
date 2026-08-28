@@ -14,7 +14,7 @@ export class UpdateSqlFileResponseBody extends $dara.Model {
   data?: SqlFile;
   /**
    * @remarks
-   * The business error code. This value is not empty when success is false, and is empty when success is true.
+   * The business error code. This value is not empty when success is false. This value is empty when success is true.
    * 
    * @example
    * ""
@@ -22,7 +22,7 @@ export class UpdateSqlFileResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The business error message. This value is not empty when success is false, and is empty when success is true.
+   * The business error message. This value is not empty when success is false. This value is empty when success is true.
    * 
    * @example
    * ""
@@ -30,7 +30,7 @@ export class UpdateSqlFileResponseBody extends $dara.Model {
   errorMessage?: string;
   /**
    * @remarks
-   * The business status code, which is always 200. Use success to determine whether the request was successful.
+   * The business status code, which is uniformly 200. Use success to determine whether the request was successful.
    * 
    * @example
    * 200

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetFolderRequest extends $dara.Model {
   /**
    * @remarks
-   * Folder ID. If empty, the root folder is returned.
+   * The folder ID. If this parameter is left empty, the root folder is returned.
    * 
    * @example
    * 89097
@@ -13,7 +13,7 @@ export class GetFolderRequest extends $dara.Model {
   folderId?: string;
   /**
    * @remarks
-   * The type of the root folder.
+   * The folder type.
    * 
    * @example
    * DEVELOPMENT

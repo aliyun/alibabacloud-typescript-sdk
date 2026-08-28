@@ -2,7 +2,7 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class GetDatabasesHeaders extends $dara.Model {
+export class TriggerPatrolHeaders extends $dara.Model {
   commonHeaders?: { [key: string]: string };
   /**
    * @remarks

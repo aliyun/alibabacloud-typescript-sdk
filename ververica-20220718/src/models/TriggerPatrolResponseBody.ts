@@ -1,40 +1,39 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { AutopilotPolicy } from "./AutopilotPolicy";
 
 
-export class GetAutopilotPolicyResponseBodyData extends $dara.Model {
+export class TriggerPatrolResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether automatic tuning is enabled. A value of true indicates that automatic tuning is active (ACTIVE). A value of false indicates that tuning is not enabled.
+   * The generated report ID.
    * 
    * @example
-   * false
+   * inspection-cf8f8843-64e4-4b45-9500-06790107130f
    */
-  enabled?: boolean;
+  reportId?: string;
   /**
    * @remarks
-   * The tuning policy configuration.
+   * The report status.
+   * 
+   * @example
+   * COMPLETED
    */
-  policyConfig?: AutopilotPolicy;
+  status?: string;
   static names(): { [key: string]: string } {
     return {
-      enabled: 'enabled',
-      policyConfig: 'policyConfig',
+      reportId: 'reportId',
+      status: 'status',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      enabled: 'boolean',
-      policyConfig: AutopilotPolicy,
+      reportId: 'string',
+      status: 'string',
     };
   }
 
   validate() {
-    if(this.policyConfig && typeof (this.policyConfig as any).validate === 'function') {
-      (this.policyConfig as any).validate();
-    }
     super.validate();
   }
 
@@ -43,15 +42,15 @@ export class GetAutopilotPolicyResponseBodyData extends $dara.Model {
   }
 }
 
-export class GetAutopilotPolicyResponseBody extends $dara.Model {
+export class TriggerPatrolResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The Autopilot tuning policy response data.
+   * The response data of the triggered inspection.
    */
-  data?: GetAutopilotPolicyResponseBodyData;
+  data?: TriggerPatrolResponseBodyData;
   /**
    * @remarks
-   * The error code. This field is not empty when success is false. This field is empty when success is true.
+   * When success is false, this value is not empty and indicates the business error code. When success is true, this value is empty.
    * 
    * @example
    * ""
@@ -59,7 +58,7 @@ export class GetAutopilotPolicyResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The error message. This field is not empty when success is false. This field is empty when success is true.
+   * When success is false, this value is not empty and indicates the business error message. When success is true, this value is empty.
    * 
    * @example
    * ""
@@ -67,7 +66,7 @@ export class GetAutopilotPolicyResponseBody extends $dara.Model {
   errorMessage?: string;
   /**
    * @remarks
-   * The business status code, which is always 200. Use the success field to determine whether the request is successful.
+   * The business status code, which is uniformly 200. Use success to determine whether the business request is successful.
    * 
    * @example
    * 200
@@ -83,7 +82,7 @@ export class GetAutopilotPolicyResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful.
+   * Indicates whether the business request is successful.
    * 
    * @example
    * true
@@ -102,7 +101,7 @@ export class GetAutopilotPolicyResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      data: GetAutopilotPolicyResponseBodyData,
+      data: TriggerPatrolResponseBodyData,
       errorCode: 'string',
       errorMessage: 'string',
       httpCode: 'number',

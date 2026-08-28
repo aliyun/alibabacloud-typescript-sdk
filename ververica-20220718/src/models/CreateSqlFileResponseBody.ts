@@ -14,7 +14,7 @@ export class CreateSqlFileResponseBody extends $dara.Model {
   data?: SqlFile;
   /**
    * @remarks
-   * The error code returned when success is false. This value is empty when success is true.
+   * The business error code returned when success is false. This value is empty when success is true.
    * 
    * @example
    * ""
@@ -22,7 +22,7 @@ export class CreateSqlFileResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The error message returned when success is false. This value is empty when success is true.
+   * The business error message returned when success is false. This value is empty when success is true.
    * 
    * @example
    * ""

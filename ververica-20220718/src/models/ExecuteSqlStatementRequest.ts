@@ -6,7 +6,7 @@ import { SqlStatementWithContext } from "./SqlStatementWithContext";
 export class ExecuteSqlStatementRequest extends $dara.Model {
   /**
    * @remarks
-   * The SQL statements for metadata.
+   * The metadata-related SQL statement.
    */
   body?: SqlStatementWithContext;
   static names(): { [key: string]: string } {

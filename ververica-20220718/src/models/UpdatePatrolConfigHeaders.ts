@@ -2,7 +2,7 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class GetDatabasesHeaders extends $dara.Model {
+export class UpdatePatrolConfigHeaders extends $dara.Model {
   commonHeaders?: { [key: string]: string };
   /**
    * @remarks
@@ -11,7 +11,7 @@ export class GetDatabasesHeaders extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * a14bd5d90a****
+   * a14bda1c4a****
    */
   workspace?: string;
   static names(): { [key: string]: string } {

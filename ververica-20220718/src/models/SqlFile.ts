@@ -4,49 +4,32 @@ import * as $dara from '@darabonba/typescript';
 
 export class SqlFile extends $dara.Model {
   /**
-   * @remarks
-   * The batch mode.
+   * @deprecated
    */
   batchMode?: string;
-  /**
-   * @remarks
-   * The description of the SQL file.
-   */
   description?: string;
   /**
    * @remarks
-   * The name of the SQL file.
+   * The query script name. This field is required when creating a SqlFile.
    */
   name?: string;
-  /**
-   * @remarks
-   * The namespace.
-   */
   namespace?: string;
   /**
    * @remarks
-   * The ID of the parent SQL file.
+   * The parent folder ID. This field is required when creating a SqlFile.
    */
   parentId?: string;
   /**
    * @remarks
-   * The name of the session cluster.
+   * The session cluster for running the query script. This field is required when creating a SqlFile.
    */
   sessionClusterName?: string;
-  /**
-   * @remarks
-   * The SQL file ID.
-   */
   sqlFileId?: string;
   /**
    * @remarks
-   * The SQL script content.
+   * The SQL script. This field is required when creating a SqlFile.
    */
   sqlScript?: string;
-  /**
-   * @remarks
-   * The workspace ID.
-   */
   workspace?: string;
   static names(): { [key: string]: string } {
     return {

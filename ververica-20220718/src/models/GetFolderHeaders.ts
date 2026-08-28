@@ -6,7 +6,7 @@ export class GetFolderHeaders extends $dara.Model {
   commonHeaders?: { [key: string]: string };
   /**
    * @remarks
-   * Workspace ID.
+   * The workspace ID.
    * 
    * This parameter is required.
    * 

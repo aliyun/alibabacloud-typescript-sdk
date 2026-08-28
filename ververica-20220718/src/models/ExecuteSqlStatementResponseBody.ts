@@ -6,14 +6,14 @@ import { SqlStatementExecuteResult } from "./SqlStatementExecuteResult";
 export class ExecuteSqlStatementResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The result of the SQL statement execution for metadata.
+   * The execution result of the metadata SQL statement.
    */
   data?: SqlStatementExecuteResult;
   /**
    * @remarks
-   * - If \\`success\\` is \\`false\\`, an error code is returned.
-   * 
-   * - If \\`success\\` is \\`true\\`, this parameter is empty.
+   * - If success is false, a business error code is returned.
+   *  
+   * - If success is true, an empty value is returned.
    * 
    * @example
    * ""
@@ -21,9 +21,9 @@ export class ExecuteSqlStatementResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * - If \\`success\\` is \\`false\\`, an error message is returned.
+   * - If success is false, a business error message is returned.
    * 
-   * - If \\`success\\` is \\`true\\`, this parameter is empty.
+   * - If success is true, an empty value is returned.
    * 
    * @example
    * ""
@@ -31,7 +31,7 @@ export class ExecuteSqlStatementResponseBody extends $dara.Model {
   errorMessage?: string;
   /**
    * @remarks
-   * The status code. The value is always 200. Use the \\`success\\` parameter to determine whether the request was successful.
+   * The HTTP status code, which is always 200. Use the success field to determine whether the request was successful.
    * 
    * @example
    * 200

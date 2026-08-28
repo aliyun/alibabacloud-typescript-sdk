@@ -6,10 +6,10 @@ import { SqlFile } from "./SqlFile";
 export class GetSqlFileResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The complete SQL script information returned when the request is successful. This field is valid when success is true.
+   * The complete SQL script information returned when the request succeeds. This field is valid when success is true.
    * 
    * @example
-   * See the response example.
+   * See the response example
    */
   data?: SqlFile;
   /**

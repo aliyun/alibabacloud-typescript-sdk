@@ -6,7 +6,7 @@ import { SqlFile } from "./SqlFile";
 export class DeleteSqlFileResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The basic information about the deleted file returned after a successful deletion. Only metadata is included. The content field is not returned. This field is valid when success is set to true.
+   * The basic information about the deleted file returned after a successful deletion. Only metadata is included. The content field is not returned. This field is valid when success is true.
    * 
    * @example
    * { "jobs": [ { "jid": "4df35f8e54554b23bf7dcd38a151****", "name": "69d001d5-419a-4bfc-9c2e-849cacd3****", "state": "RUNNING", "start-time": 1659154942068, "end-time": -1, "duration": 188161756, "last-modification": 1659154968305, "tasks": { "total": 2, "created": 0, "scheduled": 0, "deploying": 0, "running": 2, "finished": 0, "canceling": 0, "canceled": 0, "failed": 0, "reconciling": 0, "initializing": 0 } } ] }

@@ -6,18 +6,36 @@ import { BriefResourceSetting } from "./BriefResourceSetting";
 
 
 export class HotUpdateJobResult extends $dara.Model {
+  /**
+   * @remarks
+   * The hot update parameters.
+   */
   hotUpdateParams?: HotUpdateJobParams;
   /**
+   * @remarks
+   * The hot update ID.
+   * 
    * @example
    * 123hashd****
    */
   jobHotUpdateId?: string;
   /**
+   * @remarks
+   * The job instance ID.
+   * 
    * @example
    * 5af678c0-7db0-4650-94c2-d2604f0a****
    */
   jobId?: string;
+  /**
+   * @remarks
+   * The hot update status.
+   */
   status?: HotUpdateJobStatus;
+  /**
+   * @remarks
+   * The target job resource configuration.
+   */
   targetResourceSetting?: BriefResourceSetting;
   static names(): { [key: string]: string } {
     return {

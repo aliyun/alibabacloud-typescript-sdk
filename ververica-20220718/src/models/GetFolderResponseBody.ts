@@ -6,14 +6,14 @@ import { Folder } from "./Folder";
 export class GetFolderResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Folder data structure.
+   * The folder information data structure.
    */
   data?: Folder;
   /**
    * @remarks
-   * - If success is false, the business error code is returned.
-   * 
-   * - If success is true, an empty value is returned.
+   * - When success is false, a business error code is returned.
+   *  
+   * - When success is true, an empty value is returned.
    * 
    * @example
    * ""
@@ -21,9 +21,9 @@ export class GetFolderResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * - If success is false, the business error message is returned.
+   * - When success is false, a business error message is returned.
    * 
-   * - If success is true, an empty value is returned.
+   * - When success is true, an empty value is returned.
    * 
    * @example
    * ""
@@ -31,7 +31,7 @@ export class GetFolderResponseBody extends $dara.Model {
   errorMessage?: string;
   /**
    * @remarks
-   * Indicates task success or failure. If the parameter is not empty and not 200, it means failure.
+   * The business status code. If this value is not empty and is not 200, the business request failed.
    * 
    * @example
    * 200
@@ -39,7 +39,7 @@ export class GetFolderResponseBody extends $dara.Model {
   httpCode?: number;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
@@ -47,7 +47,7 @@ export class GetFolderResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the business request was successful.
    * 
    * @example
    * true

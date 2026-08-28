@@ -6,14 +6,14 @@ import { Catalog } from "./Catalog";
 export class GetCatalogsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * If \\`success\\` is \\`true\\`, a list of catalogs that meet the criteria is returned. If \\`success\\` is \\`false\\`, this parameter is empty.
+   * The list of catalogs that meet the conditions when success is true. This value is empty when success is false.
    */
   data?: Catalog[];
   /**
    * @remarks
-   * - If \\`success\\` is \\`false\\`, an error code is returned.
-   * 
-   * - If \\`success\\` is \\`true\\`, this parameter is empty.
+   * - If success is false, a business error code is returned.
+   *  
+   * - If success is true, an empty value is returned.
    * 
    * @example
    * ""
@@ -21,9 +21,9 @@ export class GetCatalogsResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * - If \\`success\\` is \\`false\\`, an error message is returned.
+   * - If success is false, a business error message is returned.
    * 
-   * - If \\`success\\` is \\`true\\`, this parameter is empty.
+   * - If success is true, an empty value is returned.
    * 
    * @example
    * ""
@@ -31,7 +31,7 @@ export class GetCatalogsResponseBody extends $dara.Model {
   errorMessage?: string;
   /**
    * @remarks
-   * The business status code. This is always 200. Use the \\`success\\` parameter to determine whether the request was successful.
+   * The HTTP status code, which is always 200. Use the success field to determine whether the request was successful.
    * 
    * @example
    * 200

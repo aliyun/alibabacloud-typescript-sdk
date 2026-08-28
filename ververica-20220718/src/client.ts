@@ -13,24 +13,24 @@ export default class Client extends OpenApi {
     super(config);
     this._endpointRule = "regional";
     this._endpointMap = {
+      'cn-qingdao': "ververica.cn-qingdao.aliyuncs.com",
+      'cn-shenzhen': "ververica.cn-shenzhen.aliyuncs.com",
+      'cn-wulanchabu': "ververica.cn-wulanchabu.aliyuncs.com",
+      'cn-beijing': "ververica.cn-beijing.aliyuncs.com",
+      'ap-northeast-1': "ververica.ap-northeast-1.aliyuncs.com",
+      'cn-chengdu': "ververica.cn-chengdu.aliyuncs.com",
+      'cn-shanghai': "ververica.cn-shanghai.aliyuncs.com",
+      'cn-hongkong': "ververica.cn-hongkong.aliyuncs.com",
+      'ap-southeast-1': "ververica.ap-southeast-1.aliyuncs.com",
+      'ap-southeast-3': "ververica.ap-southeast-3.aliyuncs.com",
+      'ap-southeast-5': "ververica.ap-southeast-5.aliyuncs.com",
+      'cn-zhangjiakou': "ververica.cn-zhangjiakou.aliyuncs.com",
+      'cn-hangzhou': "ververica.cn-hangzhou.aliyuncs.com",
       'us-west-1': "ververica.us-west-1.aliyuncs.com",
       'us-east-1': "ververica.us-east-1.aliyuncs.com",
-      'eu-west-1': "ververica.eu-west-1.aliyuncs.com",
       'eu-central-1': "ververica.eu-central-1.aliyuncs.com",
-      'cn-zhangjiakou': "ververica.cn-zhangjiakou.aliyuncs.com",
-      'cn-wulanchabu': "ververica.cn-wulanchabu.aliyuncs.com",
-      'cn-shenzhen': "ververica.cn-shenzhen.aliyuncs.com",
+      'eu-west-1': "ververica.eu-west-1.aliyuncs.com",
       'cn-shanghai-finance-1': "ververica.cn-shanghai-finance-1.aliyuncs.com",
-      'cn-shanghai': "ververica.cn-shanghai.aliyuncs.com",
-      'cn-qingdao': "ververica.cn-qingdao.aliyuncs.com",
-      'cn-hongkong': "ververica.cn-hongkong.aliyuncs.com",
-      'cn-hangzhou': "ververica.cn-hangzhou.aliyuncs.com",
-      'cn-chengdu': "ververica.cn-chengdu.aliyuncs.com",
-      'cn-beijing': "ververica.cn-beijing.aliyuncs.com",
-      'ap-southeast-5': "ververica.ap-southeast-5.aliyuncs.com",
-      'ap-southeast-3': "ververica.ap-southeast-3.aliyuncs.com",
-      'ap-southeast-1': "ververica.ap-southeast-1.aliyuncs.com",
-      'ap-northeast-1': "ververica.ap-northeast-1.aliyuncs.com",
     };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("ververica", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -1664,7 +1664,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Executes Data Definition Language (DDL) and Data Manipulation Language (DML) statements on metadata. Data Query Language (DQL) is not supported.
+   * Runs metadata-related SQL statements. Only DDL and DML statements are supported. DQL statements are not supported.
    * 
    * @param request - ExecuteSqlStatementRequest
    * @param headers - ExecuteSqlStatementHeaders
@@ -1701,7 +1701,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Executes Data Definition Language (DDL) and Data Manipulation Language (DML) statements on metadata. Data Query Language (DQL) is not supported.
+   * Runs metadata-related SQL statements. Only DDL and DML statements are supported. DQL statements are not supported.
    * 
    * @param request - ExecuteSqlStatementRequest
    * @returns ExecuteSqlStatementResponse
@@ -1992,7 +1992,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the Autopilot tuning configuration. Returns the enabled status and full configuration. Does not affect the existing V2 configuration.
+   * Retrieves the Autopilot tuning configuration.
    * 
    * @param request - GetAutopilotPolicyRequest
    * @param headers - GetAutopilotPolicyHeaders
@@ -2028,7 +2028,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the Autopilot tuning configuration. Returns the enabled status and full configuration. Does not affect the existing V2 configuration.
+   * Retrieves the Autopilot tuning configuration.
    * 
    * @param request - GetAutopilotPolicyRequest
    * @returns GetAutopilotPolicyResponse
@@ -2094,7 +2094,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves information about one or more databases in a specified catalog.
+   * Retrieves information about a specified database or lists all databases under a specified catalog.
    * 
    * @param request - GetDatabasesRequest
    * @param headers - GetDatabasesHeaders
@@ -2136,7 +2136,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves information about one or more databases in a specified catalog.
+   * Retrieves information about a specified database or lists all databases under a specified catalog.
    * 
    * @param request - GetDatabasesRequest
    * @returns GetDatabasesResponse
@@ -2610,7 +2610,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves specific folder information.
+   * Retrieves the details of a specific folder.
    * 
    * @param request - GetFolderRequest
    * @param headers - GetFolderHeaders
@@ -2656,7 +2656,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves specific folder information.
+   * Retrieves the details of a specific folder.
    * 
    * @param request - GetFolderRequest
    * @returns GetFolderResponse
@@ -2981,6 +2981,116 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves the inspection configuration.
+   * 
+   * @param request - GetPatrolConfigRequest
+   * @param headers - GetPatrolConfigHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetPatrolConfigResponse
+   */
+  async getPatrolConfigWithOptions(namespace: string, request: $_model.GetPatrolConfigRequest, headers: $_model.GetPatrolConfigHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.GetPatrolConfigResponse> {
+    request.validate();
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.workspace)) {
+      realHeaders["workspace"] = String(headers.workspace);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetPatrolConfig",
+      version: "2022-07-18",
+      protocol: "HTTPS",
+      pathname: `/autopilot/v2/namespaces/${$dara.URL.percentEncode(namespace)}/patrol-config`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetPatrolConfigResponse>(await this.callApi(params, req, runtime), new $_model.GetPatrolConfigResponse({}));
+  }
+
+  /**
+   * Retrieves the inspection configuration.
+   * 
+   * @param request - GetPatrolConfigRequest
+   * @returns GetPatrolConfigResponse
+   */
+  async getPatrolConfig(namespace: string, request: $_model.GetPatrolConfigRequest): Promise<$_model.GetPatrolConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.GetPatrolConfigHeaders({ });
+    return await this.getPatrolConfigWithOptions(namespace, request, headers, runtime);
+  }
+
+  /**
+   * Retrieves the details of an inspection report.
+   * 
+   * @param request - GetPatrolReportDetailRequest
+   * @param headers - GetPatrolReportDetailHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetPatrolReportDetailResponse
+   */
+  async getPatrolReportDetailWithOptions(namespace: string, request: $_model.GetPatrolReportDetailRequest, headers: $_model.GetPatrolReportDetailHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.GetPatrolReportDetailResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.date)) {
+      query["date"] = request.date;
+    }
+
+    if (!$dara.isNull(request.reportId)) {
+      query["reportId"] = request.reportId;
+    }
+
+    if (!$dara.isNull(request.timezone)) {
+      query["timezone"] = request.timezone;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.workspace)) {
+      realHeaders["workspace"] = String(headers.workspace);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetPatrolReportDetail",
+      version: "2022-07-18",
+      protocol: "HTTPS",
+      pathname: `/autopilot/v2/namespaces/${$dara.URL.percentEncode(namespace)}/patrol-reports/details`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetPatrolReportDetailResponse>(await this.callApi(params, req, runtime), new $_model.GetPatrolReportDetailResponse({}));
+  }
+
+  /**
+   * Retrieves the details of an inspection report.
+   * 
+   * @param request - GetPatrolReportDetailRequest
+   * @returns GetPatrolReportDetailResponse
+   */
+  async getPatrolReportDetail(namespace: string, request: $_model.GetPatrolReportDetailRequest): Promise<$_model.GetPatrolReportDetailResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.GetPatrolReportDetailHeaders({ });
+    return await this.getPatrolReportDetailWithOptions(namespace, request, headers, runtime);
+  }
+
+  /**
    * 获取上传文件URL
    * 
    * @param request - GetPreSignedUrlForPutObjectRequest
@@ -3171,7 +3281,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a specific table or all tables in a database within a specified catalog.
+   * Retrieves the details of a specific table or information about all tables under a specified database in a catalog.
    * 
    * @param request - GetTablesRequest
    * @param headers - GetTablesHeaders
@@ -3213,7 +3323,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a specific table or all tables in a database within a specified catalog.
+   * Retrieves the details of a specific table or information about all tables under a specified database in a catalog.
    * 
    * @param request - GetTablesRequest
    * @returns GetTablesResponse
@@ -3920,6 +4030,84 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the list of inspection reports.
+   * 
+   * @param request - ListPatrolReportsRequest
+   * @param headers - ListPatrolReportsHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListPatrolReportsResponse
+   */
+  async listPatrolReportsWithOptions(namespace: string, request: $_model.ListPatrolReportsRequest, headers: $_model.ListPatrolReportsHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.ListPatrolReportsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.endDate)) {
+      query["endDate"] = request.endDate;
+    }
+
+    if (!$dara.isNull(request.page)) {
+      query["page"] = request.page;
+    }
+
+    if (!$dara.isNull(request.scopeType)) {
+      query["scopeType"] = request.scopeType;
+    }
+
+    if (!$dara.isNull(request.size)) {
+      query["size"] = request.size;
+    }
+
+    if (!$dara.isNull(request.startDate)) {
+      query["startDate"] = request.startDate;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["status"] = request.status;
+    }
+
+    if (!$dara.isNull(request.triggerType)) {
+      query["triggerType"] = request.triggerType;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.workspace)) {
+      realHeaders["workspace"] = String(headers.workspace);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListPatrolReports",
+      version: "2022-07-18",
+      protocol: "HTTPS",
+      pathname: `/autopilot/v2/namespaces/${$dara.URL.percentEncode(namespace)}/patrol-reports`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListPatrolReportsResponse>(await this.callApi(params, req, runtime), new $_model.ListPatrolReportsResponse({}));
+  }
+
+  /**
+   * Queries the list of inspection reports.
+   * 
+   * @param request - ListPatrolReportsRequest
+   * @returns ListPatrolReportsResponse
+   */
+  async listPatrolReports(namespace: string, request: $_model.ListPatrolReportsRequest): Promise<$_model.ListPatrolReportsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.ListPatrolReportsHeaders({ });
+    return await this.listPatrolReportsWithOptions(namespace, request, headers, runtime);
+  }
+
+  /**
    * Obtains a list of savepoints or checkpoints.
    * 
    * @param request - ListSavepointsRequest
@@ -4471,7 +4659,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Executes an SQL query script task.
+   * Executes an SQL data query script task.
    * 
    * @param request - StartSqlExecutionRequest
    * @param headers - StartSqlExecutionHeaders
@@ -4508,7 +4696,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Executes an SQL query script task.
+   * Executes an SQL data query script task.
    * 
    * @param request - StartSqlExecutionRequest
    * @returns StartSqlExecutionResponse
@@ -4757,6 +4945,64 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers = new $_model.SubmitSqlPreviewHeaders({ });
     return await this.submitSqlPreviewWithOptions(namespace, request, headers, runtime);
+  }
+
+  /**
+   * Triggers an inspection.
+   * 
+   * @param request - TriggerPatrolRequest
+   * @param headers - TriggerPatrolHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns TriggerPatrolResponse
+   */
+  async triggerPatrolWithOptions(namespace: string, request: $_model.TriggerPatrolRequest, headers: $_model.TriggerPatrolHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.TriggerPatrolResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.scopeConfig)) {
+      body["scopeConfig"] = request.scopeConfig;
+    }
+
+    if (!$dara.isNull(request.scopeType)) {
+      body["scopeType"] = request.scopeType;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.workspace)) {
+      realHeaders["workspace"] = String(headers.workspace);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "TriggerPatrol",
+      version: "2022-07-18",
+      protocol: "HTTPS",
+      pathname: `/autopilot/v2/namespaces/${$dara.URL.percentEncode(namespace)}/patrol-reports/trigger`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.TriggerPatrolResponse>(await this.callApi(params, req, runtime), new $_model.TriggerPatrolResponse({}));
+  }
+
+  /**
+   * Triggers an inspection.
+   * 
+   * @param request - TriggerPatrolRequest
+   * @returns TriggerPatrolResponse
+   */
+  async triggerPatrol(namespace: string, request: $_model.TriggerPatrolRequest): Promise<$_model.TriggerPatrolResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.TriggerPatrolHeaders({ });
+    return await this.triggerPatrolWithOptions(namespace, request, headers, runtime);
   }
 
   /**
@@ -5170,6 +5416,76 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers = new $_model.UpdateMemberHeaders({ });
     return await this.updateMemberWithOptions(namespace, request, headers, runtime);
+  }
+
+  /**
+   * Updates the inspection configuration.
+   * 
+   * @param request - UpdatePatrolConfigRequest
+   * @param headers - UpdatePatrolConfigHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdatePatrolConfigResponse
+   */
+  async updatePatrolConfigWithOptions(namespace: string, request: $_model.UpdatePatrolConfigRequest, headers: $_model.UpdatePatrolConfigHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.UpdatePatrolConfigResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.cron)) {
+      body["cron"] = request.cron;
+    }
+
+    if (!$dara.isNull(request.enabled)) {
+      body["enabled"] = request.enabled;
+    }
+
+    if (!$dara.isNull(request.scopeConfig)) {
+      body["scopeConfig"] = request.scopeConfig;
+    }
+
+    if (!$dara.isNull(request.scopeType)) {
+      body["scopeType"] = request.scopeType;
+    }
+
+    if (!$dara.isNull(request.timezone)) {
+      body["timezone"] = request.timezone;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.workspace)) {
+      realHeaders["workspace"] = String(headers.workspace);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdatePatrolConfig",
+      version: "2022-07-18",
+      protocol: "HTTPS",
+      pathname: `/autopilot/v2/namespaces/${$dara.URL.percentEncode(namespace)}/patrol-config`,
+      method: "PATCH",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdatePatrolConfigResponse>(await this.callApi(params, req, runtime), new $_model.UpdatePatrolConfigResponse({}));
+  }
+
+  /**
+   * Updates the inspection configuration.
+   * 
+   * @param request - UpdatePatrolConfigRequest
+   * @returns UpdatePatrolConfigResponse
+   */
+  async updatePatrolConfig(namespace: string, request: $_model.UpdatePatrolConfigRequest): Promise<$_model.UpdatePatrolConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.UpdatePatrolConfigHeaders({ });
+    return await this.updatePatrolConfigWithOptions(namespace, request, headers, runtime);
   }
 
   /**

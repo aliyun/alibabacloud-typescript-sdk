@@ -6,15 +6,15 @@ import { StartSqlExecutionResult } from "./StartSqlExecutionResult";
 export class StartSqlExecutionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The complete information of the SQL script returned upon success. This parameter is valid when success is true.
+   * The complete SQL script information returned upon success. This parameter is valid when success is true.
    * 
    * @example
-   * 如返回示例所示
+   * See the response example
    */
   data?: StartSqlExecutionResult;
   /**
    * @remarks
-   * The business error code. This parameter is not empty when success is false. This parameter is empty when success is true.
+   * The business error code. This parameter is not empty when success is false, and is empty when success is true.
    * 
    * @example
    * ""
@@ -22,7 +22,7 @@ export class StartSqlExecutionResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The business error message. This parameter is not empty when success is false. This parameter is empty when success is true.
+   * The business error message. This parameter is not empty when success is false, and is empty when success is true.
    * 
    * @example
    * ""
@@ -30,7 +30,7 @@ export class StartSqlExecutionResponseBody extends $dara.Model {
   errorMessage?: string;
   /**
    * @remarks
-   * The business status code, which is always 200. Use success to determine whether the request was successful.
+   * The business status code, which is always 200. Use success to determine whether the business request is successful.
    * 
    * @example
    * 200
@@ -46,7 +46,7 @@ export class StartSqlExecutionResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the business request was successful.
+   * Indicates whether the business request is successful.
    * 
    * @example
    * True
