@@ -18,7 +18,7 @@ export class AiPluginStatus extends $dara.Model {
   pluginId?: string;
   /**
    * @remarks
-   * Indicates whether the backend service that the plug-in depends on is healthy.
+   * Indicates whether the backend service that the plugin depends on is healthy.
    * 
    * @example
    * true

@@ -29,7 +29,7 @@ export class ListHttpApiRoutesRequest extends $dara.Model {
   deployStatuses?: string;
   /**
    * @remarks
-   * The domain name ID used to filter route information.
+   * Filters route information by domain name ID.
    * 
    * @example
    * d-xxx
@@ -85,7 +85,7 @@ export class ListHttpApiRoutesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The page size. Valid values: 1 to 100. Default value: 10.
+   * The page size. Valid range: 1 to 100. Default value: 10.
    * 
    * @example
    * 10
@@ -101,7 +101,7 @@ export class ListHttpApiRoutesRequest extends $dara.Model {
   pathLike?: string;
   /**
    * @remarks
-   * Specifies whether to include consumer authorization information in the response.
+   * Includes consumer authorization information in the response.
    * 
    * @example
    * true
@@ -109,7 +109,7 @@ export class ListHttpApiRoutesRequest extends $dara.Model {
   withAuthPolicyInfo?: boolean;
   /**
    * @remarks
-   * Specifies a consumer ID so that the response includes the authorization rule list for the specified consumer in each route.
+   * Includes the authorization rule list of the specified consumer ID for each route in the response.
    * 
    * @example
    * cs-xxx
@@ -117,7 +117,7 @@ export class ListHttpApiRoutesRequest extends $dara.Model {
   withConsumerInfoById?: string;
   /**
    * @remarks
-   * Specifies a plug-in ID so that the response includes the mount information of the specified plug-in in each route.
+   * Includes the plug-in attachment information of the specified plug-in ID for each route in the response.
    * 
    * @example
    * pl-xxx

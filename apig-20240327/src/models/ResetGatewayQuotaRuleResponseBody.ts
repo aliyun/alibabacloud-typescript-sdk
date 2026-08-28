@@ -6,9 +6,10 @@ export class ResetGatewayQuotaRuleResponseBodyDataConflictPreviewItems extends $
   /**
    * @remarks
    * The period type of the existing conflicting rule on the consumer. Valid values:
-   * - day: daily period.
-   * - week: weekly period.
-   * - month: monthly period.
+   * 
+   * - day: daily.
+   * - week: weekly.
+   * - month: monthly.
    * 
    * @example
    * week
@@ -17,8 +18,9 @@ export class ResetGatewayQuotaRuleResponseBodyDataConflictPreviewItems extends $
   /**
    * @remarks
    * The type of the existing conflicting rule on the consumer. Valid values:
-   * - calendar: The existing conflicting rule uses a calendar period.
-   * - epoch: The existing conflicting rule uses a custom period.
+   * 
+   * - calendar: the existing conflicting rule uses a calendar period.
+   * - epoch: the existing conflicting rule uses a custom period.
    * 
    * @example
    * calendar
@@ -40,12 +42,39 @@ export class ResetGatewayQuotaRuleResponseBodyDataConflictPreviewItems extends $
    * consumer-a
    */
   consumerName?: string;
+  /**
+   * @remarks
+   * The ID of the conflicting subject.
+   * 
+   * @example
+   * cs-xxx
+   */
+  subjectId?: string;
+  /**
+   * @remarks
+   * The name of the conflicting subject.
+   * 
+   * @example
+   * consumer-a
+   */
+  subjectName?: string;
+  /**
+   * @remarks
+   * The conflict subject type. Valid values: consumer and consumer_group.
+   * 
+   * @example
+   * consumer
+   */
+  subjectType?: string;
   static names(): { [key: string]: string } {
     return {
       conflictPeriodType: 'conflictPeriodType',
       conflictType: 'conflictType',
       consumerId: 'consumerId',
       consumerName: 'consumerName',
+      subjectId: 'subjectId',
+      subjectName: 'subjectName',
+      subjectType: 'subjectType',
     };
   }
 
@@ -55,6 +84,9 @@ export class ResetGatewayQuotaRuleResponseBodyDataConflictPreviewItems extends $
       conflictType: 'string',
       consumerId: 'string',
       consumerName: 'string',
+      subjectId: 'string',
+      subjectName: 'string',
+      subjectType: 'string',
     };
   }
 
@@ -70,7 +102,7 @@ export class ResetGatewayQuotaRuleResponseBodyDataConflictPreviewItems extends $
 export class ResetGatewayQuotaRuleResponseBodyDataConflictPreview extends $dara.Model {
   /**
    * @remarks
-   * The hash of the conflict snapshot.
+   * The conflict hash.
    * 
    * @example
    * f8f44dc6cf369a017d56b7197eb4fb5ac4bbb6b09a92b9b41999541fxxxxxxxx
@@ -78,7 +110,7 @@ export class ResetGatewayQuotaRuleResponseBodyDataConflictPreview extends $dara.
   conflictHash?: string;
   /**
    * @remarks
-   * The list of conflicting entities (consumers).
+   * The list of conflicting subjects (consumers).
    */
   items?: ResetGatewayQuotaRuleResponseBodyDataConflictPreviewItems[];
   /**
@@ -120,7 +152,7 @@ export class ResetGatewayQuotaRuleResponseBodyDataConflictPreview extends $dara.
 export class ResetGatewayQuotaRuleResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the write request is accepted by the system. A value of false typically indicates a retryable scenario, such as an unconfirmed conflict overwrite.
+   * Indicates whether the write request is accepted by the system. A value of false typically indicates a retryable scenario such as an unconfirmed conflict overwrite.
    * 
    * @example
    * true
@@ -133,7 +165,7 @@ export class ResetGatewayQuotaRuleResponseBodyData extends $dara.Model {
   conflictPreview?: ResetGatewayQuotaRuleResponseBodyDataConflictPreview;
   /**
    * @remarks
-   * Indicates whether this is a dry run.
+   * Indicates whether the request is a dry run.
    * 
    * @example
    * false
@@ -141,7 +173,7 @@ export class ResetGatewayQuotaRuleResponseBodyData extends $dara.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * The ID of the rule.
+   * The rule ID.
    * 
    * @example
    * qr-d8j7fpmm1hks65xxxx
@@ -199,7 +231,7 @@ export class ResetGatewayQuotaRuleResponseBody extends $dara.Model {
    * The message content.
    * 
    * @example
-   * 你好，世界！
+   * Hello, World!
    */
   message?: string;
   /**

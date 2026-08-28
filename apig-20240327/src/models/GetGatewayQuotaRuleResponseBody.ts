@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetGatewayQuotaRuleResponseBodyDataConsumers extends $dara.Model {
   /**
    * @remarks
-   * The ID of the principal (consumer).
+   * The subject (consumer) ID.
    * 
    * @example
    * c-aaa
@@ -13,7 +13,7 @@ export class GetGatewayQuotaRuleResponseBodyDataConsumers extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The name of the principal (consumer).
+   * The subject (consumer) name.
    * 
    * @example
    * consumer-a
@@ -42,10 +42,60 @@ export class GetGatewayQuotaRuleResponseBodyDataConsumers extends $dara.Model {
   }
 }
 
+export class GetGatewayQuotaRuleResponseBodyDataSubjects extends $dara.Model {
+  /**
+   * @remarks
+   * The subject ID.
+   * 
+   * @example
+   * cs-xxx
+   */
+  id?: string;
+  /**
+   * @remarks
+   * The subject name.
+   * 
+   * @example
+   * consumer-a
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The subject type. Valid values: consumer or consumer_group.
+   * 
+   * @example
+   * consumer
+   */
+  subjectType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'id',
+      name: 'name',
+      subjectType: 'subjectType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      name: 'string',
+      subjectType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetGatewayQuotaRuleResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The base timestamp of the period.
+   * The period base timestamp.
    * 
    * @example
    * 1745846400000
@@ -61,7 +111,7 @@ export class GetGatewayQuotaRuleResponseBodyData extends $dara.Model {
   consumerCount?: number;
   /**
    * @remarks
-   * The list of principals (consumers) bound to this rule.
+   * The list of subjects (consumers) bound to this rule.
    */
   consumers?: GetGatewayQuotaRuleResponseBodyDataConsumers[];
   /**
@@ -114,7 +164,28 @@ export class GetGatewayQuotaRuleResponseBodyData extends $dara.Model {
   ruleStatus?: string;
   /**
    * @remarks
-   * The time zone for the calendar period, in UTC+x format.
+   * The number of associated subjects.
+   * 
+   * @example
+   * 120
+   */
+  subjectCount?: number;
+  /**
+   * @remarks
+   * The rule subject type. Valid values: consumer or consumer_group.
+   * 
+   * @example
+   * consumer_group
+   */
+  subjectType?: string;
+  /**
+   * @remarks
+   * The general subject list bound to this rule. Returned only when withSubjects is set to true.
+   */
+  subjects?: GetGatewayQuotaRuleResponseBodyDataSubjects[];
+  /**
+   * @remarks
+   * The time zone corresponding to the calendar period, in UTC+x format.
    * 
    * @example
    * GMT+8
@@ -139,6 +210,9 @@ export class GetGatewayQuotaRuleResponseBodyData extends $dara.Model {
       ruleId: 'ruleId',
       ruleName: 'ruleName',
       ruleStatus: 'ruleStatus',
+      subjectCount: 'subjectCount',
+      subjectType: 'subjectType',
+      subjects: 'subjects',
       timezone: 'timezone',
       windowAlignment: 'windowAlignment',
     };
@@ -155,6 +229,9 @@ export class GetGatewayQuotaRuleResponseBodyData extends $dara.Model {
       ruleId: 'string',
       ruleName: 'string',
       ruleStatus: 'string',
+      subjectCount: 'number',
+      subjectType: 'string',
+      subjects: { 'type': 'array', 'itemType': GetGatewayQuotaRuleResponseBodyDataSubjects },
       timezone: 'string',
       windowAlignment: 'string',
     };
@@ -163,6 +240,9 @@ export class GetGatewayQuotaRuleResponseBodyData extends $dara.Model {
   validate() {
     if(Array.isArray(this.consumers)) {
       $dara.Model.validateArray(this.consumers);
+    }
+    if(Array.isArray(this.subjects)) {
+      $dara.Model.validateArray(this.subjects);
     }
     super.validate();
   }

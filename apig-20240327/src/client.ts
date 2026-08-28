@@ -60,15 +60,15 @@ export default class Client extends OpenApi {
    * Creates a gateway quota throttling rule.
    * 
    * @remarks
-   * Creates a consumer-based quota rule for an AI gateway. This operation takes effect only on AI gateways of version 2.1.19 or later.
+   * Creates a consumer-based quota rule for an AI gateway. This operation applies only to AI gateways running version 2.1.19 or later.
    * > 
-   * >  Recommended call sequence:
-   * > - Step 1: Perform a dry run to check for rule conflicts.
-   * > - - Set dryRun to true.
-   * > - - The response contains a conflict preview with a conflictHash value.
-   * > - Step 2: Submit the request after confirmation.
-   * > - - No conflicts: Set dryRun to false and overwrite to false.
-   * > - - Conflicts exist and you confirm the overwrite: Set dryRun to false, overwrite to true, and conflictHash to the value returned in the previous step.
+   * >  Recommended call logic:
+   * > - 1. Perform a dry run to check for rule conflicts.
+   * > - - Set dryRun=true.
+   * > - - The response contains a conflict preview with conflictHash.
+   * > - 2. Submit the request after confirmation.
+   * > - - No conflicts: dryRun=false, overwrite=false.
+   * > - - Conflicts exist and you confirm overwrite: dryRun=false, overwrite=true, conflictHash=<value returned in the previous step>
    * 
    * @param request - AddGatewayQuotaRuleRequest
    * @param headers - map
@@ -118,6 +118,10 @@ export default class Client extends OpenApi {
       body["ruleName"] = request.ruleName;
     }
 
+    if (!$dara.isNull(request.subjectType)) {
+      body["subjectType"] = request.subjectType;
+    }
+
     if (!$dara.isNull(request.timezone)) {
       body["timezone"] = request.timezone;
     }
@@ -148,15 +152,15 @@ export default class Client extends OpenApi {
    * Creates a gateway quota throttling rule.
    * 
    * @remarks
-   * Creates a consumer-based quota rule for an AI gateway. This operation takes effect only on AI gateways of version 2.1.19 or later.
+   * Creates a consumer-based quota rule for an AI gateway. This operation applies only to AI gateways running version 2.1.19 or later.
    * > 
-   * >  Recommended call sequence:
-   * > - Step 1: Perform a dry run to check for rule conflicts.
-   * > - - Set dryRun to true.
-   * > - - The response contains a conflict preview with a conflictHash value.
-   * > - Step 2: Submit the request after confirmation.
-   * > - - No conflicts: Set dryRun to false and overwrite to false.
-   * > - - Conflicts exist and you confirm the overwrite: Set dryRun to false, overwrite to true, and conflictHash to the value returned in the previous step.
+   * >  Recommended call logic:
+   * > - 1. Perform a dry run to check for rule conflicts.
+   * > - - Set dryRun=true.
+   * > - - The response contains a conflict preview with conflictHash.
+   * > - 2. Submit the request after confirmation.
+   * > - - No conflicts: dryRun=false, overwrite=false.
+   * > - - Conflicts exist and you confirm overwrite: dryRun=false, overwrite=true, conflictHash=<value returned in the previous step>
    * 
    * @param request - AddGatewayQuotaRuleRequest
    * @returns AddGatewayQuotaRuleResponse
@@ -3320,6 +3324,9 @@ export default class Client extends OpenApi {
   /**
    * Publishes an MCP server.
    * 
+   * @remarks
+   * Before deployment, the MCP server must have domainIds configured through CreateMcpServer or UpdateMcpServer. Call GetMcpServer to confirm the domain name bindng status.
+   * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeployMcpServerResponse
@@ -3344,6 +3351,9 @@ export default class Client extends OpenApi {
 
   /**
    * Publishes an MCP server.
+   * 
+   * @remarks
+   * Before deployment, the MCP server must have domainIds configured through CreateMcpServer or UpdateMcpServer. Call GetMcpServer to confirm the domain name bindng status.
    * @returns DeployMcpServerResponse
    */
   async deployMcpServer(mcpServerId: string): Promise<$_model.DeployMcpServerResponse> {
@@ -4042,6 +4052,10 @@ export default class Client extends OpenApi {
       query["withConsumers"] = request.withConsumers;
     }
 
+    if (!$dara.isNull(request.withSubjects)) {
+      query["withSubjects"] = request.withSubjects;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
@@ -4079,7 +4093,7 @@ export default class Client extends OpenApi {
    * Queries the usage details of a subject under a gateway quota throttling rule, including used quota, total quota, whether the limit is exceeded, usage details, and consumption records.
    * 
    * @remarks
-   * This operation retrieves the usage details of a consumer under a quota rule. This operation applies only to AI gateways with a version later than 2.1.19.
+   * Retrieves the usage details of a specific consumer under a quota rule. This operation applies only to AI gateways with a version later than 2.1.19.
    * 
    * @param request - GetGatewayQuotaRuleSubjectUsageRequest
    * @param headers - map
@@ -4123,7 +4137,7 @@ export default class Client extends OpenApi {
    * Queries the usage details of a subject under a gateway quota throttling rule, including used quota, total quota, whether the limit is exceeded, usage details, and consumption records.
    * 
    * @remarks
-   * This operation retrieves the usage details of a consumer under a quota rule. This operation applies only to AI gateways with a version later than 2.1.19.
+   * Retrieves the usage details of a specific consumer under a quota rule. This operation applies only to AI gateways with a version later than 2.1.19.
    * 
    * @param request - GetGatewayQuotaRuleSubjectUsageRequest
    * @returns GetGatewayQuotaRuleSubjectUsageResponse
@@ -5720,7 +5734,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the external service information of a gateway.
+   * Retrieves external service information for a gateway.
    * 
    * @remarks
    * This operation supports creating multiple services.
@@ -5772,7 +5786,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the external service information of a gateway.
+   * Retrieves external service information for a gateway.
    * 
    * @remarks
    * This operation supports creating multiple services.
@@ -7054,6 +7068,51 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取用户插件webide工作空间列表
+   * 
+   * @param request - ListPluginWorkspaceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListPluginWorkspaceResponse
+   */
+  async listPluginWorkspaceWithOptions(request: $_model.ListPluginWorkspaceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListPluginWorkspaceResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.gatewayType)) {
+      query["gatewayType"] = request.gatewayType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListPluginWorkspace",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/plugin-workspaces`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListPluginWorkspaceResponse>(await this.callApi(params, req, runtime), new $_model.ListPluginWorkspaceResponse({}));
+  }
+
+  /**
+   * 获取用户插件webide工作空间列表
+   * 
+   * @param request - ListPluginWorkspaceRequest
+   * @returns ListPluginWorkspaceResponse
+   */
+  async listPluginWorkspace(request: $_model.ListPluginWorkspaceRequest): Promise<$_model.ListPluginWorkspaceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listPluginWorkspaceWithOptions(request, headers, runtime);
+  }
+
+  /**
    * Retrieves a list of plugins.
    * 
    * @param request - ListPluginsRequest
@@ -7269,6 +7328,63 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询风险检测结果
+   * 
+   * @param request - ListRiskCheckResultsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListRiskCheckResultsResponse
+   */
+  async listRiskCheckResultsWithOptions(gatewayId: string, request: $_model.ListRiskCheckResultsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListRiskCheckResultsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["pageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListRiskCheckResults",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/gateways/${$dara.URL.percentEncode(gatewayId)}/risk-check/results`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListRiskCheckResultsResponse>(await this.callApi(params, req, runtime), new $_model.ListRiskCheckResultsResponse({}));
+  }
+
+  /**
+   * 查询风险检测结果
+   * 
+   * @param request - ListRiskCheckResultsRequest
+   * @returns ListRiskCheckResultsResponse
+   */
+  async listRiskCheckResults(gatewayId: string, request: $_model.ListRiskCheckResultsRequest): Promise<$_model.ListRiskCheckResultsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listRiskCheckResultsWithOptions(gatewayId, request, headers, runtime);
+  }
+
+  /**
    * Lists secret references.
    * 
    * @remarks
@@ -7456,6 +7572,67 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries sources.
+   * 
+   * @param request - ListSourcesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListSourcesResponse
+   */
+  async listSourcesWithOptions(request: $_model.ListSourcesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListSourcesResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.gatewayId)) {
+      query["gatewayId"] = request.gatewayId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["pageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["resourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      query["type"] = request.type;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListSources",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/sources`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListSourcesResponse>(await this.callApi(params, req, runtime), new $_model.ListSourcesResponse({}));
+  }
+
+  /**
+   * Queries sources.
+   * 
+   * @param request - ListSourcesRequest
+   * @returns ListSourcesResponse
+   */
+  async listSources(request: $_model.ListSourcesRequest): Promise<$_model.ListSourcesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listSourcesWithOptions(request, headers, runtime);
+  }
+
+  /**
    * Retrieves a list of certificates.
    * 
    * @param request - ListSslCertsRequest
@@ -7510,6 +7687,59 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listSslCertsWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 查询已同步的MCP Server列表
+   * 
+   * @param request - ListSyncMCPServerRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListSyncMCPServerResponse
+   */
+  async listSyncMCPServerWithOptions(request: $_model.ListSyncMCPServerRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListSyncMCPServerResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.gatewayId)) {
+      query["gatewayId"] = request.gatewayId;
+    }
+
+    if (!$dara.isNull(request.namespace)) {
+      query["namespace"] = request.namespace;
+    }
+
+    if (!$dara.isNull(request.sourceId)) {
+      query["sourceId"] = request.sourceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListSyncMCPServer",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/mcp-servers/sync-mcp-server/list`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListSyncMCPServerResponse>(await this.callApi(params, req, runtime), new $_model.ListSyncMCPServerResponse({}));
+  }
+
+  /**
+   * 查询已同步的MCP Server列表
+   * 
+   * @param request - ListSyncMCPServerRequest
+   * @returns ListSyncMCPServerResponse
+   */
+  async listSyncMCPServer(request: $_model.ListSyncMCPServerRequest): Promise<$_model.ListSyncMCPServerResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listSyncMCPServerWithOptions(request, headers, runtime);
   }
 
   /**
@@ -7722,6 +7952,51 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 刷新插件托管仓库的oauth code
+   * 
+   * @param request - RefreshPluginOAuthCodeRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RefreshPluginOAuthCodeResponse
+   */
+  async refreshPluginOAuthCodeWithOptions(request: $_model.RefreshPluginOAuthCodeRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.RefreshPluginOAuthCodeResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.code)) {
+      body["code"] = request.code;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RefreshPluginOAuthCode",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/plugin-oauth-codes`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RefreshPluginOAuthCodeResponse>(await this.callApi(params, req, runtime), new $_model.RefreshPluginOAuthCodeResponse({}));
+  }
+
+  /**
+   * 刷新插件托管仓库的oauth code
+   * 
+   * @param request - RefreshPluginOAuthCodeRequest
+   * @returns RefreshPluginOAuthCodeResponse
+   */
+  async refreshPluginOAuthCode(request: $_model.RefreshPluginOAuthCodeRequest): Promise<$_model.RefreshPluginOAuthCodeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.refreshPluginOAuthCodeWithOptions(request, headers, runtime);
+  }
+
+  /**
    * Deletes an API consumer authorization rule.
    * 
    * @param headers - map
@@ -7760,15 +8035,15 @@ export default class Client extends OpenApi {
    * Resets a quota throttling rule on a gateway.
    * 
    * @remarks
-   * Resets a quota throttling rule on a gateway. This operation takes effect only on AI gateways running version 2.1.19 or later. Resetting a rule clears the historical usage of consumers associated with the rule.
+   * Resets a quota throttling rule on a gateway. This operation only takes effect for AI gateways with versions later than 2.1.19. Resetting clears the historical usage of consumers on the rule.
    * > 
-   * >  Recommended call sequence:
+   * >  Recommended call logic:
    * > - 1. Perform a dry run to check for rule conflicts.
-   * > - - Set dryRun to true.
+   * > - - Set dryRun=true.
    * > - - The response contains a conflict preview with conflictHash.
    * > - 2. Submit the request after confirmation.
-   * > - - No conflicts: Set dryRun to false and overwrite to false.
-   * > - - Conflicts exist and you confirm the overwrite: Set dryRun to false, overwrite to true, and conflictHash to the value returned in the previous step.
+   * > - - No conflict: dryRun=false, overwrite=false.
+   * > - - Conflict exists and overwrite confirmed: dryRun=false, overwrite=true, conflictHash=<value returned in the previous step>
    * 
    * @param request - ResetGatewayQuotaRuleRequest
    * @param headers - map
@@ -7832,15 +8107,15 @@ export default class Client extends OpenApi {
    * Resets a quota throttling rule on a gateway.
    * 
    * @remarks
-   * Resets a quota throttling rule on a gateway. This operation takes effect only on AI gateways running version 2.1.19 or later. Resetting a rule clears the historical usage of consumers associated with the rule.
+   * Resets a quota throttling rule on a gateway. This operation only takes effect for AI gateways with versions later than 2.1.19. Resetting clears the historical usage of consumers on the rule.
    * > 
-   * >  Recommended call sequence:
+   * >  Recommended call logic:
    * > - 1. Perform a dry run to check for rule conflicts.
-   * > - - Set dryRun to true.
+   * > - - Set dryRun=true.
    * > - - The response contains a conflict preview with conflictHash.
    * > - 2. Submit the request after confirmation.
-   * > - - No conflicts: Set dryRun to false and overwrite to false.
-   * > - - Conflicts exist and you confirm the overwrite: Set dryRun to false, overwrite to true, and conflictHash to the value returned in the previous step.
+   * > - - No conflict: dryRun=false, overwrite=false.
+   * > - - Conflict exists and overwrite confirmed: dryRun=false, overwrite=true, conflictHash=<value returned in the previous step>
    * 
    * @param request - ResetGatewayQuotaRuleRequest
    * @returns ResetGatewayQuotaRuleResponse
@@ -7884,6 +8159,45 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.restartGatewayWithOptions(gatewayId, headers, runtime);
+  }
+
+  /**
+   * 插件工作空间运行流水线
+   * 
+   * @param request - RunPluginPipelineRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RunPluginPipelineResponse
+   */
+  async runPluginPipelineWithOptions(workspaceId: string, request: $_model.RunPluginPipelineRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.RunPluginPipelineResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RunPluginPipeline",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/plugin-workspaces/${$dara.URL.percentEncode(workspaceId)}/pipeline-run`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RunPluginPipelineResponse>(await this.callApi(params, req, runtime), new $_model.RunPluginPipelineResponse({}));
+  }
+
+  /**
+   * 插件工作空间运行流水线
+   * 
+   * @param request - RunPluginPipelineRequest
+   * @returns RunPluginPipelineResponse
+   */
+  async runPluginPipeline(workspaceId: string, request: $_model.RunPluginPipelineRequest): Promise<$_model.RunPluginPipelineResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.runPluginPipelineWithOptions(workspaceId, request, headers, runtime);
   }
 
   /**
@@ -8378,6 +8692,51 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 更新消费者授权规则
+   * 
+   * @param request - UpdateAuthorizationRuleRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateAuthorizationRuleResponse
+   */
+  async updateAuthorizationRuleWithOptions(consumerAuthorizationRuleId: string, request: $_model.UpdateAuthorizationRuleRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateAuthorizationRuleResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.resources)) {
+      body["resources"] = request.resources;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateAuthorizationRule",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/authorization-rules/${$dara.URL.percentEncode(consumerAuthorizationRuleId)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateAuthorizationRuleResponse>(await this.callApi(params, req, runtime), new $_model.UpdateAuthorizationRuleResponse({}));
+  }
+
+  /**
+   * 更新消费者授权规则
+   * 
+   * @param request - UpdateAuthorizationRuleRequest
+   * @returns UpdateAuthorizationRuleResponse
+   */
+  async updateAuthorizationRule(consumerAuthorizationRuleId: string, request: $_model.UpdateAuthorizationRuleRequest): Promise<$_model.UpdateAuthorizationRuleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateAuthorizationRuleWithOptions(consumerAuthorizationRuleId, request, headers, runtime);
+  }
+
+  /**
    * Updates a consumer.
    * 
    * @param request - UpdateConsumerRequest
@@ -8692,6 +9051,51 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 更新网关弹性策略
+   * 
+   * @param request - UpdateGatewayElasticPolicyRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateGatewayElasticPolicyResponse
+   */
+  async updateGatewayElasticPolicyWithOptions(gatewayId: string, request: $_model.UpdateGatewayElasticPolicyRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateGatewayElasticPolicyResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.elasticPolicy)) {
+      body["elasticPolicy"] = request.elasticPolicy;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateGatewayElasticPolicy",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/gateways/${$dara.URL.percentEncode(gatewayId)}/elastic-policy`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateGatewayElasticPolicyResponse>(await this.callApi(params, req, runtime), new $_model.UpdateGatewayElasticPolicyResponse({}));
+  }
+
+  /**
+   * 更新网关弹性策略
+   * 
+   * @param request - UpdateGatewayElasticPolicyRequest
+   * @returns UpdateGatewayElasticPolicyResponse
+   */
+  async updateGatewayElasticPolicy(gatewayId: string, request: $_model.UpdateGatewayElasticPolicyRequest): Promise<$_model.UpdateGatewayElasticPolicyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateGatewayElasticPolicyWithOptions(gatewayId, request, headers, runtime);
+  }
+
+  /**
    * Updates the attribute parameters of a gateway.
    * 
    * @param request - UpdateGatewayFeatureRequest
@@ -8734,6 +9138,59 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateGatewayFeatureWithOptions(gatewayId, name, request, headers, runtime);
+  }
+
+  /**
+   * 更新网关负载均衡器
+   * 
+   * @param request - UpdateGatewayLoadBalancerRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateGatewayLoadBalancerResponse
+   */
+  async updateGatewayLoadBalancerWithOptions(gatewayId: string, request: $_model.UpdateGatewayLoadBalancerRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateGatewayLoadBalancerResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.loadBalancerDTO)) {
+      body["loadBalancerDTO"] = request.loadBalancerDTO;
+    }
+
+    if (!$dara.isNull(request.option)) {
+      body["option"] = request.option;
+    }
+
+    if (!$dara.isNull(request.ports)) {
+      body["ports"] = request.ports;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateGatewayLoadBalancer",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/gateways/${$dara.URL.percentEncode(gatewayId)}/update-load-balancer`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateGatewayLoadBalancerResponse>(await this.callApi(params, req, runtime), new $_model.UpdateGatewayLoadBalancerResponse({}));
+  }
+
+  /**
+   * 更新网关负载均衡器
+   * 
+   * @param request - UpdateGatewayLoadBalancerRequest
+   * @returns UpdateGatewayLoadBalancerResponse
+   */
+  async updateGatewayLoadBalancer(gatewayId: string, request: $_model.UpdateGatewayLoadBalancerRequest): Promise<$_model.UpdateGatewayLoadBalancerResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateGatewayLoadBalancerWithOptions(gatewayId, request, headers, runtime);
   }
 
   /**
@@ -8832,17 +9289,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Edits a quota throttling rule on a gateway.
+   * Edits a quota rate-limiting rule on a gateway.
    * 
    * @remarks
-   * Edits a quota rule on a gateway. This operation takes effect only on AI gateways with a version later than 2.1.19. Editing a rule preserves the historical usage of consumers on the rule.
+   * Edits a quota rule on a gateway. This operation takes effect only for AI gateways with a version later than 2.1.19. Editing preserves the historical usage of consumers on the rule.
    * >  Recommended call logic:
-   * > - Step 1: Perform a dry run to check for rule conflicts.
+   * > - 1. Perform a dry run to check for rule conflicts.
    * > - - Set dryRun to true.
    * > - - The response contains a conflict preview with conflictHash.
-   * > - Step 2: Submit the request after confirmation.
-   * > - - No conflicts: Set dryRun to false and overwrite to false.
-   * > - - Conflicts exist and you confirm the overwrite: Set dryRun to false, overwrite to true, and conflictHash to the value returned in the previous step.
+   * > - 2. Submit the request after confirmation.
+   * > - - No conflict: Set dryRun to false and overwrite to false.
+   * > - - Conflict exists and overwrite confirmed: Set dryRun to false, overwrite to true, and conflictHash to the value returned in the previous step.
    * 
    * @param request - UpdateGatewayQuotaRuleRequest
    * @param headers - map
@@ -8903,17 +9360,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Edits a quota throttling rule on a gateway.
+   * Edits a quota rate-limiting rule on a gateway.
    * 
    * @remarks
-   * Edits a quota rule on a gateway. This operation takes effect only on AI gateways with a version later than 2.1.19. Editing a rule preserves the historical usage of consumers on the rule.
+   * Edits a quota rule on a gateway. This operation takes effect only for AI gateways with a version later than 2.1.19. Editing preserves the historical usage of consumers on the rule.
    * >  Recommended call logic:
-   * > - Step 1: Perform a dry run to check for rule conflicts.
+   * > - 1. Perform a dry run to check for rule conflicts.
    * > - - Set dryRun to true.
    * > - - The response contains a conflict preview with conflictHash.
-   * > - Step 2: Submit the request after confirmation.
-   * > - - No conflicts: Set dryRun to false and overwrite to false.
-   * > - - Conflicts exist and you confirm the overwrite: Set dryRun to false, overwrite to true, and conflictHash to the value returned in the previous step.
+   * > - 2. Submit the request after confirmation.
+   * > - - No conflict: Set dryRun to false and overwrite to false.
+   * > - - Conflict exists and overwrite confirmed: Set dryRun to false, overwrite to true, and conflictHash to the value returned in the previous step.
    * 
    * @param request - UpdateGatewayQuotaRuleRequest
    * @returns UpdateGatewayQuotaRuleResponse

@@ -2,31 +2,21 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class HttpApiApiInfoDeployCntMapValue extends $dara.Model {
-  /**
-   * @remarks
-   * The number of published API operations.
-   * 
-   * @example
-   * 3
-   */
-  deployedCnt?: number;
+export class RefreshPluginOAuthCodeRequest extends $dara.Model {
   /**
    * @example
-   * 10
+   * 4/0AX4xxxx
    */
-  cnt?: number;
+  code?: string;
   static names(): { [key: string]: string } {
     return {
-      deployedCnt: 'deployedCnt',
-      cnt: 'cnt',
+      code: 'code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      deployedCnt: 'number',
-      cnt: 'number',
+      code: 'string',
     };
   }
 

@@ -15,7 +15,7 @@ export class GetGatewayQuotaRuleRequest extends $dara.Model {
   consumerPageNumber?: string;
   /**
    * @remarks
-   * The number of consumers per page.
+   * The page size of the consumer list.
    * 
    * @example
    * 10
@@ -25,14 +25,20 @@ export class GetGatewayQuotaRuleRequest extends $dara.Model {
   consumerPageSize?: string;
   /**
    * @remarks
-   * Specifies whether to include the consumer list in the response.
+   * Specifies whether to return the consumer list.
    */
   withConsumers?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to return the general subject list. This parameter applies to both consumer and consumer group rules.
+   */
+  withSubjects?: boolean;
   static names(): { [key: string]: string } {
     return {
       consumerPageNumber: 'consumerPageNumber',
       consumerPageSize: 'consumerPageSize',
       withConsumers: 'withConsumers',
+      withSubjects: 'withSubjects',
     };
   }
 
@@ -41,6 +47,7 @@ export class GetGatewayQuotaRuleRequest extends $dara.Model {
       consumerPageNumber: 'string',
       consumerPageSize: 'string',
       withConsumers: 'boolean',
+      withSubjects: 'boolean',
     };
   }
 

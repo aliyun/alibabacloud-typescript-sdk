@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateGatewayQuotaRuleResponseBodyDataConflictPreviewItems extends $dara.Model {
   /**
    * @remarks
-   * The period type of the existing conflicting rule on the consumer. Valid values: day: daily period. week: weekly period. month: monthly period.
+   * The period type of the existing conflicting rule on the consumer. Valid values: day (daily period), week (weekly period), and month (monthly period).
    * 
    * @example
    * week
@@ -13,7 +13,7 @@ export class UpdateGatewayQuotaRuleResponseBodyDataConflictPreviewItems extends 
   conflictPeriodType?: string;
   /**
    * @remarks
-   * The type of the existing conflicting rule on the consumer. Valid values: calendar: The conflicting rule is a calendar-period rule. epoch: The conflicting rule is a custom-period rule.
+   * The type of the existing conflicting rule on the consumer. Valid values: calendar (the conflicting rule uses a calendar period) and epoch (the conflicting rule uses a custom period).
    * 
    * @example
    * calendar
@@ -35,12 +35,39 @@ export class UpdateGatewayQuotaRuleResponseBodyDataConflictPreviewItems extends 
    * consumer-a
    */
   consumerName?: string;
+  /**
+   * @remarks
+   * The ID of the conflicting subject.
+   * 
+   * @example
+   * cs-xxx
+   */
+  subjectId?: string;
+  /**
+   * @remarks
+   * The name of the conflicting subject.
+   * 
+   * @example
+   * consumer-a
+   */
+  subjectName?: string;
+  /**
+   * @remarks
+   * The type of the conflicting subject. Valid values: consumer and consumer_group.
+   * 
+   * @example
+   * consumer
+   */
+  subjectType?: string;
   static names(): { [key: string]: string } {
     return {
       conflictPeriodType: 'conflictPeriodType',
       conflictType: 'conflictType',
       consumerId: 'consumerId',
       consumerName: 'consumerName',
+      subjectId: 'subjectId',
+      subjectName: 'subjectName',
+      subjectType: 'subjectType',
     };
   }
 
@@ -50,6 +77,9 @@ export class UpdateGatewayQuotaRuleResponseBodyDataConflictPreviewItems extends 
       conflictType: 'string',
       consumerId: 'string',
       consumerName: 'string',
+      subjectId: 'string',
+      subjectName: 'string',
+      subjectType: 'string',
     };
   }
 
@@ -65,7 +95,7 @@ export class UpdateGatewayQuotaRuleResponseBodyDataConflictPreviewItems extends 
 export class UpdateGatewayQuotaRuleResponseBodyDataConflictPreview extends $dara.Model {
   /**
    * @remarks
-   * The hash of the conflict snapshot.
+   * The conflict hash.
    * 
    * @example
    * f8f44dc6cf369a017d56b7197eb4fb5ac4bbb6b09a92b9b41999541f50xxxxxx
@@ -73,7 +103,7 @@ export class UpdateGatewayQuotaRuleResponseBodyDataConflictPreview extends $dara
   conflictHash?: string;
   /**
    * @remarks
-   * The list of conflicting principals (consumers).
+   * The list of conflicting subjects (consumers).
    */
   items?: UpdateGatewayQuotaRuleResponseBodyDataConflictPreviewItems[];
   /**
@@ -115,7 +145,7 @@ export class UpdateGatewayQuotaRuleResponseBodyDataConflictPreview extends $dara
 export class UpdateGatewayQuotaRuleResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the write request is accepted by the system. A value of false typically indicates a retryable scenario, such as an unconfirmed conflict overwrite.
+   * Indicates whether the write request semantics are accepted by the system. A value of false typically indicates a retryable scenario such as an unconfirmed conflict overwrite.
    * 
    * @example
    * true
@@ -136,7 +166,7 @@ export class UpdateGatewayQuotaRuleResponseBodyData extends $dara.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * The ID of the rule.
+   * The rule ID.
    * 
    * @example
    * qr-xxxxxx
@@ -194,12 +224,12 @@ export class UpdateGatewayQuotaRuleResponseBody extends $dara.Model {
    * The message content.
    * 
    * @example
-   * 你好，世界！
+   * Hello, World!
    */
   message?: string;
   /**
    * @remarks
-   * The unique ID of the request.
+   * The unique identifier of the request.
    * 
    * @example
    * 1234567890

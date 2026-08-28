@@ -2,28 +2,30 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CreateGatewayResponseBodyData extends $dara.Model {
-  /**
-   * @remarks
-   * The gateway ID.
-   * 
-   * @example
-   * gw-cq2vundlhtg***
-   */
-  gatewayId?: string;
+export class ListSyncMCPServerResponseBodyData extends $dara.Model {
+  domainIds?: string[];
+  mcpServers?: string[];
   static names(): { [key: string]: string } {
     return {
-      gatewayId: 'gatewayId',
+      domainIds: 'domainIds',
+      mcpServers: 'mcpServers',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      gatewayId: 'string',
+      domainIds: { 'type': 'array', 'itemType': 'string' },
+      mcpServers: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
   validate() {
+    if(Array.isArray(this.domainIds)) {
+      $dara.Model.validateArray(this.domainIds);
+    }
+    if(Array.isArray(this.mcpServers)) {
+      $dara.Model.validateArray(this.mcpServers);
+    }
     super.validate();
   }
 
@@ -32,34 +34,24 @@ export class CreateGatewayResponseBodyData extends $dara.Model {
   }
 }
 
-export class CreateGatewayResponseBody extends $dara.Model {
+export class ListSyncMCPServerResponseBody extends $dara.Model {
   /**
-   * @remarks
-   * The response status code.
-   * 
    * @example
-   * Ok
+   * 200
    */
   code?: string;
+  data?: ListSyncMCPServerResponseBodyData;
   /**
-   * @remarks
-   * The response data.
-   */
-  data?: CreateGatewayResponseBodyData;
-  /**
-   * @remarks
-   * The response message.
-   * 
    * @example
    * success
    */
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
-   * 9CDE3E69-69C2-5402-83AD-ACA80B1AF35B
+   * 211B1C7E-DD93-58D3-AA4B-9B392B63258C
    */
   requestId?: string;
   static names(): { [key: string]: string } {
@@ -74,7 +66,7 @@ export class CreateGatewayResponseBody extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       code: 'string',
-      data: CreateGatewayResponseBodyData,
+      data: ListSyncMCPServerResponseBodyData,
       message: 'string',
       requestId: 'string',
     };

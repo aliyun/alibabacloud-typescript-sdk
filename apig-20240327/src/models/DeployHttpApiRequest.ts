@@ -46,7 +46,7 @@ export class DeployHttpApiRequestHttpApiConfig extends $dara.Model {
 export class DeployHttpApiRequestRestApiConfigEnvironmentServiceConfigs extends $dara.Model {
   /**
    * @remarks
-   * The match condition configuration for API publishing.
+   * The match condition configuration related to API publishing.
    * 
    * @example
    * {\\"change_order_revision\\":\\"3.657.33_fc-hz-yunqi.1662568293908382_faas-eerouter\\"}
@@ -63,8 +63,8 @@ export class DeployHttpApiRequestRestApiConfigEnvironmentServiceConfigs extends 
   /**
    * @remarks
    * The service protocol. Valid values:
-   * - HTTP.
-   * - HTTPS.
+   * - HTTP
+   * - HTTPS
    * 
    * @example
    * HTTP
@@ -88,7 +88,7 @@ export class DeployHttpApiRequestRestApiConfigEnvironmentServiceConfigs extends 
   version?: string;
   /**
    * @remarks
-   * The weight. Valid values: 1 to 100. This parameter takes effect only in ratio-based scenarios.
+   * The weight. Valid values: 1 to 100. This parameter takes effect only in the ratio-based scenario.
    * 
    * @example
    * 49
@@ -156,7 +156,7 @@ export class DeployHttpApiRequestRestApiConfigEnvironment extends $dara.Model {
   environmentId?: string;
   /**
    * @remarks
-   * The existing service configurations. In the single service scenario, only one entry is allowed. In ratio-based or content-based scenarios, multiple entries are allowed. Backend configurations cannot be specified during publishing. Configure them in advance by using UpdateHttpApi or UpdateHttpApiOperation before publishing.
+   * The existing service configurations. In the single-service scenario, only one entry is allowed. In ratio-based or content-based scenarios, multiple entries are allowed. Backend configurations cannot be specified during publishing. Configure them in advance by using UpdateHttpApi or UpdateHttpApiOperation before publishing.
    * 
    * **if can be null:**
    * true
@@ -248,7 +248,7 @@ export class DeployHttpApiRequestRestApiConfig extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Specifies whether to enable REST API route compression. If omitted or set to false, operations are published individually. If set to true, the API is published as a single prefix route. This parameter is ignored for historical version publishing, which uses the routing mode saved in the historical version.
+   * Specifies whether to enable REST API route compression. If this parameter is omitted or set to false, operations are published individually. If set to true, the API is published as a single prefix route. This field is ignored for historical revision publishing, which uses the route mode saved in the historical revision. When set to true, operationDeployments must not be specified because prefix route publishing supports only full publishing.
    * 
    * @example
    * true
@@ -269,7 +269,7 @@ export class DeployHttpApiRequestRestApiConfig extends $dara.Model {
   gatewayId?: string;
   /**
    * @remarks
-   * The operation-level deployment control list.
+   * The operation-level deployment control list. This parameter takes effect only when enableRouteCompression is omitted or set to false. This field must not be specified when enableRouteCompression is set to true.
    */
   operationDeployments?: DeployHttpApiRequestRestApiConfigOperationDeployments[];
   /**
@@ -281,7 +281,7 @@ export class DeployHttpApiRequestRestApiConfig extends $dara.Model {
   operationIds?: string[];
   /**
    * @remarks
-   * The historical version number. If specified, the publish uses the information from this historical version.
+   * The historical revision ID. If this field is specified, the publish information is based on the historical revision.
    * 
    * @example
    * apr-xxx
@@ -339,12 +339,12 @@ export class DeployHttpApiRequest extends $dara.Model {
   httpApiConfig?: DeployHttpApiRequestHttpApiConfig;
   /**
    * @remarks
-   * The REST API deployment configuration. Required when the HTTP API being published is a REST API. At least one of revisionId, environment, or gatewayId must be provided to identify the publish target.
+   * The REST API deployment configuration. This parameter is required when the HTTP API being published is a REST API. At least one of revisionId, environment, or gatewayId must be provided to specify the publish target.
    */
   restApiConfig?: DeployHttpApiRequestRestApiConfig;
   /**
    * @remarks
-   * The route ID. Required when publishing a route of an HTTP API.
+   * The route ID. This parameter is required when publishing a route of an HTTP API.
    * 
    * @example
    * hr-cr82undlhtgrl***

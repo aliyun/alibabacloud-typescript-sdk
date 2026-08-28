@@ -2,31 +2,35 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class HttpApiApiInfoDeployCntMapValue extends $dara.Model {
-  /**
-   * @remarks
-   * The number of published API operations.
-   * 
-   * @example
-   * 3
-   */
-  deployedCnt?: number;
+export class ListSyncMCPServerRequest extends $dara.Model {
   /**
    * @example
-   * 10
+   * gw-xxxx
    */
-  cnt?: number;
+  gatewayId?: string;
+  /**
+   * @example
+   * public
+   */
+  namespace?: string;
+  /**
+   * @example
+   * src-xxxx
+   */
+  sourceId?: string;
   static names(): { [key: string]: string } {
     return {
-      deployedCnt: 'deployedCnt',
-      cnt: 'cnt',
+      gatewayId: 'gatewayId',
+      namespace: 'namespace',
+      sourceId: 'sourceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      deployedCnt: 'number',
-      cnt: 'number',
+      gatewayId: 'string',
+      namespace: 'string',
+      sourceId: 'string',
     };
   }
 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddGatewayQuotaRuleResponseBodyDataConflictPreviewItems extends $dara.Model {
   /**
    * @remarks
-   * The period type of the existing conflicting rule on the consumer. A value of day, week, or month indicates that the conflicting rule uses a daily, weekly, or monthly period respectively.
+   * The period type of the existing conflicting rule on the consumer. A value of day, week, or month indicates the conflicting rule has a daily, weekly, or monthly period respectively.
    * 
    * @example
    * week
@@ -13,7 +13,7 @@ export class AddGatewayQuotaRuleResponseBodyDataConflictPreviewItems extends $da
   conflictPeriodType?: string;
   /**
    * @remarks
-   * The type of the existing conflicting rule on the consumer. A value of calendar indicates that the conflicting rule uses a calendar period. A value of epoch indicates that the conflicting rule uses a custom period.
+   * The type of the existing conflicting rule on the consumer. A value of calendar indicates the conflicting rule uses a calendar period. A value of epoch indicates the conflicting rule uses an epoch period.
    * 
    * @example
    * calendar
@@ -35,12 +35,39 @@ export class AddGatewayQuotaRuleResponseBodyDataConflictPreviewItems extends $da
    * consumer-a
    */
   consumerName?: string;
+  /**
+   * @remarks
+   * The ID of the conflicting subject.
+   * 
+   * @example
+   * cs-xxx
+   */
+  subjectId?: string;
+  /**
+   * @remarks
+   * The name of the conflicting subject.
+   * 
+   * @example
+   * consumer-a
+   */
+  subjectName?: string;
+  /**
+   * @remarks
+   * The type of the conflicting subject. Valid values: consumer and consumer_group.
+   * 
+   * @example
+   * consumer
+   */
+  subjectType?: string;
   static names(): { [key: string]: string } {
     return {
       conflictPeriodType: 'conflictPeriodType',
       conflictType: 'conflictType',
       consumerId: 'consumerId',
       consumerName: 'consumerName',
+      subjectId: 'subjectId',
+      subjectName: 'subjectName',
+      subjectType: 'subjectType',
     };
   }
 
@@ -50,6 +77,9 @@ export class AddGatewayQuotaRuleResponseBodyDataConflictPreviewItems extends $da
       conflictType: 'string',
       consumerId: 'string',
       consumerName: 'string',
+      subjectId: 'string',
+      subjectName: 'string',
+      subjectType: 'string',
     };
   }
 
@@ -65,7 +95,7 @@ export class AddGatewayQuotaRuleResponseBodyDataConflictPreviewItems extends $da
 export class AddGatewayQuotaRuleResponseBodyDataConflictPreview extends $dara.Model {
   /**
    * @remarks
-   * The hash of the conflict snapshot.
+   * The conflict hash.
    * 
    * @example
    * f8f44dc6cf369a017d56b7197eb4fb5ac4bbb6b09a92b9b41999541fxxxxxxxx
@@ -73,7 +103,7 @@ export class AddGatewayQuotaRuleResponseBodyDataConflictPreview extends $dara.Mo
   conflictHash?: string;
   /**
    * @remarks
-   * The list of conflicting entities (consumers).
+   * The list of conflicting subjects (consumers).
    */
   items?: AddGatewayQuotaRuleResponseBodyDataConflictPreviewItems[];
   /**
@@ -115,7 +145,7 @@ export class AddGatewayQuotaRuleResponseBodyDataConflictPreview extends $dara.Mo
 export class AddGatewayQuotaRuleResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the write request is accepted by the system. A value of false typically indicates a retryable scenario, such as an unconfirmed conflict overwrite.
+   * Indicates whether the write request is accepted by the system. A value of false typically indicates a retryable scenario such as an unconfirmed conflict overwrite.
    * 
    * @example
    * true
@@ -199,7 +229,7 @@ export class AddGatewayQuotaRuleResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The unique identifier of the request.
    * 
    * @example
    * 1234567890

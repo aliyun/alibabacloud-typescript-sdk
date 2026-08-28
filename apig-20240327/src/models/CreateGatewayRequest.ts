@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateGatewayRequestLogConfigSls extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable SLS log collection.
+   * Specifies whether to enable log collection.
    * 
    * @example
    * false
@@ -225,7 +225,7 @@ export class CreateGatewayRequestZoneConfig extends $dara.Model {
 export class CreateGatewayRequest extends $dara.Model {
   /**
    * @remarks
-   * The billing method. Required for the Serverless edition and must be set to POSTPAY.
+   * The billing method. This parameter is required for the Serverless edition and must be set to POSTPAY.
    * 
    * @example
    * POSTPAY
@@ -237,9 +237,9 @@ export class CreateGatewayRequest extends $dara.Model {
    * 
    * - Professional: standard instance.
    * 
-   * - Serverless: Serverless.
+   * - Serverless: Serverless instance.
    * 
-   * - MultiTenantServerless: multi-tenant Serverless.
+   * - MultiTenantServerless: multi-tenant Serverless instance.
    * 
    * - Unknown: unknown.
    * 
@@ -249,7 +249,7 @@ export class CreateGatewayRequest extends $dara.Model {
   gatewayEdition?: string;
   /**
    * @remarks
-   * The running mode for AI multi-tenant V2. Default value: ENTERPRISE. This parameter can be specified only when gatewayType is AI and gatewayEdition is MultiTenantServerless.
+   * The running mode for AI multi-tenant V2. Default value: ENTERPRISE. This parameter is allowed only when gatewayType is AI and gatewayEdition is MultiTenantServerless.
    * 
    * @example
    * ENTERPRISE
@@ -257,7 +257,7 @@ export class CreateGatewayRequest extends $dara.Model {
   gatewayMode?: string;
   /**
    * @remarks
-   * The gateway type. Must be explicitly set to AI for AI Serverless or multi-tenant editions.
+   * The gateway type. This parameter must be explicitly set to AI for AI Serverless or multi-tenant gateways.
    * 
    * @example
    * API
@@ -270,7 +270,7 @@ export class CreateGatewayRequest extends $dara.Model {
   logConfig?: CreateGatewayRequestLogConfig;
   /**
    * @remarks
-   * The gateway name. Required for all editions.
+   * The gateway name. This parameter is required for all gateway editions.
    * 
    * @example
    * test-ceshi
@@ -278,7 +278,7 @@ export class CreateGatewayRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The network access configuration.
+   * The network access configuration. This parameter is required. If not provided, the service returns InvalidParameter.IsEmpty (400).
    */
   networkAccessConfig?: CreateGatewayRequestNetworkAccessConfig;
   /**
@@ -291,7 +291,7 @@ export class CreateGatewayRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The node specifications. Required for the Serverless edition.
+   * The node specifications. This parameter is required for the Serverless edition.
    * 
    * @example
    * apigw.dev.x1
@@ -304,7 +304,7 @@ export class CreateGatewayRequest extends $dara.Model {
   tag?: CreateGatewayRequestTag[];
   /**
    * @remarks
-   * The VPC ID. Required for all editions.
+   * The VPC ID. This parameter is required for all gateway editions.
    * 
    * @example
    * vpc-zm0x16tomfiat1mk9f6rs
@@ -312,7 +312,7 @@ export class CreateGatewayRequest extends $dara.Model {
   vpcId?: string;
   /**
    * @remarks
-   * The zone configuration. Required for all editions.
+   * The zone configuration. This parameter is required for all gateway editions.
    */
   zoneConfig?: CreateGatewayRequestZoneConfig;
   static names(): { [key: string]: string } {

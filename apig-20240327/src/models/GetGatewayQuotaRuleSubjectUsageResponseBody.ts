@@ -13,6 +13,14 @@ export class GetGatewayQuotaRuleSubjectUsageResponseBodyDataDetailsItems extends
   cachedAmount?: number;
   /**
    * @remarks
+   * The consumer name.
+   * 
+   * @example
+   * consumer-a
+   */
+  consumer?: string;
+  /**
+   * @remarks
    * The input token consumption.
    * 
    * @example
@@ -37,6 +45,14 @@ export class GetGatewayQuotaRuleSubjectUsageResponseBodyDataDetailsItems extends
   outputAmount?: number;
   /**
    * @remarks
+   * The request ID.
+   * 
+   * @example
+   * req-123456
+   */
+  requestId?: string;
+  /**
+   * @remarks
    * The consumption (request) time in the format of YYYY-MM-DD.
    * 
    * @example
@@ -54,9 +70,11 @@ export class GetGatewayQuotaRuleSubjectUsageResponseBodyDataDetailsItems extends
   static names(): { [key: string]: string } {
     return {
       cachedAmount: 'cachedAmount',
+      consumer: 'consumer',
       inputAmount: 'inputAmount',
       model: 'model',
       outputAmount: 'outputAmount',
+      requestId: 'requestId',
       startTime: 'startTime',
       usedAmount: 'usedAmount',
     };
@@ -65,9 +83,11 @@ export class GetGatewayQuotaRuleSubjectUsageResponseBodyDataDetailsItems extends
   static types(): { [key: string]: any } {
     return {
       cachedAmount: 'number',
+      consumer: 'string',
       inputAmount: 'number',
       model: 'string',
       outputAmount: 'number',
+      requestId: 'string',
       startTime: 'string',
       usedAmount: 'number',
     };
@@ -180,12 +200,22 @@ export class GetGatewayQuotaRuleSubjectUsageResponseBodyData extends $dara.Model
   outputAmount?: number;
   /**
    * @remarks
-   * Indicates whether the limit is exceeded.
+   * Indicates whether the quota limit is exceeded.
    * 
    * @example
    * false
    */
   overLimit?: boolean;
+  /**
+   * @remarks
+   * The subject type. Valid values:
+   * - consumer
+   * - consumer_group
+   * 
+   * @example
+   * consumer_group
+   */
+  subjectType?: string;
   /**
    * @remarks
    * The total quota of the subject.
@@ -196,7 +226,7 @@ export class GetGatewayQuotaRuleSubjectUsageResponseBodyData extends $dara.Model
   totalQuota?: number;
   /**
    * @remarks
-   * The total used amount of the subject.
+   * The total used quota of the subject.
    * 
    * @example
    * 500
@@ -209,6 +239,7 @@ export class GetGatewayQuotaRuleSubjectUsageResponseBodyData extends $dara.Model
       inputAmount: 'inputAmount',
       outputAmount: 'outputAmount',
       overLimit: 'overLimit',
+      subjectType: 'subjectType',
       totalQuota: 'totalQuota',
       usedAmount: 'usedAmount',
     };
@@ -221,6 +252,7 @@ export class GetGatewayQuotaRuleSubjectUsageResponseBodyData extends $dara.Model
       inputAmount: 'number',
       outputAmount: 'number',
       overLimit: 'boolean',
+      subjectType: 'string',
       totalQuota: 'number',
       usedAmount: 'number',
     };

@@ -7,7 +7,7 @@ import { HttpRouteMatch } from "./HttpRouteMatch";
 export class HttpRouteDomainInfos extends $dara.Model {
   /**
    * @remarks
-   * The domain ID
+   * The domain name ID.
    * 
    * @example
    * d-cr3v7dllhtgi9s***
@@ -15,7 +15,7 @@ export class HttpRouteDomainInfos extends $dara.Model {
   domainId?: string;
   /**
    * @remarks
-   * The domain name
+   * The domain name.
    * 
    * @example
    * itemcenter.dev
@@ -23,7 +23,7 @@ export class HttpRouteDomainInfos extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The domain protocol
+   * The domain name protocol.
    * 
    * @example
    * HTTP
@@ -62,7 +62,7 @@ export class HttpRouteEnvironmentInfoGatewayInfo extends $dara.Model {
   gatewayEdition?: string;
   /**
    * @remarks
-   * The gateway ID
+   * The gateway ID.
    * 
    * @example
    * gw-cqoohqtlh***
@@ -70,7 +70,7 @@ export class HttpRouteEnvironmentInfoGatewayInfo extends $dara.Model {
   gatewayId?: string;
   /**
    * @remarks
-   * The gateway name
+   * The gateway name.
    * 
    * @example
    * itemcenter-gateway
@@ -104,7 +104,7 @@ export class HttpRouteEnvironmentInfoGatewayInfo extends $dara.Model {
 export class HttpRouteEnvironmentInfoSubDomains extends $dara.Model {
   /**
    * @remarks
-   * The subdomain ID
+   * The domain name ID.
    * 
    * @example
    * d-cqu19hdlhtgjuv4***
@@ -112,7 +112,7 @@ export class HttpRouteEnvironmentInfoSubDomains extends $dara.Model {
   domainId?: string;
   /**
    * @remarks
-   * The subdomain name
+   * The domain name.
    * 
    * @example
    * env-crmic3llht***-cn-hangzhou-vpc.alicloudapi.com
@@ -120,7 +120,7 @@ export class HttpRouteEnvironmentInfoSubDomains extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * networkType
+   * The domain name access type.
    * 
    * @example
    * Internet
@@ -128,7 +128,7 @@ export class HttpRouteEnvironmentInfoSubDomains extends $dara.Model {
   networkType?: string;
   /**
    * @remarks
-   * The subdomain protocol
+   * The domain name protocol.
    * 
    * @example
    * HTTP
@@ -164,15 +164,15 @@ export class HttpRouteEnvironmentInfoSubDomains extends $dara.Model {
 export class HttpRouteEnvironmentInfo extends $dara.Model {
   /**
    * @remarks
-   * The environment alias
+   * The environment name alias.
    * 
    * @example
-   * prod
+   * Product center staging environment
    */
   alias?: string;
   /**
    * @remarks
-   * The environment ID
+   * The environment ID.
    * 
    * @example
    * env-crhq1u5lhtgju***
@@ -180,12 +180,12 @@ export class HttpRouteEnvironmentInfo extends $dara.Model {
   environmentId?: string;
   /**
    * @remarks
-   * The gateway information
+   * The gateway information.
    */
   gatewayInfo?: HttpRouteEnvironmentInfoGatewayInfo;
   /**
    * @remarks
-   * The environment name
+   * The environment name.
    * 
    * @example
    * itemcenter-pre
@@ -193,7 +193,7 @@ export class HttpRouteEnvironmentInfo extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * List of subdomain information
+   * The list of default second-level domain names of the environment.
    */
   subDomains?: HttpRouteEnvironmentInfoSubDomains[];
   static names(): { [key: string]: string } {
@@ -242,7 +242,7 @@ export class HttpRouteMcpServerInfoMcpRouteConfig extends $dara.Model {
   exposedUriPath?: string;
   /**
    * @remarks
-   * The MCP protocol
+   * The MCP protocol type.
    * 
    * @example
    * SSE
@@ -274,7 +274,7 @@ export class HttpRouteMcpServerInfoMcpRouteConfig extends $dara.Model {
 export class HttpRouteMcpServerInfo extends $dara.Model {
   /**
    * @remarks
-   * The creation type
+   * The creation type.
    * 
    * @example
    * Nacos
@@ -282,7 +282,7 @@ export class HttpRouteMcpServerInfo extends $dara.Model {
   createFromType?: string;
   /**
    * @remarks
-   * The imported instance ID
+   * The Nacos instance ID.
    * 
    * @example
    * import-001
@@ -290,7 +290,7 @@ export class HttpRouteMcpServerInfo extends $dara.Model {
   importInstanceId?: string;
   /**
    * @remarks
-   * The imported Nacos MCP server ID
+   * The Nacos MCP server identifier.
    * 
    * @example
    * mcp-002
@@ -298,7 +298,7 @@ export class HttpRouteMcpServerInfo extends $dara.Model {
   importMcpServerId?: string;
   /**
    * @remarks
-   * The imported namespace
+   * The Nacos namespace.
    * 
    * @example
    * default
@@ -306,12 +306,12 @@ export class HttpRouteMcpServerInfo extends $dara.Model {
   importNamespace?: string;
   /**
    * @remarks
-   * The MCP route configuration
+   * The MCP route information.
    */
   mcpRouteConfig?: HttpRouteMcpServerInfoMcpRouteConfig;
   /**
    * @remarks
-   * The MCP server configuration content
+   * The MCP server metadata configuration.
    * 
    * @example
    * {\\"config\\":{}}
@@ -354,12 +354,12 @@ export class HttpRouteMcpServerInfo extends $dara.Model {
 export class HttpRoute extends $dara.Model {
   /**
    * @remarks
-   * The backend configuration
+   * The backend service.
    */
   backend?: Backend;
   /**
    * @remarks
-   * builtin
+   * Indicates whether the route is a built-in system route.
    * 
    * @example
    * true
@@ -367,7 +367,7 @@ export class HttpRoute extends $dara.Model {
   builtin?: string;
   /**
    * @remarks
-   * The creation timestamp in milliseconds
+   * The creation time, in ms.
    * 
    * @example
    * 1726649310593
@@ -375,7 +375,7 @@ export class HttpRoute extends $dara.Model {
   createTimestamp?: number;
   /**
    * @remarks
-   * The deployment status
+   * The deployment status.
    * 
    * @example
    * Deployed
@@ -383,40 +383,40 @@ export class HttpRoute extends $dara.Model {
   deployStatus?: string;
   /**
    * @remarks
-   * The description of the route
+   * The route description.
    * 
    * @example
-   * Route for user management API
+   * Product center staging route
    */
   description?: string;
   /**
    * @remarks
-   * List of domain information
+   * The list of domain name information.
    */
   domainInfos?: HttpRouteDomainInfos[];
   /**
    * @remarks
-   * The environment information
+   * The environment context of the routing.
    */
   environmentInfo?: HttpRouteEnvironmentInfo;
   /**
    * @remarks
-   * gatewayStatus
+   * The route publish status.
    */
   gatewayStatus?: { [key: string]: string };
   /**
    * @remarks
-   * The route matching rules
+   * The route matching rule.
    */
   match?: HttpRouteMatch;
   /**
    * @remarks
-   * The MCP server information
+   * The MCP server information.
    */
   mcpServerInfo?: HttpRouteMcpServerInfo;
   /**
    * @remarks
-   * The name of the route
+   * The route name.
    * 
    * @example
    * itemcenter-pre-route
@@ -424,7 +424,7 @@ export class HttpRoute extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The unique identifier of the route
+   * The HttpApi route ID.
    * 
    * @example
    * hr-crf5l7tlhtgp91t***
@@ -432,7 +432,7 @@ export class HttpRoute extends $dara.Model {
   routeId?: string;
   /**
    * @remarks
-   * The last update timestamp in milliseconds
+   * The update time, in ms.
    * 
    * @example
    * 1726819895636

@@ -146,7 +146,7 @@ export class ListExternalServicesResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * D9B03B59-B2D6-51B0-A7E9-AF8466E320CA

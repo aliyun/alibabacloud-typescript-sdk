@@ -2,24 +2,42 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CreateGatewayResponseBodyData extends $dara.Model {
+export class ListPluginWorkspaceResponseBodyData extends $dara.Model {
   /**
-   * @remarks
-   * The gateway ID.
-   * 
    * @example
-   * gw-cq2vundlhtg***
+   * 664f1e2xxxx
    */
-  gatewayId?: string;
+  organizationId?: string;
+  /**
+   * @example
+   * 12345678
+   */
+  repoId?: string;
+  /**
+   * @example
+   * my-custom-plugin
+   */
+  repoName?: string;
+  /**
+   * @example
+   * plw-xxxxxxxx
+   */
+  workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
-      gatewayId: 'gatewayId',
+      organizationId: 'organizationId',
+      repoId: 'repoId',
+      repoName: 'repoName',
+      workspaceId: 'workspaceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      gatewayId: 'string',
+      organizationId: 'string',
+      repoId: 'string',
+      repoName: 'string',
+      workspaceId: 'string',
     };
   }
 
@@ -32,34 +50,24 @@ export class CreateGatewayResponseBodyData extends $dara.Model {
   }
 }
 
-export class CreateGatewayResponseBody extends $dara.Model {
+export class ListPluginWorkspaceResponseBody extends $dara.Model {
   /**
-   * @remarks
-   * The response status code.
-   * 
    * @example
-   * Ok
+   * 200
    */
   code?: string;
+  data?: ListPluginWorkspaceResponseBodyData[];
   /**
-   * @remarks
-   * The response data.
-   */
-  data?: CreateGatewayResponseBodyData;
-  /**
-   * @remarks
-   * The response message.
-   * 
    * @example
    * success
    */
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
-   * 9CDE3E69-69C2-5402-83AD-ACA80B1AF35B
+   * B690F39C-1BDA-55E0-9E94-5358E758C772
    */
   requestId?: string;
   static names(): { [key: string]: string } {
@@ -74,15 +82,15 @@ export class CreateGatewayResponseBody extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       code: 'string',
-      data: CreateGatewayResponseBodyData,
+      data: { 'type': 'array', 'itemType': ListPluginWorkspaceResponseBodyData },
       message: 'string',
       requestId: 'string',
     };
   }
 
   validate() {
-    if(this.data && typeof (this.data as any).validate === 'function') {
-      (this.data as any).validate();
+    if(Array.isArray(this.data)) {
+      $dara.Model.validateArray(this.data);
     }
     super.validate();
   }
