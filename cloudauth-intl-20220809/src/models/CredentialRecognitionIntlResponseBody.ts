@@ -25,7 +25,7 @@ export class CredentialRecognitionIntlResponseBodyResult extends $dara.Model {
   /**
    * @remarks
    * The extraction result. Valid values:
-   * - S: Succeeded.
+   * - S: Successful.
    * - F: Failed.
    * 
    * @example

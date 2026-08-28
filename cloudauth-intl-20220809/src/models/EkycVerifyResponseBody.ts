@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class EkycVerifyResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The face verification result.
+   * The face verification result information.
    * 
    * @example
    * {
@@ -18,12 +18,12 @@ export class EkycVerifyResponseBodyResult extends $dara.Model {
   extFaceInfo?: string;
   /**
    * @remarks
-   * The document recognition result. This field is returned only when the API response is successful.
+   * The document recognition result. Returned only when the API response is successful.
    * 
    * @example
    * {
    *  "ocrIdInfo": {
-   *  "firstName": "**龙",
+   *  "firstName": "**Long",
    *  "lastName": "**",
    *  "countryCode": "CHN",
    *  "docType": "01560001",
@@ -39,7 +39,7 @@ export class EkycVerifyResponseBodyResult extends $dara.Model {
   extIdInfo?: string;
   /**
    * @remarks
-   * Indicates whether the verification is passed. Valid values: T (passed) and F (not passed).
+   * Indicates whether the verification is passed. T indicates passed, and F indicates not passed.
    * 
    * @example
    * Y
@@ -117,7 +117,7 @@ export class EkycVerifyResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The returned result.
+   * The response result.
    */
   result?: EkycVerifyResponseBodyResult;
   static names(): { [key: string]: string } {

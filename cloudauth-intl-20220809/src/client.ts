@@ -800,10 +800,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * An API operation that uploads a credential image, such as a utility bill or credit card statement, and uses Qwen-VL to intelligently fetch the billing address and name from the credential.
+   * An API operation that uploads credential images, including utility bills and credit card statements, and uses Qwen-VL to intelligently fetch billing addresses and names.
    * 
    * @remarks
-   * Uses AI technology to detect whether a credential (such as a water, electricity, gas, or credit card electronic bill) has been forged, and extracts key information from the credential.
+   * Uses AI technology to detect whether credentials (such as water, electricity, gas, and credit card electronic bills) are forged, and extracts key information from the credentials.
    * 
    * @param request - CredentialRecognitionIntlRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -820,8 +820,20 @@ export default class Client extends OpenApi {
       query["FraudCheck"] = request.fraudCheck;
     }
 
+    if (!$dara.isNull(request.idQuality)) {
+      query["IdQuality"] = request.idQuality;
+    }
+
     if (!$dara.isNull(request.ocrArea)) {
       query["OcrArea"] = request.ocrArea;
+    }
+
+    if (!$dara.isNull(request.ocrTranslation)) {
+      query["OcrTranslation"] = request.ocrTranslation;
+    }
+
+    if (!$dara.isNull(request.ocrValueStandard)) {
+      query["OcrValueStandard"] = request.ocrValueStandard;
     }
 
     if (!$dara.isNull(request.productCode)) {
@@ -829,6 +841,10 @@ export default class Client extends OpenApi {
     }
 
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.checkRuleConfig)) {
+      body["CheckRuleConfig"] = request.checkRuleConfig;
+    }
+
     if (!$dara.isNull(request.credentialOcrPictureBase64)) {
       body["CredentialOcrPictureBase64"] = request.credentialOcrPictureBase64;
     }
@@ -856,10 +872,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * An API operation that uploads a credential image, such as a utility bill or credit card statement, and uses Qwen-VL to intelligently fetch the billing address and name from the credential.
+   * An API operation that uploads credential images, including utility bills and credit card statements, and uses Qwen-VL to intelligently fetch billing addresses and names.
    * 
    * @remarks
-   * Uses AI technology to detect whether a credential (such as a water, electricity, gas, or credit card electronic bill) has been forged, and extracts key information from the credential.
+   * Uses AI technology to detect whether credentials (such as water, electricity, gas, and credit card electronic bills) are forged, and extracts key information from the credentials.
    * 
    * @param request - CredentialRecognitionIntlRequest
    * @returns CredentialRecognitionIntlResponse
@@ -873,7 +889,7 @@ export default class Client extends OpenApi {
    * Submits credential recognition information.
    * 
    * @remarks
-   * Initializes the credential recognition OCR operation and retrieves a transactionId.
+   * Initializes the credential recognition OCR operation and returns a transactionId.
    * 
    * @param request - CredentialSubmitIntlRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -890,12 +906,24 @@ export default class Client extends OpenApi {
       query["FraudCheck"] = request.fraudCheck;
     }
 
+    if (!$dara.isNull(request.idQuality)) {
+      query["IdQuality"] = request.idQuality;
+    }
+
     if (!$dara.isNull(request.merchantBizId)) {
       query["MerchantBizId"] = request.merchantBizId;
     }
 
     if (!$dara.isNull(request.ocrArea)) {
       query["OcrArea"] = request.ocrArea;
+    }
+
+    if (!$dara.isNull(request.ocrTranslation)) {
+      query["OcrTranslation"] = request.ocrTranslation;
+    }
+
+    if (!$dara.isNull(request.ocrValueStandard)) {
+      query["OcrValueStandard"] = request.ocrValueStandard;
     }
 
     if (!$dara.isNull(request.productCode)) {
@@ -907,6 +935,10 @@ export default class Client extends OpenApi {
     }
 
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.checkRuleConfig)) {
+      body["CheckRuleConfig"] = request.checkRuleConfig;
+    }
+
     if (!$dara.isNull(request.credentialOcrPictureBase64)) {
       body["CredentialOcrPictureBase64"] = request.credentialOcrPictureBase64;
     }
@@ -937,7 +969,7 @@ export default class Client extends OpenApi {
    * Submits credential recognition information.
    * 
    * @remarks
-   * Initializes the credential recognition OCR operation and retrieves a transactionId.
+   * Initializes the credential recognition OCR operation and returns a transactionId.
    * 
    * @param request - CredentialSubmitIntlRequest
    * @returns CredentialSubmitIntlResponse
@@ -2147,6 +2179,10 @@ export default class Client extends OpenApi {
       query["IdOcrPictureUrl"] = request.idOcrPictureUrl;
     }
 
+    if (!$dara.isNull(request.idSpoof)) {
+      query["IdSpoof"] = request.idSpoof;
+    }
+
     if (!$dara.isNull(request.idThreshold)) {
       query["IdThreshold"] = request.idThreshold;
     }
@@ -2202,7 +2238,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The eKYC solution server-side API.
+   * Provides a server-side-only API for the eKYC solution.
    * 
    * @param request - EkycVerifyV2Request
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2241,6 +2277,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.idOcrPictureUrl)) {
       query["IdOcrPictureUrl"] = request.idOcrPictureUrl;
+    }
+
+    if (!$dara.isNull(request.idSpoof)) {
+      query["IdSpoof"] = request.idSpoof;
     }
 
     if (!$dara.isNull(request.idThreshold)) {
@@ -2295,7 +2335,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The eKYC solution server-side API.
+   * Provides a server-side-only API for the eKYC solution.
    * 
    * @param request - EkycVerifyV2Request
    * @returns EkycVerifyV2Response
@@ -2483,7 +2523,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Compares two face images by using face recognition technology and returns the comparison result and a similarity score.
+   * Compares two face images using face recognition technology and returns the comparison result and similarity score.
    * 
    * @param request - FaceCompareV2Request
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2548,7 +2588,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Compares two face images by using face recognition technology and returns the comparison result and a similarity score.
+   * Compares two face images using face recognition technology and returns the comparison result and similarity score.
    * 
    * @param request - FaceCompareV2Request
    * @returns FaceCompareV2Response

@@ -43,10 +43,45 @@ export class FaceCompareV2ResponseBodyResultExtFaceInfo extends $dara.Model {
    * 86.47
    */
   sharpnessScore?: number;
+  /**
+   * @remarks
+   * The overall quality score of the target reference face image.
+   * 
+   * @example
+   * 39.04
+   */
   targetFaceQualityScore?: number;
+  /**
+   * @remarks
+   * The illumination score of the target reference face image.
+   * 
+   * @example
+   * 0.02
+   */
   targetIlluminationScore?: number;
+  /**
+   * @remarks
+   * The key area occlusion score of the target reference face image.
+   * 
+   * @example
+   * 20
+   */
   targetKaOcclusionScore?: number;
+  /**
+   * @remarks
+   * The occlusion score of the target reference face image.
+   * 
+   * @example
+   * 50.26
+   */
   targetOcclusionScore?: number;
+  /**
+   * @remarks
+   * The sharpness score of the target reference face image.
+   * 
+   * @example
+   * 86.47
+   */
   targetSharpnessScore?: number;
   static names(): { [key: string]: string } {
     return {
@@ -90,12 +125,12 @@ export class FaceCompareV2ResponseBodyResultExtFaceInfo extends $dara.Model {
 export class FaceCompareV2ResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The additional result information.
+   * The related result information.
    */
   extFaceInfo?: FaceCompareV2ResponseBodyResultExtFaceInfo;
   /**
    * @remarks
-   * The comparison score between the submitted face image and the reference face image during the verification process. Valid values: 0 to 100.
+   * The comparison score between the submitted face photo and the target reference face image during verification. Value range: 0 to 100.
    * 
    * @example
    * 98
@@ -103,7 +138,7 @@ export class FaceCompareV2ResponseBodyResult extends $dara.Model {
   faceComparisonScore?: number;
   /**
    * @remarks
-   * Indicates whether the verification is passed. Valid values:
+   * Indicates whether the verification passed.
    * 
    * - Y: Passed.
    * - N: Not passed.
@@ -114,7 +149,7 @@ export class FaceCompareV2ResponseBodyResult extends $dara.Model {
   passed?: string;
   /**
    * @remarks
-   * The unique ID of the verification request.
+   * The unique identifier of the verification request.
    * 
    * @example
    * 08573be80f944d95ac812e019e3655a8

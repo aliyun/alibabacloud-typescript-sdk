@@ -6,7 +6,7 @@ export class FaceCompareV2Request extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to enable quality check for the input face images.
-   * >Danger: Deprecated.</danger>.
+   * >Danger: Deprecated
    * 
    * @example
    * N
@@ -22,7 +22,7 @@ export class FaceCompareV2Request extends $dara.Model {
   faceQualityCheck?: string;
   /**
    * @remarks
-   * The merchant-defined unique business ID used for subsequent troubleshooting. The value can be a combination of letters and numbers with a maximum length of 32 characters. Ensure that the value is unique.
+   * The merchant-defined unique business identifier, used for subsequent troubleshooting. Supports a combination of letters and numbers with a maximum length of 32 characters. Ensure that this value is unique.
    * 
    * @example
    * e0c34a77f5ac40a5aa5e6ed20c353888
@@ -30,11 +30,11 @@ export class FaceCompareV2Request extends $dara.Model {
   merchantBizId?: string;
   /**
    * @remarks
-   * The Base64-encoded source face image.
+   * The Base64-encoded source face photo.
    * 
    * > **Note**
    * 
-   * - If you use this method to pass in the image, check the image size and do not pass in an excessively large image.
+   * - If you choose this method to pass in the photo, check the photo size and do not pass in an excessively large photo.
    * - Specify one of the following parameters: SourceFacePicture, SourceFacePictureUrl, or SourceFacePictureFile.
    * 
    * @example
@@ -59,11 +59,11 @@ export class FaceCompareV2Request extends $dara.Model {
   sourceFacePictureUrl?: string;
   /**
    * @remarks
-   * The Base64-encoded reference face image.
+   * The Base64-encoded target reference face photo.
    * 
    * > **Note**
    * 
-   * - If you use this method to pass in the image, check the image size and do not pass in an excessively large image.
+   * - If you choose this method to pass in the photo, check the photo size and do not pass in an excessively large photo.
    * - Specify one of the following parameters: TargetFacePicture, TargetFacePictureUrl, or TargetFacePictureFile.
    * 
    * @example
@@ -72,7 +72,7 @@ export class FaceCompareV2Request extends $dara.Model {
   targetFacePicture?: string;
   /**
    * @remarks
-   * The file stream of the reference face image.
+   * The file stream of the target reference face image.
    * 
    * @example
    * InputStream
@@ -80,7 +80,7 @@ export class FaceCompareV2Request extends $dara.Model {
   targetFacePictureFile?: string;
   /**
    * @remarks
-   * The HTTPS or HTTP URL of the reference face image.
+   * The HTTPS or HTTP URL of the target reference face image.
    * 
    * @example
    * https://***face2.jpeg

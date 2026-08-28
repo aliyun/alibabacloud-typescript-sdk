@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class EkycVerifyV2Request extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable authoritative identity verification. Currently, this feature is applicable only to second-generation ID cards of mainland China.
+   * Specifies whether to enable authoritative identity verification. Currently, this parameter applies only to second-generation mainland China ID cards.
    * 
    * @example
    * T
@@ -13,10 +13,10 @@ export class EkycVerifyV2Request extends $dara.Model {
   authorize?: string;
   /**
    * @remarks
-   * Specifies whether cropping is allowed. Not allowed by default. Valid values: T and F.
+   * Specifies whether cropping is allowed. By default, cropping is not allowed. Valid values:
    * 
-   * - T: Cropping is allowed.
-   * - F: Cropping is not allowed. (Default: F)
+   * - T: Detection is required.
+   * - F: Detection is required (default value: F).
    * 
    * @example
    * F
@@ -24,15 +24,15 @@ export class EkycVerifyV2Request extends $dara.Model {
   crop?: string;
   /**
    * @remarks
-   * The real name of the user. When Authorize=\\"T\\" and the document type is a mainland China ID card, at least one of the following groups must be provided: document key information (DocName, DocNo) or document image (IdOcrPictureBase64/URL). Note: Supports combinations of Chinese characters with a length of at least 1 character. Special characters are not supported, except for the middle dot (·) used in ethnic minority names.
+   * The real name of the user. When Authorize=\\"T\\" and the document type is a mainland China ID card, you must provide at least one of the following: key document information (DocName, DocNo) or document images (IdOcrPictureBase64/URL). Note: Supports a combination of Chinese characters with a minimum length of 1 character. No special characters are allowed, except for the middle dot (·) used in ethnic minority names.
    * 
    * @example
-   * 张**
+   * Zhang**
    */
   docName?: string;
   /**
    * @remarks
-   * The document number of the user. When Authorize=\\"T\\" and the document type is a mainland China ID card, at least one of the following groups must be provided: document key information (DocName, DocNo) or document image (IdOcrPictureBase64/URL). Note: Supports a combination of letters and digits with a length of 18 characters.
+   * The document number of the user. When Authorize=\\"T\\" and the document type is a mainland China ID card, you must provide at least one of the following: key document information (DocName, DocNo) or document images (IdOcrPictureBase64/URL). Note: Supports a combination of letters and numbers with a length of 18 characters.
    * 
    * @example
    * 410***************
@@ -52,8 +52,8 @@ export class EkycVerifyV2Request extends $dara.Model {
    * 
    * Note:
    * 
-   * - If you use this method to pass the face image, check the photo size and do not pass an overly large photo.
-   * - You can only specify one of FacePictureBase64, FacePictureUrl, and FacePictureFile.
+   * - If you choose this method to pass in the face image, check the photo size and do not pass in an excessively large photo.
+   * - Specify one of the following parameters: FacePictureBase64, FacePictureUrl, or FacePictureFile.
    * 
    * @example
    * Base64
@@ -75,13 +75,20 @@ export class EkycVerifyV2Request extends $dara.Model {
    * https://digital-face-prod8.oss-cn-hangzhou.aliyuncs.com/1669520556530-expo/default/face/20221127114236530_w3kx2e6t.jpg
    */
   facePictureUrl?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable face quality detection.
+   * 
+   * @example
+   * Y
+   */
   faceQualityCheck?: string;
   /**
    * @remarks
-   * The Base64-encoded document image. Note:
+   * The Base64-encoded identity document image. Note:
    * 
-   * - If you use this method to pass the document image, check the photo size and do not pass an overly large photo.
-   * - You can only specify one of IdOcrPictureBase64, IdOcrPictureUrl, and IdOcrPictureFile.
+   * - If you choose this method to pass in the document image, check the photo size and do not pass in an excessively large photo.
+   * - Specify one of the following parameters: IdOcrPictureBase64, IdOcrPictureUrl, or IdOcrPictureFile.
    * 
    * @example
    * base64
@@ -89,7 +96,7 @@ export class EkycVerifyV2Request extends $dara.Model {
   idOcrPictureBase64?: string;
   /**
    * @remarks
-   * The file stream of the front side of the document image.
+   * The file stream of the front side of the identity document image.
    * 
    * @example
    * InputStream
@@ -97,7 +104,7 @@ export class EkycVerifyV2Request extends $dara.Model {
   idOcrPictureFile?: string;
   /**
    * @remarks
-   * The URL of the front side of the document image.
+   * The URL of the front side of the identity document image.
    * 
    * @example
    * https://digital-cardocr-prod8.oss-cn-hangzhou.aliyuncs.com/1669520556530-expo/default/face/20221127114236530_w3kx2e6t.jpg
@@ -105,12 +112,20 @@ export class EkycVerifyV2Request extends $dara.Model {
   idOcrPictureUrl?: string;
   /**
    * @remarks
-   * The custom OCR quality detection threshold mode:
+   * Specifies whether to enable document anti-spoofing.
    * 
-   * - 0: System default.
-   * - 1: Strict mode.
-   * - 2: Lenient mode.
-   * - 3 (Default): Quality detection is disabled.
+   * @example
+   * Y
+   */
+  idSpoof?: string;
+  /**
+   * @remarks
+   * The custom OCR quality detection threshold mode. Valid values:
+   * 
+   * - 0: system default.
+   * - 1: strict mode.
+   * - 2: loose mode.
+   * - 3 (default): quality detection disabled.
    * 
    * @example
    * 0
@@ -118,7 +133,7 @@ export class EkycVerifyV2Request extends $dara.Model {
   idThreshold?: string;
   /**
    * @remarks
-   * A unique business identifier customized by the merchant, used for subsequent troubleshooting. Supports a combination of letters and digits with a length of 32 characters. Ensure that the value is unique.
+   * A custom business unique identifier defined by the merchant, used for subsequent issue tracking and troubleshooting. Supports a combination of letters and numbers up to 32 characters in length. Ensure that this value is unique.
    * 
    * @example
    * e0c34a77f5ac40a5aa5e6ed20c353888
@@ -154,6 +169,7 @@ export class EkycVerifyV2Request extends $dara.Model {
       idOcrPictureBase64: 'IdOcrPictureBase64',
       idOcrPictureFile: 'IdOcrPictureFile',
       idOcrPictureUrl: 'IdOcrPictureUrl',
+      idSpoof: 'IdSpoof',
       idThreshold: 'IdThreshold',
       merchantBizId: 'MerchantBizId',
       merchantUserId: 'MerchantUserId',
@@ -175,6 +191,7 @@ export class EkycVerifyV2Request extends $dara.Model {
       idOcrPictureBase64: 'string',
       idOcrPictureFile: 'string',
       idOcrPictureUrl: 'string',
+      idSpoof: 'string',
       idThreshold: 'string',
       merchantBizId: 'string',
       merchantUserId: 'string',
