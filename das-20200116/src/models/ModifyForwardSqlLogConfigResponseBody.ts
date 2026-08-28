@@ -2,34 +2,44 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class GetInstanceGroupInspectReportDetailResponseBodyData extends $dara.Model {
+export class ModifyForwardSqlLogConfigResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The content of the operations report, which mainly includes the report date and diagnostic details of managed instances.
+   * The LogStore name for real-time delivery to Simple Log Service.
    * 
    * @example
-   * "### Summary\\n\\nReport date: 2025-12-10  \\nComparison period: [previous day] → 2025-12-10 The rest is omitted"
+   * cdn222
    */
-  reportDetail?: string;
+  logstore?: string;
   /**
    * @remarks
-   * The report ID.
+   * The project.
    * 
    * @example
-   * 13f52040-5a6e-42c3-bb84-051f5d6d****
+   * facedetect7
    */
-  reportId?: string;
+  project?: string;
+  /**
+   * @remarks
+   * The VPC endpoint of the component.
+   * 
+   * @example
+   * cn-beijing-intranet.log.aliyuncs.com
+   */
+  vpcEndpoint?: string;
   static names(): { [key: string]: string } {
     return {
-      reportDetail: 'ReportDetail',
-      reportId: 'ReportId',
+      logstore: 'Logstore',
+      project: 'Project',
+      vpcEndpoint: 'VpcEndpoint',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      reportDetail: 'string',
-      reportId: 'string',
+      logstore: 'string',
+      project: 'string',
+      vpcEndpoint: 'string',
     };
   }
 
@@ -42,10 +52,10 @@ export class GetInstanceGroupInspectReportDetailResponseBodyData extends $dara.M
   }
 }
 
-export class GetInstanceGroupInspectReportDetailResponseBody extends $dara.Model {
+export class ModifyForwardSqlLogConfigResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code returned.
+   * The status code.
    * 
    * @example
    * 200
@@ -53,14 +63,14 @@ export class GetInstanceGroupInspectReportDetailResponseBody extends $dara.Model
   code?: string;
   /**
    * @remarks
-   * ReportDetail
+   * ForwardSqlLogResult
    */
-  data?: GetInstanceGroupInspectReportDetailResponseBodyData;
+  data?: ModifyForwardSqlLogConfigResponseBodyData;
   /**
    * @remarks
-   * The message returned for the request.
+   * The returned message.
    * 
-   * > If the request is successful, **Successful** is returned. If the request fails, exception information such as an error code is returned.
+   * > If the request is successful, **Successful** is returned. If the request fails, an error message that contains information such as an error code is returned.
    * 
    * @example
    * Successful
@@ -97,7 +107,7 @@ export class GetInstanceGroupInspectReportDetailResponseBody extends $dara.Model
   static types(): { [key: string]: any } {
     return {
       code: 'string',
-      data: GetInstanceGroupInspectReportDetailResponseBodyData,
+      data: ModifyForwardSqlLogConfigResponseBodyData,
       message: 'string',
       requestId: 'string',
       success: 'string',

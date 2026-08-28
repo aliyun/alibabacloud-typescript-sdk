@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetDasAgentSSERequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the agent to use. This parameter is optional. If you do not specify this parameter, the service uses the default agent. You can provide the ID of an agent that was generated when you enabled the DAS Agent service or that you manually created.
+   * Optional. By default, the default agent is used. You can also specify an agent that was generated after enabling the DAS Agent service or an agent that you manually created.
    * 
    * @example
    * ag-472T0DxtmjIxxxxx
@@ -13,7 +13,7 @@ export class GetDasAgentSSERequest extends $dara.Model {
   agentId?: string;
   /**
    * @remarks
-   * This parameter is deprecated. Specify the instance ID in the Query parameter.
+   * Deprecated parameter. The instance ID is passed through the Query field.
    * 
    * @example
    * rm-xxxx
@@ -21,7 +21,7 @@ export class GetDasAgentSSERequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The natural language query for the agent.
+   * The natural language description for the query.
    * 
    * This parameter is required.
    * 
@@ -31,7 +31,7 @@ export class GetDasAgentSSERequest extends $dara.Model {
   query?: string;
   /**
    * @remarks
-   * The session ID, which must be in the UUID format. This parameter is optional. If you do not provide a session ID, the service creates a new session. To continue an existing conversation, use the same session ID in subsequent requests.
+   * Optional. The session ID in UUID string format. If not specified, a new session is created. To maintain context across conversations, use the same session ID.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-xxxxxxxxxxxx

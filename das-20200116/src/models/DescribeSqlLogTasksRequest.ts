@@ -7,7 +7,7 @@ export class DescribeSqlLogTasksRequestFilters extends $dara.Model {
    * @remarks
    * The filter parameter.
    * 
-   * > See **Additional information about request parameters** for the supported filter parameters and their valid values.
+   * > For supported filter parameters and their values, refer to **Supplementary description of request parameters**.
    * 
    * @example
    * keyWords
@@ -47,7 +47,7 @@ export class DescribeSqlLogTasksRequestFilters extends $dara.Model {
 export class DescribeSqlLogTasksRequest extends $dara.Model {
   /**
    * @remarks
-   * The end time of the query range. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The end time of the query. Specify a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1608888296000
@@ -55,12 +55,12 @@ export class DescribeSqlLogTasksRequest extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * An array of filter conditions.
+   * The list of query filter conditions.
    */
   filters?: DescribeSqlLogTasksRequestFilters[];
   /**
    * @remarks
-   * The ID of the database instance.
+   * The database instance ID.
    * 
    * @example
    * r-bp1nti25tc7bq5****
@@ -69,8 +69,7 @@ export class DescribeSqlLogTasksRequest extends $dara.Model {
   /**
    * @remarks
    * The node ID.
-   * 
-   * > For cluster instances only. You can specify a node ID to query its offline tasks. If this parameter is omitted, the offline tasks of the primary node are returned by default.
+   * >This parameter is applicable only to Cluster Edition instances. You can specify a node to query its batch tasks. If you do not specify this parameter, the batch tasks of the primary node are returned by default.
    * 
    * @example
    * pi-bp1o58x3ib7e6****
@@ -78,7 +77,7 @@ export class DescribeSqlLogTasksRequest extends $dara.Model {
   nodeId?: string;
   /**
    * @remarks
-   * The page number. The value must be a positive integer. Default value: 1.
+   * The page number for the paging query. Pages start from 1. Default value: 1.
    * 
    * @example
    * 1
@@ -86,7 +85,7 @@ export class DescribeSqlLogTasksRequest extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * The number of entries per page. Maximum value: 100. Default value: 10.
+   * The maximum number of records per page. Maximum value: 100. Default value: 10.
    * 
    * @example
    * 10
@@ -94,7 +93,7 @@ export class DescribeSqlLogTasksRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The start time of the query range. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The start time of the query. Specify a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1596177993000

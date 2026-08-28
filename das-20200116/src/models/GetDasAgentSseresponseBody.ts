@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetDasAgentSSEResponseBodyMetadata extends $dara.Model {
   /**
    * @remarks
-   * The number of characters in the response.
+   * The number of characters in the answer.
    * 
    * @example
    * 1403
@@ -13,7 +13,7 @@ export class GetDasAgentSSEResponseBodyMetadata extends $dara.Model {
   charCount?: number;
   /**
    * @remarks
-   * The error code. This parameter is empty if no exception occurs.
+   * The error type returned when an exception occurs. This field is empty when no exception occurs.
    * 
    * @example
    * -1810001
@@ -29,7 +29,7 @@ export class GetDasAgentSSEResponseBodyMetadata extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The name of the tool used.
+   * The tool command that is called.
    * 
    * @example
    * SqlFilter
@@ -75,7 +75,7 @@ export class GetDasAgentSSEResponseBodyMetadata extends $dara.Model {
 export class GetDasAgentSSEResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The content of the response.
+   * The answer content.
    * 
    * @example
    * rm-xxxx
@@ -83,7 +83,7 @@ export class GetDasAgentSSEResponseBody extends $dara.Model {
   answer?: string;
   /**
    * @remarks
-   * The type of the response message.
+   * The type of the returned answer information.
    * 
    * @example
    * summary
@@ -91,7 +91,7 @@ export class GetDasAgentSSEResponseBody extends $dara.Model {
   event?: string;
   /**
    * @remarks
-   * The session ID. This is the same as the SessionId in the request.
+   * The session ID, which is the same as the SessionId in the request parameters.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-xxxxxxxxxxxx

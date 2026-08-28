@@ -2,17 +2,20 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ModifySecurityIPGroupRelationRequest extends $dara.Model {
+export class ModifyForwardSqlLogConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the IP whitelist template.
+   * Specifies whether to enable the feature. Valid values:
+   * 
+   * - **true**: Enable.
+   * - **false**: Disable.
    * 
    * This parameter is required.
    * 
    * @example
-   * g-ggh7qvrrwikyxe****
+   * true
    */
-  globalSecurityGroupId?: string;
+  enable?: boolean;
   /**
    * @remarks
    * The database instance ID.
@@ -20,32 +23,46 @@ export class ModifySecurityIPGroupRelationRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * pc-bp1u5mas9exx7****
+   * rm-2ze1jdv45i7l6****
    */
   instanceId?: string;
   /**
    * @remarks
-   * The region ID.
+   * The service type. Valid values:
+   * DAS_OPS: enables TOP KEY delivery.
    * 
    * This parameter is required.
    * 
    * @example
-   * cn-shanghai
+   * DAS_OPS
    */
-  regionName?: string;
+  service?: string;
+  /**
+   * @remarks
+   * The task source. Valid values:
+   * - TOP_KEY: enables TOP KEY delivery.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * TOP_KEY
+   */
+  source?: string;
   static names(): { [key: string]: string } {
     return {
-      globalSecurityGroupId: 'GlobalSecurityGroupId',
+      enable: 'Enable',
       instanceId: 'InstanceId',
-      regionName: 'RegionName',
+      service: 'Service',
+      source: 'Source',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      globalSecurityGroupId: 'string',
+      enable: 'boolean',
       instanceId: 'string',
-      regionName: 'string',
+      service: 'string',
+      source: 'string',
     };
   }
 

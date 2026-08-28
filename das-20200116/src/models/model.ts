@@ -42,6 +42,7 @@ export { DescribeCloudBenchTasksResponseBodyDataList } from './DescribeCloudBenc
 export { DescribeCloudBenchTasksResponseBodyData } from './DescribeCloudBenchTasksResponseBody';
 export { DescribeCloudbenchTaskResponseBodyData } from './DescribeCloudbenchTaskResponseBody';
 export { DescribeCloudbenchTaskConfigResponseBodyData } from './DescribeCloudbenchTaskConfigResponseBody';
+export { DescribeDasOpsConfigResponseBodyData } from './DescribeDasOpsConfigResponseBody';
 export { DescribeErrorLogRecordsRequestFilters } from './DescribeErrorLogRecordsRequest';
 export { DescribeErrorLogRecordsResponseBodyDataLogs } from './DescribeErrorLogRecordsResponseBody';
 export { DescribeErrorLogRecordsResponseBodyData } from './DescribeErrorLogRecordsResponseBody';
@@ -203,6 +204,9 @@ export { ModifyAutoScalingConfigRequestResource } from './ModifyAutoScalingConfi
 export { ModifyAutoScalingConfigRequestShard } from './ModifyAutoScalingConfigRequest';
 export { ModifyAutoScalingConfigRequestSpec } from './ModifyAutoScalingConfigRequest';
 export { ModifyAutoScalingConfigRequestStorage } from './ModifyAutoScalingConfigRequest';
+export { ModifyDasOpsConfigRequestFilters } from './ModifyDasOpsConfigRequest';
+export { ModifyDasOpsConfigResponseBodyData } from './ModifyDasOpsConfigResponseBody';
+export { ModifyForwardSqlLogConfigResponseBodyData } from './ModifyForwardSqlLogConfigResponseBody';
 export { ModifySecurityIPGroupResponseBodyDataGlobalSecurityIPGroup } from './ModifySecurityIpgroupResponseBody';
 export { ModifySecurityIPGroupResponseBodyData } from './ModifySecurityIpgroupResponseBody';
 export { ModifySecurityIPGroupRelationResponseBodyDataGlobalSecurityIPGroupRel } from './ModifySecurityIpgroupRelationResponseBody';
@@ -297,6 +301,9 @@ export { DescribeCloudbenchTaskResponse } from './DescribeCloudbenchTaskResponse
 export { DescribeCloudbenchTaskConfigRequest } from './DescribeCloudbenchTaskConfigRequest';
 export { DescribeCloudbenchTaskConfigResponseBody } from './DescribeCloudbenchTaskConfigResponseBody';
 export { DescribeCloudbenchTaskConfigResponse } from './DescribeCloudbenchTaskConfigResponse';
+export { DescribeDasOpsConfigRequest } from './DescribeDasOpsConfigRequest';
+export { DescribeDasOpsConfigResponseBody } from './DescribeDasOpsConfigResponseBody';
+export { DescribeDasOpsConfigResponse } from './DescribeDasOpsConfigResponse';
 export { DescribeDiagnosticReportListRequest } from './DescribeDiagnosticReportListRequest';
 export { DescribeDiagnosticReportListResponseBody } from './DescribeDiagnosticReportListResponseBody';
 export { DescribeDiagnosticReportListResponse } from './DescribeDiagnosticReportListResponse';
@@ -537,6 +544,12 @@ export { KillInstanceAllSessionResponse } from './KillInstanceAllSessionResponse
 export { ModifyAutoScalingConfigRequest } from './ModifyAutoScalingConfigRequest';
 export { ModifyAutoScalingConfigResponseBody } from './ModifyAutoScalingConfigResponseBody';
 export { ModifyAutoScalingConfigResponse } from './ModifyAutoScalingConfigResponse';
+export { ModifyDasOpsConfigRequest } from './ModifyDasOpsConfigRequest';
+export { ModifyDasOpsConfigResponseBody } from './ModifyDasOpsConfigResponseBody';
+export { ModifyDasOpsConfigResponse } from './ModifyDasOpsConfigResponse';
+export { ModifyForwardSqlLogConfigRequest } from './ModifyForwardSqlLogConfigRequest';
+export { ModifyForwardSqlLogConfigResponseBody } from './ModifyForwardSqlLogConfigResponseBody';
+export { ModifyForwardSqlLogConfigResponse } from './ModifyForwardSqlLogConfigResponse';
 export { ModifySecurityIPGroupRequest } from './ModifySecurityIpgroupRequest';
 export { ModifySecurityIPGroupResponseBody } from './ModifySecurityIpgroupResponseBody';
 export { ModifySecurityIPGroupResponse } from './ModifySecurityIpgroupResponse';

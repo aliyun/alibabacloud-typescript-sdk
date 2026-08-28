@@ -7,7 +7,7 @@ export class ModifySecurityIPGroupRelationResponseBodyDataGlobalSecurityIPGroupR
    * @remarks
    * The IP addresses in the whitelist template.
    * 
-   * > Separate multiple IP addresses with commas (,). A maximum of 1,000 IP addresses or CIDR blocks can be added to all IP address whitelists.
+   * > Separate multiple IP addresses with commas (,). You can add up to 1,000 IP addresses or CIDR blocks across all IP whitelists.
    * 
    * @example
    * 192.168.0.1,192.168.100.0/24
@@ -15,13 +15,13 @@ export class ModifySecurityIPGroupRelationResponseBodyDataGlobalSecurityIPGroupR
   GIpList?: string;
   /**
    * @remarks
-   * The name of the IP address whitelist template. The name must meet the following requirements:
+   * The name of the IP whitelist template. The name must meet the following requirements:
    * 
-   * - It must consist of lowercase letters, digits, and underscores (_).
+   * - Contains only lowercase letters, digits, and underscores (_).
    * 
-   * - It must start with a letter and end with a letter or a digit.
+   * - Starts with a letter and ends with a letter or digit.
    * 
-   * - It must be 2 to 120 characters in length.
+   * - Contains 2 to 120 characters in length.
    * 
    * @example
    * saas_jump
@@ -29,7 +29,7 @@ export class ModifySecurityIPGroupRelationResponseBodyDataGlobalSecurityIPGroupR
   globalIgName?: string;
   /**
    * @remarks
-   * The ID of the IP address whitelist template.
+   * The ID of the IP whitelist template.
    * 
    * @example
    * g-v8kwereyd6u7kx****
@@ -73,7 +73,7 @@ export class ModifySecurityIPGroupRelationResponseBodyDataGlobalSecurityIPGroupR
 export class ModifySecurityIPGroupRelationResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The information about the cross-product IP address whitelist template that is attached to the instance.
+   * The binding information of the cross-engine IP whitelist template.
    */
   globalSecurityIPGroupRel?: ModifySecurityIPGroupRelationResponseBodyDataGlobalSecurityIPGroupRel[];
   /**
@@ -121,14 +121,13 @@ export class ModifySecurityIPGroupRelationResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned data.
+   * ListResult<InstanceSSL>
    */
   data?: ModifySecurityIPGroupRelationResponseBodyData;
   /**
    * @remarks
    * The returned message.
-   * 
-   * > If the request is successful, Successful is returned. If the request fails, an error message, such as an error code, is returned.
+   * >If the request is successful, Successful is returned. If the request fails, an error message such as an error code is returned.
    * 
    * @example
    * Successful
@@ -144,11 +143,9 @@ export class ModifySecurityIPGroupRelationResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * - true: The request was successful.
-   * 
-   * - false: The request failed.
+   * Indicates whether the request is successful. Valid values:
+   * * true: The request is successful.
+   * * false: The request fails.
    * 
    * @example
    * true

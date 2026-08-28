@@ -45,7 +45,7 @@ export class DescribeSlowLogStatisticRequestFilters extends $dara.Model {
 export class DescribeSlowLogStatisticRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to sort the results in ascending order. The default value is false.
+   * Specifies whether to sort results in ascending order. This feature is disabled by default.
    * 
    * @example
    * true
@@ -53,7 +53,7 @@ export class DescribeSlowLogStatisticRequest extends $dara.Model {
   asc?: boolean;
   /**
    * @remarks
-   * The end time of the query. This value is a UNIX timestamp in UTC. Unit: milliseconds.
+   * The end time of the query. Specify a UNIX timestamp in UTC. Unit: milliseconds.
    * 
    * This parameter is required.
    * 
@@ -63,7 +63,7 @@ export class DescribeSlowLogStatisticRequest extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * The filter conditions.
+   * The list of query filter conditions.
    */
   filters?: DescribeSlowLogStatisticRequestFilters[];
   /**
@@ -80,9 +80,8 @@ export class DescribeSlowLogStatisticRequest extends $dara.Model {
    * @remarks
    * The node ID.
    * 
-   * - For RDS for MySQL and PolarDB for MySQL, this parameter applies only to cluster instances. If you do not specify this parameter, the slow query logs of the primary node are queried by default.
-   * 
-   * - For PolarDB-X 2.0, specify **polarx_cn** for compute nodes or **polarx_dn** for data nodes.
+   * - For ApsaraDB RDS for MySQL and PolarDB for MySQL, this parameter is applicable only to cluster instances. If you do not specify this parameter, the log details of the primary node are queried by default.
+   * - For PolarDB-X 2.0, set this parameter to **polarx_cn** (compute node) or **polarx_dn** (data node).
    * 
    * @example
    * r-x****-db-0
@@ -108,7 +107,7 @@ export class DescribeSlowLogStatisticRequest extends $dara.Model {
   orderBy?: string;
   /**
    * @remarks
-   * The page number. The value must be a positive integer. The default value is 1.
+   * The page number. The value starts from 1. Default value: 1.
    * 
    * @example
    * 1
@@ -116,7 +115,7 @@ export class DescribeSlowLogStatisticRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. The default value is 10.
+   * The maximum number of entries per page. Default value: 10.
    * 
    * @example
    * 20
@@ -124,7 +123,7 @@ export class DescribeSlowLogStatisticRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The start time of the query. This value is a UNIX timestamp in UTC. Unit: milliseconds.
+   * The start time of the query. Specify a UNIX timestamp in UTC. Unit: milliseconds.
    * 
    * This parameter is required.
    * 
@@ -144,31 +143,32 @@ export class DescribeSlowLogStatisticRequest extends $dara.Model {
    * @remarks
    * The task type.
    * 
-   * For SQL engines:
+   * SQL engine-specific:
    * 
-   * **SlowLogRequestOrigin**: Aggregates logs by source IP address.
+   * **SlowLogRequestOrigin**: aggregates logs by source IP address.
    * 
-   * **SlowLogRequestUser**: Aggregates logs by source user.
+   * **SlowLogRequestUser**: aggregates logs by source user.
    * 
-   * **SQL**: Aggregates logs by SQL ID.
+   * **SQL**: aggregates logs by SQL ID.
    * 
-   * For ApsaraDB for MongoDB engines:
    * 
-   * **SlowLogRequestOrigin**: Aggregates logs by source IP address.
+   * MongoDB engine-specific:
    * 
-   * **SlowLogRequestUser**: Aggregates logs by source user.
+   * **SlowLogRequestOrigin**: aggregates logs by source IP address.
    * 
-   * **SQL**: Aggregates logs by query ID.
+   * **SlowLogRequestUser**: aggregates logs by source user.
    * 
-   * **SlowLogRequestOpType**: Aggregates logs by operation type.
+   * **SQL**: aggregates logs by Query ID.
    * 
-   * **SlowLogRequestNamespace**: Aggregates logs by namespace.
+   * **SlowLogRequestOpType**: aggregates logs by operation type.
    * 
-   * For Redis engines:
+   * **SlowLogRequestNamespace**: aggregates logs by namespace.
    * 
-   * **SlowLogRequestNodeId**: Aggregates logs by node ID.
+   * Redis engine-specific:
    * 
-   * **SlowLogRequestHostInsId**: Aggregates logs by host instance ID.
+   * **SlowLogRequestNodeId**: aggregates logs by node ID.
+   * 
+   * **SlowLogRequestHostInsId**: aggregates logs by HostInsId.
    * 
    * @example
    * SQL

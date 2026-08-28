@@ -13,7 +13,7 @@ export class DescribeSqlLogTaskRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The page number. Pages are numbered starting from 1. Default value: 1.
+   * The page number for the paging query. Pages start from page 1. Default value: 1.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class DescribeSqlLogTaskRequest extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * The page size. Maximum value: 100. Default value: 10.
+   * The maximum number of records per page for the paging query. Maximum value: 100. Default value: 10.
    * 
    * @example
    * 10

@@ -13,7 +13,7 @@ export class GetInstanceGroupInspectReportDetailRequest extends $dara.Model {
   agentId?: string;
   /**
    * @remarks
-   * The ID of the automated operations report.
+   * The ID of the operations report.
    * 
    * This parameter is required.
    * 

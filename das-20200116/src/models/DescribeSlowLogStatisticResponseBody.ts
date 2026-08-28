@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSlowLogStatisticResponseBodyDataDataLogsHistogramItem extends $dara.Model {
   /**
    * @remarks
-   * The number of slow query logs.
+   * The number of slow logs.
    */
   count?: number[];
   /**
@@ -45,17 +45,17 @@ export class DescribeSlowLogStatisticResponseBodyDataDataLogsHistogramItem exten
 export class DescribeSlowLogStatisticResponseBodyDataDataLogsHistogram extends $dara.Model {
   /**
    * @remarks
-   * The average lock wait time in seconds.
+   * The average lock wait time. Unit: seconds.
    */
   avgLockTime?: number[];
   /**
    * @remarks
-   * The average number of scanned rows.
+   * The average number of rows examined.
    */
   avgRowsExamined?: number[];
   /**
    * @remarks
-   * The average number of returned rows.
+   * The average number of rows returned.
    */
   avgRowsSent?: number[];
   /**
@@ -65,7 +65,7 @@ export class DescribeSlowLogStatisticResponseBodyDataDataLogsHistogram extends $
   avgRt?: number[];
   /**
    * @remarks
-   * The number of slow query logs.
+   * The number of slow logs.
    */
   count?: number[];
   /**
@@ -75,49 +75,48 @@ export class DescribeSlowLogStatisticResponseBodyDataDataLogsHistogram extends $
   item?: DescribeSlowLogStatisticResponseBodyDataDataLogsHistogramItem[];
   /**
    * @remarks
-   * The lock wait time in milliseconds.
+   * The lock wait time. Unit: milliseconds.
    */
   lockTime?: number[];
   /**
    * @remarks
-   * The maximum lock wait time in seconds.
+   * The maximum lock wait time. Unit: seconds.
    */
   maxLockTime?: number[];
   /**
    * @remarks
-   * The maximum number of scanned rows.
+   * The maximum number of rows examined.
    */
   maxRowsExamined?: number[];
   /**
    * @remarks
-   * The maximum number of returned rows.
+   * The maximum number of rows returned.
    */
   maxRowsSent?: number[];
   /**
    * @remarks
-   * The maximum response time (RT) in milliseconds.
+   * The maximum response time. Unit: ms.
    */
   maxRt?: number[];
   /**
    * @remarks
-   * The total number of scanned rows.
-   * 
-   * > This parameter is supported by ApsaraDB RDS for MySQL, ApsaraDB RDS for PostgreSQL, and PolarDB for MySQL.
+   * The total number of rows examined.
+   * > Databases that currently support this field: ApsaraDB RDS for MySQL, ApsaraDB RDS for PostgreSQL, and PolarDB for MySQL.
    */
   rowsExamined?: number[];
   /**
    * @remarks
-   * The number of returned rows.
+   * The number of rows returned.
    */
   rowsSent?: number[];
   /**
    * @remarks
-   * The execution duration in seconds.
+   * The execution duration. Unit: seconds.
    */
   rt?: number[];
   /**
    * @remarks
-   * The total number of entries returned for the query.
+   * The total number of queried records.
    * 
    * @example
    * 7
@@ -130,7 +129,7 @@ export class DescribeSlowLogStatisticResponseBodyDataDataLogsHistogram extends $
   ts?: number[];
   /**
    * @remarks
-   * This parameter is deprecated.
+   * Deprecated.
    */
   tsEnd?: number[];
   static names(): { [key: string]: string } {
@@ -239,15 +238,15 @@ export class DescribeSlowLogStatisticResponseBodyDataDataLogsSqlTag extends $dar
    * @remarks
    * The remarks.
    * 
-   * The value can be 1 to 300 characters in length.
+   * The value must be 1 to 300 characters in length.
    * 
    * @example
-   * dba 归档
+   * dba archiving
    */
   comments?: string;
   /**
    * @remarks
-   * The SQL ID.
+   * SQL ID。
    * 
    * @example
    * a3931d8c3a9315dd5ed016d71cf*****
@@ -255,7 +254,7 @@ export class DescribeSlowLogStatisticResponseBodyDataDataLogsSqlTag extends $dar
   sqlId?: string;
   /**
    * @remarks
-   * The tags. Multiple tags are separated by commas (,).
+   * Multiple tags separated by commas.
    * 
    * @example
    * DAS_IN_PLAN
@@ -289,7 +288,7 @@ export class DescribeSlowLogStatisticResponseBodyDataDataLogsSqlTag extends $dar
 export class DescribeSlowLogStatisticResponseBodyDataDataLogsTrend extends $dara.Model {
   /**
    * @remarks
-   * The execution time. This value is a UNIX timestamp. Unit: milliseconds (ms).
+   * The execution time, in UNIX timestamp format. Unit: milliseconds (ms).
    * 
    * @example
    * 1723775362
@@ -337,7 +336,7 @@ export class DescribeSlowLogStatisticResponseBodyDataDataLogs extends $dara.Mode
   accountName?: string;
   /**
    * @remarks
-   * This parameter is deprecated.
+   * Deprecated.
    * 
    * @example
    * -
@@ -345,7 +344,7 @@ export class DescribeSlowLogStatisticResponseBodyDataDataLogs extends $dara.Mode
   avgCPUTime?: number;
   /**
    * @remarks
-   * The average CPU time for the query in seconds.
+   * The average CPU query time. Unit: seconds.
    * 
    * @example
    * 456
@@ -353,9 +352,8 @@ export class DescribeSlowLogStatisticResponseBodyDataDataLogs extends $dara.Mode
   avgCPUTimeSeconds?: number;
   /**
    * @remarks
-   * The average number of scanned documents.
-   * 
-   * > This parameter is supported only by ApsaraDB for MongoDB instances.
+   * The average number of documents scanned.
+   * >This field is supported only for ApsaraDB for MongoDB instances.
    * 
    * @example
    * 10000
@@ -363,7 +361,7 @@ export class DescribeSlowLogStatisticResponseBodyDataDataLogs extends $dara.Mode
   avgDocExamined?: number;
   /**
    * @remarks
-   * The average number of pulled rows.
+   * The average number of rows fetched.
    * 
    * @example
    * 10
@@ -372,8 +370,7 @@ export class DescribeSlowLogStatisticResponseBodyDataDataLogs extends $dara.Mode
   /**
    * @remarks
    * The average number of I/O writes.
-   * 
-   * > This parameter is supported only by ApsaraDB RDS for SQL Server instances.
+   * >This field is supported only for ApsaraDB RDS for SQL Server instances.
    * 
    * @example
    * 1000
@@ -381,9 +378,8 @@ export class DescribeSlowLogStatisticResponseBodyDataDataLogs extends $dara.Mode
   avgIOWrites?: number;
   /**
    * @remarks
-   * The average number of index scans.
-   * 
-   * > This parameter is supported only by ApsaraDB for MongoDB instances.
+   * The average number of rows scanned by the index.
+   * >This field is supported only for ApsaraDB for MongoDB instances.
    * 
    * @example
    * 20000
@@ -392,8 +388,7 @@ export class DescribeSlowLogStatisticResponseBodyDataDataLogs extends $dara.Mode
   /**
    * @remarks
    * The average number of rows affected by the last statement.
-   * 
-   * > This parameter is supported only by ApsaraDB RDS for SQL Server instances.
+   * >This field is supported only for ApsaraDB RDS for SQL Server instances.
    * 
    * @example
    * 1000
@@ -401,7 +396,7 @@ export class DescribeSlowLogStatisticResponseBodyDataDataLogs extends $dara.Mode
   avgLastRowsCountAffected?: number;
   /**
    * @remarks
-   * This parameter is deprecated.
+   * Deprecated.
    * 
    * @example
    * -
@@ -409,7 +404,7 @@ export class DescribeSlowLogStatisticResponseBodyDataDataLogs extends $dara.Mode
   avgLockTime?: number;
   /**
    * @remarks
-   * The average lock wait time in seconds.
+   * The average lock wait time. Unit: seconds.
    * 
    * @example
    * 0.0
@@ -418,8 +413,7 @@ export class DescribeSlowLogStatisticResponseBodyDataDataLogs extends $dara.Mode
   /**
    * @remarks
    * The average number of logical reads.
-   * 
-   * > This parameter is supported only by ApsaraDB RDS for SQL Server instances.
+   * >This field is supported only for ApsaraDB RDS for SQL Server instances.
    * 
    * @example
    * 1000
@@ -428,8 +422,7 @@ export class DescribeSlowLogStatisticResponseBodyDataDataLogs extends $dara.Mode
   /**
    * @remarks
    * The average number of physical reads.
-   * 
-   * > This parameter is supported only by ApsaraDB RDS for SQL Server instances.
+   * >This field is supported only for ApsaraDB RDS for SQL Server instances.
    * 
    * @example
    * 1000
@@ -437,7 +430,7 @@ export class DescribeSlowLogStatisticResponseBodyDataDataLogs extends $dara.Mode
   avgPhysicalIOReads?: number;
   /**
    * @remarks
-   * This parameter is deprecated.
+   * Deprecated.
    * 
    * @example
    * -
@@ -445,7 +438,7 @@ export class DescribeSlowLogStatisticResponseBodyDataDataLogs extends $dara.Mode
   avgQueryTime?: number;
   /**
    * @remarks
-   * The average query duration in seconds.
+   * The average query execution duration. Unit: seconds.
    * 
    * @example
    * 6.211
@@ -453,19 +446,18 @@ export class DescribeSlowLogStatisticResponseBodyDataDataLogs extends $dara.Mode
   avgQueryTimeSeconds?: number;
   /**
    * @remarks
-   * The average size of the request in bytes. This parameter is valid only for Redis.
+   * The average size of the request, in bytes. This parameter is valid only for Redis.
    */
   avgRequestSize?: number;
   /**
    * @remarks
-   * The average size of the response in bytes. This parameter is valid only for Redis.
+   * The average response size, in bytes. This parameter is valid only for Redis.
    */
   avgResponseSize?: number;
   /**
    * @remarks
-   * The average number of returned rows.
-   * 
-   * > This parameter is supported only by MongoDB instances.
+   * The average number of rows returned.
+   * >This field is supported only for ApsaraDB for MongoDB instances.
    * 
    * @example
    * 1
@@ -481,9 +473,8 @@ export class DescribeSlowLogStatisticResponseBodyDataDataLogs extends $dara.Mode
   avgRows?: number;
   /**
    * @remarks
-   * The average number of affected rows.
-   * 
-   * > This parameter is supported only by ApsaraDB RDS for SQL Server instances.
+   * The average number of rows affected.
+   * >This field is supported only for ApsaraDB RDS for SQL Server instances.
    * 
    * @example
    * 1000
@@ -491,7 +482,7 @@ export class DescribeSlowLogStatisticResponseBodyDataDataLogs extends $dara.Mode
   avgRowsCountAffected?: number;
   /**
    * @remarks
-   * The average number of scanned rows.
+   * The average number of rows examined.
    * 
    * @example
    * 53421.0
@@ -499,7 +490,7 @@ export class DescribeSlowLogStatisticResponseBodyDataDataLogs extends $dara.Mode
   avgRowsExamined?: number;
   /**
    * @remarks
-   * The average number of returned rows.
+   * The average number of rows returned.
    * 
    * @example
    * 2.0
@@ -520,7 +511,7 @@ export class DescribeSlowLogStatisticResponseBodyDataDataLogs extends $dara.Mode
   avgScnt?: number;
   /**
    * @remarks
-   * This parameter is deprecated.
+   * Deprecated.
    * 
    * @example
    * -
@@ -528,9 +519,9 @@ export class DescribeSlowLogStatisticResponseBodyDataDataLogs extends $dara.Mode
   CPUTime?: number;
   /**
    * @remarks
-   * The CPU time for the query in seconds.
+   * The CPU query time. Unit: seconds.
    * 
-   * > This parameter is supported only by ApsaraDB RDS for SQL Server instances.
+   * > This field is supported only for ApsaraDB RDS for SQL Server instances.
    * 
    * @example
    * 456
@@ -538,7 +529,7 @@ export class DescribeSlowLogStatisticResponseBodyDataDataLogs extends $dara.Mode
   CPUTimeSeconds?: number;
   /**
    * @remarks
-   * The client\\"s IP address.
+   * The client IP address in the query.
    * 
    * @example
    * 10.57.84.109
@@ -546,7 +537,7 @@ export class DescribeSlowLogStatisticResponseBodyDataDataLogs extends $dara.Mode
   clientIp?: string;
   /**
    * @remarks
-   * The executed command. This parameter is valid only for Redis.
+   * The command that was executed. This parameter is valid only for Redis.
    * 
    * @example
    * systemctl restart nginx.service
@@ -555,8 +546,7 @@ export class DescribeSlowLogStatisticResponseBodyDataDataLogs extends $dara.Mode
   /**
    * @remarks
    * The slow query statement.
-   * 
-   * > This parameter is supported only by Tair (Redis OSS-compatible) instances.
+   * >This field is supported only for ApsaraDB for Tair (Redis® OSS-Compatible) database instances.
    * 
    * @example
    * SELECT b?.id,b?.t?,b?.id,b?.t? FROM testtb? b? JOIN testtb? b? ON b?.id=b?.id WHERE b?.t? LIKE ? ORDER BY b?.t? DESC
@@ -564,7 +554,7 @@ export class DescribeSlowLogStatisticResponseBodyDataDataLogs extends $dara.Mode
   command?: string;
   /**
    * @remarks
-   * The number of elements that correspond to the key.
+   * The number of elements in the key.
    * 
    * @example
    * 12
@@ -572,7 +562,7 @@ export class DescribeSlowLogStatisticResponseBodyDataDataLogs extends $dara.Mode
   count?: number;
   /**
    * @remarks
-   * The execution ratio.
+   * The proportion of executions.
    * 
    * @example
    * 0.2034
@@ -612,9 +602,8 @@ export class DescribeSlowLogStatisticResponseBodyDataDataLogs extends $dara.Mode
   dbInstanceName?: string;
   /**
    * @remarks
-   * The number of scanned documents.
-   * 
-   * > This parameter is supported only by ApsaraDB for MongoDB instances.
+   * The number of documents scanned.
+   * >This field is supported only for ApsaraDB for MongoDB instances.
    * 
    * @example
    * 2000000
@@ -622,7 +611,7 @@ export class DescribeSlowLogStatisticResponseBodyDataDataLogs extends $dara.Mode
   docExamined?: number;
   /**
    * @remarks
-   * The number of documents scanned during the operation on the ApsaraDB for MongoDB instance.
+   * The number of documents scanned during the MongoDB operation.
    * 
    * @example
    * 1
@@ -630,9 +619,9 @@ export class DescribeSlowLogStatisticResponseBodyDataDataLogs extends $dara.Mode
   docsExamined?: number;
   /**
    * @remarks
-   * The number of rows pulled by the compute nodes (CNs) of the PolarDB-X 2.0 instance.
+   * The number of rows fetched by the compute node (CN) of the ApsaraDB for PolarDB-X 2.0 database instance.
    * 
-   * > This parameter is supported only by PolarDB-X 2.0 instances.
+   * > This field is supported only for ApsaraDB for PolarDB-X 2.0 instances.
    * 
    * @example
    * 10
@@ -645,7 +634,7 @@ export class DescribeSlowLogStatisticResponseBodyDataDataLogs extends $dara.Mode
   histogram?: DescribeSlowLogStatisticResponseBodyDataDataLogsHistogram;
   /**
    * @remarks
-   * The client IP address.
+   * The IP address of the client.
    * 
    * @example
    * 172.23.142.178
@@ -653,9 +642,8 @@ export class DescribeSlowLogStatisticResponseBodyDataDataLogs extends $dara.Mode
   hostAddress?: string;
   /**
    * @remarks
-   * The ID of the host instance.
-   * 
-   * > This parameter is supported only by ApsaraDB for MongoDB instances.
+   * The host instance ID.
+   * >This field is supported only for ApsaraDB for MongoDB instances.
    * 
    * @example
    * mongo-abc123456
@@ -664,8 +652,7 @@ export class DescribeSlowLogStatisticResponseBodyDataDataLogs extends $dara.Mode
   /**
    * @remarks
    * The number of I/O writes.
-   * 
-   * > This parameter is supported only by ApsaraDB RDS for SQL Server instances.
+   * >This field is supported only for ApsaraDB RDS for SQL Server instances.
    * 
    * @example
    * 1000
@@ -682,8 +669,7 @@ export class DescribeSlowLogStatisticResponseBodyDataDataLogs extends $dara.Mode
   /**
    * @remarks
    * The instance role.
-   * 
-   * > This parameter is supported only by MongoDB instances.
+   * >This field is supported only for ApsaraDB for MongoDB instances.
    * 
    * @example
    * __system
@@ -691,7 +677,7 @@ export class DescribeSlowLogStatisticResponseBodyDataDataLogs extends $dara.Mode
   insRole?: string;
   /**
    * @remarks
-   * The number of index scans on the ApsaraDB for MongoDB instance.
+   * The number of rows scanned by the MongoDB index.
    * 
    * @example
    * 20000
@@ -700,8 +686,7 @@ export class DescribeSlowLogStatisticResponseBodyDataDataLogs extends $dara.Mode
   /**
    * @remarks
    * The number of rows affected by the last statement.
-   * 
-   * > This parameter is supported only by ApsaraDB RDS for SQL Server instances.
+   * >This field is supported only for ApsaraDB RDS for SQL Server instances.
    * 
    * @example
    * 1000
@@ -709,7 +694,7 @@ export class DescribeSlowLogStatisticResponseBodyDataDataLogs extends $dara.Mode
   lastRowsCountAffected?: number;
   /**
    * @remarks
-   * This parameter is deprecated.
+   * Deprecated.
    * 
    * @example
    * -
@@ -717,7 +702,7 @@ export class DescribeSlowLogStatisticResponseBodyDataDataLogs extends $dara.Mode
   lockTime?: number;
   /**
    * @remarks
-   * The lock wait time in seconds.
+   * The lock wait time. Unit: seconds.
    * 
    * @example
    * 0.0
@@ -726,8 +711,7 @@ export class DescribeSlowLogStatisticResponseBodyDataDataLogs extends $dara.Mode
   /**
    * @remarks
    * The number of logical reads.
-   * 
-   * > This parameter is supported only by ApsaraDB RDS for SQL Server instances.
+   * >This field is supported only for ApsaraDB RDS for SQL Server instances.
    * 
    * @example
    * 1000
@@ -735,7 +719,7 @@ export class DescribeSlowLogStatisticResponseBodyDataDataLogs extends $dara.Mode
   logicalIOReads?: number;
   /**
    * @remarks
-   * This parameter is deprecated.
+   * Deprecated.
    * 
    * @example
    * -
@@ -743,7 +727,7 @@ export class DescribeSlowLogStatisticResponseBodyDataDataLogs extends $dara.Mode
   maxCPUTime?: number;
   /**
    * @remarks
-   * The longest CPU time for the query in seconds.
+   * The maximum CPU query time. Unit: seconds.
    * 
    * @example
    * 456
@@ -751,9 +735,8 @@ export class DescribeSlowLogStatisticResponseBodyDataDataLogs extends $dara.Mode
   maxCPUTimeSeconds?: number;
   /**
    * @remarks
-   * The maximum number of scanned documents.
-   * 
-   * > This parameter is supported only by ApsaraDB for MongoDB instances.
+   * The maximum number of documents scanned.
+   * >This field is supported only for ApsaraDB for MongoDB instances.
    * 
    * @example
    * 1000000
@@ -761,7 +744,7 @@ export class DescribeSlowLogStatisticResponseBodyDataDataLogs extends $dara.Mode
   maxDocExamined?: number;
   /**
    * @remarks
-   * The maximum number of pulled rows.
+   * The maximum number of rows fetched.
    * 
    * @example
    * 10
@@ -770,8 +753,7 @@ export class DescribeSlowLogStatisticResponseBodyDataDataLogs extends $dara.Mode
   /**
    * @remarks
    * The maximum number of I/O writes.
-   * 
-   * > This parameter is supported only by ApsaraDB RDS for SQL Server instances.
+   * >This field is supported only for ApsaraDB RDS for SQL Server instances.
    * 
    * @example
    * 1000
@@ -779,9 +761,8 @@ export class DescribeSlowLogStatisticResponseBodyDataDataLogs extends $dara.Mode
   maxIOWrites?: number;
   /**
    * @remarks
-   * The maximum number of index scans.
-   * 
-   * > This parameter is supported only by ApsaraDB for MongoDB instances.
+   * The maximum number of rows scanned by the index.
+   * >This field is supported only for ApsaraDB for MongoDB instances.
    * 
    * @example
    * 2000000
@@ -790,8 +771,7 @@ export class DescribeSlowLogStatisticResponseBodyDataDataLogs extends $dara.Mode
   /**
    * @remarks
    * The maximum number of rows affected by the last statement.
-   * 
-   * > This parameter is supported only by ApsaraDB RDS for SQL Server instances.
+   * >This field is supported only for ApsaraDB RDS for SQL Server instances.
    * 
    * @example
    * 1000
@@ -799,7 +779,7 @@ export class DescribeSlowLogStatisticResponseBodyDataDataLogs extends $dara.Mode
   maxLastRowsCountAffected?: number;
   /**
    * @remarks
-   * This parameter is deprecated.
+   * Deprecated.
    * 
    * @example
    * -
@@ -807,7 +787,7 @@ export class DescribeSlowLogStatisticResponseBodyDataDataLogs extends $dara.Mode
   maxLockTime?: number;
   /**
    * @remarks
-   * The maximum lock wait time in seconds.
+   * The maximum lock wait time. Unit: seconds.
    * 
    * @example
    * 0.0
@@ -816,8 +796,7 @@ export class DescribeSlowLogStatisticResponseBodyDataDataLogs extends $dara.Mode
   /**
    * @remarks
    * The maximum number of logical reads.
-   * 
-   * > This parameter is supported only by ApsaraDB RDS for SQL Server instances.
+   * >This field is supported only for ApsaraDB RDS for SQL Server instances.
    * 
    * @example
    * 1000
@@ -826,8 +805,7 @@ export class DescribeSlowLogStatisticResponseBodyDataDataLogs extends $dara.Mode
   /**
    * @remarks
    * The maximum number of physical reads.
-   * 
-   * > This parameter is supported only by ApsaraDB RDS for SQL Server instances.
+   * >This field is supported only for ApsaraDB RDS for SQL Server instances.
    * 
    * @example
    * 1000
@@ -835,7 +813,7 @@ export class DescribeSlowLogStatisticResponseBodyDataDataLogs extends $dara.Mode
   maxPhysicalIOReads?: number;
   /**
    * @remarks
-   * This parameter is deprecated.
+   * Deprecated.
    * 
    * @example
    * -
@@ -843,7 +821,7 @@ export class DescribeSlowLogStatisticResponseBodyDataDataLogs extends $dara.Mode
   maxQueryTime?: number;
   /**
    * @remarks
-   * The maximum query duration in seconds.
+   * The maximum query execution duration. Unit: seconds.
    * 
    * @example
    * 14.402
@@ -851,19 +829,18 @@ export class DescribeSlowLogStatisticResponseBodyDataDataLogs extends $dara.Mode
   maxQueryTimeSeconds?: number;
   /**
    * @remarks
-   * The maximum size of the request in bytes. This parameter is valid only for Redis.
+   * The maximum size of the request, in bytes. This parameter is valid only for Redis.
    */
   maxRequestSize?: number;
   /**
    * @remarks
-   * The maximum size of the response in bytes. This parameter is valid only for Redis.
+   * The maximum response size, in bytes. This parameter is valid only for Redis.
    */
   maxResponseSize?: number;
   /**
    * @remarks
-   * The maximum number of returned rows.
-   * 
-   * > This parameter is supported only by ApsaraDB for MongoDB instances.
+   * The maximum number of rows returned.
+   * >This field is supported only for ApsaraDB for MongoDB instances.
    * 
    * @example
    * 1
@@ -879,9 +856,8 @@ export class DescribeSlowLogStatisticResponseBodyDataDataLogs extends $dara.Mode
   maxRows?: number;
   /**
    * @remarks
-   * The maximum number of affected rows.
-   * 
-   * > This parameter is supported only by ApsaraDB RDS for SQL Server instances.
+   * The maximum number of rows affected.
+   * >This field is supported only for ApsaraDB RDS for SQL Server instances.
    * 
    * @example
    * 1000
@@ -889,7 +865,7 @@ export class DescribeSlowLogStatisticResponseBodyDataDataLogs extends $dara.Mode
   maxRowsCountAffected?: number;
   /**
    * @remarks
-   * The maximum number of scanned rows.
+   * The maximum number of rows examined.
    * 
    * @example
    * 318613
@@ -897,7 +873,7 @@ export class DescribeSlowLogStatisticResponseBodyDataDataLogs extends $dara.Mode
   maxRowsExamined?: number;
   /**
    * @remarks
-   * The maximum number of returned rows.
+   * The maximum number of rows returned.
    * 
    * @example
    * 256
@@ -905,7 +881,7 @@ export class DescribeSlowLogStatisticResponseBodyDataDataLogs extends $dara.Mode
   maxRowsSent?: number;
   /**
    * @remarks
-   * The maximum execution duration in seconds.
+   * The maximum execution duration, in seconds.
    */
   maxRt?: number;
   /**
@@ -919,8 +895,7 @@ export class DescribeSlowLogStatisticResponseBodyDataDataLogs extends $dara.Mode
   /**
    * @remarks
    * The namespace.
-   * 
-   * > This parameter is supported only by ApsaraDB for MongoDB instances.
+   * >This field is supported only for ApsaraDB for MongoDB instances.
    * 
    * @example
    * database.collection
@@ -929,8 +904,7 @@ export class DescribeSlowLogStatisticResponseBodyDataDataLogs extends $dara.Mode
   /**
    * @remarks
    * The node type.
-   * 
-   * > This parameter is supported by MongoDB and Tair (Redis-compatible).
+   * > Databases that support this field: ApsaraDB for MongoDB and Tair (Redis® OSS-Compatible).
    * 
    * @example
    * DLNode
@@ -939,8 +913,7 @@ export class DescribeSlowLogStatisticResponseBodyDataDataLogs extends $dara.Mode
   /**
    * @remarks
    * The operation type.
-   * 
-   * > This parameter is supported only by MongoDB instances.
+   * >This field is supported only for ApsaraDB for MongoDB instances.
    * 
    * @example
    * Insert
@@ -948,7 +921,7 @@ export class DescribeSlowLogStatisticResponseBodyDataDataLogs extends $dara.Mode
   opType?: string;
   /**
    * @remarks
-   * The alias of the source.
+   * The source alias.
    * 
    * @example
    * order-1
@@ -957,8 +930,7 @@ export class DescribeSlowLogStatisticResponseBodyDataDataLogs extends $dara.Mode
   /**
    * @remarks
    * The number of physical reads.
-   * 
-   * > This parameter is supported only by ApsaraDB RDS for SQL Server instances.
+   * >This field is supported only for ApsaraDB RDS for SQL Server instances.
    * 
    * @example
    * 1000
@@ -975,8 +947,7 @@ export class DescribeSlowLogStatisticResponseBodyDataDataLogs extends $dara.Mode
   /**
    * @remarks
    * The query ID.
-   * 
-   * > This parameter is supported only by ApsaraDB for MongoDB instances.
+   * >This field is supported only for ApsaraDB for MongoDB instances.
    * 
    * @example
    * sq-1pzcdMwRb
@@ -984,7 +955,7 @@ export class DescribeSlowLogStatisticResponseBodyDataDataLogs extends $dara.Mode
   queryId?: string;
   /**
    * @remarks
-   * The time when the query started. The time is in the yyyy-MM-dd hh:mm:ss format and is in UTC.
+   * The time when the query started. Format: yyyy-MM-dd hh:mm:ss (UTC).
    * 
    * @example
    * 2024-12-25T03:00:00Z
@@ -992,7 +963,7 @@ export class DescribeSlowLogStatisticResponseBodyDataDataLogs extends $dara.Mode
   queryStartTime?: string;
   /**
    * @remarks
-   * The threshold for the query execution time. Unit: milliseconds (ms).
+   * The query execution time threshold. Unit: milliseconds (ms).
    * 
    * @example
    * 272.444
@@ -1000,7 +971,7 @@ export class DescribeSlowLogStatisticResponseBodyDataDataLogs extends $dara.Mode
   queryTime?: number;
   /**
    * @remarks
-   * The ratio of the query duration.
+   * The proportion of query duration.
    * 
    * @example
    * 0.1018
@@ -1008,7 +979,7 @@ export class DescribeSlowLogStatisticResponseBodyDataDataLogs extends $dara.Mode
   queryTimeRate?: number;
   /**
    * @remarks
-   * The query duration in seconds.
+   * The query execution duration. Unit: seconds.
    * 
    * @example
    * 25.472
@@ -1016,7 +987,7 @@ export class DescribeSlowLogStatisticResponseBodyDataDataLogs extends $dara.Mode
   queryTimeSeconds?: number;
   /**
    * @remarks
-   * The number of items returned.
+   * The return item numbers.
    * 
    * @example
    * 暂无
@@ -1024,9 +995,8 @@ export class DescribeSlowLogStatisticResponseBodyDataDataLogs extends $dara.Mode
   returnItemNumbers?: string;
   /**
    * @remarks
-   * The number of returned rows.
-   * 
-   * > This parameter is supported only by ApsaraDB for MongoDB instances.
+   * The number of rows returned.
+   * >This field is supported only for ApsaraDB for MongoDB instances.
    * 
    * @example
    * 1
@@ -1034,9 +1004,9 @@ export class DescribeSlowLogStatisticResponseBodyDataDataLogs extends $dara.Mode
   returnNum?: number;
   /**
    * @remarks
-   * The total number of rows updated or returned by the compute nodes of the PolarDB-X 2.0 instance.
+   * The total number of rows updated or returned by the compute nodes of the ApsaraDB for PolarDB-X 2.0 database instance.
    * 
-   * > This parameter is supported only by PolarDB-X 2.0 instances.
+   * > This field is supported only for ApsaraDB for PolarDB-X 2.0 instances.
    * 
    * @example
    * 105
@@ -1044,9 +1014,8 @@ export class DescribeSlowLogStatisticResponseBodyDataDataLogs extends $dara.Mode
   rows?: number;
   /**
    * @remarks
-   * The number of affected rows.
-   * 
-   * > This parameter is supported only by ApsaraDB RDS for SQL Server instances.
+   * The number of rows affected.
+   * >This field is supported only for ApsaraDB RDS for SQL Server instances.
    * 
    * @example
    * 1000
@@ -1054,9 +1023,8 @@ export class DescribeSlowLogStatisticResponseBodyDataDataLogs extends $dara.Mode
   rowsCountAffected?: number;
   /**
    * @remarks
-   * The total number of scanned rows.
-   * 
-   * > This parameter is supported by ApsaraDB RDS for MySQL, ApsaraDB RDS for PostgreSQL, and PolarDB for MySQL.
+   * The total number of rows examined.
+   * > Databases that currently support this field: ApsaraDB RDS for MySQL, ApsaraDB RDS for PostgreSQL, and PolarDB for MySQL.
    * 
    * @example
    * 2444081
@@ -1064,7 +1032,7 @@ export class DescribeSlowLogStatisticResponseBodyDataDataLogs extends $dara.Mode
   rowsExamined?: number;
   /**
    * @remarks
-   * The number of returned rows.
+   * The number of rows returned.
    * 
    * @example
    * 772
@@ -1096,9 +1064,9 @@ export class DescribeSlowLogStatisticResponseBodyDataDataLogs extends $dara.Mode
   scheme?: string;
   /**
    * @remarks
-   * The number of requests sent from the compute nodes (CNs) to data nodes (DNs) in the PolarDB-X 2.0 instance.
+   * The number of DN requests from the compute node (CN) of the ApsaraDB for PolarDB-X 2.0 database instance.
    * 
-   * > This parameter is supported only by PolarDB-X 2.0 instances.
+   * > This field is supported only for ApsaraDB for PolarDB-X 2.0 instances.
    * 
    * @example
    * 10
@@ -1106,7 +1074,7 @@ export class DescribeSlowLogStatisticResponseBodyDataDataLogs extends $dara.Mode
   scnt?: number;
   /**
    * @remarks
-   * The SQL ID.
+   * SQL ID。
    * 
    * @example
    * 2dca88762ec6b3812504ab8a4b******
@@ -1114,7 +1082,7 @@ export class DescribeSlowLogStatisticResponseBodyDataDataLogs extends $dara.Mode
   sqlId?: string;
   /**
    * @remarks
-   * The tags.
+   * The tag.
    */
   sqlTag?: DescribeSlowLogStatisticResponseBodyDataDataLogsSqlTag;
   /**
@@ -1127,7 +1095,7 @@ export class DescribeSlowLogStatisticResponseBodyDataDataLogs extends $dara.Mode
   sqlType?: string;
   /**
    * @remarks
-   * The ID of the sub-instance.
+   * The child instance ID.
    * 
    * @example
    * r-8vba51c588ba3a94
@@ -1143,7 +1111,7 @@ export class DescribeSlowLogStatisticResponseBodyDataDataLogs extends $dara.Mode
   tableName?: string;
   /**
    * @remarks
-   * The thread ID. This parameter is returned only for PolarDB for MySQL instances.
+   * The thread_id. This field is available only for PolarDB for MySQL.
    * 
    * @example
    * 1
@@ -1151,7 +1119,7 @@ export class DescribeSlowLogStatisticResponseBodyDataDataLogs extends $dara.Mode
   threadId?: string;
   /**
    * @remarks
-   * The execution time. This value is a UNIX timestamp. Unit: milliseconds (ms).
+   * The execution time, in UNIX timestamp format. Unit: milliseconds (ms).
    * 
    * @example
    * 1708568930
@@ -1159,7 +1127,7 @@ export class DescribeSlowLogStatisticResponseBodyDataDataLogs extends $dara.Mode
   timestamp?: number;
   /**
    * @remarks
-   * The total number of records. This parameter is valid only for Redis engines.
+   * The total number of records. This parameter is valid only for the Redis engine.
    * 
    * @example
    * 0
@@ -1427,9 +1395,8 @@ export class DescribeSlowLogStatisticResponseBodyDataData extends $dara.Model {
   dbInstanceName?: string;
   /**
    * @remarks
-   * The end time of the query. This value is a UNIX timestamp. Unit: milliseconds.
-   * 
-   * > The end time must be later than the start time.
+   * The end time of the query task, in UNIX timestamp format. Unit: milliseconds.
+   * > The end time of the query task must be later than the start time.
    * 
    * @example
    * 2024-08-08T02:15:00Z
@@ -1437,7 +1404,7 @@ export class DescribeSlowLogStatisticResponseBodyDataData extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The number of items in the slow query log list on the current page.
+   * The number of items in the log list on the current page.
    * 
    * @example
    * 10
@@ -1450,7 +1417,7 @@ export class DescribeSlowLogStatisticResponseBodyDataData extends $dara.Model {
   logs?: DescribeSlowLogStatisticResponseBodyDataDataLogs[];
   /**
    * @remarks
-   * The maximum number of entries to return on each page. Valid values: 5 to 100.
+   * The maximum number of records per page for the paged query. Valid values: 5 to 100.
    * 
    * @example
    * 10
@@ -1460,15 +1427,12 @@ export class DescribeSlowLogStatisticResponseBodyDataData extends $dara.Model {
    * @remarks
    * The node ID.
    * 
-   * For MongoDB instances, use this parameter to specify a node for storage analysis. Call the [DescribeRoleZoneInfo](https://help.aliyun.com/document_detail/123802.html) operation to query the details of the nodes in a MongoDB instance.
+   * For MongoDB instances, specify a node for storage analysis by using this parameter. Call the [DescribeRoleZoneInfo](https://help.aliyun.com/document_detail/123802.html) operation to query the details of each node in a MongoDB instance.
    * 
-   * - If you specify the **InsName** (node ID) of the destination node, such as `d-bp1872fa24d5****`, the system analyzes the corresponding hidden node.
+   * - If you specify the **InsName** (node ID) of the target node, such as `d-bp1872fa24d5****`, this operation analyzes the corresponding Hidden node.
+   * - If you specify the `InsName#RoleId` of the target node, such as `d-bp1872fa24d5****#299****5`, this operation analyzes the specified node.
    * 
-   * - If you specify `InsName#RoleId` of the destination node, such as `d-bp1872fa24d5****#299****5`, the system analyzes the specified node.
-   * 
-   * >Notice: 
-   * 
-   * For a MongoDB replica set instance, if you do not specify this parameter, the system analyzes the only hidden node by default. For a MongoDB sharded cluster instance, specify this parameter to select a destination node.
+   * >Notice: For MongoDB replica set instances, if you do not specify this parameter, this operation analyzes the only Hidden node by default. For MongoDB sharded cluster instances, specify this parameter to designate the target node.</notice>
    * 
    * @example
    * pi-wz99g5rn7w1x8h0sf
@@ -1476,7 +1440,7 @@ export class DescribeSlowLogStatisticResponseBodyDataData extends $dara.Model {
   nodeId?: string;
   /**
    * @remarks
-   * The page number of the paged query. Pages start from 1. The default value is 1.
+   * The page number for the paged query. The value starts from 1. Default value: 1.
    * 
    * @example
    * 1
@@ -1484,7 +1448,7 @@ export class DescribeSlowLogStatisticResponseBodyDataData extends $dara.Model {
   pageNumbers?: number;
   /**
    * @remarks
-   * The start time. This value is a UNIX timestamp. Unit: milliseconds.
+   * The start time, in UNIX timestamp format. Unit: milliseconds.
    * 
    * @example
    * 2024-10-08T02:01:00Z
@@ -1492,7 +1456,7 @@ export class DescribeSlowLogStatisticResponseBodyDataData extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The total number of entries.
+   * The total number of records.
    * 
    * @example
    * 13
@@ -1556,7 +1520,7 @@ export class DescribeSlowLogStatisticResponseBodyData extends $dara.Model {
   errorCode?: number;
   /**
    * @remarks
-   * Indicates whether the asynchronous request is complete.
+   * Indicates whether the task is finished.
    * 
    * @example
    * true
@@ -1588,13 +1552,11 @@ export class DescribeSlowLogStatisticResponseBodyData extends $dara.Model {
   resultId?: string;
   /**
    * @remarks
-   * The status of the asynchronous request. Valid values:
+   * The current status. Valid values:
    * 
-   * -**RUNNING**: The request is in progress.
-   * 
-   * -**SUCCESS**: The request is successful.
-   * 
-   * -**FAIL**: The request failed.
+   * - **RUNNING**: running.
+   * - **SUCCESS**: succeeded.
+   * - **FAIL**: failed.
    * 
    * @example
    * SUCCESS
@@ -1602,7 +1564,7 @@ export class DescribeSlowLogStatisticResponseBodyData extends $dara.Model {
   state?: string;
   /**
    * @remarks
-   * The timestamp of the request.
+   * The request time.
    * 
    * @example
    * 1735104224250
@@ -1649,7 +1611,7 @@ export class DescribeSlowLogStatisticResponseBodyData extends $dara.Model {
 export class DescribeSlowLogStatisticResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The status code returned.
    * 
    * @example
    * 200
@@ -1657,14 +1619,14 @@ export class DescribeSlowLogStatisticResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * AsyncResult\\<DBLogRecords\\<SlowLogStat>>
+   * AsyncResult<DBLogRecords<SlowLogStat>>
    */
   data?: DescribeSlowLogStatisticResponseBodyData;
   /**
    * @remarks
-   * The returned message.
+   * The message returned for the request.
    * 
-   * > If the request is successful, **Successful** is returned. If the request fails, an error message, such as an error code, is returned.
+   * > If the request is successful, **Successful** is returned. If the request fails, exception information (such as an error code) is returned.
    * 
    * @example
    * Successful
@@ -1680,11 +1642,10 @@ export class DescribeSlowLogStatisticResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the request is successful. Valid values:
    * 
-   * - **true**
-   * 
-   * - **false**
+   * - **true**: The request is successful.
+   * - **false**: The request fails.
    * 
    * @example
    * true
