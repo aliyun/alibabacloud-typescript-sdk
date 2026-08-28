@@ -13,6 +13,7 @@ export default class Client extends OpenApi {
     super(config);
     this._endpointRule = "regional";
     this._endpointMap = {
+      'cn-hangzhou': "alidns.aliyuncs.com",
       public: "alidns.aliyuncs.com",
     };
     this.checkConfig(config);
@@ -1472,12 +1473,20 @@ export default class Client extends OpenApi {
       query["AgentHost"] = request.agentHost;
     }
 
+    if (!$dara.isNull(request.agentSubHost)) {
+      query["AgentSubHost"] = request.agentSubHost;
+    }
+
     if (!$dara.isNull(request.agentVersion)) {
       query["AgentVersion"] = request.agentVersion;
     }
 
     if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.domainMode)) {
+      query["DomainMode"] = request.domainMode;
     }
 
     if (!$dara.isNull(request.endpointsShrink)) {
@@ -3001,7 +3010,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of an Agent registration.
+   * Queries the details of Agent registration information.
    * 
    * @param request - DescribeAtiAgentRegisterInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3036,7 +3045,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of an Agent registration.
+   * Queries the details of Agent registration information.
    * 
    * @param request - DescribeAtiAgentRegisterInfoRequest
    * @returns DescribeAtiAgentRegisterInfoResponse
@@ -3047,7 +3056,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 为sdk查询agent信息功能
+   * Queries agent information from the Agent marketplace for the SDK.
    * 
    * @param request - DescribeAtiAgentRegisterInfoMarketRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3076,6 +3085,10 @@ export default class Client extends OpenApi {
       query["NextToken"] = request.nextToken;
     }
 
+    if (!$dara.isNull(request.trustLevel)) {
+      query["TrustLevel"] = request.trustLevel;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -3094,7 +3107,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 为sdk查询agent信息功能
+   * Queries agent information from the Agent marketplace for the SDK.
    * 
    * @param request - DescribeAtiAgentRegisterInfoMarketRequest
    * @returns DescribeAtiAgentRegisterInfoMarketResponse
@@ -8924,7 +8937,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of real-name registered contacts.
+   * Queries the list of real-name registrants.
    * 
    * @param request - ListAtiChangeLogsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8987,7 +9000,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of real-name registered contacts.
+   * Queries the list of real-name registrants.
    * 
    * @param request - ListAtiChangeLogsRequest
    * @returns ListAtiChangeLogsResponse
@@ -8998,7 +9011,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询实名注册人列表
+   * Queries the list of real-name verified registrants.
    * 
    * @param request - ListAtiRegistrantsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9053,7 +9066,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询实名注册人列表
+   * Queries the list of real-name verified registrants.
    * 
    * @param request - ListAtiRegistrantsRequest
    * @returns ListAtiRegistrantsResponse
@@ -12231,12 +12244,20 @@ export default class Client extends OpenApi {
       query["AgentRegisterInfoId"] = request.agentRegisterInfoId;
     }
 
+    if (!$dara.isNull(request.agentSubHost)) {
+      query["AgentSubHost"] = request.agentSubHost;
+    }
+
     if (!$dara.isNull(request.agentVersion)) {
       query["AgentVersion"] = request.agentVersion;
     }
 
     if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.domainMode)) {
+      query["DomainMode"] = request.domainMode;
     }
 
     if (!$dara.isNull(request.endpointsShrink)) {
@@ -12276,7 +12297,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新告警设置
+   * Updates alert settings.
    * 
    * @param request - UpdateAtiAlertSettingsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12315,7 +12336,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新告警设置
+   * Updates alert settings.
    * 
    * @param request - UpdateAtiAlertSettingsRequest
    * @returns UpdateAtiAlertSettingsResponse
@@ -12326,7 +12347,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies a registrant profile.
+   * Modifies a real-name registrant.
    * 
    * @param request - UpdateAtiRegistrantRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12401,7 +12422,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies a registrant profile.
+   * Modifies a real-name registrant.
    * 
    * @param request - UpdateAtiRegistrantRequest
    * @returns UpdateAtiRegistrantResponse
@@ -15347,6 +15368,10 @@ export default class Client extends OpenApi {
       query["ClientToken"] = request.clientToken;
     }
 
+    if (!$dara.isNull(request.trustLevel)) {
+      query["TrustLevel"] = request.trustLevel;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -15376,7 +15401,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 触发 ACME 预检
+   * Triggers an ACME pre-check.
    * 
    * @param request - VerifyAtiAgentRegisterInfoAcmeChallengeRecordRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15411,7 +15436,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 触发 ACME 预检
+   * Triggers an ACME pre-check.
    * 
    * @param request - VerifyAtiAgentRegisterInfoAcmeChallengeRecordRequest
    * @returns VerifyAtiAgentRegisterInfoAcmeChallengeRecordResponse

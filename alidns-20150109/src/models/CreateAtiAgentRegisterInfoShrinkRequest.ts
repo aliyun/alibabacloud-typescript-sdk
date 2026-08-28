@@ -31,6 +31,7 @@ export class CreateAtiAgentRegisterInfoShrinkRequest extends $dara.Model {
    * example.com
    */
   agentHost?: string;
+  agentSubHost?: string;
   /**
    * @remarks
    * The version of the agent.
@@ -49,6 +50,7 @@ export class CreateAtiAgentRegisterInfoShrinkRequest extends $dara.Model {
    * eyJhbGciOiJIUzI1NiIsInR5cC.....
    */
   clientToken?: string;
+  domainMode?: string;
   /**
    * @remarks
    * The endpoint information of the agent.
@@ -74,8 +76,10 @@ export class CreateAtiAgentRegisterInfoShrinkRequest extends $dara.Model {
       agentDescription: 'AgentDescription',
       agentDisplayName: 'AgentDisplayName',
       agentHost: 'AgentHost',
+      agentSubHost: 'AgentSubHost',
       agentVersion: 'AgentVersion',
       clientToken: 'ClientToken',
+      domainMode: 'DomainMode',
       endpointsShrink: 'Endpoints',
       registrantId: 'RegistrantId',
     };
@@ -86,8 +90,10 @@ export class CreateAtiAgentRegisterInfoShrinkRequest extends $dara.Model {
       agentDescription: 'string',
       agentDisplayName: 'string',
       agentHost: 'string',
+      agentSubHost: 'string',
       agentVersion: 'string',
       clientToken: 'string',
+      domainMode: 'string',
       endpointsShrink: 'string',
       registrantId: 'string',
     };

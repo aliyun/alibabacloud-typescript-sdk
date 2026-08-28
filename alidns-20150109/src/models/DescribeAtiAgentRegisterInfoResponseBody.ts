@@ -45,9 +45,9 @@ export class DescribeAtiAgentRegisterInfoResponseBodyAccessDeniedDetail extends 
   encodedDiagnosticMessage?: string;
   /**
    * @remarks
-   * The cause of the authentication failure. Valid values:
-   * - ExplicitDeny: explicit deny.
-   * - ImplicitDeny: implicit deny.
+   * The reason for the authentication failure. Valid values:
+   * - ExplicitDeny: Explicit deny.
+   * - ImplicitDeny: Implicit deny.
    * 
    * @example
    * ImplicitDeny
@@ -187,12 +187,12 @@ export class DescribeAtiAgentRegisterInfoResponseBodyRejectReason extends $dara.
    * The detailed information about the Agent registration failure.
    * 
    * @example
-   * 非法状态
+   * Invalid status
    */
   message?: string;
   /**
    * @remarks
-   * The type of the review failure. Valid values:
+   * The type of review failure. Valid values:
    * - ACME_VERIFY_FAILED: ACME verification failed.  
    * - INFO_AUDIT_FAILED: Agent information review failed.
    * 
@@ -231,10 +231,10 @@ export class DescribeAtiAgentRegisterInfoResponseBody extends $dara.Model {
   accessDeniedDetail?: DescribeAtiAgentRegisterInfoResponseBodyAccessDeniedDetail;
   /**
    * @remarks
-   * The description of the Agent capabilities.
+   * The capability description of the Agent.
    * 
    * @example
-   * 支付服务
+   * Payment service
    */
   agentDescription?: string;
   /**
@@ -242,12 +242,12 @@ export class DescribeAtiAgentRegisterInfoResponseBody extends $dara.Model {
    * The display name of the Agent.
    * 
    * @example
-   * 测试Agent
+   * TestAgent
    */
   agentDisplayName?: string;
   /**
    * @remarks
-   * The endpoint domain name through which the Agent provides services.
+   * The endpoint domain name through which the Agent provides external services.
    * 
    * @example
    * example.com
@@ -255,7 +255,7 @@ export class DescribeAtiAgentRegisterInfoResponseBody extends $dara.Model {
   agentHost?: string;
   /**
    * @remarks
-   * The Agent ID, which is uniformly assigned by CNNIC after real-name verification. The AgentId serves as the unique identifier that binds the Agent to the verified registrant.
+   * The Agent ID, which is uniformly assigned by CNNIC after real-name authentication. The Agent ID serves as the unique identifier that binds the Agent to the authenticated registrant.
    * 
    * @example
    * 019f3672-9705-7a7a-88fd-9a6a211aa5f2
@@ -269,6 +269,7 @@ export class DescribeAtiAgentRegisterInfoResponseBody extends $dara.Model {
    * 2074753647748672512
    */
   agentRegisterInfoId?: string;
+  agentSubHost?: string;
   /**
    * @remarks
    * The version of the Agent.
@@ -296,18 +297,19 @@ export class DescribeAtiAgentRegisterInfoResponseBody extends $dara.Model {
    * 1527690629357
    */
   createTimestamp?: number;
+  domainMode?: string;
   endpoints?: DescribeAtiAgentRegisterInfoResponseBodyEndpoints;
   /**
    * @remarks
    * Ignore.
    * 
    * @example
-   * 忽略
+   * Ignore
    */
   identityCertSerialNumber?: string;
   /**
    * @remarks
-   * The ID of the verified registrant.
+   * The ID of the authenticated registrant.
    * 
    * @example
    * 2072277378616354816
@@ -318,12 +320,12 @@ export class DescribeAtiAgentRegisterInfoResponseBody extends $dara.Model {
    * The name of the registrant.
    * 
    * @example
-   * 张xx
+   * Zhang xx
    */
   registrantName?: string;
   /**
    * @remarks
-   * The reason why the Agent registration review failed.
+   * The reason for Agent registration review failure.
    */
   rejectReason?: DescribeAtiAgentRegisterInfoResponseBodyRejectReason;
   /**
@@ -339,22 +341,22 @@ export class DescribeAtiAgentRegisterInfoResponseBody extends $dara.Model {
    * Ignore.
    * 
    * @example
-   * 忽略
+   * Ignore
    */
   serverCertSerialNumber?: string;
   /**
    * @remarks
-   * The status of the Agent. Valid values:
+   * The Agent status. Valid values:
    * 
-   * - Draft: The Agent registration form is being filled out and has not been formally submitted. In the Draft state, only modification and detail viewing operations are supported.
-   * - Private CA Pending Issuance: The Agent registration has been formally submitted. Alibaba Cloud has completed the ACME DNS-01 pre-check and submitted the registration information along with the generated DNS records to CNNIC. The system is waiting for CNNIC to approve and issue the Private CA and complete the TL sealing.
-   * - DNS Pending Verification: CNNIC has approved the registration, issued the Private CA certificate, and completed the TL sealing, but the DNS records of the user have not been verified. The user needs to add the corresponding DNS records in the domain name resolution and complete verification.
-   * - Active: All processes are complete. The Private CA certificate has been issued, the TL has been sealed, and the DNS records have been verified. The Agent is activated and can be discovered and trusted across the network.
-   * - Expired: The Agent identity certificate has expired because the user did not renew the certificate within the validity period.
-   * - Revoked: The Agent certificate has been revoked, the DNS records have been cleaned up, and the Agent can no longer be discovered or trusted. The Agent cannot be restored to the Active state.
+   * - Draft: The Agent registration form is being filled out and has not been formally submitted. In draft status, only modification and detail viewing operations are supported.
+   * - Private CA Pending Issuance: The Agent registration has been formally submitted. Alibaba Cloud has completed the ACME DNS-01 pre-check and submitted the registration information and generated DNS records to CNNIC. Currently waiting for CNNIC to approve and issue the Private CA and complete TL sealing.
+   * - DNS Pending Verification: CNNIC has approved and issued the Private CA certificate and completed TL sealing, but the DNS records of the user have not been verified. Waiting for the user to add the corresponding DNS records in domain name resolution and complete verification.
+   * - Active: All processes are complete. The Private CA certificate has been issued, TL has been sealed, and DNS records have been verified. The Agent is activated and can be discovered and trust-verified across the network.
+   * - Expired: The Agent identity certificate has expired, and the user did not complete certificate renewal within the validity period.
+   * - Revoked: The Agent certificate has been revoked, DNS records have been cleaned up, and the Agent cannot be discovered or trust-verified. It cannot be restored to active status.
    * 
    * @example
-   * 活跃
+   * Active
    */
   status?: string;
   /**
@@ -362,17 +364,18 @@ export class DescribeAtiAgentRegisterInfoResponseBody extends $dara.Model {
    * Ignore.
    * 
    * @example
-   * 忽略
+   * Ignore
    */
   trustCard?: string;
   /**
    * @remarks
-   * Deprecated.
+   * **[Deprecated]**
    * 
    * @example
-   * 已废弃
+   * Deprecated
    */
   trustCardUrl?: string;
+  trustLevel?: string;
   /**
    * @remarks
    * The update time (timestamp).
@@ -389,9 +392,11 @@ export class DescribeAtiAgentRegisterInfoResponseBody extends $dara.Model {
       agentHost: 'AgentHost',
       agentId: 'AgentId',
       agentRegisterInfoId: 'AgentRegisterInfoId',
+      agentSubHost: 'AgentSubHost',
       agentVersion: 'AgentVersion',
       atiName: 'AtiName',
       createTimestamp: 'CreateTimestamp',
+      domainMode: 'DomainMode',
       endpoints: 'Endpoints',
       identityCertSerialNumber: 'IdentityCertSerialNumber',
       registrantId: 'RegistrantId',
@@ -402,6 +407,7 @@ export class DescribeAtiAgentRegisterInfoResponseBody extends $dara.Model {
       status: 'Status',
       trustCard: 'TrustCard',
       trustCardUrl: 'TrustCardUrl',
+      trustLevel: 'TrustLevel',
       updateTimestamp: 'UpdateTimestamp',
     };
   }
@@ -414,9 +420,11 @@ export class DescribeAtiAgentRegisterInfoResponseBody extends $dara.Model {
       agentHost: 'string',
       agentId: 'string',
       agentRegisterInfoId: 'string',
+      agentSubHost: 'string',
       agentVersion: 'string',
       atiName: 'string',
       createTimestamp: 'number',
+      domainMode: 'string',
       endpoints: DescribeAtiAgentRegisterInfoResponseBodyEndpoints,
       identityCertSerialNumber: 'string',
       registrantId: 'string',
@@ -427,6 +435,7 @@ export class DescribeAtiAgentRegisterInfoResponseBody extends $dara.Model {
       status: 'string',
       trustCard: 'string',
       trustCardUrl: 'string',
+      trustLevel: 'string',
       updateTimestamp: 'number',
     };
   }

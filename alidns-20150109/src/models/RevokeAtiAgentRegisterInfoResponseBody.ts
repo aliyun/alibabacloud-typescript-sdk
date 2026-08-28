@@ -13,7 +13,7 @@ export class RevokeAtiAgentRegisterInfoResponseBodyAccessDeniedDetail extends $d
   authAction?: string;
   /**
    * @remarks
-   * The display name of the authorized principal.
+   * The display name of the authorization principal.
    * 
    * @example
    * 2015555733387XXXX
@@ -21,7 +21,7 @@ export class RevokeAtiAgentRegisterInfoResponseBodyAccessDeniedDetail extends $d
   authPrincipalDisplayName?: string;
   /**
    * @remarks
-   * The owner ID of the authorized principal.
+   * The owner ID of the authorization principal.
    * 
    * @example
    * 10469733312XXX
@@ -37,7 +37,7 @@ export class RevokeAtiAgentRegisterInfoResponseBodyAccessDeniedDetail extends $d
   authPrincipalType?: string;
   /**
    * @remarks
-   * The encoded diagnostic message.
+   * The encrypted complete diagnostic message.
    * 
    * @example
    * AQEAAAAAaNIARXXXXUQwNjE0LUQzN0XXXXVEQy1BQzExLTMzXXXXNTkxRjk1Ng==
@@ -102,7 +102,7 @@ export class RevokeAtiAgentRegisterInfoResponseBody extends $dara.Model {
   accessDeniedDetail?: RevokeAtiAgentRegisterInfoResponseBodyAccessDeniedDetail;
   /**
    * @remarks
-   * The request ID.
+   * The unique request ID.
    * 
    * @example
    * 6856BCF6-11D6-4D7E-AC53-FD579933522B
@@ -110,9 +110,7 @@ export class RevokeAtiAgentRegisterInfoResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * - true: The request was successful.
-   * - false: The request failed.
+   * Indicates whether the request was successful. Valid values: `true`: The request was successful. `false`: The request failed.
    * 
    * @example
    * true

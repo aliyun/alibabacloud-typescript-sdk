@@ -37,7 +37,7 @@ export class ListAtiChangeLogsResponseBodyAccessDeniedDetail extends $dara.Model
   authPrincipalType?: string;
   /**
    * @remarks
-   * The encrypted diagnostic message.
+   * The encrypted complete diagnostic message.
    * 
    * @example
    * AQFohtp4aIbaeEXXXXQxNjFDLUIzMzgtNTXXXX05NkFCLUI2RkY5XXXXzAzQQ==
@@ -46,8 +46,8 @@ export class ListAtiChangeLogsResponseBodyAccessDeniedDetail extends $dara.Model
   /**
    * @remarks
    * The reason for the authentication failure. Valid values:
-   * - ExplicitDeny: explicit deny.
-   * - ImplicitDeny: implicit deny.
+   * - ExplicitDeny: explicit deny
+   * - ImplicitDeny: implicit deny
    * 
    * @example
    * ImplicitDeny
@@ -210,7 +210,7 @@ export class ListAtiChangeLogsResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The request ID.
+   * The unique request ID.
    * 
    * @example
    * B57C121B-A45F-44D8-A9B2-13E5A5044195

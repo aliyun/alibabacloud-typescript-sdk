@@ -37,7 +37,7 @@ export class DescribeAtiRegistrantResponseBodyAccessDeniedDetail extends $dara.M
   authPrincipalType?: string;
   /**
    * @remarks
-   * The encrypted diagnostic message.
+   * The encrypted complete diagnostic message.
    * 
    * @example
    * AQEAAAAAaNIARXXXXUQwNjE0LUQzN0XXXXVEQy1BQzExLTMzXXXXNTkxRjk1Ng==
@@ -105,7 +105,7 @@ export class DescribeAtiRegistrantResponseBody extends $dara.Model {
    * The country.
    * 
    * @example
-   * 中国
+   * China
    */
   cc?: string;
   /**
@@ -113,12 +113,12 @@ export class DescribeAtiRegistrantResponseBody extends $dara.Model {
    * The city. Default value: Hangzhou.
    * 
    * @example
-   * 杭州市
+   * Hangzhou
    */
   city?: string;
   /**
    * @remarks
-   * The creation time (timestamp).
+   * The creation time (UNIX timestamp).
    * 
    * @example
    * 1533773400000
@@ -153,7 +153,7 @@ export class DescribeAtiRegistrantResponseBody extends $dara.Model {
    * The name of the registrant. The name can be up to 255 characters in length.
    * 
    * @example
-   * 张xx
+   * Zhang xx
    */
   name?: string;
   /**
@@ -177,12 +177,12 @@ export class DescribeAtiRegistrantResponseBody extends $dara.Model {
    * The reason why the real-name verification was rejected.
    * 
    * @example
-   * 以实际返回为准
+   * Subject to the actual response
    */
   rejectReason?: string;
   /**
    * @remarks
-   * The request ID.
+   * The unique request ID.
    * 
    * @example
    * B57C121B-A45F-44D8-A9B2-13E5A5044195
@@ -190,10 +190,10 @@ export class DescribeAtiRegistrantResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The status of the public recursive service.
+   * The state or province.
    * 
    * @example
-   * 浙江省
+   * Zhejiang
    */
   state?: string;
   /**
@@ -213,12 +213,12 @@ export class DescribeAtiRegistrantResponseBody extends $dara.Model {
    * The street address.
    * 
    * @example
-   * xx区xx街道
+   * xx District, xx Street
    */
   street?: string;
   /**
    * @remarks
-   * The update time (timestamp).
+   * The update time (UNIX timestamp).
    * 
    * @example
    * 1527690629357

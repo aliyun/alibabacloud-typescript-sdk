@@ -94,6 +94,64 @@ export class CreateAtiAgentRegisterInfoAcmeChallengeRecordResponseBodyAccessDeni
   }
 }
 
+export class CreateAtiAgentRegisterInfoAcmeChallengeRecordResponseBodyRecordsRecord extends $dara.Model {
+  domainScope?: string;
+  recordName?: string;
+  recordType?: string;
+  recordValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domainScope: 'DomainScope',
+      recordName: 'RecordName',
+      recordType: 'RecordType',
+      recordValue: 'RecordValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domainScope: 'string',
+      recordName: 'string',
+      recordType: 'string',
+      recordValue: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAtiAgentRegisterInfoAcmeChallengeRecordResponseBodyRecords extends $dara.Model {
+  record?: CreateAtiAgentRegisterInfoAcmeChallengeRecordResponseBodyRecordsRecord[];
+  static names(): { [key: string]: string } {
+    return {
+      record: 'Record',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      record: { 'type': 'array', 'itemType': CreateAtiAgentRegisterInfoAcmeChallengeRecordResponseBodyRecordsRecord },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.record)) {
+      $dara.Model.validateArray(this.record);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateAtiAgentRegisterInfoAcmeChallengeRecordResponseBody extends $dara.Model {
   /**
    * @remarks
@@ -148,6 +206,7 @@ export class CreateAtiAgentRegisterInfoAcmeChallengeRecordResponseBody extends $
    * YkKL7G2TRSAWRRBZ1RcAMeuRYx3Jv28o20yIGmdcYuz
    */
   recordValue?: string;
+  records?: CreateAtiAgentRegisterInfoAcmeChallengeRecordResponseBodyRecords;
   /**
    * @remarks
    * The request ID.
@@ -173,6 +232,7 @@ export class CreateAtiAgentRegisterInfoAcmeChallengeRecordResponseBody extends $
       recordName: 'RecordName',
       recordType: 'RecordType',
       recordValue: 'RecordValue',
+      records: 'Records',
       requestId: 'RequestId',
       updateTimestamp: 'UpdateTimestamp',
     };
@@ -187,6 +247,7 @@ export class CreateAtiAgentRegisterInfoAcmeChallengeRecordResponseBody extends $
       recordName: 'string',
       recordType: 'string',
       recordValue: 'string',
+      records: CreateAtiAgentRegisterInfoAcmeChallengeRecordResponseBodyRecords,
       requestId: 'string',
       updateTimestamp: 'string',
     };
@@ -195,6 +256,9 @@ export class CreateAtiAgentRegisterInfoAcmeChallengeRecordResponseBody extends $
   validate() {
     if(this.accessDeniedDetail && typeof (this.accessDeniedDetail as any).validate === 'function') {
       (this.accessDeniedDetail as any).validate();
+    }
+    if(this.records && typeof (this.records as any).validate === 'function') {
+      (this.records as any).validate();
     }
     super.validate();
   }

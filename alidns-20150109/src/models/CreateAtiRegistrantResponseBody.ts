@@ -37,7 +37,7 @@ export class CreateAtiRegistrantResponseBodyAccessDeniedDetail extends $dara.Mod
   authPrincipalType?: string;
   /**
    * @remarks
-   * The encrypted complete diagnostic message.
+   * The encrypted diagnostic message.
    * 
    * @example
    * AQEAAAAAaNIARXXXXUQwNjE0LUQzN0XXXXVEQy1BQzExLTMzXXXXNTkxRjk1Ng==
@@ -46,8 +46,8 @@ export class CreateAtiRegistrantResponseBodyAccessDeniedDetail extends $dara.Mod
   /**
    * @remarks
    * The reason for the authentication failure. Valid values:
-   * - ExplicitDeny: Explicit deny.
-   * - ImplicitDeny: Implicit deny.
+   * - ExplicitDeny: explicit deny.
+   * - ImplicitDeny: implicit deny.
    * 
    * @example
    * ImplicitDeny
@@ -110,15 +110,15 @@ export class CreateAtiRegistrantResponseBody extends $dara.Model {
   createTimestamp?: number;
   /**
    * @remarks
-   * The name of the real-name verified registrant.
+   * The name of the real-name registrant.
    * 
    * @example
-   * 张xx
+   * Zhang XX
    */
   name?: string;
   /**
    * @remarks
-   * The ID of the real-name verified registrant.
+   * The ID of the real-name registrant.
    * 
    * @example
    * 2072277378616354816
@@ -137,11 +137,11 @@ export class CreateAtiRegistrantResponseBody extends $dara.Model {
    * The real-name verification status. Valid values:
    * 
    * - Approved.
-   * - Under review.
+   * - Pending review.
    * - Rejected.
    * 
    * @example
-   * 审核通过
+   * Approved
    */
   status?: string;
   static names(): { [key: string]: string } {

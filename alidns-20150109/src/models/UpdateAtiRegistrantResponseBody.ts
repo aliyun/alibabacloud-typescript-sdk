@@ -37,7 +37,7 @@ export class UpdateAtiRegistrantResponseBodyAccessDeniedDetail extends $dara.Mod
   authPrincipalType?: string;
   /**
    * @remarks
-   * The encoded diagnostic message.
+   * The encoded complete diagnostic message.
    * 
    * @example
    * AQFohtp4aIbaeEXXXXQxNjFDLUIzMzgtNTXXXX05NkFCLUI2RkY5XXXXzAzQQ==
@@ -97,7 +97,7 @@ export class UpdateAtiRegistrantResponseBodyAccessDeniedDetail extends $dara.Mod
 export class UpdateAtiRegistrantResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details about the access denial. This field is returned only when RAM authentication fails.
+   * The details of the access denial. This field is returned only when RAM authentication fails.
    */
   accessDeniedDetail?: UpdateAtiRegistrantResponseBodyAccessDeniedDetail;
   /**

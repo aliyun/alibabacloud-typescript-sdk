@@ -23,10 +23,12 @@ export class VerifyAtiAgentDnsRecordsRequest extends $dara.Model {
    * eyJhbGciOiJIUzI1NiIsInR5cC.....
    */
   clientToken?: string;
+  trustLevel?: string;
   static names(): { [key: string]: string } {
     return {
       agentRegisterInfoId: 'AgentRegisterInfoId',
       clientToken: 'ClientToken',
+      trustLevel: 'TrustLevel',
     };
   }
 
@@ -34,6 +36,7 @@ export class VerifyAtiAgentDnsRecordsRequest extends $dara.Model {
     return {
       agentRegisterInfoId: 'string',
       clientToken: 'string',
+      trustLevel: 'string',
     };
   }
 

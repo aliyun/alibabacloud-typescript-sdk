@@ -129,6 +129,7 @@ export class UpdateAtiAgentRegisterInfoRequest extends $dara.Model {
    * 2074753647748672512
    */
   agentRegisterInfoId?: string;
+  agentSubHost?: string;
   /**
    * @remarks
    * The version of the Agent.
@@ -147,6 +148,7 @@ export class UpdateAtiAgentRegisterInfoRequest extends $dara.Model {
    * eyJhbGciOiJIUzI1NiIsInR5cC.....
    */
   clientToken?: string;
+  domainMode?: string;
   /**
    * @remarks
    * The endpoints for each protocol.
@@ -169,8 +171,10 @@ export class UpdateAtiAgentRegisterInfoRequest extends $dara.Model {
       agentDisplayName: 'AgentDisplayName',
       agentHost: 'AgentHost',
       agentRegisterInfoId: 'AgentRegisterInfoId',
+      agentSubHost: 'AgentSubHost',
       agentVersion: 'AgentVersion',
       clientToken: 'ClientToken',
+      domainMode: 'DomainMode',
       endpoints: 'Endpoints',
       registrantId: 'RegistrantId',
     };
@@ -182,8 +186,10 @@ export class UpdateAtiAgentRegisterInfoRequest extends $dara.Model {
       agentDisplayName: 'string',
       agentHost: 'string',
       agentRegisterInfoId: 'string',
+      agentSubHost: 'string',
       agentVersion: 'string',
       clientToken: 'string',
+      domainMode: 'string',
       endpoints: { 'type': 'array', 'itemType': UpdateAtiAgentRegisterInfoRequestEndpoints },
       registrantId: 'string',
     };

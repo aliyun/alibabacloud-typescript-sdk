@@ -110,7 +110,7 @@ export class DeleteAtiAgentRegisterInfoResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the operation was successful. Valid values:
+   * Indicates whether the operation was successful:
    * 
    * - true: The operation was successful.
    * 

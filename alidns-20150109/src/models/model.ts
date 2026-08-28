@@ -16,6 +16,8 @@ export { AddRspDomainServerHoldStatusForGatewayOteResponseBodyData } from './Add
 export { CreateAtiAgentRegisterInfoRequestEndpoints } from './CreateAtiAgentRegisterInfoRequest';
 export { CreateAtiAgentRegisterInfoResponseBodyAccessDeniedDetail } from './CreateAtiAgentRegisterInfoResponseBody';
 export { CreateAtiAgentRegisterInfoAcmeChallengeRecordResponseBodyAccessDeniedDetail } from './CreateAtiAgentRegisterInfoAcmeChallengeRecordResponseBody';
+export { CreateAtiAgentRegisterInfoAcmeChallengeRecordResponseBodyRecordsRecord } from './CreateAtiAgentRegisterInfoAcmeChallengeRecordResponseBody';
+export { CreateAtiAgentRegisterInfoAcmeChallengeRecordResponseBodyRecords } from './CreateAtiAgentRegisterInfoAcmeChallengeRecordResponseBody';
 export { CreateAtiRegistrantResponseBodyAccessDeniedDetail } from './CreateAtiRegistrantResponseBody';
 export { CreateCloudGtmAddressRequestHealthTasks } from './CreateCloudGtmAddressRequest';
 export { CreateCloudGtmMonitorTemplateRequestIspCityNodes } from './CreateCloudGtmMonitorTemplateRequest';

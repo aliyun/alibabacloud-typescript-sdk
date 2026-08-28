@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAtiRegistrantRequest extends $dara.Model {
   /**
    * @remarks
-   * The country or region of the registrant. Specify a 2-character country or region code in compliance with GB/T 2659.1-2022.
+   * The country or region of the registrant. Specify a 2-character country or region code (refer to GB/T 2659.1-2022).
    * 
    * This parameter is required.
    * 
    * @example
-   * 中国
+   * CN
    */
   cc?: string;
   /**
@@ -20,14 +20,14 @@ export class CreateAtiRegistrantRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 杭州市
+   * Hangzhou
    */
   city?: string;
   /**
    * @remarks
-   * Ensures the idempotency of the request. Generate a unique parameter value from your client to ensure that the value is unique across different requests. The ClientToken value supports only ASCII characters and cannot exceed 64 characters in length.
+   * Ensures the idempotency of the request. Generate a parameter value from your client to ensure uniqueness across different requests. ClientToken supports only ASCII characters and cannot exceed 64 characters.
    * 
-   * > If you do not specify this parameter, the system automatically uses the RequestId of the API request as the ClientToken. The RequestId may vary for each API request.
+   * > If you do not specify this parameter, the system automatically uses the RequestId of the API request as the ClientToken. The RequestId may differ for each API request.
    * 
    * @example
    * eyJhbGciOiJIUzI1NiIsInR5cC.....
@@ -35,7 +35,7 @@ export class CreateAtiRegistrantRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The document number of the registrant. The value cannot exceed 50 characters in length.
+   * The document number of the registrant. The number cannot exceed 50 characters in length.
    * 
    * This parameter is required.
    * 
@@ -45,12 +45,12 @@ export class CreateAtiRegistrantRequest extends $dara.Model {
   documentCode?: string;
   /**
    * @remarks
-   * The document image of the registrant in Base64 encoding. The original file size must be between 50 KB and 3 MB.
+   * The document image of the registrant (base64-encoded). The original file size must be between 50 KB and 3 MB.
    * 
    * This parameter is required.
    * 
    * @example
-   * 证件图片
+   * Document image
    */
   documentImage?: string;
   /**
@@ -85,14 +85,14 @@ export class CreateAtiRegistrantRequest extends $dara.Model {
    * | YLJGZY	| Medical institution practice license |
    * | ZCWYHDJZ	| Arbitration commission registration certificate |
    * | ZJCS	| Religious activity venue registration certificate |
-   * | BJWSXX	| Beijing operating license for schools for children of foreign embassy staff |
-   * | JWJG	| Overseas institution certificate |
-   * | JWFZFDBJ	| Overseas non-governmental organization representative office registration certificate |
-   * | WGCZJG | Foreign enterprise permanent representative office registration certificate |
-   * | WGZHWH	| Foreign cultural center registration certificate in China |
-   * | WGZHXWJG	| Foreign news agency certificate in China |
+   * | BJWSXX	| Operating license for schools for children of foreign embassy staff in Beijing |
+   * | JWJG	| Certificate of overseas institution |
+   * | JWFZFDBJ	| Registration certificate for representative offices of overseas non-governmental organizations |
+   * | WGCZJG | Registration certificate for permanent representative offices of foreign enterprises |
+   * | WGZHWH	| Registration certificate for foreign cultural centers in China |
+   * | WGZHXWJG	| Certificate for foreign news agencies in China |
    * | WJLSFZ| Foreigner permanent residence ID card |
-   * | WLCZJG	| Approval registration certificate for permanent representative offices of foreign government tourism departments |
+   * | WLCZJG	| Registration certificate for permanent representative offices of foreign government tourism departments |
    * | QT     | Other |
    * 
    * This parameter is required.
@@ -103,7 +103,7 @@ export class CreateAtiRegistrantRequest extends $dara.Model {
   documentType?: string;
   /**
    * @remarks
-   * The email address. The value cannot exceed 300 characters in length.
+   * The email address. The address cannot exceed 300 characters in length.
    * 
    * This parameter is required.
    * 
@@ -113,12 +113,12 @@ export class CreateAtiRegistrantRequest extends $dara.Model {
   email?: string;
   /**
    * @remarks
-   * The name of the registrant. The value cannot exceed 255 characters in length.
+   * The name of the registrant. The name cannot exceed 255 characters in length.
    * 
    * This parameter is required.
    * 
    * @example
-   * 张xx
+   * Zhang XX
    */
   name?: string;
   /**
@@ -138,7 +138,7 @@ export class CreateAtiRegistrantRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 浙江省
+   * Zhejiang
    */
   state?: string;
   /**
@@ -146,7 +146,7 @@ export class CreateAtiRegistrantRequest extends $dara.Model {
    * The address of the registrant. The value cannot exceed 255 characters in length.
    * 
    * @example
-   * xx区xx街道
+   * XX District, XX Street
    */
   street?: string;
   static names(): { [key: string]: string } {

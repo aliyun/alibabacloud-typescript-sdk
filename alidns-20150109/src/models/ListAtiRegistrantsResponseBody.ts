@@ -4,36 +4,59 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListAtiRegistrantsResponseBodyAccessDeniedDetail extends $dara.Model {
   /**
+   * @remarks
+   * The unauthorized operation that was attempted.
+   * 
    * @example
    * AddRspDomainServerHoldStatusForGatewayOte
    */
   authAction?: string;
   /**
+   * @remarks
+   * The display name of the authorization principal.
+   * 
    * @example
    * 2015555733387XXXX
    */
   authPrincipalDisplayName?: string;
   /**
+   * @remarks
+   * The owner ID of the authorization principal.
+   * 
    * @example
    * 10469733312XXX
    */
   authPrincipalOwnerId?: string;
   /**
+   * @remarks
+   * The identity type.
+   * 
    * @example
    * SubUser
    */
   authPrincipalType?: string;
   /**
+   * @remarks
+   * The encrypted complete diagnostic message.
+   * 
    * @example
    * AQEAAAAAaNIARXXXXUQwNjE0LUQzN0XXXXVEQy1BQzExLTMzXXXXNTkxRjk1Ng==
    */
   encodedDiagnosticMessage?: string;
   /**
+   * @remarks
+   * The reason for the authentication failure. Valid values:
+   * - ExplicitDeny: explicit deny.
+   * - ImplicitDeny: implicit deny.
+   * 
    * @example
    * ImplicitDeny
    */
   noPermissionType?: string;
   /**
+   * @remarks
+   * The policy type.
+   * 
    * @example
    * DlpSend
    */
@@ -151,39 +174,64 @@ export class ListAtiRegistrantsResponseBodyRegistrants extends $dara.Model {
 }
 
 export class ListAtiRegistrantsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The details of the access denial. This field is returned only when RAM authentication fails.
+   */
   accessDeniedDetail?: ListAtiRegistrantsResponseBodyAccessDeniedDetail;
   /**
+   * @remarks
+   * The maximum number of records to return in this request.
+   * 
    * @example
    * 500
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The token for the next query.
+   * 
    * @example
    * 4698691
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The current page number. Minimum value: 1. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of rows per page in a paged query. Maximum value: 100. Default value: 20.
+   * 
    * @example
    * 2
    */
   pageSize?: number;
   registrants?: ListAtiRegistrantsResponseBodyRegistrants;
   /**
+   * @remarks
+   * The unique request ID.
+   * 
    * @example
    * B57C121B-A45F-44D8-A9B2-XXXXXXX
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of records.
+   * 
    * @example
    * 224
    */
   totalItems?: number;
   /**
+   * @remarks
+   * The total number of pages.
+   * 
    * @example
    * 11
    */

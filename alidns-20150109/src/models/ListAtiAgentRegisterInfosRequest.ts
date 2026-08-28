@@ -8,7 +8,7 @@ export class ListAtiAgentRegisterInfosRequest extends $dara.Model {
    * The display name of the Agent.
    * 
    * @example
-   * 测试Agent
+   * TestAgent
    */
   agentDisplayName?: string;
   /**
@@ -21,7 +21,7 @@ export class ListAtiAgentRegisterInfosRequest extends $dara.Model {
   agentHost?: string;
   /**
    * @remarks
-   * The Agent ID, which is uniformly assigned by CNNIC after real-name verification through CNNIC. The AgentID serves as the unique identifier that binds the Agent to the real-name verified registrant.
+   * The Agent ID, which is uniformly assigned by CNNIC after real-name verification. The AgentID serves as the unique identifier that binds the Agent to the verified registrant.
    * 
    * @example
    * liuq@azt400
@@ -37,7 +37,7 @@ export class ListAtiAgentRegisterInfosRequest extends $dara.Model {
   agentVersion?: string;
   /**
    * @remarks
-   * Ensures the idempotency of the request. Generate a unique parameter value from your client to ensure that the value is unique across different requests. ClientToken supports only ASCII characters and cannot exceed 64 characters in length.
+   * Ensures the idempotency of the request. Generate a parameter value from your client to ensure uniqueness across different requests. ClientToken supports only ASCII characters and cannot exceed 64 characters in length.
    * 
    * @example
    * eyJhbGciOiJIUzI1NiIsInR5cC.....
@@ -45,7 +45,7 @@ export class ListAtiAgentRegisterInfosRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The maximum number of entries to return in this request.
+   * The maximum number of records to return in this request.
    * 
    * @example
    * 100
@@ -61,7 +61,7 @@ export class ListAtiAgentRegisterInfosRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The current page number. Minimum value: 1. Default value: 1.
+   * The current page number. The start value is 1. Default value: 1.
    * 
    * This parameter is required.
    * 
@@ -71,7 +71,7 @@ export class ListAtiAgentRegisterInfosRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The page size for the paged query. This parameter specifies the number of entries per page for paging.
+   * The page size for the paging query.
    * 
    * This parameter is required.
    * 
@@ -84,7 +84,7 @@ export class ListAtiAgentRegisterInfosRequest extends $dara.Model {
    * The status of the Agent.
    * 
    * @example
-   * 活跃
+   * Active
    */
   status?: string;
   static names(): { [key: string]: string } {

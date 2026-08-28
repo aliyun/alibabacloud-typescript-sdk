@@ -37,7 +37,7 @@ export class ListAtiAgentRegisterInfosResponseBodyAccessDeniedDetail extends $da
   authPrincipalType?: string;
   /**
    * @remarks
-   * The encrypted diagnostic message.
+   * The encrypted complete diagnostic message.
    * 
    * @example
    * AQFohtp4aIbaeEXXXXQxNjFDLUIzMzgtNTXXXX05NkFCLUI2RkY5XXXXzAzQQ==
@@ -45,9 +45,9 @@ export class ListAtiAgentRegisterInfosResponseBodyAccessDeniedDetail extends $da
   encodedDiagnosticMessage?: string;
   /**
    * @remarks
-   * The cause of the authentication failure. Valid values:
-   * - ExplicitDeny: Explicit denial.
-   * - ImplicitDeny: Implicit denial.
+   * The reason for the authentication failure. Valid values:
+   * - ExplicitDeny: explicit denial.
+   * - ImplicitDeny: implicit denial.
    * 
    * @example
    * ImplicitDeny
@@ -153,6 +153,7 @@ export class ListAtiAgentRegisterInfosResponseBodyAgentRegisterInfosAgentRegiste
   createTimestamp?: string;
   endpoints?: ListAtiAgentRegisterInfosResponseBodyAgentRegisterInfosAgentRegisterInfoEndpoints;
   status?: string;
+  trustLevel?: string;
   updateTimestamp?: string;
   static names(): { [key: string]: string } {
     return {
@@ -165,6 +166,7 @@ export class ListAtiAgentRegisterInfosResponseBodyAgentRegisterInfosAgentRegiste
       createTimestamp: 'CreateTimestamp',
       endpoints: 'Endpoints',
       status: 'Status',
+      trustLevel: 'TrustLevel',
       updateTimestamp: 'UpdateTimestamp',
     };
   }
@@ -180,6 +182,7 @@ export class ListAtiAgentRegisterInfosResponseBodyAgentRegisterInfosAgentRegiste
       createTimestamp: 'string',
       endpoints: ListAtiAgentRegisterInfosResponseBodyAgentRegisterInfosAgentRegisterInfoEndpoints,
       status: 'string',
+      trustLevel: 'string',
       updateTimestamp: 'string',
     };
   }
@@ -231,7 +234,7 @@ export class ListAtiAgentRegisterInfosResponseBody extends $dara.Model {
   agentRegisterInfos?: ListAtiAgentRegisterInfosResponseBodyAgentRegisterInfos;
   /**
    * @remarks
-   * The maximum number of entries to return in this request.
+   * The maximum number of records to return in this request.
    * 
    * @example
    * 500
@@ -247,7 +250,7 @@ export class ListAtiAgentRegisterInfosResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The current page number. Minimum value: 1. Default value: 1.
+   * The current page number. The start value is 1. Default value: 1.
    * 
    * @example
    * 1
@@ -255,7 +258,7 @@ export class ListAtiAgentRegisterInfosResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page set for the paged query. This is the paging size. Maximum value: **100**. Default value: **20**. Settings determine how many rows are displayed per page.
+   * The number of entries per page in the Settings for the paging query. Maximum value: **100**. Default value: **20**.
    * 
    * @example
    * 20
@@ -263,7 +266,7 @@ export class ListAtiAgentRegisterInfosResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The request ID.
+   * The unique request ID.
    * 
    * @example
    * 536E9CAD-DB30-4647-AC87-AA5CC38C5382
@@ -271,7 +274,7 @@ export class ListAtiAgentRegisterInfosResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries.
+   * The total number of records.
    * 
    * @example
    * 11
