@@ -13,11 +13,11 @@ export default class Client extends OpenApi {
     super(config);
     this._endpointRule = "regional";
     this._endpointMap = {
-      'cn-shenzhen': "dataphin-public.cn-shenzhen.aliyuncs.com",
-      'cn-shanghai': "dataphin-public.cn-shanghai.aliyuncs.com",
-      'cn-hangzhou': "dataphin-public.cn-hangzhou.aliyuncs.com",
-      'cn-chengdu': "dataphin-public.cn-chengdu.aliyuncs.com",
       'cn-beijing': "dataphin-public.cn-beijing.aliyuncs.com",
+      'cn-chengdu': "dataphin-public.cn-chengdu.aliyuncs.com",
+      'cn-hangzhou': "dataphin-public.cn-hangzhou.aliyuncs.com",
+      'cn-shanghai': "dataphin-public.cn-shanghai.aliyuncs.com",
+      'cn-shenzhen': "dataphin-public.cn-shenzhen.aliyuncs.com",
     };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("dataphin-public", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
