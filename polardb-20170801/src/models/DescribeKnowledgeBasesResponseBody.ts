@@ -37,6 +37,16 @@ export class DescribeKnowledgeBasesResponseBodyItems extends $dara.Model {
   knowledgeBaseId?: string;
   /**
    * @remarks
+   * The type of the knowledge base. Valid values:
+   * - PUBLIC: public.
+   * - PERSONAL: personal.
+   * 
+   * @example
+   * PUBLIC
+   */
+  knowledgeBaseType?: string;
+  /**
+   * @remarks
    * The ID of the knowledge space.
    * 
    * @example
@@ -81,6 +91,7 @@ export class DescribeKnowledgeBasesResponseBodyItems extends $dara.Model {
       creationTime: 'CreationTime',
       description: 'Description',
       knowledgeBaseId: 'KnowledgeBaseId',
+      knowledgeBaseType: 'KnowledgeBaseType',
       knowledgeSpaceId: 'KnowledgeSpaceId',
       name: 'Name',
       status: 'Status',
@@ -95,6 +106,7 @@ export class DescribeKnowledgeBasesResponseBodyItems extends $dara.Model {
       creationTime: 'string',
       description: 'string',
       knowledgeBaseId: 'string',
+      knowledgeBaseType: 'string',
       knowledgeSpaceId: 'string',
       name: 'string',
       status: 'string',

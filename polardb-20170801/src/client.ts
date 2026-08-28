@@ -17425,7 +17425,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of knowledge bases.
+   * Queries the list of knowledge bases.
    * 
    * @param request - DescribeKnowledgeBasesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17476,7 +17476,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of knowledge bases.
+   * Queries the list of knowledge bases.
    * 
    * @param request - DescribeKnowledgeBasesRequest
    * @returns DescribeKnowledgeBasesResponse
