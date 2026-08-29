@@ -12,6 +12,11 @@ export class ListMcpsRequest extends $dara.Model {
    */
   maxResults?: number;
   /**
+   * @example
+   * my-mcp-server
+   */
+  name?: string;
+  /**
    * @remarks
    * The pagination token for the next page.
    * 
@@ -19,17 +24,26 @@ export class ListMcpsRequest extends $dara.Model {
    * next-page-token
    */
   nextToken?: string;
+  /**
+   * @example
+   * blur
+   */
+  searchType?: string;
   static names(): { [key: string]: string } {
     return {
       maxResults: 'maxResults',
+      name: 'name',
       nextToken: 'nextToken',
+      searchType: 'searchType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       maxResults: 'number',
+      name: 'string',
       nextToken: 'string',
+      searchType: 'string',
     };
   }
 

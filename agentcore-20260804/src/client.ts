@@ -3445,8 +3445,16 @@ export default class Client extends OpenApi {
       query["maxResults"] = request.maxResults;
     }
 
+    if (!$dara.isNull(request.name)) {
+      query["name"] = request.name;
+    }
+
     if (!$dara.isNull(request.nextToken)) {
       query["nextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.searchType)) {
+      query["searchType"] = request.searchType;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -3486,6 +3494,9 @@ export default class Client extends OpenApi {
   /**
    * 查询模型连接列表
    * 
+   * @remarks
+   * 查询指定 AgentCore 工作空间中的模型连接。支持通过 `Name` 按名称筛选，并通过 `SearchType` 选择精确匹配或模糊匹配；支持按模型提供商类型和调用协议筛选，并支持分页查询。
+   * 
    * @param request - ListModelConnectionsRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3518,6 +3529,10 @@ export default class Client extends OpenApi {
       query["providerType"] = request.providerType;
     }
 
+    if (!$dara.isNull(request.searchType)) {
+      query["searchType"] = request.searchType;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
@@ -3538,6 +3553,9 @@ export default class Client extends OpenApi {
 
   /**
    * 查询模型连接列表
+   * 
+   * @remarks
+   * 查询指定 AgentCore 工作空间中的模型连接。支持通过 `Name` 按名称筛选，并通过 `SearchType` 选择精确匹配或模糊匹配；支持按模型提供商类型和调用协议筛选，并支持分页查询。
    * 
    * @param request - ListModelConnectionsRequest
    * @returns ListModelConnectionsResponse

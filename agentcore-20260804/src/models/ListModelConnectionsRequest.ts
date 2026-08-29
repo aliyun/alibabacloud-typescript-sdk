@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListModelConnectionsRequest extends $dara.Model {
+  /**
+   * @example
+   * false
+   */
   includeModels?: boolean;
   /**
    * @example
@@ -29,6 +33,11 @@ export class ListModelConnectionsRequest extends $dara.Model {
    * qwen
    */
   providerType?: string;
+  /**
+   * @example
+   * blur
+   */
+  searchType?: string;
   static names(): { [key: string]: string } {
     return {
       includeModels: 'includeModels',
@@ -37,6 +46,7 @@ export class ListModelConnectionsRequest extends $dara.Model {
       nextToken: 'nextToken',
       protocol: 'protocol',
       providerType: 'providerType',
+      searchType: 'searchType',
     };
   }
 
@@ -48,6 +58,7 @@ export class ListModelConnectionsRequest extends $dara.Model {
       nextToken: 'string',
       protocol: 'string',
       providerType: 'string',
+      searchType: 'string',
     };
   }
 
