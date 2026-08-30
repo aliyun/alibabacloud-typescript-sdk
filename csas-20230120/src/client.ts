@@ -464,6 +464,57 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Associates user labels.
+   * 
+   * @param request - BindSaseUserTagRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BindSaseUserTagResponse
+   */
+  async bindSaseUserTagWithOptions(request: $_model.BindSaseUserTagRequest, runtime: $dara.RuntimeOptions): Promise<$_model.BindSaseUserTagResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    let bodyFlat : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.saseUserIds)) {
+      bodyFlat["SaseUserIds"] = request.saseUserIds;
+    }
+
+    if (!$dara.isNull(request.tagIds)) {
+      bodyFlat["TagIds"] = request.tagIds;
+    }
+
+    body = {
+      ...body,
+      ...OpenApiUtil.query(bodyFlat),
+    };
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "BindSaseUserTag",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.BindSaseUserTagResponse>(await this.callApi(params, req, runtime), new $_model.BindSaseUserTagResponse({}));
+  }
+
+  /**
+   * Associates user labels.
+   * 
+   * @param request - BindSaseUserTagRequest
+   * @returns BindSaseUserTagResponse
+   */
+  async bindSaseUserTag(request: $_model.BindSaseUserTagRequest): Promise<$_model.BindSaseUserTagResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.bindSaseUserTagWithOptions(request, runtime);
+  }
+
+  /**
    * Cancels multiple virus scan tasks that have not yet expired in a batch. After cancellation, terminals no longer pull and execute the tasks. Scans already running on terminals are not interrupted.
    * 
    * @param request - CancelVirusScanTasksRequest
@@ -1895,6 +1946,52 @@ export default class Client extends OpenApi {
   async createRegistrationPolicy(request: $_model.CreateRegistrationPolicyRequest): Promise<$_model.CreateRegistrationPolicyResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createRegistrationPolicyWithOptions(request, runtime);
+  }
+
+  /**
+   * Creates a user tag.
+   * 
+   * @param request - CreateSaseUserTagRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateSaseUserTagResponse
+   */
+  async createSaseUserTagWithOptions(request: $_model.CreateSaseUserTagRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateSaseUserTagResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateSaseUserTag",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateSaseUserTagResponse>(await this.callApi(params, req, runtime), new $_model.CreateSaseUserTagResponse({}));
+  }
+
+  /**
+   * Creates a user tag.
+   * 
+   * @param request - CreateSaseUserTagRequest
+   * @returns CreateSaseUserTagResponse
+   */
+  async createSaseUserTag(request: $_model.CreateSaseUserTagRequest): Promise<$_model.CreateSaseUserTagResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createSaseUserTagWithOptions(request, runtime);
   }
 
   /**
@@ -3889,6 +3986,53 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes user tags.
+   * 
+   * @param request - DeleteSaseUserTagRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteSaseUserTagResponse
+   */
+  async deleteSaseUserTagWithOptions(request: $_model.DeleteSaseUserTagRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteSaseUserTagResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    let bodyFlat : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.tagIds)) {
+      bodyFlat["TagIds"] = request.tagIds;
+    }
+
+    body = {
+      ...body,
+      ...OpenApiUtil.query(bodyFlat),
+    };
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteSaseUserTag",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteSaseUserTagResponse>(await this.callApi(params, req, runtime), new $_model.DeleteSaseUserTagResponse({}));
+  }
+
+  /**
+   * Deletes user tags.
+   * 
+   * @param request - DeleteSaseUserTagRequest
+   * @returns DeleteSaseUserTagResponse
+   */
+  async deleteSaseUserTag(request: $_model.DeleteSaseUserTagRequest): Promise<$_model.DeleteSaseUserTagResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteSaseUserTagWithOptions(request, runtime);
+  }
+
+  /**
    * Deletes user endpoint devices in batches.
    * 
    * @remarks
@@ -5237,6 +5381,48 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves a single user tag.
+   * 
+   * @param request - GetSaseUserTagRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetSaseUserTagResponse
+   */
+  async getSaseUserTagWithOptions(request: $_model.GetSaseUserTagRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetSaseUserTagResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.tagId)) {
+      body["TagId"] = request.tagId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetSaseUserTag",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetSaseUserTagResponse>(await this.callApi(params, req, runtime), new $_model.GetSaseUserTagResponse({}));
+  }
+
+  /**
+   * Retrieves a single user tag.
+   * 
+   * @param request - GetSaseUserTagRequest
+   * @returns GetSaseUserTagResponse
+   */
+  async getSaseUserTag(request: $_model.GetSaseUserTagRequest): Promise<$_model.GetSaseUserTagResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getSaseUserTagWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the details of a user endpoint device under the current Alibaba Cloud account.
    * 
    * @param request - GetUserDeviceRequest
@@ -6104,6 +6290,124 @@ export default class Client extends OpenApi {
   async listDevicesForVulnerability(request: $_model.ListDevicesForVulnerabilityRequest): Promise<$_model.ListDevicesForVulnerabilityResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listDevicesForVulnerabilityWithOptions(request, runtime);
+  }
+
+  /**
+   * Lists DLP outbound file transfer logs.
+   * 
+   * @param request - ListDlpOutboundLogsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDlpOutboundLogsResponse
+   */
+  async listDlpOutboundLogsWithOptions(request: $_model.ListDlpOutboundLogsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListDlpOutboundLogsResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.currentPage)) {
+      body["CurrentPage"] = request.currentPage;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      body["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.logId)) {
+      body["LogId"] = request.logId;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.policyAction)) {
+      body["PolicyAction"] = request.policyAction;
+    }
+
+    if (!$dara.isNull(request.srcFileName)) {
+      body["SrcFileName"] = request.srcFileName;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      body["StartTime"] = request.startTime;
+    }
+
+    if (!$dara.isNull(request.subChannelType)) {
+      body["SubChannelType"] = request.subChannelType;
+    }
+
+    if (!$dara.isNull(request.userName)) {
+      body["UserName"] = request.userName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListDlpOutboundLogs",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListDlpOutboundLogsResponse>(await this.callApi(params, req, runtime), new $_model.ListDlpOutboundLogsResponse({}));
+  }
+
+  /**
+   * Lists DLP outbound file transfer logs.
+   * 
+   * @param request - ListDlpOutboundLogsRequest
+   * @returns ListDlpOutboundLogsResponse
+   */
+  async listDlpOutboundLogs(request: $_model.ListDlpOutboundLogsRequest): Promise<$_model.ListDlpOutboundLogsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listDlpOutboundLogsWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the Internet access logs of endpoints by using paging.
+   * 
+   * @remarks
+   * Queries the Internet access logs of endpoints under the current tenant by using paging. The logs contain full records of Internet access behavior.
+   * 
+   * @param request - ListDomainAccessLogsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDomainAccessLogsResponse
+   */
+  async listDomainAccessLogsWithOptions(request: $_model.ListDomainAccessLogsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListDomainAccessLogsResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListDomainAccessLogs",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListDomainAccessLogsResponse>(await this.callApi(params, req, runtime), new $_model.ListDomainAccessLogsResponse({}));
+  }
+
+  /**
+   * Queries the Internet access logs of endpoints by using paging.
+   * 
+   * @remarks
+   * Queries the Internet access logs of endpoints under the current tenant by using paging. The logs contain full records of Internet access behavior.
+   * 
+   * @param request - ListDomainAccessLogsRequest
+   * @returns ListDomainAccessLogsResponse
+   */
+  async listDomainAccessLogs(request: $_model.ListDomainAccessLogsRequest): Promise<$_model.ListDomainAccessLogsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listDomainAccessLogsWithOptions(request, runtime);
   }
 
   /**
@@ -8989,6 +9293,57 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Unbinds user labels.
+   * 
+   * @param request - UnbindSaseUserTagRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UnbindSaseUserTagResponse
+   */
+  async unbindSaseUserTagWithOptions(request: $_model.UnbindSaseUserTagRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UnbindSaseUserTagResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    let bodyFlat : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.saseUserIds)) {
+      bodyFlat["SaseUserIds"] = request.saseUserIds;
+    }
+
+    if (!$dara.isNull(request.tagIds)) {
+      bodyFlat["TagIds"] = request.tagIds;
+    }
+
+    body = {
+      ...body,
+      ...OpenApiUtil.query(bodyFlat),
+    };
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UnbindSaseUserTag",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UnbindSaseUserTagResponse>(await this.callApi(params, req, runtime), new $_model.UnbindSaseUserTagResponse({}));
+  }
+
+  /**
+   * Unbinds user labels.
+   * 
+   * @param request - UnbindSaseUserTagRequest
+   * @returns UnbindSaseUserTagResponse
+   */
+  async unbindSaseUserTag(request: $_model.UnbindSaseUserTagRequest): Promise<$_model.UnbindSaseUserTagResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.unbindSaseUserTagWithOptions(request, runtime);
+  }
+
+  /**
    * Configures the real-time anti-virus defense policy for the current Alibaba Cloud account. The first call creates the policy, and subsequent calls update it. The complete updated configuration is returned. When configuring for the first time, Status, MatchMode, HighRiskOperation, MidRiskOperation, LowRiskOperation, and ScanTargets are all required. ScanTargets and Whitelist are full replacements. The collection you pass in replaces the existing configuration. When MatchMode is set to UserGroupNormal, you must pass in the complete UserGroupIds on every call. When Status is not set to Disabled, the system validates the endpoint hardening license count. The call fails if the count exceeds the purchased licenses.
    * 
    * @param request - UpdateAntiVirusRealTimeDefenceStrategyRequest
@@ -10690,6 +11045,56 @@ export default class Client extends OpenApi {
   async updateRiskStatus(request: $_model.UpdateRiskStatusRequest): Promise<$_model.UpdateRiskStatusResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateRiskStatusWithOptions(request, runtime);
+  }
+
+  /**
+   * Updates a user tag.
+   * 
+   * @param request - UpdateSaseUserTagRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateSaseUserTagResponse
+   */
+  async updateSaseUserTagWithOptions(request: $_model.UpdateSaseUserTagRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateSaseUserTagResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.tagId)) {
+      body["TagId"] = request.tagId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateSaseUserTag",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateSaseUserTagResponse>(await this.callApi(params, req, runtime), new $_model.UpdateSaseUserTagResponse({}));
+  }
+
+  /**
+   * Updates a user tag.
+   * 
+   * @param request - UpdateSaseUserTagRequest
+   * @returns UpdateSaseUserTagResponse
+   */
+  async updateSaseUserTag(request: $_model.UpdateSaseUserTagRequest): Promise<$_model.UpdateSaseUserTagResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateSaseUserTagWithOptions(request, runtime);
   }
 
   /**
