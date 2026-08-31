@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListSpecificationsRequest extends $dara.Model {
   /**
+   * @remarks
+   * The page number of the query list. Minimum value: 1. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page for paging. Maximum value: 100. Default value: 10.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The specification.
+   * 
    * @example
    * ew.gn8t6xlarge-rb.x1p
    */

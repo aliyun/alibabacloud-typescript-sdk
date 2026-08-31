@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListEdgeWorkersShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * This parameter is required for renewal scenarios.
+   * The expiration time.
    * 
    * @example
    * 2025-05-14T15:20:37+08:00
@@ -13,7 +13,7 @@ export class ListEdgeWorkersShrinkRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The list of cluster IDs.
+   * The cluster ID list.
    * 
    * @example
    * ["hive-4fbf3928d40e43948b98acdb4fb5aaed"]
@@ -21,7 +21,7 @@ export class ListEdgeWorkersShrinkRequest extends $dara.Model {
   hiveIdsShrink?: string;
   /**
    * @remarks
-   * The list of payload IDs.
+   * The workload ID list.
    * 
    * @example
    * ew-xxxxxx
@@ -29,7 +29,7 @@ export class ListEdgeWorkersShrinkRequest extends $dara.Model {
   instanceIdsShrink?: string;
   /**
    * @remarks
-   * The page number of the query. The value starts from 1. Default value: 1.
+   * The page number of the query list. Minimum value: 1. Default value: 1.
    * 
    * @example
    * 1
@@ -37,7 +37,7 @@ export class ListEdgeWorkersShrinkRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page for a paged query. The maximum value is 100. Default value: 10.
+   * The number of entries per page for a paginated query. Maximum value: 100. Default value: 10.
    * 
    * @example
    * 20
@@ -45,7 +45,7 @@ export class ListEdgeWorkersShrinkRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The list of package IDs.
+   * The plan ID list.
    * 
    * @example
    * ["pk-4fbf3928d40e43948b98acdb4fb5aaed"]
@@ -53,7 +53,7 @@ export class ListEdgeWorkersShrinkRequest extends $dara.Model {
   planIdsShrink?: string;
   /**
    * @remarks
-   * Specification
+   * The specification.
    * 
    * @example
    * ew.gn8t6xlarge-rb.x1p
@@ -61,7 +61,7 @@ export class ListEdgeWorkersShrinkRequest extends $dara.Model {
   spec?: string;
   /**
    * @remarks
-   * The parameter for filtering by time range. The time must be in ISO 8601 format and use UTC. The format is yyyy-MM-ddTHH:mm:ssZ.
+   * The start time for time range filtering. Specify the time in the ISO 8601 standard in UTC. Format: yyyy-MM-ddTHH:mm:ssZ.
    * 
    * @example
    * 2026-05-25T06:35:26+08:00
@@ -69,7 +69,7 @@ export class ListEdgeWorkersShrinkRequest extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The list of statuses.
+   * The status list.
    */
   statusesShrink?: string;
   static names(): { [key: string]: string } {

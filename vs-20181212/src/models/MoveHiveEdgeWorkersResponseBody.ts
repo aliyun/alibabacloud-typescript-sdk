@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class MoveHiveEdgeWorkersResponseBodyFailedInstances extends $dara.Model {
   /**
    * @remarks
-   * The instance ID.
+   * The workload ID.
    * 
    * @example
    * ew-1226d588c69449209ee963161c067b04
@@ -45,7 +45,7 @@ export class MoveHiveEdgeWorkersResponseBodyFailedInstances extends $dara.Model 
 export class MoveHiveEdgeWorkersResponseBodySuccessInstances extends $dara.Model {
   /**
    * @remarks
-   * The instance ID.
+   * The workload ID.
    * 
    * @example
    * ew-1226d588c69449209ee963161c067b04
@@ -53,7 +53,7 @@ export class MoveHiveEdgeWorkersResponseBodySuccessInstances extends $dara.Model
   instanceId?: string;
   /**
    * @remarks
-   * The result message. For a successful operation, the value is typically `SUCCESS`.
+   * The message.
    * 
    * @example
    * SUCCESS
@@ -85,7 +85,7 @@ export class MoveHiveEdgeWorkersResponseBodySuccessInstances extends $dara.Model
 export class MoveHiveEdgeWorkersResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of instances that failed to move.
+   * The number of failed operations.
    * 
    * @example
    * 0
@@ -93,7 +93,7 @@ export class MoveHiveEdgeWorkersResponseBody extends $dara.Model {
   failedInstanceCount?: number;
   /**
    * @remarks
-   * Details of the instances that failed to move.
+   * The list of workloads that failed to be moved.
    */
   failedInstances?: MoveHiveEdgeWorkersResponseBodyFailedInstances[];
   /**
@@ -106,7 +106,7 @@ export class MoveHiveEdgeWorkersResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The number of successfully moved instances.
+   * The number of successful operations.
    * 
    * @example
    * 5
@@ -114,7 +114,7 @@ export class MoveHiveEdgeWorkersResponseBody extends $dara.Model {
   successInstanceCount?: number;
   /**
    * @remarks
-   * Details of the successfully moved instances.
+   * The list of workloads that were successfully moved.
    */
   successInstances?: MoveHiveEdgeWorkersResponseBodySuccessInstances[];
   static names(): { [key: string]: string } {

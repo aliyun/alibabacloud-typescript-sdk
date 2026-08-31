@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeComfyTasksResponseBodyTasks extends $dara.Model {
   /**
    * @remarks
-   * The creation time of the task.
+   * The creation time.
    * 
    * @example
    * 1780387493000
@@ -13,7 +13,7 @@ export class DescribeComfyTasksResponseBodyTasks extends $dara.Model {
   creationTime?: string;
   /**
    * @remarks
-   * The end time of the task.
+   * The task end time.
    * 
    * @example
    * 1780387494000
@@ -21,12 +21,17 @@ export class DescribeComfyTasksResponseBodyTasks extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The ID of the resource pool used by the task.
+   * The resource pool ID used by the task.
    * 
    * @example
    * hive-26cd567b35c04a0a90f017388207b2
    */
   hiveId?: string;
+  /**
+   * @remarks
+   * The task status.
+   */
+  taskErrorMessage?: string;
   /**
    * @remarks
    * The task ID.
@@ -37,7 +42,7 @@ export class DescribeComfyTasksResponseBodyTasks extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * The task state.
+   * The task status.
    * 
    * @example
    * RUNNING
@@ -45,7 +50,12 @@ export class DescribeComfyTasksResponseBodyTasks extends $dara.Model {
   taskState?: string;
   /**
    * @remarks
-   * The last modified time of the task.
+   * The task status.
+   */
+  taskStateMessage?: string;
+  /**
+   * @remarks
+   * The last modified time.
    * 
    * @example
    * 1780387494000
@@ -53,7 +63,7 @@ export class DescribeComfyTasksResponseBodyTasks extends $dara.Model {
   updatedTime?: string;
   /**
    * @remarks
-   * The ID of the Comfy workflow associated with the task.
+   * The Comfy workflow ID used by the task.
    * 
    * @example
    * wf_adb32aed-ccdc-42ae-b4d4-a21181ac8a5f
@@ -64,8 +74,10 @@ export class DescribeComfyTasksResponseBodyTasks extends $dara.Model {
       creationTime: 'CreationTime',
       endTime: 'EndTime',
       hiveId: 'HiveId',
+      taskErrorMessage: 'TaskErrorMessage',
       taskId: 'TaskId',
       taskState: 'TaskState',
+      taskStateMessage: 'TaskStateMessage',
       updatedTime: 'UpdatedTime',
       workflowId: 'WorkflowId',
     };
@@ -76,8 +88,10 @@ export class DescribeComfyTasksResponseBodyTasks extends $dara.Model {
       creationTime: 'string',
       endTime: 'string',
       hiveId: 'string',
+      taskErrorMessage: 'string',
       taskId: 'string',
       taskState: 'string',
+      taskStateMessage: 'string',
       updatedTime: 'string',
       workflowId: 'string',
     };
@@ -95,7 +109,7 @@ export class DescribeComfyTasksResponseBodyTasks extends $dara.Model {
 export class DescribeComfyTasksResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. A value of 0 indicates a successful request.
+   * The error code.
    * 
    * @example
    * 0
@@ -103,7 +117,7 @@ export class DescribeComfyTasksResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The message that provides details about the result of the request.
+   * The description.
    * 
    * @example
    * success
@@ -111,7 +125,7 @@ export class DescribeComfyTasksResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The page number of the returned data. The default value is 1.
+   * The page number. Default value: 1.
    * 
    * @example
    * 1
@@ -119,9 +133,8 @@ export class DescribeComfyTasksResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of tasks per page.
-   * 
-   * > This parameter applies only to recording queries.
+   * The page size.
+   * > Only applicable to recording queries.
    * 
    * @example
    * 20
@@ -129,7 +142,7 @@ export class DescribeComfyTasksResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * BEA5625F-8FCF-48F4-851B-CA63946DA664
@@ -137,12 +150,12 @@ export class DescribeComfyTasksResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * A list of Comfy tasks.
+   * The task list.
    */
   tasks?: DescribeComfyTasksResponseBodyTasks[];
   /**
    * @remarks
-   * The total number of tasks that match the filter criteria.
+   * The number of tasks.
    * 
    * @example
    * 1

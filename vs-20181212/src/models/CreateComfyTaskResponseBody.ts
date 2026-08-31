@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateComfyTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code. A value of 0 indicates a successful request. For a list of other values, see Error Codes.
+   * The error code returned if the call fails. For more information, see error codes.
    * 
    * @example
    * 0
@@ -13,7 +13,7 @@ export class CreateComfyTaskResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The returned message. It provides more details about the request status.
+   * The description.
    * 
    * @example
    * success
@@ -21,7 +21,7 @@ export class CreateComfyTaskResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * Id of the request
    * 
    * @example
    * BEA5625F-8FCF-48F4-851B-CA63946DA664
@@ -29,7 +29,7 @@ export class CreateComfyTaskResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the asynchronous task. You can use this ID to query the task status on the Task Query tab in the Intelligent Media Management console.
+   * The task ID.
    * 
    * @example
    * 6c8234f4-d1e1-4cea-b08b-7926fbdea144

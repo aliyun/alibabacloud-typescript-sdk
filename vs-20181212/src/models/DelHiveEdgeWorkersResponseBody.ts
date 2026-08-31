@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DelHiveEdgeWorkersResponseBodyFailedInstances extends $dara.Model {
   /**
+   * @remarks
+   * The workload ID.
+   * 
    * @example
    * ew-1226d588c69449209ee963161c067b04
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The failure reason.
+   * 
    * @example
    * Error 1062 (23000): Duplicate entry \\"hive-4fbf3928d40e43948b98acdb4fb5aaed-ew-1226d588c69449209ee9631\\" for key \\"PRIMARY\\"
    */
@@ -38,11 +44,17 @@ export class DelHiveEdgeWorkersResponseBodyFailedInstances extends $dara.Model {
 
 export class DelHiveEdgeWorkersResponseBodySuccessInstances extends $dara.Model {
   /**
+   * @remarks
+   * The workload ID.
+   * 
    * @example
    * ew-1226d588c69449209ee963161c067b04
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The message.
+   * 
    * @example
    * SUCCESS
    */
@@ -72,21 +84,38 @@ export class DelHiveEdgeWorkersResponseBodySuccessInstances extends $dara.Model 
 
 export class DelHiveEdgeWorkersResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The number of workload instances that failed to be unbound.
+   * 
    * @example
    * 0
    */
   failedInstanceCount?: number;
+  /**
+   * @remarks
+   * The list of workload instances that failed to be unbound.
+   */
   failedInstances?: DelHiveEdgeWorkersResponseBodyFailedInstances[];
   /**
+   * @remarks
+   * **The request ID.**
+   * 
    * @example
    * xxxx-xxx-xxx
    */
   requestId?: string;
   /**
+   * @remarks
+   * The number of workload instances that were successfully unbound.
+   * 
    * @example
    * 5
    */
   successInstanceCount?: number;
+  /**
+   * @remarks
+   * The list of workload instances that were successfully unbound.
+   */
   successInstances?: DelHiveEdgeWorkersResponseBodySuccessInstances[];
   static names(): { [key: string]: string } {
     return {

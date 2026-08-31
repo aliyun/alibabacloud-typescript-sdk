@@ -29,7 +29,7 @@ export class ListEdgeWorkersResponseBodyInstances extends $dara.Model {
   hiveId?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The workload ID.
    * 
    * @example
    * as-d135ca4425c24b99b79cd0b6c552cac9
@@ -37,7 +37,7 @@ export class ListEdgeWorkersResponseBodyInstances extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The package ID.
+   * The plan ID.
    * 
    * @example
    * pk-db3394401cc8403f85e4d72d99b52449
@@ -95,12 +95,12 @@ export class ListEdgeWorkersResponseBodyInstances extends $dara.Model {
 export class ListEdgeWorkersResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of payloads.
+   * The workload list.
    */
   instances?: ListEdgeWorkersResponseBodyInstances[];
   /**
    * @remarks
-   * The page number of the query. The value starts from 1. Default value: 1.
+   * The page number of the query list. Minimum value: 1. Default value: 1.
    * 
    * @example
    * 1
@@ -108,7 +108,7 @@ export class ListEdgeWorkersResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page for a paged query. The maximum value is 100. Default value: 100.
+   * The number of entries per page for a paginated query. Maximum value: 100. Default value: 100.
    * 
    * @example
    * 20
@@ -124,7 +124,7 @@ export class ListEdgeWorkersResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries.
+   * The total number of workloads.
    * 
    * @example
    * 100

@@ -13,7 +13,7 @@ export class DescribeComfyTasksRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of tasks per page.
+   * The number of records to display per page.
    * 
    * @example
    * 20
@@ -21,7 +21,12 @@ export class DescribeComfyTasksRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The task state. If specified, the operation returns only tasks in that state.
+   * The Comfy workflow ID used as a filter condition.
+   */
+  taskId?: string;
+  /**
+   * @remarks
+   * The task status used as a filter condition.
    * 
    * @example
    * QUEUED
@@ -29,7 +34,7 @@ export class DescribeComfyTasksRequest extends $dara.Model {
   taskState?: string;
   /**
    * @remarks
-   * If you specify this parameter, the operation returns only tasks for the specified workflow.
+   * The Comfy workflow ID used as a filter condition.
    * 
    * @example
    * wf_adb32aed-ccdc-42ae-b4d4-a21181ac8a5f
@@ -39,6 +44,7 @@ export class DescribeComfyTasksRequest extends $dara.Model {
     return {
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      taskId: 'TaskId',
       taskState: 'TaskState',
       workflowId: 'WorkflowId',
     };
@@ -48,6 +54,7 @@ export class DescribeComfyTasksRequest extends $dara.Model {
     return {
       pageNumber: 'number',
       pageSize: 'number',
+      taskId: 'string',
       taskState: 'string',
       workflowId: 'string',
     };

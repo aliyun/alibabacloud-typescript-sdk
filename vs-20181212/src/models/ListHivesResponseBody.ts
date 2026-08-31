@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListHivesResponseBodyHives extends $dara.Model {
   /**
+   * @remarks
+   * The creation time.
+   * 
    * @example
    * 2025-05-14T15:20:37+08:00
    */
   creationTime?: string;
   /**
+   * @remarks
+   * The description.
+   * 
    * @example
-   * 基础型S1
+   * Basic S1
    */
   description?: string;
   /**
+   * @remarks
+   * The cluster ID.
+   * 
    * @example
    * hive-3b506f0868a7451ba15e0e890706033a
    */
   hiveId?: string;
   /**
+   * @remarks
+   * The name.
+   * 
    * @example
    * yy-test2
    */
@@ -51,13 +63,23 @@ export class ListHivesResponseBodyHives extends $dara.Model {
 }
 
 export class ListHivesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The list of clusters.
+   */
   hives?: ListHivesResponseBodyHives[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * xxxx-xxx-xxx
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of entries.
+   * 
    * @example
    * 100
    */

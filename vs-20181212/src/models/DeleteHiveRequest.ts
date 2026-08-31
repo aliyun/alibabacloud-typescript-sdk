@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteHiveRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the cloud application service group.
+   * 
    * This parameter is required.
    * 
    * @example

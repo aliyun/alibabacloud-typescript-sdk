@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class MoveHiveEdgeWorkersShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the target Hive.
+   * The cluster ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class MoveHiveEdgeWorkersShrinkRequest extends $dara.Model {
   hiveId?: string;
   /**
    * @remarks
-   * The IDs of the cloud application service instances to move.
+   * The list of workload IDs.
    * 
    * This parameter is required.
    * 
