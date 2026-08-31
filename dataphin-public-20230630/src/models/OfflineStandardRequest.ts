@@ -64,10 +64,16 @@ export class OfflineStandardRequest extends $dara.Model {
    * 30001011
    */
   opTenantId?: number;
+  /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
   static names(): { [key: string]: string } {
     return {
       offlineCommand: 'OfflineCommand',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
     };
   }
 
@@ -75,6 +81,7 @@ export class OfflineStandardRequest extends $dara.Model {
     return {
       offlineCommand: OfflineStandardRequestOfflineCommand,
       opTenantId: 'number',
+      opUserId: 'string',
     };
   }
 

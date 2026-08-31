@@ -5,21 +5,21 @@ import * as $dara from '@darabonba/typescript';
 export class CreatePipelineShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * Request context information
+   * The request context information.
    * 
    * This parameter is required.
    */
   contextShrink?: string;
   /**
    * @remarks
-   * Pipeline/workflow task creation configuration
+   * The configuration for creating a pipeline or workflow node.
    * 
    * This parameter is required.
    */
   createCommandShrink?: string;
   /**
    * @remarks
-   * Tenant ID
+   * The tenant ID.
    * 
    * This parameter is required.
    * 
@@ -27,11 +27,20 @@ export class CreatePipelineShrinkRequest extends $dara.Model {
    * 30001011
    */
   opTenantId?: number;
+  /**
+   * @remarks
+   * The ID of the operator user.
+   * 
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
   static names(): { [key: string]: string } {
     return {
       contextShrink: 'Context',
       createCommandShrink: 'CreateCommand',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
     };
   }
 
@@ -40,6 +49,7 @@ export class CreatePipelineShrinkRequest extends $dara.Model {
       contextShrink: 'string',
       createCommandShrink: 'string',
       opTenantId: 'number',
+      opUserId: 'string',
     };
   }
 

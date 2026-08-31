@@ -8,7 +8,9 @@ export class UpdatePipelineRequestContext extends $dara.Model {
    * The current operating environment. Valid values:
    * 
    * - DEV: the development environment.
-   * - PROD: the production environment. For workflow nodes, only PROD is supported.
+   * - PROD: the production environment.
+   * 
+   * For workflow nodes, only PROD is supported.
    * 
    * This parameter is required.
    * 
@@ -18,7 +20,7 @@ export class UpdatePipelineRequestContext extends $dara.Model {
   env?: string;
   /**
    * @remarks
-   * The ID of the project to which the integration pipeline or workflow node belongs.
+   * The project ID to which the integration pipeline or workflow node belongs.
    * 
    * This parameter is required.
    * 
@@ -52,7 +54,7 @@ export class UpdatePipelineRequestContext extends $dara.Model {
 export class UpdatePipelineRequestUpdateCommandNodeInfo extends $dara.Model {
   /**
    * @remarks
-   * The folder of the integration pipeline or workflow node (defaults to the root folder). The folder must exist. If it does not exist, call the relevant API operation to create a folder of type offlinePipeline (or unstructuredPipeline for workflows).
+   * The folder of the integration pipeline or workflow node. Default value: root directory. The folder must already exist. If it does not exist, call the relevant API operation to create a folder of type offlinePipeline (or unstructuredPipeline for workflow nodes).
    * 
    * @example
    * /
@@ -60,7 +62,7 @@ export class UpdatePipelineRequestUpdateCommandNodeInfo extends $dara.Model {
   directory?: string;
   /**
    * @remarks
-   * The file ID of the pipeline or workflow. Leave this parameter empty for initial creation. When updating a pipeline or workflow node, specify at least one of pipelineId, fileId, or nodeId.
+   * The pipeline or workflow file ID. Leave this parameter empty for initial creation. When updating a pipeline or workflow node, specify at least one of the following parameters: pipelineId, fileId, or nodeId.
    * 
    * @example
    * 123
@@ -68,7 +70,7 @@ export class UpdatePipelineRequestUpdateCommandNodeInfo extends $dara.Model {
   fileId?: number;
   /**
    * @remarks
-   * The scheduling node ID of the pipeline or workflow node. Leave this parameter empty for initial creation. When updating a pipeline or workflow node, specify at least one of pipelineId, fileId, or nodeId.
+   * The schedule node ID of the pipeline or workflow node. Leave this parameter empty for initial creation. When updating a pipeline or workflow node, specify at least one of the following parameters: pipelineId, fileId, or nodeId.
    * 
    * @example
    * n_123
@@ -86,7 +88,7 @@ export class UpdatePipelineRequestUpdateCommandNodeInfo extends $dara.Model {
   nodeName?: string;
   /**
    * @remarks
-   * The ID of the pipeline or workflow node. Leave this parameter empty for initial creation. When updating a pipeline or workflow node, specify at least one of pipelineId, fileId, or nodeId.
+   * The pipeline or workflow node ID. Leave this parameter empty for initial creation. When updating a pipeline or workflow node, specify at least one of the following parameters: pipelineId, fileId, or nodeId.
    * 
    * @example
    * 123
@@ -124,12 +126,12 @@ export class UpdatePipelineRequestUpdateCommandNodeInfo extends $dara.Model {
 export class UpdatePipelineRequestUpdateCommandPipelineConfigHops extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether the downstream condition is true for a conditional distribution component. Set this parameter to true if the downstream condition is true, or false otherwise. This parameter is not applicable to workflow nodes.
+   * Specifies the conditional distribution setting for a conditional distribution component. Set this parameter to true if the downstream connection condition is true, or false otherwise. This parameter is not applicable to workflow nodes.
    */
   sendTo?: boolean;
   /**
    * @remarks
-   * The name of the input step, which corresponds to Steps[*].StepName.
+   * The name of the source step, which corresponds to Steps[*].StepName.
    * 
    * This parameter is required.
    * 
@@ -139,7 +141,7 @@ export class UpdatePipelineRequestUpdateCommandPipelineConfigHops extends $dara.
   source?: string;
   /**
    * @remarks
-   * The name of the output step, which corresponds to Steps[*].StepName.
+   * The name of the target step, which corresponds to Steps[*].StepName.
    * 
    * This parameter is required.
    * 
@@ -175,17 +177,17 @@ export class UpdatePipelineRequestUpdateCommandPipelineConfigHops extends $dara.
 export class UpdatePipelineRequestUpdateCommandPipelineConfigSteps extends $dara.Model {
   /**
    * @remarks
-   * Specifies the data distribution method when the current component has multiple downstream components. Valid values:
+   * Specifies the data distribution mode when the current component has multiple downstream components. Valid values:
    * 
-   * - true (default): The data from the current component is distributed to all downstream components in a round-robin manner. For example, if the current component has 100 records and two downstream components, each downstream component receives 50 records.
-   * - false: The full data from the current component is sent to all downstream components. For example, if the current component has 100 records and two downstream components, each downstream component receives 100 records.
+   * - true: Data from the current component is distributed to all downstream components in a round-robin manner. For example, if the current component has 100 records and two downstream components, each downstream component receives 50 records. Default value: true.
+   * - false: Full data from the current component is sent to all downstream components. For example, if the current component has 100 records and two downstream components, both downstream components receive 100 records.
    * 
    * This parameter is not applicable to workflow nodes.
    */
   isDistribute?: boolean;
   /**
    * @remarks
-   * The plugin ID. Each plugin or operator has a unique identifier. Refer to the utility class com.alibaba.dataphin.pipeline.common.facade.openapi.model.plugin.OABasePluginConfig#stepKey. Developers should inherit the component or operator configuration class and implement the corresponding component or operator configuration. Each component or operator configuration has the same structure as the configuration created on the Dataphin console.
+   * The plugin ID. Each plugin or operator has a unique identifier. Refer to the utility class com.alibaba.dataphin.pipeline.common.facade.openapi.model.plugin.OABasePluginConfig#stepKey. Developers should inherit the component or operator configuration class and implement the corresponding configuration. Each component or operator configuration has the same structure as the configuration created on the Dataphin console.
    * 
    * This parameter is required.
    * 
@@ -195,7 +197,7 @@ export class UpdatePipelineRequestUpdateCommandPipelineConfigSteps extends $dara
   key?: string;
   /**
    * @remarks
-   * The specific component configuration in JSON string format. Refer to the toJsonString method of the relevant subclasses of the utility class com.alibaba.dataphin.pipeline.common.facade.openapi.model.plugin.OABasePluginConfig (or com.alibaba.dataphin.pipeline.common.facade.openapi.model.plugin.unstructured.BaseOAUnstructuredNeuronConfig for workflow operators). Developers should inherit the component or operator configuration class and implement the corresponding component or operator configuration. Each component or operator configuration has the same structure as the node configuration created on the Dataphin console.
+   * The specific component configuration in JSON string format. Refer to the toJsonString method of the relevant subclasses of the utility class com.alibaba.dataphin.pipeline.common.facade.openapi.model.plugin.OABasePluginConfig (for workflow operators, use com.alibaba.dataphin.pipeline.common.facade.openapi.model.plugin.unstructured.BaseOAUnstructuredNeuronConfig). Developers should inherit the component or operator configuration class and implement the corresponding configuration. Each component or operator configuration has the same structure as the node configuration created on the Dataphin console.
    * 
    * This parameter is required.
    * 
@@ -222,7 +224,7 @@ export class UpdatePipelineRequestUpdateCommandPipelineConfigSteps extends $dara
    * - transfrom: a transform component.
    * - process: a flow control component.
    * 
-   * For workflow nodes, this parameter specifies the operator type, such as image for images and text for text. Refer to the utility class com.alibaba.dataphin.pipeline.common.facade.openapi.model.plugin.OABasePluginConfig#stepType. Developers should inherit the component or operator configuration class and implement the corresponding component or operator configuration. Each component or operator configuration has the same structure as the configuration created on the Dataphin console.
+   * For workflow nodes, this parameter indicates the operator type, such as image for images and text for text. Refer to the utility class com.alibaba.dataphin.pipeline.common.facade.openapi.model.plugin.OABasePluginConfig#stepType. Developers should inherit the component or operator configuration class and implement the corresponding configuration. Each component or operator configuration has the same structure as the configuration created on the Dataphin console.
    * 
    * This parameter is required.
    * 
@@ -262,14 +264,14 @@ export class UpdatePipelineRequestUpdateCommandPipelineConfigSteps extends $dara
 export class UpdatePipelineRequestUpdateCommandPipelineConfig extends $dara.Model {
   /**
    * @remarks
-   * The DAG (directed acyclic graph) link configuration that describes the connection relationships among all components or operators.
+   * The directed acyclic graph (DAG) link configuration that describes the connections between all components or operators.
    * 
    * This parameter is required.
    */
   hops?: UpdatePipelineRequestUpdateCommandPipelineConfigHops[];
   /**
    * @remarks
-   * The component or operator configurations, including the detailed configurations of all components or operators used.
+   * The component or operator configurations, including detailed configurations for all components or operators used.
    * 
    * This parameter is required.
    */
@@ -306,7 +308,7 @@ export class UpdatePipelineRequestUpdateCommandPipelineConfig extends $dara.Mode
 export class UpdatePipelineRequestUpdateCommand extends $dara.Model {
   /**
    * @remarks
-   * The remarks.
+   * The comment.
    * 
    * @example
    * comment
@@ -316,7 +318,7 @@ export class UpdatePipelineRequestUpdateCommand extends $dara.Model {
    * @remarks
    * The integration pipeline configuration mode. Valid values:
    * 
-   * - PIPELINE (default): pipeline mode.
+   * - PIPELINE: pipeline mode (default).
    * - JSON: script mode.
    * 
    * This parameter is not applicable to workflow nodes.
@@ -327,7 +329,7 @@ export class UpdatePipelineRequestUpdateCommand extends $dara.Model {
   mode?: string;
   /**
    * @remarks
-   * The basic information about the integration pipeline or workflow node.
+   * The basic information of the integration pipeline or workflow node.
    * 
    * This parameter is required.
    */
@@ -351,9 +353,10 @@ export class UpdatePipelineRequestUpdateCommand extends $dara.Model {
    * @remarks
    * The node type. Valid values:
    * 
-   * - 0 (default): batch integration.
+   * - 0: offline integration (default).
    * - 1: real-time integration.
    * - 14: workflow node.
+   * - 15: real-time workflow.
    * 
    * @example
    * 0
@@ -361,7 +364,7 @@ export class UpdatePipelineRequestUpdateCommand extends $dara.Model {
   pipelineType?: number;
   /**
    * @remarks
-   * The scheduling configuration in JSON string format. Refer to the toJsonString method of the utility class com.alibaba.dataphin.pipeline.common.facade.openapi.model.OAScheduleConfig.
+   * The schedule configuration in JSON string format. Refer to the utility class com.alibaba.dataphin.pipeline.common.facade.openapi.model.OAScheduleConfig#toJsonString method.
    * 
    * This parameter is required.
    * 
@@ -371,7 +374,7 @@ export class UpdatePipelineRequestUpdateCommand extends $dara.Model {
   scheduleConfig?: string;
   /**
    * @remarks
-   * The channel configuration in JSON string format. Refer to the toJsonString method of the utility class com.alibaba.dataphin.pipeline.common.facade.openapi.model.OAPipelineSetting.
+   * The channel configuration in JSON string format. Refer to the utility class com.alibaba.dataphin.pipeline.common.facade.openapi.model.OAPipelineSetting#toJsonString method.
    * 
    * @example
    * {}
@@ -379,7 +382,7 @@ export class UpdatePipelineRequestUpdateCommand extends $dara.Model {
   settings?: string;
   /**
    * @remarks
-   * Specifies whether to submit the node. Default value: true.
+   * Specifies whether to submit the node. The node is submitted by default.
    */
   submit?: boolean;
   static names(): { [key: string]: string } {
@@ -445,6 +448,14 @@ export class UpdatePipelineRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
+   * The ID of the operator user.
+   * 
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
+  /**
+   * @remarks
    * The configuration for updating the pipeline or workflow node.
    * 
    * This parameter is required.
@@ -454,6 +465,7 @@ export class UpdatePipelineRequest extends $dara.Model {
     return {
       context: 'Context',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
       updateCommand: 'UpdateCommand',
     };
   }
@@ -462,6 +474,7 @@ export class UpdatePipelineRequest extends $dara.Model {
     return {
       context: UpdatePipelineRequestContext,
       opTenantId: 'number',
+      opUserId: 'string',
       updateCommand: UpdatePipelineRequestUpdateCommand,
     };
   }

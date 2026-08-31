@@ -38,10 +38,12 @@ export class UpdateSecurityClassifyCatalogRequestUpdateCommand extends $dara.Mod
   path?: string;
   /**
    * @remarks
-   * The visibility scope of the classification folder. This parameter takes effect only when the parent folder is the root folder. Valid values:
+   * The visibility scope of the classification. Valid values:
+   * 
    * - PUBLIC: visible to all users.
    * - PRIVATE: visible only to administrators.
-   * Default value: PUBLIC.
+   * 
+   * Default value: PUBLIC. This parameter takes effect only when the parent folder is the root folder.
    * 
    * @example
    * PUBLIC
@@ -91,6 +93,11 @@ export class UpdateSecurityClassifyCatalogRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
+  /**
    * @remarks
    * The update instruction.
    * 
@@ -100,6 +107,7 @@ export class UpdateSecurityClassifyCatalogRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
       updateCommand: 'UpdateCommand',
     };
   }
@@ -107,6 +115,7 @@ export class UpdateSecurityClassifyCatalogRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       opTenantId: 'number',
+      opUserId: 'string',
       updateCommand: UpdateSecurityClassifyCatalogRequestUpdateCommand,
     };
   }

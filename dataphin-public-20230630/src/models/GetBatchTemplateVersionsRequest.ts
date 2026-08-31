@@ -27,6 +27,11 @@ export class GetBatchTemplateVersionsRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
+  /**
    * @remarks
    * The project ID.
    * 
@@ -50,6 +55,7 @@ export class GetBatchTemplateVersionsRequest extends $dara.Model {
     return {
       env: 'Env',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
       projectId: 'ProjectId',
       templateId: 'TemplateId',
     };
@@ -59,6 +65,7 @@ export class GetBatchTemplateVersionsRequest extends $dara.Model {
     return {
       env: 'string',
       opTenantId: 'number',
+      opUserId: 'string',
       projectId: 'number',
       templateId: 'number',
     };

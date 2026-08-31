@@ -41,6 +41,11 @@ export class GetInstanceDownStreamShrinkRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
+  /**
    * @remarks
    * Run status of the instance.
    * - INIT
@@ -59,6 +64,7 @@ export class GetInstanceDownStreamShrinkRequest extends $dara.Model {
       env: 'Env',
       instanceGetShrink: 'InstanceGet',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
       runStatus: 'RunStatus',
     };
   }
@@ -69,6 +75,7 @@ export class GetInstanceDownStreamShrinkRequest extends $dara.Model {
       env: 'string',
       instanceGetShrink: 'string',
       opTenantId: 'number',
+      opUserId: 'string',
       runStatus: 'string',
     };
   }

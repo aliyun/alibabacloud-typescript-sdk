@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreatePipelineResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Server-side execution machine name and IP
+   * The name and IP address of the server machine that executes the task.
    * 
    * @example
    * hostName:hostIp
@@ -13,7 +13,7 @@ export class CreatePipelineResponseBodyData extends $dara.Model {
   hostMachine?: string;
   /**
    * @remarks
-   * Scheduling node ID of the pipeline/workflow task after successful creation
+   * The scheduling node ID of the pipeline or workflow task after successful creation.
    * 
    * @example
    * 123
@@ -21,7 +21,7 @@ export class CreatePipelineResponseBodyData extends $dara.Model {
   nodeId?: string;
   /**
    * @remarks
-   * Pipeline/workflow ID after successful creation
+   * The pipeline or workflow ID after successful creation.
    * 
    * @example
    * 123
@@ -29,8 +29,8 @@ export class CreatePipelineResponseBodyData extends $dara.Model {
   pipelineId?: number;
   /**
    * @remarks
-   * Submit ID of the pending release list generated after successfully submitting the pipeline, used for release through the release domain.
-   * Workflow tasks only support PROD, so this value is not applicable.
+   * The submit ID of the pending publish list generated after the pipeline is submitted. Use this ID to publish through the publish domain.
+   * Workflow tasks support only PROD, so this value is not returned for workflow tasks.
    * 
    * @example
    * 123
@@ -38,8 +38,8 @@ export class CreatePipelineResponseBodyData extends $dara.Model {
   submitId?: number;
   /**
    * @remarks
-   * Pending release version number generated after pipeline submission.
-   * Workflow tasks only support PROD, so this value is not applicable.
+   * The pending publish version number generated after the pipeline is submitted.
+   * Workflow tasks support only PROD, so this value is not returned for workflow tasks.
    * 
    * @example
    * 1
@@ -77,7 +77,7 @@ export class CreatePipelineResponseBodyData extends $dara.Model {
 export class CreatePipelineResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Backend response code
+   * The backend response code.
    * 
    * @example
    * OK
@@ -85,12 +85,12 @@ export class CreatePipelineResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Integration pipeline/workflow task creation result
+   * The creation result of the integration pipeline or workflow task.
    */
   data?: CreatePipelineResponseBodyData;
   /**
    * @remarks
-   * HTTP status code
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -98,7 +98,7 @@ export class CreatePipelineResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * Backend response exception details
+   * The details of the backend exception.
    * 
    * @example
    * internal error
@@ -114,7 +114,7 @@ export class CreatePipelineResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Whether the request was successful
+   * Indicates whether the request was successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

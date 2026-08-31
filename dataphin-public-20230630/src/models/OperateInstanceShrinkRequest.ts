@@ -24,6 +24,11 @@ export class OperateInstanceShrinkRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
+  /**
    * @remarks
    * The operation request.
    * 
@@ -34,6 +39,7 @@ export class OperateInstanceShrinkRequest extends $dara.Model {
     return {
       env: 'Env',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
       operateCommandShrink: 'OperateCommand',
     };
   }
@@ -42,6 +48,7 @@ export class OperateInstanceShrinkRequest extends $dara.Model {
     return {
       env: 'string',
       opTenantId: 'number',
+      opUserId: 'string',
       operateCommandShrink: 'string',
     };
   }

@@ -15,6 +15,14 @@ export class DeleteKgRelationRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
+   * The ID of the operator user.
+   * 
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
+  /**
+   * @remarks
    * The relationship record ID.
    * 
    * This parameter is required.
@@ -46,6 +54,7 @@ export class DeleteKgRelationRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
       relationId: 'RelationId',
       relationType: 'RelationType',
       workspaceId: 'WorkspaceId',
@@ -55,6 +64,7 @@ export class DeleteKgRelationRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       opTenantId: 'number',
+      opUserId: 'string',
       relationId: 'string',
       relationType: 'string',
       workspaceId: 'string',

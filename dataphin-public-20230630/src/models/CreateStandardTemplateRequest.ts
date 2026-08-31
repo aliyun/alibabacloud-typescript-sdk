@@ -859,10 +859,16 @@ export class CreateStandardTemplateRequest extends $dara.Model {
    * 30001011
    */
   opTenantId?: number;
+  /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
   static names(): { [key: string]: string } {
     return {
       createCommand: 'CreateCommand',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
     };
   }
 
@@ -870,6 +876,7 @@ export class CreateStandardTemplateRequest extends $dara.Model {
     return {
       createCommand: CreateStandardTemplateRequestCreateCommand,
       opTenantId: 'number',
+      opUserId: 'string',
     };
   }
 

@@ -39,6 +39,11 @@ export class GetNodeUpDownStreamShrinkRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
+  /**
    * @remarks
    * The project ID.
    * 
@@ -60,6 +65,7 @@ export class GetNodeUpDownStreamShrinkRequest extends $dara.Model {
       env: 'Env',
       nodeIdShrink: 'NodeId',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
       projectId: 'ProjectId',
       upStreamDepth: 'UpStreamDepth',
     };
@@ -71,6 +77,7 @@ export class GetNodeUpDownStreamShrinkRequest extends $dara.Model {
       env: 'string',
       nodeIdShrink: 'string',
       opTenantId: 'number',
+      opUserId: 'string',
       projectId: 'number',
       upStreamDepth: 'number',
     };

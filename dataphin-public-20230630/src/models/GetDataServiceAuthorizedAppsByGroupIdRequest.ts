@@ -22,6 +22,11 @@ export class GetDataServiceAuthorizedAppsByGroupIdRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
+  /**
    * @remarks
    * The data service project ID.
    * 
@@ -35,6 +40,7 @@ export class GetDataServiceAuthorizedAppsByGroupIdRequest extends $dara.Model {
     return {
       groupId: 'GroupId',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
       projectId: 'ProjectId',
     };
   }
@@ -43,6 +49,7 @@ export class GetDataServiceAuthorizedAppsByGroupIdRequest extends $dara.Model {
     return {
       groupId: 'number',
       opTenantId: 'number',
+      opUserId: 'string',
       projectId: 'number',
     };
   }

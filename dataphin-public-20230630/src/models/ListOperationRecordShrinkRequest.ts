@@ -20,10 +20,16 @@ export class ListOperationRecordShrinkRequest extends $dara.Model {
    * 30001011
    */
   opTenantId?: number;
+  /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
   static names(): { [key: string]: string } {
     return {
       listCommandShrink: 'ListCommand',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
     };
   }
 
@@ -31,6 +37,7 @@ export class ListOperationRecordShrinkRequest extends $dara.Model {
     return {
       listCommandShrink: 'string',
       opTenantId: 'number',
+      opUserId: 'string',
     };
   }
 

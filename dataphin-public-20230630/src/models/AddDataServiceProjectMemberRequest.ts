@@ -125,6 +125,11 @@ export class AddDataServiceProjectMemberRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
+  /**
    * @remarks
    * The data service project ID.
    * 
@@ -138,6 +143,7 @@ export class AddDataServiceProjectMemberRequest extends $dara.Model {
     return {
       addCommand: 'AddCommand',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
       projectId: 'ProjectId',
     };
   }
@@ -146,6 +152,7 @@ export class AddDataServiceProjectMemberRequest extends $dara.Model {
     return {
       addCommand: AddDataServiceProjectMemberRequestAddCommand,
       opTenantId: 'number',
+      opUserId: 'string',
       projectId: 'number',
     };
   }

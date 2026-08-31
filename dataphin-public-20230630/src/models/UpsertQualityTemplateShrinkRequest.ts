@@ -14,6 +14,11 @@ export class UpsertQualityTemplateShrinkRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
+  /**
    * @remarks
    * Upsert command.
    * 
@@ -23,6 +28,7 @@ export class UpsertQualityTemplateShrinkRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
       upsertCommandShrink: 'UpsertCommand',
     };
   }
@@ -30,6 +36,7 @@ export class UpsertQualityTemplateShrinkRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       opTenantId: 'number',
+      opUserId: 'string',
       upsertCommandShrink: 'string',
     };
   }

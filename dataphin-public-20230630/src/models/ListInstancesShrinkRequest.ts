@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ListInstancesShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * Environment identifier
-   * - DEV: Development environment
-   * - PROD (default): Production environment
+   * The environment identifier. Valid values:
+   * - DEV: Development environment. 
+   * - PROD (default): Production environment.
    * 
    * @example
    * PROD
@@ -15,12 +15,12 @@ export class ListInstancesShrinkRequest extends $dara.Model {
   env?: string;
   /**
    * @remarks
-   * Query Request
+   * The query request.
    */
   listQueryShrink?: string;
   /**
    * @remarks
-   * Tenant ID
+   * The tenant ID.
    * 
    * This parameter is required.
    * 
@@ -28,11 +28,20 @@ export class ListInstancesShrinkRequest extends $dara.Model {
    * 30001011
    */
   opTenantId?: number;
+  /**
+   * @remarks
+   * The operator user ID.
+   * 
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
   static names(): { [key: string]: string } {
     return {
       env: 'Env',
       listQueryShrink: 'ListQuery',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
     };
   }
 
@@ -41,6 +50,7 @@ export class ListInstancesShrinkRequest extends $dara.Model {
       env: 'string',
       listQueryShrink: 'string',
       opTenantId: 'number',
+      opUserId: 'string',
     };
   }
 

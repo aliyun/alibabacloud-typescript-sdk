@@ -65,7 +65,7 @@ export class ListKgRelationRequestListQuery extends $dara.Model {
 export class ListKgRelationRequest extends $dara.Model {
   /**
    * @remarks
-   * The paged search filter conditions.
+   * The paged query filter conditions.
    */
   listQuery?: ListKgRelationRequestListQuery;
   /**
@@ -78,6 +78,14 @@ export class ListKgRelationRequest extends $dara.Model {
    * 30001011
    */
   opTenantId?: number;
+  /**
+   * @remarks
+   * The ID of the operator user.
+   * 
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
   /**
    * @remarks
    * The relationship type code.
@@ -102,6 +110,7 @@ export class ListKgRelationRequest extends $dara.Model {
     return {
       listQuery: 'ListQuery',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
       relationType: 'RelationType',
       workspaceId: 'WorkspaceId',
     };
@@ -111,6 +120,7 @@ export class ListKgRelationRequest extends $dara.Model {
     return {
       listQuery: ListKgRelationRequestListQuery,
       opTenantId: 'number',
+      opUserId: 'string',
       relationType: 'string',
       workspaceId: 'string',
     };

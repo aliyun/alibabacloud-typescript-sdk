@@ -24,6 +24,11 @@ export class UpdateUserGroupSwitchRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
+  /**
    * @remarks
    * The user group ID.
    * 
@@ -37,6 +42,7 @@ export class UpdateUserGroupSwitchRequest extends $dara.Model {
     return {
       active: 'Active',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
       userGroupId: 'UserGroupId',
     };
   }
@@ -45,6 +51,7 @@ export class UpdateUserGroupSwitchRequest extends $dara.Model {
     return {
       active: 'boolean',
       opTenantId: 'number',
+      opUserId: 'string',
       userGroupId: 'string',
     };
   }

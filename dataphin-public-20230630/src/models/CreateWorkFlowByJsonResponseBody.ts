@@ -13,7 +13,7 @@ export class CreateWorkFlowByJsonResponseBodyData extends $dara.Model {
   hostMachine?: string;
   /**
    * @remarks
-   * The scheduling node ID of the workflow node after successful creation.
+   * The scheduling node ID of the workflow node created.
    * 
    * @example
    * n_123
@@ -21,7 +21,7 @@ export class CreateWorkFlowByJsonResponseBodyData extends $dara.Model {
   nodeId?: string;
   /**
    * @remarks
-   * The workflow ID after successful creation.
+   * The workflow ID generated after successful creation.
    * 
    * @example
    * 123
@@ -29,7 +29,7 @@ export class CreateWorkFlowByJsonResponseBodyData extends $dara.Model {
   pipelineId?: number;
   /**
    * @remarks
-   * The submit ID generated for the pending publish list after submission. Use this ID to publish through the publish domain. You can ignore this value for BASIC projects.
+   * The submit ID of the pending publish list generated after a successful submission. Use this ID to publish through the publish domain. You can ignore this value for BASIC projects.
    * 
    * @example
    * 7891
@@ -96,7 +96,7 @@ export class CreateWorkFlowByJsonResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The error details returned by the backend.
+   * The error message returned by the backend.
    * 
    * @example
    * internal error

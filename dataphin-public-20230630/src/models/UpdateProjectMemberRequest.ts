@@ -112,6 +112,11 @@ export class UpdateProjectMemberRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
+  /**
    * @remarks
    * The update command.
    * 
@@ -122,6 +127,7 @@ export class UpdateProjectMemberRequest extends $dara.Model {
     return {
       id: 'Id',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
       updateCommand: 'UpdateCommand',
     };
   }
@@ -130,6 +136,7 @@ export class UpdateProjectMemberRequest extends $dara.Model {
     return {
       id: 'number',
       opTenantId: 'number',
+      opUserId: 'string',
       updateCommand: UpdateProjectMemberRequestUpdateCommand,
     };
   }

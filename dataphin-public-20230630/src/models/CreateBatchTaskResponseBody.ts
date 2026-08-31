@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateBatchTaskResponseBodyCreateResult extends $dara.Model {
   /**
    * @remarks
-   * The node ID in the node directory tree.
+   * The node ID in the folder tree.
    * 
    * @example
    * 12113111

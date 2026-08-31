@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDataServiceAppResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code returned by the backend.
+   * The backend response code.
    * 
    * @example
    * OK
@@ -29,7 +29,7 @@ export class CreateDataServiceAppResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The error details returned by the backend.
+   * The details of the backend exception.
    * 
    * @example
    * internal error

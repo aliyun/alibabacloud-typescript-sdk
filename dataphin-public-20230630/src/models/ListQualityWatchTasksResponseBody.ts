@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListQualityWatchTasksResponseBodyPageResultQualityWatchTaskListRuleCountInfoStrongRuleCount extends $dara.Model {
   /**
    * @remarks
-   * The number of rules that failed to execute.
+   * The number of rules that failed to be executed.
    * 
    * @example
    * 0
@@ -21,7 +21,7 @@ export class ListQualityWatchTasksResponseBodyPageResultQualityWatchTaskListRule
   finishedRuleCount?: number;
   /**
    * @remarks
-   * The number of rules that were executed successfully.
+   * The number of rules that were successfully executed.
    * 
    * @example
    * 1
@@ -65,7 +65,7 @@ export class ListQualityWatchTasksResponseBodyPageResultQualityWatchTaskListRule
 export class ListQualityWatchTasksResponseBodyPageResultQualityWatchTaskListRuleCountInfoValidateRuleCount extends $dara.Model {
   /**
    * @remarks
-   * The number of rules that failed to execute.
+   * The number of rules that failed to be executed.
    * 
    * @example
    * 0
@@ -81,7 +81,7 @@ export class ListQualityWatchTasksResponseBodyPageResultQualityWatchTaskListRule
   finishedRuleCount?: number;
   /**
    * @remarks
-   * The number of rules that were executed successfully.
+   * The number of rules that were successfully executed.
    * 
    * @example
    * 1
@@ -125,7 +125,7 @@ export class ListQualityWatchTasksResponseBodyPageResultQualityWatchTaskListRule
 export class ListQualityWatchTasksResponseBodyPageResultQualityWatchTaskListRuleCountInfoWeakRuleCount extends $dara.Model {
   /**
    * @remarks
-   * The number of rules that failed to execute.
+   * The number of rules that failed to be executed.
    * 
    * @example
    * 0
@@ -141,7 +141,7 @@ export class ListQualityWatchTasksResponseBodyPageResultQualityWatchTaskListRule
   finishedRuleCount?: number;
   /**
    * @remarks
-   * The number of rules that were executed successfully.
+   * The number of rules that were successfully executed.
    * 
    * @example
    * 1
@@ -185,17 +185,17 @@ export class ListQualityWatchTasksResponseBodyPageResultQualityWatchTaskListRule
 export class ListQualityWatchTasksResponseBodyPageResultQualityWatchTaskListRuleCountInfo extends $dara.Model {
   /**
    * @remarks
-   * The strong rule count.
+   * The strong rule count information.
    */
   strongRuleCount?: ListQualityWatchTasksResponseBodyPageResultQualityWatchTaskListRuleCountInfoStrongRuleCount;
   /**
    * @remarks
-   * The validation rule count.
+   * The validation rule count information.
    */
   validateRuleCount?: ListQualityWatchTasksResponseBodyPageResultQualityWatchTaskListRuleCountInfoValidateRuleCount;
   /**
    * @remarks
-   * The weak rule count.
+   * The weak rule count information.
    */
   weakRuleCount?: ListQualityWatchTasksResponseBodyPageResultQualityWatchTaskListRuleCountInfoWeakRuleCount;
   static names(): { [key: string]: string } {
@@ -267,7 +267,7 @@ export class ListQualityWatchTasksResponseBodyPageResultQualityWatchTaskList ext
   creator?: string;
   /**
    * @remarks
-   * The end time, in the yyyy-MM-dd HH:mm:ss format.
+   * The end time. Format: yyyy-MM-dd HH:mm:ss.
    * 
    * @example
    * 2025-06-30 20:00:00
@@ -275,7 +275,7 @@ export class ListQualityWatchTasksResponseBodyPageResultQualityWatchTaskList ext
   endTime?: string;
   /**
    * @remarks
-   * The quality watchtask ID.
+   * The ID of the monitoring task.
    * 
    * @example
    * 1
@@ -320,12 +320,12 @@ export class ListQualityWatchTasksResponseBodyPageResultQualityWatchTaskList ext
   ruleCountInfo?: ListQualityWatchTasksResponseBodyPageResultQualityWatchTaskListRuleCountInfo;
   /**
    * @remarks
-   * The quality rule IDs.
+   * The list of quality rule IDs.
    */
   ruleIdList?: number[];
   /**
    * @remarks
-   * The start time, in the yyyy-MM-dd HH:mm:ss format.
+   * The start time. Format: yyyy-MM-dd HH:mm:ss.
    * 
    * @example
    * 2025-06-30 08:00:00
@@ -333,7 +333,7 @@ export class ListQualityWatchTasksResponseBodyPageResultQualityWatchTaskList ext
   startTime?: string;
   /**
    * @remarks
-   * The task statuses. Valid values:
+   * The task status. Valid values:
    * - NOT_RUN: not executed.
    * - WAITING: waiting.
    * - RUNNING: running.
@@ -349,7 +349,7 @@ export class ListQualityWatchTasksResponseBodyPageResultQualityWatchTaskList ext
   status?: string;
   /**
    * @remarks
-   * The monitored object ID.
+   * The ID of the monitored object.
    * 
    * @example
    * 1
@@ -469,7 +469,7 @@ export class ListQualityWatchTasksResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The error details from the backend.
+   * The backend exception details.
    * 
    * @example
    * internal error

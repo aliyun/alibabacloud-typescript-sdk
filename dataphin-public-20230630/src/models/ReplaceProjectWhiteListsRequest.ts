@@ -110,6 +110,11 @@ export class ReplaceProjectWhiteListsRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
+  /**
    * @remarks
    * The edit command.
    * 
@@ -120,6 +125,7 @@ export class ReplaceProjectWhiteListsRequest extends $dara.Model {
     return {
       id: 'Id',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
       replaceCommand: 'ReplaceCommand',
     };
   }
@@ -128,6 +134,7 @@ export class ReplaceProjectWhiteListsRequest extends $dara.Model {
     return {
       id: 'number',
       opTenantId: 'number',
+      opUserId: 'string',
       replaceCommand: ReplaceProjectWhiteListsRequestReplaceCommand,
     };
   }

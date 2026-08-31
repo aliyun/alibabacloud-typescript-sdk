@@ -108,10 +108,16 @@ export class CheckDataSourceConnectivityRequest extends $dara.Model {
    * 30001011
    */
   opTenantId?: number;
+  /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
   static names(): { [key: string]: string } {
     return {
       checkCommand: 'CheckCommand',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
     };
   }
 
@@ -119,6 +125,7 @@ export class CheckDataSourceConnectivityRequest extends $dara.Model {
     return {
       checkCommand: CheckDataSourceConnectivityRequestCheckCommand,
       opTenantId: 'number',
+      opUserId: 'string',
     };
   }
 

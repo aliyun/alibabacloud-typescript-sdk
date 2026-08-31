@@ -24,6 +24,11 @@ export class PublishDataServiceApiRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
+  /**
    * @remarks
    * The data service project ID.
    * 
@@ -47,6 +52,7 @@ export class PublishDataServiceApiRequest extends $dara.Model {
     return {
       apiId: 'ApiId',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
       projectId: 'ProjectId',
       versionId: 'VersionId',
     };
@@ -56,6 +62,7 @@ export class PublishDataServiceApiRequest extends $dara.Model {
     return {
       apiId: 'number',
       opTenantId: 'number',
+      opUserId: 'string',
       projectId: 'number',
       versionId: 'string',
     };

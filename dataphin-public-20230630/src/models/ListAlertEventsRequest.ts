@@ -191,10 +191,16 @@ export class ListAlertEventsRequest extends $dara.Model {
    * 30001011
    */
   opTenantId?: number;
+  /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
   static names(): { [key: string]: string } {
     return {
       listQuery: 'ListQuery',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
     };
   }
 
@@ -202,6 +208,7 @@ export class ListAlertEventsRequest extends $dara.Model {
     return {
       listQuery: ListAlertEventsRequestListQuery,
       opTenantId: 'number',
+      opUserId: 'string',
     };
   }
 

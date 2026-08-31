@@ -42,6 +42,311 @@ export class ListDatasetsResponseBodyPageResultResultDataOwnerList extends $dara
   }
 }
 
+export class ListDatasetsResponseBodyPageResultResultDataVersionListApiInfoRequestParamList extends $dara.Model {
+  /**
+   * @example
+   * yyyyMMdd
+   */
+  dateFormat?: string;
+  /**
+   * @example
+   * test
+   */
+  defaultValue?: string;
+  /**
+   * @example
+   * test
+   */
+  descr?: string;
+  isUrl?: boolean;
+  /**
+   * @example
+   * col02
+   */
+  mappingColumn?: string;
+  must?: boolean;
+  /**
+   * @example
+   * =
+   */
+  operator?: string;
+  optional?: boolean;
+  /**
+   * @example
+   * colx
+   */
+  originalColumn?: string;
+  /**
+   * @example
+   * p1
+   */
+  paramName?: string;
+  /**
+   * @example
+   * int
+   */
+  paramType?: string;
+  /**
+   * @example
+   * test
+   */
+  sample?: string;
+  /**
+   * @example
+   * 1
+   */
+  seqNum?: number;
+  static names(): { [key: string]: string } {
+    return {
+      dateFormat: 'DateFormat',
+      defaultValue: 'DefaultValue',
+      descr: 'Descr',
+      isUrl: 'IsUrl',
+      mappingColumn: 'MappingColumn',
+      must: 'Must',
+      operator: 'Operator',
+      optional: 'Optional',
+      originalColumn: 'OriginalColumn',
+      paramName: 'ParamName',
+      paramType: 'ParamType',
+      sample: 'Sample',
+      seqNum: 'SeqNum',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dateFormat: 'string',
+      defaultValue: 'string',
+      descr: 'string',
+      isUrl: 'boolean',
+      mappingColumn: 'string',
+      must: 'boolean',
+      operator: 'string',
+      optional: 'boolean',
+      originalColumn: 'string',
+      paramName: 'string',
+      paramType: 'string',
+      sample: 'string',
+      seqNum: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDatasetsResponseBodyPageResultResultDataVersionListApiInfoResponseParamList extends $dara.Model {
+  /**
+   * @example
+   * yyyyMMdd
+   */
+  dateFormat?: string;
+  /**
+   * @example
+   * test
+   */
+  descr?: string;
+  isUrl?: boolean;
+  /**
+   * @example
+   * col1
+   */
+  mappingColumn?: string;
+  /**
+   * @example
+   * colx
+   */
+  originalColumn?: string;
+  /**
+   * @example
+   * p2
+   */
+  paramName?: string;
+  /**
+   * @example
+   * int
+   */
+  paramType?: string;
+  /**
+   * @example
+   * test
+   */
+  sample?: string;
+  /**
+   * @example
+   * 1
+   */
+  seqNum?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dateFormat: 'DateFormat',
+      descr: 'Descr',
+      isUrl: 'IsUrl',
+      mappingColumn: 'MappingColumn',
+      originalColumn: 'OriginalColumn',
+      paramName: 'ParamName',
+      paramType: 'ParamType',
+      sample: 'Sample',
+      seqNum: 'SeqNum',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dateFormat: 'string',
+      descr: 'string',
+      isUrl: 'boolean',
+      mappingColumn: 'string',
+      originalColumn: 'string',
+      paramName: 'string',
+      paramType: 'string',
+      sample: 'string',
+      seqNum: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDatasetsResponseBodyPageResultResultDataVersionListApiInfo extends $dara.Model {
+  /**
+   * @example
+   * 1012
+   */
+  apiNo?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 60
+   */
+  execTimeout?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  executeMode?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1011
+   */
+  osApiGroup?: number;
+  /**
+   * @example
+   * test
+   */
+  osApiGroupName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1012
+   */
+  osProject?: number;
+  /**
+   * @example
+   * test
+   */
+  osProjectName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  protocol?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  requestMethod?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  requestParamList?: ListDatasetsResponseBodyPageResultResultDataVersionListApiInfoRequestParamList[];
+  responseParamList?: ListDatasetsResponseBodyPageResultResultDataVersionListApiInfoResponseParamList[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 60
+   */
+  timeout?: number;
+  static names(): { [key: string]: string } {
+    return {
+      apiNo: 'ApiNo',
+      execTimeout: 'ExecTimeout',
+      executeMode: 'ExecuteMode',
+      osApiGroup: 'OsApiGroup',
+      osApiGroupName: 'OsApiGroupName',
+      osProject: 'OsProject',
+      osProjectName: 'OsProjectName',
+      protocol: 'Protocol',
+      requestMethod: 'RequestMethod',
+      requestParamList: 'RequestParamList',
+      responseParamList: 'ResponseParamList',
+      timeout: 'Timeout',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apiNo: 'number',
+      execTimeout: 'number',
+      executeMode: 'number',
+      osApiGroup: 'number',
+      osApiGroupName: 'string',
+      osProject: 'number',
+      osProjectName: 'string',
+      protocol: 'number',
+      requestMethod: 'number',
+      requestParamList: { 'type': 'array', 'itemType': ListDatasetsResponseBodyPageResultResultDataVersionListApiInfoRequestParamList },
+      responseParamList: { 'type': 'array', 'itemType': ListDatasetsResponseBodyPageResultResultDataVersionListApiInfoResponseParamList },
+      timeout: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.requestParamList)) {
+      $dara.Model.validateArray(this.requestParamList);
+    }
+    if(Array.isArray(this.responseParamList)) {
+      $dara.Model.validateArray(this.responseParamList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListDatasetsResponseBodyPageResultResultDataVersionListDataVersionConfigFileStorageConfig extends $dara.Model {
   /**
    * @remarks
@@ -781,6 +1086,7 @@ export class ListDatasetsResponseBodyPageResultResultDataVersionListDataVersionC
 }
 
 export class ListDatasetsResponseBodyPageResultResultDataVersionList extends $dara.Model {
+  apiInfo?: ListDatasetsResponseBodyPageResultResultDataVersionListApiInfo;
   /**
    * @remarks
    * The creator ID.
@@ -836,6 +1142,7 @@ export class ListDatasetsResponseBodyPageResultResultDataVersionList extends $da
   version?: string;
   static names(): { [key: string]: string } {
     return {
+      apiInfo: 'ApiInfo',
       creator: 'Creator',
       dataVersionConfig: 'DataVersionConfig',
       datasetId: 'DatasetId',
@@ -848,6 +1155,7 @@ export class ListDatasetsResponseBodyPageResultResultDataVersionList extends $da
 
   static types(): { [key: string]: any } {
     return {
+      apiInfo: ListDatasetsResponseBodyPageResultResultDataVersionListApiInfo,
       creator: 'string',
       dataVersionConfig: ListDatasetsResponseBodyPageResultResultDataVersionListDataVersionConfig,
       datasetId: 'number',
@@ -859,6 +1167,9 @@ export class ListDatasetsResponseBodyPageResultResultDataVersionList extends $da
   }
 
   validate() {
+    if(this.apiInfo && typeof (this.apiInfo as any).validate === 'function') {
+      (this.apiInfo as any).validate();
+    }
     if(this.dataVersionConfig && typeof (this.dataVersionConfig as any).validate === 'function') {
       (this.dataVersionConfig as any).validate();
     }

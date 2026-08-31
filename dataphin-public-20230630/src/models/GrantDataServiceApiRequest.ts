@@ -224,6 +224,11 @@ export class GrantDataServiceApiRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
+  /**
    * @remarks
    * The data service project ID.
    * 
@@ -237,6 +242,7 @@ export class GrantDataServiceApiRequest extends $dara.Model {
     return {
       grantCommand: 'GrantCommand',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
       projectId: 'ProjectId',
     };
   }
@@ -245,6 +251,7 @@ export class GrantDataServiceApiRequest extends $dara.Model {
     return {
       grantCommand: GrantDataServiceApiRequestGrantCommand,
       opTenantId: 'number',
+      opUserId: 'string',
       projectId: 'number',
     };
   }

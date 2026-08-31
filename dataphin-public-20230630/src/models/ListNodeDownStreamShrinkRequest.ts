@@ -30,11 +30,20 @@ export class ListNodeDownStreamShrinkRequest extends $dara.Model {
    * 30001011
    */
   opTenantId?: number;
+  /**
+   * @remarks
+   * The ID of the operator.
+   * 
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
   static names(): { [key: string]: string } {
     return {
       env: 'Env',
       listQueryShrink: 'ListQuery',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
     };
   }
 
@@ -43,6 +52,7 @@ export class ListNodeDownStreamShrinkRequest extends $dara.Model {
       env: 'string',
       listQueryShrink: 'string',
       opTenantId: 'number',
+      opUserId: 'string',
     };
   }
 

@@ -10,7 +10,7 @@ export class GetTableLineageByTaskIdRequestTableLineageByTaskIdQuery extends $da
   needNotExistObject?: boolean;
   /**
    * @remarks
-   * The environment of the task to query: DEV or PROD.
+   * The environment of the node used to filter the query. Valid values: DEV and PROD.
    * 
    * @example
    * DEV
@@ -18,7 +18,7 @@ export class GetTableLineageByTaskIdRequestTableLineageByTaskIdQuery extends $da
   taskEnv?: string;
   /**
    * @remarks
-   * The task (node) ID used to filter the query.
+   * The ID of the node used to filter the query.
    * 
    * This parameter is required.
    * 
@@ -64,6 +64,14 @@ export class GetTableLineageByTaskIdRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
+   * The ID of the operator.
+   * 
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
+  /**
+   * @remarks
    * The data structure for querying table lineage.
    * 
    * This parameter is required.
@@ -72,6 +80,7 @@ export class GetTableLineageByTaskIdRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
       tableLineageByTaskIdQuery: 'TableLineageByTaskIdQuery',
     };
   }
@@ -79,6 +88,7 @@ export class GetTableLineageByTaskIdRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       opTenantId: 'number',
+      opUserId: 'string',
       tableLineageByTaskIdQuery: GetTableLineageByTaskIdRequestTableLineageByTaskIdQuery,
     };
   }

@@ -181,10 +181,16 @@ export class ListQualityTemplatesRequest extends $dara.Model {
    * 30001011
    */
   opTenantId?: number;
+  /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
   static names(): { [key: string]: string } {
     return {
       listQuery: 'ListQuery',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
     };
   }
 
@@ -192,6 +198,7 @@ export class ListQualityTemplatesRequest extends $dara.Model {
     return {
       listQuery: ListQualityTemplatesRequestListQuery,
       opTenantId: 'number',
+      opUserId: 'string',
     };
   }
 

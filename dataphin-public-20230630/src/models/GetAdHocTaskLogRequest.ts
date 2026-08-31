@@ -24,6 +24,11 @@ export class GetAdHocTaskLogRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
+  /**
    * @remarks
    * The project ID.
    * 
@@ -57,6 +62,7 @@ export class GetAdHocTaskLogRequest extends $dara.Model {
     return {
       offset: 'Offset',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
       projectId: 'ProjectId',
       subTaskId: 'SubTaskId',
       taskId: 'TaskId',
@@ -67,6 +73,7 @@ export class GetAdHocTaskLogRequest extends $dara.Model {
     return {
       offset: 'number',
       opTenantId: 'number',
+      opUserId: 'string',
       projectId: 'number',
       subTaskId: 'number',
       taskId: 'string',

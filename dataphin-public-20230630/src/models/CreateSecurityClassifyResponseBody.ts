@@ -13,7 +13,7 @@ export class CreateSecurityClassifyResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The data classification ID.
+   * The data category ID.
    * 
    * @example
    * 1

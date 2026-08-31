@@ -52,10 +52,16 @@ export class DeleteRowPermissionRequest extends $dara.Model {
    * 30001011
    */
   opTenantId?: number;
+  /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
   static names(): { [key: string]: string } {
     return {
       deleteRowPermissionCommand: 'DeleteRowPermissionCommand',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
     };
   }
 
@@ -63,6 +69,7 @@ export class DeleteRowPermissionRequest extends $dara.Model {
     return {
       deleteRowPermissionCommand: DeleteRowPermissionRequestDeleteRowPermissionCommand,
       opTenantId: 'number',
+      opUserId: 'string',
     };
   }
 

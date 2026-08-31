@@ -24,6 +24,11 @@ export class UpdateProjectMemberShrinkRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
+  /**
    * @remarks
    * The update command.
    * 
@@ -34,6 +39,7 @@ export class UpdateProjectMemberShrinkRequest extends $dara.Model {
     return {
       id: 'Id',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
       updateCommandShrink: 'UpdateCommand',
     };
   }
@@ -42,6 +48,7 @@ export class UpdateProjectMemberShrinkRequest extends $dara.Model {
     return {
       id: 'number',
       opTenantId: 'number',
+      opUserId: 'string',
       updateCommandShrink: 'string',
     };
   }

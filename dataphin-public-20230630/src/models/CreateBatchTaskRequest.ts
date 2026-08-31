@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateBatchTaskRequestCreateCommand extends $dara.Model {
   /**
    * @remarks
-   * The catalog for a database SQL node. This parameter takes effect only for data source types that require a catalog, such as Presto.
+   * The catalog for database SQL nodes. This parameter takes effect only for data source types that require a catalog, such as Presto.
    * 
    * @example
    * mysql_catalog
@@ -13,7 +13,7 @@ export class CreateBatchTaskRequestCreateCommand extends $dara.Model {
   dataSourceCatalog?: string;
   /**
    * @remarks
-   * The data source ID for a database SQL node.
+   * The data source ID for database SQL nodes.
    * 
    * @example
    * 12131111
@@ -21,7 +21,7 @@ export class CreateBatchTaskRequestCreateCommand extends $dara.Model {
   dataSourceId?: string;
   /**
    * @remarks
-   * The schema for a database SQL node. This parameter takes effect only for data source types that require a schema, such as Oracle.
+   * The schema for database SQL nodes. This parameter takes effect only for data source types that require a schema, such as Oracle.
    * 
    * @example
    * erp
@@ -39,6 +39,11 @@ export class CreateBatchTaskRequestCreateCommand extends $dara.Model {
   description?: string;
   /**
    * @remarks
+   * The list of development owner IDs.
+   */
+  developOwnerIdList?: string[];
+  /**
+   * @remarks
    * The folder path in the menu tree to which the node belongs.
    * 
    * This parameter is required.
@@ -49,10 +54,10 @@ export class CreateBatchTaskRequestCreateCommand extends $dara.Model {
   directory?: string;
   /**
    * @remarks
-   * The execution engine for the node, such as a Python node. Valid values:
-   * - 1: PYTHON2_7
-   * - 2: PYTHON3_7
-   * - 3: PYTHON3_11.
+   * The execution engine for the node, such as for Python nodes. Valid values:
+   * - 1. PYTHON2_7
+   * - 2. PYTHON3_7
+   * - 3. PYTHON3_11
    * 
    * @example
    * PYTHON3_7
@@ -70,6 +75,11 @@ export class CreateBatchTaskRequestCreateCommand extends $dara.Model {
   name?: string;
   /**
    * @remarks
+   * The list of O&M owner IDs.
+   */
+  opsOwnerIdList?: string[];
+  /**
+   * @remarks
    * The ID of the project to which the node belongs.
    * 
    * This parameter is required.
@@ -80,12 +90,12 @@ export class CreateBatchTaskRequestCreateCommand extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The list of third-party Python packages that the node depends on.
+   * The list of Python third-party packages that the node depends on.
    */
   pythonModuleList?: string[];
   /**
    * @remarks
-   * The scheduling type. Valid values:
+   * The schedule type. Valid values:
    * - 1: periodic node.
    * - 3: manual node.
    * 
@@ -141,7 +151,7 @@ export class CreateBatchTaskRequestCreateCommand extends $dara.Model {
    * - SPARK_SQL: 80
    * - GAUSS_SQL: 81
    * - DATABASE_SQL: 998
-   * - EXTERNAL_TRIGGER: 997.
+   * - EXTERNAL_TRIGGER: 997
    * 
    * This parameter is required.
    * 
@@ -155,9 +165,11 @@ export class CreateBatchTaskRequestCreateCommand extends $dara.Model {
       dataSourceId: 'DataSourceId',
       dataSourceSchema: 'DataSourceSchema',
       description: 'Description',
+      developOwnerIdList: 'DevelopOwnerIdList',
       directory: 'Directory',
       engine: 'Engine',
       name: 'Name',
+      opsOwnerIdList: 'OpsOwnerIdList',
       projectId: 'ProjectId',
       pythonModuleList: 'PythonModuleList',
       scheduleType: 'ScheduleType',
@@ -171,9 +183,11 @@ export class CreateBatchTaskRequestCreateCommand extends $dara.Model {
       dataSourceId: 'string',
       dataSourceSchema: 'string',
       description: 'string',
+      developOwnerIdList: { 'type': 'array', 'itemType': 'string' },
       directory: 'string',
       engine: 'string',
       name: 'string',
+      opsOwnerIdList: { 'type': 'array', 'itemType': 'string' },
       projectId: 'number',
       pythonModuleList: { 'type': 'array', 'itemType': 'string' },
       scheduleType: 'number',
@@ -182,6 +196,12 @@ export class CreateBatchTaskRequestCreateCommand extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.developOwnerIdList)) {
+      $dara.Model.validateArray(this.developOwnerIdList);
+    }
+    if(Array.isArray(this.opsOwnerIdList)) {
+      $dara.Model.validateArray(this.opsOwnerIdList);
+    }
     if(Array.isArray(this.pythonModuleList)) {
       $dara.Model.validateArray(this.pythonModuleList);
     }
@@ -211,10 +231,19 @@ export class CreateBatchTaskRequest extends $dara.Model {
    * 30001011
    */
   opTenantId?: number;
+  /**
+   * @remarks
+   * The ID of the operator.
+   * 
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
   static names(): { [key: string]: string } {
     return {
       createCommand: 'CreateCommand',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
     };
   }
 
@@ -222,6 +251,7 @@ export class CreateBatchTaskRequest extends $dara.Model {
     return {
       createCommand: CreateBatchTaskRequestCreateCommand,
       opTenantId: 'number',
+      opUserId: 'string',
     };
   }
 

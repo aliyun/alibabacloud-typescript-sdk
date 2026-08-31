@@ -15,7 +15,7 @@ export class CreateDataDomainRequestCreateCommand extends $dara.Model {
   abbreviation?: string;
   /**
    * @remarks
-   * The ID of the data unit to which the data domain belongs.
+   * The ID of the business unit to which the data domain belongs.
    * 
    * This parameter is required.
    * 
@@ -38,7 +38,7 @@ export class CreateDataDomainRequestCreateCommand extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 主题域测试
+   * DataDomainTest
    */
   displayName?: string;
   /**
@@ -108,10 +108,19 @@ export class CreateDataDomainRequest extends $dara.Model {
    * 30001011
    */
   opTenantId?: number;
+  /**
+   * @remarks
+   * The ID of the operator.
+   * 
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
   static names(): { [key: string]: string } {
     return {
       createCommand: 'CreateCommand',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
     };
   }
 
@@ -119,6 +128,7 @@ export class CreateDataDomainRequest extends $dara.Model {
     return {
       createCommand: CreateDataDomainRequestCreateCommand,
       opTenantId: 'number',
+      opUserId: 'string',
     };
   }
 

@@ -24,6 +24,11 @@ export class GetAdHocFileRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
+  /**
    * @remarks
    * The project ID.
    * 
@@ -37,6 +42,7 @@ export class GetAdHocFileRequest extends $dara.Model {
     return {
       fileId: 'FileId',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
       projectId: 'ProjectId',
     };
   }
@@ -45,6 +51,7 @@ export class GetAdHocFileRequest extends $dara.Model {
     return {
       fileId: 'number',
       opTenantId: 'number',
+      opUserId: 'string',
       projectId: 'number',
     };
   }

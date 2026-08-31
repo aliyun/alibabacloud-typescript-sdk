@@ -14,6 +14,11 @@ export class ExportKgSchemaRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
+  /**
    * @remarks
    * The format of the exported content. Valid values: json and yaml. Default value: yaml.
    * 
@@ -42,6 +47,7 @@ export class ExportKgSchemaRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
       outputFormat: 'OutputFormat',
       versionId: 'VersionId',
       workspaceId: 'WorkspaceId',
@@ -51,6 +57,7 @@ export class ExportKgSchemaRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       opTenantId: 'number',
+      opUserId: 'string',
       outputFormat: 'string',
       versionId: 'number',
       workspaceId: 'string',

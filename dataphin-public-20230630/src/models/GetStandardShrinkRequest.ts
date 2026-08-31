@@ -14,6 +14,11 @@ export class GetStandardShrinkRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
+  /**
    * @remarks
    * The query command.
    * 
@@ -23,6 +28,7 @@ export class GetStandardShrinkRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
       standardGetQueryShrink: 'StandardGetQuery',
     };
   }
@@ -30,6 +36,7 @@ export class GetStandardShrinkRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       opTenantId: 'number',
+      opUserId: 'string',
       standardGetQueryShrink: 'string',
     };
   }

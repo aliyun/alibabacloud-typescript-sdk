@@ -43,6 +43,14 @@ export class GetBatchTaskInfoRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
+   * The ID of the operator.
+   * 
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
+  /**
+   * @remarks
    * The ID of the project to which the node belongs.
    * 
    * This parameter is required.
@@ -57,6 +65,7 @@ export class GetBatchTaskInfoRequest extends $dara.Model {
       fileId: 'FileId',
       includeAllUpStreams: 'IncludeAllUpStreams',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
       projectId: 'ProjectId',
     };
   }
@@ -67,6 +76,7 @@ export class GetBatchTaskInfoRequest extends $dara.Model {
       fileId: 'number',
       includeAllUpStreams: 'boolean',
       opTenantId: 'number',
+      opUserId: 'string',
       projectId: 'number',
     };
   }

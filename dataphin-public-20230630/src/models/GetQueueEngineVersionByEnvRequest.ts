@@ -35,6 +35,14 @@ export class GetQueueEngineVersionByEnvRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
+   * The ID of the operator user.
+   * 
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
+  /**
+   * @remarks
    * The project ID.
    * 
    * This parameter is required.
@@ -68,6 +76,7 @@ export class GetQueueEngineVersionByEnvRequest extends $dara.Model {
       clusterId: 'ClusterId',
       env: 'Env',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
       projectId: 'ProjectId',
       queueName: 'QueueName',
       streamBatchMode: 'StreamBatchMode',
@@ -79,6 +88,7 @@ export class GetQueueEngineVersionByEnvRequest extends $dara.Model {
       clusterId: 'string',
       env: 'string',
       opTenantId: 'number',
+      opUserId: 'string',
       projectId: 'number',
       queueName: 'string',
       streamBatchMode: 'string',

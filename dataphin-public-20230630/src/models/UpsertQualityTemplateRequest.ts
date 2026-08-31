@@ -172,6 +172,11 @@ export class UpsertQualityTemplateRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
+  /**
    * @remarks
    * Upsert command.
    * 
@@ -181,6 +186,7 @@ export class UpsertQualityTemplateRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
       upsertCommand: 'UpsertCommand',
     };
   }
@@ -188,6 +194,7 @@ export class UpsertQualityTemplateRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       opTenantId: 'number',
+      opUserId: 'string',
       upsertCommand: UpsertQualityTemplateRequestUpsertCommand,
     };
   }

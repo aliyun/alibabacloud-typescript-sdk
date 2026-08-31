@@ -25,6 +25,11 @@ export class GetSupplementDagrunRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
+  /**
    * @remarks
    * The ID of the data backfill instance.
    * 
@@ -38,6 +43,7 @@ export class GetSupplementDagrunRequest extends $dara.Model {
     return {
       env: 'Env',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
       supplementId: 'SupplementId',
     };
   }
@@ -46,6 +52,7 @@ export class GetSupplementDagrunRequest extends $dara.Model {
     return {
       env: 'string',
       opTenantId: 'number',
+      opUserId: 'string',
       supplementId: 'string',
     };
   }

@@ -34,6 +34,11 @@ export class GetPhysicalInstanceRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
+  /**
    * @remarks
    * Project ID
    * 
@@ -48,6 +53,7 @@ export class GetPhysicalInstanceRequest extends $dara.Model {
       env: 'Env',
       instanceId: 'InstanceId',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
       projectId: 'ProjectId',
     };
   }
@@ -57,6 +63,7 @@ export class GetPhysicalInstanceRequest extends $dara.Model {
       env: 'string',
       instanceId: 'string',
       opTenantId: 'number',
+      opUserId: 'string',
       projectId: 'number',
     };
   }

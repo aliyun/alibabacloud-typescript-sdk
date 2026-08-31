@@ -24,6 +24,11 @@ export class RemoveProjectMemberShrinkRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
+  /**
    * @remarks
    * The command to remove a member.
    * 
@@ -34,6 +39,7 @@ export class RemoveProjectMemberShrinkRequest extends $dara.Model {
     return {
       id: 'Id',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
       removeCommandShrink: 'RemoveCommand',
     };
   }
@@ -42,6 +48,7 @@ export class RemoveProjectMemberShrinkRequest extends $dara.Model {
     return {
       id: 'number',
       opTenantId: 'number',
+      opUserId: 'string',
       removeCommandShrink: 'string',
     };
   }

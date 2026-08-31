@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetPhysicalInstanceLogResponseBodyTaskrunLogList extends $dara.Model {
   /**
    * @remarks
-   * The execution duration of the task. Unit: seconds.
+   * The task execution duration, in seconds.
    * 
    * @example
    * 60s
@@ -21,7 +21,7 @@ export class GetPhysicalInstanceLogResponseBodyTaskrunLogList extends $dara.Mode
   endTime?: string;
   /**
    * @remarks
-   * The execution log content. This value is empty if the task has not been run.
+   * The run log content. This value is empty if the task has not been run.
    * 
    * @example
    * xx
@@ -37,7 +37,7 @@ export class GetPhysicalInstanceLogResponseBodyTaskrunLogList extends $dara.Mode
   startTime?: string;
   /**
    * @remarks
-   * The execution status.
+   * The run status.
    * 
    * @example
    * SUCCESS
@@ -101,7 +101,7 @@ export class GetPhysicalInstanceLogResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The error message.
+   * The error message returned if the request failed.
    * 
    * @example
    * successful

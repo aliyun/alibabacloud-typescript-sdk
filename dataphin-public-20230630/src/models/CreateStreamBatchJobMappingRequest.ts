@@ -152,6 +152,11 @@ export class CreateStreamBatchJobMappingRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
+  /**
    * @remarks
    * The stream-batch integrated node information.
    * 
@@ -161,6 +166,7 @@ export class CreateStreamBatchJobMappingRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
       streamBatchJobMappingCreateCommand: 'StreamBatchJobMappingCreateCommand',
     };
   }
@@ -168,6 +174,7 @@ export class CreateStreamBatchJobMappingRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       opTenantId: 'number',
+      opUserId: 'string',
       streamBatchJobMappingCreateCommand: CreateStreamBatchJobMappingRequestStreamBatchJobMappingCreateCommand,
     };
   }

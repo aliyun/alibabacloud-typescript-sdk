@@ -66,7 +66,7 @@ export class ImportKgSchemaResponseBody extends $dara.Model {
   importResult?: ImportKgSchemaResponseBodyImportResult;
   /**
    * @remarks
-   * The backend exception details.
+   * The details of the backend exception.
    * 
    * @example
    * internal error

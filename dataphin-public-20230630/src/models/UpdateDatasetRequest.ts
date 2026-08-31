@@ -2,6 +2,199 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class UpdateDatasetRequestUpdateCommandApiInfoRequestParamList extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
+  defaultValue?: string;
+  /**
+   * @example
+   * test
+   */
+  descr?: string;
+  isUrl?: boolean;
+  must?: boolean;
+  /**
+   * @example
+   * col01
+   */
+  paramName?: string;
+  /**
+   * @example
+   * int
+   */
+  paramType?: string;
+  /**
+   * @example
+   * 1
+   */
+  sample?: string;
+  static names(): { [key: string]: string } {
+    return {
+      defaultValue: 'DefaultValue',
+      descr: 'Descr',
+      isUrl: 'IsUrl',
+      must: 'Must',
+      paramName: 'ParamName',
+      paramType: 'ParamType',
+      sample: 'Sample',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      defaultValue: 'string',
+      descr: 'string',
+      isUrl: 'boolean',
+      must: 'boolean',
+      paramName: 'string',
+      paramType: 'string',
+      sample: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDatasetRequestUpdateCommandApiInfoResponseParamList extends $dara.Model {
+  /**
+   * @example
+   * test
+   */
+  descr?: string;
+  isUrl?: boolean;
+  /**
+   * @example
+   * col01
+   */
+  paramName?: string;
+  /**
+   * @example
+   * int
+   */
+  paramType?: string;
+  /**
+   * @example
+   * 1
+   */
+  sample?: string;
+  static names(): { [key: string]: string } {
+    return {
+      descr: 'Descr',
+      isUrl: 'IsUrl',
+      paramName: 'ParamName',
+      paramType: 'ParamType',
+      sample: 'Sample',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      descr: 'string',
+      isUrl: 'boolean',
+      paramName: 'string',
+      paramType: 'string',
+      sample: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDatasetRequestUpdateCommandApiInfo extends $dara.Model {
+  /**
+   * @example
+   * 60
+   */
+  execTimeout?: number;
+  /**
+   * @example
+   * 1
+   */
+  executeMode?: number;
+  /**
+   * @example
+   * 1011
+   */
+  osApiGroup?: number;
+  /**
+   * @example
+   * 1012
+   */
+  osProject?: number;
+  /**
+   * @example
+   * 1
+   */
+  protocol?: number;
+  /**
+   * @example
+   * 1
+   */
+  requestMethod?: number;
+  requestParamList?: UpdateDatasetRequestUpdateCommandApiInfoRequestParamList[];
+  responseParamList?: UpdateDatasetRequestUpdateCommandApiInfoResponseParamList[];
+  /**
+   * @example
+   * 60
+   */
+  timeout?: number;
+  static names(): { [key: string]: string } {
+    return {
+      execTimeout: 'ExecTimeout',
+      executeMode: 'ExecuteMode',
+      osApiGroup: 'OsApiGroup',
+      osProject: 'OsProject',
+      protocol: 'Protocol',
+      requestMethod: 'RequestMethod',
+      requestParamList: 'RequestParamList',
+      responseParamList: 'ResponseParamList',
+      timeout: 'Timeout',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      execTimeout: 'number',
+      executeMode: 'number',
+      osApiGroup: 'number',
+      osProject: 'number',
+      protocol: 'number',
+      requestMethod: 'number',
+      requestParamList: { 'type': 'array', 'itemType': UpdateDatasetRequestUpdateCommandApiInfoRequestParamList },
+      responseParamList: { 'type': 'array', 'itemType': UpdateDatasetRequestUpdateCommandApiInfoResponseParamList },
+      timeout: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.requestParamList)) {
+      $dara.Model.validateArray(this.requestParamList);
+    }
+    if(Array.isArray(this.responseParamList)) {
+      $dara.Model.validateArray(this.responseParamList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateDatasetRequestUpdateCommandVersionConfigFileStorageConfig extends $dara.Model {
   /**
    * @remarks
@@ -743,6 +936,7 @@ export class UpdateDatasetRequestUpdateCommandVersionConfig extends $dara.Model 
 }
 
 export class UpdateDatasetRequestUpdateCommand extends $dara.Model {
+  apiInfo?: UpdateDatasetRequestUpdateCommandApiInfo;
   /**
    * @remarks
    * **The content type.**
@@ -850,6 +1044,7 @@ export class UpdateDatasetRequestUpdateCommand extends $dara.Model {
   versionConfig?: UpdateDatasetRequestUpdateCommandVersionConfig;
   static names(): { [key: string]: string } {
     return {
+      apiInfo: 'ApiInfo',
       contentType: 'ContentType',
       dataCellId: 'DataCellId',
       description: 'Description',
@@ -868,6 +1063,7 @@ export class UpdateDatasetRequestUpdateCommand extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      apiInfo: UpdateDatasetRequestUpdateCommandApiInfo,
       contentType: 'string',
       dataCellId: 'string',
       description: 'string',
@@ -885,6 +1081,9 @@ export class UpdateDatasetRequestUpdateCommand extends $dara.Model {
   }
 
   validate() {
+    if(this.apiInfo && typeof (this.apiInfo as any).validate === 'function') {
+      (this.apiInfo as any).validate();
+    }
     if(this.versionConfig && typeof (this.versionConfig as any).validate === 'function') {
       (this.versionConfig as any).validate();
     }
@@ -908,6 +1107,11 @@ export class UpdateDatasetRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
+  /**
    * @remarks
    * The project ID.
    * 
@@ -927,6 +1131,7 @@ export class UpdateDatasetRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
       projectId: 'ProjectId',
       updateCommand: 'UpdateCommand',
     };
@@ -935,6 +1140,7 @@ export class UpdateDatasetRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       opTenantId: 'number',
+      opUserId: 'string',
       projectId: 'string',
       updateCommand: UpdateDatasetRequestUpdateCommand,
     };

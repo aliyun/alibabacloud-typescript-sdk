@@ -20,10 +20,16 @@ export class ListRowPermissionByUserIdShrinkRequest extends $dara.Model {
    * 30001011
    */
   opTenantId?: number;
+  /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
   static names(): { [key: string]: string } {
     return {
       listRowPermissionByUserIdQueryShrink: 'ListRowPermissionByUserIdQuery',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
     };
   }
 
@@ -31,6 +37,7 @@ export class ListRowPermissionByUserIdShrinkRequest extends $dara.Model {
     return {
       listRowPermissionByUserIdQueryShrink: 'string',
       opTenantId: 'number',
+      opUserId: 'string',
     };
   }
 

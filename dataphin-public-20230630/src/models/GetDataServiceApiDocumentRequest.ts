@@ -24,6 +24,11 @@ export class GetDataServiceApiDocumentRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
+  /**
    * @remarks
    * The version.
    * 
@@ -35,6 +40,7 @@ export class GetDataServiceApiDocumentRequest extends $dara.Model {
     return {
       id: 'Id',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
       versionId: 'VersionId',
     };
   }
@@ -43,6 +49,7 @@ export class GetDataServiceApiDocumentRequest extends $dara.Model {
     return {
       id: 'number',
       opTenantId: 'number',
+      opUserId: 'string',
       versionId: 'string',
     };
   }

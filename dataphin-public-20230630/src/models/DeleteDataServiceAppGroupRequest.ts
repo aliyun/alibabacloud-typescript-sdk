@@ -23,10 +23,16 @@ export class DeleteDataServiceAppGroupRequest extends $dara.Model {
    * 30001011
    */
   opTenantId?: number;
+  /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
   static names(): { [key: string]: string } {
     return {
       groupId: 'GroupId',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
     };
   }
 
@@ -34,6 +40,7 @@ export class DeleteDataServiceAppGroupRequest extends $dara.Model {
     return {
       groupId: 'number',
       opTenantId: 'number',
+      opUserId: 'string',
     };
   }
 

@@ -160,10 +160,16 @@ export class ExecuteAdHocTaskRequest extends $dara.Model {
    * 30001011
    */
   opTenantId?: number;
+  /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
   static names(): { [key: string]: string } {
     return {
       executeCommand: 'ExecuteCommand',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
     };
   }
 
@@ -171,6 +177,7 @@ export class ExecuteAdHocTaskRequest extends $dara.Model {
     return {
       executeCommand: ExecuteAdHocTaskRequestExecuteCommand,
       opTenantId: 'number',
+      opUserId: 'string',
     };
   }
 

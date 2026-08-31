@@ -13,7 +13,7 @@ export class UpsertQualityScheduleRequestUpsertCommand extends $dara.Model {
   cronExpression?: string;
   /**
    * @remarks
-   * The ID of the schedule resource. If specified, the operation updates the existing resource. If not specified, the operation creates a new resource.
+   * The schedule object ID. If this parameter is specified, the schedule is updated. If this parameter is not specified, a schedule is created.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class UpsertQualityScheduleRequestUpsertCommand extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The name of the schedule resource.
+   * The name of the schedule object.
    * 
    * This parameter is required.
    * 
@@ -31,7 +31,7 @@ export class UpsertQualityScheduleRequestUpsertCommand extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The partition expression for custom expressions.
+   * The custom partition expression.
    * 
    * @example
    * ds=${yyyyMMdd}
@@ -41,8 +41,8 @@ export class UpsertQualityScheduleRequestUpsertCommand extends $dara.Model {
    * @remarks
    * The partition type. Valid values:
    * - EVERY_DAY: every day.
-   * - PRE_DAY: previous day.
-   * - TODAY: current day.
+   * - PRE_DAY: yesterday.
+   * - TODAY: today.
    * - FIRST_DAY_OF_WEEK: first day of the week (Sunday).
    * - CUSTOM: custom.
    * 
@@ -52,7 +52,7 @@ export class UpsertQualityScheduleRequestUpsertCommand extends $dara.Model {
   partitionType?: string;
   /**
    * @remarks
-   * The scheduling interval type for timed scheduling. Valid values:
+   * The schedule interval type for timed scheduling. Valid values:
    * - DAILY: day.
    * - WEEKLY: week.
    * - MONTHLY: month.
@@ -65,15 +65,15 @@ export class UpsertQualityScheduleRequestUpsertCommand extends $dara.Model {
   periodScheduleIntervalType?: string;
   /**
    * @remarks
-   * The scheduling interval values for timed scheduling.
+   * The schedule interval values for timed scheduling.
    */
   periodScheduleParamList?: string[];
   /**
    * @remarks
    * The trigger method for fixed task triggers. Valid values:
-   * - ALL_TASKS_FINISHED
-   * - ONE_TASKS_FINISHED
-   * - PRE_ONE_TASKS_START.
+   * - ALL_TASKS_FINISHED: triggered when all tasks are finished.
+   * - ONE_TASKS_FINISHED: triggered when one task is finished.
+   * - PRE_ONE_TASKS_START: triggered when the previous task starts.
    * 
    * @example
    * ONE_TASKS_FINISHED
@@ -81,7 +81,7 @@ export class UpsertQualityScheduleRequestUpsertCommand extends $dara.Model {
   staticTaskTriggerType?: string;
   /**
    * @remarks
-   * The checklist of trigger nodes for trigger scheduling.
+   * The list of trigger nodes for trigger scheduling.
    */
   triggerNodeList?: string[];
   /**
@@ -96,7 +96,7 @@ export class UpsertQualityScheduleRequestUpsertCommand extends $dara.Model {
   triggerType?: string;
   /**
    * @remarks
-   * The scheduling type. Valid values:
+   * The schedule type. Valid values:
    * - PERIOD_SCHEDULE: timed scheduling.
    * - MANUAL_SCHEDULE: manual trigger.
    * - CODE_CHECK_TRIGGER: code check trigger.
@@ -121,7 +121,7 @@ export class UpsertQualityScheduleRequestUpsertCommand extends $dara.Model {
   validatePartitionType?: string;
   /**
    * @remarks
-   * The ID of the monitored object.
+   * The monitored object ID.
    * 
    * This parameter is required.
    * 
@@ -192,6 +192,11 @@ export class UpsertQualityScheduleRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
+  /**
    * @remarks
    * The update instruction.
    * 
@@ -201,6 +206,7 @@ export class UpsertQualityScheduleRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
       upsertCommand: 'UpsertCommand',
     };
   }
@@ -208,6 +214,7 @@ export class UpsertQualityScheduleRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       opTenantId: 'number',
+      opUserId: 'string',
       upsertCommand: UpsertQualityScheduleRequestUpsertCommand,
     };
   }

@@ -21,7 +21,7 @@ export class CreateSecurityLevelRequestCreateCommand extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The sort order of the classification level. If this parameter is not specified, the current maximum order ID is used by default.
+   * The order of the classification level. If this parameter is not specified, the current maximum order ID is used by default.
    * 
    * @example
    * 1
@@ -82,10 +82,19 @@ export class CreateSecurityLevelRequest extends $dara.Model {
    * 30001011
    */
   opTenantId?: number;
+  /**
+   * @remarks
+   * The ID of the operator user.
+   * 
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
   static names(): { [key: string]: string } {
     return {
       createCommand: 'CreateCommand',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
     };
   }
 
@@ -93,6 +102,7 @@ export class CreateSecurityLevelRequest extends $dara.Model {
     return {
       createCommand: CreateSecurityLevelRequestCreateCommand,
       opTenantId: 'number',
+      opUserId: 'string',
     };
   }
 

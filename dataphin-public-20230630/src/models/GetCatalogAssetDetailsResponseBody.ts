@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetCatalogAssetDetailsResponseBodyDataColumnsAssociatedEntity extends $dara.Model {
   /**
    * @remarks
-   * The business unit ID.
+   * The ID of the business unit.
    * 
    * @example
    * 7137404445633152
@@ -13,7 +13,7 @@ export class GetCatalogAssetDetailsResponseBodyDataColumnsAssociatedEntity exten
   bizUnitId?: number;
   /**
    * @remarks
-   * The business unit name.
+   * The name of the business unit.
    * 
    * @example
    * LD_train
@@ -21,7 +21,7 @@ export class GetCatalogAssetDetailsResponseBodyDataColumnsAssociatedEntity exten
   bizUnitName?: string;
   /**
    * @remarks
-   * The dimension display name.
+   * The display name of the dimension.
    * 
    * @example
    * 上药erp数据源
@@ -29,7 +29,7 @@ export class GetCatalogAssetDetailsResponseBodyDataColumnsAssociatedEntity exten
   dimensionDisplayName?: string;
   /**
    * @remarks
-   * The dimension ID.
+   * The ID of the dimension.
    * 
    * @example
    * 68014359
@@ -37,7 +37,7 @@ export class GetCatalogAssetDetailsResponseBodyDataColumnsAssociatedEntity exten
   dimensionId?: number;
   /**
    * @remarks
-   * The dimension name.
+   * The name of the dimension.
    * 
    * @example
    * etl_source
@@ -75,7 +75,7 @@ export class GetCatalogAssetDetailsResponseBodyDataColumnsAssociatedEntity exten
 export class GetCatalogAssetDetailsResponseBodyDataColumnsStandards extends $dara.Model {
   /**
    * @remarks
-   * The standard code.
+   * The code of the standard.
    * 
    * @example
    * hr_person_id
@@ -83,7 +83,7 @@ export class GetCatalogAssetDetailsResponseBodyDataColumnsStandards extends $dar
   code?: string;
   /**
    * @remarks
-   * The standard ID.
+   * The ID of the standard.
    * 
    * @example
    * 120350
@@ -91,7 +91,7 @@ export class GetCatalogAssetDetailsResponseBodyDataColumnsStandards extends $dar
   id?: number;
   /**
    * @remarks
-   * The standard name.
+   * The name of the standard.
    * 
    * @example
    * id
@@ -125,15 +125,15 @@ export class GetCatalogAssetDetailsResponseBodyDataColumnsStandards extends $dar
 export class GetCatalogAssetDetailsResponseBodyDataColumns extends $dara.Model {
   /**
    * @remarks
-   * The associated entity. Returned when the business type is DIMENSION.
+   * The associated entity. This parameter is returned when the business type is DIMENSION.
    */
   associatedEntity?: GetCatalogAssetDetailsResponseBodyDataColumnsAssociatedEntity;
   /**
    * @remarks
    * The business type. Valid values:
-   * - INDEX: Metric.
-   * - STAT_PERIOD: Statistical period.
-   * - DIMENSION: Dimension.
+   * - INDEX: metric.
+   * - STAT_PERIOD: statistical period.
+   * - DIMENSION: dimension.
    * 
    * @example
    * DIMENSION
@@ -149,7 +149,7 @@ export class GetCatalogAssetDetailsResponseBodyDataColumns extends $dara.Model {
   classifyName?: string;
   /**
    * @remarks
-   * The field data type.
+   * The data type of the column.
    * 
    * @example
    * double
@@ -157,7 +157,7 @@ export class GetCatalogAssetDetailsResponseBodyDataColumns extends $dara.Model {
   dataType?: string;
   /**
    * @remarks
-   * The field description.
+   * The description of the column.
    * 
    * @example
    * test
@@ -165,15 +165,15 @@ export class GetCatalogAssetDetailsResponseBodyDataColumns extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The field display name.
+   * The display name of the column.
    * 
    * @example
-   * 门店客流转化率
+   * Store traffic conversion rate
    */
   displayName?: string;
   /**
    * @remarks
-   * The field GUID.
+   * The GUID of the column.
    * 
    * @example
    * dp_table.300023201.ld_fashion.dws_lulu_location.conversion_rate
@@ -181,7 +181,7 @@ export class GetCatalogAssetDetailsResponseBodyDataColumns extends $dara.Model {
   guid?: string;
   /**
    * @remarks
-   * The data sensitivity level.
+   * The data classification level.
    * 
    * @example
    * L4
@@ -189,7 +189,7 @@ export class GetCatalogAssetDetailsResponseBodyDataColumns extends $dara.Model {
   levelShortName?: string;
   /**
    * @remarks
-   * The field name.
+   * The name of the column.
    * 
    * @example
    * conversion_rate
@@ -258,10 +258,7 @@ export class GetCatalogAssetDetailsResponseBodyDataColumns extends $dara.Model {
 export class GetCatalogAssetDetailsResponseBodyDataCustomAttributes extends $dara.Model {
   /**
    * @remarks
-   * The attribute type. Valid values:
-   * - BUSINESS: Business attribute.
-   * - MANAGEMENT: Management attribute.
-   * - TECHNOLOGY: Technical attribute.
+   * The attribute type. Valid values: BUSINESS (business attribute), MANAGEMENT (management attribute), TECHNOLOGY (technical attribute).
    * 
    * @example
    * MANAGEMENT
@@ -280,7 +277,7 @@ export class GetCatalogAssetDetailsResponseBodyDataCustomAttributes extends $dar
    * The attribute name.
    * 
    * @example
-   * 归口管理部门
+   * Supervising department
    */
   name?: string;
   /**
@@ -318,7 +315,80 @@ export class GetCatalogAssetDetailsResponseBodyDataCustomAttributes extends $dar
   }
 }
 
+export class GetCatalogAssetDetailsResponseBodyDataDirectoriesDirectoryChain extends $dara.Model {
+  /**
+   * @remarks
+   * The directory description.
+   * 
+   * @example
+   * Data assets related to transactions
+   */
+  directoryDescription?: string;
+  /**
+   * @remarks
+   * The directory ID.
+   * 
+   * @example
+   * 2001
+   */
+  directoryId?: number;
+  /**
+   * @remarks
+   * The directory name.
+   * 
+   * @example
+   * Transaction domain
+   */
+  directoryName?: string;
+  /**
+   * @remarks
+   * The folder level.
+   * 
+   * @example
+   * 1
+   */
+  level?: number;
+  static names(): { [key: string]: string } {
+    return {
+      directoryDescription: 'DirectoryDescription',
+      directoryId: 'DirectoryId',
+      directoryName: 'DirectoryName',
+      level: 'Level',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      directoryDescription: 'string',
+      directoryId: 'number',
+      directoryName: 'string',
+      level: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetCatalogAssetDetailsResponseBodyDataDirectories extends $dara.Model {
+  /**
+   * @remarks
+   * The complete directory hierarchy chain from the top-level directory to the current directory, including the current directory.
+   */
+  directoryChain?: GetCatalogAssetDetailsResponseBodyDataDirectoriesDirectoryChain[];
+  /**
+   * @remarks
+   * The directory description.
+   * 
+   * @example
+   * Data tables related to order details
+   */
+  directoryDescription?: string;
   /**
    * @remarks
    * The directory ID.
@@ -332,9 +402,17 @@ export class GetCatalogAssetDetailsResponseBodyDataDirectories extends $dara.Mod
    * The directory name.
    * 
    * @example
-   * 线上电商平台
+   * Online e-commerce platform
    */
   directoryName?: string;
+  /**
+   * @remarks
+   * The topic description.
+   * 
+   * @example
+   * Core data asset catalog for the entire company, covering all online and offline channels
+   */
+  topicDescription?: string;
   /**
    * @remarks
    * The topic ID.
@@ -348,13 +426,16 @@ export class GetCatalogAssetDetailsResponseBodyDataDirectories extends $dara.Mod
    * The topic name.
    * 
    * @example
-   * 全渠道数据专题
+   * Omni-channel data topic
    */
   topicName?: string;
   static names(): { [key: string]: string } {
     return {
+      directoryChain: 'DirectoryChain',
+      directoryDescription: 'DirectoryDescription',
       directoryId: 'DirectoryId',
       directoryName: 'DirectoryName',
+      topicDescription: 'TopicDescription',
       topicId: 'TopicId',
       topicName: 'TopicName',
     };
@@ -362,14 +443,20 @@ export class GetCatalogAssetDetailsResponseBodyDataDirectories extends $dara.Mod
 
   static types(): { [key: string]: any } {
     return {
+      directoryChain: { 'type': 'array', 'itemType': GetCatalogAssetDetailsResponseBodyDataDirectoriesDirectoryChain },
+      directoryDescription: 'string',
       directoryId: 'number',
       directoryName: 'string',
+      topicDescription: 'string',
       topicId: 'number',
       topicName: 'string',
     };
   }
 
   validate() {
+    if(Array.isArray(this.directoryChain)) {
+      $dara.Model.validateArray(this.directoryChain);
+    }
     super.validate();
   }
 
@@ -384,7 +471,7 @@ export class GetCatalogAssetDetailsResponseBodyDataFirstOnShelveUser extends $da
    * The username.
    * 
    * @example
-   * 张三
+   * John
    */
   displayName?: string;
   /**
@@ -424,7 +511,7 @@ export class GetCatalogAssetDetailsResponseBodyDataLastOnShelveUser extends $dar
    * The username.
    * 
    * @example
-   * 张三
+   * John
    */
   displayName?: string;
   /**
@@ -464,7 +551,7 @@ export class GetCatalogAssetDetailsResponseBodyDataOwner extends $dara.Model {
    * The username.
    * 
    * @example
-   * 张三
+   * John
    */
   displayName?: string;
   /**
@@ -498,13 +585,163 @@ export class GetCatalogAssetDetailsResponseBodyDataOwner extends $dara.Model {
   }
 }
 
+export class GetCatalogAssetDetailsResponseBodyDataQualityScoreRadarCatalogScores extends $dara.Model {
+  /**
+   * @remarks
+   * The dimension name.
+   * 
+   * @example
+   * Completeness
+   */
+  catalog?: string;
+  /**
+   * @remarks
+   * The number of field-level rules.
+   * 
+   * @example
+   * 7
+   */
+  fieldRuleCount?: number;
+  /**
+   * @remarks
+   * The pass rate.
+   * 
+   * @example
+   * 0.83
+   */
+  passRate?: number;
+  /**
+   * @remarks
+   * The number of passed rules.
+   * 
+   * @example
+   * 10
+   */
+  passRuleCount?: number;
+  /**
+   * @remarks
+   * The dimension score.
+   * 
+   * @example
+   * 85.5
+   */
+  score?: number;
+  /**
+   * @remarks
+   * The number of table-level rules.
+   * 
+   * @example
+   * 5
+   */
+  tableRuleCount?: number;
+  /**
+   * @remarks
+   * The number of validated rules.
+   * 
+   * @example
+   * 12
+   */
+  validateRuleCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      catalog: 'Catalog',
+      fieldRuleCount: 'FieldRuleCount',
+      passRate: 'PassRate',
+      passRuleCount: 'PassRuleCount',
+      score: 'Score',
+      tableRuleCount: 'TableRuleCount',
+      validateRuleCount: 'ValidateRuleCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      catalog: 'string',
+      fieldRuleCount: 'number',
+      passRate: 'number',
+      passRuleCount: 'number',
+      score: 'number',
+      tableRuleCount: 'number',
+      validateRuleCount: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCatalogAssetDetailsResponseBodyDataQualityScoreRadar extends $dara.Model {
+  /**
+   * @remarks
+   * The list of dimension scores.
+   */
+  catalogScores?: GetCatalogAssetDetailsResponseBodyDataQualityScoreRadarCatalogScores[];
+  /**
+   * @remarks
+   * The number of passed rules.
+   * 
+   * @example
+   * 10
+   */
+  passRuleCount?: number;
+  /**
+   * @remarks
+   * The total quality score.
+   * 
+   * @example
+   * 85.5
+   */
+  totalScore?: number;
+  /**
+   * @remarks
+   * The number of validated rules.
+   * 
+   * @example
+   * 12
+   */
+  validateRuleCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      catalogScores: 'CatalogScores',
+      passRuleCount: 'PassRuleCount',
+      totalScore: 'TotalScore',
+      validateRuleCount: 'ValidateRuleCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      catalogScores: { 'type': 'array', 'itemType': GetCatalogAssetDetailsResponseBodyDataQualityScoreRadarCatalogScores },
+      passRuleCount: 'number',
+      totalScore: 'number',
+      validateRuleCount: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.catalogScores)) {
+      $dara.Model.validateArray(this.catalogScores);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetCatalogAssetDetailsResponseBodyDataSimpleNodeInfosOwners extends $dara.Model {
   /**
    * @remarks
    * The username.
    * 
    * @example
-   * 张三
+   * John
    */
   displayName?: string;
   /**
@@ -589,7 +826,7 @@ export class GetCatalogAssetDetailsResponseBodyDataSimpleNodeInfos extends $dara
   bizUnit?: string;
   /**
    * @remarks
-   * The environment to which the node belongs.
+   * The environment to which the asset belongs.
    * 
    * @example
    * PROD
@@ -613,9 +850,7 @@ export class GetCatalogAssetDetailsResponseBodyDataSimpleNodeInfos extends $dara
   nodeName?: string;
   /**
    * @remarks
-   * The scheduling method. Valid values:
-   * - NORMAL: Timed scheduling.
-   * - MANUAL: Manual scheduling.
+   * The scheduling type. Valid values: NORMAL (timed scheduling), MANUAL (manual scheduling).
    * 
    * @example
    * NORMAL
@@ -633,7 +868,7 @@ export class GetCatalogAssetDetailsResponseBodyDataSimpleNodeInfos extends $dara
   project?: GetCatalogAssetDetailsResponseBodyDataSimpleNodeInfosProject;
   /**
    * @remarks
-   * The node type. Example valid values: DLINK (offline integration) and PYTHON37 (Python compute node).
+   * The node type. Example valid values: DLINK (offline integration), PYTHON37 (Python compute node).
    * 
    * @example
    * DLINK
@@ -683,7 +918,7 @@ export class GetCatalogAssetDetailsResponseBodyDataSimpleNodeInfos extends $dara
 export class GetCatalogAssetDetailsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The API call mode. Returned when the asset type is API. Valid values: 1 (synchronous call) and 2 (asynchronous call).
+   * The API call mode. Returned when the asset type is API. Valid values: 1=Synchronous call, 2=Asynchronous call.
    * 
    * @example
    * 1
@@ -694,7 +929,7 @@ export class GetCatalogAssetDetailsResponseBodyData extends $dara.Model {
    * The API group name. Returned when the asset type is API.
    * 
    * @example
-   * 默认API分组
+   * Default API group
    */
   apiGroupName?: string;
   /**
@@ -707,7 +942,7 @@ export class GetCatalogAssetDetailsResponseBodyData extends $dara.Model {
   apiId?: number;
   /**
    * @remarks
-   * The API operation type. Returned when the asset type is API. Valid values: 1 (Get), 2 (List), 3 (Create), 4 (Update), and 5 (Delete).
+   * The API operation type. Returned when the asset type is API. Valid values: 1=Get, 2=List, 3=Create, 4=Update, 5=Delete.
    * 
    * @example
    * 1
@@ -715,7 +950,7 @@ export class GetCatalogAssetDetailsResponseBodyData extends $dara.Model {
   apiRequestMethod?: string;
   /**
    * @remarks
-   * The asset description.
+   * The description of the asset.
    * 
    * @example
    * abc
@@ -723,7 +958,7 @@ export class GetCatalogAssetDetailsResponseBodyData extends $dara.Model {
   assetDescription?: string;
   /**
    * @remarks
-   * The URL of the asset catalog details page.
+   * The URL of the asset catalog detail page.
    * 
    * @example
    * https://dataphin.poc.lydaas.com/market/catalog/detail/table/...
@@ -731,7 +966,7 @@ export class GetCatalogAssetDetailsResponseBodyData extends $dara.Model {
   assetDetailUrl?: string;
   /**
    * @remarks
-   * The asset display name. Returned when the asset type is TABLE, INDEX, or BIZ_INDEX.
+   * The display name of the asset. This parameter is returned when the asset type is TABLE, INDEX, or BIZ_INDEX.
    * 
    * @example
    * abc表
@@ -739,7 +974,7 @@ export class GetCatalogAssetDetailsResponseBodyData extends $dara.Model {
   assetDisplayName?: string;
   /**
    * @remarks
-   * The asset source. For TABLE (physical table), the value is in the format of "Dataphin-Workspace Type-Project Chinese Name (Project English Name)". For TABLE (logical table), the value is in the format of "Dataphin-Workspace Type-Data Domain Chinese Name (Data Domain English Name)". For TABLE (data source table), the value is in the format of "Source System Name-Data Source Name-Database/Schema Name". For INDEX (standard modeling metric), the value is the asset source of the associated aggregate table. For INDEX (custom metric), the value is the asset source of the source table. For API, the value is the data service project name. For PAGE, the value is the application system name.
+   * The source of the asset. TABLE (physical table) returns "Dataphin-workspace type-project Chinese name (project English name)". TABLE (logical table) returns "Dataphin-workspace type-data domain Chinese name (data domain English name)". TABLE (data source table) returns "source system name-data source name-database/schema name". INDEX (standard modeling metric) returns the asset source of the associated aggregate logical table. INDEX (custom metric) returns the asset source of the source table. API returns "data service project name". PAGE returns "application system name".
    * 
    * @example
    * Dataphin-中间层-服饰零售 (LD_Fashion)
@@ -747,7 +982,7 @@ export class GetCatalogAssetDetailsResponseBodyData extends $dara.Model {
   assetFrom?: string;
   /**
    * @remarks
-   * The full name of the asset. Returned when the asset type is TABLE or INDEX.
+   * The full name of the asset. This parameter is returned when the asset type is TABLE or INDEX.
    * 
    * @example
    * dwd_all.abc
@@ -755,7 +990,7 @@ export class GetCatalogAssetDetailsResponseBodyData extends $dara.Model {
   assetFullName?: string;
   /**
    * @remarks
-   * The asset name.
+   * The name of the asset.
    * 
    * @example
    * abc
@@ -763,12 +998,17 @@ export class GetCatalogAssetDetailsResponseBodyData extends $dara.Model {
   assetName?: string;
   /**
    * @remarks
-   * The asset tags.
+   * The tags of the asset.
    */
   assetTags?: string[];
   /**
    * @remarks
-   * The asset type. Valid values: TABLE (table, including views and materialized views), INDEX (technical metric), BIZ_INDEX (business metric), API, and PAGE (dashboard).
+   * The asset type. Valid values:
+   * - TABLE: table, including views and materialized views.
+   * - INDEX: technical metric.
+   * - BIZ_INDEX: business metric.
+   * - API: API.
+   * - PAGE: dashboard.
    * 
    * @example
    * TABLE
@@ -776,7 +1016,7 @@ export class GetCatalogAssetDetailsResponseBodyData extends $dara.Model {
   assetType?: string;
   /**
    * @remarks
-   * The BI workspace or directory to which the asset belongs. Returned when the asset type is PAGE (dashboard).
+   * The BI workspace or folder to which the asset belongs. Returned when the asset type is PAGE (dashboard).
    * 
    * @example
    * dataphin演示空间
@@ -784,7 +1024,7 @@ export class GetCatalogAssetDetailsResponseBodyData extends $dara.Model {
   biCatalog?: string;
   /**
    * @remarks
-   * The ID of the business unit to which the asset belongs. Returned when the asset type is TABLE (logical tables only) or INDEX (technical metrics whose source table is a logical table only).
+   * The ID of the data domain to which the asset belongs. This parameter is returned when the asset type is TABLE (logical tables only) or INDEX (technical metrics whose source table is a logical table only).
    * 
    * @example
    * 6865277495315392
@@ -792,7 +1032,7 @@ export class GetCatalogAssetDetailsResponseBodyData extends $dara.Model {
   bizUnitId?: number;
   /**
    * @remarks
-   * The name of the business unit to which the asset belongs. Returned when the asset type is TABLE (logical tables only) or INDEX (technical metrics whose source table is a logical table only).
+   * The name of the data domain to which the asset belongs. This parameter is returned when the asset type is TABLE (logical tables only) or INDEX (technical metrics whose source table is a logical table only).
    * 
    * @example
    * 服饰零售（LD_Fashion）
@@ -808,7 +1048,7 @@ export class GetCatalogAssetDetailsResponseBodyData extends $dara.Model {
   chartCount?: number;
   /**
    * @remarks
-   * The number of favorites.
+   * The collection count.
    * 
    * @example
    * 0
@@ -816,7 +1056,7 @@ export class GetCatalogAssetDetailsResponseBodyData extends $dara.Model {
   collectionCount?: number;
   /**
    * @remarks
-   * The field list. Returned when the asset type is TABLE.
+   * The list of columns. This parameter is returned when the asset type is TABLE.
    */
   columns?: GetCatalogAssetDetailsResponseBodyDataColumns[];
   /**
@@ -834,7 +1074,7 @@ export class GetCatalogAssetDetailsResponseBodyData extends $dara.Model {
   customAttributes?: GetCatalogAssetDetailsResponseBodyDataCustomAttributes[];
   /**
    * @remarks
-   * The ID of the subject domain to which the asset belongs. Returned when the asset type is TABLE (logical tables only) or INDEX (technical metrics whose source table is a logical table only).
+   * The ID of the data domain. Returned when the asset type is TABLE (logical tables only) or INDEX (technical metrics whose source table is a logical table only).
    * 
    * @example
    * 49837403
@@ -842,15 +1082,15 @@ export class GetCatalogAssetDetailsResponseBodyData extends $dara.Model {
   dataCellId?: string;
   /**
    * @remarks
-   * The name of the subject domain to which the asset belongs. Returned when the asset type is TABLE (logical tables only) or INDEX (technical metrics whose source table is a logical table only).
+   * The name of the data domain. Returned when the asset type is TABLE (logical tables only) or INDEX (technical metrics whose source table is a logical table only).
    * 
    * @example
-   * 课程域
+   * Course domain
    */
   dataCellName?: string;
   /**
    * @remarks
-   * The name of the data source to which the asset belongs. Returned when the asset type is TABLE (data source tables only) or INDEX (technical metrics whose source table is a data source table only).
+   * The name of the data source to which the asset belongs. This parameter is returned when the asset type is TABLE (data source tables only) or INDEX (technical metrics whose source table is a data source table only).
    * 
    * @example
    * demo_mysql
@@ -858,7 +1098,7 @@ export class GetCatalogAssetDetailsResponseBodyData extends $dara.Model {
   dataSourceName?: string;
   /**
    * @remarks
-   * The ID of the data source to which the asset belongs. Returned when the asset type is TABLE (data source tables only) or INDEX (technical metrics whose source table is a data source table only).
+   * The ID of the data source to which the asset belongs. This parameter is returned when the asset type is TABLE (data source tables only) or INDEX (technical metrics whose source table is a data source table only).
    * 
    * @example
    * 7305549302863001856
@@ -871,7 +1111,7 @@ export class GetCatalogAssetDetailsResponseBodyData extends $dara.Model {
   directories?: GetCatalogAssetDetailsResponseBodyDataDirectories[];
   /**
    * @remarks
-   * The first listing time.
+   * The time of the first listing.
    * 
    * @example
    * 2025-05-22 10:06:20
@@ -879,7 +1119,7 @@ export class GetCatalogAssetDetailsResponseBodyData extends $dara.Model {
   firstOnShelveTime?: string;
   /**
    * @remarks
-   * The user who first listed the asset.
+   * The user who performed the first listing.
    */
   firstOnShelveUser?: GetCatalogAssetDetailsResponseBodyDataFirstOnShelveUser;
   /**
@@ -887,12 +1127,12 @@ export class GetCatalogAssetDetailsResponseBodyData extends $dara.Model {
    * The statistical granularity name of the technical metric. Returned when the asset type is INDEX.
    * 
    * @example
-   * 课程
+   * Course
    */
   granularity?: string;
   /**
    * @remarks
-   * The asset GUID, which serves as the unique identifier of the asset.
+   * The GUID of the asset, which serves as the unique identifier of the asset.
    * 
    * @example
    * dp_ds_table.300023201.7311626611751680256.load_test.abc
@@ -914,13 +1154,13 @@ export class GetCatalogAssetDetailsResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the table is a partitioned table. Returned when the asset type is TABLE. Valid values:
-   * - true: Yes.
-   * - false: No.
+   * - true: The table is a partitioned table.
+   * - false: The table is not a partitioned table.
    */
   isPartitionTable?: boolean;
   /**
    * @remarks
-   * The last DDL change time.
+   * The time of the last DDL change.
    * 
    * @example
    * 2024-10-11 16:10:19
@@ -928,7 +1168,7 @@ export class GetCatalogAssetDetailsResponseBodyData extends $dara.Model {
   lastDdlTime?: string;
   /**
    * @remarks
-   * The last DML update time.
+   * The time of the last DML update.
    * 
    * @example
    * 2024-10-11 16:10:19
@@ -936,7 +1176,7 @@ export class GetCatalogAssetDetailsResponseBodyData extends $dara.Model {
   lastDmlTime?: string;
   /**
    * @remarks
-   * The last listing time.
+   * The time of the last listing.
    * 
    * @example
    * 2025-05-22 10:06:20
@@ -944,7 +1184,7 @@ export class GetCatalogAssetDetailsResponseBodyData extends $dara.Model {
   lastOnShelveTime?: string;
   /**
    * @remarks
-   * The user who last listed the asset.
+   * The user who performed the last listing.
    */
   lastOnShelveUser?: GetCatalogAssetDetailsResponseBodyDataLastOnShelveUser;
   /**
@@ -954,12 +1194,12 @@ export class GetCatalogAssetDetailsResponseBodyData extends $dara.Model {
   maintainUserGroups?: string[];
   /**
    * @remarks
-   * The listing maintenance personnel.
+   * The IDs of the listing maintenance users.
    */
   maintainUserIds?: string[];
   /**
    * @remarks
-   * The highest sensitivity level. Returned when the asset type is TABLE.
+   * The maximum sensitivity level. This parameter is returned when the asset type is TABLE.
    * 
    * @example
    * L3
@@ -980,7 +1220,7 @@ export class GetCatalogAssetDetailsResponseBodyData extends $dara.Model {
   owner?: GetCatalogAssetDetailsResponseBodyDataOwner;
   /**
    * @remarks
-   * The partition field. Returned when the asset type is TABLE.
+   * The partition key. Returned when the asset type is TABLE.
    * 
    * @example
    * ds
@@ -996,10 +1236,10 @@ export class GetCatalogAssetDetailsResponseBodyData extends $dara.Model {
   primaryKey?: string;
   /**
    * @remarks
-   * The visibility scope type of the profiling report. Returned when the asset type is TABLE or INDEX. Valid values:
+   * The visibility scope type of the profiling report. This parameter is returned only when the asset type is TABLE or INDEX. Valid values:
    * - ALL_USERS_CAN_VIEW: Visible to all users.
    * - PART_USERS_CAN_VIEW: Visible to some users.
-   * - ALL_USERS_CAN_NOT_VIEW: Not visible to any user.
+   * - ALL_USERS_CAN_NOT_VIEW: Not visible to any users.
    * 
    * @example
    * ALL_USERS_CAN_VIEW
@@ -1017,7 +1257,7 @@ export class GetCatalogAssetDetailsResponseBodyData extends $dara.Model {
   profilingReportViewScopeUserIds?: string[];
   /**
    * @remarks
-   * The ID of the project to which the asset belongs. Returned when the asset type is TABLE (physical tables only) or INDEX (technical metrics whose source table is a physical table only).
+   * The ID of the project to which the asset belongs. This parameter is returned when the asset type is TABLE (physical tables only) or INDEX (technical metrics whose source table is a physical table only).
    * 
    * @example
    * 6865331517728384
@@ -1025,7 +1265,7 @@ export class GetCatalogAssetDetailsResponseBodyData extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The name of the project to which the asset belongs. Returned when the asset type is TABLE (physical tables only) or INDEX (technical metrics whose source table is a physical table only).
+   * The name of the project to which the asset belongs. This parameter is returned when the asset type is TABLE (physical tables only) or INDEX (technical metrics whose source table is a physical table only).
    * 
    * @example
    * train
@@ -1033,7 +1273,12 @@ export class GetCatalogAssetDetailsResponseBodyData extends $dara.Model {
   projectName?: string;
   /**
    * @remarks
-   * The number of views.
+   * The quality score radar chart information. This parameter is returned only when includeDetailedAttributes is set to true. It contains the total score, the number of passed/validated rules, and the score details for each dimension.
+   */
+  qualityScoreRadar?: GetCatalogAssetDetailsResponseBodyDataQualityScoreRadar;
+  /**
+   * @remarks
+   * The view count.
    * 
    * @example
    * 5
@@ -1067,7 +1312,21 @@ export class GetCatalogAssetDetailsResponseBodyData extends $dara.Model {
   simpleNodeInfos?: GetCatalogAssetDetailsResponseBodyDataSimpleNodeInfos[];
   /**
    * @remarks
-   * The subtype. Valid values: DIM_NORMAL (common logical dimension table), DIM_ENUM (enumeration logical dimension table), DIM_VIRTUAL (virtual logical dimension table), SUM_BIZ_UNIT (aggregate table), FACT_EVENT (event fact logical table), FACT_SNAPSHOT (snapshot fact logical table), DATASOURCE_TABLE (data source table), PHYSICAL_TABLE (physical table), DATASOURCE_VIEW (data source view), PHYSICAL_VIEW (physical view), MATERIALIZED_VIEW (materialized view), BIZ_INDEX (business metric), INDEX (technical metric - standard modeling metric), and CUSTOM_INDEX (technical metric - custom metric).
+   * The subtype. Valid values:
+   * - DIM_NORMAL: common logical dimension table.
+   * - DIM_ENUM: enumeration logical dimension table.
+   * - DIM_VIRTUAL: virtual logical dimension table.
+   * - SUM_BIZ_UNIT: aggregate logical table.
+   * - FACT_EVENT: event fact logical table.
+   * - FACT_SNAPSHOT: snapshot fact logical table.
+   * - DATASOURCE_TABLE: data source table.
+   * - PHYSICAL_TABLE: physical table.
+   * - DATASOURCE_VIEW: view (data source view).
+   * - PHYSICAL_VIEW: physical view.
+   * - MATERIALIZED_VIEW: materialized view.
+   * - BIZ_INDEX: business metric.
+   * - INDEX: technical metric (standard modeling metric).
+   * - CUSTOM_INDEX: technical metric (custom metric).
    * 
    * @example
    * DIM_NORMAL
@@ -1099,7 +1358,7 @@ export class GetCatalogAssetDetailsResponseBodyData extends $dara.Model {
   tableLifeCycle?: string;
   /**
    * @remarks
-   * The storage size in bytes. Returned when the asset type is TABLE.
+   * The storage size. This parameter is returned only when the asset type is TABLE.
    * 
    * @example
    * 0
@@ -1155,6 +1414,7 @@ export class GetCatalogAssetDetailsResponseBodyData extends $dara.Model {
       profilingReportViewScopeUserIds: 'ProfilingReportViewScopeUserIds',
       projectId: 'ProjectId',
       projectName: 'ProjectName',
+      qualityScoreRadar: 'QualityScoreRadar',
       readCount: 'ReadCount',
       shelveViewScopeType: 'ShelveViewScopeType',
       shelveViewScopeUserGroups: 'ShelveViewScopeUserGroups',
@@ -1218,6 +1478,7 @@ export class GetCatalogAssetDetailsResponseBodyData extends $dara.Model {
       profilingReportViewScopeUserIds: { 'type': 'array', 'itemType': 'string' },
       projectId: 'number',
       projectName: 'string',
+      qualityScoreRadar: GetCatalogAssetDetailsResponseBodyDataQualityScoreRadar,
       readCount: 'number',
       shelveViewScopeType: 'string',
       shelveViewScopeUserGroups: { 'type': 'array', 'itemType': 'string' },
@@ -1265,6 +1526,9 @@ export class GetCatalogAssetDetailsResponseBodyData extends $dara.Model {
     if(Array.isArray(this.profilingReportViewScopeUserIds)) {
       $dara.Model.validateArray(this.profilingReportViewScopeUserIds);
     }
+    if(this.qualityScoreRadar && typeof (this.qualityScoreRadar as any).validate === 'function') {
+      (this.qualityScoreRadar as any).validate();
+    }
     if(Array.isArray(this.shelveViewScopeUserGroups)) {
       $dara.Model.validateArray(this.shelveViewScopeUserGroups);
     }
@@ -1306,7 +1570,7 @@ export class GetCatalogAssetDetailsResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The details of the backend response exception.
+   * The backend response exception details.
    * 
    * @example
    * internal error

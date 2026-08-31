@@ -21,6 +21,11 @@ export class ExecKgCypherShrinkRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
+  /**
    * @remarks
    * The model ID.
    * 
@@ -34,6 +39,7 @@ export class ExecKgCypherShrinkRequest extends $dara.Model {
     return {
       execCommandShrink: 'ExecCommand',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
       workspaceId: 'WorkspaceId',
     };
   }
@@ -42,6 +48,7 @@ export class ExecKgCypherShrinkRequest extends $dara.Model {
     return {
       execCommandShrink: 'string',
       opTenantId: 'number',
+      opUserId: 'string',
       workspaceId: 'string',
     };
   }

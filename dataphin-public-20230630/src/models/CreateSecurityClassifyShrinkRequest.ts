@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateSecurityClassifyShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The create command.
+   * The create instruction.
    * 
    * This parameter is required.
    */
@@ -20,10 +20,19 @@ export class CreateSecurityClassifyShrinkRequest extends $dara.Model {
    * 30001011
    */
   opTenantId?: number;
+  /**
+   * @remarks
+   * The ID of the operator user.
+   * 
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
   static names(): { [key: string]: string } {
     return {
       createCommandShrink: 'CreateCommand',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
     };
   }
 
@@ -31,6 +40,7 @@ export class CreateSecurityClassifyShrinkRequest extends $dara.Model {
     return {
       createCommandShrink: 'string',
       opTenantId: 'number',
+      opUserId: 'string',
     };
   }
 

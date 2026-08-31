@@ -200,10 +200,16 @@ export class CreateStandardLookupTableRequest extends $dara.Model {
    * 30001011
    */
   opTenantId?: number;
+  /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
   static names(): { [key: string]: string } {
     return {
       createCommand: 'CreateCommand',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
     };
   }
 
@@ -211,6 +217,7 @@ export class CreateStandardLookupTableRequest extends $dara.Model {
     return {
       createCommand: CreateStandardLookupTableRequestCreateCommand,
       opTenantId: 'number',
+      opUserId: 'string',
     };
   }
 

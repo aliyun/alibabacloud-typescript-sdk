@@ -34,6 +34,11 @@ export class DeleteKgEntityRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
+  /**
    * @remarks
    * The workspace ID.
    * 
@@ -48,6 +53,7 @@ export class DeleteKgEntityRequest extends $dara.Model {
       entityId: 'EntityId',
       entityType: 'EntityType',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
       workspaceId: 'WorkspaceId',
     };
   }
@@ -57,6 +63,7 @@ export class DeleteKgEntityRequest extends $dara.Model {
       entityId: 'string',
       entityType: 'string',
       opTenantId: 'number',
+      opUserId: 'string',
       workspaceId: 'string',
     };
   }

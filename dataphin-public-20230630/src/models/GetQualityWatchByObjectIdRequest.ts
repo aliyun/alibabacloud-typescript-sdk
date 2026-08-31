@@ -14,6 +14,11 @@ export class GetQualityWatchByObjectIdRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
+  /**
    * @remarks
    * The object ID, such as a table ID, datasource ID, or metric ID.
    * 
@@ -41,6 +46,7 @@ export class GetQualityWatchByObjectIdRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
       watchObjectId: 'WatchObjectId',
       watchType: 'WatchType',
     };
@@ -49,6 +55,7 @@ export class GetQualityWatchByObjectIdRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       opTenantId: 'number',
+      opUserId: 'string',
       watchObjectId: 'string',
       watchType: 'string',
     };

@@ -69,6 +69,11 @@ export class ListDataServiceMyApiPermissionsRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
+  /**
    * @remarks
    * Data service project ID.
    * 
@@ -82,6 +87,7 @@ export class ListDataServiceMyApiPermissionsRequest extends $dara.Model {
     return {
       listQuery: 'ListQuery',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
       projectId: 'ProjectId',
     };
   }
@@ -90,6 +96,7 @@ export class ListDataServiceMyApiPermissionsRequest extends $dara.Model {
     return {
       listQuery: ListDataServiceMyApiPermissionsRequestListQuery,
       opTenantId: 'number',
+      opUserId: 'string',
       projectId: 'number',
     };
   }

@@ -10,10 +10,10 @@ export class ListPipelinesResponseBodyDataList extends $dara.Model {
   developOwners?: string[];
   /**
    * @remarks
-   * The directory in which the task resides.
+   * The directory where the node is located.
    * 
    * @example
-   * /dwd/Finance/
+   * /dwd/finance_domain/
    */
   directory?: string;
   /**
@@ -26,7 +26,7 @@ export class ListPipelinesResponseBodyDataList extends $dara.Model {
   fileId?: number;
   /**
    * @remarks
-   * The scheduling node ID.
+   * The schedule node ID.
    * 
    * @example
    * n_6793582765516849152
@@ -56,6 +56,7 @@ export class ListPipelinesResponseBodyDataList extends $dara.Model {
   /**
    * @remarks
    * The schedule type. Valid values:
+   * 
    * - 1: periodic scheduling.
    * - 3: manual scheduling.
    * - 5: real-time scheduling.
@@ -66,12 +67,13 @@ export class ListPipelinesResponseBodyDataList extends $dara.Model {
   scheduleType?: number;
   /**
    * @remarks
-   * The list of task tag names.
+   * The list of node tag names.
    */
   tags?: string[];
   /**
    * @remarks
-   * The task status. Valid values:
+   * The node status. Valid values:
+   * 
    * - DRAFT: draft.
    * - SUBMITTING: being submitted.
    * - SUBMITTED: submitted.
@@ -83,7 +85,8 @@ export class ListPipelinesResponseBodyDataList extends $dara.Model {
   taskStatus?: string;
   /**
    * @remarks
-   * The task type. Valid values:
+   * The node type. Valid values:
+   * 
    * - 0: offline integration.
    * - 1: real-time integration.
    * - 13: data aggregation.
@@ -147,7 +150,7 @@ export class ListPipelinesResponseBodyDataList extends $dara.Model {
 export class ListPipelinesResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The list of task information on the current page.
+   * The list of node information on the current page.
    */
   list?: ListPipelinesResponseBodyDataList[];
   /**
@@ -176,7 +179,7 @@ export class ListPipelinesResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of records that match the conditions. On the first page request, the actual total is returned. On subsequent page requests (when nextCursor is passed in), if totalCount is included in the request, the same value is returned. Otherwise, this field is not returned. The total value is a snapshot taken at the time of the first page query and is not updated in real time as data changes during pagination.
+   * The total number of records that match the conditions. For the first page request, the actual total count is returned. For subsequent page requests (when nextCursor is passed in), if totalCount is included in the request, the same value is returned. Otherwise, this field is not returned. The total value is a snapshot taken at the time of the first page query and is not updated in real time as data changes during pagination.
    * 
    * @example
    * 105
@@ -217,7 +220,7 @@ export class ListPipelinesResponseBodyData extends $dara.Model {
 export class ListPipelinesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. OK indicates that the request was successful.
+   * The error code. A value of OK indicates that the request was successful.
    * 
    * @example
    * OK
@@ -238,7 +241,7 @@ export class ListPipelinesResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The error message.
+   * The error message returned if the request failed.
    * 
    * @example
    * successful

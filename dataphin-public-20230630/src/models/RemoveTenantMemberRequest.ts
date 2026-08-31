@@ -13,15 +13,22 @@ export class RemoveTenantMemberRequestRemoveCommand extends $dara.Model {
    * 123@xx.com
    */
   sourceId?: string;
+  /**
+   * @example
+   * aliyun
+   */
+  sourceType?: string;
   static names(): { [key: string]: string } {
     return {
       sourceId: 'SourceId',
+      sourceType: 'SourceType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       sourceId: 'string',
+      sourceType: 'string',
     };
   }
 
@@ -46,6 +53,11 @@ export class RemoveTenantMemberRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
+  /**
    * @remarks
    * The request command.
    * 
@@ -55,6 +67,7 @@ export class RemoveTenantMemberRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
       removeCommand: 'RemoveCommand',
     };
   }
@@ -62,6 +75,7 @@ export class RemoveTenantMemberRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       opTenantId: 'number',
+      opUserId: 'string',
       removeCommand: RemoveTenantMemberRequestRemoveCommand,
     };
   }

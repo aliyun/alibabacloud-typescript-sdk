@@ -24,6 +24,11 @@ export class GetPhysicalNodeByOutputNameRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
+  /**
    * @remarks
    * Node output name
    * 
@@ -37,6 +42,7 @@ export class GetPhysicalNodeByOutputNameRequest extends $dara.Model {
     return {
       env: 'Env',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
       outputName: 'OutputName',
     };
   }
@@ -45,6 +51,7 @@ export class GetPhysicalNodeByOutputNameRequest extends $dara.Model {
     return {
       env: 'string',
       opTenantId: 'number',
+      opUserId: 'string',
       outputName: 'string',
     };
   }

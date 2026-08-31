@@ -24,6 +24,11 @@ export class GetBizEntityInfoRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
+  /**
    * @remarks
    * The business entity type. For more information, refer to the create business entity operation.
    * 
@@ -37,6 +42,7 @@ export class GetBizEntityInfoRequest extends $dara.Model {
     return {
       id: 'Id',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
       type: 'Type',
     };
   }
@@ -45,6 +51,7 @@ export class GetBizEntityInfoRequest extends $dara.Model {
     return {
       id: 'number',
       opTenantId: 'number',
+      opUserId: 'string',
       type: 'string',
     };
   }

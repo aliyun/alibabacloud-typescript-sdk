@@ -60,10 +60,16 @@ export class GetBelongAssetMappingRequest extends $dara.Model {
    * 30001011
    */
   opTenantId?: number;
+  /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
   static names(): { [key: string]: string } {
     return {
       assetMappingQuery: 'AssetMappingQuery',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
     };
   }
 
@@ -71,6 +77,7 @@ export class GetBelongAssetMappingRequest extends $dara.Model {
     return {
       assetMappingQuery: GetBelongAssetMappingRequestAssetMappingQuery,
       opTenantId: 'number',
+      opUserId: 'string',
     };
   }
 

@@ -10,7 +10,7 @@ export class CreateStandardRelationsResponseBodyData extends $dara.Model {
   notExistStandardIdList?: number[];
   /**
    * @remarks
-   * The number of successfully added items.
+   * The number of successfully added associations.
    * 
    * @example
    * 2
@@ -66,7 +66,7 @@ export class CreateStandardRelationsResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The details of the backend exception.
+   * The backend exception details.
    * 
    * @example
    * internal error

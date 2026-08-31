@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteRegisterLineageRequestDeleteRegisterLineageCommandDetailedLineagesSource extends $dara.Model {
   /**
    * @remarks
-   * The catalog asset property. For tables, the catalog of both compute source tables and logical tables is uniformly set to dataphin. This property is used to identify the corresponding asset by property when referenceType is set to BY_PROPERTY. If referenceType is set to BY_GUID, this property does not need to be specified.
+   * The catalog, which is an asset property. For tables, the catalog of compute source tables or logical tables is uniformly set to dataphin. This property is used to identify the corresponding asset by property when ReferenceType is set to BY_PROPERTY. If ReferenceType is set to BY_GUID, this property does not need to be specified.
    * 
    * @example
    * dataphin
@@ -13,7 +13,7 @@ export class DeleteRegisterLineageRequestDeleteRegisterLineageCommandDetailedLin
   catalog?: string;
   /**
    * @remarks
-   * The environment to which the asset belongs. This property is used to identify the corresponding asset by property when referenceType is set to BY_PROPERTY. If referenceType is set to BY_GUID, this property does not need to be specified.
+   * The environment to which the asset belongs. This property is used to identify the corresponding asset by property when ReferenceType is set to BY_PROPERTY. If ReferenceType is set to BY_GUID, this property does not need to be specified.
    * 
    * @example
    * DEV, PROD
@@ -26,7 +26,7 @@ export class DeleteRegisterLineageRequestDeleteRegisterLineageCommandDetailedLin
   extProperties?: { [key: string]: any };
   /**
    * @remarks
-   * The GUID of the asset. This parameter is required when referenceType is set to BY_GUID.
+   * The asset GUID. This parameter is required when ReferenceType is set to BY_GUID.
    * 
    * @example
    * odps.300000001.project1.table1
@@ -34,7 +34,7 @@ export class DeleteRegisterLineageRequestDeleteRegisterLineageCommandDetailedLin
   guid?: string;
   /**
    * @remarks
-   * The asset type. Set this parameter based on the actual scenario.
+   * The asset type. Set this parameter as needed.
    * 
    * @example
    * COLUMN
@@ -42,7 +42,7 @@ export class DeleteRegisterLineageRequestDeleteRegisterLineageCommandDetailedLin
   metadataType?: string;
   /**
    * @remarks
-   * The name of the asset. This property is used to identify the corresponding asset by property when referenceType is set to BY_PROPERTY. If referenceType is set to BY_GUID, this property does not need to be specified.
+   * The asset name. This property is used to identify the corresponding asset by property when ReferenceType is set to BY_PROPERTY. If ReferenceType is set to BY_GUID, this property does not need to be specified.
    * 
    * @example
    * column1
@@ -66,7 +66,7 @@ export class DeleteRegisterLineageRequestDeleteRegisterLineageCommandDetailedLin
   referenceType?: string;
   /**
    * @remarks
-   * The schema asset property. For tables, this is typically the project or business unit. This property is used to identify the corresponding asset by property when referenceType is set to BY_PROPERTY. If referenceType is set to BY_GUID, this property does not need to be specified.
+   * The schema, which is an asset property. For tables, this is typically a project or business unit. This property is used to identify the corresponding asset by property when ReferenceType is set to BY_PROPERTY. If ReferenceType is set to BY_GUID, this property does not need to be specified.
    * 
    * @example
    * project1, bizUnit1
@@ -115,7 +115,7 @@ export class DeleteRegisterLineageRequestDeleteRegisterLineageCommandDetailedLin
 export class DeleteRegisterLineageRequestDeleteRegisterLineageCommandDetailedLineagesTarget extends $dara.Model {
   /**
    * @remarks
-   * The catalog asset property. For tables, the catalog of both compute source tables and logical tables is uniformly set to dataphin. This property is used to identify the corresponding asset by property when referenceType is set to BY_PROPERTY. If referenceType is set to BY_GUID, this property does not need to be specified.
+   * The catalog, which is an asset property. For tables, the catalog of compute source tables or logical tables is uniformly set to dataphin. This property is used to identify the corresponding asset by property when ReferenceType is set to BY_PROPERTY. If ReferenceType is set to BY_GUID, this property does not need to be specified.
    * 
    * @example
    * dataphin
@@ -123,7 +123,7 @@ export class DeleteRegisterLineageRequestDeleteRegisterLineageCommandDetailedLin
   catalog?: string;
   /**
    * @remarks
-   * The environment to which the asset belongs. This property is used to identify the corresponding asset by property when referenceType is set to BY_PROPERTY. If referenceType is set to BY_GUID, this property does not need to be specified.
+   * The environment to which the asset belongs. This property is used to identify the corresponding asset by property when ReferenceType is set to BY_PROPERTY. If ReferenceType is set to BY_GUID, this property does not need to be specified.
    * 
    * @example
    * DEV, PROD
@@ -136,7 +136,7 @@ export class DeleteRegisterLineageRequestDeleteRegisterLineageCommandDetailedLin
   extProperties?: { [key: string]: any };
   /**
    * @remarks
-   * The GUID of the asset. This parameter is required when referenceType is set to BY_GUID.
+   * The asset GUID. This parameter is required when ReferenceType is set to BY_GUID.
    * 
    * @example
    * odps.300000001.project1.table1
@@ -144,7 +144,7 @@ export class DeleteRegisterLineageRequestDeleteRegisterLineageCommandDetailedLin
   guid?: string;
   /**
    * @remarks
-   * The asset type. Set this parameter based on the actual scenario.
+   * The asset type. Set this parameter as needed.
    * 
    * @example
    * COLUMN
@@ -152,7 +152,7 @@ export class DeleteRegisterLineageRequestDeleteRegisterLineageCommandDetailedLin
   metadataType?: string;
   /**
    * @remarks
-   * The name of the asset. This property is used to identify the corresponding asset by property when referenceType is set to BY_PROPERTY. If referenceType is set to BY_GUID, this property does not need to be specified.
+   * The asset name. This property is used to identify the corresponding asset by property when ReferenceType is set to BY_PROPERTY. If ReferenceType is set to BY_GUID, this property does not need to be specified.
    * 
    * @example
    * column1
@@ -176,7 +176,7 @@ export class DeleteRegisterLineageRequestDeleteRegisterLineageCommandDetailedLin
   referenceType?: string;
   /**
    * @remarks
-   * The schema asset property. For tables, this is typically the project or business unit. This property is used to identify the corresponding asset by property when referenceType is set to BY_PROPERTY. If referenceType is set to BY_GUID, this property does not need to be specified.
+   * The schema, which is an asset property. For tables, this is typically a project or business unit. This property is used to identify the corresponding asset by property when ReferenceType is set to BY_PROPERTY. If ReferenceType is set to BY_GUID, this property does not need to be specified.
    * 
    * @example
    * project1, bizUnit1
@@ -276,7 +276,7 @@ export class DeleteRegisterLineageRequestDeleteRegisterLineageCommandDetailedLin
 export class DeleteRegisterLineageRequestDeleteRegisterLineageCommandSource extends $dara.Model {
   /**
    * @remarks
-   * The catalog asset property. For tables, the catalog of both compute source tables and logical tables is uniformly set to dataphin. This property is used to identify the corresponding asset by property when referenceType is set to BY_PROPERTY. If referenceType is set to BY_GUID, this property does not need to be specified.
+   * The catalog, which is an asset property. For tables, the catalog of compute source tables or logical tables is uniformly set to dataphin. This property is used to identify the corresponding asset by property when ReferenceType is set to BY_PROPERTY. If ReferenceType is set to BY_GUID, this property does not need to be specified.
    * 
    * @example
    * dataphin
@@ -284,7 +284,7 @@ export class DeleteRegisterLineageRequestDeleteRegisterLineageCommandSource exte
   catalog?: string;
   /**
    * @remarks
-   * The environment to which the asset belongs. This property is used to identify the corresponding asset by property when referenceType is set to BY_PROPERTY. If referenceType is set to BY_GUID, this property does not need to be specified.
+   * The environment to which the asset belongs. This property is used to identify the corresponding asset by property when ReferenceType is set to BY_PROPERTY. If ReferenceType is set to BY_GUID, this property does not need to be specified.
    * 
    * @example
    * DEV, PROD
@@ -297,7 +297,7 @@ export class DeleteRegisterLineageRequestDeleteRegisterLineageCommandSource exte
   extProperties?: { [key: string]: any };
   /**
    * @remarks
-   * The GUID of the asset. This parameter is required when referenceType is set to BY_GUID.
+   * The asset GUID. This parameter is required when ReferenceType is set to BY_GUID.
    * 
    * @example
    * odps.300000001.project1.table1
@@ -305,7 +305,7 @@ export class DeleteRegisterLineageRequestDeleteRegisterLineageCommandSource exte
   guid?: string;
   /**
    * @remarks
-   * The asset subtype. Specify this parameter only when metadataType is set to TABLE and referenceType is not set to BY_GUID.
+   * The asset subtype. Specify this parameter only when MetadataType is set to TABLE and ReferenceType is not BY_GUID.
    * 
    * @example
    * PHYSICAL_TABLE, PHYSICAL_VIEW, PHYSICAL_MATERIALIZED_VIEW, DATASOURCE_TABLE, DATASOURCE_VIEW, DATASOURCE_MATERIALIZED_VIEW, DIM_NORMAL, DIM_LEVEL, DIM_ENUM, DIM_VIRTUAL, FACT_EVENT, FACT_PROCESS, FACT_SNAPSHOT, SUM_BIZ_UNIT
@@ -313,7 +313,7 @@ export class DeleteRegisterLineageRequestDeleteRegisterLineageCommandSource exte
   metadataSubType?: string;
   /**
    * @remarks
-   * The asset type. Set this parameter based on the actual scenario.
+   * The asset type. Set this parameter as needed.
    * 
    * This parameter is required.
    * 
@@ -323,7 +323,7 @@ export class DeleteRegisterLineageRequestDeleteRegisterLineageCommandSource exte
   metadataType?: string;
   /**
    * @remarks
-   * The name of the asset. This property is used to identify the corresponding asset by property when referenceType is set to BY_PROPERTY. If referenceType is set to BY_GUID, this property does not need to be specified.
+   * The asset name. This property is used to identify the corresponding asset by property when ReferenceType is set to BY_PROPERTY. If ReferenceType is set to BY_GUID, this property does not need to be specified.
    * 
    * @example
    * table1
@@ -331,7 +331,7 @@ export class DeleteRegisterLineageRequestDeleteRegisterLineageCommandSource exte
   name?: string;
   /**
    * @remarks
-   * The asset reference data type. Valid values: BY_GUID, BY_PROPERTY.
+   * The asset reference data type. Valid values: BY_GUID and BY_PROPERTY.
    * 
    * This parameter is required.
    * 
@@ -341,7 +341,7 @@ export class DeleteRegisterLineageRequestDeleteRegisterLineageCommandSource exte
   referenceType?: string;
   /**
    * @remarks
-   * The schema asset property. For tables, this is typically the project or business unit. This property is used to identify the corresponding asset by property when referenceType is set to BY_PROPERTY. If referenceType is set to BY_GUID, this property does not need to be specified.
+   * The schema, which is an asset property. For tables, this is typically a project or business unit. This property is used to identify the corresponding asset by property when ReferenceType is set to BY_PROPERTY. If ReferenceType is set to BY_GUID, this property does not need to be specified.
    * 
    * @example
    * project1, bizUnit1
@@ -390,7 +390,7 @@ export class DeleteRegisterLineageRequestDeleteRegisterLineageCommandSource exte
 export class DeleteRegisterLineageRequestDeleteRegisterLineageCommandTarget extends $dara.Model {
   /**
    * @remarks
-   * The catalog asset property. For tables, the catalog of both compute source tables and logical tables is uniformly set to dataphin. This property is used to identify the corresponding asset by property when referenceType is set to BY_PROPERTY. If referenceType is set to BY_GUID, this property does not need to be specified.
+   * The catalog, which is an asset property. For tables, the catalog of compute source tables or logical tables is uniformly set to dataphin. This property is used to identify the corresponding asset by property when ReferenceType is set to BY_PROPERTY. If ReferenceType is set to BY_GUID, this property does not need to be specified.
    * 
    * @example
    * dataphin
@@ -398,7 +398,7 @@ export class DeleteRegisterLineageRequestDeleteRegisterLineageCommandTarget exte
   catalog?: string;
   /**
    * @remarks
-   * The environment to which the asset belongs. This property is used to identify the corresponding asset by property when referenceType is set to BY_PROPERTY. If referenceType is set to BY_GUID, this property does not need to be specified.
+   * The environment to which the asset belongs. This property is used to identify the corresponding asset by property when ReferenceType is set to BY_PROPERTY. If ReferenceType is set to BY_GUID, this property does not need to be specified.
    * 
    * @example
    * DEV, PROD
@@ -411,7 +411,7 @@ export class DeleteRegisterLineageRequestDeleteRegisterLineageCommandTarget exte
   extProperties?: { [key: string]: any };
   /**
    * @remarks
-   * The GUID of the asset. This parameter is required when referenceType is set to BY_GUID.
+   * The asset GUID. This parameter is required when ReferenceType is set to BY_GUID.
    * 
    * @example
    * odps.300000001.project1.table1
@@ -419,7 +419,7 @@ export class DeleteRegisterLineageRequestDeleteRegisterLineageCommandTarget exte
   guid?: string;
   /**
    * @remarks
-   * The asset subtype. Specify this parameter only when metadataType is set to TABLE and referenceType is not set to BY_GUID.
+   * The asset subtype. Specify this parameter only when MetadataType is set to TABLE and ReferenceType is not BY_GUID.
    * 
    * @example
    * PHYSICAL_TABLE, PHYSICAL_VIEW, PHYSICAL_MATERIALIZED_VIEW, DATASOURCE_TABLE, DATASOURCE_VIEW, DATASOURCE_MATERIALIZED_VIEW, DIM_NORMAL, DIM_LEVEL, DIM_ENUM, DIM_VIRTUAL, FACT_EVENT, FACT_PROCESS, FACT_SNAPSHOT,SUM_BIZ_UNIT
@@ -427,7 +427,7 @@ export class DeleteRegisterLineageRequestDeleteRegisterLineageCommandTarget exte
   metadataSubType?: string;
   /**
    * @remarks
-   * The asset type. Set this parameter based on the actual scenario.
+   * The asset type. Set this parameter as needed.
    * 
    * This parameter is required.
    * 
@@ -437,7 +437,7 @@ export class DeleteRegisterLineageRequestDeleteRegisterLineageCommandTarget exte
   metadataType?: string;
   /**
    * @remarks
-   * The name of the asset. This property is used to identify the corresponding asset by property when referenceType is set to BY_PROPERTY. If referenceType is set to BY_GUID, this property does not need to be specified.
+   * The asset name. This property is used to identify the corresponding asset by property when ReferenceType is set to BY_PROPERTY. If ReferenceType is set to BY_GUID, this property does not need to be specified.
    * 
    * @example
    * table1
@@ -445,7 +445,7 @@ export class DeleteRegisterLineageRequestDeleteRegisterLineageCommandTarget exte
   name?: string;
   /**
    * @remarks
-   * The asset reference data type. Valid values: BY_GUID, BY_PROPERTY.
+   * The asset reference data type. Valid values: BY_GUID and BY_PROPERTY.
    * 
    * This parameter is required.
    * 
@@ -455,7 +455,7 @@ export class DeleteRegisterLineageRequestDeleteRegisterLineageCommandTarget exte
   referenceType?: string;
   /**
    * @remarks
-   * The schema asset property. For tables, this is typically the project or business unit. This property is used to identify the corresponding asset by property when referenceType is set to BY_PROPERTY. If referenceType is set to BY_GUID, this property does not need to be specified.
+   * The schema, which is an asset property. For tables, this is typically a project or business unit. This property is used to identify the corresponding asset by property when ReferenceType is set to BY_PROPERTY. If ReferenceType is set to BY_GUID, this property does not need to be specified.
    * 
    * @example
    * project1, bizUnit1
@@ -504,7 +504,7 @@ export class DeleteRegisterLineageRequestDeleteRegisterLineageCommandTarget exte
 export class DeleteRegisterLineageRequestDeleteRegisterLineageCommand extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to automatically delete the object lineage after all detailed lineage entries are deleted. Default value: true.
+   * Specifies whether to automatically delete the object lineage after all detailedLineage entries are deleted. Default value: true.
    */
   cascadeDeleteLineage?: boolean;
   /**
@@ -514,14 +514,14 @@ export class DeleteRegisterLineageRequestDeleteRegisterLineageCommand extends $d
   detailedLineages?: DeleteRegisterLineageRequestDeleteRegisterLineageCommandDetailedLineages[];
   /**
    * @remarks
-   * The source of the lineage.
+   * The source of the data lineage.
    * 
    * This parameter is required.
    */
   source?: DeleteRegisterLineageRequestDeleteRegisterLineageCommandSource;
   /**
    * @remarks
-   * The target of the lineage.
+   * The target of the data lineage.
    * 
    * This parameter is required.
    */
@@ -536,7 +536,7 @@ export class DeleteRegisterLineageRequestDeleteRegisterLineageCommand extends $d
   tenantId?: number;
   /**
    * @remarks
-   * The ID of the current user.
+   * The current user ID.
    * 
    * @example
    * 300004567
@@ -585,7 +585,7 @@ export class DeleteRegisterLineageRequestDeleteRegisterLineageCommand extends $d
 export class DeleteRegisterLineageRequest extends $dara.Model {
   /**
    * @remarks
-   * The command for deleting registered lineage.
+   * The command for deleting registered data lineage.
    * 
    * This parameter is required.
    */
@@ -600,10 +600,16 @@ export class DeleteRegisterLineageRequest extends $dara.Model {
    * 30001011
    */
   opTenantId?: number;
+  /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
   static names(): { [key: string]: string } {
     return {
       deleteRegisterLineageCommand: 'DeleteRegisterLineageCommand',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
     };
   }
 
@@ -611,6 +617,7 @@ export class DeleteRegisterLineageRequest extends $dara.Model {
     return {
       deleteRegisterLineageCommand: DeleteRegisterLineageRequestDeleteRegisterLineageCommand,
       opTenantId: 'number',
+      opUserId: 'string',
     };
   }
 

@@ -27,11 +27,17 @@ export class CreatePipelineByAsyncShrinkRequest extends $dara.Model {
    * 30001011
    */
   opTenantId?: number;
+  /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
   static names(): { [key: string]: string } {
     return {
       contextShrink: 'Context',
       createCommandShrink: 'CreateCommand',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
     };
   }
 
@@ -40,6 +46,7 @@ export class CreatePipelineByAsyncShrinkRequest extends $dara.Model {
       contextShrink: 'string',
       createCommandShrink: 'string',
       opTenantId: 'number',
+      opUserId: 'string',
     };
   }
 

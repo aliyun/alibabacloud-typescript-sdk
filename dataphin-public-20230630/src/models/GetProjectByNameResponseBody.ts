@@ -8,7 +8,7 @@ export class GetProjectByNameResponseBodyProjectInfoWhiteLists extends $dara.Mod
    * The description.
    * 
    * @example
-   * xx 白名单
+   * xx whitelist
    */
   description?: string;
   /**
@@ -58,7 +58,7 @@ export class GetProjectByNameResponseBodyProjectInfo extends $dara.Model {
    * The display name of the business unit to which the project belongs.
    * 
    * @example
-   * 测试
+   * Test
    */
   bizUnitDisplayName?: string;
   /**
@@ -71,7 +71,7 @@ export class GetProjectByNameResponseBodyProjectInfo extends $dara.Model {
   bizUnitId?: number;
   /**
    * @remarks
-   * The ID of the associated compute source.
+   * The ID of the bound compute source.
    * 
    * @example
    * 101711
@@ -79,7 +79,7 @@ export class GetProjectByNameResponseBodyProjectInfo extends $dara.Model {
   computeSourceId?: number;
   /**
    * @remarks
-   * The name of the associated compute source.
+   * The name of the bound compute source.
    * 
    * @example
    * ds1
@@ -90,7 +90,7 @@ export class GetProjectByNameResponseBodyProjectInfo extends $dara.Model {
    * The project description.
    * 
    * @example
-   * 测试
+   * Test
    */
   description?: string;
   /**
@@ -111,7 +111,7 @@ export class GetProjectByNameResponseBodyProjectInfo extends $dara.Model {
   env?: string;
   /**
    * @remarks
-   * The creation time, in the format of yyyy-MM-dd HH:mm:ss.
+   * The creation time, in the yyyy-MM-dd HH:mm:ss format.
    * 
    * @example
    * 2025-06-10 10:01:01
@@ -119,7 +119,7 @@ export class GetProjectByNameResponseBodyProjectInfo extends $dara.Model {
   gmtCreate?: string;
   /**
    * @remarks
-   * The update time, in the format of yyyy-MM-dd HH:mm:ss.
+   * The modification time, in the yyyy-MM-dd HH:mm:ss format.
    * 
    * @example
    * 2025-06-10 10:01:01
@@ -152,8 +152,9 @@ export class GetProjectByNameResponseBodyProjectInfo extends $dara.Model {
   /**
    * @remarks
    * The namespace type. Valid values:
-   * - PUBLIC: public type
-   * - APPLICATION: application type
+   * 
+   * - PUBLIC: common pattern.
+   * - APPLICATION: application type.
    * - BASE: base type.
    * 
    * @example
@@ -173,12 +174,12 @@ export class GetProjectByNameResponseBodyProjectInfo extends $dara.Model {
    * The project owner.
    * 
    * @example
-   * 张三
+   * John
    */
   ownerName?: string;
   /**
    * @remarks
-   * The ID of the associated real-time compute source.
+   * The ID of the bound streaming compute source.
    * 
    * @example
    * 201711
@@ -186,7 +187,7 @@ export class GetProjectByNameResponseBodyProjectInfo extends $dara.Model {
   streamComputeSourceId?: number;
   /**
    * @remarks
-   * The name of the associated real-time compute source.
+   * The name of the bound streaming compute source.
    * 
    * @example
    * ds2
@@ -195,7 +196,8 @@ export class GetProjectByNameResponseBodyProjectInfo extends $dara.Model {
   /**
    * @remarks
    * The project type. Valid values:
-   * - DISTILL: distillation project
+   * 
+   * - DISTILL: distillation project.
    * - GENERAL: general project.
    * 
    * @example
@@ -286,7 +288,7 @@ export class GetProjectByNameResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The details of the backend exception.
+   * The backend exception details.
    * 
    * @example
    * internal error

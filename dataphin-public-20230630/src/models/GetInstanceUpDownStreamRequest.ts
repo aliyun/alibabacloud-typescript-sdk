@@ -81,6 +81,11 @@ export class GetInstanceUpDownStreamRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
+  /**
    * @remarks
    * The project ID.
    * 
@@ -104,6 +109,7 @@ export class GetInstanceUpDownStreamRequest extends $dara.Model {
       env: 'Env',
       instanceId: 'InstanceId',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
       projectId: 'ProjectId',
       upStreamDepth: 'UpStreamDepth',
     };
@@ -115,6 +121,7 @@ export class GetInstanceUpDownStreamRequest extends $dara.Model {
       env: 'string',
       instanceId: GetInstanceUpDownStreamRequestInstanceId,
       opTenantId: 'number',
+      opUserId: 'string',
       projectId: 'number',
       upStreamDepth: 'number',
     };

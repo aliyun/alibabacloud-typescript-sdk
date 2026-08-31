@@ -100,10 +100,16 @@ export class AddTenantMembersRequest extends $dara.Model {
    * 30001011
    */
   opTenantId?: number;
+  /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
   static names(): { [key: string]: string } {
     return {
       addCommand: 'AddCommand',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
     };
   }
 
@@ -111,6 +117,7 @@ export class AddTenantMembersRequest extends $dara.Model {
     return {
       addCommand: AddTenantMembersRequestAddCommand,
       opTenantId: 'number',
+      opUserId: 'string',
     };
   }
 

@@ -200,11 +200,17 @@ export class FixDataRequest extends $dara.Model {
    * 30001011
    */
   opTenantId?: number;
+  /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
   static names(): { [key: string]: string } {
     return {
       env: 'Env',
       fixDataCommand: 'FixDataCommand',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
     };
   }
 
@@ -213,6 +219,7 @@ export class FixDataRequest extends $dara.Model {
       env: 'string',
       fixDataCommand: FixDataRequestFixDataCommand,
       opTenantId: 'number',
+      opUserId: 'string',
     };
   }
 

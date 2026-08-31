@@ -27,6 +27,11 @@ export class ListKgEntityShrinkRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
+  /**
    * @remarks
    * The workspace ID.
    * 
@@ -41,6 +46,7 @@ export class ListKgEntityShrinkRequest extends $dara.Model {
       entityType: 'EntityType',
       listQueryShrink: 'ListQuery',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
       workspaceId: 'WorkspaceId',
     };
   }
@@ -50,6 +56,7 @@ export class ListKgEntityShrinkRequest extends $dara.Model {
       entityType: 'string',
       listQueryShrink: 'string',
       opTenantId: 'number',
+      opUserId: 'string',
       workspaceId: 'string',
     };
   }

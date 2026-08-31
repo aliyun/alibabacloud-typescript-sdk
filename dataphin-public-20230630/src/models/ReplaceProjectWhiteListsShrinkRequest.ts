@@ -24,6 +24,11 @@ export class ReplaceProjectWhiteListsShrinkRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
+  /**
    * @remarks
    * The edit command.
    * 
@@ -34,6 +39,7 @@ export class ReplaceProjectWhiteListsShrinkRequest extends $dara.Model {
     return {
       id: 'Id',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
       replaceCommandShrink: 'ReplaceCommand',
     };
   }
@@ -42,6 +48,7 @@ export class ReplaceProjectWhiteListsShrinkRequest extends $dara.Model {
     return {
       id: 'number',
       opTenantId: 'number',
+      opUserId: 'string',
       replaceCommandShrink: 'string',
     };
   }

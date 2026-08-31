@@ -6,8 +6,8 @@ export class ListNodesShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The environment identifier. Valid values:
-   * - DEV: development environment 
-   * - PROD (default): production environment.
+   * - DEV: Development environment. 
+   * - PROD (default): Production environment.
    * 
    * @example
    * PROD
@@ -30,11 +30,20 @@ export class ListNodesShrinkRequest extends $dara.Model {
    * 30001011
    */
   opTenantId?: number;
+  /**
+   * @remarks
+   * The ID of the operator.
+   * 
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
   static names(): { [key: string]: string } {
     return {
       env: 'Env',
       listQueryShrink: 'ListQuery',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
     };
   }
 
@@ -43,6 +52,7 @@ export class ListNodesShrinkRequest extends $dara.Model {
       env: 'string',
       listQueryShrink: 'string',
       opTenantId: 'number',
+      opUserId: 'string',
     };
   }
 

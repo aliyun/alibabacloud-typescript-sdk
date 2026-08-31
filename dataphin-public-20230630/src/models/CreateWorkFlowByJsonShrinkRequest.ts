@@ -27,11 +27,20 @@ export class CreateWorkFlowByJsonShrinkRequest extends $dara.Model {
    * 30001011
    */
   opTenantId?: number;
+  /**
+   * @remarks
+   * The ID of the operator user.
+   * 
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
   static names(): { [key: string]: string } {
     return {
       contextShrink: 'Context',
       createCommandShrink: 'CreateCommand',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
     };
   }
 
@@ -40,6 +49,7 @@ export class CreateWorkFlowByJsonShrinkRequest extends $dara.Model {
       contextShrink: 'string',
       createCommandShrink: 'string',
       opTenantId: 'number',
+      opUserId: 'string',
     };
   }
 

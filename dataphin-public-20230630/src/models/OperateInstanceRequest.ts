@@ -127,6 +127,11 @@ export class OperateInstanceRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
+  /**
    * @remarks
    * The operation request.
    * 
@@ -137,6 +142,7 @@ export class OperateInstanceRequest extends $dara.Model {
     return {
       env: 'Env',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
       operateCommand: 'OperateCommand',
     };
   }
@@ -145,6 +151,7 @@ export class OperateInstanceRequest extends $dara.Model {
     return {
       env: 'string',
       opTenantId: 'number',
+      opUserId: 'string',
       operateCommand: OperateInstanceRequestOperateCommand,
     };
   }

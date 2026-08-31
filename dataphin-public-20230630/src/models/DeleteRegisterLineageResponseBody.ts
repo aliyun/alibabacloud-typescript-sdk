@@ -21,7 +21,7 @@ export class DeleteRegisterLineageResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The error details returned by the backend.
+   * The backend exception details.
    * 
    * @example
    * internal error

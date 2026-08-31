@@ -34,6 +34,11 @@ export class DeleteUdfRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
+  /**
    * @remarks
    * The project ID.
    * 
@@ -48,6 +53,7 @@ export class DeleteUdfRequest extends $dara.Model {
       comment: 'Comment',
       id: 'Id',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
       projectId: 'ProjectId',
     };
   }
@@ -57,6 +63,7 @@ export class DeleteUdfRequest extends $dara.Model {
       comment: 'string',
       id: 'number',
       opTenantId: 'number',
+      opUserId: 'string',
       projectId: 'number',
     };
   }

@@ -54,6 +54,11 @@ export class ExecuteTriggerNodeRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
+  /**
    * @remarks
    * The project ID.
    * 
@@ -70,6 +75,7 @@ export class ExecuteTriggerNodeRequest extends $dara.Model {
       index: 'Index',
       nodeId: 'NodeId',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
       projectId: 'ProjectId',
     };
   }
@@ -81,6 +87,7 @@ export class ExecuteTriggerNodeRequest extends $dara.Model {
       index: 'number',
       nodeId: 'string',
       opTenantId: 'number',
+      opUserId: 'string',
       projectId: 'number',
     };
   }

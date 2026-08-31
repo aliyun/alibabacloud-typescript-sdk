@@ -26,6 +26,11 @@ export class GetStreamJobsRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
+  /**
    * @remarks
    * The Dataphin project ID.
    * 
@@ -39,6 +44,7 @@ export class GetStreamJobsRequest extends $dara.Model {
     return {
       env: 'Env',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
       projectId: 'ProjectId',
     };
   }
@@ -47,6 +53,7 @@ export class GetStreamJobsRequest extends $dara.Model {
     return {
       env: 'string',
       opTenantId: 'number',
+      opUserId: 'string',
       projectId: 'number',
     };
   }

@@ -108,10 +108,16 @@ export class DeleteStandardRelationsRequest extends $dara.Model {
    * 30001011
    */
   opTenantId?: number;
+  /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
   static names(): { [key: string]: string } {
     return {
       deleteCommand: 'DeleteCommand',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
     };
   }
 
@@ -119,6 +125,7 @@ export class DeleteStandardRelationsRequest extends $dara.Model {
     return {
       deleteCommand: DeleteStandardRelationsRequestDeleteCommand,
       opTenantId: 'number',
+      opUserId: 'string',
     };
   }
 

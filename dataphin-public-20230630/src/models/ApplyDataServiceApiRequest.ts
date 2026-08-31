@@ -217,6 +217,11 @@ export class ApplyDataServiceApiRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
+  /**
    * @remarks
    * The data service project ID.
    * 
@@ -230,6 +235,7 @@ export class ApplyDataServiceApiRequest extends $dara.Model {
     return {
       applyCommand: 'ApplyCommand',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
       projectId: 'ProjectId',
     };
   }
@@ -238,6 +244,7 @@ export class ApplyDataServiceApiRequest extends $dara.Model {
     return {
       applyCommand: ApplyDataServiceApiRequestApplyCommand,
       opTenantId: 'number',
+      opUserId: 'string',
       projectId: 'number',
     };
   }

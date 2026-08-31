@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpsertQualityRuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code.
+   * The backend response code.
    * 
    * @example
    * OK
@@ -13,7 +13,7 @@ export class UpsertQualityRuleResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The rule ID.
+   * The task rule ID.
    * 
    * @example
    * 1
@@ -29,7 +29,7 @@ export class UpsertQualityRuleResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The error message.
+   * The backend exception details.
    * 
    * @example
    * internal error

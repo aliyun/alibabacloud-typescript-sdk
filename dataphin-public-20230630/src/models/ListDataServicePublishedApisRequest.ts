@@ -79,6 +79,11 @@ export class ListDataServicePublishedApisRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
+  /**
    * @remarks
    * Data service project ID.
    * 
@@ -92,6 +97,7 @@ export class ListDataServicePublishedApisRequest extends $dara.Model {
     return {
       listQuery: 'ListQuery',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
       projectId: 'ProjectId',
     };
   }
@@ -100,6 +106,7 @@ export class ListDataServicePublishedApisRequest extends $dara.Model {
     return {
       listQuery: ListDataServicePublishedApisRequestListQuery,
       opTenantId: 'number',
+      opUserId: 'string',
       projectId: 'number',
     };
   }

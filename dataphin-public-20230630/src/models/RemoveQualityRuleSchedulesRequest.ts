@@ -70,6 +70,11 @@ export class RemoveQualityRuleSchedulesRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
+  /**
    * @remarks
    * The unbinding instruction.
    * 
@@ -79,6 +84,7 @@ export class RemoveQualityRuleSchedulesRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
       removeCommand: 'RemoveCommand',
     };
   }
@@ -86,6 +92,7 @@ export class RemoveQualityRuleSchedulesRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       opTenantId: 'number',
+      opUserId: 'string',
       removeCommand: RemoveQualityRuleSchedulesRequestRemoveCommand,
     };
   }

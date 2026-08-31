@@ -22,7 +22,15 @@ export class GetPipelineByIdShrinkRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
-   * The query ID used to query the pipeline node.
+   * The ID of the operator.
+   * 
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
+  /**
+   * @remarks
+   * The ID used to query the pipeline node.
    * 
    * This parameter is required.
    */
@@ -31,6 +39,7 @@ export class GetPipelineByIdShrinkRequest extends $dara.Model {
     return {
       contextShrink: 'Context',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
       queryIdShrink: 'QueryId',
     };
   }
@@ -39,6 +48,7 @@ export class GetPipelineByIdShrinkRequest extends $dara.Model {
     return {
       contextShrink: 'string',
       opTenantId: 'number',
+      opUserId: 'string',
       queryIdShrink: 'string',
     };
   }

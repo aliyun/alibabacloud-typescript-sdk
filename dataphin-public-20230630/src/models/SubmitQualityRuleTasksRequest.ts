@@ -139,6 +139,11 @@ export class SubmitQualityRuleTasksRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
+  /**
    * @remarks
    * Submit command
    * 
@@ -148,6 +153,7 @@ export class SubmitQualityRuleTasksRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
       submitCommand: 'SubmitCommand',
     };
   }
@@ -155,6 +161,7 @@ export class SubmitQualityRuleTasksRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       opTenantId: 'number',
+      opUserId: 'string',
       submitCommand: SubmitQualityRuleTasksRequestSubmitCommand,
     };
   }

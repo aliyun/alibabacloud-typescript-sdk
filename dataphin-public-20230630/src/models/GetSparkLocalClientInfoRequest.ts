@@ -27,6 +27,11 @@ export class GetSparkLocalClientInfoRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
+  /**
    * @remarks
    * The project ID.
    * 
@@ -40,6 +45,7 @@ export class GetSparkLocalClientInfoRequest extends $dara.Model {
     return {
       envEnum: 'EnvEnum',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
       projectId: 'ProjectId',
     };
   }
@@ -48,6 +54,7 @@ export class GetSparkLocalClientInfoRequest extends $dara.Model {
     return {
       envEnum: 'string',
       opTenantId: 'number',
+      opUserId: 'string',
       projectId: 'string',
     };
   }

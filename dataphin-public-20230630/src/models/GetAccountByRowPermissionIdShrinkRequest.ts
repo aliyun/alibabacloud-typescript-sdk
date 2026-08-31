@@ -20,10 +20,16 @@ export class GetAccountByRowPermissionIdShrinkRequest extends $dara.Model {
    * 30001011
    */
   opTenantId?: number;
+  /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
   static names(): { [key: string]: string } {
     return {
       getAccountByRowPermissionIdQueryShrink: 'GetAccountByRowPermissionIdQuery',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
     };
   }
 
@@ -31,6 +37,7 @@ export class GetAccountByRowPermissionIdShrinkRequest extends $dara.Model {
     return {
       getAccountByRowPermissionIdQueryShrink: 'string',
       opTenantId: 'number',
+      opUserId: 'string',
     };
   }
 

@@ -18,10 +18,16 @@ export class GetMyTenantsRequest extends $dara.Model {
    * 30001011
    */
   opTenantId?: number;
+  /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
   static names(): { [key: string]: string } {
     return {
       featureCodeList: 'FeatureCodeList',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
     };
   }
 
@@ -29,6 +35,7 @@ export class GetMyTenantsRequest extends $dara.Model {
     return {
       featureCodeList: { 'type': 'array', 'itemType': 'string' },
       opTenantId: 'number',
+      opUserId: 'string',
     };
   }
 

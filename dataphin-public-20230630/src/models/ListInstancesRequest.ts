@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class ListInstancesRequestListQuery extends $dara.Model {
   /**
    * @remarks
-   * Business Type
+   * The business type. Valid values:
    * 
-   * - SCRIPT: Script Instance
-   * - LOGICAL_TABLE: Logical Table
+   * - SCRIPT: Script instance.
+   * - LOGICAL_TABLE: Logical table.
    * 
    * @example
    * SCRIPT
@@ -16,7 +16,7 @@ export class ListInstancesRequestListQuery extends $dara.Model {
   bizType?: string;
   /**
    * @remarks
-   * Business unit ID. Required when querying summary logical tables.
+   * The business unit ID. Required when querying aggregate logical tables.
    * 
    * @example
    * 6232322111
@@ -24,7 +24,7 @@ export class ListInstancesRequestListQuery extends $dara.Model {
   bizUnitId?: number;
   /**
    * @remarks
-   * Workflow ID
+   * The workflow ID.
    * 
    * @example
    * 1021
@@ -32,7 +32,7 @@ export class ListInstancesRequestListQuery extends $dara.Model {
   flowId?: string;
   /**
    * @remarks
-   * End business date and time. The time format must conform to the partition format specified by the business unit.
+   * The end business date and time. The time format must match the partition format specified by the business unit.
    * 
    * @example
    * 2024-05-31
@@ -40,7 +40,7 @@ export class ListInstancesRequestListQuery extends $dara.Model {
   maxBizDate?: string;
   /**
    * @remarks
-   * Maximum instance run time
+   * The maximum instance run time.
    * 
    * @example
    * 2024-05-31
@@ -48,7 +48,7 @@ export class ListInstancesRequestListQuery extends $dara.Model {
   maxRunDate?: string;
   /**
    * @remarks
-   * Start business date and time. The time format must conform to the partition format specified by the business unit.
+   * The start business date and time. The time format must match the partition format specified by the business unit.
    * 
    * @example
    * 2024-05-30
@@ -56,7 +56,7 @@ export class ListInstancesRequestListQuery extends $dara.Model {
   minBizDate?: string;
   /**
    * @remarks
-   * Minimum instance run time
+   * The minimum instance run time.
    * 
    * @example
    * 2024-05-30
@@ -64,7 +64,7 @@ export class ListInstancesRequestListQuery extends $dara.Model {
   minRunDate?: string;
   /**
    * @remarks
-   * Node ID
+   * The node ID.
    * 
    * @example
    * n_23131
@@ -72,12 +72,12 @@ export class ListInstancesRequestListQuery extends $dara.Model {
   nodeId?: string;
   /**
    * @remarks
-   * Node Owner
+   * The node owners.
    */
   ownerList?: string[];
   /**
    * @remarks
-   * Page Number
+   * The page number.
    * 
    * This parameter is required.
    * 
@@ -87,7 +87,7 @@ export class ListInstancesRequestListQuery extends $dara.Model {
   page?: number;
   /**
    * @remarks
-   * Page Size
+   * The number of entries per page.
    * 
    * This parameter is required.
    * 
@@ -97,7 +97,7 @@ export class ListInstancesRequestListQuery extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Priority
+   * The priority. Valid values:
    * - HIGHEST
    * - HIGH
    * - MIDDLE
@@ -107,7 +107,7 @@ export class ListInstancesRequestListQuery extends $dara.Model {
   priorityList?: string[];
   /**
    * @remarks
-   * Project ID
+   * The project ID.
    * 
    * This parameter is required.
    * 
@@ -117,25 +117,25 @@ export class ListInstancesRequestListQuery extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * Running status
-   * - INIT: Initialized
-   * - WAIT_SUBMISSION: Waiting for Submission
-   * - WAIT_SCHEDULE: Waiting for Schedule Time
-   * - DISPATCH_BLOCKED: Throttled
-   * - WAIT_RESOURCE: Waiting for Scheduling Resources
-   * - RUNNING: Running
-   * - SUCCESS: Succeeded
-   * - FAILED: Failed
+   * The run status. Valid values:
+   * - INIT: Init.
+   * - WAIT_SUBMISSION: Waiting for submission.
+   * - WAIT_SCHEDULE: Waiting for schedule time.
+   * - DISPATCH_BLOCKED: Throttled.
+   * - WAIT_RESOURCE: Waiting for schedule resource.
+   * - RUNNING: Running.
+   * - SUCCESS: Succeeded.
+   * - FAILED: Failed.
    */
   runStatusList?: string[];
   /**
    * @remarks
-   * Whether scheduling is paused
+   * Specifies whether scheduling is paused.
    */
   schedulePaused?: boolean;
   /**
    * @remarks
-   * Schedule Period
+   * The scheduling period. Valid values:
    * - YEARLY
    * - MONTHLY
    * - WEEKLY
@@ -146,9 +146,9 @@ export class ListInstancesRequestListQuery extends $dara.Model {
   schedulePeriodList?: string[];
   /**
    * @remarks
-   * Instance schedule type
-   * - NORMAL (Periodic Instance)
-   * - MANUAL (Manual Instance)
+   * The instance scheduling type. Valid values:
+   * - NORMAL: Periodic instance.
+   * - MANUAL: Manual instance.
    * 
    * This parameter is required.
    * 
@@ -158,7 +158,7 @@ export class ListInstancesRequestListQuery extends $dara.Model {
   scheduleType?: string;
   /**
    * @remarks
-   * Fuzzy match by node name or exact match by node ID
+   * Fuzzy match by node name or exact match by node ID.
    * 
    * @example
    * xx
@@ -166,7 +166,7 @@ export class ListInstancesRequestListQuery extends $dara.Model {
   searchText?: string;
   /**
    * @remarks
-   * Sub-business Type
+   * The sub-business type. Valid values:
    * - MAX_COMPUTE_SQL
    * - HIVE_SQL
    * - SHELL
@@ -175,6 +175,11 @@ export class ListInstancesRequestListQuery extends $dara.Model {
    * - DATABASE_SQL
    */
   subBizTypeList?: string[];
+  /**
+   * @remarks
+   * The node tag filter list. Each element is a numeric string of a node tag ID (such as "123"). Filters the instance list by node tags. If not specified or empty, no filtering is applied and all instances are returned. Multiple tags use OR logic. Invalid elements (non-numeric or overflow) are ignored.
+   */
+  tagList?: string[];
   static names(): { [key: string]: string } {
     return {
       bizType: 'BizType',
@@ -196,6 +201,7 @@ export class ListInstancesRequestListQuery extends $dara.Model {
       scheduleType: 'ScheduleType',
       searchText: 'SearchText',
       subBizTypeList: 'SubBizTypeList',
+      tagList: 'TagList',
     };
   }
 
@@ -220,6 +226,7 @@ export class ListInstancesRequestListQuery extends $dara.Model {
       scheduleType: 'string',
       searchText: 'string',
       subBizTypeList: { 'type': 'array', 'itemType': 'string' },
+      tagList: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -239,6 +246,9 @@ export class ListInstancesRequestListQuery extends $dara.Model {
     if(Array.isArray(this.subBizTypeList)) {
       $dara.Model.validateArray(this.subBizTypeList);
     }
+    if(Array.isArray(this.tagList)) {
+      $dara.Model.validateArray(this.tagList);
+    }
     super.validate();
   }
 
@@ -250,9 +260,9 @@ export class ListInstancesRequestListQuery extends $dara.Model {
 export class ListInstancesRequest extends $dara.Model {
   /**
    * @remarks
-   * Environment identifier
-   * - DEV: Development environment
-   * - PROD (default): Production environment
+   * The environment identifier. Valid values:
+   * - DEV: Development environment. 
+   * - PROD (default): Production environment.
    * 
    * @example
    * PROD
@@ -260,12 +270,12 @@ export class ListInstancesRequest extends $dara.Model {
   env?: string;
   /**
    * @remarks
-   * Query Request
+   * The query request.
    */
   listQuery?: ListInstancesRequestListQuery;
   /**
    * @remarks
-   * Tenant ID
+   * The tenant ID.
    * 
    * This parameter is required.
    * 
@@ -273,11 +283,20 @@ export class ListInstancesRequest extends $dara.Model {
    * 30001011
    */
   opTenantId?: number;
+  /**
+   * @remarks
+   * The operator user ID.
+   * 
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
   static names(): { [key: string]: string } {
     return {
       env: 'Env',
       listQuery: 'ListQuery',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
     };
   }
 
@@ -286,6 +305,7 @@ export class ListInstancesRequest extends $dara.Model {
       env: 'string',
       listQuery: ListInstancesRequestListQuery,
       opTenantId: 'number',
+      opUserId: 'string',
     };
   }
 

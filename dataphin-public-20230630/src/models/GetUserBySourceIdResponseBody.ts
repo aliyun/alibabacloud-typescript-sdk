@@ -8,7 +8,7 @@ export class GetUserBySourceIdResponseBodyUser extends $dara.Model {
    * The display name of the user.
    * 
    * @example
-   * xx测试
+   * xx_test
    */
   displayName?: string;
   /**
@@ -61,7 +61,7 @@ export class GetUserBySourceIdResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The error message.
+   * The error message returned if the request failed.
    * 
    * @example
    * successful

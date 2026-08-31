@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetResourceByVersionResponseBodyResourceInfo extends $dara.Model {
   /**
    * @remarks
-   * Compute engine type.
+   * The compute engine source type.
    * 
    * @example
    * MAX_COMPUTE
@@ -13,7 +13,7 @@ export class GetResourceByVersionResponseBodyResourceInfo extends $dara.Model {
   computeEngineType?: string;
   /**
    * @remarks
-   * Creator.
+   * The creator.
    * 
    * @example
    * 30011021
@@ -21,15 +21,15 @@ export class GetResourceByVersionResponseBodyResourceInfo extends $dara.Model {
   creator?: string;
   /**
    * @remarks
-   * Description.
+   * The description.
    * 
    * @example
-   * 测试
+   * Test
    */
   description?: string;
   /**
    * @remarks
-   * Storage directory.
+   * The storage folder.
    * 
    * @example
    * /
@@ -37,7 +37,7 @@ export class GetResourceByVersionResponseBodyResourceInfo extends $dara.Model {
   directory?: string;
   /**
    * @remarks
-   * Creation time, format: yyyy-MM-dd HH:mm:ss.
+   * The creation time, in the yyyy-MM-dd HH:mm:ss format.
    * 
    * @example
    * 2025-06-10 10:01:01
@@ -45,7 +45,7 @@ export class GetResourceByVersionResponseBodyResourceInfo extends $dara.Model {
   gmtCreate?: string;
   /**
    * @remarks
-   * Modification time, format: yyyy-MM-dd HH:mm:ss.
+   * The update time, in the yyyy-MM-dd HH:mm:ss format.
    * 
    * @example
    * 2025-06-10 10:01:01
@@ -53,7 +53,7 @@ export class GetResourceByVersionResponseBodyResourceInfo extends $dara.Model {
   gmtModified?: string;
   /**
    * @remarks
-   * Resource ID.
+   * The resource ID.
    * 
    * @example
    * 10200121011
@@ -61,7 +61,7 @@ export class GetResourceByVersionResponseBodyResourceInfo extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * Last modifier.
+   * The last modifier.
    * 
    * @example
    * 30011021
@@ -69,7 +69,7 @@ export class GetResourceByVersionResponseBodyResourceInfo extends $dara.Model {
   lastModifier?: string;
   /**
    * @remarks
-   * Resource file name.
+   * The name of the resource file.
    * 
    * @example
    * udf_sleep.jar
@@ -77,7 +77,7 @@ export class GetResourceByVersionResponseBodyResourceInfo extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Project ID.
+   * The project ID.
    * 
    * @example
    * 1030111021
@@ -85,7 +85,7 @@ export class GetResourceByVersionResponseBodyResourceInfo extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * Resource type.
+   * The resource type.
    * 
    * @example
    * JAR
@@ -93,7 +93,7 @@ export class GetResourceByVersionResponseBodyResourceInfo extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * Resource size, unit: bytes.
+   * The size of the resource, in bytes.
    * 
    * @example
    * 102400
@@ -101,7 +101,7 @@ export class GetResourceByVersionResponseBodyResourceInfo extends $dara.Model {
   size?: number;
   /**
    * @remarks
-   * Resource storage address.
+   * The storage address of the resource.
    * 
    * @example
    * 300011448/711833/cdcd1c44-f1ee-46bb-b318-1d123dbabf6c
@@ -155,7 +155,7 @@ export class GetResourceByVersionResponseBodyResourceInfo extends $dara.Model {
 export class GetResourceByVersionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Backend response code.
+   * The backend response code.
    * 
    * @example
    * OK
@@ -163,7 +163,7 @@ export class GetResourceByVersionResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * HTTP status code.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -171,7 +171,7 @@ export class GetResourceByVersionResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * Backend error details.
+   * The details of the backend exception.
    * 
    * @example
    * internal error
@@ -187,7 +187,7 @@ export class GetResourceByVersionResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Resource file details.
+   * The details of the resource file.
    */
   resourceInfo?: GetResourceByVersionResponseBodyResourceInfo;
   /**

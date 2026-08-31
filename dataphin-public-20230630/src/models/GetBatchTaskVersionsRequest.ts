@@ -24,6 +24,11 @@ export class GetBatchTaskVersionsRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
+  /**
    * @remarks
    * The ID of the project to which the node belongs.
    * 
@@ -37,6 +42,7 @@ export class GetBatchTaskVersionsRequest extends $dara.Model {
     return {
       fileId: 'FileId',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
       projectId: 'ProjectId',
     };
   }
@@ -45,6 +51,7 @@ export class GetBatchTaskVersionsRequest extends $dara.Model {
     return {
       fileId: 'number',
       opTenantId: 'number',
+      opUserId: 'string',
       projectId: 'number',
     };
   }

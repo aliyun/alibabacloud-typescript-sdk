@@ -5,17 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class UpsertQualityRuleRequestUpsertCommandAttributeWithValueListAttributeInfoValueConfigDefaultValue extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to include the maximum value.
+   * Indicates whether the maximum value is included.
    */
   includeMaxValue?: boolean;
   /**
    * @remarks
-   * Specifies whether to include the minimum value.
+   * Indicates whether the minimum value is included.
    */
   includeMinValue?: boolean;
   /**
    * @remarks
-   * The maximum value. Applicable to range interval attributes.
+   * The maximum value. This parameter applies to range interval properties.
    * 
    * @example
    * 11
@@ -23,7 +23,7 @@ export class UpsertQualityRuleRequestUpsertCommandAttributeWithValueListAttribut
   maxValue?: string;
   /**
    * @remarks
-   * The minimum value. Applicable to range interval attributes.
+   * The minimum value. This parameter applies to range interval properties.
    * 
    * @example
    * 1
@@ -31,7 +31,7 @@ export class UpsertQualityRuleRequestUpsertCommandAttributeWithValueListAttribut
   minValue?: string;
   /**
    * @remarks
-   * The attribute value list. Applicable to attributes with the custom input, single-select dropdown, or multi-select dropdown input method.
+   * The property value list. This parameter applies to properties whose input method is custom input, single-select dropdown, or multi-select dropdown.
    */
   valueList?: string[];
   static names(): { [key: string]: string } {
@@ -69,7 +69,13 @@ export class UpsertQualityRuleRequestUpsertCommandAttributeWithValueListAttribut
 export class UpsertQualityRuleRequestUpsertCommandAttributeWithValueListAttributeInfoValueConfig extends $dara.Model {
   /**
    * @remarks
-   * The attribute field type. Valid values: STRING (Text), BIGINT (Integer), DOUBLE (Floating-point), BOOLEAN (Boolean), DATE (Date), DATETIME (Datetime).
+   * The property field data type. Valid values:
+   * - STRING: text.
+   * - BIGINT: integer.
+   * - DOUBLE: floating-point.
+   * - BOOLEAN: Boolean.
+   * - DATE: date.
+   * - DATETIME: datetime.
    * 
    * @example
    * STRING
@@ -77,12 +83,12 @@ export class UpsertQualityRuleRequestUpsertCommandAttributeWithValueListAttribut
   dataType?: string;
   /**
    * @remarks
-   * The attribute default value.
+   * The property default value.
    */
   defaultValue?: UpsertQualityRuleRequestUpsertCommandAttributeWithValueListAttributeInfoValueConfigDefaultValue;
   /**
    * @remarks
-   * The attribute field length. Used to constrain the maximum length of text-type attribute values.
+   * The property field length. You can use this parameter to constrain the maximum length of text-type property values.
    * 
    * @example
    * 986992
@@ -90,7 +96,11 @@ export class UpsertQualityRuleRequestUpsertCommandAttributeWithValueListAttribut
   length?: number;
   /**
    * @remarks
-   * The attribute value input method. Valid values: CUSTOMIZED (Custom input), SINGLE_ENUM (Single-select dropdown), MULTIPLE_ENUMS (Multi-select dropdown), RANGE (Range interval).
+   * The property value input method. Valid values:
+   * - CUSTOMIZED: custom input.
+   * - SINGLE_ENUM: single-select dropdown.
+   * - MULTIPLE_ENUMS: multi-select dropdown.
+   * - RANGE: range interval.
    * 
    * @example
    * CUSTOMIZED
@@ -98,7 +108,7 @@ export class UpsertQualityRuleRequestUpsertCommandAttributeWithValueListAttribut
   type?: string;
   /**
    * @remarks
-   * The attribute option values. Only applicable to attributes with the single-select dropdown or multi-select dropdown input method.
+   * The property option values. This parameter applies only to properties whose input method is single-select dropdown or multi-select dropdown.
    */
   valueEnumList?: string[];
   static names(): { [key: string]: string } {
@@ -147,12 +157,12 @@ export class UpsertQualityRuleRequestUpsertCommandAttributeWithValueListAttribut
   description?: string;
   /**
    * @remarks
-   * Specifies whether to enable the attribute.
+   * Indicates whether the property is enabled.
    */
   enabled?: boolean;
   /**
    * @remarks
-   * The attribute ID.
+   * The property ID.
    * 
    * @example
    * 711484689131
@@ -160,7 +170,7 @@ export class UpsertQualityRuleRequestUpsertCommandAttributeWithValueListAttribut
   id?: number;
   /**
    * @remarks
-   * The attribute name.
+   * The property name.
    * 
    * @example
    * attr01
@@ -168,17 +178,17 @@ export class UpsertQualityRuleRequestUpsertCommandAttributeWithValueListAttribut
   name?: string;
   /**
    * @remarks
-   * Specifies whether the attribute is required.
+   * Indicates whether the property is required.
    */
   required?: boolean;
   /**
    * @remarks
-   * Specifies whether the attribute is searchable.
+   * Indicates whether the property is searchable.
    */
   searchable?: boolean;
   /**
    * @remarks
-   * The attribute value configuration details.
+   * The property value configuration details.
    */
   valueConfig?: UpsertQualityRuleRequestUpsertCommandAttributeWithValueListAttributeInfoValueConfig;
   static names(): { [key: string]: string } {
@@ -220,17 +230,17 @@ export class UpsertQualityRuleRequestUpsertCommandAttributeWithValueListAttribut
 export class UpsertQualityRuleRequestUpsertCommandAttributeWithValueListAttributeValue extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to include the maximum value.
+   * Indicates whether the maximum value is included.
    */
   includeMaxValue?: boolean;
   /**
    * @remarks
-   * Specifies whether to include the minimum value.
+   * Indicates whether the minimum value is included.
    */
   includeMinValue?: boolean;
   /**
    * @remarks
-   * The maximum value. Applicable to range interval attributes.
+   * The maximum value. This parameter applies to range interval properties.
    * 
    * @example
    * 11
@@ -238,7 +248,7 @@ export class UpsertQualityRuleRequestUpsertCommandAttributeWithValueListAttribut
   maxValue?: string;
   /**
    * @remarks
-   * The minimum value. Applicable to range interval attributes.
+   * The minimum value. This parameter applies to range interval properties.
    * 
    * @example
    * 1
@@ -246,7 +256,7 @@ export class UpsertQualityRuleRequestUpsertCommandAttributeWithValueListAttribut
   minValue?: string;
   /**
    * @remarks
-   * The attribute value list. Applicable to attributes with the custom input, single-select dropdown, or multi-select dropdown input method.
+   * The property value list. This parameter applies to properties whose input method is custom input, single-select dropdown, or multi-select dropdown.
    */
   valueList?: string[];
   static names(): { [key: string]: string } {
@@ -284,12 +294,12 @@ export class UpsertQualityRuleRequestUpsertCommandAttributeWithValueListAttribut
 export class UpsertQualityRuleRequestUpsertCommandAttributeWithValueList extends $dara.Model {
   /**
    * @remarks
-   * The attribute details.
+   * The property details.
    */
   attributeInfo?: UpsertQualityRuleRequestUpsertCommandAttributeWithValueListAttributeInfo;
   /**
    * @remarks
-   * The attribute value.
+   * The property value.
    */
   attributeValue?: UpsertQualityRuleRequestUpsertCommandAttributeWithValueListAttributeValue;
   static names(): { [key: string]: string } {
@@ -324,7 +334,7 @@ export class UpsertQualityRuleRequestUpsertCommandAttributeWithValueList extends
 export class UpsertQualityRuleRequestUpsertCommandFormPropertyList extends $dara.Model {
   /**
    * @remarks
-   * The component type.
+   * The control type.
    * 
    * @example
    * expression
@@ -374,7 +384,7 @@ export class UpsertQualityRuleRequestUpsertCommandFormPropertyList extends $dara
 export class UpsertQualityRuleRequestUpsertCommandValidateConditionList extends $dara.Model {
   /**
    * @remarks
-   * The ID of the condition node.
+   * The condition node ID.
    * 
    * @example
    * 268
@@ -390,7 +400,15 @@ export class UpsertQualityRuleRequestUpsertCommandValidateConditionList extends 
   metric?: string;
   /**
    * @remarks
-   * The operator. Valid values: EQUAL, NOT_EQUAL, LARGER, SMALLER, LARGE_OR_EQUAL, SMALLER_OR_EQUAL, AND, OR.
+   * The operator. Valid values:
+   * - EQUAL
+   * - NOT_EQUAL
+   * - LARGER
+   * - SMALLER
+   * - LARGE_OR_EQUAL
+   * - SMALLER_OR_EQUAL
+   * - AND
+   * - OR
    * 
    * @example
    * AND
@@ -398,7 +416,7 @@ export class UpsertQualityRuleRequestUpsertCommandValidateConditionList extends 
   operator?: string;
   /**
    * @remarks
-   * The ID of the parent condition node.
+   * The parent condition node ID.
    * 
    * @example
    * 123
@@ -406,7 +424,9 @@ export class UpsertQualityRuleRequestUpsertCommandValidateConditionList extends 
   parentId?: string;
   /**
    * @remarks
-   * The condition type. Valid values: RELATION, EXPRESSION.
+   * The condition type. Valid values:
+   * - RELATION: relationship.
+   * - EXPRESSION: expression.
    * 
    * @example
    * RELATION
@@ -454,19 +474,51 @@ export class UpsertQualityRuleRequestUpsertCommandValidateConditionList extends 
 export class UpsertQualityRuleRequestUpsertCommand extends $dara.Model {
   /**
    * @remarks
-   * The rule business attribute configuration.
+   * The exception archive mode. Valid values:
+   * - ONLY_ERROR_FIELD: Archives only the exception fields.
+   * - FULL_RECORD: Archives the complete record.
+   * 
+   * Default value: ONLY_ERROR_FIELD.
+   * 
+   * @example
+   * ONLY_ERROR_FIELD
+   */
+  archiveMode?: string;
+  /**
+   * @remarks
+   * The exception archive storage type. Valid values:
+   * - FILE_SYSTEM: File system.
+   * - CUSTOM_TABLE: Custom table.
+   * 
+   * Default value: FILE_SYSTEM.
+   * 
+   * @example
+   * FILE_SYSTEM
+   */
+  archiveStoreType?: string;
+  /**
+   * @remarks
+   * The rule business property configuration.
    */
   attributeWithValueList?: UpsertQualityRuleRequestUpsertCommandAttributeWithValueList[];
   /**
    * @remarks
-   * The rule category. Valid values: CONSISTENT (Consistency), EFFECTIVE (Effectiveness), TIMELINESE (Timeliness), ACCURATE (Accuracy), UNIQUENESS (Uniqueness), COMPLETENESS (Completeness), STABILITY (Stability), CUSTOM (Custom).
+   * The rule catalog. Valid values:
+   * - CONSISTENT: consistency.
+   * - EFFECTIVE: validity.
+   * - TIMELINESE: timeliness.
+   * - ACCURATE: accuracy.
+   * - UNIQUENESS: uniqueness.
+   * - COMPLETENESS: completeness.
+   * - STABILITY: stability.
+   * - CUSTOM: custom.
    * 
    * This parameter is required.
    */
   catalogList?: string[];
   /**
    * @remarks
-   * The description of the quality rule.
+   * The description.
    * 
    * @example
    * test
@@ -479,12 +531,12 @@ export class UpsertQualityRuleRequestUpsertCommand extends $dara.Model {
   enableErrorArchive?: boolean;
   /**
    * @remarks
-   * The rule configuration key-value pairs. The configuration varies based on the template type. Different template types return different form key-value pair configurations.
+   * The rule configuration key-value pairs. These are related to the templatetype. Different template types return different form key-value pair configurations.
    */
   formPropertyList?: UpsertQualityRuleRequestUpsertCommandFormPropertyList[];
   /**
    * @remarks
-   * Rule ID. A non-empty value indicates a modification, and an empty value indicates a creation.
+   * The rule ID. If this parameter is not empty, the operation updates the rule. If this parameter is empty, the operation creates a rule.
    * 
    * @example
    * 11
@@ -502,7 +554,9 @@ export class UpsertQualityRuleRequestUpsertCommand extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The rule strength. Valid values: STRONG, WEAK.
+   * The rule strength. Valid values:
+   * - STRONG
+   * - WEAK
    * 
    * This parameter is required.
    * 
@@ -522,38 +576,38 @@ export class UpsertQualityRuleRequestUpsertCommand extends $dara.Model {
   templateId?: number;
   /**
    * @remarks
-   * The template type. Valid values:
-   *   - FIELD_NULL_VALUE_VALIDATE: Field null value validation
-   *   - FIELD_EMPTY_STRING_VALIDATE: Field empty string validation
-   *   - FIELD_UNIQUE_VALIDATE: Field uniqueness validation
-   *   - FIELD_GROUP_COUNT_VALIDATE: Field unique value count validation
-   *   - FIELD_DUPLICATE_VALUE_COUNT_VALIDATE: Field duplicate value count validation
-   *   - FUNCTION_TIME_COMPARE: Time function comparison
-   *   - SINGLE_TABLE_TIME_COMPARE: Single-table time field comparison
-   *   - DOUBLE_TABLE_TIME_COMPARE: Cross-table time field comparison
-   *   - FIELD_FORMAT_VALIDATE: Field format validation
-   *   - FIELD_LENGTH_VALIDATE: Field length validation
-   *   - FIELD_VALUE_RANGE_VALIDATE: Field value range validation
-   *   - CODE_TABLE_COMPARE: Code table reference comparison
-   *   - STANDARD_CODE_TABLE_COMPARE: Data standard code table reference comparison
-   *   - SINGLE_TABLE_FIELD_VALUE_COMPARE: Single-table field value consistency comparison
-   *   - SINGLE_TABLE_FIELD_STATISTICAL_COMPARE: Single-table field statistical value consistency comparison
-   *   - SINGLE_TABLE_FIELD_EXP_COMPARE: Single-table field business logic consistency comparison
-   *   - DOUBLE_TABLE_FIELD_VALUE_COMPARE: Cross-table field value consistency comparison
-   *   - DOUBLE_TABLE_FIELD_STATISTICAL_COMPARE: Cross-table field statistical value consistency comparison
-   *   - CROSS_DOUBLE_TABLE_FIELD_STATISTICAL_COMPARE: Cross-source cross-table field statistical value consistency comparison
-   *   - DOUBLE_TABLE_FIELD_EXP_COMPARE: Cross-table field business logic consistency comparison
-   *   - TABLE_STABILITY_VALIDATE: Table stability validation
-   *   - TABLE_FLUCTUATION_VALIDATE: Table fluctuation validation
-   *   - FIELD_STABILITY_VALIDATE: Field stability validation
-   *   - FIELD_FLUCTUATION_VALIDATE: Field fluctuation validation
-   *   - CUSTOM_STATISTICAL_VALIDATE: Custom statistical metric validation
-   *   - CUSTOM_DATA_DETAILS_VALIDATE: Custom data details validation
-   *   - DATASOURCE_AVAILABLE_CHECK: Data source connectivity check
-   *   - TABLE_SCHEMA_CHECK: Table schema change monitoring
-   *   - REAL_TIME_OFFLINE_COMPARE: Real-time offline comparison
-   *   - REAL_TIME_STATISTICAL_VALIDATE: Real-time statistical value monitoring
-   *   - REAL_TIME_MULTI_CHAIN_COMPARE: Real-time multi-chain comparison, etc.
+   * The templatetype. Valid values:
+   * - FIELD_NULL_VALUE_VALIDATE: field null value check.
+   * - FIELD_EMPTY_STRING_VALIDATE: field empty string check.
+   * - FIELD_UNIQUE_VALIDATE: field uniqueness check.
+   * - FIELD_GROUP_COUNT_VALIDATE: field unique value count check.
+   * - FIELD_DUPLICATE_VALUE_COUNT_VALIDATE: field duplicate value count check.
+   * - FUNCTION_TIME_COMPARE: time function comparison.
+   * - SINGLE_TABLE_TIME_COMPARE: single-table time field comparison.
+   * - DOUBLE_TABLE_TIME_COMPARE: two-table time field comparison.
+   * - FIELD_FORMAT_VALIDATE: field format check.
+   * - FIELD_LENGTH_VALIDATE: field length check.
+   * - FIELD_VALUE_RANGE_VALIDATE: field value range check.
+   * - CODE_TABLE_COMPARE: lookup table reference comparison.
+   * - STANDARD_CODE_TABLE_COMPARE: data standard lookup table reference comparison.
+   * - SINGLE_TABLE_FIELD_VALUE_COMPARE: single-table field value consistency comparison.
+   * - SINGLE_TABLE_FIELD_STATISTICAL_COMPARE: single-table field statistical value consistency comparison.
+   * - SINGLE_TABLE_FIELD_EXP_COMPARE: single-table field business logic consistency comparison.
+   * - DOUBLE_TABLE_FIELD_VALUE_COMPARE: two-table field value consistency comparison.
+   * - DOUBLE_TABLE_FIELD_STATISTICAL_COMPARE: two-table field statistical value consistency comparison.
+   * - CROSS_DOUBLE_TABLE_FIELD_STATISTICAL_COMPARE: cross-source two-table field statistical value consistency comparison.
+   * - DOUBLE_TABLE_FIELD_EXP_COMPARE: two-table field business logic consistency comparison.
+   * - TABLE_STABILITY_VALIDATE: table stability check.
+   * - TABLE_FLUCTUATION_VALIDATE: table fluctuation check.
+   * - FIELD_STABILITY_VALIDATE: field stability check.
+   * - FIELD_FLUCTUATION_VALIDATE: field fluctuation check.
+   * - CUSTOM_STATISTICAL_VALIDATE: custom statistical metric check.
+   * - CUSTOM_DATA_DETAILS_VALIDATE: custom data details check.
+   * - DATASOURCE_AVAILABLE_CHECK: datasource connectivity monitoring.
+   * - TABLE_SCHEMA_CHECK: table schema change monitoring.
+   * - REAL_TIME_OFFLINE_COMPARE: real-time and offline comparison.
+   * - REAL_TIME_STATISTICAL_VALIDATE: real-time statistical value monitoring.
+   * - REAL_TIME_MULTI_CHAIN_COMPARE: real-time multi-link comparison.
    * 
    * This parameter is required.
    * 
@@ -568,7 +622,7 @@ export class UpsertQualityRuleRequestUpsertCommand extends $dara.Model {
   validateConditionList?: UpsertQualityRuleRequestUpsertCommandValidateConditionList[];
   /**
    * @remarks
-   * The ID of the associated monitor.
+   * The ID of the associated watch.
    * 
    * This parameter is required.
    * 
@@ -578,6 +632,8 @@ export class UpsertQualityRuleRequestUpsertCommand extends $dara.Model {
   watchId?: number;
   static names(): { [key: string]: string } {
     return {
+      archiveMode: 'ArchiveMode',
+      archiveStoreType: 'ArchiveStoreType',
       attributeWithValueList: 'AttributeWithValueList',
       catalogList: 'CatalogList',
       description: 'Description',
@@ -595,6 +651,8 @@ export class UpsertQualityRuleRequestUpsertCommand extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      archiveMode: 'string',
+      archiveStoreType: 'string',
       attributeWithValueList: { 'type': 'array', 'itemType': UpsertQualityRuleRequestUpsertCommandAttributeWithValueList },
       catalogList: { 'type': 'array', 'itemType': 'string' },
       description: 'string',
@@ -634,7 +692,7 @@ export class UpsertQualityRuleRequestUpsertCommand extends $dara.Model {
 export class UpsertQualityRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * Tenant ID.
+   * The tenant ID.
    * 
    * This parameter is required.
    * 
@@ -644,7 +702,15 @@ export class UpsertQualityRuleRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
-   * The upsert command.
+   * The ID of the operator user.
+   * 
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
+  /**
+   * @remarks
+   * The update command.
    * 
    * This parameter is required.
    */
@@ -652,6 +718,7 @@ export class UpsertQualityRuleRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
       upsertCommand: 'UpsertCommand',
     };
   }
@@ -659,6 +726,7 @@ export class UpsertQualityRuleRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       opTenantId: 'number',
+      opUserId: 'string',
       upsertCommand: UpsertQualityRuleRequestUpsertCommand,
     };
   }

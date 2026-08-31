@@ -34,6 +34,11 @@ export class OfflineBatchTaskRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
+  /**
    * @remarks
    * The project ID.
    * 
@@ -48,6 +53,7 @@ export class OfflineBatchTaskRequest extends $dara.Model {
       comment: 'Comment',
       fileId: 'FileId',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
       projectId: 'ProjectId',
     };
   }
@@ -57,6 +63,7 @@ export class OfflineBatchTaskRequest extends $dara.Model {
       comment: 'string',
       fileId: 'number',
       opTenantId: 'number',
+      opUserId: 'string',
       projectId: 'number',
     };
   }

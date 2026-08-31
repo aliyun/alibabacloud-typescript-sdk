@@ -13,7 +13,7 @@ export class UpsertQualityScheduleResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The ID of the schedule resource.
+   * The schedule object ID.
    * 
    * @example
    * 1
@@ -29,7 +29,7 @@ export class UpsertQualityScheduleResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The details of the backend exception.
+   * The backend exception details.
    * 
    * @example
    * internal error

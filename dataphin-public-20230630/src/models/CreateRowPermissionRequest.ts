@@ -447,10 +447,16 @@ export class CreateRowPermissionRequest extends $dara.Model {
    * 30001011
    */
   opTenantId?: number;
+  /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
   static names(): { [key: string]: string } {
     return {
       createRowPermissionCommand: 'CreateRowPermissionCommand',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
     };
   }
 
@@ -458,6 +464,7 @@ export class CreateRowPermissionRequest extends $dara.Model {
     return {
       createRowPermissionCommand: CreateRowPermissionRequestCreateRowPermissionCommand,
       opTenantId: 'number',
+      opUserId: 'string',
     };
   }
 

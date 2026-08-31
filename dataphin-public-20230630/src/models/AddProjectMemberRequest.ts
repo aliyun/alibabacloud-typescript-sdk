@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddProjectMemberRequestAddCommandUserList extends $dara.Model {
   /**
    * @remarks
-   * The member role. Valid values: 1: project administrator. 2: developer. 3: visitor. 4: analyst. 5: O&M engineer.
+   * The member roles. Valid values: 1: project administrator. 2: developer. 3: visitor. 4: analyst. 5: O&M engineer.
    * 
    * This parameter is required.
    */
@@ -49,7 +49,7 @@ export class AddProjectMemberRequestAddCommandUserList extends $dara.Model {
 export class AddProjectMemberRequestAddCommand extends $dara.Model {
   /**
    * @remarks
-   * The environment identifier. Valid values: DEV and PROD.
+   * The environment identifier. Valid values: DEV, PROD.
    * 
    * This parameter is required.
    * 
@@ -93,7 +93,7 @@ export class AddProjectMemberRequestAddCommand extends $dara.Model {
 export class AddProjectMemberRequest extends $dara.Model {
   /**
    * @remarks
-   * The command to add members.
+   * The command for adding members.
    * 
    * This parameter is required.
    */
@@ -118,11 +118,20 @@ export class AddProjectMemberRequest extends $dara.Model {
    * 30001011
    */
   opTenantId?: number;
+  /**
+   * @remarks
+   * The ID of the operator user.
+   * 
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
   static names(): { [key: string]: string } {
     return {
       addCommand: 'AddCommand',
       id: 'Id',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
     };
   }
 
@@ -131,6 +140,7 @@ export class AddProjectMemberRequest extends $dara.Model {
       addCommand: AddProjectMemberRequestAddCommand,
       id: 'number',
       opTenantId: 'number',
+      opUserId: 'string',
     };
   }
 

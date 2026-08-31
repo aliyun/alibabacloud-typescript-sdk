@@ -159,10 +159,16 @@ export class ListDatasetsRequest extends $dara.Model {
    * 30001011
    */
   opTenantId?: number;
+  /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
   static names(): { [key: string]: string } {
     return {
       datasetQuery: 'DatasetQuery',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
     };
   }
 
@@ -170,6 +176,7 @@ export class ListDatasetsRequest extends $dara.Model {
     return {
       datasetQuery: ListDatasetsRequestDatasetQuery,
       opTenantId: 'number',
+      opUserId: 'string',
     };
   }
 

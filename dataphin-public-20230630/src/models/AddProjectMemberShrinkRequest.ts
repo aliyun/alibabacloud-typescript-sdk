@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddProjectMemberShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The command to add members.
+   * The command for adding members.
    * 
    * This parameter is required.
    */
@@ -30,11 +30,20 @@ export class AddProjectMemberShrinkRequest extends $dara.Model {
    * 30001011
    */
   opTenantId?: number;
+  /**
+   * @remarks
+   * The ID of the operator user.
+   * 
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
   static names(): { [key: string]: string } {
     return {
       addCommandShrink: 'AddCommand',
       id: 'Id',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
     };
   }
 
@@ -43,6 +52,7 @@ export class AddProjectMemberShrinkRequest extends $dara.Model {
       addCommandShrink: 'string',
       id: 'number',
       opTenantId: 'number',
+      opUserId: 'string',
     };
   }
 

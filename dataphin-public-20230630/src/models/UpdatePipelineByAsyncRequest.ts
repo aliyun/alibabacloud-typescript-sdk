@@ -444,6 +444,11 @@ export class UpdatePipelineByAsyncRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
+  /**
    * @remarks
    * The pipeline node update configuration.
    * 
@@ -454,6 +459,7 @@ export class UpdatePipelineByAsyncRequest extends $dara.Model {
     return {
       context: 'Context',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
       updateCommand: 'UpdateCommand',
     };
   }
@@ -462,6 +468,7 @@ export class UpdatePipelineByAsyncRequest extends $dara.Model {
     return {
       context: UpdatePipelineByAsyncRequestContext,
       opTenantId: 'number',
+      opUserId: 'string',
       updateCommand: UpdatePipelineByAsyncRequestUpdateCommand,
     };
   }

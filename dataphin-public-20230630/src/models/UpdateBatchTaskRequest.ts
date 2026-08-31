@@ -26,7 +26,7 @@ export class UpdateBatchTaskRequestUpdateCommandCustomScheduleConfig extends $da
   /**
    * @remarks
    * The interval unit. Valid values:
-   * - MINUTE: minute
+   * - MINUTE: minute.
    * - HOUR: hour.
    * 
    * This parameter is required.
@@ -37,13 +37,13 @@ export class UpdateBatchTaskRequestUpdateCommandCustomScheduleConfig extends $da
   intervalUnit?: string;
   /**
    * @remarks
-   * The scheduling period. Valid values:
+   * The schedule period. Valid values:
    * - YEARLY
    * - MONTHLY
    * - WEEKLY
    * - DAILY
    * - HOURLY
-   * - MINUTELY.
+   * - MINUTELY
    * 
    * This parameter is required.
    * 
@@ -177,7 +177,7 @@ export class UpdateBatchTaskRequestUpdateCommandUpStreamListDependPeriod extends
   periodOffset?: number;
   /**
    * @remarks
-   * The dependency period type. Valid values:
+   * The type of the dependency period. Valid values:
    * - CURRENT_PERIOD: current period.
    * - LAST_PERIOD: previous period.
    * - LAST_N_PERIOD: last N days.
@@ -247,7 +247,7 @@ export class UpdateBatchTaskRequestUpdateCommandUpStreamList extends $dara.Model
   nodeType?: string;
   /**
    * @remarks
-   * The period offset. A value of 0 indicates a same-period dependency. A positive integer indicates a dependency on the previous N periods.
+   * The period difference. A value of 0 indicates same-period dependency. A positive number indicates dependency on the previous N periods.
    * 
    * This parameter is required.
    * 
@@ -257,7 +257,7 @@ export class UpdateBatchTaskRequestUpdateCommandUpStreamList extends $dara.Model
   periodDiff?: number;
   /**
    * @remarks
-   * Specifies whether the upstream node is enabled.
+   * Indicates whether the upstream node is enabled.
    */
   sourceNodeEnabled?: boolean;
   /**
@@ -332,7 +332,7 @@ export class UpdateBatchTaskRequestUpdateCommandUpStreamList extends $dara.Model
 export class UpdateBatchTaskRequestUpdateCommand extends $dara.Model {
   /**
    * @remarks
-   * The node code.
+   * The code of the node.
    * 
    * This parameter is required.
    * 
@@ -342,7 +342,7 @@ export class UpdateBatchTaskRequestUpdateCommand extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The cron expression for automatic scheduling. Refer to the Linux cron expression syntax.
+   * The cron expression for automatic scheduling. Refer to Linux cron expressions.
    * 
    * @example
    * 0 0 1 * * ?
@@ -350,12 +350,12 @@ export class UpdateBatchTaskRequestUpdateCommand extends $dara.Model {
   cronExpression?: string;
   /**
    * @remarks
-   * The custom scheduling interval configuration.
+   * The custom schedule interval configuration.
    */
   customScheduleConfig?: UpdateBatchTaskRequestUpdateCommandCustomScheduleConfig;
   /**
    * @remarks
-   * The catalog for database SQL nodes. This parameter takes effect only for data source types that require a catalog, such as Presto.
+   * The catalog for database SQL nodes. This parameter applies only to datasource types that require a catalog, such as Presto.
    * 
    * @example
    * mysql_catalog
@@ -363,7 +363,7 @@ export class UpdateBatchTaskRequestUpdateCommand extends $dara.Model {
   dataSourceCatalog?: string;
   /**
    * @remarks
-   * The data source ID for database SQL nodes.
+   * The datasource ID for database SQL nodes.
    * 
    * @example
    * 12131111
@@ -371,7 +371,7 @@ export class UpdateBatchTaskRequestUpdateCommand extends $dara.Model {
   dataSourceId?: string;
   /**
    * @remarks
-   * The schema for database SQL nodes. This parameter takes effect only for data source types that require a schema, such as Oracle.
+   * The schema for database SQL nodes. This parameter applies only to datasource types that require a schema, such as Oracle.
    * 
    * @example
    * erp
@@ -379,10 +379,15 @@ export class UpdateBatchTaskRequestUpdateCommand extends $dara.Model {
   dataSourceSchema?: string;
   /**
    * @remarks
-   * The execution engine for the node, such as a Python node. Valid values:
+   * The list of development owner IDs.
+   */
+  developOwnerIdList?: string[];
+  /**
+   * @remarks
+   * The execution engine for the node, such as for Python nodes. Valid values:
    * - PYTHON2_7
    * - PYTHON3_7
-   * - PYTHON3_11.
+   * - PYTHON3_11
    * 
    * @example
    * PYTHON3_7
@@ -390,7 +395,7 @@ export class UpdateBatchTaskRequestUpdateCommand extends $dara.Model {
   engine?: string;
   /**
    * @remarks
-   * The ID of the node in the folder tree.
+   * The node ID in the folder tree.
    * 
    * This parameter is required.
    * 
@@ -413,7 +418,7 @@ export class UpdateBatchTaskRequestUpdateCommand extends $dara.Model {
    * The description of the node.
    * 
    * @example
-   * xx测试
+   * Test_description
    */
   nodeDescription?: string;
   /**
@@ -457,18 +462,18 @@ export class UpdateBatchTaskRequestUpdateCommand extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The third-party Python packages that the node depends on.
+   * The third-party Python packages required by the node.
    */
   pythonModuleList?: string[];
   /**
    * @remarks
-   * The scheduling period. Valid values:
+   * The schedule period. Valid values:
    * - YEARLY
    * - MONTHLY
    * - WEEKLY
    * - DAILY
    * - HOURLY
-   * - MINUTELY.
+   * - MINUTELY
    * 
    * @example
    * DAILY
@@ -506,6 +511,7 @@ export class UpdateBatchTaskRequestUpdateCommand extends $dara.Model {
       dataSourceCatalog: 'DataSourceCatalog',
       dataSourceId: 'DataSourceId',
       dataSourceSchema: 'DataSourceSchema',
+      developOwnerIdList: 'DevelopOwnerIdList',
       engine: 'Engine',
       fileId: 'FileId',
       name: 'Name',
@@ -531,6 +537,7 @@ export class UpdateBatchTaskRequestUpdateCommand extends $dara.Model {
       dataSourceCatalog: 'string',
       dataSourceId: 'string',
       dataSourceSchema: 'string',
+      developOwnerIdList: { 'type': 'array', 'itemType': 'string' },
       engine: 'string',
       fileId: 'number',
       name: 'string',
@@ -551,6 +558,9 @@ export class UpdateBatchTaskRequestUpdateCommand extends $dara.Model {
   validate() {
     if(this.customScheduleConfig && typeof (this.customScheduleConfig as any).validate === 'function') {
       (this.customScheduleConfig as any).validate();
+    }
+    if(Array.isArray(this.developOwnerIdList)) {
+      $dara.Model.validateArray(this.developOwnerIdList);
     }
     if(Array.isArray(this.nodeOutputNameList)) {
       $dara.Model.validateArray(this.nodeOutputNameList);
@@ -588,6 +598,14 @@ export class UpdateBatchTaskRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
+   * The ID of the operator user.
+   * 
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
+  /**
+   * @remarks
    * The update request.
    * 
    * This parameter is required.
@@ -596,6 +614,7 @@ export class UpdateBatchTaskRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
       updateCommand: 'UpdateCommand',
     };
   }
@@ -603,6 +622,7 @@ export class UpdateBatchTaskRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       opTenantId: 'number',
+      opUserId: 'string',
       updateCommand: UpdateBatchTaskRequestUpdateCommand,
     };
   }

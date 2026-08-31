@@ -14,6 +14,11 @@ export class RetryTransferOwnershipShrinkRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
+  /**
    * @remarks
    * The transfer information.
    */
@@ -21,6 +26,7 @@ export class RetryTransferOwnershipShrinkRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
       privilegeTransferRecordShrink: 'PrivilegeTransferRecord',
     };
   }
@@ -28,6 +34,7 @@ export class RetryTransferOwnershipShrinkRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       opTenantId: 'number',
+      opUserId: 'string',
       privilegeTransferRecordShrink: 'string',
     };
   }

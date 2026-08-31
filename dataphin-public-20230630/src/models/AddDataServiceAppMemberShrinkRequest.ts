@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddDataServiceAppMemberShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The regular member to add to the data service application.
+   * The command to add a regular member to a data service application.
    * 
    * This parameter is required.
    */
@@ -20,10 +20,19 @@ export class AddDataServiceAppMemberShrinkRequest extends $dara.Model {
    * 30001011
    */
   opTenantId?: number;
+  /**
+   * @remarks
+   * The ID of the operator user.
+   * 
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
   static names(): { [key: string]: string } {
     return {
       addCommandShrink: 'AddCommand',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
     };
   }
 
@@ -31,6 +40,7 @@ export class AddDataServiceAppMemberShrinkRequest extends $dara.Model {
     return {
       addCommandShrink: 'string',
       opTenantId: 'number',
+      opUserId: 'string',
     };
   }
 

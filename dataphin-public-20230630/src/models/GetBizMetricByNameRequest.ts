@@ -64,10 +64,16 @@ export class GetBizMetricByNameRequest extends $dara.Model {
    * 30001011
    */
   opTenantId?: number;
+  /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
   static names(): { [key: string]: string } {
     return {
       bizMetricByNameQuery: 'BizMetricByNameQuery',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
     };
   }
 
@@ -75,6 +81,7 @@ export class GetBizMetricByNameRequest extends $dara.Model {
     return {
       bizMetricByNameQuery: GetBizMetricByNameRequestBizMetricByNameQuery,
       opTenantId: 'number',
+      opUserId: 'string',
     };
   }
 

@@ -21,6 +21,11 @@ export class UpdatePipelineByAsyncShrinkRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
+  /**
    * @remarks
    * The pipeline node update configuration.
    * 
@@ -31,6 +36,7 @@ export class UpdatePipelineByAsyncShrinkRequest extends $dara.Model {
     return {
       contextShrink: 'Context',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
       updateCommandShrink: 'UpdateCommand',
     };
   }
@@ -39,6 +45,7 @@ export class UpdatePipelineByAsyncShrinkRequest extends $dara.Model {
     return {
       contextShrink: 'string',
       opTenantId: 'number',
+      opUserId: 'string',
       updateCommandShrink: 'string',
     };
   }

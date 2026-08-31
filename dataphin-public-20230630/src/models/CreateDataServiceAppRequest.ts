@@ -30,12 +30,12 @@ export class CreateDataServiceAppRequestCreateCommand extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 默认应用
+   * Default application
    */
   appName?: string;
   /**
    * @remarks
-   * The app secret.
+   * The application secret.
    * If this parameter is not specified, the system automatically generates a new AppSecret value.
    * The secret must be 8 to 127 characters in length and can contain letters, digits, underscores (_), and hyphens (-).
    * This parameter can be customized only when using Alibaba Cloud API Gateway or the built-in gateway. This parameter is ignored when using a dedicated cloud gateway.
@@ -53,12 +53,12 @@ export class CreateDataServiceAppRequestCreateCommand extends $dara.Model {
   ownerIds?: string[];
   /**
    * @remarks
-   * Common scenarios.
+   * The common scenarios.
    * 
    * This parameter is required.
    * 
    * @example
-   * 数据分析
+   * Data analytics
    */
   scenarios?: string;
   static names(): { [key: string]: string } {
@@ -113,10 +113,19 @@ export class CreateDataServiceAppRequest extends $dara.Model {
    * 30001011
    */
   opTenantId?: number;
+  /**
+   * @remarks
+   * The ID of the operator.
+   * 
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
   static names(): { [key: string]: string } {
     return {
       createCommand: 'CreateCommand',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
     };
   }
 
@@ -124,6 +133,7 @@ export class CreateDataServiceAppRequest extends $dara.Model {
     return {
       createCommand: CreateDataServiceAppRequestCreateCommand,
       opTenantId: 'number',
+      opUserId: 'string',
     };
   }
 

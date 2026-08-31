@@ -55,7 +55,7 @@ export class GetCatalogAssetDetailsRequestGetCatalogAssetDetailsQuery extends $d
 export class GetCatalogAssetDetailsRequest extends $dara.Model {
   /**
    * @remarks
-   * The paging query for the listing asset catalog list.
+   * The paged query for the listed asset catalog.
    * 
    * This parameter is required.
    */
@@ -70,10 +70,19 @@ export class GetCatalogAssetDetailsRequest extends $dara.Model {
    * 30001011
    */
   opTenantId?: number;
+  /**
+   * @remarks
+   * The ID of the operator user.
+   * 
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
   static names(): { [key: string]: string } {
     return {
       getCatalogAssetDetailsQuery: 'GetCatalogAssetDetailsQuery',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
     };
   }
 
@@ -81,6 +90,7 @@ export class GetCatalogAssetDetailsRequest extends $dara.Model {
     return {
       getCatalogAssetDetailsQuery: GetCatalogAssetDetailsRequestGetCatalogAssetDetailsQuery,
       opTenantId: 'number',
+      opUserId: 'string',
     };
   }
 

@@ -158,11 +158,17 @@ export class ExecuteManualNodeRequest extends $dara.Model {
    * 30001011
    */
   opTenantId?: number;
+  /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
   static names(): { [key: string]: string } {
     return {
       env: 'Env',
       executeCommand: 'ExecuteCommand',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
     };
   }
 
@@ -171,6 +177,7 @@ export class ExecuteManualNodeRequest extends $dara.Model {
       env: 'string',
       executeCommand: ExecuteManualNodeRequestExecuteCommand,
       opTenantId: 'number',
+      opUserId: 'string',
     };
   }
 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateBatchTaskResponseBodyUpdateResult extends $dara.Model {
   /**
    * @remarks
-   * The ID of the node in the folder tree.
+   * The node ID in the folder tree.
    * 
    * @example
    * 12113111
@@ -35,7 +35,7 @@ export class UpdateBatchTaskResponseBodyUpdateResult extends $dara.Model {
 export class UpdateBatchTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. A value of OK indicates that the request was successful.
+   * The error code. A value of OK indicates a successful request.
    * 
    * @example
    * OK

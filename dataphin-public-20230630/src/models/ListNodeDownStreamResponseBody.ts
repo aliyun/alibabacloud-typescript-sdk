@@ -29,7 +29,7 @@ export class ListNodeDownStreamResponseBodyNodeInfoList extends $dara.Model {
    * The node name.
    * 
    * @example
-   * xx测试
+   * xxTest
    */
   name?: string;
   /**

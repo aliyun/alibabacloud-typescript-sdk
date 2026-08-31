@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetTableColumnsResponseBodyColumnList extends $dara.Model {
   /**
    * @remarks
-   * Data classification ID.
+   * The ID of the data classification.
    * 
    * @example
    * 12345
@@ -13,7 +13,7 @@ export class GetTableColumnsResponseBodyColumnList extends $dara.Model {
   classifyId?: number;
   /**
    * @remarks
-   * Data classification name.
+   * The name of the data classification.
    * 
    * @example
    * test
@@ -21,7 +21,7 @@ export class GetTableColumnsResponseBodyColumnList extends $dara.Model {
   classifyName?: string;
   /**
    * @remarks
-   * Column comment.
+   * The comment of the field.
    * 
    * @example
    * test
@@ -29,7 +29,7 @@ export class GetTableColumnsResponseBodyColumnList extends $dara.Model {
   comment?: string;
   /**
    * @remarks
-   * Creation time.
+   * The creation time of the field.
    * 
    * @example
    * 2025-06-30 00:00:00
@@ -37,7 +37,7 @@ export class GetTableColumnsResponseBodyColumnList extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * Creator.
+   * The creator of the field.
    * 
    * @example
    * 30012011
@@ -45,7 +45,7 @@ export class GetTableColumnsResponseBodyColumnList extends $dara.Model {
   creator?: string;
   /**
    * @remarks
-   * Data source ID.
+   * The ID of the data source.
    * 
    * @example
    * 3301
@@ -53,7 +53,7 @@ export class GetTableColumnsResponseBodyColumnList extends $dara.Model {
   dataSourceId?: number;
   /**
    * @remarks
-   * Data source type.
+   * The type of the data source.
    * 
    * @example
    * MAX_COMPUTE
@@ -61,7 +61,7 @@ export class GetTableColumnsResponseBodyColumnList extends $dara.Model {
   dataSourceType?: string;
   /**
    * @remarks
-   * Data type.
+   * The data type of the field.
    * 
    * @example
    * varchar
@@ -69,7 +69,7 @@ export class GetTableColumnsResponseBodyColumnList extends $dara.Model {
   dataType?: string;
   /**
    * @remarks
-   * Default value.
+   * The default value of the field.
    * 
    * @example
    * test
@@ -77,15 +77,15 @@ export class GetTableColumnsResponseBodyColumnList extends $dara.Model {
   defaultValue?: string;
   /**
    * @remarks
-   * Column display name.
+   * The display name of the field.
    * 
    * @example
-   * 年龄
+   * Age
    */
   displayName?: string;
   /**
    * @remarks
-   * Environment: dev or prod.
+   * The environment to which the column belongs. Valid values: dev and prod.
    * 
    * @example
    * dev
@@ -93,7 +93,7 @@ export class GetTableColumnsResponseBodyColumnList extends $dara.Model {
   env?: string;
   /**
    * @remarks
-   * Column GUID.
+   * The GUID of the column.
    * 
    * @example
    * 1121.col1
@@ -101,22 +101,22 @@ export class GetTableColumnsResponseBodyColumnList extends $dara.Model {
   guid?: string;
   /**
    * @remarks
-   * Whether this is a foreign key.
+   * Indicates whether the field is a foreign key.
    */
   isForeignKey?: boolean;
   /**
    * @remarks
-   * Whether this is a partition column.
+   * Indicates whether the field is a partition key.
    */
   isPartitionColumn?: boolean;
   /**
    * @remarks
-   * Whether this is a primary key.
+   * Indicates whether the field is a primary key.
    */
   isPrimaryKey?: boolean;
   /**
    * @remarks
-   * Last modifier.
+   * The last modifier of the field.
    * 
    * @example
    * 30012011
@@ -124,7 +124,7 @@ export class GetTableColumnsResponseBodyColumnList extends $dara.Model {
   lastModifier?: string;
   /**
    * @remarks
-   * Data level abbreviation.
+   * The abbreviation of the data level.
    * 
    * @example
    * L1
@@ -132,7 +132,7 @@ export class GetTableColumnsResponseBodyColumnList extends $dara.Model {
   levelAbbreviation?: string;
   /**
    * @remarks
-   * Modification time.
+   * The modification time of the field.
    * 
    * @example
    * 2025-06-30 00:00:00
@@ -140,7 +140,7 @@ export class GetTableColumnsResponseBodyColumnList extends $dara.Model {
   modifyTime?: string;
   /**
    * @remarks
-   * Column name.
+   * The name of the field.
    * 
    * @example
    * age
@@ -148,12 +148,12 @@ export class GetTableColumnsResponseBodyColumnList extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Whether null values are allowed.
+   * Indicates whether the field allows null values.
    */
   nullable?: boolean;
   /**
    * @remarks
-   * Sequence number.
+   * The sequence number of the column.
    * 
    * @example
    * 1
@@ -161,7 +161,7 @@ export class GetTableColumnsResponseBodyColumnList extends $dara.Model {
   seqNumber?: number;
   /**
    * @remarks
-   * Table GUID.
+   * The GUID of the table.
    * 
    * @example
    * 1121
@@ -169,7 +169,7 @@ export class GetTableColumnsResponseBodyColumnList extends $dara.Model {
   tableGuid?: string;
   /**
    * @remarks
-   * Table name.
+   * The table name.
    * 
    * @example
    * t_test
@@ -177,7 +177,7 @@ export class GetTableColumnsResponseBodyColumnList extends $dara.Model {
   tableName?: string;
   /**
    * @remarks
-   * Query count in the last 30 days.
+   * The number of queries in the last 30 days.
    * 
    * @example
    * 99
@@ -253,7 +253,7 @@ export class GetTableColumnsResponseBodyColumnList extends $dara.Model {
 export class GetTableColumnsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Backend response code.
+   * The backend response code.
    * 
    * @example
    * OK
@@ -261,12 +261,12 @@ export class GetTableColumnsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * List of asset table columns.
+   * The list of asset table columns.
    */
   columnList?: GetTableColumnsResponseBodyColumnList[];
   /**
    * @remarks
-   * HTTP response code.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -274,7 +274,7 @@ export class GetTableColumnsResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * Backend response exception details.
+   * The backend exception details.
    * 
    * @example
    * internal error
@@ -290,7 +290,7 @@ export class GetTableColumnsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Whether the request is successful.
+   * Indicates whether the request was successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

@@ -104,10 +104,16 @@ export class ListUserGroupsRequest extends $dara.Model {
    * 30001011
    */
   opTenantId?: number;
+  /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
   static names(): { [key: string]: string } {
     return {
       listQuery: 'ListQuery',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
     };
   }
 
@@ -115,6 +121,7 @@ export class ListUserGroupsRequest extends $dara.Model {
     return {
       listQuery: ListUserGroupsRequestListQuery,
       opTenantId: 'number',
+      opUserId: 'string',
     };
   }
 

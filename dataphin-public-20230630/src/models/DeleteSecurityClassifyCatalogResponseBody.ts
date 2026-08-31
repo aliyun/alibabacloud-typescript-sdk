@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteSecurityClassifyCatalogResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The list of full paths of child catalogs that were also deleted.
+   * The list of full paths of child catalogs that were deleted as a result of the cascading deletion.
    */
   childCatalogFullPathList?: string[];
   /**
    * @remarks
-   * The list of classification IDs that were also deleted.
+   * The list of classification IDs that were deleted as a result of the cascading deletion.
    */
   classifyIdList?: number[];
   /**
@@ -73,7 +73,7 @@ export class DeleteSecurityClassifyCatalogResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The details of the backend exception.
+   * The backend exception details.
    * 
    * @example
    * internal error

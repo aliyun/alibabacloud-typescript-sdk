@@ -23,10 +23,16 @@ export class GetSecurityLevelRequest extends $dara.Model {
    * 30001011
    */
   opTenantId?: number;
+  /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
   static names(): { [key: string]: string } {
     return {
       index: 'Index',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
     };
   }
 
@@ -34,6 +40,7 @@ export class GetSecurityLevelRequest extends $dara.Model {
     return {
       index: 'number',
       opTenantId: 'number',
+      opUserId: 'string',
     };
   }
 

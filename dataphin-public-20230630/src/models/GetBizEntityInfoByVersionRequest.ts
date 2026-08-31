@@ -24,6 +24,11 @@ export class GetBizEntityInfoByVersionRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
+  /**
    * @remarks
    * The business type. Valid values: BIZ_OBJECT and BIZ_PROCESS.
    * 
@@ -47,6 +52,7 @@ export class GetBizEntityInfoByVersionRequest extends $dara.Model {
     return {
       id: 'Id',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
       type: 'Type',
       versionId: 'VersionId',
     };
@@ -56,6 +62,7 @@ export class GetBizEntityInfoByVersionRequest extends $dara.Model {
     return {
       id: 'number',
       opTenantId: 'number',
+      opUserId: 'string',
       type: 'string',
       versionId: 'number',
     };

@@ -33,11 +33,17 @@ export class GetOperationSubmitStatusRequest extends $dara.Model {
    * 30001011
    */
   opTenantId?: number;
+  /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
   static names(): { [key: string]: string } {
     return {
       env: 'Env',
       jobId: 'JobId',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
     };
   }
 
@@ -46,6 +52,7 @@ export class GetOperationSubmitStatusRequest extends $dara.Model {
       env: 'string',
       jobId: 'string',
       opTenantId: 'number',
+      opUserId: 'string',
     };
   }
 

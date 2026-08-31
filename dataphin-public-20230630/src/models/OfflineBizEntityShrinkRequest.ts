@@ -20,10 +20,16 @@ export class OfflineBizEntityShrinkRequest extends $dara.Model {
    * 30001011
    */
   opTenantId?: number;
+  /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
   static names(): { [key: string]: string } {
     return {
       offlineCommandShrink: 'OfflineCommand',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
     };
   }
 
@@ -31,6 +37,7 @@ export class OfflineBizEntityShrinkRequest extends $dara.Model {
     return {
       offlineCommandShrink: 'string',
       opTenantId: 'number',
+      opUserId: 'string',
     };
   }
 

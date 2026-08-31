@@ -18,10 +18,16 @@ export class CreateUserGroupShrinkRequest extends $dara.Model {
    * 30001011
    */
   opTenantId?: number;
+  /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
   static names(): { [key: string]: string } {
     return {
       createCommandShrink: 'CreateCommand',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
     };
   }
 
@@ -29,6 +35,7 @@ export class CreateUserGroupShrinkRequest extends $dara.Model {
     return {
       createCommandShrink: 'string',
       opTenantId: 'number',
+      opUserId: 'string',
     };
   }
 

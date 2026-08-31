@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListInstancesResponseBodyPageResultDataNodeInfoCreator extends $dara.Model {
   /**
    * @remarks
-   * User ID
+   * The user ID.
    * 
    * @example
    * 21313112
@@ -13,10 +13,10 @@ export class ListInstancesResponseBodyPageResultDataNodeInfoCreator extends $dar
   id?: string;
   /**
    * @remarks
-   * Username
+   * The username.
    * 
    * @example
-   * xx测试
+   * xx_test
    */
   name?: string;
   static names(): { [key: string]: string } {
@@ -45,7 +45,7 @@ export class ListInstancesResponseBodyPageResultDataNodeInfoCreator extends $dar
 export class ListInstancesResponseBodyPageResultDataNodeInfoModifier extends $dara.Model {
   /**
    * @remarks
-   * Username
+   * The username.
    * 
    * @example
    * 21313112
@@ -53,10 +53,10 @@ export class ListInstancesResponseBodyPageResultDataNodeInfoModifier extends $da
   id?: string;
   /**
    * @remarks
-   * Username
+   * The username.
    * 
    * @example
-   * xx测试
+   * xx_test
    */
   name?: string;
   static names(): { [key: string]: string } {
@@ -85,7 +85,7 @@ export class ListInstancesResponseBodyPageResultDataNodeInfoModifier extends $da
 export class ListInstancesResponseBodyPageResultDataNodeInfoOwnerList extends $dara.Model {
   /**
    * @remarks
-   * User ID
+   * The user ID.
    * 
    * @example
    * 21313112
@@ -93,10 +93,10 @@ export class ListInstancesResponseBodyPageResultDataNodeInfoOwnerList extends $d
   id?: string;
   /**
    * @remarks
-   * Username
+   * The username.
    * 
    * @example
-   * xx测试
+   * xx_test
    */
   name?: string;
   static names(): { [key: string]: string } {
@@ -125,15 +125,15 @@ export class ListInstancesResponseBodyPageResultDataNodeInfoOwnerList extends $d
 export class ListInstancesResponseBodyPageResultDataNodeInfo extends $dara.Model {
   /**
    * @remarks
-   * Business Unit
+   * The business unit.
    * 
    * @example
-   * xx测试
+   * xx_test
    */
   bizUnitName?: string;
   /**
    * @remarks
-   * Creation Time
+   * The creation time.
    * 
    * @example
    * 2024-05-30 16:47:13
@@ -141,20 +141,20 @@ export class ListInstancesResponseBodyPageResultDataNodeInfo extends $dara.Model
   createTime?: string;
   /**
    * @remarks
-   * Node Creator
+   * The creator of the node.
    */
   creator?: ListInstancesResponseBodyPageResultDataNodeInfoCreator;
   /**
    * @remarks
-   * Node Description
+   * The description of the node.
    * 
    * @example
-   * xx 测试
+   * xx test
    */
   description?: string;
   /**
    * @remarks
-   * Whether to dry run
+   * Indicates whether the node is a dry run.
    * 
    * @example
    * false
@@ -162,7 +162,7 @@ export class ListInstancesResponseBodyPageResultDataNodeInfo extends $dara.Model
   dryRun?: boolean;
   /**
    * @remarks
-   * Node Source
+   * The source of the node.
    * 
    * @example
    * DATA_PROCES
@@ -170,7 +170,7 @@ export class ListInstancesResponseBodyPageResultDataNodeInfo extends $dara.Model
   from?: string;
   /**
    * @remarks
-   * Whether a development environment exists
+   * Indicates whether the node has a development environment.
    * 
    * @example
    * false
@@ -178,7 +178,7 @@ export class ListInstancesResponseBodyPageResultDataNodeInfo extends $dara.Model
   hasDev?: boolean;
   /**
    * @remarks
-   * Whether a production environment exists
+   * Indicates whether the node has a production environment.
    * 
    * @example
    * true
@@ -186,7 +186,7 @@ export class ListInstancesResponseBodyPageResultDataNodeInfo extends $dara.Model
   hasProd?: boolean;
   /**
    * @remarks
-   * Node ID
+   * The node ID.
    * 
    * @example
    * n_132331
@@ -194,7 +194,7 @@ export class ListInstancesResponseBodyPageResultDataNodeInfo extends $dara.Model
   id?: string;
   /**
    * @remarks
-   * Last Modified Time
+   * The modification time.
    * 
    * @example
    * 2024-05-30 16:47:13
@@ -202,25 +202,25 @@ export class ListInstancesResponseBodyPageResultDataNodeInfo extends $dara.Model
   lastModifiedTime?: string;
   /**
    * @remarks
-   * Modifier
+   * The modifier of the node.
    */
   modifier?: ListInstancesResponseBodyPageResultDataNodeInfoModifier;
   /**
    * @remarks
-   * Node Name
+   * The name of the node.
    * 
    * @example
-   * xx测试
+   * xx_test
    */
   name?: string;
   /**
    * @remarks
-   * Owner
+   * The owner.
    */
   ownerList?: ListInstancesResponseBodyPageResultDataNodeInfoOwnerList[];
   /**
    * @remarks
-   * Priority
+   * The priority. Valid values:
    * - HIGHEST
    * - HIGH
    * - MIDDLE
@@ -230,12 +230,12 @@ export class ListInstancesResponseBodyPageResultDataNodeInfo extends $dara.Model
   priorityList?: string[];
   /**
    * @remarks
-   * Running Resource Group
+   * The schedule resource groups for execution.
    */
   resourceGroupList?: string[];
   /**
    * @remarks
-   * Whether scheduling is paused
+   * Specifies whether scheduling is paused.
    * 
    * @example
    * false
@@ -243,12 +243,12 @@ export class ListInstancesResponseBodyPageResultDataNodeInfo extends $dara.Model
   schedulePaused?: boolean;
   /**
    * @remarks
-   * Schedule Period
+   * The scheduling period.
    */
   schedulePeriodList?: string[];
   /**
    * @remarks
-   * Sub-business Type
+   * The sub-business type. Valid values:
    * - MAX_COMPUTE_SQL
    * - HIVE_SQL
    * - SHELL
@@ -262,9 +262,9 @@ export class ListInstancesResponseBodyPageResultDataNodeInfo extends $dara.Model
   subDetailType?: string;
   /**
    * @remarks
-   * Node Business Type
-   * - SCRIPT: Script
-   * - LOGICAL_TABLE: Logical Table
+   * The business type of the node. Valid values:
+   * - SCRIPT: script.
+   * - LOGICAL_TABLE: logical table.
    * 
    * @example
    * DATA_PROCES
@@ -348,7 +348,7 @@ export class ListInstancesResponseBodyPageResultDataNodeInfo extends $dara.Model
 export class ListInstancesResponseBodyPageResultData extends $dara.Model {
   /**
    * @remarks
-   * Business Date
+   * The business date.
    * 
    * @example
    * 2024-05-30
@@ -356,7 +356,7 @@ export class ListInstancesResponseBodyPageResultData extends $dara.Model {
   bizDate?: string;
   /**
    * @remarks
-   * Schedule Time
+   * The scheduling time.
    * 
    * @example
    * 2024-05-30 16:47:13
@@ -364,7 +364,7 @@ export class ListInstancesResponseBodyPageResultData extends $dara.Model {
   dueTime?: string;
   /**
    * @remarks
-   * Running duration, in seconds
+   * The execution duration. Unit: seconds.
    * 
    * @example
    * 60s
@@ -372,7 +372,7 @@ export class ListInstancesResponseBodyPageResultData extends $dara.Model {
   duration?: string;
   /**
    * @remarks
-   * Execution End Time
+   * The execution end time.
    * 
    * @example
    * 2024-05-30 16:47:13
@@ -380,7 +380,7 @@ export class ListInstancesResponseBodyPageResultData extends $dara.Model {
   endExecuteTime?: number;
   /**
    * @remarks
-   * Node extended information: specific information for instances from different business systems, such as pipeline fileId, whether the logical table has hierarchical dimensions, mid node information, and instance output name
+   * The extended node information, which contains properties specific to different business system instances, such as the fileId of a pipeline, whether a logical table uses hierarchy dimensions, mid node information, and instance output names.
    * 
    * @example
    * xx
@@ -388,7 +388,7 @@ export class ListInstancesResponseBodyPageResultData extends $dara.Model {
   extendInfo?: string;
   /**
    * @remarks
-   * Instance ID
+   * The instance ID.
    * 
    * @example
    * t_23231
@@ -396,7 +396,7 @@ export class ListInstancesResponseBodyPageResultData extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * Hourly/Minutely instance sequence number
+   * The sequence number of the hourly or minutely instance.
    * 
    * @example
    * 1
@@ -404,12 +404,12 @@ export class ListInstancesResponseBodyPageResultData extends $dara.Model {
   index?: number;
   /**
    * @remarks
-   * Node Details
+   * The node details.
    */
   nodeInfo?: ListInstancesResponseBodyPageResultDataNodeInfo;
   /**
    * @remarks
-   * Execution start time
+   * The execution start time.
    * 
    * @example
    * 2024-05-30 16:46:13
@@ -417,7 +417,7 @@ export class ListInstancesResponseBodyPageResultData extends $dara.Model {
   startExecuteTime?: number;
   /**
    * @remarks
-   * Instance Status
+   * The instance status.
    */
   statusList?: string[];
   static names(): { [key: string]: string } {
@@ -468,12 +468,12 @@ export class ListInstancesResponseBodyPageResultData extends $dara.Model {
 export class ListInstancesResponseBodyPageResult extends $dara.Model {
   /**
    * @remarks
-   * Paginated records
+   * The paginated records.
    */
   data?: ListInstancesResponseBodyPageResultData[];
   /**
    * @remarks
-   * Total number of records
+   * The total number of records.
    * 
    * @example
    * 107
@@ -508,7 +508,7 @@ export class ListInstancesResponseBodyPageResult extends $dara.Model {
 export class ListInstancesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request error code. OK indicates a normal request.
+   * The error code. A value of OK indicates that the request was successful.
    * 
    * @example
    * OK
@@ -516,7 +516,7 @@ export class ListInstancesResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Backend response HTTP code
+   * The HTTP status code returned by the backend.
    * 
    * @example
    * 200
@@ -524,7 +524,7 @@ export class ListInstancesResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * Request error message
+   * The error message returned if the request failed.
    * 
    * @example
    * successful
@@ -532,12 +532,12 @@ export class ListInstancesResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Paginated result
+   * The paginated result.
    */
   pageResult?: ListInstancesResponseBodyPageResult;
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * 75DD06F8-1661-5A6E-B0A6-7E23133BDC60
@@ -545,7 +545,7 @@ export class ListInstancesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Whether the request was successful
+   * Indicates whether the request was successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

@@ -163,6 +163,11 @@ export class BatchCreateKgRelationRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
+  /**
    * @remarks
    * The workspace ID.
    * 
@@ -176,6 +181,7 @@ export class BatchCreateKgRelationRequest extends $dara.Model {
     return {
       createCommand: 'CreateCommand',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
       workspaceId: 'WorkspaceId',
     };
   }
@@ -184,6 +190,7 @@ export class BatchCreateKgRelationRequest extends $dara.Model {
     return {
       createCommand: BatchCreateKgRelationRequestCreateCommand,
       opTenantId: 'number',
+      opUserId: 'string',
       workspaceId: 'string',
     };
   }

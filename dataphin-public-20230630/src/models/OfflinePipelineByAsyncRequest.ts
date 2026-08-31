@@ -143,11 +143,17 @@ export class OfflinePipelineByAsyncRequest extends $dara.Model {
    * 30001011
    */
   opTenantId?: number;
+  /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
   static names(): { [key: string]: string } {
     return {
       context: 'Context',
       offlineCommand: 'OfflineCommand',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
     };
   }
 
@@ -156,6 +162,7 @@ export class OfflinePipelineByAsyncRequest extends $dara.Model {
       context: OfflinePipelineByAsyncRequestContext,
       offlineCommand: OfflinePipelineByAsyncRequestOfflineCommand,
       opTenantId: 'number',
+      opUserId: 'string',
     };
   }
 

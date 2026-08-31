@@ -23,10 +23,16 @@ export class DeleteStandardWordRootRequest extends $dara.Model {
    * 30001011
    */
   opTenantId?: number;
+  /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
   static names(): { [key: string]: string } {
     return {
       name: 'Name',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
     };
   }
 
@@ -34,6 +40,7 @@ export class DeleteStandardWordRootRequest extends $dara.Model {
     return {
       name: 'string',
       opTenantId: 'number',
+      opUserId: 'string',
     };
   }
 

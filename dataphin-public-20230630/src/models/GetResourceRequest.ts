@@ -24,6 +24,11 @@ export class GetResourceRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
+  /**
    * @remarks
    * The project ID.
    * 
@@ -37,6 +42,7 @@ export class GetResourceRequest extends $dara.Model {
     return {
       name: 'Name',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
       projectId: 'ProjectId',
     };
   }
@@ -45,6 +51,7 @@ export class GetResourceRequest extends $dara.Model {
     return {
       name: 'string',
       opTenantId: 'number',
+      opUserId: 'string',
       projectId: 'number',
     };
   }

@@ -361,10 +361,16 @@ export class CreateDataSourceRequest extends $dara.Model {
    * 30001011
    */
   opTenantId?: number;
+  /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
   static names(): { [key: string]: string } {
     return {
       createCommand: 'CreateCommand',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
     };
   }
 
@@ -372,6 +378,7 @@ export class CreateDataSourceRequest extends $dara.Model {
     return {
       createCommand: CreateDataSourceRequestCreateCommand,
       opTenantId: 'number',
+      opUserId: 'string',
     };
   }
 

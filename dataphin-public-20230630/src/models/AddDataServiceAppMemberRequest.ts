@@ -95,7 +95,7 @@ export class AddDataServiceAppMemberRequestAddCommand extends $dara.Model {
 export class AddDataServiceAppMemberRequest extends $dara.Model {
   /**
    * @remarks
-   * The regular member to add to the data service application.
+   * The command to add a regular member to a data service application.
    * 
    * This parameter is required.
    */
@@ -110,10 +110,19 @@ export class AddDataServiceAppMemberRequest extends $dara.Model {
    * 30001011
    */
   opTenantId?: number;
+  /**
+   * @remarks
+   * The ID of the operator user.
+   * 
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
   static names(): { [key: string]: string } {
     return {
       addCommand: 'AddCommand',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
     };
   }
 
@@ -121,6 +130,7 @@ export class AddDataServiceAppMemberRequest extends $dara.Model {
     return {
       addCommand: AddDataServiceAppMemberRequestAddCommand,
       opTenantId: 'number',
+      opUserId: 'string',
     };
   }
 

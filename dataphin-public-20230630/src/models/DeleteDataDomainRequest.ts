@@ -33,11 +33,17 @@ export class DeleteDataDomainRequest extends $dara.Model {
    * 30001011
    */
   opTenantId?: number;
+  /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
   static names(): { [key: string]: string } {
     return {
       bizUnitId: 'BizUnitId',
       id: 'Id',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
     };
   }
 
@@ -46,6 +52,7 @@ export class DeleteDataDomainRequest extends $dara.Model {
       bizUnitId: 'number',
       id: 'number',
       opTenantId: 'number',
+      opUserId: 'string',
     };
   }
 

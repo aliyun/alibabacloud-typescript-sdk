@@ -68,6 +68,11 @@ export class PausePhysicalNodeRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
+  /**
    * @remarks
    * The pause scheduling request.
    * 
@@ -78,6 +83,7 @@ export class PausePhysicalNodeRequest extends $dara.Model {
     return {
       env: 'Env',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
       pauseCommand: 'PauseCommand',
     };
   }
@@ -86,6 +92,7 @@ export class PausePhysicalNodeRequest extends $dara.Model {
     return {
       env: 'string',
       opTenantId: 'number',
+      opUserId: 'string',
       pauseCommand: PausePhysicalNodeRequestPauseCommand,
     };
   }

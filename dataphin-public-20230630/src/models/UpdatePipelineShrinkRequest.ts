@@ -22,6 +22,14 @@ export class UpdatePipelineShrinkRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
+   * The ID of the operator user.
+   * 
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
+  /**
+   * @remarks
    * The configuration for updating the pipeline or workflow node.
    * 
    * This parameter is required.
@@ -31,6 +39,7 @@ export class UpdatePipelineShrinkRequest extends $dara.Model {
     return {
       contextShrink: 'Context',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
       updateCommandShrink: 'UpdateCommand',
     };
   }
@@ -39,6 +48,7 @@ export class UpdatePipelineShrinkRequest extends $dara.Model {
     return {
       contextShrink: 'string',
       opTenantId: 'number',
+      opUserId: 'string',
       updateCommandShrink: 'string',
     };
   }

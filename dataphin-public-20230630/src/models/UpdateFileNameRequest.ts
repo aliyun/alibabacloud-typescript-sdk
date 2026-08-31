@@ -34,6 +34,11 @@ export class UpdateFileNameRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
+  /**
    * @remarks
    * The project ID.
    * 
@@ -48,6 +53,7 @@ export class UpdateFileNameRequest extends $dara.Model {
       fileId: 'FileId',
       name: 'Name',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
       projectId: 'ProjectId',
     };
   }
@@ -57,6 +63,7 @@ export class UpdateFileNameRequest extends $dara.Model {
       fileId: 'number',
       name: 'string',
       opTenantId: 'number',
+      opUserId: 'string',
       projectId: 'number',
     };
   }

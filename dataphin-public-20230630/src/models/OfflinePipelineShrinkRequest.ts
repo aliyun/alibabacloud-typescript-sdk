@@ -27,11 +27,17 @@ export class OfflinePipelineShrinkRequest extends $dara.Model {
    * 30001011
    */
   opTenantId?: number;
+  /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
   static names(): { [key: string]: string } {
     return {
       contextShrink: 'Context',
       offlineCommandShrink: 'OfflineCommand',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
     };
   }
 
@@ -40,6 +46,7 @@ export class OfflinePipelineShrinkRequest extends $dara.Model {
       contextShrink: 'string',
       offlineCommandShrink: 'string',
       opTenantId: 'number',
+      opUserId: 'string',
     };
   }
 

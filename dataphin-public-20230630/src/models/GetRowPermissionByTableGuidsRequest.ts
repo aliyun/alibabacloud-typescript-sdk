@@ -52,10 +52,16 @@ export class GetRowPermissionByTableGuidsRequest extends $dara.Model {
    * 30001011
    */
   opTenantId?: number;
+  /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
   static names(): { [key: string]: string } {
     return {
       getRowPermissionByTableGuidsQuery: 'GetRowPermissionByTableGuidsQuery',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
     };
   }
 
@@ -63,6 +69,7 @@ export class GetRowPermissionByTableGuidsRequest extends $dara.Model {
     return {
       getRowPermissionByTableGuidsQuery: GetRowPermissionByTableGuidsRequestGetRowPermissionByTableGuidsQuery,
       opTenantId: 'number',
+      opUserId: 'string',
     };
   }
 

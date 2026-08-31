@@ -62,10 +62,16 @@ export class GetAccountByRowPermissionIdRequest extends $dara.Model {
    * 30001011
    */
   opTenantId?: number;
+  /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
   static names(): { [key: string]: string } {
     return {
       getAccountByRowPermissionIdQuery: 'GetAccountByRowPermissionIdQuery',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
     };
   }
 
@@ -73,6 +79,7 @@ export class GetAccountByRowPermissionIdRequest extends $dara.Model {
     return {
       getAccountByRowPermissionIdQuery: GetAccountByRowPermissionIdRequestGetAccountByRowPermissionIdQuery,
       opTenantId: 'number',
+      opUserId: 'string',
     };
   }
 

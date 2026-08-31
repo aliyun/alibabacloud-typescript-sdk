@@ -152,10 +152,16 @@ export class CreatePipelineNodeRequest extends $dara.Model {
    * 30001011
    */
   opTenantId?: number;
+  /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
   static names(): { [key: string]: string } {
     return {
       createPipelineNodeCommand: 'CreatePipelineNodeCommand',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
     };
   }
 
@@ -163,6 +169,7 @@ export class CreatePipelineNodeRequest extends $dara.Model {
     return {
       createPipelineNodeCommand: CreatePipelineNodeRequestCreatePipelineNodeCommand,
       opTenantId: 'number',
+      opUserId: 'string',
     };
   }
 

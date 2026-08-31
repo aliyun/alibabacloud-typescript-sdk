@@ -33,11 +33,17 @@ export class GetSupplementDagrunInstanceRequest extends $dara.Model {
    * 30001011
    */
   opTenantId?: number;
+  /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
   static names(): { [key: string]: string } {
     return {
       dagrunId: 'DagrunId',
       env: 'Env',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
     };
   }
 
@@ -46,6 +52,7 @@ export class GetSupplementDagrunInstanceRequest extends $dara.Model {
       dagrunId: 'string',
       env: 'string',
       opTenantId: 'number',
+      opUserId: 'string',
     };
   }
 

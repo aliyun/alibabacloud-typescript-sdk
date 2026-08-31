@@ -29,7 +29,7 @@ export class ListSecurityIdentifyRecordsResponseBodyPageResultIdentifyRecordList
   bizUnitDisplayName?: string;
   /**
    * @remarks
-   * The business unit ID.
+   * The ID of the business unit.
    * 
    * @example
    * 11
@@ -37,7 +37,7 @@ export class ListSecurityIdentifyRecordsResponseBodyPageResultIdentifyRecordList
   bizUnitId?: number;
   /**
    * @remarks
-   * The business unit name.
+   * The name of the business unit.
    * 
    * @example
    * test
@@ -45,7 +45,7 @@ export class ListSecurityIdentifyRecordsResponseBodyPageResultIdentifyRecordList
   bizUnitName?: string;
   /**
    * @remarks
-   * The classification abbreviation.
+   * The abbreviation of the classification.
    * 
    * @example
    * test
@@ -53,7 +53,7 @@ export class ListSecurityIdentifyRecordsResponseBodyPageResultIdentifyRecordList
   classifyAbbreviation?: string;
   /**
    * @remarks
-   * The classification ID.
+   * The ID of the classification.
    * 
    * @example
    * 1
@@ -61,7 +61,7 @@ export class ListSecurityIdentifyRecordsResponseBodyPageResultIdentifyRecordList
   classifyId?: number;
   /**
    * @remarks
-   * The classification name.
+   * The name of the classification.
    * 
    * @example
    * test
@@ -69,9 +69,9 @@ export class ListSecurityIdentifyRecordsResponseBodyPageResultIdentifyRecordList
   classifyName?: string;
   /**
    * @remarks
-   * The classification effective status. Valid values:
-   * - ENABLE: enabled.
-   * - DISABLE: disabled.
+   * The status of the classification. Valid values:
+   * - ENABLE: Enabled.
+   * - DISABLE: Disabled.
    * 
    * @example
    * ENABLE
@@ -79,7 +79,7 @@ export class ListSecurityIdentifyRecordsResponseBodyPageResultIdentifyRecordList
   classifyStatus?: string;
   /**
    * @remarks
-   * The datasource ID.
+   * The ID of the data source.
    * 
    * @example
    * 1
@@ -87,7 +87,7 @@ export class ListSecurityIdentifyRecordsResponseBodyPageResultIdentifyRecordList
   datasourceId?: number;
   /**
    * @remarks
-   * The datasource name.
+   * The name of the data source.
    * 
    * @example
    * test
@@ -95,7 +95,7 @@ export class ListSecurityIdentifyRecordsResponseBodyPageResultIdentifyRecordList
   datasourceName?: string;
   /**
    * @remarks
-   * The field description.
+   * The description of the field.
    * 
    * @example
    * test
@@ -103,7 +103,7 @@ export class ListSecurityIdentifyRecordsResponseBodyPageResultIdentifyRecordList
   fieldDescription?: string;
   /**
    * @remarks
-   * The field ID.
+   * The ID of the field.
    * 
    * @example
    * t_test.col1
@@ -119,7 +119,7 @@ export class ListSecurityIdentifyRecordsResponseBodyPageResultIdentifyRecordList
   fieldName?: string;
   /**
    * @remarks
-   * The identification record ID.
+   * The ID of the identification record.
    * 
    * @example
    * 22
@@ -142,7 +142,7 @@ export class ListSecurityIdentifyRecordsResponseBodyPageResultIdentifyRecordList
   isLocked?: boolean;
   /**
    * @remarks
-   * The classification level abbreviation.
+   * The abbreviated name of the level.
    * 
    * @example
    * test
@@ -150,7 +150,7 @@ export class ListSecurityIdentifyRecordsResponseBodyPageResultIdentifyRecordList
   levelAbbreviation?: string;
   /**
    * @remarks
-   * The classification level index.
+   * The level index.
    * 
    * @example
    * 1
@@ -158,7 +158,7 @@ export class ListSecurityIdentifyRecordsResponseBodyPageResultIdentifyRecordList
   levelIndex?: number;
   /**
    * @remarks
-   * The classification level name.
+   * The name of the level.
    * 
    * @example
    * test
@@ -174,7 +174,7 @@ export class ListSecurityIdentifyRecordsResponseBodyPageResultIdentifyRecordList
   projectDisplayName?: string;
   /**
    * @remarks
-   * The project ID.
+   * The ID of the project.
    * 
    * @example
    * 1001
@@ -182,7 +182,7 @@ export class ListSecurityIdentifyRecordsResponseBodyPageResultIdentifyRecordList
   projectId?: number;
   /**
    * @remarks
-   * The project name.
+   * The name of the project.
    * 
    * @example
    * test
@@ -190,7 +190,7 @@ export class ListSecurityIdentifyRecordsResponseBodyPageResultIdentifyRecordList
   projectName?: string;
   /**
    * @remarks
-   * The table description.
+   * The description of the table.
    * 
    * @example
    * test
@@ -206,7 +206,7 @@ export class ListSecurityIdentifyRecordsResponseBodyPageResultIdentifyRecordList
   tableEnv?: string;
   /**
    * @remarks
-   * The table ID.
+   * The ID of the table.
    * 
    * @example
    * 1
@@ -222,11 +222,11 @@ export class ListSecurityIdentifyRecordsResponseBodyPageResultIdentifyRecordList
   tableName?: string;
   /**
    * @remarks
-   * The table type. Valid values:
+   * The type of the table. Valid values:
    * - LOGIC_TABLE: logical table.
    * - LOGIC_DIM_TABLE: logical dimension table.
    * - LOGIC_FACT_TABLE: logical fact table.
-   * - LOGIC_SUM_TABLE: logical aggregate table.
+   * - LOGIC_SUM_TABLE: logical summary table.
    * - LOGIC_ODM_SOURCE: source table.
    * - LOGIC_LABEL_TABLE: logical label table.
    * - PHYSICAL_TABLE: physical table.
@@ -372,7 +372,7 @@ export class ListSecurityIdentifyRecordsResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The backend exception details.
+   * The details of the backend exception.
    * 
    * @example
    * internal error
@@ -380,7 +380,7 @@ export class ListSecurityIdentifyRecordsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The paging query result.
+   * The paged query result.
    */
   pageResult?: ListSecurityIdentifyRecordsResponseBodyPageResult;
   /**

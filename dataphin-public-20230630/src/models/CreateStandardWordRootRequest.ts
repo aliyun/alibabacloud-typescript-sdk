@@ -86,10 +86,16 @@ export class CreateStandardWordRootRequest extends $dara.Model {
    * 30001011
    */
   opTenantId?: number;
+  /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
   static names(): { [key: string]: string } {
     return {
       createCommand: 'CreateCommand',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
     };
   }
 
@@ -97,6 +103,7 @@ export class CreateStandardWordRootRequest extends $dara.Model {
     return {
       createCommand: CreateStandardWordRootRequestCreateCommand,
       opTenantId: 'number',
+      opUserId: 'string',
     };
   }
 

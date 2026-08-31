@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetCatalogAssetDetailsShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The paging query for the listing asset catalog list.
+   * The paged query for the listed asset catalog.
    * 
    * This parameter is required.
    */
@@ -20,10 +20,19 @@ export class GetCatalogAssetDetailsShrinkRequest extends $dara.Model {
    * 30001011
    */
   opTenantId?: number;
+  /**
+   * @remarks
+   * The ID of the operator user.
+   * 
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
   static names(): { [key: string]: string } {
     return {
       getCatalogAssetDetailsQueryShrink: 'GetCatalogAssetDetailsQuery',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
     };
   }
 
@@ -31,6 +40,7 @@ export class GetCatalogAssetDetailsShrinkRequest extends $dara.Model {
     return {
       getCatalogAssetDetailsQueryShrink: 'string',
       opTenantId: 'number',
+      opUserId: 'string',
     };
   }
 

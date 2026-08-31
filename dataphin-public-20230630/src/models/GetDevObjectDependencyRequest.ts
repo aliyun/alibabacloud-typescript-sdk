@@ -49,6 +49,11 @@ export class GetDevObjectDependencyRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
+  /**
    * @remarks
    * Project ID.
    * 
@@ -64,6 +69,7 @@ export class GetDevObjectDependencyRequest extends $dara.Model {
       objectId: 'ObjectId',
       objectType: 'ObjectType',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
       projectId: 'ProjectId',
     };
   }
@@ -74,6 +80,7 @@ export class GetDevObjectDependencyRequest extends $dara.Model {
       objectId: 'string',
       objectType: 'string',
       opTenantId: 'number',
+      opUserId: 'string',
       projectId: 'number',
     };
   }

@@ -21,10 +21,7 @@ export class GetBatchTaskInfoResponseBodyTaskInfoCustomScheduleConfig extends $d
   interval?: number;
   /**
    * @remarks
-   * The interval unit. Valid values:
-   * 
-   * - MINUTE
-   * - HOUR.
+   * The interval unit. Valid values: MINUTE and HOUR.
    * 
    * @example
    * HOUR
@@ -156,12 +153,11 @@ export class GetBatchTaskInfoResponseBodyTaskInfoUpStreamListDependPeriod extend
   periodOffset?: number;
   /**
    * @remarks
-   * The dependency period type. Valid values:
-   * 
+   * The dependency period type. Valid values: 
    * - CURRENT_PERIOD
    * - LAST_PERIOD
    * - LAST_N_PERIOD
-   * - LAST_24_HOUR.
+   * - LAST_24_HOUR
    * 
    * @example
    * CURRENT_PERIOD
@@ -211,8 +207,7 @@ export class GetBatchTaskInfoResponseBodyTaskInfoUpStreamList extends $dara.Mode
   fieldList?: string[];
   /**
    * @remarks
-   * The upstream dependency node type. Valid values:
-   * 
+   * The type of the upstream dependency node. Valid values:
    * - PHYSICAL: physical node.
    * - LOGICAL: logical table dependency.
    * 
@@ -262,7 +257,7 @@ export class GetBatchTaskInfoResponseBodyTaskInfoUpStreamList extends $dara.Mode
    * The username of the upstream node owner.
    * 
    * @example
-   * 张三
+   * John
    */
   sourceNodeUserName?: string;
   /**
@@ -323,7 +318,7 @@ export class GetBatchTaskInfoResponseBodyTaskInfoUpStreamList extends $dara.Mode
 export class GetBatchTaskInfoResponseBodyTaskInfo extends $dara.Model {
   /**
    * @remarks
-   * The node code.
+   * The task code.
    * 
    * @example
    * show tables;
@@ -331,7 +326,7 @@ export class GetBatchTaskInfoResponseBodyTaskInfo extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The cron expression for automatic scheduling. Refer to the Linux cron expression format.
+   * The cron expression for automatic scheduling. Refer to the Linux cron expression syntax.
    * 
    * @example
    * 0 0 1 * * ?
@@ -344,7 +339,7 @@ export class GetBatchTaskInfoResponseBodyTaskInfo extends $dara.Model {
   customScheduleConfig?: GetBatchTaskInfoResponseBodyTaskInfoCustomScheduleConfig;
   /**
    * @remarks
-   * The ID of the DAG to which the node belongs.
+   * The ID of the DAG to which the task belongs.
    * 
    * @example
    * dag_102121211
@@ -384,12 +379,22 @@ export class GetBatchTaskInfoResponseBodyTaskInfo extends $dara.Model {
   developOwnerId?: string;
   /**
    * @remarks
+   * The list of development owner IDs.
+   */
+  developOwnerIdList?: string[];
+  /**
+   * @remarks
    * The name of the development owner.
    * 
    * @example
-   * 张三
+   * John
    */
   developOwnerName?: string;
+  /**
+   * @remarks
+   * The list of development owner names.
+   */
+  developOwnerNameList?: string[];
   /**
    * @remarks
    * The node ID in the directory tree.
@@ -400,33 +405,33 @@ export class GetBatchTaskInfoResponseBodyTaskInfo extends $dara.Model {
   fileId?: number;
   /**
    * @remarks
-   * Indicates whether the node has a development environment node.
+   * Indicates whether the task has a development environment node.
    */
   hasDevNode?: boolean;
   /**
    * @remarks
-   * The node name.
+   * The task name.
    * 
    * @example
-   * 测试任务1
+   * TestTask1
    */
   name?: string;
   /**
    * @remarks
-   * Indicates whether the node needs to be published.
+   * Indicates whether the task needs to be published.
    */
   needPublish?: boolean;
   /**
    * @remarks
-   * The node description.
+   * The task description.
    * 
    * @example
-   * xx测试
+   * xxTest
    */
   nodeDescription?: string;
   /**
    * @remarks
-   * The node source, indicating the organization or application that created the node.
+   * The source of the node, indicating the organization or application that created the node.
    * 
    * @example
    * openapi
@@ -445,7 +450,7 @@ export class GetBatchTaskInfoResponseBodyTaskInfo extends $dara.Model {
    * The node name.
    * 
    * @example
-   * 测试任务1
+   * TestTask1
    */
   nodeName?: string;
   /**
@@ -456,7 +461,6 @@ export class GetBatchTaskInfoResponseBodyTaskInfo extends $dara.Model {
   /**
    * @remarks
    * The node status. Valid values:
-   * 
    * - 1: Normal.
    * - 2: Paused.
    * - 3: Dry run.
@@ -483,18 +487,28 @@ export class GetBatchTaskInfoResponseBodyTaskInfo extends $dara.Model {
   opsOwnerId?: string;
   /**
    * @remarks
+   * The list of O&M owner IDs.
+   */
+  opsOwnerIdList?: string[];
+  /**
+   * @remarks
    * The name of the O&M owner.
    * 
    * @example
-   * 张三
+   * John
    */
   opsOwnerName?: string;
+  /**
+   * @remarks
+   * The list of O&M owner names.
+   */
+  opsOwnerNameList?: string[];
   /**
    * @remarks
    * The name of the node owner.
    * 
    * @example
-   * 张三
+   * John
    */
   ownerName?: string;
   /**
@@ -507,7 +521,7 @@ export class GetBatchTaskInfoResponseBodyTaskInfo extends $dara.Model {
   ownerUserId?: string;
   /**
    * @remarks
-   * The list of custom node parameters.
+   * The list of custom parameters for the node.
    */
   paramList?: GetBatchTaskInfoResponseBodyTaskInfoParamList[];
   /**
@@ -533,7 +547,7 @@ export class GetBatchTaskInfoResponseBodyTaskInfo extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * Indicates whether the node is published.
+   * Indicates whether the task is published.
    */
   published?: boolean;
   /**
@@ -552,13 +566,12 @@ export class GetBatchTaskInfoResponseBodyTaskInfo extends $dara.Model {
   /**
    * @remarks
    * The scheduling period. Valid values:
-   * 
    * - YEARLY
    * - MONTHLY
    * - WEEKLY
    * - DAILY
    * - HOURLY
-   * - MINUTELY.
+   * - MINUTELY
    * 
    * @example
    * DAILY
@@ -566,10 +579,9 @@ export class GetBatchTaskInfoResponseBodyTaskInfo extends $dara.Model {
   schedulePeriod?: string;
   /**
    * @remarks
-   * The scheduling type. Valid values:
-   * 
-   * - 1: periodic node.
-   * - 3: manual node.
+   * The node type. Valid values: 
+   * - 1: Periodic node.
+   * - 3: Manual node.
    * 
    * @example
    * 3
@@ -583,18 +595,17 @@ export class GetBatchTaskInfoResponseBodyTaskInfo extends $dara.Model {
   /**
    * @remarks
    * The submit status. Valid values:
-   * 
-   * - 0: draft.
-   * - 1: submitted.
-   * - 100: in development.
+   * - 0: Draft.
+   * - 1: Submitted.
+   * - 100: In development.
    * 
    * @example
-   * 测试任务1
+   * TestTask1
    */
   status?: string;
   /**
    * @remarks
-   * The node type. For more information, refer to the create offline compute node operation.
+   * The task type. For more information, refer to the API operation for creating a batch task.
    * 
    * @example
    * 21
@@ -615,7 +626,9 @@ export class GetBatchTaskInfoResponseBodyTaskInfo extends $dara.Model {
       dataSourceId: 'DataSourceId',
       dataSourceSchema: 'DataSourceSchema',
       developOwnerId: 'DevelopOwnerId',
+      developOwnerIdList: 'DevelopOwnerIdList',
       developOwnerName: 'DevelopOwnerName',
+      developOwnerNameList: 'DevelopOwnerNameList',
       fileId: 'FileId',
       hasDevNode: 'HasDevNode',
       name: 'Name',
@@ -628,7 +641,9 @@ export class GetBatchTaskInfoResponseBodyTaskInfo extends $dara.Model {
       nodeStatus: 'NodeStatus',
       operatorUserId: 'OperatorUserId',
       opsOwnerId: 'OpsOwnerId',
+      opsOwnerIdList: 'OpsOwnerIdList',
       opsOwnerName: 'OpsOwnerName',
+      opsOwnerNameList: 'OpsOwnerNameList',
       ownerName: 'OwnerName',
       ownerUserId: 'OwnerUserId',
       paramList: 'ParamList',
@@ -657,7 +672,9 @@ export class GetBatchTaskInfoResponseBodyTaskInfo extends $dara.Model {
       dataSourceId: 'string',
       dataSourceSchema: 'string',
       developOwnerId: 'string',
+      developOwnerIdList: { 'type': 'array', 'itemType': 'string' },
       developOwnerName: 'string',
+      developOwnerNameList: { 'type': 'array', 'itemType': 'string' },
       fileId: 'number',
       hasDevNode: 'boolean',
       name: 'string',
@@ -670,7 +687,9 @@ export class GetBatchTaskInfoResponseBodyTaskInfo extends $dara.Model {
       nodeStatus: 'number',
       operatorUserId: 'string',
       opsOwnerId: 'string',
+      opsOwnerIdList: { 'type': 'array', 'itemType': 'string' },
       opsOwnerName: 'string',
+      opsOwnerNameList: { 'type': 'array', 'itemType': 'string' },
       ownerName: 'string',
       ownerUserId: 'string',
       paramList: { 'type': 'array', 'itemType': GetBatchTaskInfoResponseBodyTaskInfoParamList },
@@ -693,8 +712,20 @@ export class GetBatchTaskInfoResponseBodyTaskInfo extends $dara.Model {
     if(this.customScheduleConfig && typeof (this.customScheduleConfig as any).validate === 'function') {
       (this.customScheduleConfig as any).validate();
     }
+    if(Array.isArray(this.developOwnerIdList)) {
+      $dara.Model.validateArray(this.developOwnerIdList);
+    }
+    if(Array.isArray(this.developOwnerNameList)) {
+      $dara.Model.validateArray(this.developOwnerNameList);
+    }
     if(Array.isArray(this.nodeOutputNameList)) {
       $dara.Model.validateArray(this.nodeOutputNameList);
+    }
+    if(Array.isArray(this.opsOwnerIdList)) {
+      $dara.Model.validateArray(this.opsOwnerIdList);
+    }
+    if(Array.isArray(this.opsOwnerNameList)) {
+      $dara.Model.validateArray(this.opsOwnerNameList);
     }
     if(Array.isArray(this.paramList)) {
       $dara.Model.validateArray(this.paramList);
@@ -753,7 +784,7 @@ export class GetBatchTaskInfoResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The node details.
+   * The task details.
    */
   taskInfo?: GetBatchTaskInfoResponseBodyTaskInfo;
   static names(): { [key: string]: string } {

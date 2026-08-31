@@ -121,6 +121,11 @@ export class ExecKgCypherRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
+  /**
    * @remarks
    * The model ID.
    * 
@@ -134,6 +139,7 @@ export class ExecKgCypherRequest extends $dara.Model {
     return {
       execCommand: 'ExecCommand',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
       workspaceId: 'WorkspaceId',
     };
   }
@@ -142,6 +148,7 @@ export class ExecKgCypherRequest extends $dara.Model {
     return {
       execCommand: ExecKgCypherRequestExecCommand,
       opTenantId: 'number',
+      opUserId: 'string',
       workspaceId: 'string',
     };
   }

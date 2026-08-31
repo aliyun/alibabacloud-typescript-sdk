@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListSecurityIdentifyRecordsRequestListQuery extends $dara.Model {
   /**
    * @remarks
-   * The datasource environment identifier. This parameter is required only for datasource tables.
+   * The data source environment identifier. This parameter is required only for data source tables.
    * 
    * @example
    * DEV
@@ -13,7 +13,7 @@ export class ListSecurityIdentifyRecordsRequestListQuery extends $dara.Model {
   datasourceEnv?: string;
   /**
    * @remarks
-   * The datasource name. This parameter is required only for datasource tables.
+   * The data source name. This parameter is required only for data source tables.
    * 
    * @example
    * test
@@ -31,12 +31,12 @@ export class ListSecurityIdentifyRecordsRequestListQuery extends $dara.Model {
   fieldName?: string;
   /**
    * @remarks
-   * Specifies whether the table is a datasource table. Default value: false (treated as a Dataphin table).
+   * Specifies whether the table is a data source table. Default value: false (treated as a Dataphin table).
    */
   isDatasourceTable?: boolean;
   /**
    * @remarks
-   * The search keyword. The search scope is the field name.
+   * The search keyword. The search scope is field names.
    * 
    * @example
    * test
@@ -60,7 +60,7 @@ export class ListSecurityIdentifyRecordsRequestListQuery extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The table catalog. For datasource tables, specify the database or schema name. For Dataphin physical tables, specify the project name in English. For Dataphin logical tables, specify the business unit name in English.
+   * The table catalog. For data source tables, specify the database or schema name. For Dataphin physical tables, specify the project name in English. For Dataphin logical tables, specify the business unit name in English.
    * 
    * This parameter is required.
    * 
@@ -133,10 +133,19 @@ export class ListSecurityIdentifyRecordsRequest extends $dara.Model {
    * 30001011
    */
   opTenantId?: number;
+  /**
+   * @remarks
+   * The ID of the operator.
+   * 
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
   static names(): { [key: string]: string } {
     return {
       listQuery: 'ListQuery',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
     };
   }
 
@@ -144,6 +153,7 @@ export class ListSecurityIdentifyRecordsRequest extends $dara.Model {
     return {
       listQuery: ListSecurityIdentifyRecordsRequestListQuery,
       opTenantId: 'number',
+      opUserId: 'string',
     };
   }
 

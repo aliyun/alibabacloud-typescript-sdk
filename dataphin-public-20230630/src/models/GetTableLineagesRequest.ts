@@ -80,6 +80,11 @@ export class GetTableLineagesRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
+  /**
    * @remarks
    * The GUID of the table, which is the unique identifier of each asset.
    * 
@@ -93,6 +98,7 @@ export class GetTableLineagesRequest extends $dara.Model {
     return {
       filterQuery: 'FilterQuery',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
       tableGuid: 'TableGuid',
     };
   }
@@ -101,6 +107,7 @@ export class GetTableLineagesRequest extends $dara.Model {
     return {
       filterQuery: GetTableLineagesRequestFilterQuery,
       opTenantId: 'number',
+      opUserId: 'string',
       tableGuid: 'string',
     };
   }

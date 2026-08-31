@@ -66,6 +66,11 @@ export class SubmitQualityWatchTasksRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
+  /**
    * @remarks
    * The submit command.
    * 
@@ -75,6 +80,7 @@ export class SubmitQualityWatchTasksRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
       submitCommand: 'SubmitCommand',
     };
   }
@@ -82,6 +88,7 @@ export class SubmitQualityWatchTasksRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       opTenantId: 'number',
+      opUserId: 'string',
       submitCommand: SubmitQualityWatchTasksRequestSubmitCommand,
     };
   }

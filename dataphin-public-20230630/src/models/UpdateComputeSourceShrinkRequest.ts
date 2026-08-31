@@ -15,6 +15,14 @@ export class UpdateComputeSourceShrinkRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
+   * The operator user ID.
+   * 
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
+  /**
+   * @remarks
    * The edit command.
    * 
    * This parameter is required.
@@ -23,6 +31,7 @@ export class UpdateComputeSourceShrinkRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
       updateCommandShrink: 'UpdateCommand',
     };
   }
@@ -30,6 +39,7 @@ export class UpdateComputeSourceShrinkRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       opTenantId: 'number',
+      opUserId: 'string',
       updateCommandShrink: 'string',
     };
   }

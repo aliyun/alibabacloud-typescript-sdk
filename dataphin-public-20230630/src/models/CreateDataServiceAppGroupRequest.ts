@@ -23,10 +23,19 @@ export class CreateDataServiceAppGroupRequest extends $dara.Model {
    * 30001011
    */
   opTenantId?: number;
+  /**
+   * @remarks
+   * The ID of the operator.
+   * 
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
   static names(): { [key: string]: string } {
     return {
       groupName: 'GroupName',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
     };
   }
 
@@ -34,6 +43,7 @@ export class CreateDataServiceAppGroupRequest extends $dara.Model {
     return {
       groupName: 'string',
       opTenantId: 'number',
+      opUserId: 'string',
     };
   }
 

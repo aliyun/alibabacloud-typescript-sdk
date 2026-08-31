@@ -33,11 +33,17 @@ export class GetProjectRequest extends $dara.Model {
    * 30001011
    */
   opTenantId?: number;
+  /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
   static names(): { [key: string]: string } {
     return {
       env: 'Env',
       id: 'Id',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
     };
   }
 
@@ -46,6 +52,7 @@ export class GetProjectRequest extends $dara.Model {
       env: 'string',
       id: 'number',
       opTenantId: 'number',
+      opUserId: 'string',
     };
   }
 

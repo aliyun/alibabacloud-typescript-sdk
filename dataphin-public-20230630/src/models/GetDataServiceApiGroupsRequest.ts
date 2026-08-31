@@ -14,6 +14,11 @@ export class GetDataServiceApiGroupsRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
+  /**
    * @remarks
    * The Data Service project ID.
    * 
@@ -26,6 +31,7 @@ export class GetDataServiceApiGroupsRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
       projectId: 'ProjectId',
     };
   }
@@ -33,6 +39,7 @@ export class GetDataServiceApiGroupsRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       opTenantId: 'number',
+      opUserId: 'string',
       projectId: 'number',
     };
   }

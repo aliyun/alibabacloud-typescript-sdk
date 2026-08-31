@@ -15,6 +15,14 @@ export class GetTableLineageByTaskIdShrinkRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
+   * The ID of the operator.
+   * 
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
+  /**
+   * @remarks
    * The data structure for querying table lineage.
    * 
    * This parameter is required.
@@ -23,6 +31,7 @@ export class GetTableLineageByTaskIdShrinkRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
       tableLineageByTaskIdQueryShrink: 'TableLineageByTaskIdQuery',
     };
   }
@@ -30,6 +39,7 @@ export class GetTableLineageByTaskIdShrinkRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       opTenantId: 'number',
+      opUserId: 'string',
       tableLineageByTaskIdQueryShrink: 'string',
     };
   }

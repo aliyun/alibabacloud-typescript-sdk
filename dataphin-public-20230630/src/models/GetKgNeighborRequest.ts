@@ -94,6 +94,11 @@ export class GetKgNeighborRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
+  /**
    * @remarks
    * The model ID.
    * 
@@ -109,6 +114,7 @@ export class GetKgNeighborRequest extends $dara.Model {
       entityType: 'EntityType',
       neighborsQuery: 'NeighborsQuery',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
       workspaceId: 'WorkspaceId',
     };
   }
@@ -119,6 +125,7 @@ export class GetKgNeighborRequest extends $dara.Model {
       entityType: 'string',
       neighborsQuery: GetKgNeighborRequestNeighborsQuery,
       opTenantId: 'number',
+      opUserId: 'string',
       workspaceId: 'string',
     };
   }

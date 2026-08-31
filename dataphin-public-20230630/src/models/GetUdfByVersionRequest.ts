@@ -24,6 +24,11 @@ export class GetUdfByVersionRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
+  /**
    * @remarks
    * The project ID.
    * 
@@ -47,6 +52,7 @@ export class GetUdfByVersionRequest extends $dara.Model {
     return {
       id: 'Id',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
       projectId: 'ProjectId',
       versionId: 'VersionId',
     };
@@ -56,6 +62,7 @@ export class GetUdfByVersionRequest extends $dara.Model {
     return {
       id: 'number',
       opTenantId: 'number',
+      opUserId: 'string',
       projectId: 'number',
       versionId: 'number',
     };

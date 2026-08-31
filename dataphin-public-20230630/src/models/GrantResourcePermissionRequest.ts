@@ -140,10 +140,16 @@ export class GrantResourcePermissionRequest extends $dara.Model {
    * 30001011
    */
   opTenantId?: number;
+  /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
   static names(): { [key: string]: string } {
     return {
       grantCommand: 'GrantCommand',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
     };
   }
 
@@ -151,6 +157,7 @@ export class GrantResourcePermissionRequest extends $dara.Model {
     return {
       grantCommand: GrantResourcePermissionRequestGrantCommand,
       opTenantId: 'number',
+      opUserId: 'string',
     };
   }
 

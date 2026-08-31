@@ -20,10 +20,16 @@ export class GrantResourcePermissionShrinkRequest extends $dara.Model {
    * 30001011
    */
   opTenantId?: number;
+  /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
   static names(): { [key: string]: string } {
     return {
       grantCommandShrink: 'GrantCommand',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
     };
   }
 
@@ -31,6 +37,7 @@ export class GrantResourcePermissionShrinkRequest extends $dara.Model {
     return {
       grantCommandShrink: 'string',
       opTenantId: 'number',
+      opUserId: 'string',
     };
   }
 

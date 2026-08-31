@@ -176,10 +176,16 @@ export class ListOperationRecordRequest extends $dara.Model {
    * 30001011
    */
   opTenantId?: number;
+  /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
   static names(): { [key: string]: string } {
     return {
       listCommand: 'ListCommand',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
     };
   }
 
@@ -187,6 +193,7 @@ export class ListOperationRecordRequest extends $dara.Model {
     return {
       listCommand: ListOperationRecordRequestListCommand,
       opTenantId: 'number',
+      opUserId: 'string',
     };
   }
 

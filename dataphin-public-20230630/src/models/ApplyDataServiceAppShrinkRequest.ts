@@ -22,6 +22,14 @@ export class ApplyDataServiceAppShrinkRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
+   * The ID of the operator user.
+   * 
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
+  /**
+   * @remarks
    * The data service project ID.
    * 
    * This parameter is required.
@@ -34,6 +42,7 @@ export class ApplyDataServiceAppShrinkRequest extends $dara.Model {
     return {
       applyCommandShrink: 'ApplyCommand',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
       projectId: 'ProjectId',
     };
   }
@@ -42,6 +51,7 @@ export class ApplyDataServiceAppShrinkRequest extends $dara.Model {
     return {
       applyCommandShrink: 'string',
       opTenantId: 'number',
+      opUserId: 'string',
       projectId: 'number',
     };
   }

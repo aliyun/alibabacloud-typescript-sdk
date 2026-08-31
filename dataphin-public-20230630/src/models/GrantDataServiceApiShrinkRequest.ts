@@ -21,6 +21,11 @@ export class GrantDataServiceApiShrinkRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
+  /**
    * @remarks
    * The data service project ID.
    * 
@@ -34,6 +39,7 @@ export class GrantDataServiceApiShrinkRequest extends $dara.Model {
     return {
       grantCommandShrink: 'GrantCommand',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
       projectId: 'ProjectId',
     };
   }
@@ -42,6 +48,7 @@ export class GrantDataServiceApiShrinkRequest extends $dara.Model {
     return {
       grantCommandShrink: 'string',
       opTenantId: 'number',
+      opUserId: 'string',
       projectId: 'number',
     };
   }

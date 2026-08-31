@@ -21,7 +21,7 @@ export class GetQualityWatchResponseBodyQualityWatchInfoDataSourceInfo extends $
   creator?: string;
   /**
    * @remarks
-   * The creator name.
+   * The name of the creator.
    * 
    * @example
    * test
@@ -30,8 +30,9 @@ export class GetQualityWatchResponseBodyQualityWatchInfoDataSourceInfo extends $
   /**
    * @remarks
    * The environment identifier. Valid values:
-   * - PROD
-   * - DEV.
+   * 
+   * - PROD: production environment.
+   * - DEV: development environment.
    * 
    * @example
    * DEV
@@ -80,8 +81,9 @@ export class GetQualityWatchResponseBodyQualityWatchInfoDataSourceInfo extends $
   /**
    * @remarks
    * The data source type. Valid values:
+   * 
    * - MAX_COMPUTE
-   * - HADOOP.
+   * - HADOOP
    * 
    * @example
    * MAX_COMPUTE
@@ -161,11 +163,7 @@ export class GetQualityWatchResponseBodyQualityWatchInfoIndexInfo extends $dara.
   cellSumLogicTableName?: string;
   /**
    * @remarks
-   * The metric computation type. Valid values:
-   * - AUTO
-   * - CUSTOM
-   * - MOUNT
-   * - COMBINE.
+   * The metric computation type. Valid values: AUTO, CUSTOM, MOUNT, and COMBINE.
    * 
    * @example
    * AUTO
@@ -200,7 +198,7 @@ export class GetQualityWatchResponseBodyQualityWatchInfoIndexInfo extends $dara.
    * The statistical granularity name.
    * 
    * @example
-   * 全站汇总表
+   * Site-wide aggregate table
    */
   granularityDisplayName?: string;
   /**
@@ -269,8 +267,7 @@ export class GetQualityWatchResponseBodyQualityWatchInfoIndexInfo extends $dara.
   projectName?: string;
   /**
    * @remarks
-   * The metric type. Valid values:
-   * - INDEX.
+   * The metric type. Valid values: INDEX.
    * 
    * @example
    * INDEX
@@ -383,8 +380,9 @@ export class GetQualityWatchResponseBodyQualityWatchInfoTableInfo extends $dara.
   /**
    * @remarks
    * The environment identifier. Valid values:
-   * - DEV
-   * - PROD.
+   * 
+   * - DEV: development environment.
+   * - PROD: production environment.
    * 
    * @example
    * DEV
@@ -446,6 +444,7 @@ export class GetQualityWatchResponseBodyQualityWatchInfoTableInfo extends $dara.
   /**
    * @remarks
    * The type. Valid values:
+   * 
    * - LOGIC_DIM_TABLE: logical dimension table.
    * - LOGIC_FACT_TABLE: logical fact table.
    * - LOGIC_SUM_TABLE: logical aggregate table.
@@ -525,7 +524,7 @@ export class GetQualityWatchResponseBodyQualityWatchInfo extends $dara.Model {
   creator?: string;
   /**
    * @remarks
-   * The creator name.
+   * The name of the creator.
    * 
    * @example
    * test
@@ -533,7 +532,7 @@ export class GetQualityWatchResponseBodyQualityWatchInfo extends $dara.Model {
   creatorName?: string;
   /**
    * @remarks
-   * The datasource config details.
+   * The data source details.
    */
   dataSourceInfo?: GetQualityWatchResponseBodyQualityWatchInfoDataSourceInfo;
   /**
@@ -546,7 +545,7 @@ export class GetQualityWatchResponseBodyQualityWatchInfo extends $dara.Model {
   enabledRuleCount?: number;
   /**
    * @remarks
-   * The monitor ID.
+   * The watchtask ID.
    * 
    * @example
    * 11
@@ -559,7 +558,7 @@ export class GetQualityWatchResponseBodyQualityWatchInfo extends $dara.Model {
   indexInfo?: GetQualityWatchResponseBodyQualityWatchInfoIndexInfo;
   /**
    * @remarks
-   * The ID of the most recent quality watchtask for the monitored object.
+   * The ID of the latest quality watchtask.
    * 
    * @example
    * 1
@@ -567,7 +566,7 @@ export class GetQualityWatchResponseBodyQualityWatchInfo extends $dara.Model {
   latestWatchTaskId?: number;
   /**
    * @remarks
-   * The status of the most recent quality watchtask for the monitored object.
+   * The status of the latest quality watchtask.
    * 
    * @example
    * SUCCESS
@@ -624,8 +623,9 @@ export class GetQualityWatchResponseBodyQualityWatchInfo extends $dara.Model {
   /**
    * @remarks
    * The status. Valid values:
-   * - ENABLE
-   * - DISABLE.
+   * 
+   * - ENABLE: Enabled.
+   * - DISABLE: Disabled.
    * 
    * @example
    * ENABLE
@@ -639,8 +639,9 @@ export class GetQualityWatchResponseBodyQualityWatchInfo extends $dara.Model {
   /**
    * @remarks
    * The monitored object type. Valid values:
+   * 
    * - TABLE: Dataphin table.
-   * - DATASOURCE_TABLE: full-domain table.
+   * - DATASOURCE_TABLE: global table.
    * - DATASOURCE: data source.
    * - INDEX: metric.
    * - REALTIME_LOGICAL_TABLE: real-time meta table.
@@ -732,7 +733,7 @@ export class GetQualityWatchResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The details of the backend exception.
+   * The backend exception details.
    * 
    * @example
    * internal error
@@ -740,7 +741,7 @@ export class GetQualityWatchResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The details of the monitored object.
+   * The monitoring object details.
    */
   qualityWatchInfo?: GetQualityWatchResponseBodyQualityWatchInfo;
   /**

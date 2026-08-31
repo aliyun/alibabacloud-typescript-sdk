@@ -6,11 +6,11 @@ export class ListCatalogAssetsRequestListCatalogAssetsQuery extends $dara.Model 
   /**
    * @remarks
    * The asset type. Default value: TABLE. Valid values:
-   * - TABLE: table, including views and materialized views.
-   * - INDEX: technical metric.
-   * - BIZ_INDEX: business metric.
-   * - API: API.
-   * - PAGE: dashboard.
+   * - TABLE: tables, including views and materialized views.
+   * - INDEX: technical metrics.
+   * - BIZ_INDEX: business metrics.
+   * - API
+   * - PAGE: dashboards.
    * 
    * @example
    * TABLE
@@ -18,7 +18,7 @@ export class ListCatalogAssetsRequestListCatalogAssetsQuery extends $dara.Model 
   assetType?: string;
   /**
    * @remarks
-   * The search keyword. Used when queryMode is set to ASSET_SEARCH. Supports keyword matching against the asset full name, asset name, asset display name, and asset description. If this parameter is not specified, all assets are queried.
+   * The search keyword. Used when queryMode is set to ASSET_SEARCH. Supports keyword matching against the asset full name, asset name, asset display name, and asset description. If not specified, all assets are returned by default.
    * 
    * @example
    * abc
@@ -26,7 +26,7 @@ export class ListCatalogAssetsRequestListCatalogAssetsQuery extends $dara.Model 
   keyword?: string;
   /**
    * @remarks
-   * The asset name. Used when queryMode is set to EXACT_MATCH. If this parameter is not specified, all assets are queried.
+   * The asset name. Used when queryMode is set to EXACT_MATCH. If not specified, all assets are returned by default.
    * 
    * @example
    * abc
@@ -50,7 +50,7 @@ export class ListCatalogAssetsRequestListCatalogAssetsQuery extends $dara.Model 
   pageSize?: number;
   /**
    * @remarks
-   * The query type. Determines whether to use name for exact matching or keyword for fuzzy search. Default value: EXACT_MATCH. Valid values:
+   * The query type. Determines whether to use name for exact match or keyword for fuzzy search. Default value: EXACT_MATCH. Valid values:
    * - EXACT_MATCH: exact match.
    * - ASSET_SEARCH: fuzzy search.
    * 
@@ -58,6 +58,11 @@ export class ListCatalogAssetsRequestListCatalogAssetsQuery extends $dara.Model 
    * EXACT_MATCH
    */
   queryMode?: string;
+  /**
+   * @remarks
+   * The list of folder IDs to which the assets belong. Multiple folders are matched with OR logic. Only the specified folders are matched, and subfolders are not included.
+   */
+  shelveDirectoryIds?: number[];
   static names(): { [key: string]: string } {
     return {
       assetType: 'AssetType',
@@ -66,6 +71,7 @@ export class ListCatalogAssetsRequestListCatalogAssetsQuery extends $dara.Model 
       pageNum: 'PageNum',
       pageSize: 'PageSize',
       queryMode: 'QueryMode',
+      shelveDirectoryIds: 'ShelveDirectoryIds',
     };
   }
 
@@ -77,10 +83,14 @@ export class ListCatalogAssetsRequestListCatalogAssetsQuery extends $dara.Model 
       pageNum: 'number',
       pageSize: 'number',
       queryMode: 'string',
+      shelveDirectoryIds: { 'type': 'array', 'itemType': 'number' },
     };
   }
 
   validate() {
+    if(Array.isArray(this.shelveDirectoryIds)) {
+      $dara.Model.validateArray(this.shelveDirectoryIds);
+    }
     super.validate();
   }
 
@@ -107,10 +117,19 @@ export class ListCatalogAssetsRequest extends $dara.Model {
    * 30001011
    */
   opTenantId?: number;
+  /**
+   * @remarks
+   * The ID of the operator user.
+   * 
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
   static names(): { [key: string]: string } {
     return {
       listCatalogAssetsQuery: 'ListCatalogAssetsQuery',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
     };
   }
 
@@ -118,6 +137,7 @@ export class ListCatalogAssetsRequest extends $dara.Model {
     return {
       listCatalogAssetsQuery: ListCatalogAssetsRequestListCatalogAssetsQuery,
       opTenantId: 'number',
+      opUserId: 'string',
     };
   }
 

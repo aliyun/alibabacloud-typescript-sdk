@@ -76,11 +76,17 @@ export class GetPipelineAsyncResultRequest extends $dara.Model {
    * 30001011
    */
   opTenantId?: number;
+  /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
   static names(): { [key: string]: string } {
     return {
       asyncId: 'AsyncId',
       context: 'Context',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
     };
   }
 
@@ -89,6 +95,7 @@ export class GetPipelineAsyncResultRequest extends $dara.Model {
       asyncId: 'number',
       context: GetPipelineAsyncResultRequestContext,
       opTenantId: 'number',
+      opUserId: 'string',
     };
   }
 

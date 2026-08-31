@@ -52,12 +52,12 @@ export class ListPipelinesRequestContext extends $dara.Model {
 export class ListPipelinesRequestListCommand extends $dara.Model {
   /**
    * @remarks
-   * The list of creator user IDs for filtering. If left empty, no filtering is applied. Multiple values have an OR relationship.
+   * The list of creator user IDs for filtering. If left empty, no filtering is applied. Multiple values are evaluated with an OR relationship.
    */
   creatorList?: string[];
   /**
    * @remarks
-   * The list of development owner user IDs for filtering. If left empty, no filtering is applied. Multiple values have an OR relationship.
+   * The list of development owner user IDs for filtering. If left empty, no filtering is applied. Multiple values are evaluated with an OR relationship.
    */
   developOwnerList?: string[];
   /**
@@ -72,12 +72,12 @@ export class ListPipelinesRequestListCommand extends $dara.Model {
   exactMatch?: boolean;
   /**
    * @remarks
-   * The list of node name keywords. This parameter is optional. If left empty, no filtering by name is applied. For exact match, this is a list of full names. For fuzzy match, this is a list of keywords. Multiple values have an OR relationship.
+   * The list of node name keywords. This parameter is optional. If left empty, no filtering by name is applied. For exact match, specify full names. For fuzzy match, specify keywords. Multiple values are evaluated with an OR relationship.
    */
   keywords?: string[];
   /**
    * @remarks
-   * The cursor-based pagination parameter (an opaque cursor that callers do not need to interpret). This parameter is optional. If not specified, the request is treated as a first-page request and returns the actual total count. If specified, the request is treated as a subsequent-page request. Pass the NextCursor value from the previous page response as-is. The SQL layer automatically filters by incrementing ID to query the next page without re-querying the total count. No OFFSET is used throughout, which avoids performance degradation in deep paging scenarios.
+   * The cursor-based pagination parameter (an opaque cursor that callers do not need to interpret). This parameter is optional. If not specified, the request is treated as a first-page request and returns the actual total count. If specified, the request is treated as a subsequent-page request. Pass the NextCursor value returned from the previous page as-is. The SQL layer automatically filters by incrementing ID to query the next page without re-querying the total count. No OFFSET is used throughout, which avoids performance degradation in deep paging scenarios.
    * 
    * @example
    * 123
@@ -85,12 +85,12 @@ export class ListPipelinesRequestListCommand extends $dara.Model {
   nextCursor?: number;
   /**
    * @remarks
-   * The list of O&M owner user IDs for filtering. If left empty, no filtering is applied. Multiple values have an OR relationship.
+   * The list of O&M owner user IDs for filtering. If left empty, no filtering is applied. Multiple values are evaluated with an OR relationship.
    */
   opsOwnerList?: string[];
   /**
    * @remarks
-   * The page number. Default value: 1. Starts from 1.
+   * The page number. Default value: 1. Pages start from 1.
    * 
    * @example
    * 3
@@ -106,16 +106,16 @@ export class ListPipelinesRequestListCommand extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The list of node types. Valid values:
+   * The list of node types. Default value: [0] (batch integration). Valid values:
    * 
-   * - 0: offline integration.
+   * - 0: batch integration.
    * - 1: real-time integration.
    * - 13: data aggregation.
    * - 14: offline unstructured workflow.
    * - 15: real-time unstructured workflow.
    * - 16: online unstructured workflow.
    * 
-   * Default value: [0]. If null or an empty list is passed, the default value [0] is used.
+   * If null or an empty list is passed, the default value [0] is used.
    */
   pipelineTypeList?: number[];
   /**
@@ -148,12 +148,12 @@ export class ListPipelinesRequestListCommand extends $dara.Model {
   submitStatusList?: string[];
   /**
    * @remarks
-   * The list of label names for filtering. If left empty, no filtering is applied. Multiple values have an OR relationship.
+   * The list of label names for filtering. If left empty, no filtering is applied. Multiple values are evaluated with an OR relationship.
    */
   tagList?: string[];
   /**
    * @remarks
-   * The total number of records for cursor-based pagination. This parameter is optional and takes effect only when NextCursor is not empty. After the first-page request returns the actual total count, pass this value back as-is for subsequent pages. The server does not re-query the total count and directly returns this value, which avoids redundant count overhead. If not specified, the system falls back to querying one extra record to determine whether a next page exists.
+   * The total number of records for cursor-based pagination. This parameter is optional and takes effect only when NextCursor is not empty. After the first-page request returns the actual total count, pass this value back as-is for subsequent pages. The server does not re-query the total count and directly echoes the value, which avoids redundant count overhead. If not specified, the system falls back to querying one extra record to determine whether a next page exists.
    * 
    * @example
    * 1233
@@ -260,11 +260,20 @@ export class ListPipelinesRequest extends $dara.Model {
    * 30001011
    */
   opTenantId?: number;
+  /**
+   * @remarks
+   * The user ID of the operator.
+   * 
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
   static names(): { [key: string]: string } {
     return {
       context: 'Context',
       listCommand: 'ListCommand',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
     };
   }
 
@@ -273,6 +282,7 @@ export class ListPipelinesRequest extends $dara.Model {
       context: ListPipelinesRequestContext,
       listCommand: ListPipelinesRequestListCommand,
       opTenantId: 'number',
+      opUserId: 'string',
     };
   }
 

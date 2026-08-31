@@ -38,7 +38,7 @@ export default class Client extends OpenApi {
 
   /**
    * Adds a regular member to a data service application. Only the application owner can perform this operation.
-   * Online version: v6.0.0.
+   * Release version: v6.0.0.
    * 
    * @param tmpReq - AddDataServiceAppMemberRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -55,6 +55,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     let body : {[key: string ]: any} = { };
@@ -82,7 +86,7 @@ export default class Client extends OpenApi {
 
   /**
    * Adds a regular member to a data service application. Only the application owner can perform this operation.
-   * Online version: v6.0.0.
+   * Release version: v6.0.0.
    * 
    * @param request - AddDataServiceAppMemberRequest
    * @returns AddDataServiceAppMemberResponse
@@ -110,6 +114,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     if (!$dara.isNull(request.projectId)) {
@@ -174,6 +182,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.addCommandShrink)) {
       body["AddCommand"] = request.addCommandShrink;
@@ -228,6 +240,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.addRegisterLineageCommandShrink)) {
       body["AddRegisterLineageCommand"] = request.addRegisterLineageCommandShrink;
@@ -280,6 +296,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     let body : {[key: string ]: any} = { };
@@ -390,6 +410,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.addCommandShrink)) {
       body["AddCommand"] = request.addCommandShrink;
@@ -442,6 +466,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     if (!$dara.isNull(request.projectId)) {
@@ -500,6 +528,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     if (!$dara.isNull(request.projectId)) {
@@ -561,6 +593,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.assignCommandShrink)) {
       body["AssignCommand"] = request.assignCommandShrink;
@@ -597,7 +633,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates knowledge graph entity records in batches. Online version: v6.1.1.
+   * Creates knowledge graph entity records in batches. Available since version v6.1.1.
    * 
    * @param tmpReq - BatchCreateKgEntityRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -614,6 +650,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     if (!$dara.isNull(request.workspaceId)) {
@@ -644,7 +684,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates knowledge graph entity records in batches. Online version: v6.1.1.
+   * Creates knowledge graph entity records in batches. Available since version v6.1.1.
    * 
    * @param request - BatchCreateKgEntityRequest
    * @returns BatchCreateKgEntityResponse
@@ -672,6 +712,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     if (!$dara.isNull(request.workspaceId)) {
@@ -732,6 +776,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.checkCommandShrink)) {
       body["CheckCommand"] = request.checkCommandShrink;
@@ -784,6 +832,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -830,6 +882,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     let body : {[key: string ]: any} = { };
@@ -884,6 +940,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -928,6 +988,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -976,6 +1040,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     let body : {[key: string ]: any} = { };
@@ -1032,6 +1100,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.createCommandShrink)) {
       body["CreateCommand"] = request.createCommandShrink;
@@ -1084,6 +1156,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     let body : {[key: string ]: any} = { };
@@ -1140,6 +1216,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.createCommandShrink)) {
       body["CreateCommand"] = request.createCommandShrink;
@@ -1192,6 +1272,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     let body : {[key: string ]: any} = { };
@@ -1249,6 +1333,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.createBizMetricCommandShrink)) {
       body["CreateBizMetricCommand"] = request.createBizMetricCommandShrink;
@@ -1304,6 +1392,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.createCommandShrink)) {
       body["CreateCommand"] = request.createCommandShrink;
@@ -1339,6 +1431,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates a cluster. Online since version v6.3.0.
+   * 
+   * @param tmpReq - CreateComputeClusterRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateComputeClusterResponse
+   */
+  async createComputeClusterWithOptions(tmpReq: $_model.CreateComputeClusterRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateComputeClusterResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateComputeClusterShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.clusterConfig)) {
+      request.clusterConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.clusterConfig, "ClusterConfig", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clusterConfigShrink)) {
+      body["ClusterConfig"] = request.clusterConfigShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateComputeCluster",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateComputeClusterResponse>(await this.callApi(params, req, runtime), new $_model.CreateComputeClusterResponse({}));
+  }
+
+  /**
+   * Creates a cluster. Online since version v6.3.0.
+   * 
+   * @param request - CreateComputeClusterRequest
+   * @returns CreateComputeClusterResponse
+   */
+  async createComputeCluster(request: $_model.CreateComputeClusterRequest): Promise<$_model.CreateComputeClusterResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createComputeClusterWithOptions(request, runtime);
+  }
+
+  /**
    * Creates a compute source. Business unit administrators and project administrators have permissions to perform this operation.
    * 
    * @param tmpReq - CreateComputeSourceRequest
@@ -1356,6 +1506,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     let body : {[key: string ]: any} = { };
@@ -1412,6 +1566,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.createCommandShrink)) {
       body["CreateCommand"] = request.createCommandShrink;
@@ -1466,6 +1624,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.createCommandShrink)) {
       body["CreateCommand"] = request.createCommandShrink;
@@ -1501,7 +1663,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a data service application. Only super administrators or system administrators can perform this operation.
+   * Creates a data service application. Only super administrators or system administration administrators can perform this operation.
    * Online version: v6.0.0.
    * 
    * @param tmpReq - CreateDataServiceAppRequest
@@ -1519,6 +1681,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     let body : {[key: string ]: any} = { };
@@ -1545,7 +1711,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a data service application. Only super administrators or system administrators can perform this operation.
+   * Creates a data service application. Only super administrators or system administration administrators can perform this operation.
    * Online version: v6.0.0.
    * 
    * @param request - CreateDataServiceAppRequest
@@ -1557,7 +1723,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a data service application group. Only superusers and system administrators can perform this operation.
+   * Creates a data service application group. Only super administrators and system administrators can perform this operation.
    * Online version: v6.0.0.
    * 
    * @param request - CreateDataServiceAppGroupRequest
@@ -1573,6 +1739,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -1593,7 +1763,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a data service application group. Only superusers and system administrators can perform this operation.
+   * Creates a data service application group. Only super administrators and system administrators can perform this operation.
    * Online version: v6.0.0.
    * 
    * @param request - CreateDataServiceAppGroupRequest
@@ -1622,6 +1792,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     let body : {[key: string ]: any} = { };
@@ -1686,6 +1860,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     if (!$dara.isNull(request.projectId)) {
@@ -1756,6 +1934,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.createCommandShrink)) {
       body["CreateCommand"] = request.createCommandShrink;
@@ -1810,6 +1992,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.createCommandShrink)) {
       body["CreateCommand"] = request.createCommandShrink;
@@ -1862,6 +2048,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     if (!$dara.isNull(request.workspaceId)) {
@@ -1922,6 +2112,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     if (!$dara.isNull(request.workspaceId)) {
       query["WorkspaceId"] = request.workspaceId;
     }
@@ -1961,9 +2155,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * General-purpose backfill API that supports both list-mode and bulk-mode backfill:
-   * 1. Backfill instances will be generated and executed, affecting the data output of related tables.
-   * 2. Task execution will incur computing costs and storage costs.
+   * General-purpose data backfill operation that supports both list mode and batch mode data backfill:
+   * 1. Generates data backfill instances that run and affect data output of related tables.
+   * 2. Triggers node execution, which incurs compute and storage costs.
    * 
    * @param tmpReq - CreateNodeSupplementRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1984,6 +2178,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     let body : {[key: string ]: any} = { };
@@ -2010,9 +2208,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * General-purpose backfill API that supports both list-mode and bulk-mode backfill:
-   * 1. Backfill instances will be generated and executed, affecting the data output of related tables.
-   * 2. Task execution will incur computing costs and storage costs.
+   * General-purpose data backfill operation that supports both list mode and batch mode data backfill:
+   * 1. Generates data backfill instances that run and affect data output of related tables.
+   * 2. Triggers node execution, which incurs compute and storage costs.
    * 
    * @param request - CreateNodeSupplementRequest
    * @returns CreateNodeSupplementResponse
@@ -2023,7 +2221,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create an integration pipeline/unstructured workflow task.
+   * Creates an integration pipeline or unstructured workflow node.
    * 
    * @param tmpReq - CreatePipelineRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2044,6 +2242,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     let body : {[key: string ]: any} = { };
@@ -2074,7 +2276,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create an integration pipeline/unstructured workflow task.
+   * Creates an integration pipeline or unstructured workflow node.
    * 
    * @param request - CreatePipelineRequest
    * @returns CreatePipelineResponse
@@ -2106,6 +2308,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     let body : {[key: string ]: any} = { };
@@ -2166,6 +2372,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.createPipelineNodeCommandShrink)) {
       body["CreatePipelineNodeCommand"] = request.createPipelineNodeCommandShrink;
@@ -2218,6 +2428,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     let body : {[key: string ]: any} = { };
@@ -2277,6 +2491,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.createRowPermissionCommandShrink)) {
       body["CreateRowPermissionCommand"] = request.createRowPermissionCommandShrink;
@@ -2315,7 +2533,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a data classification. Available since v5.4.2.
+   * Creates a data category. Available since v5.4.2.
    * 
    * @param tmpReq - CreateSecurityClassifyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2332,6 +2550,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     let body : {[key: string ]: any} = { };
@@ -2358,7 +2580,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a data classification. Available since v5.4.2.
+   * Creates a data category. Available since v5.4.2.
    * 
    * @param request - CreateSecurityClassifyRequest
    * @returns CreateSecurityClassifyResponse
@@ -2386,6 +2608,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     let body : {[key: string ]: any} = { };
@@ -2443,6 +2669,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.createCommandShrink)) {
       body["CreateCommand"] = request.createCommandShrink;
@@ -2498,6 +2728,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.createCommandShrink)) {
       body["CreateCommand"] = request.createCommandShrink;
@@ -2551,6 +2785,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     let body : {[key: string ]: any} = { };
@@ -2609,6 +2847,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.createCommandShrink)) {
       body["CreateCommand"] = request.createCommandShrink;
@@ -2665,6 +2907,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.createCommandShrink)) {
       body["CreateCommand"] = request.createCommandShrink;
@@ -2701,7 +2947,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a standard association. Release version: v5.4.2.
+   * Creates a standard association relationship.
+   * Online version: v5.4.2.
    * 
    * @param tmpReq - CreateStandardRelationsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2718,6 +2965,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     let body : {[key: string ]: any} = { };
@@ -2744,7 +2995,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a standard association. Release version: v5.4.2.
+   * Creates a standard association relationship.
+   * Online version: v5.4.2.
    * 
    * @param request - CreateStandardRelationsRequest
    * @returns CreateStandardRelationsResponse
@@ -2773,6 +3025,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     let body : {[key: string ]: any} = { };
@@ -2831,6 +3087,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.createCommandShrink)) {
       body["CreateCommand"] = request.createCommandShrink;
@@ -2885,6 +3145,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     let body : {[key: string ]: any} = { };
@@ -2942,6 +3206,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.streamBatchJobMappingCreateCommandShrink)) {
       body["StreamBatchJobMappingCreateCommand"] = request.streamBatchJobMappingCreateCommandShrink;
@@ -2994,6 +3262,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     let body : {[key: string ]: any} = { };
@@ -3050,6 +3322,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.createCommandShrink)) {
       body["CreateCommand"] = request.createCommandShrink;
@@ -3085,7 +3361,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an unstructured workflow node using JSON script mode. Online version: v6.2.0.
+   * Creates an unstructured workflow node using JSON script mode. Online since v6.2.0.
    * 
    * @param tmpReq - CreateWorkFlowByJsonRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3106,6 +3382,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     let body : {[key: string ]: any} = { };
@@ -3136,7 +3416,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an unstructured workflow node using JSON script mode. Online version: v6.2.0.
+   * Creates an unstructured workflow node using JSON script mode. Online since v6.2.0.
    * 
    * @param request - CreateWorkFlowByJsonRequest
    * @returns CreateWorkFlowByJsonResponse
@@ -3162,6 +3442,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     if (!$dara.isNull(request.projectId)) {
@@ -3214,6 +3498,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     let body : {[key: string ]: any} = { };
@@ -3272,6 +3560,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     if (!$dara.isNull(request.type)) {
       query["Type"] = request.type;
     }
@@ -3323,6 +3615,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     let body : {[key: string ]: any} = { };
@@ -3378,6 +3674,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -3407,6 +3707,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除集群。
+   * 
+   * @param request - DeleteComputeClusterRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteComputeClusterResponse
+   */
+  async deleteComputeClusterWithOptions(request: $_model.DeleteComputeClusterRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteComputeClusterResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteComputeCluster",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteComputeClusterResponse>(await this.callApi(params, req, runtime), new $_model.DeleteComputeClusterResponse({}));
+  }
+
+  /**
+   * 删除集群。
+   * 
+   * @param request - DeleteComputeClusterRequest
+   * @returns DeleteComputeClusterResponse
+   */
+  async deleteComputeCluster(request: $_model.DeleteComputeClusterRequest): Promise<$_model.DeleteComputeClusterResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteComputeClusterWithOptions(request, runtime);
+  }
+
+  /**
    * Deletes a compute source.
    * 
    * @param request - DeleteComputeSourceRequest
@@ -3422,6 +3772,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -3474,6 +3828,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -3519,6 +3877,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -3569,6 +3931,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -3616,6 +3982,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     let body : {[key: string ]: any} = { };
@@ -3670,6 +4040,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     if (!$dara.isNull(request.projectId)) {
       query["ProjectId"] = request.projectId;
     }
@@ -3718,6 +4092,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     if (!$dara.isNull(request.projectId)) {
@@ -3774,6 +4152,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     if (!$dara.isNull(request.workspaceId)) {
       query["WorkspaceId"] = request.workspaceId;
     }
@@ -3818,6 +4200,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     if (!$dara.isNull(request.relationId)) {
@@ -3878,6 +4264,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -3925,6 +4315,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     let body : {[key: string ]: any} = { };
@@ -3983,6 +4377,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.deleteCommandShrink)) {
       body["DeleteCommand"] = request.deleteCommandShrink;
@@ -4037,6 +4435,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     let body : {[key: string ]: any} = { };
@@ -4095,6 +4497,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.deleteCommandShrink)) {
       body["DeleteCommand"] = request.deleteCommandShrink;
@@ -4131,7 +4537,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes registered lineage. Available since version v5.4.0.
+   * Deletes registered data lineage. Available since v5.4.0.
    * 
    * @param tmpReq - DeleteRegisterLineageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4148,6 +4554,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     let body : {[key: string ]: any} = { };
@@ -4174,7 +4584,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes registered lineage. Available since version v5.4.0.
+   * Deletes registered data lineage. Available since v5.4.0.
    * 
    * @param request - DeleteRegisterLineageRequest
    * @returns DeleteRegisterLineageResponse
@@ -4204,6 +4614,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     if (!$dara.isNull(request.projectId)) {
@@ -4256,6 +4670,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     let body : {[key: string ]: any} = { };
@@ -4312,6 +4730,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.deleteCommandShrink)) {
       body["DeleteCommand"] = request.deleteCommandShrink;
@@ -4347,7 +4769,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a data classification catalog. Release version: v5.4.2.
+   * Deletes a data classification catalog. Available since v5.4.2.
    * 
    * @param tmpReq - DeleteSecurityClassifyCatalogRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4364,6 +4786,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     let body : {[key: string ]: any} = { };
@@ -4390,7 +4816,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a data classification catalog. Release version: v5.4.2.
+   * Deletes a data classification catalog. Available since v5.4.2.
    * 
    * @param request - DeleteSecurityClassifyCatalogRequest
    * @returns DeleteSecurityClassifyCatalogResponse
@@ -4418,6 +4844,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     let body : {[key: string ]: any} = { };
@@ -4474,6 +4904,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.deleteCommandShrink)) {
       body["DeleteCommand"] = request.deleteCommandShrink;
@@ -4527,6 +4961,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     let body : {[key: string ]: any} = { };
@@ -4585,6 +5023,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.deleteCommandShrink)) {
       body["DeleteCommand"] = request.deleteCommandShrink;
@@ -4638,6 +5080,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -4685,6 +5131,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     let body : {[key: string ]: any} = { };
@@ -4741,6 +5191,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -4789,6 +5243,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     let body : {[key: string ]: any} = { };
@@ -4845,6 +5303,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -4896,6 +5358,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     if (!$dara.isNull(request.projectId)) {
       query["ProjectId"] = request.projectId;
     }
@@ -4940,6 +5406,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     if (!$dara.isNull(request.userGroupId)) {
@@ -4994,6 +5464,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     if (!$dara.isNull(request.workspaceId)) {
       query["WorkspaceId"] = request.workspaceId;
     }
@@ -5033,6 +5507,68 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Executes a custom Cypher query. Available since v6.3.0.
+   * 
+   * @param tmpReq - ExecKgGremlinRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ExecKgGremlinResponse
+   */
+  async execKgGremlinWithOptions(tmpReq: $_model.ExecKgGremlinRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ExecKgGremlinResponse> {
+    tmpReq.validate();
+    let request = new $_model.ExecKgGremlinShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.execCommand)) {
+      request.execCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.execCommand, "ExecCommand", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.execCommandShrink)) {
+      body["ExecCommand"] = request.execCommandShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ExecKgGremlin",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ExecKgGremlinResponse>(await this.callApi(params, req, runtime), new $_model.ExecKgGremlinResponse({}));
+  }
+
+  /**
+   * Executes a custom Cypher query. Available since v6.3.0.
+   * 
+   * @param request - ExecKgGremlinRequest
+   * @returns ExecKgGremlinResponse
+   */
+  async execKgGremlin(request: $_model.ExecKgGremlinRequest): Promise<$_model.ExecKgGremlinResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.execKgGremlinWithOptions(request, runtime);
+  }
+
+  /**
    * Executes an ad hoc query task.
    * 
    * @param tmpReq - ExecuteAdHocTaskRequest
@@ -5050,6 +5586,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     let body : {[key: string ]: any} = { };
@@ -5172,6 +5712,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.executeCommandShrink)) {
       body["ExecuteCommand"] = request.executeCommandShrink;
@@ -5236,6 +5780,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     if (!$dara.isNull(request.projectId)) {
       query["ProjectId"] = request.projectId;
     }
@@ -5280,6 +5828,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     if (!$dara.isNull(request.outputFormat)) {
@@ -5346,6 +5898,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.fixDataCommandShrink)) {
       body["FixDataCommand"] = request.fixDataCommandShrink;
@@ -5400,6 +5956,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.getAccountByRowPermissionIdQueryShrink)) {
       body["GetAccountByRowPermissionIdQuery"] = request.getAccountByRowPermissionIdQueryShrink;
@@ -5452,6 +6012,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     if (!$dara.isNull(request.projectId)) {
       query["ProjectId"] = request.projectId;
     }
@@ -5500,6 +6064,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     if (!$dara.isNull(request.projectId)) {
@@ -5554,6 +6122,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     if (!$dara.isNull(request.projectId)) {
@@ -5614,6 +6186,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -5643,6 +6219,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries asset property values. Online version: v6.3.0.
+   * 
+   * @param tmpReq - GetAssetAttributesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAssetAttributesResponse
+   */
+  async getAssetAttributesWithOptions(tmpReq: $_model.GetAssetAttributesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetAssetAttributesResponse> {
+    tmpReq.validate();
+    let request = new $_model.GetAssetAttributesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.queryCommand)) {
+      request.queryCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.queryCommand, "QueryCommand", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.queryCommandShrink)) {
+      body["QueryCommand"] = request.queryCommandShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetAssetAttributes",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetAssetAttributesResponse>(await this.callApi(params, req, runtime), new $_model.GetAssetAttributesResponse({}));
+  }
+
+  /**
+   * Queries asset property values. Online version: v6.3.0.
+   * 
+   * @param request - GetAssetAttributesRequest
+   * @returns GetAssetAttributesResponse
+   */
+  async getAssetAttributes(request: $_model.GetAssetAttributesRequest): Promise<$_model.GetAssetAttributesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getAssetAttributesWithOptions(request, runtime);
+  }
+
+  /**
    * Queries mapping relationships by asset object GUID.
    * Available since: v5.4.2.
    * 
@@ -5661,6 +6295,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     let body : {[key: string ]: any} = { };
@@ -5699,6 +6337,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries asset property definitions. Online version: v6.3.0.
+   * 
+   * @param request - GetAssetTypeAttributeCodesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAssetTypeAttributeCodesResponse
+   */
+  async getAssetTypeAttributeCodesWithOptions(request: $_model.GetAssetTypeAttributeCodesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetAssetTypeAttributeCodesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.assetType)) {
+      query["AssetType"] = request.assetType;
+    }
+
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetAssetTypeAttributeCodes",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetAssetTypeAttributeCodesResponse>(await this.callApi(params, req, runtime), new $_model.GetAssetTypeAttributeCodesResponse({}));
+  }
+
+  /**
+   * Queries asset property definitions. Online version: v6.3.0.
+   * 
+   * @param request - GetAssetTypeAttributeCodesRequest
+   * @returns GetAssetTypeAttributeCodesResponse
+   */
+  async getAssetTypeAttributeCodes(request: $_model.GetAssetTypeAttributeCodesRequest): Promise<$_model.GetAssetTypeAttributeCodesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getAssetTypeAttributeCodesWithOptions(request, runtime);
+  }
+
+  /**
    * Retrieves the details of an offline compute node.
    * 
    * @param request - GetBatchTaskInfoRequest
@@ -5722,6 +6410,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     if (!$dara.isNull(request.projectId)) {
@@ -5757,7 +6449,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a specified version of a batch task.
+   * Retrieves the details of a specific version of a batch task.
    * 
    * @param request - GetBatchTaskInfoByVersionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5772,6 +6464,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     if (!$dara.isNull(request.projectId)) {
@@ -5800,7 +6496,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a specified version of a batch task.
+   * Retrieves the details of a specific version of a batch task.
    * 
    * @param request - GetBatchTaskInfoByVersionRequest
    * @returns GetBatchTaskInfoByVersionResponse
@@ -5826,6 +6522,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     if (!$dara.isNull(request.projectId)) {
@@ -5878,6 +6578,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     if (!$dara.isNull(request.projectId)) {
       query["ProjectId"] = request.projectId;
     }
@@ -5926,6 +6630,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     if (!$dara.isNull(request.projectId)) {
@@ -5985,6 +6693,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.assetMappingQueryShrink)) {
       body["AssetMappingQuery"] = request.assetMappingQueryShrink;
@@ -6038,6 +6750,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     if (!$dara.isNull(request.type)) {
       query["Type"] = request.type;
     }
@@ -6086,6 +6802,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     if (!$dara.isNull(request.type)) {
@@ -6145,6 +6865,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.bizMetricByNameQueryShrink)) {
       body["BizMetricByNameQuery"] = request.bizMetricByNameQueryShrink;
@@ -6198,6 +6922,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -6227,7 +6955,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries asset details. Release version: v6.1.0.
+   * Queries asset details. Online version: v6.1.0.
    * 
    * @param tmpReq - GetCatalogAssetDetailsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6244,6 +6972,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     let body : {[key: string ]: any} = { };
@@ -6270,7 +7002,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries asset details. Release version: v6.1.0.
+   * Queries asset details. Online version: v6.1.0.
    * 
    * @param request - GetCatalogAssetDetailsRequest
    * @returns GetCatalogAssetDetailsResponse
@@ -6300,6 +7032,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -6352,6 +7088,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     if (!$dara.isNull(request.projectId)) {
       query["ProjectId"] = request.projectId;
     }
@@ -6389,6 +7129,62 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries cluster details. Available since v6.3.0.
+   * 
+   * @remarks
+   * Queries the details of a tested connectivity task based on the datasource ID.
+   * 
+   * @param request - GetComputeClusterRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetComputeClusterResponse
+   */
+  async getComputeClusterWithOptions(request: $_model.GetComputeClusterRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetComputeClusterResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetComputeCluster",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetComputeClusterResponse>(await this.callApi(params, req, runtime), new $_model.GetComputeClusterResponse({}));
+  }
+
+  /**
+   * Queries cluster details. Available since v6.3.0.
+   * 
+   * @remarks
+   * Queries the details of a tested connectivity task based on the datasource ID.
+   * 
+   * @param request - GetComputeClusterRequest
+   * @returns GetComputeClusterResponse
+   */
+  async getComputeCluster(request: $_model.GetComputeClusterRequest): Promise<$_model.GetComputeClusterResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getComputeClusterWithOptions(request, runtime);
+  }
+
+  /**
    * Retrieves the details of a compute source by compute source ID.
    * 
    * @param request - GetComputeSourceRequest
@@ -6404,6 +7200,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -6435,6 +7235,70 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves the details of a specified quality watchtask by governance item ID. Online version: v6.3.0.
+   * 
+   * @remarks
+   * Retrieves the details of a Query Governance object by governance item ID.
+   * 
+   * @param tmpReq - GetDataAssetsGovernObjectRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDataAssetsGovernObjectResponse
+   */
+  async getDataAssetsGovernObjectWithOptions(tmpReq: $_model.GetDataAssetsGovernObjectRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetDataAssetsGovernObjectResponse> {
+    tmpReq.validate();
+    let request = new $_model.GetDataAssetsGovernObjectShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.command)) {
+      request.commandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.command, "Command", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.commandShrink)) {
+      body["Command"] = request.commandShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetDataAssetsGovernObject",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetDataAssetsGovernObjectResponse>(await this.callApi(params, req, runtime), new $_model.GetDataAssetsGovernObjectResponse({}));
+  }
+
+  /**
+   * Retrieves the details of a specified quality watchtask by governance item ID. Online version: v6.3.0.
+   * 
+   * @remarks
+   * Retrieves the details of a Query Governance object by governance item ID.
+   * 
+   * @param request - GetDataAssetsGovernObjectRequest
+   * @returns GetDataAssetsGovernObjectResponse
+   */
+  async getDataAssetsGovernObject(request: $_model.GetDataAssetsGovernObjectRequest): Promise<$_model.GetDataAssetsGovernObjectResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getDataAssetsGovernObjectWithOptions(request, runtime);
+  }
+
+  /**
    * Retrieves the details of a data domain.
    * 
    * @param request - GetDataDomainInfoRequest
@@ -6450,6 +7314,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -6496,6 +7364,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     if (!$dara.isNull(request.projectId)) {
@@ -6552,6 +7424,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     if (!$dara.isNull(request.projectId)) {
       query["ProjectId"] = request.projectId;
     }
@@ -6606,6 +7482,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     if (!$dara.isNull(request.versionId)) {
       query["VersionId"] = request.versionId;
     }
@@ -6656,6 +7536,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     if (!$dara.isNull(request.projectId)) {
       query["ProjectId"] = request.projectId;
     }
@@ -6704,6 +7588,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     if (!$dara.isNull(request.projectId)) {
@@ -6757,6 +7645,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -6804,6 +7696,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     if (!$dara.isNull(request.projectId)) {
       query["ProjectId"] = request.projectId;
     }
@@ -6848,6 +7744,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     if (!$dara.isNull(request.projectId)) {
@@ -6901,6 +7801,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -6946,6 +7850,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     if (!$dara.isNull(request.projectId)) {
@@ -6998,6 +7906,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     if (!$dara.isNull(request.projectId)) {
       query["ProjectId"] = request.projectId;
     }
@@ -7044,6 +7956,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -7086,6 +8002,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -7126,6 +8046,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     if (!$dara.isNull(request.projectId)) {
@@ -7178,6 +8102,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -7225,6 +8153,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     if (!$dara.isNull(request.projectId)) {
@@ -7288,6 +8220,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     if (!$dara.isNull(request.projectId)) {
       query["ProjectId"] = request.projectId;
     }
@@ -7338,6 +8274,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     if (!$dara.isNull(request.projectId)) {
       query["ProjectId"] = request.projectId;
     }
@@ -7382,6 +8322,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     if (!$dara.isNull(request.projectId)) {
@@ -7452,6 +8396,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     if (!$dara.isNull(request.runStatus)) {
       query["RunStatus"] = request.runStatus;
     }
@@ -7518,6 +8466,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     if (!$dara.isNull(request.projectId)) {
       query["ProjectId"] = request.projectId;
     }
@@ -7561,6 +8513,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves the list of workspaces with authorized knowledge graphs. Online version: v6.3.0.
+   * 
+   * @param request - GetKgAuthorizedWorkspacesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetKgAuthorizedWorkspacesResponse
+   */
+  async getKgAuthorizedWorkspacesWithOptions(request: $_model.GetKgAuthorizedWorkspacesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetKgAuthorizedWorkspacesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetKgAuthorizedWorkspaces",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetKgAuthorizedWorkspacesResponse>(await this.callApi(params, req, runtime), new $_model.GetKgAuthorizedWorkspacesResponse({}));
+  }
+
+  /**
+   * Retrieves the list of workspaces with authorized knowledge graphs. Online version: v6.3.0.
+   * 
+   * @param request - GetKgAuthorizedWorkspacesRequest
+   * @returns GetKgAuthorizedWorkspacesResponse
+   */
+  async getKgAuthorizedWorkspaces(request: $_model.GetKgAuthorizedWorkspacesRequest): Promise<$_model.GetKgAuthorizedWorkspacesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getKgAuthorizedWorkspacesWithOptions(request, runtime);
+  }
+
+  /**
    * Retrieves the details of a knowledge graph entity record. Online version: v6.1.1.
    * 
    * @param request - GetKgEntityRequest
@@ -7580,6 +8578,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     if (!$dara.isNull(request.workspaceId)) {
@@ -7642,6 +8644,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     if (!$dara.isNull(request.workspaceId)) {
       query["WorkspaceId"] = request.workspaceId;
     }
@@ -7692,6 +8698,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     if (!$dara.isNull(request.relationId)) {
@@ -7746,6 +8756,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     if (!$dara.isNull(request.versionId)) {
@@ -7804,6 +8818,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.submitDetailQueryShrink)) {
       body["SubmitDetailQuery"] = request.submitDetailQueryShrink;
@@ -7839,6 +8857,102 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries a specific large language model service provider and available models by name. Online version: v6.3.0.
+   * 
+   * @param request - GetLlmModelProviderByNameRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetLlmModelProviderByNameResponse
+   */
+  async getLlmModelProviderByNameWithOptions(request: $_model.GetLlmModelProviderByNameRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetLlmModelProviderByNameResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetLlmModelProviderByName",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetLlmModelProviderByNameResponse>(await this.callApi(params, req, runtime), new $_model.GetLlmModelProviderByNameResponse({}));
+  }
+
+  /**
+   * Queries a specific large language model service provider and available models by name. Online version: v6.3.0.
+   * 
+   * @param request - GetLlmModelProviderByNameRequest
+   * @returns GetLlmModelProviderByNameResponse
+   */
+  async getLlmModelProviderByName(request: $_model.GetLlmModelProviderByNameRequest): Promise<$_model.GetLlmModelProviderByNameResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getLlmModelProviderByNameWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询所有大模型服务供应商和可用模型列表
+   * 
+   * @param request - GetLlmModelProvidersRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetLlmModelProvidersResponse
+   */
+  async getLlmModelProvidersWithOptions(request: $_model.GetLlmModelProvidersRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetLlmModelProvidersResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetLlmModelProviders",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetLlmModelProvidersResponse>(await this.callApi(params, req, runtime), new $_model.GetLlmModelProvidersResponse({}));
+  }
+
+  /**
+   * 查询所有大模型服务供应商和可用模型列表
+   * 
+   * @param request - GetLlmModelProvidersRequest
+   * @returns GetLlmModelProvidersResponse
+   */
+  async getLlmModelProviders(request: $_model.GetLlmModelProvidersRequest): Promise<$_model.GetLlmModelProvidersResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getLlmModelProvidersWithOptions(request, runtime);
+  }
+
+  /**
    * Retrieves the list of roles for the current user.
    * 
    * @param request - GetMyRolesRequest
@@ -7850,6 +8964,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -7898,6 +9016,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     let body : {[key: string ]: any} = { };
@@ -7962,6 +9084,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     if (!$dara.isNull(request.projectId)) {
       query["ProjectId"] = request.projectId;
     }
@@ -8024,6 +9150,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.detailCommandShrink)) {
       body["DetailCommand"] = request.detailCommandShrink;
@@ -8078,6 +9208,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.recordDetailCommandShrink)) {
       body["RecordDetailCommand"] = request.recordDetailCommandShrink;
@@ -8130,6 +9264,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     let body : {[key: string ]: any} = { };
@@ -8188,6 +9326,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -8236,6 +9378,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     if (!$dara.isNull(request.projectId)) {
@@ -8292,6 +9438,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     if (!$dara.isNull(request.projectId)) {
       query["ProjectId"] = request.projectId;
     }
@@ -8346,6 +9496,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -8390,6 +9544,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     if (!$dara.isNull(request.outputName)) {
@@ -8446,6 +9604,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -8494,6 +9656,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -8546,6 +9712,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     let body : {[key: string ]: any} = { };
@@ -8604,6 +9774,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     let body : {[key: string ]: any} = { };
@@ -8666,6 +9840,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -8712,6 +9890,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -8752,6 +9934,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     if (!$dara.isNull(request.projectId)) {
@@ -8804,6 +9990,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -8846,6 +10036,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     if (!$dara.isNull(request.watchId)) {
       query["WatchId"] = request.watchId;
     }
@@ -8879,6 +10073,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the execution progress and result of an asynchronous task for creating or updating an archived table by progress ID. Available since v6.3.0.
+   * 
+   * @param request - GetQualityArchiveTableProgressRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetQualityArchiveTableProgressResponse
+   */
+  async getQualityArchiveTableProgressWithOptions(request: $_model.GetQualityArchiveTableProgressRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetQualityArchiveTableProgressResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
+    if (!$dara.isNull(request.progressId)) {
+      query["ProgressId"] = request.progressId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetQualityArchiveTableProgress",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetQualityArchiveTableProgressResponse>(await this.callApi(params, req, runtime), new $_model.GetQualityArchiveTableProgressResponse({}));
+  }
+
+  /**
+   * Queries the execution progress and result of an asynchronous task for creating or updating an archived table by progress ID. Available since v6.3.0.
+   * 
+   * @param request - GetQualityArchiveTableProgressRequest
+   * @returns GetQualityArchiveTableProgressResponse
+   */
+  async getQualityArchiveTableProgress(request: $_model.GetQualityArchiveTableProgressRequest): Promise<$_model.GetQualityArchiveTableProgressResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getQualityArchiveTableProgressWithOptions(request, runtime);
+  }
+
+  /**
    * Retrieves a quality rule object.
    * Release version: v5.4.2.
    * 
@@ -8895,6 +10139,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -8938,6 +10186,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     if (!$dara.isNull(request.ruleTaskId)) {
@@ -8985,6 +10237,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     if (!$dara.isNull(request.ruleTaskId)) {
@@ -9039,6 +10295,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -9081,6 +10341,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     if (!$dara.isNull(request.watchId)) {
@@ -9135,6 +10399,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -9165,8 +10433,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a quality monitored object.
-   * Release version: v5.4.2.
+   * Retrieves a quality monitoring object.
+   * Online version: v5.4.2.
    * 
    * @param request - GetQualityWatchRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9181,6 +10449,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -9201,8 +10473,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a quality monitored object.
-   * Release version: v5.4.2.
+   * Retrieves a quality monitoring object.
+   * Online version: v5.4.2.
    * 
    * @param request - GetQualityWatchRequest
    * @returns GetQualityWatchResponse
@@ -9225,6 +10497,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     if (!$dara.isNull(request.watchObjectId)) {
@@ -9279,6 +10555,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     if (!$dara.isNull(request.watchTaskId)) {
       query["WatchTaskId"] = request.watchTaskId;
     }
@@ -9325,6 +10605,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     if (!$dara.isNull(request.watchTaskId)) {
@@ -9380,6 +10664,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     if (!$dara.isNull(request.projectId)) {
@@ -9440,6 +10728,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     if (!$dara.isNull(request.projectId)) {
       query["ProjectId"] = request.projectId;
     }
@@ -9473,7 +10765,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Gets the details of a specified version of a resource file.
+   * Retrieves the details of a specified version of a resource file.
    * 
    * @param request - GetResourceByVersionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9488,6 +10780,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     if (!$dara.isNull(request.projectId)) {
@@ -9516,7 +10812,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Gets the details of a specified version of a resource file.
+   * Retrieves the details of a specified version of a resource file.
    * 
    * @param request - GetResourceByVersionRequest
    * @returns GetResourceByVersionResponse
@@ -9544,6 +10840,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     let body : {[key: string ]: any} = { };
@@ -9598,6 +10898,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -9643,6 +10947,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -9692,6 +11000,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -9738,6 +11050,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -9782,6 +11098,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     if (!$dara.isNull(request.projectId)) {
@@ -9835,6 +11155,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     let body : {[key: string ]: any} = { };
@@ -9895,6 +11219,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -9947,6 +11275,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -9995,6 +11327,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     let body : {[key: string ]: any} = { };
@@ -10061,6 +11397,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.filterQueryShrink)) {
       body["FilterQuery"] = request.filterQueryShrink;
@@ -10119,6 +11459,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10164,6 +11508,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     if (!$dara.isNull(request.projectId)) {
@@ -10214,6 +11562,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     if (!$dara.isNull(request.supplementId)) {
@@ -10270,6 +11622,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10316,6 +11672,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     let body : {[key: string ]: any} = { };
@@ -10373,6 +11733,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     if (!$dara.isNull(request.tableGuid)) {
       query["TableGuid"] = request.tableGuid;
     }
@@ -10413,8 +11777,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries columns of a Dataphin table in the asset inventory. Supported table types: dimension logical table, fact logical table, aggregate logical table, tag logical table, logical table view, physical table, physical view, and materialized view.
-   * Release version: v5.4.2.
+   * Queries the columns of a Dataphin table in the asset inventory. Supported table types: logical dimension table, fact logical table, aggregate logical table, tag logical table, logical table view, physical table, physical view, and materialized view table. Release version: v5.4.2.
    * 
    * @param request - GetTableColumnsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10429,6 +11792,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     if (!$dara.isNull(request.tableName)) {
@@ -10453,8 +11820,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries columns of a Dataphin table in the asset inventory. Supported table types: dimension logical table, fact logical table, aggregate logical table, tag logical table, logical table view, physical table, physical view, and materialized view.
-   * Release version: v5.4.2.
+   * Queries the columns of a Dataphin table in the asset inventory. Supported table types: logical dimension table, fact logical table, aggregate logical table, tag logical table, logical table view, physical table, physical view, and materialized view table. Release version: v5.4.2.
    * 
    * @param request - GetTableColumnsRequest
    * @returns GetTableColumnsResponse
@@ -10482,6 +11848,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     let body : {[key: string ]: any} = { };
@@ -10539,6 +11909,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     if (!$dara.isNull(request.tableGuid)) {
       query["TableGuid"] = request.tableGuid;
     }
@@ -10592,6 +11966,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     if (!$dara.isNull(request.proposalId)) {
       query["ProposalId"] = request.proposalId;
     }
@@ -10640,6 +12018,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     if (!$dara.isNull(request.projectId)) {
@@ -10692,6 +12074,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     if (!$dara.isNull(request.projectId)) {
       query["ProjectId"] = request.projectId;
     }
@@ -10729,7 +12115,53 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves user details by original user ID.
+   * Retrieves the current user information based on the AK/SK used for request signing. Available since version v6.3.0.
+   * 
+   * @param request - GetUserByAccessKeyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetUserByAccessKeyResponse
+   */
+  async getUserByAccessKeyWithOptions(request: $_model.GetUserByAccessKeyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetUserByAccessKeyResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetUserByAccessKey",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetUserByAccessKeyResponse>(await this.callApi(params, req, runtime), new $_model.GetUserByAccessKeyResponse({}));
+  }
+
+  /**
+   * Retrieves the current user information based on the AK/SK used for request signing. Available since version v6.3.0.
+   * 
+   * @param request - GetUserByAccessKeyRequest
+   * @returns GetUserByAccessKeyResponse
+   */
+  async getUserByAccessKey(request: $_model.GetUserByAccessKeyRequest): Promise<$_model.GetUserByAccessKeyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getUserByAccessKeyWithOptions(request, runtime);
+  }
+
+  /**
+   * Retrieves user details by the original user ID.
    * 
    * @param request - GetUserBySourceIdRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10742,8 +12174,16 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     if (!$dara.isNull(request.sourceId)) {
       query["SourceId"] = request.sourceId;
+    }
+
+    if (!$dara.isNull(request.sourceType)) {
+      query["SourceType"] = request.sourceType;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -10764,7 +12204,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves user details by original user ID.
+   * Retrieves user details by the original user ID.
    * 
    * @param request - GetUserBySourceIdRequest
    * @returns GetUserBySourceIdResponse
@@ -10786,6 +12226,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     if (!$dara.isNull(request.userGroupId)) {
@@ -10840,6 +12284,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.userIdListShrink)) {
       body["UserIdList"] = request.userIdListShrink;
@@ -10892,6 +12340,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     if (!$dara.isNull(request.projectId)) {
@@ -10952,6 +12404,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.grantCommandShrink)) {
       body["GrantCommand"] = request.grantCommandShrink;
@@ -11006,6 +12462,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     if (!$dara.isNull(request.workspaceId)) {
       query["WorkspaceId"] = request.workspaceId;
     }
@@ -11058,6 +12518,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -11104,6 +12568,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     let body : {[key: string ]: any} = { };
@@ -11160,6 +12628,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.listQueryShrink)) {
       body["ListQuery"] = request.listQueryShrink;
@@ -11212,6 +12684,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     let body : {[key: string ]: any} = { };
@@ -11271,6 +12747,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.pageQueryShrink)) {
       body["PageQuery"] = request.pageQueryShrink;
@@ -11309,6 +12789,180 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries a paging list of approval nodes based on the relationship between the current user and the approval nodes. Online version number: v6.3.0.
+   * 
+   * @param tmpReq - ListApprovalTasksByUserRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListApprovalTasksByUserResponse
+   */
+  async listApprovalTasksByUserWithOptions(tmpReq: $_model.ListApprovalTasksByUserRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListApprovalTasksByUserResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListApprovalTasksByUserShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.listQuery)) {
+      request.listQueryShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.listQuery, "ListQuery", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.listQueryShrink)) {
+      body["ListQuery"] = request.listQueryShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListApprovalTasksByUser",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListApprovalTasksByUserResponse>(await this.callApi(params, req, runtime), new $_model.ListApprovalTasksByUserResponse({}));
+  }
+
+  /**
+   * Queries a paging list of approval nodes based on the relationship between the current user and the approval nodes. Online version number: v6.3.0.
+   * 
+   * @param request - ListApprovalTasksByUserRequest
+   * @returns ListApprovalTasksByUserResponse
+   */
+  async listApprovalTasksByUser(request: $_model.ListApprovalTasksByUserRequest): Promise<$_model.ListApprovalTasksByUserResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listApprovalTasksByUserWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the published folder list under a specified asset topic. Online version: v6.3.0.
+   * 
+   * @param tmpReq - ListAssetDirectoriesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAssetDirectoriesResponse
+   */
+  async listAssetDirectoriesWithOptions(tmpReq: $_model.ListAssetDirectoriesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListAssetDirectoriesResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListAssetDirectoriesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.listQuery)) {
+      request.listQueryShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.listQuery, "ListQuery", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.listQueryShrink)) {
+      body["ListQuery"] = request.listQueryShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListAssetDirectories",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListAssetDirectoriesResponse>(await this.callApi(params, req, runtime), new $_model.ListAssetDirectoriesResponse({}));
+  }
+
+  /**
+   * Queries the published folder list under a specified asset topic. Online version: v6.3.0.
+   * 
+   * @param request - ListAssetDirectoriesRequest
+   * @returns ListAssetDirectoriesResponse
+   */
+  async listAssetDirectories(request: $_model.ListAssetDirectoriesRequest): Promise<$_model.ListAssetDirectoriesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listAssetDirectoriesWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the list of published asset listing topics. Online version: v6.3.0.
+   * 
+   * @param tmpReq - ListAssetTopicsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAssetTopicsResponse
+   */
+  async listAssetTopicsWithOptions(tmpReq: $_model.ListAssetTopicsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListAssetTopicsResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListAssetTopicsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.listQuery)) {
+      request.listQueryShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.listQuery, "ListQuery", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.listQueryShrink)) {
+      body["ListQuery"] = request.listQueryShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListAssetTopics",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListAssetTopicsResponse>(await this.callApi(params, req, runtime), new $_model.ListAssetTopicsResponse({}));
+  }
+
+  /**
+   * Queries the list of published asset listing topics. Online version: v6.3.0.
+   * 
+   * @param request - ListAssetTopicsRequest
+   * @returns ListAssetTopicsResponse
+   */
+  async listAssetTopics(request: $_model.ListAssetTopicsRequest): Promise<$_model.ListAssetTopicsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listAssetTopicsWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the specific field list of APIs that an application has requested.
    * 
    * @remarks
@@ -11329,6 +12983,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     let body : {[key: string ]: any} = { };
@@ -11392,6 +13050,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     if (!$dara.isNull(request.projectId)) {
       query["ProjectId"] = request.projectId;
     }
@@ -11450,6 +13112,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.listQueryShrink)) {
       body["ListQuery"] = request.listQueryShrink;
@@ -11496,6 +13162,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -11546,6 +13216,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.listCatalogAssetsQueryShrink)) {
       body["ListCatalogAssetsQuery"] = request.listCatalogAssetsQueryShrink;
@@ -11581,6 +13255,78 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the list of clusters. Release version: v6.3.0.
+   * 
+   * @remarks
+   * Retrieves the list of clusters.
+   * 
+   * @param tmpReq - ListComputeClustersRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListComputeClustersResponse
+   */
+  async listComputeClustersWithOptions(tmpReq: $_model.ListComputeClustersRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListComputeClustersResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListComputeClustersShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.listQuery)) {
+      request.listQueryShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.listQuery, "ListQuery", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.listQueryShrink)) {
+      body["ListQuery"] = request.listQueryShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListComputeClusters",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListComputeClustersResponse>(await this.callApi(params, req, runtime), new $_model.ListComputeClustersResponse({}));
+  }
+
+  /**
+   * Queries the list of clusters. Release version: v6.3.0.
+   * 
+   * @remarks
+   * Retrieves the list of clusters.
+   * 
+   * @param request - ListComputeClustersRequest
+   * @returns ListComputeClustersResponse
+   */
+  async listComputeClusters(request: $_model.ListComputeClustersRequest): Promise<$_model.ListComputeClustersResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listComputeClustersWithOptions(request, runtime);
+  }
+
+  /**
    * Query the list of compute sources.
    * 
    * @param tmpReq - ListComputeSourcesRequest
@@ -11598,6 +13344,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     let body : {[key: string ]: any} = { };
@@ -11654,6 +13404,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.listQueryShrink)) {
       body["ListQuery"] = request.listQueryShrink;
@@ -11706,6 +13460,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     if (!$dara.isNull(request.projectId)) {
@@ -11766,6 +13524,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     if (!$dara.isNull(request.projectId)) {
       query["ProjectId"] = request.projectId;
     }
@@ -11822,6 +13584,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     if (!$dara.isNull(request.projectId)) {
@@ -11883,6 +13649,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.listQueryShrink)) {
       body["ListQuery"] = request.listQueryShrink;
@@ -11936,6 +13706,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     if (!$dara.isNull(request.projectId)) {
@@ -11996,6 +13770,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     if (!$dara.isNull(request.projectId)) {
       query["ProjectId"] = request.projectId;
     }
@@ -12052,6 +13830,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     if (!$dara.isNull(request.projectId)) {
@@ -12112,6 +13894,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     if (!$dara.isNull(request.projectId)) {
       query["ProjectId"] = request.projectId;
     }
@@ -12168,6 +13954,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     let body : {[key: string ]: any} = { };
@@ -12228,6 +14018,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.datasetQueryShrink)) {
       body["DatasetQuery"] = request.datasetQueryShrink;
@@ -12286,6 +14080,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.listQueryShrink)) {
       body["ListQuery"] = request.listQueryShrink;
@@ -12321,7 +14119,73 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Paginate and query instances.
+   * Queries the list of governance objects based on governance type and filter conditions. Released in v6.3.0.
+   * 
+   * @remarks
+   * ## Operation description
+   * This API operation allows you to retrieve dataset information under a specific project by providing a tenant ID, project ID, and other optional parameters such as keywords and type lists. Paging is supported. The returned data includes basic dataset information and version details. Note that `ProjectId` is required, while other parameters are options that can be configured as needed to filter results.
+   * 
+   * @param tmpReq - ListGovernObjectsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListGovernObjectsResponse
+   */
+  async listGovernObjectsWithOptions(tmpReq: $_model.ListGovernObjectsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListGovernObjectsResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListGovernObjectsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.listQuery)) {
+      request.listQueryShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.listQuery, "ListQuery", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.listQueryShrink)) {
+      body["ListQuery"] = request.listQueryShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListGovernObjects",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListGovernObjectsResponse>(await this.callApi(params, req, runtime), new $_model.ListGovernObjectsResponse({}));
+  }
+
+  /**
+   * Queries the list of governance objects based on governance type and filter conditions. Released in v6.3.0.
+   * 
+   * @remarks
+   * ## Operation description
+   * This API operation allows you to retrieve dataset information under a specific project by providing a tenant ID, project ID, and other optional parameters such as keywords and type lists. Paging is supported. The returned data includes basic dataset information and version details. Note that `ProjectId` is required, while other parameters are options that can be configured as needed to filter results.
+   * 
+   * @param request - ListGovernObjectsRequest
+   * @returns ListGovernObjectsResponse
+   */
+  async listGovernObjects(request: $_model.ListGovernObjectsRequest): Promise<$_model.ListGovernObjectsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listGovernObjectsWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries instances by paging.
    * 
    * @param tmpReq - ListInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12342,6 +14206,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     let body : {[key: string ]: any} = { };
@@ -12368,7 +14236,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Paginate and query instances.
+   * Queries instances by paging.
    * 
    * @param request - ListInstancesRequest
    * @returns ListInstancesResponse
@@ -12400,6 +14268,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     if (!$dara.isNull(request.workspaceId)) {
@@ -12460,6 +14332,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     if (!$dara.isNull(request.relationType)) {
       query["RelationType"] = request.relationType;
     }
@@ -12503,7 +14379,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the downstream nodes of a node. The query results can be used as a data reference when you create a data backfill workflow.
+   * Queries the downstream of a node. The query results can be used as a data reference when you create a data backfill workflow.
    * 
    * @param tmpReq - ListNodeDownStreamRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12524,6 +14400,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     let body : {[key: string ]: any} = { };
@@ -12550,7 +14430,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the downstream nodes of a node. The query results can be used as a data reference when you create a data backfill workflow.
+   * Queries the downstream of a node. The query results can be used as a data reference when you create a data backfill workflow.
    * 
    * @param request - ListNodeDownStreamRequest
    * @returns ListNodeDownStreamResponse
@@ -12561,7 +14441,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of scheduling nodes.
+   * Retrieves a list of scheduled nodes.
    * 
    * @param tmpReq - ListNodesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12582,6 +14462,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     let body : {[key: string ]: any} = { };
@@ -12608,7 +14492,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of scheduling nodes.
+   * Retrieves a list of scheduled nodes.
    * 
    * @param request - ListNodesRequest
    * @returns ListNodesResponse
@@ -12636,6 +14520,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     let body : {[key: string ]: any} = { };
@@ -12673,7 +14561,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of nodes. Supports querying offline integration, real-time integration, and unstructured workflows (data aggregation, offline workflows, and real-time workflows). Supports multi-dimensional filtering by folder, keyword, node type, submit status, scheduling type, owner, label, and creator. Results are returned with pagination.
+   * Queries a list of nodes. Supports querying batch integration, real-time integration, and unstructured workflows (data aggregation, offline workflows, and real-time workflows). Supports multi-dimensional filtering by folder, keyword, node type, submit status, scheduling type, owner, label, creator, and more. Results are returned with pagination.
    * 
    * @param tmpReq - ListPipelinesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12694,6 +14582,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     let body : {[key: string ]: any} = { };
@@ -12724,7 +14616,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of nodes. Supports querying offline integration, real-time integration, and unstructured workflows (data aggregation, offline workflows, and real-time workflows). Supports multi-dimensional filtering by folder, keyword, node type, submit status, scheduling type, owner, label, and creator. Results are returned with pagination.
+   * Queries a list of nodes. Supports querying batch integration, real-time integration, and unstructured workflows (data aggregation, offline workflows, and real-time workflows). Supports multi-dimensional filtering by folder, keyword, node type, submit status, scheduling type, owner, label, creator, and more. Results are returned with pagination.
    * 
    * @param request - ListPipelinesRequest
    * @returns ListPipelinesResponse
@@ -12756,6 +14648,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     let body : {[key: string ]: any} = { };
@@ -12812,6 +14708,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.listQueryShrink)) {
       body["ListQuery"] = request.listQueryShrink;
@@ -12866,6 +14766,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.listQueryShrink)) {
       body["ListQuery"] = request.listQueryShrink;
@@ -12901,6 +14805,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the list of anomaly archived tables under a specified monitored object. Online version: v6.3.0.
+   * 
+   * @param tmpReq - ListQualityArchiveTablesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListQualityArchiveTablesResponse
+   */
+  async listQualityArchiveTablesWithOptions(tmpReq: $_model.ListQualityArchiveTablesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListQualityArchiveTablesResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListQualityArchiveTablesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.listQuery)) {
+      request.listQueryShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.listQuery, "ListQuery", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.listQueryShrink)) {
+      body["ListQuery"] = request.listQueryShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListQualityArchiveTables",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListQualityArchiveTablesResponse>(await this.callApi(params, req, runtime), new $_model.ListQualityArchiveTablesResponse({}));
+  }
+
+  /**
+   * Queries the list of anomaly archived tables under a specified monitored object. Online version: v6.3.0.
+   * 
+   * @param request - ListQualityArchiveTablesRequest
+   * @returns ListQualityArchiveTablesResponse
+   */
+  async listQualityArchiveTables(request: $_model.ListQualityArchiveTablesRequest): Promise<$_model.ListQualityArchiveTablesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listQualityArchiveTablesWithOptions(request, runtime);
+  }
+
+  /**
    * Queries quality rule tasks by paging.
    * Online version: v5.4.2.
    * 
@@ -12919,6 +14881,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     let body : {[key: string ]: any} = { };
@@ -12977,6 +14943,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.listQueryShrink)) {
       body["ListQuery"] = request.listQueryShrink;
@@ -13033,6 +15003,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.listQueryShrink)) {
       body["ListQuery"] = request.listQueryShrink;
@@ -13069,7 +15043,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries quality monitoring nodes by paged query.
+   * Queries quality monitoring nodes by paging.
    * Online version: v5.4.2.
    * 
    * @param tmpReq - ListQualityWatchTasksRequest
@@ -13087,6 +15061,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     let body : {[key: string ]: any} = { };
@@ -13113,7 +15091,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries quality monitoring nodes by paged query.
+   * Queries quality monitoring nodes by paging.
    * Online version: v5.4.2.
    * 
    * @param request - ListQualityWatchTasksRequest
@@ -13143,6 +15121,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     let body : {[key: string ]: any} = { };
@@ -13308,6 +15290,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.pageRowPermissionQueryShrink)) {
       body["PageRowPermissionQuery"] = request.pageRowPermissionQueryShrink;
@@ -13360,6 +15346,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     let body : {[key: string ]: any} = { };
@@ -13451,7 +15441,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries identification records of security identification results by paging.
+   * Queries identification records of security identification results by using paging.
    * Online version: v5.4.2.
    * 
    * @param tmpReq - ListSecurityIdentifyRecordsRequest
@@ -13469,6 +15459,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     let body : {[key: string ]: any} = { };
@@ -13495,7 +15489,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries identification records of security identification results by paging.
+   * Queries identification records of security identification results by using paging.
    * Online version: v5.4.2.
    * 
    * @param request - ListSecurityIdentifyRecordsRequest
@@ -13525,6 +15519,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     let body : {[key: string ]: any} = { };
@@ -13583,6 +15581,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.listQueryShrink)) {
       body["ListQuery"] = request.listQueryShrink;
@@ -13636,6 +15638,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     let body : {[key: string ]: any} = { };
@@ -13693,6 +15699,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.listQueryShrink)) {
       body["ListQuery"] = request.listQueryShrink;
@@ -13746,6 +15756,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     let body : {[key: string ]: any} = { };
@@ -13802,6 +15816,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.listQueryShrink)) {
       body["ListQuery"] = request.listQueryShrink;
@@ -13854,6 +15872,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     let body : {[key: string ]: any} = { };
@@ -13912,6 +15934,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     if (!$dara.isNull(request.projectId)) {
       query["ProjectId"] = request.projectId;
     }
@@ -13962,6 +15988,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     let body : {[key: string ]: any} = { };
@@ -14020,6 +16050,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     let body : {[key: string ]: any} = { };
@@ -14084,6 +16118,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.contextShrink)) {
       body["Context"] = request.contextShrink;
@@ -14143,6 +16181,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.offlineCommandShrink)) {
       body["OfflineCommand"] = request.offlineCommandShrink;
@@ -14196,6 +16238,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     let body : {[key: string ]: any} = { };
@@ -14256,6 +16302,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.operateCommandShrink)) {
       body["OperateCommand"] = request.operateCommandShrink;
@@ -14308,6 +16358,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     let body : {[key: string ]: any} = { };
@@ -14368,6 +16422,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.pauseCommandShrink)) {
       body["PauseCommand"] = request.pauseCommandShrink;
@@ -14418,6 +16476,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     if (!$dara.isNull(request.projectId)) {
@@ -14474,6 +16536,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     if (!$dara.isNull(request.workspaceId)) {
@@ -14534,6 +16600,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.publishCommandShrink)) {
       body["PublishCommand"] = request.publishCommandShrink;
@@ -14587,6 +16657,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     let body : {[key: string ]: any} = { };
@@ -14643,6 +16717,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     let body : {[key: string ]: any} = { };
@@ -14704,6 +16782,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.removeCommandShrink)) {
       body["RemoveCommand"] = request.removeCommandShrink;
@@ -14757,6 +16839,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     let body : {[key: string ]: any} = { };
@@ -14814,6 +16900,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.removeCommandShrink)) {
       body["RemoveCommand"] = request.removeCommandShrink;
@@ -14866,6 +16956,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     let body : {[key: string ]: any} = { };
@@ -14926,6 +17020,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.replaceCommandShrink)) {
       body["ReplaceCommand"] = request.replaceCommandShrink;
@@ -14979,6 +17077,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     let body : {[key: string ]: any} = { };
@@ -15040,6 +17142,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.resumeCommandShrink)) {
       body["ResumeCommand"] = request.resumeCommandShrink;
@@ -15094,6 +17200,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.privilegeTransferRecordShrink)) {
       body["PrivilegeTransferRecord"] = request.privilegeTransferRecordShrink;
@@ -15146,6 +17256,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     if (!$dara.isNull(request.projectId)) {
@@ -15204,6 +17318,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     let body : {[key: string ]: any} = { };
@@ -15312,6 +17430,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     if (!$dara.isNull(request.projectId)) {
       query["ProjectId"] = request.projectId;
     }
@@ -15349,6 +17471,122 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Submits asset delisting. Online version: v6.3.0.
+   * 
+   * @param tmpReq - SubmitAssetsOffShelveRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitAssetsOffShelveResponse
+   */
+  async submitAssetsOffShelveWithOptions(tmpReq: $_model.SubmitAssetsOffShelveRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SubmitAssetsOffShelveResponse> {
+    tmpReq.validate();
+    let request = new $_model.SubmitAssetsOffShelveShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.submitCommand)) {
+      request.submitCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.submitCommand, "SubmitCommand", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.submitCommandShrink)) {
+      body["SubmitCommand"] = request.submitCommandShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SubmitAssetsOffShelve",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SubmitAssetsOffShelveResponse>(await this.callApi(params, req, runtime), new $_model.SubmitAssetsOffShelveResponse({}));
+  }
+
+  /**
+   * Submits asset delisting. Online version: v6.3.0.
+   * 
+   * @param request - SubmitAssetsOffShelveRequest
+   * @returns SubmitAssetsOffShelveResponse
+   */
+  async submitAssetsOffShelve(request: $_model.SubmitAssetsOffShelveRequest): Promise<$_model.SubmitAssetsOffShelveResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.submitAssetsOffShelveWithOptions(request, runtime);
+  }
+
+  /**
+   * Submits assets for listing. Online version: v6.3.0.
+   * 
+   * @param tmpReq - SubmitAssetsOnShelveRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitAssetsOnShelveResponse
+   */
+  async submitAssetsOnShelveWithOptions(tmpReq: $_model.SubmitAssetsOnShelveRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SubmitAssetsOnShelveResponse> {
+    tmpReq.validate();
+    let request = new $_model.SubmitAssetsOnShelveShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.submitCommand)) {
+      request.submitCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.submitCommand, "SubmitCommand", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.submitCommandShrink)) {
+      body["SubmitCommand"] = request.submitCommandShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SubmitAssetsOnShelve",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SubmitAssetsOnShelveResponse>(await this.callApi(params, req, runtime), new $_model.SubmitAssetsOnShelveResponse({}));
+  }
+
+  /**
+   * Submits assets for listing. Online version: v6.3.0.
+   * 
+   * @param request - SubmitAssetsOnShelveRequest
+   * @returns SubmitAssetsOnShelveResponse
+   */
+  async submitAssetsOnShelve(request: $_model.SubmitAssetsOnShelveRequest): Promise<$_model.SubmitAssetsOnShelveResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.submitAssetsOnShelveWithOptions(request, runtime);
+  }
+
+  /**
    * Submits a batch task.
    * 
    * @param tmpReq - SubmitBatchTaskRequest
@@ -15366,6 +17604,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     let body : {[key: string ]: any} = { };
@@ -15485,6 +17727,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.submitCommandShrink)) {
       body["SubmitCommand"] = request.submitCommandShrink;
@@ -15539,6 +17785,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     let body : {[key: string ]: any} = { };
@@ -15599,6 +17849,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.syncDepartmentCommandShrink)) {
       body["SyncDepartmentCommand"] = request.syncDepartmentCommandShrink;
@@ -15656,6 +17910,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.syncDepartmentUserCommandShrink)) {
       body["SyncDepartmentUserCommand"] = request.syncDepartmentUserCommandShrink;
@@ -15708,6 +17966,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     let body : {[key: string ]: any} = { };
@@ -15764,6 +18026,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.updateCommandShrink)) {
       body["UpdateCommand"] = request.updateCommandShrink;
@@ -15799,6 +18065,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Updates asset property values. Online version: v6.3.0.
+   * 
+   * @param tmpReq - UpdateAssetAttributesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateAssetAttributesResponse
+   */
+  async updateAssetAttributesWithOptions(tmpReq: $_model.UpdateAssetAttributesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateAssetAttributesResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateAssetAttributesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.updateCommand)) {
+      request.updateCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.updateCommand, "UpdateCommand", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.updateCommandShrink)) {
+      body["UpdateCommand"] = request.updateCommandShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateAssetAttributes",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateAssetAttributesResponse>(await this.callApi(params, req, runtime), new $_model.UpdateAssetAttributesResponse({}));
+  }
+
+  /**
+   * Updates asset property values. Online version: v6.3.0.
+   * 
+   * @param request - UpdateAssetAttributesRequest
+   * @returns UpdateAssetAttributesResponse
+   */
+  async updateAssetAttributes(request: $_model.UpdateAssetAttributesRequest): Promise<$_model.UpdateAssetAttributesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateAssetAttributesWithOptions(request, runtime);
+  }
+
+  /**
    * Edits a Basic (single-environment) project. The project name cannot be modified. You must pass in the current project name.
    * 
    * @param tmpReq - UpdateBasicProjectRequest
@@ -15816,6 +18140,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     let body : {[key: string ]: any} = { };
@@ -15872,6 +18200,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.updateCommandShrink)) {
       body["UpdateCommand"] = request.updateCommandShrink;
@@ -15926,6 +18258,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.updateCommandShrink)) {
       body["UpdateCommand"] = request.updateCommandShrink;
@@ -15978,6 +18314,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     let body : {[key: string ]: any} = { };
@@ -16035,6 +18375,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.updateBizMetricCommandShrink)) {
       body["UpdateBizMetricCommand"] = request.updateBizMetricCommandShrink;
@@ -16090,6 +18434,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.updateCommandShrink)) {
       body["UpdateCommand"] = request.updateCommandShrink;
@@ -16125,6 +18473,68 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 修改集群。
+   * 
+   * @param tmpReq - UpdateComputeClusterRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateComputeClusterResponse
+   */
+  async updateComputeClusterWithOptions(tmpReq: $_model.UpdateComputeClusterRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateComputeClusterResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateComputeClusterShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.clusterConfig)) {
+      request.clusterConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.clusterConfig, "ClusterConfig", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clusterConfigShrink)) {
+      body["ClusterConfig"] = request.clusterConfigShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateComputeCluster",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateComputeClusterResponse>(await this.callApi(params, req, runtime), new $_model.UpdateComputeClusterResponse({}));
+  }
+
+  /**
+   * 修改集群。
+   * 
+   * @param request - UpdateComputeClusterRequest
+   * @returns UpdateComputeClusterResponse
+   */
+  async updateComputeCluster(request: $_model.UpdateComputeClusterRequest): Promise<$_model.UpdateComputeClusterResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateComputeClusterWithOptions(request, runtime);
+  }
+
+  /**
    * Edits a compute source. Business unit administrators and project administrators have permissions to perform this operation.
    * 
    * @param tmpReq - UpdateComputeSourceRequest
@@ -16142,6 +18552,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     let body : {[key: string ]: any} = { };
@@ -16179,6 +18593,72 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 根据治理项id，批量修改问题清单对象的状态。
+   * 
+   * @remarks
+   * ## 请求说明
+   * - 该 API 用于更新特定项目下已存在的问题清单的状态。
+   * 
+   * @param tmpReq - UpdateDataAssetsGovernObjectStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateDataAssetsGovernObjectStatusResponse
+   */
+  async updateDataAssetsGovernObjectStatusWithOptions(tmpReq: $_model.UpdateDataAssetsGovernObjectStatusRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateDataAssetsGovernObjectStatusResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateDataAssetsGovernObjectStatusShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.updateCommand)) {
+      request.updateCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.updateCommand, "UpdateCommand", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.updateCommandShrink)) {
+      body["UpdateCommand"] = request.updateCommandShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateDataAssetsGovernObjectStatus",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateDataAssetsGovernObjectStatusResponse>(await this.callApi(params, req, runtime), new $_model.UpdateDataAssetsGovernObjectStatusResponse({}));
+  }
+
+  /**
+   * 根据治理项id，批量修改问题清单对象的状态。
+   * 
+   * @remarks
+   * ## 请求说明
+   * - 该 API 用于更新特定项目下已存在的问题清单的状态。
+   * 
+   * @param request - UpdateDataAssetsGovernObjectStatusRequest
+   * @returns UpdateDataAssetsGovernObjectStatusResponse
+   */
+  async updateDataAssetsGovernObjectStatus(request: $_model.UpdateDataAssetsGovernObjectStatusRequest): Promise<$_model.UpdateDataAssetsGovernObjectStatusResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateDataAssetsGovernObjectStatusWithOptions(request, runtime);
+  }
+
+  /**
    * Updates a data domain.
    * 
    * @param tmpReq - UpdateDataDomainRequest
@@ -16196,6 +18676,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     let body : {[key: string ]: any} = { };
@@ -16251,6 +18735,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     let body : {[key: string ]: any} = { };
@@ -16309,6 +18797,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.updateCommandShrink)) {
       body["UpdateCommand"] = request.updateCommandShrink;
@@ -16363,6 +18855,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     let body : {[key: string ]: any} = { };
@@ -16420,6 +18916,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.updateCommandShrink)) {
       body["UpdateCommand"] = request.updateCommandShrink;
@@ -16472,6 +18972,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     let body : {[key: string ]: any} = { };
@@ -16529,6 +19033,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     if (!$dara.isNull(request.projectId)) {
@@ -16592,6 +19100,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.updateCommandShrink)) {
       body["UpdateCommand"] = request.updateCommandShrink;
@@ -16648,6 +19160,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     if (!$dara.isNull(request.projectId)) {
       query["ProjectId"] = request.projectId;
     }
@@ -16702,6 +19218,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     if (!$dara.isNull(request.projectId)) {
       query["ProjectId"] = request.projectId;
     }
@@ -16752,6 +19272,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     if (!$dara.isNull(request.workspaceId)) {
@@ -16812,6 +19336,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     if (!$dara.isNull(request.workspaceId)) {
       query["WorkspaceId"] = request.workspaceId;
     }
@@ -16851,6 +19379,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Updates O&M owners in batches. This is an OpenAPI wrapper for the "Change Owner" page feature and only supports offline nodes: compute nodes, integration nodes, and logical tables. Real-time nodes are not supported. Available since v6.3.0.
+   * 
+   * @param tmpReq - UpdateNodeOpsOwnerRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateNodeOpsOwnerResponse
+   */
+  async updateNodeOpsOwnerWithOptions(tmpReq: $_model.UpdateNodeOpsOwnerRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateNodeOpsOwnerResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateNodeOpsOwnerShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.command)) {
+      request.commandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.command, "Command", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.commandShrink)) {
+      body["Command"] = request.commandShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateNodeOpsOwner",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateNodeOpsOwnerResponse>(await this.callApi(params, req, runtime), new $_model.UpdateNodeOpsOwnerResponse({}));
+  }
+
+  /**
+   * Updates O&M owners in batches. This is an OpenAPI wrapper for the "Change Owner" page feature and only supports offline nodes: compute nodes, integration nodes, and logical tables. Real-time nodes are not supported. Available since v6.3.0.
+   * 
+   * @param request - UpdateNodeOpsOwnerRequest
+   * @returns UpdateNodeOpsOwnerResponse
+   */
+  async updateNodeOpsOwner(request: $_model.UpdateNodeOpsOwnerRequest): Promise<$_model.UpdateNodeOpsOwnerResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateNodeOpsOwnerWithOptions(request, runtime);
+  }
+
+  /**
    * Updates an integration pipeline or unstructured workflow node.
    * 
    * @param tmpReq - UpdatePipelineRequest
@@ -16872,6 +19458,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     let body : {[key: string ]: any} = { };
@@ -16936,6 +19526,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.contextShrink)) {
       body["Context"] = request.contextShrink;
@@ -16998,6 +19592,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.updateCommandShrink)) {
       body["UpdateCommand"] = request.updateCommandShrink;
@@ -17051,6 +19649,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     let body : {[key: string ]: any} = { };
@@ -17109,6 +19711,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.updateCommandShrink)) {
       body["UpdateCommand"] = request.updateCommandShrink;
@@ -17164,6 +19770,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.updateCommandShrink)) {
       body["UpdateCommand"] = request.updateCommandShrink;
@@ -17216,6 +19826,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     let body : {[key: string ]: any} = { };
@@ -17273,6 +19887,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.updateCommandShrink)) {
       body["UpdateCommand"] = request.updateCommandShrink;
@@ -17328,6 +19946,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.updateCommandShrink)) {
       body["UpdateCommand"] = request.updateCommandShrink;
@@ -17381,6 +20003,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     let body : {[key: string ]: any} = { };
@@ -17439,6 +20065,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.updateCommandShrink)) {
       body["UpdateCommand"] = request.updateCommandShrink;
@@ -17493,6 +20123,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     let body : {[key: string ]: any} = { };
@@ -17551,6 +20185,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.updateCommandShrink)) {
       body["UpdateCommand"] = request.updateCommandShrink;
@@ -17605,6 +20243,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     let body : {[key: string ]: any} = { };
@@ -17663,6 +20305,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.updateCommandShrink)) {
       body["UpdateCommand"] = request.updateCommandShrink;
@@ -17717,6 +20363,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     let body : {[key: string ]: any} = { };
@@ -17775,6 +20425,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.updateCommandShrink)) {
       body["UpdateCommand"] = request.updateCommandShrink;
@@ -17828,6 +20482,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     let body : {[key: string ]: any} = { };
@@ -17884,6 +20542,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.updateCommandShrink)) {
       body["UpdateCommand"] = request.updateCommandShrink;
@@ -17936,6 +20598,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     let body : {[key: string ]: any} = { };
@@ -17992,6 +20658,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.updateCommandShrink)) {
       body["UpdateCommand"] = request.updateCommandShrink;
@@ -18044,6 +20714,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     if (!$dara.isNull(request.userGroupId)) {
       query["UserGroupId"] = request.userGroupId;
     }
@@ -18077,7 +20751,123 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create or modify a quality rule.
+   * Uploads a datasource authentication file. Available since v6.3.0.
+   * 
+   * @param tmpReq - UploadDataSourceFileRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UploadDataSourceFileResponse
+   */
+  async uploadDataSourceFileWithOptions(tmpReq: $_model.UploadDataSourceFileRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UploadDataSourceFileResponse> {
+    tmpReq.validate();
+    let request = new $_model.UploadDataSourceFileShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.uploadCommand)) {
+      request.uploadCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.uploadCommand, "UploadCommand", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.uploadCommandShrink)) {
+      body["UploadCommand"] = request.uploadCommandShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UploadDataSourceFile",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UploadDataSourceFileResponse>(await this.callApi(params, req, runtime), new $_model.UploadDataSourceFileResponse({}));
+  }
+
+  /**
+   * Uploads a datasource authentication file. Available since v6.3.0.
+   * 
+   * @param request - UploadDataSourceFileRequest
+   * @returns UploadDataSourceFileResponse
+   */
+  async uploadDataSourceFile(request: $_model.UploadDataSourceFileRequest): Promise<$_model.UploadDataSourceFileResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.uploadDataSourceFileWithOptions(request, runtime);
+  }
+
+  /**
+   * Creates or updates an exception archived table for a monitored object. Online version: v6.3.0.
+   * 
+   * @param tmpReq - UpsertQualityArchiveTableRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpsertQualityArchiveTableResponse
+   */
+  async upsertQualityArchiveTableWithOptions(tmpReq: $_model.UpsertQualityArchiveTableRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpsertQualityArchiveTableResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpsertQualityArchiveTableShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.upsertCommand)) {
+      request.upsertCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.upsertCommand, "UpsertCommand", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.upsertCommandShrink)) {
+      body["UpsertCommand"] = request.upsertCommandShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpsertQualityArchiveTable",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpsertQualityArchiveTableResponse>(await this.callApi(params, req, runtime), new $_model.UpsertQualityArchiveTableResponse({}));
+  }
+
+  /**
+   * Creates or updates an exception archived table for a monitored object. Online version: v6.3.0.
+   * 
+   * @param request - UpsertQualityArchiveTableRequest
+   * @returns UpsertQualityArchiveTableResponse
+   */
+  async upsertQualityArchiveTable(request: $_model.UpsertQualityArchiveTableRequest): Promise<$_model.UpsertQualityArchiveTableResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.upsertQualityArchiveTableWithOptions(request, runtime);
+  }
+
+  /**
+   * Creates or updates a quality rule.
    * Release version: v5.4.2.
    * 
    * @param tmpReq - UpsertQualityRuleRequest
@@ -18095,6 +20885,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     let body : {[key: string ]: any} = { };
@@ -18121,7 +20915,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create or modify a quality rule.
+   * Creates or updates a quality rule.
    * Release version: v5.4.2.
    * 
    * @param request - UpsertQualityRuleRequest
@@ -18133,7 +20927,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates or updates scheduling settings.
+   * Creates or updates a schedule setting.
    * Release version: v5.4.2.
    * 
    * @param tmpReq - UpsertQualityScheduleRequest
@@ -18151,6 +20945,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     let body : {[key: string ]: any} = { };
@@ -18177,7 +20975,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates or updates scheduling settings.
+   * Creates or updates a schedule setting.
    * Release version: v5.4.2.
    * 
    * @param request - UpsertQualityScheduleRequest
@@ -18207,6 +21005,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     let body : {[key: string ]: any} = { };
@@ -18265,6 +21067,10 @@ export default class Client extends OpenApi {
       query["OpTenantId"] = request.opTenantId;
     }
 
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.upsertCommandShrink)) {
       body["UpsertCommand"] = request.upsertCommandShrink;
@@ -18319,6 +21125,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.opTenantId)) {
       query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
     }
 
     let body : {[key: string ]: any} = { };

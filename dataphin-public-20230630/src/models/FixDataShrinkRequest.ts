@@ -30,11 +30,17 @@ export class FixDataShrinkRequest extends $dara.Model {
    * 30001011
    */
   opTenantId?: number;
+  /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
   static names(): { [key: string]: string } {
     return {
       env: 'Env',
       fixDataCommandShrink: 'FixDataCommand',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
     };
   }
 
@@ -43,6 +49,7 @@ export class FixDataShrinkRequest extends $dara.Model {
       env: 'string',
       fixDataCommandShrink: 'string',
       opTenantId: 'number',
+      opUserId: 'string',
     };
   }
 

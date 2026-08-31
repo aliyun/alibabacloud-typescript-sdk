@@ -16,7 +16,7 @@ export class ListNodesResponseBodyPageResultNodeListCreator extends $dara.Model 
    * The username.
    * 
    * @example
-   * xx测试
+   * xxTest
    */
   name?: string;
   static names(): { [key: string]: string } {
@@ -56,7 +56,7 @@ export class ListNodesResponseBodyPageResultNodeListModifier extends $dara.Model
    * The username.
    * 
    * @example
-   * xx测试
+   * xxTest
    */
   name?: string;
   static names(): { [key: string]: string } {
@@ -96,7 +96,7 @@ export class ListNodesResponseBodyPageResultNodeListOwnerList extends $dara.Mode
    * The username.
    * 
    * @example
-   * xx测试
+   * xxTest
    */
   name?: string;
   static names(): { [key: string]: string } {
@@ -136,7 +136,7 @@ export class ListNodesResponseBodyPageResultNodeListProjectInfo extends $dara.Mo
    * The project name.
    * 
    * @example
-   * xx测试
+   * xxTest
    */
   name?: string;
   static names(): { [key: string]: string } {
@@ -168,12 +168,12 @@ export class ListNodesResponseBodyPageResultNodeList extends $dara.Model {
    * The name of the business unit to which the node belongs.
    * 
    * @example
-   * xx测试
+   * xxTest
    */
   bizUnitName?: string;
   /**
    * @remarks
-   * The creation time.
+   * The time when the node was created.
    * 
    * @example
    * 2024-05-30 16:47:13
@@ -181,12 +181,12 @@ export class ListNodesResponseBodyPageResultNodeList extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The creator.
+   * The creator of the node.
    */
   creator?: ListNodesResponseBodyPageResultNodeListCreator;
   /**
    * @remarks
-   * The description.
+   * The description of the node.
    * 
    * @example
    * xx test
@@ -202,7 +202,7 @@ export class ListNodesResponseBodyPageResultNodeList extends $dara.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * The extended information.
+   * The extended information of the node.
    * 
    * @example
    * {"xx":"zz"}
@@ -210,7 +210,7 @@ export class ListNodesResponseBodyPageResultNodeList extends $dara.Model {
   extendInfo?: string;
   /**
    * @remarks
-   * The source.
+   * The source of the node.
    * 
    * @example
    * DATA_PROCESS
@@ -218,7 +218,7 @@ export class ListNodesResponseBodyPageResultNodeList extends $dara.Model {
   from?: string;
   /**
    * @remarks
-   * Indicates whether a development environment exists.
+   * Indicates whether the node has a development environment.
    * 
    * @example
    * true
@@ -226,7 +226,7 @@ export class ListNodesResponseBodyPageResultNodeList extends $dara.Model {
   hasDev?: boolean;
   /**
    * @remarks
-   * Indicates whether a production environment exists.
+   * Indicates whether the node has a production environment.
    * 
    * @example
    * true
@@ -242,7 +242,7 @@ export class ListNodesResponseBodyPageResultNodeList extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The last modification time.
+   * The time when the node was last modified.
    * 
    * @example
    * 2024-05-30 16:47:13
@@ -255,10 +255,10 @@ export class ListNodesResponseBodyPageResultNodeList extends $dara.Model {
   modifier?: ListNodesResponseBodyPageResultNodeListModifier;
   /**
    * @remarks
-   * The node name.
+   * The name of the node.
    * 
    * @example
-   * xx测试
+   * xxTest
    */
   name?: string;
   /**
@@ -278,7 +278,7 @@ export class ListNodesResponseBodyPageResultNodeList extends $dara.Model {
   projectInfo?: ListNodesResponseBodyPageResultNodeListProjectInfo;
   /**
    * @remarks
-   * Indicates whether scheduling is paused.
+   * Indicates whether the node is paused.
    * 
    * @example
    * true
@@ -291,13 +291,13 @@ export class ListNodesResponseBodyPageResultNodeList extends $dara.Model {
   schedulePeriodList?: string[];
   /**
    * @remarks
-   * The sub-business types. Valid values:
+   * The sub-business type. Valid values:
    * - MAX_COMPUTE_SQL
    * - HIVE_SQL
    * - SHELL
    * - PYTHON
    * - ONE_SERVICE_SQL
-   * - DATABASE_SQL.
+   * - DATABASE_SQL, etc.
    * 
    * @example
    * SHELL
@@ -305,7 +305,7 @@ export class ListNodesResponseBodyPageResultNodeList extends $dara.Model {
   subDetailType?: string;
   /**
    * @remarks
-   * The node type.
+   * The type of the node.
    * 
    * @example
    * DATA_PROCESS
@@ -391,7 +391,7 @@ export class ListNodesResponseBodyPageResultNodeList extends $dara.Model {
 export class ListNodesResponseBodyPageResult extends $dara.Model {
   /**
    * @remarks
-   * The list of nodes on the current page.
+   * The paginated list of nodes.
    */
   nodeList?: ListNodesResponseBodyPageResultNodeList[];
   /**
@@ -447,7 +447,7 @@ export class ListNodesResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The error message.
+   * The error message returned if the request failed.
    * 
    * @example
    * successful

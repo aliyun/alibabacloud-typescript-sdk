@@ -33,11 +33,17 @@ export class GetPhysicalNodeOperationLogRequest extends $dara.Model {
    * 30001011
    */
   opTenantId?: number;
+  /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
   static names(): { [key: string]: string } {
     return {
       env: 'Env',
       nodeId: 'NodeId',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
     };
   }
 
@@ -46,6 +52,7 @@ export class GetPhysicalNodeOperationLogRequest extends $dara.Model {
       env: 'string',
       nodeId: 'string',
       opTenantId: 'number',
+      opUserId: 'string',
     };
   }
 

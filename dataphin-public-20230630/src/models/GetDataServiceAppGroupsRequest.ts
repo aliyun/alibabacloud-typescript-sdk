@@ -14,6 +14,11 @@ export class GetDataServiceAppGroupsRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
+  /**
    * @remarks
    * The data service project ID.
    * >Notice: This field is deprecated.</notice>.
@@ -27,6 +32,7 @@ export class GetDataServiceAppGroupsRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
       projectId: 'ProjectId',
     };
   }
@@ -34,6 +40,7 @@ export class GetDataServiceAppGroupsRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       opTenantId: 'number',
+      opUserId: 'string',
       projectId: 'number',
     };
   }

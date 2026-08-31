@@ -39,6 +39,11 @@ export class GetKgNeighborShrinkRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
+  /**
    * @remarks
    * The model ID.
    * 
@@ -54,6 +59,7 @@ export class GetKgNeighborShrinkRequest extends $dara.Model {
       entityType: 'EntityType',
       neighborsQueryShrink: 'NeighborsQuery',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
       workspaceId: 'WorkspaceId',
     };
   }
@@ -64,6 +70,7 @@ export class GetKgNeighborShrinkRequest extends $dara.Model {
       entityType: 'string',
       neighborsQueryShrink: 'string',
       opTenantId: 'number',
+      opUserId: 'string',
       workspaceId: 'string',
     };
   }

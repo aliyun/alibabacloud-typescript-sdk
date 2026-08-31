@@ -30,11 +30,17 @@ export class ExecuteManualNodeShrinkRequest extends $dara.Model {
    * 30001011
    */
   opTenantId?: number;
+  /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
   static names(): { [key: string]: string } {
     return {
       env: 'Env',
       executeCommandShrink: 'ExecuteCommand',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
     };
   }
 
@@ -43,6 +49,7 @@ export class ExecuteManualNodeShrinkRequest extends $dara.Model {
       env: 'string',
       executeCommandShrink: 'string',
       opTenantId: 'number',
+      opUserId: 'string',
     };
   }
 

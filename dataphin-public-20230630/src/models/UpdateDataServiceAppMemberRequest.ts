@@ -102,6 +102,11 @@ export class UpdateDataServiceAppMemberRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
+  /**
    * @remarks
    * The command to update regular members of a data service application.
    * 
@@ -111,6 +116,7 @@ export class UpdateDataServiceAppMemberRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
       updateCommand: 'UpdateCommand',
     };
   }
@@ -118,6 +124,7 @@ export class UpdateDataServiceAppMemberRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       opTenantId: 'number',
+      opUserId: 'string',
       updateCommand: UpdateDataServiceAppMemberRequestUpdateCommand,
     };
   }

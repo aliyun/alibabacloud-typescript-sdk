@@ -23,10 +23,19 @@ export class GetProjectByNameRequest extends $dara.Model {
    * 30001011
    */
   opTenantId?: number;
+  /**
+   * @remarks
+   * The ID of the operator user.
+   * 
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
   static names(): { [key: string]: string } {
     return {
       name: 'Name',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
     };
   }
 
@@ -34,6 +43,7 @@ export class GetProjectByNameRequest extends $dara.Model {
     return {
       name: 'string',
       opTenantId: 'number',
+      opUserId: 'string',
     };
   }
 

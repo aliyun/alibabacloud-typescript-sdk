@@ -450,6 +450,11 @@ export class UpdateRowPermissionRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
+  /**
    * @remarks
    * The request command.
    * 
@@ -459,6 +464,7 @@ export class UpdateRowPermissionRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
       updateRowPermissionCommand: 'UpdateRowPermissionCommand',
     };
   }
@@ -466,6 +472,7 @@ export class UpdateRowPermissionRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       opTenantId: 'number',
+      opUserId: 'string',
       updateRowPermissionCommand: UpdateRowPermissionRequestUpdateRowPermissionCommand,
     };
   }

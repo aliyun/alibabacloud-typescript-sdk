@@ -14,7 +14,7 @@ export class ListNodesRequestListQuery extends $dara.Model {
   /**
    * @remarks
    * The node business type. Valid values:
-   * - SCRIPT: script
+   * - SCRIPT: script.
    * - LOGICAL_TABLE: logical table.
    * 
    * This parameter is required.
@@ -25,13 +25,13 @@ export class ListNodesRequestListQuery extends $dara.Model {
   nodeBizType?: string;
   /**
    * @remarks
-   * The sub-business types. Valid values:
+   * The sub-business type. Valid values:
    * - MAX_COMPUTE_SQL
    * - HIVE_SQL
    * - SHELL
    * - PYTHON
    * - ONE_SERVICE_SQL
-   * - DATABASE_SQL.
+   * - DATABASE_SQL, etc.
    * 
    * This parameter is required.
    */
@@ -51,7 +51,7 @@ export class ListNodesRequestListQuery extends $dara.Model {
   page?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of records per page.
    * 
    * @example
    * 10
@@ -59,12 +59,12 @@ export class ListNodesRequestListQuery extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The node priorities. Valid values:
+   * The node priority. Valid values:
    * - HIGHEST
    * - HIGH
    * - MIDDLE
    * - LOW
-   * - LOWEST.
+   * - LOWEST
    */
   priorityList?: string[];
   /**
@@ -87,21 +87,21 @@ export class ListNodesRequestListQuery extends $dara.Model {
   schedulePaused?: boolean;
   /**
    * @remarks
-   * The scheduling periods. Valid values:
+   * The scheduling period. Valid values:
    * - YEARLY
    * - MONTHLY
    * - WEEKLY
    * - DAILY
    * - HOURLY
-   * - MINUTELY.
+   * - MINUTELY
    */
   schedulePeriodList?: string[];
   /**
    * @remarks
    * The node scheduling type. Valid values:
-   * - NORMAL: periodic scheduling
-   * - SUPPLEMENT: data backfill
-   * - MANUAL: manual scheduling.
+   * - NORMAL: Periodic.
+   * - SUPPLEMENT: Data backfill.
+   * - MANUAL: Manual.
    * 
    * @example
    * NORMAL
@@ -109,7 +109,7 @@ export class ListNodesRequestListQuery extends $dara.Model {
   scheduleType?: string;
   /**
    * @remarks
-   * The search keyword. Fuzzy search by node name and exact search by node ID are supported.
+   * The search keyword. Supports fuzzy match by node name and exact match by node ID.
    * 
    * @example
    * xx
@@ -174,8 +174,8 @@ export class ListNodesRequest extends $dara.Model {
   /**
    * @remarks
    * The environment identifier. Valid values:
-   * - DEV: development environment 
-   * - PROD (default): production environment.
+   * - DEV: Development environment. 
+   * - PROD (default): Production environment.
    * 
    * @example
    * PROD
@@ -198,11 +198,20 @@ export class ListNodesRequest extends $dara.Model {
    * 30001011
    */
   opTenantId?: number;
+  /**
+   * @remarks
+   * The ID of the operator.
+   * 
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
   static names(): { [key: string]: string } {
     return {
       env: 'Env',
       listQuery: 'ListQuery',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
     };
   }
 
@@ -211,6 +220,7 @@ export class ListNodesRequest extends $dara.Model {
       env: 'string',
       listQuery: ListNodesRequestListQuery,
       opTenantId: 'number',
+      opUserId: 'string',
     };
   }
 

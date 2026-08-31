@@ -20,10 +20,16 @@ export class CreateBizMetricShrinkRequest extends $dara.Model {
    * 30001011
    */
   opTenantId?: number;
+  /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
   static names(): { [key: string]: string } {
     return {
       createBizMetricCommandShrink: 'CreateBizMetricCommand',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
     };
   }
 
@@ -31,6 +37,7 @@ export class CreateBizMetricShrinkRequest extends $dara.Model {
     return {
       createBizMetricCommandShrink: 'string',
       opTenantId: 'number',
+      opUserId: 'string',
     };
   }
 

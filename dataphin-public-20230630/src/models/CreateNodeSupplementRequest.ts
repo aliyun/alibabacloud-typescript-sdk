@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class CreateNodeSupplementRequestCreateCommandDownStreamNodeIdList extends $dara.Model {
   /**
    * @remarks
-   * Field ID
+   * The field ID.
    */
   fieldIdList?: string[];
   /**
    * @remarks
-   * Node ID
+   * The node ID.
    * 
    * @example
    * 2323232
@@ -53,7 +53,7 @@ export class CreateNodeSupplementRequestCreateCommandFilterList extends $dara.Mo
   exclude?: boolean;
   /**
    * @remarks
-   * Filter key. Valid values:
+   * The filter key. Valid values:
    * - PROJECT: project
    * - NODE_OUTPUT_NAME: node output name
    * - NODE_NAME: node name
@@ -67,7 +67,7 @@ export class CreateNodeSupplementRequestCreateCommandFilterList extends $dara.Mo
   key?: string;
   /**
    * @remarks
-   * Filter value list
+   * The list of filter values.
    */
   valueList?: string[];
   static names(): { [key: string]: string } {
@@ -101,7 +101,7 @@ export class CreateNodeSupplementRequestCreateCommandFilterList extends $dara.Mo
 export class CreateNodeSupplementRequestCreateCommandGlobalParamList extends $dara.Model {
   /**
    * @remarks
-   * Parameter key
+   * The parameter.
    * 
    * @example
    * param1
@@ -109,7 +109,7 @@ export class CreateNodeSupplementRequestCreateCommandGlobalParamList extends $da
   key?: string;
   /**
    * @remarks
-   * Parameter value
+   * The parameter value.
    * 
    * @example
    * value1
@@ -141,12 +141,12 @@ export class CreateNodeSupplementRequestCreateCommandGlobalParamList extends $da
 export class CreateNodeSupplementRequestCreateCommandNodeIdList extends $dara.Model {
   /**
    * @remarks
-   * Field ID list: Can be specified when the node is a logical table node ID. If not specified, the entire table is used by default.
+   * The list of field IDs. This parameter is applicable when the node ID is a logical table node ID. If this parameter is not specified, all fields in the table are used by default.
    */
   fieldIdList?: string[];
   /**
    * @remarks
-   * Node ID
+   * The node ID.
    * 
    * This parameter is required.
    * 
@@ -183,7 +183,7 @@ export class CreateNodeSupplementRequestCreateCommandNodeIdList extends $dara.Mo
 export class CreateNodeSupplementRequestCreateCommandNodeParamsListParamList extends $dara.Model {
   /**
    * @remarks
-   * Parameter key
+   * The parameter.
    * 
    * @example
    * param1
@@ -191,7 +191,7 @@ export class CreateNodeSupplementRequestCreateCommandNodeParamsListParamList ext
   key?: string;
   /**
    * @remarks
-   * Parameter value
+   * The parameter value.
    * 
    * @example
    * value1
@@ -223,7 +223,7 @@ export class CreateNodeSupplementRequestCreateCommandNodeParamsListParamList ext
 export class CreateNodeSupplementRequestCreateCommandNodeParamsList extends $dara.Model {
   /**
    * @remarks
-   * Node ID
+   * The node ID.
    * 
    * @example
    * n_23324
@@ -231,7 +231,7 @@ export class CreateNodeSupplementRequestCreateCommandNodeParamsList extends $dar
   nodeId?: string;
   /**
    * @remarks
-   * Parameter list
+   * The parameter list.
    */
   paramList?: CreateNodeSupplementRequestCreateCommandNodeParamsListParamList[];
   static names(): { [key: string]: string } {
@@ -263,7 +263,7 @@ export class CreateNodeSupplementRequestCreateCommandNodeParamsList extends $dar
 export class CreateNodeSupplementRequestCreateCommand extends $dara.Model {
   /**
    * @remarks
-   * Bulk mode: Include all downstream nodes. Default value: false.
+   * Specifies whether to include all downstream nodes in batch mode. Default value: false.
    * 
    * @example
    * false
@@ -271,12 +271,12 @@ export class CreateNodeSupplementRequestCreateCommand extends $dara.Model {
   containAllDownStream?: boolean;
   /**
    * @remarks
-   * Downstream node IDs. Specifies downstream nodes for execution.
+   * The IDs of downstream nodes to run. This parameter takes effect only when ContainAllDownStream is set to false.
    */
   downStreamNodeIdList?: CreateNodeSupplementRequestCreateCommandDownStreamNodeIdList[];
   /**
    * @remarks
-   * End business date
+   * The end business date.
    * 
    * This parameter is required.
    * 
@@ -286,17 +286,17 @@ export class CreateNodeSupplementRequestCreateCommand extends $dara.Model {
   endBizDate?: string;
   /**
    * @remarks
-   * Filter list: Used together with ContainAllDownStream. You can include or exclude items based on project, node, and other criteria. Default value: empty.
+   * The list of filters. This parameter is used together with ContainAllDownStream to include or exclude nodes based on criteria such as project or node. Default value: empty.
    */
   filterList?: CreateNodeSupplementRequestCreateCommandFilterList[];
   /**
    * @remarks
-   * Runtime global parameters
+   * The runtime global parameters.
    */
   globalParamList?: CreateNodeSupplementRequestCreateCommandGlobalParamList[];
   /**
    * @remarks
-   * Latest trigger time (HH:MM). This parameter applies only to hourly tasks.
+   * The latest trigger time in the HH:MM format. This parameter is applicable only to hourly nodes.
    * 
    * @example
    * 20:59
@@ -304,7 +304,7 @@ export class CreateNodeSupplementRequestCreateCommand extends $dara.Model {
   maxDueTime?: string;
   /**
    * @remarks
-   * Earliest trigger time (HH:MM). This parameter applies only to hourly tasks.
+   * The earliest trigger time in the HH:MM format. This parameter is applicable only to hourly nodes.
    * 
    * @example
    * 00:00
@@ -312,27 +312,27 @@ export class CreateNodeSupplementRequestCreateCommand extends $dara.Model {
   minDueTime?: string;
   /**
    * @remarks
-   * Backfill name. If not specified, a name is automatically generated by the system.
+   * The name of the data backfill. If this parameter is not specified, the system automatically generates a name.
    * 
    * @example
-   * xx测试
+   * TestBackfill
    */
   name?: string;
   /**
    * @remarks
-   * Root nodes for backfill. Multiple root nodes are supported.
+   * The root nodes for data backfill. Multiple root nodes are supported.
    * 
    * This parameter is required.
    */
   nodeIdList?: CreateNodeSupplementRequestCreateCommandNodeIdList[];
   /**
    * @remarks
-   * Runtime custom parameters, configured per node
+   * The runtime custom parameters configured by node.
    */
   nodeParamsList?: CreateNodeSupplementRequestCreateCommandNodeParamsList[];
   /**
    * @remarks
-   * Concurrency. Default value: 1.
+   * The concurrency. Default value: 1.
    * 
    * @example
    * 1
@@ -340,7 +340,7 @@ export class CreateNodeSupplementRequestCreateCommand extends $dara.Model {
   parallelism?: number;
   /**
    * @remarks
-   * Project ID
+   * The project ID.
    * 
    * This parameter is required.
    * 
@@ -350,7 +350,12 @@ export class CreateNodeSupplementRequestCreateCommand extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * Start business date
+   * Corresponds to the "Task Run Time" option in the data backfill dialog box. If this parameter is set to true, the scheduled run time of instances is ignored and all instances run immediately. If this parameter is set to false, instances wait for their scheduled run time before running. Default value: true.
+   */
+  runImmediately?: boolean;
+  /**
+   * @remarks
+   * The start business date.
    * 
    * This parameter is required.
    * 
@@ -372,6 +377,7 @@ export class CreateNodeSupplementRequestCreateCommand extends $dara.Model {
       nodeParamsList: 'NodeParamsList',
       parallelism: 'Parallelism',
       projectId: 'ProjectId',
+      runImmediately: 'RunImmediately',
       startBizDate: 'StartBizDate',
     };
   }
@@ -390,6 +396,7 @@ export class CreateNodeSupplementRequestCreateCommand extends $dara.Model {
       nodeParamsList: { 'type': 'array', 'itemType': CreateNodeSupplementRequestCreateCommandNodeParamsList },
       parallelism: 'number',
       projectId: 'number',
+      runImmediately: 'boolean',
       startBizDate: 'string',
     };
   }
@@ -421,16 +428,16 @@ export class CreateNodeSupplementRequestCreateCommand extends $dara.Model {
 export class CreateNodeSupplementRequest extends $dara.Model {
   /**
    * @remarks
-   * Create backfill request
+   * The data backfill request.
    * 
    * This parameter is required.
    */
   createCommand?: CreateNodeSupplementRequestCreateCommand;
   /**
    * @remarks
-   * Environment identifier.
-   * - DEV: development environment.
-   * - PROD (default): production environment.
+   * The environment identifier. Valid values:
+   * - DEV: Development environment. 
+   * - PROD (default): Production environment.
    * 
    * @example
    * PROD
@@ -438,7 +445,7 @@ export class CreateNodeSupplementRequest extends $dara.Model {
   env?: string;
   /**
    * @remarks
-   * Tenant ID
+   * The tenant ID.
    * 
    * This parameter is required.
    * 
@@ -446,11 +453,20 @@ export class CreateNodeSupplementRequest extends $dara.Model {
    * 30001011
    */
   opTenantId?: number;
+  /**
+   * @remarks
+   * The ID of the operator user.
+   * 
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
   static names(): { [key: string]: string } {
     return {
       createCommand: 'CreateCommand',
       env: 'Env',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
     };
   }
 
@@ -459,6 +475,7 @@ export class CreateNodeSupplementRequest extends $dara.Model {
       createCommand: CreateNodeSupplementRequestCreateCommand,
       env: 'string',
       opTenantId: 'number',
+      opUserId: 'string',
     };
   }
 

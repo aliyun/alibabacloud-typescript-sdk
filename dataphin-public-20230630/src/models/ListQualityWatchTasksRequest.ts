@@ -13,27 +13,27 @@ export class ListQualityWatchTasksRequestListQuery extends $dara.Model {
   bizDate?: string;
   /**
    * @remarks
-   * The business unit names.
+   * The name of the business unit to which the object belongs.
    */
   bizUnitNameList?: string[];
   /**
    * @remarks
-   * Specifies whether to query only the quality monitoring node objects owned by the current user.
+   * Specifies whether to query only the watchtask objects owned by the current user.
    */
   currentUserOwned?: boolean;
   /**
    * @remarks
-   * The data source IDs.
+   * The data source ID.
    */
   dataSourceIdList?: string[];
   /**
    * @remarks
-   * The data source owners.
+   * The data source owner.
    */
   dataSourceOwnerList?: string[];
   /**
    * @remarks
-   * The data source scopes. Valid values:
+   * The data source scope. Valid values:
    * - STREAMING: real-time only.
    * - OFFLINE: offline only.
    * - ALL: real-time and offline.
@@ -41,19 +41,19 @@ export class ListQualityWatchTasksRequestListQuery extends $dara.Model {
   dataSourceScopeList?: string[];
   /**
    * @remarks
-   * The data source types, such as MAX_COMPUTE, HADOOP, and MYSQL.
+   * The data source type, such as MAX_COMPUTE, HADOOP, or MYSQL.
    */
   dataSourceTypeList?: string[];
   /**
    * @remarks
-   * The rule exception types. Valid values:
+   * The rule exception type. Valid values:
    * - STRONG: strong.
    * - WEAK: weak.
    */
   errorRuleStrengthList?: string[];
   /**
    * @remarks
-   * The search keyword, which is the name of the monitored table.
+   * The search keyword. This parameter specifies the name of the monitored table.
    * 
    * @example
    * test
@@ -77,17 +77,17 @@ export class ListQualityWatchTasksRequestListQuery extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The project names.
+   * The name of the project to which the object belongs.
    */
   projectNameList?: string[];
   /**
    * @remarks
-   * The quality owners.
+   * The quality owner.
    */
   qualityOwnerList?: string[];
   /**
    * @remarks
-   * The task statuses. Valid values:
+   * The task status. Valid values:
    * - NOT_RUN: not executed.
    * - WAITING: waiting.
    * - RUNNING: running.
@@ -100,12 +100,12 @@ export class ListQualityWatchTasksRequestListQuery extends $dara.Model {
   statusList?: string[];
   /**
    * @remarks
-   * The table owners.
+   * The table owner.
    */
   tableOwnerList?: string[];
   /**
    * @remarks
-   * The table types. Valid values:
+   * The table type. Valid values:
    * - LOGIC_DIM_TABLE: logical dimension table.
    * - LOGIC_FACT_TABLE: logical fact table.
    * - LOGIC_SUM_TABLE: logical aggregate table.
@@ -116,9 +116,9 @@ export class ListQualityWatchTasksRequestListQuery extends $dara.Model {
   tableTypeList?: string[];
   /**
    * @remarks
-   * The monitored object types. Valid values:
+   * The monitored object type. Valid values:
    * - TABLE: Dataphin table.
-   * - DATASOURCE_TABLE: global table.
+   * - DATASOURCE_TABLE: global domain table.
    * - DATASOURCE: data source.
    * - INDEX: metric.
    * - REALTIME_LOGICAL_TABLE: real-time meta table.
@@ -229,10 +229,19 @@ export class ListQualityWatchTasksRequest extends $dara.Model {
    * 30001011
    */
   opTenantId?: number;
+  /**
+   * @remarks
+   * The ID of the operator.
+   * 
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
   static names(): { [key: string]: string } {
     return {
       listQuery: 'ListQuery',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
     };
   }
 
@@ -240,6 +249,7 @@ export class ListQualityWatchTasksRequest extends $dara.Model {
     return {
       listQuery: ListQualityWatchTasksRequestListQuery,
       opTenantId: 'number',
+      opUserId: 'string',
     };
   }
 

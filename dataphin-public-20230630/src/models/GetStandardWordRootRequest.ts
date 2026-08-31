@@ -28,11 +28,17 @@ export class GetStandardWordRootRequest extends $dara.Model {
    * 30001011
    */
   opTenantId?: number;
+  /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
   static names(): { [key: string]: string } {
     return {
       name: 'Name',
       nullable: 'Nullable',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
     };
   }
 
@@ -41,6 +47,7 @@ export class GetStandardWordRootRequest extends $dara.Model {
       name: 'string',
       nullable: 'boolean',
       opTenantId: 'number',
+      opUserId: 'string',
     };
   }
 

@@ -58,6 +58,11 @@ export class GetOperationRecordDetailRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
+  /**
    * @remarks
    * The query command.
    * 
@@ -67,6 +72,7 @@ export class GetOperationRecordDetailRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
       recordDetailCommand: 'RecordDetailCommand',
     };
   }
@@ -74,6 +80,7 @@ export class GetOperationRecordDetailRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       opTenantId: 'number',
+      opUserId: 'string',
       recordDetailCommand: GetOperationRecordDetailRequestRecordDetailCommand,
     };
   }

@@ -35,6 +35,11 @@ export class GetDirectoryTreeRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
+  /**
    * @remarks
    * Project ID.
    * 
@@ -48,6 +53,7 @@ export class GetDirectoryTreeRequest extends $dara.Model {
     return {
       category: 'Category',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
       projectId: 'ProjectId',
     };
   }
@@ -56,6 +62,7 @@ export class GetDirectoryTreeRequest extends $dara.Model {
     return {
       category: 'string',
       opTenantId: 'number',
+      opUserId: 'string',
       projectId: 'number',
     };
   }

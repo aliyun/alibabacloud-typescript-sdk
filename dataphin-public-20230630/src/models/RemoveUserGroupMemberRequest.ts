@@ -58,6 +58,11 @@ export class RemoveUserGroupMemberRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
+  /**
    * @remarks
    * The command to remove user group members.
    * 
@@ -67,6 +72,7 @@ export class RemoveUserGroupMemberRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
       removeCommand: 'RemoveCommand',
     };
   }
@@ -74,6 +80,7 @@ export class RemoveUserGroupMemberRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       opTenantId: 'number',
+      opUserId: 'string',
       removeCommand: RemoveUserGroupMemberRequestRemoveCommand,
     };
   }

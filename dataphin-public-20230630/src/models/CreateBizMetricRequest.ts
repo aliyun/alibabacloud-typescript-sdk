@@ -334,10 +334,16 @@ export class CreateBizMetricRequest extends $dara.Model {
    * 30001011
    */
   opTenantId?: number;
+  /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
   static names(): { [key: string]: string } {
     return {
       createBizMetricCommand: 'CreateBizMetricCommand',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
     };
   }
 
@@ -345,6 +351,7 @@ export class CreateBizMetricRequest extends $dara.Model {
     return {
       createBizMetricCommand: CreateBizMetricRequestCreateBizMetricCommand,
       opTenantId: 'number',
+      opUserId: 'string',
     };
   }
 

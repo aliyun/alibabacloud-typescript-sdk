@@ -14,6 +14,11 @@ export class GetQualityRuleTaskRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
+  /**
    * @remarks
    * The rule task ID.
    * 
@@ -26,6 +31,7 @@ export class GetQualityRuleTaskRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
       ruleTaskId: 'RuleTaskId',
     };
   }
@@ -33,6 +39,7 @@ export class GetQualityRuleTaskRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       opTenantId: 'number',
+      opUserId: 'string',
       ruleTaskId: 'number',
     };
   }

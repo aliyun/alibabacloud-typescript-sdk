@@ -14,6 +14,11 @@ export class GetFileStorageCredentialRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
+  /**
    * @remarks
    * The project ID. This parameter is required when the temporary authorization is used to create resource files.
    * 
@@ -43,6 +48,7 @@ export class GetFileStorageCredentialRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
       projectId: 'ProjectId',
       purpose: 'Purpose',
       useVpcEndpoint: 'UseVpcEndpoint',
@@ -52,6 +58,7 @@ export class GetFileStorageCredentialRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       opTenantId: 'number',
+      opUserId: 'string',
       projectId: 'number',
       purpose: 'string',
       useVpcEndpoint: 'boolean',

@@ -21,6 +21,11 @@ export class CreateKgEntityShrinkRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
+  /**
    * @remarks
    * The workspace ID.
    * 
@@ -34,6 +39,7 @@ export class CreateKgEntityShrinkRequest extends $dara.Model {
     return {
       createCommandShrink: 'CreateCommand',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
       workspaceId: 'WorkspaceId',
     };
   }
@@ -42,6 +48,7 @@ export class CreateKgEntityShrinkRequest extends $dara.Model {
     return {
       createCommandShrink: 'string',
       opTenantId: 'number',
+      opUserId: 'string',
       workspaceId: 'string',
     };
   }

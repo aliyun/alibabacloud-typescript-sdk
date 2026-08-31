@@ -34,6 +34,11 @@ export class DeleteBizEntityRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
+  /**
    * @remarks
    * The type of the business entity. For more information, refer to the create business entity operation.
    * 
@@ -48,6 +53,7 @@ export class DeleteBizEntityRequest extends $dara.Model {
       bizUnitId: 'BizUnitId',
       id: 'Id',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
       type: 'Type',
     };
   }
@@ -57,6 +63,7 @@ export class DeleteBizEntityRequest extends $dara.Model {
       bizUnitId: 'number',
       id: 'number',
       opTenantId: 'number',
+      opUserId: 'string',
       type: 'string',
     };
   }

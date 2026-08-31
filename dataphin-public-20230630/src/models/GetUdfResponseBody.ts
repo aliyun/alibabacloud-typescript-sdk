@@ -7,11 +7,11 @@ export class GetUdfResponseBodyUdfInfo extends $dara.Model {
    * @remarks
    * The category. Valid values:
    * - 1: window function.
-   * - 2: aggregate function.
-   * - 3: numeric function.
+   * - 2: statistical function.
+   * - 3: numerical function.
    * - 4: string function.
    * - 5: time function.
-   * - 6: IP address utility function.
+   * - 6: IP address helper function.
    * - 7: URL-related function.
    * - 8: encoding and decoding function.
    * - 9: business-related function.
@@ -39,7 +39,7 @@ export class GetUdfResponseBodyUdfInfo extends $dara.Model {
   commandHelp?: string;
   /**
    * @remarks
-   * The compute engine. Valid values: HADOOP, MAX_COMPUTE, and FLINK.
+   * The compute engine type. Valid values: HADOOP, MAX_COMPUTE, and FLINK.
    * 
    * @example
    * HADOOP
@@ -63,7 +63,7 @@ export class GetUdfResponseBodyUdfInfo extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The directory where the function is stored.
+   * The storage folder.
    * 
    * @example
    * /
@@ -71,7 +71,7 @@ export class GetUdfResponseBodyUdfInfo extends $dara.Model {
   directory?: string;
   /**
    * @remarks
-   * The creation time, in the yyyy-MM-d HH:mm:ss format.
+   * The creation time. Format: yyyy-MM-d HH:mm:ss.
    * 
    * @example
    * 2025-06-10 10:01:01
@@ -79,7 +79,7 @@ export class GetUdfResponseBodyUdfInfo extends $dara.Model {
   gmtCreate?: string;
   /**
    * @remarks
-   * The last modification time, in the yyyy-MM-d HH:mm:ss format.
+   * The update time. Format: yyyy-MM-d HH:mm:ss.
    * 
    * @example
    * 2025-06-10 10:01:01
@@ -171,7 +171,7 @@ export class GetUdfResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The details of the backend exception.
+   * The backend exception details.
    * 
    * @example
    * internal error

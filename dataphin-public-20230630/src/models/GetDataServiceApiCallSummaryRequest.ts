@@ -24,6 +24,11 @@ export class GetDataServiceApiCallSummaryRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
+  /**
    * @remarks
    * The ID of the data service project.
    * 
@@ -47,6 +52,7 @@ export class GetDataServiceApiCallSummaryRequest extends $dara.Model {
     return {
       endTime: 'EndTime',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
       projectId: 'ProjectId',
       startTime: 'StartTime',
     };
@@ -56,6 +62,7 @@ export class GetDataServiceApiCallSummaryRequest extends $dara.Model {
     return {
       endTime: 'string',
       opTenantId: 'number',
+      opUserId: 'string',
       projectId: 'number',
       startTime: 'string',
     };

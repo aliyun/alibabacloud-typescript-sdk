@@ -24,6 +24,11 @@ export class GetDataServiceAppAuthorizedUsersRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
+  /**
    * @remarks
    * The data service project ID.
    * 
@@ -37,6 +42,7 @@ export class GetDataServiceAppAuthorizedUsersRequest extends $dara.Model {
     return {
       appId: 'AppId',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
       projectId: 'ProjectId',
     };
   }
@@ -45,6 +51,7 @@ export class GetDataServiceAppAuthorizedUsersRequest extends $dara.Model {
     return {
       appId: 'number',
       opTenantId: 'number',
+      opUserId: 'string',
       projectId: 'number',
     };
   }

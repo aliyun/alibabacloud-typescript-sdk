@@ -64,10 +64,16 @@ export class GetOperationRecordByIdRequest extends $dara.Model {
    * 30001011
    */
   opTenantId?: number;
+  /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
   static names(): { [key: string]: string } {
     return {
       detailCommand: 'DetailCommand',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
     };
   }
 
@@ -75,6 +81,7 @@ export class GetOperationRecordByIdRequest extends $dara.Model {
     return {
       detailCommand: GetOperationRecordByIdRequestDetailCommand,
       opTenantId: 'number',
+      opUserId: 'string',
     };
   }
 

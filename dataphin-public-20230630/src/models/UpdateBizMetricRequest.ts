@@ -326,6 +326,11 @@ export class UpdateBizMetricRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
+  /**
    * @remarks
    * Update request
    * 
@@ -335,6 +340,7 @@ export class UpdateBizMetricRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
       updateBizMetricCommand: 'UpdateBizMetricCommand',
     };
   }
@@ -342,6 +348,7 @@ export class UpdateBizMetricRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       opTenantId: 'number',
+      opUserId: 'string',
       updateBizMetricCommand: UpdateBizMetricRequestUpdateBizMetricCommand,
     };
   }

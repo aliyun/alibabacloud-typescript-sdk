@@ -35,6 +35,14 @@ export class GetPhysicalInstanceLogRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
+   * The ID of the operator user.
+   * 
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
+  /**
+   * @remarks
    * The project ID.
    * 
    * This parameter is required.
@@ -48,6 +56,7 @@ export class GetPhysicalInstanceLogRequest extends $dara.Model {
       env: 'Env',
       instanceId: 'InstanceId',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
       projectId: 'ProjectId',
     };
   }
@@ -57,6 +66,7 @@ export class GetPhysicalInstanceLogRequest extends $dara.Model {
       env: 'string',
       instanceId: 'string',
       opTenantId: 'number',
+      opUserId: 'string',
       projectId: 'number',
     };
   }

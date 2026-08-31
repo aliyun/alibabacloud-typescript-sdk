@@ -27,6 +27,11 @@ export class ListBatchTemplatesShrinkRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
+  /**
    * @remarks
    * The project ID.
    * 
@@ -41,6 +46,7 @@ export class ListBatchTemplatesShrinkRequest extends $dara.Model {
       env: 'Env',
       listQueryShrink: 'ListQuery',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
       projectId: 'ProjectId',
     };
   }
@@ -50,6 +56,7 @@ export class ListBatchTemplatesShrinkRequest extends $dara.Model {
       env: 'string',
       listQueryShrink: 'string',
       opTenantId: 'number',
+      opUserId: 'string',
       projectId: 'number',
     };
   }

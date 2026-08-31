@@ -34,6 +34,11 @@ export class DeleteResourceRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
+  /**
    * @remarks
    * Project ID.
    * 
@@ -48,6 +53,7 @@ export class DeleteResourceRequest extends $dara.Model {
       comment: 'Comment',
       id: 'Id',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
       projectId: 'ProjectId',
     };
   }
@@ -57,6 +63,7 @@ export class DeleteResourceRequest extends $dara.Model {
       comment: 'string',
       id: 'number',
       opTenantId: 'number',
+      opUserId: 'string',
       projectId: 'number',
     };
   }

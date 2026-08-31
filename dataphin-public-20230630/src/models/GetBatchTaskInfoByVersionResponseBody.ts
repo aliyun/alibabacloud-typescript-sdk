@@ -115,7 +115,7 @@ export class GetBatchTaskInfoByVersionResponseBodyTaskInfoParamList extends $dar
 export class GetBatchTaskInfoByVersionResponseBodyTaskInfoSparkClientInfo extends $dara.Model {
   /**
    * @remarks
-   * The Spark client version.
+   * The Spark client version name.
    * 
    * @example
    * abc
@@ -157,7 +157,7 @@ export class GetBatchTaskInfoByVersionResponseBodyTaskInfoUpStreamListDependPeri
    * - CURRENT_PERIOD
    * - LAST_PERIOD
    * - LAST_N_PERIOD
-   * - LAST_24_HOUR.
+   * - LAST_24_HOUR
    * 
    * @example
    * CURRENT_PERIOD
@@ -202,7 +202,7 @@ export class GetBatchTaskInfoByVersionResponseBodyTaskInfoUpStreamList extends $
   dependStrategy?: string;
   /**
    * @remarks
-   * The fields of the dependent logical table.
+   * The dependent logical table fields.
    */
   fieldList?: string[];
   /**
@@ -217,7 +217,7 @@ export class GetBatchTaskInfoByVersionResponseBodyTaskInfoUpStreamList extends $
   nodeType?: string;
   /**
    * @remarks
-   * The period difference. A value of 0 indicates a same-period dependency. A positive number indicates a dependency on the previous N periods.
+   * The period difference. A value of 0 indicates a same-cycle dependency. A positive number indicates a dependency on the previous N cycles.
    * 
    * @example
    * 1
@@ -257,7 +257,7 @@ export class GetBatchTaskInfoByVersionResponseBodyTaskInfoUpStreamList extends $
    * The username of the upstream node owner.
    * 
    * @example
-   * 张三
+   * John
    */
   sourceNodeUserName?: string;
   /**
@@ -318,7 +318,7 @@ export class GetBatchTaskInfoByVersionResponseBodyTaskInfoUpStreamList extends $
 export class GetBatchTaskInfoByVersionResponseBodyTaskInfo extends $dara.Model {
   /**
    * @remarks
-   * The node code.
+   * The task code.
    * 
    * @example
    * show tables;
@@ -326,7 +326,7 @@ export class GetBatchTaskInfoByVersionResponseBodyTaskInfo extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The cron expression for automatic scheduling. For more information, refer to the Linux cron expression syntax.
+   * The cron expression for automatic scheduling. Refer to the Linux cron expression syntax.
    * 
    * @example
    * 0 0 1 * * ?
@@ -339,7 +339,7 @@ export class GetBatchTaskInfoByVersionResponseBodyTaskInfo extends $dara.Model {
   customScheduleConfig?: GetBatchTaskInfoByVersionResponseBodyTaskInfoCustomScheduleConfig;
   /**
    * @remarks
-   * The ID of the DAG to which the node belongs.
+   * The ID of the DAG to which the task belongs.
    * 
    * @example
    * dag_102121211
@@ -371,7 +371,17 @@ export class GetBatchTaskInfoByVersionResponseBodyTaskInfo extends $dara.Model {
   dataSourceSchema?: string;
   /**
    * @remarks
-   * The node ID in the node directory tree.
+   * The list of development owner IDs.
+   */
+  developOwnerIdList?: string[];
+  /**
+   * @remarks
+   * The list of development owner names.
+   */
+  developOwnerNameList?: string[];
+  /**
+   * @remarks
+   * The node ID in the directory tree.
    * 
    * @example
    * 12113111
@@ -379,28 +389,28 @@ export class GetBatchTaskInfoByVersionResponseBodyTaskInfo extends $dara.Model {
   fileId?: number;
   /**
    * @remarks
-   * Indicates whether the node has a development environment node.
+   * Indicates whether the task has a development environment node.
    */
   hasDevNode?: boolean;
   /**
    * @remarks
-   * The node name.
+   * The task name.
    * 
    * @example
-   * 测试任务1
+   * TestTask1
    */
   name?: string;
   /**
    * @remarks
-   * Indicates whether the node needs to be published.
+   * Indicates whether the task needs to be published.
    */
   needPublish?: boolean;
   /**
    * @remarks
-   * The node description.
+   * The task description.
    * 
    * @example
-   * xx测试
+   * xxTest
    */
   nodeDescription?: string;
   /**
@@ -424,7 +434,7 @@ export class GetBatchTaskInfoByVersionResponseBodyTaskInfo extends $dara.Model {
    * The node name.
    * 
    * @example
-   * 测试任务1
+   * TestTask1
    */
   nodeName?: string;
   /**
@@ -453,10 +463,20 @@ export class GetBatchTaskInfoByVersionResponseBodyTaskInfo extends $dara.Model {
   operatorUserId?: string;
   /**
    * @remarks
+   * The list of O&M owner IDs.
+   */
+  opsOwnerIdList?: string[];
+  /**
+   * @remarks
+   * The list of O&M owner names.
+   */
+  opsOwnerNameList?: string[];
+  /**
+   * @remarks
    * The name of the node owner.
    * 
    * @example
-   * 张三
+   * John
    */
   ownerName?: string;
   /**
@@ -469,12 +489,12 @@ export class GetBatchTaskInfoByVersionResponseBodyTaskInfo extends $dara.Model {
   ownerUserId?: string;
   /**
    * @remarks
-   * The list of custom node parameters.
+   * The list of custom parameters for the node.
    */
   paramList?: GetBatchTaskInfoByVersionResponseBodyTaskInfoParamList[];
   /**
    * @remarks
-   * Indicates whether the node scheduling is paused.
+   * Indicates whether the node is paused for scheduling.
    */
   paused?: boolean;
   /**
@@ -495,7 +515,7 @@ export class GetBatchTaskInfoByVersionResponseBodyTaskInfo extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * Indicates whether the node has been published.
+   * Indicates whether the task is published.
    */
   published?: boolean;
   /**
@@ -519,7 +539,7 @@ export class GetBatchTaskInfoByVersionResponseBodyTaskInfo extends $dara.Model {
    * - WEEKLY
    * - DAILY
    * - HOURLY
-   * - MINUTELY.
+   * - MINUTELY
    * 
    * @example
    * DAILY
@@ -527,7 +547,7 @@ export class GetBatchTaskInfoByVersionResponseBodyTaskInfo extends $dara.Model {
   schedulePeriod?: string;
   /**
    * @remarks
-   * The scheduling type. Valid values:
+   * The node type. Valid values:
    * - 1: periodic node.
    * - 3: manual node.
    * 
@@ -542,18 +562,18 @@ export class GetBatchTaskInfoByVersionResponseBodyTaskInfo extends $dara.Model {
   sparkClientInfo?: GetBatchTaskInfoByVersionResponseBodyTaskInfoSparkClientInfo;
   /**
    * @remarks
-   * The publish status. Valid values:
+   * The submit status. Valid values:
    * - 0: draft.
    * - 1: submitted.
    * - 100: in development.
    * 
    * @example
-   * 测试任务1
+   * TestTask1
    */
   status?: string;
   /**
    * @remarks
-   * The node type. For more information, see the API operation for creating a batch task.
+   * The task type. For more information, refer to the API operation for creating batch tasks.
    * 
    * @example
    * 21
@@ -573,6 +593,8 @@ export class GetBatchTaskInfoByVersionResponseBodyTaskInfo extends $dara.Model {
       dataSourceCatalog: 'DataSourceCatalog',
       dataSourceId: 'DataSourceId',
       dataSourceSchema: 'DataSourceSchema',
+      developOwnerIdList: 'DevelopOwnerIdList',
+      developOwnerNameList: 'DevelopOwnerNameList',
       fileId: 'FileId',
       hasDevNode: 'HasDevNode',
       name: 'Name',
@@ -584,6 +606,8 @@ export class GetBatchTaskInfoByVersionResponseBodyTaskInfo extends $dara.Model {
       nodeOutputNameList: 'NodeOutputNameList',
       nodeStatus: 'NodeStatus',
       operatorUserId: 'OperatorUserId',
+      opsOwnerIdList: 'OpsOwnerIdList',
+      opsOwnerNameList: 'OpsOwnerNameList',
       ownerName: 'OwnerName',
       ownerUserId: 'OwnerUserId',
       paramList: 'ParamList',
@@ -611,6 +635,8 @@ export class GetBatchTaskInfoByVersionResponseBodyTaskInfo extends $dara.Model {
       dataSourceCatalog: 'string',
       dataSourceId: 'string',
       dataSourceSchema: 'string',
+      developOwnerIdList: { 'type': 'array', 'itemType': 'string' },
+      developOwnerNameList: { 'type': 'array', 'itemType': 'string' },
       fileId: 'number',
       hasDevNode: 'boolean',
       name: 'string',
@@ -622,6 +648,8 @@ export class GetBatchTaskInfoByVersionResponseBodyTaskInfo extends $dara.Model {
       nodeOutputNameList: { 'type': 'array', 'itemType': 'string' },
       nodeStatus: 'number',
       operatorUserId: 'string',
+      opsOwnerIdList: { 'type': 'array', 'itemType': 'string' },
+      opsOwnerNameList: { 'type': 'array', 'itemType': 'string' },
       ownerName: 'string',
       ownerUserId: 'string',
       paramList: { 'type': 'array', 'itemType': GetBatchTaskInfoByVersionResponseBodyTaskInfoParamList },
@@ -644,8 +672,20 @@ export class GetBatchTaskInfoByVersionResponseBodyTaskInfo extends $dara.Model {
     if(this.customScheduleConfig && typeof (this.customScheduleConfig as any).validate === 'function') {
       (this.customScheduleConfig as any).validate();
     }
+    if(Array.isArray(this.developOwnerIdList)) {
+      $dara.Model.validateArray(this.developOwnerIdList);
+    }
+    if(Array.isArray(this.developOwnerNameList)) {
+      $dara.Model.validateArray(this.developOwnerNameList);
+    }
     if(Array.isArray(this.nodeOutputNameList)) {
       $dara.Model.validateArray(this.nodeOutputNameList);
+    }
+    if(Array.isArray(this.opsOwnerIdList)) {
+      $dara.Model.validateArray(this.opsOwnerIdList);
+    }
+    if(Array.isArray(this.opsOwnerNameList)) {
+      $dara.Model.validateArray(this.opsOwnerNameList);
     }
     if(Array.isArray(this.paramList)) {
       $dara.Model.validateArray(this.paramList);
@@ -704,7 +744,7 @@ export class GetBatchTaskInfoByVersionResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The node details.
+   * The task details.
    */
   taskInfo?: GetBatchTaskInfoByVersionResponseBodyTaskInfo;
   static names(): { [key: string]: string } {

@@ -27,11 +27,20 @@ export class ListPipelinesShrinkRequest extends $dara.Model {
    * 30001011
    */
   opTenantId?: number;
+  /**
+   * @remarks
+   * The user ID of the operator.
+   * 
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
   static names(): { [key: string]: string } {
     return {
       contextShrink: 'Context',
       listCommandShrink: 'ListCommand',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
     };
   }
 
@@ -40,6 +49,7 @@ export class ListPipelinesShrinkRequest extends $dara.Model {
       contextShrink: 'string',
       listCommandShrink: 'string',
       opTenantId: 'number',
+      opUserId: 'string',
     };
   }
 

@@ -55,7 +55,7 @@ export class ImportKgSchemaRequestImportCommand extends $dara.Model {
 export class ImportKgSchemaRequest extends $dara.Model {
   /**
    * @remarks
-   * The instruction for importing the knowledge graph definition.
+   * The command for importing the knowledge graph definition.
    * 
    * This parameter is required.
    * 
@@ -75,6 +75,14 @@ export class ImportKgSchemaRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
+   * The ID of the operator user.
+   * 
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
+  /**
+   * @remarks
    * The workspace ID.
    * 
    * This parameter is required.
@@ -87,6 +95,7 @@ export class ImportKgSchemaRequest extends $dara.Model {
     return {
       importCommand: 'ImportCommand',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
       workspaceId: 'WorkspaceId',
     };
   }
@@ -95,6 +104,7 @@ export class ImportKgSchemaRequest extends $dara.Model {
     return {
       importCommand: ImportKgSchemaRequestImportCommand,
       opTenantId: 'number',
+      opUserId: 'string',
       workspaceId: 'string',
     };
   }

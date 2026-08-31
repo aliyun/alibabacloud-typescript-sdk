@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpsertQualityRuleShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * Tenant ID.
+   * The tenant ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,15 @@ export class UpsertQualityRuleShrinkRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
-   * The upsert command.
+   * The ID of the operator user.
+   * 
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
+  /**
+   * @remarks
+   * The update command.
    * 
    * This parameter is required.
    */
@@ -23,6 +31,7 @@ export class UpsertQualityRuleShrinkRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
       upsertCommandShrink: 'UpsertCommand',
     };
   }
@@ -30,6 +39,7 @@ export class UpsertQualityRuleShrinkRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       opTenantId: 'number',
+      opUserId: 'string',
       upsertCommandShrink: 'string',
     };
   }

@@ -610,10 +610,16 @@ export class AddRegisterLineageRequest extends $dara.Model {
    * 30001011
    */
   opTenantId?: number;
+  /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
   static names(): { [key: string]: string } {
     return {
       addRegisterLineageCommand: 'AddRegisterLineageCommand',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
     };
   }
 
@@ -621,6 +627,7 @@ export class AddRegisterLineageRequest extends $dara.Model {
     return {
       addRegisterLineageCommand: AddRegisterLineageRequestAddRegisterLineageCommand,
       opTenantId: 'number',
+      opUserId: 'string',
     };
   }
 

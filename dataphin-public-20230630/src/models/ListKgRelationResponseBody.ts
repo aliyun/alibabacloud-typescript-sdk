@@ -13,7 +13,7 @@ export class ListKgRelationResponseBodyPageResultRelationListPropertyList extend
   code?: string;
   /**
    * @remarks
-   * The property data type. Valid values: STRING (string), INTEGER (integer), FLOAT (float), BOOLEAN (boolean), DATE (date), LIST (list), and others.
+   * The data type of the property. Valid values: STRING (string), INTEGER (integer), FLOAT (floating-point number), BOOLEAN (Boolean), DATE (date), and LIST (list).
    * 
    * @example
    * STRING
@@ -55,7 +55,7 @@ export class ListKgRelationResponseBodyPageResultRelationListPropertyList extend
 export class ListKgRelationResponseBodyPageResultRelationList extends $dara.Model {
   /**
    * @remarks
-   * The relationship record property list.
+   * The list of properties for the relationship record.
    */
   propertyList?: ListKgRelationResponseBodyPageResultRelationListPropertyList[];
   /**
@@ -125,7 +125,7 @@ export class ListKgRelationResponseBodyPageResultRelationList extends $dara.Mode
 export class ListKgRelationResponseBodyPageResult extends $dara.Model {
   /**
    * @remarks
-   * The paged relationship record list.
+   * The list of paged relationship records.
    */
   relationList?: ListKgRelationResponseBodyPageResultRelationList[];
   /**

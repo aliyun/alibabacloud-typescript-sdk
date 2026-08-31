@@ -77,6 +77,11 @@ export class ListBatchTemplatesRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
+  /**
    * @remarks
    * The project ID.
    * 
@@ -91,6 +96,7 @@ export class ListBatchTemplatesRequest extends $dara.Model {
       env: 'Env',
       listQuery: 'ListQuery',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
       projectId: 'ProjectId',
     };
   }
@@ -100,6 +106,7 @@ export class ListBatchTemplatesRequest extends $dara.Model {
       env: 'string',
       listQuery: ListBatchTemplatesRequestListQuery,
       opTenantId: 'number',
+      opUserId: 'string',
       projectId: 'number',
     };
   }

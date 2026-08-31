@@ -63,12 +63,18 @@ export class GetStandardTemplateRequest extends $dara.Model {
    * 30001011
    */
   opTenantId?: number;
+  /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
   static names(): { [key: string]: string } {
     return {
       filterQuery: 'FilterQuery',
       id: 'Id',
       nullable: 'Nullable',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
     };
   }
 
@@ -78,6 +84,7 @@ export class GetStandardTemplateRequest extends $dara.Model {
       id: 'number',
       nullable: 'boolean',
       opTenantId: 'number',
+      opUserId: 'string',
     };
   }
 

@@ -5,21 +5,21 @@ import * as $dara from '@darabonba/typescript';
 export class AssignQualityRuleOfAllRuleScopeSchedulesRequestAssignCommand extends $dara.Model {
   /**
    * @remarks
-   * The rule IDs.
+   * The rule ID.
    * 
    * This parameter is required.
    */
   ruleIdList?: number[];
   /**
    * @remarks
-   * The schedule IDs.
+   * The schedule ID.
    * 
    * This parameter is required.
    */
   scheduleIdList?: number[];
   /**
    * @remarks
-   * The ID of the monitored object.
+   * The monitored object ID.
    * 
    * This parameter is required.
    * 
@@ -61,7 +61,7 @@ export class AssignQualityRuleOfAllRuleScopeSchedulesRequestAssignCommand extend
 export class AssignQualityRuleOfAllRuleScopeSchedulesRequest extends $dara.Model {
   /**
    * @remarks
-   * The assignment binding instruction.
+   * The assignment binding command.
    * 
    * This parameter is required.
    */
@@ -76,10 +76,19 @@ export class AssignQualityRuleOfAllRuleScopeSchedulesRequest extends $dara.Model
    * 30001011
    */
   opTenantId?: number;
+  /**
+   * @remarks
+   * The ID of the operator user.
+   * 
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
   static names(): { [key: string]: string } {
     return {
       assignCommand: 'AssignCommand',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
     };
   }
 
@@ -87,6 +96,7 @@ export class AssignQualityRuleOfAllRuleScopeSchedulesRequest extends $dara.Model
     return {
       assignCommand: AssignQualityRuleOfAllRuleScopeSchedulesRequestAssignCommand,
       opTenantId: 'number',
+      opUserId: 'string',
     };
   }
 

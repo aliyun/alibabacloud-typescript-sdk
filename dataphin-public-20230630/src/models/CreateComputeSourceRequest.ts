@@ -49,11 +49,30 @@ export class CreateComputeSourceRequestCreateCommandConfigList extends $dara.Mod
 export class CreateComputeSourceRequestCreateCommand extends $dara.Model {
   /**
    * @remarks
+   * The ID of the associated cluster. This parameter takes effect only when CreateType is not specified or is set to COMPUTE_SOURCE, which creates a compute source that references a cluster. This parameter is mutually exclusive with CreateType=CLUSTER.
+   * 
+   * @example
+   * 102311
+   */
+  clusterId?: number;
+  /**
+   * @remarks
    * The connection configuration items.
    * 
    * This parameter is required.
    */
   configList?: CreateComputeSourceRequestCreateCommandConfigList[];
+  /**
+   * @remarks
+   * The type of entity to create. Valid values:
+   * 
+   * - CLUSTER: Creates a cluster. ClusterId cannot be specified.
+   * - COMPUTE_SOURCE: Creates a compute source. This is the default value.
+   * 
+   * @example
+   * CLUSTER
+   */
+  createType?: string;
   /**
    * @remarks
    * The description.
@@ -82,21 +101,35 @@ export class CreateComputeSourceRequestCreateCommand extends $dara.Model {
    * MacCompute
    */
   type?: string;
+  /**
+   * @remarks
+   * The version of the compute source type.
+   * 
+   * @example
+   * CDH6
+   */
+  typeVersion?: string;
   static names(): { [key: string]: string } {
     return {
+      clusterId: 'ClusterId',
       configList: 'ConfigList',
+      createType: 'CreateType',
       description: 'Description',
       name: 'Name',
       type: 'Type',
+      typeVersion: 'TypeVersion',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      clusterId: 'number',
       configList: { 'type': 'array', 'itemType': CreateComputeSourceRequestCreateCommandConfigList },
+      createType: 'string',
       description: 'string',
       name: 'string',
       type: 'string',
+      typeVersion: 'string',
     };
   }
 
@@ -130,10 +163,19 @@ export class CreateComputeSourceRequest extends $dara.Model {
    * 30001011
    */
   opTenantId?: number;
+  /**
+   * @remarks
+   * The ID of the operator.
+   * 
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
   static names(): { [key: string]: string } {
     return {
       createCommand: 'CreateCommand',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
     };
   }
 
@@ -141,6 +183,7 @@ export class CreateComputeSourceRequest extends $dara.Model {
     return {
       createCommand: CreateComputeSourceRequestCreateCommand,
       opTenantId: 'number',
+      opUserId: 'string',
     };
   }
 

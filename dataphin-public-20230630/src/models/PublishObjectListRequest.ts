@@ -70,6 +70,11 @@ export class PublishObjectListRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
+  /**
    * @remarks
    * The publish command.
    * 
@@ -79,6 +84,7 @@ export class PublishObjectListRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
       publishCommand: 'PublishCommand',
     };
   }
@@ -86,6 +92,7 @@ export class PublishObjectListRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       opTenantId: 'number',
+      opUserId: 'string',
       publishCommand: PublishObjectListRequestPublishCommand,
     };
   }

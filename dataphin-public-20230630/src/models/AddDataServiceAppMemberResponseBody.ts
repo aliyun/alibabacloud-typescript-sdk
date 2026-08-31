@@ -21,7 +21,7 @@ export class AddDataServiceAppMemberResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The error details returned by the backend.
+   * The details of the backend exception.
    * 
    * @example
    * internal error

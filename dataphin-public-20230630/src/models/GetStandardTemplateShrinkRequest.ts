@@ -33,12 +33,18 @@ export class GetStandardTemplateShrinkRequest extends $dara.Model {
    * 30001011
    */
   opTenantId?: number;
+  /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
   static names(): { [key: string]: string } {
     return {
       filterQueryShrink: 'FilterQuery',
       id: 'Id',
       nullable: 'Nullable',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
     };
   }
 
@@ -48,6 +54,7 @@ export class GetStandardTemplateShrinkRequest extends $dara.Model {
       id: 'number',
       nullable: 'boolean',
       opTenantId: 'number',
+      opUserId: 'string',
     };
   }
 

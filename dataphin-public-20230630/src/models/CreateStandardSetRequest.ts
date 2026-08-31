@@ -355,10 +355,16 @@ export class CreateStandardSetRequest extends $dara.Model {
    * 30001011
    */
   opTenantId?: number;
+  /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
   static names(): { [key: string]: string } {
     return {
       createCommand: 'CreateCommand',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
     };
   }
 
@@ -366,6 +372,7 @@ export class CreateStandardSetRequest extends $dara.Model {
     return {
       createCommand: CreateStandardSetRequestCreateCommand,
       opTenantId: 'number',
+      opUserId: 'string',
     };
   }
 

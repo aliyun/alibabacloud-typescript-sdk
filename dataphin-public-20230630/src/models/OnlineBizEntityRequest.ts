@@ -90,10 +90,16 @@ export class OnlineBizEntityRequest extends $dara.Model {
    * 30001011
    */
   opTenantId?: number;
+  /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
   static names(): { [key: string]: string } {
     return {
       onlineCommand: 'OnlineCommand',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
     };
   }
 
@@ -101,6 +107,7 @@ export class OnlineBizEntityRequest extends $dara.Model {
     return {
       onlineCommand: OnlineBizEntityRequestOnlineCommand,
       opTenantId: 'number',
+      opUserId: 'string',
     };
   }
 

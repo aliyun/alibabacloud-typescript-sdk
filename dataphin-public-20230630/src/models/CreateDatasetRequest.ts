@@ -2,6 +2,199 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class CreateDatasetRequestCreateCommandApiInfoRequestParamList extends $dara.Model {
+  /**
+   * @example
+   * test
+   */
+  defaultValue?: string;
+  /**
+   * @example
+   * test
+   */
+  descr?: string;
+  isUrl?: boolean;
+  must?: boolean;
+  /**
+   * @example
+   * col01
+   */
+  paramName?: string;
+  /**
+   * @example
+   * int
+   */
+  paramType?: string;
+  /**
+   * @example
+   * test
+   */
+  sample?: string;
+  static names(): { [key: string]: string } {
+    return {
+      defaultValue: 'DefaultValue',
+      descr: 'Descr',
+      isUrl: 'IsUrl',
+      must: 'Must',
+      paramName: 'ParamName',
+      paramType: 'ParamType',
+      sample: 'Sample',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      defaultValue: 'string',
+      descr: 'string',
+      isUrl: 'boolean',
+      must: 'boolean',
+      paramName: 'string',
+      paramType: 'string',
+      sample: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDatasetRequestCreateCommandApiInfoResponseParamList extends $dara.Model {
+  /**
+   * @example
+   * test
+   */
+  descr?: string;
+  isUrl?: boolean;
+  /**
+   * @example
+   * col01
+   */
+  paramName?: string;
+  /**
+   * @example
+   * int
+   */
+  paramType?: string;
+  /**
+   * @example
+   * test
+   */
+  sample?: string;
+  static names(): { [key: string]: string } {
+    return {
+      descr: 'Descr',
+      isUrl: 'IsUrl',
+      paramName: 'ParamName',
+      paramType: 'ParamType',
+      sample: 'Sample',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      descr: 'string',
+      isUrl: 'boolean',
+      paramName: 'string',
+      paramType: 'string',
+      sample: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDatasetRequestCreateCommandApiInfo extends $dara.Model {
+  /**
+   * @example
+   * 60
+   */
+  execTimeout?: number;
+  /**
+   * @example
+   * 1
+   */
+  executeMode?: number;
+  /**
+   * @example
+   * 1011
+   */
+  osApiGroup?: number;
+  /**
+   * @example
+   * 1022
+   */
+  osProject?: number;
+  /**
+   * @example
+   * 1
+   */
+  protocol?: number;
+  /**
+   * @example
+   * 1
+   */
+  requestMethod?: number;
+  requestParamList?: CreateDatasetRequestCreateCommandApiInfoRequestParamList[];
+  responseParamList?: CreateDatasetRequestCreateCommandApiInfoResponseParamList[];
+  /**
+   * @example
+   * 60
+   */
+  timeout?: number;
+  static names(): { [key: string]: string } {
+    return {
+      execTimeout: 'ExecTimeout',
+      executeMode: 'ExecuteMode',
+      osApiGroup: 'OsApiGroup',
+      osProject: 'OsProject',
+      protocol: 'Protocol',
+      requestMethod: 'RequestMethod',
+      requestParamList: 'RequestParamList',
+      responseParamList: 'ResponseParamList',
+      timeout: 'Timeout',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      execTimeout: 'number',
+      executeMode: 'number',
+      osApiGroup: 'number',
+      osProject: 'number',
+      protocol: 'number',
+      requestMethod: 'number',
+      requestParamList: { 'type': 'array', 'itemType': CreateDatasetRequestCreateCommandApiInfoRequestParamList },
+      responseParamList: { 'type': 'array', 'itemType': CreateDatasetRequestCreateCommandApiInfoResponseParamList },
+      timeout: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.requestParamList)) {
+      $dara.Model.validateArray(this.requestParamList);
+    }
+    if(Array.isArray(this.responseParamList)) {
+      $dara.Model.validateArray(this.responseParamList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateDatasetRequestCreateCommandVersionConfigFileStorageConfig extends $dara.Model {
   /**
    * @remarks
@@ -745,6 +938,7 @@ export class CreateDatasetRequestCreateCommandVersionConfig extends $dara.Model 
 }
 
 export class CreateDatasetRequestCreateCommand extends $dara.Model {
+  apiInfo?: CreateDatasetRequestCreateCommandApiInfo;
   /**
    * @remarks
    * The dataset content type. Valid values: GENERAL, TEXT, AUDIO, VIDEO, IMAGE, TABLE, INDEX.
@@ -860,6 +1054,7 @@ export class CreateDatasetRequestCreateCommand extends $dara.Model {
   versionConfig?: CreateDatasetRequestCreateCommandVersionConfig;
   static names(): { [key: string]: string } {
     return {
+      apiInfo: 'ApiInfo',
       contentType: 'ContentType',
       dataCellId: 'DataCellId',
       description: 'Description',
@@ -878,6 +1073,7 @@ export class CreateDatasetRequestCreateCommand extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      apiInfo: CreateDatasetRequestCreateCommandApiInfo,
       contentType: 'string',
       dataCellId: 'string',
       description: 'string',
@@ -895,6 +1091,9 @@ export class CreateDatasetRequestCreateCommand extends $dara.Model {
   }
 
   validate() {
+    if(this.apiInfo && typeof (this.apiInfo as any).validate === 'function') {
+      (this.apiInfo as any).validate();
+    }
     if(this.versionConfig && typeof (this.versionConfig as any).validate === 'function') {
       (this.versionConfig as any).validate();
     }
@@ -925,6 +1124,11 @@ export class CreateDatasetRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
+  /**
    * @remarks
    * The project ID.
    * 
@@ -938,6 +1142,7 @@ export class CreateDatasetRequest extends $dara.Model {
     return {
       createCommand: 'CreateCommand',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
       projectId: 'ProjectId',
     };
   }
@@ -946,6 +1151,7 @@ export class CreateDatasetRequest extends $dara.Model {
     return {
       createCommand: CreateDatasetRequestCreateCommand,
       opTenantId: 'number',
+      opUserId: 'string',
       projectId: 'string',
     };
   }

@@ -16,7 +16,7 @@ export class ListNodeDownStreamRequestListQueryFilterList extends $dara.Model {
    * The filter key. Valid values:
    * - PROJECT: project
    * - PHYSICAL_NODE_ID: physical node ID
-   * - LOGICAL_TABLE_NODE_ID: logical table ID.
+   * - LOGICAL_TABLE_NODE_ID: logical table ID
    * 
    * @example
    * PROJECT
@@ -58,7 +58,7 @@ export class ListNodeDownStreamRequestListQueryFilterList extends $dara.Model {
 export class ListNodeDownStreamRequestListQueryNodeIdList extends $dara.Model {
   /**
    * @remarks
-   * The list of field IDs. This parameter can be specified when the node ID is a logical table node ID. If this parameter is not specified, all fields in the table are used by default.
+   * The list of field IDs. This parameter can be specified when the node ID is a logical table node ID. If this parameter is not specified, the full table is used by default.
    * 
    * @example
    * 112
@@ -101,7 +101,7 @@ export class ListNodeDownStreamRequestListQueryNodeIdList extends $dara.Model {
 export class ListNodeDownStreamRequestListQuery extends $dara.Model {
   /**
    * @remarks
-   * The depth. Default value: 3.
+   * The depth of the downstream query. Default value: 3.
    * 
    * @example
    * 1
@@ -109,7 +109,7 @@ export class ListNodeDownStreamRequestListQuery extends $dara.Model {
   downStreamDepth?: number;
   /**
    * @remarks
-   * The filters. You can include or exclude results based on projects or nodes. Default value: empty.
+   * The list of filters. You can include or exclude results based on projects and nodes. Default value: empty.
    */
   filterList?: ListNodeDownStreamRequestListQueryFilterList[];
   /**
@@ -188,11 +188,20 @@ export class ListNodeDownStreamRequest extends $dara.Model {
    * 30001011
    */
   opTenantId?: number;
+  /**
+   * @remarks
+   * The ID of the operator.
+   * 
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
   static names(): { [key: string]: string } {
     return {
       env: 'Env',
       listQuery: 'ListQuery',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
     };
   }
 
@@ -201,6 +210,7 @@ export class ListNodeDownStreamRequest extends $dara.Model {
       env: 'string',
       listQuery: ListNodeDownStreamRequestListQuery,
       opTenantId: 'number',
+      opUserId: 'string',
     };
   }
 

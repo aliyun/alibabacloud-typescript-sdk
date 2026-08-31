@@ -85,11 +85,17 @@ export class ListProjectMembersRequest extends $dara.Model {
    * 30001011
    */
   opTenantId?: number;
+  /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
   static names(): { [key: string]: string } {
     return {
       id: 'Id',
       listQuery: 'ListQuery',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
     };
   }
 
@@ -98,6 +104,7 @@ export class ListProjectMembersRequest extends $dara.Model {
       id: 'number',
       listQuery: ListProjectMembersRequestListQuery,
       opTenantId: 'number',
+      opUserId: 'string',
     };
   }
 

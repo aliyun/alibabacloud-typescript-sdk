@@ -23,10 +23,16 @@ export class GetCheckConnectivityJobsRequest extends $dara.Model {
    * 30001011
    */
   opTenantId?: number;
+  /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
   static names(): { [key: string]: string } {
     return {
       dataSourceId: 'DataSourceId',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
     };
   }
 
@@ -34,6 +40,7 @@ export class GetCheckConnectivityJobsRequest extends $dara.Model {
     return {
       dataSourceId: 'number',
       opTenantId: 'number',
+      opUserId: 'string',
     };
   }
 

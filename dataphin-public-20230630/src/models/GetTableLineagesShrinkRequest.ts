@@ -19,6 +19,11 @@ export class GetTableLineagesShrinkRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
+  /**
    * @remarks
    * The GUID of the table, which is the unique identifier of each asset.
    * 
@@ -32,6 +37,7 @@ export class GetTableLineagesShrinkRequest extends $dara.Model {
     return {
       filterQueryShrink: 'FilterQuery',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
       tableGuid: 'TableGuid',
     };
   }
@@ -40,6 +46,7 @@ export class GetTableLineagesShrinkRequest extends $dara.Model {
     return {
       filterQueryShrink: 'string',
       opTenantId: 'number',
+      opUserId: 'string',
       tableGuid: 'string',
     };
   }

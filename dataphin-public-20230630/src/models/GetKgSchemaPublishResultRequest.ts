@@ -14,6 +14,11 @@ export class GetKgSchemaPublishResultRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
+  /**
    * @remarks
    * The version number. If this parameter is left empty, the most recent publish record is returned.
    * 
@@ -34,6 +39,7 @@ export class GetKgSchemaPublishResultRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
       versionId: 'VersionId',
       workspaceId: 'WorkspaceId',
     };
@@ -42,6 +48,7 @@ export class GetKgSchemaPublishResultRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       opTenantId: 'number',
+      opUserId: 'string',
       versionId: 'number',
       workspaceId: 'string',
     };

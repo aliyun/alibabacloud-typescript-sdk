@@ -5,16 +5,16 @@ import * as $dara from '@darabonba/typescript';
 export class CreateNodeSupplementShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * Create backfill request
+   * The data backfill request.
    * 
    * This parameter is required.
    */
   createCommandShrink?: string;
   /**
    * @remarks
-   * Environment identifier.
-   * - DEV: development environment.
-   * - PROD (default): production environment.
+   * The environment identifier. Valid values:
+   * - DEV: Development environment. 
+   * - PROD (default): Production environment.
    * 
    * @example
    * PROD
@@ -22,7 +22,7 @@ export class CreateNodeSupplementShrinkRequest extends $dara.Model {
   env?: string;
   /**
    * @remarks
-   * Tenant ID
+   * The tenant ID.
    * 
    * This parameter is required.
    * 
@@ -30,11 +30,20 @@ export class CreateNodeSupplementShrinkRequest extends $dara.Model {
    * 30001011
    */
   opTenantId?: number;
+  /**
+   * @remarks
+   * The ID of the operator user.
+   * 
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
   static names(): { [key: string]: string } {
     return {
       createCommandShrink: 'CreateCommand',
       env: 'Env',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
     };
   }
 
@@ -43,6 +52,7 @@ export class CreateNodeSupplementShrinkRequest extends $dara.Model {
       createCommandShrink: 'string',
       env: 'string',
       opTenantId: 'number',
+      opUserId: 'string',
     };
   }
 

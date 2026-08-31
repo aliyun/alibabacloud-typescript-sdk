@@ -14,6 +14,11 @@ export class RemoveDataServiceAppMemberShrinkRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
+  /**
    * @remarks
    * Remove regular members from a data service application
    * 
@@ -23,6 +28,7 @@ export class RemoveDataServiceAppMemberShrinkRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
       removeCommandShrink: 'RemoveCommand',
     };
   }
@@ -30,6 +36,7 @@ export class RemoveDataServiceAppMemberShrinkRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       opTenantId: 'number',
+      opUserId: 'string',
       removeCommandShrink: 'string',
     };
   }

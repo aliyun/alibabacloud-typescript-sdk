@@ -125,7 +125,7 @@ export class BatchCreateKgEntityRequestCreateCommand extends $dara.Model {
 export class BatchCreateKgEntityRequest extends $dara.Model {
   /**
    * @remarks
-   * The create instruction.
+   * The create command.
    * 
    * This parameter is required.
    */
@@ -142,6 +142,14 @@ export class BatchCreateKgEntityRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
+   * The ID of the operator user.
+   * 
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
+  /**
+   * @remarks
    * The workspace ID.
    * 
    * This parameter is required.
@@ -154,6 +162,7 @@ export class BatchCreateKgEntityRequest extends $dara.Model {
     return {
       createCommand: 'CreateCommand',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
       workspaceId: 'WorkspaceId',
     };
   }
@@ -162,6 +171,7 @@ export class BatchCreateKgEntityRequest extends $dara.Model {
     return {
       createCommand: BatchCreateKgEntityRequestCreateCommand,
       opTenantId: 'number',
+      opUserId: 'string',
       workspaceId: 'string',
     };
   }

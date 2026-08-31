@@ -151,6 +151,11 @@ export class ListKgEntityRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
+  /**
    * @remarks
    * The workspace ID.
    * 
@@ -165,6 +170,7 @@ export class ListKgEntityRequest extends $dara.Model {
       entityType: 'EntityType',
       listQuery: 'ListQuery',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
       workspaceId: 'WorkspaceId',
     };
   }
@@ -174,6 +180,7 @@ export class ListKgEntityRequest extends $dara.Model {
       entityType: 'string',
       listQuery: ListKgEntityRequestListQuery,
       opTenantId: 'number',
+      opUserId: 'string',
       workspaceId: 'string',
     };
   }

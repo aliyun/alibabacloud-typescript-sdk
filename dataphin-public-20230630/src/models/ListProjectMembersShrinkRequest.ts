@@ -33,11 +33,17 @@ export class ListProjectMembersShrinkRequest extends $dara.Model {
    * 30001011
    */
   opTenantId?: number;
+  /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
   static names(): { [key: string]: string } {
     return {
       id: 'Id',
       listQueryShrink: 'ListQuery',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
     };
   }
 
@@ -46,6 +52,7 @@ export class ListProjectMembersShrinkRequest extends $dara.Model {
       id: 'number',
       listQueryShrink: 'string',
       opTenantId: 'number',
+      opUserId: 'string',
     };
   }
 

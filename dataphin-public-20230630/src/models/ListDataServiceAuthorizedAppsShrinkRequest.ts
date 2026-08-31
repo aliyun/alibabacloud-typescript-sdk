@@ -19,6 +19,11 @@ export class ListDataServiceAuthorizedAppsShrinkRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
+  /**
    * @remarks
    * The ID of the data service project.
    * 
@@ -32,6 +37,7 @@ export class ListDataServiceAuthorizedAppsShrinkRequest extends $dara.Model {
     return {
       listQueryShrink: 'ListQuery',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
       projectId: 'ProjectId',
     };
   }
@@ -40,6 +46,7 @@ export class ListDataServiceAuthorizedAppsShrinkRequest extends $dara.Model {
     return {
       listQueryShrink: 'string',
       opTenantId: 'number',
+      opUserId: 'string',
       projectId: 'number',
     };
   }

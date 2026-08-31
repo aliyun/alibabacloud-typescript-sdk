@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ImportKgSchemaShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The instruction for importing the knowledge graph definition.
+   * The command for importing the knowledge graph definition.
    * 
    * This parameter is required.
    * 
@@ -25,6 +25,14 @@ export class ImportKgSchemaShrinkRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
+   * The ID of the operator user.
+   * 
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
+  /**
+   * @remarks
    * The workspace ID.
    * 
    * This parameter is required.
@@ -37,6 +45,7 @@ export class ImportKgSchemaShrinkRequest extends $dara.Model {
     return {
       importCommandShrink: 'ImportCommand',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
       workspaceId: 'WorkspaceId',
     };
   }
@@ -45,6 +54,7 @@ export class ImportKgSchemaShrinkRequest extends $dara.Model {
     return {
       importCommandShrink: 'string',
       opTenantId: 'number',
+      opUserId: 'string',
       workspaceId: 'string',
     };
   }

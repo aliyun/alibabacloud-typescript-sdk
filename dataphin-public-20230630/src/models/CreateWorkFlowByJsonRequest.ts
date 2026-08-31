@@ -54,7 +54,7 @@ export class CreateWorkFlowByJsonRequestContext extends $dara.Model {
 export class CreateWorkFlowByJsonRequestCreateCommand extends $dara.Model {
   /**
    * @remarks
-   * The description of the node.
+   * The node description.
    * 
    * @example
    * cooment
@@ -70,7 +70,7 @@ export class CreateWorkFlowByJsonRequestCreateCommand extends $dara.Model {
   directory?: string;
   /**
    * @remarks
-   * The schedule configuration. This parameter is required for periodic nodes. The value is a JSON string. Refer to the utility class: com.alibaba.dataphin.pipeline.common.facade.openapi.model.OAScheduleConfig#toJsonString method.
+   * The schedule configuration (required for periodic nodes). The value is a JSON string. Refer to the utility class: com.alibaba.dataphin.pipeline.common.facade.openapi.model.OAScheduleConfig#toJsonString method.
    * 
    * @example
    * {"cronExpression":"0 0 0 * * ?"}
@@ -83,7 +83,7 @@ export class CreateWorkFlowByJsonRequestCreateCommand extends $dara.Model {
   submit?: boolean;
   /**
    * @remarks
-   * The name of the node.
+   * The node name.
    * 
    * This parameter is required.
    * 
@@ -93,7 +93,7 @@ export class CreateWorkFlowByJsonRequestCreateCommand extends $dara.Model {
   taskName?: string;
   /**
    * @remarks
-   * The scheduling type of the node. Valid values:
+   * The node scheduling type. Valid values:
    * 
    * - 1: periodic scheduling.
    * - 3: manual scheduling.
@@ -173,11 +173,20 @@ export class CreateWorkFlowByJsonRequest extends $dara.Model {
    * 30001011
    */
   opTenantId?: number;
+  /**
+   * @remarks
+   * The ID of the operator user.
+   * 
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
   static names(): { [key: string]: string } {
     return {
       context: 'Context',
       createCommand: 'CreateCommand',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
     };
   }
 
@@ -186,6 +195,7 @@ export class CreateWorkFlowByJsonRequest extends $dara.Model {
       context: CreateWorkFlowByJsonRequestContext,
       createCommand: CreateWorkFlowByJsonRequestCreateCommand,
       opTenantId: 'number',
+      opUserId: 'string',
     };
   }
 

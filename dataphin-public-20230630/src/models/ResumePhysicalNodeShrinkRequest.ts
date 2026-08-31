@@ -24,6 +24,11 @@ export class ResumePhysicalNodeShrinkRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
+  /**
    * @remarks
    * Resume scheduling request.
    * 
@@ -34,6 +39,7 @@ export class ResumePhysicalNodeShrinkRequest extends $dara.Model {
     return {
       env: 'Env',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
       resumeCommandShrink: 'ResumeCommand',
     };
   }
@@ -42,6 +48,7 @@ export class ResumePhysicalNodeShrinkRequest extends $dara.Model {
     return {
       env: 'string',
       opTenantId: 'number',
+      opUserId: 'string',
       resumeCommandShrink: 'string',
     };
   }

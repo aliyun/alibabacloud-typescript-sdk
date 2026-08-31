@@ -60,10 +60,19 @@ export class AddUserGroupMemberRequest extends $dara.Model {
    * 30001011
    */
   opTenantId?: number;
+  /**
+   * @remarks
+   * The ID of the operator user.
+   * 
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
   static names(): { [key: string]: string } {
     return {
       addCommand: 'AddCommand',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
     };
   }
 
@@ -71,6 +80,7 @@ export class AddUserGroupMemberRequest extends $dara.Model {
     return {
       addCommand: AddUserGroupMemberRequestAddCommand,
       opTenantId: 'number',
+      opUserId: 'string',
     };
   }
 

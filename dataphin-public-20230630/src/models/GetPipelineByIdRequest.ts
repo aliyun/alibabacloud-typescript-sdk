@@ -17,7 +17,7 @@ export class GetPipelineByIdRequestContext extends $dara.Model {
   env?: string;
   /**
    * @remarks
-   * The project ID to which the integration pipeline node belongs.
+   * The ID of the project to which the integration pipeline node belongs.
    * 
    * This parameter is required.
    * 
@@ -118,7 +118,15 @@ export class GetPipelineByIdRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
-   * The query ID used to query the pipeline node.
+   * The ID of the operator.
+   * 
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
+  /**
+   * @remarks
+   * The ID used to query the pipeline node.
    * 
    * This parameter is required.
    */
@@ -127,6 +135,7 @@ export class GetPipelineByIdRequest extends $dara.Model {
     return {
       context: 'Context',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
       queryId: 'QueryId',
     };
   }
@@ -135,6 +144,7 @@ export class GetPipelineByIdRequest extends $dara.Model {
     return {
       context: GetPipelineByIdRequestContext,
       opTenantId: 'number',
+      opUserId: 'string',
       queryId: GetPipelineByIdRequestQueryId,
     };
   }

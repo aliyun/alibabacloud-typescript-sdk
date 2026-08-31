@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetTableLineageByTaskIdResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The business unit ID of the input table.
+   * The ID of the business unit to which the input table belongs.
    * 
    * @example
    * 123
@@ -13,7 +13,7 @@ export class GetTableLineageByTaskIdResponseBodyData extends $dara.Model {
   inputBizUnitId?: number;
   /**
    * @remarks
-   * The data source ID of the input table.
+   * The ID of the data source to which the input table belongs.
    * 
    * @example
    * 123
@@ -21,7 +21,7 @@ export class GetTableLineageByTaskIdResponseBodyData extends $dara.Model {
   inputDataSourceId?: number;
   /**
    * @remarks
-   * The storage type of the input table.
+   * The storage format of the input table.
    * 
    * @example
    * MAX_COMPUTE
@@ -29,7 +29,7 @@ export class GetTableLineageByTaskIdResponseBodyData extends $dara.Model {
   inputDataSourceType?: string;
   /**
    * @remarks
-   * The data source type of the input table.
+   * The type of the input data source.
    * 
    * @example
    * MAX_COMPUTE
@@ -37,7 +37,7 @@ export class GetTableLineageByTaskIdResponseBodyData extends $dara.Model {
   inputDbType?: string;
   /**
    * @remarks
-   * The environment of the input table: DEV or PROD.
+   * The environment to which the input table belongs. Valid values: DEV and PROD.
    * 
    * @example
    * DEV
@@ -45,7 +45,7 @@ export class GetTableLineageByTaskIdResponseBodyData extends $dara.Model {
   inputEnv?: string;
   /**
    * @remarks
-   * The project ID of the input table.
+   * The ID of the project to which the input table belongs.
    * 
    * @example
    * 123
@@ -53,13 +53,12 @@ export class GetTableLineageByTaskIdResponseBodyData extends $dara.Model {
   inputProjectId?: number;
   /**
    * @remarks
-   * Indicates whether the input table is deleted.
+   * Indicates whether the input table has been deleted.
    */
   inputTableDeleted?: boolean;
   /**
    * @remarks
    * The GUID of the input table. Each asset has a unique GUID in the following format:
-   * 
    * - Logical table: dp_table.[TenantId].[BusinessUnitName].[TableName]
    * - Compute source physical table: [EngineType].[TenantId].[ProjectName].[TableName]
    * - Data source table: dp_ds_table.[TenantId].[DataSourceId].[SchemaName].[TableName]
@@ -78,19 +77,19 @@ export class GetTableLineageByTaskIdResponseBodyData extends $dara.Model {
   inputTableName?: string;
   /**
    * @remarks
-   * The type of the input table. 
+   * The type of the input table. Valid values: 
    * 
-   * - PHYSICAL_TABLE Physical table (compute source)
-   * - DIM_LOGIC_TABLE Dimension logical table
-   * - FACT_LOGIC_TABLE Fact logical table
-   * - SUM_LOGIC_TABLE Aggregate logical table
-   * - REAL_TIME_LOGIC_TABLE Real-time meta table
-   * - REAL_TIME_MIRROR_TABLE Real-time mirror table
-   * - PHYSICAL_VIEW Physical view
-   * - LOGICAL_VIEW Logical view
-   * - DATA_SOURCE_PHYSICAL_TABLE Data source table
-   * - DATA_SOURCE_VIEW Data source view
-   * - DATA_SOURCE_MATERIALIZED_VIEW Data source materialized view
+   * - PHYSICAL_TABLE: physical table (compute source).
+   * - DIM_LOGIC_TABLE: logical dimension table.
+   * - FACT_LOGIC_TABLE: fact logical table.
+   * - SUM_LOGIC_TABLE: aggregate logical table.
+   * - REAL_TIME_LOGIC_TABLE: real-time meta table.
+   * - REAL_TIME_MIRROR_TABLE: real-time mirror table.
+   * - PHYSICAL_VIEW: physical view.
+   * - LOGICAL_VIEW: logical view.
+   * - DATA_SOURCE_PHYSICAL_TABLE: data source table.
+   * - DATA_SOURCE_VIEW: data source view.
+   * - DATA_SOURCE_MATERIALIZED_VIEW: data source materialized view.
    * 
    * @example
    * PHYSICAL_TABLE
@@ -98,7 +97,7 @@ export class GetTableLineageByTaskIdResponseBodyData extends $dara.Model {
   inputTableType?: string;
   /**
    * @remarks
-   * The business unit ID of the output table.
+   * The ID of the business unit to which the output table belongs.
    * 
    * @example
    * 123
@@ -106,7 +105,7 @@ export class GetTableLineageByTaskIdResponseBodyData extends $dara.Model {
   outputBizUnitId?: number;
   /**
    * @remarks
-   * The data source ID of the output table.
+   * The ID of the data source to which the output table belongs.
    * 
    * @example
    * 123
@@ -114,7 +113,7 @@ export class GetTableLineageByTaskIdResponseBodyData extends $dara.Model {
   outputDataSourceId?: number;
   /**
    * @remarks
-   * The storage type of the output table.
+   * The storage format of the output table.
    * 
    * @example
    * MAX_COMPUTE
@@ -122,7 +121,7 @@ export class GetTableLineageByTaskIdResponseBodyData extends $dara.Model {
   outputDataSourceType?: string;
   /**
    * @remarks
-   * The data source type of the output table.
+   * The type of the output data source.
    * 
    * @example
    * MAX_COMPUTE
@@ -130,7 +129,7 @@ export class GetTableLineageByTaskIdResponseBodyData extends $dara.Model {
   outputDbType?: string;
   /**
    * @remarks
-   * The environment of the output table: DEV or PROD.
+   * The environment to which the output table belongs. Valid values: DEV and PROD.
    * 
    * @example
    * DEV/PROD
@@ -138,7 +137,7 @@ export class GetTableLineageByTaskIdResponseBodyData extends $dara.Model {
   outputEnv?: string;
   /**
    * @remarks
-   * The project ID of the output table.
+   * The ID of the project to which the output table belongs.
    * 
    * @example
    * 123
@@ -146,7 +145,7 @@ export class GetTableLineageByTaskIdResponseBodyData extends $dara.Model {
   outputProjectId?: number;
   /**
    * @remarks
-   * Indicates whether the output table is deleted.
+   * Indicates whether the output table has been deleted.
    */
   outputTableDeleted?: boolean;
   /**
@@ -175,7 +174,7 @@ export class GetTableLineageByTaskIdResponseBodyData extends $dara.Model {
   outputTableType?: string;
   /**
    * @remarks
-   * The environment of the task (node) associated with the lineage: DEV or PROD.
+   * The environment of the node associated with the lineage. Valid values: DEV and PROD.
    * 
    * @example
    * DEV
@@ -183,7 +182,7 @@ export class GetTableLineageByTaskIdResponseBodyData extends $dara.Model {
   taskEnv?: string;
   /**
    * @remarks
-   * The task (node) ID associated with the lineage.
+   * The ID of the node associated with the lineage.
    * 
    * @example
    * n_123
@@ -265,7 +264,7 @@ export class GetTableLineageByTaskIdResponseBodyData extends $dara.Model {
 export class GetTableLineageByTaskIdResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. OK indicates a successful request.
+   * The error code. A value of OK indicates that the request was successful.
    * 
    * @example
    * OK
@@ -273,12 +272,12 @@ export class GetTableLineageByTaskIdResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The query results.
+   * The query result.
    */
   data?: GetTableLineageByTaskIdResponseBodyData[];
   /**
    * @remarks
-   * The HTTP status code.
+   * The HTTP status code returned by the backend.
    * 
    * @example
    * 200

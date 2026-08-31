@@ -45,7 +45,7 @@ export class BatchCreateKgEntityResponseBodyCreateResultSuccessEntityList extend
 export class BatchCreateKgEntityResponseBodyCreateResult extends $dara.Model {
   /**
    * @remarks
-   * The number of failed records.
+   * The number of entity records that failed to be created.
    * 
    * @example
    * 0
@@ -53,7 +53,7 @@ export class BatchCreateKgEntityResponseBodyCreateResult extends $dara.Model {
   failCount?: number;
   /**
    * @remarks
-   * The number of successfully created records.
+   * The number of successfully created entity records.
    * 
    * @example
    * 10

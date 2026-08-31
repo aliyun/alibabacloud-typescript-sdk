@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AssignQualityRuleOfAllRuleScopeSchedulesShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The assignment binding instruction.
+   * The assignment binding command.
    * 
    * This parameter is required.
    */
@@ -20,10 +20,19 @@ export class AssignQualityRuleOfAllRuleScopeSchedulesShrinkRequest extends $dara
    * 30001011
    */
   opTenantId?: number;
+  /**
+   * @remarks
+   * The ID of the operator user.
+   * 
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
   static names(): { [key: string]: string } {
     return {
       assignCommandShrink: 'AssignCommand',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
     };
   }
 
@@ -31,6 +40,7 @@ export class AssignQualityRuleOfAllRuleScopeSchedulesShrinkRequest extends $dara
     return {
       assignCommandShrink: 'string',
       opTenantId: 'number',
+      opUserId: 'string',
     };
   }
 

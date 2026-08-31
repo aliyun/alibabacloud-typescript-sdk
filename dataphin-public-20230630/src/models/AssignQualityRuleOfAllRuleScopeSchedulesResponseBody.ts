@@ -26,7 +26,7 @@ export class AssignQualityRuleOfAllRuleScopeSchedulesResponseBody extends $dara.
   httpStatusCode?: number;
   /**
    * @remarks
-   * The details of the backend exception.
+   * The backend exception details.
    * 
    * @example
    * internal error

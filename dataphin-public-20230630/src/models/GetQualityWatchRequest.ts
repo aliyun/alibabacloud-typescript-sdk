@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetQualityWatchRequest extends $dara.Model {
   /**
    * @remarks
-   * The monitor ID.
+   * The watchtask ID.
    * 
    * This parameter is required.
    * 
@@ -23,10 +23,19 @@ export class GetQualityWatchRequest extends $dara.Model {
    * 30001011
    */
   opTenantId?: number;
+  /**
+   * @remarks
+   * The ID of the operator user.
+   * 
+   * @example
+   * 30001011
+   */
+  opUserId?: string;
   static names(): { [key: string]: string } {
     return {
       id: 'Id',
       opTenantId: 'OpTenantId',
+      opUserId: 'OpUserId',
     };
   }
 
@@ -34,6 +43,7 @@ export class GetQualityWatchRequest extends $dara.Model {
     return {
       id: 'number',
       opTenantId: 'number',
+      opUserId: 'string',
     };
   }
 
