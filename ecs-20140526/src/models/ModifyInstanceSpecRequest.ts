@@ -5,7 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyInstanceSpecRequestSystemDisk extends $dara.Model {
   /**
    * @remarks
-   * The new system disk category. Valid values:
+   * The new category of the system disk. Valid values:
+   * 
+   * - cloud_efficiency: ultra disk
+   * 
+   * - cloud_ssd: standard SSD
+   * 
+   * > This parameter is valid only when you upgrade from a [retired instance type](https://help.aliyun.com/document_detail/55263.html) to an [instance family that is available for purchase](https://help.aliyun.com/document_detail/25378.html) and change a non-I/O optimized instance to an I/O optimized instance.
    * 
    * @example
    * cloud_ssd
@@ -137,7 +143,21 @@ export class ModifyInstanceSpecRequest extends $dara.Model {
   temporary?: ModifyInstanceSpecRequestTemporary;
   /**
    * @remarks
-   * Specifies whether cross-cluster instance type upgrades are supported.
+   * Specifies whether cross-cluster instance type upgrade is supported. Valid values:
+   * - true: Supported.
+   * - false: Not supported.
+   * 
+   * Default value: false.
+   * 
+   * If you set the parameter `AllowMigrateAcrossZone` to true and upgrade the Elastic Compute Service instance based on the response, note the following:
+   * 
+   * Classic network type instances:
+   *     
+   * * For [retired instance types](https://help.aliyun.com/document_detail/55263.html), when a non-I/O optimized instance is changed to an I/O optimized instance, the private IP address, disk device names, and software authorization codes of the instance change. For Linux instances, basic disks (`cloud`) are identified as **xvda** or **xvdb**, and ultra disks (`cloud_efficiency`) and standard SSDs (`cloud_ssd`) are identified as **vda** or **vdb**.
+   *     
+   * * For [instance families that are available for purchase](https://help.aliyun.com/document_detail/25378.html), the private IP address of the instance changes.
+   * 
+   * VPC-type instances: For [retired instance types](https://help.aliyun.com/document_detail/55263.html), when a non-I/O optimized instance is changed to an I/O optimized instance, the server disk device names and software authorization codes of the instance change. For Linux instances, basic disks (`cloud`) are identified as **xvda** or **xvdb**, and ultra disks (`cloud_efficiency`) and standard SSDs (`cloud_ssd`) are identified as **vda** or **vdb**.
    * 
    * @example
    * false
@@ -146,6 +166,10 @@ export class ModifyInstanceSpecRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to submit an asynchronous request. Valid values:
+   * - true: The request is submitted asynchronously.
+   * - false: The request is not submitted asynchronously.
+   * 
+   * Default value: false.
    * 
    * @example
    * false
@@ -168,6 +192,9 @@ export class ModifyInstanceSpecRequest extends $dara.Model {
    * @remarks
    * Specifies whether to perform only a dry run. Valid values:
    * 
+   * - true: performs only a dry run. The instance type and public bandwidth are not modified. The system checks whether the required parameters are specified, whether the request format is valid, whether business restrictions are met, and whether ECS resources are available. If the check fails, the corresponding error is returned. If the check succeeds, the `DryRunOperation` error code is returned.
+   * - false (default): performs a dry run and sends the request. If the check succeeds, the instance type and public bandwidth are directly modified.
+   * 
    * @example
    * false
    */
@@ -184,7 +211,7 @@ export class ModifyInstanceSpecRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The target instance type of the instance. For more information, see [Instance family](https://help.aliyun.com/document_detail/25378.html). You can also invoke [DescribeInstanceTypes](https://help.aliyun.com/document_detail/25620.html) to query the most recent instance type list.
+   * The target instance type. For more information, see [Instance family](https://help.aliyun.com/document_detail/25378.html). You can also invoke [DescribeInstanceTypes](https://help.aliyun.com/document_detail/25620.html) to query the most recent instance type list.
    * 
    * @example
    * ecs.g6.large
@@ -192,7 +219,12 @@ export class ModifyInstanceSpecRequest extends $dara.Model {
   instanceType?: string;
   /**
    * @remarks
-   * The maximum inbound public bandwidth. Unit: Mbit/s (Megabit per second). Valid values:
+   * The maximum inbound public bandwidth. Unit: Mbit/s. Valid values:
+   * 
+   * - If the purchased outbound public bandwidth is less than or equal to 10 Mbit/s: 1 to 10. Default value: 10.
+   * - If the purchased outbound public bandwidth is greater than 10 Mbit/s: 1 to the value of `InternetMaxBandwidthOut`. Default value: the value of `InternetMaxBandwidthOut`.
+   * 
+   * > In **pay-by-traffic** mode, the peak inbound and outbound bandwidths are used as bandwidth upper limits and are not guaranteed. When resource contention occurs, the peak bandwidths may be limited. If your business requires guaranteed bandwidth, use the **pay-by-bandwidth** mode.
    * 
    * @example
    * 10
@@ -200,7 +232,9 @@ export class ModifyInstanceSpecRequest extends $dara.Model {
   internetMaxBandwidthIn?: number;
   /**
    * @remarks
-   * The maximum outbound public bandwidth. Unit: Mbit/s (Megabit per second). Valid values: 0 to 100.
+   * The maximum outbound public bandwidth. Unit: Mbit/s. Valid values: 0 to 100.
+   * 
+   * > In **pay-by-traffic** mode, the peak inbound and outbound bandwidths are used as bandwidth upper limits and are not guaranteed. When resource contention occurs, the peak bandwidths may be limited. If your business requires guaranteed bandwidth, use the **pay-by-bandwidth** mode.
    * 
    * @example
    * 10

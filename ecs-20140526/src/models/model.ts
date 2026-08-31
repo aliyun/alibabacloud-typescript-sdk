@@ -1835,6 +1835,9 @@ export { ModifyInstanceNetworkOptionsResponse } from './ModifyInstanceNetworkOpt
 export { ModifyInstanceNetworkSpecRequest } from './ModifyInstanceNetworkSpecRequest';
 export { ModifyInstanceNetworkSpecResponseBody } from './ModifyInstanceNetworkSpecResponseBody';
 export { ModifyInstanceNetworkSpecResponse } from './ModifyInstanceNetworkSpecResponse';
+export { ModifyInstanceSecurityOptionsRequest } from './ModifyInstanceSecurityOptionsRequest';
+export { ModifyInstanceSecurityOptionsResponseBody } from './ModifyInstanceSecurityOptionsResponseBody';
+export { ModifyInstanceSecurityOptionsResponse } from './ModifyInstanceSecurityOptionsResponse';
 export { ModifyInstanceSpecRequest } from './ModifyInstanceSpecRequest';
 export { ModifyInstanceSpecResponseBody } from './ModifyInstanceSpecResponseBody';
 export { ModifyInstanceSpecResponse } from './ModifyInstanceSpecResponse';

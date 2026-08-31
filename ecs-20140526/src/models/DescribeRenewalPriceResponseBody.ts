@@ -190,21 +190,37 @@ export class DescribeRenewalPriceResponseBodyPriceInfoPrice extends $dara.Model 
 
 export class DescribeRenewalPriceResponseBodyPriceInfoRelatedPriceMarketplaceImagePrice extends $dara.Model {
   /**
+   * @remarks
+   * The currency unit.
+   * 
+   * China site: CNY.
+   * 
+   * International site: USD.
+   * 
    * @example
    * CNY
    */
   currency?: string;
   /**
+   * @remarks
+   * The discount.
+   * 
    * @example
    * 0
    */
   discountPrice?: number;
   /**
+   * @remarks
+   * The original price.
+   * 
    * @example
    * 200
    */
   originalPrice?: number;
   /**
+   * @remarks
+   * The transaction price, which is equal to the original price minus the discount.
+   * 
    * @example
    * 200
    */
@@ -237,6 +253,10 @@ export class DescribeRenewalPriceResponseBodyPriceInfoRelatedPriceMarketplaceIma
 }
 
 export class DescribeRenewalPriceResponseBodyPriceInfoRelatedPrice extends $dara.Model {
+  /**
+   * @remarks
+   * The Alibaba Cloud Marketplace image price.
+   */
   marketplaceImagePrice?: DescribeRenewalPriceResponseBodyPriceInfoRelatedPriceMarketplaceImagePrice;
   static names(): { [key: string]: string } {
     return {
@@ -320,6 +340,10 @@ export class DescribeRenewalPriceResponseBodyPriceInfo extends $dara.Model {
    * The price.
    */
   price?: DescribeRenewalPriceResponseBodyPriceInfoPrice;
+  /**
+   * @remarks
+   * The related price.
+   */
   relatedPrice?: DescribeRenewalPriceResponseBodyPriceInfoRelatedPrice;
   rules?: DescribeRenewalPriceResponseBodyPriceInfoRules;
   static names(): { [key: string]: string } {

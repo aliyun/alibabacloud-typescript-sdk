@@ -448,7 +448,7 @@ export class DescribeImagesResponseBody extends $dara.Model {
   images?: DescribeImagesResponseBodyImages;
   /**
    * @remarks
-   * The current page number.
+   * The page number.
    * 
    * @example
    * 1
@@ -456,7 +456,7 @@ export class DescribeImagesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries on the current page.
+   * The number of entries per page.
    * 
    * @example
    * 1

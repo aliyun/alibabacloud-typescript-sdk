@@ -123,6 +123,10 @@ export class DescribePriceResponseBodyPriceInfoPrice extends $dara.Model {
    * @remarks
    * The currency unit.
    * 
+   * China site: CNY.
+   * 
+   * International site: USD.
+   * 
    * @example
    * CNY
    */
@@ -198,6 +202,10 @@ export class DescribePriceResponseBodyPriceInfoRelatedPriceMarketplaceImagePrice
   /**
    * @remarks
    * The currency unit.
+   * 
+   * China site: CNY.
+   * 
+   * International site: USD.
    * 
    * @example
    * CNY

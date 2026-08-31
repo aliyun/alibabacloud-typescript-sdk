@@ -7,6 +7,10 @@ export class ModifyPrepayInstanceSpecRequestSystemDisk extends $dara.Model {
    * @remarks
    * The new category of the system disk. Valid values:
    * 
+   * - cloud_efficiency: ultra disk.
+   * - cloud_ssd: standard SSD.
+   * > This parameter is valid only when you upgrade from a [retired instance type](https://help.aliyun.com/document_detail/55263.html) to a [currently available instance family](https://help.aliyun.com/document_detail/25378.html) and change a non-I/O optimized instance to an I/O optimized instance.
+   * 
    * @example
    * cloud_efficiency
    */
@@ -35,7 +39,7 @@ export class ModifyPrepayInstanceSpecRequestSystemDisk extends $dara.Model {
 export class ModifyPrepayInstanceSpecRequestDisk extends $dara.Model {
   /**
    * @remarks
-   * >This parameter is not publicly available.
+   * > This parameter is not publicly available.
    * 
    * @example
    * null
@@ -43,7 +47,7 @@ export class ModifyPrepayInstanceSpecRequestDisk extends $dara.Model {
   category?: string;
   /**
    * @remarks
-   * >This parameter is not publicly available.
+   * > This parameter is not publicly available.
    * 
    * @example
    * null
@@ -51,7 +55,7 @@ export class ModifyPrepayInstanceSpecRequestDisk extends $dara.Model {
   diskId?: string;
   /**
    * @remarks
-   * >This parameter is not publicly available.
+   * > This parameter is not publicly available.
    * 
    * @example
    * null
@@ -86,7 +90,15 @@ export class ModifyPrepayInstanceSpecRequest extends $dara.Model {
   systemDisk?: ModifyPrepayInstanceSpecRequestSystemDisk;
   /**
    * @remarks
-   * Specifies whether automatic payment is enabled when you upgrade the instance type. Valid values:
+   * Specifies whether to automatically complete automatic payment when you upgrade the instance type. Valid values:
+   * 
+   * - true: Automatic payment is automatically completed.
+   * - false: An order is created but automatic payment is not completed.
+   * 
+   * Default value: true.
+   * > - If you set AutoPay to true, make sure that your account has a sufficient payment method balance. Otherwise, an abnormal order is generated, and you can only cancel the order.
+   * > - If your payment method balance is insufficient, you can set `AutoPay` to `false` to generate an unpaid order. Then, you can logon to the ECS console to pay for the order.
+   * > - When `OperatorType` is set to `downgrade`, the `AutoPay` parameter is ignored.
    * 
    * @example
    * true
@@ -94,7 +106,7 @@ export class ModifyPrepayInstanceSpecRequest extends $dara.Model {
   autoPay?: boolean;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but make sure that the token is unique among different requests. The ClientToken value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -102,12 +114,12 @@ export class ModifyPrepayInstanceSpecRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * >This parameter is not publicly available.
+   * > This parameter is not publicly available.
    */
   disk?: ModifyPrepayInstanceSpecRequestDisk[];
   /**
    * @remarks
-   * The end time of the temporary specification change. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mmZ format. The time must be in UTC.
+   * The end time of the temporary instance type change. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mmZ format. The time must be in UTC.
    * 
    * @example
    * 2018-01-01T12:05Z
@@ -135,7 +147,15 @@ export class ModifyPrepayInstanceSpecRequest extends $dara.Model {
   instanceType?: string;
   /**
    * @remarks
-   * Specifies whether cross-cluster instance type upgrades are supported. Valid values:
+   * Specifies whether to support cross-cluster Upgrade/Downgrade of instance types. Valid values:
+   * - true: Cross-cluster instance type changes are supported.
+   * - false: Cross-cluster instance type changes are not supported.
+   * 
+   * Default value: false.
+   * 
+   * When `MigrateAcrossZone` is set to `true`, take note of the following items after you upgrade the Elastic Compute Service instance based on the response:
+   * 
+   * VPC-type instances: For [retired instance types](https://help.aliyun.com/document_detail/55263.html), when a non-I/O optimized instance is changed to an I/O optimized instance, the disk device names and software authorization codes of the server change. For Linux instances, basic disks (cloud) are identified as xvda or xvdb. Ultra disks (cloud_efficiency) and standard SSDs (cloud_ssd) are identified as vda or vdb. This parameter is used for optimization of cross-cluster migration.
    * 
    * @example
    * false
@@ -143,7 +163,7 @@ export class ModifyPrepayInstanceSpecRequest extends $dara.Model {
   migrateAcrossZone?: boolean;
   /**
    * @remarks
-   * >This parameter is not publicly available.
+   * > This parameter is not publicly available.
    * 
    * @example
    * null
@@ -152,6 +172,13 @@ export class ModifyPrepayInstanceSpecRequest extends $dara.Model {
   /**
    * @remarks
    * The type of the operation. Valid values:
+   * > This parameter is optional. The system can automatically determine whether the operation is an upgrade or a downgrade. If you upload this parameter, follow the rules below.
+   * 
+   * - upgrade: upgrades the instance type. Make sure that your account has a sufficient payment method balance.
+   * 
+   * - downgrade: downgrades the instance type. When the instance type specified by `InstanceType` is lower than the current instance type, set `OperatorType` to `downgrade`.
+   * 
+   * > For precautions about upgrading or downgrading instance types, see the operation description section above.
    * 
    * @example
    * upgrade
@@ -169,7 +196,14 @@ export class ModifyPrepayInstanceSpecRequest extends $dara.Model {
   rebootTime?: string;
   /**
    * @remarks
-   * Specifies whether to immediately restart the instance after the specification change is complete. Valid values:
+   * Specifies whether to immediately restart the instance after the instance type is changed. Valid values:
+   * 
+   * - true: The instance is immediately restarted.
+   * - false: The instance is not immediately restarted.
+   * 
+   * Default value: false.
+   * 
+   * > If the instance is in the **Stopped** state, the instance remains stopped even if you set `RebootWhenFinished` to `true`. No operation is performed.
    * 
    * @example
    * false

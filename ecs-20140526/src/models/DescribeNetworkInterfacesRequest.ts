@@ -15,6 +15,8 @@ export class DescribeNetworkInterfacesRequestTag extends $dara.Model {
    * @remarks
    * The tag value of the network interface controller (NIC). Valid values of N: 1 to 20.
    * 
+   * If you use a single tag to filter resources, the resource count with the specified tag cannot exceed 1,000. If you use multiple tags to filter resources, the resource count of resources that are attached to all specified tags cannot exceed 1,000. If the resource count exceeds 1,000, call the [ListTagResources](https://help.aliyun.com/document_detail/110425.html) operation to query the resources.
+   * 
    * @example
    * TestValue
    */
@@ -53,7 +55,7 @@ export class DescribeNetworkInterfacesRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The IPv6 address of the network interface controller (NIC). N indicates that you can configure multiple IPv6 addresses. Valid values of N: 1 to 100.
+   * The IPv6 address of the network interface controller (NIC). N indicates that you can specify multiple IPv6 addresses. Valid values of N: 1 to 100.
    * 
    * @example
    * 2408:4321:180:1701:94c7:bc38:3bfa:****
@@ -61,7 +63,12 @@ export class DescribeNetworkInterfacesRequest extends $dara.Model {
   ipv6Address?: string[];
   /**
    * @remarks
-   * The maximum number of entries per page for paging query. Valid values: 10 to 500.
+   * The maximum number of entries per page for paging. Valid values: 10 to 500.
+   * 
+   * Default value:
+   * 
+   * - If you do not set this parameter or set it to a value less than 10, the default value is 10.
+   * - If you set this parameter to a value greater than 500, the default value is 500.
    * 
    * @example
    * 50
@@ -77,7 +84,7 @@ export class DescribeNetworkInterfacesRequest extends $dara.Model {
   networkInterfaceId?: string[];
   /**
    * @remarks
-   * The name of the network interface controller (NIC). The name must be 2 to 128 characters in length and can contain characters under the Unicode letter categorization (including English letters, Chinese characters, and digits). It can also contain colons (:), underscores (_), periods (.), and hyphens (-).
+   * The name of the network interface controller (NIC). The name must be 2 to 128 characters in length and can contain characters from the Unicode letter categorization (which includes English letters, Chinese characters, and digits). The name can contain colons (:), underscores (_), periods (.), or hyphens (-).
    * 
    * @example
    * test-eni-name
@@ -85,7 +92,9 @@ export class DescribeNetworkInterfacesRequest extends $dara.Model {
   networkInterfaceName?: string;
   /**
    * @remarks
-   * The pagination token. Set this parameter to the NextToken value returned in the previous API call.
+   * The pagination token. Set this parameter to the `NextToken` value returned in the previous API call.
+   * 
+   * For information about how to view the returned data, refer to the operation description above.
    * 
    * @example
    * AAAAAdDWBF2****
@@ -95,7 +104,7 @@ export class DescribeNetworkInterfacesRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * **[Deprecated]** Use MaxResults or NextToken for pagination instead.
+   * > This parameter is deprecated. Use the MaxResults and NextToken parameters for pagination.
    * 
    * @example
    * 1
@@ -105,7 +114,7 @@ export class DescribeNetworkInterfacesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * **[Deprecated]** Use MaxResults or NextToken for pagination instead.
+   * > This parameter is deprecated. Use the MaxResults and NextToken parameters for pagination.
    * 
    * @example
    * 100
@@ -141,7 +150,9 @@ export class DescribeNetworkInterfacesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource group ID. When you use this parameter to filter resources, the resource count cannot exceed 1000.
+   * The resource group ID. If you use this parameter to filter resources, the resource count cannot exceed 1,000.
+   * 
+   * >Filtering by the default resource group is not supported.
    * 
    * @example
    * rg-bp67acfmxazb4p****
@@ -151,7 +162,10 @@ export class DescribeNetworkInterfacesRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The security group ID associated with the secondary ENI.
+   * The security group ID of the secondary ENI.
+   * 
+   * - To query information about a secondary ENI by security group ID, specify this parameter.
+   * - To query information about a primary ENI by security group ID, call [DescribeInstances](https://help.aliyun.com/document_detail/25506.html) and specify the `SecurityGroupId` parameter.
    * 
    * @example
    * sg-bp144yr32sx6ndw****
@@ -159,7 +173,7 @@ export class DescribeNetworkInterfacesRequest extends $dara.Model {
   securityGroupId?: string;
   /**
    * @remarks
-   * Specifies whether the user of the network interface controller (NIC) is an Alibaba Cloud service or a Virtual Network Operator (VNO).
+   * Indicates whether the user of the network interface controller (NIC) is an Alibaba Cloud service or a Virtual Network Operator (VNO).
    * 
    * @example
    * true
@@ -168,6 +182,14 @@ export class DescribeNetworkInterfacesRequest extends $dara.Model {
   /**
    * @remarks
    * The status of the network interface controller (NIC). Valid values:
+   * 
+   * * Available: available.
+   * * Attaching: being attached.
+   * * InUse: attached.
+   * * Detaching: being detached.
+   * * Deleting: being deleted.
+   * 
+   * Default value: null, which indicates that all statuses are queried.
    * 
    * @example
    * Available
@@ -180,7 +202,12 @@ export class DescribeNetworkInterfacesRequest extends $dara.Model {
   tag?: DescribeNetworkInterfacesRequestTag[];
   /**
    * @remarks
-   * The type of the network interface controller (NIC). Valid values:
+   * The type of the Elastic Network Interface (ENI). Valid values:
+   * 
+   * - Primary: primary network interface controller (NIC).
+   * - Secondary: secondary ENI.
+   * 
+   * Default value: null, which indicates that all types are queried.
    * 
    * @example
    * Secondary
