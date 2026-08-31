@@ -22,7 +22,7 @@ export class CreateAutoSnapshotPolicyRequest extends $dara.Model {
    * @remarks
    * The type of the file system.
    * 
-   * Valid values: extreme (Extreme NAS).
+   * Valid values: extreme (Extreme NAS file system).
    * 
    * This parameter is required.
    * 
@@ -36,9 +36,9 @@ export class CreateAutoSnapshotPolicyRequest extends $dara.Model {
    * 
    * Cycle: week.
    * 
-   * Valid values: 1 to 7, which represent Monday through Sunday.
+   * Valid values: 1 to 7, which represent Monday to Sunday.
    * 
-   * To create automatic snapshots on multiple days in a week, specify multiple values separated by commas (,). You can specify a maximum of 7 values.
+   * To create automatic snapshots on multiple days in a week, specify multiple values separated by commas (,). You can specify up to 7 values.
    * 
    * This parameter is required.
    * 
@@ -55,7 +55,7 @@ export class CreateAutoSnapshotPolicyRequest extends $dara.Model {
    * Valid values:
    * 
    * - -1 (default): Automatic snapshots are permanently retained. When the snapshot quota is reached, the earliest automatic snapshots are automatically deleted.
-   * - 1 to 65536: Automatic snapshots are retained for the specified number of days. Snapshots are subject to automatic release after the retention period expires.
+   * - 1 to 65536: Automatic snapshots are retained for the specified number of days. Snapshots undergo automatic release after the retention period expires.
    * 
    * @example
    * 30
@@ -69,7 +69,7 @@ export class CreateAutoSnapshotPolicyRequest extends $dara.Model {
    * 
    * Valid values: 0 to 23, which represent the 24 time points from 00:00 to 23:00. For example, 1 indicates 01:00.
    * 
-   * To create multiple automatic snapshots within a day, specify multiple time points separated by commas (,). You can specify a maximum of 24 time points.
+   * To create multiple automatic snapshots within a day, specify multiple time points separated by commas (,). You can specify up to 24 time points.
    * 
    * This parameter is required.
    * 

@@ -7,7 +7,7 @@ export class CancelAutoSnapshotPolicyResponseBody extends $dara.Model {
    * @remarks
    * The request ID.
    * 
-   * The request ID is returned regardless of whether the call is successful.
+   * The request ID is returned regardless of whether the request is successful.
    * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DED****

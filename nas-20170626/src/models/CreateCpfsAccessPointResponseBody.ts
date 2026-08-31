@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateCpfsAccessPointResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The access point ID.
+   * 
    * @example
    * ap-ie15yd****
    */
   accessPointId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 98696EF0-1607-4E9D-B01D-F20930B6****
    */

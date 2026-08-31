@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateFileRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the file system.
+   * The file system ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,8 @@ export class CreateFileRequest extends $dara.Model {
   fileSystemId?: string;
   /**
    * @remarks
-   * The ID of the portable account. The ID must be a 16-digit string. The string can contain digits and lowercase letters.
+   * The portable account ID.
+   * Limit: The value is a 16-character string that supports digits and lowercase letters.
    * 
    * @example
    * 378cc7630f26****
@@ -23,13 +24,11 @@ export class CreateFileRequest extends $dara.Model {
   owner?: string;
   /**
    * @remarks
-   * Specifies whether to share the directory. Valid values:
-   * 
-   * *   false (default): does not share the directory.
-   * *   true: shares the directory.
-   * 
-   * > *   This parameter takes effect only if the Type parameter is set to Directory and the Owner parameter is not empty.
-   * > *   The permissions on a directory can be inherited by the owner. The owner has read and write permissions on the subdirectories and subfiles created in the directory, even if they are created by others.
+   * Specifies whether to share directory permissions. Valid values:
+   * - false (default): does not share directory permissions.
+   * - true: shares directory permissions.
+   * > - This parameter takes effect only when Type is set to Directory and Owner is not empty.
+   * > - The directory has inheritable Owner permissions. The Owner has read and write permissions on subdirectories and files created under this directory, even if they are created by other users.
    * 
    * @example
    * false
@@ -37,7 +36,10 @@ export class CreateFileRequest extends $dara.Model {
   ownerAccessInheritable?: boolean;
   /**
    * @remarks
-   * The absolute path of the directory or file. The path must start and end with a forward slash (/) and must be 2 to 1024 characters in length.
+   * The absolute path of the directory or file.
+   * - The path must start and end with a forward slash (/).
+   * - The path must be 1 to 1,023 characters in length.
+   * - The path must be encoded in UTF-8.
    * 
    * This parameter is required.
    * 
@@ -47,10 +49,10 @@ export class CreateFileRequest extends $dara.Model {
   path?: string;
   /**
    * @remarks
-   * The type of the object. Valid values:
+   * The object type. Valid values:
    * 
-   * *   File
-   * *   Directory
+   * - File: file.
+   * - Directory: directory.
    * 
    * This parameter is required.
    * 

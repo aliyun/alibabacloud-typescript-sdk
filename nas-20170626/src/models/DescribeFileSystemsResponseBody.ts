@@ -628,7 +628,7 @@ export class DescribeFileSystemsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of file systems on each page.
+   * The number of file systems per page.
    * 
    * @example
    * 1

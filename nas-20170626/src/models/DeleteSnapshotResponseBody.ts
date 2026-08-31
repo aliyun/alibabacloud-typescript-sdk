@@ -7,7 +7,7 @@ export class DeleteSnapshotResponseBody extends $dara.Model {
    * @remarks
    * The request ID.
    * 
-   * The request ID is returned regardless of whether the API call is successful.
+   * A request ID is returned regardless of whether the call is successful.
    * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3****

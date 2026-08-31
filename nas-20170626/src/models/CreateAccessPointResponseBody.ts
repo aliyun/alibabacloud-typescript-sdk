@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAccessPointResponseBodyAccessPoint extends $dara.Model {
   /**
    * @remarks
-   * The domain name of the access point.
+   * The access point domain name.
    * 
    * @example
    * ap-ie15ydanoz.001014****-w****.cn-hangzhou.nas.aliyuncs.com

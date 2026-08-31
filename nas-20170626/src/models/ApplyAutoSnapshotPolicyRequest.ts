@@ -15,14 +15,14 @@ export class ApplyAutoSnapshotPolicyRequest extends $dara.Model {
   autoSnapshotPolicyId?: string;
   /**
    * @remarks
-   * The IDs of Advanced Extreme NAS file systems.
+   * The IDs of the Advanced Extreme NAS file systems.
    * 
    * You can specify up to 100 file system IDs in a single request. Separate multiple file system IDs with commas (,).
    * 
    * This parameter is required.
    * 
    * @example
-   * extreme-233e6****,extreme -23vbp****,extreme -23vas****
+   * extreme-233e6****,extreme-23vbp****,extreme-23vas****
    */
   fileSystemIds?: string;
   static names(): { [key: string]: string } {

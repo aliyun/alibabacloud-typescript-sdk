@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSmbAclRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the file system.
+   * The file system ID.
    * 
    * This parameter is required.
    * 

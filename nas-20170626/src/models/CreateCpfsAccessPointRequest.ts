@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateCpfsAccessPointRequestRootDirectory extends $dara.Model {
   /**
+   * @remarks
+   * The root directory of the access point. The value must start and end with a forward slash (/).
+   * 
    * @example
    * /test/
    */
@@ -31,12 +34,26 @@ export class CreateCpfsAccessPointRequestRootDirectory extends $dara.Model {
 
 export class CreateCpfsAccessPointRequest extends $dara.Model {
   /**
+   * @remarks
+   * The description of the access point.
+   * 
+   * Limits:
+   * - The description must be 2 to 128 characters in length.
+   * - The description must start with a letter.It cannot start with http:// or https://.
+   * - The description can contain digits, colons (:), underscores (_), or hyphens (-).
+   * 
    * @example
    * Description
    */
   description?: string;
   /**
    * @remarks
+   * The file system ID.
+   * 
+   * - CPFS: The ID must start with `cpfs-`, such as cpfs-125487\\*\\*\\*\\*.
+   * 
+   * - CPFS for Lingjun: The ID must start with `bmcpfs-`, such as bmcpfs-0015\\*\\*\\*\\*.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -45,12 +62,18 @@ export class CreateCpfsAccessPointRequest extends $dara.Model {
   fileSystemId?: string;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The root directory of the access point. Default value: "/".
+   */
   rootDirectory?: CreateCpfsAccessPointRequestRootDirectory;
   static names(): { [key: string]: string } {
     return {

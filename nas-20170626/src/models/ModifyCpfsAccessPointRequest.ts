@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyCpfsAccessPointRequest extends $dara.Model {
   /**
    * @remarks
+   * The access point ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,12 +14,21 @@ export class ModifyCpfsAccessPointRequest extends $dara.Model {
    */
   accessPointId?: string;
   /**
+   * @remarks
+   * The description of the access point.
+   * 
    * @example
    * Description
    */
   description?: string;
   /**
    * @remarks
+   * The file system ID.
+   * 
+   * - CPFS: The ID must start with `cpfs-`, for example, cpfs-125487\\*\\*\\*\\*.
+   * 
+   * - CPFS for Lingjun: The ID must start with `bmcpfs-`, for example, bmcpfs-0015\\*\\*\\*\\*.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -26,6 +37,8 @@ export class ModifyCpfsAccessPointRequest extends $dara.Model {
   fileSystemId?: string;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example

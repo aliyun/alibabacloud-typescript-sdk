@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class CancelAutoSnapshotPolicyRequest extends $dara.Model {
   /**
    * @remarks
-   * The IDs of the file systems.
+   * The IDs of the target file systems.
    * 
-   * You can specify up to 100 file systems in a single call. To cancel the automatic snapshot policy for multiple file systems, separate the file system IDs with commas (,).
+   * You can specify up to 100 file systems in a single call. To cancel the automatic snapshot policy for multiple file systems, separate multiple file system IDs with commas (,).
    * 
    * This parameter is required.
    * 

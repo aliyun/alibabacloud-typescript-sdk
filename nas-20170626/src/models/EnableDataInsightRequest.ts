@@ -5,6 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class EnableDataInsightRequest extends $dara.Model {
   /**
    * @remarks
+   * The file system ID.
+   * 
+   * - CPFS for Lingjun: The value must start with `bmcpfs-`, such as bmcpfs-125487\\*\\*\\*\\*.
+   * > Only CPFS for Lingjun file systems are supported.
+   * 
    * This parameter is required.
    * 
    * @example

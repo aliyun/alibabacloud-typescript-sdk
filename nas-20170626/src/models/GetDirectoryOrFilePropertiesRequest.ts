@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetDirectoryOrFilePropertiesRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the file system.
+   * The file system ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class GetDirectoryOrFilePropertiesRequest extends $dara.Model {
   fileSystemId?: string;
   /**
    * @remarks
-   * The absolute path of the directory or file.
+   * The absolute path of the specified directory.
    * 
    * The path must start with a forward slash (/) and must be an existing path in the mount target.
    * 

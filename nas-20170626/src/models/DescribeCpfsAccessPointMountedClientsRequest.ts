@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCpfsAccessPointMountedClientsRequest extends $dara.Model {
   /**
    * @remarks
+   * The access point ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class DescribeCpfsAccessPointMountedClientsRequest extends $dara.Model {
   accessPointId?: string;
   /**
    * @remarks
+   * The file system ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,17 +24,26 @@ export class DescribeCpfsAccessPointMountedClientsRequest extends $dara.Model {
    */
   fileSystemId?: string;
   /**
+   * @remarks
+   * The page number of the list.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of results on each page. Valid values: 1 to 100.
+   * Default value: 10.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -8,7 +8,10 @@ export class DescribeLifecyclePolicyLogsResponseBodyLifecyclePolicyLogsDeleteRul
    * The attribute of the rule.
    * 
    * Valid values:
-   * - Atime: the access time of the file.
+   * - Atime: the last access time of the file.
+   * 
+   * @example
+   * Atime
    */
   attribute?: string;
   /**
@@ -17,6 +20,9 @@ export class DescribeLifecyclePolicyLogsResponseBodyLifecyclePolicyLogsDeleteRul
    * 
    * Valid values:
    * - If Attribute is set to Atime, this parameter specifies the number of days since the file was last accessed. Valid values: 1 to 365.
+   * 
+   * @example
+   * 3
    */
   threshold?: string;
   static names(): { [key: string]: string } {
@@ -92,7 +98,7 @@ export class DescribeLifecyclePolicyLogsResponseBodyLifecyclePolicyLogsTransitRu
    * The attribute of the rule.
    * 
    * Valid values:
-   * - Atime: the access time of the file.
+   * - Atime: the last access time of the file.
    * 
    * @example
    * Atime
@@ -242,7 +248,7 @@ export class DescribeLifecyclePolicyLogsResponseBodyLifecyclePolicyLogs extends 
 export class DescribeLifecyclePolicyLogsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The execution logs of the lifecycle policy.
+   * The execution logs of the lifecycle management policy.
    */
   lifecyclePolicyLogs?: DescribeLifecyclePolicyLogsResponseBodyLifecyclePolicyLogs[];
   /**
@@ -271,9 +277,7 @@ export class DescribeLifecyclePolicyLogsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The request status.
-   * 
-   * Valid values:
+   * The request status. Valid values:
    * 
    * - true: The request was successful.
    * - false: The request failed.
