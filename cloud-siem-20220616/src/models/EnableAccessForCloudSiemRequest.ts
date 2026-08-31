@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class EnableAccessForCloudSiemRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to automatically add alert logs from Security Center, Web Application Firewall (WAF), and Cloud Firewall. By default, alert logs are automatically added.
+   * Specifies whether to automatically integrate alert logs from Security Center, Web Application Firewall (WAF), and Cloud Firewall. By default, the logs are automatically integrated.
    * 
    * @example
    * 1
@@ -13,11 +13,17 @@ export class EnableAccessForCloudSiemRequest extends $dara.Model {
   autoSubmit?: number;
   /**
    * @remarks
-   * The region of the Data Management center for Threat Analysis. Select the region based on where your assets are located. Valid values:
+   * The idempotency token.
    * 
-   * - cn-hangzhou: Your assets are in the Chinese mainland or Hong Kong (China).
-   * 
-   * - ap-southeast-1: Your assets are in regions outside China.
+   * @example
+   * 123e4567-e89b-12d3-a456-426614174000
+   */
+  clientToken?: string;
+  /**
+   * @remarks
+   * The region where the threat detection and response data management center resides. Select the management center based on the region of your assets. Valid values:
+   * - cn-hangzhou: assets in the Chinese mainland and Hong Kong (China).
+   * - ap-southeast-1: assets outside China.
    * 
    * @example
    * cn-hangzhou
@@ -25,7 +31,7 @@ export class EnableAccessForCloudSiemRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The user ID of a member. An administrator can use this parameter to switch to the perspective of the specified member.
+   * The ID of the member account to which the administrator switches the view.
    * 
    * @example
    * 113091674488****
@@ -33,11 +39,10 @@ export class EnableAccessForCloudSiemRequest extends $dara.Model {
   roleFor?: number;
   /**
    * @remarks
-   * The type of the view.
+   * The view type.
    * 
-   * - 0: The view of the current Alibaba Cloud account.
-   * 
-   * - 1: The view of all member accounts.
+   * - 0: the view of the current Alibaba Cloud account.
+   * - 1: the view of all accounts in the enterprise.
    * 
    * @example
    * 1
@@ -46,6 +51,7 @@ export class EnableAccessForCloudSiemRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       autoSubmit: 'AutoSubmit',
+      clientToken: 'ClientToken',
       regionId: 'RegionId',
       roleFor: 'RoleFor',
       roleType: 'RoleType',
@@ -55,6 +61,7 @@ export class EnableAccessForCloudSiemRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       autoSubmit: 'number',
+      clientToken: 'string',
       regionId: 'string',
       roleFor: 'number',
       roleType: 'number',

@@ -5,6 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class PostEventDisposeAndWhiteruleListRequest extends $dara.Model {
   /**
    * @remarks
+   * 幂等令牌。
+   * 
+   * @example
+   * 123e4567-e89b-12d3-a456-426614174000
+   */
+  clientToken?: string;
+  /**
+   * @remarks
    * A comma-separated list of response strategy IDs.
    * 
    * @example
@@ -151,6 +159,7 @@ export class PostEventDisposeAndWhiteruleListRequest extends $dara.Model {
   threatLevel?: string;
   static names(): { [key: string]: string } {
     return {
+      clientToken: 'ClientToken',
       disposeStrategyIds: 'DisposeStrategyIds',
       eventDispose: 'EventDispose',
       incidentUuid: 'IncidentUuid',
@@ -168,6 +177,7 @@ export class PostEventDisposeAndWhiteruleListRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      clientToken: 'string',
       disposeStrategyIds: 'string',
       eventDispose: 'string',
       incidentUuid: 'string',

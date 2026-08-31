@@ -3036,7 +3036,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Grants permissions to Threat Analysis and creates the AliyunServiceRoleForSasCloudSiem service-linked role.
+   * Authorizes the user and creates the threat detection and response service-linked role AliyunServiceRoleForSasCloudSiem.
    * 
    * @param request - EnableAccessForCloudSiemRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3047,6 +3047,10 @@ export default class Client extends OpenApi {
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.autoSubmit)) {
       body["AutoSubmit"] = request.autoSubmit;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      body["ClientToken"] = request.clientToken;
     }
 
     if (!$dara.isNull(request.regionId)) {
@@ -3079,7 +3083,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Grants permissions to Threat Analysis and creates the AliyunServiceRoleForSasCloudSiem service-linked role.
+   * Authorizes the user and creates the threat detection and response service-linked role AliyunServiceRoleForSasCloudSiem.
    * 
    * @param request - EnableAccessForCloudSiemRequest
    * @returns EnableAccessForCloudSiemResponse
@@ -5117,6 +5121,10 @@ export default class Client extends OpenApi {
   async postEventDisposeAndWhiteruleListWithOptions(request: $_model.PostEventDisposeAndWhiteruleListRequest, runtime: $dara.RuntimeOptions): Promise<$_model.PostEventDisposeAndWhiteruleListResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientToken)) {
+      body["ClientToken"] = request.clientToken;
+    }
+
     if (!$dara.isNull(request.disposeStrategyIds)) {
       body["DisposeStrategyIds"] = request.disposeStrategyIds;
     }

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class EnableAccessForCloudSiemResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The return value of the request.
+   * The response data.
    * 
    * @example
    * true
@@ -13,7 +13,7 @@ export class EnableAccessForCloudSiemResponseBody extends $dara.Model {
   data?: boolean;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 6276D891-*****-55B2-87B9-74D413F7****
