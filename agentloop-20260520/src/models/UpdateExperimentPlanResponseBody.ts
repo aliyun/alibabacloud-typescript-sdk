@@ -8,12 +8,12 @@ export class UpdateExperimentPlanResponseBody extends $dara.Model {
    * The prompt message.
    * 
    * @example
-   * Experiment plan updated successfully.
+   * Experiment plan updated successfully
    */
   message?: string;
   /**
    * @remarks
-   * The experiment plan ID.
+   * The ID of the experiment plan.
    * 
    * @example
    * exp-plan-e95bff54685a4ae29ff3a834c1008a71
@@ -29,7 +29,7 @@ export class UpdateExperimentPlanResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The update result. The value is updated if the operation is successful.
+   * The update result. A value of updated indicates success.
    * 
    * @example
    * updated

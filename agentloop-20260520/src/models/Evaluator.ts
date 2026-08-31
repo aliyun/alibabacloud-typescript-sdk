@@ -1,11 +1,12 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import { EvaluatorVariableExtractorMappingValue } from "./EvaluatorVariableExtractorMappingValue";
 
 
 export class Evaluator extends $dara.Model {
   /**
    * @remarks
-   * The evaluator runtime configuration. For inline LLM evaluators, this must include configurations such as prompt. When referencing an existing evaluator, this parameter is typically not required and is only specified when runtime parameters such as version need to be set.
+   * The runtime configuration of the evaluator. For inline LLM evaluators, this must include configurations such as prompt. When referencing an existing evaluator, this parameter is typically not required and should only be specified when runtime parameters such as version need to be set.
    * 
    * @example
    * {"version":"1.0.0"}
@@ -45,7 +46,7 @@ export class Evaluator extends $dara.Model {
   resultName?: string;
   /**
    * @remarks
-   * The evaluation result type. Required for inline evaluators. Defaults to score when referencing an existing evaluator and this parameter is not specified.
+   * The evaluation result type. Required for inline evaluators. When referencing an existing evaluator, defaults to score if not specified.
    * 
    * @example
    * score
@@ -53,12 +54,17 @@ export class Evaluator extends $dara.Model {
   resultType?: string;
   /**
    * @remarks
-   * The evaluator type. Defaults to LLM if not specified. Inline CODE evaluators are currently not supported. For CODE type evaluators, reference a previously created evaluator by using evaluatorRef.
+   * The evaluator type. Defaults to LLM if not specified. Inline CODE evaluators are not currently supported. For the CODE type, reference a previously created evaluator by using evaluatorRef.
    * 
    * @example
    * AGENT
    */
   type?: string;
+  /**
+   * @remarks
+   * The variable extraction rule mapping that maps evaluator variables to a portion of the content within an evaluation data field. This is applicable when the variable value is not the entire field but a subset of the field content. This parameter shares the same variable name key space as variableMapping. Each variable can use only one of the two. Duplicate configurations cause an error. When referencing an existing evaluator, the variable names must exist in the evaluator definition. Call ListTraceFieldExtractionsPreview to perform a trial run for validation before saving.
+   */
+  variableExtractorMapping?: { [key: string]: EvaluatorVariableExtractorMappingValue };
   /**
    * @remarks
    * The variable mapping that maps evaluator variables to evaluation data fields. Required for LLM/AGENT inline evaluators. When referencing an existing evaluator, the variable names must exist in the evaluator definition.
@@ -76,6 +82,7 @@ export class Evaluator extends $dara.Model {
       resultName: 'resultName',
       resultType: 'resultType',
       type: 'type',
+      variableExtractorMapping: 'variableExtractorMapping',
       variableMapping: 'variableMapping',
     };
   }
@@ -89,6 +96,7 @@ export class Evaluator extends $dara.Model {
       resultName: 'string',
       resultType: 'string',
       type: 'string',
+      variableExtractorMapping: { 'type': 'map', 'keyType': 'string', 'valueType': EvaluatorVariableExtractorMappingValue },
       variableMapping: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
     };
   }
@@ -99,6 +107,9 @@ export class Evaluator extends $dara.Model {
     }
     if(this.filters) {
       $dara.Model.validateMap(this.filters);
+    }
+    if(this.variableExtractorMapping) {
+      $dara.Model.validateMap(this.variableExtractorMapping);
     }
     if(this.variableMapping) {
       $dara.Model.validateMap(this.variableMapping);

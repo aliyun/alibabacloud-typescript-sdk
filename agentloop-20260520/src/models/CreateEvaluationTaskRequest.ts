@@ -7,7 +7,7 @@ import { RunStrategies } from "./RunStrategies";
 export class CreateEvaluationTaskRequest extends $dara.Model {
   /**
    * @remarks
-   * The task source. If this parameter is not specified, the backend uses `default`.
+   * The task source. If not specified, the backend defaults to `default`.
    * 
    * @example
    * default
@@ -15,7 +15,7 @@ export class CreateEvaluationTaskRequest extends $dara.Model {
   channel?: string;
   /**
    * @remarks
-   * The data source and execution configuration. When `dataType` is set to `trace`, the backend automatically populates the SLS Project and sets `storeName` to `logstore-tracing`. For trace-level evaluation, set `dataScope` to `trace`.
+   * The data source and execution configuration. When `dataType=trace`, the backend automatically populates the SLS Project and sets `storeName=logstore-tracing`. For trace-level evaluation, set `dataScope=trace`.
    * 
    * @example
    * {"dataScope":"trace"}
@@ -23,7 +23,7 @@ export class CreateEvaluationTaskRequest extends $dara.Model {
   config?: { [key: string]: string };
   /**
    * @remarks
-   * The filter conditions for evaluation data. This parameter supports a JSON object or a JSON string. Common fields include `query`, `provided`, `maxRecords`, and `samplingRate`.
+   * The evaluation data filter conditions. Supports a JSON object or JSON string. Common fields include `query`, `provided`, `maxRecords`, and `samplingRate`.
    * 
    * @example
    * {"query":"serviceName=\\"checkout-service\\"","maxRecords":10,"samplingRate":100}
@@ -31,7 +31,7 @@ export class CreateEvaluationTaskRequest extends $dara.Model {
   dataFilter?: string;
   /**
    * @remarks
-   * The data source type of the evaluation object. Set this parameter to `trace` for trace-based evaluation.
+   * The data source type of the evaluation target. Use `trace` for trace-based evaluation.
    * 
    * @example
    * trace
@@ -39,15 +39,15 @@ export class CreateEvaluationTaskRequest extends $dara.Model {
   dataType?: string;
   /**
    * @remarks
-   * The description of the evaluation task.
+   * The evaluation task description.
    * 
    * @example
-   * 评估线上 Agent 链路任务完成度
+   * Evaluate the task completion of online Agent traces
    */
   description?: string;
   /**
    * @remarks
-   * The list of evaluator configurations. This parameter cannot be empty. Within the same task, `evaluatorRef` takes precedence as the unique identifier. Otherwise, `name` is used.
+   * The evaluator configuration list. This parameter cannot be empty. Within the same task, `evaluatorRef` takes precedence as the unique identifier. Otherwise, `name` is used.
    * 
    * @example
    * [{"evaluatorRef":"Builtin.agent_task_completion","resultName":"agent_task_completion","resultType":"score","variableMapping":{"input":"trace.input","output":"trace.output","agent_trajectory":"trace.agent_trajectory"}}]
@@ -55,12 +55,12 @@ export class CreateEvaluationTaskRequest extends $dara.Model {
   evaluators?: Evaluator[];
   /**
    * @remarks
-   * The task execution strategy. This parameter supports a JSON object or a JSON string. Set this parameter to `backfill` for historical data backfill or `continuous` for continuous evaluation of new data.
+   * The task execution strategies. Supports a JSON object or JSON string. `backfill` is used for historical data backfill, and `continuous` is used for continuous evaluation of new data.
    */
   runStrategies?: RunStrategies;
   /**
    * @remarks
-   * The key-value pairs of task tags. You do not need to specify this parameter by default. Specify this parameter only when you want to associate or filter tasks by business tags.
+   * The task tag key-value pairs. You do not need to specify this parameter by default. Specify this parameter only when you need to associate or filter tasks by business tags.
    * 
    * @example
    * {"env":"prod","serviceId":"checkout-service","planId":"plan-20260703"}
@@ -68,7 +68,7 @@ export class CreateEvaluationTaskRequest extends $dara.Model {
   tags?: { [key: string]: string };
   /**
    * @remarks
-   * The evaluation task mode. Set this parameter to `batch` to create a persistent evaluation task.
+   * The evaluation task mode. `batch` creates a persistent evaluation task.
    * 
    * @example
    * batch
@@ -76,7 +76,7 @@ export class CreateEvaluationTaskRequest extends $dara.Model {
   taskMode?: string;
   /**
    * @remarks
-   * The task name. The name must be unique among non-deleted tasks within the same user and AgentSpace. The name can be up to 256 characters in length.
+   * The task name. The name must be unique among non-deleted tasks under the same user and AgentSpace. The name can be up to 256 characters in length.
    * 
    * @example
    * trace_task_completion_eval

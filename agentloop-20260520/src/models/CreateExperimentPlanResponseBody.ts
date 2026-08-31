@@ -8,7 +8,7 @@ export class CreateExperimentPlanResponseBody extends $dara.Model {
    * The message.
    * 
    * @example
-   * Experiment plan created successfully.
+   * Experiment plan created successfully
    */
   message?: string;
   /**
@@ -29,7 +29,7 @@ export class CreateExperimentPlanResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The creation result. The value is `created` upon success.
+   * The creation result. A value of `created` indicates success.
    * 
    * @example
    * created

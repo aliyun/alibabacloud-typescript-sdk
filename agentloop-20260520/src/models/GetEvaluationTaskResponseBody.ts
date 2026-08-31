@@ -23,7 +23,7 @@ export class GetEvaluationTaskResponseBody extends $dara.Model {
   channel?: string;
   /**
    * @remarks
-   * The data source and execution configuration. Tasks with `dataType=trace` typically include `project`, `storeName`, and `dataScope` fields populated by the backend.
+   * The data source and execution configuration. Tasks with `dataType=trace` typically contain `project`, `storeName`, and `dataScope` fields that are populated by the backend.
    * 
    * @example
    * {"project":"agentspace-project","storeName":"logstore-tracing","dataScope":"trace"}
@@ -39,7 +39,7 @@ export class GetEvaluationTaskResponseBody extends $dara.Model {
   createdAt?: number;
   /**
    * @remarks
-   * The filter conditions for evaluation data, returned by the backend as a JSON string.
+   * The evaluation data filter condition, returned by the backend as a JSON string.
    * 
    * @example
    * {"query":"serviceName=\\"checkout-service\\"","maxRecords":10,"samplingRate":100}
@@ -58,7 +58,7 @@ export class GetEvaluationTaskResponseBody extends $dara.Model {
    * The evaluation task description.
    * 
    * @example
-   * 评估线上 Agent 链路任务完成度
+   * Evaluate the task completion rate of the online Agent pipeline
    */
   description?: string;
   /**

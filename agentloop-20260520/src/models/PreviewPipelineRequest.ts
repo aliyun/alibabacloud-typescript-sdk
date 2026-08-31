@@ -13,7 +13,7 @@ export class PreviewPipelineRequestPipelineNodes extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The node parameters in key-value structure. The parameters vary depending on the node type.
+   * The node parameters in key-value format. The parameters vary based on the node type.
    */
   parameters?: { [key: string]: any };
   /**
@@ -82,6 +82,86 @@ export class PreviewPipelineRequestPipeline extends $dara.Model {
   }
 }
 
+export class PreviewPipelineRequestSourceDataset extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the source dataset.
+   * 
+   * @example
+   * my-dataset
+   */
+  dataset?: string;
+  /**
+   * @remarks
+   * The filter condition for dataset data.
+   * 
+   * @example
+   * status = \\"pending\\"
+   */
+  filter?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dataset: 'dataset',
+      filter: 'filter',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataset: 'string',
+      filter: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PreviewPipelineRequestSourceInputFields extends $dara.Model {
+  /**
+   * @remarks
+   * The field name.
+   * 
+   * @example
+   * question
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The field type. Valid values: text, long, double, and json.
+   * 
+   * @example
+   * text
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'name',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class PreviewPipelineRequestSourceLogstore extends $dara.Model {
   /**
    * @remarks
@@ -135,12 +215,22 @@ export class PreviewPipelineRequestSourceLogstore extends $dara.Model {
 export class PreviewPipelineRequestSource extends $dara.Model {
   /**
    * @remarks
+   * The Dataset datasource config under the current AgentSpace.
+   */
+  dataset?: PreviewPipelineRequestSourceDataset;
+  /**
+   * @remarks
+   * The input fields and field types. This parameter applies to all data source types.
+   */
+  inputFields?: PreviewPipelineRequestSourceInputFields[];
+  /**
+   * @remarks
    * The SLS Logstore datasource config.
    */
   logstore?: PreviewPipelineRequestSourceLogstore;
   /**
    * @remarks
-   * The data source type. Currently, only Simple Log Service (SLS) is supported.
+   * The data source type. Currently, Simple Log Service (SLS) is supported.
    * 
    * @example
    * SLS
@@ -148,6 +238,8 @@ export class PreviewPipelineRequestSource extends $dara.Model {
   type?: string;
   static names(): { [key: string]: string } {
     return {
+      dataset: 'dataset',
+      inputFields: 'inputFields',
       logstore: 'logstore',
       type: 'type',
     };
@@ -155,12 +247,20 @@ export class PreviewPipelineRequestSource extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      dataset: PreviewPipelineRequestSourceDataset,
+      inputFields: { 'type': 'array', 'itemType': PreviewPipelineRequestSourceInputFields },
       logstore: PreviewPipelineRequestSourceLogstore,
       type: 'string',
     };
   }
 
   validate() {
+    if(this.dataset && typeof (this.dataset as any).validate === 'function') {
+      (this.dataset as any).validate();
+    }
+    if(Array.isArray(this.inputFields)) {
+      $dara.Model.validateArray(this.inputFields);
+    }
     if(this.logstore && typeof (this.logstore as any).validate === 'function') {
       (this.logstore as any).validate();
     }

@@ -53,7 +53,7 @@ export class ListExperimentRunsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Filters results by fuzzy match on experiment plan name.
+   * Filters results by fuzzy match on the experiment plan name.
    * 
    * @example
    * arms_agent_experiment

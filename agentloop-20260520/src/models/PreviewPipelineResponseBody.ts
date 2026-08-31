@@ -13,7 +13,7 @@ export class PreviewPipelineResponseBodyMeta extends $dara.Model {
   aggQuery?: string;
   /**
    * @remarks
-   * The `meta.columnTypes` field provides a mapping from column names to data types (string / long / double / json).
+   * `meta.columnTypes` provides the mapping from column names to data types (string / long / double / json).
    */
   columnTypes?: string[];
   /**
@@ -65,7 +65,7 @@ export class PreviewPipelineResponseBodyMeta extends $dara.Model {
   keys?: string[];
   /**
    * @remarks
-   * The maximum number of result rows returned.
+   * The maximum number of rows that can be returned.
    * 
    * @example
    * 5
@@ -81,7 +81,7 @@ export class PreviewPipelineResponseBodyMeta extends $dara.Model {
   mode?: number;
   /**
    * @remarks
-   * The number of processed data bytes.
+   * The number of data bytes processed.
    * 
    * @example
    * 524288
@@ -97,7 +97,7 @@ export class PreviewPipelineResponseBodyMeta extends $dara.Model {
   processedRows?: number;
   /**
    * @remarks
-   * The SLS query progress. A value of Complete indicates that the query is complete.
+   * The Simple Log Service (SLS) query progress. A value of Complete indicates that the query is complete.
    * 
    * @example
    * Complete
@@ -113,7 +113,7 @@ export class PreviewPipelineResponseBodyMeta extends $dara.Model {
   scanBytes?: number;
   /**
    * @remarks
-   * The column type and aggregation information.
+   * The type and aggregation information of columns.
    */
   terms?: { [key: string]: any }[];
   /**
@@ -189,7 +189,7 @@ export class PreviewPipelineResponseBodyMeta extends $dara.Model {
 export class PreviewPipelineResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The `data` field is a collection of sample rows (an array of maps) that contains only the first N rows (up to 5 by default) and does not reflect the complete write plan.
+   * `data` is a collection of sample rows (maps within an array) that contains only the first N rows (up to 5 by default) and does not reflect the complete write plan.
    */
   data?: { [key: string]: string }[];
   /**

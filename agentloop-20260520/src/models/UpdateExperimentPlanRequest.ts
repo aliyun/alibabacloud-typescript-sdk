@@ -7,7 +7,7 @@ import { ExperimentConfig } from "./ExperimentConfig";
 export class UpdateExperimentPlanRequest extends $dara.Model {
   /**
    * @remarks
-   * The associated dataset ID.
+   * The ID of the associated dataset.
    * 
    * @example
    * rca_benckmark_eval
@@ -26,12 +26,12 @@ export class UpdateExperimentPlanRequest extends $dara.Model {
    * The description.
    * 
    * @example
-   * rca_benchmark_eval_experiment offline experiment.
+   * rca_benchmark_eval_experiment offline experiment
    */
   description?: string;
   /**
    * @remarks
-   * The evaluator list. Omitting this field indicates no modification. Passing an empty array clears the list.
+   * The list of evaluators. Omitting this field indicates no modification. Passing an empty array clears the list.
    * 
    * @example
    * [{"evaluatorRef": "Builtin.agent_task_completion"}]
@@ -47,7 +47,7 @@ export class UpdateExperimentPlanRequest extends $dara.Model {
   experimentType?: string;
   /**
    * @remarks
-   * The experiment configuration list. When specified, the entire list is replaced. The number of items must be 1 to 5.
+   * The list of experiment configurations. When specified, the entire list is replaced. The number of configurations must be 1 to 5.
    * 
    * @example
    * [{"label": "A", "name": "baseline", "modelName": "qwen-max"}]
@@ -58,13 +58,17 @@ export class UpdateExperimentPlanRequest extends $dara.Model {
    * Optional.
    * 
    * @example
-   * {"question": "How do I get a refund?"}
+   * {"question": "How do I request a refund?"}
    */
   input?: { [key: string]: any };
+  /**
+   * @remarks
+   * The name of the associated data processing pipeline. This parameter is optional. If not specified, the value is not updated. If an empty character string is specified, the association is dissociated. After association, when an experiment under this plan finishes execution and writes results to the experiment result Logstore, the system filters by the traceId of the experiment trace and calls PreviewPipeline. The pipeline-processed results are then written together.
+   */
   pipelineName?: string;
   /**
    * @remarks
-   * The experiment plan name.
+   * The name of the experiment plan.
    * 
    * @example
    * rca_benchmark_eval_experiment

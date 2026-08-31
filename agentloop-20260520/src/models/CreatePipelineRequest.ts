@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreatePipelineRequestExecutePolicyRunOnce extends $dara.Model {
   /**
    * @remarks
-   * The start time of the data processing window, in Unix seconds. The value must be less than toTime.
+   * The start time of the data processing window, in UNIX seconds. The value must be less than toTime.
    * 
    * @example
    * 1735660800
@@ -13,7 +13,7 @@ export class CreatePipelineRequestExecutePolicyRunOnce extends $dara.Model {
   fromTime?: number;
   /**
    * @remarks
-   * The end time of the data processing window, in Unix seconds. The value must be greater than fromTime.
+   * The end time of the data processing window, in UNIX seconds. The value must be greater than fromTime.
    * 
    * @example
    * 1735747200
@@ -45,7 +45,7 @@ export class CreatePipelineRequestExecutePolicyRunOnce extends $dara.Model {
 export class CreatePipelineRequestExecutePolicyScheduled extends $dara.Model {
   /**
    * @remarks
-   * The scheduling start time, in Unix milliseconds.
+   * The scheduling start time, in UNIX milliseconds.
    * 
    * @example
    * 1735660800000
@@ -85,7 +85,9 @@ export class CreatePipelineRequestExecutePolicyScheduled extends $dara.Model {
 export class CreatePipelineRequestExecutePolicy extends $dara.Model {
   /**
    * @remarks
-   * The scheduling mode. Valid values: RunOnce (one-time execution) and Scheduled (periodic scheduling).
+   * The scheduling mode. Valid values:
+   * - RunOnce: one-time execution.
+   * - Scheduled: periodic scheduling.
    * 
    * @example
    * RunOnce
@@ -143,7 +145,7 @@ export class CreatePipelineRequestPipelineNodes extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The node parameters in key-value format. The parameters vary depending on the node type.
+   * The node parameters in key-value format. The parameters vary based on the node type.
    */
   parameters?: { [key: string]: any };
   /**
@@ -212,6 +214,266 @@ export class CreatePipelineRequestPipeline extends $dara.Model {
   }
 }
 
+export class CreatePipelineRequestSinkConditionDefaultSinkDataset extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the AgentSpace to which the default destination dataset belongs.
+   * 
+   * @example
+   * my-agent-space
+   */
+  agentSpace?: string;
+  /**
+   * @remarks
+   * The name of the default destination dataset.
+   * 
+   * @example
+   * other-result
+   */
+  dataset?: string;
+  static names(): { [key: string]: string } {
+    return {
+      agentSpace: 'agentSpace',
+      dataset: 'dataset',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentSpace: 'string',
+      dataset: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePipelineRequestSinkConditionDefaultSink extends $dara.Model {
+  /**
+   * @remarks
+   * The default destination dataset.
+   */
+  dataset?: CreatePipelineRequestSinkConditionDefaultSinkDataset;
+  /**
+   * @remarks
+   * The default destination type. Currently, only dataset is supported.
+   * 
+   * @example
+   * dataset
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dataset: 'dataset',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataset: CreatePipelineRequestSinkConditionDefaultSinkDataset,
+      type: 'string',
+    };
+  }
+
+  validate() {
+    if(this.dataset && typeof (this.dataset as any).validate === 'function') {
+      (this.dataset as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePipelineRequestSinkConditionRoutesSinkDataset extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the AgentSpace to which the destination dataset belongs.
+   * 
+   * @example
+   * my-agent-space
+   */
+  agentSpace?: string;
+  /**
+   * @remarks
+   * The name of the destination dataset.
+   * 
+   * @example
+   * refund-result
+   */
+  dataset?: string;
+  static names(): { [key: string]: string } {
+    return {
+      agentSpace: 'agentSpace',
+      dataset: 'dataset',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentSpace: 'string',
+      dataset: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePipelineRequestSinkConditionRoutesSink extends $dara.Model {
+  /**
+   * @remarks
+   * The route destination dataset.
+   */
+  dataset?: CreatePipelineRequestSinkConditionRoutesSinkDataset;
+  /**
+   * @remarks
+   * The route destination type. Currently, only dataset is supported.
+   * 
+   * @example
+   * dataset
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dataset: 'dataset',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataset: CreatePipelineRequestSinkConditionRoutesSinkDataset,
+      type: 'string',
+    };
+  }
+
+  validate() {
+    if(this.dataset && typeof (this.dataset as any).validate === 'function') {
+      (this.dataset as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePipelineRequestSinkConditionRoutes extends $dara.Model {
+  /**
+   * @remarks
+   * The route expression in SPL. Only where, project, and extend are supported.
+   * 
+   * @example
+   * * | where intent = \\"refund\\"
+   */
+  expression?: string;
+  /**
+   * @remarks
+   * The route ID.
+   * 
+   * @example
+   * refund
+   */
+  id?: string;
+  /**
+   * @remarks
+   * The route write destination.
+   */
+  sink?: CreatePipelineRequestSinkConditionRoutesSink;
+  static names(): { [key: string]: string } {
+    return {
+      expression: 'expression',
+      id: 'id',
+      sink: 'sink',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      expression: 'string',
+      id: 'string',
+      sink: CreatePipelineRequestSinkConditionRoutesSink,
+    };
+  }
+
+  validate() {
+    if(this.sink && typeof (this.sink as any).validate === 'function') {
+      (this.sink as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePipelineRequestSinkCondition extends $dara.Model {
+  /**
+   * @remarks
+   * The default write destination used when no conditional route is matched.
+   */
+  defaultSink?: CreatePipelineRequestSinkConditionDefaultSink;
+  /**
+   * @remarks
+   * The route matching mode. Currently, only all is supported.
+   * 
+   * @example
+   * all
+   */
+  matchMode?: string;
+  /**
+   * @remarks
+   * The list of conditional routes.
+   */
+  routes?: CreatePipelineRequestSinkConditionRoutes[];
+  static names(): { [key: string]: string } {
+    return {
+      defaultSink: 'defaultSink',
+      matchMode: 'matchMode',
+      routes: 'routes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      defaultSink: CreatePipelineRequestSinkConditionDefaultSink,
+      matchMode: 'string',
+      routes: { 'type': 'array', 'itemType': CreatePipelineRequestSinkConditionRoutes },
+    };
+  }
+
+  validate() {
+    if(this.defaultSink && typeof (this.defaultSink as any).validate === 'function') {
+      (this.defaultSink as any).validate();
+    }
+    if(Array.isArray(this.routes)) {
+      $dara.Model.validateArray(this.routes);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreatePipelineRequestSinkDataset extends $dara.Model {
   /**
    * @remarks
@@ -255,12 +517,17 @@ export class CreatePipelineRequestSinkDataset extends $dara.Model {
 export class CreatePipelineRequestSink extends $dara.Model {
   /**
    * @remarks
+   * The conditional routing configuration. This parameter is used only when sink.type is set to condition.
+   */
+  condition?: CreatePipelineRequestSinkCondition;
+  /**
+   * @remarks
    * The destination dataset configuration.
    */
   dataset?: CreatePipelineRequestSinkDataset;
   /**
    * @remarks
-   * The sink type. Currently, Dataset is supported.
+   * The sink type. Currently, only Dataset is supported.
    * 
    * @example
    * Dataset
@@ -268,6 +535,7 @@ export class CreatePipelineRequestSink extends $dara.Model {
   type?: string;
   static names(): { [key: string]: string } {
     return {
+      condition: 'condition',
       dataset: 'dataset',
       type: 'type',
     };
@@ -275,15 +543,99 @@ export class CreatePipelineRequestSink extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      condition: CreatePipelineRequestSinkCondition,
       dataset: CreatePipelineRequestSinkDataset,
       type: 'string',
     };
   }
 
   validate() {
+    if(this.condition && typeof (this.condition as any).validate === 'function') {
+      (this.condition as any).validate();
+    }
     if(this.dataset && typeof (this.dataset as any).validate === 'function') {
       (this.dataset as any).validate();
     }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePipelineRequestSourceDataset extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the source dataset.
+   * 
+   * @example
+   * my-dataset
+   */
+  dataset?: string;
+  /**
+   * @remarks
+   * The filter condition for the dataset data.
+   * 
+   * @example
+   * status = \\"pending\\"
+   */
+  filter?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dataset: 'dataset',
+      filter: 'filter',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataset: 'string',
+      filter: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePipelineRequestSourceInputFields extends $dara.Model {
+  /**
+   * @remarks
+   * The field name.
+   * 
+   * @example
+   * question
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The field type. Valid values: text, long, double, and json.
+   * 
+   * @example
+   * text
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'name',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      type: 'string',
+    };
+  }
+
+  validate() {
     super.validate();
   }
 
@@ -345,6 +697,16 @@ export class CreatePipelineRequestSourceLogstore extends $dara.Model {
 export class CreatePipelineRequestSource extends $dara.Model {
   /**
    * @remarks
+   * The dataset datasource config under the current AgentSpace.
+   */
+  dataset?: CreatePipelineRequestSourceDataset;
+  /**
+   * @remarks
+   * The input fields and field types. This parameter applies to all data source types.
+   */
+  inputFields?: CreatePipelineRequestSourceInputFields[];
+  /**
+   * @remarks
    * The SLS Logstore datasource config.
    */
   logstore?: CreatePipelineRequestSourceLogstore;
@@ -358,6 +720,8 @@ export class CreatePipelineRequestSource extends $dara.Model {
   type?: string;
   static names(): { [key: string]: string } {
     return {
+      dataset: 'dataset',
+      inputFields: 'inputFields',
       logstore: 'logstore',
       type: 'type',
     };
@@ -365,12 +729,20 @@ export class CreatePipelineRequestSource extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      dataset: CreatePipelineRequestSourceDataset,
+      inputFields: { 'type': 'array', 'itemType': CreatePipelineRequestSourceInputFields },
       logstore: CreatePipelineRequestSourceLogstore,
       type: 'string',
     };
   }
 
   validate() {
+    if(this.dataset && typeof (this.dataset as any).validate === 'function') {
+      (this.dataset as any).validate();
+    }
+    if(Array.isArray(this.inputFields)) {
+      $dara.Model.validateArray(this.inputFields);
+    }
     if(this.logstore && typeof (this.logstore as any).validate === 'function') {
       (this.logstore as any).validate();
     }
@@ -388,7 +760,7 @@ export class CreatePipelineRequest extends $dara.Model {
    * The pipeline description. The description can be up to 256 characters in length.
    * 
    * @example
-   * 从 SLS 采集 Trace 数据清洗入 Dataset
+   * Collect trace data from SLS, perform data cleaning, and ingest it into a dataset
    */
   description?: string;
   /**
@@ -403,7 +775,7 @@ export class CreatePipelineRequest extends $dara.Model {
   pipeline?: CreatePipelineRequestPipeline;
   /**
    * @remarks
-   * The pipeline name. The name must be 3 to 63 characters in length and can contain only lowercase letters, digits, and hyphens.
+   * The pipeline name. The name must be 3 to 63 characters in length and can contain only lowercase letters, digits, and hyphens (-).
    * 
    * @example
    * my-pipeline
@@ -421,7 +793,7 @@ export class CreatePipelineRequest extends $dara.Model {
   source?: CreatePipelineRequestSource;
   /**
    * @remarks
-   * The idempotency token. A unique string generated by the client to ensure the idempotence of the create operation.
+   * The idempotency token. A unique string generated by the client to ensure the idempotency of the create operation.
    * 
    * @example
    * a1b2c3d4-1234-5678-90ab-cdef12345678

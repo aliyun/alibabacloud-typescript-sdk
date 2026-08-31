@@ -73,7 +73,7 @@ export class GetPipelineResponseBodyExecutePolicyScheduled extends $dara.Model {
 export class GetPipelineResponseBodyExecutePolicy extends $dara.Model {
   /**
    * @example
-   * Scheduled
+   * scheduled
    */
   mode?: string;
   runOnce?: GetPipelineResponseBodyExecutePolicyRunOnce;
@@ -175,6 +175,219 @@ export class GetPipelineResponseBodyPipeline extends $dara.Model {
   }
 }
 
+export class GetPipelineResponseBodySinkConditionDefaultSinkDataset extends $dara.Model {
+  /**
+   * @example
+   * my-agent-space
+   */
+  agentSpace?: string;
+  /**
+   * @example
+   * other-result
+   */
+  dataset?: string;
+  static names(): { [key: string]: string } {
+    return {
+      agentSpace: 'agentSpace',
+      dataset: 'dataset',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentSpace: 'string',
+      dataset: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPipelineResponseBodySinkConditionDefaultSink extends $dara.Model {
+  dataset?: GetPipelineResponseBodySinkConditionDefaultSinkDataset;
+  /**
+   * @example
+   * dataset
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dataset: 'dataset',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataset: GetPipelineResponseBodySinkConditionDefaultSinkDataset,
+      type: 'string',
+    };
+  }
+
+  validate() {
+    if(this.dataset && typeof (this.dataset as any).validate === 'function') {
+      (this.dataset as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPipelineResponseBodySinkConditionRoutesSinkDataset extends $dara.Model {
+  /**
+   * @example
+   * my-agent-space
+   */
+  agentSpace?: string;
+  /**
+   * @example
+   * refund-result
+   */
+  dataset?: string;
+  static names(): { [key: string]: string } {
+    return {
+      agentSpace: 'agentSpace',
+      dataset: 'dataset',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentSpace: 'string',
+      dataset: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPipelineResponseBodySinkConditionRoutesSink extends $dara.Model {
+  dataset?: GetPipelineResponseBodySinkConditionRoutesSinkDataset;
+  /**
+   * @example
+   * dataset
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dataset: 'dataset',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataset: GetPipelineResponseBodySinkConditionRoutesSinkDataset,
+      type: 'string',
+    };
+  }
+
+  validate() {
+    if(this.dataset && typeof (this.dataset as any).validate === 'function') {
+      (this.dataset as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPipelineResponseBodySinkConditionRoutes extends $dara.Model {
+  /**
+   * @example
+   * * | where intent = \\"refund\\"
+   */
+  expression?: string;
+  /**
+   * @example
+   * refund
+   */
+  id?: string;
+  sink?: GetPipelineResponseBodySinkConditionRoutesSink;
+  static names(): { [key: string]: string } {
+    return {
+      expression: 'expression',
+      id: 'id',
+      sink: 'sink',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      expression: 'string',
+      id: 'string',
+      sink: GetPipelineResponseBodySinkConditionRoutesSink,
+    };
+  }
+
+  validate() {
+    if(this.sink && typeof (this.sink as any).validate === 'function') {
+      (this.sink as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPipelineResponseBodySinkCondition extends $dara.Model {
+  defaultSink?: GetPipelineResponseBodySinkConditionDefaultSink;
+  /**
+   * @example
+   * all
+   */
+  matchMode?: string;
+  routes?: GetPipelineResponseBodySinkConditionRoutes[];
+  static names(): { [key: string]: string } {
+    return {
+      defaultSink: 'defaultSink',
+      matchMode: 'matchMode',
+      routes: 'routes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      defaultSink: GetPipelineResponseBodySinkConditionDefaultSink,
+      matchMode: 'string',
+      routes: { 'type': 'array', 'itemType': GetPipelineResponseBodySinkConditionRoutes },
+    };
+  }
+
+  validate() {
+    if(this.defaultSink && typeof (this.defaultSink as any).validate === 'function') {
+      (this.defaultSink as any).validate();
+    }
+    if(Array.isArray(this.routes)) {
+      $dara.Model.validateArray(this.routes);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetPipelineResponseBodySinkDataset extends $dara.Model {
   /**
    * @example
@@ -210,14 +423,16 @@ export class GetPipelineResponseBodySinkDataset extends $dara.Model {
 }
 
 export class GetPipelineResponseBodySink extends $dara.Model {
+  condition?: GetPipelineResponseBodySinkCondition;
   dataset?: GetPipelineResponseBodySinkDataset;
   /**
    * @example
-   * Dataset
+   * condition
    */
   type?: string;
   static names(): { [key: string]: string } {
     return {
+      condition: 'condition',
       dataset: 'dataset',
       type: 'type',
     };
@@ -225,15 +440,87 @@ export class GetPipelineResponseBodySink extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      condition: GetPipelineResponseBodySinkCondition,
       dataset: GetPipelineResponseBodySinkDataset,
       type: 'string',
     };
   }
 
   validate() {
+    if(this.condition && typeof (this.condition as any).validate === 'function') {
+      (this.condition as any).validate();
+    }
     if(this.dataset && typeof (this.dataset as any).validate === 'function') {
       (this.dataset as any).validate();
     }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPipelineResponseBodySourceDataset extends $dara.Model {
+  /**
+   * @example
+   * my-dataset
+   */
+  dataset?: string;
+  /**
+   * @example
+   * status = \\"pending\\"
+   */
+  filter?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dataset: 'dataset',
+      filter: 'filter',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataset: 'string',
+      filter: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPipelineResponseBodySourceInputFields extends $dara.Model {
+  /**
+   * @example
+   * question
+   */
+  name?: string;
+  /**
+   * @example
+   * text
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'name',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      type: 'string',
+    };
+  }
+
+  validate() {
     super.validate();
   }
 
@@ -284,14 +571,18 @@ export class GetPipelineResponseBodySourceLogstore extends $dara.Model {
 }
 
 export class GetPipelineResponseBodySource extends $dara.Model {
+  dataset?: GetPipelineResponseBodySourceDataset;
+  inputFields?: GetPipelineResponseBodySourceInputFields[];
   logstore?: GetPipelineResponseBodySourceLogstore;
   /**
    * @example
-   * SLS
+   * dataset
    */
   type?: string;
   static names(): { [key: string]: string } {
     return {
+      dataset: 'dataset',
+      inputFields: 'inputFields',
       logstore: 'logstore',
       type: 'type',
     };
@@ -299,12 +590,20 @@ export class GetPipelineResponseBodySource extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      dataset: GetPipelineResponseBodySourceDataset,
+      inputFields: { 'type': 'array', 'itemType': GetPipelineResponseBodySourceInputFields },
       logstore: GetPipelineResponseBodySourceLogstore,
       type: 'string',
     };
   }
 
   validate() {
+    if(this.dataset && typeof (this.dataset as any).validate === 'function') {
+      (this.dataset as any).validate();
+    }
+    if(Array.isArray(this.inputFields)) {
+      $dara.Model.validateArray(this.inputFields);
+    }
     if(this.logstore && typeof (this.logstore as any).validate === 'function') {
       (this.logstore as any).validate();
     }

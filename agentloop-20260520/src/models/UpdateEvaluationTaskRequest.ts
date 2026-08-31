@@ -15,7 +15,7 @@ export class UpdateEvaluationTaskRequest extends $dara.Model {
   config?: { [key: string]: string };
   /**
    * @remarks
-   * The filter condition for evaluation data. A JSON object or JSON string is supported.
+   * The filter conditions for evaluation data. JSON objects and JSON strings are supported.
    * 
    * @example
    * {"query":"serviceName=\\"checkout-service\\" AND status=\\"OK\\"","maxRecords":10,"samplingRate":50}
@@ -26,7 +26,7 @@ export class UpdateEvaluationTaskRequest extends $dara.Model {
    * The description of the evaluation task.
    * 
    * @example
-   * 更新后的链路 Trace 任务完成度评估
+   * Updated trace link task completion evaluation
    */
   description?: string;
   /**
@@ -39,12 +39,12 @@ export class UpdateEvaluationTaskRequest extends $dara.Model {
   evaluators?: Evaluator[];
   /**
    * @remarks
-   * The new task execution strategies. A JSON object or JSON string is supported. If the task is in `Completed`, `Terminated`, or `Failed` status and the new strategy enables backfill or continuous mode, the backend resets the task to `Pending` and triggers orchestration.
+   * The new task execution strategies. JSON objects and JSON strings are supported. If the task is in the `Completed`, `Terminated`, or `Failed` state and the new strategy enables backfill or continuous mode, the backend restores the task to the `Pending` state and triggers orchestration.
    */
   runStrategies?: RunStrategies;
   /**
    * @remarks
-   * The task status. Currently the backend only allows users to explicitly set this to `Terminated`. Other statuses are managed by the system.
+   * The task status. Currently, the backend only allows users to manually set this to `Terminated`. Other statuses are managed by the system.
    * 
    * @example
    * Terminated
@@ -60,7 +60,7 @@ export class UpdateEvaluationTaskRequest extends $dara.Model {
   tags?: { [key: string]: string };
   /**
    * @remarks
-   * The idempotency token. CloudSpec declares this query parameter, but the backend does not currently perform idempotency comparison.
+   * The idempotency token. CloudSpec declares this query parameter, but the backend does not currently perform idempotency checks.
    * 
    * @example
    * a1b2c3d4-1234-5678-90ab-cdef12345678
