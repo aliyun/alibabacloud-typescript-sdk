@@ -89,7 +89,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建客户小记
+   * Creates a customer note.
    * 
    * @param request - CustomerNoteCreateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -140,7 +140,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建客户小记
+   * Creates a customer note.
    * 
    * @param request - CustomerNoteCreateRequest
    * @returns CustomerNoteCreateResponse
@@ -151,7 +151,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 编辑客户小记
+   * Edits a customer note.
    * 
    * @param request - CustomerNoteEditRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -198,7 +198,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 编辑客户小记
+   * Edits a customer note.
    * 
    * @param request - CustomerNoteEditRequest
    * @returns CustomerNoteEditResponse
@@ -209,7 +209,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 分页查询客户小记列表
+   * Queries a paged query list of customer notes with paging support.
    * 
    * @param request - CustomerNoteListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -248,7 +248,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 分页查询客户小记列表
+   * Queries a paged query list of customer notes with paging support.
    * 
    * @param request - CustomerNoteListRequest
    * @returns CustomerNoteListResponse
@@ -259,7 +259,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询客户小记详情
+   * Queries the details of a customer note.
    * 
    * @param request - CustomerNoteListDetailRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -290,7 +290,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询客户小记详情
+   * Queries the details of a customer note.
    * 
    * @param request - CustomerNoteListDetailRequest
    * @returns CustomerNoteListDetailResponse

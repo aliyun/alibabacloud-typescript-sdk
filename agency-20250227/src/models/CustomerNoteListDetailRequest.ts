@@ -3,6 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CustomerNoteListDetailRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The note ID.
+   * 
+   * @example
+   * 1620737
+   */
   noteId?: number;
   static names(): { [key: string]: string } {
     return {
