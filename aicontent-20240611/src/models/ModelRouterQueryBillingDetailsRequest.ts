@@ -2,10 +2,10 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ModelRouterQueryBillingCostBreakdownRequest extends $dara.Model {
+export class ModelRouterQueryBillingDetailsRequest extends $dara.Model {
   /**
    * @remarks
-   * Optional. Filters results by API Key ID. This parameter is linked with the department, and clientId must be specified first.
+   * Optional. Filters results by API Key ID.
    * 
    * @example
    * 100
@@ -13,15 +13,15 @@ export class ModelRouterQueryBillingCostBreakdownRequest extends $dara.Model {
   apiKeyId?: number;
   /**
    * @remarks
-   * Optional. Filters results by department ID.
+   * Optional. Filters results by department ID (single value).
    * 
    * @example
-   * 5
+   * 1
    */
   clientId?: number;
   /**
    * @remarks
-   * The list of department IDs, separated by commas. Supports querying data for multiple departments. This parameter is mutually exclusive with client_id.
+   * The list of department IDs, separated by commas. Supports querying data for multiple departments. This parameter is mutually exclusive with clientId.
    * 
    * @example
    * 1,2,3
@@ -39,36 +39,18 @@ export class ModelRouterQueryBillingCostBreakdownRequest extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * The aggregation granularity. Valid values: hourly and daily.
-   * 
-   * This parameter is required.
+   * Optional. Filters results by model code. Separate multiple values with commas.
    * 
    * @example
-   * hourly
+   * qwen-plus,qwen-max
    */
-  granularity?: string;
-  /**
-   * @remarks
-   * The maximum number of results to return.
-   * 
-   * @example
-   * 20
-   */
-  maxResults?: number;
-  /**
-   * @remarks
-   * Optional. Filters results by member IDs, separated by commas. If not specified, the department and all its members are included. If an empty value is passed, only the department is included without members.
-   * 
-   * @example
-   * 30001,30002
-   */
-  memberUserIds?: string;
+  modelCodes?: string;
   /**
    * @remarks
    * Optional. Filters results by model ID.
    * 
    * @example
-   * 12
+   * 1
    */
   modelId?: number;
   /**
@@ -79,14 +61,6 @@ export class ModelRouterQueryBillingCostBreakdownRequest extends $dara.Model {
    * Chat
    */
   modelTypes?: string;
-  /**
-   * @remarks
-   * The pagination token.
-   * 
-   * @example
-   * xxxx-xxx-xxxxx
-   */
-  nextToken?: string;
   /**
    * @remarks
    * The page number. Default value: 1.
@@ -105,6 +79,14 @@ export class ModelRouterQueryBillingCostBreakdownRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
+   * Optional. Filters results by exact match of the request ID.
+   * 
+   * @example
+   * chatcmpl-abc123def456
+   */
+  requestId?: string;
+  /**
+   * @remarks
    * The query start time, in UNIX timestamp (seconds).
    * 
    * This parameter is required.
@@ -119,14 +101,12 @@ export class ModelRouterQueryBillingCostBreakdownRequest extends $dara.Model {
       clientId: 'clientId',
       clientIds: 'clientIds',
       endTime: 'endTime',
-      granularity: 'granularity',
-      maxResults: 'maxResults',
-      memberUserIds: 'memberUserIds',
+      modelCodes: 'modelCodes',
       modelId: 'modelId',
       modelTypes: 'modelTypes',
-      nextToken: 'nextToken',
       page: 'page',
       pageSize: 'pageSize',
+      requestId: 'requestId',
       startTime: 'startTime',
     };
   }
@@ -137,14 +117,12 @@ export class ModelRouterQueryBillingCostBreakdownRequest extends $dara.Model {
       clientId: 'number',
       clientIds: 'string',
       endTime: 'number',
-      granularity: 'string',
-      maxResults: 'number',
-      memberUserIds: 'string',
+      modelCodes: 'string',
       modelId: 'number',
       modelTypes: 'string',
-      nextToken: 'string',
       page: 'number',
       pageSize: 'number',
+      requestId: 'string',
       startTime: 'number',
     };
   }

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModelRouterGetBillingBillSummaryRequest extends $dara.Model {
   /**
    * @remarks
-   * The API key ID used to filter results. This parameter is optional and linked to the department. You must specify clientId first.
+   * The API Key ID used to filter results. This parameter is optional and linked with the department. You must specify clientId first.
    * 
    * @example
    * 100
@@ -29,7 +29,7 @@ export class ModelRouterGetBillingBillSummaryRequest extends $dara.Model {
   clientIds?: string;
   /**
    * @remarks
-   * The end time, in UNIX timestamp format (seconds).
+   * The end time, in UNIX timestamp (seconds).
    * 
    * This parameter is required.
    * 
@@ -37,10 +37,17 @@ export class ModelRouterGetBillingBillSummaryRequest extends $dara.Model {
    * 1700086400
    */
   endTime?: number;
+  /**
+   * @remarks
+   * The maximum number of results to return.
+   * 
+   * @example
+   * 10
+   */
   maxResults?: number;
   /**
    * @remarks
-   * The member IDs used to filter results, separated by commas. This parameter is optional. If not specified, the query returns data for the department and all its members. If an empty value is specified, the query returns data for the department only, excluding members.
+   * The member IDs used to filter results, separated by commas. This parameter is optional. If not specified, the department and all its members are included. If an empty value is specified, only the department is included without members.
    * 
    * @example
    * 30001,30002
@@ -62,10 +69,17 @@ export class ModelRouterGetBillingBillSummaryRequest extends $dara.Model {
    * Chat,ChatMultimodal
    */
   modelTypes?: string;
+  /**
+   * @remarks
+   * nextToken
+   * 
+   * @example
+   * xxxx-xxx-xxxxx
+   */
   nextToken?: string;
   /**
    * @remarks
-   * The start time, in UNIX timestamp format (seconds).
+   * The start time, in UNIX timestamp (seconds).
    * 
    * This parameter is required.
    * 

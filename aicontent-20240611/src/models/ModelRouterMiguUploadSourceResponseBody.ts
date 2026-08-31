@@ -1,23 +1,25 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { BillingBillSummaryRespDTO } from "./BillingBillSummaryRespDto";
+import { MiguSourceUploadDTO } from "./MiguSourceUploadDto";
 
 
-export class ModelRouterGetBillingBillSummaryResponseBody extends $dara.Model {
+export class ModelRouterMiguUploadSourceResponseBody extends $dara.Model {
   /**
    * @remarks
    * The data object.
    * 
    * @example
-   * []
+   * {}
    */
-  data?: BillingBillSummaryRespDTO;
+  data?: MiguSourceUploadDTO;
   /**
    * @remarks
-   * The error message code.
+   * The business error code. The console passes through the original value without mapping to standard platform error codes. Valid values:
+   * - ERROR_PARAMETERS: Missing or invalid parameters.
+   * - ERROR_SERVER_INTERNAL: Internal error.
    * 
    * @example
-   * UNKNOWN_ERROR
+   * ERROR_PARAMETERS
    */
   errCode?: string;
   /**
@@ -30,28 +32,14 @@ export class ModelRouterGetBillingBillSummaryResponseBody extends $dara.Model {
   errMessage?: string;
   /**
    * @remarks
-   * The HTTP status code.
+   * The business status code. Valid values:
+   * - 0: Success.
+   * - 400/403/500: Business error. For details, see errCode.
    * 
    * @example
-   * 200
+   * 0
    */
   httpStatusCode?: number;
-  /**
-   * @remarks
-   * The maximum number of results returned per page.
-   * 
-   * @example
-   * 10
-   */
-  maxResults?: number;
-  /**
-   * @remarks
-   * The pagination token.
-   * 
-   * @example
-   * xxxx-xxx-xxxxx
-   */
-  nextToken?: string;
   /**
    * @remarks
    * The request ID.
@@ -62,7 +50,7 @@ export class ModelRouterGetBillingBillSummaryResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true
@@ -74,8 +62,6 @@ export class ModelRouterGetBillingBillSummaryResponseBody extends $dara.Model {
       errCode: 'errCode',
       errMessage: 'errMessage',
       httpStatusCode: 'httpStatusCode',
-      maxResults: 'maxResults',
-      nextToken: 'nextToken',
       requestId: 'requestId',
       success: 'success',
     };
@@ -83,12 +69,10 @@ export class ModelRouterGetBillingBillSummaryResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      data: BillingBillSummaryRespDTO,
+      data: MiguSourceUploadDTO,
       errCode: 'string',
       errMessage: 'string',
       httpStatusCode: 'number',
-      maxResults: 'number',
-      nextToken: 'string',
       requestId: 'string',
       success: 'boolean',
     };

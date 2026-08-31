@@ -4027,7 +4027,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the total cost trend of bills in the Billing Center.
+   * Billing Center/Queries the total cost trend of bills.
+   * 
+   * @remarks
+   * Queries user role assignments.
    * 
    * @param request - ModelRouterGetBillingBillSummaryRequest
    * @param headers - map
@@ -4096,7 +4099,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the total cost trend of bills in the Billing Center.
+   * Billing Center/Queries the total cost trend of bills.
+   * 
+   * @remarks
+   * Queries user role assignments.
    * 
    * @param request - ModelRouterGetBillingBillSummaryRequest
    * @returns ModelRouterGetBillingBillSummaryResponse
@@ -4748,6 +4754,112 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves a pre-signed URL for downloading a Migu source file.
+   * 
+   * @remarks
+   * Creates a user.
+   * 
+   * @param request - ModelRouterMiguDownloadSourceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModelRouterMiguDownloadSourceResponse
+   */
+  async modelRouterMiguDownloadSourceWithOptions(request: $_model.ModelRouterMiguDownloadSourceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ModelRouterMiguDownloadSourceResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.sourceId)) {
+      query["sourceId"] = request.sourceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModelRouterMiguDownloadSource",
+      version: "20240611",
+      protocol: "HTTPS",
+      pathname: `/api/v1/modelRouter/open/pipeline/api/aigc/source/download`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModelRouterMiguDownloadSourceResponse>(await this.callApi(params, req, runtime), new $_model.ModelRouterMiguDownloadSourceResponse({}));
+  }
+
+  /**
+   * Retrieves a pre-signed URL for downloading a Migu source file.
+   * 
+   * @remarks
+   * Creates a user.
+   * 
+   * @param request - ModelRouterMiguDownloadSourceRequest
+   * @returns ModelRouterMiguDownloadSourceResponse
+   */
+  async modelRouterMiguDownloadSource(request: $_model.ModelRouterMiguDownloadSourceRequest): Promise<$_model.ModelRouterMiguDownloadSourceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.modelRouterMiguDownloadSourceWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * Manages Migu source files and retrieves a pre-signed URL for source file upload.
+   * 
+   * @remarks
+   * Updates a user.
+   * 
+   * @param request - ModelRouterMiguUploadSourceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModelRouterMiguUploadSourceResponse
+   */
+  async modelRouterMiguUploadSourceWithOptions(request: $_model.ModelRouterMiguUploadSourceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ModelRouterMiguUploadSourceResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.fileType)) {
+      body["fileType"] = request.fileType;
+    }
+
+    if (!$dara.isNull(request.serviceName)) {
+      body["serviceName"] = request.serviceName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModelRouterMiguUploadSource",
+      version: "20240611",
+      protocol: "HTTPS",
+      pathname: `/api/v1/modelRouter/open/pipeline/api/aigc/source/upload`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModelRouterMiguUploadSourceResponse>(await this.callApi(params, req, runtime), new $_model.ModelRouterMiguUploadSourceResponse({}));
+  }
+
+  /**
+   * Manages Migu source files and retrieves a pre-signed URL for source file upload.
+   * 
+   * @remarks
+   * Updates a user.
+   * 
+   * @param request - ModelRouterMiguUploadSourceRequest
+   * @returns ModelRouterMiguUploadSourceResponse
+   */
+  async modelRouterMiguUploadSource(request: $_model.ModelRouterMiguUploadSourceRequest): Promise<$_model.ModelRouterMiguUploadSourceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.modelRouterMiguUploadSourceWithOptions(request, headers, runtime);
+  }
+
+  /**
    * Retrieves the details of an API key.
    * 
    * @param headers - map
@@ -4878,6 +4990,9 @@ export default class Client extends OpenApi {
   /**
    * Queries billing details in batches.
    * 
+   * @remarks
+   * Queries the user list.
+   * 
    * @param request - ModelRouterQueryBillingCostBreakdownRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4959,6 +5074,9 @@ export default class Client extends OpenApi {
   /**
    * Queries billing details in batches.
    * 
+   * @remarks
+   * Queries the user list.
+   * 
    * @param request - ModelRouterQueryBillingCostBreakdownRequest
    * @returns ModelRouterQueryBillingCostBreakdownResponse
    */
@@ -4966,6 +5084,97 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.modelRouterQueryBillingCostBreakdownWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * Queries request-granularity billing details from the Billing Center.
+   * 
+   * @remarks
+   * Queries the user list.
+   * 
+   * @param request - ModelRouterQueryBillingDetailsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModelRouterQueryBillingDetailsResponse
+   */
+  async modelRouterQueryBillingDetailsWithOptions(request: $_model.ModelRouterQueryBillingDetailsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ModelRouterQueryBillingDetailsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.apiKeyId)) {
+      query["apiKeyId"] = request.apiKeyId;
+    }
+
+    if (!$dara.isNull(request.clientId)) {
+      query["clientId"] = request.clientId;
+    }
+
+    if (!$dara.isNull(request.clientIds)) {
+      query["clientIds"] = request.clientIds;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      query["endTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.modelCodes)) {
+      query["modelCodes"] = request.modelCodes;
+    }
+
+    if (!$dara.isNull(request.modelId)) {
+      query["modelId"] = request.modelId;
+    }
+
+    if (!$dara.isNull(request.modelTypes)) {
+      query["modelTypes"] = request.modelTypes;
+    }
+
+    if (!$dara.isNull(request.page)) {
+      query["page"] = request.page;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.requestId)) {
+      query["requestId"] = request.requestId;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["startTime"] = request.startTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModelRouterQueryBillingDetails",
+      version: "20240611",
+      protocol: "HTTPS",
+      pathname: `/api/v1/modelRouter/open/billing/details`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModelRouterQueryBillingDetailsResponse>(await this.callApi(params, req, runtime), new $_model.ModelRouterQueryBillingDetailsResponse({}));
+  }
+
+  /**
+   * Queries request-granularity billing details from the Billing Center.
+   * 
+   * @remarks
+   * Queries the user list.
+   * 
+   * @param request - ModelRouterQueryBillingDetailsRequest
+   * @returns ModelRouterQueryBillingDetailsResponse
+   */
+  async modelRouterQueryBillingDetails(request: $_model.ModelRouterQueryBillingDetailsRequest): Promise<$_model.ModelRouterQueryBillingDetailsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.modelRouterQueryBillingDetailsWithOptions(request, headers, runtime);
   }
 
   /**
@@ -6305,7 +6514,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves observation chart data for model monitoring.
+   * Retrieves monitoring chart data for model observation.
+   * 
+   * @remarks
+   * Queries a list of users.
    * 
    * @param request - ModelRouterQueryObservationChartsRequest
    * @param headers - map
@@ -6366,7 +6578,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves observation chart data for model monitoring.
+   * Retrieves monitoring chart data for model observation.
+   * 
+   * @remarks
+   * Queries a list of users.
    * 
    * @param request - ModelRouterQueryObservationChartsRequest
    * @returns ModelRouterQueryObservationChartsResponse
