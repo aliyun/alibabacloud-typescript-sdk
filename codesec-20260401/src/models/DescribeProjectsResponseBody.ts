@@ -5,7 +5,21 @@ import * as $dara from '@darabonba/typescript';
 /**
  */
 export class DescribeProjectsResponseBodyItemsEngines extends $dara.Model {
+  /**
+   * @remarks
+   * Indicates whether SAST is supported.
+   * 
+   * @example
+   * true
+   */
   sast?: boolean;
+  /**
+   * @remarks
+   * Indicates whether SCA is supported.
+   * 
+   * @example
+   * true
+   */
   sca?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -31,6 +45,13 @@ export class DescribeProjectsResponseBodyItemsEngines extends $dara.Model {
 }
 
 export class DescribeProjectsResponseBodyItemsSource extends $dara.Model {
+  /**
+   * @remarks
+   * The project type.
+   * 
+   * @example
+   * manual_upload
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -54,22 +75,78 @@ export class DescribeProjectsResponseBodyItemsSource extends $dara.Model {
 }
 
 export class DescribeProjectsResponseBodyItems extends $dara.Model {
+  /**
+   * @remarks
+   * The project configuration version number.
+   * 
+   * @example
+   * 1
+   */
   configRevision?: number;
   /**
    * @remarks
-   * 扫描项目创建时间（RFC3339）
+   * The creation time.
+   * 
+   * @example
+   * 2026-07-28T03:36:31.573Z
    */
   createdAt?: string;
+  /**
+   * @remarks
+   * The user ID of the project creator.
+   * 
+   * @example
+   * 11111
+   */
   createdBy?: string;
+  /**
+   * @remarks
+   * The description.
+   * 
+   * @example
+   * 111
+   */
   description?: string;
+  /**
+   * @remarks
+   * The engine switches for the project or scan snapshot (SAST and SCA only).
+   */
   engines?: DescribeProjectsResponseBodyItemsEngines;
+  /**
+   * @remarks
+   * The project ID.
+   * 
+   * @example
+   * 934
+   */
   id?: number;
+  /**
+   * @remarks
+   * The natural language prompt provided by the user that describes scanning or result processing preferences, such as ignoring low-risk vulnerabilities.
+   * 
+   * @example
+   * 1111
+   */
   instructionPrompt?: string;
+  /**
+   * @remarks
+   * The project name.
+   * 
+   * @example
+   * manual-hDecBn
+   */
   name?: string;
+  /**
+   * @remarks
+   * The project source.
+   */
   source?: DescribeProjectsResponseBodyItemsSource;
   /**
    * @remarks
-   * 扫描项目更新时间（RFC3339）
+   * The update time.
+   * 
+   * @example
+   * 2026-07-28T03:36:31.573Z
    */
   updatedAt?: string;
   static names(): { [key: string]: string } {
@@ -118,10 +195,44 @@ export class DescribeProjectsResponseBodyItems extends $dara.Model {
 }
 
 export class DescribeProjectsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The list of projects.
+   */
   items?: DescribeProjectsResponseBodyItems[];
+  /**
+   * @remarks
+   * The page size.
+   * 
+   * > If not specified, all projects are displayed.
+   * 
+   * @example
+   * 10
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The pagination token. An empty value indicates the last page.
+   * 
+   * @example
+   * eyJ0IjoiMjAyNi0wNy0xNlQwNzo1MzozOC4wMjFaIiwiaSI6MTAwMDQ0OH0
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 9A1F403F-0A85-5578-8B7C-55E3E9408659
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries.
+   * 
+   * @example
+   * 2
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {

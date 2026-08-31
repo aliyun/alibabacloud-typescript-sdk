@@ -11,7 +11,11 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApiUtil.Config) {
     super(config);
-    this._endpointRule = "";
+    this._endpointRule = "regional";
+    this._endpointMap = {
+      'ap-southeast-1': "codesec.ap-southeast-1.aliyuncs.com",
+      'cn-hangzhou': "codesec.cn-hangzhou.aliyuncs.com",
+    };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("codesec", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
@@ -30,7 +34,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * List projects for tenant
+   * Lists projects under the tenant with pagination, supporting fuzzy search by name or prompt.
    * 
    * @param request - DescribeProjectsRequest
    * @param headers - map
@@ -71,7 +75,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * List projects for tenant
+   * Lists projects under the tenant with pagination, supporting fuzzy search by name or prompt.
    * 
    * @param request - DescribeProjectsRequest
    * @returns DescribeProjectsResponse
@@ -83,7 +87,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * List findings for one engine (SAST / SCA)
+   * Queries the task result list to retrieve detailed SAST or SCA results for a specific scan.
    * 
    * @param request - DescribeScanResultsByEngineRequest
    * @param headers - map
@@ -132,7 +136,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * List findings for one engine (SAST / SCA)
+   * Queries the task result list to retrieve detailed SAST or SCA results for a specific scan.
    * 
    * @param request - DescribeScanResultsByEngineRequest
    * @returns DescribeScanResultsByEngineResponse
@@ -144,7 +148,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * List scans for project
+   * Lists scan tasks under a specified project with pagination.
    * 
    * @param request - DescribeScansRequest
    * @param headers - map
@@ -189,7 +193,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * List scans for project
+   * Lists scan tasks under a specified project with pagination.
    * 
    * @param request - DescribeScansRequest
    * @returns DescribeScansResponse
