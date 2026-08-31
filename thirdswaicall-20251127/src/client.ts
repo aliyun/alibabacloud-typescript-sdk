@@ -172,6 +172,10 @@ export default class Client extends OpenApi {
       request.displayStatusListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.displayStatusList, "DisplayStatusList", "json");
     }
 
+    if (!$dara.isNull(tmpReq.durationRangeList)) {
+      request.durationRangeListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.durationRangeList, "DurationRangeList", "json");
+    }
+
     if (!$dara.isNull(tmpReq.labelTags)) {
       request.labelTagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.labelTags, "LabelTags", "json");
     }
@@ -211,6 +215,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.displayStatusListShrink)) {
       body["DisplayStatusList"] = request.displayStatusListShrink;
+    }
+
+    if (!$dara.isNull(request.durationRangeListShrink)) {
+      body["DurationRangeList"] = request.durationRangeListShrink;
     }
 
     if (!$dara.isNull(request.labelTagsShrink)) {

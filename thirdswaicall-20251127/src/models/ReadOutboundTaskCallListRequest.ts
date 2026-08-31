@@ -50,6 +50,11 @@ export class ReadOutboundTaskCallListRequest extends $dara.Model {
   displayStatusList?: string[];
   /**
    * @example
+   * ["WITHIN_15_SECONDS", "FROM_1_TO_3_MINUTES"]
+   */
+  durationRangeList?: string[];
+  /**
+   * @example
    * ["有意向", "高净值"]
    */
   labelTags?: string[];
@@ -89,6 +94,7 @@ export class ReadOutboundTaskCallListRequest extends $dara.Model {
       currentWorkspaceId: 'CurrentWorkspaceId',
       customerNameOrPhone: 'CustomerNameOrPhone',
       displayStatusList: 'DisplayStatusList',
+      durationRangeList: 'DurationRangeList',
       labelTags: 'LabelTags',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
@@ -109,6 +115,7 @@ export class ReadOutboundTaskCallListRequest extends $dara.Model {
       currentWorkspaceId: 'string',
       customerNameOrPhone: 'string',
       displayStatusList: { 'type': 'array', 'itemType': 'string' },
+      durationRangeList: { 'type': 'array', 'itemType': 'string' },
       labelTags: { 'type': 'array', 'itemType': 'string' },
       maxResults: 'number',
       nextToken: 'string',
@@ -121,6 +128,9 @@ export class ReadOutboundTaskCallListRequest extends $dara.Model {
   validate() {
     if(Array.isArray(this.displayStatusList)) {
       $dara.Model.validateArray(this.displayStatusList);
+    }
+    if(Array.isArray(this.durationRangeList)) {
+      $dara.Model.validateArray(this.durationRangeList);
     }
     if(Array.isArray(this.labelTags)) {
       $dara.Model.validateArray(this.labelTags);

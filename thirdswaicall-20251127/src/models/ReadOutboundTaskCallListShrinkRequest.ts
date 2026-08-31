@@ -50,6 +50,11 @@ export class ReadOutboundTaskCallListShrinkRequest extends $dara.Model {
   displayStatusListShrink?: string;
   /**
    * @example
+   * ["WITHIN_15_SECONDS", "FROM_1_TO_3_MINUTES"]
+   */
+  durationRangeListShrink?: string;
+  /**
+   * @example
    * ["有意向", "高净值"]
    */
   labelTagsShrink?: string;
@@ -89,6 +94,7 @@ export class ReadOutboundTaskCallListShrinkRequest extends $dara.Model {
       currentWorkspaceId: 'CurrentWorkspaceId',
       customerNameOrPhone: 'CustomerNameOrPhone',
       displayStatusListShrink: 'DisplayStatusList',
+      durationRangeListShrink: 'DurationRangeList',
       labelTagsShrink: 'LabelTags',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
@@ -109,6 +115,7 @@ export class ReadOutboundTaskCallListShrinkRequest extends $dara.Model {
       currentWorkspaceId: 'string',
       customerNameOrPhone: 'string',
       displayStatusListShrink: 'string',
+      durationRangeListShrink: 'string',
       labelTagsShrink: 'string',
       maxResults: 'number',
       nextToken: 'string',
