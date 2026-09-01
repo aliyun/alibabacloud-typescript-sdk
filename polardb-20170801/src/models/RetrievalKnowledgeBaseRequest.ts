@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class RetrievalKnowledgeBaseRequest extends $dara.Model {
   /**
    * @remarks
+   * The unique ID of the knowledge base.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,14 +15,18 @@ export class RetrievalKnowledgeBaseRequest extends $dara.Model {
   knowledgeBaseId?: string;
   /**
    * @remarks
+   * The query text.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 财报
+   * Financial report
    */
   queryText?: string;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -28,16 +34,25 @@ export class RetrievalKnowledgeBaseRequest extends $dara.Model {
    */
   regionId?: string;
   /**
+   * @remarks
+   * Specifies whether to enable reranking. Default value: true.
+   * 
    * @example
    * true
    */
   rerankEnabled?: boolean;
   /**
+   * @remarks
+   * The similarity score threshold.
+   * 
    * @example
    * 0.7
    */
   scoreThreshold?: number;
   /**
+   * @remarks
+   * The number of results to return.
+   * 
    * @example
    * 5
    */

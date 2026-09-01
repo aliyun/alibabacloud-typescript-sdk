@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeKnowledgeBaseFilesResponseBodyItemsShardingStrategyConfigDefaultStrategyParameters extends $dara.Model {
   /**
+   * @remarks
+   * The maximum number of tokens per shard.
+   * 
    * @example
    * 512
    */
   maxTokens?: number;
   /**
+   * @remarks
+   * Specifies whether to merge adjacent small shards under the same heading.
+   * 
    * @example
    * true
    */
@@ -37,8 +43,15 @@ export class DescribeKnowledgeBaseFilesResponseBodyItemsShardingStrategyConfigDe
 }
 
 export class DescribeKnowledgeBaseFilesResponseBodyItemsShardingStrategyConfigDefaultStrategy extends $dara.Model {
+  /**
+   * @remarks
+   * The parameter list.
+   */
   parameters?: DescribeKnowledgeBaseFilesResponseBodyItemsShardingStrategyConfigDefaultStrategyParameters;
   /**
+   * @remarks
+   * The default chunking strategy type. Valid values: hybrid and hierarchical.
+   * 
    * @example
    * hybrid
    */
@@ -71,6 +84,9 @@ export class DescribeKnowledgeBaseFilesResponseBodyItemsShardingStrategyConfigDe
 
 export class DescribeKnowledgeBaseFilesResponseBodyItemsShardingStrategyConfigRulesMatch extends $dara.Model {
   /**
+   * @remarks
+   * The content type. Currently, table is supported.
+   * 
    * @example
    * table
    */
@@ -98,11 +114,17 @@ export class DescribeKnowledgeBaseFilesResponseBodyItemsShardingStrategyConfigRu
 
 export class DescribeKnowledgeBaseFilesResponseBodyItemsShardingStrategyConfigRulesStrategyParameters extends $dara.Model {
   /**
+   * @remarks
+   * The Markdown table processing mode. Valid values: auto, on, and off.
+   * 
    * @example
    * auto
    */
   markdownTables?: string;
   /**
+   * @remarks
+   * The maximum number of tokens per shard for matched content.
+   * 
    * @example
    * 512
    */
@@ -131,8 +153,15 @@ export class DescribeKnowledgeBaseFilesResponseBodyItemsShardingStrategyConfigRu
 }
 
 export class DescribeKnowledgeBaseFilesResponseBodyItemsShardingStrategyConfigRulesStrategy extends $dara.Model {
+  /**
+   * @remarks
+   * The parameter list.
+   */
   parameters?: DescribeKnowledgeBaseFilesResponseBodyItemsShardingStrategyConfigRulesStrategyParameters;
   /**
+   * @remarks
+   * The chunking strategy type applied after a rule is matched.
+   * 
    * @example
    * hierarchical
    */
@@ -164,7 +193,15 @@ export class DescribeKnowledgeBaseFilesResponseBodyItemsShardingStrategyConfigRu
 }
 
 export class DescribeKnowledgeBaseFilesResponseBodyItemsShardingStrategyConfigRules extends $dara.Model {
+  /**
+   * @remarks
+   * The content type. Currently, table is supported.
+   */
   match?: DescribeKnowledgeBaseFilesResponseBodyItemsShardingStrategyConfigRulesMatch;
+  /**
+   * @remarks
+   * The chunking strategy.
+   */
   strategy?: DescribeKnowledgeBaseFilesResponseBodyItemsShardingStrategyConfigRulesStrategy;
   static names(): { [key: string]: string } {
     return {
@@ -196,7 +233,15 @@ export class DescribeKnowledgeBaseFilesResponseBodyItemsShardingStrategyConfigRu
 }
 
 export class DescribeKnowledgeBaseFilesResponseBodyItemsShardingStrategyConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The default chunking strategy type. Valid values: hybrid and hierarchical.
+   */
   defaultStrategy?: DescribeKnowledgeBaseFilesResponseBodyItemsShardingStrategyConfigDefaultStrategy;
+  /**
+   * @remarks
+   * The list of override rules matched in order.
+   */
   rules?: DescribeKnowledgeBaseFilesResponseBodyItemsShardingStrategyConfigRules[];
   static names(): { [key: string]: string } {
     return {
@@ -229,77 +274,126 @@ export class DescribeKnowledgeBaseFilesResponseBodyItemsShardingStrategyConfig e
 
 export class DescribeKnowledgeBaseFilesResponseBodyItems extends $dara.Model {
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * Not Support.
    */
   errorMessage?: string;
   /**
+   * @remarks
+   * The file ID.
+   * 
    * @example
    * 5b2dbb13-xxxx-xxxx-xxxx-a55fe8daec8f
    */
   fileId?: string;
   /**
+   * @remarks
+   * The file name.
+   * 
    * @example
-   * 财报.pdf
+   * Financial_report.pdf
    */
   fileName?: string;
   /**
+   * @remarks
+   * The file size, in bytes.
+   * 
    * @example
    * 318881
    */
   fileSize?: number;
   /**
+   * @remarks
+   * The file type.
+   * 
    * @example
    * pdf
    */
   fileType?: string;
   /**
+   * @remarks
+   * Indicates whether the chunking strategy is inherited from the knowledge space.
+   * 
    * @example
    * true
    */
   inheritSpaceStrategy?: boolean;
   /**
+   * @remarks
+   * The knowledge base ID.
+   * 
    * @example
    * pkb-xxxxxx
    */
   knowledgeBaseId?: string;
   /**
+   * @remarks
+   * The knowledge space ID.
+   * 
    * @example
    * pks-xxxxxx
    */
   knowledgeSpaceId?: string;
   /**
+   * @remarks
+   * The document metadata.
+   * 
    * @example
    * {}
    */
   metadata?: { [key: string]: any };
   /**
+   * @remarks
+   * The OSS file path.
+   * 
    * @example
-   * oss://test-bucket-example/pks-xxxx/pkb-xxxx/财报.pdf
+   * oss://test-bucket-example/pks-xxxx/pkb-xxxx/Financial_report.pdf
    */
   OSSPath?: string;
   /**
+   * @remarks
+   * The number of shards.
+   * 
    * @example
    * 10
    */
   shardCount?: number;
+  /**
+   * @remarks
+   * The chunking strategy configuration currently in effect for the document. This value may be empty if the complete configuration was not saved for existing objects.
+   */
   shardingStrategyConfig?: DescribeKnowledgeBaseFilesResponseBodyItemsShardingStrategyConfig;
   /**
+   * @remarks
+   * The source type.
+   * 
    * @example
    * OSS
    */
   sourceType?: string;
   /**
+   * @remarks
+   * The status.
+   * 
    * @example
    * COMPLETED
    */
   status?: string;
   /**
+   * @remarks
+   * The update time.
+   * 
    * @example
    * 2026-06-15T22:28:53Z
    */
   updatedAt?: string;
   /**
+   * @remarks
+   * The upload time.
+   * 
    * @example
    * 2026-06-15T22:28:53Z
    */
@@ -362,28 +456,49 @@ export class DescribeKnowledgeBaseFilesResponseBodyItems extends $dara.Model {
 }
 
 export class DescribeKnowledgeBaseFilesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The list of files.
+   */
   items?: DescribeKnowledgeBaseFilesResponseBodyItems[];
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of records on the current page.
+   * 
    * @example
    * 9
    */
   pageRecordCount?: number;
   /**
+   * @remarks
+   * The number of records per page. Valid values: **30**, **50**, and **100**.
+   *                               
+   * Default value: **30**.
+   * 
    * @example
    * 30
    */
   pageSize?: number;
   /**
+   * @remarks
+   * Id of the request
+   * 
    * @example
    * CED079B7-A408-41A1-BFF1-EC608E******
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of records.
+   * 
    * @example
    * 9
    */

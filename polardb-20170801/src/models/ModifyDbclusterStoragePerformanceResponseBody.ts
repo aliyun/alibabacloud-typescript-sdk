@@ -13,7 +13,7 @@ export class ModifyDBClusterStoragePerformanceResponseBody extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The ID of the order.
+   * The order ID.
    * 
    * @example
    * 2035629******

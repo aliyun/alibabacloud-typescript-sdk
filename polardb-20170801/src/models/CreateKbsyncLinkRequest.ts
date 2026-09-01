@@ -40,6 +40,7 @@ export class CreateKBSyncLinkRequest extends $dara.Model {
    * testName
    */
   linkName?: string;
+  mcpEndpoint?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -48,6 +49,7 @@ export class CreateKBSyncLinkRequest extends $dara.Model {
    * cn-beijing
    */
   regionId?: string;
+  sheetMcpEndpoint?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -74,6 +76,7 @@ export class CreateKBSyncLinkRequest extends $dara.Model {
    * 63eexxxx-xxxx-xxxx-xxxx-xxxxxx090f82
    */
   tenantId?: string;
+  userId?: string;
   static names(): { [key: string]: string } {
     return {
       clientId: 'ClientId',
@@ -81,11 +84,14 @@ export class CreateKBSyncLinkRequest extends $dara.Model {
       description: 'Description',
       knowledgeBaseId: 'KnowledgeBaseId',
       linkName: 'LinkName',
+      mcpEndpoint: 'McpEndpoint',
       regionId: 'RegionId',
+      sheetMcpEndpoint: 'SheetMcpEndpoint',
       sourceDir: 'SourceDir',
       sourceType: 'SourceType',
       syncIntervalMinutes: 'SyncIntervalMinutes',
       tenantId: 'TenantId',
+      userId: 'UserId',
     };
   }
 
@@ -96,11 +102,14 @@ export class CreateKBSyncLinkRequest extends $dara.Model {
       description: 'string',
       knowledgeBaseId: 'string',
       linkName: 'string',
+      mcpEndpoint: 'string',
       regionId: 'string',
+      sheetMcpEndpoint: 'string',
       sourceDir: 'string',
       sourceType: 'string',
       syncIntervalMinutes: 'number',
       tenantId: 'string',
+      userId: 'string',
     };
   }
 

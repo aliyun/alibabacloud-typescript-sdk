@@ -4,17 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeKnowledgeBaseFilesRequest extends $dara.Model {
   /**
+   * @remarks
+   * The list of file IDs, separated by commas (,).
+   * 
    * @example
    * doc_a,doc_b
    */
   fileIds?: string;
   /**
+   * @remarks
+   * The keyword used to filter file names.
+   * 
    * @example
-   * 财报
+   * Financial report
    */
   keyword?: string;
   /**
    * @remarks
+   * The unique ID of the knowledge base.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -22,22 +30,33 @@ export class DescribeKnowledgeBaseFilesRequest extends $dara.Model {
    */
   knowledgeBaseId?: string;
   /**
+   * @remarks
+   * The unique ID of the synchronization link.
+   * 
    * @example
    * pkbl-2ze123456789abc
    */
   linkId?: string;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of records per page.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -45,6 +64,9 @@ export class DescribeKnowledgeBaseFilesRequest extends $dara.Model {
    */
   regionId?: string;
   /**
+   * @remarks
+   * The source type.
+   * 
    * @example
    * OSS
    */

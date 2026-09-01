@@ -17,7 +17,7 @@ export class TransformDBClusterPayTypeResponseBody extends $dara.Model {
   chargeType?: string;
   /**
    * @remarks
-   * The ID of the PolarDB cluster.
+   * The PolarDB cluster ID.
    * 
    * @example
    * pc-bp10gr51qasnl****
@@ -26,8 +26,7 @@ export class TransformDBClusterPayTypeResponseBody extends $dara.Model {
   /**
    * @remarks
    * The expiration time of the instance.
-   * 
-   * > This parameter is returned only when **PayType** is set to **Prepaid**.
+   * > This response parameter is returned only when **PayType** is set to **Prepaid**.
    * 
    * @example
    * 2020-04-20T10:00:00Z

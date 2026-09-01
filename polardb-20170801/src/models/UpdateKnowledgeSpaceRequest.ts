@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateKnowledgeSpaceRequestShardingStrategyConfigDefaultStrategyParameters extends $dara.Model {
   /**
+   * @remarks
+   * The maximum number of tokens per chunk. The value must be a positive integer.
+   * 
    * @example
    * 512
    */
   maxTokens?: number;
   /**
+   * @remarks
+   * Specifies whether to merge adjacent small chunks under the same heading.
+   * 
    * @example
    * true
    */
@@ -37,8 +43,15 @@ export class UpdateKnowledgeSpaceRequestShardingStrategyConfigDefaultStrategyPar
 }
 
 export class UpdateKnowledgeSpaceRequestShardingStrategyConfigDefaultStrategy extends $dara.Model {
+  /**
+   * @remarks
+   * The parameters of the default chunking strategy. MaxTokens and MergePeers take effect only when Type is set to hybrid.
+   */
   parameters?: UpdateKnowledgeSpaceRequestShardingStrategyConfigDefaultStrategyParameters;
   /**
+   * @remarks
+   * The type of the default chunking strategy. Valid values: hybrid or hierarchical.
+   * 
    * @example
    * hybrid
    */
@@ -71,6 +84,9 @@ export class UpdateKnowledgeSpaceRequestShardingStrategyConfigDefaultStrategy ex
 
 export class UpdateKnowledgeSpaceRequestShardingStrategyConfigRulesMatch extends $dara.Model {
   /**
+   * @remarks
+   * The content type. Currently, only table is supported.
+   * 
    * @example
    * table
    */
@@ -98,11 +114,17 @@ export class UpdateKnowledgeSpaceRequestShardingStrategyConfigRulesMatch extends
 
 export class UpdateKnowledgeSpaceRequestShardingStrategyConfigRulesStrategyParameters extends $dara.Model {
   /**
+   * @remarks
+   * The processing mode for Markdown tables. Valid values: auto, on, or off.
+   * 
    * @example
    * auto
    */
   markdownTables?: string;
   /**
+   * @remarks
+   * The maximum number of tokens per chunk for matched content. The value must be a positive integer.
+   * 
    * @example
    * 512
    */
@@ -131,8 +153,15 @@ export class UpdateKnowledgeSpaceRequestShardingStrategyConfigRulesStrategyParam
 }
 
 export class UpdateKnowledgeSpaceRequestShardingStrategyConfigRulesStrategy extends $dara.Model {
+  /**
+   * @remarks
+   * The chunking strategy parameters for the override rule. MaxTokens takes effect only when Type is set to hybrid. MarkdownTables supports auto, on, or off.
+   */
   parameters?: UpdateKnowledgeSpaceRequestShardingStrategyConfigRulesStrategyParameters;
   /**
+   * @remarks
+   * The type of the chunking strategy to use when the rule is matched. Valid values: hybrid or hierarchical.
+   * 
    * @example
    * hierarchical
    */
@@ -164,7 +193,15 @@ export class UpdateKnowledgeSpaceRequestShardingStrategyConfigRulesStrategy exte
 }
 
 export class UpdateKnowledgeSpaceRequestShardingStrategyConfigRules extends $dara.Model {
+  /**
+   * @remarks
+   * The match condition of the rule. Currently, only exact matching of table content by content type is supported.
+   */
   match?: UpdateKnowledgeSpaceRequestShardingStrategyConfigRulesMatch;
+  /**
+   * @remarks
+   * The chunking strategy to use when the rule is matched.
+   */
   strategy?: UpdateKnowledgeSpaceRequestShardingStrategyConfigRulesStrategy;
   static names(): { [key: string]: string } {
     return {
@@ -196,7 +233,15 @@ export class UpdateKnowledgeSpaceRequestShardingStrategyConfigRules extends $dar
 }
 
 export class UpdateKnowledgeSpaceRequestShardingStrategyConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The default chunking strategy. This strategy is used when no rule is matched.
+   */
   defaultStrategy?: UpdateKnowledgeSpaceRequestShardingStrategyConfigDefaultStrategy;
+  /**
+   * @remarks
+   * The list of override rules that are matched in order. Currently, a maximum of one exact-match rule with ContentType set to table is supported.
+   */
   rules?: UpdateKnowledgeSpaceRequestShardingStrategyConfigRules[];
   static names(): { [key: string]: string } {
     return {
@@ -229,12 +274,17 @@ export class UpdateKnowledgeSpaceRequestShardingStrategyConfig extends $dara.Mod
 
 export class UpdateKnowledgeSpaceRequest extends $dara.Model {
   /**
+   * @remarks
+   * The description of the knowledge space. The description can be up to 512 characters in length.
+   * 
    * @example
    * testDesc
    */
   description?: string;
   /**
    * @remarks
+   * The unique identifier of the knowledge space.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -242,17 +292,25 @@ export class UpdateKnowledgeSpaceRequest extends $dara.Model {
    */
   knowledgeSpaceId?: string;
   /**
+   * @remarks
+   * The name of the large language model.
+   * 
    * @example
    * qwen3.6-plus
    */
   LLMModel?: string;
   /**
+   * @remarks
+   * The name of the knowledge space. The name must be 1 to 128 characters in length.
+   * 
    * @example
    * testName
    */
   name?: string;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -260,10 +318,17 @@ export class UpdateKnowledgeSpaceRequest extends $dara.Model {
    */
   regionId?: string;
   /**
+   * @remarks
+   * The name of the reranking model.
+   * 
    * @example
    * qwen3-rerank
    */
   rerankModel?: string;
+  /**
+   * @remarks
+   * The default chunking strategy configuration for the knowledge space. Both simple strategies and composite strategies that match by content type are supported.
+   */
   shardingStrategyConfig?: UpdateKnowledgeSpaceRequestShardingStrategyConfig;
   static names(): { [key: string]: string } {
     return {

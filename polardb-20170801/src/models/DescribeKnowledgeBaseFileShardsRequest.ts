@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeKnowledgeBaseFileShardsRequest extends $dara.Model {
   /**
    * @remarks
+   * The file ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class DescribeKnowledgeBaseFileShardsRequest extends $dara.Model {
   fileId?: string;
   /**
    * @remarks
+   * The unique ID of the knowledge base.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,17 +24,25 @@ export class DescribeKnowledgeBaseFileShardsRequest extends $dara.Model {
    */
   knowledgeBaseId?: string;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of records per page.
+   * 
    * @example
    * 30
    */
   pageSize?: number;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example

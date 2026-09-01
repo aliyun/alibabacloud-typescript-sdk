@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class TriggerKnowledgeBaseSyncRequest extends $dara.Model {
   /**
    * @remarks
+   * The unique identifier of the knowledge base.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,12 +14,17 @@ export class TriggerKnowledgeBaseSyncRequest extends $dara.Model {
    */
   knowledgeBaseId?: string;
   /**
+   * @remarks
+   * The synchronization link ID.
+   * 
    * @example
    * pkbl-xxxxx
    */
   linkId?: string;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example

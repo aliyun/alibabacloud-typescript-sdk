@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class TriggerKnowledgeBaseSyncResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Id of the request
+   * 
    * @example
    * A7E6A8FD-C50B-46B2-BA85-D8B8D3******
    */

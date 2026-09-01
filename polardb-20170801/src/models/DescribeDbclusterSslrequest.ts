@@ -6,7 +6,7 @@ export class DescribeDBClusterSSLRequest extends $dara.Model {
   /**
    * @remarks
    * The cluster ID.
-   * >You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/98094.html) operation to query the details of all clusters under your account, including the cluster ID.
+   * >You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/98094.html) operation to query the details of all clusters under your account, including cluster IDs.
    * 
    * This parameter is required.
    * 
@@ -17,6 +17,9 @@ export class DescribeDBClusterSSLRequest extends $dara.Model {
   ownerAccount?: string;
   ownerId?: number;
   /**
+   * @remarks
+   * The PFS instance ID.
+   * 
    * @example
    * pfs-xxx
    */

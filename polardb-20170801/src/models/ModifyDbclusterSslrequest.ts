@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModifyDBClusterSSLRequest extends $dara.Model {
   /**
+   * @remarks
+   * The validity period of the SSL certificate. Unit: days. Valid values: 365 and 1095.
+   * 
    * @example
    * 1095
    */
   certValidDays?: string;
   /**
+   * @remarks
+   * The connection string.
+   * 
    * @example
    * xxx
    */
@@ -28,7 +34,7 @@ export class ModifyDBClusterSSLRequest extends $dara.Model {
    * The endpoint ID.
    * 
    * >* If the cluster is a PolarDB for MySQL cluster, this parameter is required.
-   * >* If the cluster is a PolarDB for PostgreSQL cluster or a PolarDB for PostgreSQL (Compatible with Oracle) cluster, you do not need to specify this parameter. Secure Sockets Layer (SSL) encryption is enabled for all endpoints by default.
+   * >* If the cluster is a PolarDB for PostgreSQL cluster or a PolarDB for PostgreSQL (Compatible with Oracle) cluster, you do not need to specify this parameter. SSL encryption is enabled for all endpoints by default.
    * >* You can call the [DescribeDBClusterSSL](https://help.aliyun.com/document_detail/2319159.html) operation to query endpoint details.
    * 
    * @example
@@ -37,13 +43,13 @@ export class ModifyDBClusterSSLRequest extends $dara.Model {
   DBEndpointId?: string;
   /**
    * @remarks
-   * The network type of the endpoint. The value must be consistent with the network type of the endpoint specified by the **DBEndpointId** parameter. Valid values:
+   * The network type of the endpoint. The value must be the same as the network type of the endpoint specified by **DBEndpointId**. Valid values:
    * * **Public**: public network
    * * **Private**: private network
    * * **Inner**: private network (classic network)
    * 
    * >* If the cluster is a PolarDB for MySQL cluster, this parameter is required.
-   * >* If the cluster is a PolarDB for PostgreSQL cluster or a PolarDB for PostgreSQL (Compatible with Oracle) cluster, you do not need to specify this parameter. Secure Sockets Layer (SSL) encryption is enabled for all endpoints by default.
+   * >* If the cluster is a PolarDB for PostgreSQL cluster or a PolarDB for PostgreSQL (Compatible with Oracle) cluster, you do not need to specify this parameter. SSL encryption is enabled for all endpoints by default.
    * 
    * @example
    * Public
@@ -52,6 +58,9 @@ export class ModifyDBClusterSSLRequest extends $dara.Model {
   ownerAccount?: string;
   ownerId?: number;
   /**
+   * @remarks
+   * The PFS instance ID.
+   * 
    * @example
    * pfs-xxx
    */
@@ -62,9 +71,9 @@ export class ModifyDBClusterSSLRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable automatic SSL certificate rotation. Valid values:
    * 
-   * - **Enable**: Enables automatic rotation.
+   * - **Enable**: Enabled.
    * 
-   * - **Disable**: Disables automatic rotation.
+   * - **Disable**: Disabled.
    * 
    * @example
    * Enable
@@ -72,12 +81,12 @@ export class ModifyDBClusterSSLRequest extends $dara.Model {
   SSLAutoRotate?: string;
   /**
    * @remarks
-   * The SSL status. Valid values:
-   * * **Disable**: Shutdown of Secure Sockets Layer (SSL) encryption.
-   * * **Enable**: Enables Secure Sockets Layer (SSL) encryption.
+   * The SSL status to set. Valid values:
+   * * **Disable**: Shutdown SSL encryption.
+   * * **Enable**: Enables SSL encryption.
    * * **Update**: Updates the CA certificate.
    * 
-   * > After you enable Secure Sockets Layer (SSL) encryption or update the CA certificate, you must download and configure the certificate. For details, see [Settings for SSL encryption](https://help.aliyun.com/document_detail/153182.html).
+   * > After you enable SSL encryption or update the CA certificate, you must download and configure the certificate. For details, see [Settings for SSL encryption](https://help.aliyun.com/document_detail/153182.html).
    * 
    * @example
    * Enable

@@ -14,6 +14,12 @@ export class EnableDBClusterServerlessRequest extends $dara.Model {
    */
   DBClusterId?: string;
   /**
+   * @remarks
+   * Specifies whether to immediately execute or schedule the parameter modification and restart. Valid values:
+   * 
+   * - false (default): Schedule the execution.
+   * - true: Immediately execute.
+   * 
    * @example
    * false
    */
@@ -21,11 +27,17 @@ export class EnableDBClusterServerlessRequest extends $dara.Model {
   ownerAccount?: string;
   ownerId?: number;
   /**
+   * @remarks
+   * The latest time to start executing the target scheduled task. Specify the time in the YYYY-MM-DDThh:mm:ssZ format (UTC).
+   * 
    * @example
    * 2022-04-28T14:30:00Z
    */
   plannedEndTime?: string;
   /**
+   * @remarks
+   * The earliest time to start executing the scheduled task (that is, the task is executed within the target time period). Specify the time in the YYYY-MM-DDThh:mm:ssZ format (UTC).
+   * 
    * @example
    * 2022-04-28T14:00:00Z
    */

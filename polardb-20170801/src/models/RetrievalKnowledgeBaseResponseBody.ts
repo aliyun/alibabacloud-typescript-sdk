@@ -4,33 +4,59 @@ import * as $dara from '@darabonba/typescript';
 
 export class RetrievalKnowledgeBaseResponseBodyResults extends $dara.Model {
   /**
+   * @remarks
+   * The unique ID of the file.
+   * 
    * @example
    * 91b97b71-xxxx-xxxx-xxxx-33c6a6341cdc
    */
   fileId?: string;
   /**
+   * @remarks
+   * The file name.
+   * 
    * @example
-   * 2024财报.pdf
+   * 2024FinancialReport.pdf
    */
   fileName?: string;
+  /**
+   * @remarks
+   * The chain of section headings to which the shard belongs.
+   */
   headings?: string[];
   /**
+   * @remarks
+   * The metadata.
+   * 
    * @example
    * {}
    */
   metadata?: string;
+  /**
+   * @remarks
+   * The list of page numbers to which the shard belongs.
+   */
   pageNumbers?: number[];
   /**
+   * @remarks
+   * The text content of the shard.
+   * 
    * @example
-   * 财报
+   * Financial report
    */
   shardContent?: string;
   /**
+   * @remarks
+   * The shard index.
+   * 
    * @example
    * 1
    */
   shardIndex?: number;
   /**
+   * @remarks
+   * The similarity score.
+   * 
    * @example
    * 0.8
    */
@@ -78,20 +104,33 @@ export class RetrievalKnowledgeBaseResponseBodyResults extends $dara.Model {
 
 export class RetrievalKnowledgeBaseResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The query text.
+   * 
    * @example
-   * 财报
+   * Financial report
    */
   queryText?: string;
   /**
+   * @remarks
+   * Id of the request
+   * 
    * @example
    * CD35F3-F3-44CA-AFFF-BAF869******
    */
   requestId?: string;
   /**
+   * @remarks
+   * The number of results.
+   * 
    * @example
    * 5
    */
   resultCount?: number;
+  /**
+   * @remarks
+   * The search results.
+   */
   results?: RetrievalKnowledgeBaseResponseBodyResults[];
   static names(): { [key: string]: string } {
     return {

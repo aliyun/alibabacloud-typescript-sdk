@@ -15,7 +15,7 @@ export class DeleteDBClusterEndpointRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The ID of the custom cluster endpoint.
+   * The custom cluster endpoint ID.
    * 
    * This parameter is required.
    * 
@@ -26,6 +26,9 @@ export class DeleteDBClusterEndpointRequest extends $dara.Model {
   ownerAccount?: string;
   ownerId?: number;
   /**
+   * @remarks
+   * The PolarFs instance ID.
+   * 
    * @example
    * pfs-test*****
    */

@@ -613,7 +613,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 知识库单轮问答
+   * Performs a single-round knowledge base question answering.
    * 
    * @param request - AnswerKnowledgeBaseRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -684,7 +684,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 知识库单轮问答
+   * Performs a single-round knowledge base question answering.
    * 
    * @param request - AnswerKnowledgeBaseRequest
    * @returns AnswerKnowledgeBaseResponse
@@ -5516,8 +5516,16 @@ export default class Client extends OpenApi {
       query["LinkName"] = request.linkName;
     }
 
+    if (!$dara.isNull(request.mcpEndpoint)) {
+      query["McpEndpoint"] = request.mcpEndpoint;
+    }
+
     if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.sheetMcpEndpoint)) {
+      query["SheetMcpEndpoint"] = request.sheetMcpEndpoint;
     }
 
     if (!$dara.isNull(request.sourceDir)) {
@@ -5534,6 +5542,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.tenantId)) {
       query["TenantId"] = request.tenantId;
+    }
+
+    if (!$dara.isNull(request.userId)) {
+      query["UserId"] = request.userId;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -8063,7 +8075,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a custom cluster endpoint for a PolarDB cluster.
+   * Releases a custom cluster endpoint of a PolarDB cluster.
    * 
    * @param request - DeleteDBClusterEndpointRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8118,7 +8130,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a custom cluster endpoint for a PolarDB cluster.
+   * Releases a custom cluster endpoint of a PolarDB cluster.
    * 
    * @param request - DeleteDBClusterEndpointRequest
    * @returns DeleteDBClusterEndpointResponse
@@ -9077,7 +9089,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除知识库文件
+   * Deletes a knowledge base file.
    * 
    * @param request - DeleteKnowledgeBaseFileRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9116,7 +9128,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除知识库文件
+   * Deletes a knowledge base file.
    * 
    * @param request - DeleteKnowledgeBaseFileRequest
    * @returns DeleteKnowledgeBaseFileResponse
@@ -15111,10 +15123,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of the current kernel version for a PolarDB for MySQL cluster.
+   * Queries the details of the current Milvus version of a PolarDB for MySQL cluster.
    * 
    * @remarks
-   * > For more information about the kernel versions of PolarDB for MySQL clusters, see [Kernel version guide](https://help.aliyun.com/document_detail/471239.html) and [Kernel release notes](https://help.aliyun.com/document_detail/423884.html).
+   * >For more information about the minor Milvus versions and details of PolarDB for MySQL Cluster Edition, see [Minor Milvus version description](https://help.aliyun.com/document_detail/471239.html) and [Release notes](https://help.aliyun.com/document_detail/423884.html).
    * 
    * @param request - DescribeDBClusterVersionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15165,10 +15177,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of the current kernel version for a PolarDB for MySQL cluster.
+   * Queries the details of the current Milvus version of a PolarDB for MySQL cluster.
    * 
    * @remarks
-   * > For more information about the kernel versions of PolarDB for MySQL clusters, see [Kernel version guide](https://help.aliyun.com/document_detail/471239.html) and [Kernel release notes](https://help.aliyun.com/document_detail/423884.html).
+   * >For more information about the minor Milvus versions and details of PolarDB for MySQL Cluster Edition, see [Minor Milvus version description](https://help.aliyun.com/document_detail/471239.html) and [Release notes](https://help.aliyun.com/document_detail/423884.html).
    * 
    * @param request - DescribeDBClusterVersionRequest
    * @returns DescribeDBClusterVersionResponse
@@ -17689,7 +17701,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询知识库单轮问答结果
+   * Queries the result of a single-turn Q&A task in a knowledge base.
    * 
    * @param request - DescribeKnowledgeBaseAnswerRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17728,7 +17740,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询知识库单轮问答结果
+   * Queries the result of a single-turn Q&A task in a knowledge base.
    * 
    * @param request - DescribeKnowledgeBaseAnswerRequest
    * @returns DescribeKnowledgeBaseAnswerResponse
@@ -17785,7 +17797,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询知识库文件分片列表
+   * Queries the list of file shards in a knowledge base.
    * 
    * @param request - DescribeKnowledgeBaseFileShardsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17832,7 +17844,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询知识库文件分片列表
+   * Queries the list of file shards in a knowledge base.
    * 
    * @param request - DescribeKnowledgeBaseFileShardsRequest
    * @returns DescribeKnowledgeBaseFileShardsResponse
@@ -17843,7 +17855,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询知识库文件列表
+   * Queries the list of files in a knowledge base.
    * 
    * @param request - DescribeKnowledgeBaseFilesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17902,7 +17914,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询知识库文件列表
+   * Queries the list of files in a knowledge base.
    * 
    * @param request - DescribeKnowledgeBaseFilesRequest
    * @returns DescribeKnowledgeBaseFilesResponse
@@ -17975,7 +17987,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询知识空间详情
+   * Queries the details of a knowledge space.
    * 
    * @param request - DescribeKnowledgeSpaceAttributeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18010,7 +18022,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询知识空间详情
+   * Queries the details of a knowledge space.
    * 
    * @param request - DescribeKnowledgeSpaceAttributeRequest
    * @returns DescribeKnowledgeSpaceAttributeResponse
@@ -21570,7 +21582,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disables steady-state serverless.
+   * Disables steady-state Serverless.
    * 
    * @param request - DisableDBClusterServerlessRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -21629,7 +21641,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disables steady-state serverless.
+   * Disables steady-state Serverless.
    * 
    * @param request - DisableDBClusterServerlessRequest
    * @returns DisableDBClusterServerlessResponse
@@ -26211,11 +26223,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the parameters of a PolarDB cluster or applies an existing parameter template to a destination cluster.
+   * Modifies the parameters of a PolarDB cluster or applies an existing parameter template to the specified cluster.
    * 
    * @remarks
-   * The parameter template feature in PolarDB lets you centrally manage parameters and apply them to your clusters. For more information, see [Use parameter templates](https://help.aliyun.com/document_detail/207009.html).
-   * > The parameter template feature is available only for PolarDB for MySQL.
+   * PolarDB provides the parameter template feature. You can use parameter templates to centrally manage parameters and quickly apply them to clusters. For more information, see [Use parameter templates](https://help.aliyun.com/document_detail/207009.html).
+   * > Currently, only PolarDB for MySQL supports the parameter template feature.
    * 
    * @param request - ModifyDBClusterParametersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -26286,11 +26298,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the parameters of a PolarDB cluster or applies an existing parameter template to a destination cluster.
+   * Modifies the parameters of a PolarDB cluster or applies an existing parameter template to the specified cluster.
    * 
    * @remarks
-   * The parameter template feature in PolarDB lets you centrally manage parameters and apply them to your clusters. For more information, see [Use parameter templates](https://help.aliyun.com/document_detail/207009.html).
-   * > The parameter template feature is available only for PolarDB for MySQL.
+   * PolarDB provides the parameter template feature. You can use parameter templates to centrally manage parameters and quickly apply them to clusters. For more information, see [Use parameter templates](https://help.aliyun.com/document_detail/207009.html).
+   * > Currently, only PolarDB for MySQL supports the parameter template feature.
    * 
    * @param request - ModifyDBClusterParametersRequest
    * @returns ModifyDBClusterParametersResponse
@@ -26457,7 +26469,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables or performs shutdown of the Secure Sockets Layer (SSL) encryption feature for a PolarDB cluster, or updates the CA certificate of a PolarDB cluster.
+   * Enables or shuts down the Secure Sockets Layer (SSL) encryption feature for a PolarDB cluster, or updates the CA certificate of a PolarDB cluster.
    * 
    * @param request - ModifyDBClusterSSLRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -26532,7 +26544,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables or performs shutdown of the Secure Sockets Layer (SSL) encryption feature for a PolarDB cluster, or updates the CA certificate of a PolarDB cluster.
+   * Enables or shuts down the Secure Sockets Layer (SSL) encryption feature for a PolarDB cluster, or updates the CA certificate of a PolarDB cluster.
    * 
    * @param request - ModifyDBClusterSSLRequest
    * @returns ModifyDBClusterSSLResponse
@@ -30387,7 +30399,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 检索知识库
+   * Retrieves information from a knowledge base.
    * 
    * @param request - RetrievalKnowledgeBaseRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -30438,7 +30450,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 检索知识库
+   * Retrieves information from a knowledge base.
    * 
    * @param request - RetrievalKnowledgeBaseRequest
    * @returns RetrievalKnowledgeBaseResponse
@@ -30449,7 +30461,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量重试知识库失败文件
+   * Retries failed files in a knowledge base in batches.
    * 
    * @param request - RetryKnowledgeBaseFilesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -30488,7 +30500,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量重试知识库失败文件
+   * Retries failed files in a knowledge base in batches.
    * 
    * @param request - RetryKnowledgeBaseFilesRequest
    * @returns RetryKnowledgeBaseFilesResponse
@@ -31025,7 +31037,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Temporarily Modifies the configuration of a node.
+   * Temporarily changes the specifications of a cluster.
    * 
    * @param request - TempModifyDBNodeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -31100,7 +31112,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Temporarily Modifies the configuration of a node.
+   * Temporarily changes the specifications of a cluster.
    * 
    * @param request - TempModifyDBNodeRequest
    * @returns TempModifyDBNodeResponse
@@ -31114,11 +31126,9 @@ export default class Client extends OpenApi {
    * Changes the billing method of a PolarDB cluster.
    * 
    * @remarks
-   * > - PolarDB clusters support two billing methods: subscription and pay-as-you-go. You can change the billing method of a cluster from subscription to pay-as-you-go, or from pay-as-you-go to subscription. For more information, see [Change the billing method from subscription to pay-as-you-go](https://help.aliyun.com/document_detail/172886.html) and [Change the billing method from pay-as-you-go to subscription](https://help.aliyun.com/document_detail/84076.html).
-   * >
-   * > - You cannot change the billing method from pay-as-you-go to subscription if your Alibaba Cloud account has an insufficient balance.
-   * >
-   * > - When you change the billing method from subscription to pay-as-you-go, the system automatically refunds your remaining prepaid fees.
+   * > - PolarDB clusters support subscription and pay-as-you-go billing methods. You can change the billing method from subscription to pay-as-you-go or from pay-as-you-go to subscription based on your business requirements. For more information, see [Change from subscription to pay-as-you-go](https://help.aliyun.com/document_detail/172886.html) and [Change from pay-as-you-go to subscription](https://help.aliyun.com/document_detail/84076.html).
+   * >- If your Alibaba Cloud account balance is insufficient, you cannot change the pay-as-you-go billing method to subscription.
+   * >- When you change the billing method from subscription to pay-as-you-go, the system automatically refunds the remaining balance of the fees that you have paid.
    * 
    * @param request - TransformDBClusterPayTypeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -31200,11 +31210,9 @@ export default class Client extends OpenApi {
    * Changes the billing method of a PolarDB cluster.
    * 
    * @remarks
-   * > - PolarDB clusters support two billing methods: subscription and pay-as-you-go. You can change the billing method of a cluster from subscription to pay-as-you-go, or from pay-as-you-go to subscription. For more information, see [Change the billing method from subscription to pay-as-you-go](https://help.aliyun.com/document_detail/172886.html) and [Change the billing method from pay-as-you-go to subscription](https://help.aliyun.com/document_detail/84076.html).
-   * >
-   * > - You cannot change the billing method from pay-as-you-go to subscription if your Alibaba Cloud account has an insufficient balance.
-   * >
-   * > - When you change the billing method from subscription to pay-as-you-go, the system automatically refunds your remaining prepaid fees.
+   * > - PolarDB clusters support subscription and pay-as-you-go billing methods. You can change the billing method from subscription to pay-as-you-go or from pay-as-you-go to subscription based on your business requirements. For more information, see [Change from subscription to pay-as-you-go](https://help.aliyun.com/document_detail/172886.html) and [Change from pay-as-you-go to subscription](https://help.aliyun.com/document_detail/84076.html).
+   * >- If your Alibaba Cloud account balance is insufficient, you cannot change the pay-as-you-go billing method to subscription.
+   * >- When you change the billing method from subscription to pay-as-you-go, the system automatically refunds the remaining balance of the fees that you have paid.
    * 
    * @param request - TransformDBClusterPayTypeRequest
    * @returns TransformDBClusterPayTypeResponse
@@ -31215,7 +31223,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 触发知识库同步
+   * Triggers knowledge base synchronization.
    * 
    * @param request - TriggerKnowledgeBaseSyncRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -31254,7 +31262,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 触发知识库同步
+   * Triggers knowledge base synchronization.
    * 
    * @param request - TriggerKnowledgeBaseSyncRequest
    * @returns TriggerKnowledgeBaseSyncResponse
@@ -31666,6 +31674,14 @@ export default class Client extends OpenApi {
   async updateKBSyncLinkWithOptions(request: $_model.UpdateKBSyncLinkRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateKBSyncLinkResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.clientId)) {
+      query["ClientId"] = request.clientId;
+    }
+
+    if (!$dara.isNull(request.clientSecret)) {
+      query["ClientSecret"] = request.clientSecret;
+    }
+
     if (!$dara.isNull(request.knowledgeBaseId)) {
       query["KnowledgeBaseId"] = request.knowledgeBaseId;
     }
@@ -31674,12 +31690,28 @@ export default class Client extends OpenApi {
       query["LinkId"] = request.linkId;
     }
 
+    if (!$dara.isNull(request.mcpEndpoint)) {
+      query["McpEndpoint"] = request.mcpEndpoint;
+    }
+
     if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
+    if (!$dara.isNull(request.sheetMcpEndpoint)) {
+      query["SheetMcpEndpoint"] = request.sheetMcpEndpoint;
+    }
+
+    if (!$dara.isNull(request.syncEnabled)) {
+      query["SyncEnabled"] = request.syncEnabled;
+    }
+
     if (!$dara.isNull(request.syncIntervalMinutes)) {
       query["SyncIntervalMinutes"] = request.syncIntervalMinutes;
+    }
+
+    if (!$dara.isNull(request.userId)) {
+      query["UserId"] = request.userId;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -31711,7 +31743,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新知识库
+   * Updates a knowledge base.
    * 
    * @param request - UpdateKnowledgeBaseRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -31758,7 +31790,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新知识库
+   * Updates a knowledge base.
    * 
    * @param request - UpdateKnowledgeBaseRequest
    * @returns UpdateKnowledgeBaseResponse
@@ -31769,7 +31801,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新知识库文件分块策略
+   * Updates the chunking strategy for a file in a knowledge base.
    * 
    * @param tmpReq - UpdateKnowledgeBaseFileShardingStrategyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -31822,7 +31854,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新知识库文件分块策略
+   * Updates the chunking strategy for a file in a knowledge base.
    * 
    * @param request - UpdateKnowledgeBaseFileShardingStrategyRequest
    * @returns UpdateKnowledgeBaseFileShardingStrategyResponse
@@ -31833,7 +31865,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新知识空间
+   * Updates a knowledge space.
    * 
    * @param tmpReq - UpdateKnowledgeSpaceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -31894,7 +31926,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新知识空间
+   * Updates a knowledge space.
    * 
    * @param request - UpdateKnowledgeSpaceRequest
    * @returns UpdateKnowledgeSpaceResponse

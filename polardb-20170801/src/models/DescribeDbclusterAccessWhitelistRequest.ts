@@ -16,6 +16,9 @@ export class DescribeDBClusterAccessWhitelistRequest extends $dara.Model {
   ownerAccount?: string;
   ownerId?: number;
   /**
+   * @remarks
+   * The PFS instance ID.
+   * 
    * @example
    * pfs-xxx
    */

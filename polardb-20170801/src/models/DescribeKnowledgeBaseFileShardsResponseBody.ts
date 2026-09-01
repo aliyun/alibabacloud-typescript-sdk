@@ -3,14 +3,28 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeKnowledgeBaseFileShardsResponseBodyShards extends $dara.Model {
+  /**
+   * @remarks
+   * The chain of section headings to which the shard belongs.
+   */
   headings?: string[];
+  /**
+   * @remarks
+   * The list of page numbers to which the shard belongs.
+   */
   pageNumbers?: string[];
   /**
+   * @remarks
+   * The text content of the shard.
+   * 
    * @example
    * ******
    */
   shardContent?: string;
   /**
+   * @remarks
+   * The shard index.
+   * 
    * @example
    * 1
    */
@@ -50,27 +64,46 @@ export class DescribeKnowledgeBaseFileShardsResponseBodyShards extends $dara.Mod
 
 export class DescribeKnowledgeBaseFileShardsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The current page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of records on the current page.
+   * 
    * @example
    * 10
    */
   pageRecordCount?: number;
   /**
+   * @remarks
+   * The number of entries per page in a paged query.
+   * 
    * @example
    * 30
    */
   pageSize?: number;
   /**
+   * @remarks
+   * Id of the request
+   * 
    * @example
    * 3E5CD764-xxxx-xxxx-xxxx-20E0DE84B2AF
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The shard information.
+   */
   shards?: DescribeKnowledgeBaseFileShardsResponseBodyShards[];
   /**
+   * @remarks
+   * The total number of records.
+   * 
    * @example
    * 10
    */
