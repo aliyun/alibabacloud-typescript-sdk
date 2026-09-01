@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteOpenSearchAccountRequest extends $dara.Model {
   /**
    * @remarks
+   * The name of the account to delete.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class DeleteOpenSearchAccountRequest extends $dara.Model {
   accountName?: string;
   /**
    * @remarks
+   * The instance name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class DeleteOpenSearchAccountRequest extends $dara.Model {
   DBInstanceName?: string;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example

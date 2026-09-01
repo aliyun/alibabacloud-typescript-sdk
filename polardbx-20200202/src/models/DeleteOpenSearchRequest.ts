@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteOpenSearchRequest extends $dara.Model {
   /**
    * @remarks
+   * The instance name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class DeleteOpenSearchRequest extends $dara.Model {
   DBInstanceName?: string;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example

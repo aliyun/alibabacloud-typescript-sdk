@@ -4,36 +4,57 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteOpenSearchAccountResponseBodyAccessDeniedDetail extends $dara.Model {
   /**
+   * @remarks
+   * The authentication action.
+   * 
    * @example
    * xxx
    */
   authAction?: string;
   /**
+   * @remarks
+   * The display name of the authentication principal.
+   * 
    * @example
    * xxx
    */
   authPrincipalDisplayName?: string;
   /**
+   * @remarks
+   * The owner ID of the authentication principal.
+   * 
    * @example
    * 111
    */
   authPrincipalOwnerId?: string;
   /**
+   * @remarks
+   * The type of the authentication principal.
+   * 
    * @example
    * 222
    */
   authPrincipalType?: string;
   /**
+   * @remarks
+   * The encoded diagnostic message.
+   * 
    * @example
    * AQEAAAAAaKPfwjY0MzMyODRGLUZCQkQtNTA1RS04MUUxLTc5NTkzODk2MUIzMg==
    */
   encodedDiagnosticMessage?: string;
   /**
+   * @remarks
+   * NoPermissionType
+   * 
    * @example
    * ImplicitDeny
    */
   noPermissionType?: string;
   /**
+   * @remarks
+   * The policy type.
+   * 
    * @example
    * System
    */
@@ -73,11 +94,17 @@ export class DeleteOpenSearchAccountResponseBodyAccessDeniedDetail extends $dara
 
 export class DeleteOpenSearchAccountResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The account name.
+   * 
    * @example
    * polardbx_meta_ro
    */
   accountName?: string;
   /**
+   * @remarks
+   * The task ID.
+   * 
    * @example
    * 2209883
    */
@@ -106,9 +133,20 @@ export class DeleteOpenSearchAccountResponseBodyData extends $dara.Model {
 }
 
 export class DeleteOpenSearchAccountResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The details of the access denial.
+   */
   accessDeniedDetail?: DeleteOpenSearchAccountResponseBodyAccessDeniedDetail;
+  /**
+   * @remarks
+   * The data struct.
+   */
   data?: DeleteOpenSearchAccountResponseBodyData;
   /**
+   * @remarks
+   * Id of the request
+   * 
    * @example
    * A501A191-BD70-5E50-98A9-C2A486A82****
    */

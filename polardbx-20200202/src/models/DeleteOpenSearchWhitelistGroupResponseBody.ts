@@ -4,36 +4,57 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteOpenSearchWhitelistGroupResponseBodyAccessDeniedDetail extends $dara.Model {
   /**
+   * @remarks
+   * The authentication action.
+   * 
    * @example
    * xxx
    */
   authAction?: string;
   /**
+   * @remarks
+   * The display name of the authentication principal.
+   * 
    * @example
    * xxx
    */
   authPrincipalDisplayName?: string;
   /**
+   * @remarks
+   * The owner ID of the authentication principal.
+   * 
    * @example
    * 111
    */
   authPrincipalOwnerId?: string;
   /**
+   * @remarks
+   * The type of the authentication principal.
+   * 
    * @example
    * 222
    */
   authPrincipalType?: string;
   /**
+   * @remarks
+   * The diagnostic information.
+   * 
    * @example
    * AQEAAAAAaKPfwjY0MzMyODRGLUZCQkQtNTA1RS04MUUxLTc5NTkzODk2MUIzMg==
    */
   encodedDiagnosticMessage?: string;
   /**
+   * @remarks
+   * The type of the permission denial.
+   * 
    * @example
    * ImplicitDeny
    */
   noPermissionType?: string;
   /**
+   * @remarks
+   * The policy type.
+   * 
    * @example
    * PRIORITY
    */
@@ -73,6 +94,9 @@ export class DeleteOpenSearchWhitelistGroupResponseBodyAccessDeniedDetail extend
 
 export class DeleteOpenSearchWhitelistGroupResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The response message. "success" is returned if the request is successful. Otherwise, the corresponding error code is returned.
+   * 
    * @example
    * get app list success
    */
@@ -99,9 +123,20 @@ export class DeleteOpenSearchWhitelistGroupResponseBodyData extends $dara.Model 
 }
 
 export class DeleteOpenSearchWhitelistGroupResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The details of the access denial.
+   */
   accessDeniedDetail?: DeleteOpenSearchWhitelistGroupResponseBodyAccessDeniedDetail;
+  /**
+   * @remarks
+   * The monitoring data.
+   */
   data?: DeleteOpenSearchWhitelistGroupResponseBodyData;
   /**
+   * @remarks
+   * Id of the request
+   * 
    * @example
    * B87E2AB3-B7C9-4394-9160-7F639F732031
    */

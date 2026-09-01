@@ -13,7 +13,7 @@ export class DeleteServiceAccountResponseBodyAccessDeniedDetail extends $dara.Mo
   authAction?: string;
   /**
    * @remarks
-   * The authentication principal type.
+   * The type of the authentication principal.
    * 
    * @example
    * 222
@@ -29,7 +29,7 @@ export class DeleteServiceAccountResponseBodyAccessDeniedDetail extends $dara.Mo
   encodedDiagnosticMessage?: string;
   /**
    * @remarks
-   * The type of the permission denial.
+   * The type of the missing permission.
    * 
    * @example
    * ImplicitDeny
@@ -99,7 +99,7 @@ export class DeleteServiceAccountResponseBodyData extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The service account type.
+   * The type of the service account.
    * 
    * @example
    * METADATA_READONLY
@@ -165,7 +165,7 @@ export class DeleteServiceAccountResponseBody extends $dara.Model {
   data?: DeleteServiceAccountResponseBodyData;
   /**
    * @remarks
-   * The error message. This parameter is empty if the request is successful.
+   * The error message returned if the request failed. This parameter is empty if the request is successful.
    * 
    * @example
    * success

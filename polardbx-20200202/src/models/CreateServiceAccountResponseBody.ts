@@ -99,7 +99,7 @@ export class CreateServiceAccountResponseBodyData extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The service account type.
+   * The type of the service account.
    * 
    * @example
    * 服务账号类型

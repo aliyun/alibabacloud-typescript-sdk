@@ -4,36 +4,57 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteOpenSearchResponseBodyAccessDeniedDetail extends $dara.Model {
   /**
+   * @remarks
+   * The authentication action.
+   * 
    * @example
    * xxx
    */
   authAction?: string;
   /**
+   * @remarks
+   * The display name of the authentication principal.
+   * 
    * @example
    * xxx
    */
   authPrincipalDisplayName?: string;
   /**
+   * @remarks
+   * The owner ID of the authentication principal.
+   * 
    * @example
    * 111
    */
   authPrincipalOwnerId?: string;
   /**
+   * @remarks
+   * The type of the authentication principal.
+   * 
    * @example
    * 222
    */
   authPrincipalType?: string;
   /**
+   * @remarks
+   * The encoded diagnostic message.
+   * 
    * @example
    * AQEAAAAAaKPfwjY0MzMyODRGLUZCQkQtNTA1RS04MUUxLTc5NTkzODk2MUIzMg==
    */
   encodedDiagnosticMessage?: string;
   /**
+   * @remarks
+   * The type of the permission denial.
+   * 
    * @example
    * ImplicitDeny
    */
   noPermissionType?: string;
   /**
+   * @remarks
+   * The policy type.
+   * 
    * @example
    * PRIORITY
    */
@@ -73,11 +94,17 @@ export class DeleteOpenSearchResponseBodyAccessDeniedDetail extends $dara.Model 
 
 export class DeleteOpenSearchResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The instance name.
+   * 
    * @example
    * pxc-*********
    */
   DBInstanceName?: string;
   /**
+   * @remarks
+   * The task ID.
+   * 
    * @example
    * 1111
    */
@@ -106,9 +133,20 @@ export class DeleteOpenSearchResponseBodyData extends $dara.Model {
 }
 
 export class DeleteOpenSearchResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The details of the access denial.
+   */
   accessDeniedDetail?: DeleteOpenSearchResponseBodyAccessDeniedDetail;
+  /**
+   * @remarks
+   * The data list.
+   */
   data?: DeleteOpenSearchResponseBodyData;
   /**
+   * @remarks
+   * Id of the request
+   * 
    * @example
    * 173CA69A-3513-591D-8A09-C1EA37CBE2D9
    */

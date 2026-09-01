@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteServiceAccountRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance name.
+   * The name of the instance.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DeleteServiceAccountRequest extends $dara.Model {
   DBInstanceName?: string;
   /**
    * @remarks
-   * The region where the instance resides.
+   * The region in which the instance resides.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class DeleteServiceAccountRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The service account type.
+   * The type of the service account.
    * 
    * This parameter is required.
    * 

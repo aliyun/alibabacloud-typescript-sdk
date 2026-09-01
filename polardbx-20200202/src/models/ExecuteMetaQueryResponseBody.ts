@@ -73,11 +73,16 @@ export class ExecuteMetaQueryResponseBodyAccessDeniedDetail extends $dara.Model 
 }
 
 export class ExecuteMetaQueryResponseBodyData extends $dara.Model {
+  appliedOffset?: number;
+  appliedRowLimit?: number;
   /**
    * @remarks
    * The column names.
    */
   columns?: string[];
+  hasMore?: boolean;
+  recordsSizeBytes?: number;
+  returnedRowCount?: number;
   /**
    * @remarks
    * The total number of data rows.
@@ -93,7 +98,12 @@ export class ExecuteMetaQueryResponseBodyData extends $dara.Model {
   rows?: { [key: string]: any }[];
   static names(): { [key: string]: string } {
     return {
+      appliedOffset: 'AppliedOffset',
+      appliedRowLimit: 'AppliedRowLimit',
       columns: 'Columns',
+      hasMore: 'HasMore',
+      recordsSizeBytes: 'RecordsSizeBytes',
+      returnedRowCount: 'ReturnedRowCount',
       rowCount: 'RowCount',
       rows: 'Rows',
     };
@@ -101,7 +111,12 @@ export class ExecuteMetaQueryResponseBodyData extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      appliedOffset: 'number',
+      appliedRowLimit: 'number',
       columns: { 'type': 'array', 'itemType': 'string' },
+      hasMore: 'boolean',
+      recordsSizeBytes: 'number',
+      returnedRowCount: 'number',
       rowCount: 'number',
       rows: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
     };
@@ -125,7 +140,7 @@ export class ExecuteMetaQueryResponseBodyData extends $dara.Model {
 export class ExecuteMetaQueryResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the access denial.
+   * The details about the access denial.
    */
   accessDeniedDetail?: ExecuteMetaQueryResponseBodyAccessDeniedDetail;
   /**
@@ -135,7 +150,7 @@ export class ExecuteMetaQueryResponseBody extends $dara.Model {
   data?: ExecuteMetaQueryResponseBodyData;
   /**
    * @remarks
-   * The additional information returned. If the request is successful, **success** is returned. If the request fails, the corresponding error code is returned.
+   * The additional information returned by the operation. success is returned if the request is successful. Otherwise, an error code is returned.
    * 
    * @example
    * ""

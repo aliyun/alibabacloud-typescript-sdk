@@ -273,6 +273,8 @@ export { ModifySupabaseSecurityIPListResponseBodyAccessDeniedDetail } from './Mo
 export { ModifySupabaseSecurityIPListResponseBodyData } from './ModifySupabaseSecurityIplistResponseBody';
 export { PreCheckSqlFlashbackTaskResponseBodyDataCheckResult } from './PreCheckSqlFlashbackTaskResponseBody';
 export { PreCheckSqlFlashbackTaskResponseBodyData } from './PreCheckSqlFlashbackTaskResponseBody';
+export { QueryColumnarLogResponseBodyAccessDeniedDetail } from './QueryColumnarLogResponseBody';
+export { QueryColumnarLogSSEResponseBodyAccessDeniedDetail } from './QueryColumnarLogSseresponseBody';
 export { RefreshImportMetaResponseBodyData } from './RefreshImportMetaResponseBody';
 export { ReleaseContext0PublicConnectionResponseBodyAccessDeniedDetail } from './ReleaseContext0publicConnectionResponseBody';
 export { ReleaseContext0PublicConnectionResponseBodyData } from './ReleaseContext0publicConnectionResponseBody';
@@ -830,6 +832,12 @@ export { ModifySupabaseSecurityIPListResponse } from './ModifySupabaseSecurityIp
 export { PreCheckSqlFlashbackTaskRequest } from './PreCheckSqlFlashbackTaskRequest';
 export { PreCheckSqlFlashbackTaskResponseBody } from './PreCheckSqlFlashbackTaskResponseBody';
 export { PreCheckSqlFlashbackTaskResponse } from './PreCheckSqlFlashbackTaskResponse';
+export { QueryColumnarLogRequest } from './QueryColumnarLogRequest';
+export { QueryColumnarLogResponseBody } from './QueryColumnarLogResponseBody';
+export { QueryColumnarLogResponse } from './QueryColumnarLogResponse';
+export { QueryColumnarLogSSERequest } from './QueryColumnarLogSserequest';
+export { QueryColumnarLogSSEResponseBody } from './QueryColumnarLogSseresponseBody';
+export { QueryColumnarLogSSEResponse } from './QueryColumnarLogSseresponse';
 export { RefreshImportMetaRequest } from './RefreshImportMetaRequest';
 export { RefreshImportMetaResponseBody } from './RefreshImportMetaResponseBody';
 export { RefreshImportMetaResponse } from './RefreshImportMetaResponse';

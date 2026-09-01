@@ -4,36 +4,57 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeOpenSearchInstancesResponseBodyAccessDeniedDetail extends $dara.Model {
   /**
+   * @remarks
+   * The authentication action.
+   * 
    * @example
    * xxx
    */
   authAction?: string;
   /**
+   * @remarks
+   * The display name of the authentication principal.
+   * 
    * @example
    * xxx
    */
   authPrincipalDisplayName?: string;
   /**
+   * @remarks
+   * The owner ID of the authentication principal.
+   * 
    * @example
    * 111
    */
   authPrincipalOwnerId?: string;
   /**
+   * @remarks
+   * The type of the authentication principal.
+   * 
    * @example
    * 222
    */
   authPrincipalType?: string;
   /**
+   * @remarks
+   * The encoded diagnostic message.
+   * 
    * @example
    * AQEAAAAAaKPfwjY0MzMyODRGLUZCQkQtNTA1RS04MUUxLTc5NTkzODk2MUIzMg==
    */
   encodedDiagnosticMessage?: string;
   /**
+   * @remarks
+   * The type of the permission denial.
+   * 
    * @example
    * ImplicitDeny
    */
   noPermissionType?: string;
   /**
+   * @remarks
+   * The policy type.
+   * 
    * @example
    * PRIORITY
    */
@@ -73,71 +94,118 @@ export class DescribeOpenSearchInstancesResponseBodyAccessDeniedDetail extends $
 
 export class DescribeOpenSearchInstancesResponseBodyDataInstances extends $dara.Model {
   /**
+   * @remarks
+   * The zone.
+   * 
    * @example
    * t1222576965886205
    */
   availabilityZone?: string;
   /**
+   * @remarks
+   * The billing method. Valid values:
+   * * **PrePaid**: subscription.
+   * * **PostPaid**: pay-as-you-go.
+   * 
    * @example
    * PostPaid
    */
   chargeType?: string;
   /**
+   * @remarks
+   * The number of CPUs.
+   * 
    * @example
    * 4000
    */
   cpu?: number;
   /**
+   * @remarks
+   * The creation time.
+   * 
    * @example
    * 2026-06-08T07:19:05.000+0000
    */
   createTime?: string;
   /**
+   * @remarks
+   * The number of data nodes.
+   * 
    * @example
    * 3
    */
   dataNodeCount?: number;
   /**
+   * @remarks
+   * The instance description.
+   * 
    * @example
-   * 我的 Supabase 项目
+   * My Supabase project
    */
   description?: string;
   /**
+   * @remarks
+   * The DPI engine version. Default value: 2.0.
+   * 
    * @example
    * 8.0
    */
   engineVersion?: string;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * pxc-shrdb7a2t8w3c1
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The memory size. Unit: GB.
+   * 
    * @example
    * 16
    */
   memoryGB?: number;
   /**
+   * @remarks
+   * The network type of the connection string. Valid values:
+   * * **Public**: public endpoint.
+   * * **Private**: private endpoint.
+   * * **Inner**: private endpoint (classic network).
+   * 
    * @example
    * 1
    */
   netType?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-beijing
    */
   regionId?: string;
   /**
+   * @remarks
+   * The display name of the instance specifications.
+   * 
    * @example
-   * 8 核 32 GB
+   * 8 cores 32 GB
    */
   specDisplay?: string;
   /**
+   * @remarks
+   * The instance status.
+   * 
    * @example
    * RUNNING
    */
   status?: string;
   /**
+   * @remarks
+   * The storage size of a single data node. Unit: GB.
+   * 
    * @example
    * 500
    */
@@ -190,28 +258,47 @@ export class DescribeOpenSearchInstancesResponseBodyDataInstances extends $dara.
 }
 
 export class DescribeOpenSearchInstancesResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The cluster ID.
+   */
   instances?: DescribeOpenSearchInstancesResponseBodyDataInstances[];
   /**
+   * @remarks
+   * The maximum number of entries per page for a paging query. Maximum value: 100. Default value: If you do not specify a value or the value is less than 10, the default value is 10. If the value is greater than 100, the default value is 100.
+   * 
    * @example
    * 10
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The token for the next query.
+   * 
    * @example
    * AAAAAV3MpHK1AP0pfERHZN5pu6kmMV9kamx92yNWehxph5Fw
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The page size.
+   * 
    * @example
    * 30
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The total number of entries.
+   * 
    * @example
    * 130
    */
@@ -251,9 +338,20 @@ export class DescribeOpenSearchInstancesResponseBodyData extends $dara.Model {
 }
 
 export class DescribeOpenSearchInstancesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The details of the access denial.
+   */
   accessDeniedDetail?: DescribeOpenSearchInstancesResponseBodyAccessDeniedDetail;
+  /**
+   * @remarks
+   * The operation result.
+   */
   data?: DescribeOpenSearchInstancesResponseBodyData;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * A501A191-BD70-5E50-98A9-C2A486A82****
    */

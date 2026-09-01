@@ -4,36 +4,57 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeContext0ConfigResponseBodyAccessDeniedDetail extends $dara.Model {
   /**
+   * @remarks
+   * The authentication action.
+   * 
    * @example
    * xxx
    */
   authAction?: string;
   /**
+   * @remarks
+   * The identity used for authentication in the request.
+   * 
    * @example
    * xxx
    */
   authPrincipalDisplayName?: string;
   /**
+   * @remarks
+   * The owner ID of the authentication principal.
+   * 
    * @example
    * 111
    */
   authPrincipalOwnerId?: string;
   /**
+   * @remarks
+   * The type of the authentication principal.
+   * 
    * @example
    * 222
    */
   authPrincipalType?: string;
   /**
+   * @remarks
+   * The encoded diagnostic message.
+   * 
    * @example
    * AQEAAAAAaKPfwjY0MzMyODRGLUZCQkQtNTA1RS04MUUxLTc5NTkzODk2MUIzMg==
    */
   encodedDiagnosticMessage?: string;
   /**
+   * @remarks
+   * NoPermissionType
+   * 
    * @example
    * ImplicitDeny
    */
   noPermissionType?: string;
   /**
+   * @remarks
+   * The policy type.
+   * 
    * @example
    * PRIORITY
    */
@@ -73,26 +94,41 @@ export class DescribeContext0ConfigResponseBodyAccessDeniedDetail extends $dara.
 
 export class DescribeContext0ConfigResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The administrator key of the context service.
+   * 
    * @example
    * admin-key-example
    */
   context0AdminKey?: string;
   /**
+   * @remarks
+   * The name of the context service instance.
+   * 
    * @example
    * context0-example
    */
   context0InstanceName?: string;
   /**
+   * @remarks
+   * The owner key of the context service.
+   * 
    * @example
    * owner-key-example
    */
   context0OwnerKey?: string;
   /**
+   * @remarks
+   * The name of the instance.
+   * 
    * @example
    * pxsp-*********
    */
   DBInstanceName?: string;
   /**
+   * @remarks
+   * The name of the PolarDB-X Search instance.
+   * 
    * @example
    * pxs-*********
    */
@@ -127,9 +163,20 @@ export class DescribeContext0ConfigResponseBodyData extends $dara.Model {
 }
 
 export class DescribeContext0ConfigResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The details of the access denial.
+   */
   accessDeniedDetail?: DescribeContext0ConfigResponseBodyAccessDeniedDetail;
+  /**
+   * @remarks
+   * The paginated result of the instance list.
+   */
   data?: DescribeContext0ConfigResponseBodyData;
   /**
+   * @remarks
+   * Id of the request
+   * 
    * @example
    * C457B28E-9CAB-4B77-B5C6-5D71B7870B6E
    */

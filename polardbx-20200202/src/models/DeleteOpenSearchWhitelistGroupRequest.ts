@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteOpenSearchWhitelistGroupRequest extends $dara.Model {
   /**
    * @remarks
+   * The name of the instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class DeleteOpenSearchWhitelistGroupRequest extends $dara.Model {
   DBInstanceName?: string;
   /**
    * @remarks
+   * The ID of the service group.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class DeleteOpenSearchWhitelistGroupRequest extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
+   * The ID of the region where the instance resides. > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196841.html) operation to query the regions supported by PolarDB-X, including region IDs.
+   * 
    * This parameter is required.
    * 
    * @example
