@@ -59,9 +59,9 @@ export class DescribeVpcsRequest extends $dara.Model {
    * @remarks
    * Specifies whether to perform a dry run. Valid values:
    * 
-   * - **true**: performs a dry run. The system checks the request for potential issues, including invalid AccessKey pairs, unauthorized RAM users, and missing parameter values. If the request fails the dry run, the corresponding error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+   * - **true**: performs a dry run. The system checks the request for potential issues, including invalid AccessKey pairs, unauthorized Resource Access Management (RAM) users, and missing parameter values. If the request fails the dry run, the corresponding error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
    * 
-   * - **false** (default): sends a normal request. If the request passes the check, an HTTP 2xx status code is returned and the operation is performed.
+   * - **false** (default): sends a Normal request, and the resource status is directly queried after the request passes the authorization check. An HTTP 2xx status code is returned.
    * 
    * @example
    * false
@@ -69,7 +69,7 @@ export class DescribeVpcsRequest extends $dara.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * Specifies whether to query VPCs that have IPv6 CIDR blocks enabled in the specified region. The default value is empty, which means no filtering is applied based on IPv6 enablement. Valid values:
+   * Specifies whether to query VPCs that have IPv6 CIDR blocks enabled in the specified region. The default value is empty, which means no filtering is performed based on IPv6 enablement. Valid values:
    * 
    * - **false**: IPv6 is not enabled.
    * - **true**: IPv6 is enabled.
@@ -105,7 +105,7 @@ export class DescribeVpcsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page for paging queries. Maximum value: **50**. Default value: **10**.
+   * The number of entries per page in paging queries. Maximum value: **50**. Default value: **10**.
    * 
    * @example
    * 10
@@ -142,7 +142,7 @@ export class DescribeVpcsRequest extends $dara.Model {
    * @remarks
    * The ID of the VPC. 
    * 
-   * You can specify up to 20 VPC IDs. Separate multiple IDs with commas (,).
+   * You can specify up to 20 VPC IDs. Separate multiple VPC IDs with commas (,).
    * 
    * @example
    * vpc-bp1b1xjllp3ve5yze****
@@ -158,7 +158,7 @@ export class DescribeVpcsRequest extends $dara.Model {
   vpcName?: string;
   /**
    * @remarks
-   * The Alibaba Cloud account ID of the VPC owner.
+   * The Alibaba Cloud account ID that owns the VPC.
    * 
    * @example
    * 253460731706911258

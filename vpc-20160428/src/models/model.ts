@@ -1529,6 +1529,9 @@ export { ModifyVirtualBorderRouterAttributeResponse } from './ModifyVirtualBorde
 export { ModifyVpcAttributeRequest } from './ModifyVpcAttributeRequest';
 export { ModifyVpcAttributeResponseBody } from './ModifyVpcAttributeResponseBody';
 export { ModifyVpcAttributeResponse } from './ModifyVpcAttributeResponse';
+export { ModifyVpcCidrBlockRequest } from './ModifyVpcCidrBlockRequest';
+export { ModifyVpcCidrBlockResponseBody } from './ModifyVpcCidrBlockResponseBody';
+export { ModifyVpcCidrBlockResponse } from './ModifyVpcCidrBlockResponse';
 export { ModifyVpcPrefixListRequest } from './ModifyVpcPrefixListRequest';
 export { ModifyVpcPrefixListResponseBody } from './ModifyVpcPrefixListResponseBody';
 export { ModifyVpcPrefixListResponse } from './ModifyVpcPrefixListResponse';

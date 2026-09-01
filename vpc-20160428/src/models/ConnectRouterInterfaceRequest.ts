@@ -6,7 +6,7 @@ export class ConnectRouterInterfaceRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region where the router interface resides. 
+   * The region where the router interface is located. 
    * 
    * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
    * 

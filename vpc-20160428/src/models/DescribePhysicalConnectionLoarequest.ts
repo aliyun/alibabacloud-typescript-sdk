@@ -17,7 +17,8 @@ export class DescribePhysicalConnectionLOARequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The instance ID of the Express Connect circuit.
+   * The ID of the Express Connect circuit instance.
+   * > The Express Connect circuit instance ID is obtained through the Alibaba Cloud Express Connect circuit access application process. For more information, refer to the Express Connect circuit access documentation.
    * 
    * This parameter is required.
    * 

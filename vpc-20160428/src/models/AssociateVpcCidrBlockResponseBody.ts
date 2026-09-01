@@ -13,7 +13,7 @@ export class AssociateVpcCidrBlockResponseBody extends $dara.Model {
   cidrBlock?: string;
   /**
    * @remarks
-   * The IP address type of the secondary CIDR block.
+   * The IP address version of the secondary CIDR block.
    * 
    * @example
    * IPV4

@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class GetNatGatewayAttributeResponseBodyAccessMode extends $dara.Model {
   /**
    * @remarks
-   * The access mode. Valid values:
+   * The access mode value. Valid values:
    * 
-   * - **route**: route mode.
+   * - **route**: Route mode.
    * 
-   * - **tunnel**: tunnel mode.
+   * - **tunnel**: Tunnel mode.
    * 
    * @example
    * route
@@ -53,7 +53,7 @@ export class GetNatGatewayAttributeResponseBodyBillingConfig extends $dara.Model
    * @remarks
    * Indicates whether automatic payment is enabled. When the value of **InstanceChargeType** is **PrePaid**, the following values are returned:
    * 
-   * - **false**: Automatic payment is not enabled. After an order is generated, go to the Order Center to complete the payment.
+   * - **false**: Automatic payment is disabled. After an order is generated, go to the Order Center to complete the payment.
    * 
    * - **true**: Automatic payment is enabled. The order is automatically paid.
    * 
@@ -81,8 +81,8 @@ export class GetNatGatewayAttributeResponseBodyBillingConfig extends $dara.Model
    * @remarks
    * The billing type of the NAT gateway instance. Valid values:
    * 
-   * - **PayBySpec**: billed by defined specifications.
-   * - **PayByLcu**: billed by usage.
+   * - **PayBySpec**: Billed by defined specifications.
+   * - **PayByLcu**: Billed by usage.
    * 
    * @example
    * PayBySpec
@@ -132,7 +132,7 @@ export class GetNatGatewayAttributeResponseBodyDeletionProtectionInfo extends $d
    * @remarks
    * Indicates whether deletion protection is enabled.
    * - **true**: Deletion protection is enabled.
-   * - **false**: Deletion protection is not enabled.
+   * - **false**: Deletion protection is disabled.
    * 
    * @example
    * true
@@ -260,8 +260,8 @@ export class GetNatGatewayAttributeResponseBodyIpList extends $dara.Model {
    * @remarks
    * The association status of the EIP bound to the Internet NAT gateway instance.
    * 
-   * - **idle**: The EIP is not associated with any SNAT entry or DNAT entry.
-   * - **UsedBySnatTable**: The EIP is associated with an SNAT entry.
+   * - **idle**: The EIP is not associated with a SNAT entry or DNAT entry.
+   * - **UsedBySnatTable**: The EIP is associated with a SNAT entry.
    * - **UsedByForwardTable**: The EIP is associated with a DNAT entry.
    * 
    * @example
@@ -316,7 +316,7 @@ export class GetNatGatewayAttributeResponseBodyLogDelivery extends $dara.Model {
   /**
    * @remarks
    * The destination type for session log delivery. Valid values:
-   * **sls**: Simple Log Service (SLS).
+   * **sls**: Alibaba Cloud Simple Log Service (SLS).
    * 
    * @example
    * sls
@@ -492,7 +492,7 @@ export class GetNatGatewayAttributeResponseBody extends $dara.Model {
   businessStatus?: string;
   /**
    * @remarks
-   * The time when the NAT gateway was created. The time is displayed in the YYYY-MM-DDThh:mm:ssZ format.
+   * The time when the NAT gateway was created. The time is displayed in the format of YYYY-MM-DDThh:mm:ssZ.
    * 
    * @example
    * 2021-12-08T12:20:20Z
@@ -515,7 +515,7 @@ export class GetNatGatewayAttributeResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the gateway traffic monitoring feature is enabled. Valid values:
    * - **true**: The gateway traffic monitoring feature is enabled.
-   * - **false**: The gateway traffic monitoring feature is not enabled.
+   * - **false**: The gateway traffic monitoring feature is disabled.
    * 
    * @example
    * true
@@ -603,10 +603,10 @@ export class GetNatGatewayAttributeResponseBody extends $dara.Model {
   privateInfo?: GetNatGatewayAttributeResponseBodyPrivateInfo;
   /**
    * @remarks
-   * Indicates whether PrivateLink is supported. Valid values:
+   * Indicates whether private connectivity is supported. Valid values:
    * 
-   * - **true**: PrivateLink is supported.
-   * - **false**: PrivateLink is not supported.
+   * - **true**: Private connectivity is supported.
+   * - **false**: Private connectivity is not supported.
    * 
    * @example
    * true
@@ -614,7 +614,7 @@ export class GetNatGatewayAttributeResponseBody extends $dara.Model {
   privateLinkEnabled?: boolean;
   /**
    * @remarks
-   * The PrivateLink service conversion mode. Valid values:
+   * The conversion mode of the private connectivity service. Valid values:
    * 
    * - **FullNat**: FULLNAT mode.
    * - **Geneve**: Geneve mode.
@@ -656,11 +656,11 @@ export class GetNatGatewayAttributeResponseBody extends $dara.Model {
    * @remarks
    * The status of the NAT gateway. Valid values:
    * 
-   * - **Creating**: The NAT gateway is being created. The creation of a NAT gateway is an asynchronous operation. The NAT gateway remains in the **Creating** state until the creation is complete.
+   * - **Creating**: The NAT gateway is being created. Creating a NAT gateway is an asynchronous operation. The NAT gateway remains in the **Creating** state until the operation is complete.
    * - **Available**: The NAT gateway is available. This is a stable state after the NAT gateway is created.
-   * - **Modifying**: The NAT gateway is being modified. The modification of a NAT gateway is an asynchronous operation. The NAT gateway remains in the **Modifying** state during the modification.
-   * - **Deleting**: The NAT gateway is being deleted. The deletion of a NAT gateway is an asynchronous operation. The NAT gateway remains in the **Deleting** state during the deletion.
-   * - **Converting**: The NAT gateway is being converted. The conversion from a standard NAT gateway to an enhanced NAT gateway is an asynchronous operation. The NAT gateway remains in the **Converting** state during the conversion.
+   * - **Modifying**: The NAT gateway is being modified. Modifying a NAT gateway is an asynchronous operation. The NAT gateway remains in the **Modifying** state until the operation is complete.
+   * - **Deleting**: The NAT gateway is being deleted. Deleting a NAT gateway is an asynchronous operation. The NAT gateway remains in the **Deleting** state until the operation is complete.
+   * - **Converting**: The NAT gateway is being converted. Converting a standard NAT gateway to an enhanced NAT gateway is an asynchronous operation. The NAT gateway remains in the **Converting** state until the operation is complete.
    * 
    * @example
    * Available

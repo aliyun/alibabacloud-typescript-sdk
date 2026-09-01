@@ -82,7 +82,7 @@ export class DescribePhysicalConnectionLOAResponseBodyPhysicalConnectionLOAType 
   companyName?: string;
   /**
    * @remarks
-   * The time when the construction crew enters the site. The time is in the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
+   * The time when the construction starts. The time is in the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
    * 
    * @example
    * 2019-02-26T08:00:00Z
@@ -91,6 +91,9 @@ export class DescribePhysicalConnectionLOAResponseBodyPhysicalConnectionLOAType 
   /**
    * @remarks
    * The LOA error code.
+   * 
+   * @example
+   * IllegalParam.CardId
    */
   description?: string;
   /**
@@ -127,11 +130,11 @@ export class DescribePhysicalConnectionLOAResponseBodyPhysicalConnectionLOAType 
   lineSPContactInfo?: string;
   /**
    * @remarks
-   * The carrier. Valid values:
-   * - **China Telecom**
-   * - **China Unicom**
-   * - **China Mobile**
-   * - **China Other**
+   * The telecommunications service provider. Valid values:
+   * - **中国电信**
+   * - **中国联通**
+   * - **中国移动**
+   * - **中国其他**
    * 
    * @example
    * 中国其他

@@ -7,7 +7,7 @@ export class ListVirtualPhysicalConnectionsRequestTags extends $dara.Model {
    * @remarks
    * The tag key of the resource. You can specify up to 20 tag keys. The tag key cannot be an empty string.
    * 
-   * The tag key can be up to 64 characters in length and can contain digits, periods (.), underscores (_), and hyphens (-). The tag key cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
+   * The tag key can be up to 64 characters in length and can contain digits, periods (.), underscores (_), and hyphens (-). It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
    * 
    * @example
    * FinanceDept
@@ -17,7 +17,7 @@ export class ListVirtualPhysicalConnectionsRequestTags extends $dara.Model {
    * @remarks
    * The tag value of the resource. You can specify up to 20 tag values. The tag value can be an empty string.
    * 
-   * The tag value can be up to 128 characters in length and can contain digits, periods (.), underscores (_), and hyphens (-). The tag value cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
+   * The tag value can be up to 128 characters in length and can contain digits, periods (.), underscores (_), and hyphens (-). It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
    * 
    * @example
    * FinanceJoshua
@@ -49,7 +49,7 @@ export class ListVirtualPhysicalConnectionsRequestTags extends $dara.Model {
 export class ListVirtualPhysicalConnectionsRequest extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the shared Express Connect circuits have been confirmed and accepted by the tenant. Valid values:
+   * Specifies whether the shared Express Connect circuits have been confirmed and accepted by the tenant. Valid values:
    * 
    * - **true**: Yes.
    * - **false**: No.
@@ -68,9 +68,9 @@ export class ListVirtualPhysicalConnectionsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * Specifies whether a next query token is available. Valid values:
-   * - You do not need to specify this parameter for the first query or if no next query is available.
-   * - If a next query is available, set this parameter to the NextToken value returned in the previous API call.
+   * Specifies whether a next query token exists. Valid values:
+   * - You do not need to specify this parameter for the first query or if no next query exists.
+   * - If a next query exists, set this parameter to the NextToken value returned by the previous API call.
    * 
    * @example
    * dd20****
@@ -124,7 +124,7 @@ export class ListVirtualPhysicalConnectionsRequest extends $dara.Model {
    * The business status of the shared Express Connect circuits. Valid values:
    * 
    * - **Normal**: Normal.
-   * - **FinancialLocked**: financial lock.
+   * - **FinancialLocked**: Locked due to overdue payment.
    * - **SecurityLocked**: Locked for security reasons.
    * 
    * @example

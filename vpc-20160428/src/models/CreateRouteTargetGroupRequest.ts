@@ -33,8 +33,8 @@ export class CreateRouteTargetGroupRequestRouteTargetMemberList extends $dara.Mo
    * @remarks
    * The weight of the route target group member. Valid values:
    * 
-   * - **100**: The member is the active instance.
-   * - **0**: The member is the standby instance.
+   * - **100**: The member is the primary instance.
+   * - **0**: The member is the secondary instance.
    * 
    * The weight can only be set during creation and cannot be modified.
    * 
@@ -116,7 +116,7 @@ export class CreateRouteTargetGroupRequestTag extends $dara.Model {
 export class CreateRouteTargetGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The ClientToken value can contain only ASCII characters. If you do not specify this parameter, the system automatically uses the RequestId of the API request as the ClientToken. The RequestId may be different for each API request.
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters. If you do not specify this parameter, the system automatically uses the RequestId value as the ClientToken value. The RequestId value is different for each API request.
    * 
    * @example
    * 0c593ea1-3bea-11e9-b96b-88e9fe6****

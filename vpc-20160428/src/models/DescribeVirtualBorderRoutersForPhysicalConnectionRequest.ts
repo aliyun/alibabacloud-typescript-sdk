@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeVirtualBorderRoutersForPhysicalConnectionRequestFilter extends $dara.Model {
   /**
    * @remarks
-   * The filter condition. You can specify up to five filter conditions. The following filter conditions are supported:
+   * The filter condition. You can specify up to 5 filter conditions. The following filter conditions are supported:
    * 
    * * **PhysicalConnectionId**: instance ID of the Express Connect circuit instance.
    * 
@@ -27,7 +27,7 @@ export class DescribeVirtualBorderRoutersForPhysicalConnectionRequestFilter exte
   key?: string;
   /**
    * @remarks
-   * The filter value based on the specified Key. You can specify multiple filter values for a Key. The relationship between filter values is OR, which means that a match with any filter value is considered a match for the filter condition.
+   * The filter values based on the specified Key. You can specify multiple filter values for a single Key. The relationship between multiple filter values is OR, which means that a match with any one of the filter values is considered a match for the filter condition.
    * 
    * @example
    * Active
@@ -94,7 +94,7 @@ export class DescribeVirtualBorderRoutersForPhysicalConnectionRequest extends $d
   physicalConnectionId?: string;
   /**
    * @remarks
-   * The region where the Express Connect circuit is deployed. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
+   * The region where the Express Connect circuit resides. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to obtain the region ID.
    * 
    * This parameter is required.
    * 

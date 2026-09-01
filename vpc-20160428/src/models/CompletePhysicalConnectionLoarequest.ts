@@ -7,9 +7,9 @@ export class CompletePhysicalConnectionLOARequest extends $dara.Model {
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * The client generates the value of this parameter. Ensure that the value is unique among different requests.
+   * The client generates the value. Ensure that the value is unique among different requests.
    * 
-   * > If you do not specify this parameter, the system uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may differ for each API request.
+   * > If you do not specify this parameter, the system uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** of each API request may be different.
    * 
    * @example
    * 02fb3da4-230e-11e9-8e44-0016e04115b
@@ -17,8 +17,8 @@ export class CompletePhysicalConnectionLOARequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether the construction acceptance is completed. Valid values:
-   * * **true**: The construction is completed and reported.
+   * Specifies whether the construction is completed. Valid values:
+   * * **true**: Construction is completed.
    * * **false**: Line O&M.
    * 
    * @example
@@ -37,7 +37,7 @@ export class CompletePhysicalConnectionLOARequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The line code of the telecommunications service provider.
+   * The line code of the carrier.
    * 
    * @example
    * aaa111****
@@ -53,7 +53,7 @@ export class CompletePhysicalConnectionLOARequest extends $dara.Model {
   lineLabel?: string;
   /**
    * @remarks
-   * The O&M contact information of the line.
+   * The O&M contact information of the line carrier.
    * 
    * @example
    * 1388888****
@@ -61,11 +61,11 @@ export class CompletePhysicalConnectionLOARequest extends $dara.Model {
   lineSPContactInfo?: string;
   /**
    * @remarks
-   * The telecommunications service provider. Valid values:
-   * - **中国电信**
-   * - **中国联通**
-   * - **中国移动**
-   * - **中国其他**
+   * The carrier. Valid values:
+   * - **中国电信**.
+   * - **中国联通**.
+   * - **中国移动**.
+   * - **中国其他**.
    * 
    * @example
    * 中国其他

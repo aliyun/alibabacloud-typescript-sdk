@@ -107,7 +107,7 @@ export default class Client extends OpenApi {
    * Activates a router interface that is in the Inactive state.
    * 
    * @remarks
-   * After you call the ActivateRouterInterface operation, the router interface enters the **Activating** state and then enters the **Active** state after activation succeeds.
+   * After you call the ActivateRouterInterface operation, the router interface enters the **Activating** state. After the activation succeeds, the router interface enters the **Active** state.
    * Before you call this operation, the router interface must be in the **Inactive** state. The initial state of a newly created router interface is **Idle**. In non-express connect mode, you can call CreateRouterInterface to create both ends of the connection, call ModifyRouterInterfaceAttribute to configure peer information for each end, and then call ConnectRouterInterface to establish the connection. When the interface is in the **Active** state, you can call DeactivateRouterInterface to change it to the **Inactive** state, and then call this operation to reactivate it. You can call DescribeRouterInterfaceAttribute to query the current state.
    * > You cannot activate a router interface that has an overdue payment.
    * 
@@ -159,7 +159,7 @@ export default class Client extends OpenApi {
    * Activates a router interface that is in the Inactive state.
    * 
    * @remarks
-   * After you call the ActivateRouterInterface operation, the router interface enters the **Activating** state and then enters the **Active** state after activation succeeds.
+   * After you call the ActivateRouterInterface operation, the router interface enters the **Activating** state. After the activation succeeds, the router interface enters the **Active** state.
    * Before you call this operation, the router interface must be in the **Inactive** state. The initial state of a newly created router interface is **Idle**. In non-express connect mode, you can call CreateRouterInterface to create both ends of the connection, call ModifyRouterInterfaceAttribute to configure peer information for each end, and then call ConnectRouterInterface to establish the connection. When the interface is in the **Active** state, you can call DeactivateRouterInterface to change it to the **Inactive** state, and then call this operation to reactivate it. You can call DescribeRouterInterfaceAttribute to query the current state.
    * > You cannot activate a router interface that has an overdue payment.
    * 
@@ -838,8 +838,8 @@ export default class Client extends OpenApi {
    * Applies for an elastic IP address (EIP).
    * 
    * @remarks
-   * Before you call this operation, make sure that you fully understand the billing methods and pricing of EIPs. For more information, see [Billing overview](https://help.aliyun.com/document_detail/122035.html).
-   * After you call this operation, an EIP in the **Available** state is randomly allocated in the specified region. EIPs support only ICMP, TCP, and UDP at the transport layer. EIPs do not support IGMP or SCTP.
+   * Make sure that you are familiar with the billing methods and pricing of EIPs before you call this operation. For more information, see [Billing overview](https://help.aliyun.com/document_detail/122035.html).
+   * After you call this operation, an EIP in the **Available** state is randomly allocated in the specified region. EIPs support only ICMP, TCP, and UDP at the transport layer. IGMP and SCTP are not supported.
    * 
    * @param request - AllocateEipAddressRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -965,8 +965,8 @@ export default class Client extends OpenApi {
    * Applies for an elastic IP address (EIP).
    * 
    * @remarks
-   * Before you call this operation, make sure that you fully understand the billing methods and pricing of EIPs. For more information, see [Billing overview](https://help.aliyun.com/document_detail/122035.html).
-   * After you call this operation, an EIP in the **Available** state is randomly allocated in the specified region. EIPs support only ICMP, TCP, and UDP at the transport layer. EIPs do not support IGMP or SCTP.
+   * Make sure that you are familiar with the billing methods and pricing of EIPs before you call this operation. For more information, see [Billing overview](https://help.aliyun.com/document_detail/122035.html).
+   * After you call this operation, an EIP in the **Available** state is randomly allocated in the specified region. EIPs support only ICMP, TCP, and UDP at the transport layer. IGMP and SCTP are not supported.
    * 
    * @param request - AllocateEipAddressRequest
    * @returns AllocateEipAddressResponse
@@ -2724,7 +2724,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Associates a Virtual Border Router (VBR) instance with shared Express Connect circuits.
+   * Associates a Virtual Border Router (VBR) instance with shared Express Connect circuits. This API is used to migrate an existing VBR that was pushed cross-account to shared Express Connect circuits (shared port), completing the shared Express Connect circuits form transformation. Only the partner (Express Connect circuit owner) can call this operation.
    * 
    * @param request - AttachVbrToVpconnRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2771,7 +2771,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Associates a Virtual Border Router (VBR) instance with shared Express Connect circuits.
+   * Associates a Virtual Border Router (VBR) instance with shared Express Connect circuits. This API is used to migrate an existing VBR that was pushed cross-account to shared Express Connect circuits (shared port), completing the shared Express Connect circuits form transformation. Only the partner (Express Connect circuit owner) can call this operation.
    * 
    * @param request - AttachVbrToVpconnRequest
    * @returns AttachVbrToVpconnResponse
@@ -3124,10 +3124,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Completes the construction acceptance for an Express Connect circuit.
+   * Calls CompletePhysicalConnectionLOA to complete the construction and backfill the completion information after the LOA is approved and the line construction is finished.
    * 
    * @remarks
-   * Completes the construction acceptance by calling the CompletePhysicalConnectionLOA operation. Before calling this operation, call DescribePhysicalConnectionLOA to query the LOA status. This operation can be called only when the status is **Available** or **Complete**. After an LOA application is submitted, the status changes to **Applying**. After the application is approved, the status changes to **Available**. If the application is rejected, the status changes to **Rejected**. For a rejected application, call SecondApplyPhysicalConnectionLOA to resubmit the application. After the construction acceptance is completed, the LOA status changes to **Complete**.
+   * Calls the CompletePhysicalConnectionLOA operation to complete the construction. Before calling this operation, call DescribePhysicalConnectionLOA to query the LOA status. You can call this operation only when the status is **Available** or **Complete**. After an LOA application is submitted, the status changes to **Applying**. After the application is approved, the status changes to **Available**. If the application is rejected, the status changes to **Rejected**. For a rejected application, call SecondApplyPhysicalConnectionLOA to reapply. After the construction is completed, the LOA status changes to **Complete**.
+   * Complete call chain:
+   * CreatePhysicalConnection → ApplyPhysicalConnectionLOA (LOA enters the Applying state) → Wait for approval (Available after approval; Rejected if denied, in which case call SecondApplyPhysicalConnectionLOA or ApplyPhysicalConnectionLOA again to reapply) → CompletePhysicalConnectionLOA (backfill completion information, LOA enters the Completing state) → ConfirmPhysicalConnection (confirm the Express Connect circuit, LOA enters the Complete state).
    * 
    * @param request - CompletePhysicalConnectionLOARequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3206,10 +3208,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Completes the construction acceptance for an Express Connect circuit.
+   * Calls CompletePhysicalConnectionLOA to complete the construction and backfill the completion information after the LOA is approved and the line construction is finished.
    * 
    * @remarks
-   * Completes the construction acceptance by calling the CompletePhysicalConnectionLOA operation. Before calling this operation, call DescribePhysicalConnectionLOA to query the LOA status. This operation can be called only when the status is **Available** or **Complete**. After an LOA application is submitted, the status changes to **Applying**. After the application is approved, the status changes to **Available**. If the application is rejected, the status changes to **Rejected**. For a rejected application, call SecondApplyPhysicalConnectionLOA to resubmit the application. After the construction acceptance is completed, the LOA status changes to **Complete**.
+   * Calls the CompletePhysicalConnectionLOA operation to complete the construction. Before calling this operation, call DescribePhysicalConnectionLOA to query the LOA status. You can call this operation only when the status is **Available** or **Complete**. After an LOA application is submitted, the status changes to **Applying**. After the application is approved, the status changes to **Available**. If the application is rejected, the status changes to **Rejected**. For a rejected application, call SecondApplyPhysicalConnectionLOA to reapply. After the construction is completed, the LOA status changes to **Complete**.
+   * Complete call chain:
+   * CreatePhysicalConnection → ApplyPhysicalConnectionLOA (LOA enters the Applying state) → Wait for approval (Available after approval; Rejected if denied, in which case call SecondApplyPhysicalConnectionLOA or ApplyPhysicalConnectionLOA again to reapply) → CompletePhysicalConnectionLOA (backfill completion information, LOA enters the Completing state) → ConfirmPhysicalConnection (confirm the Express Connect circuit, LOA enters the Complete state).
    * 
    * @param request - CompletePhysicalConnectionLOARequest
    * @returns CompletePhysicalConnectionLOAResponse
@@ -3286,11 +3290,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Initiates a connection from the requester VPC router interface to the accepter.
+   * Calls the ConnectRouterInterface operation to initiate a connection from the requester VPC router interface to the accepter.
    * 
    * @remarks
-   * After you call this operation, the router interface enters the **Connecting** state. After the connection is established, the router interface enters the **Active** state.
-   * When you call this operation to create a VPC, note the following items: 
+   * After you invoke this operation, the router interface enters the **Connecting** state and transitions to the **Active** state after the connection is established.
+   * When you invoke this operation to create a VPC, note the following items: 
    * - Only a requester VPC router interface in the **Idle** state can initiate a connection to the accepter VPC. 
    * - A maximum of one pair of interconnected router interfaces can exist between any two routers. 
    * - If your account has a router interface with an overdue payment, you cannot initiate a connection.
@@ -3340,11 +3344,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Initiates a connection from the requester VPC router interface to the accepter.
+   * Calls the ConnectRouterInterface operation to initiate a connection from the requester VPC router interface to the accepter.
    * 
    * @remarks
-   * After you call this operation, the router interface enters the **Connecting** state. After the connection is established, the router interface enters the **Active** state.
-   * When you call this operation to create a VPC, note the following items: 
+   * After you invoke this operation, the router interface enters the **Connecting** state and transitions to the **Active** state after the connection is established.
+   * When you invoke this operation to create a VPC, note the following items: 
    * - Only a requester VPC router interface in the **Idle** state can initiate a connection to the accepter VPC. 
    * - A maximum of one pair of interconnected router interfaces can exist between any two routers. 
    * - If your account has a router interface with an overdue payment, you cannot initiate a connection.
@@ -4666,18 +4670,28 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a failover test job for Express Connect.
+   * Calls the CreateFailoverTestJob operation to create a failover test job for Express Connect.
    * 
    * @remarks
-   * You cannot create a failover test job in the following scenarios:
-   * - A failover test job is already running in the current region and the job type of the new failover test job is set to StartNow.
+   * Resource status requirements (prerequisites)
+   * - Before creating a failover test job, ensure that the test resources and their associated resources are in the following states. Otherwise, the creation fails:
+   * - ResourceType set to PHYSICALCONNECTION: The Express Connect circuit (including shared Express Connect circuits) must be in the Enabled state with normal billing status (no overdue payment). Otherwise, IncorrectStatus.ResourceId or IncorrectBusinessStatus.ResourceId is returned.
+   * - ResourceType set to VIRTUALBORDERROUTER: The VBR must be in the active state with no overdue payment, and the Express Connect circuit to which the VBR belongs must also be in the Enabled state with no overdue payment.
+   * - ResourceType set to BGPPEER: The BGP peer must be in the Available state, the VBR to which it belongs must be in the active state, and the Express Connect circuit to which the VBR belongs must be in the Enabled state, all with no overdue payment.
+   * How to check and advance the Express Connect circuit status
+   * - Call DescribePhysicalConnections to query the Status field of the Express Connect circuit. If the circuit is not in the Enabled state (for example, it is in the Allocated or Confirmed state), advance it along the following state transition path:
+   *   - Allocated (port reserved, pending confirmation) → Call ConfirmPhysicalConnection to confirm → Confirmed → Call EnablePhysicalConnection to activate (asynchronous; poll DescribePhysicalConnections after activation to confirm) → Enabled.
+   *   - Note: EnablePhysicalConnection only supports activating Express Connect circuits in the Confirmed state. If the circuit is in the Allocated state, call ConfirmPhysicalConnection first.
+   * - When JobType is set to StartLater, the status check described above is performed during the job creation phase. When you subsequently call StartFailoverTestJob to start the job, the resource status is checked again. If the resource status does not meet the requirements at that time (for example, the circuit is no longer in the Enabled state), the start operation fails.
+   * The following scenarios do not support creating failover test jobs:
+   * - A failover test job is already running in the current region, and the job type of the new failover test job is set to start immediately.
    * - The Express Connect circuit instance or shared Express Connect circuit instance has not been paid for or has an overdue payment.
    * - The Express Connect circuit instance or shared Express Connect circuit instance is already in another running failover test job.
    *  
    * - The Express Connect circuit instance has more than one shared Express Connect circuit.
-   * - The Express Connect circuit instance has more than one cross-account Virtual Border Router (VBR).
+   * - The Express Connect circuit instance has more than one cross-account VBR.
    * - The shared Express Connect circuit instance is not associated with a VBR.
-   * - The VLAN of the shared Express Connect circuit instance is set to 0.
+   * - The VLAN configuration of the shared Express Connect circuit instance is 0.
    * 
    * @param request - CreateFailoverTestJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4756,18 +4770,28 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a failover test job for Express Connect.
+   * Calls the CreateFailoverTestJob operation to create a failover test job for Express Connect.
    * 
    * @remarks
-   * You cannot create a failover test job in the following scenarios:
-   * - A failover test job is already running in the current region and the job type of the new failover test job is set to StartNow.
+   * Resource status requirements (prerequisites)
+   * - Before creating a failover test job, ensure that the test resources and their associated resources are in the following states. Otherwise, the creation fails:
+   * - ResourceType set to PHYSICALCONNECTION: The Express Connect circuit (including shared Express Connect circuits) must be in the Enabled state with normal billing status (no overdue payment). Otherwise, IncorrectStatus.ResourceId or IncorrectBusinessStatus.ResourceId is returned.
+   * - ResourceType set to VIRTUALBORDERROUTER: The VBR must be in the active state with no overdue payment, and the Express Connect circuit to which the VBR belongs must also be in the Enabled state with no overdue payment.
+   * - ResourceType set to BGPPEER: The BGP peer must be in the Available state, the VBR to which it belongs must be in the active state, and the Express Connect circuit to which the VBR belongs must be in the Enabled state, all with no overdue payment.
+   * How to check and advance the Express Connect circuit status
+   * - Call DescribePhysicalConnections to query the Status field of the Express Connect circuit. If the circuit is not in the Enabled state (for example, it is in the Allocated or Confirmed state), advance it along the following state transition path:
+   *   - Allocated (port reserved, pending confirmation) → Call ConfirmPhysicalConnection to confirm → Confirmed → Call EnablePhysicalConnection to activate (asynchronous; poll DescribePhysicalConnections after activation to confirm) → Enabled.
+   *   - Note: EnablePhysicalConnection only supports activating Express Connect circuits in the Confirmed state. If the circuit is in the Allocated state, call ConfirmPhysicalConnection first.
+   * - When JobType is set to StartLater, the status check described above is performed during the job creation phase. When you subsequently call StartFailoverTestJob to start the job, the resource status is checked again. If the resource status does not meet the requirements at that time (for example, the circuit is no longer in the Enabled state), the start operation fails.
+   * The following scenarios do not support creating failover test jobs:
+   * - A failover test job is already running in the current region, and the job type of the new failover test job is set to start immediately.
    * - The Express Connect circuit instance or shared Express Connect circuit instance has not been paid for or has an overdue payment.
    * - The Express Connect circuit instance or shared Express Connect circuit instance is already in another running failover test job.
    *  
    * - The Express Connect circuit instance has more than one shared Express Connect circuit.
-   * - The Express Connect circuit instance has more than one cross-account Virtual Border Router (VBR).
+   * - The Express Connect circuit instance has more than one cross-account VBR.
    * - The shared Express Connect circuit instance is not associated with a VBR.
-   * - The VLAN of the shared Express Connect circuit instance is set to 0.
+   * - The VLAN configuration of the shared Express Connect circuit instance is 0.
    * 
    * @param request - CreateFailoverTestJobRequest
    * @returns CreateFailoverTestJobResponse
@@ -7383,8 +7407,8 @@ export default class Client extends OpenApi {
    *     - If the routing target group is in the **Pending** state, the routing target group is being created.
    *     - If the routing target group is in the **Available**, **Unavailable**, **Switched**, or **Abnormal** state, the routing target group is created.
    * - **Active/standby pattern**: When you create a routing target group, you must configure primary and secondary instances that are in different zones and of the same type.
-   * - **Primary instance**: The weight is 100. The primary instance handles all traffic under normal conditions and takes effect when health checks pass.
-   * - **Secondary instance**: The weight is 0. The secondary instance takes over traffic when the primary instance fails, serving as disaster recovery and backup.
+   * - **Primary instance**: The weight is 100. The primary instance carries all traffic under normal conditions and takes effect when health checks are successful.
+   * - **Secondary instance**: The weight is 0. The secondary instance takes over traffic after the primary instance fails and serves as disaster recovery and backup.
    * 
    * @param request - CreateRouteTargetGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7454,8 +7478,8 @@ export default class Client extends OpenApi {
    *     - If the routing target group is in the **Pending** state, the routing target group is being created.
    *     - If the routing target group is in the **Available**, **Unavailable**, **Switched**, or **Abnormal** state, the routing target group is created.
    * - **Active/standby pattern**: When you create a routing target group, you must configure primary and secondary instances that are in different zones and of the same type.
-   * - **Primary instance**: The weight is 100. The primary instance handles all traffic under normal conditions and takes effect when health checks pass.
-   * - **Secondary instance**: The weight is 0. The secondary instance takes over traffic when the primary instance fails, serving as disaster recovery and backup.
+   * - **Primary instance**: The weight is 100. The primary instance carries all traffic under normal conditions and takes effect when health checks are successful.
+   * - **Secondary instance**: The weight is 0. The secondary instance takes over traffic after the primary instance fails and serves as disaster recovery and backup.
    * 
    * @param request - CreateRouteTargetGroupRequest
    * @returns CreateRouteTargetGroupResponse
@@ -8851,7 +8875,18 @@ export default class Client extends OpenApi {
    * Invokes the CreateVirtualPhysicalConnection operation to create shared Express Connect circuits.
    * 
    * @remarks
-   * Before calling this operation, understand the creation process and environment requirements for shared Express Connect circuits. For more information, see [Overview of shared Express Connect circuits](https://help.aliyun.com/document_detail/146571.html) and [Partner operation guide](https://help.aliyun.com/document_detail/155987.html).
+   * Before you call this operation, familiarize yourself with the creation process and environment requirements for shared Express Connect circuits. For more information, see [Overview of shared Express Connect circuits](https://help.aliyun.com/document_detail/146571.html) and [Partner operation guide](https://help.aliyun.com/document_detail/155987.html).
+   * Before you call this operation, make sure the following conditions are met:
+   * - The Express Connect circuit specified by PhysicalConnectionId is in the Enabled state. The complete process for an Express Connect circuit to reach the Enabled state includes payment and manual steps that cannot be fully automated through OpenAPI:
+   *   - CreatePhysicalConnection: Creates an Express Connect circuit.
+   *   - LOA construction authorization: If you need to enter the data center for construction, call ApplyPhysicalConnectionLOA → wait for manual LOA approval → CompletePhysicalConnectionLOA (FinishWork=true). LOA approval and construction are manual/offline steps.
+   *   - ConfirmPhysicalConnection: Reports construction completion. The circuit must be in the Allocated state. After success, it enters the Confirmed state.
+   *   - After the Confirmed state, port usage fees must be paid before the circuit enters the Enabled state. For automation scenarios, call DescribePhysicalConnections first to confirm the target circuit is in the Enabled state before calling this operation.
+   * - The VlanId is not already used by an existing VBR or shared Express Connect circuit on the Express Connect circuit (valid values: 0 to 2999).
+   * - The Spec value does not exceed the remaining allocatable bandwidth of the Express Connect circuit or the shared circuit bandwidth limit configured for the account that owns the Express Connect circuit.
+   * - VpconnAliUid is the tenant\\"s Alibaba Cloud account (RAM users or partner accounts are not supported). Cross-site pushing is not allowed by default.
+   * - The number of shared Express Connect circuits on a single Express Connect circuit has not exceeded the quota.
+   * - The Express Connect circuit is not bound to a QoS policy, the access device supports MPBGP, and the access point allows the creation of shared Express Connect circuits.
    * 
    * @param request - CreateVirtualPhysicalConnectionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8929,7 +8964,18 @@ export default class Client extends OpenApi {
    * Invokes the CreateVirtualPhysicalConnection operation to create shared Express Connect circuits.
    * 
    * @remarks
-   * Before calling this operation, understand the creation process and environment requirements for shared Express Connect circuits. For more information, see [Overview of shared Express Connect circuits](https://help.aliyun.com/document_detail/146571.html) and [Partner operation guide](https://help.aliyun.com/document_detail/155987.html).
+   * Before you call this operation, familiarize yourself with the creation process and environment requirements for shared Express Connect circuits. For more information, see [Overview of shared Express Connect circuits](https://help.aliyun.com/document_detail/146571.html) and [Partner operation guide](https://help.aliyun.com/document_detail/155987.html).
+   * Before you call this operation, make sure the following conditions are met:
+   * - The Express Connect circuit specified by PhysicalConnectionId is in the Enabled state. The complete process for an Express Connect circuit to reach the Enabled state includes payment and manual steps that cannot be fully automated through OpenAPI:
+   *   - CreatePhysicalConnection: Creates an Express Connect circuit.
+   *   - LOA construction authorization: If you need to enter the data center for construction, call ApplyPhysicalConnectionLOA → wait for manual LOA approval → CompletePhysicalConnectionLOA (FinishWork=true). LOA approval and construction are manual/offline steps.
+   *   - ConfirmPhysicalConnection: Reports construction completion. The circuit must be in the Allocated state. After success, it enters the Confirmed state.
+   *   - After the Confirmed state, port usage fees must be paid before the circuit enters the Enabled state. For automation scenarios, call DescribePhysicalConnections first to confirm the target circuit is in the Enabled state before calling this operation.
+   * - The VlanId is not already used by an existing VBR or shared Express Connect circuit on the Express Connect circuit (valid values: 0 to 2999).
+   * - The Spec value does not exceed the remaining allocatable bandwidth of the Express Connect circuit or the shared circuit bandwidth limit configured for the account that owns the Express Connect circuit.
+   * - VpconnAliUid is the tenant\\"s Alibaba Cloud account (RAM users or partner accounts are not supported). Cross-site pushing is not allowed by default.
+   * - The number of shared Express Connect circuits on a single Express Connect circuit has not exceeded the quota.
+   * - The Express Connect circuit is not bound to a QoS policy, the access device supports MPBGP, and the access point allows the creation of shared Express Connect circuits.
    * 
    * @param request - CreateVirtualPhysicalConnectionRequest
    * @returns CreateVirtualPhysicalConnectionResponse
@@ -10258,6 +10304,9 @@ export default class Client extends OpenApi {
   /**
    * Deletes an advertised Border Gateway Protocol (BGP) network.
    * 
+   * @remarks
+   * Before calling this operation, ensure that the BgpNetwork is in the Available state. You can query the Status field by calling DescribeBgpNetworks. After a resource is created by AddBgpNetwork, it enters the Pending state. Wait until the state changes to Available before calling this operation.
+   * 
    * @param request - DeleteBgpNetworkRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteBgpNetworkResponse
@@ -10316,6 +10365,9 @@ export default class Client extends OpenApi {
 
   /**
    * Deletes an advertised Border Gateway Protocol (BGP) network.
+   * 
+   * @remarks
+   * Before calling this operation, ensure that the BgpNetwork is in the Available state. You can query the Status field by calling DescribeBgpNetworks. After a resource is created by AddBgpNetwork, it enters the Pending state. Wait until the state changes to Available before calling this operation.
    * 
    * @param request - DeleteBgpNetworkRequest
    * @returns DeleteBgpNetworkResponse
@@ -12484,11 +12536,11 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * Before you call this operation, take note of the following items:
-   * - Before deleting an IP address pool, make sure that the IP addresses in the pool are not in use.
+   * - Before you delete an IP address pool, make sure that the IP addresses in the pool are not in use.
    * - **DeletePublicIpAddressPool** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [ListPublicIpAddressPools](https://help.aliyun.com/document_detail/429433.html) to query the status of the IP address pool. 
    *     - If the IP address pool is in the **Deleting** state, the IP address pool is being deleted. In this state, you can only perform query operations.
    *     - If the IP address pool cannot be found, the IP address pool is deleted.
-   * - **DeletePublicIpAddressPool** does not support concurrent deletion of the same IP address pool.
+   * - You cannot call **DeletePublicIpAddressPool** to concurrently delete the same IP address pool.
    * 
    * @param request - DeletePublicIpAddressPoolRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12551,11 +12603,11 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * Before you call this operation, take note of the following items:
-   * - Before deleting an IP address pool, make sure that the IP addresses in the pool are not in use.
+   * - Before you delete an IP address pool, make sure that the IP addresses in the pool are not in use.
    * - **DeletePublicIpAddressPool** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [ListPublicIpAddressPools](https://help.aliyun.com/document_detail/429433.html) to query the status of the IP address pool. 
    *     - If the IP address pool is in the **Deleting** state, the IP address pool is being deleted. In this state, you can only perform query operations.
    *     - If the IP address pool cannot be found, the IP address pool is deleted.
-   * - **DeletePublicIpAddressPool** does not support concurrent deletion of the same IP address pool.
+   * - You cannot call **DeletePublicIpAddressPool** to concurrently delete the same IP address pool.
    * 
    * @param request - DeletePublicIpAddressPoolRequest
    * @returns DeletePublicIpAddressPoolResponse
@@ -12571,7 +12623,7 @@ export default class Client extends OpenApi {
    * @remarks
    * Before you call this operation, take note of the following information:
    * - Before deleting a CIDR block, make sure that the CIDR block is not in use.
-   * - **DeletePublicIpAddressPoolCidrBlock** is an asynchronous operation. After a request is sent, the system returns a request ID, but the CIDR block is not yet deleted. The deletion task continues to run in the background. You can call [ListPublicIpAddressPoolCidrBlocks](https://help.aliyun.com/document_detail/429436.html) to query the status of the CIDR block in the IP address pool. 
+   * - **DeletePublicIpAddressPoolCidrBlock** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the deletion task in the background. You can call [ListPublicIpAddressPoolCidrBlocks](https://help.aliyun.com/document_detail/429436.html) to query the status of the CIDR block in the IP address pool. 
    *     - If the CIDR block is in the **Deleting** state, the CIDR block is being deleted. In this state, you can only perform query operations.
    *     - If the CIDR block cannot be found, the CIDR block is deleted.
    * - The **DeletePublicIpAddressPoolCidrBlock** operation does not support concurrent deletion of the same CIDR block.
@@ -12642,7 +12694,7 @@ export default class Client extends OpenApi {
    * @remarks
    * Before you call this operation, take note of the following information:
    * - Before deleting a CIDR block, make sure that the CIDR block is not in use.
-   * - **DeletePublicIpAddressPoolCidrBlock** is an asynchronous operation. After a request is sent, the system returns a request ID, but the CIDR block is not yet deleted. The deletion task continues to run in the background. You can call [ListPublicIpAddressPoolCidrBlocks](https://help.aliyun.com/document_detail/429436.html) to query the status of the CIDR block in the IP address pool. 
+   * - **DeletePublicIpAddressPoolCidrBlock** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the deletion task in the background. You can call [ListPublicIpAddressPoolCidrBlocks](https://help.aliyun.com/document_detail/429436.html) to query the status of the CIDR block in the IP address pool. 
    *     - If the CIDR block is in the **Deleting** state, the CIDR block is being deleted. In this state, you can only perform query operations.
    *     - If the CIDR block cannot be found, the CIDR block is deleted.
    * - The **DeletePublicIpAddressPoolCidrBlock** operation does not support concurrent deletion of the same CIDR block.
@@ -12656,16 +12708,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Batch deletes custom route entries.
+   * Calls DeleteRouteEntries to batch delete custom route entries.
    * 
    * @remarks
    * When you call this operation to delete routing entries, note the following items: 
    * - Only routing entries in the **Available** state can be deleted.  
-   * - Routing entries cannot be deleted if the VPC to which the route table belongs is creating or deleting a vSwitch or routing entries. 
-   * - The **DeleteRouteEntries** operation is asynchronous. After you send a request, the system returns a request ID, but the custom route entry is not yet deleted. The deletion task continues to run in the background. You can call [DescribeRouteEntryList](https://help.aliyun.com/document_detail/138148.html) to query the deletion status of the custom route entry:
-   *     - If the custom route entry is in the **Deleting** state, the custom route entry is being deleted.
-   *     - If the specified custom route entry cannot be found, the custom route entry is deleted.
-   * - The **DeleteRouteEntries** operation does not support concurrent batch deletion of routing entries from route tables in the same VPC.
+   * - Routing entries cannot be deleted if the VPC that contains the route table is creating or deleting a vSwitch or routing entry. 
+   * - The **DeleteRouteEntries** operation is asynchronous. After you send a request, the system returns a request ID, but the routing entry is not yet deleted. The deletion task is still running in the background. You can call [DescribeRouteEntryList](https://help.aliyun.com/document_detail/138148.html) to query the deletion status of the routing entry:
+   *     - If the routing entry is in the **Deleting** state, the routing entry is being deleted.
+   *     - If the specified routing entry cannot be found, the routing entry is deleted.
+   * - The **DeleteRouteEntries** operation does not support concurrent batch deletion of routing entries in route tables within the same VPC.
    * 
    * @param request - DeleteRouteEntriesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12724,16 +12776,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Batch deletes custom route entries.
+   * Calls DeleteRouteEntries to batch delete custom route entries.
    * 
    * @remarks
    * When you call this operation to delete routing entries, note the following items: 
    * - Only routing entries in the **Available** state can be deleted.  
-   * - Routing entries cannot be deleted if the VPC to which the route table belongs is creating or deleting a vSwitch or routing entries. 
-   * - The **DeleteRouteEntries** operation is asynchronous. After you send a request, the system returns a request ID, but the custom route entry is not yet deleted. The deletion task continues to run in the background. You can call [DescribeRouteEntryList](https://help.aliyun.com/document_detail/138148.html) to query the deletion status of the custom route entry:
-   *     - If the custom route entry is in the **Deleting** state, the custom route entry is being deleted.
-   *     - If the specified custom route entry cannot be found, the custom route entry is deleted.
-   * - The **DeleteRouteEntries** operation does not support concurrent batch deletion of routing entries from route tables in the same VPC.
+   * - Routing entries cannot be deleted if the VPC that contains the route table is creating or deleting a vSwitch or routing entry. 
+   * - The **DeleteRouteEntries** operation is asynchronous. After you send a request, the system returns a request ID, but the routing entry is not yet deleted. The deletion task is still running in the background. You can call [DescribeRouteEntryList](https://help.aliyun.com/document_detail/138148.html) to query the deletion status of the routing entry:
+   *     - If the routing entry is in the **Deleting** state, the routing entry is being deleted.
+   *     - If the specified routing entry cannot be found, the routing entry is deleted.
+   * - The **DeleteRouteEntries** operation does not support concurrent batch deletion of routing entries in route tables within the same VPC.
    * 
    * @param request - DeleteRouteEntriesRequest
    * @returns DeleteRouteEntriesResponse
@@ -17914,7 +17966,7 @@ export default class Client extends OpenApi {
    * Queries information about Express Connect circuits in a specified region.
    * 
    * @remarks
-   * By default, the system queries information about all Express Connect circuits in the specified region. You can use the filter options provided by the **DescribePhysicalConnections** operation to query information about specific Express Connect circuits. For the supported filter options, refer to the description of **Key** in the **request parameters** section of this topic.
+   * By default, the system queries information about all Express Connect circuits in the specified region. You can use the filter options provided by the **DescribePhysicalConnections** operation to query information about specific Express Connect circuits. For the filter options supported by the system, see the description of **Key** in the **request parameters** section of this topic.
    * 
    * @param request - DescribePhysicalConnectionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17992,7 +18044,7 @@ export default class Client extends OpenApi {
    * Queries information about Express Connect circuits in a specified region.
    * 
    * @remarks
-   * By default, the system queries information about all Express Connect circuits in the specified region. You can use the filter options provided by the **DescribePhysicalConnections** operation to query information about specific Express Connect circuits. For the supported filter options, refer to the description of **Key** in the **request parameters** section of this topic.
+   * By default, the system queries information about all Express Connect circuits in the specified region. You can use the filter options provided by the **DescribePhysicalConnections** operation to query information about specific Express Connect circuits. For the filter options supported by the system, see the description of **Key** in the **request parameters** section of this topic.
    * 
    * @param request - DescribePhysicalConnectionsRequest
    * @returns DescribePhysicalConnectionsResponse
@@ -18516,7 +18568,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries router interfaces in a specified region by calling the DescribeRouterInterfaces operation.
+   * Queries router interfaces in a specified region.
    * 
    * @param request - DescribeRouterInterfacesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18583,7 +18635,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries router interfaces in a specified region by calling the DescribeRouterInterfaces operation.
+   * Queries router interfaces in a specified region.
    * 
    * @param request - DescribeRouterInterfacesRequest
    * @returns DescribeRouterInterfacesResponse
@@ -20025,7 +20077,7 @@ export default class Client extends OpenApi {
    * Queries created VPCs.
    * 
    * @remarks
-   * The **DescribeVpcs** operation may return the **Throttling.DeepPageSkip** error code during frequent deep paging operations. Reduce the query frequency or use sequential paging.
+   * The **DescribeVpcs** operation may return the **Throttling.DeepPageSkip** error code during frequent deep paging or page skipping. Reduce the query frequency or use sequential paging.
    * 
    * @param request - DescribeVpcsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -20119,7 +20171,7 @@ export default class Client extends OpenApi {
    * Queries created VPCs.
    * 
    * @remarks
-   * The **DescribeVpcs** operation may return the **Throttling.DeepPageSkip** error code during frequent deep paging operations. Reduce the query frequency or use sequential paging.
+   * The **DescribeVpcs** operation may return the **Throttling.DeepPageSkip** error code during frequent deep paging or page skipping. Reduce the query frequency or use sequential paging.
    * 
    * @param request - DescribeVpcsRequest
    * @returns DescribeVpcsResponse
@@ -21660,11 +21712,12 @@ export default class Client extends OpenApi {
    * Enables an Express Connect circuit that is in the Confirmed state. After the circuit is enabled, it enters the Enabled state.
    * 
    * @remarks
-   * When you call this operation, take note of the following items:
-   * - You can enable only an Express Connect circuit that is in the **Confirmed** state.
-   * - After the circuit is enabled, it enters the **Enabled** state.
-   * - **EnablePhysicalConnection** is an asynchronous operation. After you send a request, the system returns an instance ID, but the Express Connect circuit is not yet enabled. The enabling task is still running in the background. You can call [DescribePhysicalConnections](https://help.aliyun.com/document_detail/2982519.html) to query the status of the Express Connect circuit.
-   * - **EnablePhysicalConnection** does not support concurrent enabling of the same Express Connect circuit that is in the **Confirmed** state.
+   * When you invoke this operation, note the following items:
+   * - You can enable only an Express Connect circuit that is in the Confirmed state. After the circuit is enabled, it enters the Enabled state. To reach the Confirmed state, complete the following steps in sequence: call CreatePhysicalConnection to create a circuit (Initial → Allocating), wait for resource allocation to complete (Allocating → Allocated), and then call ConfirmPhysicalConnection after construction is complete (Allocated → Confirmed).
+   * - A billing activation step occurs between the Confirmed and Enabled states. By default (if ByPassSp is not specified or ByPassSp is set to false), the system automatically creates a billing order in the sales and billing system when you invoke this operation. The circuit is enabled only after the order is created. To skip the billing order flow and directly enable the circuit, set ByPassSp to true. This capability is available only to whitelist accounts. For more information, see the ByPassSp parameter description.
+   * - The EnablePhysicalConnection operation is asynchronous. The system returns a success response, but the Express Connect circuit is not yet fully enabled because the backend enablement task is still in progress. You can invoke DescribePhysicalConnections to query the enablement status of the Express Connect circuit.
+   * - The EnablePhysicalConnection operation does not support concurrent enablement of the same Express Connect circuit that is in the Confirmed state. Concurrent invocations return an error.
+   * If the Express Connect circuit is already in the Enabled state, invoking this operation again returns a success response (idempotent).
    * 
    * @param request - EnablePhysicalConnectionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -21726,11 +21779,12 @@ export default class Client extends OpenApi {
    * Enables an Express Connect circuit that is in the Confirmed state. After the circuit is enabled, it enters the Enabled state.
    * 
    * @remarks
-   * When you call this operation, take note of the following items:
-   * - You can enable only an Express Connect circuit that is in the **Confirmed** state.
-   * - After the circuit is enabled, it enters the **Enabled** state.
-   * - **EnablePhysicalConnection** is an asynchronous operation. After you send a request, the system returns an instance ID, but the Express Connect circuit is not yet enabled. The enabling task is still running in the background. You can call [DescribePhysicalConnections](https://help.aliyun.com/document_detail/2982519.html) to query the status of the Express Connect circuit.
-   * - **EnablePhysicalConnection** does not support concurrent enabling of the same Express Connect circuit that is in the **Confirmed** state.
+   * When you invoke this operation, note the following items:
+   * - You can enable only an Express Connect circuit that is in the Confirmed state. After the circuit is enabled, it enters the Enabled state. To reach the Confirmed state, complete the following steps in sequence: call CreatePhysicalConnection to create a circuit (Initial → Allocating), wait for resource allocation to complete (Allocating → Allocated), and then call ConfirmPhysicalConnection after construction is complete (Allocated → Confirmed).
+   * - A billing activation step occurs between the Confirmed and Enabled states. By default (if ByPassSp is not specified or ByPassSp is set to false), the system automatically creates a billing order in the sales and billing system when you invoke this operation. The circuit is enabled only after the order is created. To skip the billing order flow and directly enable the circuit, set ByPassSp to true. This capability is available only to whitelist accounts. For more information, see the ByPassSp parameter description.
+   * - The EnablePhysicalConnection operation is asynchronous. The system returns a success response, but the Express Connect circuit is not yet fully enabled because the backend enablement task is still in progress. You can invoke DescribePhysicalConnections to query the enablement status of the Express Connect circuit.
+   * - The EnablePhysicalConnection operation does not support concurrent enablement of the same Express Connect circuit that is in the Confirmed state. Concurrent invocations return an error.
+   * If the Express Connect circuit is already in the Enabled state, invoking this operation again returns a success response (idempotent).
    * 
    * @param request - EnablePhysicalConnectionRequest
    * @returns EnablePhysicalConnectionResponse
@@ -22099,7 +22153,7 @@ export default class Client extends OpenApi {
    * Queries the information about a single NAT gateway instance.
    * 
    * @remarks
-   * This operation queries the information about a single Internet NAT gateway or VPC NAT gateway. The term "NAT gateway" in this topic refers to both types without distinction.
+   * This operation queries the information about a single Internet NAT gateway or VPC NAT gateway. The term "NAT gateway" in this topic does not distinguish between the two types.
    * 
    * @param request - GetNatGatewayAttributeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -22157,7 +22211,7 @@ export default class Client extends OpenApi {
    * Queries the information about a single NAT gateway instance.
    * 
    * @remarks
-   * This operation queries the information about a single Internet NAT gateway or VPC NAT gateway. The term "NAT gateway" in this topic refers to both types without distinction.
+   * This operation queries the information about a single Internet NAT gateway or VPC NAT gateway. The term "NAT gateway" in this topic does not distinguish between the two types.
    * 
    * @param request - GetNatGatewayAttributeRequest
    * @returns GetNatGatewayAttributeResponse
@@ -22919,7 +22973,18 @@ export default class Client extends OpenApi {
    * Invokes the GrantInstanceToVbr operation to grant authorization of a VPC-connected instance to a VBR instance for cross-account VBR uplink scenarios.
    * 
    * @remarks
-   * When creating a cross-account VBR uplink connection, you must grant authorization of the VPC-connected instance to the VBR instance.
+   * This operation is used for cross-account scenarios. Before calling this operation, ensure that the following resources are ready:
+   * **Account A (VPC owner, the caller of this operation):**
+   * - A VPC has been created and is in the Available state (CreateVpc).
+   * **Account B (VBR owner, the account specified by VbrOwnerUid):** When GrantType=Specify, the VBRs specified in VbrInstanceIds must already be created. Creating a VBR depends on the complete Express Connect circuit lifecycle:
+   * 1. Call CreatePhysicalConnection to create an Express Connect circuit.
+   * 2. Apply for a Letter of Authorization (LOA) and complete the construction (ApplyPhysicalConnectionLOA → CompletePhysicalConnectionLOA). The Express Connect circuit enters the Confirmed state.
+   * 3. Call EnablePhysicalConnection to enable the Express Connect circuit (the circuit must be in the Confirmed state).
+   * 4. Call CreateVirtualBorderRouter to create a VBR (the Express Connect circuit must be in the Enabled state. Otherwise, the error InvalidPhysicalConnectionId.NotEnabled is returned).
+   * After the preceding preparations are complete, Account A calls this operation to grant the VPC to the VBR of Account B:
+   * - GrantType=All: Grants authorization to all VBRs under Account B (only the validity of VbrOwnerUid is verified. The VBRs do not need to be created yet).
+   * - GrantType=Specify: Grants authorization to specified VBRs. The instances in VbrInstanceIds must already exist in the region specified by VbrRegionNo under the account specified by VbrOwnerUid. Otherwise, the error Instance.NotExist is returned.
+   * Note: VbrOwnerUid cannot be the same as the caller\\"s account. Otherwise, the error Parameter.Illegal is returned.
    * 
    * @param tmpReq - GrantInstanceToVbrRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -22979,7 +23044,18 @@ export default class Client extends OpenApi {
    * Invokes the GrantInstanceToVbr operation to grant authorization of a VPC-connected instance to a VBR instance for cross-account VBR uplink scenarios.
    * 
    * @remarks
-   * When creating a cross-account VBR uplink connection, you must grant authorization of the VPC-connected instance to the VBR instance.
+   * This operation is used for cross-account scenarios. Before calling this operation, ensure that the following resources are ready:
+   * **Account A (VPC owner, the caller of this operation):**
+   * - A VPC has been created and is in the Available state (CreateVpc).
+   * **Account B (VBR owner, the account specified by VbrOwnerUid):** When GrantType=Specify, the VBRs specified in VbrInstanceIds must already be created. Creating a VBR depends on the complete Express Connect circuit lifecycle:
+   * 1. Call CreatePhysicalConnection to create an Express Connect circuit.
+   * 2. Apply for a Letter of Authorization (LOA) and complete the construction (ApplyPhysicalConnectionLOA → CompletePhysicalConnectionLOA). The Express Connect circuit enters the Confirmed state.
+   * 3. Call EnablePhysicalConnection to enable the Express Connect circuit (the circuit must be in the Confirmed state).
+   * 4. Call CreateVirtualBorderRouter to create a VBR (the Express Connect circuit must be in the Enabled state. Otherwise, the error InvalidPhysicalConnectionId.NotEnabled is returned).
+   * After the preceding preparations are complete, Account A calls this operation to grant the VPC to the VBR of Account B:
+   * - GrantType=All: Grants authorization to all VBRs under Account B (only the validity of VbrOwnerUid is verified. The VBRs do not need to be created yet).
+   * - GrantType=Specify: Grants authorization to specified VBRs. The instances in VbrInstanceIds must already exist in the region specified by VbrRegionNo under the account specified by VbrOwnerUid. Otherwise, the error Instance.NotExist is returned.
+   * Note: VbrOwnerUid cannot be the same as the caller\\"s account. Otherwise, the error Parameter.Illegal is returned.
    * 
    * @param request - GrantInstanceToVbrRequest
    * @returns GrantInstanceToVbrResponse
@@ -24735,7 +24811,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries information about shared Express Connect circuits by calling the ListVirtualPhysicalConnections operation.
+   * Queries information about shared Express Connect circuits.
    * 
    * @param request - ListVirtualPhysicalConnectionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -24810,7 +24886,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries information about shared Express Connect circuits by calling the ListVirtualPhysicalConnections operation.
+   * Queries information about shared Express Connect circuits.
    * 
    * @param request - ListVirtualPhysicalConnectionsRequest
    * @returns ListVirtualPhysicalConnectionsResponse
@@ -27909,13 +27985,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the configuration of an Express Connect circuit.
+   * Modifies the configurations of an Express Connect circuit.
    * 
    * @remarks
    * When you call this operation, note the following items: 
    * - You can modify the specifications and redundant circuit ID only for Express Connect circuits in the **Initial**, **Enabled**, or **Rejected** state.  
    * - You cannot modify Express Connect circuits in the **Canceled**, **Allocating**, **AllocationFailed**, or **Terminated** state.  
-   * - An Express Connect circuit in the **Rejected** state enters the **Initial** state after it is modified.
+   * - After an Express Connect circuit in the **Rejected** state is modified, it enters the **Initial** state.
    * 
    * @param request - ModifyPhysicalConnectionAttributeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -28010,13 +28086,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the configuration of an Express Connect circuit.
+   * Modifies the configurations of an Express Connect circuit.
    * 
    * @remarks
    * When you call this operation, note the following items: 
    * - You can modify the specifications and redundant circuit ID only for Express Connect circuits in the **Initial**, **Enabled**, or **Rejected** state.  
    * - You cannot modify Express Connect circuits in the **Canceled**, **Allocating**, **AllocationFailed**, or **Terminated** state.  
-   * - An Express Connect circuit in the **Rejected** state enters the **Initial** state after it is modified.
+   * - After an Express Connect circuit in the **Rejected** state is modified, it enters the **Initial** state.
    * 
    * @param request - ModifyPhysicalConnectionAttributeRequest
    * @returns ModifyPhysicalConnectionAttributeResponse
@@ -29375,6 +29451,68 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Modifies the primary or secondary CIDR block of a VPC.
+   * 
+   * @param request - ModifyVpcCidrBlockRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyVpcCidrBlockResponse
+   */
+  async modifyVpcCidrBlockWithOptions(request: $_model.ModifyVpcCidrBlockRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyVpcCidrBlockResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!$dara.isNull(request.originalCidrBlock)) {
+      query["OriginalCidrBlock"] = request.originalCidrBlock;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.targetCidrBlock)) {
+      query["TargetCidrBlock"] = request.targetCidrBlock;
+    }
+
+    if (!$dara.isNull(request.vpcId)) {
+      query["VpcId"] = request.vpcId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyVpcCidrBlock",
+      version: "2016-04-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyVpcCidrBlockResponse>(await this.callApi(params, req, runtime), new $_model.ModifyVpcCidrBlockResponse({}));
+  }
+
+  /**
+   * Modifies the primary or secondary CIDR block of a VPC.
+   * 
+   * @param request - ModifyVpcCidrBlockRequest
+   * @returns ModifyVpcCidrBlockResponse
+   */
+  async modifyVpcCidrBlock(request: $_model.ModifyVpcCidrBlockRequest): Promise<$_model.ModifyVpcCidrBlockResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyVpcCidrBlockWithOptions(request, runtime);
+  }
+
+  /**
    * Modifies the configuration of a prefix list.
    * 
    * @remarks
@@ -30296,7 +30434,7 @@ export default class Client extends OpenApi {
    * Modifies the resource group to which a cloud resource belongs.
    * 
    * @remarks
-   * The **ChangeResourceGroup** operation does not support concurrent modifications to the resource group of Express Connect circuit resources within the same Express Connect circuit instance.
+   * The **ChangeResourceGroup** operation does not support concurrent modifications of the resource group for Express Connect circuit resources within the same Express Connect circuit instance.
    * 
    * @param request - MoveResourceGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -30358,7 +30496,7 @@ export default class Client extends OpenApi {
    * Modifies the resource group to which a cloud resource belongs.
    * 
    * @remarks
-   * The **ChangeResourceGroup** operation does not support concurrent modifications to the resource group of Express Connect circuit resources within the same Express Connect circuit instance.
+   * The **ChangeResourceGroup** operation does not support concurrent modifications of the resource group for Express Connect circuit resources within the same Express Connect circuit instance.
    * 
    * @param request - MoveResourceGroupRequest
    * @returns MoveResourceGroupResponse
@@ -31019,16 +31157,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Releases a specified Elastic IP Address (EIP).
+   * Releases a specified elastic IP address (EIP).
    * 
    * @remarks
-   * Before you invoke this operation, take note of the following items:
-   * - Before releasing an EIP, make sure the following conditions are met:
+   * Before you invoke this operation, take note of the following information:
+   * - Before you release an EIP, make sure that the following conditions are met:
    *     - Only EIPs in the **Available** state can be released.
    *     - Only EIPs that use the pay-as-you-go billing method can be released. Subscription EIPs cannot be released.
-   * - The **ReleaseEipAddress** operation is asynchronous. After you send a request, the system returns a request ID, but the EIP instance has not been released yet. The release node is still running in the background. You can invoke [DescribeEipAddresses](https://help.aliyun.com/document_detail/120193.html) to query the status of the EIP instance:
-   *     - If the EIP instance is in the **Releasing** state, the EIP instance is being released. In this state, you can only execute query operations.
-   *     - If the EIP instance cannot be found, the EIP instance has been released.
+   * - The **ReleaseEipAddress** operation is asynchronous. After you send a request, the system returns a request ID. However, the EIP instance is not immediately released because the release node is still running in the background. You can invoke [DescribeEipAddresses](https://help.aliyun.com/document_detail/120193.html) to query the status of the EIP instance:
+   *     - If the EIP instance is in the **Releasing** state, the EIP instance is being released. In this state, you can only execute query operations and cannot execute other operations.
+   *     - If the EIP instance cannot be found, the EIP instance is released.
    * - The **ReleaseEipAddress** operation does not support concurrent release of the same EIP instance.
    * 
    * @param request - ReleaseEipAddressRequest
@@ -31080,16 +31218,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Releases a specified Elastic IP Address (EIP).
+   * Releases a specified elastic IP address (EIP).
    * 
    * @remarks
-   * Before you invoke this operation, take note of the following items:
-   * - Before releasing an EIP, make sure the following conditions are met:
+   * Before you invoke this operation, take note of the following information:
+   * - Before you release an EIP, make sure that the following conditions are met:
    *     - Only EIPs in the **Available** state can be released.
    *     - Only EIPs that use the pay-as-you-go billing method can be released. Subscription EIPs cannot be released.
-   * - The **ReleaseEipAddress** operation is asynchronous. After you send a request, the system returns a request ID, but the EIP instance has not been released yet. The release node is still running in the background. You can invoke [DescribeEipAddresses](https://help.aliyun.com/document_detail/120193.html) to query the status of the EIP instance:
-   *     - If the EIP instance is in the **Releasing** state, the EIP instance is being released. In this state, you can only execute query operations.
-   *     - If the EIP instance cannot be found, the EIP instance has been released.
+   * - The **ReleaseEipAddress** operation is asynchronous. After you send a request, the system returns a request ID. However, the EIP instance is not immediately released because the release node is still running in the background. You can invoke [DescribeEipAddresses](https://help.aliyun.com/document_detail/120193.html) to query the status of the EIP instance:
+   *     - If the EIP instance is in the **Releasing** state, the EIP instance is being released. In this state, you can only execute query operations and cannot execute other operations.
+   *     - If the EIP instance cannot be found, the EIP instance is released.
    * - The **ReleaseEipAddress** operation does not support concurrent release of the same EIP instance.
    * 
    * @param request - ReleaseEipAddressRequest
@@ -33243,10 +33381,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls the UnassociateVpcCidrBlock operation to delete a secondary CIDR block from a VPC.
+   * Invokes UnassociateVpcCidrBlock to delete a secondary CIDR block from a VPC.
    * 
    * @remarks
-   * - Before you delete a secondary CIDR block from a VPC, delete the vSwitches created with the secondary CIDR block. For more information, see [DeleteVSwitch](https://help.aliyun.com/document_detail/35746.html).
+   * - Before deleting a secondary CIDR block from a VPC, delete the vSwitches that are created with the secondary CIDR block. For more information, see [DeleteVSwitch](https://help.aliyun.com/document_detail/35746.html).
    * - The **UnassociateVpcCidrBlock** operation does not support concurrently deleting secondary CIDR blocks from the same VPC.
    * 
    * @param request - UnassociateVpcCidrBlockRequest
@@ -33310,10 +33448,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls the UnassociateVpcCidrBlock operation to delete a secondary CIDR block from a VPC.
+   * Invokes UnassociateVpcCidrBlock to delete a secondary CIDR block from a VPC.
    * 
    * @remarks
-   * - Before you delete a secondary CIDR block from a VPC, delete the vSwitches created with the secondary CIDR block. For more information, see [DeleteVSwitch](https://help.aliyun.com/document_detail/35746.html).
+   * - Before deleting a secondary CIDR block from a VPC, delete the vSwitches that are created with the secondary CIDR block. For more information, see [DeleteVSwitch](https://help.aliyun.com/document_detail/35746.html).
    * - The **UnassociateVpcCidrBlock** operation does not support concurrently deleting secondary CIDR blocks from the same VPC.
    * 
    * @param request - UnassociateVpcCidrBlockRequest
@@ -33399,7 +33537,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the configuration of a DHCP options set by calling the UpdateDhcpOptionsSetAttribute operation.
+   * Modifies the configuration of a DHCP options set.
    * 
    * @param request - UpdateDhcpOptionsSetAttributeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -33482,7 +33620,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the configuration of a DHCP options set by calling the UpdateDhcpOptionsSetAttribute operation.
+   * Modifies the configuration of a DHCP options set.
    * 
    * @param request - UpdateDhcpOptionsSetAttributeRequest
    * @returns UpdateDhcpOptionsSetAttributeResponse

@@ -2,33 +2,23 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CreateFailoverTestJobResponseBody extends $dara.Model {
+export class ModifyVpcCidrBlockResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The failover test job ID.
+   * Id of the request
    * 
    * @example
-   * ftj-bp1yh6mvi13aq3g8w****
-   */
-  jobId?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * C44F62BE-9CE7-4277-B117-69243F3988BF
+   * 6608E72F-F276-440F-ABEF-419971CEC4D1
    */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      jobId: 'JobId',
       requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      jobId: 'string',
       requestId: 'string',
     };
   }

@@ -13,7 +13,7 @@ export class DescribeVpcGrantRulesToEcrResponseBodyGrantRuleModels extends $dara
   creationTime?: string;
   /**
    * @remarks
-   * The Express Connect Router (ECR) instance ID.
+   * The instance ID of the Express Connect Router (ECR).
    * 
    * @example
    * ecr-tz7w3chlaptxr2****
@@ -37,7 +37,7 @@ export class DescribeVpcGrantRulesToEcrResponseBodyGrantRuleModels extends $dara
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account that owns the instance in the authorization relationship.
+   * The ID of the Alibaba Cloud account that owns the instance in the queried authorization relationship.
    * 
    * @example
    * 192745367151****
@@ -45,7 +45,7 @@ export class DescribeVpcGrantRulesToEcrResponseBodyGrantRuleModels extends $dara
   instanceUid?: number;
   /**
    * @remarks
-   * The region ID of the instance in the authorization relationship.
+   * The region ID of the instance in the queried authorization relationship.
    * 
    * @example
    * cn-hangzhou
@@ -53,10 +53,10 @@ export class DescribeVpcGrantRulesToEcrResponseBodyGrantRuleModels extends $dara
   regionNo?: string;
   /**
    * @remarks
-   * The instance type of the authorization relationship. Valid values:
+   * The type of the instance in the authorization relationship. Valid values:
    * 
-   * - **VBR**: Virtual Border Router (VBR) instance. Indicates the VPC instances that the VBR instance is authorized to access through the vRouter.
-   * - **VPC**: virtual private cloud (VPC) instance. Indicates the VBR instances that the VPC instance has authorized through the vRouter.
+   * - **VBR**: Virtual Border Router (VBR) instance. Indicates the VPC instances for which the VBR instance has been granted authorization.
+   * - **VPC**: virtual private cloud (VPC) instance. Indicates the VBR instances to which the VPC instance has granted authorization.
    * 
    * @example
    * VPC
@@ -105,7 +105,7 @@ export class DescribeVpcGrantRulesToEcrResponseBody extends $dara.Model {
    * @remarks
    * The pagination token for the next query. Valid values:
    * - If **NextToken** is empty, no more results exist.
-   * - If **NextToken** is returned, the value indicates the token for the next query.
+   * - If **NextToken** has a value, the value indicates the token for the next query.
    * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd****
@@ -121,7 +121,7 @@ export class DescribeVpcGrantRulesToEcrResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of instances returned. Note: The TotalCount parameter is not meaningful when you use the MaxResults and NextToken parameters for a paged query with paging.
+   * The total number of instances returned. Note: The TotalCount parameter is meaningless when you use MaxResults and NextToken for paginated queries.
    * 
    * @example
    * 10

@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeVpcGrantRulesToEcrRequestTags extends $dara.Model {
   /**
    * @remarks
-   * The tag key of the resource. You must specify at least 1 and can specify up to 20 tag keys. The tag key cannot be an empty string.
+   * The tag key of the resource. You must specify at least 1 tag key and can specify at most 20 tag keys. The tag key cannot be an empty string.
    * 
-   * A tag key can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
+   * A tag key can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
    * 
    * @example
    * FinanceDept
@@ -15,9 +15,9 @@ export class DescribeVpcGrantRulesToEcrRequestTags extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value of the resource. You can specify up to 20 tag values. The tag value can be an empty string.
+   * The tag value of the resource. You can specify at most 20 tag values. The tag value can be an empty string.
    * 
-   * The tag value can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
+   * The tag value can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
    * 
    * @example
    * FinanceJoshua
@@ -77,8 +77,8 @@ export class DescribeVpcGrantRulesToEcrRequest extends $dara.Model {
    * @remarks
    * The type of the instance for which to query the authorization relationship. Valid values:
    * 
-   * - **VBR**: Virtual Border Router (VBR) instance. Queries the VPC instances that the VBR instance is authorized to access through the vRouter.
-   * - **VPC**: virtual private cloud (VPC) instance. Queries the VBR instances that the VPC instance has authorized through the vRouter.
+   * - **VBR**: Virtual Border Router (VBR) instance. Queries the VPC instances for which the VBR instance has been granted authorization.
+   * - **VPC**: virtual private cloud (VPC) instance. Queries the VBR instances to which the VPC instance has granted authorization.
    * 
    * @example
    * VPC
@@ -108,7 +108,7 @@ export class DescribeVpcGrantRulesToEcrRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region in which the network instance to query resides.
+   * The region where the network instance to query resides.
    * 
    * This parameter is required.
    * 

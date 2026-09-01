@@ -49,7 +49,7 @@ export class UpdateDhcpOptionsSetAttributeRequest extends $dara.Model {
    * @remarks
    * The hostname suffix, such as example.com.
    * 
-   * After you attach the DHCP options set to an associate VPC, the hostname suffix is automatically synchronized to ECS instances in the VPC.
+   * After you attach the DHCP options set to associate VPC, the hostname suffix is automatically subject to synchronization to ECS instances in the VPC.
    * 
    * @example
    * example.com
@@ -67,11 +67,11 @@ export class UpdateDhcpOptionsSetAttributeRequest extends $dara.Model {
   domainNameServers?: string;
   /**
    * @remarks
-   * Specifies whether to perform a dry run. Valid values:
+   * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
    * 
-   * **true**: performs a dry run without modifying the DHCP options set configuration. The system checks the required parameters, request format, and limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+   * **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error code is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
    * 
-   * **false** (default): performs a dry run and sends the request. If the request passes the dry run, an HTTP 2xx status code is returned and the DHCP options set configuration is modified.
+   * **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, an HTTP 2xx status code is returned and the DHCP options set configuration is modified.
    * 
    * @example
    * false
@@ -81,9 +81,9 @@ export class UpdateDhcpOptionsSetAttributeRequest extends $dara.Model {
    * @remarks
    * The lease time of the IPv6 DHCP options set.
    * 
-   * - If the lease time is set in hours, the unit is h. Valid values: **24h to 1176h** and **87600h to 175200h**. Default value: **24h**.
+   * - When the lease time is set in hours: Unit: h. Valid values: **24h to 1176h** and **87600h to 175200h**. Default value: **24h**.
    * 
-   * - If the lease time is set in days, the unit is d. Valid values: **1d to 49d** and **3650d to 7300d**. Default value: **1d**.
+   * - When the lease time is set in days: Unit: d. Valid values: **1d to 49d** and **3650d to 7300d**. Default value: **1d**.
    * 
    * > You must include the unit when specifying the value.
    * 
@@ -95,9 +95,9 @@ export class UpdateDhcpOptionsSetAttributeRequest extends $dara.Model {
    * @remarks
    * The lease time of the IPv4 DHCP options set.
    * 
-   * - If the lease time is set in hours, the unit is h. Valid values: **24h to 1176h** and **87600h to 175200h**. Default value: **87600h**.
+   * - When the lease time is set in hours: Unit: h. Valid values: **24h to 1176h** and **87600h to 175200h**. Default value: **87600h**.
    * 
-   * - If the lease time is set in days, the unit is d. Valid values: **1d to 49d** and **3650d to 7300d**. Default value: **3650d**.
+   * - When the lease time is set in days: Unit: d. Valid values: **1d to 49d** and **3650d to 7300d**. Default value: **3650d**.
    * 
    * > You must include the unit when specifying the value.
    * 

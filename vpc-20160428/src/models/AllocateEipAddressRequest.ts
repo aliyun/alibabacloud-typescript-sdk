@@ -73,11 +73,11 @@ export class AllocateEipAddressRequest extends $dara.Model {
    * @remarks
    * The maximum bandwidth of the EIP. Unit: Mbit/s.
    * 
-   * - If **InstanceChargeType** is set to **PostPaid** and **InternetChargeType** is set to **PayByBandwidth**, valid values for **Bandwidth** are **1** to **500**.
+   * - If **InstanceChargeType** is set to **PostPaid** and **InternetChargeType** is set to **PayByBandwidth**, valid values of **Bandwidth** are **1** to **500**.
    * 
-   * - If **InstanceChargeType** is set to **PostPaid** and **InternetChargeType** is set to **PayByTraffic**, valid values for **Bandwidth** are **1** to **200**.
+   * - If **InstanceChargeType** is set to **PostPaid** and **InternetChargeType** is set to **PayByTraffic**, valid values of **Bandwidth** are **1** to **200**.
    * 
-   * - If **InstanceChargeType** is set to **PrePaid**, valid values for **Bandwidth** are **1** to **1000**.
+   * - If **InstanceChargeType** is set to **PrePaid**, valid values of **Bandwidth** are **1** to **1000**.
    * 
    * Default value: **5** Mbit/s.
    * 
@@ -89,9 +89,9 @@ export class AllocateEipAddressRequest extends $dara.Model {
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. **ClientToken** can contain only ASCII characters.
+   * Generate a value from your client to ensure uniqueness across different requests. **ClientToken** supports only ASCII characters.
    * 
-   * > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may be different for each API request.
+   * > If you do not specify this parameter, the system uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may be different for each API request.
    * 
    * @example
    * 0c593ea1-3bea-11e9-b96b-88e9fe637760
@@ -111,10 +111,10 @@ export class AllocateEipAddressRequest extends $dara.Model {
   /**
    * @remarks
    * The line type. Valid values:
-   * - **BGP** (default): BGP (multi-ISP) line. All regions support BGP (multi-ISP) EIPs.
-   * - **BGP_PRO**: BGP (multi-ISP) Pro line. Only Hong Kong (China), Singapore, Japan (Tokyo), Malaysia (Kuala Lumpur), Philippines (Manila), Indonesia (Jakarta), and Thailand (Bangkok) regions support BGP (multi-ISP) Pro EIPs.
+   * - **BGP** (default): BGP (multi-ISP) line. All regions support BGP (multi-ISP) line EIPs.
+   * - **BGP_PRO**: BGP (multi-ISP) Pro line. Only the following regions support BGP (multi-ISP) Pro line EIPs: Hong Kong (China), Singapore, Japan (Tokyo), Malaysia (Kuala Lumpur), Philippines (Manila), Indonesia (Jakarta), and Thailand (Bangkok).
    * 
-   * For more information about BGP (multi-ISP) and BGP (multi-ISP) Pro, see [EIP line types](https://help.aliyun.com/document_detail/32321.html).
+   * For more information about BGP (multi-ISP) lines and BGP (multi-ISP) Pro lines, see [EIP line types](https://help.aliyun.com/document_detail/32321.html).
    * 
    * - If you are a whitelist user of single-ISP bandwidth, you can also select the following types:
    *     - **ChinaTelecom**: China Telecom
@@ -123,7 +123,7 @@ export class AllocateEipAddressRequest extends $dara.Model {
    *     - **ChinaTelecom_L2**: China Telecom L2
    *     - **ChinaUnicom_L2**: China Unicom L2
    *     - **ChinaMobile_L2**: China Mobile L2
-   * - If you are a China (Hangzhou) Finance Cloud user, this parameter is required and must be set to **BGP_FinanceCloud**.
+   * - If you are a China (Hangzhou) Finance Cloud user, this field is required. Set the value to **BGP_FinanceCloud**.
    * 
    * @example
    * BGP
@@ -193,7 +193,7 @@ export class AllocateEipAddressRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The network type. The value is set to **public** (default), which indicates the public network.
+   * The network type. The value is set to **public** (default), which specifies the public network.
    * 
    * @example
    * public
@@ -205,9 +205,9 @@ export class AllocateEipAddressRequest extends $dara.Model {
    * @remarks
    * The subscription duration.
    * 
-   * If **PricingCycle** is set to **Month**, valid values for **Period** are **1** to **9**.
+   * If **PricingCycle** is set to **Month**, valid values of **Period** are **1** to **9**.
    * 
-   * If **PricingCycle** is set to **Year**, valid values for **Period** are **1** to **5**.
+   * If **PricingCycle** is set to **Year**, valid values of **Period** are **1** to **5**.
    * 
    * This parameter is required if **InstanceChargeType** is set to **PrePaid**. This parameter is not required if **InstanceChargeType** is set to **PostPaid**.
    * 
@@ -233,7 +233,7 @@ export class AllocateEipAddressRequest extends $dara.Model {
    * 
    * The EIP is allocated from the specified IP address pool.
    * 
-   * The IP address pool feature is not available by default. To use this feature, apply for the IP address pool privilege quota in Quota Center. For more information, see [Increase a quota in Quota Center](https://help.aliyun.com/document_detail/108213.html).
+   * The IP address pool feature is not enabled by default. To use this feature, apply for the IP address pool privilege quota in Quota Center. For more information, see [Increase a quota in Quota Center](https://help.aliyun.com/document_detail/108213.html).
    * 
    * @example
    * pippool-2vc0kxcedhquybdsz****
@@ -267,7 +267,7 @@ export class AllocateEipAddressRequest extends $dara.Model {
    * 
    * - If this parameter is left empty, the default value is Anti-DDoS Basic.
    * 
-   * - If this parameter is set to **AntiDDoS_Enhanced**, Anti-DDoS (Enhanced) is used.
+   * - If this parameter is set to **AntiDDoS_Enhanced**, the value indicates Anti-DDoS (Enhanced).
    * 
    * You can specify at most one security protection level.
    * 

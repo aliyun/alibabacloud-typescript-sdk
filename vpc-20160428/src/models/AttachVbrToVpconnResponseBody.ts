@@ -13,7 +13,7 @@ export class AttachVbrToVpconnResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The instance ID of the shared Express Connect circuits.
+   * The shared Express Connect circuits instance ID.
    * 
    * @example
    * pc-bp1mrgfbtmc9brre7****

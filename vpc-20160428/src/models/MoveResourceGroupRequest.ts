@@ -51,7 +51,7 @@ export class MoveResourceGroupRequest extends $dara.Model {
    * - **PrefixList**: prefix list
    * - **PublicIpAddressPool**: IPAM pool
    * - **FlowLog**: flow log
-   * - **HaVip**: high-availability (HA) virtual IP address
+   * - **HaVip**: high-availability virtual IP address
    * - **TrafficMirrorFilter**: traffic mirror filter
    * - **TrafficMirrorSession**: traffic mirror session
    * - **IPv4Gateway**: IPv4 gateway

@@ -7,7 +7,7 @@ export class ListVirtualPhysicalConnectionsResponseBodyVirtualPhysicalConnection
    * @remarks
    * The tag key of the resource. You can specify up to 20 tag keys. The tag key cannot be an empty string.
    * 
-   * The tag key can be up to 64 characters in length and can contain digits, periods (.), underscores (_), and hyphens (-). The tag key cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
+   * The tag key can be up to 64 characters in length and can contain digits, periods (.), underscores (_), and hyphens (-). It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
    * 
    * @example
    * FinanceDept
@@ -17,7 +17,7 @@ export class ListVirtualPhysicalConnectionsResponseBodyVirtualPhysicalConnection
    * @remarks
    * The tag value of the resource. You can specify up to 20 tag values. The tag value can be an empty string.
    * 
-   * The tag value can be up to 128 characters in length and can contain digits, periods (.), underscores (_), and hyphens (-). The tag value cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
+   * The tag value can be up to 128 characters in length and can contain digits, periods (.), underscores (_), and hyphens (-). It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
    * 
    * @example
    * FinanceJoshua
@@ -60,7 +60,7 @@ export class ListVirtualPhysicalConnectionsResponseBodyVirtualPhysicalConnection
    * The physical location of the access device for the Express Connect circuit.
    * 
    * @example
-   * 余杭经济开发区XXX交叉口, 余杭XX机房, E***包间
+   * Yuhang Economic Development Zone, XX Intersection, Yuhang XX Data Center, Room E***
    */
   adLocation?: string;
   /**
@@ -84,7 +84,7 @@ export class ListVirtualPhysicalConnectionsResponseBodyVirtualPhysicalConnection
    * The business status of the Express Connect circuit. Valid values:
    * 
    * - **Normal**: Enabled.
-   * - **FinancialLocked**: Financial lock.
+   * - **FinancialLocked**: Locked due to overdue payment.
    * - **SecurityLocked**: Locked for security reasons.
    * 
    * @example
@@ -111,10 +111,10 @@ export class ListVirtualPhysicalConnectionsResponseBodyVirtualPhysicalConnection
   circuitCode?: string;
   /**
    * @remarks
-   * The time when the Express Connect circuit was created.
+   * The time when the Express Connect circuit was created. The time is displayed in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
    * 
    * @example
-   * 2021-06-08T12:20:55
+   * 2021-06-08T12:20:55Z
    */
   creationTime?: string;
   /**
@@ -127,17 +127,17 @@ export class ListVirtualPhysicalConnectionsResponseBodyVirtualPhysicalConnection
   description?: string;
   /**
    * @remarks
-   * The time when the Express Connect circuit was enabled.
+   * The time when the Express Connect circuit was enabled. The time is displayed in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
    * 
    * @example
-   * 2021-10-08T10:44Z
+   * 2021-10-08T10:44:00Z
    */
   enabledTime?: string;
   /**
    * @remarks
    * The expiration time of the shared Express Connect circuits.
    * 
-   * The time is displayed in the ISO 8601 standard in UTC. Format: YYYY-MM-DDThh:mm:ssZ.
+   * The time is displayed in the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
    * 
    * @example
    * 2021-11-08T16:00:00Z
@@ -145,7 +145,7 @@ export class ListVirtualPhysicalConnectionsResponseBodyVirtualPhysicalConnection
   endTime?: string;
   /**
    * @remarks
-   * The expected bandwidth of the shared Express Connect circuits. The expected bandwidth takes effect only after payment is complete.
+   * The expected bandwidth value of the shared Express Connect circuits. The expected bandwidth value takes effect only after payment is completed.
    * 
    * Unit: **M** indicates Mbit/s, and **G** indicates Gbit/s.
    * 
@@ -155,7 +155,7 @@ export class ListVirtualPhysicalConnectionsResponseBodyVirtualPhysicalConnection
   expectSpec?: string;
   /**
    * @remarks
-   * The carrier that provides the physical connection. Valid values:
+   * The carrier that provides the physical line for access. Valid values:
    * 
    * - **CT**: China Telecom.
    * - **CU**: China Unicom.
@@ -205,7 +205,7 @@ export class ListVirtualPhysicalConnectionsResponseBodyVirtualPhysicalConnection
   orderMode?: string;
   /**
    * @remarks
-   * The Alibaba Cloud account ID to which the Express Connect circuit belongs.
+   * The Alibaba Cloud account ID that owns the Express Connect circuit.
    * 
    * @example
    * 18311773240248****
@@ -224,7 +224,7 @@ export class ListVirtualPhysicalConnectionsResponseBodyVirtualPhysicalConnection
    * The geographic location of the on-premises data center.
    * 
    * @example
-   * 浙江省杭州市XX区XX街道XX号
+   * No. XX, XX Street, XX District, Hangzhou, Zhejiang Province
    */
   peerLocation?: string;
   /**
@@ -245,10 +245,10 @@ export class ListVirtualPhysicalConnectionsResponseBodyVirtualPhysicalConnection
   portNumber?: string;
   /**
    * @remarks
-   * The port type of the Express Connect circuit. Valid values:
+   * The port type of the access device for the Express Connect circuit. Valid values:
    * 
    * - **100Base-T**: 100M Ethernet port.
-   * - **1000Base-T**: 1 GE electrical port.
+   * - **1000Base-T**: GE electrical port.
    * - **1000Base-LX**: GE single-mode optical port (10 km).
    * - **10GBase-T**: 10 GE electrical port.
    * - **10GBase-LR**: 10 GE single-mode optical port (10 km).
@@ -288,7 +288,7 @@ export class ListVirtualPhysicalConnectionsResponseBodyVirtualPhysicalConnection
   resourceGroupId?: string;
   /**
    * @remarks
-   * The bandwidth of the shared Express Connect circuits.
+   * The bandwidth value of the shared Express Connect circuits.
    * 
    * Unit: **M** indicates Mbit/s, and **G** indicates Gbit/s.
    * 
@@ -304,7 +304,7 @@ export class ListVirtualPhysicalConnectionsResponseBodyVirtualPhysicalConnection
    * - **Approved**: The application is approved.
    * - **Allocating**: Resources are being allocated.
    * - **Allocated**: Under construction.
-   * - **Confirmed**: Pending confirmation.
+   * - **Confirmed**: Waiting for user confirmation.
    * - **Enabled**: Enabled.
    * - **Rejected**: The application is rejected.
    * - **Canceled**: Canceled.
@@ -443,9 +443,9 @@ export class ListVirtualPhysicalConnectionsResponseBody extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * Indicates whether a next query token is available. Valid values:
-   * - If **NextToken** is empty, no next query is available.
-   * - If **NextToken** is returned, the value indicates the token for the next query.
+   * Indicates whether a next query token exists. Valid values:
+   * - If **NextToken** is empty, no next query exists.
+   * - If **NextToken** has a return value, the value is the token for the next query.
    * 
    * @example
    * dd20****

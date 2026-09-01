@@ -7,6 +7,49 @@ export class DescribePhysicalConnectionsRequestFilter extends $dara.Model {
    * @remarks
    * The filter condition. Valid values:
    * 
+   * - **PhysicalConnectionId**: the ID of the Express Connect circuit.
+   * 
+   * - **AccessPointId**: the ID of the access point.
+   * 
+   * - **Type**: the type of the Express Connect circuit. This filter condition supports only the filter value **VPC**.
+   * 
+   * - **LineOperator**: the carrier of the Express Connect circuit. This filter condition supports the following filter values:
+   *     - **CT**: China Telecom.
+   *     - **CU**: China Unicom.
+   *     - **CM**: China shift.
+   *     - **CO**: Other carriers in the Chinese mainland. 
+   *     - **Equinix**: Equinix.
+   *     - **Other**: Other carriers outside the Chinese mainland.
+   * 
+   * - **Spec**: the specification of the Express Connect circuit. This filter condition supports the following filter values:
+   *     - **1G and below**.
+   *     - **10G**.
+   *     - **40G**.
+   *     - **100G**.
+   * >  The **40G** and **100G** specifications are not available by default. Only users who have submitted an application to their account manager and received approval can use these filter values.
+   * 
+   * - **Status**: the status of the Express Connect circuit. This filter condition supports the following filter values:
+   *     - **Initial**: pending application.
+   *     - **Approved**: approved.
+   *     - **Allocating**: allocating resources.
+   *     - **Allocated**: under construction.   
+   *     - **Confirmed**: pending user confirmation.   
+   *     - **Enabled**: enabled.
+   *     - **Rejected**: application rejected.
+   *     - **Canceled**: canceled.
+   *     - **Allocation Failed**: resource allocation failed.
+   *     - **Terminating**: stopping.
+   *     - **Terminated**: stopped.
+   * 
+   * - **Name**: the name of the Express Connect circuit.
+   * - **ProductType**: the type of the Express Connect circuit. Valid values:
+   *     - **VirtualPhysicalConnection**: shared Express Connect circuit.
+   *     - **PhysicalConnection**: dedicated Express Connect circuit.
+   *  
+   * 
+   * 
+   * You can specify up to 5 filter conditions at a time. The filter conditions have an **AND** relationship. Results are returned only when all filter conditions are met.
+   * 
    * @example
    * Name
    */
@@ -50,6 +93,8 @@ export class DescribePhysicalConnectionsRequestTags extends $dara.Model {
    * @remarks
    * The tag key of the resource. You can specify up to 20 tag keys. The tag key cannot be an empty string.
    * 
+   * The tag key can be up to 64 characters in length and can contain digits, periods (.), underscores (_), and hyphens (-). It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
+   * 
    * @example
    * FinanceDept
    */
@@ -57,6 +102,8 @@ export class DescribePhysicalConnectionsRequestTags extends $dara.Model {
   /**
    * @remarks
    * The tag value of the resource. You can specify up to 20 tag values. The tag value can be an empty string.
+   * 
+   * The tag value can be up to 128 characters in length and can contain digits, periods (.), underscores (_), and hyphens (-). It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
    * 
    * @example
    * FinanceJoshua
@@ -90,7 +137,7 @@ export class DescribePhysicalConnectionsRequest extends $dara.Model {
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * Generate a unique value from your client to ensure that different requests have unique values. ClientToken supports only ASCII characters.
+   * Generate a parameter value from your client to ensure uniqueness across different requests. ClientToken supports only ASCII characters.
    * 
    * @example
    * 02fb3da4-130e-11e9-8e44-001
@@ -104,6 +151,10 @@ export class DescribePhysicalConnectionsRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to return order data that has not taken effect. Valid values:
+   * 
+   * * **true**: Returns order data that has not taken effect.
+   * 
+   * * **false** (default): Does not return order data that has not taken effect.
    * 
    * @example
    * false
@@ -129,9 +180,9 @@ export class DescribePhysicalConnectionsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region ID of the Express Connect circuit.
+   * The region ID of the Express Connect circuit. 
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query region IDs.
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeVbrHaResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The time when the VBR was created. The time is displayed in the ISO 8601 standard in the UTC time zone. The format is YYYY-MM-DDThh:mm:ss.
+   * The time when the VBR was created. The time is displayed in the ISO 8601 standard in UTC. The format is YYYY-MM-DDThh:mm:ss.
    * 
    * @example
    * 2021-06-08T12:20:55
@@ -42,7 +42,7 @@ export class DescribeVbrHaResponseBody extends $dara.Model {
    * The region ID of the VBR.
    * 
    * @example
-   * cn-hangzhou
+   * cn-shanghai
    */
   regionId?: string;
   /**
@@ -55,7 +55,7 @@ export class DescribeVbrHaResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The status of the VBR failover group.
+   * The status of the VBR failover group. Valid values:
    * 
    * - **Creating**: being created.
    * 

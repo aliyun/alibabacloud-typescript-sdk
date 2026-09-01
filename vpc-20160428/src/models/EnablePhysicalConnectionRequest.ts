@@ -5,11 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class EnablePhysicalConnectionRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to skip the SP (order lifecycle). Valid values:
-   * - **true**: Skips the SP. The Alibaba Cloud billing system no longer manages this instance, and the instance can be used free of charge.
-   * - **false** (default): Does not skip the SP.
-   * 
-   * > To use this feature, contact your account manager.
+   * Specifies whether to skip the SP (sales and billing system) billing order flow and directly enable the Express Connect circuit. Valid values:
+   * - false (default): Standard flow. A billing order is automatically created when the circuit is enabled. The circuit enters the Enabled state after the order is created.
+   * - true: Skips the billing order and directly enables the circuit. This capability is available only to whitelist accounts.
    * 
    * @example
    * false
@@ -19,7 +17,7 @@ export class EnablePhysicalConnectionRequest extends $dara.Model {
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * The client generates the value of this parameter. Make sure that the value is unique among different requests. The value can be up to 64 ASCII characters in length.
+   * The client generates the value of this parameter. The value must be unique among different requests and cannot exceed 64 ASCII characters in length.
    * 
    * @example
    * 02fb3da4-130e-11e9-8e44-0016e04115b
@@ -41,7 +39,7 @@ export class EnablePhysicalConnectionRequest extends $dara.Model {
    * @remarks
    * The region where the Express Connect circuit resides.
    * 
-   * You can call the DescribeRegions operation to query the region ID.
+   * You can call the DescribeRegions operation to query region IDs.
    * 
    * This parameter is required.
    * 
