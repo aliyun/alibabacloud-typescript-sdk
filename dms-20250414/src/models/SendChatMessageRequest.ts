@@ -8,6 +8,7 @@ export class SendChatMessageRequestDataSourcePermissionTables extends $dara.Mode
    * The list of columns that are allowed to be queried in the current table. If this field is left empty, all columns can be queried. If specified, SQL statements that exceed the allowed scope are blocked. For example, syntax such as SELECT * is blocked. To ensure DataAgent analysis effectiveness, avoid specifying columns beyond the allowed scope in the DataAgent prompts, knowledge, or instructions modules. Otherwise, unauthorized SQL statements may be generated and blocked, which reduces DataAgent analysis speed and effectiveness.
    */
   allowedColumns?: string[];
+  disallowedColumns?: string[];
   /**
    * @remarks
    * The required row filter condition for the current table. If this field is left empty, it is ignored. If specified, all SQL statements involving this table are validated to check whether they include the filter field and whether the WHERE condition meets the constraint. SQL statements that do not meet the constraint are rejected. Ensure the validation condition format is correct.
@@ -27,6 +28,7 @@ export class SendChatMessageRequestDataSourcePermissionTables extends $dara.Mode
   static names(): { [key: string]: string } {
     return {
       allowedColumns: 'AllowedColumns',
+      disallowedColumns: 'DisallowedColumns',
       requiredRowFilter: 'RequiredRowFilter',
       tableName: 'TableName',
     };
@@ -35,6 +37,7 @@ export class SendChatMessageRequestDataSourcePermissionTables extends $dara.Mode
   static types(): { [key: string]: any } {
     return {
       allowedColumns: { 'type': 'array', 'itemType': 'string' },
+      disallowedColumns: { 'type': 'array', 'itemType': 'string' },
       requiredRowFilter: 'string',
       tableName: 'string',
     };
@@ -43,6 +46,9 @@ export class SendChatMessageRequestDataSourcePermissionTables extends $dara.Mode
   validate() {
     if(Array.isArray(this.allowedColumns)) {
       $dara.Model.validateArray(this.allowedColumns);
+    }
+    if(Array.isArray(this.disallowedColumns)) {
+      $dara.Model.validateArray(this.disallowedColumns);
     }
     super.validate();
   }
@@ -228,6 +234,7 @@ export class SendChatMessageRequestDataSourcesPermissionTables extends $dara.Mod
    * The list of columns that are allowed to be queried in the current table. If this field is left empty, all columns can be queried. If specified, SQL statements that exceed the allowed scope are blocked. For example, syntax such as SELECT * is blocked. To ensure DataAgent analysis effectiveness, avoid specifying columns beyond the allowed scope in the DataAgent prompts, knowledge, or instructions modules. Otherwise, unauthorized SQL statements may be generated and blocked, which reduces DataAgent analysis speed and effectiveness.
    */
   allowedColumns?: string[];
+  disallowedColumns?: string[];
   /**
    * @remarks
    * The required row filter condition for the current table. If this field is left empty, it is ignored. If specified, all SQL statements involving this table are validated to check whether they include the filter field and whether the WHERE condition meets the constraint. SQL statements that do not meet the constraint are rejected. Ensure the validation condition format is correct.
@@ -247,6 +254,7 @@ export class SendChatMessageRequestDataSourcesPermissionTables extends $dara.Mod
   static names(): { [key: string]: string } {
     return {
       allowedColumns: 'AllowedColumns',
+      disallowedColumns: 'DisallowedColumns',
       requiredRowFilter: 'RequiredRowFilter',
       tableName: 'TableName',
     };
@@ -255,6 +263,7 @@ export class SendChatMessageRequestDataSourcesPermissionTables extends $dara.Mod
   static types(): { [key: string]: any } {
     return {
       allowedColumns: { 'type': 'array', 'itemType': 'string' },
+      disallowedColumns: { 'type': 'array', 'itemType': 'string' },
       requiredRowFilter: 'string',
       tableName: 'string',
     };
@@ -263,6 +272,9 @@ export class SendChatMessageRequestDataSourcesPermissionTables extends $dara.Mod
   validate() {
     if(Array.isArray(this.allowedColumns)) {
       $dara.Model.validateArray(this.allowedColumns);
+    }
+    if(Array.isArray(this.disallowedColumns)) {
+      $dara.Model.validateArray(this.disallowedColumns);
     }
     super.validate();
   }
@@ -442,6 +454,33 @@ export class SendChatMessageRequestDataSources extends $dara.Model {
   }
 }
 
+export class SendChatMessageRequestSessionConfigPermissionConfig extends $dara.Model {
+  /**
+   * @remarks
+   * 未配置表的默认行为：allow=放行（默认），deny=拒绝
+   */
+  defaultAction?: string;
+  static names(): { [key: string]: string } {
+    return {
+      defaultAction: 'DefaultAction',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      defaultAction: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SendChatMessageRequestSessionConfig extends $dara.Model {
   /**
    * @remarks
@@ -504,6 +543,11 @@ export class SendChatMessageRequestSessionConfig extends $dara.Model {
   mode?: string;
   /**
    * @remarks
+   * session 级权限生效机制配置，仅含未配置表的默认行为
+   */
+  permissionConfig?: SendChatMessageRequestSessionConfigPermissionConfig;
+  /**
+   * @remarks
    * Specifies whether to enable the plan. Valid values: disable, enable, force. Default value: enable.
    * 
    * @example
@@ -560,6 +604,7 @@ export class SendChatMessageRequestSessionConfig extends $dara.Model {
       language: 'Language',
       mcpServerIds: 'McpServerIds',
       mode: 'Mode',
+      permissionConfig: 'PermissionConfig',
       planMode: 'PlanMode',
       reportWaterMark: 'ReportWaterMark',
       skipAskHuman: 'SkipAskHuman',
@@ -579,6 +624,7 @@ export class SendChatMessageRequestSessionConfig extends $dara.Model {
       language: 'string',
       mcpServerIds: 'string',
       mode: 'string',
+      permissionConfig: SendChatMessageRequestSessionConfigPermissionConfig,
       planMode: 'string',
       reportWaterMark: 'string',
       skipAskHuman: 'boolean',
@@ -590,6 +636,9 @@ export class SendChatMessageRequestSessionConfig extends $dara.Model {
   }
 
   validate() {
+    if(this.permissionConfig && typeof (this.permissionConfig as any).validate === 'function') {
+      (this.permissionConfig as any).validate();
+    }
     if(Array.isArray(this.userSpecifiedSkillList)) {
       $dara.Model.validateArray(this.userSpecifiedSkillList);
     }

@@ -121,6 +121,7 @@ export { SendChatMessageRequestDataSource } from './SendChatMessageRequest';
 export { SendChatMessageRequestDataSourcesPermissionTables } from './SendChatMessageRequest';
 export { SendChatMessageRequestDataSourcesPermission } from './SendChatMessageRequest';
 export { SendChatMessageRequestDataSources } from './SendChatMessageRequest';
+export { SendChatMessageRequestSessionConfigPermissionConfig } from './SendChatMessageRequest';
 export { SendChatMessageRequestSessionConfig } from './SendChatMessageRequest';
 export { SendChatMessageRequestTaskConfigReportConfig } from './SendChatMessageRequest';
 export { SendChatMessageRequestTaskConfig } from './SendChatMessageRequest';
