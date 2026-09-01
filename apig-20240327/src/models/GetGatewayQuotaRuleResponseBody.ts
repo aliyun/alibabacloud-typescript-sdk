@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetGatewayQuotaRuleResponseBodyDataConsumers extends $dara.Model {
   /**
    * @remarks
-   * The subject (consumer) ID.
+   * The subject (API consumer) ID.
    * 
    * @example
    * c-aaa
@@ -13,7 +13,7 @@ export class GetGatewayQuotaRuleResponseBodyDataConsumers extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The subject (consumer) name.
+   * The subject (API consumer) name.
    * 
    * @example
    * consumer-a
@@ -103,7 +103,7 @@ export class GetGatewayQuotaRuleResponseBodyData extends $dara.Model {
   baseTimestamp?: number;
   /**
    * @remarks
-   * The number of consumers associated with the rule.
+   * The number of API consumers associated with the rule.
    * 
    * @example
    * 20
@@ -111,7 +111,7 @@ export class GetGatewayQuotaRuleResponseBodyData extends $dara.Model {
   consumerCount?: number;
   /**
    * @remarks
-   * The list of subjects (consumers) bound to this rule.
+   * The list of subjects (API consumers) bound to this rule.
    */
   consumers?: GetGatewayQuotaRuleResponseBodyDataConsumers[];
   /**

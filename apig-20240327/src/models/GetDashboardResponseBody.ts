@@ -81,7 +81,7 @@ export class GetDashboardResponseBody extends $dara.Model {
    * The backend error code.
    * 
    * @example
-   * Ok
+   * CloudProductInactive.LogDeliveryNotEnabled
    */
   errorCode?: string;
   /**
@@ -89,7 +89,7 @@ export class GetDashboardResponseBody extends $dara.Model {
    * The error message.
    * 
    * @example
-   * success
+   * SLS log delivery configuration is not enabled.
    */
   message?: string;
   /**

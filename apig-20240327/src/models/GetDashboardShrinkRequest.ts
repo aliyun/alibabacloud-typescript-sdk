@@ -6,8 +6,8 @@ export class GetDashboardShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The language. Valid values:
-   * - zh: Chinese.
-   * - en: English.
+   * - zh: Chinese
+   * - en: English
    * 
    * @example
    * zh
@@ -29,8 +29,8 @@ export class GetDashboardShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The dashboard name. Valid values:
-   * - LOG: access log.
-   * - PLUGIN: plugin log.
+   * - LOG: access log
+   * - PLUGIN: plugin log
    * 
    * @example
    * PLUGIN
@@ -63,7 +63,7 @@ export class GetDashboardShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The dashboard source. Valid values:
-   * - SLS: log dashboard.
+   * - SLS: log dashboard
    * 
    * @example
    * SLS

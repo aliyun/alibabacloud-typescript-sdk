@@ -56,6 +56,9 @@ export class HttpRouteDomainInfos extends $dara.Model {
 
 export class HttpRouteEnvironmentInfoGatewayInfo extends $dara.Model {
   /**
+   * @remarks
+   * The gateway instance edition. Valid values: Professional, Serverless, MultiTenantServerless, and Unknown.
+   * 
    * @example
    * MultiTenantServerless
    */
@@ -359,7 +362,7 @@ export class HttpRoute extends $dara.Model {
   backend?: Backend;
   /**
    * @remarks
-   * Indicates whether the route is a built-in system route.
+   * Indicates whether the route is a system built-in route.
    * 
    * @example
    * true

@@ -2,34 +2,31 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class GetGatewayQuotaRuleSubjectUsageRequest extends $dara.Model {
+export class ListConsumerGroupQuotaRulesRequest extends $dara.Model {
   /**
-   * @remarks
-   * Specifies whether to filter out zero values.
-   * 
    * @example
-   * true
+   * gw-123456
    */
-  filterFailedRequests?: boolean;
+  gatewayId?: string;
   /**
-   * @remarks
-   * The page number of the detailed consumption (request) records of the subject within the cycle.
-   * 
+   * @example
+   * daily
+   */
+  keyword?: string;
+  /**
    * @example
    * 1
    */
   pageNumber?: number;
   /**
-   * @remarks
-   * The number of detailed consumption (request) records per page for the subject within the cycle. Maximum value: 10.
-   * 
    * @example
    * 10
    */
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
-      filterFailedRequests: 'filterFailedRequests',
+      gatewayId: 'gatewayId',
+      keyword: 'keyword',
       pageNumber: 'pageNumber',
       pageSize: 'pageSize',
     };
@@ -37,7 +34,8 @@ export class GetGatewayQuotaRuleSubjectUsageRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      filterFailedRequests: 'boolean',
+      gatewayId: 'string',
+      keyword: 'string',
       pageNumber: 'number',
       pageSize: 'number',
     };

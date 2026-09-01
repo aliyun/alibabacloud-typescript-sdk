@@ -226,7 +226,7 @@ export class GetGatewayQuotaRuleSubjectUsageResponseBodyData extends $dara.Model
   totalQuota?: number;
   /**
    * @remarks
-   * The total used quota of the subject.
+   * The total used amount of the subject.
    * 
    * @example
    * 500

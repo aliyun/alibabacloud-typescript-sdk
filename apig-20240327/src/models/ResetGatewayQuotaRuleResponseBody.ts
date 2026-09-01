@@ -5,11 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class ResetGatewayQuotaRuleResponseBodyDataConflictPreviewItems extends $dara.Model {
   /**
    * @remarks
-   * The period type of the existing conflicting rule on the consumer. Valid values:
-   * 
-   * - day: daily.
-   * - week: weekly.
-   * - month: monthly.
+   * The period type of the existing conflicting rule on the subject. Valid values:
+   * - day: The period of the existing conflicting rule is daily.
+   * - week: The period of the existing conflicting rule is weekly.
+   * - month: The period of the existing conflicting rule is monthly.
    * 
    * @example
    * week
@@ -17,10 +16,9 @@ export class ResetGatewayQuotaRuleResponseBodyDataConflictPreviewItems extends $
   conflictPeriodType?: string;
   /**
    * @remarks
-   * The type of the existing conflicting rule on the consumer. Valid values:
-   * 
-   * - calendar: the existing conflicting rule uses a calendar period.
-   * - epoch: the existing conflicting rule uses a custom period.
+   * The type of the existing conflicting rule on the subject. Valid values:
+   * - calendar: The existing conflicting rule uses a calendar period.
+   * - epoch: The existing conflicting rule uses a custom period.
    * 
    * @example
    * calendar
@@ -28,7 +26,7 @@ export class ResetGatewayQuotaRuleResponseBodyDataConflictPreviewItems extends $
   conflictType?: string;
   /**
    * @remarks
-   * The consumer ID.
+   * The consumer ID. You can use subjectId instead.
    * 
    * @example
    * cs-d82n1g6m1hkm3xxxxxxx
@@ -36,7 +34,7 @@ export class ResetGatewayQuotaRuleResponseBodyDataConflictPreviewItems extends $
   consumerId?: string;
   /**
    * @remarks
-   * The consumer name.
+   * The consumer name. You can use subjectName instead.
    * 
    * @example
    * consumer-a
@@ -60,7 +58,9 @@ export class ResetGatewayQuotaRuleResponseBodyDataConflictPreviewItems extends $
   subjectName?: string;
   /**
    * @remarks
-   * The conflict subject type. Valid values: consumer and consumer_group.
+   * The type of the conflicting subject. Valid values:
+   * - consumer
+   * - consumer_group
    * 
    * @example
    * consumer
@@ -110,7 +110,7 @@ export class ResetGatewayQuotaRuleResponseBodyDataConflictPreview extends $dara.
   conflictHash?: string;
   /**
    * @remarks
-   * The list of conflicting subjects (consumers).
+   * The list of conflicting subjects.
    */
   items?: ResetGatewayQuotaRuleResponseBodyDataConflictPreviewItems[];
   /**
@@ -152,7 +152,7 @@ export class ResetGatewayQuotaRuleResponseBodyDataConflictPreview extends $dara.
 export class ResetGatewayQuotaRuleResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the write request is accepted by the system. A value of false typically indicates a retryable scenario such as an unconfirmed conflict overwrite.
+   * Indicates whether the write request is accepted by the system. A value of false typically indicates a retryable scenario, such as an unconfirmed conflict overwrite.
    * 
    * @example
    * true
@@ -228,7 +228,7 @@ export class ResetGatewayQuotaRuleResponseBody extends $dara.Model {
   data?: ResetGatewayQuotaRuleResponseBodyData;
   /**
    * @remarks
-   * The message content.
+   * The message.
    * 
    * @example
    * Hello, World!
@@ -236,7 +236,7 @@ export class ResetGatewayQuotaRuleResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The unique identifier of the request.
+   * The request ID.
    * 
    * @example
    * 1234567890

@@ -302,6 +302,8 @@ export { ListConsumerAuthorizationRulesResponseBodyDataItems } from './ListConsu
 export { ListConsumerAuthorizationRulesResponseBodyData } from './ListConsumerAuthorizationRulesResponseBody';
 export { ListConsumerGroupConsumersResponseBodyDataItems } from './ListConsumerGroupConsumersResponseBody';
 export { ListConsumerGroupConsumersResponseBodyData } from './ListConsumerGroupConsumersResponseBody';
+export { ListConsumerGroupQuotaRulesResponseBodyDataItems } from './ListConsumerGroupQuotaRulesResponseBody';
+export { ListConsumerGroupQuotaRulesResponseBodyData } from './ListConsumerGroupQuotaRulesResponseBody';
 export { ListConsumerGroupsResponseBodyDataItems } from './ListConsumerGroupsResponseBody';
 export { ListConsumerGroupsResponseBodyData } from './ListConsumerGroupsResponseBody';
 export { ListConsumerQuotaRulesResponseBodyDataItems } from './ListConsumerQuotaRulesResponseBody';
@@ -828,6 +830,9 @@ export { ListConsumerAuthorizationRulesResponse } from './ListConsumerAuthorizat
 export { ListConsumerGroupConsumersRequest } from './ListConsumerGroupConsumersRequest';
 export { ListConsumerGroupConsumersResponseBody } from './ListConsumerGroupConsumersResponseBody';
 export { ListConsumerGroupConsumersResponse } from './ListConsumerGroupConsumersResponse';
+export { ListConsumerGroupQuotaRulesRequest } from './ListConsumerGroupQuotaRulesRequest';
+export { ListConsumerGroupQuotaRulesResponseBody } from './ListConsumerGroupQuotaRulesResponseBody';
+export { ListConsumerGroupQuotaRulesResponse } from './ListConsumerGroupQuotaRulesResponse';
 export { ListConsumerGroupsRequest } from './ListConsumerGroupsRequest';
 export { ListConsumerGroupsResponseBody } from './ListConsumerGroupsResponseBody';
 export { ListConsumerGroupsResponse } from './ListConsumerGroupsResponse';
