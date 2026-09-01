@@ -922,6 +922,76 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Data Agent点赞点踩功能
+   * 
+   * @param request - CreateDataAgentFeedbackRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateDataAgentFeedbackResponse
+   */
+  async createDataAgentFeedbackWithOptions(request: $_model.CreateDataAgentFeedbackRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateDataAgentFeedbackResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DMSUnit)) {
+      query["DMSUnit"] = request.DMSUnit;
+    }
+
+    if (!$dara.isNull(request.feedbackContent)) {
+      query["FeedbackContent"] = request.feedbackContent;
+    }
+
+    if (!$dara.isNull(request.feedbackType)) {
+      query["FeedbackType"] = request.feedbackType;
+    }
+
+    if (!$dara.isNull(request.likeValue)) {
+      query["LikeValue"] = request.likeValue;
+    }
+
+    if (!$dara.isNull(request.sessionId)) {
+      query["SessionId"] = request.sessionId;
+    }
+
+    if (!$dara.isNull(request.targetId)) {
+      query["TargetId"] = request.targetId;
+    }
+
+    if (!$dara.isNull(request.targetType)) {
+      query["TargetType"] = request.targetType;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateDataAgentFeedback",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateDataAgentFeedbackResponse>(await this.callApi(params, req, runtime), new $_model.CreateDataAgentFeedbackResponse({}));
+  }
+
+  /**
+   * Data Agent点赞点踩功能
+   * 
+   * @param request - CreateDataAgentFeedbackRequest
+   * @returns CreateDataAgentFeedbackResponse
+   */
+  async createDataAgentFeedback(request: $_model.CreateDataAgentFeedbackRequest): Promise<$_model.CreateDataAgentFeedbackResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createDataAgentFeedbackWithOptions(request, runtime);
+  }
+
+  /**
    * Creates a DataAgent knowledge base. The knowledge base creator has read and write permissions. Other workspace members have permission to use it.
    * 
    * @param request - CreateDataAgentKnowledgeBaseRequest
@@ -7241,7 +7311,7 @@ export default class Client extends OpenApi {
    * @remarks
    * ## Request description
    * - `message_type` defaults to `primary`. Set it to `additional` or `cancel` when you need to append information or cancel a session.
-   * - The `reply_to` field indicates which Agent message this message is responding to. The default value is `0`.
+   * - The `reply_to` field indicates which Agent message this message is a response to. The default value is `0`.
    * - When `message_type` is `additional`, the `question` field is required.
    * - `quoted_message` can be used to quote the content of a previous user message.
    * 
@@ -7353,7 +7423,7 @@ export default class Client extends OpenApi {
    * @remarks
    * ## Request description
    * - `message_type` defaults to `primary`. Set it to `additional` or `cancel` when you need to append information or cancel a session.
-   * - The `reply_to` field indicates which Agent message this message is responding to. The default value is `0`.
+   * - The `reply_to` field indicates which Agent message this message is a response to. The default value is `0`.
    * - When `message_type` is `additional`, the `question` field is required.
    * - `quoted_message` can be used to quote the content of a previous user message.
    * 

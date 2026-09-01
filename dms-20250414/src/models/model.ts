@@ -19,6 +19,7 @@ export { CreateCustomAgentResponseBodyDataKnowledgeSemanticConfigList } from './
 export { CreateCustomAgentResponseBodyDataScheduleTaskConfig } from './CreateCustomAgentResponseBody';
 export { CreateCustomAgentResponseBodyData } from './CreateCustomAgentResponseBody';
 export { CreateDataAgentAccuracyTestResponseBodyData } from './CreateDataAgentAccuracyTestResponseBody';
+export { CreateDataAgentFeedbackResponseBodyData } from './CreateDataAgentFeedbackResponseBody';
 export { CreateDataAgentKnowledgeBaseResponseBodyData } from './CreateDataAgentKnowledgeBaseResponseBody';
 export { CreateDataAgentSessionRequestSessionConfig } from './CreateDataAgentSessionRequest';
 export { CreateDataAgentSessionResponseBodyDataSessionConfig } from './CreateDataAgentSessionResponseBody';
@@ -232,6 +233,9 @@ export { CreateCustomAgentResponse } from './CreateCustomAgentResponse';
 export { CreateDataAgentAccuracyTestRequest } from './CreateDataAgentAccuracyTestRequest';
 export { CreateDataAgentAccuracyTestResponseBody } from './CreateDataAgentAccuracyTestResponseBody';
 export { CreateDataAgentAccuracyTestResponse } from './CreateDataAgentAccuracyTestResponse';
+export { CreateDataAgentFeedbackRequest } from './CreateDataAgentFeedbackRequest';
+export { CreateDataAgentFeedbackResponseBody } from './CreateDataAgentFeedbackResponseBody';
+export { CreateDataAgentFeedbackResponse } from './CreateDataAgentFeedbackResponse';
 export { CreateDataAgentKnowledgeBaseRequest } from './CreateDataAgentKnowledgeBaseRequest';
 export { CreateDataAgentKnowledgeBaseResponseBody } from './CreateDataAgentKnowledgeBaseResponseBody';
 export { CreateDataAgentKnowledgeBaseResponse } from './CreateDataAgentKnowledgeBaseResponse';

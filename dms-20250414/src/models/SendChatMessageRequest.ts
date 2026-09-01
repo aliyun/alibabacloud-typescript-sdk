@@ -5,13 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class SendChatMessageRequestDataSourcePermissionTables extends $dara.Model {
   /**
    * @remarks
-   * The list of columns that are allowed to be queried in the current table. If this field is left empty, all columns can be queried. If specified, SQL statements that exceed the allowed scope are blocked. For example, syntax such as SELECT * is blocked. To ensure DataAgent analysis effectiveness, avoid specifying columns beyond the allowed scope in the DataAgent prompts, knowledge, or instructions modules. Otherwise, unauthorized SQL statements may be generated and blocked, which reduces DataAgent analysis speed and effectiveness.
+   * The list of columns that are allowed to be queried in the current table. If this field is left empty, all columns can be queried. If this field is specified, SQL statements that exceed the allowed scope are blocked. For example, syntax such as SELECT * is blocked. To ensure the effectiveness of DataAgent analysis, avoid specifying columns that exceed the allowed scope in the prompts, knowledge, or instructions modules of DataAgent. Otherwise, SQL statements without the required permissions are generated and blocked, which reduces the analysis speed and effectiveness of DataAgent.
    */
   allowedColumns?: string[];
   disallowedColumns?: string[];
   /**
    * @remarks
-   * The required row filter condition for the current table. If this field is left empty, it is ignored. If specified, all SQL statements involving this table are validated to check whether they include the filter field and whether the WHERE condition meets the constraint. SQL statements that do not meet the constraint are rejected. Ensure the validation condition format is correct.
+   * The required row filter condition for the current table. If this field is left empty, it is ignored. If this field is specified, all SQL statements involving this table are validated to check whether they carry the filter field and whether the WHERE condition meets the constraints. SQL statements that do not meet the constraints are rejected. Ensure the format of the validation conditions is correct.
    * 
    * @example
    * region = \\"east\\"
@@ -19,7 +19,7 @@ export class SendChatMessageRequestDataSourcePermissionTables extends $dara.Mode
   requiredRowFilter?: string;
   /**
    * @remarks
-   * The table name to which the permission constraint rule applies.
+   * The name of the table to which the permission constraint rule applies.
    * 
    * @example
    * sample_table
@@ -99,7 +99,7 @@ export class SendChatMessageRequestDataSource extends $dara.Model {
   dataSourceId?: string;
   /**
    * @remarks
-   * The data source type. Valid values: `[remote_data_center, database]`, indicating that the analysis is performed on a file or a database.
+   * The data source type. Valid values: `[remote_data_center, database]`, which indicate that the analysis is performed on a file or a database.
    * 
    * @example
    * remote_data_center
@@ -231,13 +231,13 @@ export class SendChatMessageRequestDataSource extends $dara.Model {
 export class SendChatMessageRequestDataSourcesPermissionTables extends $dara.Model {
   /**
    * @remarks
-   * The list of columns that are allowed to be queried in the current table. If this field is left empty, all columns can be queried. If specified, SQL statements that exceed the allowed scope are blocked. For example, syntax such as SELECT * is blocked. To ensure DataAgent analysis effectiveness, avoid specifying columns beyond the allowed scope in the DataAgent prompts, knowledge, or instructions modules. Otherwise, unauthorized SQL statements may be generated and blocked, which reduces DataAgent analysis speed and effectiveness.
+   * The list of columns that are allowed to be queried in the current table. If this field is left empty, all columns can be queried. If this field is specified, SQL statements that exceed the allowed scope are blocked. For example, syntax such as SELECT * is blocked. To ensure the effectiveness of DataAgent analysis, avoid specifying columns that exceed the allowed scope in the prompts, knowledge, or instructions modules of DataAgent. Otherwise, SQL statements without the required permissions are generated and blocked, which reduces the analysis speed and effectiveness of DataAgent.
    */
   allowedColumns?: string[];
   disallowedColumns?: string[];
   /**
    * @remarks
-   * The required row filter condition for the current table. If this field is left empty, it is ignored. If specified, all SQL statements involving this table are validated to check whether they include the filter field and whether the WHERE condition meets the constraint. SQL statements that do not meet the constraint are rejected. Ensure the validation condition format is correct.
+   * The required row filter condition for the current table. If this field is left empty, it is ignored. If this field is specified, all SQL statements involving this table are validated to check whether they carry the filter field and whether the WHERE condition meets the constraints. SQL statements that do not meet the constraints are rejected. Ensure the format of the validation conditions is correct.
    * 
    * @example
    * region = \\"east\\"
@@ -245,7 +245,7 @@ export class SendChatMessageRequestDataSourcesPermissionTables extends $dara.Mod
   requiredRowFilter?: string;
   /**
    * @remarks
-   * The table name to which the permission constraint rule applies.
+   * The name of the table to which the permission constraint rule applies.
    * 
    * @example
    * sample_table
@@ -325,7 +325,7 @@ export class SendChatMessageRequestDataSources extends $dara.Model {
   dataSourceId?: string;
   /**
    * @remarks
-   * The data source type. Valid values: remote_data_center, database. These values indicate that the analysis is performed on a file or a database.
+   * The data source type. Valid values: remote_data_center and database, which indicate that the analysis is performed on a file or a database.
    * 
    * @example
    * remote_data_center
@@ -457,7 +457,9 @@ export class SendChatMessageRequestDataSources extends $dara.Model {
 export class SendChatMessageRequestSessionConfigPermissionConfig extends $dara.Model {
   /**
    * @remarks
-   * 未配置表的默认行为：allow=放行（默认），deny=拒绝
+   * The default behavior for unconfigured tables. Valid values:
+   * - allow: Allow. This is the default value.
+   * - deny: Deny.
    */
   defaultAction?: string;
   static names(): { [key: string]: string } {
@@ -543,12 +545,12 @@ export class SendChatMessageRequestSessionConfig extends $dara.Model {
   mode?: string;
   /**
    * @remarks
-   * session 级权限生效机制配置，仅含未配置表的默认行为
+   * The session-level permission configuration. This parameter specifies only the default behavior for unconfigured tables.
    */
   permissionConfig?: SendChatMessageRequestSessionConfigPermissionConfig;
   /**
    * @remarks
-   * Specifies whether to enable the plan. Valid values: disable, enable, force. Default value: enable.
+   * Specifies whether to enable the plan. Valid values: disable, enable, and force. Default value: enable.
    * 
    * @example
    * disable
@@ -556,7 +558,7 @@ export class SendChatMessageRequestSessionConfig extends $dara.Model {
   planMode?: string;
   /**
    * @remarks
-   * The text (up to 64 characters) used as a watermark in the generated PDF report.
+   * The text of up to 64 characters that is used as a watermark in the generated PDF report.
    * 
    * @example
    * sample-watermark
@@ -661,7 +663,7 @@ export class SendChatMessageRequestTaskConfigReportConfig extends $dara.Model {
   reportPrompt?: string;
   /**
    * @remarks
-   * The report theme. Valid values: default, journal, legacy, neobrutalism.
+   * The report theme. Valid values: default, journal, legacy, and neobrutalism.
    * 
    * @example
    * default
@@ -669,7 +671,7 @@ export class SendChatMessageRequestTaskConfigReportConfig extends $dara.Model {
   reportTheme?: string;
   /**
    * @remarks
-   * The service type. Valid values: TextReport, WebReport. These values indicate that the current task generates a text report or a web report. Currently only WebReport is supported.
+   * The service type. Valid values: TextReport and WebReport, which indicate that the task generates a text report or a web report. Currently only WebReport is supported.
    * 
    * @example
    * WebReport
@@ -733,7 +735,7 @@ export class SendChatMessageRequestTaskConfig extends $dara.Model {
 export class SendChatMessageRequest extends $dara.Model {
   /**
    * @remarks
-   * **[Optimized]** This field is now automatically obtained by the backend. You do not need to specify this field.
+   * **[Deprecated]** This field is now automatically obtained by the backend. You do not need to specify this field.
    * 
    * @example
    * agent_***
@@ -741,7 +743,7 @@ export class SendChatMessageRequest extends $dara.Model {
   agentId?: string;
   /**
    * @remarks
-   * **[Optimized]** This field is now automatically obtained by the backend. You do not need to specify this field when calling the API.
+   * **[Deprecated]** This field is now automatically obtained by the backend. You do not need to specify this field when calling the API.
    * 
    * @example
    * cn-hangzhou
@@ -762,7 +764,7 @@ export class SendChatMessageRequest extends $dara.Model {
   dataSources?: SendChatMessageRequestDataSources[];
   /**
    * @remarks
-   * The message content to send to the Agent.
+   * The content of the message to send to the Agent.
    * 
    * This parameter is required.
    * 
@@ -774,13 +776,13 @@ export class SendChatMessageRequest extends $dara.Model {
    * @remarks
    * The message type. Default value: `[primary]`.  
    * 
-   * - For regular interactions with the Agent, the message type is `[primary]`.
+   * - For regular interactions with the Agent, set the message type to `[primary]`.
    * 
-   * - When the message is a response to the Agent\\"s Human-in-Loop question, the type should be `[additional]`.
+   * - When the message is a response to the Agent\\"s human-in-the-loop question, set the type to `[additional]`.
    * 
-   * - When the message is intended to trigger a report generation, the type should be `[report]`.
+   * - When the message triggers a report generation, set the type to `[report]`.
    * 
-   * - When the message is intended to cancel the current session, the type should be `[cancel]`.
+   * - When the message cancels the current session, set the type to `[cancel]`.
    * 
    * @example
    * primary
@@ -796,10 +798,10 @@ export class SendChatMessageRequest extends $dara.Model {
   parentSessionId?: string;
   /**
    * @remarks
-   * This field is required when the message type is `additional`. Specify the specific question that the Agent asks the user through Human-in-Loop.
+   * This field is required when the message type is `additional`. Specify the specific question that the Agent asks the user through the human-in-the-loop mechanism.
    * 
    * @example
-   * Please provide the criteria for calculating GMV
+   * Provide the criteria for calculating GMV
    */
   question?: string;
   /**
@@ -814,9 +816,9 @@ export class SendChatMessageRequest extends $dara.Model {
    * @remarks
    * **Important**
    * 
-   * When this message is a reply to an Agent message (for example, the Agent asks a clarification question through ASK_HUMAN), reply_to must be set to the exact Checkpoint sequence number carried in that Agent message. If this message is not a targeted reply, such as requesting the Agent to perform further in-depth analysis after the analysis is complete, reply_to can be left empty or set to "0".  
+   * When this message is a reply to an Agent message (for example, the Agent asks a clarifying question through ASK_HUMAN), set reply_to to the exact Checkpoint sequence number carried in that Agent message. If this message is not a targeted reply, such as requesting the Agent to perform further in-depth analysis after the analysis is complete, leave reply_to empty or set it to "0".  
    * 
-   * This field affects how the Agent decides to process the message. Passing an incorrect value may result in analysis results that do not meet expectations.
+   * This field affects how the Agent decides to process the message. Passing an incorrect value may cause the analysis results to be less effective than expected.
    * 
    * @example
    * 0
@@ -833,8 +835,8 @@ export class SendChatMessageRequest extends $dara.Model {
   /**
    * @remarks
    * The session ID. This is an optional field used for multi-turn conversations.
-   * - You can start a conversation without specifying this field. The response includes the SessionID for the current session.
-   * - You can also manually create a session ID by calling the CreateDataAgentSession operation and include the ID when initiating a conversation.
+   * - You can start a session without specifying this field. The response includes the SessionID for the current session.
+   * - You can also manually create a session ID by calling the CreateDataAgentSession operation and include the ID when initiating a session.
    * - If you need multi-turn conversations (such as follow-up questions or confirming execution plans), include the SessionID returned by the previous SendChatMessage call.
    * 
    * @example
@@ -848,7 +850,7 @@ export class SendChatMessageRequest extends $dara.Model {
   taskConfig?: SendChatMessageRequestTaskConfig;
   /**
    * @remarks
-   * The user\\"s OSS bucket. If this field is left empty, the analysis results are securely stored in the built-in storage.
+   * The OSS bucket of the user. If this field is left empty, the analysis data is securely stored in the built-in storage.
    * 
    * @example
    * my-bucket
