@@ -71,6 +71,11 @@ export class ListImagesRequest extends $dara.Model {
    */
   name?: string;
   /**
+   * @example
+   * ExactMatchName
+   */
+  options?: string;
+  /**
    * @remarks
    * The order in which to sort the results of a paged query. This parameter is used with SortBy. The default value is ASC.
    * 
@@ -140,6 +145,7 @@ export class ListImagesRequest extends $dara.Model {
       imageUri: 'ImageUri',
       labels: 'Labels',
       name: 'Name',
+      options: 'Options',
       order: 'Order',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
@@ -156,6 +162,7 @@ export class ListImagesRequest extends $dara.Model {
       imageUri: 'string',
       labels: 'string',
       name: 'string',
+      options: 'string',
       order: 'string',
       pageNumber: 'number',
       pageSize: 'number',

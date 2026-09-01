@@ -4894,6 +4894,10 @@ export default class Client extends OpenApi {
       query["Name"] = request.name;
     }
 
+    if (!$dara.isNull(request.options)) {
+      query["Options"] = request.options;
+    }
+
     if (!$dara.isNull(request.order)) {
       query["Order"] = request.order;
     }
