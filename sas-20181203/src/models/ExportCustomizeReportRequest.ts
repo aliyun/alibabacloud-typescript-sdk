@@ -28,10 +28,12 @@ export class ExportCustomizeReportRequest extends $dara.Model {
    * 1
    */
   reportId?: number;
+  resourceDirectoryAccountId?: number;
   static names(): { [key: string]: string } {
     return {
       exportType: 'ExportType',
       reportId: 'ReportId',
+      resourceDirectoryAccountId: 'ResourceDirectoryAccountId',
     };
   }
 
@@ -39,6 +41,7 @@ export class ExportCustomizeReportRequest extends $dara.Model {
     return {
       exportType: 'string',
       reportId: 'number',
+      resourceDirectoryAccountId: 'number',
     };
   }
 

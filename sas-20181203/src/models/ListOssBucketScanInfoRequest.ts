@@ -13,7 +13,7 @@ export class ListOssBucketScanInfoRequest extends $dara.Model {
   bucketName?: string;
   /**
    * @remarks
-   * The page number of the current page in a paging query.
+   * The page number of the current page in a paged query.
    * 
    * This parameter is required.
    * 
@@ -31,6 +31,14 @@ export class ListOssBucketScanInfoRequest extends $dara.Model {
   fuzzBucketName?: string;
   /**
    * @remarks
+   * The NAS file system name for fuzzy match.
+   * 
+   * @example
+   * test
+   */
+  fuzzFileSystemName?: string;
+  /**
+   * @remarks
    * Specifies whether risky files are detected. Valid values:
    * 
    * - **0**: No risks detected.
@@ -42,9 +50,9 @@ export class ListOssBucketScanInfoRequest extends $dara.Model {
   hasRisk?: number;
   /**
    * @remarks
-   * The language type for the request and response messages. Default value: **zh**. Valid values:
+   * The language type of the request and response. Default value: **zh**. Valid values:
    * - **zh**: Chinese
-   * - **en**: English.
+   * - **en**: English
    * 
    * @example
    * zh
@@ -52,7 +60,7 @@ export class ListOssBucketScanInfoRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The maximum number of entries to return on each page in a paging query.
+   * The maximum number of entries to return on each page in a paged query.
    * 
    * This parameter is required.
    * 
@@ -60,6 +68,16 @@ export class ListOssBucketScanInfoRequest extends $dara.Model {
    * 20
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * The business source. Valid values:
+   * - **OSS**: OSS
+   * - **NAS**: NAS
+   * 
+   * @example
+   * OSS
+   */
+  source?: string;
   /**
    * @remarks
    * The detection status. Valid values:
@@ -78,9 +96,11 @@ export class ListOssBucketScanInfoRequest extends $dara.Model {
       bucketName: 'BucketName',
       currentPage: 'CurrentPage',
       fuzzBucketName: 'FuzzBucketName',
+      fuzzFileSystemName: 'FuzzFileSystemName',
       hasRisk: 'HasRisk',
       lang: 'Lang',
       pageSize: 'PageSize',
+      source: 'Source',
       status: 'Status',
     };
   }
@@ -90,9 +110,11 @@ export class ListOssBucketScanInfoRequest extends $dara.Model {
       bucketName: 'string',
       currentPage: 'number',
       fuzzBucketName: 'string',
+      fuzzFileSystemName: 'string',
       hasRisk: 'number',
       lang: 'string',
       pageSize: 'number',
+      source: 'string',
       status: 'number',
     };
   }

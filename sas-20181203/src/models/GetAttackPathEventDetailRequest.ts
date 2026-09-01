@@ -16,7 +16,7 @@ export class GetAttackPathEventDetailRequest extends $dara.Model {
    * @remarks
    * The data source. Default value: **default**. Valid values:
    * - **caasm**: attack surface
-   * - **default**: attack path.
+   * - **default**: attack path
    * 
    * @example
    * default
@@ -26,7 +26,7 @@ export class GetAttackPathEventDetailRequest extends $dara.Model {
    * @remarks
    * The language of the request and response. Default value: **zh**. Valid values:
    * - **zh**: Chinese
-   * - **en**: English.
+   * - **en**: English
    * 
    * @example
    * en

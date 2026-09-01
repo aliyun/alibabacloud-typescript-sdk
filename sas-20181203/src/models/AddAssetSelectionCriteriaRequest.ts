@@ -7,10 +7,10 @@ import * as $dara from '@darabonba/typescript';
 export class AddAssetSelectionCriteriaRequestTargetOperationList extends $dara.Model {
   /**
    * @remarks
-   * The type of the operation. Valid values:
+   * The operation type. Valid values:
    * 
-   * *   **add**
-   * *   **del**
+   * - **add**: adds the asset.
+   * - **del**: deletes the asset.
    * 
    * @example
    * del
@@ -18,7 +18,7 @@ export class AddAssetSelectionCriteriaRequestTargetOperationList extends $dara.M
   operation?: string;
   /**
    * @remarks
-   * The ID of the asset.
+   * The asset ID. If you select assets by machine, the value is the UUID of the machine. If you select assets by group, the value is the group ID. If you select assets by VPC, the value is the VPC ID.
    * 
    * @example
    * 1188****
@@ -50,9 +50,13 @@ export class AddAssetSelectionCriteriaRequestTargetOperationList extends $dara.M
 export class AddAssetSelectionCriteriaRequest extends $dara.Model {
   /**
    * @remarks
-   * The search conditions that are used to query assets. The value of this parameter is in the JSON format and is case-sensitive.
-   * 
-   * > A search condition can be an instance ID, instance name, virtual private cloud (VPC) ID, region, or public IP address. You can call the [DescribeCriteria](~~DescribeCriteria~~) operation to query the supported search conditions.
+   * The client token that is used to ensure the idempotence of the request. Different requests should use different tokens. The token supports only ASCII characters and cannot exceed 64 characters in length.
+   */
+  clientToken?: string;
+  /**
+   * @remarks
+   * The conditions for searching assets. This parameter is in JSON format. Pay attention to the letter case when you specify this parameter.
+   * > You can search for assets by instance ID, instance name, VPC ID, region, public IP address, and other conditions. Call the [DescribeCriteria](~~DescribeCriteria~~) operation to query the supported search conditions.
    * 
    * @example
    * {"LogicalExp":"AND","Criteria":"[{\\"name\\":\\"osType\\",\\"value\\":\\"linux\\",\\"logicalExp\\":\\"AND\\"},{\\"name\\":\\"alarmStatus\\",\\"value\\":\\"YES\\",\\"logicalExp\\":\\"AND\\"}]"}
@@ -60,10 +64,10 @@ export class AddAssetSelectionCriteriaRequest extends $dara.Model {
   criteria?: string;
   /**
    * @remarks
-   * The type of the operation on search conditions. Valid values:
+   * The operation type for criteria. Valid values:
    * 
-   * *   **add**: adds assets.
-   * *   **del**: deletes assets.
+   * - **add**: adds assets.
+   * - **del**: deletes assets.
    * 
    * @example
    * add
@@ -71,7 +75,7 @@ export class AddAssetSelectionCriteriaRequest extends $dara.Model {
   criteriaOperation?: string;
   /**
    * @remarks
-   * The unique ID of the asset.
+   * The unique identifier of the asset selection.
    * 
    * This parameter is required.
    * 
@@ -86,6 +90,7 @@ export class AddAssetSelectionCriteriaRequest extends $dara.Model {
   targetOperationList?: AddAssetSelectionCriteriaRequestTargetOperationList[];
   static names(): { [key: string]: string } {
     return {
+      clientToken: 'ClientToken',
       criteria: 'Criteria',
       criteriaOperation: 'CriteriaOperation',
       selectionKey: 'SelectionKey',
@@ -95,6 +100,7 @@ export class AddAssetSelectionCriteriaRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      clientToken: 'string',
       criteria: 'string',
       criteriaOperation: 'string',
       selectionKey: 'string',

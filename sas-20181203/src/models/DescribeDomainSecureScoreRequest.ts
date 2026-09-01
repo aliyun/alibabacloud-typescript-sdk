@@ -14,6 +14,7 @@ export class DescribeDomainSecureScoreRequest extends $dara.Model {
    * zh
    */
   lang?: string;
+  resourceDirectoryAccountId?: number;
   /**
    * @remarks
    * The source IP address of the visitor.
@@ -25,6 +26,7 @@ export class DescribeDomainSecureScoreRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       lang: 'Lang',
+      resourceDirectoryAccountId: 'ResourceDirectoryAccountId',
       sourceIp: 'SourceIp',
     };
   }
@@ -32,6 +34,7 @@ export class DescribeDomainSecureScoreRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       lang: 'string',
+      resourceDirectoryAccountId: 'number',
       sourceIp: 'string',
     };
   }

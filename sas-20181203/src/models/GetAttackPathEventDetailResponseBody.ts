@@ -400,6 +400,8 @@ export class GetAttackPathEventDetailResponseBodyAttackPathEvent extends $dara.M
    * The list of path nodes.
    */
   pathEventNodeList?: GetAttackPathEventDetailResponseBodyAttackPathEventPathEventNodeList[];
+  pathInterpretationStatus?: string;
+  pathInterpretationUrl?: string;
   /**
    * @remarks
    * The path name.
@@ -453,6 +455,8 @@ export class GetAttackPathEventDetailResponseBodyAttackPathEvent extends $dara.M
       pathDetailDesc: 'PathDetailDesc',
       pathEventEdgeList: 'PathEventEdgeList',
       pathEventNodeList: 'PathEventNodeList',
+      pathInterpretationStatus: 'PathInterpretationStatus',
+      pathInterpretationUrl: 'PathInterpretationUrl',
       pathName: 'PathName',
       pathNameDesc: 'PathNameDesc',
       pathType: 'PathType',
@@ -470,6 +474,8 @@ export class GetAttackPathEventDetailResponseBodyAttackPathEvent extends $dara.M
       pathDetailDesc: 'string',
       pathEventEdgeList: { 'type': 'array', 'itemType': GetAttackPathEventDetailResponseBodyAttackPathEventPathEventEdgeList },
       pathEventNodeList: { 'type': 'array', 'itemType': GetAttackPathEventDetailResponseBodyAttackPathEventPathEventNodeList },
+      pathInterpretationStatus: 'string',
+      pathInterpretationUrl: 'string',
       pathName: 'string',
       pathNameDesc: 'string',
       pathType: 'string',

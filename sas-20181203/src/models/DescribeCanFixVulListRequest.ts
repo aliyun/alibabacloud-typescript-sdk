@@ -201,6 +201,7 @@ export class DescribeCanFixVulListRequest extends $dara.Model {
    * cn-hangzhou
    */
   repoRegionId?: string;
+  resourceDirectoryAccountId?: number;
   /**
    * @remarks
    * The scan scope. Valid values:
@@ -270,6 +271,7 @@ export class DescribeCanFixVulListRequest extends $dara.Model {
       repoName: 'RepoName',
       repoNamespace: 'RepoNamespace',
       repoRegionId: 'RepoRegionId',
+      resourceDirectoryAccountId: 'ResourceDirectoryAccountId',
       scanRange: 'ScanRange',
       statusList: 'StatusList',
       tag: 'Tag',
@@ -300,6 +302,7 @@ export class DescribeCanFixVulListRequest extends $dara.Model {
       repoName: 'string',
       repoNamespace: 'string',
       repoRegionId: 'string',
+      resourceDirectoryAccountId: 'number',
       scanRange: { 'type': 'array', 'itemType': 'string' },
       statusList: 'string',
       tag: 'string',

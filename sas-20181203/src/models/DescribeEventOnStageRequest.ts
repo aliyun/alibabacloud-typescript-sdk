@@ -14,15 +14,18 @@ export class DescribeEventOnStageRequest extends $dara.Model {
    * zh
    */
   lang?: string;
+  resourceDirectoryAccountId?: number;
   static names(): { [key: string]: string } {
     return {
       lang: 'Lang',
+      resourceDirectoryAccountId: 'ResourceDirectoryAccountId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       lang: 'string',
+      resourceDirectoryAccountId: 'number',
     };
   }
 

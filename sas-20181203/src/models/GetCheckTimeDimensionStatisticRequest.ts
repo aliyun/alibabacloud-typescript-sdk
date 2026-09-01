@@ -11,6 +11,7 @@ export class GetCheckTimeDimensionStatisticRequest extends $dara.Model {
    * 1672285044000
    */
   endTimeStamp?: number;
+  resourceDirectoryAccountId?: number;
   /**
    * @remarks
    * The start time in timestamp format.
@@ -37,6 +38,7 @@ export class GetCheckTimeDimensionStatisticRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       endTimeStamp: 'EndTimeStamp',
+      resourceDirectoryAccountId: 'ResourceDirectoryAccountId',
       startTimeStamp: 'StartTimeStamp',
       statisticType: 'StatisticType',
       vendors: 'Vendors',
@@ -46,6 +48,7 @@ export class GetCheckTimeDimensionStatisticRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       endTimeStamp: 'number',
+      resourceDirectoryAccountId: 'number',
       startTimeStamp: 'number',
       statisticType: 'string',
       vendors: { 'type': 'array', 'itemType': 'string' },

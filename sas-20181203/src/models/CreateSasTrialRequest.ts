@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateSasTrialRequestRequestForm extends $dara.Model {
   /**
    * @remarks
-   * The reason why you apply for the trial.
+   * The reason for applying for a trial.
    * 
    * @example
    * for poc
@@ -35,10 +35,14 @@ export class CreateSasTrialRequestRequestForm extends $dara.Model {
 export class CreateSasTrialRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether the request is redirected from the Elastic Compute Service (ECS) console. Valid values:
-   * 
-   * *   **true**
-   * *   **false**
+   * The client token that is used to ensure the idempotence of the request. Different requests should use different tokens. The token supports only ASCII characters and cannot exceed 64 characters in length.
+   */
+  clientToken?: string;
+  /**
+   * @remarks
+   * Specifies whether the request is from the ECS console. Valid values:
+   * - **true**: yes.
+   * - **false**: no.
    * 
    * @example
    * true
@@ -46,10 +50,9 @@ export class CreateSasTrialRequest extends $dara.Model {
   fromEcs?: boolean;
   /**
    * @remarks
-   * The language of the content within the request and response. Valid values:
-   * 
-   * *   **zh**: Chinese
-   * *   **en**: English
+   * The language of the request and response. Valid values:
+   * - **zh**: Chinese.
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -57,18 +60,18 @@ export class CreateSasTrialRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The reason why you apply for the trial. You must specify the reason for the second trial.
+   * The reason for applying for a trial. This parameter is required for a second trial.
    */
   requestForm?: CreateSasTrialRequestRequestForm;
   /**
    * @remarks
    * The trial type. Valid values:
+   * - **0**: trial not allowed.
+   * - **1**: first trial.
+   * - **2**: second trial.
    * 
-   * *   **0**: trial prohibited
-   * *   **1**: first trial
-   * *   **2**: second trial
    * 
-   * >  You can call the [GetCanTrySas](https://help.aliyun.com/document_detail/2623574.html) operation to obtain the trial type. You can start a trial only if this parameter is not set to 0.
+   * > Call the [GetCanTrySas](https://help.aliyun.com/document_detail/2623574.html) operation to obtain this parameter. A trial can be started only when the value is not 0.
    * 
    * @example
    * 1
@@ -76,12 +79,11 @@ export class CreateSasTrialRequest extends $dara.Model {
   tryType?: number;
   /**
    * @remarks
-   * The trial edition. Valid values:
+   * The trial version. Valid values:
+   * - **3**: Enterprise Edition.
+   * - **7**: Ultimate Edition.
    * 
-   * *   **3**: Enterprise
-   * *   **7**: Ultimate
-   * 
-   * >  You can call the [GetCanTrySas](https://help.aliyun.com/document_detail/2623574.html) operation to obtain the trial edition.
+   * >Call the [GetCanTrySas](https://help.aliyun.com/document_detail/2623574.html) operation to obtain this parameter.
    * 
    * @example
    * 7
@@ -89,6 +91,7 @@ export class CreateSasTrialRequest extends $dara.Model {
   tryVersion?: number;
   static names(): { [key: string]: string } {
     return {
+      clientToken: 'ClientToken',
       fromEcs: 'FromEcs',
       lang: 'Lang',
       requestForm: 'RequestForm',
@@ -99,6 +102,7 @@ export class CreateSasTrialRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      clientToken: 'string',
       fromEcs: 'boolean',
       lang: 'string',
       requestForm: CreateSasTrialRequestRequestForm,

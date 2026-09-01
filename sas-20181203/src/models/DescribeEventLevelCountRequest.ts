@@ -69,6 +69,7 @@ export class DescribeEventLevelCountRequest extends $dara.Model {
    * 0
    */
   multiAccountActionType?: number;
+  resourceDirectoryAccountId?: number;
   /**
    * @remarks
    * The type of the query condition. Valid values:
@@ -88,6 +89,7 @@ export class DescribeEventLevelCountRequest extends $dara.Model {
       containerIds: 'ContainerIds',
       from: 'From',
       multiAccountActionType: 'MultiAccountActionType',
+      resourceDirectoryAccountId: 'ResourceDirectoryAccountId',
       targetType: 'TargetType',
     };
   }
@@ -100,6 +102,7 @@ export class DescribeEventLevelCountRequest extends $dara.Model {
       containerIds: 'string',
       from: 'string',
       multiAccountActionType: 'number',
+      resourceDirectoryAccountId: 'number',
       targetType: 'string',
     };
   }

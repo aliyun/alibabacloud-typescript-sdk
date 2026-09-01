@@ -24,7 +24,7 @@ export class VerifyCheckResultResponseBodyData extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * The rate limit duration. Unit: seconds.
+   * The throttling duration. Unit: seconds.
    * 
    * @example
    * 1800

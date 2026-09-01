@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddUnknownThreatDetectProcessRequestProcessList extends $dara.Model {
   /**
    * @remarks
-   * The MD5 hash of the process file.
+   * The MD5 hash of the process.
    * 
    * @example
    * e59b63ae983377f131ab20ec0d******
@@ -13,7 +13,7 @@ export class AddUnknownThreatDetectProcessRequestProcessList extends $dara.Model
   md5?: string;
   /**
    * @remarks
-   * The path to the process executable.
+   * The process path.
    * 
    * @example
    * /bin/rm
@@ -21,7 +21,7 @@ export class AddUnknownThreatDetectProcessRequestProcessList extends $dara.Model
   processPath?: string;
   /**
    * @remarks
-   * A remark for the process.
+   * The remarks.
    * 
    * @example
    * 1330
@@ -29,7 +29,7 @@ export class AddUnknownThreatDetectProcessRequestProcessList extends $dara.Model
   remark?: string;
   /**
    * @remarks
-   * The SHA-256 hash of the process file.
+   * The SHA-256 hash of the process.
    * 
    * @example
    * f204693a7d2ce99d6c4434e550d985ee1c7be7cb5dd9a76094369af0d2******
@@ -65,22 +65,24 @@ export class AddUnknownThreatDetectProcessRequestProcessList extends $dara.Model
 export class AddUnknownThreatDetectProcessRequest extends $dara.Model {
   /**
    * @remarks
-   * A list of associated event IDs.
+   * The list of specified event IDs.
    */
   eventIdList?: number[];
+  handleRemark?: string;
   /**
    * @remarks
-   * The list of processes to add.
+   * The list of processes.
    */
   processList?: AddUnknownThreatDetectProcessRequestProcessList[];
   /**
    * @remarks
-   * The UUIDs of assets on which the processes are located.
+   * The list of asset UUIDs for which processes are to be added.
    */
   uuidList?: string[];
   static names(): { [key: string]: string } {
     return {
       eventIdList: 'EventIdList',
+      handleRemark: 'HandleRemark',
       processList: 'ProcessList',
       uuidList: 'UuidList',
     };
@@ -89,6 +91,7 @@ export class AddUnknownThreatDetectProcessRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       eventIdList: { 'type': 'array', 'itemType': 'number' },
+      handleRemark: 'string',
       processList: { 'type': 'array', 'itemType': AddUnknownThreatDetectProcessRequestProcessList },
       uuidList: { 'type': 'array', 'itemType': 'string' },
     };

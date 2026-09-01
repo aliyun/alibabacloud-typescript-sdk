@@ -163,6 +163,7 @@ export class ListCloudAssetInstancesRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  resourceDirectoryAccountId?: number;
   static names(): { [key: string]: string } {
     return {
       cloudAssetQueryData: 'CloudAssetQueryData',
@@ -173,6 +174,7 @@ export class ListCloudAssetInstancesRequest extends $dara.Model {
       logicalExp: 'LogicalExp',
       pageSize: 'PageSize',
       regionId: 'RegionId',
+      resourceDirectoryAccountId: 'ResourceDirectoryAccountId',
     };
   }
 
@@ -186,6 +188,7 @@ export class ListCloudAssetInstancesRequest extends $dara.Model {
       logicalExp: 'string',
       pageSize: 'number',
       regionId: 'string',
+      resourceDirectoryAccountId: 'number',
     };
   }
 

@@ -5,10 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class CreateCycleTaskRequest extends $dara.Model {
   /**
    * @remarks
+   * The client token that is used to ensure the idempotence of the request. Different requests must use different tokens. The token supports only ASCII characters and cannot exceed 64 characters in length.
+   */
+  clientToken?: string;
+  /**
+   * @remarks
    * Specifies whether to enable the task. Valid values:
-   * 
-   * *   **1**: yes
-   * *   **0**: no
+   * - **1**: enabled.
+   * - **0**: disabled.
    * 
    * This parameter is required.
    * 
@@ -18,7 +22,7 @@ export class CreateCycleTaskRequest extends $dara.Model {
   enable?: number;
   /**
    * @remarks
-   * The first time when the task is performed.
+   * The first execution time.
    * 
    * This parameter is required.
    * 
@@ -28,7 +32,7 @@ export class CreateCycleTaskRequest extends $dara.Model {
   firstDateStr?: number;
   /**
    * @remarks
-   * The interval of the task.
+   * The interval period.
    * 
    * This parameter is required.
    * 
@@ -38,7 +42,7 @@ export class CreateCycleTaskRequest extends $dara.Model {
   intervalPeriod?: number;
   /**
    * @remarks
-   * The additional information.
+   * The extended information field.
    * 
    * @example
    * {
@@ -60,9 +64,8 @@ export class CreateCycleTaskRequest extends $dara.Model {
   /**
    * @remarks
    * The unit of the scan interval. Valid values:
-   * 
-   * *   **day**: days
-   * *   **hour**: hours
+   * - **day**: day.
+   * - **hour**: hour.
    * 
    * This parameter is required.
    * 
@@ -72,7 +75,7 @@ export class CreateCycleTaskRequest extends $dara.Model {
   periodUnit?: string;
   /**
    * @remarks
-   * The additional source for the task.
+   * The source from which the task is added.
    * 
    * @example
    * console_batch
@@ -80,7 +83,7 @@ export class CreateCycleTaskRequest extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * The time when the task ends. Unit: hours.
+   * The task end time, in hours.
    * 
    * This parameter is required.
    * 
@@ -90,7 +93,7 @@ export class CreateCycleTaskRequest extends $dara.Model {
   targetEndTime?: number;
   /**
    * @remarks
-   * The time when the task is started. Unit: hours.
+   * The task start time, in hours.
    * 
    * This parameter is required.
    * 
@@ -100,11 +103,10 @@ export class CreateCycleTaskRequest extends $dara.Model {
   targetStartTime?: number;
   /**
    * @remarks
-   * The name of the task. Valid values:
-   * 
-   * *   **VIRUS_VUL_SCHEDULE_SCAN**: virus scan task
-   * *   **IMAGE_SCAN**: image scan task
-   * *   **EMG_VUL_SCHEDULE_SCAN**: urgent vulnerability scan task
+   * The task name. Valid values:
+   * - **VIRUS_VUL_SCHEDULE_SCAN**: virus scan.
+   * - **IMAGE_SCAN**: image scan.
+   * - **EMG_VUL_SCHEDULE_SCAN**: emergency vulnerability scanning.
    * 
    * This parameter is required.
    * 
@@ -114,11 +116,10 @@ export class CreateCycleTaskRequest extends $dara.Model {
   taskName?: string;
   /**
    * @remarks
-   * The type of the task. Valid values:
-   * 
-   * *   **VIRUS_VUL_SCHEDULE_SCAN**: virus scan task
-   * *   **IMAGE_SCAN**: image scan task
-   * *   **EMG_VUL_SCHEDULE_SCAN**: urgent vulnerability scan task
+   * The task type. Valid values:
+   * - **VIRUS_VUL_SCHEDULE_SCAN**: virus scan.
+   * - **IMAGE_SCAN**: image scan.
+   * - **EMG_VUL_SCHEDULE_SCAN**: emergency vulnerability scanning.
    * 
    * This parameter is required.
    * 
@@ -128,6 +129,7 @@ export class CreateCycleTaskRequest extends $dara.Model {
   taskType?: string;
   static names(): { [key: string]: string } {
     return {
+      clientToken: 'ClientToken',
       enable: 'Enable',
       firstDateStr: 'FirstDateStr',
       intervalPeriod: 'IntervalPeriod',
@@ -143,6 +145,7 @@ export class CreateCycleTaskRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      clientToken: 'string',
       enable: 'number',
       firstDateStr: 'number',
       intervalPeriod: 'number',

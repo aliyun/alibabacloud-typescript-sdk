@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateOssScanConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to match the prefixes of all objects.
+   * Specifies whether to match all prefixes. If this parameter is set to true, the KeyPrefixList parameter does not take effect.
    * 
    * @example
    * true
@@ -13,12 +13,30 @@ export class CreateOssScanConfigRequest extends $dara.Model {
   allKeyPrefix?: boolean;
   /**
    * @remarks
-   * The names of buckets.
+   * Specifies whether OSS buckets are automatically added to this policy. Valid values:
+   * - **true**: Enabled.
+   * - **false**: Disabled.
+   * 
+   * @example
+   * 0
+   */
+  autoAdd?: number;
+  /**
+   * @remarks
+   * The list of bucket names.
    */
   bucketNameList?: string[];
   /**
    * @remarks
-   * The maximum number of objects that can be extracted during decompression. Valid values: 1 to 1000. If the maximum number of objects that can be extracted is reached, the decompression operation immediately ends and the detection of extracted objects is not affected.
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * 
+   * @example
+   * 123e4567-e89b-12d3-a456-426655440000
+   */
+  clientToken?: string;
+  /**
+   * @remarks
+   * The maximum number of files to decompress. Minimum value: 1. Maximum value: 1000. When the maximum number of decompressed files is exceeded, the decompression operation stops. The detection of files that have already been decompressed is not affected.
    * 
    * @example
    * 100
@@ -26,7 +44,7 @@ export class CreateOssScanConfigRequest extends $dara.Model {
   decompressMaxFileCount?: number;
   /**
    * @remarks
-   * The maximum number of decompression levels when multi-level packages are decompressed. Valid values: 1 to 5. If the maximum number of decompression levels is reached, the decompression operation immediately ends and the detection of extracted objects is not affected.
+   * The maximum number of decompression layers when multiple levels of nested compressed files exist. Minimum value: 1. Maximum value: 5. When the maximum number of decompression layers is exceeded, the decompression operation stops. The detection of files that have already been decompressed is not affected.
    * 
    * @example
    * 1
@@ -34,15 +52,14 @@ export class CreateOssScanConfigRequest extends $dara.Model {
   decompressMaxLayer?: number;
   /**
    * @remarks
-   * The decryption methods.
+   * The list of decryption types.
    */
   decryptionList?: string[];
   /**
    * @remarks
    * Specifies whether to enable the policy. Valid values:
-   * 
-   * *   **1**: yes
-   * *   **0**: no
+   * - **1**: Enabled.
+   * - **0**: Disabled.
    * 
    * @example
    * 1
@@ -50,7 +67,7 @@ export class CreateOssScanConfigRequest extends $dara.Model {
   enable?: number;
   /**
    * @remarks
-   * The time when the scan ends. The time must be in the HH:mm:ss format.
+   * The scan stop time, in the HH:mm:ss format.
    * 
    * @example
    * 01:01:00
@@ -58,17 +75,17 @@ export class CreateOssScanConfigRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The prefixes of the objects.
+   * The file prefix list.
    */
   keyPrefixList?: string[];
   /**
    * @remarks
-   * The suffixes of the files to scan.
+   * The list of file suffixes to scan.
    */
   keySuffixList?: string[];
   /**
    * @remarks
-   * The timestamp when the object was last modified. The time must be later than the timestamp that you specify. Unit: milliseconds.
+   * Specifies that only files whose last modification time is after the specified timestamp are scanned. Unit: milliseconds.
    * 
    * @example
    * 1724301769834
@@ -84,7 +101,7 @@ export class CreateOssScanConfigRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Whether to enable real-time incremental detection. When this parameter is set to true, the parameters ScanDayList, StartTime, and EndTime are not effective.
+   * Specifies whether to enable real-time incremental detection. If this parameter is set to true, the ScanDayList, StartTime, and EndTime parameters do not take effect.
    * 
    * @example
    * true
@@ -92,12 +109,22 @@ export class CreateOssScanConfigRequest extends $dara.Model {
   realTimeIncr?: boolean;
   /**
    * @remarks
-   * The days on which the scan is executed in a week.
+   * The scan schedule. The number represents the day of the week.
    */
   scanDayList?: number[];
   /**
    * @remarks
-   * The time when the scan starts. The time must be in the HH:mm:ss format.
+   * The business source. Valid values:
+   * - **OSS**: OSS.
+   * - **NAS**: NAS.
+   * 
+   * @example
+   * OSS
+   */
+  source?: string;
+  /**
+   * @remarks
+   * The scan start time, in the HH:mm:ss format.
    * 
    * @example
    * 00:00:00
@@ -106,7 +133,9 @@ export class CreateOssScanConfigRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       allKeyPrefix: 'AllKeyPrefix',
+      autoAdd: 'AutoAdd',
       bucketNameList: 'BucketNameList',
+      clientToken: 'ClientToken',
       decompressMaxFileCount: 'DecompressMaxFileCount',
       decompressMaxLayer: 'DecompressMaxLayer',
       decryptionList: 'DecryptionList',
@@ -118,6 +147,7 @@ export class CreateOssScanConfigRequest extends $dara.Model {
       name: 'Name',
       realTimeIncr: 'RealTimeIncr',
       scanDayList: 'ScanDayList',
+      source: 'Source',
       startTime: 'StartTime',
     };
   }
@@ -125,7 +155,9 @@ export class CreateOssScanConfigRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       allKeyPrefix: 'boolean',
+      autoAdd: 'number',
       bucketNameList: { 'type': 'array', 'itemType': 'string' },
+      clientToken: 'string',
       decompressMaxFileCount: 'number',
       decompressMaxLayer: 'number',
       decryptionList: { 'type': 'array', 'itemType': 'string' },
@@ -137,6 +169,7 @@ export class CreateOssScanConfigRequest extends $dara.Model {
       name: 'string',
       realTimeIncr: 'boolean',
       scanDayList: { 'type': 'array', 'itemType': 'number' },
+      source: 'string',
       startTime: 'string',
     };
   }

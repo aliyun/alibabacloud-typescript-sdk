@@ -52,6 +52,7 @@ export class HandleSimilarSecurityEventsRequest extends $dara.Model {
    * remark test.
    */
   remark?: string;
+  resourceDirectoryAccountId?: number;
   resourceOwnerId?: number;
   /**
    * @remarks
@@ -78,6 +79,7 @@ export class HandleSimilarSecurityEventsRequest extends $dara.Model {
       operationCode: 'OperationCode',
       operationParams: 'OperationParams',
       remark: 'Remark',
+      resourceDirectoryAccountId: 'ResourceDirectoryAccountId',
       resourceOwnerId: 'ResourceOwnerId',
       sourceIp: 'SourceIp',
       taskId: 'TaskId',
@@ -90,6 +92,7 @@ export class HandleSimilarSecurityEventsRequest extends $dara.Model {
       operationCode: 'string',
       operationParams: 'string',
       remark: 'string',
+      resourceDirectoryAccountId: 'number',
       resourceOwnerId: 'number',
       sourceIp: 'string',
       taskId: 'number',

@@ -21,6 +21,7 @@ export class QueryAttackCountRequest extends $dara.Model {
    * zh
    */
   lang?: string;
+  resourceDirectoryAccountId?: number;
   /**
    * @remarks
    * The IP address of the access source.
@@ -42,6 +43,7 @@ export class QueryAttackCountRequest extends $dara.Model {
     return {
       from: 'From',
       lang: 'Lang',
+      resourceDirectoryAccountId: 'ResourceDirectoryAccountId',
       sourceIp: 'SourceIp',
       uuids: 'Uuids',
     };
@@ -51,6 +53,7 @@ export class QueryAttackCountRequest extends $dara.Model {
     return {
       from: 'string',
       lang: 'string',
+      resourceDirectoryAccountId: 'number',
       sourceIp: 'string',
       uuids: 'string',
     };

@@ -29,6 +29,7 @@ export class OperationSuspEventsRequest extends $dara.Model {
    * deal
    */
   operation?: string;
+  resourceDirectoryAccountId?: number;
   /**
    * @remarks
    * The IP address of the access source.
@@ -76,6 +77,7 @@ export class OperationSuspEventsRequest extends $dara.Model {
     return {
       from: 'From',
       operation: 'Operation',
+      resourceDirectoryAccountId: 'ResourceDirectoryAccountId',
       sourceIp: 'SourceIp',
       subOperation: 'SubOperation',
       suspiciousEventIds: 'SuspiciousEventIds',
@@ -87,6 +89,7 @@ export class OperationSuspEventsRequest extends $dara.Model {
     return {
       from: 'string',
       operation: 'string',
+      resourceDirectoryAccountId: 'number',
       sourceIp: 'string',
       subOperation: 'string',
       suspiciousEventIds: 'string',

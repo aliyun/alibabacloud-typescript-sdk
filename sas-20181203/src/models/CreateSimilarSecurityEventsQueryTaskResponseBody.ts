@@ -53,7 +53,7 @@ export class CreateSimilarSecurityEventsQueryTaskResponseBodyCreateSimilarSecuri
 export class CreateSimilarSecurityEventsQueryTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response for creating a task to query similar alert events.
+   * The response information of the task for querying similar security alerts.
    */
   createSimilarSecurityEventsQueryTaskResponse?: CreateSimilarSecurityEventsQueryTaskResponseBodyCreateSimilarSecurityEventsQueryTaskResponse;
   /**

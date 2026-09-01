@@ -32,6 +32,7 @@ export class DescribeAllRegionsStatisticsRequest extends $dara.Model {
    * 192.168.XX.XX
    */
   remark?: string;
+  resourceDirectoryAccountId?: number;
   /**
    * @remarks
    * The source IP address of the request.
@@ -45,6 +46,7 @@ export class DescribeAllRegionsStatisticsRequest extends $dara.Model {
       from: 'From',
       groupId: 'GroupId',
       remark: 'Remark',
+      resourceDirectoryAccountId: 'ResourceDirectoryAccountId',
       sourceIp: 'SourceIp',
     };
   }
@@ -54,6 +56,7 @@ export class DescribeAllRegionsStatisticsRequest extends $dara.Model {
       from: 'string',
       groupId: 'number',
       remark: 'string',
+      resourceDirectoryAccountId: 'number',
       sourceIp: 'string',
     };
   }

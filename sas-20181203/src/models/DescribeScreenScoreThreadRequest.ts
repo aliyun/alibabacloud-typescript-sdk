@@ -13,6 +13,7 @@ export class DescribeScreenScoreThreadRequest extends $dara.Model {
    * 1668064495000
    */
   endTime?: number;
+  resourceDirectoryAccountId?: number;
   /**
    * @remarks
    * The source of the security score. If left empty, the default value is Security Center. Valid values:
@@ -38,6 +39,7 @@ export class DescribeScreenScoreThreadRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       endTime: 'EndTime',
+      resourceDirectoryAccountId: 'ResourceDirectoryAccountId',
       source: 'Source',
       startTime: 'StartTime',
     };
@@ -46,6 +48,7 @@ export class DescribeScreenScoreThreadRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       endTime: 'number',
+      resourceDirectoryAccountId: 'number',
       source: 'number',
       startTime: 'number',
     };

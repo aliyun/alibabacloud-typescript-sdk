@@ -38,6 +38,7 @@ export class ModifySecurityEventMarkMissIndividuallyRequest extends $dara.Model 
    * zh
    */
   lang?: string;
+  resourceDirectoryAccountId?: number;
   /**
    * @remarks
    * The source IP address of the request. You do not need to specify this parameter. It is automatically obtained by the system.
@@ -52,6 +53,7 @@ export class ModifySecurityEventMarkMissIndividuallyRequest extends $dara.Model 
       from: 'From',
       insertMarkMissParam: 'InsertMarkMissParam',
       lang: 'Lang',
+      resourceDirectoryAccountId: 'ResourceDirectoryAccountId',
       sourceIp: 'SourceIp',
     };
   }
@@ -62,6 +64,7 @@ export class ModifySecurityEventMarkMissIndividuallyRequest extends $dara.Model 
       from: 'string',
       insertMarkMissParam: 'string',
       lang: 'string',
+      resourceDirectoryAccountId: 'number',
       sourceIp: 'string',
     };
   }

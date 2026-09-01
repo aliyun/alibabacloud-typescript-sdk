@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAccountsInResourceDirectoryResponseBodyAccounts extends $dara.Model {
   /**
    * @remarks
-   * The Alibaba Cloud account ID of the member.
+   * L\\"identifiant de compte Alibaba Cloud du membre.
    * 
    * @example
    * 180803538814****
@@ -13,29 +13,29 @@ export class ListAccountsInResourceDirectoryResponseBodyAccounts extends $dara.M
   accountId?: string;
   /**
    * @remarks
-   * This parameter is deprecated and does not need to be used.
+   * Ce paramètre est obsolète et ne doit plus être utilisé.
    * 
    * @example
-   * true
+   * true.
    * 
    * @deprecated
    */
   buySas?: number;
   /**
    * @remarks
-   * Indicates whether a Security Center subscription instance is purchased. Valid values:
+   * Indique si une instance Security Center en abonnement a été souscrite. Valeurs valides :
    * - **true**
    * - **false**.
    * 
    * @example
-   * true
+   * true.
    */
   buySasNew?: boolean;
   /**
    * @remarks
-   * The billing method. Valid values:
-   * * **0**: upfront
-   * * **1**: pay-as-you-go.
+   * Le mode de facturation de l\\"abonnement. Valeurs valides :
+   * * **0** : prépayé
+   * * **1** : paiement à l\\"usage.
    * 
    * @example
    * 1
@@ -43,7 +43,7 @@ export class ListAccountsInResourceDirectoryResponseBodyAccounts extends $dara.M
   chargeType?: number;
   /**
    * @remarks
-   * The account name.
+   * Le nom du compte.
    * 
    * @example
    * abc**
@@ -51,7 +51,7 @@ export class ListAccountsInResourceDirectoryResponseBodyAccounts extends $dara.M
   displayName?: string;
   /**
    * @remarks
-   * The ID of the folder in the resource directory.
+   * L\\"identifiant du dossier dans le répertoire de ressources.
    * 
    * @example
    * fd-cE2SQP****
@@ -59,9 +59,9 @@ export class ListAccountsInResourceDirectoryResponseBodyAccounts extends $dara.M
   folderId?: string;
   /**
    * @remarks
-   * The instance purchase type. Valid values:
-   * - **0**: self-purchased
-   * - **1**: allocated through multi-account management.
+   * Le type d\\"achat de l\\"instance. Valeurs valides :
+   * - **0** : achat direct
+   * - **1** : alloué via la gestion multi-comptes.
    * 
    * @example
    * 0
@@ -69,7 +69,7 @@ export class ListAccountsInResourceDirectoryResponseBodyAccounts extends $dara.M
   instanceBuyType?: number;
   /**
    * @remarks
-   * Indicates whether the account is the management account of the resource directory. Valid values:
+   * Indique si le compte est le compte de gestion du répertoire de ressources. Valeurs valides :
    * 
    * - **yes**
    * 
@@ -81,7 +81,7 @@ export class ListAccountsInResourceDirectoryResponseBodyAccounts extends $dara.M
   isMaAccount?: string;
   /**
    * @remarks
-   * Indicates whether the account is marked as followed.
+   * Indique si le compte est marqué comme suivi.
    * 
    * @example
    * no
@@ -89,7 +89,7 @@ export class ListAccountsInResourceDirectoryResponseBodyAccounts extends $dara.M
   isMarked?: string;
   /**
    * @remarks
-   * Indicates whether the account is a delegated administrator account of Security Center. Valid values:
+   * Indique si le compte est un compte administrateur délégué de Security Center. Valeurs valides :
    * 
    * - **yes**
    * 
@@ -101,7 +101,7 @@ export class ListAccountsInResourceDirectoryResponseBodyAccounts extends $dara.M
   isSasDaAccount?: string;
   /**
    * @remarks
-   * Indicates whether the account is a management account of Cloud Threat Detection and Response (CTDR). Valid values:
+   * Indique si le compte est un compte de gestion de Cloud Threat Detection and Response (CTDR). Valeurs valides :
    * 
    * - **yes**
    * 
@@ -113,7 +113,7 @@ export class ListAccountsInResourceDirectoryResponseBodyAccounts extends $dara.M
   isSiemControlAccount?: string;
   /**
    * @remarks
-   * Indicates whether the account is a delegated administrator account of Cloud Threat Detection and Response (CTDR). Valid values:
+   * Indique si le compte est un compte administrateur délégué de Cloud Threat Detection and Response (CTDR). Valeurs valides :
    * 
    * - **yes**
    * 
@@ -125,9 +125,9 @@ export class ListAccountsInResourceDirectoryResponseBodyAccounts extends $dara.M
   isSiemDaAccount?: string;
   /**
    * @remarks
-   * The pay-as-you-go module switch. Valid values:
-   * - **0**: disabled
-   * - **1**: enabled.
+   * Le commutateur de module à paiement à l\\"usage. Valeurs valides :
+   * - **0** : désactivé
+   * - **1** : activé.
    * 
    * @example
    * 1
@@ -135,17 +135,17 @@ export class ListAccountsInResourceDirectoryResponseBodyAccounts extends $dara.M
   postBasicService?: number;
   /**
    * @remarks
-   * The status of pay-as-you-go module switches, in JsonString format. Valid values:
-   * - Key:
-   *   - **VUL**: vulnerability management module
-   *   - **CSPM**: Cloud Security Posture Management (CSPM) module
-   *   - **AGENTLESS**: agentless detection module
-   *   - **SERVERLESS**: serverless asset module
-   *   - **CTDR**: Cloud Threat Detection and Response (CTDR) module
-   *   - **RASP**: Runtime Application Self-Protection (RASP) module
-   *   - **SDK**: malicious file detection SDK module
-   *   - **POST_HOST**: host and container security module
-   * - Value: 0 indicates disabled. 1 indicates enabled.
+   * L\\"état des commutateurs de modules à paiement à l\\"usage, au format JsonString. Valeurs valides :
+   * - Clé :
+   *   - **VUL** : module de gestion des vulnérabilités
+   *   - **CSPM** : module Cloud Security Posture Management (CSPM)
+   *   - **AGENTLESS** : module de détection sans agent
+   *   - **SERVERLESS** : module de ressources serverless
+   *   - **CTDR** : module Cloud Threat Detection and Response (CTDR)
+   *   - **RASP** : module Runtime Application Self-Protection (RASP)
+   *   - **SDK** : module SDK de détection de fichiers malveillants
+   *   - **POST_HOST** : module de sécurité des hôtes et des conteneurs
+   * - Valeur : 0 indique désactivé. 1 indique activé.
    * 
    * @example
    * {\\"VUL\\":0}
@@ -153,7 +153,7 @@ export class ListAccountsInResourceDirectoryResponseBodyAccounts extends $dara.M
   postPayModuleSwitch?: string;
   /**
    * @remarks
-   * The Security Center instance ID.
+   * L\\"identifiant de l\\"instance Security Center.
    * 
    * @example
    * postpay-sas-x5x3hy1ly***
@@ -161,13 +161,13 @@ export class ListAccountsInResourceDirectoryResponseBodyAccounts extends $dara.M
   saleInstance?: string;
   /**
    * @remarks
-   * The purchased edition of Security Center. Valid values:
+   * L\\"édition souscrite de Security Center. Valeurs valides :
    * 
-   * - **0** or **1**: Free Edition
-   * - **2** or **3**: Enterprise Edition  
-   * - **5**: Premium Edition  
-   * - **6**: Anti-virus Edition 
-   * - **7**: Ultimate Edition.
+   * - **0** ou **1** : Édition gratuite
+   * - **2** ou **3** : Édition Enterprise  
+   * - **5** : Édition Premium  
+   * - **6** : Édition Anti-virus 
+   * - **7** : Édition Ultimate.
    * 
    * @example
    * 0
@@ -227,12 +227,12 @@ export class ListAccountsInResourceDirectoryResponseBodyAccounts extends $dara.M
 export class ListAccountsInResourceDirectoryResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of member accounts in the resource directory.
+   * La liste des comptes membres dans le répertoire de ressources.
    */
   accounts?: ListAccountsInResourceDirectoryResponseBodyAccounts[];
   /**
    * @remarks
-   * The ID of the request. Alibaba Cloud generates a unique identifier for each request. You can use the ID to troubleshoot issues.
+   * L\\"identifiant de la requête. Il s\\"agit d\\"un identifiant unique généré par Alibaba Cloud pour la requête. Vous pouvez l\\"utiliser pour le dépannage.
    * 
    * @example
    * B7A839E8-70AE-591D-8D9E-C5419A2240DB

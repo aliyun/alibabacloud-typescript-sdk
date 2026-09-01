@@ -13,6 +13,7 @@ export class DescribeCriteriaRequest extends $dara.Model {
    * ecs
    */
   machineTypes?: string;
+  resourceDirectoryAccountId?: number;
   /**
    * @remarks
    * Specifies whether the keyword that you specify for fuzzy search can be automatically matched. Default value: **false**. Valid values:
@@ -35,6 +36,7 @@ export class DescribeCriteriaRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       machineTypes: 'MachineTypes',
+      resourceDirectoryAccountId: 'ResourceDirectoryAccountId',
       supportAutoTag: 'SupportAutoTag',
       value: 'Value',
     };
@@ -43,6 +45,7 @@ export class DescribeCriteriaRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       machineTypes: 'string',
+      resourceDirectoryAccountId: 'number',
       supportAutoTag: 'boolean',
       value: 'string',
     };

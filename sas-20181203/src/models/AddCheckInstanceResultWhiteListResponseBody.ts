@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddCheckInstanceResultWhiteListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The data returned. This parameter is deprecated.
+   * **[Deprecated]** The result of adding instances to the whitelist. This field is deprecated and can be ignored.
    * 
    * @example
    * xxx
@@ -13,7 +13,7 @@ export class AddCheckInstanceResultWhiteListResponseBody extends $dara.Model {
   data?: { [key: string]: any };
   /**
    * @remarks
-   * The ID of the request.
+   * The unique identifier that Alibaba Cloud generated for the request.
    * 
    * @example
    * ADE57832-9666-511C-9A80-B87DE2E8****
@@ -21,7 +21,7 @@ export class AddCheckInstanceResultWhiteListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the whitelist rule.
+   * The rule ID of the whitelist.
    * 
    * @example
    * 381049

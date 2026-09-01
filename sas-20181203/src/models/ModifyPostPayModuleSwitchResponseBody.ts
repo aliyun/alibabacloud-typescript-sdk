@@ -13,7 +13,7 @@ export class ModifyPostPayModuleSwitchResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The HTTP status code of the request.
+   * The HTTP status code of the request result.
    * 
    * @example
    * 200
@@ -21,7 +21,7 @@ export class ModifyPostPayModuleSwitchResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The returned message.
+   * The returned message of the request result.
    * 
    * @example
    * successful

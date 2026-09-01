@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAttackEventInfoRequest extends $dara.Model {
   /**
    * @remarks
-   * Attacked asset. You can fill in the machine instance name, public IP, or private IP.
+   * The attacked asset. You can specify the instance name, public IP address, or private IP address.
    * 
    * @example
    * instance_**
@@ -13,38 +13,22 @@ export class ListAttackEventInfoRequest extends $dara.Model {
   attackInstance?: string;
   /**
    * @remarks
-   * Attack type. Values:
-   * 
-   * - 9: SQL Server brute force attack
-   * 
-   * - 5: SSH brute force attack
-   * 
-   * - 6: RDP brute force attack
-   * 
-   * - 101: Java Struts2 attack interception
-   * 
-   * - 102: Redis attack interception
-   * 
-   * - 103: Chinese AntSword WebShell communication
-   * 
-   * - 104: Chinese Chopper WebShell communication
-   * 
+   * The attack type. Valid values:
+   * - 9: SQL Server brute-force attacks
+   * - 5: SSH brute-force attacks
+   * - 6: RDP brute-force attacks
+   * - 101: Java Struts2 attack blocked
+   * - 102: Redis attack blocked
+   * - 103: China Chopper (AntSword) WebShell communication
+   * - 104: China Chopper WebShell communication
    * - 133: XISE WebShell communication
-   * 
    * - 161: WebShell upload
-   * 
    * - 209: PHP WebShell upload
-   * 
    * - 210: JSP WebShell upload
-   * 
    * - 211: ASP WebShell upload
-   * 
-   * - 215: Special suffix WebShell upload
-   * 
-   * - ai_webshell: Intelligent defense for WebShell upload
-   * 
-   * - java_common_rce: Java common RCE vulnerability interception
-   * 
+   * - 215: Special extension WebShell upload
+   * - ai_webshell: WebShell upload intelligent defense
+   * - java_common_rce: Java common remote code execution (RCE) vulnerability blocked
    * - alinet_webrce: Adaptive web attack defense
    * 
    * @example
@@ -53,7 +37,7 @@ export class ListAttackEventInfoRequest extends $dara.Model {
   attackType?: string;
   /**
    * @remarks
-   * Page number to display in a paginated query.
+   * The number of the page to return in a paged query.
    * 
    * @example
    * 1
@@ -61,7 +45,7 @@ export class ListAttackEventInfoRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * Target port of the attack.
+   * The Attack Target Ports of the Attack Target.
    * 
    * @example
    * 9085
@@ -69,7 +53,7 @@ export class ListAttackEventInfoRequest extends $dara.Model {
   dstPort?: string;
   /**
    * @remarks
-   * Timestamp of the end time.
+   * The timestamp of the end time.
    * 
    * @example
    * 1753152532550
@@ -77,10 +61,9 @@ export class ListAttackEventInfoRequest extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * Set the language type for request and response messages. Default is **zh**. Values:
+   * The language type for the request and response messages. Default value: **zh**. Valid values:
    * 
    * - **zh**: Chinese
-   * 
    * - **en**: English
    * 
    * @example
@@ -89,7 +72,7 @@ export class ListAttackEventInfoRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Maximum number of records per page in a paginated query.
+   * The maximum number of entries to return on each page in a paged query.
    * 
    * @example
    * 10
@@ -97,7 +80,7 @@ export class ListAttackEventInfoRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Source IP of the attack.
+   * The Attack Source IP Addresses.
    * 
    * @example
    * 185.237.96.***
@@ -105,7 +88,9 @@ export class ListAttackEventInfoRequest extends $dara.Model {
   srcIp?: string;
   /**
    * @remarks
-   * Timestamp of the start time.
+   * The timestamp of the start time.
+   * 
+   * This field is a UNIX timestamp. Unit: milliseconds.
    * 
    * @example
    * 1752547732549

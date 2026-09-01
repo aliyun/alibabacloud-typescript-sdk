@@ -24,10 +24,12 @@ export class DescribeReportExportRequest extends $dara.Model {
    * zh
    */
   lang?: string;
+  resourceDirectoryAccountId?: number;
   static names(): { [key: string]: string } {
     return {
       exportId: 'ExportId',
       lang: 'Lang',
+      resourceDirectoryAccountId: 'ResourceDirectoryAccountId',
     };
   }
 
@@ -35,6 +37,7 @@ export class DescribeReportExportRequest extends $dara.Model {
     return {
       exportId: 'number',
       lang: 'string',
+      resourceDirectoryAccountId: 'number',
     };
   }
 

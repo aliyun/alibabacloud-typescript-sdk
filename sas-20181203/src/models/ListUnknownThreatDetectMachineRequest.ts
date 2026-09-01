@@ -5,15 +5,16 @@ import * as $dara from '@darabonba/typescript';
 export class ListUnknownThreatDetectMachineRequest extends $dara.Model {
   /**
    * @remarks
-   * The page number to return.
+   * The page number of the current page when using paging.
    * 
    * @example
    * 1
    */
   currentPage?: number;
+  eventStatus?: number;
   /**
    * @remarks
-   * The maximum number of entries to return per page.
+   * The maximum number of entries per page when using paging.
    * 
    * @example
    * 20
@@ -29,15 +30,12 @@ export class ListUnknownThreatDetectMachineRequest extends $dara.Model {
   remark?: string;
   /**
    * @remarks
-   * The status of the machine. Valid values:
+   * The running status of the machine. Valid values:
    * 
-   * - **monitoring**: Monitoring
-   * 
-   * - **blocking**: Blocking
-   * 
-   * - **studying**: Learning
-   * 
-   * - **study_finish**: Learning complete
+   * - **monitoring**: Warning.
+   * - **blocking**: Blocking.
+   * - **studying**: Learning.
+   * - **study_finish**: Learning completed.
    * 
    * @example
    * studying
@@ -48,7 +46,6 @@ export class ListUnknownThreatDetectMachineRequest extends $dara.Model {
    * The whitelist mode. Valid values:
    * 
    * - **hash**: process hash
-   * 
    * - **path**: process path
    * 
    * @example
@@ -57,7 +54,7 @@ export class ListUnknownThreatDetectMachineRequest extends $dara.Model {
   studyMode?: string;
   /**
    * @remarks
-   * The end of the time range for model creation, specified as a timestamp in milliseconds.
+   * The end of the model creation time range. The value is a timestamp in milliseconds.
    * 
    * @example
    * 1768891966346
@@ -65,7 +62,7 @@ export class ListUnknownThreatDetectMachineRequest extends $dara.Model {
   studyTimeEnd?: number;
   /**
    * @remarks
-   * The start of the time range for model creation, specified as a timestamp in milliseconds.
+   * The start of the model creation time range. The value is a timestamp in milliseconds.
    * 
    * @example
    * 1768891966344
@@ -82,6 +79,7 @@ export class ListUnknownThreatDetectMachineRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       currentPage: 'CurrentPage',
+      eventStatus: 'EventStatus',
       pageSize: 'PageSize',
       remark: 'Remark',
       status: 'Status',
@@ -95,6 +93,7 @@ export class ListUnknownThreatDetectMachineRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       currentPage: 'number',
+      eventStatus: 'number',
       pageSize: 'number',
       remark: 'string',
       status: 'string',

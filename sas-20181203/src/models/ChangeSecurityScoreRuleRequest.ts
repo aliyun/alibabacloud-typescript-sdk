@@ -346,6 +346,7 @@ export class ChangeSecurityScoreRuleRequest extends $dara.Model {
    * false
    */
   resetSecurityScoreRule?: boolean;
+  resourceDirectoryAccountId?: number;
   /**
    * @remarks
    * The information about the new version of the security score rule.
@@ -360,6 +361,7 @@ export class ChangeSecurityScoreRuleRequest extends $dara.Model {
     return {
       calType: 'CalType',
       resetSecurityScoreRule: 'ResetSecurityScoreRule',
+      resourceDirectoryAccountId: 'ResourceDirectoryAccountId',
       securityScoreCategoryList: 'SecurityScoreCategoryList',
       securityScoreRuleList: 'SecurityScoreRuleList',
     };
@@ -369,6 +371,7 @@ export class ChangeSecurityScoreRuleRequest extends $dara.Model {
     return {
       calType: 'string',
       resetSecurityScoreRule: 'boolean',
+      resourceDirectoryAccountId: 'number',
       securityScoreCategoryList: { 'type': 'array', 'itemType': ChangeSecurityScoreRuleRequestSecurityScoreCategoryList },
       securityScoreRuleList: { 'type': 'array', 'itemType': ChangeSecurityScoreRuleRequestSecurityScoreRuleList },
     };

@@ -174,6 +174,7 @@ export class ExportSuspEventsRequest extends $dara.Model {
    * remark
    */
   remark?: string;
+  resourceDirectoryAccountId?: number;
   /**
    * @remarks
    * The source IP address of the request. The value of this parameter is specified by the system.
@@ -262,6 +263,7 @@ export class ExportSuspEventsRequest extends $dara.Model {
       pageSize: 'PageSize',
       parentEventTypes: 'ParentEventTypes',
       remark: 'Remark',
+      resourceDirectoryAccountId: 'ResourceDirectoryAccountId',
       sourceIp: 'SourceIp',
       status: 'Status',
       targetType: 'TargetType',
@@ -290,6 +292,7 @@ export class ExportSuspEventsRequest extends $dara.Model {
       pageSize: 'string',
       parentEventTypes: 'string',
       remark: 'string',
+      resourceDirectoryAccountId: 'number',
       sourceIp: 'string',
       status: 'string',
       targetType: 'string',

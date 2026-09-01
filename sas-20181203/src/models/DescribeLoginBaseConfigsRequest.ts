@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeLoginBaseConfigsRequest extends $dara.Model {
   /**
    * @remarks
-   * The page number of the page to return. Default value: **1**.
+   * The page number of the page to return. Default value: **1**, which indicates that the first page is returned.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class DescribeLoginBaseConfigsRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * Settings for paged query. The number of logon configuration entries to display on each page when paging is used. Default value: **5**.
+   * Settings for paged query. The number of logon configuration entries to display on each page during paging. Default value: **5**, which indicates that five logon configuration entries are displayed on each page.
    * 
    * @example
    * 5
@@ -23,11 +23,11 @@ export class DescribeLoginBaseConfigsRequest extends $dara.Model {
    * @remarks
    * The selection mode for the assets on which the policy takes effect. This parameter is in JSON format and contains the following fields:
    * 
-   * - **Target**: The UUID of the server to add or delete, or the ID of the server group.
+   * - **Target**: the UUID of the server to add or delete, or the ID of the server group.
    * 
-   * > If the targetType parameter is set to uuid, this parameter specifies the UUID of the server. If the targetType parameter is set to groupId, this parameter specifies the ID of the server group. If the targetType parameter is set to global, set this parameter to a hyphen (-).
+   * > If the targetType parameter is set to uuid, this parameter specifies the UUID of the server. If the targetType parameter is set to groupId, this parameter specifies the ID of the server group. If the targetType parameter is set to global, this parameter is set to a hyphen (-).
    * 
-   * - **targetType**: The selection mode for the assets on which the policy takes effect. Valid values:
+   * - **targetType**: the selection mode for the assets on which the policy takes effect. Valid values:
    *     - **uuid**: queries by individual server.
    *     - **groupId**: queries by server group.
    *     - **global**: queries all servers.

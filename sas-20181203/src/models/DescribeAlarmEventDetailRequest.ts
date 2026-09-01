@@ -36,6 +36,7 @@ export class DescribeAlarmEventDetailRequest extends $dara.Model {
    * zh
    */
   lang?: string;
+  resourceDirectoryAccountId?: number;
   /**
    * @remarks
    * The source IP address of the request.
@@ -49,6 +50,7 @@ export class DescribeAlarmEventDetailRequest extends $dara.Model {
       alarmUniqueInfo: 'AlarmUniqueInfo',
       from: 'From',
       lang: 'Lang',
+      resourceDirectoryAccountId: 'ResourceDirectoryAccountId',
       sourceIp: 'SourceIp',
     };
   }
@@ -58,6 +60,7 @@ export class DescribeAlarmEventDetailRequest extends $dara.Model {
       alarmUniqueInfo: 'string',
       from: 'string',
       lang: 'string',
+      resourceDirectoryAccountId: 'number',
       sourceIp: 'string',
     };
   }

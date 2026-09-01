@@ -14,6 +14,7 @@ export class GetInstanceAlarmStatisticsRequest extends $dara.Model {
    * sas
    */
   from?: string;
+  resourceDirectoryAccountId?: number;
   /**
    * @remarks
    * The UUID of the server to be queried.
@@ -26,6 +27,7 @@ export class GetInstanceAlarmStatisticsRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       from: 'From',
+      resourceDirectoryAccountId: 'ResourceDirectoryAccountId',
       uuid: 'Uuid',
     };
   }
@@ -33,6 +35,7 @@ export class GetInstanceAlarmStatisticsRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       from: 'string',
+      resourceDirectoryAccountId: 'number',
       uuid: 'string',
     };
   }

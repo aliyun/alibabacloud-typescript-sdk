@@ -28,24 +28,28 @@ export class ListUnknownThreatDetectMachineResponseBodyData extends $dara.Model 
    * 10.42.XX.XX
    */
   intranetIp?: string;
+  maliciousProcessCount?: number;
+  /**
+   * @deprecated
+   */
+  normalEventCount?: number;
   pluginStatus?: string;
   /**
    * @remarks
-   * The process count.
+   * The number of processes.
    * 
    * @example
    * 1
    */
   processCount?: number;
+  recentDeviationBehaviorCount?: number;
   /**
    * @remarks
-   * The instance status. Valid values:
+   * The running status of the machine. Valid values:
    * 
-   * - **monitoring**: The instance is being monitored for threats.
-   * 
-   * - **blocking**: The instance is blocking unauthorized processes.
-   * 
-   * - **studying**: The instance is in a learning phase.
+   * - **monitoring**: Warning.
+   * - **blocking**: Blocking.
+   * - **studying**: Learning.
    * 
    * @example
    * studying
@@ -56,7 +60,6 @@ export class ListUnknownThreatDetectMachineResponseBodyData extends $dara.Model 
    * The whitelist mode. Valid values:
    * 
    * - **hash**: process hash
-   * 
    * - **path**: process path
    * 
    * @example
@@ -66,7 +69,7 @@ export class ListUnknownThreatDetectMachineResponseBodyData extends $dara.Model 
   studyRemainDays?: number;
   /**
    * @remarks
-   * The timestamp when the learning phase started. Unit: seconds.
+   * The timestamp when learning started.
    * 
    * @example
    * 1766988192
@@ -86,8 +89,11 @@ export class ListUnknownThreatDetectMachineResponseBodyData extends $dara.Model 
       instanceName: 'InstanceName',
       internetIp: 'InternetIp',
       intranetIp: 'IntranetIp',
+      maliciousProcessCount: 'MaliciousProcessCount',
+      normalEventCount: 'NormalEventCount',
       pluginStatus: 'PluginStatus',
       processCount: 'ProcessCount',
+      recentDeviationBehaviorCount: 'RecentDeviationBehaviorCount',
       status: 'Status',
       studyMode: 'StudyMode',
       studyRemainDays: 'StudyRemainDays',
@@ -102,8 +108,11 @@ export class ListUnknownThreatDetectMachineResponseBodyData extends $dara.Model 
       instanceName: 'string',
       internetIp: 'string',
       intranetIp: 'string',
+      maliciousProcessCount: 'number',
+      normalEventCount: 'number',
       pluginStatus: 'string',
       processCount: 'number',
+      recentDeviationBehaviorCount: 'number',
       status: 'string',
       studyMode: 'string',
       studyRemainDays: 'number',
@@ -124,7 +133,7 @@ export class ListUnknownThreatDetectMachineResponseBodyData extends $dara.Model 
 export class ListUnknownThreatDetectMachineResponseBodyPageInfo extends $dara.Model {
   /**
    * @remarks
-   * The number of entries on the current page.
+   * The number of entries on the current page when using paging.
    * 
    * @example
    * 10
@@ -132,7 +141,7 @@ export class ListUnknownThreatDetectMachineResponseBodyPageInfo extends $dara.Mo
   count?: number;
   /**
    * @remarks
-   * The current page number.
+   * The page number of the current page when using paging.
    * 
    * @example
    * 1
@@ -140,7 +149,7 @@ export class ListUnknownThreatDetectMachineResponseBodyPageInfo extends $dara.Mo
   currentPage?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The maximum number of entries per page when using paging.
    * 
    * @example
    * 20
@@ -184,7 +193,7 @@ export class ListUnknownThreatDetectMachineResponseBodyPageInfo extends $dara.Mo
 export class ListUnknownThreatDetectMachineResponseBody extends $dara.Model {
   /**
    * @remarks
-   * An array of instance details.
+   * The returned data.
    */
   data?: ListUnknownThreatDetectMachineResponseBodyData[];
   /**
@@ -194,7 +203,7 @@ export class ListUnknownThreatDetectMachineResponseBody extends $dara.Model {
   pageInfo?: ListUnknownThreatDetectMachineResponseBodyPageInfo;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * A4EB8B1C-1DEC-5E18-BCD0-XXXXXXXXX

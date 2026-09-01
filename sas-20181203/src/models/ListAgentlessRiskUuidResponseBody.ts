@@ -53,6 +53,14 @@ export class ListAgentlessRiskUuidResponseBodyList extends $dara.Model {
   maliciousCount?: number;
   /**
    * @remarks
+   * The URL of the latest parallel sandbox HTML report.
+   * 
+   * @example
+   * https://bucket.oss.region.aliyuncs.com/report/html
+   */
+  reportUrlHtml?: string;
+  /**
+   * @remarks
    * The timestamp of the scan. Unit: milliseconds.
    * 
    * @example
@@ -99,6 +107,7 @@ export class ListAgentlessRiskUuidResponseBodyList extends $dara.Model {
       internetIp: 'InternetIp',
       intranetIp: 'IntranetIp',
       maliciousCount: 'MaliciousCount',
+      reportUrlHtml: 'ReportUrlHtml',
       scanTime: 'ScanTime',
       targetId: 'TargetId',
       targetName: 'TargetName',
@@ -115,6 +124,7 @@ export class ListAgentlessRiskUuidResponseBodyList extends $dara.Model {
       internetIp: 'string',
       intranetIp: 'string',
       maliciousCount: 'number',
+      reportUrlHtml: 'string',
       scanTime: 'number',
       targetId: 'string',
       targetName: 'string',
@@ -135,7 +145,7 @@ export class ListAgentlessRiskUuidResponseBodyList extends $dara.Model {
 export class ListAgentlessRiskUuidResponseBodyPageInfo extends $dara.Model {
   /**
    * @remarks
-   * The page number of the current page when using paging.
+   * The current page number when using paging.
    * 
    * @example
    * 1
@@ -190,12 +200,12 @@ export class ListAgentlessRiskUuidResponseBody extends $dara.Model {
   list?: ListAgentlessRiskUuidResponseBodyList[];
   /**
    * @remarks
-   * The paging information for the query.
+   * The paging information.
    */
   pageInfo?: ListAgentlessRiskUuidResponseBodyPageInfo;
   /**
    * @remarks
-   * The ID of the request. Alibaba Cloud generates a unique identifier for each request. You can use the ID to troubleshoot issues.
+   * The ID of the request. Alibaba Cloud generates a unique identifier for each request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * 05AE6B16-741A-5A75-9BF0-BC747DD9****

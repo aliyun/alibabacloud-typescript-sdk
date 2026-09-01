@@ -5,9 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class AddCheckInstanceResultWhiteListRequestInstanceList extends $dara.Model {
   /**
    * @remarks
-   * The instance ID of the asset.
-   * 
-   * >  You can call the [ListCheckInstanceResult](~~ListCheckInstanceResult~~) operation to query the instance IDs of assets.
+   * The asset instance ID.
+   * > Call the [ListCheckInstanceResult](~~ListCheckInstanceResult~~) operation to obtain this parameter.
    * 
    * @example
    * i-wz9fdluqx20mp2x7****
@@ -15,9 +14,8 @@ export class AddCheckInstanceResultWhiteListRequestInstanceList extends $dara.Mo
   instanceId?: string;
   /**
    * @remarks
-   * The region ID of the asset.
-   * 
-   * >  You can call the [ListCheckInstanceResult](~~ListCheckInstanceResult~~) operation to query the region ID of the asset.
+   * The region where the asset resides.
+   * > Call the [ListCheckInstanceResult](~~ListCheckInstanceResult~~) operation to obtain this parameter.
    * 
    * @example
    * cn-hongkong
@@ -49,7 +47,7 @@ export class AddCheckInstanceResultWhiteListRequestInstanceList extends $dara.Mo
 export class AddCheckInstanceResultWhiteListRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the group to which the check item belongs.
+   * The ID of the check group to which the check item belongs.
    * 
    * @example
    * cQFq20UzZ49K6gRSJD1301****
@@ -58,8 +56,7 @@ export class AddCheckInstanceResultWhiteListRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the check item.
-   * 
-   * >  You can call the [ListCheckResult](~~ListCheckResult~~) operation to query the IDs of check items.
+   * > Call the [ListCheckResult](~~ListCheckResult~~) operation to obtain this parameter.
    * 
    * @example
    * 132
@@ -67,17 +64,22 @@ export class AddCheckInstanceResultWhiteListRequest extends $dara.Model {
   checkId?: number;
   /**
    * @remarks
-   * The instance IDs of the assets.
+   * The client token that is used to ensure the idempotence of the request. Different requests should use different tokens. The token supports only ASCII characters and cannot exceed 64 characters in length.
+   */
+  clientToken?: string;
+  /**
+   * @remarks
+   * The collection of asset instance IDs.
    */
   instanceIds?: string[];
   /**
    * @remarks
-   * The asset instances.
+   * The collection of asset instance information.
    */
   instanceList?: AddCheckInstanceResultWhiteListRequestInstanceList[];
   /**
    * @remarks
-   * The description. The value of this parameter can be up to 65,535 bytes in length.
+   * The remarks. Maximum length: 65535 bytes.
    * 
    * @example
    * test
@@ -85,9 +87,8 @@ export class AddCheckInstanceResultWhiteListRequest extends $dara.Model {
   remark?: string;
   /**
    * @remarks
-   * The type of the rule. Default value: **WHITE**. Valid value:
-   * 
-   * *   WHITE: adds check items to the whitelist.
+   * The rule type. Default value: **WHITE**. Valid values:
+   * - WHITE: whitelist
    * 
    * @example
    * WHITE
@@ -97,6 +98,7 @@ export class AddCheckInstanceResultWhiteListRequest extends $dara.Model {
     return {
       checkGroupId: 'CheckGroupId',
       checkId: 'CheckId',
+      clientToken: 'ClientToken',
       instanceIds: 'InstanceIds',
       instanceList: 'InstanceList',
       remark: 'Remark',
@@ -108,6 +110,7 @@ export class AddCheckInstanceResultWhiteListRequest extends $dara.Model {
     return {
       checkGroupId: 'string',
       checkId: 'number',
+      clientToken: 'string',
       instanceIds: { 'type': 'array', 'itemType': 'string' },
       instanceList: { 'type': 'array', 'itemType': AddCheckInstanceResultWhiteListRequestInstanceList },
       remark: 'string',

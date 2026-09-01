@@ -23,10 +23,12 @@ export class CreateSuspEventNoteRequest extends $dara.Model {
    * Ignore
    */
   note?: string;
+  resourceDirectoryAccountId?: number;
   static names(): { [key: string]: string } {
     return {
       eventId: 'EventId',
       note: 'Note',
+      resourceDirectoryAccountId: 'ResourceDirectoryAccountId',
     };
   }
 
@@ -34,6 +36,7 @@ export class CreateSuspEventNoteRequest extends $dara.Model {
     return {
       eventId: 'number',
       note: 'string',
+      resourceDirectoryAccountId: 'number',
     };
   }
 

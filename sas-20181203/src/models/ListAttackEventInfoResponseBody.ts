@@ -5,40 +5,23 @@ import * as $dara from '@darabonba/typescript';
 export class ListAttackEventInfoResponseBodyList extends $dara.Model {
   /**
    * @remarks
-   * Attack type. Values:
-   * 
-   * - 9: SQL Server brute force attack
-   * 
-   * - 5: SSH brute force attack
-   * 
-   * - 6: RDP brute force attack
-   * 
-   * - 101: Java Struts2 attack interception
-   * 
-   * - 102: Redis attack interception
-   * 
-   * - 103: Chinese AntSword WebShell communication
-   * 
-   * - 104: Chinese Chopper WebShell communication
-   * 
+   * The attack type. Valid values:
+   * - 9: SQL Server brute-force attacks
+   * - 5: SSH brute-force attacks
+   * - 6: RDP brute-force attacks
+   * - 101: Java Struts2 attack blocked
+   * - 102: Redis attack blocked
+   * - 103: China Chopper (AntSword) WebShell communication
+   * - 104: China Chopper WebShell communication
    * - 133: XISE WebShell communication
-   * 
    * - 161: WebShell upload
-   * 
    * - 209: PHP WebShell upload
-   * 
    * - 210: JSP WebShell upload
-   * 
    * - 211: ASP WebShell upload
-   * 
-   * - 215: Special suffix WebShell upload
-   * 
-   * - ai_webshell: Intelligent defense for WebShell upload
-   * 
-   * - java_common_rce: Java common RCE vulnerability interception
-   * 
+   * - 215: Special extension WebShell upload
+   * - ai_webshell: WebShell upload intelligent defense
+   * - java_common_rce: Java common RCE vulnerability blocked
    * - alinet_webrce: Adaptive web attack defense
-   * 
    * - other: Other
    * 
    * @example
@@ -47,49 +30,32 @@ export class ListAttackEventInfoResponseBodyList extends $dara.Model {
   attackType?: string;
   /**
    * @remarks
-   * Mapped name of the attack type. Values:
-   * 
-   * - 9: SQL Server brute force
-   * 
-   * - 5: SSH brute force
-   * 
-   * - 6: RDP brute force
-   * 
-   * - 101: Java Struts2 attack interception
-   * 
-   * - 102: Redis attack interception
-   * 
-   * - 103: Chinese AntSword WebShell communication
-   * 
-   * - 104: Chinese Chopper WebShell communication
-   * 
+   * The mapped name of the attack type. Valid values:
+   * - 9: SQL Server brute-force attacks
+   * - 5: SSH brute-force attacks
+   * - 6: RDP brute-force attacks
+   * - 101: Java Struts2 attack blocked
+   * - 102: Redis attack blocked
+   * - 103: China Chopper (AntSword) WebShell communication
+   * - 104: China Chopper WebShell communication
    * - 133: XISE WebShell communication
-   * 
    * - 161: WebShell upload
-   * 
    * - 209: PHP WebShell upload
-   * 
    * - 210: JSP WebShell upload
-   * 
    * - 211: ASP WebShell upload
-   * 
-   * - 215: Special suffix WebShell upload
-   * 
-   * - ai_webshell: Intelligent defense for WebShell upload
-   * 
-   * - java_common_rce: Java common RCE vulnerability interception
-   * 
+   * - 215: Special extension WebShell upload
+   * - ai_webshell: WebShell upload intelligent defense
+   * - java_common_rce: Java common RCE vulnerability blocked
    * - alinet_webrce: Adaptive web attack defense
-   * 
    * - other: Other
    * 
    * @example
-   * SQL Server暴力破解
+   * SQL Server brute-force attacks
    */
   attackTypeName?: string;
   /**
    * @remarks
-   * Number of attacks.
+   * The number of attacks.
    * 
    * @example
    * 2
@@ -97,7 +63,7 @@ export class ListAttackEventInfoResponseBodyList extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * Target port of the attack.
+   * The Attack Target Ports of the Attack Target.
    * 
    * @example
    * 8000
@@ -105,7 +71,7 @@ export class ListAttackEventInfoResponseBodyList extends $dara.Model {
   dstPort?: string;
   /**
    * @remarks
-   * First occurrence time of the attack event, in timestamp format.
+   * The time when the attack event first occurred, in timestamp format.
    * 
    * @example
    * 1752731615000
@@ -113,7 +79,7 @@ export class ListAttackEventInfoResponseBodyList extends $dara.Model {
   firstTime?: number;
   /**
    * @remarks
-   * String representation of the first occurrence time of the attack event.
+   * The time when the attack event first occurred, in string format.
    * 
    * @example
    * 2025-07-17 13:53:35
@@ -121,7 +87,7 @@ export class ListAttackEventInfoResponseBodyList extends $dara.Model {
   firstTimeStr?: string;
   /**
    * @remarks
-   * ID of the attack event.
+   * The ID of the attack event.
    * 
    * @example
    * 18825544674********
@@ -129,7 +95,7 @@ export class ListAttackEventInfoResponseBodyList extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * Instance name of the attacked asset.
+   * The instance name of the attacked asset.
    * 
    * @example
    * sql-test-0****
@@ -137,7 +103,7 @@ export class ListAttackEventInfoResponseBodyList extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * Public IP of the attacked asset.
+   * The public IP address of the attacked asset.
    * 
    * @example
    * 101.37.86.**
@@ -145,7 +111,7 @@ export class ListAttackEventInfoResponseBodyList extends $dara.Model {
   internetIp?: string;
   /**
    * @remarks
-   * Private IP of the attacked asset.
+   * The private IP address of the attacked asset.
    * 
    * @example
    * 10.1.0.**
@@ -153,7 +119,9 @@ export class ListAttackEventInfoResponseBodyList extends $dara.Model {
   intranetIp?: string;
   /**
    * @remarks
-   * Timestamp of the most recent occurrence of the attack event.
+   * The time when the attack event most recently occurred.
+   * 
+   * This field is a UNIX timestamp. Unit: milliseconds.
    * 
    * @example
    * 1752731618000
@@ -161,7 +129,7 @@ export class ListAttackEventInfoResponseBodyList extends $dara.Model {
   latestTime?: number;
   /**
    * @remarks
-   * String representation of the most recent occurrence time of the attack event.
+   * The time when the attack event most recently occurred, in string format.
    * 
    * @example
    * 2025-07-17 13:53:38
@@ -169,7 +137,7 @@ export class ListAttackEventInfoResponseBodyList extends $dara.Model {
   latestTimeStr?: string;
   /**
    * @remarks
-   * MD5 string of the attack payload.
+   * The MD5 hash of the attack payload.
    * 
    * @example
    * a57b0d657369e4201eed8d47a4dc****
@@ -177,7 +145,7 @@ export class ListAttackEventInfoResponseBodyList extends $dara.Model {
   payloadMd5?: string;
   /**
    * @remarks
-   * Source IP of the attack.
+   * The Attack Source IP Addresses.
    * 
    * @example
    * 140.205.11.**
@@ -185,9 +153,8 @@ export class ListAttackEventInfoResponseBodyList extends $dara.Model {
   srcIp?: string;
   /**
    * @remarks
-   * Attack status. Values:
-   * 
-   * - block: Blocked (defended)
+   * The attack status. Valid values:
+   * - block: Blocked (defended).
    * 
    * @example
    * block
@@ -195,7 +162,7 @@ export class ListAttackEventInfoResponseBodyList extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * UUID of the attacked asset instance.
+   * The UUID of the attacked asset instance.
    * 
    * @example
    * 49e25e0f-bb51-4a5a-a1b3-13a4ddaa****
@@ -255,7 +222,7 @@ export class ListAttackEventInfoResponseBodyList extends $dara.Model {
 export class ListAttackEventInfoResponseBodyPageInfo extends $dara.Model {
   /**
    * @remarks
-   * Number of items displayed on the current page in pagination queries.
+   * The number of entries returned on the current page in a paged query.
    * 
    * @example
    * 3
@@ -263,7 +230,7 @@ export class ListAttackEventInfoResponseBodyPageInfo extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * Page number in pagination queries.
+   * The page number of the current page in a paged query.
    * 
    * @example
    * 1
@@ -271,7 +238,7 @@ export class ListAttackEventInfoResponseBodyPageInfo extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * Maximum number of items per page in pagination queries.
+   * The maximum number of entries to return on each page in a paged query.
    * 
    * @example
    * 10
@@ -279,7 +246,7 @@ export class ListAttackEventInfoResponseBodyPageInfo extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Total number of items.
+   * The total number of entries.
    * 
    * @example
    * 253
@@ -315,7 +282,7 @@ export class ListAttackEventInfoResponseBodyPageInfo extends $dara.Model {
 export class ListAttackEventInfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Result code, **200** indicates success, any other value indicates failure. The caller can use this field to determine the reason for the failure.
+   * The result code. A value of **200** indicates success. Any other value indicates failure. You can use this field to determine the cause of the failure.
    * 
    * @example
    * 200
@@ -323,7 +290,7 @@ export class ListAttackEventInfoResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * HTTP status code, 200 indicates a successful request.
+   * The HTTP status code. A value of 200 indicates that the request is successful.
    * 
    * @example
    * 200
@@ -331,12 +298,12 @@ export class ListAttackEventInfoResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * List of attack events.
+   * The list of attack events.
    */
   list?: ListAttackEventInfoResponseBodyList[];
   /**
    * @remarks
-   * Return message of the request result.
+   * The returned message of the request result.
    * 
    * @example
    * successful
@@ -344,12 +311,12 @@ export class ListAttackEventInfoResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Pagination information.
+   * The pagination information.
    */
   pageInfo?: ListAttackEventInfoResponseBodyPageInfo;
   /**
    * @remarks
-   * The ID of this call request, a unique identifier generated by Alibaba Cloud for the request, which can be used to troubleshoot and pinpoint issues.
+   * The request ID, which is a unique identifier generated by Alibaba Cloud for the request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * 52870893-48A7-5A9E-9E05-6253E5B6****
@@ -357,11 +324,9 @@ export class ListAttackEventInfoResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the API call was successful. Values:
-   * 
-   * - **true**: Success
-   * 
-   * - **false**: Failure
+   * Indicates whether the API call is successful. Valid values:
+   * - **true**: The call is successful.
+   * - **false**: The call failed.
    * 
    * @example
    * true

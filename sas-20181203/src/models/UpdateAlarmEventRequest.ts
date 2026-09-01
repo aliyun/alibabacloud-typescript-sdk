@@ -31,11 +31,13 @@ export class UpdateAlarmEventRequest extends $dara.Model {
    * ignore
    */
   operationCode?: string;
+  resourceDirectoryAccountId?: number;
   static names(): { [key: string]: string } {
     return {
       alarmEventIdList: 'AlarmEventIdList',
       lang: 'Lang',
       operationCode: 'OperationCode',
+      resourceDirectoryAccountId: 'ResourceDirectoryAccountId',
     };
   }
 
@@ -44,6 +46,7 @@ export class UpdateAlarmEventRequest extends $dara.Model {
       alarmEventIdList: { 'type': 'array', 'itemType': 'number' },
       lang: 'string',
       operationCode: 'string',
+      resourceDirectoryAccountId: 'number',
     };
   }
 

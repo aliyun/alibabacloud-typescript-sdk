@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListCheckItemRequest extends $dara.Model {
   /**
    * @remarks
-   * The number of the page to return. Default value: **1**.
+   * The page number of the page to return. Default value: **1**, which indicates that the first page is returned.
    * 
    * @example
    * 1
@@ -13,10 +13,10 @@ export class ListCheckItemRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The language of the content within the request and response. Default value: **zh**. Valid value:
+   * The language type for the request and response messages. Default value: **zh**. Valid values:
+   * 
    * 
    * - **zh**: Chinese
-   * 
    * - **en**: English
    * 
    * @example
@@ -25,7 +25,7 @@ export class ListCheckItemRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The number of entries per page. Default value: **20**.
+   * The maximum number of entries per page in a paged query. Default value: **20**.
    * 
    * @example
    * 10
@@ -33,7 +33,7 @@ export class ListCheckItemRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * List of task sources.
+   * The list of task sources.
    */
   taskSources?: string[];
   static names(): { [key: string]: string } {

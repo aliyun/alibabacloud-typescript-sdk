@@ -43,6 +43,7 @@ export class DescribePropertyCronDetailRequest extends $dara.Model {
    * 192.168.XX.XX
    */
   remark?: string;
+  resourceDirectoryAccountId?: number;
   /**
    * @remarks
    * The path to the scheduled task.
@@ -85,6 +86,7 @@ export class DescribePropertyCronDetailRequest extends $dara.Model {
       nextToken: 'NextToken',
       pageSize: 'PageSize',
       remark: 'Remark',
+      resourceDirectoryAccountId: 'ResourceDirectoryAccountId',
       source: 'Source',
       useNextToken: 'UseNextToken',
       user: 'User',
@@ -99,6 +101,7 @@ export class DescribePropertyCronDetailRequest extends $dara.Model {
       nextToken: 'string',
       pageSize: 'number',
       remark: 'string',
+      resourceDirectoryAccountId: 'number',
       source: 'string',
       useNextToken: 'boolean',
       user: 'string',

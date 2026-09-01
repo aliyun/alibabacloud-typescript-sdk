@@ -20,6 +20,7 @@ export class RollbackSuspEventQuaraFileRequest extends $dara.Model {
    * 3921797
    */
   quaraFileId?: number;
+  resourceDirectoryAccountId?: number;
   /**
    * @remarks
    * The source IP address of the request.
@@ -32,6 +33,7 @@ export class RollbackSuspEventQuaraFileRequest extends $dara.Model {
     return {
       from: 'From',
       quaraFileId: 'QuaraFileId',
+      resourceDirectoryAccountId: 'ResourceDirectoryAccountId',
       sourceIp: 'SourceIp',
     };
   }
@@ -40,6 +42,7 @@ export class RollbackSuspEventQuaraFileRequest extends $dara.Model {
     return {
       from: 'string',
       quaraFileId: 'number',
+      resourceDirectoryAccountId: 'number',
       sourceIp: 'string',
     };
   }

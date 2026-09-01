@@ -21,7 +21,7 @@ export class DescribeCanFixVulListResponseBodyVulRecordsExtendContentJsonRpmEnti
   layer?: string;
   /**
    * @remarks
-   * The details of the vulnerability match.
+   * The detailed information about the vulnerability match.
    * 
    * @example
    * python-perf version less than 0:3.10.0-693.21.1.el7
@@ -50,7 +50,7 @@ export class DescribeCanFixVulListResponseBodyVulRecordsExtendContentJsonRpmEnti
   path?: string;
   /**
    * @remarks
-   * The command to fix the vulnerability.
+   * The command used to fix the vulnerability.
    * 
    * @example
    * apt-get update && apt-get install libseccomp2  --only-upgrade
@@ -214,7 +214,7 @@ export class DescribeCanFixVulListResponseBodyVulRecords extends $dara.Model {
   extendContentJson?: DescribeCanFixVulListResponseBodyVulRecordsExtendContentJson;
   /**
    * @remarks
-   * The timestamp when the vulnerability was first detected. Unit: milliseconds.
+   * The timestamp when the vulnerability was first detected, in milliseconds.
    * 
    * @example
    * 1620752053000
@@ -264,7 +264,7 @@ export class DescribeCanFixVulListResponseBodyVulRecords extends $dara.Model {
   intranetIp?: string;
   /**
    * @remarks
-   * The timestamp when the vulnerability was last detected. Unit: milliseconds.
+   * The timestamp when the vulnerability was last detected, in milliseconds.
    * 
    * @example
    * 1620404763000
@@ -289,7 +289,7 @@ export class DescribeCanFixVulListResponseBodyVulRecords extends $dara.Model {
   maliciousSource?: string;
   /**
    * @remarks
-   * The timestamp when the vulnerability status was modified. Unit: milliseconds.
+   * The timestamp when the vulnerability status was modified, in milliseconds.
    * 
    * @example
    * 1620404763000
@@ -367,7 +367,7 @@ export class DescribeCanFixVulListResponseBodyVulRecords extends $dara.Model {
   repoNamespace?: string;
   /**
    * @remarks
-   * The timestamp of the scan. Unit: milliseconds.
+   * The timestamp of the scan, in milliseconds.
    * 
    * @example
    * 1649814050000

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateOssBucketScanTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The request ID. Alibaba Cloud generates a unique identifier for each request. You can use the request ID to troubleshoot issues.
    * 
    * @example
    * BBD75EC2-2F4F-5A7B-AA53-18724DC8****

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListOssScanConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * The page number.
+   * The page number of the current page in a paged query.
    * 
    * @example
    * 1
@@ -21,17 +21,28 @@ export class ListOssScanConfigRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries per page in a paged query.
    * 
    * @example
    * 20
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * The business source. Valid values:
+   * - **OSS**: OSS
+   * - **NAS**: NAS
+   * 
+   * @example
+   * OSS
+   */
+  source?: string;
   static names(): { [key: string]: string } {
     return {
       currentPage: 'CurrentPage',
       name: 'Name',
       pageSize: 'PageSize',
+      source: 'Source',
     };
   }
 
@@ -40,6 +51,7 @@ export class ListOssScanConfigRequest extends $dara.Model {
       currentPage: 'number',
       name: 'string',
       pageSize: 'number',
+      source: 'string',
     };
   }
 

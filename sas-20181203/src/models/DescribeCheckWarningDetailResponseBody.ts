@@ -13,7 +13,7 @@ export class DescribeCheckWarningDetailResponseBodyCheckDetailColumnsGrids exten
   key?: string;
   /**
    * @remarks
-   * The display name that corresponds to the key of the check content.
+   * The display name corresponding to the check content key.
    * 
    * @example
    * UserName
@@ -22,8 +22,8 @@ export class DescribeCheckWarningDetailResponseBodyCheckDetailColumnsGrids exten
   /**
    * @remarks
    * The display type. Valid values:
-   * - **grid**: grid
-   * - **text**: text.
+   * - **grid**: check grid
+   * - **text**: text
    * 
    * @example
    * text
@@ -70,7 +70,7 @@ export class DescribeCheckWarningDetailResponseBodyCheckDetailColumns extends $d
   key?: string;
   /**
    * @remarks
-   * The display name that corresponds to the key of the check content.
+   * The display name corresponding to the check content key.
    * 
    * @example
    * ContainerName
@@ -79,8 +79,8 @@ export class DescribeCheckWarningDetailResponseBodyCheckDetailColumns extends $d
   /**
    * @remarks
    * The display type. Valid values:
-   * - **grid**: grid
-   * - **text**: text.
+   * - **grid**: check grid
+   * - **text**: text
    * 
    * @example
    * text
@@ -132,7 +132,7 @@ export class DescribeCheckWarningDetailResponseBody extends $dara.Model {
   checkDetailAssetInfo?: { [key: string]: string }[];
   /**
    * @remarks
-   * The details of the check content.
+   * The check content details.
    */
   checkDetailColumns?: DescribeCheckWarningDetailResponseBodyCheckDetailColumns[];
   /**

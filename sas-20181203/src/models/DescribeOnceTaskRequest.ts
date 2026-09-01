@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeOnceTaskRequest extends $dara.Model {
   /**
    * @remarks
-   * The page number of the page to return. Default value: **1**.
+   * The page number of the page to return. Default value: **1**, which indicates the first page.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class DescribeOnceTaskRequest extends $dara.Model {
   endTimeQuery?: number;
   /**
    * @remarks
-   * The number of client tasks per page in a paged query. Default value: **20**.
+   * Settings for the number of client tasks on each page in a paged query. Default value: **20**, which indicates that each page contains 20 client tasks.
    * 
    * @example
    * 20
@@ -69,6 +69,7 @@ export class DescribeOnceTaskRequest extends $dara.Model {
    * - **CLIENT_PROBLEM_CHECK**: client node
    * - **CLIENT_DEV_OPS**: cloud O&M node
    * - **ASSET_SECURITY_CHECK**: asset information collection node
+   * - **ASSET_REFRESH_HOST**: host asset synchronization node
    * > **TaskType** and **RootTaskId** cannot both be empty.
    * 
    * @example

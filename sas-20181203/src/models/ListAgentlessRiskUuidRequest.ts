@@ -53,7 +53,7 @@ export class ListAgentlessRiskUuidRequest extends $dara.Model {
   machineName?: string;
   /**
    * @remarks
-   * The maximum number of entries per page when using paging.
+   * The maximum number of entries to return per page when using paging.
    * 
    * @example
    * 10

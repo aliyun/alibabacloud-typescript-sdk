@@ -69,6 +69,7 @@ export class DescribeGroupedInstancesRequest extends $dara.Model {
    * 20
    */
   pageSize?: number;
+  resourceDirectoryAccountId?: number;
   /**
    * @remarks
    * The edition filter for querying assets. Valid values:
@@ -120,6 +121,7 @@ export class DescribeGroupedInstancesRequest extends $dara.Model {
       machineTypes: 'MachineTypes',
       noPage: 'NoPage',
       pageSize: 'PageSize',
+      resourceDirectoryAccountId: 'ResourceDirectoryAccountId',
       saleVersionCheckCode: 'SaleVersionCheckCode',
       vendor: 'Vendor',
       vendors: 'Vendors',
@@ -135,6 +137,7 @@ export class DescribeGroupedInstancesRequest extends $dara.Model {
       machineTypes: 'string',
       noPage: 'boolean',
       pageSize: 'number',
+      resourceDirectoryAccountId: 'number',
       saleVersionCheckCode: 'string',
       vendor: 'number',
       vendors: 'string',

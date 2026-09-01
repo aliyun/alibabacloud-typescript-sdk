@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class OperateBucketScanTaskRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the bucket.
+   * The bucket name.
    * 
    * @example
    * iboxpublic****
@@ -13,18 +13,29 @@ export class OperateBucketScanTaskRequest extends $dara.Model {
   bucketName?: string;
   /**
    * @remarks
-   * The operation that you want to perform on the bucket. Valid value:
+   * The operation to perform on the bucket. Valid values:
    * 
-   * *   **1**: cancels the bucket check.
+   * - **1**: Cancel detection.
    * 
    * @example
    * 1
    */
   operateCode?: number;
+  /**
+   * @remarks
+   * The business source. Valid values:
+   * - **OSS**: OSS
+   * - **NAS**: NAS
+   * 
+   * @example
+   * OSS
+   */
+  source?: string;
   static names(): { [key: string]: string } {
     return {
       bucketName: 'BucketName',
       operateCode: 'OperateCode',
+      source: 'Source',
     };
   }
 
@@ -32,6 +43,7 @@ export class OperateBucketScanTaskRequest extends $dara.Model {
     return {
       bucketName: 'string',
       operateCode: 'number',
+      source: 'string',
     };
   }
 

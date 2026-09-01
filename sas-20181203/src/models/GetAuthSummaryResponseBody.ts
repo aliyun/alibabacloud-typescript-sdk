@@ -2,6 +2,35 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class GetAuthSummaryResponseBodyEdrSummary extends $dara.Model {
+  boundCount?: string;
+  hybridPaidAutoBind?: string;
+  postPaidAutoBind?: string;
+  static names(): { [key: string]: string } {
+    return {
+      boundCount: 'BoundCount',
+      hybridPaidAutoBind: 'HybridPaidAutoBind',
+      postPaidAutoBind: 'PostPaidAutoBind',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      boundCount: 'string',
+      hybridPaidAutoBind: 'string',
+      postPaidAutoBind: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetAuthSummaryResponseBodyMachine extends $dara.Model {
   /**
    * @remarks
@@ -21,7 +50,7 @@ export class GetAuthSummaryResponseBodyMachine extends $dara.Model {
   bindEcsCount?: number;
   /**
    * @remarks
-   * The number of cores of assets that are bound with pay-as-you-go authorization.
+   * The number of cores of assets bound with pay-as-you-go authorization.
    * 
    * @example
    * 10
@@ -29,7 +58,7 @@ export class GetAuthSummaryResponseBodyMachine extends $dara.Model {
   postPaidBindCoreCount?: number;
   /**
    * @remarks
-   * The number of assets that are bound with pay-as-you-go authorization.
+   * The number of assets bound with pay-as-you-go authorization.
    * 
    * @example
    * 10
@@ -134,9 +163,12 @@ export class GetAuthSummaryResponseBodyPostPaidVersionSummary extends $dara.Mode
    * ASSET
    */
   authBindType?: string;
+  freeCoreCount?: number;
+  freeEcsCount?: number;
+  freeType?: string;
   /**
    * @remarks
-   * The index of the current edition. A larger value indicates a higher edition. This parameter is used for sorting. Valid values:
+   * The index of the current edition. A larger value indicates a higher edition. This field is used for sorting. Valid values:
    * - **1**: Free Edition. 
    * - **2**: Anti-virus Edition.    
    * - **3**: Premium Edition.
@@ -149,7 +181,7 @@ export class GetAuthSummaryResponseBodyPostPaidVersionSummary extends $dara.Mode
   index?: number;
   /**
    * @remarks
-   * The number of authorized cores that are used.
+   * The number of authorized cores that have been used.
    * > This parameter is valid only when AuthBindType is set to CORE or ASSET_AND_CORE.
    * 
    * @example
@@ -158,7 +190,7 @@ export class GetAuthSummaryResponseBodyPostPaidVersionSummary extends $dara.Mode
   usedCoreCount?: number;
   /**
    * @remarks
-   * The number of authorized assets that are used.
+   * The number of authorized assets that have been used.
    * > This parameter is valid only when AuthBindType is set to ASSET or ASSET_AND_CORE.
    * 
    * @example
@@ -167,7 +199,7 @@ export class GetAuthSummaryResponseBodyPostPaidVersionSummary extends $dara.Mode
   usedEcsCount?: number;
   /**
    * @remarks
-   * The pay-as-you-go edition that is bound to host assets. Valid values:  
+   * The pay-as-you-go edition bound to host assets. Valid values:  
    * - **1**: Free Edition. 
    * - **3**: Enterprise Edition.
    * - **5**: Premium Edition.
@@ -181,6 +213,9 @@ export class GetAuthSummaryResponseBodyPostPaidVersionSummary extends $dara.Mode
   static names(): { [key: string]: string } {
     return {
       authBindType: 'AuthBindType',
+      freeCoreCount: 'FreeCoreCount',
+      freeEcsCount: 'FreeEcsCount',
+      freeType: 'FreeType',
       index: 'Index',
       usedCoreCount: 'UsedCoreCount',
       usedEcsCount: 'UsedEcsCount',
@@ -191,6 +226,9 @@ export class GetAuthSummaryResponseBodyPostPaidVersionSummary extends $dara.Mode
   static types(): { [key: string]: any } {
     return {
       authBindType: 'string',
+      freeCoreCount: 'number',
+      freeEcsCount: 'number',
+      freeType: 'string',
       index: 'number',
       usedCoreCount: 'number',
       usedEcsCount: 'number',
@@ -221,7 +259,7 @@ export class GetAuthSummaryResponseBodyVersionSummary extends $dara.Model {
   authBindType?: string;
   /**
    * @remarks
-   * The index of the current edition. A larger value indicates a higher edition. This parameter is used for sorting. Valid values:
+   * The index of the current edition. A larger value indicates a higher edition. This field is used for sorting. Valid values:
    * - **1**: Free Edition. 
    * - **2**: Anti-virus Edition.    
    * - **3**: Premium Edition.
@@ -288,7 +326,7 @@ export class GetAuthSummaryResponseBodyVersionSummary extends $dara.Model {
   unusedEcsAuthCount?: number;
   /**
    * @remarks
-   * The number of authorized cores that are used.
+   * The number of authorized cores that have been used.
    * > This parameter is valid only when AuthBindType is set to CORE or ASSET_AND_CORE.
    * 
    * @example
@@ -297,7 +335,7 @@ export class GetAuthSummaryResponseBodyVersionSummary extends $dara.Model {
   usedCoreCount?: number;
   /**
    * @remarks
-   * The number of authorized assets that are used.
+   * The number of authorized assets that have been used.
    * > This parameter is valid only when AuthBindType is set to ASSET or ASSET_AND_CORE.
    * 
    * @example
@@ -313,7 +351,7 @@ export class GetAuthSummaryResponseBodyVersionSummary extends $dara.Model {
    * - **6**: Anti-virus Edition.    
    * - **7**: Ultimate Edition.   
    * - **8**: Multi-version.   
-   * - **10**: Only value-added services are purchased.
+   * - **10**: Value-added services only.
    * 
    * @example
    * 3
@@ -383,7 +421,7 @@ export class GetAuthSummaryResponseBody extends $dara.Model {
   allowUpgradePartialBuy?: number;
   /**
    * @remarks
-   * Indicates whether you can immediately unbind all bound assets. Valid values:
+   * Indicates whether immediate unbinding of all bound assets is allowed. Valid values:
    * - **0**: No.
    * - **1**: Yes.
    * 
@@ -404,7 +442,7 @@ export class GetAuthSummaryResponseBody extends $dara.Model {
   autoBind?: number;
   /**
    * @remarks
-   * Indicates whether the cluster node requires machine version verification. Valid values:
+   * Indicates whether cluster nodes require agent version verification. Valid values:
    * - **0**: Not required.
    * - **1**: Required.
    * 
@@ -422,11 +460,12 @@ export class GetAuthSummaryResponseBody extends $dara.Model {
    * 1
    */
   defaultAuthToAll?: number;
+  edrSummary?: GetAuthSummaryResponseBodyEdrSummary;
   /**
    * @remarks
-   * Indicates whether a pre-bindingasset configuration exists. Pre-binding refers to the asset binding configuration that is selected in advance during purchase. Valid values:
-   * - **0**: No.
-   * - **1**: Yes.
+   * Indicates whether a pre-bindingasset configuration exists. Pre-binding refers to the asset binding configuration selected in advance during purchase. Valid values:
+   * - **0**: Does not exist.
+   * - **1**: Exists.
    * 
    * @example
    * 1
@@ -434,14 +473,14 @@ export class GetAuthSummaryResponseBody extends $dara.Model {
   hasPreBindSetting?: boolean;
   /**
    * @remarks
-   * The highest edition of Security Center that is purchased. Valid values:
+   * The highest purchased edition of Security Center. Valid values:
    * - **1**: Free Edition.
    * - **3**: Enterprise Edition.
    * - **5**: Premium Edition.
    * - **6**: Anti-virus Edition.
    * - **7**: Ultimate Edition.
-   * - **10**: Only value-added services are purchased.
-   * > If a single edition is purchased, this value indicates the corresponding edition. If multiple editions are purchased, this value indicates the highest edition among the sub-editions.
+   * - **10**: Value-added services only.
+   * > If a single edition is purchased, this value indicates the corresponding edition. If multiple editions are purchased, this value indicates the highest sub-edition.
    * 
    * @example
    * 1
@@ -450,8 +489,8 @@ export class GetAuthSummaryResponseBody extends $dara.Model {
   /**
    * @remarks
    * The binding validity status. Valid values:
-   * - **NORMAL**: valid.
-   * - **INVALID_NODE_VERSION**: invalid.
+   * - **NORMAL**: Valid.
+   * - **INVALID_NODE_VERSION**: Invalid.
    * 
    * @example
    * INVALID_NODE_VERSION
@@ -474,7 +513,7 @@ export class GetAuthSummaryResponseBody extends $dara.Model {
   machine?: GetAuthSummaryResponseBodyMachine;
   /**
    * @remarks
-   * The protection edition of the host and container security pay-as-you-go service. This value indicates the highest protection edition among all bound hosts. Valid values:  
+   * The protection edition of the host and container security pay-as-you-go service. This is the highest protection edition among all bound hosts. Valid values:  
    * - **1**: Free Edition. 
    * - **3**: Enterprise Edition.
    * - **5**: Premium Edition.
@@ -487,7 +526,7 @@ export class GetAuthSummaryResponseBody extends $dara.Model {
   postPaidHighestVersion?: string;
   /**
    * @remarks
-   * Indicates whether new hosts are automatically bound for the host and container security pay-as-you-go service. Valid values:
+   * Indicates whether automatic binding of new hosts is enabled for the host and container security pay-as-you-go service. Valid values:
    * - **0**: Disabled.
    * - **1**: Enabled.
    * 
@@ -534,6 +573,7 @@ export class GetAuthSummaryResponseBody extends $dara.Model {
       autoBind: 'AutoBind',
       clusterNodeCheck: 'ClusterNodeCheck',
       defaultAuthToAll: 'DefaultAuthToAll',
+      edrSummary: 'EdrSummary',
       hasPreBindSetting: 'HasPreBindSetting',
       highestVersion: 'HighestVersion',
       invalidBindStatus: 'InvalidBindStatus',
@@ -556,6 +596,7 @@ export class GetAuthSummaryResponseBody extends $dara.Model {
       autoBind: 'number',
       clusterNodeCheck: 'number',
       defaultAuthToAll: 'number',
+      edrSummary: GetAuthSummaryResponseBodyEdrSummary,
       hasPreBindSetting: 'boolean',
       highestVersion: 'number',
       invalidBindStatus: 'string',
@@ -571,6 +612,9 @@ export class GetAuthSummaryResponseBody extends $dara.Model {
   }
 
   validate() {
+    if(this.edrSummary && typeof (this.edrSummary as any).validate === 'function') {
+      (this.edrSummary as any).validate();
+    }
     if(this.machine && typeof (this.machine as any).validate === 'function') {
       (this.machine as any).validate();
     }

@@ -28,7 +28,7 @@ export class ListVirusScanMachineEventResponseBodyDataDetails extends $dara.Mode
    * Valid values:
    * 
    * - **text**: plain text
-   * - **html**: rich text.
+   * - **html**: rich text
    * 
    * @example
    * html
@@ -37,7 +37,7 @@ export class ListVirusScanMachineEventResponseBodyDataDetails extends $dara.Mode
   /**
    * @remarks
    * The additional attribute information of the exception event.
-   * For example, the logon time or logon location of an unusual logon alert, or the trojan file path or trojan type of an alert.
+   * For example, the logon time or logon location for an unusual logon alert, or the trojan file path or trojan type for a trojan alert.
    * 
    * @example
    * getopt
@@ -89,7 +89,7 @@ export class ListVirusScanMachineEventResponseBodyData extends $dara.Model {
    * The name (subtype) of the alert event.
    * 
    * @example
-   * 恶意脚本代码执行
+   * Malicious Software-Trojan
    */
   eventName?: string;
   /**

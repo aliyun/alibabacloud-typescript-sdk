@@ -10,6 +10,14 @@ export class VerifyCheckResultRequest extends $dara.Model {
   checkIds?: number[];
   /**
    * @remarks
+   * Specifies whether to forcibly run the specified check items. Default value: false.
+   * 
+   * - true: Forcibly runs the specified check items. Forced execution bypasses frequency and quantity limits and initiates the check directly, which may cause duplicate checks to run multiple times within a short period.
+   * - false (default): Does not forcibly run the specified check items. This ensures that the same check item is executed only once within a short period.
+   */
+  force?: boolean;
+  /**
+   * @remarks
    * The list of instance IDs of the assets associated with the check items.
    */
   instanceIds?: string[];
@@ -26,6 +34,7 @@ export class VerifyCheckResultRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       checkIds: 'CheckIds',
+      force: 'Force',
       instanceIds: 'InstanceIds',
       taskSource: 'TaskSource',
     };
@@ -34,6 +43,7 @@ export class VerifyCheckResultRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       checkIds: { 'type': 'array', 'itemType': 'number' },
+      force: 'boolean',
       instanceIds: { 'type': 'array', 'itemType': 'string' },
       taskSource: 'string',
     };

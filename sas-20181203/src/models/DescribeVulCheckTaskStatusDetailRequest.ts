@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeVulCheckTaskStatusDetailRequest extends $dara.Model {
+  resourceDirectoryAccountId?: number;
   /**
    * @remarks
    * The task IDs.
@@ -23,6 +24,7 @@ export class DescribeVulCheckTaskStatusDetailRequest extends $dara.Model {
   uuid?: string;
   static names(): { [key: string]: string } {
     return {
+      resourceDirectoryAccountId: 'ResourceDirectoryAccountId',
       taskIds: 'TaskIds',
       types: 'Types',
       uuid: 'Uuid',
@@ -31,6 +33,7 @@ export class DescribeVulCheckTaskStatusDetailRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      resourceDirectoryAccountId: 'number',
       taskIds: { 'type': 'array', 'itemType': 'string' },
       types: { 'type': 'array', 'itemType': 'string' },
       uuid: 'string',

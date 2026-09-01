@@ -79,6 +79,7 @@ export class DescribeUuidsByVulNamesRequest extends $dara.Model {
    * 10.7.
    */
   remark?: string;
+  resourceDirectoryAccountId?: number;
   /**
    * @remarks
    * The tag for querying vulnerabilities.
@@ -156,6 +157,7 @@ export class DescribeUuidsByVulNamesRequest extends $dara.Model {
       level: 'Level',
       necessity: 'Necessity',
       remark: 'Remark',
+      resourceDirectoryAccountId: 'ResourceDirectoryAccountId',
       searchTags: 'SearchTags',
       statusList: 'StatusList',
       tag: 'Tag',
@@ -176,6 +178,7 @@ export class DescribeUuidsByVulNamesRequest extends $dara.Model {
       level: 'string',
       necessity: 'string',
       remark: 'string',
+      resourceDirectoryAccountId: 'number',
       searchTags: 'string',
       statusList: 'string',
       tag: 'string',

@@ -13,6 +13,7 @@ export class OperateVulsRequest extends $dara.Model {
    * vul_fix
    */
   operateType?: string;
+  resourceDirectoryAccountId?: number;
   /**
    * @remarks
    * The type of vulnerability to fix. Set the value to **cve**, which indicates a Linux software vulnerability.
@@ -40,6 +41,7 @@ export class OperateVulsRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       operateType: 'OperateType',
+      resourceDirectoryAccountId: 'ResourceDirectoryAccountId',
       type: 'Type',
       uuids: 'Uuids',
       vulNames: 'VulNames',
@@ -49,6 +51,7 @@ export class OperateVulsRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       operateType: 'string',
+      resourceDirectoryAccountId: 'number',
       type: 'string',
       uuids: { 'type': 'array', 'itemType': 'string' },
       vulNames: { 'type': 'array', 'itemType': 'string' },

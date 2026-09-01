@@ -6,7 +6,7 @@ export class ListUnknownThreatDetectEventRequest extends $dara.Model {
   analyzeResult?: string;
   /**
    * @remarks
-   * The page number of the current page in a paged query. This parameter is used for paging.
+   * The page number of the current page in a paging query.
    * 
    * @example
    * 1
@@ -23,7 +23,7 @@ export class ListUnknownThreatDetectEventRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The maximum number of entries to return on each page in a paged query. This parameter is used for paging.
+   * The maximum number of entries to return on each page in a paging query.
    * 
    * @example
    * 10
@@ -47,7 +47,7 @@ export class ListUnknownThreatDetectEventRequest extends $dara.Model {
   processPath?: string;
   /**
    * @remarks
-   * The filter condition. You can filter by instance name or IP address.
+   * The filter condition based on instance name or IP address.
    * 
    * @example
    * 10.167.XX.XX

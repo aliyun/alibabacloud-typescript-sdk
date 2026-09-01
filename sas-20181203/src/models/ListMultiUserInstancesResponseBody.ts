@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListMultiUserInstancesResponseBodyDaInstanceAntiRansomwareCapacity extends $dara.Model {
   /**
    * @remarks
-   * Allocated anti-ransomware capacity, in GB.
+   * The assigned anti-ransomware capacity. Unit: GB.
    * 
    * @example
    * 0
@@ -13,7 +13,7 @@ export class ListMultiUserInstancesResponseBodyDaInstanceAntiRansomwareCapacity 
   assigned?: number;
   /**
    * @remarks
-   * Administrator account anti-ransomware capacity, in GB.
+   * The anti-ransomware capacity of the administrator account. Unit: GB.
    * 
    * @example
    * 14
@@ -21,7 +21,7 @@ export class ListMultiUserInstancesResponseBodyDaInstanceAntiRansomwareCapacity 
   count?: number;
   /**
    * @remarks
-   * Used anti-ransomware capacity, in GB.
+   * The used anti-ransomware capacity. Unit: GB.
    * 
    * @example
    * 2
@@ -55,7 +55,7 @@ export class ListMultiUserInstancesResponseBodyDaInstanceAntiRansomwareCapacity 
 export class ListMultiUserInstancesResponseBodyDaInstanceCspmCapacity extends $dara.Model {
   /**
    * @remarks
-   * Allocated CSPM scan count. Unit: per month.
+   * The assigned number of cloud platform configuration check scans. Unit: scans/month.
    * 
    * @example
    * 0
@@ -63,7 +63,7 @@ export class ListMultiUserInstancesResponseBodyDaInstanceCspmCapacity extends $d
   assigned?: number;
   /**
    * @remarks
-   * Purchased CSPM scan count. Unit: per month.
+   * The purchased number of cloud platform configuration check scans. Unit: scans/month.
    * 
    * @example
    * 180000
@@ -71,7 +71,7 @@ export class ListMultiUserInstancesResponseBodyDaInstanceCspmCapacity extends $d
   count?: number;
   /**
    * @remarks
-   * Used CSPM scan count. Unit: per month.
+   * The used number of cloud platform configuration check scans. Unit: scans/month.
    * 
    * @example
    * 31569
@@ -102,10 +102,39 @@ export class ListMultiUserInstancesResponseBodyDaInstanceCspmCapacity extends $d
   }
 }
 
+export class ListMultiUserInstancesResponseBodyDaInstanceCspmInstanceCapacity extends $dara.Model {
+  assigned?: number;
+  count?: number;
+  used?: number;
+  static names(): { [key: string]: string } {
+    return {
+      assigned: 'Assigned',
+      count: 'Count',
+      used: 'Used',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      assigned: 'number',
+      count: 'number',
+      used: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListMultiUserInstancesResponseBodyDaInstanceHoneypotCapacity extends $dara.Model {
   /**
    * @remarks
-   * Assigned number of honeypot licenses.
+   * The assigned honeypot quota.
    * 
    * @example
    * 0
@@ -113,7 +142,7 @@ export class ListMultiUserInstancesResponseBodyDaInstanceHoneypotCapacity extend
   assigned?: number;
   /**
    * @remarks
-   * Purchased honeypot authorization count.
+   * The purchased honeypot quota.
    * 
    * @example
    * 45
@@ -121,7 +150,7 @@ export class ListMultiUserInstancesResponseBodyDaInstanceHoneypotCapacity extend
   count?: number;
   /**
    * @remarks
-   * Used honeypot authorization count.
+   * The used number of cloud honeypot authorizations.
    * 
    * @example
    * 9
@@ -155,7 +184,7 @@ export class ListMultiUserInstancesResponseBodyDaInstanceHoneypotCapacity extend
 export class ListMultiUserInstancesResponseBodyDaInstanceImageScanCapacity extends $dara.Model {
   /**
    * @remarks
-   * Assigned image scan authorization count.
+   * The assigned image scan quota.
    * 
    * @example
    * 0
@@ -163,7 +192,7 @@ export class ListMultiUserInstancesResponseBodyDaInstanceImageScanCapacity exten
   assigned?: number;
   /**
    * @remarks
-   * Purchased image scan authorization count.
+   * The purchased image scan quota.
    * 
    * @example
    * 60
@@ -171,7 +200,7 @@ export class ListMultiUserInstancesResponseBodyDaInstanceImageScanCapacity exten
   count?: number;
   /**
    * @remarks
-   * Used purchased image scan authorization count.
+   * The used image scan quota.
    * 
    * @example
    * 1
@@ -205,7 +234,7 @@ export class ListMultiUserInstancesResponseBodyDaInstanceImageScanCapacity exten
 export class ListMultiUserInstancesResponseBodyDaInstanceRaspCapacity extends $dara.Model {
   /**
    * @remarks
-   * Allocated RASP capacity. Unit: per month.
+   * The assigned number of application protection quotas. Unit: quotas/month.
    * 
    * @example
    * 0
@@ -213,7 +242,7 @@ export class ListMultiUserInstancesResponseBodyDaInstanceRaspCapacity extends $d
   assigned?: number;
   /**
    * @remarks
-   * Purchased RASP capacity. Unit: per month.
+   * The purchased number of application protection quotas. Unit: quotas/month.
    * 
    * @example
    * 7
@@ -221,7 +250,7 @@ export class ListMultiUserInstancesResponseBodyDaInstanceRaspCapacity extends $d
   count?: number;
   /**
    * @remarks
-   * Used RASP capacity. Unit: per month.
+   * The used number of application protection quotas. Unit: quotas/month.
    * 
    * @example
    * 6
@@ -255,7 +284,7 @@ export class ListMultiUserInstancesResponseBodyDaInstanceRaspCapacity extends $d
 export class ListMultiUserInstancesResponseBodyDaInstanceSdkCapacity extends $dara.Model {
   /**
    * @remarks
-   * Assigned number of malicious file detection SDK licenses.
+   * The assigned malicious file detection SDK quota.
    * 
    * @example
    * 0
@@ -263,7 +292,7 @@ export class ListMultiUserInstancesResponseBodyDaInstanceSdkCapacity extends $da
   assigned?: number;
   /**
    * @remarks
-   * Purchased number of malicious file detection SDK licenses.
+   * The purchased malicious file detection SDK quota.
    * 
    * @example
    * 50
@@ -271,7 +300,7 @@ export class ListMultiUserInstancesResponseBodyDaInstanceSdkCapacity extends $da
   count?: number;
   /**
    * @remarks
-   * Used number of malicious file detection SDK licenses.
+   * The used number of malicious file detection SDK authorizations.
    * 
    * @example
    * 0
@@ -305,7 +334,7 @@ export class ListMultiUserInstancesResponseBodyDaInstanceSdkCapacity extends $da
 export class ListMultiUserInstancesResponseBodyDaInstanceSlsCapacity extends $dara.Model {
   /**
    * @remarks
-   * Allocated log storage capacity, in GB.
+   * The assigned log storage capacity. Unit: GB.
    * 
    * @example
    * 10
@@ -313,7 +342,7 @@ export class ListMultiUserInstancesResponseBodyDaInstanceSlsCapacity extends $da
   assigned?: number;
   /**
    * @remarks
-   * Administrator account log storage capacity, in GB.
+   * The log storage capacity of the administrator account. Unit: GB.
    * 
    * @example
    * 150
@@ -321,7 +350,7 @@ export class ListMultiUserInstancesResponseBodyDaInstanceSlsCapacity extends $da
   count?: number;
   /**
    * @remarks
-   * Used log storage capacity, in GB.
+   * The used log storage capacity. Unit: GB.
    * 
    * @example
    * 5
@@ -355,7 +384,7 @@ export class ListMultiUserInstancesResponseBodyDaInstanceSlsCapacity extends $da
 export class ListMultiUserInstancesResponseBodyDaInstanceThreatAnalysisCapacity extends $dara.Model {
   /**
    * @remarks
-   * Assigned threat analysis capacity. Unit: GB.
+   * The assigned threat analysis capacity. Unit: GB.
    * 
    * @example
    * 0
@@ -363,7 +392,7 @@ export class ListMultiUserInstancesResponseBodyDaInstanceThreatAnalysisCapacity 
   assigned?: number;
   /**
    * @remarks
-   * Purchased threat analysis capacity. Unit: GB.
+   * The purchased threat analysis capacity. Unit: GB.
    * 
    * @example
    * 3000
@@ -371,7 +400,7 @@ export class ListMultiUserInstancesResponseBodyDaInstanceThreatAnalysisCapacity 
   count?: number;
   /**
    * @remarks
-   * Used threat analysis capacity. Unit: GB.
+   * The used threat analysis capacity. Unit: GB.
    * 
    * @example
    * 1548
@@ -405,7 +434,7 @@ export class ListMultiUserInstancesResponseBodyDaInstanceThreatAnalysisCapacity 
 export class ListMultiUserInstancesResponseBodyDaInstanceThreatAnalysisFlow extends $dara.Model {
   /**
    * @remarks
-   * Assigned threat analysis and response log inbound traffic. Unit: GB/day.
+   * The assigned threat detection and response log ingestion traffic. Unit: GB/day.
    * 
    * @example
    * 0
@@ -413,7 +442,7 @@ export class ListMultiUserInstancesResponseBodyDaInstanceThreatAnalysisFlow exte
   assigned?: number;
   /**
    * @remarks
-   * Purchased threat analysis and response log inbound traffic. Unit: GB/day.
+   * The purchased threat detection and response log ingestion traffic. Unit: GB/day.
    * 
    * @example
    * 300
@@ -421,7 +450,7 @@ export class ListMultiUserInstancesResponseBodyDaInstanceThreatAnalysisFlow exte
   count?: number;
   /**
    * @remarks
-   * Used threat analysis and response log inbound traffic. Unit: GB/day.
+   * The used threat detection and response log ingestion traffic. Unit: GB/day.
    * 
    * @example
    * 0
@@ -455,7 +484,7 @@ export class ListMultiUserInstancesResponseBodyDaInstanceThreatAnalysisFlow exte
 export class ListMultiUserInstancesResponseBodyDaInstanceVersionSummaryCoreCount extends $dara.Model {
   /**
    * @remarks
-   * Assigned number of core licenses.
+   * The assigned number of authorized cores.
    * 
    * @example
    * 4
@@ -463,7 +492,7 @@ export class ListMultiUserInstancesResponseBodyDaInstanceVersionSummaryCoreCount
   assigned?: number;
   /**
    * @remarks
-   * Purchased number of core licenses.
+   * The purchased authorized core quota.
    * 
    * @example
    * 150
@@ -471,7 +500,7 @@ export class ListMultiUserInstancesResponseBodyDaInstanceVersionSummaryCoreCount
   count?: number;
   /**
    * @remarks
-   * Used number of core licenses.
+   * The used number of authorized cores.
    * 
    * @example
    * 68
@@ -505,7 +534,7 @@ export class ListMultiUserInstancesResponseBodyDaInstanceVersionSummaryCoreCount
 export class ListMultiUserInstancesResponseBodyDaInstanceVersionSummaryEcsCount extends $dara.Model {
   /**
    * @remarks
-   * Assigned number of purchased ECS instance licenses.
+   * The assigned number of purchased authorized servers.
    * 
    * @example
    * 3
@@ -513,7 +542,7 @@ export class ListMultiUserInstancesResponseBodyDaInstanceVersionSummaryEcsCount 
   assigned?: number;
   /**
    * @remarks
-   * Purchased number of ECS instance licenses.
+   * The purchased authorized server quota.
    * 
    * @example
    * 20
@@ -521,7 +550,7 @@ export class ListMultiUserInstancesResponseBodyDaInstanceVersionSummaryEcsCount 
   count?: number;
   /**
    * @remarks
-   * Used number of purchased ECS instance licenses.
+   * The used authorized server quota.
    * 
    * @example
    * 14
@@ -555,13 +584,7 @@ export class ListMultiUserInstancesResponseBodyDaInstanceVersionSummaryEcsCount 
 export class ListMultiUserInstancesResponseBodyDaInstanceVersionSummary extends $dara.Model {
   /**
    * @remarks
-   * The type of authorization consumed during binding. Values:
-   * 
-   * - ASSET: consumes the number of authorized instances
-   * 
-   * - CORE: consumes the number of authorized cores
-   * 
-   * - ASSET_AND_CORE: consumes both the number of authorized instances and cores
+   * The authorization type consumed during binding. Valid values:
    * 
    * @example
    * ASSET_AND_CORE
@@ -569,31 +592,17 @@ export class ListMultiUserInstancesResponseBodyDaInstanceVersionSummary extends 
   authBindType?: string;
   /**
    * @remarks
-   * Usage and allocation details of the core licenses for the administrator account.
+   * The usage and allocation of authorized core quotas for the administrator account.
    */
   coreCount?: ListMultiUserInstancesResponseBodyDaInstanceVersionSummaryCoreCount;
   /**
    * @remarks
-   * Usage and allocation details of the ECS instance licenses for the administrator account.
+   * The usage and allocation of authorized server quotas for the administrator account.
    */
   ecsCount?: ListMultiUserInstancesResponseBodyDaInstanceVersionSummaryEcsCount;
   /**
    * @remarks
-   * Purchased version of Cloud Security Center. Values:
-   * 
-   * - **1**: Free Edition
-   * 
-   * - **3**: Enterprise Edition
-   * 
-   * - **5**: Advanced Edition
-   * 
-   * - **6**: Antivirus Edition
-   * 
-   * - **7**: Flagship Edition
-   * 
-   * - **8**: Multiple Editions
-   * 
-   * - **10**: Only Value-Added Services Purchased
+   * The purchased Security Center edition. Valid values:
    * 
    * @example
    * 1
@@ -635,7 +644,7 @@ export class ListMultiUserInstancesResponseBodyDaInstanceVersionSummary extends 
 export class ListMultiUserInstancesResponseBodyDaInstanceWebLockCapacity extends $dara.Model {
   /**
    * @remarks
-   * Assigned web lock (anti-tampering) authorization count.
+   * The assigned tamper-proofing quota.
    * 
    * @example
    * 0
@@ -643,7 +652,7 @@ export class ListMultiUserInstancesResponseBodyDaInstanceWebLockCapacity extends
   assigned?: number;
   /**
    * @remarks
-   * Purchased web lock (anti-tampering) authorization count.
+   * The purchased tamper-proofing quota.
    * 
    * @example
    * 5
@@ -651,7 +660,7 @@ export class ListMultiUserInstancesResponseBodyDaInstanceWebLockCapacity extends
   count?: number;
   /**
    * @remarks
-   * Used web lock (anti-tampering) authorization count.
+   * The used tamper-proofing quota.
    * 
    * @example
    * 3
@@ -685,7 +694,7 @@ export class ListMultiUserInstancesResponseBodyDaInstanceWebLockCapacity extends
 export class ListMultiUserInstancesResponseBodyDaInstance extends $dara.Model {
   /**
    * @remarks
-   * AliUid of the administrator account.
+   * The aliuid of the administrator account.
    * 
    * @example
    * 1766185894104675
@@ -693,27 +702,28 @@ export class ListMultiUserInstancesResponseBodyDaInstance extends $dara.Model {
   aliUid?: number;
   /**
    * @remarks
-   * Usage and allocation of administrator account anti-ransomware capacity.
+   * The anti-ransomware capacity usage and allocation of the administrator account.
    */
   antiRansomwareCapacity?: ListMultiUserInstancesResponseBodyDaInstanceAntiRansomwareCapacity;
   /**
    * @remarks
-   * Usage and allocation of administrator account CSPM (Cloud Security Posture Management) scan count.
+   * The cloud platform configuration check scan usage and allocation of the administrator account.
    */
   cspmCapacity?: ListMultiUserInstancesResponseBodyDaInstanceCspmCapacity;
+  cspmInstanceCapacity?: ListMultiUserInstancesResponseBodyDaInstanceCspmInstanceCapacity;
   /**
    * @remarks
-   * Usage and allocation of honeypot authorization count for the administrator account.
+   * The usage and allocation of honeypot quotas for the administrator account.
    */
   honeypotCapacity?: ListMultiUserInstancesResponseBodyDaInstanceHoneypotCapacity;
   /**
    * @remarks
-   * Usage and allocation of image scan authorization count for the administrator account.
+   * The usage and allocation of image scan quotas for the administrator account.
    */
   imageScanCapacity?: ListMultiUserInstancesResponseBodyDaInstanceImageScanCapacity;
   /**
    * @remarks
-   * Cloud Security Center instance ID purchased by the administrator account.
+   * The Security Center instance ID purchased by the administrator account.
    * 
    * @example
    * i-bp1gmm4pnacse343nqal
@@ -721,11 +731,7 @@ export class ListMultiUserInstancesResponseBodyDaInstance extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Instance purchase type. Values:
-   * 
-   * - **0**:Self-purchased.
-   * 
-   * - **1**:Allocated.
+   * The instance purchase type. Valid values:
    * 
    * @example
    * 0
@@ -733,26 +739,22 @@ export class ListMultiUserInstancesResponseBodyDaInstance extends $dara.Model {
   instancePurchaseType?: number;
   /**
    * @remarks
-   * Usage and allocation of administrator account RASP (Runtime Application Self-Protection) capacity.
+   * The application protection usage and allocation of the administrator account.
    */
   raspCapacity?: ListMultiUserInstancesResponseBodyDaInstanceRaspCapacity;
   /**
    * @remarks
-   * Usage and allocation details of the malicious file detection SDK licenses for the administrator account.
+   * The usage and allocation of malicious file detection SDK quotas for the administrator account.
    */
   sdkCapacity?: ListMultiUserInstancesResponseBodyDaInstanceSdkCapacity;
   /**
    * @remarks
-   * Usage and allocation of administrator account log storage capacity.
+   * The log storage capacity usage and allocation of the administrator account.
    */
   slsCapacity?: ListMultiUserInstancesResponseBodyDaInstanceSlsCapacity;
   /**
    * @remarks
-   * Administrator account instance status. Values:
-   * 
-   * - **1**: Active.
-   * 
-   * - **2**: Inactive.
+   * The instance status of the administrator account. Valid values:
    * 
    * @example
    * 1
@@ -760,21 +762,17 @@ export class ListMultiUserInstancesResponseBodyDaInstance extends $dara.Model {
   status?: number;
   /**
    * @remarks
-   * Usage and allocation of administrator account threat analysis capacity.
+   * The threat analysis capacity usage and allocation of the administrator account.
    */
   threatAnalysisCapacity?: ListMultiUserInstancesResponseBodyDaInstanceThreatAnalysisCapacity;
   /**
    * @remarks
-   * Usage and allocation of threat analysis and response log inbound traffic for the administrator account.
+   * The usage and allocation of threat detection and response log ingestion traffic for the administrator account.
    */
   threatAnalysisFlow?: ListMultiUserInstancesResponseBodyDaInstanceThreatAnalysisFlow;
   /**
    * @remarks
-   * User type. Values:
-   * 
-   * - **Administrator User**: 1
-   * 
-   * - **Regular User**: 2
+   * The user type. Valid values:
    * 
    * @example
    * 1
@@ -782,21 +780,7 @@ export class ListMultiUserInstancesResponseBodyDaInstance extends $dara.Model {
   userType?: number;
   /**
    * @remarks
-   * Purchased version of Cloud Security Center. Values:
-   * 
-   * - **1**:Free Edition
-   * 
-   * - **3**:Enterprise Edition
-   * 
-   * - **5**:Advanced Edition
-   * 
-   * - **6**:Anti-Virus Edition
-   * 
-   * - **7**:Flagship Edition
-   * 
-   * - **8**:Multiple Editions
-   * 
-   * - **10**:Value-Added Services Only
+   * The purchased Security Center edition. Valid values:
    * 
    * @example
    * 3
@@ -804,12 +788,12 @@ export class ListMultiUserInstancesResponseBodyDaInstance extends $dara.Model {
   version?: number;
   /**
    * @remarks
-   * Authorization usage statistics for the administrator account.
+   * The authorization usage statistics information for the administrator account.
    */
   versionSummary?: ListMultiUserInstancesResponseBodyDaInstanceVersionSummary[];
   /**
    * @remarks
-   * Usage and allocation of web lock (anti-tampering) authorization count for the administrator account.
+   * The usage and allocation of tamper-proofing quotas for the administrator account.
    */
   webLockCapacity?: ListMultiUserInstancesResponseBodyDaInstanceWebLockCapacity;
   static names(): { [key: string]: string } {
@@ -817,6 +801,7 @@ export class ListMultiUserInstancesResponseBodyDaInstance extends $dara.Model {
       aliUid: 'AliUid',
       antiRansomwareCapacity: 'AntiRansomwareCapacity',
       cspmCapacity: 'CspmCapacity',
+      cspmInstanceCapacity: 'CspmInstanceCapacity',
       honeypotCapacity: 'HoneypotCapacity',
       imageScanCapacity: 'ImageScanCapacity',
       instanceId: 'InstanceId',
@@ -839,6 +824,7 @@ export class ListMultiUserInstancesResponseBodyDaInstance extends $dara.Model {
       aliUid: 'number',
       antiRansomwareCapacity: ListMultiUserInstancesResponseBodyDaInstanceAntiRansomwareCapacity,
       cspmCapacity: ListMultiUserInstancesResponseBodyDaInstanceCspmCapacity,
+      cspmInstanceCapacity: ListMultiUserInstancesResponseBodyDaInstanceCspmInstanceCapacity,
       honeypotCapacity: ListMultiUserInstancesResponseBodyDaInstanceHoneypotCapacity,
       imageScanCapacity: ListMultiUserInstancesResponseBodyDaInstanceImageScanCapacity,
       instanceId: 'string',
@@ -862,6 +848,9 @@ export class ListMultiUserInstancesResponseBodyDaInstance extends $dara.Model {
     }
     if(this.cspmCapacity && typeof (this.cspmCapacity as any).validate === 'function') {
       (this.cspmCapacity as any).validate();
+    }
+    if(this.cspmInstanceCapacity && typeof (this.cspmInstanceCapacity as any).validate === 'function') {
+      (this.cspmInstanceCapacity as any).validate();
     }
     if(this.honeypotCapacity && typeof (this.honeypotCapacity as any).validate === 'function') {
       (this.honeypotCapacity as any).validate();
@@ -901,7 +890,7 @@ export class ListMultiUserInstancesResponseBodyDaInstance extends $dara.Model {
 export class ListMultiUserInstancesResponseBodyPageInfo extends $dara.Model {
   /**
    * @remarks
-   * The current page number in a paginated query.
+   * The current page number in paging query.
    * 
    * @example
    * 1
@@ -909,7 +898,7 @@ export class ListMultiUserInstancesResponseBodyPageInfo extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The number of items to return in each batch query.
+   * The number of entries per batch in a batched query.
    * 
    * @example
    * 1000
@@ -917,7 +906,7 @@ export class ListMultiUserInstancesResponseBodyPageInfo extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The NextToken value returned when using the NextToken method.
+   * The NextToken value returned when the NextToken-based pagination method is used.
    * 
    * @example
    * B604532DEF982B875E8360A6EFA3B***
@@ -925,7 +914,7 @@ export class ListMultiUserInstancesResponseBodyPageInfo extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The maximum number of items to return per page in a paginated query.
+   * The maximum number of entries per page in paging query.
    * 
    * @example
    * 20
@@ -933,7 +922,7 @@ export class ListMultiUserInstancesResponseBodyPageInfo extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Total number of items.
+   * The total number of entries.
    * 
    * @example
    * 55
@@ -971,7 +960,7 @@ export class ListMultiUserInstancesResponseBodyPageInfo extends $dara.Model {
 export class ListMultiUserInstancesResponseBodySaleInstanceListAntiRansomwareCapacity extends $dara.Model {
   /**
    * @remarks
-   * Allocated anti-ransomware capacity, in GB.
+   * The allocated anti-ransomware capacity. Unit: GB.
    * 
    * @example
    * 10
@@ -979,7 +968,7 @@ export class ListMultiUserInstancesResponseBodySaleInstanceListAntiRansomwareCap
   count?: number;
   /**
    * @remarks
-   * Used anti-ransomware capacity, in GB.
+   * The used anti-ransomware capacity. Unit: GB.
    * 
    * @example
    * 0
@@ -1011,7 +1000,7 @@ export class ListMultiUserInstancesResponseBodySaleInstanceListAntiRansomwareCap
 export class ListMultiUserInstancesResponseBodySaleInstanceListCspmCapacity extends $dara.Model {
   /**
    * @remarks
-   * Allocated CSPM scan count. Unit: per month.
+   * The allocated number of cloud platform configuration check scans. Unit: scans/month.
    * 
    * @example
    * 0
@@ -1019,7 +1008,7 @@ export class ListMultiUserInstancesResponseBodySaleInstanceListCspmCapacity exte
   count?: number;
   /**
    * @remarks
-   * Used CSPM scan count. Unit: per month.
+   * The used number of cloud platform configuration check scans. Unit: scans/month.
    * 
    * @example
    * 0
@@ -1048,10 +1037,36 @@ export class ListMultiUserInstancesResponseBodySaleInstanceListCspmCapacity exte
   }
 }
 
+export class ListMultiUserInstancesResponseBodySaleInstanceListCspmInstanceCapacity extends $dara.Model {
+  count?: number;
+  used?: number;
+  static names(): { [key: string]: string } {
+    return {
+      count: 'Count',
+      used: 'Used',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      count: 'number',
+      used: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListMultiUserInstancesResponseBodySaleInstanceListHoneypotCapacity extends $dara.Model {
   /**
    * @remarks
-   * Number of honeypot authorizations allocated.
+   * The allocated number of cloud honeypot authorizations.
    * 
    * @example
    * 0
@@ -1059,7 +1074,7 @@ export class ListMultiUserInstancesResponseBodySaleInstanceListHoneypotCapacity 
   count?: number;
   /**
    * @remarks
-   * Number of honeypot authorizations used.
+   * The used number of cloud honeypot authorizations.
    * 
    * @example
    * 0
@@ -1091,7 +1106,7 @@ export class ListMultiUserInstancesResponseBodySaleInstanceListHoneypotCapacity 
 export class ListMultiUserInstancesResponseBodySaleInstanceListImageScanCapacity extends $dara.Model {
   /**
    * @remarks
-   * Allocated image scanning authorizations.
+   * The allocated number of image scan authorizations.
    * 
    * @example
    * 0
@@ -1099,7 +1114,7 @@ export class ListMultiUserInstancesResponseBodySaleInstanceListImageScanCapacity
   count?: number;
   /**
    * @remarks
-   * Used image scanning authorizations.
+   * The used number of image scan authorizations.
    * 
    * @example
    * 0
@@ -1131,7 +1146,7 @@ export class ListMultiUserInstancesResponseBodySaleInstanceListImageScanCapacity
 export class ListMultiUserInstancesResponseBodySaleInstanceListRaspCapacity extends $dara.Model {
   /**
    * @remarks
-   * Allocated RASP capacity. Unit: per month.
+   * The allocated number of application protection quotas. Unit: quotas/month.
    * 
    * @example
    * 0
@@ -1139,7 +1154,7 @@ export class ListMultiUserInstancesResponseBodySaleInstanceListRaspCapacity exte
   count?: number;
   /**
    * @remarks
-   * Used RASP capacity. Unit: per month.
+   * The used number of application protection quotas. Unit: quotas/month.
    * 
    * @example
    * 0
@@ -1171,7 +1186,7 @@ export class ListMultiUserInstancesResponseBodySaleInstanceListRaspCapacity exte
 export class ListMultiUserInstancesResponseBodySaleInstanceListSdkCapacity extends $dara.Model {
   /**
    * @remarks
-   * Number of malicious file detection SDK authorizations allocated.
+   * The allocated number of malicious file detection SDK authorizations.
    * 
    * @example
    * 0
@@ -1179,7 +1194,7 @@ export class ListMultiUserInstancesResponseBodySaleInstanceListSdkCapacity exten
   count?: number;
   /**
    * @remarks
-   * Number of malicious file detection SDK authorizations used.
+   * The used number of malicious file detection SDK authorizations.
    * 
    * @example
    * 0
@@ -1211,7 +1226,7 @@ export class ListMultiUserInstancesResponseBodySaleInstanceListSdkCapacity exten
 export class ListMultiUserInstancesResponseBodySaleInstanceListSlsCapacity extends $dara.Model {
   /**
    * @remarks
-   * Allocated log storage capacity, in GB.
+   * The allocated log storage capacity. Unit: GB.
    * 
    * @example
    * 0
@@ -1219,7 +1234,7 @@ export class ListMultiUserInstancesResponseBodySaleInstanceListSlsCapacity exten
   count?: number;
   /**
    * @remarks
-   * Used log storage capacity, in GB.
+   * The used log storage capacity. Unit: GB.
    * 
    * @example
    * 0
@@ -1251,7 +1266,7 @@ export class ListMultiUserInstancesResponseBodySaleInstanceListSlsCapacity exten
 export class ListMultiUserInstancesResponseBodySaleInstanceListThreatAnalysisCapacity extends $dara.Model {
   /**
    * @remarks
-   * Allocated threat analysis capacity. Unit: GB.
+   * The allocated threat analysis capacity. Unit: GB.
    * 
    * @example
    * 0
@@ -1259,7 +1274,7 @@ export class ListMultiUserInstancesResponseBodySaleInstanceListThreatAnalysisCap
   count?: number;
   /**
    * @remarks
-   * Used threat analysis capacity. Unit: GB.
+   * The used threat analysis capacity. Unit: GB.
    * 
    * @example
    * 0
@@ -1291,7 +1306,7 @@ export class ListMultiUserInstancesResponseBodySaleInstanceListThreatAnalysisCap
 export class ListMultiUserInstancesResponseBodySaleInstanceListThreatAnalysisFlow extends $dara.Model {
   /**
    * @remarks
-   * Allocated threat analysis and response log ingestion traffic. Unit: GB/day.
+   * The allocated threat detection and response log ingestion traffic. Unit: GB/day.
    * 
    * @example
    * 0
@@ -1299,7 +1314,7 @@ export class ListMultiUserInstancesResponseBodySaleInstanceListThreatAnalysisFlo
   count?: number;
   /**
    * @remarks
-   * Used threat analysis and response log ingestion traffic. Unit: GB/day.
+   * The used threat detection and response log ingestion traffic. Unit: GB/day.
    * 
    * @example
    * 0
@@ -1331,7 +1346,7 @@ export class ListMultiUserInstancesResponseBodySaleInstanceListThreatAnalysisFlo
 export class ListMultiUserInstancesResponseBodySaleInstanceListVersionSummaryCoreCount extends $dara.Model {
   /**
    * @remarks
-   * Assigned number of cores.
+   * The assigned number of authorized cores.
    * 
    * @example
    * 0
@@ -1339,7 +1354,7 @@ export class ListMultiUserInstancesResponseBodySaleInstanceListVersionSummaryCor
   assigned?: number;
   /**
    * @remarks
-   * Allocated number of cores.
+   * The allocated number of authorized cores.
    * 
    * @example
    * 4
@@ -1347,7 +1362,7 @@ export class ListMultiUserInstancesResponseBodySaleInstanceListVersionSummaryCor
   count?: number;
   /**
    * @remarks
-   * Number of cores used.
+   * The used number of authorized cores.
    * 
    * @example
    * 0
@@ -1381,7 +1396,7 @@ export class ListMultiUserInstancesResponseBodySaleInstanceListVersionSummaryCor
 export class ListMultiUserInstancesResponseBodySaleInstanceListVersionSummaryEcsCount extends $dara.Model {
   /**
    * @remarks
-   * Number of purchased licenses allocated.
+   * The assigned number of purchased authorized servers.
    * 
    * @example
    * 0
@@ -1389,7 +1404,7 @@ export class ListMultiUserInstancesResponseBodySaleInstanceListVersionSummaryEcs
   assigned?: number;
   /**
    * @remarks
-   * Number of ECS authorizations allocated.
+   * The allocated number of authorized servers.
    * 
    * @example
    * 0
@@ -1397,7 +1412,7 @@ export class ListMultiUserInstancesResponseBodySaleInstanceListVersionSummaryEcs
   count?: number;
   /**
    * @remarks
-   * Number of ECS authorizations used.
+   * The used number of authorized servers.
    * 
    * @example
    * 0
@@ -1431,13 +1446,7 @@ export class ListMultiUserInstancesResponseBodySaleInstanceListVersionSummaryEcs
 export class ListMultiUserInstancesResponseBodySaleInstanceListVersionSummary extends $dara.Model {
   /**
    * @remarks
-   * Authorization type consumed during binding, with values:
-   * 
-   * - **ASSET**:Consumes the number of authorized instances
-   * 
-   * - **CORE**:Consumes the number of authorized cores
-   * 
-   * - **ASSET_AND_CORE**:Consumes both the number of authorized instances and cores.
+   * The authorization type consumed during binding. Valid values:
    * 
    * @example
    * ASSET_AND_CORE
@@ -1445,31 +1454,17 @@ export class ListMultiUserInstancesResponseBodySaleInstanceListVersionSummary ex
   authBindType?: string;
   /**
    * @remarks
-   * Usage of core authorization for the member account.
+   * The authorization quota usage for cores of the member account.
    */
   coreCount?: ListMultiUserInstancesResponseBodySaleInstanceListVersionSummaryCoreCount;
   /**
    * @remarks
-   * Usage details of ECS authorizations for the member account.
+   * The authorization quota usage for servers of the member account.
    */
   ecsCount?: ListMultiUserInstancesResponseBodySaleInstanceListVersionSummaryEcsCount;
   /**
    * @remarks
-   * Version of the Cloud Security Center for the member account. Values:
-   * 
-   * - **1**: Free Edition
-   * 
-   * - **3**: Enterprise Edition
-   * 
-   * - **5**: Advanced Edition
-   * 
-   * - **6**: Anti-Virus Edition
-   * 
-   * - **7**: Flagship Edition
-   * 
-   * - **8**: Multiple Versions
-   * 
-   * - **10**: Value-Added Services Only
+   * The Security Center edition of the member account. Valid values:
    * 
    * @example
    * 5
@@ -1511,7 +1506,7 @@ export class ListMultiUserInstancesResponseBodySaleInstanceListVersionSummary ex
 export class ListMultiUserInstancesResponseBodySaleInstanceListWebLockCapacity extends $dara.Model {
   /**
    * @remarks
-   * Number of web tamper-proof authorizations allocated.
+   * The allocated number of web tamper-proofing authorizations.
    * 
    * @example
    * 0
@@ -1519,7 +1514,7 @@ export class ListMultiUserInstancesResponseBodySaleInstanceListWebLockCapacity e
   count?: number;
   /**
    * @remarks
-   * Number of web tamper-proof authorizations used.
+   * The used number of web tamper-proofing authorizations.
    * 
    * @example
    * 0
@@ -1551,7 +1546,7 @@ export class ListMultiUserInstancesResponseBodySaleInstanceListWebLockCapacity e
 export class ListMultiUserInstancesResponseBodySaleInstanceList extends $dara.Model {
   /**
    * @remarks
-   * UID of the member account.
+   * The UID of the member account.
    * 
    * @example
    * 103784262032
@@ -1559,27 +1554,28 @@ export class ListMultiUserInstancesResponseBodySaleInstanceList extends $dara.Mo
   aliUid?: number;
   /**
    * @remarks
-   * Anti-ransomware capacity usage of the member account.
+   * The anti-ransomware capacity usage of the member account.
    */
   antiRansomwareCapacity?: ListMultiUserInstancesResponseBodySaleInstanceListAntiRansomwareCapacity;
   /**
    * @remarks
-   * Member account CSPM (Cloud Security Posture Management) scan usage.
+   * The cloud platform configuration check scan usage of the member account.
    */
   cspmCapacity?: ListMultiUserInstancesResponseBodySaleInstanceListCspmCapacity;
+  cspmInstanceCapacity?: ListMultiUserInstancesResponseBodySaleInstanceListCspmInstanceCapacity;
   /**
    * @remarks
-   * Usage details of honeypot authorizations for the member account.
+   * The cloud honeypot authorization usage of the member account.
    */
   honeypotCapacity?: ListMultiUserInstancesResponseBodySaleInstanceListHoneypotCapacity;
   /**
    * @remarks
-   * Member account image scanning authorization usage.
+   * The image scan authorization usage of the member account.
    */
   imageScanCapacity?: ListMultiUserInstancesResponseBodySaleInstanceListImageScanCapacity;
   /**
    * @remarks
-   * Cloud Security Center instance ID purchased by the member account.
+   * The Security Center instance ID purchased by the member account.
    * 
    * @example
    * api-service-spec
@@ -1587,11 +1583,7 @@ export class ListMultiUserInstancesResponseBodySaleInstanceList extends $dara.Mo
   instanceId?: string;
   /**
    * @remarks
-   * Instance purchase type. Values:
-   * 
-   * - **0**: Self-purchased.
-   * 
-   * - **1**: Allocated.
+   * The instance purchase type. Valid values:
    * 
    * @example
    * 1
@@ -1599,26 +1591,22 @@ export class ListMultiUserInstancesResponseBodySaleInstanceList extends $dara.Mo
   instancePurchaseType?: number;
   /**
    * @remarks
-   * Member account RASP (Runtime Application Self-Protection) usage.
+   * The application protection usage of the member account.
    */
   raspCapacity?: ListMultiUserInstancesResponseBodySaleInstanceListRaspCapacity;
   /**
    * @remarks
-   * Usage details of malicious file detection SDK authorizations for the member account.
+   * The malicious file detection SDK authorization usage of the member account.
    */
   sdkCapacity?: ListMultiUserInstancesResponseBodySaleInstanceListSdkCapacity;
   /**
    * @remarks
-   * Log storage capacity usage of the member account.
+   * The log storage capacity usage of the member account.
    */
   slsCapacity?: ListMultiUserInstancesResponseBodySaleInstanceListSlsCapacity;
   /**
    * @remarks
-   * Status of the member account instance. Values:
-   * 
-   * - **1**: Active.
-   * 
-   * - **2**: Inactive.
+   * The instance status of the member account. Valid values:
    * 
    * @example
    * 1
@@ -1626,21 +1614,17 @@ export class ListMultiUserInstancesResponseBodySaleInstanceList extends $dara.Mo
   status?: number;
   /**
    * @remarks
-   * Member account threat analysis capacity usage.
+   * The threat analysis capacity usage of the member account.
    */
   threatAnalysisCapacity?: ListMultiUserInstancesResponseBodySaleInstanceListThreatAnalysisCapacity;
   /**
    * @remarks
-   * Member account threat analysis and response log ingestion traffic usage.
+   * The threat detection and response log ingestion traffic usage of the member account.
    */
   threatAnalysisFlow?: ListMultiUserInstancesResponseBodySaleInstanceListThreatAnalysisFlow;
   /**
    * @remarks
-   * User type. Values:
-   * 
-   * - **Administrator User**:1
-   * 
-   * - **Regular User**:2
+   * The user type. Valid values:
    * 
    * @example
    * 2
@@ -1648,21 +1632,7 @@ export class ListMultiUserInstancesResponseBodySaleInstanceList extends $dara.Mo
   userType?: number;
   /**
    * @remarks
-   * Version of the Cloud Security Center for the member account. Values:
-   * 
-   * - **1**: Free Edition
-   * 
-   * - **3**: Enterprise Edition
-   * 
-   * - **5**: Advanced Edition
-   * 
-   * - **6**: Anti-Virus Edition
-   * 
-   * - **7**: Flagship Edition
-   * 
-   * - **8**: Multiple Versions
-   * 
-   * - **10**: Only Purchased Value-Added Services
+   * The Security Center edition of the member account. Valid values:
    * 
    * @example
    * 3
@@ -1670,12 +1640,12 @@ export class ListMultiUserInstancesResponseBodySaleInstanceList extends $dara.Mo
   version?: number;
   /**
    * @remarks
-   * Authorization usage statistics for the member account.
+   * The authorization usage statistics of the member account.
    */
   versionSummary?: ListMultiUserInstancesResponseBodySaleInstanceListVersionSummary[];
   /**
    * @remarks
-   * Member account web lock (anti-tampering) authorization usage.
+   * The web tamper-proofing authorization usage of the member account.
    */
   webLockCapacity?: ListMultiUserInstancesResponseBodySaleInstanceListWebLockCapacity;
   static names(): { [key: string]: string } {
@@ -1683,6 +1653,7 @@ export class ListMultiUserInstancesResponseBodySaleInstanceList extends $dara.Mo
       aliUid: 'AliUid',
       antiRansomwareCapacity: 'AntiRansomwareCapacity',
       cspmCapacity: 'CspmCapacity',
+      cspmInstanceCapacity: 'CspmInstanceCapacity',
       honeypotCapacity: 'HoneypotCapacity',
       imageScanCapacity: 'ImageScanCapacity',
       instanceId: 'InstanceId',
@@ -1705,6 +1676,7 @@ export class ListMultiUserInstancesResponseBodySaleInstanceList extends $dara.Mo
       aliUid: 'number',
       antiRansomwareCapacity: ListMultiUserInstancesResponseBodySaleInstanceListAntiRansomwareCapacity,
       cspmCapacity: ListMultiUserInstancesResponseBodySaleInstanceListCspmCapacity,
+      cspmInstanceCapacity: ListMultiUserInstancesResponseBodySaleInstanceListCspmInstanceCapacity,
       honeypotCapacity: ListMultiUserInstancesResponseBodySaleInstanceListHoneypotCapacity,
       imageScanCapacity: ListMultiUserInstancesResponseBodySaleInstanceListImageScanCapacity,
       instanceId: 'string',
@@ -1728,6 +1700,9 @@ export class ListMultiUserInstancesResponseBodySaleInstanceList extends $dara.Mo
     }
     if(this.cspmCapacity && typeof (this.cspmCapacity as any).validate === 'function') {
       (this.cspmCapacity as any).validate();
+    }
+    if(this.cspmInstanceCapacity && typeof (this.cspmInstanceCapacity as any).validate === 'function') {
+      (this.cspmInstanceCapacity as any).validate();
     }
     if(this.honeypotCapacity && typeof (this.honeypotCapacity as any).validate === 'function') {
       (this.honeypotCapacity as any).validate();
@@ -1767,17 +1742,17 @@ export class ListMultiUserInstancesResponseBodySaleInstanceList extends $dara.Mo
 export class ListMultiUserInstancesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Details of the administrator account.
+   * The details of the administrator account.
    */
   daInstance?: ListMultiUserInstancesResponseBodyDaInstance;
   /**
    * @remarks
-   * Pagination information.
+   * The pagination information.
    */
   pageInfo?: ListMultiUserInstancesResponseBodyPageInfo;
   /**
    * @remarks
-   * The ID of this call request, which is a unique identifier generated by Alibaba Cloud for the request and can be used to troubleshoot and locate issues.
+   * The ID of this request, which is a unique identifier generated by Alibaba Cloud for this request. It can be used to troubleshoot and locate issues.
    * 
    * @example
    * 88F2A6CD-E500-5038-B992-0107B99AA88C
@@ -1785,7 +1760,7 @@ export class ListMultiUserInstancesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Details of member accounts.
+   * The details of member accounts.
    */
   saleInstanceList?: ListMultiUserInstancesResponseBodySaleInstanceList[];
   static names(): { [key: string]: string } {

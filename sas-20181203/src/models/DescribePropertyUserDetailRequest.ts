@@ -72,6 +72,7 @@ export class DescribePropertyUserDetailRequest extends $dara.Model {
    * 192.168.XX.XX
    */
   remark?: string;
+  resourceDirectoryAccountId?: number;
   /**
    * @remarks
    * Specifies whether to use the NextToken method to retrieve the vulnerability list data. If this parameter is used, TotalCount is no longer returned. Valid values:
@@ -109,6 +110,7 @@ export class DescribePropertyUserDetailRequest extends $dara.Model {
       nextToken: 'NextToken',
       pageSize: 'PageSize',
       remark: 'Remark',
+      resourceDirectoryAccountId: 'ResourceDirectoryAccountId',
       useNextToken: 'UseNextToken',
       user: 'User',
       uuid: 'Uuid',
@@ -125,6 +127,7 @@ export class DescribePropertyUserDetailRequest extends $dara.Model {
       nextToken: 'string',
       pageSize: 'number',
       remark: 'string',
+      resourceDirectoryAccountId: 'number',
       useNextToken: 'boolean',
       user: 'string',
       uuid: 'string',

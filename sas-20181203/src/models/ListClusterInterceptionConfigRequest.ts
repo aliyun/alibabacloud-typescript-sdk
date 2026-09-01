@@ -9,7 +9,7 @@ export class ListClusterInterceptionConfigRequest extends $dara.Model {
    * - **-1**: unknown
    * - **0**: abnormal
    * - **1**: normal
-   * - **2**: normal pending confirmation.
+   * - **2**: normal pending confirmation
    * 
    * @example
    * 1
@@ -42,7 +42,12 @@ export class ListClusterInterceptionConfigRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The maximum number of entries per page in a paged query. Default value: 20.
+   * The list of excluded cluster types.
+   */
+  excludeClusterTypes?: string[];
+  /**
+   * @remarks
+   * The maximum number of entries per page in a paging query. Default value: 20.
    * 
    * @example
    * 20
@@ -54,6 +59,7 @@ export class ListClusterInterceptionConfigRequest extends $dara.Model {
       clusterId: 'ClusterId',
       clusterName: 'ClusterName',
       currentPage: 'CurrentPage',
+      excludeClusterTypes: 'ExcludeClusterTypes',
       pageSize: 'PageSize',
     };
   }
@@ -64,11 +70,15 @@ export class ListClusterInterceptionConfigRequest extends $dara.Model {
       clusterId: 'string',
       clusterName: 'string',
       currentPage: 'number',
+      excludeClusterTypes: { 'type': 'array', 'itemType': 'string' },
       pageSize: 'number',
     };
   }
 
   validate() {
+    if(Array.isArray(this.excludeClusterTypes)) {
+      $dara.Model.validateArray(this.excludeClusterTypes);
+    }
     super.validate();
   }
 

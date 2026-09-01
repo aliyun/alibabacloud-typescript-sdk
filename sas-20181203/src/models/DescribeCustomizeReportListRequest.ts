@@ -60,6 +60,7 @@ export class DescribeCustomizeReportListRequest extends $dara.Model {
    * 2.0.0
    */
   reportVersion?: string;
+  resourceDirectoryAccountId?: number;
   /**
    * @remarks
    * The name of the report.
@@ -75,6 +76,7 @@ export class DescribeCustomizeReportListRequest extends $dara.Model {
       reportStatus: 'ReportStatus',
       reportType: 'ReportType',
       reportVersion: 'ReportVersion',
+      resourceDirectoryAccountId: 'ResourceDirectoryAccountId',
       title: 'Title',
     };
   }
@@ -86,6 +88,7 @@ export class DescribeCustomizeReportListRequest extends $dara.Model {
       reportStatus: 'number',
       reportType: 'number',
       reportVersion: 'string',
+      resourceDirectoryAccountId: 'number',
       title: 'string',
     };
   }

@@ -23,10 +23,12 @@ export class SaveSuspEventUserSettingRequest extends $dara.Model {
    * suspicious,serious,remind
    */
   levelsOn?: string;
+  resourceDirectoryAccountId?: number;
   static names(): { [key: string]: string } {
     return {
       from: 'From',
       levelsOn: 'LevelsOn',
+      resourceDirectoryAccountId: 'ResourceDirectoryAccountId',
     };
   }
 
@@ -34,6 +36,7 @@ export class SaveSuspEventUserSettingRequest extends $dara.Model {
     return {
       from: 'string',
       levelsOn: 'string',
+      resourceDirectoryAccountId: 'number',
     };
   }
 

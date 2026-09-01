@@ -71,7 +71,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Select an operation for assets.
+   * Adds assets to an asset selection operation.
    * 
    * @param request - AddAssetSelectionCriteriaRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -80,6 +80,10 @@ export default class Client extends OpenApi {
   async addAssetSelectionCriteriaWithOptions(request: $_model.AddAssetSelectionCriteriaRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AddAssetSelectionCriteriaResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
     if (!$dara.isNull(request.criteria)) {
       query["Criteria"] = request.criteria;
     }
@@ -114,7 +118,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Select an operation for assets.
+   * Adds assets to an asset selection operation.
    * 
    * @param request - AddAssetSelectionCriteriaRequest
    * @returns AddAssetSelectionCriteriaResponse
@@ -183,7 +187,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds instances on which risks are detected based on check items of the configuration assessment feature to a whitelist.
+   * Adds instances to the whitelist at the check item level for cloud platform configuration checks.
    * 
    * @param request - AddCheckInstanceResultWhiteListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -198,6 +202,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.checkId)) {
       query["CheckId"] = request.checkId;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
     }
 
     if (!$dara.isNull(request.instanceIds)) {
@@ -234,7 +242,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds instances on which risks are detected based on check items of the configuration assessment feature to a whitelist.
+   * Adds instances to the whitelist at the check item level for cloud platform configuration checks.
    * 
    * @param request - AddCheckInstanceResultWhiteListRequest
    * @returns AddCheckInstanceResultWhiteListResponse
@@ -245,7 +253,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds the check items of the configuration assessment feature to the whitelist.
+   * Adds check items to the whitelist for cloud platform configuration checks.
    * 
    * @param request - AddCheckResultWhiteListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -256,6 +264,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.checkIds)) {
       query["CheckIds"] = request.checkIds;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
     }
 
     if (!$dara.isNull(request.instanceIds)) {
@@ -288,7 +300,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds the check items of the configuration assessment feature to the whitelist.
+   * Adds check items to the whitelist for cloud platform configuration checks.
    * 
    * @param request - AddCheckResultWhiteListRequest
    * @returns AddCheckResultWhiteListResponse
@@ -299,7 +311,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create a custom defense rule.
+   * Creates a user-defined defense rule.
    * 
    * @param request - AddClientUserDefineRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -398,7 +410,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create a custom defense rule.
+   * Creates a user-defined defense rule.
    * 
    * @param request - AddClientUserDefineRuleRequest
    * @returns AddClientUserDefineRuleResponse
@@ -1407,7 +1419,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds one or more processes for intelligent behavior analysis.
+   * Adds processes for intelligent behavior analytics.
    * 
    * @param request - AddUnknownThreatDetectProcessRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1418,6 +1430,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.eventIdList)) {
       query["EventIdList"] = request.eventIdList;
+    }
+
+    if (!$dara.isNull(request.handleRemark)) {
+      query["HandleRemark"] = request.handleRemark;
     }
 
     if (!$dara.isNull(request.processList)) {
@@ -1446,7 +1462,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds one or more processes for intelligent behavior analysis.
+   * Adds processes for intelligent behavior analytics.
    * 
    * @param request - AddUnknownThreatDetectProcessRequest
    * @returns AddUnknownThreatDetectProcessResponse
@@ -1514,6 +1530,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.eventType)) {
       query["EventType"] = request.eventType;
+    }
+
+    if (!$dara.isNull(request.resourceDirectoryAccountId)) {
+      query["ResourceDirectoryAccountId"] = request.resourceDirectoryAccountId;
     }
 
     if (!$dara.isNull(request.resourceOwnerId)) {
@@ -1750,6 +1770,10 @@ export default class Client extends OpenApi {
       query["BindAll"] = request.bindAll;
     }
 
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
     if (!$dara.isNull(request.criteria)) {
       query["Criteria"] = request.criteria;
     }
@@ -1768,6 +1792,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.preBindOrderId)) {
       query["PreBindOrderId"] = request.preBindOrderId;
+    }
+
+    if (!$dara.isNull(request.productCode)) {
+      query["ProductCode"] = request.productCode;
     }
 
     if (!$dara.isNull(request.resourceDirectoryAccountId)) {
@@ -1941,7 +1969,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the configuration items of the configuration assessment feature.
+   * Modifies the configuration of a cloud platform configuration check.
    * 
    * @param tmpReq - ChangeCheckConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1962,6 +1990,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.addedCheck)) {
       query["AddedCheck"] = request.addedCheck;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
     }
 
     if (!$dara.isNull(request.configRequirementIdsShrink)) {
@@ -2038,7 +2070,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the configuration items of the configuration assessment feature.
+   * Modifies the configuration of a cloud platform configuration check.
    * 
    * @param request - ChangeCheckConfigRequest
    * @returns ChangeCheckConfigResponse
@@ -2103,6 +2135,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Modifies the configuration instance of a check scope.
+   * 
+   * @param request - ChangeCheckScopeConfigInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ChangeCheckScopeConfigInstanceResponse
+   */
+  async changeCheckScopeConfigInstanceWithOptions(request: $_model.ChangeCheckScopeConfigInstanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ChangeCheckScopeConfigInstanceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.addAssetUuids)) {
+      query["AddAssetUuids"] = request.addAssetUuids;
+    }
+
+    if (!$dara.isNull(request.configId)) {
+      query["ConfigId"] = request.configId;
+    }
+
+    if (!$dara.isNull(request.deleteAssetUuids)) {
+      query["DeleteAssetUuids"] = request.deleteAssetUuids;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ChangeCheckScopeConfigInstance",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ChangeCheckScopeConfigInstanceResponse>(await this.callApi(params, req, runtime), new $_model.ChangeCheckScopeConfigInstanceResponse({}));
+  }
+
+  /**
+   * Modifies the configuration instance of a check scope.
+   * 
+   * @param request - ChangeCheckScopeConfigInstanceRequest
+   * @returns ChangeCheckScopeConfigInstanceResponse
+   */
+  async changeCheckScopeConfigInstance(request: $_model.ChangeCheckScopeConfigInstanceRequest): Promise<$_model.ChangeCheckScopeConfigInstanceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.changeCheckScopeConfigInstanceWithOptions(request, runtime);
+  }
+
+  /**
    * Modifies the details of the deduction modules of the security score feature, including custom settings.
    * 
    * @param request - ChangeSecurityScoreRuleRequest
@@ -2118,6 +2200,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.resetSecurityScoreRule)) {
       query["ResetSecurityScoreRule"] = request.resetSecurityScoreRule;
+    }
+
+    if (!$dara.isNull(request.resourceDirectoryAccountId)) {
+      query["ResourceDirectoryAccountId"] = request.resourceDirectoryAccountId;
     }
 
     if (!$dara.isNull(request.securityScoreCategoryList)) {
@@ -2495,6 +2581,14 @@ export default class Client extends OpenApi {
       query["AutoDeleteDays"] = request.autoDeleteDays;
     }
 
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     if (!$dara.isNull(request.releaseAfterScan)) {
       query["ReleaseAfterScan"] = request.releaseAfterScan;
     }
@@ -2620,7 +2714,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create asset selection configurations.
+   * Creates an asset selection configuration.
    * 
    * @param request - CreateAssetSelectionConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2631,6 +2725,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.businessType)) {
       query["BusinessType"] = request.businessType;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
     }
 
     if (!$dara.isNull(request.platform)) {
@@ -2659,7 +2757,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create asset selection configurations.
+   * Creates an asset selection configuration.
    * 
    * @param request - CreateAssetSelectionConfigRequest
    * @returns CreateAssetSelectionConfigResponse
@@ -3382,7 +3480,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a periodic scan task. The task can be an image scan task, urgent vulnerability scan task, or virus scan task.
+   * Creates a periodic scan task, including image scan, emergency vulnerability scanning, and virus scan.
    * 
    * @param request - CreateCycleTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3391,6 +3489,10 @@ export default class Client extends OpenApi {
   async createCycleTaskWithOptions(request: $_model.CreateCycleTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateCycleTaskResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
     if (!$dara.isNull(request.enable)) {
       query["Enable"] = request.enable;
     }
@@ -3449,7 +3551,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a periodic scan task. The task can be an image scan task, urgent vulnerability scan task, or virus scan task.
+   * Creates a periodic scan task, including image scan, emergency vulnerability scanning, and virus scan.
    * 
    * @param request - CreateCycleTaskRequest
    * @returns CreateCycleTaskResponse
@@ -3511,23 +3613,21 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Submits a file to the cloud for detection.
+   * Pushes a file to the cloud for detection.
    * 
    * @remarks
-   * Use this operation to submit a file to the cloud for detection. It supports two scenarios: malicious file detection and Skill archive detection.
-   * ### File submission methods
-   * Submit a file by either pre-uploading it or providing a download link.
-   * If you use the pre-upload method, ensure the file is uploaded successfully before you call this operation. For details on how to upload a file, see the CreateFileDetectUploadUrl operation.
-   * If you use a download link, specify a publicly accessible URL in the `DownloadUrl` parameter.
-   * The malicious file detection scenario supports both methods. For the Skill archive detection scenario (when `Type` is `6`), the pre-upload method is not supported, and you must provide a download link.
-   * ### Unique identifier
-   * All API operations related to file detection include the `HashKey` parameter. This parameter specifies the file\\"s unique identifier for a detection task, which you use to query the results.
-   * For Skill archive detection (when `Type` is `6`), you do not need to calculate the `HashKey` in advance. This operation returns a globally unique UUID as the file\\"s identifier, which you can use to query the results.
-   * For malicious file detection (when `Type` is `0`), you must calculate the `HashKey` before you call this operation. The `HashKey` value must be the MD5 or SHA-256 hash of the entire file.
-   * To calculate the MD5 or SHA-256 hash of a file, follow these steps:
-   * 1. Use the MD5 or SHA-256 algorithm to generate a 128-bit or 256-bit hash value. You can use common libraries such as `MessageDigest` in Java or the `hashlib` library in Python.
-   * 2. Encode the hash value into a hexadecimal string. You can use tools such as the `Codec` utility in Java or the `hex()` function in Python. Ensure that the final string consists of only digits and lowercase letters. An MD5 hash is 32 characters long, and a SHA-256 hash is 64 characters long.
-   * Note: You must use the same `HashKey` value when you submit a file for detection and when you query the results. Otherwise, both the submission and the query will fail.
+   * Pushes a file to the cloud for detection.
+   * ### File upload methods
+   * Two file upload methods are supported: pre-upload and download URL.
+   * If you use the pre-upload method, confirm that the file is uploaded before you invoke this operation. For information about how to upload a file, refer to the [CreateFileDetectUploadUrl](~~CreateFileDetectUploadUrl~~) operation.
+   * If you use the download URL method, pass in a download URL that supports public network access by using the DownloadUrl parameter.
+   * ### File unique identifier
+   * All file detection operations include the HashKey parameter, which represents the unique identifier of the file being detected and is used to query detection results.
+   * Calculate the HashKey before calling the operation. Only the MD5 or SHA-256 of the complete file content is supported.
+   * To calculate the MD5 or SHA-256 value of the file content, follow these two steps:
+   * 1. Use the MD5 or SHA-256 algorithm to encrypt the data and generate a 128-bit or 256-bit hash value. Available libraries include Java MessageDigest and Python hashlib.
+   * 2. Encode the generated hash value as a hexadecimal string. Available libraries include Java Codec and Python hex function. Make sure the final string is a combination of digits and lowercase letters. The MD5 string is 32 characters, and the SHA-256 string is 64 characters.
+   * Note: The push and query operations for a single detection must use the same HashKey. Otherwise, the detection cannot be correctly pushed and the results cannot be queried.
    * 
    * @param request - CreateFileDetectRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3586,23 +3686,21 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Submits a file to the cloud for detection.
+   * Pushes a file to the cloud for detection.
    * 
    * @remarks
-   * Use this operation to submit a file to the cloud for detection. It supports two scenarios: malicious file detection and Skill archive detection.
-   * ### File submission methods
-   * Submit a file by either pre-uploading it or providing a download link.
-   * If you use the pre-upload method, ensure the file is uploaded successfully before you call this operation. For details on how to upload a file, see the CreateFileDetectUploadUrl operation.
-   * If you use a download link, specify a publicly accessible URL in the `DownloadUrl` parameter.
-   * The malicious file detection scenario supports both methods. For the Skill archive detection scenario (when `Type` is `6`), the pre-upload method is not supported, and you must provide a download link.
-   * ### Unique identifier
-   * All API operations related to file detection include the `HashKey` parameter. This parameter specifies the file\\"s unique identifier for a detection task, which you use to query the results.
-   * For Skill archive detection (when `Type` is `6`), you do not need to calculate the `HashKey` in advance. This operation returns a globally unique UUID as the file\\"s identifier, which you can use to query the results.
-   * For malicious file detection (when `Type` is `0`), you must calculate the `HashKey` before you call this operation. The `HashKey` value must be the MD5 or SHA-256 hash of the entire file.
-   * To calculate the MD5 or SHA-256 hash of a file, follow these steps:
-   * 1. Use the MD5 or SHA-256 algorithm to generate a 128-bit or 256-bit hash value. You can use common libraries such as `MessageDigest` in Java or the `hashlib` library in Python.
-   * 2. Encode the hash value into a hexadecimal string. You can use tools such as the `Codec` utility in Java or the `hex()` function in Python. Ensure that the final string consists of only digits and lowercase letters. An MD5 hash is 32 characters long, and a SHA-256 hash is 64 characters long.
-   * Note: You must use the same `HashKey` value when you submit a file for detection and when you query the results. Otherwise, both the submission and the query will fail.
+   * Pushes a file to the cloud for detection.
+   * ### File upload methods
+   * Two file upload methods are supported: pre-upload and download URL.
+   * If you use the pre-upload method, confirm that the file is uploaded before you invoke this operation. For information about how to upload a file, refer to the [CreateFileDetectUploadUrl](~~CreateFileDetectUploadUrl~~) operation.
+   * If you use the download URL method, pass in a download URL that supports public network access by using the DownloadUrl parameter.
+   * ### File unique identifier
+   * All file detection operations include the HashKey parameter, which represents the unique identifier of the file being detected and is used to query detection results.
+   * Calculate the HashKey before calling the operation. Only the MD5 or SHA-256 of the complete file content is supported.
+   * To calculate the MD5 or SHA-256 value of the file content, follow these two steps:
+   * 1. Use the MD5 or SHA-256 algorithm to encrypt the data and generate a 128-bit or 256-bit hash value. Available libraries include Java MessageDigest and Python hashlib.
+   * 2. Encode the generated hash value as a hexadecimal string. Available libraries include Java Codec and Python hex function. Make sure the final string is a combination of digits and lowercase letters. The MD5 string is 32 characters, and the SHA-256 string is 64 characters.
+   * Note: The push and query operations for a single detection must use the same HashKey. Otherwise, the detection cannot be correctly pushed and the results cannot be queried.
    * 
    * @param request - CreateFileDetectRequest
    * @returns CreateFileDetectResponse
@@ -5077,7 +5175,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a bucket check task.
+   * Creates a bucket detection task.
    * 
    * @param request - CreateOssBucketScanTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5126,6 +5224,10 @@ export default class Client extends OpenApi {
       query["ScanMode"] = request.scanMode;
     }
 
+    if (!$dara.isNull(request.source)) {
+      query["Source"] = request.source;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -5144,7 +5246,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a bucket check task.
+   * Creates a bucket detection task.
    * 
    * @param request - CreateOssBucketScanTaskRequest
    * @returns CreateOssBucketScanTaskResponse
@@ -5155,7 +5257,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a policy for detecting malicious Object Storage Service (OSS) objects by using the SDK for malicious file detection feature.
+   * Creates a scan policy for detecting malicious files in OSS under the malicious file detection feature.
+   * 
+   * @remarks
+   * Before calling this operation, call the [PublicPreCheckImageScanTask](~~PublicPreCheckImageScanTask~~) operation to query the number of container images covered by the image scan task and the number of authorizations consumed. Ensure that sufficient authorizations are available for the image scan task to prevent the task from being interrupted due to insufficient authorizations.
    * 
    * @param request - CreateOssScanConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5168,8 +5273,16 @@ export default class Client extends OpenApi {
       query["AllKeyPrefix"] = request.allKeyPrefix;
     }
 
+    if (!$dara.isNull(request.autoAdd)) {
+      query["AutoAdd"] = request.autoAdd;
+    }
+
     if (!$dara.isNull(request.bucketNameList)) {
       query["BucketNameList"] = request.bucketNameList;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
     }
 
     if (!$dara.isNull(request.decompressMaxFileCount)) {
@@ -5216,6 +5329,10 @@ export default class Client extends OpenApi {
       query["ScanDayList"] = request.scanDayList;
     }
 
+    if (!$dara.isNull(request.source)) {
+      query["Source"] = request.source;
+    }
+
     if (!$dara.isNull(request.startTime)) {
       query["StartTime"] = request.startTime;
     }
@@ -5238,7 +5355,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a policy for detecting malicious Object Storage Service (OSS) objects by using the SDK for malicious file detection feature.
+   * Creates a scan policy for detecting malicious files in OSS under the malicious file detection feature.
+   * 
+   * @remarks
+   * Before calling this operation, call the [PublicPreCheckImageScanTask](~~PublicPreCheckImageScanTask~~) operation to query the number of container images covered by the image scan task and the number of authorizations consumed. Ensure that sufficient authorizations are available for the image scan task to prevent the task from being interrupted due to insufficient authorizations.
    * 
    * @param request - CreateOssScanConfigRequest
    * @returns CreateOssScanConfigResponse
@@ -5367,7 +5487,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Applies for a trial of Security Center.
+   * Starts a trial of Security Center.
    * 
    * @param tmpReq - CreateSasTrialRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5379,6 +5499,11 @@ export default class Client extends OpenApi {
     OpenApiUtil.convert(tmpReq, request);
     if (!$dara.isNull(tmpReq.requestForm)) {
       request.requestFormShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.requestForm, "RequestForm", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
     }
 
     let body : {[key: string ]: any} = { };
@@ -5403,6 +5528,7 @@ export default class Client extends OpenApi {
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
@@ -5420,7 +5546,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Applies for a trial of Security Center.
+   * Starts a trial of Security Center.
    * 
    * @param request - CreateSasTrialRequest
    * @returns CreateSasTrialResponse
@@ -5443,6 +5569,10 @@ export default class Client extends OpenApi {
   async createServiceLinkedRoleWithOptions(request: $_model.CreateServiceLinkedRoleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateServiceLinkedRoleResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
     if (!$dara.isNull(request.serviceLinkedRole)) {
       query["ServiceLinkedRole"] = request.serviceLinkedRole;
     }
@@ -5533,7 +5663,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a node to query alert events triggered by the same rule or Alarm Metric through alerting.
+   * Creates a node to query alerting events triggered by the same rule hits or Alarm Metric.
    * 
    * @param request - CreateSimilarSecurityEventsQueryTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5542,6 +5672,14 @@ export default class Client extends OpenApi {
   async createSimilarSecurityEventsQueryTaskWithOptions(request: $_model.CreateSimilarSecurityEventsQueryTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateSimilarSecurityEventsQueryTaskResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.resourceDirectoryAccountId)) {
+      query["ResourceDirectoryAccountId"] = request.resourceDirectoryAccountId;
+    }
+
     if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
@@ -5576,7 +5714,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a node to query alert events triggered by the same rule or Alarm Metric through alerting.
+   * Creates a node to query alerting events triggered by the same rule hits or Alarm Metric.
    * 
    * @param request - CreateSimilarSecurityEventsQueryTaskRequest
    * @returns CreateSimilarSecurityEventsQueryTaskResponse
@@ -5666,6 +5804,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.note)) {
       query["Note"] = request.note;
+    }
+
+    if (!$dara.isNull(request.resourceDirectoryAccountId)) {
+      query["ResourceDirectoryAccountId"] = request.resourceDirectoryAccountId;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -5859,7 +6001,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an intelligent behavior analysis strategy.
+   * Creates an intelligent behavior analytics policy.
    * 
    * @param request - CreateUnknownThreatDetectStrategyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5906,7 +6048,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an intelligent behavior analysis strategy.
+   * Creates an intelligent behavior analytics policy.
    * 
    * @param request - CreateUnknownThreatDetectStrategyRequest
    * @returns CreateUnknownThreatDetectStrategyResponse
@@ -5967,7 +6109,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a one-time virus scan task that is immediately executed.
+   * Creates a one-time virus scan task.
    * 
    * @param request - CreateVirusScanOnceTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5976,6 +6118,10 @@ export default class Client extends OpenApi {
   async createVirusScanOnceTaskWithOptions(request: $_model.CreateVirusScanOnceTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateVirusScanOnceTaskResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
     if (!$dara.isNull(request.param)) {
       query["Param"] = request.param;
     }
@@ -6010,7 +6156,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a one-time virus scan task that is immediately executed.
+   * Creates a one-time virus scan task.
    * 
    * @param request - CreateVirusScanOnceTaskRequest
    * @returns CreateVirusScanOnceTaskResponse
@@ -8232,6 +8378,10 @@ export default class Client extends OpenApi {
       query["Ids"] = request.ids;
     }
 
+    if (!$dara.isNull(request.resourceDirectoryAccountId)) {
+      query["ResourceDirectoryAccountId"] = request.resourceDirectoryAccountId;
+    }
+
     if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
@@ -8419,6 +8569,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.noteId)) {
       query["NoteId"] = request.noteId;
+    }
+
+    if (!$dara.isNull(request.resourceDirectoryAccountId)) {
+      query["ResourceDirectoryAccountId"] = request.resourceDirectoryAccountId;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -8735,6 +8889,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.id)) {
       query["Id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.resourceDirectoryAccountId)) {
+      query["ResourceDirectoryAccountId"] = request.resourceDirectoryAccountId;
     }
 
     if (!$dara.isNull(request.whitelist)) {
@@ -9202,6 +9360,10 @@ export default class Client extends OpenApi {
       query["Lang"] = request.lang;
     }
 
+    if (!$dara.isNull(request.resourceDirectoryAccountId)) {
+      query["ResourceDirectoryAccountId"] = request.resourceDirectoryAccountId;
+    }
+
     if (!$dara.isNull(request.sourceIp)) {
       query["SourceIp"] = request.sourceIp;
     }
@@ -9436,6 +9598,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.remark)) {
       query["Remark"] = request.remark;
+    }
+
+    if (!$dara.isNull(request.resourceDirectoryAccountId)) {
+      query["ResourceDirectoryAccountId"] = request.resourceDirectoryAccountId;
     }
 
     if (!$dara.isNull(request.sourceIp)) {
@@ -10623,6 +10789,10 @@ export default class Client extends OpenApi {
       query["RepoRegionId"] = request.repoRegionId;
     }
 
+    if (!$dara.isNull(request.resourceDirectoryAccountId)) {
+      query["ResourceDirectoryAccountId"] = request.resourceDirectoryAccountId;
+    }
+
     if (!$dara.isNull(request.scanRange)) {
       query["ScanRange"] = request.scanRange;
     }
@@ -10726,6 +10896,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.reportId)) {
       query["ReportId"] = request.reportId;
+    }
+
+    if (!$dara.isNull(request.resourceDirectoryAccountId)) {
+      query["ResourceDirectoryAccountId"] = request.resourceDirectoryAccountId;
     }
 
     if (!$dara.isNull(request.timeEnd)) {
@@ -11450,10 +11624,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries asset information that meets specified search conditions. For example, you can search for assets by instance name or region. Two pagination methods are supported: page-based pagination and NextToken-based pagination. We recommend that you use NextToken-based pagination.
+   * Queries asset information by settings conditional query criteria, such as asset instance name or asset instance region. Both paging and NextToken methods are supported. The NextToken method is recommended.
    * 
    * @remarks
-   * You can search for assets by instance ID, instance name, VPC ID, region, public IP address, and other conditions. You can also set the logical relationship between multiple search conditions to search for assets that meet multiple conditions.
+   * You can search for assets by instance ID, instance name, VPC ID, region, public IP address, and other conditions. You can also set logical relationships between different search conditions to search for assets that meet multiple criteria.
    * 
    * @param request - DescribeCloudCenterInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11532,10 +11706,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries asset information that meets specified search conditions. For example, you can search for assets by instance name or region. Two pagination methods are supported: page-based pagination and NextToken-based pagination. We recommend that you use NextToken-based pagination.
+   * Queries asset information by settings conditional query criteria, such as asset instance name or asset instance region. Both paging and NextToken methods are supported. The NextToken method is recommended.
    * 
    * @remarks
-   * You can search for assets by instance ID, instance name, VPC ID, region, public IP address, and other conditions. You can also set the logical relationship between multiple search conditions to search for assets that meet multiple conditions.
+   * You can search for assets by instance ID, instance name, VPC ID, region, public IP address, and other conditions. You can also set logical relationships between different search conditions to search for assets that meet multiple criteria.
    * 
    * @param request - DescribeCloudCenterInstancesRequest
    * @returns DescribeCloudCenterInstancesResponse
@@ -11973,7 +12147,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves information about the network topology edge by cluster.
+   * Queries the network topology edge information at the cluster level.
    * 
    * @param request - DescribeClusterNetworkRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12008,7 +12182,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves information about the network topology edge by cluster.
+   * Queries the network topology edge information at the cluster level.
    * 
    * @param request - DescribeClusterNetworkRequest
    * @returns DescribeClusterNetworkResponse
@@ -12019,7 +12193,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the status of cluster scanning components.
+   * Queries the scanner status information for a Kubernetes cluster.
    * 
    * @param request - DescribeClusterScannerListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12058,7 +12232,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the status of cluster scanning components.
+   * Queries the scanner status information for a Kubernetes cluster.
    * 
    * @param request - DescribeClusterScannerListRequest
    * @returns DescribeClusterScannerListResponse
@@ -12945,6 +13119,10 @@ export default class Client extends OpenApi {
       query["MachineTypes"] = request.machineTypes;
     }
 
+    if (!$dara.isNull(request.resourceDirectoryAccountId)) {
+      query["ResourceDirectoryAccountId"] = request.resourceDirectoryAccountId;
+    }
+
     if (!$dara.isNull(request.supportAutoTag)) {
       query["SupportAutoTag"] = request.supportAutoTag;
     }
@@ -13119,6 +13297,10 @@ export default class Client extends OpenApi {
       query["ReportId"] = request.reportId;
     }
 
+    if (!$dara.isNull(request.resourceDirectoryAccountId)) {
+      query["ResourceDirectoryAccountId"] = request.resourceDirectoryAccountId;
+    }
+
     if (!$dara.isNull(request.sourceIp)) {
       query["SourceIp"] = request.sourceIp;
     }
@@ -13179,6 +13361,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.reportVersion)) {
       query["ReportVersion"] = request.reportVersion;
+    }
+
+    if (!$dara.isNull(request.resourceDirectoryAccountId)) {
+      query["ResourceDirectoryAccountId"] = request.resourceDirectoryAccountId;
     }
 
     if (!$dara.isNull(request.title)) {
@@ -13834,6 +14020,10 @@ export default class Client extends OpenApi {
       query["Lang"] = request.lang;
     }
 
+    if (!$dara.isNull(request.resourceDirectoryAccountId)) {
+      query["ResourceDirectoryAccountId"] = request.resourceDirectoryAccountId;
+    }
+
     if (!$dara.isNull(request.sourceIp)) {
       query["SourceIp"] = request.sourceIp;
     }
@@ -14241,6 +14431,10 @@ export default class Client extends OpenApi {
       query["MultiAccountActionType"] = request.multiAccountActionType;
     }
 
+    if (!$dara.isNull(request.resourceDirectoryAccountId)) {
+      query["ResourceDirectoryAccountId"] = request.resourceDirectoryAccountId;
+    }
+
     if (!$dara.isNull(request.targetType)) {
       query["TargetType"] = request.targetType;
     }
@@ -14285,6 +14479,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
+    }
+
+    if (!$dara.isNull(request.resourceDirectoryAccountId)) {
+      query["ResourceDirectoryAccountId"] = request.resourceDirectoryAccountId;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -15089,6 +15287,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.resourceDirectoryAccountId)) {
+      query["ResourceDirectoryAccountId"] = request.resourceDirectoryAccountId;
     }
 
     if (!$dara.isNull(request.saleVersionCheckCode)) {
@@ -16722,6 +16924,10 @@ export default class Client extends OpenApi {
       query["RepoRegionId"] = request.repoRegionId;
     }
 
+    if (!$dara.isNull(request.resourceDirectoryAccountId)) {
+      query["ResourceDirectoryAccountId"] = request.resourceDirectoryAccountId;
+    }
+
     if (!$dara.isNull(request.ruleTag)) {
       query["RuleTag"] = request.ruleTag;
     }
@@ -17776,6 +17982,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.repoRegionId)) {
       query["RepoRegionId"] = request.repoRegionId;
+    }
+
+    if (!$dara.isNull(request.resourceDirectoryAccountId)) {
+      query["ResourceDirectoryAccountId"] = request.resourceDirectoryAccountId;
     }
 
     if (!$dara.isNull(request.ruleTag)) {
@@ -18862,7 +19072,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of client tasks.
+   * Queries a list of client tasks.
    * 
    * @param request - DescribeOnceTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18921,7 +19131,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of client tasks.
+   * Queries a list of client tasks.
    * 
    * @param request - DescribeOnceTaskRequest
    * @returns DescribeOnceTaskResponse
@@ -19125,6 +19335,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.remark)) {
       query["Remark"] = request.remark;
+    }
+
+    if (!$dara.isNull(request.resourceDirectoryAccountId)) {
+      query["ResourceDirectoryAccountId"] = request.resourceDirectoryAccountId;
     }
 
     if (!$dara.isNull(request.source)) {
@@ -19506,7 +19720,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries detailed information about the middleware list on the Asset Fingerprints investigation page.
+   * Queries the details of the middleware list on the Asset Fingerprints investigation page.
    * 
    * @param request - DescribePropertyScaDetailRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -19561,6 +19775,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.remark)) {
       query["Remark"] = request.remark;
+    }
+
+    if (!$dara.isNull(request.resourceDirectoryAccountId)) {
+      query["ResourceDirectoryAccountId"] = request.resourceDirectoryAccountId;
     }
 
     if (!$dara.isNull(request.scaName)) {
@@ -19625,7 +19843,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries detailed information about the middleware list on the Asset Fingerprints investigation page.
+   * Queries the details of the middleware list on the Asset Fingerprints investigation page.
    * 
    * @param request - DescribePropertyScaDetailRequest
    * @returns DescribePropertyScaDetailResponse
@@ -20089,6 +20307,10 @@ export default class Client extends OpenApi {
       query["Remark"] = request.remark;
     }
 
+    if (!$dara.isNull(request.resourceDirectoryAccountId)) {
+      query["ResourceDirectoryAccountId"] = request.resourceDirectoryAccountId;
+    }
+
     if (!$dara.isNull(request.useNextToken)) {
       query["UseNextToken"] = request.useNextToken;
     }
@@ -20245,6 +20467,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
+    }
+
+    if (!$dara.isNull(request.resourceDirectoryAccountId)) {
+      query["ResourceDirectoryAccountId"] = request.resourceDirectoryAccountId;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -21062,6 +21288,10 @@ export default class Client extends OpenApi {
       query["EndTime"] = request.endTime;
     }
 
+    if (!$dara.isNull(request.resourceDirectoryAccountId)) {
+      query["ResourceDirectoryAccountId"] = request.resourceDirectoryAccountId;
+    }
+
     if (!$dara.isNull(request.source)) {
       query["Source"] = request.source;
     }
@@ -21207,10 +21437,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the day of a week when custom check tasks are performed and the time range during which the custom check tasks are performed.
+   * Queries the custom check cycle and time period configured by the user.
    * 
    * @remarks
-   * This operation is phased out. You can use the GetCheckConfig operation.
+   * This operation is deprecated. Use the GetCheckConfig operation instead.
    * 
    * @deprecated OpenAPI DescribeSecurityCheckScheduleConfig is deprecated
    * 
@@ -21251,10 +21481,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the day of a week when custom check tasks are performed and the time range during which the custom check tasks are performed.
+   * Queries the custom check cycle and time period configured by the user.
    * 
    * @remarks
-   * This operation is phased out. You can use the GetCheckConfig operation.
+   * This operation is deprecated. Use the GetCheckConfig operation instead.
    * 
    * @deprecated OpenAPI DescribeSecurityCheckScheduleConfig is deprecated
    * 
@@ -22690,7 +22920,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of alert events that are generated without aggregation.
+   * Queries the list of security alert events that have not been aggregated.
    * 
    * @param tmpReq - DescribeSuspEventsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -22873,7 +23103,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of alert events that are generated without aggregation.
+   * Queries the list of security alert events that have not been aggregated.
    * 
    * @param request - DescribeSuspEventsRequest
    * @returns DescribeSuspEventsResponse
@@ -23831,6 +24061,10 @@ export default class Client extends OpenApi {
       query["Remark"] = request.remark;
     }
 
+    if (!$dara.isNull(request.resourceDirectoryAccountId)) {
+      query["ResourceDirectoryAccountId"] = request.resourceDirectoryAccountId;
+    }
+
     if (!$dara.isNull(request.searchTags)) {
       query["SearchTags"] = request.searchTags;
     }
@@ -24161,6 +24395,10 @@ export default class Client extends OpenApi {
   async describeVulCheckTaskStatusDetailWithOptions(request: $_model.DescribeVulCheckTaskStatusDetailRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeVulCheckTaskStatusDetailResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.resourceDirectoryAccountId)) {
+      query["ResourceDirectoryAccountId"] = request.resourceDirectoryAccountId;
+    }
+
     if (!$dara.isNull(request.taskIds)) {
       query["TaskIds"] = request.taskIds;
     }
@@ -24799,6 +25037,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.resourceDirectoryAccountId)) {
+      query["ResourceDirectoryAccountId"] = request.resourceDirectoryAccountId;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -26398,6 +26640,10 @@ export default class Client extends OpenApi {
       query["ReportId"] = request.reportId;
     }
 
+    if (!$dara.isNull(request.resourceDirectoryAccountId)) {
+      query["ResourceDirectoryAccountId"] = request.resourceDirectoryAccountId;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -26564,6 +26810,10 @@ export default class Client extends OpenApi {
       query["Remark"] = request.remark;
     }
 
+    if (!$dara.isNull(request.resourceDirectoryAccountId)) {
+      query["ResourceDirectoryAccountId"] = request.resourceDirectoryAccountId;
+    }
+
     if (!$dara.isNull(request.sourceIp)) {
       query["SourceIp"] = request.sourceIp;
     }
@@ -26621,13 +26871,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Export vulnerability list
+   * Exports a vulnerability list.
    * 
    * @remarks
-   * This API exports vulnerabilities, including Linux software vulnerabilities, Windows system vulnerabilities, Web-CMS vulnerabilities, application vulnerabilities, and emergency vulnerabilities.
-   * Use this API to create a `vulnerability export task`. Then, call `DescribeVulExportInfo` with the task\\"s ID to check its progress.
+   * Exports a vulnerability list. You can export vulnerability lists for Linux software vulnerabilities, Windows system vulnerabilities, Web-CMS vulnerabilities, application vulnerabilities, and emergency vulnerabilities.
+   * This operation is used together with the DescribeVulExportInfo operation. After you call this operation to create a vulnerability export task, call the [DescribeVulExportInfo](~~DescribeVulExportInfo~~) operation with the export task ID to check the progress of the export task.
    * ### QPS limit
-   * The QPS limit for a single user is 10. If you exceed this limit, API calls are throttled. This can affect your service. Plan your API calls accordingly.
+   * The single-user QPS limit for this operation is 10 calls per second. If the number of calls per second exceeds the limit, throttling is triggered. This may affect your business. Manage your calls appropriately.
    * 
    * @param request - ExportVulRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -26638,6 +26888,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.aliasName)) {
       query["AliasName"] = request.aliasName;
+    }
+
+    if (!$dara.isNull(request.assetType)) {
+      query["AssetType"] = request.assetType;
     }
 
     if (!$dara.isNull(request.attachTypes)) {
@@ -26730,13 +26984,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Export vulnerability list
+   * Exports a vulnerability list.
    * 
    * @remarks
-   * This API exports vulnerabilities, including Linux software vulnerabilities, Windows system vulnerabilities, Web-CMS vulnerabilities, application vulnerabilities, and emergency vulnerabilities.
-   * Use this API to create a `vulnerability export task`. Then, call `DescribeVulExportInfo` with the task\\"s ID to check its progress.
+   * Exports a vulnerability list. You can export vulnerability lists for Linux software vulnerabilities, Windows system vulnerabilities, Web-CMS vulnerabilities, application vulnerabilities, and emergency vulnerabilities.
+   * This operation is used together with the DescribeVulExportInfo operation. After you call this operation to create a vulnerability export task, call the [DescribeVulExportInfo](~~DescribeVulExportInfo~~) operation with the export task ID to check the progress of the export task.
    * ### QPS limit
-   * The QPS limit for a single user is 10. If you exceed this limit, API calls are throttled. This can affect your service. Plan your API calls accordingly.
+   * The single-user QPS limit for this operation is 10 calls per second. If the number of calls per second exceeds the limit, throttling is triggered. This may affect your business. Manage your calls appropriately.
    * 
    * @param request - ExportVulRequest
    * @returns ExportVulResponse
@@ -27274,7 +27528,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains account tags.
+   * Retrieves account labels.
    * 
    * @param request - GetAccountLabelRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -27309,7 +27563,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains account tags.
+   * Retrieves account labels.
    * 
    * @param request - GetAccountLabelRequest
    * @returns GetAccountLabelResponse
@@ -27468,7 +27722,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the estimated volume for agentless detection.
+   * Retrieves the estimated scan volume for agentless detection.
    * 
    * @param request - GetAgentlessTaskUsedSizeEstimateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -27499,7 +27753,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the estimated volume for agentless detection.
+   * Retrieves the estimated scan volume for agentless detection.
    * 
    * @param request - GetAgentlessTaskUsedSizeEstimateRequest
    * @returns GetAgentlessTaskUsedSizeEstimateResponse
@@ -27521,6 +27775,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.from)) {
       query["From"] = request.from;
+    }
+
+    if (!$dara.isNull(request.resourceDirectoryAccountId)) {
+      query["ResourceDirectoryAccountId"] = request.resourceDirectoryAccountId;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -28336,11 +28594,20 @@ export default class Client extends OpenApi {
   /**
    * Retrieves the check item configurations for cloud platform configuration checks.
    * 
+   * @param request - GetCheckConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetCheckConfigResponse
    */
-  async getCheckConfigWithOptions(runtime: $dara.RuntimeOptions): Promise<$_model.GetCheckConfigResponse> {
-    let req = new $OpenApiUtil.OpenApiRequest({ });
+  async getCheckConfigWithOptions(request: $_model.GetCheckConfigRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetCheckConfigResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.resourceDirectoryAccountId)) {
+      query["ResourceDirectoryAccountId"] = request.resourceDirectoryAccountId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
     let params = new $OpenApiUtil.Params({
       action: "GetCheckConfig",
       version: "2018-12-03",
@@ -28357,11 +28624,13 @@ export default class Client extends OpenApi {
 
   /**
    * Retrieves the check item configurations for cloud platform configuration checks.
+   * 
+   * @param request - GetCheckConfigRequest
    * @returns GetCheckConfigResponse
    */
-  async getCheckConfig(): Promise<$_model.GetCheckConfigResponse> {
+  async getCheckConfig(request: $_model.GetCheckConfigRequest): Promise<$_model.GetCheckConfigResponse> {
     let runtime = new $dara.RuntimeOptions({ });
-    return await this.getCheckConfigWithOptions(runtime);
+    return await this.getCheckConfigWithOptions(request, runtime);
   }
 
   /**
@@ -28478,6 +28747,10 @@ export default class Client extends OpenApi {
   async getCheckProcessWithOptions(request: $_model.GetCheckProcessRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetCheckProcessResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.resourceDirectoryAccountId)) {
+      query["ResourceDirectoryAccountId"] = request.resourceDirectoryAccountId;
+    }
+
     if (!$dara.isNull(request.taskId)) {
       query["TaskId"] = request.taskId;
     }
@@ -28600,6 +28873,52 @@ export default class Client extends OpenApi {
   async getCheckSale(request: $_model.GetCheckSaleRequest): Promise<$_model.GetCheckSaleResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getCheckSaleWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the check scope configuration.
+   * 
+   * @param request - GetCheckScopeConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetCheckScopeConfigResponse
+   */
+  async getCheckScopeConfigWithOptions(request: $_model.GetCheckScopeConfigRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetCheckScopeConfigResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.configId)) {
+      query["ConfigId"] = request.configId;
+    }
+
+    if (!$dara.isNull(request.resourceDirectoryAccountId)) {
+      query["ResourceDirectoryAccountId"] = request.resourceDirectoryAccountId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetCheckScopeConfig",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetCheckScopeConfigResponse>(await this.callApi(params, req, runtime), new $_model.GetCheckScopeConfigResponse({}));
+  }
+
+  /**
+   * Queries the check scope configuration.
+   * 
+   * @param request - GetCheckScopeConfigRequest
+   * @returns GetCheckScopeConfigResponse
+   */
+  async getCheckScopeConfig(request: $_model.GetCheckScopeConfigRequest): Promise<$_model.GetCheckScopeConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getCheckScopeConfigWithOptions(request, runtime);
   }
 
   /**
@@ -28736,6 +29055,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.endTimeStamp)) {
       query["EndTimeStamp"] = request.endTimeStamp;
+    }
+
+    if (!$dara.isNull(request.resourceDirectoryAccountId)) {
+      query["ResourceDirectoryAccountId"] = request.resourceDirectoryAccountId;
     }
 
     if (!$dara.isNull(request.startTimeStamp)) {
@@ -28975,7 +29298,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the summary of cloud assets.
+   * Retrieves the summary of cloud assets.
    * 
    * @param request - GetCloudAssetSummaryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -28990,6 +29313,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.isSaleData)) {
       query["IsSaleData"] = request.isSaleData;
+    }
+
+    if (!$dara.isNull(request.resourceDirectoryAccountId)) {
+      query["ResourceDirectoryAccountId"] = request.resourceDirectoryAccountId;
     }
 
     if (!$dara.isNull(request.vendors)) {
@@ -29014,7 +29341,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the summary of cloud assets.
+   * Retrieves the summary of cloud assets.
    * 
    * @param request - GetCloudAssetSummaryRequest
    * @returns GetCloudAssetSummaryResponse
@@ -29408,7 +29735,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the publish details of the Security Center agent.
+   * Retrieves the release information of the current client version.
    * 
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetCurrentVersionPublishResponse
@@ -29430,7 +29757,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the publish details of the Security Center agent.
+   * Retrieves the release information of the current client version.
    * @returns GetCurrentVersionPublishResponse
    */
   async getCurrentVersionPublish(): Promise<$_model.GetCurrentVersionPublishResponse> {
@@ -29458,6 +29785,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.interval)) {
       query["Interval"] = request.interval;
+    }
+
+    if (!$dara.isNull(request.resourceDirectoryAccountId)) {
+      query["ResourceDirectoryAccountId"] = request.resourceDirectoryAccountId;
     }
 
     if (!$dara.isNull(request.startTimestamp)) {
@@ -29697,17 +30028,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves file detection results in batches using `HashKey` values.
+   * Retrieves file detection results in batches by HashKey.
    * 
    * @remarks
-   * You can retrieve detection results only for submitted files. Results are retained for 5 hours and can be queried multiple times during this period. To submit a file for detection, call the [CreateFileDetect](~~CreateFileDetect~~) operation.
-   * ### Unique file identifier
-   * All file detection operations use the `HashKey` parameter. `HashKey` is a unique file identifier used to query the corresponding file detection result.
-   * For Skill compressed package detection (when Type is 6), obtain the `HashKey` from the response of the [CreateFileDetect](~~CreateFileDetect~~) operation.
-   * For malicious file detection (when Type is 0), the `HashKey` must be the MD5 or SHA-256 hash of the entire file.
+   * You can retrieve detection results only for files that have been submitted for detection. Detection results are retained for 5 hours and can be queried repeatedly within this period. For the detection submission operation, refer to [CreateFileDetect](~~CreateFileDetect~~).
+   * ### File unique identifier
+   * All file detection operations include the HashKey parameter, which represents the unique identifier of the file being detected and is used to query detection results. Only the MD5 or SHA-256 hash of the complete file content is supported.
    * ### Query detection results
-   * In a malicious file detection scenario (when `Type` is `0`), you can filter files by their attributes using the `FileLabel` field in the `Ext` field. For example, you can combine the `encrypted` and `Zip` attributes to filter for encrypted compressed packages. Supported file tags for compressed packages include: `Zip`, `RAR`, `7-Zip`, `XAR`, `ZLib`, `GZip`, and `tar`. You can also use the `Highlight` field in the `Ext` field to locate malicious code segments in `WebShell` files. The `Highlight` field is a list in which each element represents a code range. The numbers indicate the character offset from the beginning of the file.
-   * In a Skill compressed package detection scenario (when `Type` is `6`), you can retrieve the detection report from the `Ext` field. This report includes results from deep intent analysis, prompt injection detection, sensitive information recognition, and malicious script detection. To query the details of an individual file within the compressed package, call the [ListCompressFileDetectResult](~~ListCompressFileDetectResult~~) operation.
+   * You can filter file properties by using the FileLabel in the Ext extension field. For example, combine the encrypted and Zip properties to filter encrypted archives. Supported file labels for compressed file types: Zip, RAR, 7-Zip, XAR, ZLib, GZip, and tar. You can locate malicious code segments in web shell files by using the Highlight field in the Ext extension field. The Highlight field is a list type, where each element corresponds to a code range. The numbers represent the offset in characters relative to the file header.
    * 
    * @param request - GetFileDetectResultRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -29746,17 +30074,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves file detection results in batches using `HashKey` values.
+   * Retrieves file detection results in batches by HashKey.
    * 
    * @remarks
-   * You can retrieve detection results only for submitted files. Results are retained for 5 hours and can be queried multiple times during this period. To submit a file for detection, call the [CreateFileDetect](~~CreateFileDetect~~) operation.
-   * ### Unique file identifier
-   * All file detection operations use the `HashKey` parameter. `HashKey` is a unique file identifier used to query the corresponding file detection result.
-   * For Skill compressed package detection (when Type is 6), obtain the `HashKey` from the response of the [CreateFileDetect](~~CreateFileDetect~~) operation.
-   * For malicious file detection (when Type is 0), the `HashKey` must be the MD5 or SHA-256 hash of the entire file.
+   * You can retrieve detection results only for files that have been submitted for detection. Detection results are retained for 5 hours and can be queried repeatedly within this period. For the detection submission operation, refer to [CreateFileDetect](~~CreateFileDetect~~).
+   * ### File unique identifier
+   * All file detection operations include the HashKey parameter, which represents the unique identifier of the file being detected and is used to query detection results. Only the MD5 or SHA-256 hash of the complete file content is supported.
    * ### Query detection results
-   * In a malicious file detection scenario (when `Type` is `0`), you can filter files by their attributes using the `FileLabel` field in the `Ext` field. For example, you can combine the `encrypted` and `Zip` attributes to filter for encrypted compressed packages. Supported file tags for compressed packages include: `Zip`, `RAR`, `7-Zip`, `XAR`, `ZLib`, `GZip`, and `tar`. You can also use the `Highlight` field in the `Ext` field to locate malicious code segments in `WebShell` files. The `Highlight` field is a list in which each element represents a code range. The numbers indicate the character offset from the beginning of the file.
-   * In a Skill compressed package detection scenario (when `Type` is `6`), you can retrieve the detection report from the `Ext` field. This report includes results from deep intent analysis, prompt injection detection, sensitive information recognition, and malicious script detection. To query the details of an individual file within the compressed package, call the [ListCompressFileDetectResult](~~ListCompressFileDetectResult~~) operation.
+   * You can filter file properties by using the FileLabel in the Ext extension field. For example, combine the encrypted and Zip properties to filter encrypted archives. Supported file labels for compressed file types: Zip, RAR, 7-Zip, XAR, ZLib, GZip, and tar. You can locate malicious code segments in web shell files by using the Highlight field in the Ext extension field. The Highlight field is a list type, where each element corresponds to a code range. The numbers represent the offset in characters relative to the file header.
    * 
    * @param request - GetFileDetectResultRequest
    * @returns GetFileDetectResultResponse
@@ -30729,6 +31054,10 @@ export default class Client extends OpenApi {
       query["From"] = request.from;
     }
 
+    if (!$dara.isNull(request.resourceDirectoryAccountId)) {
+      query["ResourceDirectoryAccountId"] = request.resourceDirectoryAccountId;
+    }
+
     if (!$dara.isNull(request.uuid)) {
       query["Uuid"] = request.uuid;
     }
@@ -30762,7 +31091,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get Instance Authorization Value Range
+   * Retrieves the valid value ranges for instance authorization.
    * 
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetInstanceAuthRangeResponse
@@ -30784,7 +31113,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get Instance Authorization Value Range
+   * Retrieves the valid value ranges for instance authorization.
    * @returns GetInstanceAuthRangeResponse
    */
   async getInstanceAuthRange(): Promise<$_model.GetInstanceAuthRangeResponse> {
@@ -30839,7 +31168,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the statistics of the container firewall feature.
+   * Queries the micro-segmentation defense overview.
    * 
    * @param request - GetInterceptionSummaryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -30850,6 +31179,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.clusterId)) {
       query["ClusterId"] = request.clusterId;
+    }
+
+    if (!$dara.isNull(request.excludeClusterTypes)) {
+      query["ExcludeClusterTypes"] = request.excludeClusterTypes;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -30870,7 +31203,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the statistics of the container firewall feature.
+   * Queries the micro-segmentation defense overview.
    * 
    * @param request - GetInterceptionSummaryRequest
    * @returns GetInterceptionSummaryResponse
@@ -32058,6 +32391,10 @@ export default class Client extends OpenApi {
       query["Lang"] = request.lang;
     }
 
+    if (!$dara.isNull(request.resourceDirectoryAccountId)) {
+      query["ResourceDirectoryAccountId"] = request.resourceDirectoryAccountId;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -32376,6 +32713,10 @@ export default class Client extends OpenApi {
       query["GroupIdList"] = request.groupIdList;
     }
 
+    if (!$dara.isNull(request.resourceDirectoryAccountId)) {
+      query["ResourceDirectoryAccountId"] = request.resourceDirectoryAccountId;
+    }
+
     if (!$dara.isNull(request.sourceIp)) {
       query["SourceIp"] = request.sourceIp;
     }
@@ -32552,7 +32893,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get Valid Resource Package Instances
+   * Retrieves active resource plan instances.
    * 
    * @param request - GetValidDeductInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -32591,7 +32932,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get Valid Resource Package Instances
+   * Retrieves active resource plan instances.
    * 
    * @param request - GetValidDeductInstancesRequest
    * @returns GetValidDeductInstancesResponse
@@ -33100,6 +33441,10 @@ export default class Client extends OpenApi {
       query["Remark"] = request.remark;
     }
 
+    if (!$dara.isNull(request.resourceDirectoryAccountId)) {
+      query["ResourceDirectoryAccountId"] = request.resourceDirectoryAccountId;
+    }
+
     if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
@@ -33152,6 +33497,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.eventIdList)) {
       query["EventIdList"] = request.eventIdList;
+    }
+
+    if (!$dara.isNull(request.handleRemark)) {
+      query["HandleRemark"] = request.handleRemark;
     }
 
     if (!$dara.isNull(request.status)) {
@@ -33728,10 +34077,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the list of managed accounts for multi-account governance.
+   * Obtient la liste des comptes gérés pour la gouvernance multi-comptes.
    * 
    * @remarks
-   * Call this operation by using the management account of the resource directory or the delegated administrator account of Security Center.
+   * Appelez cette opération à l\\"aide du compte de gestion du répertoire de ressources ou du compte administrateur délégué de Security Center.
    * 
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListAccountsInResourceDirectoryResponse
@@ -33753,10 +34102,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the list of managed accounts for multi-account governance.
+   * Obtient la liste des comptes gérés pour la gouvernance multi-comptes.
    * 
    * @remarks
-   * Call this operation by using the management account of the resource directory or the delegated administrator account of Security Center.
+   * Appelez cette opération à l\\"aide du compte de gestion du répertoire de ressources ou du compte administrateur délégué de Security Center.
    * @returns ListAccountsInResourceDirectoryResponse
    */
   async listAccountsInResourceDirectory(): Promise<$_model.ListAccountsInResourceDirectoryResponse> {
@@ -34519,7 +34868,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get Attack Analysis Event List
+   * Retrieves the list of attack analysis events.
    * 
    * @param request - ListAttackEventInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -34582,7 +34931,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get Attack Analysis Event List
+   * Retrieves the list of attack analysis events.
    * 
    * @param request - ListAttackEventInfoRequest
    * @returns ListAttackEventInfoResponse
@@ -35079,7 +35428,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the check items that can be customized.
+   * Retrieves the list of check items that can be configured with custom settings.
    * 
    * @param request - ListCheckItemRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -35122,7 +35471,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the check items that can be customized.
+   * Retrieves the list of check items that can be configured with custom settings.
    * 
    * @param request - ListCheckItemRequest
    * @returns ListCheckItemResponse
@@ -35887,6 +36236,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!$dara.isNull(request.resourceDirectoryAccountId)) {
+      query["ResourceDirectoryAccountId"] = request.resourceDirectoryAccountId;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -36207,6 +36560,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.currentPage)) {
       query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!$dara.isNull(request.excludeClusterTypes)) {
+      query["ExcludeClusterTypes"] = request.excludeClusterTypes;
     }
 
     if (!$dara.isNull(request.pageSize)) {
@@ -38367,10 +38724,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Multi-Account Authorization Allocation List
+   * Queries the multi-account authorization assignment list under multi-account authorization management.
    * 
    * @remarks
-   * You can search for assets by conditions such as the instance ID, instance name, VPC ID, region, and public IP address of the asset. You can also search for assets that meet multiple search conditions by setting the logical relationship between different search conditions.
+   * You can search for assets by instance ID, instance name, VPC ID, region, public IP address, and other conditions. You can also set logical relationships between different search conditions to search for assets that meet multiple search conditions.
    * 
    * @param request - ListMultiUserInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -38405,10 +38762,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Multi-Account Authorization Allocation List
+   * Queries the multi-account authorization assignment list under multi-account authorization management.
    * 
    * @remarks
-   * You can search for assets by conditions such as the instance ID, instance name, VPC ID, region, and public IP address of the asset. You can also search for assets that meet multiple search conditions by setting the logical relationship between different search conditions.
+   * You can search for assets by instance ID, instance name, VPC ID, region, public IP address, and other conditions. You can also set logical relationships between different search conditions to search for assets that meet multiple search conditions.
    * 
    * @param request - ListMultiUserInstancesRequest
    * @returns ListMultiUserInstancesResponse
@@ -38822,6 +39179,10 @@ export default class Client extends OpenApi {
       query["Lang"] = request.lang;
     }
 
+    if (!$dara.isNull(request.source)) {
+      query["Source"] = request.source;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -38872,6 +39233,10 @@ export default class Client extends OpenApi {
       query["FuzzBucketName"] = request.fuzzBucketName;
     }
 
+    if (!$dara.isNull(request.fuzzFileSystemName)) {
+      query["FuzzFileSystemName"] = request.fuzzFileSystemName;
+    }
+
     if (!$dara.isNull(request.hasRisk)) {
       query["HasRisk"] = request.hasRisk;
     }
@@ -38882,6 +39247,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.source)) {
+      query["Source"] = request.source;
     }
 
     if (!$dara.isNull(request.status)) {
@@ -38917,7 +39286,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the configuration of an Object Storage Service (OSS) file detection policy.
+   * Queries the list of OSS file scan policy configurations.
    * 
    * @param request - ListOssScanConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -38944,7 +39313,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the configuration of an Object Storage Service (OSS) file detection policy.
+   * Queries the list of OSS file scan policy configurations.
    * 
    * @param request - ListOssScanConfigRequest
    * @returns ListOssScanConfigResponse
@@ -39939,7 +40308,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * View instances identified by intelligent behavior analytics.
+   * Queries the list of machines for intelligent behavior analytics.
    * 
    * @param request - ListUnknownThreatDetectMachineRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -39950,6 +40319,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.currentPage)) {
       query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!$dara.isNull(request.eventStatus)) {
+      query["EventStatus"] = request.eventStatus;
     }
 
     if (!$dara.isNull(request.pageSize)) {
@@ -39998,7 +40371,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * View instances identified by intelligent behavior analytics.
+   * Queries the list of machines for intelligent behavior analytics.
    * 
    * @param request - ListUnknownThreatDetectMachineRequest
    * @returns ListUnknownThreatDetectMachineResponse
@@ -40091,7 +40464,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the strategies for intelligent behavior analytics.
+   * Queries the list of intelligent behavior analysis policies.
    * 
    * @param request - ListUnknownThreatDetectStrategyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -40138,7 +40511,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the strategies for intelligent behavior analytics.
+   * Queries the list of intelligent behavior analysis policies.
    * 
    * @param request - ListUnknownThreatDetectStrategyRequest
    * @returns ListUnknownThreatDetectStrategyResponse
@@ -40361,7 +40734,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries virus alerts detected by virus scanning on a specific server.
+   * Queries virus alerts detected by a virus scan on a specific server.
    * 
    * @param request - ListVirusScanMachineEventRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -40408,7 +40781,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries virus alerts detected by virus scanning on a specific server.
+   * Queries virus alerts detected by a virus scan on a specific server.
    * 
    * @param request - ListVirusScanMachineEventRequest
    * @returns ListVirusScanMachineEventResponse
@@ -42085,7 +42458,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds vulnerabilities to the whitelist. After you add the vulnerabilities to the whitelist, Security Center no longer generates alerts for the vulnerabilities.
+   * Adds a vulnerability whitelist. Vulnerabilities added to the whitelist are no longer displayed in the alert list.
    * 
    * @param request - ModifyCreateVulWhitelistRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -42094,8 +42467,16 @@ export default class Client extends OpenApi {
   async modifyCreateVulWhitelistWithOptions(request: $_model.ModifyCreateVulWhitelistRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyCreateVulWhitelistResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
     if (!$dara.isNull(request.reason)) {
       query["Reason"] = request.reason;
+    }
+
+    if (!$dara.isNull(request.resourceDirectoryAccountId)) {
+      query["ResourceDirectoryAccountId"] = request.resourceDirectoryAccountId;
     }
 
     if (!$dara.isNull(request.targetInfo)) {
@@ -42124,7 +42505,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds vulnerabilities to the whitelist. After you add the vulnerabilities to the whitelist, Security Center no longer generates alerts for the vulnerabilities.
+   * Adds a vulnerability whitelist. Vulnerabilities added to the whitelist are no longer displayed in the alert list.
    * 
    * @param request - ModifyCreateVulWhitelistRequest
    * @returns ModifyCreateVulWhitelistResponse
@@ -42332,6 +42713,10 @@ export default class Client extends OpenApi {
   async modifyEmgVulSubmitWithOptions(request: $_model.ModifyEmgVulSubmitRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyEmgVulSubmitResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
     if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
@@ -43124,6 +43509,10 @@ export default class Client extends OpenApi {
       query["BizType"] = request.bizType;
     }
 
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
     if (!$dara.isNull(request.focusLevel)) {
       query["FocusLevel"] = request.focusLevel;
     }
@@ -43235,7 +43624,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Handles detected vulnerabilities. You can fix, check, or ignore the vulnerabilities.
+   * Handles detected vulnerabilities. Supported operations include fix, verify, and ignore.
    * 
    * @param request - ModifyOperateVulRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -43244,6 +43633,10 @@ export default class Client extends OpenApi {
   async modifyOperateVulWithOptions(request: $_model.ModifyOperateVulRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyOperateVulResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
     if (!$dara.isNull(request.from)) {
       query["From"] = request.from;
     }
@@ -43258,6 +43651,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.reason)) {
       query["Reason"] = request.reason;
+    }
+
+    if (!$dara.isNull(request.resourceDirectoryAccountId)) {
+      query["ResourceDirectoryAccountId"] = request.resourceDirectoryAccountId;
     }
 
     if (!$dara.isNull(request.type)) {
@@ -43282,7 +43679,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Handles detected vulnerabilities. You can fix, check, or ignore the vulnerabilities.
+   * Handles detected vulnerabilities. Supported operations include fix, verify, and ignore.
    * 
    * @param request - ModifyOperateVulRequest
    * @returns ModifyOperateVulResponse
@@ -43303,11 +43700,23 @@ export default class Client extends OpenApi {
     tmpReq.validate();
     let request = new $_model.ModifyPostPayModuleSwitchShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.edrModuleSwitch)) {
+      request.edrModuleSwitchShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.edrModuleSwitch, "EdrModuleSwitch", "json");
+    }
+
     if (!$dara.isNull(tmpReq.postPayModuleSwitchObj)) {
       request.postPayModuleSwitchObjShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.postPayModuleSwitchObj, "PostPayModuleSwitchObj", "json");
     }
 
     let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.edrModuleSwitchShrink)) {
+      query["EdrModuleSwitch"] = request.edrModuleSwitchShrink;
+    }
+
     if (!$dara.isNull(request.postPaidHostAutoBind)) {
       query["PostPaidHostAutoBind"] = request.postPaidHostAutoBind;
     }
@@ -43663,10 +44072,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Specifies the time when an automatic configuration check on cloud services runs.
+   * Sets the automatic detection time for cloud platform configuration check items.
    * 
    * @remarks
-   * This operation is phased out. You can use the ChangeCheckConfig operation.
+   * This operation is deprecated. Use the ChangeCheckConfig operation instead.
    * 
    * @deprecated OpenAPI ModifySecurityCheckScheduleConfig is deprecated, please use Sas::2018-12-03::ChangeCheckConfig instead.
    * 
@@ -43719,10 +44128,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Specifies the time when an automatic configuration check on cloud services runs.
+   * Sets the automatic detection time for cloud platform configuration check items.
    * 
    * @remarks
-   * This operation is phased out. You can use the ChangeCheckConfig operation.
+   * This operation is deprecated. Use the ChangeCheckConfig operation instead.
    * 
    * @deprecated OpenAPI ModifySecurityCheckScheduleConfig is deprecated, please use Sas::2018-12-03::ChangeCheckConfig instead.
    * 
@@ -43745,6 +44154,10 @@ export default class Client extends OpenApi {
   async modifySecurityEventMarkMissIndividuallyWithOptions(request: $_model.ModifySecurityEventMarkMissIndividuallyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifySecurityEventMarkMissIndividuallyResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.resourceDirectoryAccountId)) {
+      query["ResourceDirectoryAccountId"] = request.resourceDirectoryAccountId;
+    }
+
     if (!$dara.isNull(request.sourceIp)) {
       query["SourceIp"] = request.sourceIp;
     }
@@ -43831,6 +44244,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.bindUuidList)) {
       query["BindUuidList"] = request.bindUuidList;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
     }
 
     if (!$dara.isNull(request.criteria)) {
@@ -43946,7 +44363,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables the one-click scan feature on the vulnerability management page of the console.
+   * Starts the one-click scan feature on the vulnerability management page of the console.
    * 
    * @param request - ModifyStartVulScanRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -43955,6 +44372,14 @@ export default class Client extends OpenApi {
   async modifyStartVulScanWithOptions(request: $_model.ModifyStartVulScanRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyStartVulScanResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.resourceDirectoryAccountId)) {
+      query["ResourceDirectoryAccountId"] = request.resourceDirectoryAccountId;
+    }
+
     if (!$dara.isNull(request.types)) {
       query["Types"] = request.types;
     }
@@ -43981,7 +44406,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables the one-click scan feature on the vulnerability management page of the console.
+   * Starts the one-click scan feature on the vulnerability management page of the console.
    * 
    * @param request - ModifyStartVulScanRequest
    * @returns ModifyStartVulScanResponse
@@ -44330,6 +44755,10 @@ export default class Client extends OpenApi {
   async modifyVulConfigWithOptions(request: $_model.ModifyVulConfigRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyVulConfigResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
     if (!$dara.isNull(request.config)) {
       query["Config"] = request.config;
     }
@@ -45313,7 +45742,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Manages an Object Storage Service (OSS) bucket check task.
+   * Operates on a bucket detection task.
    * 
    * @param request - OperateBucketScanTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -45328,6 +45757,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.operateCode)) {
       query["OperateCode"] = request.operateCode;
+    }
+
+    if (!$dara.isNull(request.source)) {
+      query["Source"] = request.source;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -45348,7 +45781,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Manages an Object Storage Service (OSS) bucket check task.
+   * Operates on a bucket detection task.
    * 
    * @param request - OperateBucketScanTaskRequest
    * @returns OperateBucketScanTaskResponse
@@ -45359,7 +45792,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables or disables a feature by type.
+   * Sets a global switch by type.
    * 
    * @param request - OperateCommonOverallConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -45368,6 +45801,10 @@ export default class Client extends OpenApi {
   async operateCommonOverallConfigWithOptions(request: $_model.OperateCommonOverallConfigRequest, runtime: $dara.RuntimeOptions): Promise<$_model.OperateCommonOverallConfigResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
     if (!$dara.isNull(request.config)) {
       query["Config"] = request.config;
     }
@@ -45402,7 +45839,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables or disables a feature by type.
+   * Sets a global switch by type.
    * 
    * @param request - OperateCommonOverallConfigRequest
    * @returns OperateCommonOverallConfigResponse
@@ -45858,6 +46295,10 @@ export default class Client extends OpenApi {
       query["OperateType"] = request.operateType;
     }
 
+    if (!$dara.isNull(request.resourceDirectoryAccountId)) {
+      query["ResourceDirectoryAccountId"] = request.resourceDirectoryAccountId;
+    }
+
     if (!$dara.isNull(request.type)) {
       query["Type"] = request.type;
     }
@@ -45962,6 +46403,10 @@ export default class Client extends OpenApi {
       query["Remark"] = request.remark;
     }
 
+    if (!$dara.isNull(request.resourceDirectoryAccountId)) {
+      query["ResourceDirectoryAccountId"] = request.resourceDirectoryAccountId;
+    }
+
     if (!$dara.isNull(request.securityEventIds)) {
       query["SecurityEventIds"] = request.securityEventIds;
     }
@@ -46056,6 +46501,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.operation)) {
       query["Operation"] = request.operation;
+    }
+
+    if (!$dara.isNull(request.resourceDirectoryAccountId)) {
+      query["ResourceDirectoryAccountId"] = request.resourceDirectoryAccountId;
     }
 
     if (!$dara.isNull(request.sourceIp)) {
@@ -46482,6 +46931,10 @@ export default class Client extends OpenApi {
   async queryAttackCountWithOptions(request: $_model.QueryAttackCountRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryAttackCountResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.resourceDirectoryAccountId)) {
+      query["ResourceDirectoryAccountId"] = request.resourceDirectoryAccountId;
+    }
+
     if (!$dara.isNull(request.sourceIp)) {
       query["SourceIp"] = request.sourceIp;
     }
@@ -46931,6 +47384,10 @@ export default class Client extends OpenApi {
       query["CloudAssetType"] = request.cloudAssetType;
     }
 
+    if (!$dara.isNull(request.resourceDirectoryAccountId)) {
+      query["ResourceDirectoryAccountId"] = request.resourceDirectoryAccountId;
+    }
+
     if (!$dara.isNull(request.vendor)) {
       query["Vendor"] = request.vendor;
     }
@@ -47008,11 +47465,20 @@ export default class Client extends OpenApi {
   /**
    * Refreshes the bucket list.
    * 
+   * @param request - RefreshOssBucketScanInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RefreshOssBucketScanInfoResponse
    */
-  async refreshOssBucketScanInfoWithOptions(runtime: $dara.RuntimeOptions): Promise<$_model.RefreshOssBucketScanInfoResponse> {
-    let req = new $OpenApiUtil.OpenApiRequest({ });
+  async refreshOssBucketScanInfoWithOptions(request: $_model.RefreshOssBucketScanInfoRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RefreshOssBucketScanInfoResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.source)) {
+      query["Source"] = request.source;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
     let params = new $OpenApiUtil.Params({
       action: "RefreshOssBucketScanInfo",
       version: "2018-12-03",
@@ -47029,11 +47495,13 @@ export default class Client extends OpenApi {
 
   /**
    * Refreshes the bucket list.
+   * 
+   * @param request - RefreshOssBucketScanInfoRequest
    * @returns RefreshOssBucketScanInfoResponse
    */
-  async refreshOssBucketScanInfo(): Promise<$_model.RefreshOssBucketScanInfoResponse> {
+  async refreshOssBucketScanInfo(request: $_model.RefreshOssBucketScanInfoRequest): Promise<$_model.RefreshOssBucketScanInfoResponse> {
     let runtime = new $dara.RuntimeOptions({ });
-    return await this.refreshOssBucketScanInfoWithOptions(runtime);
+    return await this.refreshOssBucketScanInfoWithOptions(request, runtime);
   }
 
   /**
@@ -47426,6 +47894,10 @@ export default class Client extends OpenApi {
       query["QuaraFileId"] = request.quaraFileId;
     }
 
+    if (!$dara.isNull(request.resourceDirectoryAccountId)) {
+      query["ResourceDirectoryAccountId"] = request.resourceDirectoryAccountId;
+    }
+
     if (!$dara.isNull(request.sourceIp)) {
       query["SourceIp"] = request.sourceIp;
     }
@@ -47562,6 +48034,10 @@ export default class Client extends OpenApi {
       query["ReportVersion"] = request.reportVersion;
     }
 
+    if (!$dara.isNull(request.resourceDirectoryAccountId)) {
+      query["ResourceDirectoryAccountId"] = request.resourceDirectoryAccountId;
+    }
+
     if (!$dara.isNull(request.sendEndTime)) {
       query["SendEndTime"] = request.sendEndTime;
     }
@@ -47696,6 +48172,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.levelsOn)) {
       query["LevelsOn"] = request.levelsOn;
+    }
+
+    if (!$dara.isNull(request.resourceDirectoryAccountId)) {
+      query["ResourceDirectoryAccountId"] = request.resourceDirectoryAccountId;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -47860,6 +48340,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.reportId)) {
       query["ReportId"] = request.reportId;
+    }
+
+    if (!$dara.isNull(request.resourceDirectoryAccountId)) {
+      query["ResourceDirectoryAccountId"] = request.resourceDirectoryAccountId;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -48554,7 +49038,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Submits a configuration assessment task.
+   * Submits a cloud service configuration check.
    * 
    * @param request - SubmitCheckRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -48563,6 +49047,10 @@ export default class Client extends OpenApi {
   async submitCheckWithOptions(request: $_model.SubmitCheckRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SubmitCheckResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.resourceDirectoryAccountId)) {
+      query["ResourceDirectoryAccountId"] = request.resourceDirectoryAccountId;
+    }
+
     if (!$dara.isNull(request.scanRange)) {
       query["ScanRange"] = request.scanRange;
     }
@@ -48589,7 +49077,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Submits a configuration assessment task.
+   * Submits a cloud service configuration check.
    * 
    * @param request - SubmitCheckRequest
    * @returns SubmitCheckResponse
@@ -48968,6 +49456,11 @@ export default class Client extends OpenApi {
    */
   async updateAlarmEventWithOptions(request: $_model.UpdateAlarmEventRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateAlarmEventResponse> {
     request.validate();
+    let query = { };
+    if (!$dara.isNull(request.resourceDirectoryAccountId)) {
+      query["ResourceDirectoryAccountId"] = request.resourceDirectoryAccountId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.alarmEventIdList)) {
       body["AlarmEventIdList"] = request.alarmEventIdList;
@@ -48982,6 +49475,7 @@ export default class Client extends OpenApi {
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
@@ -49347,6 +49841,64 @@ export default class Client extends OpenApi {
   async updateCheckPolicy(request: $_model.UpdateCheckPolicyRequest): Promise<$_model.UpdateCheckPolicyResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateCheckPolicyWithOptions(request, runtime);
+  }
+
+  /**
+   * Updates the check scope configuration.
+   * 
+   * @param request - UpdateCheckScopeConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateCheckScopeConfigResponse
+   */
+  async updateCheckScopeConfigWithOptions(request: $_model.UpdateCheckScopeConfigRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateCheckScopeConfigResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.autoConfig)) {
+      query["AutoConfig"] = request.autoConfig;
+    }
+
+    if (!$dara.isNull(request.autoType)) {
+      query["AutoType"] = request.autoType;
+    }
+
+    if (!$dara.isNull(request.configId)) {
+      query["ConfigId"] = request.configId;
+    }
+
+    if (!$dara.isNull(request.resourceDirectoryAccountId)) {
+      query["ResourceDirectoryAccountId"] = request.resourceDirectoryAccountId;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateCheckScopeConfig",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateCheckScopeConfigResponse>(await this.callApi(params, req, runtime), new $_model.UpdateCheckScopeConfigResponse({}));
+  }
+
+  /**
+   * Updates the check scope configuration.
+   * 
+   * @param request - UpdateCheckScopeConfigRequest
+   * @returns UpdateCheckScopeConfigResponse
+   */
+  async updateCheckScopeConfig(request: $_model.UpdateCheckScopeConfigRequest): Promise<$_model.UpdateCheckScopeConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateCheckScopeConfigWithOptions(request, runtime);
   }
 
   /**
@@ -50696,7 +51248,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify Multi-Account Instance Configuration
+   * Manages authorization assignments for member accounts in multi-account authorization management.
    * 
    * @param request - UpdateMultiUserInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -50727,7 +51279,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify Multi-Account Instance Configuration
+   * Manages authorization assignments for member accounts in multi-account authorization management.
    * 
    * @param request - UpdateMultiUserInstancesRequest
    * @returns UpdateMultiUserInstancesResponse
@@ -50838,7 +51390,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the scan policy configuration for OSS file detection under the malicious file detection feature.
+   * Updates the OSS file scan policy configuration for the malicious file detection feature.
    * 
    * @param request - UpdateOssScanConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -50849,6 +51401,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.allKeyPrefix)) {
       query["AllKeyPrefix"] = request.allKeyPrefix;
+    }
+
+    if (!$dara.isNull(request.autoAdd)) {
+      query["AutoAdd"] = request.autoAdd;
     }
 
     if (!$dara.isNull(request.bucketNameList)) {
@@ -50903,6 +51459,10 @@ export default class Client extends OpenApi {
       query["ScanDayList"] = request.scanDayList;
     }
 
+    if (!$dara.isNull(request.source)) {
+      query["Source"] = request.source;
+    }
+
     if (!$dara.isNull(request.startTime)) {
       query["StartTime"] = request.startTime;
     }
@@ -50925,7 +51485,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the scan policy configuration for OSS file detection under the malicious file detection feature.
+   * Updates the OSS file scan policy configuration for the malicious file detection feature.
    * 
    * @param request - UpdateOssScanConfigRequest
    * @returns UpdateOssScanConfigResponse
@@ -50936,7 +51496,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Change Postpaid Asset Authorization Version
+   * Changes the protection edition bound to a server after you activate the pay-as-you-go billing method for host and container security.
    * 
    * @param request - UpdatePostPaidBindRelRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -50955,6 +51515,14 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.bindAction)) {
       query["BindAction"] = request.bindAction;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.productCode)) {
+      query["ProductCode"] = request.productCode;
     }
 
     if (!$dara.isNull(request.updateIfNecessary)) {
@@ -50979,7 +51547,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Change Postpaid Asset Authorization Version
+   * Changes the protection edition bound to a server after you activate the pay-as-you-go billing method for host and container security.
    * 
    * @param request - UpdatePostPaidBindRelRequest
    * @returns UpdatePostPaidBindRelResponse
@@ -51188,7 +51756,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the key that corresponds to a specified type.
+   * Modifies the key corresponding to a specified type.
    * 
    * @param request - UpdateSelectionKeyByTypeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -51199,6 +51767,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.businessType)) {
       query["BusinessType"] = request.businessType;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
     }
 
     if (!$dara.isNull(request.selectionKey)) {
@@ -51223,7 +51795,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the key that corresponds to a specified type.
+   * Modifies the key corresponding to a specified type.
    * 
    * @param request - UpdateSelectionKeyByTypeRequest
    * @returns UpdateSelectionKeyByTypeResponse
@@ -51376,7 +51948,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the unknown threat detection strategy.
+   * Updates an intelligent behavior analytics policy.
    * 
    * @param request - UpdateUnknownThreatDetectStrategyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -51423,7 +51995,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the unknown threat detection strategy.
+   * Updates an intelligent behavior analytics policy.
    * 
    * @param request - UpdateUnknownThreatDetectStrategyRequest
    * @returns UpdateUnknownThreatDetectStrategyResponse
@@ -51862,7 +52434,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Verifies the instance dimensions under a check item.
+   * Verifies instances under a check item.
    * 
    * @param request - VerifyCheckInstanceResultRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -51877,6 +52449,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.checkIds)) {
       query["CheckIds"] = request.checkIds;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
     }
 
     if (!$dara.isNull(request.instanceIds)) {
@@ -51905,7 +52481,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Verifies the instance dimensions under a check item.
+   * Verifies instances under a check item.
    * 
    * @param request - VerifyCheckInstanceResultRequest
    * @returns VerifyCheckInstanceResultResponse
@@ -51916,7 +52492,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs check item-level validation.
+   * Validates check items.
    * 
    * @param request - VerifyCheckResultRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -51927,6 +52503,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.checkIds)) {
       query["CheckIds"] = request.checkIds;
+    }
+
+    if (!$dara.isNull(request.force)) {
+      query["Force"] = request.force;
     }
 
     if (!$dara.isNull(request.instanceIds)) {
@@ -51955,7 +52535,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs check item-level validation.
+   * Validates check items.
    * 
    * @param request - VerifyCheckResultRequest
    * @returns VerifyCheckResultResponse

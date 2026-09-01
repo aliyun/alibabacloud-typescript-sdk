@@ -11,6 +11,7 @@ export class OperationCancelIgnoreSuspEventRequest extends $dara.Model {
    * remark text
    */
   remark?: string;
+  resourceDirectoryAccountId?: number;
   /**
    * @remarks
    * The IDs of alert events.
@@ -21,6 +22,7 @@ export class OperationCancelIgnoreSuspEventRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       remark: 'Remark',
+      resourceDirectoryAccountId: 'ResourceDirectoryAccountId',
       securityEventIds: 'SecurityEventIds',
     };
   }
@@ -28,6 +30,7 @@ export class OperationCancelIgnoreSuspEventRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       remark: 'string',
+      resourceDirectoryAccountId: 'number',
       securityEventIds: { 'type': 'array', 'itemType': 'number' },
     };
   }

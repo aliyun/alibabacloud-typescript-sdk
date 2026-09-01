@@ -7,8 +7,8 @@ export class GetCurrentVersionPublishResponseBodyData extends $dara.Model {
    * @remarks
    * Indicates whether automatic upgrade is enabled. Valid values:
    * 
-   * *   **1**: yes.
-   * *   **0**: no.
+   * - **1**: Enabled.
+   * - **0**: Disabled.
    * 
    * @example
    * 1
@@ -16,10 +16,9 @@ export class GetCurrentVersionPublishResponseBodyData extends $dara.Model {
   autoUpgrade?: number;
   /**
    * @remarks
-   * Indicates whether you can enable custom upgrade for the Security Center agent. Valid values:
-   * 
-   * *   **true**
-   * *   **false**
+   * Indicates whether the current user supports custom upgrades in Security Center. Valid values:
+   * - **true**: Supported.
+   * - **false**: Not supported.
    * 
    * @example
    * true
@@ -27,7 +26,7 @@ export class GetCurrentVersionPublishResponseBodyData extends $dara.Model {
   bigCustomer?: boolean;
   /**
    * @remarks
-   * The version of the Security Center agent.
+   * The current version.
    * 
    * @example
    * 0.0.8
@@ -35,7 +34,7 @@ export class GetCurrentVersionPublishResponseBodyData extends $dara.Model {
   curVersion?: string;
   /**
    * @remarks
-   * The timestamp when the Security Center agent was forcibly upgraded.
+   * The timestamp for the forced client upgrade.
    * 
    * @example
    * 1732506308000
@@ -44,9 +43,8 @@ export class GetCurrentVersionPublishResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the canary release policy is enabled. Valid values:
-   * 
-   * *   **1**: yes.
-   * *   .**0**: no.
+   * - **1**: Enabled.
+   * - **0**: Disabled.
    * 
    * @example
    * 1
@@ -54,7 +52,7 @@ export class GetCurrentVersionPublishResponseBodyData extends $dara.Model {
   graySwitchStatus?: number;
   /**
    * @remarks
-   * The latest version of the Security Center agent.
+   * The latest client version number.
    * 
    * @example
    * 0.0.9
@@ -62,7 +60,7 @@ export class GetCurrentVersionPublishResponseBodyData extends $dara.Model {
   latestVersion?: string;
   /**
    * @remarks
-   * The timestamp when the latest version of the Security Center agent was created.
+   * The timestamp when the latest client version was created.
    * 
    * @example
    * 1662639150000
@@ -70,7 +68,7 @@ export class GetCurrentVersionPublishResponseBodyData extends $dara.Model {
   latestVersionCreate?: number;
   /**
    * @remarks
-   * The description of about the latest version.
+   * The description of the latest version.
    * 
    * @example
    * test
@@ -78,13 +76,12 @@ export class GetCurrentVersionPublishResponseBodyData extends $dara.Model {
   latestVersionDesc?: string;
   /**
    * @remarks
-   * The publish status of the Security Center agent. Valid values:
-   * 
-   * *   **0**: not started.
-   * *   **1**: publishing.
-   * *   **2**: published.
-   * *   **3**: publish suspended.
-   * *   **4**: forcibly upgrading.
+   * The release status of the current version. Valid values:
+   * - **0**: Not started.
+   * - **1**: Being released.
+   * - **2**: Release completed.
+   * - **3**: Release paused.
+   * - **4**: Forced upgrade in progress.
    * 
    * @example
    * 1
@@ -92,7 +89,7 @@ export class GetCurrentVersionPublishResponseBodyData extends $dara.Model {
   publishStatus?: number;
   /**
    * @remarks
-   * The destination version of the Security Center agent.
+   * The target version to upgrade to.
    * 
    * @example
    * 0.0.9
@@ -140,12 +137,12 @@ export class GetCurrentVersionPublishResponseBodyData extends $dara.Model {
 export class GetCurrentVersionPublishResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The data returned.
+   * The data details.
    */
   data?: GetCurrentVersionPublishResponseBodyData;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request. Alibaba Cloud generates a unique identifier for each request. You can use the ID to troubleshoot issues.
    * 
    * @example
    * 1383B0DB-D5D6-4B0C-9E6B-75939C8E67FE

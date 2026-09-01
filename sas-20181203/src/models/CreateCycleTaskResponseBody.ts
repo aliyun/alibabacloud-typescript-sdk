@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateCycleTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the task configuration.
+   * The ID of the configuration.
    * 
    * @example
    * 00cfa8161da093089e6804ba6a33****
@@ -13,7 +13,7 @@ export class CreateCycleTaskResponseBody extends $dara.Model {
   configId?: string;
   /**
    * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
+   * The ID of the request. Alibaba Cloud generates a unique identifier for each request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * 86CFF42E-E00A-57A3-8656-22291EFB****

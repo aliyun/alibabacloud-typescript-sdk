@@ -8,6 +8,7 @@ export class HandleUnknownThreatDetectEventRequest extends $dara.Model {
    * The list of event IDs.
    */
   eventIdList?: string[];
+  handleRemark?: string;
   /**
    * @remarks
    * The event handling status. Valid values:
@@ -23,6 +24,7 @@ export class HandleUnknownThreatDetectEventRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       eventIdList: 'EventIdList',
+      handleRemark: 'HandleRemark',
       status: 'Status',
     };
   }
@@ -30,6 +32,7 @@ export class HandleUnknownThreatDetectEventRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       eventIdList: { 'type': 'array', 'itemType': 'string' },
+      handleRemark: 'string',
       status: 'number',
     };
   }

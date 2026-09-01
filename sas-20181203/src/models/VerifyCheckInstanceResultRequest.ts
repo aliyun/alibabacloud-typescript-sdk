@@ -7,7 +7,7 @@ export class VerifyCheckInstanceResultRequest extends $dara.Model {
    * @remarks
    * The ID of the check item.
    * 
-   * > You can call the [ListCheckResult](~~ListCheckResult~~) operation to obtain the ID of the check item.
+   * > You can call the [ListCheckResult](~~ListCheckResult~~) operation to obtain the check item ID.
    * 
    * @example
    * 16
@@ -15,19 +15,24 @@ export class VerifyCheckInstanceResultRequest extends $dara.Model {
   checkId?: number;
   /**
    * @remarks
-   * The list of IDs of the check items.
+   * The list of check item IDs.
    */
   checkIds?: number[];
   /**
    * @remarks
-   * The list of instance IDs of the assets affected by the check item.
+   * The client token that is used to ensure the idempotence of the request. Different requests should use different tokens. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   */
+  clientToken?: string;
+  /**
+   * @remarks
+   * The list of instance IDs of the affected assets under the check item.
    */
   instanceIds?: string[];
   /**
    * @remarks
-   * The source of the task. Valid values:
+   * The task source. Valid values:
    * 
-   * - **YAO_CHI**: YaoChi console.
+   * - **YAO_CHI**: ApsaraDB console.
    * 
    * @example
    * YAO_CHI
@@ -37,6 +42,7 @@ export class VerifyCheckInstanceResultRequest extends $dara.Model {
     return {
       checkId: 'CheckId',
       checkIds: 'CheckIds',
+      clientToken: 'ClientToken',
       instanceIds: 'InstanceIds',
       taskSource: 'TaskSource',
     };
@@ -46,6 +52,7 @@ export class VerifyCheckInstanceResultRequest extends $dara.Model {
     return {
       checkId: 'number',
       checkIds: { 'type': 'array', 'itemType': 'number' },
+      clientToken: 'string',
       instanceIds: { 'type': 'array', 'itemType': 'string' },
       taskSource: 'string',
     };

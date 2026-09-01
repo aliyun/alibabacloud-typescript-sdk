@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateUnknownThreatDetectStrategyRequest extends $dara.Model {
   /**
    * @remarks
-   * The asset selection type.
+   * The asset selection identifier.
    * 
    * @example
    * UNKNOWN_THREAT_DETECT_CONFIG_****
@@ -13,7 +13,7 @@ export class CreateUnknownThreatDetectStrategyRequest extends $dara.Model {
   assetSelectionType?: string;
   /**
    * @remarks
-   * The duration of the initial learning period, in days.
+   * The number of days after the model is initially created before learning ends.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class CreateUnknownThreatDetectStrategyRequest extends $dara.Model {
   durationDaysAfterInit?: number;
   /**
    * @remarks
-   * The number of consecutive days without detecting new processes before the learning process stops.
+   * The number of days after no new processes are added to the model before learning ends.
    * 
    * @example
    * 1
@@ -29,7 +29,7 @@ export class CreateUnknownThreatDetectStrategyRequest extends $dara.Model {
   durationDaysAfterStop?: number;
   /**
    * @remarks
-   * The strategy name.
+   * The policy name.
    * 
    * @example
    * strategy****
@@ -39,9 +39,8 @@ export class CreateUnknownThreatDetectStrategyRequest extends $dara.Model {
    * @remarks
    * The whitelist mode. Valid values:
    * 
-   * - **hash**: The process hash.
-   * 
-   * - **path**: The process path.
+   * - **hash**: process hash
+   * - **path**: process path
    * 
    * @example
    * hash

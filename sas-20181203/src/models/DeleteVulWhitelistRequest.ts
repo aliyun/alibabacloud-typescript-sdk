@@ -12,6 +12,7 @@ export class DeleteVulWhitelistRequest extends $dara.Model {
    * 131231
    */
   id?: string;
+  resourceDirectoryAccountId?: number;
   /**
    * @remarks
    * The vulnerability whitelist information to delete. The value is a JSON string that contains the following fields:
@@ -40,6 +41,7 @@ export class DeleteVulWhitelistRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       id: 'Id',
+      resourceDirectoryAccountId: 'ResourceDirectoryAccountId',
       whitelist: 'Whitelist',
     };
   }
@@ -47,6 +49,7 @@ export class DeleteVulWhitelistRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       id: 'string',
+      resourceDirectoryAccountId: 'number',
       whitelist: 'string',
     };
   }

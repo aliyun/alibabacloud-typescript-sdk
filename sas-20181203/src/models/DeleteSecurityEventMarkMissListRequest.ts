@@ -8,10 +8,12 @@ export class DeleteSecurityEventMarkMissListRequest extends $dara.Model {
    * The IDs of custom defense rule.
    */
   ids?: number[];
+  resourceDirectoryAccountId?: number;
   resourceOwnerId?: number;
   static names(): { [key: string]: string } {
     return {
       ids: 'Ids',
+      resourceDirectoryAccountId: 'ResourceDirectoryAccountId',
       resourceOwnerId: 'ResourceOwnerId',
     };
   }
@@ -19,6 +21,7 @@ export class DeleteSecurityEventMarkMissListRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       ids: { 'type': 'array', 'itemType': 'number' },
+      resourceDirectoryAccountId: 'number',
       resourceOwnerId: 'number',
     };
   }

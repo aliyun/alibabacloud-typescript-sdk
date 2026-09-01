@@ -5,10 +5,16 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyEmgVulSubmitRequest extends $dara.Model {
   /**
    * @remarks
+   * The client token that is used to ensure the idempotence of the request. Different requests should use different tokens. The token supports only ASCII characters and cannot exceed 64 characters in length.
+   */
+  clientToken?: string;
+  /**
+   * @remarks
    * The language type for the request and response messages. Default value: **zh**. Valid values:
    * 
    * - **zh**: Chinese
-   * - **en**: English.
+   * 
+   * - **en**: English
    * 
    * @example
    * zh
@@ -26,8 +32,8 @@ export class ModifyEmgVulSubmitRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The ID of the member accounts in the resource folder (Alibaba Cloud account).
-   * >Invoke the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
+   * The ID of the member accounts in the resource directory (Alibaba Cloud account).
+   * >Call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
    * 
    * @example
    * 16670360956*****
@@ -38,6 +44,7 @@ export class ModifyEmgVulSubmitRequest extends $dara.Model {
    * Specifies whether to perform vulnerability detection. Valid values:
    * 
    * - **yes**: Perform vulnerability detection.
+   * 
    * - **no**: Do not perform vulnerability detection.
    * 
    * This parameter is required.
@@ -48,6 +55,7 @@ export class ModifyEmgVulSubmitRequest extends $dara.Model {
   userAgreement?: string;
   static names(): { [key: string]: string } {
     return {
+      clientToken: 'ClientToken',
       lang: 'Lang',
       name: 'Name',
       resourceDirectoryAccountId: 'ResourceDirectoryAccountId',
@@ -57,6 +65,7 @@ export class ModifyEmgVulSubmitRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      clientToken: 'string',
       lang: 'string',
       name: 'string',
       resourceDirectoryAccountId: 'number',

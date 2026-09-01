@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitCheckResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The operation code of the configuration assessment task.
+   * The operation code of the cloud service configuration check task.
    * 
-   * *   **Throttling**: frequency limit
-   * *   **AuthorizationExhaust**: insufficient quota
+   * - **Throttling**: rate limited
+   * - **AuthorizationExhaust**: insufficient authorization quota
    * 
    * @example
    * Throttling
@@ -16,7 +16,7 @@ export class SubmitCheckResponseBodyData extends $dara.Model {
   operateCode?: string;
   /**
    * @remarks
-   * The throttling duration. Unit: seconds.
+   * The rate limit duration. Unit: seconds.
    * 
    * @example
    * 1800
@@ -48,12 +48,12 @@ export class SubmitCheckResponseBodyData extends $dara.Model {
 export class SubmitCheckResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The data returned if the call is successful.
+   * The data returned when the API call is successful.
    */
   data?: SubmitCheckResponseBodyData;
   /**
    * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
+   * The request ID. Alibaba Cloud generates a unique ID for each API request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * CE8369A6-A843-5E1B-A613-78E6920D****
@@ -61,7 +61,7 @@ export class SubmitCheckResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the configuration assessment task.
+   * The ID of the task that runs the cloud service configuration check.
    * 
    * @example
    * 5fe3f65d-4012-455d-8232-2a98a858****

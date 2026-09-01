@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateUnknownThreatDetectStrategyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The strategy ID.
+   * The policy ID.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class CreateUnknownThreatDetectStrategyResponseBody extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * Id of the request
    * 
    * @example
    * F8B6F758-BCD4-597A-8A2C-DA5A552C****

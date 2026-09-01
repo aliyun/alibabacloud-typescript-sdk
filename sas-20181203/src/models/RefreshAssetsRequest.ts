@@ -56,6 +56,7 @@ export class RefreshAssetsRequest extends $dara.Model {
    * 0
    */
   cloudAssetType?: number;
+  resourceDirectoryAccountId?: number;
   /**
    * @remarks
    * The type of the server. Valid values:
@@ -75,6 +76,7 @@ export class RefreshAssetsRequest extends $dara.Model {
       assetType: 'AssetType',
       cloudAssetSubType: 'CloudAssetSubType',
       cloudAssetType: 'CloudAssetType',
+      resourceDirectoryAccountId: 'ResourceDirectoryAccountId',
       vendor: 'Vendor',
     };
   }
@@ -84,6 +86,7 @@ export class RefreshAssetsRequest extends $dara.Model {
       assetType: 'string',
       cloudAssetSubType: 'number',
       cloudAssetType: 'number',
+      resourceDirectoryAccountId: 'number',
       vendor: 'number',
     };
   }

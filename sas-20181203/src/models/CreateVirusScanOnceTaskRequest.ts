@@ -5,8 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class CreateVirusScanOnceTaskRequest extends $dara.Model {
   /**
    * @remarks
-   * Additional information fields: 
-   * - **additionType**: The type of extended scan
+   * The client token that is used to ensure the idempotence of the request. Different requests should use different tokens. The token supports only ASCII characters and cannot exceed 64 characters in length.
+   */
+  clientToken?: string;
+  /**
+   * @remarks
+   * The extended information field:
+   * - **additionType**: the extended scan type
    * 
    * @example
    * {\\"additionType\\":[\\"SCAN_MEMORY\\"]}
@@ -14,15 +19,14 @@ export class CreateVirusScanOnceTaskRequest extends $dara.Model {
   param?: string;
   /**
    * @remarks
-   * The information about the scan path that is required for a custom scan.
+   * The scan path information to be transmitted if the scan type is custom scan.
    */
   scanPath?: string[];
   /**
    * @remarks
-   * The type of the virus scan. Valid values:
-   * 
-   * *   **system**: system scan.
-   * *   **user**: custom scan.
+   * The scan type of the virus scan. Valid values:
+   * - **system**: system scan
+   * - **user**: custom scan.
    * 
    * @example
    * system
@@ -30,9 +34,8 @@ export class CreateVirusScanOnceTaskRequest extends $dara.Model {
   scanType?: string;
   /**
    * @remarks
-   * The key that stores the asset information.
-   * 
-   * > You can call the [GetAssetSelectionConfig](~~GetAssetSelectionConfig~~) operation to obtain the key value.
+   * The key that stores asset information.
+   * > You can call the [GetAssetSelectionConfig](~~GetAssetSelectionConfig~~) operation to obtain this parameter.
    * 
    * @example
    * 845de1ec-4b08-42e1-b564-31321e48xxxx
@@ -40,6 +43,7 @@ export class CreateVirusScanOnceTaskRequest extends $dara.Model {
   selectionKey?: string;
   static names(): { [key: string]: string } {
     return {
+      clientToken: 'ClientToken',
       param: 'Param',
       scanPath: 'ScanPath',
       scanType: 'ScanType',
@@ -49,6 +53,7 @@ export class CreateVirusScanOnceTaskRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      clientToken: 'string',
       param: 'string',
       scanPath: { 'type': 'array', 'itemType': 'string' },
       scanType: 'string',

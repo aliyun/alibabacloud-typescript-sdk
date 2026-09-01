@@ -41,6 +41,7 @@ export class GetDataTrendRequest extends $dara.Model {
    * 86400000
    */
   interval?: number;
+  resourceDirectoryAccountId?: number;
   /**
    * @remarks
    * The start timestamp of the query. Unit: milliseconds.
@@ -56,6 +57,7 @@ export class GetDataTrendRequest extends $dara.Model {
       bizTypes: 'BizTypes',
       endTimestamp: 'EndTimestamp',
       interval: 'Interval',
+      resourceDirectoryAccountId: 'ResourceDirectoryAccountId',
       startTimestamp: 'StartTimestamp',
     };
   }
@@ -65,6 +67,7 @@ export class GetDataTrendRequest extends $dara.Model {
       bizTypes: 'string',
       endTimestamp: 'number',
       interval: 'number',
+      resourceDirectoryAccountId: 'number',
       startTimestamp: 'number',
     };
   }

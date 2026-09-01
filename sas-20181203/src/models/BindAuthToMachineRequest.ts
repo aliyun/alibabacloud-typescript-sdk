@@ -6,11 +6,11 @@ export class BindAuthToMachineRequest extends $dara.Model {
   /**
    * @remarks
    * The authorization version of the asset. Valid values:
-   * - **6**: Anti-virus Edition
-   * - **5**: Advanced Edition
-   * - **3**: Enterprise Edition
-   * - **7**: Ultimate Edition
-   * - **10**: Value-added Service Edition.
+   * - **6**: Anti-virus Edition.
+   * - **5**: Premium Edition.
+   * - **3**: Enterprise Edition.
+   * - **7**: Ultimate Edition.
+   * - **10**: Value-added service Edition.
    * 
    * @example
    * 6
@@ -20,8 +20,8 @@ export class BindAuthToMachineRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable automatic binding. Valid values:
    * 
-   * - **0**: Disabled.
-   * - **1**: Enabled.
+   * - **0**: Disable automatic binding.
+   * - **1**: Enable automatic binding.
    * 
    * @example
    * 1
@@ -29,7 +29,7 @@ export class BindAuthToMachineRequest extends $dara.Model {
   autoBind?: number;
   /**
    * @remarks
-   * The UUIDs of the servers to bind.
+   * The collection of UUIDs to bind.
    * 
    * > **Bind** and **UnBind** cannot both be empty.
    */
@@ -47,7 +47,12 @@ export class BindAuthToMachineRequest extends $dara.Model {
   bindAll?: boolean;
   /**
    * @remarks
-   * The search conditions for assets. This parameter is in JSON format. Note that the parameter values are case-sensitive.
+   * The client token that is used to ensure the idempotence of the request. Use a different token for each request. The token supports only ASCII characters and cannot exceed 64 characters in length.
+   */
+  clientToken?: string;
+  /**
+   * @remarks
+   * The conditions for searching assets. This parameter is in JSON format. Pay attention to letter case when you specify this parameter.
    * > You can search for assets by instance ID, instance name, VPC ID, region, or public IP address. Call the [DescribeCriteria](~~DescribeCriteria~~) operation to query the supported search conditions.
    * 
    * @example
@@ -71,8 +76,8 @@ export class BindAuthToMachineRequest extends $dara.Model {
   /**
    * @remarks
    * The logical relationship among multiple search conditions. Default value: **OR**. Valid values:
-   * - **OR**: The search conditions are evaluated with a logical OR.
-   * - **AND**: The search conditions are evaluated with a logical AND.
+   * - **OR**: The search conditions are evaluated using a logical OR.
+   * - **AND**: The search conditions are evaluated using a logical AND.
    * 
    * @example
    * OR
@@ -80,12 +85,12 @@ export class BindAuthToMachineRequest extends $dara.Model {
   logicalExp?: string;
   /**
    * @remarks
-   * The order version associated with the pre-binding. Valid values:
+   * The order version associated with the pre-binding operation. Valid values:
    * 
-   * - **level7**: Anti-virus Edition
-   * - **level3**: Advanced Edition
-   * - **level2**: Enterprise Edition
-   * - **level8**: Ultimate Edition
+   * - **level7**: Anti-virus Edition.
+   * - **level3**: Premium Edition.
+   * - **level2**: Enterprise Edition.
+   * - **level8**: Ultimate Edition.
    * - **level10**: Value-added service only.
    * 
    * @example
@@ -94,16 +99,17 @@ export class BindAuthToMachineRequest extends $dara.Model {
   ntmVersion?: string;
   /**
    * @remarks
-   * The order ID associated with the pre-binding.
+   * The order ID associated with the pre-binding operation.
    * 
    * @example
    * 233016**0482
    */
   preBindOrderId?: number;
+  productCode?: string;
   /**
    * @remarks
-   * The ID of the member accounts in the resource folder (Alibaba Cloud account).
-   * > Invoke the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
+   * The ID of the member accounts (Alibaba Cloud account) in the resource directory.
+   * >Call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
    * 
    * @example
    * 16670360956*****
@@ -111,7 +117,7 @@ export class BindAuthToMachineRequest extends $dara.Model {
   resourceDirectoryAccountId?: number;
   /**
    * @remarks
-   * The UUIDs of the servers to unbind.
+   * The collection of UUIDs to unbind.
    * > **Bind** and **UnBind** cannot both be empty.
    */
   unBind?: string[];
@@ -121,11 +127,13 @@ export class BindAuthToMachineRequest extends $dara.Model {
       autoBind: 'AutoBind',
       bind: 'Bind',
       bindAll: 'BindAll',
+      clientToken: 'ClientToken',
       criteria: 'Criteria',
       isPreBind: 'IsPreBind',
       logicalExp: 'LogicalExp',
       ntmVersion: 'NtmVersion',
       preBindOrderId: 'PreBindOrderId',
+      productCode: 'ProductCode',
       resourceDirectoryAccountId: 'ResourceDirectoryAccountId',
       unBind: 'UnBind',
     };
@@ -137,11 +145,13 @@ export class BindAuthToMachineRequest extends $dara.Model {
       autoBind: 'number',
       bind: { 'type': 'array', 'itemType': 'string' },
       bindAll: 'boolean',
+      clientToken: 'string',
       criteria: 'string',
       isPreBind: 'number',
       logicalExp: 'string',
       ntmVersion: 'string',
       preBindOrderId: 'number',
+      productCode: 'string',
       resourceDirectoryAccountId: 'number',
       unBind: { 'type': 'array', 'itemType': 'string' },
     };

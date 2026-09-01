@@ -37,6 +37,7 @@ export class ListUnknownThreatDetectEventResponseBodyData extends $dara.Model {
    * 1694576692000
    */
   firstTime?: number;
+  handleRemark?: string;
   handleType?: string;
   /**
    * @remarks
@@ -170,6 +171,7 @@ export class ListUnknownThreatDetectEventResponseBodyData extends $dara.Model {
       cmdline: 'Cmdline',
       count: 'Count',
       firstTime: 'FirstTime',
+      handleRemark: 'HandleRemark',
       handleType: 'HandleType',
       hashKey: 'HashKey',
       id: 'Id',
@@ -197,6 +199,7 @@ export class ListUnknownThreatDetectEventResponseBodyData extends $dara.Model {
       cmdline: 'string',
       count: 'number',
       firstTime: 'number',
+      handleRemark: 'string',
       handleType: 'string',
       hashKey: 'string',
       id: 'string',
@@ -228,7 +231,7 @@ export class ListUnknownThreatDetectEventResponseBodyData extends $dara.Model {
 export class ListUnknownThreatDetectEventResponseBodyPageInfo extends $dara.Model {
   /**
    * @remarks
-   * The number of alerting events displayed on the current page in a paged query. This parameter is used for paging.
+   * The number of alerting events displayed on the current page in a paging query.
    * 
    * @example
    * 2
@@ -236,7 +239,7 @@ export class ListUnknownThreatDetectEventResponseBodyPageInfo extends $dara.Mode
   count?: number;
   /**
    * @remarks
-   * The page number of the current page in a paged query. This parameter is used for paging.
+   * The page number of the current page in a paging query.
    * 
    * @example
    * 1
@@ -244,7 +247,7 @@ export class ListUnknownThreatDetectEventResponseBodyPageInfo extends $dara.Mode
   currentPage?: number;
   /**
    * @remarks
-   * The maximum number of entries displayed on each page in a paged query. This parameter is used for paging.
+   * The maximum number of entries displayed on each page in a paging query.
    * 
    * @example
    * 20

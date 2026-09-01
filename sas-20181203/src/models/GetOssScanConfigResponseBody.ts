@@ -11,6 +11,8 @@ export class GetOssScanConfigResponseBodyData extends $dara.Model {
    * true
    */
   allKeyPrefix?: boolean;
+  autoAdd?: number;
+  autoAddConfigName?: string;
   /**
    * @remarks
    * The number of buckets.
@@ -34,7 +36,7 @@ export class GetOssScanConfigResponseBodyData extends $dara.Model {
   bucketNameList?: string[];
   /**
    * @remarks
-   * The maximum number of files to decompress. Minimum value: 1. Maximum value: 1000. If the number of files exceeds this value, the decompression operation stops. Files that have already been decompressed are still scanned.
+   * The maximum number of files to decompress. The minimum value is 1 and the maximum value is 1000. When the maximum number of decompressed files is exceeded, the decompression operation ends immediately. The scanning of files that have already been decompressed is not affected.
    * 
    * @example
    * 100
@@ -42,7 +44,7 @@ export class GetOssScanConfigResponseBodyData extends $dara.Model {
   decompressMaxFileCount?: number;
   /**
    * @remarks
-   * The maximum number of decompression layers for nested compressed files. Minimum value: 1. Maximum value: 5. If the number of layers exceeds this value, the decompression operation stops. Files that have already been decompressed are still scanned.
+   * The maximum number of decompression layers when nested compressed files exist. The minimum value is 1 and the maximum value is 5. When the maximum decompression layer is exceeded, the decompression operation ends immediately. The scanning of files that have already been decompressed is not affected.
    * 
    * @example
    * 1
@@ -56,8 +58,8 @@ export class GetOssScanConfigResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the policy is enabled. Valid values:
-   * - **1**: enabled
-   * - **0**: disabled.
+   * - **1**: Enabled.
+   * - **0**: Disabled.
    * 
    * @example
    * 1
@@ -91,7 +93,7 @@ export class GetOssScanConfigResponseBodyData extends $dara.Model {
   keySuffixList?: string[];
   /**
    * @remarks
-   * Scans files whose last modification time is after the specified timestamp. Unit: milliseconds.
+   * Scans files whose last modification time is after the specified timestamp, in milliseconds.
    * 
    * @example
    * 1724301769834
@@ -99,7 +101,7 @@ export class GetOssScanConfigResponseBodyData extends $dara.Model {
   lastModifiedStartTime?: number;
   /**
    * @remarks
-   * The timestamp of the last update.
+   * The last update timestamp.
    * 
    * @example
    * 1702025633079
@@ -115,7 +117,7 @@ export class GetOssScanConfigResponseBodyData extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Specifies whether to enable real-time incremental scanning. If this parameter is set to true, the ScanDayList, StartTime, and EndTime parameters do not take effect.
+   * Specifies whether to enable real-time incremental scanning. When this parameter is set to true, the parameters ScanDayList, StartTime, and EndTime do not take effect.
    * 
    * @example
    * true
@@ -123,9 +125,19 @@ export class GetOssScanConfigResponseBodyData extends $dara.Model {
   realTimeIncr?: boolean;
   /**
    * @remarks
-   * The scan days. Each number represents a day of the week.
+   * The scan days. The numbers represent the day of the week.
    */
   scanDayList?: number[];
+  /**
+   * @remarks
+   * The business source. Valid values:
+   * - **OSS**: OSS
+   * - **NAS**: NAS
+   * 
+   * @example
+   * OSS
+   */
+  source?: string;
   /**
    * @remarks
    * The scan start time in the HH:mm:ss format.
@@ -137,6 +149,8 @@ export class GetOssScanConfigResponseBodyData extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       allKeyPrefix: 'AllKeyPrefix',
+      autoAdd: 'AutoAdd',
+      autoAddConfigName: 'AutoAddConfigName',
       bucketCount: 'BucketCount',
       bucketName: 'BucketName',
       bucketNameList: 'BucketNameList',
@@ -153,6 +167,7 @@ export class GetOssScanConfigResponseBodyData extends $dara.Model {
       name: 'Name',
       realTimeIncr: 'RealTimeIncr',
       scanDayList: 'ScanDayList',
+      source: 'Source',
       startTime: 'StartTime',
     };
   }
@@ -160,6 +175,8 @@ export class GetOssScanConfigResponseBodyData extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       allKeyPrefix: 'boolean',
+      autoAdd: 'number',
+      autoAddConfigName: 'string',
       bucketCount: 'number',
       bucketName: 'string',
       bucketNameList: { 'type': 'array', 'itemType': 'string' },
@@ -176,6 +193,7 @@ export class GetOssScanConfigResponseBodyData extends $dara.Model {
       name: 'string',
       realTimeIncr: 'boolean',
       scanDayList: { 'type': 'array', 'itemType': 'number' },
+      source: 'string',
       startTime: 'string',
     };
   }
@@ -212,7 +230,7 @@ export class GetOssScanConfigResponseBody extends $dara.Model {
   data?: GetOssScanConfigResponseBodyData;
   /**
    * @remarks
-   * The request ID. Alibaba Cloud generates a unique ID for each request. You can use the ID to troubleshoot issues.
+   * The request ID. It is a unique identifier generated by Alibaba Cloud for this request and can be used to troubleshoot issues.
    * 
    * @example
    * E10BAF1C-A6C5-51E2-866C-76D5922E****

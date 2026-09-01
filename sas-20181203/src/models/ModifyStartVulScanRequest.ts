@@ -5,14 +5,20 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyStartVulScanRequest extends $dara.Model {
   /**
    * @remarks
+   * The client token that is used to ensure the idempotence of the request. Different requests should use different tokens. The token supports only ASCII characters and cannot exceed 64 characters in length.
+   */
+  clientToken?: string;
+  resourceDirectoryAccountId?: number;
+  /**
+   * @remarks
    * Settings for the types of vulnerabilities to detect by using the one-click scan feature. Valid values:
    * - **cve**: Linux software vulnerability.
    * - **sys**: Windows system vulnerability.
    * - **cms**: Web-CMS vulnerability.
-   * - **app**: Application vulnerability detected by the web scanner.
-   * - **emg**: Emergency vulnerability.
-   * - **image**: Container image vulnerability.
-   * - **sca**: Application vulnerability detected by software constituency parsing.
+   * - **app**: application vulnerability detected by the web scanner.
+   * - **emg**: urgent vulnerability.
+   * - **image**: container image vulnerability.
+   * - **sca**: application vulnerability detected by software constituency parsing.
    * > If this parameter is left empty, all vulnerability types are detected.
    * 
    * @example
@@ -21,7 +27,7 @@ export class ModifyStartVulScanRequest extends $dara.Model {
   types?: string;
   /**
    * @remarks
-   * The list of server UUIDs. Separate multiple UUIDs with commas (,).
+   * The UUIDs of the servers. Separate multiple UUIDs with commas (,).
    * 
    * > You can call the [DescribeCloudCenterInstances](https://help.aliyun.com/document_detail/421726.html) operation to obtain this parameter.
    * 
@@ -31,6 +37,8 @@ export class ModifyStartVulScanRequest extends $dara.Model {
   uuids?: string;
   static names(): { [key: string]: string } {
     return {
+      clientToken: 'ClientToken',
+      resourceDirectoryAccountId: 'ResourceDirectoryAccountId',
       types: 'Types',
       uuids: 'Uuids',
     };
@@ -38,6 +46,8 @@ export class ModifyStartVulScanRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      clientToken: 'string',
+      resourceDirectoryAccountId: 'number',
       types: 'string',
       uuids: 'string',
     };

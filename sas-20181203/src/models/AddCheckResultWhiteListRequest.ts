@@ -6,18 +6,22 @@ export class AddCheckResultWhiteListRequest extends $dara.Model {
   /**
    * @remarks
    * The IDs of the check items.
-   * 
-   * >  You can call the [ListCheckResult](~~ListCheckResult~~) operation to query the IDs of the check items.
+   * > Call the [ListCheckResult](~~ListCheckResult~~) operation to obtain this parameter.
    */
   checkIds?: number[];
   /**
    * @remarks
-   * IDs of the cloud product instances that need to be whitelisted. Separate multiple IDs with a comma (,).
+   * The client token that is used to ensure the idempotence of the request. Different requests should use different tokens. The token supports only ASCII characters and cannot exceed 64 characters in length.
+   */
+  clientToken?: string;
+  /**
+   * @remarks
+   * The instance IDs of the cloud service instances to add to the whitelist. Separate multiple instance IDs with commas (,).
    */
   instanceIds?: string[];
   /**
    * @remarks
-   * The description. The value of this parameter can be up to 65,535 bytes in length.
+   * The remarks. Maximum length: 65,535 bytes.
    * 
    * @example
    * test
@@ -25,9 +29,8 @@ export class AddCheckResultWhiteListRequest extends $dara.Model {
   remark?: string;
   /**
    * @remarks
-   * The type of the rule. Default value: **WHITE**. Valid value:
-   * 
-   * *   **WHITE**: Add check items to the whitelist.
+   * The rule type. Default value: **WHITE**. Valid values:
+   * - **WHITE**: adds to the whitelist.
    * 
    * @example
    * WHITE
@@ -36,6 +39,7 @@ export class AddCheckResultWhiteListRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       checkIds: 'CheckIds',
+      clientToken: 'ClientToken',
       instanceIds: 'InstanceIds',
       remark: 'Remark',
       ruleType: 'RuleType',
@@ -45,6 +49,7 @@ export class AddCheckResultWhiteListRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       checkIds: { 'type': 'array', 'itemType': 'number' },
+      clientToken: 'string',
       instanceIds: { 'type': 'array', 'itemType': 'string' },
       remark: 'string',
       ruleType: 'string',

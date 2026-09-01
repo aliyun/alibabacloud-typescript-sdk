@@ -14,6 +14,7 @@ export class GetSuspiciousStatisticsRequest extends $dara.Model {
    * 9997897
    */
   groupIdList?: string;
+  resourceDirectoryAccountId?: number;
   /**
    * @remarks
    * The IP address of the access source.
@@ -25,6 +26,7 @@ export class GetSuspiciousStatisticsRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       groupIdList: 'GroupIdList',
+      resourceDirectoryAccountId: 'ResourceDirectoryAccountId',
       sourceIp: 'SourceIp',
     };
   }
@@ -32,6 +34,7 @@ export class GetSuspiciousStatisticsRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       groupIdList: 'string',
+      resourceDirectoryAccountId: 'number',
       sourceIp: 'string',
     };
   }

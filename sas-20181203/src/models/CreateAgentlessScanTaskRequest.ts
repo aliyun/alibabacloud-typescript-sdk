@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAgentlessScanTaskRequest extends $dara.Model {
   /**
    * @remarks
-   * Identification of asset selection.
+   * The asset selection identifier.
    * 
    * @example
    * AGENTLESS_SCAN_ONCE_TASK_1720145******
@@ -13,7 +13,7 @@ export class CreateAgentlessScanTaskRequest extends $dara.Model {
   assetSelectionType?: string;
   /**
    * @remarks
-   * The retention period of images. Unit: days.
+   * The image retention period, in days. This parameter takes effect only for host detection and does not take effect for user snapshot detection or user custom image detection.
    * 
    * @example
    * 1
@@ -21,10 +21,29 @@ export class CreateAgentlessScanTaskRequest extends $dara.Model {
   autoDeleteDays?: number;
   /**
    * @remarks
+   * The idempotency key.
+   * 
+   * @example
+   * 66a9c708-d4a4-4fe
+   */
+  clientToken?: string;
+  /**
+   * @remarks
+   * The region ID of the instance to query. Valid values:
+   * 
+   * - **cn-hangzhou** (default): China.
+   * - **ap-southeast-1**: outside China.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
    * Specifies whether to enable the cost-saving mode. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: Enabled.
+   * - **false**: Disabled.
    * 
    * @example
    * true
@@ -32,10 +51,10 @@ export class CreateAgentlessScanTaskRequest extends $dara.Model {
   releaseAfterScan?: boolean;
   /**
    * @remarks
-   * Specifies whether to check data disks. Valid values:
+   * Specifies whether to detect data cloud disks. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: Detected.
+   * - **false**: Not detected.
    * 
    * @example
    * true
@@ -43,9 +62,12 @@ export class CreateAgentlessScanTaskRequest extends $dara.Model {
   scanDataDisk?: boolean;
   /**
    * @remarks
-   * The type of the detection object. Valid values:
+   * The target type. Valid values:
    * 
-   * *   **2**: image
+   * - **1**: Host detection - detection by snapshot.
+   * - **2**: Host detection - detection by image.
+   * - **3**: User snapshot detection.
+   * - **2**: User custom image detection.
    * 
    * This parameter is required.
    * 
@@ -55,15 +77,17 @@ export class CreateAgentlessScanTaskRequest extends $dara.Model {
   targetType?: number;
   /**
    * @remarks
-   * The UUIDs of the assets on which you want to run the detection task.
+   * The UUIDs of the assets to be detected.
    * 
-   * >  You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the UUIDs of servers.
+   * > You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to obtain the UUIDs of servers.
    */
   uuidList?: string[];
   static names(): { [key: string]: string } {
     return {
       assetSelectionType: 'AssetSelectionType',
       autoDeleteDays: 'AutoDeleteDays',
+      clientToken: 'ClientToken',
+      regionId: 'RegionId',
       releaseAfterScan: 'ReleaseAfterScan',
       scanDataDisk: 'ScanDataDisk',
       targetType: 'TargetType',
@@ -75,6 +99,8 @@ export class CreateAgentlessScanTaskRequest extends $dara.Model {
     return {
       assetSelectionType: 'string',
       autoDeleteDays: 'number',
+      clientToken: 'string',
+      regionId: 'string',
       releaseAfterScan: 'boolean',
       scanDataDisk: 'boolean',
       targetType: 'number',

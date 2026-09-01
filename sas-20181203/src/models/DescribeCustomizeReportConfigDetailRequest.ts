@@ -24,6 +24,7 @@ export class DescribeCustomizeReportConfigDetailRequest extends $dara.Model {
    * 619031
    */
   reportId?: number;
+  resourceDirectoryAccountId?: number;
   /**
    * @remarks
    * The IP address of the access source.
@@ -36,6 +37,7 @@ export class DescribeCustomizeReportConfigDetailRequest extends $dara.Model {
     return {
       lang: 'Lang',
       reportId: 'ReportId',
+      resourceDirectoryAccountId: 'ResourceDirectoryAccountId',
       sourceIp: 'SourceIp',
     };
   }
@@ -44,6 +46,7 @@ export class DescribeCustomizeReportConfigDetailRequest extends $dara.Model {
     return {
       lang: 'string',
       reportId: 'number',
+      resourceDirectoryAccountId: 'number',
       sourceIp: 'string',
     };
   }

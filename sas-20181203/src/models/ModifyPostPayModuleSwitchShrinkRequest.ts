@@ -5,7 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyPostPayModuleSwitchShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to automatically bind newly added assets for host and container protection. Valid values:
+   * The client token that is used to ensure the idempotence of the request. Use a different token for each request. Only ASCII characters are supported. The token can be up to 64 characters in length.
+   */
+  clientToken?: string;
+  edrModuleSwitchShrink?: string;
+  /**
+   * @remarks
+   * Specifies whether to automatically bind new assets for host and container protection. Valid values:
    * 
    * - **0**: Disabled.
    * - **1**: Enabled.
@@ -16,7 +22,7 @@ export class ModifyPostPayModuleSwitchShrinkRequest extends $dara.Model {
   postPaidHostAutoBind?: number;
   /**
    * @remarks
-   * The version to which newly added assets are automatically bound for host and container protection. Valid values:
+   * The edition to which new assets are automatically bound for host and container protection. Valid values:
    * - **1**: Free Edition. 
    * - **3**: Enterprise Edition.
    * - **5**: Advanced Edition.
@@ -41,7 +47,7 @@ export class ModifyPostPayModuleSwitchShrinkRequest extends $dara.Model {
    * @remarks
    * The switch status of pay-as-you-go modules in JSON string format. Valid values:
    * - Key:
-   *   - **VUL**: vulnerability fix module
+   *   - **VUL**: vulnerability management module
    *   - **CSPM**: Cloud Security Posture Management (CSPM) module
    *   - **AGENTLESS**: agentless detection module
    *   - **SERVERLESS**: serverless security module
@@ -55,7 +61,7 @@ export class ModifyPostPayModuleSwitchShrinkRequest extends $dara.Model {
    * 
    * > Modules for which no value is specified remain unchanged.
    * 
-   * <notice>This parameter has the same meaning as PostPayModuleSwitchObj. If both parameters are specified, the value of PostPayModuleSwitch takes precedence..
+   * <notice>This parameter has the same meaning as PostPayModuleSwitchObj. If both parameters are specified, the value of PostPayModuleSwitch takes precedence.</notice>
    * 
    * @example
    * {"VUL":1,"CSPM":0}
@@ -64,11 +70,13 @@ export class ModifyPostPayModuleSwitchShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The pay-as-you-go module switch.
-   * >Notice: This parameter has the same meaning as PostPayModuleSwitch. If both parameters are specified, the value of PostPayModuleSwitch takes precedence..
+   * >Notice: This parameter has the same meaning as PostPayModuleSwitch. If both parameters are specified, the value of PostPayModuleSwitch takes precedence.</notice>
    */
   postPayModuleSwitchObjShrink?: string;
   static names(): { [key: string]: string } {
     return {
+      clientToken: 'ClientToken',
+      edrModuleSwitchShrink: 'EdrModuleSwitch',
       postPaidHostAutoBind: 'PostPaidHostAutoBind',
       postPaidHostAutoBindVersion: 'PostPaidHostAutoBindVersion',
       postPayInstanceId: 'PostPayInstanceId',
@@ -79,6 +87,8 @@ export class ModifyPostPayModuleSwitchShrinkRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      clientToken: 'string',
+      edrModuleSwitchShrink: 'string',
       postPaidHostAutoBind: 'number',
       postPaidHostAutoBindVersion: 'number',
       postPayInstanceId: 'string',

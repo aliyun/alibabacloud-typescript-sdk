@@ -6,7 +6,7 @@ export class DescribeCheckWarningDetailRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the check item.
-   * > You can call the [ListCheckItemWarningSummary](~~ListCheckItemWarningSummary~~) operation to obtain the check item ID.>Notice: When this parameter is specified, the Uuid parameter is required..
+   * > You can call the [ListCheckItemWarningSummary](~~ListCheckItemWarningSummary~~) operation to obtain the check item ID.>Notice: When this parameter is specified, the Uuid parameter is required.
    * 
    * @example
    * 1
@@ -17,7 +17,7 @@ export class DescribeCheckWarningDetailRequest extends $dara.Model {
    * The alert ID of the check item.
    * 
    * > To query the details of a specified check item, provide the alert ID of the check item. You can call the [DescribeCheckWarnings](~~DescribeCheckWarnings~~) operation to obtain this ID.
-   * >Notice: This parameter is required when both Uuid and CheckId are empty..
+   * >Notice: This parameter is required when both Uuid and CheckId are empty.
    * 
    * @example
    * 98675301
@@ -35,7 +35,7 @@ export class DescribeCheckWarningDetailRequest extends $dara.Model {
    * @remarks
    * The language of the request and response. Valid values:
    * - **zh**: Chinese
-   * - **en**: English.
+   * - **en**: English
    * 
    * @example
    * zh
@@ -43,7 +43,7 @@ export class DescribeCheckWarningDetailRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account of the member accounts in the resource folder.
+   * The Alibaba Cloud account ID of the member accounts in the resource folder.
    * >You can invoke the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
    * 
    * @example
@@ -61,7 +61,7 @@ export class DescribeCheckWarningDetailRequest extends $dara.Model {
   /**
    * @remarks
    * The UUID of the server to query.
-   * > You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to obtain this parameter.>Notice: When this parameter is specified, the CheckId parameter is required..
+   * > You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to obtain this parameter.>Notice: When this parameter is specified, the CheckId parameter is required.
    * 
    * @example
    * 06125d19-6a02-4451-9f65-2083996e****

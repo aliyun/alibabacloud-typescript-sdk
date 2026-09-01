@@ -44,6 +44,7 @@ export class DescribeChartDataRequest extends $dara.Model {
    * 721734
    */
   reportId?: number;
+  resourceDirectoryAccountId?: number;
   /**
    * @remarks
    * The end timestamp for statistics. Unit: milliseconds.
@@ -66,6 +67,7 @@ export class DescribeChartDataRequest extends $dara.Model {
       chartId: 'ChartId',
       lang: 'Lang',
       reportId: 'ReportId',
+      resourceDirectoryAccountId: 'ResourceDirectoryAccountId',
       timeEnd: 'TimeEnd',
       timeStart: 'TimeStart',
     };
@@ -77,6 +79,7 @@ export class DescribeChartDataRequest extends $dara.Model {
       chartId: 'string',
       lang: 'string',
       reportId: 'number',
+      resourceDirectoryAccountId: 'number',
       timeEnd: 'number',
       timeStart: 'number',
     };

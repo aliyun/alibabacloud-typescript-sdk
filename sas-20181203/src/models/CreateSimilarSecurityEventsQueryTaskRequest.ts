@@ -3,10 +3,16 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateSimilarSecurityEventsQueryTaskRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. Different requests should use different tokens. The token supports only ASCII characters and cannot exceed 64 characters in length.
+   */
+  clientToken?: string;
+  resourceDirectoryAccountId?: number;
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The ID of the alert event.
+   * The ID of the security alert.
    * 
    * This parameter is required.
    * 
@@ -32,6 +38,8 @@ export class CreateSimilarSecurityEventsQueryTaskRequest extends $dara.Model {
   sourceIp?: string;
   static names(): { [key: string]: string } {
     return {
+      clientToken: 'ClientToken',
+      resourceDirectoryAccountId: 'ResourceDirectoryAccountId',
       resourceOwnerId: 'ResourceOwnerId',
       securityEventId: 'SecurityEventId',
       similarEventScenarioCode: 'SimilarEventScenarioCode',
@@ -41,6 +49,8 @@ export class CreateSimilarSecurityEventsQueryTaskRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      clientToken: 'string',
+      resourceDirectoryAccountId: 'number',
       resourceOwnerId: 'number',
       securityEventId: 'number',
       similarEventScenarioCode: 'string',

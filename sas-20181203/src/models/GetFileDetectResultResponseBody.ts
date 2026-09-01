@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetFileDetectResultResponseBodyResultList extends $dara.Model {
   /**
    * @remarks
-   * The result code. A value of **200** indicates success. Other values indicate an error. Use this code to determine the cause of the error.
+   * The result code. A value of **200** indicates success. Any other value indicates failure. You can use this field to determine the cause of failure.
    * 
    * @example
    * 200
@@ -13,13 +13,13 @@ export class GetFileDetectResultResponseBodyResultList extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Indicates whether the file is identified as a compressed package.
+   * Indicates whether the file is identified as a compressed archive.
    * 
-   * - **true**: The file is a compressed package.
+   * - **true**: Yes.
    * 
-   * - **false**: The file is not a compressed package.
+   * - **false**: No.
    * 
-   * > This parameter is not returned when `Type` is `6`.
+   * > This parameter is not supported when Type is 6.
    * 
    * @example
    * false
@@ -27,7 +27,7 @@ export class GetFileDetectResultResponseBodyResultList extends $dara.Model {
   compress?: boolean;
   /**
    * @remarks
-   * The extension field, which provides additional details about the detection result.
+   * The extended information of the detection result.
    * 
    * @example
    * {
@@ -50,7 +50,7 @@ export class GetFileDetectResultResponseBodyResultList extends $dara.Model {
   ext?: string;
   /**
    * @remarks
-   * The unique file identifier.
+   * The file identifier.
    * 
    * @example
    * 0a212417e65c26ff133cfff28f6c****
@@ -58,7 +58,7 @@ export class GetFileDetectResultResponseBodyResultList extends $dara.Model {
   hashKey?: string;
   /**
    * @remarks
-   * The detailed message returned.
+   * The detailed information of the error code.
    * 
    * @example
    * successful
@@ -68,11 +68,9 @@ export class GetFileDetectResultResponseBodyResultList extends $dara.Model {
    * @remarks
    * The file detection result. Valid values:
    * 
-   * - **0**: Safe file
-   * 
-   * - **1**: Suspicious file
-   * 
-   * - **3**: Detection in progress.
+   * - **0**: Safe file.
+   * - **1**: Suspicious file.
+   * - **3**: Detection in progress. Wait for the result.
    * 
    * @example
    * 0
@@ -80,19 +78,14 @@ export class GetFileDetectResultResponseBodyResultList extends $dara.Model {
   result?: number;
   /**
    * @remarks
-   * The file\\"s detection score. The score ranges and their corresponding risk levels are as follows:
+   * The file detection score. The mapping between score ranges and risk levels is as follows:
    * 
-   * - 0–60: Safe
+   * - 0-60: Safe.
+   * - 61-70: Risky.
+   * - 71-80: Suspicious.
+   * - 81-100: Malicious.
    * 
-   * - 61–70: Risk
-   * 
-   * - 71–80: Suspicious
-   * 
-   * - 81–100: Malicious
-   * 
-   * >Notice: 
-   * 
-   * A higher score indicates a higher level of suspicion.
+   * >Notice: A higher score indicates a more suspicious file.
    * 
    * @example
    * 100
@@ -100,51 +93,31 @@ export class GetFileDetectResultResponseBodyResultList extends $dara.Model {
   score?: number;
   /**
    * @remarks
-   * The type of virus. Valid values:
+   * The virus type. Valid values:
    * 
-   * - **Trojan**: Trojan horse
-   * 
-   * - **WebShell**: Webshell
-   * 
-   * - **Backdoor**: Backdoor
-   * 
-   * - **RansomWare**: Ransomware
-   * 
-   * - **Scanner**: Scanner
-   * 
-   * - **Stealer**: Information stealer
-   * 
-   * - **Malbaseware**: Contaminated basic software
-   * 
-   * - **Hacktool**: Hacking tool
-   * 
-   * - **Engtest**: Engine test program
-   * 
-   * - **Downloader**: Trojan downloader
-   * 
-   * - **Virus**: Virus
-   * 
-   * - **Miner**: Mining program
-   * 
-   * - **Worm**: Worm
-   * 
+   * - **Trojan**: trojan
+   * - **WebShell**: web shell
+   * - **Backdoor**: backdoor
+   * - **RansomWare**: ransomware
+   * - **Scanner**: scanner
+   * - **Stealer**: credential stealer
+   * - **Malbaseware**: contaminated base software
+   * - **Hacktool**: hacking tool
+   * - **Engtest**: DPI engine test program
+   * - **Downloader**: downloader trojan
+   * - **Virus**: file infector virus
+   * - **Miner**: mining programs
+   * - **Worm**: worms
    * - **DDoS**: DDoS Trojan
+   * - **Malware**: malware
+   * - **RiskWare**: riskware
+   * - **Proxytool**: proxy tool
+   * - **Suspicious**: suspicious program
+   * - **MalScript**: malicious script
+   * - **Rootkit**: rootkit
+   * - **Exploit**: vulnerability exploits
    * 
-   * - **Malware**: Malicious program
-   * 
-   * - **RiskWare**: Riskware
-   * 
-   * - **Proxytool**: Proxy tool
-   * 
-   * - **Suspicious**: Suspicious program
-   * 
-   * - **MalScript**: Malicious script
-   * 
-   * - **Rootkit**: Rootkit
-   * 
-   * - **Exploit**: Exploit
-   * 
-   * > This parameter is not returned when `Result` is `0` or `3`.
+   * > This parameter is not supported when Result is 0 or 3.
    * 
    * @example
    * WebShell
@@ -188,7 +161,7 @@ export class GetFileDetectResultResponseBodyResultList extends $dara.Model {
 export class GetFileDetectResultResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The unique ID of the request, generated by Alibaba Cloud. Use this ID to troubleshoot issues.
+   * The request ID, which is a unique identifier generated by Alibaba Cloud for this request. You can use it to troubleshoot issues.
    * 
    * @example
    * 24A20733-10A0-4AF6-BE6B-E3322413BB68
@@ -196,7 +169,7 @@ export class GetFileDetectResultResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * An array of file detection result objects.
+   * The list of detection results.
    */
   resultList?: GetFileDetectResultResponseBodyResultList[];
   static names(): { [key: string]: string } {

@@ -16,16 +16,27 @@ export class ListOssBucketRequest extends $dara.Model {
    * The language type for requests and responses. Default value: **zh**. Valid values:
    * 
    * - **zh**: Chinese
-   * - **en**: English.
+   * - **en**: English
    * 
    * @example
    * en
    */
   lang?: string;
+  /**
+   * @remarks
+   * The business source. Valid values:
+   * - **OSS**: OSS
+   * - **NAS**: NAS
+   * 
+   * @example
+   * OSS
+   */
+  source?: string;
   static names(): { [key: string]: string } {
     return {
       bucketName: 'BucketName',
       lang: 'Lang',
+      source: 'Source',
     };
   }
 
@@ -33,6 +44,7 @@ export class ListOssBucketRequest extends $dara.Model {
     return {
       bucketName: 'string',
       lang: 'string',
+      source: 'string',
     };
   }
 

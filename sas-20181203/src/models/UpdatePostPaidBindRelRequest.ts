@@ -5,28 +5,29 @@ import * as $dara from '@darabonba/typescript';
 export class UpdatePostPaidBindRelRequestBindAction extends $dara.Model {
   /**
    * @remarks
-   * Whether to bind all. Default is **false**. Values:
+   * Specifies whether to bind all servers. Default value: **false**. Valid values:
    * 
-   * - **true**: Yes
-   * - **false**: No
+   * - **true**: yes
+   * - **false**: no
    * 
    * @example
    * true
    */
   bindAll?: boolean;
+  freeType?: string;
   /**
    * @remarks
-   * List of specified server UUIDs.
+   * The list of server UUIDs.
    */
   uuidList?: string[];
   /**
    * @remarks
-   * The Cloud Security Center protection version that needs to be bound. Values:  
-   * - **1**: Basic Edition 
+   * The protection edition of Security Center to bind. Valid values:  
+   * - **1**: Free Edition 
    * - **3**: Enterprise Edition
    * - **5**: Advanced Edition
-   * - **6**: Antivirus Edition    
-   * - **7**: Container Edition
+   * - **6**: Anti-virus Edition    
+   * - **7**: Ultimate Edition
    * 
    * @example
    * 3
@@ -35,6 +36,7 @@ export class UpdatePostPaidBindRelRequestBindAction extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       bindAll: 'BindAll',
+      freeType: 'FreeType',
       uuidList: 'UuidList',
       version: 'Version',
     };
@@ -43,6 +45,7 @@ export class UpdatePostPaidBindRelRequestBindAction extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       bindAll: 'boolean',
+      freeType: 'string',
       uuidList: { 'type': 'array', 'itemType': 'string' },
       version: 'string',
     };
@@ -63,10 +66,10 @@ export class UpdatePostPaidBindRelRequestBindAction extends $dara.Model {
 export class UpdatePostPaidBindRelRequest extends $dara.Model {
   /**
    * @remarks
-   * Enable automatic binding for new assets. Values:
+   * Specifies whether to enable automatic binding for new assets. Valid values:
    * 
-   * - **0**: Off
-   * - **1**: On
+   * - **0**: disabled
+   * - **1**: enabled
    * 
    * @example
    * 1
@@ -74,12 +77,12 @@ export class UpdatePostPaidBindRelRequest extends $dara.Model {
   autoBind?: number;
   /**
    * @remarks
-   * Version to automatically bind when adding new assets. Values:
-   * - **1**: Basic Edition 
+   * The edition to automatically bind when new assets are added. Valid values:
+   * - **1**: Free Edition 
    * - **3**: Enterprise Edition
    * - **5**: Advanced Edition
-   * - **6**: Antivirus Edition    
-   * - **7**: Container Edition
+   * - **6**: Anti-virus Edition    
+   * - **7**: Ultimate Edition
    * 
    * @example
    * 3
@@ -87,12 +90,18 @@ export class UpdatePostPaidBindRelRequest extends $dara.Model {
   autoBindVersion?: number;
   /**
    * @remarks
-   * Parameters for the binding action.
+   * The binding action parameter.
    */
   bindAction?: UpdatePostPaidBindRelRequestBindAction[];
   /**
    * @remarks
-   * Whether to force upgrade the version.
+   * The client token that is used to ensure the idempotence of the request. Different requests must use different tokens. The token supports only ASCII characters and cannot exceed 64 characters in length.
+   */
+  clientToken?: string;
+  productCode?: string;
+  /**
+   * @remarks
+   * Specifies whether to forcibly upgrade the edition.
    * 
    * @example
    * false
@@ -103,6 +112,8 @@ export class UpdatePostPaidBindRelRequest extends $dara.Model {
       autoBind: 'AutoBind',
       autoBindVersion: 'AutoBindVersion',
       bindAction: 'BindAction',
+      clientToken: 'ClientToken',
+      productCode: 'ProductCode',
       updateIfNecessary: 'UpdateIfNecessary',
     };
   }
@@ -112,6 +123,8 @@ export class UpdatePostPaidBindRelRequest extends $dara.Model {
       autoBind: 'number',
       autoBindVersion: 'number',
       bindAction: { 'type': 'array', 'itemType': UpdatePostPaidBindRelRequestBindAction },
+      clientToken: 'string',
+      productCode: 'string',
       updateIfNecessary: 'boolean',
     };
   }

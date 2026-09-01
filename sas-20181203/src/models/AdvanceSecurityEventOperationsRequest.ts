@@ -45,6 +45,7 @@ export class AdvanceSecurityEventOperationsRequest extends $dara.Model {
    * 恶意脚本
    */
   eventType?: string;
+  resourceDirectoryAccountId?: number;
   resourceOwnerId?: number;
   /**
    * @remarks
@@ -58,6 +59,7 @@ export class AdvanceSecurityEventOperationsRequest extends $dara.Model {
     return {
       eventName: 'EventName',
       eventType: 'EventType',
+      resourceDirectoryAccountId: 'ResourceDirectoryAccountId',
       resourceOwnerId: 'ResourceOwnerId',
       ruleId: 'RuleId',
     };
@@ -67,6 +69,7 @@ export class AdvanceSecurityEventOperationsRequest extends $dara.Model {
     return {
       eventName: 'string',
       eventType: 'string',
+      resourceDirectoryAccountId: 'number',
       resourceOwnerId: 'number',
       ruleId: 'number',
     };

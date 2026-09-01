@@ -21,10 +21,12 @@ export class GetSecurityScoreRuleRequest extends $dara.Model {
    * zh
    */
   lang?: string;
+  resourceDirectoryAccountId?: number;
   static names(): { [key: string]: string } {
     return {
       calType: 'CalType',
       lang: 'Lang',
+      resourceDirectoryAccountId: 'ResourceDirectoryAccountId',
     };
   }
 
@@ -32,6 +34,7 @@ export class GetSecurityScoreRuleRequest extends $dara.Model {
     return {
       calType: 'string',
       lang: 'string',
+      resourceDirectoryAccountId: 'number',
     };
   }
 

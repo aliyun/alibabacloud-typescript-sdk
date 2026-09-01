@@ -24,8 +24,8 @@ export class ModifyServerlessAuthToMachineRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable automatic binding. Valid values:
    * 
-   * - **0**: Disabled.
-   * - **1**: Enabled.
+   * - **0**: Disable automatic binding.
+   * - **1**: Enable automatic binding.
    * 
    * @example
    * 1
@@ -46,14 +46,14 @@ export class ModifyServerlessAuthToMachineRequest extends $dara.Model {
    * @remarks
    * The list of application IDs to bind.
    * 
-   * > Retrieve the IDs by calling the [ListMachineApps](~~ListMachineApps~~) operation.
+   * > Obtain the IDs by calling the [ListMachineApps](~~ListMachineApps~~) operation.
    */
   bindAppList?: string[];
   /**
    * @remarks
    * The Asset Type for the operation. Valid values:
-   * - **INSTANCE**: instance.
-   * - **APP**: application.
+   * - **INSTANCE**: Instance.
+   * - **APP**: Application.
    * 
    * @example
    * APP
@@ -66,8 +66,13 @@ export class ModifyServerlessAuthToMachineRequest extends $dara.Model {
   bindUuidList?: string[];
   /**
    * @remarks
-   * The search conditions for assets. This parameter is in JSON format. Pay attention to letter case when specifying this parameter.
-   * > You can search for assets by instance ID, instance name, VPC ID, region, public IP address, and other conditions. Call the [DescribeCriteria](~~DescribeCriteria~~) operation to query supported search conditions.
+   * The client token that is used to ensure the idempotence of the request. Use a different token for each request. The token supports only ASCII characters and cannot exceed 64 characters in length.
+   */
+  clientToken?: string;
+  /**
+   * @remarks
+   * The search conditions for assets. This parameter is in JSON format. Pay attention to letter case when you specify this parameter.
+   * > You can search for assets by instance ID, instance name, VPC ID, region, public IP address, and other conditions. Call the [DescribeCriteria](~~DescribeCriteria~~) operation to query the supported search conditions.
    * 
    * @example
    * [{"name":"vulStatus","value":"YES","logicalExp":"AND"}]
@@ -93,13 +98,13 @@ export class ModifyServerlessAuthToMachineRequest extends $dara.Model {
   ntmVersion?: string;
   /**
    * @remarks
-   * Specifies whether to perform a pre-binding operation. Valid values:
+   * Specifies whether to enable pre-binding. Valid values:
    * 
    * - **0**: No.
    * - **1**: Yes.
    * 
    * 
-   * > After pre-binding is enabled, the corresponding edition authorization quota is automatically bound to the specified servers after the purchase is completed.
+   * > After pre-binding is enabled, the corresponding authorization quota is automatically bound to the specified servers after the purchase is completed.
    * 
    * @example
    * 1
@@ -125,7 +130,7 @@ export class ModifyServerlessAuthToMachineRequest extends $dara.Model {
    * @remarks
    * The list of application IDs to unbind.
    * 
-   * > Retrieve the IDs by calling the [ListMachineApps](~~ListMachineApps~~) operation.
+   * > Obtain the IDs by calling the [ListMachineApps](~~ListMachineApps~~) operation.
    */
   unBindAppList?: string[];
   /**
@@ -142,6 +147,7 @@ export class ModifyServerlessAuthToMachineRequest extends $dara.Model {
       bindAppList: 'BindAppList',
       bindAssetType: 'BindAssetType',
       bindUuidList: 'BindUuidList',
+      clientToken: 'ClientToken',
       criteria: 'Criteria',
       logicalExp: 'LogicalExp',
       ntmVersion: 'NtmVersion',
@@ -162,6 +168,7 @@ export class ModifyServerlessAuthToMachineRequest extends $dara.Model {
       bindAppList: { 'type': 'array', 'itemType': 'string' },
       bindAssetType: 'string',
       bindUuidList: { 'type': 'array', 'itemType': 'string' },
+      clientToken: 'string',
       criteria: 'string',
       logicalExp: 'string',
       ntmVersion: 'string',

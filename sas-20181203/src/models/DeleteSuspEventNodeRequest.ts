@@ -15,15 +15,18 @@ export class DeleteSuspEventNodeRequest extends $dara.Model {
    * 123
    */
   noteId?: number;
+  resourceDirectoryAccountId?: number;
   static names(): { [key: string]: string } {
     return {
       noteId: 'NoteId',
+      resourceDirectoryAccountId: 'ResourceDirectoryAccountId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       noteId: 'number',
+      resourceDirectoryAccountId: 'number',
     };
   }
 

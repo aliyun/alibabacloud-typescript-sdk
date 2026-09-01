@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateOssBucketScanTaskRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to match the prefixes of all objects.
+   * Specifies whether to match all prefixes. If this parameter is set to true, the KeyPrefixList parameter does not take effect.
    * 
    * @example
    * true
@@ -13,14 +13,14 @@ export class CreateOssBucketScanTaskRequest extends $dara.Model {
   allKeyPrefix?: boolean;
   /**
    * @remarks
-   * The names of the buckets.
+   * The list of bucket names.
    * 
    * This parameter is required.
    */
   bucketNameList?: string[];
   /**
    * @remarks
-   * The maximum number of objects that can be extracted during decompression. Valid values: 1 to 1000. If the maximum number of objects that can be extracted is reached, the decompression operation immediately ends and the detection of extracted objects is not affected.
+   * The maximum number of files to decompress. The minimum value is 1 and the maximum value is 1000. When the maximum number of decompressed files is exceeded, the decompression operation ends immediately. The detection of files that have already been decompressed is not affected.
    * 
    * @example
    * 100
@@ -28,7 +28,7 @@ export class CreateOssBucketScanTaskRequest extends $dara.Model {
   decompressMaxFileCount?: number;
   /**
    * @remarks
-   * The maximum number of decompression levels when multi-level packages are decompressed. Valid values: 1 to 5. If the maximum number of decompression levels is reached, the decompression operation immediately ends and the detection of extracted objects is not affected.
+   * The maximum number of decompression layers when multiple levels of compressed packages are nested. The minimum value is 1 and the maximum value is 5. When the maximum number of decompression layers is exceeded, the decompression operation ends immediately. The detection of files that have already been decompressed is not affected.
    * 
    * @example
    * 1
@@ -36,27 +36,27 @@ export class CreateOssBucketScanTaskRequest extends $dara.Model {
   decompressMaxLayer?: number;
   /**
    * @remarks
-   * The decryption methods.
+   * The list of decryption types.
    */
   decryptionList?: string[];
   /**
    * @remarks
-   * The suffixes of the objects that you do not want to check.
+   * The list of file suffixes to exclude from detection.
    */
   excludeKeySuffixList?: string[];
   /**
    * @remarks
-   * The prefixes of the objects.
+   * The prefix list of files.
    */
   keyPrefixList?: string[];
   /**
    * @remarks
-   * The suffixes of the objects that you want to check.
+   * The list of file suffixes.
    */
   keySuffixList?: string[];
   /**
    * @remarks
-   * The timestamp when the object was last modified. The time must be later than the timestamp that you specify. Unit: milliseconds.
+   * Specifies that only files whose last modification time is after the specified timestamp are detected. Unit: milliseconds.
    * 
    * @example
    * 1724301769834
@@ -64,10 +64,11 @@ export class CreateOssBucketScanTaskRequest extends $dara.Model {
   lastModifiedStartTime?: number;
   /**
    * @remarks
-   * The check mode. Valid values:
+   * The detection mode. Valid values:
    * 
-   * *   **1**: checks all objects in the bucket.
-   * *   **2**: checks only new objects in the bucket.
+   * - **1**: Full file detection.
+   * 
+   * - **2**: Incremental file detection.
    * 
    * This parameter is required.
    * 
@@ -75,6 +76,16 @@ export class CreateOssBucketScanTaskRequest extends $dara.Model {
    * 1
    */
   scanMode?: number;
+  /**
+   * @remarks
+   * The business source. Valid values:
+   * - **OSS**: OSS
+   * - **NAS**: NAS
+   * 
+   * @example
+   * OSS
+   */
+  source?: string;
   static names(): { [key: string]: string } {
     return {
       allKeyPrefix: 'AllKeyPrefix',
@@ -87,6 +98,7 @@ export class CreateOssBucketScanTaskRequest extends $dara.Model {
       keySuffixList: 'KeySuffixList',
       lastModifiedStartTime: 'LastModifiedStartTime',
       scanMode: 'ScanMode',
+      source: 'Source',
     };
   }
 
@@ -102,6 +114,7 @@ export class CreateOssBucketScanTaskRequest extends $dara.Model {
       keySuffixList: { 'type': 'array', 'itemType': 'string' },
       lastModifiedStartTime: 'number',
       scanMode: 'number',
+      source: 'string',
     };
   }
 

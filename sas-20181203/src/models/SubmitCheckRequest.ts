@@ -3,12 +3,12 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class SubmitCheckRequest extends $dara.Model {
+  resourceDirectoryAccountId?: number;
   /**
    * @remarks
-   * The check items that are scanned. Valid values:
-   * 
-   * *   **FULL**: All check items are scanned.
-   * *   **FULL**: Only the check items that are configured are scanned.
+   * The scan range. Valid values:
+   * - **FULL**: scans all check items
+   * - **POLICY**: scans custom-configured check items
    * 
    * @example
    * POLICY
@@ -16,7 +16,9 @@ export class SubmitCheckRequest extends $dara.Model {
   scanRange?: string;
   /**
    * @remarks
-   * The source of task.
+   * The task source. Valid values:
+   * 
+   * - **YAO_CHI**: Alibaba Cloud ApsaraDB console.
    * 
    * @example
    * YAO_CHI
@@ -24,6 +26,7 @@ export class SubmitCheckRequest extends $dara.Model {
   taskSource?: string;
   static names(): { [key: string]: string } {
     return {
+      resourceDirectoryAccountId: 'ResourceDirectoryAccountId',
       scanRange: 'ScanRange',
       taskSource: 'TaskSource',
     };
@@ -31,6 +34,7 @@ export class SubmitCheckRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      resourceDirectoryAccountId: 'number',
       scanRange: 'string',
       taskSource: 'string',
     };

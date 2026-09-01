@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAgentlessTaskUsedSizeEstimateRequest extends $dara.Model {
   /**
    * @remarks
-   * Asset selection identifier.
+   * The asset selection identifier.
    * 
    * This parameter is required.
    * 

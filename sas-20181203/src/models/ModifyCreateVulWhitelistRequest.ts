@@ -5,26 +5,27 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyCreateVulWhitelistRequest extends $dara.Model {
   /**
    * @remarks
-   * The reason why you add the vulnerability to the whitelist.
+   * The client token that is used to ensure the idempotence of the request. Different requests must use different tokens. The token supports only ASCII characters and cannot exceed 64 characters in length.
+   */
+  clientToken?: string;
+  /**
+   * @remarks
+   * The reason for adding the vulnerability to the whitelist.
    * 
    * @example
    * This vulnerability is not harmful
    */
   reason?: string;
+  resourceDirectoryAccountId?: number;
   /**
    * @remarks
-   * The applicable scope of the whitelist. The value of this parameter is in the JSON format and contains the following fields:
-   * 
-   * *   **type**: the type of the applicable scope. Valid values:
-   * 
-   *     *   **GroupId**: the ID of a server group.
-   *     *   **Uuid**: the UUID of a server.
-   * 
-   * *   **uuids**: the UUIDs of servers. This field is of the string type.
-   * 
-   * *   **groupIds**: the IDs of server groups. This field is of the long type.
-   * 
-   * >  If you leave this parameter empty, the applicable scope is all servers. If you set the **type** field to **GroupId**, you must also specify the **groupIds** field. If you set the **type** field to **Uuid**, you must also specify the **uuids** field.
+   * The scope in which the whitelist takes effect. The value is a JSON string that contains the following fields:
+   * - **type**: The scope type. Valid values:
+   *     - **GroupId**: server group
+   *     - **Uuid**: host asset
+   * - **uuids**: The collection of host asset UUIDs. The field type is String.
+   * - **groupIds**: The collection of server group IDs. The field type is Long.
+   * > If this parameter is left empty, the whitelist takes effect on all hosts. If **type** is set to **GroupId**, **groupIds** cannot be empty. If **type** is set to **Uuid**, **uuids** cannot be empty.
    * 
    * @example
    * {"type":"Uuid","uuids":["b31a708f-5fea-426e-bebe-a7b0893****","1f749687-3b5d-4e11-8140-d964673****"],"groupIds":[]}
@@ -32,41 +33,30 @@ export class ModifyCreateVulWhitelistRequest extends $dara.Model {
   targetInfo?: string;
   /**
    * @remarks
-   * The information about the vulnerability that you want to add to the whitelist. The value is a JSON string that contains the following fields:
+   * The information about the vulnerability to add to the whitelist. The value is a JSON string that contains the following fields:
    * 
-   * *   **Status**: the status of the vulnerability.
+   * - **Status**: The vulnerability status.
+   * - **GmtLast**: The timestamp when the vulnerability was last detected. Unit: milliseconds.
+   * - **LaterCount**: The number of medium-priority vulnerabilities.
+   * - **AsapCount**: The number of high-priority vulnerabilities.
+   * - **Name**: The vulnerability name.
+   * - **Type**: The vulnerability type. Valid values:
    * 
-   * *   **GmtLast**: the timestamp when the vulnerability was last detected. Unit: milliseconds.
+   *     - **cve**: Linux software vulnerability
+   *     - **sys**: Windows system vulnerability
+   *     - **cms**: Web-CMS vulnerability
+   *     - **app**: application vulnerability
+   *     - **emg**: emergency vulnerability
    * 
-   * *   **LaterCount**: the number of vulnerabilities that have the medium priority.
+   * - **Related**: The CVE ID of the vulnerability.
+   * - **HandledCount**: The number of handled vulnerabilities.
+   * - **AliasName**: The alias of the vulnerability.
+   * - **RuleModifyTime**: The time when the vulnerability was last published.
+   * - **NntfCount**: The number of low-priority vulnerabilities.
+   * - **TotalFixCount**: The total number of fixed vulnerabilities.
+   * - **Tags**: The vulnerability tags.
    * 
-   * *   **AsapCount**: the number of vulnerabilities that have the high priority.
-   * 
-   * *   **Name**: the name of the vulnerability.
-   * 
-   * *   **Type**: the type of the vulnerability. Valid values:
-   * 
-   *     *   **cve**: Linux software vulnerability
-   *     *   **sys**: Windows system vulnerability
-   *     *   **cms**: Web-CMS vulnerability
-   *     *   **app**: application vulnerability
-   *     *   **emg**: urgent vulnerability
-   * 
-   * *   **Related**: the Common Vulnerabilities and Exposures (CVE) ID of the vulnerability.
-   * 
-   * *   **HandledCount**: the number of handled vulnerabilities.
-   * 
-   * *   **AliasName**: the alias of the vulnerability.
-   * 
-   * *   **RuleModifyTime**: the time when the vulnerability was last disclosed.
-   * 
-   * *   **NntfCount**: the number of vulnerabilities that have the low priority.
-   * 
-   * *   **TotalFixCount**: the total number of fixed vulnerabilities.
-   * 
-   * *   **Tags**: the tag that is added to the vulnerability.
-   * 
-   * >  You can call the [DescribeGroupedVul](~~DescribeGroupedVul~~) operation to query the information about the vulnerability that you want to add to the whitelist.
+   * > You can call the [DescribeGroupedVul](~~DescribeGroupedVul~~) operation to obtain the vulnerability information to add to the whitelist.
    * 
    * This parameter is required.
    * 
@@ -76,7 +66,9 @@ export class ModifyCreateVulWhitelistRequest extends $dara.Model {
   whitelist?: string;
   static names(): { [key: string]: string } {
     return {
+      clientToken: 'ClientToken',
       reason: 'Reason',
+      resourceDirectoryAccountId: 'ResourceDirectoryAccountId',
       targetInfo: 'TargetInfo',
       whitelist: 'Whitelist',
     };
@@ -84,7 +76,9 @@ export class ModifyCreateVulWhitelistRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      clientToken: 'string',
       reason: 'string',
+      resourceDirectoryAccountId: 'number',
       targetInfo: 'string',
       whitelist: 'string',
     };

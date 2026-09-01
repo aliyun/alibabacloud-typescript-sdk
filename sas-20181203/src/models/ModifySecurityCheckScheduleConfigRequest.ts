@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class ModifySecurityCheckScheduleConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * The days on which the automatic configuration check runs. You can specify multiple days. Separate multiple days with commas (,). Valid values:
+   * The detection cycle. You can specify multiple days. Separate multiple days with commas (,). Valid values:
    * 
-   * *   **1**: Monday
-   * *   **2**: Tuesday
-   * *   **3**: Wednesday
-   * *   **4**: Thursday
-   * *   **5**: Friday
-   * *   **6**: Saturday
-   * *   **7**: Sunday
+   * - **1**: Monday
+   * - **2**: Tuesday
+   * - **3**: Wednesday
+   * - **4**: Thursday
+   * - **5**: Friday
+   * - **6**: Saturday
+   * - **7**: Sunday
    * 
    * This parameter is required.
    * 
@@ -23,12 +23,14 @@ export class ModifySecurityCheckScheduleConfigRequest extends $dara.Model {
   daysOfWeek?: string;
   /**
    * @remarks
-   * The time period during which the automatic configuration check ends. Valid values:
+   * The end time of the detection. Valid values:
    * 
-   * *   **0**: 00:00 to 06:00
-   * *   **6**: 06:00 to 12:00
-   * *   **12**: 12:00 to 18:00
-   * *   **18**: 18:00 to 24:00
+   * - **0**: The detection ends between 00:00 and 06:00.
+   * - **6**: The detection ends between 06:00 and 12:00.
+   * - **12**: The detection ends between 12:00 and 18:00.
+   * - **18**: The detection ends between 18:00 and 24:00.
+   * 
+   * Unit: hours. The value is an on-the-hour value from 0 to 24 of the current day.
    * 
    * This parameter is required.
    * 
@@ -38,10 +40,10 @@ export class ModifySecurityCheckScheduleConfigRequest extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * The language of the content within the request and response. Default value: **zh**. Valid values:
+   * The language type of the request and response. Default value: **zh**. Valid values:
    * 
-   * *   **zh**: Chinese
-   * *   **en**: English
+   * - **zh**: Chinese
+   * - **en**: English
    * 
    * @example
    * zh
@@ -58,12 +60,14 @@ export class ModifySecurityCheckScheduleConfigRequest extends $dara.Model {
   sourceIp?: string;
   /**
    * @remarks
-   * The time period during which the automatic configuration check starts. Valid values:
+   * The start time of the detection. Valid values:
    * 
-   * *   **0**: 00:00 to 06:00
-   * *   **6**: 06:00 to 12:00
-   * *   **12**: 12:00 to 18:00
-   * *   **18**: 18:00 to 24:00
+   * - **0**: The detection starts between 00:00 and 06:00.
+   * - **6**: The detection starts between 06:00 and 12:00.
+   * - **12**: The detection starts between 12:00 and 18:00.
+   * - **18**: The detection starts between 18:00 and 24:00.
+   * 
+   * Unit: hours. The value is an on-the-hour value from 0 to 24 of the current day.
    * 
    * This parameter is required.
    * 

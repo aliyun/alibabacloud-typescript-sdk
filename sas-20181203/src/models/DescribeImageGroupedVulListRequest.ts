@@ -164,6 +164,7 @@ export class DescribeImageGroupedVulListRequest extends $dara.Model {
    * cn-hangzhou
    */
   repoRegionId?: string;
+  resourceDirectoryAccountId?: number;
   /**
    * @remarks
    * The vulnerability tag. Valid values:
@@ -218,6 +219,7 @@ export class DescribeImageGroupedVulListRequest extends $dara.Model {
       repoName: 'RepoName',
       repoNamespace: 'RepoNamespace',
       repoRegionId: 'RepoRegionId',
+      resourceDirectoryAccountId: 'ResourceDirectoryAccountId',
       ruleTag: 'RuleTag',
       scanRange: 'ScanRange',
       type: 'Type',
@@ -246,6 +248,7 @@ export class DescribeImageGroupedVulListRequest extends $dara.Model {
       repoName: 'string',
       repoNamespace: 'string',
       repoRegionId: 'string',
+      resourceDirectoryAccountId: 'number',
       ruleTag: 'string',
       scanRange: { 'type': 'array', 'itemType': 'string' },
       type: 'string',

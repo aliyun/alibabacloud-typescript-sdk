@@ -43,7 +43,7 @@ export class ListAgentlessMaliciousFilesRequest extends $dara.Model {
   fuzzyMaliciousName?: string;
   /**
    * @remarks
-   * The language type for the request and response. Default value: **zh**. Valid values:
+   * The language type for the request and response messages. Default value: **zh**. Valid values:
    * - **zh**: Chinese
    * - **en**: English.
    * 
@@ -73,7 +73,7 @@ export class ListAgentlessMaliciousFilesRequest extends $dara.Model {
   maliciousMd5?: string;
   /**
    * @remarks
-   * The alert type.
+   * The Alarm Metric.
    * 
    * If Lang is set to zh, valid values:
    * 
@@ -103,7 +103,7 @@ export class ListAgentlessMaliciousFilesRequest extends $dara.Model {
   pageSize?: string;
   /**
    * @remarks
-   * The asset information for the vulnerability query. You can set this parameter to the asset name, public IP address, or private IP address. Fuzzy match is supported.
+   * The asset information to query. You can set this parameter to the asset name, public IP address, or private IP address. Fuzzy match is supported.
    * 
    * @example
    * 192.168.XX.XX

@@ -14,15 +14,18 @@ export class SendCustomizeReportRequest extends $dara.Model {
    * 123
    */
   reportId?: number;
+  resourceDirectoryAccountId?: number;
   static names(): { [key: string]: string } {
     return {
       reportId: 'ReportId',
+      resourceDirectoryAccountId: 'ResourceDirectoryAccountId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       reportId: 'number',
+      resourceDirectoryAccountId: 'number',
     };
   }
 

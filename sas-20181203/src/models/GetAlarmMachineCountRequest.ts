@@ -11,15 +11,18 @@ export class GetAlarmMachineCountRequest extends $dara.Model {
    * sas
    */
   from?: string;
+  resourceDirectoryAccountId?: number;
   static names(): { [key: string]: string } {
     return {
       from: 'From',
+      resourceDirectoryAccountId: 'ResourceDirectoryAccountId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       from: 'string',
+      resourceDirectoryAccountId: 'number',
     };
   }
 

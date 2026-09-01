@@ -29,11 +29,13 @@ export class DescribeVulWhitelistRequest extends $dara.Model {
    * 10
    */
   pageSize?: number;
+  resourceDirectoryAccountId?: number;
   static names(): { [key: string]: string } {
     return {
       currentPage: 'CurrentPage',
       lang: 'Lang',
       pageSize: 'PageSize',
+      resourceDirectoryAccountId: 'ResourceDirectoryAccountId',
     };
   }
 
@@ -42,6 +44,7 @@ export class DescribeVulWhitelistRequest extends $dara.Model {
       currentPage: 'number',
       lang: 'string',
       pageSize: 'number',
+      resourceDirectoryAccountId: 'number',
     };
   }
 

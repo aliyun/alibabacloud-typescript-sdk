@@ -151,6 +151,7 @@ export class SaveCustomizeReportConfigRequest extends $dara.Model {
    * 2.0.0
    */
   reportVersion?: string;
+  resourceDirectoryAccountId?: number;
   /**
    * @remarks
    * The end time at which the report is sent. The value is in the HH:mm:ss format.
@@ -240,6 +241,7 @@ export class SaveCustomizeReportConfigRequest extends $dara.Model {
       reportStatus: 'ReportStatus',
       reportType: 'ReportType',
       reportVersion: 'ReportVersion',
+      resourceDirectoryAccountId: 'ResourceDirectoryAccountId',
       sendEndTime: 'SendEndTime',
       sendPeriodDays: 'SendPeriodDays',
       sendPeriodType: 'SendPeriodType',
@@ -265,6 +267,7 @@ export class SaveCustomizeReportConfigRequest extends $dara.Model {
       reportStatus: 'number',
       reportType: 'number',
       reportVersion: 'string',
+      resourceDirectoryAccountId: 'number',
       sendEndTime: 'string',
       sendPeriodDays: 'number',
       sendPeriodType: 'string',

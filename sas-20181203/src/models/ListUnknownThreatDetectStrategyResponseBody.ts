@@ -13,7 +13,7 @@ export class ListUnknownThreatDetectStrategyResponseBodyData extends $dara.Model
   assetSelectionType?: string;
   /**
    * @remarks
-   * The duration, in days, of the learning phase after model creation.
+   * The number of days after the model is initially created before learning ends.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class ListUnknownThreatDetectStrategyResponseBodyData extends $dara.Model
   durationDaysAfterInit?: number;
   /**
    * @remarks
-   * The number of consecutive days without new process detections before the learning phase automatically ends.
+   * The number of days after which the model ends when no new processes are added.
    * 
    * @example
    * 1
@@ -29,7 +29,7 @@ export class ListUnknownThreatDetectStrategyResponseBodyData extends $dara.Model
   durationDaysAfterStop?: number;
   /**
    * @remarks
-   * The strategy ID.
+   * The policy ID.
    * 
    * @example
    * 1
@@ -45,7 +45,7 @@ export class ListUnknownThreatDetectStrategyResponseBodyData extends $dara.Model
   machineCount?: number;
   /**
    * @remarks
-   * The strategy name.
+   * The policy name.
    * 
    * @example
    * test****
@@ -56,7 +56,6 @@ export class ListUnknownThreatDetectStrategyResponseBodyData extends $dara.Model
    * The whitelist mode. Valid values:
    * 
    * - **hash**: process hash
-   * 
    * - **path**: process path
    * 
    * @example
@@ -99,7 +98,7 @@ export class ListUnknownThreatDetectStrategyResponseBodyData extends $dara.Model
 export class ListUnknownThreatDetectStrategyResponseBodyPageInfo extends $dara.Model {
   /**
    * @remarks
-   * The number of entries returned on the current page.
+   * The number of entries displayed on the current page.
    * 
    * @example
    * 20
@@ -107,7 +106,7 @@ export class ListUnknownThreatDetectStrategyResponseBodyPageInfo extends $dara.M
   count?: number;
   /**
    * @remarks
-   * The current page number.
+   * The page number of the current page in a paging query.
    * 
    * @example
    * 1
@@ -115,7 +114,7 @@ export class ListUnknownThreatDetectStrategyResponseBodyPageInfo extends $dara.M
   currentPage?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The maximum number of entries displayed on each page in a paging query.
    * 
    * @example
    * 20
@@ -123,7 +122,7 @@ export class ListUnknownThreatDetectStrategyResponseBodyPageInfo extends $dara.M
   pageSize?: number;
   /**
    * @remarks
-   * The total number of matching entries.
+   * The total number of entries returned.
    * 
    * @example
    * 69
@@ -159,7 +158,7 @@ export class ListUnknownThreatDetectStrategyResponseBodyPageInfo extends $dara.M
 export class ListUnknownThreatDetectStrategyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * An array of strategies.
+   * The returned data.
    */
   data?: ListUnknownThreatDetectStrategyResponseBodyData[];
   /**
@@ -169,7 +168,7 @@ export class ListUnknownThreatDetectStrategyResponseBody extends $dara.Model {
   pageInfo?: ListUnknownThreatDetectStrategyResponseBodyPageInfo;
   /**
    * @remarks
-   * The ID of the request.
+   * Id of the request
    * 
    * @example
    * 898F7AA7-CECD-5EC7-AF4D-664C601B****
