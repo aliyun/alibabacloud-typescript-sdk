@@ -19,6 +19,8 @@ export default class Client extends OpenApi {
       'cn-hongkong': "fcsandbox.cn-hongkong.aliyuncs.com",
       'ap-southeast-1': "fcsandbox.ap-southeast-1.aliyuncs.com",
       'cn-hangzhou': "fcsandbox.cn-hangzhou.aliyuncs.com",
+      'us-west-1': "fcsandbox.us-west-1.aliyuncs.com",
+      'us-east-1': "fcsandbox.us-east-1.aliyuncs.com",
     };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("fcsandbox", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -115,6 +117,46 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createTeamWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * Creates a template.
+   * 
+   * @param request - CreateTemplateRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateTemplateResponse
+   */
+  async createTemplateWithOptions(request: $_model.CreateTemplateRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateTemplateResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(request.body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateTemplate",
+      version: "2026-05-09",
+      protocol: "HTTPS",
+      pathname: `/pop/2026-05-09/templates`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateTemplateResponse>(await this.callApi(params, req, runtime), new $_model.CreateTemplateResponse({}));
+  }
+
+  /**
+   * Creates a template.
+   * 
+   * @param request - CreateTemplateRequest
+   * @returns CreateTemplateResponse
+   */
+  async createTemplate(request: $_model.CreateTemplateRequest): Promise<$_model.CreateTemplateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createTemplateWithOptions(request, headers, runtime);
   }
 
   /**
@@ -278,6 +320,51 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteTeamWithOptions(teamID, request, headers, runtime);
+  }
+
+  /**
+   * Deletes a template.
+   * 
+   * @param request - DeleteTemplateRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteTemplateResponse
+   */
+  async deleteTemplateWithOptions(templateID: string, request: $_model.DeleteTemplateRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteTemplateResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.teamID)) {
+      query["teamID"] = request.teamID;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteTemplate",
+      version: "2026-05-09",
+      protocol: "HTTPS",
+      pathname: `/pop/2026-05-09/templates/${$dara.URL.percentEncode(templateID)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteTemplateResponse>(await this.callApi(params, req, runtime), new $_model.DeleteTemplateResponse({}));
+  }
+
+  /**
+   * Deletes a template.
+   * 
+   * @param request - DeleteTemplateRequest
+   * @returns DeleteTemplateResponse
+   */
+  async deleteTemplate(templateID: string, request: $_model.DeleteTemplateRequest): Promise<$_model.DeleteTemplateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteTemplateWithOptions(templateID, request, headers, runtime);
   }
 
   /**
@@ -446,6 +533,51 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getTeamWithOptions(teamID, request, headers, runtime);
+  }
+
+  /**
+   * Queries a template.
+   * 
+   * @param request - GetTemplateRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetTemplateResponse
+   */
+  async getTemplateWithOptions(templateID: string, request: $_model.GetTemplateRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetTemplateResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.teamID)) {
+      query["teamID"] = request.teamID;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetTemplate",
+      version: "2026-05-09",
+      protocol: "HTTPS",
+      pathname: `/pop/2026-05-09/templates/${$dara.URL.percentEncode(templateID)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetTemplateResponse>(await this.callApi(params, req, runtime), new $_model.GetTemplateResponse({}));
+  }
+
+  /**
+   * Queries a template.
+   * 
+   * @param request - GetTemplateRequest
+   * @returns GetTemplateResponse
+   */
+  async getTemplate(templateID: string, request: $_model.GetTemplateRequest): Promise<$_model.GetTemplateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getTemplateWithOptions(templateID, request, headers, runtime);
   }
 
   /**
@@ -670,6 +802,59 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listTeamsWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * Queries a list of templates.
+   * 
+   * @param request - ListTemplatesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListTemplatesResponse
+   */
+  async listTemplatesWithOptions(request: $_model.ListTemplatesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListTemplatesResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.teamID)) {
+      query["teamID"] = request.teamID;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListTemplates",
+      version: "2026-05-09",
+      protocol: "HTTPS",
+      pathname: `/pop/2026-05-09/templates`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListTemplatesResponse>(await this.callApi(params, req, runtime), new $_model.ListTemplatesResponse({}));
+  }
+
+  /**
+   * Queries a list of templates.
+   * 
+   * @param request - ListTemplatesRequest
+   * @returns ListTemplatesResponse
+   */
+  async listTemplates(request: $_model.ListTemplatesRequest): Promise<$_model.ListTemplatesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listTemplatesWithOptions(request, headers, runtime);
   }
 
   /**

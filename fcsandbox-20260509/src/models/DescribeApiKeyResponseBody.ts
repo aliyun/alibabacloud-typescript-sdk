@@ -22,6 +22,10 @@ export class DescribeApiKeyResponseBody extends $dara.Model {
    */
   code?: string;
   ipBlacklist?: IPConfig[];
+  /**
+   * @remarks
+   * The IP whitelist.
+   */
   ipWhitelist?: IPConfig[];
   /**
    * @remarks
