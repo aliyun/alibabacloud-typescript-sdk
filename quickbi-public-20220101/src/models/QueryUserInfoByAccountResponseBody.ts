@@ -65,6 +65,11 @@ export class QueryUserInfoByAccountResponseBodyResult extends $dara.Model {
    */
   email?: string;
   /**
+   * @example
+   * true
+   */
+  isDeleted?: boolean;
+  /**
    * @remarks
    * The user\\"s nickname.
    * 
@@ -115,6 +120,7 @@ export class QueryUserInfoByAccountResponseBodyResult extends $dara.Model {
       authAdminUser: 'AuthAdminUser',
       copilotModules: 'CopilotModules',
       email: 'Email',
+      isDeleted: 'IsDeleted',
       nickName: 'NickName',
       phone: 'Phone',
       roleIdList: 'RoleIdList',
@@ -131,6 +137,7 @@ export class QueryUserInfoByAccountResponseBodyResult extends $dara.Model {
       authAdminUser: 'boolean',
       copilotModules: { 'type': 'array', 'itemType': 'string' },
       email: 'string',
+      isDeleted: 'boolean',
       nickName: 'string',
       phone: 'string',
       roleIdList: { 'type': 'array', 'itemType': 'number' },

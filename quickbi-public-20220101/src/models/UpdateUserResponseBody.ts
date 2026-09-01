@@ -13,11 +13,10 @@ export class UpdateUserResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the operation was successful. Valid values:
+   * The execution result of the operation. Valid values:
    * 
-   * - true: The operation was successful.
-   * 
-   * - false: The operation failed.
+   * - true: Successful.
+   * - false: Failed.
    * 
    * @example
    * true
@@ -28,7 +27,6 @@ export class UpdateUserResponseBody extends $dara.Model {
    * Indicates whether the request was successful. Valid values:
    * 
    * - true: The request was successful.
-   * 
    * - false: The request failed.
    * 
    * @example

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryUserListRequest extends $dara.Model {
   /**
    * @remarks
-   * The keyword to search for organization members by username or nickname.
+   * The keyword for the username or nickname of the organization member.
    * 
    * @example
    * test
@@ -13,10 +13,9 @@ export class QueryUserListRequest extends $dara.Model {
   keyword?: string;
   /**
    * @remarks
-   * The page number to return.
+   * The page number of the organization member list.
    * 
-   * - Starting value: 1
-   * 
+   * - Minimum value: 1
    * - Default value: 1
    * 
    * @example
@@ -25,10 +24,9 @@ export class QueryUserListRequest extends $dara.Model {
   pageNum?: number;
   /**
    * @remarks
-   * The number of organization members to return per page.
+   * The number of rows per page in a paged query.
    * 
    * - Default value: 10
-   * 
    * - Maximum value: 1000
    * 
    * @example

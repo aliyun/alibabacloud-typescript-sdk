@@ -9,7 +9,7 @@ export class QueryUserByMobileAccountRequest extends $dara.Model {
    * 
    * - DingTalk: ding
    * - WeCom: corp_weixin
-   * - Lark: feishu.
+   * - Lark: feishu
    * 
    * This parameter is required.
    * 
@@ -24,7 +24,7 @@ export class QueryUserByMobileAccountRequest extends $dara.Model {
    * - DingTalk: The unionId of the DingTalk account.
    * - WeCom: The userId of the WeCom account.
    * - Lark: The userId of the Lark account.
-   * >Notice: The mobileUserId must be obtained by calling the relevant DingTalk, WeCom, or Lark API operations..
+   * >Notice: The mobileUserId must be obtained by calling the relevant API operations of DingTalk, WeCom, or Lark.
    * 
    * This parameter is required.
    * 

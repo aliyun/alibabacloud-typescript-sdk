@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryUserByMobileAccountResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The QuickBI user ID of the bound account.
+   * The Quick BI user ID of the bound account.
    * 
    * @example
    * test

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryUserListResponseBodyResultData extends $dara.Model {
   /**
    * @remarks
-   * The Alibaba Cloud account ID. For users not added through RAM, this ID is available only after they log in.
+   * The Alibaba Cloud account ID. For users who are not added through RAM self-service, the Alibaba Cloud ID can only be obtained after they log on.
    * 
    * @example
    * 1355********
@@ -21,15 +21,12 @@ export class QueryUserListResponseBodyResultData extends $dara.Model {
   accountName?: string;
   /**
    * @remarks
-   * Indicates whether the user is an organization administrator. Valid values:
+   * Indicates whether the user is bound to the organization administrator role. Valid values:
    * 
-   * - `true`: Yes
+   * - true: Yes.
+   * - false: No.
    * 
-   * - `false`: No
-   * 
-   * >Notice: 
-   * 
-   * This parameter is deprecated. Use the `RoleIdList` parameter instead.
+   * <notice>This parameter is deprecated. Use the RoleIdList parameter instead.</notice>
    * 
    * @example
    * true
@@ -37,28 +34,33 @@ export class QueryUserListResponseBodyResultData extends $dara.Model {
   adminUser?: boolean;
   /**
    * @remarks
-   * Indicates whether the user is a permission administrator. Valid values:
+   * Indicates whether the user is attached to the permission management administrator role. Valid values:
    * 
-   * - `true`: Yes
+   * - true: Yes.
+   * - false: No.
    * 
-   * - `false`: No
-   * 
-   * >Notice: 
-   * 
-   * This parameter is deprecated. Use the `RoleIdList` parameter instead.
+   * <notice>This parameter has expired and is no longer recommended. Use the RoleIdList parameter instead.</notice>
    * 
    * @example
    * true
    */
   authAdminUser?: boolean;
+  /**
+   * @remarks
+   * The intelligent module quota of the user.
+   * 
+   * - qreport: Q report
+   * - qExploreNum: Q exploration edition
+   * - smartQAskNum: Q data inquiry
+   * - smartQDevNum: Q builder
+   */
   copilotModules?: string[];
   /**
    * @remarks
-   * Indicates whether the user is inactive.
+   * The user status. Valid values: 
    * 
-   * - `false`: Active
-   * 
-   * - `true`: Inactive
+   * - false: active
+   * - true: inactive
    * 
    * @example
    * false
@@ -66,7 +68,7 @@ export class QueryUserListResponseBodyResultData extends $dara.Model {
   isDeleted?: boolean;
   /**
    * @remarks
-   * The Unix timestamp (in milliseconds) that indicates when the user joined the organization.
+   * The date when the member joined the organization.
    * 
    * @example
    * 1718691704000
@@ -74,7 +76,7 @@ export class QueryUserListResponseBodyResultData extends $dara.Model {
   joinedDate?: number;
   /**
    * @remarks
-   * The Unix timestamp (in milliseconds) of the user\\"s last login.
+   * The last logon time.
    * 
    * @example
    * 1718761320681
@@ -82,7 +84,7 @@ export class QueryUserListResponseBodyResultData extends $dara.Model {
   lastLoginTime?: number;
   /**
    * @remarks
-   * The nickname of the user.
+   * The nickname of the organization member.
    * 
    * @example
    * test
@@ -90,7 +92,7 @@ export class QueryUserListResponseBodyResultData extends $dara.Model {
   nickName?: string;
   /**
    * @remarks
-   * The IDs of the organization roles assigned to the user.
+   * The list of organization role IDs bound to the user.
    */
   roleIdList?: number[];
   /**
@@ -105,11 +107,9 @@ export class QueryUserListResponseBodyResultData extends $dara.Model {
    * @remarks
    * The user type of the organization member. Valid values:
    * 
-   * - `1`: developer
-   * 
-   * - `2`: viewer
-   * 
-   * - `3`: analyst
+   * - 1: developer
+   * - 2: visitor
+   * - 3: analyst
    * 
    * @example
    * 1
@@ -167,7 +167,7 @@ export class QueryUserListResponseBodyResultData extends $dara.Model {
 export class QueryUserListResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The list of users.
+   * The list of users returned by the request.
    */
   data?: QueryUserListResponseBodyResultData[];
   /**
@@ -180,7 +180,7 @@ export class QueryUserListResponseBodyResult extends $dara.Model {
   pageNum?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of rows per page specified in the request.
    * 
    * @example
    * 10
@@ -188,7 +188,7 @@ export class QueryUserListResponseBodyResult extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of matching users.
+   * The total number of rows.
    * 
    * @example
    * 1
@@ -245,16 +245,15 @@ export class QueryUserListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The paginated list of users. The `Data` parameter contains the details of each organization member.
+   * The paginated result of the user list. The detailed information of organization members is stored in the Data response parameter.
    */
   result?: QueryUserListResponseBodyResult;
   /**
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * - `true`: The request was successful.
-   * 
-   * - `false`: The request failed.
+   * - true: The request was successful.
+   * - false: The request failed.
    * 
    * @example
    * true

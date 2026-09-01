@@ -16,7 +16,7 @@ export class QueryWorksResponseBodyResultDirectory extends $dara.Model {
    * The name of the directory.
    * 
    * @example
-   * 测试目录
+   * Test directory
    */
   name?: string;
   /**
@@ -32,7 +32,7 @@ export class QueryWorksResponseBodyResultDirectory extends $dara.Model {
    * The hierarchical structure of the directory to which the directory belongs. Separate the hierarchical structure with a (/).
    * 
    * @example
-   * 测试目录
+   * Test directory
    */
   pathName?: string;
   static names(): { [key: string]: string } {
@@ -62,6 +62,54 @@ export class QueryWorksResponseBodyResultDirectory extends $dara.Model {
   }
 }
 
+export class QueryWorksResponseBodyResultGlobalParamVoList extends $dara.Model {
+  /**
+   * @example
+   * string
+   */
+  dataType?: string;
+  /**
+   * @example
+   * lastQueryAt
+   */
+  paramAlias?: string;
+  /**
+   * @example
+   * lastQueryAt
+   */
+  paramName?: string;
+  /**
+   * @example
+   * false
+   */
+  required?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      dataType: 'DataType',
+      paramAlias: 'ParamAlias',
+      paramName: 'ParamName',
+      required: 'Required',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataType: 'string',
+      paramAlias: 'string',
+      paramName: 'string',
+      required: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryWorksResponseBodyResult extends $dara.Model {
   /**
    * @remarks
@@ -79,7 +127,7 @@ export class QueryWorksResponseBodyResult extends $dara.Model {
    * Remarks on the work.
    * 
    * @example
-   * 备注
+   * Description
    */
   description?: string;
   /**
@@ -87,6 +135,7 @@ export class QueryWorksResponseBodyResult extends $dara.Model {
    * The directory to which the work belongs.
    */
   directory?: QueryWorksResponseBodyResultDirectory;
+  globalParamVoList?: QueryWorksResponseBodyResultGlobalParamVoList[];
   /**
    * @remarks
    * The timestamp of the creation of the work in milliseconds.
@@ -108,7 +157,7 @@ export class QueryWorksResponseBodyResult extends $dara.Model {
    * The Alibaba Cloud account name of the person who modified the work.
    * 
    * @example
-   * 张三
+   * Tom
    */
   modifyName?: string;
   /**
@@ -124,7 +173,7 @@ export class QueryWorksResponseBodyResult extends $dara.Model {
    * The Alibaba Cloud account name of the work owner.
    * 
    * @example
-   * 张三
+   * Tom
    */
   ownerName?: string;
   /**
@@ -179,7 +228,7 @@ export class QueryWorksResponseBodyResult extends $dara.Model {
    * The name of the work.
    * 
    * @example
-   * 测试报表
+   * Test report
    */
   workName?: string;
   /**
@@ -217,7 +266,7 @@ export class QueryWorksResponseBodyResult extends $dara.Model {
    * The name of the workspace to which the work belongs.
    * 
    * @example
-   * 测试空间
+   * Test Space
    */
   workspaceName?: string;
   static names(): { [key: string]: string } {
@@ -225,6 +274,7 @@ export class QueryWorksResponseBodyResult extends $dara.Model {
       auth3rdFlag: 'Auth3rdFlag',
       description: 'Description',
       directory: 'Directory',
+      globalParamVoList: 'GlobalParamVoList',
       gmtCreate: 'GmtCreate',
       gmtModify: 'GmtModify',
       modifyName: 'ModifyName',
@@ -247,6 +297,7 @@ export class QueryWorksResponseBodyResult extends $dara.Model {
       auth3rdFlag: 'number',
       description: 'string',
       directory: QueryWorksResponseBodyResultDirectory,
+      globalParamVoList: { 'type': 'array', 'itemType': QueryWorksResponseBodyResultGlobalParamVoList },
       gmtCreate: 'string',
       gmtModify: 'string',
       modifyName: 'string',
@@ -267,6 +318,9 @@ export class QueryWorksResponseBodyResult extends $dara.Model {
   validate() {
     if(this.directory && typeof (this.directory as any).validate === 'function') {
       (this.directory as any).validate();
+    }
+    if(Array.isArray(this.globalParamVoList)) {
+      $dara.Model.validateArray(this.globalParamVoList);
     }
     super.validate();
   }

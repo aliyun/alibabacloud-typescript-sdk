@@ -2,6 +2,89 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class QueryOrganizationWorkspaceListResponseBodyResultDataWorkspaceExportConfig extends $dara.Model {
+  /**
+   * @example
+   * true
+   */
+  allowExcelImageFile?: boolean;
+  /**
+   * @example
+   * true
+   */
+  dataExport?: boolean;
+  /**
+   * @example
+   * true
+   */
+  defaultExportType?: boolean;
+  /**
+   * @example
+   * true
+   */
+  exportMainSwitch?: boolean;
+  /**
+   * @example
+   * true
+   */
+  exportToLocal?: boolean;
+  /**
+   * @example
+   * true
+   */
+  exportToPublicWork?: boolean;
+  /**
+   * @example
+   * true
+   */
+  exportToServer?: boolean;
+  /**
+   * @example
+   * true
+   */
+  imageExport?: boolean;
+  /**
+   * @example
+   * true
+   */
+  pdfExport?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      allowExcelImageFile: 'AllowExcelImageFile',
+      dataExport: 'DataExport',
+      defaultExportType: 'DefaultExportType',
+      exportMainSwitch: 'ExportMainSwitch',
+      exportToLocal: 'ExportToLocal',
+      exportToPublicWork: 'ExportToPublicWork',
+      exportToServer: 'ExportToServer',
+      imageExport: 'ImageExport',
+      pdfExport: 'PdfExport',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      allowExcelImageFile: 'boolean',
+      dataExport: 'boolean',
+      defaultExportType: 'boolean',
+      exportMainSwitch: 'boolean',
+      exportToLocal: 'boolean',
+      exportToPublicWork: 'boolean',
+      exportToServer: 'boolean',
+      imageExport: 'boolean',
+      pdfExport: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryOrganizationWorkspaceListResponseBodyResultData extends $dara.Model {
   /**
    * @remarks
@@ -115,6 +198,7 @@ export class QueryOrganizationWorkspaceListResponseBodyResultData extends $dara.
    * 该空间是测试空间
    */
   workspaceDescription?: string;
+  workspaceExportConfig?: QueryOrganizationWorkspaceListResponseBodyResultDataWorkspaceExportConfig;
   /**
    * @remarks
    * The workspace ID.
@@ -146,6 +230,7 @@ export class QueryOrganizationWorkspaceListResponseBodyResultData extends $dara.
       ownerAccountName: 'OwnerAccountName',
       realOwnerAccountName: 'RealOwnerAccountName',
       workspaceDescription: 'WorkspaceDescription',
+      workspaceExportConfig: 'WorkspaceExportConfig',
       workspaceId: 'WorkspaceId',
       workspaceName: 'WorkspaceName',
     };
@@ -166,12 +251,16 @@ export class QueryOrganizationWorkspaceListResponseBodyResultData extends $dara.
       ownerAccountName: 'string',
       realOwnerAccountName: 'string',
       workspaceDescription: 'string',
+      workspaceExportConfig: QueryOrganizationWorkspaceListResponseBodyResultDataWorkspaceExportConfig,
       workspaceId: 'string',
       workspaceName: 'string',
     };
   }
 
   validate() {
+    if(this.workspaceExportConfig && typeof (this.workspaceExportConfig as any).validate === 'function') {
+      (this.workspaceExportConfig as any).validate();
+    }
     super.validate();
   }
 

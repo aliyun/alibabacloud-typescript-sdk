@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ClearDynamicTagCacheRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the tag configuration.
+   * 
    * This parameter is required.
    * 
    * @example
