@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RunPython3ScriptRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the node in the playbook.
+   * The name of the playbook node.
    * 
    * @example
    * python3_3
@@ -13,7 +13,7 @@ export class RunPython3ScriptRequest extends $dara.Model {
   nodeName?: string;
   /**
    * @remarks
-   * The input parameters of the Python3 script.
+   * The input parameters for the Python 3 script.
    * 
    * @example
    * {
@@ -26,7 +26,7 @@ export class RunPython3ScriptRequest extends $dara.Model {
    * @remarks
    * The UUID of the playbook.
    * 
-   * >  You can call the [DescribePlaybooks](~~DescribePlaybooks~~) operation to query the UUIDs of playbooks.
+   * > Call the [DescribePlaybooks](~~DescribePlaybooks~~) operation to obtain this parameter.
    * 
    * @example
    * 8baa6cff-319e-4ede-97bc-xxxxxxx
@@ -34,7 +34,7 @@ export class RunPython3ScriptRequest extends $dara.Model {
   playbookUuid?: string;
   /**
    * @remarks
-   * The Python3 script.
+   * The Python 3 script.
    * 
    * @example
    * import logging
@@ -48,6 +48,9 @@ export class RunPython3ScriptRequest extends $dara.Model {
    */
   pythonScript?: string;
   /**
+   * @remarks
+   * The Python version.
+   * 
    * @example
    * python2.0
    */

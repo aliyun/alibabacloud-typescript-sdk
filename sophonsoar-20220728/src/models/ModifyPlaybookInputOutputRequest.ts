@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyPlaybookInputOutputRequest extends $dara.Model {
   /**
    * @remarks
-   * The executed mode of a playbook. The value is a JSON array.
+   * The execution method for the playbook. This parameter is in the JSONObject format.
    */
   exeConfig?: string;
   /**
    * @remarks
-   * The configuration of the input parameters. The value is a JSON array.
+   * The input parameter configuration for the playbook. This parameter is in the JSONArray format.
    * 
    * This parameter is required.
    * 
@@ -30,10 +30,11 @@ export class ModifyPlaybookInputOutputRequest extends $dara.Model {
   inputParams?: string;
   /**
    * @remarks
-   * The language of the content within the request and response.
+   * The language of the request and response messages.
    * 
-   * *   **zh**: Chinese (default)
-   * *   **en**: English
+   * - **zh** (default): Chinese
+   * 
+   * - **en**: English
    * 
    * @example
    * zh
@@ -41,7 +42,7 @@ export class ModifyPlaybookInputOutputRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The configuration of the output parameters. This parameter is unavailable. Leave it empty.
+   * Playbooks do not support output parameter configurations. This parameter is fixed to an empty value.
    * 
    * This parameter is required.
    * 
@@ -51,12 +52,15 @@ export class ModifyPlaybookInputOutputRequest extends $dara.Model {
   outputParams?: string;
   /**
    * @remarks
-   * The input parameter type.
+   * The type of the input parameter for the playbook.
    * 
-   * *   **template-ip**
-   * *   **template-file**
-   * *   **template-process**
-   * *   **custom**
+   * - **template-ip**: IP request template.
+   * 
+   * - **template-file**: file request template.
+   * 
+   * - **template-process**: process request template.
+   * 
+   * - **custom**: custom parameter.
    * 
    * @example
    * custom
@@ -66,7 +70,7 @@ export class ModifyPlaybookInputOutputRequest extends $dara.Model {
    * @remarks
    * The UUID of the playbook.
    * 
-   * >  You can call the [DescribePlaybooks](~~DescribePlaybooks~~)operation to query the playbook UUID.
+   * > Call the [DescribePlaybooks](~~DescribePlaybooks~~) operation to obtain this parameter.
    * 
    * This parameter is required.
    * 

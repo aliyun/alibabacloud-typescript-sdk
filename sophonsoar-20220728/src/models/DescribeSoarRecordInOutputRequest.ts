@@ -7,7 +7,7 @@ export class DescribeSoarRecordInOutputRequest extends $dara.Model {
    * @remarks
    * The UUID of the component action.
    * 
-   * >  You can call the [DescribeSoarTaskAndActions](~~DescribeSoarTaskAndActions~~) operation to query the UUIDs of component actions.
+   * > Call the [DescribeSoarTaskAndActions](~~DescribeSoarTaskAndActions~~) API to get this parameter.
    * 
    * This parameter is required.
    * 
@@ -17,10 +17,11 @@ export class DescribeSoarRecordInOutputRequest extends $dara.Model {
   actionUuid?: string;
   /**
    * @remarks
-   * The language of the content within the request and the response. Valid values:
+   * The language of the request and response. Valid values:
    * 
-   * *   **zh** (default): Chinese
-   * *   **en**: English
+   * - **zh** (default): Chinese.
+   * 
+   * - **en**: English.
    * 
    * @example
    * zh

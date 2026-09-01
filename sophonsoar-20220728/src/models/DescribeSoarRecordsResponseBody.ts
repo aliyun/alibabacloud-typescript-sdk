@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSoarRecordsResponseBodyPage extends $dara.Model {
   /**
    * @remarks
-   * The current page number in paginated queries.
+   * The page number of the returned page.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class DescribeSoarRecordsResponseBodyPage extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of items per page in paginated queries.
+   * The number of entries returned on each page.
    * 
    * @example
    * 10
@@ -21,7 +21,7 @@ export class DescribeSoarRecordsResponseBodyPage extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of queried items.
+   * The total number of entries returned.
    * 
    * @example
    * 22
@@ -53,8 +53,29 @@ export class DescribeSoarRecordsResponseBodyPage extends $dara.Model {
 }
 
 export class DescribeSoarRecordsResponseBodySoarExecuteRecordsOutputList extends $dara.Model {
+  /**
+   * @remarks
+   * The UUID of the node.
+   * 
+   * @example
+   * 4e78d665-2366-4485-8fbc-048a8d41a2c3-25****
+   */
   actionUuid?: string;
+  /**
+   * @remarks
+   * The output content.
+   * 
+   * @example
+   * {"msg":"process has been killed","code":"KillSuccess","status":"success"}
+   */
   content?: string;
+  /**
+   * @remarks
+   * The name of the node that generates the output.
+   * 
+   * @example
+   * TriggerPlaybook_4
+   */
   nodeName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -84,7 +105,7 @@ export class DescribeSoarRecordsResponseBodySoarExecuteRecordsOutputList extends
 export class DescribeSoarRecordsResponseBodySoarExecuteRecords extends $dara.Model {
   /**
    * @remarks
-   * The end time of the component execution, in 13-digit timestamp format.
+   * The end time of the component run. The value is a 13-digit UNIX timestamp.
    * 
    * @example
    * 1686294686000
@@ -92,12 +113,16 @@ export class DescribeSoarRecordsResponseBodySoarExecuteRecords extends $dara.Mod
   endTime?: number;
   /**
    * @remarks
-   * The error message of the playbook task. This field is empty when the task succeeds.
+   * The error message of the playbook task. This parameter is empty if the task is successful.
    * 
    * @example
    * stime not match
    */
   errorMsg?: string;
+  /**
+   * @remarks
+   * The output information of the playbook.
+   */
   outputList?: DescribeSoarRecordsResponseBodySoarExecuteRecordsOutputList[];
   /**
    * @remarks
@@ -112,15 +137,15 @@ export class DescribeSoarRecordsResponseBodySoarExecuteRecords extends $dara.Mod
   rawEventReq?: string;
   /**
    * @remarks
-   * The request ID of the playbook task, a unique ID for each task run.
+   * The request ID of the playbook task. The ID is unique for each task run.
    * 
    * @example
-   * ba1ec480-aa90-4bb6-a1a7-9e311ae79321
+   * ba1ec480-aa90-4bb6-a1a7-9e311ae*****
    */
   requestUuid?: string;
   /**
    * @remarks
-   * The start time of the task execution, in 13-digit timestamp format.
+   * The start time of the task run. The value is a 13-digit UNIX timestamp.
    * 
    * @example
    * 1675823338433
@@ -128,11 +153,13 @@ export class DescribeSoarRecordsResponseBodySoarExecuteRecords extends $dara.Mod
   startTime?: number;
   /**
    * @remarks
-   * The status of the playbook task. Values:
+   * The status of the playbook task. Valid values:
    * 
-   * - **success**: Indicates successful execution.
-   * - **fail**: Indicates failed execution.
-   * - **running**: Indicates the task is running
+   * - **success**: The execution is successful.
+   * 
+   * - **fail**: The execution failed.
+   * 
+   * - **running**: The execution is in progress.
    * 
    * @example
    * success
@@ -140,7 +167,7 @@ export class DescribeSoarRecordsResponseBodySoarExecuteRecords extends $dara.Mod
   status?: string;
   /**
    * @remarks
-   * The name of the playbook task, which is the same as the playbook\\"s UUID.
+   * The name of the playbook task. The value is the UUID of the playbook.
    * 
    * @example
    * 82848ebc-eaff-4791-acd4-xxxxx
@@ -156,11 +183,13 @@ export class DescribeSoarRecordsResponseBodySoarExecuteRecords extends $dara.Mod
   taskflowMd5?: string;
   /**
    * @remarks
-   * The type of the playbook task. Values:
+   * The type of the playbook task. Valid values:
    * 
-   * - **debug**: Indicates a debugging task.
-   * - **manual**: Indicates a manual task.
-   * - **siem**: Indicates a task triggered by an event or alert.
+   * - **debug**: a test task
+   * 
+   * - **manual**: a one-time task
+   * 
+   * - **siem**: a task that is triggered by an event or alert
    * 
    * @example
    * debug
@@ -168,7 +197,7 @@ export class DescribeSoarRecordsResponseBodySoarExecuteRecords extends $dara.Mod
   triggerType?: string;
   /**
    * @remarks
-   * The Alibaba Cloud account ID that executes the playbook task.
+   * The ID of the Alibaba Cloud account that runs the playbook task.
    * 
    * @example
    * 127xxxx4392
@@ -221,22 +250,22 @@ export class DescribeSoarRecordsResponseBodySoarExecuteRecords extends $dara.Mod
 export class DescribeSoarRecordsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Information displayed on the page.
+   * The pagination information.
    * 
    * This parameter is required.
    */
   page?: DescribeSoarRecordsResponseBodyPage;
   /**
    * @remarks
-   * The ID of the current request, generated by Alibaba Cloud as a unique identifier for the request, which can be used for troubleshooting and problem localization.
+   * The unique request ID, generated by Alibaba Cloud. Use this ID to troubleshoot issues.
    * 
    * @example
-   * 601C2DAC-6A67-5237-BEE8-5BF1CEE96296
+   * 601C2DAC-6A67-5237-BEE8-5BF1CEE9*****
    */
   requestId?: string;
   /**
    * @remarks
-   * Execution record result set.
+   * The execution records.
    */
   soarExecuteRecords?: DescribeSoarRecordsResponseBodySoarExecuteRecords[];
   static names(): { [key: string]: string } {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSophonCommandsRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the command. Fuzzy match is supported.
+   * The name of the command. Fuzzy search is supported.
    * 
    * @example
    * waf_process

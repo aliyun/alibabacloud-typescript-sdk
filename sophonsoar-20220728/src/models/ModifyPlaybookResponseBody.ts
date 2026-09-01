@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyPlaybookResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The unique ID of the request. Use this ID to locate and troubleshoot issues.
    * 
    * @example
    * 9B584F84-D66A-5525-8E7B-05612A903ABF

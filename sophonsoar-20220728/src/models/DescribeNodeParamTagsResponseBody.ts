@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeNodeParamTagsResponseBodyParamReferredPaths extends $dara.Model {
   /**
    * @remarks
-   * The name of the upstream node.
+   * The name of the ancestor node.
    * 
    * @example
    * DataFormat_1
@@ -13,7 +13,7 @@ export class DescribeNodeParamTagsResponseBodyParamReferredPaths extends $dara.M
   paramName?: string;
   /**
    * @remarks
-   * The paths.
+   * An array of paths.
    */
   referredPath?: string[];
   static names(): { [key: string]: string } {
@@ -45,12 +45,12 @@ export class DescribeNodeParamTagsResponseBodyParamReferredPaths extends $dara.M
 export class DescribeNodeParamTagsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The configuration of the recommended path.
+   * The recommended path configurations.
    */
   paramReferredPaths?: DescribeNodeParamTagsResponseBodyParamReferredPaths[];
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request. Alibaba Cloud generates this unique ID for each request. Use this ID to troubleshoot issues.
    * 
    * @example
    * 6BE94351-712A-505D-A40A-BC77CC8254A9

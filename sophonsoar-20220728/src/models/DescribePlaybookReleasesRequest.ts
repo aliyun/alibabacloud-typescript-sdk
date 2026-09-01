@@ -7,8 +7,9 @@ export class DescribePlaybookReleasesRequest extends $dara.Model {
    * @remarks
    * The language of the content within the request and response. Default value: **zh**. Valid values:
    * 
-   * *   **zh**: Chinese
-   * *   **en**: English
+   * - **zh**: Chinese
+   * 
+   * - **en**: English
    * 
    * @example
    * zh
@@ -16,7 +17,7 @@ export class DescribePlaybookReleasesRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The page number. Default value: 1. Pages start from page 1.
+   * The page number of the page to return. Default value: 1.
    * 
    * @example
    * 1
@@ -24,9 +25,9 @@ export class DescribePlaybookReleasesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Default value: 10. If you do not specify the PageSize parameter, 10 entries are returned by default.
+   * The number of entries per page. Default value: 20. If you do not specify this parameter, 10 entries are returned.
    * 
-   * >  We recommend that you do not leave this parameter empty.
+   * > Specify a value for this parameter.
    * 
    * @example
    * 10
@@ -34,7 +35,7 @@ export class DescribePlaybookReleasesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The playbook UUID.
+   * The UUID of the playbook.
    * 
    * This parameter is required.
    * 

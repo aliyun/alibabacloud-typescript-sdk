@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeComponentListRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the content within the request and the response. Valid values:
+   * The language of the request and response. Valid values:
    * 
-   * *   **zh** (default): Chinese
-   * *   **en**: English
+   * - **zh** (default): Chinese.
+   * 
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -18,7 +19,7 @@ export class DescribeComponentListRequest extends $dara.Model {
    * @remarks
    * The UUID of the playbook.
    * 
-   * >  You can call the [DescribePlaybooks](~~DescribePlaybooks~~)operation to query the UUIDs of playbooks.
+   * > Call the [DescribePlaybooks](~~DescribePlaybooks~~) operation to get this parameter.
    * 
    * This parameter is required.
    * 

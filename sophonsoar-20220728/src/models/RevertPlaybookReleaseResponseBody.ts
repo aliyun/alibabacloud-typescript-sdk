@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RevertPlaybookReleaseResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request. This ID is unique to the request and can be used for troubleshooting.
    * 
    * @example
    * B3FED5B9-190A-5952-93A4-24FBF0F0C573

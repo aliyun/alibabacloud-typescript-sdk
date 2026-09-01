@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class TriggerProcessTaskRequest extends $dara.Model {
   /**
    * @remarks
-   * The type of the action. Valid values:
+   * The type of the handling action. Valid values:
    * 
-   * *   **remove**: cancels blocking or isolation.
-   * *   **retry**: submits the task again.
+   * - **remove**: Removes a block or an asset from isolation.
+   * 
+   * - **retry**: Resubmits the task.
    * 
    * This parameter is required.
    * 
@@ -18,9 +19,9 @@ export class TriggerProcessTaskRequest extends $dara.Model {
   actionType?: string;
   /**
    * @remarks
-   * The ID of the handling task.
+   * The unique ID of the handling task.
    * 
-   * >  You can call the [DescribeProcessTasks](~~DescribeProcessTasks~~) operation to query the IDs of handling tasks.
+   * > Call the [DescribeProcessTasks](~~DescribeProcessTasks~~) operation to obtain this parameter.
    * 
    * This parameter is required.
    * 

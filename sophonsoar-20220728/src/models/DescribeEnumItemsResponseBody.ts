@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeEnumItemsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The key of the enumeration item.
+   * The key of the enumeration.
    * 
    * @example
    * system_xxxxx_process_book
@@ -13,7 +13,7 @@ export class DescribeEnumItemsResponseBodyData extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of the enumeration item.
+   * The value of the enumeration.
    * 
    * @example
    * system_xxxxx_process_book
@@ -45,12 +45,12 @@ export class DescribeEnumItemsResponseBodyData extends $dara.Model {
 export class DescribeEnumItemsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the enumeration item.
+   * The enumeration information.
    */
   data?: DescribeEnumItemsResponseBodyData[];
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request. This ID is unique to each request. Use this ID to troubleshoot issues.
    * 
    * @example
    * E7698CFB-4E1C-5840-8EC9-691B86729E94

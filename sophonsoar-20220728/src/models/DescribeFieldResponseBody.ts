@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeFieldResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The configuration content.
+   * The content of the configuration.
    * 
    * @example
    * ["ip","name","hostinfo","md5"]
@@ -21,7 +21,7 @@ export class DescribeFieldResponseBody extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request. Alibaba Cloud generates this unique ID for each request. Use this ID to troubleshoot issues.
    * 
    * @example
    * BCDE6498-83CC-50A1-8307-3D5A539C42F8

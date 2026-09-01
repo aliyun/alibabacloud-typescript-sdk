@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePlaybookInputOutputResponseBodyConfig extends $dara.Model {
   /**
    * @remarks
-   * The execution method of the playbook is in JSONObject format.
+   * The execution method of the playbook. The value is in the JSONObject format.
    */
   exeConfig?: string;
   /**
    * @remarks
-   * The input parameter configuration of the playbook. The value is a JSON array.
+   * The input parameter configurations of the playbook. The value is in the JSONArray format.
    * 
    * @example
    * [
@@ -28,7 +28,7 @@ export class DescribePlaybookInputOutputResponseBodyConfig extends $dara.Model {
   inputParams?: string;
   /**
    * @remarks
-   * The output parameter configuration. This parameter is unavailable and is always left empty.
+   * Playbooks do not support output parameter configurations. This parameter is empty.
    * 
    * @example
    * []
@@ -36,12 +36,15 @@ export class DescribePlaybookInputOutputResponseBodyConfig extends $dara.Model {
   outputParams?: string;
   /**
    * @remarks
-   * The input parameter type of the playbook. Valid values:
+   * The type of the input parameters for the playbook.
    * 
-   * *   **template-ip**
-   * *   **template-file**
-   * *   **template-process**
-   * *   **custom**
+   * - **template-ip**: IP request template.
+   * 
+   * - **template-file**: file request template.
+   * 
+   * - **template-process**: process request template.
+   * 
+   * - **custom**: custom parameters.
    * 
    * @example
    * custom
@@ -87,12 +90,12 @@ export class DescribePlaybookInputOutputResponseBodyConfig extends $dara.Model {
 export class DescribePlaybookInputOutputResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The configurations.
+   * The configuration information.
    */
   config?: DescribePlaybookInputOutputResponseBodyConfig;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request. Alibaba Cloud generates this unique ID for each request. Use this ID to troubleshoot issues.
    * 
    * @example
    * 688B4CCD-5272-5DCF-9D76-FE5EFEF545F8

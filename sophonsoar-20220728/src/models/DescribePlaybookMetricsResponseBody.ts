@@ -7,8 +7,9 @@ export class DescribePlaybookMetricsResponseBodyMetrics extends $dara.Model {
    * @remarks
    * The status of the playbook. Valid values:
    * 
-   * *   **1**: enabled
-   * *   **0**: disabled
+   * - **1**: The playbook is enabled.
+   * 
+   * - **0**: The playbook is disabled.
    * 
    * @example
    * 1
@@ -32,7 +33,7 @@ export class DescribePlaybookMetricsResponseBodyMetrics extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * The number of the tasks that are created for the playbook and failed to run.
+   * The number of failed playbook runs.
    * 
    * @example
    * 10
@@ -66,8 +67,9 @@ export class DescribePlaybookMetricsResponseBodyMetrics extends $dara.Model {
    * @remarks
    * The type of the playbook. Valid values:
    * 
-   * *   **preset**: predefined playbook
-   * *   **user**: custom playbook
+   * - **preset**: predefined playbook.
+   * 
+   * - **user**: custom playbook.
    * 
    * @example
    * user
@@ -83,7 +85,7 @@ export class DescribePlaybookMetricsResponseBodyMetrics extends $dara.Model {
   playbookUuid?: string;
   /**
    * @remarks
-   * The number of the tasks that are created for the playbook and were successfully run.
+   * The number of successful playbook runs.
    * 
    * @example
    * 100
@@ -136,7 +138,7 @@ export class DescribePlaybookMetricsResponseBody extends $dara.Model {
   metrics?: DescribePlaybookMetricsResponseBodyMetrics;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request. This ID is unique to each request and is used for troubleshooting.
    * 
    * @example
    * 567D3D0B-2153-5860-BF9A-F9DEED55FB73

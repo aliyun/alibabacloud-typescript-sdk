@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class RevertPlaybookReleaseRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to directly publish the new playbook after the rollback.
+   * Specifies whether to publish the playbook after the rollback.
    * 
-   * *   **true** (default)
-   * *   **false**
+   * - **true** (default): Publishes the playbook after the rollback.
+   * 
+   * - **false**: Rolls back the playbook without publishing it.
    * 
    * @example
    * true
@@ -16,9 +17,9 @@ export class RevertPlaybookReleaseRequest extends $dara.Model {
   isPublish?: boolean;
   /**
    * @remarks
-   * The version of the playbook that you want to publish.
+   * The ID of the published playbook version.
    * 
-   * >  You can call the [DescribePlaybookReleases](~~DescribePlaybookReleases~~) operation to query the playbook version.
+   * > Call the [DescribePlaybookReleases](~~DescribePlaybookReleases~~) operation to obtain this parameter.
    * 
    * This parameter is required.
    * 
@@ -30,7 +31,7 @@ export class RevertPlaybookReleaseRequest extends $dara.Model {
    * @remarks
    * The UUID of the playbook.
    * 
-   * >  You can call the [DescribePlaybooks](~~DescribePlaybooks~~)operation to query the playbook UUID.
+   * > Call the [DescribePlaybooks](~~DescribePlaybooks~~) operation to obtain this parameter.
    * 
    * This parameter is required.
    * 

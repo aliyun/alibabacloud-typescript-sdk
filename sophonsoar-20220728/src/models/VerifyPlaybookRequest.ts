@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class VerifyPlaybookRequest extends $dara.Model {
   /**
    * @remarks
-   * The playbook UUID.
+   * The UUID of the playbook.
    * 
-   * >  You can call the [DescribePlaybooks](~~DescribePlaybooks~~) operation to query the playbook UUID.
+   * > Call the [DescribePlaybooks](~~DescribePlaybooks~~) operation to obtain this parameter.
    * 
    * @example
    * 9fcd3829-80ff-4681-be1e-4d2662c35fed

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeComponentPlaybookResponseBodyPlaybooks extends $dara.Model {
   /**
    * @remarks
-   * The description of the predefined component.
+   * The description of the component playbook.
    * 
    * @example
    * aegis_kill_process
@@ -13,7 +13,7 @@ export class DescribeComponentPlaybookResponseBodyPlaybooks extends $dara.Model 
   description?: string;
   /**
    * @remarks
-   * The name of the predefined component.
+   * The name of the component playbook.
    * 
    * @example
    * AegisKillQuara
@@ -21,9 +21,9 @@ export class DescribeComponentPlaybookResponseBodyPlaybooks extends $dara.Model 
   displayName?: string;
   /**
    * @remarks
-   * The input parameter configuration of the playbook. The value is a JSON array.
+   * The input parameter configurations of the component playbook. The value is a JSON array.
    * 
-   * >  For more information, see [DescribePlaybookInputOutput](~~DescribePlaybookInputOutput~~).
+   * > For more information about the format, see [DescribePlaybookInputOutput](~~DescribePlaybookInputOutput~~).
    * 
    * @example
    * [
@@ -40,6 +40,14 @@ export class DescribeComponentPlaybookResponseBodyPlaybooks extends $dara.Model 
    */
   inputParams?: string;
   /**
+   * @remarks
+   * The input parameter type of the component playbook.
+   * 
+   * template-ip: IP request template.
+   * template-file: file request template.
+   * template-process: process request template.
+   * custom: custom parameters.
+   * 
    * @example
    * template-alert
    */
@@ -74,12 +82,12 @@ export class DescribeComponentPlaybookResponseBodyPlaybooks extends $dara.Model 
 export class DescribeComponentPlaybookResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the predefined components.
+   * The list of component playbooks.
    */
   playbooks?: DescribeComponentPlaybookResponseBodyPlaybooks[];
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * C5F5D6C9-DF1A-5381-92B1-39676F777D20

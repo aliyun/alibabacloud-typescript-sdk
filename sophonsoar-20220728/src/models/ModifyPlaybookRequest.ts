@@ -23,10 +23,11 @@ export class ModifyPlaybookRequest extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * The language of the content within the request and response. Valid values:
+   * The language of the request and response.
    * 
-   * *   **zh** (default): Chinese
-   * *   **en**: English
+   * - **zh** (default): Chinese
+   * 
+   * - **en**: English
    * 
    * @example
    * zh
@@ -36,7 +37,7 @@ export class ModifyPlaybookRequest extends $dara.Model {
    * @remarks
    * The UUID of the playbook.
    * 
-   * >  You can call the [DescribePlaybooks](~~DescribePlaybooks~~)operation to query the UUIDs of playbooks.
+   * > Call the [DescribePlaybooks](~~DescribePlaybooks~~) operation to obtain this parameter.
    * 
    * This parameter is required.
    * 

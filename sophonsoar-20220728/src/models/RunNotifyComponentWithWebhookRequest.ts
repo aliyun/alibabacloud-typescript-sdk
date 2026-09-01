@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RunNotifyComponentWithWebhookRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the action in the playbook.
+   * The name of the playbook action.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class RunNotifyComponentWithWebhookRequest extends $dara.Model {
   actionName?: string;
   /**
    * @remarks
-   * The ID of the resource. This parameter is deprecated.
+   * The ID of the resource. This parameter is deprecated and no longer used.
    * 
    * @example
    * 1
@@ -23,7 +23,7 @@ export class RunNotifyComponentWithWebhookRequest extends $dara.Model {
   assetId?: string;
   /**
    * @remarks
-   * The name of the component in the playbook.
+   * The name of the playbook component.
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class RunNotifyComponentWithWebhookRequest extends $dara.Model {
   componentName?: string;
   /**
    * @remarks
-   * The message body sent by the DingTalk group chatbot webhook.
+   * The content of the message sent by the webhook of the DingTalk group robot.
    * 
    * This parameter is required.
    * 
@@ -57,10 +57,11 @@ export class RunNotifyComponentWithWebhookRequest extends $dara.Model {
   content?: string;
   /**
    * @remarks
-   * The language of the content within the request and the response. Valid values:
+   * The language of the request and response. Valid values:
    * 
-   * *   **zh** (default): Chinese.
-   * *   **en**: English.
+   * - **zh** (default): Chinese.
+   * 
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -68,10 +69,13 @@ export class RunNotifyComponentWithWebhookRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The type of the webhook message. Valid values:
-   * *   text.
-   * *   markdown.
-   * *   actionCard.
+   * The message type of the webhook. Valid values:
+   * 
+   * - text
+   * 
+   * - markdown
+   * 
+   * - actionCard
    * 
    * This parameter is required.
    * 
@@ -81,7 +85,7 @@ export class RunNotifyComponentWithWebhookRequest extends $dara.Model {
   msgType?: string;
   /**
    * @remarks
-   * The name of the node in the playbook.
+   * The name of the playbook node.
    * 
    * This parameter is required.
    * 
@@ -93,7 +97,7 @@ export class RunNotifyComponentWithWebhookRequest extends $dara.Model {
    * @remarks
    * The UUID of the playbook.
    * 
-   * >  You can call the [DescribePlaybooks](~~DescribePlaybooks~~) operation to query the UUIDs of playbooks.
+   * > Call the [DescribePlaybooks](https://help.aliyun.com/document_detail/3000306.html) operation to obtain this parameter.
    * 
    * This parameter is required.
    * 
@@ -103,7 +107,7 @@ export class RunNotifyComponentWithWebhookRequest extends $dara.Model {
   playbookUuid?: string;
   /**
    * @remarks
-   * The ID of the user who switches from the current view to the destination view by using the management account.
+   * The UID of the member that the administrator wants to switch to.
    * 
    * @example
    * 126339xxxx805497
@@ -111,10 +115,11 @@ export class RunNotifyComponentWithWebhookRequest extends $dara.Model {
   roleFor?: number;
   /**
    * @remarks
-   * The type of the view. Valid values:
+   * The view type. Valid values:
    * 
-   * *   0 (default): the view of the current Alibaba Cloud account.
-   * *   1: the view of all accounts for the enterprise.
+   * - 0 (default): the view of the current Alibaba Cloud account.
+   * 
+   * - 1: the view of all accounts that belong to the enterprise.
    * 
    * @example
    * 0
@@ -122,7 +127,7 @@ export class RunNotifyComponentWithWebhookRequest extends $dara.Model {
   roleType?: string;
   /**
    * @remarks
-   * The message key of the DingTalk chatbot webhook. This parameter is deprecated.
+   * The secret key for the webhook of the DingTalk group robot. This parameter is deprecated and no longer used.
    * 
    * @example
    * SECc1*****e157b32b380f********bb8c70e1a67a22072
@@ -130,9 +135,7 @@ export class RunNotifyComponentWithWebhookRequest extends $dara.Model {
   secret?: string;
   /**
    * @remarks
-   * The IDs of chatbots that are configured in the message center. Only DingTalk chatbots are supported.
-   * 
-   * >  You can call the [ListEncryptWebhooks](~~ListEncryptWebhooks~~) operation to query the chatbot IDs.
+   * The IDs of the DingTalk robots. Obtain the IDs on the robot management page in Message Center.
    * 
    * This parameter is required.
    * 

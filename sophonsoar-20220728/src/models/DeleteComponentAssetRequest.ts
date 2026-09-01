@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteComponentAssetRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the asset.
+   * The asset ID of the component.
    * 
-   * >  You can call the [DescribeComponentAssets](~~DescribeComponentAssets~~) operation to query the ID.
+   * > Call the [DescribeComponentAssets](~~DescribeComponentAssets~~) operation to obtain this parameter.
    * 
    * This parameter is required.
    * 
@@ -17,10 +17,11 @@ export class DeleteComponentAssetRequest extends $dara.Model {
   assetId?: number;
   /**
    * @remarks
-   * The language of the content within the request and the response. Valid values:
+   * The language of the request and response. Valid values:
    * 
-   * *   **zh** (default): Chinese
-   * *   **en**: English
+   * - **zh** (default): Chinese.
+   * 
+   * - **en**: English.
    * 
    * @example
    * zh

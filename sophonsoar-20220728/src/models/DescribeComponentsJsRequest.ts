@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeComponentsJsRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the content within the request and response. Valid values:
+   * The language of the request and response. Valid values:
    * 
-   * *   **zh**: Chinese (default)
-   * *   **en**: English
+   * - **zh** (default): Chinese.
+   * 
+   * - **en**: English.
    * 
    * @example
    * zh

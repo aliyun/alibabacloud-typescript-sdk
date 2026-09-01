@@ -3,12 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeProcessTasksRequest extends $dara.Model {
+  alertId?: string;
   /**
    * @remarks
-   * The sort order. Valid values:
+   * The sort direction. Valid values:
    * 
-   * *   **desc** (default).
-   * *   **asc**.
+   * - **desc**: Descending (default).
+   * - **asc**: Ascending.
    * 
    * @example
    * desc
@@ -16,7 +17,7 @@ export class DescribeProcessTasksRequest extends $dara.Model {
   direction?: string;
   /**
    * @remarks
-   * The name of the handling entity.
+   * The name of the entity to be disposed.
    * 
    * @example
    * 127.0.0.1
@@ -24,11 +25,11 @@ export class DescribeProcessTasksRequest extends $dara.Model {
   entityName?: string;
   /**
    * @remarks
-   * The type of the handling entity. Valid values:
+   * The type of the entity to be disposed. Valid values:
    * 
-   * *   **ip**.
-   * *   **file**.
-   * *   **process**.
+   * - **ip**: IP address entity.
+   * - **file**: File entity.
+   * - **process**: Process entity.
    * 
    * @example
    * ip
@@ -36,7 +37,7 @@ export class DescribeProcessTasksRequest extends $dara.Model {
   entityType?: string;
   /**
    * @remarks
-   * The UUID of the handling entity.
+   * The UUID of the entity.
    * 
    * @example
    * 69d189e2-ec17-4676-a2fe-02969234****
@@ -50,11 +51,12 @@ export class DescribeProcessTasksRequest extends $dara.Model {
    * c1020ce1-d6a5-11e8-8298-00163e10****
    */
   eventUuid?: string;
+  executeUuid?: string;
   /**
    * @remarks
-   * The field that you use to sort the result.
+   * The field used to sort the results.
    * 
-   * >  You can obtain the field from the response result.
+   * > You can obtain the sort field from the response of this operation.
    * 
    * @example
    * gmtCreate
@@ -62,7 +64,7 @@ export class DescribeProcessTasksRequest extends $dara.Model {
   orderField?: string;
   /**
    * @remarks
-   * The page number. Default value: 1. Pages start from page 1.
+   * The page number of the page to return. Default value: 1, which indicates the first page.
    * 
    * @example
    * 1
@@ -70,9 +72,8 @@ export class DescribeProcessTasksRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Default value: 10. If you do not specify the PageSize parameter, 10 entries are returned by default.
-   * 
-   * >  We recommend that you do not leave this parameter empty.
+   * The maximum number of entries to return on each page for paging queries. Default value: 20. If the PageSize parameter is left empty, 10 entries are returned by default.
+   * > Do not leave PageSize empty.
    * 
    * @example
    * 10
@@ -80,7 +81,7 @@ export class DescribeProcessTasksRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The handling entity, handling scenario, or handling parameter that is used for fuzzy match.
+   * The fuzzy match content. This parameter queries the entity, disposal scene, and disposal parameter fields.
    * 
    * @example
    * 12.x.x.x
@@ -88,7 +89,7 @@ export class DescribeProcessTasksRequest extends $dara.Model {
   paramContent?: string;
   /**
    * @remarks
-   * The end of the time range for a handling task. The value is a 13-digit timestamp.
+   * The end time of the query range for the disposal time. Format: 13-digit timestamp.
    * 
    * @example
    * 1700031183572
@@ -96,7 +97,7 @@ export class DescribeProcessTasksRequest extends $dara.Model {
   processActionEnd?: number;
   /**
    * @remarks
-   * The beginning of the time range for a handling task. The value is a 13-digit timestamp.
+   * The start time of the query range for the disposal time. Format: 13-digit timestamp.
    * 
    * @example
    * 1700031183572
@@ -104,7 +105,7 @@ export class DescribeProcessTasksRequest extends $dara.Model {
   processActionStart?: number;
   /**
    * @remarks
-   * The end of the time range for an unblocking task. The value is a 13-digit timestamp.
+   * The end time of the query range for the unblocking time. Format: 13-digit timestamp.
    * 
    * @example
    * 1700031183572
@@ -112,7 +113,7 @@ export class DescribeProcessTasksRequest extends $dara.Model {
   processRemoveEnd?: number;
   /**
    * @remarks
-   * The beginning of the time range for an unblocking task. The value is a 13-digit timestamp.
+   * The start time of the query range for the unblocking time. Format: 13-digit timestamp.
    * 
    * @example
    * 1700031183572
@@ -120,20 +121,26 @@ export class DescribeProcessTasksRequest extends $dara.Model {
   processRemoveStart?: number;
   /**
    * @remarks
-   * The UUID of the handling policy.
-   * 
-   * >  You can call the [ListDisposeStrategy](https://help.aliyun.com/document_detail/2584440.html) operation to query the UUID of the handling policy.
+   * The UUID of the disposal strategy.
+   * >You can call the [ListDisposeStrategy](https://help.aliyun.com/document_detail/2584440.html) operation to obtain this parameter.
    * 
    * @example
-   * 92af3c79-1754-4646-9366-9ddbd1e45536_xxxx
+   * 92af3c79-1754-4646-9366-9ddbd1e45536_****
    */
   processStrategyUuid?: string;
-  reqUuid?: string;
   /**
    * @remarks
-   * The scenario code of the handling task.
+   * The trigger ID of the playbook.
    * 
-   * >  You can call the [DescribeEnumItems](~~DescribeEnumItems~~) operation to query the scenario code of the handling task. This parameter is available when you set **EnumType** to **process**.
+   * @example
+   * b73d0b08-f1bd-4e8f-967a-8e2982c9****
+   */
+  reqUuid?: string;
+  responseRuleId?: string;
+  /**
+   * @remarks
+   * The scene code of the disposal task.
+   * >You can call the [DescribeEnumItems](~~DescribeEnumItems~~) operation to obtain this parameter.
    * 
    * @example
    * event_xxx_whole_process
@@ -141,7 +148,7 @@ export class DescribeProcessTasksRequest extends $dara.Model {
   sceneCode?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account that is specified in the handling task.
+   * The Alibaba Cloud account ID for the disposal.
    * 
    * @example
    * 125xxxxx9870
@@ -149,13 +156,13 @@ export class DescribeProcessTasksRequest extends $dara.Model {
   scope?: string;
   /**
    * @remarks
-   * The triggering source of the handling task. The value is a string array. Valid values:
+   * The trigger source of the disposal task, in array string format. Valid values:
    * 
-   * *   **system**: triggered when you manually handle an event.
-   * *   **custom**: triggered by an event based on an automatic response rule.
-   * *   **custom_alert**: triggered by an alert based on an automatic response rule.
-   * *   **soar-manual**: triggered when you use SOAR to manually run a playbook.
-   * *   **soar-mdr**: triggered by Managed Security Service.
+   * - **system**: Triggered by manual event disposal.
+   * - **custom**: Triggered by an automatic response rule based on an event.
+   * - **custom_alert**: Triggered by an automatic response rule based on an alert.
+   * - **soar-manual**: Triggered by manually invoking a SOAR playbook.
+   * - **soar-mdr**: Triggered by the Managed Security Service.
    * 
    * @example
    * ["system"]
@@ -163,9 +170,9 @@ export class DescribeProcessTasksRequest extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * The unique identifier of the handling task.
+   * The unique identifier of the disposal task.
    * 
-   * >  This parameter is used to query a specific task. You can obtain the value from the response result.
+   * > This parameter is used to query a specific task. You can obtain the value from the response of this operation.
    * 
    * @example
    * 150xxxxxxxxx95066
@@ -173,17 +180,17 @@ export class DescribeProcessTasksRequest extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * The status of the handling task. The value is a string. Valid values:
+   * The status list of the disposal task, in data string format. Valid values:
    * 
-   * *   **11**: being handled.
-   * *   **21**: being blocked.
-   * *   **22**: being quarantined.
-   * *   **23**: completed.
-   * *   **24**: added to the whitelist.
-   * *   **20**: successful.
-   * *   **90**: failed.
-   * *   **91**: unblocking failed.
-   * *   **92**: restoring quarantined files failed
+   * - **11**: Disposing.
+   * - **21**: Blocking.
+   * - **22**: Isolating.
+   * - **23**: Ended.
+   * - **24**: Whitelisted.
+   * - **20**: Succeeded.
+   * - **90**: Failed.
+   * - **91**: Unblocking failed.
+   * - **92**: Unisolation failed.
    * 
    * @example
    * ["11","21"]
@@ -191,13 +198,13 @@ export class DescribeProcessTasksRequest extends $dara.Model {
   taskStatus?: string;
   /**
    * @remarks
-   * The triggering source of the handling task. Valid values:
+   * The trigger source of the disposal task. Valid values:
    * 
-   * *   **system**: triggered when you manually handle an event.
-   * *   **custom**: triggered by an event based on an automatic response rule.
-   * *   **custom_alert**: triggered by an alert based on an automatic response rule.
-   * *   **soar-manual**: triggered when you use SOAR to manually run a playbook.
-   * *   **soar-mdr**: triggered by Managed Security Service.
+   * - **system**: Triggered by manual event disposal.
+   * - **custom**: Triggered by an automatic response rule based on an event.
+   * - **custom_alert**: Triggered by an automatic response rule based on an alert.
+   * - **soar-manual**: Triggered by manually invoking a SOAR playbook.
+   * - **soar-mdr**: Triggered by the Managed Security Service.
    * 
    * @example
    * system
@@ -205,11 +212,11 @@ export class DescribeProcessTasksRequest extends $dara.Model {
   triggerSource?: string;
   /**
    * @remarks
-   * The cloud service that is associated with the handling task. The value is a string. Valid values:
+   * The cloud product associated with the disposal task, in data string format. Valid values:
    * 
-   * *   **WAF**: Web Application Firewall (WAF).
-   * *   **CFW**: Cloud Firewall.
-   * *   **Aegis**: Security Center.
+   * - **WAF**: Web Application Firewall.
+   * - **CFW**: Cloud Firewall.
+   * - **Aegis**: Security Center.
    * 
    * @example
    * ["WAF"]
@@ -217,11 +224,13 @@ export class DescribeProcessTasksRequest extends $dara.Model {
   yunCode?: string;
   static names(): { [key: string]: string } {
     return {
+      alertId: 'AlertId',
       direction: 'Direction',
       entityName: 'EntityName',
       entityType: 'EntityType',
       entityUuid: 'EntityUuid',
       eventUuid: 'EventUuid',
+      executeUuid: 'ExecuteUuid',
       orderField: 'OrderField',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
@@ -232,6 +241,7 @@ export class DescribeProcessTasksRequest extends $dara.Model {
       processRemoveStart: 'ProcessRemoveStart',
       processStrategyUuid: 'ProcessStrategyUuid',
       reqUuid: 'ReqUuid',
+      responseRuleId: 'ResponseRuleId',
       sceneCode: 'SceneCode',
       scope: 'Scope',
       source: 'Source',
@@ -244,11 +254,13 @@ export class DescribeProcessTasksRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      alertId: 'string',
       direction: 'string',
       entityName: 'string',
       entityType: 'string',
       entityUuid: 'string',
       eventUuid: 'string',
+      executeUuid: 'string',
       orderField: 'string',
       pageNumber: 'number',
       pageSize: 'number',
@@ -259,6 +271,7 @@ export class DescribeProcessTasksRequest extends $dara.Model {
       processRemoveStart: 'number',
       processStrategyUuid: 'string',
       reqUuid: 'string',
+      responseRuleId: 'string',
       sceneCode: 'string',
       scope: 'string',
       source: 'string',

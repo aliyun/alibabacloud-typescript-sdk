@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreatePlaybookRequest extends $dara.Model {
   /**
    * @remarks
-   * Description of the playbook.
+   * The description of the playbook.
    * 
    * @example
    * This is a new version
@@ -13,7 +13,7 @@ export class CreatePlaybookRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Name of the playbook.
+   * The name of the playbook.
    * 
    * This parameter is required.
    * 
@@ -22,31 +22,40 @@ export class CreatePlaybookRequest extends $dara.Model {
    */
   displayName?: string;
   /**
+   * @remarks
+   * The input configuration of the playbook.
+   * 
    * @example
    * {\\"key1\\": \\"value1\\", \\"key2\\": \\"value2\\"}
    */
   inputParams?: string;
   /**
    * @remarks
-   * Language type for receiving messages. Values:
+   * The language of the messages to receive. Valid values:
    * 
-   * - **zh** (default): Chinese
-   * - **en**: English
+   * - **zh** (default): Chinese.
+   * 
+   * - **en**: English.
    * 
    * @example
    * zh
    */
   lang?: string;
   /**
+   * @remarks
+   * The output configuration of the playbook.
+   * 
    * @example
    * {\\"result\\": \\"success\\"}
    */
   outputParams?: string;
   /**
    * @remarks
-   * Playbook TaskFlow type.
-   * - **x6** : x6
-   * - **bpmn**: bpmn
+   * The configuration format of the playbook.
+   * 
+   * - **xml**: XML format.
+   * 
+   * - **x6**: JSON format.
    * 
    * @example
    * x6

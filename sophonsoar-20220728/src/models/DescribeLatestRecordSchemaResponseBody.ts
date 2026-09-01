@@ -95,12 +95,12 @@ export class DescribeLatestRecordSchemaResponseBodyPlaybookNodeSchema extends $d
 export class DescribeLatestRecordSchemaResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The output structure information of the playbook.
+   * The output structure of the playbook.
    */
   playbookNodeSchema?: DescribeLatestRecordSchemaResponseBodyPlaybookNodeSchema;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 10B92EE1-4597-593B-A131-7A17D25EF5C9

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyComponentAssetRequest extends $dara.Model {
   /**
    * @remarks
-   * The configuration of the asset. The value is a JSON object.
+   * The configuration of the component asset. This parameter is a JSON object.
    * 
    * This parameter is required.
    * 
@@ -32,10 +32,11 @@ export class ModifyComponentAssetRequest extends $dara.Model {
   assetConfig?: string;
   /**
    * @remarks
-   * The language of the content within the request and response.
+   * The language of the request and response.
    * 
-   * *   **zh**: Chinese (default)
-   * *   **en**: English
+   * - **zh** (default): Chinese
+   * 
+   * - **en**: English
    * 
    * @example
    * zh

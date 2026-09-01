@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeComponentAssetFormRequest extends $dara.Model {
   /**
    * @remarks
-   * The component name.
+   * The name of the component.
    * 
    * This parameter is required.
    * 
@@ -15,10 +15,11 @@ export class DescribeComponentAssetFormRequest extends $dara.Model {
   componentName?: string;
   /**
    * @remarks
-   * The language of the content within the response. Valid values:
+   * The language of the response. Valid values:
    * 
-   * *   **zh**: Chinese (default)
-   * *   **en**: English
+   * - **zh** (default): Chinese.
+   * 
+   * - **en**: English.
    * 
    * @example
    * zh

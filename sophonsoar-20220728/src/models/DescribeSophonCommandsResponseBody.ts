@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSophonCommandsResponseBodyDataParamConfig extends $dara.Model {
   /**
    * @remarks
-   * The regular expression that is used to check the format of the parameter value. If the parameter is left empty, the check is not performed.
+   * The regular expression that is used to check the format of the field. If this parameter is empty, no check is performed.
    * 
    * @example
    * [0-9]{4}\\.[0-9]{4}\\.[0-9]{4}\\.[0-9]{4}
@@ -13,7 +13,7 @@ export class DescribeSophonCommandsResponseBodyDataParamConfig extends $dara.Mod
   checkField?: string;
   /**
    * @remarks
-   * The name of the parameter.
+   * The name of the parameter field.
    * 
    * @example
    * ip
@@ -23,8 +23,9 @@ export class DescribeSophonCommandsResponseBodyDataParamConfig extends $dara.Mod
    * @remarks
    * Indicates whether the parameter is required. Valid values:
    * 
-   * *   **true** (default)
-   * *   **false**
+   * - **true**: The parameter is required. This is the default value.
+   * 
+   * - **false**: The parameter is optional.
    * 
    * @example
    * true
@@ -92,7 +93,7 @@ export class DescribeSophonCommandsResponseBodyData extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The parameter configurations.
+   * The parameter settings.
    */
   paramConfig?: DescribeSophonCommandsResponseBodyDataParamConfig[];
   static names(): { [key: string]: string } {
@@ -128,12 +129,12 @@ export class DescribeSophonCommandsResponseBodyData extends $dara.Model {
 export class DescribeSophonCommandsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The commands.
+   * The list of returned commands.
    */
   data?: DescribeSophonCommandsResponseBodyData[];
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request. Alibaba Cloud generates a unique ID for each request. You can use this ID to troubleshoot and locate issues.
    * 
    * @example
    * 1E1EC464-3BD7-518F-9937-BCC12E6855FE

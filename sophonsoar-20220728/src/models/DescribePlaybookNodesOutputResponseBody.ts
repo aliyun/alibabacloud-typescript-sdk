@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePlaybookNodesOutputResponseBodyPlaybookNodesOutput extends $dara.Model {
   /**
    * @remarks
-   * The name of the component node.
+   * The name of the playbook node.
    * 
    * @example
    * DataFormat_1
@@ -13,7 +13,7 @@ export class DescribePlaybookNodesOutputResponseBodyPlaybookNodesOutput extends 
   nodeName?: string;
   /**
    * @remarks
-   * The historical output data of the component node. The value is in the JSON string format. If no data is found, the parameter is left empty.
+   * The historical output data of the component. The data is in the JSON format. If no data exists, this parameter is empty.
    * 
    * @example
    * {
@@ -60,12 +60,12 @@ export class DescribePlaybookNodesOutputResponseBodyPlaybookNodesOutput extends 
 export class DescribePlaybookNodesOutputResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The output data of the component node.
+   * The output data of the node.
    */
   playbookNodesOutput?: DescribePlaybookNodesOutputResponseBodyPlaybookNodesOutput;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * A491170C-FE1F-520E-83D4-72ED205B72ED

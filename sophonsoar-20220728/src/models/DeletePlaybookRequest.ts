@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class DeletePlaybookRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the content within the request and response. Valid values:
+   * The language of the request and response. Valid values:
    * 
-   * *   **zh**: Chinese (default)
-   * *   **en**: English
+   * - **zh** (default): Chinese.
+   * 
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -18,7 +19,7 @@ export class DeletePlaybookRequest extends $dara.Model {
    * @remarks
    * The UUID of the playbook.
    * 
-   * >  You can call the [DescribePlaybooks](~~DescribePlaybooks~~)operation to query the playbook UUID.
+   * > Call the [DescribePlaybooks](~~DescribePlaybooks~~) operation to obtain this parameter.
    * 
    * This parameter is required.
    * 

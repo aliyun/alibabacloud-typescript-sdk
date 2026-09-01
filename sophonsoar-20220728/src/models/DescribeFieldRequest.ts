@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeFieldRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the content within the request and response. Valid values:
+   * The language of the request and response messages. Valid values:
    * 
-   * *   **zh**: Chinese (default)
-   * *   **en**: English
+   * - **zh** (default): Chinese.
+   * 
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -16,9 +17,9 @@ export class DescribeFieldRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The key of the global configuration. Valid values:
+   * The key of the global configuration. Valid value:
    * 
-   * *   **soar_filed_tags**: queries the input template of the playbook.
+   * - **soar_filed_tags**: Obtains the input field template for a playbook.
    * 
    * This parameter is required.
    * 

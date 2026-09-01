@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyComponentAssetResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request. This ID is unique to each request and is used to troubleshoot issues.
    * 
    * @example
    * 1C5F11E9-464E-51F0-9296-43BB312A0557

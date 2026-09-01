@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class DebugPlaybookRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the content within the request and response. Valid values:
+   * The language of the request and response. Valid values:
    * 
-   * *   **zh**: Chinese (default)
-   * *   **en**: English
+   * - **zh** (default): Chinese.
+   * 
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -16,9 +17,9 @@ export class DebugPlaybookRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The playbook UUID.
+   * The UUID of the playbook.
    * 
-   * >  You can call the [DescribePlaybooks](~~DescribePlaybooks~~)operation to query the playbook UUID.
+   * > Call the [DescribePlaybooks](~~DescribePlaybooks~~) operation to obtain this parameter.
    * 
    * This parameter is required.
    * 
@@ -28,7 +29,7 @@ export class DebugPlaybookRequest extends $dara.Model {
   playbookUuid?: string;
   /**
    * @remarks
-   * The input parameters that you use to debug the playbook. You can define the parameters based on your business requirements.
+   * The user-defined input parameters for debugging the playbook.
    * 
    * @example
    * {
@@ -41,7 +42,7 @@ export class DebugPlaybookRequest extends $dara.Model {
    * @remarks
    * The XML configuration of the playbook.
    * 
-   * >  You can call the [DescribePlaybook](~~DescribePlaybook~~) operation to query the XML configuration of the playbook.
+   * > Call the [DescribePlaybook](~~DescribePlaybook~~) operation to obtain this configuration.
    * 
    * This parameter is required.
    * 

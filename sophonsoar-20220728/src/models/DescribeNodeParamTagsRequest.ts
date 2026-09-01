@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeNodeParamTagsRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the content within the request and response. Valid values:
+   * The language of the request and response.
    * 
-   * *   **zh**: Chinese
-   * *   **en**: English
+   * - **zh**: Chinese
+   * 
+   * - **en**: English
    * 
    * @example
    * zh
@@ -16,7 +17,7 @@ export class DescribeNodeParamTagsRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The name of the node.
+   * The name of the component node.
    * 
    * This parameter is required.
    * 
@@ -26,9 +27,9 @@ export class DescribeNodeParamTagsRequest extends $dara.Model {
   nodeName?: string;
   /**
    * @remarks
-   * The playbook UUID.
+   * The UUID of the playbook.
    * 
-   * >  You can call the [DescribePlaybooks](~~DescribePlaybooks~~)operation to query the playbook UUID.
+   * > Call the [DescribePlaybooks](~~DescribePlaybooks~~) operation to obtain this parameter.
    * 
    * This parameter is required.
    * 

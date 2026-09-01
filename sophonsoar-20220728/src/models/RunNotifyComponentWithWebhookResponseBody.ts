@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RunNotifyComponentWithWebhookResponseBodyPage extends $dara.Model {
   /**
    * @remarks
-   * The page number.
+   * The page number of the returned page.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class RunNotifyComponentWithWebhookResponseBodyPage extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries returned. This parameter is available only for paged queries.
    * 
    * @example
    * 30
@@ -68,7 +68,7 @@ export class RunNotifyComponentWithWebhookResponseBody extends $dara.Model {
   page?: RunNotifyComponentWithWebhookResponseBodyPage;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * E7698CFB-****-5840-8EC9-691B86729E94

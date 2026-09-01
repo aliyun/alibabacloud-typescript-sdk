@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeProcessTasksResponseBodyPage extends $dara.Model {
   /**
    * @remarks
-   * The page number.
+   * The current page number in the paging query.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class DescribeProcessTasksResponseBodyPage extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries returned per page in the paging query.
    * 
    * @example
    * 10
@@ -55,7 +55,7 @@ export class DescribeProcessTasksResponseBodyPage extends $dara.Model {
 export class DescribeProcessTasksResponseBodyProcessTasks extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account that is used to submit the handling task.
+   * The Alibaba Cloud account ID that submitted the disposal task.
    * 
    * @example
    * 123xxxx355
@@ -63,7 +63,7 @@ export class DescribeProcessTasksResponseBodyProcessTasks extends $dara.Model {
   creator?: string;
   /**
    * @remarks
-   * The name of the handling entity.
+   * The name of the disposed entity.
    * 
    * @example
    * 1.1.1.x
@@ -71,7 +71,7 @@ export class DescribeProcessTasksResponseBodyProcessTasks extends $dara.Model {
   entityName?: string;
   /**
    * @remarks
-   * The type of the handling entity.
+   * The type of the disposed entity.
    * 
    * @example
    * ip
@@ -79,7 +79,7 @@ export class DescribeProcessTasksResponseBodyProcessTasks extends $dara.Model {
   entityType?: string;
   /**
    * @remarks
-   * The UUID of the handling entity.
+   * The UUID of the entity.
    * 
    * @example
    * 69d189e2-ec17-4676-a2fe-02969234****
@@ -87,7 +87,7 @@ export class DescribeProcessTasksResponseBodyProcessTasks extends $dara.Model {
   entityUuid?: string;
   /**
    * @remarks
-   * The error code returned if the call failed.
+   * The error code.
    * 
    * @example
    * sts_openapi.Info.DefenseSceneNotSupported
@@ -95,7 +95,7 @@ export class DescribeProcessTasksResponseBodyProcessTasks extends $dara.Model {
   errCode?: string;
   /**
    * @remarks
-   * The error message returned if the call failed.
+   * The error message.
    * 
    * @example
    * ParamError : The parameters of your request are invalid
@@ -103,7 +103,7 @@ export class DescribeProcessTasksResponseBodyProcessTasks extends $dara.Model {
   errMsg?: string;
   /**
    * @remarks
-   * The error tip returned if the call failed.
+   * The error tip.
    * 
    * @example
    * Verify that the input parameters of the components are correct
@@ -119,7 +119,7 @@ export class DescribeProcessTasksResponseBodyProcessTasks extends $dara.Model {
   eventUuid?: string;
   /**
    * @remarks
-   * The creation time of the handling task. The value is a 13-digit timestamp.
+   * The creation time of the disposal task. Format: 13-digit timestamp.
    * 
    * @example
    * 1700031183572
@@ -127,7 +127,7 @@ export class DescribeProcessTasksResponseBodyProcessTasks extends $dara.Model {
   gmtCreateMillis?: number;
   /**
    * @remarks
-   * The modification time of the handling task. The value is a 13-digit timestamp.
+   * The modification time of the disposal task. Format: 13-digit timestamp.
    * 
    * @example
    * 1700031183572
@@ -135,7 +135,7 @@ export class DescribeProcessTasksResponseBodyProcessTasks extends $dara.Model {
   gmtModifiedMillis?: number;
   /**
    * @remarks
-   * The input parameter of the handling task.
+   * The input parameters of the disposal task.
    * 
    * @example
    * {"groupuuid":"c6a9b1df-f4ac-4078-bef4-99xxxxxx"}
@@ -143,15 +143,15 @@ export class DescribeProcessTasksResponseBodyProcessTasks extends $dara.Model {
   inputParams?: string;
   /**
    * @remarks
-   * The ID of the associated policy.
+   * The ID of the associated strategy.
    * 
    * @example
-   * 92af3c79-1754-4646-9366-9ddbd1e45536_xxxx
+   * 92af3c79-1754-4646-9366-9ddbd1e45536_****
    */
   processStrategyUuid?: string;
   /**
    * @remarks
-   * The delivery time of the handling task. The value is a 13-digit timestamp.
+   * The time when the disposal task was dispatched. Format: 13-digit timestamp.
    * 
    * @example
    * 1700031183572
@@ -159,7 +159,7 @@ export class DescribeProcessTasksResponseBodyProcessTasks extends $dara.Model {
   processTime?: number;
   /**
    * @remarks
-   * The unblocking time of the handling task. The value is a 13-digit timestamp.
+   * The unblocking time of the disposal task. Format: 13-digit timestamp.
    * 
    * @example
    * 1700031183572
@@ -175,7 +175,7 @@ export class DescribeProcessTasksResponseBodyProcessTasks extends $dara.Model {
   reqUuid?: string;
   /**
    * @remarks
-   * The scenario code of the handling task.
+   * The scene code of the disposal task.
    * 
    * @example
    * event_xxx_whole_process
@@ -183,7 +183,7 @@ export class DescribeProcessTasksResponseBodyProcessTasks extends $dara.Model {
   sceneCode?: string;
   /**
    * @remarks
-   * The scenario name of the handling task.
+   * The scene name of the disposal task.
    * 
    * @example
    * waf_whole_process
@@ -191,7 +191,7 @@ export class DescribeProcessTasksResponseBodyProcessTasks extends $dara.Model {
   sceneName?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account that is specified in the handling task.
+   * The Alibaba Cloud account ID for the disposal.
    * 
    * @example
    * 123xxxxx234
@@ -199,7 +199,7 @@ export class DescribeProcessTasksResponseBodyProcessTasks extends $dara.Model {
   scope?: string;
   /**
    * @remarks
-   * The submission source of the handling task.
+   * The submission source of the disposal task.
    * 
    * @example
    * system
@@ -207,7 +207,7 @@ export class DescribeProcessTasksResponseBodyProcessTasks extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * The unique identifier of the handling task.
+   * The unique identifier of the disposal task.
    * 
    * @example
    * 150xxxxxxxxx95066
@@ -215,7 +215,7 @@ export class DescribeProcessTasksResponseBodyProcessTasks extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * The status of the handling task.
+   * The status of the disposal task.
    * 
    * @example
    * 11
@@ -223,13 +223,13 @@ export class DescribeProcessTasksResponseBodyProcessTasks extends $dara.Model {
   taskStatus?: number;
   /**
    * @remarks
-   * The triggering source of the handling task. Valid values:
+   * The trigger source of the disposal task. Valid values:
    * 
-   * *   **system**: triggered when you manually handle an event.
-   * *   **custom**: triggered by an event based on an automatic response rule.
-   * *   **custom_alert**: triggered by an alert based on an automatic response rule.
-   * *   **soar-manual**: triggered when you use SOAR to manually run a playbook.
-   * *   **soar-mdr**: triggered by Managed Security Service.
+   * - **system**: Triggered by manual event disposal.
+   * - **custom**: Triggered by an automatic response rule based on an event.
+   * - **custom_alert**: Triggered by an automatic response rule based on an alert.
+   * - **soar-manual**: Triggered by manually invoking a SOAR playbook.
+   * - **soar-mdr**: Triggered by the Managed Security Service.
    * 
    * @example
    * system
@@ -237,7 +237,7 @@ export class DescribeProcessTasksResponseBodyProcessTasks extends $dara.Model {
   triggerSource?: string;
   /**
    * @remarks
-   * The code of the cloud service that is associated with the handling task.
+   * The code of the cloud product associated with the disposal task.
    * 
    * @example
    * WAF
@@ -316,12 +316,12 @@ export class DescribeProcessTasksResponseBody extends $dara.Model {
   page?: DescribeProcessTasksResponseBodyPage;
   /**
    * @remarks
-   * The handling tasks.
+   * The list of disposal tasks.
    */
   processTasks?: DescribeProcessTasksResponseBodyProcessTasks[];
   /**
    * @remarks
-   * The request ID.
+   * The request ID, which is a unique identifier generated by Alibaba Cloud for the request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * E7698CFB-4E1C-5840-8EC9-691B86729E94

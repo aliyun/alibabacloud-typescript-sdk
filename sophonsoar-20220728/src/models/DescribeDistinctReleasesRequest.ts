@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDistinctReleasesRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the content within the request and response. Valid values:
+   * The language of the request and response. Valid values:
    * 
-   * *   **zh**: Chinese (default)
-   * *   **en**: English
+   * - **zh** (default): Chinese.
+   * 
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -16,9 +17,9 @@ export class DescribeDistinctReleasesRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The playbook UUID.
+   * The UUID of the playbook.
    * 
-   * >  You can call the [DescribePlaybooks](~~DescribePlaybooks~~)operation to query the playbook UUID.
+   * > Call the [DescribePlaybooks](~~DescribePlaybooks~~) operation to obtain this parameter.
    * 
    * This parameter is required.
    * 
@@ -28,7 +29,7 @@ export class DescribeDistinctReleasesRequest extends $dara.Model {
   playbookUuid?: string;
   /**
    * @remarks
-   * The MD5 value of the playbook XML configuration.
+   * The MD5 value of the playbook\\"s XML configuration.
    * 
    * @example
    * be0a4ef084dd174abe47xxxxx

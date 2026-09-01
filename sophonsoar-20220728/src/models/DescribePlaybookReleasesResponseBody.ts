@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePlaybookReleasesResponseBodyPage extends $dara.Model {
   /**
    * @remarks
-   * The page number.
+   * The page number of the returned page.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class DescribePlaybookReleasesResponseBodyPage extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries returned per page.
    * 
    * @example
    * 10
@@ -55,7 +55,7 @@ export class DescribePlaybookReleasesResponseBodyPage extends $dara.Model {
 export class DescribePlaybookReleasesResponseBodyRecords extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account that is used to publish the version.
+   * The ID of the Alibaba Cloud account that published the version.
    * 
    * @example
    * 145xxxx985
@@ -63,7 +63,7 @@ export class DescribePlaybookReleasesResponseBodyRecords extends $dara.Model {
   creator?: string;
   /**
    * @remarks
-   * The description of the layer version.
+   * The description of the version.
    * 
    * @example
    * This is a new version
@@ -71,7 +71,7 @@ export class DescribePlaybookReleasesResponseBodyRecords extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The time when the version was created. The value is a 13-digit timestamp.
+   * The time when the version was created. This is a 13-digit UNIX timestamp.
    * 
    * @example
    * 1655277397000
@@ -79,7 +79,7 @@ export class DescribePlaybookReleasesResponseBodyRecords extends $dara.Model {
   gmtCreate?: number;
   /**
    * @remarks
-   * The time when the version was modified. The value is a 13-digit timestamp.
+   * The time when the version was last modified. This is a 13-digit UNIX timestamp.
    * 
    * @example
    * 1691460804000
@@ -95,7 +95,7 @@ export class DescribePlaybookReleasesResponseBodyRecords extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The MD5 value configured for the published version of the playbook.
+   * The MD5 hash of the playbook configuration for the published version.
    * 
    * @example
    * be0a4ef084dd174abe47xxxxx
@@ -140,12 +140,12 @@ export class DescribePlaybookReleasesResponseBody extends $dara.Model {
   page?: DescribePlaybookReleasesResponseBodyPage;
   /**
    * @remarks
-   * The information about the playbook version.
+   * A list of playbook versions.
    */
   records?: DescribePlaybookReleasesResponseBodyRecords[];
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 3DFBE11C-6EB6-5166-92D6-3397796AFE1E

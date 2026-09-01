@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeEnumItemsRequest extends $dara.Model {
   /**
    * @remarks
-   * The type of the enumeration item. Valid values:
+   * The type of the enumeration. Valid value:
    * 
-   * *   **process**: scenarios
+   * - **process**: The enumeration for response scenarios.
    * 
    * This parameter is required.
    * 
@@ -17,10 +17,11 @@ export class DescribeEnumItemsRequest extends $dara.Model {
   enumType?: string;
   /**
    * @remarks
-   * The language of the content within the request and response. Valid values:
+   * The language of the request and response. Valid values:
    * 
-   * *   **zh_cn**: Simplified Chinese (default)
-   * *   **en_us**: English
+   * - **zh_cn**: The default value. Simplified Chinese.
+   * 
+   * - **en_us**: American English.
    * 
    * @example
    * zh

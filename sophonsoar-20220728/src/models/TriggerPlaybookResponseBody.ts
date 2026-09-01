@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class TriggerPlaybookResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * BD5A8DB6-A42C-532B-BCE8-83E69550CD59
@@ -13,7 +13,7 @@ export class TriggerPlaybookResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The running UUID of the playbook. This parameter is used to query the running result of the playbook.
+   * The UUID of the playbook run. You can use this UUID to obtain the results of the playbook run.
    * 
    * @example
    * 55E63C57-D6C8-5036-A770-5CB10AC807AA

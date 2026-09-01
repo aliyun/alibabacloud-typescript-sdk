@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class VerifyPythonFileRequest extends $dara.Model {
   /**
    * @remarks
-   * The Python code snippet.
+   * The Python code snippet to verify.
    * 
    * This parameter is required.
    * 

@@ -19,7 +19,7 @@ export class DescribeGroupProductionsResponseBodyDataProductionsPolicyList exten
    * *   **Read-only**: permissions.
    * 
    * @example
-   * All
+   * Read-only permission
    */
   type?: string;
   static names(): { [key: string]: string } {
@@ -51,7 +51,7 @@ export class DescribeGroupProductionsResponseBodyDataProductions extends $dara.M
    * The code of the cloud service.
    * 
    * @example
-   * DM
+   * Rds
    */
   code?: string;
   /**
@@ -59,7 +59,7 @@ export class DescribeGroupProductionsResponseBodyDataProductions extends $dara.M
    * The default requested domain name.
    * 
    * @example
-   * dm.aliyuncs.com
+   * rds.aliyuncs.com
    */
   defaultDomain?: string;
   /**
@@ -75,7 +75,7 @@ export class DescribeGroupProductionsResponseBodyDataProductions extends $dara.M
    * The description of the cloud service.
    * 
    * @example
-   * DM
+   * ApsaraDB
    */
   description?: string;
   /**
@@ -88,7 +88,7 @@ export class DescribeGroupProductionsResponseBodyDataProductions extends $dara.M
    * The name of the group.
    * 
    * @example
-   * Cloud Communication
+   * ApsaraDB
    */
   group?: string;
   /**
@@ -96,7 +96,7 @@ export class DescribeGroupProductionsResponseBodyDataProductions extends $dara.M
    * The name of the cloud service.
    * 
    * @example
-   * DirectMail
+   * ApsaraDB RDS
    */
   name?: string;
   /**
@@ -109,7 +109,7 @@ export class DescribeGroupProductionsResponseBodyDataProductions extends $dara.M
    * The Resource Access Management (RAM) code of the POP to which the resource belongs.
    * 
    * @example
-   * dm
+   * rds
    */
   ramCode?: string;
   /**
@@ -117,7 +117,7 @@ export class DescribeGroupProductionsResponseBodyDataProductions extends $dara.M
    * The short name of the cloud service.
    * 
    * @example
-   * DM
+   * RDS
    */
   shortName?: string;
   /**
@@ -191,7 +191,7 @@ export class DescribeGroupProductionsResponseBodyData extends $dara.Model {
    * The name of the cloud service.
    * 
    * @example
-   * Cloud Communication
+   * Database
    */
   groupName?: string;
   /**
@@ -291,7 +291,7 @@ export class DescribeGroupProductionsResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * 358E012F-****-599D-9ED0-****61CDE615
+   * 358E012F-B516-599D-9Exxx-A1A361CDE615
    */
   requestId?: string;
   static names(): { [key: string]: string } {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDistinctReleasesResponseBodyRecords extends $dara.Model {
   /**
    * @remarks
-   * The version description.
+   * The description of the version.
    * 
    * @example
    * demo version
@@ -13,7 +13,7 @@ export class DescribeDistinctReleasesResponseBodyRecords extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The MD5 value of the version XML configuration.
+   * The MD5 value of the version\\"s XML configuration.
    * 
    * @example
    * 17cf53049bc8efa941207xxxxx
@@ -21,10 +21,11 @@ export class DescribeDistinctReleasesResponseBodyRecords extends $dara.Model {
   taskflowMd5?: string;
   /**
    * @remarks
-   * The format of the playbook. Valid values:
+   * The configuration format of the playbook.
    * 
-   * *   **xml**: XML format.
-   * *   **x6**: JSON format.
+   * - **xml**: XML format.
+   * 
+   * - **x6**: JSON format.
    * 
    * @example
    * x6
@@ -58,12 +59,12 @@ export class DescribeDistinctReleasesResponseBodyRecords extends $dara.Model {
 export class DescribeDistinctReleasesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about versions.
+   * The version records.
    */
   records?: DescribeDistinctReleasesResponseBodyRecords[];
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request. This ID is unique to each request and is used to troubleshoot issues.
    * 
    * @example
    * 145CACF6-D276-5197-8549-CB1AD76E2AC8

@@ -5,11 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeExecutePlaybooksRequest extends $dara.Model {
   /**
    * @remarks
-   * The entity type of the script input parameter. When you want to query multiple entity types, separate them with commas.
+   * The entity type of the input parameter for the playbook. To query multiple entity types, separate them with commas.
+   * 
    * - **ip**: IP entity.
+   * 
    * - **file**: file entity.
+   * 
    * - **process**: process entity.
-   * - **incident**: incident entity.
+   * 
+   * - **incident**: event entity.
    * 
    * @example
    * ip,file,process,host
@@ -17,10 +21,11 @@ export class DescribeExecutePlaybooksRequest extends $dara.Model {
   inputMode?: string;
   /**
    * @remarks
-   * The language of the content within the request and the response. Valid values:
+   * The language of the request and response. Valid values:
    * 
-   * *   **zh**: Chinese (default)
-   * *   **en**: English
+   * - **zh** (default): Chinese
+   * 
+   * - **en**: English
    * 
    * @example
    * zh
@@ -28,12 +33,15 @@ export class DescribeExecutePlaybooksRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The input parameter type of the playbook.
+   * The type of the input parameter for the playbook.
    * 
-   * *   **template-ip**
-   * *   **template-file**
-   * *   **template-process**
-   * *   **custom**
+   * - **template-ip**: IP request template.
+   * 
+   * - **template-file**: file request template.
+   * 
+   * - **template-process**: process request template.
+   * 
+   * - **custom**: custom parameter.
    * 
    * @example
    * custom
@@ -41,7 +49,7 @@ export class DescribeExecutePlaybooksRequest extends $dara.Model {
   paramType?: string;
   /**
    * @remarks
-   * The playbook name. Fuzzy search is supported.
+   * The name of the playbook. Fuzzy search is supported.
    * 
    * @example
    * demo_test
@@ -49,9 +57,9 @@ export class DescribeExecutePlaybooksRequest extends $dara.Model {
   playbookName?: string;
   /**
    * @remarks
-   * The playbook UUID.
+   * The UUID of the playbook.
    * 
-   * >  You can call the [DescribePlaybooks](~~DescribePlaybooks~~) operation to query the playbook UUID.
+   * > Call the [DescribePlaybooks](~~DescribePlaybooks~~) operation to obtain this parameter.
    * 
    * @example
    * f916b93e-e814-459f-9662-xxxxxx

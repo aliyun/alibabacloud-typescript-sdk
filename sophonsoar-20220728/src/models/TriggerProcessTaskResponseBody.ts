@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class TriggerProcessTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The unique ID of the request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * 58A518BC-E4A8-5BD7-AFEA-366046ED9073

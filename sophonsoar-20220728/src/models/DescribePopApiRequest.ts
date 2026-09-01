@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePopApiRequest extends $dara.Model {
   /**
    * @remarks
-   * The operation name of the Alibaba Cloud service.
+   * The name of the Alibaba Cloud product API.
    * 
    * This parameter is required.
    * 
@@ -17,8 +17,6 @@ export class DescribePopApiRequest extends $dara.Model {
    * @remarks
    * The version number of the API.
    * 
-   * >  You can call the [DescribePopApiVersionList](~~DescribePopApiVersionList~~) operation to query the version number.
-   * 
    * This parameter is required.
    * 
    * @example
@@ -27,9 +25,7 @@ export class DescribePopApiRequest extends $dara.Model {
   apiVersion?: string;
   /**
    * @remarks
-   * The POP code of the Alibaba Cloud service.
-   * 
-   * >  You can call the [DescribeApiList](~~DescribeApiList~~) operation to query the POP code.
+   * The POP code of the Alibaba Cloud product API.
    * 
    * This parameter is required.
    * 

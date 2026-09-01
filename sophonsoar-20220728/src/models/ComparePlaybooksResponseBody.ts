@@ -15,10 +15,11 @@ export class ComparePlaybooksResponseBodyCompareResult extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Indicates whether the second version provides more information than the first version. Valid values:
+   * Indicates whether the second version used for comparison is a new version.
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: The version is new.
+   * 
+   * - **false**: The version is not new.
    * 
    * @example
    * true
@@ -26,10 +27,11 @@ export class ComparePlaybooksResponseBodyCompareResult extends $dara.Model {
   new?: boolean;
   /**
    * @remarks
-   * Indicates whether the configurations of the two versions are the same. Valid values:
+   * Indicates whether the two versions are identical.
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: Identical.
+   * 
+   * - **false**: Not identical.
    * 
    * @example
    * false
@@ -63,15 +65,15 @@ export class ComparePlaybooksResponseBodyCompareResult extends $dara.Model {
 export class ComparePlaybooksResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The comparison result.
+   * The result of the comparison.
    */
   compareResult?: ComparePlaybooksResponseBodyCompareResult;
   /**
    * @remarks
-   * The request ID.
+   * The unique ID of the request. Use this ID to troubleshoot issues.
    * 
    * @example
-   * 2EC05B06-BF3C-5F3E-8FE8-3B1FAD76087A
+   * 2EC05B06-****-5F3E-****-3B1FAD76087A
    */
   requestId?: string;
   static names(): { [key: string]: string } {

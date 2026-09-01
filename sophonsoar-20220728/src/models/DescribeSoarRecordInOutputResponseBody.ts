@@ -44,7 +44,7 @@ export class DescribeSoarRecordInOutputResponseBody extends $dara.Model {
   inOutputInfo?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request. Alibaba Cloud generates a unique ID for each request. Use this ID to troubleshoot issues.
    * 
    * @example
    * 372D8B41-AF8D-573A-9B3F-0924950F241F

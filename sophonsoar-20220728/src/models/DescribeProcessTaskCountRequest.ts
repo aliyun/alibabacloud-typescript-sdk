@@ -5,14 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeProcessTaskCountRequest extends $dara.Model {
   /**
    * @remarks
-   * Collection of entity UUIDs.
+   * The UUIDs of the entities.
    * 
    * This parameter is required.
    */
   entityUuidList?: string[];
   /**
    * @remarks
-   * Language type for request and response messages. Values:
+   * The language of the request and response. Valid values:
    * 
    * - **zh** (default): Chinese.
    * 
@@ -24,7 +24,7 @@ export class DescribeProcessTaskCountRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * User ID for administrators to switch to other member\\"s perspective.
+   * The UID of the member whose permissions you want to use to call the operation.
    * 
    * @example
    * 104739******259
@@ -32,10 +32,11 @@ export class DescribeProcessTaskCountRequest extends $dara.Model {
   roleFor?: number;
   /**
    * @remarks
-   * View type.
+   * The view type.
    * 
-   * - **0**: Current Alibaba Cloud account view.
-   * - **1**: View for all accounts under the enterprise.
+   * - **0**: The view of the current Alibaba Cloud account.
+   * 
+   * - **1**: The view of all accounts that belong to the enterprise.
    * 
    * @example
    * 0

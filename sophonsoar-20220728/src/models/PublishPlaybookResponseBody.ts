@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class PublishPlaybookResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request. Alibaba Cloud generates a unique ID for each request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * C513FCEA-D71F-5E50-ADC4-FCF8C5DCF6BF

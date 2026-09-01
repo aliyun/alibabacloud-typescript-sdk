@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RunPython3ScriptResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request. Alibaba Cloud generates this unique ID for the request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * F210521C-D9BF-5264-8369-83EDDC617DB0
@@ -13,7 +13,7 @@ export class RunPython3ScriptResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The execution result of the Python3 script.
+   * The data returned after the script is run.
    * 
    * @example
    * {

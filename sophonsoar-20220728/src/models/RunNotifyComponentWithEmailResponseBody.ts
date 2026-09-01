@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RunNotifyComponentWithEmailResponseBodyPage extends $dara.Model {
   /**
    * @remarks
-   * The page number.
+   * The page number of the returned page.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class RunNotifyComponentWithEmailResponseBodyPage extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries returned per page.
    * 
    * @example
    * 10
@@ -21,7 +21,7 @@ export class RunNotifyComponentWithEmailResponseBodyPage extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 30
@@ -55,7 +55,7 @@ export class RunNotifyComponentWithEmailResponseBodyPage extends $dara.Model {
 export class RunNotifyComponentWithEmailResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The data returned.
+   * The returned data.
    * 
    * @example
    * {}
@@ -68,7 +68,7 @@ export class RunNotifyComponentWithEmailResponseBody extends $dara.Model {
   page?: RunNotifyComponentWithEmailResponseBodyPage;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request. Use this ID for troubleshooting.
    * 
    * @example
    * D4CC979E-3D5B-5A6A-BC87-C93C9E861C7B

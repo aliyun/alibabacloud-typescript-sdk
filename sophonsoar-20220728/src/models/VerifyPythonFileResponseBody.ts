@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class VerifyPythonFileResponseBodySyntax extends $dara.Model {
   /**
    * @remarks
-   * The number that indicates the end column of the error code.
+   * The ending column number of the code that contains an error.
    * 
    * @example
    * 5
@@ -13,7 +13,7 @@ export class VerifyPythonFileResponseBodySyntax extends $dara.Model {
   endColumn?: number;
   /**
    * @remarks
-   * The number that indicates the end line of the error code.
+   * The ending line number of the code that contains an error.
    * 
    * @example
    * 5
@@ -21,7 +21,7 @@ export class VerifyPythonFileResponseBodySyntax extends $dara.Model {
   endLineNumber?: number;
   /**
    * @remarks
-   * The error message for the error code.
+   * The error message for the code.
    * 
    * @example
    * undefined name \\"ab\\"
@@ -29,10 +29,11 @@ export class VerifyPythonFileResponseBodySyntax extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The severity level of the error code. Valid values:
+   * The error level of the code.
    * 
-   * *   4: moderate
-   * *   8: serious
+   * - 4: General error
+   * 
+   * - 8: Critical error
    * 
    * @example
    * 4
@@ -40,7 +41,7 @@ export class VerifyPythonFileResponseBodySyntax extends $dara.Model {
   severity?: number;
   /**
    * @remarks
-   * The number that indicates the start column of the error code.
+   * The starting column number of the code that contains an error.
    * 
    * @example
    * 2
@@ -48,7 +49,7 @@ export class VerifyPythonFileResponseBodySyntax extends $dara.Model {
   startColumn?: number;
   /**
    * @remarks
-   * The number that indicates the start line of the error code.
+   * The starting line number of the code that contains an error.
    * 
    * @example
    * 2
@@ -88,7 +89,7 @@ export class VerifyPythonFileResponseBodySyntax extends $dara.Model {
 export class VerifyPythonFileResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The request ID. Alibaba Cloud generates a unique ID for each request. Use this ID to troubleshoot issues.
    * 
    * @example
    * F72685FB-A6E6-5A9A-97F7-6DC1056E63CE
@@ -96,7 +97,7 @@ export class VerifyPythonFileResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The verification result. If the parameter is left empty, the syntax of the code snippet is correct.
+   * The result set of the Python code verification. If this parameter is empty, the code syntax is correct.
    */
   syntax?: VerifyPythonFileResponseBodySyntax[];
   static names(): { [key: string]: string } {

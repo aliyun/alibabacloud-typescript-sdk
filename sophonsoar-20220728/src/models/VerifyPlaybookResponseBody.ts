@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class VerifyPlaybookResponseBodyCheckTaskInfos extends $dara.Model {
   /**
    * @remarks
-   * The error message returned when the playbook does not pass the check.
+   * The specific error message that is returned if the verification fails.
    * 
    * @example
    * Node [python3_3] doesn\\"t have the asset information
@@ -13,7 +13,7 @@ export class VerifyPlaybookResponseBodyCheckTaskInfos extends $dara.Model {
   detail?: string;
   /**
    * @remarks
-   * The name of the node in the playbook.
+   * The name of the playbook node.
    * 
    * @example
    * python3_3
@@ -21,11 +21,13 @@ export class VerifyPlaybookResponseBodyCheckTaskInfos extends $dara.Model {
   nodeName?: string;
   /**
    * @remarks
-   * The severity level of the verification information. Valid values:
+   * The severity level of the verification message. Valid values:
    * 
-   * *   warn: An issue may occur during playbook running.
-   * *   error: The playbook cannot be compiled.
-   * *   remind: The publishing and running of the playbook are not affected. We recommend that you optimize the playbook format.
+   * - **warn**: A warning message. An issue may occur when the playbook runs.
+   * 
+   * - **error**: An error message. The playbook fails to be compiled.
+   * 
+   * - **remind**: A suggestion. This does not affect publishing or running the playbook. Optimize the playbook format.
    * 
    * @example
    * error
@@ -57,7 +59,29 @@ export class VerifyPlaybookResponseBodyCheckTaskInfos extends $dara.Model {
 }
 
 export class VerifyPlaybookResponseBodyPrerequisites extends $dara.Model {
+  /**
+   * @remarks
+   * The check type. Valid values:
+   * 
+   * - **role**: The name of the custom RAM role.
+   * 
+   * - **policies**: The list of RAM system policies.
+   * 
+   * @example
+   * role
+   */
   prerequisiteType?: string;
+  /**
+   * @remarks
+   * The check content. The value is determined as follows:
+   * 
+   * - If PrerequisiteType is **role**, the value is the static field AliyunSiemSoarExecutionDefaultRole.
+   * 
+   * - If PrerequisiteType is **policies**, the value is a collection of policy names.
+   * 
+   * @example
+   * AliyunSiemSoarExecutionDefaultRole
+   */
   prerequisiteValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -85,13 +109,17 @@ export class VerifyPlaybookResponseBodyPrerequisites extends $dara.Model {
 export class VerifyPlaybookResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The result of the verification.
+   * The verification results.
    */
   checkTaskInfos?: VerifyPlaybookResponseBodyCheckTaskInfos[];
+  /**
+   * @remarks
+   * The prerequisite check information for the playbook.
+   */
   prerequisites?: VerifyPlaybookResponseBodyPrerequisites[];
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request. Alibaba Cloud generates this unique identifier for the request. Use this ID to troubleshoot and locate issues.
    * 
    * @example
    * 0DFC9403-54EB-5672-B690-9AA93C9EBB54

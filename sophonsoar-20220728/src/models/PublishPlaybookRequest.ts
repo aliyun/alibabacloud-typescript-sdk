@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class PublishPlaybookRequest extends $dara.Model {
   /**
    * @remarks
-   * The description of the released version.
+   * The description of the published version.
    * 
    * @example
    * This is a waf processing playbook
@@ -13,9 +13,9 @@ export class PublishPlaybookRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The playbook UUID.
+   * The UUID of the playbook.
    * 
-   * >  You can call the [DescribePlaybooks](~~DescribePlaybooks~~) operation to query the playbook UUID.
+   * > Call the [DescribePlaybooks](~~DescribePlaybooks~~) operation to obtain this parameter.
    * 
    * This parameter is required.
    * 

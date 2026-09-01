@@ -50,7 +50,7 @@ export class DescribePlaybookNumberMetricsResponseBody extends $dara.Model {
   metrics?: DescribePlaybookNumberMetricsResponseBodyMetrics;
   /**
    * @remarks
-   * The request ID.
+   * The unique ID of the request. If you have an issue with a request, provide this ID for troubleshooting.
    * 
    * @example
    * D4CC979E-3D5B-5A6A-BC87-C93C9E861C7B

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSoarTaskAndActionsResponseBodyDetailsActions extends $dara.Model {
   /**
    * @remarks
-   * The action name of the component.
+   * The name of the component action.
    * 
    * @example
    * formatdata
@@ -13,7 +13,7 @@ export class DescribeSoarTaskAndActionsResponseBodyDetailsActions extends $dara.
   action?: string;
   /**
    * @remarks
-   * The UUID of the component execution record.
+   * The UUID of the component action execution record.
    * 
    * @example
    * 091be399-a937-4276-af78-xxxxxxxx
@@ -21,7 +21,7 @@ export class DescribeSoarTaskAndActionsResponseBodyDetailsActions extends $dara.
   actionUuid?: string;
   /**
    * @remarks
-   * The name of the asset that is used by the component.
+   * The name of the asset used by the component.
    * 
    * @example
    * SLS Asset
@@ -29,7 +29,7 @@ export class DescribeSoarTaskAndActionsResponseBodyDetailsActions extends $dara.
   assetName?: string;
   /**
    * @remarks
-   * The component name.
+   * The name of the component.
    * 
    * @example
    * DataFormat
@@ -37,7 +37,7 @@ export class DescribeSoarTaskAndActionsResponseBodyDetailsActions extends $dara.
   component?: string;
   /**
    * @remarks
-   * The end of the time range during which the component is run. The value is a 13-digit timestamp.
+   * The end time of the component run. This is a 13-digit timestamp.
    * 
    * @example
    * 1699868848766
@@ -45,7 +45,7 @@ export class DescribeSoarTaskAndActionsResponseBodyDetailsActions extends $dara.
   endTime?: number;
   /**
    * @remarks
-   * The custom name of the node in the component.
+   * The custom node name of the component.
    * 
    * @example
    * DataFormat_1
@@ -53,7 +53,7 @@ export class DescribeSoarTaskAndActionsResponseBodyDetailsActions extends $dara.
   nodeName?: string;
   /**
    * @remarks
-   * The beginning of the time range during which the component is run. The value is a 13-digit timestamp.
+   * The start time of the component run. This is a 13-digit timestamp.
    * 
    * @example
    * 1699868848731
@@ -61,10 +61,11 @@ export class DescribeSoarTaskAndActionsResponseBodyDetailsActions extends $dara.
   startTime?: number;
   /**
    * @remarks
-   * The running result of the component. Valid values:
+   * The result of the component run. Valid values:
    * 
-   * *   **success**
-   * *   **fail**
+   * - **success**: The run was successful.
+   * 
+   * - **fail**: The run failed.
    * 
    * @example
    * success
@@ -106,15 +107,22 @@ export class DescribeSoarTaskAndActionsResponseBodyDetailsActions extends $dara.
 }
 
 export class DescribeSoarTaskAndActionsResponseBodyDetails extends $dara.Model {
+  /**
+   * @remarks
+   * The total number of action logs.
+   * 
+   * @example
+   * 5
+   */
   actionLogNum?: number;
   /**
    * @remarks
-   * The list of component actions during the running of the playbook.
+   * The list of component actions executed in the playbook.
    */
   actions?: DescribeSoarTaskAndActionsResponseBodyDetailsActions[];
   /**
    * @remarks
-   * The end of the time range during which the playbook is run. The value is a 13-digit timestamp.
+   * The end time of the playbook run. This is a 13-digit timestamp.
    * 
    * @example
    * 1699868848767
@@ -122,7 +130,7 @@ export class DescribeSoarTaskAndActionsResponseBodyDetails extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * The error message of the task. If the task is successful, this field is empty.
+   * The error message for the playbook task. This field is empty if the task is successful.
    * 
    * @example
    * stime not match
@@ -130,7 +138,7 @@ export class DescribeSoarTaskAndActionsResponseBodyDetails extends $dara.Model {
   errorMsg?: string;
   /**
    * @remarks
-   * The request parameters of the task.
+   * The request parameters of the playbook task.
    * 
    * @example
    * {
@@ -141,7 +149,7 @@ export class DescribeSoarTaskAndActionsResponseBodyDetails extends $dara.Model {
   rawEventReq?: string;
   /**
    * @remarks
-   * The request ID of the task. The value is unique.
+   * The request ID of the playbook task. This is the unique ID for each task run.
    * 
    * @example
    * 17f75844-75cc-4174-86da-cec07a690142
@@ -149,7 +157,7 @@ export class DescribeSoarTaskAndActionsResponseBodyDetails extends $dara.Model {
   requestUuid?: string;
   /**
    * @remarks
-   * The beginning of the time range during which the playbook is run. The value is a 13-digit timestamp.
+   * The start time of the playbook run. This is a 13-digit timestamp.
    * 
    * @example
    * 1699868848645
@@ -157,11 +165,13 @@ export class DescribeSoarTaskAndActionsResponseBodyDetails extends $dara.Model {
   startTime?: number;
   /**
    * @remarks
-   * The task status. Valid values:
+   * The status of the playbook task. Valid values:
    * 
-   * *   **success**
-   * *   **fail**
-   * *   **running**
+   * - **success**: The task was successful.
+   * 
+   * - **fail**: The task failed.
+   * 
+   * - **running**: The task is running.
    * 
    * @example
    * success
@@ -169,7 +179,7 @@ export class DescribeSoarTaskAndActionsResponseBodyDetails extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The MD5 value of the playbook.
+   * The MD5 value of the playbook configuration that was run.
    * 
    * @example
    * ed127287-6699-4e4d-b986-9f770879xxx
@@ -177,7 +187,7 @@ export class DescribeSoarTaskAndActionsResponseBodyDetails extends $dara.Model {
   taskFlowMd5?: string;
   /**
    * @remarks
-   * The name of the task. The value is the same as the playbook UUID.
+   * The name of the playbook task. This is the same as the playbook UUID.
    * 
    * @example
    * 92af3c79-1754-4646-9366-9ddbd1e45536
@@ -185,11 +195,13 @@ export class DescribeSoarTaskAndActionsResponseBodyDetails extends $dara.Model {
   taskName?: string;
   /**
    * @remarks
-   * The task type. Valid values:
+   * The trigger type. Valid values:
    * 
-   * *   **debug**: a debugging task
-   * *   **manual**: a manual task
-   * *   **siem**: an event-triggered task
+   * - **debug**: A task for debugging a playbook.
+   * 
+   * - **manual**: A manually triggered task.
+   * 
+   * - **siem**: An event-triggered task.
    * 
    * @example
    * siem
@@ -197,7 +209,7 @@ export class DescribeSoarTaskAndActionsResponseBodyDetails extends $dara.Model {
   triggerType?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account that triggers the task.
+   * The ID of the Alibaba Cloud account that triggered the playbook task.
    * 
    * @example
    * 127xxxx4392
@@ -250,8 +262,29 @@ export class DescribeSoarTaskAndActionsResponseBodyDetails extends $dara.Model {
 }
 
 export class DescribeSoarTaskAndActionsResponseBodyPage extends $dara.Model {
+  /**
+   * @remarks
+   * The page number of the returned page.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: string;
+  /**
+   * @remarks
+   * The number of entries returned per page.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 20
+   */
   totalCount?: string;
   static names(): { [key: string]: string } {
     return {
@@ -281,13 +314,17 @@ export class DescribeSoarTaskAndActionsResponseBodyPage extends $dara.Model {
 export class DescribeSoarTaskAndActionsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The execution details of each task.
+   * The details of the task execution.
    */
   details?: DescribeSoarTaskAndActionsResponseBodyDetails;
+  /**
+   * @remarks
+   * The pagination information.
+   */
   page?: DescribeSoarTaskAndActionsResponseBodyPage;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 18017A93-3D5D-503A-8308-914543F1CBA3
