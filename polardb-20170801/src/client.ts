@@ -613,6 +613,88 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 知识库单轮问答
+   * 
+   * @param request - AnswerKnowledgeBaseRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AnswerKnowledgeBaseResponse
+   */
+  async answerKnowledgeBaseWithOptions(request: $_model.AnswerKnowledgeBaseRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AnswerKnowledgeBaseResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.knowledgeBaseId)) {
+      query["KnowledgeBaseId"] = request.knowledgeBaseId;
+    }
+
+    if (!$dara.isNull(request.maxContextChars)) {
+      query["MaxContextChars"] = request.maxContextChars;
+    }
+
+    if (!$dara.isNull(request.queryText)) {
+      query["QueryText"] = request.queryText;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.rerankEnabled)) {
+      query["RerankEnabled"] = request.rerankEnabled;
+    }
+
+    if (!$dara.isNull(request.returnSources)) {
+      query["ReturnSources"] = request.returnSources;
+    }
+
+    if (!$dara.isNull(request.scoreThreshold)) {
+      query["ScoreThreshold"] = request.scoreThreshold;
+    }
+
+    if (!$dara.isNull(request.searchMode)) {
+      query["SearchMode"] = request.searchMode;
+    }
+
+    if (!$dara.isNull(request.systemPrompt)) {
+      query["SystemPrompt"] = request.systemPrompt;
+    }
+
+    if (!$dara.isNull(request.topK)) {
+      query["TopK"] = request.topK;
+    }
+
+    if (!$dara.isNull(request.userInstructions)) {
+      query["UserInstructions"] = request.userInstructions;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AnswerKnowledgeBase",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AnswerKnowledgeBaseResponse>(await this.callApi(params, req, runtime), new $_model.AnswerKnowledgeBaseResponse({}));
+  }
+
+  /**
+   * 知识库单轮问答
+   * 
+   * @param request - AnswerKnowledgeBaseRequest
+   * @returns AnswerKnowledgeBaseResponse
+   */
+  async answerKnowledgeBase(request: $_model.AnswerKnowledgeBaseRequest): Promise<$_model.AnswerKnowledgeBaseResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.answerKnowledgeBaseWithOptions(request, runtime);
+  }
+
+  /**
    * Applies prompts to an application instance.
    * 
    * @remarks
@@ -5405,6 +5487,84 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建知识库同步链路
+   * 
+   * @param request - CreateKBSyncLinkRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateKBSyncLinkResponse
+   */
+  async createKBSyncLinkWithOptions(request: $_model.CreateKBSyncLinkRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateKBSyncLinkResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientId)) {
+      query["ClientId"] = request.clientId;
+    }
+
+    if (!$dara.isNull(request.clientSecret)) {
+      query["ClientSecret"] = request.clientSecret;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.knowledgeBaseId)) {
+      query["KnowledgeBaseId"] = request.knowledgeBaseId;
+    }
+
+    if (!$dara.isNull(request.linkName)) {
+      query["LinkName"] = request.linkName;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.sourceDir)) {
+      query["SourceDir"] = request.sourceDir;
+    }
+
+    if (!$dara.isNull(request.sourceType)) {
+      query["SourceType"] = request.sourceType;
+    }
+
+    if (!$dara.isNull(request.syncIntervalMinutes)) {
+      query["SyncIntervalMinutes"] = request.syncIntervalMinutes;
+    }
+
+    if (!$dara.isNull(request.tenantId)) {
+      query["TenantId"] = request.tenantId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateKBSyncLink",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateKBSyncLinkResponse>(await this.callApi(params, req, runtime), new $_model.CreateKBSyncLinkResponse({}));
+  }
+
+  /**
+   * 创建知识库同步链路
+   * 
+   * @param request - CreateKBSyncLinkRequest
+   * @returns CreateKBSyncLinkResponse
+   */
+  async createKBSyncLink(request: $_model.CreateKBSyncLinkRequest): Promise<$_model.CreateKBSyncLinkResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createKBSyncLinkWithOptions(request, runtime);
+  }
+
+  /**
    * Creates a knowledge base.
    * 
    * @param request - CreateKnowledgeBaseRequest
@@ -8821,6 +8981,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除知识库同步链路
+   * 
+   * @param request - DeleteKBSyncLinkRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteKBSyncLinkResponse
+   */
+  async deleteKBSyncLinkWithOptions(request: $_model.DeleteKBSyncLinkRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteKBSyncLinkResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.knowledgeBaseId)) {
+      query["KnowledgeBaseId"] = request.knowledgeBaseId;
+    }
+
+    if (!$dara.isNull(request.linkId)) {
+      query["LinkId"] = request.linkId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteKBSyncLink",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteKBSyncLinkResponse>(await this.callApi(params, req, runtime), new $_model.DeleteKBSyncLinkResponse({}));
+  }
+
+  /**
+   * 删除知识库同步链路
+   * 
+   * @param request - DeleteKBSyncLinkRequest
+   * @returns DeleteKBSyncLinkResponse
+   */
+  async deleteKBSyncLink(request: $_model.DeleteKBSyncLinkRequest): Promise<$_model.DeleteKBSyncLinkResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteKBSyncLinkWithOptions(request, runtime);
+  }
+
+  /**
    * Deletes a knowledge base.
    * 
    * @param request - DeleteKnowledgeBaseRequest
@@ -8864,6 +9074,56 @@ export default class Client extends OpenApi {
   async deleteKnowledgeBase(request: $_model.DeleteKnowledgeBaseRequest): Promise<$_model.DeleteKnowledgeBaseResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteKnowledgeBaseWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除知识库文件
+   * 
+   * @param request - DeleteKnowledgeBaseFileRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteKnowledgeBaseFileResponse
+   */
+  async deleteKnowledgeBaseFileWithOptions(request: $_model.DeleteKnowledgeBaseFileRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteKnowledgeBaseFileResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.fileId)) {
+      query["FileId"] = request.fileId;
+    }
+
+    if (!$dara.isNull(request.knowledgeBaseId)) {
+      query["KnowledgeBaseId"] = request.knowledgeBaseId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteKnowledgeBaseFile",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteKnowledgeBaseFileResponse>(await this.callApi(params, req, runtime), new $_model.DeleteKnowledgeBaseFileResponse({}));
+  }
+
+  /**
+   * 删除知识库文件
+   * 
+   * @param request - DeleteKnowledgeBaseFileRequest
+   * @returns DeleteKnowledgeBaseFileResponse
+   */
+  async deleteKnowledgeBaseFile(request: $_model.DeleteKnowledgeBaseFileRequest): Promise<$_model.DeleteKnowledgeBaseFileResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteKnowledgeBaseFileWithOptions(request, runtime);
   }
 
   /**
@@ -17379,6 +17639,106 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询知识库同步列表
+   * 
+   * @param request - DescribeKBSyncLinksRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeKBSyncLinksResponse
+   */
+  async describeKBSyncLinksWithOptions(request: $_model.DescribeKBSyncLinksRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeKBSyncLinksResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.imPlatform)) {
+      query["ImPlatform"] = request.imPlatform;
+    }
+
+    if (!$dara.isNull(request.knowledgeBaseId)) {
+      query["KnowledgeBaseId"] = request.knowledgeBaseId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeKBSyncLinks",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeKBSyncLinksResponse>(await this.callApi(params, req, runtime), new $_model.DescribeKBSyncLinksResponse({}));
+  }
+
+  /**
+   * 查询知识库同步列表
+   * 
+   * @param request - DescribeKBSyncLinksRequest
+   * @returns DescribeKBSyncLinksResponse
+   */
+  async describeKBSyncLinks(request: $_model.DescribeKBSyncLinksRequest): Promise<$_model.DescribeKBSyncLinksResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeKBSyncLinksWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询知识库单轮问答结果
+   * 
+   * @param request - DescribeKnowledgeBaseAnswerRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeKnowledgeBaseAnswerResponse
+   */
+  async describeKnowledgeBaseAnswerWithOptions(request: $_model.DescribeKnowledgeBaseAnswerRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeKnowledgeBaseAnswerResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.knowledgeBaseId)) {
+      query["KnowledgeBaseId"] = request.knowledgeBaseId;
+    }
+
+    if (!$dara.isNull(request.queryId)) {
+      query["QueryId"] = request.queryId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeKnowledgeBaseAnswer",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeKnowledgeBaseAnswerResponse>(await this.callApi(params, req, runtime), new $_model.DescribeKnowledgeBaseAnswerResponse({}));
+  }
+
+  /**
+   * 查询知识库单轮问答结果
+   * 
+   * @param request - DescribeKnowledgeBaseAnswerRequest
+   * @returns DescribeKnowledgeBaseAnswerResponse
+   */
+  async describeKnowledgeBaseAnswer(request: $_model.DescribeKnowledgeBaseAnswerRequest): Promise<$_model.DescribeKnowledgeBaseAnswerResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeKnowledgeBaseAnswerWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the details of a knowledge base.
    * 
    * @param request - DescribeKnowledgeBaseAttributeRequest
@@ -17422,6 +17782,134 @@ export default class Client extends OpenApi {
   async describeKnowledgeBaseAttribute(request: $_model.DescribeKnowledgeBaseAttributeRequest): Promise<$_model.DescribeKnowledgeBaseAttributeResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeKnowledgeBaseAttributeWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询知识库文件分片列表
+   * 
+   * @param request - DescribeKnowledgeBaseFileShardsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeKnowledgeBaseFileShardsResponse
+   */
+  async describeKnowledgeBaseFileShardsWithOptions(request: $_model.DescribeKnowledgeBaseFileShardsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeKnowledgeBaseFileShardsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.fileId)) {
+      query["FileId"] = request.fileId;
+    }
+
+    if (!$dara.isNull(request.knowledgeBaseId)) {
+      query["KnowledgeBaseId"] = request.knowledgeBaseId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeKnowledgeBaseFileShards",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeKnowledgeBaseFileShardsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeKnowledgeBaseFileShardsResponse({}));
+  }
+
+  /**
+   * 查询知识库文件分片列表
+   * 
+   * @param request - DescribeKnowledgeBaseFileShardsRequest
+   * @returns DescribeKnowledgeBaseFileShardsResponse
+   */
+  async describeKnowledgeBaseFileShards(request: $_model.DescribeKnowledgeBaseFileShardsRequest): Promise<$_model.DescribeKnowledgeBaseFileShardsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeKnowledgeBaseFileShardsWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询知识库文件列表
+   * 
+   * @param request - DescribeKnowledgeBaseFilesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeKnowledgeBaseFilesResponse
+   */
+  async describeKnowledgeBaseFilesWithOptions(request: $_model.DescribeKnowledgeBaseFilesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeKnowledgeBaseFilesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.fileIds)) {
+      query["FileIds"] = request.fileIds;
+    }
+
+    if (!$dara.isNull(request.keyword)) {
+      query["Keyword"] = request.keyword;
+    }
+
+    if (!$dara.isNull(request.knowledgeBaseId)) {
+      query["KnowledgeBaseId"] = request.knowledgeBaseId;
+    }
+
+    if (!$dara.isNull(request.linkId)) {
+      query["LinkId"] = request.linkId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.sourceType)) {
+      query["SourceType"] = request.sourceType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeKnowledgeBaseFiles",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeKnowledgeBaseFilesResponse>(await this.callApi(params, req, runtime), new $_model.DescribeKnowledgeBaseFilesResponse({}));
+  }
+
+  /**
+   * 查询知识库文件列表
+   * 
+   * @param request - DescribeKnowledgeBaseFilesRequest
+   * @returns DescribeKnowledgeBaseFilesResponse
+   */
+  async describeKnowledgeBaseFiles(request: $_model.DescribeKnowledgeBaseFilesRequest): Promise<$_model.DescribeKnowledgeBaseFilesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeKnowledgeBaseFilesWithOptions(request, runtime);
   }
 
   /**
@@ -17484,6 +17972,52 @@ export default class Client extends OpenApi {
   async describeKnowledgeBases(request: $_model.DescribeKnowledgeBasesRequest): Promise<$_model.DescribeKnowledgeBasesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeKnowledgeBasesWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询知识空间详情
+   * 
+   * @param request - DescribeKnowledgeSpaceAttributeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeKnowledgeSpaceAttributeResponse
+   */
+  async describeKnowledgeSpaceAttributeWithOptions(request: $_model.DescribeKnowledgeSpaceAttributeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeKnowledgeSpaceAttributeResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.knowledgeSpaceId)) {
+      query["KnowledgeSpaceId"] = request.knowledgeSpaceId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeKnowledgeSpaceAttribute",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeKnowledgeSpaceAttributeResponse>(await this.callApi(params, req, runtime), new $_model.DescribeKnowledgeSpaceAttributeResponse({}));
+  }
+
+  /**
+   * 查询知识空间详情
+   * 
+   * @param request - DescribeKnowledgeSpaceAttributeRequest
+   * @returns DescribeKnowledgeSpaceAttributeResponse
+   */
+  async describeKnowledgeSpaceAttribute(request: $_model.DescribeKnowledgeSpaceAttributeRequest): Promise<$_model.DescribeKnowledgeSpaceAttributeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeKnowledgeSpaceAttributeWithOptions(request, runtime);
   }
 
   /**
@@ -29853,6 +30387,118 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 检索知识库
+   * 
+   * @param request - RetrievalKnowledgeBaseRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RetrievalKnowledgeBaseResponse
+   */
+  async retrievalKnowledgeBaseWithOptions(request: $_model.RetrievalKnowledgeBaseRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RetrievalKnowledgeBaseResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.knowledgeBaseId)) {
+      query["KnowledgeBaseId"] = request.knowledgeBaseId;
+    }
+
+    if (!$dara.isNull(request.queryText)) {
+      query["QueryText"] = request.queryText;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.rerankEnabled)) {
+      query["RerankEnabled"] = request.rerankEnabled;
+    }
+
+    if (!$dara.isNull(request.scoreThreshold)) {
+      query["ScoreThreshold"] = request.scoreThreshold;
+    }
+
+    if (!$dara.isNull(request.topK)) {
+      query["TopK"] = request.topK;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RetrievalKnowledgeBase",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RetrievalKnowledgeBaseResponse>(await this.callApi(params, req, runtime), new $_model.RetrievalKnowledgeBaseResponse({}));
+  }
+
+  /**
+   * 检索知识库
+   * 
+   * @param request - RetrievalKnowledgeBaseRequest
+   * @returns RetrievalKnowledgeBaseResponse
+   */
+  async retrievalKnowledgeBase(request: $_model.RetrievalKnowledgeBaseRequest): Promise<$_model.RetrievalKnowledgeBaseResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.retrievalKnowledgeBaseWithOptions(request, runtime);
+  }
+
+  /**
+   * 批量重试知识库失败文件
+   * 
+   * @param request - RetryKnowledgeBaseFilesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RetryKnowledgeBaseFilesResponse
+   */
+  async retryKnowledgeBaseFilesWithOptions(request: $_model.RetryKnowledgeBaseFilesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RetryKnowledgeBaseFilesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.fileIds)) {
+      query["FileIds"] = request.fileIds;
+    }
+
+    if (!$dara.isNull(request.knowledgeBaseId)) {
+      query["KnowledgeBaseId"] = request.knowledgeBaseId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RetryKnowledgeBaseFiles",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RetryKnowledgeBaseFilesResponse>(await this.callApi(params, req, runtime), new $_model.RetryKnowledgeBaseFilesResponse({}));
+  }
+
+  /**
+   * 批量重试知识库失败文件
+   * 
+   * @param request - RetryKnowledgeBaseFilesRequest
+   * @returns RetryKnowledgeBaseFilesResponse
+   */
+  async retryKnowledgeBaseFiles(request: $_model.RetryKnowledgeBaseFilesRequest): Promise<$_model.RetryKnowledgeBaseFilesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.retryKnowledgeBaseFilesWithOptions(request, runtime);
+  }
+
+  /**
    * Revokes access permissions on a database from a PolarDB standard account.
    * 
    * @param request - RevokeAccountPrivilegeRequest
@@ -30569,6 +31215,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 触发知识库同步
+   * 
+   * @param request - TriggerKnowledgeBaseSyncRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns TriggerKnowledgeBaseSyncResponse
+   */
+  async triggerKnowledgeBaseSyncWithOptions(request: $_model.TriggerKnowledgeBaseSyncRequest, runtime: $dara.RuntimeOptions): Promise<$_model.TriggerKnowledgeBaseSyncResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.knowledgeBaseId)) {
+      query["KnowledgeBaseId"] = request.knowledgeBaseId;
+    }
+
+    if (!$dara.isNull(request.linkId)) {
+      query["LinkId"] = request.linkId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "TriggerKnowledgeBaseSync",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.TriggerKnowledgeBaseSyncResponse>(await this.callApi(params, req, runtime), new $_model.TriggerKnowledgeBaseSyncResponse({}));
+  }
+
+  /**
+   * 触发知识库同步
+   * 
+   * @param request - TriggerKnowledgeBaseSyncRequest
+   * @returns TriggerKnowledgeBaseSyncResponse
+   */
+  async triggerKnowledgeBaseSync(request: $_model.TriggerKnowledgeBaseSyncRequest): Promise<$_model.TriggerKnowledgeBaseSyncResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.triggerKnowledgeBaseSyncWithOptions(request, runtime);
+  }
+
+  /**
    * Unbinds a PolarClaw Agent.
    * 
    * @param request - UnbindPolarClawAgentRequest
@@ -30958,6 +31654,254 @@ export default class Client extends OpenApi {
   async updateExtensions(request: $_model.UpdateExtensionsRequest): Promise<$_model.UpdateExtensionsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateExtensionsWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新知识库同步链路
+   * 
+   * @param request - UpdateKBSyncLinkRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateKBSyncLinkResponse
+   */
+  async updateKBSyncLinkWithOptions(request: $_model.UpdateKBSyncLinkRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateKBSyncLinkResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.knowledgeBaseId)) {
+      query["KnowledgeBaseId"] = request.knowledgeBaseId;
+    }
+
+    if (!$dara.isNull(request.linkId)) {
+      query["LinkId"] = request.linkId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.syncIntervalMinutes)) {
+      query["SyncIntervalMinutes"] = request.syncIntervalMinutes;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateKBSyncLink",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateKBSyncLinkResponse>(await this.callApi(params, req, runtime), new $_model.UpdateKBSyncLinkResponse({}));
+  }
+
+  /**
+   * 更新知识库同步链路
+   * 
+   * @param request - UpdateKBSyncLinkRequest
+   * @returns UpdateKBSyncLinkResponse
+   */
+  async updateKBSyncLink(request: $_model.UpdateKBSyncLinkRequest): Promise<$_model.UpdateKBSyncLinkResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateKBSyncLinkWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新知识库
+   * 
+   * @param request - UpdateKnowledgeBaseRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateKnowledgeBaseResponse
+   */
+  async updateKnowledgeBaseWithOptions(request: $_model.UpdateKnowledgeBaseRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateKnowledgeBaseResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.knowledgeBaseId)) {
+      query["KnowledgeBaseId"] = request.knowledgeBaseId;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.searchMode)) {
+      query["SearchMode"] = request.searchMode;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateKnowledgeBase",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateKnowledgeBaseResponse>(await this.callApi(params, req, runtime), new $_model.UpdateKnowledgeBaseResponse({}));
+  }
+
+  /**
+   * 更新知识库
+   * 
+   * @param request - UpdateKnowledgeBaseRequest
+   * @returns UpdateKnowledgeBaseResponse
+   */
+  async updateKnowledgeBase(request: $_model.UpdateKnowledgeBaseRequest): Promise<$_model.UpdateKnowledgeBaseResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateKnowledgeBaseWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新知识库文件分块策略
+   * 
+   * @param tmpReq - UpdateKnowledgeBaseFileShardingStrategyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateKnowledgeBaseFileShardingStrategyResponse
+   */
+  async updateKnowledgeBaseFileShardingStrategyWithOptions(tmpReq: $_model.UpdateKnowledgeBaseFileShardingStrategyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateKnowledgeBaseFileShardingStrategyResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateKnowledgeBaseFileShardingStrategyShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.shardingStrategyConfig)) {
+      request.shardingStrategyConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.shardingStrategyConfig, "ShardingStrategyConfig", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.fileId)) {
+      query["FileId"] = request.fileId;
+    }
+
+    if (!$dara.isNull(request.inheritSpaceStrategy)) {
+      query["InheritSpaceStrategy"] = request.inheritSpaceStrategy;
+    }
+
+    if (!$dara.isNull(request.knowledgeBaseId)) {
+      query["KnowledgeBaseId"] = request.knowledgeBaseId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.shardingStrategyConfigShrink)) {
+      query["ShardingStrategyConfig"] = request.shardingStrategyConfigShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateKnowledgeBaseFileShardingStrategy",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateKnowledgeBaseFileShardingStrategyResponse>(await this.callApi(params, req, runtime), new $_model.UpdateKnowledgeBaseFileShardingStrategyResponse({}));
+  }
+
+  /**
+   * 更新知识库文件分块策略
+   * 
+   * @param request - UpdateKnowledgeBaseFileShardingStrategyRequest
+   * @returns UpdateKnowledgeBaseFileShardingStrategyResponse
+   */
+  async updateKnowledgeBaseFileShardingStrategy(request: $_model.UpdateKnowledgeBaseFileShardingStrategyRequest): Promise<$_model.UpdateKnowledgeBaseFileShardingStrategyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateKnowledgeBaseFileShardingStrategyWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新知识空间
+   * 
+   * @param tmpReq - UpdateKnowledgeSpaceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateKnowledgeSpaceResponse
+   */
+  async updateKnowledgeSpaceWithOptions(tmpReq: $_model.UpdateKnowledgeSpaceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateKnowledgeSpaceResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateKnowledgeSpaceShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.shardingStrategyConfig)) {
+      request.shardingStrategyConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.shardingStrategyConfig, "ShardingStrategyConfig", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.knowledgeSpaceId)) {
+      query["KnowledgeSpaceId"] = request.knowledgeSpaceId;
+    }
+
+    if (!$dara.isNull(request.LLMModel)) {
+      query["LLMModel"] = request.LLMModel;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.rerankModel)) {
+      query["RerankModel"] = request.rerankModel;
+    }
+
+    if (!$dara.isNull(request.shardingStrategyConfigShrink)) {
+      query["ShardingStrategyConfig"] = request.shardingStrategyConfigShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateKnowledgeSpace",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateKnowledgeSpaceResponse>(await this.callApi(params, req, runtime), new $_model.UpdateKnowledgeSpaceResponse({}));
+  }
+
+  /**
+   * 更新知识空间
+   * 
+   * @param request - UpdateKnowledgeSpaceRequest
+   * @returns UpdateKnowledgeSpaceResponse
+   */
+  async updateKnowledgeSpace(request: $_model.UpdateKnowledgeSpaceRequest): Promise<$_model.UpdateKnowledgeSpaceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateKnowledgeSpaceWithOptions(request, runtime);
   }
 
   /**
