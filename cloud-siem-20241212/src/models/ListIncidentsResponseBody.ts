@@ -3,7 +3,20 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListIncidentsResponseBodyIncidents extends $dara.Model {
+  /**
+   * @remarks
+   * The alert information of the incident.
+   */
   alertInfos?: string;
+  /**
+   * @remarks
+   * The list of alert source codes or modules.
+   */
+  alertSources?: string[];
+  /**
+   * @remarks
+   * The attacker tactics.
+   */
   attckTactics?: string;
   /**
    * @remarks
@@ -21,8 +34,20 @@ export class ListIncidentsResponseBodyIncidents extends $dara.Model {
    * dr-qo5ww6ux0uc28*****
    */
   detectionRuleId?: string;
+  /**
+   * @remarks
+   * The name of the detection rule.
+   */
   detectionRuleName?: string;
+  /**
+   * @remarks
+   * The entity information associated with the incident.
+   */
   entityInfos?: string;
+  /**
+   * @remarks
+   * The description of the incident.
+   */
   incidentDescription?: string;
   /**
    * @remarks
@@ -43,6 +68,10 @@ export class ListIncidentsResponseBodyIncidents extends $dara.Model {
   /**
    * @remarks
    * The event status. Valid values:
+   * - 0: unhandled.
+   * - 1: handling.
+   * - 5: handling failed.
+   * - 10: handled.
    * 
    * @example
    * 0
@@ -66,12 +95,20 @@ export class ListIncidentsResponseBodyIncidents extends $dara.Model {
   incidentUuid?: string;
   /**
    * @remarks
-   * The UID of the account responsible for the event.
+   * The UID of the account that owns the event.
    * 
    * @example
    * 1234567890xxxxxx
    */
   owner?: string;
+  /**
+   * @remarks
+   * The display name of the incident owner.
+   * 
+   * @example
+   * alice
+   */
+  ownerName?: string;
   /**
    * @remarks
    * The number of alerts associated with the incident.
@@ -98,7 +135,17 @@ export class ListIncidentsResponseBodyIncidents extends $dara.Model {
   responseTime?: number;
   /**
    * @remarks
+   * The list of response types. Valid values: auto, manual, ai.
+   */
+  responseTypes?: string[];
+  /**
+   * @remarks
    * The threat level. Valid values:
+   * - 5: critical.
+   * - 4: high.
+   * - 3: medium.
+   * - 2: low.
+   * - 1: informational.
    * 
    * @example
    * 2
@@ -115,6 +162,7 @@ export class ListIncidentsResponseBodyIncidents extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       alertInfos: 'AlertInfos',
+      alertSources: 'AlertSources',
       attckTactics: 'AttckTactics',
       createTime: 'CreateTime',
       detectionRuleId: 'DetectionRuleId',
@@ -127,9 +175,11 @@ export class ListIncidentsResponseBodyIncidents extends $dara.Model {
       incidentTags: 'IncidentTags',
       incidentUuid: 'IncidentUuid',
       owner: 'Owner',
+      ownerName: 'OwnerName',
       relateAlertCount: 'RelateAlertCount',
       relateAssetCount: 'RelateAssetCount',
       responseTime: 'ResponseTime',
+      responseTypes: 'ResponseTypes',
       threatLevel: 'ThreatLevel',
       updateTime: 'UpdateTime',
     };
@@ -138,6 +188,7 @@ export class ListIncidentsResponseBodyIncidents extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       alertInfos: 'string',
+      alertSources: { 'type': 'array', 'itemType': 'string' },
       attckTactics: 'string',
       createTime: 'number',
       detectionRuleId: 'string',
@@ -150,15 +201,23 @@ export class ListIncidentsResponseBodyIncidents extends $dara.Model {
       incidentTags: 'string',
       incidentUuid: 'string',
       owner: 'string',
+      ownerName: 'string',
       relateAlertCount: 'number',
       relateAssetCount: 'number',
       responseTime: 'number',
+      responseTypes: { 'type': 'array', 'itemType': 'string' },
       threatLevel: 'string',
       updateTime: 'number',
     };
   }
 
   validate() {
+    if(Array.isArray(this.alertSources)) {
+      $dara.Model.validateArray(this.alertSources);
+    }
+    if(Array.isArray(this.responseTypes)) {
+      $dara.Model.validateArray(this.responseTypes);
+    }
     super.validate();
   }
 

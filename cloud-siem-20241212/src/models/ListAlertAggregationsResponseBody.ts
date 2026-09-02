@@ -4,13 +4,19 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListAlertAggregationsResponseBodyAlertAggregationsDefenseActionCounts extends $dara.Model {
   /**
+   * @remarks
+   * The display name of the entity attribute field that can be added to the whitelist.
+   * 
    * @example
    * accesstoken
    */
   name?: string;
   /**
+   * @remarks
+   * The default right-hand value displayed for the whitelist rule.
+   * 
    * @example
-   * 测试-前途系统AI
+   * Test-FutureSystemAI
    */
   value?: number;
   static names(): { [key: string]: string } {
@@ -38,11 +44,17 @@ export class ListAlertAggregationsResponseBodyAlertAggregationsDefenseActionCoun
 
 export class ListAlertAggregationsResponseBodyAlertAggregationsStatusCounts extends $dara.Model {
   /**
+   * @remarks
+   * The display name of the entity attribute field that can be added to the whitelist.
+   * 
    * @example
    * http://domain.com/
    */
   name?: string;
   /**
+   * @remarks
+   * The right-hand value.
+   * 
    * @example
    * 123.123.123.123
    */
@@ -71,51 +83,101 @@ export class ListAlertAggregationsResponseBodyAlertAggregationsStatusCounts exte
 }
 
 export class ListAlertAggregationsResponseBodyAlertAggregations extends $dara.Model {
+  /**
+   * @remarks
+   * The list of account display values associated with the aggregation group, in one-to-one correspondence with AccountIds. When the username is valid and differs from the account ID, the format is "username/account ID". Otherwise, only the account ID is returned.
+   */
   accountDisplayValues?: string[];
+  /**
+   * @remarks
+   * The list of member accounts IDs for which the report is generated. You need to specify this parameter only when you generate a multi-account report and want to limit the report to specific member accounts.
+   */
   accountIds?: string[];
   /**
+   * @remarks
+   * The unique identifier of the aggregation group, which is a concatenation of AggregationType, PrimaryValue, and SecondaryValue joined by colons (:). The last segment is empty if no secondary aggregation value exists.
+   * 
    * @example
    * vendor_product:alibaba_cloud:sas
    */
   aggregationKey?: string;
   /**
+   * @remarks
+   * The aggregation method.
+   * 
    * @example
    * 5m-avg
    */
   aggregationType?: string;
   /**
+   * @remarks
+   * The number of consecutive failures. This parameter is optional.
+   * 
    * @example
    * 25
    */
   alertCount?: number;
+  /**
+   * @remarks
+   * The collection of MITRE ATT&CK attack techniques associated with alerts in the aggregation group. Each element is a JSON array string.
+   */
   attackStages?: string[];
+  /**
+   * @remarks
+   * The quantity distribution by defense action within the aggregation group. Name is the action field value, and Value is the corresponding alert count.
+   */
   defenseActionCounts?: ListAlertAggregationsResponseBodyAlertAggregationsDefenseActionCounts[];
   /**
+   * @remarks
+   * The time of the first access, represented as a UNIX timestamp in seconds.
+   * 
    * @example
    * 1785290308
    */
   firstTime?: number;
   /**
+   * @remarks
+   * The most recent time when the attack event occurred.
+   * 
    * @example
    * 1785293908000
    */
   latestTime?: number;
   /**
+   * @remarks
+   * The display text of the primary aggregation value. For account aggregation, the format is "username/account ID". If no valid username exists, only the account ID is returned. For event summaries, the event name is returned based on the Lang parameter. If the name is missing, the event UUID is returned.
+   * 
    * @example
    * Test incident
    */
   primaryDisplayValue?: string;
   /**
+   * @remarks
+   * The value corresponding to the primary query condition.
+   * 
    * @example
    * alibaba_cloud
    */
   primaryValue?: string;
   /**
+   * @remarks
+   * The value corresponding to the secondary query condition.
+   * 
    * @example
    * sas
    */
   secondaryValue?: string;
+  /**
+   * @remarks
+   * The collection of event source codes.
+   * 
+   * > Example: [\\\\\\"MRM\\\\\\"]
+   */
   sourceCodes?: string[];
+  /**
+   * @remarks
+   * The quantity distribution by alert status within the aggregation group. Name is the alert status value, and Value is the corresponding alert count.
+   */
   statusCounts?: ListAlertAggregationsResponseBodyAlertAggregationsStatusCounts[];
   static names(): { [key: string]: string } {
     return {
@@ -183,33 +245,55 @@ export class ListAlertAggregationsResponseBodyAlertAggregations extends $dara.Mo
 }
 
 export class ListAlertAggregationsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The list of alert groups returned based on the specified aggregation method, sorted by alert count in descending order.
+   */
   alertAggregations?: ListAlertAggregationsResponseBodyAlertAggregations[];
   /**
+   * @remarks
+   * The maximum number of entries returned in this request.
+   * 
    * @example
    * 50
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The token for the next query.
+   * 
    * @example
    * AAAAAUqcj6VO4E3ECWIrFczs****
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 9AAA9ED9-78F4-5021-86DC-D51C7511****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of records.
+   * 
    * @example
    * 57
    */
