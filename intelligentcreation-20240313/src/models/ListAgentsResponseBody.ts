@@ -8,6 +8,7 @@ export class ListAgentsResponseBodyList extends $dara.Model {
   agentName?: string;
   agentScene?: string;
   characterAgeStage?: string;
+  characterGender?: string;
   characterName?: string;
   charactersDescription?: string;
   enableInteraction?: number;
@@ -25,6 +26,7 @@ export class ListAgentsResponseBodyList extends $dara.Model {
       agentName: 'agentName',
       agentScene: 'agentScene',
       characterAgeStage: 'characterAgeStage',
+      characterGender: 'characterGender',
       characterName: 'characterName',
       charactersDescription: 'charactersDescription',
       enableInteraction: 'enableInteraction',
@@ -45,6 +47,7 @@ export class ListAgentsResponseBodyList extends $dara.Model {
       agentName: 'string',
       agentScene: 'string',
       characterAgeStage: 'string',
+      characterGender: 'string',
       characterName: 'string',
       charactersDescription: 'string',
       enableInteraction: 'number',
