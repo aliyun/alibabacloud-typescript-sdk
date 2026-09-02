@@ -302,7 +302,9 @@ export { GlobalHotelBatchGetHotelDetailResponseBodyDataHotelsFacilities } from '
 export { GlobalHotelBatchGetHotelDetailResponseBodyDataHotelsPictures } from './GlobalHotelBatchGetHotelDetailResponseBody';
 export { GlobalHotelBatchGetHotelDetailResponseBodyDataHotelsPoliciesItems } from './GlobalHotelBatchGetHotelDetailResponseBody';
 export { GlobalHotelBatchGetHotelDetailResponseBodyDataHotelsPolicies } from './GlobalHotelBatchGetHotelDetailResponseBody';
-export { GlobalHotelBatchGetHotelDetailResponseBodyDataHotelsRoomTypesBedType } from './GlobalHotelBatchGetHotelDetailResponseBody';
+export { GlobalHotelBatchGetHotelDetailResponseBodyDataHotelsRoomTypesBedGroupsBedInfos } from './GlobalHotelBatchGetHotelDetailResponseBody';
+export { GlobalHotelBatchGetHotelDetailResponseBodyDataHotelsRoomTypesBedGroups } from './GlobalHotelBatchGetHotelDetailResponseBody';
+export { GlobalHotelBatchGetHotelDetailResponseBodyDataHotelsRoomTypesFacilities } from './GlobalHotelBatchGetHotelDetailResponseBody';
 export { GlobalHotelBatchGetHotelDetailResponseBodyDataHotelsRoomTypesPictures } from './GlobalHotelBatchGetHotelDetailResponseBody';
 export { GlobalHotelBatchGetHotelDetailResponseBodyDataHotelsRoomTypes } from './GlobalHotelBatchGetHotelDetailResponseBody';
 export { GlobalHotelBatchGetHotelDetailResponseBodyDataHotels } from './GlobalHotelBatchGetHotelDetailResponseBody';

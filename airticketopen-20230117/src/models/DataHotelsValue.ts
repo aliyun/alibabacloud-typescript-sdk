@@ -79,7 +79,7 @@ export class DataHotelsValueRoomsOffersCancelPolicyPenalties extends $dara.Model
   penaltyType?: string;
   /**
    * @remarks
-   * The penalty value (percentage/amount/nights).
+   * The penalty value (percentage/amount/number of nights).
    * 
    * @example
    * 50
@@ -87,7 +87,7 @@ export class DataHotelsValueRoomsOffersCancelPolicyPenalties extends $dara.Model
   penaltyValue?: string;
   /**
    * @remarks
-   * The currency code (present only when the penalty type is AMOUNT).
+   * The currency code (present only when the type is AMOUNT).
    * 
    * @example
    * USD
@@ -505,7 +505,7 @@ export class DataHotelsValueRooms extends $dara.Model {
 export class DataHotelsValueOffersCancelPolicyPenalties extends $dara.Model {
   /**
    * @remarks
-   * The effective start time as a UTC millisecond timestamp.
+   * The effective start time, in UTC millisecond timestamp format.
    * 
    * @example
    * 1672531200000
@@ -513,7 +513,7 @@ export class DataHotelsValueOffersCancelPolicyPenalties extends $dara.Model {
   start?: string;
   /**
    * @remarks
-   * The effective end time as a UTC millisecond timestamp.
+   * The effective end time, in UTC millisecond timestamp format.
    * 
    * @example
    * 1672617600000
@@ -529,7 +529,7 @@ export class DataHotelsValueOffersCancelPolicyPenalties extends $dara.Model {
   penaltyType?: string;
   /**
    * @remarks
-   * The penalty value (percentage/amount/nights).
+   * The penalty value (percentage, amount, or number of nights).
    * 
    * @example
    * 50
@@ -537,7 +537,7 @@ export class DataHotelsValueOffersCancelPolicyPenalties extends $dara.Model {
   penaltyValue?: string;
   /**
    * @remarks
-   * The currency code. This field is present only when the penalty type is AMOUNT.
+   * The currency code. This field has a value only when the penalty type is AMOUNT.
    * 
    * @example
    * USD
@@ -785,7 +785,7 @@ export class DataHotelsValueOffersDailyPrices extends $dara.Model {
 export class DataHotelsValueOffers extends $dara.Model {
   /**
    * @remarks
-   * The item offer key used for price verification. Pass through this value as-is.
+   * The item offer key, which is a price verification key. Pass this value through as-is.
    * 
    * @example
    * itemOffer_123

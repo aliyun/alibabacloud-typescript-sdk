@@ -37,7 +37,7 @@ export class GlobalHotelSearchHotelListResponseBodyDataHotels extends $dara.Mode
   standardHotelId?: string;
   /**
    * @remarks
-   * The hotel status (ONLINE/OFFLINE).
+   * The hotel status. Valid values: ONLINE and OFFLINE.
    * 
    * @example
    * ONLINE
@@ -144,7 +144,7 @@ export class GlobalHotelSearchHotelListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

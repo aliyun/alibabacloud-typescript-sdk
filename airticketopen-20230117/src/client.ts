@@ -3646,7 +3646,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries city administrative divisions (in Chinese and English) by paging.
+   * Queries city administrative divisions by paging (in Chinese and English).
    * 
    * @param request - GlobalHotelSearchCityPageRequest
    * @param headers - map
@@ -3695,7 +3695,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries city administrative divisions (in Chinese and English) by paging.
+   * Queries city administrative divisions by paging (in Chinese and English).
    * 
    * @param request - GlobalHotelSearchCityPageRequest
    * @returns GlobalHotelSearchCityPageResponse
@@ -3707,7 +3707,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a paged query of the hotel list by city with paging support.
+   * Performs a paged query to retrieve the list of hotels by city with paging support.
    * 
    * @param request - GlobalHotelSearchHotelListRequest
    * @param headers - map
@@ -3756,7 +3756,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a paged query of the hotel list by city with paging support.
+   * Performs a paged query to retrieve the list of hotels by city with paging support.
    * 
    * @param request - GlobalHotelSearchHotelListRequest
    * @returns GlobalHotelSearchHotelListResponse

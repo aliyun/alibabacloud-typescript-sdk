@@ -147,6 +147,10 @@ export class TicketCheckRefundResponseBodyDataRefundRuleRefundStageRulesTo exten
 }
 
 export class TicketCheckRefundResponseBodyDataRefundRuleRefundStageRules extends $dara.Model {
+  /**
+   * @example
+   * 10000
+   */
   fee?: number;
   /**
    * @example
