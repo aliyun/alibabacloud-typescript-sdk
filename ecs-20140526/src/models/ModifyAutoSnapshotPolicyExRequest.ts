@@ -62,8 +62,8 @@ export class ModifyAutoSnapshotPolicyExRequestCopyEncryptionConfiguration extend
    * @remarks
    * Specifies whether to enable encryption for cross-region snapshot replication. Valid values:
    * 
-   * - true: enables encryption. 
-   * - false: does not enable encryption. 
+   * - true: Encryption is enabled. 
+   * - false: Encryption is not enabled. 
    * 
    * Default value: false.
    * 
@@ -73,7 +73,7 @@ export class ModifyAutoSnapshotPolicyExRequestCopyEncryptionConfiguration extend
   encrypted?: boolean;
   /**
    * @remarks
-   * The key ID of the Key Management Service (KMS) key used for encrypted cross-region snapshot replication.
+   * The key ID of the KMS key used for encrypted cross-region snapshot replication.
    * 
    * @example
    * 0e478b7a-4262-4802-b8cb-00d3fb40826X
@@ -151,7 +151,7 @@ export class ModifyAutoSnapshotPolicyExRequest extends $dara.Model {
    * The retention period of cross-region snapshot replicas. Unit: days. Valid values:
    * 
    * - -1: Snapshot replicas are permanently retained.
-   * - 1 to 65535: specifies the number of days for which snapshot replicas are retained.
+   * - 1 to 65535: the number of days for which snapshot replicas are retained.
    * 
    * Default value: -1.
    * 
@@ -222,12 +222,12 @@ export class ModifyAutoSnapshotPolicyExRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The days of the week on which automatic snapshots are created. Unit: days. The cycle is weekly. Valid values: 1 to 7, where 1 indicates Monday.
+   * The days of the week on which automatic snapshots are created. Unit: days. The cycle is weekly. Valid values: 1 to 7. For example, 1 indicates Monday.
    * 
    * To create multiple automatic snapshots within a week, specify multiple days:
    * 
    * - You can specify up to 7 days.
-   * - Specify multiple days in a JSON array in the format of `"1", "2", … "7"`. Separate the days with commas (,).
+   * - Specify multiple days in a JSON array, such as `"1", "2", … "7"`. Separate the days with commas (,).
    * 
    * @example
    * ["1", "7"]
@@ -238,7 +238,7 @@ export class ModifyAutoSnapshotPolicyExRequest extends $dara.Model {
    * The retention period of automatic snapshots. Unit: days. Valid values:
    * 
    * - -1: Automatic snapshots are permanently retained.
-   * - 1 to 65536: specifies the number of days for which automatic snapshots are retained.
+   * - 1 to 65536: the number of days for which automatic snapshots are retained.
    * 
    * Default value: -1.
    * 
@@ -253,7 +253,7 @@ export class ModifyAutoSnapshotPolicyExRequest extends $dara.Model {
    * To create multiple automatic snapshots within a day, specify multiple points in time:
    * 
    * - You can specify up to 24 points in time.
-   * - Specify multiple points in time in a JSON array in the format of `"0", "1", … "23"`. Separate the points in time with commas (,).
+   * - Specify multiple points in time in a JSON array, such as `"0", "1", … "23"`. Separate the points in time with commas (,).
    * 
    * @example
    * ["0", "1"]

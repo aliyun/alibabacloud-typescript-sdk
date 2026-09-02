@@ -23,9 +23,9 @@ export class ModifyDiskSpecResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The task ID for the disk type change.
+   * The task ID for the disk specification change.
    * 
-   * > This parameter is not returned if you only modified the performance level (PL) of an ESSD.
+   * > This parameter is not returned if you only modify the performance level (PL) of an ESSD.
    * 
    * @example
    * t-bp67acfmxazb4p****

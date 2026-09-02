@@ -20,15 +20,15 @@ export class ModifyInstanceNetworkSpecRequest extends $dara.Model {
    * @remarks
    * Specifies whether to automatically complete the payment. Valid values: 
    * 
-   * - true: The payment is automatically completed after the bandwidth configuration is changed. Make sure that your account balance is sufficient. If your account balance is insufficient, an abnormal order is generated. You cannot pay for this order through the ECS console. You can only void the order.  
+   * - true: The payment is automatically completed after the bandwidth configuration is changed. Make sure that your account balance is sufficient. If the balance is insufficient, an abnormal order is generated. You cannot pay for this order in the ECS console. You can only void the order.  
    * 
    * <props="china">
-   * - false: An order is generated but the payment is not completed after the bandwidth configuration is changed. If your payment method has an insufficient balance, you can set the Autopay parameter to false to cancel automatic payment. In this case, an unpaid order is generated. You can log on to the [ECS console](https://ecs.console.aliyun.com) to complete the payment.
+   * - false: An order is generated but the payment is not completed after the bandwidth configuration is changed. If your payment method has an insufficient balance, set the Autopay parameter to false to cancel automatic payment. In this case, a normal unpaid order is generated. You can log on to the [ECS console](https://ecs.console.aliyun.com) to complete the payment.
    * 
    * 
    * 
    * <props="intl">
-   * - false: An order is generated but the payment is not completed after the bandwidth configuration is changed. If your payment method has an insufficient balance, you can set the Autopay parameter to false to cancel automatic payment. In this case, an unpaid order is generated. You can log on to the [ECS console](https://ecs.console.aliyun.com) to complete the payment.
+   * - false: An order is generated but the payment is not completed after the bandwidth configuration is changed. If your payment method has an insufficient balance, set the Autopay parameter to false to cancel automatic payment. In this case, a normal unpaid order is generated. You can log on to the [ECS console](https://ecs.console.aliyun.com) to complete the payment.
    * 
    * 
    * 
@@ -89,14 +89,14 @@ export class ModifyInstanceNetworkSpecRequest extends $dara.Model {
    * @remarks
    * The maximum outbound public bandwidth. Unit: Mbit/s (Megabit per second). Valid values:
    * 
-   * - Pay-by-traffic billing: 0 to 100.
+   * - Pay-by-traffic: 0 to 100.
    * 
-   * - Pay-by-bandwidth billing:
+   * - Pay-by-bandwidth:
    *   - Subscription instances: 0 to 200.
    *   - Pay-as-you-go instances: 0 to 100.
    * 
    * 
-   * > The maximum outbound bandwidth per instance is also limited by the **Network bandwidth baseline/burst (Gbit/s)** metric of the ECS instance type. For more information, see [Instance families](https://help.aliyun.com/document_detail/25378.html).
+   * > The maximum outbound bandwidth of a single instance is also limited by the **Network bandwidth baseline/burst (Gbit/s)** metric of the ECS instance type. For more information, see [Instance families](https://help.aliyun.com/document_detail/25378.html).
    * 
    * @example
    * 10
@@ -104,12 +104,12 @@ export class ModifyInstanceNetworkSpecRequest extends $dara.Model {
   internetMaxBandwidthOut?: number;
   /**
    * @remarks
-   * Transforms the network billing method. Valid values:
+   * Converts the network billing method. Valid values:
    * 
    * - PayByBandwidth: pay-by-bandwidth.
    * - PayByTraffic: pay-by-traffic.
    * 
-   * > In the **pay-by-traffic** mode, the peak inbound and outbound bandwidths are used as upper limits of bandwidths instead of guaranteed performance metrics. When resource contention occurs, the peak bandwidths may be limited. If you require guaranteed bandwidth, use the **pay-by-bandwidth** mode.
+   * > In the **pay-by-traffic** mode, the inbound and outbound bandwidth peaks are both upper limits and are not guaranteed. When resource contention occurs, the bandwidth peaks may be throttled. If your workloads require guaranteed bandwidth, use the **pay-by-bandwidth** mode.
    * 
    * @example
    * PayByTraffic

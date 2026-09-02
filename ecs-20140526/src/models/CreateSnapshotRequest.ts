@@ -50,7 +50,7 @@ export class CreateSnapshotRequest extends $dara.Model {
    * - Standard: standard snapshot.
    * - Flash: local snapshot.
    * 
-   * > This parameter will be deprecated. Standard snapshots for enterprise SSDs have been upgraded to [instant access by default](https://help.aliyun.com/document_detail/193667.html). No additional configuration or fees are required. The snapshot is active immediately after creation.
+   * > This parameter will be deprecated. Standard snapshots for enterprise SSDs have been upgraded to [instant access by default](https://help.aliyun.com/document_detail/193667.html). No additional configuration or costs are required.
    * 
    * @example
    * Standard
@@ -68,7 +68,7 @@ export class CreateSnapshotRequest extends $dara.Model {
    * @remarks
    * The description of the snapshot. The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`.
    * 
-   * Default value: null.
+   * Default value: empty.
    * 
    * @example
    * testDescription
@@ -92,7 +92,7 @@ export class CreateSnapshotRequest extends $dara.Model {
    * 
    * Default value: false.
    * 
-   * > This parameter is deprecated. Standard snapshots for enterprise SSDs have been upgraded to [instant access by default](https://help.aliyun.com/document_detail/193667.html). No additional configuration or fees are required. The snapshot is active immediately after creation.
+   * > This parameter is deprecated. Standard snapshots for enterprise SSDs have been upgraded to [instant access by default](https://help.aliyun.com/document_detail/193667.html). No additional configuration or costs are required.
    * 
    * @example
    * false
@@ -104,7 +104,7 @@ export class CreateSnapshotRequest extends $dara.Model {
    * 
    * The default value is the same as the value of the `RetentionDays` parameter.
    * 
-   * > This parameter is deprecated. Standard snapshots for enterprise SSDs have been upgraded to [instant access by default](https://help.aliyun.com/document_detail/193667.html). No additional configuration or fees are required. The snapshot is active immediately after creation.
+   * > This parameter is deprecated. Standard snapshots for enterprise SSDs have been upgraded to [instant access by default](https://help.aliyun.com/document_detail/193667.html). No additional configuration or costs are required.
    * 
    * @example
    * 1
@@ -126,7 +126,7 @@ export class CreateSnapshotRequest extends $dara.Model {
    * @remarks
    * Settings for the retention period of the snapshot. Unit: days. Valid values: 1 to 65536. The snapshot is subject to automatic release when the retention period expires.
    * 
-   * Default value: null, which indicates that the snapshot is not subject to automatic release.
+   * Default value: empty, which indicates that the snapshot is not subject to automatic release.
    * 
    * @example
    * 30
@@ -136,7 +136,7 @@ export class CreateSnapshotRequest extends $dara.Model {
    * @remarks
    * The name of the snapshot. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with `http://` or `https://`. The name can contain Unicode characters under the letter category (including letters in English and Chinese), ASCII digits (0-9), colons (:), underscores (_), periods (.), and hyphens (-).
    * 
-   * > The name cannot start with `auto` to avoid conflicts with the names of automatic snapshots.
+   * > To prevent naming conflicts with automatic snapshots, the name cannot start with `auto`.
    * 
    * @example
    * testSnapshotName

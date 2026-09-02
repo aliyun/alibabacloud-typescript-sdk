@@ -25,7 +25,7 @@ export class DescribePriceRequestDataDisk extends $dara.Model {
   category?: string;
   /**
    * @remarks
-   * The performance level of data disk N when the disk is an ESSD. This parameter is valid only when `DataDisk.N.Category=cloud_essd`. Valid values:
+   * The performance level of data disk N when the disk is an enterprise SSD (ESSD). This parameter is valid only when `DataDisk.N.Category=cloud_essd`. Valid values:
    * 
    * - PL0.
    * - PL1 (default).
@@ -175,7 +175,7 @@ export class DescribePriceRequestSystemDisk extends $dara.Model {
   category?: string;
   /**
    * @remarks
-   * The performance level of the system disk when the system disk type is enterprise SSD. This parameter takes effect only when `SystemDiskCategory=cloud_essd`. Valid values:
+   * The performance level of the system disk when the system disk type is enterprise SSD. This parameter is valid only when `SystemDiskCategory=cloud_essd`. Valid values:
    * 
    * PL0.
    * PL1 (default).
@@ -188,7 +188,7 @@ export class DescribePriceRequestSystemDisk extends $dara.Model {
   performanceLevel?: string;
   /**
    * @remarks
-   * The size of the system disk, in GiB. Valid values:
+   * The size of the system disk. Unit: GiB. Valid values:
    * 
    * - Basic disk: 20 to 500.
    * - Enterprise SSD:
@@ -199,7 +199,7 @@ export class DescribePriceRequestSystemDisk extends $dara.Model {
    * - ESSD AutoPL disk: 1 to 2048.
    * - Other disk categories: 20 to 2048.
    * 
-   * Default value: max{20, image size corresponding to the ImageId parameter}.
+   * Default value: max{20, image size of the specified ImageId parameter}.
    * 
    * @example
    * 80
@@ -258,7 +258,7 @@ export class DescribePriceRequestRecurrenceRules extends $dara.Model {
    * 
    * - If `RecurrenceType` is set to `Daily`, you can specify only one value. Valid values: 1 to 31. The value indicates the interval in days between recurrences.
    * - If `RecurrenceType` is set to `Weekly`, you can specify multiple values separated by commas (,). The values for Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, and Saturday are 0, 1, 2, 3, 4, 5, and 6. For example, `1,2` indicates Monday and Tuesday.
-   * - If `RecurrenceType` is set to `Monthly`, the format is `A-B`. Valid values of A and B: 1 to 31. B must be greater than or equal to A. For example, `1-5` indicates the 1st to 5th day of each month.
+   * - If `RecurrenceType` is set to `Monthly`, the format is `A-B`. Valid values of A and B: 1 to 31. B must be greater than or equal to A. For example, `1-5` indicates the 1st through 5th day of each month.
    * 
    * > You must specify both `RecurrenceType` and `RecurrenceValue`.
    * 
@@ -309,7 +309,7 @@ export class DescribePriceRequest extends $dara.Model {
   systemDisk?: DescribePriceRequestSystemDisk;
   /**
    * @remarks
-   * The number of Elastic Compute Service (ECS) instances that you want to purchase in a batch with a specific configuration. Valid values: 1 to 1000.
+   * The number of Elastic Compute Service (ECS) instances that you want to purchase. You can use this parameter to query the price of batch purchases. Valid values: 1 to 1000.
    * 
    * Default value: 1.
    * 
@@ -319,7 +319,7 @@ export class DescribePriceRequest extends $dara.Model {
   amount?: number;
   /**
    * @remarks
-   * The total number of times that the elasticity assurance can be applied. Valid values: Unlimited. Currently, only the unlimited mode within the service effective period is supported.
+   * The total number of times that the elasticity assurance can be applied. Set the value to Unlimited. Only the unlimited mode within the service effective period is supported.
    * 
    * Default value: Unlimited.
    * 
@@ -329,7 +329,7 @@ export class DescribePriceRequest extends $dara.Model {
   assuranceTimes?: string;
   /**
    * @remarks
-   * The capacity, in GiB.
+   * The capacity. Unit: GiB.
    * 
    * @example
    * 1024
@@ -365,9 +365,9 @@ export class DescribePriceRequest extends $dara.Model {
   instanceAmount?: number;
   /**
    * @remarks
-   * The total number of vCPUs supported by instances within the elasticity assurance. When you call this operation, the system calculates the number of instances required for the elasticity assurance based on the specified InstanceType (rounded up).
+   * The total number of vCPUs supported by the elasticity assurance. When you call the API, the system calculates the number of instances to be covered by the elasticity assurance based on the specified InstanceType (rounded up).
    * 
-   * > When you call this operation to query the price of an elasticity assurance, you can specify only one of the InstanceCoreCpuCount and InstanceAmount parameters.
+   * > When you call the API to query the price of an elasticity assurance, you can specify only one of the InstanceCoreCpuCount and InstanceAmount parameters.
    * 
    * @example
    * 1024
@@ -396,7 +396,7 @@ export class DescribePriceRequest extends $dara.Model {
   instanceType?: string;
   /**
    * @remarks
-   * The instance type. Currently, only a single instance type can be specified for the unlimited elasticity assurance service.
+   * The instance type. Only a single instance type can be specified for the unlimited elasticity assurance.
    * 
    * @example
    * ecs.g6.xlarge
@@ -417,7 +417,7 @@ export class DescribePriceRequest extends $dara.Model {
   internetChargeType?: string;
   /**
    * @remarks
-   * The maximum outbound public bandwidth, in Mbit/s. Valid values: 0 to 100.
+   * The maximum outbound public bandwidth. Unit: Mbit/s (Megabit per second). Valid values: 0 to 100.
    * 
    * Default value: 0.
    * 
@@ -454,7 +454,7 @@ export class DescribePriceRequest extends $dara.Model {
   isp?: string;
   /**
    * @remarks
-   * The payment type of the reserved instance. Valid values:
+   * The payment option of the reserved instance. Valid values:
    * 
    * - No Upfront: no upfront.
    * - Partial Upfront: partial upfront.
@@ -471,17 +471,17 @@ export class DescribePriceRequest extends $dara.Model {
    * The billing duration of Elastic Compute Service (ECS). Valid values:
    * 
    * <props="china">
-   * - When the PriceUnit parameter is set to Month: 1 to 9.
-   * - When the PriceUnit parameter is set to Year: 1 to 5.
-   * - When the PriceUnit parameter is set to Hour: 1.
-   * - When the PriceUnit parameter is set to Week: 1 to 4.
+   * - If the PriceUnit parameter is set to Month: 1 to 9.
+   * - If the PriceUnit parameter is set to Year: 1 to 5.
+   * - If the PriceUnit parameter is set to Hour: 1.
+   * - If the PriceUnit parameter is set to Week: 1 to 4.
    * 
    * 
    * 
    * <props="intl">
-   * - When the PriceUnit parameter is set to Month: 1 to 9.
-   * - When the PriceUnit parameter is set to Year: 1 to 5.
-   * - When the PriceUnit parameter is set to Hour: 1.
+   * - If the PriceUnit parameter is set to Month: 1 to 9.
+   * - If the PriceUnit parameter is set to Year: 1 to 5.
+   * - If the PriceUnit parameter is set to Hour: 1.
    * 
    * 
    * 
@@ -503,20 +503,20 @@ export class DescribePriceRequest extends $dara.Model {
   platform?: string;
   /**
    * @remarks
-   * The pricing unit for querying Elastic Compute Service (ECS) prices across different billing cycles. Valid values:
+   * Queries the prices of Elastic Compute Service (ECS) for different billing cycles. Valid values:
    * 
    * <props="china">
-   * - Month: monthly pricing unit.
-   * - Year: yearly pricing unit.
-   * - Hour (default): hourly pricing unit.
-   * - Week: weekly pricing unit.
+   * - Month: the monthly price.
+   * - Year: the yearly price.
+   * - Hour (default): the hourly price.
+   * - Week: the weekly price.
    * 
    * 
    * 
    * <props="intl">
-   * - Month: monthly pricing unit.
-   * - Year: yearly pricing unit.
-   * - Hour (default): hourly pricing unit.
+   * - Month: the monthly price.
+   * - Year: the yearly price.
+   * - Hour (default): the hourly price.
    * 
    * @example
    * Year
@@ -552,13 +552,13 @@ export class DescribePriceRequest extends $dara.Model {
   /**
    * @remarks
    * The type of the resource. Valid values:
-   * - instance: queries the latest price list of ECS instances. When this parameter is set to `instance`, you must also specify the `InstanceType` parameter.
-   * - disk: queries the latest price list of disks. When this parameter is set to `disk`, you must also specify the `DataDisk.1.Category` and `DataDisk.1.Size` parameters.
-   * - diskperformance: queries the latest price list of provisioned performance for ESSD AutoPL disks. You must also specify the `DataDisk.1.Category` and `DataDisk.1.ProvisionedIops` parameters.
-   * - bandwidth: queries the latest price list of bandwidth.
-   * - ddh: queries the latest price list of dedicated hosts.
-   * - ElasticityAssurance: queries the price of elasticity assurance services. When this parameter is set to `ElasticityAssurance`, you must also specify the `InstanceType` parameter.
-   * - CapacityReservation: queries the price of capacity reservation services. When this parameter is set to `CapacityReservation`, you must also specify the `InstanceType` parameter.
+   * - instance: queries the most recent price list of ECS instances. If you set this parameter to `instance`, you must also specify the `InstanceType` parameter.
+   * - disk: queries the most recent price list of disks. If you set this parameter to `disk`, you must also specify the `DataDisk.1.Category` and `DataDisk.1.Size` parameters.
+   * - diskperformance: queries the most recent price list of provisioned performance for ESSD AutoPL disks. You must also specify the `DataDisk.1.Category` and `DataDisk.1.ProvisionedIops` parameters.
+   * - bandwidth: queries the most recent price list of bandwidth.
+   * - ddh: queries the most recent price list of dedicated hosts.
+   * - ElasticityAssurance: queries the price of elasticity assurance services. If you set this parameter to `ElasticityAssurance`, you must also specify the `InstanceType` parameter.
+   * - CapacityReservation: queries the price of capacity reservation services. If you set this parameter to `CapacityReservation`, you must also specify the `InstanceType` parameter.
    * 
    * Default value: instance.
    * 
@@ -581,11 +581,11 @@ export class DescribePriceRequest extends $dara.Model {
   scope?: string;
   /**
    * @remarks
-   * The protection period of the spot instance, in hours. Default value: 1. Valid values:
+   * The protection period of the spot instance. Unit: hours. Default value: 1. Valid values:
    * - 1: After a spot instance is created, Alibaba Cloud ensures that the instance is not automatically released within 1 hour. After 1 hour, the system automatically compares the bid price with the market price and checks the resource inventory to determine whether to retain automatic release the instance.
    * - 0: After a spot instance is created, Alibaba Cloud does not ensure that the instance runs for 1 hour. The system automatically compares the bid price with the market price and checks the resource inventory to determine whether to retain automatic release the instance.
    * 
-   * Alibaba Cloud sends an ECS system event notification 5 minutes before the instance is released. Spot instances are billed by second. Select an appropriate protection period based on the expected task execution duration.
+   * Alibaba Cloud sends a notification through an ECS system event 5 minutes before the instance is released. Spot instances are billed by second. Select an appropriate protection period based on the expected task execution duration.
    * 
    * > This parameter takes effect only when SpotStrategy is set to SpotWithPriceLimit or SpotAsPriceGo.
    * 
@@ -595,14 +595,14 @@ export class DescribePriceRequest extends $dara.Model {
   spotDuration?: number;
   /**
    * @remarks
-   * The bidding policy for pay-as-you-go instances. Valid values:
+   * The bidding policy for the pay-as-you-go instance. Valid values:
    * - NoSpot: a regular pay-as-you-go instance.
    * - SpotWithPriceLimit: a spot instance with a maximum price limit.
    * - SpotAsPriceGo: a spot instance priced at the market price with the pay-as-you-go price as the upper limit.
    * 
    * Default value: NoSpot.
    * 
-   * > This parameter takes effect only when `PriceUnit=Hour` and `Period=1`. Because the default value of `PriceUnit` is `Hour` and the default value of `Period` is `1`, you do not need to set the `PriceUnit` and `Period` parameters when you set this parameter.
+   * > This parameter takes effect only when `PriceUnit=Hour` and `Period=1`. Because the default value of `PriceUnit` is `Hour` and the default value of `Period` is `1`, you do not need to set the `PriceUnit` and `Period` parameters when you specify this parameter.
    * 
    * @example
    * NoSpot

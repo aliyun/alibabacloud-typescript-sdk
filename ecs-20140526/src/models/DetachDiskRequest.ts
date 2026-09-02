@@ -10,7 +10,7 @@ export class DetachDiskRequest extends $dara.Model {
    * - true: The disk is released together with the instance.
    * - false: The disk is not released together with the instance. The disk is retained as a pay-as-you-go data disk.
    * 
-   * Default value: true.
+   * Default value: true
    * 
    * Take note of the following items:
    * 
@@ -28,9 +28,9 @@ export class DetachDiskRequest extends $dara.Model {
    * 
    * - The disk must be attached to an instance and in the In Use (`In_use`) state.
    * 
-   * - When you detach a data disk, the instance to which the disk is attached must be in the Running (`Running`) or Stopped (`Stopped`) state.
+   * - To detach a data disk, the instance to which the disk is attached must be in the Running (`Running`) or Stopped (`Stopped`) state.
    * 
-   * - When you detach a system disk, the instance to which the disk is attached must be in the Stopped (`Stopped`) state.
+   * - To detach a system disk, the instance to which the disk is attached must be in the Stopped (`Stopped`) state.
    * 
    * This parameter is required.
    * 
@@ -40,7 +40,7 @@ export class DetachDiskRequest extends $dara.Model {
   diskId?: string;
   /**
    * @remarks
-   * The ID of the ECS instance to which the disk to be detached is attached.
+   * The instance ID of the ECS instance from which you want to uninstall the disk that is attached to it.
    * 
    * This parameter is required.
    * 

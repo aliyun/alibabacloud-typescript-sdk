@@ -9,7 +9,7 @@ export class ModifyInstanceAutoReleaseTimeRequest extends $dara.Model {
    * 
    * - If the value of seconds (`ss`) is not `00`, the time is automatically set to the start of the current minute (`mm`).
    * 
-   * - The earliest release time must be at least 30 minutes after the current time.
+   * - The earliest release time must be at least 30 minutes from the current time.
    * 
    * - The latest release time cannot be more than three years from the current time.
    * 
@@ -21,7 +21,7 @@ export class ModifyInstanceAutoReleaseTimeRequest extends $dara.Model {
   autoReleaseTime?: string;
   /**
    * @remarks
-   * The instance ID of the ECS instance for which to configure automatic release.
+   * The ID of the ECS instance for which to configure automatic release.
    * 
    * This parameter is required.
    * 

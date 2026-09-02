@@ -8,7 +8,7 @@ export class ModifyDiskChargeTypeRequest extends $dara.Model {
    * Specifies whether to enable automatic payment. Valid values: 
    *          
    * - true (default): Automatic payment is enabled. Make sure that your account balance is sufficient. If your account balance is insufficient, an abnormal order is generated, and you can only void the order. 
-   * - false: Only an order is generated without payment. If your account balance is insufficient, a normal unpaid order is generated. You can log on to the Alibaba Cloud **Expenses and Costs** console and pay for the order on the <props="china"><ph>[My Orders](https://usercenter2.aliyun.com/order/list)</ph><props="intl"><ph>[Orders](https://usercenter2-intl.aliyun.com/order/list)</ph> page.
+   * - false: An order is generated but payment is not automatically completed. If your account balance is insufficient, an unpaid order is generated. You can log on to the Alibaba Cloud **Expenses and Costs** console and go to the <props="china"><ph>[Orders](https://usercenter2.aliyun.com/order/list)</ph><props="intl"><ph>[Orders](https://usercenter2-intl.aliyun.com/order/list)</ph> page to complete the payment.
    * 
    * @example
    * true
@@ -29,7 +29,7 @@ export class ModifyDiskChargeTypeRequest extends $dara.Model {
    * - PrePaid (default): Converts pay-as-you-go data disks to subscription data disks. 
    * - PostPaid: Converts subscription data disks to pay-as-you-go data disks.
    * 
-   * > When you convert a pay-as-you-go disk to subscription, the billing cycle of the disk capacity fee is automatically synchronized with the associated ECS instance.
+   * > When you convert pay-as-you-go disks to subscription, the billing cycle of the capacity fee is automatically synchronized with the associated ECS instance.
    * 
    * @example
    * PostPaid
@@ -37,7 +37,7 @@ export class ModifyDiskChargeTypeRequest extends $dara.Model {
   diskChargeType?: string;
   /**
    * @remarks
-   * The list of disk IDs. The value is a JSON array that contains up to 16 IDs separated by commas (,).
+   * The list of disk IDs. The value is a JSON array that contains up to 16 disk IDs. Separate multiple IDs with commas (,).
    * 
    * This parameter is required.
    * 
@@ -47,7 +47,7 @@ export class ModifyDiskChargeTypeRequest extends $dara.Model {
   diskIds?: string;
   /**
    * @remarks
-   * The instance ID of the instance to which the disk is attached.
+   * The instance ID of the instance to which the disks are attached.
    * 
    * This parameter is required.
    * 

@@ -199,15 +199,18 @@ export class DescribeDedicatedHostsResponseBodyDedicatedHostsDedicatedHostCapaci
 
 export class DescribeDedicatedHostsResponseBodyDedicatedHostsDedicatedHostHostDetailInfo extends $dara.Model {
   serialNumber?: string;
+  vgpuVersion?: string;
   static names(): { [key: string]: string } {
     return {
       serialNumber: 'SerialNumber',
+      vgpuVersion: 'VgpuVersion',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       serialNumber: 'string',
+      vgpuVersion: 'string',
     };
   }
 
@@ -662,7 +665,7 @@ export class DescribeDedicatedHostsResponseBody extends $dara.Model {
   dedicatedHosts?: DescribeDedicatedHostsResponseBodyDedicatedHosts;
   /**
    * @remarks
-   * The paging token returned in this call. When you use MaxResults and NextToken for paging query, an empty value indicates that no more data is available.
+   * The query token returned by this call. If this value is empty when you use MaxResults and NextToken for paging, no more data is returned.
    * 
    * @example
    * e71d8a535bd9cc11

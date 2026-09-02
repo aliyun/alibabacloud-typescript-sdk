@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyInstanceNetworkSpecResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The order ID. This parameter is returned only when the bandwidth configuration of a subscription (PrePaid) instance is modified.
+   * The order ID. This parameter is returned only when you modify the bandwidth configuration of a subscription (PrePaid) instance.
    * 
    * @example
    * 123457890

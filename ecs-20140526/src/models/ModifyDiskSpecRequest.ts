@@ -9,7 +9,6 @@ export class ModifyDiskSpecRequestPerformanceControlOptions extends $dara.Model 
    * 
    * Valid values: 900 to the maximum IOPS per disk, in increments of 100.
    * 
-   * 
    * For more information, see [Disk performance](https://help.aliyun.com/document_detail/25382.html).
    * 
    * @example
@@ -20,10 +19,9 @@ export class ModifyDiskSpecRequestPerformanceControlOptions extends $dara.Model 
    * @remarks
    * Resets the disk performance. Only disks in a dedicated storage cluster are supported.
    * 
-   * If this parameter is specified, the PerformanceControlOptions.IOPS and PerformanceControlOptions.Throughput parameters do not take effect.
+   * If this parameter is set, the PerformanceControlOptions.IOPS and PerformanceControlOptions.Throughput parameters do not take effect.
    * 
-   * 
-   * The only valid value is All, which resets the disk IOPS and throughput to their initial values.
+   * Currently, only the value All is supported, which resets the disk IOPS and throughput to their initial values.
    * 
    * @example
    * All
@@ -69,7 +67,7 @@ export class ModifyDiskSpecRequestPerformanceControlOptions extends $dara.Model 
 export class ModifyDiskSpecRequest extends $dara.Model {
   /**
    * @remarks
-   * > This parameter is in invitational preview and is not available for general use.
+   * > This parameter is in invitational preview and is not available for use.
    * 
    * @example
    * cn-hangzhou-g
@@ -79,7 +77,7 @@ export class ModifyDiskSpecRequest extends $dara.Model {
    * @remarks
    * The new type of the disk. Valid values:
    * 
-   * - cloud_essd: enterprise SSD.
+   * - cloud_essd: enterprise SSD (ESSD).
    * - cloud_auto: ESSD AutoPL disk.
    * - cloud_ssd: standard SSD.
    * <props="china">
@@ -89,10 +87,10 @@ export class ModifyDiskSpecRequest extends $dara.Model {
    * 
    * Default value: empty, which indicates that the disk type is not changed.
    * 
-   * > - The valid values above are listed in descending order of disk performance. If the disk is a subscription disk, downgrading is not allowed.
+   * > - The valid values above are listed in descending order of disk performance. If the specified disk is a subscription disk, you cannot downgrade the disk type.
    * 
    * <props="china">
-   * - ESSD Entry disks can be changed only to enterprise SSDs or ESSD AutoPL disks. For more information, see [Change the disk type](https://help.aliyun.com/document_detail/161980.html).
+   * - ESSD Entry disks can be changed only to enterprise SSDs (ESSDs) or ESSD AutoPL disks. For more information, see [Change the disk type](https://help.aliyun.com/document_detail/161980.html).
    * 
    * @example
    * cloud_essd
@@ -110,7 +108,7 @@ export class ModifyDiskSpecRequest extends $dara.Model {
   diskId?: string;
   /**
    * @remarks
-   * Specifies whether to perform only a dry run without performing the actual request. Valid values:
+   * Specifies whether to perform only a dry run. Valid values:
    * 
    * * true: performs only a dry run. The system checks whether your AccessKey pair is valid, whether RAM users are granted permissions, and whether the required parameters are specified. If the check fails, the corresponding error is returned. If the check succeeds, the DryRunOperation error code is returned.
    * 
@@ -131,7 +129,7 @@ export class ModifyDiskSpecRequest extends $dara.Model {
   performanceControlOptions?: ModifyDiskSpecRequestPerformanceControlOptions;
   /**
    * @remarks
-   * The new performance level (PL) of the ESSD. Valid values:
+   * The new performance level (PL) of an ESSD. Valid values:
    * 
    * - PL0: A single disk can deliver up to 10,000 random read/write IOPS.
    * - PL1: A single disk can deliver up to 50,000 random read/write IOPS.
