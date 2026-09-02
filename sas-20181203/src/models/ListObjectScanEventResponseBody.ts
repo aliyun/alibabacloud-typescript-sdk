@@ -73,6 +73,12 @@ export class ListObjectScanEventResponseBodyDataDetails extends $dara.Model {
 }
 
 export class ListObjectScanEventResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether the alert was detected by AI. Valid values:
+   * - true: The alert was detected by AI.
+   * - false: The alert was not detected by AI.
+   */
   aiDetect?: boolean;
   /**
    * @remarks
@@ -198,11 +204,11 @@ export class ListObjectScanEventResponseBodyData extends $dara.Model {
   remark?: string;
   /**
    * @remarks
-   * The risk level of the scanned alert. Valid values:
+   * The risk level of the detected alert. Valid values:
    * 
-   * - **high**: high risk.
-   * - **medium**: medium risk.
-   * - **low**: low risk.
+   * - **high**: High risk.
+   * - **medium**: Medium risk.
+   * - **low**: Low risk.
    * 
    * @example
    * medium
@@ -227,8 +233,8 @@ export class ListObjectScanEventResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The data source. Valid values:
-   * - **API**: API detection
-   * - **OSS**: OSS detection.
+   * - **API**: API-based detection.
+   * - **OSS**: OSS-based detection.
    * 
    * @example
    * OSS
@@ -238,11 +244,11 @@ export class ListObjectScanEventResponseBodyData extends $dara.Model {
    * @remarks
    * The event status. Valid values:
    * 
-   * - 0: unhandled 
-   * - 1: manually handled
-   * - 2: whitelisted
-   * - 3: ignored
-   * - 4: access denied.
+   * - 0: Unhandled. 
+   * - 1: Manually handled.
+   * - 2: Whitelisted.
+   * - 3: Ignored.
+   * - 4: Access blocked.
    * 
    * @example
    * 0
@@ -315,7 +321,7 @@ export class ListObjectScanEventResponseBodyData extends $dara.Model {
 export class ListObjectScanEventResponseBodyPageInfo extends $dara.Model {
   /**
    * @remarks
-   * The page number of the current page in the paged query.
+   * The page number of the current page in a paging query.
    * 
    * @example
    * 1
@@ -323,7 +329,7 @@ export class ListObjectScanEventResponseBodyPageInfo extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The maximum number of entries displayed on each page in the paged query.
+   * The maximum number of entries returned per page in a paging query.
    * 
    * @example
    * 20
@@ -370,7 +376,7 @@ export class ListObjectScanEventResponseBody extends $dara.Model {
   data?: ListObjectScanEventResponseBodyData[];
   /**
    * @remarks
-   * The pagination information for the paged query.
+   * The paging information for the paging query.
    */
   pageInfo?: ListObjectScanEventResponseBodyPageInfo;
   /**

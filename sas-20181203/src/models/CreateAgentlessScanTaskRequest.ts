@@ -13,7 +13,7 @@ export class CreateAgentlessScanTaskRequest extends $dara.Model {
   assetSelectionType?: string;
   /**
    * @remarks
-   * The image retention period, in days. This parameter takes effect only for host detection and does not take effect for user snapshot detection or user custom image detection.
+   * The image retention period, in days. This parameter takes effect only for host detection. It does not take effect for user snapshot detection or user custom image detection.
    * 
    * @example
    * 1
@@ -29,7 +29,7 @@ export class CreateAgentlessScanTaskRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The region ID of the instance to query. Valid values:
+   * The ID of the region in which the instance resides. Valid values:
    * 
    * - **cn-hangzhou** (default): China.
    * - **ap-southeast-1**: outside China.

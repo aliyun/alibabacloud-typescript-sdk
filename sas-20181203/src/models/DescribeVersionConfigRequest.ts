@@ -6,7 +6,7 @@ export class DescribeVersionConfigRequest extends $dara.Model {
   /**
    * @remarks
    * The Alibaba Cloud account ID that uses the Security Center service.  
-   * > Call the [GetUser](https://help.aliyun.com/document_detail/28681.html) operation to obtain this parameter.
+   * > Invoke the [GetUser](https://help.aliyun.com/document_detail/28681.html) operation to obtain this parameter.
    * 
    * @example
    * 127608589417****

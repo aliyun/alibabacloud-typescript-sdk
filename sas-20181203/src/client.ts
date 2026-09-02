@@ -2973,6 +2973,10 @@ export default class Client extends OpenApi {
       query["PolicyVersion"] = request.policyVersion;
     }
 
+    if (!$dara.isNull(request.selectType)) {
+      query["SelectType"] = request.selectType;
+    }
+
     if (!$dara.isNull(request.uuidList)) {
       query["UuidList"] = request.uuidList;
     }
@@ -10350,7 +10354,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query anti-ransomware protection policies.
+   * Queries anti-ransomware mitigation policies.
    * 
    * @param request - DescribeBackupPoliciesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10397,7 +10401,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query anti-ransomware protection policies.
+   * Queries anti-ransomware mitigation policies.
    * 
    * @param request - DescribeBackupPoliciesRequest
    * @returns DescribeBackupPoliciesResponse
@@ -24020,7 +24024,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询 UUID 维度的漏洞数量统计
+   * Queries vulnerability count statistics by UUID.
    * 
    * @param request - DescribeUuidVulNumClassifyStatisticRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -24055,7 +24059,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询 UUID 维度的漏洞数量统计
+   * Queries vulnerability count statistics by UUID.
    * 
    * @param request - DescribeUuidVulNumClassifyStatisticRequest
    * @returns DescribeUuidVulNumClassifyStatisticResponse
@@ -41514,7 +41518,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies an anti-ransomware mitigation policy.
+   * Modifies an anti-ransomware policy.
    * 
    * @param tmpReq - ModifyBackupPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -41549,6 +41553,10 @@ export default class Client extends OpenApi {
       query["PolicyVersion"] = request.policyVersion;
     }
 
+    if (!$dara.isNull(request.selectType)) {
+      query["SelectType"] = request.selectType;
+    }
+
     if (!$dara.isNull(request.uuidList)) {
       query["UuidList"] = request.uuidList;
     }
@@ -41571,7 +41579,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies an anti-ransomware mitigation policy.
+   * Modifies an anti-ransomware policy.
    * 
    * @param request - ModifyBackupPolicyRequest
    * @returns ModifyBackupPolicyResponse

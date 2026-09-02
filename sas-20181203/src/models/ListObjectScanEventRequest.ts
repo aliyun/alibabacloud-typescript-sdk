@@ -3,12 +3,18 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListObjectScanEventRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether the alert was detected by AI. Valid values:
+   * - true: The alert was detected by AI.
+   * - false: The alert was not detected by AI.
+   */
   aiDetect?: boolean;
   /**
    * @remarks
    * The batch operation type. Valid values:
    * 
-   * - **sha256**: same file content
+   * - **sha256**: same file content.
    * 
    * - **eventName**: same alerting type.
    * 
@@ -26,7 +32,7 @@ export class ListObjectScanEventRequest extends $dara.Model {
   bucketName?: string;
   /**
    * @remarks
-   * The page number of the current page when you perform a paged query.
+   * The page number of the current page in a paging query.
    * 
    * This parameter is required.
    * 
@@ -52,8 +58,8 @@ export class ListObjectScanEventRequest extends $dara.Model {
   eventName?: string;
   /**
    * @remarks
-   * The language type for the request and response messages. Default value: **zh**. Valid values:
-   * - **zh**: Chinese
+   * The language of the request and response. Default value: **zh**. Valid values:
+   * - **zh**: Chinese.
    * - **en**: English.
    * 
    * @example
@@ -78,7 +84,7 @@ export class ListObjectScanEventRequest extends $dara.Model {
   ossKey?: string;
   /**
    * @remarks
-   * The maximum number of entries to return on each page when you perform a paged query.
+   * The maximum number of entries to return on each page in a paging query.
    * 
    * This parameter is required.
    * 
@@ -103,11 +109,11 @@ export class ListObjectScanEventRequest extends $dara.Model {
    * @remarks
    * The risk level. Valid values:
    * 
-   * - **high**: high risk
+   * - **high**: High risk.
    * 
-   * - **medium**: medium risk
+   * - **medium**: Medium risk.
    * 
-   * - **low**: low risk.
+   * - **low**: Low risk.
    * 
    * @example
    * low
@@ -116,8 +122,8 @@ export class ListObjectScanEventRequest extends $dara.Model {
   /**
    * @remarks
    * The data source. Valid values:
-   * - **API**: API detection
-   * - **OSS**: OSS detection.
+   * - **API**: API-based detection.
+   * - **OSS**: OSS-based detection.
    * 
    * @example
    * OSS
@@ -127,11 +133,11 @@ export class ListObjectScanEventRequest extends $dara.Model {
    * @remarks
    * The event status. Valid values:
    * 
-   * - 0: unhandled 
-   * - 1: manually handled
-   * - 2: whitelisted
-   * - 3: ignored
-   * - 4: access denied.
+   * - 0: Unhandled. 
+   * - 1: Manually handled.
+   * - 2: Whitelisted.
+   * - 3: Ignored.
+   * - 4: Access blocked.
    * 
    * @example
    * 0
@@ -139,7 +145,7 @@ export class ListObjectScanEventRequest extends $dara.Model {
   status?: number;
   /**
    * @remarks
-   * The end time of the time range during which the exception event occurred.
+   * The end time of the time range during which the anomalous event occurred.
    * 
    * @example
    * 1683862286000
@@ -147,7 +153,7 @@ export class ListObjectScanEventRequest extends $dara.Model {
   timeEnd?: number;
   /**
    * @remarks
-   * The start time of the time range during which the exception event occurred.
+   * The start time of the time range during which the anomalous event occurred.
    * 
    * @example
    * 1683603086000

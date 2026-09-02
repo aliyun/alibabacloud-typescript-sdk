@@ -35,8 +35,8 @@ export class DescribeVersionConfigResponseBodyTrialModuleList extends $dara.Mode
 export class DescribeVersionConfigResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of agentless detections.
-   * > Agentless detection is not currently available for purchase. You do not need to pay attention to this field.
+   * The number of agentless detection licenses.
+   * > Agentless detection is not available for purchase. You can ignore this field.
    * 
    * @example
    * 10
@@ -44,8 +44,7 @@ export class DescribeVersionConfigResponseBody extends $dara.Model {
   agentlessCapacity?: number;
   /**
    * @remarks
-   * Indicates whether pay-as-you-go purchasing is allowed. Valid values:
-   * 
+   * Indicates whether pay-as-you-go purchases are allowed. Valid values:
    * - **0**: Not allowed.
    * - **1**: Allowed.
    * 
@@ -63,9 +62,9 @@ export class DescribeVersionConfigResponseBody extends $dara.Model {
   antiRansomwareCapacity?: number;
   /**
    * @remarks
-   * The anti-ransomware managed service. Valid values:
-   * - **0**: Not enabled.
-   * - **1**: Enabled.
+   * The status of the anti-ransomware managed service. Valid values:
+   * - **0**: Not activated.
+   * - **1**: Activated.
    * 
    * @example
    * 1
@@ -74,7 +73,7 @@ export class DescribeVersionConfigResponseBody extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the application whitelist is enabled. Valid values:
-   * - **0**: Not enabled.
+   * - **0**: Disabled.
    * - **2**: Enabled.
    * 
    * @example
@@ -84,7 +83,7 @@ export class DescribeVersionConfigResponseBody extends $dara.Model {
   /**
    * @remarks
    * The number of application whitelist authorizations.
-   * > One authorization can apply an application whitelist policy to one server. After the application whitelist feature is enabled, the account has 20 authorizations by default.
+   * > One authorization allows you to apply a whitelist policy to one server. After the application whitelist feature is enabled, the account has 20 authorizations by default.
    * 
    * @example
    * 20
@@ -92,7 +91,7 @@ export class DescribeVersionConfigResponseBody extends $dara.Model {
   appWhiteListAuthCount?: number;
   /**
    * @remarks
-   * The number of purchased server authorizations.
+   * The number of purchased server authorization licenses.
    * 
    * @example
    * 30
@@ -100,7 +99,7 @@ export class DescribeVersionConfigResponseBody extends $dara.Model {
   assetLevel?: number;
   /**
    * @remarks
-   * Indicates whether EDR is purchased.
+   * Indicates whether Endpoint Detection and Response (EDR) is purchased.
    * 
    * @example
    * true
@@ -108,7 +107,7 @@ export class DescribeVersionConfigResponseBody extends $dara.Model {
   buySasEdr?: string;
   /**
    * @remarks
-   * Indicates whether the post-paid trial package can be activated. Valid values:
+   * Indicates whether the pay-as-you-go trial plan can be activated. Valid values:
    * - **0**: Not supported.
    * - **1**: Supported.
    * 
@@ -118,7 +117,7 @@ export class DescribeVersionConfigResponseBody extends $dara.Model {
   canTryPostPaidPackage?: number;
   /**
    * @remarks
-   * The number of purchased cloud platform configuration check scans. Unit: times/month.
+   * The number of purchased Cloud Security Posture Management (CSPM) scans. Unit: times per month.
    * 
    * @example
    * 10
@@ -134,14 +133,14 @@ export class DescribeVersionConfigResponseBody extends $dara.Model {
   cspmInstanceCapacity?: number;
   /**
    * @remarks
-   * The highest purchased Security Center version. Valid values:
-   * - **1**: Free edition.
-   * - **3**: Enterprise edition.
-   * - **5**: Advanced edition.
-   * - **6**: Anti-virus edition.
-   * - **7**: Ultimate edition.
+   * The highest purchased edition of Security Center. Valid values:
+   * - **1**: Free Edition.
+   * - **3**: Enterprise Edition.
+   * - **5**: Advanced Edition.
+   * - **6**: Anti-virus Edition.
+   * - **7**: Ultimate Edition.
    * - **10**: Value-added services only.
-   * > If a single version is purchased, this value indicates the corresponding version. If multiple versions are purchased, this value indicates the highest version among the purchased Security Center versions.
+   * > If a single version is purchased, this value indicates the corresponding version. If multiple versions are purchased, this value indicates the highest version among the purchased versions.
    * 
    * @example
    * 1
@@ -149,7 +148,7 @@ export class DescribeVersionConfigResponseBody extends $dara.Model {
   highestVersion?: number;
   /**
    * @remarks
-   * The number of purchased honeypot authorizations.
+   * The number of purchased honeypot authorization licenses.
    * 
    * @example
    * 20
@@ -157,7 +156,7 @@ export class DescribeVersionConfigResponseBody extends $dara.Model {
   honeypotCapacity?: number;
   /**
    * @remarks
-   * The grayscale module for elastic billing.
+   * The canary release module for elastic billing.
    * 
    * @example
    * {"CSPM_INSTANCE":1}
@@ -173,7 +172,7 @@ export class DescribeVersionConfigResponseBody extends $dara.Model {
   hybridPaidModuleSwitchMap?: number;
   /**
    * @remarks
-   * The elastic billing switch status.
+   * The status of the elastic billing switch.
    * 
    * @example
    * 1
@@ -189,7 +188,7 @@ export class DescribeVersionConfigResponseBody extends $dara.Model {
   hybridSwitch?: number;
   /**
    * @remarks
-   * The number of purchased image scan authorizations.
+   * The number of purchased image scan authorization licenses.
    * 
    * @example
    * 8954
@@ -199,7 +198,7 @@ export class DescribeVersionConfigResponseBody extends $dara.Model {
    * @remarks
    * The instance purchase type. Valid values:
    * - **0**: Self-purchased.
-   * - **1**: Allocated by multi-account management.
+   * - **1**: Allocated through multi-account management.
    * 
    * @example
    * 0
@@ -207,7 +206,7 @@ export class DescribeVersionConfigResponseBody extends $dara.Model {
   instanceBuyType?: number;
   /**
    * @remarks
-   * The ID of the purchased Security Center instance.
+   * The instance ID of the purchased Security Center instance.
    * 
    * @example
    * sas-vg6hafdsafs****
@@ -223,11 +222,9 @@ export class DescribeVersionConfigResponseBody extends $dara.Model {
   intelligentAnalysisFlow?: number;
   /**
    * @remarks
-   * Indicates whether this is the new Ultimate edition. Valid values:
-   * 
-   * - **true**: The latest version.
-   * 
-   * - **false**: Not the latest version.
+   * Indicates whether the instance is the new Ultimate Edition. Valid values:
+   * - **true**: The instance is the latest version.
+   * - **false**: The instance is not the latest version.
    * 
    * @example
    * true
@@ -235,11 +232,9 @@ export class DescribeVersionConfigResponseBody extends $dara.Model {
   isNewContainerVersion?: boolean;
   /**
    * @remarks
-   * Indicates whether this is the new multi-version edition. Valid values:
-   * 
-   * - **true**: The latest multi-version edition.
-   * 
-   * - **false**: Not the latest multi-version edition.
+   * Indicates whether the instance is the new multi-version edition. Valid values:
+   * - **true**: The instance is the latest multi-version edition.
+   * - **false**: The instance is not the latest multi-version edition.
    * 
    * @example
    * true
@@ -247,11 +242,11 @@ export class DescribeVersionConfigResponseBody extends $dara.Model {
   isNewMultiVersion?: boolean;
   /**
    * @remarks
-   * Indicates whether the current number of servers exceeds the maximum number of purchased authorizations. Valid values:
-   * - **false**: Not exceeded.
-   * - **true**: Exceeded.
+   * Indicates whether the number of existing servers exceeds the maximum number of purchased authorizations. Valid values:
+   * - **false**: The number does not exceed the limit.
+   * - **true**: The number exceeds the limit.
    * 
-   * >Notice: This parameter is deprecated. You do not need to pay attention to it.
+   * >Notice: This parameter is deprecated. You can ignore it.
    * 
    * @example
    * false
@@ -260,7 +255,7 @@ export class DescribeVersionConfigResponseBody extends $dara.Model {
   /**
    * @remarks
    * Indicates whether pay-as-you-go billing is enabled. Valid values:
-   * - **false**: Not enabled.
+   * - **false**: Disabled.
    * - **true**: Enabled.
    * 
    * @example
@@ -269,7 +264,7 @@ export class DescribeVersionConfigResponseBody extends $dara.Model {
   isPostpay?: boolean;
   /**
    * @remarks
-   * Indicates whether the current Security Center version is a trial version. Valid values:
+   * Indicates whether the current Security Center edition is a trial version. Valid values:
    * - **0**: Not a trial version.
    * - **1**: Trial version.
    * 
@@ -279,7 +274,7 @@ export class DescribeVersionConfigResponseBody extends $dara.Model {
   isTrialVersion?: number;
   /**
    * @remarks
-   * The end timestamp of the last trial of Security Center. Unit: milliseconds.
+   * The timestamp when the last trial of Security Center ended. Unit: milliseconds.
    * 
    * @example
    * 1603934844000
@@ -303,12 +298,12 @@ export class DescribeVersionConfigResponseBody extends $dara.Model {
   MVUnusedAuthCount?: number;
   /**
    * @remarks
-   * The higher protection version between the subscription and pay-as-you-go Security Center host and container security services when both are enabled. Valid values:
-   * - **1**: Free edition.
-   * - **6**: Anti-virus edition.
-   * - **5**: Advanced edition.
-   * - **3**: Enterprise edition.
-   * - **7**: Ultimate edition.
+   * The higher protection edition between the subscription and pay-as-you-go services when both host protection and container protection of Security Center are activated. Valid values:
+   * - **1**: Basic Edition.
+   * - **6**: Anti-virus Edition.
+   * - **5**: Advanced Edition.
+   * - **3**: Enterprise Edition.
+   * - **7**: Ultimate Edition.
    * 
    * @example
    * 7
@@ -332,9 +327,9 @@ export class DescribeVersionConfigResponseBody extends $dara.Model {
   newPostPaidCspm?: number;
   /**
    * @remarks
-   * Indicates whether the new threat analysis and response service is enabled. The new threat analysis and response service supports purchasing ingestion traffic and log storage capacity. Valid values:
-   * - **0**: No.
-   * - **1**: Yes.
+   * Indicates whether the new version of Cloud Threat Detection and Response (CTDR) is enabled. The new version of CTDR supports purchasing log ingestion traffic and log storage capacity. Valid values:
+   * - **0**: Disabled.
+   * - **1**: Enabled.
    * 
    * @example
    * 1
@@ -358,12 +353,12 @@ export class DescribeVersionConfigResponseBody extends $dara.Model {
   openTime?: number;
   /**
    * @remarks
-   * The highest protection version bound to assets when the host and container security pay-as-you-go service is enabled. Valid values:
-   * - **1**: Free edition.
-   * - **3**: Enterprise edition.
-   * - **5**: Advanced edition.
-   * - **6**: Anti-virus edition.
-   * - **7**: Ultimate edition.
+   * The highest protection edition bound to assets when the pay-as-you-go host and container security service is activated. Valid values:
+   * - **1**: Free Edition.
+   * - **3**: Enterprise Edition.
+   * - **5**: Advanced Edition.
+   * - **6**: Anti-virus Edition.
+   * - **7**: Ultimate Edition.
    * 
    * @example
    * 7
@@ -371,7 +366,7 @@ export class DescribeVersionConfigResponseBody extends $dara.Model {
   postPayHostVersion?: number;
   /**
    * @remarks
-   * The ID of the pay-as-you-go instance.
+   * The instance ID of the pay-as-you-go instance.
    * 
    * @example
    * postpay-sas-**
@@ -379,16 +374,16 @@ export class DescribeVersionConfigResponseBody extends $dara.Model {
   postPayInstanceId?: string;
   /**
    * @remarks
-   * The switch status of pay-as-you-go modules in JSON string format. Valid values:
+   * The status of pay-as-you-go module switches, in JSON string format. Valid values:
    * - Key:
    *   - **VUL**: Vulnerability fix module.
-   *   - **CSPM**: Cloud security posture management module.
+   *   - **CSPM**: Cloud Security Posture Management (CSPM) module.
    *   - **AGENTLESS**: Agentless detection module.
    *   - **SERVERLESS**: Serverless security module.
-   *   - **CTDR**: Threat analysis and response module.
+   *   - **CTDR**: Cloud Threat Detection and Response (CTDR) module.
    *   - **POST_HOST**: Host and container security module.
    *   - **SDK**: Malicious file detection SDK module.
-   *   - **RASP**: Application protection module.
+   *   - **RASP**: Runtime application self-protection (RASP) module.
    * - Value: 0 indicates disabled, and 1 indicates enabled.
    * 
    * @example
@@ -405,7 +400,7 @@ export class DescribeVersionConfigResponseBody extends $dara.Model {
   postPayOpenTime?: number;
   /**
    * @remarks
-   * The status of the pay-as-you-go instance. Valid values:
+   * The instance status of the pay-as-you-go instance. Valid values:
    * - **1**: Normal.
    * - **2**: Suspended due to overdue payment.
    * 
@@ -415,7 +410,7 @@ export class DescribeVersionConfigResponseBody extends $dara.Model {
   postPayStatus?: number;
   /**
    * @remarks
-   * The number of purchased application protection instances. Unit: instances/month.
+   * The number of purchased runtime application self-protection (RASP) licenses. Unit: licenses per month.
    * 
    * @example
    * 10
@@ -423,8 +418,8 @@ export class DescribeVersionConfigResponseBody extends $dara.Model {
   raspCapacity?: number;
   /**
    * @remarks
-   * The expiration timestamp of the Security Center instance. Unit: milliseconds.
-   * > If you do not renew the service within 7 days after it expires, your paid instance is downgraded to the free edition. You can no longer use the features of the paid edition, and your Security Center configuration data and historical alert data (such as DDoS alerts) become inaccessible. In this case, you must repurchase to enable the paid Security Center service. For more information, see [Purchase Security Center](https://help.aliyun.com/document_detail/42308.html).
+   * The timestamp when the Security Center instance expires. Unit: milliseconds.
+   * > If you do not renew the instance within 7 days after it expires, your paid instance is downgraded to Free Edition. You can no longer use the features of the paid edition, and your Security Center configuration data and historical alert data (such as DDoS alerts) become inaccessible. In this case, you must repurchase Security Center to enable the paid edition. For more information, see [Purchase Security Center](https://help.aliyun.com/document_detail/42308.html).
    * 
    * @example
    * 1625846400000
@@ -440,7 +435,7 @@ export class DescribeVersionConfigResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The number of machines purchased for EDR.
+   * The number of servers purchased for EDR.
    * 
    * @example
    * 10
@@ -464,7 +459,7 @@ export class DescribeVersionConfigResponseBody extends $dara.Model {
   sasEdrPrePaidInstanceId?: string;
   /**
    * @remarks
-   * The EDR subscription instance status.
+   * The instance status of the EDR upfront instance.
    * 
    * @example
    * RELEASED
@@ -472,7 +467,7 @@ export class DescribeVersionConfigResponseBody extends $dara.Model {
   sasEdrPrePaidInstanceStatus?: string;
   /**
    * @remarks
-   * The purchased EDR version.
+   * The purchased edition of EDR.
    * 
    * @example
    * 1
@@ -499,13 +494,16 @@ export class DescribeVersionConfigResponseBody extends $dara.Model {
    */
   sasScreen?: number;
   /**
+   * @remarks
+   * The canary release status of the pay-as-you-go SDK.
+   * 
    * @example
    * 1
    */
   sdkAiPostPaidGray?: number;
   /**
    * @remarks
-   * The number of malicious file detection SDK authorizations.
+   * The number of malicious file detection SDK authorization licenses.
    * 
    * @example
    * 10
@@ -529,7 +527,7 @@ export class DescribeVersionConfigResponseBody extends $dara.Model {
   threatAnalysisCapacity?: number;
   /**
    * @remarks
-   * The purchased threat analysis and response log ingestion traffic. Unit: GB/day.
+   * The purchased log ingestion traffic for Cloud Threat Detection and Response (CTDR). Unit: GB per day.
    * 
    * @example
    * 10
@@ -551,7 +549,7 @@ export class DescribeVersionConfigResponseBody extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the custom alert feature is enabled. Valid values:
-   * - **0**: Not enabled.
+   * - **0**: Disabled.
    * - **2**: Enabled.
    * 
    * @example
@@ -560,13 +558,13 @@ export class DescribeVersionConfigResponseBody extends $dara.Model {
   userDefinedAlarms?: number;
   /**
    * @remarks
-   * The purchased Security Center version. Valid values:  
-   * - **1**: Free edition. 
-   * - **3**: Enterprise edition.
-   * - **5**: Advanced edition.
-   * - **6**: Anti-virus edition.    
-   * - **7**: Ultimate edition.   
-   * - **8**: Multi-version edition.   
+   * The purchased edition of Security Center. Valid values:  
+   * - **1**: Free Edition. 
+   * - **3**: Enterprise Edition.
+   * - **5**: Advanced Edition.
+   * - **6**: Anti-virus Edition.    
+   * - **7**: Ultimate Edition.   
+   * - **8**: Multi-version Edition.   
    * - **10**: Value-added services only.
    * 
    * @example
@@ -583,7 +581,7 @@ export class DescribeVersionConfigResponseBody extends $dara.Model {
   vmCores?: number;
   /**
    * @remarks
-   * The number of purchased vulnerability fixes. Unit: times/month.
+   * The number of purchased vulnerability fixes. Unit: times per month.
    * 
    * @example
    * 10
@@ -591,8 +589,8 @@ export class DescribeVersionConfigResponseBody extends $dara.Model {
   vulFixCapacity?: number;
   /**
    * @remarks
-   * Indicates whether the tamper-proofing service is enabled. Valid values:
-   * - **0**: Not enabled.
+   * Indicates whether web tamper proofing is enabled. Valid values:
+   * - **0**: Disabled.
    * - **1**: Enabled.
    * 
    * @example
@@ -601,8 +599,8 @@ export class DescribeVersionConfigResponseBody extends $dara.Model {
   webLock?: number;
   /**
    * @remarks
-   * The number of purchased tamper-proofing authorizations. One authorization can enable tamper-proofing protection for one server. Valid values: 0 to N.
-   * > N is the number of servers you own.
+   * The number of purchased web tamper proofing authorizations. One authorization allows you to enable web tamper proofing for one server. Valid values: 0 to N.
+   * > N is the number of servers that you own.
    * 
    * @example
    * 0

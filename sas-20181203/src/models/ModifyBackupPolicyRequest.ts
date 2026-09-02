@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyBackupPolicyRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the anti-ransomware mitigation policy to modify.
+   * The ID of the anti-ransomware policy to modify.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ModifyBackupPolicyRequest extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The name of the anti-ransomware mitigation policy to modify.
+   * The name of the anti-ransomware policy to modify.
    * 
    * This parameter is required.
    * 
@@ -25,20 +25,20 @@ export class ModifyBackupPolicyRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The content of the mitigation policy to modify. The value is a JSON-format string that contains the following fields:
+   * The content of the policy to modify. The value is a JSON format character string that contains the following fields:
    * 
    * - **Source**: The server folder to protect. To protect all folders, set this field to [].
    * - **Include**: The file types to protect. Examples: "\\*.jpg" and "\\*.doc".
-   * - **Exclude**: The custom folders to exclude. For example, exclude the folder "/home/user". Invoke the DescribeExcludeSystemPath operation to obtain all folders, and then add the folders that you want to exclude.
-   * - **Schedule**: The start time and interval of the data backup task. Specify a non-hourly time during off-peak hours.
+   * - **Exclude**: The custom folders to exclude. Invoke the DescribeExcludeSystemPath operation to obtain all folders, and then add the folders that you want to exclude. Example: exclude the folder "/home/user".
+   * - **Schedule**: The start time and interval of the data backup node. Specify a non-peak hour that is not on the hour.
    * 
-   *     - Example 1: I|1583216092|P21D indicates that the start time is 2020-03-03 14:14:52 and the interval is 3 weeks.
+   *     - Example 1: I|1583216092|P21D indicates that the execute start time is 2020-03-03 14:14:52 and the interval is 3 weeks.
    * 
-   *     - Example 2: I|1583216092|PT24H indicates that the start time is 2020-03-03 14:14:52 and the interval is 24 hours.
+   *     - Example 2: I|1583216092|PT24H indicates that the execute start time is 2020-03-03 14:14:52 and the interval is 24 hours.
    * 
    * - **Retention**: The retention period of backup data. Unit: days. 7 indicates 1 week, 365 indicates 1 year, and -1 indicates permanent retention.
-   * - **SpeedLimiter**: The network bandwidth throttling for backup. Example: 12:15:15360|6:12:5120 indicates 15 MB from 12:00 to 15:00 and 5 MB from 6:00 to 12:00.
-   * Cloud-hosted servers connect through the internal network. Do not limit the backup network bandwidth. To remove the bandwidth limit, set this parameter to an empty string ("").
+   * - **SpeedLimiter**: The backup network bandwidth throttling. Example: 12:15:15360|6:12:5120 indicates 15 MB from 12:00 to 15:00 and 5 MB from 6:00 to 12:00.
+   * For cloud-hosted servers connected to the internal network, do not limit the backup network bandwidth. To remove the network bandwidth throttling, set this parameter to an empty character string ("").
    * 
    * This parameter is required.
    * 
@@ -48,7 +48,7 @@ export class ModifyBackupPolicyRequest extends $dara.Model {
   policy?: { [key: string]: any };
   /**
    * @remarks
-   * The region of the server for which you want to modify the mitigation policy.
+   * The region of the server for which you want to modify the policy.
    * 
    * You can invoke the [DescribeSupportRegion](~~DescribeSupportRegion~~) operation to query the regions supported by the anti-ransomware feature.
    * 
@@ -58,7 +58,7 @@ export class ModifyBackupPolicyRequest extends $dara.Model {
   policyRegionId?: string;
   /**
    * @remarks
-   * The version of the mitigation policy. You can invoke the [DescribeBackupPolicies](~~DescribeBackupPolicies~~) operation to query the version.
+   * The version of the policy. You can invoke the [DescribeBackupPolicies](~~DescribeBackupPolicies~~) operation to query the version.
    * 
    * - **1.0.0**
    * - **2.0.0**
@@ -69,9 +69,17 @@ export class ModifyBackupPolicyRequest extends $dara.Model {
   policyVersion?: string;
   /**
    * @remarks
-   * The UUIDs of the servers protected by the mitigation policy.
+   * The method used to cover assets. Valid values:
+   * - **ALL_MACHINE**: All assets.
+   * > To cover all assets of this type, set this parameter to **ALL_MACHINE**. In this case, **UuidList** is invalid. Only one policy that covers all assets can exist for each server type.
    * 
-   * This parameter is required.
+   * @example
+   * ALL_MACHINE
+   */
+  selectType?: string;
+  /**
+   * @remarks
+   * The list of UUIDs of the servers protected by the policy.
    * 
    * @example
    * ["3bb30859-b3b5-4f28-868f-b0892c98****", "3bb30859-b3b5-4f28-868f-b0892c98****"]
@@ -84,6 +92,7 @@ export class ModifyBackupPolicyRequest extends $dara.Model {
       policy: 'Policy',
       policyRegionId: 'PolicyRegionId',
       policyVersion: 'PolicyVersion',
+      selectType: 'SelectType',
       uuidList: 'UuidList',
     };
   }
@@ -95,6 +104,7 @@ export class ModifyBackupPolicyRequest extends $dara.Model {
       policy: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       policyRegionId: 'string',
       policyVersion: 'string',
+      selectType: 'string',
       uuidList: { 'type': 'array', 'itemType': 'string' },
     };
   }
