@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ExecuteQueryResponseBodyMetaTruncation extends $dara.Model {
+  /**
+   * @remarks
+   * Indicates whether the result is truncated.
+   */
   truncated?: boolean;
+  /**
+   * @remarks
+   * The truncation details of result rows.
+   */
   truncatedColumnIndexes?: number[][];
   static names(): { [key: string]: string } {
     return {
@@ -64,6 +72,10 @@ export class ExecuteQueryResponseBodyMeta extends $dara.Model {
    * Complete
    */
   progress?: string;
+  /**
+   * @remarks
+   * The result truncation details.
+   */
   truncation?: ExecuteQueryResponseBodyMetaTruncation;
   static names(): { [key: string]: string } {
     return {
@@ -110,7 +122,7 @@ export class ExecuteQueryResponseBody extends $dara.Model {
   columns?: string[];
   /**
    * @remarks
-   * The metadata of the returned data.
+   * The metadata of the response.
    */
   meta?: ExecuteQueryResponseBodyMeta;
   /**

@@ -12,17 +12,6 @@ export default class Client extends OpenApi {
   constructor(config: $OpenApiUtil.Config) {
     super(config);
     this._endpointRule = "regional";
-    this._endpointMap = {
-      'cn-shenzhen': "agentloop.cn-shenzhen.aliyuncs.com",
-      'cn-beijing': "agentloop.cn-beijing.aliyuncs.com",
-      'cn-shanghai': "agentloop.cn-shanghai.aliyuncs.com",
-      'cn-guangzhou': "agentloop.cn-guangzhou.aliyuncs.com",
-      'cn-hongkong': "agentloop.cn-hongkong.aliyuncs.com",
-      'ap-southeast-1': "agentloop.ap-southeast-1.aliyuncs.com",
-      'cn-zhangjiakou': "agentloop.cn-zhangjiakou.aliyuncs.com",
-      'cn-hangzhou': "agentloop.cn-hangzhou.aliyuncs.com",
-      'cn-chengdu': "agentloop.cn-chengdu.aliyuncs.com",
-    };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("agentloop", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
@@ -1393,6 +1382,10 @@ export default class Client extends OpenApi {
   /**
    * Executes a query statement.
    * 
+   * @remarks
+   * Calls CreateEvaluationTask to create an evaluation task in a specified AgentSpace. The server validates AgentSpace permissions, initializes evaluation result storage, checks task name uniqueness, and asynchronously creates and executes an EvaluationRun based on `taskMode` and `runStrategies`.
+   * This operation is applicable to running built-in or custom evaluators on Trace, Dataset, or SLS Log data. It supports two execution strategies: historical backfill and continuous evaluation.
+   * 
    * @param request - ExecuteQueryRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1401,6 +1394,10 @@ export default class Client extends OpenApi {
   async executeQueryWithOptions(agentSpace: string, datasetName: string, request: $_model.ExecuteQueryRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ExecuteQueryResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.annotationFilter)) {
+      body["annotationFilter"] = request.annotationFilter;
+    }
+
     if (!$dara.isNull(request.from)) {
       body["from"] = request.from;
     }
@@ -1453,6 +1450,10 @@ export default class Client extends OpenApi {
 
   /**
    * Executes a query statement.
+   * 
+   * @remarks
+   * Calls CreateEvaluationTask to create an evaluation task in a specified AgentSpace. The server validates AgentSpace permissions, initializes evaluation result storage, checks task name uniqueness, and asynchronously creates and executes an EvaluationRun based on `taskMode` and `runStrategies`.
+   * This operation is applicable to running built-in or custom evaluators on Trace, Dataset, or SLS Log data. It supports two execution strategies: historical backfill and continuous evaluation.
    * 
    * @param request - ExecuteQueryRequest
    * @returns ExecuteQueryResponse
@@ -1882,7 +1883,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a CI/CD pipeline.
+   * Queries a pipeline.
    * 
    * @param request - GetPipelineRequest
    * @param headers - map
@@ -1909,7 +1910,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a CI/CD pipeline.
+   * Queries a pipeline.
    * 
    * @param request - GetPipelineRequest
    * @returns GetPipelineResponse

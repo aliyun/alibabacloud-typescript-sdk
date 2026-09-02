@@ -19,6 +19,8 @@ export { CreatePipelineRequestSourceInputFields } from './CreatePipelineRequest'
 export { CreatePipelineRequestSourceLogstore } from './CreatePipelineRequest';
 export { CreatePipelineRequestSource } from './CreatePipelineRequest';
 export { DescribeRegionsResponseBodyRegions } from './DescribeRegionsResponseBody';
+export { ExecuteQueryRequestAnnotationFilterConditions } from './ExecuteQueryRequest';
+export { ExecuteQueryRequestAnnotationFilter } from './ExecuteQueryRequest';
 export { ExecuteQueryResponseBodyMetaTruncation } from './ExecuteQueryResponseBody';
 export { ExecuteQueryResponseBodyMeta } from './ExecuteQueryResponseBody';
 export { GetAgentSpaceResponseBodyMseNamespace } from './GetAgentSpaceResponseBody';
