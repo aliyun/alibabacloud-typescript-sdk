@@ -15,7 +15,7 @@ export class ModifyPolarFsMappingAuthRequest extends $dara.Model {
   bucket?: string;
   /**
    * @remarks
-   * The AccessKey ID for the storage bucket.
+   * The AccessKey ID of the storage bucket.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class ModifyPolarFsMappingAuthRequest extends $dara.Model {
   bucketAccessKeyId?: string;
   /**
    * @remarks
-   * The AccessKey secret for the storage bucket.
+   * The AccessKey secret of the storage bucket.
    * 
    * This parameter is required.
    * 

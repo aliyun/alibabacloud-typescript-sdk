@@ -4,46 +4,77 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeKBSyncLinksResponseBodyItems extends $dara.Model {
   /**
+   * @remarks
+   * The client identifier.
+   * 
    * @example
    * cli_xxxxxxbe8
    */
   clientId?: string;
   /**
+   * @remarks
+   * The creation time.
+   * 
    * @example
    * 2026-08-11T09:55:19Z
    */
   creationTime?: string;
   /**
+   * @remarks
+   * The description of the synchronization link.
+   * 
    * @example
    * testDesc
    */
   description?: string;
   /**
+   * @remarks
+   * The source channel of the synchronization link.
+   * 
    * @example
    * FEISHU
    */
   imPlatform?: string;
   /**
+   * @remarks
+   * The synchronization link ID.
+   * 
    * @example
    * pkbl-xxxxx
    */
   linkId?: string;
   /**
+   * @remarks
+   * The link name.
+   * 
    * @example
    * testName
    */
   linkName?: string;
   /**
+   * @remarks
+   * The source directory address for synchronization.
+   * 
    * @example
    * https://example.feishu.cn/wiki/space/xxxxxx
    */
   sourceDir?: string;
   /**
+   * @remarks
+   * The synchronization interval. Unit: minutes.
+   * 
    * @example
    * 30
    */
   syncIntervalMinutes?: number;
   /**
+   * @remarks
+   * The synchronization status. Valid values:
+   * - CREATING
+   * - RUNNING
+   * - PAUSED
+   * - DELETING
+   * 
    * @example
    * RUNNING
    */
@@ -86,8 +117,15 @@ export class DescribeKBSyncLinksResponseBodyItems extends $dara.Model {
 }
 
 export class DescribeKBSyncLinksResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The list of synchronization links.
+   */
   items?: DescribeKBSyncLinksResponseBodyItems[];
   /**
+   * @remarks
+   * Id of the request
+   * 
    * @example
    * EB07CFF0-D8A4-5C76-AED7-D00E26FC2***
    */

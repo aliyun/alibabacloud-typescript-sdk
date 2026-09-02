@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteKBSyncLinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The unique ID of the knowledge base.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class DeleteKBSyncLinkRequest extends $dara.Model {
   knowledgeBaseId?: string;
   /**
    * @remarks
+   * The synchronization link ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class DeleteKBSyncLinkRequest extends $dara.Model {
   linkId?: string;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeKBSyncLinksRequest extends $dara.Model {
   /**
+   * @remarks
+   * The source channel of the synchronization link.
+   * 
    * @example
    * FEISHU
    */
   imPlatform?: string;
   /**
    * @remarks
+   * The unique ID of the knowledge base.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18,6 +23,8 @@ export class DescribeKBSyncLinksRequest extends $dara.Model {
   knowledgeBaseId?: string;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example
