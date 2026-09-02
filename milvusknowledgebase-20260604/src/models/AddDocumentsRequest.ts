@@ -47,7 +47,7 @@ export class AddDocumentsRequestDedup extends $dara.Model {
 export class AddDocumentsRequestDocuments extends $dara.Model {
   /**
    * @remarks
-   * The name of the document.
+   * The document name.
    * 
    * @example
    * CHANGELOG.md
@@ -63,7 +63,7 @@ export class AddDocumentsRequestDocuments extends $dara.Model {
   path?: string;
   /**
    * @remarks
-   * The size of the file.
+   * The file size.
    * 
    * @example
    * 1024
@@ -205,7 +205,7 @@ export class AddDocumentsRequest extends $dara.Model {
   importType?: string;
   /**
    * @remarks
-   * The ID of the knowledge base.
+   * The knowledge base ID.
    * 
    * @example
    * kb-3bd02617e9be335f
@@ -213,7 +213,7 @@ export class AddDocumentsRequest extends $dara.Model {
   knowledgeBaseId?: string;
   /**
    * @remarks
-   * The batch label configuration. The key must be a label field defined in the knowledge base. The value supports string, int64, float32, bool, and list types.
+   * The batch label configuration. The key must be a label field that is already defined in the knowledge base. The value supports string, int64, float32, bool, and list types.
    * 
    * @example
    * {"department":"legal","topics":["policy","contract"],"reviewed":true}
@@ -221,7 +221,7 @@ export class AddDocumentsRequest extends $dara.Model {
   metaFields?: any;
   /**
    * @remarks
-   * The ID of the processing strategy.
+   * The processing strategy ID.
    * 
    * @example
    * kb-strategy-7043984ca395eabd

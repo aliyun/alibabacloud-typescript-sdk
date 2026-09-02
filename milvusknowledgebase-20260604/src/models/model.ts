@@ -11,6 +11,7 @@ export { SearchKnowledgeBaseRequestTagFilterConditions } from './SearchKnowledge
 export { SearchKnowledgeBaseRequestTagFilter } from './SearchKnowledgeBaseRequest';
 export { SearchKnowledgeBaseResponseBodyResultsImages } from './SearchKnowledgeBaseResponseBody';
 export { SearchKnowledgeBaseResponseBodyResultsLocations } from './SearchKnowledgeBaseResponseBody';
+export { SearchKnowledgeBaseResponseBodyResultsMediaTimeline } from './SearchKnowledgeBaseResponseBody';
 export { SearchKnowledgeBaseResponseBodyResultsScoreDetails } from './SearchKnowledgeBaseResponseBody';
 export { SearchKnowledgeBaseResponseBodyResults } from './SearchKnowledgeBaseResponseBody';
 export { AddDocumentsRequest } from './AddDocumentsRequest';

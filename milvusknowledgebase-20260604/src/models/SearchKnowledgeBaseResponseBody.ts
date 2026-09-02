@@ -112,6 +112,47 @@ export class SearchKnowledgeBaseResponseBodyResultsLocations extends $dara.Model
   }
 }
 
+export class SearchKnowledgeBaseResponseBodyResultsMediaTimeline extends $dara.Model {
+  /**
+   * @example
+   * 4200
+   */
+  endMs?: number;
+  /**
+   * @example
+   * 1250
+   */
+  startMs?: number;
+  /**
+   * @example
+   * 第一句话。
+   */
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endMs: 'endMs',
+      startMs: 'startMs',
+      text: 'text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endMs: 'number',
+      startMs: 'number',
+      text: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SearchKnowledgeBaseResponseBodyResultsScoreDetails extends $dara.Model {
   /**
    * @remarks
@@ -213,6 +254,27 @@ export class SearchKnowledgeBaseResponseBodyResults extends $dara.Model {
   locations?: SearchKnowledgeBaseResponseBodyResultsLocations[];
   /**
    * @remarks
+   * 音频或视频切片在原始媒体中的结束时间，单位为毫秒；非媒体切片不返回。
+   * 
+   * @example
+   * 8400
+   */
+  mediaEndMs?: number;
+  /**
+   * @remarks
+   * 音频或视频切片在原始媒体中的开始时间，单位为毫秒；非媒体切片不返回。
+   * 
+   * @example
+   * 1250
+   */
+  mediaStartMs?: number;
+  /**
+   * @remarks
+   * 切片内逐句或逐段内容在原始媒体中的时间范围；非音频切片不返回。
+   */
+  mediaTimeline?: SearchKnowledgeBaseResponseBodyResultsMediaTimeline[];
+  /**
+   * @remarks
    * The parent chunk ID.
    * 
    * @example
@@ -255,6 +317,9 @@ export class SearchKnowledgeBaseResponseBodyResults extends $dara.Model {
       images: 'images',
       knowledgeBaseId: 'knowledgeBaseId',
       locations: 'locations',
+      mediaEndMs: 'mediaEndMs',
+      mediaStartMs: 'mediaStartMs',
+      mediaTimeline: 'mediaTimeline',
       parentChunkId: 'parentChunkId',
       scalarFields: 'scalarFields',
       score: 'score',
@@ -273,6 +338,9 @@ export class SearchKnowledgeBaseResponseBodyResults extends $dara.Model {
       images: { 'type': 'array', 'itemType': SearchKnowledgeBaseResponseBodyResultsImages },
       knowledgeBaseId: 'string',
       locations: { 'type': 'array', 'itemType': SearchKnowledgeBaseResponseBodyResultsLocations },
+      mediaEndMs: 'number',
+      mediaStartMs: 'number',
+      mediaTimeline: { 'type': 'array', 'itemType': SearchKnowledgeBaseResponseBodyResultsMediaTimeline },
       parentChunkId: 'string',
       scalarFields: 'any',
       score: 'number',
@@ -287,6 +355,9 @@ export class SearchKnowledgeBaseResponseBodyResults extends $dara.Model {
     }
     if(Array.isArray(this.locations)) {
       $dara.Model.validateArray(this.locations);
+    }
+    if(Array.isArray(this.mediaTimeline)) {
+      $dara.Model.validateArray(this.mediaTimeline);
     }
     if(this.scoreDetails && typeof (this.scoreDetails as any).validate === 'function') {
       (this.scoreDetails as any).validate();

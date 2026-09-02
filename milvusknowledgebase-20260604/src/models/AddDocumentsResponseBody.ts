@@ -21,7 +21,7 @@ export class AddDocumentsResponseBodyDataDocuments extends $dara.Model {
   chunkMethod?: string;
   /**
    * @remarks
-   * The ID of the knowledge base.
+   * The knowledge base ID.
    * 
    * @example
    * kb-123
@@ -45,7 +45,7 @@ export class AddDocumentsResponseBodyDataDocuments extends $dara.Model {
   location?: string;
   /**
    * @remarks
-   * The name of the document.
+   * The document name.
    * 
    * @example
    * example.pdf
@@ -69,7 +69,7 @@ export class AddDocumentsResponseBodyDataDocuments extends $dara.Model {
   run?: string;
   /**
    * @remarks
-   * The size of the file.
+   * The file size.
    * 
    * @example
    * 1024
