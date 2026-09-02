@@ -8697,6 +8697,48 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询批量转交表Owner状态
+   * 
+   * @param request - GetBatchChangeTableOwnerStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetBatchChangeTableOwnerStatusResponse
+   */
+  async getBatchChangeTableOwnerStatusWithOptions(request: $_model.GetBatchChangeTableOwnerStatusRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetBatchChangeTableOwnerStatusResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.batchId)) {
+      query["BatchId"] = request.batchId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetBatchChangeTableOwnerStatus",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetBatchChangeTableOwnerStatusResponse>(await this.callApi(params, req, runtime), new $_model.GetBatchChangeTableOwnerStatusResponse({}));
+  }
+
+  /**
+   * 查询批量转交表Owner状态
+   * 
+   * @param request - GetBatchChangeTableOwnerStatusRequest
+   * @returns GetBatchChangeTableOwnerStatusResponse
+   */
+  async getBatchChangeTableOwnerStatus(request: $_model.GetBatchChangeTableOwnerStatusRequest): Promise<$_model.GetBatchChangeTableOwnerStatusResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getBatchChangeTableOwnerStatusWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the details of a business process by calling GetBusiness.
    * 
    * @param request - GetBusinessRequest
@@ -20220,6 +20262,62 @@ export default class Client extends OpenApi {
   async stopWorkflowInstances(request: $_model.StopWorkflowInstancesRequest): Promise<$_model.StopWorkflowInstancesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.stopWorkflowInstancesWithOptions(request, runtime);
+  }
+
+  /**
+   * 提交批量转交表Owner
+   * 
+   * @param tmpReq - SubmitBatchChangeTableOwnerRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitBatchChangeTableOwnerResponse
+   */
+  async submitBatchChangeTableOwnerWithOptions(tmpReq: $_model.SubmitBatchChangeTableOwnerRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SubmitBatchChangeTableOwnerResponse> {
+    tmpReq.validate();
+    let request = new $_model.SubmitBatchChangeTableOwnerShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.tableMetaEntityIds)) {
+      request.tableMetaEntityIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tableMetaEntityIds, "TableMetaEntityIds", "simple");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.enableCrossTenant)) {
+      body["EnableCrossTenant"] = request.enableCrossTenant;
+    }
+
+    if (!$dara.isNull(request.owner)) {
+      body["Owner"] = request.owner;
+    }
+
+    if (!$dara.isNull(request.tableMetaEntityIdsShrink)) {
+      body["TableMetaEntityIds"] = request.tableMetaEntityIdsShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SubmitBatchChangeTableOwner",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SubmitBatchChangeTableOwnerResponse>(await this.callApi(params, req, runtime), new $_model.SubmitBatchChangeTableOwnerResponse({}));
+  }
+
+  /**
+   * 提交批量转交表Owner
+   * 
+   * @param request - SubmitBatchChangeTableOwnerRequest
+   * @returns SubmitBatchChangeTableOwnerResponse
+   */
+  async submitBatchChangeTableOwner(request: $_model.SubmitBatchChangeTableOwnerRequest): Promise<$_model.SubmitBatchChangeTableOwnerResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.submitBatchChangeTableOwnerWithOptions(request, runtime);
   }
 
   /**
