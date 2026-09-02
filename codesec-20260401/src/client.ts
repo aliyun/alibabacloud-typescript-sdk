@@ -12,10 +12,6 @@ export default class Client extends OpenApi {
   constructor(config: $OpenApiUtil.Config) {
     super(config);
     this._endpointRule = "regional";
-    this._endpointMap = {
-      'ap-southeast-1': "codesec.ap-southeast-1.aliyuncs.com",
-      'cn-hangzhou': "codesec.cn-hangzhou.aliyuncs.com",
-    };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("codesec", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
@@ -34,7 +30,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists projects under the tenant with pagination, supporting fuzzy search by name or prompt.
+   * Lists projects under a tenant by page, with support for fuzzy search by name or prompt.
    * 
    * @param request - DescribeProjectsRequest
    * @param headers - map
@@ -56,6 +52,14 @@ export default class Client extends OpenApi {
       query["query"] = request.query;
     }
 
+    if (!$dara.isNull(request.sortBy)) {
+      query["sortBy"] = request.sortBy;
+    }
+
+    if (!$dara.isNull(request.sortOrder)) {
+      query["sortOrder"] = request.sortOrder;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
@@ -75,7 +79,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists projects under the tenant with pagination, supporting fuzzy search by name or prompt.
+   * Lists projects under a tenant by page, with support for fuzzy search by name or prompt.
    * 
    * @param request - DescribeProjectsRequest
    * @returns DescribeProjectsResponse

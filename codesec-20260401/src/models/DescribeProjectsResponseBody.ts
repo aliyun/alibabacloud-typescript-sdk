@@ -7,7 +7,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeProjectsResponseBodyItemsEngines extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether SAST is supported.
+   * Indicates whether SAST is enabled.
    * 
    * @example
    * true
@@ -15,7 +15,7 @@ export class DescribeProjectsResponseBodyItemsEngines extends $dara.Model {
   sast?: boolean;
   /**
    * @remarks
-   * Indicates whether SCA is supported.
+   * Indicates whether SCA is enabled.
    * 
    * @example
    * true
@@ -85,7 +85,7 @@ export class DescribeProjectsResponseBodyItems extends $dara.Model {
   configRevision?: number;
   /**
    * @remarks
-   * The creation time.
+   * The time when the project was created.
    * 
    * @example
    * 2026-07-28T03:36:31.573Z
@@ -109,7 +109,7 @@ export class DescribeProjectsResponseBodyItems extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The engine switches for the project or scan snapshot (SAST and SCA only).
+   * The engine switches for the project or scan snapshot. Only SAST and SCA are supported.
    */
   engines?: DescribeProjectsResponseBodyItemsEngines;
   /**
@@ -130,6 +130,14 @@ export class DescribeProjectsResponseBodyItems extends $dara.Model {
   instructionPrompt?: string;
   /**
    * @remarks
+   * The time when a task was last created.
+   * 
+   * @example
+   * 2026-07-28T03:36:31.573Z
+   */
+  lastScanTime?: string;
+  /**
+   * @remarks
    * The project name.
    * 
    * @example
@@ -143,7 +151,7 @@ export class DescribeProjectsResponseBodyItems extends $dara.Model {
   source?: DescribeProjectsResponseBodyItemsSource;
   /**
    * @remarks
-   * The update time.
+   * The time when the project was last updated.
    * 
    * @example
    * 2026-07-28T03:36:31.573Z
@@ -158,6 +166,7 @@ export class DescribeProjectsResponseBodyItems extends $dara.Model {
       engines: 'engines',
       id: 'id',
       instructionPrompt: 'instructionPrompt',
+      lastScanTime: 'lastScanTime',
       name: 'name',
       source: 'source',
       updatedAt: 'updatedAt',
@@ -173,6 +182,7 @@ export class DescribeProjectsResponseBodyItems extends $dara.Model {
       engines: DescribeProjectsResponseBodyItemsEngines,
       id: 'number',
       instructionPrompt: 'string',
+      lastScanTime: 'string',
       name: 'string',
       source: DescribeProjectsResponseBodyItemsSource,
       updatedAt: 'string',
@@ -204,7 +214,7 @@ export class DescribeProjectsResponseBody extends $dara.Model {
    * @remarks
    * The page size.
    * 
-   * > If not specified, all projects are displayed.
+   * > If this parameter is not specified, all projects are returned.
    * 
    * @example
    * 10
