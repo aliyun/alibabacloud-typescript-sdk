@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListCatalogsRequest extends $dara.Model {
   /**
    * @remarks
-   * Items per page
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -13,7 +13,7 @@ export class ListCatalogsRequest extends $dara.Model {
   limit?: number;
   /**
    * @remarks
-   * Pagination token
+   * The pagination token.
    * 
    * @example
    * 0

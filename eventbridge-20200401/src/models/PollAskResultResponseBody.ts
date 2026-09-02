@@ -6,7 +6,7 @@ import { AskLumaResult } from "./AskLumaResult";
 export class PollAskResultResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code. Valid values:
+   * The API return code. Valid values:
    * - Success: The operation was successful.
    * - Other values: An error code was returned. For more information, see error codes.
    * 

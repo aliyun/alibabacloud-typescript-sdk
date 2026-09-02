@@ -2,26 +2,26 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class GetEventStreamingRequest extends $dara.Model {
+export class AgentDataSemanticsText extends $dara.Model {
   /**
    * @remarks
-   * The name of the event stream to retrieve.
+   * The content of the Markdown-formatted text knowledge.
    * 
    * This parameter is required.
    * 
    * @example
-   * myeventstreaming
+   * ## Data description
    */
-  eventStreamingName?: string;
+  content?: string;
   static names(): { [key: string]: string } {
     return {
-      eventStreamingName: 'EventStreamingName',
+      content: 'Content',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      eventStreamingName: 'string',
+      content: 'string',
     };
   }
 

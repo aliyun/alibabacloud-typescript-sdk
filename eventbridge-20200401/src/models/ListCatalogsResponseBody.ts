@@ -6,12 +6,12 @@ import { Catalog } from "./Catalog";
 export class ListCatalogsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Catalog list
+   * The list of catalogs.
    */
   catalogs?: Catalog[];
   /**
    * @remarks
-   * Next page token
+   * The token for the next page.
    * 
    * @example
    * 10
@@ -19,7 +19,7 @@ export class ListCatalogsResponseBodyData extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * Total count
+   * The total number of entries.
    * 
    * @example
    * 1
@@ -56,7 +56,7 @@ export class ListCatalogsResponseBodyData extends $dara.Model {
 export class ListCatalogsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Response code, 200 indicates success
+   * The response code. A value of 200 indicates success.
    * 
    * @example
    * 200
@@ -64,12 +64,12 @@ export class ListCatalogsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Response data
+   * The response data.
    */
   data?: ListCatalogsResponseBodyData;
   /**
    * @remarks
-   * Response message
+   * The response message.
    * 
    * @example
    * Operation success
@@ -77,7 +77,7 @@ export class ListCatalogsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * 34AD682D-5B91-5773-8132-AA38C130****
@@ -85,7 +85,7 @@ export class ListCatalogsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Whether the operation was successful
+   * Indicates whether the operation was successful.
    * 
    * @example
    * true

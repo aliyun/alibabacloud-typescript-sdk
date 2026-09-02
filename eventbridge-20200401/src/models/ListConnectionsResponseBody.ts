@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListConnectionsResponseBodyDataConnectionsAuthParametersApiKeyAuthParameters extends $dara.Model {
   /**
    * @remarks
-   * The key of the API key.
+   * The key name of the API key.
    * 
    * @example
    * Token
@@ -45,7 +45,7 @@ export class ListConnectionsResponseBodyDataConnectionsAuthParametersApiKeyAuthP
 export class ListConnectionsResponseBodyDataConnectionsAuthParametersBasicAuthParameters extends $dara.Model {
   /**
    * @remarks
-   * The password used for basic authentication.
+   * The password for basic authentication.
    * 
    * @example
    * admin
@@ -53,7 +53,7 @@ export class ListConnectionsResponseBodyDataConnectionsAuthParametersBasicAuthPa
   password?: string;
   /**
    * @remarks
-   * The username used for basic authentication.
+   * The username for basic authentication.
    * 
    * @example
    * admin
@@ -125,7 +125,7 @@ export class ListConnectionsResponseBodyDataConnectionsAuthParametersOAuthParame
 export class ListConnectionsResponseBodyDataConnectionsAuthParametersOAuthParametersOAuthHttpParametersBodyParameters extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether the value is used for authentication.
+   * Indicates whether the value is a secret.
    * 
    * @example
    * false
@@ -175,7 +175,7 @@ export class ListConnectionsResponseBodyDataConnectionsAuthParametersOAuthParame
 export class ListConnectionsResponseBodyDataConnectionsAuthParametersOAuthParametersOAuthHttpParametersHeaderParameters extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether the value is used for authentication.
+   * Indicates whether the value is a secret.
    * 
    * @example
    * false
@@ -225,7 +225,7 @@ export class ListConnectionsResponseBodyDataConnectionsAuthParametersOAuthParame
 export class ListConnectionsResponseBodyDataConnectionsAuthParametersOAuthParametersOAuthHttpParametersQueryStringParameters extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether the value is used for authentication.
+   * Indicates whether the value is a secret.
    * 
    * @example
    * false
@@ -233,7 +233,7 @@ export class ListConnectionsResponseBodyDataConnectionsAuthParametersOAuthParame
   isValueSecret?: string;
   /**
    * @remarks
-   * The key of the query string parameter.
+   * The key of the URI of the request path parameter.
    * 
    * @example
    * name
@@ -241,7 +241,7 @@ export class ListConnectionsResponseBodyDataConnectionsAuthParametersOAuthParame
   key?: string;
   /**
    * @remarks
-   * The value of the query string parameter.
+   * The value of the URI of the request path parameter.
    * 
    * @example
    * demo
@@ -275,17 +275,17 @@ export class ListConnectionsResponseBodyDataConnectionsAuthParametersOAuthParame
 export class ListConnectionsResponseBodyDataConnectionsAuthParametersOAuthParametersOAuthHttpParameters extends $dara.Model {
   /**
    * @remarks
-   * The list of request parameter data structures.
+   * The list of body request parameter data structures.
    */
   bodyParameters?: ListConnectionsResponseBodyDataConnectionsAuthParametersOAuthParametersOAuthHttpParametersBodyParameters[];
   /**
    * @remarks
-   * The list of header parameters.
+   * The list of header parameter data structures.
    */
   headerParameters?: ListConnectionsResponseBodyDataConnectionsAuthParametersOAuthParametersOAuthHttpParametersHeaderParameters[];
   /**
    * @remarks
-   * The data structure of query string parameters.
+   * The data structure of the URI of the request path parameters.
    */
   queryStringParameters?: ListConnectionsResponseBodyDataConnectionsAuthParametersOAuthParametersOAuthHttpParametersQueryStringParameters[];
   static names(): { [key: string]: string } {
@@ -338,7 +338,7 @@ export class ListConnectionsResponseBodyDataConnectionsAuthParametersOAuthParame
   clientParameters?: ListConnectionsResponseBodyDataConnectionsAuthParametersOAuthParametersClientParameters;
   /**
    * @remarks
-   * The HTTP method used for the request. Valid values:
+   * The HTTP method for the probe request. Valid values:
    * 
    * - GET
    * - POST
@@ -350,7 +350,7 @@ export class ListConnectionsResponseBodyDataConnectionsAuthParametersOAuthParame
   httpMethod?: string;
   /**
    * @remarks
-   * The request parameters used for OAuth authentication.
+   * The HTTP request parameters for OAuth authentication.
    */
   OAuthHttpParameters?: ListConnectionsResponseBodyDataConnectionsAuthParametersOAuthParametersOAuthHttpParameters;
   static names(): { [key: string]: string } {
@@ -389,12 +389,12 @@ export class ListConnectionsResponseBodyDataConnectionsAuthParametersOAuthParame
 export class ListConnectionsResponseBodyDataConnectionsAuthParameters extends $dara.Model {
   /**
    * @remarks
-   * The data structure of API key authentication parameters.
+   * The data structure of the API key.
    */
   apiKeyAuthParameters?: ListConnectionsResponseBodyDataConnectionsAuthParametersApiKeyAuthParameters;
   /**
    * @remarks
-   * The authentication type. Valid values:
+   * The authorization type:
    * 
    * - BASIC: BASIC_AUTH
    * 
@@ -408,7 +408,7 @@ export class ListConnectionsResponseBodyDataConnectionsAuthParameters extends $d
   authorizationType?: string;
   /**
    * @remarks
-   * The data structure of basic authentication parameters.
+   * The data structure of basic authentication.
    */
   basicAuthParameters?: ListConnectionsResponseBodyDataConnectionsAuthParametersBasicAuthParameters;
   /**
@@ -517,7 +517,7 @@ export class ListConnectionsResponseBodyDataConnectionsNetworkParameters extends
 export class ListConnectionsResponseBodyDataConnections extends $dara.Model {
   /**
    * @remarks
-   * The data structure of authentication parameters.
+   * The authentication data structure.
    */
   authParameters?: ListConnectionsResponseBodyDataConnectionsAuthParameters;
   /**
@@ -538,7 +538,7 @@ export class ListConnectionsResponseBodyDataConnections extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The timestamp when the data source was created.
+   * The timestamp when the datasource was created.
    * 
    * @example
    * 1592838994234
@@ -559,7 +559,7 @@ export class ListConnectionsResponseBodyDataConnections extends $dara.Model {
   networkParameters?: ListConnectionsResponseBodyDataConnectionsNetworkParameters;
   /**
    * @remarks
-   * The data source connection parameters (JSON object). This field is only returned for data source type connections and is empty for Http type. For field definitions, refer to the ParamsSchema returned by GetConnectionType.
+   * The datasource connection parameters (JSON object). This field is returned only for datasource-type connections and is empty for Http type. For field definitions, refer to the ParamsSchema returned by GetConnectionType.
    * 
    * @example
    * {"HostName":"xxx.mysql.rds.aliyuncs.com","Port":"3306","User":"root","Password":"xxx","DatabaseName":"demo_db"}
@@ -567,7 +567,7 @@ export class ListConnectionsResponseBodyDataConnections extends $dara.Model {
   parameters?: any;
   /**
    * @remarks
-   * The connection type. Valid values: Http, MySQL, PostgreSQL, Elasticsearch.
+   * The connection type. Valid values: Http, MySQL, PostgreSQL, Elasticsearch, OSS_TABLES, SLS, OTS, MaxCompute, MongoDB, Redis, SQLServer, ClickHouse, Oracle, Hive, Iceberg, and lakehouse.
    * 
    * @example
    * Http
@@ -617,7 +617,7 @@ export class ListConnectionsResponseBodyDataConnections extends $dara.Model {
 export class ListConnectionsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The list of returned connection configurations.
+   * The list of connection configurations.
    */
   connections?: ListConnectionsResponseBodyDataConnections[];
   /**
@@ -630,7 +630,7 @@ export class ListConnectionsResponseBodyData extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * If there are more results to fetch, NextToken is returned.
+   * The pagination token returned when additional results are available.
    * 
    * @example
    * 0
@@ -685,7 +685,7 @@ export class ListConnectionsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The list of returned connection configurations.
+   * The list of connection configurations.
    */
   data?: ListConnectionsResponseBodyData;
   /**
@@ -698,7 +698,7 @@ export class ListConnectionsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Common parameter. The ID of each request is unique and can be used for troubleshooting and issue locating.
+   * The common parameter. The ID of the request. Each request has a unique ID, which is active for troubleshooting.
    * 
    * @example
    * E3619976-8714-5D88-BBA2-6983D798A8BB

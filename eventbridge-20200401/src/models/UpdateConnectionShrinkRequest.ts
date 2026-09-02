@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateConnectionShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The data structure of the authentication parameters.
+   * The authentication data structure.
    */
   authParametersShrink?: string;
   /**
    * @remarks
-   * The name of the connection to be updated. The maximum length is 127 characters. The minimum length is 2 characters.
+   * The name of the connection to update. Maximum length: 127 characters. Minimum length: 2 characters.
    * 
    * This parameter is required.
    * 
@@ -20,7 +20,7 @@ export class UpdateConnectionShrinkRequest extends $dara.Model {
   connectionName?: string;
   /**
    * @remarks
-   * The description. The maximum length is 255 characters.
+   * The description. Maximum length: 255 characters.
    * 
    * @example
    * Description of the connection configuration
@@ -35,7 +35,7 @@ export class UpdateConnectionShrinkRequest extends $dara.Model {
   networkParametersShrink?: string;
   /**
    * @remarks
-   * The data source connection parameters (JSON object). For specific field definitions, call the GetConnectionType API and refer to the ParamsSchema in the response.
+   * The data source connection parameters (JSON object). For specific field definitions, call the GetConnectionType operation and refer to ParamsSchema in the response.
    * 
    * @example
    * {"HostName":"xxx.mysql.rds.aliyuncs.com","Port":"3306","User":"root","Password":"xxx","DatabaseName":"demo_db"}
@@ -43,7 +43,7 @@ export class UpdateConnectionShrinkRequest extends $dara.Model {
   parametersShrink?: string;
   /**
    * @remarks
-   * The connection type. Valid values: MySQL, PostgreSQL, Elasticsearch, and Http.
+   * The connection type. Valid values: MySQL, PostgreSQL, Elasticsearch, OSS_TABLES, SLS, OTS, MaxCompute, MongoDB, Redis, SQLServer, ClickHouse, Oracle, Hive, Iceberg, lakehouse, Http.
    * 
    * @example
    * Http

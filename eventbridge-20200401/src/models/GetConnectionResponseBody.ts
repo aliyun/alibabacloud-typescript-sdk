@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetConnectionResponseBodyDataConnectionsAuthParametersApiKeyAuthParameters extends $dara.Model {
   /**
    * @remarks
-   * The key of the API key.
+   * The key name of the API key.
    * 
    * @example
    * key
@@ -125,7 +125,7 @@ export class GetConnectionResponseBodyDataConnectionsAuthParametersOAuthParamete
 export class GetConnectionResponseBodyDataConnectionsAuthParametersOAuthParametersOAuthHttpParametersBodyParameters extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the parameter is used for authentication.
+   * Indicates whether the value is a secret.
    * 
    * @example
    * false
@@ -175,7 +175,7 @@ export class GetConnectionResponseBodyDataConnectionsAuthParametersOAuthParamete
 export class GetConnectionResponseBodyDataConnectionsAuthParametersOAuthParametersOAuthHttpParametersHeaderParameters extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the parameter is used for authentication.
+   * Indicates whether the value is a secret.
    * 
    * @example
    * false
@@ -183,7 +183,7 @@ export class GetConnectionResponseBodyDataConnectionsAuthParametersOAuthParamete
   isValueSecret?: string;
   /**
    * @remarks
-   * The key of the request header parameter.
+   * The key of the header parameter.
    * 
    * @example
    * keyDemo
@@ -191,7 +191,7 @@ export class GetConnectionResponseBodyDataConnectionsAuthParametersOAuthParamete
   key?: string;
   /**
    * @remarks
-   * The value of the request header parameter.
+   * The value of the header parameter.
    * 
    * @example
    * keyDemo
@@ -225,7 +225,7 @@ export class GetConnectionResponseBodyDataConnectionsAuthParametersOAuthParamete
 export class GetConnectionResponseBodyDataConnectionsAuthParametersOAuthParametersOAuthHttpParametersQueryStringParameters extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the parameter is used for authentication.
+   * Indicates whether the value is a secret.
    * 
    * @example
    * false
@@ -233,7 +233,7 @@ export class GetConnectionResponseBodyDataConnectionsAuthParametersOAuthParamete
   isValueSecret?: string;
   /**
    * @remarks
-   * The key of the request path parameter.
+   * The key of the URI of the request query string parameter.
    * 
    * @example
    * keyDemo
@@ -241,7 +241,7 @@ export class GetConnectionResponseBodyDataConnectionsAuthParametersOAuthParamete
   key?: string;
   /**
    * @remarks
-   * The value of the request path parameter.
+   * The value of the URI of the request query string parameter.
    * 
    * @example
    * valueDemo
@@ -275,17 +275,17 @@ export class GetConnectionResponseBodyDataConnectionsAuthParametersOAuthParamete
 export class GetConnectionResponseBodyDataConnectionsAuthParametersOAuthParametersOAuthHttpParameters extends $dara.Model {
   /**
    * @remarks
-   * The list of request parameter data structures.
+   * The list of request parameter data structures for the body.
    */
   bodyParameters?: GetConnectionResponseBodyDataConnectionsAuthParametersOAuthParametersOAuthHttpParametersBodyParameters[];
   /**
    * @remarks
-   * The list of request header parameters.
+   * The list of header parameters.
    */
   headerParameters?: GetConnectionResponseBodyDataConnectionsAuthParametersOAuthParametersOAuthHttpParametersHeaderParameters[];
   /**
    * @remarks
-   * The data structure of the request path parameters.
+   * The data structure of the URI of the request query string parameters.
    */
   queryStringParameters?: GetConnectionResponseBodyDataConnectionsAuthParametersOAuthParametersOAuthHttpParametersQueryStringParameters[];
   static names(): { [key: string]: string } {
@@ -325,7 +325,7 @@ export class GetConnectionResponseBodyDataConnectionsAuthParametersOAuthParamete
 export class GetConnectionResponseBodyDataConnectionsAuthParametersOAuthParameters extends $dara.Model {
   /**
    * @remarks
-   * The request URL for obtaining the OAuth token.
+   * The endpoint URL for obtaining the OAuth token.
    * 
    * @example
    * http://localhost:8080/oauth/token
@@ -333,12 +333,12 @@ export class GetConnectionResponseBodyDataConnectionsAuthParametersOAuthParamete
   authorizationEndpoint?: string;
   /**
    * @remarks
-   * The data structure of the client parameters.
+   * The client parameter data structure.
    */
   clientParameters?: GetConnectionResponseBodyDataConnectionsAuthParametersOAuthParametersClientParameters;
   /**
    * @remarks
-   * The HTTP method used for the request. Valid values:
+   * The HTTP method for the probe request. Valid values:
    * 
    * - GET
    * - POST
@@ -350,7 +350,7 @@ export class GetConnectionResponseBodyDataConnectionsAuthParametersOAuthParamete
   httpMethod?: string;
   /**
    * @remarks
-   * The request parameters for OAuth authentication.
+   * The OAuth authentication request parameters.
    */
   OAuthHttpParameters?: GetConnectionResponseBodyDataConnectionsAuthParametersOAuthParametersOAuthHttpParameters;
   static names(): { [key: string]: string } {
@@ -389,12 +389,12 @@ export class GetConnectionResponseBodyDataConnectionsAuthParametersOAuthParamete
 export class GetConnectionResponseBodyDataConnectionsAuthParameters extends $dara.Model {
   /**
    * @remarks
-   * The data structure of the API KEY.
+   * The API KEY data structure.
    */
   apiKeyAuthParameters?: GetConnectionResponseBodyDataConnectionsAuthParametersApiKeyAuthParameters;
   /**
    * @remarks
-   * The authorization type:
+   * The authorization type. Valid values:
    * 
    * - BASIC: BASIC_AUTH
    * 
@@ -408,12 +408,12 @@ export class GetConnectionResponseBodyDataConnectionsAuthParameters extends $dar
   authorizationType?: string;
   /**
    * @remarks
-   * The data structure of Basic authentication.
+   * The basic authentication data structure.
    */
   basicAuthParameters?: GetConnectionResponseBodyDataConnectionsAuthParametersBasicAuthParameters;
   /**
    * @remarks
-   * The data structure of OAuth request parameters.
+   * The OAuth request parameter data structure.
    */
   OAuthParameters?: GetConnectionResponseBodyDataConnectionsAuthParametersOAuthParameters;
   static names(): { [key: string]: string } {
@@ -455,7 +455,7 @@ export class GetConnectionResponseBodyDataConnectionsAuthParameters extends $dar
 export class GetConnectionResponseBodyDataConnectionsNetworkParameters extends $dara.Model {
   /**
    * @remarks
-   * - Internet: PublicNetwork
+   * - Public network: PublicNetwork
    * 
    * - Virtual private cloud (VPC): PrivateNetwork
    * 
@@ -473,7 +473,7 @@ export class GetConnectionResponseBodyDataConnectionsNetworkParameters extends $
   securityGroupId?: string;
   /**
    * @remarks
-   * The ID of the virtual private cloud (VPC).
+   * The VPC ID.
    * 
    * @example
    * eb-test/vpc-bp1symadadwnwg****
@@ -517,12 +517,12 @@ export class GetConnectionResponseBodyDataConnectionsNetworkParameters extends $
 export class GetConnectionResponseBodyDataConnections extends $dara.Model {
   /**
    * @remarks
-   * The data structure of the permission.
+   * The authentication data structure.
    */
   authParameters?: GetConnectionResponseBodyDataConnectionsAuthParameters;
   /**
    * @remarks
-   * The name of the connection configuration.
+   * The connection configuration name.
    * 
    * @example
    * demo
@@ -554,12 +554,12 @@ export class GetConnectionResponseBodyDataConnections extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The data structure of the network configuration.
+   * The network configuration data structure.
    */
   networkParameters?: GetConnectionResponseBodyDataConnectionsNetworkParameters;
   /**
    * @remarks
-   * The data source connection parameters (JSON object). Only returned for data source type connections. Empty for the Http type. For field definitions, refer to the ParamsSchema returned by GetConnectionType.
+   * The data source connection parameters (JSON object). Returned only for data source type connections. Empty for Http type. For field definitions, refer to the ParamsSchema returned by GetConnectionType.
    * 
    * @example
    * {"HostName":"xxx.mysql.rds.aliyuncs.com","Port":"3306","User":"root","Password":"xxx","DatabaseName":"demo_db"}
@@ -567,7 +567,7 @@ export class GetConnectionResponseBodyDataConnections extends $dara.Model {
   parameters?: any;
   /**
    * @remarks
-   * The connection type. Valid values: Http, MySQL, PostgreSQL, Elasticsearch.
+   * The connection type. Valid values: Http, MySQL, PostgreSQL, Elasticsearch, OSS_TABLES, SLS, OTS, MaxCompute, MongoDB, Redis, SQLServer, ClickHouse, Oracle, Hive, Iceberg, and lakehouse.
    * 
    * @example
    * Http
@@ -617,7 +617,7 @@ export class GetConnectionResponseBodyDataConnections extends $dara.Model {
 export class GetConnectionResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The list of connection configuration information.
+   * The list of connection configurations.
    */
   connections?: GetConnectionResponseBodyDataConnections[];
   static names(): { [key: string]: string } {
@@ -647,7 +647,9 @@ export class GetConnectionResponseBodyData extends $dara.Model {
 export class GetConnectionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The API status or POP error code. Valid values: Success: The request was successful.
+   * The API status or POP error code. Valid values:
+   * 
+   * - Success: The request was successful.
    * 
    * @example
    * Success
@@ -668,7 +670,7 @@ export class GetConnectionResponseBody extends $dara.Model {
   httpCode?: number;
   /**
    * @remarks
-   * The information returned by the API request.
+   * The message returned for the request.
    * 
    * @example
    * success
@@ -676,7 +678,7 @@ export class GetConnectionResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The returned request ID.
+   * The request ID.
    * 
    * @example
    * 34AD682D-5B91-5773-8132-AA38C130****

@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class Catalog extends $dara.Model {
   /**
    * @remarks
-   * The comment or description of the data catalog
+   * The comment or description of the data catalog.
    * 
    * @example
-   * 测试数据目录
+   * Test data catalog
    */
   comment?: string;
   /**
    * @remarks
-   * The connection name associated with a mounted-type Catalog. Only has a value when Provider is MySQL/PostgreSQL/Elasticsearch
+   * The connection name associated with a mounted catalog. This parameter has a value only when Provider is set to MySQL, PostgreSQL, Elasticsearch, OSS_TABLES, SLS, OTS, MaxCompute, MongoDB, Redis, SQLServer, ClickHouse, Oracle, Hive, or Iceberg.
    * 
    * @example
    * my_connection
@@ -21,7 +21,7 @@ export class Catalog extends $dara.Model {
   connectionName?: string;
   /**
    * @remarks
-   * The unique identifier name of the data catalog
+   * The unique identifier name of the data catalog.
    * 
    * @example
    * my_catalog
@@ -29,7 +29,7 @@ export class Catalog extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Extended properties (JSON object). The Elasticsearch type contains information such as IndexPattern
+   * The extended properties (JSON object). For the Elasticsearch type, this includes information such as IndexPattern.
    * 
    * @example
    * {"IndexPattern":"my-index-*"}
@@ -37,7 +37,7 @@ export class Catalog extends $dara.Model {
   properties?: { [key: string]: any };
   /**
    * @remarks
-   * The data source provider. EventHouse is the built-in storage; MySQL/PostgreSQL/Elasticsearch are externally mounted
+   * The data source provider. EventHouse indicates built-in storage. MySQL, PostgreSQL, Elasticsearch, OSS_TABLES, SLS, OTS, MaxCompute, MongoDB, Redis, SQLServer, ClickHouse, Oracle, Hive, and Iceberg indicate externally mounted sources.
    * 
    * @example
    * EventHouse
@@ -45,7 +45,7 @@ export class Catalog extends $dara.Model {
   provider?: string;
   /**
    * @remarks
-   * The type of the data catalog, such as RELATIONAL
+   * The type of the data catalog, such as RELATIONAL.
    * 
    * @example
    * RELATIONAL

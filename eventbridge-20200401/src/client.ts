@@ -13,32 +13,32 @@ export default class Client extends OpenApi {
     super(config);
     this._endpointRule = "regional";
     this._endpointMap = {
-      'us-west-1': "eventbridge-console.us-west-1.aliyuncs.com",
-      'us-east-1': "eventbridge-console.us-east-1.aliyuncs.com",
-      'eu-west-1': "eventbridge-console.eu-west-1.aliyuncs.com",
-      'eu-central-1': "eventbridge-console.eu-central-1.aliyuncs.com",
-      'cn-zhangjiakou': "eventbridge-console.cn-zhangjiakou.aliyuncs.com",
       'cn-wulanchabu': "eventbridge-console.cn-wulanchabu.aliyuncs.com",
-      'cn-shenzhen-finance-1': "eventbridge-console.cn-shenzhen-finance-1.aliyuncs.com",
-      'cn-shenzhen': "eventbridge-console.cn-shenzhen.aliyuncs.com",
-      'cn-shanghai-finance-1': "eventbridge-console.cn-shanghai-finance-1.aliyuncs.com",
-      'cn-shanghai': "eventbridge-console.cn-shanghai.aliyuncs.com",
+      'cn-beijing': "eventbridge-console.cn-beijing.aliyuncs.com",
       'cn-qingdao': "eventbridge-console.cn-qingdao.aliyuncs.com",
-      'cn-huhehaote': "eventbridge-console.cn-huhehaote.aliyuncs.com",
+      'cn-shanghai': "eventbridge-console.cn-shanghai.aliyuncs.com",
       'cn-hongkong': "eventbridge-console.cn-hongkong.aliyuncs.com",
       'cn-heyuan': "eventbridge-console.cn-heyuan.aliyuncs.com",
-      'cn-hangzhou': "eventbridge-console.cn-hangzhou.aliyuncs.com",
-      'cn-guangzhou': "eventbridge-console.cn-guangzhou.aliyuncs.com",
-      'cn-chengdu': "eventbridge-console.cn-chengdu.aliyuncs.com",
-      'cn-beijing-finance-1': "eventbridge-console.cn-beijing-finance-1.aliyuncs.com",
-      'cn-beijing': "eventbridge-console.cn-beijing.aliyuncs.com",
-      'ap-southeast-7': "eventbridge-console.ap-southeast-7.aliyuncs.com",
-      'ap-southeast-6': "eventbridge-console.ap-southeast-6.aliyuncs.com",
-      'ap-southeast-5': "eventbridge-console.ap-southeast-5.aliyuncs.com",
-      'ap-southeast-3': "eventbridge-console.ap-southeast-3.aliyuncs.com",
-      'ap-southeast-1': "eventbridge-console.ap-southeast-1.aliyuncs.com",
+      'cn-zhangjiakou': "eventbridge-console.cn-zhangjiakou.aliyuncs.com",
+      'cn-shenzhen': "eventbridge-console.cn-shenzhen.aliyuncs.com",
       'ap-northeast-2': "eventbridge-console.ap-northeast-2.aliyuncs.com",
       'ap-northeast-1': "eventbridge-console.ap-northeast-1.aliyuncs.com",
+      'cn-chengdu': "eventbridge-console.cn-chengdu.aliyuncs.com",
+      'cn-guangzhou': "eventbridge-console.cn-guangzhou.aliyuncs.com",
+      'ap-southeast-1': "eventbridge-console.ap-southeast-1.aliyuncs.com",
+      'ap-southeast-3': "eventbridge-console.ap-southeast-3.aliyuncs.com",
+      'cn-huhehaote': "eventbridge-console.cn-huhehaote.aliyuncs.com",
+      'ap-southeast-5': "eventbridge-console.ap-southeast-5.aliyuncs.com",
+      'ap-southeast-6': "eventbridge-console.ap-southeast-6.aliyuncs.com",
+      'ap-southeast-7': "eventbridge-console.ap-southeast-7.aliyuncs.com",
+      'cn-hangzhou': "eventbridge-console.cn-hangzhou.aliyuncs.com",
+      'us-east-1': "eventbridge-console.us-east-1.aliyuncs.com",
+      'eu-west-1': "eventbridge-console.eu-west-1.aliyuncs.com",
+      'us-west-1': "eventbridge-console.us-west-1.aliyuncs.com",
+      'eu-central-1': "eventbridge-console.eu-central-1.aliyuncs.com",
+      'cn-shenzhen-finance-1': "eventbridge-console.cn-shenzhen-finance-1.aliyuncs.com",
+      'cn-beijing-finance-1': "eventbridge-console.cn-beijing-finance-1.aliyuncs.com",
+      'cn-shanghai-finance-1': "eventbridge-console.cn-shanghai-finance-1.aliyuncs.com",
     };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("eventbridge", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -58,7 +58,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries data using natural language.
+   * Queries data by using natural language.
    * 
    * @param request - AskLumaRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -101,7 +101,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries data using natural language.
+   * Queries data by using natural language.
    * 
    * @param request - AskLumaRequest
    * @returns AskLumaResponse
@@ -1260,6 +1260,10 @@ export default class Client extends OpenApi {
       body["EventStreamingName"] = request.eventStreamingName;
     }
 
+    if (!$dara.isNull(request.force)) {
+      body["Force"] = request.force;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
@@ -1734,6 +1738,48 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Initiates an agent data semantics generation task.
+   * 
+   * @param request - GenerateAgentDataSemanticsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GenerateAgentDataSemanticsResponse
+   */
+  async generateAgentDataSemanticsWithOptions(request: $_model.GenerateAgentDataSemanticsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GenerateAgentDataSemanticsResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.agentName)) {
+      body["AgentName"] = request.agentName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GenerateAgentDataSemantics",
+      version: "2020-04-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GenerateAgentDataSemanticsResponse>(await this.callApi(params, req, runtime), new $_model.GenerateAgentDataSemanticsResponse({}));
+  }
+
+  /**
+   * Initiates an agent data semantics generation task.
+   * 
+   * @param request - GenerateAgentDataSemanticsRequest
+   * @returns GenerateAgentDataSemanticsResponse
+   */
+  async generateAgentDataSemantics(request: $_model.GenerateAgentDataSemanticsRequest): Promise<$_model.GenerateAgentDataSemanticsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.generateAgentDataSemanticsWithOptions(request, runtime);
+  }
+
+  /**
    * Retrieves agent metadata.
    * 
    * @param request - GetAgentRequest
@@ -1773,6 +1819,48 @@ export default class Client extends OpenApi {
   async getAgent(request: $_model.GetAgentRequest): Promise<$_model.GetAgentResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getAgentWithOptions(request, runtime);
+  }
+
+  /**
+   * Retrieves the currently effective data semantics of an agent.
+   * 
+   * @param request - GetAgentDataSemanticsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAgentDataSemanticsResponse
+   */
+  async getAgentDataSemanticsWithOptions(request: $_model.GetAgentDataSemanticsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetAgentDataSemanticsResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.agentName)) {
+      body["AgentName"] = request.agentName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetAgentDataSemantics",
+      version: "2020-04-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetAgentDataSemanticsResponse>(await this.callApi(params, req, runtime), new $_model.GetAgentDataSemanticsResponse({}));
+  }
+
+  /**
+   * Retrieves the currently effective data semantics of an agent.
+   * 
+   * @param request - GetAgentDataSemanticsRequest
+   * @returns GetAgentDataSemanticsResponse
+   */
+  async getAgentDataSemantics(request: $_model.GetAgentDataSemanticsRequest): Promise<$_model.GetAgentDataSemanticsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getAgentDataSemanticsWithOptions(request, runtime);
   }
 
   /**
@@ -1824,7 +1912,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get data catalog
+   * Retrieves a data catalog.
    * 
    * @param request - GetCatalogRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1861,7 +1949,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get data catalog
+   * Retrieves a data catalog.
    * 
    * @param request - GetCatalogRequest
    * @returns GetCatalogResponse
@@ -1872,10 +1960,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the configuration information of a single connection.
+   * Queries the configuration of a single connection.
    * 
    * @remarks
-   * Queries the configuration information of a single connection.
+   * Queries the configuration of a single connection.
    * 
    * @param request - GetConnectionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1906,10 +1994,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the configuration information of a single connection.
+   * Queries the configuration of a single connection.
    * 
    * @remarks
-   * Queries the configuration information of a single connection.
+   * Queries the configuration of a single connection.
    * 
    * @param request - GetConnectionRequest
    * @returns GetConnectionResponse
@@ -2055,6 +2143,48 @@ export default class Client extends OpenApi {
   async getEventStreaming(request: $_model.GetEventStreamingRequest): Promise<$_model.GetEventStreamingResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getEventStreamingWithOptions(request, runtime);
+  }
+
+  /**
+   * Retrieves the generation progress of data semantics for an agent.
+   * 
+   * @param request - GetGenerateAgentDataSemanticsProgressRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetGenerateAgentDataSemanticsProgressResponse
+   */
+  async getGenerateAgentDataSemanticsProgressWithOptions(request: $_model.GetGenerateAgentDataSemanticsProgressRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetGenerateAgentDataSemanticsProgressResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.agentName)) {
+      body["AgentName"] = request.agentName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetGenerateAgentDataSemanticsProgress",
+      version: "2020-04-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetGenerateAgentDataSemanticsProgressResponse>(await this.callApi(params, req, runtime), new $_model.GetGenerateAgentDataSemanticsProgressResponse({}));
+  }
+
+  /**
+   * Retrieves the generation progress of data semantics for an agent.
+   * 
+   * @param request - GetGenerateAgentDataSemanticsProgressRequest
+   * @returns GetGenerateAgentDataSemanticsProgressResponse
+   */
+  async getGenerateAgentDataSemanticsProgress(request: $_model.GetGenerateAgentDataSemanticsProgressRequest): Promise<$_model.GetGenerateAgentDataSemanticsProgressResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getGenerateAgentDataSemanticsProgressWithOptions(request, runtime);
   }
 
   /**
@@ -2365,7 +2495,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query data catalog list
+   * Queries the list of data catalogs.
    * 
    * @param request - ListCatalogsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2400,7 +2530,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query data catalog list
+   * Queries the list of data catalogs.
    * 
    * @param request - ListCatalogsRequest
    * @returns ListCatalogsResponse
@@ -2411,10 +2541,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of connection configurations.
+   * Retrieves a list of connection configurations.
    * 
    * @remarks
-   * Queries the list of connection configurations.
+   * Retrieves a list of connection configurations.
    * 
    * @param request - ListConnectionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2457,10 +2587,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of connection configurations.
+   * Retrieves a list of connection configurations.
    * 
    * @remarks
-   * Queries the list of connection configurations.
+   * Retrieves a list of connection configurations.
    * 
    * @param request - ListConnectionsRequest
    * @returns ListConnectionsResponse
@@ -3231,6 +3361,66 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Executes a read-only SQL statement to query internal EventHouse data within a specified time range. The time range only constrains the internal EventHouse data referenced in the SQL statement and does not affect mounted external data sources. Returns a structured result set.
+   * 
+   * @remarks
+   * Executes a single read-only SQL statement and returns a structured result set. BeginTime and EndTime only constrain the internal EventHouse data referenced in the SQL statement and do not affect mounted external data sources.
+   * 
+   * @param request - QueryEventHouseWithTimeRangeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryEventHouseWithTimeRangeResponse
+   */
+  async queryEventHouseWithTimeRangeWithOptions(request: $_model.QueryEventHouseWithTimeRangeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryEventHouseWithTimeRangeResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.beginTime)) {
+      query["BeginTime"] = request.beginTime;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.limit)) {
+      query["Limit"] = request.limit;
+    }
+
+    if (!$dara.isNull(request.query)) {
+      query["Query"] = request.query;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryEventHouseWithTimeRange",
+      version: "2020-04-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryEventHouseWithTimeRangeResponse>(await this.callApi(params, req, runtime), new $_model.QueryEventHouseWithTimeRangeResponse({}));
+  }
+
+  /**
+   * Executes a read-only SQL statement to query internal EventHouse data within a specified time range. The time range only constrains the internal EventHouse data referenced in the SQL statement and does not affect mounted external data sources. Returns a structured result set.
+   * 
+   * @remarks
+   * Executes a single read-only SQL statement and returns a structured result set. BeginTime and EndTime only constrain the internal EventHouse data referenced in the SQL statement and do not affect mounted external data sources.
+   * 
+   * @param request - QueryEventHouseWithTimeRangeRequest
+   * @returns QueryEventHouseWithTimeRangeResponse
+   */
+  async queryEventHouseWithTimeRange(request: $_model.QueryEventHouseWithTimeRangeRequest): Promise<$_model.QueryEventHouseWithTimeRangeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.queryEventHouseWithTimeRangeWithOptions(request, runtime);
+  }
+
+  /**
    * Queries event traces.
    * 
    * @remarks
@@ -3416,6 +3606,82 @@ export default class Client extends OpenApi {
   async queryTracedEvents(request: $_model.QueryTracedEventsRequest): Promise<$_model.QueryTracedEventsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.queryTracedEventsWithOptions(request, runtime);
+  }
+
+  /**
+   * Saves data semantics for an agent.
+   * 
+   * @param tmpReq - SaveAgentDataSemanticsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SaveAgentDataSemanticsResponse
+   */
+  async saveAgentDataSemanticsWithOptions(tmpReq: $_model.SaveAgentDataSemanticsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SaveAgentDataSemanticsResponse> {
+    tmpReq.validate();
+    let request = new $_model.SaveAgentDataSemanticsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.examples)) {
+      request.examplesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.examples, "Examples", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.joins)) {
+      request.joinsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.joins, "Joins", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.metrics)) {
+      request.metricsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.metrics, "Metrics", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.text)) {
+      request.textShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.text, "Text", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.agentName)) {
+      body["AgentName"] = request.agentName;
+    }
+
+    if (!$dara.isNull(request.examplesShrink)) {
+      body["Examples"] = request.examplesShrink;
+    }
+
+    if (!$dara.isNull(request.joinsShrink)) {
+      body["Joins"] = request.joinsShrink;
+    }
+
+    if (!$dara.isNull(request.metricsShrink)) {
+      body["Metrics"] = request.metricsShrink;
+    }
+
+    if (!$dara.isNull(request.textShrink)) {
+      body["Text"] = request.textShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SaveAgentDataSemantics",
+      version: "2020-04-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SaveAgentDataSemanticsResponse>(await this.callApi(params, req, runtime), new $_model.SaveAgentDataSemanticsResponse({}));
+  }
+
+  /**
+   * Saves data semantics for an agent.
+   * 
+   * @param request - SaveAgentDataSemanticsRequest
+   * @returns SaveAgentDataSemanticsResponse
+   */
+  async saveAgentDataSemantics(request: $_model.SaveAgentDataSemanticsRequest): Promise<$_model.SaveAgentDataSemanticsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.saveAgentDataSemanticsWithOptions(request, runtime);
   }
 
   /**
@@ -3703,10 +3969,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the connection configuration.
+   * Updates connection configuration information.
    * 
    * @remarks
-   * Updates the connection configuration.
+   * Updates connection configurations.
    * 
    * @param tmpReq - UpdateConnectionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3771,10 +4037,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the connection configuration.
+   * Updates connection configuration information.
    * 
    * @remarks
-   * Updates the connection configuration.
+   * Updates connection configurations.
    * 
    * @param request - UpdateConnectionRequest
    * @returns UpdateConnectionResponse

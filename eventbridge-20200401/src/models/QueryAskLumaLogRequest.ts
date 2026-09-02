@@ -13,7 +13,7 @@ export class QueryAskLumaLogRequest extends $dara.Model {
   after?: string;
   /**
    * @remarks
-   * The agent name. If this parameter is not specified, logs of all agents are queried.
+   * The agent name. If this parameter is left empty, all agents are queried.
    * 
    * @example
    * demo-luma-agent

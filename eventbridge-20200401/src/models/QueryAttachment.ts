@@ -6,7 +6,7 @@ import { ExecutionResult } from "./ExecutionResult";
 export class QueryAttachment extends $dara.Model {
   /**
    * @remarks
-   * Query statement
+   * The query statement.
    * 
    * @example
    * "SELECT city, COUNT(*) AS cnt FROM events GROUP BY city"
@@ -14,12 +14,21 @@ export class QueryAttachment extends $dara.Model {
   query?: string;
   /**
    * @remarks
-   * Query execution result
+   * The stable identifier for the actual SQL tool execution, used for result tracking and interpretation.
+   * 
+   * @example
+   * sqlx-0-a1b2c3d4
+   */
+  queryId?: string;
+  /**
+   * @remarks
+   * The query execution result.
    */
   result?: ExecutionResult;
   static names(): { [key: string]: string } {
     return {
       query: 'Query',
+      queryId: 'QueryId',
       result: 'Result',
     };
   }
@@ -27,6 +36,7 @@ export class QueryAttachment extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       query: 'string',
+      queryId: 'string',
       result: ExecutionResult,
     };
   }

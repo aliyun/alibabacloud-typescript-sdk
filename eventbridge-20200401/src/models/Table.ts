@@ -97,7 +97,7 @@ export class Table extends $dara.Model {
    * The column definition list of the table. Each column contains Name (column name), Type (data type), and Comment (remarks)
    * 
    * @example
-   * [{"Name":"id","Type":"bigint","Comment":"主键"}]
+   * [{"Name":"id","Type":"bigint","Comment":"Primary key"}]
    */
   columns?: TableColumns[];
   /**

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateConnectionRequestAuthParametersApiKeyAuthParameters extends $dara.Model {
   /**
    * @remarks
-   * The key name of the API key.
+   * The key of the API key.
    * 
    * @example
    * Token
@@ -125,7 +125,7 @@ export class CreateConnectionRequestAuthParametersOAuthParametersClientParameter
 export class CreateConnectionRequestAuthParametersOAuthParametersOAuthHttpParametersBodyParameters extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether the value is a secret.
+   * Specifies whether the value is used for authentication.
    * 
    * @example
    * false
@@ -175,7 +175,7 @@ export class CreateConnectionRequestAuthParametersOAuthParametersOAuthHttpParame
 export class CreateConnectionRequestAuthParametersOAuthParametersOAuthHttpParametersHeaderParameters extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether the value is a secret.
+   * Specifies whether the value is used for authentication.
    * 
    * @example
    * false
@@ -225,7 +225,7 @@ export class CreateConnectionRequestAuthParametersOAuthParametersOAuthHttpParame
 export class CreateConnectionRequestAuthParametersOAuthParametersOAuthHttpParametersQueryStringParameters extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether the value is a secret.
+   * Specifies whether the value is used for authentication.
    * 
    * @example
    * false
@@ -275,17 +275,17 @@ export class CreateConnectionRequestAuthParametersOAuthParametersOAuthHttpParame
 export class CreateConnectionRequestAuthParametersOAuthParametersOAuthHttpParameters extends $dara.Model {
   /**
    * @remarks
-   * The list of body request parameter configurations.
+   * The list of body request parameter data structures.
    */
   bodyParameters?: CreateConnectionRequestAuthParametersOAuthParametersOAuthHttpParametersBodyParameters[];
   /**
    * @remarks
-   * The list of header parameter configurations.
+   * The list of header parameters.
    */
   headerParameters?: CreateConnectionRequestAuthParametersOAuthParametersOAuthHttpParametersHeaderParameters[];
   /**
    * @remarks
-   * The structure of the URI of the request path parameters.
+   * The data structure of the URI of the request path parameters.
    */
   queryStringParameters?: CreateConnectionRequestAuthParametersOAuthParametersOAuthHttpParametersQueryStringParameters[];
   static names(): { [key: string]: string } {
@@ -325,7 +325,7 @@ export class CreateConnectionRequestAuthParametersOAuthParametersOAuthHttpParame
 export class CreateConnectionRequestAuthParametersOAuthParameters extends $dara.Model {
   /**
    * @remarks
-   * The authorization endpoint URL. Maximum length: 127 characters.
+   * The authorization endpoint address. Maximum length: 127 characters.
    * 
    * @example
    * http://localhost:8080/oauth/token
@@ -333,12 +333,12 @@ export class CreateConnectionRequestAuthParametersOAuthParameters extends $dara.
   authorizationEndpoint?: string;
   /**
    * @remarks
-   * The client parameter configuration.
+   * The client parameters data structure.
    */
   clientParameters?: CreateConnectionRequestAuthParametersOAuthParametersClientParameters;
   /**
    * @remarks
-   * The HTTP method. Valid values:
+   * The HTTP method for the probe. Valid values:
    * 
    * - GET
    * - POST
@@ -353,7 +353,7 @@ export class CreateConnectionRequestAuthParametersOAuthParameters extends $dara.
   httpMethod?: string;
   /**
    * @remarks
-   * The OAuth authentication request parameters.
+   * The request parameters for OAuth authentication.
    */
   OAuthHttpParameters?: CreateConnectionRequestAuthParametersOAuthParametersOAuthHttpParameters;
   static names(): { [key: string]: string } {
@@ -392,18 +392,18 @@ export class CreateConnectionRequestAuthParametersOAuthParameters extends $dara.
 export class CreateConnectionRequestAuthParameters extends $dara.Model {
   /**
    * @remarks
-   * The API key authentication configuration.
+   * The data structure of the API key.
    */
   apiKeyAuthParameters?: CreateConnectionRequestAuthParametersApiKeyAuthParameters;
   /**
    * @remarks
    * The authentication type:
    * 
-   * - BASIC: BASIC_AUTH. This authorization method is a basic authorization method implemented by browsers in compliance with the HTTP protocol. During HTTP communication, the HTTP protocol defines a basic authentication method that allows an HTTP server to authenticate clients. Add `Authorization: Basic Base64Encoded(username:password)` in the fixed format to the request header. Username and Password are required.
+   * - BASIC: BASIC_AUTH. This authorization method is a basic authorization method implemented by browsers in compliance with the HTTP protocol. During HTTP communication, the HTTP protocol defines a basic authentication method that allows an HTTP server to authenticate clients. Add Authorization: Basic Base64-encoded(`username:password`) in the fixed format to the request header. Username and Password are required.
    * 
-   * - API KEY: API_KEY_AUTH. Add `Token: TokenValue` in the fixed format to the request header. ApiKeyName and ApiKeyValue are required.
+   * - API KEY: API_KEY_AUTH. Add Token: Token value in the fixed format to the request header. ApiKeyName and ApiKeyValue are required.
    * 
-   * - OAUTH: OAUTH_AUTH. OAuth 2.0 is an authorization mechanism. In a system that does not use an authorization mechanism such as OAuth 2.0, the client can directly access resources on the resource server. To ensure secure data access, an Access Token mechanism is added. The client must carry an Access Token to access protected resources. OAuth 2.0 prevents resources from being accessed by malicious clients, which improves system security. AuthorizationEndpoint, OAuthHttpParameters, and HttpMethod are required.
+   * - OAUTH: OAUTH_AUTH. OAuth 2.0 is an authorization mechanism. Normally, without an authorization mechanism such as OAuth 2.0, clients can directly access resources on the resource server. To ensure secure data access, an Access Token mechanism is added. Clients must carry an Access Token to access protected resources. OAuth 2.0 ensures that resources are not accessed by malicious clients, which improves system security. AuthorizationEndpoint, OAuthHttpParameters, and HttpMethod are required.
    * 
    * @example
    * BASIC_AUTH
@@ -411,12 +411,12 @@ export class CreateConnectionRequestAuthParameters extends $dara.Model {
   authorizationType?: string;
   /**
    * @remarks
-   * The basic authentication configuration.
+   * The data structure of basic authentication.
    */
   basicAuthParameters?: CreateConnectionRequestAuthParametersBasicAuthParameters;
   /**
    * @remarks
-   * The OAuth authentication configuration.
+   * The data structure of OAuth authentication parameters.
    */
   OAuthParameters?: CreateConnectionRequestAuthParametersOAuthParameters;
   static names(): { [key: string]: string } {
@@ -524,7 +524,7 @@ export class CreateConnectionRequestNetworkParameters extends $dara.Model {
 export class CreateConnectionRequest extends $dara.Model {
   /**
    * @remarks
-   * The authentication configuration.
+   * The authentication data structure.
    */
   authParameters?: CreateConnectionRequestAuthParameters;
   /**
@@ -547,14 +547,14 @@ export class CreateConnectionRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The network configuration.
+   * The network configuration data structure.
    * 
    * This parameter is required.
    */
   networkParameters?: CreateConnectionRequestNetworkParameters;
   /**
    * @remarks
-   * The data source connection parameters (JSON object). This parameter is required when Type is set to a data source type. This parameter is not required for the Http type. For specific field definitions, call the GetConnectionType operation and refer to ParamsSchema in the response.
+   * The data source connection parameters (JSON object). This parameter is required when Type is a data source type. It is not required for the Http type. For specific field definitions, call the GetConnectionType operation and refer to ParamsSchema in the response.
    * 
    * @example
    * {"HostName":"xxx.mysql.rds.aliyuncs.com","Port":"3306","User":"root","Password":"xxx","DatabaseName":"demo_db"}
@@ -562,7 +562,7 @@ export class CreateConnectionRequest extends $dara.Model {
   parameters?: any;
   /**
    * @remarks
-   * The connection type. Valid values: MySQL, PostgreSQL, Elasticsearch, and Http. This parameter is required for data source connections. If this parameter is not specified, the default value Http is used. The Http type is used for HTTP protocol targets such as API Destination. Data source types are used for data connections in the integration marketplace.
+   * The connection type. Valid values: MySQL, PostgreSQL, Elasticsearch, OSS_TABLES, SLS, OTS, MaxCompute, MongoDB, Redis, SQLServer, ClickHouse, Oracle, Hive, Iceberg, lakehouse, and Http. This parameter is required for data source type connections. If this parameter is not specified, the default value Http is used. The Http type is used for API Destination and other HTTP protocol targets. Hive and Iceberg are used for the corresponding data lakehouse sources. lakehouse is used only for compatibility with existing connections. Other data source types are used for data connections in the integration marketplace.
    * 
    * @example
    * Http

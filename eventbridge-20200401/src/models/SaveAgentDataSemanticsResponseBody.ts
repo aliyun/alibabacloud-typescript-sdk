@@ -1,16 +1,11 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { QueryAskLumaLogResult } from "./QueryAskLumaLogResult";
 
 
-export class QueryAskLumaLogResponseBody extends $dara.Model {
+export class SaveAgentDataSemanticsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code. Valid values:
-   * 
-   * 200: The request was successful.    
-   * 
-   * Other values: An error occurred. For more information, see error codes.
+   * The response code of the operation.
    * 
    * @example
    * Success
@@ -18,18 +13,18 @@ export class QueryAskLumaLogResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned result.
+   * The update result. If the save is successful, an empty object is returned with no additional business fields. If none of the four knowledge categories are specified, the target state is all four categories empty: if a non-empty current version exists, an all-empty version is published. If the current version is already all empty or no current version exists, the operation succeeds idempotently and the current round of pending generation results is finalized.
    * 
    * @example
-   * true
+   * {}
    */
-  data?: QueryAskLumaLogResult;
+  data?: { [key: string]: any };
   /**
    * @remarks
-   * The error message.
+   * The response message. If the call fails, an error message is returned.
    * 
    * @example
-   * AgentNotFound
+   * Invalid data semantics request.
    */
   message?: string;
   /**
@@ -37,12 +32,12 @@ export class QueryAskLumaLogResponseBody extends $dara.Model {
    * The unique identifier that Alibaba Cloud generates for the request.
    * 
    * @example
-   * 6FB52207-7621-5292-BDF2-A17E2E984160
+   * 5DAF96FB-A4DF-548C-B8A1-F2A8D2F4****
    */
   requestId?: string;
   /**
    * @remarks
-   * Returns true if the operation is successful.
+   * Indicates whether the call is successful.
    * 
    * @example
    * true
@@ -61,7 +56,7 @@ export class QueryAskLumaLogResponseBody extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       code: 'string',
-      data: QueryAskLumaLogResult,
+      data: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       message: 'string',
       requestId: 'string',
       success: 'boolean',
@@ -69,8 +64,8 @@ export class QueryAskLumaLogResponseBody extends $dara.Model {
   }
 
   validate() {
-    if(this.data && typeof (this.data as any).validate === 'function') {
-      (this.data as any).validate();
+    if(this.data) {
+      $dara.Model.validateMap(this.data);
     }
     super.validate();
   }

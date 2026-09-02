@@ -1,29 +1,40 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import { Row } from "./Row";
 
 
-export class CreateEventStreamingResponseBodyData extends $dara.Model {
+export class QueryEventHouseWithTimeRangeResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The Alibaba Cloud Resource Name (ARN) of the event stream.
+   * The list of result rows returned by the SQL query.
+   */
+  rows?: Row[];
+  /**
+   * @remarks
+   * The number of result rows actually returned by the query.
    * 
    * @example
-   * acs:eventbridge:cn-hangzhou:164901546557****:eventstreaming/myeventstreaming
+   * 1
    */
-  eventStreamingARN?: string;
+  total?: number;
   static names(): { [key: string]: string } {
     return {
-      eventStreamingARN: 'EventStreamingARN',
+      rows: 'Rows',
+      total: 'Total',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      eventStreamingARN: 'string',
+      rows: { 'type': 'array', 'itemType': Row },
+      total: 'number',
     };
   }
 
   validate() {
+    if(Array.isArray(this.rows)) {
+      $dara.Model.validateArray(this.rows);
+    }
     super.validate();
   }
 
@@ -32,10 +43,10 @@ export class CreateEventStreamingResponseBodyData extends $dara.Model {
   }
 }
 
-export class CreateEventStreamingResponseBody extends $dara.Model {
+export class QueryEventHouseWithTimeRangeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code:
+   * The return code of the operation. Success indicates a successful call. Other values indicate specific error codes.
    * 
    * @example
    * Success
@@ -43,28 +54,28 @@ export class CreateEventStreamingResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned data.
+   * The structured result data returned by the SQL query.
    */
-  data?: CreateEventStreamingResponseBodyData;
+  data?: QueryEventHouseWithTimeRangeResponseBodyData;
   /**
    * @remarks
-   * The error message.
+   * A success message if the call succeeds, or a specific error message if the call fails.
    * 
    * @example
-   * The name [xxxx] of event streaming in request is already exist!
+   * success
    */
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The unique ID of the request. You can use this ID for troubleshooting.
    * 
    * @example
-   * B896B484-F16D-59DE-9E23-DD0E5C36****
+   * 34AD682D-5B91-5773-8132-AA38C130****
    */
   requestId?: string;
   /**
    * @remarks
-   * Returns true if the operation is successful.
+   * Indicates whether the call is successful. A value of true indicates success. A value of false indicates failure.
    * 
    * @example
    * true
@@ -83,7 +94,7 @@ export class CreateEventStreamingResponseBody extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       code: 'string',
-      data: CreateEventStreamingResponseBodyData,
+      data: QueryEventHouseWithTimeRangeResponseBodyData,
       message: 'string',
       requestId: 'string',
       success: 'boolean',

@@ -2,26 +2,26 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class GetEventStreamingRequest extends $dara.Model {
+export class GetGenerateAgentDataSemanticsProgressRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the event stream to retrieve.
+   * The name of the agent.
    * 
    * This parameter is required.
    * 
    * @example
-   * myeventstreaming
+   * bakehouse_agent
    */
-  eventStreamingName?: string;
+  agentName?: string;
   static names(): { [key: string]: string } {
     return {
-      eventStreamingName: 'EventStreamingName',
+      agentName: 'AgentName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      eventStreamingName: 'string',
+      agentName: 'string',
     };
   }
 

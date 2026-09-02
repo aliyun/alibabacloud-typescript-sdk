@@ -57,7 +57,7 @@ export class CreateEventStreamingShrinkRequest extends $dara.Model {
   eventStreamingName?: string;
   /**
    * @remarks
-   * The event filtering rule. If not specified, all events are matched.
+   * The event filtering rule. If you do not specify this parameter, all events are matched.
    * 
    * @example
    * {
@@ -79,6 +79,10 @@ export class CreateEventStreamingShrinkRequest extends $dara.Model {
    * }
    */
   filterPattern?: string;
+  /**
+   * @remarks
+   * The generic JSON Configurations for the event source. This parameter is mutually exclusive with Source.
+   */
   metadata?: string;
   /**
    * @remarks
@@ -87,17 +91,17 @@ export class CreateEventStreamingShrinkRequest extends $dara.Model {
   runOptionsShrink?: string;
   /**
    * @remarks
-   * The event target. You must select exactly one Sink type.
+   * The event target. You must select one Sink type, and you can select only one Sink type.
    */
   sinkShrink?: string;
   /**
    * @remarks
-   * The event provider. You must select exactly one Source type.
+   * The event provider. You must specify one source type, and you can specify only one source type.
    */
   sourceShrink?: string;
   /**
    * @remarks
-   * The tag list. A maximum of 20 items are supported.
+   * The tag list, containing up to 20 items.
    */
   tags?: CreateEventStreamingShrinkRequestTags[];
   /**

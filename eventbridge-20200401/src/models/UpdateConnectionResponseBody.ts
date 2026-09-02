@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateConnectionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The API status code or POP error code. Description: 200 indicates success.
+   * The API status or POP error code. Valid values: 200: Success.
    * 
    * @example
    * 200
@@ -21,7 +21,7 @@ export class UpdateConnectionResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 8346BE8F-40F3-533D-A0B8-1359C31BD5BA

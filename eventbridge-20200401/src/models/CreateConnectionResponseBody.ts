@@ -35,7 +35,7 @@ export class CreateConnectionResponseBodyData extends $dara.Model {
 export class CreateConnectionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The API status or POP error code. Valid values: Success.
+   * The API status or POP error code. A value of Success indicates that the request is successful.
    * 
    * @example
    * Success
