@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAiAppStatsRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to aggregate by month. Default value: false.
+   * Specifies whether to aggregate statistics by month. Default value: false.
    * 
    * @example
    * false
@@ -13,7 +13,7 @@ export class GetAiAppStatsRequest extends $dara.Model {
   byMonth?: boolean;
   /**
    * @remarks
-   * The query end date.
+   * The end date of the query. Format: YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2026-01-02 00:00:00
@@ -37,7 +37,7 @@ export class GetAiAppStatsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The query start date.
+   * The start date of the query. Format: YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2026-01-01 00:00:00

@@ -8,7 +8,7 @@ export class GetCipStatsResponseBodyDataLabelStatChartImageTreeChar extends $dar
    * The description.
    * 
    * @example
-   * 未检测出风险
+   * No risk detected
    */
   description?: string;
   /**
@@ -58,7 +58,7 @@ export class GetCipStatsResponseBodyDataLabelStatChartTextTreeChart extends $dar
    * The description.
    * 
    * @example
-   * 未检测出风险
+   * No risk detected
    */
   description?: string;
   /**
@@ -108,7 +108,7 @@ export class GetCipStatsResponseBodyDataLabelStatChartTreeChart extends $dara.Mo
    * The label description.
    * 
    * @example
-   * 疑似政治人物
+   * Suspected political figure
    */
   description?: string;
   /**
@@ -158,7 +158,7 @@ export class GetCipStatsResponseBodyDataLabelStatChartVoiceTreeChart extends $da
    * The label description.
    * 
    * @example
-   * 疑似特定歌曲
+   * Suspected specific song
    */
   description?: string;
   /**
@@ -271,12 +271,12 @@ export class GetCipStatsResponseBodyDataLabelStatChart extends $dara.Model {
   totalCount?: number;
   /**
    * @remarks
-   * The tree view.
+   * The tree chart.
    */
   treeChart?: GetCipStatsResponseBodyDataLabelStatChartTreeChart[];
   /**
    * @remarks
-   * The audio tree view.
+   * The audio tree chart.
    */
   voiceTreeChart?: GetCipStatsResponseBodyDataLabelStatChartVoiceTreeChart[];
   /**
@@ -505,7 +505,7 @@ export class GetCipStatsResponseBodyData extends $dara.Model {
 export class GetCipStatsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code, which is the same as the HTTP status code.
+   * The error code, which is consistent with the HTTP status code.
    * 
    * @example
    * 200
@@ -534,7 +534,7 @@ export class GetCipStatsResponseBody extends $dara.Model {
   msg?: string;
   /**
    * @remarks
-   * The request ID assigned by the backend. You can use this ID to troubleshoot issues.
+   * The ID assigned by the backend to uniquely identify the request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****

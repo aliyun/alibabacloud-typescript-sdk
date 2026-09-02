@@ -13,7 +13,7 @@ export class GetRiskStatsRequest extends $dara.Model {
   classify?: string;
   /**
    * @remarks
-   * The end time.
+   * The end time. Format: YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2026-01-02 00:00:00
@@ -29,7 +29,7 @@ export class GetRiskStatsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The start time.
+   * The start time. Format: YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2026-01-01 00:00:00

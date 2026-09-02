@@ -16,7 +16,7 @@ export class QueryCallbackByPageRequest extends $dara.Model {
    * The page size.
    * 
    * @example
-   * 10
+   * 20
    */
   pageSize?: number;
   /**

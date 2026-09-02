@@ -90,9 +90,8 @@ export class ListAiAppByPageResponseBodyItemsRiskEvents extends $dara.Model {
   /**
    * @remarks
    * The event status. Valid values:
-   * 
-   * - **unhandled**: Not handled.
-   * - **resolved**: Handled.
+   * - **unhandled**: Unhandled.
+   * - **resolved**: Resolved.
    * 
    * @example
    * resolved
@@ -180,7 +179,7 @@ export class ListAiAppByPageResponseBodyItems extends $dara.Model {
   channel?: string;
   /**
    * @remarks
-   * The last active time.
+   * The last active time. Format: YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2026-01-01 00:00:00

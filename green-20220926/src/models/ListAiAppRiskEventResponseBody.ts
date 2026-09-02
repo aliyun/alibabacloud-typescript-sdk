@@ -150,7 +150,7 @@ export class ListAiAppRiskEventResponseBody extends $dara.Model {
   data?: ListAiAppRiskEventResponseBodyData[];
   /**
    * @remarks
-   * The ID assigned by the backend to uniquely identify a request. This ID can be used for troubleshooting.
+   * The ID assigned by the backend that uniquely identifies a request. This ID can be used for troubleshooting.
    * 
    * @example
    * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****

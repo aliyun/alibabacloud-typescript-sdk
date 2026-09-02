@@ -16,7 +16,7 @@ export class QueryCallbackByPageResponseBodyItems extends $dara.Model {
    * The creation time.
    * 
    * @example
-   * 2024-06-03 15:20:14
+   * 2025-06-03 15:20:14
    */
   gmtCreate?: string;
   /**
@@ -24,7 +24,7 @@ export class QueryCallbackByPageResponseBodyItems extends $dara.Model {
    * The modification time.
    * 
    * @example
-   * 2024-06-03 15:20:14
+   * 2025-06-03 15:20:14
    */
   gmtModified?: string;
   /**
@@ -32,7 +32,7 @@ export class QueryCallbackByPageResponseBodyItems extends $dara.Model {
    * The primary key ID.
    * 
    * @example
-   * 1697
+   * 1545
    */
   id?: number;
   /**
@@ -40,7 +40,7 @@ export class QueryCallbackByPageResponseBodyItems extends $dara.Model {
    * The name.
    * 
    * @example
-   * 消息通知
+   * callback_name
    */
   name?: string;
   /**
@@ -56,7 +56,7 @@ export class QueryCallbackByPageResponseBodyItems extends $dara.Model {
    * Seed。
    * 
    * @example
-   * cb6gYS8GXj4Vn4Y4FN0Y8R5M-1x46Mq
+   * cb6gYS*******x46Mq
    */
   seed?: string;
   /**
@@ -64,7 +64,7 @@ export class QueryCallbackByPageResponseBodyItems extends $dara.Model {
    * UID。
    * 
    * @example
-   * 12161*****398900
+   * 12*****00
    */
   uid?: string;
   /**
@@ -131,12 +131,12 @@ export class QueryCallbackByPageResponseBody extends $dara.Model {
    * The page size.
    * 
    * @example
-   * 10
+   * 20
    */
   pageSize?: number;
   /**
    * @remarks
-   * The ID assigned by the backend to uniquely identify a request. This ID can be used to troubleshoot issues.
+   * The ID assigned by the backend to uniquely identify a request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****

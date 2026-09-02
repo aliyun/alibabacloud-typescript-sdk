@@ -100,7 +100,7 @@ export class InitAiAppScanResponseBody extends $dara.Model {
   readyStatus?: string;
   /**
    * @remarks
-   * The ID assigned by the backend to uniquely identify a request. Used for troubleshooting.
+   * The ID assigned by the backend to uniquely identify a request. You can use this ID for troubleshooting.
    * 
    * @example
    * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****

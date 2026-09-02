@@ -13,7 +13,7 @@ export class ListAiAppRiskEventByPageRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The maximum number of results to return per request.
+   * The maximum number of results to return.
    * 
    * @example
    * 10
@@ -21,7 +21,7 @@ export class ListAiAppRiskEventByPageRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token for the next query.
+   * The token for the next query.
    * 
    * @example
    * 1a320d468c75e987765861ec6d10f8cd3aea63fac9610c5c

@@ -29,7 +29,7 @@ export class ListAiAppRiskEventByPageResponseBodyItems extends $dara.Model {
   channel?: string;
   /**
    * @remarks
-   * The end time that indicates when the event was resolved.
+   * The time when the event was resolved. Format: YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2026-01-10 11:42:31
@@ -69,7 +69,7 @@ export class ListAiAppRiskEventByPageResponseBodyItems extends $dara.Model {
   eventId?: string;
   /**
    * @remarks
-   * The brief name that describes the risk event.
+   * The name that briefly describes the risk event.
    * 
    * @example
    * ALL
@@ -77,7 +77,7 @@ export class ListAiAppRiskEventByPageResponseBodyItems extends $dara.Model {
   eventName?: string;
   /**
    * @remarks
-   * The time when the event was handled.
+   * The time when the event was handled. Format: YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2026-01-10 11:42:31
@@ -85,7 +85,7 @@ export class ListAiAppRiskEventByPageResponseBodyItems extends $dara.Model {
   handleTime?: string;
   /**
    * @remarks
-   * The label used to mark or categorize the event.
+   * The label used to tag or categorize the event.
    * 
    * @example
    * label-03
@@ -109,7 +109,7 @@ export class ListAiAppRiskEventByPageResponseBodyItems extends $dara.Model {
   level?: string;
   /**
    * @remarks
-   * The start time that indicates when the event occurred.
+   * The time when the event occurred. Format: YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2025-12-21 15:30:19
@@ -117,7 +117,7 @@ export class ListAiAppRiskEventByPageResponseBodyItems extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The event status that indicates the current processing state of the event, such as pending or resolved.
+   * The event status that indicates the current processing state, such as pending or resolved.
    * 
    * @example
    * resolved
@@ -206,7 +206,7 @@ export class ListAiAppRiskEventByPageResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token for the next page. An empty value indicates that no more pages exist.
+   * The token for the next page. An empty value indicates that no more pages exist.
    * 
    * @example
    * 1a320d468c75e987f297484532c16e34d0ab6e7e43f8b73d
@@ -222,7 +222,7 @@ export class ListAiAppRiskEventByPageResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID assigned by the backend to uniquely identify the request. You can use this ID to troubleshoot issues.
+   * The ID assigned by the backend to uniquely identify a request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****

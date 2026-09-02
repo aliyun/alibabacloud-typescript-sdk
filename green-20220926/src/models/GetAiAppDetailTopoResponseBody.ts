@@ -21,7 +21,7 @@ export class GetAiAppDetailTopoResponseBodyData extends $dara.Model {
   nodeCategory?: string;
   /**
    * @remarks
-   * The ID of the node.
+   * The node ID.
    * 
    * @example
    * idxxx
@@ -29,7 +29,7 @@ export class GetAiAppDetailTopoResponseBodyData extends $dara.Model {
   nodeId?: string;
   /**
    * @remarks
-   * The name of the node.
+   * The node name.
    * 
    * @example
    * namexxx
@@ -65,7 +65,7 @@ export class GetAiAppDetailTopoResponseBodyData extends $dara.Model {
   riskLevel?: string;
   /**
    * @remarks
-   * The number of alerts.
+   * The alert count.
    * 
    * @example
    * 20

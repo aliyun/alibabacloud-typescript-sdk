@@ -15,7 +15,7 @@ export class ListAiAppRiskEventRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The end time.
+   * The end time. Format: YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2026-01-02 16:08:38
@@ -31,7 +31,7 @@ export class ListAiAppRiskEventRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The start time.
+   * The start time. Format: YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2026-01-01 16:08:38

@@ -2381,7 +2381,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves statistics for AI application details.
+   * Retrieves statistics for the details of an AI application.
    * 
    * @param request - GetAiAppDetailStatRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2424,7 +2424,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves statistics for AI application details.
+   * Retrieves statistics for the details of an AI application.
    * 
    * @param request - GetAiAppDetailStatRequest
    * @returns GetAiAppDetailStatResponse
@@ -2607,7 +2607,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves statistics data for AI applications.
+   * Retrieves statistics for AI application risk reports.
    * 
    * @param request - GetAiAppStatsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2658,7 +2658,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves statistics data for AI applications.
+   * Retrieves statistics for AI application risk reports.
    * 
    * @param request - GetAiAppStatsRequest
    * @returns GetAiAppStatsResponse
@@ -3007,7 +3007,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the call volume.
+   * Queries the call volume statistics.
    * 
    * @param request - GetCipStatsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3076,7 +3076,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the call volume.
+   * Queries the call volume statistics.
    * 
    * @param request - GetCipStatsRequest
    * @returns GetCipStatsResponse
@@ -3197,7 +3197,14 @@ export default class Client extends OpenApi {
    */
   async getGuardLogStatsWithOptions(request: $_model.GetGuardLogStatsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetGuardLogStatsResponse> {
     request.validate();
-    let req = new $OpenApiUtil.OpenApiRequest({ });
+    let query = { };
+    if (!$dara.isNull(request.commodityCode)) {
+      query["CommodityCode"] = request.commodityCode;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
     let params = new $OpenApiUtil.Params({
       action: "GetGuardLogStats",
       version: "2022-09-26",
@@ -4766,7 +4773,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the list of risk events for AI applications.
+   * Retrieves the list of risk events for an AI application.
    * 
    * @param request - ListAiAppRiskEventRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4809,7 +4816,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the list of risk events for AI applications.
+   * Retrieves the list of risk events for an AI application.
    * 
    * @param request - ListAiAppRiskEventRequest
    * @returns ListAiAppRiskEventResponse
@@ -6325,7 +6332,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Message notification.
+   * Queries the list of message notifications by paging.
    * 
    * @param request - QueryCallbackByPageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6366,7 +6373,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Message notification.
+   * Queries the list of message notifications by paging.
    * 
    * @param request - QueryCallbackByPageRequest
    * @returns QueryCallbackByPageResponse

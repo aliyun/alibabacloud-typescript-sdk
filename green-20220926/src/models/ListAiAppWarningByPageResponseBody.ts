@@ -140,7 +140,7 @@ export class ListAiAppWarningByPageResponseBodyItems extends $dara.Model {
   warningCount?: number;
   /**
    * @remarks
-   * The time when the alert was triggered.
+   * The alert time in the format of YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2026-01-01 00:00:00

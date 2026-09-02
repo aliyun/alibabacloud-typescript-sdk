@@ -191,7 +191,7 @@ export class GetAiAppStatsResponseBody extends $dara.Model {
   data?: GetAiAppStatsResponseBodyData;
   /**
    * @remarks
-   * The ID assigned by the backend to uniquely identify a request. Used for troubleshooting.
+   * The ID assigned by the backend to uniquely identify a request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****

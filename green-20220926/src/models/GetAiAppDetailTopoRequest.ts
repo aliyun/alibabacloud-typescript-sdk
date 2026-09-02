@@ -13,7 +13,7 @@ export class GetAiAppDetailTopoRequestTimeQuery extends $dara.Model {
   dimension?: string;
   /**
    * @remarks
-   * The end time.
+   * The end time. Format: YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2025-07-28 17:04:08
@@ -21,7 +21,7 @@ export class GetAiAppDetailTopoRequestTimeQuery extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The start time.
+   * The start time. Format: YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2025-07-22 17:04:08

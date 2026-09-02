@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAiAppTraceDetailRequest extends $dara.Model {
   /**
    * @remarks
-   * The AI application ID that identifies a specific AI application instance.
+   * The AI application ID, which identifies a specific AI application instance.
    * 
    * @example
    * id-xxx
@@ -13,7 +13,7 @@ export class GetAiAppTraceDetailRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The end time of the query.
+   * The end time of the query. Format: YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2026-01-02 16:08:38
@@ -29,7 +29,7 @@ export class GetAiAppTraceDetailRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The start time of the query.
+   * The start time of the query. Format: YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2026-01-01 16:08:38
@@ -37,7 +37,7 @@ export class GetAiAppTraceDetailRequest extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The trace ID used to track and correlate a specific request chain.
+   * The trace ID, which is used to track and correlate a specific request chain.
    * 
    * This parameter is required.
    * 

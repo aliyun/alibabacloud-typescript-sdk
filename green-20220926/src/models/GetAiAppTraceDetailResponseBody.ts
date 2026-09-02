@@ -102,7 +102,7 @@ export class GetAiAppTraceDetailResponseBody extends $dara.Model {
   labels?: GetAiAppTraceDetailResponseBodyLabels[];
   /**
    * @remarks
-   * The backend-assigned ID that uniquely identifies a request. You can use this ID for troubleshooting.
+   * The ID assigned by the backend to uniquely identify a request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
@@ -110,7 +110,7 @@ export class GetAiAppTraceDetailResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The trace ID used to correlate and track alert events.
+   * The trace ID, which is used to correlate and track alert events.
    * 
    * @example
    * 0abb7ee117615311812886711e0a15
@@ -118,7 +118,7 @@ export class GetAiAppTraceDetailResponseBody extends $dara.Model {
   traceId?: string;
   /**
    * @remarks
-   * The alert time.
+   * The alert time. Format: YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2026-01-01 16:08:38
