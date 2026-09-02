@@ -7020,6 +7020,66 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the VPC and Connector network instances connected to the current tenant and their bandwidth configurations by paging.
+   * 
+   * @remarks
+   * Queries the bandwidth configuration list of available network instances under the current account. You can filter results by network type (`NetType`) and instance ID list (`InstanceIds`), and use `CurrentPage` and `PageSize` for pagination.
+   * 
+   * @param request - ListNetBandwidthRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListNetBandwidthResponse
+   */
+  async listNetBandwidthWithOptions(request: $_model.ListNetBandwidthRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListNetBandwidthResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!$dara.isNull(request.instanceIds)) {
+      query["InstanceIds"] = request.instanceIds;
+    }
+
+    if (!$dara.isNull(request.netType)) {
+      query["NetType"] = request.netType;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListNetBandwidth",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListNetBandwidthResponse>(await this.callApi(params, req, runtime), new $_model.ListNetBandwidthResponse({}));
+  }
+
+  /**
+   * Queries the VPC and Connector network instances connected to the current tenant and their bandwidth configurations by paging.
+   * 
+   * @remarks
+   * Queries the bandwidth configuration list of available network instances under the current account. You can filter results by network type (`NetType`) and instance ID list (`InstanceIds`), and use `CurrentPage` and `PageSize` for pagination.
+   * 
+   * @param request - ListNetBandwidthRequest
+   * @returns ListNetBandwidthResponse
+   */
+  async listNetBandwidth(request: $_model.ListNetBandwidthRequest): Promise<$_model.ListNetBandwidthResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listNetBandwidthWithOptions(request, runtime);
+  }
+
+  /**
    * Queries administrator operation audit logs in batches.
    * 
    * @remarks
