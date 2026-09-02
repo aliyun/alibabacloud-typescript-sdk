@@ -30,6 +30,10 @@ export class ModifyPolicyContentShrinkRequest extends $dara.Model {
    * @remarks
    * The version of the port-specific mitigation policy. Valid values:
    * 
+   * - **Not specified**: Modifies the default surf mitigation engine policy.
+   * - **2**: Modifies the new stream mitigation engine policy.
+   * > Only port-specific mitigation policies are supported.
+   * 
    * @example
    * 2
    */

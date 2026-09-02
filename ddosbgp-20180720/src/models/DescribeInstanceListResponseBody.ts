@@ -51,7 +51,7 @@ export class DescribeInstanceListResponseBodyInstanceList extends $dara.Model {
   autoRenewal?: boolean;
   /**
    * @remarks
-   * The number of assets that are assigned public IP addresses protected by the instance that are in blackhole filtering status.
+   * The number of IP addresses that are in blackhole filtering status among the assets that are assigned public IP addresses protected by the instance.
    * 
    * > You can invoke [DeleteBlackhole](https://help.aliyun.com/document_detail/118692.html) to deactivate blackhole filtering for a single protected IP address.
    * 
@@ -74,10 +74,10 @@ export class DescribeInstanceListResponseBodyInstanceList extends $dara.Model {
    * @remarks
    * The asset overwrite type of the instance.
    * 
-   * - **1**: Supports assets that are assigned public IP addresses in multiple regions worldwide.
+   * - **1**: Supports assets that are assigned public IP addresses in multiple regions globally.
    * - **2**: Supports assets that are assigned public IP addresses in multiple regions in the Chinese mainland.
    * - **3**: Supports assets that are assigned public IP addresses in multiple regions outside the Chinese mainland.
-   * - **4**: Supports assets that are assigned public IP addresses in a single region worldwide.
+   * - **4**: Supports assets that are assigned public IP addresses in a single region globally.
    * 
    * @example
    * 1
@@ -96,7 +96,7 @@ export class DescribeInstanceListResponseBodyInstanceList extends $dara.Model {
   debtStatus?: number;
   /**
    * @remarks
-   * The expiration time of the instance. The value is a timestamp. Unit: milliseconds.
+   * The expiration time of the instance. The value is a UNIX timestamp. Unit: milliseconds.
    * 
    * @example
    * 1640275200000
@@ -104,7 +104,7 @@ export class DescribeInstanceListResponseBodyInstanceList extends $dara.Model {
   expireTime?: number;
   /**
    * @remarks
-   * The purchase time of the instance. The value is a timestamp. Unit: milliseconds.
+   * The purchase time of the instance. The value is a UNIX timestamp. Unit: milliseconds.
    * 
    * @example
    * 1592886047000
@@ -140,6 +140,13 @@ export class DescribeInstanceListResponseBodyInstanceList extends $dara.Model {
    * IPv4
    */
   ipType?: string;
+  /**
+   * @remarks
+   * The full logs property.
+   * 
+   * @example
+   * {\\"mitigationAnalysis\\":\\"on\\",\\"mitigationAnalysisCapacity\\":1,\\"ttl\\":180}
+   */
   logExt?: string;
   /**
    * @remarks
@@ -244,7 +251,7 @@ export class DescribeInstanceListResponseBody extends $dara.Model {
   instanceList?: DescribeInstanceListResponseBodyInstanceList[];
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 381D5D33-BB8F-395F-8EE4-AE3BB4B523C4

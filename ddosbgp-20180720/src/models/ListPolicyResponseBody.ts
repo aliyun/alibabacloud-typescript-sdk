@@ -5,6 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class ListPolicyResponseBodyPolicyListContentFingerPrintRuleList extends $dara.Model {
   /**
    * @remarks
+   * The remarks of the rule.
+   * 
+   * @example
+   * comment
+   */
+  comment?: string;
+  /**
+   * @remarks
    * The end value of the destination port range. Valid values: **0** to **65535**.
    * 
    * @example
@@ -31,6 +39,11 @@ export class ListPolicyResponseBodyPolicyListContentFingerPrintRuleList extends 
    * @remarks
    * The match action. Valid values:
    * 
+   * - **accept**: Allow traffic that matches the fingerprint.
+   * - **drop**: Drop traffic that matches the fingerprint.
+   * - **ip_rate**: Apply rate limiting to the source IP address of traffic that matches the fingerprint. The rate limit is specified by the **RateValue** parameter.
+   * - **session_rate**: Apply rate limiting to the source session of traffic that matches the fingerprint. The rate limit is specified by the **RateValue** parameter.
+   * 
    * @example
    * drop
    */
@@ -53,6 +66,14 @@ export class ListPolicyResponseBodyPolicyListContentFingerPrintRuleList extends 
   minPktLen?: number;
   /**
    * @remarks
+   * The rule mode.
+   * 
+   * @example
+   * 1
+   */
+  mode?: number;
+  /**
+   * @remarks
    * The offset. Valid values: **0** to **1500**.
    * 
    * @example
@@ -61,7 +82,7 @@ export class ListPolicyResponseBodyPolicyListContentFingerPrintRuleList extends 
   offset?: number;
   /**
    * @remarks
-   * The detection payload, represented in hexadecimal string format.
+   * The detection payload, represented as a hexadecimal string.
    * 
    * @example
    * abcd
@@ -71,13 +92,18 @@ export class ListPolicyResponseBodyPolicyListContentFingerPrintRuleList extends 
    * @remarks
    * The protocol type. Valid values:
    * 
+   * - **tcp**: Transmission Control Protocol.
+   * - **udp**: User Datagram Protocol.
+   * 
    * @example
    * udp
    */
   protocol?: string;
   /**
    * @remarks
-   * The rate limit value. Valid values: **1** to **100000**.
+   * The rate limit. Valid values: **1** to **100000**.
+   * 
+   * > This parameter is required when the match action is source IP rate limiting or source session rate limiting (**MatchAction** is **ip_rate** or **session_rate**).
    * 
    * @example
    * 1000
@@ -85,7 +111,15 @@ export class ListPolicyResponseBodyPolicyListContentFingerPrintRuleList extends 
   rateValue?: number;
   /**
    * @remarks
-   * The priority number, represented as an integer.
+   * The rule.
+   * 
+   * @example
+   * (ip.version == 4)
+   */
+  rule?: string;
+  /**
+   * @remarks
+   * The priority of the rule, represented as an integer.
    * 
    * @example
    * 1
@@ -107,39 +141,55 @@ export class ListPolicyResponseBodyPolicyListContentFingerPrintRuleList extends 
    * 0
    */
   srcPortStart?: number;
+  /**
+   * @remarks
+   * The type.
+   * 
+   * @example
+   * 1
+   */
+  type?: number;
   static names(): { [key: string]: string } {
     return {
+      comment: 'Comment',
       dstPortEnd: 'DstPortEnd',
       dstPortStart: 'DstPortStart',
       id: 'Id',
       matchAction: 'MatchAction',
       maxPktLen: 'MaxPktLen',
       minPktLen: 'MinPktLen',
+      mode: 'Mode',
       offset: 'Offset',
       payloadBytes: 'PayloadBytes',
       protocol: 'Protocol',
       rateValue: 'RateValue',
+      rule: 'Rule',
       seqNo: 'SeqNo',
       srcPortEnd: 'SrcPortEnd',
       srcPortStart: 'SrcPortStart',
+      type: 'Type',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      comment: 'string',
       dstPortEnd: 'number',
       dstPortStart: 'number',
       id: 'string',
       matchAction: 'string',
       maxPktLen: 'number',
       minPktLen: 'number',
+      mode: 'number',
       offset: 'number',
       payloadBytes: 'string',
       protocol: 'string',
       rateValue: 'number',
+      rule: 'string',
       seqNo: 'number',
       srcPortEnd: 'number',
       srcPortStart: 'number',
+      type: 'number',
     };
   }
 
@@ -156,6 +206,8 @@ export class ListPolicyResponseBodyPolicyListContentL4RuleListConditionListOffse
   /**
    * @remarks
    * The end position. Valid values: **0** to **1499**.
+   * 
+   * > The end position must be greater than or equal to the start position.
    * 
    * @example
    * 1499
@@ -196,6 +248,7 @@ export class ListPolicyResponseBodyPolicyListContentL4RuleListConditionList exte
   /**
    * @remarks
    * The detection content.
+   * > If the rule type is **char**, the value must be an ASCII string. If the rule type is **hex**, the value must be a hexadecimal string. Maximum length: 2048.
    * 
    * @example
    * test
@@ -204,6 +257,22 @@ export class ListPolicyResponseBodyPolicyListContentL4RuleListConditionList exte
   /**
    * @remarks
    * The match content.
+   * 
+   * 1. When **Encode** is set to **str**, the following requirements must be met:
+   * 
+   * - The length of **Content** cannot exceed 1500.
+   * 
+   * - **End** - **Start** >= the length of **Content**.
+   * 
+   * 2. When **Encode** is set to **hex**, the following requirements must be met:
+   * 
+   * - **Content** must be hexadecimal characters.
+   * 
+   * - The length of **Content** must be an even number.
+   * 
+   * - The length of **Content** cannot exceed 3000.
+   * 
+   * - **End** - **Start** + 1 >= the length of **Content** / 2.
    * 
    * @example
    * test**
@@ -221,6 +290,10 @@ export class ListPolicyResponseBodyPolicyListContentL4RuleListConditionList exte
    * @remarks
    * The character type. Valid values:
    * 
+   * - **str**: string.
+   * 
+   * - **hex**: hexadecimal.
+   * 
    * @example
    * str
    */
@@ -234,13 +307,17 @@ export class ListPolicyResponseBodyPolicyListContentL4RuleListConditionList exte
    * @remarks
    * The match pattern. Valid values:
    * 
+   * - **contain**: contains.
+   * 
+   * - **not_contain**: does not contain.
+   * 
    * @example
    * contain
    */
   pattern?: string;
   /**
    * @remarks
-   * The detection start position. Valid values: **0** to **2047**.
+   * The start position of detection. Valid values: **0** to **2047**.
    * 
    * @example
    * 0
@@ -287,6 +364,8 @@ export class ListPolicyResponseBodyPolicyListContentL4RuleList extends $dara.Mod
    * @remarks
    * The action. Valid values:
    * 
+   * - **2**: Drop.
+   * 
    * @example
    * 2
    */
@@ -308,6 +387,10 @@ export class ListPolicyResponseBodyPolicyListContentL4RuleList extends $dara.Mod
    * @remarks
    * The logical operator. Valid values:
    * 
+   * - **0**: Execute the action when the rule is matched.
+   * 
+   * - **1**: Execute the action when the rule is not matched.
+   * 
    * @example
    * 1
    */
@@ -315,6 +398,10 @@ export class ListPolicyResponseBodyPolicyListContentL4RuleList extends $dara.Mod
   /**
    * @remarks
    * The rule type. Valid values:
+   * 
+   * - **char**: string match.
+   * 
+   * - **hex**: hexadecimal match.
    * 
    * @example
    * char
@@ -401,6 +488,8 @@ export class ListPolicyResponseBodyPolicyListContentPortRuleList extends $dara.M
    * @remarks
    * The match action. Valid values:
    * 
+   * - **drop**: Drop.
+   * 
    * @example
    * drop
    */
@@ -409,13 +498,16 @@ export class ListPolicyResponseBodyPolicyListContentPortRuleList extends $dara.M
    * @remarks
    * The protocol type. Valid values:
    * 
+   * - **tcp**: Transmission Control Protocol.
+   * - **udp**: User Datagram Protocol.
+   * 
    * @example
    * udp
    */
   protocol?: string;
   /**
    * @remarks
-   * The priority number, represented as an integer.
+   * The priority of the rule, represented as an integer.
    * 
    * @example
    * 1
@@ -477,6 +569,9 @@ export class ListPolicyResponseBodyPolicyListContentSipDefense extends $dara.Mod
    * @remarks
    * Indicates whether SIP protection is enabled. Valid values:
    * 
+   * - **true**: Enabled.
+   * - **false**: Disabled.
+   * 
    * @example
    * true
    */
@@ -491,17 +586,17 @@ export class ListPolicyResponseBodyPolicyListContentSipDefense extends $dara.Mod
   level?: string;
   /**
    * @remarks
-   * The switch for the SIP defense mode.
+   * Indicates whether SIP defense mode is enabled.
    */
   sipDefend?: boolean;
   /**
    * @remarks
-   * The switch for the SIP learning mode.
+   * Indicates whether SIP learning mode is enabled.
    */
   sipLearn?: boolean;
   /**
    * @remarks
-   * The switch for the SIP source rate limiting module.
+   * Indicates whether the SIP source rate limiting module is enabled.
    */
   sipModule?: boolean;
   /**
@@ -584,7 +679,7 @@ export class ListPolicyResponseBodyPolicyListContentSourceBlockList extends $dar
   blockExpireSeconds?: number;
   /**
    * @remarks
-   * The statistical period for source rate limiting blacklisting. Unit: seconds.
+   * The statistical period for source rate limiting and blacklisting. Unit: seconds.
    * 
    * @example
    * 60
@@ -592,7 +687,7 @@ export class ListPolicyResponseBodyPolicyListContentSourceBlockList extends $dar
   everySeconds?: number;
   /**
    * @remarks
-   * The number of times the source IP address exceeds the rate limit within one statistical period.
+   * The number of times that the source IP address exceeds the rate limit within a single statistical period.
    * 
    * @example
    * 5
@@ -600,7 +695,15 @@ export class ListPolicyResponseBodyPolicyListContentSourceBlockList extends $dar
   exceedLimitTimes?: number;
   /**
    * @remarks
-   * The source rate limiting type. Valid values:
+   * The type of source rate limiting. Valid values:
+   * 
+   * - **3**: source PPS rate limiting.
+   * 
+   * - **4**: source bandwidth throttling.
+   * 
+   * - **5**: source SYN PPS rate limiting.
+   * 
+   * - **6**: source SYN bandwidth throttling.
    * 
    * @example
    * 3
@@ -636,7 +739,7 @@ export class ListPolicyResponseBodyPolicyListContentSourceBlockList extends $dar
 export class ListPolicyResponseBodyPolicyListContentSourceLimit extends $dara.Model {
   /**
    * @remarks
-   * The source bandwidth throttling value, in bytes per second.
+   * The source bandwidth throttling value. Unit: bytes per second.
    * 
    * @example
    * 2048
@@ -644,7 +747,7 @@ export class ListPolicyResponseBodyPolicyListContentSourceLimit extends $dara.Mo
   bps?: number;
   /**
    * @remarks
-   * The source PPS rate limit, in packets per second.
+   * The source PPS rate limit. Unit: packets per second.
    * 
    * @example
    * 64
@@ -652,7 +755,7 @@ export class ListPolicyResponseBodyPolicyListContentSourceLimit extends $dara.Mo
   pps?: number;
   /**
    * @remarks
-   * The source SYN bandwidth throttling value, in bytes per second.
+   * The source SYN bandwidth throttling value. Unit: bytes per second.
    * 
    * @example
    * 2048
@@ -660,7 +763,7 @@ export class ListPolicyResponseBodyPolicyListContentSourceLimit extends $dara.Mo
   synBps?: number;
   /**
    * @remarks
-   * The source SYN PPS rate limit, in packets per second.
+   * The source SYN PPS rate limit. Unit: packets per second.
    * 
    * @example
    * 64
@@ -696,7 +799,7 @@ export class ListPolicyResponseBodyPolicyListContentSourceLimit extends $dara.Mo
 export class ListPolicyResponseBodyPolicyListContent extends $dara.Model {
   /**
    * @remarks
-   * The expiration time of the IP blacklist (UNIX timestamp).
+   * The expiration time of the IP blacklist. The value is a UNIX timestamp.
    * 
    * @example
    * 1716878000
@@ -720,7 +823,7 @@ export class ListPolicyResponseBodyPolicyListContent extends $dara.Model {
   enableIntelligence?: boolean;
   /**
    * @remarks
-   * Indicates whether port protection is enabled.
+   * Indicates whether port-specific mitigation is enabled.
    * 
    * @example
    * true
@@ -728,12 +831,16 @@ export class ListPolicyResponseBodyPolicyListContent extends $dara.Model {
   enableL4Defense?: boolean;
   /**
    * @remarks
-   * The list of byte-match filter rules.
+   * The list of Byte-Match Filter rules.
    */
   fingerPrintRuleList?: ListPolicyResponseBodyPolicyListContentFingerPrintRuleList[];
   /**
    * @remarks
    * The protection level of AI-based intelligent analysis. Valid values:
+   * 
+   * - **default**: Normal.
+   * - **hard**: Strict.
+   * - **weak**: Loose.
    * 
    * @example
    * default
@@ -741,17 +848,21 @@ export class ListPolicyResponseBodyPolicyListContent extends $dara.Model {
   intelligenceLevel?: string;
   /**
    * @remarks
-   * The list of port protection rules.
+   * The list of port-specific mitigation rules.
    */
   l4RuleList?: ListPolicyResponseBodyPolicyListContentL4RuleList[];
   /**
    * @remarks
-   * The list of port blocking rules.
+   * The list of Port Blocking rules.
    */
   portRuleList?: ListPolicyResponseBodyPolicyListContentPortRuleList[];
   /**
    * @remarks
-   * The version of the port-specific mitigation policies. Valid values:
+   * The version of the port-specific mitigation policy. Valid values:
+   * 
+   * - **Empty**: the default surf protection engine policy.
+   * - **2**: the new stream protection engine policy.
+   * > Only port-specific mitigation policies are supported.
    * 
    * @example
    * 2
@@ -774,12 +885,12 @@ export class ListPolicyResponseBodyPolicyListContent extends $dara.Model {
   regionBlockProvinceList?: number[];
   /**
    * @remarks
-   * The SIP protection configuration.
+   * The SIP protection settings.
    */
   sipDefense?: ListPolicyResponseBodyPolicyListContentSipDefense;
   /**
    * @remarks
-   * The source rate limiting blacklist.
+   * The list of source rate limiting and blacklisting rules.
    */
   sourceBlockList?: ListPolicyResponseBodyPolicyListContentSourceBlockList[];
   /**
@@ -789,7 +900,7 @@ export class ListPolicyResponseBodyPolicyListContent extends $dara.Model {
   sourceLimit?: ListPolicyResponseBodyPolicyListContentSourceLimit;
   /**
    * @remarks
-   * Indicates whether whitelisting of back-to-origin CIDR blocks of Anti-DDoS Pro and Anti-DDoS Premium (the Chinese mainland & outside the Chinese mainland) is enabled.
+   * Indicates whether the back-to-origin CIDR blocks of Anti-DDoS Pro and Anti-DDoS Premium (the Chinese mainland & outside the Chinese mainland) are added to the whitelist.
    * 
    * @example
    * false
@@ -876,7 +987,7 @@ export class ListPolicyResponseBodyPolicyListContent extends $dara.Model {
 export class ListPolicyResponseBodyPolicyList extends $dara.Model {
   /**
    * @remarks
-   * The number of protected objects associated with the policy.
+   * The number of protected objects that are associated with the policy.
    * 
    * @example
    * 0
@@ -905,7 +1016,7 @@ export class ListPolicyResponseBodyPolicyList extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The policy remarks.
+   * The remarks of the policy.
    * 
    * @example
    * test
@@ -914,6 +1025,9 @@ export class ListPolicyResponseBodyPolicyList extends $dara.Model {
   /**
    * @remarks
    * The policy type. Valid values:
+   * - **default**: default mitigation policy.
+   * - **l3**: IP-specific mitigation policy.
+   * - **l4**: port-specific mitigation policy.
    * 
    * @example
    * l3
@@ -961,7 +1075,7 @@ export class ListPolicyResponseBody extends $dara.Model {
   policyList?: ListPolicyResponseBodyPolicyList[];
   /**
    * @remarks
-   * The ID of this request, which is a unique identifier generated by Alibaba Cloud for the request. It can be used to troubleshoot and locate issues.
+   * The ID of the request. Alibaba Cloud generates a unique identifier for each request. You can use the ID to troubleshoot issues.
    * 
    * @example
    * B4B379C2-9319-4C6B-B579-FE36831B09F4

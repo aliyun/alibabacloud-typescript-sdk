@@ -5,9 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyPolicyContentRequestContentFingerPrintRuleList extends $dara.Model {
   /**
    * @remarks
-   * The end value of the destination port range. Valid values: **0** to **65535**.
+   * The rule comment.
    * 
-   * This parameter is required.
+   * @example
+   * comment
+   */
+  comment?: string;
+  /**
+   * @remarks
+   * The end value of the destination port range. Valid values: **0** to **65535**.
    * 
    * @example
    * 65535
@@ -16,8 +22,6 @@ export class ModifyPolicyContentRequestContentFingerPrintRuleList extends $dara.
   /**
    * @remarks
    * The start value of the destination port range. Valid values: **0** to **65535**.
-   * 
-   * This parameter is required.
    * 
    * @example
    * 0
@@ -33,7 +37,12 @@ export class ModifyPolicyContentRequestContentFingerPrintRuleList extends $dara.
   id?: string;
   /**
    * @remarks
-   * The action to take when a fingerprint match is found. Valid values:
+   * The action to take after a fingerprint match. Valid values:
+   * 
+   * - **permit**: Permits traffic that matches the fingerprint.
+   * - **drop**: Drops traffic that matches the fingerprint.
+   * - **ip_rate**: Rate-limits the source IP address of traffic that matches the fingerprint. Set the rate limit by using the **RateValue** parameter.
+   * - **session_rate**: Rate-limits the source session of traffic that matches the fingerprint. Set the rate limit by using the **RateValue** parameter.
    * 
    * This parameter is required.
    * 
@@ -45,8 +54,6 @@ export class ModifyPolicyContentRequestContentFingerPrintRuleList extends $dara.
    * @remarks
    * The maximum packet length. Valid values: **1** to **1500**.
    * 
-   * This parameter is required.
-   * 
    * @example
    * 1500
    */
@@ -55,12 +62,18 @@ export class ModifyPolicyContentRequestContentFingerPrintRuleList extends $dara.
    * @remarks
    * The minimum packet length. Valid values: **1** to **1500**.
    * 
-   * This parameter is required.
-   * 
    * @example
    * 1
    */
   minPktLen?: number;
+  /**
+   * @remarks
+   * The rule mode.
+   * 
+   * @example
+   * 1
+   */
+  mode?: number;
   /**
    * @remarks
    * The offset. Valid values: **0** to **1500**.
@@ -71,7 +84,7 @@ export class ModifyPolicyContentRequestContentFingerPrintRuleList extends $dara.
   offset?: number;
   /**
    * @remarks
-   * The detection payload, expressed in hexadecimal string format.
+   * The detection payload, represented in hexadecimal string format.
    * 
    * @example
    * abcd
@@ -81,7 +94,8 @@ export class ModifyPolicyContentRequestContentFingerPrintRuleList extends $dara.
    * @remarks
    * The protocol type. Valid values:
    * 
-   * This parameter is required.
+   * - **tcp**: Transmission Control Protocol.
+   * - **udp**: User Datagram Protocol.
    * 
    * @example
    * tcp
@@ -91,13 +105,24 @@ export class ModifyPolicyContentRequestContentFingerPrintRuleList extends $dara.
    * @remarks
    * The rate limit value. Valid values: **1** to **100000**.
    * 
+   * > This parameter is required when the match action is source IP rate limiting or source session rate limiting (**MatchAction** is **ip_rate** or **session_rate**).
+   * 
    * @example
    * 100
    */
   rateValue?: number;
   /**
    * @remarks
+   * The rule.
+   * 
+   * @example
+   * (ip.version == 4)
+   */
+  rule?: string;
+  /**
+   * @remarks
    * The priority number, expressed as an integer.
+   * >A smaller number indicates a higher priority.
    * 
    * This parameter is required.
    * 
@@ -109,8 +134,6 @@ export class ModifyPolicyContentRequestContentFingerPrintRuleList extends $dara.
    * @remarks
    * The end value of the source port range. Valid values: **0** to **65535**.
    * 
-   * This parameter is required.
-   * 
    * @example
    * 65535
    */
@@ -119,45 +142,59 @@ export class ModifyPolicyContentRequestContentFingerPrintRuleList extends $dara.
    * @remarks
    * The start value of the source port range. Valid values: **0** to **65535**.
    * 
-   * This parameter is required.
-   * 
    * @example
    * 0
    */
   srcPortStart?: number;
+  /**
+   * @remarks
+   * The type.
+   * 
+   * @example
+   * 1
+   */
+  type?: number;
   static names(): { [key: string]: string } {
     return {
+      comment: 'Comment',
       dstPortEnd: 'DstPortEnd',
       dstPortStart: 'DstPortStart',
       id: 'Id',
       matchAction: 'MatchAction',
       maxPktLen: 'MaxPktLen',
       minPktLen: 'MinPktLen',
+      mode: 'Mode',
       offset: 'Offset',
       payloadBytes: 'PayloadBytes',
       protocol: 'Protocol',
       rateValue: 'RateValue',
+      rule: 'Rule',
       seqNo: 'SeqNo',
       srcPortEnd: 'SrcPortEnd',
       srcPortStart: 'SrcPortStart',
+      type: 'Type',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      comment: 'string',
       dstPortEnd: 'number',
       dstPortStart: 'number',
       id: 'string',
       matchAction: 'string',
       maxPktLen: 'number',
       minPktLen: 'number',
+      mode: 'number',
       offset: 'number',
       payloadBytes: 'string',
       protocol: 'string',
       rateValue: 'number',
+      rule: 'string',
       seqNo: 'number',
       srcPortEnd: 'number',
       srcPortStart: 'number',
+      type: 'number',
     };
   }
 
@@ -174,6 +211,8 @@ export class ModifyPolicyContentRequestContentL4RuleListConditionListOffset exte
   /**
    * @remarks
    * The end position. Valid values: **0** to **1499**.
+   * 
+   * > The end position must be greater than or equal to the start position.
    * 
    * @example
    * 1499
@@ -214,6 +253,7 @@ export class ModifyPolicyContentRequestContentL4RuleListConditionList extends $d
   /**
    * @remarks
    * The detection content.
+   * > If the rule type is **char**, the value must be an ASCII string. If the rule type is **hex**, the value must be a hexadecimal string. Maximum length: 2048.
    * 
    * @example
    * abcd
@@ -221,7 +261,23 @@ export class ModifyPolicyContentRequestContentL4RuleListConditionList extends $d
   arg?: string;
   /**
    * @remarks
-   * The matching content.
+   * The match content.
+   * 
+   * 1. When **Encode** is set to **str**, the following requirements must be met:
+   * 
+   * - The length of **Content** must not exceed 1500.
+   * 
+   * - **End** - **Start** >= the length of **Content**.
+   * 
+   * 2. When **Encode** is set to **hex**, the following requirements must be met:
+   * 
+   * - **Content** must be hexadecimal characters.
+   * 
+   * - The length of **Content** must be an even number.
+   * 
+   * - The length of **Content** must not exceed 3000.
+   * 
+   * - **End** - **Start** + 1 >= the length of **Content** / 2.
    * 
    * @example
    * test**
@@ -239,18 +295,26 @@ export class ModifyPolicyContentRequestContentL4RuleListConditionList extends $d
    * @remarks
    * The character type. Valid values:
    * 
+   * - **str**: string.
+   * 
+   * - **hex**: hexadecimal.
+   * 
    * @example
    * str
    */
   encode?: string;
   /**
    * @remarks
-   * The matching range.
+   * The match range.
    */
   offset?: ModifyPolicyContentRequestContentL4RuleListConditionListOffset;
   /**
    * @remarks
-   * The matching pattern. Valid values:
+   * The match mode. Valid values:
+   * 
+   * - **contain**: contains.
+   * 
+   * - **not_contain**: does not contain.
    * 
    * @example
    * contain
@@ -306,7 +370,7 @@ export class ModifyPolicyContentRequestContentL4RuleList extends $dara.Model {
    * The action.
    * 
    * @example
-   * 2
+   * block
    */
   action?: string;
   /**
@@ -326,6 +390,10 @@ export class ModifyPolicyContentRequestContentL4RuleList extends $dara.Model {
    * @remarks
    * The logical operator. Valid values:
    * 
+   * - **0**: The action is executed on a match.
+   * 
+   * - **1**: The action is executed on a non-match.
+   * 
    * @example
    * 0
    */
@@ -333,6 +401,10 @@ export class ModifyPolicyContentRequestContentL4RuleList extends $dara.Model {
   /**
    * @remarks
    * The rule type. Valid values:
+   * 
+   * - **char**: string match.
+   * 
+   * - **hex**: hexadecimal match.
    * 
    * @example
    * char
@@ -351,6 +423,7 @@ export class ModifyPolicyContentRequestContentL4RuleList extends $dara.Model {
   /**
    * @remarks
    * The rule priority. Valid values: 1 to 100.
+   * >A smaller value indicates a higher priority.
    * 
    * @example
    * 1
@@ -425,6 +498,8 @@ export class ModifyPolicyContentRequestContentPortRuleList extends $dara.Model {
    * @remarks
    * The match action. Valid values:
    * 
+   * - **drop**: Drop.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -435,6 +510,9 @@ export class ModifyPolicyContentRequestContentPortRuleList extends $dara.Model {
    * @remarks
    * The protocol type. Valid values:
    * 
+   * - **tcp**: Transmission Control Protocol.
+   * - **udp**: User Datagram Protocol.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -444,6 +522,7 @@ export class ModifyPolicyContentRequestContentPortRuleList extends $dara.Model {
   /**
    * @remarks
    * The priority number, expressed as an integer.
+   * >A smaller number indicates a higher priority.
    * 
    * This parameter is required.
    * 
@@ -509,7 +588,10 @@ export class ModifyPolicyContentRequestContentPortRuleList extends $dara.Model {
 export class ModifyPolicyContentRequestContentSipDefense extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable SIP protection. Valid values:
+   * Specifies whether SIP protection is enabled. Valid values:
+   * 
+   * - **true**: Enabled.
+   * - **false**: Disabled.
    * 
    * @example
    * true
@@ -641,6 +723,10 @@ export class ModifyPolicyContentRequestContentSourceBlockList extends $dara.Mode
   /**
    * @remarks
    * The source rate limiting type. Valid values:
+   * - **3**: source PPS rate limiting.
+   * - **4**: source bandwidth throttling.
+   * - **5**: source SYN PPS rate limiting.
+   * - **6**: source SYN bandwidth throttling.
    * 
    * This parameter is required.
    * 
@@ -678,7 +764,7 @@ export class ModifyPolicyContentRequestContentSourceBlockList extends $dara.Mode
 export class ModifyPolicyContentRequestContentSourceLimit extends $dara.Model {
   /**
    * @remarks
-   * The source bandwidth throttling value, in bytes per second.
+   * The source bandwidth throttling value, in bytes per second (Byte/s).
    * 
    * @example
    * 2048
@@ -686,7 +772,7 @@ export class ModifyPolicyContentRequestContentSourceLimit extends $dara.Model {
   bps?: number;
   /**
    * @remarks
-   * The source PPS rate limit, in packets per second.
+   * The source PPS rate limit, in packets per second (Packet/s).
    * 
    * @example
    * 64
@@ -694,7 +780,7 @@ export class ModifyPolicyContentRequestContentSourceLimit extends $dara.Model {
   pps?: number;
   /**
    * @remarks
-   * The source SYN bandwidth throttling value, in bytes per second.
+   * The source SYN bandwidth throttling value, in bytes per second (Byte/s).
    * 
    * @example
    * 2048
@@ -702,7 +788,7 @@ export class ModifyPolicyContentRequestContentSourceLimit extends $dara.Model {
   synBps?: number;
   /**
    * @remarks
-   * The source SYN PPS rate limit, in packets per second.
+   * The source SYN PPS rate limit, in packets per second (Packet/s).
    * 
    * @example
    * 64
@@ -738,7 +824,7 @@ export class ModifyPolicyContentRequestContentSourceLimit extends $dara.Model {
 export class ModifyPolicyContentRequestContent extends $dara.Model {
   /**
    * @remarks
-   * The expiration time of the IP blacklist (UNIX timestamp).
+   * The expiration time of the IP blacklist, in UNIX timestamp format.
    * 
    * @example
    * 1716878000
@@ -770,12 +856,16 @@ export class ModifyPolicyContentRequestContent extends $dara.Model {
   enableL4Defense?: boolean;
   /**
    * @remarks
-   * The list of byte-match filter rules.
+   * The list of Byte-Match Filter rules.
    */
   fingerPrintRuleList?: ModifyPolicyContentRequestContentFingerPrintRuleList[];
   /**
    * @remarks
    * The protection level of AI-based intelligent protection. Valid values:
+   * 
+   * - **default**: Normal.
+   * - **hard**: Strict.
+   * - **weak**: Loose.
    * 
    * @example
    * default
@@ -932,6 +1022,10 @@ export class ModifyPolicyContentRequest extends $dara.Model {
   /**
    * @remarks
    * The version of the port-specific mitigation policy. Valid values:
+   * 
+   * - **Not specified**: Modifies the default surf mitigation engine policy.
+   * - **2**: Modifies the new stream mitigation engine policy.
+   * > Only port-specific mitigation policies are supported.
    * 
    * @example
    * 2

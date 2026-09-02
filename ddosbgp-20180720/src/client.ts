@@ -33,10 +33,6 @@ export default class Client extends OpenApi {
       'cn-shenzhen-finance-1': "ddosbgp.aliyuncs.com",
       'cn-shanghai-finance-1': "ddosbgp.aliyuncs.com",
       'cn-north-2-gov-1': "ddosbgp.aliyuncs.com",
-      'cn-hongkong': "ddosbgp.cn-hongkong.aliyuncs.com",
-      'ap-southeast-1': "ddosbgp.ap-southeast-1.aliyuncs.com",
-      'us-west-1': "ddosbgp.us-west-1.aliyuncs.com",
-      'us-east-1': "ddosbgp.us-east-1.aliyuncs.com",
     };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("ddosbgp", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -220,10 +216,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Associates protection objects with a mitigation policy.
+   * Associates protection objects with mitigation policies.
    * 
    * @remarks
-   * A mitigation policy that is associated with protection objects cannot be deleted.
+   * Mitigation policies that are associated with protection objects cannot be deleted.
    * 
    * @param tmpReq - AttachToPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -268,10 +264,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Associates protection objects with a mitigation policy.
+   * Associates protection objects with mitigation policies.
    * 
    * @remarks
-   * A mitigation policy that is associated with protection objects cannot be deleted.
+   * Mitigation policies that are associated with protection objects cannot be deleted.
    * 
    * @param request - AttachToPolicyRequest
    * @returns AttachToPolicyResponse
@@ -969,7 +965,7 @@ export default class Client extends OpenApi {
    * @remarks
    * This operation is used to query the details of all Anti-DDoS Origin instances owned by the current Alibaba Cloud account by paging, such as instance IDs, validity periods, and statuses.
    * ### QPS limit
-   * You can invoke this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. This may affect your business. Invoke this operation within the limit.
+   * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, the API call is throttled, which may affect your business. Invoke this operation as needed.
    * 
    * @param request - DescribeInstanceListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1053,7 +1049,7 @@ export default class Client extends OpenApi {
    * @remarks
    * This operation is used to query the details of all Anti-DDoS Origin instances owned by the current Alibaba Cloud account by paging, such as instance IDs, validity periods, and statuses.
    * ### QPS limit
-   * You can invoke this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. This may affect your business. Invoke this operation within the limit.
+   * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, the API call is throttled, which may affect your business. Invoke this operation as needed.
    * 
    * @param request - DescribeInstanceListRequest
    * @returns DescribeInstanceListResponse
@@ -2124,7 +2120,7 @@ export default class Client extends OpenApi {
    * Modifies the content of a mitigation policy.
    * 
    * @remarks
-   * Make sure that you pass all parameters when you call this operation. If a parameter is left empty, the corresponding configuration is deleted.
+   * Ensure that all parameters are specified when you call this operation. If a parameter is not specified, the corresponding configuration is deleted.
    * 
    * @param tmpReq - ModifyPolicyContentRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2176,7 +2172,7 @@ export default class Client extends OpenApi {
    * Modifies the content of a mitigation policy.
    * 
    * @remarks
-   * Make sure that you pass all parameters when you call this operation. If a parameter is left empty, the corresponding configuration is deleted.
+   * Ensure that all parameters are specified when you call this operation. If a parameter is not specified, the corresponding configuration is deleted.
    * 
    * @param request - ModifyPolicyContentRequest
    * @returns ModifyPolicyContentResponse

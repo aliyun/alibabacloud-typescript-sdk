@@ -24,8 +24,8 @@ export class AttachToPolicyShrinkRequest extends $dara.Model {
    * @remarks
    * The version of the port-specific mitigation policy. Valid values:
    * 
-   * - **Not specified**: Associates the default surf anti-DDoS engine policy.
-   * - **2**: Associates the new stream anti-DDoS engine policy.
+   * - **Not specified**: Associates the default surf mitigation engine policy.
+   * - **2**: Associates the new stream mitigation engine policy.
    * > Only port-specific mitigation policies support this parameter.
    * 
    * @example

@@ -69,7 +69,7 @@ export class DescribeInstanceListRequest extends $dara.Model {
   instanceTypeList?: string[];
   /**
    * @remarks
-   * The IP address of the protected object for the Anti-DDoS Origin instance to query.
+   * The protected IP address of the Anti-DDoS Origin instance to query.
    * 
    * @example
    * 47.89.XX.XX
@@ -88,7 +88,7 @@ export class DescribeInstanceListRequest extends $dara.Model {
   ipVersion?: string;
   /**
    * @remarks
-   * The field used to sort the Anti-DDoS Origin instance list. The value is fixed as **expireTime**, which indicates that instances are sorted by expiration time.
+   * The sort field for the Anti-DDoS Origin instance list. The value is fixed as **expireTime**, which indicates sorting by instance expiration time.
    * 
    * You can use the **Orderdire** parameter to specify the sort order.
    * 
@@ -109,7 +109,7 @@ export class DescribeInstanceListRequest extends $dara.Model {
   orderdire?: string;
   /**
    * @remarks
-   * The number of the page to return when paging is used.
+   * The page number of the current page in a paging query. Settings the current page number.
    * 
    * This parameter is required.
    * 
@@ -119,7 +119,7 @@ export class DescribeInstanceListRequest extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * The number of instances on each page when paging is used.
+   * The number of instances on each page in a paging query. Settings the number of instances per page.
    * 
    * This parameter is required.
    * 
@@ -132,6 +132,8 @@ export class DescribeInstanceListRequest extends $dara.Model {
    * The region ID of the Anti-DDoS Origin instance to query.
    * 
    * > You can call [DescribeRegions](https://help.aliyun.com/document_detail/118703.html) to query all region IDs supported by Anti-DDoS Origin.
+   * >-
+   * >Notice: This parameter is required. If it is not specified, the API returns DDosBgp.CheckError.InvalidRegion(400).</notice>
    * 
    * @example
    * cn-hangzhou
@@ -149,7 +151,7 @@ export class DescribeInstanceListRequest extends $dara.Model {
    * @remarks
    * The ID of the resource group to which the Anti-DDoS Origin instance belongs in Resource Management.
    * 
-   * If you do not specify this parameter, the instance belongs to the default resource group.
+   * If you do not specify this parameter, the default resource group is used.
    * 
    * @example
    * rg-acfm2pz25js****
@@ -157,7 +159,7 @@ export class DescribeInstanceListRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The tags bound to the Anti-DDoS Origin instance to query.
+   * The tags bound to the Anti-DDoS Origin instances to query.
    */
   tag?: DescribeInstanceListRequestTag[];
   static names(): { [key: string]: string } {

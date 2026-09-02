@@ -6,6 +6,7 @@ export class AttachToPolicyRequestIpPortProtocolList extends $dara.Model {
   /**
    * @remarks
    * The IP address of the protection object.
+   * > Prerequisite: The IP address must be added to the Anti-DDoS Origin instance by calling the AddIp operation in advance, and you must call the DescribeInstanceList operation to verify that the IP address has been added to the Anti-DDoS Origin instance.
    * 
    * This parameter is required.
    * 
@@ -92,8 +93,8 @@ export class AttachToPolicyRequest extends $dara.Model {
    * @remarks
    * The version of the port-specific mitigation policy. Valid values:
    * 
-   * - **Not specified**: Associates the default surf anti-DDoS engine policy.
-   * - **2**: Associates the new stream anti-DDoS engine policy.
+   * - **Not specified**: Associates the default surf mitigation engine policy.
+   * - **2**: Associates the new stream mitigation engine policy.
    * > Only port-specific mitigation policies support this parameter.
    * 
    * @example
