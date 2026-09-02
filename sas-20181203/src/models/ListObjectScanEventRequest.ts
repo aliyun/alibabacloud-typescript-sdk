@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListObjectScanEventRequest extends $dara.Model {
+  aiDetect?: boolean;
   /**
    * @remarks
    * The batch operation type. Valid values:
@@ -154,6 +155,7 @@ export class ListObjectScanEventRequest extends $dara.Model {
   timeStart?: number;
   static names(): { [key: string]: string } {
     return {
+      aiDetect: 'AiDetect',
       batchType: 'BatchType',
       bucketName: 'BucketName',
       currentPage: 'CurrentPage',
@@ -174,6 +176,7 @@ export class ListObjectScanEventRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      aiDetect: 'boolean',
       batchType: 'string',
       bucketName: 'string',
       currentPage: 'number',

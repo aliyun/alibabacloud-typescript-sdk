@@ -24020,6 +24020,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询 UUID 维度的漏洞数量统计
+   * 
+   * @param request - DescribeUuidVulNumClassifyStatisticRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeUuidVulNumClassifyStatisticResponse
+   */
+  async describeUuidVulNumClassifyStatisticWithOptions(request: $_model.DescribeUuidVulNumClassifyStatisticRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeUuidVulNumClassifyStatisticResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.imageVul)) {
+      query["ImageVul"] = request.imageVul;
+    }
+
+    if (!$dara.isNull(request.uuids)) {
+      query["Uuids"] = request.uuids;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeUuidVulNumClassifyStatistic",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeUuidVulNumClassifyStatisticResponse>(await this.callApi(params, req, runtime), new $_model.DescribeUuidVulNumClassifyStatisticResponse({}));
+  }
+
+  /**
+   * 查询 UUID 维度的漏洞数量统计
+   * 
+   * @param request - DescribeUuidVulNumClassifyStatisticRequest
+   * @returns DescribeUuidVulNumClassifyStatisticResponse
+   */
+  async describeUuidVulNumClassifyStatistic(request: $_model.DescribeUuidVulNumClassifyStatisticRequest): Promise<$_model.DescribeUuidVulNumClassifyStatisticResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeUuidVulNumClassifyStatisticWithOptions(request, runtime);
+  }
+
+  /**
    * Retrieves the list of servers that support vulnerability fixing based on vulnerability names.
    * 
    * @param request - DescribeUuidsByVulNamesRequest
@@ -38785,6 +38831,10 @@ export default class Client extends OpenApi {
   async listObjectScanEventWithOptions(request: $_model.ListObjectScanEventRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListObjectScanEventResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.aiDetect)) {
+      query["AiDetect"] = request.aiDetect;
+    }
+
     if (!$dara.isNull(request.batchType)) {
       query["BatchType"] = request.batchType;
     }

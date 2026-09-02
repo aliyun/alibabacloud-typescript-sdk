@@ -1104,6 +1104,7 @@ export { VerifyCheckCustomConfigResponseBodyErrorRepairConfigs } from './VerifyC
 export { VerifyCheckInstanceResultResponseBodyData } from './VerifyCheckInstanceResultResponseBody';
 export { VerifyCheckResultResponseBodyData } from './VerifyCheckResultResponseBody';
 export { QueryIncidentTracingSubNodesCountRequest } from './QueryIncidentTracingSubNodesCountRequest';
+export { DataValue } from './DataValue';
 export { AddAssetSelectionCriteriaRequest } from './AddAssetSelectionCriteriaRequest';
 export { AddAssetSelectionCriteriaResponseBody } from './AddAssetSelectionCriteriaResponseBody';
 export { AddAssetSelectionCriteriaResponse } from './AddAssetSelectionCriteriaResponse';
@@ -2380,6 +2381,9 @@ export { DescribeUserBaselineAuthorizationResponse } from './DescribeUserBaselin
 export { DescribeUserSettingRequest } from './DescribeUserSettingRequest';
 export { DescribeUserSettingResponseBody } from './DescribeUserSettingResponseBody';
 export { DescribeUserSettingResponse } from './DescribeUserSettingResponse';
+export { DescribeUuidVulNumClassifyStatisticRequest } from './DescribeUuidVulNumClassifyStatisticRequest';
+export { DescribeUuidVulNumClassifyStatisticResponseBody } from './DescribeUuidVulNumClassifyStatisticResponseBody';
+export { DescribeUuidVulNumClassifyStatisticResponse } from './DescribeUuidVulNumClassifyStatisticResponse';
 export { DescribeUuidsByVulNamesRequest } from './DescribeUuidsByVulNamesRequest';
 export { DescribeUuidsByVulNamesResponseBody } from './DescribeUuidsByVulNamesResponseBody';
 export { DescribeUuidsByVulNamesResponse } from './DescribeUuidsByVulNamesResponse';

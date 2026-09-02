@@ -499,6 +499,11 @@ export class DescribeVersionConfigResponseBody extends $dara.Model {
    */
   sasScreen?: number;
   /**
+   * @example
+   * 1
+   */
+  sdkAiPostPaidGray?: number;
+  /**
    * @remarks
    * The number of malicious file detection SDK authorizations.
    * 
@@ -655,6 +660,7 @@ export class DescribeVersionConfigResponseBody extends $dara.Model {
       sasEdrVersion: 'SasEdrVersion',
       sasLog: 'SasLog',
       sasScreen: 'SasScreen',
+      sdkAiPostPaidGray: 'SdkAiPostPaidGray',
       sdkCapacity: 'SdkCapacity',
       slsCapacity: 'SlsCapacity',
       threatAnalysisCapacity: 'ThreatAnalysisCapacity',
@@ -722,6 +728,7 @@ export class DescribeVersionConfigResponseBody extends $dara.Model {
       sasEdrVersion: 'string',
       sasLog: 'number',
       sasScreen: 'number',
+      sdkAiPostPaidGray: 'number',
       sdkCapacity: 'number',
       slsCapacity: 'number',
       threatAnalysisCapacity: 'number',

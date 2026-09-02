@@ -73,6 +73,7 @@ export class ListObjectScanEventResponseBodyDataDetails extends $dara.Model {
 }
 
 export class ListObjectScanEventResponseBodyData extends $dara.Model {
+  aiDetect?: boolean;
   /**
    * @remarks
    * The bucket name.
@@ -249,6 +250,7 @@ export class ListObjectScanEventResponseBodyData extends $dara.Model {
   status?: number;
   static names(): { [key: string]: string } {
     return {
+      aiDetect: 'AiDetect',
       bucketName: 'BucketName',
       details: 'Details',
       displaySandboxResult: 'DisplaySandboxResult',
@@ -274,6 +276,7 @@ export class ListObjectScanEventResponseBodyData extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      aiDetect: 'boolean',
       bucketName: 'string',
       details: { 'type': 'array', 'itemType': ListObjectScanEventResponseBodyDataDetails },
       displaySandboxResult: 'string',
