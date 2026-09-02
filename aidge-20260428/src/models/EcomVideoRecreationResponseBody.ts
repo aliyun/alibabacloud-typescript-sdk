@@ -2,38 +2,28 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class VideoGenerationResponseBodyData extends $dara.Model {
+export class EcomVideoRecreationResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The downstream task ID.
+   * The asynchronous task ID for QueryAsyncTaskResult queries.
    * 
    * @example
-   * 778fa8bd21804828a5d147050e30edac
+   * task_778fa8bd21804828a5d147050e30edac
    */
   taskId?: string;
-  /**
-   * @remarks
-   * The metering usage information.
-   */
-  usageMap?: { [key: string]: number };
   static names(): { [key: string]: string } {
     return {
       taskId: 'TaskId',
-      usageMap: 'UsageMap',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       taskId: 'string',
-      usageMap: { 'type': 'map', 'keyType': 'string', 'valueType': 'number' },
     };
   }
 
   validate() {
-    if(this.usageMap) {
-      $dara.Model.validateMap(this.usageMap);
-    }
     super.validate();
   }
 
@@ -42,10 +32,10 @@ export class VideoGenerationResponseBodyData extends $dara.Model {
   }
 }
 
-export class VideoGenerationResponseBody extends $dara.Model {
+export class EcomVideoRecreationResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code. A value of success indicates a successful call, and a value of failed indicates a failed call.
+   * The result code. `success` indicates success. An error code is returned upon failure.
    * 
    * @example
    * success
@@ -53,20 +43,20 @@ export class VideoGenerationResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The response struct.
+   * The asynchronous task submit status.
    */
-  data?: VideoGenerationResponseBodyData;
+  data?: EcomVideoRecreationResponseBodyData;
   /**
    * @remarks
-   * The response message. An error message is returned if the call fails.
+   * The response message. An error description is returned upon failure.
    * 
    * @example
-   * Success
+   * Task submitted
    */
   message?: string;
   /**
    * @remarks
-   * The request ID, which uniquely identifies a single API call.
+   * The request ID, used to identify a unique call.
    * 
    * @example
    * 70CBEFDF-BB17-1EB3-8A21-569F3124738F
@@ -74,7 +64,7 @@ export class VideoGenerationResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call is successful. A value of true indicates success, and a value of false indicates failure.
+   * Indicates whether the submission is successful.
    * 
    * @example
    * true
@@ -93,7 +83,7 @@ export class VideoGenerationResponseBody extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       code: 'string',
-      data: VideoGenerationResponseBodyData,
+      data: EcomVideoRecreationResponseBodyData,
       message: 'string',
       requestId: 'string',
       success: 'boolean',

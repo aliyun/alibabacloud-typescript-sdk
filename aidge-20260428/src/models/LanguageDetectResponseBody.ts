@@ -61,7 +61,7 @@ export class LanguageDetectResponseBody extends $dara.Model {
   data?: LanguageDetectResponseBodyData;
   /**
    * @remarks
-   * The error message. "Success" is returned for a successful call. A specific error message is returned for a failed call, such as "The parameters contain sensitive information. Try other input."
+   * The error message. "Success" is returned for a successful call. A specific error message is returned for an exception, such as "The parameters contain sensitive information. Try other input."
    * 
    * @example
    * Success
@@ -69,7 +69,7 @@ export class LanguageDetectResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID, which uniquely identifies the request.
+   * The request ID, used to uniquely identify a request.
    * 
    * @example
    * 42542C6C-F2A4-1B2B-8EFF-130C8FD06F54
