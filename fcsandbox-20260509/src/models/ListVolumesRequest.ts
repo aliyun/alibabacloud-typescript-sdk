@@ -57,7 +57,7 @@ export class ListVolumesRequest extends $dara.Model {
   userID?: string;
   /**
    * @remarks
-   * The name of the volume. The name must be unique within the team.
+   * The name of the volume. The name must be unique within a team.
    * 
    * @example
    * workspace

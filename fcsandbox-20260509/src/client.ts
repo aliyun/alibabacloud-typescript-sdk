@@ -12,16 +12,6 @@ export default class Client extends OpenApi {
   constructor(config: $OpenApiUtil.Config) {
     super(config);
     this._endpointRule = "regional";
-    this._endpointMap = {
-      'cn-shenzhen': "fcsandbox.cn-shenzhen.aliyuncs.com",
-      'cn-beijing': "fcsandbox.cn-beijing.aliyuncs.com",
-      'cn-shanghai': "fcsandbox.cn-shanghai.aliyuncs.com",
-      'cn-hongkong': "fcsandbox.cn-hongkong.aliyuncs.com",
-      'ap-southeast-1': "fcsandbox.ap-southeast-1.aliyuncs.com",
-      'cn-hangzhou': "fcsandbox.cn-hangzhou.aliyuncs.com",
-      'us-west-1': "fcsandbox.us-west-1.aliyuncs.com",
-      'us-east-1': "fcsandbox.us-east-1.aliyuncs.com",
-    };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("fcsandbox", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
@@ -581,7 +571,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a Volume.
+   * Queries a volume.
    * 
    * @param request - GetVolumeRequest
    * @param headers - map
@@ -614,7 +604,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a Volume.
+   * Queries a volume.
    * 
    * @param request - GetVolumeRequest
    * @returns GetVolumeResponse

@@ -4,17 +4,30 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateTemplateVPCConfig extends $dara.Model {
   /**
+   * @remarks
+   * The VPC authorization role name.
+   * 
    * @example
    * AliyunFCSandboxDefaultRole
    */
   role?: string;
   /**
+   * @remarks
+   * The security group ID.
+   * 
    * @example
    * sg-bp1gx7yj8ud5mabcde
    */
   securityGroupId?: string;
+  /**
+   * @remarks
+   * The list of vSwitch IDs.
+   */
   vSwitchIds?: string[];
   /**
+   * @remarks
+   * VPC ID
+   * 
    * @example
    * vpc-bp1mwrqm3wkq7abcde
    */

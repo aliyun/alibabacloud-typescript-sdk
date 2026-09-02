@@ -7,23 +7,48 @@ import { PublicTemplateVPCConfig } from "./PublicTemplateVpcconfig";
 
 export class PublicTemplateRuntimeConfig extends $dara.Model {
   /**
+   * @remarks
+   * The number of CPU cores.
+   * 
    * @example
    * 1
    */
   cpu?: number;
   /**
+   * @remarks
+   * The disk size. Unit: GB.
+   * 
    * @example
    * 10
    */
   diskSize?: number;
+  /**
+   * @remarks
+   * Specifies whether to allow access to the Internet.
+   */
   internetAccess?: boolean;
+  /**
+   * @remarks
+   * The log configuration.
+   */
   logConfig?: PublicTemplateLogConfig;
   /**
+   * @remarks
+   * The memory size. Unit: MB.
+   * 
    * @example
    * 2048
    */
   memorySize?: number;
+  /**
+   * @remarks
+   * The sandbox configuration.
+   */
   sandboxConfig?: PublicTemplateSandboxConfig;
+  /**
+   * @remarks
+   * The VPC configuration.
+   */
   vpcConfig?: PublicTemplateVPCConfig;
   static names(): { [key: string]: string } {
     return {

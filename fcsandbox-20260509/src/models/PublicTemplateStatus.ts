@@ -5,12 +5,22 @@ import { PublicTemplateStatusReason } from "./PublicTemplateStatusReason";
 
 export class PublicTemplateStatus extends $dara.Model {
   /**
+   * @remarks
+   * The time when the build is completed.
+   * 
    * @example
    * 2026-08-28T12:00:00.000Z
    */
   finishedAt?: string;
+  /**
+   * @remarks
+   * The reason for the build failure.
+   */
   reason?: PublicTemplateStatusReason;
   /**
+   * @remarks
+   * The build status.
+   * 
    * @example
    * ready
    */

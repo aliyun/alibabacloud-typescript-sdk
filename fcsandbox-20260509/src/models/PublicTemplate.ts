@@ -6,33 +6,59 @@ import { PublicTemplateStatus } from "./PublicTemplateStatus";
 
 export class PublicTemplate extends $dara.Model {
   /**
+   * @remarks
+   * The creation time.
+   * 
    * @example
    * 2026-08-28T12:00:00.000Z
    */
   createdTime?: string;
   /**
+   * @remarks
+   * The template name.
+   * 
    * @example
    * my-template
    */
   name?: string;
   /**
+   * @remarks
+   * The resource group ID.
+   * 
    * @example
    * rg-acfmz7h4ocksp5y
    */
   resourceGroupID?: string;
+  /**
+   * @remarks
+   * The template runtime configuration.
+   */
   runtimeConfig?: PublicTemplateRuntimeConfig;
+  /**
+   * @remarks
+   * The template build status.
+   */
   status?: PublicTemplateStatus;
   /**
+   * @remarks
+   * The unique identifier of the team.
+   * 
    * @example
    * 70d1c834-0383-58d8-97ac-5336eb91abcd
    */
   teamID?: string;
   /**
+   * @remarks
+   * The team name.
+   * 
    * @example
    * my-team
    */
   teamName?: string;
   /**
+   * @remarks
+   * The template ID.
+   * 
    * @example
    * w0aipmi0rvn5xqdnsihg
    */

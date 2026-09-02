@@ -1,4 +1,8 @@
 export { ContainerConfigurationRegistryCredential } from './ContainerConfiguration';
+export { CreateVolumeInputMountConfigVpcConfig } from './CreateVolumeInput';
+export { CreateVolumeInputMountConfig } from './CreateVolumeInput';
+export { E2BVolumeMountConfigVpcConfig } from './E2bvolume';
+export { E2BVolumeMountConfig } from './E2bvolume';
 export { AgenticFSVolumeConfig } from './AgenticFsvolumeConfig';
 export { ApiKey } from './ApiKey';
 export { CertConfig } from './CertConfig';
