@@ -34,6 +34,9 @@ export class GetKnowledgeRecallRequest extends $dara.Model {
   /**
    * @remarks
    * The username. Only files that this user has permission to access are recalled.
+   * 
+   * @example
+   * user_name1
    */
   user?: string;
   static names(): { [key: string]: string } {

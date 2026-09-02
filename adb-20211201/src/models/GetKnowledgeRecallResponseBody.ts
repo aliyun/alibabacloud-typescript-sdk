@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetKnowledgeRecallResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The total number of entries.
+   * The total number of records.
    * 
    * @example
    * 5

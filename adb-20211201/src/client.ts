@@ -57,21 +57,6 @@ export default class Client extends OpenApi {
       'eu-west-1-oxs': "adb.ap-northeast-1.aliyuncs.com",
       'me-east-1': "adb.ap-northeast-1.aliyuncs.com",
       'rus-west-1-pop': "adb.ap-northeast-1.aliyuncs.com",
-      'cn-chengdu': "adb.cn-chengdu.aliyuncs.com",
-      'cn-wulanchabu': "adb.cn-wulanchabu.aliyuncs.com",
-      'cn-zhangjiakou': "adb.cn-zhangjiakou.aliyuncs.com",
-      'ap-northeast-2': "adb.ap-northeast-2.aliyuncs.com",
-      'ap-northeast-1': "adb.ap-northeast-1.aliyuncs.com",
-      'cn-guangzhou': "adb.cn-guangzhou.aliyuncs.com",
-      'ap-southeast-3': "adb.ap-southeast-3.aliyuncs.com",
-      'cn-huhehaote': "adb.cn-huhehaote.aliyuncs.com",
-      'ap-southeast-5': "adb.ap-southeast-5.aliyuncs.com",
-      'ap-southeast-6': "adb.ap-southeast-6.aliyuncs.com",
-      'ap-southeast-7': "adb.ap-southeast-7.aliyuncs.com",
-      'eu-west-1': "adb.eu-west-1.aliyuncs.com",
-      'eu-central-1': "adb.eu-central-1.aliyuncs.com",
-      'na-south-1': "adb.na-south-1.aliyuncs.com",
-      'me-central-1': "adb.me-central-1.aliyuncs.com",
     };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("adb", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -91,7 +76,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds a knowledge base document.
+   * Adds a document to a knowledge base.
    * 
    * @param request - AddKnowledgeFileRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -114,6 +99,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.isDir)) {
       query["IsDir"] = request.isDir;
+    }
+
+    if (!$dara.isNull(request.priority)) {
+      query["Priority"] = request.priority;
     }
 
     if (!$dara.isNull(request.tags)) {
@@ -142,7 +131,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds a knowledge base document.
+   * Adds a document to a knowledge base.
    * 
    * @param request - AddKnowledgeFileRequest
    * @returns AddKnowledgeFileResponse
@@ -1772,7 +1761,10 @@ export default class Client extends OpenApi {
    * Creates a backup set immediately.
    * 
    * @remarks
-   * *Before you use this operation, make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product#/ads/detail/ads_pre) of AnalyticDB for MySQL.** Temporary backups and regular backups have the same pricing and backup set retention period.
+   * *Before using this operation, make sure that you fully understand the billing methods and <props="china">[pricing](https://www.aliyun.com/price/product#/ads/detail/ads_pre
+   * )
+   * <props="intl">[pricing](https://www.alibabacloud.com/zh/zh/pricing-calculator?_p_lc=1#/) of AnalyticDB for MySQL.** 
+   * Temporary backups and regular backups have the same pricing and backup set retention period.
    * 
    * @param request - CreateBackupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1826,7 +1818,10 @@ export default class Client extends OpenApi {
    * Creates a backup set immediately.
    * 
    * @remarks
-   * *Before you use this operation, make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product#/ads/detail/ads_pre) of AnalyticDB for MySQL.** Temporary backups and regular backups have the same pricing and backup set retention period.
+   * *Before using this operation, make sure that you fully understand the billing methods and <props="china">[pricing](https://www.aliyun.com/price/product#/ads/detail/ads_pre
+   * )
+   * <props="intl">[pricing](https://www.alibabacloud.com/zh/zh/pricing-calculator?_p_lc=1#/) of AnalyticDB for MySQL.** 
+   * Temporary backups and regular backups have the same pricing and backup set retention period.
    * 
    * @param request - CreateBackupRequest
    * @returns CreateBackupResponse

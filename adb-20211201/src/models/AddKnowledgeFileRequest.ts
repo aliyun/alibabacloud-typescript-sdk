@@ -15,7 +15,7 @@ export class AddKnowledgeFileRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The file address. Currently, only OSS paths are supported.
+   * The file location. Currently, only OSS paths are supported.
    * 
    * This parameter is required.
    * 
@@ -33,12 +33,17 @@ export class AddKnowledgeFileRequest extends $dara.Model {
   fileType?: string;
   /**
    * @remarks
-   * Specifies whether the file is a folder.
+   * Specifies whether the path is a directory.
    * 
    * @example
    * false
    */
   isDir?: boolean;
+  /**
+   * @remarks
+   * The confidence level or weight of the file.
+   */
+  priority?: string;
   /**
    * @remarks
    * The file tags in JSON format.
@@ -61,6 +66,7 @@ export class AddKnowledgeFileRequest extends $dara.Model {
       fileLocation: 'FileLocation',
       fileType: 'FileType',
       isDir: 'IsDir',
+      priority: 'Priority',
       tags: 'Tags',
       uploadUser: 'UploadUser',
     };
@@ -72,6 +78,7 @@ export class AddKnowledgeFileRequest extends $dara.Model {
       fileLocation: 'string',
       fileType: 'string',
       isDir: 'boolean',
+      priority: 'string',
       tags: 'string',
       uploadUser: 'string',
     };
