@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class WafQuotaString extends $dara.Model {
   /**
+   * @remarks
+   * The regular expression.
+   * 
    * @example
    * ^\\d+$
    */

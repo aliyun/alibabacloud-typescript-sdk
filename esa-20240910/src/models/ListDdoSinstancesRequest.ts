@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDDoSInstancesRequest extends $dara.Model {
   /**
    * @remarks
-   * Instance ID.
+   * The instance ID.
    * 
    * @example
    * esa-ddos-b1e0l80ugfeo
@@ -13,7 +13,7 @@ export class ListDDoSInstancesRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Page number. Default: **1**.
+   * The page number for a paged query. The value must be greater than or equal to 1. Default value: **1**.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class ListDDoSInstancesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * Number of entries per page. Default: 20. Maximum: 500. Valid values: integers from 1 to 500.
+   * The number of entries per page for a paged query. Default value: 20. Maximum value: 500. Valid values: any integer from 1 to 500.
    * 
    * @example
    * 20
@@ -29,7 +29,7 @@ export class ListDDoSInstancesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Associated site package instance ID.
+   * The instance ID of the associated site plan.
    * 
    * @example
    * esa-site-a71k7bw1adf
@@ -37,9 +37,9 @@ export class ListDDoSInstancesRequest extends $dara.Model {
   siteInstanceId?: string;
   /**
    * @remarks
-   * Sort field. Default: CreateTime.
+   * The sort field. By default, results are sorted by purchase time. Valid values:
    * 
-   * - **CreateTime**: Time when the instance was purchased.
+   * - **CreateTime**: purchase time.
    * 
    * @example
    * CreateTime
@@ -47,11 +47,10 @@ export class ListDDoSInstancesRequest extends $dara.Model {
   sortBy?: string;
   /**
    * @remarks
-   * Sort order:
+   * The sort order. Valid values:
    * 
-   * - asc: ascending.
-   * 
-   * - desc: descending.
+   * - asc: ascending order.
+   * - desc: descending order.
    * 
    * @example
    * asc
@@ -59,7 +58,7 @@ export class ListDDoSInstancesRequest extends $dara.Model {
   sortOrder?: string;
   /**
    * @remarks
-   * Instance status.
+   * The instance status.
    * 
    * @example
    * online

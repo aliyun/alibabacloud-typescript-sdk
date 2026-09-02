@@ -21,7 +21,7 @@ export class UploadOriginClientCertificateResponseBody extends $dara.Model {
   fingerprintSha256?: string;
   /**
    * @remarks
-   * The ID of the certificate.
+   * The certificate ID.
    * 
    * @example
    * babaabcd****
@@ -29,7 +29,7 @@ export class UploadOriginClientCertificateResponseBody extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The issuer of the certificate.
+   * The certification authority.
    * 
    * @example
    * GlobalSign nv-sa
@@ -37,7 +37,7 @@ export class UploadOriginClientCertificateResponseBody extends $dara.Model {
   issuer?: string;
   /**
    * @remarks
-   * The end of the certificate\\"s validity period (`not after`). The timestamp is in UTC and formatted in ISO 8601.
+   * The end time of the certificate validity period.
    * 
    * @example
    * 2024-12-01T02:13:07Z
@@ -45,7 +45,7 @@ export class UploadOriginClientCertificateResponseBody extends $dara.Model {
   notAfter?: string;
   /**
    * @remarks
-   * The start of the certificate\\"s validity period (`not before`). The timestamp is in UTC and formatted in ISO 8601.
+   * The start time of the certificate validity period.
    * 
    * @example
    * 2023-12-01T02:13:07Z
@@ -61,7 +61,7 @@ export class UploadOriginClientCertificateResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The serial number of the certificate.
+   * The certificate serial number.
    * 
    * @example
    * babaded901474b9693acf530e0fb1daa
@@ -77,7 +77,7 @@ export class UploadOriginClientCertificateResponseBody extends $dara.Model {
   signatureAlgorithm?: string;
   /**
    * @remarks
-   * The status of the certificate.
+   * The certificate status.
    * 
    * @example
    * OK
@@ -85,7 +85,7 @@ export class UploadOriginClientCertificateResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The validity period of the certificate in days.
+   * The number of days the certificate is valid.
    * 
    * @example
    * 365

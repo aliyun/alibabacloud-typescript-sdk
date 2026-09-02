@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SetKeylessServerResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The keyless server ID.
+   * Keyless server ID。
    * 
    * @example
    * babaabcd****

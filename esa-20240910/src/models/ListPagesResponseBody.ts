@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListPagesResponseBodyPagesModeration extends $dara.Model {
   /**
+   * @remarks
+   * The list of rejection reasons.
+   * 
    * @example
    * []
    */
   reasons?: string[];
   /**
+   * @remarks
+   * The moderation status.
+   * 
    * @example
    * pending
    */
@@ -70,7 +76,7 @@ export class ListPagesResponseBodyPages extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The ID of the custom response page. You can obtain this value by calling the [ListPages](https://help.aliyun.com/document_detail/2850223.html) operation.
+   * The ID of the custom response page. You can obtain the ID by calling the [ListPages](https://help.aliyun.com/document_detail/2850223.html) operation.
    * 
    * @example
    * 50000001
@@ -85,6 +91,9 @@ export class ListPagesResponseBodyPages extends $dara.Model {
    */
   kind?: string;
   /**
+   * @remarks
+   * The content moderation result.
+   * 
    * @example
    * {}
    */

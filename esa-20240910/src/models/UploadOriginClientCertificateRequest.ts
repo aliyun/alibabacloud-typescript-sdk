@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UploadOriginClientCertificateRequest extends $dara.Model {
   /**
    * @remarks
-   * The content of the certificate in PEM format.
+   * The certificate content.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class UploadOriginClientCertificateRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The private key for the certificate in PEM format.
+   * The certificate private key.
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class UploadOriginClientCertificateRequest extends $dara.Model {
   privateKey?: string;
   /**
    * @remarks
-   * The site ID. To get this ID, call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) API.
+   * The site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
    * 
    * This parameter is required.
    * 

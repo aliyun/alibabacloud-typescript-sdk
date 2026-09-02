@@ -5,7 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class ApplyCertificateRequest extends $dara.Model {
   /**
    * @remarks
-   * A comma-separated list of domain names.
+   * The algorithm type.
+   */
+  algType?: string;
+  /**
+   * @remarks
+   * The list of domain names, separated by commas.
    * 
    * This parameter is required.
    * 
@@ -25,7 +30,10 @@ export class ApplyCertificateRequest extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * The certificate type. Valid values: `lets_encrypt` for a Let\\"s Encrypt certificate, `digicert_single` for a Digicert single-domain certificate, and `digicert_wildcard` for a Digicert wildcard certificate.
+   * The certificate type. Valid values:
+   * - lets_encrypt: Let\\"s Encrypt certificate.
+   * - digicert_single: DigiCert single-domain certificate.
+   * - digicert_wildcard: DigiCert wildcard domain certificate.
    * 
    * @example
    * lets_encrypt
@@ -33,6 +41,7 @@ export class ApplyCertificateRequest extends $dara.Model {
   type?: string;
   static names(): { [key: string]: string } {
     return {
+      algType: 'AlgType',
       domains: 'Domains',
       siteId: 'SiteId',
       type: 'Type',
@@ -41,6 +50,7 @@ export class ApplyCertificateRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      algType: 'string',
       domains: 'string',
       siteId: 'number',
       type: 'string',

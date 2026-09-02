@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDDoSInstancesResponseBodyInstanceInfo extends $dara.Model {
   /**
    * @remarks
-   * Time when the instance was purchased
+   * The purchase time of the instance. The time is in ISO 8601 format and displayed in UTC. The format is yyyy-MM-ddTHH:mm:ssZ.
    * 
    * @example
    * 2025-07-01T07:59:07Z
@@ -13,7 +13,7 @@ export class ListDDoSInstancesResponseBodyInstanceInfo extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * DDoS protection specification for the Chinese mainland
+   * The specifications of the DDoS instance in the Chinese mainland.
    * 
    * @example
    * cn_300
@@ -21,7 +21,7 @@ export class ListDDoSInstancesResponseBodyInstanceInfo extends $dara.Model {
   DDoSBurstableDomesticProtection?: string;
   /**
    * @remarks
-   * DDoS protection specification for regions outside the Chinese mainland
+   * The specifications of the DDoS instance outside the Chinese mainland.
    * 
    * @example
    * overseas_300
@@ -29,7 +29,7 @@ export class ListDDoSInstancesResponseBodyInstanceInfo extends $dara.Model {
   DDoSBurstableOverseasProtection?: string;
   /**
    * @remarks
-   * Instance ID
+   * The instance ID.
    * 
    * @example
    * sp-ddddxxxxx
@@ -37,7 +37,7 @@ export class ListDDoSInstancesResponseBodyInstanceInfo extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Scheduled release time
+   * The scheduled release time. The time is in ISO 8601 format and displayed in UTC. The format is yyyy-MM-ddTHH:mm:ssZ.
    * 
    * @example
    * 2026-03-25T16:00:00Z
@@ -45,7 +45,7 @@ export class ListDDoSInstancesResponseBodyInstanceInfo extends $dara.Model {
   reserveReleaseTime?: string;
   /**
    * @remarks
-   * Associated site package instance ID
+   * The ID of the associated site plan instance.
    * 
    * @example
    * esa-site-b0s6kmx0r0n4
@@ -53,15 +53,11 @@ export class ListDDoSInstancesResponseBodyInstanceInfo extends $dara.Model {
   siteInstanceId?: string;
   /**
    * @remarks
-   * Instance status. Valid values:
-   * 
-   * - **online**: Normal service status.
-   * 
-   * - **offline**: Expired but not overdue. Instance is unavailable.
-   * 
-   * - **disable**: Released.
-   * 
-   * - **overdue**: Service suspended due to overdue payment.
+   * The instance status. Valid values:
+   * - **online**: The instance is running normally.
+   * - **offline**: The instance has expired but is not overdue, and is unavailable.
+   * - **disable**: The instance has been released.
+   * - **overdue**: The instance is suspended due to overdue payment.
    * 
    * @example
    * online
@@ -103,12 +99,12 @@ export class ListDDoSInstancesResponseBodyInstanceInfo extends $dara.Model {
 export class ListDDoSInstancesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Instance details
+   * The instance details.
    */
   instanceInfo?: ListDDoSInstancesResponseBodyInstanceInfo[];
   /**
    * @remarks
-   * Page number. Default: **1**.
+   * The current page number, which is the same as the PageNumber request parameter.
    * 
    * @example
    * 1
@@ -116,7 +112,7 @@ export class ListDDoSInstancesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * Number of entries per page
+   * The number of entries per page.
    * 
    * @example
    * 20
@@ -124,7 +120,7 @@ export class ListDDoSInstancesResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * 9F1DC265-BF10-5C9C-B607-760265C5F365
@@ -132,7 +128,7 @@ export class ListDDoSInstancesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Total number of entries
+   * The total number of records.
    * 
    * @example
    * 100
@@ -140,7 +136,7 @@ export class ListDDoSInstancesResponseBody extends $dara.Model {
   totalCount?: number;
   /**
    * @remarks
-   * Total number of pages
+   * The total number of pages.
    * 
    * @example
    * 2

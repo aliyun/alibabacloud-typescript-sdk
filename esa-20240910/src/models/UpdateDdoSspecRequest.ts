@@ -25,7 +25,7 @@ export class UpdateDDoSSpecRequest extends $dara.Model {
   DDoSBurstableDomesticProtection?: string;
   /**
    * @remarks
-   * The instance specification for regions outside the Chinese mainland.
+   * The instance specification for outside the Chinese mainland.
    * 
    * This parameter is required.
    * 

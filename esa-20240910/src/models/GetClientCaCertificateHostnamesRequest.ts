@@ -13,7 +13,7 @@ export class GetClientCaCertificateHostnamesRequest extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The site ID. To obtain this ID, call the [ListSites](~~ListSites~~) API.
+   * The site ID, which can be obtained by calling the [ListSites](~~ListSites~~) operation.
    * 
    * This parameter is required.
    * 

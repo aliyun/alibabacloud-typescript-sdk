@@ -29,7 +29,7 @@ export class UploadOriginCaCertificateResponseBody extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The issuer of the certificate.
+   * The certification authority.
    * 
    * @example
    * GlobalSign nv-sa
@@ -37,7 +37,7 @@ export class UploadOriginCaCertificateResponseBody extends $dara.Model {
   issuer?: string;
   /**
    * @remarks
-   * The validity end time of the certificate.
+   * The end time of the certificate validity period.
    * 
    * @example
    * 2024-12-01T02:13:07Z
@@ -45,7 +45,7 @@ export class UploadOriginCaCertificateResponseBody extends $dara.Model {
   notAfter?: string;
   /**
    * @remarks
-   * The validity start time of the certificate.
+   * The start time of the certificate validity period.
    * 
    * @example
    * 2023-12-01T02:13:07Z
@@ -61,7 +61,7 @@ export class UploadOriginCaCertificateResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The serial number of the certificate.
+   * The certificate serial number.
    * 
    * @example
    * babaded901474b9693acf530e0fb1daa
@@ -85,7 +85,7 @@ export class UploadOriginCaCertificateResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The validity period of the certificate in days.
+   * The number of days the certificate is valid.
    * 
    * @example
    * 365

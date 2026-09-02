@@ -37,6 +37,7 @@ export class ListCertificatesRequest extends $dara.Model {
    * 1234567890123
    */
   siteId?: number;
+  type?: string;
   /**
    * @remarks
    * Specifies whether to return only valid certificates.
@@ -51,6 +52,7 @@ export class ListCertificatesRequest extends $dara.Model {
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       siteId: 'SiteId',
+      type: 'Type',
       validOnly: 'ValidOnly',
     };
   }
@@ -61,6 +63,7 @@ export class ListCertificatesRequest extends $dara.Model {
       pageNumber: 'number',
       pageSize: 'number',
       siteId: 'number',
+      type: 'string',
       validOnly: 'boolean',
     };
   }

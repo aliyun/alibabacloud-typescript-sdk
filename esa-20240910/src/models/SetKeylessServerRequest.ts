@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SetKeylessServerRequest extends $dara.Model {
   /**
    * @remarks
-   * The CA certificate used to verify the server certificate of the keyless server. This parameter applies only when `Verify` is set to `true`.
+   * The CA certificate used to verify the server certificate of the Keyless server. This parameter takes effect only when Verify is set to true.
    * 
    * @example
    * -----BEGIN CERTIFICATE-----****
@@ -13,7 +13,7 @@ export class SetKeylessServerRequest extends $dara.Model {
   caCertificate?: string;
   /**
    * @remarks
-   * The client certificate. This parameter must be used with the `ClientPrivateKey` parameter.
+   * The client certificate. This parameter must be specified together with the client private key.
    * 
    * @example
    * -----BEGIN CERTIFICATE-----****
@@ -21,7 +21,7 @@ export class SetKeylessServerRequest extends $dara.Model {
   clientCertificate?: string;
   /**
    * @remarks
-   * The client private key. This parameter must be used with the `ClientCertificate` parameter.
+   * The client private key. This parameter must be specified together with the client certificate.
    * 
    * @example
    * -----BEGIN RSA PRIVATE KEY-----****
@@ -29,7 +29,7 @@ export class SetKeylessServerRequest extends $dara.Model {
   clientPrivateKey?: string;
   /**
    * @remarks
-   * The hostname of the keyless server. The value can be a domain name or an IP address.
+   * The hostname of the Keyless server. The value can be a domain name or an IP address.
    * 
    * This parameter is required.
    * 
@@ -39,7 +39,7 @@ export class SetKeylessServerRequest extends $dara.Model {
   host?: string;
   /**
    * @remarks
-   * The keyless server ID.
+   * Keyless server ID。
    * 
    * @example
    * baba39055622c008b90285a8838e****
@@ -47,7 +47,7 @@ export class SetKeylessServerRequest extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The keyless server name.
+   * The name of the Keyless server.
    * 
    * This parameter is required.
    * 
@@ -57,7 +57,7 @@ export class SetKeylessServerRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The keyless server port.
+   * The port of the Keyless server.
    * 
    * This parameter is required.
    * 
@@ -67,7 +67,7 @@ export class SetKeylessServerRequest extends $dara.Model {
   port?: number;
   /**
    * @remarks
-   * The site ID. You can obtain this ID by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * The site ID. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the site ID.
    * 
    * This parameter is required.
    * 
@@ -77,7 +77,7 @@ export class SetKeylessServerRequest extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * Specifies whether to verify the server certificate of the keyless server. Default: false.
+   * Specifies whether to verify the server certificate of the Keyless server. Default value: false.
    * 
    * @example
    * true

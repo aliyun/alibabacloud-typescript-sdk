@@ -50,7 +50,7 @@ export class DescribeSiteWafTopDataResponseBodyData extends $dara.Model {
   detailData?: DescribeSiteWafTopDataResponseBodyDataDetailData[];
   /**
    * @remarks
-   * The query dimension.
+   * The query dimensions.
    * 
    * @example
    * ALL
@@ -102,7 +102,7 @@ export class DescribeSiteWafTopDataResponseBody extends $dara.Model {
    * @remarks
    * The end of the time range for the returned data.
    * 
-   * The time is in ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is in UTC+0.
+   * The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC+0.
    * 
    * @example
    * 2023-04-09T16:00:00Z
@@ -128,7 +128,7 @@ export class DescribeSiteWafTopDataResponseBody extends $dara.Model {
    * @remarks
    * The beginning of the time range to query.
    * 
-   * Specify the time in ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC+0.
+   * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC+0.
    * 
    * @example
    * 2023-04-08T16:00:00Z

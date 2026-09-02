@@ -33,7 +33,7 @@ export class UploadSiteOriginClientCertificateRequest extends $dara.Model {
   privateKey?: string;
   /**
    * @remarks
-   * Site ID.
+   * The site ID.
    * 
    * This parameter is required.
    * 

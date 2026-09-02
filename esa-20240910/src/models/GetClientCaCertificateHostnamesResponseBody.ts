@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetClientCaCertificateHostnamesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A list of domain names.
+   * The domain names.
    */
   hostnames?: string[];
   /**
@@ -26,7 +26,7 @@ export class GetClientCaCertificateHostnamesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The site ID.
+   * The site ID, which can be obtained by calling the [ListSites](~~ListSites~~) operation.
    * 
    * @example
    * 1234567890123

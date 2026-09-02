@@ -7,7 +7,7 @@ export class DescribeSiteWafTopDataShrinkRequest extends $dara.Model {
    * @remarks
    * The end of the time range to query.
    * 
-   * Specify the time in ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC+0.
+   * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC+0.
    * 
    * > The end time must be later than the start time.
    * 
@@ -42,7 +42,6 @@ export class DescribeSiteWafTopDataShrinkRequest extends $dara.Model {
    * @remarks
    * The site ID. You can call the [ListSites](~~ListSites~~) operation to obtain the site ID.
    * 
-   * 
    * If this parameter is left empty, user-level data is queried.
    * 
    * @example
@@ -53,7 +52,7 @@ export class DescribeSiteWafTopDataShrinkRequest extends $dara.Model {
    * @remarks
    * The beginning of the time range to query.
    * 
-   * Specify the time in ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC+0.
+   * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC+0.
    * 
    * @example
    * 2023-04-08T16:00:00Z

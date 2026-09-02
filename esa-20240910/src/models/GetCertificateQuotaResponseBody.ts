@@ -21,7 +21,7 @@ export class GetCertificateQuotaResponseBodySiteUsage extends $dara.Model {
   siteName?: string;
   /**
    * @remarks
-   * The number of certificates used by the site.
+   * The site usage.
    * 
    * @example
    * 5
@@ -63,7 +63,7 @@ export class GetCertificateQuotaResponseBody extends $dara.Model {
   quota?: number;
   /**
    * @remarks
-   * The number of used free certificates.
+   * The free certificate quota usage.
    * 
    * @example
    * 5
@@ -79,7 +79,7 @@ export class GetCertificateQuotaResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The site count.
+   * The number of sites.
    * 
    * @example
    * 2
@@ -87,7 +87,7 @@ export class GetCertificateQuotaResponseBody extends $dara.Model {
   siteCount?: number;
   /**
    * @remarks
-   * Details about the certificate usage for each site.
+   * The list of site usage details.
    */
   siteUsage?: GetCertificateQuotaResponseBodySiteUsage[];
   /**

@@ -63,7 +63,7 @@ export class ApplyCertificateResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * A list of application details for each free certificate.
+   * The list of free certificate application details.
    */
   result?: ApplyCertificateResponseBodyResult[];
   /**
@@ -76,7 +76,7 @@ export class ApplyCertificateResponseBody extends $dara.Model {
   siteName?: string;
   /**
    * @remarks
-   * The total number of certificates requested, which matches the number of domain names provided in the request.
+   * The number of certificates applied for, which is the same as the number of input domain names.
    * 
    * @example
    * 2
