@@ -12,17 +12,6 @@ export default class Client extends OpenApi {
   constructor(config: $OpenApiUtil.Config) {
     super(config);
     this._endpointRule = "regional";
-    this._endpointMap = {
-      'ap-northeast-1': "adbai.ap-northeast-1.aliyuncs.com",
-      'ap-southeast-1': "adbai.ap-southeast-1.aliyuncs.com",
-      'cn-beijing': "adbai.cn-beijing.aliyuncs.com",
-      'cn-hangzhou': "adbai.cn-hangzhou.aliyuncs.com",
-      'cn-shanghai': "adbai.cn-shanghai.aliyuncs.com",
-      'cn-shenzhen': "adbai.cn-shenzhen.aliyuncs.com",
-      'cn-guangzhou': "adbai.cn-guangzhou.aliyuncs.com",
-      'cn-wulanchabu': "adbai.cn-wulanchabu.aliyuncs.com",
-      'us-west-1': "adbai.us-west-1.aliyuncs.com",
-    };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("adbai", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
@@ -195,12 +184,44 @@ export default class Client extends OpenApi {
   async createMultiModelKnowledgeBaseWithOptions(request: $_model.CreateMultiModelKnowledgeBaseRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateMultiModelKnowledgeBaseResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.adbInstanceName)) {
+      query["AdbInstanceName"] = request.adbInstanceName;
+    }
+
     if (!$dara.isNull(request.DBClusterId)) {
       query["DBClusterId"] = request.DBClusterId;
     }
 
+    if (!$dara.isNull(request.dbClusterAcu)) {
+      query["DbClusterAcu"] = request.dbClusterAcu;
+    }
+
+    if (!$dara.isNull(request.lakeStorageBucketName)) {
+      query["LakeStorageBucketName"] = request.lakeStorageBucketName;
+    }
+
     if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceAcuMax)) {
+      query["ResourceAcuMax"] = request.resourceAcuMax;
+    }
+
+    if (!$dara.isNull(request.resourceAcuMin)) {
+      query["ResourceAcuMin"] = request.resourceAcuMin;
+    }
+
+    if (!$dara.isNull(request.vSwitchId)) {
+      query["VSwitchId"] = request.vSwitchId;
+    }
+
+    if (!$dara.isNull(request.vpcId)) {
+      query["VpcId"] = request.vpcId;
+    }
+
+    if (!$dara.isNull(request.zoneId)) {
+      query["ZoneId"] = request.zoneId;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -349,6 +370,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.DBClusterId)) {
       query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.mmkbName)) {
+      query["MmkbName"] = request.mmkbName;
     }
 
     if (!$dara.isNull(request.regionId)) {

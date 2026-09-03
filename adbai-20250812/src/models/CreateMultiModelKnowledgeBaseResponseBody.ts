@@ -3,6 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateMultiModelKnowledgeBaseResponseBody extends $dara.Model {
+  dbClusterId?: string;
+  mmkbName?: string;
   /**
    * @remarks
    * Id of the request
@@ -13,12 +15,16 @@ export class CreateMultiModelKnowledgeBaseResponseBody extends $dara.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      dbClusterId: 'DbClusterId',
+      mmkbName: 'MmkbName',
       requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      dbClusterId: 'string',
+      mmkbName: 'string',
       requestId: 'string',
     };
   }

@@ -7,12 +7,11 @@ export class DeleteMultiModalKnowledgeBaseRequest extends $dara.Model {
    * @remarks
    * The cluster ID.
    * 
-   * This parameter is required.
-   * 
    * @example
    * amv-bp11q28kvl688****
    */
   DBClusterId?: string;
+  mmkbName?: string;
   /**
    * @remarks
    * The region ID.
@@ -28,6 +27,7 @@ export class DeleteMultiModalKnowledgeBaseRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       DBClusterId: 'DBClusterId',
+      mmkbName: 'MmkbName',
       regionId: 'RegionId',
     };
   }
@@ -35,6 +35,7 @@ export class DeleteMultiModalKnowledgeBaseRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       DBClusterId: 'string',
+      mmkbName: 'string',
       regionId: 'string',
     };
   }
