@@ -114,18 +114,27 @@ export class SearchKnowledgeBaseResponseBodyResultsLocations extends $dara.Model
 
 export class SearchKnowledgeBaseResponseBodyResultsMediaTimeline extends $dara.Model {
   /**
+   * @remarks
+   * The end time of the segment.
+   * 
    * @example
    * 4200
    */
   endMs?: number;
   /**
+   * @remarks
+   * The start time of the segment.
+   * 
    * @example
    * 1250
    */
   startMs?: number;
   /**
+   * @remarks
+   * The segment text.
+   * 
    * @example
-   * 第一句话。
+   * The first sentence
    */
   text?: string;
   static names(): { [key: string]: string } {
@@ -254,7 +263,7 @@ export class SearchKnowledgeBaseResponseBodyResults extends $dara.Model {
   locations?: SearchKnowledgeBaseResponseBodyResultsLocations[];
   /**
    * @remarks
-   * 音频或视频切片在原始媒体中的结束时间，单位为毫秒；非媒体切片不返回。
+   * The end time of the audio or video chunk in the original media, in milliseconds. This field is not returned for non-media chunks.
    * 
    * @example
    * 8400
@@ -262,7 +271,7 @@ export class SearchKnowledgeBaseResponseBodyResults extends $dara.Model {
   mediaEndMs?: number;
   /**
    * @remarks
-   * 音频或视频切片在原始媒体中的开始时间，单位为毫秒；非媒体切片不返回。
+   * The start time of the audio or video chunk in the original media, in milliseconds. This field is not returned for non-media chunks.
    * 
    * @example
    * 1250
@@ -270,7 +279,7 @@ export class SearchKnowledgeBaseResponseBodyResults extends $dara.Model {
   mediaStartMs?: number;
   /**
    * @remarks
-   * 切片内逐句或逐段内容在原始媒体中的时间范围；非音频切片不返回。
+   * The time ranges of sentence-level or paragraph-level content within the chunk in the original media. This field is not returned for non-audio chunks.
    */
   mediaTimeline?: SearchKnowledgeBaseResponseBodyResultsMediaTimeline[];
   /**
@@ -304,7 +313,7 @@ export class SearchKnowledgeBaseResponseBodyResults extends $dara.Model {
   scoreDetails?: SearchKnowledgeBaseResponseBodyResultsScoreDetails;
   /**
    * @remarks
-   * The list of tags.
+   * The list of labels.
    */
   tags?: string[];
   static names(): { [key: string]: string } {
@@ -376,7 +385,7 @@ export class SearchKnowledgeBaseResponseBodyResults extends $dara.Model {
 export class SearchKnowledgeBaseResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the permission verification failure.
+   * The details of the access denial due to a permission verification failure.
    * 
    * @example
    * {"PolicyType":"AccountLevelIdentityBasedPolicy","NoPermissionType":"ImplicitDeny","AuthAction":"milvusknowledgebase:SearchKnowledgeBase"}
@@ -384,7 +393,7 @@ export class SearchKnowledgeBaseResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The status code.
+   * The return code.
    * 
    * @example
    * 0
@@ -400,7 +409,7 @@ export class SearchKnowledgeBaseResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The returned message.
+   * The return message.
    * 
    * @example
    * success

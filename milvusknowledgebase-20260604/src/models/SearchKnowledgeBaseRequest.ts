@@ -55,7 +55,7 @@ export class SearchKnowledgeBaseRequestImage extends $dara.Model {
 export class SearchKnowledgeBaseRequestRetrievalConfig extends $dara.Model {
   /**
    * @remarks
-   * The number of candidate results to recall.
+   * The number of candidate recall results.
    * 
    * @example
    * 5
@@ -249,7 +249,7 @@ export class SearchKnowledgeBaseRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The query for retrieval.
+   * The retrieval query.
    * 
    * @example
    * What is the tax amount on the invoice?
@@ -257,7 +257,7 @@ export class SearchKnowledgeBaseRequest extends $dara.Model {
   query?: string;
   /**
    * @remarks
-   * The rerank model ID.
+   * The reranking model ID.
    * 
    * @example
    * 123
@@ -265,7 +265,7 @@ export class SearchKnowledgeBaseRequest extends $dara.Model {
   rerankModelId?: number;
   /**
    * @remarks
-   * The name of the rerank model that the tenant has activated. If both rerankModelName and rerankModelId are specified, this parameter takes precedence.
+   * The name of a reranking model that the tenant has activated. If both rerankModelName and rerankModelId are specified, this parameter takes precedence.
    * 
    * @example
    * qwen3-rerank

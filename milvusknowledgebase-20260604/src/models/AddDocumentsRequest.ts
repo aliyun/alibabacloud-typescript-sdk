@@ -55,7 +55,7 @@ export class AddDocumentsRequestDocuments extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The document path. This is the file name or relative path used during upload, which must be consistent with the pre-signed request.
+   * The document path. This is the file name or relative path used during upload, which must be consistent with the pre-signed URL request.
    * 
    * @example
    * 2026_06_23_17_49_52WwGSUezpG2u2iHWxyYGzkf9KtormhkxN/CHANGELOG.md
@@ -69,11 +69,20 @@ export class AddDocumentsRequestDocuments extends $dara.Model {
    * 1024
    */
   size?: number;
+  /**
+   * @remarks
+   * The processing strategy ID.
+   * 
+   * @example
+   * kb-strategy-7043984ca395eabd
+   */
+  strategyId?: string;
   static names(): { [key: string]: string } {
     return {
       name: 'Name',
       path: 'Path',
       size: 'Size',
+      strategyId: 'StrategyId',
     };
   }
 
@@ -82,6 +91,7 @@ export class AddDocumentsRequestDocuments extends $dara.Model {
       name: 'string',
       path: 'string',
       size: 'number',
+      strategyId: 'string',
     };
   }
 
