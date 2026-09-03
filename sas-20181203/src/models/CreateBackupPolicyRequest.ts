@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateBackupPolicyRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the policy to create.
+   * The name of the protection policy to create.
    * 
    * This parameter is required.
    * 
@@ -15,23 +15,23 @@ export class CreateBackupPolicyRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * - **IsDefault**: The type of the policy to create. Valid values:
+   * - **IsDefault**: The type of the protection policy to create. Valid values:
    *     - **1**: Recommended policy.
    *     - **0**: Custom policy.
    * - **Include**: The file types to protect. To protect all file types, set this parameter to [].
    * - **Source**: The server folders to protect. To protect all folders, set this parameter to [].
-   * - **ExcludeSystemPath**: Specifies whether to exclude specified folders. Set this parameter to **true** to exclude folders. If you do not want to exclude folders, you do not need to set this parameter.
-   * - **Exclude**: The folders to exclude from protection. If you do not want to exclude any folders, set this parameter to [].
-   * - **Schedule**: The start time and interval for the data backup task. Specify an off-peak hour that is not on the hour. Examples:
+   * - **ExcludeSystemPath**: Specifies whether to exclude specified folders. To exclude folders, set this parameter to **true**. If you do not want to exclude folders, you do not need to configure this parameter.
+   * - **Exclude**: The specified protection folder addresses. If you do not want to specify any protection folder addresses, set this parameter to [].
+   * - **Schedule**: The execution time and interval of the data backup task. Specify an off-peak hour that is not on the hour. Examples:
    *     - Example 1: I|1583216092|P21D indicates that the data backup starts at 2020-03-03 14:14:52 and the backup policy execution interval is 3 weeks.
    *     - Example 2: I|1583216092|PT24H indicates that the data backup starts at 2020-03-03 14:14:52 and the backup policy execution interval is 24 hours.
-   * - **Retention**: The retention period of backup data, in days. A value of 7 indicates 1 week, 365 indicates 1 year, and -1 indicates permanent retention.
-   * - **SpeedLimiter**: The network bandwidth throttling for backup. For example, 0:24:30720 indicates that the backup network bandwidth limit is 30 MB/s from 00:00 to 24:00.
+   * - **Retention**: The retention period of backup data, in days. The value 7 indicates 1 week, 365 indicates 1 year, and -1 indicates permanent retention.
+   * - **SpeedLimiter**: The backup network bandwidth limit. For example, 0:24:30720 indicates that the backup network bandwidth limit from 00:00 to 24:00 is 30 MB/s.
    * - **UseVss**: Specifies whether to enable the Volume Shadow Copy Service (VSS) feature for Windows. Valid values:
    *     - **true**: Enabled.
    *     - **false**: Not enabled.
    * 
-   * > The VSS feature applies only to Windows systems. After this feature is enabled, the issue of individual file backup failures caused by process occupation is effectively reduced. Enable this feature. After this feature is enabled, file backup for exFAT and FAT32 disk formats is not supported.
+   * > The VSS feature applies only to Windows systems. After this feature is enabled, the issue of individual file backup failures caused by process occupation is effectively reduced. We recommend that you enable this feature. After this feature is enabled, file backup for exFAT and FAT32 disk formats is not supported.
    * 
    * This parameter is required.
    * 
@@ -51,7 +51,7 @@ export class CreateBackupPolicyRequest extends $dara.Model {
   policyRegionId?: string;
   /**
    * @remarks
-   * The version of the policy. Set the value to **2.0.0**.
+   * The version of the protection policy. Set the value to **2.0.0**.
    * 
    * This parameter is required.
    * 
@@ -61,14 +61,25 @@ export class CreateBackupPolicyRequest extends $dara.Model {
   policyVersion?: string;
   /**
    * @remarks
-   * The method used to cover assets. Valid values:
+   * The method used to select assets. Valid values:
    * - **ALL_MACHINE**: All assets.
-   * > To cover all assets of this type, set this parameter to **ALL_MACHINE**. In this case, **UuidList** is invalid. Only one policy that covers all assets can exist for each server type.
+   * > To cover all assets of the specified server type, set this parameter to **ALL_MACHINE**. In this case, **UuidList** is invalid. Only one policy that covers all assets can exist for each server type.
    * 
    * @example
    * ALL_MACHINE
    */
   selectType?: string;
+  /**
+   * @remarks
+   * The server type. Valid values:
+   * - **ALIYUN**: Alibaba Cloud server.
+   * - **OUT_CLOUD**: Non-Alibaba Cloud server.
+   * - **TRIPARTITE**: Simple application server.
+   * 
+   * @example
+   * ALIYUN
+   */
+  serverType?: string;
   /**
    * @remarks
    * The UUIDs of the servers to protect.
@@ -84,6 +95,7 @@ export class CreateBackupPolicyRequest extends $dara.Model {
       policyRegionId: 'PolicyRegionId',
       policyVersion: 'PolicyVersion',
       selectType: 'SelectType',
+      serverType: 'ServerType',
       uuidList: 'UuidList',
     };
   }
@@ -95,6 +107,7 @@ export class CreateBackupPolicyRequest extends $dara.Model {
       policyRegionId: 'string',
       policyVersion: 'string',
       selectType: 'string',
+      serverType: 'string',
       uuidList: { 'type': 'array', 'itemType': 'string' },
     };
   }

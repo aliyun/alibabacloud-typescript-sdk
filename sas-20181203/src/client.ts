@@ -2942,7 +2942,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an anti-ransomware policy for servers.
+   * Creates an anti-ransomware policy for server protection.
    * 
    * @param tmpReq - CreateBackupPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2977,6 +2977,10 @@ export default class Client extends OpenApi {
       query["SelectType"] = request.selectType;
     }
 
+    if (!$dara.isNull(request.serverType)) {
+      query["ServerType"] = request.serverType;
+    }
+
     if (!$dara.isNull(request.uuidList)) {
       query["UuidList"] = request.uuidList;
     }
@@ -2999,7 +3003,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an anti-ransomware policy for servers.
+   * Creates an anti-ransomware policy for server protection.
    * 
    * @param request - CreateBackupPolicyRequest
    * @returns CreateBackupPolicyResponse
@@ -41555,6 +41559,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.selectType)) {
       query["SelectType"] = request.selectType;
+    }
+
+    if (!$dara.isNull(request.serverType)) {
+      query["ServerType"] = request.serverType;
     }
 
     if (!$dara.isNull(request.uuidList)) {

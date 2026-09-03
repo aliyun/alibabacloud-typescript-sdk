@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateBackupPolicyResponseBodyBackupPolicy extends $dara.Model {
   /**
    * @remarks
-   * The ID of the anti-ransomware policy.
+   * The ID of the anti-ransomware protection policy.
    * 
    * @example
    * 1301575
@@ -49,7 +49,7 @@ export class CreateBackupPolicyResponseBodyBackupPolicy extends $dara.Model {
 export class CreateBackupPolicyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The policy information.
+   * The protection policy information.
    */
   backupPolicy?: CreateBackupPolicyResponseBodyBackupPolicy;
   /**
