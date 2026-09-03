@@ -57,22 +57,7 @@ export default class Client extends OpenApi {
       'rus-west-1-pop': "clickhouse.aliyuncs.com",
       'us-east-1': "clickhouse.aliyuncs.com",
       'us-west-1': "clickhouse.aliyuncs.com",
-      'us-southeast-1': "clickhouse.us-southeast-1.aliyuncs.com",
-      'na-south-1': "clickhouse.na-south-1.aliyuncs.com",
-      'me-central-1': "clickhouse.me-central-1.aliyuncs.com",
-      'eu-west-1': "clickhouse.eu-west-1.aliyuncs.com",
-      'eu-central-1': "clickhouse.eu-central-1.aliyuncs.com",
-      'cn-zhangjiakou': "clickhouse.cn-zhangjiakou.aliyuncs.com",
-      'cn-wulanchabu-gic-1': "clickhouse.cn-wulanchabu-gic-1.aliyuncs.com",
-      'cn-wulanchabu': "clickhouse.cn-wulanchabu.aliyuncs.com",
-      'cn-huhehaote': "clickhouse.cn-huhehaote.aliyuncs.com",
-      'cn-guangzhou': "clickhouse.cn-guangzhou.aliyuncs.com",
-      'cn-chengdu': "clickhouse.cn-chengdu.aliyuncs.com",
-      'ap-southeast-8': "clickhouse.ap-southeast-8.aliyuncs.com",
-      'ap-southeast-6': "clickhouse.ap-southeast-6.aliyuncs.com",
-      'ap-southeast-5': "clickhouse.ap-southeast-5.aliyuncs.com",
       'ap-southeast-3': "clickhouse.aliyuncs.com",
-      'ap-northeast-1': "clickhouse.ap-northeast-1.aliyuncs.com",
     };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("clickhouse", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -1125,6 +1110,10 @@ export default class Client extends OpenApi {
   async deleteLangfuseInstanceWithOptions(request: $_model.DeleteLangfuseInstanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteLangfuseInstanceResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.confirmDeleteAiGateway)) {
+      query["ConfirmDeleteAiGateway"] = request.confirmDeleteAiGateway;
+    }
+
     if (!$dara.isNull(request.DBInstanceId)) {
       query["DBInstanceId"] = request.DBInstanceId;
     }
@@ -1816,7 +1805,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of clusters.
+   * Queries a list of clusters.
    * 
    * @param request - DescribeDBInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1879,7 +1868,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of clusters.
+   * Queries a list of clusters.
    * 
    * @param request - DescribeDBInstancesRequest
    * @returns DescribeDBInstancesResponse

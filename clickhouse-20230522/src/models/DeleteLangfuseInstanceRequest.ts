@@ -5,6 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteLangfuseInstanceRequest extends $dara.Model {
   /**
    * @remarks
+   * The confirmation flag for deleting the AiGateway instance associated with the Langfuse instance.
+   */
+  confirmDeleteAiGateway?: boolean;
+  /**
+   * @remarks
    * The Langfuse instance ID.
    * 
    * This parameter is required.
@@ -25,6 +30,7 @@ export class DeleteLangfuseInstanceRequest extends $dara.Model {
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
+      confirmDeleteAiGateway: 'ConfirmDeleteAiGateway',
       DBInstanceId: 'DBInstanceId',
       regionId: 'RegionId',
     };
@@ -32,6 +38,7 @@ export class DeleteLangfuseInstanceRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      confirmDeleteAiGateway: 'boolean',
       DBInstanceId: 'string',
       regionId: 'string',
     };

@@ -195,7 +195,12 @@ export class DescribeDBInstancesResponseBodyDataDBInstances extends $dara.Model 
    * The instance status.
    * 
    * @example
-   * active
+   * ACTIVATION
+   * STOPPED
+   * RESOURCE_PREPARING
+   * CREATING
+   * MINOR_VERSION_TRANSING
+   * CLASS_CHANGING
    */
   status?: string;
   /**

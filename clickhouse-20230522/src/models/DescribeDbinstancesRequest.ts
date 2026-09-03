@@ -56,7 +56,12 @@ export class DescribeDBInstancesRequest extends $dara.Model {
    * The cluster status.
    * 
    * @example
-   * active
+   * ACTIVATION
+   * STOPPED
+   * RESOURCE_PREPARING
+   * CREATING
+   * MINOR_VERSION_TRANSING
+   * CLASS_CHANGING
    */
   DBInstanceStatus?: string;
   /**
