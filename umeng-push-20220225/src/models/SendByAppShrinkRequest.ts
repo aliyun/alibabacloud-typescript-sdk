@@ -10,16 +10,8 @@ export class SendByAppShrinkRequest extends $dara.Model {
   harmonyPayloadShrink?: string;
   iosPayloadShrink?: string;
   policyShrink?: string;
-  /**
-   * @example
-   * true
-   */
   productionMode?: boolean;
   receiptType?: number;
-  /**
-   * @example
-   * https://msg.umeng.com/upush/receipt
-   */
   receiptUrl?: string;
   thirdPartyId?: string;
   callbackParams?: string;

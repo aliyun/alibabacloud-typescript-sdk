@@ -3,11 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UploadDeviceRequest extends $dara.Model {
-  /**
-   * @example
-   * device_token_1\\ndevice_token_2\\ndevice_token_3\\n...
-   * alias1\\nalias2\\nalias3\\n...
-   */
   deviceTokens?: string;
   static names(): { [key: string]: string } {
     return {

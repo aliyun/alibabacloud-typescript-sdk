@@ -36,10 +36,6 @@ export class SendByDeviceResponseBody extends $dara.Model {
    */
   code?: string;
   data?: SendByDeviceResponseBodyData;
-  /**
-   * @example
-   * 200
-   */
   httpStatusCode?: number;
   /**
    * @example
@@ -51,10 +47,6 @@ export class SendByDeviceResponseBody extends $dara.Model {
    * 74808AA4-A044-102F-8F5F-AFE4D97A0F26
    */
   requestId?: string;
-  /**
-   * @example
-   * true
-   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

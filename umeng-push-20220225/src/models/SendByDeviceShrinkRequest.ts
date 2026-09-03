@@ -10,18 +10,11 @@ export class SendByDeviceShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * ArdNyIzFCH2K3szXA8arpu0Y7ywOdA67mCSumtpnMnmf
    */
   deviceTokens?: string;
   harmonyPayloadShrink?: string;
   iosPayloadShrink?: string;
   policyShrink?: string;
-  /**
-   * @example
-   * true
-   */
   productionMode?: boolean;
   receiptType?: number;
   /**

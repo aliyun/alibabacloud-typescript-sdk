@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class SendByAliasResponseBodyData extends $dara.Model {
-  /**
-   * @example
-   * uacxo27167041814609201
-   */
   msgId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -30,31 +26,11 @@ export class SendByAliasResponseBodyData extends $dara.Model {
 }
 
 export class SendByAliasResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 0
-   */
   code?: string;
   data?: SendByAliasResponseBodyData;
-  /**
-   * @example
-   * 200
-   */
   httpStatusCode?: number;
-  /**
-   * @example
-   * null
-   */
   message?: string;
-  /**
-   * @example
-   * 86C4236B-D6C2-1E31-8370-2FAEC5CFE012
-   */
   requestId?: string;
-  /**
-   * @example
-   * true
-   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

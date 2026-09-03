@@ -8,24 +8,12 @@ export class SendByFilterShrinkRequest extends $dara.Model {
   androidShortPayload?: AndroidShortPayload;
   channelPropertiesShrink?: string;
   description?: string;
-  /**
-   * @example
-   * "where":{"and":[{"or":[{"app_version":">=1.0"}]}]}
-   */
   filter?: string;
   harmonyPayloadShrink?: string;
   iosPayloadShrink?: string;
   policyShrink?: string;
-  /**
-   * @example
-   * true
-   */
   productionMode?: boolean;
   receiptType?: number;
-  /**
-   * @example
-   * https://msg.umeng.com/upush/receipt
-   */
   receiptUrl?: string;
   thirdPartyId?: string;
   callbackParams?: string;

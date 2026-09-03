@@ -16,18 +16,11 @@ export class SendByDeviceRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * ArdNyIzFCH2K3szXA8arpu0Y7ywOdA67mCSumtpnMnmf
    */
   deviceTokens?: string;
   harmonyPayload?: HarmonyPayload;
   iosPayload?: IosPayload;
   policy?: Policy;
-  /**
-   * @example
-   * true
-   */
   productionMode?: boolean;
   receiptType?: number;
   /**

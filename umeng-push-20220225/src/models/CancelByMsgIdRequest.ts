@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CancelByMsgIdRequest extends $dara.Model {
-  /**
-   * @example
-   * ucj0242167047014687101
-   */
   msgId?: string;
   static names(): { [key: string]: string } {
     return {

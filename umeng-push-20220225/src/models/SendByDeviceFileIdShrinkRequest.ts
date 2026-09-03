@@ -10,24 +10,13 @@ export class SendByDeviceFileIdShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * PF835431668603208261
    */
   fileId?: string;
   harmonyPayloadShrink?: string;
   iosPayloadShrink?: string;
   policyShrink?: string;
-  /**
-   * @example
-   * true
-   */
   productionMode?: boolean;
   receiptType?: number;
-  /**
-   * @example
-   * https://msg.umeng.com/upush/receipt
-   */
   receiptUrl?: string;
   thirdPartyId?: string;
   callbackParams?: string;

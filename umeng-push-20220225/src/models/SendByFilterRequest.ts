@@ -13,24 +13,12 @@ export class SendByFilterRequest extends $dara.Model {
   androidShortPayload?: AndroidShortPayload;
   channelProperties?: ChannelProperties;
   description?: string;
-  /**
-   * @example
-   * "where":{"and":[{"or":[{"app_version":">=1.0"}]}]}
-   */
   filter?: string;
   harmonyPayload?: HarmonyPayload;
   iosPayload?: IosPayload;
   policy?: Policy;
-  /**
-   * @example
-   * true
-   */
   productionMode?: boolean;
   receiptType?: number;
-  /**
-   * @example
-   * https://msg.umeng.com/upush/receipt
-   */
   receiptUrl?: string;
   thirdPartyId?: string;
   callbackParams?: string;

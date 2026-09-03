@@ -3,45 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class QueryMsgStatResponseBodyData extends $dara.Model {
-  /**
-   * @example
-   * 1
-   */
   accept?: number;
-  /**
-   * @example
-   * 1
-   */
   arrive?: number;
-  /**
-   * @example
-   * 0
-   */
   closePush?: number;
-  /**
-   * @example
-   * 0
-   */
   dismiss?: number;
-  /**
-   * @example
-   * ufe29y2167046828041801
-   */
   msgId?: string;
-  /**
-   * @example
-   * 1
-   */
   open?: number;
-  /**
-   * @example
-   * 1
-   */
   sent?: number;
-  /**
-   * @example
-   * 2
-   */
   status?: number;
   static names(): { [key: string]: string } {
     return {
@@ -79,31 +47,11 @@ export class QueryMsgStatResponseBodyData extends $dara.Model {
 }
 
 export class QueryMsgStatResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 0
-   */
   code?: string;
   data?: QueryMsgStatResponseBodyData;
-  /**
-   * @example
-   * 200
-   */
   httpStatusCode?: number;
-  /**
-   * @example
-   * null
-   */
   message?: string;
-  /**
-   * @example
-   * 86C4236B-D6C2-1E31-8370-2FAEC5CFE012
-   */
   requestId?: string;
-  /**
-   * @example
-   * true
-   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

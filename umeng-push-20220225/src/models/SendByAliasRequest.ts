@@ -12,9 +12,6 @@ export class SendByAliasRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * test
    */
   alias?: string;
   aliasType?: string;
@@ -25,16 +22,8 @@ export class SendByAliasRequest extends $dara.Model {
   harmonyPayload?: HarmonyPayload;
   iosPayload?: IosPayload;
   policy?: Policy;
-  /**
-   * @example
-   * true
-   */
   productionMode?: boolean;
   receiptType?: number;
-  /**
-   * @example
-   * https://msg.umeng.com/upush/receipt
-   */
   receiptUrl?: string;
   thirdPartyId?: string;
   callbackParams?: string;
