@@ -12,10 +12,6 @@ export default class Client extends OpenApi {
   constructor(config: $OpenApiUtil.Config) {
     super(config);
     this._endpointRule = "regional";
-    this._endpointMap = {
-      'cn-hangzhou': "voicenavigator.cn-hangzhou.aliyuncs.com",
-      'cn-shanghai': "voicenavigator.cn-shanghai.aliyuncs.com",
-    };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("voicenavigator", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
@@ -1577,6 +1573,10 @@ export default class Client extends OpenApi {
       query["AsrOverrides"] = request.asrOverrides;
     }
 
+    if (!$dara.isNull(request.asrOverridesUuid)) {
+      query["AsrOverridesUuid"] = request.asrOverridesUuid;
+    }
+
     if (!$dara.isNull(request.asrVocabularyId)) {
       query["AsrVocabularyId"] = request.asrVocabularyId;
     }
@@ -1587,6 +1587,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.engine)) {
       query["Engine"] = request.engine;
+    }
+
+    if (!$dara.isNull(request.engineXunfei)) {
+      query["EngineXunfei"] = request.engineXunfei;
     }
 
     if (!$dara.isNull(request.entryId)) {
@@ -1859,6 +1863,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.ttsOverrides)) {
       query["TtsOverrides"] = request.ttsOverrides;
+    }
+
+    if (!$dara.isNull(request.ttsOverridesUuid)) {
+      query["TtsOverridesUuid"] = request.ttsOverridesUuid;
     }
 
     if (!$dara.isNull(request.voice)) {

@@ -79,6 +79,14 @@ export class DescribeTTSConfigResponseBody extends $dara.Model {
   ttsOverrides?: string;
   /**
    * @remarks
+   * The TTS correction dictionary ID.
+   * 
+   * @example
+   * 94001ae8-72fd-4f93-84dc-e58e2b20363b
+   */
+  ttsOverridesUuid?: string;
+  /**
+   * @remarks
    * The voice.
    * 
    * @example
@@ -106,6 +114,7 @@ export class DescribeTTSConfigResponseBody extends $dara.Model {
       requestId: 'RequestId',
       speechRate: 'SpeechRate',
       ttsOverrides: 'TtsOverrides',
+      ttsOverridesUuid: 'TtsOverridesUuid',
       voice: 'Voice',
       volume: 'Volume',
     };
@@ -124,6 +133,7 @@ export class DescribeTTSConfigResponseBody extends $dara.Model {
       requestId: 'string',
       speechRate: 'number',
       ttsOverrides: 'string',
+      ttsOverridesUuid: 'string',
       voice: 'string',
       volume: 'number',
     };

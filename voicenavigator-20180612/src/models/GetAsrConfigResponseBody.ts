@@ -38,6 +38,14 @@ export class GetAsrConfigResponseBodyData extends $dara.Model {
   asrOverrides?: string;
   /**
    * @remarks
+   * The ASR correction dictionary ID.
+   * 
+   * @example
+   * 94001ae8-72fd-4f93-84dc-e58e2b20363b
+   */
+  asrOverridesUuid?: string;
+  /**
+   * @remarks
    * The hotword ID. You can view the ASR hotword ID on the [ASR Hotword Management page](https://aiccs.console.aliyun.com/sentence/vocab?spm=a2c4g.11186623.0.0.7f9bf965IKBpsi).
    * 
    * @example
@@ -75,6 +83,7 @@ export class GetAsrConfigResponseBodyData extends $dara.Model {
       asrClassVocabularyId: 'AsrClassVocabularyId',
       asrCustomizationId: 'AsrCustomizationId',
       asrOverrides: 'AsrOverrides',
+      asrOverridesUuid: 'AsrOverridesUuid',
       asrVocabularyId: 'AsrVocabularyId',
       engine: 'Engine',
       engineXufei: 'EngineXufei',
@@ -89,6 +98,7 @@ export class GetAsrConfigResponseBodyData extends $dara.Model {
       asrClassVocabularyId: 'string',
       asrCustomizationId: 'string',
       asrOverrides: 'string',
+      asrOverridesUuid: 'string',
       asrVocabularyId: 'string',
       engine: 'string',
       engineXufei: 'string',

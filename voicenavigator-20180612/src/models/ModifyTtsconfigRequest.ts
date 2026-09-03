@@ -76,9 +76,17 @@ export class ModifyTTSConfigRequest extends $dara.Model {
    * The TTS error correction dictionary.
    * 
    * @example
-   * [{\\"pronunciation\\":\\"huanqian\\",\\"word\\":\\"huanqian\\"}]
+   * [{\\"pronunciation\\":\\"huanqian\\",\\"word\\":\\"huaiqian\\"}]
    */
   ttsOverrides?: string;
+  /**
+   * @remarks
+   * The TTS error correction dictionary ID.
+   * 
+   * @example
+   * 94001ae8-72fd-4f93-84dc-e58e2b20363b
+   */
+  ttsOverridesUuid?: string;
   /**
    * @remarks
    * The voice.
@@ -108,6 +116,7 @@ export class ModifyTTSConfigRequest extends $dara.Model {
       pitchRate: 'PitchRate',
       speechRate: 'SpeechRate',
       ttsOverrides: 'TtsOverrides',
+      ttsOverridesUuid: 'TtsOverridesUuid',
       voice: 'Voice',
       volume: 'Volume',
     };
@@ -126,6 +135,7 @@ export class ModifyTTSConfigRequest extends $dara.Model {
       pitchRate: 'string',
       speechRate: 'string',
       ttsOverrides: 'string',
+      ttsOverridesUuid: 'string',
       voice: 'string',
       volume: 'string',
     };

@@ -38,7 +38,15 @@ export class ModifyAsrConfigRequest extends $dara.Model {
   asrOverrides?: string;
   /**
    * @remarks
-   * The hotword ID. View the ASR hotword ID on the [ASR Hotword Management page](https://aiccs.console.aliyun.com/sentence/vocab?spm=a2c4g.11186623.0.0.7f9bf965IKBpsi).
+   * The ASR error correction dictionary ID.
+   * 
+   * @example
+   * 94001ae8-72fd-4f93-84dc-e58e2b20363b
+   */
+  asrOverridesUuid?: string;
+  /**
+   * @remarks
+   * The hotword ID. You can view the ASR hotword ID on the [ASR Hotword Management page](https://aiccs.console.aliyun.com/sentence/vocab?spm=a2c4g.11186623.0.0.7f9bf965IKBpsi).
    * 
    * @example
    * 6cc9f5ca-2cb6-4cc7-a46b-2bbfd3e61b22
@@ -66,6 +74,14 @@ export class ModifyAsrConfigRequest extends $dara.Model {
   engine?: string;
   /**
    * @remarks
+   * The iFLYTEK ASR configuration parameters.
+   * 
+   * @example
+   * {"Uuid":"b06c4ed3-a5e3-4c55-92b7-c2d2a88ca37f"}
+   */
+  engineXunfei?: string;
+  /**
+   * @remarks
    * The entity ID corresponding to config_level.
    * 
    * @example
@@ -77,7 +93,7 @@ export class ModifyAsrConfigRequest extends $dara.Model {
    * NluServiceType
    * 
    * @example
-   * Speech recognition.
+   * Speech Recognition
    */
   nlsServiceType?: string;
   static names(): { [key: string]: string } {
@@ -87,9 +103,11 @@ export class ModifyAsrConfigRequest extends $dara.Model {
       asrClassVocabularyId: 'AsrClassVocabularyId',
       asrCustomizationId: 'AsrCustomizationId',
       asrOverrides: 'AsrOverrides',
+      asrOverridesUuid: 'AsrOverridesUuid',
       asrVocabularyId: 'AsrVocabularyId',
       configLevel: 'ConfigLevel',
       engine: 'Engine',
+      engineXunfei: 'EngineXunfei',
       entryId: 'EntryId',
       nlsServiceType: 'NlsServiceType',
     };
@@ -102,9 +120,11 @@ export class ModifyAsrConfigRequest extends $dara.Model {
       asrClassVocabularyId: 'string',
       asrCustomizationId: 'string',
       asrOverrides: 'string',
+      asrOverridesUuid: 'string',
       asrVocabularyId: 'string',
       configLevel: 'number',
       engine: 'string',
+      engineXunfei: 'string',
       entryId: 'string',
       nlsServiceType: 'string',
     };
