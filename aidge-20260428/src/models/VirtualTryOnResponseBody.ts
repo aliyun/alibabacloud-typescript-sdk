@@ -2,28 +2,38 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DocumentTranslateResponseBodyData extends $dara.Model {
+export class VirtualTryOnResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The unique identifier of the asynchronous task, used to query the task status and result.
+   * The asynchronous task ID. Used to query the task result later.
    * 
    * @example
-   * 6071a030-5c92-9df1-96d0-44952343439a
+   * task-xxxx-xxxx-xxxx
    */
   taskId?: string;
+  /**
+   * @remarks
+   * The usage details.
+   */
+  usageMap?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
       taskId: 'TaskId',
+      usageMap: 'UsageMap',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       taskId: 'string',
+      usageMap: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
     };
   }
 
   validate() {
+    if(this.usageMap) {
+      $dara.Model.validateMap(this.usageMap);
+    }
     super.validate();
   }
 
@@ -32,40 +42,39 @@ export class DocumentTranslateResponseBodyData extends $dara.Model {
   }
 }
 
-export class DocumentTranslateResponseBody extends $dara.Model {
+export class VirtualTryOnResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code.
+   * The error code. This parameter is not returned if the call is successful.
    * 
    * @example
-   * success
+   * 200
    */
   code?: string;
   /**
    * @remarks
-   * The asynchronous task information.
+   * The returned result struct.
    */
-  data?: DocumentTranslateResponseBodyData;
+  data?: VirtualTryOnResponseBodyData;
   /**
    * @remarks
-   * The error message, such as "The parameters contain sensitive information. Try other input."
-   * This parameter is not returned for successful calls.
+   * The error message. This parameter is not returned if the call is successful.
    * 
    * @example
-   * Success
+   * OK
    */
   message?: string;
   /**
    * @remarks
-   * The unique identity of this request, used for troubleshooting and Tracing Analysis.
+   * The request ID. Used to uniquely identify a single API call.
    * 
    * @example
-   * 39E8A74B-F99E-1195-A5FF-3ECC5F94F304
+   * E1AD60F1-BAC7-546B-9533-E7AD02B16E3F
    */
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call is successful. Valid values: true: The call is successful. false: The call failed.
+   * Indicates whether the call is successful. A value of true indicates success. A value of false indicates failure.
    * 
    * @example
    * True
@@ -84,7 +93,7 @@ export class DocumentTranslateResponseBody extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       code: 'string',
-      data: DocumentTranslateResponseBodyData,
+      data: VirtualTryOnResponseBodyData,
       message: 'string',
       requestId: 'string',
       success: 'boolean',

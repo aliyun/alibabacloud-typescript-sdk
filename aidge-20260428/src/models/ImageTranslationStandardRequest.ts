@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ImageTranslationStandardRequest extends $dara.Model {
   /**
    * @remarks
-   * The intervention glossary ID. Optional. Create the glossary separately in the console and provide its ID. If the glossary ID is empty, translation results are not modified.
+   * The intervention glossary ID. Optional. Create the glossary separately in the console and provide its ID. If the glossary ID is empty, the translation results are not modified.
    * 
    * @example
    * glossary_1
@@ -15,7 +15,7 @@ export class ImageTranslationStandardRequest extends $dara.Model {
    * @remarks
    * - Image URL: Must be publicly accessible.
    * - Format: png, jpeg, jpg, bmp, webp
-   * - Pixels: Width and height must not exceed 4000
+   * - Pixels: Both width and height must not exceed 4000
    * - File size: Original file ≤ 10 MB
    * 
    * This parameter is required.
@@ -26,7 +26,7 @@ export class ImageTranslationStandardRequest extends $dara.Model {
   imageUrl?: string;
   /**
    * @remarks
-   * Specifies whether to translate text on the product area. Optional. Default value: false. This helps protect information by avoiding translation of embedded information such as product names.
+   * Specifies whether to translate text on the image subject. Optional. Default value: false. This helps protect information by avoiding translation of embedded information such as product names.
    * 
    * @example
    * false
@@ -62,7 +62,7 @@ export class ImageTranslationStandardRequest extends $dara.Model {
   translatingBrandInTheProduct?: boolean;
   /**
    * @remarks
-   * Specifies whether to return layer information such as text position, font, and color. If set to true, layer information is returned for secondary editing through an image editor. Default value: false.
+   * Specifies whether to return layer information such as text position, font, and color. If you set this parameter to true, layer information is returned, which can be used to integrate with image editors for secondary editing. Default value: false.
    * 
    * @example
    * false

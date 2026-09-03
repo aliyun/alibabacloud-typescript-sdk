@@ -60,7 +60,7 @@ export class TextTranslateResponseBodyData extends $dara.Model {
   translations?: TextTranslateResponseBodyDataTranslations[];
   /**
    * @remarks
-   * The usage information, including the input character count.
+   * The usage information, including the number of input characters.
    * 
    * @example
    * {"InputCharacterCount":5}
@@ -98,7 +98,7 @@ export class TextTranslateResponseBodyData extends $dara.Model {
 export class TextTranslateResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code. Returns "success" for successful calls.
+   * The response code. The value "success" is returned for successful calls.
    * 
    * @example
    * success
@@ -111,7 +111,7 @@ export class TextTranslateResponseBody extends $dara.Model {
   data?: TextTranslateResponseBodyData;
   /**
    * @remarks
-   * The error message. Returns "Success" for successful calls. Returns specific error information for exceptions, such as "The parameters contain sensitive information. Try other input."
+   * The error message. The value "Success" is returned for successful calls. For exceptions, a specific error message is returned, such as "The parameters contain sensitive information. Try other input."
    * 
    * @example
    * Success
@@ -119,7 +119,7 @@ export class TextTranslateResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID, used to identify a unique request call.
+   * The request ID, which uniquely identifies a single API call.
    * 
    * @example
    * 922E43BB-EE0E-1A29-B143-BB91BB3EA6AB
@@ -127,7 +127,7 @@ export class TextTranslateResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call is successful. true indicates success. false indicates failure.
+   * Indicates whether the call is successful. A value of true indicates success. A value of false indicates failure.
    * 
    * @example
    * true

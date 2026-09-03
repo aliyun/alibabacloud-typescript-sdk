@@ -6,8 +6,8 @@ export class TextTranslateShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * This field represents your identity and facilitates communication for various issues.  
-   * ● If you are an internal Alibaba organization, pass a value based on your actual scenario, such as BU name-product or BU name-chat.  
-   * ● If you are an external Alibaba partner, pass the full name of your company. This company name must be consistent with the company name used when you registered your Alibaba Cloud account.
+   * ● If you are an Alibaba internal organization, specify a value based on your actual scenario, such as BU name-product or BU name-chat.  
+   * ● If you are an external Alibaba partner, specify the full name of your company. This company name must be consistent with the company name used when you registered your Alibaba Cloud account.
    * 
    * @example
    * MyCompany-Chat
@@ -15,7 +15,7 @@ export class TextTranslateShrinkRequest extends $dara.Model {
   bizName?: string;
   /**
    * @remarks
-   * The format type of the source text. This parameter is optional. Valid values: text (plain text format) and html (web page format that preserves HTML tags).
+   * The format type of the source text. This parameter is optional. Valid values: text (plain text format) and html (web page format, which preserves HTML tags).
    * 
    * @example
    * text
@@ -31,7 +31,7 @@ export class TextTranslateShrinkRequest extends $dara.Model {
   glossary?: string;
   /**
    * @remarks
-   * The source language code. If not specified, the language is automatically detected. This parameter is optional. You can pass auto for language detection. For supported language pairs, see [Language pair mapping table](https://www.alibabacloud.com/help/en/document_detail/3041883.html).
+   * The source language code. This parameter is optional. If not specified, the language is automatically detected. You can set this parameter to auto for language detection. For supported language pairs, see [Language pair mapping table](https://www.alibabacloud.com/help/en/document_detail/3041883.html).
    * 
    * @example
    * auto
@@ -39,7 +39,7 @@ export class TextTranslateShrinkRequest extends $dara.Model {
   sourceLanguage?: string;
   /**
    * @remarks
-   * The list of texts to be translated. This parameter is required. The total character length cannot exceed 50,000, and the list length cannot exceed 50.
+   * The list of texts to translate. This parameter is required. The total character length cannot exceed 50,000, and the list length cannot exceed 50.
    * 
    * This parameter is required.
    * 
@@ -59,7 +59,7 @@ export class TextTranslateShrinkRequest extends $dara.Model {
   targetLanguage?: string;
   /**
    * @remarks
-   * The business scenario identifier. You can pass only one of the following values. When specified, the translation engine invokes the corresponding industry terminology library and style strategy to produce translations that better fit the industry. If this field is not specified or an invalid value is passed, the general translation strategy is used.
+   * The business scenario identifier. You can pass in only one of the following values. When specified, the translation engine invokes the corresponding industry terminology library and style strategy to produce translations that better fit the industry. If this field is not specified or an invalid value is passed, the general translation strategy is used.
    * Valid values:  
    * ● e-commerce-title: cross-border e-commerce product title translation  
    * ● e-commerce-description: cross-border e-commerce product description translation  

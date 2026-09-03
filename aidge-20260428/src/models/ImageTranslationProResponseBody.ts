@@ -265,7 +265,7 @@ export class ImageTranslationProResponseBodyDataGenFilesEditInfoTextAreasTexts e
   textRect?: ImageTranslationProResponseBodyDataGenFilesEditInfoTextAreasTextsTextRect;
   /**
    * @remarks
-   * Indicates whether the TextItem is valid. The item is invalid if this value does not exist or is false.
+   * Indicates whether the TextItem is valid. The item is invalid if this value does not exist or is set to false.
    * 
    * @example
    * true
@@ -346,7 +346,7 @@ export class ImageTranslationProResponseBodyDataGenFilesEditInfoTextAreas extend
    * The original text before translation.
    * 
    * @example
-   * 萌趣造型·清脆响铃
+   * Cute Design · Crisp Bell
    */
   content?: string;
   /**
@@ -595,7 +595,7 @@ export class ImageTranslationProResponseBodyDataGenFiles extends $dara.Model {
 export class ImageTranslationProResponseBodyDataResultList extends $dara.Model {
   /**
    * @remarks
-   * The URL of the translated result image.
+   * The URL of the image translation result image.
    * 
    * @example
    * http://dashscope-a717.oss-cn-beijing.aliyuncs.com/xxx.jpg
@@ -708,7 +708,7 @@ export class ImageTranslationProResponseBody extends $dara.Model {
   data?: ImageTranslationProResponseBodyData;
   /**
    * @remarks
-   * The error message. "Success" is returned for a successful call. A specific error message is returned for a failed call, such as "The content contains sensitive data. Try other input."
+   * The error message. Returns "Success" for a successful call. Returns a specific error message for an exception, such as "The content contains sensitive data. Try other input."
    * 
    * @example
    * Success
@@ -716,7 +716,7 @@ export class ImageTranslationProResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID, which uniquely identifies the request.
+   * The request ID. Used to uniquely identify a request.
    * 
    * @example
    * 61785C32-80C2-19A3-9E55-2C3702C84B40

@@ -568,7 +568,7 @@ export class ImageTranslationStandardResponseBodyData extends $dara.Model {
 export class ImageTranslationStandardResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code. A value of 200 indicates a successful call. For other response codes, refer to the error code information.
+   * The response code. 200 indicates success. For other response codes, refer to the error code information.
    * 
    * @example
    * 200
@@ -581,7 +581,7 @@ export class ImageTranslationStandardResponseBody extends $dara.Model {
   data?: ImageTranslationStandardResponseBodyData;
   /**
    * @remarks
-   * The error message. "Success" is returned for successful calls, and a specific error message is returned for failed calls.
+   * The error message. "Success" is returned for a successful call. A specific error message is returned for a failed call.
    * 
    * @example
    * Success
@@ -597,7 +597,7 @@ export class ImageTranslationStandardResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call is successful. A value of true indicates success, and a value of false indicates failure.
+   * Indicates whether the call is successful. true indicates success. false indicates failure.
    * 
    * @example
    * true
