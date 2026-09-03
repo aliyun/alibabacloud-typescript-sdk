@@ -1,8 +1,13 @@
 export { ChatRequestMessages } from './ChatRequest';
 export { ConfirmRequestToolCalls } from './ConfirmRequest';
+export { GetSessionContentResponseBodyContentAgentContents } from './GetSessionContentResponseBody';
+export { GetSessionContentResponseBodyContent } from './GetSessionContentResponseBody';
 export { ChatRequest } from './ChatRequest';
 export { ChatResponse } from './ChatResponse';
 export { ConfirmRequest } from './ConfirmRequest';
 export { ConfirmResponse } from './ConfirmResponse';
+export { GetSessionContentRequest } from './GetSessionContentRequest';
+export { GetSessionContentResponseBody } from './GetSessionContentResponseBody';
+export { GetSessionContentResponse } from './GetSessionContentResponse';
 export { InterruptRequest } from './InterruptRequest';
 export { InterruptResponse } from './InterruptResponse';
