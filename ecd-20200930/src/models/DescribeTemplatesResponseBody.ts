@@ -45,7 +45,7 @@ export class DescribeTemplatesResponseBodyDataDataDiskList extends $dara.Model {
 export class DescribeTemplatesResponseBodyDataRegionConfigList extends $dara.Model {
   /**
    * @remarks
-   * The number of vCPUs included in the cloud computer instance type.
+   * The number of vCPUs included in the cloud computer specification.
    * 
    * @example
    * 4
@@ -53,7 +53,7 @@ export class DescribeTemplatesResponseBodyDataRegionConfigList extends $dara.Mod
   cpuCount?: number;
   /**
    * @remarks
-   * The GPU memory information. This field is displayed only when the instance type is a graphics-accelerated type.
+   * The GPU memory information. This field is displayed only when the specification is a graphics-accelerated type.
    * 
    * @example
    * 4GiB
@@ -85,7 +85,7 @@ export class DescribeTemplatesResponseBodyDataRegionConfigList extends $dara.Mod
   regionId?: string;
   /**
    * @remarks
-   * The cloud computer instance type ID.
+   * The cloud computer specification ID.
    * 
    * @example
    * eds.enterprise_office.4c8g
@@ -176,7 +176,7 @@ export class DescribeTemplatesResponseBodyDataResourceTagList extends $dara.Mode
    * The tag value.
    * 
    * @example
-   * test
+   * 8vCPUs16GiB
    */
   value?: string;
   static names(): { [key: string]: string } {
@@ -243,8 +243,23 @@ export class DescribeTemplatesResponseBodyDataSiteConfigList extends $dara.Model
 }
 
 export class DescribeTemplatesResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * Indicates whether automatic payment is enabled for subscription orders.
+   */
   autoPay?: boolean;
+  /**
+   * @remarks
+   * Indicates whether auto-renewal is enabled for the subscription shared cloud computer.
+   */
   autoRenew?: boolean;
+  /**
+   * @remarks
+   * The billing type of the cloud computer.
+   * 
+   * @example
+   * PrePaid
+   */
   chargeType?: string;
   /**
    * @remarks
@@ -264,7 +279,7 @@ export class DescribeTemplatesResponseBodyData extends $dara.Model {
    * The template description.
    * 
    * @example
-   * My template
+   * MyTemplate
    */
   description?: string;
   /**
@@ -277,7 +292,7 @@ export class DescribeTemplatesResponseBodyData extends $dara.Model {
   gmtCreate?: string;
   /**
    * @remarks
-   * The last modification time of the template (UTC).
+   * The update time of the template (UTC).
    * 
    * @example
    * 2025-04-25T05:18:46.000+00:00
@@ -299,7 +314,21 @@ export class DescribeTemplatesResponseBodyData extends $dara.Model {
    * User
    */
   imageType?: string;
+  /**
+   * @remarks
+   * The subscription duration of the subscription shared cloud computer. This parameter takes effect only when ChargeType is set to PrePaid, and is required in that case. The unit is specified by PeriodUnit.
+   * 
+   * @example
+   * 1
+   */
   period?: number;
+  /**
+   * @remarks
+   * The unit of the subscription billing duration. Billable methods use this parameter to specify the time unit.
+   * 
+   * @example
+   * Month
+   */
   periodUnit?: string;
   /**
    * @remarks
@@ -309,6 +338,10 @@ export class DescribeTemplatesResponseBodyData extends $dara.Model {
    * pg-0caoeogkhz*****
    */
   policyGroupId?: string;
+  /**
+   * @remarks
+   * Indicates whether the cloud computer automatically switches to pay-as-you-go billing after the duration plan is exhausted.
+   */
   postPaidAfterUsedUp?: boolean;
   /**
    * @remarks
@@ -320,7 +353,7 @@ export class DescribeTemplatesResponseBodyData extends $dara.Model {
   productType?: string;
   /**
    * @remarks
-   * The region-specific configuration parameters.
+   * The region-related configuration parameters.
    */
   regionConfigList?: DescribeTemplatesResponseBodyDataRegionConfigList[];
   /**
@@ -378,7 +411,7 @@ export class DescribeTemplatesResponseBodyData extends $dara.Model {
    * The template name.
    * 
    * @example
-   * My template 001
+   * MyTemplate001
    */
   templateName?: string;
   /**
@@ -397,6 +430,13 @@ export class DescribeTemplatesResponseBodyData extends $dara.Model {
    * bcc-dweha*****
    */
   timerGroupId?: string;
+  /**
+   * @remarks
+   * The per-user usage duration plan.
+   * 
+   * @example
+   * 120
+   */
   userDuration?: string;
   static names(): { [key: string]: string } {
     return {
@@ -523,7 +563,7 @@ export class DescribeTemplatesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of rows per page.
+   * The number of entries per page.
    * 
    * @example
    * 20
@@ -539,7 +579,7 @@ export class DescribeTemplatesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the operation was successful.
+   * Indicates whether the operation is successful.
    * 
    * @example
    * True

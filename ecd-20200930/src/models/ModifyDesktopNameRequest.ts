@@ -5,22 +5,24 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyDesktopNameRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the cloud desktop.
+   * The cloud computer ID.
    * 
    * @example
    * ecd-gx2x1dhsmucyy****
    */
   desktopId?: string;
+  /**
+   * @remarks
+   * The list of cloud computer IDs.
+   */
   desktopIds?: string[];
   /**
    * @remarks
-   * The new name of the cloud desktop. The name must meet the following requirements:
+   * The new name of the cloud computer. The name must meet the following requirements:
    * 
-   * - The name must be 1 to 64 characters in length.
-   * 
-   * - The name must start with a letter or a Chinese character. It cannot start with `http://` or `https://`.
-   * 
-   * - The name can contain digits, letters, colons (:), underscores (_), periods (.), and hyphens (-).
+   * - The name cannot exceed 64 characters in length.
+   * - The name must start with a letter or a Chinese character and cannot start with `http://` or `https://`.
+   * - The name can contain Chinese characters, letters, digits, colons (:), underscores (_), periods (.), or hyphens (-).
    * 
    * @example
    * DemoComputer01
@@ -28,7 +30,7 @@ export class ModifyDesktopNameRequest extends $dara.Model {
   newDesktopName?: string;
   /**
    * @remarks
-   * The ID of the region. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to obtain a list of regions that are supported by Elastic Desktop Service.
+   * The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to query the regions supported by Elastic Desktop Service.
    * 
    * This parameter is required.
    * 
@@ -36,6 +38,13 @@ export class ModifyDesktopNameRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The user assignment mode.
+   * 
+   * @example
+   * ALL
+   */
   userAssignMode?: string;
   static names(): { [key: string]: string } {
     return {

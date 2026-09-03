@@ -5,12 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddDevicesRequest extends $dara.Model {
   /**
    * @remarks
-   * The type of the client.
-   * 
-   * Valid values:
-   * 
-   * *   1: hardware client.
-   * *   2: software client.
+   * The device type.
    * 
    * This parameter is required.
    * 
@@ -20,14 +15,14 @@ export class AddDevicesRequest extends $dara.Model {
   clientType?: number;
   /**
    * @remarks
-   * The IDs of the devices. You can specify up to 200 IDs.
+   * The list of device IDs. You can specify 1 to 200 device IDs.
    * 
    * This parameter is required.
    */
   deviceIds?: string[];
   /**
    * @remarks
-   * The ID of the region. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the regions supported by WUYING Workspace.
+   * The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to query the regions supported by Elastic Desktop Service.
    * 
    * @example
    * cn-hangzhou

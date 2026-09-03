@@ -61,7 +61,7 @@ export class DescribeOfficeSiteBridgeInfoResponseBodyBridge extends $dara.Model 
   defaultUser?: string;
   /**
    * @remarks
-   * The deployment time of the virtual bridge.
+   * The deployment time of the virtual bridge. The time is in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
    * 
    * @example
    * 2025-11-07T02:02:00Z
@@ -69,7 +69,7 @@ export class DescribeOfficeSiteBridgeInfoResponseBodyBridge extends $dara.Model 
   deployTime?: string;
   /**
    * @remarks
-   * The expiration time of the virtual bridge.
+   * The expiration time of the virtual bridge. The time is in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
    * 
    * @example
    * 2026-03-18T00:00:00Z
@@ -109,7 +109,7 @@ export class DescribeOfficeSiteBridgeInfoResponseBodyBridge extends $dara.Model 
   officeSiteName?: string;
   /**
    * @remarks
-   * The start time of the virtual bridge.
+   * The start time of the virtual bridge. The time is in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
    * 
    * @example
    * 2025-11-07T02:02:00Z

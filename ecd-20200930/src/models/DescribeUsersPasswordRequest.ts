@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeUsersPasswordRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the cloud computer.
+   * The cloud computer ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DescribeUsersPasswordRequest extends $dara.Model {
   desktopId?: string;
   /**
    * @remarks
-   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
+   * The region ID. You can call [DescribeRegions](~~DescribeRegions~~) to query the regions supported by Elastic Desktop Service.
    * 
    * This parameter is required.
    * 

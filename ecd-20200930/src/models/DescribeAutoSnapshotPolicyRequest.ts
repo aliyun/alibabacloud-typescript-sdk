@@ -5,10 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAutoSnapshotPolicyRequest extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of entries to return per page.
+   * The maximum number of entries per page for a paged query.
    * 
    * - Maximum value: 50
-   * 
    * - Default value: 50
    * 
    * @example
@@ -17,7 +16,7 @@ export class DescribeAutoSnapshotPolicyRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
+   * The pagination token for the next query. If NextToken is empty, no more results exist.
    * 
    * @example
    * AAAAAV3MpHK1AP0pfERHZN5pu6mqIGdPhID94rjhZFGsvpJo
@@ -36,12 +35,12 @@ export class DescribeAutoSnapshotPolicyRequest extends $dara.Model {
    * The name of the automatic snapshot policy.
    * 
    * @example
-   * Test 1201
+   * Test1201
    */
   policyName?: string;
   /**
    * @remarks
-   * The region ID. To query the regions supported by Elastic Desktop Service, call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation.
+   * The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to query the regions supported by Elastic Desktop Service.
    * 
    * This parameter is required.
    * 

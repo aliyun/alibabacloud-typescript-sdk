@@ -13,7 +13,7 @@ export class CreateNASFileSystemRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Specifies whether the file system uses a KMS-managed key to encrypt data stored on the file system. Encrypted data does not need to be decrypted during read and write operations.
+   * Specifies whether to use a Key Management Service (KMS) managed key to encrypt data stored in the file system. Encrypted data does not need to be decrypted during read and write operations.
    * 
    * @example
    * 0
@@ -21,7 +21,7 @@ export class CreateNASFileSystemRequest extends $dara.Model {
   encryptType?: string;
   /**
    * @remarks
-   * The NAS file system name. The name must meet the following requirements: The name must be 2 to 128 characters in length and can contain letters and Chinese characters. The name must start with a letter or a Chinese character and cannot start with `http://` or `https://`. The name can contain digits, underscores (_), or hyphens (-).
+   * The name of the NAS file system. The name must meet the following requirements: The name must be 2 to 128 characters in length and can contain letters and Chinese characters. The name must start with a letter or a Chinese character and cannot start with `http://` or `https://`. The name can contain digits, underscores (_), or hyphens (-).
    * 
    * @example
    * testNAS
@@ -37,10 +37,17 @@ export class CreateNASFileSystemRequest extends $dara.Model {
    * cn-hangzhou+dir-363353****
    */
   officeSiteId?: string;
+  /**
+   * @remarks
+   * The protocol type.
+   * 
+   * @example
+   * ASP
+   */
   protocolType?: string;
   /**
    * @remarks
-   * The region ID. You can call [DescribeRegions](~~DescribeRegions~~) to query the regions supported by Elastic Desktop Service.
+   * The region ID. You can call [DescribeRegions](~~DescribeRegions~~) to query the list of regions supported by Elastic Desktop Service.
    * 
    * This parameter is required.
    * 

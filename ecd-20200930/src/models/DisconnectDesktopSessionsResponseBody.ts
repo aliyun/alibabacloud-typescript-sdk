@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DisconnectDesktopSessionsResponseBodyInvalidSessions extends $dara.Model {
   /**
    * @remarks
-   * The cloud desktop ID.
+   * The cloud computer ID.
    * 
    * @example
    * ecd-2jv6wugbkp65p****

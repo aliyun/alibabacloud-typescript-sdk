@@ -13,12 +13,12 @@ export class BatchModifyEntitlementResponseBodyEntitlementsAssignModels extends 
   desktopId?: string;
   /**
    * @remarks
-   * The user IDs (usernames) authorized for the cloud computer.
+   * The user IDs (usernames) authorized to use the cloud computer.
    */
   endUserIds?: string[];
   /**
    * @remarks
-   * The assignment result of a single cloud computer.
+   * The assignment result for a single cloud computer.
    * 
    * @example
    * FINISHED
@@ -55,7 +55,7 @@ export class BatchModifyEntitlementResponseBodyEntitlementsAssignModels extends 
 export class BatchModifyEntitlementResponseBodyEntitlements extends $dara.Model {
   /**
    * @remarks
-   * The assignment results.
+   * The assignment result details.
    */
   assignModels?: BatchModifyEntitlementResponseBodyEntitlementsAssignModels[];
   /**
@@ -105,7 +105,7 @@ export class BatchModifyEntitlementResponseBodyEntitlements extends $dara.Model 
 export class BatchModifyEntitlementResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The collection of assignment results.
+   * The assignment results.
    */
   entitlements?: BatchModifyEntitlementResponseBodyEntitlements;
   /**

@@ -5,14 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class ApplyAutoSnapshotPolicyRequest extends $dara.Model {
   /**
    * @remarks
-   * The IDs of the cloud computers. You can specify 1 to 20 IDs.
+   * The cloud computer IDs. You can specify 1 to 20 IDs.
    * 
    * This parameter is required.
    */
   desktopId?: string[];
   /**
    * @remarks
-   * The ID of the automatic snapshot policy.
+   * The automatic snapshot policy ID.
    * 
    * This parameter is required.
    * 
@@ -22,7 +22,7 @@ export class ApplyAutoSnapshotPolicyRequest extends $dara.Model {
   policyId?: string;
   /**
    * @remarks
-   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
+   * The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to query the regions supported by Elastic Desktop Service.
    * 
    * This parameter is required.
    * 

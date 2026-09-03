@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyNetworkPackageBandwidthResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the order.
+   * The order ID.
    * 
    * @example
    * 214552063030752
@@ -13,7 +13,7 @@ export class ModifyNetworkPackageBandwidthResponseBody extends $dara.Model {
   orderId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****

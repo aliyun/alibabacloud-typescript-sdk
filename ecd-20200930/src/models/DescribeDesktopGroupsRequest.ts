@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDesktopGroupsRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The key of the tag. The key cannot be an empty string. The tag key can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. The tag key cannot contain `http://` or `https://`.
+   * The tag key. If you specify this parameter, the value cannot be an empty string. The tag key can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
    * 
    * @example
    * TestKey
@@ -13,7 +13,7 @@ export class DescribeDesktopGroupsRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of the tag. The value can be an empty string. The tag value can be up to 128 characters in length and cannot start with `acs:`. It cannot contain `http://` or `https://`.
+   * The tag value. The tag value can be an empty string. The tag value can be up to 128 characters in length and cannot start with `acs:`. It cannot contain `http://` or `https://`.
    * 
    * @example
    * TestValue
@@ -45,12 +45,12 @@ export class DescribeDesktopGroupsRequestTag extends $dara.Model {
 export class DescribeDesktopGroupsRequest extends $dara.Model {
   /**
    * @remarks
-   * The cloud computer template IDs.
+   * The list of cloud computer template IDs.
    */
   bundleId?: string[];
   /**
    * @remarks
-   * The ID of the cloud computer pool.
+   * The ID of the shared cloud computer.
    * 
    * @example
    * dg-2i8qxpv6t1a03****
@@ -58,31 +58,38 @@ export class DescribeDesktopGroupsRequest extends $dara.Model {
   desktopGroupId?: string;
   /**
    * @remarks
-   * The IDs of cloud computer pools.
+   * The list of shared cloud computer IDs.
    */
   desktopGroupIds?: string[];
   /**
    * @remarks
-   * The name of the cloud computer pool. Fuzzy search is supported.
+   * The name of the shared cloud computer to query. Fuzzy match is supported.
    * 
    * @example
    * CloudComputerPool01
    */
   desktopGroupName?: string;
+  /**
+   * @remarks
+   * The cloud computer specifications. You can call [DescribeDesktopTypes](~~DescribeDesktopTypes~~) to query the supported specification IDs.
+   * 
+   * @example
+   * eds.enterprise_office.16c64g
+   */
   desktopType?: string;
   /**
    * @remarks
-   * The IDs of the authorized users of the cloud computer pool.
+   * The list of authorized user IDs for the shared cloud computer.
    */
   endUserIds?: string[];
   /**
    * @remarks
-   * The IDs of the users that you want to exclude from the authorized user list.
+   * The list of authorized users to exclude.
    */
   excludedEndUserIds?: string[];
   /**
    * @remarks
-   * The image IDs.
+   * The list of image IDs.
    * 
    * **if can be null:**
    * false
@@ -90,7 +97,7 @@ export class DescribeDesktopGroupsRequest extends $dara.Model {
   imageId?: string[];
   /**
    * @remarks
-   * The number of entries to return on each page.<br>Maximum value: 100.<br>Default value: 10.<br><br>
+   * The number of entries per page for a paged query.
    * 
    * @example
    * 10
@@ -98,7 +105,11 @@ export class DescribeDesktopGroupsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * Specifies whether to query multi-desktop cloud computer pools.
+   * Specifies whether the shared cloud computer is a multi-host type.
+   * 
+   * Valid values:
+   * - true: Multi-host shared cloud computer.
+   * - false: Single-host shared cloud computer.
    * 
    * @example
    * true
@@ -106,7 +117,7 @@ export class DescribeDesktopGroupsRequest extends $dara.Model {
   multiResource?: boolean;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. If NextToken is empty, no next page exists.
+   * The token for the next query. If NextToken is empty, no more results exist.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a4883
@@ -114,7 +125,7 @@ export class DescribeDesktopGroupsRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The office network ID.
+   * The ID of the office network to which the shared cloud computers belong.
    * 
    * @example
    * cn-hangzhou+dir-467671****
@@ -122,9 +133,7 @@ export class DescribeDesktopGroupsRequest extends $dara.Model {
   officeSiteId?: string;
   /**
    * @remarks
-   * The type of the cloud computer pool.
-   * 
-   * > This parameter is not publicly available.
+   * The type of the shared cloud computer.
    * 
    * @example
    * 0
@@ -132,29 +141,7 @@ export class DescribeDesktopGroupsRequest extends $dara.Model {
   ownType?: number;
   /**
    * @remarks
-   * The subscription duration of the subscription cloud computer pool. The unit is specified by the `PeriodUnit` parameter.
-   * 
-   * - Valid values when `PeriodUnit` is set to `Month`:
-   * 
-   *   - 1
-   * 
-   *   - 2
-   * 
-   *   - 3
-   * 
-   *   - 6
-   * 
-   * - Valid values when `PeriodUnit` is set to `Year`:
-   * 
-   *   - 1
-   * 
-   *   - 2
-   * 
-   *   - 3
-   * 
-   *   - 4
-   * 
-   *   - 5
+   * The subscription duration of the shared cloud computer. The unit is specified by `PeriodUnit`.
    * 
    * @example
    * 1
@@ -162,7 +149,7 @@ export class DescribeDesktopGroupsRequest extends $dara.Model {
   period?: number;
   /**
    * @remarks
-   * The unit of the subscription duration.
+   * The unit of the duration for the subscription billing method.
    * 
    * @example
    * Month
@@ -170,7 +157,7 @@ export class DescribeDesktopGroupsRequest extends $dara.Model {
   periodUnit?: string;
   /**
    * @remarks
-   * The ID of the policy that is associated with the cloud computer pool.
+   * The ID of the policy associated with the shared cloud computer.
    * 
    * @example
    * pg-53iyi2aar0nd6****
@@ -184,10 +171,17 @@ export class DescribeDesktopGroupsRequest extends $dara.Model {
    * ASP
    */
   protocolType?: string;
+  /**
+   * @remarks
+   * The ID of the QoS rule.
+   * 
+   * @example
+   * qos-5605u0gelk200****
+   */
   qosRuleId?: string;
   /**
    * @remarks
-   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
+   * The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to query the regions supported by Elastic Desktop Service.
    * 
    * This parameter is required.
    * 
@@ -197,7 +191,7 @@ export class DescribeDesktopGroupsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The status of the cloud computer pool.
+   * The status of the shared cloud computer.
    * 
    * @example
    * 1
@@ -205,7 +199,7 @@ export class DescribeDesktopGroupsRequest extends $dara.Model {
   status?: number;
   /**
    * @remarks
-   * The tags. You can specify up to 20 tags.
+   * The list of tags. You can specify 1 to 20 tags.
    */
   tag?: DescribeDesktopGroupsRequestTag[];
   static names(): { [key: string]: string } {

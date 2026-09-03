@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DownloadCdsFileRequest extends $dara.Model {
   /**
    * @remarks
-   * The enterprise cloud drive ID.
+   * The enterprise cloud disk ID.
    * 
    * @example
    * cn-hangzhou+cds-643267****

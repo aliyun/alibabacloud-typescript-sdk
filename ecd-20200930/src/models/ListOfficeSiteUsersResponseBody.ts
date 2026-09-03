@@ -3,6 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListOfficeSiteUsersResponseBodyUsers extends $dara.Model {
+  /**
+   * @remarks
+   * The number of assigned cloud computers.
+   * 
+   * @example
+   * 2
+   */
   assignedDesktopNumber?: number;
   /**
    * @remarks
@@ -12,7 +19,21 @@ export class ListOfficeSiteUsersResponseBodyUsers extends $dara.Model {
    * aduser
    */
   displayName?: string;
+  /**
+   * @remarks
+   * The new display name of the user.
+   * 
+   * @example
+   * 张三
+   */
   displayNameNew?: string;
+  /**
+   * @remarks
+   * The email address.
+   * 
+   * @example
+   * user@example.com
+   */
   email?: string;
   /**
    * @remarks
@@ -22,7 +43,21 @@ export class ListOfficeSiteUsersResponseBodyUsers extends $dara.Model {
    * aduser
    */
   endUser?: string;
+  /**
+   * @remarks
+   * The mobile phone number.
+   * 
+   * @example
+   * 130********
+   */
   phone?: string;
+  /**
+   * @remarks
+   * The user principal name (UPN).
+   * 
+   * @example
+   * alice@example.com
+   */
   userPrincipalName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -60,7 +95,7 @@ export class ListOfficeSiteUsersResponseBodyUsers extends $dara.Model {
 export class ListOfficeSiteUsersResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The token to start the next query. If this parameter is empty, all results have been returned.
+   * The pagination token for the next query. An empty value indicates that no more results exist.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a4883
@@ -76,8 +111,7 @@ export class ListOfficeSiteUsersResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * An array that consists of the AD accounts.<br>
-   * If the enterprise AD contains only the Administrator and Guest users, an empty Users array is returned.<br>
+   * The array of AD account usernames. If the enterprise AD contains only the Administrator and Guest users and no other users, an empty Users array is returned.
    */
   users?: ListOfficeSiteUsersResponseBodyUsers[];
   static names(): { [key: string]: string } {

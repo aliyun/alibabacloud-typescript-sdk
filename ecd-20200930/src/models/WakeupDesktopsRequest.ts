@@ -5,14 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class WakeupDesktopsRequest extends $dara.Model {
   /**
    * @remarks
-   * The IDs of the cloud computers. You can specify the IDs of 1 to 100 cloud computers.
+   * The IDs of the cloud computers. You can specify 1 to 100 cloud computers.
    * 
    * This parameter is required.
    */
   desktopId?: string[];
   /**
    * @remarks
-   * The region ID. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the regions supported by Elastic Desktop Service (EDS).
+   * The region ID. You can call [DescribeRegions](~~DescribeRegions~~) to query the regions supported by Elastic Desktop Service.
    * 
    * This parameter is required.
    * 

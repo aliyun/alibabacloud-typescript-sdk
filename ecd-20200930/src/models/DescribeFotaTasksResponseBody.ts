@@ -37,7 +37,7 @@ export class DescribeFotaTasksResponseBodyFotaTasks extends $dara.Model {
   pendingDesktopCount?: number;
   /**
    * @remarks
-   * The publish time of the upgrade version.
+   * The release time of the upgrade version. The time is in the ISO 8601 standard in UTC: yyyy-MM-ddTHH:mm:ssZ.
    * 
    * @example
    * 2022-05-31T04:28:48Z
@@ -48,12 +48,12 @@ export class DescribeFotaTasksResponseBodyFotaTasks extends $dara.Model {
    * The upgrade version description.
    * 
    * @example
-   * test
+   * Fixed known issues and improved system stability
    */
   releaseNote?: string;
   /**
    * @remarks
-   * The size of the upgrade package. Unit: KB.
+   * The size of the upgrade package, in KB.
    * 
    * @example
    * 568533470
@@ -115,7 +115,7 @@ export class DescribeFotaTasksResponseBodyFotaTasks extends $dara.Model {
 export class DescribeFotaTasksResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The operation result. A value of `success` indicates success. Otherwise, an error message is returned.
+   * The result of the operation. A value of `success` indicates success. Otherwise, an error message is returned.
    * 
    * @example
    * success
@@ -128,7 +128,7 @@ export class DescribeFotaTasksResponseBody extends $dara.Model {
   fotaTasks?: DescribeFotaTasksResponseBodyFotaTasks[];
   /**
    * @remarks
-   * The error message. This parameter is not returned if Code is `success`.
+   * The error message. This parameter is not returned when Code is `success`.
    * 
    * @example
    * The parameter is not specified.
@@ -136,7 +136,7 @@ export class DescribeFotaTasksResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The pagination token for the next query. An empty value indicates that no more results exist.
+   * The pagination token for the next query. An empty value indicates that there are no more results.
    * 
    * @example
    * AAAAAV3MpHK1AP0pfERHZN5pu6nmB7qrRFJ8vmttjxPL****

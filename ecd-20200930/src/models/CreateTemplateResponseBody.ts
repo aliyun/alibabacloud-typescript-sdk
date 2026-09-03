@@ -13,7 +13,7 @@ export class CreateTemplateResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The template ID returned after the template is created.
+   * The template ID returned after successful creation.
    * 
    * @example
    * b-0cc7rx533*****

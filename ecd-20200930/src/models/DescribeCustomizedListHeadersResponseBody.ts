@@ -16,7 +16,7 @@ export class DescribeCustomizedListHeadersResponseBodyHeaders extends $dara.Mode
    * The key of the table header.
    * 
    * @example
-   * system_data_disk
+   * pay_type
    */
   headerKey?: string;
   /**

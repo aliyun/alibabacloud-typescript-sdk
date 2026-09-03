@@ -21,7 +21,7 @@ export class QueryHistoryAvgMetricListRequestRange extends $dara.Model {
   includeMin?: boolean;
   /**
    * @remarks
-   * The range label, which is used for the return value.
+   * The range label, which is used in the response.
    * 
    * @example
    * label-02\\"
@@ -75,7 +75,7 @@ export class QueryHistoryAvgMetricListRequestRange extends $dara.Model {
 export class QueryHistoryAvgMetricListRequest extends $dara.Model {
   /**
    * @remarks
-   * The start date of the statistics. The format is `YYYY-MM-DD`. The default value is T-1.
+   * The start date for statistics. Format: "YYYY-MM-DD". Default value: T-1.
    * 
    * @example
    * 2026-04-01
@@ -83,12 +83,12 @@ export class QueryHistoryAvgMetricListRequest extends $dara.Model {
   dataDate?: string;
   /**
    * @remarks
-   * The desktop ID list. A maximum of 100 IDs are supported.
+   * The list of desktop IDs. A maximum of 100 IDs are supported.
    */
   desktopId?: string[];
   /**
    * @remarks
-   * The metric to query.
+   * The type of monitoring metrics.
    * 
    * @example
    * LOAD_SCORE
@@ -96,7 +96,7 @@ export class QueryHistoryAvgMetricListRequest extends $dara.Model {
   metricName?: string;
   /**
    * @remarks
-   * The page number, which must be greater than 0. Default value: 1.
+   * The page number. Default value: 1. The value must be greater than 0.
    * 
    * @example
    * 1
@@ -104,7 +104,7 @@ export class QueryHistoryAvgMetricListRequest extends $dara.Model {
   pageNum?: number;
   /**
    * @remarks
-   * The page size. Valid values: 1 to 200. Default value: 20.
+   * The number of entries per page. Default value: 20. Valid values: 1 to 200.
    * 
    * @example
    * 20
@@ -117,7 +117,7 @@ export class QueryHistoryAvgMetricListRequest extends $dara.Model {
   range?: QueryHistoryAvgMetricListRequestRange;
   /**
    * @remarks
-   * The desktop region.
+   * The region of the desktop.
    * 
    * @example
    * cn-hangzhou
@@ -125,7 +125,7 @@ export class QueryHistoryAvgMetricListRequest extends $dara.Model {
   resourceRegionId?: string;
   /**
    * @remarks
-   * The sorting method.
+   * The sort order.
    * 
    * @example
    * ASC

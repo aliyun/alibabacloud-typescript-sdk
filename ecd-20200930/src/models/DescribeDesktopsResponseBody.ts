@@ -61,10 +61,10 @@ export class DescribeDesktopsResponseBodyDesktopsDesktopDurationList extends $da
 export class DescribeDesktopsResponseBodyDesktopsDisks extends $dara.Model {
   /**
    * @remarks
-   * The cloud disk category.
+   * The disk category.
    * - cloud_efficiency (ultra cloud disk)
-   *    - cloud_auto (ESSD AutoPL cloud disk)
-   *    - cloud_essd (enhanced standard SSD, supported only by specific specifications)
+   *    - cloud_auto (ultra-fast cloud disk)
+   *    - cloud_essd (enhanced standard SSD cloud disk. Only specific types are supported.)
    * 
    * @example
    * cloud_auto
@@ -96,9 +96,9 @@ export class DescribeDesktopsResponseBodyDesktopsDisks extends $dara.Model {
   diskType?: string;
   /**
    * @remarks
-   * The performance level (PL) of the ESSD when the cloud disk is an ESSD.
+   * The performance level (PL) of the ESSD when the disk is an ESSD.
    * 
-   * For more information about the differences between performance levels, see [ESSD cloud disks](https://help.aliyun.com/document_detail/122389.html).
+   * For more information about the differences between performance levels, see [ESSD](https://help.aliyun.com/document_detail/122389.html).
    * 
    * @example
    * PL0
@@ -136,7 +136,7 @@ export class DescribeDesktopsResponseBodyDesktopsDisks extends $dara.Model {
 export class DescribeDesktopsResponseBodyDesktopsFotaUpdate extends $dara.Model {
   /**
    * @remarks
-   * The current image version of the cloud computer.
+   * The version number of the current image on the cloud computer.
    * 
    * @example
    * 0.0.0-D-20220102.000000
@@ -144,7 +144,7 @@ export class DescribeDesktopsResponseBodyDesktopsFotaUpdate extends $dara.Model 
   currentAppVersion?: string;
   /**
    * @remarks
-   * The image version to which the cloud computer can be upgraded.
+   * The image version number to which the cloud computer can be upgraded.
    * 
    * @example
    * 0.0.0-R-20220307.190736
@@ -152,15 +152,15 @@ export class DescribeDesktopsResponseBodyDesktopsFotaUpdate extends $dara.Model 
   newAppVersion?: string;
   /**
    * @remarks
-   * The release note of the upgradable image version.
+   * The release notes of the image version available for upgrade.
    * 
    * @example
-   * 测试升级包03-07
+   * Test upgrade package 03-07
    */
   releaseNote?: string;
   /**
    * @remarks
-   * The English release note of the upgradable version.
+   * The English release notes of the image version available for upgrade.
    * 
    * @example
    * What\\"s new
@@ -168,7 +168,7 @@ export class DescribeDesktopsResponseBodyDesktopsFotaUpdate extends $dara.Model 
   releaseNoteEn?: string;
   /**
    * @remarks
-   * The Japanese release note of the upgradable version.
+   * The Japanese release notes of the image version available for upgrade.
    * 
    * @example
    * リリースノート
@@ -176,7 +176,7 @@ export class DescribeDesktopsResponseBodyDesktopsFotaUpdate extends $dara.Model 
   releaseNoteJp?: string;
   /**
    * @remarks
-   * The size of the upgradable version installation package. Unit: KB.
+   * The size of the upgrade package. Unit: KB.
    * 
    * @example
    * 108815097
@@ -214,8 +214,29 @@ export class DescribeDesktopsResponseBodyDesktopsFotaUpdate extends $dara.Model 
 }
 
 export class DescribeDesktopsResponseBodyDesktopsOsUpdatePackages extends $dara.Model {
+  /**
+   * @remarks
+   * The NAS file system description.
+   * 
+   * @example
+   * newDescription
+   */
   description?: string;
+  /**
+   * @remarks
+   * The KB number of the system patch.
+   * 
+   * @example
+   * KB5032190
+   */
   kb?: string;
+  /**
+   * @remarks
+   * The vulnerability name.
+   * 
+   * @example
+   * 2021-05 Servicing Stack Update for Windows Server 2019 for x64-based Systems (KB5003243)
+   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -243,8 +264,26 @@ export class DescribeDesktopsResponseBodyDesktopsOsUpdatePackages extends $dara.
 }
 
 export class DescribeDesktopsResponseBodyDesktopsOsUpdate extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the health check task.
+   * 
+   * @example
+   * ck-8f2a1b****
+   */
   checkId?: string;
+  /**
+   * @remarks
+   * The number of pending update patches.
+   * 
+   * @example
+   * 3
+   */
   packageCount?: number;
+  /**
+   * @remarks
+   * The list of system patches.
+   */
   packages?: DescribeDesktopsResponseBodyDesktopsOsUpdatePackages[];
   static names(): { [key: string]: string } {
     return {
@@ -277,7 +316,7 @@ export class DescribeDesktopsResponseBodyDesktopsOsUpdate extends $dara.Model {
 export class DescribeDesktopsResponseBodyDesktopsResourceGroups extends $dara.Model {
   /**
    * @remarks
-   * The enterprise resource group ID.
+   * The resource group ID.
    * 
    * @example
    * rg-4hsvzbbmqdzu3s****
@@ -285,10 +324,10 @@ export class DescribeDesktopsResponseBodyDesktopsResourceGroups extends $dara.Mo
   id?: string;
   /**
    * @remarks
-   * The enterprise resource group name.
+   * The name of the enterprise resource group.
    * 
    * @example
-   * Resource group 01
+   * ResourceGroup01
    */
   name?: string;
   static names(): { [key: string]: string } {
@@ -317,7 +356,7 @@ export class DescribeDesktopsResponseBodyDesktopsResourceGroups extends $dara.Mo
 export class DescribeDesktopsResponseBodyDesktopsSessions extends $dara.Model {
   /**
    * @remarks
-   * The ID of the user connected to the cloud computer.
+   * The ID of the user connected to the cloud desktop.
    * 
    * @example
    * 29615820929547****
@@ -325,7 +364,7 @@ export class DescribeDesktopsResponseBodyDesktopsSessions extends $dara.Model {
   endUserId?: string;
   /**
    * @remarks
-   * The time when the cloud computer session was established.
+   * The time when the cloud desktop session was established. The time is in the ISO 8601 standard in UTC.
    * 
    * @example
    * 2021-03-07T08:23Z
@@ -405,7 +444,18 @@ export class DescribeDesktopsResponseBodyDesktopsTags extends $dara.Model {
 }
 
 export class DescribeDesktopsResponseBodyDesktops extends $dara.Model {
+  /**
+   * @remarks
+   * The account type.
+   * 
+   * @example
+   * SIMPLE
+   */
   accountType?: string;
+  /**
+   * @remarks
+   * The list of agents supported by the cloud computer.
+   */
   agentProviderList?: string[];
   /**
    * @remarks
@@ -417,7 +467,7 @@ export class DescribeDesktopsResponseBodyDesktops extends $dara.Model {
   bindAmount?: number;
   /**
    * @remarks
-   * The ID of the cloud computer template used by the cloud computer.
+   * The ID of the cloud desktop template used by the cloud desktop.
    * 
    * @example
    * b-2g65ljy4291vl****
@@ -425,7 +475,7 @@ export class DescribeDesktopsResponseBodyDesktops extends $dara.Model {
   bundleId?: string;
   /**
    * @remarks
-   * The name of the cloud computer template used by the cloud computer.
+   * The name of the cloud desktop template used by the cloud desktop.
    * 
    * @example
    * TemplateName
@@ -433,7 +483,7 @@ export class DescribeDesktopsResponseBodyDesktops extends $dara.Model {
   bundleName?: string;
   /**
    * @remarks
-   * The billing method of the cloud computer.
+   * The billing method of the cloud desktop.
    * 
    * @example
    * PostPaid
@@ -457,7 +507,7 @@ export class DescribeDesktopsResponseBodyDesktops extends $dara.Model {
   cpu?: number;
   /**
    * @remarks
-   * The time when the cloud computer was created.
+   * The time when the cloud desktop was created. The time is in the ISO 8601 standard in UTC.
    * 
    * @example
    * 2020-11-06T08:28Z
@@ -468,7 +518,7 @@ export class DescribeDesktopsResponseBodyDesktops extends $dara.Model {
    * > This parameter is in invitational preview and is not publicly available.
    * 
    * @example
-   * null
+   * cloud_auto
    */
   dataDiskCategory?: string;
   /**
@@ -476,16 +526,16 @@ export class DescribeDesktopsResponseBodyDesktops extends $dara.Model {
    * > This parameter is in invitational preview and is not publicly available.
    * 
    * @example
-   * null
+   * 80
    */
   dataDiskSize?: string;
   desktopDurationList?: DescribeDesktopsResponseBodyDesktopsDesktopDurationList[];
   /**
    * @remarks
-   * The ID of the cloud computer pool to which the cloud computer belongs. Default value: `null`.
+   * The ID of the cloud desktop pool to which the cloud desktop belongs. Default value: `null`.
    * 
    * @example
-   * null
+   * dg-2i8qxpv6t1a03****
    */
   desktopGroupId?: string;
   /**
@@ -514,7 +564,7 @@ export class DescribeDesktopsResponseBodyDesktops extends $dara.Model {
   desktopStatus?: string;
   /**
    * @remarks
-   * The cloud computer specifications.
+   * The cloud desktop type.
    * 
    * @example
    * ecd.basic.large
@@ -541,10 +591,17 @@ export class DescribeDesktopsResponseBodyDesktops extends $dara.Model {
    * The disk information.
    */
   disks?: DescribeDesktopsResponseBodyDesktopsDisks[];
+  /**
+   * @remarks
+   * The domain type of the directory to which the cloud computer belongs.
+   * 
+   * @example
+   * AD
+   */
   domainType?: string;
   /**
    * @remarks
-   * The number of times the specifications can be downgraded.
+   * The number of times the cloud desktop can be downgraded.
    * 
    * @example
    * 3
@@ -552,7 +609,7 @@ export class DescribeDesktopsResponseBodyDesktops extends $dara.Model {
   downgradeQuota?: number;
   /**
    * @remarks
-   * The number of times the specifications have been downgraded.
+   * The number of times the cloud desktop has been downgraded.
    * 
    * @example
    * 0
@@ -560,15 +617,36 @@ export class DescribeDesktopsResponseBodyDesktops extends $dara.Model {
   downgradedTimes?: number;
   /**
    * @remarks
-   * The authorized user IDs of the cloud computer.
+   * The IDs of the authorized users of the cloud desktop.
    */
   endUserIds?: string[];
+  /**
+   * @remarks
+   * The domain name of Microsoft Entra ID.
+   * 
+   * @example
+   * contoso.onmicrosoft.com
+   */
   entraDomainName?: string;
+  /**
+   * @remarks
+   * The environment ID. This parameter is not publicly available.
+   * 
+   * @example
+   * adifa****
+   */
   envId?: string;
+  /**
+   * @remarks
+   * The environment type. This parameter is not publicly available.
+   * 
+   * @example
+   * Private
+   */
   envType?: string;
   /**
    * @remarks
-   * The expiration time of the subscription cloud computer.
+   * The expiration time of the subscription cloud desktop. The time is in the ISO 8601 standard in UTC.
    * 
    * @example
    * 2021-12-31T15:59Z
@@ -581,7 +659,7 @@ export class DescribeDesktopsResponseBodyDesktops extends $dara.Model {
   fotaUpdate?: DescribeDesktopsResponseBodyDesktopsFotaUpdate;
   /**
    * @remarks
-   * Indicates whether the cloud computer is a GPU cloud computer.
+   * Indicates whether the cloud desktop is a GPU-accelerated cloud desktop.
    * 
    * @example
    * 0
@@ -597,10 +675,10 @@ export class DescribeDesktopsResponseBodyDesktops extends $dara.Model {
   gpuCount?: number;
   /**
    * @remarks
-   * The GPU driver version of the cloud computer.
+   * The GPU driver version of the cloud desktop.
    * 
    * @example
-   * null
+   * 471.68
    */
   gpuDriverVersion?: string;
   /**
@@ -643,7 +721,18 @@ export class DescribeDesktopsResponseBodyDesktops extends $dara.Model {
    * m-4zfb6zj728hhr****
    */
   imageId?: string;
+  /**
+   * @remarks
+   * The image name before the change.
+   * 
+   * @example
+   * Windows server 2019 Mainland
+   */
   imageName?: string;
+  /**
+   * @remarks
+   * Indicates whether the directory is an LDAP directory.
+   */
   isLdap?: boolean;
   /**
    * @remarks
@@ -668,7 +757,7 @@ export class DescribeDesktopsResponseBodyDesktops extends $dara.Model {
   memory?: number;
   /**
    * @remarks
-   * The ID of the secondary elastic network interface (ENI) created by the cloud computer service under the RAM or AD user. This value cannot be modified.
+   * The ID of the secondary ENI created by the cloud desktop service for the RAM or AD user. This value cannot be modified.
    * 
    * @example
    * 123456
@@ -676,7 +765,7 @@ export class DescribeDesktopsResponseBodyDesktops extends $dara.Model {
   networkInterfaceId?: string;
   /**
    * @remarks
-   * The IP address of the secondary ENI created by the cloud computer service under the RAM or AD user.
+   * The IP address of the secondary ENI created by the cloud desktop service for the RAM or AD user.
    * 
    * @example
    * 192.168.XX.XX
@@ -716,12 +805,16 @@ export class DescribeDesktopsResponseBodyDesktops extends $dara.Model {
   officeSiteVpcType?: string;
   /**
    * @remarks
-   * The operating system type.
+   * The operating system types.
    * 
    * @example
    * Windows
    */
   osType?: string;
+  /**
+   * @remarks
+   * The operating system update information of the cloud computer.
+   */
   osUpdate?: DescribeDesktopsResponseBodyDesktopsOsUpdate;
   /**
    * @remarks
@@ -755,9 +848,6 @@ export class DescribeDesktopsResponseBodyDesktops extends $dara.Model {
   /**
    * @remarks
    * The list of cloud computer policy names.
-   * 
-   * @example
-   * Test policy 01
    */
   policyGroupNameList?: string[];
   /**
@@ -781,6 +871,13 @@ export class DescribeDesktopsResponseBodyDesktops extends $dara.Model {
    * The list of enterprise resource group information.
    */
   resourceGroups?: DescribeDesktopsResponseBodyDesktopsResourceGroups[];
+  /**
+   * @remarks
+   * The serial number of the terminal.
+   * 
+   * @example
+   * 96c530bc-6095-4014-8bbc-d461b8ac****
+   */
   serialNumber?: string;
   /**
    * @remarks
@@ -792,7 +889,7 @@ export class DescribeDesktopsResponseBodyDesktops extends $dara.Model {
   sessionType?: string;
   /**
    * @remarks
-   * The user session information of the cloud computer.
+   * The user session information of the cloud desktop.
    */
   sessions?: DescribeDesktopsResponseBodyDesktopsSessions[];
   /**
@@ -811,15 +908,29 @@ export class DescribeDesktopsResponseBodyDesktops extends $dara.Model {
    * testSnapshotName
    */
   snapshotPolicyName?: string;
+  /**
+   * @remarks
+   * The start time of the query. The time is in the ISO 8601 standard and in UTC+0, in the format of `yyyy-mm-ddthh:mm:ssz`.
+   * 
+   * @example
+   * 2025-01-27T02:20:10Z
+   */
   standardStartTime?: string;
   /**
    * @remarks
-   * The time when the cloud computer was first started.
+   * The time when the cloud desktop was first started. The time is in the ISO 8601 standard in UTC.
    * 
    * @example
    * 2020-11-06T08:31Z
    */
   startTime?: string;
+  /**
+   * @remarks
+   * The subnet ID.
+   * 
+   * @example
+   * vsw-dgea1*****
+   */
   subnetId?: string;
   /**
    * @remarks
@@ -834,7 +945,7 @@ export class DescribeDesktopsResponseBodyDesktops extends $dara.Model {
    * > This parameter is in invitational preview and is not publicly available.
    * 
    * @example
-   * null
+   * cloud_auto
    */
   systemDiskCategory?: string;
   /**
@@ -860,7 +971,7 @@ export class DescribeDesktopsResponseBodyDesktops extends $dara.Model {
   volumeEncryptionEnabled?: boolean;
   /**
    * @remarks
-   * The KMS key ID used for disk encryption. You can call [ListKeys](https://help.aliyun.com/document_detail/28951.html) to obtain the key ID.
+   * The ID of the Key Management Service (KMS) key used for disk encryption. You can call the [ListKeys](https://help.aliyun.com/document_detail/28951.html) operation to obtain the key ID.
    * 
    * @example
    * 08c33a6f-4e0a-4a1b-a3fa-7ddfa1d4****
@@ -868,7 +979,7 @@ export class DescribeDesktopsResponseBodyDesktops extends $dara.Model {
   volumeEncryptionKey?: string;
   /**
    * @remarks
-   * The zone type. Default value: `AvailabilityZone`, which indicates a standard cloud zone.
+   * The type of the zone. Default value: `AvailabilityZone`, which indicates a regular cloud zone.
    * 
    * @example
    * AvailabilityZone
@@ -1078,12 +1189,12 @@ export class DescribeDesktopsResponseBodyDesktops extends $dara.Model {
 export class DescribeDesktopsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of cloud computers.
+   * The details of the cloud desktops.
    */
   desktops?: DescribeDesktopsResponseBodyDesktops[];
   /**
    * @remarks
-   * The pagination token for the next query. If this parameter is empty, no more results exist.
+   * The pagination token that is used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a4883
@@ -1091,7 +1202,7 @@ export class DescribeDesktopsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The page number of the current page for a paged query.
+   * The page number of the current page in a paged query.
    * 
    * @example
    * 1
@@ -1099,7 +1210,7 @@ export class DescribeDesktopsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The maximum number of entries per page for a paged query.
+   * The maximum number of entries per page in a paged query.
    * 
    * @example
    * 10
@@ -1115,7 +1226,7 @@ export class DescribeDesktopsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of cloud computers.
+   * The total number of cloud desktops.
    * 
    * @example
    * 1

@@ -5,14 +5,29 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeTimerGroupResponseBodyDataConfigTimersSegmentTimers extends $dara.Model {
   /**
    * @remarks
-   * The specified time point for the fixed-time scheduled task. After this parameter is specified, the scheduled task is executed at the specified time point.
+   * The appointment timer used for executing scheduled tasks at specified time points. After this parameter is specified, the scheduled task is executed at the specified time points.
    * 
    * @example
    * 1764660600967
    */
   appointmentTimer?: number;
+  /**
+   * @remarks
+   * Specifies whether to create a snapshot.
+   */
   createSnapshot?: boolean;
+  /**
+   * @remarks
+   * The cron expression for the end time of the scheduled task.
+   * 
+   * @example
+   * 0 0 18 ? * 1-5
+   */
   endCronExpression?: string;
+  /**
+   * @remarks
+   * Specifies whether to forcefully execute the task. A value of true indicates that the desktop and connection status checks are ignored and the scheduled task is forcefully executed.
+   */
   enforce?: boolean;
   /**
    * @remarks
@@ -22,30 +37,111 @@ export class DescribeTimerGroupResponseBodyDataConfigTimersSegmentTimers extends
    * m-5b0vjqbiqu010XXXXXX
    */
   imageId?: string;
+  /**
+   * @remarks
+   * The time interval. Unit: minutes.
+   * 
+   * @example
+   * 10
+   */
   interval?: number;
+  /**
+   * @remarks
+   * The list of effective IP CIDR blocks.
+   */
   ipSegments?: string[];
   /**
    * @remarks
-   * The lock screen time point for the no-operation lock screen feature. This feature cannot be used for non-AD desktops.
+   * The duration of inactivity before the screen is locked, used by the no-operation lock screen feature. Unit: minutes. Only AD-joined cloud desktops are supported.
    * 
    * @example
-   * 1800
+   * 5
    */
   lockScreenTime?: number;
+  /**
+   * @remarks
+   * The advance notification time before the scheduled task is executed. Unit: seconds.
+   * 
+   * @example
+   * 300
+   */
   notificationTime?: number;
+  /**
+   * @remarks
+   * The operation type of the scheduled task. Currently, only disconnect scheduled tasks are supported.
+   * 
+   * @example
+   * Shutdown
+   */
   operationType?: string;
   /**
+   * @remarks
+   * The patch ID.
+   * 
    * @example
    * KB5082063
    */
   patchId?: string;
+  /**
+   * @remarks
+   * The process whitelist for intelligent detection of no-operation scheduled tasks. If a specified process is running, the no-operation scheduled task is not triggered.
+   */
   processWhitelist?: string[];
+  /**
+   * @remarks
+   * The reset type, which determines whether to reset and the scope of cloud disks to reset.
+   * 
+   * @example
+   * 1
+   */
   resetType?: string;
+  /**
+   * @remarks
+   * The cron expression for the start time of the scheduled task.
+   * 
+   * @example
+   * 0 0 8 ? * 1-5
+   */
   startCronExpression?: string;
+  /**
+   * @remarks
+   * The execution order number of the timer.
+   * 
+   * @example
+   * 1
+   */
   timerOrder?: number;
+  /**
+   * @remarks
+   * The time zone used by the scheduled task.
+   * 
+   * @example
+   * Asia/Shanghai
+   */
   timezone?: string;
+  /**
+   * @remarks
+   * The trigger configuration type of the no-operation scheduled task.
+   * 
+   * @example
+   * Standard
+   */
   triggerType?: string;
+  /**
+   * @remarks
+   * The advance notification time before verification is executed. Unit: seconds.
+   * 
+   * @example
+   * 300
+   */
   verificationNotificationTime?: number;
+  /**
+   * @remarks
+   * The verification wait duration. Unit: seconds.
+   * 
+   * @example
+   * 600
+   */
   verificationTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -137,12 +233,19 @@ export class DescribeTimerGroupResponseBodyDataConfigTimers extends $dara.Model 
   enforce?: boolean;
   /**
    * @remarks
-   * The time interval, in minutes.
+   * The time interval. Unit: minutes.
    * 
    * @example
    * 10
    */
   interval?: number;
+  /**
+   * @remarks
+   * The advance notification time before the scheduled task is executed. Unit: seconds.
+   * 
+   * @example
+   * 300
+   */
   notificationTime?: number;
   /**
    * @remarks
@@ -165,6 +268,10 @@ export class DescribeTimerGroupResponseBodyDataConfigTimers extends $dara.Model 
    * RESET_TYPE_SYSTEM
    */
   resetType?: string;
+  /**
+   * @remarks
+   * The list of segment timer configurations.
+   */
   segmentTimers?: DescribeTimerGroupResponseBodyDataConfigTimersSegmentTimers[];
   /**
    * @remarks
@@ -245,7 +352,7 @@ export class DescribeTimerGroupResponseBodyData extends $dara.Model {
   bindCountMap?: { [key: string]: number };
   /**
    * @remarks
-   * The configuration information of scheduled tasks, in list format.
+   * The configuration information of scheduled tasks. This is a list structure.
    */
   configTimers?: DescribeTimerGroupResponseBodyDataConfigTimers[];
   /**
@@ -253,7 +360,7 @@ export class DescribeTimerGroupResponseBodyData extends $dara.Model {
    * The description of the configuration group.
    * 
    * @example
-   * Scheduled task
+   * ScheduledTask
    */
   description?: string;
   /**
@@ -266,7 +373,7 @@ export class DescribeTimerGroupResponseBodyData extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
-   * The mapping code for the system scheduled task description, used for frontend display.
+   * The code of the system scheduled task description, used for frontend display.
    * 
    * @example
    * INNER_TIMER_10_MINUTES_HIBERNATE_NO_UPDATE_DESC
@@ -274,7 +381,7 @@ export class DescribeTimerGroupResponseBodyData extends $dara.Model {
   innerTimerDesc?: string;
   /**
    * @remarks
-   * The mapping code for the system scheduled task name, used for frontend display.
+   * The mapping code of the system scheduled task name, used for frontend display.
    * 
    * @example
    * INNER_TIMER_10_MINUTES_HIBERNATE_NO_UPDATE
@@ -282,12 +389,12 @@ export class DescribeTimerGroupResponseBodyData extends $dara.Model {
   innerTimerName?: string;
   /**
    * @remarks
-   * Used for system scheduled task checks. The current scheduled task does not support unbinding or binding.
+   * Used for system scheduled task check. The current scheduled task does not support unbinding or binding.
    */
   isBind?: boolean;
   /**
    * @remarks
-   * Used for system scheduled task checks. The current scheduled task does not support modification.
+   * Used for system scheduled task check. The current scheduled task does not support modification.
    */
   isUpdate?: boolean;
   /**
@@ -295,7 +402,7 @@ export class DescribeTimerGroupResponseBodyData extends $dara.Model {
    * The name of the configuration group.
    * 
    * @example
-   * Scheduled task
+   * ScheduledTask
    */
   name?: string;
   /**

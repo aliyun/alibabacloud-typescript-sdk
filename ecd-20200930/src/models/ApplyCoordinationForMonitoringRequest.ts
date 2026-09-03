@@ -17,7 +17,7 @@ export class ApplyCoordinationForMonitoringRequestResourceCandidates extends $da
    * @remarks
    * The username of the current user of the cloud computer.
    * 
-   * > This field is required.
+   * > This parameter is required.
    * 
    * @example
    * alice
@@ -45,7 +45,7 @@ export class ApplyCoordinationForMonitoringRequestResourceCandidates extends $da
   resourceName?: string;
   /**
    * @remarks
-   * The properties of the cloud computer.
+   * The cloud computer properties.
    * 
    * @example
    * TestProperty
@@ -107,7 +107,7 @@ export class ApplyCoordinationForMonitoringRequestResourceCandidates extends $da
 export class ApplyCoordinationForMonitoringRequest extends $dara.Model {
   /**
    * @remarks
-   * The access policy during the remote assistance procedure.
+   * The access policy for the remote assistance procedure.
    * 
    * This parameter is required.
    * 
@@ -117,7 +117,7 @@ export class ApplyCoordinationForMonitoringRequest extends $dara.Model {
   coordinatePolicyType?: string;
   /**
    * @remarks
-   * The ID of the end user who initiates the coordination flow. This parameter is not required if the request is initiated by an administrator.
+   * The ID of the end user who initiates the streaming collaboration. This parameter is not required if the administrator initiates the request.
    * 
    * @example
    * alice

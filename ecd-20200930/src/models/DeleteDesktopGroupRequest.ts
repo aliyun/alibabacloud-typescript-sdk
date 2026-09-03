@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteDesktopGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * Shared desktop group ID.
+   * The ID of the shared Cloud Desktop.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DeleteDesktopGroupRequest extends $dara.Model {
   desktopGroupId?: string;
   /**
    * @remarks
-   * Region ID. Call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to query the list of regions supported by WUYING Workspace.
+   * The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to query the regions supported by WUYING Workspace.
    * 
    * This parameter is required.
    * 
@@ -23,6 +23,13 @@ export class DeleteDesktopGroupRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the resource ownership user in the reseller pattern. This parameter is not required in the non-reseller pattern.
+   * 
+   * @example
+   * 1422724566551XXX
+   */
   resellerOwnerUid?: number;
   static names(): { [key: string]: string } {
     return {

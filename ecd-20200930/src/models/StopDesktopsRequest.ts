@@ -4,13 +4,16 @@ import * as $dara from '@darabonba/typescript';
 
 export class StopDesktopsRequest extends $dara.Model {
   /**
+   * @remarks
+   * Specifies whether to create a snapshot.
+   * 
    * @example
    * false
    */
   createSnapshot?: string;
   /**
    * @remarks
-   * An array of 1 to 100 cloud desktop IDs.
+   * The cloud computer IDs. You can specify 1 to 100 IDs.
    * 
    * This parameter is required.
    * 
@@ -20,20 +23,23 @@ export class StopDesktopsRequest extends $dara.Model {
   desktopId?: string[];
   /**
    * @remarks
-   * Specifies whether to apply pending patch updates.
+   * Specifies whether to perform a patch update when an update is ready. A value of true indicates that the patch update is performed.
    * 
    * @example
    * false
    */
   osUpdate?: boolean;
   /**
+   * @remarks
+   * The patch ID.
+   * 
    * @example
    * KB5082063
    */
   patchId?: string;
   /**
    * @remarks
-   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to get a list of regions that Elastic Desktop Service supports.
+   * The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to query the regions supported by Elastic Desktop Service.
    * 
    * This parameter is required.
    * 
@@ -43,7 +49,7 @@ export class StopDesktopsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * Specifies the billing mode for the cloud desktops after they are stopped.
+   * The billing mode after the cloud computers are stopped.
    * 
    * @example
    * StopCharging

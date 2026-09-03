@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RebuildDesktopsResponseBodyRebuildResults extends $dara.Model {
   /**
    * @remarks
-   * The operation result. A value of `Success` indicates the rebuild was initiated. Otherwise, an error code is returned.
+   * The rebuild result. A value of `success` indicates success. Otherwise, an error message is returned.
    * 
    * @example
    * IncorrectDesktopStatus
@@ -13,7 +13,7 @@ export class RebuildDesktopsResponseBodyRebuildResults extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The desktop ID.
+   * The cloud computer ID.
    * 
    * @example
    * ecd-gx2x1dhsmucyy****
@@ -21,7 +21,7 @@ export class RebuildDesktopsResponseBodyRebuildResults extends $dara.Model {
   desktopId?: string;
   /**
    * @remarks
-   * The error message. This parameter is returned only if the value of `Code` is not `Success`.
+   * The error message. This parameter is not returned when `Code` is `success`.
    * 
    * @example
    * The current status of the desktop does not support this operation.
@@ -55,7 +55,7 @@ export class RebuildDesktopsResponseBodyRebuildResults extends $dara.Model {
 export class RebuildDesktopsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The rebuild results.
+   * The collection of rebuild results.
    */
   rebuildResults?: RebuildDesktopsResponseBodyRebuildResults[];
   /**

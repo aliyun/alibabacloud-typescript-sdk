@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDesktopGroupSessionsRequest extends $dara.Model {
   /**
    * @remarks
-   * The IDs of shared desktop groups.
+   * The list of shared desktop group IDs.
    */
   desktopGroupIds?: string[];
   /**
@@ -18,7 +18,7 @@ export class DescribeDesktopGroupSessionsRequest extends $dara.Model {
   desktopGroupName?: string;
   /**
    * @remarks
-   * The end of the time range to query.
+   * The end time of the query. The time is in the ISO 8601 standard (UTC).
    * 
    * @example
    * "2022-08-31T06:56:45Z"
@@ -26,7 +26,7 @@ export class DescribeDesktopGroupSessionsRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The user ID of the terminal that connects to the session.
+   * The ID of the end user connected to the session.
    * 
    * @example
    * alice
@@ -34,12 +34,12 @@ export class DescribeDesktopGroupSessionsRequest extends $dara.Model {
   endUserId?: string;
   /**
    * @remarks
-   * Whether to supplement terminal information.
+   * Specifies whether to include terminal information.
    */
   fillTerminalInfo?: boolean;
   /**
    * @remarks
-   * The language of the response.
+   * The language type of the returned information.
    * 
    * @example
    * zh-CN
@@ -47,7 +47,7 @@ export class DescribeDesktopGroupSessionsRequest extends $dara.Model {
   language?: string;
   /**
    * @remarks
-   * The number of entries per page.
+   * The maximum number of entries per page.
    * 
    * @example
    * 20
@@ -55,7 +55,7 @@ export class DescribeDesktopGroupSessionsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * A pagination token. It can be used in the next request to retrieve a new page of results.
+   * The token for the next page.
    * 
    * @example
    * AAAAAV3MpHK1AP0pfERHZN5pu6ljnKKgSRjo8yXAIT5QSvkU
@@ -63,7 +63,7 @@ export class DescribeDesktopGroupSessionsRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The type of the session.
+   * The session type.
    * 
    * @example
    * 1
@@ -71,7 +71,7 @@ export class DescribeDesktopGroupSessionsRequest extends $dara.Model {
   ownType?: number;
   /**
    * @remarks
-   * The ID of the region. You can call the [](t2167755.xdita#)operation to query the list of regions where Elastic Desktop Service (EDS) Enterprise is available.
+   * The region ID. You can call [DescribeRegions](~~DescribeRegions~~) to query the regions supported by WUYING Workspace.
    * 
    * @example
    * cn-hangzhou
@@ -79,7 +79,7 @@ export class DescribeDesktopGroupSessionsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The status of the session.
+   * The connection status.
    * 
    * @example
    * Connected
@@ -87,7 +87,7 @@ export class DescribeDesktopGroupSessionsRequest extends $dara.Model {
   sessionStatus?: string;
   /**
    * @remarks
-   * The beginning of the time range to query.
+   * The start time of the query. The time is in the ISO 8601 standard (UTC).
    * 
    * @example
    * "2022-08-31T06:56:45Z"

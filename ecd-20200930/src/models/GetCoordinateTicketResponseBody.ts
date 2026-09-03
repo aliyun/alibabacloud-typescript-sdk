@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetCoordinateTicketResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the stream collaboration.
+   * The coordination flow ID.
    * 
    * @example
    * co-0sot77uale3****
@@ -21,7 +21,7 @@ export class GetCoordinateTicketResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the cloud computer connection task.
+   * The cloud computer connection task ID.
    * 
    * @example
    * 39cc15e5-6998-4b9f-9b2c-7a4cc3e2****
@@ -31,39 +31,13 @@ export class GetCoordinateTicketResponseBody extends $dara.Model {
    * @remarks
    * The task status.
    * 
-   * Possible values:
-   * 
-   * - Finished
-   * 
-   *   <!-- -->
-   * 
-   *   <!-- -->
-   * 
-   *   <!-- -->
-   * 
-   * - Failed
-   * 
-   *   <!-- -->
-   * 
-   *   <!-- -->
-   * 
-   *   <!-- -->
-   * 
-   * - Running
-   * 
-   *   <!-- -->
-   * 
-   *   <!-- -->
-   * 
-   *   <!-- -->
-   * 
    * @example
    * Finished
    */
   taskStatus?: string;
   /**
    * @remarks
-   * The credentials of the stream collaboration.
+   * The coordination flow ticket.
    * 
    * @example
    * W0VuY29kaW5nXQ0KSW5wdXRFbmNvZGluZz1V********

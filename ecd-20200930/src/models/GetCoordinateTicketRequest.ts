@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetCoordinateTicketRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the stream collaboration. You can obtain the value of this parameter based on the value of `Coid` that is returned by the `ApplyCoordinationForMonitoring` operation.
+   * The coordination flow ID. This value is the `Coid` returned by the [ApplyCoordinationForMonitoring](~~ApplyCoordinationForMonitoring~~) operation.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class GetCoordinateTicketRequest extends $dara.Model {
   coId?: string;
   /**
    * @remarks
-   * The name of the convenience user account. If you initiate the request as an administrator, you do not need to specify this parameter.
+   * The username of the end user. This parameter is not required on the administrator side.
    * 
    * @example
    * alice
@@ -23,7 +23,7 @@ export class GetCoordinateTicketRequest extends $dara.Model {
   endUserId?: string;
   /**
    * @remarks
-   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/436773.html) operation to query the most recent region list.
+   * The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to query the regions supported by Elastic Desktop Service.
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class GetCoordinateTicketRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the cloud computer connection task. The first time you initiate the request, you do not need to specify the ID of the cloud computer connection task. If no ticket is returned after you initiate the first request, you must specify the value of taskId that is returned for the first request in the subsequent request.
+   * The cloud computer connection task ID. This parameter is not required for the first request. If the first request does not return a Ticket, specify the `TaskId` returned by the first request in subsequent requests.
    * 
    * @example
    * 39cc15e5-6998-4b9f-9b2c-7a4cc3e2****
@@ -41,21 +41,7 @@ export class GetCoordinateTicketRequest extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * The type of the user.
-   * 
-   * Set the value to TENANT_ADMIN.
-   * 
-   * - The value of
-   * 
-   *   <!-- -->
-   * 
-   *   <!-- -->
-   * 
-   *   TENANT_ADMIN
-   * 
-   *   <!-- -->
-   * 
-   *   specifies an administrator.
+   * The user type.
    * 
    * This parameter is required.
    * 

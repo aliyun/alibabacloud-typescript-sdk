@@ -3,11 +3,17 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateADConnectorOfficeSiteRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The access attribute of the office network (workspace).
+   * 
+   * @example
+   * Private
+   */
   accessAttribute?: string;
   /**
    * @remarks
-   * The domain controller hostname.
-   * The hostname must comply with Windows hostname naming conventions.
+   * The hostname of the domain controller. The hostname must comply with Windows hostname naming conventions.
    * 
    * @example
    * beijing-ad01
@@ -31,8 +37,8 @@ export class CreateADConnectorOfficeSiteRequest extends $dara.Model {
   backupDns?: string;
   /**
    * @remarks
-   * The peak public bandwidth, specified in Mbit/s. The value can range from 0 to 200.<br>
-   * If you omit this parameter or set it to 0, internet access is disabled.<br>
+   * The peak Internet bandwidth, in Mbit/s. Valid values: 0 to 200.    
+   * If you do not set this parameter or set it to 0, the Internet access feature is not enabled. Settings take effect immediately.
    * 
    * @example
    * 1
@@ -40,7 +46,7 @@ export class CreateADConnectorOfficeSiteRequest extends $dara.Model {
   bandwidth?: number;
   /**
    * @remarks
-   * The ID of the CEN instance.
+   * The instance ID of the Cloud Enterprise Network (CEN).
    * 
    * @example
    * cen-3gwy16dojz1m65****
@@ -48,11 +54,10 @@ export class CreateADConnectorOfficeSiteRequest extends $dara.Model {
   cenId?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account that owns the Cloud Enterprise Network (CEN) instance.
+   * The Alibaba Cloud account ID of the Cloud Enterprise Network (CEN) instance owner.
    * 
-   * - If you do not specify `CenId`, or the specified CEN instance belongs to your Alibaba Cloud account, you do not need to specify this parameter.
-   * 
-   * - If the specified CEN instance belongs to another Alibaba Cloud account, you must specify that account\\"s ID.
+   * - If CenId is not specified, or the specified CenId belongs to the current Alibaba Cloud account, you do not need to specify this parameter.
+   * - If the specified CenId belongs to another Alibaba Cloud account, specify the Alibaba Cloud account ID of that account.
    * 
    * @example
    * 102681951715****
@@ -60,13 +65,11 @@ export class CreateADConnectorOfficeSiteRequest extends $dara.Model {
   cenOwnerId?: number;
   /**
    * @remarks
-   * The IPv4 CIDR block for the office site\\"s VPC. The system uses this IPv4 CIDR block to automatically create a VPC. We recommend that you use one of the following CIDR blocks or their subnets:
+   * The IPv4 CIDR block of the office network VPC. The system uses automatic creation to provision a VPC based on the specified IPv4 CIDR block. Use one of the following CIDR blocks or their subnets as the IPv4 CIDR block:
    * 
-   * - `10.0.0.0/12` (The subnet mask length must be 12 to 24 bits.)
-   * 
-   * - `172.16.0.0/12` (The subnet mask length must be 12 to 24 bits.)
-   * 
-   * - `192.168.0.0/16` (The subnet mask length must be 16 to 24 bits.)
+   * - `10.0.0.0/12` (valid mask range: 12 to 24 bits)
+   * - `172.16.0.0/12` (valid mask range: 12 to 24 bits)
+   * - `192.168.0.0/16` (valid mask range: 16 to 24 bits)
    * 
    * @example
    * 47.100.XX.XX
@@ -74,9 +77,9 @@ export class CreateADConnectorOfficeSiteRequest extends $dara.Model {
   cidrBlock?: string;
   /**
    * @remarks
-   * The method for connecting to cloud desktops.
+   * The access method allowed when connecting to cloud computers.
    * 
-   * > VPC connections are established using Alibaba Cloud PrivateLink, which is a free service. If you set this parameter to `VPC` or `Any`, PrivateLink is automatically enabled.
+   * > The VPC connection method depends on the Alibaba Cloud PrivateLink service, which is free of charge. If this parameter is set to `VPC` or `Any`, the system automatically activates the PrivateLink service for you.
    * 
    * @example
    * Internet
@@ -84,7 +87,7 @@ export class CreateADConnectorOfficeSiteRequest extends $dara.Model {
   desktopAccessType?: string;
   /**
    * @remarks
-   * An array that contains the IP address of the DNS server for the enterprise AD. You can specify only one IP address.
+   * The IP address of the DNS server corresponding to the enterprise AD. Currently, only one IP address is supported.
    * 
    * This parameter is required.
    * 
@@ -94,7 +97,7 @@ export class CreateADConnectorOfficeSiteRequest extends $dara.Model {
   dnsAddress?: string[];
   /**
    * @remarks
-   * The domain name for the enterprise AD. Each domain name must be unique.
+   * The domain name of the enterprise AD. The same domain name can be registered only once.
    * 
    * This parameter is required.
    * 
@@ -104,7 +107,7 @@ export class CreateADConnectorOfficeSiteRequest extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
-   * The domain administrator\\"s password. The password cannot exceed 64 characters in length.
+   * The password of the domain administrator. The password can be up to 64 characters in length.
    * 
    * @example
    * testPassword
@@ -112,9 +115,9 @@ export class CreateADConnectorOfficeSiteRequest extends $dara.Model {
   domainPassword?: string;
   /**
    * @remarks
-   * The domain administrator\\"s username. The username cannot exceed 64 characters in length.
+   * The username of the domain administrator. The username can be up to 64 characters in length.
    * 
-   * > Use the sAMAccountName, not the userPrincipalName.
+   * > Use the sAMAccountName format for the username. Do not use the userPrincipalName format.
    * 
    * @example
    * Administrator
@@ -122,7 +125,7 @@ export class CreateADConnectorOfficeSiteRequest extends $dara.Model {
   domainUserName?: string;
   /**
    * @remarks
-   * Specifies whether to grant local administrator permissions to cloud desktop users. Default: true.
+   * Specifies whether to grant local administrator permissions to users who use cloud computers.
    * 
    * @example
    * true
@@ -130,7 +133,7 @@ export class CreateADConnectorOfficeSiteRequest extends $dara.Model {
   enableAdminAccess?: boolean;
   /**
    * @remarks
-   * This parameter is deprecated. Use the `Bandwidth` parameter to manage internet access.
+   * Specifies whether public network access is enabled. This parameter indicates whether the feature is active.
    * 
    * @example
    * true
@@ -146,11 +149,11 @@ export class CreateADConnectorOfficeSiteRequest extends $dara.Model {
   mfaEnabled?: boolean;
   /**
    * @remarks
-   * The name of the office site. The name must be 2 to 255 characters in length. It must start with a letter or a Chinese character and cannot start with `http://` or `https://`. The name can contain digits, colons (:), underscores (_), and hyphens (-).<br>
-   * This parameter is empty by default.<br>
+   * The name of the office network. The name must be 2 to 255 characters in length and can contain letters, digits, colons (:), underscores (_), and hyphens (-). The name must start with a letter or Chinese character and cannot start with `http://` or `https://`.    
+   * Default value: null.
    * 
    * @example
-   * test
+   * RD_Office_Network
    */
   officeSiteName?: string;
   /**
@@ -163,7 +166,7 @@ export class CreateADConnectorOfficeSiteRequest extends $dara.Model {
   protocolType?: string;
   /**
    * @remarks
-   * The ID of the region. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the regions supported by Elastic Desktop Service (EDS).
+   * The region ID. You can call [DescribeRegions](~~DescribeRegions~~) to query the regions supported by Elastic Desktop Service.
    * 
    * This parameter is required.
    * 
@@ -173,7 +176,7 @@ export class CreateADConnectorOfficeSiteRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The AD Connector type.
+   * The AD Connector specification.
    * 
    * @example
    * 1
@@ -181,7 +184,7 @@ export class CreateADConnectorOfficeSiteRequest extends $dara.Model {
   specification?: number;
   /**
    * @remarks
-   * The DNS address of the enterprise AD child domain. If you specify `SubDomainName` but not this parameter, the DNS address of the child domain is considered the same as that of the parent domain.
+   * The DNS address of the enterprise AD subdomain. If `SubDomainName` is specified but this parameter is not, the subdomain DNS is considered the same as the parent domain DNS.
    * 
    * @example
    * 192.168.XX.XX
@@ -189,7 +192,7 @@ export class CreateADConnectorOfficeSiteRequest extends $dara.Model {
   subDomainDnsAddress?: string[];
   /**
    * @remarks
-   * The domain name of the enterprise AD child domain.
+   * The domain name of the enterprise AD subdomain.
    * 
    * @example
    * child.example.com
@@ -202,7 +205,7 @@ export class CreateADConnectorOfficeSiteRequest extends $dara.Model {
   vSwitchId?: string[];
   /**
    * @remarks
-   * The verification code. If the `CenId` that you specify belongs to another Alibaba Cloud account, you must first call the [SendVerifyCode](https://help.aliyun.com/document_detail/436847.html) operation to obtain the verification code.
+   * The verification code. If the specified CenId belongs to another Alibaba Cloud account, you must first call [SendVerifyCode](https://help.aliyun.com/document_detail/436847.html) to obtain the verification code.
    * 
    * @example
    * 12****

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SetIdpMetadataRequest extends $dara.Model {
   /**
    * @remarks
-   * The workspace ID. This parameter is the same as `OfficeSiteId`. We recommend that you use `OfficeSiteId` to replace `DirectoryId`. You can specify only `DirectoryId` or `OfficeSiteId`.
+   * The office network ID, which has the same meaning as `OfficeSiteId`. We recommend that you stop using `DirectoryId` and use `OfficeSiteId` instead. You can specify only one of `DirectoryId` and `OfficeSiteId`, not both.
    * 
    * @example
    * cn-hangzhou+dir-400695****
@@ -13,7 +13,7 @@ export class SetIdpMetadataRequest extends $dara.Model {
   directoryId?: string;
   /**
    * @remarks
-   * The metadata of the IdP.
+   * The metadata of the identity provider (IdP).
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class SetIdpMetadataRequest extends $dara.Model {
   idpMetadata?: string;
   /**
    * @remarks
-   * The workspace ID.
+   * The office network ID.
    * 
    * @example
    * cn-hangzhou+dir-400695****
@@ -31,7 +31,7 @@ export class SetIdpMetadataRequest extends $dara.Model {
   officeSiteId?: string;
   /**
    * @remarks
-   * The region ID.
+   * The region ID. You can call [DescribeRegions](~~DescribeRegions~~) to query the regions supported by Elastic Desktop Service.
    * 
    * This parameter is required.
    * 

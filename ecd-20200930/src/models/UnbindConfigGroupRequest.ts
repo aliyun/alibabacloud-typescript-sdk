@@ -5,11 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UnbindConfigGroupRequestResourceInfos extends $dara.Model {
   /**
    * @remarks
-   * The service type of the resource.
-   * 
-   * Valid value:
-   * 
-   * *   CLOUD_DESKTOP: the cloud computer service.
+   * The product type to which the resource belongs.
    * 
    * @example
    * CLOUD_DESKTOP
@@ -17,7 +13,7 @@ export class UnbindConfigGroupRequestResourceInfos extends $dara.Model {
   productType?: string;
   /**
    * @remarks
-   * The ID of the resource.
+   * The resource ID.
    * 
    * @example
    * ecd-ctwj0bk3l5nz****
@@ -33,12 +29,7 @@ export class UnbindConfigGroupRequestResourceInfos extends $dara.Model {
   resourceRegionId?: string;
   /**
    * @remarks
-   * The type of the resource.
-   * 
-   * Valid values:
-   * 
-   * *   RESOURCE_GROUP: the resource group.
-   * *   CLOUD_DESKTOP: the cloud computer service.
+   * The resource type.
    * 
    * @example
    * CLOUD_DESKTOP
@@ -74,26 +65,22 @@ export class UnbindConfigGroupRequestResourceInfos extends $dara.Model {
 export class UnbindConfigGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the region. Set the value to `cn-shanghai`.
+   * The region ID. This operation is not region-specific. Set this parameter to `cn-shanghai`.
    * 
    * @example
-   * cn-hangzhou
+   * cn-shanghai
    */
   regionId?: string;
   /**
    * @remarks
-   * The resources from which you want to unbind the configuration group.
+   * The information about the resources to unbind.
    * 
    * This parameter is required.
    */
   resourceInfos?: UnbindConfigGroupRequestResourceInfos[];
   /**
    * @remarks
-   * The type of the configuration group.
-   * 
-   * Valid value:
-   * 
-   * *   Timer: the scheduled task type.
+   * The type of the configuration group to unbind.
    * 
    * This parameter is required.
    * 

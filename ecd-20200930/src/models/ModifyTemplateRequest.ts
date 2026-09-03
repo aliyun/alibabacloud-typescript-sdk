@@ -6,6 +6,9 @@ export class ModifyTemplateRequestDataDiskList extends $dara.Model {
   /**
    * @remarks
    * The performance level of the data cloud disk. Default value: `AutoPL`.
+   * 
+   * @example
+   * AutoPL
    */
   performanceLevel?: string;
   /**
@@ -50,7 +53,7 @@ export class ModifyTemplateRequestRegionConfigList extends $dara.Model {
   officeSiteId?: string;
   /**
    * @remarks
-   * The region ID. Call [DescribeRegions](~~DescribeRegions~~) to query the list of regions supported by Elastic Desktop Service.
+   * The region ID. You can call [DescribeRegions](~~DescribeRegions~~) to query the list of regions supported by Elastic Desktop Service.
    * 
    * @example
    * cn-beijing
@@ -82,7 +85,7 @@ export class ModifyTemplateRequestRegionConfigList extends $dara.Model {
   subnetId?: string;
   /**
    * @remarks
-   * Specifies whether to enable cloud disk encryption.
+   * Specifies whether to enable disk encryption.
    * 
    * @example
    * false
@@ -90,7 +93,7 @@ export class ModifyTemplateRequestRegionConfigList extends $dara.Model {
   volumeEncryptionEnable?: boolean;
   /**
    * @remarks
-   * The ID of the KMS key used when cloud disk encryption is enabled.
+   * The ID of the KMS key used when disk encryption is enabled.
    * 
    * @example
    * a7b3c0c8-b3a2-4876-b1cc-116dddc9****
@@ -170,7 +173,21 @@ export class ModifyTemplateRequestResourceTagList extends $dara.Model {
 }
 
 export class ModifyTemplateRequestSiteConfigList extends $dara.Model {
+  /**
+   * @remarks
+   * The application control policy ID.
+   * 
+   * @example
+   * bwr-5a5371e0*******
+   */
   appRuleId?: string;
+  /**
+   * @remarks
+   * The site name.
+   * 
+   * @example
+   * mainland
+   */
   siteId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -196,9 +213,28 @@ export class ModifyTemplateRequestSiteConfigList extends $dara.Model {
 }
 
 export class ModifyTemplateRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether automatic payment is enabled for the subscription order.
+   */
   autoPay?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to enable auto-renewal for the subscription cloud computer.
+   */
   autoRenew?: boolean;
+  /**
+   * @remarks
+   * The billing method of the cloud computer.
+   * 
+   * @example
+   * PrePaid
+   */
   chargeType?: string;
+  /**
+   * @remarks
+   * The system cloud disk performance level.
+   */
   dataDiskList?: ModifyTemplateRequestDataDiskList[];
   /**
    * @remarks
@@ -212,7 +248,7 @@ export class ModifyTemplateRequest extends $dara.Model {
    * @remarks
    * The description of the template. The description must meet the following requirements:
    * 
-   * - The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`.
+   * - The description must be 2 to 256 characters in length. It cannot start with `http://` or `https://`.
    * - The description can contain Chinese characters, letters, digits, spaces, and special characters. Line breaks are supported.
    * 
    * @example
@@ -221,13 +257,38 @@ export class ModifyTemplateRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The ID of the cloud computer image. You can query the ID on the image management page. System images and custom images are supported.
+   * The ID of the cloud computer image. You can query the ID on the Image Management page. System images and custom images are supported.
    * 
    * @example
    * m-gx2x1dhsmusr2****
    */
   imageId?: string;
+  /**
+   * @remarks
+   * The subscription duration of the subscription cloud computer. This parameter takes effect and is required only when `ChargeType` is set to `PrePaid`. The unit is specified by `PeriodUnit`.
+   * - If `PeriodUnit` is set to `Month`, valid values:
+   *     - 1
+   *     - 2
+   *     - 3
+   *     - 6
+   * - If `PeriodUnit` is set to `Year`, valid values:
+   *     - 1
+   *     - 2
+   *     - 3
+   *     - 4
+   *     - 5
+   * 
+   * @example
+   * 1
+   */
   period?: number;
+  /**
+   * @remarks
+   * The unit of the subscription duration for the subscription billing method.
+   * 
+   * @example
+   * Month
+   */
   periodUnit?: string;
   /**
    * @remarks
@@ -237,12 +298,16 @@ export class ModifyTemplateRequest extends $dara.Model {
    * pg-gx2x1dhsmthe9****
    */
   policyGroupId?: string;
+  /**
+   * @remarks
+   * Specifies whether to automatically switch to pay-as-you-go billing after the duration plan is used up.
+   */
   postPaidAfterUsedUp?: boolean;
   /**
    * @remarks
-   * The region-specific template configurations. Multiple configurations are supported. The configuration that matches the specific region is used.
+   * The region-specific template configurations. You can specify multiple configurations. The configuration that matches the specific region is used.
    * 
-   * > A maximum of 20 region configurations are supported.
+   * > You can specify configurations for up to 20 regions.
    */
   regionConfigList?: ModifyTemplateRequestRegionConfigList[];
   /**
@@ -255,15 +320,19 @@ export class ModifyTemplateRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The tags of the cloud computer in key-value format. A maximum of 20 tags can be specified.
+   * The tags of the cloud computer in key-value format. You can specify up to 20 tags.
    */
   resourceTagList?: ModifyTemplateRequestResourceTagList[];
+  /**
+   * @remarks
+   * The site configuration management.
+   */
   siteConfigList?: ModifyTemplateRequestSiteConfigList[];
   /**
    * @remarks
    * The type of the system cloud disk.
    * 
-   * > Only high-frequency and GPU-accelerated cloud computer specifications support ESSD cloud disks.
+   * > Only high frequency and graphics cloud computer specifications support ESSD cloud disks.
    * 
    * @example
    * AutoPL
@@ -293,12 +362,12 @@ export class ModifyTemplateRequest extends $dara.Model {
    * @remarks
    * The name of the template. The name must meet the following requirements:
    * 
-   * - The name must be 2 to 126 characters in length and can contain letters and Chinese characters.
-   * - The name must start with a letter or a Chinese character. The name cannot start with `http://` or `https://`.
+   * - The name must be 2 to 126 characters in length.
+   * - The name must start with a letter or a Chinese character. It cannot start with `http://` or `https://`.
    * - The name can contain letters, digits, Chinese characters, colons (:), underscores (_), or hyphens (-). Periods (.) are not supported.
    * 
    * @example
-   * My cloud desktop template 001
+   * MyCloudComputerTemplate001
    */
   templateName?: string;
   /**
@@ -309,6 +378,13 @@ export class ModifyTemplateRequest extends $dara.Model {
    * bcc-dweha*****
    */
   timerGroupId?: string;
+  /**
+   * @remarks
+   * The per-user usage duration plan.
+   * 
+   * @example
+   * 120
+   */
   userDuration?: number;
   static names(): { [key: string]: string } {
     return {

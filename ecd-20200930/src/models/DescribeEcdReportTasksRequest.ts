@@ -3,6 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeEcdReportTasksRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The business channel. Valid values:
+   * - Enterprise: Enterprise Edition.
+   * - Business: Business Edition.
+   * 
+   * @example
+   * Enterprise
+   */
   businessChannel?: string;
   /**
    * @remarks
@@ -17,7 +26,7 @@ export class DescribeEcdReportTasksRequest extends $dara.Model {
    * The number of entries per page. Maximum value: 200.
    * 
    * @example
-   * 20。
+   * 20
    */
   pageSize?: number;
   /**

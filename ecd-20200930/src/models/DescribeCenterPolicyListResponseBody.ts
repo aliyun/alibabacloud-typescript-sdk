@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCenterPolicyListResponseBodyDescribePolicyGroupsAuthorizeAccessPolicyRules extends $dara.Model {
   /**
    * @remarks
-   * The client access IP CIDR block in IPv4 CIDR format.
+   * The client access IP CIDR block, in IPv4 CIDR notation.
    * 
    * @example
    * 47.100.XX.XX/16
@@ -16,7 +16,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroupsAuthorizeAc
    * The description of the client access IP CIDR block.
    * 
    * @example
-   * test
+   * Corporate office network segment
    */
   description?: string;
   static names(): { [key: string]: string } {
@@ -56,7 +56,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroupsAuthorizeSe
    * The description of the security group rule.
    * 
    * @example
-   * test
+   * Allow access to the internal R&D environment
    */
   description?: string;
   /**
@@ -247,12 +247,19 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroupsDeviceRules
   deviceVid?: string;
   /**
    * @remarks
-   * The link optimization instruction.
+   * The link optimization command.
    * 
    * @example
    * 2:0
    */
   optCommand?: string;
+  /**
+   * @remarks
+   * The platform types to which the device rule applies.
+   * 
+   * @example
+   * Windows
+   */
   platforms?: string;
   /**
    * @remarks
@@ -301,7 +308,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroupsDomainResol
    * The policy description.
    * 
    * @example
-   * 测试规则
+   * Test rule
    */
   description?: string;
   /**
@@ -466,6 +473,15 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroupsUsbSupplyRe
 }
 
 export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to enable the academic proxy feature. Valid values:
+   * - on: Enabled.
+   * - off: Disabled.
+   * 
+   * @example
+   * off
+   */
   academicProxy?: string;
   /**
    * @remarks
@@ -477,8 +493,35 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
    * deny
    */
   adminAccess?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable administrator keyboard control in full-screen mode. Valid values:
+   * - on: Enabled.
+   * - off: Disabled.
+   * 
+   * @example
+   * off
+   */
   adminKeyboardOnFullScreen?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable administrator keyboard control within the Windows system. Valid values:
+   * - on: Enabled.
+   * - off: Disabled.
+   * 
+   * @example
+   * off
+   */
   adminKeyboardOnWindows?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable administrator monitoring. Valid values:
+   * - 1: Enabled.
+   * - 0: Disabled.
+   * 
+   * @example
+   * 0
+   */
   adminMonitor?: number;
   /**
    * @remarks
@@ -498,6 +541,13 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
    * The list of security group rules.
    */
   authorizeSecurityPolicyRules?: DescribeCenterPolicyListResponseBodyDescribePolicyGroupsAuthorizeSecurityPolicyRules[];
+  /**
+   * @remarks
+   * Specifies whether to enable automatic reconnection on the client.
+   * 
+   * @example
+   * off
+   */
   autoReconnect?: string;
   /**
    * @remarks
@@ -507,10 +557,55 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
    * on
    */
   cameraRedirect?: string;
+  /**
+   * @remarks
+   * The client control menu display switch. Valid values:
+   * - on: Enabled.
+   * - off: Disabled.
+   * 
+   * @example
+   * on
+   */
   clientControlMenu?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable the custom snapshot creation feature on the client. Valid values:
+   * - on: Enabled.
+   * - off: Disabled.
+   * 
+   * @example
+   * off
+   */
   clientCreateSnapshot?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable the hibernate option in the client menu. Valid values:
+   * - on: Enabled.
+   * - off: Disabled.
+   * 
+   * @example
+   * off
+   */
   clientHibernate?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable the restart option in the client menu. Valid values:
+   * - on: Enabled.
+   * - off: Disabled.
+   * 
+   * @example
+   * off
+   */
   clientRestart?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable the shutdown option in the client menu. Valid values:
+   * - on: Enabled.
+   * - off: Disabled.
+   * 
+   * @example
+   * off
+   */
   clientShutdown?: string;
   /**
    * @remarks
@@ -527,21 +622,39 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   clipboard?: string;
   /**
    * @remarks
-   * Indicates whether color enhancement is enabled. Common scenarios: design and 3D applications.
+   * Specifies whether color enhancement is enabled for design and 3D common scenarios.
    * 
    * @example
    * off
    */
   colorEnhancement?: string;
+  /**
+   * @remarks
+   * The local drive clipboard feature switch. Valid values:
+   * - on: Enabled.
+   * - off: Disabled.
+   * 
+   * @example
+   * off
+   */
   cpdDriveClipboard?: string;
   /**
    * @remarks
-   * The CPU throttling duration. Valid values: 30 to 120. Unit: seconds.
+   * The CPU downgrade duration. Valid values: 30 to 120. Unit: seconds.
    * 
    * @example
    * 30
    */
   cpuDownGradeDuration?: number;
+  /**
+   * @remarks
+   * Specifies whether to enable CPU overload protection. Valid values:
+   * - on: Enabled.
+   * - off: Disabled.
+   * 
+   * @example
+   * off
+   */
   cpuOverload?: string;
   /**
    * @remarks
@@ -550,7 +663,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   cpuProcessors?: string[];
   /**
    * @remarks
-   * The CPU protection mode switch.
+   * The CPU spike protection mode switch.
    * 
    * @example
    * on
@@ -582,7 +695,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   cpuSingleRateLimit?: number;
   /**
    * @remarks
-   * The number of cloud desktops associated with this policy.
+   * The number of cloud desktops associated with the policy.
    * 
    * @example
    * 1
@@ -590,12 +703,19 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   desktopCount?: number;
   /**
    * @remarks
-   * The number of cloud desktop pools associated with this policy.
+   * The number of cloud desktop pools associated with the policy.
    * 
    * @example
    * 1
    */
   desktopGroupCount?: number;
+  /**
+   * @remarks
+   * The peripheral connection notification control.
+   * 
+   * @example
+   * off
+   */
   deviceConnectHint?: string;
   /**
    * @remarks
@@ -609,8 +729,8 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   deviceRules?: DescribeCenterPolicyListResponseBodyDescribePolicyGroupsDeviceRules[];
   /**
    * @remarks
-   * The session retention on disconnect setting.
-   * > Applicable only to cloud application policies.
+   * Specifies whether to retain the session after disconnection.
+   * > This applies only to cloud application policies.
    * 
    * @example
    * persistent
@@ -618,13 +738,22 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   disconnectKeepSession?: string;
   /**
    * @remarks
-   * The session retention duration on disconnect. Unit: seconds.
-   * > Applicable only to cloud application policies.
+   * The session retention duration after disconnection. Unit: seconds.
+   * > This applies only to cloud application policies.
    * 
    * @example
    * 120
    */
   disconnectKeepSessionTime?: number;
+  /**
+   * @remarks
+   * Specifies whether to enable disk overload protection. Valid values:
+   * - on: Enabled.
+   * - off: Disabled.
+   * 
+   * @example
+   * off
+   */
   diskOverload?: string;
   /**
    * @remarks
@@ -636,15 +765,15 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   displayMode?: string;
   /**
    * @remarks
-   * The effective field for domain name resolution.
+   * The domain name resolution effective field.
    * 
    * @example
-   * xxxx
+   * example.com
    */
   domainRegisterValue?: string;
   /**
    * @remarks
-   * The domain name resolution policy details.
+   * The details of the domain name resolution policy.
    */
   domainResolveRule?: DescribeCenterPolicyListResponseBodyDescribePolicyGroupsDomainResolveRule[];
   /**
@@ -657,12 +786,19 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   domainResolveRuleType?: string;
   /**
    * @remarks
-   * Indicates whether users can request administrator assistance.
+   * Indicates whether end users can request administrator assistance.
    * 
    * @example
    * off
    */
   endUserApplyAdminCoordinate?: string;
+  /**
+   * @remarks
+   * The number of associated end users.
+   * 
+   * @example
+   * 3
+   */
   endUserCount?: string;
   /**
    * @remarks
@@ -672,15 +808,89 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
    * off
    */
   endUserGroupCoordinate?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable the use of external storage devices. Valid values:
+   * - on: Enabled.
+   * - off: Disabled.
+   * 
+   * @example
+   * off
+   */
   externalDrive?: string;
+  /**
+   * @remarks
+   * The file migration setting.
+   * 
+   * @example
+   * off
+   */
   fileMigrate?: string;
+  /**
+   * @remarks
+   * The service address for the file transfer feature.
+   * 
+   * @example
+   * filetransfer.example.com
+   */
   fileTransferAddress?: string;
+  /**
+   * @remarks
+   * The file size limit for a single transfer to the cloud desktop. This parameter must be used together with the inbound unit parameter.
+   * 
+   * @example
+   * 100
+   */
   fileTransferInSize?: string;
+  /**
+   * @remarks
+   * The unit for the file size limit of a single transfer to the cloud desktop.
+   * 
+   * @example
+   * MB
+   */
   fileTransferInUnit?: string;
+  /**
+   * @remarks
+   * The file size limit for a single transfer from the cloud desktop. This parameter must be used together with the outbound unit parameter.
+   * 
+   * @example
+   * 100
+   */
   fileTransferOutSize?: string;
+  /**
+   * @remarks
+   * The unit for the file size limit of a single transfer from the cloud desktop.
+   * 
+   * @example
+   * MB
+   */
   fileTransferOutUnit?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable the file transfer size limit. Valid values:
+   * - on: Enabled.
+   * - off: Disabled.
+   * 
+   * @example
+   * off
+   */
   fileTransferSizeLimit?: string;
+  /**
+   * @remarks
+   * The file transfer speed level.
+   * 
+   * @example
+   * default
+   */
   fileTransferSpeed?: string;
+  /**
+   * @remarks
+   * The location where the file transfer speed configured on the client takes effect.
+   * 
+   * @example
+   * client
+   */
   fileTransferSpeedLocation?: string;
   /**
    * @remarks
@@ -690,9 +900,45 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
    * off
    */
   gpuAcceleration?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable the configuration message notification on the floating ball. Valid values:
+   * - on: Enabled.
+   * - off: Disabled.
+   * 
+   * @example
+   * off
+   */
   hoverConfigMsg?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable the hibernate button on the floating ball. Valid values:
+   * - on: Enabled.
+   * - off: Disabled.
+   * 
+   * @example
+   * off
+   */
   hoverHibernate?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable the restart button on the floating ball. Valid values:
+   * - on: Enabled.
+   * - off: Disabled.
+   * 
+   * @example
+   * off
+   */
   hoverRestart?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable the shutdown button on the floating ball. Valid values:
+   * - on: Enabled.
+   * - off: Disabled.
+   * 
+   * @example
+   * off
+   */
   hoverShutdown?: string;
   /**
    * @remarks
@@ -718,13 +964,47 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
    * tcp
    */
   internetCommunicationProtocol?: string;
+  /**
+   * @remarks
+   * The network printer feature switch. Valid values:
+   * - on: Enabled.
+   * - off: Disabled.
+   * 
+   * @example
+   * off
+   */
   internetPrinter?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable keyboard control on the floating ball. Valid values:
+   * - on: Enabled.
+   * - off: Disabled.
+   * 
+   * @example
+   * off
+   */
   keyboardControl?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable the KMS server. Valid values:
+   * - on: Enabled.
+   * - off: Disabled.
+   * 
+   * @example
+   * off
+   */
   kmsServer?: string;
+  /**
+   * @remarks
+   * The KMS server configuration in the format of address:port.
+   * 
+   * @example
+   * kms.example.com:1688
+   */
   kmsServerConfig?: string;
   /**
    * @remarks
-   * The local drive mapping permission.
+   * The local disk mapping permission.
    * 
    * @example
    * readwrite
@@ -732,7 +1012,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   localDrive?: string;
   /**
    * @remarks
-   * The maximum reconnection retry time when the cloud desktop is disconnected due to objective reasons. Valid values: 30 to 7200. Unit: seconds.
+   * The maximum reconnection retry time when the cloud desktop is disconnected due to external reasons. Valid values: 30 to 7200. Unit: seconds.
    * 
    * @example
    * 120
@@ -740,12 +1020,21 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   maxReconnectTime?: number;
   /**
    * @remarks
-   * The memory throttling duration of a single process. Valid values: 30 to 120. Unit: seconds.
+   * The memory downgrade duration of a single process. Valid values: 30 to 120. Unit: seconds.
    * 
    * @example
    * 30
    */
   memoryDownGradeDuration?: number;
+  /**
+   * @remarks
+   * Specifies whether to enable memory overload protection. Valid values:
+   * - on: Enabled.
+   * - off: Disabled.
+   * 
+   * @example
+   * off
+   */
   memoryOverload?: string;
   /**
    * @remarks
@@ -786,28 +1075,67 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   memorySingleRateLimit?: number;
   /**
    * @remarks
-   * Indicates whether the restart button is provided in the cloud desktop floating ball when connecting through mobile clients (Android client<props="china"> and iOS client).
+   * Specifies whether the restart button is provided in the cloud desktop floating ball when connecting to the cloud desktop from a mobile client (Android client<props="china"> and iOS client).
    * 
-   * > Applicable only to mobile clients V7.4 or later.
+   * > This applies only to mobile clients of V7.4 or later.
    * 
    * @example
    * off
    */
   mobileRestart?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable the Windows security control on mobile clients.
+   * 
+   * @example
+   * off
+   */
   mobileSafeMenu?: string;
   /**
    * @remarks
-   * Indicates whether the shutdown button is provided in the cloud desktop floating ball when connecting through mobile clients (Android client<props="china"> and iOS client).
+   * Specifies whether the shutdown button is provided in the cloud desktop floating ball when connecting to the cloud desktop from a mobile client (Android client<props="china"> and iOS client).
    * 
-   * > Applicable only to mobile clients V7.4 or later.
+   * > This applies only to mobile clients of V7.4 or later.
    * 
    * @example
    * off
    */
   mobileShutdown?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable WUYING Keeper on mobile clients.
+   * 
+   * @example
+   * off
+   */
   mobileWuyingKeeper?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable the WUYING Assistant on mobile clients.
+   * 
+   * @example
+   * off
+   */
   mobileWyAssistant?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable the model library feature. Valid values:
+   * - on: Enabled.
+   * - off: Disabled.
+   * 
+   * @example
+   * off
+   */
   modelLibrary?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable the multi-screen display feature. Valid values:
+   * - on: Enabled.
+   * - off: Disabled.
+   * 
+   * @example
+   * off
+   */
   multiScreen?: string;
   /**
    * @remarks
@@ -829,17 +1157,26 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   netRedirect?: string;
   /**
    * @remarks
-   * The network redirection policy details.
+   * The details of the network redirection policy.
    * 
    * > This feature is in invitational preview and is not publicly available.
    * >
    */
   netRedirectRule?: DescribeCenterPolicyListResponseBodyDescribePolicyGroupsNetRedirectRule[];
+  /**
+   * @remarks
+   * The network printer feature switch. Valid values:
+   * - on: Enabled.
+   * - off: Disabled.
+   * 
+   * @example
+   * off
+   */
   networkPrinter?: string;
   /**
    * @remarks
-   * The no-operation disconnect setting.
-   * > Applicable only to cloud application policies.
+   * Specifies whether to disconnect the session when no operation is performed.
+   * > This applies only to cloud application policies.
    * 
    * @example
    * off
@@ -847,13 +1184,20 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   noOperationDisconnect?: string;
   /**
    * @remarks
-   * The no-operation disconnect duration. Unit: seconds.
-   * > Applicable only to cloud application policies.
+   * The idle disconnection duration. Unit: seconds.
+   * > This applies only to cloud application policies.
    * 
    * @example
    * 120
    */
   noOperationDisconnectTime?: number;
+  /**
+   * @remarks
+   * The number of associated organizations.
+   * 
+   * @example
+   * 2
+   */
   organizationCount?: string;
   /**
    * @remarks
@@ -873,13 +1217,49 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   policyGroupType?: string;
   /**
    * @remarks
-   * The cloud desktop policy status.
+   * The status of the cloud desktop policy.
    * 
    * @example
    * AVAILABLE
    */
   policyStatus?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable the port proxy feature. Valid values:
+   * - on: Enabled.
+   * - off: Disabled.
+   * 
+   * @example
+   * off
+   */
   portProxy?: string;
+  /**
+   * @remarks
+   * The printer alert dialog setting. Valid values:
+   * - default: Default.
+   * - off: Disabled.
+   * - custom: Custom.
+   * 
+   * @example
+   * off
+   */
+  printerAlert?: string;
+  /**
+   * @remarks
+   * The content of the printer alert dialog.
+   * 
+   * @example
+   * Print Content.
+   */
+  printerAlertContent?: string;
+  /**
+   * @remarks
+   * The title of the printer alert dialog.
+   * 
+   * @example
+   * Print Title
+   */
+  printerAlertTitle?: string;
   /**
    * @remarks
    * The printer redirection policy.
@@ -890,7 +1270,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   printerRedirection?: string;
   /**
    * @remarks
-   * Indicates whether image quality enhancement is enabled. Common scenarios: design and 3D applications.
+   * Specifies whether image quality enhancement is enabled for design and 3D common scenarios.
    * 
    * @example
    * off
@@ -906,7 +1286,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   recordContent?: string;
   /**
    * @remarks
-   * The expiration time of custom screen recording files. Default value: 30 days.
+   * The expiration period of custom screen recording files. Default value: 30. Unit: days.
    * 
    * @example
    * 30
@@ -928,9 +1308,6 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   /**
    * @remarks
    * The absolute paths for registry monitoring in screen recording audit.
-   * 
-   * @example
-   * Computer\\HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\USBSTOR
    */
   recordEventRegisters?: string[];
   /**
@@ -951,7 +1328,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   recordingAudio?: string;
   /**
    * @remarks
-   * The duration of screen recording files. Unit: minutes. Recording files are automatically split and uploaded to the storage space based on the specified duration. Files are rolled over when they reach 300 MB.
+   * The duration of screen recording files, in minutes. Recording files are automatically split and uploaded to the storage space based on the specified duration. Files are rolled over when they reach 300 MB.
    * 
    * @example
    * 10
@@ -959,7 +1336,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   recordingDuration?: number;
   /**
    * @remarks
-   * The screen recording end time in the format of HH:MM:SS. This value is meaningful only when Recording is set to period.
+   * The end time of screen recording, in the format of HH:MM:SS. This response value is meaningful only when Recording is set to period.
    * 
    * @example
    * 08:59:00
@@ -975,7 +1352,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   recordingExpires?: number;
   /**
    * @remarks
-   * The screen recording frame rate. Unit: FPS (frames per second).
+   * The frame rate of screen recording. Unit: FPS (frames per second).
    * 
    * @example
    * 5
@@ -983,7 +1360,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   recordingFps?: number;
   /**
    * @remarks
-   * The screen recording start time in the format of HH:MM:SS. This value is meaningful only when Recording is set to period.
+   * The start time of screen recording, in the format of HH:MM:SS. This response value is meaningful only when Recording is set to period.
    * 
    * @example
    * 08:00:00
@@ -999,10 +1376,10 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   recordingUserNotify?: string;
   /**
    * @remarks
-   * The notification message displayed to end users about screen recording being enabled.
+   * The notification message displayed to end users when screen recording is enabled.
    * 
    * @example
-   * Screen recording is enabled.
+   * Screen recording is enabled
    */
   recordingUserNotifyMessage?: string;
   /**
@@ -1013,7 +1390,21 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
    * fullControl
    */
   remoteCoordinate?: string;
+  /**
+   * @remarks
+   * The setting for resetting the cloud desktop.
+   * 
+   * @example
+   * off
+   */
   resetDesktop?: string;
+  /**
+   * @remarks
+   * The DPI value of the screen resolution.
+   * 
+   * @example
+   * 96
+   */
   resolutionDpi?: number;
   /**
    * @remarks
@@ -1041,16 +1432,25 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   resolutionWidth?: number;
   /**
    * @remarks
-   * The number of resource groups associated with this policy.
+   * The number of resource groups associated with the policy.
    * 
    * @example
    * 1
    */
   resourceGroupCount?: number;
+  /**
+   * @remarks
+   * The security center shortcut key switch. Valid values:
+   * - on: Enabled.
+   * - off: Disabled.
+   * 
+   * @example
+   * off
+   */
   safeMenu?: string;
   /**
    * @remarks
-   * The effective scope of the policy.
+   * The scope of the policy.
    * 
    * @example
    * GLOBAL
@@ -1058,13 +1458,20 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   scope?: string;
   /**
    * @remarks
-   * The effective CIDR block.
+   * The CIDR block that the policy applies to.
    */
   scopeValue?: string[];
+  /**
+   * @remarks
+   * The screen display mode.
+   * 
+   * @example
+   * auto
+   */
   screenDisplayMode?: string;
   /**
    * @remarks
-   * Indicates whether smoothness enhancement is enabled for daily office scenarios.
+   * Specifies whether smoothness enhancement is enabled for daily office scenarios.
    * 
    * @example
    * off
@@ -1072,7 +1479,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   smoothEnhancement?: string;
   /**
    * @remarks
-   * Indicates whether the status monitoring entry is provided in the cloud desktop floating ball.
+   * Specifies whether the status monitoring entry is provided in the cloud desktop floating ball.
    * 
    * @example
    * on
@@ -1097,12 +1504,22 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   /**
    * @remarks
    * The application taskbar.
-   * > Applicable only to cloud application policies.
+   * > This applies only to cloud application policies.
    * 
    * @example
    * off
    */
   taskbar?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable the three-screen feature. Valid values:
+   * - on: Enabled.
+   * - off: Disabled.
+   * 
+   * @example
+   * off
+   */
+  threeScreen?: string;
   /**
    * @remarks
    * The USB redirection setting.
@@ -1116,6 +1533,15 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
    * The USB redirection rules.
    */
   usbSupplyRedirectRule?: DescribeCenterPolicyListResponseBodyDescribePolicyGroupsUsbSupplyRedirectRule[];
+  /**
+   * @remarks
+   * Specifies whether to display the usage duration on the floating ball. Valid values:
+   * - on: Enabled.
+   * - off: Disabled.
+   * 
+   * @example
+   * off
+   */
   useTime?: string;
   /**
    * @remarks
@@ -1127,7 +1553,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   videoEncAvgKbps?: number;
   /**
    * @remarks
-   * The maximum QP for video encoding, which represents the lowest image quality. Valid values: 0 to 51.
+   * The maximum QP for video encoding, which represents the lowest quality. Valid values: 0 to 51.
    * 
    * @example
    * 20
@@ -1183,7 +1609,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   watermark?: string;
   /**
    * @remarks
-   * The invisible watermark anti-photography feature.
+   * The invisible watermark anti-camera capture feature.
    * 
    * @example
    * off
@@ -1199,7 +1625,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   watermarkColor?: number;
   /**
    * @remarks
-   * If the WatermarkType parameter is set to `custom`, you must also specify the custom text content by using the WatermarkCustomText parameter.
+   * If the `WatermarkType` parameter is set to `custom`, you must also specify the custom text content by using the `WatermarkCustomText` parameter.
    * 
    * @example
    * custom-watermark
@@ -1247,12 +1673,21 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   watermarkRowAmount?: number;
   /**
    * @remarks
-   * The invisible watermark security priority rule.
+   * The invisible watermark security-first rule.
    * 
    * @example
    * on
    */
   watermarkSecurity?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable the watermark shadow effect. Valid values:
+   * - on: Enabled.
+   * - off: Disabled.
+   * 
+   * @example
+   * off
+   */
   watermarkShadow?: string;
   /**
    * @remarks
@@ -1270,10 +1705,17 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
    * EndUserId
    */
   watermarkType?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable WUYING Keeper.
+   * 
+   * @example
+   * off
+   */
   wuyingKeeper?: string;
   /**
    * @remarks
-   * Indicates whether the WUYING AI Assistant entry is provided in the cloud desktop floating ball.
+   * Specifies whether the WUYING AI Assistant entry is provided in the cloud desktop floating ball.
    * 
    * @example
    * on
@@ -1371,6 +1813,9 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
       policyGroupType: 'PolicyGroupType',
       policyStatus: 'PolicyStatus',
       portProxy: 'PortProxy',
+      printerAlert: 'PrinterAlert',
+      printerAlertContent: 'PrinterAlertContent',
+      printerAlertTitle: 'PrinterAlertTitle',
       printerRedirection: 'PrinterRedirection',
       qualityEnhancement: 'QualityEnhancement',
       recordContent: 'RecordContent',
@@ -1403,6 +1848,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
       streamingMode: 'StreamingMode',
       targetFps: 'TargetFps',
       taskbar: 'Taskbar',
+      threeScreen: 'ThreeScreen',
       usbRedirect: 'UsbRedirect',
       usbSupplyRedirectRule: 'UsbSupplyRedirectRule',
       useTime: 'UseTime',
@@ -1523,6 +1969,9 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
       policyGroupType: 'string',
       policyStatus: 'string',
       portProxy: 'string',
+      printerAlert: 'string',
+      printerAlertContent: 'string',
+      printerAlertTitle: 'string',
       printerRedirection: 'string',
       qualityEnhancement: 'string',
       recordContent: 'string',
@@ -1555,6 +2004,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
       streamingMode: 'string',
       targetFps: 'number',
       taskbar: 'string',
+      threeScreen: 'string',
       usbRedirect: 'string',
       usbSupplyRedirectRule: { 'type': 'array', 'itemType': DescribeCenterPolicyListResponseBodyDescribePolicyGroupsUsbSupplyRedirectRule },
       useTime: 'string',

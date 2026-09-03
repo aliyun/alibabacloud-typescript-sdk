@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateRAMDirectoryResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The RAM directory ID.
+   * The ID of the RAM-type directory.
    * 
    * @example
    * dri-uf62w3qzt4aigvlcb****

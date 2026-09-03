@@ -14,6 +14,7 @@ export class DescribeGlobalTimerBatchesResponseBodyResults extends $dara.Model {
   /**
    * @remarks
    * The time when the record was created.
+   * The time follows the ISO 8601 standard in UTC: yyyy-MM-ddTHH:mm:ssZ.
    * 
    * @example
    * 2023-08-03T08:27:29Z
@@ -21,7 +22,7 @@ export class DescribeGlobalTimerBatchesResponseBodyResults extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The number of tasks that failed to execute.
+   * The number of tasks that failed to be executed.
    * 
    * @example
    * 0
@@ -29,7 +30,7 @@ export class DescribeGlobalTimerBatchesResponseBodyResults extends $dara.Model {
   failedCount?: number;
   /**
    * @remarks
-   * The number of tasks that are currently running.
+   * The number of tasks that are being executed.
    * 
    * @example
    * 0
@@ -103,7 +104,7 @@ export class DescribeGlobalTimerBatchesResponseBody extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The pagination token for the next query. An empty value indicates that there are no more results.
+   * The pagination token for the next query. An empty value indicates that no more results exist.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a4883
@@ -111,7 +112,7 @@ export class DescribeGlobalTimerBatchesResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * E54EB497-D7B7-5F04-B744-D8DFA7B******

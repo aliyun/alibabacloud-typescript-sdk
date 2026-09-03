@@ -26,7 +26,8 @@ export class DescribeDesktopSessionsRequest extends $dara.Model {
   desktopName?: string;
   /**
    * @remarks
-   * The end time of the query.
+   * The end of the time range to query.
+   * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
    * 
    * @example
    * 2023-02-13T02:51:43Z
@@ -48,6 +49,10 @@ export class DescribeDesktopSessionsRequest extends $dara.Model {
    * alice
    */
   endUserIdFilter?: string;
+  /**
+   * @remarks
+   * The list of end user IDs.
+   */
   endUserIds?: string[];
   /**
    * @remarks
@@ -96,6 +101,13 @@ export class DescribeDesktopSessionsRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The resource group ID.
+   * 
+   * @example
+   * rg-f3s3dgt8dtb0vlqc8
+   */
   resourceGroupId?: string;
   /**
    * @remarks
@@ -107,7 +119,8 @@ export class DescribeDesktopSessionsRequest extends $dara.Model {
   sessionStatus?: string;
   /**
    * @remarks
-   * The start time of the query.
+   * The beginning of the time range to query.
+   * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
    * 
    * @example
    * 2023-01-28T02:31:43Z

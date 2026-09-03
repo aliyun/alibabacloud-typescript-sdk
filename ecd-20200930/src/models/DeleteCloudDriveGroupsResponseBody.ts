@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteCloudDriveGroupsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The result of the operation. A value of success indicates that the operation is successful. If the operation failed, an error message is returned.
+   * The operation result. The value `success` indicates success. Otherwise, an error message is returned.
    * 
    * @example
    * success
@@ -21,7 +21,7 @@ export class DeleteCloudDriveGroupsResponseBody extends $dara.Model {
   data?: string;
   /**
    * @remarks
-   * The error message returned. This parameter is not returned if the value of Code is `success`.
+   * The error message. This parameter is not returned if Code is `success`.
    * 
    * @example
    * success
@@ -37,7 +37,7 @@ export class DeleteCloudDriveGroupsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values: true: The request is successful. false: The request fails.
+   * Indicates whether the operation was successful.
    * 
    * @example
    * true

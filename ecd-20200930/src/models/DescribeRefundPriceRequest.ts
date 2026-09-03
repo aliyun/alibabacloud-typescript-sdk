@@ -28,6 +28,13 @@ export class DescribeRefundPriceRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The user ID of the resource ownership in resale pattern. You do not need to specify this parameter if you are not using resale pattern.
+   * 
+   * @example
+   * 1422724566551XXX
+   */
   resellerOwnerUid?: number;
   static names(): { [key: string]: string } {
     return {

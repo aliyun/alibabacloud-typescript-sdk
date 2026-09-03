@@ -30,6 +30,7 @@ export { CreateDesktopGroupRequestTag } from './CreateDesktopGroupRequest';
 export { CreateDesktopOversoldGroupResponseBodyData } from './CreateDesktopOversoldGroupResponseBody';
 export { CreateDesktopsRequestBundleModels } from './CreateDesktopsRequest';
 export { CreateDesktopsRequestDesktopAttachment } from './CreateDesktopsRequest';
+export { CreateDesktopsRequestDesktopNameModel } from './CreateDesktopsRequest';
 export { CreateDesktopsRequestDesktopTimers } from './CreateDesktopsRequest';
 export { CreateDesktopsRequestMonthDesktopSetting } from './CreateDesktopsRequest';
 export { CreateDesktopsRequestPurchaseOptions } from './CreateDesktopsRequest';
@@ -170,6 +171,7 @@ export { DescribePriceResponseBodyPriceInfo } from './DescribePriceResponseBody'
 export { DescribePriceForCreateDesktopOversoldGroupResponseBodyData } from './DescribePriceForCreateDesktopOversoldGroupResponseBody';
 export { DescribePriceForModifyDesktopOversoldGroupSaleResponseBodyData } from './DescribePriceForModifyDesktopOversoldGroupSaleResponseBody';
 export { DescribePriceForRenewDesktopOversoldGroupResponseBodyData } from './DescribePriceForRenewDesktopOversoldGroupResponseBody';
+export { DescribePrinterEventsResponseBodyEvents } from './DescribePrinterEventsResponseBody';
 export { DescribeQosRulesResponseBodyQosRules } from './DescribeQosRulesResponseBody';
 export { DescribeRecordFileResponseBodyRecordFilesEventDetails } from './DescribeRecordFileResponseBody';
 export { DescribeRecordFileResponseBodyRecordFiles } from './DescribeRecordFileResponseBody';
@@ -745,6 +747,9 @@ export { DescribePriceForModifyDesktopOversoldGroupSaleResponse } from './Descri
 export { DescribePriceForRenewDesktopOversoldGroupRequest } from './DescribePriceForRenewDesktopOversoldGroupRequest';
 export { DescribePriceForRenewDesktopOversoldGroupResponseBody } from './DescribePriceForRenewDesktopOversoldGroupResponseBody';
 export { DescribePriceForRenewDesktopOversoldGroupResponse } from './DescribePriceForRenewDesktopOversoldGroupResponse';
+export { DescribePrinterEventsRequest } from './DescribePrinterEventsRequest';
+export { DescribePrinterEventsResponseBody } from './DescribePrinterEventsResponseBody';
+export { DescribePrinterEventsResponse } from './DescribePrinterEventsResponse';
 export { DescribeQosRulesRequest } from './DescribeQosRulesRequest';
 export { DescribeQosRulesResponseBody } from './DescribeQosRulesResponseBody';
 export { DescribeQosRulesResponse } from './DescribeQosRulesResponse';

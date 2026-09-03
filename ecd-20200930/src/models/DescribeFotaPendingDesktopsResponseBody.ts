@@ -8,7 +8,7 @@ export class DescribeFotaPendingDesktopsResponseBodyFotaPendingDesktopsSessions 
    * The ID of the end user that connects to the cloud computer.
    * 
    * @example
-   * alice
+   * end user id
    */
   endUserId?: string;
   static names(): { [key: string]: string } {
@@ -54,7 +54,7 @@ export class DescribeFotaPendingDesktopsResponseBodyFotaPendingDesktops extends 
    * The name of the cloud computer.
    * 
    * @example
-   * demo-computer
+   * TestDesktop
    */
   desktopName?: string;
   /**
@@ -62,7 +62,7 @@ export class DescribeFotaPendingDesktopsResponseBodyFotaPendingDesktops extends 
    * > This parameter is not publicly available.
    * 
    * @example
-   * windows
+   * To be hidden
    */
   fotaProject?: string;
   /**
@@ -70,7 +70,7 @@ export class DescribeFotaPendingDesktopsResponseBodyFotaPendingDesktops extends 
    * The ID of the office network.
    * 
    * @example
-   * cn-shanghai+dir-428216****
+   * cn-hangzhou+dir-815419****
    */
   officeSiteId?: string;
   /**

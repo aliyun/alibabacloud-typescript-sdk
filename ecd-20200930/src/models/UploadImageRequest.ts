@@ -3,6 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UploadImageRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The boot mode of the image.
+   * 
+   * @example
+   * BIOS
+   */
   bootMode?: string;
   /**
    * @remarks
@@ -30,7 +37,7 @@ export class UploadImageRequest extends $dara.Model {
   enableSecurityCheck?: boolean;
   /**
    * @remarks
-   * Specifies whether the image is a GPU image.
+   * Specifies whether the image is a GPU-type image.
    * 
    * @example
    * true
@@ -60,11 +67,11 @@ export class UploadImageRequest extends $dara.Model {
    * 
    * - Auto: Alibaba Cloud detects the source operating system and assigns a license. In automatic mode, the system first checks whether an Alibaba Cloud official license is available for the `Platform` you specified and assigns it to the imported image. If no such license is available, the system switches to BYOL (Bring Your Own License) mode.
    * - Aliyun: Uses an Alibaba Cloud official license based on the `Platform` you specified.
-   * - BYOL: Uses the license that comes with the source operating system. When you use BYOL, make sure that your license key supports use on Alibaba Cloud.
+   * - BYOL: Uses the license that comes with the source operating system. When using BYOL, ensure that your license key supports use on Alibaba Cloud.
    * 
-   * Default value: Auto.
+   * Default value: Auto
    * 
-   * > Systems such as Windows 10 cannot be activated through Alibaba Cloud. Set `LicenseType` to BYOL for custom activation.
+   * > Systems such as Windows 10 cannot be activated through Alibaba Cloud. Set `LicenseType` to custom activation (BYOL).
    * 
    * @example
    * Auto
@@ -110,7 +117,7 @@ export class UploadImageRequest extends $dara.Model {
    * @remarks
    * The system cloud disk size. Unit: GiB.
    * 
-   * > The system cloud disk size cannot be smaller than the image file size.
+   * > The system cloud disk size cannot be smaller than the image file.
    * 
    * @example
    * 80

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeUsersPasswordResponseBodyDesktopUsers extends $dara.Model {
   /**
    * @remarks
-   * The display name of the end user.
+   * The display name of the account in the cloud computer image.
    * 
    * @example
    * demo_user01_1488****
@@ -13,7 +13,7 @@ export class DescribeUsersPasswordResponseBodyDesktopUsers extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * The ID of the end user.
+   * The end user ID.
    * 
    * @example
    * demo_user01
@@ -21,7 +21,7 @@ export class DescribeUsersPasswordResponseBodyDesktopUsers extends $dara.Model {
   endUserId?: string;
   /**
    * @remarks
-   * The password of the end user.
+   * The password of the account in the cloud computer image.
    * 
    * @example
    * 3q8p-NDey-2Nac-TWcQ-****
@@ -55,12 +55,12 @@ export class DescribeUsersPasswordResponseBodyDesktopUsers extends $dara.Model {
 export class DescribeUsersPasswordResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The authorized users of the cloud computer.
+   * The list of accounts in the cloud computer image.
    */
   desktopUsers?: DescribeUsersPasswordResponseBodyDesktopUsers[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * F7B4B17B-5C8A-514C-AA4D-F8090E3A63E9

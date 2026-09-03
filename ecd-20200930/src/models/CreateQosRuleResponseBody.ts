@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateQosRuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the created QoS rule.
+   * The rate limiting rule ID.
    * 
    * @example
    * qos-5605u0gelk200****

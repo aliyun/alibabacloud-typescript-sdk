@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeRegionsResponseBodyRegions extends $dara.Model {
   /**
    * @remarks
-   * The display name of the region, which varies based on the current language.
+   * The display name of the region, which is converted based on the current language setting.
    * 
    * @example
-   * 华东1（杭州）
+   * China (Hangzhou)
    */
   localName?: string;
   /**
@@ -55,7 +55,7 @@ export class DescribeRegionsResponseBodyRegions extends $dara.Model {
 export class DescribeRegionsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about regions.
+   * The region information array.
    */
   regions?: DescribeRegionsResponseBodyRegions[];
   /**

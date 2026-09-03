@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RemoveUserFromDesktopGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the shared cloud desktop from which you revoke the user’s permission.
+   * The ID of the shared cloud computer from which to remove authorized users.
    * 
    * @example
    * dg-2i8qxpv6t1a03****
@@ -13,7 +13,7 @@ export class RemoveUserFromDesktopGroupRequest extends $dara.Model {
   desktopGroupId?: string;
   /**
    * @remarks
-   * A list of shared desktop group IDs.
+   * The list of shared cloud computer IDs.
    */
   desktopGroupIds?: string[];
   /**
@@ -21,10 +21,17 @@ export class RemoveUserFromDesktopGroupRequest extends $dara.Model {
    * The list of authorized users to remove.
    */
   endUserIds?: string[];
+  /**
+   * @remarks
+   * The organization ID of the team.
+   * 
+   * @example
+   * org-aliyun-wy-org-id
+   */
   orgId?: string;
   /**
    * @remarks
-   * The region ID. Call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to get a list of regions where WUYING Workspace is available.
+   * The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to query the regions supported by Elastic Desktop Service.
    * 
    * This parameter is required.
    * 
@@ -32,8 +39,29 @@ export class RemoveUserFromDesktopGroupRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The convenience user group ID.
+   * 
+   * @example
+   * ug-3f6c8a2b****
+   */
   simpleUserGroupId?: string;
+  /**
+   * @remarks
+   * The user group name.
+   * 
+   * @example
+   * R&D Group
+   */
   userGroupName?: string;
+  /**
+   * @remarks
+   * The organizational unit (OU) path of the user.
+   * 
+   * @example
+   * example.com
+   */
   userOuPath?: string;
   static names(): { [key: string]: string } {
     return {

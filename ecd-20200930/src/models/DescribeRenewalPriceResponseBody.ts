@@ -16,7 +16,7 @@ export class DescribeRenewalPriceResponseBodyPriceInfoPricePromotions extends $d
    * The promotion description.
    * 
    * @example
-   * 新品上市，立享优惠
+   * New product launch, enjoy discounts now
    */
   promotionDesc?: string;
   /**
@@ -32,7 +32,7 @@ export class DescribeRenewalPriceResponseBodyPriceInfoPricePromotions extends $d
    * The promotion name.
    * 
    * @example
-   * Featured deals
+   * Selected deals
    */
   promotionName?: string;
   /**
@@ -75,8 +75,8 @@ export class DescribeRenewalPriceResponseBodyPriceInfoPricePromotions extends $d
 export class DescribeRenewalPriceResponseBodyPriceInfoPrice extends $dara.Model {
   /**
    * @remarks
-   * <props="china">The unit of currency. The value is CNY.
-   * <props="intl">The unit of currency. The value is USD.
+   * <props="china">The currency unit (CNY).
+   * <props="intl">The currency unit (USD).
    * 
    * @example
    * CNY
@@ -84,7 +84,7 @@ export class DescribeRenewalPriceResponseBodyPriceInfoPrice extends $dara.Model 
   currency?: string;
   /**
    * @remarks
-   * The discount.
+   * The discount amount.
    * 
    * @example
    * 15.8
@@ -92,7 +92,7 @@ export class DescribeRenewalPriceResponseBodyPriceInfoPrice extends $dara.Model 
   discountPrice?: number;
   /**
    * @remarks
-   * The order details.
+   * The order information.
    */
   orderLines?: { [key: string]: string };
   /**
@@ -105,12 +105,12 @@ export class DescribeRenewalPriceResponseBodyPriceInfoPrice extends $dara.Model 
   originalPrice?: number;
   /**
    * @remarks
-   * The promotion details.
+   * The promotion information.
    */
   promotions?: DescribeRenewalPriceResponseBodyPriceInfoPricePromotions[];
   /**
    * @remarks
-   * The final price. This is the value of `OriginalPrice` minus `DiscountPrice`.
+   * The actual payment price. The value is the original price minus the discount amount.
    * 
    * @example
    * 63.2
@@ -159,7 +159,7 @@ export class DescribeRenewalPriceResponseBodyPriceInfoRules extends $dara.Model 
    * The rule description.
    * 
    * @example
-   * 买满1年，立享官网价格8.5折优惠。
+   * Get 15% off the list price when you purchase a 1-year subscription
    */
   description?: string;
   /**
@@ -201,7 +201,7 @@ export class DescribeRenewalPriceResponseBodyPriceInfo extends $dara.Model {
   price?: DescribeRenewalPriceResponseBodyPriceInfoPrice;
   /**
    * @remarks
-   * The promotion rules.
+   * The promotion rule information.
    */
   rules?: DescribeRenewalPriceResponseBodyPriceInfoRules[];
   static names(): { [key: string]: string } {

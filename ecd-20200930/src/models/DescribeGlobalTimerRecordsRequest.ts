@@ -14,6 +14,9 @@ export class DescribeGlobalTimerRecordsRequest extends $dara.Model {
   /**
    * @remarks
    * The list of cloud computer IDs.
+   * 
+   * @example
+   * SUCCEED
    */
   desktopIds?: string[];
   /**
@@ -56,6 +59,13 @@ export class DescribeGlobalTimerRecordsRequest extends $dara.Model {
    * cn-shanghai
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The list of resource types. If empty, all resource types are queried.
+   * 
+   * @example
+   * true
+   */
   resourceTypes?: string[];
   /**
    * @remarks
@@ -92,8 +102,18 @@ export class DescribeGlobalTimerRecordsRequest extends $dara.Model {
   /**
    * @remarks
    * The list of scheduled tasks.
+   * 
+   * @example
+   * cn-shanghai
    */
   timerTypes?: string[];
+  /**
+   * @remarks
+   * The list of Wuying server IDs.
+   * 
+   * @example
+   * FAILED
+   */
   wuyingServerIds?: string[];
   static names(): { [key: string]: string } {
     return {

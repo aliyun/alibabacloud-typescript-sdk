@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDirectoryUsersRequest extends $dara.Model {
   /**
    * @remarks
-   * > This parameter is not publicly available. You can only set this parameter to `1` or leave it empty.
+   * > This field is not available for use. You can only pass in `1` or leave it empty.
    * 
    * @example
    * 1
@@ -23,7 +23,7 @@ export class ListDirectoryUsersRequest extends $dara.Model {
   directoryId?: string;
   /**
    * @remarks
-   * The string for a fuzzy search. The operation returns all results that contain this string.
+   * The fuzzy match query string. All results that contain this character string are returned.
    * 
    * @example
    * alice
@@ -31,7 +31,7 @@ export class ListDirectoryUsersRequest extends $dara.Model {
   filter?: string;
   /**
    * @remarks
-   * Specifies whether to return only users who are assigned cloud desktops.
+   * Specifies whether to return only users who have been assigned cloud computers.
    * 
    * @example
    * true
@@ -39,10 +39,9 @@ export class ListDirectoryUsersRequest extends $dara.Model {
   includeAssignedUser?: boolean;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The number of entries per page for a paged query.    
    * 
-   * - Maximum value: 100.
-   * 
+   * - Maximum value: 100.    
    * - Default value: 10.
    * 
    * @example
@@ -51,7 +50,7 @@ export class ListDirectoryUsersRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token used to start the next query. If this value is empty, no more results are available.
+   * The pagination token for the next query. An empty value indicates that no more results exist.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a4883
@@ -59,7 +58,7 @@ export class ListDirectoryUsersRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The path of the organizational unit (OU) in the AD domain. You can call [ListUserAdOrganizationUnits](https://help.aliyun.com/document_detail/311259.html) to obtain the OU path.
+   * The organizational unit (OU) in the AD domain to which the user belongs. You can call [ListUserAdOrganizationUnits](https://help.aliyun.com/document_detail/311259.html) to obtain this value.
    * 
    * @example
    * example.com/Domain Controllers
@@ -67,7 +66,7 @@ export class ListDirectoryUsersRequest extends $dara.Model {
   OUPath?: string;
   /**
    * @remarks
-   * The region ID. To get a list of regions that WUYING Workspace supports, call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html).
+   * The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to query the regions supported by Elastic Desktop Service.
    * 
    * This parameter is required.
    * 

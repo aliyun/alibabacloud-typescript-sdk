@@ -15,7 +15,7 @@ export class DeleteDevicesRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 1
+   * 2
    */
   clientType?: number;
   /**
@@ -37,7 +37,7 @@ export class DeleteDevicesRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 0
+   * 1
    */
   force?: number;
   /**

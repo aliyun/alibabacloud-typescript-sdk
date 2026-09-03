@@ -5,16 +5,23 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeQosRulesResponseBodyQosRules extends $dara.Model {
   /**
    * @remarks
-   * The number of associated cloud desktops.
+   * The number of cloud computers in the pool.
    * 
    * @example
    * 0
    */
   desktopCount?: string;
+  /**
+   * @remarks
+   * The number of cloud computer pools associated with the policy.
+   * 
+   * @example
+   * 1
+   */
   desktopGroupCount?: number;
   /**
    * @remarks
-   * The download bandwidth.
+   * The downstream bandwidth.
    * 
    * @example
    * 10
@@ -22,7 +29,7 @@ export class DescribeQosRulesResponseBodyQosRules extends $dara.Model {
   download?: string;
   /**
    * @remarks
-   * The network package ID.
+   * The premium Internet bandwidth ID.
    * 
    * @example
    * np-5cjh3sqs1ty3s02xq
@@ -38,15 +45,15 @@ export class DescribeQosRulesResponseBodyQosRules extends $dara.Model {
   qosRuleId?: string;
   /**
    * @remarks
-   * The QoS rule name.
+   * The name of the QoS rule.
    * 
    * @example
-   * test
+   * Office network QoS rule
    */
   qosRuleName?: string;
   /**
    * @remarks
-   * The upload bandwidth.
+   * The upstream bandwidth.
    * 
    * @example
    * 10
@@ -88,7 +95,7 @@ export class DescribeQosRulesResponseBodyQosRules extends $dara.Model {
 export class DescribeQosRulesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A list of QoS rules.
+   * The list of QoS rules.
    */
   qosRules?: DescribeQosRulesResponseBodyQosRules[];
   /**

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateCloudDriveServiceResponseBodyConflictCdsAndOrderConflictCds extends $dara.Model {
   /**
    * @remarks
-   * The ID of the enterprise network disk.
+   * The ID of the enterprise NAS drive.
    * 
    * @example
    * cn-hangzhou+cds-778205****
@@ -13,7 +13,7 @@ export class CreateCloudDriveServiceResponseBodyConflictCdsAndOrderConflictCds e
   cdsId?: string;
   /**
    * @remarks
-   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the regions that are supported by Elastic Desktop Service.
+   * The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to query the regions supported by Elastic Desktop Service.
    * 
    * @example
    * cn-hangzhou
@@ -45,7 +45,7 @@ export class CreateCloudDriveServiceResponseBodyConflictCdsAndOrderConflictCds e
 export class CreateCloudDriveServiceResponseBodyConflictCdsAndOrderConflictOrder extends $dara.Model {
   /**
    * @remarks
-   * The ID of the enterprise network disk (The order is not paid, and the enterprise network disk cannot be used).
+   * The ID of the enterprise NAS drive. The order is not paid, and the NAS drive is unavailable.
    * 
    * @example
    * cn-hangzhou+cds-778205****
@@ -53,7 +53,7 @@ export class CreateCloudDriveServiceResponseBodyConflictCdsAndOrderConflictOrder
   cdsId?: string;
   /**
    * @remarks
-   * The order ID. You can obtain the order ID on the **Order Management** page in the Alibaba Cloud User Center.
+   * The order ID. You can obtain the order ID on the **Orders** page in the Alibaba Cloud User Center.
    * 
    * @example
    * 22442411898****
@@ -95,12 +95,12 @@ export class CreateCloudDriveServiceResponseBodyConflictCdsAndOrderConflictOrder
 export class CreateCloudDriveServiceResponseBodyConflictCdsAndOrder extends $dara.Model {
   /**
    * @remarks
-   * The information of conflicting enterprise network disks.
+   * The information about the conflicting NAS drive.
    */
   conflictCds?: CreateCloudDriveServiceResponseBodyConflictCdsAndOrderConflictCds[];
   /**
    * @remarks
-   * The information of conflicting unpaid orders for enterprise network disks (orders for subscription enterprise network disks).
+   * The information about the conflicting unpaid NAS drive order (subscription NAS drive order).
    */
   conflictOrder?: CreateCloudDriveServiceResponseBodyConflictCdsAndOrderConflictOrder[];
   static names(): { [key: string]: string } {
@@ -135,7 +135,7 @@ export class CreateCloudDriveServiceResponseBodyConflictCdsAndOrder extends $dar
 export class CreateCloudDriveServiceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the enterprise network disk.
+   * The ID of the enterprise NAS drive.
    * 
    * @example
    * cn-hangzhou+cds-778205****
@@ -143,7 +143,7 @@ export class CreateCloudDriveServiceResponseBody extends $dara.Model {
   cdsId?: string;
   /**
    * @remarks
-   * The name of the cloud storage service.
+   * The service name of the cloud storage.
    * 
    * @example
    * CDS_Windows_1126
@@ -151,9 +151,9 @@ export class CreateCloudDriveServiceResponseBody extends $dara.Model {
   cdsName?: string;
   /**
    * @remarks
-   * The ID of the Cloud Enterprise Network (CEN) instance.
+   * The instance ID of the Cloud Enterprise Network (CEN).
    * 
-   * > If you want to connect to a cloud desktop through a VPC, you can add the office network to a CEN instance. This CEN instance connects to your on-premises network through a VPN or a dedicated line.
+   * > To connect to cloud desktops over a VPC, you can add the office network to a CEN instance. This CEN instance is the one to which the on-premises network is connected by using a VPN or Express Connect circuit.
    * 
    * @example
    * cen-638u3wxds9snyc****
@@ -161,12 +161,12 @@ export class CreateCloudDriveServiceResponseBody extends $dara.Model {
   cenId?: string;
   /**
    * @remarks
-   * The existing enterprise network disks or orders for enterprise network disks that conflict with the enterprise network disk that you want to create.
+   * The existing NAS drive or NAS drive order that conflicts with the NAS drive to be created.
    */
   conflictCdsAndOrder?: CreateCloudDriveServiceResponseBodyConflictCdsAndOrder;
   /**
    * @remarks
-   * The name of the Active Directory (AD) domain corresponding to the AD office network.
+   * The AD domain name of the AD office network.
    * 
    * @example
    * test1.local
@@ -182,7 +182,7 @@ export class CreateCloudDriveServiceResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The maximum storage usage of the enterprise network disk. Unit: bytes.
+   * The maximum storage capacity of the enterprise NAS drive. Unit: bytes.
    * 
    * @example
    * 5368709120
@@ -190,7 +190,7 @@ export class CreateCloudDriveServiceResponseBody extends $dara.Model {
   maxSize?: string;
   /**
    * @remarks
-   * The office network type.
+   * The network type of the office network.
    * 
    * @example
    * AD_CONNECTOR
@@ -198,7 +198,7 @@ export class CreateCloudDriveServiceResponseBody extends $dara.Model {
   officeSiteType?: string;
   /**
    * @remarks
-   * The order ID. You can obtain the order ID on the Order Management page in the Alibaba Cloud User Center.
+   * The order ID. You can obtain the order ID on the Orders page in the Alibaba Cloud User Center.
    * 
    * @example
    * 214552063030752

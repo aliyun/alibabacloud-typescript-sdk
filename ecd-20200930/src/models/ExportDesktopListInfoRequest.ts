@@ -81,7 +81,7 @@ export class ExportDesktopListInfoRequest extends $dara.Model {
   endUserId?: string[];
   /**
    * @remarks
-   * The expiration time of the subscription cloud desktop.
+   * The expiration time of the subscription cloud desktop. The time follows the ISO 8601 standard in UTC.
    * 
    * @example
    * 2022-12-31T15:59Z
@@ -151,7 +151,7 @@ export class ExportDesktopListInfoRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The list of tags. A tag consists of a key-value pair and is used to mark resources. You can use tags to group and manage cloud desktops for easier searching and batch operations. For more information, see [Use tags to manage cloud desktops](https://help.aliyun.com/document_detail/203781.html).
+   * The list of tags. A tag consists of a key-value pair and is used to mark resources. You can use tags to group and manage cloud desktops for easy searching and batch operations. For more information, see [Use tags to manage cloud desktops](https://help.aliyun.com/document_detail/203781.html).
    */
   tag?: ExportDesktopListInfoRequestTag[];
   /**

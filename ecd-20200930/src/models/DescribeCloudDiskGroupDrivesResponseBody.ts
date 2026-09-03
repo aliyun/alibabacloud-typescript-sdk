@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCloudDiskGroupDrivesResponseBodyCloudDriveGroups extends $dara.Model {
   /**
    * @remarks
-   * The time the drive was created.
+   * The creation time. The time is in the ISO 8601 standard in the UTC format: yyyy-MM-ddTHH:mm:ssZ.
    * 
    * @example
    * 2022-04-11T07:44:21Z
@@ -21,7 +21,7 @@ export class DescribeCloudDiskGroupDrivesResponseBodyCloudDriveGroups extends $d
   directoryId?: string;
   /**
    * @remarks
-   * The drive ID.
+   * The space ID.
    * 
    * @example
    * 1234
@@ -29,7 +29,7 @@ export class DescribeCloudDiskGroupDrivesResponseBodyCloudDriveGroups extends $d
   driveId?: string;
   /**
    * @remarks
-   * The team drive ID.
+   * The team space ID.
    * 
    * @example
    * cg-e70ga4ixp30ur****
@@ -37,10 +37,10 @@ export class DescribeCloudDiskGroupDrivesResponseBodyCloudDriveGroups extends $d
   groupId?: string;
   /**
    * @remarks
-   * The team drive name.
+   * The team space name.
    * 
    * @example
-   * Test team 1
+   * TestTeam1
    */
   groupName?: string;
   /**
@@ -53,7 +53,7 @@ export class DescribeCloudDiskGroupDrivesResponseBodyCloudDriveGroups extends $d
   orgId?: string;
   /**
    * @remarks
-   * The status of the team drive.
+   * The team space status.
    * 
    * @example
    * 1
@@ -61,7 +61,7 @@ export class DescribeCloudDiskGroupDrivesResponseBodyCloudDriveGroups extends $d
   status?: string;
   /**
    * @remarks
-   * The total capacity of the cloud disk team drive.
+   * The total capacity of the cloud disk team space.
    * 
    * @example
    * 5368709120
@@ -69,7 +69,7 @@ export class DescribeCloudDiskGroupDrivesResponseBodyCloudDriveGroups extends $d
   totalSize?: number;
   /**
    * @remarks
-   * The used space size, in bytes.
+   * The used space size. Unit: bytes.
    * 
    * @example
    * 1024000000
@@ -115,12 +115,12 @@ export class DescribeCloudDiskGroupDrivesResponseBodyCloudDriveGroups extends $d
 export class DescribeCloudDiskGroupDrivesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of cloud disk team drives.
+   * The list of cloud disk team spaces.
    */
   cloudDriveGroups?: DescribeCloudDiskGroupDrivesResponseBodyCloudDriveGroups[];
   /**
    * @remarks
-   * The total number of results.
+   * The total number of entries.
    * 
    * @example
    * 1
@@ -128,7 +128,7 @@ export class DescribeCloudDiskGroupDrivesResponseBody extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The token that marks the start of the next query. An empty NextToken means no more results.
+   * The token for the next query. If NextToken is empty, no more results are available.
    * 
    * @example
    * MTA0MjA=
@@ -144,7 +144,7 @@ export class DescribeCloudDiskGroupDrivesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the operation succeeded.
+   * Indicates whether the operation was successful.
    * 
    * @example
    * True

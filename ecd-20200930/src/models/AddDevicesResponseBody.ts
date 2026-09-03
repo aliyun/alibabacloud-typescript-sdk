@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddDevicesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The execution result. If the request was successful, `success` is returned. If the request failed, an error message is returned.
+   * The execution result. The value `success` indicates success. Otherwise, an error message is returned.
    * 
    * @example
    * success
@@ -13,7 +13,7 @@ export class AddDevicesResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned error message. This parameter is not returned if the value of Code is `success`.
+   * The error message. This parameter is not returned if Code is `success`.
    * 
    * @example
    * The parameter is not specified.
@@ -21,7 +21,7 @@ export class AddDevicesResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * A87DBB05-653A-5E4B-B72B-5F4A1E07****

@@ -32,7 +32,7 @@ export class CdsFileShareLinkModel extends $dara.Model {
    * The description.
    * 
    * @example
-   * 文件分享链接。
+   * newDescription
    */
   description?: string;
   /**

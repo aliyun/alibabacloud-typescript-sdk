@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDirectoriesRequest extends $dara.Model {
   /**
    * @remarks
-   * Details of directory IDs. You can specify one or more directory IDs.
+   * The directory IDs. You can specify one or more directory IDs.
    * 
    * @example
    * cn-hangzhou+dir-gx2x1dhsmu52rd****
@@ -13,7 +13,7 @@ export class DescribeDirectoriesRequest extends $dara.Model {
   directoryId?: string[];
   /**
    * @remarks
-   * The directory status. This parameter is equivalent to `Status`.
+   * The directory status. This parameter is the same as Status.
    * 
    * @example
    * REGISTERED
@@ -23,18 +23,13 @@ export class DescribeDirectoriesRequest extends $dara.Model {
    * @remarks
    * The directory type.
    * 
-   * Valid value:
-   * 
-   * *   SIMPLE: the convenience directory.
-   * *   AD_CONNECTOR: the Active Directory (AD) directory.
-   * 
    * @example
    * SIMPLE
    */
   directoryType?: string;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The number of entries per page in a paged query.
    * 
    * Maximum value: 100.
    * 
@@ -46,7 +41,7 @@ export class DescribeDirectoriesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that determines the start point of the next query. If this parameter is empty, all results are returned.
+   * The pagination token for the next query. An empty value indicates that no more results exist.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a4883
@@ -54,7 +49,7 @@ export class DescribeDirectoriesRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
+   * The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to query the regions supported by Elastic Desktop Service.
    * 
    * This parameter is required.
    * 
@@ -65,80 +60,6 @@ export class DescribeDirectoriesRequest extends $dara.Model {
   /**
    * @remarks
    * The directory status.
-   * 
-   * Valid values:
-   * 
-   * *   REGISTERING: The directory is being registered.
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   DEREGISTERING: The directory is being deregistered.
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   REGISTERED: The directory is registered.
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   NEEDCONFIGTRUST: A trust relationship needs to be configured for the directory.
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   CONFIGTRUSTFAILED: A trust relationship fails to be configured for the directory.
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   DEREGISTERED: The directory is deregistered.
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   ERROR: One or more configurations of the directory are invalid.
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   CONFIGTRUSTING: A trust relationship is being configured.
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   NEEDCONFIGUSER: Users need to be configured for the directory.
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
    * 
    * @example
    * REGISTERED

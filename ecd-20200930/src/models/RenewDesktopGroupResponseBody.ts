@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RenewDesktopGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The order IDs.
+   * The list of order IDs.
    */
   orderId?: string[];
   /**

@@ -5,10 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeFlowMetricRequest extends $dara.Model {
   /**
    * @remarks
-   * End Time. Supported formats:
+   * The end time. The following formats are supported:
    * 
-   * - UNIX timestamp: the number of milliseconds elapsed since January 1, 1970.
-   * 
+   * - UNIX timestamp: the number of milliseconds that have elapsed since January 1, 1970.
    * - Format: YYYY-MM-DDThh:mm:ssZ.
    * 
    * This parameter is required.
@@ -19,17 +18,17 @@ export class DescribeFlowMetricRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The instance ID, which can be either a cloud computr ID or a premium public bandwidth plan ID.
+   * The instance ID. The value can be a cloud computer ID or a premium public bandwidth plan ID.
    * 
    * This parameter is required.
    * 
    * @example
-   * Ecd-fwq23f13****ornp-6inxqsvcyv6z8****
+   * ecd-fwq23f13**** or np-6inxqsvcyv6z8****
    */
   instanceId?: string;
   /**
    * @remarks
-   * The instance type. You can select either cloud computer type or premium public bandwidth type. If you select cloud computer type, the `InstanceId` and `MetricType` must be filled in with a cloud computer ID and its corresponding traffic type. The same applies to premium public bandwidth.
+   * The instance type. You can select the cloud computer type or the premium public bandwidth plan type. If you select the cloud computer type, set InstanceId and MetricType to the cloud computer ID and the traffic type of the cloud computer. The same rule applies to the premium public bandwidth plan type.
    * 
    * This parameter is required.
    * 
@@ -39,7 +38,7 @@ export class DescribeFlowMetricRequest extends $dara.Model {
   instanceType?: string;
   /**
    * @remarks
-   * The type of monitoring metric. Supports monitoring data for inbound and outbound bandwidth of cloud computers, as well as inbound and outbound bandwidth for public network access of premium public bandwidth.
+   * The monitoring metric type. This parameter supports the inbound and outbound bandwidth of a cloud computer, and the public inbound and outbound bandwidth of a premium public bandwidth plan.
    * 
    * This parameter is required.
    * 
@@ -49,7 +48,7 @@ export class DescribeFlowMetricRequest extends $dara.Model {
   metricType?: string;
   /**
    * @remarks
-   * The statistic period of monitoring data. Unit: seconds.
+   * The statistical period of the monitoring data. Unit: seconds.
    * 
    * This parameter is required.
    * 
@@ -59,7 +58,7 @@ export class DescribeFlowMetricRequest extends $dara.Model {
   period?: number;
   /**
    * @remarks
-   * The Region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to obtain the list of Regions supported by Elastic Desktop Service (EDS).
+   * The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to query the regions supported by Elastic Desktop Service.
    * 
    * This parameter is required.
    * 
@@ -69,10 +68,9 @@ export class DescribeFlowMetricRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * Start Time. Supported formats:
+   * The start time. The following formats are supported:
    * 
-   * - UNIX timestamp: the number of milliseconds elapsed since January 1, 1970.
-   * 
+   * - UNIX timestamp: the number of milliseconds that have elapsed since January 1, 1970.
    * - Format: YYYY-MM-DDThh:mm:ssZ.
    * 
    * This parameter is required.

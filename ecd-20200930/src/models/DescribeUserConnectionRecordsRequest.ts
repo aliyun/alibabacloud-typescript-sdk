@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeUserConnectionRecordsRequest extends $dara.Model {
   /**
    * @remarks
-   * The duration when the cloud desktop is connected, which is the minimum value for condition filtering.
+   * The minimum value of the connection duration used as a filter condition.
    * 
    * @example
    * 100
@@ -13,7 +13,7 @@ export class DescribeUserConnectionRecordsRequest extends $dara.Model {
   connectDurationFrom?: number;
   /**
    * @remarks
-   * The duration when the cloud desktop is connected, which is the maximum value for condition filtering.
+   * The maximum value of the connection duration used as a filter condition.
    * 
    * @example
    * 100
@@ -21,7 +21,7 @@ export class DescribeUserConnectionRecordsRequest extends $dara.Model {
   connectDurationTo?: number;
   /**
    * @remarks
-   * The time when the cloud desktop stops to be connected, which is the minimum value for condition filtering. The value is a UNIX timestamp. Unit: milliseconds.
+   * The minimum value of the connection end time used as a filter condition. The value is a UNIX timestamp. Unit: milliseconds.
    * 
    * @example
    * 1631266200000
@@ -29,7 +29,7 @@ export class DescribeUserConnectionRecordsRequest extends $dara.Model {
   connectEndTimeFrom?: number;
   /**
    * @remarks
-   * The time when the cloud desktop stops to be connected, which is the maximum value for condition filtering. The value is a UNIX timestamp. Unit: milliseconds.
+   * The maximum value of the connection end time used as a filter condition. The value is a UNIX timestamp. Unit: milliseconds.
    * 
    * @example
    * 1631268000000
@@ -37,7 +37,7 @@ export class DescribeUserConnectionRecordsRequest extends $dara.Model {
   connectEndTimeTo?: number;
   /**
    * @remarks
-   * The time when the cloud desktop starts to be connected, which is the minimum value for condition filtering. The value is a UNIX timestamp. Unit: milliseconds.
+   * The minimum value of the connection start time used as a filter condition. The value is a UNIX timestamp. Unit: milliseconds.
    * 
    * @example
    * 1631239200000
@@ -45,7 +45,7 @@ export class DescribeUserConnectionRecordsRequest extends $dara.Model {
   connectStartTimeFrom?: number;
   /**
    * @remarks
-   * The time when the cloud desktop starts to be connected, which is the maximum value for condition filtering. The value is a UNIX timestamp. Unit: milliseconds.
+   * The maximum value of the connection start time used as a filter condition. The value is a UNIX timestamp. Unit: milliseconds.
    * 
    * @example
    * 1631241000000
@@ -53,7 +53,7 @@ export class DescribeUserConnectionRecordsRequest extends $dara.Model {
   connectStartTimeTo?: number;
   /**
    * @remarks
-   * The ID of the cloud computer pool.
+   * The cloud computer pool ID.
    * 
    * This parameter is required.
    * 
@@ -63,7 +63,7 @@ export class DescribeUserConnectionRecordsRequest extends $dara.Model {
   desktopGroupId?: string;
   /**
    * @remarks
-   * The ID of the cloud computer.
+   * The cloud computer ID.
    * 
    * @example
    * ecd-138dsptkrt00u****
@@ -71,7 +71,7 @@ export class DescribeUserConnectionRecordsRequest extends $dara.Model {
   desktopId?: string;
   /**
    * @remarks
-   * The ID of the authorized user.
+   * The authorized user ID.
    * 
    * This parameter is required.
    * 
@@ -81,25 +81,10 @@ export class DescribeUserConnectionRecordsRequest extends $dara.Model {
   endUserId?: string;
   /**
    * @remarks
-   * The type of the user account.
-   * 
-   * Valid values:
+   * The type of user account system. Valid values:
    * 
    * - SIMPLE: convenience account
-   * 
-   *   <!-- -->
-   * 
-   *   <!-- -->
-   * 
-   *   <!-- -->
-   * 
    * - AD_CONNECTOR: enterprise AD account
-   * 
-   *   <!-- -->
-   * 
-   *   <!-- -->
-   * 
-   *   <!-- -->
    * 
    * @example
    * SIMPLE
@@ -107,7 +92,11 @@ export class DescribeUserConnectionRecordsRequest extends $dara.Model {
   endUserType?: string;
   /**
    * @remarks
-   * The number of entries to return on each page. Maximum value: 100. Default value: 10.
+   * The number of entries per page for a paged query.
+   * 
+   * Maximum value: 100.
+   * 
+   * Default value: 10.
    * 
    * @example
    * 10
@@ -115,7 +104,7 @@ export class DescribeUserConnectionRecordsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that determines the start point of the next query. If this parameter is empty, all results are returned.
+   * The pagination token for the next query. An empty value indicates that there is no next page.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a4883
@@ -123,7 +112,7 @@ export class DescribeUserConnectionRecordsRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
+   * The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to query the regions supported by Elastic Desktop Service.
    * 
    * This parameter is required.
    * 

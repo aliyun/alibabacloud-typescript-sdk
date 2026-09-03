@@ -29,7 +29,7 @@ export class DescribeInvocationsResponseBodyInvocationsInvokeDesktops extends $d
   desktopName?: string;
   /**
    * @remarks
-   * The length of the truncated and discarded text after the text length in the Output field exceeds 24 KB.
+   * The length of the truncated and discarded text after the text length in the Output field exceeded 24 KB.
    * 
    * @example
    * 0
@@ -37,7 +37,7 @@ export class DescribeInvocationsResponseBodyInvocationsInvokeDesktops extends $d
   dropped?: number;
   /**
    * @remarks
-   * The error code for the command delivery failure or execution failure. Valid values:
+   * The error code indicating the reason for command delivery failure or execution failure. Valid values:
    * 
    * - Empty: The command ran normally.
    * - InstanceNotExists: The specified cloud desktop does not exist or has been released.
@@ -60,7 +60,7 @@ export class DescribeInvocationsResponseBodyInvocationsInvokeDesktops extends $d
   errorCode?: string;
   /**
    * @remarks
-   * The detailed information about the command delivery failure or execution failure. Valid values:
+   * The detailed reason for command delivery failure or execution failure. Valid values:
    * 
    * - Empty: The command ran normally.
    * - the specified instance does not exists: The specified cloud desktop does not exist or has been released.
@@ -99,19 +99,26 @@ export class DescribeInvocationsResponseBodyInvocationsInvokeDesktops extends $d
   finishTime?: string;
   /**
    * @remarks
-   * The script execution status on a single cloud desktop.
+   * The script process status on a single cloud desktop.
    * 
    * @example
    * Success
    */
   invocationStatus?: string;
+  /**
+   * @remarks
+   * jvs agent id。
+   * 
+   * @example
+   * jvs-7xjos2l****
+   */
   jvsAgentId?: string;
   /**
    * @remarks
-   * The output of the script process.
+   * The output information of the script process.
    * 
    * - If the request parameter `IncludeOutput` is set to false, Output is not returned.
-   * - If the request parameter `ContentEncoding` is set to Base64, Output is the Base64-encoded output.
+   * - If the request parameter `ContentEncoding` is set to Base64, Output is the Base64-encoded output information.
    * 
    * @example
    * OutPutTestmsg
@@ -119,7 +126,7 @@ export class DescribeInvocationsResponseBodyInvocationsInvokeDesktops extends $d
   output?: string;
   /**
    * @remarks
-   * The number of times the command was run on the cloud desktop.
+   * The number of times the command was executed on the cloud desktop.
    * 
    * @example
    * 0
@@ -135,7 +142,7 @@ export class DescribeInvocationsResponseBodyInvocationsInvokeDesktops extends $d
   startTime?: string;
   /**
    * @remarks
-   * The time when execution was stopped, if StopInvocation was called.
+   * The time when the execution was stopped, if StopInvocation was called.
    * 
    * @example
    * 2020-12-25T09:15:47Z
@@ -223,6 +230,15 @@ export class DescribeInvocationsResponseBodyInvocations extends $dara.Model {
    * 2020-12-19T09:15:46Z
    */
   creationTime?: string;
+  /**
+   * @remarks
+   * The cloud desktop scenario. Valid values:
+   * - Classic: the classic cloud desktop scenario.
+   * - JvsClaw: the JVS Claw cloud desktop scenario.
+   * 
+   * @example
+   * Classic
+   */
   desktopScenario?: string;
   /**
    * @remarks
@@ -236,20 +252,20 @@ export class DescribeInvocationsResponseBodyInvocations extends $dara.Model {
    * @remarks
    * The overall execution status of the script. The overall execution status depends on the combined execution status of all cloud desktops in this call. Valid values:
    * 
-   * - Pending: The system is validating or sending the command. If the script execution status on at least one cloud desktop is Pending, the overall execution status is Pending.
-   * - Running: The command is running on the cloud desktop. If the script execution status on at least one cloud desktop is Running, the overall execution status is Running.
-   * - Success: The script execution status on each cloud desktop is Stopped or Success, and the script execution status on at least one cloud desktop is Success. The overall execution status is Success.
-   * - Failed: The script execution status on each cloud desktop is Stopped or Failed. The overall execution status is Failed. The return value is Failed when one or more of the following statuses occur on a cloud desktop:
-   *     - Command validation failed (Invalid).
-   *     - Command delivery failed (Aborted).
-   *     - Command execution completed but the exit code is non-zero (Failed).
-   *     - Command execution timed out (Timeout).
-   *     - Command execution encountered an exception (Error).
-   * - Stopping: The task is being stopped. If the script execution status on at least one instance is Stopping, the overall execution status is Stopping.
-   * - Stopped: The task has been stopped. If the script execution status on all instances is Stopped, the overall execution status is Stopped. The return value is Stopped when the script execution status on an instance is one of the following:
-   *     - Task cancelled (Cancelled).
-   *     - Task terminated (Terminated).
-   * - PartialFailed: Some instances succeeded and some instances failed. If the script execution status on each instance is Success, Failed, or Stopped, the overall execution status is PartialFailed.
+   * - Pending: The system is validating or sending the command. The overall execution status is Pending if at least one cloud desktop has a script execution status of Pending.
+   * - Running: The command is running on the cloud desktop. The overall execution status is Running if at least one cloud desktop has a script execution status of Running.
+   * - Success: The overall execution status is Success if the script execution status on each cloud desktop is Stopped or Success, and at least one cloud desktop has a script execution status of Success.
+   * - Failed: The overall execution status is Failed if the script execution status on each cloud desktop is Stopped or Failed. The return value is Failed when one or more of the following statuses occur on a cloud desktop:
+   *     - Command validation failed (Invalid)
+   *     - Command delivery failed (Aborted)
+   *     - Command execution completed with a non-zero exit code (Failed)
+   *     - Command execution timed out (Timeout)
+   *     - Command execution encountered an exception (Error)
+   * - Stopping: The task is being stopped. The overall execution status is Stopping if at least one instance has a script execution status of Stopping.
+   * - Stopped: The task has been stopped. The overall execution status is Stopped if the script execution status on all instances is Stopped. The return value is Stopped when the script execution status on an instance is one of the following:
+   *     - Task cancelled (Cancelled)
+   *     - Task terminated (Terminated)
+   * - PartialFailed: The overall execution status is PartialFailed if some instances succeeded and some instances failed. The overall execution status is PartialFailed if the script execution status on each instance is Success, Failed, or Stopped.
    * 
    * @example
    * Pending
@@ -257,7 +273,7 @@ export class DescribeInvocationsResponseBodyInvocations extends $dara.Model {
   invocationStatus?: string;
   /**
    * @remarks
-   * The total number of cloud desktops on which the script was run.
+   * The total number of cloud desktops on which the script was executed.
    * 
    * @example
    * 1
@@ -265,7 +281,7 @@ export class DescribeInvocationsResponseBodyInvocations extends $dara.Model {
   invokeDesktopCount?: number;
   /**
    * @remarks
-   * The total number of cloud desktops on which the script was run successfully.
+   * The total number of cloud desktops on which the script was executed successfully.
    * 
    * @example
    * 1

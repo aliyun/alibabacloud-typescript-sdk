@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class UnbindConfigGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The IDs of the configuration groups.
+   * The list of unbound configuration group IDs.
    */
   groupIds?: string[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * AD0FF13D-FC7D-56AD-934F-91C8487*****

@@ -3,8 +3,29 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeClientEventsResponseBodyEventsTerminalInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The terminal device model.
+   * 
+   * @example
+   * wuying_mac_x86_64
+   */
   model?: string;
+  /**
+   * @remarks
+   * The terminal type.
+   * 
+   * @example
+   * Mac
+   */
   productName?: string;
+  /**
+   * @remarks
+   * The terminal serial number.
+   * 
+   * @example
+   * 96c530bc-6095-4014-8bbc-d461b8ac****
+   */
   serialNumber?: string;
   static names(): { [key: string]: string } {
     return {
@@ -85,7 +106,7 @@ export class DescribeClientEventsResponseBodyEvents extends $dara.Model {
    * The description.
    * 
    * @example
-   * test
+   * User logon event
    */
   description?: string;
   /**
@@ -125,7 +146,7 @@ export class DescribeClientEventsResponseBodyEvents extends $dara.Model {
    * The name of the cloud computer.
    * 
    * @example
-   * test
+   * Finance cloud computer
    */
   desktopName?: string;
   /**
@@ -162,7 +183,7 @@ export class DescribeClientEventsResponseBodyEvents extends $dara.Model {
   eventId?: string;
   /**
    * @remarks
-   * The time when the event occurred.
+   * The time when the event occurred. The time is in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format (UTC).
    * 
    * @example
    * 2020-11-30T06:32:31Z
@@ -189,7 +210,7 @@ export class DescribeClientEventsResponseBodyEvents extends $dara.Model {
    * The name of the office network.
    * 
    * @example
-   * test
+   * R&D office network
    */
   officeSiteName?: string;
   /**
@@ -212,12 +233,16 @@ export class DescribeClientEventsResponseBodyEvents extends $dara.Model {
    * @remarks
    * The status of the event action. This field typically appears in `DESKTOP_DISCONNECT` and `GET_CONNECTION_TICKET` events. Valid values:
    * - 200: success.
-   * - A failure message is returned, such as FailedToGetConnectionTicket.
+   * - A failure message, such as FailedToGetConnectionTicket.
    * 
    * @example
    * 200
    */
   status?: string;
+  /**
+   * @remarks
+   * The terminal information.
+   */
   terminalInfo?: DescribeClientEventsResponseBodyEventsTerminalInfo;
   static names(): { [key: string]: string } {
     return {
@@ -311,6 +336,13 @@ export class DescribeClientEventsResponseBody extends $dara.Model {
    * 28A40F12-F340-442B-A35F-46EF6A03227B
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries.
+   * 
+   * @example
+   * 15
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {

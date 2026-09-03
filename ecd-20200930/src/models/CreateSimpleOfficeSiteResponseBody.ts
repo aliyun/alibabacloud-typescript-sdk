@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateSimpleOfficeSiteResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The office site ID.
+   * The office network ID.
    * 
    * @example
    * cn-hangzhou+os-c5cy7q578s8jc****
@@ -13,7 +13,7 @@ export class CreateSimpleOfficeSiteResponseBody extends $dara.Model {
   officeSiteId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****

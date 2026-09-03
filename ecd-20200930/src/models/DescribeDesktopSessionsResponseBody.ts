@@ -193,7 +193,7 @@ export class DescribeDesktopSessionsResponseBodySessions extends $dara.Model {
   officeSiteId?: string;
   /**
    * @remarks
-   * The office network name.
+   * The name of the office network.
    * 
    * @example
    * TestOfficeSite
@@ -231,6 +231,7 @@ export class DescribeDesktopSessionsResponseBodySessions extends $dara.Model {
   /**
    * @remarks
    * The end time of the session.
+   * The time is displayed in UTC in the yyyy-MM-ddTHH:mm:ssZ format.
    * 
    * @example
    * 2023-01-28T02:31:43Z
@@ -247,6 +248,7 @@ export class DescribeDesktopSessionsResponseBodySessions extends $dara.Model {
   /**
    * @remarks
    * The start time of the session.
+   * The time is displayed in UTC in the ISO 8601 standard format: yyyy-MM-ddTHH:mm:ssZ.
    * 
    * @example
    * 2023-01-28T02:31:43Z

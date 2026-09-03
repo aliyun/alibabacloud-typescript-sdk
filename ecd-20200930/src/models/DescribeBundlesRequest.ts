@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeBundlesRequest extends $dara.Model {
   /**
    * @remarks
-   * The IDs of the cloud computer templates. You can specify 1 to 100 IDs.
+   * The list of cloud computer template IDs. You can specify 1 to 100 IDs.
    * 
    * @example
    * bundle_ecd_graphics.2xlarge_s15d15_win2019
@@ -13,7 +13,7 @@ export class DescribeBundlesRequest extends $dara.Model {
   bundleId?: string[];
   /**
    * @remarks
-   * The type of the cloud computer template.
+   * The cloud computer templatetype.
    * 
    * @example
    * SYSTEM
@@ -21,7 +21,7 @@ export class DescribeBundlesRequest extends $dara.Model {
   bundleType?: string;
   /**
    * @remarks
-   * Specifies whether to query the inventory status of the cloud computer instance type.
+   * Specifies whether to query the stock status of the cloud computer instance type.
    * 
    * @example
    * true
@@ -29,7 +29,7 @@ export class DescribeBundlesRequest extends $dara.Model {
   checkStock?: boolean;
   /**
    * @remarks
-   * The number of vCPUs contained in the cloud computer instance type.
+   * The number of vCPUs included in the cloud computer instance type.
    * 
    * @example
    * 2
@@ -37,7 +37,7 @@ export class DescribeBundlesRequest extends $dara.Model {
   cpuCount?: number;
   /**
    * @remarks
-   * The instance family of the cloud computers.
+   * The cloud computer instance family.
    * 
    * @example
    * eds.general
@@ -45,7 +45,7 @@ export class DescribeBundlesRequest extends $dara.Model {
   desktopTypeFamily?: string;
   /**
    * @remarks
-   * > This parameter is not available for public use.
+   * > This parameter is not publicly available.
    * 
    * @example
    * example
@@ -53,7 +53,7 @@ export class DescribeBundlesRequest extends $dara.Model {
   fotaChannel?: string;
   /**
    * @remarks
-   * Specifies whether the cloud computers in the template belong to a cloud computer pool.
+   * Specifies whether the template belongs to a cloud computer pool.
    * 
    * @example
    * false
@@ -61,7 +61,7 @@ export class DescribeBundlesRequest extends $dara.Model {
   fromDesktopGroup?: boolean;
   /**
    * @remarks
-   * The number of GPUs contained in the cloud computer instance type.
+   * The number of GPUs included in the cloud computer instance type.
    * 
    * @example
    * 1
@@ -77,16 +77,12 @@ export class DescribeBundlesRequest extends $dara.Model {
   gpuDriverType?: string;
   /**
    * @remarks
-   * The image IDs.
+   * The list of image IDs.
    */
   imageId?: string[];
   /**
    * @remarks
-   * The number of entries to return on each page.
-   * 
-   * Maximum value: 100.
-   * 
-   * Default value: 10.
+   * The maximum number of entries per page for a paged query.
    * 
    * @example
    * 10
@@ -94,7 +90,7 @@ export class DescribeBundlesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The memory size of the cloud computer instance type. Unit: GiB.
+   * The memory size included in the cloud computer instance type. Unit: GiB.
    * 
    * @example
    * 4
@@ -102,7 +98,7 @@ export class DescribeBundlesRequest extends $dara.Model {
   memorySize?: number;
   /**
    * @remarks
-   * The token that is used to start the next query.
+   * The token for the next query.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a4883
@@ -110,7 +106,7 @@ export class DescribeBundlesRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The type of the OS.
+   * The operating system type.
    * 
    * @example
    * Windows
@@ -126,7 +122,7 @@ export class DescribeBundlesRequest extends $dara.Model {
   protocolType?: string;
   /**
    * @remarks
-   * The region ID. You can call the [](t2167755.xdita#)operation to query the regions supported by Elastic Desktop Service (EDS).
+   * The region ID. You can call [DescribeRegions](~~DescribeRegions~~) to query the regions supported by Elastic Desktop Service.
    * 
    * This parameter is required.
    * 
@@ -136,7 +132,7 @@ export class DescribeBundlesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The scenario to use the image.
+   * Scenarios.
    * 
    * @example
    * FastBuy
@@ -144,7 +140,7 @@ export class DescribeBundlesRequest extends $dara.Model {
   scope?: string;
   /**
    * @remarks
-   * The desktop template that is selected based on specific criteria.
+   * The selected template.
    * 
    * @example
    * true
@@ -152,7 +148,7 @@ export class DescribeBundlesRequest extends $dara.Model {
   selectedBundle?: boolean;
   /**
    * @remarks
-   * The type of the session.
+   * The session type.
    * 
    * @example
    * SingleSession
@@ -160,7 +156,7 @@ export class DescribeBundlesRequest extends $dara.Model {
   sessionType?: string;
   /**
    * @remarks
-   * Specifies whether to return multi-session cloud computer templates. Default value: false.
+   * Specifies whether to return multi-session cloud computer templates when querying the cloud computer list. Multi-session templates are not returned by default.
    * 
    * @example
    * false

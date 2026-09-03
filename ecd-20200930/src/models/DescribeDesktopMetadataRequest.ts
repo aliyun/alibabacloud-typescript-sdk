@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDesktopMetadataRequest extends $dara.Model {
   /**
    * @remarks
-   * The time when the cloud desktop was created. The time is in UTC format:
+   * The time when the cloud computer was created. The time is in UTC and follows the format:
    * `yyyy-MM-dd\\"T\\"HH:mm:ss\\"Z\\"`.
    * 
    * @example
@@ -14,7 +14,7 @@ export class DescribeDesktopMetadataRequest extends $dara.Model {
   creationTimeStart?: string;
   /**
    * @remarks
-   * The list of cloud desktop IDs.
+   * The list of cloud computer IDs.
    */
   desktopIds?: string[];
   /**
@@ -27,7 +27,7 @@ export class DescribeDesktopMetadataRequest extends $dara.Model {
   endUserId?: string;
   /**
    * @remarks
-   * The shared cloud desktop ID.
+   * The shared cloud computer ID.
    * 
    * @example
    * dg-i1ruuudp92qpj****
@@ -51,7 +51,7 @@ export class DescribeDesktopMetadataRequest extends $dara.Model {
   imageId?: string;
   /**
    * @remarks
-   * Specifies whether the response includes cloud desktops in shared cloud desktop groups.
+   * Specifies whether the response includes cloud computers in shared cloud computer groups.
    * 
    * @example
    * false
@@ -99,7 +99,7 @@ export class DescribeDesktopMetadataRequest extends $dara.Model {
   officeSiteId?: string;
   /**
    * @remarks
-   * The start time of the operation performed on the cloud desktop. The time is in UTC format:
+   * The start time of operations performed on the cloud computer. The time is in UTC and follows the format:
    * `yyyy-MM-dd\\"T\\"HH:mm:ss\\"Z\\"`.
    * 
    * @example

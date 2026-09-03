@@ -53,7 +53,8 @@ export class DescribeGlobalDesktopRecordsResponseBodySessionsSessions extends $d
   endUserId?: string;
   /**
    * @remarks
-   * The time when the session was created.
+   * The session creation time.
+   * The time is in the ISO 8601 standard in UTC: yyyy-MM-ddTHH:mm:ssZ.
    * 
    * @example
    * 2022-08-31T06:56:45Z
@@ -99,6 +100,13 @@ export class DescribeGlobalDesktopRecordsResponseBodySessions extends $dara.Mode
    * 2
    */
   cpu?: number;
+  /**
+   * @remarks
+   * The creation time of the cloud desktop. The time is in the ISO 8601 standard (UTC).
+   * 
+   * @example
+   * 2020-11-06T08:28Z
+   */
   creationTime?: string;
   /**
    * @remarks
@@ -222,7 +230,7 @@ export class DescribeGlobalDesktopRecordsResponseBodySessions extends $dara.Mode
   platform?: string;
   /**
    * @remarks
-   * The protocol type.
+   * The protocol type. Valid values:
    * 
    * - HDX
    * - ASP
@@ -241,7 +249,7 @@ export class DescribeGlobalDesktopRecordsResponseBodySessions extends $dara.Mode
   regionId?: string;
   /**
    * @remarks
-   * The enterprise resource group name.
+   * The enterprise resource group names.
    */
   resourceGroups?: DescribeGlobalDesktopRecordsResponseBodySessionsResourceGroups[];
   /**
@@ -259,7 +267,7 @@ export class DescribeGlobalDesktopRecordsResponseBodySessions extends $dara.Mode
   sessions?: DescribeGlobalDesktopRecordsResponseBodySessionsSessions[];
   /**
    * @remarks
-   * The time when the cloud desktop status changed.
+   * The UNIX timestamp of the cloud desktop status change. Unit: milliseconds.
    * 
    * @example
    * 1760583xxxx

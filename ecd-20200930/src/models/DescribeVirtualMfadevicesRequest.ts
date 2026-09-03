@@ -5,12 +5,19 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeVirtualMFADevicesRequest extends $dara.Model {
   /**
    * @remarks
-   * The list of Active Directory (AD) account usernames.
+   * The list of AD account usernames.
    * 
    * @example
    * testuser
    */
   endUserId?: string[];
+  /**
+   * @remarks
+   * The fuzzy match query string character.
+   * 
+   * @example
+   * *jin*
+   */
   filter?: string;
   /**
    * @remarks
@@ -22,7 +29,7 @@ export class DescribeVirtualMFADevicesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token. If a response is truncated, use the returned `NextToken` to retrieve the next page of results.
+   * The pagination token. Set this parameter to the value of NextToken that was returned from the last call to this operation.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a4883
@@ -38,7 +45,7 @@ export class DescribeVirtualMFADevicesRequest extends $dara.Model {
   officeSiteId?: string;
   /**
    * @remarks
-   * The region ID. Call the [DescribeRegions](~~DescribeRegions~~) operation to query the regions supported by Elastic Desktop Service (EDS).
+   * The region ID. You can call [DescribeRegions](~~DescribeRegions~~) to query the regions supported by Elastic Desktop Service.
    * 
    * This parameter is required.
    * 

@@ -12,32 +12,6 @@ export default class Client extends OpenApi {
   constructor(config: $OpenApiUtil.Config) {
     super(config);
     this._endpointRule = "regional";
-    this._endpointMap = {
-      'us-west-1': "ecd.us-west-1.aliyuncs.com",
-      'us-east-1': "ecd.us-east-1.aliyuncs.com",
-      'me-east-1': "ecd.me-east-1.aliyuncs.com",
-      'me-central-1': "ecd.me-central-1.aliyuncs.com",
-      'eu-west-1': "ecd.eu-west-1.aliyuncs.com",
-      'eu-central-1': "ecd.eu-central-1.aliyuncs.com",
-      'cn-zhangjiakou': "ecd.cn-zhangjiakou.aliyuncs.com",
-      'cn-wulanchabu': "ecd.cn-wulanchabu.aliyuncs.com",
-      'cn-shenzhen': "ecd.cn-shenzhen.aliyuncs.com",
-      'cn-shanghai-finance-1': "ecd.cn-shanghai-finance-1.aliyuncs.com",
-      'cn-shanghai': "ecd.cn-shanghai.aliyuncs.com",
-      'cn-qingdao': "ecd.cn-qingdao.aliyuncs.com",
-      'cn-nanjing': "ecd.cn-nanjing.aliyuncs.com",
-      'cn-hongkong': "ecd.cn-hongkong.aliyuncs.com",
-      'cn-hangzhou-finance': "ecd.cn-hangzhou-finance.aliyuncs.com",
-      'cn-hangzhou': "ecd.cn-hangzhou.aliyuncs.com",
-      'cn-guangzhou': "ecd.cn-guangzhou.aliyuncs.com",
-      'cn-chengdu': "ecd.cn-chengdu.aliyuncs.com",
-      'cn-beijing': "ecd.cn-beijing.aliyuncs.com",
-      'ap-southeast-7': "ecd.ap-southeast-7.aliyuncs.com",
-      'ap-southeast-6': "ecd.ap-southeast-6.aliyuncs.com",
-      'ap-southeast-5': "ecd.ap-southeast-5.aliyuncs.com",
-      'ap-southeast-1': "ecd.ap-southeast-1.aliyuncs.com",
-      'ap-northeast-1': "ecd.ap-northeast-1.aliyuncs.com",
-    };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("ecd", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
@@ -56,7 +30,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Unlocks an office network that was automatically locked after being idle for a period of time.
+   * Unlocks an office network based on a convenience account that has been automatically locked after being idle for a certain period.
    * 
    * @remarks
    * For office networks based on convenience accounts, if no cloud computers are created within 15 consecutive calendar days, the office network is automatically locked and VPC-related resources are released. To use the office network again, call this operation to unlock it.
@@ -94,7 +68,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Unlocks an office network that was automatically locked after being idle for a period of time.
+   * Unlocks an office network based on a convenience account that has been automatically locked after being idle for a certain period.
    * 
    * @remarks
    * For office networks based on convenience accounts, if no cloud computers are created within 15 consecutive calendar days, the office network is automatically locked and VPC-related resources are released. To use the office network again, call this operation to unlock it.
@@ -169,7 +143,7 @@ export default class Client extends OpenApi {
    * Adds trusted devices.
    * 
    * @remarks
-   * Each device can be registered in only one Alibaba Cloud account. If you register a device that has been registered in another Alibaba Cloud account, an error is reported.
+   * Each device can only be registered under one Alibaba Cloud account. If the device you attempt to register is already registered under another Alibaba Cloud account, an error is returned.
    * 
    * @param request - AddDevicesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -211,7 +185,7 @@ export default class Client extends OpenApi {
    * Adds trusted devices.
    * 
    * @remarks
-   * Each device can be registered in only one Alibaba Cloud account. If you register a device that has been registered in another Alibaba Cloud account, an error is reported.
+   * Each device can only be registered under one Alibaba Cloud account. If the device you attempt to register is already registered under another Alibaba Cloud account, an error is returned.
    * 
    * @param request - AddDevicesRequest
    * @returns AddDevicesResponse
@@ -296,7 +270,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds authorized users to a shared cloud desktop group, automatically assigning cloud desktops within the group to these users based on rules defined by an administrator.
+   * Adds authorized users to a shared cloud computer. Cloud computers within the shared cloud computer are automatically assigned to authorized users based on rules set by the administrator.
    * 
    * @param request - AddUserToDesktopGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -359,7 +333,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds authorized users to a shared cloud desktop group, automatically assigning cloud desktops within the group to these users based on rules defined by an administrator.
+   * Adds authorized users to a shared cloud computer. Cloud computers within the shared cloud computer are automatically assigned to authorized users based on rules set by the administrator.
    * 
    * @param request - AddUserToDesktopGroupRequest
    * @returns AddUserToDesktopGroupResponse
@@ -486,11 +460,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Apply an automatic snapshot policy to cloud computers. After the automatic snapshot policy is applied to the cloud computers, Elastic Desktop Service automatically creates snapshots for the cloud computers based on the time specified in the automatic snapshot policy.
-   * 
-   * @remarks
-   * You can also associate an automatic snapshot policy with a cloud desktop in the Elastic Desktop Service (EDS) console. To do so, perform the following steps: 1. Log on to the EDS console. 2. Choose Desktops and Groups > Desktops in the left-side navigation pane. 3. Find the cloud desktop that you want to manage on the Cloud Desktops page and choose More > Change Automatic Snapshot Policy in the Actions column. 4. Configure a policy for the cloud desktop as prompted in the Change Automatic Snapshot Policy panel.
-   * After you associate an automatic snapshot policy with the cloud desktop, the system creates snapshots for the cloud desktop based on the policy.
+   * Attaches an automatic snapshot policy to cloud computers. After the policy is attached, cloud computers perform automatic creation of snapshots at the times specified in the automatic snapshot policy.
    * 
    * @param request - ApplyAutoSnapshotPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -529,11 +499,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Apply an automatic snapshot policy to cloud computers. After the automatic snapshot policy is applied to the cloud computers, Elastic Desktop Service automatically creates snapshots for the cloud computers based on the time specified in the automatic snapshot policy.
-   * 
-   * @remarks
-   * You can also associate an automatic snapshot policy with a cloud desktop in the Elastic Desktop Service (EDS) console. To do so, perform the following steps: 1. Log on to the EDS console. 2. Choose Desktops and Groups > Desktops in the left-side navigation pane. 3. Find the cloud desktop that you want to manage on the Cloud Desktops page and choose More > Change Automatic Snapshot Policy in the Actions column. 4. Configure a policy for the cloud desktop as prompted in the Change Automatic Snapshot Policy panel.
-   * After you associate an automatic snapshot policy with the cloud desktop, the system creates snapshots for the cloud desktop based on the policy.
+   * Attaches an automatic snapshot policy to cloud computers. After the policy is attached, cloud computers perform automatic creation of snapshots at the times specified in the automatic snapshot policy.
    * 
    * @param request - ApplyAutoSnapshotPolicyRequest
    * @returns ApplyAutoSnapshotPolicyResponse
@@ -778,7 +744,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Associates a premium Internet bandwidth plan with an office network. A premium Internet bandwidth plan has a one-to-one bindingrelationship with an office network.
+   * Associates a premium Internet bandwidth plan with an office network. A premium Internet bandwidth plan has a one-to-one relationship with an office network.
    * 
    * @param request - AssociateNetworkPackageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -817,7 +783,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Associates a premium Internet bandwidth plan with an office network. A premium Internet bandwidth plan has a one-to-one bindingrelationship with an office network.
+   * Associates a premium Internet bandwidth plan with an office network. A premium Internet bandwidth plan has a one-to-one relationship with an office network.
    * 
    * @param request - AssociateNetworkPackageRequest
    * @returns AssociateNetworkPackageResponse
@@ -878,13 +844,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Binds an advanced office network to a Cloud Enterprise Network (CEN) instance.
+   * Associates an advanced office network with a Cloud Enterprise Network (CEN) instance.
    * 
    * @remarks
-   * Prerequisites
-   * *   A CEN instance is created.
-   * *   The office network is an advanced office network, and the account system type is convenient account.
-   * >  The office network is added to the CEN instance when you create the instance. An office network can be added to only one CEN instance.
+   * Before you begin:
+   * - A CEN instance is available.
+   * - The office network is an advanced office network, and the account system type is convenience account.
+   * > An AD office network is already added to a CEN instance during creation. An office network can be added to only one CEN instance.
    * 
    * @param request - AttachCenRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -931,13 +897,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Binds an advanced office network to a Cloud Enterprise Network (CEN) instance.
+   * Associates an advanced office network with a Cloud Enterprise Network (CEN) instance.
    * 
    * @remarks
-   * Prerequisites
-   * *   A CEN instance is created.
-   * *   The office network is an advanced office network, and the account system type is convenient account.
-   * >  The office network is added to the CEN instance when you create the instance. An office network can be added to only one CEN instance.
+   * Before you begin:
+   * - A CEN instance is available.
+   * - The office network is an advanced office network, and the account system type is convenience account.
+   * > An AD office network is already added to a CEN instance during creation. An office network can be added to only one CEN instance.
    * 
    * @param request - AttachCenRequest
    * @returns AttachCenResponse
@@ -948,7 +914,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Binds a hardware client to a user.
+   * If you want a hardware terminal to be accessible only to specified end users, you need to enable the trusted device authentication feature and add bound users to the hardware terminal.
    * 
    * @param request - AttachEndUserRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1003,7 +969,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Binds a hardware client to a user.
+   * If you want a hardware terminal to be accessible only to specified end users, you need to enable the trusted device authentication feature and add bound users to the hardware terminal.
    * 
    * @param request - AttachEndUserRequest
    * @returns AttachEndUserResponse
@@ -1444,7 +1410,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * After you create an object upload task, call this operation to upload the object.
+   * Completes the file upload action after a file upload task is created.
    * 
    * @param request - CompleteCdsFileRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1495,7 +1461,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * After you create an object upload task, call this operation to upload the object.
+   * Completes the file upload action after a file upload task is created.
    * 
    * @param request - CompleteCdsFileRequest
    * @returns CompleteCdsFileResponse
@@ -1750,10 +1716,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a directory of the Active Directory (AD) type.
+   * Creates an AD directory.
    * 
    * @remarks
-   * An AD directory is used to connect to an enterprise\\"s existing Active Directory and is suitable for large-scale cloud computer deployment. You are charged directory fees when you connect your AD to cloud computers. For more information, see [Billing overview](https://help.aliyun.com/document_detail/188395.html).
+   * AD directories are used to connect to your enterprise Active Directory (AD) and are suitable for large-scale cloud computer deployments. Connecting to an enterprise AD incurs directory fees. For more information, see [Billing overview](https://help.aliyun.com/document_detail/188395.html).
    * 
    * @param request - CreateADConnectorDirectoryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1832,10 +1798,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a directory of the Active Directory (AD) type.
+   * Creates an AD directory.
    * 
    * @remarks
-   * An AD directory is used to connect to an enterprise\\"s existing Active Directory and is suitable for large-scale cloud computer deployment. You are charged directory fees when you connect your AD to cloud computers. For more information, see [Billing overview](https://help.aliyun.com/document_detail/188395.html).
+   * AD directories are used to connect to your enterprise Active Directory (AD) and are suitable for large-scale cloud computer deployments. Connecting to an enterprise AD incurs directory fees. For more information, see [Billing overview](https://help.aliyun.com/document_detail/188395.html).
    * 
    * @param request - CreateADConnectorDirectoryRequest
    * @returns CreateADConnectorDirectoryResponse
@@ -1846,16 +1812,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * WUYING Workspace supports two account types: convenience accounts and Enterprise AD accounts. This operation creates an office network (formerly known as a workspace) for Enterprise AD accounts.
+   * Creates an office network (formerly workspace) based on an enterprise Active Directory (AD) account system. Elastic Desktop Service supports convenient accounts and enterprise AD accounts.
    * 
    * @remarks
-   * When you create an AD office network, an AD Connector is automatically created to connect to your enterprise AD. You are charged for the AD Connector. For more information, see [billing overview](https://help.aliyun.com/document_detail/188395.html).
-   * After creating an AD office network, you must also configure the AD domain. Follow these steps:
-   * 1. Configure a conditional forwarder on your DNS server.
-   * 2. Establish a trust relationship on your domain controller, and then call [ConfigADConnectorTrust](https://help.aliyun.com/document_detail/311258.html) to configure this trust for the AD office network.
-   * 3. Call [ListUserAdOrganizationUnits](https://help.aliyun.com/document_detail/311259.html) to list the organizational units (OUs) in your AD domain. Then, call [ConfigADConnectorUser](https://help.aliyun.com/document_detail/311262.html) to specify the OUs and an administrator for the AD office network.
-   *    > If you provide domain administrator credentials (DomainUserName and DomainPassword) when you create the AD office network, you only need to configure a conditional forwarder. If you do not provide these credentials, you must configure a conditional forwarder, establish a trust relationship, and specify the organizational units (OUs).
-   * For more information, see [Create and manage office networks for enterprise AD accounts](https://help.aliyun.com/document_detail/214469.html).
+   * When you create an AD office network, the system performs automatic creation of an AD Connector to connect to your enterprise AD. You are charged for the AD Connector. For more information, see [Billing overview](https://help.aliyun.com/document_detail/188395.html).
+   * After you call this operation to create an AD office network, you must complete the AD domain configurations. The procedure is as follows:
+   * 1. Configure a conditional forwarder on the DNS server.
+   * 1. Configure a trust relationship on the AD domain server, and then call [ConfigADConnectorTrust](https://help.aliyun.com/document_detail/311258.html) to configure the trust relationship for the AD office network.
+   * 1. Call [ListUserAdOrganizationUnits](https://help.aliyun.com/document_detail/311259.html) to obtain the organizational unit (OU) information of the AD domain, and then call [ConfigADConnectorUser](https://help.aliyun.com/document_detail/311262.html) to specify the OU and administrator for the AD office network.
+   *     
+   *     > When you create an AD office network, if you specify the domain administrator and password (DomainUserName and DomainPassword), you only need to configure the conditional forwarder afterward. If you do not specify the domain administrator and password, you must complete the configurations of the conditional forwarder, trust relationship, and OU as described above.
+   * For more information, see [Create and manage an AD-based office network](https://help.aliyun.com/document_detail/214469.html).
    * 
    * @param request - CreateADConnectorOfficeSiteRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1978,16 +1945,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * WUYING Workspace supports two account types: convenience accounts and Enterprise AD accounts. This operation creates an office network (formerly known as a workspace) for Enterprise AD accounts.
+   * Creates an office network (formerly workspace) based on an enterprise Active Directory (AD) account system. Elastic Desktop Service supports convenient accounts and enterprise AD accounts.
    * 
    * @remarks
-   * When you create an AD office network, an AD Connector is automatically created to connect to your enterprise AD. You are charged for the AD Connector. For more information, see [billing overview](https://help.aliyun.com/document_detail/188395.html).
-   * After creating an AD office network, you must also configure the AD domain. Follow these steps:
-   * 1. Configure a conditional forwarder on your DNS server.
-   * 2. Establish a trust relationship on your domain controller, and then call [ConfigADConnectorTrust](https://help.aliyun.com/document_detail/311258.html) to configure this trust for the AD office network.
-   * 3. Call [ListUserAdOrganizationUnits](https://help.aliyun.com/document_detail/311259.html) to list the organizational units (OUs) in your AD domain. Then, call [ConfigADConnectorUser](https://help.aliyun.com/document_detail/311262.html) to specify the OUs and an administrator for the AD office network.
-   *    > If you provide domain administrator credentials (DomainUserName and DomainPassword) when you create the AD office network, you only need to configure a conditional forwarder. If you do not provide these credentials, you must configure a conditional forwarder, establish a trust relationship, and specify the organizational units (OUs).
-   * For more information, see [Create and manage office networks for enterprise AD accounts](https://help.aliyun.com/document_detail/214469.html).
+   * When you create an AD office network, the system performs automatic creation of an AD Connector to connect to your enterprise AD. You are charged for the AD Connector. For more information, see [Billing overview](https://help.aliyun.com/document_detail/188395.html).
+   * After you call this operation to create an AD office network, you must complete the AD domain configurations. The procedure is as follows:
+   * 1. Configure a conditional forwarder on the DNS server.
+   * 1. Configure a trust relationship on the AD domain server, and then call [ConfigADConnectorTrust](https://help.aliyun.com/document_detail/311258.html) to configure the trust relationship for the AD office network.
+   * 1. Call [ListUserAdOrganizationUnits](https://help.aliyun.com/document_detail/311259.html) to obtain the organizational unit (OU) information of the AD domain, and then call [ConfigADConnectorUser](https://help.aliyun.com/document_detail/311262.html) to specify the OU and administrator for the AD office network.
+   *     
+   *     > When you create an AD office network, if you specify the domain administrator and password (DomainUserName and DomainPassword), you only need to configure the conditional forwarder afterward. If you do not specify the domain administrator and password, you must complete the configurations of the conditional forwarder, trust relationship, and OU as described above.
+   * For more information, see [Create and manage an AD-based office network](https://help.aliyun.com/document_detail/214469.html).
    * 
    * @param request - CreateADConnectorOfficeSiteRequest
    * @returns CreateADConnectorOfficeSiteResponse
@@ -2068,7 +2036,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an automatic snapshot policy that schedules snapshots for WUYING Workspace based on a cron expression.
+   * Creates an automatic snapshot policy that enables cloud computers to perform automatic creation of snapshots based on the schedule specified by a Cron expression.
    * 
    * @param request - CreateAutoSnapshotPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2115,7 +2083,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an automatic snapshot policy that schedules snapshots for WUYING Workspace based on a cron expression.
+   * Creates an automatic snapshot policy that enables cloud computers to perform automatic creation of snapshots based on the schedule specified by a Cron expression.
    * 
    * @param request - CreateAutoSnapshotPolicyRequest
    * @returns CreateAutoSnapshotPolicyResponse
@@ -2195,7 +2163,7 @@ export default class Client extends OpenApi {
    * Creates a custom cloud computer template.
    * 
    * @remarks
-   * Cloud computer templates include system templates and custom templates. A system template is the default template provided by Alibaba Cloud. You can call this operation to create a custom template.
+   * Cloud computer templates are classified into system templates and custom templates. System templates are default templates provided by Alibaba Cloud. You can call this operation to create a custom template.
    * 
    * @param request - CreateBundleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2265,7 +2233,7 @@ export default class Client extends OpenApi {
    * Creates a custom cloud computer template.
    * 
    * @remarks
-   * Cloud computer templates include system templates and custom templates. A system template is the default template provided by Alibaba Cloud. You can call this operation to create a custom template.
+   * Cloud computer templates are classified into system templates and custom templates. System templates are default templates provided by Alibaba Cloud. You can call this operation to create a custom template.
    * 
    * @param request - CreateBundleRequest
    * @returns CreateBundleResponse
@@ -2771,6 +2739,18 @@ export default class Client extends OpenApi {
       query["PortProxy"] = request.portProxy;
     }
 
+    if (!$dara.isNull(request.printerAlert)) {
+      query["PrinterAlert"] = request.printerAlert;
+    }
+
+    if (!$dara.isNull(request.printerAlertContent)) {
+      query["PrinterAlertContent"] = request.printerAlertContent;
+    }
+
+    if (!$dara.isNull(request.printerAlertTitle)) {
+      query["PrinterAlertTitle"] = request.printerAlertTitle;
+    }
+
     if (!$dara.isNull(request.printerRedirect)) {
       query["PrinterRedirect"] = request.printerRedirect;
     }
@@ -2909,6 +2889,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.taskbar)) {
       query["Taskbar"] = request.taskbar;
+    }
+
+    if (!$dara.isNull(request.threeScreen)) {
+      query["ThreeScreen"] = request.threeScreen;
     }
 
     if (!$dara.isNull(request.usbRedirect)) {
@@ -3108,10 +3092,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create a PDS (formerly Wuying Cloud Disk)
+   * Creates an enterprise network-attached storage (NAS) drive (formerly Wuying CloudDisk).
    * 
    * @remarks
-   * Before using this interface, make sure you understand the billing methods and pricing of Drive and Photo Service. For more information, see [Overview of Drive and Photo Service](https://help.aliyun.com/document_detail/386301.html).
+   * Before you call this operation, make sure that you fully understand the billing methods and pricing of enterprise NAS drives. For more information, see [Enterprise NAS drive overview](https://help.aliyun.com/document_detail/386301.html).
    * 
    * @param request - CreateCloudDriveServiceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3210,10 +3194,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create a PDS (formerly Wuying Cloud Disk)
+   * Creates an enterprise network-attached storage (NAS) drive (formerly Wuying CloudDisk).
    * 
    * @remarks
-   * Before using this interface, make sure you understand the billing methods and pricing of Drive and Photo Service. For more information, see [Overview of Drive and Photo Service](https://help.aliyun.com/document_detail/386301.html).
+   * Before you call this operation, make sure that you fully understand the billing methods and pricing of enterprise NAS drives. For more information, see [Enterprise NAS drive overview](https://help.aliyun.com/document_detail/386301.html).
    * 
    * @param request - CreateCloudDriveServiceRequest
    * @returns CreateCloudDriveServiceResponse
@@ -3224,7 +3208,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates personal cloud drives for users within your enterprise cloud drive.
+   * Adds a personal drive for a user in an enterprise network drive.
    * 
    * @param request - CreateCloudDriveUsersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3267,7 +3251,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates personal cloud drives for users within your enterprise cloud drive.
+   * Adds a personal drive for a user in an enterprise network drive.
    * 
    * @param request - CreateCloudDriveUsersRequest
    * @returns CreateCloudDriveUsersResponse
@@ -3278,7 +3262,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a configuration group. A configuration group contains the configuration information of scheduled tasks in a cloud computer center.
+   * Creates a configuration group. A configuration group contains the configuration information of scheduled tasks in a Cloud Desktop center.
    * 
    * @param request - CreateConfigGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3329,7 +3313,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a configuration group. A configuration group contains the configuration information of scheduled tasks in a cloud computer center.
+   * Creates a configuration group. A configuration group contains the configuration information of scheduled tasks in a Cloud Desktop center.
    * 
    * @param request - CreateConfigGroupRequest
    * @returns CreateConfigGroupResponse
@@ -3340,11 +3324,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creating a shared EDS.
+   * Creates a shared cloud computer.
    * 
    * @remarks
-   * - To learn more about shared desktops, including their features, use cases, limitations, and scaling policies, see [Shared desktop (formerly desktop pool) overview](https://help.aliyun.com/document_detail/290959.html).
-   * - Before calling this API, ensure you have created the necessary resources, such as an office network, a desktop template, and a policy.
+   * - For information about the features, common scenarios, limits, and scaling policies of shared cloud computers, see [Shared cloud computers (formerly cloud computer pools) overview](https://help.aliyun.com/document_detail/290959.html).
    * 
    * @param request - CreateDesktopGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3615,11 +3598,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creating a shared EDS.
+   * Creates a shared cloud computer.
    * 
    * @remarks
-   * - To learn more about shared desktops, including their features, use cases, limitations, and scaling policies, see [Shared desktop (formerly desktop pool) overview](https://help.aliyun.com/document_detail/290959.html).
-   * - Before calling this API, ensure you have created the necessary resources, such as an office network, a desktop template, and a policy.
+   * - For information about the features, common scenarios, limits, and scaling policies of shared cloud computers, see [Shared cloud computers (formerly cloud computer pools) overview](https://help.aliyun.com/document_detail/290959.html).
    * 
    * @param request - CreateDesktopGroupRequest
    * @returns CreateDesktopGroupResponse
@@ -3745,10 +3727,10 @@ export default class Client extends OpenApi {
    * <summary>Example of creating with a template</summary>
    * ```
    * {
-   *   "RegionId": "ap-southeast-1",
+   *   "RegionId": "cn-hangzhou",
    *   "DesktopName": "test-desktop-name",
    *   "Amount": "1",
-   *   "OfficeSiteId": "ap-southeast-1+dir-xxx",// Create an office network in advance
+   *   "OfficeSiteId": "cn-hangzhou+dir-xxx",// Create an office network in advance
    *   "PolicyGroupId": "system-all-enabled-policy",
    *   "ChargeType": "PostPaid",
    *   "BundleId": "b-enterprise_office_8c16g_windows2022"
@@ -3759,10 +3741,10 @@ export default class Client extends OpenApi {
    * <summary>Example of creating without a template</summary>
    * ```
    * {
-   *   "RegionId": "ap-southeast-1",
+   *   "RegionId": "cn-hangzhou",
    *   "DesktopName": "test-desktop-name",
    *   "Amount": "1",
-   *   "OfficeSiteId": "ap-southeast-1+dir-xxx",// Create an office network in advance
+   *   "OfficeSiteId": "cn-hangzhou+dir-xxx",// Create an office network in advance
    *   "PolicyGroupId": "system-all-enabled-policy",
    *   "ChargeType": "PostPaid",
    *   "DesktopAttachment": {
@@ -3779,10 +3761,10 @@ export default class Client extends OpenApi {
    * <summary>Example of creating a monthly hourly package</summary>
    * ```
    * {
-   *   "RegionId": "ap-southeast-1",
+   *   "RegionId": "cn-hangzhou",
    *   "DesktopName": "test-desktop-name",
    *   "Amount": "1",
-   *   "OfficeSiteId": "ap-southeast-1+dir-xxx",// Create an office network in advance
+   *   "OfficeSiteId": "cn-hangzhou+dir-xxx",// Create an office network in advance
    *   "PolicyGroupId": "system-all-enabled-policy",
    *   "ChargeType": "PostPaid",
    *   "DesktopAttachment": {
@@ -3804,11 +3786,11 @@ export default class Client extends OpenApi {
    * <summary>Example of creating an Agent resource</summary>
    * ```
    * {
-   *   "RegionId": "ap-southeast-1",
+   *   "RegionId": "cn-hangzhou",
    *   "BundleId": "b-openclaw-linux",
    *   "DesktopName": "test-desktop-name",
    *   "Amount": "1",
-   *   "OfficeSiteId": "ap-southeast-1+dir-xxx",// Create an office network in advance
+   *   "OfficeSiteId": "cn-hangzhou+dir-xxx",// Create an office network in advance
    *   "ChargeType": "PostPaid",
    *   "DesktopAttachment": {
    *     "DesktopType": "cloud.space.4c.8g"
@@ -3821,7 +3803,7 @@ export default class Client extends OpenApi {
    * }
    * ```
    * </details>
-   * To have cloud desktops automatically run custom command scripts, use the `UserCommands` field to configure custom commands.
+   * To have cloud desktops automatically execute custom command scripts, use the `UserCommands` field to configure custom commands.
    * 
    * @param tmpReq - CreateDesktopsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3833,6 +3815,10 @@ export default class Client extends OpenApi {
     OpenApiUtil.convert(tmpReq, request);
     if (!$dara.isNull(tmpReq.desktopAttachment)) {
       request.desktopAttachmentShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.desktopAttachment, "DesktopAttachment", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.desktopNameModel)) {
+      request.desktopNameModelShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.desktopNameModel, "DesktopNameModel", "json");
     }
 
     if (!$dara.isNull(tmpReq.purchaseOptions)) {
@@ -3882,6 +3868,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.desktopName)) {
       query["DesktopName"] = request.desktopName;
+    }
+
+    if (!$dara.isNull(request.desktopNameModelShrink)) {
+      query["DesktopNameModel"] = request.desktopNameModelShrink;
     }
 
     if (!$dara.isNull(request.desktopNameSuffix)) {
@@ -4039,10 +4029,10 @@ export default class Client extends OpenApi {
    * <summary>Example of creating with a template</summary>
    * ```
    * {
-   *   "RegionId": "ap-southeast-1",
+   *   "RegionId": "cn-hangzhou",
    *   "DesktopName": "test-desktop-name",
    *   "Amount": "1",
-   *   "OfficeSiteId": "ap-southeast-1+dir-xxx",// Create an office network in advance
+   *   "OfficeSiteId": "cn-hangzhou+dir-xxx",// Create an office network in advance
    *   "PolicyGroupId": "system-all-enabled-policy",
    *   "ChargeType": "PostPaid",
    *   "BundleId": "b-enterprise_office_8c16g_windows2022"
@@ -4053,10 +4043,10 @@ export default class Client extends OpenApi {
    * <summary>Example of creating without a template</summary>
    * ```
    * {
-   *   "RegionId": "ap-southeast-1",
+   *   "RegionId": "cn-hangzhou",
    *   "DesktopName": "test-desktop-name",
    *   "Amount": "1",
-   *   "OfficeSiteId": "ap-southeast-1+dir-xxx",// Create an office network in advance
+   *   "OfficeSiteId": "cn-hangzhou+dir-xxx",// Create an office network in advance
    *   "PolicyGroupId": "system-all-enabled-policy",
    *   "ChargeType": "PostPaid",
    *   "DesktopAttachment": {
@@ -4073,10 +4063,10 @@ export default class Client extends OpenApi {
    * <summary>Example of creating a monthly hourly package</summary>
    * ```
    * {
-   *   "RegionId": "ap-southeast-1",
+   *   "RegionId": "cn-hangzhou",
    *   "DesktopName": "test-desktop-name",
    *   "Amount": "1",
-   *   "OfficeSiteId": "ap-southeast-1+dir-xxx",// Create an office network in advance
+   *   "OfficeSiteId": "cn-hangzhou+dir-xxx",// Create an office network in advance
    *   "PolicyGroupId": "system-all-enabled-policy",
    *   "ChargeType": "PostPaid",
    *   "DesktopAttachment": {
@@ -4098,11 +4088,11 @@ export default class Client extends OpenApi {
    * <summary>Example of creating an Agent resource</summary>
    * ```
    * {
-   *   "RegionId": "ap-southeast-1",
+   *   "RegionId": "cn-hangzhou",
    *   "BundleId": "b-openclaw-linux",
    *   "DesktopName": "test-desktop-name",
    *   "Amount": "1",
-   *   "OfficeSiteId": "ap-southeast-1+dir-xxx",// Create an office network in advance
+   *   "OfficeSiteId": "cn-hangzhou+dir-xxx",// Create an office network in advance
    *   "ChargeType": "PostPaid",
    *   "DesktopAttachment": {
    *     "DesktopType": "cloud.space.4c.8g"
@@ -4115,7 +4105,7 @@ export default class Client extends OpenApi {
    * }
    * ```
    * </details>
-   * To have cloud desktops automatically run custom command scripts, use the `UserCommands` field to configure custom commands.
+   * To have cloud desktops automatically execute custom command scripts, use the `UserCommands` field to configure custom commands.
    * 
    * @param request - CreateDesktopsRequest
    * @returns CreateDesktopsResponse
@@ -4126,7 +4116,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables the disk encryption feature and adds the service-linked role (SLR) for enterprise cloud drive encryption under the RAM user.
+   * Enables the disk encryption feature and adds the service-linked role (SLR) for enterprise cloud disk encryption under the RAM user.
    * 
    * @param request - CreateDiskEncryptionServiceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4157,7 +4147,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables the disk encryption feature and adds the service-linked role (SLR) for enterprise cloud drive encryption under the RAM user.
+   * Enables the disk encryption feature and adds the service-linked role (SLR) for enterprise cloud disk encryption under the RAM user.
    * 
    * @param request - CreateDiskEncryptionServiceRequest
    * @returns CreateDiskEncryptionServiceResponse
@@ -4378,7 +4368,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create a custom image from an existing WUYING Workspace. Use this image to quickly deploy more workspaces with identical configurations. Avoid repeating configuration steps each time you create a new workspace.
+   * Creates a custom image from a deployed cloud computer to quickly create more cloud computers with the same configuration, avoiding repeated configuration each time.
    * 
    * @param request - CreateImageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4445,7 +4435,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create a custom image from an existing WUYING Workspace. Use this image to quickly deploy more workspaces with identical configurations. Avoid repeating configuration steps each time you create a new workspace.
+   * Creates a custom image from a deployed cloud computer to quickly create more cloud computers with the same configuration, avoiding repeated configuration each time.
    * 
    * @param request - CreateImageRequest
    * @returns CreateImageResponse
@@ -4459,9 +4449,9 @@ export default class Client extends OpenApi {
    * Creates a NAS file system.
    * 
    * @remarks
-   * - You can create one NAS file system for each standard office network to enable file sharing among cloud computers within the office network.
+   * - You can create one NAS file system for each standard office network to share files among cloud computers within the office network.
    * - The system performs automatic creation of a general-purpose NAS file system (with storage-optimized and compute-optimized instance storage types, offering capacities of 10 PiB and 1 PiB respectively) and generates a default mount target.
-   * - The NAS file system uses pay-as-you-go billing by default. You are charged based on the actual storage usage. You can also purchase resource plans to offset the storage usage.
+   * - The NAS file system uses the pay-as-you-go billing method by default. You are charged for the actual storage usage. You can also purchase resource plans to offset the storage usage.
    * For more information, see [Create shared storage NAS](https://help.aliyun.com/document_detail/214481.html).
    * 
    * @param request - CreateNASFileSystemRequest
@@ -4520,9 +4510,9 @@ export default class Client extends OpenApi {
    * Creates a NAS file system.
    * 
    * @remarks
-   * - You can create one NAS file system for each standard office network to enable file sharing among cloud computers within the office network.
+   * - You can create one NAS file system for each standard office network to share files among cloud computers within the office network.
    * - The system performs automatic creation of a general-purpose NAS file system (with storage-optimized and compute-optimized instance storage types, offering capacities of 10 PiB and 1 PiB respectively) and generates a default mount target.
-   * - The NAS file system uses pay-as-you-go billing by default. You are charged based on the actual storage usage. You can also purchase resource plans to offset the storage usage.
+   * - The NAS file system uses the pay-as-you-go billing method by default. You are charged for the actual storage usage. You can also purchase resource plans to offset the storage usage.
    * For more information, see [Create shared storage NAS](https://help.aliyun.com/document_detail/214481.html).
    * 
    * @param request - CreateNASFileSystemRequest
@@ -4741,7 +4731,7 @@ export default class Client extends OpenApi {
    * Creates a cloud computer policy.
    * 
    * @remarks
-   * A cloud computer policy is a set of rules for performance and security. These rules configure features such as local disk mapping, USB redirection, watermarks, and DNS control. For more information, see [Policy overview](https://help.aliyun.com/document_detail/189345.html).
+   * A cloud computer policy is a collection of rules that primarily includes configurations for cloud computer performance and security, such as basic policies like disk mapping, USB redirection, and watermarks, as well as rules like DNS management. For more information, see [Policy overview](https://help.aliyun.com/document_detail/189345.html).
    * 
    * @param request - CreatePolicyGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4999,7 +4989,7 @@ export default class Client extends OpenApi {
    * Creates a cloud computer policy.
    * 
    * @remarks
-   * A cloud computer policy is a set of rules for performance and security. These rules configure features such as local disk mapping, USB redirection, watermarks, and DNS control. For more information, see [Policy overview](https://help.aliyun.com/document_detail/189345.html).
+   * A cloud computer policy is a collection of rules that primarily includes configurations for cloud computer performance and security, such as basic policies like disk mapping, USB redirection, and watermarks, as well as rules like DNS management. For more information, see [Policy overview](https://help.aliyun.com/document_detail/189345.html).
    * 
    * @param request - CreatePolicyGroupRequest
    * @returns CreatePolicyGroupResponse
@@ -5010,10 +5000,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a QoS rule.
+   * Creates a rate limiting rule.
    * 
    * @remarks
-   * Creates a QoS rule to manage network bandwidth for resources such as cloud desktops and cloud phones.
+   * Cloud computer templates include system templates and custom templates. System templates are default templates provided by Alibaba Cloud. Call this operation to create a custom template.
    * 
    * @param request - CreateQosRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5068,10 +5058,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a QoS rule.
+   * Creates a rate limiting rule.
    * 
    * @remarks
-   * Creates a QoS rule to manage network bandwidth for resources such as cloud desktops and cloud phones.
+   * Cloud computer templates include system templates and custom templates. System templates are default templates provided by Alibaba Cloud. Call this operation to create a custom template.
    * 
    * @param request - CreateQosRuleRequest
    * @returns CreateQosRuleResponse
@@ -5082,12 +5072,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a Resource Access Management (RAM) directory.
+   * Creates a RAM-type directory.
    * 
    * @remarks
-   * Before you create a RAM directory, complete the following preparations:
-   * *   Call the `CreateVpc` operation to create a virtual private cloud (VPC) in a region supported by Elastic Desktop Service.
-   * *   Call the `CreateVSwitch` operation to create a vSwitch in the VPC. The vSwitch is in a zone that is supported by Elastic Desktop Service. You can call the [DescribeZones](https://help.aliyun.com/document_detail/196648.html) operation to obtain the most recent zone list for a region supported by Elastic Desktop Service
+   * Before creating a RAM-type directory, complete the following preparations:
+   * - Call `CreateVpc` to create a virtual private cloud (VPC) in a region supported by cloud computers.
+   * - Call `CreateVSwitch` to create a vSwitch in the same VPC. The zone of the vSwitch must be a zone supported by cloud computers in that region. Call [DescribeZones](https://help.aliyun.com/document_detail/196648.html) to query the zones supported by Elastic Desktop Service in a specific region.
    * 
    * @param request - CreateRAMDirectoryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5138,12 +5128,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a Resource Access Management (RAM) directory.
+   * Creates a RAM-type directory.
    * 
    * @remarks
-   * Before you create a RAM directory, complete the following preparations:
-   * *   Call the `CreateVpc` operation to create a virtual private cloud (VPC) in a region supported by Elastic Desktop Service.
-   * *   Call the `CreateVSwitch` operation to create a vSwitch in the VPC. The vSwitch is in a zone that is supported by Elastic Desktop Service. You can call the [DescribeZones](https://help.aliyun.com/document_detail/196648.html) operation to obtain the most recent zone list for a region supported by Elastic Desktop Service
+   * Before creating a RAM-type directory, complete the following preparations:
+   * - Call `CreateVpc` to create a virtual private cloud (VPC) in a region supported by cloud computers.
+   * - Call `CreateVSwitch` to create a vSwitch in the same VPC. The zone of the vSwitch must be a zone supported by cloud computers in that region. Call [DescribeZones](https://help.aliyun.com/document_detail/196648.html) to query the zones supported by Elastic Desktop Service in a specific region.
    * 
    * @param request - CreateRAMDirectoryRequest
    * @returns CreateRAMDirectoryResponse
@@ -5278,7 +5268,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Elastic Desktop Service (EDS) supports two types of accounts: convenience accounts and enterprise AD accounts. Use this API to create an office network (formerly a workspace) that uses convenience accounts.
+   * Elastic Desktop Service supports two account systems: convenience accounts and enterprise AD accounts. Creates an office network (formerly workspace) based on convenience accounts.
    * 
    * @param request - CreateSimpleOfficeSiteRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5393,7 +5383,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Elastic Desktop Service (EDS) supports two types of accounts: convenience accounts and enterprise AD accounts. Use this API to create an office network (formerly a workspace) that uses convenience accounts.
+   * Elastic Desktop Service supports two account systems: convenience accounts and enterprise AD accounts. Creates an office network (formerly workspace) based on convenience accounts.
    * 
    * @param request - CreateSimpleOfficeSiteRequest
    * @returns CreateSimpleOfficeSiteResponse
@@ -5592,8 +5582,8 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * When you call this operation, note the following items:
-   * - Most parameters in an instance launch template are optional. When you create a template, Alibaba Cloud does not strictly verify the existence or validity of parameter values. The validity of parameter values is verified only when you create an instance.
-   * - For parameters that have region attributes in the template, if the region does not match when you use the template to create a cloud computer, these parameters do not take effect.
+   * - Most parameters in the instance launch template are optional. When you create a template, Alibaba Cloud does not strictly verify the existence or validity of parameter values. Parameter values are validated only when you create an instance by using the template.
+   * - For parameters that have region attributes in the template, if the region does not match when you create a cloud computer by using the template, these parameters do not take effect.
    * 
    * @param request - CreateTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5717,8 +5707,8 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * When you call this operation, note the following items:
-   * - Most parameters in an instance launch template are optional. When you create a template, Alibaba Cloud does not strictly verify the existence or validity of parameter values. The validity of parameter values is verified only when you create an instance.
-   * - For parameters that have region attributes in the template, if the region does not match when you use the template to create a cloud computer, these parameters do not take effect.
+   * - Most parameters in the instance launch template are optional. When you create a template, Alibaba Cloud does not strictly verify the existence or validity of parameter values. Parameter values are validated only when you create an instance by using the template.
+   * - For parameters that have region attributes in the template, if the region does not match when you create a cloud computer by using the template, these parameters do not take effect.
    * 
    * @param request - CreateTemplateRequest
    * @returns CreateTemplateResponse
@@ -6013,7 +6003,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes team spaces.
+   * Deletes a team shared drive.
    * 
    * @param request - DeleteCloudDriveGroupsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6052,7 +6042,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes team spaces.
+   * Deletes a team shared drive.
    * 
    * @param request - DeleteCloudDriveGroupsRequest
    * @returns DeleteCloudDriveGroupsResponse
@@ -6159,12 +6149,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Release a shared cloud computer.
+   * Releases a shared Cloud Desktop.
    * 
    * @remarks
-   * - Before you call this operation, make sure that the shared desktop group contains no connected desktops or authorized users.
-   * - You cannot delete a subscription desktop group if the subscription desktops in the group have not expired.
-   * - If you delete a pay-as-you-go desktop group, the pay-as-you-go desktops in the group are also released.
+   * - Before calling this operation, make sure that the shared Cloud Desktop does not contain any connected Cloud Desktops or authorized users.
+   * - For subscription shared Cloud Desktops, if the subscription Cloud Desktops within the pool have not expired, the shared Cloud Desktop cannot be deleted.
+   * - For pay-as-you-go shared Cloud Desktops, deleting the shared Cloud Desktop also releases the pay-as-you-go Cloud Desktops within it.
    * 
    * @param request - DeleteDesktopGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6203,12 +6193,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Release a shared cloud computer.
+   * Releases a shared Cloud Desktop.
    * 
    * @remarks
-   * - Before you call this operation, make sure that the shared desktop group contains no connected desktops or authorized users.
-   * - You cannot delete a subscription desktop group if the subscription desktops in the group have not expired.
-   * - If you delete a pay-as-you-go desktop group, the pay-as-you-go desktops in the group are also released.
+   * - Before calling this operation, make sure that the shared Cloud Desktop does not contain any connected Cloud Desktops or authorized users.
+   * - For subscription shared Cloud Desktops, if the subscription Cloud Desktops within the pool have not expired, the shared Cloud Desktop cannot be deleted.
+   * - For pay-as-you-go shared Cloud Desktops, deleting the shared Cloud Desktop also releases the pay-as-you-go Cloud Desktops within it.
    * 
    * @param request - DeleteDesktopGroupRequest
    * @returns DeleteDesktopGroupResponse
@@ -6219,7 +6209,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Releases one or more pay-as-you-go or expired subscription cloud computers.
+   * Releases one or more pay-as-you-go cloud computers or expired subscription cloud computers.
    * 
    * @param request - DeleteDesktopsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6258,7 +6248,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Releases one or more pay-as-you-go or expired subscription cloud computers.
+   * Releases one or more pay-as-you-go cloud computers or expired subscription cloud computers.
    * 
    * @param request - DeleteDesktopsRequest
    * @returns DeleteDesktopsResponse
@@ -6679,7 +6669,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can delete one or more public network premium bandwidth allocations.
+   * Deletes one or more premium Internet bandwidth plans.
    * 
    * @param request - DeleteNetworkPackagesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6718,7 +6708,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can delete one or more public network premium bandwidth allocations.
+   * Deletes one or more premium Internet bandwidth plans.
    * 
    * @param request - DeleteNetworkPackagesRequest
    * @returns DeleteNetworkPackagesResponse
@@ -7399,7 +7389,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of automatic snapshot policies.
+   * Queries automatic snapshot policies.
    * 
    * @param request - DescribeAutoSnapshotPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7446,7 +7436,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of automatic snapshot policies.
+   * Queries automatic snapshot policies.
    * 
    * @param request - DescribeAutoSnapshotPolicyRequest
    * @returns DescribeAutoSnapshotPolicyResponse
@@ -7645,7 +7635,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of all Cloud Enterprise Network (CEN) instances within an Alibaba Cloud account.
+   * Queries information about all Cloud Enterprise Network (CEN) instances under the current account.
    * 
    * @param request - DescribeCensRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7684,7 +7674,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of all Cloud Enterprise Network (CEN) instances within an Alibaba Cloud account.
+   * Queries information about all Cloud Enterprise Network (CEN) instances under the current account.
    * 
    * @param request - DescribeCensRequest
    * @returns DescribeCensResponse
@@ -7875,10 +7865,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists cloud disk group drives.
+   * Queries the list of cloud disk team spaces.
    * 
    * @remarks
-   * Cloud disk team drives are synced from the Alibaba Cloud Workspace client to User Management > organization chart. To use a team drive, you can move users to the target organization in the User Management interface. Users then see the team drive menu bar in the cloud disk client.
+   * The cloud disk team list is synchronized from the Wuying client > User Management > Organization Structure. To use team spaces, shift users to a specified organization in the User Management interface. Users can then see the team space menu bar in the cloud disk client.
    * 
    * @param request - DescribeCloudDiskGroupDrivesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7925,10 +7915,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists cloud disk group drives.
+   * Queries the list of cloud disk team spaces.
    * 
    * @remarks
-   * Cloud disk team drives are synced from the Alibaba Cloud Workspace client to User Management > organization chart. To use a team drive, you can move users to the target organization in the User Management interface. Users then see the team drive menu bar in the cloud disk client.
+   * The cloud disk team list is synchronized from the Wuying client > User Management > Organization Structure. To use team spaces, shift users to a specified organization in the User Management interface. Users can then see the team space menu bar in the cloud disk client.
    * 
    * @param request - DescribeCloudDiskGroupDrivesRequest
    * @returns DescribeCloudDiskGroupDrivesResponse
@@ -7939,10 +7929,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists cloud disk groups.
+   * Queries the list of cloud disk teams.
    * 
    * @remarks
-   * After you enable security protection, the system automatically scans Cloud Desktop for system vulnerabilities once a day.
+   * After security protection is enabled, the system automatically scans Cloud Desktop instances for system vulnerabilities on a periodic basis (once a day).
    * 
    * @param request - DescribeCloudDiskGroupsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7989,10 +7979,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists cloud disk groups.
+   * Queries the list of cloud disk teams.
    * 
    * @remarks
-   * After you enable security protection, the system automatically scans Cloud Desktop for system vulnerabilities once a day.
+   * After security protection is enabled, the system automatically scans Cloud Desktop instances for system vulnerabilities on a periodic basis (once a day).
    * 
    * @param request - DescribeCloudDiskGroupsRequest
    * @returns DescribeCloudDiskGroupsResponse
@@ -8003,7 +7993,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the list and basic information of all team shared drives in the enterprise cloud drive.
+   * Queries the list and basic information of all team shared drives in an enterprise cloud drive.
    * 
    * @param request - DescribeCloudDriveGroupsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8078,7 +8068,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the list and basic information of all team shared drives in the enterprise cloud drive.
+   * Queries the list and basic information of all team shared drives in an enterprise cloud drive.
    * 
    * @param request - DescribeCloudDriveGroupsRequest
    * @returns DescribeCloudDriveGroupsResponse
@@ -8317,7 +8307,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries cloud computer shares.
+   * Queries the session monitoring details of shared cloud computers.
    * 
    * @param request - DescribeDesktopGroupSessionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8392,7 +8382,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries cloud computer shares.
+   * Queries the session monitoring details of shared cloud computers.
    * 
    * @param request - DescribeDesktopGroupSessionsRequest
    * @returns DescribeDesktopGroupSessionsResponse
@@ -8403,7 +8393,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Returns a detailed list of shared cloud desktops.
+   * Queries the list and details of shared cloud computers.
    * 
    * @param request - DescribeDesktopGroupsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8514,7 +8504,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Returns a detailed list of shared cloud desktops.
+   * Queries the list and details of shared cloud computers.
    * 
    * @param request - DescribeDesktopGroupsRequest
    * @returns DescribeDesktopGroupsResponse
@@ -8525,7 +8515,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Describes basic information about cloud desktops.
+   * Queries the basic information of cloud computers.
    * 
    * @param request - DescribeDesktopInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8568,7 +8558,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Describes basic information about cloud desktops.
+   * Queries the basic information of cloud computers.
    * 
    * @param request - DescribeDesktopInfoRequest
    * @returns DescribeDesktopInfoResponse
@@ -8582,7 +8572,7 @@ export default class Client extends OpenApi {
    * Queries the list and metadata of cloud desktops across all regions.
    * 
    * @remarks
-   * This is a centralized API operation that supports queries only from the Shanghai and Singapore sites.
+   * This is a centralized API that only supports queries from the Shanghai and Singapore sites.
    * 
    * @param request - DescribeDesktopMetadataRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8672,7 +8662,7 @@ export default class Client extends OpenApi {
    * Queries the list and metadata of cloud desktops across all regions.
    * 
    * @remarks
-   * This is a centralized API operation that supports queries only from the Shanghai and Singapore sites.
+   * This is a centralized API that only supports queries from the Shanghai and Singapore sites.
    * 
    * @param request - DescribeDesktopMetadataRequest
    * @returns DescribeDesktopMetadataResponse
@@ -8853,7 +8843,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the detailed session information of a cloud computer.
+   * Queries the detailed session information of cloud computers.
    * 
    * @remarks
    * Only data within the last 30 days can be queried.
@@ -8951,7 +8941,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the detailed session information of a cloud computer.
+   * Queries the detailed session information of cloud computers.
    * 
    * @remarks
    * Only data within the last 30 days can be queried.
@@ -8965,7 +8955,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves cloud computer specifications.
+   * Queries the details of cloud computer specifications.
    * 
    * @param request - DescribeDesktopTypesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9080,7 +9070,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves cloud computer specifications.
+   * Queries the details of cloud computer specifications.
    * 
    * @param request - DescribeDesktopTypesRequest
    * @returns DescribeDesktopTypesResponse
@@ -9184,6 +9174,10 @@ export default class Client extends OpenApi {
       query["MultiResource"] = request.multiResource;
     }
 
+    if (!$dara.isNull(request.networkInterfaceIp)) {
+      query["NetworkInterfaceIp"] = request.networkInterfaceIp;
+    }
+
     if (!$dara.isNull(request.nextToken)) {
       query["NextToken"] = request.nextToken;
     }
@@ -9218,6 +9212,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.protocolType)) {
       query["ProtocolType"] = request.protocolType;
+    }
+
+    if (!$dara.isNull(request.publicIp)) {
+      query["PublicIp"] = request.publicIp;
     }
 
     if (!$dara.isNull(request.qosRuleId)) {
@@ -9281,7 +9279,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Find cloud computers in a shared cloud computer by billing method.
+   * Queries the list of cloud desktops in a shared cloud desktop by billing method.
    * 
    * @param request - DescribeDesktopsInGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9340,7 +9338,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Find cloud computers in a shared cloud computer by billing method.
+   * Queries the list of cloud desktops in a shared cloud desktop by billing method.
    * 
    * @param request - DescribeDesktopsInGroupRequest
    * @returns DescribeDesktopsInGroupResponse
@@ -9425,7 +9423,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of directories.
+   * Queries the details of a directory.
    * 
    * @param request - DescribeDirectoriesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9480,7 +9478,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of directories.
+   * Queries the details of a directory.
    * 
    * @param request - DescribeDirectoriesRequest
    * @returns DescribeDirectoriesResponse
@@ -9619,7 +9617,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the inbound bandwidth and outbound bandwidth of a cloud computer, or the inbound bandwidth and outbound bandwidth for public network access of premium public bandwidth, along with their monitoring data.
+   * Queries the inbound bandwidth and outbound bandwidth monitoring data of a cloud computer, or the public network access inbound bandwidth and outbound bandwidth monitoring data of a premium public bandwidth plan.
    * 
    * @param request - DescribeFlowMetricRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9674,7 +9672,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the inbound bandwidth and outbound bandwidth of a cloud computer, or the inbound bandwidth and outbound bandwidth for public network access of premium public bandwidth, along with their monitoring data.
+   * Queries the inbound bandwidth and outbound bandwidth monitoring data of a cloud computer, or the public network access inbound bandwidth and outbound bandwidth monitoring data of a premium public bandwidth plan.
    * 
    * @param request - DescribeFlowMetricRequest
    * @returns DescribeFlowMetricResponse
@@ -9813,7 +9811,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the list of image upgrade tasks.
+   * Retrieves a list of image upgrade tasks.
    * 
    * @param request - DescribeFotaTasksRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9868,7 +9866,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the list of image upgrade tasks.
+   * Retrieves a list of image upgrade tasks.
    * 
    * @param request - DescribeFotaTasksRequest
    * @returns DescribeFotaTasksResponse
@@ -9879,10 +9877,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the basic information about all recent cloud desktops and the corresponding usage duration records.
+   * Queries the basic information of all recent cloud desktops and their corresponding usage duration records.
    * 
    * @remarks
-   * - China site users should select Shanghai as the region. International site users should select Singapore.
+   * - China site users should select Shanghai as the site. International site users should select Singapore.
    * - By default, both deleted and non-deleted cloud desktops are queried.
    * - Deleted cloud desktops can only be queried if they were deleted within the last three months.
    * - Sort conditions cannot be used together with other conditions.
@@ -9988,10 +9986,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the basic information about all recent cloud desktops and the corresponding usage duration records.
+   * Queries the basic information of all recent cloud desktops and their corresponding usage duration records.
    * 
    * @remarks
-   * - China site users should select Shanghai as the region. International site users should select Singapore.
+   * - China site users should select Shanghai as the site. International site users should select Singapore.
    * - By default, both deleted and non-deleted cloud desktops are queried.
    * - Deleted cloud desktops can only be queried if they were deleted within the last three months.
    * - Sort conditions cannot be used together with other conditions.
@@ -10008,7 +10006,7 @@ export default class Client extends OpenApi {
    * Queries the batch information of scheduled task execution history and returns aggregated execution results.
    * 
    * @remarks
-   * - This operation uses a centralized endpoint. The access points are Shanghai or Singapore. Calls from other regions are not supported.
+   * - This operation uses a centralized endpoint. The access point is Shanghai or Singapore. Other regions are not supported.
    * 
    * @param request - DescribeGlobalTimerBatchesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10066,7 +10064,7 @@ export default class Client extends OpenApi {
    * Queries the batch information of scheduled task execution history and returns aggregated execution results.
    * 
    * @remarks
-   * - This operation uses a centralized endpoint. The access points are Shanghai or Singapore. Calls from other regions are not supported.
+   * - This operation uses a centralized endpoint. The access point is Shanghai or Singapore. Other regions are not supported.
    * 
    * @param request - DescribeGlobalTimerBatchesRequest
    * @returns DescribeGlobalTimerBatchesResponse
@@ -10327,7 +10325,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about images.
+   * Queries the details of images.
    * 
    * @param request - DescribeImagesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10414,7 +10412,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about images.
+   * Queries the details of images.
    * 
    * @param request - DescribeImagesRequest
    * @returns DescribeImagesResponse
@@ -10428,7 +10426,7 @@ export default class Client extends OpenApi {
    * Queries the execution list and status of Cloud Assistant scripts.
    * 
    * @remarks
-   * - After you run a command, the command is not guaranteed to succeed or produce the expected results. Check the actual execution results based on the response of this operation.
+   * - After you run a command, it does not necessarily succeed or produce the expected results. Check the actual execution results based on the response values returned by this operation.
    * - You can query execution information from the last two weeks. A maximum of 100,000 execution records are retained.
    * 
    * @param request - DescribeInvocationsRequest
@@ -10507,7 +10505,7 @@ export default class Client extends OpenApi {
    * Queries the execution list and status of Cloud Assistant scripts.
    * 
    * @remarks
-   * - After you run a command, the command is not guaranteed to succeed or produce the expected results. Check the actual execution results based on the response of this operation.
+   * - After you run a command, it does not necessarily succeed or produce the expected results. Check the actual execution results based on the response values returned by this operation.
    * - You can query execution information from the last two weeks. A maximum of 100,000 execution records are retained.
    * 
    * @param request - DescribeInvocationsRequest
@@ -10619,7 +10617,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the price for changing the specifications of a monthly-subscribed unlimited-duration cloud computer or premium Internet bandwidth.
+   * Queries the price for upgrading or downgrading a monthly subscription (unlimited duration) cloud computer or premium Internet bandwidth.
    * 
    * @param request - DescribeModificationPriceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10694,7 +10692,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the price for changing the specifications of a monthly-subscribed unlimited-duration cloud computer or premium Internet bandwidth.
+   * Queries the price for upgrading or downgrading a monthly subscription (unlimited duration) cloud computer or premium Internet bandwidth.
    * 
    * @param request - DescribeModificationPriceRequest
    * @returns DescribeModificationPriceResponse
@@ -10953,7 +10951,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Gets all properties of an office network, including its ID, name, status, and creation time.
+   * Queries all properties of an office network, including the ID, name, status, and creation time.
    * 
    * @param request - DescribeOfficeSitesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11016,7 +11014,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Gets all properties of an office network, including its ID, name, status, and creation time.
+   * Queries all properties of an office network, including the ID, name, status, and creation time.
    * 
    * @param request - DescribeOfficeSitesRequest
    * @returns DescribeOfficeSitesResponse
@@ -11087,7 +11085,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a cloud computer policy.
+   * Queries the details of cloud computer policies.
    * 
    * @param request - DescribePolicyGroupsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11150,7 +11148,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a cloud computer policy.
+   * Queries the details of cloud computer policies.
    * 
    * @param request - DescribePolicyGroupsRequest
    * @returns DescribePolicyGroupsResponse
@@ -11161,7 +11159,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the new purchase price of Elastic Desktop Service (EDS) products.
+   * Queries the purchase price of Elastic Desktop Service products.
    * 
    * @param request - DescribePriceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11264,7 +11262,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the new purchase price of Elastic Desktop Service (EDS) products.
+   * Queries the purchase price of Elastic Desktop Service products.
    * 
    * @param request - DescribePriceRequest
    * @returns DescribePriceResponse
@@ -11441,6 +11439,98 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries printer event information.
+   * 
+   * @remarks
+   * Security alerts are classified into two dimensions: alerts and anomalies. A security alert contains multiple anomaly events.
+   * 
+   * @param request - DescribePrinterEventsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribePrinterEventsResponse
+   */
+  async describePrinterEventsWithOptions(request: $_model.DescribePrinterEventsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribePrinterEventsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.desktopId)) {
+      query["DesktopId"] = request.desktopId;
+    }
+
+    if (!$dara.isNull(request.desktopName)) {
+      query["DesktopName"] = request.desktopName;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.endUserId)) {
+      query["EndUserId"] = request.endUserId;
+    }
+
+    if (!$dara.isNull(request.endUserIds)) {
+      query["EndUserIds"] = request.endUserIds;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.printerDriver)) {
+      query["PrinterDriver"] = request.printerDriver;
+    }
+
+    if (!$dara.isNull(request.printerName)) {
+      query["PrinterName"] = request.printerName;
+    }
+
+    if (!$dara.isNull(request.printerRedirType)) {
+      query["PrinterRedirType"] = request.printerRedirType;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribePrinterEvents",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribePrinterEventsResponse>(await this.callApi(params, req, runtime), new $_model.DescribePrinterEventsResponse({}));
+  }
+
+  /**
+   * Queries printer event information.
+   * 
+   * @remarks
+   * Security alerts are classified into two dimensions: alerts and anomalies. A security alert contains multiple anomaly events.
+   * 
+   * @param request - DescribePrinterEventsRequest
+   * @returns DescribePrinterEventsResponse
+   */
+  async describePrinterEvents(request: $_model.DescribePrinterEventsRequest): Promise<$_model.DescribePrinterEventsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describePrinterEventsWithOptions(request, runtime);
+  }
+
+  /**
    * Queries QoS rules.
    * 
    * @param request - DescribeQosRulesRequest
@@ -11487,7 +11577,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieve screen recording files from all regions.
+   * Queries the list of screen recording files across all regions.
    * 
    * @param request - DescribeRecordFileRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11566,7 +11656,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieve screen recording files from all regions.
+   * Queries the list of screen recording files across all regions.
    * 
    * @param request - DescribeRecordFileRequest
    * @returns DescribeRecordFileResponse
@@ -11713,7 +11803,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the Alibaba Cloud regions that are available for Elastic Desktop Service (EDS).
+   * Queries the Alibaba Cloud regions supported by WUYING Workspace.
    * 
    * @param request - DescribeRegionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11748,7 +11838,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the Alibaba Cloud regions that are available for Elastic Desktop Service (EDS).
+   * Queries the Alibaba Cloud regions supported by WUYING Workspace.
    * 
    * @param request - DescribeRegionsRequest
    * @returns DescribeRegionsResponse
@@ -11759,7 +11849,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the renewal price for an Elastic Desktop Service product.
+   * Queries the renewal price of a Wuying product.
    * 
    * @param request - DescribeRenewalPriceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11818,7 +11908,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the renewal price for an Elastic Desktop Service product.
+   * Queries the renewal price of a Wuying product.
    * 
    * @param request - DescribeRenewalPriceRequest
    * @returns DescribeRenewalPriceResponse
@@ -12052,7 +12142,7 @@ export default class Client extends OpenApi {
    * Queries session statistics information across all regions.
    * 
    * @remarks
-   * - This is a centralized API operation that can be called only through the service in the China (Shanghai) region.
+   * - This is a centralized operation that can be called only through the service in the China (Shanghai) region.
    * - You can query real-time statistics for up to 1 hour.
    * 
    * @param request - DescribeSessionStatisticRequest
@@ -12107,7 +12197,7 @@ export default class Client extends OpenApi {
    * Queries session statistics information across all regions.
    * 
    * @remarks
-   * - This is a centralized API operation that can be called only through the service in the China (Shanghai) region.
+   * - This is a centralized operation that can be called only through the service in the China (Shanghai) region.
    * - You can query real-time statistics for up to 1 hour.
    * 
    * @param request - DescribeSessionStatisticRequest
@@ -12535,7 +12625,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the connection records of an authorized user to cloud computers in a cloud computer pool.
+   * Queries the connection records of authorized users connecting to pooled cloud computers in a cloud computer pool.
    * 
    * @param request - DescribeUserConnectionRecordsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12614,7 +12704,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the connection records of an authorized user to cloud computers in a cloud computer pool.
+   * Queries the connection records of authorized users connecting to pooled cloud computers in a cloud computer pool.
    * 
    * @param request - DescribeUserConnectionRecordsRequest
    * @returns DescribeUserConnectionRecordsResponse
@@ -12671,7 +12761,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * This operation queries the details of all authorized users in a cloud desktop group, including their usernames, email addresses, phone numbers, and the IDs of their authorized cloud desktops.
+   * Queries the details of all authorized users of a shared cloud computer, including the username, email address, phone number, and authorized cloud computer ID.
    * 
    * @param request - DescribeUsersInGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12738,7 +12828,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * This operation queries the details of all authorized users in a cloud desktop group, including their usernames, email addresses, phone numbers, and the IDs of their authorized cloud desktops.
+   * Queries the details of all authorized users of a shared cloud computer, including the username, email address, phone number, and authorized cloud computer ID.
    * 
    * @param request - DescribeUsersInGroupRequest
    * @returns DescribeUsersInGroupResponse
@@ -12749,7 +12839,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the passwords for the accounts within a cloud computer image. For example, when the Chrome browser on the cloud computer queries the cached password, it requires the end user to enter the password for identity verification.
+   * Queries the password of an account in a cloud computer image. For example, when querying the query cache of passwords in the Chrome browser on a cloud computer, the end user is required to enter this password to authenticate.
    * 
    * @param request - DescribeUsersPasswordRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12784,7 +12874,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the passwords for the accounts within a cloud computer image. For example, when the Chrome browser on the cloud computer queries the cached password, it requires the end user to enter the password for identity verification.
+   * Queries the password of an account in a cloud computer image. For example, when querying the query cache of passwords in the Chrome browser on a cloud computer, the end user is required to enter this password to authenticate.
    * 
    * @param request - DescribeUsersPasswordRequest
    * @returns DescribeUsersPasswordResponse
@@ -12795,7 +12885,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the virtual multi-factor authentication (MFA) device associated with an Active Directory (AD) account.
+   * Queries the virtual MFA devices bound to AD accounts.
    * 
    * @param request - DescribeVirtualMFADevicesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12846,7 +12936,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the virtual multi-factor authentication (MFA) device associated with an Active Directory (AD) account.
+   * Queries the virtual MFA devices bound to AD accounts.
    * 
    * @param request - DescribeVirtualMFADevicesRequest
    * @returns DescribeVirtualMFADevicesResponse
@@ -12857,7 +12947,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the zones supported by Elastic Desktop Service (EDS) in a region.
+   * Queries the zones supported by Alibaba Cloud Workspace in a specified Alibaba Cloud region.
    * 
    * @param request - DescribeZonesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12896,7 +12986,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the zones supported by Elastic Desktop Service (EDS) in a region.
+   * Queries the zones supported by Alibaba Cloud Workspace in a specified Alibaba Cloud region.
    * 
    * @param request - DescribeZonesRequest
    * @returns DescribeZonesResponse
@@ -13015,7 +13105,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disables specific cloud computers in a cloud computer share. After you call this operation to disable specific cloud computers, they enter the unavailable state.
+   * Disables cloud computers in a shared cloud computer group. After a cloud computer is disabled, its status changes to unavailable.
    * 
    * @param request - DisableDesktopsInGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13054,7 +13144,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disables specific cloud computers in a cloud computer share. After you call this operation to disable specific cloud computers, they enter the unavailable state.
+   * Disables cloud computers in a shared cloud computer group. After a cloud computer is disabled, its status changes to unavailable.
    * 
    * @param request - DisableDesktopsInGroupRequest
    * @returns DisableDesktopsInGroupResponse
@@ -13351,7 +13441,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Exports the list of shared cloud desktops and saves it as an XLSX file. Each shared cloud desktop record includes the shared cloud desktop ID and name, office network ID and name, shared cloud desktop template, and security policy name.
+   * Exports the list of shared cloud computers to an XLSX file. Each record includes the shared cloud computer ID and name, office network ID and name, shared cloud computer template, security policy name, and other details.
    * 
    * @param request - ExportDesktopGroupInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13426,7 +13516,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Exports the list of shared cloud desktops and saves it as an XLSX file. Each shared cloud desktop record includes the shared cloud desktop ID and name, office network ID and name, shared cloud desktop template, and security policy name.
+   * Exports the list of shared cloud computers to an XLSX file. Each record includes the shared cloud computer ID and name, office network ID and name, shared cloud computer template, security policy name, and other details.
    * 
    * @param request - ExportDesktopGroupInfoRequest
    * @returns ExportDesktopGroupInfoResponse
@@ -13620,7 +13710,7 @@ export default class Client extends OpenApi {
    * Retrieves the connection credential for a cloud computer.
    * 
    * @remarks
-   * The cloud computer must be in the Running state. The ticket obtained by calling this operation expires after 10 minutes.
+   * The cloud computer must be in the Running state. The ticket obtained by calling this operation expires in 10 minutes.
    * 
    * @param request - GetConnectionTicketRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13690,7 +13780,7 @@ export default class Client extends OpenApi {
    * Retrieves the connection credential for a cloud computer.
    * 
    * @remarks
-   * The cloud computer must be in the Running state. The ticket obtained by calling this operation expires after 10 minutes.
+   * The cloud computer must be in the Running state. The ticket obtained by calling this operation expires in 10 minutes.
    * 
    * @param request - GetConnectionTicketRequest
    * @returns GetConnectionTicketResponse
@@ -13701,7 +13791,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get the stream collaboration credentials for remote assistance or shared collaboration.
+   * Retrieves the coordination flow ticket used for remote assistance or shared coordination.
    * 
    * @param request - GetCoordinateTicketRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13748,7 +13838,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get the stream collaboration credentials for remote assistance or shared collaboration.
+   * Retrieves the coordination flow ticket used for remote assistance or shared coordination.
    * 
    * @param request - GetCoordinateTicketRequest
    * @returns GetCoordinateTicketResponse
@@ -13759,7 +13849,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a cloud computer share.
+   * Retrieves the details of a shared cloud computer.
    * 
    * @param request - GetDesktopGroupDetailRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13794,7 +13884,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a cloud computer share.
+   * Retrieves the details of a shared cloud computer.
    * 
    * @param request - GetDesktopGroupDetailRequest
    * @returns GetDesktopGroupDetailResponse
@@ -13901,7 +13991,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Hibernates cloud desktops.
+   * Hibernates cloud computers.
    * 
    * @param request - HibernateDesktopsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13936,7 +14026,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Hibernates cloud desktops.
+   * Hibernates cloud computers.
    * 
    * @param request - HibernateDesktopsRequest
    * @returns HibernateDesktopsResponse
@@ -13947,7 +14037,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of files in the network disk and obtain the download link of the file.
+   * Queries the file list in a cloud drive and retrieves download URLs for files.
    * 
    * @param tmpReq - ListCdsFilesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14020,7 +14110,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of files in the network disk and obtain the download link of the file.
+   * Queries the file list in a cloud drive and retrieves download URLs for files.
    * 
    * @param request - ListCdsFilesRequest
    * @returns ListCdsFilesResponse
@@ -14031,7 +14121,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * If you use an Active Directory (AD) directory to connect to your enterprise AD, call this operation to retrieve user information from your enterprise AD.
+   * Retrieves user information from an enterprise Active Directory (AD) when you use an AD directory to connect to your enterprise AD.
    * 
    * @param request - ListDirectoryUsersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14094,7 +14184,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * If you use an Active Directory (AD) directory to connect to your enterprise AD, call this operation to retrieve user information from your enterprise AD.
+   * Retrieves user information from an enterprise Active Directory (AD) when you use an AD directory to connect to your enterprise AD.
    * 
    * @param request - ListDirectoryUsersRequest
    * @returns ListDirectoryUsersResponse
@@ -14275,7 +14365,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries information about Active Directory (AD) accounts in an AD office network (formerly known as a workspace) that is connected to an AD domain.
+   * Queries the AD account information obtained after an AD office network (formerly workspace) is connected to an AD domain.
    * 
    * @param request - ListOfficeSiteUsersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14338,7 +14428,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries information about Active Directory (AD) accounts in an AD office network (formerly known as a workspace) that is connected to an AD domain.
+   * Queries the AD account information obtained after an AD office network (formerly workspace) is connected to an AD domain.
    * 
    * @param request - ListOfficeSiteUsersRequest
    * @returns ListOfficeSiteUsersResponse
@@ -14417,7 +14507,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the download URLs for transferred files.
+   * Retrieves the download URLs of transfer files.
    * 
    * @param request - ListTransferFileDownloadUrlRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14452,7 +14542,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the download URLs for transferred files.
+   * Retrieves the download URLs of transfer files.
    * 
    * @param request - ListTransferFileDownloadUrlRequest
    * @returns ListTransferFileDownloadUrlResponse
@@ -14574,7 +14664,7 @@ export default class Client extends OpenApi {
    * Queries a list of virtual bridges.
    * 
    * @remarks
-   * After the device is locked, the status of the MFA device changes to locked (LOCKED), and the corresponding AD account cannot log on to the Wuying terminal because the MFA device cannot be authenticated. You can call [UnlockVirtualMFADevice](~~UnlockVirtualMFADevice~~) to unlock the device.
+   * After the device is locked, the status of the MFA device changes to locked (LOCKED), and the corresponding AD account cannot log on to the WUYING terminal because the MFA device cannot be authenticated. You can call [UnlockVirtualMFADevice](~~UnlockVirtualMFADevice~~) to unlock the device.
    * 
    * @param request - ListVirtualBridgesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14624,7 +14714,7 @@ export default class Client extends OpenApi {
    * Queries a list of virtual bridges.
    * 
    * @remarks
-   * After the device is locked, the status of the MFA device changes to locked (LOCKED), and the corresponding AD account cannot log on to the Wuying terminal because the MFA device cannot be authenticated. You can call [UnlockVirtualMFADevice](~~UnlockVirtualMFADevice~~) to unlock the device.
+   * After the device is locked, the status of the MFA device changes to locked (LOCKED), and the corresponding AD account cannot log on to the WUYING terminal because the MFA device cannot be authenticated. You can call [UnlockVirtualMFADevice](~~UnlockVirtualMFADevice~~) to unlock the device.
    * 
    * @param request - ListVirtualBridgesRequest
    * @returns ListVirtualBridgesResponse
@@ -14635,10 +14725,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Locks a multi-factor authentication (MFA) device that is in the NORMAL state.
+   * Locks a virtual MFA device that is in Normal state.
    * 
    * @remarks
-   * After a virtual MFA device is locked, its status changes to LOCKED. The Active Directory (AD) user who uses the virtual MFA device is unable to pass MFA and is therefore unable to log on to the client. You can call the [UnlockVirtualMFADevice](https://help.aliyun.com/document_detail/206212.html) operation to unlock the device.
+   * After the device is locked, its status changes to Locked. The corresponding AD account cannot log on to the WUYING terminal because MFA authentication fails. You can call [UnlockVirtualMFADevice](~~UnlockVirtualMFADevice~~) to unlock the device.
    * 
    * @param request - LockVirtualMFADeviceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14673,10 +14763,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Locks a multi-factor authentication (MFA) device that is in the NORMAL state.
+   * Locks a virtual MFA device that is in Normal state.
    * 
    * @remarks
-   * After a virtual MFA device is locked, its status changes to LOCKED. The Active Directory (AD) user who uses the virtual MFA device is unable to pass MFA and is therefore unable to log on to the client. You can call the [UnlockVirtualMFADevice](https://help.aliyun.com/document_detail/206212.html) operation to unlock the device.
+   * After the device is locked, its status changes to Locked. The corresponding AD account cannot log on to the WUYING terminal because MFA authentication fails. You can call [UnlockVirtualMFADevice](~~UnlockVirtualMFADevice~~) to unlock the device.
    * 
    * @param request - LockVirtualMFADeviceRequest
    * @returns LockVirtualMFADeviceResponse
@@ -14687,7 +14777,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Migrates one or more cloud computers to a new office network.
+   * Migrates cloud computers from the current office network (formerly known as workspace) to a new office network.
    * 
    * @param request - MigrateDesktopsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14734,7 +14824,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Migrates one or more cloud computers to a new office network.
+   * Migrates cloud computers from the current office network (formerly known as workspace) to a new office network.
    * 
    * @param request - MigrateDesktopsRequest
    * @returns MigrateDesktopsResponse
@@ -14887,10 +14977,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the basic properties of an enterprise Active Directory (AD) office network, such as the office network name and domain names of the enterprise AD subdomains.
+   * Modifies the basic properties of an AD office network (formerly workspace), such as the office network name and the domain name of the enterprise AD subdomain.
    * 
    * @remarks
-   * You can modify parameters of domain names and Domain Name System (DNS) for enterprise AD office networks that are in the `ERROR` or `REGISTERED` state. The parameters include `DomainName`, `SubDomainName`, `DnsAddress.N`, and `SubDomainDnsAddress.N`.
+   * Only AD office networks in the `ERROR` or `REGISTERING` state support modifications to domain name and DNS-related parameters, including `DomainName`, `SubDomainName`, `DnsAddress.N`, and `SubDomainDnsAddress.N`.
    * 
    * @param request - ModifyADConnectorOfficeSiteRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14973,10 +15063,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the basic properties of an enterprise Active Directory (AD) office network, such as the office network name and domain names of the enterprise AD subdomains.
+   * Modifies the basic properties of an AD office network (formerly workspace), such as the office network name and the domain name of the enterprise AD subdomain.
    * 
    * @remarks
-   * You can modify parameters of domain names and Domain Name System (DNS) for enterprise AD office networks that are in the `ERROR` or `REGISTERED` state. The parameters include `DomainName`, `SubDomainName`, `DnsAddress.N`, and `SubDomainDnsAddress.N`.
+   * Only AD office networks in the `ERROR` or `REGISTERING` state support modifications to domain name and DNS-related parameters, including `DomainName`, `SubDomainName`, `DnsAddress.N`, and `SubDomainDnsAddress.N`.
    * 
    * @param request - ModifyADConnectorOfficeSiteRequest
    * @returns ModifyADConnectorOfficeSiteResponse
@@ -14987,10 +15077,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify the Internet access control policy on the office network or cloud computer granularity.
+   * Modifies the public network access control policy at the office network or cloud computer granularity.
    * 
    * @remarks
-   * You can set different Internet access control policies at different granularities to achieve the effect of composite policies. For example, you can disable the Internet access on the office network granularity and enable the Internet access on specific cloud computer granularity. The effect is that all cloud computers in the office network except the specified cloud computers are not allowed to access the Internet.
+   * You can set different public network access control policies at different granularities to achieve a composite policy effect. For example, you can access control policy at the office network granularity to deny public network access, and access control policy at the specified cloud computer granularity to allow public network access. The result is that all cloud computers in the office network are denied public network access except for the specified cloud computers.
    * 
    * @param request - ModifyAclEntriesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15033,10 +15123,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify the Internet access control policy on the office network or cloud computer granularity.
+   * Modifies the public network access control policy at the office network or cloud computer granularity.
    * 
    * @remarks
-   * You can set different Internet access control policies at different granularities to achieve the effect of composite policies. For example, you can disable the Internet access on the office network granularity and enable the Internet access on specific cloud computer granularity. The effect is that all cloud computers in the office network except the specified cloud computers are not allowed to access the Internet.
+   * You can set different public network access control policies at different granularities to achieve a composite policy effect. For example, you can access control policy at the office network granularity to deny public network access, and access control policy at the specified cloud computer granularity to allow public network access. The result is that all cloud computers in the office network are denied public network access except for the specified cloud computers.
    * 
    * @param request - ModifyAclEntriesRequest
    * @returns ModifyAclEntriesResponse
@@ -15111,9 +15201,6 @@ export default class Client extends OpenApi {
   /**
    * Modifies a custom cloud computer template.
    * 
-   * @remarks
-   * Only custom desktop templates can be modified.
-   * 
    * @param request - ModifyBundleRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyBundleResponse
@@ -15164,9 +15251,6 @@ export default class Client extends OpenApi {
 
   /**
    * Modifies a custom cloud computer template.
-   * 
-   * @remarks
-   * Only custom desktop templates can be modified.
    * 
    * @param request - ModifyBundleRequest
    * @returns ModifyBundleResponse
@@ -15670,6 +15754,18 @@ export default class Client extends OpenApi {
       query["PortProxy"] = request.portProxy;
     }
 
+    if (!$dara.isNull(request.printerAlert)) {
+      query["PrinterAlert"] = request.printerAlert;
+    }
+
+    if (!$dara.isNull(request.printerAlertContent)) {
+      query["PrinterAlertContent"] = request.printerAlertContent;
+    }
+
+    if (!$dara.isNull(request.printerAlertTitle)) {
+      query["PrinterAlertTitle"] = request.printerAlertTitle;
+    }
+
     if (!$dara.isNull(request.printerRedirect)) {
       query["PrinterRedirect"] = request.printerRedirect;
     }
@@ -15816,6 +15912,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.taskbar)) {
       query["Taskbar"] = request.taskbar;
+    }
+
+    if (!$dara.isNull(request.threeScreen)) {
+      query["ThreeScreen"] = request.threeScreen;
     }
 
     if (!$dara.isNull(request.usbRedirect)) {
@@ -16239,14 +16339,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the billing method of a cloud desktop to subscription or pay-as-you-go.
+   * Converts the billing method of cloud desktops to subscription or pay-as-you-go.
    * 
    * @remarks
-   * - Before calling this operation, ensure you understand the billing methods for cloud desktops. For more information, see [billing overview](https://help.aliyun.com/document_detail/188395.html).
-   * - Ensure the cloud desktop is in the running or stopped state and has no overdue payments.
-   * - After you pay for the order, the system begins to convert the billing method. While the desktop is in the updating state, you cannot perform other operations, such as starting, stopping, or changing its configuration.
-   * <props="china">
-   * When you convert from subscription to pay-as-you-go, refund limits apply. For more information, see [Convert Subscription to Pay-As-You-Go](https://help.aliyun.com/document_detail/439964.html).
+   * - Before you invoke this operation, make sure that you fully understand the billing methods of cloud desktops. For more information, see [Billing overview](https://help.aliyun.com/document_detail/188395.html).
+   * - When you invoke this operation, make sure that the cloud desktops are in the Running or Stopped state and that no overdue payments exist.
+   * - After the order is paid, the system starts to convert the billing method of the cloud desktops. During the conversion, the cloud desktops are in the Upgrade/Downgrade state and do not support other operations such as starting, stopping, or changing specifications.
+   * <props="china">When you convert the billing method from subscription to pay-as-you-go, refund quota limits apply. For more information, see [Switch from subscription to pay-as-you-go](https://help.aliyun.com/document_detail/439964.html).
    * 
    * @param request - ModifyDesktopChargeTypeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16309,14 +16408,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the billing method of a cloud desktop to subscription or pay-as-you-go.
+   * Converts the billing method of cloud desktops to subscription or pay-as-you-go.
    * 
    * @remarks
-   * - Before calling this operation, ensure you understand the billing methods for cloud desktops. For more information, see [billing overview](https://help.aliyun.com/document_detail/188395.html).
-   * - Ensure the cloud desktop is in the running or stopped state and has no overdue payments.
-   * - After you pay for the order, the system begins to convert the billing method. While the desktop is in the updating state, you cannot perform other operations, such as starting, stopping, or changing its configuration.
-   * <props="china">
-   * When you convert from subscription to pay-as-you-go, refund limits apply. For more information, see [Convert Subscription to Pay-As-You-Go](https://help.aliyun.com/document_detail/439964.html).
+   * - Before you invoke this operation, make sure that you fully understand the billing methods of cloud desktops. For more information, see [Billing overview](https://help.aliyun.com/document_detail/188395.html).
+   * - When you invoke this operation, make sure that the cloud desktops are in the Running or Stopped state and that no overdue payments exist.
+   * - After the order is paid, the system starts to convert the billing method of the cloud desktops. During the conversion, the cloud desktops are in the Upgrade/Downgrade state and do not support other operations such as starting, stopping, or changing specifications.
+   * <props="china">When you convert the billing method from subscription to pay-as-you-go, refund quota limits apply. For more information, see [Switch from subscription to pay-as-you-go](https://help.aliyun.com/document_detail/439964.html).
    * 
    * @param request - ModifyDesktopChargeTypeRequest
    * @returns ModifyDesktopChargeTypeResponse
@@ -16327,10 +16425,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies a shared cloud computer group.
+   * Modifies a shared cloud computer.
    * 
    * @remarks
-   * After you create a shared cloud computer group, the system automatically provisions cloud computers in the group based on its auto scaling policy and end-user connections. All cloud computers in the group use the same cloud computer template and security policy. You can modify the group’s configuration as needed, such as the group name, cloud computer template, and associated policies.
+   * After you create a shared cloud computer, the system performs automatic creation of the corresponding number of cloud computers in the shared cloud computer based on the scaling policy in Settings and the connection status of end users. These cloud computers use the same cloud computer template and security policy. In different scenarios, you can modify the shared cloud computer configurations as needed, including the shared cloud computer name, cloud computer template, and associated policies.
    * 
    * @param request - ModifyDesktopGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16465,10 +16563,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies a shared cloud computer group.
+   * Modifies a shared cloud computer.
    * 
    * @remarks
-   * After you create a shared cloud computer group, the system automatically provisions cloud computers in the group based on its auto scaling policy and end-user connections. All cloud computers in the group use the same cloud computer template and security policy. You can modify the group’s configuration as needed, such as the group name, cloud computer template, and associated policies.
+   * After you create a shared cloud computer, the system performs automatic creation of the corresponding number of cloud computers in the shared cloud computer based on the scaling policy in Settings and the connection status of end users. These cloud computers use the same cloud computer template and security policy. In different scenarios, you can modify the shared cloud computer configurations as needed, including the shared cloud computer name, cloud computer template, and associated policies.
    * 
    * @param request - ModifyDesktopGroupRequest
    * @returns ModifyDesktopGroupResponse
@@ -16479,10 +16577,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the hostname of a Windows cloud desktop in an AD workspace.
+   * Modifies the hostname of a Windows cloud desktop in an AD office network.
    * 
    * @remarks
-   * You can only modify the hostname of Windows cloud desktops in an AD workspace. Modifying the hostname rebuilds the cloud desktop.
+   * Only the hostname of a Windows cloud desktop in an AD office network can be modified. After the hostname is modified, the cloud desktop is rebuilt.
    * 
    * @param request - ModifyDesktopHostNameRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16525,10 +16623,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the hostname of a Windows cloud desktop in an AD workspace.
+   * Modifies the hostname of a Windows cloud desktop in an AD office network.
    * 
    * @remarks
-   * You can only modify the hostname of Windows cloud desktops in an AD workspace. Modifying the hostname rebuilds the cloud desktop.
+   * Only the hostname of a Windows cloud desktop in an AD office network can be modified. After the hostname is modified, the cloud desktop is rebuilt.
    * 
    * @param request - ModifyDesktopHostNameRequest
    * @returns ModifyDesktopHostNameResponse
@@ -16539,7 +16637,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the name of a specified cloud desktop.
+   * Renames a specified cloud computer to a new name.
    * 
    * @param request - ModifyDesktopNameRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16586,7 +16684,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the name of a specified cloud desktop.
+   * Renames a specified cloud computer to a new name.
    * 
    * @param request - ModifyDesktopNameRequest
    * @returns ModifyDesktopNameResponse
@@ -16787,19 +16885,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the desktop type and expands the disks of a cloud desktop.
+   * Changes the instance type of a cloud computer and expands the system cloud disk and data cloud disk of the cloud computer.
    * 
    * @remarks
-   * This operation modifies the configuration of a cloud desktop, including its desktop type and disk sizes.
-   * - Before you modify the configuration, ensure you understand the supported desktop types and disk sizes. For more information, see [Cloud desktop specifications](https://help.aliyun.com/document_detail/188609.html). You can call the [DescribeDesktopTypes](~~DescribeDesktopTypes~~) operation to query the supported desktop types.
-   * - When you call this operation, you must modify the desktop type, the system disk size, or the data disk size. This requires specifying at least one of the corresponding parameters: `DesktopType`, `RootDiskSizeGib`, or `UserDiskSizeGib`. Note the following:
-   *   - A desktop type includes vCPU, memory, and GPU configurations. You can change the desktop type but cannot modify these resources individually.
-   *   - You cannot change a desktop type between general-purpose and non-general-purpose, or between graphics-accelerated and non-graphics-accelerated.
-   *   - Both the system disk and the data disk support expansion, but not shrinking.
-   *   - If the cloud desktop uses the subscription billing method, the system calculates the price difference based on the configuration change. You must pay the price difference, or you will receive a refund.
-   *   - For the same cloud desktop, wait at least five minutes between configuration change operations.
-   *   - The cloud desktop must be in the Stopped state.
-   * - This operation does not affect the personal data stored on the cloud desktop.
+   * Changing the configurations of a cloud computer includes changing the instance type of the cloud computer and scaling up the disks of the cloud computer.
+   * *   Before you change the configurations of a cloud computer, you must understand the instance types and disk sizes supported by cloud computers. For more information, see [Cloud computer types](https://help.aliyun.com/document_detail/188609.html). You can call the [DescribeDesktopTypes](https://help.aliyun.com/document_detail/188882.html) operation to query the instance types supported by cloud computers.
+   * *   You must change at least one of the following configurations: instance type, system disk size, and data disk size of the cloud computer. You must specify at least one of the following parameters: `DesktopType`, `RootDiskSizeGib`, and `UserDiskSizeGib`. Take note of the following items:
+   *     *   The instance type of a cloud computer includes the configurations of vCPUs, memory, and GPUs. You can only change an instance type to another. You cannot change only one of the configurations.
+   *     *   You cannot change a cloud computer between the General Office type and the non-General Office type. You cannot yet change a cloud computer between the Graphics type and the non-Graphics type.
+   *     *   The system disk and data disks of a cloud computer can only be scaled up and cannot be scaled down.
+   *     *   If the billing method of the cloud computer is subscription, the system calculates the price difference based on the configuration difference between the original cloud computer and the new cloud computer. You must make up for the price difference or receive a refund for the price difference.
+   *     *   We recommend that you do not change the configurations of a cloud computer twice within 5 minutes.
+   *     *   When you change the configurations of a cloud computer, the cloud computer must be in the Stopped state.
+   * *   After you change the configurations of a cloud computer, the personal data on the cloud computer is not affected.
    * 
    * @param request - ModifyDesktopSpecRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16870,19 +16968,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the desktop type and expands the disks of a cloud desktop.
+   * Changes the instance type of a cloud computer and expands the system cloud disk and data cloud disk of the cloud computer.
    * 
    * @remarks
-   * This operation modifies the configuration of a cloud desktop, including its desktop type and disk sizes.
-   * - Before you modify the configuration, ensure you understand the supported desktop types and disk sizes. For more information, see [Cloud desktop specifications](https://help.aliyun.com/document_detail/188609.html). You can call the [DescribeDesktopTypes](~~DescribeDesktopTypes~~) operation to query the supported desktop types.
-   * - When you call this operation, you must modify the desktop type, the system disk size, or the data disk size. This requires specifying at least one of the corresponding parameters: `DesktopType`, `RootDiskSizeGib`, or `UserDiskSizeGib`. Note the following:
-   *   - A desktop type includes vCPU, memory, and GPU configurations. You can change the desktop type but cannot modify these resources individually.
-   *   - You cannot change a desktop type between general-purpose and non-general-purpose, or between graphics-accelerated and non-graphics-accelerated.
-   *   - Both the system disk and the data disk support expansion, but not shrinking.
-   *   - If the cloud desktop uses the subscription billing method, the system calculates the price difference based on the configuration change. You must pay the price difference, or you will receive a refund.
-   *   - For the same cloud desktop, wait at least five minutes between configuration change operations.
-   *   - The cloud desktop must be in the Stopped state.
-   * - This operation does not affect the personal data stored on the cloud desktop.
+   * Changing the configurations of a cloud computer includes changing the instance type of the cloud computer and scaling up the disks of the cloud computer.
+   * *   Before you change the configurations of a cloud computer, you must understand the instance types and disk sizes supported by cloud computers. For more information, see [Cloud computer types](https://help.aliyun.com/document_detail/188609.html). You can call the [DescribeDesktopTypes](https://help.aliyun.com/document_detail/188882.html) operation to query the instance types supported by cloud computers.
+   * *   You must change at least one of the following configurations: instance type, system disk size, and data disk size of the cloud computer. You must specify at least one of the following parameters: `DesktopType`, `RootDiskSizeGib`, and `UserDiskSizeGib`. Take note of the following items:
+   *     *   The instance type of a cloud computer includes the configurations of vCPUs, memory, and GPUs. You can only change an instance type to another. You cannot change only one of the configurations.
+   *     *   You cannot change a cloud computer between the General Office type and the non-General Office type. You cannot yet change a cloud computer between the Graphics type and the non-Graphics type.
+   *     *   The system disk and data disks of a cloud computer can only be scaled up and cannot be scaled down.
+   *     *   If the billing method of the cloud computer is subscription, the system calculates the price difference based on the configuration difference between the original cloud computer and the new cloud computer. You must make up for the price difference or receive a refund for the price difference.
+   *     *   We recommend that you do not change the configurations of a cloud computer twice within 5 minutes.
+   *     *   When you change the configurations of a cloud computer, the cloud computer must be in the Stopped state.
+   * *   After you change the configurations of a cloud computer, the personal data on the cloud computer is not affected.
    * 
    * @param request - ModifyDesktopSpecRequest
    * @returns ModifyDesktopSpecResponse
@@ -17007,11 +17105,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the performance level of the system cloud disk or data cloud disk of a cloud computer.
+   * Modifies the performance level (PL) of the system cloud disk or data cloud disk of a cloud computer.
    * 
    * @remarks
-   * When you create a cloud computer, you can select specifications by creating a custom template. Enterprise Graphics or High Frequency Office cloud computers use ESSDs by default and support setting disk capacity and performance level (PL). You can change the performance level (PL) of the system cloud disk or data cloud disk as needed.
-   * > Only Enterprise Graphics and High Frequency Office cloud computers support changing disk performance levels.
+   * When you create a cloud computer, you can select specifications by creating a custom template. Enterprise Graphics or High Frequency Office specifications use ESSDs by default and support settings for disk capacity and performance level (PL). You can change the performance level (PL) of the system cloud disk or data cloud disk as needed.
+   * > Only Enterprise Graphics and High Frequency Office cloud computers support changing the disk performance level (PL).
    * 
    * @param request - ModifyDiskSpecRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17066,11 +17164,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the performance level of the system cloud disk or data cloud disk of a cloud computer.
+   * Modifies the performance level (PL) of the system cloud disk or data cloud disk of a cloud computer.
    * 
    * @remarks
-   * When you create a cloud computer, you can select specifications by creating a custom template. Enterprise Graphics or High Frequency Office cloud computers use ESSDs by default and support setting disk capacity and performance level (PL). You can change the performance level (PL) of the system cloud disk or data cloud disk as needed.
-   * > Only Enterprise Graphics and High Frequency Office cloud computers support changing disk performance levels.
+   * When you create a cloud computer, you can select specifications by creating a custom template. Enterprise Graphics or High Frequency Office specifications use ESSDs by default and support settings for disk capacity and performance level (PL). You can change the performance level (PL) of the system cloud disk or data cloud disk as needed.
+   * > Only Enterprise Graphics and High Frequency Office cloud computers support changing the disk performance level (PL).
    * 
    * @param request - ModifyDiskSpecRequest
    * @returns ModifyDiskSpecResponse
@@ -17341,7 +17439,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the bandwidth of a premium bandwidth plan.
+   * Modifies the bandwidth of a premium Internet bandwidth plan.
    * 
    * @param request - ModifyNetworkPackageBandwidthRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17392,7 +17490,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the bandwidth of a premium bandwidth plan.
+   * Modifies the bandwidth of a premium Internet bandwidth plan.
    * 
    * @param request - ModifyNetworkPackageBandwidthRequest
    * @returns ModifyNetworkPackageBandwidthResponse
@@ -17509,7 +17607,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies basic attributes of an office site (formerly a workspace), such as its name and whether to grant users local administrative permissions on their cloud computers.
+   * Modifies the basic attributes of an office network (formerly workspace), such as the office network name and whether to grant local administrator permissions to cloud computer users.
    * 
    * @param request - ModifyOfficeSiteAttributeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17588,7 +17686,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies basic attributes of an office site (formerly a workspace), such as its name and whether to grant users local administrative permissions on their cloud computers.
+   * Modifies the basic attributes of an office network (formerly workspace), such as the office network name and whether to grant local administrator permissions to cloud computer users.
    * 
    * @param request - ModifyOfficeSiteAttributeRequest
    * @returns ModifyOfficeSiteAttributeResponse
@@ -17821,7 +17919,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies cloud computer policies.
+   * Modifies a cloud computer policy.
    * 
    * @param request - ModifyPolicyGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18088,7 +18186,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies cloud computer policies.
+   * Modifies a cloud computer policy.
    * 
    * @param request - ModifyPolicyGroupRequest
    * @returns ModifyPolicyGroupResponse
@@ -18099,7 +18197,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the resource bindings of a QoS rule.
+   * Modifies the resource binding relationship of a rate limiting rule.
    * 
    * @param request - ModifyQosEntriesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18154,7 +18252,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the resource bindings of a QoS rule.
+   * Modifies the resource binding relationship of a rate limiting rule.
    * 
    * @param request - ModifyQosEntriesRequest
    * @returns ModifyQosEntriesResponse
@@ -18346,7 +18444,7 @@ export default class Client extends OpenApi {
    * Modifies all parameters of a custom cloud computer template.
    * 
    * @remarks
-   * >Warning: To ensure compatibility with the logic for unset parameters and default upgrades in templates, this operation uses a full-parameter update logic. In other words, any parameter that is not specified is treated as being set to empty.
+   * >Warning: To ensure compatibility with the logic for unset parameters and default upgrades in the template, this operation uses a full-parameter update logic. In other words, any parameter that is not specified is treated as being set to empty.
    * 
    * @param request - ModifyTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18465,7 +18563,7 @@ export default class Client extends OpenApi {
    * Modifies all parameters of a custom cloud computer template.
    * 
    * @remarks
-   * >Warning: To ensure compatibility with the logic for unset parameters and default upgrades in templates, this operation uses a full-parameter update logic. In other words, any parameter that is not specified is treated as being set to empty.
+   * >Warning: To ensure compatibility with the logic for unset parameters and default upgrades in the template, this operation uses a full-parameter update logic. In other words, any parameter that is not specified is treated as being set to empty.
    * 
    * @param request - ModifyTemplateRequest
    * @returns ModifyTemplateResponse
@@ -18960,16 +19058,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves historical average monitoring metrics for a desktop resource over a specified date range.
+   * Queries the historical average monitoring metrics of desktop resources within a specified date range.
    * 
    * @remarks
-   * ## Request
-   * - This API retrieves historical average monitoring metrics for desktop resources that meet specified criteria within a time range.
-   * - The `DataDate` and `EndDate` parameters specify the time range. If omitted, the query defaults to the previous day.
-   * - You can filter results by criteria such as desktop ID, name, and custom numeric ranges.
-   * - The response contains the details of each matching desktop resource and its corresponding average values.
-   * - Use the `PageNum` and `PageSize` pagination parameters to control the number of results returned.
-   * - Note: When using the `Ranges` parameter, ensure that you provide reasonable intervals. Unreasonable intervals can degrade query performance or lead to invalid results.
+   * ## Operation description
+   * - This operation retrieves the historical average monitoring metrics of desktop resources filtered by specified conditions within a given time period.
+   * - The `DataDate` and `EndDate` parameters define the query time range. The default value is the previous day.
+   * - Filtering by desktop ID and name is supported. You can also customize numeric ranges to further refine query results.
+   * - The response includes detailed information about each matching desktop resource and its corresponding average values.
+   * - The pagination parameters `PageNum` and `PageSize` allow you to control the amount of returned data to meet different display requirements.
+   * - Note: When using the `Ranges` parameter, ensure that the provided ranges are reasonable. Otherwise, query performance may be affected or invalid results may be returned.
    * 
    * @param tmpReq - QueryHistoryAvgMetricListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -19034,16 +19132,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves historical average monitoring metrics for a desktop resource over a specified date range.
+   * Queries the historical average monitoring metrics of desktop resources within a specified date range.
    * 
    * @remarks
-   * ## Request
-   * - This API retrieves historical average monitoring metrics for desktop resources that meet specified criteria within a time range.
-   * - The `DataDate` and `EndDate` parameters specify the time range. If omitted, the query defaults to the previous day.
-   * - You can filter results by criteria such as desktop ID, name, and custom numeric ranges.
-   * - The response contains the details of each matching desktop resource and its corresponding average values.
-   * - Use the `PageNum` and `PageSize` pagination parameters to control the number of results returned.
-   * - Note: When using the `Ranges` parameter, ensure that you provide reasonable intervals. Unreasonable intervals can degrade query performance or lead to invalid results.
+   * ## Operation description
+   * - This operation retrieves the historical average monitoring metrics of desktop resources filtered by specified conditions within a given time period.
+   * - The `DataDate` and `EndDate` parameters define the query time range. The default value is the previous day.
+   * - Filtering by desktop ID and name is supported. You can also customize numeric ranges to further refine query results.
+   * - The response includes detailed information about each matching desktop resource and its corresponding average values.
+   * - The pagination parameters `PageNum` and `PageSize` allow you to control the amount of returned data to meet different display requirements.
+   * - Note: When using the `Ranges` parameter, ensure that the provided ranges are reasonable. Otherwise, query performance may be affected or invalid results may be returned.
    * 
    * @param request - QueryHistoryAvgMetricListRequest
    * @returns QueryHistoryAvgMetricListResponse
@@ -19058,12 +19156,12 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ## Operation description
-   * This API operation queries the value distribution of a specific monitoring metrics (such as CPU usage or memory usage) within a specified date range. You can obtain more detailed statistics by defining custom value ranges. Two business channels are supported: Enterprise Edition and Commercial Edition. By default, T-1 (yesterday) data statistics are used.
+   * This API operation is used to query the value distribution of a specific monitoring metrics (such as CPU usage or memory usage) within a specified date range. You can obtain more detailed statistics by defining custom value ranges. Enterprise Edition and Commercial Edition business channels are supported. By default, T-1 (yesterday) data statistics are used.
    * - **BusinessChannel**: Enterprise Edition by default. Commercial Edition is optional.
-   * - **StartDate & EndDate**: Default value is T-1, which is yesterday\\"s date. The format must be "YYYY-MM-DD".
+   * - **StartDate & EndDate**: The default value is T-1, which is yesterday\\"s date. The format must be "YYYY-MM-DD".
    * - **MetricName**: The name of the specific metric to query. Refer to the valid metric list provided in the documentation.
-   * - **Ranges**: Allows you to define multiple custom value ranges for more granular data analytics. Each range can have a minimum value, a maximum value, and whether to include border values.
-   * ## Settings
+   * - **Ranges**: Allows you to define multiple custom value ranges for more granular data analytics. You can set the minimum value, maximum value, and whether to include border values for each range.
+   * Settings:
    * 
    * @param request - QueryHistoryMetricDistributionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -19110,12 +19208,12 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ## Operation description
-   * This API operation queries the value distribution of a specific monitoring metrics (such as CPU usage or memory usage) within a specified date range. You can obtain more detailed statistics by defining custom value ranges. Two business channels are supported: Enterprise Edition and Commercial Edition. By default, T-1 (yesterday) data statistics are used.
+   * This API operation is used to query the value distribution of a specific monitoring metrics (such as CPU usage or memory usage) within a specified date range. You can obtain more detailed statistics by defining custom value ranges. Enterprise Edition and Commercial Edition business channels are supported. By default, T-1 (yesterday) data statistics are used.
    * - **BusinessChannel**: Enterprise Edition by default. Commercial Edition is optional.
-   * - **StartDate & EndDate**: Default value is T-1, which is yesterday\\"s date. The format must be "YYYY-MM-DD".
+   * - **StartDate & EndDate**: The default value is T-1, which is yesterday\\"s date. The format must be "YYYY-MM-DD".
    * - **MetricName**: The name of the specific metric to query. Refer to the valid metric list provided in the documentation.
-   * - **Ranges**: Allows you to define multiple custom value ranges for more granular data analytics. Each range can have a minimum value, a maximum value, and whether to include border values.
-   * ## Settings
+   * - **Ranges**: Allows you to define multiple custom value ranges for more granular data analytics. You can set the minimum value, maximum value, and whether to include border values for each range.
+   * Settings:
    * 
    * @param request - QueryHistoryMetricDistributionRequest
    * @returns QueryHistoryMetricDistributionResponse
@@ -19266,15 +19364,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Replaces the image of one or more cloud computers.
+   * Changes the image for one or more cloud computers.
    * 
    * @remarks
-   * This operation is subject to the following limitations:
-   * - For cloud computers in the China (Hong Kong) region and regions outside the Chinese mainland, you cannot switch to an image with a different operating system. For example, you cannot switch from a Windows image to a Linux image.
-   * - You cannot switch between GPU images and non-GPU images. Graphics-optimized cloud computers must use GPU images, and non-graphics cloud computers can only use non-GPU images.
-   * Changing the image re-initializes the cloud computer\\"s system disk with the new image. This action has the following effects:
-   * - All data on the original system disk is erased. Any snapshots created from the original system disk become invalid, and the system automatically deletes them.
-   * - If the new image has a different operating system, all data on the data disk is erased. Snapshots created from the data disk become invalid, and the system automatically deletes them. If the new image has the same operating system, data on the data disk is retained and its snapshots remain usable.
+   * The change image operation has the following limits:
+   * - Cloud computers in Hong Kong (China) and regions outside China do not support changing to an image of a different operating system (for example, changing from a Windows image to a Linux image).
+   * - Changing between GPU images and non-GPU images is not supported. Graphics-type cloud computers can only use GPU images, and non-graphics-type cloud computers can only use non-GPU images.
+   * After the image is changed, the system uses the new image to initialize the system cloud disk of the cloud computer. The impacts are as follows:
+   * - Data on the original system cloud disk of the cloud computer is cleared. Snapshots created based on the original system cloud disk become unusable, and the system automatically deletes the related snapshots.
+   * - If the operating system of the image is changed, data on the original data cloud disk of the cloud computer is cleared, snapshots created based on the original data cloud disk become unusable, and the system automatically deletes the related snapshots. If the operating system of the image is not changed, data on the original data cloud disk is retained, and the related snapshots remain usable.
    * 
    * @param request - RebuildDesktopsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -19325,15 +19423,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Replaces the image of one or more cloud computers.
+   * Changes the image for one or more cloud computers.
    * 
    * @remarks
-   * This operation is subject to the following limitations:
-   * - For cloud computers in the China (Hong Kong) region and regions outside the Chinese mainland, you cannot switch to an image with a different operating system. For example, you cannot switch from a Windows image to a Linux image.
-   * - You cannot switch between GPU images and non-GPU images. Graphics-optimized cloud computers must use GPU images, and non-graphics cloud computers can only use non-GPU images.
-   * Changing the image re-initializes the cloud computer\\"s system disk with the new image. This action has the following effects:
-   * - All data on the original system disk is erased. Any snapshots created from the original system disk become invalid, and the system automatically deletes them.
-   * - If the new image has a different operating system, all data on the data disk is erased. Snapshots created from the data disk become invalid, and the system automatically deletes them. If the new image has the same operating system, data on the data disk is retained and its snapshots remain usable.
+   * The change image operation has the following limits:
+   * - Cloud computers in Hong Kong (China) and regions outside China do not support changing to an image of a different operating system (for example, changing from a Windows image to a Linux image).
+   * - Changing between GPU images and non-GPU images is not supported. Graphics-type cloud computers can only use GPU images, and non-graphics-type cloud computers can only use non-GPU images.
+   * After the image is changed, the system uses the new image to initialize the system cloud disk of the cloud computer. The impacts are as follows:
+   * - Data on the original system cloud disk of the cloud computer is cleared. Snapshots created based on the original system cloud disk become unusable, and the system automatically deletes the related snapshots.
+   * - If the operating system of the image is changed, data on the original data cloud disk of the cloud computer is cleared, snapshots created based on the original data cloud disk become unusable, and the system automatically deletes the related snapshots. If the operating system of the image is not changed, data on the original data cloud disk is retained, and the related snapshots remain usable.
    * 
    * @param request - RebuildDesktopsRequest
    * @returns RebuildDesktopsResponse
@@ -19390,7 +19488,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Unshare a folder on the network disk.
+   * Unshares a folder in a cloud disk.
    * 
    * @param tmpReq - RemoveFilePermissionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -19447,7 +19545,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Unshare a folder on the network disk.
+   * Unshares a folder in a cloud disk.
    * 
    * @param request - RemoveFilePermissionRequest
    * @returns RemoveFilePermissionResponse
@@ -19458,7 +19556,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Removes specified authorized users from a shared desktop group. After an authorized user is removed, that user can no longer connect to the cloud desktops in the group.
+   * Removes specified authorized users from a shared cloud computer. Removed users can no longer connect to cloud computers within the shared cloud computer.
    * 
    * @param request - RemoveUserFromDesktopGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -19517,7 +19615,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Removes specified authorized users from a shared desktop group. After an authorized user is removed, that user can no longer connect to the cloud desktops in the group.
+   * Removes specified authorized users from a shared cloud computer. Removed users can no longer connect to cloud computers within the shared cloud computer.
    * 
    * @param request - RemoveUserFromDesktopGroupRequest
    * @returns RemoveUserFromDesktopGroupResponse
@@ -19582,7 +19680,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Renews the subscription for a cloud computer pool.
+   * Renews a subscription shared cloud computer.
    * 
    * @param request - RenewDesktopGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -19637,7 +19735,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Renews the subscription for a cloud computer pool.
+   * Renews a subscription shared cloud computer.
    * 
    * @param request - RenewDesktopGroupRequest
    * @returns RenewDesktopGroupResponse
@@ -19698,7 +19796,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Renews one or more subscription-based WUYING Workspace instances.
+   * Renews one or more monthly subscription cloud computers.
    * 
    * @param request - RenewDesktopsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -19761,7 +19859,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Renews one or more subscription-based WUYING Workspace instances.
+   * Renews one or more monthly subscription cloud computers.
    * 
    * @param request - RenewDesktopsRequest
    * @returns RenewDesktopsResponse
@@ -19772,7 +19870,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Renews subscription-based premium public bandwidth.
+   * Renews subscription premium Internet bandwidth.
    * 
    * @param request - RenewNetworkPackagesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -19831,7 +19929,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Renews subscription-based premium public bandwidth.
+   * Renews subscription premium Internet bandwidth.
    * 
    * @param request - RenewNetworkPackagesRequest
    * @returns RenewNetworkPackagesResponse
@@ -19918,10 +20016,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Resets cloud desktops in a shared cloud desktop group.
+   * Resets cloud computers within a shared cloud computer.
    * 
    * @remarks
-   * > This operation applies only to shared cloud desktops. It does not support resetting standard cloud desktops.
+   * > This operation applies only to resetting cloud computers within a shared cloud computer. It does not support resetting regular cloud computers.
    * 
    * @param request - ResetDesktopsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -19984,10 +20082,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Resets cloud desktops in a shared cloud desktop group.
+   * Resets cloud computers within a shared cloud computer.
    * 
    * @remarks
-   * > This operation applies only to shared cloud desktops. It does not support resetting standard cloud desktops.
+   * > This operation applies only to resetting cloud computers within a shared cloud computer. It does not support resetting regular cloud computers.
    * 
    * @param request - ResetDesktopsRequest
    * @returns ResetDesktopsResponse
@@ -20001,7 +20099,7 @@ export default class Client extends OpenApi {
    * Resets the mount point of a NAS file system.
    * 
    * @remarks
-   * When a NAS file system is created, the system automatically generates a mount point. By default, the mount point does not need to be modified. If the mount point is in an inactive state, you need to reset the mount point of the NAS file system.
+   * When you create a NAS file system, the system automatically generates a mount point. By default, the mount point does not need to be modified. If the mount point is in an inactive state, you need to reset the mount point of the NAS file system.
    * 
    * @param request - ResetNASDefaultMountTargetRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -20039,7 +20137,7 @@ export default class Client extends OpenApi {
    * Resets the mount point of a NAS file system.
    * 
    * @remarks
-   * When a NAS file system is created, the system automatically generates a mount point. By default, the mount point does not need to be modified. If the mount point is in an inactive state, you need to reset the mount point of the NAS file system.
+   * When you create a NAS file system, the system automatically generates a mount point. By default, the mount point does not need to be modified. If the mount point is in an inactive state, you need to reset the mount point of the NAS file system.
    * 
    * @param request - ResetNASDefaultMountTargetRequest
    * @returns ResetNASDefaultMountTargetResponse
@@ -20112,7 +20210,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Cancels the permission for stream coordination operations.
+   * Cancels the permissions for stream coordination operations.
    * 
    * @param request - RevokeCoordinatePrivilegeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -20159,7 +20257,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Cancels the permission for stream coordination operations.
+   * Cancels the permissions for stream coordination operations.
    * 
    * @param request - RevokeCoordinatePrivilegeRequest
    * @returns RevokeCoordinatePrivilegeResponse
@@ -20170,7 +20268,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Runs a PowerShell or Bat script on one or more cloud computers that run Windows.
+   * Executes a PowerShell or Bat script on one or more cloud computers that run the Windows operating system.
    * 
    * @param request - RunCommandRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -20229,7 +20327,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Runs a PowerShell or Bat script on one or more cloud computers that run Windows.
+   * Executes a PowerShell or Bat script on one or more cloud computers that run the Windows operating system.
    * 
    * @param request - RunCommandRequest
    * @returns RunCommandResponse
@@ -20240,10 +20338,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the verification code that is required when you bind an advanced office network to a Cloud Enterprise Network (CEN) instance that belongs to another Alibaba Cloud account.
+   * Retrieves a verification code required when adding a premium office network to a Cloud Enterprise Network (CEN) instance that belongs to a different Alibaba Cloud account.
    * 
    * @remarks
-   * You must call this operation to obtain the verification code that is required when you bind an advanced office network to a CEN instance that belongs to another Alibaba Cloud account. After you call this operation, the system sends a verification code to the email address associated with the Alibaba Cloud account to which the CEN instance belongs.
+   * <props="china">When adding a premium office network to a CEN instance that belongs to a different Alibaba Cloud account, call this operation first to obtain a verification code. After a successful call, the system sends the verification code to the phone number associated with the Alibaba Cloud account.
+   * <props="intl">When adding a premium office network to a CEN instance that belongs to a different Alibaba Cloud account, call this operation first to obtain a verification code. After a successful call, the system sends the verification code to the email address associated with the Alibaba Cloud account.
    * 
    * @param request - SendVerifyCodeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -20282,10 +20381,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the verification code that is required when you bind an advanced office network to a Cloud Enterprise Network (CEN) instance that belongs to another Alibaba Cloud account.
+   * Retrieves a verification code required when adding a premium office network to a Cloud Enterprise Network (CEN) instance that belongs to a different Alibaba Cloud account.
    * 
    * @remarks
-   * You must call this operation to obtain the verification code that is required when you bind an advanced office network to a CEN instance that belongs to another Alibaba Cloud account. After you call this operation, the system sends a verification code to the email address associated with the Alibaba Cloud account to which the CEN instance belongs.
+   * <props="china">When adding a premium office network to a CEN instance that belongs to a different Alibaba Cloud account, call this operation first to obtain a verification code. After a successful call, the system sends the verification code to the phone number associated with the Alibaba Cloud account.
+   * <props="intl">When adding a premium office network to a CEN instance that belongs to a different Alibaba Cloud account, call this operation first to obtain a verification code. After a successful call, the system sends the verification code to the email address associated with the Alibaba Cloud account.
    * 
    * @param request - SendVerifyCodeRequest
    * @returns SendVerifyCodeResponse
@@ -20408,7 +20508,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Sets the status of a scheduled task for a cloud computer share, such as enabling or disabling it.
+   * Sets the status of a scheduled task for a shared cloud computer, such as enabling or disabling the scheduled task.
    * 
    * @param request - SetDesktopGroupTimerStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -20451,7 +20551,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Sets the status of a scheduled task for a cloud computer share, such as enabling or disabling it.
+   * Sets the status of a scheduled task for a shared cloud computer, such as enabling or disabling the scheduled task.
    * 
    * @param request - SetDesktopGroupTimerStatusRequest
    * @returns SetDesktopGroupTimerStatusResponse
@@ -20462,10 +20562,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Set the cloud computer maintenance mode.
+   * Sets the maintenance mode for cloud computers.
    * 
    * @remarks
-   * If you need to perform some maintenance operations on the cloud computer and want to prohibit end user from connecting and using the cloud computer during this period, you can switch it to maintenance mode.
+   * If you need to perform maintenance operations on a cloud computer and want to prevent end users from connecting to and using the cloud computer during this period, you can switch it to maintenance mode.
    * 
    * @param request - SetDesktopMaintenanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -20504,10 +20604,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Set the cloud computer maintenance mode.
+   * Sets the maintenance mode for cloud computers.
    * 
    * @remarks
-   * If you need to perform some maintenance operations on the cloud computer and want to prohibit end user from connecting and using the cloud computer during this period, you can switch it to maintenance mode.
+   * If you need to perform maintenance operations on a cloud computer and want to prevent end users from connecting to and using the cloud computer during this period, you can switch it to maintenance mode.
    * 
    * @param request - SetDesktopMaintenanceRequest
    * @returns SetDesktopMaintenanceResponse
@@ -20518,10 +20618,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables or disables the single sign-on (SSO) feature for an AD-based office network.
+   * Enables or shuts down the single sign-on (SSO) feature for an AD-based office network.
    * 
    * @remarks
-   * This operation has the same effect as [SetOfficeSiteSsoStatus](~~SetOfficeSiteSsoStatus~~). Use the SetOfficeSiteSsoStatus operation instead.
+   * This operation has the same function as [SetOfficeSiteSsoStatus](~~SetOfficeSiteSsoStatus~~). We recommend that you use the `SetOfficeSiteSsoStatus` operation.
    * 
    * @param request - SetDirectorySsoStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -20560,10 +20660,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables or disables the single sign-on (SSO) feature for an AD-based office network.
+   * Enables or shuts down the single sign-on (SSO) feature for an AD-based office network.
    * 
    * @remarks
-   * This operation has the same effect as [SetOfficeSiteSsoStatus](~~SetOfficeSiteSsoStatus~~). Use the SetOfficeSiteSsoStatus operation instead.
+   * This operation has the same function as [SetOfficeSiteSsoStatus](~~SetOfficeSiteSsoStatus~~). We recommend that you use the `SetOfficeSiteSsoStatus` operation.
    * 
    * @param request - SetDirectorySsoStatusRequest
    * @returns SetDirectorySsoStatusResponse
@@ -20574,10 +20674,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Uploads the metadata of a Security Assertion Markup Language (SAML) 2.0-based identity provider (IdP).
-   * 
-   * @remarks
-   * You can call this operation only for workspaces of the Active Directory (AD) and convenience account types.
+   * Uploads metadata for a SAML 2.0-based identity provider (IdP).
    * 
    * @param request - SetIdpMetadataRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -20620,10 +20717,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Uploads the metadata of a Security Assertion Markup Language (SAML) 2.0-based identity provider (IdP).
-   * 
-   * @remarks
-   * You can call this operation only for workspaces of the Active Directory (AD) and convenience account types.
+   * Uploads metadata for a SAML 2.0-based identity provider (IdP).
    * 
    * @param request - SetIdpMetadataRequest
    * @returns SetIdpMetadataResponse
@@ -20796,10 +20890,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Stops one or more running cloud desktops. After a successful call, the specified cloud desktops enter the Stopped state.
+   * Stops one or more running cloud computers. After the operation is called, the cloud computers enter the Stopped state.
    * 
    * @remarks
-   * The cloud desktops must be in the Running state.
+   * The cloud computers must be in the Running state.
    * 
    * @param request - StopDesktopsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -20850,10 +20944,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Stops one or more running cloud desktops. After a successful call, the specified cloud desktops enter the Stopped state.
+   * Stops one or more running cloud computers. After the operation is called, the cloud computers enter the Stopped state.
    * 
    * @remarks
-   * The cloud desktops must be in the Running state.
+   * The cloud computers must be in the Running state.
    * 
    * @param request - StopDesktopsRequest
    * @returns StopDesktopsResponse
@@ -21034,7 +21128,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Unbinds a configuration group from resources.
+   * Unbinds configuration groups from resources.
    * 
    * @param request - UnbindConfigGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -21073,7 +21167,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Unbinds a configuration group from resources.
+   * Unbinds configuration groups from resources.
    * 
    * @param request - UnbindConfigGroupRequest
    * @returns UnbindConfigGroupResponse
@@ -21402,7 +21496,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Verifies the ID of a Cloud Enterprise Network (CEN) instance and the ID of the Alibaba Cloud account to which the instance belongs and checks whether a CIDR block conflict exists between the routes of the instance and the IPv4 CIDR blocks of the associated office network.
+   * Verifies whether the Cloud Enterprise Network (CEN) instance ID and the associated Alibaba Cloud account ID are correct, and whether CIDR block conflicts exist between the instance routes and the office network IPv4 CIDR block.
    * 
    * @param request - VerifyCenRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -21449,7 +21543,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Verifies the ID of a Cloud Enterprise Network (CEN) instance and the ID of the Alibaba Cloud account to which the instance belongs and checks whether a CIDR block conflict exists between the routes of the instance and the IPv4 CIDR blocks of the associated office network.
+   * Verifies whether the Cloud Enterprise Network (CEN) instance ID and the associated Alibaba Cloud account ID are correct, and whether CIDR block conflicts exist between the instance routes and the office network IPv4 CIDR block.
    * 
    * @param request - VerifyCenRequest
    * @returns VerifyCenResponse
@@ -21460,10 +21554,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Wakes up cloud computers.
+   * Wakes up cloud computers from hibernation.
    * 
    * @remarks
-   * Only cloud computers that are in the Hibernated state can be waked up.
+   * You can wake up only cloud computers that are in the Hibernated state.
    * 
    * @param request - WakeupDesktopsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -21498,10 +21592,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Wakes up cloud computers.
+   * Wakes up cloud computers from hibernation.
    * 
    * @remarks
-   * Only cloud computers that are in the Hibernated state can be waked up.
+   * You can wake up only cloud computers that are in the Hibernated state.
    * 
    * @param request - WakeupDesktopsRequest
    * @returns WakeupDesktopsResponse

@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class VerifyCenResponseBodyRouteEntries extends $dara.Model {
   /**
    * @remarks
-   * The CIDR block of the route.
+   * The destination CIDR block of the route.
    * 
    * @example
-   * 172.16.111.3****
+   * 172.16.XX.XX
    */
   destinationCidrBlock?: string;
   /**
    * @remarks
-   * The ID of the instance corresponding to the route.
+   * The instance ID of the network instance associated with the routing entry.
    * 
    * @example
    * vpc-uf62bu0xs5j8md54p****
@@ -29,12 +29,7 @@ export class VerifyCenResponseBodyRouteEntries extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The verification result of the route.
-   * 
-   * Valid values:
-   * 
-   * *   Conflict: A CIDR block conflict exists.
-   * *   Access: The verification is passed.
+   * The route check result.
    * 
    * @example
    * Access
@@ -70,12 +65,12 @@ export class VerifyCenResponseBodyRouteEntries extends $dara.Model {
 export class VerifyCenResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The recommended IPv4 CIDR blocks. Three CIDR blocks are randomly recommended. This parameter is returned when the `Status` value is `Conflict`.
+   * The recommended IPv4 CIDR blocks. Three CIDR blocks are randomly recommended. This parameter is returned when `Status` is `Conflict`.
    */
   cidrBlocks?: string[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 0AF9D857-AE96-53D6-B317-5DD665EC4EC0
@@ -83,21 +78,12 @@ export class VerifyCenResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The routes provided by the CEN instance.
+   * The list of route information contained in the CEN instance.
    */
   routeEntries?: VerifyCenResponseBodyRouteEntries[];
   /**
    * @remarks
-   * The check result of CIDR block conflict.
-   * 
-   * Valid values:
-   * 
-   * *   InvalidCen.CenUidInvalid: The Alibaba Cloud account is invalid or the Alibaba Cloud account does not have the permission to access Elastic Desktop Service.
-   * *   VerifyCode.InvalidTokenCode: The verification code is invalid.
-   * *   VerifyCode.ReachTokenRetryTime: The maximum number of times for entering a verification code reaches the limit.
-   * *   Conflict: A CIDR block conflict exists. If the verification result of at least one route is Conflict, Conflict is returned for this parameter.
-   * *   Access: The verification is passed. If the verification result for all routes is Access, Access is returned for this parameter.
-   * *   InvalidCen.ParameterCenInstanceId: The Alibaba Cloud account does not own the CEN instance.
+   * The result of the CIDR block conflict check.
    * 
    * @example
    * Access

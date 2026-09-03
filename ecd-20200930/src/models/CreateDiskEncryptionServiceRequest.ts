@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDiskEncryptionServiceRequest extends $dara.Model {
   /**
    * @remarks
-   * The region ID. You can call [DescribeRegions](~~DescribeRegions~~) to query the list of regions supported by Elastic Desktop Service.
+   * The region ID. You can call [DescribeRegions](~~DescribeRegions~~) to query the regions supported by Elastic Desktop Service.
    * 
    * This parameter is required.
    * 

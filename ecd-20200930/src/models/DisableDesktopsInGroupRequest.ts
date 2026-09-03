@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DisableDesktopsInGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the cloud computer share.
+   * The ID of the shared cloud computer group.
    * 
    * This parameter is required.
    * 
@@ -15,14 +15,14 @@ export class DisableDesktopsInGroupRequest extends $dara.Model {
   desktopGroupId?: string;
   /**
    * @remarks
-   * The IDs of the cloud computers.
+   * The list of cloud computer IDs.
    * 
    * This parameter is required.
    */
   desktopIds?: string[];
   /**
    * @remarks
-   * The ID of the region. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the list of regions where Elastic Desktop Service (EDS) Enterprise is available.
+   * The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to query the regions supported by Elastic Desktop Service.
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDesktopMetadataResponseBodyDesktops extends $dara.Model {
   /**
    * @remarks
-   * The agents supported by the current cloud desktop.
+   * The agents supported by the current cloud computer.
    */
   agentProviderList?: string[];
   /**
@@ -20,7 +20,7 @@ export class DescribeDesktopMetadataResponseBodyDesktops extends $dara.Model {
   chargeType?: string;
   /**
    * @remarks
-   * The time when the cloud desktop was created.
+   * The time when the cloud desktop was created. The time is in the ISO 8601 standard (UTC).
    * 
    * @example
    * 2020-11-06T08:28Z
@@ -28,7 +28,7 @@ export class DescribeDesktopMetadataResponseBodyDesktops extends $dara.Model {
   creationTime?: string;
   /**
    * @remarks
-   * The shared cloud desktop ID.
+   * The shared cloud computer ID.
    * 
    * @example
    * dg-3uiojcc0j4kh7****
@@ -44,7 +44,7 @@ export class DescribeDesktopMetadataResponseBodyDesktops extends $dara.Model {
   desktopId?: string;
   /**
    * @remarks
-   * The name of the cloud desktop.
+   * The cloud desktop name.
    * 
    * @example
    * testDesktopName
@@ -52,15 +52,15 @@ export class DescribeDesktopMetadataResponseBodyDesktops extends $dara.Model {
   desktopName?: string;
   /**
    * @remarks
-   * The status of the cloud desktop. Valid values:
-   * - Stopped
-   * - Starting
-   * - Rebuilding
-   * - Running
-   * - Stopping
-   * - Expired
-   * - Deleted
-   * - Pending
+   * The cloud desktop status. Valid values:
+   * - Stopped: stopped.
+   * - Starting: starting.
+   * - Rebuilding: rebuilding.
+   * - Running: running.
+   * - Stopping: stopping.
+   * - Expired: expired.
+   * - Deleted: deleted.
+   * - Pending: pending.
    * 
    * @example
    * Running
@@ -76,7 +76,7 @@ export class DescribeDesktopMetadataResponseBodyDesktops extends $dara.Model {
   desktopType?: string;
   /**
    * @remarks
-   * The time when the cloud desktop expires. This value is returned only for cloud desktops that use the subscription billable method.
+   * The time when the cloud desktop expires. This value is returned only for cloud desktops that use the subscription billable method. The time format follows the ISO 8601 standard (UTC).
    * 
    * @example
    * 2021-12-31T15:59Z
@@ -92,7 +92,7 @@ export class DescribeDesktopMetadataResponseBodyDesktops extends $dara.Model {
   imageId?: string;
   /**
    * @remarks
-   * The local name of the region where the cloud desktop resides.
+   * The local name of the region to which the cloud desktop belongs.
    * 
    * @example
    * 华东2（上海）
@@ -100,7 +100,7 @@ export class DescribeDesktopMetadataResponseBodyDesktops extends $dara.Model {
   localName?: string;
   /**
    * @remarks
-   * The management status of the cloud desktop.
+   * The management status of the cloud computer.
    */
   managementFlags?: string[];
   /**
@@ -153,7 +153,7 @@ export class DescribeDesktopMetadataResponseBodyDesktops extends $dara.Model {
   resourceGroupName?: string;
   /**
    * @remarks
-   * The time when the cloud desktop was started.
+   * The time when the cloud desktop was started. The time is in the ISO 8601 standard (UTC).
    * 
    * @example
    * 2020-11-06T08:31Z
@@ -225,7 +225,7 @@ export class DescribeDesktopMetadataResponseBodyDesktops extends $dara.Model {
 export class DescribeDesktopMetadataResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the cloud desktops.
+   * The cloud desktop details.
    */
   desktops?: DescribeDesktopMetadataResponseBodyDesktops[];
   /**

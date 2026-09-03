@@ -5,14 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class HibernateDesktopsRequest extends $dara.Model {
   /**
    * @remarks
-   * The IDs of the cloud desktops. You can specify 1 to 20 cloud desktop IDs.
+   * The cloud computer IDs. You can specify 1 to 100 IDs.
    * 
    * This parameter is required.
    */
   desktopId?: string[];
   /**
    * @remarks
-   * The region ID. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the regions supported by Elastic Desktop Service (EDS).
+   * The region ID. You can call [DescribeRegions](~~DescribeRegions~~) to query the regions supported by Elastic Desktop Service.
    * 
    * This parameter is required.
    * 

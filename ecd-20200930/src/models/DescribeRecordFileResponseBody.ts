@@ -13,7 +13,7 @@ export class DescribeRecordFileResponseBodyRecordFilesEventDetails extends $dara
   eventName?: string;
   /**
    * @remarks
-   * The time when the event occurred.
+   * The time when the event occurred. Unit: seconds.
    * 
    * @example
    * 60
@@ -55,7 +55,7 @@ export class DescribeRecordFileResponseBodyRecordFilesEventDetails extends $dara
 export class DescribeRecordFileResponseBodyRecordFiles extends $dara.Model {
   /**
    * @remarks
-   * The ID of the cloud desktop.
+   * The Cloud Desktop ID.
    * 
    * @example
    * ecd-7yulhw1g1attet7d2
@@ -63,7 +63,7 @@ export class DescribeRecordFileResponseBodyRecordFiles extends $dara.Model {
   desktopId?: string;
   /**
    * @remarks
-   * The name of the cloud desktop.
+   * The name of the Cloud Desktop.
    * 
    * @example
    * fvt-ecd
@@ -84,7 +84,7 @@ export class DescribeRecordFileResponseBodyRecordFiles extends $dara.Model {
   eventDetails?: DescribeRecordFileResponseBodyRecordFilesEventDetails[];
   /**
    * @remarks
-   * The name of the screen recording file.
+   * The name of the file.
    * 
    * @example
    * Task3
@@ -92,7 +92,7 @@ export class DescribeRecordFileResponseBodyRecordFiles extends $dara.Model {
   fileName?: string;
   /**
    * @remarks
-   * The file size. Unit: bytes.
+   * The size of the file. Unit: bytes.
    * 
    * @example
    * 139
@@ -100,7 +100,7 @@ export class DescribeRecordFileResponseBodyRecordFiles extends $dara.Model {
   fileSize?: number;
   /**
    * @remarks
-   * The ID of the policy.
+   * The ID of the control policy.
    * 
    * @example
    * pg-**
@@ -108,7 +108,7 @@ export class DescribeRecordFileResponseBodyRecordFiles extends $dara.Model {
   policyId?: string;
   /**
    * @remarks
-   * The time when the screen recording ended. The time is in the *yyyy-MM-dd*T*HH:mm:ss*Z format and is displayed in UTC.
+   * The time when the recording ended. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
    * 
    * @example
    * 2025-12-18T06:02:25Z
@@ -124,7 +124,7 @@ export class DescribeRecordFileResponseBodyRecordFiles extends $dara.Model {
   recordExpire?: number;
   /**
    * @remarks
-   * The time when the screen recording started. The time is in the *yyyy-MM-dd*T*HH:mm:ss*Z format and is displayed in UTC.
+   * The time when the recording started. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
    * 
    * @example
    * 2025-12-18T06:02:25Z
@@ -132,23 +132,20 @@ export class DescribeRecordFileResponseBodyRecordFiles extends $dara.Model {
   recordStartTime?: string;
   /**
    * @remarks
-   * The recording type. Valid values:
+   * The type of the screen recording file. Valid values:
    * 
-   * - `alltime`: continuous screen recording.
-   * 
-   * - `period`: interval screen recording.
-   * 
-   * - `event`: event-triggered screen recording.
-   * 
-   * - `session`: session-based screen recording.
+   * - alltime: full-time recording.
+   * - period: interval recording.
+   * - event: event-based recording.
+   * - session: session recording.
    * 
    * @example
-   * period
+   * 0
    */
   recordType?: number;
   /**
    * @remarks
-   * The ID of the region where the cloud desktop resides.
+   * The region where the recorded Cloud Desktop is located.
    * 
    * @example
    * cn-beijing
@@ -156,7 +153,7 @@ export class DescribeRecordFileResponseBodyRecordFiles extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The resource group ID.
    * 
    * @example
    * rg-f3s3dgt8dtb0vlqc8
@@ -164,7 +161,7 @@ export class DescribeRecordFileResponseBodyRecordFiles extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The name of the resource group.
+   * The resource group name.
    * 
    * @example
    * resource
@@ -172,11 +169,10 @@ export class DescribeRecordFileResponseBodyRecordFiles extends $dara.Model {
   resourceGroupName?: string;
   /**
    * @remarks
-   * The upload status of the screen recording file. Valid values:
+   * The status of the screen recording file. Valid values:
    * 
-   * - `0`: uploaded.
-   * 
-   * - `1`: uploading.
+   * - 0: uploaded.
+   * - 1: uploading.
    * 
    * @example
    * 1
@@ -237,7 +233,7 @@ export class DescribeRecordFileResponseBodyRecordFiles extends $dara.Model {
 export class DescribeRecordFileResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Details of the screen recording files.
+   * The details of the recording files.
    */
   recordFiles?: DescribeRecordFileResponseBodyRecordFiles[];
   /**
@@ -250,7 +246,7 @@ export class DescribeRecordFileResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of records.
+   * The total number of entries returned.
    * 
    * @example
    * 2

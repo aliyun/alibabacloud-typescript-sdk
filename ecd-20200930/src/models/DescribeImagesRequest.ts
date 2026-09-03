@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeImagesRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance type of the cloud computer. You can call the [DescribeDesktopTypes](https://help.aliyun.com/document_detail/436816.html) operation to obtain the parameter value.
+   * The cloud desktop specification. You can call [DescribeDesktopTypes](https://help.aliyun.com/document_detail/436816.html) to obtain this parameter.
    * 
    * @example
    * ecd.graphics.xlarge
@@ -13,7 +13,7 @@ export class DescribeImagesRequest extends $dara.Model {
   desktopInstanceType?: string;
   /**
    * @remarks
-   * The image version.
+   * The image version information.
    * 
    * @example
    * 0.0.3-R-20220616.133609
@@ -21,25 +21,7 @@ export class DescribeImagesRequest extends $dara.Model {
   fotaVersion?: string;
   /**
    * @remarks
-   * Specifies whether the images are GPU-accelerated images.
-   * 
-   * Valid values:
-   * 
-   * - true
-   * 
-   *   <!-- -->
-   * 
-   *   <!-- -->
-   * 
-   *   <!-- -->
-   * 
-   * - false
-   * 
-   *   <!-- -->
-   * 
-   *   <!-- -->
-   * 
-   *   <!-- -->
+   * Specifies whether the image is a GPU image.
    * 
    * @example
    * false
@@ -47,7 +29,7 @@ export class DescribeImagesRequest extends $dara.Model {
   gpuCategory?: boolean;
   /**
    * @remarks
-   * The version of the GPU driver.
+   * The GPU driver version.
    * 
    * @example
    * 417.22
@@ -55,7 +37,7 @@ export class DescribeImagesRequest extends $dara.Model {
   gpuDriverVersion?: string;
   /**
    * @remarks
-   * The IDs of the images. You can specify one or more image IDs.
+   * The image ID. You can specify one or more image IDs.
    * 
    * @example
    * m-gx2x1dhsmusr2****
@@ -71,7 +53,7 @@ export class DescribeImagesRequest extends $dara.Model {
   imageName?: string;
   /**
    * @remarks
-   * The state of the image.
+   * The image status.
    * 
    * @example
    * Available
@@ -79,7 +61,7 @@ export class DescribeImagesRequest extends $dara.Model {
   imageStatus?: string;
   /**
    * @remarks
-   * The type of the image.
+   * The image type.
    * 
    * @example
    * SYSTEM
@@ -87,7 +69,7 @@ export class DescribeImagesRequest extends $dara.Model {
   imageType?: string;
   /**
    * @remarks
-   * The language of the OS.
+   * The operating system language.
    * 
    * @example
    * en-US
@@ -95,11 +77,10 @@ export class DescribeImagesRequest extends $dara.Model {
   languageType?: string;
   /**
    * @remarks
-   * The maximum number of entries to return on each page.
+   * The number of entries per page for a paged query.
    * 
-   * - Maximum value: 100.
-   * 
-   * - Default value: 10.
+   * - Maximum value: 100
+   * - Default value: 10
    * 
    * @example
    * 10
@@ -107,7 +88,7 @@ export class DescribeImagesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that determines the start point of the next query. If you do not specify this parameter, all results are returned.
+   * The pagination token for the next query. An empty value indicates that there is no next page.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a4883
@@ -115,25 +96,7 @@ export class DescribeImagesRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The type of the operating system of the images. Default value: `null`.
-   * 
-   * Valid values:
-   * 
-   * - Linux
-   * 
-   *   <!-- -->
-   * 
-   *   <!-- -->
-   * 
-   *   <!-- -->
-   * 
-   * - Windows
-   * 
-   *   <!-- -->
-   * 
-   *   <!-- -->
-   * 
-   *   <!-- -->
+   * The operating system type. Default value: `null`.
    * 
    * @example
    * Windows
@@ -143,19 +106,13 @@ export class DescribeImagesRequest extends $dara.Model {
    * @remarks
    * The protocol type.
    * 
-   * Valid values:
-   * 
-   * - HDX: High-definition Experience (HDX) protocol
-   * 
-   * - ASP: in-house Adaptive Streaming Protocol (ASP) (recommended)
-   * 
    * @example
    * ASP
    */
   protocolType?: string;
   /**
    * @remarks
-   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
+   * The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to query the regions supported by Elastic Desktop Service.
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyTemplateResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The execution result. The value `success` indicates success. Otherwise, an error message is returned.
+   * The execution result. A value of `success` indicates success. Otherwise, an error message is returned.
    * 
    * @example
    * success

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SetIdpMetadataResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The entity ID obtained after the IdP metadata file is parsed.
+   * The entityID value obtained after parsing the IdP metadata file.
    * 
    * @example
    * http://test****.cn/adfs/services/trust

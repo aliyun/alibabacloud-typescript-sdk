@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DisableDesktopsInGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 34FB4D97-C0D9-5534-ABC6-90C7EBD5****

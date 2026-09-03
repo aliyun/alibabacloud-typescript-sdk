@@ -109,7 +109,7 @@ export class DescribeUsersInGroupResponseBodyEndUsersUserSetPropertiesModels ext
   propertyType?: number;
   /**
    * @remarks
-   * An array of property values.
+   * The array of property values.
    */
   propertyValues?: DescribeUsersInGroupResponseBodyEndUsersUserSetPropertiesModelsPropertyValues[];
   /**
@@ -173,7 +173,7 @@ export class DescribeUsersInGroupResponseBodyEndUsers extends $dara.Model {
   connectionStatus?: string;
   /**
    * @remarks
-   * The ID of the cloud desktop.
+   * The ID of the cloud computer.
    * 
    * @example
    * ecd-gx2x1dhsmucyy****
@@ -181,7 +181,7 @@ export class DescribeUsersInGroupResponseBodyEndUsers extends $dara.Model {
   desktopId?: string;
   /**
    * @remarks
-   * The name of the cloud desktop.
+   * The name of the cloud computer.
    * 
    * @example
    * testName
@@ -195,6 +195,13 @@ export class DescribeUsersInGroupResponseBodyEndUsers extends $dara.Model {
    * alice
    */
   displayName?: string;
+  /**
+   * @remarks
+   * The new display name of the user.
+   * 
+   * @example
+   * Zhang San
+   */
   displayNameNew?: string;
   /**
    * @remarks
@@ -230,7 +237,7 @@ export class DescribeUsersInGroupResponseBodyEndUsers extends $dara.Model {
   endUserPhone?: string;
   /**
    * @remarks
-   * The user remarks.
+   * The remarks of the user.
    * 
    * @example
    * Note
@@ -238,7 +245,7 @@ export class DescribeUsersInGroupResponseBodyEndUsers extends $dara.Model {
   endUserRemark?: string;
   /**
    * @remarks
-   * The user account type.
+   * The type of the user account system.
    * 
    * @example
    * SIMPLE
@@ -246,21 +253,28 @@ export class DescribeUsersInGroupResponseBodyEndUsers extends $dara.Model {
   endUserType?: string;
   /**
    * @remarks
-   * Additional information.
+   * The additional information.
    */
   externalInfo?: DescribeUsersInGroupResponseBodyEndUsersExternalInfo;
   /**
    * @remarks
-   * The ID of the virtual cloud desktop assigned to the user.
+   * The ID of the virtual cloud computer that corresponds to the user.
    * 
    * @example
    * ud-i896ze8hazpvl****
    */
   userDesktopId?: string;
+  /**
+   * @remarks
+   * The user principal name (UPN).
+   * 
+   * @example
+   * alice@example.com
+   */
   userPrincipalName?: string;
   /**
    * @remarks
-   * A list of user seat information.
+   * The list of user seat information.
    */
   userSetPropertiesModels?: DescribeUsersInGroupResponseBodyEndUsersUserSetPropertiesModels[];
   static names(): { [key: string]: string } {
@@ -321,12 +335,12 @@ export class DescribeUsersInGroupResponseBodyEndUsers extends $dara.Model {
 export class DescribeUsersInGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A list of authorized user information.
+   * The list of authorized user information.
    */
   endUsers?: DescribeUsersInGroupResponseBodyEndUsers[];
   /**
    * @remarks
-   * The token to start the next query.
+   * The pagination token for the next query.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a4883
@@ -334,7 +348,7 @@ export class DescribeUsersInGroupResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The total number of authorized users in the cloud desktop group who meet the query conditions and are connected to a cloud desktop.
+   * The total number of authorized users of the shared cloud computer that match the query conditions and are currently connected to a cloud computer.
    * 
    * @example
    * 0
@@ -348,11 +362,25 @@ export class DescribeUsersInGroupResponseBody extends $dara.Model {
    * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The name of the user group.
+   * 
+   * @example
+   * R&D Team
+   */
   userGroupName?: string;
+  /**
+   * @remarks
+   * The organizational unit path of the user.
+   * 
+   * @example
+   * example.com
+   */
   userOuPath?: string;
   /**
    * @remarks
-   * The total number of authorized users in the cloud desktop group who meet the query conditions.
+   * The total number of authorized users of the shared cloud computer that match the query conditions.
    * 
    * @example
    * 1

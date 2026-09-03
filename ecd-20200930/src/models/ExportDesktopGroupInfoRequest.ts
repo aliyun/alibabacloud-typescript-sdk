@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ExportDesktopGroupInfoRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The tag key. This parameter cannot be an empty string. The tag key can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
+   * The tag key. This parameter cannot be an empty string if specified. The tag key can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
    * 
    * @example
    * TestKey
@@ -13,7 +13,7 @@ export class ExportDesktopGroupInfoRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value. The tag value can be an empty string. The tag value can be up to 128 characters in length and cannot start with `acs:`. It cannot contain `http://` or `https://`.
+   * The tag value. The tag value can be an empty string and can be up to 128 characters in length. It cannot start with `acs:` or contain `http://` or `https://`.
    * 
    * @example
    * TestValue
@@ -45,7 +45,7 @@ export class ExportDesktopGroupInfoRequestTag extends $dara.Model {
 export class ExportDesktopGroupInfoRequest extends $dara.Model {
   /**
    * @remarks
-   * The billing method of the shared cloud desktops.
+   * The billing method of the shared cloud computer.
    * 
    * @example
    * PrePaid
@@ -53,12 +53,12 @@ export class ExportDesktopGroupInfoRequest extends $dara.Model {
   chargeType?: string;
   /**
    * @remarks
-   * The list of shared cloud desktop IDs.
+   * The list of shared cloud computer IDs.
    */
   desktopGroupId?: string[];
   /**
    * @remarks
-   * The name of the shared cloud desktop.
+   * The name of the shared cloud computer.
    * 
    * @example
    * CloudComputerPool01
@@ -66,12 +66,12 @@ export class ExportDesktopGroupInfoRequest extends $dara.Model {
   desktopGroupName?: string;
   /**
    * @remarks
-   * The list of authorized user IDs for the shared cloud desktops.
+   * The list of authorized user IDs for the shared cloud computer.
    */
   endUserId?: string[];
   /**
    * @remarks
-   * The expiration time of the subscription shared cloud desktops.
+   * The expiration time of the subscription shared cloud computer. The time is in the ISO 8601 standard (UTC).
    * 
    * @example
    * 2022-12-31T15:59Z
@@ -106,7 +106,7 @@ export class ExportDesktopGroupInfoRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The ID of the office network to which the shared cloud desktops belong.
+   * The ID of the office network to which the shared cloud computer belongs.
    * 
    * @example
    * cn-hangzhou+dir-467671****
@@ -114,7 +114,7 @@ export class ExportDesktopGroupInfoRequest extends $dara.Model {
   officeSiteId?: string;
   /**
    * @remarks
-   * The ID of the policy associated with the shared cloud desktops.
+   * The ID of the policy associated with the shared cloud computer.
    * 
    * @example
    * pg-53iyi2aar0nd6****
@@ -122,7 +122,7 @@ export class ExportDesktopGroupInfoRequest extends $dara.Model {
   policyGroupId?: string;
   /**
    * @remarks
-   * The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to query the regions supported by WUYING Workspace.
+   * The region ID. Call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to query the regions supported by WUYING Workspace.
    * 
    * This parameter is required.
    * 

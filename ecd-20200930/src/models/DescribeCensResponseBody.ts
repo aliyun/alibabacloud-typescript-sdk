@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCensResponseBodyCensPackageIds extends $dara.Model {
   /**
    * @remarks
-   * The ID of the bandwidth plan that is bound to the CEN instance.
+   * The ID of the bandwidth package bound to the CEN instance.
    * 
    * @example
    * cenbwp-4c2zaavbvh5f42****
@@ -35,7 +35,7 @@ export class DescribeCensResponseBodyCensPackageIds extends $dara.Model {
 export class DescribeCensResponseBodyCensTags extends $dara.Model {
   /**
    * @remarks
-   * The key of the tag.
+   * The tag key.
    * 
    * @example
    * testKey
@@ -43,7 +43,7 @@ export class DescribeCensResponseBodyCensTags extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of the tag.
+   * The tag value.
    * 
    * @example
    * testValue
@@ -75,7 +75,7 @@ export class DescribeCensResponseBodyCensTags extends $dara.Model {
 export class DescribeCensResponseBodyCens extends $dara.Model {
   /**
    * @remarks
-   * The ID of the CEN instance.
+   * The CEN instance ID.
    * 
    * @example
    * cen-3gwy16dojz1m65****
@@ -83,7 +83,7 @@ export class DescribeCensResponseBodyCens extends $dara.Model {
   cenId?: string;
   /**
    * @remarks
-   * The time when the CEN instance was created.
+   * The time when the CEN instance was created. The time is in the ISO 8601 standard (UTC).
    * 
    * @example
    * 2021-06-16T08:46Z
@@ -94,7 +94,7 @@ export class DescribeCensResponseBodyCens extends $dara.Model {
    * The description of the CEN instance.
    * 
    * @example
-   * test
+   * Production environment CEN
    */
   description?: string;
   /**
@@ -117,16 +117,12 @@ export class DescribeCensResponseBodyCens extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The bandwidth plans that are bound to the CEN instance.
+   * The list of bandwidth packages bound to the CEN instance.
    */
   packageIds?: DescribeCensResponseBodyCensPackageIds[];
   /**
    * @remarks
-   * The tolerated level of CIDR block conflict.
-   * 
-   * Valid value:
-   * 
-   * - REDUCED: CIDR block conflicts are allowed, but the conflicting CIDR blocks cannot be identical.
+   * The level of CIDR block overlap conflicts.
    * 
    * @example
    * REDUCED
@@ -135,14 +131,6 @@ export class DescribeCensResponseBodyCens extends $dara.Model {
   /**
    * @remarks
    * The status of the CEN instance.
-   * 
-   * Valid values:
-   * 
-   * - Creating
-   * 
-   * - Active
-   * 
-   * - Deleting
    * 
    * @example
    * Active
@@ -199,12 +187,12 @@ export class DescribeCensResponseBodyCens extends $dara.Model {
 export class DescribeCensResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Details of the CEN instances.
+   * The details of the CEN instances.
    */
   cens?: DescribeCensResponseBodyCens[];
   /**
    * @remarks
-   * The page number.
+   * The current page number.
    * 
    * @example
    * 1

@@ -13,7 +13,7 @@ export class ModifyCdsFileResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Indicates whether data is returned successfully.
+   * Indicates whether the data is returned successfully.
    * [_single.resp.200.props.Data.enum. false]Failed to return data.
    * 
    * @example

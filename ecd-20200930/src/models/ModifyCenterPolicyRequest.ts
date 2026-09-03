@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyCenterPolicyRequestAuthorizeAccessPolicyRule extends $dara.Model {
   /**
    * @remarks
-   * The client access IP CIDR block in IPv4 format.
+   * The client IP address range. The value is an IPv4 CIDR block.
    * 
    * @example
    * 47.100.XX.XX/16
@@ -16,7 +16,7 @@ export class ModifyCenterPolicyRequestAuthorizeAccessPolicyRule extends $dara.Mo
    * The description of the client IP whitelist entry.
    * 
    * @example
-   * test
+   * Corporate office network segment
    */
   description?: string;
   static names(): { [key: string]: string } {
@@ -45,7 +45,7 @@ export class ModifyCenterPolicyRequestAuthorizeAccessPolicyRule extends $dara.Mo
 export class ModifyCenterPolicyRequestAuthorizeSecurityPolicyRule extends $dara.Model {
   /**
    * @remarks
-   * The target of the security group control rule, which is an IPv4 CIDR block.
+   * The object of the security group control rule. An IPv4 CIDR block in CIDR notation.
    * 
    * @example
    * 47.100.XX.XX/16
@@ -56,7 +56,7 @@ export class ModifyCenterPolicyRequestAuthorizeSecurityPolicyRule extends $dara.
    * The description of the security group control rule.
    * 
    * @example
-   * test
+   * Allow access to the internal R&D environment
    */
   description?: string;
   /**
@@ -77,12 +77,12 @@ export class ModifyCenterPolicyRequestAuthorizeSecurityPolicyRule extends $dara.
   policy?: string;
   /**
    * @remarks
-   * The port range of the security group control rule. The port range is determined by the value of IpProtocol:
+   * The port range of the security group control rule. The port range is determined by the value of the protocol (IpProtocol):
    * 
    * - TCP or UDP: Valid values: 1 to 65535. Separate the start port and end port with a forward slash (/). Example: 1/200.
    * - ICMP: -1/-1.
    * - GRE: -1/-1.
-   * - IpProtocol set to all: -1/-1.
+   * - If IpProtocol is set to all: -1/-1.
    * 
    * For common ports of typical applications, see [Common ports](https://help.aliyun.com/document_detail/40724.html).
    * 
@@ -150,9 +150,9 @@ export class ModifyCenterPolicyRequestClientType extends $dara.Model {
   clientType?: string;
   /**
    * @remarks
-   * Specifies whether to allow a specific client type to log on to the cloud desktop.
+   * Specifies whether to allow a specific type of client to log on to cloud computers.
    * 
-   * > If you do not set the ClientType parameters, all client types are allowed to log on to the cloud desktop by default.
+   * > If you do not set the `ClientType` parameters, all client types are allowed to log on to cloud computers by default.
    * 
    * @example
    * off
@@ -182,13 +182,77 @@ export class ModifyCenterPolicyRequestClientType extends $dara.Model {
 }
 
 export class ModifyCenterPolicyRequestClipboardGraineds extends $dara.Model {
+  /**
+   * @remarks
+   * The maximum size of a single clipboard transfer. Use this parameter together with the size unit parameter.
+   * 
+   * @example
+   * 10
+   */
   clipboardSize?: number;
+  /**
+   * @remarks
+   * The unit of the maximum size of a single clipboard transfer.
+   * 
+   * @example
+   * MB
+   */
   clipboardSizeUnit?: string;
+  /**
+   * @remarks
+   * The fine-grained clipboard control type. Valid values:
+   * - off: Clipboard usage is disabled.
+   * - read: Read-only.
+   * - write: Write-only.
+   * - readwrite: Read and write.
+   * 
+   * @example
+   * readwrite
+   */
   clipboardType?: string;
+  /**
+   * @remarks
+   * The content type for fine-grained clipboard control. Valid values:
+   * - text: Text.
+   * - richtext: Rich text.
+   * - file: File.
+   * - picture: Image.
+   * 
+   * @example
+   * text
+   */
   grainedType?: string;
+  /**
+   * @remarks
+   * The maximum size of a single clipboard transfer to the cloud desktop. Use this parameter together with the inbound size unit parameter.
+   * 
+   * @example
+   * 10
+   */
   inClipboardSize?: number;
+  /**
+   * @remarks
+   * The unit of the maximum size of a single clipboard transfer to the cloud desktop.
+   * 
+   * @example
+   * MB
+   */
   inClipboardSizeUnit?: string;
+  /**
+   * @remarks
+   * The maximum size of a single clipboard transfer from the cloud desktop. Use this parameter together with the outbound size unit parameter.
+   * 
+   * @example
+   * 10
+   */
   outClipboardSize?: number;
+  /**
+   * @remarks
+   * The unit of the maximum size of a single clipboard transfer from the cloud desktop.
+   * 
+   * @example
+   * MB
+   */
   outClipboardSizeUnit?: string;
   static names(): { [key: string]: string } {
     return {
@@ -228,7 +292,7 @@ export class ModifyCenterPolicyRequestClipboardGraineds extends $dara.Model {
 export class ModifyCenterPolicyRequestDeviceRedirects extends $dara.Model {
   /**
    * @remarks
-   * The peripheral device type.
+   * The peripheral type.
    * 
    * @example
    * camera
@@ -284,7 +348,7 @@ export class ModifyCenterPolicyRequestDeviceRules extends $dara.Model {
   devicePid?: string;
   /**
    * @remarks
-   * The peripheral device type.
+   * The peripheral type.
    * 
    * @example
    * storage
@@ -306,6 +370,13 @@ export class ModifyCenterPolicyRequestDeviceRules extends $dara.Model {
    * 2:0
    */
   optCommand?: string;
+  /**
+   * @remarks
+   * The platform types to which the device rule applies.
+   * 
+   * @example
+   * Windows
+   */
   platforms?: string;
   /**
    * @remarks
@@ -354,7 +425,7 @@ export class ModifyCenterPolicyRequestDomainResolveRule extends $dara.Model {
    * The policy description.
    * 
    * @example
-   * Policy description.
+   * Policy description
    */
   description?: string;
   /**
@@ -409,7 +480,7 @@ export class ModifyCenterPolicyRequestNetRedirectRule extends $dara.Model {
   domain?: string;
   /**
    * @remarks
-   * The redirection policy.
+   * The redirect policy.
    * 
    * @example
    * Allow
@@ -491,7 +562,7 @@ export class ModifyCenterPolicyRequestRecordEventLevels extends $dara.Model {
 export class ModifyCenterPolicyRequestRevokeAccessPolicyRule extends $dara.Model {
   /**
    * @remarks
-   * The client access IP CIDR block to delete, in IPv4 CIDR format.
+   * The client IP address range to delete. The value is an IPv4 CIDR block.
    * 
    * @example
    * 47.100.XX.XX/16
@@ -502,7 +573,7 @@ export class ModifyCenterPolicyRequestRevokeAccessPolicyRule extends $dara.Model
    * The description of the client IP whitelist entry to delete.
    * 
    * @example
-   * test
+   * Corporate office network segment
    */
   description?: string;
   static names(): { [key: string]: string } {
@@ -531,7 +602,7 @@ export class ModifyCenterPolicyRequestRevokeAccessPolicyRule extends $dara.Model
 export class ModifyCenterPolicyRequestRevokeSecurityPolicyRule extends $dara.Model {
   /**
    * @remarks
-   * The target of the security group control rule to delete, which is an IPv4 CIDR block.
+   * The target of the security group rule to delete. The value is an IPv4 CIDR block.
    * 
    * @example
    * 47.100.XX.XX/16
@@ -539,15 +610,15 @@ export class ModifyCenterPolicyRequestRevokeSecurityPolicyRule extends $dara.Mod
   cidrIp?: string;
   /**
    * @remarks
-   * The description of the security group control rule to delete.
+   * The description of the security group rule to delete.
    * 
    * @example
-   * test
+   * Allow access to the internal R&D environment
    */
   description?: string;
   /**
    * @remarks
-   * The protocol type of the security group control rule to delete.
+   * The protocol type of the security group rule to delete.
    * 
    * @example
    * TCP
@@ -555,7 +626,7 @@ export class ModifyCenterPolicyRequestRevokeSecurityPolicyRule extends $dara.Mod
   ipProtocol?: string;
   /**
    * @remarks
-   * The authorization policy of the security group control rule to delete.
+   * The authorization policy of the security group rule to delete.
    * 
    * @example
    * accept
@@ -563,14 +634,14 @@ export class ModifyCenterPolicyRequestRevokeSecurityPolicyRule extends $dara.Mod
   policy?: string;
   /**
    * @remarks
-   * The port range of the security group control rule to delete. The port range is determined by the value of IpProtocol:
+   * The port range of the security group rule to delete. The port range is determined by the value of IpProtocol:
    * 
-   * - TCP or UDP: Valid values: 1 to 65535. Separate the start port and end port with a forward slash (/). Example: 1/200.
+   * - TCP or UDP: The port range is 1 to 65535. Separate the start port and end port with a forward slash (/). Example: 1/200.
    * - ICMP: -1/-1.
    * - GRE: -1/-1.
-   * - IpProtocol set to all: -1/-1.
+   * - If IpProtocol is set to all: -1/-1.
    * 
-   * For common ports of typical applications, see [Common ports](https://help.aliyun.com/document_detail/40724.html).
+   * For more information about common ports of typical applications, see [Common ports](https://help.aliyun.com/document_detail/40724.html).
    * 
    * @example
    * 22/22
@@ -578,7 +649,7 @@ export class ModifyCenterPolicyRequestRevokeSecurityPolicyRule extends $dara.Mod
   portRange?: string;
   /**
    * @remarks
-   * The priority of the security group control rule to delete. A smaller value indicates a higher priority. Valid values: 1 to 60. Default value: 1.
+   * The priority of the security group rule to delete. A smaller value indicates a higher priority. Valid values: 1 to 60. Default value: 1.
    * 
    * @example
    * 1
@@ -586,7 +657,7 @@ export class ModifyCenterPolicyRequestRevokeSecurityPolicyRule extends $dara.Mod
   priority?: string;
   /**
    * @remarks
-   * The direction of the security group control rule to delete.
+   * The direction of the security group rule to delete.
    * 
    * @example
    * outflow
@@ -696,6 +767,15 @@ export class ModifyCenterPolicyRequestUsbSupplyRedirectRule extends $dara.Model 
 }
 
 export class ModifyCenterPolicyRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to enable the academic proxy feature. Valid values:
+   * - on: Enabled.
+   * - off: Disabled.
+   * 
+   * @example
+   * off
+   */
   academicProxy?: string;
   /**
    * @remarks
@@ -707,11 +787,29 @@ export class ModifyCenterPolicyRequest extends $dara.Model {
    * deny
    */
   adminAccess?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable administrator keyboard control in full-screen mode. Valid values:
+   * - on: Enabled.
+   * - off: Disabled.
+   * 
+   * @example
+   * off
+   */
   adminKeyboardOnFullScreen?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable administrator keyboard control within the Windows system. Valid values:
+   * - on: Enabled.
+   * - off: Disabled.
+   * 
+   * @example
+   * off
+   */
   adminKeyboardOnWindows?: string;
   /**
    * @remarks
-   * Specifies whether to enable the anti-screenshot feature.
+   * Specifies whether to enable the screenshot prevention feature.
    * 
    * @example
    * on
@@ -735,6 +833,15 @@ export class ModifyCenterPolicyRequest extends $dara.Model {
    * off
    */
   autoReconnect?: string;
+  /**
+   * @remarks
+   * The business channel. Valid values:
+   * - Enterprise: Enterprise Edition.
+   * - Business: Business Edition.
+   * 
+   * @example
+   * Enterprise
+   */
   businessChannel?: string;
   /**
    * @remarks
@@ -748,7 +855,7 @@ export class ModifyCenterPolicyRequest extends $dara.Model {
   businessType?: number;
   /**
    * @remarks
-   * The local camera redirection setting. This parameter takes effect only when no camera redirection policy is specified in DeviceRedirects.
+   * The local camera redirection policy. This parameter takes effect only when no local camera redirection policy is specified in DeviceRedirects.
    * 
    * @example
    * on
@@ -756,13 +863,27 @@ export class ModifyCenterPolicyRequest extends $dara.Model {
   cameraRedirect?: string;
   /**
    * @remarks
-   * The recording event level.
+   * Specifies whether to display the client control menu. Valid values:
+   * - on: Enabled.
+   * - off: Disabled.
+   * 
+   * @example
+   * on
    */
   clientControlMenu?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable the custom snapshot creation feature on the client. Valid values:
+   * - on: Enabled.
+   * - off: Disabled.
+   * 
+   * @example
+   * off
+   */
   clientCreateSnapshot?: string;
   /**
    * @remarks
-   * The list of logon method control rules. Specifies which client types can access the cloud desktop.
+   * The list of logon method control rules. Specifies which client types can be used to access cloud computers.
    */
   clientType?: ModifyCenterPolicyRequestClientType[];
   /**
@@ -773,16 +894,36 @@ export class ModifyCenterPolicyRequest extends $dara.Model {
    * off
    */
   clipboard?: string;
+  /**
+   * @remarks
+   * The fine-grained clipboard control configurations.
+   */
   clipboardGraineds?: ModifyCenterPolicyRequestClipboardGraineds[];
+  /**
+   * @remarks
+   * The effective scope of the clipboard.
+   * 
+   * @example
+   * GLOBAL
+   */
   clipboardScope?: string;
   /**
    * @remarks
-   * Specifies whether color enhancement is enabled for the design and 3D common scenarios.
+   * Indicates whether color enhancement is enabled for the design and 3D application common scenarios.
    * 
    * @example
    * off
    */
   colorEnhancement?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable the local drive clipboard feature. Valid values:
+   * - on: Enabled.
+   * - off: Disabled.
+   * 
+   * @example
+   * off
+   */
   cpdDriveClipboard?: string;
   /**
    * @remarks
@@ -792,6 +933,15 @@ export class ModifyCenterPolicyRequest extends $dara.Model {
    * 50
    */
   cpuDownGradeDuration?: number;
+  /**
+   * @remarks
+   * Specifies whether to enable CPU overload protection. Valid values:
+   * - on: Enabled.
+   * - off: Disabled.
+   * 
+   * @example
+   * off
+   */
   cpuOverload?: string;
   /**
    * @remarks
@@ -800,7 +950,7 @@ export class ModifyCenterPolicyRequest extends $dara.Model {
   cpuProcessors?: string[];
   /**
    * @remarks
-   * The CPU protection mode switch.
+   * Specifies whether to enable CPU protection mode.
    * 
    * @example
    * off
@@ -830,6 +980,13 @@ export class ModifyCenterPolicyRequest extends $dara.Model {
    * 80
    */
   cpuSingleRateLimit?: number;
+  /**
+   * @remarks
+   * The description of the NAS file system.
+   * 
+   * @example
+   * newDescription
+   */
   description?: string;
   /**
    * @remarks
@@ -841,17 +998,17 @@ export class ModifyCenterPolicyRequest extends $dara.Model {
   deviceConnectHint?: string;
   /**
    * @remarks
-   * The device redirection rule list.
+   * The list of device redirection rules.
    */
   deviceRedirects?: ModifyCenterPolicyRequestDeviceRedirects[];
   /**
    * @remarks
-   * The custom peripheral device rule list.
+   * The list of custom peripheral rules.
    */
   deviceRules?: ModifyCenterPolicyRequestDeviceRules[];
   /**
    * @remarks
-   * The session retention after disconnection.
+   * The session retention policy after disconnection.
    * > This parameter applies only to cloud application policies.
    * 
    * @example
@@ -860,13 +1017,22 @@ export class ModifyCenterPolicyRequest extends $dara.Model {
   disconnectKeepSession?: string;
   /**
    * @remarks
-   * The session retention duration after disconnection. Valid values: 30 to 7200. Unit: seconds.
+   * The session retention period after disconnection. Valid values: 30 to 7200. Unit: seconds.
    * > This parameter applies only to cloud application policies.
    * 
    * @example
    * 120
    */
   disconnectKeepSessionTime?: number;
+  /**
+   * @remarks
+   * Specifies whether to enable disk overload protection. Valid values:
+   * - on: Enabled.
+   * - off: Disabled.
+   * 
+   * @example
+   * off
+   */
   diskOverload?: string;
   /**
    * @remarks
@@ -891,7 +1057,7 @@ export class ModifyCenterPolicyRequest extends $dara.Model {
   domainResolveRuleType?: string;
   /**
    * @remarks
-   * The session bandwidth throttling setting.
+   * Specifies whether to enable session bandwidth throttling.
    * 
    * @example
    * off
@@ -899,7 +1065,7 @@ export class ModifyCenterPolicyRequest extends $dara.Model {
   enableSessionRateLimiting?: string;
   /**
    * @remarks
-   * The setting for users to request administrator assistance.
+   * Specifies whether users can request assistance from administrators.
    * 
    * @example
    * off
@@ -907,41 +1073,113 @@ export class ModifyCenterPolicyRequest extends $dara.Model {
   endUserApplyAdminCoordinate?: string;
   /**
    * @remarks
-   * The setting for users within the same office network to share cloud desktops.
+   * Specifies whether users in the same office network can share cloud desktops.
    * 
    * @example
    * off
    */
   endUserGroupCoordinate?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable external storage devices. Valid values:
+   * - on: Enabled.
+   * - off: Disabled.
+   * 
+   * @example
+   * off
+   */
   externalDrive?: string;
   /**
    * @remarks
-   * The file migration setting.
+   * Specifies whether to enable file migration.
    * 
    * @example
    * off
    */
   fileMigrate?: string;
+  /**
+   * @remarks
+   * The service address for the file transfer feature.
+   * 
+   * @example
+   * filetransfer.example.com
+   */
   fileTransferAddress?: string;
+  /**
+   * @remarks
+   * The maximum file size for a single transfer to the cloud desktop. This parameter must be used together with the transfer-in unit parameter.
+   * 
+   * @example
+   * 100
+   */
   fileTransferInSize?: string;
+  /**
+   * @remarks
+   * The unit of the maximum file size for a single transfer to the cloud desktop.
+   * 
+   * @example
+   * MB
+   */
   fileTransferInUnit?: string;
+  /**
+   * @remarks
+   * The maximum file size for a single transfer from the cloud desktop. This parameter must be used together with the transfer-out unit parameter.
+   * 
+   * @example
+   * 100
+   */
   fileTransferOutSize?: string;
+  /**
+   * @remarks
+   * The unit of the maximum file size for a single transfer from the cloud desktop.
+   * 
+   * @example
+   * MB
+   */
   fileTransferOutUnit?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable the file transfer size limit. Valid values:
+   * - on: Enabled.
+   * - off: Disabled.
+   * 
+   * @example
+   * off
+   */
   fileTransferSizeLimit?: string;
+  /**
+   * @remarks
+   * The file transfer speed level.
+   * 
+   * @example
+   * default
+   */
   fileTransferSpeed?: string;
   /**
    * @remarks
-   * The recording event file extension.
+   * The location where the file transfer speed configured on the client takes effect.
+   * 
+   * @example
+   * client
    */
   fileTransferSpeedLocation?: string;
   /**
    * @remarks
-   * Specifies whether to enable the image quality policy for GPU-accelerated cloud desktops. Enable this policy when high performance and user experience are required, such as in professional design scenarios.
+   * Specifies whether to enable the image quality policy for GPU-accelerated cloud desktops. Enable this policy when high cloud desktop performance and user experience are required, such as in professional design scenarios.
    * 
    * @example
    * off
    */
   gpuAcceleration?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable the floating ball configuration message prompt. Valid values:
+   * - on: Enabled.
+   * - off: Disabled.
+   * 
+   * @example
+   * off
+   */
   hoverConfigMsg?: string;
   /**
    * @remarks
@@ -961,7 +1199,9 @@ export class ModifyCenterPolicyRequest extends $dara.Model {
   internetCommunicationProtocol?: string;
   /**
    * @remarks
-   * The WUYING Keeper switch for mobile clients.
+   * Specifies whether to enable the network printer feature. Valid values:
+   * - on: Enabled.
+   * - off: Disabled.
    * 
    * @example
    * off
@@ -977,7 +1217,7 @@ export class ModifyCenterPolicyRequest extends $dara.Model {
   localDrive?: string;
   /**
    * @remarks
-   * The maximum reconnection retry time when the cloud desktop is disconnected due to objective reasons. Valid values: 30 to 7200. Unit: seconds.
+   * The maximum connection retry time when a cloud computer is disconnected due to objective reasons. Valid values: 30 to 7200. Unit: seconds.
    * 
    * @example
    * 120
@@ -985,12 +1225,21 @@ export class ModifyCenterPolicyRequest extends $dara.Model {
   maxReconnectTime?: number;
   /**
    * @remarks
-   * The single-process memory throttling duration. Valid values: 30 to 120. Unit: seconds.
+   * The memory throttling duration of a single process. Valid values: 30 to 120. Unit: seconds.
    * 
    * @example
    * 40
    */
   memoryDownGradeDuration?: number;
+  /**
+   * @remarks
+   * Specifies whether to enable memory overload protection. Valid values:
+   * - on: Enabled.
+   * - off: Disabled.
+   * 
+   * @example
+   * off
+   */
   memoryOverload?: string;
   /**
    * @remarks
@@ -999,7 +1248,7 @@ export class ModifyCenterPolicyRequest extends $dara.Model {
   memoryProcessors?: string[];
   /**
    * @remarks
-   * The memory protection mode switch.
+   * Specifies whether to enable memory protection mode.
    * 
    * @example
    * off
@@ -1023,7 +1272,7 @@ export class ModifyCenterPolicyRequest extends $dara.Model {
   memorySampleDuration?: number;
   /**
    * @remarks
-   * The single-process memory usage percentage. Valid values: 30 to 60.
+   * The memory usage percentage of a single process. Valid values: 30 to 60.
    * 
    * @example
    * 40
@@ -1031,9 +1280,9 @@ export class ModifyCenterPolicyRequest extends $dara.Model {
   memorySingleRateLimit?: number;
   /**
    * @remarks
-   * Specifies whether to provide a restart button in the cloud desktop floating ball when connecting through mobile clients (Android<props="china"> and iOS clients).
+   * Specifies whether to provide the restart button in the cloud desktop floating ball when connecting to the cloud desktop from a mobile client (Android client<props="china"> and iOS client).
    * 
-   * > This parameter applies only to mobile client V7.4 or later.
+   * > This parameter applies only to mobile clients of V7.4 or later.
    * 
    * @example
    * off
@@ -1041,7 +1290,7 @@ export class ModifyCenterPolicyRequest extends $dara.Model {
   mobileRestart?: string;
   /**
    * @remarks
-   * The security button switch for Windows on mobile clients.
+   * Specifies whether to enable the security button for Windows on the mobile client.
    * 
    * @example
    * off
@@ -1049,9 +1298,9 @@ export class ModifyCenterPolicyRequest extends $dara.Model {
   mobileSafeMenu?: string;
   /**
    * @remarks
-   * Specifies whether to provide a shutdown button in the cloud desktop floating ball when connecting through mobile clients (Android<props="china"> and iOS clients).
+   * Specifies whether to provide the shutdown button in the cloud desktop floating ball when connecting to the cloud desktop from a mobile client (Android client<props="china"> and iOS client).
    * 
-   * > This parameter applies only to mobile client V7.4 or later.
+   * > This parameter applies only to mobile clients of V7.4 or later.
    * 
    * @example
    * off
@@ -1059,7 +1308,7 @@ export class ModifyCenterPolicyRequest extends $dara.Model {
   mobileShutdown?: string;
   /**
    * @remarks
-   * The WUYING Keeper switch for mobile clients.
+   * Specifies whether to enable WUYING Keeper on the mobile client.
    * 
    * @example
    * off
@@ -1067,13 +1316,31 @@ export class ModifyCenterPolicyRequest extends $dara.Model {
   mobileWuyingKeeper?: string;
   /**
    * @remarks
-   * The Xiaoying switch for mobile clients.
+   * Specifies whether to enable WUYING Assistant on the mobile client.
    * 
    * @example
    * off
    */
   mobileWyAssistant?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable the model library feature. Valid values:
+   * - on: Enabled.
+   * - off: Disabled.
+   * 
+   * @example
+   * off
+   */
   modelLibrary?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable the multi-screen display feature. Valid values:
+   * - on: Enabled.
+   * - off: Disabled.
+   * 
+   * @example
+   * off
+   */
   multiScreen?: string;
   /**
    * @remarks
@@ -1095,7 +1362,7 @@ export class ModifyCenterPolicyRequest extends $dara.Model {
   netRedirect?: string;
   /**
    * @remarks
-   * The network redirection policy details.
+   * The details of the network redirect policy.
    * 
    * > This feature is in invitational preview and is not publicly available.
    * >
@@ -1103,7 +1370,7 @@ export class ModifyCenterPolicyRequest extends $dara.Model {
   netRedirectRule?: ModifyCenterPolicyRequestNetRedirectRule[];
   /**
    * @remarks
-   * The no-operation disconnect setting.
+   * Specifies whether to disconnect the session when no operation is performed.
    * > This parameter applies only to cloud application policies.
    * 
    * @example
@@ -1112,7 +1379,7 @@ export class ModifyCenterPolicyRequest extends $dara.Model {
   noOperationDisconnect?: string;
   /**
    * @remarks
-   * The no-operation disconnect duration. Valid values: 120 to 7200. Unit: seconds.
+   * The idle disconnection period. Valid values: 120 to 7200. Unit: seconds.
    * > This parameter applies only to cloud application policies.
    * 
    * @example
@@ -1121,7 +1388,7 @@ export class ModifyCenterPolicyRequest extends $dara.Model {
   noOperationDisconnectTime?: number;
   /**
    * @remarks
-   * The ID of the Cloud Desktop policy.
+   * The ID of the cloud desktop policy.
    * 
    * This parameter is required.
    * 
@@ -1129,7 +1396,43 @@ export class ModifyCenterPolicyRequest extends $dara.Model {
    * pg-53iyi2aar0nd6****
    */
   policyGroupId?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable the port proxy feature. Valid values:
+   * - on: Enabled.
+   * - off: Disabled.
+   * 
+   * @example
+   * off
+   */
   portProxy?: string;
+  /**
+   * @remarks
+   * The printer pop-up prompt. Valid values:
+   * - default: Default value.
+   * - off: Disabled.
+   * - custom: Custom.
+   * 
+   * @example
+   * off
+   */
+  printerAlert?: string;
+  /**
+   * @remarks
+   * The content of the printer pop-up prompt.
+   * 
+   * @example
+   * Print Content.
+   */
+  printerAlertContent?: string;
+  /**
+   * @remarks
+   * The title of the printer pop-up prompt.
+   * 
+   * @example
+   * Print Title
+   */
+  printerAlertTitle?: string;
   /**
    * @remarks
    * The printer redirection policy. This parameter takes effect only when no printer redirection policy is specified in DeviceRedirects.
@@ -1140,7 +1443,7 @@ export class ModifyCenterPolicyRequest extends $dara.Model {
   printerRedirect?: string;
   /**
    * @remarks
-   * Specifies whether image quality enhancement is enabled for the design and 3D common scenarios.
+   * Indicates whether image quality enhancement is enabled for the design and 3D application common scenarios.
    * 
    * @example
    * off
@@ -1148,7 +1451,7 @@ export class ModifyCenterPolicyRequest extends $dara.Model {
   qualityEnhancement?: string;
   /**
    * @remarks
-   * The recording duration after an event is detected in recording audit. Unit: minutes. Valid values: 10 to 60.
+   * The duration of screen recording after an event is detected in screen recording audits. Unit: minutes. Valid values: 10 to 60.
    * 
    * @example
    * 10
@@ -1156,30 +1459,27 @@ export class ModifyCenterPolicyRequest extends $dara.Model {
   recordEventDuration?: number;
   /**
    * @remarks
-   * The recording event file extension.
+   * The file extensions of recording events.
    */
   recordEventFileExts?: string[];
   /**
    * @remarks
-   * The absolute paths for file monitoring in recording audit.
+   * The absolute paths for file monitoring in screen recording audits.
    */
   recordEventFilePaths?: string[];
   /**
    * @remarks
-   * The recording event level.
+   * The levels of recording events.
    */
   recordEventLevels?: ModifyCenterPolicyRequestRecordEventLevels[];
   /**
    * @remarks
-   * The absolute paths for registry monitoring in recording audit.
-   * 
-   * @example
-   * Computer\\HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\USBSTOR
+   * The absolute paths for registry monitoring in screen recording audits.
    */
   recordEventRegisters?: string[];
   /**
    * @remarks
-   * The list of recording events.
+   * The list of screen recording events.
    */
   recordEvents?: string[];
   /**
@@ -1192,7 +1492,7 @@ export class ModifyCenterPolicyRequest extends $dara.Model {
   recording?: string;
   /**
    * @remarks
-   * The audio recording option for the cloud desktop.
+   * The audio recording option for cloud desktops.
    * 
    * @example
    * on
@@ -1200,7 +1500,7 @@ export class ModifyCenterPolicyRequest extends $dara.Model {
   recordingAudio?: string;
   /**
    * @remarks
-   * The duration of each recording file segment, in minutes. Recording files are automatically split and uploaded to the storage space based on the specified duration. Files are rolled over when they reach 300 MB. Valid values: 10 to 60.
+   * The duration of each screen recording file, in minutes. Recording files are automatically split and uploaded to the storage space based on the specified duration. Files are rolled over when they reach 300 MB. Valid values: 10 to 60.
    * 
    * @example
    * 10
@@ -1208,7 +1508,7 @@ export class ModifyCenterPolicyRequest extends $dara.Model {
   recordingDuration?: number;
   /**
    * @remarks
-   * The recording end time in the format of HH:MM:SS. This parameter takes effect only when `Recording` is set to `PERIOD`.
+   * The end time of screen recording. Format: HH:MM:SS. This response value is meaningful only when `Recording` is set to `PERIOD`.
    * 
    * @example
    * 08:59:00
@@ -1216,7 +1516,7 @@ export class ModifyCenterPolicyRequest extends $dara.Model {
   recordingEndTime?: string;
   /**
    * @remarks
-   * The retention period of recording files. Valid values: 1 to 180. Unit: days.
+   * The retention period of screen recording files. Valid values: 1 to 180. Unit: days.
    * 
    * @example
    * 15
@@ -1224,7 +1524,7 @@ export class ModifyCenterPolicyRequest extends $dara.Model {
   recordingExpires?: number;
   /**
    * @remarks
-   * The recording frame rate. Unit: FPS (frames per second).
+   * The screen recording frame rate. Unit: FPS (frames per second).
    * 
    * @example
    * 5
@@ -1232,7 +1532,7 @@ export class ModifyCenterPolicyRequest extends $dara.Model {
   recordingFps?: string;
   /**
    * @remarks
-   * The recording start time in the format of HH:MM:SS. This parameter takes effect only when `Recording` is set to `PERIOD`.
+   * The start time of screen recording. Format: HH:MM:SS. This response value is meaningful only when `Recording` is set to `PERIOD`.
    * 
    * @example
    * 08:00:00
@@ -1248,10 +1548,10 @@ export class ModifyCenterPolicyRequest extends $dara.Model {
   recordingUserNotify?: string;
   /**
    * @remarks
-   * The notification message displayed to end users about screen recording.
+   * The notification message displayed to end users when screen recording is enabled.
    * 
    * @example
-   * Screen recording is enabled.
+   * Screen recording is enabled
    */
   recordingUserNotifyMessage?: string;
   /**
@@ -1274,16 +1574,23 @@ export class ModifyCenterPolicyRequest extends $dara.Model {
   remoteCoordinate?: string;
   /**
    * @remarks
-   * The cloud desktop reset setting.
+   * Specifies whether to allow resetting the cloud desktop.
    * 
    * @example
    * off
    */
   resetDesktop?: string;
+  /**
+   * @remarks
+   * The DPI value of the screen resolution.
+   * 
+   * @example
+   * 96
+   */
   resolutionDpi?: number;
   /**
    * @remarks
-   * The resolution height. Unit: pixels. Valid values for cloud applications: 500 to 50000. Valid values for cloud desktops: 480 to 4096.
+   * The height of the resolution. Unit: pixels. Valid values for cloud applications: 500 to 50000. Valid values for cloud desktops: 480 to 4096.
    * 
    * @example
    * 1280
@@ -1299,7 +1606,7 @@ export class ModifyCenterPolicyRequest extends $dara.Model {
   resolutionModel?: string;
   /**
    * @remarks
-   * The resolution width. Unit: pixels. Valid values for cloud applications: 500 to 50000. Valid values for cloud desktops: 480 to 4096.
+   * The width of the resolution. Unit: pixels. Valid values for cloud applications: 500 to 50000. Valid values for cloud desktops: 480 to 4096.
    * 
    * @example
    * 720
@@ -1322,12 +1629,14 @@ export class ModifyCenterPolicyRequest extends $dara.Model {
   revokeAccessPolicyRule?: ModifyCenterPolicyRequestRevokeAccessPolicyRule[];
   /**
    * @remarks
-   * The list of security group control rules to delete.
+   * The list of security group rules to delete.
    */
   revokeSecurityPolicyRule?: ModifyCenterPolicyRequestRevokeSecurityPolicyRule[];
   /**
    * @remarks
-   * The security button switch for Windows on mobile clients.
+   * Specifies whether to enable the Security Center shortcut key. Valid values:
+   * - on: Enabled.
+   * - off: Disabled.
    * 
    * @example
    * off
@@ -1335,7 +1644,7 @@ export class ModifyCenterPolicyRequest extends $dara.Model {
   safeMenu?: string;
   /**
    * @remarks
-   * The scope of the policy.
+   * The scope in which the policy takes effect.
    * 
    * @example
    * GLOBAL
@@ -1343,20 +1652,20 @@ export class ModifyCenterPolicyRequest extends $dara.Model {
   scope?: string;
   /**
    * @remarks
-   * The scope values. Specify this parameter when `Scope` is set to `IP`. This parameter takes effect only when `Scope` is set to `IP`.
+   * The value to specify when `Scope` is set to `IP`. This parameter takes effect only when `Scope` is set to `IP`.
    */
   scopeValue?: string[];
   /**
    * @remarks
-   * The Xiaoying switch for mobile clients.
+   * The screen display mode.
    * 
    * @example
-   * off
+   * auto
    */
   screenDisplayMode?: string;
   /**
    * @remarks
-   * The maximum value for session bandwidth throttling. Unit: Kbps. Valid values: 2000 to 100000.
+   * The maximum value of session bandwidth throttling. Unit: Kbps. Valid values: 2000 to 100000.
    * 
    * @example
    * 2000
@@ -1364,7 +1673,7 @@ export class ModifyCenterPolicyRequest extends $dara.Model {
   sessionMaxRateKbps?: number;
   /**
    * @remarks
-   * Specifies whether to enable smoothness enhancement for daily office scenarios.
+   * Specifies whether to enable smoothness enhancement for the daily office scenario.
    * 
    * @example
    * off
@@ -1380,7 +1689,7 @@ export class ModifyCenterPolicyRequest extends $dara.Model {
   statusMonitor?: string;
   /**
    * @remarks
-   * The streaming mode scenario.
+   * The streaming mode adaptation scenario.
    * 
    * @example
    * smooth
@@ -1405,7 +1714,17 @@ export class ModifyCenterPolicyRequest extends $dara.Model {
   taskbar?: string;
   /**
    * @remarks
-   * The USB redirection setting.
+   * Specifies whether to enable the three-screen feature. Valid values:
+   * - on: Enabled.
+   * - off: Disabled.
+   * 
+   * @example
+   * off
+   */
+  threeScreen?: string;
+  /**
+   * @remarks
+   * The USB redirection policy.
    * 
    * @example
    * off
@@ -1413,9 +1732,18 @@ export class ModifyCenterPolicyRequest extends $dara.Model {
   usbRedirect?: string;
   /**
    * @remarks
-   * The USB redirection rules.
+   * The USB redirection rule.
    */
   usbSupplyRedirectRule?: ModifyCenterPolicyRequestUsbSupplyRedirectRule[];
+  /**
+   * @remarks
+   * Specifies whether to display the usage duration in the floating ball. Valid values:
+   * - on: Enabled.
+   * - off: Disabled.
+   * 
+   * @example
+   * off
+   */
   useTime?: string;
   /**
    * @remarks
@@ -1443,7 +1771,7 @@ export class ModifyCenterPolicyRequest extends $dara.Model {
   videoEncMinQP?: number;
   /**
    * @remarks
-   * The peak bitrate for video encoding. Unit: Kbps. Valid values: 1000 to 50000.
+   * The peak video encoding bitrate. Unit: Kbps. Valid values: 1000 to 50000.
    * 
    * @example
    * 2000
@@ -1459,7 +1787,7 @@ export class ModifyCenterPolicyRequest extends $dara.Model {
   videoEncPolicy?: string;
   /**
    * @remarks
-   * The multimedia redirection setting.
+   * The multimedia redirection policy.
    * 
    * @example
    * on
@@ -1475,7 +1803,7 @@ export class ModifyCenterPolicyRequest extends $dara.Model {
   visualQuality?: string;
   /**
    * @remarks
-   * The watermark setting.
+   * The watermark policy.
    * 
    * @example
    * off
@@ -1507,10 +1835,10 @@ export class ModifyCenterPolicyRequest extends $dara.Model {
   watermarkColumnAmount?: number;
   /**
    * @remarks
-   * The custom text content. This parameter is required if you set WatermarkType to `custom`.
+   * If the `WatermarkType` parameter is set to `custom`, you must also specify the custom text content by using the `WatermarkCustomText` parameter.
    * 
    * @example
-   * test
+   * Internal Document
    */
   watermarkCustomText?: string;
   /**
@@ -1561,6 +1889,15 @@ export class ModifyCenterPolicyRequest extends $dara.Model {
    * off
    */
   watermarkSecurity?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable the watermark shadow effect. Valid values:
+   * - on: Enabled.
+   * - off: Disabled.
+   * 
+   * @example
+   * off
+   */
   watermarkShadow?: string;
   /**
    * @remarks
@@ -1574,7 +1911,7 @@ export class ModifyCenterPolicyRequest extends $dara.Model {
    * @remarks
    * The watermark type. You can select up to three types, separated by commas (,).
    * 
-   * > If you set this parameter to `custom`, you must also specify the custom text content by using the WatermarkCustomText parameter.
+   * > If you set this parameter to `custom`, you must also specify the custom text content by using the `WatermarkCustomText` parameter.
    * 
    * @example
    * EndUserId
@@ -1582,7 +1919,7 @@ export class ModifyCenterPolicyRequest extends $dara.Model {
   watermarkType?: string;
   /**
    * @remarks
-   * The WUYING Keeper switch.
+   * Specifies whether to enable WUYING Keeper.
    * 
    * @example
    * off
@@ -1590,9 +1927,9 @@ export class ModifyCenterPolicyRequest extends $dara.Model {
   wuyingKeeper?: string;
   /**
    * @remarks
-   * Specifies whether to provide the WUYING AI Assistant entry in the cloud desktop floating ball when connecting through desktop clients (including Windows and macOS clients).
+   * Specifies whether to provide the WUYING AI Assistant entry in the floating ball when connecting to a cloud computer through a desktop client (including Windows client and macOS client).
    * 
-   * > This parameter applies only to desktop client V7.7 or later.
+   * > This feature applies only to desktop clients of V7.7 or later.
    * 
    * @example
    * on
@@ -1677,6 +2014,9 @@ export class ModifyCenterPolicyRequest extends $dara.Model {
       noOperationDisconnectTime: 'NoOperationDisconnectTime',
       policyGroupId: 'PolicyGroupId',
       portProxy: 'PortProxy',
+      printerAlert: 'PrinterAlert',
+      printerAlertContent: 'PrinterAlertContent',
+      printerAlertTitle: 'PrinterAlertTitle',
       printerRedirect: 'PrinterRedirect',
       qualityEnhancement: 'QualityEnhancement',
       recordEventDuration: 'RecordEventDuration',
@@ -1714,6 +2054,7 @@ export class ModifyCenterPolicyRequest extends $dara.Model {
       streamingMode: 'StreamingMode',
       targetFps: 'TargetFps',
       taskbar: 'Taskbar',
+      threeScreen: 'ThreeScreen',
       usbRedirect: 'UsbRedirect',
       usbSupplyRedirectRule: 'UsbSupplyRedirectRule',
       useTime: 'UseTime',
@@ -1822,6 +2163,9 @@ export class ModifyCenterPolicyRequest extends $dara.Model {
       noOperationDisconnectTime: 'number',
       policyGroupId: 'string',
       portProxy: 'string',
+      printerAlert: 'string',
+      printerAlertContent: 'string',
+      printerAlertTitle: 'string',
       printerRedirect: 'string',
       qualityEnhancement: 'string',
       recordEventDuration: 'number',
@@ -1859,6 +2203,7 @@ export class ModifyCenterPolicyRequest extends $dara.Model {
       streamingMode: 'string',
       targetFps: 'number',
       taskbar: 'string',
+      threeScreen: 'string',
       usbRedirect: 'string',
       usbSupplyRedirectRule: { 'type': 'array', 'itemType': ModifyCenterPolicyRequestUsbSupplyRedirectRule },
       useTime: 'string',

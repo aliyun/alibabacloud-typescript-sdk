@@ -13,7 +13,7 @@ export class DescribeModificationPriceRequestResourceSpecs extends $dara.Model {
   desktopId?: string;
   /**
    * @remarks
-   * The system cloud disk size. Unit: GiB.
+   * The size of the system cloud disk. Unit: GiB.
    * 
    * @example
    * 80
@@ -21,7 +21,7 @@ export class DescribeModificationPriceRequestResourceSpecs extends $dara.Model {
   rootDiskSizeGib?: number;
   /**
    * @remarks
-   * The data cloud disk size. Unit: GiB.
+   * The size of the data cloud disk. Unit: GiB.
    * 
    * @example
    * 100
@@ -57,7 +57,7 @@ export class DescribeModificationPriceRequest extends $dara.Model {
    * @remarks
    * The peak Internet bandwidth. Unit: Mbit/s.
    * 
-   * > If you use the pay-by-bandwidth billing method, the valid values range from 10 to 1000.
+   * > If you use the pay-by-fixed-bandwidth billing method, valid values are 10 to 1000.
    * 
    * @example
    * 20
@@ -65,7 +65,7 @@ export class DescribeModificationPriceRequest extends $dara.Model {
   bandwidth?: number;
   /**
    * @remarks
-   * The instance ID. The value can be the ID of a monthly-subscribed (unlimited-duration) cloud computer or the ID of a premium Internet bandwidth instance.
+   * The instance ID. The value can be the ID of a monthly subscription (unlimited duration) cloud computer or the ID of a premium Internet bandwidth instance.
    * 
    * @example
    * ecd-0gfv2z3sf95zvt****
@@ -75,7 +75,7 @@ export class DescribeModificationPriceRequest extends $dara.Model {
    * @remarks
    * The resource specification.
    * 
-   * - If `ResourceType` is set to `Desktop`, valid values include:
+   * - If ResourceType is set to Desktop, valid values include:
    *     - ecd.basic.small
    *     - ecd.basic.large
    *     - ecd.advanced.large
@@ -95,7 +95,7 @@ export class DescribeModificationPriceRequest extends $dara.Model {
    *     - eds.general.8c32g
    *     - eds.general.16c32g
    * 
-   * - If `ResourceType` is set to `NetworkPackage`, you do not need to specify this parameter.
+   * - If ResourceType is set to NetworkPackage, you do not need to specify this parameter.
    * 
    * @example
    * eds.enterprise_office.8c16g
@@ -111,7 +111,7 @@ export class DescribeModificationPriceRequest extends $dara.Model {
   promotionId?: string;
   /**
    * @remarks
-   * The region ID. You can call [DescribeRegions](~~DescribeRegions~~) to query the regions supported by Elastic Desktop Service.
+   * The region ID. You can call [DescribeRegions](~~DescribeRegions~~) to query the list of regions supported by Elastic Desktop Service.
    * 
    * This parameter is required.
    * 
@@ -121,7 +121,7 @@ export class DescribeModificationPriceRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The user ID for resource ownership in the reseller pattern. You do not need to specify this parameter in non-reseller pattern.
+   * The resource ownership user ID in the reseller pattern. You do not need to specify this parameter in non-reseller pattern.
    * 
    * @example
    * 1422724566551XXX
@@ -134,10 +134,10 @@ export class DescribeModificationPriceRequest extends $dara.Model {
   resourceSpecs?: DescribeModificationPriceRequestResourceSpecs[];
   /**
    * @remarks
-   * The resource type. The required parameters vary based on the resource type for which you want to query the specification change price:
+   * The resource type. The required parameters vary based on the resource type for which you want to query the upgrade/downgrade price:
    * 
-   * - If `ResourceType` is set to `Desktop`, you must specify the `InstanceType`, `RootDiskSizeGib`, and `UserDiskSizeGib` parameters.
-   * - If `ResourceType` is set to `NetworkPackage`, you must specify the `Bandwidth` parameter.
+   * - If ResourceType is set to Desktop, you must specify the InstanceType, RootDiskSizeGib, and UserDiskSizeGib parameters.
+   * - If ResourceType is set to NetworkPackage, you must specify the Bandwidth parameter.
    * 
    * @example
    * Desktop
@@ -145,7 +145,7 @@ export class DescribeModificationPriceRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The performance level of the system cloud disk. You can configure the disk performance level in Settings when the cloud computer specification is set to graphics-accelerated or high frequency. For more information about the differences between performance levels, see [ESSDs](https://help.aliyun.com/document_detail/122389.html). standard SSD does not support performance level configuration.
+   * The performance level (PL) of the system cloud disk. You can set the disk performance level when the cloud computer specification in Settings is Graphics or High Frequency. For more information about the differences between disk performance levels, see [ESSDs](https://help.aliyun.com/document_detail/122389.html). standard SSD and ESSD have different performance levels.
    * 
    * @example
    * PL0
@@ -153,7 +153,7 @@ export class DescribeModificationPriceRequest extends $dara.Model {
   rootDiskPerformanceLevel?: string;
   /**
    * @remarks
-   * The system cloud disk size. Unit: GiB.
+   * The size of the system cloud disk. Unit: GiB.
    * 
    * @example
    * 80
@@ -161,7 +161,7 @@ export class DescribeModificationPriceRequest extends $dara.Model {
   rootDiskSizeGib?: number;
   /**
    * @remarks
-   * The performance level of the data cloud disk. You can configure the disk performance level in Settings when the cloud computer specification is set to graphics-accelerated or high frequency. For more information about the differences between performance levels, see [ESSDs](https://help.aliyun.com/document_detail/122389.html). standard SSD does not support performance level configuration.
+   * The performance level (PL) of the data cloud disk. You can set the disk performance level when the cloud computer specification in Settings is Graphics or High Frequency. For more information about the differences between disk performance levels, see [ESSDs](https://help.aliyun.com/document_detail/122389.html). standard SSD and ESSD have different performance levels.
    * 
    * @example
    * PL0
@@ -169,7 +169,7 @@ export class DescribeModificationPriceRequest extends $dara.Model {
   userDiskPerformanceLevel?: string;
   /**
    * @remarks
-   * The data cloud disk size. Unit: GiB.
+   * The size of the data cloud disk. Unit: GiB.
    * 
    * @example
    * 50

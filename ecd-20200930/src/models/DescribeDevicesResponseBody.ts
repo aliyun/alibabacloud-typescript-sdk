@@ -24,7 +24,7 @@ export class DescribeDevicesResponseBodyDevicesEndUserList extends $dara.Model {
    * The ID of the user.
    * 
    * @example
-   * alice
+   * moli
    */
   endUserId?: string;
   /**

@@ -3,11 +3,25 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeDesktopsInGroupRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The end time of the custom time range.
+   * 
+   * @example
+   * 18
+   */
   customEndTimePeriod?: number;
+  /**
+   * @remarks
+   * The start time of the custom time range.
+   * 
+   * @example
+   * 8
+   */
   customStartTimePeriod?: number;
   /**
    * @remarks
-   * The ID of the desktop group.
+   * The ID of the shared cloud desktop.
    * 
    * This parameter is required.
    * 
@@ -17,7 +31,7 @@ export class DescribeDesktopsInGroupRequest extends $dara.Model {
   desktopGroupId?: string;
   /**
    * @remarks
-   * Specifies whether to return deleted desktops.
+   * Specifies whether to ignore the deletion flag.
    * 
    * @example
    * true
@@ -25,11 +39,7 @@ export class DescribeDesktopsInGroupRequest extends $dara.Model {
   ignoreDeleted?: boolean;
   /**
    * @remarks
-   * The maximum number of entries to return on a single page.
-   * 
-   * - Maximum value: 100.
-   * 
-   * - Default value: 10.
+   * The number of entries per page for a paged query.
    * 
    * @example
    * 10
@@ -37,7 +47,7 @@ export class DescribeDesktopsInGroupRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that is used to start the next query. If this parameter is empty, all results are returned.
+   * The pagination token for the next query. An empty value indicates that no more results exist.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a4883
@@ -53,7 +63,7 @@ export class DescribeDesktopsInGroupRequest extends $dara.Model {
   payType?: string;
   /**
    * @remarks
-   * The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to query the regions supported by Elastic Desktop Service.
+   * The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to query the regions supported by WUYING Workspace.
    * 
    * This parameter is required.
    * 

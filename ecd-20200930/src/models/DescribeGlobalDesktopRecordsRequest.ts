@@ -3,6 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeGlobalDesktopRecordsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The business channel. Valid values:
+   * Enterprise: Enterprise Edition.
+   * Business: Business Edition.
+   * 
+   * @example
+   * Enterprise
+   */
   businessChannel?: string;
   /**
    * @remarks
@@ -17,10 +26,14 @@ export class DescribeGlobalDesktopRecordsRequest extends $dara.Model {
    * DemoComputer
    */
   desktopName?: string;
+  /**
+   * @remarks
+   * The list of cloud desktop statuses to include.
+   */
   desktopStatusList?: string[];
   /**
    * @remarks
-   * The cloud desktop specification. You can call [DescribeDesktopTypes](https://help.aliyun.com/document_detail/188882.html) to query the supported specification IDs for cloud desktops.
+   * The cloud desktop specifications. You can call [DescribeDesktopTypes](https://help.aliyun.com/document_detail/188882.html) to query the supported specification IDs for cloud desktops.
    * 
    * @example
    * eds.enterprise_office.2c4g
@@ -43,6 +56,10 @@ export class DescribeGlobalDesktopRecordsRequest extends $dara.Model {
    * TestUser
    */
   endUserId?: string;
+  /**
+   * @remarks
+   * The list of cloud desktop statuses to exclude.
+   */
   excludeDesktopStatusList?: string[];
   /**
    * @remarks
@@ -54,7 +71,7 @@ export class DescribeGlobalDesktopRecordsRequest extends $dara.Model {
   officeSiteId?: string;
   /**
    * @remarks
-   * The sort field. If this parameter is not specified, results are sorted by creation time in descending order. Valid values:
+   * The sort field. If not specified, results are sorted by creation time in descending order. Valid values:
    * 
    * - uptime: sorts by cloud desktop uptime.
    * 
@@ -64,7 +81,7 @@ export class DescribeGlobalDesktopRecordsRequest extends $dara.Model {
   orderBy?: string;
   /**
    * @remarks
-   * The page number of the current page in a paged query. Paging starts from page 1.    
+   * The page number of the current page when using paging.    
    * Default value: 1.
    * 
    * @example
@@ -81,7 +98,7 @@ export class DescribeGlobalDesktopRecordsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region ID.
+   * The region ID. Valid values:
    * - Shanghai
    * - Singapore
    * 
@@ -140,6 +157,10 @@ export class DescribeGlobalDesktopRecordsRequest extends $dara.Model {
    * monthPackage
    */
   subPayType?: string;
+  /**
+   * @remarks
+   * The list of usernames.
+   */
   userNames?: string[];
   static names(): { [key: string]: string } {
     return {

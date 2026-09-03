@@ -29,7 +29,7 @@ export class TransferTaskApprovalCallbackRequest extends $dara.Model {
   result?: string;
   /**
    * @remarks
-   * The ID of the transfer task.
+   * The ID of the file transfer task.
    * 
    * @example
    * trt-msndfksm18fs****

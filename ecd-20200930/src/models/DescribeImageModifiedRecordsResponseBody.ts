@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeImageModifiedRecordsResponseBodyImageModifiedRecords extends $dara.Model {
   /**
    * @remarks
-   * ID of the original image before modification.
+   * The image ID before the change.
    * 
    * @example
    * desktopimage-windows-server-2019-64-ch-asp
@@ -13,7 +13,7 @@ export class DescribeImageModifiedRecordsResponseBodyImageModifiedRecords extend
   imageId?: string;
   /**
    * @remarks
-   * Name of the original image before modification.
+   * The image name before the change.
    * 
    * @example
    * Windows server 2019 Mainland
@@ -21,7 +21,7 @@ export class DescribeImageModifiedRecordsResponseBodyImageModifiedRecords extend
   imageName?: string;
   /**
    * @remarks
-   * ID of the new image after modification.
+   * The ID of the new image after the change.
    * 
    * @example
    * desktopimage-windows-server-2022-64-ch-asp
@@ -29,16 +29,23 @@ export class DescribeImageModifiedRecordsResponseBodyImageModifiedRecords extend
   newImageId?: string;
   /**
    * @remarks
-   * Name of the new image after modification.
+   * The name of the new image after the change.
    * 
    * @example
    * Windows server 2022 Mainland asp
    */
   newImageName?: string;
+  /**
+   * @remarks
+   * The reason for ignoring the vulnerability. This parameter is required only when you perform the ignore vulnerability operation, that is, when `OperateType` is set to `vul_ignore`.
+   * 
+   * @example
+   * Defer fix
+   */
   reason?: string;
   /**
    * @remarks
-   * Status of the image modification.
+   * The status of the image change.
    * 
    * @example
    * 1
@@ -46,7 +53,7 @@ export class DescribeImageModifiedRecordsResponseBodyImageModifiedRecords extend
   status?: number;
   /**
    * @remarks
-   * Time when the image was last modified.
+   * The time when the image was last changed. The time is in the ISO 8601 standard in UTC: yyyy-MM-ddTHH:mm:ss.SSSZ.
    * 
    * @example
    * 2022-03-03T02:43:44.851Z
@@ -88,12 +95,12 @@ export class DescribeImageModifiedRecordsResponseBodyImageModifiedRecords extend
 export class DescribeImageModifiedRecordsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Collection of image modification records.
+   * The image change records.
    */
   imageModifiedRecords?: DescribeImageModifiedRecordsResponseBodyImageModifiedRecords[];
   /**
    * @remarks
-   * Token for the next page of results. An empty NextToken means no more results.
+   * The pagination token for the next query. If NextToken is empty, no more results exist.
    * 
    * @example
    * AAAAAV3MpHK1AP0pfERHZN5pu6koN7RqHg3d2z8LKmSoe821
@@ -101,7 +108,7 @@ export class DescribeImageModifiedRecordsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * DC40EE61-7E83-59ED-AEA6-7EE9C437F352
@@ -109,7 +116,7 @@ export class DescribeImageModifiedRecordsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Total number of image modification records.
+   * The total number of image change records.
    * 
    * @example
    * 20

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class HibernateDesktopsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 101AE027-8299-5E6E-A782-6C91C962****

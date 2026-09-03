@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeTemplatesRequest extends $dara.Model {
   /**
    * @remarks
-   * The region filter condition for the template query. 
+   * The region filter condition for template queries.
    * 
-   * > If this parameter is specified, region-specific configurations that do not match are excluded from the query results.
+   * > If this parameter is specified, the query results exclude configurations for regions that do not match.
    * 
    * @example
    * cn-beijing
@@ -18,12 +18,12 @@ export class DescribeTemplatesRequest extends $dara.Model {
    * > This parameter is not publicly available.
    * 
    * @example
-   * null
+   * default
    */
   bizType?: string;
   /**
    * @remarks
-   * The cloud computer image ID. You can obtain the ID from the image management page. System images, custom images, and other image types are supported.
+   * The cloud computer image ID. You can obtain the ID from the image management page. System images and custom images are supported.
    * 
    * @example
    * m-dnz9xjgbm8*****
@@ -39,7 +39,7 @@ export class DescribeTemplatesRequest extends $dara.Model {
   keyword?: string;
   /**
    * @remarks
-   * The page number of the current page in a paged query. This parameter is used for paging.
+   * The page number of the current page in a paged query. Paging starts from page 1.
    * 
    * @example
    * 1
@@ -47,7 +47,7 @@ export class DescribeTemplatesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The maximum number of rows per page in a paged query. This parameter is used for paging.
+   * The maximum number of rows per page in a paged query. Paging is used to return results in batches.
    * 
    * @example
    * 20
@@ -64,6 +64,9 @@ export class DescribeTemplatesRequest extends $dara.Model {
   /**
    * @remarks
    * The list of template IDs to query.
+   * 
+   * @example
+   * DescribeTemplates
    */
   templateIds?: string[];
   /**
@@ -71,7 +74,7 @@ export class DescribeTemplatesRequest extends $dara.Model {
    * The template name used for the query.
    * 
    * @example
-   * My cloud desktop template 001
+   * MyCloudComputerTemplate001
    */
   templateName?: string;
   /**

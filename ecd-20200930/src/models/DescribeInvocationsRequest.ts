@@ -21,7 +21,7 @@ export class DescribeInvocationsRequest extends $dara.Model {
   contentEncoding?: string;
   /**
    * @remarks
-   * The cloud desktop ID. If you specify a cloud desktop, all script execution records for that cloud desktop are queried.
+   * The cloud desktop ID. If you specify a cloud desktop, all script execution records of the cloud desktop are queried.
    * 
    * @example
    * ecd-7w78ozhjcwa3u****
@@ -44,12 +44,12 @@ export class DescribeInvocationsRequest extends $dara.Model {
   endUserId?: string;
   /**
    * @remarks
-   * Specifies whether to return the execution results of all cloud desktops when a remote command is run on multiple cloud desktops.
+   * Specifies whether to return the execution results of all cloud desktops when the remote command is executed on multiple cloud desktops.
    */
   includeInvokeDesktops?: boolean;
   /**
    * @remarks
-   * Specifies whether to return the output of the script execution in the results.
+   * Specifies whether to return the output information of the script execution in the results.
    * 
    * @example
    * false
@@ -57,7 +57,7 @@ export class DescribeInvocationsRequest extends $dara.Model {
   includeOutput?: boolean;
   /**
    * @remarks
-   * The script execution ID. Obtained from the response of [RunCommand](~~RunCommand~~).
+   * The execution ID of the script process. Obtained from the response of [RunCommand](~~RunCommand~~).
    * 
    * @example
    * t-hz0jdfwd9f****
@@ -92,7 +92,7 @@ export class DescribeInvocationsRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The region ID. Call [DescribeRegions](~~DescribeRegions~~) to query the regions supported by Elastic Desktop Service.
+   * The region ID. You can call [DescribeRegions](~~DescribeRegions~~) to query the regions supported by Elastic Desktop Service.
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateEcdReportTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The operation result. The value `success` indicates success. Otherwise, an error message is returned.
+   * The operation result. The value `success` indicates that the operation is successful. Otherwise, an error message is returned.
    * 
    * @example
    * success

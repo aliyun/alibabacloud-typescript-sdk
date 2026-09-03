@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeClientEventsRequest extends $dara.Model {
   /**
    * @remarks
-   * The cloud computer ID. If you do not specify this parameter, all cloud computers in the region are queried.
+   * The cloud computer ID. If this parameter is not specified, all cloud computers in the region are queried.
    * 
    * @example
    * ecd-8fupvkhg0aayu****
@@ -13,7 +13,7 @@ export class DescribeClientEventsRequest extends $dara.Model {
   desktopId?: string;
   /**
    * @remarks
-   * The IP address of the cloud computer. If you do not specify this parameter, events of all cloud computers in the region are queried.
+   * The IP address of the cloud computer. If this parameter is not specified, events of all cloud computers in the region are queried.
    * 
    * @example
    * 10.10.*.*
@@ -24,7 +24,7 @@ export class DescribeClientEventsRequest extends $dara.Model {
    * The name of the cloud computer.
    * 
    * @example
-   * test
+   * Finance cloud computer
    */
   desktopName?: string;
   /**
@@ -37,7 +37,7 @@ export class DescribeClientEventsRequest extends $dara.Model {
   directoryId?: string;
   /**
    * @remarks
-   * The end time. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the YYYY-MM-DDThh:mm:ssZ format. The time must be in UTC+0. If you do not specify this parameter, the current time is used.
+   * The end time. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the YYYY-MM-DDThh:mm:ssZ format. The time must be in UTC+0. If this parameter is not specified, the current time is used.
    * 
    * @example
    * 2020-11-31T06:32:31Z
@@ -45,12 +45,16 @@ export class DescribeClientEventsRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The logon user information, which is a Resource Access Management (RAM) user ID or AD username. If you do not specify this parameter, events of all users in the region are queried.
+   * The logon user information, which is a Resource Access Management (RAM) user ID or AD username. If this parameter is not specified, events of all users in the region are queried.
    * 
    * @example
    * 28961708130834****
    */
   endUserId?: string;
+  /**
+   * @remarks
+   * The list of end user IDs.
+   */
   endUserIds?: string[];
   /**
    * @remarks
@@ -62,10 +66,21 @@ export class DescribeClientEventsRequest extends $dara.Model {
   eventType?: string;
   /**
    * @remarks
-   * The combination of event types to query. You can specify multiple event types. The query results include events of all specified types.
+   * The combination of event types to query. You can specify multiple event types. The query results include all events of the specified types.
    */
   eventTypes?: string[];
+  /**
+   * @remarks
+   * Specifies whether to include terminal information in the response.
+   */
   fillHardwareInfo?: boolean;
+  /**
+   * @remarks
+   * The language type of the returned information.
+   * 
+   * @example
+   * zh-CN
+   */
   language?: string;
   /**
    * @remarks
@@ -77,7 +92,7 @@ export class DescribeClientEventsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token. Set this parameter to the value of NextToken returned in the previous API call.
+   * The pagination token. Set this parameter to the NextToken value returned in the previous API call.
    * 
    * @example
    * AAAAAV3MpHK1AP0pfERHZN5pu6nmB7qrRFJ8vmttjxPL****
@@ -85,7 +100,7 @@ export class DescribeClientEventsRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The ID of the office network to which the cloud computer belongs. If you do not specify this parameter, user events in all office networks in the region are queried.
+   * The ID of the office network to which the cloud computer belongs. If this parameter is not specified, user events in all office networks in the region are queried.
    * 
    * @example
    * cn-hangzhou+dir-bh77qa8nmjot4****
@@ -96,7 +111,7 @@ export class DescribeClientEventsRequest extends $dara.Model {
    * The name of the office network.
    * 
    * @example
-   * test
+   * R&D office network
    */
   officeSiteName?: string;
   /**
@@ -111,7 +126,7 @@ export class DescribeClientEventsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The start time. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the YYYY-MM-DDThh:mm:ssZ format. The time must be in UTC+0. If you do not specify this parameter, events are queried backward from the time specified by `EndTime`.
+   * The start time. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the YYYY-MM-DDThh:mm:ssZ format. The time must be in UTC+0. If this parameter is not specified, events are queried backward from the time specified by `EndTime`.
    * 
    * @example
    * 2020-11-30T06:32:31Z

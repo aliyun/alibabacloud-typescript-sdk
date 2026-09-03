@@ -13,7 +13,7 @@ export class DescribeSessionStatisticResponseBodyStatistic extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The point in time.
+   * The time point. UNIX timestamp, in milliseconds.
    * 
    * @example
    * 1690164443508
@@ -58,7 +58,7 @@ export class DescribeSessionStatisticResponseBody extends $dara.Model {
   statistic?: DescribeSessionStatisticResponseBodyStatistic[];
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total count.
    * 
    * @example
    * 1

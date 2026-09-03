@@ -13,7 +13,7 @@ export class ModifyDesktopSpecResponseBody extends $dara.Model {
   orderId?: string;
   /**
    * @remarks
-   * A list of order IDs.
+   * The order IDs.
    */
   orderIds?: number[];
   /**

@@ -30,6 +30,7 @@ export class DescribeGlobalTimerRecordsResponseBodyResults extends $dara.Model {
   /**
    * @remarks
    * The time when the record was created.
+   * The time is in the ISO 8601 standard in UTC: yyyy-MM-ddTHH:mm:ssZ.
    * 
    * @example
    * 2023-08-03T08:27:29Z
@@ -45,7 +46,7 @@ export class DescribeGlobalTimerRecordsResponseBodyResults extends $dara.Model {
   desktopId?: string;
   /**
    * @remarks
-   * The cloud computer name.
+   * The name of the cloud computer.
    * 
    * @example
    * DesktopName
@@ -62,6 +63,7 @@ export class DescribeGlobalTimerRecordsResponseBodyResults extends $dara.Model {
   /**
    * @remarks
    * The time when the task ended.
+   * The time follows the ISO 8601 standard in UTC: yyyy-MM-ddTHH:mm:ssZ.
    * 
    * @example
    * 2025-01-21T02:00:45Z
@@ -76,6 +78,9 @@ export class DescribeGlobalTimerRecordsResponseBodyResults extends $dara.Model {
    */
   regionId?: string;
   /**
+   * @remarks
+   * The ID of the resource parent.
+   * 
    * @example
    * p-xxx
    */
@@ -98,7 +103,7 @@ export class DescribeGlobalTimerRecordsResponseBodyResults extends $dara.Model {
   timerGroupId?: string;
   /**
    * @remarks
-   * The timer record ID.
+   * The ID of the scheduled record.
    * 
    * @example
    * t-xxx

@@ -3,6 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeCenterPolicyListRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to enable the academic proxy feature. Valid values:
+   * - on: Enabled.
+   * - off: Disabled.
+   * 
+   * @example
+   * off
+   */
   academicProxy?: string;
   /**
    * @remarks
@@ -14,10 +23,19 @@ export class DescribeCenterPolicyListRequest extends $dara.Model {
    * 1
    */
   businessType?: number;
+  /**
+   * @remarks
+   * Specifies whether to enable the model library feature. Valid values:
+   * - on: Enabled.
+   * - off: Disabled.
+   * 
+   * @example
+   * off
+   */
   modelLibrary?: string;
   /**
    * @remarks
-   * The page number of the current page in a paging query.    
+   * The page number of the current page in a paged query. This parameter implements paging.    
    * Default value: 1.
    * 
    * @example
@@ -26,7 +44,7 @@ export class DescribeCenterPolicyListRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The maximum number of entries per page in a paging query.
+   * The maximum number of rows per page in a paged query. This parameter implements paging.
    * 
    * @example
    * 20
@@ -34,9 +52,18 @@ export class DescribeCenterPolicyListRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The list of cloud desktop policy IDs.
+   * The list of Cloud Desktop policy IDs.
    */
   policyGroupId?: string[];
+  /**
+   * @remarks
+   * Specifies whether to enable the port proxy feature. Valid values:
+   * - on: Enabled.
+   * - off: Disabled.
+   * 
+   * @example
+   * off
+   */
   portProxy?: string;
   /**
    * @remarks
@@ -50,7 +77,7 @@ export class DescribeCenterPolicyListRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The effective scope of the cloud desktop policy.
+   * The effective scope of the Cloud Desktop policy.
    * 
    * @example
    * GLOBAL

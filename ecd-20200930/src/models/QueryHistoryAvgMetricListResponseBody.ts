@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryHistoryAvgMetricListResponseBodyAvgMetricListSessions extends $dara.Model {
   /**
    * @remarks
-   * The ID of the end user.
+   * The end user ID.
    * 
    * @example
    * testUser
@@ -13,7 +13,7 @@ export class QueryHistoryAvgMetricListResponseBodyAvgMetricListSessions extends 
   endUserId?: string;
   /**
    * @remarks
-   * The time when the session was created.
+   * The time when the session was created. The time is in the ISO 8601 standard in UTC: yyyy-MM-ddTHH:mm:ssZ.
    * 
    * @example
    * 2026-04-17T14:51:53Z
@@ -21,7 +21,7 @@ export class QueryHistoryAvgMetricListResponseBodyAvgMetricListSessions extends 
   establishmentTime?: string;
   /**
    * @remarks
-   * The external username of the end user.
+   * The external username.
    * 
    * @example
    * testUserName
@@ -29,7 +29,7 @@ export class QueryHistoryAvgMetricListResponseBodyAvgMetricListSessions extends 
   externalUserName?: string;
   /**
    * @remarks
-   * The nickname of the end user.
+   * The nickname of the user.
    * 
    * @example
    * sz-sygc-07-03
@@ -73,13 +73,12 @@ export class QueryHistoryAvgMetricListResponseBodyAvgMetricList extends $dara.Mo
   avgValue?: number;
   /**
    * @remarks
-   * The billing method of the desktop. Valid values:
+   * The billing method of the cloud desktop. Valid values:
    * 
-   * - `PostPaid`: pay-as-you-go
+   * - PostPaid: Pay-as-you-go.
+   * - PrePaid: Subscription.
    * 
-   * - `PrePaid`: subscription
-   * 
-   * Default value: `PostPaid`.
+   * Default value: PostPaid.
    * 
    * @example
    * PrePaid
@@ -95,7 +94,7 @@ export class QueryHistoryAvgMetricListResponseBodyAvgMetricList extends $dara.Mo
   cpu?: number;
   /**
    * @remarks
-   * The desktop group ID.
+   * The cloud desktop pool ID.
    * 
    * @example
    * dg-bogo95eob5avnis9k
@@ -103,7 +102,7 @@ export class QueryHistoryAvgMetricListResponseBodyAvgMetricList extends $dara.Mo
   desktopGroupId?: string;
   /**
    * @remarks
-   * **The desktop ID.**
+   * The desktop ID.
    * 
    * @example
    * ecd-bx9i0nsjd3zmibnzq
@@ -111,7 +110,7 @@ export class QueryHistoryAvgMetricListResponseBodyAvgMetricList extends $dara.Mo
   desktopId?: string;
   /**
    * @remarks
-   * **The desktop name.**
+   * The desktop name.
    * 
    * @example
    * C-051
@@ -119,23 +118,15 @@ export class QueryHistoryAvgMetricListResponseBodyAvgMetricList extends $dara.Mo
   desktopName?: string;
   /**
    * @remarks
-   * The status of the desktop. Valid values:
-   * 
-   * - `Stopped`: The desktop is stopped.
-   * 
-   * - `Starting`: The desktop is being started.
-   * 
-   * - `Rebuilding`: The desktop is being rebuilt.
-   * 
-   * - `Running`: The desktop is running.
-   * 
-   * - `Stopping`: The desktop is being stopped.
-   * 
-   * - `Expired`: The desktop has expired.
-   * 
-   * - `Deleted`: The desktop has been deleted.
-   * 
-   * - `Pending`: The desktop is in a pending state.
+   * The cloud desktop status. Valid values:
+   * - Stopped: Stopped.
+   * - Starting: Starting.
+   * - Rebuilding: Rebuilding.
+   * - Running: Running.
+   * - Stopping: Stopping.
+   * - Expired: Expired.
+   * - Deleted: Deleted.
+   * - Pending: Pending.
    * 
    * @example
    * Running
@@ -143,7 +134,7 @@ export class QueryHistoryAvgMetricListResponseBodyAvgMetricList extends $dara.Mo
   desktopStatus?: string;
   /**
    * @remarks
-   * The desktop type.
+   * The desktop specification.
    * 
    * @example
    * eds.enterprise_office.8c16g
@@ -151,7 +142,7 @@ export class QueryHistoryAvgMetricListResponseBodyAvgMetricList extends $dara.Mo
   desktopType?: string;
   /**
    * @remarks
-   * The IDs of the authorized end users.
+   * The list of authorized users.
    */
   endUserIds?: string[];
   /**
@@ -172,7 +163,7 @@ export class QueryHistoryAvgMetricListResponseBodyAvgMetricList extends $dara.Mo
   managementFlag?: string;
   /**
    * @remarks
-   * The memory size, in MB.
+   * The memory size.
    * 
    * @example
    * 2048
@@ -180,7 +171,7 @@ export class QueryHistoryAvgMetricListResponseBodyAvgMetricList extends $dara.Mo
   memory?: number;
   /**
    * @remarks
-   * Whether the desktop is a multi-user shared desktop.
+   * Indicates whether the cloud desktop is a multi-resource shared type.
    * 
    * @example
    * true
@@ -188,7 +179,7 @@ export class QueryHistoryAvgMetricListResponseBodyAvgMetricList extends $dara.Mo
   multiResource?: boolean;
   /**
    * @remarks
-   * The type of the system image.
+   * The system image type.
    * 
    * @example
    * Winserver2025
@@ -204,7 +195,7 @@ export class QueryHistoryAvgMetricListResponseBodyAvgMetricList extends $dara.Mo
   regionId?: string;
   /**
    * @remarks
-   * A list of session details.
+   * The list of session information.
    */
   sessions?: QueryHistoryAvgMetricListResponseBodyAvgMetricListSessions[];
   /**
@@ -277,7 +268,7 @@ export class QueryHistoryAvgMetricListResponseBodyAvgMetricList extends $dara.Mo
 export class QueryHistoryAvgMetricListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of average metric data.
+   * The list of average values of monitoring metrics.
    */
   avgMetricList?: QueryHistoryAvgMetricListResponseBodyAvgMetricList[];
   /**
@@ -290,7 +281,7 @@ export class QueryHistoryAvgMetricListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries.
+   * The total number of records that meet the conditions.
    * 
    * @example
    * 20

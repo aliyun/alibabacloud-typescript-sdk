@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CompleteCdsFileRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the enterprise drive.
+   * The enterprise network disk ID.
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class CompleteCdsFileRequest extends $dara.Model {
   fileId?: string;
   /**
    * @remarks
-   * The ID of the team space. You must specify at least one of `EndUserId` and `GroupId`.
+   * The team workspace ID. You must specify at least one of `EndUserId` and `GroupId`.
    * 
    * @example
    * cg-i1ruuudp92qpj****
@@ -41,7 +41,7 @@ export class CompleteCdsFileRequest extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
-   * The ID of the region. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the list of regions where Elastic Desktop Service (EDS) Enterprise is available.
+   * The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to query the regions supported by Elastic Desktop Service.
    * 
    * This parameter is required.
    * 
@@ -51,7 +51,7 @@ export class CompleteCdsFileRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the file upload task. Callable interface [CreateCdsFile](https://help.aliyun.com/document_detail/2247619.html).
+   * The ID of the file upload task. You can call [CreateCdsFile](https://help.aliyun.com/document_detail/2247619.html) to obtain the ID.
    * 
    * This parameter is required.
    * 

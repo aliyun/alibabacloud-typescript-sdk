@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeUsersInGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The connection status of the user.
+   * The connection state of the user.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class DescribeUsersInGroupRequest extends $dara.Model {
   connectState?: number;
   /**
    * @remarks
-   * The shared cloud desktop ID.
+   * The ID of the shared cloud computer.
    * 
    * This parameter is required.
    * 
@@ -31,12 +31,12 @@ export class DescribeUsersInGroupRequest extends $dara.Model {
   endUserId?: string;
   /**
    * @remarks
-   * A list of authorized user IDs.
+   * The list of authorized user IDs.
    */
   endUserIds?: string[];
   /**
    * @remarks
-   * The string for a partial match query. Results that contain this string are returned.
+   * The fuzzy query string. All results that contain this character string are returned.
    * 
    * @example
    * alice
@@ -44,10 +44,9 @@ export class DescribeUsersInGroupRequest extends $dara.Model {
   filter?: string;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries per page for a paged query.
    * 
    * - Maximum value: 100.
-   * 
    * - Default value: 10.
    * 
    * @example
@@ -56,7 +55,7 @@ export class DescribeUsersInGroupRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token to start the next query. An empty value indicates that all results have been returned.
+   * The pagination token for the next query. An empty value indicates that there is no next page.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a4883
@@ -80,7 +79,7 @@ export class DescribeUsersInGroupRequest extends $dara.Model {
   queryUserDetail?: boolean;
   /**
    * @remarks
-   * The region ID. Call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to get a list of regions where WUYING Workspace is available.
+   * The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to query the regions supported by Elastic Desktop Service.
    * 
    * This parameter is required.
    * 

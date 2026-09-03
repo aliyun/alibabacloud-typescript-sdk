@@ -3,7 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeNetworkPackagesRequestTag extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key. If you specify this parameter, the value cannot be an empty string. The tag key can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. The tag key cannot contain `http://` or `https://`.
+   * 
+   * @example
+   * TestKey
+   */
   key?: string;
+  /**
+   * @remarks
+   * The tag value. The tag value can be an empty string. The tag value can be up to 128 characters in length and cannot start with `acs:`. The tag value cannot contain `http://` or `https://`.
+   * 
+   * @example
+   * TestValue
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -50,7 +64,7 @@ export class DescribeNetworkPackagesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The IDs of the premium Internet bandwidth plans. You can specify 1 to 100 IDs.
+   * The IDs of premium Internet bandwidth plans. You can specify 1 to 100 IDs.
    * 
    * @example
    * np-amtp8e8q1o9e4****
@@ -58,7 +72,7 @@ export class DescribeNetworkPackagesRequest extends $dara.Model {
   networkPackageId?: string[];
   /**
    * @remarks
-   * The token for the next query.
+   * The pagination token for the next query.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a4883
@@ -74,6 +88,10 @@ export class DescribeNetworkPackagesRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The tags. A maximum of 20 tags are supported.
+   */
   tag?: DescribeNetworkPackagesRequestTag[];
   static names(): { [key: string]: string } {
     return {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAutoSnapshotPolicyResponseBodyAutoSnapshotPolicies extends $dara.Model {
   /**
    * @remarks
-   * The time when the policy was created. The time follows the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the `yyyy-mm-ddthh:mm:ssz` format. The time is displayed in UTC.
+   * The creation time. The time follows the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the `yyyy-mm-ddthh:mm:ssz` format. The time is displayed in UTC.
    * 
    * @example
    * 2023-01-11T09:14:00Z
@@ -13,7 +13,7 @@ export class DescribeAutoSnapshotPolicyResponseBodyAutoSnapshotPolicies extends 
   creationTime?: string;
   /**
    * @remarks
-   * The cron expression that is used to create snapshots.
+   * The cron expression that specifies the snapshot creation time.
    * 
    * @example
    * 0 0 5,7 ? * 2/2
@@ -21,7 +21,7 @@ export class DescribeAutoSnapshotPolicyResponseBodyAutoSnapshotPolicies extends 
   cronExpression?: string;
   /**
    * @remarks
-   * The number of cloud computers to which the automatic snapshot policy is applied.
+   * The number of cloud computers to which the snapshot policy is attached.
    * 
    * @example
    * 1
@@ -29,13 +29,10 @@ export class DescribeAutoSnapshotPolicyResponseBodyAutoSnapshotPolicies extends 
   desktopNum?: number;
   /**
    * @remarks
-   * The disk type for which the automatic snapshot policy is created.
+   * The cloud disk type.
    * 
-   * Valid values:
-   * 
-   * - SYSTEM: system disk
-   * 
-   * - DATA: data disk
+   * @example
+   * SYSTEM
    */
   diskType?: string;
   /**
@@ -48,7 +45,7 @@ export class DescribeAutoSnapshotPolicyResponseBodyAutoSnapshotPolicies extends 
   policyId?: string;
   /**
    * @remarks
-   * The name of the automatic snapshot policy.
+   * The Policy Name of the automatic snapshot policy.
    * 
    * @example
    * snapshot01
@@ -56,7 +53,7 @@ export class DescribeAutoSnapshotPolicyResponseBodyAutoSnapshotPolicies extends 
   policyName?: string;
   /**
    * @remarks
-   * The ID of the region where the automatic snapshot policy resides.
+   * The region ID of the automatic snapshot policy.
    * 
    * @example
    * cn-hangzhou
@@ -64,7 +61,7 @@ export class DescribeAutoSnapshotPolicyResponseBodyAutoSnapshotPolicies extends 
   regionId?: string;
   /**
    * @remarks
-   * The retention period of automatic snapshots. Unit: days. Valid values: 1 to 180.
+   * The retention period of automatic snapshots, in days. Valid values: 1 to 180.
    * 
    * @example
    * 2
@@ -80,9 +77,9 @@ export class DescribeAutoSnapshotPolicyResponseBodyAutoSnapshotPolicies extends 
   status?: string;
   /**
    * @remarks
-   * The points in time when automatic snapshots are created.
+   * The points in time at which automatic snapshots are created.
    * 
-   * The value is a JSON array of integers. Example: `["0", "1", ... "23"]`. A maximum of 24 points in time can be specified.
+   * The parameter value is a JSON array in the format of `["0", "1", ... "23"]`, with a maximum of 24 time points separated by commas (,).
    * 
    * @example
    * ["17","18"]
@@ -130,12 +127,12 @@ export class DescribeAutoSnapshotPolicyResponseBodyAutoSnapshotPolicies extends 
 export class DescribeAutoSnapshotPolicyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The automatic snapshot policies.
+   * The list of automatic snapshot policies.
    */
   autoSnapshotPolicies?: DescribeAutoSnapshotPolicyResponseBodyAutoSnapshotPolicies[];
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. If the return value is empty, no more results are returned.
+   * The pagination token for the next query. If NextToken is empty, no more results exist.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a4883

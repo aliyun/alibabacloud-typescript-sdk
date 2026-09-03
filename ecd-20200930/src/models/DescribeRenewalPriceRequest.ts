@@ -5,13 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeRenewalPriceRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID. The value for this parameter depends on the resource type:
+   * The instance ID. The value depends on the resource type (ResourceType) for which you want to query the renewal price:
    * 
-   * - If `ResourceType` is set to `Desktop`, set `InstanceId` to the cloud desktop ID.
-   * 
-   * - If `ResourceType` is set to `DesktopGroup`, set `InstanceId` to the desktop pool ID.
-   * 
-   * - If `ResourceType` is set to `Bandwidth`, set `InstanceId` to the premium bandwidth ID.
+   * * If `ResourceType` is set to `Desktop` (to query the renewal price of a cloud computer), set `InstanceId` to the cloud computer ID.
+   * * If `ResourceType` is set to `DesktopGroup` (to query the renewal price of a cloud computer pool), set `InstanceId` to the cloud computer pool ID.
+   * * If `ResourceType` is set to `Bandwidth` (to query the renewal price of premium Internet bandwidth), set `InstanceId` to the premium Internet bandwidth ID.
    * 
    * @example
    * ecd-6ldllk9zxcpfhs****
@@ -19,16 +17,15 @@ export class DescribeRenewalPriceRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The instance IDs. The values to provide depend on the resource type (`ResourceType`).
+   * The instance IDs. The values depend on the resource type (ResourceType) for which you want to query the renewal price.
    */
   instanceIds?: string[];
   /**
    * @remarks
-   * The renewal duration. The valid values depend on the `PeriodUnit` parameter.
+   * The renewal duration. Valid values of this parameter are determined by the value of `PeriodUnit`.
    * 
-   * - If `PeriodUnit` is set to `Month`, the valid values are 1, 2, 3, and 6.
-   * 
-   * - If `PeriodUnit` is set to `Year`, the valid values are 1, 2, and 3.
+   * - If `PeriodUnit` is set to `Month`, valid values are 1, 2, 3, and 6.
+   * - If `PeriodUnit` is set to `Year`, valid values are 1, 2, and 3.
    * 
    * Default value: 1.
    * 
@@ -38,16 +35,23 @@ export class DescribeRenewalPriceRequest extends $dara.Model {
   period?: number;
   /**
    * @remarks
-   * The time unit for the `Period` parameter.
+   * The unit of the renewal duration, which is the unit of the `Period` parameter.
    * 
    * @example
    * Month
    */
   periodUnit?: string;
+  /**
+   * @remarks
+   * The promotion ID.
+   * 
+   * @example
+   * youhuiquan_promotion_option_id_for_blank
+   */
   promotionId?: string;
   /**
    * @remarks
-   * The region ID. You can call [DescribeRegions](~~DescribeRegions~~) to get a list of regions supported by Elastic Desktop Service.
+   * The region ID. You can call [DescribeRegions](~~DescribeRegions~~) to query the regions supported by Wuying Workspace.
    * 
    * This parameter is required.
    * 
@@ -55,6 +59,13 @@ export class DescribeRenewalPriceRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The user ID of the resource ownership user in reseller pattern. You do not need to specify this parameter in non-reseller pattern.
+   * 
+   * @example
+   * 1017457975738750
+   */
   resellerOwnerUid?: number;
   /**
    * @remarks

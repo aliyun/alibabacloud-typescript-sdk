@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCloudDriveGroupsResponseBodyCloudDriveGroupsAdminUserInfos extends $dara.Model {
   /**
    * @remarks
-   * Mailbox.
+   * The email address.
    * 
    * @example
    * 123@aliyun.com
@@ -13,7 +13,7 @@ export class DescribeCloudDriveGroupsResponseBodyCloudDriveGroupsAdminUserInfos 
   email?: string;
   /**
    * @remarks
-   * Administrator username (may be unreadable when imported from a third party).
+   * The administrator username. This value may not be readable when imported from a third party.
    * 
    * @example
    * user01
@@ -21,7 +21,7 @@ export class DescribeCloudDriveGroupsResponseBodyCloudDriveGroupsAdminUserInfos 
   endUserId?: string;
   /**
    * @remarks
-   * Job number (DingTalk)
+   * The employee ID (DingTalk).
    * 
    * @example
    * 12345
@@ -29,15 +29,15 @@ export class DescribeCloudDriveGroupsResponseBodyCloudDriveGroupsAdminUserInfos 
   jobNumber?: string;
   /**
    * @remarks
-   * Administrator nickname.
+   * The administrator nickname.
    * 
    * @example
-   * John Doe
+   * John
    */
   nickName?: string;
   /**
    * @remarks
-   * Phone number.
+   * The phone number.
    * 
    * @example
    * 12345678
@@ -45,18 +45,18 @@ export class DescribeCloudDriveGroupsResponseBodyCloudDriveGroupsAdminUserInfos 
   phone?: string;
   /**
    * @remarks
-   * Administrator nickname.
+   * The administrator nickname.
    * 
    * @example
-   * John Doe
+   * John
    */
   realNickName?: string;
   /**
    * @remarks
-   * Remark.
+   * The remarks.
    * 
    * @example
-   * John Doe
+   * John
    */
   remark?: string;
   static names(): { [key: string]: string } {
@@ -95,7 +95,7 @@ export class DescribeCloudDriveGroupsResponseBodyCloudDriveGroupsAdminUserInfos 
 export class DescribeCloudDriveGroupsResponseBodyCloudDriveGroups extends $dara.Model {
   /**
    * @remarks
-   * List of group administrators.
+   * The list of team administrators.
    * 
    * @example
    * ["user01"]
@@ -103,12 +103,12 @@ export class DescribeCloudDriveGroupsResponseBodyCloudDriveGroups extends $dara.
   adminUserIds?: string;
   /**
    * @remarks
-   * Administrator information for the group space.
+   * The team storage management administrator information.
    */
   adminUserInfos?: DescribeCloudDriveGroupsResponseBodyCloudDriveGroupsAdminUserInfos[];
   /**
    * @remarks
-   * The time when the team space was created.
+   * The creation time. The time is in the ISO 8601 standard in the UTC format: yyyy-MM-ddTHH:mm:ssZ.
    * 
    * @example
    * 2022-04-11T07:44:21Z
@@ -116,7 +116,7 @@ export class DescribeCloudDriveGroupsResponseBodyCloudDriveGroups extends $dara.
   createTime?: string;
   /**
    * @remarks
-   * The workspace ID.
+   * The office network ID.
    * 
    * @example
    * cn-hangzhou+dir-959593****
@@ -124,7 +124,7 @@ export class DescribeCloudDriveGroupsResponseBodyCloudDriveGroups extends $dara.
   directoryId?: string;
   /**
    * @remarks
-   * The team space ID.
+   * The space ID.
    * 
    * @example
    * sh1234
@@ -132,7 +132,7 @@ export class DescribeCloudDriveGroupsResponseBodyCloudDriveGroups extends $dara.
   driveId?: string;
   /**
    * @remarks
-   * The team ID.
+   * The team space ID.
    * 
    * @example
    * cg-e70ga4ixp30ur****
@@ -140,15 +140,15 @@ export class DescribeCloudDriveGroupsResponseBodyCloudDriveGroups extends $dara.
   groupId?: string;
   /**
    * @remarks
-   * The name of the team space.
+   * The team space name.
    * 
    * @example
-   * Test team 1
+   * TestTeam1
    */
   groupName?: string;
   /**
    * @remarks
-   * Organization ID of the team.
+   * The organization ID of the team.
    * 
    * @example
    * org-aliyun-wy-org-id
@@ -156,7 +156,7 @@ export class DescribeCloudDriveGroupsResponseBodyCloudDriveGroups extends $dara.
   orgId?: string;
   /**
    * @remarks
-   * Size of the recycle bin for the team space. Unit: Byte.
+   * The size of the team space recycle bin. Unit: bytes.
    * 
    * @example
    * 1024000
@@ -164,13 +164,7 @@ export class DescribeCloudDriveGroupsResponseBodyCloudDriveGroups extends $dara.
   recycleBinSize?: string;
   /**
    * @remarks
-   * The team space status. Valid values:
-   * 
-   * - enabled
-   * 
-   * - disabled
-   * 
-   * Default value: enabled.
+   * The team space status.
    * 
    * @example
    * enabled
@@ -178,7 +172,7 @@ export class DescribeCloudDriveGroupsResponseBodyCloudDriveGroups extends $dara.
   status?: string;
   /**
    * @remarks
-   * The total capacity of the team space.
+   * The total capacity of the cloud drive team space.
    * 
    * @example
    * 5368709120
@@ -186,7 +180,7 @@ export class DescribeCloudDriveGroupsResponseBodyCloudDriveGroups extends $dara.
   totalSize?: number;
   /**
    * @remarks
-   * The capacity of the used space. Unit: bytes.
+   * The used space size. Unit: bytes.
    * 
    * @example
    * 1024000000
@@ -241,12 +235,12 @@ export class DescribeCloudDriveGroupsResponseBodyCloudDriveGroups extends $dara.
 export class DescribeCloudDriveGroupsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of team spaces.
+   * The list of cloud drive team spaces.
    */
   cloudDriveGroups?: DescribeCloudDriveGroupsResponseBodyCloudDriveGroups[];
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 0
@@ -254,7 +248,7 @@ export class DescribeCloudDriveGroupsResponseBody extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The returned value of NextToken is a pagination token, which can be used in the next request to retrieve a new page of results.
+   * The token for the next query. If `NextToken` is empty, no more results exist.
    * 
    * @example
    * AAAAAV3MpHK1AP0pfERHZN5pu6nmB7qrRFJ8vmttjxPL****
@@ -270,7 +264,7 @@ export class DescribeCloudDriveGroupsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the operation is successful.
    * 
    * @example
    * true

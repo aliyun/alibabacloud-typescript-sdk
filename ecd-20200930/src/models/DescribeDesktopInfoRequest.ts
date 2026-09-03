@@ -3,16 +3,29 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeDesktopInfoRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The business channel. Valid values:
+   * - Enterprise: Enterprise Edition.
+   * - Business: Business Edition.
+   * 
+   * @example
+   * Enterprise
+   */
   businessChannel?: string;
   /**
    * @remarks
-   * Desktop ID. Set 1 to 100.
+   * The cloud computer ID. You can specify 1 to 100 IDs.
    */
   desktopId?: string[];
+  /**
+   * @remarks
+   * Specifies whether to return the extended information of the cloud computer.
+   */
   needExtraInfo?: boolean;
   /**
    * @remarks
-   * Region ID. Call [](t2167755.xdita#)to get a list of regions supported by WUYING Workspace.
+   * The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to query the regions supported by Elastic Desktop Service.
    * 
    * This parameter is required.
    * 

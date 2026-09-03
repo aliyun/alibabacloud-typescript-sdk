@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RemoveFilePermissionShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the enterprise drive.
+   * The enterprise cloud disk ID.
    * 
    * This parameter is required.
    * 
@@ -15,15 +15,15 @@ export class RemoveFilePermissionShrinkRequest extends $dara.Model {
   cdsId?: string;
   /**
    * @remarks
-   * The ID of the end user.
+   * The user ID.
    * 
    * @example
-   * user01
+   * alice
    */
   endUserId?: string;
   /**
    * @remarks
-   * The file ID. You can call the [ListCdsFiles](https://help.aliyun.com/document_detail/2247622.html) operation to query the ID of the file.
+   * The file ID. You can call [ListCdsFiles](https://help.aliyun.com/document_detail/2247622.html) to query the ID of the file.
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class RemoveFilePermissionShrinkRequest extends $dara.Model {
   fileId?: string;
   /**
    * @remarks
-   * The ID of the team space.
+   * The team space ID.
    * 
    * @example
    * cg-1fbmvrc7ug5m7****
@@ -41,14 +41,14 @@ export class RemoveFilePermissionShrinkRequest extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
-   * The users that you want to authorize to use the cloud disk.
+   * The list of authorized users.
    * 
    * This parameter is required.
    */
   memberListShrink?: string;
   /**
    * @remarks
-   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the list of regions where Elastic Desktop Service (EDS) Enterprise is available.
+   * The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to query the regions supported by Elastic Desktop Service.
    * 
    * This parameter is required.
    * 

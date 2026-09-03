@@ -23,7 +23,7 @@ export class DescribeDevicesRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 1
+   * 2
    */
   clientType?: string;
   /**
@@ -47,7 +47,7 @@ export class DescribeDevicesRequest extends $dara.Model {
    * The ID of the bound user.
    * 
    * @example
-   * alice
+   * moli
    */
   endUserId?: string;
   /**
@@ -55,7 +55,7 @@ export class DescribeDevicesRequest extends $dara.Model {
    * The page number.
    * 
    * @example
-   * 1
+   * 10
    */
   pageNumber?: number;
   /**
@@ -63,7 +63,7 @@ export class DescribeDevicesRequest extends $dara.Model {
    * The number of entries per page.
    * 
    * @example
-   * 10
+   * 1
    */
   pageSize?: number;
   /**

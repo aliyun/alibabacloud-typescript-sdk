@@ -32,7 +32,7 @@ export class DescribeFotaTasksRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token for the next query. An empty value indicates that no more results exist.
+   * The pagination token for the next query. An empty value indicates that there are no more results.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a4883

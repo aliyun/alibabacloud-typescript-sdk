@@ -13,7 +13,7 @@ export class ListTransferFileDownloadUrlResponseBodyUrls extends $dara.Model {
   fileId?: string;
   /**
    * @remarks
-   * The name of the file.
+   * The file name.
    * 
    * @example
    * document.txt
@@ -21,7 +21,7 @@ export class ListTransferFileDownloadUrlResponseBodyUrls extends $dara.Model {
   fileName?: string;
   /**
    * @remarks
-   * The status of the file.
+   * The file status.
    * 
    * @example
    * DELETED
@@ -29,7 +29,7 @@ export class ListTransferFileDownloadUrlResponseBodyUrls extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The download URL of the file.
+   * The file download URL.
    * 
    * @example
    * http://xxsy-transfer.oss-cn-beijing.aliyuncs.com/xxxx
@@ -73,7 +73,7 @@ export class ListTransferFileDownloadUrlResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The list of download URL information for the files.
+   * The list of file download URL information.
    */
   urls?: ListTransferFileDownloadUrlResponseBodyUrls[];
   static names(): { [key: string]: string } {

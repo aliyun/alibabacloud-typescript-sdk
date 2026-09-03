@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDesktopGroupRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The tag key. The key cannot be an empty string, can be up to 128 characters long, and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
+   * The tag key. If you specify this parameter, the value cannot be an empty string. The tag key can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class CreateDesktopGroupRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of the tag. The value can be an empty string. The value can be up to 128 characters in length and cannot start with `acs:`. It cannot contain `http://` or `https://`.
+   * The tag value. The value can be an empty string. The tag value can be up to 128 characters in length and cannot start with `acs:`. It cannot contain `http://` or `https://`.
    * 
    * This parameter is required.
    * 
@@ -49,17 +49,15 @@ export class CreateDesktopGroupRequestTag extends $dara.Model {
 export class CreateDesktopGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to authorize all users in the desktop group\\"s categories.
-   * 
-   * > This parameter is not yet available.
+   * The users of all shared cloud computer categories.
    * 
    * @example
-   * Alice
+   * true
    */
   allClassifyUsers?: boolean;
   /**
    * @remarks
-   * Specifies whether to allow automatic creation of desktops in the subscription desktop group. This parameter is required and applies only when `ChargeType` is set to `PrePaid`.
+   * Specifies whether to allow automatic creation of cloud computers within subscription shared cloud computers. This parameter takes effect and is required only when ChargeType is set to PrePaid.
    * 
    * @example
    * 1
@@ -67,13 +65,7 @@ export class CreateDesktopGroupRequest extends $dara.Model {
   allowAutoSetup?: number;
   /**
    * @remarks
-   * The number of desktops to reserve in the pay-as-you-go desktop group. This parameter is required and applies only when `ChargeType` is set to `PostPaid`. Valid values:
-   * 
-   * - 0: Does not reserve desktops.
-   * 
-   * - N: Reserves N desktops, where N is an integer from 1 to 100.
-   * 
-   * > If no desktops are reserved, a user must wait for a new desktop to be created and started, which can cause connection delays. We recommend reserving an appropriate number of desktops to improve connection times.
+   * The number of reserved cloud computers allowed in pay-as-you-go shared cloud computers. This parameter takes effect and is required only when ChargeType is set to PostPaid. Valid values:
    * 
    * @example
    * 1
@@ -81,7 +73,7 @@ export class CreateDesktopGroupRequest extends $dara.Model {
   allowBufferCount?: number;
   /**
    * @remarks
-   * Specifies whether to automatically pay for subscription orders.
+   * Specifies whether automatic payment is enabled for the subscription order.
    * 
    * @example
    * true
@@ -89,7 +81,7 @@ export class CreateDesktopGroupRequest extends $dara.Model {
   autoPay?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable auto-renewal for the subscription desktop group.
+   * Specifies whether to enable auto-renewal for the subscription shared cloud computer.
    * 
    * @example
    * false
@@ -97,9 +89,7 @@ export class CreateDesktopGroupRequest extends $dara.Model {
   autoRenew?: boolean;
   /**
    * @remarks
-   * The number of concurrent sessions allowed per desktop in a multi-session desktop group.
-   * 
-   * > This parameter is not yet available.
+   * The number of concurrent sessions allowed per cloud computer in multi-session shared cloud computers.
    * 
    * @example
    * 2
@@ -107,7 +97,7 @@ export class CreateDesktopGroupRequest extends $dara.Model {
   bindAmount?: number;
   /**
    * @remarks
-   * The bundle ID.
+   * The cloud computer template ID.
    * 
    * @example
    * b-je9hani001wfn****
@@ -115,9 +105,7 @@ export class CreateDesktopGroupRequest extends $dara.Model {
   bundleId?: string;
   /**
    * @remarks
-   * - For `subscription` desktop groups: The number of desktops to purchase. Valid values: 0 to 200.
-   * 
-   * - For `pay-as-you-go` desktop groups: The minimum number of desktops in the group. Valid values: 0 to `MaxDesktopsCount`. The default value is 1.
+   * - For subscription shared cloud computers: the initial number of cloud computers to create. Valid values: 0 to 200.
    * 
    * @example
    * 3
@@ -125,7 +113,7 @@ export class CreateDesktopGroupRequest extends $dara.Model {
   buyDesktopsCount?: number;
   /**
    * @remarks
-   * The billing method of the desktops.
+   * The billing method of the cloud computer.
    * 
    * This parameter is required.
    * 
@@ -135,9 +123,7 @@ export class CreateDesktopGroupRequest extends $dara.Model {
   chargeType?: string;
   /**
    * @remarks
-   * The type of the desktop group.
-   * 
-   * > This parameter is not yet available.
+   * The type of the shared cloud computer.
    * 
    * @example
    * teacher
@@ -145,7 +131,7 @@ export class CreateDesktopGroupRequest extends $dara.Model {
   classify?: string;
   /**
    * @remarks
-   * A client token to ensure the idempotence of the request. You can use your client to generate a token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -153,7 +139,7 @@ export class CreateDesktopGroupRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * A description or comments for the desktop group.
+   * The remarks.
    * 
    * @example
    * comment
@@ -161,7 +147,7 @@ export class CreateDesktopGroupRequest extends $dara.Model {
   comments?: string;
   /**
    * @remarks
-   * The maximum duration of a connected session. When the session duration reaches this value, the session is automatically disconnected. Unit: milliseconds. Valid values: 900000 (15 minutes) to 345600000 (4 days).
+   * The maximum duration that a session can remain in the connected state. The session is automatically disconnected when this duration is reached. Unit: milliseconds. Valid values: 900000 (15 minutes) to 345600000 (4 days).
    * 
    * @example
    * 900000
@@ -169,7 +155,7 @@ export class CreateDesktopGroupRequest extends $dara.Model {
   connectDuration?: number;
   /**
    * @remarks
-   * The type of the data disk.
+   * The data cloud disk type.
    * 
    * @example
    * cloud_auto
@@ -177,7 +163,7 @@ export class CreateDesktopGroupRequest extends $dara.Model {
   dataDiskCategory?: string;
   /**
    * @remarks
-   * The performance level (PL) of the ESSD. Default value: PL0.
+   * The performance level of the ESSD. Default value: PL0.
    * 
    * @example
    * PL0
@@ -185,27 +171,7 @@ export class CreateDesktopGroupRequest extends $dara.Model {
   dataDiskPerLevel?: string;
   /**
    * @remarks
-   * The size of the data disk. Unit: GiB. The value must be a multiple of 20 and in the range of 0 to 16,380.
-   * 
-   * <props="china">
-   * 
-   * - A value of 0 indicates that no data disk is attached.
-   * 
-   * - If the selected bundle uses an Enhanced SSD (ESSD) at PL0, the minimum data disk size is 40 GiB.
-   * 
-   * - If the selected bundle uses an SSD, the minimum data disk size is 20 GiB.
-   * 
-   * 
-   * 
-   * <props="intl">
-   * 
-   * - A value of 0 indicates that no data disk is attached.
-   * 
-   * - If the selected bundle uses an SSD, the minimum data disk size is 20 GiB.
-   * 
-   * 
-   * 
-   * Default value: 0
+   * The size of the attached data cloud disk. Unit: GB. Valid values: 0 to 16380. The value must be a multiple of 20.
    * 
    * @example
    * 80
@@ -213,7 +179,7 @@ export class CreateDesktopGroupRequest extends $dara.Model {
   dataDiskSize?: number;
   /**
    * @remarks
-   * The default number of desktops to create in the desktop group. The default value is 1.
+   * The default number of cloud computers to create when you create multiple shared cloud computers. Default value: 1.
    * 
    * @example
    * 1
@@ -227,10 +193,17 @@ export class CreateDesktopGroupRequest extends $dara.Model {
    * zh-CN
    */
   defaultLanguage?: string;
+  /**
+   * @remarks
+   * The retention period before cloud computers in the cloud computer pool are automatically deleted.
+   * 
+   * @example
+   * 30
+   */
   deleteDuration?: number;
   /**
    * @remarks
-   * The name of the desktop group. The name must be 1 to 30 characters long, start with a letter or a Chinese character, and must not begin with `http://` or `https://`. The name can contain Chinese characters, letters, digits, colons (:), underscores (_), periods (.), or hyphens (-).
+   * The name of the shared cloud computer. The name can be up to 30 characters in length. It must start with a letter or a Chinese character and cannot start with `http://` or `https://`. The name can contain Chinese characters, letters, digits, colons (:), underscores (_), periods (.), and hyphens (-).
    * 
    * @example
    * SharedComputers01
@@ -238,7 +211,7 @@ export class CreateDesktopGroupRequest extends $dara.Model {
   desktopGroupName?: string;
   /**
    * @remarks
-   * The desktop type. You can call the [DescribeDesktopTypes](~~DescribeDesktopTypes~~) operation to query supported desktop types.
+   * The cloud computer specification. You can call [DescribeDesktopTypes](~~DescribeDesktopTypes~~) to query the specification IDs supported by cloud computers.
    * 
    * @example
    * eds.enterprise_office.16c64g
@@ -248,20 +221,18 @@ export class CreateDesktopGroupRequest extends $dara.Model {
    * @remarks
    * The directory ID.
    * 
-   * > This parameter is not yet available.
-   * 
    * @example
    * dri-uf62w3qzt4aigvlcb****
    */
   directoryId?: string;
   /**
    * @remarks
-   * An array of user IDs to authorize for the desktop group.
+   * The list of user IDs for the shared cloud computer.
    */
   endUserIds?: string[];
   /**
    * @remarks
-   * Specifies the pool type. To create a static pool, set this parameter to `Exclusive`. This is required if `SessionType` is `MultipleSession`.
+   * Creates a static pool. This parameter is required when the `SessionType` parameter is set to `MultipleSession`. Set the value to `Exclusive`.
    * 
    * @example
    * Exclusive
@@ -269,9 +240,7 @@ export class CreateDesktopGroupRequest extends $dara.Model {
   exclusiveType?: string;
   /**
    * @remarks
-   * The ID of the Apsara File Storage NAS file system used for user data roaming.
-   * 
-   * > This parameter is not yet available.
+   * The ID of the NAS file system used for user data roaming.
    * 
    * @example
    * kegd-nas-****
@@ -279,7 +248,7 @@ export class CreateDesktopGroupRequest extends $dara.Model {
   fileSystemId?: string;
   /**
    * @remarks
-   * The number of individual desktops to create. This parameter is required only if `MultiResource` is set to `false`. Valid values: 1 to 5. Default value: 1.
+   * The number of single shared cloud computers to create. This parameter is required only when the `MultiResource` parameter is set to `false`. Valid values: 1 to 5. Default value: 1.
    * 
    * @example
    * 1
@@ -287,7 +256,7 @@ export class CreateDesktopGroupRequest extends $dara.Model {
   groupAmount?: number;
   /**
    * @remarks
-   * The version of the desktop group.
+   * The version of the shared cloud computer.
    * 
    * @example
    * 2
@@ -295,21 +264,7 @@ export class CreateDesktopGroupRequest extends $dara.Model {
   groupVersion?: number;
   /**
    * @remarks
-   * The custom hostname for the desktops. This parameter is applicable only to Windows desktops in an AD office network.
-   * 
-   * The hostname must meet the following naming conventions:
-   * 
-   * - Must be 2 to 15 characters in length.
-   * 
-   * - Can contain letters, digits, and hyphens (-). It cannot start or end with a hyphen, contain consecutive hyphens, or consist only of digits.
-   * 
-   * To generate sequential hostnames when creating multiple desktops, use the format `name_prefix[begin_number,bits]name_suffix`. For example, if you set the Hostname parameter to `ecd-[1,4]-test`, the first desktop is named ecd-0001-test, the second is named ecd-0002-test, and so on.
-   * 
-   * - `name_prefix`: The prefix of the hostname.
-   * 
-   * - `[begin_number,bits]`: The sequential number in the hostname. `begin_number` is the starting number, which can be an integer from 0 to 999999. The default value is 0. `bits` is the number of digits, which can be an integer from 1 to 6. The default value is 6.
-   * 
-   * - `name_suffix`: The suffix of the hostname.
+   * The custom hostname of the cloud computer. Only Settings for cloud computers that run the Windows operating system in AD office networks are supported.
    * 
    * @example
    * testhost
@@ -317,11 +272,11 @@ export class CreateDesktopGroupRequest extends $dara.Model {
   hostname?: string;
   /**
    * @remarks
-   * The maximum duration that a session can be idle before it is automatically disconnected. A session is considered idle if there is no keyboard or mouse input. Unit: milliseconds. Valid values: 360000 (6 minutes) to 3600000 (60 minutes).
+   * The maximum idle duration after a user session is established. If no keyboard or mouse activity occurs within this duration, the session is disconnected. Unit: milliseconds. Valid values: 360000 (6 minutes) to 3600000 (60 minutes).
    * 
-   * Thirty seconds before disconnection, the user is prompted to save their work to prevent data loss.
+   * 30 seconds before this duration is reached, the end user in the session receives a prompt to save document data. The end user must save document data promptly to avoid data loss.
    * 
-   * > This parameter applies only to desktops created from image version 1.0.2 or later.
+   * > Applicable only to cloud computers with an image version of 1.0.2 or later.
    * 
    * @example
    * 360000
@@ -337,9 +292,7 @@ export class CreateDesktopGroupRequest extends $dara.Model {
   imageId?: string;
   /**
    * @remarks
-   * The duration for which a session is kept active after a user disconnects. Unit: milliseconds. Valid values: 180000 (3 minutes) to 345600000 (4 days). A value of 0 indicates that the session is retained indefinitely.
-   * 
-   * If a user reconnects within this period, they can resume their session. If they fail to reconnect, the session is terminated, and any unsaved data is lost.
+   * The retention period after a session is disconnected. Unit: milliseconds. Valid values: 180000 (3 minutes) to 345600000 (4 days). A value of 0 indicates that the session is always retained.
    * 
    * @example
    * 180000
@@ -347,9 +300,7 @@ export class CreateDesktopGroupRequest extends $dara.Model {
   keepDuration?: number;
   /**
    * @remarks
-   * The load balancing policy for the multi-session desktop group.
-   * 
-   * > This parameter is not yet available.
+   * The load balancing policy for multi-session shared cloud computers.
    * 
    * @example
    * 0
@@ -357,7 +308,7 @@ export class CreateDesktopGroupRequest extends $dara.Model {
   loadPolicy?: number;
   /**
    * @remarks
-   * The maximum number of desktops in the pay-as-you-go desktop group. Valid values: 0 to 500.
+   * The maximum number of pay-as-you-go shared cloud computers. Valid values: 0 to 500.
    * 
    * @example
    * 50
@@ -365,7 +316,7 @@ export class CreateDesktopGroupRequest extends $dara.Model {
   maxDesktopsCount?: number;
   /**
    * @remarks
-   * The minimum number of desktops in the subscription desktop group. This parameter is required only if `ChargeType` is `PrePaid`. Valid values: 0 to `MaxDesktopsCount`. Default value: 1.
+   * The maximum number of cloud computers that can be used for automatic creation for subscription shared cloud computers. This parameter takes effect and is required only when ChargeType is set to PrePaid. Default value: 1. Valid values: 0 to the value of MaxDesktopsCount.
    * 
    * @example
    * 1
@@ -373,7 +324,7 @@ export class CreateDesktopGroupRequest extends $dara.Model {
   minDesktopsCount?: number;
   /**
    * @remarks
-   * Specifies whether to create a desktop group.
+   * Specifies whether the cloud computers are multi-resource shared cloud computers.
    * 
    * @example
    * false
@@ -381,7 +332,7 @@ export class CreateDesktopGroupRequest extends $dara.Model {
   multiResource?: boolean;
   /**
    * @remarks
-   * The ID of the office network for the desktops.
+   * The ID of the office network to which the shared cloud computer belongs.
    * 
    * This parameter is required.
    * 
@@ -391,9 +342,7 @@ export class CreateDesktopGroupRequest extends $dara.Model {
   officeSiteId?: string;
   /**
    * @remarks
-   * The type of the desktop.
-   * 
-   * > This parameter is not yet available.
+   * The type of the shared cloud computer.
    * 
    * @example
    * 0
@@ -401,29 +350,7 @@ export class CreateDesktopGroupRequest extends $dara.Model {
   ownType?: number;
   /**
    * @remarks
-   * The subscription duration for the desktops. This parameter is required only if `ChargeType` is set to `PrePaid`. The `PeriodUnit` parameter specifies the time unit for this duration.
-   * 
-   * - If `PeriodUnit` is `Month`, the valid values are:
-   * 
-   *   - 1
-   * 
-   *   - 2
-   * 
-   *   - 3
-   * 
-   *   - 6
-   * 
-   * - If `PeriodUnit` is `Year`, the valid values are:
-   * 
-   *   - 1
-   * 
-   *   - 2
-   * 
-   *   - 3
-   * 
-   *   - 4
-   * 
-   *   - 5
+   * The subscription duration of the shared cloud computer. This parameter takes effect and is required only when ChargeType is set to PrePaid. The unit is specified by PeriodUnit.
    * 
    * @example
    * 1
@@ -431,7 +358,7 @@ export class CreateDesktopGroupRequest extends $dara.Model {
   period?: number;
   /**
    * @remarks
-   * The time unit of the subscription period.
+   * The unit of the subscription billable methods duration.
    * 
    * @example
    * Month
@@ -439,7 +366,7 @@ export class CreateDesktopGroupRequest extends $dara.Model {
   periodUnit?: string;
   /**
    * @remarks
-   * The ID of the policy to apply to the desktops.
+   * The ID of the policy associated with the shared cloud computer.
    * 
    * This parameter is required.
    * 
@@ -451,15 +378,13 @@ export class CreateDesktopGroupRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable user data roaming.
    * 
-   * > This parameter is not yet available.
-   * 
    * @example
    * false
    */
   profileFollowSwitch?: boolean;
   /**
    * @remarks
-   * The promotion ID.
+   * The coupon ID.
    * 
    * @example
    * youhuiquan_promotion_option_id_*****
@@ -467,13 +392,13 @@ export class CreateDesktopGroupRequest extends $dara.Model {
   promotionId?: string;
   /**
    * @remarks
-   * The session usage threshold that triggers auto scaling for multi-session desktop groups. Session usage is calculated by using the following formula:
+   * The session occupancy threshold used as the automatic scaling trigger condition for multi-session shared cloud computers. The session occupancy is calculated by using the following formula:
    * 
-   * `Session usage = (Number of connected sessions / (Total number of desktops × Maximum number of sessions per desktop)) × 100%`
+   * ```Session occupancy = Number of bound sessions / (Total number of cloud computer resources × Maximum number of sessions supported per cloud computer) × 100%```
    * 
-   * When session usage reaches this threshold, new desktops are created. When session usage falls below this threshold, the group scales in by deleting surplus desktops.
+   * When the session occupancy reaches this threshold, new cloud computers are created. When the session occupancy is below this threshold, excess cloud computers are deleted.
    * 
-   * > This parameter is not yet available.
+   * > This parameter is not yet available for use.
    * 
    * @example
    * 0.5
@@ -481,7 +406,7 @@ export class CreateDesktopGroupRequest extends $dara.Model {
   ratioThreshold?: number;
   /**
    * @remarks
-   * The ID of the region. To find the regions supported by Elastic Desktop Service (EDS), call the [DescribeRegions](~~DescribeRegions~~) operation.
+   * The region ID. You can call [DescribeRegions](~~DescribeRegions~~) to query the regions supported by Elastic Desktop Service.
    * 
    * This parameter is required.
    * 
@@ -489,10 +414,17 @@ export class CreateDesktopGroupRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The user ID of the resource ownership in reseller pattern. You do not need to specify this parameter in non-reseller pattern.
+   * 
+   * @example
+   * 1422724566551XXX
+   */
   resellerOwnerUid?: number;
   /**
    * @remarks
-   * The desktop reset type.
+   * The reset type of the cloud computer.
    * 
    * @example
    * 0
@@ -500,9 +432,7 @@ export class CreateDesktopGroupRequest extends $dara.Model {
   resetType?: number;
   /**
    * @remarks
-   * The ID of the scaling policy.
-   * 
-   * > This parameter is not yet available.
+   * The scaling policy ID.
    * 
    * @example
    * ss-f9dkjz6vw3aaw****
@@ -516,6 +446,13 @@ export class CreateDesktopGroupRequest extends $dara.Model {
    * SingleSession
    */
   sessionType?: string;
+  /**
+   * @remarks
+   * The ID of the convenience user group.
+   * 
+   * @example
+   * ug-3f6c8a2b****
+   */
   simpleUserGroupId?: string;
   /**
    * @remarks
@@ -527,7 +464,7 @@ export class CreateDesktopGroupRequest extends $dara.Model {
   snapshotPolicyId?: string;
   /**
    * @remarks
-   * The amount of time a desktop can be idle before it is automatically stopped. Connecting to a stopped desktop automatically starts it. Unit: milliseconds.
+   * The idle shutdown duration. When the cloud computer has been idle for this duration, it is automatically shut down. If a user connects after shutdown, the cloud computer automatically starts. Unit: milliseconds.
    * 
    * @example
    * 300000
@@ -535,7 +472,7 @@ export class CreateDesktopGroupRequest extends $dara.Model {
   stopDuration?: number;
   /**
    * @remarks
-   * The type of the system disk.
+   * The system cloud disk type.
    * 
    * @example
    * cloud_auto
@@ -543,7 +480,7 @@ export class CreateDesktopGroupRequest extends $dara.Model {
   systemDiskCategory?: string;
   /**
    * @remarks
-   * The performance level (PL) of the ESSD. Default value: PL0.
+   * The performance level of the ESSD. Default value: PL0.
    * 
    * @example
    * PL0
@@ -551,9 +488,7 @@ export class CreateDesktopGroupRequest extends $dara.Model {
   systemDiskPerLevel?: string;
   /**
    * @remarks
-   * The size of the system disk. Unit: GiB.
-   * 
-   * > The system disk size must be at least the size of the image.
+   * The system cloud disk size. Unit: GiB.
    * 
    * @example
    * 80
@@ -561,7 +496,7 @@ export class CreateDesktopGroupRequest extends $dara.Model {
   systemDiskSize?: number;
   /**
    * @remarks
-   * The list of tags. You can specify up to 20 tags.
+   * The list of tags. A maximum of 20 tags can be specified.
    */
   tag?: CreateDesktopGroupRequestTag[];
   /**
@@ -572,7 +507,21 @@ export class CreateDesktopGroupRequest extends $dara.Model {
    * ccg-0caoeogrk9m5****
    */
   timerGroupId?: string;
+  /**
+   * @remarks
+   * The name of the user group.
+   * 
+   * @example
+   * R&D Group
+   */
   userGroupName?: string;
+  /**
+   * @remarks
+   * The organizational unit (OU) path of the user.
+   * 
+   * @example
+   * example.com
+   */
   userOuPath?: string;
   /**
    * @remarks
@@ -584,7 +533,7 @@ export class CreateDesktopGroupRequest extends $dara.Model {
   volumeEncryptionEnabled?: boolean;
   /**
    * @remarks
-   * The ID of the key from Key Management Service (KMS) used for disk encryption. You can call the [ListKeys](https://help.aliyun.com/document_detail/28951.html) operation to obtain the key ID.
+   * The ID of the KMS key used for disk encryption. You can call [ListKeys](https://help.aliyun.com/document_detail/28951.html) to obtain the key ID.
    * 
    * @example
    * 08c33a6f-4e0a-4a1b-a3fa-7ddfa1d4****
@@ -592,9 +541,7 @@ export class CreateDesktopGroupRequest extends $dara.Model {
   volumeEncryptionKey?: string;
   /**
    * @remarks
-   * The ID of the Virtual Private Cloud (VPC) that contains the office network for the desktops.
-   * 
-   * > This parameter is not yet available.
+   * The VPC ID of the office network to which the shared cloud computer belongs.
    * 
    * @example
    * vpc-uf6w8u60n8xbkg5el****

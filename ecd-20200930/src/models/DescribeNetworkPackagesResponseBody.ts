@@ -3,7 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeNetworkPackagesResponseBodyNetworkPackagesTags extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key. If you specify this parameter, the value cannot be an empty string. The tag key can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. The tag key cannot contain `http://` or `https://`.
+   * 
+   * @example
+   * TestKey
+   */
   key?: string;
+  /**
+   * @remarks
+   * The tag value. The tag value can be an empty string. The tag value can be up to 128 characters in length and cannot start with `acs:`. The tag value cannot contain `http://` or `https://`.
+   * 
+   * @example
+   * TestValue
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -47,7 +61,7 @@ export class DescribeNetworkPackagesResponseBodyNetworkPackages extends $dara.Mo
   businessStatus?: string;
   /**
    * @remarks
-   * The creation time.
+   * The time when the plan was created. The time is in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format (UTC).
    * 
    * @example
    * 2021-05-10T02:35:26Z
@@ -65,6 +79,8 @@ export class DescribeNetworkPackagesResponseBodyNetworkPackages extends $dara.Mo
    * - If the plan uses the subscription billing method, the actual expiration time is returned.
    * - If the plan uses the pay-as-you-go billing method, `2099-12-31T15:59:59Z` is returned.
    * 
+   * The time is in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format (UTC).
+   * 
    * @example
    * 2099-12-31T15:59:59Z
    */
@@ -73,11 +89,11 @@ export class DescribeNetworkPackagesResponseBodyNetworkPackages extends $dara.Mo
    * @remarks
    * The billing method of the premium Internet bandwidth plan.
    * 
-   * - If the parameter `PayType` is set to `PrePaid`, valid values:
-   *     - PayByBandwidth: pay-by-bandwidth.
-   * - If the parameter `PayType` is set to `PostPaid`, valid values:
-   *     - PayByTraffic: pay-by-data-transfer.
-   *     - PayByBandwidth: pay-by-bandwidth.
+   * - If the parameter `PayType` is set to `PrePaid`, the valid value is:
+   *     - PayByBandwidth: billing by fixed bandwidth.
+   * - If the parameter `PayType` is set to `PostPaid`, valid values are:
+   *     - PayByTraffic: billing by data transfer.
+   *     - PayByBandwidth: billing by fixed bandwidth.
    * 
    * @example
    * PayByTraffic
@@ -133,7 +149,7 @@ export class DescribeNetworkPackagesResponseBodyNetworkPackages extends $dara.Mo
   payType?: string;
   /**
    * @remarks
-   * The effective period of the reserved network bandwidth.
+   * The effective period of the reserved network bandwidth. The time is in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format (UTC).
    * 
    * @example
    * 2021-07-10T00:00:00Z
@@ -155,6 +171,10 @@ export class DescribeNetworkPackagesResponseBodyNetworkPackages extends $dara.Mo
    * PayByBandwidth
    */
   reservationInternetChargeType?: string;
+  /**
+   * @remarks
+   * The tags.
+   */
   tags?: DescribeNetworkPackagesResponseBodyNetworkPackagesTags[];
   static names(): { [key: string]: string } {
     return {
@@ -221,7 +241,7 @@ export class DescribeNetworkPackagesResponseBody extends $dara.Model {
   networkPackages?: DescribeNetworkPackagesResponseBodyNetworkPackages[];
   /**
    * @remarks
-   * The token for the next query. If NextToken is empty, no more results exist.
+   * The pagination token for the next query. If NextToken is empty, no more pages exist.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a4883

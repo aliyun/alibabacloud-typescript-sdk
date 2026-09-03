@@ -21,7 +21,7 @@ export class RenewDesktopGroupRequest extends $dara.Model {
   autoRenew?: boolean;
   /**
    * @remarks
-   * The ID of the cloud computer pool.
+   * The ID of the shared cloud computer.
    * 
    * This parameter is required.
    * 
@@ -31,11 +31,11 @@ export class RenewDesktopGroupRequest extends $dara.Model {
   desktopGroupId?: string;
   /**
    * @remarks
-   * The renewal duration. The valid values of this parameter vary based on the `PeriodUnit` value.
+   * The renewal duration. Valid values of this parameter are determined by the value of the `PeriodUnit` parameter.
    * 
-   * - If you set `PeriodUnit` to `Month`, the valid values are 1, 2, 3, and 6.
+   * - If `PeriodUnit` is set to `Month`, valid values are 1, 2, 3, and 6.
    * 
-   * - If you set `PeriodUnit` to `Year`, the valid values are 1, 2, 3, 4, and 5.
+   * - If `PeriodUnit` is set to `Year`, valid values are 1 to 5.
    * 
    * Default value: 1.
    * 
@@ -45,7 +45,7 @@ export class RenewDesktopGroupRequest extends $dara.Model {
   period?: number;
   /**
    * @remarks
-   * The unit of the renewal duration specified by the `Period` parameter.
+   * The unit of the renewal duration, which is the unit of the `Period` parameter.
    * 
    * @example
    * Month
@@ -53,7 +53,7 @@ export class RenewDesktopGroupRequest extends $dara.Model {
   periodUnit?: string;
   /**
    * @remarks
-   * The region ID. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the regions that are supported by Elastic Desktop Service.
+   * The region ID. You can call [DescribeRegions](~~DescribeRegions~~) to query the regions supported by Elastic Desktop Service.
    * 
    * This parameter is required.
    * 
@@ -61,6 +61,13 @@ export class RenewDesktopGroupRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The user ID of the resource ownership in the resale pattern. You do not need to specify this parameter if you are not using the resale pattern.
+   * 
+   * @example
+   * 1422724566551XXX
+   */
   resellerOwnerUid?: number;
   static names(): { [key: string]: string } {
     return {

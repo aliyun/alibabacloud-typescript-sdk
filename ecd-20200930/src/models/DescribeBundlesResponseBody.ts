@@ -65,7 +65,7 @@ export class DescribeBundlesResponseBodyBundlesDesktopTypeAttribute extends $dar
 export class DescribeBundlesResponseBodyBundlesDisks extends $dara.Model {
   /**
    * @remarks
-   * The PL of the disk.
+   * The disk performance level.
    * 
    * @example
    * PL0
@@ -73,7 +73,7 @@ export class DescribeBundlesResponseBodyBundlesDisks extends $dara.Model {
   diskPerformanceLevel?: string;
   /**
    * @remarks
-   * The size of the disk. Unit: GiB.
+   * The disk size. Unit: GiB.
    * 
    * @example
    * 150
@@ -81,7 +81,7 @@ export class DescribeBundlesResponseBodyBundlesDisks extends $dara.Model {
   diskSize?: number;
   /**
    * @remarks
-   * The type of the disk.
+   * The disk type.
    * 
    * @example
    * SYSTEM
@@ -115,7 +115,7 @@ export class DescribeBundlesResponseBodyBundlesDisks extends $dara.Model {
 export class DescribeBundlesResponseBodyBundles extends $dara.Model {
   /**
    * @remarks
-   * The ID of the cloud computer template.
+   * The cloud computer template ID.
    * 
    * @example
    * bundle_ecd_graphics.2xlarge_s15d15_win2019
@@ -131,7 +131,7 @@ export class DescribeBundlesResponseBodyBundles extends $dara.Model {
   bundleName?: string;
   /**
    * @remarks
-   * The type of the cloud computer template.
+   * The cloud computer templatetype.
    * 
    * @example
    * SYSTEM
@@ -139,7 +139,7 @@ export class DescribeBundlesResponseBodyBundles extends $dara.Model {
   bundleType?: string;
   /**
    * @remarks
-   * The time when the cloud computer template was created.
+   * The time when the cloud computer template was created. The time is in the ISO 8601 standard in UTC.
    * 
    * @example
    * 2021-09-30T06:09Z
@@ -147,7 +147,7 @@ export class DescribeBundlesResponseBodyBundles extends $dara.Model {
   creationTime?: string;
   /**
    * @remarks
-   * The category of the data disk.
+   * The data cloud disk type.
    * 
    * @example
    * cloud_efficiency
@@ -158,12 +158,12 @@ export class DescribeBundlesResponseBodyBundles extends $dara.Model {
    * The description of the cloud computer template.
    * 
    * @example
-   * test
+   * Template for daily office use
    */
   description?: string;
   /**
    * @remarks
-   * The instance type of the cloud computer.
+   * The cloud computer specifications.
    * 
    * @example
    * ecd.graphics.2xlarge
@@ -171,12 +171,12 @@ export class DescribeBundlesResponseBodyBundles extends $dara.Model {
   desktopType?: string;
   /**
    * @remarks
-   * The details of the cloud computer instance type.
+   * The details of the cloud computer specifications.
    */
   desktopTypeAttribute?: DescribeBundlesResponseBodyBundlesDesktopTypeAttribute;
   /**
    * @remarks
-   * The instance family of the cloud computer.
+   * The cloud computer instance family.
    * 
    * @example
    * eds.general
@@ -184,7 +184,7 @@ export class DescribeBundlesResponseBodyBundles extends $dara.Model {
   desktopTypeFamily?: string;
   /**
    * @remarks
-   * Details of the disks.
+   * The disk information.
    */
   disks?: DescribeBundlesResponseBodyBundlesDisks[];
   /**
@@ -205,7 +205,7 @@ export class DescribeBundlesResponseBodyBundles extends $dara.Model {
   imageName?: string;
   /**
    * @remarks
-   * The status of the image.
+   * The image status.
    * 
    * @example
    * Available
@@ -213,7 +213,7 @@ export class DescribeBundlesResponseBodyBundles extends $dara.Model {
   imageStatus?: string;
   /**
    * @remarks
-   * The OS language of the image.
+   * The language of the image operating system.
    * 
    * @example
    * en-US
@@ -221,7 +221,7 @@ export class DescribeBundlesResponseBodyBundles extends $dara.Model {
   language?: string;
   /**
    * @remarks
-   * The type of the OS.
+   * The operating system type.
    * 
    * @example
    * Windows
@@ -229,7 +229,7 @@ export class DescribeBundlesResponseBodyBundles extends $dara.Model {
   osType?: string;
   /**
    * @remarks
-   * The OS.
+   * The operating system platform information.
    * 
    * @example
    * Windows Server 2019
@@ -253,7 +253,7 @@ export class DescribeBundlesResponseBodyBundles extends $dara.Model {
   sessionType?: string;
   /**
    * @remarks
-   * The inventory status of the cloud computer instance type. This parameter is returned only if you set the `CheckStock` parameter to `true`.
+   * The stock status. This parameter is returned when `CheckStock` is set to `True`.
    * 
    * @example
    * Sufficient
@@ -261,7 +261,7 @@ export class DescribeBundlesResponseBodyBundles extends $dara.Model {
   stockState?: string;
   /**
    * @remarks
-   * The category of the system disk.
+   * The system cloud disk type.
    * 
    * @example
    * cloud_efficiency
@@ -269,7 +269,7 @@ export class DescribeBundlesResponseBodyBundles extends $dara.Model {
   systemDiskCategory?: string;
   /**
    * @remarks
-   * Indicates whether disk encryption is enabled.
+   * Specifies whether to enable disk encryption.
    * 
    * @example
    * false
@@ -277,7 +277,7 @@ export class DescribeBundlesResponseBodyBundles extends $dara.Model {
   volumeEncryptionEnabled?: boolean;
   /**
    * @remarks
-   * The ID of the Key Management Service (KMS) key that is used when disk encryption is enabled.
+   * The ID of the KMS key used when disk encryption is enabled.
    * 
    * @example
    * 08c33a6f-4e0a-4a1b-a3fa-7ddfa1d4****
@@ -355,12 +355,12 @@ export class DescribeBundlesResponseBodyBundles extends $dara.Model {
 export class DescribeBundlesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The cloud computer templates.
+   * The list of cloud computer templates.
    */
   bundles?: DescribeBundlesResponseBodyBundles[];
   /**
    * @remarks
-   * The token that is used for the next query. If this parameter is empty, all results have been returned.
+   * The token for the next query. If NextToken is empty, no more results exist.
    * 
    * @example
    * AAAAAV3MpHK1AP0pfERHZN5pu6lu3PTF6h3zE8egwlYuv8M8
@@ -368,7 +368,7 @@ export class DescribeBundlesResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * BCC854D8-5D1E-46D3-96EF-797A5DD36789

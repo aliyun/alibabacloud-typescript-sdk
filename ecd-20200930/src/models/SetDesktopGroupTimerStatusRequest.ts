@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SetDesktopGroupTimerStatusRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the cloud computer share.
+   * The ID of the shared cloud computer.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class SetDesktopGroupTimerStatusRequest extends $dara.Model {
   desktopGroupId?: string;
   /**
    * @remarks
-   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
+   * The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to query the regions supported by Elastic Desktop Service.
    * 
    * This parameter is required.
    * 
@@ -27,13 +27,6 @@ export class SetDesktopGroupTimerStatusRequest extends $dara.Model {
    * @remarks
    * The status of the scheduled task.
    * 
-   * Valid values:
-   * 
-   * *   1: enabled
-   * *   2: disabled
-   * *   3: deleted
-   * *   100: unknown
-   * 
    * @example
    * 1
    */
@@ -41,13 +34,6 @@ export class SetDesktopGroupTimerStatusRequest extends $dara.Model {
   /**
    * @remarks
    * The type of the scheduled task.
-   * 
-   * Valid values:
-   * 
-   * *   1: scheduled reset
-   * *   2: scheduled startup
-   * *   3: scheduled stop
-   * *   4: scheduled restart
    * 
    * This parameter is required.
    * 

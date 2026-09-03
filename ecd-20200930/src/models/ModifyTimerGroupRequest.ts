@@ -5,45 +5,140 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyTimerGroupRequestConfigTimersSegmentTimers extends $dara.Model {
   /**
    * @remarks
-   * The specified time point for fixed-time scheduled task execution. After this parameter is specified, the scheduled task is executed at the specified time point.
+   * The appointment timer for executing scheduled tasks at specified time points.
    * 
    * @example
    * 1764660600967
    */
   appointmentTimer?: number;
+  /**
+   * @remarks
+   * Specifies whether to create a snapshot.
+   */
+  createSnapshot?: boolean;
+  /**
+   * @remarks
+   * The cron expression for the end time of the scheduled task.
+   * 
+   * @example
+   * 0 0 18 ? * 1-5
+   */
   endCronExpression?: string;
+  /**
+   * @remarks
+   * Specifies whether to forcefully execute the task. If this parameter is set to true, the scheduled task is forcefully executed regardless of the cloud desktop and connection status.
+   */
   enforce?: boolean;
   /**
    * @remarks
-   * The image ID to change to. This parameter is used for image change scheduled tasks.
+   * The image ID.
    * 
    * @example
-   * m-5b0vjqbiqu010XXXXXX
+   * m-4zfb6zj728hhr****
    */
   imageId?: string;
+  /**
+   * @remarks
+   * The time interval. Unit: minutes.
+   * 
+   * @example
+   * 10
+   */
   interval?: number;
+  /**
+   * @remarks
+   * The list of IP CIDR blocks that take effect.
+   */
   ipSegments?: string[];
   /**
    * @remarks
-   * The lock screen time point for the no-operation lock screen feature. This parameter is not supported for non-AD desktops.
+   * The duration of inactivity before the screen is locked for the no-operation lock screen feature. Unit: minutes. Only AD-joined cloud desktops are supported.
    * 
    * @example
-   * 1800
+   * 5
    */
   lockScreenTime?: number;
+  /**
+   * @remarks
+   * The advance notification time before the scheduled task is executed. Unit: seconds.
+   * 
+   * @example
+   * 300
+   */
   notificationTime?: number;
+  /**
+   * @remarks
+   * The operation type of the scheduled task. Currently, only disconnect scheduled tasks support this parameter.
+   * 
+   * @example
+   * Shutdown
+   */
   operationType?: string;
+  /**
+   * @remarks
+   * The process whitelist for intelligent detection of no-operation scheduled tasks. If a specified process is running, the no-operation scheduled task is not triggered.
+   */
   processWhitelist?: string[];
+  /**
+   * @remarks
+   * The reset type, which determines whether to reset and the scope of cloud disks to reset.
+   * 
+   * @example
+   * 1
+   */
   resetType?: string;
+  /**
+   * @remarks
+   * The cron expression for the start time of the scheduled task.
+   * 
+   * @example
+   * 0 0 8 ? * 1-5
+   */
   startCronExpression?: string;
+  /**
+   * @remarks
+   * The execution order number of the timer.
+   * 
+   * @example
+   * 1
+   */
   timerOrder?: number;
+  /**
+   * @remarks
+   * The time zone used by the scheduled task.
+   * 
+   * @example
+   * Asia/Shanghai
+   */
   timezone?: string;
+  /**
+   * @remarks
+   * The trigger configuration type for no-operation scheduled tasks.
+   * 
+   * @example
+   * Standard
+   */
   triggerType?: string;
+  /**
+   * @remarks
+   * The advance notification time before verification is executed. Unit: seconds.
+   * 
+   * @example
+   * 300
+   */
   verificationNotificationTime?: number;
+  /**
+   * @remarks
+   * The verification wait duration. Unit: seconds.
+   * 
+   * @example
+   * 600
+   */
   verificationTime?: number;
   static names(): { [key: string]: string } {
     return {
       appointmentTimer: 'AppointmentTimer',
+      createSnapshot: 'CreateSnapshot',
       endCronExpression: 'EndCronExpression',
       enforce: 'Enforce',
       imageId: 'ImageId',
@@ -66,6 +161,7 @@ export class ModifyTimerGroupRequestConfigTimersSegmentTimers extends $dara.Mode
   static types(): { [key: string]: any } {
     return {
       appointmentTimer: 'number',
+      createSnapshot: 'boolean',
       endCronExpression: 'string',
       enforce: 'boolean',
       imageId: 'string',
@@ -121,7 +217,7 @@ export class ModifyTimerGroupRequestConfigTimers extends $dara.Model {
   cronExpression?: string;
   /**
    * @remarks
-   * Specifies whether to forcefully execute the task. If set to true, the scheduled task is forcefully executed regardless of the desktop and connection status.
+   * Specifies whether to forcefully execute the task. If this parameter is set to true, the scheduled task is forcefully executed regardless of the cloud desktop and connection status.
    * 
    * @example
    * false
@@ -129,12 +225,19 @@ export class ModifyTimerGroupRequestConfigTimers extends $dara.Model {
   enforce?: boolean;
   /**
    * @remarks
-   * The time interval, in minutes.
+   * The time interval. Unit: minutes.
    * 
    * @example
    * 10
    */
   interval?: number;
+  /**
+   * @remarks
+   * The advance notification time before the scheduled task is executed. Unit: seconds.
+   * 
+   * @example
+   * 300
+   */
   notificationTime?: number;
   /**
    * @remarks
@@ -157,10 +260,14 @@ export class ModifyTimerGroupRequestConfigTimers extends $dara.Model {
    * RESET_TYPE_SYSTEM
    */
   resetType?: string;
+  /**
+   * @remarks
+   * The list of segment timer configurations.
+   */
   segmentTimers?: ModifyTimerGroupRequestConfigTimersSegmentTimers[];
   /**
    * @remarks
-   * The scheduled task type.
+   * The type of the scheduled task.
    * 
    * @example
    * TimerBoot
@@ -232,7 +339,7 @@ export class ModifyTimerGroupRequest extends $dara.Model {
    * The description of the configuration group.
    * 
    * @example
-   * ScheduledTask.
+   * ScheduledTask
    */
   description?: string;
   /**
@@ -247,10 +354,10 @@ export class ModifyTimerGroupRequest extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
-   * The configuration group name.
+   * The name of the configuration group.
    * 
    * @example
-   * ScheduledTask.
+   * ScheduledTask
    */
   name?: string;
   /**

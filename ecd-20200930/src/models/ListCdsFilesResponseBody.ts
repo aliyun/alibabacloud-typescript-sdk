@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListCdsFilesResponseBodyFileModels extends $dara.Model {
   /**
    * @remarks
-   * File type classification. The network disk will classify files according to their suffix and MIME Type. The main categories are `doc`, `image`, `audio` and `video`.
+   * The file category. The cloud drive categorizes files based on file name extensions and MIME types. The main categories include `doc`, `image`, `audio`, and `video`.
    * 
    * @example
    * image
@@ -21,7 +21,7 @@ export class ListCdsFilesResponseBodyFileModels extends $dara.Model {
   contentType?: string;
   /**
    * @remarks
-   * The time when the file was created.
+   * The creation time. The time follows the ISO 8601 standard in the UTC format: yyyy-MM-ddTHH:mm:ssZ.
    * 
    * @example
    * 2022-09-06T07:27:08Z
@@ -29,10 +29,10 @@ export class ListCdsFilesResponseBodyFileModels extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The file creator.
+   * The creator of the file.
    * 
    * @example
-   * user01
+   * demo_user01@cn-shanghai.148875033399****
    */
   creator?: string;
   /**
@@ -45,7 +45,7 @@ export class ListCdsFilesResponseBodyFileModels extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The download link. The default validity period is 15 minutes.
+   * The download URL. The URL is valid for 15 minutes by default.
    * 
    * @example
    * https://data.aliyunpds.com/hz22%2F5d5b986facbec311ef844c25954f96821497b383%2F5d5b986f955410dd991646bb87c6b4e899ef****?Expires=xxx&OSSAccessKeyId=xxx&Signature=xxx
@@ -53,7 +53,7 @@ export class ListCdsFilesResponseBodyFileModels extends $dara.Model {
   downloadUrl?: string;
   /**
    * @remarks
-   * The filename extension.
+   * The file name extension.
    * 
    * @example
    * pdf
@@ -79,18 +79,13 @@ export class ListCdsFilesResponseBodyFileModels extends $dara.Model {
    * @remarks
    * The file type.
    * 
-   * Valid value:
-   * 
-   * *   file
-   * *   folder
-   * 
    * @example
    * file
    */
   fileType?: string;
   /**
    * @remarks
-   * The MD5 hash of the object.
+   * The MD5 hash value of the file.
    * 
    * @example
    * 63c83ececb4e6926c51448fc5ecb****
@@ -98,7 +93,7 @@ export class ListCdsFilesResponseBodyFileModels extends $dara.Model {
   md5?: string;
   /**
    * @remarks
-   * The time when the file was last modified.
+   * The time when the file was last modified. The time follows the ISO 8601 standard in the UTC format: yyyy-MM-ddTHH:mm:ssZ.
    * 
    * @example
    * 2022-09-06T07:27:08Z
@@ -106,23 +101,23 @@ export class ListCdsFilesResponseBodyFileModels extends $dara.Model {
   modifiedTime?: string;
   /**
    * @remarks
-   * Modifier.
+   * The modifier of the file.
    * 
    * @example
-   * user02
+   * demo_user02@cn-shanghai.148875033399****
    */
   modifier?: string;
   /**
    * @remarks
-   * The name of the file.
+   * The file name.
    * 
    * @example
-   * fvt-appcenterp4qwa
+   * SampleFile.pdf
    */
   name?: string;
   /**
    * @remarks
-   * The time when the file was last opened.
+   * The time when the file was last opened. The time follows the ISO 8601 standard in the UTC format: yyyy-MM-ddTHH:mm:ssZ.
    * 
    * @example
    * 2022-09-06T07:27:08Z
@@ -130,7 +125,7 @@ export class ListCdsFilesResponseBodyFileModels extends $dara.Model {
   openTime?: string;
   /**
    * @remarks
-   * The timestamp that indicates the time when the file was last opened.
+   * The timestamp of the last time the file was opened.
    * 
    * @example
    * 168951245231
@@ -138,7 +133,7 @@ export class ListCdsFilesResponseBodyFileModels extends $dara.Model {
   openTimeStamp?: number;
   /**
    * @remarks
-   * The ID of the parent folder.
+   * The parent folder ID.
    * 
    * @example
    * 3343213ff2f63db8470984e6c92c3213dfdw****
@@ -146,7 +141,7 @@ export class ListCdsFilesResponseBodyFileModels extends $dara.Model {
   parentId?: string;
   /**
    * @remarks
-   * The ID of the region. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to obtain the list of regions supported by cloud computers.
+   * The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to query the regions supported by Elastic Desktop Service.
    * 
    * @example
    * cn-beijing
@@ -154,7 +149,7 @@ export class ListCdsFilesResponseBodyFileModels extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The SHA1 hash of the data file.
+   * The SHA1 hash value of the data file.
    * 
    * @example
    * EA4942AA8761213890A5C386F88E6464D2C3****
@@ -162,7 +157,7 @@ export class ListCdsFilesResponseBodyFileModels extends $dara.Model {
   sha1?: string;
   /**
    * @remarks
-   * The size of the file. Unit: bytes.
+   * The file size. Unit: bytes.
    * 
    * @example
    * 102400
@@ -170,7 +165,7 @@ export class ListCdsFilesResponseBodyFileModels extends $dara.Model {
   size?: number;
   /**
    * @remarks
-   * The URL of the thumbnail.
+   * The thumbnail URL.
    * 
    * @example
    * https://data.aliyunpds.com/hz22%2F5d5b986facbec311ef844c25954f96821497b383%2F5d5b986f955410dd991646bb87c6b4e899ef****?Expires=xxx&OSSAccessKeyId=xxx&Signature=xxx
@@ -240,7 +235,7 @@ export class ListCdsFilesResponseBodyFileModels extends $dara.Model {
 export class ListCdsFilesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response parameters. If the request was successful, `success` is returned. If the request failed, an error message is returned.
+   * The execution result. A value of `success` indicates success. Otherwise, an error message is returned.
    * 
    * @example
    * success
@@ -248,20 +243,20 @@ export class ListCdsFilesResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The total number of file list entries.
+   * The total number of entries in the file list.
    * 
    * @example
-   * 0
+   * 2
    */
   count?: string;
   /**
    * @remarks
-   * The files.
+   * The file list.
    */
   fileModels?: ListCdsFilesResponseBodyFileModels[];
   /**
    * @remarks
-   * Error message. This parameter is not returned if the value of Code is `success`.
+   * The error message. This parameter is not returned if Code is `success`.
    * 
    * @example
    * success
@@ -269,15 +264,15 @@ export class ListCdsFilesResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The token used to start the next query. If the `NextToken` is empty, the next query does not exist.
+   * The pagination token for the next query. If NextToken is empty, no more results exist.
    * 
    * @example
-   * WyI2MzhmMjA2ZTFmZGZlZGVjZDk3OTRlNzVhZmIwMDFiZmM5NWQ3YTgwIiwibiIsIm4iLDEsLTEsMTY3MDMyNDMzNTAzMSwiNjM4ZjIwNmZjNDFkMzIwOTZmZWU0NGYxODkwY2I5ZjI0Mjg0NzM2****
+   * aGN4YzAxQGNuLWhhbmd6aG91LjExNzU5NTMyNjgzMTQ1****
    */
   nextToken?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 40D86754-20FD-53DC-A9B8-25F7FECC****
@@ -285,12 +280,7 @@ export class ListCdsFilesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the operation was successful.
-   * 
-   * Valid value:
-   * 
-   * *   true
-   * *   false
+   * Indicates whether the operation is successful.
    * 
    * @example
    * true

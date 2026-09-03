@@ -7,7 +7,7 @@ export class CreateEcdReportTaskRequestFilterList extends $dara.Model {
    * @remarks
    * The report query filter condition. The valid values vary based on the SubType value:
    * 1. Cloud computer report
-   * - KeyWord: automatic keyword recognition for cloud computers.
+   * - KeyWord: automatically identifies the cloud computer keyword.
    * - RegionId: the region ID.
    * - DesktopId: the cloud computer ID.
    * - DesktopName: the cloud computer name (fuzzy match).
@@ -18,7 +18,7 @@ export class CreateEcdReportTaskRequestFilterList extends $dara.Model {
    * - DesktopIP: the cloud computer IP address.
    * - SubPayType: the billing method.
    * - EndUserId: the username (fuzzy match).
-   * - ExpireTime: the expiration time in the yyyy-MM-dd\\"T\\"HH:mm:ss\\"Z\\" format.
+   * - ExpireTime: the expiration time, in the yyyy-MM-dd\\"T\\"HH:mm:ss\\"Z\\" format.
    * - IncludeAssignedUser: specifies whether users are assigned.
    * - ResourceGroupId: the resource group ID.
    * - PolicyId: the policy ID.
@@ -39,9 +39,6 @@ export class CreateEcdReportTaskRequestFilterList extends $dara.Model {
    * - EndUserId
    * - ExpireTime
    * - IncludeAssignedUser
-   * 
-   * @example
-   * Test cloud desktop name
    */
   filterValues?: string[];
   static names(): { [key: string]: string } {
@@ -71,11 +68,20 @@ export class CreateEcdReportTaskRequestFilterList extends $dara.Model {
 }
 
 export class CreateEcdReportTaskRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The business channel. Valid values:
+   * Enterprise: Enterprise Edition.
+   * Business: Business Edition.
+   * 
+   * @example
+   * Enterprise
+   */
   businessChannel?: string;
   /**
    * @remarks
    * The list of filter conditions for query results. The filter condition objects have a logical AND (&) relationship.
-   * Each filter condition contains FilterKey and FilterValues, which represent the filter condition name and specific values.
+   * Each filter condition contains FilterKey and FilterValues, which specify the filter condition name and its values.
    */
   filterList?: CreateEcdReportTaskRequestFilterList[];
   /**
@@ -91,7 +97,7 @@ export class CreateEcdReportTaskRequest extends $dara.Model {
    * The report file name.
    * 
    * @example
-   * Test report name
+   * TestReportName
    */
   reportFileName?: string;
   /**

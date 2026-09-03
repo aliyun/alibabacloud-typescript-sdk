@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateADConnectorDirectoryResponseBodyAdConnectors extends $dara.Model {
   /**
    * @remarks
-   * The connection address.
+   * The endpoint.
    * 
    * @example
    * 127.0.XX.XX
@@ -35,7 +35,7 @@ export class CreateADConnectorDirectoryResponseBodyAdConnectors extends $dara.Mo
 export class CreateADConnectorDirectoryResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of AD connectors.
+   * The information about AD Connectors.
    */
   adConnectors?: CreateADConnectorDirectoryResponseBodyAdConnectors[];
   /**
@@ -48,7 +48,7 @@ export class CreateADConnectorDirectoryResponseBody extends $dara.Model {
   directoryId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 3FE99D5E-93A1-493F-B1CB-0ABD4D05BEFF

@@ -5,14 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class MigrateDesktopsRequest extends $dara.Model {
   /**
    * @remarks
-   * The IDs of the cloud computers to migrate. You can specify 1 to 100 IDs.
+   * The IDs of cloud computers. You can specify 1 to 100 IDs.
    * 
    * This parameter is required.
    */
   desktopId?: string[];
   /**
    * @remarks
-   * The region ID. To get a list of supported regions, call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation.
+   * The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to query the regions supported by Elastic Desktop Service.
    * 
    * This parameter is required.
    * 
@@ -22,7 +22,10 @@ export class MigrateDesktopsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * This parameter is not publicly available.
+   * The member IP address of the target node for migration.
+   * 
+   * @example
+   * 192.168.1.10
    */
   targetMemberIp?: string;
   /**
@@ -37,7 +40,10 @@ export class MigrateDesktopsRequest extends $dara.Model {
   targetOfficeSiteId?: string;
   /**
    * @remarks
-   * This parameter is not publicly available.
+   * > This parameter is not publicly available.
+   * 
+   * @example
+   * vsw-bp1m3o4kbjxwe****
    */
   targetSubnetId?: string;
   static names(): { [key: string]: string } {

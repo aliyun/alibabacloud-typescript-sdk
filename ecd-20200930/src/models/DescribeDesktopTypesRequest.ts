@@ -5,12 +5,21 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDesktopTypesRequest extends $dara.Model {
   /**
    * @remarks
-   * The scope of the instance types to query. Default value: `Public`.
+   * The applicable scope of the specification. Default value: `Public`.
    * 
    * @example
    * Public
    */
   appliedScope?: string;
+  /**
+   * @remarks
+   * The business channel. Valid values:
+   * Enterprise: Enterprise Edition.
+   * Business: Business Edition.
+   * 
+   * @example
+   * Enterprise
+   */
   businessChannel?: string;
   /**
    * @remarks
@@ -22,7 +31,7 @@ export class DescribeDesktopTypesRequest extends $dara.Model {
   cpuCount?: number;
   /**
    * @remarks
-   * The ID of the desktop group to reconfigure. If you specify this parameter, the response returns only the instance types that are compatible with the specified group.
+   * The ID of the shared cloud computer for which you want to change the specification. If this parameter is specified, the response includes compatibility information between the specification and the shared cloud computer.
    * 
    * @example
    * dg-abcdefg****
@@ -30,18 +39,25 @@ export class DescribeDesktopTypesRequest extends $dara.Model {
   desktopGroupIdForModify?: string;
   /**
    * @remarks
-   * The ID of the WUYING Workspace to reconfigure. If you specify this parameter, the response returns only the instance types that are compatible with the specified workspace.
+   * The ID of the cloud computer for which you want to change the specification. If this parameter is specified, the response includes compatibility information between the specification and the cloud computer.
    * 
    * @example
    * ecd-gx2x1dhsmucyy****
    */
   desktopIdForModify?: string;
+  /**
+   * @remarks
+   * The scenarios of the cloud computer.
+   * 
+   * @example
+   * office
+   */
   desktopScenario?: string;
   /**
    * @remarks
-   * The ID of the instance type.
+   * The specification ID.
    * 
-   * > If you omit both the `InstanceTypeFamily` and `DesktopTypeId` parameters, the operation returns all available WUYING Workspace instance types.
+   * > If both `InstanceTypeFamily` and `DesktopTypeId` are left empty, information about all cloud computer specifications is returned.
    * 
    * @example
    * ecd.graphics.xlarge
@@ -49,12 +65,12 @@ export class DescribeDesktopTypesRequest extends $dara.Model {
   desktopTypeId?: string;
   /**
    * @remarks
-   * An array of instance type IDs.
+   * The list of specification IDs.
    */
   desktopTypeIdList?: string[];
   /**
    * @remarks
-   * The number of vGPUs.
+   * The number of GPU cores.
    * 
    * @example
    * 1
@@ -68,12 +84,19 @@ export class DescribeDesktopTypesRequest extends $dara.Model {
    * A10
    */
   gpuDriverType?: string;
+  /**
+   * @remarks
+   * The GPU memory size. This parameter is meaningful only for GPU-accelerated cloud computers. Unit: MB.
+   * 
+   * @example
+   * 2048
+   */
   gpuMemory?: number;
   /**
    * @remarks
-   * The instance type family.
+   * The instance family name.
    * 
-   * > If you omit both the `InstanceTypeFamily` and `DesktopTypeId` parameters, the operation returns all available WUYING Workspace instance types.
+   * > If both `InstanceTypeFamily` and `DesktopTypeId` are left empty, information about all cloud computer specifications is returned.
    * 
    * @example
    * ecd.graphics
@@ -81,16 +104,23 @@ export class DescribeDesktopTypesRequest extends $dara.Model {
   instanceTypeFamily?: string;
   /**
    * @remarks
-   * The memory size, in MiB.
+   * The memory size. Unit: MiB.
    * 
    * @example
    * 4096
    */
   memorySize?: number;
+  /**
+   * @remarks
+   * The ID of the office network to which the shared cloud computer belongs.
+   * 
+   * @example
+   * cn-hangzhou+os-c5cy7q578s8jc****
+   */
   officeSiteId?: string;
   /**
    * @remarks
-   * The property by which to sort the results. If you omit this parameter, the results are sorted by creation time in descending order.
+   * The field by which to sort the results. If this parameter is not specified, results are sorted by creation time in descending order.
    * 
    * @example
    * Memory
@@ -106,7 +136,7 @@ export class DescribeDesktopTypesRequest extends $dara.Model {
   orderType?: string;
   /**
    * @remarks
-   * The ID of the region. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the regions that Elastic Desktop Service supports.
+   * The region ID. You can call [DescribeRegions](~~DescribeRegions~~) to query the regions supported by WUYING Workspace.
    * 
    * This parameter is required.
    * 
@@ -116,12 +146,16 @@ export class DescribeDesktopTypesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The billing method of the instance types.
+   * The billing method of the specification.
    * 
    * @example
    * FastBuy
    */
   scope?: string;
+  /**
+   * @remarks
+   * The list of applicable scopes.
+   */
   scopeSet?: string[];
   /**
    * @remarks
@@ -133,7 +167,7 @@ export class DescribeDesktopTypesRequest extends $dara.Model {
   sortType?: string;
   /**
    * @remarks
-   * Filters for instance types that support at least the specified number of concurrent sessions. This parameter applies only to multi-session instance types.
+   * The minimum number of multi-sessions supported by the specification.
    * 
    * @example
    * 2
@@ -144,7 +178,7 @@ export class DescribeDesktopTypesRequest extends $dara.Model {
    * > This parameter is not publicly available.
    * 
    * @example
-   * 无
+   * cn-hangzhou-j
    */
   zoneId?: string;
   static names(): { [key: string]: string } {

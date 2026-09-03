@@ -13,7 +13,7 @@ export class DescribeUserConnectionRecordsResponseBodyConnectionRecords extends 
   connectDuration?: string;
   /**
    * @remarks
-   * The time when the end user disconnected from the cloud computer.
+   * The connection end time.
    * 
    * @example
    * 2022-02-27T20:03:13Z
@@ -21,7 +21,7 @@ export class DescribeUserConnectionRecordsResponseBodyConnectionRecords extends 
   connectEndTime?: string;
   /**
    * @remarks
-   * The time when the end user connected to the cloud computer.
+   * The connection start time.
    * 
    * @example
    * 2022-01-19T10:12:38Z
@@ -29,7 +29,7 @@ export class DescribeUserConnectionRecordsResponseBodyConnectionRecords extends 
   connectStartTime?: string;
   /**
    * @remarks
-   * The ID of the connection record.
+   * The connection record ID.
    * 
    * @example
    * 528
@@ -37,7 +37,7 @@ export class DescribeUserConnectionRecordsResponseBodyConnectionRecords extends 
   connectionRecordId?: string;
   /**
    * @remarks
-   * The ID of the cloud computer to which the end user connected.
+   * The ID of the connected cloud computer.
    * 
    * @example
    * ecd-gx2x1dhsmucyy****
@@ -45,7 +45,7 @@ export class DescribeUserConnectionRecordsResponseBodyConnectionRecords extends 
   desktopId?: string;
   /**
    * @remarks
-   * The name of the cloud computer to which the end user connected.
+   * The name of the connected cloud computer.
    * 
    * @example
    * demoComputer
@@ -85,12 +85,12 @@ export class DescribeUserConnectionRecordsResponseBodyConnectionRecords extends 
 export class DescribeUserConnectionRecordsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The connection records.
+   * The array of user connection records.
    */
   connectionRecords?: DescribeUserConnectionRecordsResponseBodyConnectionRecords[];
   /**
    * @remarks
-   * The token that is used to start the next query.
+   * The pagination token for the next query.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a4883
@@ -98,7 +98,7 @@ export class DescribeUserConnectionRecordsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 2CC66B0A-BA3B-5D87-BFBE-11AAAD7A8E03

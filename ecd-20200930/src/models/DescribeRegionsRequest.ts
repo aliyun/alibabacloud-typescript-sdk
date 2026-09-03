@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeRegionsRequest extends $dara.Model {
   /**
    * @remarks
-   * The display name of the region, which varies based on the current language.
+   * The display language of the business location. Default value: Chinese.
    * 
    * @example
    * zh

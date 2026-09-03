@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyNetworkPackageBandwidthRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable the automatic payment feature.
+   * Specifies whether to enable automatic payment.
    * 
    * @example
    * true
@@ -13,13 +13,11 @@ export class ModifyNetworkPackageBandwidthRequest extends $dara.Model {
   autoPay?: boolean;
   /**
    * @remarks
-   * The maximum bandwidth of the premium bandwidth plan, in Mbit/s.
+   * The bandwidth of the premium Internet bandwidth plan. Unit: Mbit/s.    
    * 
-   * - For subscription premium bandwidth, the valid range is 2 to 1000.
-   * 
-   * - For pay-as-you-go premium bandwidth with pay-by-traffic billing, the valid range is 2 to 200.
-   * 
-   * - For pay-as-you-go premium bandwidth with pay-by-bandwidth billing, the valid range is 2 to 1000.
+   * - If the premium bandwidth plan uses the subscription billing method, the valid values are 2 to 1000.
+   * - If the premium bandwidth plan uses the pay-as-you-go billing method and the metering method is pay-by-data-transfer (PayByTraffic), the valid values are 2 to 200.
+   * - If the premium bandwidth plan uses the pay-as-you-go billing method and the metering method is pay-by-bandwidth (PayByBandwidth), the valid values are 2 to 1000.
    * 
    * This parameter is required.
    * 
@@ -29,7 +27,7 @@ export class ModifyNetworkPackageBandwidthRequest extends $dara.Model {
   bandwidth?: number;
   /**
    * @remarks
-   * The ID of the premium bandwidth plan.
+   * The ID of the premium Internet bandwidth plan.
    * 
    * This parameter is required.
    * 
@@ -47,7 +45,7 @@ export class ModifyNetworkPackageBandwidthRequest extends $dara.Model {
   promotionId?: string;
   /**
    * @remarks
-   * The region ID. You can call the [](t2167755.xdita#)operation to query the list of regions supported by Elastic Desktop Service (EDS).
+   * The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to query the regions supported by Elastic Desktop Service.
    * 
    * This parameter is required.
    * 
@@ -55,6 +53,13 @@ export class ModifyNetworkPackageBandwidthRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The user ID of the resource ownership in the reseller pattern. You do not need to specify this parameter if you are not using the reseller pattern.
+   * 
+   * @example
+   * 1422724566551XXX
+   */
   resellerOwnerUid?: number;
   static names(): { [key: string]: string } {
     return {

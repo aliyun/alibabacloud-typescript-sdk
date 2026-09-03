@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ApplyCoordinationForMonitoringResponseBodyCoordinateFlowModels extends $dara.Model {
   /**
    * @remarks
-   * The coordination flow ID.
+   * The collaboration flow ID.
    * 
    * @example
    * co-0sot77uale3****
@@ -13,11 +13,11 @@ export class ApplyCoordinationForMonitoringResponseBodyCoordinateFlowModels exte
   coId?: string;
   /**
    * @remarks
-   * The current coordination status.
-   * [_single.resp.200.props.CoordinateFlowModels.items.CoordinateStatus.enum.COORDINATING  ]coordinating
-   * [_single.resp.200.props.CoordinateFlowModels.items.CoordinateStatus.enum.TERMINATING  ] terminating
-   * [_single.resp.200.props.CoordinateFlowModels.items.CoordinateStatus.enum.TERMINATED ]terminated
-   * [_single.resp.200.props.CoordinateFlowModels.items.CoordinateStatus.enum.PENDING ]pending acceptance
+   * The current collaboration status.
+   * [_single.resp.200.props.CoordinateFlowModels.items.CoordinateStatus.enum.COORDINATING  ]Collaborating.
+   * [_single.resp.200.props.CoordinateFlowModels.items.CoordinateStatus.enum.TERMINATING  ]Terminating.
+   * [_single.resp.200.props.CoordinateFlowModels.items.CoordinateStatus.enum.TERMINATED ]Terminated.
+   * [_single.resp.200.props.CoordinateFlowModels.items.CoordinateStatus.enum.PENDING ]Pending acceptance.
    * 
    * @example
    * PENDING
@@ -99,7 +99,7 @@ export class ApplyCoordinationForMonitoringResponseBodyCoordinateFlowModels exte
 export class ApplyCoordinationForMonitoringResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of coordination flow data.
+   * The list of collaboration flow data.
    */
   coordinateFlowModels?: ApplyCoordinationForMonitoringResponseBodyCoordinateFlowModels[];
   /**

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDesktopGroupsResponseBodyDesktopGroupsCountPerStatus extends $dara.Model {
   /**
    * @remarks
-   * The number of cloud desktops in the specified status.
+   * The number of cloud computers.
    * 
    * @example
    * 10
@@ -13,7 +13,7 @@ export class DescribeDesktopGroupsResponseBodyDesktopGroupsCountPerStatus extend
   count?: number;
   /**
    * @remarks
-   * The status of the cloud desktop.
+   * The cloud computer status.
    * 
    * @example
    * Running
@@ -83,10 +83,17 @@ export class DescribeDesktopGroupsResponseBodyDesktopGroupsTags extends $dara.Mo
 }
 
 export class DescribeDesktopGroupsResponseBodyDesktopGroups extends $dara.Model {
+  /**
+   * @remarks
+   * The account type.
+   * 
+   * @example
+   * SIMPLE
+   */
   accountType?: string;
   /**
    * @remarks
-   * The number of concurrent sessions allowed per cloud desktop in a multi-session shared cloud desktop group.
+   * The number of concurrent sessions allowed per cloud computer in a multi-session shared cloud computer group with multiple instances.
    * 
    * @example
    * 2
@@ -94,7 +101,7 @@ export class DescribeDesktopGroupsResponseBodyDesktopGroups extends $dara.Model 
   bindAmount?: number;
   /**
    * @remarks
-   * The number of cloud desktops that you purchase. This parameter applies only to subscription shared cloud desktop groups. Valid values: 0 to 200.
+   * This parameter applies only to subscription shared cloud computers and indicates the initial number of cloud computers purchased. Valid values: 0 to 200.
    * 
    * @example
    * 5
@@ -102,7 +109,7 @@ export class DescribeDesktopGroupsResponseBodyDesktopGroups extends $dara.Model 
   buyDesktopsCount?: number;
   /**
    * @remarks
-   * The comments on the shared cloud desktop group.
+   * The remarks.
    * 
    * @example
    * comment
@@ -110,7 +117,7 @@ export class DescribeDesktopGroupsResponseBodyDesktopGroups extends $dara.Model 
   comments?: string;
   /**
    * @remarks
-   * The maximum session duration, in milliseconds. When this duration is reached, the session is automatically disconnected.
+   * The maximum duration that a session can remain in the connected state. The session is automatically disconnected when this duration is reached. Unit: milliseconds.
    * 
    * @example
    * 3600000
@@ -118,12 +125,12 @@ export class DescribeDesktopGroupsResponseBodyDesktopGroups extends $dara.Model 
   connectDuration?: number;
   /**
    * @remarks
-   * The number of cloud desktops in each status.
+   * The list of cloud computer counts by status.
    */
   countPerStatus?: DescribeDesktopGroupsResponseBodyDesktopGroupsCountPerStatus[];
   /**
    * @remarks
-   * The number of vCPU cores.
+   * The number of vCPUs.
    * 
    * @example
    * 4
@@ -131,7 +138,9 @@ export class DescribeDesktopGroupsResponseBodyDesktopGroups extends $dara.Model 
   cpu?: number;
   /**
    * @remarks
-   * The time when the shared cloud desktop group was created.
+   * The creation time.
+   * 
+   * The time is displayed in UTC in the ISO 8601 standard format: yyyy-MM-ddTHH:mm:ssZ.
    * 
    * @example
    * 2022-02-17T14:51:07Z
@@ -139,7 +148,7 @@ export class DescribeDesktopGroupsResponseBodyDesktopGroups extends $dara.Model 
   createTime?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account that created the shared cloud desktop group.
+   * The Alibaba Cloud account ID of the creator.
    * 
    * @example
    * 1007214305******
@@ -147,7 +156,7 @@ export class DescribeDesktopGroupsResponseBodyDesktopGroups extends $dara.Model 
   creator?: string;
   /**
    * @remarks
-   * The type of the data disk.
+   * The user disk type.
    * 
    * @example
    * cloud_ssd
@@ -155,7 +164,7 @@ export class DescribeDesktopGroupsResponseBodyDesktopGroups extends $dara.Model 
   dataDiskCategory?: string;
   /**
    * @remarks
-   * The data disk size in GiB.
+   * The user disk capacity. Unit: GiB.
    * 
    * @example
    * 50
@@ -163,7 +172,7 @@ export class DescribeDesktopGroupsResponseBodyDesktopGroups extends $dara.Model 
   dataDiskSize?: string;
   /**
    * @remarks
-   * The number of cloud desktops created.
+   * The number of cloud computers that have been created.
    * 
    * @example
    * 2
@@ -171,7 +180,7 @@ export class DescribeDesktopGroupsResponseBodyDesktopGroups extends $dara.Model 
   desktopCount?: number;
   /**
    * @remarks
-   * The ID of the shared cloud desktop group.
+   * The ID of the shared cloud computer.
    * 
    * @example
    * dg-2i8qxpv6t1a03****
@@ -179,7 +188,7 @@ export class DescribeDesktopGroupsResponseBodyDesktopGroups extends $dara.Model 
   desktopGroupId?: string;
   /**
    * @remarks
-   * The name of the shared cloud desktop group.
+   * The name of the shared cloud computer.
    * 
    * @example
    * CloudComputerPool01
@@ -187,7 +196,7 @@ export class DescribeDesktopGroupsResponseBodyDesktopGroups extends $dara.Model 
   desktopGroupName?: string;
   /**
    * @remarks
-   * The desktop type. You can call the [DescribeDesktopTypes](https://help.aliyun.com/document_detail/188882.html) operation to query the desktop types supported by WUYING Workspace.
+   * The cloud computer specification. You can call [DescribeDesktopTypes](https://help.aliyun.com/document_detail/188882.html) to query the specification IDs supported by Wuying Cloud Computer.
    * 
    * @example
    * eds.enterprise_office.4c4g
@@ -195,27 +204,54 @@ export class DescribeDesktopGroupsResponseBodyDesktopGroups extends $dara.Model 
   desktopType?: string;
   /**
    * @remarks
-   * The number of authorized users of the shared cloud desktop group.
+   * The number of authorized users for the shared cloud computer.
    * 
    * @example
    * 1
    */
   endUserCount?: number;
+  /**
+   * @remarks
+   * The domain name of Microsoft Entra ID.
+   * 
+   * @example
+   * contoso.onmicrosoft.com
+   */
   entraDomainName?: string;
+  /**
+   * @remarks
+   * The environment ID. This parameter is not publicly available.
+   * 
+   * @example
+   * adifa****
+   */
   envId?: string;
+  /**
+   * @remarks
+   * The environment type. This parameter is not publicly available.
+   * 
+   * @example
+   * Private
+   */
   envType?: string;
   /**
    * @remarks
-   * The time when the subscription shared cloud desktop group expires.
+   * The expiration time of the subscription shared cloud computer.
+   * 
+   * The time follows the ISO 8601 standard in UTC: yyyy-MM-ddTHH:mm:ssZ.
    * 
    * @example
    * 2022-03-17T16:00:00Z
    */
   expiredTime?: string;
+  /**
+   * @remarks
+   * The list of expiration times.
+   */
   expiredTimes?: string[];
   /**
    * @remarks
-   * The number of vGPU cores.
+   * The number of GPU cores.
    * 
    * @example
    * 1
@@ -231,7 +267,7 @@ export class DescribeDesktopGroupsResponseBodyDesktopGroups extends $dara.Model 
   gpuDriverVersion?: string;
   /**
    * @remarks
-   * The GPU memory size.
+   * The GPU memory.
    * 
    * @example
    * 16 GiB
@@ -239,7 +275,7 @@ export class DescribeDesktopGroupsResponseBodyDesktopGroups extends $dara.Model 
   gpuSpec?: string;
   /**
    * @remarks
-   * The amount of time, in milliseconds, that a session can remain idle. If a session remains idle for longer than this duration, it is automatically disconnected. A session is considered idle if there is no keyboard or mouse activity.
+   * The maximum idle duration after a user session is established. If no keyboard or mouse operations are performed within this duration, the session is disconnected. Unit: milliseconds.
    * 
    * @example
    * 90000
@@ -247,18 +283,20 @@ export class DescribeDesktopGroupsResponseBodyDesktopGroups extends $dara.Model 
   idleDisconnectDuration?: number;
   /**
    * @remarks
-   * The ID of the image.
+   * The image ID.
    * 
    * @example
    * m-gq15cq5ydlvwn****
    */
   imageId?: string;
+  /**
+   * @remarks
+   * Indicates whether the directory is an LDAP directory.
+   */
   isLdap?: boolean;
   /**
    * @remarks
-   * The duration, in milliseconds, to retain a disconnected session. Valid values: 180000 (3 minutes) to 345600000 (4 days). A value of 0 indicates that the session is always retained.
-   * 
-   * When a session disconnects, the user can reconnect within this period to resume their work. If the user fails to reconnect in time, the session is terminated and unsaved data is lost.
+   * The retention period after a session is disconnected. Unit: milliseconds. Valid values: 180000 (3 minutes) to 345600000 (4 days). A value of 0 indicates that the session is always retained.
    * 
    * @example
    * 180000
@@ -266,7 +304,7 @@ export class DescribeDesktopGroupsResponseBodyDesktopGroups extends $dara.Model 
   keepDuration?: number;
   /**
    * @remarks
-   * The load balancing policy for the multi-session shared cloud desktop group.
+   * The load balancing policy for multi-session shared cloud computers with multiple instances.
    * 
    * @example
    * 1
@@ -274,9 +312,7 @@ export class DescribeDesktopGroupsResponseBodyDesktopGroups extends $dara.Model 
   loadPolicy?: number;
   /**
    * @remarks
-   * - For a pay-as-you-go shared cloud desktop group, this parameter specifies the maximum number of cloud desktops that the group can contain.
-   * 
-   * - For a subscription shared cloud desktop group, this parameter specifies the total number of cloud desktops, which is the sum of the initially purchased desktops (indicated by the `BuyDesktopsCount` parameter) and the desktops that can be automatically created.
+   * - For pay-as-you-go shared cloud computers, this parameter indicates the maximum number of cloud computers that can be created.
    * 
    * @example
    * 3
@@ -284,7 +320,7 @@ export class DescribeDesktopGroupsResponseBodyDesktopGroups extends $dara.Model 
   maxDesktopsCount?: number;
   /**
    * @remarks
-   * The memory size in MiB.
+   * The memory size. Unit: MiB.
    * 
    * @example
    * 16384
@@ -292,9 +328,7 @@ export class DescribeDesktopGroupsResponseBodyDesktopGroups extends $dara.Model 
   memory?: number;
   /**
    * @remarks
-   * - For a pay-as-you-go shared cloud desktop group, this specifies the minimum number of cloud desktops to maintain in the group.
-   * 
-   * - For a subscription shared cloud desktop group, this parameter has the same value as `BuyDesktopsCount` and specifies the number of cloud desktops that you initially purchase.
+   * - For pay-as-you-go shared cloud computers, this parameter indicates the minimum number of cloud computers that can be created.
    * 
    * @example
    * 1
@@ -302,7 +336,7 @@ export class DescribeDesktopGroupsResponseBodyDesktopGroups extends $dara.Model 
   minDesktopsCount?: number;
   /**
    * @remarks
-   * The ID of the office network.
+   * The name of the office network to which the shared cloud computer belongs.
    * 
    * @example
    * cn-hangzhou+dir-467671****
@@ -310,7 +344,7 @@ export class DescribeDesktopGroupsResponseBodyDesktopGroups extends $dara.Model 
   officeSiteId?: string;
   /**
    * @remarks
-   * The name of the office network.
+   * The ID of the office network to which the shared cloud computers belong.
    * 
    * @example
    * cn-hangzhou+os-c5cy7q578s8jc****
@@ -318,16 +352,23 @@ export class DescribeDesktopGroupsResponseBodyDesktopGroups extends $dara.Model 
   officeSiteName?: string;
   /**
    * @remarks
-   * The account type of the office network.
+   * The account system type of the office network.
    * 
    * @example
    * SIMPLE
    */
   officeSiteType?: string;
+  /**
+   * @remarks
+   * The organization ID of the team.
+   * 
+   * @example
+   * org-aliyun-wy-org-id
+   */
   orgId?: string;
   /**
    * @remarks
-   * The OS.
+   * The operating system type.
    * 
    * @example
    * Windows
@@ -335,7 +376,7 @@ export class DescribeDesktopGroupsResponseBodyDesktopGroups extends $dara.Model 
   osType?: string;
   /**
    * @remarks
-   * The ID of the cloud desktop template.
+   * The cloud computer template ID.
    * 
    * @example
    * bundle_eds_general_4c8g_s8d5_win2019
@@ -343,15 +384,15 @@ export class DescribeDesktopGroupsResponseBodyDesktopGroups extends $dara.Model 
   ownBundleId?: string;
   /**
    * @remarks
-   * The name of the cloud desktop template.
+   * The name of the cloud computer template.
    * 
    * @example
-   * test
+   * Standard Office Template
    */
   ownBundleName?: string;
   /**
    * @remarks
-   * The type of the shared cloud desktop group.
+   * The type of the shared cloud computer.
    * 
    * @example
    * 0
@@ -367,21 +408,29 @@ export class DescribeDesktopGroupsResponseBodyDesktopGroups extends $dara.Model 
   payType?: string;
   /**
    * @remarks
-   * The ID of the policy associated with the shared cloud desktop group.
+   * The ID of the policy associated with the shared cloud computer.
    * 
    * @example
    * pg-53iyi2aar0nd6c8qj
    */
   policyGroupId?: string;
+  /**
+   * @remarks
+   * The list of cloud computer policy IDs.
+   */
   policyGroupIdList?: string[];
   /**
    * @remarks
-   * The name of the policy associated with the shared cloud desktop group.
+   * The policy name associated with the shared cloud computer.
    * 
    * @example
    * All enabled policy
    */
   policyGroupName?: string;
+  /**
+   * @remarks
+   * The list of cloud computer policy names.
+   */
   policyGroupNameList?: string[];
   /**
    * @remarks
@@ -391,14 +440,21 @@ export class DescribeDesktopGroupsResponseBodyDesktopGroups extends $dara.Model 
    * ASP
    */
   protocolType?: string;
+  /**
+   * @remarks
+   * The ID of the QoS rule.
+   * 
+   * @example
+   * qos-5605u0gelk200****
+   */
   qosRuleId?: string;
   /**
    * @remarks
-   * The session utilization threshold that triggers auto scaling for a multi-session shared cloud desktop group. Session utilization is calculated by using the following formula:
+   * The session occupancy threshold used as the auto scaling trigger condition for multi-session shared cloud computers. The session occupancy is calculated by using the following formula:
    * 
-   * `Session utilization = Number of active sessions / (Total number of cloud desktops × Maximum number of sessions per cloud desktop) × 100%`
+   * ```Session occupancy = Number of bound sessions / (Total number of cloud computers × Maximum number of sessions supported by each cloud computer) × 100%```
    * 
-   * When the session utilization exceeds this threshold, the system scales out by creating new cloud desktops. When the utilization falls below this threshold, the system scales in by removing idle cloud desktops.
+   * When the session occupancy reaches this threshold, new cloud computers are created. When the session occupancy is below this threshold, excess cloud computers are deleted.
    * 
    * @example
    * 0.85
@@ -406,16 +462,23 @@ export class DescribeDesktopGroupsResponseBodyDesktopGroups extends $dara.Model 
   ratioThreshold?: number;
   /**
    * @remarks
-   * The reset type of the shared cloud desktop group.
+   * The reset type of the shared cloud computer.
    * 
    * @example
    * 0
    */
   resetType?: number;
+  /**
+   * @remarks
+   * The convenience user group ID.
+   * 
+   * @example
+   * ug-3f6c8a2b****
+   */
   simpleUserGroupId?: string;
   /**
    * @remarks
-   * The status of the shared cloud desktop group.
+   * The status of the shared cloud computer.
    * 
    * @example
    * 1
@@ -423,7 +486,7 @@ export class DescribeDesktopGroupsResponseBodyDesktopGroups extends $dara.Model 
   status?: number;
   /**
    * @remarks
-   * The period of inactivity, in milliseconds, after which an idle cloud desktop is automatically stopped. If a user tries to connect to a stopped desktop, the desktop is automatically started.
+   * The idle shutdown duration. When the cloud computer has been idle for this duration, it is automatically shut down. If a user connects after shutdown, the cloud computer automatically starts. Unit: milliseconds.
    * 
    * @example
    * 900000
@@ -431,7 +494,7 @@ export class DescribeDesktopGroupsResponseBodyDesktopGroups extends $dara.Model 
   stopDuration?: number;
   /**
    * @remarks
-   * The ID of the subnet.
+   * The subnet ID.
    * 
    * @example
    * vsw-uf63bb6*****8gfytm
@@ -439,7 +502,7 @@ export class DescribeDesktopGroupsResponseBodyDesktopGroups extends $dara.Model 
   subnetId?: string;
   /**
    * @remarks
-   * The type of the system disk.
+   * The system cloud disk type.
    * 
    * @example
    * cloud_ssd
@@ -447,7 +510,7 @@ export class DescribeDesktopGroupsResponseBodyDesktopGroups extends $dara.Model 
   systemDiskCategory?: string;
   /**
    * @remarks
-   * The system disk size in GiB.
+   * The system cloud disk capacity. Unit: GiB.
    * 
    * @example
    * 80
@@ -455,13 +518,20 @@ export class DescribeDesktopGroupsResponseBodyDesktopGroups extends $dara.Model 
   systemDiskSize?: number;
   /**
    * @remarks
-   * The tags attached to the shared cloud desktop group.
+   * The list of tags.
    */
   tags?: DescribeDesktopGroupsResponseBodyDesktopGroupsTags[];
+  /**
+   * @remarks
+   * The user group name.
+   * 
+   * @example
+   * R&D Group
+   */
   userGroupName?: string;
   /**
    * @remarks
-   * The path of the organizational unit (OU).
+   * The organizational unit (OU) path of the user.
    * 
    * @example
    * example.com
@@ -469,7 +539,7 @@ export class DescribeDesktopGroupsResponseBodyDesktopGroups extends $dara.Model 
   userOuPath?: string;
   /**
    * @remarks
-   * The version number of the shared cloud desktop group.
+   * The version number of the shared cloud computer.
    * 
    * @example
    * 2
@@ -477,7 +547,7 @@ export class DescribeDesktopGroupsResponseBodyDesktopGroups extends $dara.Model 
   version?: number;
   /**
    * @remarks
-   * Indicates whether disk encryption is enabled.
+   * Indicates whether encryption is enabled.
    * 
    * @example
    * false
@@ -650,12 +720,12 @@ export class DescribeDesktopGroupsResponseBodyDesktopGroups extends $dara.Model 
 export class DescribeDesktopGroupsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the shared cloud desktop groups.
+   * The list of shared cloud computers.
    */
   desktopGroups?: DescribeDesktopGroupsResponseBodyDesktopGroups[];
   /**
    * @remarks
-   * The token used to retrieve the next page of results. If this parameter is not returned, it indicates that all results have been returned.
+   * The token for the next query.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a4883

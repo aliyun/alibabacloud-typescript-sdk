@@ -16,7 +16,7 @@ export class CreateConfigGroupResponseBody extends $dara.Model {
    * The creation result.
    * 
    * @example
-   * None.
+   * success
    */
   message?: string;
   /**

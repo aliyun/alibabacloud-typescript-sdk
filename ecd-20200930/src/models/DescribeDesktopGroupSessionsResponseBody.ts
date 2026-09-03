@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDesktopGroupSessionsResponseBodySessionsTerminalInfo extends $dara.Model {
   /**
    * @remarks
-   * The type of the terminal.
+   * The terminal device model.
    * 
    * @example
    * wuying_mac_x86_64
@@ -21,7 +21,7 @@ export class DescribeDesktopGroupSessionsResponseBodySessionsTerminalInfo extend
   productName?: string;
   /**
    * @remarks
-   * Terminal Serial Number
+   * The terminal serial number.
    * 
    * @example
    * 96c530bc-6095-4014-8bbc-d461b8ac****
@@ -29,7 +29,7 @@ export class DescribeDesktopGroupSessionsResponseBodySessionsTerminalInfo extend
   serialNumber?: string;
   /**
    * @remarks
-   * The terminal UUID.
+   * The UUID of the terminal device.
    * 
    * @example
    * EBFDC7773BEBAD418A9F89429652****
@@ -73,7 +73,7 @@ export class DescribeDesktopGroupSessionsResponseBodySessions extends $dara.Mode
   accountType?: string;
   /**
    * @remarks
-   * The IP address of the client.
+   * The client IP address.
    * 
    * @example
    * 172.21.XX.XX
@@ -89,7 +89,7 @@ export class DescribeDesktopGroupSessionsResponseBodySessions extends $dara.Mode
   clientOS?: string;
   /**
    * @remarks
-   * The version of the client.
+   * The client version.
    * 
    * @example
    * 7.8.0
@@ -105,7 +105,7 @@ export class DescribeDesktopGroupSessionsResponseBodySessions extends $dara.Mode
   desktopGroupId?: string;
   /**
    * @remarks
-   * The name of the cloud computer share.
+   * The name of the shared cloud computer.
    * 
    * @example
    * DemoCCGroup
@@ -113,7 +113,7 @@ export class DescribeDesktopGroupSessionsResponseBodySessions extends $dara.Mode
   desktopGroupName?: string;
   /**
    * @remarks
-   * If the session status is Connected, it indicates the ID of the cloud computer that is currently connected. If the session status is Disconnected, it indicates the ID of the cloud computer that was last connected.
+   * The cloud computer ID. If the session status is Connected, this value indicates the ID of the currently connected cloud computer. If the session status is Disconnected, this value indicates the ID of the most recently connected cloud computer.
    * 
    * @example
    * ecd-g6t1ukbaea****
@@ -129,7 +129,7 @@ export class DescribeDesktopGroupSessionsResponseBodySessions extends $dara.Mode
   directoryType?: string;
   /**
    * @remarks
-   * The point in time when the end user applies for administrator assistance.
+   * The point in time when the user requested administrator assistance. This value is a UNIX timestamp. Unit: milliseconds.
    * 
    * @example
    * 1678794261000
@@ -137,7 +137,7 @@ export class DescribeDesktopGroupSessionsResponseBodySessions extends $dara.Mode
   endUserApplyCoordinateTime?: number;
   /**
    * @remarks
-   * The user ID of the terminal that connects to the session.
+   * The ID of the end user connected to the session.
    * 
    * @example
    * alice
@@ -145,7 +145,7 @@ export class DescribeDesktopGroupSessionsResponseBodySessions extends $dara.Mode
   endUserId?: string;
   /**
    * @remarks
-   * The end time of the most recent connection.
+   * The end time of the most recent connection. Time format: yyyy-MM-dd HH:mm:ss.
    * 
    * @example
    * 2022-08-31 07:56:45
@@ -153,7 +153,7 @@ export class DescribeDesktopGroupSessionsResponseBodySessions extends $dara.Mode
   lastSessionEndTime?: string;
   /**
    * @remarks
-   * The start time of the most recent connection.
+   * The start time of the most recent connection. Time format: yyyy-MM-dd HH:mm:ss.
    * 
    * @example
    * 2022-08-31 06:56:45
@@ -161,7 +161,7 @@ export class DescribeDesktopGroupSessionsResponseBodySessions extends $dara.Mode
   lastSessionStartTime?: string;
   /**
    * @remarks
-   * The duration of the most recent session. Unit: seconds.
+   * The duration of the most recent connection. Unit: seconds.
    * 
    * @example
    * 120
@@ -169,7 +169,7 @@ export class DescribeDesktopGroupSessionsResponseBodySessions extends $dara.Mode
   latestConnectionTime?: number;
   /**
    * @remarks
-   * The office network ID.
+   * The ID of the office network.
    * 
    * @example
    * cn-hangzhou+dir-8904****
@@ -177,7 +177,7 @@ export class DescribeDesktopGroupSessionsResponseBodySessions extends $dara.Mode
   officeSiteId?: string;
   /**
    * @remarks
-   * The office network name.
+   * The name of the office network.
    * 
    * @example
    * DemoOfficeNetwork
@@ -193,7 +193,7 @@ export class DescribeDesktopGroupSessionsResponseBodySessions extends $dara.Mode
   osType?: string;
   /**
    * @remarks
-   * The type of the session.
+   * The session type.
    * 
    * @example
    * 0
@@ -201,7 +201,7 @@ export class DescribeDesktopGroupSessionsResponseBodySessions extends $dara.Mode
   ownType?: number;
   /**
    * @remarks
-   * The protocol type supported by the rule.
+   * The protocol type.
    * 
    * @example
    * ASP
@@ -217,7 +217,7 @@ export class DescribeDesktopGroupSessionsResponseBodySessions extends $dara.Mode
   sessionIdleTime?: number;
   /**
    * @remarks
-   * The state of the session.
+   * The session connection status.
    * 
    * @example
    * Connected
@@ -225,12 +225,12 @@ export class DescribeDesktopGroupSessionsResponseBodySessions extends $dara.Mode
   sessionStatus?: string;
   /**
    * @remarks
-   * Terminal Info
+   * The terminal information.
    */
   terminalInfo?: DescribeDesktopGroupSessionsResponseBodySessionsTerminalInfo;
   /**
    * @remarks
-   * The total duration of the sessions. Unit: seconds.
+   * The total connection duration. Unit: seconds.
    * 
    * @example
    * 120
@@ -305,7 +305,7 @@ export class DescribeDesktopGroupSessionsResponseBodySessions extends $dara.Mode
 export class DescribeDesktopGroupSessionsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A pagination token. It can be used in the next request to retrieve a new page of results.
+   * The token for the start of the next page.
    * 
    * @example
    * caeba0bbb2
@@ -321,12 +321,12 @@ export class DescribeDesktopGroupSessionsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The sessions.
+   * The list of session data.
    */
   sessions?: DescribeDesktopGroupSessionsResponseBodySessions[];
   /**
    * @remarks
-   * The total number of sessions.
+   * The total number of entries.
    * 
    * @example
    * 15

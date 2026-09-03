@@ -75,7 +75,7 @@ export class BindConfigGroupRequest extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
-   * The region ID. This operation is not region-specific. Set this parameter to `cn-shanghai`.
+   * The region ID. This feature is not region-specific. Set this parameter to `cn-shanghai`.
    * 
    * @example
    * cn-shanghai

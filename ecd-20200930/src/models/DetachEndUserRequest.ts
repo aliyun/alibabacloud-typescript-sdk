@@ -22,7 +22,7 @@ export class DetachEndUserRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 1
+   * 2
    */
   clientType?: string;
   /**
@@ -32,7 +32,7 @@ export class DetachEndUserRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 12OERSLDO7M3****
+   * F9E52EDCCB2B****
    */
   deviceId?: string;
   /**
@@ -50,7 +50,7 @@ export class DetachEndUserRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * alice
+   * moli
    */
   endUserId?: string;
   /**
@@ -58,7 +58,7 @@ export class DetachEndUserRequest extends $dara.Model {
    * The ID of the region. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the regions supported by WUYING Workspace.
    * 
    * @example
-   * cn-hangzhou
+   * cn-shanghai
    */
   region?: string;
   static names(): { [key: string]: string } {

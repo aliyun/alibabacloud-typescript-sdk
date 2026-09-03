@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SetDesktopGroupTimerStatusResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * AC7912E7-8BDF-547F-BCAC****

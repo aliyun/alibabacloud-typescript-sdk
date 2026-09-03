@@ -33,7 +33,7 @@ export class ConfigADConnectorTrustRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The trust password. This password is the one that you specified when you configured the trust relationship (that is, established a trust relationship with ecd.acs) in the AD domain.
+   * The trust password. This password is the one that you specified when you configured the trust relationship (that is, established a trust relationship with Elastic Desktop Service ecd.acs) in the AD domain.
    * 
    * This parameter is required.
    * 

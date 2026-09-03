@@ -8,7 +8,7 @@ export class DownloadCdsFileResponseBodyDownloadFileModel extends $dara.Model {
    * Deprecated.
    * 
    * @example
-   * None.
+   * None
    */
   downloadType?: string;
   /**
@@ -24,7 +24,7 @@ export class DownloadCdsFileResponseBodyDownloadFileModel extends $dara.Model {
    * Deprecated.
    * 
    * @example
-   * None.
+   * None
    */
   expirationSecond?: string;
   /**
@@ -56,7 +56,7 @@ export class DownloadCdsFileResponseBodyDownloadFileModel extends $dara.Model {
    * Deprecated.
    * 
    * @example
-   * None.
+   * None
    */
   streamUrl?: string;
   static names(): { [key: string]: string } {

@@ -21,7 +21,7 @@ export class DescribeRecordingsResponseBodyRecordings extends $dara.Model {
   desktopName?: string;
   /**
    * @remarks
-   * The end time of the recording.
+   * The end time of the recording. The time is in the ISO 8601 standard in UTC: yyyy-MM-ddTHH:mm:ssZ.
    * 
    * @example
    * 2023-04-10T07:26:06Z
@@ -29,7 +29,7 @@ export class DescribeRecordingsResponseBodyRecordings extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The end user IDs.
+   * The list of end user IDs.
    */
   endUserIds?: string[];
   /**
@@ -47,7 +47,7 @@ export class DescribeRecordingsResponseBodyRecordings extends $dara.Model {
   policyGroupId?: string;
   /**
    * @remarks
-   * The size of the screen recording file. Unit: bytes.
+   * The size of the recording file. Unit: bytes.
    * 
    * @example
    * 1742845
@@ -55,16 +55,7 @@ export class DescribeRecordingsResponseBodyRecordings extends $dara.Model {
   recordingSize?: number;
   /**
    * @remarks
-   * The type of event that triggers the recording.
-   * 
-   * Valid values:
-   * 
-   * *   byaction_cmd_ft: triggered by copy-paste or file transfer events.
-   * *   period: triggered at scheduled intervals.
-   * *   session: triggered by session lifecycle monitoring.
-   * *   byaction_commands: triggered by copy-paste only.
-   * *   alltime: continuous recording.
-   * *   byaction_file_transfer: triggered by file transfer only.
+   * The recording type.
    * 
    * @example
    * alltime
@@ -77,7 +68,7 @@ export class DescribeRecordingsResponseBodyRecordings extends $dara.Model {
   signedUrl?: string;
   /**
    * @remarks
-   * The start time of the recording.
+   * The start time of the recording. The time is in the ISO 8601 standard in UTC: yyyy-MM-ddTHH:mm:ssZ.
    * 
    * @example
    * 2023-04-10T07:26:06Z
@@ -128,7 +119,7 @@ export class DescribeRecordingsResponseBodyRecordings extends $dara.Model {
 export class DescribeRecordingsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
+   * The pagination token for the next query. If NextToken is empty, no more results exist.
    * 
    * @example
    * AAAAAV3MpHK1AP0pfERHZN5pu6nbCQ7ar+fECeh1IuWQXi39R5eoJ68zWp99mTAKRRNRhw==
@@ -136,7 +127,7 @@ export class DescribeRecordingsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The screen recording files.
+   * The collection of cloud computer screen recording information.
    */
   recordings?: DescribeRecordingsResponseBodyRecordings[];
   /**

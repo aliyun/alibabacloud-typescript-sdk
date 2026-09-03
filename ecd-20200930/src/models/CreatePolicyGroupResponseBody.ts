@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreatePolicyGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the cloud computer policy.
+   * The cloud desktop policy ID.
    * 
    * @example
    * pg-gx2x1dhsmthe9****

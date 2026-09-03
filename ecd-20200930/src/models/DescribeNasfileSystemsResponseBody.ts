@@ -125,7 +125,10 @@ export class DescribeNASFileSystemsResponseBodyFileSystemsOfficeSites extends $d
 export class DescribeNASFileSystemsResponseBodyFileSystems extends $dara.Model {
   /**
    * @remarks
-   * > This field is not publicly available.
+   * Indicates whether operations on user directories (adding users, deleting data) are supported.
+   * 
+   * @example
+   * false
    */
   allowOperateUserDrive?: boolean;
   /**
@@ -154,7 +157,7 @@ export class DescribeNASFileSystemsResponseBodyFileSystems extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The NAS file system description.
+   * The description of the NAS file system.
    * 
    * @example
    * testDescription
@@ -183,7 +186,7 @@ export class DescribeNASFileSystemsResponseBodyFileSystems extends $dara.Model {
   fileSystemId?: string;
   /**
    * @remarks
-   * The NAS file system name.
+   * The name of the NAS file system.
    * 
    * @example
    * testNAS
@@ -191,7 +194,7 @@ export class DescribeNASFileSystemsResponseBodyFileSystems extends $dara.Model {
   fileSystemName?: string;
   /**
    * @remarks
-   * The NAS file system status.
+   * The status of the NAS file system.
    * 
    * @example
    * Running
@@ -231,7 +234,7 @@ export class DescribeNASFileSystemsResponseBodyFileSystems extends $dara.Model {
   mountTargetStatus?: string;
   /**
    * @remarks
-   * The office network ID.
+   * The office network ID (deprecated).
    * 
    * @example
    * cn-hangzhou+dir-363353****
@@ -239,7 +242,7 @@ export class DescribeNASFileSystemsResponseBodyFileSystems extends $dara.Model {
   officeSiteId?: string;
   /**
    * @remarks
-   * The office network name.
+   * The office network name (deprecated).
    * 
    * @example
    * test
@@ -259,6 +262,16 @@ export class DescribeNASFileSystemsResponseBodyFileSystems extends $dara.Model {
    * false
    */
   profileCompatible?: boolean;
+  /**
+   * @remarks
+   * The protocol type of the file system. Valid values:
+   * 
+   * - NFS: NFS file protocol.
+   * - SMB: SMB file protocol.
+   * 
+   * @example
+   * SMB
+   */
   protocolType?: string;
   /**
    * @remarks
@@ -295,7 +308,7 @@ export class DescribeNASFileSystemsResponseBodyFileSystems extends $dara.Model {
   supportAcl?: boolean;
   /**
    * @remarks
-   * The zone.
+   * The zone ID.
    * 
    * @example
    * cn-hangzhou-f

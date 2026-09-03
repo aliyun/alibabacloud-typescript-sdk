@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDirectoriesResponseBodyDirectoriesADConnectors extends $dara.Model {
   /**
    * @remarks
-   * The connection address.
+   * The endpoint.
    * 
    * @example
    * 172.17.XX.XX
@@ -13,13 +13,7 @@ export class DescribeDirectoriesResponseBodyDirectoriesADConnectors extends $dar
   ADConnectorAddress?: string;
   /**
    * @remarks
-   * Valid values:
-   * 
-   * *   CONNECT_ERROR
-   * *   RUNNING
-   * *   CONNECTING: You must configure domain trust for your AD system.
-   * *   EXPIRED
-   * *   CREATING
+   * The connection status.
    * 
    * @example
    * RUNNING
@@ -27,7 +21,7 @@ export class DescribeDirectoriesResponseBodyDirectoriesADConnectors extends $dar
   connectorStatus?: string;
   /**
    * @remarks
-   * The ID of the NIC to which the AD connector is mounted.
+   * The ID of the network interface controller (NIC) attached to the AD connector.
    * 
    * @example
    * eni-bp1i4wx78lgosrj6****
@@ -35,25 +29,7 @@ export class DescribeDirectoriesResponseBodyDirectoriesADConnectors extends $dar
   networkInterfaceId?: string;
   /**
    * @remarks
-   * The AD connector type.
-   * 
-   * Valid values:
-   * 
-   * *   1: General
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   2: Advanced
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
+   * The AD connector specification.
    * 
    * @example
    * 1
@@ -69,7 +45,7 @@ export class DescribeDirectoriesResponseBodyDirectoriesADConnectors extends $dar
   trustKey?: string;
   /**
    * @remarks
-   * The ID of the vSwitch with which the AD connector is associated.
+   * The ID of the vSwitch where the AD connector resides.
    * 
    * @example
    * vsw-bp19ocz3erfx15uon****
@@ -109,33 +85,7 @@ export class DescribeDirectoriesResponseBodyDirectoriesADConnectors extends $dar
 export class DescribeDirectoriesResponseBodyDirectoriesLogs extends $dara.Model {
   /**
    * @remarks
-   * The level of the log entry.
-   * 
-   * Valid values:
-   * 
-   * *   ERROR
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   INFO
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   WARN
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
+   * The log level.
    * 
    * @example
    * INFO
@@ -143,7 +93,7 @@ export class DescribeDirectoriesResponseBodyDirectoriesLogs extends $dara.Model 
   level?: string;
   /**
    * @remarks
-   * Details of the log entry.
+   * The detailed log information.
    * 
    * @example
    * code:success | message:Create Connector complete.
@@ -159,7 +109,7 @@ export class DescribeDirectoriesResponseBodyDirectoriesLogs extends $dara.Model 
   step?: string;
   /**
    * @remarks
-   * The time when the log entry was printed.
+   * The time when the log was printed. The time is in the ISO 8601 standard (UTC).
    * 
    * @example
    * 2021-01-22T06:45Z
@@ -195,7 +145,7 @@ export class DescribeDirectoriesResponseBodyDirectoriesLogs extends $dara.Model 
 export class DescribeDirectoriesResponseBodyDirectories extends $dara.Model {
   /**
    * @remarks
-   * Details of the AD connector.
+   * The information about AD connectors.
    */
   ADConnectors?: DescribeDirectoriesResponseBodyDirectoriesADConnectors[];
   /**
@@ -224,7 +174,7 @@ export class DescribeDirectoriesResponseBodyDirectories extends $dara.Model {
   backupDns?: string;
   /**
    * @remarks
-   * The time when the directory was created.
+   * The time when the directory was created. The time is in the ISO 8601 standard (UTC).
    * 
    * @example
    * 2020-11-02T01:44Z
@@ -232,7 +182,7 @@ export class DescribeDirectoriesResponseBodyDirectories extends $dara.Model {
   creationTime?: string;
   /**
    * @remarks
-   * The security group ID. This parameter is returned only when the directory type is AD office network.
+   * The security group ID. This parameter is returned only when the directory type is AD workspace.
    * 
    * @example
    * sg-bp1ce64o4g9mdf5u****
@@ -240,33 +190,11 @@ export class DescribeDirectoriesResponseBodyDirectories extends $dara.Model {
   customSecurityGroupId?: string;
   /**
    * @remarks
-   * The method in which the cloud computer is connected.
+   * The method allowed for connecting to cloud computers. Valid values:
    * 
-   * Valid values:
-   * 
-   * *   VPC
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   Internet
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   Any
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
+   * - VPC: VPC connection.
+   * - Internet: Internet connection.
+   * - Any: Both Internet and VPC connections.
    * 
    * @example
    * Internet
@@ -274,7 +202,7 @@ export class DescribeDirectoriesResponseBodyDirectories extends $dara.Model {
   desktopAccessType?: string;
   /**
    * @remarks
-   * The endpoint that is used to connect to cloud computers in the directory over a VPC.
+   * The endpoint used for connecting to cloud computers over a VPC.
    * 
    * @example
    * http://ep-bp1s2vmbj55r5rzc****.epsrv-bp1pcfhpwvlpny01****.cn-hangzhou.privatelink.aliyuncs.com
@@ -292,36 +220,18 @@ export class DescribeDirectoriesResponseBodyDirectories extends $dara.Model {
    * @remarks
    * The directory type.
    * 
-   * Valid values:
-   * 
-   * *   AD_CONNECTOR: AD directory
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   RAM: RAM directory
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
    * @example
    * RAM
    */
   directoryType?: string;
   /**
    * @remarks
-   * The DNS address of the directory.
+   * The DNS addresses of the directory.
    */
   dnsAddress?: string[];
   /**
    * @remarks
-   * The username of a DNS user.
+   * The DNS username.
    * 
    * @example
    * testDnsUserName
@@ -337,7 +247,7 @@ export class DescribeDirectoriesResponseBodyDirectories extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
-   * The password of the domain administrator. This parameter is returned only when the directory type is AD office network.
+   * The password of the domain administrator. This parameter is returned only when the directory type is AD workspace.
    * 
    * @example
    * testPassword
@@ -353,7 +263,7 @@ export class DescribeDirectoriesResponseBodyDirectories extends $dara.Model {
   domainUserName?: string;
   /**
    * @remarks
-   * Indicates whether the local administrator permissions are granted to users that use cloud computers in the office network.
+   * Indicates whether local administrator permissions are granted to cloud computer users.
    * 
    * @example
    * true
@@ -361,7 +271,7 @@ export class DescribeDirectoriesResponseBodyDirectories extends $dara.Model {
   enableAdminAccess?: boolean;
   /**
    * @remarks
-   * Indicates whether cloud computers can communicate with each other in the directory.
+   * Indicates whether the cross-cloud-computer access feature is enabled for the directory. After this feature is enabled, cloud computers within the same directory can access each other over the network.
    * 
    * @example
    * true
@@ -369,9 +279,9 @@ export class DescribeDirectoriesResponseBodyDirectories extends $dara.Model {
   enableCrossDesktopAccess?: boolean;
   /**
    * @remarks
-   * Indicates whether access over the Internet is enabled.
+   * Indicates whether Internet access is enabled.    
    * 
-   * >  This parameter is unavailable.
+   * > This parameter is not yet available for use.
    * 
    * @example
    * false
@@ -379,17 +289,17 @@ export class DescribeDirectoriesResponseBodyDirectories extends $dara.Model {
   enableInternetAccess?: boolean;
   /**
    * @remarks
-   * The IDs of File Storage NAS (NAS) file systems.
+   * The NAS file system IDs.
    */
   fileSystemIds?: string[];
   /**
    * @remarks
-   * The registration logs. This parameter is returned only when the directory type is AD office network.
+   * The list of registration log information. This parameter is returned only when the directory type is AD workspace.
    */
   logs?: DescribeDirectoriesResponseBodyDirectoriesLogs[];
   /**
    * @remarks
-   * Indicates whether MFA is enabled.
+   * Indicates whether multi-factor authentication (MFA) is enabled.
    * 
    * @example
    * false
@@ -405,8 +315,7 @@ export class DescribeDirectoriesResponseBodyDirectories extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Indicates whether two-step verification for logons is enabled. This parameter is returned only for directories of convenience account type.\\
-   * If two-factor verification is enabled, the system checks whether security risks exist within the logon account when a convenience user logs on to an Alibaba Cloud Workspace client. If risks are detected, the system sends a verification code to the email address that is associated with the account. Then, the convenience user can log on to the client only after the user enters the correct verification code.
+   * Indicates whether secondary authentication is required for logon. This parameter applies only to convenience directories. If secondary authentication is enabled, the system checks for security risks when a convenience user logs on to the client. If a risk is detected, the system sends a verification code to the email address associated with the account. The convenience user can log on to the client only after passing the verification.
    * 
    * @example
    * false
@@ -414,7 +323,7 @@ export class DescribeDirectoriesResponseBodyDirectories extends $dara.Model {
   needVerifyLoginRisk?: boolean;
   /**
    * @remarks
-   * The organization unit that you selected when you added the cloud computer to the domain.
+   * The organizational unit (OU) selected when cloud computers join the domain.
    * 
    * @example
    * example.com/Domain Controllers
@@ -422,7 +331,7 @@ export class DescribeDirectoriesResponseBodyDirectories extends $dara.Model {
   ouName?: string;
   /**
    * @remarks
-   * Indicates whether single sign-on (SSO) is enabled.
+   * Indicates whether SSO is enabled.
    * 
    * @example
    * false
@@ -432,36 +341,18 @@ export class DescribeDirectoriesResponseBodyDirectories extends $dara.Model {
    * @remarks
    * The status of the AD directory.
    * 
-   * Valid values:
-   * 
-   * *   REGISTERING
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   REGISTERED
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
    * @example
    * REGISTERING
    */
   status?: string;
   /**
    * @remarks
-   * The DNS address of the enterprise AD subdomain.
+   * The DNS addresses of the AD subdomain.
    */
   subDnsAddress?: string[];
   /**
    * @remarks
-   * The fully qualified domain name (FQDN) of the existing AD subdomain. The value contains both the host name and the domain name.
+   * The fully qualified domain name (FQDN) of the existing AD subdomain, which includes both the hostname and the domain name.
    * 
    * @example
    * child.example.com
@@ -469,7 +360,7 @@ export class DescribeDirectoriesResponseBodyDirectories extends $dara.Model {
   subDomainName?: string;
   /**
    * @remarks
-   * The AD trust password. This parameter is returned only when the directory type is AD office network.
+   * The AD trust password. This parameter is returned only when the directory type is AD workspace.
    * 
    * @example
    * 82Tg****
@@ -477,12 +368,12 @@ export class DescribeDirectoriesResponseBodyDirectories extends $dara.Model {
   trustPassword?: string;
   /**
    * @remarks
-   * The IDs of the vSwitches specified when the directory was created.
+   * The vSwitch IDs specified when the directory was created.
    */
   vSwitchIds?: string[];
   /**
    * @remarks
-   * The ID of the VPC to which the vSwitch belongs. This parameter is returned only when the directory type is AD office network.
+   * The ID of the VPC to which the vSwitch belongs. This parameter is returned only when the directory type is AD workspace.
    * 
    * @example
    * vpc-uf6tz5k67puge5jn8****
@@ -590,7 +481,7 @@ export class DescribeDirectoriesResponseBodyDirectories extends $dara.Model {
 export class DescribeDirectoriesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The hostname of the domain controller. The hostname must comply with the hostname naming convention of Windows. This parameter is returned only when the directory type is AD office network.
+   * The hostname of the domain controller. The hostname must comply with Windows hostname naming conventions. This parameter is returned only when the directory type is AD workspace.
    * 
    * @example
    * cnshsv21hmc****
@@ -598,12 +489,12 @@ export class DescribeDirectoriesResponseBody extends $dara.Model {
   adHostname?: string;
   /**
    * @remarks
-   * The directories.
+   * The list of directory information.
    */
   directories?: DescribeDirectoriesResponseBodyDirectories[];
   /**
    * @remarks
-   * The token that is used for the next query. If this parameter is empty, all results are returned.
+   * The pagination token for the next query. An empty value indicates that no more results exist.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a4883
@@ -611,7 +502,7 @@ export class DescribeDirectoriesResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * F369A091-002F-49C8-AD55-02A776297C7B

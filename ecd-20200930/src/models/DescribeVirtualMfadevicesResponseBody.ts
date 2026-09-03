@@ -3,9 +3,37 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeVirtualMFADevicesResponseBodyVirtualMFADevicesAdUser extends $dara.Model {
+  /**
+   * @remarks
+   * The display name of the AD account.
+   * 
+   * @example
+   * aduser
+   */
   displayName?: string;
+  /**
+   * @remarks
+   * The new display name of the user.
+   * 
+   * @example
+   * 张三
+   */
   displayNameNew?: string;
+  /**
+   * @remarks
+   * The username of the AD account.
+   * 
+   * @example
+   * aduser
+   */
   endUser?: string;
+  /**
+   * @remarks
+   * The user principal name (UPN).
+   * 
+   * @example
+   * alice@example.com
+   */
   userPrincipalName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -35,10 +63,14 @@ export class DescribeVirtualMFADevicesResponseBodyVirtualMFADevicesAdUser extend
 }
 
 export class DescribeVirtualMFADevicesResponseBodyVirtualMFADevices extends $dara.Model {
+  /**
+   * @remarks
+   * The AD domain user information.
+   */
   adUser?: DescribeVirtualMFADevicesResponseBodyVirtualMFADevicesAdUser;
   /**
    * @remarks
-   * The number of consecutive failed attempts to bind or authenticate the virtual MFA device.
+   * The number of consecutive failures to bind or authenticate the virtual MFA device.
    * 
    * @example
    * 1
@@ -46,7 +78,7 @@ export class DescribeVirtualMFADevicesResponseBodyVirtualMFADevices extends $dar
   consecutiveFails?: number;
   /**
    * @remarks
-   * > This parameter is in private preview.
+   * > This parameter is in invitational preview and is not publicly available.
    * 
    * @example
    * cn-hangzhou+dir-gx2x1dhsmu52rd****
@@ -54,7 +86,7 @@ export class DescribeVirtualMFADevicesResponseBodyVirtualMFADevices extends $dar
   directoryId?: string;
   /**
    * @remarks
-   * The AD username of the bound user.
+   * The username of the AD account that uses the virtual MFA device.
    * 
    * @example
    * usertest
@@ -62,7 +94,7 @@ export class DescribeVirtualMFADevicesResponseBodyVirtualMFADevices extends $dar
   endUserId?: string;
   /**
    * @remarks
-   * The time when the virtual MFA device was enabled. The time is in the `YYYY-MM-DDThh:mm:ssZ` format and in UTC, as specified by the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard.
+   * The time when the virtual MFA device was enabled. The time follows the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
    * 
    * @example
    * 2020-12-20T14:52:28Z
@@ -70,7 +102,7 @@ export class DescribeVirtualMFADevicesResponseBodyVirtualMFADevices extends $dar
   gmtEnabled?: string;
   /**
    * @remarks
-   * The time when the locked virtual MFA device is automatically unlocked. The time is in the `YYYY-MM-DDThh:mm:ssZ` format and in UTC, as specified by the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard.
+   * The automatic unlock time after the virtual MFA device is locked. The time follows the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
    * 
    * @example
    * 2020-12-21T15:21:28Z
@@ -78,7 +110,7 @@ export class DescribeVirtualMFADevicesResponseBodyVirtualMFADevices extends $dar
   gmtUnlock?: string;
   /**
    * @remarks
-   * The workspace ID.
+   * The office network ID.
    * 
    * @example
    * cn-hangzhou+dir-269345****
@@ -143,7 +175,7 @@ export class DescribeVirtualMFADevicesResponseBodyVirtualMFADevices extends $dar
 export class DescribeVirtualMFADevicesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The token to retrieve the next page of results. If this parameter is empty, no more results are available.
+   * The token for the next query. If NextToken is empty, no more results exist.
    * 
    * @example
    * AAAAAV3MpHK1AP0pfERHZN5pu6nmB7qrRFJ8vmttjxPL23as
@@ -159,7 +191,7 @@ export class DescribeVirtualMFADevicesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * A list of virtual MFA devices.
+   * The information about virtual MFA devices.
    */
   virtualMFADevices?: DescribeVirtualMFADevicesResponseBodyVirtualMFADevices[];
   static names(): { [key: string]: string } {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateTemplateRequestDataDiskList extends $dara.Model {
   /**
    * @remarks
-   * The data disk performance level. Default value: `AutoPL`.
+   * The performance level of the data disk. Default value: `AutoPL`.
    * 
    * @example
    * AutoPL
@@ -13,9 +13,9 @@ export class CreateTemplateRequestDataDiskList extends $dara.Model {
   performanceLevel?: string;
   /**
    * @remarks
-   * The data cloud disk size. Unit: GiB. Valid values: 40 to 2040, in increments of 10 GiB.
+   * The size of the data cloud disk. Unit: GiB. Valid values: 40 to 2040. The value must be a multiple of 10.
    * 
-   * >Notice: The larger the standard SSD or ESSD cloud disk capacity, the higher the performance level (PL) available (for example, PL2 is available for capacities above 460 GiB). Higher performance levels incur higher costs. Select the ESSD cloud disk performance level (PL) based on your requirements.
+   * >Notice: The larger the ESSD cloud disk capacity, the higher the performance level (PL) available (for example, PL2 is available for capacities of 460 GiB or more). Higher performance levels (PLs) incur higher costs. Select the ESSD cloud disk performance level (PL) based on your requirements. Note: Only standard SSD and ESSD cloud disks are supported.
    * 
    * @example
    * 40
@@ -71,7 +71,7 @@ export class CreateTemplateRequestRegionConfigList extends $dara.Model {
   resourceInstanceType?: string;
   /**
    * @remarks
-   * The automatic snapshot policy ID.
+   * The ID of the automatic snapshot policy.
    * 
    * @example
    * sp-35fvn8m21pnx2****
@@ -95,7 +95,7 @@ export class CreateTemplateRequestRegionConfigList extends $dara.Model {
   volumeEncryptionEnable?: boolean;
   /**
    * @remarks
-   * The KMS key ID used when disk encryption is enabled. You can call [ListKeys](https://help.aliyun.com/document_detail/28951.html) to obtain the key ID.
+   * The ID of the KMS key used when disk encryption is enabled. You can call [ListKeys](https://help.aliyun.com/document_detail/28951.html) to obtain the key ID.
    * 
    * @example
    * a7b3c0c8-b3a2-4876-b1cc-*********
@@ -215,7 +215,15 @@ export class CreateTemplateRequestSiteConfigList extends $dara.Model {
 }
 
 export class CreateTemplateRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Indicates whether automatic payment is enabled for the subscription order.
+   */
   autoPay?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to enable auto-renewal for the subscription cloud computer.
+   */
   autoRenew?: boolean;
   /**
    * @remarks
@@ -225,10 +233,17 @@ export class CreateTemplateRequest extends $dara.Model {
    * 1
    */
   bizType?: string;
+  /**
+   * @remarks
+   * The billing method of the cloud computer.
+   * 
+   * @example
+   * PrePaid
+   */
   chargeType?: string;
   /**
    * @remarks
-   * The data disk size and specification configurations.
+   * The size and specification configurations of data disks.
    */
   dataDiskList?: CreateTemplateRequestDataDiskList[];
   /**
@@ -243,22 +258,47 @@ export class CreateTemplateRequest extends $dara.Model {
    * @remarks
    * The description of the template. The description must meet the following requirements:
    * 
-   * - The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`.
+   * - The description must be 2 to 256 characters in length. It cannot start with `http://` or `https://`.
    * - The description can contain Chinese characters, letters, digits, spaces, and special characters. Line breaks are supported.
    * 
    * @example
-   * Design department template
+   * DesignDepartmentTemplate
    */
   description?: string;
   /**
    * @remarks
-   * The cloud computer image ID. You can query this value on the image management page. System images and custom images are supported.
+   * The ID of the cloud computer image. You can query the ID on the image management page. System images and custom images are supported.
    * 
    * @example
    * desktopimage-windows-server-2022-64-asp
    */
   imageId?: string;
+  /**
+   * @remarks
+   * The subscription duration of the subscription cloud computer. This parameter takes effect and is required only when `ChargeType` is set to `PrePaid`. The unit is specified by `PeriodUnit`.
+   * - If `PeriodUnit` is set to `Month`, valid values:
+   *     - 1
+   *     - 2
+   *     - 3
+   *     - 6
+   * - If `PeriodUnit` is set to `Year`, valid values:
+   *     - 1
+   *     - 2
+   *     - 3
+   *     - 4
+   *     - 5
+   * 
+   * @example
+   * 1
+   */
   period?: number;
+  /**
+   * @remarks
+   * The unit of the subscription billable methods duration.
+   * 
+   * @example
+   * Month
+   */
   periodUnit?: string;
   /**
    * @remarks
@@ -268,6 +308,10 @@ export class CreateTemplateRequest extends $dara.Model {
    * pg-8hlryfn331******
    */
   policyGroupId?: string;
+  /**
+   * @remarks
+   * Specifies whether to automatically switch to pay-as-you-go billing after the duration plan is used up.
+   */
   postPaidAfterUsedUp?: boolean;
   /**
    * @remarks
@@ -279,9 +323,9 @@ export class CreateTemplateRequest extends $dara.Model {
   productType?: string;
   /**
    * @remarks
-   * The region-specific template configurations. Multiple configurations are supported. The configuration that matches the specific region is used.
+   * The region-specific template configurations. You can specify multiple configurations. The configuration that matches the specific region is used.
    * 
-   * > You can configure up to 20 regions.
+   * > You can specify configurations for up to 20 regions.
    */
   regionConfigList?: CreateTemplateRequestRegionConfigList[];
   /**
@@ -294,7 +338,7 @@ export class CreateTemplateRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The cloud computer tags in key-value format. You can specify up to 20 tags.
+   * The tags of the cloud computer in key-value format. You can specify up to 20 tags.
    */
   resourceTagList?: CreateTemplateRequestResourceTagList[];
   /**
@@ -304,9 +348,9 @@ export class CreateTemplateRequest extends $dara.Model {
   siteConfigList?: CreateTemplateRequestSiteConfigList[];
   /**
    * @remarks
-   * The system disk type.
+   * The type of the system disk.
    * 
-   * > Only high frequency and graphics cloud computer specifications support ESSD disks.
+   * > Only high-frequency and GPU-accelerated cloud computer specifications support ESSD disks.
    * 
    * @example
    * AutoPL
@@ -314,7 +358,7 @@ export class CreateTemplateRequest extends $dara.Model {
   systemDiskPerformanceLevel?: string;
   /**
    * @remarks
-   * The system disk size. Unit: GiB. Valid values: 40 to 500, in increments of 10 GiB.
+   * The size of the system disk. Unit: GiB. Valid values: 40 to 500. The value must be a multiple of 10.
    * 
    * > The system disk size cannot be smaller than the image size.
    * 
@@ -326,14 +370,14 @@ export class CreateTemplateRequest extends $dara.Model {
    * @remarks
    * The name of the template. The name must meet the following requirements:
    * 
-   * - The name must be 2 to 126 characters in length and can contain letters and Chinese characters.
+   * - The name must be 2 to 126 characters in length.
    * - The name must start with a letter or a Chinese character. It cannot start with `http://` or `https://`.
    * - The name can contain letters, digits, Chinese characters, colons (:), underscores (_), or hyphens (-). Periods (.) are not supported.
    * 
    * This parameter is required.
    * 
    * @example
-   * My cloud desktop template 001
+   * MyCloudComputerTemplate001
    */
   templateName?: string;
   /**
@@ -344,6 +388,13 @@ export class CreateTemplateRequest extends $dara.Model {
    * ccg-0caoeogrk9m5****
    */
   timerGroupId?: string;
+  /**
+   * @remarks
+   * The usage duration plan per user.
+   * 
+   * @example
+   * 120
+   */
   userDuration?: number;
   static names(): { [key: string]: string } {
     return {

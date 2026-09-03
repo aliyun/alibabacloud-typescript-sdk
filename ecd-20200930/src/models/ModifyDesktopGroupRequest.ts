@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyDesktopGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable automatic creation of cloud computers in a subscription shared cloud computer group. This parameter is required and takes effect only when `ChargeType` is set to `PrePaid`.
+   * Specifies whether to allow automatic creation of cloud computers in the subscription shared cloud computer. This parameter takes effect only when the `ChargeType` parameter is set to `PrePaid`, and is required in this case.
    * 
    * @example
    * 1
@@ -13,13 +13,11 @@ export class ModifyDesktopGroupRequest extends $dara.Model {
   allowAutoSetup?: number;
   /**
    * @remarks
-   * The number of cloud computers to reserve in a pay-as-you-go shared cloud computer group. This parameter is required and takes effect only when `ChargeType` is set to `PostPaid`. Valid values:
+   * The number of cloud computers that can be reserved in a pay-as-you-go shared cloud computer. This parameter takes effect only when the `ChargeType` parameter is set to `PostPaid`, and is required in this case. Valid values: 
+   * - 0: no reservation
+   * - N: reserve N cloud computers (1 ≤ N ≤ 100)
    * 
-   * - 0: No cloud computers are reserved.
-   * 
-   * - N: N cloud computers are reserved (1 ≤ N ≤ 100).
-   * 
-   * > If you do not reserve any cloud computers, the system must create and start one when an end user requests a connection. This process takes longer. Reserve a specific number of cloud computers to ensure a good user experience.
+   * > If no available cloud computers are reserved, the system must create and start a cloud computer before assigning it to the user when an end user initiates a connection request. This process takes a relatively long time. Reserve a certain number of cloud computers as needed to ensure a good experience for end users.
    * 
    * @example
    * 1
@@ -27,7 +25,7 @@ export class ModifyDesktopGroupRequest extends $dara.Model {
   allowBufferCount?: number;
   /**
    * @remarks
-   * The number of concurrent sessions that each cloud computer in a multi-session shared cloud computer group can support.
+   * The number of concurrent sessions allowed on each cloud computer in a multi-session shared cloud computer with multiple cloud computers.
    * 
    * > This parameter is not yet available.
    * 
@@ -37,9 +35,8 @@ export class ModifyDesktopGroupRequest extends $dara.Model {
   bindAmount?: number;
   /**
    * @remarks
-   * - For a subscription shared cloud computer group: the number of cloud computers to purchase. Valid values: 0 to 200.
-   * 
-   * - For a pay-as-you-go shared cloud computer group: the minimum number of cloud computers to create in the pool. Default value: 1. Valid values: 0 to the value of `MaxDesktopsCount`.
+   * - For subscription shared cloud computers: the number of cloud computers to purchase. Valid values: 0 to 200.
+   * - For pay-as-you-go shared cloud computers: the minimum number of cloud computers to create in the pool. Default value: 1. Valid values: 0 to the value of `MaxDesktopsCount`.
    * 
    * @example
    * 5
@@ -47,7 +44,7 @@ export class ModifyDesktopGroupRequest extends $dara.Model {
   buyDesktopsCount?: number;
   /**
    * @remarks
-   * The type of the shared cloud computer group.
+   * The type of the shared cloud computer.
    * 
    * > This parameter is not yet available.
    * 
@@ -65,16 +62,23 @@ export class ModifyDesktopGroupRequest extends $dara.Model {
   comments?: string;
   /**
    * @remarks
-   * The maximum duration of a session. When the session duration reaches this value, the session is automatically disconnected. Unit: milliseconds. Valid values: 900000 (15 minutes) to 345600000 (4 days).
+   * The maximum duration that a session can remain in the connected state. The session is automatically disconnected when this duration is reached. Unit: milliseconds. Valid values: 900000 (15 minutes) to 345600000 (4 days).
    * 
    * @example
    * 900000
    */
   connectDuration?: number;
+  /**
+   * @remarks
+   * The retention period before cloud computers in the cloud computer pool are automatically deleted.
+   * 
+   * @example
+   * 30
+   */
   deleteDuration?: number;
   /**
    * @remarks
-   * The ID of the shared cloud computer group.
+   * The shared cloud computer ID.
    * 
    * This parameter is required.
    * 
@@ -84,7 +88,7 @@ export class ModifyDesktopGroupRequest extends $dara.Model {
   desktopGroupId?: string;
   /**
    * @remarks
-   * Shared cloud desktop name.
+   * The shared cloud computer name.
    * 
    * @example
    * desktopGroupName1
@@ -100,7 +104,7 @@ export class ModifyDesktopGroupRequest extends $dara.Model {
   disableSessionConfig?: boolean;
   /**
    * @remarks
-   * The ID of the NAS file system used for user data roaming.
+   * The NAS file system ID used by the user data roaming feature.
    * 
    * > This parameter is not yet available.
    * 
@@ -110,11 +114,11 @@ export class ModifyDesktopGroupRequest extends $dara.Model {
   fileSystemId?: string;
   /**
    * @remarks
-   * The maximum idle time for a session. If there is no keyboard or mouse input within this time, the session disconnects. Unit: milliseconds. Valid values: 360000 (6 minutes) to 3600000 (60 minutes).
+   * The maximum idle duration after a user session is connected. If no keyboard or mouse activity occurs within this duration, the session is disconnected. Unit: milliseconds. Valid values: 360000 (6 minutes) to 3600000 (60 minutes).
    * 
-   * Thirty seconds before the session disconnects, the end user receives a message to save their data. The end user must save their data to prevent data loss.
+   * 30 seconds before this duration is reached, the end user in the session receives a prompt to save document data. The end user must save document data promptly to avoid data loss.
    * 
-   * > This parameter is applicable only to cloud computers with an image version of 1.0.2 or later.
+   * > This parameter applies only to cloud computers with an image version of 1.0.2 or later.
    * 
    * @example
    * 360000
@@ -130,9 +134,9 @@ export class ModifyDesktopGroupRequest extends $dara.Model {
   imageId?: string;
   /**
    * @remarks
-   * The duration to keep a session active after it disconnects. Unit: milliseconds. Valid values range from 180000 (3 minutes) to 345600000 (4 days). A value of 0 means the session is always kept active.
+   * The retention period after a session is disconnected. Unit: milliseconds. Valid values: 180000 (3 minutes) to 345600000 (4 days). A value of 0 indicates that the session is always retained.
    * 
-   * When a session disconnects, either intentionally or unexpectedly, a timer begins. If the user fails to reconnect within this duration, the session is logged off, and any unsaved data is destroyed. If the user reconnects within this duration, they can resume the original session and access the data from before the disconnection.
+   * When a session is disconnected because the user actively disconnects or because of other unexpected factors, the retention period starts from the time of disconnection. If the user does not reconnect to the session within the retention period, the session is logged off and all unsaved data is destroyed. If the user successfully reconnects within the retention period, the user can access the original session and the data that existed before the disconnection.
    * 
    * @example
    * 180000
@@ -140,7 +144,7 @@ export class ModifyDesktopGroupRequest extends $dara.Model {
   keepDuration?: number;
   /**
    * @remarks
-   * The load balancing policy for a multi-session shared cloud computer group that contains multiple cloud computers.
+   * The load balancing policy for multi-session shared cloud computers with multiple cloud computers.
    * 
    * > This parameter is not yet available.
    * 
@@ -150,7 +154,7 @@ export class ModifyDesktopGroupRequest extends $dara.Model {
   loadPolicy?: number;
   /**
    * @remarks
-   * The maximum number of cloud computers that a pay-as-you-go shared cloud computer group can contain. Valid values: 0 to 500.
+   * The maximum number of cloud computers that a pay-as-you-go shared cloud computer can contain. Valid values: 0 to 500.
    * 
    * @example
    * 10
@@ -158,7 +162,7 @@ export class ModifyDesktopGroupRequest extends $dara.Model {
   maxDesktopsCount?: number;
   /**
    * @remarks
-   * The maximum number of cloud computers that are automatically created in a subscription shared cloud computer group. This parameter is required and takes effect only when `ChargeType` is set to `PrePaid`. Default value: 1. Valid values: 0 to the value of `MaxDesktopsCount`.
+   * The maximum number of cloud computers that can be subject to automatic creation in a subscription shared cloud computer. This parameter takes effect only when the `ChargeType` parameter is set to `PrePaid`, and is required in this case. Default value: 1. Valid values: 0 to the value of `MaxDesktopsCount`.
    * 
    * @example
    * 1
@@ -197,11 +201,11 @@ export class ModifyDesktopGroupRequest extends $dara.Model {
   profileFollowSwitch?: boolean;
   /**
    * @remarks
-   * The session usage threshold. This threshold is a condition for triggering auto scaling in a multi-session shared cloud computer group. The session usage is calculated using the following formula:
+   * The session occupancy threshold, which is used as the auto scaling trigger condition for multi-session shared cloud computers with multiple cloud computers. The session occupancy is calculated by using the following formula:
    * 
-   * `Session usage = Number of active sessions / (Total number of cloud computers × Maximum number of sessions per cloud computer) × 100%`
+   * ```Session occupancy = Number of attached sessions / (Total number of cloud computer resources × Maximum number of sessions supported per cloud computer) × 100%```
    * 
-   * When the session usage reaches this threshold, new cloud computers are created. If the session usage is below this threshold, idle cloud computers are deleted.
+   * When the session occupancy reaches this threshold, new cloud computers are created. When the session occupancy is below this threshold, excess cloud computers are deleted.
    * 
    * > This parameter is not yet available.
    * 
@@ -211,7 +215,7 @@ export class ModifyDesktopGroupRequest extends $dara.Model {
   ratioThreshold?: number;
   /**
    * @remarks
-   * The region ID. Call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to get a list of regions that WUYING Workspace supports.
+   * The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to query the regions supported by Elastic Desktop Service.
    * 
    * This parameter is required.
    * 
@@ -221,7 +225,7 @@ export class ModifyDesktopGroupRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The reset type for the cloud computers.
+   * The cloud computer reset type.
    * 
    * @example
    * 0
@@ -229,7 +233,7 @@ export class ModifyDesktopGroupRequest extends $dara.Model {
   resetType?: number;
   /**
    * @remarks
-   * The ID of the auto scaling policy group.
+   * The scaling policy group ID.
    * 
    * > This parameter is not yet available.
    * 
@@ -239,7 +243,7 @@ export class ModifyDesktopGroupRequest extends $dara.Model {
   scaleStrategyId?: string;
   /**
    * @remarks
-   * The idle shutdown time. The cloud computer automatically shuts down when it is idle for this amount of time. If a user connects to a shutdown cloud computer, it automatically starts. Unit: milliseconds.
+   * The idle shutdown duration. When the idle duration of a cloud computer reaches this value, the cloud computer is automatically shut down. If a user connects after the shutdown, the cloud computer is automatically started. Unit: milliseconds.
    * 
    * @example
    * 300000

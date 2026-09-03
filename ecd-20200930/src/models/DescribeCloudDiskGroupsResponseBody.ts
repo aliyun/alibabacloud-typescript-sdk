@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCloudDiskGroupsResponseBodyCloudDriveGroups extends $dara.Model {
   /**
    * @remarks
-   * The time when the resource was created.
+   * The creation time. The time is in the ISO 8601 standard in the UTC format: yyyy-MM-ddTHH:mm:ssZ.
    * 
    * @example
    * 2022-04-11T07:44:21Z
@@ -40,7 +40,7 @@ export class DescribeCloudDiskGroupsResponseBodyCloudDriveGroups extends $dara.M
    * The team space name.
    * 
    * @example
-   * Test team 1
+   * TestTeam1
    */
   groupName?: string;
   /**
@@ -61,7 +61,7 @@ export class DescribeCloudDiskGroupsResponseBodyCloudDriveGroups extends $dara.M
   status?: string;
   /**
    * @remarks
-   * The total capacity of the cloud drive team space, in bytes.
+   * The total capacity of the cloud disk team.
    * 
    * @example
    * 5368709120
@@ -69,7 +69,7 @@ export class DescribeCloudDiskGroupsResponseBodyCloudDriveGroups extends $dara.M
   totalSize?: number;
   /**
    * @remarks
-   * The amount of space used, in bytes.
+   * The used space size. Unit: bytes.
    * 
    * @example
    * 1024000000
@@ -115,12 +115,12 @@ export class DescribeCloudDiskGroupsResponseBodyCloudDriveGroups extends $dara.M
 export class DescribeCloudDiskGroupsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A list of cloud drive team spaces.
+   * The list of cloud disk team spaces.
    */
   cloudDriveGroups?: DescribeCloudDiskGroupsResponseBodyCloudDriveGroups[];
   /**
    * @remarks
-   * The total number of items.
+   * The total number of entries.
    * 
    * @example
    * 1
@@ -128,7 +128,7 @@ export class DescribeCloudDiskGroupsResponseBody extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The token used to start the next query. If NextToken is empty, no more results are available.
+   * The token for the next query. If NextToken is empty, no more results exist.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a4883
@@ -144,7 +144,7 @@ export class DescribeCloudDiskGroupsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the operation succeeded. Valid values: true and false.
+   * Indicates whether the operation is successful. Valid values: true: The operation is successful. false: The operation failed.
    * 
    * @example
    * True

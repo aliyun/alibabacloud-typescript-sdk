@@ -15,9 +15,7 @@ export class SetDirectorySsoStatusRequest extends $dara.Model {
   directoryId?: string;
   /**
    * @remarks
-   * Specifies whether to enable or disable single sign-on (SSO). Valid values:
-   * - true: enables SSO
-   * - false: disables SSO.
+   * Specifies whether to enable or shutdown SSO logon.
    * 
    * This parameter is required.
    * 

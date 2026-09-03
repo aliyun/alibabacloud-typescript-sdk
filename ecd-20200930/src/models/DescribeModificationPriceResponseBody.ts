@@ -16,7 +16,7 @@ export class DescribeModificationPriceResponseBodyPriceInfoPricePromotions exten
    * The promotion description.
    * 
    * @example
-   * New product launch with exclusive discounts.
+   * New product launch with exclusive discounts
    */
   promotionDesc?: string;
   /**
@@ -159,7 +159,7 @@ export class DescribeModificationPriceResponseBodyPriceInfoRules extends $dara.M
    * The rule description.
    * 
    * @example
-   * Get 15% off the list price for a one-year purchase.
+   * Get a 15% discount off the list price for a one-year purchase
    */
   description?: string;
   /**

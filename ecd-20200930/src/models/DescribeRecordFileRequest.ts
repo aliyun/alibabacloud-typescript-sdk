@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeRecordFileRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the cloud desktop.
+   * The Cloud Desktop ID.
    * 
    * @example
    * ecd-7w78ozhjcwa3u****
@@ -13,7 +13,7 @@ export class DescribeRecordFileRequest extends $dara.Model {
   desktopId?: string;
   /**
    * @remarks
-   * The end of the time range to query.
+   * The end time of the query. Format: yyyyMMddHHmmss.
    * 
    * @example
    * 20251218205715
@@ -37,9 +37,9 @@ export class DescribeRecordFileRequest extends $dara.Model {
   fileName?: string;
   /**
    * @remarks
-   * The sorting basis. If you do not specify this parameter, the results are sorted by screen recording start time in descending order. Valid value:
+   * The field used for sorting. If this parameter is not specified, the results are sorted by recording start time in descending order. Valid values:
    * 
-   * - `startTime`: the start time of a screen recording.
+   * - startTime: recording start time.
    * 
    * @example
    * startTime
@@ -47,11 +47,10 @@ export class DescribeRecordFileRequest extends $dara.Model {
   orderBy?: string;
   /**
    * @remarks
-   * The sorting order. Valid values:
+   * The sort order. Valid values:
    * 
-   * - `asc`: ascending
-   * 
-   * - `desc`: descending
+   * - asc: ascending order.
+   * - desc: descending order.
    * 
    * @example
    * asc
@@ -67,7 +66,7 @@ export class DescribeRecordFileRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The maximum number of rows per page in a paging query.
    * 
    * @example
    * 20
@@ -75,15 +74,12 @@ export class DescribeRecordFileRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The type of the screen recording. Valid values:
+   * The type of the screen recording file. Valid values:
    * 
-   * - `alltime`: full-time recording
-   * 
-   * - `period`: recording at intervals
-   * 
-   * - `event`: event-triggered recording
-   * 
-   * - `session`: session-based recording
+   * - alltime: full-time recording.
+   * - period: interval recording.
+   * - event: event-based recording.
+   * - session: session recording.
    * 
    * @example
    * alltime
@@ -91,7 +87,7 @@ export class DescribeRecordFileRequest extends $dara.Model {
   recordType?: string;
   /**
    * @remarks
-   * The region ID. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the regions that are supported by Elastic Desktop Service.
+   * The region ID. You can call [DescribeRegions](~~DescribeRegions~~) to query the regions supported by WUYING Workspace.
    * 
    * This parameter is required.
    * 
@@ -99,10 +95,17 @@ export class DescribeRecordFileRequest extends $dara.Model {
    * cn-shanghai
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The resource type.
+   * 
+   * @example
+   * CLOUD_DESKTOP
+   */
   resourceType?: string;
   /**
    * @remarks
-   * The beginning of the time range to query.
+   * The start time of the query. Format: yyyyMMddHHmmss.
    * 
    * @example
    * 20251218175715
@@ -112,9 +115,8 @@ export class DescribeRecordFileRequest extends $dara.Model {
    * @remarks
    * The status of the screen recording file. Valid values:
    * 
-   * - `0`: The file is uploaded.
-   * 
-   * - `1`: The file is being uploaded.
+   * - 0: uploaded.
+   * - 1: uploading.
    * 
    * @example
    * 1

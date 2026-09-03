@@ -43,7 +43,7 @@ export class DescribeZonesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The information about the zones.
+   * The collection of zone information.
    */
   zones?: DescribeZonesResponseBodyZones[];
   static names(): { [key: string]: string } {

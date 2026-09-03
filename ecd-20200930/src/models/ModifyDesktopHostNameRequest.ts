@@ -5,20 +5,23 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyDesktopHostNameRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the cloud desktop.
+   * The cloud desktop ID.
    * 
    * @example
    * ecd-gx2x1dhsmucyy****
    */
   desktopId?: string;
+  /**
+   * @remarks
+   * The list of cloud desktop IDs.
+   */
   desktopIds?: string[];
   /**
    * @remarks
    * The new hostname of the cloud desktop. The hostname must meet the following requirements:
    * 
    * - The hostname must be 2 to 15 characters in length.
-   * 
-   * - The hostname can contain letters, digits, and hyphens (-). It cannot start or end with a hyphen, contain consecutive hyphens, or consist of only digits.
+   * - The hostname can contain uppercase letters, lowercase letters, digits, and hyphens (-). It cannot start or end with a hyphen, cannot contain consecutive hyphens, and cannot contain only digits.
    * 
    * This parameter is required.
    * 
@@ -28,7 +31,7 @@ export class ModifyDesktopHostNameRequest extends $dara.Model {
   newHostName?: string;
   /**
    * @remarks
-   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the available regions for Elastic Desktop Service.
+   * The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to query the regions supported by WUYING Workspace.
    * 
    * This parameter is required.
    * 

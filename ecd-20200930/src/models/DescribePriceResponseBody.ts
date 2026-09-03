@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePriceResponseBodyPriceInfoPricePromotions extends $dara.Model {
   /**
    * @remarks
-   * The description of the promotion rule.
+   * The promotion rule description.
    * 
    * @example
    * test
@@ -13,10 +13,10 @@ export class DescribePriceResponseBodyPriceInfoPricePromotions extends $dara.Mod
   optionCode?: string;
   /**
    * @remarks
-   * The description of the promotion.
+   * The promotion description.
    * 
    * @example
-   * 新品上市，立享优惠
+   * New product launch with special discount
    */
   promotionDesc?: string;
   /**
@@ -37,7 +37,7 @@ export class DescribePriceResponseBodyPriceInfoPricePromotions extends $dara.Mod
   promotionName?: string;
   /**
    * @remarks
-   * Indicates whether an item is selected.
+   * Indicates whether the promotion is selected.
    * 
    * @example
    * false
@@ -75,7 +75,8 @@ export class DescribePriceResponseBodyPriceInfoPricePromotions extends $dara.Mod
 export class DescribePriceResponseBodyPriceInfoPrice extends $dara.Model {
   /**
    * @remarks
-   * The unit of currency (USD).
+   * <props="china">The currency unit (CNY).
+   * <props="intl">The currency unit (USD).
    * 
    * @example
    * CNY/USD
@@ -83,7 +84,7 @@ export class DescribePriceResponseBodyPriceInfoPrice extends $dara.Model {
   currency?: string;
   /**
    * @remarks
-   * The discounted amount.
+   * The discount amount.
    * 
    * @example
    * 15.8
@@ -91,7 +92,7 @@ export class DescribePriceResponseBodyPriceInfoPrice extends $dara.Model {
   discountPrice?: number;
   /**
    * @remarks
-   * The orders.
+   * The order information.
    */
   orderLines?: { [key: string]: string };
   /**
@@ -104,12 +105,12 @@ export class DescribePriceResponseBodyPriceInfoPrice extends $dara.Model {
   originalPrice?: number;
   /**
    * @remarks
-   * The promotions.
+   * The promotion information.
    */
   promotions?: DescribePriceResponseBodyPriceInfoPricePromotions[];
   /**
    * @remarks
-   * The price under an effective savings plan.
+   * The price under the savings plan.
    * 
    * @example
    * 50.00
@@ -117,7 +118,7 @@ export class DescribePriceResponseBodyPriceInfoPrice extends $dara.Model {
   spPrice?: number;
   /**
    * @remarks
-   * The actual price. The original price minus the discounted amount equals the actual price.
+   * The actual payment price. The value is the original price minus the discount amount.
    * 
    * @example
    * 63.2
@@ -165,10 +166,10 @@ export class DescribePriceResponseBodyPriceInfoPrice extends $dara.Model {
 export class DescribePriceResponseBodyPriceInfoRules extends $dara.Model {
   /**
    * @remarks
-   * The description of the rule.
+   * The rule description.
    * 
    * @example
-   * 买满1年，立享官网价格8.5折优惠。
+   * Get 15% off the list price when you purchase for one year or longer
    */
   description?: string;
   /**
@@ -205,7 +206,7 @@ export class DescribePriceResponseBodyPriceInfoRules extends $dara.Model {
 export class DescribePriceResponseBodyPriceInfo extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether a free enterprise drive is available.
+   * Indicates whether a free enterprise cloud disk is available.
    * 
    * @example
    * true
@@ -213,7 +214,7 @@ export class DescribePriceResponseBodyPriceInfo extends $dara.Model {
   freeCdsQuota?: boolean;
   /**
    * @remarks
-   * The free capacity provided by the enterprise drive. Unit: GiB.
+   * The free capacity of the enterprise cloud disk. Unit: GiB.
    * 
    * @example
    * 100
@@ -221,12 +222,12 @@ export class DescribePriceResponseBodyPriceInfo extends $dara.Model {
   freeCdsSize?: number;
   /**
    * @remarks
-   * The price.
+   * The price information.
    */
   price?: DescribePriceResponseBodyPriceInfoPrice;
   /**
    * @remarks
-   * The details of the promotion rules.
+   * The promotion rule information.
    */
   rules?: DescribePriceResponseBodyPriceInfoRules[];
   static names(): { [key: string]: string } {

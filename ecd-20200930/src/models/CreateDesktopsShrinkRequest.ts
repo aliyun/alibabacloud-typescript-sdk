@@ -23,8 +23,8 @@ export class CreateDesktopsShrinkRequestBundleModels extends $dara.Model {
    * @remarks
    * The cloud desktop name. The naming rules are as follows:
    * 
-   * - The name can be up to 64 characters in length.
-   * - The name must start with a letter or a Chinese character and cannot start with `http://` or `https://`.
+   * - The name cannot exceed 64 characters in length.
+   * - The name must start with a letter (uppercase or lowercase) or a Chinese character. It cannot start with `http://` or `https://`.
    * - The name can contain Chinese characters, letters, digits, colons (:), underscores (_), periods (.), or hyphens (-).
    * 
    * @example
@@ -38,14 +38,14 @@ export class CreateDesktopsShrinkRequestBundleModels extends $dara.Model {
   endUserIds?: string[];
   /**
    * @remarks
-   * The custom hostname of the cloud desktop. Settings for this parameter are supported only for cloud desktops that run the Windows operating system in an AD office network.
+   * The custom hostname settings of the cloud desktop. This parameter is supported only for cloud desktops whose operating system type is Windows in an AD office network.
    * 
    * The naming rules for the hostname are as follows:
    * 
    * - The hostname must be 2 to 15 characters in length.
-   * - The hostname can contain uppercase letters, lowercase letters, digits, or hyphens (-). It cannot start or end with a hyphen, contain consecutive hyphens, or consist of only digits.
+   * - The hostname can contain uppercase letters, lowercase letters, digits, or hyphens (-). It cannot start or end with a hyphen, cannot contain consecutive hyphens, and cannot consist of only digits.
    * 
-   * When you create multiple cloud desktops, you can use the `name_prefix[begin_number,bits]name_suffix` format to uniformly name the cloud desktops. For example, if you set Hostname to ecd-[1,4]-test, the hostname of the first cloud desktop is ecd-0001-test, the hostname of the second cloud desktop is ecd-0002-test, and so on.
+   * When creating multiple cloud desktops, you can use the `name_prefix[begin_number,bits]name_suffix` format to name multiple cloud desktops uniformly. For example, if Hostname is set to ecd-[1,4]-test, the hostname of the first cloud desktop is ecd-0001-test, the hostname of the second cloud desktop is ecd-0002-test, and so on.
    * 
    * - `name_prefix`: the prefix of the hostname.
    * - `[begin_number,bits]`: the sequential number in the hostname. `begin_number` is the starting number. Valid values: 0 to 999999. Default value: 0. `bits` is the number of digits. Valid values: 1 to 6. Default value: 6.
@@ -57,7 +57,7 @@ export class CreateDesktopsShrinkRequestBundleModels extends $dara.Model {
   hostname?: string;
   /**
    * @remarks
-   * Specifies whether to enable cloud disk encryption.
+   * Specifies whether to enable disk encryption.
    * 
    * @example
    * false
@@ -65,7 +65,7 @@ export class CreateDesktopsShrinkRequestBundleModels extends $dara.Model {
   volumeEncryptionEnabled?: boolean;
   /**
    * @remarks
-   * The ID of the Key Management Service (KMS) key used for cloud disk encryption. You can call [ListKeys](https://help.aliyun.com/document_detail/28951.html) to obtain the key ID.
+   * The ID of the Key Management Service (KMS) key used when disk encryption is enabled. Call [ListKeys](https://help.aliyun.com/document_detail/28951.html) to obtain the key ID.
    * 
    * @example
    * 08c33a6f-4e0a-4a1b-a3fa-7ddfa1d4****
@@ -120,7 +120,7 @@ export class CreateDesktopsShrinkRequestDesktopTimers extends $dara.Model {
    * @remarks
    * The cron expression of the scheduled task.
    * 
-   * >Notice: Specify the time in UTC. For example, to schedule a task at 00:00 (UTC+8) every day, set the value to 0 0 16 ? * 1,2,3,4,5,6,7.</notice>
+   * >Notice: The time must be specified in UTC. For example, to specify 00:00 (UTC+8) every day, use 0 0 16 ? * 1,2,3,4,5,6,7.</notice>
    * 
    * @example
    * 0 40 7 ? * 1,2,3,4,5,6,7
@@ -128,7 +128,7 @@ export class CreateDesktopsShrinkRequestDesktopTimers extends $dara.Model {
   cronExpression?: string;
   /**
    * @remarks
-   * Specifies whether to forcefully execute the task.
+   * Specifies whether to forcefully execute the scheduled task.
    * 
    * @example
    * true
@@ -136,7 +136,7 @@ export class CreateDesktopsShrinkRequestDesktopTimers extends $dara.Model {
   enforce?: boolean;
   /**
    * @remarks
-   * The time interval, in minutes.
+   * The time interval. Unit: minutes.
    * 
    * @example
    * 10
@@ -202,7 +202,7 @@ export class CreateDesktopsShrinkRequestDesktopTimers extends $dara.Model {
 export class CreateDesktopsShrinkRequestMonthDesktopSetting extends $dara.Model {
   /**
    * @remarks
-   * > This field is not available for use.
+   * > This field is not publicly available.
    * 
    * @example
    * null
@@ -210,7 +210,7 @@ export class CreateDesktopsShrinkRequestMonthDesktopSetting extends $dara.Model 
   buyerId?: number;
   /**
    * @remarks
-   * > This field is not available for use.
+   * > This field is not publicly available.
    * 
    * @example
    * null
@@ -218,7 +218,7 @@ export class CreateDesktopsShrinkRequestMonthDesktopSetting extends $dara.Model 
   desktopId?: string;
   /**
    * @remarks
-   * The package option when purchasing a monthly hourly package. Valid values: 120, 250, and 360.
+   * The plan selected when purchasing a monthly hours package. Valid values: 120, 250, and 360.
    * 
    * @example
    * null
@@ -350,7 +350,7 @@ export class CreateDesktopsShrinkRequest extends $dara.Model {
   amount?: number;
   /**
    * @remarks
-   * The application control policy ID.
+   * The ID of the application control policy.
    * 
    * @example
    * bwr-245d4e0e6b7d42f5afa97eb3fbc7e488
@@ -390,7 +390,7 @@ export class CreateDesktopsShrinkRequest extends $dara.Model {
   bundleModels?: CreateDesktopsShrinkRequestBundleModels[];
   /**
    * @remarks
-   * > This field is not available for use.
+   * > This field is not publicly available.
    * 
    * @example
    * PBKB1QbqEl2tslEuU6gRrLxvCFBU2M%2FVD0Eru6Oo%2FI9LTU3XQhvq3PGMWarE%2BPJdkNvCqT3blqlRSthNy4A%2BJQ%3D%3D
@@ -406,7 +406,7 @@ export class CreateDesktopsShrinkRequest extends $dara.Model {
   chargeType?: string;
   /**
    * @remarks
-   * The parameters for creating a cloud desktop without a template. This parameter is invalid when the BundleId parameter is specified.
+   * The parameters for creating a cloud desktop without a template. This parameter is invalid when the BundleID parameter is specified.
    */
   desktopAttachmentShrink?: string;
   /**
@@ -421,8 +421,8 @@ export class CreateDesktopsShrinkRequest extends $dara.Model {
    * @remarks
    * The cloud desktop name. The naming rules are as follows:
    * 
-   * - The name can be up to 64 characters in length.
-   * - The name must start with a letter or a Chinese character and cannot start with `http://` or `https://`.
+   * - The name cannot exceed 64 characters in length.
+   * - The name must start with a letter (uppercase or lowercase) or a Chinese character. It cannot start with `http://` or `https://`.
    * - The name can contain Chinese characters, letters, digits, colons (:), underscores (_), periods (.), or hyphens (-).
    * 
    * @example
@@ -431,7 +431,12 @@ export class CreateDesktopsShrinkRequest extends $dara.Model {
   desktopName?: string;
   /**
    * @remarks
-   * Specifies whether to automatically append a suffix to the cloud desktop name when you create multiple cloud desktops in a batch.
+   * Controls the format of the desktop name.
+   */
+  desktopNameModelShrink?: string;
+  /**
+   * @remarks
+   * Specifies whether to automatically append a suffix to the cloud desktop name when creating multiple cloud desktops in a batch.
    * 
    * @example
    * false
@@ -439,7 +444,7 @@ export class CreateDesktopsShrinkRequest extends $dara.Model {
   desktopNameSuffix?: boolean;
   /**
    * @remarks
-   * The scheduled task details of the cloud desktop. This parameter is being deprecated. Use the TimerGroupId parameter instead.
+   * The details of the scheduled tasks for the cloud desktop. This parameter is being deprecated. Use the TimerGroupId parameter instead.
    * 
    * **if can be null:**
    * true
@@ -479,14 +484,14 @@ export class CreateDesktopsShrinkRequest extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
-   * The custom hostname of the cloud desktop. Settings for this parameter are supported only for cloud desktops that run the Windows operating system in an AD office network.
+   * The custom hostname settings of the cloud desktop. This parameter is supported only for cloud desktops whose operating system type is Windows in an AD office network.
    * 
    * The naming rules for the hostname are as follows:
    * 
    * - The hostname must be 2 to 15 characters in length.
-   * - The hostname can contain uppercase letters, lowercase letters, digits, or hyphens (-). It cannot start or end with a hyphen, contain consecutive hyphens, or consist of only digits.
+   * - The hostname can contain uppercase letters, lowercase letters, digits, or hyphens (-). It cannot start or end with a hyphen, cannot contain consecutive hyphens, and cannot consist of only digits.
    * 
-   * When you create multiple cloud desktops, you can use the `name_prefix[begin_number,bits]name_suffix` format to uniformly name the cloud desktops. For example, if you set Hostname to ecd-[1,4]-test, the hostname of the first cloud desktop is ecd-0001-test, the hostname of the second cloud desktop is ecd-0002-test, and so on.
+   * When creating multiple cloud desktops, you can use the `name_prefix[begin_number,bits]name_suffix` format to name multiple cloud desktops uniformly. For example, if Hostname is set to ecd-[1,4]-test, the hostname of the first cloud desktop is ecd-0001-test, the hostname of the second cloud desktop is ecd-0002-test, and so on.
    * 
    * - `name_prefix`: the prefix of the hostname.
    * - `[begin_number,bits]`: the sequential number in the hostname. `begin_number` is the starting number. Valid values: 0 to 999999. Default value: 0. `bits` is the number of digits. Valid values: 1 to 6. Default value: 6.
@@ -498,7 +503,7 @@ export class CreateDesktopsShrinkRequest extends $dara.Model {
   hostname?: string;
   /**
    * @remarks
-   * The purchase parameters for the monthly hourly package.
+   * The parameters for purchasing a monthly hours package.
    */
   monthDesktopSetting?: CreateDesktopsShrinkRequestMonthDesktopSetting;
   /**
@@ -511,7 +516,7 @@ export class CreateDesktopsShrinkRequest extends $dara.Model {
   officeSiteId?: string;
   /**
    * @remarks
-   * The OU path. If specified, the cloud desktop is added to the corresponding organizational unit (OU) in Active Directory (AD).
+   * The organizational unit (OU) path. After this parameter is specified, the cloud desktop joins the corresponding OU in Active Directory (AD).
    * 
    * @example
    * test.com/wuyingtest/computers
@@ -521,14 +526,14 @@ export class CreateDesktopsShrinkRequest extends $dara.Model {
    * @remarks
    * The subscription duration of the resource. The unit is specified by `PeriodUnit`. This parameter takes effect and is required only when `ChargeType` is set to `PrePaid`.
    * 
-   * - If `PeriodUnit` is set to `Month`, valid values of this parameter:
+   * - If `PeriodUnit` is set to `Month`, valid values:
    * 
    *      - 1
    *     -  2
    *     - 3
    *     - 6
    * 
-   * - If `PeriodUnit` is set to `Year`, valid values of this parameter:
+   * - If `PeriodUnit` is set to `Year`, valid values:
    * 
    *     - 1
    *     - 2
@@ -542,7 +547,7 @@ export class CreateDesktopsShrinkRequest extends $dara.Model {
   period?: number;
   /**
    * @remarks
-   * The unit of the subscription duration.
+   * The unit of the subscription duration for the billing method.
    * 
    * @example
    * Month
@@ -571,7 +576,7 @@ export class CreateDesktopsShrinkRequest extends $dara.Model {
   purchaseOptionsShrink?: string;
   /**
    * @remarks
-   * The public network rate limiting rule ID.
+   * The ID of the public network bandwidth throttling rule.
    * 
    * @example
    * qos-52fqmg6kvyro7zu4l
@@ -579,7 +584,7 @@ export class CreateDesktopsShrinkRequest extends $dara.Model {
   qosRuleId?: string;
   /**
    * @remarks
-   * The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to query the regions supported by WUYING Workspace.
+   * The region ID. Call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to query the regions supported by WUYING Workspace.
    * 
    * This parameter is required.
    * 
@@ -589,7 +594,7 @@ export class CreateDesktopsShrinkRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The user ID for resource ownership in reseller pattern. This parameter is not required in non-reseller pattern.
+   * The user ID of the resource ownership in reseller pattern. This parameter is not required in non-reseller pattern.
    * 
    * @example
    * 1828644634819902
@@ -597,7 +602,7 @@ export class CreateDesktopsShrinkRequest extends $dara.Model {
   resellerOwnerUid?: number;
   /**
    * @remarks
-   * The WUYING resource group ID.
+   * The ID of the WUYING resource group.
    * 
    * @example
    * rg-3mtuc28rx95lx****
@@ -605,7 +610,7 @@ export class CreateDesktopsShrinkRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * > This field is not available for use.
+   * > This field is not publicly available.
    * 
    * @example
    * spn-26c1b7bcrjcI****
@@ -613,12 +618,24 @@ export class CreateDesktopsShrinkRequest extends $dara.Model {
   savingPlanId?: string;
   /**
    * @remarks
-   * The WUYING automatic snapshot policy ID.
+   * The ID of the WUYING automatic snapshot policy.
    * 
    * @example
    * sp-28mp6my0l6zow****
    */
   snapshotPolicyId?: string;
+  /**
+   * @remarks
+   * The purchase method of the cloud desktop. Valid values:
+   * 
+   * - prePaid: monthly subscription with unlimited duration.
+   * - postPaid: pay-as-you-go.
+   * - monthPackage: monthly hours package.
+   * - jvsAgentPackage: JVS Agent duration package.
+   * 
+   * @example
+   * monthPackage
+   */
   subPayType?: string;
   /**
    * @remarks
@@ -635,7 +652,7 @@ export class CreateDesktopsShrinkRequest extends $dara.Model {
   tag?: CreateDesktopsShrinkRequestTag[];
   /**
    * @remarks
-   * The scheduled task group ID.
+   * The ID of the scheduled task group.
    * 
    * @example
    * ccg-0caoeogrk9m5****
@@ -666,7 +683,7 @@ export class CreateDesktopsShrinkRequest extends $dara.Model {
   userName?: string;
   /**
    * @remarks
-   * Specifies whether to enable cloud disk encryption.
+   * Specifies whether to enable disk encryption.
    * 
    * @example
    * false
@@ -674,7 +691,7 @@ export class CreateDesktopsShrinkRequest extends $dara.Model {
   volumeEncryptionEnabled?: boolean;
   /**
    * @remarks
-   * The ID of the Key Management Service (KMS) key used for cloud disk encryption. You can call [ListKeys](https://help.aliyun.com/document_detail/28951.html) to obtain the key ID.
+   * The ID of the Key Management Service (KMS) key used when disk encryption is enabled. Call [ListKeys](https://help.aliyun.com/document_detail/28951.html) to obtain the key ID.
    * 
    * @example
    * 08c33a6f-4e0a-4a1b-a3fa-7ddfa1d4****
@@ -701,6 +718,7 @@ export class CreateDesktopsShrinkRequest extends $dara.Model {
       desktopAttachmentShrink: 'DesktopAttachment',
       desktopMemberIp: 'DesktopMemberIp',
       desktopName: 'DesktopName',
+      desktopNameModelShrink: 'DesktopNameModel',
       desktopNameSuffix: 'DesktopNameSuffix',
       desktopTimers: 'DesktopTimers',
       directoryId: 'DirectoryId',
@@ -748,6 +766,7 @@ export class CreateDesktopsShrinkRequest extends $dara.Model {
       desktopAttachmentShrink: 'string',
       desktopMemberIp: 'string',
       desktopName: 'string',
+      desktopNameModelShrink: 'string',
       desktopNameSuffix: 'boolean',
       desktopTimers: { 'type': 'array', 'itemType': CreateDesktopsShrinkRequestDesktopTimers },
       directoryId: 'string',

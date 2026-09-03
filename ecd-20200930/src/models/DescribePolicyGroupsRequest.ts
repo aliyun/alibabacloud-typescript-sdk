@@ -3,6 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribePolicyGroupsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The business channel. Valid values:
+   * - Enterprise: Enterprise Edition.
+   * - Business: Business Edition.
+   * 
+   * @example
+   * Enterprise
+   */
   businessChannel?: string;
   /**
    * @remarks
@@ -11,11 +20,10 @@ export class DescribePolicyGroupsRequest extends $dara.Model {
   externalPolicyGroupIds?: string[];
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries per page for a paged query.
    * 
-   * - Maximum value: 100
-   * 
-   * - Default value: 10
+   * - Maximum value: 100.
+   * - Default value: 10.
    * 
    * @example
    * 10
@@ -23,13 +31,28 @@ export class DescribePolicyGroupsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token. Set this parameter to the NextToken value returned in the previous response. Do not set this parameter for the first request.
+   * The pagination token. Set this parameter to the value of NextToken that was returned from the last call to this operation. You do not need to set this parameter for the first request.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a4883
    */
   nextToken?: string;
+  /**
+   * @remarks
+   * The page number of the current page for a paged query.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The maximum number of entries per page for a paged query.    
+   * Default value: 20.
+   * 
+   * @example
+   * 20
+   */
   pageSize?: number;
   /**
    * @remarks
@@ -41,7 +64,7 @@ export class DescribePolicyGroupsRequest extends $dara.Model {
   policyGroupId?: string[];
   /**
    * @remarks
-   * The region ID. Call [DescribeRegions](~~DescribeRegions~~) to query the regions supported by WUYING Workspace.
+   * The region ID. You can call [DescribeRegions](~~DescribeRegions~~) to query the regions supported by WUYING Workspace.
    * 
    * This parameter is required.
    * 

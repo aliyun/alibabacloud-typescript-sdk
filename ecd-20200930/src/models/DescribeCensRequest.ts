@@ -5,7 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCensRequest extends $dara.Model {
   /**
    * @remarks
-   * The page number.<br>Default value: 1.
+   * The page number of the current page in a paged query.    
+   * Default value: 1.
    * 
    * @example
    * 1
@@ -13,7 +14,8 @@ export class DescribeCensRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.<br>Default value: 50.
+   * The maximum number of entries per page in a paged query.    
+   * Default value: 50.
    * 
    * @example
    * 50
@@ -21,7 +23,7 @@ export class DescribeCensRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
+   * The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to query the regions supported by Elastic Desktop Service.
    * 
    * This parameter is required.
    * 

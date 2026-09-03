@@ -13,12 +13,19 @@ export class DescribeDesktopTypesResponseBodyDesktopTypes extends $dara.Model {
   cpuCount?: string;
   /**
    * @remarks
-   * The size of the data disk, in GiB.
+   * The data cloud disk size. Unit: GiB.
    * 
    * @example
    * 150
    */
   dataDiskSize?: string;
+  /**
+   * @remarks
+   * The description of the NAS file system.
+   * 
+   * @example
+   * newDescription
+   */
   description?: string;
   /**
    * @remarks
@@ -30,13 +37,27 @@ export class DescribeDesktopTypesResponseBodyDesktopTypes extends $dara.Model {
   desktopTypeId?: string;
   /**
    * @remarks
-   * The availability of the specification. A value of `SUFFICIENT` indicates that the specification is in stock.
+   * The specification status. A value of `SUFFICIENT` indicates that the specification resources are sufficient.
    * 
    * @example
    * SUFFICIENT
    */
   desktopTypeStatus?: string;
+  /**
+   * @remarks
+   * The environment ID. This parameter is not publicly available.
+   * 
+   * @example
+   * adifa****
+   */
   envId?: string;
+  /**
+   * @remarks
+   * The environment type. This parameter is not publicly available.
+   * 
+   * @example
+   * Private
+   */
   envType?: string;
   /**
    * @remarks
@@ -48,7 +69,7 @@ export class DescribeDesktopTypesResponseBodyDesktopTypes extends $dara.Model {
   gpuCount?: number;
   /**
    * @remarks
-   * The GPU memory size in MiB. This parameter is valid only for GPU-accelerated cloud desktops.
+   * The GPU memory size. This parameter is meaningful only for GPU-accelerated cloud computers. Unit: MB.
    * 
    * @example
    * 2048
@@ -56,7 +77,7 @@ export class DescribeDesktopTypesResponseBodyDesktopTypes extends $dara.Model {
   gpuMemory?: number;
   /**
    * @remarks
-   * The GPU memory size.
+   * The GPU memory.
    * 
    * @example
    * 16 GiB
@@ -64,7 +85,7 @@ export class DescribeDesktopTypesResponseBodyDesktopTypes extends $dara.Model {
   gpuSpec?: string;
   /**
    * @remarks
-   * The instance type family.
+   * The instance family.
    * 
    * @example
    * ecd.graphics
@@ -72,7 +93,7 @@ export class DescribeDesktopTypesResponseBodyDesktopTypes extends $dara.Model {
   instanceTypeFamily?: string;
   /**
    * @remarks
-   * The maximum number of concurrent sessions that is supported by the cloud desktop specification.
+   * The number of multi-sessions supported by the current specification.
    * 
    * @example
    * 4
@@ -80,7 +101,7 @@ export class DescribeDesktopTypesResponseBodyDesktopTypes extends $dara.Model {
   maxSessionCount?: number;
   /**
    * @remarks
-   * The memory size, in MiB.
+   * The memory size. Unit: MiB.
    * 
    * @example
    * 23552
@@ -88,12 +109,17 @@ export class DescribeDesktopTypesResponseBodyDesktopTypes extends $dara.Model {
   memorySize?: string;
   /**
    * @remarks
-   * The purchase options for the specification.
+   * The supported desktop type sale categories.
+   */
+  saleTypes?: string[];
+  /**
+   * @remarks
+   * The list of billing methods for the specification.
    */
   scopes?: string[];
   /**
    * @remarks
-   * The inventory status.
+   * The stock status.
    * 
    * @example
    * Sufficient
@@ -101,7 +127,7 @@ export class DescribeDesktopTypesResponseBodyDesktopTypes extends $dara.Model {
   stockState?: string;
   /**
    * @remarks
-   * The size of the system disk, in GiB.
+   * The system cloud disk size. Unit: GiB.
    * 
    * @example
    * 150
@@ -122,6 +148,7 @@ export class DescribeDesktopTypesResponseBodyDesktopTypes extends $dara.Model {
       instanceTypeFamily: 'InstanceTypeFamily',
       maxSessionCount: 'MaxSessionCount',
       memorySize: 'MemorySize',
+      saleTypes: 'SaleTypes',
       scopes: 'Scopes',
       stockState: 'StockState',
       systemDiskSize: 'SystemDiskSize',
@@ -143,6 +170,7 @@ export class DescribeDesktopTypesResponseBodyDesktopTypes extends $dara.Model {
       instanceTypeFamily: 'string',
       maxSessionCount: 'number',
       memorySize: 'string',
+      saleTypes: { 'type': 'array', 'itemType': 'string' },
       scopes: { 'type': 'array', 'itemType': 'string' },
       stockState: 'string',
       systemDiskSize: 'string',
@@ -150,6 +178,9 @@ export class DescribeDesktopTypesResponseBodyDesktopTypes extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.saleTypes)) {
+      $dara.Model.validateArray(this.saleTypes);
+    }
     if(Array.isArray(this.scopes)) {
       $dara.Model.validateArray(this.scopes);
     }

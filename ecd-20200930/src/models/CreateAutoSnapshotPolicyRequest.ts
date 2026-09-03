@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAutoSnapshotPolicyRequest extends $dara.Model {
   /**
    * @remarks
-   * The cron expression for the recurring schedule.
+   * The Cron expression for the scheduled snapshot creation.
    * 
    * This parameter is required.
    * 
@@ -13,10 +13,17 @@ export class CreateAutoSnapshotPolicyRequest extends $dara.Model {
    * 0 0 2 ? * 1-7
    */
   cronExpression?: string;
+  /**
+   * @remarks
+   * The cloud disk type.
+   * 
+   * @example
+   * SYSTEM
+   */
   diskType?: string;
   /**
    * @remarks
-   * The name of the automatic snapshot policy. It can contain 2 to 128 English or Chinese characters. It must start with a letter or a Chinese character, and cannot start with `http://` or `https://`. It can contain digits, colons (:), underscores (_), or hyphens (-). Default value: empty.
+   * The name of the automatic snapshot policy. The name must be 2 to 128 characters in length and can contain letters, digits, colons (:), underscores (_), and hyphens (-). The name must start with a letter or a Chinese character and cannot start with `http://` or `https://`. Default value: empty.
    * 
    * This parameter is required.
    * 
@@ -26,7 +33,7 @@ export class CreateAutoSnapshotPolicyRequest extends $dara.Model {
   policyName?: string;
   /**
    * @remarks
-   * The region ID. For more information, see [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to get a list of regions supported by WUYING Workspace.
+   * The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to query the regions supported by Elastic Desktop Service.
    * 
    * This parameter is required.
    * 
@@ -36,7 +43,7 @@ export class CreateAutoSnapshotPolicyRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The retention period of the automatic snapshot, in days. Valid values: 1 to 180.
+   * The retention period of automatic snapshots. Unit: days. Valid values: 1 to 180.
    * 
    * This parameter is required.
    * 

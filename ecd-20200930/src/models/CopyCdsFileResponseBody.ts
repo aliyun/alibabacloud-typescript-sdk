@@ -53,7 +53,7 @@ export class CopyCdsFileResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The result of copying the file.
+   * The result of the file copy operation.
    */
   copyCdsFileModel?: CopyCdsFileResponseBodyCopyCdsFileModel;
   /**

@@ -3,22 +3,32 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListOfficeSiteUsersRequest extends $dara.Model {
+  /**
+   * @remarks
+   * > This parameter is not publicly available. You can only pass in `1` or leave it empty.
+   * 
+   * @example
+   * 1
+   */
   assignedInfo?: string;
   /**
    * @remarks
-   * The query string for fuzzy matching.
+   * The fuzzy query character string.
    * 
    * @example
    * *jin*
    */
   filter?: string;
+  /**
+   * @remarks
+   * Specifies whether to return only users who are assigned cloud computers.
+   */
   includeAssignedUser?: boolean;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The number of entries per page for a paged query.    
    * 
-   * - Maximum value: 100.
-   * 
+   * - Maximum value: 100.    
    * - Default value: 10.
    * 
    * @example
@@ -27,7 +37,7 @@ export class ListOfficeSiteUsersRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token for the next page of results. Leave this empty for the first query. For subsequent queries, use the NextToken value from the previous response.
+   * The pagination token. Leave this parameter empty for the first request or if no more results exist. If more results exist, set this parameter to the NextToken value returned by the previous API call.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a4883
@@ -35,7 +45,7 @@ export class ListOfficeSiteUsersRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The path of the organizational unit (OU) in the AD domain.
+   * The specified AD domain organizational unit (OU).
    * 
    * @example
    * example.com/Domain Controllers
@@ -43,7 +53,7 @@ export class ListOfficeSiteUsersRequest extends $dara.Model {
   OUPath?: string;
   /**
    * @remarks
-   * The office network ID. Only office networks that use enterprise AD accounts are supported.
+   * The office network ID. Only office networks based on enterprise AD accounts are supported.
    * 
    * This parameter is required.
    * 
@@ -53,7 +63,7 @@ export class ListOfficeSiteUsersRequest extends $dara.Model {
   officeSiteId?: string;
   /**
    * @remarks
-   * The region ID. Call [DescribeRegions](~~DescribeRegions~~) to get a list of regions where WUYING Workspace is available.
+   * The region ID. Call [DescribeRegions](~~DescribeRegions~~) to query the regions supported by Elastic Desktop Service.
    * 
    * This parameter is required.
    * 
@@ -61,6 +71,13 @@ export class ListOfficeSiteUsersRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The sorting method.
+   * 
+   * @example
+   * asc
+   */
   sortType?: string;
   static names(): { [key: string]: string } {
     return {
