@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateApplicationResponseBodyComponents extends $dara.Model {
   /**
    * @remarks
-   * The ID of the child component.
+   * The child component ID.
    * 
    * @example
    * pac-********************
@@ -35,7 +35,7 @@ export class CreateApplicationResponseBodyComponents extends $dara.Model {
 export class CreateApplicationResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the application.
+   * The application ID.
    * 
    * @example
    * pa-********************
@@ -43,7 +43,7 @@ export class CreateApplicationResponseBody extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
-   * A list of child components.
+   * The list of child components.
    */
   components?: CreateApplicationResponseBodyComponents[];
   /**
@@ -56,7 +56,7 @@ export class CreateApplicationResponseBody extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The ID of the generated order.
+   * The generated order ID.
    * 
    * @example
    * 2148126708*****
@@ -64,7 +64,7 @@ export class CreateApplicationResponseBody extends $dara.Model {
   orderId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 3E5CD764-FCCA-5C9C-838E-20E0DE84B2AF
@@ -72,7 +72,7 @@ export class CreateApplicationResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the resources are sufficient. This parameter is returned only when `DryRun` is set to `true`.
+   * Indicates whether resources are sufficient. This parameter is returned only when DryRun is set to true.
    * 
    * @example
    * true
@@ -80,7 +80,7 @@ export class CreateApplicationResponseBody extends $dara.Model {
   resourceAvailable?: boolean;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The resource group ID.
    * 
    * @example
    * rg-********************

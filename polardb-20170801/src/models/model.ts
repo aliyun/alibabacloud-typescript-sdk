@@ -7,6 +7,7 @@ export { CreateAIDBClusterRequestTimeSlices } from './CreateAidbclusterRequest';
 export { CreateAIDBClusterApiKeyResponseBodyApiKey } from './CreateAidbclusterApiKeyResponseBody';
 export { CreateAINodesRequestDBNodes } from './CreateAinodesRequest';
 export { CreateApplicationRequestComponents } from './CreateApplicationRequest';
+export { CreateApplicationRequestDnatEntries } from './CreateApplicationRequest';
 export { CreateApplicationRequestEndpoints } from './CreateApplicationRequest';
 export { CreateApplicationRequestKnowledgeApplicationSpec } from './CreateApplicationRequest';
 export { CreateApplicationRequestMemApplicationSpec } from './CreateApplicationRequest';
@@ -89,6 +90,7 @@ export { DescribeApplicationAttributeResponseBodyComponentsSecurityGroups } from
 export { DescribeApplicationAttributeResponseBodyComponentsSecurityIPArrays } from './DescribeApplicationAttributeResponseBody';
 export { DescribeApplicationAttributeResponseBodyComponentsTopology } from './DescribeApplicationAttributeResponseBody';
 export { DescribeApplicationAttributeResponseBodyComponents } from './DescribeApplicationAttributeResponseBody';
+export { DescribeApplicationAttributeResponseBodyDnatMappings } from './DescribeApplicationAttributeResponseBody';
 export { DescribeApplicationAttributeResponseBodyEndpoints } from './DescribeApplicationAttributeResponseBody';
 export { DescribeApplicationAttributeResponseBodyMemApplicationAttributeSessionStore } from './DescribeApplicationAttributeResponseBody';
 export { DescribeApplicationAttributeResponseBodyMemApplicationAttribute } from './DescribeApplicationAttributeResponseBody';

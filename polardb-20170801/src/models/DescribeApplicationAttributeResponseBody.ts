@@ -227,7 +227,7 @@ export class DescribeApplicationAttributeResponseBodyComponents extends $dara.Mo
   componentReplica?: number;
   /**
    * @remarks
-   * The group name of the application subcomponent replicas.
+   * The group name of the replicas of the application subcomponent.
    * 
    * @example
    * default
@@ -243,21 +243,21 @@ export class DescribeApplicationAttributeResponseBodyComponents extends $dara.Mo
   componentType?: string;
   /**
    * @remarks
-   * The list of subcomponent-level security groups.
+   * The list of security groups at the subcomponent level.
    * 
-   * If the subcomponent-level security groups are the same as the application-level security groups, this response element is omitted.
+   * If the security groups at the subcomponent level are the same as those at the application level, this response element is omitted.
    */
   securityGroups?: DescribeApplicationAttributeResponseBodyComponentsSecurityGroups[];
   /**
    * @remarks
-   * The list of subcomponent-level whitelist addresses.
+   * The list of whitelist addresses at the subcomponent level.
    * 
-   * If the subcomponent-level whitelists are the same as the application-level whitelists, this response element is omitted.
+   * If the whitelists at the subcomponent level are the same as those at the application level, this response element is omitted.
    */
   securityIPArrays?: DescribeApplicationAttributeResponseBodyComponentsSecurityIPArrays[];
   /**
    * @remarks
-   * The component status. Valid values are the same as the application status.
+   * The component status. Valid values are the same as those of the application status.
    * 
    * @example
    * Activated
@@ -318,6 +318,86 @@ export class DescribeApplicationAttributeResponseBodyComponents extends $dara.Mo
   }
 }
 
+export class DescribeApplicationAttributeResponseBodyDnatMappings extends $dara.Model {
+  /**
+   * @remarks
+   * The access address in the format of NatIp:FrontPort. This address can be used directly from the office network.
+   * 
+   * @example
+   * 10.64.0.10:10001
+   */
+  accessAddress?: string;
+  /**
+   * @remarks
+   * The backend service port.
+   * 
+   * @example
+   * 8787
+   */
+  backendPort?: number;
+  /**
+   * @remarks
+   * The DNAT entry ID.
+   * 
+   * @example
+   * fwd-xxx
+   */
+  entryId?: string;
+  /**
+   * @remarks
+   * The frontend port.
+   * 
+   * @example
+   * 10001
+   */
+  frontPort?: number;
+  /**
+   * @remarks
+   * The port name. Valid values: webui, hermesagent, dashboard, and ssh.
+   * 
+   * @example
+   * webui
+   */
+  portName?: string;
+  /**
+   * @remarks
+   * The entry status.
+   * 
+   * @example
+   * Available
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessAddress: 'AccessAddress',
+      backendPort: 'BackendPort',
+      entryId: 'EntryId',
+      frontPort: 'FrontPort',
+      portName: 'PortName',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessAddress: 'string',
+      backendPort: 'number',
+      entryId: 'string',
+      frontPort: 'number',
+      portName: 'string',
+      status: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeApplicationAttributeResponseBodyEndpoints extends $dara.Model {
   /**
    * @remarks
@@ -348,7 +428,7 @@ export class DescribeApplicationAttributeResponseBodyEndpoints extends $dara.Mod
    * @remarks
    * The endpoint type. Valid values:
    * - Private: VPC endpoint.
-   * - Public: public endpoint.
+   * - Public: Public endpoint.
    * 
    * @example
    * Private
@@ -863,14 +943,19 @@ export class DescribeApplicationAttributeResponseBody extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The list of endpoints for the application.
+   * The list of DNAT mapping entries for NAT mapping.
+   */
+  dnatMappings?: DescribeApplicationAttributeResponseBodyDnatMappings[];
+  /**
+   * @remarks
+   * The list of endpoints of the application.
    */
   endpoints?: DescribeApplicationAttributeResponseBodyEndpoints[];
   /**
    * @remarks
    * The expiration time.
    * 
-   * This value is empty when the billing type is Postpaid.
+   * This value is empty if the billing method is Postpaid.
    * 
    * @example
    * 2025-06-25T09:37:10Z
@@ -913,7 +998,7 @@ export class DescribeApplicationAttributeResponseBody extends $dara.Model {
   lockMode?: string;
   /**
    * @remarks
-   * The maintenance end time.
+   * The end time of the maintenance window.
    * 
    * @example
    * 19:00Z
@@ -921,7 +1006,7 @@ export class DescribeApplicationAttributeResponseBody extends $dara.Model {
   maintainEndTime?: string;
   /**
    * @remarks
-   * The maintenance start time.
+   * The start time of the maintenance window.
    * 
    * @example
    * 18:00Z
@@ -950,7 +1035,15 @@ export class DescribeApplicationAttributeResponseBody extends $dara.Model {
   natGatewayId?: string;
   /**
    * @remarks
-   * The billing type.
+   * The SNAT IP address bound to the vSwitch where the application resides for NAT mapping. This is a customer-managed SNAT entry that is discovered and returned by the control plane in real time. It is not related to the Internet NAT gateway SNAT.
+   * 
+   * @example
+   * 10.64.0.20
+   */
+  natMappingSnatIpAddress?: string;
+  /**
+   * @remarks
+   * The billing method.
    * 
    * @example
    * Postpaid
@@ -987,12 +1080,12 @@ export class DescribeApplicationAttributeResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The list of application-level security groups.
+   * The list of security groups at the application level.
    */
   securityGroups?: DescribeApplicationAttributeResponseBodySecurityGroups[];
   /**
    * @remarks
-   * The list of application-level whitelists.
+   * The list of whitelists at the application level.
    */
   securityIPArrays?: DescribeApplicationAttributeResponseBodySecurityIPArrays[];
   /**
@@ -1075,6 +1168,14 @@ export class DescribeApplicationAttributeResponseBody extends $dara.Model {
   version?: string;
   /**
    * @remarks
+   * The customer-created VPC NAT gateway ID for NAT mapping.
+   * 
+   * @example
+   * ngw-xxx
+   */
+  vpcNatGatewayId?: string;
+  /**
+   * @remarks
    * The zone ID.
    * 
    * @example
@@ -1091,6 +1192,7 @@ export class DescribeApplicationAttributeResponseBody extends $dara.Model {
       creationTime: 'CreationTime',
       DBClusterId: 'DBClusterId',
       description: 'Description',
+      dnatMappings: 'DnatMappings',
       endpoints: 'Endpoints',
       expireTime: 'ExpireTime',
       expired: 'Expired',
@@ -1102,6 +1204,7 @@ export class DescribeApplicationAttributeResponseBody extends $dara.Model {
       memApplicationAttribute: 'MemApplicationAttribute',
       minorVersion: 'MinorVersion',
       natGatewayId: 'NatGatewayId',
+      natMappingSnatIpAddress: 'NatMappingSnatIpAddress',
       payType: 'PayType',
       polarClawSaaSApplicationAttribute: 'PolarClawSaaSApplicationAttribute',
       polarFSInstanceId: 'PolarFSInstanceId',
@@ -1117,6 +1220,7 @@ export class DescribeApplicationAttributeResponseBody extends $dara.Model {
       VPCId: 'VPCId',
       vSwitchId: 'VSwitchId',
       version: 'Version',
+      vpcNatGatewayId: 'VpcNatGatewayId',
       zoneId: 'ZoneId',
     };
   }
@@ -1131,6 +1235,7 @@ export class DescribeApplicationAttributeResponseBody extends $dara.Model {
       creationTime: 'string',
       DBClusterId: 'string',
       description: 'string',
+      dnatMappings: { 'type': 'array', 'itemType': DescribeApplicationAttributeResponseBodyDnatMappings },
       endpoints: { 'type': 'array', 'itemType': DescribeApplicationAttributeResponseBodyEndpoints },
       expireTime: 'string',
       expired: 'boolean',
@@ -1142,6 +1247,7 @@ export class DescribeApplicationAttributeResponseBody extends $dara.Model {
       memApplicationAttribute: DescribeApplicationAttributeResponseBodyMemApplicationAttribute,
       minorVersion: 'string',
       natGatewayId: 'string',
+      natMappingSnatIpAddress: 'string',
       payType: 'string',
       polarClawSaaSApplicationAttribute: DescribeApplicationAttributeResponseBodyPolarClawSaaSApplicationAttribute,
       polarFSInstanceId: 'string',
@@ -1157,6 +1263,7 @@ export class DescribeApplicationAttributeResponseBody extends $dara.Model {
       VPCId: 'string',
       vSwitchId: 'string',
       version: 'string',
+      vpcNatGatewayId: 'string',
       zoneId: 'string',
     };
   }
@@ -1164,6 +1271,9 @@ export class DescribeApplicationAttributeResponseBody extends $dara.Model {
   validate() {
     if(Array.isArray(this.components)) {
       $dara.Model.validateArray(this.components);
+    }
+    if(Array.isArray(this.dnatMappings)) {
+      $dara.Model.validateArray(this.dnatMappings);
     }
     if(Array.isArray(this.endpoints)) {
       $dara.Model.validateArray(this.endpoints);

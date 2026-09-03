@@ -2933,7 +2933,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an application attached to a PolarDB instance.
+   * Creates an application that is attached to a PolarDB instance.
    * 
    * @param tmpReq - CreateApplicationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2945,6 +2945,10 @@ export default class Client extends OpenApi {
     OpenApiUtil.convert(tmpReq, request);
     if (!$dara.isNull(tmpReq.components)) {
       request.componentsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.components, "Components", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.dnatEntries)) {
+      request.dnatEntriesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.dnatEntries, "DnatEntries", "json");
     }
 
     if (!$dara.isNull(tmpReq.endpoints)) {
@@ -3010,6 +3014,14 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.description)) {
       query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.dnatEntriesShrink)) {
+      query["DnatEntries"] = request.dnatEntriesShrink;
+    }
+
+    if (!$dara.isNull(request.dnatIpAddress)) {
+      query["DnatIpAddress"] = request.dnatIpAddress;
     }
 
     if (!$dara.isNull(request.dryRun)) {
@@ -3116,6 +3128,10 @@ export default class Client extends OpenApi {
       query["VpcId"] = request.vpcId;
     }
 
+    if (!$dara.isNull(request.vpcNatGatewayId)) {
+      query["VpcNatGatewayId"] = request.vpcNatGatewayId;
+    }
+
     if (!$dara.isNull(request.zoneId)) {
       query["ZoneId"] = request.zoneId;
     }
@@ -3138,7 +3154,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an application attached to a PolarDB instance.
+   * Creates an application that is attached to a PolarDB instance.
    * 
    * @param request - CreateApplicationRequest
    * @returns CreateApplicationResponse
