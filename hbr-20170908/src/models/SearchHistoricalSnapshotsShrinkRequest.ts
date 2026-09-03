@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SearchHistoricalSnapshotsShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The edition. Valid values are BASIC and STANDARD. The default value is STANDARD.
+   * The edition type. Valid values: BASIC and STANDARD. Default value: STANDARD.
    * 
    * @example
    * BASIC
@@ -13,8 +13,8 @@ export class SearchHistoricalSnapshotsShrinkRequest extends $dara.Model {
   edition?: string;
   /**
    * @remarks
-   * The maximum number of results to return.
-   * To retrieve only the number of rows without any data, set Limit to `0`.
+   * The maximum number of results to return for this query.
+   * If you only want to obtain the row count without actual data, set `limit=0` to return no rows.
    * 
    * @example
    * 10
@@ -22,7 +22,7 @@ export class SearchHistoricalSnapshotsShrinkRequest extends $dara.Model {
   limit?: number;
   /**
    * @remarks
-   * The token that is required to obtain the next page of snapshots.
+   * The token required to retrieve the next page of snapshots.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a****
@@ -30,11 +30,9 @@ export class SearchHistoricalSnapshotsShrinkRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The sort order. The default value is ASC.
-   * 
-   * - ASC: ascending
-   * 
-   * - DESC: descending
+   * The sort order. Default value: ASC.
+   * - ASC: ascending order.
+   * - DESC: descending order.
    * 
    * @example
    * ASC
@@ -42,7 +40,7 @@ export class SearchHistoricalSnapshotsShrinkRequest extends $dara.Model {
   order?: string;
   /**
    * @remarks
-   * The query conditions. For example:
+   * The query conditions. Example of Query:
    * 
    * ```
    * [
@@ -71,37 +69,24 @@ export class SearchHistoricalSnapshotsShrinkRequest extends $dara.Model {
    * 
    * - Supported fields:
    * 
-   *   - VaultId: This parameter is required. The ID of the backup vault.
-   * 
-   *   - InstanceId: This parameter is required only when SourceType is set to ECS_FILE. The ID of the ECS instance.
-   * 
-   *   - Bucket: This parameter is required only when SourceType is set to OSS. The name of the OSS bucket.
-   * 
-   *   - FileSystemId: This parameter is required only when SourceType is set to NAS. The ID of the NAS file system.
-   * 
-   *   - CreateTime: This parameter is required only when SourceType is set to NAS. The time when the NAS file system was created.
-   * 
-   *   - CompleteTime: The time when the snapshot was completed.
-   * 
-   *   - PlanId: The ID of the backup plan.
+   *     - VaultId: required. The vault ID.
+   *     - InstanceId: required only when SourceType=ECS_FILE. The ECS instance ID.
+   *     - Bucket: required only when SourceType=OSS. The OSS bucket name.
+   *     - FileSystemId: required only when SourceType=NAS. The NAS file system ID.
+   *     - CreateTime: required only when SourceType=NAS. The creation time of the NAS file system.
+   *     - CompleteTime: the time when the snapshot is completed.
+   *     - PlanId: the backup plan ID.
    * 
    * - Supported operations:
    * 
-   *   - MATCH_TERM: exact match.
-   * 
-   *   - GREATER_THAN: greater than.
-   * 
-   *   - GREATER_THAN_OR_EQUAL: greater than or equal to.
-   * 
-   *   - LESS_THAN: less than.
-   * 
-   *   - LESS_THAN_OR_EQUAL: less than or equal to.
-   * 
-   *   - BETWEEN: a range. The value is a JSON array in the `[lower bound,upper bound]` format.
-   * 
-   *   - IN: in a collection. The value is an array.
-   * 
-   *   - NOT_IN: not in a collection. The value is an array.
+   *     - MATCH_TERM: exact match.
+   *     - GREATER_THAN: greater than.
+   *     - GREATER_THAN_OR_EQUAL: greater than or equal to.
+   *     - LESS_THAN: less than.
+   *     - LESS_THAN_OR_EQUAL: less than or equal to.
+   *     - BETWEEN: range. The value is a JSON array `[lower bound, upper bound]`.
+   *     - IN: in the set. The value is an array.
+   *     - NOT_IN: not in the set. The value is an array.
    * 
    * @example
    * [   {     "field": "VaultId",     "value": "v-0003rf9m17pap3ltpqx5",     "operation": "MATCH_TERM"   },   {     "field": "InstanceId",     "value": "i-bp1i20zq2wuzdie9368m",     "operation": "MATCH_TERM"   },   {     "field": "PlanId",     "value": "plan-0005vkqhpesqgkd1iu4f",     "operation": "MATCH_TERM"   },   {     "field": "CompleteTime",     "value": 1626769913,     "operation": "GREATER_THAN_OR_EQUAL"   } ]
@@ -109,7 +94,7 @@ export class SearchHistoricalSnapshotsShrinkRequest extends $dara.Model {
   queryShrink?: string;
   /**
    * @remarks
-   * The field to sort by.
+   * The field used for sorting.
    * 
    * @example
    * CreatedTime
@@ -118,12 +103,9 @@ export class SearchHistoricalSnapshotsShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The type of the data source. Valid values:
-   * 
-   * - **ECS_FILE**: a backup snapshot of ECS files.
-   * 
-   * - **OSS**: a backup snapshot of Alibaba Cloud OSS.
-   * 
-   * - **NAS**: a backup snapshot of Alibaba Cloud NAS.
+   * * **ECS_FILE**: backup snapshots of ECS files.
+   * * **OSS**: backup snapshots of Alibaba Cloud OSS.
+   * * **NAS**: backup snapshots of Alibaba Cloud NAS.
    * 
    * @example
    * ECS_FILE

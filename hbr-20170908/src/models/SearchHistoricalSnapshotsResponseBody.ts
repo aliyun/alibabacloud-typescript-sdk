@@ -207,7 +207,7 @@ export class SearchHistoricalSnapshotsResponseBodySnapshots extends $dara.Model 
 export class SearchHistoricalSnapshotsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The return code. A value of 200 indicates that the request was successful.
+   * The response code. A value of 200 indicates success.
    * 
    * @example
    * 200
@@ -223,7 +223,7 @@ export class SearchHistoricalSnapshotsResponseBody extends $dara.Model {
   limit?: number;
   /**
    * @remarks
-   * The returned message. If the request is successful, \\`successful\\` is returned. If the request fails, an error message is returned.
+   * The returned message. The value "successful" is returned for successful requests. An error message is returned for failed requests.
    * 
    * @example
    * successful
@@ -231,7 +231,7 @@ export class SearchHistoricalSnapshotsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The token that is required to obtain the next page of snapshots.
+   * The token required to retrieve the next page of snapshots.
    * 
    * @example
    * BE
@@ -251,7 +251,6 @@ export class SearchHistoricalSnapshotsResponseBody extends $dara.Model {
    * Indicates whether the request was successful.
    * 
    * - true: The request was successful.
-   * 
    * - false: The request failed.
    * 
    * @example
@@ -260,7 +259,7 @@ export class SearchHistoricalSnapshotsResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The total number of snapshots that meet the specified criteria.
+   * The total number of snapshots that meet the specified conditions.
    * 
    * @example
    * 20

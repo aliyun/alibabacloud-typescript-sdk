@@ -44,39 +44,6 @@ export default class Client extends OpenApi {
       'cn-zhengzhou-nebula-1': "hbr.aliyuncs.com",
       'eu-west-1-oxs': "hbr.aliyuncs.com",
       'rus-west-1-pop': "hbr.aliyuncs.com",
-      'cn-wulanchabu': "hbr.cn-wulanchabu.aliyuncs.com",
-      'cn-beijing': "hbr.cn-beijing.aliyuncs.com",
-      'cn-qingdao': "hbr.cn-qingdao.aliyuncs.com",
-      'cn-shanghai': "hbr.cn-shanghai.aliyuncs.com",
-      'cn-hongkong': "hbr.cn-hongkong.aliyuncs.com",
-      'cn-heyuan': "hbr.cn-heyuan.aliyuncs.com",
-      'cn-zhangjiakou': "hbr.cn-zhangjiakou.aliyuncs.com",
-      'cn-shenzhen': "hbr.cn-shenzhen.aliyuncs.com",
-      'ap-northeast-2': "hbr.ap-northeast-2.aliyuncs.com",
-      'ap-northeast-1': "hbr.ap-northeast-1.aliyuncs.com",
-      'cn-chengdu': "hbr.cn-chengdu.aliyuncs.com",
-      'cn-guangzhou': "hbr.cn-guangzhou.aliyuncs.com",
-      'ap-southeast-1': "hbr.ap-southeast-1.aliyuncs.com",
-      'ap-southeast-3': "hbr.ap-southeast-3.aliyuncs.com",
-      'cn-huhehaote': "hbr.cn-huhehaote.aliyuncs.com",
-      'ap-southeast-5': "hbr.ap-southeast-5.aliyuncs.com",
-      'ap-southeast-6': "hbr.ap-southeast-6.aliyuncs.com",
-      'ap-southeast-7': "hbr.ap-southeast-7.aliyuncs.com",
-      'cn-hangzhou': "hbr.cn-hangzhou.aliyuncs.com",
-      'ap-southeast-8': "hbr.ap-southeast-8.aliyuncs.com",
-      'cn-zhongwei': "hbr.cn-zhongwei.aliyuncs.com",
-      'us-southeast-1': "hbr.us-southeast-1.aliyuncs.com",
-      'na-south-1': "hbr.na-south-1.aliyuncs.com",
-      'eu-central-1': "hbr.eu-central-1.aliyuncs.com",
-      'us-west-1': "hbr.us-west-1.aliyuncs.com",
-      'eu-west-1': "hbr.eu-west-1.aliyuncs.com",
-      'us-east-1': "hbr.us-east-1.aliyuncs.com",
-      'me-central-1': "hbr.me-central-1.aliyuncs.com",
-      'me-east-1': "hbr.me-east-1.aliyuncs.com",
-      'cn-shanghai-finance-1': "hbr.cn-shanghai-finance-1.aliyuncs.com",
-      'cn-beijing-finance-1': "hbr.cn-beijing-finance-1.aliyuncs.com",
-      'cn-shenzhen-finance-1': "hbr.cn-shenzhen-finance-1.aliyuncs.com",
-      'cn-hangzhou-finance': "hbr.cn-hangzhou-finance.aliyuncs.com",
     };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("hbr", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -3271,6 +3238,48 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the free trial activation status and expiration time of a specified feature. Currently, only the free trial information of Tablestore backup can be queried.
+   * 
+   * @param request - DescribeFeatureTrialInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeFeatureTrialInfoResponse
+   */
+  async describeFeatureTrialInfoWithOptions(request: $_model.DescribeFeatureTrialInfoRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeFeatureTrialInfoResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.featureType)) {
+      query["FeatureType"] = request.featureType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeFeatureTrialInfo",
+      version: "2017-09-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeFeatureTrialInfoResponse>(await this.callApi(params, req, runtime), new $_model.DescribeFeatureTrialInfoResponse({}));
+  }
+
+  /**
+   * Queries the free trial activation status and expiration time of a specified feature. Currently, only the free trial information of Tablestore backup can be queried.
+   * 
+   * @param request - DescribeFeatureTrialInfoRequest
+   * @returns DescribeFeatureTrialInfoResponse
+   */
+  async describeFeatureTrialInfo(request: $_model.DescribeFeatureTrialInfoRequest): Promise<$_model.DescribeFeatureTrialInfoResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeFeatureTrialInfoWithOptions(request, runtime);
+  }
+
+  /**
    * Queries for one or more SAP HANA backup plans that match specified criteria.
    * 
    * @param request - DescribeHanaBackupPlansRequest
@@ -4935,6 +4944,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the free trial information of a specified OSS bucket or NAS file system.
+   * 
+   * @param request - GetTrialInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetTrialInfoResponse
+   */
+  async getTrialInfoWithOptions(request: $_model.GetTrialInfoRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetTrialInfoResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.bucket)) {
+      query["Bucket"] = request.bucket;
+    }
+
+    if (!$dara.isNull(request.createTime)) {
+      query["CreateTime"] = request.createTime;
+    }
+
+    if (!$dara.isNull(request.fileSystemId)) {
+      query["FileSystemId"] = request.fileSystemId;
+    }
+
+    if (!$dara.isNull(request.sourceType)) {
+      query["SourceType"] = request.sourceType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetTrialInfo",
+      version: "2017-09-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetTrialInfoResponse>(await this.callApi(params, req, runtime), new $_model.GetTrialInfoResponse({}));
+  }
+
+  /**
+   * Queries the free trial information of a specified OSS bucket or NAS file system.
+   * 
+   * @param request - GetTrialInfoRequest
+   * @returns GetTrialInfoResponse
+   */
+  async getTrialInfo(request: $_model.GetTrialInfoRequest): Promise<$_model.GetTrialInfoResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getTrialInfoWithOptions(request, runtime);
+  }
+
+  /**
    * Installs backup clients on one or more ECS instances.
    * 
    * @remarks
@@ -5071,6 +5134,80 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries a list of backup points.
+   * 
+   * @param request - ListSnapshotsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListSnapshotsResponse
+   */
+  async listSnapshotsWithOptions(request: $_model.ListSnapshotsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListSnapshotsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.completeTimeEnd)) {
+      query["CompleteTimeEnd"] = request.completeTimeEnd;
+    }
+
+    if (!$dara.isNull(request.completeTimeStart)) {
+      query["CompleteTimeStart"] = request.completeTimeStart;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.planId)) {
+      query["PlanId"] = request.planId;
+    }
+
+    if (!$dara.isNull(request.protectedResourceId)) {
+      query["ProtectedResourceId"] = request.protectedResourceId;
+    }
+
+    if (!$dara.isNull(request.skip)) {
+      query["Skip"] = request.skip;
+    }
+
+    if (!$dara.isNull(request.sourceType)) {
+      query["SourceType"] = request.sourceType;
+    }
+
+    if (!$dara.isNull(request.vaultId)) {
+      query["VaultId"] = request.vaultId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListSnapshots",
+      version: "2017-09-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListSnapshotsResponse>(await this.callApi(params, req, runtime), new $_model.ListSnapshotsResponse({}));
+  }
+
+  /**
+   * Queries a list of backup points.
+   * 
+   * @param request - ListSnapshotsRequest
+   * @returns ListSnapshotsResponse
+   */
+  async listSnapshots(request: $_model.ListSnapshotsRequest): Promise<$_model.ListSnapshotsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listSnapshotsWithOptions(request, runtime);
+  }
+
+  /**
    * Activates Cloud Backup.
    * 
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5152,7 +5289,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves one or more historical backup snapshots that meet the specified criteria.
+   * Retrieves one or more historical backup snapshots that meet the specified conditions.
    * 
    * @param tmpReq - SearchHistoricalSnapshotsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5213,7 +5350,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves one or more historical backup snapshots that meet the specified criteria.
+   * Retrieves one or more historical backup snapshots that meet the specified conditions.
    * 
    * @param request - SearchHistoricalSnapshotsRequest
    * @returns SearchHistoricalSnapshotsResponse
