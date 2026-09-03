@@ -13,6 +13,7 @@ export { DeleteAccessAssignmentResponseBodyTask } from './DeleteAccessAssignment
 export { DeprovisionAccessConfigurationResponseBodyTasks } from './DeprovisionAccessConfigurationResponseBody';
 export { GetAccessConfigurationResponseBodyAccessConfigurationTags } from './GetAccessConfigurationResponseBody';
 export { GetAccessConfigurationResponseBodyAccessConfiguration } from './GetAccessConfigurationResponseBody';
+export { GetAttributePassingSettingResponseBodyAttributePassingSetting } from './GetAttributePassingSettingResponseBody';
 export { GetDirectoryResponseBodyDirectory } from './GetDirectoryResponseBody';
 export { GetDirectorySAMLServiceProviderInfoResponseBodySAMLServiceProvider } from './GetDirectorySamlserviceProviderInfoResponseBody';
 export { GetDirectoryStatisticsResponseBodyDirectoryStatistics } from './GetDirectoryStatisticsResponseBody';
@@ -138,6 +139,9 @@ export { EnableServiceResponse } from './EnableServiceResponse';
 export { GetAccessConfigurationRequest } from './GetAccessConfigurationRequest';
 export { GetAccessConfigurationResponseBody } from './GetAccessConfigurationResponseBody';
 export { GetAccessConfigurationResponse } from './GetAccessConfigurationResponse';
+export { GetAttributePassingSettingRequest } from './GetAttributePassingSettingRequest';
+export { GetAttributePassingSettingResponseBody } from './GetAttributePassingSettingResponseBody';
+export { GetAttributePassingSettingResponse } from './GetAttributePassingSettingResponse';
 export { GetDirectoryRequest } from './GetDirectoryRequest';
 export { GetDirectoryResponseBody } from './GetDirectoryResponseBody';
 export { GetDirectoryResponse } from './GetDirectoryResponse';
@@ -284,6 +288,9 @@ export { SetSCIMSynchronizationStatusResponse } from './SetScimsynchronizationSt
 export { UpdateAccessConfigurationRequest } from './UpdateAccessConfigurationRequest';
 export { UpdateAccessConfigurationResponseBody } from './UpdateAccessConfigurationResponseBody';
 export { UpdateAccessConfigurationResponse } from './UpdateAccessConfigurationResponse';
+export { UpdateAttributePassingSettingRequest } from './UpdateAttributePassingSettingRequest';
+export { UpdateAttributePassingSettingResponseBody } from './UpdateAttributePassingSettingResponseBody';
+export { UpdateAttributePassingSettingResponse } from './UpdateAttributePassingSettingResponse';
 export { UpdateDirectoryRequest } from './UpdateDirectoryRequest';
 export { UpdateDirectoryResponseBody } from './UpdateDirectoryResponseBody';
 export { UpdateDirectoryResponse } from './UpdateDirectoryResponse';

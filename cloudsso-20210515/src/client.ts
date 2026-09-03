@@ -12,14 +12,6 @@ export default class Client extends OpenApi {
   constructor(config: $OpenApiUtil.Config) {
     super(config);
     this._endpointRule = "regional";
-    this._endpointMap = {
-      'cn-shanghai': "cloudsso.cn-shanghai.aliyuncs.com",
-      'cn-hongkong': "cloudsso.cn-hongkong.aliyuncs.com",
-      'ap-northeast-2': "cloudsso.ap-northeast-2.aliyuncs.com",
-      'ap-southeast-1': "cloudsso.ap-southeast-1.aliyuncs.com",
-      'us-west-1': "cloudsso.us-west-1.aliyuncs.com",
-      'eu-central-1': "cloudsso.eu-central-1.aliyuncs.com",
-    };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("cloudsso", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
@@ -1559,6 +1551,54 @@ export default class Client extends OpenApi {
   async getAccessConfiguration(request: $_model.GetAccessConfigurationRequest): Promise<$_model.GetAccessConfigurationResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getAccessConfigurationWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the attribute passing settings of a specified directory to retrieve the current configuration of the SourceIdentity pass-through mode.
+   * 
+   * @remarks
+   * You must have the cloudsso:GetAttributePassingSetting permission to call this operation. If the directory is not explicitly configured, SourceIdentityPassing returns Disabled by default.
+   * 
+   * @param request - GetAttributePassingSettingRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAttributePassingSettingResponse
+   */
+  async getAttributePassingSettingWithOptions(request: $_model.GetAttributePassingSettingRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetAttributePassingSettingResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.directoryId)) {
+      query["DirectoryId"] = request.directoryId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetAttributePassingSetting",
+      version: "2021-05-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetAttributePassingSettingResponse>(await this.callApi(params, req, runtime), new $_model.GetAttributePassingSettingResponse({}));
+  }
+
+  /**
+   * Queries the attribute passing settings of a specified directory to retrieve the current configuration of the SourceIdentity pass-through mode.
+   * 
+   * @remarks
+   * You must have the cloudsso:GetAttributePassingSetting permission to call this operation. If the directory is not explicitly configured, SourceIdentityPassing returns Disabled by default.
+   * 
+   * @param request - GetAttributePassingSettingRequest
+   * @returns GetAttributePassingSettingResponse
+   */
+  async getAttributePassingSetting(request: $_model.GetAttributePassingSettingRequest): Promise<$_model.GetAttributePassingSettingResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getAttributePassingSettingWithOptions(request, runtime);
   }
 
   /**
@@ -4265,6 +4305,58 @@ export default class Client extends OpenApi {
   async updateAccessConfiguration(request: $_model.UpdateAccessConfigurationRequest): Promise<$_model.UpdateAccessConfigurationResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateAccessConfigurationWithOptions(request, runtime);
+  }
+
+  /**
+   * Updates the attribute passing settings for a specified directory, allowing you to set the SourceIdentity pass-through mode to IdP, UserName, or Disabled.
+   * 
+   * @remarks
+   * You must have the cloudsso:UpdateAttributePassingSetting permission to call this operation. If the SourceIdentityPassing request parameter is not specified, the existing value is retained. If an invalid enum value is specified, the InvalidParameter.SourceIdentityPassing error is returned.
+   * 
+   * @param request - UpdateAttributePassingSettingRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateAttributePassingSettingResponse
+   */
+  async updateAttributePassingSettingWithOptions(request: $_model.UpdateAttributePassingSettingRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateAttributePassingSettingResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.directoryId)) {
+      query["DirectoryId"] = request.directoryId;
+    }
+
+    if (!$dara.isNull(request.sourceIdentityPassing)) {
+      query["SourceIdentityPassing"] = request.sourceIdentityPassing;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateAttributePassingSetting",
+      version: "2021-05-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateAttributePassingSettingResponse>(await this.callApi(params, req, runtime), new $_model.UpdateAttributePassingSettingResponse({}));
+  }
+
+  /**
+   * Updates the attribute passing settings for a specified directory, allowing you to set the SourceIdentity pass-through mode to IdP, UserName, or Disabled.
+   * 
+   * @remarks
+   * You must have the cloudsso:UpdateAttributePassingSetting permission to call this operation. If the SourceIdentityPassing request parameter is not specified, the existing value is retained. If an invalid enum value is specified, the InvalidParameter.SourceIdentityPassing error is returned.
+   * 
+   * @param request - UpdateAttributePassingSettingRequest
+   * @returns UpdateAttributePassingSettingResponse
+   */
+  async updateAttributePassingSetting(request: $_model.UpdateAttributePassingSettingRequest): Promise<$_model.UpdateAttributePassingSettingResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateAttributePassingSettingWithOptions(request, runtime);
   }
 
   /**
