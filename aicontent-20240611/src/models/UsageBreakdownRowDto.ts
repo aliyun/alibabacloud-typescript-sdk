@@ -5,18 +5,24 @@ import { MetricKVPairDTO } from "./MetricKvpairDto";
 
 export class UsageBreakdownRowDTO extends $dara.Model {
   /**
+   * @remarks
+   * The API key ID. A value of 0 indicates that historical data is not broken down by API key.
+   * 
    * @example
    * 0
    */
   apiKeyId?: number;
   /**
+   * @remarks
+   * The API key name, corresponding to api_key_id.
+   * 
    * @example
-   * 默认密钥
+   * Default key
    */
   apiKeyName?: string;
   /**
    * @remarks
-   * Department ID; 0 indicates no associated department
+   * The department ID. A value of 0 indicates no affiliated department.
    * 
    * @example
    * 0
@@ -24,25 +30,31 @@ export class UsageBreakdownRowDTO extends $dara.Model {
   clientId?: number;
   /**
    * @remarks
-   * Department name
+   * The department name.
    * 
    * @example
-   * 研发部
+   * R&D Department
    */
   clientName?: string;
   /**
+   * @remarks
+   * The member ID for a member row. The value is 0 for a department row.
+   * 
    * @example
    * 30001
    */
   memberUserId?: number;
   /**
+   * @remarks
+   * The member name for a member row. The value is empty for a department row.
+   * 
    * @example
-   * 张三
+   * John Smith
    */
   memberUserName?: string;
   /**
    * @remarks
-   * Array of usage metrics, containing only entries with non-zero values
+   * The usage metric array. Only entries with non-zero values are included.
    * 
    * @example
    * [{"key": "total_calls", "value": 100}]
@@ -50,7 +62,7 @@ export class UsageBreakdownRowDTO extends $dara.Model {
   metrics?: MetricKVPairDTO[];
   /**
    * @remarks
-   * Model identifier
+   * The model identifier.
    * 
    * @example
    * qwen-plus
@@ -58,7 +70,7 @@ export class UsageBreakdownRowDTO extends $dara.Model {
   modelCode?: string;
   /**
    * @remarks
-   * Model ID
+   * The model ID.
    * 
    * @example
    * 1
@@ -66,15 +78,15 @@ export class UsageBreakdownRowDTO extends $dara.Model {
   modelId?: number;
   /**
    * @remarks
-   * Model name
+   * The model name.
    * 
    * @example
-   * 通义千问-Plus
+   * Qwen-Plus
    */
   modelName?: string;
   /**
    * @remarks
-   * Statistics scope
+   * The statistical dimension.
    * 
    * @example
    * llm
@@ -82,7 +94,7 @@ export class UsageBreakdownRowDTO extends $dara.Model {
   modelType?: string;
   /**
    * @remarks
-   * Statistics time point, Unix timestamp (seconds)
+   * The statistical time point, in UNIX timestamp (seconds).
    * 
    * @example
    * 1700000000

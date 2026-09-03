@@ -13,8 +13,6 @@ export default class Client extends OpenApi {
     super(config);
     this._endpointRule = "regional";
     this._endpointMap = {
-      'cn-beijing': "aicontent.cn-beijing.aliyuncs.com",
-      'cn-hangzhou': "aicontent.cn-hangzhou.aliyuncs.com",
       'cn-shanghai': "aicontent.aliyuncs.com",
       public: "aicontent.aliyuncs.com",
     };
@@ -7340,6 +7338,51 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.modelRouterTransferToMemberWithOptions(clientId, id, request, headers, runtime);
+  }
+
+  /**
+   * Modifies the status of an API key.
+   * 
+   * @param request - ModelRouterUpdateApiKeyStatusRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModelRouterUpdateApiKeyStatusResponse
+   */
+  async modelRouterUpdateApiKeyStatusWithOptions(id: string, request: $_model.ModelRouterUpdateApiKeyStatusRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ModelRouterUpdateApiKeyStatusResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.status)) {
+      body["status"] = request.status;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModelRouterUpdateApiKeyStatus",
+      version: "20240611",
+      protocol: "HTTPS",
+      pathname: `/api/v1/modelRouter/open/apikeys/${$dara.URL.percentEncode(id)}/status`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModelRouterUpdateApiKeyStatusResponse>(await this.callApi(params, req, runtime), new $_model.ModelRouterUpdateApiKeyStatusResponse({}));
+  }
+
+  /**
+   * Modifies the status of an API key.
+   * 
+   * @param request - ModelRouterUpdateApiKeyStatusRequest
+   * @returns ModelRouterUpdateApiKeyStatusResponse
+   */
+  async modelRouterUpdateApiKeyStatus(id: string, request: $_model.ModelRouterUpdateApiKeyStatusRequest): Promise<$_model.ModelRouterUpdateApiKeyStatusResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.modelRouterUpdateApiKeyStatusWithOptions(id, request, headers, runtime);
   }
 
   /**

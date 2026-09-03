@@ -129,6 +129,7 @@ export { ModelRouterQueryObservationLogsResponseBodyData } from './ModelRouterQu
 export { ModelRouterQueryUserListResponseBodyData } from './ModelRouterQueryUserListResponseBody';
 export { ModelRouterSaveFlowConfigResponseBodyData } from './ModelRouterSaveFlowConfigResponseBody';
 export { ModelRouterSearchClientTreeResponseBodyData } from './ModelRouterSearchClientTreeResponseBody';
+export { ModelRouterUpdateApiKeyStatusResponseBodyData } from './ModelRouterUpdateApiKeyStatusResponseBody';
 export { ModelRouterUpdateBillingRuleResponseBodyData } from './ModelRouterUpdateBillingRuleResponseBody';
 export { PersonalizedTextToImageAddInferenceJobResponseBodyData } from './PersonalizedTextToImageAddInferenceJobResponseBody';
 export { PersonalizedTextToImageQueryPreModelInferenceJobInfoResponseBodyData } from './PersonalizedTextToImageQueryPreModelInferenceJobInfoResponseBody';
@@ -584,6 +585,9 @@ export { ModelRouterStopSubscriptionResponse } from './ModelRouterStopSubscripti
 export { ModelRouterTransferToMemberRequest } from './ModelRouterTransferToMemberRequest';
 export { ModelRouterTransferToMemberResponseBody } from './ModelRouterTransferToMemberResponseBody';
 export { ModelRouterTransferToMemberResponse } from './ModelRouterTransferToMemberResponse';
+export { ModelRouterUpdateApiKeyStatusRequest } from './ModelRouterUpdateApiKeyStatusRequest';
+export { ModelRouterUpdateApiKeyStatusResponseBody } from './ModelRouterUpdateApiKeyStatusResponseBody';
+export { ModelRouterUpdateApiKeyStatusResponse } from './ModelRouterUpdateApiKeyStatusResponse';
 export { ModelRouterUpdateBillingRuleRequest } from './ModelRouterUpdateBillingRuleRequest';
 export { ModelRouterUpdateBillingRuleResponseBody } from './ModelRouterUpdateBillingRuleResponseBody';
 export { ModelRouterUpdateBillingRuleResponse } from './ModelRouterUpdateBillingRuleResponse';
