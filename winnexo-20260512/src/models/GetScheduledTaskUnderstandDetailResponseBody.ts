@@ -133,7 +133,7 @@ export class GetScheduledTaskUnderstandDetailResponseBodyRelatedSkills extends $
   skillCode?: string;
   /**
    * @remarks
-   * sourceIds
+   * The list of source IDs for related skills.
    * 
    * @example
    * string_value

@@ -69,7 +69,7 @@ export class ListSkillsResponseBodyItems extends $dara.Model {
   skillHubDefinitionId?: number;
   /**
    * @remarks
-   * The data source type. Fixed value: FILE.
+   * The skill source type.
    * 
    * @example
    * BUILTIN
@@ -77,7 +77,7 @@ export class ListSkillsResponseBodyItems extends $dara.Model {
   sourceType?: string;
   /**
    * @remarks
-   * The task status. Returns Running upon submission.
+   * The task status. Running is returned upon submission.
    * 
    * @example
    * READY
@@ -85,7 +85,7 @@ export class ListSkillsResponseBodyItems extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The keys.
+   * The key.
    * 
    * @example
    * string_value

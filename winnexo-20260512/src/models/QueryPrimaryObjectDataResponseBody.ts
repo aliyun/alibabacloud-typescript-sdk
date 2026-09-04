@@ -21,7 +21,7 @@ export class QueryPrimaryObjectDataResponseBody extends $dara.Model {
   items?: { [key: string]: string }[];
   /**
    * @remarks
-   * The error description. This value is empty when the request succeeds.
+   * The error description. This parameter is empty when the request succeeds.
    * 
    * @example
    * ok

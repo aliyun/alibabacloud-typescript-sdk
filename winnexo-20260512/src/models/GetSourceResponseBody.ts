@@ -225,7 +225,7 @@ export class GetSourceResponseBody extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The meeting notes content (optional), which participates in auxiliary analysis.
+   * The meeting notes content (optional). The notes are used for auxiliary analysis.
    * 
    * @example
    * string_value
@@ -278,7 +278,7 @@ export class GetSourceResponseBody extends $dara.Model {
   scope?: string;
   /**
    * @remarks
-   * The user profile card settings.
+   * The user profile settings.
    */
   settings?: { [key: string]: any };
   /**
@@ -299,7 +299,7 @@ export class GetSourceResponseBody extends $dara.Model {
   sourceId?: string;
   /**
    * @remarks
-   * The knowledge base affiliation type. Valid values:
+   * The knowledge base (KB) ownership type. Valid values:
    * - aliding_kb_doc: DingTalk knowledge base document.
    * - normal: common knowledge.
    * 
@@ -333,7 +333,7 @@ export class GetSourceResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * structuredTables
+   * The list of structured tables.
    * 
    * @example
    * string_value

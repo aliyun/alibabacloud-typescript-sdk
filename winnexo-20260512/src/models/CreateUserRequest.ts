@@ -15,7 +15,7 @@ export class CreateUserRequest extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * The base64-encoded password ciphertext encrypted by RSA-OAEP-SHA256 (required).
+   * The base64-encoded password ciphertext encrypted by using RSA-OAEP-SHA256 (required).
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,15 @@ export class CreateUserRequest extends $dara.Model {
   roleCodes?: string[];
   /**
    * @remarks
-   * The ID of the tenant in which the operation takes effect.
+   * The SSO provider type. This parameter is optional if the tenant has only one external logon method. This parameter is required if the tenant has multiple external logon methods. Currently, createUser supports BUILD_IN and AGENT_ONE.
+   * 
+   * @example
+   * AGENT_ONE
+   */
+  ssoProvider?: string;
+  /**
+   * @remarks
+   * The ID of the tenant on which the operation takes effect.
    * 
    * @example
    * 10000
@@ -54,6 +62,7 @@ export class CreateUserRequest extends $dara.Model {
       displayName: 'displayName',
       passwordEncrypted: 'passwordEncrypted',
       roleCodes: 'roleCodes',
+      ssoProvider: 'ssoProvider',
       tenantId: 'tenantId',
       wnAccountId: 'wnAccountId',
     };
@@ -64,6 +73,7 @@ export class CreateUserRequest extends $dara.Model {
       displayName: 'string',
       passwordEncrypted: 'string',
       roleCodes: { 'type': 'array', 'itemType': 'string' },
+      ssoProvider: 'string',
       tenantId: 'string',
       wnAccountId: 'string',
     };

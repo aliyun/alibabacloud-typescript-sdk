@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RetryDirectoryFailedSourcesRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the enterprise knowledge base folder. Failed resources in the folder and its subfolders are included recursively.
+   * The ID of the enterprise knowledge base folder. Failed resources in subfolders are recursively included.
    * 
    * This parameter is required.
    * 

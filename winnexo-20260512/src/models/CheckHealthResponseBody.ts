@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CheckHealthResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The authentication source: bearer / aliyun_gateway.
+   * The authentication source. Valid values: bearer and aliyun_gateway.
    * 
    * @example
    * aliyun_gateway
@@ -13,7 +13,7 @@ export class CheckHealthResponseBody extends $dara.Model {
   authSource?: string;
   /**
    * @remarks
-   * The caller type: user / aliyun_main / aliyun_ram / service.
+   * The caller type. Valid values: user, aliyun_main, aliyun_ram, and service.
    * 
    * @example
    * aliyun_main
@@ -37,7 +37,7 @@ export class CheckHealthResponseBody extends $dara.Model {
   digitalEmployeeName?: string;
   /**
    * @remarks
-   * The status code description.
+   * The description of the status code.
    * 
    * @example
    * ok

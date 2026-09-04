@@ -13,7 +13,7 @@ export class CreateGroupFeishuDocResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The folder ID.
+   * The directory ID.
    * 
    * @example
    * dir_group_child
@@ -56,12 +56,12 @@ export class CreateGroupFeishuDocResponseBody extends $dara.Model {
    * The image name.
    * 
    * @example
-   * Project Plan
+   * ProjectPlan
    */
   name?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 019FF406-1B10-0065-A97D-2D1920C2A03D

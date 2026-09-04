@@ -53,7 +53,7 @@ export class SendAsyncChatMessageResponseBody extends $dara.Model {
   sessionId?: string;
   /**
    * @remarks
-   * The user message ID. Use this ID to establish a pairing relationship with the assistant message in this turn.
+   * The user message ID.
    * 
    * @example
    * 60756cc6-8c53-4d1f-8db8-b8c09b81a5cb

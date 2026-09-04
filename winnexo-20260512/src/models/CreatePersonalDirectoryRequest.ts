@@ -13,7 +13,7 @@ export class CreatePersonalDirectoryRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The name of the digital human.
+   * The name of the digital employee.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class CreatePersonalDirectoryRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The name of the digital human (operating object name, optional).
+   * The name of the digital employee (operating object name, optional).
    * 
    * @example
    * string_value

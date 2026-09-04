@@ -63,7 +63,7 @@ export class RetryDirectoryFailedSourcesResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The ID of the enterprise knowledge base folder. Failed resources in the folder and its subfolders are included recursively.
+   * The ID of the enterprise knowledge base folder. Failed resources in subfolders are recursively included.
    * 
    * @example
    * exampleDirectoryId
@@ -79,7 +79,7 @@ export class RetryDirectoryFailedSourcesResponseBody extends $dara.Model {
   enqueuedCount?: number;
   /**
    * @remarks
-   * enqueuedIds。
+   * The list of source IDs that have been re-enqueued.
    * 
    * @example
    * string_value

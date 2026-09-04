@@ -40,7 +40,7 @@ export class CreatePersonalDirectoryResponseBody extends $dara.Model {
    * The creation time.
    * 
    * @example
-   * 2026-03-04 13:54:52
+   * 1772603692
    */
   gmtCreate?: number;
   /**
@@ -48,7 +48,7 @@ export class CreatePersonalDirectoryResponseBody extends $dara.Model {
    * The last modification time.
    * 
    * @example
-   * 2025-11-14T02:18:27Z
+   * 1763086707
    */
   gmtModified?: number;
   /**
@@ -69,7 +69,7 @@ export class CreatePersonalDirectoryResponseBody extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The name of the digital human (operating object name, optional).
+   * The name of the digital employee (operating object name, optional).
    * 
    * @example
    * string_value
@@ -93,7 +93,7 @@ export class CreatePersonalDirectoryResponseBody extends $dara.Model {
   path?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 375701FC-2FB9-5782-BE8F-A3F5E2F2158C

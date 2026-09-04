@@ -65,7 +65,7 @@ export class RecommendNextActionsResponseBodyNextActions extends $dara.Model {
 export class RecommendNextActionsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The business status code. 200 indicates success. A failure returns a backend error code (ERR.* / InvalidParameter.*).
+   * The business status code. A value of 200 indicates success. A failure returns a backend error code (ERR.* / InvalidParameter.*).
    * 
    * @example
    * 200

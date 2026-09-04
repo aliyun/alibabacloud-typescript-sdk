@@ -43,7 +43,7 @@ export class ListSkillsRequest extends $dara.Model {
    * The current page number.
    * 
    * @example
-   * string_value
+   * 1
    */
   page?: number;
   /**

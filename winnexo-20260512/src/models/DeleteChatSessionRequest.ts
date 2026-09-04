@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteChatSessionRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the session to delete.
+   * The ID of the session to be deleted.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DeleteChatSessionRequest extends $dara.Model {
   sessionId?: string;
   /**
    * @remarks
-   * The ID of the effective tenant.
+   * The tenant ID that takes effect.
    * 
    * @example
    * 10000

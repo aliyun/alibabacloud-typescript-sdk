@@ -61,7 +61,7 @@ export class GetChatSessionResponseBodyMessages extends $dara.Model {
   role?: string;
   /**
    * @remarks
-   * The username of the sharing source. This parameter has a value only when from_share=True.
+   * The username of the user who shared the message. This parameter has a value only when from_share is set to True.
    * 
    * @example
    * string_value
@@ -164,7 +164,7 @@ export class GetChatSessionResponseBodySession extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * Indicates whether the creation time exceeds 30 days.
+   * Indicates whether the creation time is older than 30 days.
    * 
    * @example
    * true
@@ -303,7 +303,7 @@ export class GetChatSessionResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The session ID.
+   * The session information.
    */
   session?: GetChatSessionResponseBodySession;
   static names(): { [key: string]: string } {

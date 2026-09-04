@@ -31,7 +31,7 @@ export class SendChatMessageShrinkRequest extends $dara.Model {
   digitalEmployeeNameShrink?: string;
   /**
    * @remarks
-   * Specifies whether to enable direct connection mode. When set to true, the regular scenario routing is skipped and the direct conversation scenario is entered directly.
+   * Specifies whether to enable direct connection mode. If set to true, the regular scenario routing is skipped and the direct conversation scenario is entered.
    * 
    * @example
    * false
@@ -39,7 +39,7 @@ export class SendChatMessageShrinkRequest extends $dara.Model {
   directChat?: boolean;
   /**
    * @remarks
-   * The list of file references. Each item is an object, and fileId is required (returned by uploadChatFile).
+   * The list of file references. Each item is an object in which fileId is required and is returned by uploadChatFile.
    */
   filesShrink?: string;
   /**

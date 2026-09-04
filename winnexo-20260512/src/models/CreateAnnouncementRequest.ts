@@ -39,7 +39,7 @@ export class CreateAnnouncementRequest extends $dara.Model {
   effectiveEnd?: string;
   /**
    * @remarks
-   * The effective start time in ISO 8601 format with time zone information. If this parameter is not specified, the notice takes effect immediately.
+   * The effective start time in ISO 8601 format with time zone. If this parameter is not specified, the notice takes effect immediately.
    * 
    * @example
    * 2026-08-20T14:00:00+08:00
@@ -47,7 +47,7 @@ export class CreateAnnouncementRequest extends $dara.Model {
   effectiveStart?: string;
   /**
    * @remarks
-   * The priority level. Valid values:
+   * The priority. Valid values:
    * 
    * This parameter is required.
    * 

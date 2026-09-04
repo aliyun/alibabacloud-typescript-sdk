@@ -13,7 +13,7 @@ export class ListOutputFilesRequest extends $dara.Model {
   itemType?: string;
   /**
    * @remarks
-   * The keyword for searching. Matches output titles or item names.
+   * The keyword for searching. Matches the output title or item name.
    * 
    * @example
    * string_value
@@ -37,7 +37,7 @@ export class ListOutputFilesRequest extends $dara.Model {
   page?: number;
   /**
    * @remarks
-   * The number of entries per page. Valid values: 1 to 100.
+   * The number of items per page. Valid values: 1 to 100.
    * 
    * @example
    * 20
@@ -45,7 +45,7 @@ export class ListOutputFilesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Specifies whether to display only outputs and output items that have sharing enabled.
+   * Specifies whether to display only outputs and output items with sharing enabled.
    * 
    * @example
    * False

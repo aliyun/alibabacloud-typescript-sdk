@@ -53,7 +53,7 @@ export class CreateKnowledgeBaseAliDingDocResponseBody extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * F42FC60B-C54D-5DFB-A8EC-04625BFFF1F7

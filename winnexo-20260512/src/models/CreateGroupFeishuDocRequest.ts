@@ -119,7 +119,7 @@ export class CreateGroupFeishuDocRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The folder ID.
+   * The directory ID.
    * 
    * @example
    * dir_group_child
@@ -150,7 +150,7 @@ export class CreateGroupFeishuDocRequest extends $dara.Model {
    * The image name.
    * 
    * @example
-   * Project Plan
+   * ProjectPlan
    */
   name?: string;
   /**

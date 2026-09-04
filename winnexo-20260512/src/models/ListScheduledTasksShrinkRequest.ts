@@ -21,7 +21,7 @@ export class ListScheduledTasksShrinkRequest extends $dara.Model {
   creatorOnly?: boolean;
   /**
    * @remarks
-   * The keyword of the rule name, used for fuzzy match.
+   * The keyword of the rule name for fuzzy match.
    * 
    * @example
    * SampleKeyword
@@ -29,10 +29,10 @@ export class ListScheduledTasksShrinkRequest extends $dara.Model {
   keyword?: string;
   /**
    * @remarks
-   * The maximum number of entries returned in this request.
+   * The maximum number of entries to return in this request.
    * 
    * @example
-   * string_value
+   * 20
    */
   maxResults?: number;
   /**

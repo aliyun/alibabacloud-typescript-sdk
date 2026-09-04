@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RetryKnowledgeBaseFailedSourcesRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the enterprise knowledge base directory. Failed resources in subdirectories are recursively included.
+   * The enterprise knowledge base directory ID (recursively includes failed resources in subdirectories).
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class RetryKnowledgeBaseFailedSourcesRequest extends $dara.Model {
   directoryId?: string;
   /**
    * @remarks
-   * The tenant ID. This is a common parameter. In winnexo-cli, pass this value explicitly by using --tenant-id.
+   * The tenant ID. This is a common parameter. In winnexo-cli, pass this value explicitly with --tenant-id.
    * 
    * @example
    * 10000

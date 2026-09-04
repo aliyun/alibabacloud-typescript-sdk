@@ -79,7 +79,7 @@ export class RetryKnowledgeBaseFailedSourcesResponseBody extends $dara.Model {
   enqueuedCount?: number;
   /**
    * @remarks
-   * enqueuedIds。
+   * The list of knowledge base source IDs that have been re-enqueued.
    * 
    * @example
    * string_value
@@ -116,7 +116,7 @@ export class RetryKnowledgeBaseFailedSourcesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The number of resources skipped because they are not in FAILED status.
+   * The number of resources skipped (not in FAILED status).
    * 
    * @example
    * 1

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListBillingRequest extends $dara.Model {
   /**
    * @remarks
-   * The unique business identifier. When bizType is set to LibraryChat, bizId refers to the document library ID.
+   * The unique business identifier. When bizType is LibraryChat, bizId refers to the document library ID.
    * 
    * @example
    * exampleBizId
@@ -29,7 +29,7 @@ export class ListBillingRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * Specifies whether to filter out bills with zero credit consumption. Default value: true (filtered).
+   * Specifies whether to filter out bills with zero credit consumption. Default value: true (filter out).
    * 
    * @example
    * true
@@ -39,8 +39,8 @@ export class ListBillingRequest extends $dara.Model {
    * @remarks
    * The operation type. Valid values:
    * 
-   * - start: indicates node creation. This is the default value and does not need to be explicitly set in most cases.
-   * - stop: stops a real-time meeting task. This corresponds to the creation of a real-time meeting. Set this to stop after the meeting ends to trigger the call. This is used in real-time meeting scenarios.
+   * - start: indicates task creation. This is the default value and does not need to be explicitly set in most cases.
+   * - stop: stops a real-time meeting task. This corresponds to the creation of a real-time meeting. After the meeting ends, set this to stop to trigger the call. This is used in real-time meeting scenarios.
    * 
    * Note: When ending a real-time recording, you must set this parameter to stop.
    * 
@@ -66,7 +66,7 @@ export class ListBillingRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The query start time. This is a UNIX timestamp in seconds.
+   * The query start time. The value is a UNIX timestamp in seconds.
    * 
    * @example
    * 2023-10-01T12:00:00Z
@@ -74,7 +74,7 @@ export class ListBillingRequest extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The task status. Running is returned upon submission.
+   * The task status. The status is returned as Running upon submission.
    * 
    * @example
    * READY

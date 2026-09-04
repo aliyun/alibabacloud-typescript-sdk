@@ -15,16 +15,16 @@ export class UploadChatFileResponseBody extends $dara.Model {
    * @remarks
    * The content type of the file. Valid values:
    * 
-   * - **image**: image
-   * - **document**: general document
-   * - **alidoc**: Alibaba document
-   * - **text**: text
-   * - **video**: video
-   * - **audio**: audio
-   * - **archive**: archive
-   * - **app**: application
-   * - **link**: shortcut
-   * - **other**: other
+   * - **image**: Image.
+   * - **document**: General document.
+   * - **alidoc**: Alibaba document.
+   * - **text**: Text.
+   * - **video**: Video.
+   * - **audio**: Audio.
+   * - **archive**: Archive.
+   * - **app**: Application.
+   * - **link**: Shortcut.
+   * - **other**: Other.
    * 
    * @example
    * string_value
@@ -40,7 +40,7 @@ export class UploadChatFileResponseBody extends $dara.Model {
   fileName?: string;
   /**
    * @remarks
-   * The publicly accessible URL of the online document.
+   * The publicly accessible URL of the AliDing online document.
    * 
    * @example
    * https://example.com/winnexo/resource
@@ -48,7 +48,7 @@ export class UploadChatFileResponseBody extends $dara.Model {
   filePublicUrl?: string;
   /**
    * @remarks
-   * The file record ID (optional, corresponding to settings.file_record_id).
+   * The file record ID. This parameter is optional and corresponds to settings.file_record_id.
    * 
    * @example
    * exampleFileRecordId
@@ -56,7 +56,7 @@ export class UploadChatFileResponseBody extends $dara.Model {
   fileRecordId?: string;
   /**
    * @remarks
-   * The attachment address.
+   * The Yida attachment address.
    * 
    * @example
    * https://example.com/winnexo/resource

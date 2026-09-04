@@ -13,7 +13,7 @@ export class CreateConversationResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Id of the request
+   * The session ID.
    * 
    * @example
    * 3a59769c-e631-4b48-84f3-c9bf3a8ae940
@@ -29,7 +29,7 @@ export class CreateConversationResponseBody extends $dara.Model {
   createdAt?: string;
   /**
    * @remarks
-   * The status code description.
+   * The description of the status code.
    * 
    * @example
    * The current zone list is illegal.
@@ -37,7 +37,7 @@ export class CreateConversationResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * A reserved field for extension use.
+   * A reserved field for extension purposes.
    */
   metadata?: { [key: string]: any };
   /**

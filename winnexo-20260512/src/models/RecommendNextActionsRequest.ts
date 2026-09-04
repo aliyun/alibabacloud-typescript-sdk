@@ -39,7 +39,7 @@ export class RecommendNextActionsRequest extends $dara.Model {
   sessionId?: string;
   /**
    * @remarks
-   * The tenant ID. This is a common parameter. In winnexo-cli, pass this explicitly with --tenant-id.
+   * The tenant ID. This is a common parameter. Pass it explicitly through winnexo-cli using --tenant-id.
    * 
    * @example
    * 10000

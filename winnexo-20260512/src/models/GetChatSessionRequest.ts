@@ -13,7 +13,7 @@ export class GetChatSessionRequest extends $dara.Model {
   limit?: number;
   /**
    * @remarks
-   * The SessionId value to filter by. If specified, all Active/Expired status information associated with this session is returned.
+   * The session ID to filter by. If specified, all Active/Expired status information associated with this session is returned.
    * 
    * This parameter is required.
    * 

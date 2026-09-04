@@ -29,7 +29,7 @@ export class ListBillingResponseBodyList extends $dara.Model {
   bizType?: string;
   /**
    * @remarks
-   * costSource
+   * The cost source type.
    * 
    * @example
    * string_value
@@ -37,7 +37,7 @@ export class ListBillingResponseBodyList extends $dara.Model {
   costSource?: string[];
   /**
    * @remarks
-   * costSourceDisplayName
+   * The display name of the cost source.
    * 
    * @example
    * string_value
@@ -69,7 +69,7 @@ export class ListBillingResponseBodyList extends $dara.Model {
   entryObjectType?: string;
   /**
    * @remarks
-   * Indicates whether the bill is a shadow bill.
+   * Indicates whether this is a shadow bill.
    * 
    * @example
    * true
@@ -101,7 +101,7 @@ export class ListBillingResponseBodyList extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The task status. Running is returned upon submission.
+   * The task status. The status is returned as Running upon submission.
    * 
    * @example
    * READY
@@ -209,7 +209,7 @@ export class ListBillingResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The details of the list.
+   * The details of the bill list.
    */
   list?: ListBillingResponseBodyList[];
   /**

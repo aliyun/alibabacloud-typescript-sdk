@@ -29,10 +29,10 @@ export class ListVisibleKnowledgeBasesResponseBodyItems extends $dara.Model {
   directoryId?: string;
   /**
    * @remarks
-   * The creation time. This value is a timestamp in milliseconds.
+   * The creation time. The value is a timestamp in milliseconds.
    * 
    * @example
-   * 2025-11-14T02:18:27Z
+   * 1763086707000
    */
   gmtCreate?: number;
   /**
@@ -40,7 +40,7 @@ export class ListVisibleKnowledgeBasesResponseBodyItems extends $dara.Model {
    * The modification time.
    * 
    * @example
-   * 2026-03-26T13:57:42Z
+   * 1774533462
    */
   gmtModified?: number;
   /**
@@ -61,7 +61,7 @@ export class ListVisibleKnowledgeBasesResponseBodyItems extends $dara.Model {
   path?: string;
   /**
    * @remarks
-   * The number of resources in the FAILED state. This parameter is returned only when listing top-level knowledge base directories.
+   * The number of resources in the FAILED state. This parameter is returned only when the top-level knowledge base directory list is queried.
    * 
    * @example
    * 1
@@ -69,7 +69,7 @@ export class ListVisibleKnowledgeBasesResponseBodyItems extends $dara.Model {
   sourceFailedCount?: number;
   /**
    * @remarks
-   * The number of resources in the READY state. This parameter is returned only when listing top-level knowledge base directories.
+   * The number of resources in the READY state. This parameter is returned only when the top-level knowledge base directory list is queried.
    * 
    * @example
    * 1
@@ -77,7 +77,7 @@ export class ListVisibleKnowledgeBasesResponseBodyItems extends $dara.Model {
   sourceReadyCount?: number;
   /**
    * @remarks
-   * The total number of resources in the directory and its subdirectories. This parameter is returned only when listing top-level knowledge base directories.
+   * The total number of resources in the directory and its subdirectories. This parameter is returned only when the top-level knowledge base directory list is queried.
    * 
    * @example
    * 1
@@ -146,7 +146,7 @@ export class ListVisibleKnowledgeBasesResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 190F5425-A145-5BBA-980F-082ADB0CA6AF

@@ -21,7 +21,7 @@ export class CreateTenantDirectoryResponseBody extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The directory ID.
+   * The folder ID.
    * 
    * This parameter is required.
    * 
@@ -47,7 +47,7 @@ export class CreateTenantDirectoryResponseBody extends $dara.Model {
   gmtModified?: number;
   /**
    * @remarks
-   * Id of the request
+   * The tenant folder ID.
    * 
    * This parameter is required.
    * 
@@ -109,7 +109,7 @@ export class CreateTenantDirectoryResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the effective tenant.
+   * The ID of the tenant for which the operation takes effect.
    * 
    * This parameter is required.
    * 

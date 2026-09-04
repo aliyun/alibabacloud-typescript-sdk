@@ -53,7 +53,7 @@ export class OfflineAnnouncementResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The datasource status after re-parsing.
+   * The data source status after re-parsing.
    * 
    * @example
    * OFFLINE

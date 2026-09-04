@@ -29,7 +29,7 @@ export class GetScheduledTaskUnderstandDetailRequestSegments extends $dara.Model
   name?: string;
   /**
    * @remarks
-   * The ID of the recommended item, which can be a **feedId** or a mini-app ID.
+   * The ID of the recommended item, which can be a **feedId** or a micro-application ID.
    * 
    * @example
    * exampleObjectId
@@ -97,7 +97,7 @@ export class GetScheduledTaskUnderstandDetailRequestSegments extends $dara.Model
 export class GetScheduledTaskUnderstandDetailRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the collaboration group to which the task belongs (such as cg_101). If this parameter is specified, a group space task is created (the caller must be a valid group member). If this parameter is left empty, a personal task is created.
+   * The ID of the collaboration group (such as cg_101). If this parameter is specified, a group space task is created (the caller must be a valid group member). If this parameter is left empty, a personal task is created.
    * 
    * @example
    * exampleCollaborationGroupId
@@ -105,7 +105,7 @@ export class GetScheduledTaskUnderstandDetailRequest extends $dara.Model {
   collaborationGroupId?: string;
   /**
    * @remarks
-   * The name of the current effective digital employee. This parameter is empty if not configured.
+   * The name of the current effective digital employee. This value is empty if not configured.
    * 
    * This parameter is required.
    * 

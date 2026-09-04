@@ -136,7 +136,7 @@ export class ListOutputFilesResponseBodyItemsOutputItemsSlidesInfo extends $dara
   completedSlides?: number;
   /**
    * @remarks
-   * PPT ID
+   * The PPT file ID.
    * 
    * @example
    * examplePptId
@@ -270,7 +270,7 @@ export class ListOutputFilesResponseBodyItemsOutputItems extends $dara.Model {
   shareEnabled?: boolean;
   /**
    * @remarks
-   * The share token, which is present when sharing is enabled. You can use this token to access the public share preview API.
+   * The share token that is present when sharing is enabled. You can use this token to access the public share preview API.
    * 
    * @example
    * example_share_token

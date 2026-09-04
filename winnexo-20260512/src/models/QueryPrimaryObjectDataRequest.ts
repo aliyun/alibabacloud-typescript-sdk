@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryPrimaryObjectDataRequest extends $dara.Model {
   /**
    * @remarks
-   * The keyword for search. The keyword is matched against the name field. If the schema defines a description field, the keyword is also matched against the description field.
+   * The keyword for searching. The keyword is matched against the name field by default. If the schema defines a description field, the keyword is also matched against the description field.
    * 
    * @example
    * SampleKeyword
@@ -13,7 +13,7 @@ export class QueryPrimaryObjectDataRequest extends $dara.Model {
   keyword?: string;
   /**
    * @remarks
-   * Specifies whether to return only favorited primary objects. If this parameter is set to false or not specified, all objects are returned with the isFavorited flag.
+   * Specifies whether to return only favorited primary objects. If this parameter is set to false or not specified, all objects are returned, including the isFavorited flag.
    * 
    * @example
    * false
@@ -21,7 +21,7 @@ export class QueryPrimaryObjectDataRequest extends $dara.Model {
   onlyFavorites?: boolean;
   /**
    * @remarks
-   * The operating object name (such as customer_1).
+   * The operating object name, such as customer_1.
    * 
    * This parameter is required.
    * 
@@ -31,7 +31,7 @@ export class QueryPrimaryObjectDataRequest extends $dara.Model {
   operatingObjectName?: string;
   /**
    * @remarks
-   * The page number (starting from 1).
+   * The page number. Pages start from 1.
    * 
    * @example
    * 1
@@ -47,7 +47,7 @@ export class QueryPrimaryObjectDataRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The tenant ID. This is a common parameter. In winnexo-cli, pass this value explicitly by using --tenant-id.
+   * The tenant ID. This is a common parameter. You can explicitly pass it in winnexo-cli by using --tenant-id.
    * 
    * @example
    * 10000

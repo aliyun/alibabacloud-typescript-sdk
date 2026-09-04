@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListActiveAnnouncementsRequest extends $dara.Model {
   /**
    * @remarks
-   * The page number for pagination.
+   * The page number for paginated queries.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class ListActiveAnnouncementsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page for pagination. Default value: 100. Maximum value: 500.
+   * The number of entries per page. Default value: 100. Maximum value: 500.
    * 
    * @example
    * 20
@@ -21,7 +21,7 @@ export class ListActiveAnnouncementsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The tenant ID. This is a common parameter. If this parameter is not specified, the default tenant of the caller is used.
+   * The tenant ID. This is a common parameter. If not specified, the default tenant of the caller is used.
    * 
    * @example
    * 10000

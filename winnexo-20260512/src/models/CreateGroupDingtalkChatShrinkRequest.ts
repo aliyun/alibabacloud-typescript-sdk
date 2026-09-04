@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateGroupDingtalkChatShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The conversation ID, typically used for JSSDK.
+   * The session ID, typically used for JSSDK.
    * 
    * This parameter is required.
    * 
@@ -15,10 +15,10 @@ export class CreateGroupDingtalkChatShrinkRequest extends $dara.Model {
   chatId?: string;
   /**
    * @remarks
-   * The chat name.
+   * The group chat name.
    * 
    * @example
-   * Customer Project Chat
+   * CustomerProjectGroup
    */
   chatName?: string;
   /**
@@ -62,7 +62,7 @@ export class CreateGroupDingtalkChatShrinkRequest extends $dara.Model {
    * The meeting notes content (optional). This participates in auxiliary analysis.
    * 
    * @example
-   * Focus on identifying customer requests and to-do items
+   * Focus on identifying customer demands and to-do items
    */
   notes?: string;
   /**
@@ -78,12 +78,12 @@ export class CreateGroupDingtalkChatShrinkRequest extends $dara.Model {
    * The source tags.
    * 
    * @example
-   * ["Customer","Chat"]
+   * ["Customer","GroupChat"]
    */
   sourceTags?: string;
   /**
    * @remarks
-   * The tenant ID. This is a common parameter. In winnexo-cli, pass this value explicitly by using --tenant-id.
+   * The tenant ID. This is a common parameter. In winnexo-cli, pass this explicitly with --tenant-id.
    * 
    * @example
    * 10000

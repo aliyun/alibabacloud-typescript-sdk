@@ -8,12 +8,12 @@ export class CreateUserWithGroupsResponseBody extends $dara.Model {
    * The WINNEXO logon account.
    * 
    * @example
-   * exampleAccountId
+   * user123@example.com
    */
   accountId?: string;
   /**
    * @remarks
-   * The business status code. A value of 200 indicates success. A failure returns a backend error code (ERR.* or InvalidParameter.*).
+   * The error code.
    * 
    * @example
    * 200
@@ -24,12 +24,12 @@ export class CreateUserWithGroupsResponseBody extends $dara.Model {
    * The display name of the user.
    * 
    * @example
-   * string_value
+   * Zhang San
    */
   displayName?: string;
   /**
    * @remarks
-   * Indicates whether the user is newly created. A value of false indicates that an existing user joined the tenant.
+   * Indicates whether the user is newly created.
    * 
    * @example
    * true
@@ -37,7 +37,7 @@ export class CreateUserWithGroupsResponseBody extends $dara.Model {
   isNewUser?: boolean;
   /**
    * @remarks
-   * The error description. This parameter is empty when the request succeeds.
+   * The status code description.
    * 
    * @example
    * ok
@@ -45,7 +45,7 @@ export class CreateUserWithGroupsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request trace ID.
+   * The request ID.
    * 
    * @example
    * 019FF406-1B10-0065-A97D-2D1920C2A03D
@@ -53,7 +53,7 @@ export class CreateUserWithGroupsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The WINNEXO platform user ID.
+   * The platform user ID.
    * 
    * @example
    * 1

@@ -45,7 +45,7 @@ export class CreatePersonalDingtalkMeetingResponseBody extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * B49109FE-5BB1-593C-915D-F5A99D9F5435

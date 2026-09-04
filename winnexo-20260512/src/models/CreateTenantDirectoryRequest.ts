@@ -39,7 +39,7 @@ export class CreateTenantDirectoryRequest extends $dara.Model {
   path?: string;
   /**
    * @remarks
-   * The ID of the effective tenant.
+   * The ID of the tenant for which the operation takes effect.
    * 
    * @example
    * 10000

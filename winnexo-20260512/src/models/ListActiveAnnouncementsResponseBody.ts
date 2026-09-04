@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListActiveAnnouncementsResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * The business ID of the notice.
+   * The business ID of the announcement.
    * 
    * @example
    * 1001
@@ -53,7 +53,7 @@ export class ListActiveAnnouncementsResponseBodyItems extends $dara.Model {
   effectiveEnd?: string;
   /**
    * @remarks
-   * The effective start time in ISO 8601 format with time zone. If this parameter is not specified, the notice takes effect immediately.
+   * The effective start time in ISO 8601 format with time zone. If not specified, the announcement takes effect immediately.
    * 
    * @example
    * 2026-08-20T14:00:00+08:00
@@ -63,7 +63,7 @@ export class ListActiveAnnouncementsResponseBodyItems extends $dara.Model {
    * @remarks
    * The priority of the free task.
    * 
-   * - Uses the default priority of the project, as shown in the following figure. The default priority values are as follows:
+   * - Uses the default priority of the project, as shown in the following figure. The default priorities are as follows:
    * 
    *      - **-10**: Low. This is the default value.
    * 
@@ -75,9 +75,9 @@ export class ListActiveAnnouncementsResponseBodyItems extends $dara.Model {
    * 
    * ![](https://img.alicdn.com/imgextra/i1/O1CN01hNuSPz25juCzgxhmW_!!6000000007563-2-tps-2682-1304.png)
    * 
-   * - Custom priority defined by the user, as shown in the following figure, with an additional "Generally urgent" level.
+   * - Custom priority, as shown in the following figure, with an additional "Moderately urgent" level.
    * 
-   * The value of this parameter is subject to the actual response of the API call. A higher priority corresponds to a larger value.
+   * The value of this parameter is subject to the actual response of the API. A higher priority corresponds to a larger value.
    * 
    * ![](https://img.alicdn.com/imgextra/i1/O1CN01V67b3i1mkNvJiW8D1_!!6000000004992-2-tps-2128-1126.png)
    * 
@@ -95,7 +95,7 @@ export class ListActiveAnnouncementsResponseBodyItems extends $dara.Model {
   publishedAt?: string;
   /**
    * @remarks
-   * The task status. The value Running is returned upon submission.
+   * The task status. Running is returned upon submission.
    * 
    * @example
    * PUBLISHED
@@ -106,7 +106,7 @@ export class ListActiveAnnouncementsResponseBodyItems extends $dara.Model {
    * The title of the scheduled meeting.
    * 
    * @example
-   * System Maintenance Notification
+   * System Maintenance Notice
    */
   title?: string;
   static names(): { [key: string]: string } {

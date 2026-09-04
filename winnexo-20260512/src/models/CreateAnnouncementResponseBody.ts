@@ -29,7 +29,7 @@ export class CreateAnnouncementResponseBody extends $dara.Model {
   createdBy?: number;
   /**
    * @remarks
-   * The response message.
+   * The prompt message.
    * 
    * @example
    * ok
@@ -61,8 +61,8 @@ export class CreateAnnouncementResponseBody extends $dara.Model {
   sourceType?: string;
   /**
    * @remarks
-   * The refund status. You must query this field to confirm the refund status during processing. Valid values:
-   * - SUCCESS: All refunds succeeded.
+   * The refund status. You need to query and confirm the refund status during the refund process. Valid values:
+   * - SUCCESS: All succeeded.
    * - FAIL: Failed.
    * - WAIT_PAY: Waiting for refund.
    * - EXPIRE: Expired.

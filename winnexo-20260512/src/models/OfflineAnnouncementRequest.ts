@@ -15,7 +15,7 @@ export class OfflineAnnouncementRequest extends $dara.Model {
   announcementId?: number;
   /**
    * @remarks
-   * The tenant ID. This is a common parameter. In winnexo-cli, pass this explicitly with --tenant-id.
+   * The tenant ID. This is a common parameter. Pass it explicitly in winnexo-cli by using --tenant-id.
    * 
    * @example
    * 10000

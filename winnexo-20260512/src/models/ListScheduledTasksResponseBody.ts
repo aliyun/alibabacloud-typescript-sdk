@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListScheduledTasksResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * The reason for the abnormality. This field has a value only when status is abnormal.
+   * The reason for the exception. This field has a value only when status is abnormal.
    * 
    * @example
    * string_value
@@ -80,7 +80,7 @@ export class ListScheduledTasksResponseBodyItems extends $dara.Model {
    * The description of the to-do card type.
    * 
    * @example
-   * Sample description
+   * SampleDescription
    */
   description?: string;
   /**
@@ -93,7 +93,7 @@ export class ListScheduledTasksResponseBodyItems extends $dara.Model {
   digitalEmployeeName?: string[];
   /**
    * @remarks
-   * The cumulative number of executions.
+   * The total number of executions.
    * 
    * @example
    * 1
@@ -165,12 +165,12 @@ export class ListScheduledTasksResponseBodyItems extends $dara.Model {
   triggerType?: string;
   /**
    * @remarks
-   * The visibility of the group task. Valid values:
+   * The visibility scope of the group task. Valid values:
    * - PRIVATE: visible only to the creator and group owner.
    * - COLLABORATIVE: visible to specified collaborators.
    * - PUBLIC: visible to all group members.
    * 
-   * If not specified for a group task, the default value is PRIVATE. This field is ignored for personal tasks.
+   * For group tasks, the default value is PRIVATE if not specified. This field is ignored for personal tasks.
    * 
    * @example
    * PRIVATE
@@ -178,7 +178,7 @@ export class ListScheduledTasksResponseBodyItems extends $dara.Model {
   visibility?: string;
   /**
    * @remarks
-   * The list of collaborator user IDs (excluding the task creator and group creator, who are covered by the authentication layer). This field is returned only for group tasks. An empty list is returned for PRIVATE or PUBLIC visibility.
+   * The list of collaborators (excluding the task creator and group creator, who are covered by the authentication layer). This field is returned only for group tasks. An empty list is returned for PRIVATE or PUBLIC visibility.
    * 
    * @example
    * string_value
@@ -279,7 +279,7 @@ export class ListScheduledTasksResponseBody extends $dara.Model {
   items?: ListScheduledTasksResponseBodyItems[];
   /**
    * @remarks
-   * The maximum number of entries returned in this request.
+   * The maximum number of entries to return in this request.
    * 
    * @example
    * 20

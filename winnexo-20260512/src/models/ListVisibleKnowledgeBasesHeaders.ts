@@ -6,7 +6,7 @@ export class ListVisibleKnowledgeBasesHeaders extends $dara.Model {
   commonHeaders?: { [key: string]: string };
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * F892C03F-7E12-5F37-A506-1FC3B065EAC6

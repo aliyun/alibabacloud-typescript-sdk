@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetSourceRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to return large detail fields (settings / notes / structuredTables / unstructuredDocs). Default value: False, which returns only metadata.
+   * Specifies whether to return large detail fields (settings / notes / structuredTables / unstructuredDocs). Default value: False. When set to False, only metadata is returned.
    * 
    * @example
    * false

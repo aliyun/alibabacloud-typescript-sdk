@@ -8,16 +8,16 @@ export class UploadChatFileAdvanceRequest extends $dara.Model {
    * @remarks
    * The content type of the file. Valid values:
    * 
-   * - **image**: image
-   * - **document**: general document
-   * - **alidoc**: Alibaba document
-   * - **text**: text
-   * - **video**: video
-   * - **audio**: audio
-   * - **archive**: archive
-   * - **app**: application
-   * - **link**: shortcut
-   * - **other**: other
+   * - **image**: Image.
+   * - **document**: General document.
+   * - **alidoc**: Alibaba document.
+   * - **text**: Text.
+   * - **video**: Video.
+   * - **audio**: Audio.
+   * - **archive**: Archive.
+   * - **app**: Application.
+   * - **link**: Shortcut.
+   * - **other**: Other.
    * 
    * @example
    * application/pdf
@@ -35,7 +35,7 @@ export class UploadChatFileAdvanceRequest extends $dara.Model {
   fileName?: string;
   /**
    * @remarks
-   * The attachment address.
+   * The Yida attachment address.
    * 
    * This parameter is required.
    * 
@@ -45,7 +45,7 @@ export class UploadChatFileAdvanceRequest extends $dara.Model {
   fileUrlObject?: Readable;
   /**
    * @remarks
-   * The name of the digital employee (operating object name, optional).
+   * The name of the digital employee (operating object name). This parameter is optional.
    * 
    * @example
    * string_value
@@ -53,7 +53,7 @@ export class UploadChatFileAdvanceRequest extends $dara.Model {
   operatingObjectName?: string;
   /**
    * @remarks
-   * The tenant ID.
+   * The tenant ID that takes effect.
    * 
    * @example
    * 10000
