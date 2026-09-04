@@ -3,16 +3,93 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ReadAllMessageRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The language. Default value: Simplified Chinese.
+   * 
+   * @example
+   * zh-CN
+   */
   acceptLanguage?: string;
+  /**
+   * @remarks
+   * A system parameter. You do not need to specify this parameter.
+   * 
+   * @example
+   * /
+   */
   appName?: string;
+  /**
+   * @remarks
+   * A system parameter. You do not need to specify this parameter.
+   * 
+   * @example
+   * /
+   */
   bizName?: string;
+  /**
+   * @remarks
+   * A system parameter. You do not need to specify this parameter.
+   * 
+   * @example
+   * /
+   */
   callerProtocol?: string;
+  /**
+   * @remarks
+   * The message category ID.
+   * 
+   * @example
+   * 1
+   */
   classId?: number;
+  /**
+   * @remarks
+   * A system parameter. You do not need to specify this parameter.
+   * 
+   * @example
+   * /
+   */
   clientSource?: string;
+  /**
+   * @remarks
+   * A system parameter. You do not need to specify this parameter.
+   * 
+   * @example
+   * []
+   */
   cookies?: string;
+  /**
+   * @remarks
+   * The group code.
+   * 
+   * @example
+   * test
+   */
   groupCode?: string;
+  /**
+   * @remarks
+   * A system parameter. You do not need to specify this parameter.
+   * 
+   * @example
+   * /
+   */
   srcUrl?: string;
+  /**
+   * @remarks
+   * A system parameter. You do not need to specify this parameter.
+   * 
+   * @example
+   * /
+   */
   tenantCode?: string;
+  /**
+   * @remarks
+   * A system parameter. You do not need to specify this parameter.
+   * 
+   * @example
+   * /
+   */
   uidType?: string;
   static names(): { [key: string]: string } {
     return {

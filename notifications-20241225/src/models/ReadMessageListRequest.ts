@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ReadMessageListRequest extends $dara.Model {
   /**
    * @remarks
-   * 语言，默认为简体中文
+   * The language. Default value: Simplified Chinese.
    * 
    * @example
    * zh-CN
@@ -13,7 +13,7 @@ export class ReadMessageListRequest extends $dara.Model {
   acceptLanguage?: string;
   /**
    * @remarks
-   * 系统参数，无需填写
+   * A system parameter. You do not need to specify this parameter.
    * 
    * @example
    * /
@@ -21,7 +21,7 @@ export class ReadMessageListRequest extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * 系统参数，无需填写
+   * A system parameter. You do not need to specify this parameter.
    * 
    * @example
    * /
@@ -29,7 +29,7 @@ export class ReadMessageListRequest extends $dara.Model {
   bizName?: string;
   /**
    * @remarks
-   * 系统参数，无需填写
+   * A system parameter. You do not need to specify this parameter.
    * 
    * @example
    * /
@@ -37,7 +37,7 @@ export class ReadMessageListRequest extends $dara.Model {
   callerProtocol?: string;
   /**
    * @remarks
-   * 消息类目ID
+   * Deprecated.
    * 
    * @example
    * 1
@@ -45,7 +45,7 @@ export class ReadMessageListRequest extends $dara.Model {
   classId?: number;
   /**
    * @remarks
-   * 系统参数，无需填写
+   * A system parameter. You do not need to specify this parameter.
    * 
    * @example
    * /
@@ -53,7 +53,7 @@ export class ReadMessageListRequest extends $dara.Model {
   clientSource?: string;
   /**
    * @remarks
-   * 消息内容，用于模糊搜索
+   * The message content. This parameter is used for fuzzy match.
    * 
    * @example
    * "消息内容示例“
@@ -61,25 +61,39 @@ export class ReadMessageListRequest extends $dara.Model {
   content?: string;
   /**
    * @remarks
-   * 系统参数，无需填写
+   * A system parameter. You do not need to specify this parameter.
    * 
    * @example
    * /
    */
   cookies?: string;
+  /**
+   * @remarks
+   * The group code.
+   * 
+   * @example
+   * test
+   */
   groupCode?: string;
+  /**
+   * @remarks
+   * Specifies whether the messages are historical messages.
+   * 
+   * @example
+   * true
+   */
   history?: string;
   /**
    * @remarks
-   * 栏位 nav代表控制台topbar
+   * The location.
    * 
    * @example
-   * /
+   * nav
    */
   loc?: string;
   /**
    * @remarks
-   * 系统参数，无需填写
+   * A system parameter. You do not need to specify this parameter.
    * 
    * @example
    * /
@@ -87,7 +101,7 @@ export class ReadMessageListRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * 系统参数，无需填写
+   * A system parameter. You do not need to specify this parameter.
    * 
    * @example
    * /
@@ -95,7 +109,7 @@ export class ReadMessageListRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * 分页查询页码
+   * The page number for the paged query.
    * 
    * @example
    * 2
@@ -103,7 +117,7 @@ export class ReadMessageListRequest extends $dara.Model {
   page?: number;
   /**
    * @remarks
-   * 分页查询大小
+   * The page size for the paged query.
    * 
    * @example
    * 5
@@ -111,7 +125,7 @@ export class ReadMessageListRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * 系统参数，无需填写
+   * A system parameter. You do not need to specify this parameter.
    * 
    * @example
    * /
@@ -119,7 +133,7 @@ export class ReadMessageListRequest extends $dara.Model {
   srcUrl?: string;
   /**
    * @remarks
-   * 消息状态，已读为1，未读为0
+   * The message status. A value of 1 indicates read. A value of 0 indicates unread. A value of -1 indicates all. Default value: -1.
    * 
    * @example
    * 0
@@ -127,7 +141,7 @@ export class ReadMessageListRequest extends $dara.Model {
   status?: number;
   /**
    * @remarks
-   * 系统参数，无需填写
+   * A system parameter. You do not need to specify this parameter.
    * 
    * @example
    * /
@@ -135,7 +149,7 @@ export class ReadMessageListRequest extends $dara.Model {
   tenantCode?: string;
   /**
    * @remarks
-   * 消息标题，用于模糊搜索
+   * The message title. This parameter is used for fuzzy match.
    * 
    * @example
    * "标题示例“
@@ -143,7 +157,7 @@ export class ReadMessageListRequest extends $dara.Model {
   title?: string;
   /**
    * @remarks
-   * 系统参数，无需填写
+   * A system parameter. You do not need to specify this parameter.
    * 
    * @example
    * /

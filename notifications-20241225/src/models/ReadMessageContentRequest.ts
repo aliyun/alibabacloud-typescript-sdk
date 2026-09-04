@@ -3,19 +3,119 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ReadMessageContentRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The language. Default value: Simplified Chinese.
+   * 
+   * @example
+   * zh-CN
+   */
   acceptLanguage?: string;
+  /**
+   * @remarks
+   * A system parameter. You do not need to specify this parameter.
+   * 
+   * @example
+   * /
+   */
   appName?: string;
+  /**
+   * @remarks
+   * A system parameter. You do not need to specify this parameter.
+   * 
+   * @example
+   * /
+   */
   bizName?: string;
+  /**
+   * @remarks
+   * A system parameter. You do not need to specify this parameter.
+   * 
+   * @example
+   * /
+   */
   callerProtocol?: string;
+  /**
+   * @remarks
+   * Deprecated.
+   * 
+   * @example
+   * 1
+   */
   classId?: number;
+  /**
+   * @remarks
+   * A system parameter. You do not need to specify this parameter.
+   * 
+   * @example
+   * /
+   */
   clientSource?: string;
+  /**
+   * @remarks
+   * A system parameter. You do not need to specify this parameter.
+   * 
+   * @example
+   * /
+   */
   cookies?: string;
+  /**
+   * @remarks
+   * The group code.
+   * 
+   * @example
+   * test
+   */
   groupCode?: string;
+  /**
+   * @remarks
+   * Specifies whether the message is a historical message.
+   * 
+   * @example
+   * true
+   */
   history?: boolean;
+  /**
+   * @remarks
+   * The message ID.
+   * 
+   * @example
+   * 3727683838
+   */
   msgId?: string;
+  /**
+   * @remarks
+   * A system parameter. You do not need to specify this parameter.
+   * 
+   * @example
+   * /
+   */
   srcUrl?: string;
+  /**
+   * @remarks
+   * The read status. Valid values:
+   * - 0: unread
+   * - 1: read.
+   * 
+   * @example
+   * 0
+   */
   status?: number;
+  /**
+   * @remarks
+   * A system parameter. You do not need to specify this parameter.
+   * 
+   * @example
+   * /
+   */
   tenantCode?: string;
+  /**
+   * @remarks
+   * A system parameter. You do not need to specify this parameter.
+   * 
+   * @example
+   * /
+   */
   uidType?: string;
   static names(): { [key: string]: string } {
     return {

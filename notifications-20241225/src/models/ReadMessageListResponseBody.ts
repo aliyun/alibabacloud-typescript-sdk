@@ -3,18 +3,25 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ReadMessageListResponseBodyDataRows extends $dara.Model {
+  /**
+   * @remarks
+   * The category code.
+   * 
+   * @example
+   * test
+   */
   categoryCode?: string;
   /**
    * @remarks
-   * CategoryName
+   * The message category name.
    * 
    * @example
-   * /
+   * 活动消息
    */
   categoryName?: string;
   /**
    * @remarks
-   * Class
+   * A reserved field.
    * 
    * @example
    * /
@@ -22,7 +29,7 @@ export class ReadMessageListResponseBodyDataRows extends $dara.Model {
   class?: string;
   /**
    * @remarks
-   * ClassId
+   * The message class ID.
    * 
    * @example
    * 1
@@ -30,15 +37,15 @@ export class ReadMessageListResponseBodyDataRows extends $dara.Model {
   classId?: number;
   /**
    * @remarks
-   * 内容
+   * The message content.
    * 
    * @example
-   * /
+   * "消息内容示例“
    */
   content?: string;
   /**
    * @remarks
-   * 删除
+   * The deletion flag.
    * 
    * @example
    * 0
@@ -46,20 +53,23 @@ export class ReadMessageListResponseBodyDataRows extends $dara.Model {
   deleted?: number;
   /**
    * @remarks
-   * 创建时间
+   * The time when the message was created.
    * 
    * @example
    * 1723772244000
    */
   gmtCreated?: number;
   /**
+   * @remarks
+   * The time when the message was updated.
+   * 
    * @example
    * 1723772244000
    */
   gmtUpdate?: number;
   /**
    * @remarks
-   * massId
+   * A reserved field.
    * 
    * @example
    * /
@@ -67,7 +77,7 @@ export class ReadMessageListResponseBodyDataRows extends $dara.Model {
   massId?: number;
   /**
    * @remarks
-   * 描述
+   * A reserved field.
    * 
    * @example
    * /
@@ -75,7 +85,7 @@ export class ReadMessageListResponseBodyDataRows extends $dara.Model {
   memo?: string;
   /**
    * @remarks
-   * 消息id
+   * The message ID.
    * 
    * @example
    * 3727683838
@@ -83,7 +93,7 @@ export class ReadMessageListResponseBodyDataRows extends $dara.Model {
   msgId?: number;
   /**
    * @remarks
-   * 状态
+   * The read status. A value of 0 indicates unread. A value of 1 indicates read.
    * 
    * @example
    * 0
@@ -91,12 +101,19 @@ export class ReadMessageListResponseBodyDataRows extends $dara.Model {
   status?: number;
   /**
    * @remarks
-   * 标题
+   * The message title.
    * 
    * @example
-   * /
+   * "标题示例“
    */
   title?: string;
+  /**
+   * @remarks
+   * The highlighted title.
+   * 
+   * @example
+   * title
+   */
   titleh?: string;
   static names(): { [key: string]: string } {
     return {
@@ -148,7 +165,7 @@ export class ReadMessageListResponseBodyDataRows extends $dara.Model {
 export class ReadMessageListResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The number of entries returned.
+   * The number of messages.
    * 
    * @example
    * 1
@@ -156,7 +173,7 @@ export class ReadMessageListResponseBodyData extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The maximum number of entries returned.
+   * A reserved field.
    * 
    * @example
    * /
@@ -164,7 +181,7 @@ export class ReadMessageListResponseBodyData extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * If excess return values exist, this parameter is returned.
+   * A reserved field.
    * 
    * @example
    * /
@@ -180,7 +197,7 @@ export class ReadMessageListResponseBodyData extends $dara.Model {
   page?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The page size.
    * 
    * @example
    * 10
@@ -188,7 +205,7 @@ export class ReadMessageListResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The number of rows updated or returned on PolarDB-X 2.0 compute nodes.
+   * The returned data.
    */
   rows?: ReadMessageListResponseBodyDataRows[];
   static names(): { [key: string]: string } {
@@ -228,7 +245,7 @@ export class ReadMessageListResponseBodyData extends $dara.Model {
 export class ReadMessageListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code. The value Success indicates that the request is successful. Other values indicate that the request failed. For more information about error codes, see Error codes.
+   * The error code returned when the call fails. For more information, see error codes.
    * 
    * @example
    * SUCCESS
@@ -236,20 +253,20 @@ export class ReadMessageListResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Data
+   * The execution result.
    */
   data?: ReadMessageListResponseBodyData;
   /**
    * @remarks
-   * message
+   * The error message returned when the call fails.
    * 
    * @example
-   * /
+   * 成功
    */
   message?: string;
   /**
    * @remarks
-   * 唯一请求id
+   * The request ID.
    * 
    * @example
    * A5F62766-1C2F-1F56-A39D-63E3D30F0633
@@ -257,10 +274,7 @@ export class ReadMessageListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful. Valid values:
-   * 
-   * *   **true**: The call was successful.
-   * *   **false**: The call failed.
+   * Indicates whether the call was successful. Valid values: true: The call was successful. false: The call failed.
    * 
    * @example
    * true

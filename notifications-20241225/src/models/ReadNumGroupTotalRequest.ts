@@ -4,18 +4,84 @@ import * as $dara from '@darabonba/typescript';
 
 export class ReadNumGroupTotalRequest extends $dara.Model {
   /**
+   * @remarks
+   * The language. Default value: Simplified Chinese.
+   * 
    * @example
    * zh-CN
    */
   acceptLanguage?: string;
+  /**
+   * @remarks
+   * System parameter. You do not need to set this parameter.
+   * 
+   * @example
+   * /
+   */
   appName?: string;
+  /**
+   * @remarks
+   * System parameter. You do not need to set this parameter.
+   * 
+   * @example
+   * /
+   */
   bizName?: string;
+  /**
+   * @remarks
+   * System parameter. You do not need to set this parameter.
+   * 
+   * @example
+   * /
+   */
   callerProtocol?: string;
+  /**
+   * @remarks
+   * System parameter. You do not need to set this parameter.
+   * 
+   * @example
+   * /
+   */
   clientSource?: string;
+  /**
+   * @remarks
+   * System parameter. You do not need to set this parameter.
+   * 
+   * @example
+   * /
+   */
   cookies?: string;
+  /**
+   * @remarks
+   * System parameter. You do not need to set this parameter.
+   * 
+   * @example
+   * /
+   */
   srcUrl?: string;
+  /**
+   * @remarks
+   * System parameter. You do not need to set this parameter.
+   * 
+   * @example
+   * /
+   */
   tenantCode?: string;
+  /**
+   * @remarks
+   * The message title.
+   * 
+   * @example
+   * Can \\"Financial expenses_interest income\\" be considered as income?
+   */
   title?: string;
+  /**
+   * @remarks
+   * System parameter. You do not need to set this parameter.
+   * 
+   * @example
+   * /
+   */
   uidType?: string;
   static names(): { [key: string]: string } {
     return {

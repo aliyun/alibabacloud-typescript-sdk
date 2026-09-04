@@ -3,15 +3,85 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DelMessageRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The language. Default value: zh-CN (Simplified Chinese).
+   * 
+   * @example
+   * zh-CN
+   */
   acceptLanguage?: string;
+  /**
+   * @remarks
+   * A system parameter. You do not need to specify this parameter.
+   * 
+   * @example
+   * /
+   */
   appName?: string;
+  /**
+   * @remarks
+   * A system parameter. You do not need to specify this parameter.
+   * 
+   * @example
+   * /
+   */
   bizName?: string;
+  /**
+   * @remarks
+   * A system parameter. You do not need to specify this parameter.
+   * 
+   * @example
+   * /
+   */
   callerProtocol?: string;
+  /**
+   * @remarks
+   * A system parameter. You do not need to specify this parameter.
+   * 
+   * @example
+   * /
+   */
   clientSource?: string;
+  /**
+   * @remarks
+   * A system parameter. You do not need to specify this parameter.
+   * 
+   * @example
+   * /
+   */
   cookies?: string;
+  /**
+   * @remarks
+   * The message ID.
+   * 
+   * @example
+   * 3727683838
+   */
   msgId?: string;
+  /**
+   * @remarks
+   * A system parameter. You do not need to specify this parameter.
+   * 
+   * @example
+   * /
+   */
   srcUrl?: string;
+  /**
+   * @remarks
+   * A system parameter. You do not need to specify this parameter.
+   * 
+   * @example
+   * /
+   */
   tenantCode?: string;
+  /**
+   * @remarks
+   * A system parameter. You do not need to specify this parameter.
+   * 
+   * @example
+   * /
+   */
   uidType?: string;
   static names(): { [key: string]: string } {
     return {

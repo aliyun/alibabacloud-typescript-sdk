@@ -4,17 +4,76 @@ import * as $dara from '@darabonba/typescript';
 
 export class ReadMessageNewTotalRequest extends $dara.Model {
   /**
+   * @remarks
+   * The language. Default value: Simplified Chinese.
+   * 
    * @example
    * zh-CN
    */
   acceptLanguage?: string;
+  /**
+   * @remarks
+   * System parameter. You do not need to specify this parameter.
+   * 
+   * @example
+   * /
+   */
   appName?: string;
+  /**
+   * @remarks
+   * System parameter. You do not need to specify this parameter.
+   * 
+   * @example
+   * /
+   */
   bizName?: string;
+  /**
+   * @remarks
+   * System parameter. You do not need to specify this parameter.
+   * 
+   * @example
+   * /
+   */
   callerProtocol?: string;
+  /**
+   * @remarks
+   * System parameter. You do not need to specify this parameter.
+   * 
+   * @example
+   * /
+   */
   clientSource?: string;
+  /**
+   * @remarks
+   * System parameter. You do not need to specify this parameter.
+   * 
+   * @example
+   * /
+   */
   cookies?: string;
+  /**
+   * @remarks
+   * System parameter. You do not need to specify this parameter.
+   * 
+   * @example
+   * /
+   */
   srcUrl?: string;
+  /**
+   * @remarks
+   * System parameter. You do not need to specify this parameter.
+   * 
+   * @example
+   * /
+   */
   tenantCode?: string;
+  /**
+   * @remarks
+   * System parameter. You do not need to specify this parameter.
+   * 
+   * @example
+   * /
+   */
   uidType?: string;
   static names(): { [key: string]: string } {
     return {
