@@ -16,17 +16,9 @@ export default class Client extends OpenApi {
       'cn-wulanchabu': "rdsai.aliyuncs.com",
       'cn-shenzhen': "rdsai.aliyuncs.com",
       'cn-beijing': "rdsai.aliyuncs.com",
-      'ap-northeast-1': "rdsai.ap-northeast-1.aliyuncs.com",
-      'cn-chengdu': "rdsai.cn-chengdu.aliyuncs.com",
       'cn-shanghai': "rdsai.aliyuncs.com",
       'cn-guangzhou': "rdsai.aliyuncs.com",
-      'cn-hongkong': "rdsai.cn-hongkong.aliyuncs.com",
-      'ap-southeast-1': "rdsai.ap-southeast-1.aliyuncs.com",
-      'ap-southeast-3': "rdsai.ap-southeast-3.aliyuncs.com",
-      'ap-southeast-5': "rdsai.ap-southeast-5.aliyuncs.com",
       'cn-hangzhou': "rdsai.aliyuncs.com",
-      'us-west-1': "rdsai.us-west-1.aliyuncs.com",
-      'eu-central-1': "rdsai.eu-central-1.aliyuncs.com",
     };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("rdsai", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
