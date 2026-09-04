@@ -58,18 +58,6 @@ export default class Client extends OpenApi {
       'eu-west-1-oxs': "polardbx.aliyuncs.com",
       'me-east-1': "polardbx.aliyuncs.com",
       'rus-west-1-pop': "polardbx.aliyuncs.com",
-      'cn-beijing': "polardbx.cn-beijing.aliyuncs.com",
-      'cn-qingdao': "polardbx.cn-qingdao.aliyuncs.com",
-      'cn-shanghai': "polardbx.cn-shanghai.aliyuncs.com",
-      'cn-hongkong': "polardbx.cn-hongkong.aliyuncs.com",
-      'cn-zhangjiakou': "polardbx.cn-zhangjiakou.aliyuncs.com",
-      'cn-shenzhen': "polardbx.cn-shenzhen.aliyuncs.com",
-      'cn-chengdu': "polardbx.cn-chengdu.aliyuncs.com",
-      'ap-southeast-1': "polardbx.ap-southeast-1.aliyuncs.com",
-      'cn-huhehaote': "polardbx.cn-huhehaote.aliyuncs.com",
-      'cn-hangzhou': "polardbx.cn-hangzhou.aliyuncs.com",
-      'us-east-1': "polardbx.us-east-1.aliyuncs.com",
-      'us-west-1': "polardbx.us-west-1.aliyuncs.com",
     };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("polardbx", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -448,6 +436,58 @@ export default class Client extends OpenApi {
   async allocateMem0PublicConnection(request: $_model.AllocateMem0PublicConnectionRequest): Promise<$_model.AllocateMem0PublicConnectionResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.allocateMem0PublicConnectionWithOptions(request, runtime);
+  }
+
+  /**
+   * Enables public network access for the PXFS agent file service.
+   * 
+   * @remarks
+   * Enables public network access for the agent file service.
+   * 
+   * @param request - AllocatePxfsPublicConnectionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AllocatePxfsPublicConnectionResponse
+   */
+  async allocatePxfsPublicConnectionWithOptions(request: $_model.AllocatePxfsPublicConnectionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AllocatePxfsPublicConnectionResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AllocatePxfsPublicConnection",
+      version: "2020-02-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AllocatePxfsPublicConnectionResponse>(await this.callApi(params, req, runtime), new $_model.AllocatePxfsPublicConnectionResponse({}));
+  }
+
+  /**
+   * Enables public network access for the PXFS agent file service.
+   * 
+   * @remarks
+   * Enables public network access for the agent file service.
+   * 
+   * @param request - AllocatePxfsPublicConnectionRequest
+   * @returns AllocatePxfsPublicConnectionResponse
+   */
+  async allocatePxfsPublicConnection(request: $_model.AllocatePxfsPublicConnectionRequest): Promise<$_model.AllocatePxfsPublicConnectionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.allocatePxfsPublicConnectionWithOptions(request, runtime);
   }
 
   /**
@@ -2158,6 +2198,290 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates an Agent file service instance.
+   * 
+   * @remarks
+   * Creates an Agent file service instance.
+   * 
+   * @param request - CreatePxfsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreatePxfsResponse
+   */
+  async createPxfsWithOptions(request: $_model.CreatePxfsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreatePxfsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.classCode)) {
+      query["ClassCode"] = request.classCode;
+    }
+
+    if (!$dara.isNull(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!$dara.isNull(request.nodeCount)) {
+      query["NodeCount"] = request.nodeCount;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.securityIPList)) {
+      query["SecurityIPList"] = request.securityIPList;
+    }
+
+    if (!$dara.isNull(request.storageSize)) {
+      query["StorageSize"] = request.storageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreatePxfs",
+      version: "2020-02-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreatePxfsResponse>(await this.callApi(params, req, runtime), new $_model.CreatePxfsResponse({}));
+  }
+
+  /**
+   * Creates an Agent file service instance.
+   * 
+   * @remarks
+   * Creates an Agent file service instance.
+   * 
+   * @param request - CreatePxfsRequest
+   * @returns CreatePxfsResponse
+   */
+  async createPxfs(request: $_model.CreatePxfsRequest): Promise<$_model.CreatePxfsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createPxfsWithOptions(request, runtime);
+  }
+
+  /**
+   * Issues an access token for the Agent file service.
+   * 
+   * @remarks
+   * Issues an access token for the Agent file service.
+   * 
+   * @param request - CreatePxfsAccessTokenRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreatePxfsAccessTokenResponse
+   */
+  async createPxfsAccessTokenWithOptions(request: $_model.CreatePxfsAccessTokenRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreatePxfsAccessTokenResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!$dara.isNull(request.identityName)) {
+      query["IdentityName"] = request.identityName;
+    }
+
+    if (!$dara.isNull(request.label)) {
+      query["Label"] = request.label;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.tenantId)) {
+      query["TenantId"] = request.tenantId;
+    }
+
+    if (!$dara.isNull(request.ttlSeconds)) {
+      query["TtlSeconds"] = request.ttlSeconds;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreatePxfsAccessToken",
+      version: "2020-02-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreatePxfsAccessTokenResponse>(await this.callApi(params, req, runtime), new $_model.CreatePxfsAccessTokenResponse({}));
+  }
+
+  /**
+   * Issues an access token for the Agent file service.
+   * 
+   * @remarks
+   * Issues an access token for the Agent file service.
+   * 
+   * @param request - CreatePxfsAccessTokenRequest
+   * @returns CreatePxfsAccessTokenResponse
+   */
+  async createPxfsAccessToken(request: $_model.CreatePxfsAccessTokenRequest): Promise<$_model.CreatePxfsAccessTokenResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createPxfsAccessTokenWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建Agent文件服务租户
+   * 
+   * @remarks
+   * 创建Agent文件服务租户。
+   * 
+   * @param request - CreatePxfsTenantRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreatePxfsTenantResponse
+   */
+  async createPxfsTenantWithOptions(request: $_model.CreatePxfsTenantRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreatePxfsTenantResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!$dara.isNull(request.quotaBytes)) {
+      query["QuotaBytes"] = request.quotaBytes;
+    }
+
+    if (!$dara.isNull(request.quotaFiles)) {
+      query["QuotaFiles"] = request.quotaFiles;
+    }
+
+    if (!$dara.isNull(request.rateLimitRps)) {
+      query["RateLimitRps"] = request.rateLimitRps;
+    }
+
+    if (!$dara.isNull(request.rateLimitWbps)) {
+      query["RateLimitWbps"] = request.rateLimitWbps;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.tenantId)) {
+      query["TenantId"] = request.tenantId;
+    }
+
+    if (!$dara.isNull(request.tenantName)) {
+      query["TenantName"] = request.tenantName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreatePxfsTenant",
+      version: "2020-02-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreatePxfsTenantResponse>(await this.callApi(params, req, runtime), new $_model.CreatePxfsTenantResponse({}));
+  }
+
+  /**
+   * 创建Agent文件服务租户
+   * 
+   * @remarks
+   * 创建Agent文件服务租户。
+   * 
+   * @param request - CreatePxfsTenantRequest
+   * @returns CreatePxfsTenantResponse
+   */
+  async createPxfsTenant(request: $_model.CreatePxfsTenantRequest): Promise<$_model.CreatePxfsTenantResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createPxfsTenantWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建Agent文件服务租户身份
+   * 
+   * @remarks
+   * 创建Agent文件服务租户身份。
+   * 
+   * @param request - CreatePxfsUserRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreatePxfsUserResponse
+   */
+  async createPxfsUserWithOptions(request: $_model.CreatePxfsUserRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreatePxfsUserResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!$dara.isNull(request.identityName)) {
+      query["IdentityName"] = request.identityName;
+    }
+
+    if (!$dara.isNull(request.posixGid)) {
+      query["PosixGid"] = request.posixGid;
+    }
+
+    if (!$dara.isNull(request.posixUid)) {
+      query["PosixUid"] = request.posixUid;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.role)) {
+      query["Role"] = request.role;
+    }
+
+    if (!$dara.isNull(request.tenantId)) {
+      query["TenantId"] = request.tenantId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreatePxfsUser",
+      version: "2020-02-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreatePxfsUserResponse>(await this.callApi(params, req, runtime), new $_model.CreatePxfsUserResponse({}));
+  }
+
+  /**
+   * 创建Agent文件服务租户身份
+   * 
+   * @remarks
+   * 创建Agent文件服务租户身份。
+   * 
+   * @param request - CreatePxfsUserRequest
+   * @returns CreatePxfsUserResponse
+   */
+  async createPxfsUser(request: $_model.CreatePxfsUserRequest): Promise<$_model.CreatePxfsUserResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createPxfsUserWithOptions(request, runtime);
+  }
+
+  /**
    * Creates a PXFuse node.
    * 
    * @remarks
@@ -3451,6 +3775,118 @@ export default class Client extends OpenApi {
   async deletePolardbxSupabaseInstance(request: $_model.DeletePolardbxSupabaseInstanceRequest): Promise<$_model.DeletePolardbxSupabaseInstanceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deletePolardbxSupabaseInstanceWithOptions(request, runtime);
+  }
+
+  /**
+   * Deletes an Agent file service instance.
+   * 
+   * @remarks
+   * Deletes an Agent file service instance.
+   * 
+   * @param request - DeletePxfsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeletePxfsResponse
+   */
+  async deletePxfsWithOptions(request: $_model.DeletePxfsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeletePxfsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeletePxfs",
+      version: "2020-02-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeletePxfsResponse>(await this.callApi(params, req, runtime), new $_model.DeletePxfsResponse({}));
+  }
+
+  /**
+   * Deletes an Agent file service instance.
+   * 
+   * @remarks
+   * Deletes an Agent file service instance.
+   * 
+   * @param request - DeletePxfsRequest
+   * @returns DeletePxfsResponse
+   */
+  async deletePxfs(request: $_model.DeletePxfsRequest): Promise<$_model.DeletePxfsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deletePxfsWithOptions(request, runtime);
+  }
+
+  /**
+   * Deletes an Agent file service tenant identity.
+   * 
+   * @remarks
+   * Deletes an Agent file service tenant identity.
+   * 
+   * @param request - DeletePxfsUserRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeletePxfsUserResponse
+   */
+  async deletePxfsUserWithOptions(request: $_model.DeletePxfsUserRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeletePxfsUserResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!$dara.isNull(request.identityName)) {
+      query["IdentityName"] = request.identityName;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.tenantId)) {
+      query["TenantId"] = request.tenantId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeletePxfsUser",
+      version: "2020-02-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeletePxfsUserResponse>(await this.callApi(params, req, runtime), new $_model.DeletePxfsUserResponse({}));
+  }
+
+  /**
+   * Deletes an Agent file service tenant identity.
+   * 
+   * @remarks
+   * Deletes an Agent file service tenant identity.
+   * 
+   * @param request - DeletePxfsUserRequest
+   * @returns DeletePxfsUserResponse
+   */
+  async deletePxfsUser(request: $_model.DeletePxfsUserRequest): Promise<$_model.DeletePxfsUserResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deletePxfsUserWithOptions(request, runtime);
   }
 
   /**
@@ -6760,6 +7196,282 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the access token for the Agent file service.
+   * 
+   * @remarks
+   * Queries the access token for the Agent file service.
+   * 
+   * @param request - DescribePxfsAccessTokensRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribePxfsAccessTokensResponse
+   */
+  async describePxfsAccessTokensWithOptions(request: $_model.DescribePxfsAccessTokensRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribePxfsAccessTokensResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!$dara.isNull(request.identityName)) {
+      query["IdentityName"] = request.identityName;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.tenantId)) {
+      query["TenantId"] = request.tenantId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribePxfsAccessTokens",
+      version: "2020-02-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribePxfsAccessTokensResponse>(await this.callApi(params, req, runtime), new $_model.DescribePxfsAccessTokensResponse({}));
+  }
+
+  /**
+   * Queries the access token for the Agent file service.
+   * 
+   * @remarks
+   * Queries the access token for the Agent file service.
+   * 
+   * @param request - DescribePxfsAccessTokensRequest
+   * @returns DescribePxfsAccessTokensResponse
+   */
+  async describePxfsAccessTokens(request: $_model.DescribePxfsAccessTokensRequest): Promise<$_model.DescribePxfsAccessTokensResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describePxfsAccessTokensWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the information about an Agent file service instance.
+   * 
+   * @remarks
+   * Queries the information about an Agent file service instance.
+   * 
+   * @param request - DescribePxfsInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribePxfsInfoResponse
+   */
+  async describePxfsInfoWithOptions(request: $_model.DescribePxfsInfoRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribePxfsInfoResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribePxfsInfo",
+      version: "2020-02-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribePxfsInfoResponse>(await this.callApi(params, req, runtime), new $_model.DescribePxfsInfoResponse({}));
+  }
+
+  /**
+   * Queries the information about an Agent file service instance.
+   * 
+   * @remarks
+   * Queries the information about an Agent file service instance.
+   * 
+   * @param request - DescribePxfsInfoRequest
+   * @returns DescribePxfsInfoResponse
+   */
+  async describePxfsInfo(request: $_model.DescribePxfsInfoRequest): Promise<$_model.DescribePxfsInfoResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describePxfsInfoWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询Agent文件服务白名单
+   * 
+   * @remarks
+   * 查询Agent文件服务白名单。
+   * 
+   * @param request - DescribePxfsSecurityIpsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribePxfsSecurityIpsResponse
+   */
+  async describePxfsSecurityIpsWithOptions(request: $_model.DescribePxfsSecurityIpsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribePxfsSecurityIpsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribePxfsSecurityIps",
+      version: "2020-02-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribePxfsSecurityIpsResponse>(await this.callApi(params, req, runtime), new $_model.DescribePxfsSecurityIpsResponse({}));
+  }
+
+  /**
+   * 查询Agent文件服务白名单
+   * 
+   * @remarks
+   * 查询Agent文件服务白名单。
+   * 
+   * @param request - DescribePxfsSecurityIpsRequest
+   * @returns DescribePxfsSecurityIpsResponse
+   */
+  async describePxfsSecurityIps(request: $_model.DescribePxfsSecurityIpsRequest): Promise<$_model.DescribePxfsSecurityIpsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describePxfsSecurityIpsWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询Agent文件服务租户
+   * 
+   * @remarks
+   * 查询Agent文件服务租户。
+   * 
+   * @param request - DescribePxfsTenantRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribePxfsTenantResponse
+   */
+  async describePxfsTenantWithOptions(request: $_model.DescribePxfsTenantRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribePxfsTenantResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.tenantId)) {
+      query["TenantId"] = request.tenantId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribePxfsTenant",
+      version: "2020-02-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribePxfsTenantResponse>(await this.callApi(params, req, runtime), new $_model.DescribePxfsTenantResponse({}));
+  }
+
+  /**
+   * 查询Agent文件服务租户
+   * 
+   * @remarks
+   * 查询Agent文件服务租户。
+   * 
+   * @param request - DescribePxfsTenantRequest
+   * @returns DescribePxfsTenantResponse
+   */
+  async describePxfsTenant(request: $_model.DescribePxfsTenantRequest): Promise<$_model.DescribePxfsTenantResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describePxfsTenantWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询Agent文件服务租户身份
+   * 
+   * @remarks
+   * 查询Agent文件服务租户身份。
+   * 
+   * @param request - DescribePxfsUsersRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribePxfsUsersResponse
+   */
+  async describePxfsUsersWithOptions(request: $_model.DescribePxfsUsersRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribePxfsUsersResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.tenantId)) {
+      query["TenantId"] = request.tenantId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribePxfsUsers",
+      version: "2020-02-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribePxfsUsersResponse>(await this.callApi(params, req, runtime), new $_model.DescribePxfsUsersResponse({}));
+  }
+
+  /**
+   * 查询Agent文件服务租户身份
+   * 
+   * @remarks
+   * 查询Agent文件服务租户身份。
+   * 
+   * @param request - DescribePxfsUsersRequest
+   * @returns DescribePxfsUsersResponse
+   */
+  async describePxfsUsers(request: $_model.DescribePxfsUsersRequest): Promise<$_model.DescribePxfsUsersResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describePxfsUsersWithOptions(request, runtime);
+  }
+
+  /**
    * Queries PXFuse instance information.
    * 
    * @remarks
@@ -9999,6 +10711,70 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Modifies the whitelist of the Agent file service.
+   * 
+   * @remarks
+   * Modifies the whitelist of the Agent file service.
+   * 
+   * @param request - ModifyPxfsSecurityIpsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyPxfsSecurityIpsResponse
+   */
+  async modifyPxfsSecurityIpsWithOptions(request: $_model.ModifyPxfsSecurityIpsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyPxfsSecurityIpsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!$dara.isNull(request.groupName)) {
+      query["GroupName"] = request.groupName;
+    }
+
+    if (!$dara.isNull(request.modifyMode)) {
+      query["ModifyMode"] = request.modifyMode;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.securityIPList)) {
+      query["SecurityIPList"] = request.securityIPList;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyPxfsSecurityIps",
+      version: "2020-02-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyPxfsSecurityIpsResponse>(await this.callApi(params, req, runtime), new $_model.ModifyPxfsSecurityIpsResponse({}));
+  }
+
+  /**
+   * Modifies the whitelist of the Agent file service.
+   * 
+   * @remarks
+   * Modifies the whitelist of the Agent file service.
+   * 
+   * @param request - ModifyPxfsSecurityIpsRequest
+   * @returns ModifyPxfsSecurityIpsResponse
+   */
+  async modifyPxfsSecurityIps(request: $_model.ModifyPxfsSecurityIpsRequest): Promise<$_model.ModifyPxfsSecurityIpsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyPxfsSecurityIpsWithOptions(request, runtime);
+  }
+
+  /**
    * Modifies the PXFuse node whitelist.
    * 
    * @remarks
@@ -10359,7 +11135,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries complete column store audit logs by using streaming.
+   * Queries full column store audit logs by using streaming.
    * 
    * @remarks
    * ***
@@ -10419,7 +11195,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries complete column store audit logs by using streaming.
+   * Queries full column store audit logs by using streaming.
    * 
    * @remarks
    * ***
@@ -10465,7 +11241,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries complete column store audit logs by using streaming.
+   * Queries full column store audit logs by using streaming.
    * 
    * @remarks
    * ***
@@ -10798,6 +11574,58 @@ export default class Client extends OpenApi {
   async releaseMem0PublicConnection(request: $_model.ReleaseMem0PublicConnectionRequest): Promise<$_model.ReleaseMem0PublicConnectionResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.releaseMem0PublicConnectionWithOptions(request, runtime);
+  }
+
+  /**
+   * 关闭Agent文件服务公网连接
+   * 
+   * @remarks
+   * 关闭Agent文件服务公网连接。
+   * 
+   * @param request - ReleasePxfsPublicConnectionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ReleasePxfsPublicConnectionResponse
+   */
+  async releasePxfsPublicConnectionWithOptions(request: $_model.ReleasePxfsPublicConnectionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ReleasePxfsPublicConnectionResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ReleasePxfsPublicConnection",
+      version: "2020-02-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ReleasePxfsPublicConnectionResponse>(await this.callApi(params, req, runtime), new $_model.ReleasePxfsPublicConnectionResponse({}));
+  }
+
+  /**
+   * 关闭Agent文件服务公网连接
+   * 
+   * @remarks
+   * 关闭Agent文件服务公网连接。
+   * 
+   * @param request - ReleasePxfsPublicConnectionRequest
+   * @returns ReleasePxfsPublicConnectionResponse
+   */
+  async releasePxfsPublicConnection(request: $_model.ReleasePxfsPublicConnectionRequest): Promise<$_model.ReleasePxfsPublicConnectionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.releasePxfsPublicConnectionWithOptions(request, runtime);
   }
 
   /**
@@ -11199,6 +12027,58 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Restarts an Agent file service instance.
+   * 
+   * @remarks
+   * Restarts an Agent file service instance.
+   * 
+   * @param request - RestartPxfsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RestartPxfsResponse
+   */
+  async restartPxfsWithOptions(request: $_model.RestartPxfsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RestartPxfsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RestartPxfs",
+      version: "2020-02-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RestartPxfsResponse>(await this.callApi(params, req, runtime), new $_model.RestartPxfsResponse({}));
+  }
+
+  /**
+   * Restarts an Agent file service instance.
+   * 
+   * @remarks
+   * Restarts an Agent file service instance.
+   * 
+   * @param request - RestartPxfsRequest
+   * @returns RestartPxfsResponse
+   */
+  async restartPxfs(request: $_model.RestartPxfsRequest): Promise<$_model.RestartPxfsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.restartPxfsWithOptions(request, runtime);
+  }
+
+  /**
    * Restarts a Supabase instance.
    * 
    * @remarks
@@ -11416,6 +12296,66 @@ export default class Client extends OpenApi {
   async restoreDBInstance(request: $_model.RestoreDBInstanceRequest): Promise<$_model.RestoreDBInstanceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.restoreDBInstanceWithOptions(request, runtime);
+  }
+
+  /**
+   * Revokes an access token for the Agent file service.
+   * 
+   * @remarks
+   * Revokes an access token for the Agent file service.
+   * 
+   * @param request - RevokePxfsAccessTokenRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RevokePxfsAccessTokenResponse
+   */
+  async revokePxfsAccessTokenWithOptions(request: $_model.RevokePxfsAccessTokenRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RevokePxfsAccessTokenResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.tenantId)) {
+      query["TenantId"] = request.tenantId;
+    }
+
+    if (!$dara.isNull(request.tokenId)) {
+      query["TokenId"] = request.tokenId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RevokePxfsAccessToken",
+      version: "2020-02-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RevokePxfsAccessTokenResponse>(await this.callApi(params, req, runtime), new $_model.RevokePxfsAccessTokenResponse({}));
+  }
+
+  /**
+   * Revokes an access token for the Agent file service.
+   * 
+   * @remarks
+   * Revokes an access token for the Agent file service.
+   * 
+   * @param request - RevokePxfsAccessTokenRequest
+   * @returns RevokePxfsAccessTokenResponse
+   */
+  async revokePxfsAccessToken(request: $_model.RevokePxfsAccessTokenRequest): Promise<$_model.RevokePxfsAccessTokenResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.revokePxfsAccessTokenWithOptions(request, runtime);
   }
 
   /**
@@ -12570,6 +13510,62 @@ export default class Client extends OpenApi {
   async upgradeDBInstanceKernelVersion(request: $_model.UpgradeDBInstanceKernelVersionRequest): Promise<$_model.UpgradeDBInstanceKernelVersionResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.upgradeDBInstanceKernelVersionWithOptions(request, runtime);
+  }
+
+  /**
+   * Upgrades the minor version of the Agent file service.
+   * 
+   * @remarks
+   * Upgrades the minor version of the Agent file service.
+   * 
+   * @param request - UpgradePxfsVersionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpgradePxfsVersionResponse
+   */
+  async upgradePxfsVersionWithOptions(request: $_model.UpgradePxfsVersionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpgradePxfsVersionResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!$dara.isNull(request.minorVersion)) {
+      query["MinorVersion"] = request.minorVersion;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpgradePxfsVersion",
+      version: "2020-02-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpgradePxfsVersionResponse>(await this.callApi(params, req, runtime), new $_model.UpgradePxfsVersionResponse({}));
+  }
+
+  /**
+   * Upgrades the minor version of the Agent file service.
+   * 
+   * @remarks
+   * Upgrades the minor version of the Agent file service.
+   * 
+   * @param request - UpgradePxfsVersionRequest
+   * @returns UpgradePxfsVersionResponse
+   */
+  async upgradePxfsVersion(request: $_model.UpgradePxfsVersionRequest): Promise<$_model.UpgradePxfsVersionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.upgradePxfsVersionWithOptions(request, runtime);
   }
 
 }

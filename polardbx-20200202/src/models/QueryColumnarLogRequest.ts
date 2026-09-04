@@ -23,7 +23,7 @@ export class QueryColumnarLogRequest extends $dara.Model {
   maxResultRows?: number;
   /**
    * @remarks
-   * The region ID of the request. The region ID must be the same as the region where the SQLQuery service is deployed.
+   * The region ID of the request. The value must match the region where the SQLQuery service is deployed.
    * 
    * This parameter is required.
    * 
@@ -33,12 +33,12 @@ export class QueryColumnarLogRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The read-only query statement to execute. Only a single MySQL SELECT statement is supported, and it must access the fully qualified polardbx_sls table. Multi-statement queries, write operations, locks, user variables, dynamic placeholders, and reserved hints are not supported.
+   * The read-only query statement to execute. Only a single MySQL SELECT statement is supported. Query tables must use the fully qualified form polardbx_sls.<table_name>, and only the following tables are allowed: polardbx_sls.polardbx_log (kernel logs), polardbx_sls.slow_detail_log (slow query logs), polardbx_sls.slow_trans_log (slow transaction logs), and polardbx_sls.sql_audit_log (audit logs). Multi-statement queries, write operations, locks, user variables, dynamic placeholders, and reserved hints are not supported.
    * 
    * This parameter is required.
    * 
    * @example
-   * select * from device where name = \\"105506012111488797\\"
+   * SELECT * FROM polardbx_sls.sql_audit_log LIMIT 100
    */
   SQL?: string;
   static names(): { [key: string]: string } {

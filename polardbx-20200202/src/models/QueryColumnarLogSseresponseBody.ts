@@ -8,7 +8,7 @@ export class QueryColumnarLogSSEResponseBodyAccessDeniedDetail extends $dara.Mod
    * As described above.
    * 
    * @example
-   * xxx
+   * polardbx:QueryColumnarLogSSE
    */
   authAction?: string;
   /**
@@ -16,7 +16,7 @@ export class QueryColumnarLogSSEResponseBodyAccessDeniedDetail extends $dara.Mod
    * The display name of the authentication principal.
    * 
    * @example
-   * xxx
+   * Sample RAM user
    */
   authPrincipalDisplayName?: string;
   /**
@@ -48,7 +48,7 @@ export class QueryColumnarLogSSEResponseBodyAccessDeniedDetail extends $dara.Mod
   encodedDiagnosticMessage?: string;
   /**
    * @remarks
-   * NoPermissionType
+   * The type of the permission denial.
    * 
    * @example
    * ImplicitDeny
@@ -127,7 +127,7 @@ export class QueryColumnarLogSSEResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Returned only when Type is EOF. Indicates whether the service or API row limit truncated the SQL submitted by the caller. A value of false when the SQL statement has a smaller LIMIT that was fully executed does not indicate that no more data exists in the underlying table.
+   * Returned only when Type is EOF. Indicates whether the service or API row limit truncated the SQL statement submitted by the caller. A value of false when the SQL statement completes with a smaller LIMIT does not indicate that no more data exists in the underlying table.
    * 
    * @example
    * False
@@ -143,12 +143,12 @@ export class QueryColumnarLogSSEResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Indicates whether at least one RECORD event was sent before the ERROR occurred. A value of true indicates that the results already received by the caller are incomplete and must not be treated as complete query results.
+   * Indicates whether at least one RECORD event was sent before the ERROR occurred. A value of true indicates that the results already received by the caller are incomplete and should not be treated as complete query results.
    */
   partial?: boolean;
   /**
    * @remarks
-   * Returned only when Type is EOF. The elapsed time from the start of JDBC statement execution to the completion of reading the last result row or probe row. Unit: milliseconds.
+   * Returned only when Type is EOF. The elapsed time in milliseconds from the start of JDBC statement execution to the completion of reading the last result row or probe row.
    * 
    * @example
    * 125
@@ -164,12 +164,12 @@ export class QueryColumnarLogSSEResponseBody extends $dara.Model {
   queryId?: string;
   /**
    * @remarks
-   * Returned only when Type is RECORD. A batch of query results carried by this event. Each row is a JSON key-value object that maps column names to text values. SQL NULL values are encoded as the string null.
+   * Returned only when Type is RECORD. A batch of query results carried by this event. Each row is a JSON key-value object that maps column names to text values. SQL NULL is encoded as the string null.
    */
   records?: { [key: string]: string }[];
   /**
    * @remarks
-   * Returned only when Type is EOF. The sum of UTF-8 bytes of the JSON objects for all returned rows. This value does not include arrays, SSE frames, or fixed response fields.
+   * Returned only when Type is EOF. The total UTF-8 byte size of all returned row JSON objects. This value does not include arrays, SSE frames, or fixed response fields.
    * 
    * @example
    * 8192
@@ -209,7 +209,7 @@ export class QueryColumnarLogSSEResponseBody extends $dara.Model {
   sequence?: number;
   /**
    * @remarks
-   * The SSE event type. RECORD indicates a batch of query results. EOF indicates that the query has completed. ERROR indicates that the query ended abnormally.
+   * The SSE event type. RECORD carries a batch of query results. EOF indicates that the query has completed. ERROR indicates that the query ended with an exception.
    * 
    * @example
    * RECORD

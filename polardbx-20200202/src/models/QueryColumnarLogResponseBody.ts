@@ -8,7 +8,7 @@ export class QueryColumnarLogResponseBodyAccessDeniedDetail extends $dara.Model 
    * The authentication action.
    * 
    * @example
-   * xxx
+   * polardbx:QueryColumnarLog
    */
   authAction?: string;
   /**
@@ -16,7 +16,7 @@ export class QueryColumnarLogResponseBodyAccessDeniedDetail extends $dara.Model 
    * The display name of the authentication principal.
    * 
    * @example
-   * xxx
+   * Sample RAM user
    */
   authPrincipalDisplayName?: string;
   /**
@@ -100,7 +100,7 @@ export class QueryColumnarLogResponseBody extends $dara.Model {
   accessDeniedDetail?: QueryColumnarLogResponseBodyAccessDeniedDetail;
   /**
    * @remarks
-   * The top-level SQL LIMIT offset that the service actually applied. The value is 0 if no offset is specified in the SQL statement.
+   * The top-level SQL LIMIT offset that the service actually applied. The value is 0 if the SQL statement does not specify an offset.
    * 
    * @example
    * 0
@@ -124,7 +124,7 @@ export class QueryColumnarLogResponseBody extends $dara.Model {
   hasMore?: boolean;
   /**
    * @remarks
-   * The elapsed time from the start of the JDBC statement execution to the completion of reading the last returned row or probe row. Unit: milliseconds.
+   * The elapsed time from the start of the JDBC statement execution to the completion of reading the last result row or probe row. Unit: milliseconds.
    * 
    * @example
    * 125
@@ -140,7 +140,7 @@ export class QueryColumnarLogResponseBody extends $dara.Model {
   queryId?: string;
   /**
    * @remarks
-   * The list of query results. Each row is a JSON key-value object that maps column names to text values. All scalar values are returned as strings. SQL NULL is encoded as the string null, and empty strings remain as empty strings.
+   * The list of query results. Each row is a JSON key-value object that maps column names to text values. All scalars are returned as strings. SQL NULL is encoded as the string null, and empty strings remain as empty strings.
    */
   records?: { [key: string]: string }[];
   /**
@@ -161,7 +161,7 @@ export class QueryColumnarLogResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The number of result rows actually returned in this synchronous response.
+   * The actual number of result rows returned in this synchronous response.
    * 
    * @example
    * 100
