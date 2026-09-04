@@ -2,25 +2,112 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class DescribeAgentTaskResponseBodyTasksArtifacts extends $dara.Model {
+  /**
+   * @remarks
+   * The MIME type.
+   * 
+   * @example
+   * image/png
+   */
+  contentType?: string;
+  /**
+   * @remarks
+   * The OSS pre-signed download URL.
+   * 
+   * @example
+   * https://bucket.oss-cn-hangzhou.aliyuncs.com/...
+   */
+  downloadUrl?: string;
+  /**
+   * @remarks
+   * The file name.
+   * 
+   * @example
+   * screenshot.png
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The file size in bytes.
+   * 
+   * @example
+   * 1024
+   */
+  size?: number;
+  /**
+   * @remarks
+   * The upload time in ISO 8601 format.
+   * 
+   * @example
+   * 2026-08-05T10:00:00+08:00
+   */
+  updatedTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      contentType: 'ContentType',
+      downloadUrl: 'DownloadUrl',
+      name: 'Name',
+      size: 'Size',
+      updatedTime: 'UpdatedTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      contentType: 'string',
+      downloadUrl: 'string',
+      name: 'string',
+      size: 'number',
+      updatedTime: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeAgentTaskResponseBodyTasks extends $dara.Model {
+  /**
+   * @remarks
+   * The number of task artifacts.
+   * 
+   * @example
+   * 2
+   */
+  artifactCount?: number;
+  /**
+   * @remarks
+   * The list of uploaded task artifacts.
+   */
+  artifacts?: DescribeAgentTaskResponseBodyTasksArtifacts[];
   /**
    * @remarks
    * The current status of the task. Valid values:
    * 
-   * PENDING: The task is being created.
-   * 
-   * RUNNING: The task is running.
-   * 
-   * COMPLETED: The task is completed.
-   * 
-   * FAILED: The task failed.
-   * 
-   * TIMEOUT: The task execution timed out.
+   * - PENDING: The task is being created.
+   * - RUNNING: The task is running.
+   * - COMPLETED: The task is completed.
+   * - FAILED: The task failed.
+   * - TIMEOUT: The task execution timed out.
    * 
    * @example
    * COMPLETED
    */
   currentStatus?: string;
+  /**
+   * @remarks
+   * The source of the digest. Valid values:
+   * 
+   * - PROMPT_AUTO: auto-generated.
+   * - RESULT_AUTO: result refinement.
+   * - USER: user-edited.
+   */
   digestSource?: string;
   /**
    * @remarks
@@ -47,6 +134,10 @@ export class DescribeAgentTaskResponseBodyTasks extends $dara.Model {
    * 30
    */
   steps?: string;
+  /**
+   * @remarks
+   * The task digest text, up to 25 characters.
+   */
   taskDigest?: string;
   /**
    * @remarks
@@ -82,6 +173,8 @@ export class DescribeAgentTaskResponseBodyTasks extends $dara.Model {
   userPrompt?: string;
   static names(): { [key: string]: string } {
     return {
+      artifactCount: 'ArtifactCount',
+      artifacts: 'Artifacts',
       currentStatus: 'CurrentStatus',
       digestSource: 'DigestSource',
       instanceId: 'InstanceId',
@@ -98,6 +191,8 @@ export class DescribeAgentTaskResponseBodyTasks extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      artifactCount: 'number',
+      artifacts: { 'type': 'array', 'itemType': DescribeAgentTaskResponseBodyTasksArtifacts },
       currentStatus: 'string',
       digestSource: 'string',
       instanceId: 'string',
@@ -113,6 +208,9 @@ export class DescribeAgentTaskResponseBodyTasks extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.artifacts)) {
+      $dara.Model.validateArray(this.artifacts);
+    }
     super.validate();
   }
 
@@ -140,7 +238,7 @@ export class DescribeAgentTaskResponseBody extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The message returned by the API.
+   * The response message.
    * 
    * @example
    * Success.

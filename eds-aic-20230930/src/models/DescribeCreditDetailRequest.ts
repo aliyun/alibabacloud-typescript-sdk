@@ -5,6 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCreditDetailRequest extends $dara.Model {
   /**
    * @remarks
+   * The list of agent types, used to filter credit change details by specified agent types.
+   */
+  agentTypes?: string[];
+  /**
+   * @remarks
    * The end time.
    * 
    * @example
@@ -16,16 +21,30 @@ export class DescribeCreditDetailRequest extends $dara.Model {
    * The list of instance IDs.
    */
   instanceIds?: string[];
+  /**
+   * @remarks
+   * The maximum number of entries to read in this request.
+   * 
+   * @example
+   * 100
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The token for the next query. If a query does not return all results, the returned NextToken is not empty. You can pass the returned NextToken in the next query to continue retrieving results.
+   * 
+   * @example
+   * AAAAAV3MpHK1AP0pfERHZN5pu6kU+SQXzm0H9mu/FiSc****
+   */
   nextToken?: string;
   /**
    * @remarks
-   * The list of plan packages or credit booster packages.
+   * The list of package or credit booster pack IDs.
    */
   packageIds?: string[];
   /**
    * @remarks
-   * The page number. Default value: 1.
+   * The page number for pagination. Default value: 1.
    * 
    * @example
    * 1
@@ -49,6 +68,7 @@ export class DescribeCreditDetailRequest extends $dara.Model {
   startTime?: number;
   static names(): { [key: string]: string } {
     return {
+      agentTypes: 'AgentTypes',
       endTime: 'EndTime',
       instanceIds: 'InstanceIds',
       maxResults: 'MaxResults',
@@ -62,6 +82,7 @@ export class DescribeCreditDetailRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      agentTypes: { 'type': 'array', 'itemType': 'string' },
       endTime: 'number',
       instanceIds: { 'type': 'array', 'itemType': 'string' },
       maxResults: 'number',
@@ -74,6 +95,9 @@ export class DescribeCreditDetailRequest extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.agentTypes)) {
+      $dara.Model.validateArray(this.agentTypes);
+    }
     if(Array.isArray(this.instanceIds)) {
       $dara.Model.validateArray(this.instanceIds);
     }

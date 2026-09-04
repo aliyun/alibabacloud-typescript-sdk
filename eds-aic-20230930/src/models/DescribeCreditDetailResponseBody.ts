@@ -3,7 +3,29 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeCreditDetailResponseBodyDataDetails extends $dara.Model {
+  /**
+   * @remarks
+   * The agent type. This field is populated only when querying by a single agent type.
+   * 
+   * @example
+   * cloudphone_enterprise
+   */
+  agentType?: string;
+  /**
+   * @remarks
+   * The API key name.
+   * 
+   * @example
+   * default
+   */
   apiKeyName?: string;
+  /**
+   * @remarks
+   * The number of cached tokens.
+   * 
+   * @example
+   * 50
+   */
   cachedTokens?: number;
   /**
    * @remarks
@@ -29,7 +51,21 @@ export class DescribeCreditDetailResponseBodyDataDetails extends $dara.Model {
    * Open Xiaohongshu
    */
   description?: string;
+  /**
+   * @remarks
+   * The model inference duration, in milliseconds.
+   * 
+   * @example
+   * 3000
+   */
   durationMs?: number;
+  /**
+   * @remarks
+   * The number of input tokens.
+   * 
+   * @example
+   * 100
+   */
   inputTokens?: number;
   /**
    * @remarks
@@ -39,30 +75,73 @@ export class DescribeCreditDetailResponseBodyDataDetails extends $dara.Model {
    * acp-12oe0l75vl7o5****
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * The instance name.
+   * 
+   * @example
+   * my-instance
+   */
   instanceName?: string;
+  /**
+   * @remarks
+   * The model ID.
+   * 
+   * @example
+   * qwen-max
+   */
   modelId?: string;
+  /**
+   * @remarks
+   * The number of output tokens.
+   * 
+   * @example
+   * 200
+   */
   outputTokens?: number;
   /**
    * @remarks
-   * The ID of the credit or plan package.
+   * The credit or package ID.
    * 
    * @example
    * cmag-0c1g77wjljl9h****
    */
   packageId?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 1A923337-44D9-5CAD-B2A5-4B9E6628B1C8
+   */
   requestId?: string;
   /**
    * @remarks
-   * The task ID, which is globally unique.
+   * The globally unique task ID.
    * 
    * @example
    * t-1fr0k51pozyr5****
    */
   taskId?: string;
+  /**
+   * @remarks
+   * The total number of tokens.
+   * 
+   * @example
+   * 350
+   */
   totalTokens?: number;
+  /**
+   * @remarks
+   * The response time of the first token, in milliseconds.
+   * 
+   * @example
+   * 500
+   */
   ttftMs?: number;
   static names(): { [key: string]: string } {
     return {
+      agentType: 'AgentType',
       apiKeyName: 'ApiKeyName',
       cachedTokens: 'CachedTokens',
       changeTime: 'ChangeTime',
@@ -84,6 +163,7 @@ export class DescribeCreditDetailResponseBodyDataDetails extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      agentType: 'string',
       apiKeyName: 'string',
       cachedTokens: 'number',
       changeTime: 'string',
@@ -118,10 +198,17 @@ export class DescribeCreditDetailResponseBodyData extends $dara.Model {
    * The credit change details.
    */
   details?: DescribeCreditDetailResponseBodyDataDetails[];
+  /**
+   * @remarks
+   * The token for the next query.
+   * 
+   * @example
+   * AAAAAV3MpHK1AP0pfERHZN5pu6kU+SQXzm0H9mu/FiSc****
+   */
   nextToken?: string;
   /**
    * @remarks
-   * The page number. Default value: 1.
+   * The page number for pagination. Default value: 1.
    * 
    * @example
    * 1

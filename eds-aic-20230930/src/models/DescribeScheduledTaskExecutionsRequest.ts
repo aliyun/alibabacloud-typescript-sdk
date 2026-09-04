@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeScheduledTaskExecutionsRequest extends $dara.Model {
   /**
    * @remarks
-   * The end time of the time range in ISO-8601 format.
+   * The end time of the time range in ISO 8601 format.
    * 
    * @example
    * 2026-06-12T23:59:59
@@ -47,7 +47,7 @@ export class DescribeScheduledTaskExecutionsRequest extends $dara.Model {
   scheduledId?: string;
   /**
    * @remarks
-   * The start time of the time range in ISO-8601 format.
+   * The start time of the time range in ISO 8601 format.
    * 
    * @example
    * 2026-06-01T00:00:00

@@ -107,6 +107,14 @@ export class RunAgentTaskRequest extends $dara.Model {
   runConfig?: RunAgentTaskRequestRunConfig;
   /**
    * @remarks
+   * Specifies whether to write the task artifacts to the user\\"s OSS bucket.
+   * 
+   * @example
+   * true
+   */
+  saveArtifacts?: boolean;
+  /**
+   * @remarks
    * The scheduling plan ID. When specified, the execution record is associated with the corresponding scheduled node, which facilitates aggregate query by scheduling dimension through aggregation.
    * 
    * @example
@@ -115,7 +123,7 @@ export class RunAgentTaskRequest extends $dara.Model {
   scheduleId?: string;
   /**
    * @remarks
-   * The Targets array. Each element is an object that contains InstanceId and SessionId.
+   * An array of target objects. Each element contains an InstanceId and a SessionId.
    */
   targets?: RunAgentTaskRequestTargets[];
   /**
@@ -148,6 +156,7 @@ export class RunAgentTaskRequest extends $dara.Model {
       instanceIds: 'InstanceIds',
       maxSteps: 'MaxSteps',
       runConfig: 'RunConfig',
+      saveArtifacts: 'SaveArtifacts',
       scheduleId: 'ScheduleId',
       targets: 'Targets',
       taskConfigId: 'TaskConfigId',
@@ -162,6 +171,7 @@ export class RunAgentTaskRequest extends $dara.Model {
       instanceIds: { 'type': 'array', 'itemType': 'string' },
       maxSteps: 'number',
       runConfig: RunAgentTaskRequestRunConfig,
+      saveArtifacts: 'boolean',
       scheduleId: 'string',
       targets: { 'type': 'array', 'itemType': RunAgentTaskRequestTargets },
       taskConfigId: 'string',

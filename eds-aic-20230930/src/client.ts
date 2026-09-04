@@ -12,10 +12,6 @@ export default class Client extends OpenApi {
   constructor(config: $OpenApiUtil.Config) {
     super(config);
     this._endpointRule = "regional";
-    this._endpointMap = {
-      'ap-southeast-1': "eds-aic.ap-southeast-1.aliyuncs.com",
-      'cn-shanghai': "eds-aic.cn-shanghai.aliyuncs.com",
-    };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("eds-aic", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
@@ -761,6 +757,68 @@ export default class Client extends OpenApi {
   async createAICloudPhone(request: $_model.CreateAICloudPhoneRequest): Promise<$_model.CreateAICloudPhoneResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createAICloudPhoneWithOptions(request, runtime);
+  }
+
+  /**
+   * Creates a custom skill.
+   * 
+   * @param request - CreateAgentSkillRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateAgentSkillResponse
+   */
+  async createAgentSkillWithOptions(request: $_model.CreateAgentSkillRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateAgentSkillResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.fileList)) {
+      query["FileList"] = request.fileList;
+    }
+
+    if (!$dara.isNull(request.iconKey)) {
+      query["IconKey"] = request.iconKey;
+    }
+
+    if (!$dara.isNull(request.packageOssKey)) {
+      query["PackageOssKey"] = request.packageOssKey;
+    }
+
+    if (!$dara.isNull(request.skillDescription)) {
+      query["SkillDescription"] = request.skillDescription;
+    }
+
+    if (!$dara.isNull(request.skillName)) {
+      query["SkillName"] = request.skillName;
+    }
+
+    if (!$dara.isNull(request.skillPackageUrl)) {
+      query["SkillPackageUrl"] = request.skillPackageUrl;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateAgentSkill",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateAgentSkillResponse>(await this.callApi(params, req, runtime), new $_model.CreateAgentSkillResponse({}));
+  }
+
+  /**
+   * Creates a custom skill.
+   * 
+   * @param request - CreateAgentSkillRequest
+   * @returns CreateAgentSkillResponse
+   */
+  async createAgentSkill(request: $_model.CreateAgentSkillRequest): Promise<$_model.CreateAgentSkillResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createAgentSkillWithOptions(request, runtime);
   }
 
   /**
@@ -1874,6 +1932,48 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes custom skills.
+   * 
+   * @param request - DeleteAgentSkillRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteAgentSkillResponse
+   */
+  async deleteAgentSkillWithOptions(request: $_model.DeleteAgentSkillRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteAgentSkillResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.skillIds)) {
+      query["SkillIds"] = request.skillIds;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteAgentSkill",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteAgentSkillResponse>(await this.callApi(params, req, runtime), new $_model.DeleteAgentSkillResponse({}));
+  }
+
+  /**
+   * Deletes custom skills.
+   * 
+   * @param request - DeleteAgentSkillRequest
+   * @returns DeleteAgentSkillResponse
+   */
+  async deleteAgentSkill(request: $_model.DeleteAgentSkillRequest): Promise<$_model.DeleteAgentSkillResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteAgentSkillWithOptions(request, runtime);
+  }
+
+  /**
    * Deletes an Android instance group. All instances in the group are also deleted. This operation cannot be undone. Proceed with caution.
    * 
    * @remarks
@@ -2920,7 +3020,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries all change records of credits.
+   * Queries all credit change records.
    * 
    * @param request - DescribeCreditDetailRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2929,6 +3029,10 @@ export default class Client extends OpenApi {
   async describeCreditDetailWithOptions(request: $_model.DescribeCreditDetailRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeCreditDetailResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.agentTypes)) {
+      query["AgentTypes"] = request.agentTypes;
+    }
+
     if (!$dara.isNull(request.endTime)) {
       query["EndTime"] = request.endTime;
     }
@@ -2979,7 +3083,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries all change records of credits.
+   * Queries all credit change records.
    * 
    * @param request - DescribeCreditDetailRequest
    * @returns DescribeCreditDetailResponse
@@ -3700,7 +3804,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the execution records of agent scheduled tasks.
+   * Queries the execution records of an agent scheduled task.
    * 
    * @param request - DescribeScheduledTaskExecutionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3755,7 +3859,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the execution records of agent scheduled tasks.
+   * Queries the execution records of an agent scheduled task.
    * 
    * @param request - DescribeScheduledTaskExecutionsRequest
    * @returns DescribeScheduledTaskExecutionsResponse
@@ -3833,6 +3937,72 @@ export default class Client extends OpenApi {
   async describeScheduledTasks(request: $_model.DescribeScheduledTasksRequest): Promise<$_model.DescribeScheduledTasksResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeScheduledTasksWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries skill information.
+   * 
+   * @param request - DescribeSkillsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeSkillsResponse
+   */
+  async describeSkillsWithOptions(request: $_model.DescribeSkillsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeSkillsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.keyword)) {
+      query["Keyword"] = request.keyword;
+    }
+
+    if (!$dara.isNull(request.language)) {
+      query["Language"] = request.language;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.skillId)) {
+      query["SkillId"] = request.skillId;
+    }
+
+    if (!$dara.isNull(request.statusFilter)) {
+      query["StatusFilter"] = request.statusFilter;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeSkills",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeSkillsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeSkillsResponse({}));
+  }
+
+  /**
+   * Queries skill information.
+   * 
+   * @param request - DescribeSkillsRequest
+   * @returns DescribeSkillsResponse
+   */
+  async describeSkills(request: $_model.DescribeSkillsRequest): Promise<$_model.DescribeSkillsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeSkillsWithOptions(request, runtime);
   }
 
   /**
@@ -4895,6 +5065,52 @@ export default class Client extends OpenApi {
   async installMonitorAgent(request: $_model.InstallMonitorAgentRequest): Promise<$_model.InstallMonitorAgentResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.installMonitorAgentWithOptions(request, runtime);
+  }
+
+  /**
+   * Installs skills to instances.
+   * 
+   * @param request - InstallSkillsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns InstallSkillsResponse
+   */
+  async installSkillsWithOptions(request: $_model.InstallSkillsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.InstallSkillsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceIds)) {
+      query["InstanceIds"] = request.instanceIds;
+    }
+
+    if (!$dara.isNull(request.skillIds)) {
+      query["SkillIds"] = request.skillIds;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "InstallSkills",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.InstallSkillsResponse>(await this.callApi(params, req, runtime), new $_model.InstallSkillsResponse({}));
+  }
+
+  /**
+   * Installs skills to instances.
+   * 
+   * @param request - InstallSkillsRequest
+   * @returns InstallSkillsResponse
+   */
+  async installSkills(request: $_model.InstallSkillsRequest): Promise<$_model.InstallSkillsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.installSkillsWithOptions(request, runtime);
   }
 
   /**
@@ -6490,10 +6706,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Resets the instance by reinstalling the operating system using its original image. Note: The reset operation will fail if the image that was used to create the Cloud Phone has since been deleted.
+   * Resets cloud phone instances. A reset reinstalls the system using the image of the cloud phone. For example, the reset fails if the image used when the cloud phone was created has been deleted.
    * 
    * @remarks
-   * You can reset an instance (initialize its system) only when the instance is Active, Stopped, Abnormal, Backup Failed, or **Recover Failed**.
+   * Resetting (initializing the system) is supported only when the instance is in the **Available, Stopped, Abnormal, Backup Failed, or Restore Failed** state.
    * 
    * @param request - ResetAndroidInstancesInGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6506,8 +6722,16 @@ export default class Client extends OpenApi {
       query["AndroidInstanceIds"] = request.androidInstanceIds;
     }
 
+    if (!$dara.isNull(request.autoPay)) {
+      query["AutoPay"] = request.autoPay;
+    }
+
     if (!$dara.isNull(request.ignoreParamValidation)) {
       query["IgnoreParamValidation"] = request.ignoreParamValidation;
+    }
+
+    if (!$dara.isNull(request.promotionId)) {
+      query["PromotionId"] = request.promotionId;
     }
 
     if (!$dara.isNull(request.saleMode)) {
@@ -6516,6 +6740,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.settingResetType)) {
       query["SettingResetType"] = request.settingResetType;
+    }
+
+    if (!$dara.isNull(request.targetDataDiskSize)) {
+      query["TargetDataDiskSize"] = request.targetDataDiskSize;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -6536,10 +6764,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Resets the instance by reinstalling the operating system using its original image. Note: The reset operation will fail if the image that was used to create the Cloud Phone has since been deleted.
+   * Resets cloud phone instances. A reset reinstalls the system using the image of the cloud phone. For example, the reset fails if the image used when the cloud phone was created has been deleted.
    * 
    * @remarks
-   * You can reset an instance (initialize its system) only when the instance is Active, Stopped, Abnormal, Backup Failed, or **Recover Failed**.
+   * Resetting (initializing the system) is supported only when the instance is in the **Available, Stopped, Abnormal, Backup Failed, or Restore Failed** state.
    * 
    * @param request - ResetAndroidInstancesInGroupRequest
    * @returns ResetAndroidInstancesInGroupResponse
@@ -6633,6 +6861,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.runConfigShrink)) {
       query["RunConfig"] = request.runConfigShrink;
+    }
+
+    if (!$dara.isNull(request.saveArtifacts)) {
+      query["SaveArtifacts"] = request.saveArtifacts;
     }
 
     if (!$dara.isNull(request.scheduleId)) {
@@ -7393,6 +7625,52 @@ export default class Client extends OpenApi {
   async uninstallMonitorAgent(request: $_model.UninstallMonitorAgentRequest): Promise<$_model.UninstallMonitorAgentResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.uninstallMonitorAgentWithOptions(request, runtime);
+  }
+
+  /**
+   * Uninstalls skills from instances.
+   * 
+   * @param request - UninstallSkillsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UninstallSkillsResponse
+   */
+  async uninstallSkillsWithOptions(request: $_model.UninstallSkillsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UninstallSkillsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceIds)) {
+      query["InstanceIds"] = request.instanceIds;
+    }
+
+    if (!$dara.isNull(request.skillIds)) {
+      query["SkillIds"] = request.skillIds;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UninstallSkills",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UninstallSkillsResponse>(await this.callApi(params, req, runtime), new $_model.UninstallSkillsResponse({}));
+  }
+
+  /**
+   * Uninstalls skills from instances.
+   * 
+   * @param request - UninstallSkillsRequest
+   * @returns UninstallSkillsResponse
+   */
+  async uninstallSkills(request: $_model.UninstallSkillsRequest): Promise<$_model.UninstallSkillsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.uninstallSkillsWithOptions(request, runtime);
   }
 
   /**

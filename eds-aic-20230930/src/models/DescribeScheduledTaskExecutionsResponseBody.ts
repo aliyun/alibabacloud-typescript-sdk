@@ -2,7 +2,90 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class DescribeScheduledTaskExecutionsResponseBodyExecutionsArtifacts extends $dara.Model {
+  /**
+   * @remarks
+   * The MIME type.
+   * 
+   * @example
+   * image/png
+   */
+  contentType?: string;
+  /**
+   * @remarks
+   * The OSS pre-signed download URL.
+   * 
+   * @example
+   * https://bucket.oss-cn-hangzhou.aliyuncs.com/...
+   */
+  downloadUrl?: string;
+  /**
+   * @remarks
+   * The file name.
+   * 
+   * @example
+   * screenshot.png
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The file size in bytes.
+   * 
+   * @example
+   * 1024
+   */
+  size?: number;
+  /**
+   * @remarks
+   * The upload time in ISO 8601 format.
+   * 
+   * @example
+   * 2026-08-05T10:00:00+08:00
+   */
+  updatedTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      contentType: 'ContentType',
+      downloadUrl: 'DownloadUrl',
+      name: 'Name',
+      size: 'Size',
+      updatedTime: 'UpdatedTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      contentType: 'string',
+      downloadUrl: 'string',
+      name: 'string',
+      size: 'number',
+      updatedTime: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeScheduledTaskExecutionsResponseBodyExecutions extends $dara.Model {
+  /**
+   * @remarks
+   * The number of task artifacts.
+   * 
+   * @example
+   * 2
+   */
+  artifactCount?: number;
+  /**
+   * @remarks
+   * The list of uploaded task artifacts.
+   */
+  artifacts?: DescribeScheduledTaskExecutionsResponseBodyExecutionsArtifacts[];
   /**
    * @remarks
    * The end time.
@@ -93,6 +176,8 @@ export class DescribeScheduledTaskExecutionsResponseBodyExecutions extends $dara
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
+      artifactCount: 'ArtifactCount',
+      artifacts: 'Artifacts',
       completedAt: 'CompletedAt',
       configSnapshot: 'ConfigSnapshot',
       durationMs: 'DurationMs',
@@ -109,6 +194,8 @@ export class DescribeScheduledTaskExecutionsResponseBodyExecutions extends $dara
 
   static types(): { [key: string]: any } {
     return {
+      artifactCount: 'number',
+      artifacts: { 'type': 'array', 'itemType': DescribeScheduledTaskExecutionsResponseBodyExecutionsArtifacts },
       completedAt: 'string',
       configSnapshot: 'string',
       durationMs: 'number',
@@ -124,6 +211,9 @@ export class DescribeScheduledTaskExecutionsResponseBodyExecutions extends $dara
   }
 
   validate() {
+    if(Array.isArray(this.artifacts)) {
+      $dara.Model.validateArray(this.artifacts);
+    }
     super.validate();
   }
 
@@ -148,7 +238,7 @@ export class DescribeScheduledTaskExecutionsResponseBody extends $dara.Model {
   executions?: DescribeScheduledTaskExecutionsResponseBodyExecutions[];
   /**
    * @remarks
-   * The maximum number of entries returned.
+   * The maximum number of results returned in this request.
    * 
    * @example
    * 20
@@ -180,7 +270,7 @@ export class DescribeScheduledTaskExecutionsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The number of entries returned.
+   * The number of results returned.
    * 
    * @example
    * 10
