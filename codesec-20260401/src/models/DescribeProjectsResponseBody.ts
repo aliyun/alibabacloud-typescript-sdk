@@ -2,8 +2,6 @@
 import * as $dara from '@darabonba/typescript';
 
 
-/**
- */
 export class DescribeProjectsResponseBodyItemsEngines extends $dara.Model {
   /**
    * @remarks
@@ -230,7 +228,7 @@ export class DescribeProjectsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * Id of the request
+   * The unique request ID.
    * 
    * @example
    * 9A1F403F-0A85-5578-8B7C-55E3E9408659
