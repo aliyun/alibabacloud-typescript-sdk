@@ -30,6 +30,70 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Cancels a specified Security Operations Agent conversation turn and returns the turn status after the cancellation request is processed.
+   * 
+   * @remarks
+   * Cancels a specified Security Operations Agent conversation turn.
+   * 
+   * @param request - CancelCopilotTurnRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CancelCopilotTurnResponse
+   */
+  async cancelCopilotTurnWithOptions(request: $_model.CancelCopilotTurnRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CancelCopilotTurnResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.conversationId)) {
+      body["ConversationId"] = request.conversationId;
+    }
+
+    if (!$dara.isNull(request.lang)) {
+      body["Lang"] = request.lang;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.traceId)) {
+      body["TraceId"] = request.traceId;
+    }
+
+    if (!$dara.isNull(request.turnId)) {
+      body["TurnId"] = request.turnId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CancelCopilotTurn",
+      version: "2024-12-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CancelCopilotTurnResponse>(await this.callApi(params, req, runtime), new $_model.CancelCopilotTurnResponse({}));
+  }
+
+  /**
+   * Cancels a specified Security Operations Agent conversation turn and returns the turn status after the cancellation request is processed.
+   * 
+   * @remarks
+   * Cancels a specified Security Operations Agent conversation turn.
+   * 
+   * @param request - CancelCopilotTurnRequest
+   * @returns CancelCopilotTurnResponse
+   */
+  async cancelCopilotTurn(request: $_model.CancelCopilotTurnRequest): Promise<$_model.CancelCopilotTurnResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.cancelCopilotTurnWithOptions(request, runtime);
+  }
+
+  /**
    * Checks for available version upgrades.
    * 
    * @remarks
@@ -143,6 +207,318 @@ export default class Client extends OpenApi {
   async createAutoDisposeConfig(request: $_model.CreateAutoDisposeConfigRequest): Promise<$_model.CreateAutoDisposeConfigResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createAutoDisposeConfigWithOptions(request, runtime);
+  }
+
+  /**
+   * Sends a message to the security operations Agent and returns an event stream through SSE. The first request can implicitly create a conversation.
+   * 
+   * @remarks
+   * Sends a message to a security operations Agent conversation and returns results as an SSE event stream.
+   * 
+   * @param tmpReq - CreateCopilotChatRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateCopilotChatResponse
+   */
+  async *createCopilotChatWithSSE(tmpReq: $_model.CreateCopilotChatRequest, runtime: $dara.RuntimeOptions): AsyncGenerator<$_model.CreateCopilotChatResponse, any, unknown> {
+    tmpReq.validate();
+    let request = new $_model.CreateCopilotChatShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.createConversation)) {
+      request.createConversationShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.createConversation, "CreateConversation", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.messages)) {
+      request.messagesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.messages, "Messages", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientConversationId)) {
+      body["ClientConversationId"] = request.clientConversationId;
+    }
+
+    if (!$dara.isNull(request.clientMessageId)) {
+      body["ClientMessageId"] = request.clientMessageId;
+    }
+
+    if (!$dara.isNull(request.conversationId)) {
+      body["ConversationId"] = request.conversationId;
+    }
+
+    if (!$dara.isNull(request.createConversationShrink)) {
+      body["CreateConversation"] = request.createConversationShrink;
+    }
+
+    if (!$dara.isNull(request.lang)) {
+      body["Lang"] = request.lang;
+    }
+
+    if (!$dara.isNull(request.messagesShrink)) {
+      body["Messages"] = request.messagesShrink;
+    }
+
+    if (!$dara.isNull(request.model)) {
+      body["Model"] = request.model;
+    }
+
+    if (!$dara.isNull(request.planMode)) {
+      body["PlanMode"] = request.planMode;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.replaceTurnId)) {
+      body["ReplaceTurnId"] = request.replaceTurnId;
+    }
+
+    if (!$dara.isNull(request.routeTarget)) {
+      body["RouteTarget"] = request.routeTarget;
+    }
+
+    if (!$dara.isNull(request.source)) {
+      body["Source"] = request.source;
+    }
+
+    if (!$dara.isNull(request.stream)) {
+      body["Stream"] = request.stream;
+    }
+
+    if (!$dara.isNull(request.thinkingMode)) {
+      body["ThinkingMode"] = request.thinkingMode;
+    }
+
+    if (!$dara.isNull(request.traceId)) {
+      body["TraceId"] = request.traceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateCopilotChat",
+      version: "2024-12-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "string",
+    });
+    let sseResp = await this.callSSEApi(params, req, runtime);
+
+    for await (let resp of sseResp) {
+      if (!$dara.isNull(resp.event) && !$dara.isNull(resp.event.data)) {
+        let data = resp.event.data;
+        yield $dara.cast<$_model.CreateCopilotChatResponse>({
+          statusCode: resp.statusCode,
+          headers: resp.headers,
+          id: resp.event.id,
+          event: resp.event.event,
+          body: data,
+        }, new $_model.CreateCopilotChatResponse({}));
+      }
+
+    }
+  }
+
+  /**
+   * Sends a message to the security operations Agent and returns an event stream through SSE. The first request can implicitly create a conversation.
+   * 
+   * @remarks
+   * Sends a message to a security operations Agent conversation and returns results as an SSE event stream.
+   * 
+   * @param tmpReq - CreateCopilotChatRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateCopilotChatResponse
+   */
+  async createCopilotChatWithOptions(tmpReq: $_model.CreateCopilotChatRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateCopilotChatResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateCopilotChatShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.createConversation)) {
+      request.createConversationShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.createConversation, "CreateConversation", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.messages)) {
+      request.messagesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.messages, "Messages", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientConversationId)) {
+      body["ClientConversationId"] = request.clientConversationId;
+    }
+
+    if (!$dara.isNull(request.clientMessageId)) {
+      body["ClientMessageId"] = request.clientMessageId;
+    }
+
+    if (!$dara.isNull(request.conversationId)) {
+      body["ConversationId"] = request.conversationId;
+    }
+
+    if (!$dara.isNull(request.createConversationShrink)) {
+      body["CreateConversation"] = request.createConversationShrink;
+    }
+
+    if (!$dara.isNull(request.lang)) {
+      body["Lang"] = request.lang;
+    }
+
+    if (!$dara.isNull(request.messagesShrink)) {
+      body["Messages"] = request.messagesShrink;
+    }
+
+    if (!$dara.isNull(request.model)) {
+      body["Model"] = request.model;
+    }
+
+    if (!$dara.isNull(request.planMode)) {
+      body["PlanMode"] = request.planMode;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.replaceTurnId)) {
+      body["ReplaceTurnId"] = request.replaceTurnId;
+    }
+
+    if (!$dara.isNull(request.routeTarget)) {
+      body["RouteTarget"] = request.routeTarget;
+    }
+
+    if (!$dara.isNull(request.source)) {
+      body["Source"] = request.source;
+    }
+
+    if (!$dara.isNull(request.stream)) {
+      body["Stream"] = request.stream;
+    }
+
+    if (!$dara.isNull(request.thinkingMode)) {
+      body["ThinkingMode"] = request.thinkingMode;
+    }
+
+    if (!$dara.isNull(request.traceId)) {
+      body["TraceId"] = request.traceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateCopilotChat",
+      version: "2024-12-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "string",
+    });
+    return $dara.cast<$_model.CreateCopilotChatResponse>(await this.callApi(params, req, runtime), new $_model.CreateCopilotChatResponse({}));
+  }
+
+  /**
+   * Sends a message to the security operations Agent and returns an event stream through SSE. The first request can implicitly create a conversation.
+   * 
+   * @remarks
+   * Sends a message to a security operations Agent conversation and returns results as an SSE event stream.
+   * 
+   * @param request - CreateCopilotChatRequest
+   * @returns CreateCopilotChatResponse
+   */
+  async createCopilotChat(request: $_model.CreateCopilotChatRequest): Promise<$_model.CreateCopilotChatResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createCopilotChatWithOptions(request, runtime);
+  }
+
+  /**
+   * Creates a security operations Agent conversation that belongs to the current tenant and owner, and returns the conversation ID, status, and conversation configuration.
+   * 
+   * @remarks
+   * Creates a security operations Agent conversation.
+   * 
+   * @param request - CreateCopilotConversationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateCopilotConversationResponse
+   */
+  async createCopilotConversationWithOptions(request: $_model.CreateCopilotConversationRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateCopilotConversationResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.lang)) {
+      body["Lang"] = request.lang;
+    }
+
+    if (!$dara.isNull(request.model)) {
+      body["Model"] = request.model;
+    }
+
+    if (!$dara.isNull(request.planMode)) {
+      body["PlanMode"] = request.planMode;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.thinkingMode)) {
+      body["ThinkingMode"] = request.thinkingMode;
+    }
+
+    if (!$dara.isNull(request.title)) {
+      body["Title"] = request.title;
+    }
+
+    if (!$dara.isNull(request.traceId)) {
+      body["TraceId"] = request.traceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateCopilotConversation",
+      version: "2024-12-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateCopilotConversationResponse>(await this.callApi(params, req, runtime), new $_model.CreateCopilotConversationResponse({}));
+  }
+
+  /**
+   * Creates a security operations Agent conversation that belongs to the current tenant and owner, and returns the conversation ID, status, and conversation configuration.
+   * 
+   * @remarks
+   * Creates a security operations Agent conversation.
+   * 
+   * @param request - CreateCopilotConversationRequest
+   * @returns CreateCopilotConversationResponse
+   */
+  async createCopilotConversation(request: $_model.CreateCopilotConversationRequest): Promise<$_model.CreateCopilotConversationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createCopilotConversationWithOptions(request, runtime);
   }
 
   /**
@@ -2413,6 +2789,194 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the metadata, status, configuration, and historical summary of a specified security operations Agent conversation.
+   * 
+   * @remarks
+   * Queries a specified security operations Agent conversation.
+   * 
+   * @param request - GetCopilotConversationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetCopilotConversationResponse
+   */
+  async getCopilotConversationWithOptions(request: $_model.GetCopilotConversationRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetCopilotConversationResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.conversationId)) {
+      body["ConversationId"] = request.conversationId;
+    }
+
+    if (!$dara.isNull(request.lang)) {
+      body["Lang"] = request.lang;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.traceId)) {
+      body["TraceId"] = request.traceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetCopilotConversation",
+      version: "2024-12-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetCopilotConversationResponse>(await this.callApi(params, req, runtime), new $_model.GetCopilotConversationResponse({}));
+  }
+
+  /**
+   * Queries the metadata, status, configuration, and historical summary of a specified security operations Agent conversation.
+   * 
+   * @remarks
+   * Queries a specified security operations Agent conversation.
+   * 
+   * @param request - GetCopilotConversationRequest
+   * @returns GetCopilotConversationResponse
+   */
+  async getCopilotConversation(request: $_model.GetCopilotConversationRequest): Promise<$_model.GetCopilotConversationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getCopilotConversationWithOptions(request, runtime);
+  }
+
+  /**
+   * Retrieves the status of a security operations Agent conversation turn.
+   * 
+   * @remarks
+   * Queries a specified security operations Agent conversation turn.
+   * 
+   * @param request - GetCopilotTurnRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetCopilotTurnResponse
+   */
+  async getCopilotTurnWithOptions(request: $_model.GetCopilotTurnRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetCopilotTurnResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.conversationId)) {
+      body["ConversationId"] = request.conversationId;
+    }
+
+    if (!$dara.isNull(request.lang)) {
+      body["Lang"] = request.lang;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.traceId)) {
+      body["TraceId"] = request.traceId;
+    }
+
+    if (!$dara.isNull(request.turnId)) {
+      body["TurnId"] = request.turnId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetCopilotTurn",
+      version: "2024-12-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetCopilotTurnResponse>(await this.callApi(params, req, runtime), new $_model.GetCopilotTurnResponse({}));
+  }
+
+  /**
+   * Retrieves the status of a security operations Agent conversation turn.
+   * 
+   * @remarks
+   * Queries a specified security operations Agent conversation turn.
+   * 
+   * @param request - GetCopilotTurnRequest
+   * @returns GetCopilotTurnResponse
+   */
+  async getCopilotTurn(request: $_model.GetCopilotTurnRequest): Promise<$_model.GetCopilotTurnResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getCopilotTurnWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the details of a security operations Agent conversation turn by conversation ID and client message ID.
+   * 
+   * @remarks
+   * Queries a security operations Agent conversation turn by client message ID.
+   * 
+   * @param request - GetCopilotTurnByClientMessageIdRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetCopilotTurnByClientMessageIdResponse
+   */
+  async getCopilotTurnByClientMessageIdWithOptions(request: $_model.GetCopilotTurnByClientMessageIdRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetCopilotTurnByClientMessageIdResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientMessageId)) {
+      body["ClientMessageId"] = request.clientMessageId;
+    }
+
+    if (!$dara.isNull(request.conversationId)) {
+      body["ConversationId"] = request.conversationId;
+    }
+
+    if (!$dara.isNull(request.lang)) {
+      body["Lang"] = request.lang;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.traceId)) {
+      body["TraceId"] = request.traceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetCopilotTurnByClientMessageId",
+      version: "2024-12-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetCopilotTurnByClientMessageIdResponse>(await this.callApi(params, req, runtime), new $_model.GetCopilotTurnByClientMessageIdResponse({}));
+  }
+
+  /**
+   * Queries the details of a security operations Agent conversation turn by conversation ID and client message ID.
+   * 
+   * @remarks
+   * Queries a security operations Agent conversation turn by client message ID.
+   * 
+   * @param request - GetCopilotTurnByClientMessageIdRequest
+   * @returns GetCopilotTurnByClientMessageIdResponse
+   */
+  async getCopilotTurnByClientMessageId(request: $_model.GetCopilotTurnByClientMessageIdRequest): Promise<$_model.GetCopilotTurnByClientMessageIdResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getCopilotTurnByClientMessageIdWithOptions(request, runtime);
+  }
+
+  /**
    * Retrieves the details of a batch data ingestion task.
    * 
    * @remarks
@@ -3336,6 +3900,78 @@ export default class Client extends OpenApi {
   async listAutoDisposeEntities(request: $_model.ListAutoDisposeEntitiesRequest): Promise<$_model.ListAutoDisposeEntitiesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listAutoDisposeEntitiesWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries visible persisted messages in a specified security operations Agent session by paging, with configurable sorting direction.
+   * 
+   * @remarks
+   * Queries the message list of a specified security operations Agent conversation.
+   * 
+   * @param request - ListCopilotMessagesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListCopilotMessagesResponse
+   */
+  async listCopilotMessagesWithOptions(request: $_model.ListCopilotMessagesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListCopilotMessagesResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.ascending)) {
+      body["Ascending"] = request.ascending;
+    }
+
+    if (!$dara.isNull(request.conversationId)) {
+      body["ConversationId"] = request.conversationId;
+    }
+
+    if (!$dara.isNull(request.lang)) {
+      body["Lang"] = request.lang;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      body["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      body["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.traceId)) {
+      body["TraceId"] = request.traceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListCopilotMessages",
+      version: "2024-12-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListCopilotMessagesResponse>(await this.callApi(params, req, runtime), new $_model.ListCopilotMessagesResponse({}));
+  }
+
+  /**
+   * Queries visible persisted messages in a specified security operations Agent session by paging, with configurable sorting direction.
+   * 
+   * @remarks
+   * Queries the message list of a specified security operations Agent conversation.
+   * 
+   * @param request - ListCopilotMessagesRequest
+   * @returns ListCopilotMessagesResponse
+   */
+  async listCopilotMessages(request: $_model.ListCopilotMessagesRequest): Promise<$_model.ListCopilotMessagesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listCopilotMessagesWithOptions(request, runtime);
   }
 
   /**
@@ -5800,6 +6436,154 @@ export default class Client extends OpenApi {
   async resetDataStorage(request: $_model.ResetDataStorageRequest): Promise<$_model.ResetDataStorageResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.resetDataStorageWithOptions(request, runtime);
+  }
+
+  /**
+   * Incrementally resumes the SSE event stream for a specified security operations Agent turn based on the run cursor.
+   * 
+   * @remarks
+   * Resumes the SSE event stream for a security operations Agent conversation turn from a specified cursor.
+   * 
+   * @param tmpReq - ResumeCopilotTurnStreamRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ResumeCopilotTurnStreamResponse
+   */
+  async *resumeCopilotTurnStreamWithSSE(tmpReq: $_model.ResumeCopilotTurnStreamRequest, runtime: $dara.RuntimeOptions): AsyncGenerator<$_model.ResumeCopilotTurnStreamResponse, any, unknown> {
+    tmpReq.validate();
+    let request = new $_model.ResumeCopilotTurnStreamShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.cursorByRun)) {
+      request.cursorByRunShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.cursorByRun, "CursorByRun", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.conversationId)) {
+      body["ConversationId"] = request.conversationId;
+    }
+
+    if (!$dara.isNull(request.cursorByRunShrink)) {
+      body["CursorByRun"] = request.cursorByRunShrink;
+    }
+
+    if (!$dara.isNull(request.lang)) {
+      body["Lang"] = request.lang;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.traceId)) {
+      body["TraceId"] = request.traceId;
+    }
+
+    if (!$dara.isNull(request.turnId)) {
+      body["TurnId"] = request.turnId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ResumeCopilotTurnStream",
+      version: "2024-12-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "string",
+    });
+    let sseResp = await this.callSSEApi(params, req, runtime);
+
+    for await (let resp of sseResp) {
+      if (!$dara.isNull(resp.event) && !$dara.isNull(resp.event.data)) {
+        let data = resp.event.data;
+        yield $dara.cast<$_model.ResumeCopilotTurnStreamResponse>({
+          statusCode: resp.statusCode,
+          headers: resp.headers,
+          id: resp.event.id,
+          event: resp.event.event,
+          body: data,
+        }, new $_model.ResumeCopilotTurnStreamResponse({}));
+      }
+
+    }
+  }
+
+  /**
+   * Incrementally resumes the SSE event stream for a specified security operations Agent turn based on the run cursor.
+   * 
+   * @remarks
+   * Resumes the SSE event stream for a security operations Agent conversation turn from a specified cursor.
+   * 
+   * @param tmpReq - ResumeCopilotTurnStreamRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ResumeCopilotTurnStreamResponse
+   */
+  async resumeCopilotTurnStreamWithOptions(tmpReq: $_model.ResumeCopilotTurnStreamRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ResumeCopilotTurnStreamResponse> {
+    tmpReq.validate();
+    let request = new $_model.ResumeCopilotTurnStreamShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.cursorByRun)) {
+      request.cursorByRunShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.cursorByRun, "CursorByRun", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.conversationId)) {
+      body["ConversationId"] = request.conversationId;
+    }
+
+    if (!$dara.isNull(request.cursorByRunShrink)) {
+      body["CursorByRun"] = request.cursorByRunShrink;
+    }
+
+    if (!$dara.isNull(request.lang)) {
+      body["Lang"] = request.lang;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.traceId)) {
+      body["TraceId"] = request.traceId;
+    }
+
+    if (!$dara.isNull(request.turnId)) {
+      body["TurnId"] = request.turnId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ResumeCopilotTurnStream",
+      version: "2024-12-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "string",
+    });
+    return $dara.cast<$_model.ResumeCopilotTurnStreamResponse>(await this.callApi(params, req, runtime), new $_model.ResumeCopilotTurnStreamResponse({}));
+  }
+
+  /**
+   * Incrementally resumes the SSE event stream for a specified security operations Agent turn based on the run cursor.
+   * 
+   * @remarks
+   * Resumes the SSE event stream for a security operations Agent conversation turn from a specified cursor.
+   * 
+   * @param request - ResumeCopilotTurnStreamRequest
+   * @returns ResumeCopilotTurnStreamResponse
+   */
+  async resumeCopilotTurnStream(request: $_model.ResumeCopilotTurnStreamRequest): Promise<$_model.ResumeCopilotTurnStreamResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.resumeCopilotTurnStreamWithOptions(request, runtime);
   }
 
   /**
