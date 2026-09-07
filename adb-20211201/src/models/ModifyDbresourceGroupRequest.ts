@@ -13,7 +13,7 @@ export class ModifyDBResourceGroupRequestAtmConfig extends $dara.Model {
   authNodeNum?: number;
   /**
    * @remarks
-   * The authentication node specifications in ACU ([0-9+]ACU).
+   * The authentication node specification in [0-9+]ACU.
    * 
    * @example
    * 8ACU
@@ -29,7 +29,7 @@ export class ModifyDBResourceGroupRequestAtmConfig extends $dara.Model {
   insertNodeNum?: number;
   /**
    * @remarks
-   * The insert node specifications in ACU ([0-9+]ACU).
+   * The insert node specification in [0-9+]ACU.
    * 
    * @example
    * 8ACU
@@ -53,7 +53,7 @@ export class ModifyDBResourceGroupRequestAtmConfig extends $dara.Model {
   selectNodeNum?: number;
   /**
    * @remarks
-   * The query node specifications ([0-9+]ACU).
+   * The query node specification ([0-9+]ACU).
    * 
    * @example
    * 8ACU
@@ -61,7 +61,7 @@ export class ModifyDBResourceGroupRequestAtmConfig extends $dara.Model {
   selectNodeSpec?: string;
   /**
    * @remarks
-   * The disk size of storage nodes.
+   * The storage node disk size.
    * 
    * @example
    * 1
@@ -69,7 +69,7 @@ export class ModifyDBResourceGroupRequestAtmConfig extends $dara.Model {
   storageNodeDiskSize?: number;
   /**
    * @remarks
-   * The disk type of storage nodes (essd_pl1, essd_pl2).
+   * The storage node disk type (essd_pl1, essd_pl2).
    * 
    * @example
    * essd_pl1
@@ -85,7 +85,7 @@ export class ModifyDBResourceGroupRequestAtmConfig extends $dara.Model {
   storageNodeNum?: number;
   /**
    * @remarks
-   * The storage node specifications in ACU ([0-9+]ACU).
+   * The storage node specification in [0-9+]ACU.
    * 
    * @example
    * 8ACU
@@ -176,8 +176,8 @@ export class ModifyDBResourceGroupRequestGpuElasticPlan extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to enable the elastic plan immediately after creation. Valid values:
-   * - **true**: Enables the elastic plan immediately.
-   * - **false**: Does not enable the elastic plan.
+   * - **true**: Enables the plan immediately.
+   * - **false**: Does not enable the plan.
    * 
    * @example
    * true
@@ -400,7 +400,7 @@ export class ModifyDBResourceGroupRequestRayConfigWorkerGroups extends $dara.Mod
   workerDiskCapacity?: string;
   /**
    * @remarks
-   * The node specifications of the worker node.
+   * The specification of the worker node.
    * 
    * @example
    * xlarge
@@ -457,9 +457,9 @@ export class ModifyDBResourceGroupRequestRayConfig extends $dara.Model {
    * @remarks
    * The Ray cluster type. Valid values:
    * 
-   * - BASIC: basic type, non-high-availability
+   * - BASIC: basic type, non-high availability
    * 
-   * - HIGH_AVAILABILITY: high-availability type
+   * - HIGH_AVAILABILITY: high availability type
    * 
    * @example
    * BASIC
@@ -488,7 +488,7 @@ export class ModifyDBResourceGroupRequestRayConfig extends $dara.Model {
   headDiskCapacity?: string;
   /**
    * @remarks
-   * The node specifications of the head node.
+   * The specification of the head node.
    * 
    * @example
    * xlarge
@@ -619,7 +619,7 @@ export class ModifyDBResourceGroupRequest extends $dara.Model {
   atmConfig?: ModifyDBResourceGroupRequestAtmConfig;
   /**
    * @remarks
-   * The automatic stop interval.
+   * The auto-stop interval.
    * 
    * @example
    * 5m
@@ -627,18 +627,18 @@ export class ModifyDBResourceGroupRequest extends $dara.Model {
   autoStopInterval?: string;
   /**
    * @remarks
-   * A reserved parameter (not applicable).
+   * Reserved parameter (not applicable).
    * 
    * @example
-   * 无
+   * None
    */
   clusterMode?: string;
   /**
    * @remarks
-   * A reserved parameter (not applicable).
+   * Reserved parameter (not applicable).
    * 
    * @example
-   * 无
+   * None
    */
   clusterSizeResource?: string;
   /**
@@ -654,7 +654,7 @@ export class ModifyDBResourceGroupRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * Specifies whether to enable the spot instance feature for the resource group. After the spot instance feature is enabled, the unit price of resources is reduced, but the resources may be released. Only Job resource groups support this feature. Valid values:
+   * Specifies whether to enable the spot instance feature for the resource group. After spot instances are enabled, the unit price of resources is reduced, but the resources may be released. Only Job resource groups support this feature. Valid values:
    * - **True**: Enables the spot instance feature.
    * - **False**: Disables the spot instance feature.
    * 
@@ -691,7 +691,7 @@ export class ModifyDBResourceGroupRequest extends $dara.Model {
    * The resource group type. Valid values:
    * - **Interactive**
    * - **Job**
-   * > For more information about Data Lakehouse Edition resource groups, see [Resource group overview](https://help.aliyun.com/document_detail/428610.html).
+   * > For more information about Data Lakehouse Edition resource groups, refer to [Resource group introduction](https://help.aliyun.com/document_detail/428610.html).
    * 
    * This parameter is required.
    * 
@@ -701,17 +701,17 @@ export class ModifyDBResourceGroupRequest extends $dara.Model {
   groupType?: string;
   /**
    * @remarks
-   * A reserved parameter (not applicable).
+   * Reserved parameter (not applicable).
    * 
    * @example
-   * 无
+   * None
    */
   maxClusterCount?: number;
   /**
    * @remarks
    * The maximum reserved computing resources.
-   * - If the resource group type is Interactive, the maximum reserved computing resources is the unallocated resources of the cluster, in increments of 16 ACUs.
-   * - If the resource group type is Job, the maximum reserved computing resources is the unallocated resources of the cluster, in increments of 8 ACUs.
+   * - If the resource group type is Interactive, the maximum reserved computing resources are the current unallocated resources of the cluster, in increments of 16 ACUs.
+   * - If the resource group type is Job, the maximum reserved computing resources are the current unallocated resources of the cluster, in increments of 8 ACUs.
    * 
    * @example
    * 48ACU
@@ -719,7 +719,7 @@ export class ModifyDBResourceGroupRequest extends $dara.Model {
   maxComputeResource?: string;
   /**
    * @remarks
-   * A reserved parameter (not applicable).
+   * Reserved parameter (not applicable).
    * 
    * @example
    * Reserved parameter. Not applicable.
@@ -727,17 +727,17 @@ export class ModifyDBResourceGroupRequest extends $dara.Model {
   maxGpuQuantity?: number;
   /**
    * @remarks
-   * A reserved parameter (not applicable).
+   * Reserved parameter (not applicable).
    * 
    * @example
-   * 无
+   * None
    */
   minClusterCount?: number;
   /**
    * @remarks
    * The minimum reserved computing resources.
-   * - If the resource group type is Interactive, the minimum reserved computing resources is 16 ACUs.
-   * - If the resource group type is Job, the minimum reserved computing resources is 0 ACUs.
+   * - If the resource group type is Interactive, the minimum reserved computing resources are 16 ACUs.
+   * - If the resource group type is Job, the minimum reserved computing resources are 0 ACUs.
    * 
    * @example
    * 0ACU
@@ -745,7 +745,7 @@ export class ModifyDBResourceGroupRequest extends $dara.Model {
   minComputeResource?: string;
   /**
    * @remarks
-   * A reserved parameter (not applicable).
+   * Reserved parameter (not applicable).
    * 
    * @example
    * Reserved parameter. Not applicable.
@@ -772,7 +772,7 @@ export class ModifyDBResourceGroupRequest extends $dara.Model {
   rules?: ModifyDBResourceGroupRequestRules[];
   /**
    * @remarks
-   * A reserved parameter (not applicable).
+   * Reserved parameter (not applicable).
    * 
    * @example
    * Reserved parameter. Not applicable.
@@ -788,7 +788,7 @@ export class ModifyDBResourceGroupRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * A reserved parameter (not applicable).
+   * Reserved parameter (not applicable).
    * 
    * @example
    * Reserved parameter. Not applicable.

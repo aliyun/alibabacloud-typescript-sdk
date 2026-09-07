@@ -13,10 +13,9 @@ export class ModifyAuditLogConfigResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the status of SQL audit is updated. Valid values:
-   * 
-   * *   **true**
-   * *   **false**
+   * Indicates whether the SQL audit logging status is updated. Valid values:
+   * - **true**: The status is updated.
+   * - **false**: The status failed to be updated.
    * 
    * @example
    * true

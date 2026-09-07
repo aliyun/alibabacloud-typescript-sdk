@@ -5,9 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyBackupPolicyRequest extends $dara.Model {
   /**
    * @remarks
-   * The number of days for which to retain full backup files. Valid values: 7 to 730.
-   * 
-   * >  If you do not specify this parameter, the default value 7 is used.
+   * The number of days for which full backups are retained. Valid values: 7 to 730.
+   * > If you do not specify this parameter, the default value is 7.
    * 
    * @example
    * 7
@@ -15,7 +14,8 @@ export class ModifyBackupPolicyRequest extends $dara.Model {
   backupRetentionPeriod?: string;
   /**
    * @remarks
-   * The ID of the AnalyticDB for MySQL Data Lakehouse Edition cluster.
+   * <props="china">The ID of the Enterprise Edition, Basic Edition, or Data Lakehouse Edition cluster.
+   * <props="intl">The ID of the Data Lakehouse Edition cluster.
    * 
    * This parameter is required.
    * 
@@ -25,12 +25,10 @@ export class ModifyBackupPolicyRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * Specifies whether to enable log backup. Valid values:
-   * 
-   * *   **Enable**
-   * *   **Disable**
-   * 
-   * >  If you do not specify this parameter, the default value Enable is used.
+   * Specifies whether to enable log (real-time) backup. Valid values:
+   * - **Enable**: Enabled.
+   * - **Disable**: Disabled.
+   * > If you do not specify this parameter, log backup is enabled by default.
    * 
    * @example
    * Enable
@@ -38,9 +36,8 @@ export class ModifyBackupPolicyRequest extends $dara.Model {
   enableBackupLog?: string;
   /**
    * @remarks
-   * The number of days for which to retain log backup files. Valid values: 7 to 730.
-   * 
-   * >  If you do not specify this parameter, the default value 7 is used.
+   * The number of days for which log (real-time) backups are retained. Valid values: 7 to 730.
+   * > If you do not specify this parameter, the default value is 7.
    * 
    * @example
    * 7
@@ -50,17 +47,16 @@ export class ModifyBackupPolicyRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The days of the week on which to perform a full backup. Separate multiple values with commas (,). Valid values:
+   * The full backup cycle. Separate multiple values with commas (,). Valid values:
+   * - **Monday**: Monday.
+   * - **Tuesday**: Tuesday.
+   * - **Wednesday**: Wednesday.
+   * - **Thursday**: Thursday.
+   * - **Friday**: Friday.
+   * - **Saturday**: Saturday.
+   * - **Sunday**: Sunday.
    * 
-   * *   **Monday**
-   * *   **Tuesday**
-   * *   **Wednesday**
-   * *   **Thursday**
-   * *   **Friday**
-   * *   **Saturday**
-   * *   **Sunday**
-   * 
-   * >  To ensure data security, we recommend that you specify at least two values.
+   * > To ensure data security, select at least two days.
    * 
    * @example
    * Monday,Wednesday,Friday,Sunday
@@ -68,9 +64,9 @@ export class ModifyBackupPolicyRequest extends $dara.Model {
   preferredBackupPeriod?: string;
   /**
    * @remarks
-   * The start time to perform a full backup. Specify the time in the HH:mmZ-HH:mmZ format. The time must be in UTC.
+   * The start time of the full backup. Specify the time in the HH:mmZ-HH:mmZ format (UTC).
    * 
-   * >  The time range must be 1 hour.
+   * > The time range is limited to 1 hour.
    * 
    * This parameter is required.
    * 

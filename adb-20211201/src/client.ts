@@ -142,6 +142,106 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Adds tags to a knowledge base document.
+   * 
+   * @param request - AddKnowledgeTagsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddKnowledgeTagsResponse
+   */
+  async addKnowledgeTagsWithOptions(request: $_model.AddKnowledgeTagsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AddKnowledgeTagsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.fileLocation)) {
+      query["FileLocation"] = request.fileLocation;
+    }
+
+    if (!$dara.isNull(request.tags)) {
+      query["Tags"] = request.tags;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AddKnowledgeTags",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AddKnowledgeTagsResponse>(await this.callApi(params, req, runtime), new $_model.AddKnowledgeTagsResponse({}));
+  }
+
+  /**
+   * Adds tags to a knowledge base document.
+   * 
+   * @param request - AddKnowledgeTagsRequest
+   * @returns AddKnowledgeTagsResponse
+   */
+  async addKnowledgeTags(request: $_model.AddKnowledgeTagsRequest): Promise<$_model.AddKnowledgeTagsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.addKnowledgeTagsWithOptions(request, runtime);
+  }
+
+  /**
+   * Adds authorized users to a knowledge base document.
+   * 
+   * @param request - AddKnowledgeUploadUserRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddKnowledgeUploadUserResponse
+   */
+  async addKnowledgeUploadUserWithOptions(request: $_model.AddKnowledgeUploadUserRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AddKnowledgeUploadUserResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.fileLocation)) {
+      query["FileLocation"] = request.fileLocation;
+    }
+
+    if (!$dara.isNull(request.users)) {
+      query["Users"] = request.users;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AddKnowledgeUploadUser",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AddKnowledgeUploadUserResponse>(await this.callApi(params, req, runtime), new $_model.AddKnowledgeUploadUserResponse({}));
+  }
+
+  /**
+   * Adds authorized users to a knowledge base document.
+   * 
+   * @param request - AddKnowledgeUploadUserRequest
+   * @returns AddKnowledgeUploadUserResponse
+   */
+  async addKnowledgeUploadUser(request: $_model.AddKnowledgeUploadUserRequest): Promise<$_model.AddKnowledgeUploadUserResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.addKnowledgeUploadUserWithOptions(request, runtime);
+  }
+
+  /**
    * Allocates a public connection address for a cluster.
    * 
    * @remarks
@@ -991,7 +1091,7 @@ export default class Client extends OpenApi {
    * Creates a database account for a cluster.
    * 
    * @remarks
-   * For information about the endpoint of this service, see [Service registration](https://help.aliyun.com/document_detail/612373.html).
+   * For information about the endpoint of the current service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
    * 
    * @param tmpReq - CreateAccountRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1001,6 +1101,14 @@ export default class Client extends OpenApi {
     tmpReq.validate();
     let request = new $_model.CreateAccountShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.promqlInsertPrivileges)) {
+      request.promqlInsertPrivilegesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.promqlInsertPrivileges, "PromqlInsertPrivileges", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.promqlSelectPrivileges)) {
+      request.promqlSelectPrivilegesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.promqlSelectPrivileges, "PromqlSelectPrivileges", "json");
+    }
+
     if (!$dara.isNull(tmpReq.ramUserList)) {
       request.ramUserListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.ramUserList, "RamUserList", "json");
     }
@@ -1030,8 +1138,24 @@ export default class Client extends OpenApi {
       query["Engine"] = request.engine;
     }
 
+    if (!$dara.isNull(request.promqlInsertPrivilegesShrink)) {
+      query["PromqlInsertPrivileges"] = request.promqlInsertPrivilegesShrink;
+    }
+
+    if (!$dara.isNull(request.promqlSelectNodePercentage)) {
+      query["PromqlSelectNodePercentage"] = request.promqlSelectNodePercentage;
+    }
+
+    if (!$dara.isNull(request.promqlSelectPrivilegesShrink)) {
+      query["PromqlSelectPrivileges"] = request.promqlSelectPrivilegesShrink;
+    }
+
     if (!$dara.isNull(request.ramUserListShrink)) {
       query["RamUserList"] = request.ramUserListShrink;
+    }
+
+    if (!$dara.isNull(request.resourceGroupName)) {
+      query["ResourceGroupName"] = request.resourceGroupName;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -1055,7 +1179,7 @@ export default class Client extends OpenApi {
    * Creates a database account for a cluster.
    * 
    * @remarks
-   * For information about the endpoint of this service, see [Service registration](https://help.aliyun.com/document_detail/612373.html).
+   * For information about the endpoint of the current service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
    * 
    * @param request - CreateAccountRequest
    * @returns CreateAccountResponse
@@ -2003,7 +2127,7 @@ export default class Client extends OpenApi {
    * Creates a resource group for a specified Enterprise Edition, Basic Edition, or Data Lakehouse Edition cluster.
    * 
    * @remarks
-   * For the service registration of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
+   * For the endpoints of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
    * 
    * @param tmpReq - CreateDBResourceGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2151,7 +2275,7 @@ export default class Client extends OpenApi {
    * Creates a resource group for a specified Enterprise Edition, Basic Edition, or Data Lakehouse Edition cluster.
    * 
    * @remarks
-   * For the service registration of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
+   * For the endpoints of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
    * 
    * @param request - CreateDBResourceGroupRequest
    * @returns CreateDBResourceGroupResponse
@@ -2746,10 +2870,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a database account from an AnalyticDB for MySQL cluster.
+   * Deletes a database account from a cluster.
    * 
    * @remarks
-   * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+   * For the endpoint of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
    * 
    * @param request - DeleteAccountRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2770,6 +2894,10 @@ export default class Client extends OpenApi {
       query["Engine"] = request.engine;
     }
 
+    if (!$dara.isNull(request.resourceGroupName)) {
+      query["ResourceGroupName"] = request.resourceGroupName;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -2788,10 +2916,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a database account from an AnalyticDB for MySQL cluster.
+   * Deletes a database account from a cluster.
    * 
    * @remarks
-   * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+   * For the endpoint of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
    * 
    * @param request - DeleteAccountRequest
    * @returns DeleteAccountResponse
@@ -3253,6 +3381,52 @@ export default class Client extends OpenApi {
   async deleteFormationCrawler(request: $_model.DeleteFormationCrawlerRequest): Promise<$_model.DeleteFormationCrawlerResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteFormationCrawlerWithOptions(request, runtime);
+  }
+
+  /**
+   * Deletes a knowledge base document.
+   * 
+   * @param request - DeleteKnowledgeFileRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteKnowledgeFileResponse
+   */
+  async deleteKnowledgeFileWithOptions(request: $_model.DeleteKnowledgeFileRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteKnowledgeFileResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.fileLocation)) {
+      query["FileLocation"] = request.fileLocation;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteKnowledgeFile",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteKnowledgeFileResponse>(await this.callApi(params, req, runtime), new $_model.DeleteKnowledgeFileResponse({}));
+  }
+
+  /**
+   * Deletes a knowledge base document.
+   * 
+   * @param request - DeleteKnowledgeFileRequest
+   * @returns DeleteKnowledgeFileResponse
+   */
+  async deleteKnowledgeFile(request: $_model.DeleteKnowledgeFileRequest): Promise<$_model.DeleteKnowledgeFileResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteKnowledgeFileWithOptions(request, runtime);
   }
 
   /**
@@ -3949,7 +4123,7 @@ export default class Client extends OpenApi {
    * Queries the database accounts of a cluster.
    * 
    * @remarks
-   * For the endpoint of this service, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+   * For the service registration information of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
    * 
    * @param request - DescribeAccountsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3974,6 +4148,10 @@ export default class Client extends OpenApi {
       query["OwnerId"] = request.ownerId;
     }
 
+    if (!$dara.isNull(request.resourceGroupName)) {
+      query["ResourceGroupName"] = request.resourceGroupName;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -3995,7 +4173,7 @@ export default class Client extends OpenApi {
    * Queries the database accounts of a cluster.
    * 
    * @remarks
-   * For the endpoint of this service, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+   * For the service registration information of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
    * 
    * @param request - DescribeAccountsRequest
    * @returns DescribeAccountsResponse
@@ -6108,10 +6286,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * View target cluster performance data.
+   * Queries the performance data of a specified cluster.
    * 
    * @remarks
-   * For the service endpoint address, see [service endpoint](https://help.aliyun.com/document_detail/612373.html).
+   * For the endpoint of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
    * 
    * @param request - DescribeDBClusterPerformanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6162,10 +6340,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * View target cluster performance data.
+   * Queries the performance data of a specified cluster.
    * 
    * @remarks
-   * For the service endpoint address, see [service endpoint](https://help.aliyun.com/document_detail/612373.html).
+   * For the endpoint of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
    * 
    * @param request - DescribeDBClusterPerformanceRequest
    * @returns DescribeDBClusterPerformanceResponse
@@ -11951,8 +12129,8 @@ export default class Client extends OpenApi {
    * Retrieves table information.
    * 
    * @remarks
-   * - Public endpoint of the region: `adb.<region-id>.aliyuncs.com`. Example: `adb.ap-southeast-1.aliyuncs.com`.
-   * - VPC endpoint of the region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.ap-southeast-1.aliyuncs.com`.
+   * - Public endpoint of a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+   * - VPC endpoint of a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
    * 
    * @param request - GetTableRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11998,8 +12176,8 @@ export default class Client extends OpenApi {
    * Retrieves table information.
    * 
    * @remarks
-   * - Public endpoint of the region: `adb.<region-id>.aliyuncs.com`. Example: `adb.ap-southeast-1.aliyuncs.com`.
-   * - VPC endpoint of the region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.ap-southeast-1.aliyuncs.com`.
+   * - Public endpoint of a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+   * - VPC endpoint of a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
    * 
    * @param request - GetTableRequest
    * @returns GetTableResponse
@@ -12713,6 +12891,98 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the tags of a knowledge base document.
+   * 
+   * @param request - ListKnowledgeTagsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListKnowledgeTagsResponse
+   */
+  async listKnowledgeTagsWithOptions(request: $_model.ListKnowledgeTagsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListKnowledgeTagsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.fileLocation)) {
+      query["FileLocation"] = request.fileLocation;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListKnowledgeTags",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListKnowledgeTagsResponse>(await this.callApi(params, req, runtime), new $_model.ListKnowledgeTagsResponse({}));
+  }
+
+  /**
+   * Queries the tags of a knowledge base document.
+   * 
+   * @param request - ListKnowledgeTagsRequest
+   * @returns ListKnowledgeTagsResponse
+   */
+  async listKnowledgeTags(request: $_model.ListKnowledgeTagsRequest): Promise<$_model.ListKnowledgeTagsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listKnowledgeTagsWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the authorized users of a knowledge base document.
+   * 
+   * @param request - ListKnowledgeUploadUserRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListKnowledgeUploadUserResponse
+   */
+  async listKnowledgeUploadUserWithOptions(request: $_model.ListKnowledgeUploadUserRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListKnowledgeUploadUserResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.fileLocation)) {
+      query["FileLocation"] = request.fileLocation;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListKnowledgeUploadUser",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListKnowledgeUploadUserResponse>(await this.callApi(params, req, runtime), new $_model.ListKnowledgeUploadUserResponse({}));
+  }
+
+  /**
+   * Queries the authorized users of a knowledge base document.
+   * 
+   * @param request - ListKnowledgeUploadUserRequest
+   * @returns ListKnowledgeUploadUserResponse
+   */
+  async listKnowledgeUploadUser(request: $_model.ListKnowledgeUploadUserRequest): Promise<$_model.ListKnowledgeUploadUserResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listKnowledgeUploadUserWithOptions(request, runtime);
+  }
+
+  /**
    * Queries a list of lake storages.
    * 
    * @param request - ListLakeStoragesRequest
@@ -13321,10 +13591,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the description of a database account for an AnalyticDB for MySQL cluster.
+   * Modifies the description of a database account for a specified cluster.
    * 
    * @remarks
-   * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+   * For information about the service registration of the current service, see [Service registration](https://help.aliyun.com/document_detail/612373.html).
    * 
    * @param request - ModifyAccountDescriptionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13349,6 +13619,10 @@ export default class Client extends OpenApi {
       query["Engine"] = request.engine;
     }
 
+    if (!$dara.isNull(request.resourceGroupName)) {
+      query["ResourceGroupName"] = request.resourceGroupName;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -13367,10 +13641,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the description of a database account for an AnalyticDB for MySQL cluster.
+   * Modifies the description of a database account for a specified cluster.
    * 
    * @remarks
-   * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+   * For information about the service registration of the current service, see [Service registration](https://help.aliyun.com/document_detail/612373.html).
    * 
    * @param request - ModifyAccountDescriptionRequest
    * @returns ModifyAccountDescriptionResponse
@@ -13384,7 +13658,7 @@ export default class Client extends OpenApi {
    * Modifies the permissions of a database account.
    * 
    * @remarks
-   * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+   * For the service registration of this service, refer to [Endpoint](https://help.aliyun.com/document_detail/612373.html).
    * 
    * @param tmpReq - ModifyAccountPrivilegesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13396,6 +13670,14 @@ export default class Client extends OpenApi {
     OpenApiUtil.convert(tmpReq, request);
     if (!$dara.isNull(tmpReq.accountPrivileges)) {
       request.accountPrivilegesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.accountPrivileges, "AccountPrivileges", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.promqlInsertPrivileges)) {
+      request.promqlInsertPrivilegesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.promqlInsertPrivileges, "PromqlInsertPrivileges", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.promqlSelectPrivileges)) {
+      request.promqlSelectPrivilegesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.promqlSelectPrivileges, "PromqlSelectPrivileges", "json");
     }
 
     let query = { };
@@ -13411,8 +13693,24 @@ export default class Client extends OpenApi {
       query["DBClusterId"] = request.DBClusterId;
     }
 
+    if (!$dara.isNull(request.promqlInsertPrivilegesShrink)) {
+      query["PromqlInsertPrivileges"] = request.promqlInsertPrivilegesShrink;
+    }
+
+    if (!$dara.isNull(request.promqlSelectNodePercentage)) {
+      query["PromqlSelectNodePercentage"] = request.promqlSelectNodePercentage;
+    }
+
+    if (!$dara.isNull(request.promqlSelectPrivilegesShrink)) {
+      query["PromqlSelectPrivileges"] = request.promqlSelectPrivilegesShrink;
+    }
+
     if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceGroupName)) {
+      query["ResourceGroupName"] = request.resourceGroupName;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -13436,7 +13734,7 @@ export default class Client extends OpenApi {
    * Modifies the permissions of a database account.
    * 
    * @remarks
-   * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+   * For the service registration of this service, refer to [Endpoint](https://help.aliyun.com/document_detail/612373.html).
    * 
    * @param request - ModifyAccountPrivilegesRequest
    * @returns ModifyAccountPrivilegesResponse
@@ -13773,10 +14071,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the SQL audit settings of an AnalyticDB for MySQL cluster.
+   * Modifies the SQL audit log settings of a cluster.
    * 
    * @remarks
-   * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+   * For the endpoint of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
    * 
    * @param request - ModifyAuditLogConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13835,10 +14133,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the SQL audit settings of an AnalyticDB for MySQL cluster.
+   * Modifies the SQL audit log settings of a cluster.
    * 
    * @remarks
-   * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+   * For the endpoint of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
    * 
    * @param request - ModifyAuditLogConfigRequest
    * @returns ModifyAuditLogConfigResponse
@@ -13923,10 +14221,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the backup policy of an AnalyticDB for MySQL cluster.
+   * Modifies the backup policy of a cluster.
    * 
    * @remarks
-   * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+   * For information about the endpoint of the current service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
    * 
    * @param request - ModifyBackupPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13993,10 +14291,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the backup policy of an AnalyticDB for MySQL cluster.
+   * Modifies the backup policy of a cluster.
    * 
    * @remarks
-   * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+   * For information about the endpoint of the current service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
    * 
    * @param request - ModifyBackupPolicyRequest
    * @returns ModifyBackupPolicyResponse
@@ -14544,7 +14842,7 @@ export default class Client extends OpenApi {
    * Changes the resource group of a cluster.
    * 
    * @remarks
-   * For information about the endpoints of this service, see [Service registration](https://help.aliyun.com/document_detail/612373.html).
+   * For the endpoint of this service, refer to [Endpoint](https://help.aliyun.com/document_detail/612373.html).
    * 
    * @param tmpReq - ModifyDBResourceGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14684,7 +14982,7 @@ export default class Client extends OpenApi {
    * Changes the resource group of a cluster.
    * 
    * @remarks
-   * For information about the endpoints of this service, see [Service registration](https://help.aliyun.com/document_detail/612373.html).
+   * For the endpoint of this service, refer to [Endpoint](https://help.aliyun.com/document_detail/612373.html).
    * 
    * @param request - ModifyDBResourceGroupRequest
    * @returns ModifyDBResourceGroupResponse
@@ -15591,6 +15889,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes tags from a knowledge base document.
+   * 
+   * @param request - RemoveKnowledgeTagsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RemoveKnowledgeTagsResponse
+   */
+  async removeKnowledgeTagsWithOptions(request: $_model.RemoveKnowledgeTagsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RemoveKnowledgeTagsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.fileLocation)) {
+      query["FileLocation"] = request.fileLocation;
+    }
+
+    if (!$dara.isNull(request.tags)) {
+      query["Tags"] = request.tags;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RemoveKnowledgeTags",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RemoveKnowledgeTagsResponse>(await this.callApi(params, req, runtime), new $_model.RemoveKnowledgeTagsResponse({}));
+  }
+
+  /**
+   * Deletes tags from a knowledge base document.
+   * 
+   * @param request - RemoveKnowledgeTagsRequest
+   * @returns RemoveKnowledgeTagsResponse
+   */
+  async removeKnowledgeTags(request: $_model.RemoveKnowledgeTagsRequest): Promise<$_model.RemoveKnowledgeTagsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.removeKnowledgeTagsWithOptions(request, runtime);
+  }
+
+  /**
    * Modifies the name of a semantic view.
    * 
    * @param request - RenameSemanticViewRequest
@@ -15703,10 +16051,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Resets the password of a database account for an AnalyticDB for MySQL cluster.
+   * Resets the password of a database account for a specified cluster.
    * 
    * @remarks
-   * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+   * For information about the service registration of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
    * 
    * @param request - ResetAccountPasswordRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15735,6 +16083,10 @@ export default class Client extends OpenApi {
       query["Engine"] = request.engine;
     }
 
+    if (!$dara.isNull(request.resourceGroupName)) {
+      query["ResourceGroupName"] = request.resourceGroupName;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -15753,10 +16105,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Resets the password of a database account for an AnalyticDB for MySQL cluster.
+   * Resets the password of a database account for a specified cluster.
    * 
    * @remarks
-   * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+   * For information about the service registration of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
    * 
    * @param request - ResetAccountPasswordRequest
    * @returns ResetAccountPasswordResponse

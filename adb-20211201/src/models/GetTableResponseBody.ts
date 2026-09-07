@@ -38,7 +38,7 @@ export class GetTableResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The table details.
+   * The detailed table information.
    */
   table?: TableModel;
   static names(): { [key: string]: string } {

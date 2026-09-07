@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyAccountPrivilegesRequestAccountPrivilegesPrivilegeObject extends $dara.Model {
   /**
    * @remarks
-   * The columns on which you want to grant permissions. This parameter must be specified when the PrivilegeType parameter is set to Column.
+   * The column to which permissions are granted. This parameter is required when the privilege level is column.
    * 
    * @example
    * column1
@@ -13,7 +13,7 @@ export class ModifyAccountPrivilegesRequestAccountPrivilegesPrivilegeObject exte
   column?: string;
   /**
    * @remarks
-   * The databases on which you want to grant permissions. This parameter must be specified when the PrivilegeType parameter is set to Database, Table, or Column.
+   * The database to which permissions are granted. This parameter is required when the privilege level is database, table, or column.
    * 
    * @example
    * tsdb1
@@ -21,7 +21,7 @@ export class ModifyAccountPrivilegesRequestAccountPrivilegesPrivilegeObject exte
   database?: string;
   /**
    * @remarks
-   * The tables on which you want to grant permissions. This parameter must be specified when the PrivilegeType parameter is set to Table or Column.
+   * The table to which permissions are granted. This parameter is required when the privilege level is table or column.
    * 
    * @example
    * table1
@@ -55,12 +55,12 @@ export class ModifyAccountPrivilegesRequestAccountPrivilegesPrivilegeObject exte
 export class ModifyAccountPrivilegesRequestAccountPrivileges extends $dara.Model {
   /**
    * @remarks
-   * The objects on which you want to grant permissions, including databases, tables, and columns.
+   * The privilege object, which is a tuple of database, table, and column.
    */
   privilegeObject?: ModifyAccountPrivilegesRequestAccountPrivilegesPrivilegeObject;
   /**
    * @remarks
-   * The permission level that you want to assign to the database account. You can call the `DescribeEnabledPrivileges` operation to query the permission level that can be assigned to the database account.
+   * The privilege level, obtained from the `DescribeEnabledPrivileges` operation.
    * 
    * @example
    * Global
@@ -68,7 +68,7 @@ export class ModifyAccountPrivilegesRequestAccountPrivileges extends $dara.Model
   privilegeType?: string;
   /**
    * @remarks
-   * The permissions that you want to grant to the database account.
+   * The list of granted permissions.
    */
   privileges?: string[];
   static names(): { [key: string]: string } {
@@ -115,14 +115,13 @@ export class ModifyAccountPrivilegesRequest extends $dara.Model {
   accountName?: string;
   /**
    * @remarks
-   * The permissions that you want to grant to the database account.
-   * 
-   * This parameter is required.
+   * The list of granted permissions.
    */
   accountPrivileges?: ModifyAccountPrivilegesRequestAccountPrivileges[];
   /**
    * @remarks
-   * The ID of the AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+   * <props="china">The cluster ID of the Enterprise Edition, Basic Edition, or Data Lakehouse Edition cluster.
+   * <props="intl">The cluster ID of the Data Lakehouse Edition cluster.
    * 
    * This parameter is required.
    * 
@@ -130,6 +129,9 @@ export class ModifyAccountPrivilegesRequest extends $dara.Model {
    * amv-bp1k5p066e1a****
    */
   DBClusterId?: string;
+  promqlInsertPrivileges?: string[];
+  promqlSelectNodePercentage?: number;
+  promqlSelectPrivileges?: string[];
   /**
    * @remarks
    * The region ID.
@@ -140,12 +142,17 @@ export class ModifyAccountPrivilegesRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  resourceGroupName?: string;
   static names(): { [key: string]: string } {
     return {
       accountName: 'AccountName',
       accountPrivileges: 'AccountPrivileges',
       DBClusterId: 'DBClusterId',
+      promqlInsertPrivileges: 'PromqlInsertPrivileges',
+      promqlSelectNodePercentage: 'PromqlSelectNodePercentage',
+      promqlSelectPrivileges: 'PromqlSelectPrivileges',
       regionId: 'RegionId',
+      resourceGroupName: 'ResourceGroupName',
     };
   }
 
@@ -154,13 +161,23 @@ export class ModifyAccountPrivilegesRequest extends $dara.Model {
       accountName: 'string',
       accountPrivileges: { 'type': 'array', 'itemType': ModifyAccountPrivilegesRequestAccountPrivileges },
       DBClusterId: 'string',
+      promqlInsertPrivileges: { 'type': 'array', 'itemType': 'string' },
+      promqlSelectNodePercentage: 'number',
+      promqlSelectPrivileges: { 'type': 'array', 'itemType': 'string' },
       regionId: 'string',
+      resourceGroupName: 'string',
     };
   }
 
   validate() {
     if(Array.isArray(this.accountPrivileges)) {
       $dara.Model.validateArray(this.accountPrivileges);
+    }
+    if(Array.isArray(this.promqlInsertPrivileges)) {
+      $dara.Model.validateArray(this.promqlInsertPrivileges);
+    }
+    if(Array.isArray(this.promqlSelectPrivileges)) {
+      $dara.Model.validateArray(this.promqlSelectPrivileges);
     }
     super.validate();
   }

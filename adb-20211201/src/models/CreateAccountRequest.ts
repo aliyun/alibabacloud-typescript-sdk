@@ -10,7 +10,7 @@ export class CreateAccountRequest extends $dara.Model {
    * - Cannot exceed 256 characters in length.
    * 
    * @example
-   * 数据库连接测试账号
+   * Database connection test account
    */
   accountDescription?: string;
   /**
@@ -65,18 +65,22 @@ export class CreateAccountRequest extends $dara.Model {
    * @remarks
    * The database engine. Valid values:
    * 
-   * - **AnalyticDB** (default): AnalyticDB for MySQL engine.
-   * - **Clickhouse**: wide table engine.
+   * - **AnalyticDB** (default): the AnalyticDB for MySQL engine.
+   * - **Clickhouse**: the wide table engine.
    * 
    * @example
    * Clickhouse
    */
   engine?: string;
+  promqlInsertPrivileges?: string[];
+  promqlSelectNodePercentage?: number;
+  promqlSelectPrivileges?: string[];
   /**
    * @remarks
-   * The list of Alibaba Cloud Resource Access Management (RAM) user IDs to attach. Currently, only one RAM user can be attached.
+   * The list of Alibaba Cloud RAM user IDs to bind. Currently, only one RAM user can be bound.
    */
   ramUserList?: string[];
+  resourceGroupName?: string;
   static names(): { [key: string]: string } {
     return {
       accountDescription: 'AccountDescription',
@@ -85,7 +89,11 @@ export class CreateAccountRequest extends $dara.Model {
       accountType: 'AccountType',
       DBClusterId: 'DBClusterId',
       engine: 'Engine',
+      promqlInsertPrivileges: 'PromqlInsertPrivileges',
+      promqlSelectNodePercentage: 'PromqlSelectNodePercentage',
+      promqlSelectPrivileges: 'PromqlSelectPrivileges',
       ramUserList: 'RamUserList',
+      resourceGroupName: 'ResourceGroupName',
     };
   }
 
@@ -97,11 +105,21 @@ export class CreateAccountRequest extends $dara.Model {
       accountType: 'string',
       DBClusterId: 'string',
       engine: 'string',
+      promqlInsertPrivileges: { 'type': 'array', 'itemType': 'string' },
+      promqlSelectNodePercentage: 'number',
+      promqlSelectPrivileges: { 'type': 'array', 'itemType': 'string' },
       ramUserList: { 'type': 'array', 'itemType': 'string' },
+      resourceGroupName: 'string',
     };
   }
 
   validate() {
+    if(Array.isArray(this.promqlInsertPrivileges)) {
+      $dara.Model.validateArray(this.promqlInsertPrivileges);
+    }
+    if(Array.isArray(this.promqlSelectPrivileges)) {
+      $dara.Model.validateArray(this.promqlSelectPrivileges);
+    }
     if(Array.isArray(this.ramUserList)) {
       $dara.Model.validateArray(this.ramUserList);
     }

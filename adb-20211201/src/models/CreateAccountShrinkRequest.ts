@@ -10,7 +10,7 @@ export class CreateAccountShrinkRequest extends $dara.Model {
    * - Cannot exceed 256 characters in length.
    * 
    * @example
-   * 数据库连接测试账号
+   * Database connection test account
    */
   accountDescription?: string;
   /**
@@ -65,18 +65,22 @@ export class CreateAccountShrinkRequest extends $dara.Model {
    * @remarks
    * The database engine. Valid values:
    * 
-   * - **AnalyticDB** (default): AnalyticDB for MySQL engine.
-   * - **Clickhouse**: wide table engine.
+   * - **AnalyticDB** (default): the AnalyticDB for MySQL engine.
+   * - **Clickhouse**: the wide table engine.
    * 
    * @example
    * Clickhouse
    */
   engine?: string;
+  promqlInsertPrivilegesShrink?: string;
+  promqlSelectNodePercentage?: number;
+  promqlSelectPrivilegesShrink?: string;
   /**
    * @remarks
-   * The list of Alibaba Cloud Resource Access Management (RAM) user IDs to attach. Currently, only one RAM user can be attached.
+   * The list of Alibaba Cloud RAM user IDs to bind. Currently, only one RAM user can be bound.
    */
   ramUserListShrink?: string;
+  resourceGroupName?: string;
   static names(): { [key: string]: string } {
     return {
       accountDescription: 'AccountDescription',
@@ -85,7 +89,11 @@ export class CreateAccountShrinkRequest extends $dara.Model {
       accountType: 'AccountType',
       DBClusterId: 'DBClusterId',
       engine: 'Engine',
+      promqlInsertPrivilegesShrink: 'PromqlInsertPrivileges',
+      promqlSelectNodePercentage: 'PromqlSelectNodePercentage',
+      promqlSelectPrivilegesShrink: 'PromqlSelectPrivileges',
       ramUserListShrink: 'RamUserList',
+      resourceGroupName: 'ResourceGroupName',
     };
   }
 
@@ -97,7 +105,11 @@ export class CreateAccountShrinkRequest extends $dara.Model {
       accountType: 'string',
       DBClusterId: 'string',
       engine: 'string',
+      promqlInsertPrivilegesShrink: 'string',
+      promqlSelectNodePercentage: 'number',
+      promqlSelectPrivilegesShrink: 'string',
       ramUserListShrink: 'string',
+      resourceGroupName: 'string',
     };
   }
 

@@ -6,7 +6,6 @@ export class DescribeAccountsRequest extends $dara.Model {
   /**
    * @remarks
    * The database account.
-   * 
    * > If you do not specify this parameter, information about all database accounts is returned.
    * 
    * @example
@@ -28,21 +27,26 @@ export class DescribeAccountsRequest extends $dara.Model {
    * @remarks
    * The database engine. Valid values:
    * 
-   * - **AnalyticDB** (default): the AnalyticDB for MySQL engine
-   * 
-   * - **Clickhouse**: the LindormTable engine
+   * - **AnalyticDB** (default): the AnalyticDB for MySQL engine.
+   * - **Clickhouse**: the wide table engine.
    * 
    * @example
    * Clickhouse
    */
   engine?: string;
   ownerId?: string;
+  /**
+   * @remarks
+   * The name of the resource group.
+   */
+  resourceGroupName?: string;
   static names(): { [key: string]: string } {
     return {
       accountName: 'AccountName',
       DBClusterId: 'DBClusterId',
       engine: 'Engine',
       ownerId: 'OwnerId',
+      resourceGroupName: 'ResourceGroupName',
     };
   }
 
@@ -52,6 +56,7 @@ export class DescribeAccountsRequest extends $dara.Model {
       DBClusterId: 'string',
       engine: 'string',
       ownerId: 'string',
+      resourceGroupName: 'string',
     };
   }
 

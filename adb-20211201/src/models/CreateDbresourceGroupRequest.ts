@@ -13,7 +13,7 @@ export class CreateDBResourceGroupRequestAtmConfig extends $dara.Model {
   authNodeNum?: number;
   /**
    * @remarks
-   * The authentication node specifications ([0-9+]ACU).
+   * The authentication node specification ([0-9+]ACU).
    * 
    * @example
    * 8ACU
@@ -29,7 +29,7 @@ export class CreateDBResourceGroupRequestAtmConfig extends $dara.Model {
   insertNodeNum?: number;
   /**
    * @remarks
-   * The insert node specifications ([0-9+]ACU).
+   * The insert node specification ([0-9+]ACU).
    * 
    * @example
    * 8ACU
@@ -53,7 +53,7 @@ export class CreateDBResourceGroupRequestAtmConfig extends $dara.Model {
   selectNodeNum?: number;
   /**
    * @remarks
-   * The query node specifications ([0-9+]ACU).
+   * The query node specification ([0-9+]ACU).
    * 
    * @example
    * 8ACU
@@ -85,7 +85,7 @@ export class CreateDBResourceGroupRequestAtmConfig extends $dara.Model {
   storageNodeNum?: number;
   /**
    * @remarks
-   * The storage node specifications ([0-9+]ACU).
+   * The storage node specification ([0-9+]ACU).
    * 
    * @example
    * 8ACU
@@ -135,7 +135,7 @@ export class CreateDBResourceGroupRequestAtmConfig extends $dara.Model {
 export class CreateDBResourceGroupRequestGpuElasticPlanRules extends $dara.Model {
   /**
    * @remarks
-   * The end time, specified as a cron expression. The interval must be at least 1 hour.
+   * The end time as a cron expression. The interval must be at least 1 hour.
    * 
    * @example
    * 0 0 3 * * ?
@@ -143,7 +143,7 @@ export class CreateDBResourceGroupRequestGpuElasticPlanRules extends $dara.Model
   endCronExpression?: string;
   /**
    * @remarks
-   * The start time, specified as a cron expression. The interval must be at least 1 hour.
+   * The start time as a cron expression. The interval must be at least 1 hour.
    * 
    * @example
    * 0 0 2 * * ?
@@ -176,8 +176,8 @@ export class CreateDBResourceGroupRequestGpuElasticPlan extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to enable the elastic plan immediately after creation. Valid values:
-   * - true: enables the elastic plan immediately.
-   * - false: does not enable the elastic plan.
+   * - true: Enables the elastic plan immediately.
+   * - false: Does not enable the elastic plan.
    * 
    * @example
    * true
@@ -286,7 +286,7 @@ export class CreateDBResourceGroupRequestRayConfigWorkerGroups extends $dara.Mod
   workerDiskCapacity?: string;
   /**
    * @remarks
-   * The node specifications of the worker node.
+   * The specification of the worker node.
    * 
    * @example
    * xlarge
@@ -338,9 +338,9 @@ export class CreateDBResourceGroupRequestRayConfig extends $dara.Model {
    * @remarks
    * The Ray cluster type. Valid values:
    * 
-   * - BASIC: basic type, non-high-availability.
+   * - BASIC: the basic type, which is non-highly available.
    * 
-   * - HIGH_AVAILABILITY: high-availability type.
+   * - HIGH_AVAILABILITY: the highly available type.
    * 
    * @example
    * BASIC
@@ -348,7 +348,7 @@ export class CreateDBResourceGroupRequestRayConfig extends $dara.Model {
   category?: string;
   /**
    * @remarks
-   * Specifies whether to enable user ENI connectivity.
+   * Specifies whether to enable user Elastic Network Interface (ENI) connectivity.
    */
   enableUserEni?: boolean;
   /**
@@ -369,7 +369,7 @@ export class CreateDBResourceGroupRequestRayConfig extends $dara.Model {
   headDiskCapacity?: string;
   /**
    * @remarks
-   * The node specifications of the head node.
+   * The specification of the head node.
    * 
    * @example
    * xlarge
@@ -455,7 +455,7 @@ export class CreateDBResourceGroupRequestRules extends $dara.Model {
   queryTime?: string;
   /**
    * @remarks
-   * The name of the target resource group.
+   * The name of the destination resource group.
    * 
    * @example
    * job
@@ -494,7 +494,7 @@ export class CreateDBResourceGroupRequest extends $dara.Model {
   atmConfig?: CreateDBResourceGroupRequestAtmConfig;
   /**
    * @remarks
-   * The automatic stop interval, in minutes (m).
+   * The auto-stop interval, in minutes (m).
    * 
    * @example
    * 5m
@@ -541,8 +541,8 @@ export class CreateDBResourceGroupRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to enable the spot instance feature for the resource group. After the spot instance feature is enabled, the unit price of resources is reduced, but the resources may be released. Only Job resource groups support this feature. Valid values:
-   * - **True**: enables the spot instance feature.
-   * - **False**: disables the spot instance feature.
+   * - **True**: Enables the spot instance feature.
+   * - **False**: Disables the spot instance feature.
    * 
    * @example
    * True
@@ -569,7 +569,7 @@ export class CreateDBResourceGroupRequest extends $dara.Model {
   engineParams?: { [key: string]: any };
   /**
    * @remarks
-   * The GPU time-sharing elastic plan.
+   * The GPU time-based elastic plan.
    */
   gpuElasticPlan?: CreateDBResourceGroupRequestGpuElasticPlan;
   /**
@@ -590,7 +590,7 @@ export class CreateDBResourceGroupRequest extends $dara.Model {
    * The type of the resource group. Valid values:
    * - **Interactive**
    * - **Job**
-   * > For more information about resource groups of the Data Lakehouse Edition, see [Resource group overview (Data Lakehouse Edition)](https://help.aliyun.com/document_detail/428610.html).
+   * > For more information about Data Lakehouse Edition resource groups, see [Introduction to resource groups (Data Lakehouse Edition)](https://help.aliyun.com/document_detail/428610.html).
    * 
    * This parameter is required.
    * 
@@ -609,8 +609,8 @@ export class CreateDBResourceGroupRequest extends $dara.Model {
   /**
    * @remarks
    * The maximum reserved computing resources, in ACUs.
-   * - If the resource group type is Interactive, the maximum reserved computing resources is the current unallocated resources of the cluster, with a step size of 16 ACUs.
-   * - If the resource group type is Job, the maximum reserved computing resources is the current unallocated resources of the cluster, with a step size of 8 ACUs.
+   * - If the resource group type is Interactive, the maximum reserved computing resources are the unallocated resources of the cluster, in increments of 16 ACUs.
+   * - If the resource group type is Job, the maximum reserved computing resources are the unallocated resources of the cluster, in increments of 8 ACUs.
    * 
    * @example
    * 48ACU
@@ -635,8 +635,8 @@ export class CreateDBResourceGroupRequest extends $dara.Model {
   /**
    * @remarks
    * The minimum reserved computing resources, in ACUs.
-   * - If the resource group type is Interactive, the minimum reserved computing resources is 16 ACUs.
-   * - If the resource group type is Job, the minimum reserved computing resources is 0 ACUs.
+   * - If the resource group type is Interactive, the minimum reserved computing resources are 16 ACUs.
+   * - If the resource group type is Job, the minimum reserved computing resources are 0 ACUs.
    * 
    * @example
    * 0ACU
@@ -674,9 +674,9 @@ export class CreateDBResourceGroupRequest extends $dara.Model {
   /**
    * @remarks
    * The scaling policy of the resource group. Valid values:
-   * - AutoScaling: enables the AutoScaling automatic scaling policy.
-   * - Disable: disables automatic scaling.
-   * - MultiCluster: enables the MultiCluster automatic scaling policy.
+   * - AutoScaling: enables the AutoScaling auto-scaling policy.
+   * - Disable: disables auto-scaling.
+   * - MultiCluster: enables the MultiCluster auto-scaling policy.
    * 
    * @example
    * AutoScaling
@@ -692,7 +692,7 @@ export class CreateDBResourceGroupRequest extends $dara.Model {
   specName?: string;
   /**
    * @remarks
-   * The name of the target resource group.
+   * The name of the destination resource group.
    * 
    * @example
    * test
