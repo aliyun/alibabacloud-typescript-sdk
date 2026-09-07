@@ -4,38 +4,59 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetAgentTaskResultResponseBodyDataDialogues extends $dara.Model {
   /**
+   * @remarks
+   * The offset of the start time of this sentence relative to the overall start time of the dialogue, in milliseconds. For example, if the total recording duration is 2 minutes and 10 seconds, and a sentence spoken by the customer starts at 1 minute and 12 seconds and ends at 1 minute and 20 seconds, the value of begin is 72000 and the value of end is 80000.
+   * 
    * @example
    * 980
    */
   begin?: number;
   /**
+   * @remarks
+   * The emotion energy value, calculated as the volume in decibels divided by 10. Valid values: 1 to 10. A higher value indicates a stronger emotion.
+   * 
    * @example
    * 7
    */
   emotionValue?: number;
   /**
+   * @remarks
+   * The offset of the start time of this sentence relative to the overall start time of the dialogue, in milliseconds. For example, if the total recording duration is 2 minutes and 10 seconds, and a sentence spoken by the customer starts at 1 minute and 12 seconds and ends at 1 minute and 20 seconds, the value of begin is 72000 and the value of end is 80000.
+   * 
    * @example
    * 80000
    */
   end?: number;
   /**
+   * @remarks
+   * The start time of this sentence in hours, minutes, and seconds format: hh:mm:ss.
+   * 
    * @example
    * 00:08
    */
   hourMinSec?: string;
   /**
+   * @remarks
+   * The role of the speaker for this sentence. Valid values: agent and customer.
+   * 
    * @example
-   * 客服
+   * agent
    */
   role?: string;
   /**
+   * @remarks
+   * The average speech rate of this sentence. Unit: words per minute.
+   * 
    * @example
    * 200
    */
   speechRate?: number;
   /**
+   * @remarks
+   * The dialogue content.
+   * 
    * @example
-   * 你好有什么可以帮您
+   * Hello, how can I help you
    */
   words?: string;
   static names(): { [key: string]: string } {
@@ -77,7 +98,7 @@ export class GetAgentTaskResultResponseBodyDataResponseCustomerPromptResponse ex
    * The result returned by the large language model.
    * 
    * @example
-   * 175/XL the fabric feels very comfortable, looks slim when worn, great clothes super good-looking, quality and feel are top-notch, very satisfied with this purchase
+   * 175/xl the fabric feels very comfortable, looks slim when worn, great clothes super good looking, quality and feel are top-notch, very satisfied with this purchase
    */
   text?: string;
   static names(): { [key: string]: string } {
@@ -120,7 +141,7 @@ export class GetAgentTaskResultResponseBodyDataResponseFieldResponseFieldVoList 
    * The reasoning for the judgment.
    * 
    * @example
-   * Determined based on the first sentence of the agent
+   * Determined from the first sentence of the customer service representative
    */
   remarks?: string;
   /**
@@ -192,7 +213,15 @@ export class GetAgentTaskResultResponseBodyDataResponseFieldResponse extends $da
 }
 
 export class GetAgentTaskResultResponseBodyDataResponseMultiLevelTagResponseTagListChildrenChildrenChildrenChildren extends $dara.Model {
+  /**
+   * @remarks
+   * The tag analysis description.
+   */
   remarks?: string;
+  /**
+   * @remarks
+   * The tag name.
+   */
   tagName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -218,8 +247,20 @@ export class GetAgentTaskResultResponseBodyDataResponseMultiLevelTagResponseTagL
 }
 
 export class GetAgentTaskResultResponseBodyDataResponseMultiLevelTagResponseTagListChildrenChildrenChildren extends $dara.Model {
+  /**
+   * @remarks
+   * The list of child nodes.
+   */
   children?: GetAgentTaskResultResponseBodyDataResponseMultiLevelTagResponseTagListChildrenChildrenChildrenChildren[];
+  /**
+   * @remarks
+   * The tag analysis description.
+   */
   remarks?: string;
+  /**
+   * @remarks
+   * The tag name.
+   */
   tagName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -250,8 +291,20 @@ export class GetAgentTaskResultResponseBodyDataResponseMultiLevelTagResponseTagL
 }
 
 export class GetAgentTaskResultResponseBodyDataResponseMultiLevelTagResponseTagListChildrenChildren extends $dara.Model {
+  /**
+   * @remarks
+   * The tag name.
+   */
   children?: GetAgentTaskResultResponseBodyDataResponseMultiLevelTagResponseTagListChildrenChildrenChildren[];
+  /**
+   * @remarks
+   * The tag analysis description.
+   */
   remarks?: string;
+  /**
+   * @remarks
+   * The tag name.
+   */
   tagName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -282,8 +335,20 @@ export class GetAgentTaskResultResponseBodyDataResponseMultiLevelTagResponseTagL
 }
 
 export class GetAgentTaskResultResponseBodyDataResponseMultiLevelTagResponseTagListChildren extends $dara.Model {
+  /**
+   * @remarks
+   * The tag analysis description.
+   */
   children?: GetAgentTaskResultResponseBodyDataResponseMultiLevelTagResponseTagListChildrenChildren[];
+  /**
+   * @remarks
+   * The tag analysis description.
+   */
   remarks?: string;
+  /**
+   * @remarks
+   * The tag name.
+   */
   tagName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -314,8 +379,20 @@ export class GetAgentTaskResultResponseBodyDataResponseMultiLevelTagResponseTagL
 }
 
 export class GetAgentTaskResultResponseBodyDataResponseMultiLevelTagResponseTagList extends $dara.Model {
+  /**
+   * @remarks
+   * The list of child nodes.
+   */
   children?: GetAgentTaskResultResponseBodyDataResponseMultiLevelTagResponseTagListChildren[];
+  /**
+   * @remarks
+   * The tag analysis description.
+   */
   remarks?: string;
+  /**
+   * @remarks
+   * The tag name.
+   */
   tagName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -346,6 +423,10 @@ export class GetAgentTaskResultResponseBodyDataResponseMultiLevelTagResponseTagL
 }
 
 export class GetAgentTaskResultResponseBodyDataResponseMultiLevelTagResponse extends $dara.Model {
+  /**
+   * @remarks
+   * The list of child nodes.
+   */
   tagList?: GetAgentTaskResultResponseBodyDataResponseMultiLevelTagResponseTagList[];
   static names(): { [key: string]: string } {
     return {
@@ -398,7 +479,7 @@ export class GetAgentTaskResultResponseBodyDataResponseServiceInspectionResponse
    * The reasoning for the judgment.
    * 
    * @example
-   * Determined based on the first sentence of the agent
+   * Determined from the first sentence of the customer service representative
    */
   remarks?: string;
   static names(): { [key: string]: string } {
@@ -488,7 +569,7 @@ export class GetAgentTaskResultResponseBodyDataResponseTagCategoryResponseTagCat
    * The reasoning for the judgment.
    * 
    * @example
-   * Determined based on the first sentence of the agent
+   * Determined from the first sentence of the customer service representative
    */
   remarks?: string;
   /**
@@ -563,51 +644,91 @@ export class GetAgentTaskResultResponseBodyDataResponseTagCategoryResponse exten
 
 export class GetAgentTaskResultResponseBodyDataResponseVoiceprintResponseDialogueAdditions extends $dara.Model {
   /**
+   * @remarks
+   * The age.
+   * 
    * @example
    * 38
    */
   age?: string;
   /**
+   * @remarks
+   * The age group (child, middle-aged, or elderly).
+   * 
    * @example
-   * 中年
+   * Middle-aged
    */
   ageGroup?: string;
   /**
+   * @remarks
+   * The age group confidence score.
+   * 
    * @example
    * 0.9
    */
   ageScore?: number;
   /**
+   * @remarks
+   * The highest voiceprint score.
+   * 
    * @example
    * 0.6
    */
   bestVoiceprintScore?: number;
   /**
+   * @remarks
+   * The emotion type. Valid values:
+   * 
+   * - angry
+   * - disgusted
+   * - fearful
+   * - happy
+   * - neutral
+   * - other
+   * - sad
+   * - surprised
+   * - unknown
+   * 
    * @example
-   * 中立/neutral
+   * neutral
    */
   emotion?: string;
   /**
+   * @remarks
+   * The emotion confidence score.
+   * 
    * @example
    * 0.9
    */
   emotionScore?: number;
   /**
+   * @remarks
+   * The gender.
+   * 
    * @example
-   * 女
+   * Female
    */
   gender?: string;
   /**
+   * @remarks
+   * The gender confidence score.
+   * 
    * @example
    * 0.8
    */
   genderScore?: number;
   /**
+   * @remarks
+   * Indicates whether the speaker is the voiceprint owner.
+   * 
    * @example
    * true
    */
   isKnownVoiceprint?: boolean;
   /**
+   * @remarks
+   * The speaker.
+   * 
    * @example
    * 12
    */
@@ -654,18 +775,27 @@ export class GetAgentTaskResultResponseBodyDataResponseVoiceprintResponseDialogu
 export class GetAgentTaskResultResponseBodyDataResponseVoiceprintResponseDialogue extends $dara.Model {
   additions?: GetAgentTaskResultResponseBodyDataResponseVoiceprintResponseDialogueAdditions;
   /**
+   * @remarks
+   * The start time of this sentence, which is the offset from the starting point in milliseconds.
+   * 
    * @example
    * 443
    */
   begin?: number;
   /**
+   * @remarks
+   * The end time of this sentence, which is the offset from the starting point in milliseconds.
+   * 
    * @example
    * 1767492840000
    */
   end?: number;
   /**
+   * @remarks
+   * The dialogue content.
+   * 
    * @example
-   * 不清楚
+   * Unclear
    */
   words?: string;
   static names(): { [key: string]: string } {
@@ -700,11 +830,17 @@ export class GetAgentTaskResultResponseBodyDataResponseVoiceprintResponseDialogu
 
 export class GetAgentTaskResultResponseBodyDataResponseVoiceprintResponseErrors extends $dara.Model {
   /**
+   * @remarks
+   * The result code. A value of **200** indicates success. Any other value indicates failure. You can use this field to determine the cause of failure.
+   * 
    * @example
    * 200
    */
   code?: string;
   /**
+   * @remarks
+   * The error details when an error occurs, or **successful** when the operation succeeds.
+   * 
    * @example
    * successful
    */
@@ -733,7 +869,15 @@ export class GetAgentTaskResultResponseBodyDataResponseVoiceprintResponseErrors 
 }
 
 export class GetAgentTaskResultResponseBodyDataResponseVoiceprintResponse extends $dara.Model {
+  /**
+   * @remarks
+   * The dialogue corpus.
+   */
   dialogue?: GetAgentTaskResultResponseBodyDataResponseVoiceprintResponseDialogue[];
+  /**
+   * @remarks
+   * The error information of each sub-publishing module. The key is the sub-publishing module and the value is the error message.
+   */
   errors?: GetAgentTaskResultResponseBodyDataResponseVoiceprintResponseErrors[];
   static names(): { [key: string]: string } {
     return {
@@ -837,9 +981,20 @@ export class GetAgentTaskResultResponseBodyDataResponse extends $dara.Model {
 }
 
 export class GetAgentTaskResultResponseBodyDataUsage extends $dara.Model {
+  /**
+   * @remarks
+   * The number of input tokens consumed by the LLM.
+   */
   inputTokens?: string;
+  /**
+   * @remarks
+   * The number of output tokens generated by the LLM.
+   */
   outputTokens?: string;
   /**
+   * @remarks
+   * The total number of tokens consumed by this task.
+   * 
    * @example
    * 0
    */
@@ -876,8 +1031,15 @@ export class GetAgentTaskResultResponseBodyDataUsage extends $dara.Model {
 }
 
 export class GetAgentTaskResultResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The dialogue data.
+   */
   dialogues?: GetAgentTaskResultResponseBodyDataDialogues[];
   /**
+   * @remarks
+   * The error details when the status is not 0 or 1.
+   * 
    * @example
    * xxxx
    */
@@ -899,10 +1061,10 @@ export class GetAgentTaskResultResponseBodyData extends $dara.Model {
    * @remarks
    * The task status. Valid values:
    * 
-   * - 1: pending.
-   * - 2: running.
-   * - 3: succeeded.
-   * - 4: failed.
+   * - 1: pending
+   * - 2: running
+   * - 3: succeeded
+   * - 4: failed
    * 
    * @example
    * 1
@@ -916,6 +1078,10 @@ export class GetAgentTaskResultResponseBodyData extends $dara.Model {
    * A6BEC8D-9A5B-4BE5-8432-4F635E***
    */
   taskId?: string;
+  /**
+   * @remarks
+   * The token usage information.
+   */
   usage?: GetAgentTaskResultResponseBodyDataUsage;
   /**
    * @remarks
@@ -1001,10 +1167,10 @@ export class GetAgentTaskResultResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. You can use this field to determine whether the request was successful:
+   * Indicates whether the request is successful. You can use this field to determine whether the request is successful:
    * 
-   * - **true**: successful.
-   * - **false/null**: failed.
+   * - **true**: The request is successful.
+   * - **false/null**: The request failed.
    * 
    * @example
    * true

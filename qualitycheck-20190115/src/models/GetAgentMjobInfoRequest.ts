@@ -2,21 +2,21 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CreateAgentTaskRequest extends $dara.Model {
+export class GetAgentMJobInfoRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the business workspace.
    * 
    * @example
-   * 12345
+   * 123456
    */
   baseMeAgentId?: number;
   /**
    * @remarks
-   * The complete **JSON string** information. For details, see the following sections.
+   * The complete JSON string. For more information, see the following detailed description.
    * 
    * @example
-   * {\\"\\":\\"\\"}
+   * {}
    */
   jsonStr?: string;
   static names(): { [key: string]: string } {

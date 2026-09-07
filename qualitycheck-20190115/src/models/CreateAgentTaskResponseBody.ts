@@ -45,7 +45,7 @@ export class CreateAgentTaskResponseBodyData extends $dara.Model {
 export class CreateAgentTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The result code. A value of **200** indicates success. Any other value indicates failure. You can use this field to determine the cause of the failure.
+   * The result code. A value of **200** indicates success. Any other value indicates failure. You can use this field to determine the cause of failure.
    * 
    * @example
    * 200

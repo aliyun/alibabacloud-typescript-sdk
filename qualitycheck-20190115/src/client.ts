@@ -12,9 +12,6 @@ export default class Client extends OpenApi {
   constructor(config: $OpenApiUtil.Config) {
     super(config);
     this._endpointRule = "regional";
-    this._endpointMap = {
-      'cn-hangzhou': "qualitycheck.cn-hangzhou.aliyuncs.com",
-    };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("qualitycheck", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
@@ -474,7 +471,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an Agent batch task for conversation analysis. The application call supports HTTP calls to complete the customer response.
+   * Creates an Agent batch task for conversation analysis. Application calls support HTTP invocations to complete customer responses.
    * 
    * @param request - CreateAgentTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -509,7 +506,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an Agent batch task for conversation analysis. The application call supports HTTP calls to complete the customer response.
+   * Creates an Agent batch task for conversation analysis. Application calls support HTTP invocations to complete customer responses.
    * 
    * @param request - CreateAgentTaskRequest
    * @returns CreateAgentTaskResponse
@@ -2019,11 +2016,57 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the details of a single AgentM task.
+   * 
+   * @param request - GetAgentMJobInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAgentMJobInfoResponse
+   */
+  async getAgentMJobInfoWithOptions(request: $_model.GetAgentMJobInfoRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetAgentMJobInfoResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.baseMeAgentId)) {
+      body["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
+    if (!$dara.isNull(request.jsonStr)) {
+      body["JsonStr"] = request.jsonStr;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetAgentMJobInfo",
+      version: "2019-01-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetAgentMJobInfoResponse>(await this.callApi(params, req, runtime), new $_model.GetAgentMJobInfoResponse({}));
+  }
+
+  /**
+   * Queries the details of a single AgentM task.
+   * 
+   * @param request - GetAgentMJobInfoRequest
+   * @returns GetAgentMJobInfoResponse
+   */
+  async getAgentMJobInfo(request: $_model.GetAgentMJobInfoRequest): Promise<$_model.GetAgentMJobInfoResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getAgentMJobInfoWithOptions(request, runtime);
+  }
+
+  /**
    * Retrieves the task result of an agent node.
    * 
    * @remarks
-   * 可以查询通过[UploadAudioData](https://help.aliyun.com/document_detail/139399.html)、[UploadData](https://help.aliyun.com/document_detail/111394.html)上传的数据，也可以查询数据集质检任务[SubmitQualityCheckTask](https://help.aliyun.com/document_detail/158890.html)的数据。可以根据任务ID（taskId）查询，也可以根据时间范围查询。
-   * 此接⼝返回结果中默认只返回部分参数，可通过请求参数中的requiredFields来⾃定义设置返回参数中需要返回哪些字段。
+   * Queries data uploaded through [UploadAudioData](https://help.aliyun.com/document_detail/139399.html) or [UploadData](https://help.aliyun.com/document_detail/111394.html), or queries data from a dataset quality check task [SubmitQualityCheckTask](https://help.aliyun.com/document_detail/158890.html). You can query by task ID (taskId) or by time range.
+   * By default, only partial parameters are returned in the response. Use the requiredFields request parameter to specify which fields to include in the response.
    * 
    * @param request - GetAgentTaskResultRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2061,8 +2104,8 @@ export default class Client extends OpenApi {
    * Retrieves the task result of an agent node.
    * 
    * @remarks
-   * 可以查询通过[UploadAudioData](https://help.aliyun.com/document_detail/139399.html)、[UploadData](https://help.aliyun.com/document_detail/111394.html)上传的数据，也可以查询数据集质检任务[SubmitQualityCheckTask](https://help.aliyun.com/document_detail/158890.html)的数据。可以根据任务ID（taskId）查询，也可以根据时间范围查询。
-   * 此接⼝返回结果中默认只返回部分参数，可通过请求参数中的requiredFields来⾃定义设置返回参数中需要返回哪些字段。
+   * Queries data uploaded through [UploadAudioData](https://help.aliyun.com/document_detail/139399.html) or [UploadData](https://help.aliyun.com/document_detail/111394.html), or queries data from a dataset quality check task [SubmitQualityCheckTask](https://help.aliyun.com/document_detail/158890.html). You can query by task ID (taskId) or by time range.
+   * By default, only partial parameters are returned in the response. Use the requiredFields request parameter to specify which fields to include in the response.
    * 
    * @param request - GetAgentTaskResultRequest
    * @returns GetAgentTaskResultResponse
@@ -3278,6 +3321,52 @@ export default class Client extends OpenApi {
   async invalidRule(request: $_model.InvalidRuleRequest): Promise<$_model.InvalidRuleResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.invalidRuleWithOptions(request, runtime);
+  }
+
+  /**
+   * Lists AI analysis assistant tasks.
+   * 
+   * @param request - ListAgentMJobInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAgentMJobInfoResponse
+   */
+  async listAgentMJobInfoWithOptions(request: $_model.ListAgentMJobInfoRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListAgentMJobInfoResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.baseMeAgentId)) {
+      body["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
+    if (!$dara.isNull(request.jsonStr)) {
+      body["JsonStr"] = request.jsonStr;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListAgentMJobInfo",
+      version: "2019-01-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListAgentMJobInfoResponse>(await this.callApi(params, req, runtime), new $_model.ListAgentMJobInfoResponse({}));
+  }
+
+  /**
+   * Lists AI analysis assistant tasks.
+   * 
+   * @param request - ListAgentMJobInfoRequest
+   * @returns ListAgentMJobInfoResponse
+   */
+  async listAgentMJobInfo(request: $_model.ListAgentMJobInfoRequest): Promise<$_model.ListAgentMJobInfoResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listAgentMJobInfoWithOptions(request, runtime);
   }
 
   /**
