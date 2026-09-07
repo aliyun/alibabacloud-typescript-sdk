@@ -11,6 +11,7 @@ export class GetMediaRequest extends $dara.Model {
    * 3600
    */
   authTimeout?: number;
+  bizConfig?: string;
   /**
    * @remarks
    * Currently unavailable.
@@ -21,7 +22,7 @@ export class GetMediaRequest extends $dara.Model {
   inputURL?: string;
   /**
    * @remarks
-   * The media asset ID. If this parameter is not empty, the system queries the media asset by this ID and validates whether the value is a valid MediaId.
+   * The media asset ID. If this parameter is not empty, the query is performed based on this parameter, and the system verifies whether the value is a valid MediaId.
    * 
    * @example
    * ****20b48fb04483915d4f2cd8ac****
@@ -30,6 +31,7 @@ export class GetMediaRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       authTimeout: 'AuthTimeout',
+      bizConfig: 'BizConfig',
       inputURL: 'InputURL',
       mediaId: 'MediaId',
     };
@@ -38,6 +40,7 @@ export class GetMediaRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       authTimeout: 'number',
+      bizConfig: 'string',
       inputURL: 'string',
       mediaId: 'string',
     };

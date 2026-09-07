@@ -5,18 +5,18 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitVideoTranslationJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * `data.JobId`
+   * The video translation job ID, used to call GetVideoTranslationJob to query the job.
    * 
    * @example
-   * vtj_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+   * vtj_0123456789abcdef0123456789abcdef
    */
   jobId?: string;
   /**
    * @remarks
-   * `requestId`
+   * The request ID, used for Tracing Analysis and troubleshooting.
    * 
    * @example
-   * request-id
+   * req-vt-20260820-001
    */
   requestId?: string;
   static names(): { [key: string]: string } {

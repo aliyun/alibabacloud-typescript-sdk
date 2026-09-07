@@ -5,38 +5,33 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitVideoTranslationJobRequest extends $dara.Model {
   /**
    * @remarks
-   * The user-level idempotency key.
+   * The user-level idempotency token, up to 40 characters. If the same user submits a request with the same token, the original job is returned.
    * 
    * @example
-   * ****3e761e9d11edba640c42a1b7****
+   * vt-client-20260820-001
    */
   clientToken?: string;
   /**
    * @remarks
-   * The job description.
+   * The job description, used to record business purposes or processing requirements.
    * 
    * @example
-   * description
+   * Translate a Chinese product introduction video into English
    */
   description?: string;
   /**
    * @remarks
-   * The input configuration JSON string:
-   * - Video
-   * - Audio
-   * - Subtitle
-   * 
-   * <notice>Currently, only OSS addresses under the calling account are supported as input.</notice>
+   * The input configuration JSON string. You must specify either Video or VideoMediaId, but not both. You can specify at most one of Audio or AudioMediaId. Subtitle is optional.
    * 
    * This parameter is required.
    * 
    * @example
-   * {"Video":"oss://bucket/path/input.mp4"}
+   * {"VideoMediaId":"media-video-001"}
    */
   input?: string;
   /**
    * @remarks
-   * The job parameters JSON string.
+   * The job parameters JSON string. It must contain at least SourceLanguage and TargetLanguage. You can also configure main subtitle erasure, voice translation, on-screen text translation, and final editing.
    * 
    * This parameter is required.
    * 
@@ -46,9 +41,7 @@ export class SubmitVideoTranslationJobRequest extends $dara.Model {
   jobParameters?: string;
   /**
    * @remarks
-   * The job type. Valid values:
-   * - SubtitleTranslate
-   * - VoiceTranslate
+   * The job type. SubtitleTranslate indicates subtitle translation. VoiceTranslate indicates voice translation.
    * 
    * This parameter is required.
    * 
@@ -58,26 +51,26 @@ export class SubmitVideoTranslationJobRequest extends $dara.Model {
   jobType?: string;
   /**
    * @remarks
-   * The output configuration JSON string. The OssUri value must be a folder.
+   * The output configuration JSON string. OssUri is an optional customer OSS output directory. If not specified, a signed URL of the service-owned artifact is returned.
    * 
    * @example
-   * {"OssUri":"oss://bucket/output/"}
+   * {"OssUri":"oss://example-bucket/video-translation/output/"}
    */
   output?: string;
   /**
    * @remarks
-   * If not specified, the service generates a default title.
+   * The job title. If not specified, the service generates a default title.
    * 
    * @example
-   * title
+   * Product introduction video English translation
    */
   title?: string;
   /**
    * @remarks
-   * The custom user data JSON string.
+   * The custom user data JSON string. It can contain the asynchronous notification address NotifyAddress.
    * 
    * @example
-   * {}
+   * {"NotifyAddress":"mns://account.mns.cn-shanghai.aliyuncs.com/queues/video-translation-result"}
    */
   userData?: string;
   static names(): { [key: string]: string } {

@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ImportMediaRequest extends $dara.Model {
+  bizConfig?: string;
   categoryId?: number;
   /**
    * @remarks
@@ -54,10 +55,10 @@ export class ImportMediaRequest extends $dara.Model {
   inputURL?: string;
   /**
    * @remarks
-   * The tags of the media asset. Separate multiple tags with commas.
+   * The tags of the media asset. Separate multiple tags with commas (,).
    * 
    * @example
-   * AdvancedImageToVideo,AIGenerated.
+   * AdvancedImageToVideo,AIGenerated
    */
   mediaTags?: string;
   /**
@@ -94,14 +95,16 @@ export class ImportMediaRequest extends $dara.Model {
   title?: string;
   /**
    * @remarks
-   * The user data. The maximum size is 1024 bytes.
+   * The user data. Maximum length: 1024 bytes.
    * 
    * @example
    * {}
    */
   userData?: string;
+  yikeAssetConfig?: string;
   static names(): { [key: string]: string } {
     return {
+      bizConfig: 'BizConfig',
       categoryId: 'CategoryId',
       coverURL: 'CoverURL',
       description: 'Description',
@@ -115,11 +118,13 @@ export class ImportMediaRequest extends $dara.Model {
       registerConfig: 'RegisterConfig',
       title: 'Title',
       userData: 'UserData',
+      yikeAssetConfig: 'YikeAssetConfig',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      bizConfig: 'string',
       categoryId: 'number',
       coverURL: 'string',
       description: 'string',
@@ -133,6 +138,7 @@ export class ImportMediaRequest extends $dara.Model {
       registerConfig: 'string',
       title: 'string',
       userData: 'string',
+      yikeAssetConfig: 'string',
     };
   }
 

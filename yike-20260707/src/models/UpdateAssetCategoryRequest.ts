@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateAssetCategoryRequest extends $dara.Model {
   /**
    * @remarks
-   * The category ID. You can obtain the category ID by using one of the following methods:
+   * The category ID. You can obtain the ID by using one of the following methods:
    * 
    * - When you create a category by calling the CreateAssetCategory operation, the category ID is the value of CategoryId in the response.
    * - When you query categories by calling the ListAssetCategories operation, the category ID is the value of CategoryId in the corresponding entry in the response.

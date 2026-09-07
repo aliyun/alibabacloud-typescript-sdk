@@ -11,6 +11,7 @@ export class BatchGetMediasRequest extends $dara.Model {
    * 3600
    */
   authTimeout?: number;
+  bizConfig?: string;
   /**
    * @remarks
    * The IDs of the media assets to query, separated by commas.
@@ -19,17 +20,22 @@ export class BatchGetMediasRequest extends $dara.Model {
    * ******b48fb04483915d4f2cd8******,******c48fb37407365d4f2cd8******
    */
   mediaIds?: string;
+  returnDynamicMeta?: boolean;
   static names(): { [key: string]: string } {
     return {
       authTimeout: 'AuthTimeout',
+      bizConfig: 'BizConfig',
       mediaIds: 'MediaIds',
+      returnDynamicMeta: 'ReturnDynamicMeta',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       authTimeout: 'number',
+      bizConfig: 'string',
       mediaIds: 'string',
+      returnDynamicMeta: 'boolean',
     };
   }
 

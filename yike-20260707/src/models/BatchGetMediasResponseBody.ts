@@ -31,7 +31,7 @@ export class BatchGetMediasResponseBodyMediaInfosFileInfoListAudioStreamInfoList
   channels?: string;
   /**
    * @remarks
-   * The long name of the codec.
+   * The long name of the codec format.
    * 
    * @example
    * xx
@@ -39,7 +39,7 @@ export class BatchGetMediasResponseBodyMediaInfosFileInfoListAudioStreamInfoList
   codecLongName?: string;
   /**
    * @remarks
-   * The short name of the codec.
+   * The short name of the codec format.
    * 
    * @example
    * H264
@@ -337,7 +337,7 @@ export class BatchGetMediasResponseBodyMediaInfosFileInfoListFileBasicInfo exten
 export class BatchGetMediasResponseBodyMediaInfosFileInfoListSubtitleStreamInfoList extends $dara.Model {
   /**
    * @remarks
-   * The long name of the codec.
+   * The long name of the codec format.
    * 
    * @example
    * xx
@@ -345,7 +345,7 @@ export class BatchGetMediasResponseBodyMediaInfosFileInfoListSubtitleStreamInfoL
   codecLongName?: string;
   /**
    * @remarks
-   * The short name of the codec.
+   * The short name of the codec format.
    * 
    * @example
    * H264
@@ -473,7 +473,7 @@ export class BatchGetMediasResponseBodyMediaInfosFileInfoListVideoStreamInfoList
   bitrate?: string;
   /**
    * @remarks
-   * The long name of the codec.
+   * The long name of the codec format.
    * 
    * @example
    * xx
@@ -481,7 +481,7 @@ export class BatchGetMediasResponseBodyMediaInfosFileInfoListVideoStreamInfoList
   codecLongName?: string;
   /**
    * @remarks
-   * The short name of the codec.
+   * The short name of the codec format.
    * 
    * @example
    * H264

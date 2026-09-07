@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DeleteMediasRequest extends $dara.Model {
+  bizConfig?: string;
   /**
    * @remarks
    * Specifies whether to delete the physical files at the same time.
@@ -18,7 +19,7 @@ export class DeleteMediasRequest extends $dara.Model {
   inputURLs?: string;
   /**
    * @remarks
-   * The media asset IDs, separated by commas. Invalid IDs are added to the IgnoredList.
+   * The media asset IDs, separated by commas. Invalid IDs are added to IgnoredList.
    * 
    * @example
    * ******b48fb04483915d4f2cd8******,******c48fb37407365d4f2cd8******
@@ -26,6 +27,7 @@ export class DeleteMediasRequest extends $dara.Model {
   mediaIds?: string;
   static names(): { [key: string]: string } {
     return {
+      bizConfig: 'BizConfig',
       deletePhysicalFiles: 'DeletePhysicalFiles',
       inputURLs: 'InputURLs',
       mediaIds: 'MediaIds',
@@ -34,6 +36,7 @@ export class DeleteMediasRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      bizConfig: 'string',
       deletePhysicalFiles: 'boolean',
       inputURLs: 'string',
       mediaIds: 'string',

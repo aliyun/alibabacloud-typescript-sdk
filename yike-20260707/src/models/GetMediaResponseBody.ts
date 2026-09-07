@@ -21,7 +21,7 @@ export class GetMediaResponseBodyMediaInfoFileInfoListAudioStreamInfoList extend
   channelLayout?: string;
   /**
    * @remarks
-   * The number of audio channels.
+   * The number of channels.
    * 
    * @example
    * 2
@@ -109,7 +109,7 @@ export class GetMediaResponseBodyMediaInfoFileInfoListAudioStreamInfoList extend
   numFrames?: string;
   /**
    * @remarks
-   * The encoding profile.
+   * The codec profile.
    * 
    * @example
    * High
@@ -237,7 +237,7 @@ export class GetMediaResponseBodyMediaInfoFileInfoListFileBasicInfo extends $dar
   fileName?: string;
   /**
    * @remarks
-   * The file size in bytes.
+   * The file size, in bytes.
    * 
    * @example
    * 27007
@@ -293,7 +293,7 @@ export class GetMediaResponseBodyMediaInfoFileInfoListFileBasicInfo extends $dar
   modifiedTime?: string;
   /**
    * @remarks
-   * The storage region of the file.
+   * The region where the file is stored.
    * 
    * @example
    * cn-shanghai
@@ -555,7 +555,7 @@ export class GetMediaResponseBodyMediaInfoFileInfoListVideoStreamInfoList extend
   fps?: string;
   /**
    * @remarks
-   * Indicates whether the video stream contains B-frames.
+   * Indicates whether B-frames exist.
    * 
    * @example
    * 2
@@ -619,7 +619,7 @@ export class GetMediaResponseBodyMediaInfoFileInfoListVideoStreamInfoList extend
   pixFmt?: string;
   /**
    * @remarks
-   * The encoding profile.
+   * The codec profile.
    * 
    * @example
    * High
@@ -750,7 +750,7 @@ export class GetMediaResponseBodyMediaInfoFileInfoList extends $dara.Model {
   subtitleStreamInfoList?: GetMediaResponseBodyMediaInfoFileInfoListSubtitleStreamInfoList[];
   /**
    * @remarks
-   * The video stream information. A media asset may contain multiple video streams.
+   * The video stream information. A media asset may have multiple video streams.
    */
   videoStreamInfoList?: GetMediaResponseBodyMediaInfoFileInfoListVideoStreamInfoList[];
   static names(): { [key: string]: string } {
@@ -795,7 +795,7 @@ export class GetMediaResponseBodyMediaInfoFileInfoList extends $dara.Model {
 export class GetMediaResponseBodyMediaInfoMediaBasicInfo extends $dara.Model {
   /**
    * @remarks
-   * The business type of the media asset (currently unavailable).
+   * The business type of the media asset. This parameter is currently unavailable.
    * 
    * @example
    * general
@@ -813,7 +813,7 @@ export class GetMediaResponseBodyMediaInfoMediaBasicInfo extends $dara.Model {
   coverURL?: string;
   /**
    * @remarks
-   * The time when the media asset was created.
+   * The creation time of the media asset.
    * 
    * @example
    * 2020-12-26T04:11:08Z
@@ -821,7 +821,7 @@ export class GetMediaResponseBodyMediaInfoMediaBasicInfo extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The content description (the request parameter value of the register media asset API).
+   * The content description. This is the request parameter value of the RegisterMediaInfo API operation.
    * 
    * @example
    * description
@@ -837,7 +837,7 @@ export class GetMediaResponseBodyMediaInfoMediaBasicInfo extends $dara.Model {
   entityId?: string;
   /**
    * @remarks
-   * The publicly accessible HTTP URL (the request parameter value of the register media asset API).
+   * The publicly accessible HTTP URL. This is the request parameter value of the RegisterMediaInfo API operation.
    * 
    * @example
    * https://example-bucket.oss-cn-shanghai.aliyuncs.com/example.mp4
@@ -853,7 +853,7 @@ export class GetMediaResponseBodyMediaInfoMediaBasicInfo extends $dara.Model {
   mediaId?: string;
   /**
    * @remarks
-   * The tags, separated by commas (the request parameter value of the register media asset API).
+   * The tags, separated by commas. This is the request parameter value of the RegisterMediaInfo API operation.
    * 
    * @example
    * pitaya,prd-wuxi,248
@@ -861,7 +861,7 @@ export class GetMediaResponseBodyMediaInfoMediaBasicInfo extends $dara.Model {
   mediaTags?: string;
   /**
    * @remarks
-   * The media type of the media asset: image/audio/video.
+   * The media type of the media asset. Valid values: image, audio, and video.
    * 
    * @example
    * image
@@ -991,7 +991,7 @@ export class GetMediaResponseBodyMediaInfoMediaBasicInfo extends $dara.Model {
 export class GetMediaResponseBodyMediaInfoMediaDynamicInfoDynamicMetaData extends $dara.Model {
   /**
    * @remarks
-   * The dynamic metadata content.
+   * The content of the dynamic metadata.
    * 
    * @example
    * {}

@@ -101,7 +101,7 @@ export class SearchMediaResponseBodyMediaInfoListFileInfoListFileBasicInfo exten
   modifiedTime?: string;
   /**
    * @remarks
-   * The storage region of the file.
+   * The file storage region.
    * 
    * @example
    * cn-shanghai
@@ -227,7 +227,7 @@ export class SearchMediaResponseBodyMediaInfoListMediaBasicInfo extends $dara.Mo
   coverURL?: string;
   /**
    * @remarks
-   * The time when the media asset was created.
+   * The creation time of the media asset.
    * 
    * @example
    * 2026-05-01T19:48Z
@@ -283,7 +283,7 @@ export class SearchMediaResponseBodyMediaInfoListMediaBasicInfo extends $dara.Mo
   mediaType?: string;
   /**
    * @remarks
-   * The time when the media asset was last modified.
+   * The modification time of the media asset.
    * 
    * @example
    * 2026-05-01T20:48Z
@@ -545,7 +545,7 @@ export class SearchMediaResponseBodyMediaInfoList extends $dara.Model {
 export class SearchMediaResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The return code.
+   * The response code.
    * 
    * @example
    * 200

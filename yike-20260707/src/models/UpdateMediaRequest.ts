@@ -8,6 +8,7 @@ export class UpdateMediaRequest extends $dara.Model {
    * Specifies whether to update the Tags field in append mode.
    */
   appendTags?: boolean;
+  bizConfig?: string;
   categoryId?: number;
   /**
    * @remarks
@@ -51,10 +52,10 @@ export class UpdateMediaRequest extends $dara.Model {
   mediaId?: string;
   /**
    * @remarks
-   * The tags. Separate multiple tags with commas.
+   * The tags. Separate multiple tags with commas (,).
    * 
    * @example
-   * CapCut animation.
+   * 剪映动画
    */
   mediaTags?: string;
   /**
@@ -67,7 +68,7 @@ export class UpdateMediaRequest extends $dara.Model {
   title?: string;
   /**
    * @remarks
-   * The user data. The maximum length is 1024 bytes.
+   * The user data. Maximum length: 1024 bytes.
    * 
    * @example
    * {}
@@ -76,6 +77,7 @@ export class UpdateMediaRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       appendTags: 'AppendTags',
+      bizConfig: 'BizConfig',
       categoryId: 'CategoryId',
       coverURL: 'CoverURL',
       description: 'Description',
@@ -91,6 +93,7 @@ export class UpdateMediaRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       appendTags: 'boolean',
+      bizConfig: 'string',
       categoryId: 'number',
       coverURL: 'string',
       description: 'string',

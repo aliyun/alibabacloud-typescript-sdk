@@ -5,23 +5,23 @@ import * as $dara from '@darabonba/typescript';
 export class GetVideoTranslationJobResponseBodyJob extends $dara.Model {
   /**
    * @remarks
-   * The duration of the input video, in seconds.
+   * The input video duration, in seconds.
    * 
    * @example
-   * 10.0
+   * 60.5
    */
   duration?: number;
   /**
    * @remarks
-   * The editing project ID.
+   * The editing project ID for a single-target-language job. For multi-target-language results, retrieve the ID from Output.AiResult.ResultMap.
    * 
    * @example
-   * ba50304145fd411c827239c398820267
+   * editing-project-001
    */
   editingProjectId?: string;
   /**
    * @remarks
-   * Optional. The error code returned when the task ultimately fails.
+   * The business error code returned when the job fails. This field is typically not returned for non-failed states.
    * 
    * @example
    * InvalidInput
@@ -29,39 +29,39 @@ export class GetVideoTranslationJobResponseBodyJob extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * Optional. The error message returned when the task ultimately fails.
+   * The business error message returned when the job fails. This field is typically not returned for non-failed states.
    * 
    * @example
-   * Input is invalid.
+   * Input video is invalid.
    */
   errorMessage?: string;
   /**
    * @remarks
-   * The normalized Input JSON.
+   * The normalized input configuration JSON string saved at submission time.
    * 
    * @example
-   * {"Video":"https://example.com/input.mp4"}
+   * {"VideoMediaId":"media-video-001"}
    */
   input?: string;
   /**
    * @remarks
-   * The task ID.
+   * The video translation job ID.
    * 
    * @example
-   * vtj_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+   * vtj_0123456789abcdef0123456789abcdef
    */
   jobId?: string;
   /**
    * @remarks
-   * The normalized JobParameters JSON, including default values.
+   * The normalized job parameters JSON string, including default values supplemented by the service.
    * 
    * @example
-   * {"NeedDetext":true,"SubtitleFrom":"default","SourceLanguage":"zh","TargetLanguage":"en","NeedVisualTranslate":true}
+   * {"SourceLanguage":"zh","TargetLanguage":"en","SubtitleFrom":"default","NeedDetext":false,"NeedVisualTranslate":false}
    */
   jobParameters?: string;
   /**
    * @remarks
-   * The normalized task type.
+   * The normalized job type.
    * 
    * @example
    * VoiceTranslate
@@ -69,18 +69,18 @@ export class GetVideoTranslationJobResponseBodyJob extends $dara.Model {
   jobType?: string;
   /**
    * @remarks
-   * The JSON string of the final task result.
+   * The job output JSON string. When the job succeeds, AiResult.ResultMap organizes the final video, subtitle, and audio outputs by target language.
    * 
    * @example
-   * {"AiResult":{"ResultMap":{"ja":{"EditingProjectId":"editing-project-xxx","MediaURL":"https://example.com/bucket/prefix/ja/result.mp4"}}}}
+   * {"AiResult":{"ResultMap":{"en":{"EditingProjectId":"editing-project-001","MediaURL":"https://example.com/video-translation/en/result.mp4","MediaId":"media-output-001"}}}}
    */
   output?: string;
   /**
    * @remarks
-   * The task status. Valid values: Created, Queuing, Executing, Finished, and Failed.
+   * The job status. Valid values: Created, Queuing, Executing, Finished, or Failed.
    * 
    * @example
-   * Executing
+   * Finished
    */
   status?: string;
   static names(): { [key: string]: string } {
@@ -125,15 +125,15 @@ export class GetVideoTranslationJobResponseBodyJob extends $dara.Model {
 export class GetVideoTranslationJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The video translation task.
+   * The video translation job.
    */
   job?: GetVideoTranslationJobResponseBodyJob;
   /**
    * @remarks
-   * The request ID.
+   * The request ID, used for Tracing Analysis and troubleshooting.
    * 
    * @example
-   * request-id
+   * req-vt-get-20260820-001
    */
   requestId?: string;
   static names(): { [key: string]: string } {

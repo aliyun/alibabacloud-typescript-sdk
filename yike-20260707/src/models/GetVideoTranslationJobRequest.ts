@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class GetVideoTranslationJobRequest extends $dara.Model {
   /**
    * @remarks
-   * The task ID returned by `SubmitVideoTranslationJob`.
+   * The video translation job ID returned by SubmitVideoTranslationJob.
    * 
    * This parameter is required.
    * 
    * @example
-   * vtj_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+   * vtj_0123456789abcdef0123456789abcdef
    */
   jobId?: string;
   static names(): { [key: string]: string } {

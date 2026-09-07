@@ -12,10 +12,6 @@ export default class Client extends OpenApi {
   constructor(config: $OpenApiUtil.Config) {
     super(config);
     this._endpointRule = "regional";
-    this._endpointMap = {
-      'cn-shanghai': "yike.cn-shanghai.aliyuncs.com",
-      'ap-southeast-1': "yike.ap-southeast-1.aliyuncs.com",
-    };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("yike", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
@@ -50,8 +46,16 @@ export default class Client extends OpenApi {
       query["AuthTimeout"] = request.authTimeout;
     }
 
+    if (!$dara.isNull(request.bizConfig)) {
+      query["BizConfig"] = request.bizConfig;
+    }
+
     if (!$dara.isNull(request.mediaIds)) {
       query["MediaIds"] = request.mediaIds;
+    }
+
+    if (!$dara.isNull(request.returnDynamicMeta)) {
+      query["ReturnDynamicMeta"] = request.returnDynamicMeta;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -307,6 +311,10 @@ export default class Client extends OpenApi {
   async deleteMediasWithOptions(request: $_model.DeleteMediasRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteMediasResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.bizConfig)) {
+      query["BizConfig"] = request.bizConfig;
+    }
+
     if (!$dara.isNull(request.deletePhysicalFiles)) {
       query["DeletePhysicalFiles"] = request.deletePhysicalFiles;
     }
@@ -561,7 +569,8 @@ export default class Client extends OpenApi {
    * Queries a media asset.
    * 
    * @remarks
-   * ## Operation description.
+   * ## Operation description
+   * This API operation is used to query a media content analysis job.
    * 
    * @param request - GetMediaRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -572,6 +581,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.authTimeout)) {
       query["AuthTimeout"] = request.authTimeout;
+    }
+
+    if (!$dara.isNull(request.bizConfig)) {
+      query["BizConfig"] = request.bizConfig;
     }
 
     if (!$dara.isNull(request.inputURL)) {
@@ -603,7 +616,8 @@ export default class Client extends OpenApi {
    * Queries a media asset.
    * 
    * @remarks
-   * ## Operation description.
+   * ## Operation description
+   * This API operation is used to query a media content analysis job.
    * 
    * @param request - GetMediaRequest
    * @returns GetMediaResponse
@@ -794,16 +808,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the status and result of a video translation task by the specified ID.
+   * Queries the status, input parameters, and multilingual outputs of a video translation job.
    * 
    * @remarks
-   * ## Request description
-   * - This API retrieves the status and details of a video translation task based on the `JobId`.
-   * - `JobId` is a required parameter, passed through query or form.
-   * - If the task does not exist or does not belong to the current caller, the `InvalidParameter` error code with HTTP status code 400 is returned.
-   * - On a successful response, the HTTP status code is 200, and the task object is located in `data.Job`.
-   * - When the task is completed (`Status=Finished`), the output artifacts can be found in the `data.Job.Output` field. The client needs to perform a JSON parse to obtain the specific results.
-   * - For tasks with multiple target languages, use `Output.AiResult.ResultMap` directly to obtain the specific results for each language. If there is only one target language, you can conveniently obtain the editing project ID through `data.Job.EditingProjectId`.
+   * Queries the status, input, parameters, and desired state results of a video translation job based on the `JobId`.
    * 
    * @param request - GetVideoTranslationJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -834,16 +842,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the status and result of a video translation task by the specified ID.
+   * Queries the status, input parameters, and multilingual outputs of a video translation job.
    * 
    * @remarks
-   * ## Request description
-   * - This API retrieves the status and details of a video translation task based on the `JobId`.
-   * - `JobId` is a required parameter, passed through query or form.
-   * - If the task does not exist or does not belong to the current caller, the `InvalidParameter` error code with HTTP status code 400 is returned.
-   * - On a successful response, the HTTP status code is 200, and the task object is located in `data.Job`.
-   * - When the task is completed (`Status=Finished`), the output artifacts can be found in the `data.Job.Output` field. The client needs to perform a JSON parse to obtain the specific results.
-   * - For tasks with multiple target languages, use `Output.AiResult.ResultMap` directly to obtain the specific results for each language. If there is only one target language, you can conveniently obtain the editing project ID through `data.Job.EditingProjectId`.
+   * Queries the status, input, parameters, and desired state results of a video translation job based on the `JobId`.
    * 
    * @param request - GetVideoTranslationJobRequest
    * @returns GetVideoTranslationJobResponse
@@ -934,8 +936,8 @@ export default class Client extends OpenApi {
    * Imports a media asset.
    * 
    * @remarks
-   * ## Operation description
-   * This API is used to query media content understanding jobs.
+   * ## Request description
+   * This API is used to query media content analysis jobs.
    * 
    * @param request - ImportMediaRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -944,6 +946,10 @@ export default class Client extends OpenApi {
   async importMediaWithOptions(request: $_model.ImportMediaRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ImportMediaResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.bizConfig)) {
+      query["BizConfig"] = request.bizConfig;
+    }
+
     if (!$dara.isNull(request.categoryId)) {
       query["CategoryId"] = request.categoryId;
     }
@@ -996,6 +1002,10 @@ export default class Client extends OpenApi {
       query["UserData"] = request.userData;
     }
 
+    if (!$dara.isNull(request.yikeAssetConfig)) {
+      query["YikeAssetConfig"] = request.yikeAssetConfig;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -1017,8 +1027,8 @@ export default class Client extends OpenApi {
    * Imports a media asset.
    * 
    * @remarks
-   * ## Operation description
-   * This API is used to query media content understanding jobs.
+   * ## Request description
+   * This API is used to query media content analysis jobs.
    * 
    * @param request - ImportMediaRequest
    * @returns ImportMediaResponse
@@ -1029,7 +1039,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a paginated list of categories.
+   * Retrieves a paged list of categories.
    * 
    * @param request - ListAssetCategoriesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1064,7 +1074,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a paginated list of categories.
+   * Retrieves a paged list of categories.
    * 
    * @param request - ListAssetCategoriesRequest
    * @returns ListAssetCategoriesResponse
@@ -1158,6 +1168,10 @@ export default class Client extends OpenApi {
   async searchMediaWithOptions(request: $_model.SearchMediaRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SearchMediaResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.bizConfig)) {
+      query["BizConfig"] = request.bizConfig;
+    }
+
     if (!$dara.isNull(request.categoryId)) {
       query["CategoryId"] = request.categoryId;
     }
@@ -1543,17 +1557,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Submits a video translation task that supports subtitle translation, voice translation, and on-screen text translation.
+   * Submits an asynchronous video translation task that supports subtitle translation, voice translation, main subtitle erasure, and on-screen text translation.
    * 
    * @remarks
-   * ## Request description
-   * - This API supports multiple video translation features, including subtitle translation and voice translation.
-   * - The `JobType` parameter defines the task type, such as `SubtitleTranslate` and `VoiceTranslate`.
-   * - The `Input` and `Output` parameters specify the input resource and output path, respectively.
-   * - `JobParameters` contains language configuration and other feature switches, such as `SourceLanguage`, `TargetLanguage`, `NeedDetext`, and `NeedVisualTranslate`.
-   * - `EditingConfig` can be used to specify the style configuration for the final editing and compositing.
-   * - `ClientToken` is an optional parameter used to ensure the idempotence of the request.
-   * - Ensure that all required fields are correctly filled in. Otherwise, the request may fail.
+   * Submits an asynchronous video translation task. The input supports a media URL or an Intelligent Media Management (IMM) media asset ID. Task parameters specify the source language, target language, and translation capabilities to enable.
    * 
    * @param request - SubmitVideoTranslationJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1612,17 +1619,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Submits a video translation task that supports subtitle translation, voice translation, and on-screen text translation.
+   * Submits an asynchronous video translation task that supports subtitle translation, voice translation, main subtitle erasure, and on-screen text translation.
    * 
    * @remarks
-   * ## Request description
-   * - This API supports multiple video translation features, including subtitle translation and voice translation.
-   * - The `JobType` parameter defines the task type, such as `SubtitleTranslate` and `VoiceTranslate`.
-   * - The `Input` and `Output` parameters specify the input resource and output path, respectively.
-   * - `JobParameters` contains language configuration and other feature switches, such as `SourceLanguage`, `TargetLanguage`, `NeedDetext`, and `NeedVisualTranslate`.
-   * - `EditingConfig` can be used to specify the style configuration for the final editing and compositing.
-   * - `ClientToken` is an optional parameter used to ensure the idempotence of the request.
-   * - Ensure that all required fields are correctly filled in. Otherwise, the request may fail.
+   * Submits an asynchronous video translation task. The input supports a media URL or an Intelligent Media Management (IMM) media asset ID. Task parameters specify the source language, target language, and translation capabilities to enable.
    * 
    * @param request - SubmitVideoTranslationJobRequest
    * @returns SubmitVideoTranslationJobResponse
@@ -1636,7 +1636,7 @@ export default class Client extends OpenApi {
    * Updates a media asset category.
    * 
    * @remarks
-   * After you create a media asset category, you can call this operation to locate and update the name of the media asset category by category ID.
+   * After creating a media asset category, you can call this operation to locate and update the name of the category by category ID.
    * 
    * @param request - UpdateAssetCategoryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1674,7 +1674,7 @@ export default class Client extends OpenApi {
    * Updates a media asset category.
    * 
    * @remarks
-   * After you create a media asset category, you can call this operation to locate and update the name of the media asset category by category ID.
+   * After creating a media asset category, you can call this operation to locate and update the name of the category by category ID.
    * 
    * @param request - UpdateAssetCategoryRequest
    * @returns UpdateAssetCategoryResponse
@@ -1746,8 +1746,8 @@ export default class Client extends OpenApi {
    * Updates media asset information.
    * 
    * @remarks
-   * ## Request description
-   * This API is used to query media content understanding jobs.
+   * ## Operation description
+   * This API operation is used to query media content understanding jobs.
    * 
    * @param request - UpdateMediaRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1758,6 +1758,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.appendTags)) {
       query["AppendTags"] = request.appendTags;
+    }
+
+    if (!$dara.isNull(request.bizConfig)) {
+      query["BizConfig"] = request.bizConfig;
     }
 
     if (!$dara.isNull(request.categoryId)) {
@@ -1817,8 +1821,8 @@ export default class Client extends OpenApi {
    * Updates media asset information.
    * 
    * @remarks
-   * ## Request description
-   * This API is used to query media content understanding jobs.
+   * ## Operation description
+   * This API operation is used to query media content understanding jobs.
    * 
    * @param request - UpdateMediaRequest
    * @returns UpdateMediaResponse

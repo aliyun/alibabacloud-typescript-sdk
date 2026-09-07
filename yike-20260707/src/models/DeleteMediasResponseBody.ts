@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteMediasResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The IDs or input URLs that are forbidden to delete.
+   * The IDs or input URLs that are forbidden from being deleted.
    */
   forbiddenList?: string[];
   /**
    * @remarks
-   * The ignored IDs or input URLs (invalid or items with retrieval errors).
+   * The ignored IDs or input URLs, which are invalid or have retrieval errors.
    */
   ignoredList?: string[];
   /**

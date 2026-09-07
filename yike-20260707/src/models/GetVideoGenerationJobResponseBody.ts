@@ -32,7 +32,7 @@ export class GetVideoGenerationJobResponseBodyVideoGenerationJob extends $dara.M
    * The task input.
    * 
    * @example
-   * {"Prompt":"Person in image 1 is on a basketball court, dunking with the appearance from image 2","Medias":[{"Type":"image","Url":"https://xxx/xxx.jpg"},{"Type":"image","Url":"https://xxx/xxx.jpg"}]}
+   * {"Prompt":"Person in image 1 is on a basketball court, dunking with image 2","Medias":[{"Type":"image","Url":"https://xxx/xxx.jpg"},{"Type":"image","Url":"https://xxx/xxx.jpg"}]}
    */
   input?: string;
   /**
@@ -77,9 +77,9 @@ export class GetVideoGenerationJobResponseBodyVideoGenerationJob extends $dara.M
   n?: number;
   /**
    * @remarks
-   * The generation result. The value is a JSON string that contains the following fields:
+   * The generation result in JsonString format, which contains:
    * 
-   * Medias: a list of media information (Media objects). The Media object contains the following fields:
+   * Medias: a list of media information (Media objects). Fields of a Media object:
    * MediaId: String. The media asset ID.
    * OutputUrl: String. The media URL (with authentication string).
    * 
@@ -97,7 +97,7 @@ export class GetVideoGenerationJobResponseBodyVideoGenerationJob extends $dara.M
   resolution?: string;
   /**
    * @remarks
-   * The scene type. Currently, only general is supported.
+   * The scene type. Currently only general is supported.
    * 
    * @example
    * general
