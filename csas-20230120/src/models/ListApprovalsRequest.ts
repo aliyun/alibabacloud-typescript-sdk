@@ -10,7 +10,7 @@ export class ListApprovalsRequest extends $dara.Model {
   approvalIds?: string[];
   /**
    * @remarks
-   * The end time for approval instance creation, in seconds-level timestamp.
+   * The end time for querying approval instance creation, in seconds-level timestamp.
    * 
    * @example
    * 1736750500
@@ -18,7 +18,7 @@ export class ListApprovalsRequest extends $dara.Model {
   createEndTime?: number;
   /**
    * @remarks
-   * The start time for approval instance creation, in seconds-level timestamp.
+   * The start time for querying approval instance creation, in seconds-level timestamp.
    * 
    * @example
    * 1730000000
@@ -68,7 +68,9 @@ export class ListApprovalsRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The list of report effective statuses. Valid values: Enabled, Expired.
+   * The list of report effective statuses, serialized in Flat format. Duplicate values are not allowed. Only records with an approval status of Approved are matched. Valid values:
+   * * Enabled: effective.
+   * * Expired: expired or invalidated.
    */
   effectStatuses?: string[];
   /**
@@ -100,6 +102,12 @@ export class ListApprovalsRequest extends $dara.Model {
   /**
    * @remarks
    * The adaptation policy type. Valid values:
+   * - **DomainBlacklist**: Domain name blacklist.
+   * - **DomainWhitelist**: Domain name whitelist.
+   * - **SoftwareBlock**: Software blocking.
+   * - **AppUninstall**: Agent uninstallation.
+   * - **DlpSend**: File outbound transfer.
+   * - **PeripheralBlock**: Peripheral control.
    * 
    * @example
    * DlpSend
@@ -123,7 +131,10 @@ export class ListApprovalsRequest extends $dara.Model {
   processName?: string;
   /**
    * @remarks
-   * The list of report types. If not specified, only ApprovalReport is queried.
+   * The list of report types, serialized in Flat format. Duplicate values are not allowed. Valid values:
+   * * ApprovalReport: approval report.
+   * * BackendReport: backend report.
+   * If not specified, only ApprovalReport is queried by default.
    */
   reportTypes?: string[];
   /**

@@ -79,6 +79,10 @@ export class ListApprovalsResponseBodyApprovalsApprovalProgresses extends $dara.
   /**
    * @remarks
    * The status of the approval progress node. Valid values:
+   * - **Pending**: Pending approval.
+   * - **Approved**: Approved.
+   * - **Rejected**: Rejected.
+   * - **Revoked**: Revoked.
    * 
    * @example
    * Approved
@@ -86,7 +90,7 @@ export class ListApprovalsResponseBodyApprovalsApprovalProgresses extends $dara.
   status?: string;
   /**
    * @remarks
-   * The time when the action was performed on the approval progress node. The value is a UNIX timestamp in seconds.
+   * The time when the approval progress node was executed. The value is a UNIX timestamp in seconds.
    * 
    * @example
    * 1736752000
@@ -148,6 +152,17 @@ export class ListApprovalsResponseBodyApprovals extends $dara.Model {
    * The list of approval progress nodes.
    */
   approvalProgresses?: ListApprovalsResponseBodyApprovalsApprovalProgresses[];
+  /**
+   * @remarks
+   * The approval type. Valid values:
+   * * 0: built-in approval.
+   * * 1: DingTalk approval.
+   * * 2: WeCom approval.
+   * * 3: Lark approval.
+   * 
+   * @example
+   * 0
+   */
   approvalType?: number;
   /**
    * @remarks
@@ -162,7 +177,7 @@ export class ListApprovalsResponseBodyApprovals extends $dara.Model {
    * The department of the approval instance creator.
    * 
    * @example
-   * QA Department
+   * CN=cn***,OU=h***
    */
   creatorDepartment?: string;
   /**
@@ -186,17 +201,22 @@ export class ListApprovalsResponseBodyApprovals extends $dara.Model {
    * The username of the approval instance creator.
    * 
    * @example
-   * Mr. Wang
+   * Wang***
    */
   creatorUsername?: string;
   /**
    * @remarks
-   * The effective status of the report. Enabled indicates that the report is effective. Expired indicates that the report has expired.
+   * The filing effective status. An empty string is returned when the approval status is not Approved. Valid values:
+   * * Enabled: effective.
+   * * Expired: expired or reached the expiration date.
+   * 
+   * @example
+   * Enabled
    */
   effectStatus?: string;
   /**
    * @remarks
-   * The expiration time of the approval instance. The value is a UNIX timestamp in seconds.
+   * The filing deadline. The value is a UNIX timestamp in seconds. The value 0 is returned when ValidityType is set to Permanent.
    * 
    * @example
    * 1757952000
@@ -204,13 +224,18 @@ export class ListApprovalsResponseBodyApprovals extends $dara.Model {
   endTimestamp?: number;
   /**
    * @remarks
-   * The type of the policy associated with the approval instance. Valid values:
-   * - **DomainBlacklist**: domain name blacklist.
-   * - **DomainWhitelist**: domain name whitelist.
-   * - **SoftwareBlock**: software blocking.
-   * - **AppUninstall**: terminal uninstallation.
-   * - **DlpSend**: file outgoing.
-   * - **PeripheralBlock**: peripheral control.
+   * The policy type associated with the approval instance. Valid values:
+   * - **DomainBlacklist**: Domain name blacklist.
+   * - **DomainWhitelist**: Domain name whitelist.
+   * - **SoftwareBlock**: Software blocking.
+   * - **DeviceRegistration**: Excess registration.
+   * - **AppUninstall**: Endpoint uninstallation.
+   * - **DlpSend**: File outbound transfer.
+   * - **PeripheralBlock**: Peripheral control.
+   * - **EndpointHardening**: Endpoint hardening.
+   * - **oftwareHardening**: Software hardening.
+   * - **AiAgentBlock**: AI Agent control.
+   * - **PrivateAccessBlock**: Internal network access.
    * 
    * @example
    * DlpSend
@@ -229,7 +254,7 @@ export class ListApprovalsResponseBodyApprovals extends $dara.Model {
    * The name of the process associated with the approval instance.
    * 
    * @example
-   * Test
+   * Test***
    */
   processName?: string;
   /**
@@ -237,12 +262,17 @@ export class ListApprovalsResponseBodyApprovals extends $dara.Model {
    * The reason for creating the approval instance.
    * 
    * @example
-   * This is a test
+   * Temporary access for the project
    */
   reason?: string;
   /**
    * @remarks
-   * The report type. ApprovalReport indicates an approval report. BackendReport indicates a backend report.
+   * The filing type. Valid values:
+   * * ApprovalReport: approval filing.
+   * * BackendReport: backend filing.
+   * 
+   * @example
+   * BackendReport
    */
   reportType?: string;
   /**
@@ -266,12 +296,18 @@ export class ListApprovalsResponseBodyApprovals extends $dara.Model {
    * The name of the template associated with the approval instance.
    * 
    * @example
-   * Test
+   * Template***
    */
   schemaName?: string;
   /**
    * @remarks
-   * The approval instance status. Valid values:
+   * The instance status of the approval. Valid values:
+   * - **Pending**: Pending approval.
+   * - **Approved**: Approved.
+   * - **Rejected**: Denied.
+   * - **Revoked**: Revoked.
+   * - **Expired**: Expired.
+   * - **Deleted**: Deleted.
    * 
    * @example
    * Pending
@@ -279,7 +315,10 @@ export class ListApprovalsResponseBodyApprovals extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The validity duration type. When the value is Permanent, EndTimestamp returns 0.
+   * The validity duration type. Valid values: FixedTime, Permanent.
+   * 
+   * @example
+   * Permanent
    */
   validityType?: string;
   static names(): { [key: string]: string } {

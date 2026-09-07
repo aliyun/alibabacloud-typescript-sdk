@@ -2,17 +2,15 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class GetApprovalRequest extends $dara.Model {
+export class InvalidateApprovalRequest extends $dara.Model {
   /**
    * @remarks
-   * The approval instance ID. You can obtain the value from the following operations:
-   * - [ListApprovals](~~ListApprovals~~): Lists approval instances.
-   * - [GetApproval](~~GetApproval~~): Queries the details of an approval instance.
+   * The ID of the approval instance to immediately invalidate. You can call ListApprovals to query approval instance IDs. Only one approval instance ID under the current Alibaba Cloud account can be specified per request.
    * 
    * This parameter is required.
    * 
    * @example
-   * approval-872b5e911b35****
+   * approval-6b5188a28634****
    */
   approvalId?: string;
   static names(): { [key: string]: string } {

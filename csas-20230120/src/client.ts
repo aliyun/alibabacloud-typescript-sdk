@@ -674,6 +674,73 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates a backend filing.
+   * 
+   * @param request - CreateBackendReportRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateBackendReportResponse
+   */
+  async createBackendReportWithOptions(request: $_model.CreateBackendReportRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateBackendReportResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.endTimestamp)) {
+      body["EndTimestamp"] = request.endTimestamp;
+    }
+
+    if (!$dara.isNull(request.policyType)) {
+      body["PolicyType"] = request.policyType;
+    }
+
+    if (!$dara.isNull(request.reason)) {
+      body["Reason"] = request.reason;
+    }
+
+    let bodyFlat : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.reportObjects)) {
+      bodyFlat["ReportObjects"] = request.reportObjects;
+    }
+
+    if (!$dara.isNull(request.targets)) {
+      bodyFlat["Targets"] = request.targets;
+    }
+
+    if (!$dara.isNull(request.validityType)) {
+      body["ValidityType"] = request.validityType;
+    }
+
+    body = {
+      ...body,
+      ...OpenApiUtil.query(bodyFlat),
+    };
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateBackendReport",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateBackendReportResponse>(await this.callApi(params, req, runtime), new $_model.CreateBackendReportResponse({}));
+  }
+
+  /**
+   * Creates a backend filing.
+   * 
+   * @param request - CreateBackendReportRequest
+   * @returns CreateBackendReportResponse
+   */
+  async createBackendReport(request: $_model.CreateBackendReportRequest): Promise<$_model.CreateBackendReportResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createBackendReportWithOptions(request, runtime);
+  }
+
+  /**
    * Create a custom identity source user for your Alibaba Cloud account.
    * 
    * @param request - CreateClientUserRequest
@@ -5856,6 +5923,48 @@ export default class Client extends OpenApi {
   async importEnterpriseAccelerateTargets(request: $_model.ImportEnterpriseAccelerateTargetsRequest): Promise<$_model.ImportEnterpriseAccelerateTargetsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.importEnterpriseAccelerateTargetsWithOptions(request, runtime);
+  }
+
+  /**
+   * Immediately invalidates an approval.
+   * 
+   * @param request - InvalidateApprovalRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns InvalidateApprovalResponse
+   */
+  async invalidateApprovalWithOptions(request: $_model.InvalidateApprovalRequest, runtime: $dara.RuntimeOptions): Promise<$_model.InvalidateApprovalResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.approvalId)) {
+      body["ApprovalId"] = request.approvalId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "InvalidateApproval",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.InvalidateApprovalResponse>(await this.callApi(params, req, runtime), new $_model.InvalidateApprovalResponse({}));
+  }
+
+  /**
+   * Immediately invalidates an approval.
+   * 
+   * @param request - InvalidateApprovalRequest
+   * @returns InvalidateApprovalResponse
+   */
+  async invalidateApproval(request: $_model.InvalidateApprovalRequest): Promise<$_model.InvalidateApprovalResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.invalidateApprovalWithOptions(request, runtime);
   }
 
   /**
