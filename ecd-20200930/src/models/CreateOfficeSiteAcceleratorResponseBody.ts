@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateOfficeSiteAcceleratorResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the GA instance.
+   * The GA instance ID.
    * 
    * @example
    * ga-bp1qxuk10jceqw3zb***p

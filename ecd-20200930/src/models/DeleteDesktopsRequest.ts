@@ -22,7 +22,7 @@ export class DeleteDesktopsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The user ID of the resource ownership in the reseller pattern. You do not need to specify this parameter if you are not in the reseller pattern.
+   * The ID of the resource owner in reseller mode. You do not need to specify this parameter if you are not using reseller mode.
    * 
    * @example
    * 1422724566551XXX

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeOfficeSitesResponseBodyOfficeSitesADConnectors extends $dara.Model {
   /**
    * @remarks
-   * The endpoint of the AD Connector.
+   * The connection address of the AD Connector.
    * 
    * @example
    * 172.24.*.*
@@ -21,7 +21,7 @@ export class DescribeOfficeSitesResponseBodyOfficeSitesADConnectors extends $dar
   connectorStatus?: string;
   /**
    * @remarks
-   * The ID of the network interface controller (NIC) attached to the AD Connector.
+   * The ID of the elastic network interface (ENI) attached to the AD Connector.
    * 
    * @example
    * eni-bp1i4wx78lgosrj6****
@@ -37,7 +37,7 @@ export class DescribeOfficeSitesResponseBodyOfficeSitesADConnectors extends $dar
   specification?: string;
   /**
    * @remarks
-   * The trust password configured when setting up the AD trust relationship.
+   * The trust password specified when configuring the AD trust relationship.
    * 
    * @example
    * password123***
@@ -101,7 +101,7 @@ export class DescribeOfficeSitesResponseBodyOfficeSitesLogs extends $dara.Model 
   message?: string;
   /**
    * @remarks
-   * The step that corresponds to the log entry.
+   * The step associated with the log entry.
    * 
    * @example
    * CREATE_CONNECTOR
@@ -109,7 +109,7 @@ export class DescribeOfficeSitesResponseBodyOfficeSitesLogs extends $dara.Model 
   step?: string;
   /**
    * @remarks
-   * The time when the log was printed. The time is in the ISO 8601 standard (UTC).
+   * The time when the log was generated. The time is in the ISO 8601 standard format (UTC).
    * 
    * @example
    * 2021-05-12T09:42Z
@@ -145,7 +145,7 @@ export class DescribeOfficeSitesResponseBodyOfficeSitesLogs extends $dara.Model 
 export class DescribeOfficeSitesResponseBodyOfficeSitesResourceAmounts extends $dara.Model {
   /**
    * @remarks
-   * The resource count.
+   * The number of resources.
    * 
    * @example
    * 1
@@ -190,7 +190,7 @@ export class DescribeOfficeSitesResponseBodyOfficeSites extends $dara.Model {
   ADConnectors?: DescribeOfficeSitesResponseBodyOfficeSitesADConnectors[];
   /**
    * @remarks
-   * The Alibaba Cloud Global Accelerator (GA) instance ID.
+   * The ID of the Global Accelerator (GA) instance.
    * 
    * @example
    * ga-bp1astu3yrplkzoo2****
@@ -214,7 +214,7 @@ export class DescribeOfficeSitesResponseBodyOfficeSites extends $dara.Model {
   accountType?: string;
   /**
    * @remarks
-   * The hostname of the domain controller. The hostname must comply with Windows hostname naming conventions.
+   * The hostname of the domain controller. The hostname must comply with Windows host naming conventions.
    * 
    * @example
    * beijing-ad01
@@ -246,7 +246,7 @@ export class DescribeOfficeSitesResponseBodyOfficeSites extends $dara.Model {
   backupDns?: string;
   /**
    * @remarks
-   * The peak Internet bandwidth. Valid values: 0 to 1000. Unit: Mbit/s.    
+   * The peak public bandwidth. Valid values: 0 to 1000 Mbps.    
    * If the value is empty or 0, Internet access is not enabled.
    * 
    * @example
@@ -263,7 +263,7 @@ export class DescribeOfficeSitesResponseBodyOfficeSites extends $dara.Model {
   basicInternetType?: string;
   /**
    * @remarks
-   * The status of the Cloud Enterprise Network (CEN) instance.
+   * The status of the CEN instance.
    * 
    * @example
    * attached
@@ -311,7 +311,7 @@ export class DescribeOfficeSitesResponseBodyOfficeSites extends $dara.Model {
   cloudBoxOfficeSite?: boolean;
   /**
    * @remarks
-   * The time when the office network was created. The time is in the ISO 8601 standard (UTC).
+   * The time when the office network was created. The time is in the ISO 8601 standard format (UTC).
    * 
    * @example
    * 2021-05-06T05:58Z
@@ -340,7 +340,7 @@ export class DescribeOfficeSitesResponseBodyOfficeSites extends $dara.Model {
   customSecurityGroupId?: string;
   /**
    * @remarks
-   * The access method allowed when connecting to cloud computers.
+   * The access method allowed for connecting to cloud computers.
    * 
    * > The VPC connection method depends on the Alibaba Cloud PrivateLink service, which is free of charge. When this parameter is set to `VPC` or `Any`, the system automatically activates the PrivateLink service for you.
    * 
@@ -419,7 +419,7 @@ export class DescribeOfficeSitesResponseBodyOfficeSites extends $dara.Model {
   enableAdminAccess?: boolean;
   /**
    * @remarks
-   * Indicates whether cross-cloud computer access within the office network is enabled. If enabled, cloud computers within the same office network can access each other over the network.
+   * Indicates whether cross-cloud-computer access within the office network is enabled. After this feature is enabled, cloud computers within the same office network can access each other over the network.
    * 
    * @example
    * false
@@ -427,7 +427,7 @@ export class DescribeOfficeSitesResponseBodyOfficeSites extends $dara.Model {
   enableCrossDesktopAccess?: boolean;
   /**
    * @remarks
-   * Indicates whether the public network access feature is enabled.
+   * Indicates whether public network access is enabled.
    * 
    * @example
    * false
@@ -490,7 +490,7 @@ export class DescribeOfficeSitesResponseBodyOfficeSites extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Applicable only to convenience account office networks. Indicates whether secondary authentication is required during logon. If logon secondary authentication is enabled, the system checks whether the logon account has security risks when a convenience user logs on to the client. If a risk is detected, the system sends a verification code to the email address associated with the account. The convenience user can log on to the client only after passing the verification code check.
+   * Applicable only to convenience account office networks. Indicates whether secondary verification is required during logon. If logon secondary verification is enabled, the system checks whether the logon account has security risks when a convenience user logs on to the client. If a risk is detected, the system sends a verification code to the email address associated with the account. The convenience user can log on to the client only after passing the verification code check.
    * 
    * @example
    * false
@@ -514,7 +514,7 @@ export class DescribeOfficeSitesResponseBodyOfficeSites extends $dara.Model {
   networkPackageId?: string;
   /**
    * @remarks
-   * The network version. The new version supports products such as WUYING Cloud Application.
+   * The network version. The new version supports products such as Wuying Cloud Application.
    * 
    * @example
    * NM
@@ -578,12 +578,12 @@ export class DescribeOfficeSitesResponseBodyOfficeSites extends $dara.Model {
   rdsLicenseStatus?: string;
   /**
    * @remarks
-   * The resource count list.
+   * The list of resource quantities.
    */
   resourceAmounts?: DescribeOfficeSitesResponseBodyOfficeSitesResourceAmounts[];
   /**
    * @remarks
-   * The Network Security Protection Settings of the office network.
+   * The security protection configuration of the office network.
    * 
    * @example
    * SASE
@@ -591,7 +591,7 @@ export class DescribeOfficeSitesResponseBodyOfficeSites extends $dara.Model {
   securityProtection?: string;
   /**
    * @remarks
-   * Indicates whether single sign-on (SSO) is enabled.
+   * Indicates whether Single Sign-On (SSO) is enabled.
    * 
    * @example
    * false
@@ -607,7 +607,7 @@ export class DescribeOfficeSitesResponseBodyOfficeSites extends $dara.Model {
   ssoType?: string;
   /**
    * @remarks
-   * The status of the office network.
+   * The office network status.
    * 
    * @example
    * REGISTERED
@@ -615,7 +615,7 @@ export class DescribeOfficeSitesResponseBodyOfficeSites extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The array of DNS addresses of the AD subdomain.
+   * The array of DNS addresses for the AD subdomain.
    */
   subDnsAddress?: string[];
   /**
@@ -652,7 +652,7 @@ export class DescribeOfficeSitesResponseBodyOfficeSites extends $dara.Model {
   totalEdsCount?: number;
   /**
    * @remarks
-   * The number of cloud computers in shared cloud computer groups.
+   * The number of cloud computers in shared cloud computer pools.
    * 
    * @example
    * 0
@@ -689,7 +689,7 @@ export class DescribeOfficeSitesResponseBodyOfficeSites extends $dara.Model {
   vpcId?: string;
   /**
    * @remarks
-   * The usage mode of the VPC.
+   * The usage type of the VPC.
    * 
    * @example
    * Basic

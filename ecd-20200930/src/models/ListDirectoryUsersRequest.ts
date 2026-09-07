@@ -23,7 +23,7 @@ export class ListDirectoryUsersRequest extends $dara.Model {
   directoryId?: string;
   /**
    * @remarks
-   * The fuzzy match query string. All results that contain this character string are returned.
+   * The fuzzy search string. All results that contain this string are matched.
    * 
    * @example
    * alice
@@ -39,7 +39,7 @@ export class ListDirectoryUsersRequest extends $dara.Model {
   includeAssignedUser?: boolean;
   /**
    * @remarks
-   * The number of entries per page for a paged query.    
+   * The number of entries per page for a paginated query.    
    * 
    * - Maximum value: 100.    
    * - Default value: 10.
@@ -50,7 +50,7 @@ export class ListDirectoryUsersRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token for the next query. An empty value indicates that no more results exist.
+   * The token for the next query. If this parameter is empty, no more results are available.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a4883

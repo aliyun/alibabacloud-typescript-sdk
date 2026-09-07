@@ -3714,13 +3714,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates one or more cloud desktops. If user information is specified during creation, the cloud desktops are directly assigned to the users.
+   * Creates one or more cloud computers. If user information is provided during creation, the cloud computers are assigned directly.
    * 
    * @remarks
-   * Before creating cloud desktops, complete the following preparations:
-   * - Create an office network (formerly workspace) and users. For more information, see the following API operations or documentation:
-   *     - Convenience office network: [CreateSimpleOfficeSite](https://help.aliyun.com/document_detail/215416.html) and [CreateUsers](https://help.aliyun.com/document_detail/437832.html).
-   *     - AD office network: [CreateADConnectorOfficeSite](https://help.aliyun.com/document_detail/215417.html) and [Create AD users](https://help.aliyun.com/document_detail/188619.html).
+   * Before creating cloud computers, complete the following preparations:
+   * - Create an office network (formerly workspace) and users. For related API operations or documentation, refer to:
+   *     - Convenience office network: [CreateSimpleOfficeSite](https://help.aliyun.com/document_detail/215416.html), [CreateUsers](https://help.aliyun.com/document_detail/437832.html).
+   *     - AD office network: [CreateADConnectorOfficeSite](https://help.aliyun.com/document_detail/215417.html), [Create AD users](https://help.aliyun.com/document_detail/188619.html).
    * - Call [CreatePolicyGroup](https://help.aliyun.com/document_detail/188889.html) to create a policy, or confirm that an existing policy is available.
    * **Call examples:**
    * <details>
@@ -3803,7 +3803,7 @@ export default class Client extends OpenApi {
    * }
    * ```
    * </details>
-   * To have cloud desktops automatically execute custom command scripts, use the `UserCommands` field to configure custom commands.
+   * To have cloud computers automatically run custom command scripts, use the `UserCommands` field to configure custom commands.
    * 
    * @param tmpReq - CreateDesktopsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4016,13 +4016,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates one or more cloud desktops. If user information is specified during creation, the cloud desktops are directly assigned to the users.
+   * Creates one or more cloud computers. If user information is provided during creation, the cloud computers are assigned directly.
    * 
    * @remarks
-   * Before creating cloud desktops, complete the following preparations:
-   * - Create an office network (formerly workspace) and users. For more information, see the following API operations or documentation:
-   *     - Convenience office network: [CreateSimpleOfficeSite](https://help.aliyun.com/document_detail/215416.html) and [CreateUsers](https://help.aliyun.com/document_detail/437832.html).
-   *     - AD office network: [CreateADConnectorOfficeSite](https://help.aliyun.com/document_detail/215417.html) and [Create AD users](https://help.aliyun.com/document_detail/188619.html).
+   * Before creating cloud computers, complete the following preparations:
+   * - Create an office network (formerly workspace) and users. For related API operations or documentation, refer to:
+   *     - Convenience office network: [CreateSimpleOfficeSite](https://help.aliyun.com/document_detail/215416.html), [CreateUsers](https://help.aliyun.com/document_detail/437832.html).
+   *     - AD office network: [CreateADConnectorOfficeSite](https://help.aliyun.com/document_detail/215417.html), [Create AD users](https://help.aliyun.com/document_detail/188619.html).
    * - Call [CreatePolicyGroup](https://help.aliyun.com/document_detail/188889.html) to create a policy, or confirm that an existing policy is available.
    * **Call examples:**
    * <details>
@@ -4105,7 +4105,7 @@ export default class Client extends OpenApi {
    * }
    * ```
    * </details>
-   * To have cloud desktops automatically execute custom command scripts, use the `UserCommands` field to configure custom commands.
+   * To have cloud computers automatically run custom command scripts, use the `UserCommands` field to configure custom commands.
    * 
    * @param request - CreateDesktopsRequest
    * @returns CreateDesktopsResponse
@@ -4664,10 +4664,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables the Global Accelerator (GA) service for an office network.
+   * Enables Global Accelerator (GA) for an office network.
    * 
    * @remarks
-   * Before you call this operation, ensure you fully understand the billing methods and [pricing](t2208086.xdita#) of the GA service.
+   * Before calling this operation, make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/425831.html) of Global Accelerator (GA).
    * 
    * @param request - CreateOfficeSiteAcceleratorRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4714,10 +4714,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables the Global Accelerator (GA) service for an office network.
+   * Enables Global Accelerator (GA) for an office network.
    * 
    * @remarks
-   * Before you call this operation, ensure you fully understand the billing methods and [pricing](t2208086.xdita#) of the GA service.
+   * Before calling this operation, make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/425831.html) of Global Accelerator (GA).
    * 
    * @param request - CreateOfficeSiteAcceleratorRequest
    * @returns CreateOfficeSiteAcceleratorResponse
@@ -9617,7 +9617,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the inbound bandwidth and outbound bandwidth monitoring data of a cloud computer, or the public network access inbound bandwidth and outbound bandwidth monitoring data of a premium public bandwidth plan.
+   * Queries the inbound and outbound bandwidth monitoring data of a cloud computer, or the public inbound and outbound bandwidth monitoring data of a premium public bandwidth instance.
    * 
    * @param request - DescribeFlowMetricRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9672,7 +9672,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the inbound bandwidth and outbound bandwidth monitoring data of a cloud computer, or the public network access inbound bandwidth and outbound bandwidth monitoring data of a premium public bandwidth plan.
+   * Queries the inbound and outbound bandwidth monitoring data of a cloud computer, or the public inbound and outbound bandwidth monitoring data of a premium public bandwidth instance.
    * 
    * @param request - DescribeFlowMetricRequest
    * @returns DescribeFlowMetricResponse
@@ -10951,7 +10951,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries all properties of an office network, including the ID, name, status, and creation time.
+   * Queries all attributes of an office network, including the ID, name, status, and creation time.
    * 
    * @param request - DescribeOfficeSitesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11014,7 +11014,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries all properties of an office network, including the ID, name, status, and creation time.
+   * Queries all attributes of an office network, including the ID, name, status, and creation time.
    * 
    * @param request - DescribeOfficeSitesRequest
    * @returns DescribeOfficeSitesResponse
@@ -11082,6 +11082,216 @@ export default class Client extends OpenApi {
   async describeOnlineUserCount(request: $_model.DescribeOnlineUserCountRequest): Promise<$_model.DescribeOnlineUserCountResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeOnlineUserCountWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries peripheral drivers visible to the current account, with support for filtering by ownership, brand, device type, driver ID, and keyword, and returns paginated results.
+   * 
+   * @remarks
+   * When multiple filter conditions are specified, only drivers that meet all conditions are returned. If no filter conditions are specified, both Wuying official drivers and drivers of the current account are returned. Use PageSize and PageNumber for pagination. Keep the filter conditions and PageSize unchanged, increment PageNumber page by page, and stop when an empty list is returned. The example values are provided to illustrate the format. Replace them with actual values.
+   * ## Request examples
+   * The following JSON examples show the logical request parameters. Common signature parameters are generated by the SDK or signing component.
+   * ### Query official printer drivers
+   * Query official printer drivers of a specified brand that contain a keyword. The first page is returned with a maximum of 20 entries per page.
+   * ```json
+   * {
+   *   "Action": "DescribePeripheralDrivers",
+   *   "Version": "2020-09-30",
+   *   "OwnerType": "WUYING",
+   *   "Brand": "hp",
+   *   "DeviceType": "printer",
+   *   "Filter": "LaserJet",
+   *   "PageSize": 20,
+   *   "PageNumber": 1
+   * }
+   * ```
+   * ### Query drivers by driver ID in batches
+   * ```json
+   * {
+   *   "Action": "DescribePeripheralDrivers",
+   *   "Version": "2020-09-30",
+   *   "DriverIds": [
+   *     "11111111-2222-4333-8444-555555555555",
+   *     "66666666-7777-4888-8999-000000000000"
+   *   ],
+   *   "PageSize": 20,
+   *   "PageNumber": 1
+   * }
+   * ```
+   * When you construct request parameters directly, expand DriverIds by sequence number:
+   * ```text
+   * DriverIds.1=11111111-2222-4333-8444-555555555555
+   * DriverIds.2=66666666-7777-4888-8999-000000000000
+   * ```
+   * When you use an SDK, pass in a string array and the SDK handles the encoding.
+   * ## Response examples
+   * The following responses are format examples. The icon URLs are for illustration purposes only. The reserved fields MaxResults and NextToken do not provide valid values and are omitted from the examples.
+   * ### Successful query
+   * ```json
+   * {
+   *   "RequestId": "00000000-1111-4222-8333-444444444444",
+   *   "Count": 1,
+   *   "DriverInfos": [
+   *     {
+   *       "Id": "11111111-2222-4333-8444-555555555555",
+   *       "Icon": "https://example.com/icons/printer.png",
+   *       "Name": "HP Universal Printing PCL 6",
+   *       "Brand": "hp",
+   *       "DeviceType": "printer",
+   *       "OsType": "Windows",
+   *       "CreateTime": "2026-09-01T10:30:00+08:00",
+   *       "Source": "Wuying",
+   *       "OwnerType": "WUYING"
+   *     }
+   *   ]
+   * }
+   * ```
+   * ### No matching results
+   * ```json
+   * {
+   *   "RequestId": "00000000-1111-4222-8333-444444444444",
+   *   "Count": 0,
+   *   "DriverInfos": []
+   * }
+   * ```
+   * 
+   * @param request - DescribePeripheralDriversRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribePeripheralDriversResponse
+   */
+  async describePeripheralDriversWithOptions(request: $_model.DescribePeripheralDriversRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribePeripheralDriversResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.brand)) {
+      query["Brand"] = request.brand;
+    }
+
+    if (!$dara.isNull(request.deviceType)) {
+      query["DeviceType"] = request.deviceType;
+    }
+
+    if (!$dara.isNull(request.driverIds)) {
+      query["DriverIds"] = request.driverIds;
+    }
+
+    if (!$dara.isNull(request.filter)) {
+      query["Filter"] = request.filter;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.ownerType)) {
+      query["OwnerType"] = request.ownerType;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribePeripheralDrivers",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribePeripheralDriversResponse>(await this.callApi(params, req, runtime), new $_model.DescribePeripheralDriversResponse({}));
+  }
+
+  /**
+   * Queries peripheral drivers visible to the current account, with support for filtering by ownership, brand, device type, driver ID, and keyword, and returns paginated results.
+   * 
+   * @remarks
+   * When multiple filter conditions are specified, only drivers that meet all conditions are returned. If no filter conditions are specified, both Wuying official drivers and drivers of the current account are returned. Use PageSize and PageNumber for pagination. Keep the filter conditions and PageSize unchanged, increment PageNumber page by page, and stop when an empty list is returned. The example values are provided to illustrate the format. Replace them with actual values.
+   * ## Request examples
+   * The following JSON examples show the logical request parameters. Common signature parameters are generated by the SDK or signing component.
+   * ### Query official printer drivers
+   * Query official printer drivers of a specified brand that contain a keyword. The first page is returned with a maximum of 20 entries per page.
+   * ```json
+   * {
+   *   "Action": "DescribePeripheralDrivers",
+   *   "Version": "2020-09-30",
+   *   "OwnerType": "WUYING",
+   *   "Brand": "hp",
+   *   "DeviceType": "printer",
+   *   "Filter": "LaserJet",
+   *   "PageSize": 20,
+   *   "PageNumber": 1
+   * }
+   * ```
+   * ### Query drivers by driver ID in batches
+   * ```json
+   * {
+   *   "Action": "DescribePeripheralDrivers",
+   *   "Version": "2020-09-30",
+   *   "DriverIds": [
+   *     "11111111-2222-4333-8444-555555555555",
+   *     "66666666-7777-4888-8999-000000000000"
+   *   ],
+   *   "PageSize": 20,
+   *   "PageNumber": 1
+   * }
+   * ```
+   * When you construct request parameters directly, expand DriverIds by sequence number:
+   * ```text
+   * DriverIds.1=11111111-2222-4333-8444-555555555555
+   * DriverIds.2=66666666-7777-4888-8999-000000000000
+   * ```
+   * When you use an SDK, pass in a string array and the SDK handles the encoding.
+   * ## Response examples
+   * The following responses are format examples. The icon URLs are for illustration purposes only. The reserved fields MaxResults and NextToken do not provide valid values and are omitted from the examples.
+   * ### Successful query
+   * ```json
+   * {
+   *   "RequestId": "00000000-1111-4222-8333-444444444444",
+   *   "Count": 1,
+   *   "DriverInfos": [
+   *     {
+   *       "Id": "11111111-2222-4333-8444-555555555555",
+   *       "Icon": "https://example.com/icons/printer.png",
+   *       "Name": "HP Universal Printing PCL 6",
+   *       "Brand": "hp",
+   *       "DeviceType": "printer",
+   *       "OsType": "Windows",
+   *       "CreateTime": "2026-09-01T10:30:00+08:00",
+   *       "Source": "Wuying",
+   *       "OwnerType": "WUYING"
+   *     }
+   *   ]
+   * }
+   * ```
+   * ### No matching results
+   * ```json
+   * {
+   *   "RequestId": "00000000-1111-4222-8333-444444444444",
+   *   "Count": 0,
+   *   "DriverInfos": []
+   * }
+   * ```
+   * 
+   * @param request - DescribePeripheralDriversRequest
+   * @returns DescribePeripheralDriversResponse
+   */
+  async describePeripheralDrivers(request: $_model.DescribePeripheralDriversRequest): Promise<$_model.DescribePeripheralDriversResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describePeripheralDriversWithOptions(request, runtime);
   }
 
   /**
@@ -12209,7 +12419,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the snapshot list and snapshot details of a cloud computer.
+   * Queries the snapshot list and detailed snapshot information of a cloud computer.
    * 
    * @param request - DescribeSnapshotsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12292,7 +12502,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the snapshot list and snapshot details of a cloud computer.
+   * Queries the snapshot list and detailed snapshot information of a cloud computer.
    * 
    * @param request - DescribeSnapshotsRequest
    * @returns DescribeSnapshotsResponse
@@ -12944,6 +13154,188 @@ export default class Client extends OpenApi {
   async describeVirtualMFADevices(request: $_model.DescribeVirtualMFADevicesRequest): Promise<$_model.DescribeVirtualMFADevicesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeVirtualMFADevicesWithOptions(request, runtime);
+  }
+
+  /**
+   * Retrieves cloud computer information for a vulnerability.
+   * 
+   * @remarks
+   * - This operation uses a centralized domain name. The access point is in the China (Shanghai) region. Other regions are not supported.
+   * - The cloud computer status information returned by this operation has a 1 to 3 second delay from the actual values.
+   * 
+   * @param request - DescribeVulDesktopsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeVulDesktopsResponse
+   */
+  async describeVulDesktopsWithOptions(request: $_model.DescribeVulDesktopsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeVulDesktopsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.cveId)) {
+      query["CveId"] = request.cveId;
+    }
+
+    if (!$dara.isNull(request.desktopIdList)) {
+      query["DesktopIdList"] = request.desktopIdList;
+    }
+
+    if (!$dara.isNull(request.includeFixResult)) {
+      query["IncludeFixResult"] = request.includeFixResult;
+    }
+
+    if (!$dara.isNull(request.language)) {
+      query["Language"] = request.language;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.onlyCurrentMonthFixAttempted)) {
+      query["OnlyCurrentMonthFixAttempted"] = request.onlyCurrentMonthFixAttempted;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.patchId)) {
+      query["PatchId"] = request.patchId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!$dara.isNull(request.searchRegionId)) {
+      query["SearchRegionId"] = request.searchRegionId;
+    }
+
+    if (!$dara.isNull(request.statusList)) {
+      query["StatusList"] = request.statusList;
+    }
+
+    if (!$dara.isNull(request.vulLevel)) {
+      query["VulLevel"] = request.vulLevel;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeVulDesktops",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeVulDesktopsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeVulDesktopsResponse({}));
+  }
+
+  /**
+   * Retrieves cloud computer information for a vulnerability.
+   * 
+   * @remarks
+   * - This operation uses a centralized domain name. The access point is in the China (Shanghai) region. Other regions are not supported.
+   * - The cloud computer status information returned by this operation has a 1 to 3 second delay from the actual values.
+   * 
+   * @param request - DescribeVulDesktopsRequest
+   * @returns DescribeVulDesktopsResponse
+   */
+  async describeVulDesktops(request: $_model.DescribeVulDesktopsRequest): Promise<$_model.DescribeVulDesktopsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeVulDesktopsWithOptions(request, runtime);
+  }
+
+  /**
+   * Retrieves vulnerability information.
+   * 
+   * @remarks
+   * After security protection is enabled, the system automatically scans cloud desktops for system vulnerabilities on a periodic basis (once a day).
+   * 
+   * @param request - DescribeVulnerabilityRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeVulnerabilityResponse
+   */
+  async describeVulnerabilityWithOptions(request: $_model.DescribeVulnerabilityRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeVulnerabilityResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.cveId)) {
+      query["CveId"] = request.cveId;
+    }
+
+    if (!$dara.isNull(request.includeDesktop)) {
+      query["IncludeDesktop"] = request.includeDesktop;
+    }
+
+    if (!$dara.isNull(request.language)) {
+      query["Language"] = request.language;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.patchId)) {
+      query["PatchId"] = request.patchId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.searchRegionId)) {
+      query["SearchRegionId"] = request.searchRegionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeVulnerability",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeVulnerabilityResponse>(await this.callApi(params, req, runtime), new $_model.DescribeVulnerabilityResponse({}));
+  }
+
+  /**
+   * Retrieves vulnerability information.
+   * 
+   * @remarks
+   * After security protection is enabled, the system automatically scans cloud desktops for system vulnerabilities on a periodic basis (once a day).
+   * 
+   * @param request - DescribeVulnerabilityRequest
+   * @returns DescribeVulnerabilityResponse
+   */
+  async describeVulnerability(request: $_model.DescribeVulnerabilityRequest): Promise<$_model.DescribeVulnerabilityResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeVulnerabilityWithOptions(request, runtime);
   }
 
   /**
@@ -14121,7 +14513,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves user information from an enterprise Active Directory (AD) when you use an AD directory to connect to your enterprise AD.
+   * Retrieves user information from an enterprise Active Directory (AD) if you use an AD directory to connect to your enterprise AD.
    * 
    * @param request - ListDirectoryUsersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14184,7 +14576,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves user information from an enterprise Active Directory (AD) when you use an AD directory to connect to your enterprise AD.
+   * Retrieves user information from an enterprise Active Directory (AD) if you use an AD directory to connect to your enterprise AD.
    * 
    * @param request - ListDirectoryUsersRequest
    * @returns ListDirectoryUsersResponse
@@ -14777,7 +15169,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Migrates cloud computers from the current office network (formerly known as workspace) to a new office network.
+   * Migrates cloud computers from the current office network to a new office network.
    * 
    * @param request - MigrateDesktopsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14824,7 +15216,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Migrates cloud computers from the current office network (formerly known as workspace) to a new office network.
+   * Migrates cloud computers from the current office network to a new office network.
    * 
    * @param request - MigrateDesktopsRequest
    * @returns MigrateDesktopsResponse
@@ -18688,10 +19080,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Grants permissions on cloud desktops to end users, or revokes the permissions from the end users.
+   * Adds or removes the authorization of one or more cloud computers for one or more users.
    * 
    * @remarks
-   * You can modify end users only for cloud computers that are in the Running state.
+   * Only cloud computers in the Running state support modifying authorized users.
    * 
    * @param request - ModifyUserEntitlementRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18734,10 +19126,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Grants permissions on cloud desktops to end users, or revokes the permissions from the end users.
+   * Adds or removes the authorization of one or more cloud computers for one or more users.
    * 
    * @remarks
-   * You can modify end users only for cloud computers that are in the Running state.
+   * Only cloud computers in the Running state support modifying authorized users.
    * 
    * @param request - ModifyUserEntitlementRequest
    * @returns ModifyUserEntitlementResponse
@@ -19004,6 +19396,122 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the trend of active user count statistics within a specified time range. Returns the deduplicated active user count at each time slice based on the specified aggregation interval (Period), which can be used to plot online user trend charts.
+   * 
+   * @param request - QueryActiveUserStatisticRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryActiveUserStatisticResponse
+   */
+  async queryActiveUserStatisticWithOptions(request: $_model.QueryActiveUserStatisticRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryActiveUserStatisticResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.bizType)) {
+      query["BizType"] = request.bizType;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.officeSiteId)) {
+      query["OfficeSiteId"] = request.officeSiteId;
+    }
+
+    if (!$dara.isNull(request.period)) {
+      query["Period"] = request.period;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryActiveUserStatistic",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryActiveUserStatisticResponse>(await this.callApi(params, req, runtime), new $_model.QueryActiveUserStatisticResponse({}));
+  }
+
+  /**
+   * Queries the trend of active user count statistics within a specified time range. Returns the deduplicated active user count at each time slice based on the specified aggregation interval (Period), which can be used to plot online user trend charts.
+   * 
+   * @param request - QueryActiveUserStatisticRequest
+   * @returns QueryActiveUserStatisticResponse
+   */
+  async queryActiveUserStatistic(request: $_model.QueryActiveUserStatisticRequest): Promise<$_model.QueryActiveUserStatisticResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.queryActiveUserStatisticWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the usage duration ranking and details of each end user under a tenant within a specified date range. Aggregates offline statistical data, summarizes connection duration by user dimension, and populates basic information and per-desktop usage duration details for users on the current page.
+   * 
+   * @param request - QueryEndUserHistoryUsageRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryEndUserHistoryUsageResponse
+   */
+  async queryEndUserHistoryUsageWithOptions(request: $_model.QueryEndUserHistoryUsageRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryEndUserHistoryUsageResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.endDate)) {
+      query["EndDate"] = request.endDate;
+    }
+
+    if (!$dara.isNull(request.isAdUser)) {
+      query["IsAdUser"] = request.isAdUser;
+    }
+
+    if (!$dara.isNull(request.pageNum)) {
+      query["PageNum"] = request.pageNum;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.startDate)) {
+      query["StartDate"] = request.startDate;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryEndUserHistoryUsage",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryEndUserHistoryUsageResponse>(await this.callApi(params, req, runtime), new $_model.QueryEndUserHistoryUsageResponse({}));
+  }
+
+  /**
+   * Queries the usage duration ranking and details of each end user under a tenant within a specified date range. Aggregates offline statistical data, summarizes connection duration by user dimension, and populates basic information and per-desktop usage duration details for users on the current page.
+   * 
+   * @param request - QueryEndUserHistoryUsageRequest
+   * @returns QueryEndUserHistoryUsageResponse
+   */
+  async queryEndUserHistoryUsage(request: $_model.QueryEndUserHistoryUsageRequest): Promise<$_model.QueryEndUserHistoryUsageResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.queryEndUserHistoryUsageWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the historical daily active user count and monthly active user count for a specified date.
    * 
    * @remarks
@@ -19055,6 +19563,68 @@ export default class Client extends OpenApi {
   async queryHistoryActiveUserCount(request: $_model.QueryHistoryActiveUserCountRequest): Promise<$_model.QueryHistoryActiveUserCountResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.queryHistoryActiveUserCountWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the daily historical active user count for a tenant within a specified time range. Based on offline statistical data, this operation aggregates and deduplicates active users by date to calculate daily active users (DAU). Filtering by user group and workspace is supported.
+   * 
+   * @param request - QueryHistoryActiveUserStatisticRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryHistoryActiveUserStatisticResponse
+   */
+  async queryHistoryActiveUserStatisticWithOptions(request: $_model.QueryHistoryActiveUserStatisticRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryHistoryActiveUserStatisticResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.bizType)) {
+      query["BizType"] = request.bizType;
+    }
+
+    if (!$dara.isNull(request.endDate)) {
+      query["EndDate"] = request.endDate;
+    }
+
+    if (!$dara.isNull(request.officeSiteId)) {
+      query["OfficeSiteId"] = request.officeSiteId;
+    }
+
+    if (!$dara.isNull(request.period)) {
+      query["Period"] = request.period;
+    }
+
+    if (!$dara.isNull(request.startDate)) {
+      query["StartDate"] = request.startDate;
+    }
+
+    if (!$dara.isNull(request.userGroupId)) {
+      query["UserGroupId"] = request.userGroupId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryHistoryActiveUserStatistic",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryHistoryActiveUserStatisticResponse>(await this.callApi(params, req, runtime), new $_model.QueryHistoryActiveUserStatisticResponse({}));
+  }
+
+  /**
+   * Queries the daily historical active user count for a tenant within a specified time range. Based on offline statistical data, this operation aggregates and deduplicates active users by date to calculate daily active users (DAU). Filtering by user group and workspace is supported.
+   * 
+   * @param request - QueryHistoryActiveUserStatisticRequest
+   * @returns QueryHistoryActiveUserStatisticResponse
+   */
+  async queryHistoryActiveUserStatistic(request: $_model.QueryHistoryActiveUserStatisticRequest): Promise<$_model.QueryHistoryActiveUserStatisticResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.queryHistoryActiveUserStatisticWithOptions(request, runtime);
   }
 
   /**
@@ -19300,10 +19870,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Reboots one or more desktops.
+   * Restarts one or more cloud computers.
    * 
    * @remarks
-   * The desktops must be in the Running state.
+   * The cloud computers must be in the Running state.
    * 
    * @param request - RebootDesktopsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -19350,10 +19920,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Reboots one or more desktops.
+   * Restarts one or more cloud computers.
    * 
    * @remarks
-   * The desktops must be in the Running state.
+   * The cloud computers must be in the Running state.
    * 
    * @param request - RebootDesktopsRequest
    * @returns RebootDesktopsResponse
@@ -20268,7 +20838,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Executes a PowerShell or Bat script on one or more cloud computers that run the Windows operating system.
+   * Executes a PowerShell or Bat script on one or more cloud computers that run Windows.
    * 
    * @param request - RunCommandRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -20327,7 +20897,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Executes a PowerShell or Bat script on one or more cloud computers that run the Windows operating system.
+   * Executes a PowerShell or Bat script on one or more cloud computers that run Windows.
    * 
    * @param request - RunCommandRequest
    * @returns RunCommandResponse
@@ -20838,10 +21408,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Starts stopped cloud computers. After the API operation is successfully called, the cloud computers enter the Running state.
+   * Starts one or more stopped cloud computers. After the operation is called successfully, the cloud computers enter the Running state.
    * 
    * @remarks
-   * The cloud computers that you want to start must be in the Stopped state.
+   * The cloud computers must be in the Stopped state.
    * 
    * @param request - StartDesktopsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -20876,10 +21446,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Starts stopped cloud computers. After the API operation is successfully called, the cloud computers enter the Running state.
+   * Starts one or more stopped cloud computers. After the operation is called successfully, the cloud computers enter the Running state.
    * 
    * @remarks
-   * The cloud computers that you want to start must be in the Stopped state.
+   * The cloud computers must be in the Stopped state.
    * 
    * @param request - StartDesktopsRequest
    * @returns StartDesktopsResponse

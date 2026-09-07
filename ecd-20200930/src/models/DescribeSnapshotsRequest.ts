@@ -30,7 +30,7 @@ export class DescribeSnapshotsRequest extends $dara.Model {
   desktopScenario?: string;
   /**
    * @remarks
-   * The end of the time range during which the snapshot was created. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the `yyyy-mm-ddthh:mm:ssz` format. The time must be in UTC.
+   * The end of the time range during which the snapshots were created. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the `yyyy-mm-ddthh:mm:ssz` format. The time must be in UTC.
    * 
    * @example
    * 2020-11-31T06:32:31Z
@@ -83,7 +83,7 @@ export class DescribeSnapshotsRequest extends $dara.Model {
   snapshotId?: string;
   /**
    * @remarks
-   * The display name of the snapshot. The name must be 2 to 127 characters in length and can contain letters, digits, underscores (_), and hyphens (-). The name must start with a letter or Chinese character. The name cannot start with `auto` to avoid conflicts with automatic snapshot names.
+   * The display name of the snapshot. The name must be 2 to 127 characters in length and can contain letters, digits, underscores (_), and hyphens (-). The name must start with a letter. The name cannot start with `auto` to avoid conflicts with automatic snapshot names.
    * 
    * @example
    * Test data disk
@@ -99,7 +99,7 @@ export class DescribeSnapshotsRequest extends $dara.Model {
   snapshotType?: string;
   /**
    * @remarks
-   * The type of the cloud disk for which to create the snapshot.
+   * The type of the cloud disk from which the snapshot is created.
    * 
    * > The value is case-insensitive.
    * 
@@ -109,7 +109,7 @@ export class DescribeSnapshotsRequest extends $dara.Model {
   sourceDiskType?: string;
   /**
    * @remarks
-   * The beginning of the time range during which the snapshot was created. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the `yyyy-mm-ddthh:mm:ssz` format. The time must be in UTC.
+   * The beginning of the time range during which the snapshots were created. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the `yyyy-mm-ddthh:mm:ssz` format. The time must be in UTC.
    * 
    * @example
    * 2020-11-30T06:32:31Z

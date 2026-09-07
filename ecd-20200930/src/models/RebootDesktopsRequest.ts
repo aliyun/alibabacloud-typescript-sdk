@@ -3,10 +3,14 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class RebootDesktopsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to create a snapshot.
+   */
   createSnapshot?: boolean;
   /**
    * @remarks
-   * An array of 1 to 100 desktop IDs.
+   * The cloud computer ID. You can specify 1 to 100 IDs.
    * 
    * This parameter is required.
    * 
@@ -20,13 +24,16 @@ export class RebootDesktopsRequest extends $dara.Model {
    */
   osUpdate?: boolean;
   /**
+   * @remarks
+   * The patch ID.
+   * 
    * @example
    * KB5082063
    */
   patchId?: string;
   /**
    * @remarks
-   * The ID of the region. Call [DescribeRegions](~~DescribeRegions~~) to get a list of regions where Elastic Desktop Service is available.
+   * The region ID. You can call [DescribeRegions](~~DescribeRegions~~) to query the regions supported by Elastic Desktop Service.
    * 
    * This parameter is required.
    * 

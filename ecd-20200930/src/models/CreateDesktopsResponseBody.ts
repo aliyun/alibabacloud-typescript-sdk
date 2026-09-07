@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDesktopsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The IDs of the cloud desktops. If multiple cloud desktops are created in a single call, multiple cloud desktop IDs are returned.
+   * The collection of cloud computer IDs. If multiple cloud computers are created in a single call, multiple cloud computer IDs are returned.
    */
   desktopId?: string[];
   /**

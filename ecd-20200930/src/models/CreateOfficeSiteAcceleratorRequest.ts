@@ -15,7 +15,7 @@ export class CreateOfficeSiteAcceleratorRequestAccelerateRegion extends $dara.Mo
   accelerateRegionId?: string;
   /**
    * @remarks
-   * The bandwidth allocated to the acceleration region. Unit: Mbps.
+   * The bandwidth allocated to the acceleration region. Unit: Mbit/s.
    * 
    * This parameter is required.
    * 
@@ -25,9 +25,9 @@ export class CreateOfficeSiteAcceleratorRequestAccelerateRegion extends $dara.Mo
   bandwidth?: number;
   /**
    * @remarks
-   * The IP protocol version used to access the GA instance.
+   * The IP address protocol used to connect to the GA service.
    * 
-   * > Only standard pay-as-you-go GA instances support `DUAL_STACK`.
+   * > The `DUAL_STACK` type is supported only by standard pay-as-you-go GA instances.
    * 
    * @example
    * IPv4
@@ -35,11 +35,10 @@ export class CreateOfficeSiteAcceleratorRequestAccelerateRegion extends $dara.Mo
   ipVersion?: string;
   /**
    * @remarks
-   * The line type.
+   * The public network line type of the acceleration region.
    * 
-   * > - This parameter is required for pay-by-data-transfer GA instances.
-   * >
-   * > - The supported line types vary by acceleration region.
+   * > - Configure this parameter for GA instances that use the **pay-by-data-transfer** billing method.
+   * > - The supported public network line types vary by acceleration region.
    * 
    * This parameter is required.
    * 
@@ -77,7 +76,7 @@ export class CreateOfficeSiteAcceleratorRequestAccelerateRegion extends $dara.Mo
 export class CreateOfficeSiteAcceleratorRequest extends $dara.Model {
   /**
    * @remarks
-   * A list of regions where access points provide acceleration.
+   * The list of acceleration region information for the access points.
    * 
    * This parameter is required.
    */

@@ -5,7 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class RunCommandRequest extends $dara.Model {
   /**
    * @remarks
-   * The plaintext or Base64-encoded content of the script. The Base64-encoded script content cannot exceed 16 KB.
+   * The plaintext or Base64-encoded content of the script.  
+   * The Base64-encoded script content cannot exceed 16 KB.
    * 
    * > If the script content is Base64-encoded, set the ContentEncoding parameter to Base64.
    * 
@@ -27,7 +28,7 @@ export class RunCommandRequest extends $dara.Model {
    * @remarks
    * The encoding method of the script content.
    * 
-   * > If the specified value is not within the valid values, the value is treated as PlainText.
+   * > If the specified value is not within the valid values, the value is treated as `PlainText`.
    * 
    * @example
    * Base64
@@ -35,7 +36,8 @@ export class RunCommandRequest extends $dara.Model {
   contentEncoding?: string;
   /**
    * @remarks
-   * The IDs of cloud computers. Valid values of N: 1 to 50. If you specify multiple cloud computers, the API call succeeds as long as the script is successfully executed on at least one cloud computer. If the script fails to be executed on all specified cloud computers, reset this parameter.
+   * The list of cloud computer IDs. Valid values of N: 1 to 50.  
+   * If multiple cloud computers are specified, the API call succeeds as long as the script is successfully executed on at least one cloud computer. If the script fails to execute on all specified cloud computers, reset this parameter.
    * 
    * This parameter is required.
    */
@@ -44,7 +46,7 @@ export class RunCommandRequest extends $dara.Model {
    * @remarks
    * The ID of the end user. If this parameter is specified, the command is executed with the permissions of the end user.
    * 
-   * > The user must have a session record on the cloud computer (the user has logged on and connected to the cloud computer after it is started, and the connection was not preempted by another user). This parameter is not supported for Linux cloud computers.
+   * > The user must have a session record on the cloud computer (the user has logged on and connected to the cloud computer after it was started, and the session was not preempted by another user). This parameter is not supported for Linux cloud computers.
    * 
    * @example
    * alice
@@ -62,7 +64,8 @@ export class RunCommandRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The timeout period for executing the script. Unit: seconds. Default value: 300. A timeout may occur when the script cannot run due to process issues, missing modules, or missing Cloud Assistant Agent. After a timeout, the script process is forcefully terminated.
+   * The timeout period for executing the script. Unit: seconds. Default value: 300.  
+   * A timeout may occur when the script cannot run because of process issues, missing modules, or a missing Cloud Assistant client. After a timeout, the script process is forcefully terminated.
    * 
    * @example
    * 3600

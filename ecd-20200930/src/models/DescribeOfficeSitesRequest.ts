@@ -13,7 +13,7 @@ export class DescribeOfficeSitesRequest extends $dara.Model {
   accountType?: string;
   /**
    * @remarks
-   * The number of entries per page for a paged query.    
+   * The number of entries per page for a paginated query.    
    * 
    * - Maximum value: 100.    
    * - Default value: 10.
@@ -48,7 +48,7 @@ export class DescribeOfficeSitesRequest extends $dara.Model {
   officeSiteType?: string;
   /**
    * @remarks
-   * The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to query the regions supported by WUYING Workspace.
+   * The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to query the regions supported by Elastic Desktop Service.
    * 
    * This parameter is required.
    * 
@@ -58,7 +58,7 @@ export class DescribeOfficeSitesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The Network Security Protection Settings of the office network.
+   * The security protection configuration of the office network.
    * 
    * @example
    * SASE
@@ -66,7 +66,7 @@ export class DescribeOfficeSitesRequest extends $dara.Model {
   securityProtection?: string;
   /**
    * @remarks
-   * The status of the office network.
+   * The office network status.
    * 
    * @example
    * REGISTERED
@@ -74,9 +74,9 @@ export class DescribeOfficeSitesRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The ID of the VPC in which the office network of the shared cloud computer resides.
+   * The VPC ID of the office network for shared cloud computers.
    * 
-   * > This parameter is not yet available.
+   * > This parameter is not yet available for use.
    * 
    * @example
    * vpc-uf6w8u60n8xbkg5el****

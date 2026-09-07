@@ -80,7 +80,7 @@ export class DescribeSnapshotsResponseBodySnapshots extends $dara.Model {
   osType?: string;
   /**
    * @remarks
-   * The snapshot creation progress. Unit: percent.
+   * The snapshot creation progress, in percentage.
    * 
    * @example
    * 100%
@@ -117,7 +117,7 @@ export class DescribeSnapshotsResponseBodySnapshots extends $dara.Model {
    * The restore point name.
    * 
    * @example
-   * 数据盘备份
+   * DataDiskBackup
    */
   restorePointName?: string;
   /**

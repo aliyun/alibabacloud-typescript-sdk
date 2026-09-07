@@ -22,7 +22,7 @@ export class MigrateDesktopsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The member IP address of the target node for migration.
+   * The member IP address of the destination node for migration.
    * 
    * @example
    * 192.168.1.10
@@ -30,7 +30,7 @@ export class MigrateDesktopsRequest extends $dara.Model {
   targetMemberIp?: string;
   /**
    * @remarks
-   * The ID of the target office network.
+   * The ID of the destination office network.
    * 
    * This parameter is required.
    * 
@@ -40,7 +40,7 @@ export class MigrateDesktopsRequest extends $dara.Model {
   targetOfficeSiteId?: string;
   /**
    * @remarks
-   * > This parameter is not publicly available.
+   * > This parameter is not yet available for use.
    * 
    * @example
    * vsw-bp1m3o4kbjxwe****

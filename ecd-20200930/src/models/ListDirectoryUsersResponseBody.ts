@@ -24,7 +24,7 @@ export class ListDirectoryUsersResponseBodyUsers extends $dara.Model {
    * The new display name of the user.
    * 
    * @example
-   * 张三
+   * Zhang San
    */
   displayNameNew?: string;
   /**
@@ -45,7 +45,7 @@ export class ListDirectoryUsersResponseBodyUsers extends $dara.Model {
   endUser?: string;
   /**
    * @remarks
-   * The phone number.
+   * The mobile phone number.
    * 
    * @example
    * 130********
@@ -95,7 +95,7 @@ export class ListDirectoryUsersResponseBodyUsers extends $dara.Model {
 export class ListDirectoryUsersResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The pagination token for the next query. An empty value indicates that no more results exist.
+   * The token for the next query. If this parameter is empty, no more results are available.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a4883
