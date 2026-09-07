@@ -11,6 +11,9 @@ export class ListApiKeysResponseBodyApiKeysAuthModelAccessScope extends $dara.Mo
   /**
    * @remarks
    * Indicates whether access to all models with inference permissions in the workspace is allowed.
+   * 
+   * @example
+   * false
    */
   allowAllModels?: boolean;
   static names(): { [key: string]: string } {
@@ -154,6 +157,11 @@ export class ListApiKeysResponseBodyApiKeys extends $dara.Model {
    * ws-950f9aca7e76c816
    */
   workspaceId?: string;
+  /**
+   * @example
+   * workspace_test
+   */
+  workspaceName?: string;
   static names(): { [key: string]: string } {
     return {
       apiKeyId: 'apiKeyId',
@@ -164,6 +172,7 @@ export class ListApiKeysResponseBodyApiKeys extends $dara.Model {
       disabled: 'disabled',
       gmtCreate: 'gmtCreate',
       workspaceId: 'workspaceId',
+      workspaceName: 'workspaceName',
     };
   }
 
@@ -177,6 +186,7 @@ export class ListApiKeysResponseBodyApiKeys extends $dara.Model {
       disabled: 'number',
       gmtCreate: 'number',
       workspaceId: 'string',
+      workspaceName: 'string',
     };
   }
 

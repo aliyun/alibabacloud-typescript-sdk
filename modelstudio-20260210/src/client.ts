@@ -12,13 +12,6 @@ export default class Client extends OpenApi {
   constructor(config: $OpenApiUtil.Config) {
     super(config);
     this._endpointRule = "regional";
-    this._endpointMap = {
-      'cn-beijing': "modelstudio.cn-beijing.aliyuncs.com",
-      'cn-hongkong': "modelstudio.cn-hongkong.aliyuncs.com",
-      'ap-southeast-1': "modelstudio.ap-southeast-1.aliyuncs.com",
-      'us-east-1': "modelstudio.us-east-1.aliyuncs.com",
-      'eu-central-1': "modelstudio.eu-central-1.aliyuncs.com",
-    };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("modelstudio", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }

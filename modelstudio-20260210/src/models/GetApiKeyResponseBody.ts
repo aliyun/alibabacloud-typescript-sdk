@@ -160,6 +160,11 @@ export class GetApiKeyResponseBodyApiKey extends $dara.Model {
    * ws-b2d30f148c236908
    */
   workspaceId?: string;
+  /**
+   * @example
+   * workspace_test
+   */
+  workspaceName?: string;
   static names(): { [key: string]: string } {
     return {
       apiKeyId: 'apiKeyId',
@@ -170,6 +175,7 @@ export class GetApiKeyResponseBodyApiKey extends $dara.Model {
       disabled: 'disabled',
       gmtCreate: 'gmtCreate',
       workspaceId: 'workspaceId',
+      workspaceName: 'workspaceName',
     };
   }
 
@@ -183,6 +189,7 @@ export class GetApiKeyResponseBodyApiKey extends $dara.Model {
       disabled: 'number',
       gmtCreate: 'number',
       workspaceId: 'string',
+      workspaceName: 'string',
     };
   }
 
