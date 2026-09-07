@@ -12,10 +12,6 @@ export default class Client extends OpenApi {
   constructor(config: $OpenApiUtil.Config) {
     super(config);
     this._endpointRule = "regional";
-    this._endpointMap = {
-      'cn-shanghai': "eds-user.cn-shanghai.aliyuncs.com",
-      'ap-southeast-1': "eds-user.ap-southeast-1.aliyuncs.com",
-    };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("eds-user", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
@@ -718,7 +714,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query user groups.
+   * Queries user groups.
    * 
    * @param request - DescribeGroupsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -789,7 +785,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query user groups.
+   * Queries user groups.
    * 
    * @param request - DescribeGroupsRequest
    * @returns DescribeGroupsResponse
@@ -916,10 +912,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of organizations.
+   * Queries the list of organizations.
    * 
    * @remarks
-   * Organizations are arranged in a tree-like structure. The root organization ID is org-aliyun-wy-org-id.
+   * Organizations have a tree structure. The root organization ID is org-aliyun-wy-org-id.
    * 
    * @param tmpReq - DescribeOrgsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -940,6 +936,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.includeOrgIds)) {
       query["IncludeOrgIds"] = request.includeOrgIds;
+    }
+
+    if (!$dara.isNull(request.isQueryAllSubOrgs)) {
+      query["IsQueryAllSubOrgs"] = request.isQueryAllSubOrgs;
     }
 
     if (!$dara.isNull(request.maxResults)) {
@@ -980,10 +980,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of organizations.
+   * Queries the list of organizations.
    * 
    * @remarks
-   * Organizations are arranged in a tree-like structure. The root organization ID is org-aliyun-wy-org-id.
+   * Organizations have a tree structure. The root organization ID is org-aliyun-wy-org-id.
    * 
    * @param request - DescribeOrgsRequest
    * @returns DescribeOrgsResponse
@@ -1122,7 +1122,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves directory account information, including the username, email address, and display name.
+   * Queries convenience account information, such as usernames, email addresses, and remarks.
    * 
    * @param tmpReq - DescribeUsersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1237,7 +1237,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves directory account information, including the username, email address, and display name.
+   * Queries convenience account information, such as usernames, email addresses, and remarks.
    * 
    * @param request - DescribeUsersRequest
    * @returns DescribeUsersResponse
@@ -1372,6 +1372,66 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取用户数量
+   * 
+   * @remarks
+   * 出于安全考虑，您可以锁定便捷账号。被锁定的便捷用户无法登录无影终端，因此也无法访问任何无影云资源。
+   * > 您可以调用[DescribeUsers](https://help.aliyun.com/document_detail/283609.html)查询便捷账号信息。若返回数据中`Status`取值为0，表示该便捷账号未被锁定；若`Status`取值为9，表示该便捷账号已被锁定。
+   * 
+   * @param request - GetAdUsersCountRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAdUsersCountResponse
+   */
+  async getAdUsersCountWithOptions(request: $_model.GetAdUsersCountRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetAdUsersCountResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.businessChannel)) {
+      query["BusinessChannel"] = request.businessChannel;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.bizType)) {
+      body["BizType"] = request.bizType;
+    }
+
+    if (!$dara.isNull(request.solutionId)) {
+      body["SolutionId"] = request.solutionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetAdUsersCount",
+      version: "2021-03-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetAdUsersCountResponse>(await this.callApi(params, req, runtime), new $_model.GetAdUsersCountResponse({}));
+  }
+
+  /**
+   * 获取用户数量
+   * 
+   * @remarks
+   * 出于安全考虑，您可以锁定便捷账号。被锁定的便捷用户无法登录无影终端，因此也无法访问任何无影云资源。
+   * > 您可以调用[DescribeUsers](https://help.aliyun.com/document_detail/283609.html)查询便捷账号信息。若返回数据中`Status`取值为0，表示该便捷账号未被锁定；若`Status`取值为9，表示该便捷账号已被锁定。
+   * 
+   * @param request - GetAdUsersCountRequest
+   * @returns GetAdUsersCountResponse
+   */
+  async getAdUsersCount(request: $_model.GetAdUsersCountRequest): Promise<$_model.GetAdUsersCountResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getAdUsersCountWithOptions(request, runtime);
+  }
+
+  /**
    * Obtains the information about the current logon administrator based on the authorization code.
    * 
    * @param request - GetManagerInfoByAuthCodeRequest
@@ -1411,6 +1471,66 @@ export default class Client extends OpenApi {
   async getManagerInfoByAuthCode(request: $_model.GetManagerInfoByAuthCodeRequest): Promise<$_model.GetManagerInfoByAuthCodeResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getManagerInfoByAuthCodeWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取用户数量
+   * 
+   * @remarks
+   * 出于安全考虑，您可以锁定便捷账号。被锁定的便捷用户无法登录无影终端，因此也无法访问任何无影云资源。
+   * > 您可以调用[DescribeUsers](https://help.aliyun.com/document_detail/283609.html)查询便捷账号信息。若返回数据中`Status`取值为0，表示该便捷账号未被锁定；若`Status`取值为9，表示该便捷账号已被锁定。
+   * 
+   * @param request - GetUsersCountRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetUsersCountResponse
+   */
+  async getUsersCountWithOptions(request: $_model.GetUsersCountRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetUsersCountResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.businessChannel)) {
+      query["BusinessChannel"] = request.businessChannel;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.bizType)) {
+      body["BizType"] = request.bizType;
+    }
+
+    if (!$dara.isNull(request.solutionId)) {
+      body["SolutionId"] = request.solutionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetUsersCount",
+      version: "2021-03-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetUsersCountResponse>(await this.callApi(params, req, runtime), new $_model.GetUsersCountResponse({}));
+  }
+
+  /**
+   * 获取用户数量
+   * 
+   * @remarks
+   * 出于安全考虑，您可以锁定便捷账号。被锁定的便捷用户无法登录无影终端，因此也无法访问任何无影云资源。
+   * > 您可以调用[DescribeUsers](https://help.aliyun.com/document_detail/283609.html)查询便捷账号信息。若返回数据中`Status`取值为0，表示该便捷账号未被锁定；若`Status`取值为9，表示该便捷账号已被锁定。
+   * 
+   * @param request - GetUsersCountRequest
+   * @returns GetUsersCountResponse
+   */
+  async getUsersCount(request: $_model.GetUsersCountRequest): Promise<$_model.GetUsersCountResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getUsersCountWithOptions(request, runtime);
   }
 
   /**

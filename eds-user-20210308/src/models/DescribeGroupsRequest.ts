@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeGroupsRequest extends $dara.Model {
   /**
    * @remarks
-   * > This parameter is for internal use only.
+   * > This parameter is not publicly available.
    * 
    * @example
    * ENTERPRISE
@@ -14,12 +14,12 @@ export class DescribeGroupsRequest extends $dara.Model {
   businessChannel?: string;
   /**
    * @remarks
-   * Specifies whether to exclude user groups that are already associated with a logon policy.
+   * Specifies whether to exclude user groups that have associated logon policies.
    */
   excludeAttachedLoginPolicyGroups?: boolean;
   /**
    * @remarks
-   * The ID of the user group.
+   * The user group ID.
    * 
    * @example
    * ug-16nf7xxh4o9gc****
@@ -27,7 +27,7 @@ export class DescribeGroupsRequest extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
-   * The name of the user group.
+   * The user group name.
    * 
    * @example
    * TestGroup
@@ -36,12 +36,12 @@ export class DescribeGroupsRequest extends $dara.Model {
   idpId?: string;
   /**
    * @remarks
-   * The ID of a logon policy. If you specify this parameter, the call returns only user groups associated with the policy.
+   * Filters user groups by the specified associated logon policy.
    */
   loginPolicyId?: string;
   /**
    * @remarks
-   * The page number to return.
+   * The page number for a paged query.
    * 
    * @example
    * 1
@@ -49,7 +49,7 @@ export class DescribeGroupsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Maximum value: 100. Default value: 10.
+   * The number of entries per page for a paged query. Maximum value: 100. Default value: 10.
    * 
    * @example
    * 10
@@ -57,7 +57,7 @@ export class DescribeGroupsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * > This parameter is for internal use only.
+   * > This parameter is not publicly available.
    * 
    * @example
    * co-0esnf80jab***
@@ -65,7 +65,7 @@ export class DescribeGroupsRequest extends $dara.Model {
   solutionId?: string;
   /**
    * @remarks
-   * Specifies whether file approval is enabled.
+   * Indicates whether file approval is enabled.
    * 
    * @example
    * false

@@ -14,8 +14,13 @@ export class DescribeOrgsShrinkRequest extends $dara.Model {
   includeOrgIds?: string[];
   /**
    * @remarks
-   * The maximum number of entries to return. Valid values: 1 to 100.<br>
-   * Default value: 100.<br>
+   * Specifies whether to query all subordinate organizations when a parent organization is specified.
+   */
+  isQueryAllSubOrgs?: boolean;
+  /**
+   * @remarks
+   * The maximum number of results to return. Valid values: 1 to 100.    
+   * Default value: 100.
    * 
    * @example
    * 20
@@ -23,7 +28,7 @@ export class DescribeOrgsShrinkRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token. To retrieve the next page of results, set this parameter to the `NextToken` value that was returned from a previous request.
+   * The pagination token. Set this parameter to the value of NextToken that was returned in the previous API call.
    * 
    * @example
    * AAAAAV3MpHK****
@@ -34,7 +39,7 @@ export class DescribeOrgsShrinkRequest extends $dara.Model {
    * The organization name.
    * 
    * @example
-   * 产品部
+   * ProductDepartment
    */
   orgName?: string;
   /**
@@ -50,6 +55,7 @@ export class DescribeOrgsShrinkRequest extends $dara.Model {
     return {
       businessChannel: 'BusinessChannel',
       includeOrgIds: 'IncludeOrgIds',
+      isQueryAllSubOrgs: 'IsQueryAllSubOrgs',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
       orgName: 'OrgName',
@@ -62,6 +68,7 @@ export class DescribeOrgsShrinkRequest extends $dara.Model {
     return {
       businessChannel: 'string',
       includeOrgIds: { 'type': 'array', 'itemType': 'string' },
+      isQueryAllSubOrgs: 'boolean',
       maxResults: 'number',
       nextToken: 'string',
       orgName: 'string',

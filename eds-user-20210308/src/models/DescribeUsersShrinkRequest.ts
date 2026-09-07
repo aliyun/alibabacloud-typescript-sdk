@@ -6,7 +6,7 @@ export class DescribeUsersShrinkRequest extends $dara.Model {
   bizType?: string;
   /**
    * @remarks
-   * Status
+   * The channel.
    * 
    * @example
    * ENTERPRISE
@@ -14,41 +14,33 @@ export class DescribeUsersShrinkRequest extends $dara.Model {
   businessChannel?: string;
   /**
    * @remarks
-   * The list of usernames (EndUserId) that you want to exactly match.
+   * The list of usernames (EndUserId) for exact match.
    */
   endUserIds?: string[];
   /**
    * @remarks
-   * The list of usernames (EndUserId) that you want to exactly exclude.
+   * The list of usernames (EndUserId) to exclude exactly.
    */
   excludeEndUserIds?: string[];
-  /**
-   * @remarks
-   * The ID of the user group to exclude. If specified, the query returns users who are not in this user group.
-   */
   excludeGroupId?: string;
   /**
    * @remarks
-   * The filter for a fuzzy search. The filter matches usernames (EndUserId) and email addresses (Email). This parameter supports the wildcard character (\\*). For example, if you set this parameter to `a*m`, all results whose usernames or email addresses start with `a` and end with `m` are returned.
+   * The fuzzy search string that supports matching by username (EndUserId) and email (Email). This field supports wildcards (*). For example, if you set this field to `a*m`, all results whose username or email starts with `a` and ends with `m` are returned.
    * 
    * @example
    * a*m
    */
   filter?: string;
   filterMapShrink?: string;
-  /**
-   * @remarks
-   * Filters users by whether a cloud resource is assigned.
-   */
   filterWithAssignedResourceShrink?: string;
   /**
    * @remarks
-   * > This parameter is not available to the public.
+   * Filters users based on whether cloud resources are assigned.
    */
   filterWithAssignedResourcesShrink?: string;
   /**
    * @remarks
-   * Performs an exact match by user group ID to query the list of accounts that belong to the user group.
+   * Performs an exact match by user group ID and queries the list of accounts that belong to the specified user group.
    * 
    * @example
    * ug-12341234****
@@ -56,7 +48,7 @@ export class DescribeUsersShrinkRequest extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
-   * Queries extended information about the user.
+   * Specifies whether to query users in sub-organizations.
    * 
    * @example
    * true
@@ -64,10 +56,9 @@ export class DescribeUsersShrinkRequest extends $dara.Model {
   isQueryAllSubOrgs?: boolean;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The number of entries per page for a paged query.  
    * 
-   * - Valid values: 1 to 500.
-   * 
+   * - Valid values: 1 to 500.  
    * - Default value: 200.
    * 
    * @example
@@ -76,7 +67,7 @@ export class DescribeUsersShrinkRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that is used to start the next query. If the number of entries returned exceeds the value of MaxResults, a token is returned. You can use this token in the next query to continue the query.
+   * The pagination token for the next query. You do not need to set this parameter for the first request. If not all results are returned in a single query, a non-empty NextToken is returned. You can pass the returned NextToken in subsequent requests to continue the query.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a****
@@ -84,7 +75,7 @@ export class DescribeUsersShrinkRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * Performs an exact match by organization ID to query the list of accounts that belong to the organization.
+   * Performs an exact match by organization ID and queries the list of accounts that belong to the specified organization.
    * 
    * @example
    * org-4mdgc1cocc59z****
@@ -92,13 +83,13 @@ export class DescribeUsersShrinkRequest extends $dara.Model {
   orgId?: string;
   /**
    * @remarks
-   * > This parameter is not available to the public.
+   * Queries extended user information.
    */
   showExtrasShrink?: string;
   solutionId?: string;
   /**
    * @remarks
-   * Specifies whether to query users in suborganizations.
+   * The status.
    */
   status?: number;
   static names(): { [key: string]: string } {

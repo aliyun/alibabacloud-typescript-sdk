@@ -3,15 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeGroupsResponseBodyGroupsAttachedLoginPolicy extends $dara.Model {
-  /**
-   * @remarks
-   * The name of the logon policy.
-   */
   name?: string;
-  /**
-   * @remarks
-   * The ID of the logon policy.
-   */
   policyId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -37,19 +29,15 @@ export class DescribeGroupsResponseBodyGroupsAttachedLoginPolicy extends $dara.M
 }
 
 export class DescribeGroupsResponseBodyGroups extends $dara.Model {
-  /**
-   * @remarks
-   * The logon policy attached to the user group.
-   */
   attachedLoginPolicy?: DescribeGroupsResponseBodyGroupsAttachedLoginPolicy;
   /**
    * @remarks
-   * A list of authorized resources.
+   * The list of assigned resources.
    */
   authedResources?: { [key: string]: string };
   /**
    * @remarks
-   * The time when the user group was created.
+   * The creation time.
    * 
    * @example
    * 2025-08-07T13:40:40+08:00
@@ -65,7 +53,12 @@ export class DescribeGroupsResponseBodyGroups extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The ID of the user group.
+   * Indicates whether download requires approval.
+   */
+  downloadNeedApproval?: boolean;
+  /**
+   * @remarks
+   * The user group ID.
    * 
    * @example
    * ug-2412ojkwtybd****
@@ -73,7 +66,7 @@ export class DescribeGroupsResponseBodyGroups extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
-   * The name of the user group.
+   * The user group name.
    * 
    * @example
    * TestGroup
@@ -81,12 +74,17 @@ export class DescribeGroupsResponseBodyGroups extends $dara.Model {
   groupName?: string;
   /**
    * @remarks
-   * Indicates whether file transfer approval is enabled.
+   * Indicates whether file approval is enabled.
    * 
    * @example
    * false
    */
   transferFileNeedApproval?: boolean;
+  /**
+   * @remarks
+   * Indicates whether upload requires approval.
+   */
+  uploadNeedApproval?: boolean;
   /**
    * @remarks
    * The number of members in the user group.
@@ -101,9 +99,11 @@ export class DescribeGroupsResponseBodyGroups extends $dara.Model {
       authedResources: 'AuthedResources',
       createTime: 'CreateTime',
       description: 'Description',
+      downloadNeedApproval: 'DownloadNeedApproval',
       groupId: 'GroupId',
       groupName: 'GroupName',
       transferFileNeedApproval: 'TransferFileNeedApproval',
+      uploadNeedApproval: 'UploadNeedApproval',
       userCount: 'UserCount',
     };
   }
@@ -114,9 +114,11 @@ export class DescribeGroupsResponseBodyGroups extends $dara.Model {
       authedResources: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       createTime: 'string',
       description: 'string',
+      downloadNeedApproval: 'boolean',
       groupId: 'string',
       groupName: 'string',
       transferFileNeedApproval: 'boolean',
+      uploadNeedApproval: 'boolean',
       userCount: 'number',
     };
   }
@@ -139,7 +141,7 @@ export class DescribeGroupsResponseBodyGroups extends $dara.Model {
 export class DescribeGroupsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The total number of entries returned.
+   * The number of entries returned in the query result.
    * 
    * @example
    * 1
@@ -147,7 +149,7 @@ export class DescribeGroupsResponseBody extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * A list of user groups.
+   * The list of user groups.
    */
   groups?: DescribeGroupsResponseBodyGroups[];
   /**

@@ -31,6 +31,13 @@ export class DescribeOrgsResponseBodyOrgsResourcePolicyList extends $dara.Model 
 export class DescribeOrgsResponseBodyOrgs extends $dara.Model {
   /**
    * @remarks
+   * The access type of the organization node. Valid values:
+   * - MANAGEABLE: indicates a manageable node.
+   * - PATH_ONLY: indicates a node used only to display the full path to the root organization.
+   */
+  accessType?: string;
+  /**
+   * @remarks
    * The organization ID.
    * 
    * @example
@@ -42,7 +49,7 @@ export class DescribeOrgsResponseBodyOrgs extends $dara.Model {
    * The organization name.
    * 
    * @example
-   * 设计部****
+   * DesignDepartment****
    */
   orgName?: string;
   orgNamePath?: string;
@@ -57,6 +64,7 @@ export class DescribeOrgsResponseBodyOrgs extends $dara.Model {
   resourcePolicyList?: DescribeOrgsResponseBodyOrgsResourcePolicyList[];
   static names(): { [key: string]: string } {
     return {
+      accessType: 'AccessType',
       orgId: 'OrgId',
       orgName: 'OrgName',
       orgNamePath: 'OrgNamePath',
@@ -67,6 +75,7 @@ export class DescribeOrgsResponseBodyOrgs extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessType: 'string',
       orgId: 'string',
       orgName: 'string',
       orgNamePath: 'string',
@@ -90,7 +99,7 @@ export class DescribeOrgsResponseBodyOrgs extends $dara.Model {
 export class DescribeOrgsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The token used to retrieve the next page of results. If this parameter is not empty, more results are available. To retrieve the next page, pass this value in the `NextToken` parameter of a subsequent request.
+   * The pagination token. Set this parameter to the value of NextToken that was returned in the previous API call.
    * 
    * @example
    * AAAAAV3MpHK****
@@ -98,7 +107,7 @@ export class DescribeOrgsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The organization list.
+   * The list of organizations.
    */
   orgs?: DescribeOrgsResponseBodyOrgs[];
   /**
