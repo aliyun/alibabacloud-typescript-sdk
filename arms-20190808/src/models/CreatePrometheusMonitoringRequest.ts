@@ -20,7 +20,7 @@ export class CreatePrometheusMonitoringRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * Please refer to the supplementary explanation of the request parameters.
+   * 参见请求参数补充说明。
    */
   configYaml?: string;
   /**

@@ -8,7 +8,7 @@ export class AddAliClusterIdsToPrometheusGlobalViewResponseBodyData extends $dar
    * The Info-level information.
    * 
    * @example
-   * {regionId: the region where the aggregation instance resides. globalViewClusterId: the ID of the aggregation instance. failedClusterIds: the ID of the cluster that failed to be added. A cluster may fail to be added because the specified cluster ID is invalid or the cluster is added across continents.}
+   * {regionId: 实例所属region, globalViewClusterId: 实例Id, failedClusterIds: 添加失败的AliClusterId（一般是clusterId有误，或者跨大洲添加）}
    */
   info?: string;
   /**

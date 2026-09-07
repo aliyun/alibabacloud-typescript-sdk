@@ -105,7 +105,7 @@ export class ListTimingSyntheticTasksResponseBodyDataItemsCommonSettingCustomPro
    * A reserved field.
    * 
    * @example
-   * Reserved field
+   * 保留字段。
    */
   prometheusClusterId?: string;
   /**
@@ -113,7 +113,7 @@ export class ListTimingSyntheticTasksResponseBodyDataItemsCommonSettingCustomPro
    * A reserved field.
    * 
    * @example
-   * Reserved field
+   * 保留字段。
    */
   prometheusClusterRegion?: string;
   /**
@@ -411,7 +411,7 @@ export class ListTimingSyntheticTasksResponseBodyDataItems extends $dara.Model {
    * The task name.
    * 
    * @example
-   * AlibabaCloud DNS Task
+   * 拨测任务
    */
   name?: string;
   /**

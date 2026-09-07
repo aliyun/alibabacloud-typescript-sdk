@@ -109,7 +109,7 @@ export class CreateSyntheticTaskShrinkRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * Network synthetic monitoring task
+   * 网络拨测任务
    */
   taskName?: string;
   /**

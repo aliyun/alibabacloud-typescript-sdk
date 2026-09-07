@@ -40,7 +40,7 @@ export class ListScenarioResponseBodyArmsScenarios extends $dara.Model {
    * The name of the business monitoring job.
    * 
    * @example
-   * k8s_deployment_css-guns-vip-main-prod_silence
+   * 测试业务监控
    */
   name?: string;
   /**

@@ -181,7 +181,7 @@ export class CreateTimingSyntheticTaskRequestCommonSettingCustomPrometheusSettin
    * A reserved parameter.
    * 
    * @example
-   * null
+   * 保留字段。
    */
   prometheusClusterId?: string;
   /**
@@ -189,7 +189,7 @@ export class CreateTimingSyntheticTaskRequestCommonSettingCustomPrometheusSettin
    * A reserved parameter.
    * 
    * @example
-   * null
+   * 保留字段。
    */
   prometheusClusterRegion?: string;
   /**

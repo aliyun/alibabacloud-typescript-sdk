@@ -28,7 +28,7 @@ export class DeletePrometheusIntegrationRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * kafka and mysql.
+   * kafka、mysql等。
    */
   integrationType?: string;
   /**

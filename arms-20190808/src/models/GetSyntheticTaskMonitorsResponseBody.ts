@@ -19,7 +19,7 @@ export class GetSyntheticTaskMonitorsResponseBodyData extends $dara.Model {
    * The name of the city to which the monitoring point belongs.
    * 
    * @example
-   * Beijing
+   * 北京市
    */
   city?: string;
   /**
@@ -46,7 +46,7 @@ export class GetSyntheticTaskMonitorsResponseBodyData extends $dara.Model {
    * The region to which the monitoring point belongs.
    * 
    * @example
-   * Beijing
+   * 北京
    */
   district?: string;
   /**

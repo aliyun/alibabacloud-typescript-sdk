@@ -5,12 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class QueryAppMetadataResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code returned for the request. Valid values:
+   * The API call status.
    * 
-   * *   2XX: The request is successful.
-   * *   3XX: A redirection message is returned.
-   * *   4XX: The request is invalid.
-   * *   5XX: A server error occurs.
+   * - 2xx: The request was successful.
+   * 
+   * - 3xx: The request was redirected.
+   * 
+   * - 4xx: A client-side error occurred.
+   * 
+   * - 5xx: A server-side error occurred.
    * 
    * @example
    * 200
@@ -18,7 +21,7 @@ export class QueryAppMetadataResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The returned struct.
+   * The returned object.
    * 
    * @example
    * {\\"408d5533\\": \\"SELECT * FROM user_base_info\\"}
@@ -26,7 +29,7 @@ export class QueryAppMetadataResponseBody extends $dara.Model {
   data?: { [key: string]: any };
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -34,7 +37,7 @@ export class QueryAppMetadataResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 51877BAC-330C-5845-BDFD-C7859AD33FB7
@@ -42,10 +45,11 @@ export class QueryAppMetadataResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful. Valid values:
+   * Indicates whether the query was successful.
    * 
-   * *   `true`: The call was successful.
-   * *   `false`: The call failed.
+   * - `true`: The query was successful.
+   * 
+   * - `false`: The query failed.
    * 
    * @example
    * True

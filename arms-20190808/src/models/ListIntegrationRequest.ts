@@ -8,7 +8,7 @@ export class ListIntegrationRequest extends $dara.Model {
    * The name of the alert integration.
    * 
    * @example
-   * CloudMonitor integration
+   * 云监控集成
    */
   integrationName?: string;
   /**

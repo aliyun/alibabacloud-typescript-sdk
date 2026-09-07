@@ -31,8 +31,9 @@ export class DeletePrometheusAlertRuleResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the alert rule was deleted. Valid values:
    * 
-   * *   `true`: The alert rule was deleted.
-   * *   `false`: The alert rule failed to be deleted.
+   * - `true`: The alert rule was deleted.
+   * 
+   * - `false`: The alert rule failed to be deleted.
    * 
    * @example
    * true

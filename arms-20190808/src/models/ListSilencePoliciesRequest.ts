@@ -37,7 +37,7 @@ export class ListSilencePoliciesRequest extends $dara.Model {
    * The ID of the region.
    * 
    * @example
-   * cn-hangzhou
+   * cn-beijing
    */
   regionId?: string;
   /**

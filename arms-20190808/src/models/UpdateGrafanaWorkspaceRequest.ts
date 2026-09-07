@@ -14,6 +14,9 @@ export class UpdateGrafanaWorkspaceRequest extends $dara.Model {
   /**
    * @remarks
    * The description of the workspace.
+   * 
+   * @example
+   * 线上生产环境Grafana
    */
   description?: string;
   /**

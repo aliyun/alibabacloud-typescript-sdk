@@ -24,7 +24,7 @@ export class SearchAlertContactResponseBodyPageBeanContacts extends $dara.Model 
    * The contact group to which the contact belongs. If your contacts are added to multiple contact groups, the contact groups are separated by vertical bars (|).
    * 
    * @example
-   * Default Group | SRE Group
+   * 默认分组|SRE分组
    */
   content?: string;
   /**

@@ -8,7 +8,7 @@ export class AppendInstancesToPrometheusGlobalViewResponseBodyData extends $dara
    * The Info-level information.
    * 
    * @example
-   * {regionId: the region where the aggregation instance resides. globalViewClusterId: the ID of the aggregation instance. failedInstances: the ID of the object that failed to be added.}
+   * {regionId: 实例所属region, globalViewClusterId: 实例Id, failedInstances: 数据源JSON list中，添加失败的单个JSON的list}
    */
   info?: string;
   /**

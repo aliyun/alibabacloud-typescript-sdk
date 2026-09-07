@@ -20,7 +20,7 @@ export class AddPrometheusIntegrationRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * kafka, mysql, redis, snmp, emr, nubela, and tidb
+   * kafka、mysql、redis、snmp、emr、nubela、tidb等
    */
   integrationType?: string;
   /**

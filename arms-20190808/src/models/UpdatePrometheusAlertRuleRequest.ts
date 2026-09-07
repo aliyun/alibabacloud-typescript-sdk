@@ -124,7 +124,7 @@ export class UpdatePrometheusAlertRuleRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * The CPU utilization of ${{$labels.pod_name}} exceeds 80%. Current value: {{$value}}%
+   * ${{$labels.pod_name}}CPU使用率大于80%，当前值{{$value}}%
    */
   message?: string;
   /**
@@ -132,6 +132,7 @@ export class UpdatePrometheusAlertRuleRequest extends $dara.Model {
    * The method that is used to send alert notifications. Valid values:
    * 
    * - `ALERT_MANAGER`: Alert notifications are sent by Operation Center. This is the default value.
+   * 
    * - `DISPATCH_RULE`: Alert notifications are sent based on the specified notification policy.
    * 
    * @example
@@ -158,7 +159,7 @@ export class UpdatePrometheusAlertRuleRequest extends $dara.Model {
    * The type of the alert rule.
    * 
    * @example
-   * Kubernetes component alert
+   * Kubernetes组件告警
    */
   type?: string;
   static names(): { [key: string]: string } {

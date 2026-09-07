@@ -16,7 +16,7 @@ export class UninstallPromClusterResponseBody extends $dara.Model {
    * Indicates whether the request was successful.
    * 
    * @example
-   * true
+   * success
    */
   data?: string;
   /**

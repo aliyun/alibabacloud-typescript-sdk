@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeEnvDropMetricsRuleResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The list of discarded metrics. Separate multiple metrics with line feeds.
+   * The metrics to be dropped. Metrics are separated by line breaks.
    * 
    * @example
    * kube_pod_created
@@ -13,7 +13,7 @@ export class DescribeEnvDropMetricsRuleResponseBodyData extends $dara.Model {
   dropMetrics?: string;
   /**
    * @remarks
-   * The name of the discarded metric rule.
+   * The name of the metric drop rule.
    * 
    * @example
    * ruleName1
@@ -45,7 +45,7 @@ export class DescribeEnvDropMetricsRuleResponseBodyData extends $dara.Model {
 export class DescribeEnvDropMetricsRuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code. The status code 200 indicates that the request was successful.
+   * The status code. A value of 200 indicates that the request was successful.
    * 
    * @example
    * 200
@@ -53,12 +53,12 @@ export class DescribeEnvDropMetricsRuleResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The returned struct.
+   * The response data.
    */
   data?: DescribeEnvDropMetricsRuleResponseBodyData;
   /**
    * @remarks
-   * The returned message.
+   * The response message.
    * 
    * @example
    * message
@@ -66,7 +66,7 @@ export class DescribeEnvDropMetricsRuleResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * ID of the request
+   * The request ID.
    * 
    * @example
    * F7781D4A-2818-41E7-B7BB-79D809E9****

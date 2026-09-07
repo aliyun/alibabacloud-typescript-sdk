@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateRumUploadFileUrlResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code. The status code 200 indicates that the request was successful.
+   * The status code. A value of 200 indicates that the request was successful.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class CreateRumUploadFileUrlResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The file upload URL.
+   * The file upload link.
    * 
    * @example
    * http://arms-rum-v2.oss-cn-hangzhou.aliyuncs.com/113197164xxxxx28/b590lhguqs%40f93xxxxxbf31d3/1.0.0-robots.txt?Expires=1713847079&OSSAccessKeyId=STS.NT6XvoxkyqA&Signature=6ptYX4OTjLMrsleTlA2t97
@@ -29,10 +29,10 @@ export class CreateRumUploadFileUrlResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The error message.
+   * The error message that is returned if the request fails.
    * 
    * @example
-   * success
+   * 内部错误，请联系管理员。
    */
   message?: string;
   /**
@@ -45,10 +45,11 @@ export class CreateRumUploadFileUrlResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the operation was successful. Valid values:
    * 
-   * *   `true`
-   * *   `false`
+   * - `true`: The operation was successful.
+   * 
+   * - `false`: The operation failed.
    * 
    * @example
    * true

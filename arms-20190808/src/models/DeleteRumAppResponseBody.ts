@@ -24,7 +24,7 @@ export class DeleteRumAppResponseBody extends $dara.Model {
    * The message returned.
    * 
    * @example
-   * success
+   * 删除的应用不存在。
    */
   message?: string;
   /**
@@ -48,7 +48,7 @@ export class DeleteRumAppResponseBody extends $dara.Model {
    * The message that appears when the application is deleted.
    * 
    * @example
-   * Success to delete app.
+   * 删除应用成功。
    */
   result?: string;
   /**

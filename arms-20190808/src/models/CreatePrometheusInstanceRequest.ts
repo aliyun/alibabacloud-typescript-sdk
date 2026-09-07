@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreatePrometheusInstanceRequestTags extends $dara.Model {
   /**
+   * @remarks
+   * The tag key.
+   * 
    * @example
    * TestKey
    */
   key?: string;
   /**
+   * @remarks
+   * The tag value.
+   * 
    * @example
    * TestValue
    */
@@ -39,7 +45,7 @@ export class CreatePrometheusInstanceRequestTags extends $dara.Model {
 export class CreatePrometheusInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * Does it require all child instances to be verified successfully before creating a GlobalView instance. The default is false, which means partial success is possible.
+   * Specifies whether all sub-instances must pass validation before the GlobalView instance is created. Default value: false, which indicates that partial success is allowed.
    * 
    * @example
    * true
@@ -47,7 +53,7 @@ export class CreatePrometheusInstanceRequest extends $dara.Model {
   allSubClustersSuccess?: boolean;
   /**
    * @remarks
-   * The number of days for which data is automatically archived after the storage expires. Valid values: 60, 90, 180, and 365. 0 indicates that the data is not archived.
+   * The number of days to automatically archive data after the storage period expires. Valid values: 60, 90, 180, and 365. A value of 0 indicates that data is not archived.
    * 
    * @example
    * 90
@@ -55,7 +61,7 @@ export class CreatePrometheusInstanceRequest extends $dara.Model {
   archiveDuration?: number;
   /**
    * @remarks
-   * The ID of the ACK cluster. This parameter is required if you set the ClusterType parameter to aliyun-cs.
+   * The Container Service cluster ID. This parameter is required when ClusterType is set to aliyun-cs.
    * 
    * @example
    * cc7a37ee31aea4ed1a059eff8034b****
@@ -63,7 +69,9 @@ export class CreatePrometheusInstanceRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The name of the created cluster. This parameter is required if you set the ClusterType parameter to remote-write or ecs.
+   * The name of the cluster to create. This parameter is required when ClusterType is set to remote-write, ecs, or global-view.
+   * 
+   * For ecs instances, the ClusterName must follow the format "name-vpc-id", and the name part cannot exceed 24 characters. Example: "mytest1-vpc-xxxxxxxxxxx".
    * 
    * @example
    * clusterNameOfTest
@@ -71,15 +79,14 @@ export class CreatePrometheusInstanceRequest extends $dara.Model {
   clusterName?: string;
   /**
    * @remarks
-   * The type of the Prometheus instance. Valid values:
-   * 
-   * *   remote-write: Prometheus instance for Remote Write
-   * *   ecs (unavailable): Prometheus instance for ECS
-   * *   global-view: Prometheus instance for GlobalView
-   * *   aliyun-cs: Prometheus instance for Container Service
-   * *   cloud-product (unavailable): Prometheus instance for Alibaba Cloud services
-   * *   cloud-monitor (unavailable): Prometheus instance for Hybrid Cloud Monitoring
-   * *   flink (unavailable): Prometheus instance for Flink
+   * The instance type. Valid values: 
+   * -  remote-write: Prometheus for Remote Write.
+   * -  ecs (no longer supported): Prometheus for ECS.
+   * -  global-view: Prometheus for GlobalView.
+   * -  aliyun-cs (no longer supported): Prometheus for Container Service.
+   * - cloud-product (no longer supported): Prometheus for Cloud Service.
+   * - cloud-monitor (no longer supported): Prometheus for Hybrid Cloud Monitoring.
+   * - flink (no longer supported): Prometheus for Flink.
    * 
    * This parameter is required.
    * 
@@ -89,7 +96,7 @@ export class CreatePrometheusInstanceRequest extends $dara.Model {
   clusterType?: string;
   /**
    * @remarks
-   * The data storage duration. Unit: days.
+   * The data storage duration, in days.
    * 
    * @example
    * 90
@@ -97,7 +104,7 @@ export class CreatePrometheusInstanceRequest extends $dara.Model {
   duration?: number;
   /**
    * @remarks
-   * The ID of the Grafana dedicated instance. This parameter is available if you set the ClusterType parameter to ecs.
+   * The ID of the bound Grafana workspace. Set this parameter to "free" when you use the shared Grafana edition.
    * 
    * @example
    * grafana-bp1*****
@@ -105,7 +112,10 @@ export class CreatePrometheusInstanceRequest extends $dara.Model {
   grafanaInstanceId?: string;
   /**
    * @remarks
-   * The billing mode. Valid values: POSTPAY: charges fees based on the amount of reported metric data. POSTPAY_GB: charges fees based on the amount of written metric data. Empty: The user-defined default billing mode is used. If you do not specify a default value, you are charged based on the amount of reported metric data.
+   * The Billable methods. Valid values:
+   * POSTPAY: pay-as-you-go based on the number of reported metrics.
+   * POSTPAY_GB: pay-as-you-go based on the volume of written metrics.
+   * Empty: uses the default billing method configured by the user. If no default is configured, the system defaults to billing based on the number of reported metrics.
    * 
    * @example
    * POSTPAY
@@ -113,7 +123,7 @@ export class CreatePrometheusInstanceRequest extends $dara.Model {
   paymentType?: string;
   /**
    * @remarks
-   * The ID of the region. If you use a Prometheus instance to monitor an Alibaba Cloud service in China, this parameter must be set to cn-shanghai.
+   * The actual region ID.
    * 
    * This parameter is required.
    * 
@@ -123,7 +133,7 @@ export class CreatePrometheusInstanceRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the custom resource group. You can configure this parameter to bind the instance to the resource group.
+   * The resource group ID.
    * 
    * @example
    * rg-acfmxyexli2****
@@ -131,7 +141,7 @@ export class CreatePrometheusInstanceRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The ID of the security group. This parameter is required if you set the ClusterType parameter to ecs.
+   * The Network Security group ID. This parameter is required when ClusterType is set to ecs or aliyun-cs for a managed ASK cluster.
    * 
    * @example
    * sg-bp1********
@@ -139,60 +149,59 @@ export class CreatePrometheusInstanceRequest extends $dara.Model {
   securityGroupId?: string;
   /**
    * @remarks
-   * JSON string for child instances of the globalView instance.
+   * The JSON string of sub-instances for the GlobalView instance.
    * 
    * @example
-   * When the clusterType is global view, this parameter needs to be passed: a list of information about the clusters that need to be aggregated.
-   * Example:
+   * 当clusterType为global-view时，需要传此参数：需要聚合的集群的信息列表；示例：
    * [
-   *   {
-   *     "Headers":{
+   *     {
+   *         "headers":{
    * 
-   *     },
-   *     "RegionId": "cn hangzhou",
-   *     "SourceType": "Alibaba Prometheus",
-   *     "Extras":{
+   *         },
+   *         "regionId":"cn-hangzhou",
+   *         "sourceType":"AlibabaPrometheus",
+   *         "extras":{
    * 
+   *         },
+   *         "clusterId":"c39a1048921e04f***********",
+   *         "sourceName":"arms-luyao-test",
+   *         "dataSource":"",
+   *         "userId":"1672753***********"
    *     },
-   *     "ClusterId": "c39a1048921e04f ****************",
-   *     "SourceName": "test1",
-   *     "DataSource": "",
-   *     "UserId": "1672753 ******************"
-   *   },
-   *   {
-   *     "Headers":{
+   *     {
+   *         "headers":{
    * 
-   *     },
-   *     "RegionId": "cn beijing",
-   *     "SourceType": "Alibaba Prometheus",
-   *     "Extras":{
+   *         },
+   *         "regionId":"cn-beijing",
+   *         "sourceType":"AlibabaPrometheus",
+   *         "extras":{
    * 
+   *         },
+   *         "clusterId":"c6b6485496d5b40***********",
+   *         "sourceName":"agent-321-测试",
+   *         "dataSource":"",
+   *         "userId":"1672753***********"
    *     },
-   *     "ClusterId": "c6b6485496d5b40 ****************",
-   *     "SourceName": "test2",
-   *     "DataSource": "",
-   *     "UserId": "1672753 ******************"
-   *   },
-   *   {
-   *     "Headers":{
+   *     {
+   *         "headers":{
    * 
-   *     },
-   *     "RegionId": "cn zhangjiakou",
-   *     "SourceType": "Alibaba Prometheus",
-   *     "Extras":{
+   *         },
+   *         "regionId":"cn-zhangjiakou",
+   *         "sourceType":"AlibabaPrometheus",
+   *         "extras":{
    * 
-   *     },
-   *     "ClusterId": "c261a4f3200c446 ****************",
-   *     "SourceName": "test3",
-   *     "DataSource": "",
-   *     "UserId": "1672753 ******************"
-   *   }
+   *         },
+   *         "clusterId":"c261a4f3200c446***********",
+   *         "sourceName":"zaifeng-cardinality-01",
+   *         "dataSource":"",
+   *         "userId":"1672753***********"
+   *     }
    * ]
    */
   subClustersJson?: string;
   /**
    * @remarks
-   * The tags of the instance. You can configure this parameter to manage tags for the instance.
+   * The custom tags.
    * 
    * @example
    * [
@@ -207,7 +216,7 @@ export class CreatePrometheusInstanceRequest extends $dara.Model {
   tags?: CreatePrometheusInstanceRequestTags[];
   /**
    * @remarks
-   * The ID of the vSwitch. This parameter is required if you set the ClusterType parameter to ecs.
+   * The vSwitch ID. This parameter is required when ClusterType is set to ecs or aliyun-cs for a managed ASK cluster.
    * 
    * @example
    * vsw-bp1*********
@@ -215,7 +224,7 @@ export class CreatePrometheusInstanceRequest extends $dara.Model {
   vSwitchId?: string;
   /**
    * @remarks
-   * The ID of virtual private cloud (VPC). This parameter is required if you set the ClusterType parameter to ecs.
+   * The VPC ID. This parameter is required when ClusterType is set to ecs or aliyun-cs for a managed ASK cluster.
    * 
    * @example
    * vpc-rpn**********

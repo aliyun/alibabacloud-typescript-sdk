@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SyncRecordingRulesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 状态码。200表示成功。
+   * The status code. A value of 200 indicates success.
    * 
    * @example
    * 200
@@ -13,15 +13,15 @@ export class SyncRecordingRulesResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The struct returned.
+   * The response struct.
    * 
    * @example
-   * { "data":[ "c06ca68cd16f14f52bb07772eda\\*\\*\\*", "c33dd70a0ac184c1b879d807ab2\\*\\*\\*", "c384cf7e4dcb543e6ac8c7d4dd3\\*\\*\\*", "ce30f833bc4a04a56a06b070319\\*\\*\\*" ], "message":"IDs of Clusters to which the aggregation rule failed to be synchronized", "success":true }
+   * {     "data":[         "c06ca68cd16f14f52bb07772eda***",         "c33dd70a0ac184c1b879d807ab2***",         "c384cf7e4dcb543e6ac8c7d4dd3***",         "ce30f833bc4a04a56a06b070319***"     ],     "message":"设置RecordingRule失败的clusterIds",     "success":true }
    */
   data?: string;
   /**
    * @remarks
-   * 返回结果的提示信息。
+   * The message returned with the result.
    * 
    * @example
    * success
@@ -29,7 +29,7 @@ export class SyncRecordingRulesResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request. You can use the ID to query logs and troubleshoot issues.
+   * The request ID, which is used to locate logs and troubleshoot issues.
    * 
    * @example
    * 1A9C645C-C83F-4C9D-8CCB-29BEC9E1****

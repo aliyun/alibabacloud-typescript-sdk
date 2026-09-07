@@ -8,7 +8,7 @@ export class DescribeAddonMetricsResponseBodyDataLabels extends $dara.Model {
    * The description of the tag.
    * 
    * @example
-   * The number of times a B-tree page of size PAGE_SIZE was successfully compressed.
+   * 大小为PAGE_SIZE的B树页面被成功压缩的次数。
    */
   description?: string;
   /**
@@ -108,7 +108,7 @@ export class DescribeAddonMetricsResponseBodyDataMetrics extends $dara.Model {
    * The description of the metric.
    * 
    * @example
-   * The number of times a B-tree page of size PAGE_SIZE was successfully compressed.
+   * 大小为PAGE_SIZE的B树页面被成功压缩的次数。
    */
   description?: string;
   /**

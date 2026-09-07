@@ -29,7 +29,7 @@ export class ListSyntheticDetailResponseBodyData extends $dara.Model {
    * A reserved field.
    * 
    * @example
-   * null
+   * 保留字段。
    */
   taskCreateTime?: number;
   /**

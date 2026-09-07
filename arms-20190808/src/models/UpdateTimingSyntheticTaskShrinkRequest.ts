@@ -41,7 +41,7 @@ export class UpdateTimingSyntheticTaskShrinkRequest extends $dara.Model {
    * The name of the task.
    * 
    * @example
-   * AlibabaCloud DNS Task
+   * 拨测任务
    */
   name?: string;
   /**

@@ -13,7 +13,7 @@ export class CreateRumUploadFileUrlRequest extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * The type of the file. You can set this parameter to "application/zip", "text/plain", or an empty string.
+   * The file type. Valid values include `"application/zip"` and `"text/plain"`. You can also pass an empty string.
    * 
    * @example
    * text/plain
@@ -31,7 +31,7 @@ export class CreateRumUploadFileUrlRequest extends $dara.Model {
   fileName?: string;
   /**
    * @remarks
-   * The process ID (PID) of the application.
+   * The application ID.
    * 
    * @example
    * iioe7jcnuk@582846f37******
@@ -50,7 +50,13 @@ export class CreateRumUploadFileUrlRequest extends $dara.Model {
   serviceId?: string;
   /**
    * @remarks
-   * The file type. Valid values: source-map: SourceMap files. mapping: symbol table files for Android. dsym: dSYM files for iOS.
+   * The file type. Valid values:
+   * 
+   * - source-map: a source map file
+   * 
+   * - mapping: an Android symbol table file
+   * 
+   * - dsym: an iOS dSYM file
    * 
    * @example
    * source-map
@@ -58,7 +64,7 @@ export class CreateRumUploadFileUrlRequest extends $dara.Model {
   sourcemapType?: string;
   /**
    * @remarks
-   * The file ID.
+   * The UUID of the file.
    * 
    * @example
    * 125bdb39-a415-4503-bd96-e293925fc64c
@@ -66,7 +72,7 @@ export class CreateRumUploadFileUrlRequest extends $dara.Model {
   uuid?: string;
   /**
    * @remarks
-   * The version number of the file.
+   * The file version.
    * 
    * @example
    * 1.0.0

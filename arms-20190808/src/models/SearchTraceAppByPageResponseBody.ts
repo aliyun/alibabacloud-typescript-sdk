@@ -100,8 +100,9 @@ export class SearchTraceAppByPageResponseBodyPageBeanTraceApps extends $dara.Mod
    * @remarks
    * Indicates whether the application is displayed in the Application Real-Time Monitoring Service (ARMS) console. Valid values:
    * 
-   * *   `true`: yes
-   * *   `false`: no
+   * - `true`: yes
+   * 
+   * - `false`: no
    * 
    * @example
    * true
@@ -116,8 +117,9 @@ export class SearchTraceAppByPageResponseBodyPageBeanTraceApps extends $dara.Mod
    * @remarks
    * The type of the monitoring task. Valid values:
    * 
-   * *   `TRACE`: Application Monitoring
-   * *   `RETCODE`: Browser Monitoring
+   * - `TRACE`: Application Monitoring
+   * 
+   * - `RETCODE`: Browser Monitoring
    * 
    * @example
    * TRACE

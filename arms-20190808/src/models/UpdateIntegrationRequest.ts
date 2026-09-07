@@ -19,7 +19,7 @@ export class UpdateIntegrationRequest extends $dara.Model {
    * The description of the alert integration.
    * 
    * @example
-   * Test
+   * 测试
    */
   description?: string;
   /**
@@ -72,7 +72,109 @@ export class UpdateIntegrationRequest extends $dara.Model {
    * The predefined mapped fields are mapped to the fields of ARMS alerts. The predefined mapped fields were generated when the alert integration was created. For more information, see the description of the FieldRedefineRules parameter.
    * 
    * @example
-   * [ { "redefineType":"EXTRACT", "matchExpression":null, "fieldName":"alertname", "expression":null, "mappingRuleList":[ ], "name":"Alert name", "integrationId":1234, "jsonPath":"$.alertName", "id":10001, "fieldType":"LABEL" }, { "redefineType":"MAP", "matchExpression":null, "fieldName":"severity", "expression":null, "mappingRuleList":[ { "mappingValue":"critical", "mappingName":"P1", "mappingType":"MAP", "originValue":"CRITICAL" }, { "mappingValue":"error", "mappingName":"P2", "mappingType":"MAP", "originValue":"WARN" }, { "mappingValue":"warning", "mappingName":"P3", "mappingType":"MAP", "originValue":"INFO" } ], "name":"Alert level", "integrationId":1234, "jsonPath":"$.triggerLevel", "id":10002, "fieldType":"LABEL" }, { "redefineType":"EXTRACT", "matchExpression":null, "fieldName":"message", "expression":"{{$labels.namespace}} / {{$labels.dimensions}} Alert content {{ $labels.alertname }}, Current value {{$value}}.", "mappingRuleList":[ ], "name":"Alert description", "integrationId":1234, "jsonPath":null, "id":10003, "fieldType":"ANNOTATION" }, { "redefineType":"EXTRACT", "matchExpression":null, "fieldName":"value", "expression":null, "mappingRuleList":[ ], "name":"Alert sample value", "integrationId":1234, "jsonPath":"$.curValue", "id":10004, "fieldType":"ANNOTATION" }, { "redefineType":"EXTRACT", "matchExpression":null, "fieldName":"source", "expression":null, "mappingRuleList":[ ], "name":"Source", "integrationId":1234, "jsonPath":null, "id":10007, "fieldType":"LABEL" }, { "redefineType":"ADD", "matchExpression":null, "fieldName":"generatorUrl", "expression":"https://cloudmonitor.console.aliyun.com/index.htm#/alarmInfo/name={{$labels.ruleId}}\\&searchValue=\\&searchType=name\\&searchProduct=/history/all/searchKey:{{$labels.ruleId}},startTime:{{sub $startsAt 300000}},endTime:{{$endsAt}}", "mappingRuleList":[ ], "name":"Event URL", "integrationId":1234, "jsonPath":"https://cloudmonitor.console.aliyun.com/index.htm#/alarmInfo/name={{$labels.ruleId}}\\&searchValue=\\&searchType=name\\&searchProduct=/history/all/searchKey:{{$labels.ruleId}},startTime:{{sub $startsAt 300000}},endTime:{{$endsAt}}", "id":10012, "fieldType":"GENERATE_URL" } ]
+   * [
+   *     {
+   *         "redefineType":"EXTRACT",
+   *         "matchExpression":null,
+   *         "fieldName":"alertname",
+   *         "expression":null,
+   *         "mappingRuleList":[
+   * 
+   *         ],
+   *         "name":"告警名称",
+   *         "integrationId":1234,
+   *         "jsonPath":"$.alertName",
+   *         "id":10001,
+   *         "fieldType":"LABEL"
+   *     },
+   *     {
+   *         "redefineType":"MAP",
+   *         "matchExpression":null,
+   *         "fieldName":"severity",
+   *         "expression":null,
+   *         "mappingRuleList":[
+   *             {
+   *                 "mappingValue":"critical",
+   *                 "mappingName":"P1",
+   *                 "mappingType":"MAP",
+   *                 "originValue":"CRITICAL"
+   *             },
+   *             {
+   *                 "mappingValue":"error",
+   *                 "mappingName":"P2",
+   *                 "mappingType":"MAP",
+   *                 "originValue":"WARN"
+   *             },
+   *             {
+   *                 "mappingValue":"warning",
+   *                 "mappingName":"P3",
+   *                 "mappingType":"MAP",
+   *                 "originValue":"INFO"
+   *             }
+   *         ],
+   *         "name":"告警等级",
+   *         "integrationId":1234,
+   *         "jsonPath":"$.triggerLevel",
+   *         "id":10002,
+   *         "fieldType":"LABEL"
+   *     },
+   *     {
+   *         "redefineType":"EXTRACT",
+   *         "matchExpression":null,
+   *         "fieldName":"message",
+   *         "expression":"{{$labels.namespace}} / {{$labels.dimensions}} 发生 {{ $labels.alertname }}, 当前值 {{$value}}。",
+   *         "mappingRuleList":[
+   * 
+   *         ],
+   *         "name":"告警描述",
+   *         "integrationId":1234,
+   *         "jsonPath":null,
+   *         "id":10003,
+   *         "fieldType":"ANNOTATION"
+   *     },
+   *     {
+   *         "redefineType":"EXTRACT",
+   *         "matchExpression":null,
+   *         "fieldName":"value",
+   *         "expression":null,
+   *         "mappingRuleList":[
+   * 
+   *         ],
+   *         "name":"告警样本值",
+   *         "integrationId":1234,
+   *         "jsonPath":"$.curValue",
+   *         "id":10004,
+   *         "fieldType":"ANNOTATION"
+   *     },
+   *     {
+   *         "redefineType":"EXTRACT",
+   *         "matchExpression":null,
+   *         "fieldName":"source",
+   *         "expression":null,
+   *         "mappingRuleList":[
+   * 
+   *         ],
+   *         "name":"来源",
+   *         "integrationId":1234,
+   *         "jsonPath":null,
+   *         "id":10007,
+   *         "fieldType":"LABEL"
+   *     },
+   *     {
+   *         "redefineType":"ADD",
+   *         "matchExpression":null,
+   *         "fieldName":"generatorUrl",
+   *         "expression":"https://cloudmonitor.console.aliyun.com/index.htm#/alarmInfo/name={{$labels.ruleId}}&searchValue=&searchType=name&searchProduct=/history/all/searchKey:{{$labels.ruleId}},startTime:{{sub $startsAt 300000}},endTime:{{$endsAt}}",
+   *         "mappingRuleList":[
+   * 
+   *         ],
+   *         "name":"事件地址",
+   *         "integrationId":1234,
+   *         "jsonPath":"https://cloudmonitor.console.aliyun.com/index.htm#/alarmInfo/name={{$labels.ruleId}}&searchValue=&searchType=name&searchProduct=/history/all/searchKey:{{$labels.ruleId}},startTime:{{sub $startsAt 300000}},endTime:{{$endsAt}}",
+   *         "id":10012,
+   *         "fieldType":"GENERATE_URL"
+   *     }
+   * ]
    */
   fieldRedefineRules?: string;
   /**
@@ -112,7 +214,7 @@ export class UpdateIntegrationRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * CloudMonitor integration
+   * 云监控集成
    */
   integrationName?: string;
   /**

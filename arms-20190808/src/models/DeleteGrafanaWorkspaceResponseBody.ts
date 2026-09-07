@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteGrafanaWorkspaceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code. The status code 200 indicates that the request was successful. Other status codes indicate that the request failed.
+   * The status code. A value of 200 indicates success. Other values indicate errors.
    * 
    * @example
    * 200
@@ -13,10 +13,9 @@ export class DeleteGrafanaWorkspaceResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * Indicates whether the workspace was deleted. Valid values:
-   * 
-   * *   true
-   * *   false
+   * Indicates whether the Grafana workspace was deleted. Valid values:
+   * - true: The workspace was deleted.
+   * - false: The workspace failed to be deleted.
    * 
    * @example
    * true
@@ -24,7 +23,7 @@ export class DeleteGrafanaWorkspaceResponseBody extends $dara.Model {
   data?: boolean;
   /**
    * @remarks
-   * The returned message.
+   * The message returned for the request.
    * 
    * @example
    * success
@@ -32,7 +31,7 @@ export class DeleteGrafanaWorkspaceResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 27E653FA-5958-45BE-8AA9-14D884DC****
@@ -42,8 +41,8 @@ export class DeleteGrafanaWorkspaceResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * *   `true`
-   * *   `false`
+   * - `true`: The operation was successful.
+   * - `false`: The operation failed.
    * 
    * @example
    * true
@@ -51,7 +50,7 @@ export class DeleteGrafanaWorkspaceResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The ID of the trace. The ID is used to query the details of a request.
+   * The trace ID, which is used to query the details of the call.
    * 
    * @example
    * eac0a8048716731735000007137d000b

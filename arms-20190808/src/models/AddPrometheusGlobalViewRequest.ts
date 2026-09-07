@@ -45,12 +45,12 @@ export class AddPrometheusGlobalViewRequestTag extends $dara.Model {
 export class AddPrometheusGlobalViewRequest extends $dara.Model {
   /**
    * @remarks
-   * The queried global aggregation instances. The value is a JSON string.
+   * The list of aggregation instances. The value is a JSON string.
    * 
    * This parameter is required.
    * 
    * @example
-   * [         {             "sourceName": "Data source name- ArmsPrometheus No.1",             "sourceType":"AlibabaPrometheus",             "userId":"UserID",             "clusterId":"ClusterId",         },         {             "sourceName": "Data source name - MetrcStore No.2",             "sourceType":"MetricStore",             "dataSource":"MetricStore remote read address",             "extras":{                 "username":"BasicAuthUsername",                 "password":"BasicAuthPassword"             }         },         {             "sourceName": "Custom ",             "sourceType":"CustomPrometheus",             "dataSource":"Build your own Prometheus data source remoteread address",             "extras":{                 "username":"BasicAuthUsername",                 "password":"BasicAuthPassword"             }         },         {           	"sourceName": "Other one ",             "sourceType":"Others",             "dataSource":"Other data sources such as Tencent remoteread address",             "headers":{                 "AnyHeaderToFill":"Headers to be populated"             },             "extras":{                 "username":"BasicAuthUsername",                 "password":"BasicAuthPassword"             }         }   // ....... more addre ]
+   * [         {             "sourceName": "数据源名称- ArmsPrometheus No.1",             "sourceType":"AlibabaPrometheus",             "userId":"UserID",             "clusterId":"ClusterId",         },         {             "sourceName": "数据源名称 - MetrcStore No.2",             "sourceType":"MetricStore",             "dataSource":"MetricStore的 remote read 地址",             "extras":{                 "username":"BasicAuthUsername",                 "password":"BasicAuthPassword"             }         },         {             "sourceName": "Custom ",             "sourceType":"CustomPrometheus",             "dataSource":"自建Prometheus数据源 remoteread地址",             "extras":{                 "username":"BasicAuthUsername",                 "password":"BasicAuthPassword"             }         },         {           	"sourceName": "Other one ",             "sourceType":"Others",             "dataSource":"其他数据源如Tencent remoteread地址",             "headers":{                 "AnyHeaderToFill":"需要填充的Headers"             },             "extras":{                 "username":"BasicAuthUsername",                 "password":"BasicAuthPassword"             }         }   // ....... more addre ]
    */
   clusters?: string;
   /**

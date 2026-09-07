@@ -18,7 +18,7 @@ export class ListActivatedAlertsRequest extends $dara.Model {
    * The filter condition in the `{"key":"value"}`format. You must specify the `key` and `value` of the filter condition.
    * 
    * @example
-   * {"alertname":"Container CPU usage is greater than 80%"}
+   * {"alertname":"容器CPU使用率大于80%"}
    */
   filter?: string;
   /**

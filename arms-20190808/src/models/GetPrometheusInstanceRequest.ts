@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetPrometheusInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Prometheus instance.
+   * The Prometheus instance ID.
    * 
    * This parameter is required.
    * 

@@ -10,7 +10,7 @@ export class UninstallPromClusterRequest extends $dara.Model {
    * - en
    * 
    * @example
-   * en
+   * zh
    */
   aliyunLang?: string;
   /**

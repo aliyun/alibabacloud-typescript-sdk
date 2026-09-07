@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetRumExceptionStackResponseBodyDataThreadInfoList extends $dara.Model {
   /**
    * @remarks
-   * Thread stack details.
+   * The detailed thread stack.
    * 
    * @example
    * "0  libsystem_platform.dylib + 0x1ab5\\n    rax = 0x0000000000000001   rdx = 0x0000000000000064\\n    rcx = 0xffffffffffffffff   rbx = 0x0000000107701bd0\\n    rsi = 0x0101010101010101   rdi = 0x0000000000000001\\n    rbp = 0x00007ff7b8d64300   rsp = 0x00007ff7b8d64300\\n     r8 = 0x000000000000000a    r9 = 0x0000000000000000\\n    r10 = 0x0000000000000001   r11 = 0x0000000000000247\\n    r12 = 0x00007ff7b8d64390   r13 = 0x0000000000000000\\n    r14 = 0x000000010719d770   r15 = 0x00007ff7b8d64500\\n    rip = 0x00007ff807a40ab5\\n    Found by: given as instruction pointer in context\\n 1  alibabacloud_rum_example + 0x2ad1\\n    rbp = 0x00007ff7b8d64310   rsp = 0x00007ff7b8d64310\\n    rip = 0x000000010719dad1\\n    Found by: previous frame\\"s frame pointer\\n 2  alibabacloud_rum_example + 0x2a3b\\n    rbp = 0x00007ff7b8d64360   rsp = 0x00007ff7b8d64320\\n    rip = 0x000000010719da3b\\n    Found by: previous frame\\"s frame pointer\\n 3  0x7ff807688345\\n    rbp = 0x00007ff7b8d64580   rsp = 0x00007ff7b8d64370\\n    rip = 0x00007ff807688345\\n    Found by: previous frame\\"s frame pointer"
@@ -13,7 +13,7 @@ export class GetRumExceptionStackResponseBodyDataThreadInfoList extends $dara.Mo
   threadDetail?: string;
   /**
    * @remarks
-   * The thread tag, including the thread number and name.
+   * The thread tag, which includes the thread number and thread name.
    * 
    * @example
    * Thread 0 (crashed)
@@ -45,7 +45,7 @@ export class GetRumExceptionStackResponseBodyDataThreadInfoList extends $dara.Mo
 export class GetRumExceptionStackResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The name and UUID of the symbol table required for parsing the exception stack. This parameter is exposed during the parsing of PC errors.
+   * The names and UUIDs of the system symbol tables required for exception stack parsing. This field is returned only for PC parsing.
    * 
    * @example
    * "04B5B216682E40BF9BBE9698E3F98CAA0,libcurl.4.dylib;7878DB3CF21A3C13A203B7E3B0FA66250,libalibabacloud_rum.dylib;0F9F96FE6B1C3253A33AC9E4A0C2A3860,libsystem_kernel.dylib;3DF3256F466E37BCB995A5A9956E14150,libsystem_pthread.dylib;000000000000000000000000000000000,Security;EA4B83A319EB3E15B22CDF035DBD49250,alibabacloud_rum_example;710BB12EEEC744BAB41D1849CA3AD8021,LTSDK.pdb;EE330BA9C49E4730AA15A2B7C0BB2CAE1,JBLive.pdb"
@@ -53,7 +53,7 @@ export class GetRumExceptionStackResponseBodyData extends $dara.Model {
   binaryImages?: string;
   /**
    * @remarks
-   * The crash address. This parameter is exposed during the parsing of PC errors.
+   * The crash address. This field is returned only for PC parsing.
    * 
    * @example
    * 0x1
@@ -61,7 +61,7 @@ export class GetRumExceptionStackResponseBodyData extends $dara.Model {
   crashAddress?: string;
   /**
    * @remarks
-   * The cause of the exception. This parameter is exposed during the parsing of PC errors.
+   * The exception reason. This field is returned only for PC parsing.
    * 
    * @example
    * EXC_BAD_ACCESS / KERN_INVALID_ADDRESS
@@ -69,12 +69,12 @@ export class GetRumExceptionStackResponseBodyData extends $dara.Model {
   crashReason?: string;
   /**
    * @remarks
-   * The list of stacks.
+   * The stack list.
    */
   lines?: string[];
   /**
    * @remarks
-   * The name of the crash parsing module. This parameter is exposed during the parsing of PC errors.
+   * The name of the crash parsing module. This field is returned only for PC parsing.
    * 
    * @example
    * alibabacloud_rum_example
@@ -90,12 +90,12 @@ export class GetRumExceptionStackResponseBodyData extends $dara.Model {
   threadId?: string;
   /**
    * @remarks
-   * The thread stack information captured during PC crashes.
+   * The thread stack details captured during a PC crash.
    */
   threadInfoList?: GetRumExceptionStackResponseBodyDataThreadInfoList[];
   /**
    * @remarks
-   * The UUID of the symbol table required for parsing the stack. This parameter is exposed during the parsing of PC errors.
+   * The UUID of the symbol table required for stack parsing. This field is returned only for PC parsing.
    * 
    * @example
    * 9032259CEB9130E780C6DE8FDECCD7990
@@ -145,7 +145,7 @@ export class GetRumExceptionStackResponseBodyData extends $dara.Model {
 export class GetRumExceptionStackResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The responses code. The status code 200 indicates that the request was successful.
+   * The status code. A value of 200 indicates success.
    * 
    * @example
    * 200
@@ -153,7 +153,7 @@ export class GetRumExceptionStackResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The response message.
+   * The response data.
    */
   data?: GetRumExceptionStackResponseBodyData;
   /**
@@ -166,15 +166,15 @@ export class GetRumExceptionStackResponseBody extends $dara.Model {
   httpStatusCode?: string;
   /**
    * @remarks
-   * The error message returned if the request failed.
+   * The message returned when the call fails.
    * 
    * @example
-   * Internal error. Please try again. Contact the DingTalk service account if the issue                              persists after multiple retries.
+   * 内部错误，请联系管理员。
    */
   message?: string;
   /**
    * @remarks
-   * Id of the request.
+   * Id of the request
    * 
    * @example
    * B6A00968-82A8-4F14-9D1B-B53827DB****
@@ -184,8 +184,8 @@ export class GetRumExceptionStackResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * *   `true`
-   * *   `false`
+   * - `true`: The request was successful.
+   * - `false`: The request failed.
    * 
    * @example
    * true

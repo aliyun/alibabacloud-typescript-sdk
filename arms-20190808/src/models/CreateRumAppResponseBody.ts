@@ -82,7 +82,7 @@ export class CreateRumAppResponseBody extends $dara.Model {
    * The error message.
    * 
    * @example
-   * success
+   * 应用已存在。
    */
   message?: string;
   /**

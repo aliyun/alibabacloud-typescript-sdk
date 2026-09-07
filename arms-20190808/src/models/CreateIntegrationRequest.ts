@@ -19,7 +19,7 @@ export class CreateIntegrationRequest extends $dara.Model {
    * The description of the alert integration.
    * 
    * @example
-   * Test
+   * 测试
    */
   description?: string;
   /**
@@ -29,7 +29,7 @@ export class CreateIntegrationRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * CloudMonitor integration
+   * 云监控集成
    */
   integrationName?: string;
   /**

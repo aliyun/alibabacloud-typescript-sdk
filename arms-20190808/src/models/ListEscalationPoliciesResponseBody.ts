@@ -16,7 +16,7 @@ export class ListEscalationPoliciesResponseBodyPageBeanEscalationPolicies extend
    * The name of the escalation policy.
    * 
    * @example
-   * prod escalation policy
+   * prod升级策略
    */
   name?: string;
   static names(): { [key: string]: string } {

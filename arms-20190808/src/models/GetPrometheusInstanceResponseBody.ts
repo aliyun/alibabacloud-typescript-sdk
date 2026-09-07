@@ -45,7 +45,11 @@ export class GetPrometheusInstanceResponseBodyDataTags extends $dara.Model {
 export class GetPrometheusInstanceResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The permission type. Valid values: readWrite, readOnly, and httpReadOnly
+   * The permission type. Valid values:
+   * 
+   * - readWrite
+   * - readOnly
+   * - httpReadOnly.
    * 
    * @example
    * readWrite
@@ -53,7 +57,7 @@ export class GetPrometheusInstanceResponseBodyData extends $dara.Model {
   accessType?: string;
   /**
    * @remarks
-   * The number of days for which data is automatically archived after the storage duration expires. Valid values: 60, 90, 180, and 365. 0 indicates that the data is not archived.
+   * The number of days that data is automatically archived after the storage period expires. Valid values: 60, 90, 180, and 365. A value of 0 indicates that data is not archived.
    * 
    * @example
    * 60
@@ -61,23 +65,23 @@ export class GetPrometheusInstanceResponseBodyData extends $dara.Model {
   archiveDuration?: number;
   /**
    * @remarks
-   * The whitelist of IP addresses for which password-free read is enabled.
+   * The whitelist policy for authentication-free read access.
    * 
    * @example
-   * null
+   * 0.0.0.0/0
    */
   authFreeReadPolicy?: string;
   /**
    * @remarks
-   * The whitelist of IP addresses for which password-free write is enabled.
+   * The whitelist policy for authentication-free write access.
    * 
    * @example
-   * null
+   * 0.0.0.0/0
    */
   authFreeWritePolicy?: string;
   /**
    * @remarks
-   * The authorization token.
+   * The authorization token string.
    * 
    * @example
    * GciOiJIUzI1NiJ9***
@@ -85,7 +89,7 @@ export class GetPrometheusInstanceResponseBodyData extends $dara.Model {
   authToken?: string;
   /**
    * @remarks
-   * The ID of the Prometheus instance.
+   * The Prometheus instance ID.
    * 
    * @example
    * c589a1b8db05c4561aefbb898ca8fb1cf
@@ -93,7 +97,7 @@ export class GetPrometheusInstanceResponseBodyData extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The name of the monitoring object.
+   * The cluster name.
    * 
    * @example
    * prom1
@@ -101,12 +105,12 @@ export class GetPrometheusInstanceResponseBodyData extends $dara.Model {
   clusterName?: string;
   /**
    * @remarks
-   * *   remote-write: general-purpose Prometheus instance
-   * *   ecs: Prometheus instances for ECS
-   * *   cloud-monitor: Prometheus instance for Alibaba Cloud services in the Chinese mainland
-   * *   cloud-product: Prometheus instance for Alibaba Cloud services outside the Chinese mainland
-   * *   global-view: global aggregation instance
-   * *   aliyun-cs: Prometheus instance for Container Service
+   * - remote-write (Prometheus for Remote Write)
+   * - ecs (Prometheus for ECS)
+   * - cloud-monitor (Prometheus for Cloud Service in the Chinese mainland)
+   * - cloud-product (Prometheus for Cloud Service outside the Chinese mainland)
+   * - global-view (Prometheus for GlobalView)
+   * - aliyun-cs (Prometheus for Container Service).
    * 
    * @example
    * remote-write
@@ -114,7 +118,7 @@ export class GetPrometheusInstanceResponseBodyData extends $dara.Model {
   clusterType?: string;
   /**
    * @remarks
-   * The data storage status at the backend.
+   * The status of the backend data storage.
    * 
    * @example
    * RUNNING
@@ -122,18 +126,12 @@ export class GetPrometheusInstanceResponseBodyData extends $dara.Model {
   dbInstanceStatus?: string;
   /**
    * @remarks
-   * Indicates whether password-free read is enabled.
-   * 
-   * @example
-   * false
+   * Indicates whether authentication-free read access is enabled.
    */
   enableAuthFreeRead?: boolean;
   /**
    * @remarks
-   * Indicates whether password-free write is enabled.
-   * 
-   * @example
-   * false
+   * Indicates whether authentication-free write access is enabled.
    */
   enableAuthFreeWrite?: boolean;
   /**
@@ -146,12 +144,12 @@ export class GetPrometheusInstanceResponseBodyData extends $dara.Model {
   enableAuthToken?: string;
   /**
    * @remarks
-   * The extra information. This parameter is returned only for console requests.
+   * The extended information. This parameter is returned only for console requests.
    */
   extraInfo?: { [key: string]: string };
   /**
    * @remarks
-   * The ID of the Grafana workspace.
+   * The Grafana workspace ID.
    * 
    * @example
    * grafana-rnggfvhlcdl6m71***
@@ -159,7 +157,7 @@ export class GetPrometheusInstanceResponseBodyData extends $dara.Model {
   grafanaInstanceId?: string;
   /**
    * @remarks
-   * The public URL for the HTTP API.
+   * The public endpoint for HTTP API.
    * 
    * @example
    * https://cn-beijing.arms.aliyuncs.com:9443/api/v1/prometheus/xxx
@@ -167,7 +165,7 @@ export class GetPrometheusInstanceResponseBodyData extends $dara.Model {
   httpApiInterUrl?: string;
   /**
    * @remarks
-   * The internal URL for the HTTP API.
+   * The internal endpoint for HTTP API.
    * 
    * @example
    * http://cn-beijing-intranet.arms.aliyuncs.com:9090/api/v1/prometheus/xxx
@@ -179,8 +177,8 @@ export class GetPrometheusInstanceResponseBodyData extends $dara.Model {
    * @remarks
    * The billing method. Valid values:
    * 
-   * *   PREPAY: subscription
-   * *   POSTPAY: pay-as-you-go
+   * - PREPAY: subscription.
+   * - POSTPAY: pay-as-you-go.
    * 
    * @example
    * PREPAY
@@ -188,7 +186,7 @@ export class GetPrometheusInstanceResponseBodyData extends $dara.Model {
   paymentType?: string;
   /**
    * @remarks
-   * The time when the billing method was modified.
+   * The time when the billing method of the instance was last modified.
    * 
    * @example
    * 2025-02-26T06:05:01Z
@@ -196,7 +194,7 @@ export class GetPrometheusInstanceResponseBodyData extends $dara.Model {
   paymentTypeUpdateTime?: string;
   /**
    * @remarks
-   * The product to which the Prometheus instance belongs. Valid values: arms and cms.
+   * The product to which the Prometheus instance belongs (arms or cms).
    * 
    * @example
    * arms
@@ -204,7 +202,7 @@ export class GetPrometheusInstanceResponseBodyData extends $dara.Model {
   product?: string;
   /**
    * @remarks
-   * The public URL for Pushgateway.
+   * The public endpoint for push gateway.
    * 
    * @example
    * https://cn-beijing.arms.aliyuncs.com/prometheus/xxx/api/v2
@@ -212,7 +210,7 @@ export class GetPrometheusInstanceResponseBodyData extends $dara.Model {
   pushGatewayInterUrl?: string;
   /**
    * @remarks
-   * The internal URL for Pushgateway.
+   * The internal endpoint for push gateway.
    * 
    * @example
    * http://cn-beijing-intranet.arms.aliyuncs.com/prometheus/xxx/api/v2
@@ -228,7 +226,7 @@ export class GetPrometheusInstanceResponseBodyData extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The public URL for remote read.
+   * The public endpoint for remote read.
    * 
    * @example
    * http://cn-beijing.arms.aliyuncs.com:9090/api/v1/prometheus/xxx/api/v1/read
@@ -236,7 +234,7 @@ export class GetPrometheusInstanceResponseBodyData extends $dara.Model {
   remoteReadInterUrl?: string;
   /**
    * @remarks
-   * The internal URL for remote read.
+   * The internal endpoint for remote read.
    * 
    * @example
    * http://cn-beijing-intranet.arms.aliyuncs.com:9090/api/v1/prometheus/xxx/api/v1/read
@@ -244,7 +242,7 @@ export class GetPrometheusInstanceResponseBodyData extends $dara.Model {
   remoteReadIntraUrl?: string;
   /**
    * @remarks
-   * The public URL for remote write.
+   * The public endpoint for remote write.
    * 
    * @example
    * https://cn-beijing.arms.aliyuncs.com/prometheus/xxx/api/v3/write
@@ -252,7 +250,7 @@ export class GetPrometheusInstanceResponseBodyData extends $dara.Model {
   remoteWriteInterUrl?: string;
   /**
    * @remarks
-   * The internal URL for remote write.
+   * The internal endpoint for remote write.
    * 
    * @example
    * http://cn-beijing-intranet.arms.aliyuncs.com/prometheus/xxx/api/v3/write
@@ -268,7 +266,7 @@ export class GetPrometheusInstanceResponseBodyData extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The type of the resource. Set the value to PROMETHEUS.
+   * The fixed value: PROMETHEUS.
    * 
    * @example
    * PROMETHEUS
@@ -276,7 +274,7 @@ export class GetPrometheusInstanceResponseBodyData extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The ID of the security group. This parameter is returned only for Prometheus instances for ECS.
+   * The security group ID. This parameter is returned only for Prometheus for ECS instances.
    * 
    * @example
    * sg-8vbdgmf4nraiqa9bx0jo
@@ -284,7 +282,7 @@ export class GetPrometheusInstanceResponseBodyData extends $dara.Model {
   securityGroupId?: string;
   /**
    * @remarks
-   * The data storage duration. Unit: days.
+   * The storage duration, in days.
    * 
    * @example
    * 90
@@ -292,10 +290,10 @@ export class GetPrometheusInstanceResponseBodyData extends $dara.Model {
   storageDuration?: number;
   /**
    * @remarks
-   * The child instances of the global aggregation instance. The value is a JSON string.
+   * The JSON string of sub-instances for the GlobalView instance.
    * 
    * @example
-   * [{"headers":{},"regionId":"cn-hangzhou","sourceType":"AlibabaPrometheus","extras":{},"clusterId":"c39a1048921e04fceb039db2fbb73\\*\\*\\*","sourceName":"arms-luyao-test","dataSource":"","userId":"167275301789\\*\\*\\*"},{"headers":{},"regionId":"cn-beijing","sourceType":"AlibabaPrometheus","extras":{},"clusterId":"c6b6485496d5b400abde22cb47b5\\*\\*\\*\\*","sourceName":"agent-321-test","dataSource":"","userId":"1672753017899\\*\\*\\*"},{"headers":{},"regionId":"cn-zhangjiakou","sourceType":"AlibabaPrometheus","extras":{},"clusterId":"c261a4f3200c446659133f1ade789b15e","sourceName":"zaifeng-cardinality-01","dataSource":"","userId":"167275301789\\*\\*\\*"}]
+   * [{"headers":{},"regionId":"cn-hangzhou","sourceType":"AlibabaPrometheus","extras":{},"clusterId":"c39a1048921e04fceb039db2fbb73***","sourceName":"arms-luyao-test","dataSource":"","userId":"167275301789***"},{"headers":{},"regionId":"cn-beijing","sourceType":"AlibabaPrometheus","extras":{},"clusterId":"c6b6485496d5b400abde22cb47b5****","sourceName":"agent-321-测试","dataSource":"","userId":"1672753017899***"},{"headers":{},"regionId":"cn-zhangjiakou","sourceType":"AlibabaPrometheus","extras":{},"clusterId":"c261a4f3200c446659133f1ade789b15e","sourceName":"zaifeng-cardinality-01","dataSource":"","userId":"167275301789***"}]
    */
   subClustersJson?: string;
   /**
@@ -305,7 +303,7 @@ export class GetPrometheusInstanceResponseBodyData extends $dara.Model {
   supportAuthTypes?: string[];
   /**
    * @remarks
-   * The tags of the instance.
+   * The tags bound to the instance.
    */
   tags?: GetPrometheusInstanceResponseBodyDataTags[];
   /**
@@ -318,7 +316,7 @@ export class GetPrometheusInstanceResponseBodyData extends $dara.Model {
   userId?: string;
   /**
    * @remarks
-   * The vSwitch ID. This parameter is returned only for Prometheus instances for ECS.
+   * The vSwitch ID. This parameter is returned only for Prometheus for ECS instances.
    * 
    * @example
    * vsw-f8z73vcja1tqnw90aav5a
@@ -326,7 +324,7 @@ export class GetPrometheusInstanceResponseBodyData extends $dara.Model {
   vSwitchId?: string;
   /**
    * @remarks
-   * Version
+   * The version.
    * 
    * @example
    * V1
@@ -334,7 +332,7 @@ export class GetPrometheusInstanceResponseBodyData extends $dara.Model {
   version?: string;
   /**
    * @remarks
-   * The VPC ID. This parameter is returned only for Prometheus instances for ECS.
+   * The VPC associated with the cluster. This parameter is returned only for Prometheus for ECS instances.
    * 
    * @example
    * vpc-8vb02uk57qbcktqcvqqqj
@@ -449,7 +447,7 @@ export class GetPrometheusInstanceResponseBodyData extends $dara.Model {
 export class GetPrometheusInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code. The status code 200 indicates that the request was successful. If another status code is returned, the request failed.
+   * The status code. A value of 200 indicates success. Other values indicate errors.
    * 
    * @example
    * 200
@@ -457,12 +455,12 @@ export class GetPrometheusInstanceResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The response parameters.
+   * The returned information.
    */
   data?: GetPrometheusInstanceResponseBodyData;
   /**
    * @remarks
-   * The message returned.
+   * The message returned for the result.
    * 
    * @example
    * message

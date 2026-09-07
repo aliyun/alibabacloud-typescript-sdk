@@ -59,7 +59,7 @@ export class CreateOrUpdateIMRobotResponseBodyAlertRobot extends $dara.Model {
    * The name of the IM chatbot.
    * 
    * @example
-   * Chatbot name
+   * robot名称
    */
   robotName?: string;
   /**

@@ -48,8 +48,10 @@ export class CreateEnvironmentRequest extends $dara.Model {
    * The language. Default value: zh.
    * 
    * Valid values:
-   * *   en: English
-   * *   zh: Chinese
+   * 
+   * - en: English
+   * 
+   * - zh: Chinese
    * 
    * @example
    * zh
@@ -79,23 +81,27 @@ export class CreateEnvironmentRequest extends $dara.Model {
    * @remarks
    * The subtype of the environment. Valid values:
    * 
-   * *   CS: Container Service for Kubernetes (ACK) or Distributed Cloud Container Platform for Kubernetes (ACK One)
-   * *   ECS: ECS
-   * *   Cloud: cloud service
+   * - CS: Container Service for Kubernetes (ACK) or Distributed Cloud Container Platform for Kubernetes (ACK One)
+   * 
+   * - ECS: ECS
+   * 
+   * - Cloud: cloud service
    * 
    * This parameter is required.
    * 
    * @example
-   * ECS, ACK, etc.
+   * ECS、ACK等。
    */
   environmentSubType?: string;
   /**
    * @remarks
    * The type of the environment. Valid values:
    * 
-   * *   CS: Container Service
-   * *   ECS: Elastic Compute Service
-   * *   Cloud: cloud service
+   * - CS: Container Service
+   * 
+   * - ECS: Elastic Compute Service
+   * 
+   * - Cloud: cloud service
    * 
    * This parameter is required.
    * 
@@ -107,8 +113,9 @@ export class CreateEnvironmentRequest extends $dara.Model {
    * @remarks
    * The payable resource plan.
    * 
-   * *   If the EnvironmentType parameter is set to CS, set the value to CS_Basic or CS_Pro. Default value: CS_Basic.
-   * *   Otherwise, leave the parameter empty.
+   * - If the EnvironmentType parameter is set to CS, set the value to CS_Basic or CS_Pro. Default value: CS_Basic.
+   * 
+   * - Otherwise, leave the parameter empty.
    * 
    * @example
    * CS_Basic
@@ -137,9 +144,11 @@ export class CreateEnvironmentRequest extends $dara.Model {
    * @remarks
    * Specifies whether agents or exporters are managed. Valid values:
    * 
-   * *   none: No. By default, no managed agents or exporters are provided for ACK clusters.
-   * *   agent: Agents are managed. By default, managed agents are provided for ASK clusters, ACS clusters, and ACK One clusters.
-   * *   agent-exporter: Agents and exporters are managed. By default, managed agents and exporters are provided for cloud services.
+   * - none: No. By default, no managed agents or exporters are provided for ACK clusters.
+   * 
+   * - agent: Agents are managed. By default, managed agents are provided for ASK clusters, ACS clusters, and ACK One clusters.
+   * 
+   * - agent-exporter: Agents and exporters are managed. By default, managed agents and exporters are provided for cloud services.
    * 
    * @example
    * none

@@ -8,7 +8,7 @@ export class GetRetcodeShareUrlResponseBody extends $dara.Model {
    * The ID of the request.
    * 
    * @example
-   * 01FF8DD9-A09C-47A1-895A-B6E321******
+   * 01FF8DD9-A09C-47A1-895A-B6E321BE77B6
    */
   requestId?: string;
   /**

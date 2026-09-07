@@ -15,7 +15,7 @@ export class GetExploreUrlRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The query statement that corresponds to the data source.
+   * The query statement for the data source.
    * 
    * @example
    * {app="buy2"}
@@ -31,7 +31,7 @@ export class GetExploreUrlRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The type of the Grafana data source.
+   * The Grafana data source type.
    * 
    * This parameter is required.
    * 

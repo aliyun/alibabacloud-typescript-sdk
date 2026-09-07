@@ -20,21 +20,7 @@ export class UpdatePrometheusMonitoringRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * apiVersion: monitoring.coreos.com/v1
-   * kind: ServiceMonitor
-   * metadata:
-   *   name: tomcat-demo
-   *   namespace: default
-   * spec:
-   *   endpoints:
-   *     - interval: 30s
-   *       path: /metrics
-   *       port: tomcat-monitor
-   *   namespaceSelector:
-   *     any: true
-   *   selector:
-   *     matchLabels:
-   *       app: tomcat
+   * 参见请求参数补充说明。
    */
   configYaml?: string;
   /**
@@ -59,8 +45,8 @@ export class UpdatePrometheusMonitoringRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The type of the monitoring configuration. 
-   * Valid values for a Prometheus instance for Container Service: serviceMonitor, podMonitor, customJob, and probe. 
+   * The type of the monitoring configuration.
+   * Valid values for a Prometheus instance for Container Service: serviceMonitor, podMonitor, customJob, and probe.
    * Valid values for a Prometheus instance for ECS: customJob and probe.
    * 
    * This parameter is required.

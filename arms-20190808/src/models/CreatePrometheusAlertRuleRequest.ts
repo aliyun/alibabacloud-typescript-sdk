@@ -114,7 +114,7 @@ export class CreatePrometheusAlertRuleRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * The CPU utilization of ${{$labels.pod_name}} has exceeded 80%. Current value: {{$value}}%
+   * ${{$labels.pod_name}}CPU使用率大于80%，当前值{{$value}}%
    */
   message?: string;
   /**

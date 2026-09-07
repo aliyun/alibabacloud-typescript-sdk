@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListCmsInstancesRequest extends $dara.Model {
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class ListCmsInstancesRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,10 +25,11 @@ export class ListCmsInstancesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The type of the cloud service integration. Valid values:
+   * The type of integrated cloud service. Valid values:
    * 
-   * *   direct: self-monitoring
-   * *   cms: Hybrid Cloud Monitoring
+   * - `direct`: An integration for cloud products that are monitored by the product itself.
+   * 
+   * - `cms`: An integration with CloudMonitor.
    * 
    * @example
    * direct

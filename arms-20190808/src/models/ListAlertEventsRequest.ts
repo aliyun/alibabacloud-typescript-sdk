@@ -8,7 +8,7 @@ export class ListAlertEventsRequest extends $dara.Model {
    * The name of the alert.
    * 
    * @example
-   * Test-triggered alert
+   * 测试触发的告警
    */
   alertName?: string;
   /**

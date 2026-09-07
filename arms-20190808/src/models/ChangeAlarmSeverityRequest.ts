@@ -12,7 +12,7 @@ export class ChangeAlarmSeverityRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 155
+   * 184723093
    */
   alarmId?: number;
   /**

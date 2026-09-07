@@ -8,7 +8,7 @@ export class ListEnvironmentFeaturesResponseBodyData extends $dara.Model {
    * The alias of the feature.
    * 
    * @example
-   * Prometheus Agent
+   * Prometheus 探针
    */
   alias?: string;
   /**
@@ -21,7 +21,7 @@ export class ListEnvironmentFeaturesResponseBodyData extends $dara.Model {
    * The description of the feature.
    * 
    * @example
-   * Collect Metric data using the Prometheus collection specification.
+   * 以 Prometheus 采集规范采集 Metric 数据。
    */
   description?: string;
   /**

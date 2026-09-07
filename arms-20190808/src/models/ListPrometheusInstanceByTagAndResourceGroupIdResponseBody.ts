@@ -48,7 +48,7 @@ export class ListPrometheusInstanceByTagAndResourceGroupIdResponseBodyDataPromet
    * The authorization token.
    * 
    * @example
-   * ad32dxxxx
+   * GciOiJIUzI1NiJ9***
    */
   authToken?: string;
   /**
@@ -71,12 +71,17 @@ export class ListPrometheusInstanceByTagAndResourceGroupIdResponseBodyDataPromet
    * @remarks
    * The instance type. Valid values:
    * 
-   * *   remote-write: Prometheus instance for Remote Write
-   * *   ecs: Prometheus instances for ECS
-   * *   cloud-monitor: Prometheus instance for Alibaba Cloud services in the Chinese mainland
-   * *   cloud-product: Prometheus instance for Alibaba Cloud services outside the Chinese mainland
-   * *   global-view: global aggregation instance
-   * *   aliyun-cs: Prometheus instance for Container Service
+   * - remote-write: Prometheus instance for Remote Write
+   * 
+   * - ecs: Prometheus instances for ECS
+   * 
+   * - cloud-monitor: Prometheus instance for Alibaba Cloud services in the Chinese mainland
+   * 
+   * - cloud-product: Prometheus instance for Alibaba Cloud services outside the Chinese mainland
+   * 
+   * - global-view: global aggregation instance
+   * 
+   * - aliyun-cs: Prometheus instance for Container Service
    * 
    * @example
    * ecs
@@ -95,7 +100,7 @@ export class ListPrometheusInstanceByTagAndResourceGroupIdResponseBodyDataPromet
    * The public URL for the HTTP API.
    * 
    * @example
-   * http://cn-beijing.arms.aliyuncs.com:9090/api/v1/prometheus/xxx/cn-beijing
+   * https://cn-beijing.arms.aliyuncs.com:9443/api/v1/prometheus/xxx
    */
   httpApiInterUrl?: string;
   /**
@@ -103,15 +108,16 @@ export class ListPrometheusInstanceByTagAndResourceGroupIdResponseBodyDataPromet
    * The internal URL for the HTTP API.
    * 
    * @example
-   * http://cn-beijing-intranet.arms.aliyuncs.com:9090/api/v1/prometheus/xxx/cn-beijing
+   * http://cn-beijing-intranet.arms.aliyuncs.com:9090/api/v1/prometheus/xxx
    */
   httpApiIntraUrl?: string;
   /**
    * @remarks
    * The billing method. Valid values:
    * 
-   * *   PREPAY: subscription
-   * *   POSTPAY: pay-as-you-go
+   * - PREPAY: subscription
+   * 
+   * - POSTPAY: pay-as-you-go
    * 
    * @example
    * POSTPAY
@@ -122,7 +128,7 @@ export class ListPrometheusInstanceByTagAndResourceGroupIdResponseBodyDataPromet
    * The public URL for Pushgateway.
    * 
    * @example
-   * http://cn-beijing.arms.aliyuncs.com/prometheus/xxx/api/v2
+   * https://cn-beijing.arms.aliyuncs.com/prometheus/xxx/api/v2
    */
   pushGatewayInterUrl?: string;
   /**
@@ -162,7 +168,7 @@ export class ListPrometheusInstanceByTagAndResourceGroupIdResponseBodyDataPromet
    * The public URL for remote write.
    * 
    * @example
-   * http://cn-beijing.arms.aliyuncs.com/prometheus/xxx/api/v3/write
+   * https://cn-beijing.arms.aliyuncs.com/prometheus/xxx/api/v3/write
    */
   remoteWriteInterUrl?: string;
   /**
@@ -202,7 +208,38 @@ export class ListPrometheusInstanceByTagAndResourceGroupIdResponseBodyDataPromet
    * The child instances of the global aggregation instance. The value is a JSON string.
    * 
    * @example
-   * [ { "headers": {}, "regionId": "cn-hangzhou", "sourceType": "AlibabaPrometheus", "extras": {}, "clusterId": "c39a1048921e04fceb039db2fb\\*\\*\\*\\*", "sourceName": "arms-luyao-test", "dataSource": "", "userId": "167275301789\\*\\*\\*\\*" }, { "headers": {}, "regionId": "cn-beijing", "sourceType": "AlibabaPrometheus", "extras": {}, "clusterId": "c6b6485496d5b400abde22cb47b5\\*\\*\\*\\*", "sourceName": "agent-321-test", "dataSource": "", "userId": "167275301789\\*\\*\\*\\*" }, { "headers": {}, "regionId": "cn-zhangjiakou", "sourceType": "AlibabaPrometheus", "extras": {}, "clusterId": "c261a4f3200c446659133f1ade78\\*\\*\\*\\*", "sourceName": "zaifeng-cardinality-01", "dataSource": "", "userId": "167275301789\\*\\*\\*\\*" } ]
+   * [
+   *   {
+   *     "headers": {},
+   *     "regionId": "cn-hangzhou",
+   *     "sourceType": "AlibabaPrometheus",
+   *     "extras": {},
+   *     "clusterId": "c39a1048921e04fceb039db2fb****",
+   *     "sourceName": "arms-luyao-test",
+   *     "dataSource": "",
+   *     "userId": "167275301789****"
+   *   },
+   *   {
+   *     "headers": {},
+   *     "regionId": "cn-beijing",
+   *     "sourceType": "AlibabaPrometheus",
+   *     "extras": {},
+   *     "clusterId": "c6b6485496d5b400abde22cb47b5****",
+   *     "sourceName": "agent-321-测试",
+   *     "dataSource": "",
+   *     "userId": "167275301789****"
+   *   },
+   *   {
+   *     "headers": {},
+   *     "regionId": "cn-zhangjiakou",
+   *     "sourceType": "AlibabaPrometheus",
+   *     "extras": {},
+   *     "clusterId": "c261a4f3200c446659133f1ade78****",
+   *     "sourceName": "zaifeng-cardinality-01",
+   *     "dataSource": "",
+   *     "userId": "167275301789****"
+   *   }
+   * ]
    */
   subClustersJson?: string;
   /**

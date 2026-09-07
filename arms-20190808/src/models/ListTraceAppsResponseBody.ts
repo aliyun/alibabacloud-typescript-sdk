@@ -117,7 +117,7 @@ export class ListTraceAppsResponseBodyTraceApps extends $dara.Model {
    * The resource group ID.
    * 
    * @example
-   * Resource group
+   * rg-acfmxyexli2****
    */
   resourceGroupId?: string;
   /**

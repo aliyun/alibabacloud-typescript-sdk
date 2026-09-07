@@ -8,7 +8,7 @@ export class GetRumAppsResponseBodyAppListServiceDomainConfigs extends $dara.Mod
    * The description.
    * 
    * @example
-   * Test
+   * 测试
    */
   description?: string;
   /**
@@ -127,7 +127,7 @@ export class GetRumAppsResponseBodyAppList extends $dara.Model {
    * The description of the application.
    * 
    * @example
-   * TEST
+   * 测试
    */
   description?: string;
   /**
@@ -151,7 +151,7 @@ export class GetRumAppsResponseBodyAppList extends $dara.Model {
    * The application name.
    * 
    * @example
-   * home page
+   * 门户首页。
    */
   name?: string;
   /**
@@ -322,7 +322,7 @@ export class GetRumAppsResponseBody extends $dara.Model {
    * The error message returned if the request failed.
    * 
    * @example
-   * Internal error, please contact customer service.
+   * 内部错误，请联系客服。
    */
   message?: string;
   /**

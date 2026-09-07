@@ -16,7 +16,7 @@ export class DeleteAppListResponseBody extends $dara.Model {
    * The returned message.
    * 
    * @example
-   * "{\\"code\\":200,\\"data\\":\\"{\\\\\\"code\\\\\\":200,\\\\\\"data\\\\\\":true,\\\\\\"errorCode\\\\ \\":\\\\\\"Deletion of application successful\\\\\\",\\\\\\"Message\\\\\\":\\\\\\"Deletion of application successful\\\\\\",\\\\\\"Successful\\\\\\":true,\\ \\\\"traceId\\\\\\":\\\\\\"0bc1667516940677164677396d0088\\\\\\"}\\",\\"errorCode\\":\\"Batch deletion of applications successful\\",\\"message\\":\\"Batch deletion of applications successful\\ ",\\"Success\\":true,\\"traceId\\":\\"210f470416940677161213505e0e7a\\"}"
+   * "{\\"code\\":200,\\"data\\":\\"{\\\\\\"code\\\\\\":200,\\\\\\"data\\\\\\":true,\\\\\\"errorCode\\\\\\":\\\\\\"删除应用成功\\\\\\",\\\\\\"message\\\\\\":\\\\\\"删除应用成功\\\\\\",\\\\\\"success\\\\\\":true,\\\\\\"traceId\\\\\\":\\\\\\"0bc1667516940677164677396d0088\\\\\\"}\\",\\"errorCode\\":\\"批量删除应用成功\\",\\"message\\":\\"批量删除应用成功\\",\\"success\\":true,\\"traceId\\":\\"210f470416940677161213505e0e7a\\"}"
    */
   data?: string;
   /**
@@ -24,7 +24,7 @@ export class DeleteAppListResponseBody extends $dara.Model {
    * The error message returned for invalid request parameters.
    * 
    * @example
-   * "Deletion of application successful"
+   * “批量删除应用成功”
    */
   message?: string;
   /**

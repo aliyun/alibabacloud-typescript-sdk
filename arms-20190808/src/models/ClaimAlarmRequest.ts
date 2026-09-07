@@ -12,7 +12,7 @@ export class ClaimAlarmRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 30
+   * 184723093
    */
   alarmId?: number;
   /**

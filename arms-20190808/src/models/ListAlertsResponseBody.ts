@@ -8,7 +8,7 @@ export class ListAlertsResponseBodyPageBeanListAlertsActivities extends $dara.Mo
    * The content of the alert notification.
    * 
    * @example
-   * [Notification policy: Send notifications to DingTalk groups] Host monitoring. Host IP address: 10.76.XX.XX. Average memory usage of the host in the last 1 minute ≥ 1.0%. Current value: 84.7454%.
+   * 【通知策略: 钉群通知】 主机监控 节点机IP: 10.76.XX.XX 节点机内存利用率最近1分钟求平均 >= 1.0 %, 当前值84.7454 %
    */
   content?: string;
   /**
@@ -16,7 +16,7 @@ export class ListAlertsResponseBodyPageBeanListAlertsActivities extends $dara.Mo
    * The description of the activity.
    * 
    * @example
-   * [Alert Claimed] The alert is claimed
+   * [告警认领]认领了该告警
    */
   description?: string;
   /**
@@ -24,7 +24,7 @@ export class ListAlertsResponseBodyPageBeanListAlertsActivities extends $dara.Mo
    * The name of the handler.
    * 
    * @example
-   * O\\&M Engineer A
+   * 运维A
    */
   handlerName?: string;
   /**
@@ -84,7 +84,7 @@ export class ListAlertsResponseBodyPageBeanListAlertsAlertEvents extends $dara.M
    * The name of the event.
    * 
    * @example
-   * Test-triggered alert
+   * 测试触发的告警
    */
   alertName?: string;
   /**
@@ -100,7 +100,7 @@ export class ListAlertsResponseBodyPageBeanListAlertsAlertEvents extends $dara.M
    * The description of the event.
    * 
    * @example
-   * Host monitoring. Host IP address: 10.76.XX.XX. Average memory usage of the host in the last 1 minute ≥ 1.0%. Current value: 84.7454%.
+   * 主机监控 节点机IP: 10.76.XX.XX 节点机内存利用率最近1分钟求平均 >= 1.0 %, 当前值84.7454 %
    */
   description?: string;
   /**
@@ -253,7 +253,7 @@ export class ListAlertsResponseBodyPageBeanListAlerts extends $dara.Model {
    * Time to claim the alarm.
    * 
    * @example
-   * -1
+   * 告警从发生到认领之间的时长
    */
   acknowledgeTime?: number;
   /**
@@ -279,7 +279,7 @@ export class ListAlertsResponseBodyPageBeanListAlerts extends $dara.Model {
    * The name of the alert rule.
    * 
    * @example
-   * Test alert
+   * 告警测试
    */
   alertName?: string;
   /**
@@ -295,7 +295,7 @@ export class ListAlertsResponseBodyPageBeanListAlerts extends $dara.Model {
    * The description of a event execution status.
    * 
    * @example
-   * [Notification Strategy: ARMS Front-end Alarm]\\nPage Indicator Page Name: Home JS Error Number Average in the last 5 minutes &gt;= 1.0 times, current value 1.0000 times\\n
+   * [告警通知]通过[webhook]通知了xxx(成功）
    */
   describe?: string;
   /**
@@ -311,7 +311,7 @@ export class ListAlertsResponseBodyPageBeanListAlerts extends $dara.Model {
    * The name of the notification policy.
    * 
    * @example
-   * DingTalk Notification
+   * 钉群通知
    */
   dispatchRuleName?: string;
   /**
@@ -319,7 +319,7 @@ export class ListAlertsResponseBodyPageBeanListAlerts extends $dara.Model {
    * Alarm handler.
    * 
    * @example
-   * Alice
+   * 认领、关闭告警的处理人
    */
   handler?: string;
   /**
@@ -327,7 +327,7 @@ export class ListAlertsResponseBodyPageBeanListAlerts extends $dara.Model {
    * The contact card of an instant messaging app.
    * 
    * @example
-   * Test Robot
+   * 钉钉的名片。
    */
   notifyRobots?: string;
   /**
@@ -335,7 +335,7 @@ export class ListAlertsResponseBodyPageBeanListAlerts extends $dara.Model {
    * The notification object configured in the notification policy, responsible for handling alerts.
    * 
    * @example
-   * Alice
+   * 通知策略中配置的联系人通知对象
    */
   owner?: string;
   /**
@@ -343,7 +343,7 @@ export class ListAlertsResponseBodyPageBeanListAlerts extends $dara.Model {
    * Alarm recovery time.
    * 
    * @example
-   * -1
+   * 告警从发生到恢复之间的时长
    */
   recoverTime?: number;
   /**
@@ -359,7 +359,7 @@ export class ListAlertsResponseBodyPageBeanListAlerts extends $dara.Model {
    * The Alert solution.
    * 
    * @example
-   * --
+   * 重启解决
    */
   solution?: string;
   /**

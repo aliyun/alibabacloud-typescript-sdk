@@ -16,7 +16,13 @@ export class DeleteTraceAppRequestDeleteReasonReasonIds extends $dara.Model {
    * A description of the reason for removal.
    * 
    * @example
-   * The function is not perfect, and the root cause of the problem cannot be located.
+   * 删除理由描述，ID和Name的对应关系：
+   * "id":0,"name":"功能不完善，无法定位到问题根本原因。"
+   * "id":1,"name":"Agent不稳定，影响应用运行。"
+   * "id":2,"name":"服务不稳定，经常打不开界面。"
+   * "id":3,"name":"报警相关问题。"
+   * "id":4,"name":"价格太贵"
+   * "id":5,"name":"其他原因"
    */
   name?: string;
   static names(): { [key: string]: string } {
@@ -53,7 +59,7 @@ export class DeleteTraceAppRequestDeleteReason extends $dara.Model {
    * Additional remarks when none of the reasons for removal provided are met.
    * 
    * @example
-   * The business scenario cannot be satisfied.
+   * 业务场景覆盖不全
    */
   remark?: string;
   static names(): { [key: string]: string } {

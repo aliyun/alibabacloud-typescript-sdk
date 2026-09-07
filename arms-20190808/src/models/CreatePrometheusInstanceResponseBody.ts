@@ -5,7 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class CreatePrometheusInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code. The status code 200 indicates that the request was successful.
+   * The HTTP status code. Valid values:
+   * 
+   * - 2XX: success.
+   * - 3XX: redirection.
+   * - 4XX: request error.
+   * - 5XX: server error.
    * 
    * @example
    * 200
@@ -13,7 +18,11 @@ export class CreatePrometheusInstanceResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The ID of the created Prometheus instance.
+   * The instance ID returned after the instance is created.
+   * 
+   * - For aliyun-cs instances, the Prometheus instance ID is the Container Service cluster ID.
+   * 
+   * - For ecs instances, the Prometheus instance ID is the VPC ID.
    * 
    * @example
    * qduukd****
@@ -21,7 +30,7 @@ export class CreatePrometheusInstanceResponseBody extends $dara.Model {
   data?: string;
   /**
    * @remarks
-   * The message returned.
+   * The returned message.
    * 
    * @example
    * message
@@ -29,7 +38,7 @@ export class CreatePrometheusInstanceResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 70675725-8F11-4817-8106-CFE0AD71****

@@ -162,7 +162,7 @@ export class GetTimingSyntheticTaskResponseBodyDataCommonSettingCustomPrometheus
    * A reserved parameter.
    * 
    * @example
-   * Reserved parameter
+   * 保留字段。
    */
   prometheusClusterId?: string;
   /**
@@ -170,7 +170,7 @@ export class GetTimingSyntheticTaskResponseBodyDataCommonSettingCustomPrometheus
    * A reserved parameter.
    * 
    * @example
-   * Reserved parameter
+   * 保留字段。
    */
   prometheusClusterRegion?: string;
   /**
@@ -1521,7 +1521,7 @@ export class GetTimingSyntheticTaskResponseBodyDataTags extends $dara.Model {
    * The value of the tag.
    * 
    * @example
-   * myweb
+   * p_运维
    */
   value?: string;
   static names(): { [key: string]: string } {
@@ -1594,7 +1594,7 @@ export class GetTimingSyntheticTaskResponseBodyData extends $dara.Model {
    * The name of the task.
    * 
    * @example
-   * AlibabaCloud DNS Task
+   * 拨测任务
    */
   name?: string;
   /**

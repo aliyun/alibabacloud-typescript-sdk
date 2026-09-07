@@ -13,7 +13,7 @@ export class ListEnvironmentFeaturesRequest extends $dara.Model {
    * *   zh: Chinese.
    * 
    * @example
-   * en
+   * zh
    */
   aliyunLang?: string;
   /**

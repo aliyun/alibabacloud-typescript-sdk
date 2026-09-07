@@ -8,7 +8,7 @@ export class SearchAlertHistoriesResponseBodyPageBeanAlarmHistories extends $dar
    * The content of the alert notification.
    * 
    * @example
-   * "Alert name: Alert1\\nAlert time: 2020-07-24 12:14:00\\nAlert content: A total of four alerts are triggered: \\*\\*\\*\\*"
+   * "报警名称：Alert1\\n报警时间：2020-07-24 12:14:00\\n报警内容：共有4条记录触发异常：****"
    */
   alarmContent?: string;
   /**

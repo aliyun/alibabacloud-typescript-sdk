@@ -65,6 +65,9 @@ export class GetAgentDownloadUrlV2ResponseBody extends $dara.Model {
   /**
    * @remarks
    * The returned message.
+   * 
+   * @example
+   * 探针类型错误
    */
   message?: string;
   /**

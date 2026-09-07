@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteCmsExporterResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Return Result information.
+   * 
    * @example
    * success
    */
   data?: string;
   /**
+   * @remarks
+   * The unique ID of this request. If a fault occurs, you can use this ID to troubleshoot the issue.
+   * 
    * @example
    * 27E653FA-5958-45BE-8AA9-14D884DC****
    */

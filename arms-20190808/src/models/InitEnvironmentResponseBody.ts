@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class InitEnvironmentResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code. The status code 200 indicates that the request was successful.
+   * The HTTP status code. 200 indicates success.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class InitEnvironmentResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The result of the operation.
+   * The operation result.
    * 
    * @example
    * success
@@ -21,7 +21,7 @@ export class InitEnvironmentResponseBody extends $dara.Model {
   data?: string;
   /**
    * @remarks
-   * The returned message.
+   * The response message.
    * 
    * @example
    * message

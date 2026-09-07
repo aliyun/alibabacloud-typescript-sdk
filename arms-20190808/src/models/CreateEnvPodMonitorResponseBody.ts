@@ -8,7 +8,7 @@ export class CreateEnvPodMonitorResponseBodyData extends $dara.Model {
    * Indicates whether targets are matched.
    * 
    * @example
-   * Match successful.
+   * 匹配成功。
    */
   matchedMsg?: string;
   /**

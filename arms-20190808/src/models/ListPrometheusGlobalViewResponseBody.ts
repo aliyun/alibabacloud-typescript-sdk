@@ -16,7 +16,7 @@ export class ListPrometheusGlobalViewResponseBody extends $dara.Model {
    * The list of global aggregation instances. The value of this parameter is a string in the JSON format.
    * 
    * @example
-   * [ {groupName: "the name of the global aggregation instance", clusterId: "global-v2-clusterid", endpoint: "cn-hangzhou"}, // ..... more items ]
+   * [   {groupName: "聚合实例名称", clusterId: "global-v2-clusterid", endpoint: "cn-hangzhou"}, //   ..... more items ]
    */
   data?: string;
   /**

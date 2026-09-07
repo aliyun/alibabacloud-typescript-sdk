@@ -20,7 +20,7 @@ export class GetPrometheusIntegrationRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 2893
+   * 28**
    */
   instanceId?: number;
   /**
@@ -30,7 +30,7 @@ export class GetPrometheusIntegrationRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * kafka, mysql, redis, snmp, emr, nubela, and tidb
+   * tidb
    */
   integrationType?: string;
   /**

@@ -12,7 +12,7 @@ export class GetRumAppInfoResponseBodyDataBonreeSDKConfigModuleConfig extends $d
   defaultConfig?: { [key: string]: DataBonreeSDKConfigModuleConfigDefaultConfigValue };
   /**
    * @remarks
-   * Indicates whether the configuration is enabled.
+   * The master switch.
    * 
    * @example
    * true
@@ -20,7 +20,7 @@ export class GetRumAppInfoResponseBodyDataBonreeSDKConfigModuleConfig extends $d
   enable?: boolean;
   /**
    * @remarks
-   * The version configurations of the application.
+   * The application version configurations.
    */
   versionConfigs?: { [key: string]: DataBonreeSDKConfigModuleConfigVersionConfigsValue };
   static names(): { [key: string]: string } {
@@ -57,7 +57,7 @@ export class GetRumAppInfoResponseBodyDataBonreeSDKConfigModuleConfig extends $d
 export class GetRumAppInfoResponseBodyDataBonreeSDKConfigSamplingConfig extends $dara.Model {
   /**
    * @remarks
-   * Sampling rate: between (0, 1000], a thousandth.
+   * The sampling rate, in parts per thousand. The value must be greater than 0 and less than or equal to 1,000.
    * 
    * @example
    * 500
@@ -65,7 +65,7 @@ export class GetRumAppInfoResponseBodyDataBonreeSDKConfigSamplingConfig extends 
   samplingRate?: number;
   /**
    * @remarks
-   * Sampling type, currently only session random sampling is supported, that is, fixed transmission: 1.
+   * The sampling type. Only random session sampling is supported. You must set this parameter to `1`.
    * 
    * @example
    * 1
@@ -97,12 +97,12 @@ export class GetRumAppInfoResponseBodyDataBonreeSDKConfigSamplingConfig extends 
 export class GetRumAppInfoResponseBodyDataBonreeSDKConfig extends $dara.Model {
   /**
    * @remarks
-   * The module configuration.
+   * The feature switches for modules.
    */
   moduleConfig?: GetRumAppInfoResponseBodyDataBonreeSDKConfigModuleConfig;
   /**
    * @remarks
-   * Sampling configuration.
+   * The sampling configuration.
    */
   samplingConfig?: GetRumAppInfoResponseBodyDataBonreeSDKConfigSamplingConfig;
   static names(): { [key: string]: string } {
@@ -140,7 +140,7 @@ export class GetRumAppInfoResponseBodyDataServiceDomainConfigs extends $dara.Mod
    * The description.
    * 
    * @example
-   * Test
+   * 测试
    */
   description?: string;
   /**
@@ -153,12 +153,12 @@ export class GetRumAppInfoResponseBodyDataServiceDomainConfigs extends $dara.Mod
   domain?: string;
   /**
    * @remarks
-   * The trace propagation protocols. This parameter is required if the tracing analysis feature is enabled.
+   * The list of trace pass-through protocols. This parameter is required when trace tracking is enabled.
    */
   propagatorTypes?: string[];
   /**
    * @remarks
-   * The sampling rate of a trace. Valid values: (0, 100].
+   * The trace sampling rate. Valid values: (0, 100].
    * 
    * @example
    * 100
@@ -166,10 +166,11 @@ export class GetRumAppInfoResponseBodyDataServiceDomainConfigs extends $dara.Mod
   samplingRate?: number;
   /**
    * @remarks
-   * Indicates whether the tracing analysis feature is enabled. To enable the tracing analysis feature, you must activate Managed Service for OpenTelemetry. Valid values:
+   * Indicates whether to enable trace tracking. You must activate Application Real-Time Monitoring Service (ARMS) OpenTelemetry Edition to use this feature. Valid values:
    * 
-   * *   `true`: enables the tracing analysis feature. If you enable the tracing analysis feature, related headers are inserted into requests for the domain name.
-   * *   `false`: disables the tracing analysis feature.
+   * - `true`: enables trace tracking. If you set this parameter to true, a related header is inserted into the request for this domain name.
+   * 
+   * - `false`: does not enable trace tracking.
    * 
    * @example
    * true
@@ -210,7 +211,7 @@ export class GetRumAppInfoResponseBodyDataServiceDomainConfigs extends $dara.Mod
 export class GetRumAppInfoResponseBodyDataTags extends $dara.Model {
   /**
    * @remarks
-   * The tag key.
+   * The key of the tag.
    * 
    * @example
    * Label
@@ -218,7 +219,7 @@ export class GetRumAppInfoResponseBodyDataTags extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value.
+   * The value of the tag.
    * 
    * @example
    * Value
@@ -250,7 +251,7 @@ export class GetRumAppInfoResponseBodyDataTags extends $dara.Model {
 export class GetRumAppInfoResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The application configurations in the JSON format. This parameter is deprecated.
+   * This parameter is deprecated. The legacy application configuration in the JSON format.
    * 
    * @example
    * {"apiRequestOfH5":300,"apiRequestOfOriginal":500,"coldStart":5000,"hotStart":3000,"staticResourceLoad":300,"stutter":1000,"viewLoadOfH5":1000,"viewLoadOfOriginal":2000}
@@ -258,7 +259,7 @@ export class GetRumAppInfoResponseBodyData extends $dara.Model {
   appConfig?: string;
   /**
    * @remarks
-   * The group to which the application belongs.
+   * The application group.
    * 
    * @example
    * default
@@ -266,7 +267,7 @@ export class GetRumAppInfoResponseBodyData extends $dara.Model {
   appGroup?: string;
   /**
    * @remarks
-   * The application type. Valid values: web, miniapp, ios, and android.
+   * The application type. Valid values: `web`, `miniapp`, `ios`, and `android`. `web` indicates Web and H5 applications, `miniapp` indicates mini programs.
    * 
    * @example
    * web
@@ -274,7 +275,7 @@ export class GetRumAppInfoResponseBodyData extends $dara.Model {
   appType?: string;
   /**
    * @remarks
-   * The region where the backend is deployed.
+   * The region where the back-end application is deployed. This parameter is used for end-to-end tracing.
    * 
    * @example
    * cn-hangzhou
@@ -282,12 +283,12 @@ export class GetRumAppInfoResponseBodyData extends $dara.Model {
   backendServiceTraceRegion?: string;
   /**
    * @remarks
-   * The collection configurations.
+   * The data collection configurations for mobile applications.
    */
   bonreeSDKConfig?: GetRumAppInfoResponseBodyDataBonreeSDKConfig;
   /**
    * @remarks
-   * The domain name of the SDK.
+   * The SDK domain name.
    * 
    * @example
    * b59xxxxxxxx-sdk.rum.aliyuncs.com/v2/browser-sdk.js
@@ -295,7 +296,7 @@ export class GetRumAppInfoResponseBodyData extends $dara.Model {
   cdnDomain?: string;
   /**
    * @remarks
-   * The time when the application was created. The value is a timestamp. Unit: milliseconds.
+   * The creation time of the application. This value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1683353594000
@@ -306,12 +307,12 @@ export class GetRumAppInfoResponseBodyData extends $dara.Model {
    * The description of the application.
    * 
    * @example
-   * Portal home page.
+   * 门户首页。
    */
   description?: string;
   /**
    * @remarks
-   * The endpoint that is used to report application data.
+   * The endpoint for reporting application data.
    * 
    * @example
    * xxxxxxxx-default-cn.rum.aliyuncs.com
@@ -319,7 +320,7 @@ export class GetRumAppInfoResponseBodyData extends $dara.Model {
   endpoint?: string;
   /**
    * @remarks
-   * Indicates whether the application is subscribed. Valid values: true and false.
+   * Indicates whether the application is bookmarked. Valid values: `true` and `false`.
    * 
    * @example
    * true
@@ -343,7 +344,7 @@ export class GetRumAppInfoResponseBodyData extends $dara.Model {
   nickName?: string;
   /**
    * @remarks
-   * The name of the application package.
+   * The application package name.
    * 
    * @example
    * com.alibaba.rum
@@ -367,7 +368,7 @@ export class GetRumAppInfoResponseBodyData extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The resource group ID.
    * 
    * @example
    * rg-aek2vezare****
@@ -375,12 +376,12 @@ export class GetRumAppInfoResponseBodyData extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The list of service domain configurations. Only mobile applications are supported.
+   * The list of service domain name configurations. This parameter is supported only for mobile applications.
    */
   serviceDomainConfigs?: GetRumAppInfoResponseBodyDataServiceDomainConfigs[];
   /**
    * @remarks
-   * The name of the Simple Log Service Logstore that stores application data.
+   * The name of the Log Service Logstore that is used to store application data.
    * 
    * @example
    * logstore-rum
@@ -388,7 +389,7 @@ export class GetRumAppInfoResponseBodyData extends $dara.Model {
   slsLogstore?: string;
   /**
    * @remarks
-   * The name of the Simple Log Service project that stores application data.
+   * The name of the Log Service project that is used to store application data.
    * 
    * @example
    * proj-xtrace-xxxxxxxxxxxxxxxxxxxxxxx-cn-hangzhou
@@ -396,7 +397,7 @@ export class GetRumAppInfoResponseBodyData extends $dara.Model {
   slsProject?: string;
   /**
    * @remarks
-   * The status of the application. Valid values: created, running, and stopped.
+   * The application status. Valid values: `created`, `running`, and `stopped`. `stopped` indicates that data reporting is stopped.
    * 
    * @example
    * running
@@ -409,7 +410,7 @@ export class GetRumAppInfoResponseBodyData extends $dara.Model {
   tags?: GetRumAppInfoResponseBodyDataTags[];
   /**
    * @remarks
-   * The type of the application. Valid value: RUM.
+   * The application type. This parameter is a constant of `RUM`.
    * 
    * @example
    * RUM
@@ -493,7 +494,7 @@ export class GetRumAppInfoResponseBodyData extends $dara.Model {
 export class GetRumAppInfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code. The status code 200 indicates that the request was successful.
+   * The HTTP status code. A `200` status code indicates a successful request.
    * 
    * @example
    * 200
@@ -501,7 +502,7 @@ export class GetRumAppInfoResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The application details.
+   * The details of the application.
    */
   data?: GetRumAppInfoResponseBodyData;
   /**
@@ -514,15 +515,15 @@ export class GetRumAppInfoResponseBody extends $dara.Model {
   httpStatusCode?: string;
   /**
    * @remarks
-   * The error message.
+   * The error message returned for a failed request.
    * 
    * @example
-   * StartTime is mandatory for this action.
+   * 内部错误，请联系管理员。
    */
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * A5EC8221-08F2-4C95-9AF1-49FD998C****
@@ -530,10 +531,11 @@ export class GetRumAppInfoResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the request was successful.
    * 
-   * *   `true`
-   * *   `false`
+   * - `true`: The request was successful.
+   * 
+   * - `false`: The request failed.
    * 
    * @example
    * true

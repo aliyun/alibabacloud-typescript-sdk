@@ -414,7 +414,7 @@ export class GetSyntheticTaskDetailResponseBodyTaskDetailMonitorList extends $da
    * The city code.
    * 
    * @example
-   * 110100
+   * 11011XX
    */
   cityCode?: number;
   /**
@@ -422,7 +422,7 @@ export class GetSyntheticTaskDetailResponseBodyTaskDetailMonitorList extends $da
    * The type of the detection point.
    * 
    * @example
-   * IDC
+   * 1
    */
   monitorType?: number;
   /**
@@ -430,7 +430,7 @@ export class GetSyntheticTaskDetailResponseBodyTaskDetailMonitorList extends $da
    * The ID of the network service.
    * 
    * @example
-   * 12001
+   * 12
    */
   netServiceId?: number;
   /**
@@ -438,7 +438,7 @@ export class GetSyntheticTaskDetailResponseBodyTaskDetailMonitorList extends $da
    * The number of times that the system sends detection requests.
    * 
    * @example
-   * 20
+   * 2
    */
   sendCount?: number;
   static names(): { [key: string]: string } {

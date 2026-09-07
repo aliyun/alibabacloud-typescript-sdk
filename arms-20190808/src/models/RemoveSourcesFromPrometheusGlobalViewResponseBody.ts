@@ -8,7 +8,7 @@ export class RemoveSourcesFromPrometheusGlobalViewResponseBodyData extends $dara
    * The Info-level information.
    * 
    * @example
-   * {regionId: the region where the aggregation instance resides. globalViewClusterId: the ID of the aggregation instance.
+   * {regionId: 实例所属region, globalViewClusterId: 实例Id}
    */
   info?: string;
   /**

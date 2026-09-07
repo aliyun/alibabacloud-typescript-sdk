@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdatePrometheusInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned status code. The status code 200 indicates that the request was successful. Other status codes indicate that the request failed.
+   * The status code. A value of 200 indicates success. Other values indicate errors.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class UpdatePrometheusInstanceResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The result of the operation.
+   * The description of the operation result.
    * 
    * @example
    * success
@@ -21,7 +21,7 @@ export class UpdatePrometheusInstanceResponseBody extends $dara.Model {
   data?: string;
   /**
    * @remarks
-   * The message returned.
+   * The message returned for the request.
    * 
    * @example
    * message
@@ -29,7 +29,7 @@ export class UpdatePrometheusInstanceResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * Id of the request
    * 
    * @example
    * 6A9AEA84-7186-4D8D-B498-4585C6A2****

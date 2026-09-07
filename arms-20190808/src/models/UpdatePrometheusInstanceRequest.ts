@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdatePrometheusInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * The number of days for which data is automatically archived after the storage expires. Valid values: 60, 90, 180, and 365. 0 indicates that the data is not archived.
+   * The number of days for automatic archiving after storage expires. Valid values: 60, 90, 180, and 365. A value of 0 indicates no archiving.
    * 
    * @example
    * 90
@@ -13,7 +13,7 @@ export class UpdatePrometheusInstanceRequest extends $dara.Model {
   archiveDuration?: number;
   /**
    * @remarks
-   * The IP addresses or CIDR blocks for which password-free read is enabled. Separate multiple IP addresses with line breaks.
+   * The list of IP addresses for authentication-free read. CIDR notation is supported. Separate multiple IP addresses with line feeds.
    * 
    * @example
    * 0.0.0.0/0
@@ -24,7 +24,7 @@ export class UpdatePrometheusInstanceRequest extends $dara.Model {
   authFreeReadPolicy?: string;
   /**
    * @remarks
-   * The IP addresses or CIDR blocks for which password-free write is enabled. Separate multiple IP addresses with line breaks.
+   * The list of IP addresses for authentication-free write. CIDR notation is supported. Separate multiple IP addresses with line feeds.
    * 
    * @example
    * 0.0.0.0/0
@@ -35,7 +35,7 @@ export class UpdatePrometheusInstanceRequest extends $dara.Model {
   authFreeWritePolicy?: string;
   /**
    * @remarks
-   * The ID of the Prometheus instance.
+   * The Prometheus instance ID.
    * 
    * This parameter is required.
    * 
@@ -45,7 +45,7 @@ export class UpdatePrometheusInstanceRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * Specifies whether to enable password-free read.
+   * Specifies whether to enable authentication-free read.
    * 
    * **if can be null:**
    * true
@@ -53,7 +53,7 @@ export class UpdatePrometheusInstanceRequest extends $dara.Model {
   enableAuthFreeRead?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable password-free write.
+   * Specifies whether to enable authentication-free write.
    * 
    * **if can be null:**
    * true
@@ -69,7 +69,9 @@ export class UpdatePrometheusInstanceRequest extends $dara.Model {
   enableAuthToken?: boolean;
   /**
    * @remarks
-   * The billing mode. Valid values: POSTPAY: charges fees based on the amount of reported metric data. POSTPAY_GB: charges fees based on the amount of written metric data.
+   * The billing method. Valid values:
+   * - POSTPAY: Pay-as-you-go based on metric reporting volume.
+   * - POSTPAY_GB: Pay-as-you-go based on metric write volume.
    * 
    * @example
    * POSTPAY
@@ -87,7 +89,7 @@ export class UpdatePrometheusInstanceRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the Prometheus resource group.
+   * The resource group ID of the Prometheus instance.
    * 
    * @example
    * rg-acfmxyexli2****
@@ -95,7 +97,7 @@ export class UpdatePrometheusInstanceRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The data storage duration. Unit: days.
+   * The data retention period, in days.
    * 
    * @example
    * 90

@@ -61,7 +61,7 @@ export class ListSyntheticDetailRequestExactFilters extends $dara.Model {
    * A reserved field.
    * 
    * @example
-   * null
+   * 保留字段。
    */
   key?: string;
   /**
@@ -69,7 +69,7 @@ export class ListSyntheticDetailRequestExactFilters extends $dara.Model {
    * A reserved field.
    * 
    * @example
-   * null
+   * 保留字段。
    */
   opType?: string;
   /**
@@ -77,7 +77,7 @@ export class ListSyntheticDetailRequestExactFilters extends $dara.Model {
    * A reserved field.
    * 
    * @example
-   * null
+   * 保留字段。
    */
   value?: any;
   static names(): { [key: string]: string } {

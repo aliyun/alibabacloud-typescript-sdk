@@ -8,7 +8,7 @@ export class ListEscalationPoliciesRequest extends $dara.Model {
    * The name of the escalation policy.
    * 
    * @example
-   * prod escalation policy
+   * prod升级策略
    */
   name?: string;
   /**

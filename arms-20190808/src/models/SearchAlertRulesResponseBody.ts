@@ -16,7 +16,7 @@ export class SearchAlertRulesResponseBodyPageBeanAlertRulesAlarmContext extends 
    * The template of the alert notification.
    * 
    * @example
-   * Alert name: $Alert name\\nFilter condition: $Filter\\nAlert time: $Alert time\\nAlert content: $Alert content\\nNote: The alert persists until a reply email is received. The system will remind you again in 24 hours.
+   * 报警名称：$报警名称\\n筛选条件：$筛选\\n报警时间：$报警时间\\n报警内容：$报警内容\\n注意：该报警未收到恢复邮件之前，正在持续报警中，24小时后会再次提醒您！
    */
   alarmContentTemplate?: string;
   /**
@@ -24,7 +24,7 @@ export class SearchAlertRulesResponseBodyPageBeanAlertRulesAlarmContext extends 
    * The content of the alert notification.
    * 
    * @example
-   * Alert name: $Alert name\\nFilter condition: $Filter\\nAlert time: $Alert time\\nAlert content: $Alert content\\nNote: The alert persists until a reply email is received. The system will remind you again in 24 hours.
+   * 报警名称：$报警名称\\n筛选条件：$筛选\\n报警时间：$报警时间\\n报警内容：$报警内容\\n注意：该报警未收到恢复邮件之前，正在持续报警中，24小时后会再次提醒您！
    */
   content?: string;
   /**
@@ -81,7 +81,7 @@ export class SearchAlertRulesResponseBodyPageBeanAlertRulesAlertRuleRules extend
    * The displayed description of the alert metric.
    * 
    * @example
-   * response time_ms
+   * 调用响应时间_ms
    */
   alias?: string;
   /**

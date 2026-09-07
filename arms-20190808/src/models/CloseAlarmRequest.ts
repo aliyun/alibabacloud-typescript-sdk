@@ -12,7 +12,7 @@ export class CloseAlarmRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 163
+   * 184723093
    */
   alarmId?: number;
   /**
@@ -38,7 +38,7 @@ export class CloseAlarmRequest extends $dara.Model {
    * The alert solution.
    * 
    * @example
-   * Restart Repair
+   * 重启修复
    */
   solution?: string;
   static names(): { [key: string]: string } {

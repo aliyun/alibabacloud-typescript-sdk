@@ -8,7 +8,7 @@ export class ListAddonsResponseBodyDataDashboards extends $dara.Model {
    * The description of the dashboard.
    * 
    * @example
-   * MySQL monitors the market information, monitoring the connection information, usage information and other indicators
+   * MySQL监控大盘信息，监控了连接信息、使用信息等指标
    */
   description?: string;
   /**
@@ -293,7 +293,7 @@ export class ListAddonsResponseBodyDataEnvironments extends $dara.Model {
    * The description of the environment.
    * 
    * @example
-   * The MySQL service is deployed in a Kubernetes cluster.
+   * MySQL 服务部署在 Kubernetes 集群中。
    */
   description?: string;
   /**
@@ -309,7 +309,7 @@ export class ListAddonsResponseBodyDataEnvironments extends $dara.Model {
    * The tag of the environment.
    * 
    * @example
-   * Container
+   * 容器环境
    */
   label?: string;
   /**
@@ -386,7 +386,7 @@ export class ListAddonsResponseBodyData extends $dara.Model {
    * The description of the add-on.
    * 
    * @example
-   * Monitor database indicators with MySQL Exporter
+   * 通过 MySQL Exporter 监控数据库指标
    */
   description?: string;
   /**

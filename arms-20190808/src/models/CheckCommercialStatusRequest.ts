@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CheckCommercialStatusRequest extends $dara.Model {
   /**
    * @remarks
-   * The region ID. Default value: cn-hangzhou.
+   * The region ID. Default value: ap-southeast-1.
    * 
    * @example
    * cn-hangzhou
@@ -13,12 +13,12 @@ export class CheckCommercialStatusRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ARMS sub-service. Valid values:
+   * The sub-product type. Valid values:
    * 
-   * *   apm: Application Monitoring
-   * *   rum: RUM
-   * *   prometheus: Managed Service for Prometheus
-   * *   xtrace: Managed Service for OpenTelemetry
+   * - apm: Application Monitoring
+   * - rum: Real User Monitoring
+   * - prometheus: Managed Service for Prometheus
+   * - xtrace: Managed Service for OpenTelemetry
    * 
    * This parameter is required.
    * 

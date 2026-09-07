@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListEnvironmentAddonsRequest extends $dara.Model {
   /**
    * @remarks
+   * The environment ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,6 +14,9 @@ export class ListEnvironmentAddonsRequest extends $dara.Model {
    */
   environmentId?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-hangzhou
    */

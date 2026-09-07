@@ -29,6 +29,9 @@ export class GetTraceAppConfigResponseBody extends $dara.Model {
   /**
    * @remarks
    * The returned message.
+   * 
+   * @example
+   * 查询应用配置成功
    */
   message?: string;
   /**

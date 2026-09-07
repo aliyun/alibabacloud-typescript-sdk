@@ -100,7 +100,7 @@ export class ListPrometheusAlertRulesRequest extends $dara.Model {
    * The type of the alert rule.
    * 
    * @example
-   * Custom
+   * 自定义
    */
   type?: string;
   static names(): { [key: string]: string } {

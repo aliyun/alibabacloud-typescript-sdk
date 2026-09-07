@@ -16,7 +16,7 @@ export class UpdateEnvCustomJobRequest extends $dara.Model {
    * The YAML configuration string.
    * 
    * @example
-   * Refer to supplementary instructions.
+   * 参见补充说明。
    */
   configYaml?: string;
   /**

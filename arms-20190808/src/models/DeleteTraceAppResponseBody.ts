@@ -16,7 +16,7 @@ export class DeleteTraceAppResponseBody extends $dara.Model {
    * The response in JSON format, including the HTTP status code, error code, response message, and trace ID.
    * 
    * @example
-   * "{\\\\"code\\\\":200,\\\\"data\\\\":\\\\"{\\\\\\\\\\"code\\\\\\\\\\":200,\\\\\\\\\\"data\\\\\\\\\\":true,\\\\\\\\\\"errorCode\\\\\\\\\\":\\\\\\\\\\"The application is deleted\\\\\\\\\\",\\\\\\\\\\"message\\\\\\\\\\":\\\\\\\\\\"The application is deleted\\\\\\\\\\",\\\\\\\\\\"success\\\\\\\\\\":true,\\\\\\\\\\"traceId\\\\\\\\\\":\\\\\\\\\\"0bc0594d15954826692915817e\\*\\*\\*\\*\\\\\\\\\\"}\\\\",\\\\"errorCode\\\\":\\\\"The application is deleted\\\\",\\\\"message\\\\":\\\\"The application is deleted\\\\",\\\\"success\\\\":true,\\\\"traceId\\\\":\\\\"0ab2646915954826692568137d\\*\\*\\*\\*\\\\"}
+   * {\\"code\\":200,\\"data\\":\\"{\\\\\\"code\\\\\\":200,\\\\\\"data\\\\\\":true,\\\\\\"errorCode\\\\\\":\\\\\\"删除应用成功\\\\\\",\\\\\\"message\\\\\\":\\\\\\"删除应用成功\\\\\\",\\\\\\"success\\\\\\":true,\\\\\\"traceId\\\\\\":\\\\\\"0bc0594d15954826692915817e****\\\\\\"}\\",\\"errorCode\\":\\"删除应用成功\\",\\"message\\":\\"删除应用成功\\",\\"success\\":true,\\"traceId\\":\\"0ab2646915954826692568137d****\\"}
    */
   data?: string;
   /**
@@ -24,7 +24,7 @@ export class DeleteTraceAppResponseBody extends $dara.Model {
    * The returned message.
    * 
    * @example
-   * Internal error. Please try again. Contact the DingTalk service account if the issue                              persists after multiple retries.
+   * message
    */
   message?: string;
   /**

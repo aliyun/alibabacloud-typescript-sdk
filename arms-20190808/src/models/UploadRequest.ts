@@ -51,13 +51,6 @@ export class UploadRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
-  /**
-   * @remarks
-   * We recommend that you do not specify this parameter.
-   * 
-   * @example
-   * null
-   */
   version?: string;
   static names(): { [key: string]: string } {
     return {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteGrafanaWorkspaceRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the workspace.
+   * The Managed Service for Grafana workspace ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DeleteGrafanaWorkspaceRequest extends $dara.Model {
   grafanaWorkspaceId?: string;
   /**
    * @remarks
-   * The region ID. Default value: cn-hangzhou.
+   * The region ID. Default value: ap-southeast-1.
    * 
    * This parameter is required.
    * 

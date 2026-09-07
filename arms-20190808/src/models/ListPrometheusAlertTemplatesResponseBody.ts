@@ -16,7 +16,7 @@ export class ListPrometheusAlertTemplatesResponseBodyPrometheusAlertTemplatesAnn
    * The value of the annotation.
    * 
    * @example
-   * The available memory on node {{ $labels.instance }} is less than 10%. Available memory: {{ $value }}%
+   * 节点 {{ $labels.instance }} 可用内存不足10%，当前可用内存 {{ $value }}%
    */
   value?: string;
   static names(): { [key: string]: string } {
@@ -88,7 +88,7 @@ export class ListPrometheusAlertTemplatesResponseBodyPrometheusAlertTemplates ex
    * The name of the alert rule.
    * 
    * @example
-   * The available memory on the node is less than 10%
+   * 节点内存可用率不足10%
    */
   alertName?: string;
   /**
@@ -101,7 +101,7 @@ export class ListPrometheusAlertTemplatesResponseBodyPrometheusAlertTemplates ex
    * The content of the alert notification. Tags can be referenced in the {{$labels.xxx}} format.
    * 
    * @example
-   * The available memory on node {{ $labels.instance }} is less than 10%. Available memory: {{ $value }}%
+   * 节点 {{ $labels.instance }} 可用内存不足10%，当前可用内存 {{ $value }}%
    */
   description?: string;
   /**
@@ -130,7 +130,7 @@ export class ListPrometheusAlertTemplatesResponseBodyPrometheusAlertTemplates ex
    * The type of the alert rule.
    * 
    * @example
-   * Node
+   * 节点
    */
   type?: string;
   /**

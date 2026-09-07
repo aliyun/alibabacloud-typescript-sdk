@@ -8,7 +8,7 @@ export class ListOnCallSchedulesResponseBodyPageBeanOnCallSchedules extends $dar
    * The description of the scheduling policy.
    * 
    * @example
-   * Test scheduling policy
+   * 测试排班策略
    */
   description?: string;
   /**

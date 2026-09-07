@@ -16,7 +16,7 @@ export class DescribeEnvironmentResponseBodyDataTags extends $dara.Model {
    * The tag value.
    * 
    * @example
-   * p_dev
+   * p_运维
    */
   value?: string;
   static names(): { [key: string]: string } {
@@ -236,7 +236,7 @@ export class DescribeEnvironmentResponseBodyData extends $dara.Model {
    * The ID of the Grafana workspace.
    * 
    * @example
-   * grafana-cn-27a3m8eem0a
+   * grafana-cn-i7m2qn9xa01
    */
   grafanaWorkspaceId?: string;
   /**

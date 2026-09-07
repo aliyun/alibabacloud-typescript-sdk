@@ -7,10 +7,13 @@ export class GetAlertRulesResponseBodyPageBeanAlertRulesAlertRuleContentAlertRul
    * @remarks
    * The aggregation method of the alert condition. Valid values:
    * 
-   * *   AVG: calculates the average value
-   * *   SUM: calculates the total value
-   * *   MAX: selects the maximum value
-   * *   MIN: selects the minimum value
+   * - AVG: calculates the average value
+   * 
+   * - SUM: calculates the total value
+   * 
+   * - MAX: selects the maximum value
+   * 
+   * - MIN: selects the minimum value
    * 
    * @example
    * AVG
@@ -36,14 +39,21 @@ export class GetAlertRulesResponseBodyPageBeanAlertRulesAlertRuleContentAlertRul
    * @remarks
    * The operator that is used to compare the metric value with the threshold. Valid values:
    * 
-   * *   CURRENT_GTE: greater than or equal to
-   * *   CURRENT_LTE: less than or equal to
-   * *   PREVIOUS_UP: increase in percentage compared with the previous period
-   * *   PREVIOUS_DOWN: decrease in percentage compared with the previous period
-   * *   HOH_UP: increase in percentage compared with the same period in the previous hour
-   * *   HOH_DOWN: decrease in percentage compared with the same period in the previous hour
-   * *   DOD_UP: increase in percentage compared with the same period in the previous day
-   * *   DOD_DOWN: decrease in percentage compared with the same period in the previous day
+   * - CURRENT_GTE: greater than or equal to
+   * 
+   * - CURRENT_LTE: less than or equal to
+   * 
+   * - PREVIOUS_UP: increase in percentage compared with the previous period
+   * 
+   * - PREVIOUS_DOWN: decrease in percentage compared with the previous period
+   * 
+   * - HOH_UP: increase in percentage compared with the same period in the previous hour
+   * 
+   * - HOH_DOWN: decrease in percentage compared with the same period in the previous hour
+   * 
+   * - DOD_UP: increase in percentage compared with the same period in the previous day
+   * 
+   * - DOD_DOWN: decrease in percentage compared with the same period in the previous day
    * 
    * @example
    * CURRENT_GTE
@@ -96,8 +106,9 @@ export class GetAlertRulesResponseBodyPageBeanAlertRulesAlertRuleContent extends
    * @remarks
    * The relationship between multiple alert conditions specified for the Application Monitoring or Browser Monitoring alert rule. Valid values:
    * 
-   * *   OR: The alert rule is triggered if one of the conditions is met.
-   * *   AND: The alert rule is triggered if all the conditions are met.
+   * - OR: The alert rule is triggered if one of the conditions is met.
+   * 
+   * - AND: The alert rule is triggered if all the conditions are met.
    * 
    * @example
    * OR
@@ -182,8 +193,9 @@ export class GetAlertRulesResponseBodyPageBeanAlertRulesFiltersCustomSLSFilters 
    * @remarks
    * The logical operator of the filter condition. Valid values:
    * 
-   * *   \\=: equal to
-   * *   not: not equal to
+   * - \\=: equal to
+   * 
+   * - not: not equal to
    * 
    * @example
    * =
@@ -437,8 +449,9 @@ export class GetAlertRulesResponseBodyPageBeanAlertRules extends $dara.Model {
    * @remarks
    * The alert check type of the Prometheus alert rule.
    * 
-   * *   STATIC: static threshold
-   * *   CUSTOM: custom PromQL
+   * - STATIC: static threshold
+   * 
+   * - CUSTOM: custom PromQL
    * 
    * @example
    * STATIC
@@ -448,9 +461,11 @@ export class GetAlertRulesResponseBodyPageBeanAlertRules extends $dara.Model {
    * @remarks
    * The alert contact group ID of the Prometheus alert rule.
    * 
-   * *   \\-1: custom PromQL
-   * *   1: Kubernetes load
-   * *   15: Kubernetes node
+   * - -1: custom PromQL
+   * 
+   * - 1: Kubernetes load
+   * 
+   * - 15: Kubernetes node
    * 
    * @example
    * 1
@@ -481,11 +496,13 @@ export class GetAlertRulesResponseBodyPageBeanAlertRules extends $dara.Model {
    * @remarks
    * The status of the alert rule. Valid values:
    * 
-   * *   RUNNING
-   * *   STOPPED
-   * *   PAUSED
+   * - RUNNING
    * 
-   * >  The PAUSED state indicates that the alert rule is abnormal and has been suspended. This may be because the specified threshold value is excessively large, or the associated cluster has been deleted.
+   * - STOPPED
+   * 
+   * - PAUSED
+   * 
+   * > The PAUSED state indicates that the alert rule is abnormal and has been suspended. This may be because the specified threshold value is excessively large, or the associated cluster has been deleted.
    * 
    * @example
    * RUNNING
@@ -495,9 +512,11 @@ export class GetAlertRulesResponseBodyPageBeanAlertRules extends $dara.Model {
    * @remarks
    * The type of the alert rule. Valid values:
    * 
-   * *   APPLICATION_MONITORING_ALERT_RULE: alert rule for Application Monitoring
-   * *   BROWSER_MONITORING_ALERT_RULE: alert rule for Browser Monitoring
-   * *   PROMETHEUS_MONITORING_ALERT_RULE: Prometheus alert rule
+   * - APPLICATION_MONITORING_ALERT_RULE: alert rule for Application Monitoring
+   * 
+   * - BROWSER_MONITORING_ALERT_RULE: alert rule for Browser Monitoring
+   * 
+   * - PROMETHEUS_MONITORING_ALERT_RULE: Prometheus alert rule
    * 
    * @example
    * APPLICATION_MONITORING_ALERT_RULE
@@ -512,8 +531,9 @@ export class GetAlertRulesResponseBodyPageBeanAlertRules extends $dara.Model {
    * @remarks
    * Indicates whether the alert rule is applied to new applications that are created in Application Monitoring or Browser Monitoring. Valid values:
    * 
-   * *   `true`: yes
-   * *   `false`: no
+   * - `true`: yes
+   * 
+   * - `false`: no
    * 
    * @example
    * false
@@ -547,10 +567,10 @@ export class GetAlertRulesResponseBodyPageBeanAlertRules extends $dara.Model {
    * @remarks
    * The extended fields.
    * 
-   * >  For existing Application Monitoring alert rules, the fields contain information such as contacts, alert template, and notification content.
+   * > For existing Application Monitoring alert rules, the fields contain information such as contacts, alert template, and notification content.
    * 
    * @example
-   * {\\\\"alarmContext\\\\":\\\\"{\\\\\\\\\\"content\\\\\\\\\\":\\\\\\\\Alert name: $Alert name\\\\\\\\\\\\nFilter condition: $Filter condition\\\\\\\\\\\\nAlert time: $Alert time\\\\\\\\\\\\nAlert content: $Alert content\\\\\\\\\\\\nNote: The alert persists before you receive an email that reminds you to clear the alert. You will be reminded of the alert again 24 hours later. \\\\\\\\\\",\\\\\\\\\\"subTitle\\\\\\\\\\":\\\\\\\\\\"\\\\\\\\\\"}\\\\",\\\\"alertWays\\\\":\\\\"[0,1]\\\\",\\\\"contactGroupIds\\\\":\\\\"381,5075\\\\",\\\\"notice\\\\":\\\\"{\\\\\\\\\\"endTime\\\\\\\\\\":1480607940000,\\\\\\\\\\"noticeEndTime\\\\\\\\\\":1480607940000,\\\\\\\\\\"noticeStartTime\\\\\\\\\\":1480521600000,\\\\\\\\\\"startTime\\\\\\\\\\":1480521600000}\\\\"}
+   * {\\"alarmContext\\":\\"{\\\\\\"content\\\\\\":\\\\\\"报警名称:$报警名称\\\\\\\\n筛选条件: $筛选\\\\\\\\n报警时间: $报警时间\\\\\\\\n报警内容: $报警内容\\\\\\\\n注意！：该报警未收到恢复邮件之前，正在持续报警中，24小时后会再次提醒您！\\\\\\",\\\\\\"subTitle\\\\\\":\\\\\\"\\\\\\"}\\",\\"alertWays\\":\\"[0,1]\\",\\"contactGroupIds\\":\\"381,5075\\",\\"notice\\":\\"{\\\\\\"endTime\\\\\\":1480607940000,\\\\\\"noticeEndTime\\\\\\":1480607940000,\\\\\\"noticeStartTime\\\\\\":1480521600000,\\\\\\"startTime\\\\\\":1480521600000}\\"}
    */
   extend?: string;
   /**
@@ -567,11 +587,15 @@ export class GetAlertRulesResponseBodyPageBeanAlertRules extends $dara.Model {
    * @remarks
    * The severity level of the Prometheus alert rule.
    * 
-   * *   P1: Alert notifications are sent for major issues that affect the availability of core business, have a huge impact, and may lead to serious consequences.
-   * *   P2: Alert notifications are sent for service errors that affect the system availability with relatively limited impact.
-   * *   P3: Alert notifications are sent for issues that may cause service errors or negative effects, or alert notifications for services that are relatively less important.
-   * *   P4: Alert notifications are sent for low-priority issues that do not affect your business.
-   * *   Default: Alert notifications are sent regardless of alert levels.
+   * - P1: Alert notifications are sent for major issues that affect the availability of core business, have a huge impact, and may lead to serious consequences.
+   * 
+   * - P2: Alert notifications are sent for service errors that affect the system availability with relatively limited impact.
+   * 
+   * - P3: Alert notifications are sent for issues that may cause service errors or negative effects, or alert notifications for services that are relatively less important.
+   * 
+   * - P4: Alert notifications are sent for low-priority issues that do not affect your business.
+   * 
+   * - Default: Alert notifications are sent regardless of alert levels.
    * 
    * @example
    * P2
@@ -582,7 +606,7 @@ export class GetAlertRulesResponseBodyPageBeanAlertRules extends $dara.Model {
    * The alert message of the Prometheus alert rule.
    * 
    * @example
-   * Namespace: {{$labels.namespace}} / Pod: {{$labels.pod_name}} / Container: {{$labels.container}} CPU usage: {{$labels.metrics_params_opt_label_value}} {{$labels.metrics_params_value}}%. Current value: {{ printf "%.2f" $value }}%
+   * 命名空间: {{$labels.namespace}} / Pod: {{$labels.pod_name}} / 容器: {{$labels.container}} CPU使用率{{$labels.metrics_params_opt_label_value}} {{$labels.metrics_params_value}}%, 当前值{{ printf "%.2f" $value }}%
    */
   message?: string;
   /**

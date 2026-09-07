@@ -6,6 +6,9 @@ export class ListEnvironmentAddonsResponseBodyDataAddonsDashboards extends $dara
   /**
    * @remarks
    * The description of the dashboard.
+   * 
+   * @example
+   * MySQL监控大盘信息,监控了连接信息,使用信息等指标
    */
   description?: string;
   /**
@@ -52,17 +55,17 @@ export class ListEnvironmentAddonsResponseBodyDataAddonsDashboards extends $dara
 export class ListEnvironmentAddonsResponseBodyDataAddonsEnvironmentsDependencies extends $dara.Model {
   /**
    * @remarks
-   * The cluster type.
+   * The required cluster types.
    */
   clusterTypes?: string[];
   /**
    * @remarks
-   * The feature that can be installed in the environment.
+   * The features available for installation in the environment.
    */
   features?: { [key: string]: boolean };
   /**
    * @remarks
-   * The services.
+   * The dependent services.
    */
   services?: string[];
   static names(): { [key: string]: string } {
@@ -102,7 +105,7 @@ export class ListEnvironmentAddonsResponseBodyDataAddonsEnvironmentsDependencies
 export class ListEnvironmentAddonsResponseBodyDataAddonsEnvironmentsPoliciesMetricCheckRule extends $dara.Model {
   /**
    * @remarks
-   * The PromQL statements.
+   * The PromQL query statements.
    */
   promQL?: string[];
   static names(): { [key: string]: string } {
@@ -148,7 +151,7 @@ export class ListEnvironmentAddonsResponseBodyDataAddonsEnvironmentsPoliciesProt
   icon?: string;
   /**
    * @remarks
-   * The tag of the protocol.
+   * The label of the protocol.
    * 
    * @example
    * ARMS
@@ -192,7 +195,7 @@ export class ListEnvironmentAddonsResponseBodyDataAddonsEnvironmentsPoliciesProt
 export class ListEnvironmentAddonsResponseBodyDataAddonsEnvironmentsPolicies extends $dara.Model {
   /**
    * @remarks
-   * The default alert status.
+   * The default status of the alert.
    * 
    * @example
    * default
@@ -200,7 +203,7 @@ export class ListEnvironmentAddonsResponseBodyDataAddonsEnvironmentsPolicies ext
   alertDefaultStatus?: string;
   /**
    * @remarks
-   * The default installation status.
+   * Indicates whether the addon is installed by default in the environment.
    * 
    * @example
    * false
@@ -208,7 +211,7 @@ export class ListEnvironmentAddonsResponseBodyDataAddonsEnvironmentsPolicies ext
   defaultInstall?: boolean;
   /**
    * @remarks
-   * Indicates whether a service account is enabled.
+   * Indicates whether a service account is enabled for the addon.
    * 
    * @example
    * true
@@ -216,12 +219,12 @@ export class ListEnvironmentAddonsResponseBodyDataAddonsEnvironmentsPolicies ext
   enableServiceAccount?: boolean;
   /**
    * @remarks
-   * The metric check rule.
+   * The rules for checking metric status.
    */
   metricCheckRule?: ListEnvironmentAddonsResponseBodyDataAddonsEnvironmentsPoliciesMetricCheckRule;
   /**
    * @remarks
-   * Indicates whether a restart is required after the installation.
+   * Indicates whether a restart is required after the addon is installed.
    * 
    * @example
    * true
@@ -229,12 +232,12 @@ export class ListEnvironmentAddonsResponseBodyDataAddonsEnvironmentsPolicies ext
   needRestartAfterIntegration?: boolean;
   /**
    * @remarks
-   * The supported protocols.
+   * The list of supported protocols.
    */
   protocols?: ListEnvironmentAddonsResponseBodyDataAddonsEnvironmentsPoliciesProtocols[];
   /**
    * @remarks
-   * The target name of the add-on.
+   * The target name of the addon.
    * 
    * @example
    * cloud-rds-mysql
@@ -282,17 +285,20 @@ export class ListEnvironmentAddonsResponseBodyDataAddonsEnvironmentsPolicies ext
 export class ListEnvironmentAddonsResponseBodyDataAddonsEnvironments extends $dara.Model {
   /**
    * @remarks
-   * The dependencies of the environment.
+   * The dependencies of the addon within the environment.
    */
   dependencies?: ListEnvironmentAddonsResponseBodyDataAddonsEnvironmentsDependencies;
   /**
    * @remarks
    * The description of the environment.
+   * 
+   * @example
+   * MySQL 服务部署在 Kubernetes 集群中。
    */
   description?: string;
   /**
    * @remarks
-   * Indicates whether the feature is enabled.
+   * Indicates whether the addon is supported in this environment.
    * 
    * @example
    * true
@@ -300,7 +306,10 @@ export class ListEnvironmentAddonsResponseBodyDataAddonsEnvironments extends $da
   enable?: boolean;
   /**
    * @remarks
-   * The tag of the environment.
+   * The label of the environment.
+   * 
+   * @example
+   * 容器环境
    */
   label?: string;
   /**
@@ -313,7 +322,7 @@ export class ListEnvironmentAddonsResponseBodyDataAddonsEnvironments extends $da
   name?: string;
   /**
    * @remarks
-   * The control policies in the environment.
+   * The policies related to the addon in this environment.
    */
   policies?: ListEnvironmentAddonsResponseBodyDataAddonsEnvironmentsPolicies;
   static names(): { [key: string]: string } {
@@ -356,7 +365,7 @@ export class ListEnvironmentAddonsResponseBodyDataAddonsEnvironments extends $da
 export class ListEnvironmentAddonsResponseBodyDataAddons extends $dara.Model {
   /**
    * @remarks
-   * The alias of the add-on.
+   * The alias of the addon.
    * 
    * @example
    * MySQL
@@ -364,27 +373,30 @@ export class ListEnvironmentAddonsResponseBodyDataAddons extends $dara.Model {
   alias?: string;
   /**
    * @remarks
-   * The tags of the add-on.
+   * The list of addon tags.
    */
   categories?: string[];
   /**
    * @remarks
-   * The dashboards.
+   * The list of dashboards.
    */
   dashboards?: ListEnvironmentAddonsResponseBodyDataAddonsDashboards[];
   /**
    * @remarks
-   * The description of the add-on.
+   * The description of the addon.
+   * 
+   * @example
+   * 通过 MySQL Exporter 监控数据库指标
    */
   description?: string;
   /**
    * @remarks
-   * The supported environments.
+   * The list of supported environments.
    */
   environments?: ListEnvironmentAddonsResponseBodyDataAddonsEnvironments[];
   /**
    * @remarks
-   * The URL of the icon.
+   * The URL of the addon icon.
    * 
    * @example
    * http://xxxx
@@ -392,12 +404,12 @@ export class ListEnvironmentAddonsResponseBodyDataAddons extends $dara.Model {
   icon?: string;
   /**
    * @remarks
-   * The collection of keywords.
+   * The keywords for the addon.
    */
   keywords?: string[];
   /**
    * @remarks
-   * The language.
+   * The language of the addon metadata.
    * 
    * @example
    * zh
@@ -405,7 +417,7 @@ export class ListEnvironmentAddonsResponseBodyDataAddons extends $dara.Model {
   language?: string;
   /**
    * @remarks
-   * The time when the instance was last created.
+   * The creation time of the latest release of the addon.
    * 
    * @example
    * 2023-09-22T16:56:29+08:00
@@ -413,7 +425,7 @@ export class ListEnvironmentAddonsResponseBodyDataAddons extends $dara.Model {
   latestReleaseCreateTime?: string;
   /**
    * @remarks
-   * The name of the add-on.
+   * The name of the addon.
    * 
    * @example
    * mysql
@@ -421,7 +433,7 @@ export class ListEnvironmentAddonsResponseBodyDataAddons extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Indicates whether the add-on can be installed only once.
+   * Indicates whether the addon can be installed only once per environment.
    * 
    * @example
    * false
@@ -429,7 +441,7 @@ export class ListEnvironmentAddonsResponseBodyDataAddons extends $dara.Model {
   once?: boolean;
   /**
    * @remarks
-   * The scenario.
+   * The application scenario of the addon.
    * 
    * @example
    * database
@@ -437,7 +449,7 @@ export class ListEnvironmentAddonsResponseBodyDataAddons extends $dara.Model {
   scene?: string;
   /**
    * @remarks
-   * The version of the agent.
+   * The addon version.
    * 
    * @example
    * 0.0.1
@@ -445,7 +457,7 @@ export class ListEnvironmentAddonsResponseBodyDataAddons extends $dara.Model {
   version?: string;
   /**
    * @remarks
-   * The weight.
+   * The weight of the addon, which is used for sorting in the UI.
    * 
    * @example
    * 857
@@ -513,11 +525,18 @@ export class ListEnvironmentAddonsResponseBodyDataAddons extends $dara.Model {
 export class ListEnvironmentAddonsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The queried add-ons.
+   * The list of addons.
    */
   addons?: ListEnvironmentAddonsResponseBodyDataAddons[];
+  /**
+   * @remarks
+   * Indicates whether the list contains V2 addons.
+   */
   containsV2Addon?: boolean;
   /**
+   * @remarks
+   * The total number of entries.
+   * 
    * @example
    * 1
    */
@@ -552,29 +571,38 @@ export class ListEnvironmentAddonsResponseBodyData extends $dara.Model {
 
 export class ListEnvironmentAddonsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The status code.
+   * 
    * @example
    * 200
    */
   code?: number;
   /**
    * @remarks
-   * The result of the operation.
+   * The returned data.
    */
   data?: ListEnvironmentAddonsResponseBodyData;
   /**
+   * @remarks
+   * The message returned.
+   * 
    * @example
    * message
    */
   message?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 32940175-181B-4B93-966E-4BB69176****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the operation was successful. Valid values are `true` if the operation succeeded and `false` if it failed.
+   * 
    * @example
    * true
    */

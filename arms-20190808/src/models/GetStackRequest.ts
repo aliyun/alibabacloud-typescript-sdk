@@ -8,7 +8,7 @@ export class GetStackRequest extends $dara.Model {
    * The exit timestamp of the method call. Unit: milliseconds.
    * 
    * @example
-   * 1653641800
+   * 1728355143000
    */
   endTime?: number;
   /**
@@ -52,7 +52,7 @@ export class GetStackRequest extends $dara.Model {
    * The entry timestamp of the method call. Unit: milliseconds.
    * 
    * @example
-   * 1653555396
+   * 1728351543000
    */
   startTime?: number;
   /**

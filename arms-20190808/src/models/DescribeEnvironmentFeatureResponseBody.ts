@@ -8,7 +8,7 @@ export class DescribeEnvironmentFeatureResponseBodyDataFeature extends $dara.Mod
    * The alias of the feature.
    * 
    * @example
-   * Prometheus agent.
+   * Prometheus 探针
    */
   alias?: string;
   /**
@@ -21,7 +21,7 @@ export class DescribeEnvironmentFeatureResponseBodyDataFeature extends $dara.Mod
    * The description of the feature.
    * 
    * @example
-   * Collect Metric data using the Prometheus collection specification.
+   * 以 Prometheus 采集规范采集 Metric 数据。
    */
   description?: string;
   /**
@@ -226,7 +226,7 @@ export class DescribeEnvironmentFeatureResponseBodyDataFeatureStatus extends $da
    * The ID of the security group.
    * 
    * @example
-   * sg-bp1c9fcexoalq9po6cp8
+   * sg-bp1gbhqh8b4dsgvopkry
    */
   securityGroupId?: string;
   /**
@@ -246,7 +246,7 @@ export class DescribeEnvironmentFeatureResponseBodyDataFeatureStatus extends $da
    * The ID of the vSwitch.
    * 
    * @example
-   * vsw-bp1qt6ict0dbxgv4wer8l
+   * vsw-uf6vc2e4ytv8vv05j3u09
    */
   vSwitchId?: string;
   static names(): { [key: string]: string } {

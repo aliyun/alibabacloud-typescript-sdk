@@ -72,7 +72,7 @@ export class CreateOrUpdateIMRobotRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * Chatbot name
+   * robot名称
    */
   robotName?: string;
   /**

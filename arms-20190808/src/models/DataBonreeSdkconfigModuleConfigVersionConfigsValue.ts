@@ -6,7 +6,7 @@ import { DataBonreeSDKConfigModuleConfigVersionConfigsValueCustomConfigValue } f
 export class DataBonreeSDKConfigModuleConfigVersionConfigsValue extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the custom configuration is used.
+   * Indicates whether to use a custom configuration.
    * 
    * @example
    * true
@@ -14,7 +14,7 @@ export class DataBonreeSDKConfigModuleConfigVersionConfigsValue extends $dara.Mo
   useCustom?: boolean;
   /**
    * @remarks
-   * The custom configuration.
+   * The custom configuration items.
    */
   customConfig?: { [key: string]: DataBonreeSDKConfigModuleConfigVersionConfigsValueCustomConfigValue };
   /**
@@ -22,12 +22,12 @@ export class DataBonreeSDKConfigModuleConfigVersionConfigsValue extends $dara.Mo
    * The description of the version configuration.
    * 
    * @example
-   * test
+   * 1.1.0版本配置
    */
   description?: string;
   /**
    * @remarks
-   * The time when the version configuration was updated.
+   * The update time of the version configuration.
    * 
    * @example
    * 1721112372055

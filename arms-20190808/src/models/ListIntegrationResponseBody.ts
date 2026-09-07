@@ -19,7 +19,7 @@ export class ListIntegrationResponseBodyPageInfoIntegrationsIntegrationDetail ex
    * The description of the alert integration.
    * 
    * @example
-   * Test
+   * 测试
    */
   description?: string;
   /**
@@ -154,7 +154,7 @@ export class ListIntegrationResponseBodyPageInfoIntegrations extends $dara.Model
    * The name of the alert integration.
    * 
    * @example
-   * CloudMonitor integration
+   * 云监控集成
    */
   integrationName?: string;
   /**

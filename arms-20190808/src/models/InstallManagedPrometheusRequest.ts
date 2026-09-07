@@ -64,6 +64,9 @@ export class InstallManagedPrometheusRequest extends $dara.Model {
    */
   regionId?: string;
   /**
+   * @remarks
+   * Resource group ID of the Prometheus instance.
+   * 
    * @example
    * rg-acfmxyexli2****
    */
@@ -88,6 +91,13 @@ export class InstallManagedPrometheusRequest extends $dara.Model {
    * vsw-bp1*********
    */
   vSwitchId?: string;
+  /**
+   * @remarks
+   * Extension information for the Flink VC cluster.
+   * 
+   * @example
+   * -
+   */
   vcExtraInfo?: string;
   /**
    * @remarks

@@ -29,7 +29,7 @@ export class GetManagedPrometheusStatusResponseBody extends $dara.Model {
    * The returned message.
    * 
    * @example
-   * Successful
+   * 查询成功
    */
   message?: string;
   /**

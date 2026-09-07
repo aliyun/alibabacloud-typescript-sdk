@@ -5,7 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class GetRumUploadFilesRequest extends $dara.Model {
   /**
    * @remarks
-   * The file type. Valid values: source-map: SourceMap files. mapping: symbol table files for Android. dsym: dSYM files for iOS.
+   * The file type. Valid values:
+   * 
+   * - source-map: SourceMap file.
+   * - mapping: Android symbol table file.
+   * - dsym: iOS dSYM file.
    * 
    * @example
    * source-map
@@ -16,7 +20,7 @@ export class GetRumUploadFilesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The process ID (PID) of the application.
+   * The application ID.
    * 
    * @example
    * aoxxxxxly@741623b4e91****
@@ -35,7 +39,7 @@ export class GetRumUploadFilesRequest extends $dara.Model {
   serviceId?: string;
   /**
    * @remarks
-   * The version number of the files. If you do not specify this parameter, all versions of the files are returned by default.
+   * The file version number. If this parameter is not specified, files of all versions are returned by default.
    * 
    * @example
    * 1.0.0

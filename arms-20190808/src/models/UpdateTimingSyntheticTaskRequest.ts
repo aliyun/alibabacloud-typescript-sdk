@@ -165,7 +165,7 @@ export class UpdateTimingSyntheticTaskRequestCommonSettingCustomPrometheusSettin
    * A reserved parameter.
    * 
    * @example
-   * A reserved parameter.
+   * 保留字段。
    */
   prometheusClusterId?: string;
   /**
@@ -173,7 +173,7 @@ export class UpdateTimingSyntheticTaskRequestCommonSettingCustomPrometheusSettin
    * A reserved parameter.
    * 
    * @example
-   * A reserved parameter.
+   * 保留字段。
    */
   prometheusClusterRegion?: string;
   /**
@@ -1595,7 +1595,7 @@ export class UpdateTimingSyntheticTaskRequest extends $dara.Model {
    * The name of the task.
    * 
    * @example
-   * AlibabaCloud DNS Task
+   * 拨测任务
    */
   name?: string;
   /**

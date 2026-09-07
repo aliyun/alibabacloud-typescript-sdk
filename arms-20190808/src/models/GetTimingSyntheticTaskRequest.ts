@@ -16,7 +16,7 @@ export class GetTimingSyntheticTaskRequest extends $dara.Model {
    * The ID of the synthetic monitoring task.
    * 
    * @example
-   * 856566a9cb2a4cafa05aa95ed0ec8f21
+   * 856566a9cb2a4cafa05aa95ed0*******
    */
   taskId?: string;
   static names(): { [key: string]: string } {

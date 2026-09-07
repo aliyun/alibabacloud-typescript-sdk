@@ -16,7 +16,7 @@ export class GetPrometheusGlobalViewResponseBody extends $dara.Model {
    * The struct returned.
    * 
    * @example
-   * { "clusterId":"The ID of the global aggregation instance.", "groupName":"The name of the global aggregation instance.", "dataSources":[ { "sourceName":"The name of the data source.- ArmsPrometheus No.1", "sourceType":"AlibabaPrometheus", "userId":"UserID", "clusterId":"ClusterId" }, // more datasources ] }
+   * {     "clusterId":"聚合实例ClusterId",     "groupName":"聚合实例名称",     "dataSources":[         {             "sourceName":"数据源名称- ArmsPrometheus No.1",             "sourceType":"AlibabaPrometheus",             "userId":"UserID",             "clusterId":"ClusterId"         },       // more datasources     ] }
    */
   data?: string;
   /**

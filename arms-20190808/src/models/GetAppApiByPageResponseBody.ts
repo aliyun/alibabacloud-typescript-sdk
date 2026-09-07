@@ -37,7 +37,7 @@ export class GetAppApiByPageResponseBodyData extends $dara.Model {
    * The total number of returned entries.
    * 
    * @example
-   * 0
+   * 2
    */
   total?: string;
   static names(): { [key: string]: string } {

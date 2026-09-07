@@ -8,7 +8,7 @@ export class DescribeEnvServiceMonitorResponseBodyData extends $dara.Model {
    * The YAML configuration file of the ServiceMonitor.
    * 
    * @example
-   * Refer to supplementary instructions.
+   * 参见补充说明。
    */
   configYaml?: string;
   /**

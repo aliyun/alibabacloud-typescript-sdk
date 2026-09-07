@@ -16,7 +16,7 @@ export class CreatePrometheusAlertRuleResponseBodyPrometheusAlertRuleAnnotations
    * The value of the annotation.
    * 
    * @example
-   * The CPU utilization of ${{$labels.pod_name}} has exceeded 80%. Current value: {{$value}}%
+   * ${{$labels.pod_name}}CPU使用率大于80%，当前值{{$value}}%
    */
   value?: string;
   static names(): { [key: string]: string } {
@@ -146,7 +146,7 @@ export class CreatePrometheusAlertRuleResponseBodyPrometheusAlertRule extends $d
    * The content of the alert notification. Tags can be referenced in the {{$labels.xxx}} format.
    * 
    * @example
-   * The CPU utilization of ${{$labels.pod_name}} has exceeded 80%. Current value: {{$value}}%
+   * ${{$labels.pod_name}}CPU使用率大于80%，当前值{{$value}}%
    */
   message?: string;
   /**
@@ -176,7 +176,7 @@ export class CreatePrometheusAlertRuleResponseBodyPrometheusAlertRule extends $d
    * The type of the alert rule.
    * 
    * @example
-   * Kubernetes component alert
+   * Kubernetes组件告警
    */
   type?: string;
   static names(): { [key: string]: string } {

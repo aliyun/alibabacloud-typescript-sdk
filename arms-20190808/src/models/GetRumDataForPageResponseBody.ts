@@ -8,7 +8,7 @@ export class GetRumDataForPageResponseBodyData extends $dara.Model {
    * A reserved parameter. Ignore this parameter.
    * 
    * @example
-   * null
+   * 保留字段，请忽略。
    */
   authentication?: string;
   /**
@@ -45,7 +45,7 @@ export class GetRumDataForPageResponseBodyData extends $dara.Model {
    * A reserved parameter. Ignore this parameter.
    * 
    * @example
-   * null
+   * 保留字段，请忽略。
    */
   preference?: string;
   /**
@@ -119,7 +119,7 @@ export class GetRumDataForPageResponseBody extends $dara.Model {
    * The error message returned if the request failed.
    * 
    * @example
-   * StartTime is mandatory for this action.
+   * 内部错误，请联系管理员。
    */
   message?: string;
   /**

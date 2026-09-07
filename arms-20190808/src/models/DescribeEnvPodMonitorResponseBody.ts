@@ -8,7 +8,7 @@ export class DescribeEnvPodMonitorResponseBodyData extends $dara.Model {
    * The YAML string of the PodMonitor.
    * 
    * @example
-   * Refer to supplementary instructions.
+   * 参见补充说明。
    */
   configYaml?: string;
   /**

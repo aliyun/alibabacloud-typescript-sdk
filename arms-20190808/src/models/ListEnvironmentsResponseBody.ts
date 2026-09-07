@@ -8,7 +8,7 @@ export class ListEnvironmentsResponseBodyDataEnvironmentsAddons extends $dara.Mo
    * The alias of the add-on.
    * 
    * @example
-   * MySQL Exporter
+   * Prometheus探针
    */
   alias?: string;
   /**
@@ -16,7 +16,7 @@ export class ListEnvironmentsResponseBodyDataEnvironmentsAddons extends $dara.Mo
    * The description of the add-on.
    * 
    * @example
-   * Collect mysql indicator information
+   * 以 Prometheus 采集规范采集 Metric 数据
    */
   description?: string;
   /**
@@ -68,7 +68,7 @@ export class ListEnvironmentsResponseBodyDataEnvironmentsFeatures extends $dara.
    * The alias of the feature.
    * 
    * @example
-   * Prometheus Agent
+   * Prometheus 探针
    */
   alias?: string;
   /**
@@ -76,7 +76,7 @@ export class ListEnvironmentsResponseBodyDataEnvironmentsFeatures extends $dara.
    * The description of the feature.
    * 
    * @example
-   * Collect Metric data using the Prometheus collection specification
+   * 以 Prometheus 采集规范采集 Metric 数据
    */
   description?: string;
   /**
@@ -236,9 +236,11 @@ export class ListEnvironmentsResponseBodyDataEnvironments extends $dara.Model {
    * @remarks
    * The type of the environment instance. Valid values:
    * 
-   * *   CS: Container Service
-   * *   ECS: Elastic Compute Service
-   * *   Cloud: cloud service
+   * - CS: Container Service
+   * 
+   * - ECS: Elastic Compute Service
+   * 
+   * - Cloud: cloud service
    * 
    * @example
    * CS
@@ -253,8 +255,9 @@ export class ListEnvironmentsResponseBodyDataEnvironments extends $dara.Model {
    * @remarks
    * The payable resource plan.
    * 
-   * *   If the EnvironmentType parameter is set to CS, set the value to CS_Basic or CS_Pro.
-   * *   Otherwise, leave the parameter empty.
+   * - If the EnvironmentType parameter is set to CS, set the value to CS_Basic or CS_Pro.
+   * 
+   * - Otherwise, leave the parameter empty.
    * 
    * @example
    * CS_Pro
@@ -296,9 +299,11 @@ export class ListEnvironmentsResponseBodyDataEnvironments extends $dara.Model {
    * @remarks
    * Indicates whether agents or exporters are managed. Valid values:
    * 
-   * *   none: No. By default, no managed agents or exporters are provided for ACK clusters.
-   * *   agent: Agents are managed. By default, managed agents are provided for ASK clusters, ACS clusters, and ACK One clusters.
-   * *   agent-exproter: Agents and exporters are managed. By default, managed agents and exporters are provided for cloud services.
+   * - none: No. By default, no managed agents or exporters are provided for ACK clusters.
+   * 
+   * - agent: Agents are managed. By default, managed agents are provided for ASK clusters, ACS clusters, and ACK One clusters.
+   * 
+   * - agent-exproter: Agents and exporters are managed. By default, managed agents and exporters are provided for cloud services.
    * 
    * @example
    * agent

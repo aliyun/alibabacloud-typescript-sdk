@@ -20,7 +20,7 @@ export class ListScenarioRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * pro-content
+   * 测试业务监控
    */
   name?: string;
   /**

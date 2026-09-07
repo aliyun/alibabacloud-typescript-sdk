@@ -5,58 +5,59 @@ import * as $dara from '@darabonba/typescript';
 export class DoInsightsActionRequest extends $dara.Model {
   /**
    * @remarks
-   * The query parameters. Different module types correspond to different query parameters.
+   * Query parameters. The query parameters vary depending on the module type.
    * 
-   * *   QueryTopo
-   * 
-   * <!---->
-   * 
-   *     {
-   *         "regionId": string,  # The region ID.
-   *         "startTime": string, #. The start time. Format: yyyy-MM-dd HH:mm:ss.
-   *         "endTime": string, # The end time. Format: yyyy-MM-dd HH:mm:ss.
-   *         "edgeFilter": { # The edge filter condition.
-   *             "includeTypes": [enum], # The edge types to be included.
-   *             "excludeTypes": [enum], # The edge types to be excluded.
-   *             "fromNodeFilter": { # The source node filter condition.
-   *                 "includeEntityTypes": [enum] # The entity types to be included.
-   *                 "excludeEntityTypes": [enum] #The entity types to be excluded.
-   *             },
-   *             "toNodeFilter": {  #The target node filter condition.
-   *                 "includeEntityTypes": [enum] # The entity types to be included.
-   *                 "excludeEntityTypes": [enum] #The entity types to be excluded.
-   *             }
+   * - QueryTopo
+   * ```
+   * {
+   *     "regionId": string,  #Region ID
+   *     "startTime": string, #Start time in the format of yyyy-MM-dd HH:mm:ss
+   *     "endTime": string, #End time in the format of yyyy-MM-dd HH:mm:ss
+   *     "edgeFilter": { #Edge filter conditions
+   *         "includeTypes": [enum], #Edge types to include
+   *         "excludeTypes": [enum], #Edge types to exclude
+   *         "fromNodeFilter": { #Source node filter conditions
+   *             "includeEntityTypes": [enum] #Entity types to include
+   *             "excludeEntityTypes": [enum] #Entity types to exclude
    *         },
-   *         "includeIsolatedNodes": boolean, #Specifies whether to include isolated nodes.
-   *         "isolatedNodeFilter": { # The isolated node filter condition.
-   *             "includeEntityTypes": [enum] # The entity types to be included.
-   *             "excludeEntityTypes": [enum] #The entity types to be excluded.
-   *          },
-   *         "queryMetrics": boolean, # Specifies whether to query RED metrics along with metrics.
-   *         "timeoutSecs": int, # The timeout period of metric query.
-   *     	"redOption": { # The metric query option.
-   *     		"skipRt": boolean,  # Specifies whether to skip querying the response time.
-   *     		"skipCount": boolean, # Specifies whether to skip querying the number of requests.
-   *     		"skipError": boolean # Specifies whether to skip querying the number of errors.
-   *     	}
-   *     }
-   * 
-   * *   QueryTopoRed
-   * 
-   * <!---->
-   * 
-   *     {
-   *         "regionId": string,  # The region ID.
-   *         "startTime": string, #. The start time. Format: yyyy-MM-dd HH:mm:ss.
-   *         "endTime": string,   # The end time. Format: yyyy-MM-dd HH:mm:ss.
-   *         "edgeIds": [string]  # The edge ID to be queried.
-   *         "nodeIds": [string]  # The node ID to be queried.
-   *         "redOption": { # The metric query option.
-   *             "skipRt": boolean,  # Specifies whether to skip querying the response time.
-   *             "skipRt": boolean,  # Specifies whether to skip querying the number of requests.
-   *             "skipError": boolean # Specifies whether to skip querying the number of errors.
+   *         "toNodeFilter": {  #Target node filter conditions
+   *             "includeEntityTypes": [enum] #Entity types to include
+   *             "excludeEntityTypes": [enum] #Entity types to exclude
    *         }
+   *     },
+   *     "includeIsolatedNodes": boolean, #Whether to include isolated nodes
+   *     "isolatedNodeFilter": { # Isolated node filter conditions
+   *         "includeEntityTypes": [enum] #Entity types to include
+   *         "excludeEntityTypes": [enum] #Entity types to exclude
+   *      },
+   *     "queryMetrics": boolean, # Whether to synchronously query related RED metrics when querying topology
+   *     "timeoutSecs": int, # Metrics query timeout in seconds
+   * 	"redOption": { #Metrics query control options
+   * 		"skipRt": boolean,  # Whether to skip querying RT metrics
+   * 		"skipCount": boolean, # Whether to skip querying request count metrics
+   * 		"skipError": boolean # Whether to skip querying error count metrics
+   * 	}
+   * }
+   * 
+   * ```
+   * 
+   * - QueryTopoRed
+   * 
+   * ```
+   * {
+   *     "regionId": string,  #Region ID
+   *     "startTime": string, #Start time in the format of yyyy-MM-dd HH:mm:ss
+   *     "endTime": string,   #End time in the format of yyyy-MM-dd HH:mm:ss
+   *     "edgeIds": [string]  #Edge IDs to query
+   *     "nodeIds": [string]  #Node IDs to query
+   *     "redOption": { #Metrics query control options
+   *         "skipRt": boolean,  # Whether to skip querying RT metrics
+   *         "skipCount": boolean, # Whether to skip querying request count metrics
+   *         "skipError": boolean # Whether to skip querying error count metrics
    *     }
+   * }
+   * 
+   * ```
    * 
    * This parameter is required.
    * 
@@ -67,27 +68,27 @@ export class DoInsightsActionRequest extends $dara.Model {
    * 	{
    * 		"regionId": "cn-hangzhou",
    * 		"startTime": "2024-07-23 19:16:00",  
-   * 		"endTime": "2024-07-23 20:16:00", # Limit the topology query range to 2024-07-23 19:16:00 to 2024-07-23 20:16:00
+   * 		"endTime": "2024-07-23 20:16:00", # 限定拓扑查询范围为 2024-07-23 19:16:00至2024-07-23 20:16:00
    * 		"edgeFilter": {
    * 			"includeTypes": [
-   * 				"CALLS" # The resulting topology only contains edges of call relationships.
+   * 				"CALLS" # 限定结果拓扑中仅包含调用关系的边
    * 			],
    * 			"fromNodeFilter": {
-   * 				"includeEntityTypes": [ # The source node type of the call edge must be application type
+   * 				"includeEntityTypes": [ # 限定调用边的源节点类型必须为应用类型
    * 					"APPLICATION" 
    * 				]
    * 			},
    * 			"toNodeFilter": {
-   * 				"includeEntityTypes": [ # The target node of the call edge must be an application type or an external service type.
+   * 				"includeEntityTypes": [ # 限定调用边的目标节点必须为应用类型或者外部服务类型
    * 					"APPLICATION",
    * 					"EXTERNAL_SERVICE"
    * 				]
    * 			}
    * 		},
-   * 		"includeIsolatedNodes": false, # The resulting topology does not contain isolated nodes
-   * 		"queryMetrics": true, # Synchronously query the RED indicator
-   * 		"timeoutSecs": 20, #It takes up to 20 seconds to query indicator data
-   * 		"redOption": { # The query indicators include time consumption, request volume, and query skip errors.
+   * 		"includeIsolatedNodes": false, # 结果拓扑中不包含孤立节点
+   * 		"queryMetrics": true, # 同步查询RED指标
+   * 		"timeoutSecs": 20, #最多用20秒来查询指标数据
+   * 		"redOption": { # 查询的指标包括耗时、请求量，跳过错误数的查询
    * 			"skipRt": false,
    * 			"skipCount": false,
    * 			"skipError": true
@@ -109,7 +110,7 @@ export class DoInsightsActionRequest extends $dara.Model {
    * 		"nodeIds": [
    * 			"23d973261c6923da1b5b7a571ec1aa8b"
    * 		],
-   * 		"redOption": { # The query indicators include time consumption, request volume, and query skip errors.
+   * 		"redOption": { # 查询的指标包括耗时、请求量，跳过错误数的查询
    * 			"skipCount": false,
    * 			"skipError": true,
    * 			"skipRt": false
@@ -119,22 +120,17 @@ export class DoInsightsActionRequest extends $dara.Model {
   data?: string;
   /**
    * @remarks
-   * The module type.
+   * Module type
+   * - QueryTopo 
+   *   
+   *     Topology query feature. A topology consists of edges and nodes. Each edge has a corresponding type, each node has a corresponding entity, and each entity has its type. By setting the edge type, node type, query time range, and other filter parameters, you can filter out the required topology data.
    * 
-   * *   QueryTopo
+   * - QueryTopoRed
+   *     
+   *     Topology RED metrics (request count, latency, error count) query. When querying a topology with the metrics query option enabled, the topology may be too large to retrieve all metrics data. This feature allows users to actively query metrics data for specified nodes and edges.
    * 
-   *     Queries topologies. A topology consists of edges and nodes, where each edge has a corresponding type and each node corresponds to an entity, which also has its type. By setting filter parameters such as the type of edges, the type of nodes, and the query time range, you can filter out the required topology data.
    * 
-   * *   QueryTopoRed
-   * 
-   *     Queries topology RED metrics (number of requests, duration, number of errors). When querying a topology with the metric query option enabled, it might not be possible to retrieve all metric data due to the topology being too large. This module allows users to actively query for metric data of specified nodes and edges.
-   * 
-   * Note: The aforementioned modules are currently in a canary release phase and are not enabled by default. If you need to enable them, please contact the ARMS on-duty number.
-   * 
-   * Valid values:
-   * 
-   * *   QueryTopoRed
-   * *   QueryTopo
+   * Note: The above features are in canary release and are not enabled by default. To enable them, please contact ARMS on-call support.
    * 
    * This parameter is required.
    * 
@@ -144,7 +140,7 @@ export class DoInsightsActionRequest extends $dara.Model {
   module?: string;
   /**
    * @remarks
-   * The region ID.
+   * Region ID.
    * 
    * @example
    * cn-hangzhou

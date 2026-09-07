@@ -33,8 +33,9 @@ export class UpdateEnvironmentRequest extends $dara.Model {
    * @remarks
    * The payable resource plan. Valid values:
    * 
-   * *   If the EnvironmentType parameter is set to CS, set the value to CS_Basic or CS_Pro. Default value: CS_Basic.
-   * *   Otherwise, leave the parameter empty.
+   * - If the EnvironmentType parameter is set to CS, set the value to CS_Basic or CS_Pro. Default value: CS_Basic.
+   * 
+   * - Otherwise, leave the parameter empty.
    * 
    * @example
    * CS_Basic

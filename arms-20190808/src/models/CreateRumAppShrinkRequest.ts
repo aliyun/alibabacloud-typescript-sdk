@@ -26,7 +26,7 @@ export class CreateRumAppShrinkRequest extends $dara.Model {
    * The description of the application.
    * 
    * @example
-   * Monitoring description
+   * 用户体验监控前端
    */
   description?: string;
   /**

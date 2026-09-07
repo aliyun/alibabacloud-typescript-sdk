@@ -10,7 +10,7 @@ export class ListPrometheusIntegrationRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * c77f6f2397ea74672872acf5e31374a27
+   * c77f6f2397ea74672872acf5e31******
    */
   clusterId?: string;
   /**
@@ -20,7 +20,7 @@ export class ListPrometheusIntegrationRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * kafka, mysql, redis, snmp, emr, nubela, and tidb
+   * kafka
    */
   integrationType?: string;
   /**

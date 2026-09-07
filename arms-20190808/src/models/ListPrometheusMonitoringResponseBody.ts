@@ -16,21 +16,7 @@ export class ListPrometheusMonitoringResponseBodyData extends $dara.Model {
    * The monitoring configuration. The value is a YAML string.
    * 
    * @example
-   * apiVersion: monitoring.coreos.com/v1
-   * kind: ServiceMonitor
-   * metadata:
-   *   name: tomcat-demo
-   *   namespace: default
-   * spec:
-   *   endpoints:
-   *     - interval: 30s
-   *       path: /metrics
-   *       port: tomcat-monitor
-   *   namespaceSelector:
-   *     any: true
-   *   selector:
-   *     matchLabels:
-   *       app: tomcat
+   * 参见返回参数补充说明。
    */
   configYaml?: string;
   /**

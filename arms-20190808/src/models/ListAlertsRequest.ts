@@ -8,7 +8,7 @@ export class ListAlertsRequest extends $dara.Model {
    * The name of the alert rule.
    * 
    * @example
-   * Test alert
+   * 告警测试
    */
   alertName?: string;
   /**
@@ -60,7 +60,7 @@ export class ListAlertsRequest extends $dara.Model {
    * The notification object configured in the notification policy, responsible for handling alerts.
    * 
    * @example
-   * Alice
+   * 张三
    */
   owner?: string;
   /**

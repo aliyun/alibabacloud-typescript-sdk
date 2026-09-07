@@ -16,7 +16,7 @@ export class ListEnvironmentsShrinkRequest extends $dara.Model {
    * The ID of the resource.
    * 
    * @example
-   * cff30f0d67d7542dfb05bd114b4b1d7af
+   * cb9229c48e41144dc96af190841808cb0
    */
   bindResourceId?: string;
   /**
@@ -25,41 +25,41 @@ export class ListEnvironmentsShrinkRequest extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   CS
+   * - CS
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     :
+   *   :
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     Container Service for Kubernetes (ACK)
+   *   Container Service for Kubernetes (ACK)
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   * *   ECS
+   * - ECS
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     :
+   *   :
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     Elastic Compute Service (ECS)
+   *   Elastic Compute Service (ECS)
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   * *   Cloud
+   * - Cloud
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     :
+   *   :
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     cloud service
+   *   cloud service
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
    * @example
    * CS
@@ -69,13 +69,15 @@ export class ListEnvironmentsShrinkRequest extends $dara.Model {
    * @remarks
    * The payable resource plan.
    * 
-   * *   If the EnvironmentType parameter is set to CS, set the value to CS_Basic or CS_Pro. Default value: CS_Basic.
-   * *   Otherwise, leave the parameter empty.
+   * - If the EnvironmentType parameter is set to CS, set the value to CS_Basic or CS_Pro. Default value: CS_Basic.
+   * 
+   * - Otherwise, leave the parameter empty.
    * 
    * Valid values:
    * 
-   * *   CS_Pro: Container Monitoring Pro
-   * *   CS_Basic: Container Monitoring Basic
+   * - CS_Pro: Container Monitoring Pro
+   * 
+   * - CS_Basic: Container Monitoring Basic
    * 
    * @example
    * CS_Pro

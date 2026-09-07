@@ -64,6 +64,9 @@ export class GetSyntheticTaskListResponseBodyPageInfoList extends $dara.Model {
   /**
    * @remarks
    * The name of the task type.
+   * 
+   * @example
+   * 网络质量
    */
   taskTypeName?: string;
   /**

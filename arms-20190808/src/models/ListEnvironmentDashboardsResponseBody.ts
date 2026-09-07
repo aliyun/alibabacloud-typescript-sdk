@@ -16,7 +16,7 @@ export class ListEnvironmentDashboardsResponseBodyDataDashboards extends $dara.M
    * The region ID.
    * 
    * @example
-   * cn-hangzhou
+   * cn-hongkong
    */
   region?: string;
   /**

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetExploreUrlResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Status code. 200 means success, other status codes are exceptions.
+   * The HTTP status code. A value of 200 indicates success. Other values indicate errors.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class GetExploreUrlResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * Response parameters
+   * The returned data.
    * 
    * @example
    * -
@@ -21,7 +21,7 @@ export class GetExploreUrlResponseBody extends $dara.Model {
   data?: string;
   /**
    * @remarks
-   * The prompt information of the returned result.
+   * The message returned for the request.
    * 
    * @example
    * success
@@ -37,9 +37,9 @@ export class GetExploreUrlResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Whether the operation was successful:
-   * - true: the operation was successful
-   * - false: the operation failed
+   * Indicates whether the operation was successful. Valid values:
+   * - true: The operation was successful.
+   * - false: The operation failed.
    * 
    * @example
    * true

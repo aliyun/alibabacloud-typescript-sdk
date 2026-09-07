@@ -50,7 +50,7 @@ export class QueryAppTopologyResponseBody extends $dara.Model {
    * The error message.
    * 
    * @example
-   * Internal error. Please try again. Contact the DingTalk service account if the issue                              persists after multiple retries.
+   * null
    */
   message?: string;
   /**

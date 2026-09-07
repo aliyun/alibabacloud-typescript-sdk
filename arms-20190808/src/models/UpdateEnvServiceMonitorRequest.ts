@@ -18,7 +18,7 @@ export class UpdateEnvServiceMonitorRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * Refer to supplementary instructions.
+   * 参见补充说明。
    */
   configYaml?: string;
   /**

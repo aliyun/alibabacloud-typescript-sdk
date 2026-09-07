@@ -16,7 +16,7 @@ export class ListAlertEventsResponseBodyPageBeanEventsAlarms extends $dara.Model
    * The name of the alert.
    * 
    * @example
-   * Test-triggered alert
+   * 测试触发的告警
    */
   alarmName?: string;
   /**
@@ -80,7 +80,7 @@ export class ListAlertEventsResponseBodyPageBeanEventsNotificationPolicies exten
    * The name of the notification policy.
    * 
    * @example
-   * P1 alert notification policy
+   * P1告警通知策略
    */
   name?: string;
   static names(): { [key: string]: string } {
@@ -117,7 +117,7 @@ export class ListAlertEventsResponseBodyPageBeanEvents extends $dara.Model {
    * The name of the alert.
    * 
    * @example
-   * Test-triggered alert
+   * 测试触发的告警
    */
   alertName?: string;
   /**
@@ -133,7 +133,7 @@ export class ListAlertEventsResponseBodyPageBeanEvents extends $dara.Model {
    * The description of the alert event.
    * 
    * @example
-   * Test
+   * 测试
    */
   description?: string;
   /**
@@ -157,7 +157,7 @@ export class ListAlertEventsResponseBodyPageBeanEvents extends $dara.Model {
    * The user who handled the alert.
    * 
    * @example
-   * Tom
+   * 张三
    */
   handlerName?: string;
   /**
@@ -165,7 +165,7 @@ export class ListAlertEventsResponseBodyPageBeanEvents extends $dara.Model {
    * The name of the alert integration.
    * 
    * @example
-   * Custom integration
+   * 自定义集成
    */
   integrationName?: string;
   /**

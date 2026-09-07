@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetRumAppInfoRequest extends $dara.Model {
   /**
    * @remarks
-   * The group to which the application belongs.
+   * The application group.
    * 
    * @example
    * default
@@ -13,7 +13,7 @@ export class GetRumAppInfoRequest extends $dara.Model {
   appGroup?: string;
   /**
    * @remarks
-   * The process ID (PID) of the application.
+   * The application ID.
    * 
    * This parameter is required.
    * 

@@ -69,7 +69,7 @@ export class GetRumUploadFilesResponseBodyData extends $dara.Model {
 export class GetRumUploadFilesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code. The status code 200 indicates that the request was successful. Other status codes indicate that the request failed.
+   * The status code. A value of 200 indicates success. Other values indicate exceptions.
    * 
    * @example
    * 200
@@ -77,7 +77,7 @@ export class GetRumUploadFilesResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The queried files.
+   * The file list.
    */
   data?: GetRumUploadFilesResponseBodyData;
   /**
@@ -90,15 +90,15 @@ export class GetRumUploadFilesResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The error message returned if the request failed.
+   * The message returned when the call fails.
    * 
    * @example
-   * success
+   * 内部错误，请联系管理员。
    */
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * 2983BEF7-4A0D-47A2-94A2-8E9C5E63****
@@ -106,10 +106,10 @@ export class GetRumUploadFilesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the query is successful. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: Successful.
+   * - false: Failed.
    * 
    * @example
    * true

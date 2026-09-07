@@ -61,7 +61,7 @@ export class UpdatePrometheusIntegrationResponseBody extends $dara.Model {
    * The message returned.
    * 
    * @example
-   * Successful
+   * 查询成功
    */
   message?: string;
   /**

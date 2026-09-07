@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateRumAppResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The user configurations. This is a reserved parameter.
+   * The user configuration. This is a reserved field.
    * 
    * @example
-   * null
+   * 用户配置，保留字段。
    */
   config?: string;
   /**
    * @remarks
-   * The QPS limit. Unit: bytes.
+   * The quota limit, in bytes.
    * 
    * @example
    * 100000
@@ -21,7 +21,9 @@ export class UpdateRumAppResponseBodyData extends $dara.Model {
   limit?: number;
   /**
    * @remarks
-   * Indicates whether the request is throttled due to the QPS limit. Valid values: true and false.
+   * Indicates whether the quota is exceeded. Valid values:
+   * - true: Exceeded.
+   * - false: Not exceeded.
    * 
    * @example
    * true
@@ -29,7 +31,7 @@ export class UpdateRumAppResponseBodyData extends $dara.Model {
   limited?: boolean;
   /**
    * @remarks
-   * The usage. Unit: bytes.
+   * The usage, in bytes.
    * 
    * @example
    * 10000
@@ -65,7 +67,7 @@ export class UpdateRumAppResponseBodyData extends $dara.Model {
 export class UpdateRumAppResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code. The status code 200 indicates that the request was successful.
+   * The status code. A value of 200 indicates success.
    * 
    * @example
    * 200
@@ -73,7 +75,7 @@ export class UpdateRumAppResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The details of the returned results.
+   * The details of the response.
    */
   data?: UpdateRumAppResponseBodyData;
   /**
@@ -86,7 +88,7 @@ export class UpdateRumAppResponseBody extends $dara.Model {
   httpStatusCode?: string;
   /**
    * @remarks
-   * The error message returned if the request failed.
+   * The error message returned if the call failed.
    * 
    * @example
    * message
@@ -94,7 +96,7 @@ export class UpdateRumAppResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * E9C9DA3D-10FE-472E-9EEF-2D0A3E41****
@@ -102,10 +104,10 @@ export class UpdateRumAppResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the update was successful. Valid values:
    * 
-   * *   `true`
-   * *   `false`
+   * - `true`: Successful.
+   * - `false`: Failed.
    * 
    * @example
    * true

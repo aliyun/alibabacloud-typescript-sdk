@@ -8,7 +8,7 @@ export class DescribeEnvCustomJobResponseBodyData extends $dara.Model {
    * If the **encryptYaml** parameter is set to `true`, a Base64-encoded YAML string is returned. Otherwise, a plaintext YAML string is returned.
    * 
    * @example
-   * Refer to supplementary instructions.
+   * 参见补充说明。
    */
   configYaml?: string;
   /**

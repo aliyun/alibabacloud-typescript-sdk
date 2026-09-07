@@ -24,7 +24,7 @@ export class GetSyntheticMonitorsResponseBodyData extends $dara.Model {
    * The city.
    * 
    * @example
-   * Beijing
+   * 北京市
    */
   city?: string;
   /**
@@ -48,7 +48,7 @@ export class GetSyntheticMonitorsResponseBodyData extends $dara.Model {
    * The country.
    * 
    * @example
-   * China
+   * 中国
    */
   country?: string;
   /**
@@ -64,7 +64,7 @@ export class GetSyntheticMonitorsResponseBodyData extends $dara.Model {
    * The carrier.
    * 
    * @example
-   * Alibaba Cloud
+   * 阿里云
    */
   operator?: string;
   /**
@@ -80,7 +80,7 @@ export class GetSyntheticMonitorsResponseBodyData extends $dara.Model {
    * The region.
    * 
    * @example
-   * Beijing
+   * 浙江
    */
   region?: string;
   static names(): { [key: string]: string } {

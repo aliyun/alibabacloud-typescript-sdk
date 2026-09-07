@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteRumUploadFileRequest extends $dara.Model {
   /**
    * @remarks
-   * Information of files to be deleted in JSON array format. If a single file needs to be deleted, this field should be left empty. If multiple files need to be deleted, just fill in this field.
+   * The batch deletion parameters in JSON array format. Leave this parameter empty if you want to delete a single file. If you want to delete multiple files in a batch, specify only this parameter.
    * 
    * @example
    * [{
@@ -21,7 +21,7 @@ export class DeleteRumUploadFileRequest extends $dara.Model {
   batchItems?: string;
   /**
    * @remarks
-   * The file name, with the extension.
+   * The file name, including the file name extension.
    * 
    * @example
    * test.js.map
@@ -48,7 +48,7 @@ export class DeleteRumUploadFileRequest extends $dara.Model {
   serviceId?: string;
   /**
    * @remarks
-   * The file ID.
+   * The unique ID of the file.
    * 
    * @example
    * MS4wLjAtbWFpbi4wZjM0NzRlOSxxxxxx
@@ -56,7 +56,7 @@ export class DeleteRumUploadFileRequest extends $dara.Model {
   uuid?: string;
   /**
    * @remarks
-   * The version number of the file.
+   * The file version number.
    * 
    * @example
    * 1.0.0

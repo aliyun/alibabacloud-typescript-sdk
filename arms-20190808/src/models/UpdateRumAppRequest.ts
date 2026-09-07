@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateRumAppRequest extends $dara.Model {
   /**
    * @remarks
-   * The application configurations in the JSON format. This parameter is deprecated.
+   * The legacy application configuration in JSON format. This parameter is deprecated.
    * 
    * @example
    * {"apiRequestOfH5":300,"apiRequestOfOriginal":500,"coldStart":5000,"hotStart":3000,"staticResourceLoad":300,"stutter":1000,"viewLoadOfH5":1000,"viewLoadOfOriginal":2000}
@@ -13,7 +13,9 @@ export class UpdateRumAppRequest extends $dara.Model {
   appConfig?: string;
   /**
    * @remarks
-   * Specifies whether to restart the application the next day. Valid values: true and false.
+   * Specifies whether to restart the application the next day. Valid values:
+   * - true: Restart.
+   * - false: Do not restart.
    * 
    * @example
    * true
@@ -24,12 +26,12 @@ export class UpdateRumAppRequest extends $dara.Model {
    * The region where the backend application is deployed. This parameter is used in end-to-end tracing scenarios.
    * 
    * @example
-   * {\\"moduleConfig\\":{\\"enable\\":true,\\"defaultConfig\\":{\\"network\\":{\\"enable\\":true},\\"h5\\":{\\"enable\\":true},\\"routechange\\":{\\"enable\\":true},\\"crash\\":{\\"enable\\":true},\\"view\\":{\\"enable\\":true},\\"coollaunch\\":{\\"enable\\":true},\\"hotlaunch\\":{\\"enable\\":true},\\"action\\":{\\"enable\\":true},\\"lagstuck\\":{\\"enable\\":true},\\"lagfps\\":{\\"enable\\":true},\\"statechange\\":{\\"enable\\":true},\\"anr\\":{\\"enable\\":true},\\"customlog\\":{\\"enable\\":true},\\"customevent\\":{\\"enable\\":true},\\"custommetric\\":{\\"enable\\":true}},\\"versionConfigs\\":{\\"1.1.0\\":{\\"useCustom\\":true,\\"customConfig\\":{\\"network\\":{\\"enable\\":true},\\"h5\\":{\\"enable\\":true},\\"routechange\\":{\\"enable\\":true},\\"crash\\":{\\"enable\\":true},\\"view\\":{\\"enable\\":true},\\"coollaunch\\":{\\"enable\\":true},\\"hotlaunch\\":{\\"enable\\":true},\\"action\\":{\\"enable\\":true},\\"lagstuck\\":{\\"enable\\":false},\\"lagfps\\":{\\"enable\\":false},\\"statechange\\":{\\"enable\\":true},\\"anr\\":{\\"enable\\":true},\\"customlog\\":{\\"enable\\":true},\\"customevent\\":{\\"enable\\":true},\\"custommetric\\":{\\"enable\\":true}}},\\"1.2.0\\":{\\"useCustom\\":false,\\"customConfig\\":{}}}}}
+   * cn-hangzhou
    */
   backendServiceTraceRegion?: string;
   /**
    * @remarks
-   * The collection configurations of the mobile SDK. You can enable or disable collection configurations based on the app version.
+   * The mobile SDK collection configuration. You can enable or disable collection items by app version.
    * 
    * @example
    * {\\"moduleConfig\\":{\\"enable\\":true,\\"defaultConfig\\":{\\"network\\":{\\"enable\\":true},\\"h5\\":{\\"enable\\":true},\\"routechange\\":{\\"enable\\":true},\\"crash\\":{\\"enable\\":true},\\"view\\":{\\"enable\\":true},\\"coollaunch\\":{\\"enable\\":true},\\"hotlaunch\\":{\\"enable\\":true},\\"action\\":{\\"enable\\":true},\\"lagstuck\\":{\\"enable\\":true},\\"lagfps\\":{\\"enable\\":true},\\"statechange\\":{\\"enable\\":true},\\"anr\\":{\\"enable\\":true},\\"customlog\\":{\\"enable\\":true},\\"customevent\\":{\\"enable\\":true},\\"custommetric\\":{\\"enable\\":true}},\\"versionConfigs\\":{\\"1.1.0\\":{\\"useCustom\\":true,\\"customConfig\\":{\\"network\\":{\\"enable\\":true},\\"h5\\":{\\"enable\\":true},\\"routechange\\":{\\"enable\\":true},\\"crash\\":{\\"enable\\":true},\\"view\\":{\\"enable\\":true},\\"coollaunch\\":{\\"enable\\":true},\\"hotlaunch\\":{\\"enable\\":true},\\"action\\":{\\"enable\\":true},\\"lagstuck\\":{\\"enable\\":false},\\"lagfps\\":{\\"enable\\":false},\\"statechange\\":{\\"enable\\":true},\\"anr\\":{\\"enable\\":true},\\"customlog\\":{\\"enable\\":true},\\"customevent\\":{\\"enable\\":true},\\"custommetric\\":{\\"enable\\":true}}},\\"1.2.0\\":{\\"useCustom\\":false,\\"customConfig\\":{}}}}}
@@ -40,12 +42,14 @@ export class UpdateRumAppRequest extends $dara.Model {
    * The description of the application.
    * 
    * @example
-   * test
+   * 测试
    */
   description?: string;
   /**
    * @remarks
-   * Specifies whether you want to subscribe to the application. Valid values: true and false.
+   * Specifies whether to add the application to favorites. Valid values:
+   * - true: Add to favorites.
+   * - false: Do not add to favorites.
    * 
    * @example
    * true
@@ -56,7 +60,7 @@ export class UpdateRumAppRequest extends $dara.Model {
    * The alias of the application.
    * 
    * @example
-   * Android Test
+   * 应用别名。
    */
   nickname?: string;
   /**
@@ -71,10 +75,10 @@ export class UpdateRumAppRequest extends $dara.Model {
   pid?: string;
   /**
    * @remarks
-   * The region where the application resides. You can leave this parameter empty or set it to China East 2 Finance.
+   * The region where the application is actually connected. This parameter is used only in the China (Shanghai) Finance Cloud scenario.
    * 
    * @example
-   * cn-hangzhou
+   * cn-shanghai-finance-1
    */
   realRegionId?: string;
   /**
@@ -89,7 +93,9 @@ export class UpdateRumAppRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * Specifies whether to restart the application. Valid values: true and false.
+   * Specifies whether to restart the application. Valid values:
+   * - true: Restart.
+   * - false: Do not restart.
    * 
    * @example
    * true
@@ -97,15 +103,17 @@ export class UpdateRumAppRequest extends $dara.Model {
   restart?: boolean;
   /**
    * @remarks
-   * The service domain name of the application. You can create, modify, and delete service domain name configurations.
+   * The service domain name settings for the application. You can create, update, or delete service domain name configurations.
    * 
    * @example
-   * {\\"Op\\":\\"Update\\",\\"Domain\\":\\"example.com\\",\\"Config\\":{\\"Description\\":\\"message\\",\\"Tracing\\":\\"true\\",\\"PropagatorTypes\\":[\\"sw8\\"]}}
+   * {\\"Op\\":\\"Update\\",\\"Domain\\":\\"example.com\\",\\"Config\\":{\\"Description\\":\\"这是描述bbb\\",\\"Tracing\\":\\"true\\",\\"PropagatorTypes\\":[\\"sw8\\"]}}
    */
   serviceDomainOperationJson?: string;
   /**
    * @remarks
-   * Specifies whether to stop the application. Valid values: true and false.
+   * Specifies whether to stop the application. Valid values:
+   * - true: Stop.
+   * - false: Do not stop.
    * 
    * @example
    * true

@@ -30,7 +30,7 @@ export class ApplyScenarioRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * ScenarioName
+   * 测试POP业务监控
    */
   name?: string;
   /**
@@ -38,7 +38,7 @@ export class ApplyScenarioRequest extends $dara.Model {
    * The ID of the region.
    * 
    * @example
-   * cn-zhangjaikou
+   * cn-zhangjiakou
    */
   regionId?: string;
   /**

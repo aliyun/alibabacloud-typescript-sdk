@@ -36,7 +36,7 @@ export class DescribeWebhookContactsRequest extends $dara.Model {
    * The name of the webhook alert contact.
    * 
    * @example
-   * Webhook name
+   * webhook名称
    */
   webhookName?: string;
   static names(): { [key: string]: string } {

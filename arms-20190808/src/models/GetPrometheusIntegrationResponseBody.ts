@@ -24,7 +24,7 @@ export class GetPrometheusIntegrationResponseBodyData extends $dara.Model {
    * The ID of the Prometheus instance.
    * 
    * @example
-   * c589a1b8db05c4561aefbb898ca8fb1cf
+   * cc7a37ee31aea4ed1a059eff8034b****
    */
   clusterId?: string;
   /**
@@ -56,7 +56,7 @@ export class GetPrometheusIntegrationResponseBodyData extends $dara.Model {
    * The ID of the exporter.
    * 
    * @example
-   * 2893
+   * 28**
    */
   instanceId?: number;
   /**
@@ -136,7 +136,7 @@ export class GetPrometheusIntegrationResponseBodyData extends $dara.Model {
    * The monitored IP address.
    * 
    * @example
-   * 127.0.0.1:3422
+   * 127.0.XX.XX:3422
    */
   target?: string;
   /**
@@ -227,7 +227,7 @@ export class GetPrometheusIntegrationResponseBody extends $dara.Model {
    * The ID of the request.
    * 
    * @example
-   * 9BEF2832-9D95-5E3E-9B10-74887CA17B94
+   * 9BEF2832-9D95-5E3E-9B10-74887C******
    */
   requestId?: string;
   static names(): { [key: string]: string } {

@@ -8,7 +8,7 @@ export class UntagResourcesRequestTags extends $dara.Model {
    * The key of the tag.
    * 
    * @example
-   * TestKey
+   * TestTag
    */
   key?: string;
   /**
@@ -53,7 +53,7 @@ export class UntagResourcesRequest extends $dara.Model {
    * Default value: false.
    * 
    * @example
-   * False
+   * false
    */
   all?: boolean;
   /**
@@ -78,7 +78,7 @@ export class UntagResourcesRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * PROMETHEUS
+   * APPLICATION
    */
   resourceType?: string;
   /**

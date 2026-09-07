@@ -8,7 +8,7 @@ export class ListTimingSyntheticTasksRequestSearch extends $dara.Model {
    * The task name.
    * 
    * @example
-   * AlibabaCloud DNS Task
+   * 拨测
    */
   name?: string;
   /**

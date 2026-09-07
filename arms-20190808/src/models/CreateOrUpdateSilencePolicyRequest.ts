@@ -57,7 +57,7 @@ export class CreateOrUpdateSilencePolicyRequest extends $dara.Model {
    * The ID of the region.
    * 
    * @example
-   * cn-hangzhou
+   * cn-beijing
    */
   regionId?: string;
   /**

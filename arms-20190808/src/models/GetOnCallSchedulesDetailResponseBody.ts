@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetOnCallSchedulesDetailResponseBodyDataRenderedFinnalEntriesSimpleContact extends $dara.Model {
   /**
    * @remarks
-   * The ID of the user on duty.
+   * The contact ID.
    * 
    * @example
    * 123
@@ -13,10 +13,10 @@ export class GetOnCallSchedulesDetailResponseBodyDataRenderedFinnalEntriesSimple
   id?: number;
   /**
    * @remarks
-   * The name of the user on duty.
+   * The contact name.
    * 
    * @example
-   * Employee 1
+   * 员工1
    */
   name?: string;
   static names(): { [key: string]: string } {
@@ -45,7 +45,7 @@ export class GetOnCallSchedulesDetailResponseBodyDataRenderedFinnalEntriesSimple
 export class GetOnCallSchedulesDetailResponseBodyDataRenderedFinnalEntries extends $dara.Model {
   /**
    * @remarks
-   * The date on which the user completed shift work.
+   * The end time of the on-call duty for the contact.
    * 
    * @example
    * 2022-10-30
@@ -53,12 +53,12 @@ export class GetOnCallSchedulesDetailResponseBodyDataRenderedFinnalEntries exten
   end?: string;
   /**
    * @remarks
-   * The information about the user on duty.
+   * Details of the final on-call contact.
    */
   simpleContact?: GetOnCallSchedulesDetailResponseBodyDataRenderedFinnalEntriesSimpleContact;
   /**
    * @remarks
-   * The date from which the user started shift work.
+   * The start time of the on-call duty for the contact.
    * 
    * @example
    * 2022-10-01
@@ -95,7 +95,7 @@ export class GetOnCallSchedulesDetailResponseBodyDataRenderedFinnalEntries exten
 export class GetOnCallSchedulesDetailResponseBodyDataRenderedLayerEntriesSimpleContact extends $dara.Model {
   /**
    * @remarks
-   * The ID of the scheduled user.
+   * The contact ID.
    * 
    * @example
    * 123
@@ -103,10 +103,10 @@ export class GetOnCallSchedulesDetailResponseBodyDataRenderedLayerEntriesSimpleC
   id?: number;
   /**
    * @remarks
-   * The name of the scheduled user.
+   * The contact name.
    * 
    * @example
-   * Employee 1
+   * 员工1
    */
   name?: string;
   static names(): { [key: string]: string } {
@@ -135,7 +135,7 @@ export class GetOnCallSchedulesDetailResponseBodyDataRenderedLayerEntriesSimpleC
 export class GetOnCallSchedulesDetailResponseBodyDataRenderedLayerEntries extends $dara.Model {
   /**
    * @remarks
-   * The date from which the scheduled user was supposed to start shift work.
+   * The start time of the on-call duty for the contact.
    * 
    * @example
    * 2022-10-01
@@ -143,7 +143,7 @@ export class GetOnCallSchedulesDetailResponseBodyDataRenderedLayerEntries extend
   start?: string;
   /**
    * @remarks
-   * The date on which the scheduled user was supposed to complete shift work.
+   * The end time of the on-call duty for the contact.
    * 
    * @example
    * 2022-10-30
@@ -151,7 +151,7 @@ export class GetOnCallSchedulesDetailResponseBodyDataRenderedLayerEntries extend
   end?: string;
   /**
    * @remarks
-   * The information about the scheduled user.
+   * Details of the on-duty contact.
    */
   simpleContact?: GetOnCallSchedulesDetailResponseBodyDataRenderedLayerEntriesSimpleContact;
   static names(): { [key: string]: string } {
@@ -185,7 +185,7 @@ export class GetOnCallSchedulesDetailResponseBodyDataRenderedLayerEntries extend
 export class GetOnCallSchedulesDetailResponseBodyDataRenderedSubstitudeEntriesSimpleContact extends $dara.Model {
   /**
    * @remarks
-   * The ID of the substitute.
+   * The substitute ID.
    * 
    * @example
    * 234
@@ -193,10 +193,10 @@ export class GetOnCallSchedulesDetailResponseBodyDataRenderedSubstitudeEntriesSi
   id?: number;
   /**
    * @remarks
-   * The name of the substitute.
+   * The substitute name.
    * 
    * @example
-   * Employee 2
+   * 员工2
    */
   name?: string;
   static names(): { [key: string]: string } {
@@ -225,7 +225,7 @@ export class GetOnCallSchedulesDetailResponseBodyDataRenderedSubstitudeEntriesSi
 export class GetOnCallSchedulesDetailResponseBodyDataRenderedSubstitudeEntries extends $dara.Model {
   /**
    * @remarks
-   * The date on which the substitute was supposed to complete shift work.
+   * The end time of the on-call duty for the substitute.
    * 
    * @example
    * 2022-10-30
@@ -233,12 +233,12 @@ export class GetOnCallSchedulesDetailResponseBodyDataRenderedSubstitudeEntries e
   end?: string;
   /**
    * @remarks
-   * The information about the substitute.
+   * Details of the substitute.
    */
   simpleContact?: GetOnCallSchedulesDetailResponseBodyDataRenderedSubstitudeEntriesSimpleContact;
   /**
    * @remarks
-   * The date from which the substitute was supposed to start shift work.
+   * The start time of the on-call duty for the substitute.
    * 
    * @example
    * 2022-10-01
@@ -275,7 +275,7 @@ export class GetOnCallSchedulesDetailResponseBodyDataRenderedSubstitudeEntries e
 export class GetOnCallSchedulesDetailResponseBodyDataScheduleLayersRestrictions extends $dara.Model {
   /**
    * @remarks
-   * The end time of the shift per day.
+   * The end time for on-call duty each day.
    * 
    * @example
    * 18:00
@@ -283,10 +283,11 @@ export class GetOnCallSchedulesDetailResponseBodyDataScheduleLayersRestrictions 
   endTimeOfDay?: string;
   /**
    * @remarks
-   * The type of the limit. Valid values:
+   * The type of restriction. Valid values:
    * 
-   * *   daily_restriction
-   * *   weekly_restriction
+   * - `daily_restriction`: A daily time-based restriction.
+   * 
+   * - `weekly_restriction`: A weekly time-based restriction.
    * 
    * @example
    * daily_restriction
@@ -294,7 +295,7 @@ export class GetOnCallSchedulesDetailResponseBodyDataScheduleLayersRestrictions 
   restrictionType?: string;
   /**
    * @remarks
-   * The start time of the shift per day.
+   * The start time for on-call duty each day.
    * 
    * @example
    * 09:00
@@ -328,21 +329,23 @@ export class GetOnCallSchedulesDetailResponseBodyDataScheduleLayersRestrictions 
 export class GetOnCallSchedulesDetailResponseBodyDataScheduleLayers extends $dara.Model {
   /**
    * @remarks
-   * The ID list of users on duty.
+   * A list of contact IDs for the schedule layer.
    */
   contactIds?: number[];
   /**
    * @remarks
-   * The limit on the time of the shift.
+   * A list of restrictions for the schedule layer.
    */
   restrictions?: GetOnCallSchedulesDetailResponseBodyDataScheduleLayersRestrictions[];
   /**
    * @remarks
-   * The type of the shift. Valid values:
+   * The rotation type. Valid values:
    * 
-   * *   DAY
-   * *   WEEK
-   * *   CUSTOM
+   * - `DAY`: Rotates every day.
+   * 
+   * - `WEEK`: Rotates every week.
+   * 
+   * - `CUSTOM`: Rotates based on a custom schedule.
    * 
    * @example
    * DAY
@@ -350,7 +353,7 @@ export class GetOnCallSchedulesDetailResponseBodyDataScheduleLayers extends $dar
   rotationType?: string;
   /**
    * @remarks
-   * The shift cycle. Unit: hours.
+   * The shift length for the rotation, in hours.
    * 
    * @example
    * 8
@@ -358,7 +361,7 @@ export class GetOnCallSchedulesDetailResponseBodyDataScheduleLayers extends $dar
   shiftLength?: number;
   /**
    * @remarks
-   * The date on which the shift change took effect.
+   * The start time for the rotation.
    * 
    * @example
    * 2022-10-01
@@ -402,7 +405,7 @@ export class GetOnCallSchedulesDetailResponseBodyDataScheduleLayers extends $dar
 export class GetOnCallSchedulesDetailResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The URL of the DingTalk chatbot, which is used to receive notifications about shift changes.
+   * The webhook URL of the DingTalk bot for rotation notifications.
    * 
    * @example
    * https://oapi.dingtalk.com/robot/send?access_token=69d4e009547e11069c6513309414937b7bf0482fb9284125b5******
@@ -410,15 +413,15 @@ export class GetOnCallSchedulesDetailResponseBodyData extends $dara.Model {
   alertRobotId?: number;
   /**
    * @remarks
-   * The description of the scheduling policy.
+   * The description of the on-call schedule.
    * 
    * @example
-   * Test
+   * 测试
    */
   description?: string;
   /**
    * @remarks
-   * The ID of the scheduling policy.
+   * The ID of the on-call schedule.
    * 
    * @example
    * 1234
@@ -426,30 +429,30 @@ export class GetOnCallSchedulesDetailResponseBodyData extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The name of the scheduling policy.
+   * The name of the on-call schedule.
    * 
    * @example
-   * Scheduling policy test
+   * 排班策略测试
    */
   name?: string;
   /**
    * @remarks
-   * The information about the final user on duty.
+   * The final list of on-call contacts, after accounting for all rotations and substitutions.
    */
   renderedFinnalEntries?: GetOnCallSchedulesDetailResponseBodyDataRenderedFinnalEntries[];
   /**
    * @remarks
-   * The scheduled users on duty within a time range.
+   * A list of contacts on duty within the specified time range, as defined by the schedule layers.
    */
   renderedLayerEntries?: GetOnCallSchedulesDetailResponseBodyDataRenderedLayerEntries[][];
   /**
    * @remarks
-   * The information about the substitutes within a time range.
+   * A list of substitutes scheduled within the specified time range.
    */
   renderedSubstitudeEntries?: GetOnCallSchedulesDetailResponseBodyDataRenderedSubstitudeEntries[];
   /**
    * @remarks
-   * The information about the shift.
+   * A list of schedule layers.
    */
   scheduleLayers?: GetOnCallSchedulesDetailResponseBodyDataScheduleLayers[];
   static names(): { [key: string]: string } {
@@ -502,7 +505,7 @@ export class GetOnCallSchedulesDetailResponseBodyData extends $dara.Model {
 export class GetOnCallSchedulesDetailResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the scheduling policy.
+   * The details of the on-call schedule.
    */
   data?: GetOnCallSchedulesDetailResponseBodyData;
   /**

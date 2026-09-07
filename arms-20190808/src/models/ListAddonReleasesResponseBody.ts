@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAddonReleasesResponseBodyDataReleasesConditions extends $dara.Model {
   /**
    * @remarks
-   * The first transition time.
+   * The time of the first transition.
    * 
    * @example
    * 2018-01-31T14:32:19Z
@@ -13,7 +13,7 @@ export class ListAddonReleasesResponseBodyDataReleasesConditions extends $dara.M
   firstTransitionTime?: string;
   /**
    * @remarks
-   * The last transition time.
+   * The time of the last transition.
    * 
    * @example
    * 2018-01-31T14:32:19Z
@@ -29,7 +29,7 @@ export class ListAddonReleasesResponseBodyDataReleasesConditions extends $dara.M
   message?: string;
   /**
    * @remarks
-   * The reason for the failure.
+   * The failure reason.
    * 
    * @example
    * xxxx
@@ -37,7 +37,7 @@ export class ListAddonReleasesResponseBodyDataReleasesConditions extends $dara.M
   reason?: string;
   /**
    * @remarks
-   * The status of the phase.
+   * The phase status.
    * 
    * @example
    * True
@@ -45,7 +45,7 @@ export class ListAddonReleasesResponseBodyDataReleasesConditions extends $dara.M
   status?: string;
   /**
    * @remarks
-   * The type of the phase.
+   * The phase type.
    * 
    * @example
    * Loaded
@@ -85,7 +85,7 @@ export class ListAddonReleasesResponseBodyDataReleasesConditions extends $dara.M
 export class ListAddonReleasesResponseBodyDataReleases extends $dara.Model {
   /**
    * @remarks
-   * The name of the add-on.
+   * The component name.
    * 
    * @example
    * mysql
@@ -93,7 +93,7 @@ export class ListAddonReleasesResponseBodyDataReleases extends $dara.Model {
   addonName?: string;
   /**
    * @remarks
-   * The number of alert rules.
+   * The number of alert groups.
    * 
    * @example
    * 1
@@ -101,12 +101,12 @@ export class ListAddonReleasesResponseBodyDataReleases extends $dara.Model {
   alertRuleCount?: number;
   /**
    * @remarks
-   * The installation phase.
+   * The installation phases.
    */
   conditions?: ListAddonReleasesResponseBodyDataReleasesConditions[];
   /**
    * @remarks
-   * The configuration information of the add-on release.
+   * The configuration of the addon release.
    * 
    * @example
    * {"port":"9379"}
@@ -114,7 +114,7 @@ export class ListAddonReleasesResponseBodyDataReleases extends $dara.Model {
   config?: string;
   /**
    * @remarks
-   * The time when the add-on was created.
+   * The creation time.
    * 
    * @example
    * 2023-09-22T16:56:29+08:00
@@ -138,7 +138,7 @@ export class ListAddonReleasesResponseBodyDataReleases extends $dara.Model {
   environmentId?: string;
   /**
    * @remarks
-   * The number of exporters.
+   * The number of plug-ins.
    * 
    * @example
    * 2
@@ -146,7 +146,7 @@ export class ListAddonReleasesResponseBodyDataReleases extends $dara.Model {
   exporterCount?: number;
   /**
    * @remarks
-   * Indicates whether the configuration is available.
+   * Indicates whether the addon has configurations.
    * 
    * @example
    * true
@@ -154,7 +154,7 @@ export class ListAddonReleasesResponseBodyDataReleases extends $dara.Model {
   haveConfig?: boolean;
   /**
    * @remarks
-   * The user ID.
+   * The user ID of the installer.
    * 
    * @example
    * 1268790592387
@@ -170,7 +170,7 @@ export class ListAddonReleasesResponseBodyDataReleases extends $dara.Model {
   language?: string;
   /**
    * @remarks
-   * Indicates whether the component is fully managed.
+   * Indicates whether the component is managed.
    * 
    * @example
    * false
@@ -210,7 +210,7 @@ export class ListAddonReleasesResponseBodyDataReleases extends $dara.Model {
   releaseName?: string;
   /**
    * @remarks
-   * The scenario.
+   * The identified scenario.
    * 
    * @example
    * database
@@ -226,7 +226,7 @@ export class ListAddonReleasesResponseBodyDataReleases extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The time when the add-on was updated.
+   * The update time.
    * 
    * @example
    * 2023-09-22T16:56:29+08:00
@@ -242,7 +242,7 @@ export class ListAddonReleasesResponseBodyDataReleases extends $dara.Model {
   userId?: string;
   /**
    * @remarks
-   * The version of the add-on.
+   * The addon version.
    * 
    * @example
    * 0.0.1
@@ -316,7 +316,7 @@ export class ListAddonReleasesResponseBodyData extends $dara.Model {
   containsV2Addon?: boolean;
   /**
    * @remarks
-   * The queried add-ons.
+   * The collection of addon releases.
    */
   releases?: ListAddonReleasesResponseBodyDataReleases[];
   /**
@@ -358,7 +358,7 @@ export class ListAddonReleasesResponseBodyData extends $dara.Model {
 export class ListAddonReleasesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code. The status code 200 indicates that the request was successful.
+   * The status code. A value of 200 indicates success.
    * 
    * @example
    * 200
@@ -366,12 +366,12 @@ export class ListAddonReleasesResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The result returned.
+   * The returned data.
    */
   data?: ListAddonReleasesResponseBodyData;
   /**
    * @remarks
-   * The returned message.
+   * The message returned for the request.
    * 
    * @example
    * success
@@ -379,7 +379,7 @@ export class ListAddonReleasesResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * E9C9DA3D-10FE-472E-9EEF-2D0A3E41****
@@ -387,7 +387,9 @@ export class ListAddonReleasesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values: true and false.
+   * Indicates whether the query was successful. Valid values:
+   * - true: Successful.
+   * - false: Failed.
    * 
    * @example
    * true

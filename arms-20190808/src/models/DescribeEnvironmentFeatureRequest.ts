@@ -8,7 +8,7 @@ export class DescribeEnvironmentFeatureRequest extends $dara.Model {
    * The language. Valid values: en and zh.
    * 
    * @example
-   * en
+   * zh
    */
   aliyunLang?: string;
   /**

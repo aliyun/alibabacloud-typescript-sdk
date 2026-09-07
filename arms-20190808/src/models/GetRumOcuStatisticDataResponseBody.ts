@@ -91,7 +91,7 @@ export class GetRumOcuStatisticDataResponseBody extends $dara.Model {
    * The error message returned if the request failed.
    * 
    * @example
-   * null
+   * 内部错误，请联系客户人员。
    */
   message?: string;
   /**

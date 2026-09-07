@@ -16,7 +16,7 @@ export class DescribeIMRobotsResponseBodyPageBeanAlertIMRobotsDispatchRules exte
    * The name of the notification policy.
    * 
    * @example
-   * Notification policy test
+   * 通知策略测试
    */
   name?: string;
   static names(): { [key: string]: string } {
@@ -104,7 +104,7 @@ export class DescribeIMRobotsResponseBodyPageBeanAlertIMRobots extends $dara.Mod
    * The name of the IM chatbot.
    * 
    * @example
-   * Chatbot name
+   * robot名称
    */
   robotName?: string;
   /**

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAddonReleasesRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the add-on.
+   * The name of the addon.
    * 
    * @example
    * mysql

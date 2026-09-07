@@ -54,18 +54,24 @@ export class TagResourcesRequest extends $dara.Model {
    * @remarks
    * The type of the ARMS resources for which you want to modify tags. Valid values:
    * 
-   * *   WEB: Browser Monitoring
-   * *   APPLICATION: Application Monitoring
-   * *   PROMETHEUS: Managed Service for Prometheus
-   * *   SYNTHETICTASK: Synthetic Monitoring
-   * *   ALERTRULE: Application Monitoring alert rule
-   * *   PROMETHEUSALERTRULE: Managed Service for Prometheus alert rule
-   * *   XTRACEAPP: Managed Service for OpenTelemetry
+   * - WEB: Browser Monitoring
+   * 
+   * - APPLICATION: Application Monitoring
+   * 
+   * - PROMETHEUS: Managed Service for Prometheus
+   * 
+   * - SYNTHETICTASK: Synthetic Monitoring
+   * 
+   * - ALERTRULE: Application Monitoring alert rule
+   * 
+   * - PROMETHEUSALERTRULE: Managed Service for Prometheus alert rule
+   * 
+   * - XTRACEAPP: Managed Service for OpenTelemetry
    * 
    * This parameter is required.
    * 
    * @example
-   * PROMETHEUS
+   * APPLICATION
    */
   resourceType?: string;
   /**

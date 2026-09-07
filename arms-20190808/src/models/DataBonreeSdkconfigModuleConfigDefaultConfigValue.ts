@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DataBonreeSDKConfigModuleConfigDefaultConfigValue extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the configuration is enabled.
+   * The switch.
    * 
    * @example
    * true

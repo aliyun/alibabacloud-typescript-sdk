@@ -8,12 +8,12 @@ export class AddPrometheusGlobalViewResponseBodyDataInfo extends $dara.Model {
    * The list of instances that failed to be added.
    * 
    * @example
-   * [{"sourceName": "Data source name- ArmsPrometheus","sourceType":"AlibabaPrometheus","userId":"UserID","clusterId":"ClusterId",}]
+   * [{"sourceName": "数据源名称- ArmsPrometheus","sourceType":"AlibabaPrometheus","userId":"UserID","clusterId":"ClusterId",}]
    */
   failedInstances?: string;
   /**
    * @remarks
-   * The ID of the global aggregation instance.
+   * The aggregation instance ID.
    * 
    * @example
    * global-v2-cn-1483223059272121-jmjjfznz
@@ -56,11 +56,14 @@ export class AddPrometheusGlobalViewResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The Info-level information.
+   * 
+   * @example
+   * {regionId: 实例所属region, globalViewClusterId: 实例Id, failedInstances: 数据源JSON list中，添加失败的单个JSON的list}
    */
   info?: AddPrometheusGlobalViewResponseBodyDataInfo;
   /**
    * @remarks
-   * The additional information.
+   * The additional description.
    * 
    * @example
    * OK
@@ -68,10 +71,10 @@ export class AddPrometheusGlobalViewResponseBodyData extends $dara.Model {
   msg?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the query was successful.
    * 
-   * *   `true`
-   * *   `false`
+   * - `true`: Successful.
+   * - `false`: Failed.
    * 
    * @example
    * true
@@ -108,7 +111,7 @@ export class AddPrometheusGlobalViewResponseBodyData extends $dara.Model {
 export class AddPrometheusGlobalViewResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 状态码。说明 200表示成功。
+   * The status code. A value of 200 indicates success.
    * 
    * @example
    * 200
@@ -116,12 +119,12 @@ export class AddPrometheusGlobalViewResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The information about the array object.
+   * The response struct.
    */
   data?: AddPrometheusGlobalViewResponseBodyData;
   /**
    * @remarks
-   * 返回结果的提示信息。
+   * The message returned for the result.
    * 
    * @example
    * success
@@ -129,7 +132,7 @@ export class AddPrometheusGlobalViewResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID. You can use the ID to query logs and troubleshoot issues.
+   * The request ID, which is used to locate logs and troubleshoot issues.
    * 
    * @example
    * 34ED024E-9E31-434A-9E4E-D9D15C3****

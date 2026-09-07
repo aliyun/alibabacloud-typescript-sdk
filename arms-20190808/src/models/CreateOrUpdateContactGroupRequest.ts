@@ -7,8 +7,9 @@ export class CreateOrUpdateContactGroupRequest extends $dara.Model {
    * @remarks
    * The ID of the alert contact group.
    * 
-   * *   If you do not specify this parameter, an alert contact group is created.
-   * *   If you specify this parameter, the specified alert contact group is modified.
+   * - If you do not specify this parameter, an alert contact group is created.
+   * 
+   * - If you specify this parameter, the specified alert contact group is modified.
    * 
    * @example
    * 123

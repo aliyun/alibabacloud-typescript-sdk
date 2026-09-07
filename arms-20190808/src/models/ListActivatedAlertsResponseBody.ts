@@ -16,7 +16,7 @@ export class ListActivatedAlertsResponseBodyPageAlertsDispatchRules extends $dar
    * The name of the notification policy.
    * 
    * @example
-   * NotificationPolicy1
+   * 容器CPU使用率大于80%的通知策略
    */
   ruleName?: string;
   static names(): { [key: string]: string } {
@@ -56,7 +56,7 @@ export class ListActivatedAlertsResponseBodyPageAlerts extends $dara.Model {
    * The name of the alert rule.
    * 
    * @example
-   * Container CPU usage is greater than 80%
+   * 容器CPU使用率大于80%
    */
   alertName?: string;
   /**
@@ -64,7 +64,7 @@ export class ListActivatedAlertsResponseBodyPageAlerts extends $dara.Model {
    * The type of the alert.
    * 
    * @example
-   * PROMETHEUS_MONITORING_ALERT_RULE
+   * ARMS-Prometheus监控
    */
   alertType?: string;
   /**
@@ -103,6 +103,9 @@ export class ListActivatedAlertsResponseBodyPageAlerts extends $dara.Model {
    * *   The tags that are carried in the metrics of the alert rule expression.
    * *   The tags that are created based on the alert rule.
    * *   The default tags of Application Real-Time Monitoring Service (ARMS).
+   * 
+   * @example
+   * "severity": "critical",           "_aliyun_arms_alert_level": "ERROR",           "pod": "night-test-group-1-1-5f5d6f4d84-pszns",           "_aliyun_arms_alert_type": "101",           "_aliyun_arms_integration_name": "测试集成-prometheus",           "alertname": "PodRestart_jiubiantestphp2",           "_aliyun_arms_userid": "1131971649496228",           "_aliyun_arms_involvedObject_name": "jiubiantestphp2",           "_aliyun_arms_involvedObject_id": "ccafb2763cfa7415eb2e2a60a74b1f825",           "_aliyun_arms_region_id": "cn-beijing",           "_aliyun_arms_involvedObject_kind": "cluster",           "_aliyun_arms_product_type": "PROMETHEUS",           "namespace": "default",           "_aliyun_arms_integration_id": "80",           "_aliyun_arms_involvedObject_type": "ManagedKubernetes",           "_aliyun_arms_alert_rule_id": "3612229"
    */
   expandFields?: { [key: string]: any };
   /**
@@ -134,7 +137,7 @@ export class ListActivatedAlertsResponseBodyPageAlerts extends $dara.Model {
    * The name of the service integration that generated the alert.
    * 
    * @example
-   * Test integration-prometheus
+   * 测试集成-prometheus
    */
   involvedObjectName?: string;
   /**
@@ -142,7 +145,7 @@ export class ListActivatedAlertsResponseBodyPageAlerts extends $dara.Model {
    * The description of the alert.
    * 
    * @example
-   * Alarm name: PodRestart_testphp2,\\n Pod night-test-group-1-1-5f5d6f4d84-pszns is restart, Value: 133.33%, 1.33%
+   * 报警名称：PodRestart_testphp2，\\n Pod night-test-group-1-1-5f5d6f4d84-pszns is restart, Value: 133.33%, 1.33%
    */
   message?: string;
   /**
@@ -297,6 +300,13 @@ export class ListActivatedAlertsResponseBodyPage extends $dara.Model {
 }
 
 export class ListActivatedAlertsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The error message returned when the invocation fails.
+   * 
+   * @example
+   * CurrentPage is mandatory for this action.
+   */
   message?: string;
   /**
    * @remarks
