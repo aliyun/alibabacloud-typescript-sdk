@@ -2,34 +2,34 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CreateJobResponseBody extends $dara.Model {
+export class RLProgressProcessed extends $dara.Model {
   /**
    * @remarks
-   * The ID of the job created by this request.
+   * 已处理条数
    * 
    * @example
-   * dlc7*******
+   * true
    */
-  jobId?: string;
+  done?: number;
   /**
    * @remarks
-   * The request ID, which is used for diagnostics and troubleshooting.
+   * 总条数
    * 
    * @example
-   * 473469C7-AA6F-4DC5-B3DB-xxxxxxx
+   * 3
    */
-  requestId?: string;
+  total?: number;
   static names(): { [key: string]: string } {
     return {
-      jobId: 'JobId',
-      requestId: 'RequestId',
+      done: 'Done',
+      total: 'Total',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      jobId: 'string',
-      requestId: 'string',
+      done: 'number',
+      total: 'number',
     };
   }
 

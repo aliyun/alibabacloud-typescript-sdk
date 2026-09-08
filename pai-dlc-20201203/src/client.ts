@@ -56,24 +56,6 @@ export default class Client extends OpenApi {
       'eu-west-1-oxs': "pai-dlc.aliyuncs.com",
       'me-east-1': "pai-dlc.aliyuncs.com",
       'rus-west-1-pop': "pai-dlc.aliyuncs.com",
-      'cn-wulanchabu': "pai-dlc.cn-wulanchabu.aliyuncs.com",
-      'cn-beijing': "pai-dlc.cn-beijing.aliyuncs.com",
-      'cn-shanghai': "pai-dlc.cn-shanghai.aliyuncs.com",
-      'cn-hongkong': "pai-dlc.cn-hongkong.aliyuncs.com",
-      'cn-shenzhen': "pai-dlc.cn-shenzhen.aliyuncs.com",
-      'ap-northeast-1': "pai-dlc.ap-northeast-1.aliyuncs.com",
-      'cn-guangzhou': "pai-dlc.cn-guangzhou.aliyuncs.com",
-      'ap-southeast-1': "pai-dlc.ap-southeast-1.aliyuncs.com",
-      'ap-southeast-3': "pai-dlc.ap-southeast-3.aliyuncs.com",
-      'ap-southeast-5': "pai-dlc.ap-southeast-5.aliyuncs.com",
-      'ap-southeast-7': "pai-dlc.ap-southeast-7.aliyuncs.com",
-      'cn-hangzhou': "pai-dlc.cn-hangzhou.aliyuncs.com",
-      'ap-southeast-8': "pai-dlc.ap-southeast-8.aliyuncs.com",
-      'us-east-1': "pai-dlc.us-east-1.aliyuncs.com",
-      'us-southeast-1': "pai-dlc.us-southeast-1.aliyuncs.com",
-      'us-west-1': "pai-dlc.us-west-1.aliyuncs.com",
-      'eu-central-1': "pai-dlc.eu-central-1.aliyuncs.com",
-      'cn-shanghai-finance-1': "pai-dlc.cn-shanghai-finance-1.aliyuncs.com",
     };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("pai-dlc", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -93,10 +75,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a job to run in a cluster. You can specify the datasource config, code source configuration, startup command, and compute resource configuration for each node of the job.
+   * Creates a job and runs it in a cluster. You can specify information such as the data source configuration, code source configuration, startup command, and compute resource configuration for each node of the job.
    * 
    * @remarks
-   * Before you use this operation, make sure that you fully understand the billing of PAI-DLC and its [pricing](https://help.aliyun.com/document_detail/171758.html).
+   * Before using this operation, make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) of PAI-DLC.
+   * >Notice: The total length of CreateJob operation parameters (including system-generated parameters) cannot exceed 65,536 bytes.
    * 
    * @param request - CreateJobRequest
    * @param headers - map
@@ -229,10 +212,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a job to run in a cluster. You can specify the datasource config, code source configuration, startup command, and compute resource configuration for each node of the job.
+   * Creates a job and runs it in a cluster. You can specify information such as the data source configuration, code source configuration, startup command, and compute resource configuration for each node of the job.
    * 
    * @remarks
-   * Before you use this operation, make sure that you fully understand the billing of PAI-DLC and its [pricing](https://help.aliyun.com/document_detail/171758.html).
+   * Before using this operation, make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) of PAI-DLC.
+   * >Notice: The total length of CreateJob operation parameters (including system-generated parameters) cannot exceed 65,536 bytes.
    * 
    * @param request - CreateJobRequest
    * @returns CreateJobResponse
@@ -787,7 +771,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the detailed configuration and runtime information of a node.
+   * Retrieves the detailed configuration and runtime information of a task.
    * 
    * @param request - GetJobRequest
    * @param headers - map
@@ -820,7 +804,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the detailed configuration and runtime information of a node.
+   * Retrieves the detailed configuration and runtime information of a task.
    * 
    * @param request - GetJobRequest
    * @returns GetJobResponse
@@ -1200,7 +1184,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains or downloads the logs of a node for a task. The logs are from the stdout and stderr of the system and user scripts.
+   * Retrieves or downloads the log of a specific node in a job. The log is collected from stdout and stderr of the system and user scripts.
    * 
    * @param request - GetPodLogsRequest
    * @param headers - map
@@ -1210,6 +1194,10 @@ export default class Client extends OpenApi {
   async getPodLogsWithOptions(JobId: string, PodId: string, request: $_model.GetPodLogsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetPodLogsResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.containers)) {
+      query["Containers"] = request.containers;
+    }
+
     if (!$dara.isNull(request.downloadToFile)) {
       query["DownloadToFile"] = request.downloadToFile;
     }
@@ -1249,7 +1237,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains or downloads the logs of a node for a task. The logs are from the stdout and stderr of the system and user scripts.
+   * Retrieves or downloads the log of a specific node in a job. The log is collected from stdout and stderr of the system and user scripts.
    * 
    * @param request - GetPodLogsRequest
    * @returns GetPodLogsResponse
@@ -1512,7 +1500,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the sharing token of a DLC job. This token is used to view the information about the shared job.
+   * Retrieves a sharing token for a DLC job, which is used to view information about the shared task.
    * 
    * @param request - GetTokenRequest
    * @param headers - map
@@ -1534,6 +1522,10 @@ export default class Client extends OpenApi {
       query["TargetType"] = request.targetType;
     }
 
+    if (!$dara.isNull(request.tokenSettings)) {
+      query["TokenSettings"] = request.tokenSettings;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
@@ -1553,7 +1545,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the sharing token of a DLC job. This token is used to view the information about the shared job.
+   * Retrieves a sharing token for a DLC job, which is used to view information about the shared task.
    * 
    * @param request - GetTokenRequest
    * @returns GetTokenResponse
@@ -2697,7 +2689,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a job\\"s configuration, such as its priority.
+   * Updates the configuration of a job, such as modifying the priority of a queued job.
    * 
    * @param request - UpdateJobRequest
    * @param headers - map
@@ -2723,6 +2715,10 @@ export default class Client extends OpenApi {
       body["Priority"] = request.priority;
     }
 
+    if (!$dara.isNull(request.userCommand)) {
+      body["UserCommand"] = request.userCommand;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
@@ -2742,7 +2738,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a job\\"s configuration, such as its priority.
+   * Updates the configuration of a job, such as modifying the priority of a queued job.
    * 
    * @param request - UpdateJobRequest
    * @returns UpdateJobResponse

@@ -2,34 +2,34 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CreateJobResponseBody extends $dara.Model {
+export class RLFlowMilestoneCount extends $dara.Model {
   /**
    * @remarks
-   * The ID of the job created by this request.
+   * The number of in-transit trajectories that remain at this milestone.
    * 
    * @example
-   * dlc7*******
+   * 96
    */
-  jobId?: string;
+  count?: number;
   /**
    * @remarks
-   * The request ID, which is used for diagnostics and troubleshooting.
+   * The milestone. Valid values are the same as those of Stuck[].Milestone.
    * 
    * @example
-   * 473469C7-AA6F-4DC5-B3DB-xxxxxxx
+   * 生成中
    */
-  requestId?: string;
+  milestone?: string;
   static names(): { [key: string]: string } {
     return {
-      jobId: 'JobId',
-      requestId: 'RequestId',
+      count: 'Count',
+      milestone: 'Milestone',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      jobId: 'string',
-      requestId: 'string',
+      count: 'number',
+      milestone: 'string',
     };
   }
 

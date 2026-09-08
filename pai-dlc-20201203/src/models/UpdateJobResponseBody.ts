@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the job.
+   * The job ID.
    * 
    * @example
    * dlc*************
@@ -13,7 +13,7 @@ export class UpdateJobResponseBody extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * The request ID, used for diagnostics and support.
+   * The request ID, which is used for diagnostics and troubleshooting.
    * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E

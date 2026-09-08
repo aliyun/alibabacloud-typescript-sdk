@@ -17,7 +17,7 @@ import { SystemDisk } from "./SystemDisk";
 export class JobSpec extends $dara.Model {
   /**
    * @remarks
-   * The assigned scheduling node configuration.
+   * The node scheduling configuration.
    */
   assignNodeSpec?: AssignNodeSpec;
   /**
@@ -27,13 +27,13 @@ export class JobSpec extends $dara.Model {
   autoScalingSpec?: AutoScalingSpec;
   /**
    * @remarks
-   * Specifies whether this role is considered when determining job success. This parameter takes effect only when the success policy is set to Partial.
+   * Specifies whether to consider this role when determining job success. This parameter takes effect only when the success policy is set to Partial.
    */
   considerInSuccessPolicy?: boolean;
   driver?: string;
   /**
    * @remarks
-   * The hardware specifications of the worker. Visit [PAI-DLC billing](https://help.aliyun.com/document_detail/171758.html) for the detailed list of specifications.>Notice: Prices vary depending on the specifications.
+   * The hardware specification of the worker. Visit [PAI-DLC billing](https://help.aliyun.com/document_detail/171758.html) for the detailed specification list.>Notice: Prices vary depending on the specification.
    * 
    * @example
    * ecs.c6.large
@@ -48,7 +48,7 @@ export class JobSpec extends $dara.Model {
   hyperNodeSchedulingConfig?: HyperNodeSchedulingConfig;
   /**
    * @remarks
-   * The runtime image address for this type of worker. Call [ListImages](https://help.aliyun.com/document_detail/449118.html) to obtain images provided by the PAI platform. You can also specify a third-party public image.
+   * The runtime image address for this type of worker. Call [ListImages](https://help.aliyun.com/document_detail/449118.html) to retrieve images provided by the PAI platform. You can also specify a third-party public image.
    * 
    * @example
    * registry-vpc.cn-hangzhou.aliyuncs.com/cloud-dsw/tensorflow:1.12PAI-gpu-py36-cu101-ubuntu18.04
@@ -61,14 +61,14 @@ export class JobSpec extends $dara.Model {
   imageConfig?: ImageConfig;
   /**
    * @remarks
-   * Deprecated due to a spelling error.
+   * **[Deprecated]** This field is deprecated due to a spelling error.
    * 
    * @deprecated
    */
   isCheif?: boolean;
   /**
    * @remarks
-   * Indicates whether this role is the Chief role. Only one Chief role is allowed.
+   * Specifies whether the role is the Chief role. Only one Chief role is allowed.
    */
   isChief?: boolean;
   /**
@@ -117,7 +117,7 @@ export class JobSpec extends $dara.Model {
   systemDisk?: SystemDisk;
   /**
    * @remarks
-   * Type is closely related to Job Type. Different job types support different worker types.
+   * The type, which is closely related to the job type. Different job types support different worker types.
    * 
    * - **TFJob**: Supports Chief, PS, Worker, Evaluator, and GraphLearn.
    * 
@@ -128,7 +128,7 @@ export class JobSpec extends $dara.Model {
    * - **ElasticBatch**: Supports Worker and Master.
    * - **RayJob**: Supports Head, Worker, and Worker[-xxx].
    * 
-   * Master is optional in PyTorchJob, XGBoostJob, OneFlowJob, and ElasticBatch. If Master is not specified, the system automatically designates the first Worker node as Master.
+   * Master is optional in PyTorchJob, XGBoostJob, OneFlowJob, and ElasticBatch. If not specified, the system automatically designates the first Worker node as Master.
    * 
    * @example
    * Worker
@@ -144,6 +144,14 @@ export class JobSpec extends $dara.Model {
    * @deprecated
    */
   useSpotInstance?: boolean;
+  /**
+   * @remarks
+   * The role-level startup command.
+   * 
+   * @example
+   * python train.py
+   */
+  userCommand?: string;
   static names(): { [key: string]: string } {
     return {
       assignNodeSpec: 'AssignNodeSpec',
@@ -170,6 +178,7 @@ export class JobSpec extends $dara.Model {
       systemDisk: 'SystemDisk',
       type: 'Type',
       useSpotInstance: 'UseSpotInstance',
+      userCommand: 'UserCommand',
     };
   }
 
@@ -199,6 +208,7 @@ export class JobSpec extends $dara.Model {
       systemDisk: SystemDisk,
       type: 'string',
       useSpotInstance: 'boolean',
+      userCommand: 'string',
     };
   }
 

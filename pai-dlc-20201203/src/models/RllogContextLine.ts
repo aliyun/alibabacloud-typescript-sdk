@@ -2,34 +2,34 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CreateJobResponseBody extends $dara.Model {
+export class RLLogContextLine extends $dara.Model {
   /**
    * @remarks
-   * The ID of the job created by this request.
+   * The log text (<= 2000 characters, with ANSI escape codes stripped).
    * 
    * @example
-   * dlc7*******
+   * CUDA out of memory. Tried to allocate 2.00 GiB
    */
-  jobId?: string;
+  message?: string;
   /**
    * @remarks
-   * The request ID, which is used for diagnostics and troubleshooting.
+   * The millisecond timestamp of the log line.
    * 
    * @example
-   * 473469C7-AA6F-4DC5-B3DB-xxxxxxx
+   * 1787293208012
    */
-  requestId?: string;
+  timestampMs?: number;
   static names(): { [key: string]: string } {
     return {
-      jobId: 'JobId',
-      requestId: 'RequestId',
+      message: 'Message',
+      timestampMs: 'TimestampMs',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      jobId: 'string',
-      requestId: 'string',
+      message: 'string',
+      timestampMs: 'number',
     };
   }
 

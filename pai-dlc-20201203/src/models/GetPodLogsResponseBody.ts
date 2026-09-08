@@ -1,8 +1,22 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import { ContainerInfo } from "./ContainerInfo";
 
 
 export class GetPodLogsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The container information that may be associated with the node.
+   */
+  containerInfo?: ContainerInfo;
+  /**
+   * @remarks
+   * The containers used to filter logs. Separate multiple container names with commas (,).
+   * 
+   * @example
+   * pytorch,aimaster-worker
+   */
+  containers?: string;
   /**
    * @remarks
    * The job ID.
@@ -13,7 +27,7 @@ export class GetPodLogsResponseBody extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * The logs.
+   * The log list.
    */
   logs?: string[];
   /**
@@ -34,7 +48,7 @@ export class GetPodLogsResponseBody extends $dara.Model {
   podUid?: string;
   /**
    * @remarks
-   * The request ID which is used for diagnostics and Q\\&A.
+   * The request ID for this call, used for diagnostics and troubleshooting.
    * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
@@ -42,6 +56,8 @@ export class GetPodLogsResponseBody extends $dara.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      containerInfo: 'ContainerInfo',
+      containers: 'Containers',
       jobId: 'JobId',
       logs: 'Logs',
       podId: 'PodId',
@@ -52,6 +68,8 @@ export class GetPodLogsResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      containerInfo: ContainerInfo,
+      containers: 'string',
       jobId: 'string',
       logs: { 'type': 'array', 'itemType': 'string' },
       podId: 'string',
@@ -61,6 +79,9 @@ export class GetPodLogsResponseBody extends $dara.Model {
   }
 
   validate() {
+    if(this.containerInfo && typeof (this.containerInfo as any).validate === 'function') {
+      (this.containerInfo as any).validate();
+    }
     if(Array.isArray(this.logs)) {
       $dara.Model.validateArray(this.logs);
     }

@@ -6,9 +6,8 @@ import { JobSpec } from "./JobSpec";
 export class UpdateJobRequest extends $dara.Model {
   /**
    * @remarks
-   * The job\\"s visibility. You can only increase, not decrease, the visibility. Valid value:
-   * 
-   * - `PUBLIC`: The job is visible to all users in the workspace.
+   * The visibility of the job. The visibility can only be expanded, not reduced. Valid values:
+   * - PUBLIC: visible to all users in the workspace.
    * 
    * @example
    * PUBLIC
@@ -17,27 +16,31 @@ export class UpdateJobRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The job specifications.
+   * The job specification definition.
    */
   jobSpecs?: JobSpec[];
   /**
    * @remarks
-   * The priority of the job. Valid values range from 1 to 9:
-   * 
-   * - 1 indicates the lowest priority.
-   * 
-   * - 9 indicates the highest priority.
+   * The priority of the job. Valid values: 1 to 9.
+   * - 1: the lowest priority.
+   * - 9: the highest priority.
    * 
    * @example
    * 5
    */
   priority?: number;
+  /**
+   * @remarks
+   * The user command.
+   */
+  userCommand?: string;
   static names(): { [key: string]: string } {
     return {
       accessibility: 'Accessibility',
       description: 'Description',
       jobSpecs: 'JobSpecs',
       priority: 'Priority',
+      userCommand: 'UserCommand',
     };
   }
 
@@ -47,6 +50,7 @@ export class UpdateJobRequest extends $dara.Model {
       description: 'string',
       jobSpecs: { 'type': 'array', 'itemType': JobSpec },
       priority: 'number',
+      userCommand: 'string',
     };
   }
 

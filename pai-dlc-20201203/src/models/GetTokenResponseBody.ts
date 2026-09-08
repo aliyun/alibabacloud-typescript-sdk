@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetTokenResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID, which is used to troubleshoot issues.
+   * The request ID, which is used for diagnostics and troubleshooting.
    * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-xxxxxxxx
@@ -13,7 +13,7 @@ export class GetTokenResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The sharing token, used to view the information about the shared job.
+   * The task sharing token, which can be used to view information about the shared task.
    * 
    * @example
    * eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9*****

@@ -1,11 +1,12 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import { TokenSettings } from "./TokenSettings";
 
 
 export class GetTokenRequest extends $dara.Model {
   /**
    * @remarks
-   * The time when the share link expires. Default value: 604800. Minimum value: 0. Unit: seconds.
+   * The expiration time of the sharing link in seconds. Default value: 604800. Minimum value: 0.
    * 
    * @example
    * 60
@@ -13,7 +14,7 @@ export class GetTokenRequest extends $dara.Model {
   expireTime?: number;
   /**
    * @remarks
-   * The ID of the job to be shared.
+   * The ID of the task to share.
    * 
    * @example
    * dlc*******
@@ -21,17 +22,19 @@ export class GetTokenRequest extends $dara.Model {
   targetId?: string;
   /**
    * @remarks
-   * The type of the job that you want to share. Valid values: job and tensorboard.
+   * The type of the task to share. Valid values: job and tensorboard.
    * 
    * @example
    * job
    */
   targetType?: string;
+  tokenSettings?: TokenSettings;
   static names(): { [key: string]: string } {
     return {
       expireTime: 'ExpireTime',
       targetId: 'TargetId',
       targetType: 'TargetType',
+      tokenSettings: 'TokenSettings',
     };
   }
 
@@ -40,10 +43,14 @@ export class GetTokenRequest extends $dara.Model {
       expireTime: 'number',
       targetId: 'string',
       targetType: 'string',
+      tokenSettings: TokenSettings,
     };
   }
 
   validate() {
+    if(this.tokenSettings && typeof (this.tokenSettings as any).validate === 'function') {
+      (this.tokenSettings as any).validate();
+    }
     super.validate();
   }
 

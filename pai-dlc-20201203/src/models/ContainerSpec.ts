@@ -23,7 +23,7 @@ export class ContainerSpec extends $dara.Model {
   env?: EnvVar[];
   /**
    * @remarks
-   * The endpoint of the container image.
+   * The container image address.
    * 
    * @example
    * registry.cn-hangzhou.aliyuncs.com/pai-dlc/curl:v1.0.0
@@ -31,7 +31,7 @@ export class ContainerSpec extends $dara.Model {
   image?: string;
   /**
    * @remarks
-   * The name of the container.
+   * The container name.
    * 
    * @example
    * data-init

@@ -2,34 +2,34 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CreateJobResponseBody extends $dara.Model {
+export class RLProgressSync extends $dara.Model {
   /**
    * @remarks
-   * The ID of the job created by this request.
+   * The parameter synchronization duration in seconds. This property has a value only when State is end.
    * 
    * @example
-   * dlc7*******
+   * 1.5
    */
-  jobId?: string;
+  cost?: number;
   /**
    * @remarks
-   * The request ID, which is used for diagnostics and troubleshooting.
+   * begin / end
    * 
    * @example
-   * 473469C7-AA6F-4DC5-B3DB-xxxxxxx
+   * end
    */
-  requestId?: string;
+  state?: string;
   static names(): { [key: string]: string } {
     return {
-      jobId: 'JobId',
-      requestId: 'RequestId',
+      cost: 'Cost',
+      state: 'State',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      jobId: 'string',
-      requestId: 'string',
+      cost: 'number',
+      state: 'string',
     };
   }
 

@@ -7,7 +7,7 @@ import { TensorboardSpec } from "./TensorboardSpec";
 export class Tensorboard extends $dara.Model {
   /**
    * @remarks
-   * Visibility.
+   * The visibility.
    * 
    * @example
    * PRIVATE
@@ -16,7 +16,7 @@ export class Tensorboard extends $dara.Model {
   cpu?: number;
   /**
    * @remarks
-   * Data source ID.
+   * The data source ID.
    * 
    * @example
    * datasource-test
@@ -25,7 +25,7 @@ export class Tensorboard extends $dara.Model {
   dataSourceType?: string;
   /**
    * @remarks
-   * Display name.
+   * The display name.
    * 
    * @example
    * test
@@ -33,15 +33,15 @@ export class Tensorboard extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * Runtime duration (seconds).
+   * The duration in seconds.
    * 
    * @example
-   * 1234567
+   * 60
    */
   duration?: string;
   /**
    * @remarks
-   * Creation time (UTC).
+   * The creation time in UTC.
    * 
    * @example
    * 2021-01-12T14:35:00Z
@@ -49,7 +49,7 @@ export class Tensorboard extends $dara.Model {
   gmtCreateTime?: string;
   /**
    * @remarks
-   * End time (UTC).
+   * The end time in UTC.
    * 
    * @example
    * null
@@ -57,7 +57,7 @@ export class Tensorboard extends $dara.Model {
   gmtFinishTime?: string;
   /**
    * @remarks
-   * Modification time (UTC).
+   * The modification time in UTC.
    * 
    * @example
    * 2021-01-12T14:36:00Z
@@ -65,7 +65,7 @@ export class Tensorboard extends $dara.Model {
   gmtModifyTime?: string;
   /**
    * @remarks
-   * Job ID.
+   * The job ID.
    * 
    * @example
    * dlc-20210114104214-vf9lowjt3pso
@@ -76,7 +76,7 @@ export class Tensorboard extends $dara.Model {
   options?: string;
   /**
    * @remarks
-   * Tensorboard Job priority.
+   * The priority of the TensorBoard job.
    * 
    * @example
    * 1
@@ -84,7 +84,7 @@ export class Tensorboard extends $dara.Model {
   priority?: string;
   /**
    * @remarks
-   * Resource group ID used by Tensorboard.
+   * The ID of the resource group used by TensorBoard.
    * 
    * @example
    * quota12***
@@ -92,7 +92,7 @@ export class Tensorboard extends $dara.Model {
   quotaId?: string;
   /**
    * @remarks
-   * Name of the resource quota used by Tensorboard.
+   * The name of the resource quota used by TensorBoard.
    * 
    * @example
    * dlc-quota
@@ -100,23 +100,23 @@ export class Tensorboard extends $dara.Model {
   quotaName?: string;
   /**
    * @remarks
-   * Status details code.
+   * The status detail code.
    * 
    * @example
-   * Delete by user
+   * ""
    */
   reasonCode?: string;
   /**
    * @remarks
-   * Status details.
+   * The status details.
    * 
    * @example
-   * Tensorboard is deleted
+   * ""
    */
   reasonMessage?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
@@ -124,7 +124,7 @@ export class Tensorboard extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Status.
+   * The status.
    * 
    * @example
    * running
@@ -132,7 +132,7 @@ export class Tensorboard extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * File path.
+   * The file path.
    * 
    * @example
    * /root/data
@@ -141,12 +141,12 @@ export class Tensorboard extends $dara.Model {
   summaryRelativePath?: string;
   /**
    * @remarks
-   * Datasets mounted by the Tensorboard Job.
+   * The datasets mounted to the TensorBoard job.
    */
   tensorboardDataSources?: TensorboardDataSourceSpec[];
   /**
    * @remarks
-   * Tensorboard ID.
+   * Tensorboard ID。
    * 
    * @example
    * tensorboard-xxx
@@ -154,12 +154,12 @@ export class Tensorboard extends $dara.Model {
   tensorboardId?: string;
   /**
    * @remarks
-   * Pay-as-you-go configuration for the Tensorboard Job.
+   * The pay-as-you-go configuration of the TensorBoard job.
    */
   tensorboardSpec?: TensorboardSpec;
   /**
    * @remarks
-   * Tensorboard URL.
+   * Tensorboard URL。
    * 
    * @example
    * http://xxxxxx
@@ -168,7 +168,7 @@ export class Tensorboard extends $dara.Model {
   token?: string;
   /**
    * @remarks
-   * Creator ID.
+   * The ID of the creator.
    * 
    * @example
    * lycxxxxx
@@ -176,7 +176,7 @@ export class Tensorboard extends $dara.Model {
   userId?: string;
   /**
    * @remarks
-   * Creator username.
+   * The username of the creator.
    * 
    * @example
    * tensorboard.pai
