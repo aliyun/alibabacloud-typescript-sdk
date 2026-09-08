@@ -7,6 +7,7 @@ export class CreateAPIKeyCredentialProviderResponseBodyAPIKeyCredentialProvider 
   createTime?: string;
   credentialProviderArn?: string;
   description?: string;
+  sourcePlatform?: string;
   tokenVaultName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14,6 +15,7 @@ export class CreateAPIKeyCredentialProviderResponseBodyAPIKeyCredentialProvider 
       createTime: 'CreateTime',
       credentialProviderArn: 'CredentialProviderArn',
       description: 'Description',
+      sourcePlatform: 'SourcePlatform',
       tokenVaultName: 'TokenVaultName',
     };
   }
@@ -24,6 +26,7 @@ export class CreateAPIKeyCredentialProviderResponseBodyAPIKeyCredentialProvider 
       createTime: 'string',
       credentialProviderArn: 'string',
       description: 'string',
+      sourcePlatform: 'string',
       tokenVaultName: 'string',
     };
   }

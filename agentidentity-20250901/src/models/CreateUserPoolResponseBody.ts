@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CreateUserPoolResponseBodyUserPool extends $dara.Model {
   createTime?: string;
   description?: string;
+  OIDCDiscoveryURL?: string;
+  signinBaseURL?: string;
   sourcePlatform?: string;
   updateTime?: string;
   userPoolId?: string;
@@ -13,6 +15,8 @@ export class CreateUserPoolResponseBodyUserPool extends $dara.Model {
     return {
       createTime: 'CreateTime',
       description: 'Description',
+      OIDCDiscoveryURL: 'OIDCDiscoveryURL',
+      signinBaseURL: 'SigninBaseURL',
       sourcePlatform: 'SourcePlatform',
       updateTime: 'UpdateTime',
       userPoolId: 'UserPoolId',
@@ -24,6 +28,8 @@ export class CreateUserPoolResponseBodyUserPool extends $dara.Model {
     return {
       createTime: 'string',
       description: 'string',
+      OIDCDiscoveryURL: 'string',
+      signinBaseURL: 'string',
       sourcePlatform: 'string',
       updateTime: 'string',
       userPoolId: 'string',

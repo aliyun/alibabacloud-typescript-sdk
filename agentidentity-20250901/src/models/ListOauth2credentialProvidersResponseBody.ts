@@ -9,9 +9,30 @@ export class ListOAuth2CredentialProvidersResponseBodyOAuth2CredentialProviders 
   credentialProviderArn?: string;
   credentialProviderVendor?: string;
   description?: string;
+  /**
+   * @example
+   * idaas_xxxx
+   */
+  IDaaSInstanceId?: string;
   OAuth2CredentialProviderName?: string;
   OAuth2ProviderConfig?: OAuth2ProviderConfig;
   OAuthType?: string;
+  /**
+   * @example
+   * app_xxxx
+   */
+  outboundApplicationId?: string;
+  /**
+   * @example
+   * agent-xxxxx
+   */
+  outboundAudience?: string;
+  /**
+   * @example
+   * client_xxxx
+   */
+  outboundClientId?: string;
+  sourcePlatform?: string;
   tokenVaultName?: string;
   updateTime?: string;
   static names(): { [key: string]: string } {
@@ -21,9 +42,14 @@ export class ListOAuth2CredentialProvidersResponseBodyOAuth2CredentialProviders 
       credentialProviderArn: 'CredentialProviderArn',
       credentialProviderVendor: 'CredentialProviderVendor',
       description: 'Description',
+      IDaaSInstanceId: 'IDaaSInstanceId',
       OAuth2CredentialProviderName: 'OAuth2CredentialProviderName',
       OAuth2ProviderConfig: 'OAuth2ProviderConfig',
       OAuthType: 'OAuthType',
+      outboundApplicationId: 'OutboundApplicationId',
+      outboundAudience: 'OutboundAudience',
+      outboundClientId: 'OutboundClientId',
+      sourcePlatform: 'SourcePlatform',
       tokenVaultName: 'TokenVaultName',
       updateTime: 'UpdateTime',
     };
@@ -36,9 +62,14 @@ export class ListOAuth2CredentialProvidersResponseBodyOAuth2CredentialProviders 
       credentialProviderArn: 'string',
       credentialProviderVendor: 'string',
       description: 'string',
+      IDaaSInstanceId: 'string',
       OAuth2CredentialProviderName: 'string',
       OAuth2ProviderConfig: OAuth2ProviderConfig,
       OAuthType: 'string',
+      outboundApplicationId: 'string',
+      outboundAudience: 'string',
+      outboundClientId: 'string',
+      sourcePlatform: 'string',
       tokenVaultName: 'string',
       updateTime: 'string',
     };

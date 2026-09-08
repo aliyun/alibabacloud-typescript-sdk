@@ -3,10 +3,12 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateLoginPreferenceShrinkRequest extends $dara.Model {
+  allowedPostLogoutRedirectUrisShrink?: string;
   loginPreferenceShrink?: string;
   userPoolName?: string;
   static names(): { [key: string]: string } {
     return {
+      allowedPostLogoutRedirectUrisShrink: 'AllowedPostLogoutRedirectUris',
       loginPreferenceShrink: 'LoginPreference',
       userPoolName: 'UserPoolName',
     };
@@ -14,6 +16,7 @@ export class UpdateLoginPreferenceShrinkRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      allowedPostLogoutRedirectUrisShrink: 'string',
       loginPreferenceShrink: 'string',
       userPoolName: 'string',
     };

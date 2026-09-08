@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateWorkloadIdentityShrinkRequest extends $dara.Model {
+  allowedConsentCallbackURLsShrink?: string;
   /**
    * **if can be null:**
    * false
@@ -15,6 +16,7 @@ export class UpdateWorkloadIdentityShrinkRequest extends $dara.Model {
   workloadIdentityName?: string;
   static names(): { [key: string]: string } {
     return {
+      allowedConsentCallbackURLsShrink: 'AllowedConsentCallbackURLs',
       allowedResourceOAuth2ReturnURLsShrink: 'AllowedResourceOAuth2ReturnURLs',
       description: 'Description',
       identityProviderName: 'IdentityProviderName',
@@ -26,6 +28,7 @@ export class UpdateWorkloadIdentityShrinkRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      allowedConsentCallbackURLsShrink: 'string',
       allowedResourceOAuth2ReturnURLsShrink: 'string',
       description: 'string',
       identityProviderName: 'string',

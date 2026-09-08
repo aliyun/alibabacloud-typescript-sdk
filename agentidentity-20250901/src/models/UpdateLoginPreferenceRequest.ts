@@ -26,10 +26,12 @@ export class UpdateLoginPreferenceRequestLoginPreference extends $dara.Model {
 }
 
 export class UpdateLoginPreferenceRequest extends $dara.Model {
+  allowedPostLogoutRedirectUris?: string[];
   loginPreference?: UpdateLoginPreferenceRequestLoginPreference;
   userPoolName?: string;
   static names(): { [key: string]: string } {
     return {
+      allowedPostLogoutRedirectUris: 'AllowedPostLogoutRedirectUris',
       loginPreference: 'LoginPreference',
       userPoolName: 'UserPoolName',
     };
@@ -37,12 +39,16 @@ export class UpdateLoginPreferenceRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      allowedPostLogoutRedirectUris: { 'type': 'array', 'itemType': 'string' },
       loginPreference: UpdateLoginPreferenceRequestLoginPreference,
       userPoolName: 'string',
     };
   }
 
   validate() {
+    if(Array.isArray(this.allowedPostLogoutRedirectUris)) {
+      $dara.Model.validateArray(this.allowedPostLogoutRedirectUris);
+    }
     if(this.loginPreference && typeof (this.loginPreference as any).validate === 'function') {
       (this.loginPreference as any).validate();
     }

@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetWorkloadIdentityResponseBodyWorkloadIdentity extends $dara.Model {
+  allowedConsentCallbackURLs?: string[];
   allowedResourceOAuth2ReturnURLs?: string[];
   createTime?: string;
   description?: string;
@@ -16,6 +17,7 @@ export class GetWorkloadIdentityResponseBodyWorkloadIdentity extends $dara.Model
   workloadIdentityName?: string;
   static names(): { [key: string]: string } {
     return {
+      allowedConsentCallbackURLs: 'AllowedConsentCallbackURLs',
       allowedResourceOAuth2ReturnURLs: 'AllowedResourceOAuth2ReturnURLs',
       createTime: 'CreateTime',
       description: 'Description',
@@ -32,6 +34,7 @@ export class GetWorkloadIdentityResponseBodyWorkloadIdentity extends $dara.Model
 
   static types(): { [key: string]: any } {
     return {
+      allowedConsentCallbackURLs: { 'type': 'array', 'itemType': 'string' },
       allowedResourceOAuth2ReturnURLs: { 'type': 'array', 'itemType': 'string' },
       createTime: 'string',
       description: 'string',
@@ -47,6 +50,9 @@ export class GetWorkloadIdentityResponseBodyWorkloadIdentity extends $dara.Model
   }
 
   validate() {
+    if(Array.isArray(this.allowedConsentCallbackURLs)) {
+      $dara.Model.validateArray(this.allowedConsentCallbackURLs);
+    }
     if(Array.isArray(this.allowedResourceOAuth2ReturnURLs)) {
       $dara.Model.validateArray(this.allowedResourceOAuth2ReturnURLs);
     }

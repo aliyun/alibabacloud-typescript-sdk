@@ -826,11 +826,19 @@ export default class Client extends OpenApi {
     tmpReq.validate();
     let request = new $_model.CreateWorkloadIdentityShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.allowedConsentCallbackURLs)) {
+      request.allowedConsentCallbackURLsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.allowedConsentCallbackURLs, "AllowedConsentCallbackURLs", "json");
+    }
+
     if (!$dara.isNull(tmpReq.allowedResourceOAuth2ReturnURLs)) {
       request.allowedResourceOAuth2ReturnURLsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.allowedResourceOAuth2ReturnURLs, "AllowedResourceOAuth2ReturnURLs", "json");
     }
 
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.allowedConsentCallbackURLsShrink)) {
+      body["AllowedConsentCallbackURLs"] = request.allowedConsentCallbackURLsShrink;
+    }
+
     if (!$dara.isNull(request.allowedResourceOAuth2ReturnURLsShrink)) {
       body["AllowedResourceOAuth2ReturnURLs"] = request.allowedResourceOAuth2ReturnURLsShrink;
     }
@@ -3536,11 +3544,19 @@ export default class Client extends OpenApi {
     tmpReq.validate();
     let request = new $_model.UpdateLoginPreferenceShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.allowedPostLogoutRedirectUris)) {
+      request.allowedPostLogoutRedirectUrisShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.allowedPostLogoutRedirectUris, "AllowedPostLogoutRedirectUris", "json");
+    }
+
     if (!$dara.isNull(tmpReq.loginPreference)) {
       request.loginPreferenceShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.loginPreference, "LoginPreference", "json");
     }
 
     let query = { };
+    if (!$dara.isNull(request.allowedPostLogoutRedirectUrisShrink)) {
+      query["AllowedPostLogoutRedirectUris"] = request.allowedPostLogoutRedirectUrisShrink;
+    }
+
     if (!$dara.isNull(request.loginPreferenceShrink)) {
       query["LoginPreference"] = request.loginPreferenceShrink;
     }
@@ -4044,11 +4060,19 @@ export default class Client extends OpenApi {
     tmpReq.validate();
     let request = new $_model.UpdateWorkloadIdentityShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.allowedConsentCallbackURLs)) {
+      request.allowedConsentCallbackURLsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.allowedConsentCallbackURLs, "AllowedConsentCallbackURLs", "json");
+    }
+
     if (!$dara.isNull(tmpReq.allowedResourceOAuth2ReturnURLs)) {
       request.allowedResourceOAuth2ReturnURLsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.allowedResourceOAuth2ReturnURLs, "AllowedResourceOAuth2ReturnURLs", "json");
     }
 
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.allowedConsentCallbackURLsShrink)) {
+      body["AllowedConsentCallbackURLs"] = request.allowedConsentCallbackURLsShrink;
+    }
+
     if (!$dara.isNull(request.allowedResourceOAuth2ReturnURLsShrink)) {
       body["AllowedResourceOAuth2ReturnURLs"] = request.allowedResourceOAuth2ReturnURLsShrink;
     }

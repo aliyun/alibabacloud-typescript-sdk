@@ -12,6 +12,7 @@ export class CreateOAuth2CredentialProviderResponseBodyOAuth2CredentialProvider 
   OAuth2CredentialProviderName?: string;
   OAuth2ProviderConfig?: OAuth2ProviderConfig;
   OAuthType?: string;
+  sourcePlatform?: string;
   tokenVaultName?: string;
   updateTime?: string;
   static names(): { [key: string]: string } {
@@ -24,6 +25,7 @@ export class CreateOAuth2CredentialProviderResponseBodyOAuth2CredentialProvider 
       OAuth2CredentialProviderName: 'OAuth2CredentialProviderName',
       OAuth2ProviderConfig: 'OAuth2ProviderConfig',
       OAuthType: 'OAuthType',
+      sourcePlatform: 'SourcePlatform',
       tokenVaultName: 'TokenVaultName',
       updateTime: 'UpdateTime',
     };
@@ -39,6 +41,7 @@ export class CreateOAuth2CredentialProviderResponseBodyOAuth2CredentialProvider 
       OAuth2CredentialProviderName: 'string',
       OAuth2ProviderConfig: OAuth2ProviderConfig,
       OAuthType: 'string',
+      sourcePlatform: 'string',
       tokenVaultName: 'string',
       updateTime: 'string',
     };
