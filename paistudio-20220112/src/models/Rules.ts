@@ -4,6 +4,10 @@ import { SchedulingRule } from "./SchedulingRule";
 
 
 export class Rules extends $dara.Model {
+  /**
+   * @remarks
+   * The node scheduling rule configuration.
+   */
   scheduling?: SchedulingRule;
   static names(): { [key: string]: string } {
     return {

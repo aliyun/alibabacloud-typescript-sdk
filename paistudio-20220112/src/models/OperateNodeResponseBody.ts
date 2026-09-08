@@ -13,7 +13,7 @@ export class OperateNodeResponseBody extends $dara.Model {
   nodeId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * Id of the request
    * 
    * @example
    * 96496E6E-00B4-5F55-80F6-1844FA9E92DC

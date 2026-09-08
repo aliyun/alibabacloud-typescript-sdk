@@ -19,7 +19,7 @@ export class ListNodesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The number of nodes that meet the filter conditions.
+   * The number of nodes that match the filter conditions.
    * 
    * @example
    * 23

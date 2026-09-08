@@ -6,7 +6,7 @@ import { TimeRangeFilter } from "./TimeRangeFilter";
 export class ListQuotaWorkloadsRequest extends $dara.Model {
   /**
    * @remarks
-   * Retrieves workloads that precede the specified workload ID in the queue.
+   * Queries the queuing information for instances before a specified workload ID in the queue.
    * 
    * @example
    * dsw654433**
@@ -14,23 +14,23 @@ export class ListQuotaWorkloadsRequest extends $dara.Model {
   beforeWorkloadId?: string;
   /**
    * @remarks
-   * Filters workloads by their dequeue time range.
+   * The range search for workload dequeue time.
    */
   gmtDequeuedTimeRange?: TimeRangeFilter;
   /**
    * @remarks
-   * Filters workloads by their enqueue time range.
+   * The range search for workload enqueue time.
    */
   gmtEnqueuedTimeRange?: TimeRangeFilter;
   /**
    * @remarks
-   * Filters workloads by the time range of their last queue position change.
+   * The range search for workload queue position change time.
    */
   gmtPositionModifiedTimeRange?: TimeRangeFilter;
   instanceId?: string;
   /**
    * @remarks
-   * Filters workloads by node name.
+   * Searches only for nodes on the specified node.
    * 
    * @example
    * lrn482781276**
@@ -38,7 +38,7 @@ export class ListQuotaWorkloadsRequest extends $dara.Model {
   nodeName?: string;
   /**
    * @remarks
-   * The sort order for the results. Valid values are `asc` for ascending and `desc` for descending.
+   * The sort order.
    * 
    * @example
    * desc
@@ -46,7 +46,7 @@ export class ListQuotaWorkloadsRequest extends $dara.Model {
   order?: string;
   /**
    * @remarks
-   * The number of the page to return.
+   * The page number of the query.
    * 
    * @example
    * 1
@@ -54,7 +54,7 @@ export class ListQuotaWorkloadsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The maximum number of entries to return on a single page.
+   * The number of entries per page in a paged query.
    * 
    * @example
    * 10
@@ -64,7 +64,7 @@ export class ListQuotaWorkloadsRequest extends $dara.Model {
   priority?: number;
   /**
    * @remarks
-   * Specifies whether to return only workloads that belong to the specified quota.
+   * Specifies whether to display only the workloads associated with the current resource quota.
    * 
    * @example
    * true
@@ -72,7 +72,7 @@ export class ListQuotaWorkloadsRequest extends $dara.Model {
   showOwn?: boolean;
   /**
    * @remarks
-   * The field to use for sorting the results.
+   * The field by which to sort the returned results.
    * 
    * @example
    * GmtCreatedTime
@@ -80,7 +80,7 @@ export class ListQuotaWorkloadsRequest extends $dara.Model {
   sortBy?: string;
   /**
    * @remarks
-   * Filters workloads by their status in the queue.
+   * The status in the queue.
    * 
    * @example
    * Enqueued
@@ -88,7 +88,7 @@ export class ListQuotaWorkloadsRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Filters workloads by sub-quota ID. You can specify multiple IDs, separated by commas.
+   * The list of sub-resource quota IDs.
    * 
    * @example
    * quota123446**,quota644322**
@@ -97,25 +97,21 @@ export class ListQuotaWorkloadsRequest extends $dara.Model {
   useOversoldResource?: boolean;
   /**
    * @remarks
-   * Filters workloads by user ID. You can specify multiple IDs, separated by commas.
+   * The list of user IDs.
    * 
    * @example
    * 290438938**,238290930**
    */
   userIds?: string;
-  /**
-   * @remarks
-   * Specifies whether to include historical data in the query results.
-   */
   withHistoricalData?: boolean;
   /**
    * @remarks
-   * Filters workloads based on their creation time range.
+   * The range search for workload creation time.
    */
   workloadCreatedTimeRange?: TimeRangeFilter;
   /**
    * @remarks
-   * Filters workloads by workload ID. You can specify multiple IDs, separated by commas.
+   * Queries the queuing information for specified workload IDs.
    * 
    * @example
    * dlc123445**
@@ -124,7 +120,7 @@ export class ListQuotaWorkloadsRequest extends $dara.Model {
   workloadNames?: string;
   /**
    * @remarks
-   * Filters workloads by status. You can specify multiple statuses, separated by commas.
+   * Filters by workload status.
    * 
    * @example
    * Pending
@@ -132,7 +128,7 @@ export class ListQuotaWorkloadsRequest extends $dara.Model {
   workloadStatuses?: string;
   /**
    * @remarks
-   * Filters workloads by the sub-product type of the instance.
+   * Queries the queuing information for instances of a specified sub-product.
    * 
    * @example
    * dlc
@@ -140,7 +136,7 @@ export class ListQuotaWorkloadsRequest extends $dara.Model {
   workloadType?: string;
   /**
    * @remarks
-   * Filters workloads by workspace ID. You can specify multiple IDs, separated by commas.
+   * Queries the queuing information for workloads in a specified workspace.
    * 
    * @example
    * 1866**

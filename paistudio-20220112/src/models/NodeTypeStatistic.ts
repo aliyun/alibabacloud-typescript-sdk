@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class NodeTypeStatistic extends $dara.Model {
   /**
+   * @remarks
+   * The number of resource nodes of the specification that can be bound.
+   * 
    * @example
    * 4
    */
   canBeBoundCount?: number;
   /**
+   * @remarks
+   * The resource node specifications.
+   * 
    * @example
    * ecs.g6.4xlarge
    */
   nodeType?: string;
   /**
+   * @remarks
+   * The total number of resource nodes of the specification.
+   * 
    * @example
    * 10
    */

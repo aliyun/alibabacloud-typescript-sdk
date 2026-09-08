@@ -7,54 +7,63 @@ import { QuotaNodeStatistics } from "./QuotaNodeStatistics";
 export class QuotaDetails extends $dara.Model {
   /**
    * @remarks
-   * Total MinQuota amount actually assigned
+   * The total MinQuota actually allocated. For example, if the user configured 10 nodes but only 8 nodes are actually bound, this value returns the total resources of the 8 nodes.
    */
   actualMinQuota?: ResourceAmount;
   /**
    * @remarks
-   * Quota amount assignable by the User
+   * The user-allocatable quota amount. For general computing resources, each node has system-reserved resources. This value represents the quota resources that user workloads can occupy.
+   * ActualMin = AllocatableQuota + SystemReservedQuota.
    */
   allocatableQuota?: ResourceAmount;
   /**
    * @remarks
-   * Total Quota usage information
+   * The total quota usage information, which is the total resources occupied by workloads after scheduling to nodes.
    */
   allocatedQuota?: ResourceAmount;
   /**
    * @remarks
-   * Quota usage information of ancestors
+   * The ancestor quota usage information, which is the total resources of workloads submitted using ancestor quotas after they are scheduled to nodes.
    */
   ancestorsAllocatedQuota?: ResourceAmount;
   /**
    * @remarks
-   * Quota usage information of descendants
+   * The descendant quota usage information, which is the total resources of workloads submitted using descendant quotas after they are scheduled to nodes.
    */
   descendantsAllocatedQuota?: ResourceAmount;
   /**
    * @remarks
-   * Total MinQuota amount requested by the User
+   * The total MinQuota desired by the user.
    */
   desiredMinQuota?: ResourceAmount;
+  /**
+   * @remarks
+   * The statistics information of nodes within the quota.
+   */
   nodeStatistics?: QuotaNodeStatistics;
   /**
    * @remarks
-   * Quota request amount
+   * The quota requested amount, which is the total resources occupied by workloads after they are dequeued.
    */
   requestedQuota?: ResourceAmount;
   /**
    * @remarks
-   * Quota usage information at the current level
+   * The current-level quota usage information, which is the total resources of workloads submitted using this quota after they are scheduled to nodes.
    */
   selfAllocatedQuota?: ResourceAmount;
+  /**
+   * @remarks
+   * The amount submitted to this quota, which is the total resources of workloads submitted to this quota, including workloads that are queued.
+   */
   selfSubmittedQuota?: ResourceAmount;
   /**
    * @remarks
-   * System-reserved Quota amount
+   * The system-reserved quota amount.
    */
   systemReservedQuota?: ResourceAmount;
   /**
    * @remarks
-   * Quota usage amount
+   * The quota used amount. This field is deprecating. Use AllocatedQuota instead.
    */
   usedQuota?: ResourceAmount;
   static names(): { [key: string]: string } {

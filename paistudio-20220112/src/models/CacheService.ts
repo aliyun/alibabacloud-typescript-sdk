@@ -7,72 +7,103 @@ import { UserVpc } from "./UserVpc";
 export class CacheService extends $dara.Model {
   /**
    * @remarks
-   * Information about each cache node in the service.
+   * The list of data source cache information connected to the cache service. Each element corresponds to a data source and its access port.
    */
   cacheInfos?: CacheInfo[];
   /**
    * @remarks
-   * The unique identifier of the CacheService.
+   * The cache service ID. This is the unique identifier of the cache service.
+   * 
+   * @example
+   * cachea1b2c3d4e5f
    */
   cacheServiceId?: string;
   /**
    * @remarks
-   * The ID of the PAI cluster where the CacheService is deployed.
+   * The ID of the cluster where the cache service resides.
+   * 
+   * @example
+   * c1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6
    */
   clusterId?: string;
   /**
    * @remarks
-   * The user or entity that created the resource.
+   * The ID of the resource quota that created the cache service.
+   * 
+   * @example
+   * quota1a2b3c4d5e6
    */
   createdBy?: string;
   /**
    * @remarks
-   * The time (in UTC, ISO 8601 format) when the CacheService was created.
+   * The time when the cache service was created, in UTC in ISO 8601 format.
+   * 
+   * @example
+   * 2026-08-10T03:17:31Z
    */
   gmtCreated?: string;
   /**
    * @remarks
-   * Indicates whether the CacheService is sharded across multiple nodes.
+   * Indicates whether the service discovery of the cache service uses shard mode.
    */
   isSharded?: boolean;
   /**
    * @remarks
-   * The network type of the CacheService. For example, `VPC`.
+   * The type of RDMA network interface controller used by the cache service. This parameter is returned only when SupportRDMA is set to true. Valid values:
+   * - eic: EIC network interface controller.
+   * - mlx: Mellanox network interface controller.
+   * 
+   * This parameter is empty when RDMA is not enabled.
+   * 
+   * @example
+   * eic
    */
   networkType?: string;
   /**
    * @remarks
-   * The ID of the resource quota associated with the CacheService.
+   * The ID of the resource quota to which the cache service belongs.
+   * 
+   * @example
+   * quota1a2b3c4d5e6
    */
   quotaId?: string;
   /**
    * @remarks
-   * The current status of the CacheService. For example: `Creating`, `Available`, or `Deleting`.
+   * The current status of the cache service.
+   * 
+   * @example
+   * Running
    */
   status?: string;
   /**
    * @remarks
-   * Indicates whether the CacheService supports RDMA.
+   * Indicates whether the cache service supports access through RDMA networks.
    */
   supportRDMA?: string;
   /**
    * @remarks
-   * A list of quota IDs for clients that can connect to this CacheService.
+   * The list of client quota IDs that are allowed to access the cache service.
    */
   supportedClientQuotaIds?: string[];
   /**
    * @remarks
-   * The ID of the tenant that owns the CacheService.
+   * The tenant ID to which the cache service belongs, which is the Alibaba Cloud account ID.
+   * 
+   * @example
+   * 1234567890123456
    */
   tenantId?: string;
   /**
    * @remarks
-   * The ID of the user associated with the CacheService.
+   * The ID of the user who created the cache service.
+   * 
+   * @example
+   * 123456789012345678
    */
   userId?: string;
   /**
    * @remarks
-   * The configuration of the user\\"s VPC where the CacheService is deployed.
+   * The VPC network information of the cache service, including the VPC, vSwitch, and security group configurations.
    */
   userVpc?: UserVpc;
   static names(): { [key: string]: string } {

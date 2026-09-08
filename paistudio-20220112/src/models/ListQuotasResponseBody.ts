@@ -6,7 +6,7 @@ import { Quota } from "./Quota";
 export class ListQuotasResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of quotas.
+   * The list of resource quotas.
    */
   quotas?: Quota[];
   /**
@@ -19,7 +19,7 @@ export class ListQuotasResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries that match the request.
+   * The total number of records.
    * 
    * @example
    * 23

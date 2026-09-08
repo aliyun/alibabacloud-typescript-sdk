@@ -6,7 +6,7 @@ import { UserViewMetric } from "./UserViewMetric";
 export class GetUserViewMetricsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 资源组ID
+   * The resource group ID.
    * 
    * @example
    * rgf0zhfqn1d4ity2
@@ -14,12 +14,12 @@ export class GetUserViewMetricsResponseBody extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * 用户监控数据。
+   * The user monitoring data.
    */
   summary?: UserViewMetric;
   /**
    * @remarks
-   * 总条数
+   * The total number of entries.
    * 
    * @example
    * 2
@@ -27,7 +27,7 @@ export class GetUserViewMetricsResponseBody extends $dara.Model {
   total?: number;
   /**
    * @remarks
-   * 按照用户维度统计的指标
+   * The metrics aggregated at the user dimension.
    */
   userMetrics?: UserViewMetric[];
   static names(): { [key: string]: string } {

@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class FeaturesQuota extends $dara.Model {
   /**
+   * @remarks
+   * Indicates whether the feature is started.
+   * 
    * @example
    * true
    */
@@ -30,6 +33,10 @@ export class FeaturesQuota extends $dara.Model {
 }
 
 export class Features extends $dara.Model {
+  /**
+   * @remarks
+   * The Quota feature.
+   */
   quota?: FeaturesQuota;
   static names(): { [key: string]: string } {
     return {

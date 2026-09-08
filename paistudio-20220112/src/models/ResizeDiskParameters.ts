@@ -2,20 +2,21 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DeleteResourceGroupMachineGroupResponseBody extends $dara.Model {
-  machineGroupID?: string;
-  requestId?: string;
+export class ResizeDiskParameters extends $dara.Model {
+  /**
+   * @remarks
+   * The target disk capacity after the change.
+   */
+  newDiskSize?: string;
   static names(): { [key: string]: string } {
     return {
-      machineGroupID: 'MachineGroupID',
-      requestId: 'RequestId',
+      newDiskSize: 'NewDiskSize',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      machineGroupID: 'string',
-      requestId: 'string',
+      newDiskSize: 'string',
     };
   }
 

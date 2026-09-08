@@ -12,7 +12,7 @@ import { WorkspaceIdName } from "./WorkspaceIdName";
 export class Quota extends $dara.Model {
   /**
    * @remarks
-   * The resource allocation strategy. Currently, only `ByNodeSpec` is supported.
+   * The resource allocation strategy. Currently, only ByNodeSpecs is supported.
    * 
    * @example
    * ByNodeSpec
@@ -20,7 +20,7 @@ export class Quota extends $dara.Model {
   allocateStrategy?: string;
   /**
    * @remarks
-   * The ID of the user who created the quota.
+   * The ID of the resource quota creator.
    * 
    * @example
    * 1884692****
@@ -28,16 +28,20 @@ export class Quota extends $dara.Model {
   creatorId?: string;
   /**
    * @remarks
-   * The quota description.
+   * The resource quota description.
    * 
    * @example
    * this is a test quota
    */
   description?: string;
+  /**
+   * @remarks
+   * The GPU type.
+   */
   GPUType?: string;
   /**
    * @remarks
-   * The time when the quota was created.
+   * The time when the resource quota was created.
    * 
    * @example
    * 2023-06-22T00:00:00Z
@@ -45,7 +49,7 @@ export class Quota extends $dara.Model {
   gmtCreatedTime?: string;
   /**
    * @remarks
-   * The time when the quota was last modified.
+   * The time when the resource quota was last modified.
    * 
    * @example
    * 2023-06-22T00:00:00Z
@@ -54,12 +58,12 @@ export class Quota extends $dara.Model {
   hyperZones?: string[];
   /**
    * @remarks
-   * The quota labels.
+   * The resource quota labels.
    */
   labels?: Label[];
   /**
    * @remarks
-   * The ID of the most recent operation on the quota.
+   * The ID of the latest operation on the resource quota.
    * 
    * @example
    * operation****
@@ -72,7 +76,7 @@ export class Quota extends $dara.Model {
   min?: ResourceSpec;
   /**
    * @remarks
-   * The parent quota ID.
+   * The parent resource quota ID.
    * 
    * @example
    * ""
@@ -80,15 +84,11 @@ export class Quota extends $dara.Model {
   parentQuotaId?: string;
   /**
    * @remarks
-   * The queuing strategy. Valid values:
-   * 
-   * - `PaiStrategyIntelligent`: intelligent strategy.
-   * 
-   * - `PaiStrategyBalance`: balanced strategy.
-   * 
-   * - `PaiStrategyRoundRobin`: round-robin strategy.
-   * 
-   * - `PaiStrategyStrictFIFO`: FIFO strategy.
+   * The queue policy for the quota. Valid values:
+   * - PaiStrategyIntelligent: intelligent policies.
+   * - PaiStrategyBalance: balanced policy.
+   * - PaiStrategyRoundRobin: resource-priority policy.
+   * - PaiStrategyStrictFIFO: FIFO policy.
    * 
    * @example
    * PaiStrategyIntelligent
@@ -97,17 +97,17 @@ export class Quota extends $dara.Model {
   quotaCluster?: QuotaCluster;
   /**
    * @remarks
-   * The quota configuration.
+   * The resource quota configuration.
    */
   quotaConfig?: QuotaConfig;
   /**
    * @remarks
-   * The quota details.
+   * The resource quota details.
    */
   quotaDetails?: QuotaDetails;
   /**
    * @remarks
-   * The quota ID.
+   * The resource quota ID.
    * 
    * @example
    * quota12345
@@ -115,7 +115,7 @@ export class Quota extends $dara.Model {
   quotaId?: string;
   /**
    * @remarks
-   * The quota name.
+   * The resource quota name.
    * 
    * @example
    * dlc-quota
@@ -131,7 +131,7 @@ export class Quota extends $dara.Model {
   reasonCode?: string;
   /**
    * @remarks
-   * The error message.
+   * The error reason.
    * 
    * @example
    * “”
@@ -139,18 +139,15 @@ export class Quota extends $dara.Model {
   reasonMessage?: string;
   /**
    * @remarks
-   * A list of resource group IDs.
+   * The list of resource groups.
    */
   resourceGroupIds?: string[];
   /**
    * @remarks
    * The resource type. Valid values:
-   * 
-   * - `Lingjun`
-   * 
-   * - `ECS` (default)
-   * 
-   * - `ACS`
+   * - Lingjun
+   * - ECS (default)
+   * - ACS
    * 
    * @example
    * ECS
@@ -158,7 +155,7 @@ export class Quota extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The quota status.
+   * The resource quota status.
    * 
    * @example
    * Ready
@@ -166,7 +163,7 @@ export class Quota extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * A list of sub-quotas.
+   * The list of sub-quotas under the resource quota.
    */
   subQuotas?: QuotaIdName[];
   /**
@@ -176,7 +173,7 @@ export class Quota extends $dara.Model {
   version?: string;
   /**
    * @remarks
-   * The workspaces that are associated with the quota.
+   * The workspaces associated with the resource quota.
    */
   workspaces?: WorkspaceIdName[];
   static names(): { [key: string]: string } {

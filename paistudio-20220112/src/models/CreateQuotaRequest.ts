@@ -9,7 +9,7 @@ import { QuotaConfig } from "./QuotaConfig";
 export class CreateQuotaRequest extends $dara.Model {
   /**
    * @remarks
-   * The allocation strategy for the quota. Only `ByNodeSpecs` is supported.
+   * The quota allocation strategy. Currently, only ByNodeSpecs is supported.
    * 
    * @example
    * ByNodeSpecs
@@ -17,12 +17,12 @@ export class CreateQuotaRequest extends $dara.Model {
   allocateStrategy?: string;
   /**
    * @remarks
-   * The native cluster specification for the quota.
+   * The specifications of the native cluster for the resource quota.
    */
   clusterSpec?: ClusterSpec;
   /**
    * @remarks
-   * The description of the quota.
+   * The quota description.
    * 
    * @example
    * this is a test quota
@@ -30,35 +30,27 @@ export class CreateQuotaRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The tags for the quota.
+   * The quota labels.
    */
   labels?: Label[];
   /**
    * @remarks
-   * The minimum resources for the quota. You can define this in one of the following ways:
-   * 
-   * - `ResourceAmount`: Specifies the CPU, memory, and GPU details.
-   * 
-   * - `NodeSpecs`: Specifies the node specification and the number of nodes.
+   * The minimum quota configuration. Valid options:
+   * - ResourceAmount: specifies CPU, memory, or GPU details.
+   * - NodeSpecs: specifies the instance type and quantity.
    * 
    * Constraints:
-   * 
-   * - If this quota allocates resources from a dedicated resource group, you must use the `NodeSpecs` method.
-   * 
-   * - If this quota allocates resources from a parent quota, both methods are allowed. However, all its child quotas must use the same method.
-   * 
-   * - All GPU specifications within the quota must have the same GPU type.
-   * 
-   * - For quotas with the resource type set to ECS or Lingjun, only the `NodeSpecs` method can be used.
+   * - If the quota allocates resources from a dedicated resource group, only the NodeSpecs strategy is allowed.
+   * - If the quota allocates resources from a parent quota, both strategies are allowed, but all child quotas must use the same strategy.
+   * - All GPU specifications within a quota must use the same GPU type.
+   * - Resource quotas with the ECS or Lingjun resource type can only use the NodeSpecs strategy.
    */
   min?: ResourceSpec;
   /**
    * @remarks
-   * The ID of the parent quota.
-   * 
-   * - If you do not specify this parameter, a root quota is created. Resources are allocated from a dedicated resource group.
-   * 
-   * - If you specify this parameter, a child quota is created. Resources are allocated from the nodes that are bound to the root quota.
+   * The parent QuotaId:
+   * - If ParentQuotaId is empty, a root quota is created and machines are allocated from the dedicated resource group.
+   * - If ParentQuotaId is not empty, a child quota is created and resources are allocated from the nodes bound to the root quota.
    * 
    * @example
    * quota1ci8g793pgm
@@ -66,15 +58,12 @@ export class CreateQuotaRequest extends $dara.Model {
   parentQuotaId?: string;
   /**
    * @remarks
-   * The queuing strategy for the quota. Four strategies are supported:
+   * Four queuing policies are supported for quotas.
    * 
-   * - `PaiStrategyIntelligent`: The intelligent strategy.
-   * 
-   * - `PaiStrategyBalance`: The balance strategy.
-   * 
-   * - `PaiStrategyRoundRobin`: The round-robin strategy.
-   * 
-   * - `PaiStrategyStrictFIFO`: The FIFO strategy.
+   * - PaiStrategyIntelligent: intelligent policies.
+   * - PaiStrategyBalance: balanced policy.
+   * - PaiStrategyRoundRobin: resource-priority policy.
+   * - PaiStrategyStrictFIFO: FIFO policy.
    * 
    * @example
    * PaiStrategyIntelligent
@@ -85,16 +74,14 @@ export class CreateQuotaRequest extends $dara.Model {
   queueStrategy?: string;
   /**
    * @remarks
-   * Constraints for the `QuotaConfig` parameter:
-   * 
-   * - This parameter is ignored if the resource type is ECS or Lingjun.
-   * 
-   * - If the resource type is ACS, the specified VPC and ACS configurations are applied.
+   * QuotaConfig configuration constraints:
+   * - This configuration does not take effect when the ECS or Lingjun resource type is used.
+   * - When the ACS resource type is used, the user VPC information and ACS configuration take effect.
    */
   quotaConfig?: QuotaConfig;
   /**
    * @remarks
-   * The name of the quota.
+   * The quota name.
    * 
    * @example
    * test-quota
@@ -102,16 +89,14 @@ export class CreateQuotaRequest extends $dara.Model {
   quotaName?: string;
   /**
    * @remarks
-   * The IDs of the dedicated resource groups. The following constraints apply:
-   * 
-   * - Only a root quota, for which `ParentQuotaId` is empty, can allocate nodes from a resource group.
-   * 
-   * - The VPC configurations of the specified resource groups must be the same.
+   * The list of dedicated resource groups. Constraints:
+   * - Only root quotas (where ParentQuotaId is empty) can allocate machines from resource groups.
+   * - The VPC configurations in the specified resource groups must be consistent.
    */
   resourceGroupIds?: string[];
   /**
    * @remarks
-   * The resource type of the quota. Valid values: Lingjun, ECS, and ACS. Default value: ECS.
+   * The quota resource type (Lingjun/ECS/ACS). Default value: ECS.
    * 
    * @example
    * ECS

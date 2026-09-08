@@ -2,29 +2,36 @@
 import * as $dara from '@darabonba/typescript';
 import { NodeCordonParameters } from "./NodeCordonParameters";
 import { NodeDrainParameters } from "./NodeDrainParameters";
+import { ResizeDiskParameters } from "./ResizeDiskParameters";
 import { NodeUncordonParameters } from "./NodeUncordonParameters";
 
 
 export class NodeOperationParameters extends $dara.Model {
   /**
    * @remarks
-   * Node cordon parameter settings
+   * The parameter settings for disabling node scheduling.
    */
   cordonParameters?: NodeCordonParameters;
   /**
    * @remarks
-   * Node drain task instance parameter settings
+   * The parameter settings for draining task instances from a node.
    */
   drainParameters?: NodeDrainParameters;
   /**
    * @remarks
-   * Node uncordon parameter settings
+   * The parameters for changing disk capacity.
+   */
+  resizeDiskParameters?: ResizeDiskParameters;
+  /**
+   * @remarks
+   * The parameter settings for enabling node scheduling.
    */
   uncordonParameters?: NodeUncordonParameters;
   static names(): { [key: string]: string } {
     return {
       cordonParameters: 'CordonParameters',
       drainParameters: 'DrainParameters',
+      resizeDiskParameters: 'ResizeDiskParameters',
       uncordonParameters: 'UncordonParameters',
     };
   }
@@ -33,6 +40,7 @@ export class NodeOperationParameters extends $dara.Model {
     return {
       cordonParameters: NodeCordonParameters,
       drainParameters: NodeDrainParameters,
+      resizeDiskParameters: ResizeDiskParameters,
       uncordonParameters: NodeUncordonParameters,
     };
   }
@@ -43,6 +51,9 @@ export class NodeOperationParameters extends $dara.Model {
     }
     if(this.drainParameters && typeof (this.drainParameters as any).validate === 'function') {
       (this.drainParameters as any).validate();
+    }
+    if(this.resizeDiskParameters && typeof (this.resizeDiskParameters as any).validate === 'function') {
+      (this.resizeDiskParameters as any).validate();
     }
     if(this.uncordonParameters && typeof (this.uncordonParameters as any).validate === 'function') {
       (this.uncordonParameters as any).validate();

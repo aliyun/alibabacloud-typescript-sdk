@@ -12,7 +12,7 @@ import { WorkspaceIdName } from "./WorkspaceIdName";
 export class GetQuotaResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The resource allocation policy.
+   * The resource allocation strategy.
    * 
    * @example
    * ByNodeSpec
@@ -20,7 +20,7 @@ export class GetQuotaResponseBody extends $dara.Model {
   allocateStrategy?: string;
   /**
    * @remarks
-   * The ID of the user who created the resource quota.
+   * The ID of the quota creator.
    * 
    * @example
    * 1884692****
@@ -28,7 +28,7 @@ export class GetQuotaResponseBody extends $dara.Model {
   creatorId?: string;
   /**
    * @remarks
-   * The description of the resource quota.
+   * The description of the quota.
    * 
    * @example
    * this is a test quota
@@ -36,7 +36,15 @@ export class GetQuotaResponseBody extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The time when the resource quota was created.
+   * The GPU type.
+   * 
+   * @example
+   * L20
+   */
+  GPUType?: string;
+  /**
+   * @remarks
+   * The time when the quota was created.
    * 
    * @example
    * 2023-06-22T00:00:00Z
@@ -44,7 +52,7 @@ export class GetQuotaResponseBody extends $dara.Model {
   gmtCreatedTime?: string;
   /**
    * @remarks
-   * The time when the resource quota was last modified.
+   * The time when the quota was last modified.
    * 
    * @example
    * 2023-06-22T00:00:00Z
@@ -52,17 +60,17 @@ export class GetQuotaResponseBody extends $dara.Model {
   gmtModifiedTime?: string;
   /**
    * @remarks
-   * A list of high-performance network zones.
+   * The list of high-performance network zones.
    */
   hyperZones?: string[];
   /**
    * @remarks
-   * The labels of the resource quota.
+   * The labels of the quota.
    */
   labels?: Label[];
   /**
    * @remarks
-   * The ID of the most recent change to the resource quota.
+   * The ID of the latest quota operation.
    * 
    * @example
    * operation****
@@ -70,12 +78,12 @@ export class GetQuotaResponseBody extends $dara.Model {
   latestOperationId?: string;
   /**
    * @remarks
-   * The configuration of the minimum quota.
+   * The minimum quota configuration.
    */
   min?: ResourceSpec;
   /**
    * @remarks
-   * The ID of the parent resource quota.
+   * The ID of the parent quota.
    * 
    * @example
    * quota1ci8g79****
@@ -83,7 +91,7 @@ export class GetQuotaResponseBody extends $dara.Model {
   parentQuotaId?: string;
   /**
    * @remarks
-   * The queuing policy for tasks in the resource quota.
+   * The queuing strategy for tasks in the quota.
    * 
    * @example
    * PaiStrategyIntelligent
@@ -91,28 +99,28 @@ export class GetQuotaResponseBody extends $dara.Model {
   queueStrategy?: string;
   /**
    * @remarks
-   * The specifications and status of the cluster that is composed of resources within the quota.
+   * The cluster specifications and status composed of resources in the quota.
    */
   quotaCluster?: QuotaCluster;
   /**
    * @remarks
-   * The configurations of the resource quota:
+   * The quota configuration:
    * 
    * - VPC information
    * 
-   * - Whether Remote Direct Memory Access (RDMA) is supported
+   * - Whether RDMA is supported
    * 
-   * - ACS configurations, which take effect if the resource type is ACS
+   * - ACS configuration (takes effect when the resource type is ACS)
    */
   quotaConfig?: QuotaConfig;
   /**
    * @remarks
-   * The details of the resource quota.
+   * The details of the quota.
    */
   quotaDetails?: QuotaDetails;
   /**
    * @remarks
-   * The ID of the resource quota.
+   * The resource quota ID.
    * 
    * @example
    * quotajradxh4****
@@ -136,7 +144,7 @@ export class GetQuotaResponseBody extends $dara.Model {
   reasonCode?: string;
   /**
    * @remarks
-   * The cause of the error.
+   * The error reason.
    * 
    * @example
    * “”
@@ -152,7 +160,7 @@ export class GetQuotaResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The resource groups that are associated with the resource quota.
+   * The resource group information associated with the resource quota.
    */
   resourceGroupIds?: string[];
   /**
@@ -165,7 +173,7 @@ export class GetQuotaResponseBody extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The status of the resource quota.
+   * The status of the quota.
    * 
    * @example
    * Ready
@@ -173,12 +181,12 @@ export class GetQuotaResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * A list of sub-quotas of the resource quota.
+   * The list of sub-quotas under the quota.
    */
   subQuotas?: QuotaIdName[];
   /**
    * @remarks
-   * The version information. This parameter takes effect when ResourceType is set to ECS.
+   * The version information. Takes effect when the resource type is ECS.
    * 
    * @example
    * 1.0
@@ -186,7 +194,7 @@ export class GetQuotaResponseBody extends $dara.Model {
   version?: string;
   /**
    * @remarks
-   * The workspaces that are associated with the resource quota.
+   * The workspaces associated with the quota.
    */
   workspaces?: WorkspaceIdName[];
   static names(): { [key: string]: string } {
@@ -194,6 +202,7 @@ export class GetQuotaResponseBody extends $dara.Model {
       allocateStrategy: 'AllocateStrategy',
       creatorId: 'CreatorId',
       description: 'Description',
+      GPUType: 'GPUType',
       gmtCreatedTime: 'GmtCreatedTime',
       gmtModifiedTime: 'GmtModifiedTime',
       hyperZones: 'HyperZones',
@@ -224,6 +233,7 @@ export class GetQuotaResponseBody extends $dara.Model {
       allocateStrategy: 'string',
       creatorId: 'string',
       description: 'string',
+      GPUType: 'string',
       gmtCreatedTime: 'string',
       gmtModifiedTime: 'string',
       hyperZones: { 'type': 'array', 'itemType': 'string' },

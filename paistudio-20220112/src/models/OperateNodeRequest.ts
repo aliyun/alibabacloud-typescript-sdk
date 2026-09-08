@@ -6,13 +6,10 @@ import { NodeOperationParameters } from "./NodeOperationParameters";
 export class OperateNodeRequest extends $dara.Model {
   /**
    * @remarks
-   * The operation to perform.
-   * 
-   * - Cordon: Disables scheduling on the node.
-   * 
-   * - Uncordon: Enables scheduling on the node.
-   * 
-   * - Drain: Evicts pods from the node.
+   * The operation. Valid values:	
+   * - Cordon: disables scheduling
+   * - Uncordon: enables scheduling
+   * - Drain: evicts pods
    * 
    * This parameter is required.
    * 
@@ -22,12 +19,12 @@ export class OperateNodeRequest extends $dara.Model {
   operation?: string;
   /**
    * @remarks
-   * The parameter settings for the node operation.
+   * The node operation parameter settings.
    */
   operationParameters?: NodeOperationParameters;
   /**
    * @remarks
-   * The ID of the resource group that contains the node.
+   * The ID of the resource group to which the resource node belongs.
    * 
    * @example
    * rgaekzbrflewn6jjq

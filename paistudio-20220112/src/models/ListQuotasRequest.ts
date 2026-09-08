@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListQuotasRequest extends $dara.Model {
   /**
    * @remarks
-   * Filters the results by cluster type.
+   * The cluster type.
    * 
    * @example
    * RayCluster
@@ -15,7 +15,7 @@ export class ListQuotasRequest extends $dara.Model {
   hasResource?: string;
   /**
    * @remarks
-   * Filters the results by labels. Specify labels as key=value pairs, separated by commas (,).
+   * Filters by label key and value. Separate multiple labels with commas (,).
    * 
    * @example
    * official=true,gpu=false
@@ -23,7 +23,7 @@ export class ListQuotasRequest extends $dara.Model {
   labels?: string;
   /**
    * @remarks
-   * The layout mode. Valid values: Tree and List.
+   * The display mode. Valid values: tree or list.
    * 
    * @example
    * Tree
@@ -31,7 +31,7 @@ export class ListQuotasRequest extends $dara.Model {
   layoutMode?: string;
   /**
    * @remarks
-   * The sort order. Valid values are desc and asc.
+   * The sort order. Valid values: desc or asc.
    * 
    * @example
    * desc
@@ -39,7 +39,7 @@ export class ListQuotasRequest extends $dara.Model {
   order?: string;
   /**
    * @remarks
-   * The page number of the results to return. The minimum value is 1.
+   * The page number to query. Minimum value: 1.
    * 
    * @example
    * 1
@@ -47,7 +47,7 @@ export class ListQuotasRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. The minimum value is 1.
+   * The number of entries per page. Minimum value: 1.
    * 
    * @example
    * 20
@@ -55,13 +55,13 @@ export class ListQuotasRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Filters the results by parent quota ID:
+   * Filters by ParentQuotaId:
    * 
-   * - If this parameter is not specified, all quotas within the tenant are returned, including both root and child quotas.
+   * - Not specified: lists all quotas under the tenant, including root quotas and child quotas.
    * 
-   * - If this parameter is set to an empty string, all root quotas are returned.
+   * - Empty string: lists all root quotas.
    * 
-   * - If a specific parent quota ID is provided, all child quotas of that parent are returned.
+   * - Non-empty string: lists all child quotas of the specified ParentQuotaId.
    * 
    * @example
    * quotajradxh43rgb
@@ -69,7 +69,7 @@ export class ListQuotasRequest extends $dara.Model {
   parentQuotaId?: string;
   /**
    * @remarks
-   * A comma-separated list of up to 100 quota IDs to filter the results. Only exact matching is supported.
+   * Comma-separated QuotaIds for filtering. Only exact match is supported. A maximum of 100 IDs can be specified at a time.
    * 
    * @example
    * quota1ci8g793pgm,quotajradxh43rgb
@@ -77,7 +77,7 @@ export class ListQuotasRequest extends $dara.Model {
   quotaIds?: string;
   /**
    * @remarks
-   * Filters the results by quota name. Fuzzy matching is supported.
+   * Filters by QuotaName. Fuzzy match is supported.
    * 
    * @example
    * quotajradxh43rgb
@@ -85,7 +85,7 @@ export class ListQuotasRequest extends $dara.Model {
   quotaName?: string;
   /**
    * @remarks
-   * The resource type. Valid values are Lingjun, ECS, and ACS. The default value is ECS.
+   * The resource type of the quota (Lingjun/ECS/ACS). Default value: ECS.
    * 
    * @example
    * ECS
@@ -93,7 +93,7 @@ export class ListQuotasRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The field to sort the results by. Valid values:
+   * The field by which to sort the results. Valid values:
    * 
    * - QuotaName
    * 
@@ -115,7 +115,7 @@ export class ListQuotasRequest extends $dara.Model {
   sortBy?: string;
   /**
    * @remarks
-   * A comma-separated list of quota statuses to filter the results. Only exact matching is supported.
+   * Comma-separated quota statuses for filtering. Only exact match is supported.
    * 
    * @example
    * Creating
@@ -123,11 +123,9 @@ export class ListQuotasRequest extends $dara.Model {
   statuses?: string;
   /**
    * @remarks
-   * Specifies whether to return detailed information. Valid values:
-   * 
-   * - true: Returns detailed information.
-   * 
-   * - false: Does not return detailed information.
+   * Specifies whether to display details. Valid values:
+   * - true: Displays details.
+   * - false: Does not display details.
    * 
    * @example
    * true
@@ -135,7 +133,7 @@ export class ListQuotasRequest extends $dara.Model {
   verbose?: boolean;
   /**
    * @remarks
-   * Filters the results by version.
+   * Filters by version information.
    * 
    * @example
    * 1.0
@@ -143,7 +141,7 @@ export class ListQuotasRequest extends $dara.Model {
   versions?: string;
   /**
    * @remarks
-   * A comma-separated list of up to 10 workspace IDs to filter the results. Only exact matching is supported.
+   * Comma-separated WorkspaceIds for filtering. Only exact match is supported. A maximum of 10 IDs can be specified at a time.
    * 
    * @example
    * 21345,38727

@@ -7,7 +7,7 @@ import { UserInfo } from "./UserInfo";
 export class Node extends $dara.Model {
   /**
    * @remarks
-   * The accelerator type of the resource node instance, such as CPU or GPU.
+   * The accelerator type of the resource node specifications (CPU/GPU).
    * 
    * @example
    * CPU
@@ -15,19 +15,32 @@ export class Node extends $dara.Model {
   acceleratorType?: string;
   /**
    * @remarks
-   * The number of allocatable CPU cores.
+   * The number of CPU cores that can be allocated to users.
+   * 
+   * @example
+   * 4
    */
   allocatableCPU?: string;
   /**
    * @remarks
-   * The amount of allocatable memory in GiB.
+   * The memory size that can be allocated to users.
+   * 
+   * @example
+   * 5
    */
   allocatableMemory?: string;
   ancestorQuotaWorkloadNum?: number;
+  /**
+   * @remarks
+   * The zone.
+   * 
+   * @example
+   * C
+   */
   availabilityZone?: string;
   /**
    * @remarks
-   * The list of quotas that are bound to the node.
+   * The list of bound quotas.
    */
   boundQuotas?: QuotaIdName[];
   /**
@@ -40,7 +53,7 @@ export class Node extends $dara.Model {
   CPU?: string;
   /**
    * @remarks
-   * The ID of the user who created the resource node.
+   * The creator of the resource node.
    * 
    * @example
    * 281044699048527748
@@ -59,7 +72,10 @@ export class Node extends $dara.Model {
   GPU?: string;
   /**
    * @remarks
-   * The GPU memory size in GiB.
+   * The GPU memory.
+   * 
+   * @example
+   * 32
    */
   GPUMemory?: string;
   /**
@@ -72,7 +88,7 @@ export class Node extends $dara.Model {
   GPUType?: string;
   /**
    * @remarks
-   * The time when the resource node was created.
+   * The creation time of the resource node.
    * 
    * @example
    * 2024-07-10T11:49:47Z
@@ -80,10 +96,14 @@ export class Node extends $dara.Model {
    * @deprecated
    */
   gmtCreateTime?: string;
+  /**
+   * @remarks
+   * The creation time of the resource node.
+   */
   gmtCreatedTime?: string;
   /**
    * @remarks
-   * The time when the resource node expires.
+   * The expiration time of the resource node.
    * 
    * @example
    * 2025-06-22T00:00:00Z
@@ -91,16 +111,23 @@ export class Node extends $dara.Model {
   gmtExpiredTime?: string;
   /**
    * @remarks
-   * The time when the resource node was last modified.
+   * The update time of the resource node.
    * 
    * @example
    * 2024-07-10T11:49:47Z
    */
   gmtModifiedTime?: string;
+  /**
+   * @remarks
+   * The high-speed interconnect zone.
+   * 
+   * @example
+   * C3
+   */
   hyperZone?: string;
   /**
    * @remarks
-   * Indicates whether the node is bound to a quota.
+   * Indicates whether the resource node is bound to a quota.
    * 
    * @example
    * false
@@ -124,7 +151,7 @@ export class Node extends $dara.Model {
   limitGPU?: string;
   /**
    * @remarks
-   * The maximum memory size in GiB.
+   * The maximum memory size.
    * 
    * @example
    * 8
@@ -140,12 +167,28 @@ export class Node extends $dara.Model {
   machineGroupId?: string;
   /**
    * @remarks
-   * The memory size in GiB.
+   * The memory size.
    * 
    * @example
    * 8
    */
   memory?: string;
+  /**
+   * @remarks
+   * The GPU memory of the node.
+   * 
+   * @example
+   * 640G
+   */
+  nodeGPUMemory?: string;
+  /**
+   * @remarks
+   * The GPU memory of the node in bytes.
+   * 
+   * @example
+   * 687194767360
+   */
+  nodeGPUMemoryBytes?: number;
   /**
    * @remarks
    * The name of the resource node.
@@ -164,7 +207,7 @@ export class Node extends $dara.Model {
   nodeStatus?: string;
   /**
    * @remarks
-   * The instance type of the resource node.
+   * The node specifications type of the resource node.
    * 
    * @example
    * ecs.c8i.xlarge
@@ -220,7 +263,7 @@ export class Node extends $dara.Model {
   requestGPU?: string;
   /**
    * @remarks
-   * The requested memory size in GiB.
+   * The requested memory size.
    * 
    * @example
    * 8
@@ -243,15 +286,25 @@ export class Node extends $dara.Model {
    */
   resourceGroupName?: string;
   selfQuotaWorkloadNum?: number;
+  /**
+   * @remarks
+   * The names of the child nodes.
+   */
   subNodes?: string[];
   /**
    * @remarks
-   * The number of CPU cores that are reserved for the system.
+   * The number of system-reserved CPU cores.
+   * 
+   * @example
+   * 0
    */
   systemReservedCPU?: string;
   /**
    * @remarks
-   * The amount of memory that is reserved for the system in GiB.
+   * The system-reserved memory size.
+   * 
+   * @example
+   * 3
    */
   systemReservedMemory?: string;
   /**
@@ -294,6 +347,8 @@ export class Node extends $dara.Model {
       limitMemory: 'LimitMemory',
       machineGroupId: 'MachineGroupId',
       memory: 'Memory',
+      nodeGPUMemory: 'NodeGPUMemory',
+      nodeGPUMemoryBytes: 'NodeGPUMemoryBytes',
       nodeName: 'NodeName',
       nodeStatus: 'NodeStatus',
       nodeType: 'NodeType',
@@ -342,6 +397,8 @@ export class Node extends $dara.Model {
       limitMemory: 'string',
       machineGroupId: 'string',
       memory: 'string',
+      nodeGPUMemory: 'string',
+      nodeGPUMemoryBytes: 'number',
       nodeName: 'string',
       nodeStatus: 'string',
       nodeType: 'string',

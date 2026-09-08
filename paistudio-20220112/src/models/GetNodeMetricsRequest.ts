@@ -34,7 +34,7 @@ export class GetNodeMetricsRequest extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The time step. Default value: 5m. The supported time units are:
+   * The time step. Default value: 5m. Valid values for the time unit:
    * 
    * - h: hours.
    * 
@@ -42,7 +42,7 @@ export class GetNodeMetricsRequest extends $dara.Model {
    * 
    * - s: seconds.
    * 
-   * If the value does not contain a unit, the default unit is s (seconds).
+   * If no unit is specified, the default unit is s (seconds).
    * 
    * @example
    * 1h
@@ -50,11 +50,10 @@ export class GetNodeMetricsRequest extends $dara.Model {
   timeStep?: string;
   /**
    * @remarks
-   * Specifies whether to display non-essential information. Non-essential information currently includes Labels.
-   * Valid values:
+   * Specifies whether to display non-essential information. Non-essential information currently includes Labels. Valid values:
    * 
-   * false: does not display non-essential information (default value)
-   * true: displays non-essential information
+   * false: does not display non-essential information (default).
+   * true: displays non-essential information.
    * 
    * @example
    * true

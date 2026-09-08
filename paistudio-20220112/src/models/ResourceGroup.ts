@@ -9,7 +9,7 @@ export class ResourceGroup extends $dara.Model {
    * The user ID of the creator.
    * 
    * @example
-   * 161228528250****
+   * 1612285282502324
    */
   creatorID?: string;
   /**
@@ -49,7 +49,7 @@ export class ResourceGroup extends $dara.Model {
    * The ID of the PAI resource group.
    * 
    * @example
-   * rg17tmvwiokh****
+   * rg17tmvwiokhzaxg
    */
   resourceGroupID?: string;
   resourceType?: string;

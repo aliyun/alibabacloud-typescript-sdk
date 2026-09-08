@@ -6,7 +6,7 @@ import { NodeMetric } from "./NodeMetric";
 export class GetNodeMetricsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The name of the metric to query.
+   * The name of the queried metric.
    * 
    * @example
    * DiskWriteRate
@@ -14,12 +14,12 @@ export class GetNodeMetricsResponseBody extends $dara.Model {
   metricType?: string;
   /**
    * @remarks
-   * The metric information of the nodes.
+   * The node metric information.
    */
   nodesMetrics?: NodeMetric[];
   /**
    * @remarks
-   * The resource group ID. Each resource group has a globally unique resource group ID. You can use the resource group ID to obtain information about the resource group.
+   * The resource group ID. Each resource group has a globally unique resource group ID. You can use the resource group ID to retrieve information about the resource group.
    * 
    * @example
    * rgf0zhfqn1d4ity2

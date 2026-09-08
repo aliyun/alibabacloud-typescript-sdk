@@ -14,7 +14,7 @@ export class ListQuotaWorkloadsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of workloads that match the filter criteria.
+   * The number of instances that match the filter conditions.
    * 
    * @example
    * 23
@@ -22,7 +22,7 @@ export class ListQuotaWorkloadsResponseBody extends $dara.Model {
   totalCount?: number;
   /**
    * @remarks
-   * A list of workloads.
+   * The list of workload information.
    */
   workloads?: QueueInfo[];
   static names(): { [key: string]: string } {

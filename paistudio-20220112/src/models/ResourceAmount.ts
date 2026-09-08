@@ -20,6 +20,16 @@ export class ResourceAmount extends $dara.Model {
    */
   GPU?: string;
   /**
+   * @example
+   * 80G
+   */
+  GPUMemory?: string;
+  /**
+   * @example
+   * 85899345920
+   */
+  GPUMemoryBytes?: number;
+  /**
    * @remarks
    * GPU card type
    * 
@@ -39,6 +49,8 @@ export class ResourceAmount extends $dara.Model {
     return {
       CPU: 'CPU',
       GPU: 'GPU',
+      GPUMemory: 'GPUMemory',
+      GPUMemoryBytes: 'GPUMemoryBytes',
       GPUType: 'GPUType',
       memory: 'Memory',
     };
@@ -48,6 +60,8 @@ export class ResourceAmount extends $dara.Model {
     return {
       CPU: 'string',
       GPU: 'string',
+      GPUMemory: 'string',
+      GPUMemoryBytes: 'number',
       GPUType: 'string',
       memory: 'string',
     };

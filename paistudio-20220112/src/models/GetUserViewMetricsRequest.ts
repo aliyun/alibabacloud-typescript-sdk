@@ -35,7 +35,7 @@ export class GetUserViewMetricsRequest extends $dara.Model {
   pageSize?: string;
   /**
    * @remarks
-   * The sorting criterion.
+   * The sorting field.
    * 
    * @example
    * GmtModified
@@ -51,7 +51,7 @@ export class GetUserViewMetricsRequest extends $dara.Model {
    * 
    * - s: seconds.
    * 
-   * If no unit is specified, the default unit s (seconds) is used.
+   * If no unit is specified, the default unit is s (seconds).
    * 
    * @example
    * 1h

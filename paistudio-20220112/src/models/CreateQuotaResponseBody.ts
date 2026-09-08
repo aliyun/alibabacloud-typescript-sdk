@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateQuotaResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The quota ID.
+   * The resource quota ID.
    * 
    * @example
    * quotad2kd8ljpsno
