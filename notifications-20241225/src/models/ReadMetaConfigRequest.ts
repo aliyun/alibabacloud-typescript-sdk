@@ -2,21 +2,24 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ReadMarketingPreferenceRequest extends $dara.Model {
+export class ReadMetaConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * The language.
+   * The language type of the returned information. Valid values:
+   * 
+   * - zh: Chinese.
+   * - en: English.
    * 
    * @example
-   * /
+   * zh-CN
    */
   acceptLanguage?: string;
   /**
    * @remarks
-   * The application name of the requester.
+   * The application project name of the requester.
    * 
    * @example
-   * /
+   * xxxApp
    */
   appName?: string;
   /**
@@ -24,7 +27,7 @@ export class ReadMarketingPreferenceRequest extends $dara.Model {
    * The business line of the requester.
    * 
    * @example
-   * /
+   * SystemAlerts
    */
   bizName?: string;
   /**
@@ -32,7 +35,7 @@ export class ReadMarketingPreferenceRequest extends $dara.Model {
    * The request protocol type.
    * 
    * @example
-   * /
+   * https
    */
   callerProtocol?: string;
   /**
@@ -40,20 +43,12 @@ export class ReadMarketingPreferenceRequest extends $dara.Model {
    * The source of the operation terminal.
    * 
    * @example
-   * /
+   * h5
    */
   clientSource?: string;
   /**
    * @remarks
-   * The contact ID.
-   * 
-   * @example
-   * 0
-   */
-  contactId?: number;
-  /**
-   * @remarks
-   * The cookies of the user.
+   * The user cookies.
    * 
    * @example
    * /
@@ -64,7 +59,7 @@ export class ReadMarketingPreferenceRequest extends $dara.Model {
    * The URL of the source page.
    * 
    * @example
-   * /
+   * https://example.com/notify,0
    */
   srcUrl?: string;
   /**
@@ -72,7 +67,7 @@ export class ReadMarketingPreferenceRequest extends $dara.Model {
    * The tenant information.
    * 
    * @example
-   * /
+   * T002
    */
   tenantCode?: string;
   /**
@@ -80,7 +75,7 @@ export class ReadMarketingPreferenceRequest extends $dara.Model {
    * The user type.
    * 
    * @example
-   * /
+   * aliyunPk
    */
   uidType?: string;
   static names(): { [key: string]: string } {
@@ -90,7 +85,6 @@ export class ReadMarketingPreferenceRequest extends $dara.Model {
       bizName: 'BizName',
       callerProtocol: 'CallerProtocol',
       clientSource: 'ClientSource',
-      contactId: 'ContactId',
       cookies: 'Cookies',
       srcUrl: 'SrcUrl',
       tenantCode: 'TenantCode',
@@ -105,7 +99,6 @@ export class ReadMarketingPreferenceRequest extends $dara.Model {
       bizName: 'string',
       callerProtocol: 'string',
       clientSource: 'string',
-      contactId: 'number',
       cookies: 'string',
       srcUrl: 'string',
       tenantCode: 'string',

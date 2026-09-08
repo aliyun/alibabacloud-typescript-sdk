@@ -4,26 +4,41 @@ import * as $dara from '@darabonba/typescript';
 
 export class ReadUserSubscriptionListResponseBodyDataChannelConfigs extends $dara.Model {
   /**
+   * @remarks
+   * The channel type.
+   * 
    * @example
    * email
    */
   channelType?: string;
   /**
+   * @remarks
+   * Indicates whether the subscription is configured.
+   * 
    * @example
    * YES
    */
   checkedState?: string;
   /**
+   * @remarks
+   * Indicates whether the option is selected by default.
+   * 
    * @example
    * YES
    */
   defaultChecked?: string;
   /**
+   * @remarks
+   * The fatigue limit.
+   * 
    * @example
    * 7
    */
   fatigueDayLimit?: number;
   /**
+   * @remarks
+   * Indicates whether the option can be modified.
+   * 
    * @example
    * YES
    */
@@ -58,7 +73,15 @@ export class ReadUserSubscriptionListResponseBodyDataChannelConfigs extends $dar
 }
 
 export class ReadUserSubscriptionListResponseBodyDataContactCommonContactsMessageSource extends $dara.Model {
+  /**
+   * @remarks
+   * The blacklist.
+   */
   keywordBlacklist?: string[];
+  /**
+   * @remarks
+   * The whitelist.
+   */
   keywordWhitelist?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -91,42 +114,70 @@ export class ReadUserSubscriptionListResponseBodyDataContactCommonContactsMessag
 
 export class ReadUserSubscriptionListResponseBodyDataContactCommonContacts extends $dara.Model {
   /**
+   * @remarks
+   * The Alibaba Cloud account ID.
+   * 
    * @example
    * /
    */
   aliUid?: number;
   /**
+   * @remarks
+   * The email address of the contact.
+   * 
    * @example
    * t*@qq.*
    */
   contactEmail?: string;
   /**
+   * @remarks
+   * The contact ID.
+   * 
    * @example
    * 0
    */
   contactId?: number;
   /**
+   * @remarks
+   * The masked mobile phone number of the Account Center contact.
+   * 
    * @example
    * 130*90
    */
   contactMobile?: string;
   /**
+   * @remarks
+   * The name of the Account Center contact.
+   * 
    * @example
    * test
    */
   contactName?: string;
   /**
+   * @remarks
+   * Indicates whether the email address is verified.
+   * 
    * @example
    * true
    */
   emailConfirmed?: boolean;
+  /**
+   * @remarks
+   * The message source.
+   */
   messageSource?: ReadUserSubscriptionListResponseBodyDataContactCommonContactsMessageSource;
   /**
+   * @remarks
+   * Indicates whether the mobile phone number of the Account Center contact is verified.
+   * 
    * @example
    * true
    */
   mobileConfirmed?: boolean;
   /**
+   * @remarks
+   * The position of the Account Center contact.
+   * 
    * @example
    * CEO
    */
@@ -172,7 +223,15 @@ export class ReadUserSubscriptionListResponseBodyDataContactCommonContacts exten
 }
 
 export class ReadUserSubscriptionListResponseBodyDataContactWebhookContactsMessageSource extends $dara.Model {
+  /**
+   * @remarks
+   * The blacklist.
+   */
   keywordBlacklist?: string[];
+  /**
+   * @remarks
+   * The whitelist.
+   */
   keywordWhitelist?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -205,27 +264,46 @@ export class ReadUserSubscriptionListResponseBodyDataContactWebhookContactsMessa
 
 export class ReadUserSubscriptionListResponseBodyDataContactWebhookContacts extends $dara.Model {
   /**
+   * @remarks
+   * The contact ID.
+   * 
    * @example
    * 0
    */
   contactId?: number;
   /**
+   * @remarks
+   * The name of the Account Center contact.
+   * 
    * @example
    * test
    */
   contactName?: string;
+  /**
+   * @remarks
+   * The message source.
+   */
   messageSource?: ReadUserSubscriptionListResponseBodyDataContactWebhookContactsMessageSource;
   /**
+   * @remarks
+   * The security token.
+   * 
    * @example
    * /
    */
   securityToken?: string;
   /**
+   * @remarks
+   * The webhook URL.
+   * 
    * @example
    * https://oapi.dingtalk.com/robot/send?access_token=xxxxxxxx
    */
   serverUrl?: string;
   /**
+   * @remarks
+   * The webhook type.
+   * 
    * @example
    * dingtalk
    */
@@ -265,7 +343,15 @@ export class ReadUserSubscriptionListResponseBodyDataContactWebhookContacts exte
 }
 
 export class ReadUserSubscriptionListResponseBodyDataContact extends $dara.Model {
+  /**
+   * @remarks
+   * The Account Center contact list.
+   */
   commonContacts?: ReadUserSubscriptionListResponseBodyDataContactCommonContacts[];
+  /**
+   * @remarks
+   * The webhook contact list.
+   */
   webhookContacts?: ReadUserSubscriptionListResponseBodyDataContactWebhookContacts[];
   static names(): { [key: string]: string } {
     return {
@@ -298,37 +384,67 @@ export class ReadUserSubscriptionListResponseBodyDataContact extends $dara.Model
 
 export class ReadUserSubscriptionListResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The Alibaba Cloud account ID.
+   * 
    * @example
    * /
    */
   aliUid?: number;
   /**
+   * @remarks
+   * The message category code.
+   * 
    * @example
    * prod_edu_content
    */
   categoryCode?: string;
   /**
+   * @remarks
+   * The description of the message category.
+   * 
    * @example
-   * 产品的使用场景、技术分享的相关内容
+   * Content related to product usage scenarios and technical sharing
    */
   categoryDesc?: string;
   /**
+   * @remarks
+   * The category group code.
+   * 
    * @example
    * prod_msg
    */
   categoryGroupCode?: string;
   /**
+   * @remarks
+   * The category group name.
+   * 
    * @example
-   * 产品消息
+   * Product Messages
    */
   categoryGroupName?: string;
   /**
+   * @remarks
+   * The message category name.
+   * 
    * @example
-   * 产品教育内容
+   * Product Educational Content
    */
   categoryName?: string;
+  /**
+   * @remarks
+   * The channel list.
+   */
   channelConfigs?: ReadUserSubscriptionListResponseBodyDataChannelConfigs[];
+  /**
+   * @remarks
+   * The contact.
+   */
   contact?: ReadUserSubscriptionListResponseBodyDataContact;
+  /**
+   * @remarks
+   * The receiving time list.
+   */
   receiveTimeList?: number[];
   static names(): { [key: string]: string } {
     return {
@@ -379,24 +495,41 @@ export class ReadUserSubscriptionListResponseBodyData extends $dara.Model {
 export class ReadUserSubscriptionListResponseBody extends $dara.Model {
   /**
    * @remarks
+   * The response code of the operation.
+   * 
    * This parameter is required.
    * 
    * @example
    * SUCCESS
    */
   code?: string;
+  /**
+   * @remarks
+   * The query result.
+   */
   data?: ReadUserSubscriptionListResponseBodyData[];
   /**
+   * @remarks
+   * The message.
+   * 
    * @example
-   * 成功
+   * Succeeded
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * /
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the call was successful. Valid values:
+   * - true: The call was successful.
+   * - false: The call failed.
+   * 
    * @example
    * true
    */

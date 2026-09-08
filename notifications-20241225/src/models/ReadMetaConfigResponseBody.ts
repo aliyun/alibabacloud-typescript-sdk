@@ -2,10 +2,10 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class UpdateMarketingPreferenceResponseBody extends $dara.Model {
+export class ReadMetaConfigResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The business status code.
+   * The error code returned if the call fails. For more information, see error codes.
    * 
    * @example
    * SUCCESS
@@ -13,10 +13,28 @@ export class UpdateMarketingPreferenceResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The message returned when the call failed.
+   * The execution result.
    * 
    * @example
-   * /
+   * {
+   *     "isSubNextUser": "YES",
+   *     "IS_INNER_USER": "NO",
+   *     "isXsWhite": "NO",
+   *     "isXs": "NO",
+   *     "SITEID": "cn",
+   *     "webhookSignatures": [
+   *         "Alibaba",
+   *         "阿里云"
+   *     ]
+   * }
+   */
+  data?: any;
+  /**
+   * @remarks
+   * The message returned if the call fails.
+   * 
+   * @example
+   * Success
    */
   message?: string;
   /**
@@ -24,14 +42,12 @@ export class UpdateMarketingPreferenceResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * /
+   * A5F62766-1C2F-1F56-A39D-63E3D30F0633
    */
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful. Valid values:
-   * - true: The call was successful.
-   * - false: The call failed.
+   * Indicates whether the call is successful. A value of true indicates that the call is successful. A value of false indicates that the call fails.
    * 
    * @example
    * true
@@ -40,6 +56,7 @@ export class UpdateMarketingPreferenceResponseBody extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
+      data: 'Data',
       message: 'Message',
       requestId: 'RequestId',
       success: 'Success',
@@ -49,6 +66,7 @@ export class UpdateMarketingPreferenceResponseBody extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       code: 'string',
+      data: 'any',
       message: 'string',
       requestId: 'string',
       success: 'boolean',

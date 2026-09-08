@@ -908,7 +908,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取用户营销偏好
+   * Retrieves the marketing preferences of a user.
    * 
    * @param request - ReadMarketingPreferenceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -975,7 +975,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取用户营销偏好
+   * Retrieves the marketing preferences of a user.
    * 
    * @param request - ReadMarketingPreferenceRequest
    * @returns ReadMarketingPreferenceResponse
@@ -1428,6 +1428,80 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves the metadata service.
+   * 
+   * @param request - ReadMetaConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ReadMetaConfigResponse
+   */
+  async readMetaConfigWithOptions(request: $_model.ReadMetaConfigRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ReadMetaConfigResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.acceptLanguage)) {
+      body["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!$dara.isNull(request.appName)) {
+      body["AppName"] = request.appName;
+    }
+
+    if (!$dara.isNull(request.bizName)) {
+      body["BizName"] = request.bizName;
+    }
+
+    if (!$dara.isNull(request.callerProtocol)) {
+      body["CallerProtocol"] = request.callerProtocol;
+    }
+
+    if (!$dara.isNull(request.clientSource)) {
+      body["ClientSource"] = request.clientSource;
+    }
+
+    if (!$dara.isNull(request.cookies)) {
+      body["Cookies"] = request.cookies;
+    }
+
+    if (!$dara.isNull(request.srcUrl)) {
+      body["SrcUrl"] = request.srcUrl;
+    }
+
+    if (!$dara.isNull(request.tenantCode)) {
+      body["TenantCode"] = request.tenantCode;
+    }
+
+    if (!$dara.isNull(request.uidType)) {
+      body["UidType"] = request.uidType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ReadMetaConfig",
+      version: "2024-12-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ReadMetaConfigResponse>(await this.callApi(params, req, runtime), new $_model.ReadMetaConfigResponse({}));
+  }
+
+  /**
+   * Retrieves the metadata service.
+   * 
+   * @param request - ReadMetaConfigRequest
+   * @returns ReadMetaConfigResponse
+   */
+  async readMetaConfig(request: $_model.ReadMetaConfigRequest): Promise<$_model.ReadMetaConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.readMetaConfigWithOptions(request, runtime);
+  }
+
+  /**
    * Retrieves the count of read messages for each category.
    * 
    * @param request - ReadNumGroupByClassRequest
@@ -1672,7 +1746,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取用户订阅列表
+   * Retrieves the subscription list of a user.
    * 
    * @param request - ReadUserSubscriptionListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1743,7 +1817,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取用户订阅列表
+   * Retrieves the subscription list of a user.
    * 
    * @param request - ReadUserSubscriptionListRequest
    * @returns ReadUserSubscriptionListResponse
@@ -2100,7 +2174,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新营销偏好
+   * Updates marketing preferences.
    * 
    * @param request - UpdateMarketingPreferenceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2171,7 +2245,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新营销偏好
+   * Updates marketing preferences.
    * 
    * @param request - UpdateMarketingPreferenceRequest
    * @returns UpdateMarketingPreferenceResponse
