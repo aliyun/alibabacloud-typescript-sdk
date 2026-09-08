@@ -761,18 +761,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Assigns one or more IPv6 addresses to an Elastic Network Interface (ENI).
+   * Allocates one or more IPv6 addresses to an elastic network interface (ENI).
    * 
    * @remarks
    * ## Operation description
-   * You can specify IPv6 addresses from the CIDR block of the vSwitch to which the Elastic Network Interface (ENI) belongs, or specify the number of IPv6 addresses to enable automatic creation of IPv6 addresses. Note the following items:
+   * You can specify IPv6 addresses within the CIDR block of the vSwitch to which the elastic network interface (ENI) belongs, or specify the number of IPv6 addresses for automatic creation of IPv6 addresses. Note the following items:
    * - The vSwitch to which the ENI belongs must have IPv6 enabled. For more information, see [Enable an IPv6 CIDR block for an existing vSwitch](https://help.aliyun.com/document_detail/98923.html).
-   * - The ENI must be in the Active (Available) or InUse state.
-   * - When you operate a primary ENI, the instance to which the network interface controller (NIC) is attached must be in the Running or Stopped state.
-   * - The number of IPv6 addresses that can be allocated to a single network interface controller (NIC) depends on the instance type of the instance to which the ENI is attached.
-   *     - If the ENI is in the Active (Available) state, up to 10 IPv6 addresses can be allocated.
-   *     - If the ENI is attached to an instance, the number of IPv6 addresses that can be allocated is limited by the instance type. For more information, see [Instance family](https://help.aliyun.com/document_detail/25378.html).
-   * - After you successfully invoke this operation, you can obtain the allocated IPv6 address information from the response.
+   * - The ENI must be in the Active or InUse state.
+   * - When you operate on a primary network interface controller (NIC), the instance to which the NIC is attached must be in the Running or Stopped state.
+   * - The number of IPv6 addresses that can be allocated to a single NIC depends on the instance type of the instance to which the NIC is attached.
+   *     - If the ENI is in the Active state, you can allocate up to 10 IPv6 addresses to the ENI.
+   *     - If the ENI is attached to an instance, the number of IPv6 addresses that can be allocated is limited by the instance type. For more information, see [Instance families](https://help.aliyun.com/document_detail/25378.html).
+   * - After you call this operation, you can obtain the allocated IPv6 address information from the response.
    * 
    * @param request - AssignIpv6AddressesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -847,18 +847,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Assigns one or more IPv6 addresses to an Elastic Network Interface (ENI).
+   * Allocates one or more IPv6 addresses to an elastic network interface (ENI).
    * 
    * @remarks
    * ## Operation description
-   * You can specify IPv6 addresses from the CIDR block of the vSwitch to which the Elastic Network Interface (ENI) belongs, or specify the number of IPv6 addresses to enable automatic creation of IPv6 addresses. Note the following items:
+   * You can specify IPv6 addresses within the CIDR block of the vSwitch to which the elastic network interface (ENI) belongs, or specify the number of IPv6 addresses for automatic creation of IPv6 addresses. Note the following items:
    * - The vSwitch to which the ENI belongs must have IPv6 enabled. For more information, see [Enable an IPv6 CIDR block for an existing vSwitch](https://help.aliyun.com/document_detail/98923.html).
-   * - The ENI must be in the Active (Available) or InUse state.
-   * - When you operate a primary ENI, the instance to which the network interface controller (NIC) is attached must be in the Running or Stopped state.
-   * - The number of IPv6 addresses that can be allocated to a single network interface controller (NIC) depends on the instance type of the instance to which the ENI is attached.
-   *     - If the ENI is in the Active (Available) state, up to 10 IPv6 addresses can be allocated.
-   *     - If the ENI is attached to an instance, the number of IPv6 addresses that can be allocated is limited by the instance type. For more information, see [Instance family](https://help.aliyun.com/document_detail/25378.html).
-   * - After you successfully invoke this operation, you can obtain the allocated IPv6 address information from the response.
+   * - The ENI must be in the Active or InUse state.
+   * - When you operate on a primary network interface controller (NIC), the instance to which the NIC is attached must be in the Running or Stopped state.
+   * - The number of IPv6 addresses that can be allocated to a single NIC depends on the instance type of the instance to which the NIC is attached.
+   *     - If the ENI is in the Active state, you can allocate up to 10 IPv6 addresses to the ENI.
+   *     - If the ENI is attached to an instance, the number of IPv6 addresses that can be allocated is limited by the instance type. For more information, see [Instance families](https://help.aliyun.com/document_detail/25378.html).
+   * - After you call this operation, you can obtain the allocated IPv6 address information from the response.
    * 
    * @param request - AssignIpv6AddressesRequest
    * @returns AssignIpv6AddressesResponse
@@ -869,14 +869,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Allocates one or more secondary private IP addresses to an Elastic Network Interface (ENI). You can specify idle private IP addresses within the vSwitch to which the ENI belongs, or specify the number of private endpoint addresses to automatically allocate private IP addresses.
+   * Assigns one or more secondary private IP addresses to an elastic network interfaces (ENIs). You can specify idle private IP addresses from the vSwitch to which the elastic network interfaces (ENIs) belongs, or specify the number of private IP addresses to automatically allocate.
    * 
    * @remarks
    * ## Operation description
-   * - Only ENIs in the Available or InUse state are supported.
-   * - When you operate the primary network interface controller (NIC), the instance to which the NIC is attached must be in the Running or Stopped state.
-   * - When an Elastic Network Interface (ENI) is in the active (`Available`) state, you can allocate up to 49 secondary private IP addresses to it. After the ENI is attached to an instance, the number of secondary private IP addresses that can be allocated to the ENI is subject to the instance family. For more information, see [Instance families](https://help.aliyun.com/document_detail/25378.html).
-   * - After you successfully invoke this operation, you can obtain the allocated secondary private IP address information from the response.
+   * - Only elastic network interfaces (ENIs) in the Available or InUse state are supported.
+   * - When you operate the primary network interface controller (NIC), the instance to which the network interface controller (NIC) is attached must be in the Running or Stopped state.
+   * - When an elastic network interfaces (ENIs) is in the Available state, you can allocate up to 49 secondary private IP addresses to the ENI. After the ENI is attached to an instance, the number of secondary private IP addresses that can be allocated to the ENI is subject to the instance type. For more information, see [Instance families](https://help.aliyun.com/document_detail/25378.html).
+   * - After you call this operation, you can obtain the allocated secondary private IP address information from the response.
    * 
    * @param request - AssignPrivateIpAddressesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -951,14 +951,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Allocates one or more secondary private IP addresses to an Elastic Network Interface (ENI). You can specify idle private IP addresses within the vSwitch to which the ENI belongs, or specify the number of private endpoint addresses to automatically allocate private IP addresses.
+   * Assigns one or more secondary private IP addresses to an elastic network interfaces (ENIs). You can specify idle private IP addresses from the vSwitch to which the elastic network interfaces (ENIs) belongs, or specify the number of private IP addresses to automatically allocate.
    * 
    * @remarks
    * ## Operation description
-   * - Only ENIs in the Available or InUse state are supported.
-   * - When you operate the primary network interface controller (NIC), the instance to which the NIC is attached must be in the Running or Stopped state.
-   * - When an Elastic Network Interface (ENI) is in the active (`Available`) state, you can allocate up to 49 secondary private IP addresses to it. After the ENI is attached to an instance, the number of secondary private IP addresses that can be allocated to the ENI is subject to the instance family. For more information, see [Instance families](https://help.aliyun.com/document_detail/25378.html).
-   * - After you successfully invoke this operation, you can obtain the allocated secondary private IP address information from the response.
+   * - Only elastic network interfaces (ENIs) in the Available or InUse state are supported.
+   * - When you operate the primary network interface controller (NIC), the instance to which the network interface controller (NIC) is attached must be in the Running or Stopped state.
+   * - When an elastic network interfaces (ENIs) is in the Available state, you can allocate up to 49 secondary private IP addresses to the ENI. After the ENI is attached to an instance, the number of secondary private IP addresses that can be allocated to the ENI is subject to the instance type. For more information, see [Instance families](https://help.aliyun.com/document_detail/25378.html).
+   * - After you call this operation, you can obtain the allocated secondary private IP address information from the response.
    * 
    * @param request - AssignPrivateIpAddressesRequest
    * @returns AssignPrivateIpAddressesResponse
@@ -12697,12 +12697,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of one or more dedicated hosts. You can retrieve information such as the physical performance metrics, machine codes, usage status, and lists of created ECS instances on dedicated hosts. You can filter results by specifying parameters such as dedicated host IDs, dedicated host cluster ID, hostname, and status to precisely query the details you need, providing strong support for efficient management and optimization of cloud computing compute resources.
+   * Queries the details of one or more dedicated hosts. You can retrieve information such as the physical performance metrics, machine code, usage status, and the list of created ECS instances on the dedicated hosts. You can specify parameters such as dedicated host IDs, dedicated host cluster ID, hostname, and status to precisely query the details of dedicated hosts, providing strong support for efficient management and optimization of cloud computing compute resources.
    * 
    * @remarks
    * ## Operation description
    * You can query the details of one or more dedicated hosts by using one of the following methods:
-   * - Specify DedicatedHostIds to query the details of specific dedicated hosts.
+   * - Specify DedicatedHostIds to query the details of dedicated hosts.
    * - Specify DedicatedHostClusterId to query the details of dedicated hosts in a dedicated host cluster.
    * 
    * @param request - DescribeDedicatedHostsRequest
@@ -12734,6 +12734,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.maxResults)) {
       query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.needHostDetail)) {
+      query["NeedHostDetail"] = request.needHostDetail;
     }
 
     if (!$dara.isNull(request.nextToken)) {
@@ -12810,12 +12814,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of one or more dedicated hosts. You can retrieve information such as the physical performance metrics, machine codes, usage status, and lists of created ECS instances on dedicated hosts. You can filter results by specifying parameters such as dedicated host IDs, dedicated host cluster ID, hostname, and status to precisely query the details you need, providing strong support for efficient management and optimization of cloud computing compute resources.
+   * Queries the details of one or more dedicated hosts. You can retrieve information such as the physical performance metrics, machine code, usage status, and the list of created ECS instances on the dedicated hosts. You can specify parameters such as dedicated host IDs, dedicated host cluster ID, hostname, and status to precisely query the details of dedicated hosts, providing strong support for efficient management and optimization of cloud computing compute resources.
    * 
    * @remarks
    * ## Operation description
    * You can query the details of one or more dedicated hosts by using one of the following methods:
-   * - Specify DedicatedHostIds to query the details of specific dedicated hosts.
+   * - Specify DedicatedHostIds to query the details of dedicated hosts.
    * - Specify DedicatedHostClusterId to query the details of dedicated hosts in a dedicated host cluster.
    * 
    * @param request - DescribeDedicatedHostsRequest
@@ -20438,7 +20442,7 @@ export default class Client extends OpenApi {
    * ## Operation description
    * When you call this operation, take note of the following items:
    * -  The request parameters RegionId, DiskIds, and InstanceId act as filters. These parameters have a logical AND relationship.  
-   * -  If you do not specify any parameters, the filters do not take effect. If DiskIds and SnapshotLinkIds are both empty arrays, the filters are considered valid, but the response is empty.
+   * -  If you do not specify any parameters, the filters do not take effect. If DiskIds and SnapshotLinkIds are both empty arrays, the filters are considered valid, but an empty result set is returned.
    * 
    * @param request - DescribeSnapshotLinksRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -20519,7 +20523,7 @@ export default class Client extends OpenApi {
    * ## Operation description
    * When you call this operation, take note of the following items:
    * -  The request parameters RegionId, DiskIds, and InstanceId act as filters. These parameters have a logical AND relationship.  
-   * -  If you do not specify any parameters, the filters do not take effect. If DiskIds and SnapshotLinkIds are both empty arrays, the filters are considered valid, but the response is empty.
+   * -  If you do not specify any parameters, the filters do not take effect. If DiskIds and SnapshotLinkIds are both empty arrays, the filters are considered valid, but an empty result set is returned.
    * 
    * @param request - DescribeSnapshotLinksRequest
    * @returns DescribeSnapshotLinksResponse
@@ -27880,16 +27884,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the deployment set of an Elastic Compute Service (ECS) instance or migrates an ECS instance to a dedicated host. You can change the instance type of an ECS instance when you migrate the instance.
+   * Modifies the deployment set of an ECS instance or migrates an ECS instance to a dedicated host. You can also change the instance type while migrating the instance.
    * 
    * @remarks
-   * Take note of the following items:
-   * - The instance must be in the **Stopped** (Stopped) state. The instance is automatically restarted after it is migrated.
-   * - The network type of the instance must be Virtual Private Cloud (VPC).
-   * - The instance and the destination dedicated host to which to migrate the instance must belong to the same account and reside in the same region and zone.
-   * - A pay-as-you-go instance can be migrated to a subscription dedicated host. A subscription instance can be migrated only between subscription dedicated hosts. The expiration date of the subscription instance cannot be later than that of the destination dedicated host.
-   * - You can migrate only pay-as-you-go instances from a shared host to a dedicated host. You cannot migrate subscription instances or spot instances from a shared host to a dedicated host.
-   * - You can redeploy an instance to a specific dedicated host cluster.
+   * When you migrate an ECS instance to a dedicated host or change the ECS instance type while migrating the instance, the following conditions must be met:
+   * - The ECS instance must be in the **Stopped** state. The instance automatically restarts after migration.
+   * - Only VPC-connected ECS instances are supported.
+   * - The ECS instance and the dedicated host must belong to the same account, region, and zone.
+   * - Pay-as-you-go ECS instances can be migrated to subscription dedicated hosts. Subscription ECS instances can be migrated only between subscription dedicated hosts, and the instance expiration time cannot be later than the expiration time of the destination dedicated host.
+   * - When you migrate an ECS instance from a shared host to a dedicated host, the billing method of the instance must be pay-as-you-go. Subscription instances and spot instances are not supported.
+   * - ECS instances can be redeployed to a specified dedicated host cluster.
    * 
    * @param request - ModifyInstanceDeploymentRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -27980,16 +27984,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the deployment set of an Elastic Compute Service (ECS) instance or migrates an ECS instance to a dedicated host. You can change the instance type of an ECS instance when you migrate the instance.
+   * Modifies the deployment set of an ECS instance or migrates an ECS instance to a dedicated host. You can also change the instance type while migrating the instance.
    * 
    * @remarks
-   * Take note of the following items:
-   * - The instance must be in the **Stopped** (Stopped) state. The instance is automatically restarted after it is migrated.
-   * - The network type of the instance must be Virtual Private Cloud (VPC).
-   * - The instance and the destination dedicated host to which to migrate the instance must belong to the same account and reside in the same region and zone.
-   * - A pay-as-you-go instance can be migrated to a subscription dedicated host. A subscription instance can be migrated only between subscription dedicated hosts. The expiration date of the subscription instance cannot be later than that of the destination dedicated host.
-   * - You can migrate only pay-as-you-go instances from a shared host to a dedicated host. You cannot migrate subscription instances or spot instances from a shared host to a dedicated host.
-   * - You can redeploy an instance to a specific dedicated host cluster.
+   * When you migrate an ECS instance to a dedicated host or change the ECS instance type while migrating the instance, the following conditions must be met:
+   * - The ECS instance must be in the **Stopped** state. The instance automatically restarts after migration.
+   * - Only VPC-connected ECS instances are supported.
+   * - The ECS instance and the dedicated host must belong to the same account, region, and zone.
+   * - Pay-as-you-go ECS instances can be migrated to subscription dedicated hosts. Subscription ECS instances can be migrated only between subscription dedicated hosts, and the instance expiration time cannot be later than the expiration time of the destination dedicated host.
+   * - When you migrate an ECS instance from a shared host to a dedicated host, the billing method of the instance must be pay-as-you-go. Subscription instances and spot instances are not supported.
+   * - ECS instances can be redeployed to a specified dedicated host cluster.
    * 
    * @param request - ModifyInstanceDeploymentRequest
    * @returns ModifyInstanceDeploymentResponse
@@ -28614,31 +28618,31 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the VPC, private IP address, security group, or vSwitch of a VPC-type ECS instance in a virtual private cloud (VPC) network type.
+   * Modifies the VPC, private IP address, security group, or vSwitch of a VPC-type ECS instance.
    * 
    * @remarks
-   * When you call this operation, the ECS instance must be in the **Stopped** state.
-   * - When you modify the private IP address or vSwitch of an instance, take note of the following items:
+   * When you call this operation, the ECS instance must be in the **Stopped** (`Stopped`) state.
+   * - When you modify the private IP address or vSwitch of an instance, note the following:
    *     - A newly created ECS instance must be restarted before you can call this operation.
    *     - After a successful modification, the ECS instance must be restarted before you can call this operation again.
-   * - When you modify the VPC of an instance, take note of the following items:
+   * - When you modify the VPC of an instance, note the following:
    *     - **Instance:**
-   *         - Instance status: The instance cannot be locked, pending release, expired, in expiration recycling, or in overdue payment recycling. For more information, see [Instance lifetime](https://help.aliyun.com/document_detail/25380.html).
-   *         - ECS instances that are associated with load balancing instances are not supported.
-   *         - The instance cannot be in use by other cloud services. For example, the instance cannot be in migration, cannot have already initiated a VPC change, or cannot have its database managed by Data Transmission Service (DTS).
+   *         - Instance status: The instance cannot be in the locked, pending release, expired, expiring, or overdue payment states. For more information, see [Instance lifetime](https://help.aliyun.com/document_detail/25380.html).
+   *         - ECS instances associated with a load balancing instance are not supported.
+   *         - The instance cannot be in use by other cloud services. For example, the instance cannot be undergoing migration, cannot already be switching VPCs, and databases deployed on the instance cannot be managed by DTS.
    *    
    *     - **Network:**
-   *         - Instances configured with EIP in network interface controller (NIC) visible pattern or multi-EIP to NIC visible pattern are not supported.
-   *         - Instances attached to a high availability virtual IP address (HaVip) are not supported.
-   *         - Instances whose vSwitch is associated with a custom route table are not supported.
+   *         - Instances configured with EIP-visible mode or multi-EIP-visible mode on their Elastic Network Interfaces (ENIs) are not supported.
+   *         - Instances attached to a High Availability Virtual IP (HaVip) are not supported.
+   *         - Instances whose vSwitch is attached to a custom route table are not supported.
    *         - Instances with Global Accelerator (GA) enabled are not supported.
    *         - Instances attached to secondary Elastic Network Interfaces (ENIs) are not supported.
-   *         - Instances that have been allocated IPv6 addresses are not supported.
-   *         - Instances whose primary NIC has multiple IP addresses are not supported.
-   *         - The specified vSwitch must belong to the destination VPC.
+   *         - Instances with IPv6 addresses allocated are not supported.
+   *         - Instances whose primary network interface controller (NIC) has multiple IP addresses are not supported.
+   *         - The specified vSwitch must belong to the target VPC.
    *         - The zone of the vSwitch must remain the same before and after the modification.
-   *         - If you specify a private IP for the primary NIC, the IP address must be active and within the CIDR block of the vSwitch. If you do not specify one, an IP address is randomly allocated. Make sure that the destination vSwitch has a sufficient available IP address count.
-   *         - If you use a VPC shared by another account, make sure that the destination security group was created by your account in the shared VPC, not by the VPC owner\\"s account.
+   *         - If you specify a private IP for the primary network interface controller (NIC), the IP address must be within the vSwitch CIDR block and available. If you do not specify one, an IP address is randomly allocated, and the target vSwitch must have sufficient available IP addresses.
+   *         - If you are using a VPC shared with you by another account, make sure that the target security group is created by your account in the shared VPC, not by the VPC owner\\"s account.
    * 
    * @param request - ModifyInstanceVpcAttributeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -28701,31 +28705,31 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the VPC, private IP address, security group, or vSwitch of a VPC-type ECS instance in a virtual private cloud (VPC) network type.
+   * Modifies the VPC, private IP address, security group, or vSwitch of a VPC-type ECS instance.
    * 
    * @remarks
-   * When you call this operation, the ECS instance must be in the **Stopped** state.
-   * - When you modify the private IP address or vSwitch of an instance, take note of the following items:
+   * When you call this operation, the ECS instance must be in the **Stopped** (`Stopped`) state.
+   * - When you modify the private IP address or vSwitch of an instance, note the following:
    *     - A newly created ECS instance must be restarted before you can call this operation.
    *     - After a successful modification, the ECS instance must be restarted before you can call this operation again.
-   * - When you modify the VPC of an instance, take note of the following items:
+   * - When you modify the VPC of an instance, note the following:
    *     - **Instance:**
-   *         - Instance status: The instance cannot be locked, pending release, expired, in expiration recycling, or in overdue payment recycling. For more information, see [Instance lifetime](https://help.aliyun.com/document_detail/25380.html).
-   *         - ECS instances that are associated with load balancing instances are not supported.
-   *         - The instance cannot be in use by other cloud services. For example, the instance cannot be in migration, cannot have already initiated a VPC change, or cannot have its database managed by Data Transmission Service (DTS).
+   *         - Instance status: The instance cannot be in the locked, pending release, expired, expiring, or overdue payment states. For more information, see [Instance lifetime](https://help.aliyun.com/document_detail/25380.html).
+   *         - ECS instances associated with a load balancing instance are not supported.
+   *         - The instance cannot be in use by other cloud services. For example, the instance cannot be undergoing migration, cannot already be switching VPCs, and databases deployed on the instance cannot be managed by DTS.
    *    
    *     - **Network:**
-   *         - Instances configured with EIP in network interface controller (NIC) visible pattern or multi-EIP to NIC visible pattern are not supported.
-   *         - Instances attached to a high availability virtual IP address (HaVip) are not supported.
-   *         - Instances whose vSwitch is associated with a custom route table are not supported.
+   *         - Instances configured with EIP-visible mode or multi-EIP-visible mode on their Elastic Network Interfaces (ENIs) are not supported.
+   *         - Instances attached to a High Availability Virtual IP (HaVip) are not supported.
+   *         - Instances whose vSwitch is attached to a custom route table are not supported.
    *         - Instances with Global Accelerator (GA) enabled are not supported.
    *         - Instances attached to secondary Elastic Network Interfaces (ENIs) are not supported.
-   *         - Instances that have been allocated IPv6 addresses are not supported.
-   *         - Instances whose primary NIC has multiple IP addresses are not supported.
-   *         - The specified vSwitch must belong to the destination VPC.
+   *         - Instances with IPv6 addresses allocated are not supported.
+   *         - Instances whose primary network interface controller (NIC) has multiple IP addresses are not supported.
+   *         - The specified vSwitch must belong to the target VPC.
    *         - The zone of the vSwitch must remain the same before and after the modification.
-   *         - If you specify a private IP for the primary NIC, the IP address must be active and within the CIDR block of the vSwitch. If you do not specify one, an IP address is randomly allocated. Make sure that the destination vSwitch has a sufficient available IP address count.
-   *         - If you use a VPC shared by another account, make sure that the destination security group was created by your account in the shared VPC, not by the VPC owner\\"s account.
+   *         - If you specify a private IP for the primary network interface controller (NIC), the IP address must be within the vSwitch CIDR block and available. If you do not specify one, an IP address is randomly allocated, and the target vSwitch must have sufficient available IP addresses.
+   *         - If you are using a VPC shared with you by another account, make sure that the target security group is created by your account in the shared VPC, not by the VPC owner\\"s account.
    * 
    * @param request - ModifyInstanceVpcAttributeRequest
    * @returns ModifyInstanceVpcAttributeResponse
@@ -29515,21 +29519,21 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the instance type of a subscription ECS instance. You can upgrade or downgrade the instance type. The new instance type takes effect for the entire lifecycle of the instance.
+   * Modifies ECS instance type of a subscription Elastic Compute Service (ECS) instance. You can upgrade or downgrade ECS instance type. The new instance type takes effect for the entire lifecycle of ECS instance.
    * 
    * @remarks
    * <props="china">
-   * **Before you call this operation, make sure that you fully understand the billing of ECS, [pricing](https://www.aliyun.com/price/product#/ecs/detail), and [refund rules for specification downgrades](https://help.aliyun.com/document_detail/116043.html).**
+   * **Before you call this operation, make sure that you fully understand the billing methods, [pricing](https://www.aliyun.com/price/product#/ecs/detail), and [refund rules for specification downgrades](https://help.aliyun.com/document_detail/116043.html) of ECS.**
    * <props="intl">
-   * **Before you call this operation, make sure that you fully understand the billing of ECS, [pricing](https://www.alibabacloud.com/zh/pricing-calculator#/commodity/vm_intl), and [refund rules for specification downgrades](https://help.aliyun.com/document_detail/476339.html).**
-   * This operation is asynchronous. The configuration change takes effect after approximately 5 to 10 seconds. Before you upgrade or downgrade ECS instance type of a subscription ECS instance, you can call [DescribeResourcesModification](https://help.aliyun.com/document_detail/2679954.html) to query ECS instance types to which the current instance can be changed.
+   * **Before you call this operation, make sure that you fully understand the billing methods, [pricing](https://www.alibabacloud.com/zh/pricing-calculator#/commodity/vm_intl), and [refund rules for specification downgrades](https://help.aliyun.com/document_detail/476339.html) of ECS.**
+   * This is an asynchronous operation. The configuration change takes effect after approximately 5 to 10 seconds. Before you upgrade or downgrade ECS instance type of a subscription ECS instance, you can call [DescribeResourcesModification](https://help.aliyun.com/document_detail/2679954.html) to query ECS instance types to which the current instance can be changed.
    * **Precautions**
-   *   - If the NVMe properties of the source and target instance types are different (the `NvmeSupport` property returned by [DescribeInstanceTypes](https://help.aliyun.com/document_detail/2679699.html)) and the operating system is Windows (the `OSType` property returned by [DescribeInstances](https://help.aliyun.com/document_detail/2679689.html)), complete the operations described in [Preventive measures](~~2978777#7de04a1c9fo50~~) before you perform the Upgrade/Downgrade.
-   *   - You cannot modify the instance type of an expired instance. Perform a renewal and try again.
+   *   - If the NVMe properties of the original and target instance types are different (the `NvmeSupport` property returned by [DescribeInstanceTypes](https://help.aliyun.com/document_detail/2679699.html)) and the operating system is Windows (the `OSType` property returned by [DescribeInstances](https://help.aliyun.com/document_detail/2679689.html)), complete the operations described in [Preventive measures](~~2978777#7de04a1c9fo50~~) before you perform the Upgrade/Downgrade.
+   *   - You cannot change the instance type of an expired instance. Complete the renewal and try again.
    *   - Downgrade the instance type:
    *     - The instance must be in the **Stopped** (`Stopped`) state.
    *     - The price difference between the original and new instance types is refunded to your original payer. Consumed vouchers are not refundable.
-   *     - The new instance type takes effect only after you [start the instance](https://help.aliyun.com/document_detail/25441.html).
+   *     - The new instance type takes effect only after you [start the instance](https://help.aliyun.com/document_detail/25441.html) following the Upgrade/Downgrade.
    *   - Upgrade the instance type: 
    *     - The instance must be in the **Stopped** (`Stopped`) or **Running** (`Running`) state.
    *     - The new instance type takes effect only after you [start the instance](https://help.aliyun.com/document_detail/25441.html) or [restart the instance](https://help.aliyun.com/document_detail/25440.html).
@@ -29627,21 +29631,21 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the instance type of a subscription ECS instance. You can upgrade or downgrade the instance type. The new instance type takes effect for the entire lifecycle of the instance.
+   * Modifies ECS instance type of a subscription Elastic Compute Service (ECS) instance. You can upgrade or downgrade ECS instance type. The new instance type takes effect for the entire lifecycle of ECS instance.
    * 
    * @remarks
    * <props="china">
-   * **Before you call this operation, make sure that you fully understand the billing of ECS, [pricing](https://www.aliyun.com/price/product#/ecs/detail), and [refund rules for specification downgrades](https://help.aliyun.com/document_detail/116043.html).**
+   * **Before you call this operation, make sure that you fully understand the billing methods, [pricing](https://www.aliyun.com/price/product#/ecs/detail), and [refund rules for specification downgrades](https://help.aliyun.com/document_detail/116043.html) of ECS.**
    * <props="intl">
-   * **Before you call this operation, make sure that you fully understand the billing of ECS, [pricing](https://www.alibabacloud.com/zh/pricing-calculator#/commodity/vm_intl), and [refund rules for specification downgrades](https://help.aliyun.com/document_detail/476339.html).**
-   * This operation is asynchronous. The configuration change takes effect after approximately 5 to 10 seconds. Before you upgrade or downgrade ECS instance type of a subscription ECS instance, you can call [DescribeResourcesModification](https://help.aliyun.com/document_detail/2679954.html) to query ECS instance types to which the current instance can be changed.
+   * **Before you call this operation, make sure that you fully understand the billing methods, [pricing](https://www.alibabacloud.com/zh/pricing-calculator#/commodity/vm_intl), and [refund rules for specification downgrades](https://help.aliyun.com/document_detail/476339.html) of ECS.**
+   * This is an asynchronous operation. The configuration change takes effect after approximately 5 to 10 seconds. Before you upgrade or downgrade ECS instance type of a subscription ECS instance, you can call [DescribeResourcesModification](https://help.aliyun.com/document_detail/2679954.html) to query ECS instance types to which the current instance can be changed.
    * **Precautions**
-   *   - If the NVMe properties of the source and target instance types are different (the `NvmeSupport` property returned by [DescribeInstanceTypes](https://help.aliyun.com/document_detail/2679699.html)) and the operating system is Windows (the `OSType` property returned by [DescribeInstances](https://help.aliyun.com/document_detail/2679689.html)), complete the operations described in [Preventive measures](~~2978777#7de04a1c9fo50~~) before you perform the Upgrade/Downgrade.
-   *   - You cannot modify the instance type of an expired instance. Perform a renewal and try again.
+   *   - If the NVMe properties of the original and target instance types are different (the `NvmeSupport` property returned by [DescribeInstanceTypes](https://help.aliyun.com/document_detail/2679699.html)) and the operating system is Windows (the `OSType` property returned by [DescribeInstances](https://help.aliyun.com/document_detail/2679689.html)), complete the operations described in [Preventive measures](~~2978777#7de04a1c9fo50~~) before you perform the Upgrade/Downgrade.
+   *   - You cannot change the instance type of an expired instance. Complete the renewal and try again.
    *   - Downgrade the instance type:
    *     - The instance must be in the **Stopped** (`Stopped`) state.
    *     - The price difference between the original and new instance types is refunded to your original payer. Consumed vouchers are not refundable.
-   *     - The new instance type takes effect only after you [start the instance](https://help.aliyun.com/document_detail/25441.html).
+   *     - The new instance type takes effect only after you [start the instance](https://help.aliyun.com/document_detail/25441.html) following the Upgrade/Downgrade.
    *   - Upgrade the instance type: 
    *     - The instance must be in the **Stopped** (`Stopped`) or **Running** (`Running`) state.
    *     - The new instance type takes effect only after you [start the instance](https://help.aliyun.com/document_detail/25441.html) or [restart the instance](https://help.aliyun.com/document_detail/25440.html).
@@ -31487,92 +31491,6 @@ export default class Client extends OpenApi {
   async openSnapshotService(request: $_model.OpenSnapshotServiceRequest): Promise<$_model.OpenSnapshotServiceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.openSnapshotServiceWithOptions(request, runtime);
-  }
-
-  /**
-   * Purchases an elastic capacity reservation service. You can use this operation to purchase an elastic capacity reservation service that is prepared and in an inactive state.
-   * 
-   * @remarks
-   * Make sure that you fully understand the billing methods and <props="china">[pricing](https://www.aliyun.com/price/product#/ecs/detail)<props="intl">[pricing](https://www.alibabacloud.com/zh?spm=5176.28117011.nav-v2-dropdown-language.exp-location-zh.9ae4165bF98IHz&_p_lc=1) of elastic capacity reservation before you use this operation.
-   * Before you purchase an elastic capacity reservation service, you can call [DescribeElasticityAssurances](https://help.aliyun.com/document_detail/2679748.html) to query available elastic capacity reservation services.
-   * 
-   * @param request - PurchaseElasticityAssuranceRequest
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns PurchaseElasticityAssuranceResponse
-   */
-  async purchaseElasticityAssuranceWithOptions(request: $_model.PurchaseElasticityAssuranceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.PurchaseElasticityAssuranceResponse> {
-    request.validate();
-    let query = { };
-    if (!$dara.isNull(request.clientToken)) {
-      query["ClientToken"] = request.clientToken;
-    }
-
-    if (!$dara.isNull(request.ownerAccount)) {
-      query["OwnerAccount"] = request.ownerAccount;
-    }
-
-    if (!$dara.isNull(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
-    if (!$dara.isNull(request.period)) {
-      query["Period"] = request.period;
-    }
-
-    if (!$dara.isNull(request.periodUnit)) {
-      query["PeriodUnit"] = request.periodUnit;
-    }
-
-    if (!$dara.isNull(request.regionId)) {
-      query["RegionId"] = request.regionId;
-    }
-
-    if (!$dara.isNull(request.resourceOwnerAccount)) {
-      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    }
-
-    if (!$dara.isNull(request.resourceOwnerId)) {
-      query["ResourceOwnerId"] = request.resourceOwnerId;
-    }
-
-    if (!$dara.isNull(request.startTime)) {
-      query["StartTime"] = request.startTime;
-    }
-
-    if (!$dara.isNull(request.privatePoolOptions)) {
-      query["PrivatePoolOptions"] = request.privatePoolOptions;
-    }
-
-    let req = new $OpenApiUtil.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApiUtil.Params({
-      action: "PurchaseElasticityAssurance",
-      version: "2014-05-26",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $dara.cast<$_model.PurchaseElasticityAssuranceResponse>(await this.callApi(params, req, runtime), new $_model.PurchaseElasticityAssuranceResponse({}));
-  }
-
-  /**
-   * Purchases an elastic capacity reservation service. You can use this operation to purchase an elastic capacity reservation service that is prepared and in an inactive state.
-   * 
-   * @remarks
-   * Make sure that you fully understand the billing methods and <props="china">[pricing](https://www.aliyun.com/price/product#/ecs/detail)<props="intl">[pricing](https://www.alibabacloud.com/zh?spm=5176.28117011.nav-v2-dropdown-language.exp-location-zh.9ae4165bF98IHz&_p_lc=1) of elastic capacity reservation before you use this operation.
-   * Before you purchase an elastic capacity reservation service, you can call [DescribeElasticityAssurances](https://help.aliyun.com/document_detail/2679748.html) to query available elastic capacity reservation services.
-   * 
-   * @param request - PurchaseElasticityAssuranceRequest
-   * @returns PurchaseElasticityAssuranceResponse
-   */
-  async purchaseElasticityAssurance(request: $_model.PurchaseElasticityAssuranceRequest): Promise<$_model.PurchaseElasticityAssuranceResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
-    return await this.purchaseElasticityAssuranceWithOptions(request, runtime);
   }
 
   /**
@@ -36146,12 +36064,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Unassigns one or more IPv6 addresses from an Elastic Network Interface (ENI).
+   * Revokes one or more IPv6 addresses from a network interface controller (NIC).
    * 
    * @remarks
    * ## Operation description
    * When you invoke this operation, take note of the following items:
-   * - The Elastic Network Interface (ENI) must be in the **Active** (Available) or **InUse** state.
+   * - The network interface controller (NIC) must be in the **active** (Available) or **InUse** state.
    * - If you are operating on a primary network interface controller (NIC), the ECS instance to which the NIC is attached must be in the **Running** or **Stopped** state.
    * 
    * @param request - UnassignIpv6AddressesRequest
@@ -36215,12 +36133,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Unassigns one or more IPv6 addresses from an Elastic Network Interface (ENI).
+   * Revokes one or more IPv6 addresses from a network interface controller (NIC).
    * 
    * @remarks
    * ## Operation description
    * When you invoke this operation, take note of the following items:
-   * - The Elastic Network Interface (ENI) must be in the **Active** (Available) or **InUse** state.
+   * - The network interface controller (NIC) must be in the **active** (Available) or **InUse** state.
    * - If you are operating on a primary network interface controller (NIC), the ECS instance to which the NIC is attached must be in the **Running** or **Stopped** state.
    * 
    * @param request - UnassignIpv6AddressesRequest

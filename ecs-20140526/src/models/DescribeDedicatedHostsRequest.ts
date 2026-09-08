@@ -78,7 +78,7 @@ export class DescribeDedicatedHostsRequest extends $dara.Model {
   /**
    * @remarks
    * The reason why the dedicated host is locked. Valid values:
-   * - financial: The dedicated host is locked due to an overdue payment.
+   * - financial: The dedicated host is locked due to overdue payments.
    * - security: The dedicated host is locked for security reasons.
    * 
    * @example
@@ -87,7 +87,7 @@ export class DescribeDedicatedHostsRequest extends $dara.Model {
   lockReason?: string;
   /**
    * @remarks
-   * The maximum number of entries per page for a paged query. If you set this parameter, the MaxResults and NextToken parameters are used together for paging.
+   * The maximum number of entries per page for a paged query. If you set this parameter, it indicates that the paging method using the MaxResults and NextToken parameters is used.
    * 
    * Maximum value: 100.
    * 
@@ -97,6 +97,14 @@ export class DescribeDedicatedHostsRequest extends $dara.Model {
    * 10
    */
   maxResults?: number;
+  /**
+   * @remarks
+   * The detailed information of the dedicated host.
+   * 
+   * @example
+   * false
+   */
+  needHostDetail?: string;
   /**
    * @remarks
    * The pagination token. Set this parameter to the NextToken value returned in the previous call. You do not need to set this parameter for the first request.
@@ -150,8 +158,8 @@ export class DescribeDedicatedHostsRequest extends $dara.Model {
    * @remarks
    * Specifies whether to display socket-level capacity information. You can use socket-level capacity information to view remaining resources (vCPUs, memory usage, remaining capacity, and total capacity) to determine whether an ECS instance of a specific instance type can be created. Valid values:
    * 
-   * - true: Displays socket-level capacity information. Only specific dedicated host types support displaying socket-level resource information. For more information, see [View and export DDH information](https://help.aliyun.com/document_detail/68989.html).
-   * - false: Does not display socket-level capacity information.
+   * - true: Display socket-level capacity information. Only specific dedicated host types support displaying socket-level resource information. For more information, see [View and export DDH information](https://help.aliyun.com/document_detail/68989.html).
+   * - false: Do not display socket-level capacity information.
    * 
    * >Notice: 
    * 
@@ -187,7 +195,7 @@ export class DescribeDedicatedHostsRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The tags. You can specify up to 20 tags.
+   * The tags. Valid values of N: 0 to 20.
    */
   tag?: DescribeDedicatedHostsRequestTag[];
   /**
@@ -206,6 +214,7 @@ export class DescribeDedicatedHostsRequest extends $dara.Model {
       dedicatedHostType: 'DedicatedHostType',
       lockReason: 'LockReason',
       maxResults: 'MaxResults',
+      needHostDetail: 'NeedHostDetail',
       nextToken: 'NextToken',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
@@ -231,6 +240,7 @@ export class DescribeDedicatedHostsRequest extends $dara.Model {
       dedicatedHostType: 'string',
       lockReason: 'string',
       maxResults: 'number',
+      needHostDetail: 'string',
       nextToken: 'string',
       ownerAccount: 'string',
       ownerId: 'number',

@@ -103,7 +103,7 @@ export class DescribeSnapshotLinksResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page as specified in the request.
+   * The number of entries per page that you specified in the request.
    * 
    * @example
    * 50
@@ -121,7 +121,7 @@ export class DescribeSnapshotLinksResponseBody extends $dara.Model {
   /**
    * @remarks
    * The total number of snapshot chains.
-   * > When you use the `MaxResults` and `NextToken` parameters for a paged query, the returned `TotalCount` value is invalid. For paging, use `NextToken` and `MaxResults` instead.
+   * > When you use the MaxResults and NextToken parameters for paged query, the returned TotalCount value is invalid.
    * 
    * @example
    * 9

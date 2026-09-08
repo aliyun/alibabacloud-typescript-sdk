@@ -883,7 +883,6 @@ export { ModifyPrepayInstanceSpecRequestSystemDisk } from './ModifyPrepayInstanc
 export { ModifyPrepayInstanceSpecRequestDisk } from './ModifyPrepayInstanceSpecRequest';
 export { ModifyReservedInstancesRequestConfiguration } from './ModifyReservedInstancesRequest';
 export { ModifyReservedInstancesResponseBodyReservedInstanceIdSets } from './ModifyReservedInstancesResponseBody';
-export { PurchaseElasticityAssuranceRequestPrivatePoolOptions } from './PurchaseElasticityAssuranceRequest';
 export { PurchaseReservedInstancesOfferingRequestTag } from './PurchaseReservedInstancesOfferingRequest';
 export { PurchaseReservedInstancesOfferingResponseBodyReservedInstanceIdSets } from './PurchaseReservedInstancesOfferingResponseBody';
 export { PurchaseStorageCapacityUnitRequestTag } from './PurchaseStorageCapacityUnitRequest';
@@ -1939,9 +1938,6 @@ export { ModifyVpcAttributeResponse } from './ModifyVpcAttributeResponse';
 export { OpenSnapshotServiceRequest } from './OpenSnapshotServiceRequest';
 export { OpenSnapshotServiceResponseBody } from './OpenSnapshotServiceResponseBody';
 export { OpenSnapshotServiceResponse } from './OpenSnapshotServiceResponse';
-export { PurchaseElasticityAssuranceRequest } from './PurchaseElasticityAssuranceRequest';
-export { PurchaseElasticityAssuranceResponseBody } from './PurchaseElasticityAssuranceResponseBody';
-export { PurchaseElasticityAssuranceResponse } from './PurchaseElasticityAssuranceResponse';
 export { PurchaseReservedInstancesOfferingRequest } from './PurchaseReservedInstancesOfferingRequest';
 export { PurchaseReservedInstancesOfferingResponseBody } from './PurchaseReservedInstancesOfferingResponseBody';
 export { PurchaseReservedInstancesOfferingResponse } from './PurchaseReservedInstancesOfferingResponse';

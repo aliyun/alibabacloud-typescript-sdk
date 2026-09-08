@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AssignIpv6AddressesRequest extends $dara.Model {
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but make sure that the token is unique among different requests. The **ClientToken** value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but make sure that the token is unique among different requests. **ClientToken** can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -13,11 +13,11 @@ export class AssignIpv6AddressesRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * One or more IPv6 addresses to assign to the Elastic Network Interface (ENI). You can set up to 10 IPv6 addresses. Valid values of N: 1 to 10.
+   * One or more IPv6 addresses to assign to the elastic network interface (ENI). You can set up to 10 IPv6 addresses. Valid values of N: 1 to 10.
    * 
    * Example: Ipv6Address.1=2001:db8:1234:1a00::\\*\\*\\*\\*
    * 
-   * > When you invoke this operation, you must set either the `Ipv6Addresses.N` parameter or the `Ipv6AddressCount` parameter, but not both.
+   * > When you call this operation, you must set either the `Ipv6Addresses.N` parameter or the `Ipv6AddressCount` parameter, but not both.
    * 
    * @example
    * 2001:db8:1234:1a00::****
@@ -25,9 +25,9 @@ export class AssignIpv6AddressesRequest extends $dara.Model {
   ipv6Address?: string[];
   /**
    * @remarks
-   * The number of IPv6 addresses to randomly generate for the Elastic Network Interface (ENI). Valid values: 1 to 10.
+   * The number of IPv6 addresses to randomly generate for the elastic network interface (ENI). Valid values: 1 to 10.
    * 
-   * > When you invoke this operation, you must set either the `Ipv6Addresses.N` parameter or the `Ipv6AddressCount` parameter, but not both.
+   * > When you call this operation, you must set either the `Ipv6Addresses.N` parameter or the `Ipv6AddressCount` parameter, but not both.
    * 
    * @example
    * 1
@@ -35,13 +35,13 @@ export class AssignIpv6AddressesRequest extends $dara.Model {
   ipv6AddressCount?: number;
   /**
    * @remarks
-   * One or more IPv6 prefixes to assign to the Elastic Network Interface (ENI). Valid values of N: 1 to 10.
+   * One or more IPv6 prefixes to assign to the elastic network interface (ENI). Valid values of N: 1 to 10.
    * > If you want to set IPv6 prefixes for the ENI, you must set either the Ipv6Prefix.N parameter or the Ipv6PrefixCount parameter, but not both.
    */
   ipv6Prefix?: string[];
   /**
    * @remarks
-   * The number of IPv6 prefixes to assign to the Elastic Network Interface (ENI). Valid values: 1 to 10.
+   * The number of IPv6 prefixes to assign to the elastic network interface (ENI). Valid values: 1 to 10.
    * > If you want to set IPv6 prefixes for the ENI, you must set either the Ipv6Prefix.N parameter or the Ipv6PrefixCount parameter, but not both.
    * 
    * @example
@@ -50,7 +50,7 @@ export class AssignIpv6AddressesRequest extends $dara.Model {
   ipv6PrefixCount?: number;
   /**
    * @remarks
-   * The ID of the Elastic Network Interface (ENI).
+   * The ID of the elastic network interface (ENI).
    * 
    * This parameter is required.
    * 
@@ -62,7 +62,7 @@ export class AssignIpv6AddressesRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the Elastic Network Interface (ENI). You can invoke [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
+   * The region ID of the elastic network interface (ENI). You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
    * 
    * This parameter is required.
    * 
