@@ -3147,6 +3147,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Sends events to an event bus.
+   * 
+   * @remarks
+   * Sends one or more events to an event bus.
+   * 
+   * @param tmpReq - PutEventsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns PutEventsResponse
+   */
+  async putEventsWithOptions(tmpReq: $_model.PutEventsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.PutEventsResponse> {
+    tmpReq.validate();
+    let request = new $_model.PutEventsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.eventList)) {
+      request.eventListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.eventList, "EventList", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.eventBusName)) {
+      body["EventBusName"] = request.eventBusName;
+    }
+
+    if (!$dara.isNull(request.eventListShrink)) {
+      body["EventList"] = request.eventListShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "PutEvents",
+      version: "2020-04-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.PutEventsResponse>(await this.callApi(params, req, runtime), new $_model.PutEventsResponse({}));
+  }
+
+  /**
+   * Sends events to an event bus.
+   * 
+   * @remarks
+   * Sends one or more events to an event bus.
+   * 
+   * @param request - PutEventsRequest
+   * @returns PutEventsResponse
+   */
+  async putEvents(request: $_model.PutEventsRequest): Promise<$_model.PutEventsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.putEventsWithOptions(request, runtime);
+  }
+
+  /**
    * Create or update event targets for the specified rule.
    * 
    * @remarks
