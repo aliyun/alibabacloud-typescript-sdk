@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class PublishRouteEntriesRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the CEN instance.
+   * The CEN instance ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class PublishRouteEntriesRequest extends $dara.Model {
   cenId?: string;
   /**
    * @remarks
-   * The ID of the network instance.
+   * The network instance ID.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class PublishRouteEntriesRequest extends $dara.Model {
   childInstanceId?: string;
   /**
    * @remarks
-   * The ID of the region where the network instance is deployed.
+   * The region ID of the network instance.
    * 
    * You can call the [DescribeChildInstanceRegions](https://help.aliyun.com/document_detail/132080.html) operation to query region IDs.
    * 
@@ -37,7 +37,7 @@ export class PublishRouteEntriesRequest extends $dara.Model {
   childInstanceRegionId?: string;
   /**
    * @remarks
-   * The ID of the route table of the network instance.
+   * The route table ID of the network instance.
    * 
    * This parameter is required.
    * 
@@ -51,8 +51,6 @@ export class PublishRouteEntriesRequest extends $dara.Model {
    * 
    * - **VPC**: virtual private cloud.
    * 
-   * - **VBR**: virtual border router.
-   * 
    * This parameter is required.
    * 
    * @example
@@ -61,7 +59,7 @@ export class PublishRouteEntriesRequest extends $dara.Model {
   childInstanceType?: string;
   /**
    * @remarks
-   * The destination CIDR block of the route that you want to advertise.
+   * The destination CIDR block of the route entry to be published.
    * 
    * This parameter is required.
    * 

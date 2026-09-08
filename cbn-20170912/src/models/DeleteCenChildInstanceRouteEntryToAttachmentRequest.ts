@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteCenChildInstanceRouteEntryToAttachmentRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Cloud Enterprise Network (CEN) instance.
+   * The instance ID of the Cloud Enterprise Network (CEN).
    * 
    * This parameter is required.
    * 
@@ -17,9 +17,9 @@ export class DeleteCenChildInstanceRouteEntryToAttachmentRequest extends $dara.M
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * Generate a token from your client to make sure that the token is unique among different requests. The token can contain only ASCII characters.
+   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The client token can contain only ASCII characters.
    * 
-   * > If you do not specify this parameter, the system automatically uses the **RequestId** of the request as the **ClientToken**. The **RequestId** may be different for each request.
+   * > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may be different for each API request.
    * 
    * @example
    * 02fb3da4-130e-11e9-8e44-001****
@@ -37,13 +37,12 @@ export class DeleteCenChildInstanceRouteEntryToAttachmentRequest extends $dara.M
   destinationCidrBlock?: string;
   /**
    * @remarks
-   * Specifies whether to perform a dry run. A dry run checks for potential issues, including permissions and instance status. Valid values:
+   * Specifies whether to perform a dry run. The dry run checks parameter validity, user permissions, and instance status. Valid values:
    * 
-   * - **false** (default): Sends a normal request. The route entry of the network instance is deleted after the request passes the check.
+   * - **false** (default): Sends a normal request. If the request passes the check, the route entry of the network instance is deleted.
+   * - **true**: Sends a check request. Only the check is performed. The route entry of the network instance is not deleted. The check items include whether required parameters are specified and the request format. If the check fails, the corresponding error is returned. If the check succeeds, the corresponding request ID is returned.
    * 
-   * - **true**: Sends a check request. The system checks the required parameters and the request format. If the check fails, an error message is returned. If the check succeeds, the corresponding request ID is returned. The route entry of the network instance is not deleted.
-   * 
-   * > This parameter is not in effect.
+   * > This parameter is not yet available.
    * 
    * @example
    * false
@@ -55,7 +54,7 @@ export class DeleteCenChildInstanceRouteEntryToAttachmentRequest extends $dara.M
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The ID of the route table that belongs to the network instance.
+   * The route table ID of the network instance.
    * 
    * This parameter is required.
    * 

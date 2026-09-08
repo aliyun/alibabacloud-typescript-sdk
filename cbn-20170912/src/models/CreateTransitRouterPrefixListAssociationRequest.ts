@@ -9,7 +9,7 @@ export class CreateTransitRouterPrefixListAssociationRequest extends $dara.Model
    * 
    * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The client token can contain only ASCII characters.
    * 
-   * > If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+   * > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may be different for each API request.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-4266****
@@ -17,12 +17,12 @@ export class CreateTransitRouterPrefixListAssociationRequest extends $dara.Model
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+   * Specifies whether to perform a dry run. Valid values:
    * 
-   * *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error code is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
-   * *   **false** (default): performs a dry run and sends the request.
+   * - **true**: performs a dry run without creating the association. The system checks the required parameters, request syntax, and business restrictions. If the check fails, the corresponding error is returned. If the check succeeds, the error code `DryRunOperation` is returned.
+   * - **false** (default): performs a dry run and creates the association after the check is passed.
    * 
-   * >  This parameter is not in use.
+   * > This parameter is currently not available.
    * 
    * @example
    * false
@@ -32,7 +32,7 @@ export class CreateTransitRouterPrefixListAssociationRequest extends $dara.Model
    * @remarks
    * The ID of the next hop connection.
    * 
-   * To specify all CIDR blocks in the prefix list as blackhole routes, set this parameter to **BlackHole**.
+   * To configure all CIDR blocks in the prefix list as blackhole routes, set this parameter to **BlackHole**.
    * 
    * This parameter is required.
    * 
@@ -42,13 +42,13 @@ export class CreateTransitRouterPrefixListAssociationRequest extends $dara.Model
   nextHop?: string;
   /**
    * @remarks
-   * The type of the next hop. Valid values:
+   * The next hop type. Valid values:
    * 
-   * *   **BlackHole**: specifies that all the CIDR blocks in the prefix list are blackhole routes. Packets destined for the CIDR blocks are dropped.
-   * *   **VPC**: specifies a virtual private cloud (VPC) connection as the next hop.
-   * *   **VBR**: specifies a virtual border router (VBR) connection as the next hop.
-   * *   **TR**: specifies an inter-region connection as the next hop.
-   * *   **ECR**: specifies an Express Connect Router (ECR) connection as the next hop.
+   * - **BlackHole**: All CIDR blocks in the prefix list are blackhole routes. All traffic destined for the CIDR blocks in the prefix list is dropped.
+   * - **VPC**: The next hop of the CIDR blocks in the prefix list is a Virtual Private Cloud (VPC) connection.
+   * - **VBR**: The next hop of the CIDR blocks in the prefix list is a Virtual Border Router (VBR) connection.
+   * - **TR**: The next hop of the CIDR blocks in the prefix list is an inter-region connection.
+   * - **ECR**: The next hop of the CIDR blocks in the prefix list is an Express Connect Router (ECR) instance.
    * 
    * @example
    * VPC
@@ -58,7 +58,7 @@ export class CreateTransitRouterPrefixListAssociationRequest extends $dara.Model
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account to which the prefix list belongs.
+   * The ID of the Alibaba Cloud account that owns the prefix list.
    * 
    * @example
    * 1210123456123456
@@ -76,9 +76,9 @@ export class CreateTransitRouterPrefixListAssociationRequest extends $dara.Model
   prefixListId?: string;
   /**
    * @remarks
-   * The ID of the region where the transit router is deployed.
+   * The region ID of the transit router instance.
    * 
-   * You can call the [DescribeChildInstanceRegions](https://help.aliyun.com/document_detail/132080.html) operation to query the most recent region list.
+   * You can call the [DescribeChildInstanceRegions](https://help.aliyun.com/document_detail/132080.html) operation to query the region ID.
    * 
    * This parameter is required.
    * 
@@ -90,7 +90,7 @@ export class CreateTransitRouterPrefixListAssociationRequest extends $dara.Model
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The ID of the transit router.
+   * The ID of the transit router instance.
    * 
    * This parameter is required.
    * 
@@ -100,7 +100,7 @@ export class CreateTransitRouterPrefixListAssociationRequest extends $dara.Model
   transitRouterId?: string;
   /**
    * @remarks
-   * The ID of the route table of the transit router.
+   * The ID of the transit router route table.
    * 
    * This parameter is required.
    * 

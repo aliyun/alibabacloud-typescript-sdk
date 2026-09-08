@@ -5,9 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListTransitRoutersRequestFeatureFilter extends $dara.Model {
   /**
    * @remarks
-   * The key of the feature to be filtered.
-   * The following key is supported:
-   * 
+   * The key of the feature filter for transit routers. Currently supported fields:
    * - **Multicast**: the multicast feature.
    * 
    * @example
@@ -16,12 +14,9 @@ export class ListTransitRoutersRequestFeatureFilter extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * A list of values for the feature.
-   * If you set the key to **Multicast**, you can specify only one value. Valid values:
-   * 
-   * - **Enabled**: Multicast is supported.
-   * 
-   * - **Disabled**: Multicast is not supported.
+   * The list of values for the feature filter of transit routers. When the key is **Multicast**, only one value is supported. Valid values:
+   * - **Enabled**: multicast is supported.
+   * - **Disabled**: multicast is not supported.
    */
   value?: string[];
   static names(): { [key: string]: string } {
@@ -53,11 +48,11 @@ export class ListTransitRoutersRequestFeatureFilter extends $dara.Model {
 export class ListTransitRoutersRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The tag key.
+   * The tag key of the resource.
    * 
    * The tag key cannot be an empty string. The tag key can be up to 64 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
    * 
-   * You can specify up to 20 tag keys.
+   * You can specify up to 20 tag keys at a time.
    * 
    * @example
    * TagKey
@@ -65,11 +60,11 @@ export class ListTransitRoutersRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value.
+   * The tag value of the resource.
    * 
-   * The tag value can be an empty string or a string of up to 128 characters. It cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
+   * The tag value can be an empty string or up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
    * 
-   * Each tag key must have a unique tag value. You can specify up to 20 tag values.
+   * Each tag key corresponds to one tag value. You can specify up to 20 tag values at a time.
    * 
    * @example
    * TagValue
@@ -101,7 +96,7 @@ export class ListTransitRoutersRequestTag extends $dara.Model {
 export class ListTransitRoutersRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the CEN instance.
+   * The CEN instance ID.
    * 
    * @example
    * cen-j3jzhw1zpau2km****
@@ -109,7 +104,7 @@ export class ListTransitRoutersRequest extends $dara.Model {
   cenId?: string;
   /**
    * @remarks
-   * The feature to be filtered.
+   * The feature filter for transit routers.
    */
   featureFilter?: ListTransitRoutersRequestFeatureFilter[];
   ownerAccount?: string;
@@ -124,7 +119,7 @@ export class ListTransitRoutersRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Valid values: **1** to **50**. Default value: **10**.
+   * The number of entries per page in a paged query. Valid values: **1** to **50**. Default value: **10**. For more information about paging, see the related parameter descriptions.
    * 
    * @example
    * 10
@@ -132,9 +127,9 @@ export class ListTransitRoutersRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the region where the transit router is deployed.
+   * The region ID of the transit router instance.
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
    * 
    * @example
    * cn-hangzhou
@@ -144,17 +139,13 @@ export class ListTransitRoutersRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The status of the transit router.
+   * The status of the transit router instance. Valid values:
    * 
-   * - **Creating**: The transit router is being created.
-   * 
-   * - **Active**: The transit router is available.
-   * 
-   * - **Modifying**: The transit router is being modified.
-   * 
-   * - **Deleting**: The transit router is being deleted.
-   * 
-   * - **Upgrading**: The transit router is being upgraded.
+   * - **Creating**: being created.
+   * - **Active**: active.
+   * - **Modifying**: being modified.
+   * - **Deleting**: being deleted.
+   * - **Upgrading**: being upgraded.
    * 
    * @example
    * Active
@@ -162,14 +153,14 @@ export class ListTransitRoutersRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The tags.
+   * The tag information.
    * 
-   * You can specify up to 20 tags.
+   * You can specify up to 20 tags at a time.
    */
   tag?: ListTransitRoutersRequestTag[];
   /**
    * @remarks
-   * The ID of the transit router.
+   * The transit router instance ID.
    * 
    * @example
    * tr-uf654ttymmljlvh2x****
@@ -177,7 +168,7 @@ export class ListTransitRoutersRequest extends $dara.Model {
   transitRouterId?: string;
   /**
    * @remarks
-   * The name of the transit router.
+   * The name of the transit router instance.
    * 
    * The name must be 1 to 128 characters in length and cannot start with `http://` or `https://`.
    * 
@@ -187,11 +178,10 @@ export class ListTransitRoutersRequest extends $dara.Model {
   transitRouterName?: string;
   /**
    * @remarks
-   * The type of the transit router.
+   * The type of the transit router instance. Valid values:
    * 
-   * - **Enterprise**: Enterprise Edition.
-   * 
-   * - **Basic**: Basic Edition.
+   * - **Enterprise**: Enterprise Edition transit router.
+   * - **Basic**: Basic Edition transit router.
    * 
    * @example
    * Enterprise

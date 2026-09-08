@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteCenRequest extends $dara.Model {
   /**
    * @remarks
-   * The CEN instance ID.
+   * The instance ID of the CEN instance.
    * 
    * This parameter is required.
    * 

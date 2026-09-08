@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GrantInstanceToTransitRouterResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * C6E5992C-A57B-5A6C-9B26-568074DC68BA

@@ -13,10 +13,10 @@ export class DeleteFlowlogResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call is successful. Valid values:
+   * Indicates whether the call is successful.
    * 
-   * - **true**
-   * - **false**
+   * - **true**: The call is successful.
+   * - **false**: The call failed.
    * 
    * @example
    * true

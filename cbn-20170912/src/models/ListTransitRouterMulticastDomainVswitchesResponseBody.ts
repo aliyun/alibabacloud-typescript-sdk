@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListTransitRouterMulticastDomainVSwitchesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries per page for a paged query.
    * 
    * @example
    * 20
@@ -13,10 +13,9 @@ export class ListTransitRouterMulticastDomainVSwitchesResponseBody extends $dara
   maxResults?: number;
   /**
    * @remarks
-   * The token for the next query. Valid values:
-   * 
-   * - If **NextToken** is empty, there is no next query.
-   * - If **NextToken** has a return value, the value is the token for the next query.
+   * The pagination token. Valid values:
+   * - If **NextToken** is empty, no subsequent query exists.
+   * - If **NextToken** is returned, the value indicates the token for the next query.
    * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd****
@@ -32,7 +31,7 @@ export class ListTransitRouterMulticastDomainVSwitchesResponseBody extends $dara
   requestId?: string;
   /**
    * @remarks
-   * The number of entries in the list.
+   * The total number of entries returned.
    * 
    * @example
    * 2

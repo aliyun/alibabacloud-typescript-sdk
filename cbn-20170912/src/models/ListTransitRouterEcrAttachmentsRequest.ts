@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class ListTransitRouterEcrAttachmentsRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The tag key.
+   * The tag key of the resource.
    * 
-   * The tag key cannot be an empty string. The tag key can be up to 64 characters in length. It cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
+   * The tag key cannot be an empty string. It can be up to 64 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
    * 
-   * You can specify at most 20 tag keys in each call.
+   * You can specify up to 20 tag keys at a time.
    * 
    * @example
    * TagKey
@@ -17,11 +17,11 @@ export class ListTransitRouterEcrAttachmentsRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value.
+   * The tag value of the resource.
    * 
-   * The tag value can be an empty string. The tag value can be up to 128 characters in length. It cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
+   * The tag value can be an empty string or up to 128 characters in length. It cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
    * 
-   * Each key-value must be unique. You can specify at most 20 tag values in each call.
+   * Each tag key corresponds to one tag value. You can specify up to 20 tag values at a time.
    * 
    * @example
    * TagValue
@@ -53,7 +53,7 @@ export class ListTransitRouterEcrAttachmentsRequestTag extends $dara.Model {
 export class ListTransitRouterEcrAttachmentsRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Cloud Enterprise Network (CEN) instance.
+   * The CEN instance ID.
    * 
    * @example
    * cen-7qthudw0ll6jmc****
@@ -61,7 +61,7 @@ export class ListTransitRouterEcrAttachmentsRequest extends $dara.Model {
   cenId?: string;
   /**
    * @remarks
-   * The number of entries to return on each page. Default value: **20**.
+   * The number of entries per page for a paged query. Default value: **20**.
    * 
    * @example
    * 20
@@ -69,10 +69,9 @@ export class ListTransitRouterEcrAttachmentsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. Valid values:
-   * 
-   * *   You do not need to specify this parameter for the first request.
-   * *   You must specify the token that is obtained from the previous query as the value of NextToken.
+   * The token that determines the start point of the next query. Valid values: 
+   * - If **NextToken** is empty, no next query exists. 
+   * - If **NextToken** is returned, the value indicates the token for the next query.
    * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd****
@@ -82,9 +81,9 @@ export class ListTransitRouterEcrAttachmentsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the transit router.
+   * The region ID of the transit router instance.
    * 
-   * You can call the [DescribeChildInstanceRegions](https://help.aliyun.com/document_detail/132080.html) operation to query the most recent region list.
+   * You can call the [DescribeChildInstanceRegions](https://help.aliyun.com/document_detail/132080.html) operation to query region IDs.
    * 
    * @example
    * cn-hangzhou
@@ -94,14 +93,14 @@ export class ListTransitRouterEcrAttachmentsRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The tags.
+   * The tag information.
    * 
-   * You can specify at most 20 tags.
+   * You can specify up to 20 tags at a time.
    */
   tag?: ListTransitRouterEcrAttachmentsRequestTag[];
   /**
    * @remarks
-   * The ID of the ECR connection.
+   * The ECR connection ID.
    * 
    * @example
    * tr-attach-nls9fzkfat8934****
@@ -109,7 +108,7 @@ export class ListTransitRouterEcrAttachmentsRequest extends $dara.Model {
   transitRouterAttachmentId?: string;
   /**
    * @remarks
-   * The ID of the transit router.
+   * The transit router instance ID.
    * 
    * @example
    * tr-6ehx7q2jze8ch5ji0****

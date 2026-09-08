@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCenAttachedChildInstancesRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the CEN instance.
+   * The CEN instance ID.
    * 
    * This parameter is required.
    * 
@@ -15,9 +15,9 @@ export class DescribeCenAttachedChildInstancesRequest extends $dara.Model {
   cenId?: string;
   /**
    * @remarks
-   * The ID of the region where the network instance is deployed.
+   * The region ID of the network instance.                   
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
    * 
    * @example
    * cn-zhangjiakou
@@ -27,9 +27,11 @@ export class DescribeCenAttachedChildInstancesRequest extends $dara.Model {
    * @remarks
    * The type of the network instance. Valid values:
    * 
-   * - **VPC**: virtual private cloud (VPC)
-   * - **VBR**: virtual border router (VBR)
-   * - **CCN**: Cloud Connect Network (CCN) instance
+   * - **VPC**: virtual private cloud.
+   * 
+   * - **VBR**: virtual border router.
+   * 
+   * - **CCN**: Cloud Connect Network.
    * 
    * @example
    * VPC
@@ -39,7 +41,7 @@ export class DescribeCenAttachedChildInstancesRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The number of the page to return. Default value: **1**.
+   * The page number. Default value: **1**.
    * 
    * @example
    * 1
@@ -47,7 +49,7 @@ export class DescribeCenAttachedChildInstancesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Default value: **10**. Valid values: **1** to **50**.
+   * The number of entries per page for paging query. Default value: **10**. Valid values: **1** to **50**.
    * 
    * @example
    * 10

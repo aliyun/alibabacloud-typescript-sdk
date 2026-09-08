@@ -45,9 +45,9 @@ export class ListTransitRouterEcrAttachmentsResponseBodyTransitRouterAttachments
 export class ListTransitRouterEcrAttachmentsResponseBodyTransitRouterAttachments extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the Enterprise Edition transit router can automatically advertise routes to ECRs.
+   * Indicates whether the Enterprise Edition transit router automatically publishes route entries to the ECR instance.
    * 
-   * The value is **true**, which indicates that the Enterprise Edition transit router can automatically advertise routes to ECRs.
+   * The value is **true** only, which indicates that route entries are automatically published.
    * 
    * @example
    * true
@@ -55,7 +55,7 @@ export class ListTransitRouterEcrAttachmentsResponseBodyTransitRouterAttachments
   autoPublishRouteEnabled?: boolean;
   /**
    * @remarks
-   * The ID of the CEN instance.
+   * The CEN instance ID.
    * 
    * @example
    * cen-j3jzhw1zpau2km****
@@ -65,7 +65,7 @@ export class ListTransitRouterEcrAttachmentsResponseBodyTransitRouterAttachments
    * @remarks
    * The time when the ECR connection was created.
    * 
-   * The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
+   * The time is displayed in the ISO 8601 standard in UTC. Format: YYYY-MM-DDThh:mmZ.
    * 
    * @example
    * 2021-06-15T02:14Z
@@ -73,7 +73,7 @@ export class ListTransitRouterEcrAttachmentsResponseBodyTransitRouterAttachments
   creationTime?: string;
   /**
    * @remarks
-   * The ID of the ECR with which the ECR connection is associated.
+   * The instance ID of the associated Express Connect Router (ECR).
    * 
    * @example
    * ecr-n78omt2qsko06y****
@@ -81,18 +81,18 @@ export class ListTransitRouterEcrAttachmentsResponseBodyTransitRouterAttachments
   ecrId?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account to which the ECR connection belongs.
+   * The ID of the Alibaba Cloud account to which the ECR instance belongs.
    * 
    * @example
-   * 1688111111111111
+   * 1210123456123456
    */
   ecrOwnerId?: number;
   /**
    * @remarks
-   * The entity that pays the fees of the network instance. Valid values: Valid values:
+   * The payer of the network instance. Valid values:
    * 
-   * *   **PayByCenOwner**: The Alibaba Cloud account to which the transit router belongs pays the connection and data forwarding fees of the ECR.
-   * *   **PayByResourceOwner**: The Alibaba Cloud account to which the ECR belongs pays the connection and data forwarding fees of the ECR.
+   * - **PayByCenOwner**: The connection fee and data processing fee of the ECR instance are paid by the account that owns the transit router instance.
+   * - **PayByResourceOwner**: The connection fee and data processing fee of the ECR instance are paid by the account that owns the ECR instance.
    * 
    * @example
    * PayByCenOwner
@@ -100,9 +100,9 @@ export class ListTransitRouterEcrAttachmentsResponseBodyTransitRouterAttachments
   orderType?: string;
   /**
    * @remarks
-   * The type of resource to which the transit router is connected. Valid values:
+   * The resource type of the connection.
    * 
-   * The value is **ECR**, which indicates ECR connections.
+   * The value is **ECR** only, which indicates an Express Connect Router (ECR) instance.
    * 
    * @example
    * ECR
@@ -110,11 +110,11 @@ export class ListTransitRouterEcrAttachmentsResponseBodyTransitRouterAttachments
   resourceType?: string;
   /**
    * @remarks
-   * The status of the ECR connection. Valid values:
+   * The status of the ECR connection.
    * 
-   * *   **Attached**
-   * *   **Attaching**
-   * *   **Detaching**
+   * - **Attached**: attached.
+   * - **Attaching**: being attached.
+   * - **Detaching**: being detached.
    * 
    * @example
    * Attached
@@ -122,7 +122,7 @@ export class ListTransitRouterEcrAttachmentsResponseBodyTransitRouterAttachments
   status?: string;
   /**
    * @remarks
-   * The tags.
+   * The list of tags.
    */
   tags?: ListTransitRouterEcrAttachmentsResponseBodyTransitRouterAttachmentsTags[];
   /**
@@ -135,7 +135,7 @@ export class ListTransitRouterEcrAttachmentsResponseBodyTransitRouterAttachments
   transitRouterAttachmentDescription?: string;
   /**
    * @remarks
-   * The ID of the ECR connection.
+   * The ECR connection ID.
    * 
    * @example
    * tr-attach-nls9fzkfat8934****
@@ -151,7 +151,7 @@ export class ListTransitRouterEcrAttachmentsResponseBodyTransitRouterAttachments
   transitRouterAttachmentName?: string;
   /**
    * @remarks
-   * The ID of the Enterprise Edition transit router.
+   * The Enterprise Edition transit router instance ID.
    * 
    * @example
    * tr-bp1su1ytdxtataupl****
@@ -161,7 +161,7 @@ export class ListTransitRouterEcrAttachmentsResponseBodyTransitRouterAttachments
    * @remarks
    * The region ID of the transit router.
    * 
-   * You can call the [DescribeChildInstanceRegions](https://help.aliyun.com/document_detail/132080.html) operation to query the most recent region list.
+   * You can call the [DescribeChildInstanceRegions](https://help.aliyun.com/document_detail/132080.html) operation to query the region information corresponding to the region ID.
    * 
    * @example
    * cn-shanghai
@@ -220,7 +220,7 @@ export class ListTransitRouterEcrAttachmentsResponseBodyTransitRouterAttachments
 export class ListTransitRouterEcrAttachmentsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries per page for a paged query.
    * 
    * @example
    * 20
@@ -228,7 +228,7 @@ export class ListTransitRouterEcrAttachmentsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * A pagination token. It can be used in the next request to retrieve a new page of results.
+   * The token for the next paged query.
    * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd****
@@ -244,7 +244,7 @@ export class ListTransitRouterEcrAttachmentsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 4
@@ -252,7 +252,7 @@ export class ListTransitRouterEcrAttachmentsResponseBody extends $dara.Model {
   totalCount?: number;
   /**
    * @remarks
-   * The information about the ECR connections.
+   * The list of ECR connection information.
    */
   transitRouterAttachments?: ListTransitRouterEcrAttachmentsResponseBodyTransitRouterAttachments[];
   static names(): { [key: string]: string } {

@@ -553,7 +553,7 @@ export class DescribeCenRouteMapsResponseBodyRouteMaps extends $dara.Model {
 export class DescribeCenRouteMapsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The page number.
+   * The page number of the list.
    * 
    * @example
    * 1
@@ -561,7 +561,7 @@ export class DescribeCenRouteMapsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries per page in a paged query. This parameter is used for paging.
    * 
    * @example
    * 10
@@ -578,7 +578,7 @@ export class DescribeCenRouteMapsResponseBody extends $dara.Model {
   routeMaps?: DescribeCenRouteMapsResponseBodyRouteMaps;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 1

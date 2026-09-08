@@ -37,10 +37,10 @@ export class RevokeInstanceFromTransitRouterRequest extends $dara.Model {
    * @remarks
    * The type of the network instance. Valid values:
    * 
-   * - **VPC**: VPC
-   * - **ExpressConnect**: VBR
-   * - **VPN**: IPsec-VPN connection
-   * - **ECR**: ECR
+   * - **VPC**: VPC instance.
+   * - **ExpressConnect**: VBR instance.
+   * - **VPN**: IPsec connection.
+   * - **ECR**: ECR instance.
    * 
    * This parameter is required.
    * 
@@ -54,7 +54,7 @@ export class RevokeInstanceFromTransitRouterRequest extends $dara.Model {
    * @remarks
    * The region ID of the network instance.
    * 
-   * You can call the [DescribeChildInstanceRegions](https://help.aliyun.com/document_detail/132080.html) operation to query the most recent region list.
+   * You can call the [DescribeChildInstanceRegions](https://help.aliyun.com/document_detail/132080.html) operation to query region IDs.
    * 
    * @example
    * cn-hangzhou

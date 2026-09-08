@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListTransitRouterRouteTablePropagationsResponseBodyTransitRouterPropagations extends $dara.Model {
   /**
    * @remarks
-   * The ID of the network instance.
+   * The network instance ID.
    * 
    * @example
    * vpc-bp1h8vbrbcgohcju5****
@@ -13,15 +13,12 @@ export class ListTransitRouterRouteTablePropagationsResponseBodyTransitRouterPro
   resourceId?: string;
   /**
    * @remarks
-   * The type of the network instance.
+   * The network instance type. Valid values:
    * 
-   * - **VPC**: a VPC.
-   * 
-   * - **VBR**: a VBR.
-   * 
-   * - **TR**: a transit router.
-   * 
-   * - **VPN**: a VPN connection.
+   * - **VPC**: virtual private cloud (VPC) instance.
+   * - **VBR**: virtual border router (VBR) instance.
+   * - **TR**: transit router instance.
+   * - **VPN**: VPN connection.
    * 
    * @example
    * VPC
@@ -29,13 +26,11 @@ export class ListTransitRouterRouteTablePropagationsResponseBodyTransitRouterPro
   resourceType?: string;
   /**
    * @remarks
-   * The status of the route propagation.
+   * The status of the route learning relationship. Valid values:
    * 
-   * - **Enabling**: The propagation is being enabled.
-   * 
-   * - **Disabling**: The propagation is being disabled.
-   * 
-   * - **Active**: The propagation is active.
+   * - **Enabling**: being enabled.
+   * - **Disabling**: being disabled.
+   * - **Active**: active.
    * 
    * @example
    * Active
@@ -43,7 +38,7 @@ export class ListTransitRouterRouteTablePropagationsResponseBodyTransitRouterPro
   status?: string;
   /**
    * @remarks
-   * The ID of the network instance connection.
+   * The network instance connection ID.
    * 
    * @example
    * tr-attach-vx6iwhjr1x1j78****
@@ -51,7 +46,7 @@ export class ListTransitRouterRouteTablePropagationsResponseBodyTransitRouterPro
   transitRouterAttachmentId?: string;
   /**
    * @remarks
-   * The ID of the route table of the Enterprise Edition transit router.
+   * The ID of the Enterprise Edition transit router route table.
    * 
    * @example
    * vtb-bp1dudbh2d5na6b50****
@@ -89,7 +84,7 @@ export class ListTransitRouterRouteTablePropagationsResponseBodyTransitRouterPro
 export class ListTransitRouterRouteTablePropagationsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries per page for a paged query.
    * 
    * @example
    * 50
@@ -97,7 +92,7 @@ export class ListTransitRouterRouteTablePropagationsResponseBody extends $dara.M
   maxResults?: number;
   /**
    * @remarks
-   * The token that is used to retrieve the next page of results.
+   * The token for the next query in a paged query.
    * 
    * @example
    * dd20****
@@ -121,7 +116,7 @@ export class ListTransitRouterRouteTablePropagationsResponseBody extends $dara.M
   totalCount?: number;
   /**
    * @remarks
-   * A list of the route propagations.
+   * The list of route learning relationships.
    */
   transitRouterPropagations?: ListTransitRouterRouteTablePropagationsResponseBodyTransitRouterPropagations[];
   static names(): { [key: string]: string } {

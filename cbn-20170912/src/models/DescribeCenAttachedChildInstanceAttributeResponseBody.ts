@@ -135,7 +135,7 @@ export class DescribeCenAttachedChildInstanceAttributeResponseBodyChildInstanceA
 export class DescribeCenAttachedChildInstanceAttributeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the CEN instance.
+   * The CEN instance ID.
    * 
    * @example
    * cen-5mv960yjhja0dh****
@@ -143,9 +143,9 @@ export class DescribeCenAttachedChildInstanceAttributeResponseBody extends $dara
   cenId?: string;
   /**
    * @remarks
-   * The time when the network instance was attached to the CEN instance.
+   * The time when the network instance was attached.
    * 
-   * The time follows the ISO 8601 standard in the yyyy-MM-ddThh:mmZ format. The time is displayed in UTC.
+   * The time is displayed in UTC in the YYYY-MM-DDThh:mmZ format.
    * 
    * @example
    * 2018-07-30T07:53Z
@@ -153,12 +153,12 @@ export class DescribeCenAttachedChildInstanceAttributeResponseBody extends $dara
   childInstanceAttachTime?: string;
   /**
    * @remarks
-   * The details about the network instance.
+   * The details of the network instance.
    */
   childInstanceAttributes?: DescribeCenAttachedChildInstanceAttributeResponseBodyChildInstanceAttributes;
   /**
    * @remarks
-   * The ID of the network instance.
+   * The network instance ID.
    * 
    * @example
    * vpc-2zebdboka7d7t37vo****
@@ -190,11 +190,13 @@ export class DescribeCenAttachedChildInstanceAttributeResponseBody extends $dara
   childInstanceRegionId?: string;
   /**
    * @remarks
-   * The type of the network instance. Valid values:
+   * The type of the network instance.
    * 
-   * - **VPC**: VPC
-   * - **VBR**: VBR
-   * - **CCN**: CCN instance
+   * - **VPC**: virtual private cloud.
+   * 
+   * - **VBR**: virtual border router.
+   * 
+   * - **CCN**: Cloud Connect Network.
    * 
    * @example
    * VPC
@@ -202,7 +204,7 @@ export class DescribeCenAttachedChildInstanceAttributeResponseBody extends $dara
   childInstanceType?: string;
   /**
    * @remarks
-   * The cloud service that the network instance belongs to. Its standard code is only returned when the VPC is connected to the transit router. For self-managed VPCs, no code is returned.
+   * The cloud service to which the network instance belongs. This parameter is returned only when a VPC occupied by a cloud service is connected to a transit router. If the VPC is managed by you, this parameter is not returned.
    * 
    * @example
    * swas
@@ -210,7 +212,7 @@ export class DescribeCenAttachedChildInstanceAttributeResponseBody extends $dara
   managedService?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * ADD98358-D265-4060-87CB-A2427F5A8944
@@ -218,11 +220,11 @@ export class DescribeCenAttachedChildInstanceAttributeResponseBody extends $dara
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the network instance is attached to the CEN instance.
+   * The attachment status of the network instance.
    * 
-   * - **Attaching**: The network instance is being attached to the CEN instance.
-   * - **Attached**: The network instance is attached to the CEN instance.
-   * - **Detaching**: The network instance is being detached from the CEN instance.
+   * - **Attaching**: being attached.
+   * - **Attached**: attached.
+   * - **Detaching**: being detached.
    * 
    * @example
    * Attached

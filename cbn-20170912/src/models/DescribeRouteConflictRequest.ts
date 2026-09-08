@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeRouteConflictRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the network instance to query.
+   * The instance ID of the network instance to query.
    * 
    * This parameter is required.
    * 
@@ -15,9 +15,9 @@ export class DescribeRouteConflictRequest extends $dara.Model {
   childInstanceId?: string;
   /**
    * @remarks
-   * The ID of the region where the network instance is deployed.
+   * The region ID of the network instance.
    * 
-   * You can call the [DescribeChildInstanceRegions](https://help.aliyun.com/document_detail/132080.html) operation to query region IDs.
+   * You can call the [DescribeChildInstanceRegions](https://help.aliyun.com/document_detail/132080.html) operation to obtain region IDs.
    * 
    * This parameter is required.
    * 
@@ -27,7 +27,7 @@ export class DescribeRouteConflictRequest extends $dara.Model {
   childInstanceRegionId?: string;
   /**
    * @remarks
-   * The ID of the route table of the network instance.
+   * The route table ID of the network instance to query.
    * 
    * This parameter is required.
    * 
@@ -53,7 +53,7 @@ export class DescribeRouteConflictRequest extends $dara.Model {
   childInstanceType?: string;
   /**
    * @remarks
-   * The destination CIDR block of the conflicting route.
+   * The destination CIDR block of the conflicting route entry.
    * 
    * @example
    * 172.16.0.0/16
@@ -71,7 +71,7 @@ export class DescribeRouteConflictRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Default value: **10**. Valid values: **1** to **50**.
+   * The number of entries per page during paging. Default value: **10**. Valid values: **1** to **50**.
    * 
    * @example
    * 10

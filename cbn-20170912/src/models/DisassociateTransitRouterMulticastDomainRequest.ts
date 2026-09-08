@@ -7,7 +7,7 @@ export class DisassociateTransitRouterMulticastDomainRequest extends $dara.Model
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * Generate a token from your client to make sure that the token is unique among different requests. The token can contain only ASCII characters.
+   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The client token can contain only ASCII characters.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -17,9 +17,8 @@ export class DisassociateTransitRouterMulticastDomainRequest extends $dara.Model
    * @remarks
    * Specifies whether to perform a dry run. Valid values:
    * 
-   * - **true**: performs a dry run. The system checks the required parameters, request format, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
-   * 
-   * - **false** (default): performs a normal request. If the request passes the check, the vSwitch is dissociated from the multicast domain.
+   * - **true**: performs a dry run without disassociating the vSwitch from the multicast domain. The system checks the required parameters, request format, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the error code `DryRunOperation` is returned.
+   * - **false** (default): performs a dry run and sends the request. If the request passes the dry run, the vSwitch is disassociated from the multicast domain.
    * 
    * @example
    * false
@@ -33,7 +32,7 @@ export class DisassociateTransitRouterMulticastDomainRequest extends $dara.Model
    * @remarks
    * The ID of the VPC connection.
    * 
-   * The VPC connection is created after the Virtual Private Cloud (VPC) to which the vSwitch belongs is connected to the transit router.
+   * This parameter specifies the ID of the VPC connection that was generated after the Virtual Private Cloud (VPC) to which the vSwitch belongs was connected to the transit router instance.
    * 
    * This parameter is required.
    * 

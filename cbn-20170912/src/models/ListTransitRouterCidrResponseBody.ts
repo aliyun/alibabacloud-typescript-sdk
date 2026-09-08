@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListTransitRouterCidrResponseBodyCidrLists extends $dara.Model {
   /**
    * @remarks
-   * The CIDR block of the transit router.
+   * The transit router CIDR block.
    * 
    * @example
    * 192.168.10.0/24
@@ -13,7 +13,7 @@ export class ListTransitRouterCidrResponseBodyCidrLists extends $dara.Model {
   cidr?: string;
   /**
    * @remarks
-   * The description of the CIDR block.
+   * The description of the transit router CIDR block.
    * 
    * @example
    * desctest
@@ -21,9 +21,9 @@ export class ListTransitRouterCidrResponseBodyCidrLists extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The type of the CIDR block.
+   * The type of the transit router CIDR block.
    * 
-   * The value is **IPv4**, which indicates that the CIDR block is of the IPv4 type.
+   * The value is **IPv4** only, which indicates that the transit router CIDR block is of the IPv4 type.
    * 
    * @example
    * IPv4
@@ -31,7 +31,7 @@ export class ListTransitRouterCidrResponseBodyCidrLists extends $dara.Model {
   family?: string;
   /**
    * @remarks
-   * The name of the CIDR block.
+   * The name of the transit router CIDR block.
    * 
    * @example
    * nametest
@@ -39,17 +39,16 @@ export class ListTransitRouterCidrResponseBodyCidrLists extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Indicates whether the system is allowed to automatically add a route to the route table of the transit router. Valid values:
+   * Indicates whether the system is allowed to automatically add a route for the transit router CIDR block to the transit router route table.
    * 
-   * *   **true**
-   * 
-   *     A value of **true** indicates that after you create a private VPN connection and enable route learning for the connection, the system automatically adds a blackhole route to the route table of the transit router to which the VPN connection is attached.
-   * 
-   *     The destination CIDR block of the blackhole route is the CIDR block of the transit router. The CIDR block of the transit router refers to the CIDR block from which gateway IP addresses are allocated to IPsec-VPN connections.
-   * 
-   *     The blackhole route is advertised only to the route table of the virtual border router (VBR) that is connected to the transit router.
-   * 
-   * *   **false**
+   * - **true**: allowed.
+   *        
+   *     If the value of this parameter is **true**, after you create a VPN connection of the private gateway type and create a route learning relationship for the VPN connection, the system automatically adds a route entry to the transit router route table that has a route learning relationship with the VPN connection:
+   *    
+   *   The route entry is a blackhole route whose destination CIDR block is the transit router CIDR block from which gateway IP addresses have been allocated to the IPsec connection.
+   *         
+   *   The blackhole route is propagated only to the route tables of VBR instances associated with the transit router.
+   * - **false**: not allowed.
    * 
    * @example
    * true
@@ -65,7 +64,7 @@ export class ListTransitRouterCidrResponseBodyCidrLists extends $dara.Model {
   transitRouterCidrId?: string;
   /**
    * @remarks
-   * The transit router ID.
+   * The ID of the transit router instance.
    * 
    * @example
    * tr-p0w3x8c9em72a40nw****
@@ -107,12 +106,12 @@ export class ListTransitRouterCidrResponseBodyCidrLists extends $dara.Model {
 export class ListTransitRouterCidrResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the CIDR block.
+   * The list of transit router CIDR blocks.
    */
   cidrLists?: ListTransitRouterCidrResponseBodyCidrLists[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 0876E54E-3E36-5C31-89F0-9EE8A9266F9A

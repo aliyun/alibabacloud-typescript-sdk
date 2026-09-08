@@ -84,7 +84,7 @@ export class DescribeCenInterRegionBandwidthLimitsResponseBody extends $dara.Mod
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries per page when using paging.
    * 
    * @example
    * 10

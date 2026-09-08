@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyCenBandwidthPackageAttributeRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the bandwidth plan.
+   * The instance ID of the bandwidth plan.
    * 
    * This parameter is required.
    * 
@@ -15,9 +15,9 @@ export class ModifyCenBandwidthPackageAttributeRequest extends $dara.Model {
   cenBandwidthPackageId?: string;
   /**
    * @remarks
-   * The new description for the bandwidth plan.
+   * The new description of the bandwidth plan instance.  
    * 
-   * The description can be empty or 1 to 256 characters long. It cannot start with http\\:// or https\\://.
+   * The description can be empty or 1 to 256 characters in length and cannot start with http:// or https://.
    * 
    * @example
    * Bandwidth package
@@ -25,9 +25,9 @@ export class ModifyCenBandwidthPackageAttributeRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The new name for the bandwidth plan.
+   * The new name of the bandwidth plan instance.
    * 
-   * The name can be empty or 1 to 128 characters long. It cannot start with http\\:// or https\\://.
+   * The name can be empty or 1 to 128 characters in length and cannot start with http:// or https://.
    * 
    * @example
    * test

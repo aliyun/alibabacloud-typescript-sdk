@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeRouteServicesInCenRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the region where the cloud service is accessed.
+   * The region ID from which the cloud service is accessed.
    * 
    * @example
    * cn-hangzhou
@@ -13,7 +13,7 @@ export class DescribeRouteServicesInCenRequest extends $dara.Model {
   accessRegionId?: string;
   /**
    * @remarks
-   * The ID of the Cloud Enterprise Network (CEN) instance.
+   * The Cloud Enterprise Network (CEN) instance ID.
    * 
    * This parameter is required.
    * 
@@ -23,9 +23,9 @@ export class DescribeRouteServicesInCenRequest extends $dara.Model {
   cenId?: string;
   /**
    * @remarks
-   * The endpoint of the Alibaba Cloud service.
+   * The service address of the cloud service.
    * 
-   * The endpoint can be a domain name, an IP address, or a CIDR block.
+   * You can enter a domain name, an IP address, or a CIDR block.
    * 
    * @example
    * 100.118.28.0/24
@@ -33,9 +33,9 @@ export class DescribeRouteServicesInCenRequest extends $dara.Model {
   host?: string;
   /**
    * @remarks
-   * The ID of the region where the Alibaba Cloud service is deployed.
+   * The region ID of the cloud service.
    * 
-   * Call the [DescribeChildInstanceRegions](https://help.aliyun.com/document_detail/132080.html) operation to obtain the region ID.
+   * You can call the [DescribeChildInstanceRegions](https://help.aliyun.com/document_detail/132080.html) operation to query region IDs.
    * 
    * @example
    * cn-hangzhou
@@ -43,7 +43,7 @@ export class DescribeRouteServicesInCenRequest extends $dara.Model {
   hostRegionId?: string;
   /**
    * @remarks
-   * The ID of the VPC that is associated with the Alibaba Cloud service.
+   * The instance ID of the VPC-connected instance associated with the cloud service.
    * 
    * @example
    * vpc-bp1h8vbrbcgohcju5****
@@ -53,7 +53,7 @@ export class DescribeRouteServicesInCenRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The page number. The default value is **1**.
+   * The page number. Default value: **1**.
    * 
    * @example
    * 1
@@ -61,7 +61,7 @@ export class DescribeRouteServicesInCenRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. The default value is **10**. Valid values: **1** to **50**.
+   * The number of entries per page for paging. Default value: **10**. Valid values: **1** to **50**.
    * 
    * @example
    * 10

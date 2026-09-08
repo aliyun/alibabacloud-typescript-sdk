@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListGrantVSwitchEnisResponseBodyGrantVSwitchEnis extends $dara.Model {
   /**
    * @remarks
-   * The description of the ENI.
+   * The description of the elastic network interfaces (ENIs). This describes the network interface controller (NIC).
    * 
    * @example
    * created by CBN
@@ -13,7 +13,7 @@ export class ListGrantVSwitchEnisResponseBodyGrantVSwitchEnis extends $dara.Mode
   description?: string;
   /**
    * @remarks
-   * The ID of the ENI.
+   * The ID of the elastic network interfaces (ENIs). This is the network interface controller (NIC) identifier.
    * 
    * @example
    * eni-p0w172vv82kxzb49****
@@ -21,7 +21,7 @@ export class ListGrantVSwitchEnisResponseBodyGrantVSwitchEnis extends $dara.Mode
   networkInterfaceId?: string;
   /**
    * @remarks
-   * The name of the ENI.
+   * The name of the elastic network interfaces (ENIs). This is the network interface controller (NIC) name.
    * 
    * @example
    * my-eni-name
@@ -29,7 +29,7 @@ export class ListGrantVSwitchEnisResponseBodyGrantVSwitchEnis extends $dara.Mode
   networkInterfaceName?: string;
   /**
    * @remarks
-   * The primary private IPv4 address of the ENI.
+   * The primary private IP IPv4 address of the elastic network interfaces (ENIs). This is the network interface controller (NIC) primary private IP address.
    * 
    * @example
    * ``192.168.**.**``
@@ -37,13 +37,12 @@ export class ListGrantVSwitchEnisResponseBodyGrantVSwitchEnis extends $dara.Mode
   primaryIpAddress?: string;
   /**
    * @remarks
-   * Indicates whether the ENI is created by a transit router.
+   * Indicates whether the elastic network interface (ENI) is created by a transit router for routing and forwarding purposes.
    * 
    * - **true**: The ENI is created by a transit router.
-   * 
    * - **false**: The ENI is not created by a transit router.
    * 
-   * ENIs created by transit routers cannot be used as multicast sources or members.
+   * Elastic network interfaces (ENIs) created by transit routers cannot serve as multicast sources or multicast members.
    * 
    * @example
    * false
@@ -51,7 +50,7 @@ export class ListGrantVSwitchEnisResponseBodyGrantVSwitchEnis extends $dara.Mode
   transitRouterFlag?: boolean;
   /**
    * @remarks
-   * The ID of the vSwitch.
+   * The vSwitch ID.
    * 
    * @example
    * vsw-p0w9s2ig1jnwgrbzl****
@@ -59,7 +58,7 @@ export class ListGrantVSwitchEnisResponseBodyGrantVSwitchEnis extends $dara.Mode
   vSwitchId?: string;
   /**
    * @remarks
-   * The ID of the VPC.
+   * The VPC-connected instance ID.
    * 
    * @example
    * vpc-p0w9alkte4w2htrqe****
@@ -101,12 +100,12 @@ export class ListGrantVSwitchEnisResponseBodyGrantVSwitchEnis extends $dara.Mode
 export class ListGrantVSwitchEnisResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A list of ENI information.
+   * The list of network interface controller (NIC) information.
    */
   grantVSwitchEnis?: ListGrantVSwitchEnisResponseBodyGrantVSwitchEnis[];
   /**
    * @remarks
-   * The maximum number of entries returned.
+   * The maximum number of entries returned for this query.
    * 
    * @example
    * 20
@@ -114,7 +113,7 @@ export class ListGrantVSwitchEnisResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that is used for the next query.
+   * The token returned for this query.
    * 
    * @example
    * AAAAAdDWBF2****
@@ -130,11 +129,8 @@ export class ListGrantVSwitchEnisResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries.
-   * 
-   * >Notice: 
-   * 
-   * This parameter is invalid if you use MaxResults and NextToken to perform a paged query.
+   * The total number of entries returned.
+   * >Notice: When you use the MaxResults and NextToken parameters for paging, the returned Total parameter value is meaningless.
    * 
    * @example
    * 6

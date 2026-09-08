@@ -7,7 +7,7 @@ export class ListTransitRouterPrefixListAssociationResponseBodyPrefixLists exten
    * @remarks
    * The ID of the next hop connection.
    * 
-   * > If **BlackHole** is returned, it indicates that all CIDR blocks in the prefix list are blackhole routes. All traffic destined for the CIDR blocks in the prefix list is dropped.
+   * > If the value is **BlackHole**, all CIDR blocks in the prefix list are blackhole routes, and all traffic destined for the CIDR blocks in the prefix list is dropped.
    * 
    * @example
    * tr-attach-flbq507rg2ckrj****
@@ -15,7 +15,7 @@ export class ListTransitRouterPrefixListAssociationResponseBodyPrefixLists exten
   nextHop?: string;
   /**
    * @remarks
-   * The ID of the network instance that is associated with the next hop connection.
+   * The network instance ID associated with the next hop connection.
    * 
    * @example
    * vpc-6eh7fp9hdqa2wv85t****
@@ -25,13 +25,10 @@ export class ListTransitRouterPrefixListAssociationResponseBodyPrefixLists exten
    * @remarks
    * The next hop type.
    * 
-   * - **BlackHole**: The routes are blackhole routes. All traffic destined for the CIDR blocks in the prefix list is dropped.
-   * 
-   * - **VPC**: The next hop is a Virtual Private Cloud (VPC) connection.
-   * 
-   * - **VBR**: The next hop is a virtual border router (VBR) connection.
-   * 
-   * - **TR**: The next hop is an inter-region connection.
+   * - **BlackHole**: the CIDR blocks in the prefix list are blackhole routes, and all traffic destined for the CIDR blocks in the prefix list is dropped.
+   * - **VPC**: the next hop of the CIDR blocks in the prefix list is a Virtual Private Cloud (VPC) connection.
+   * - **VBR**: the next hop of the CIDR blocks in the prefix list is a Virtual Border Router (VBR) connection.
+   * - **TR**: the next hop of the CIDR blocks in the prefix list is an inter-region connection.
    * 
    * @example
    * VPC
@@ -57,9 +54,8 @@ export class ListTransitRouterPrefixListAssociationResponseBodyPrefixLists exten
    * @remarks
    * The status of the prefix list.
    * 
-   * - **Active**: The prefix list is active.
-   * 
-   * - **Updating**: The prefix list is being updated.
+   * - **Active**: active.
+   * - **Updating**: being updated.
    * 
    * @example
    * Active
@@ -67,7 +63,7 @@ export class ListTransitRouterPrefixListAssociationResponseBodyPrefixLists exten
   status?: string;
   /**
    * @remarks
-   * The ID of the transit router.
+   * The transit router instance ID.
    * 
    * @example
    * tr-6ehx7q2jze8ch5ji0****
@@ -75,7 +71,7 @@ export class ListTransitRouterPrefixListAssociationResponseBodyPrefixLists exten
   transitRouterId?: string;
   /**
    * @remarks
-   * The ID of the route table of the transit router.
+   * The ID of the transit router route table.
    * 
    * @example
    * vtb-6ehgc262hr170qgyc****
@@ -119,7 +115,7 @@ export class ListTransitRouterPrefixListAssociationResponseBodyPrefixLists exten
 export class ListTransitRouterPrefixListAssociationResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The page number.
+   * The page number of the returned page.
    * 
    * @example
    * 1
@@ -127,7 +123,7 @@ export class ListTransitRouterPrefixListAssociationResponseBody extends $dara.Mo
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries per page in a paged query.
    * 
    * @example
    * 10
@@ -148,7 +144,7 @@ export class ListTransitRouterPrefixListAssociationResponseBody extends $dara.Mo
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries that match the query conditions.
    * 
    * @example
    * 1

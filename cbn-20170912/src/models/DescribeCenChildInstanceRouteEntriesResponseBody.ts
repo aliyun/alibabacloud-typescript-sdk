@@ -268,7 +268,7 @@ export class DescribeCenChildInstanceRouteEntriesResponseBody extends $dara.Mode
   cenRouteEntries?: DescribeCenChildInstanceRouteEntriesResponseBodyCenRouteEntries;
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number.
    * 
    * @example
    * 1
@@ -276,7 +276,7 @@ export class DescribeCenChildInstanceRouteEntriesResponseBody extends $dara.Mode
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries per page for paging queries.
    * 
    * @example
    * 10
@@ -284,7 +284,7 @@ export class DescribeCenChildInstanceRouteEntriesResponseBody extends $dara.Mode
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 17A57456-EF48-419D-9AE6-9B03D9996018
@@ -292,7 +292,7 @@ export class DescribeCenChildInstanceRouteEntriesResponseBody extends $dara.Mode
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 4

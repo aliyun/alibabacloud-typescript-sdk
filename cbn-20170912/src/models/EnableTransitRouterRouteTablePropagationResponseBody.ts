@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class EnableTransitRouterRouteTablePropagationResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 59CF8BF9-DE61-421E-B903-D56AF46A303C

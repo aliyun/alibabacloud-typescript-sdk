@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class CheckTransitRouterServiceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the transit router feature is activated.
+   * Indicates whether the transit router service is activated for the current Alibaba Cloud account.
    * 
-   * - **true**: activated
-   * - If this value is not returned, the system prompts that the current account does not have the transit router feature activated.
+   * - **true**: The service is activated.
+   * - If this parameter is not returned, the transit router service is not activated for the current Alibaba Cloud account, and the system returns a corresponding message.
    * 
    * @example
    * true
@@ -16,7 +16,7 @@ export class CheckTransitRouterServiceResponseBody extends $dara.Model {
   enabled?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 5D93C8B9-C354-5C3E-BEFB-BA8A2C314D68

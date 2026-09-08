@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListTransitRouterCidrAllocationResponseBodyTransitRouterCidrAllocations extends $dara.Model {
   /**
    * @remarks
-   * The allocated CIDR block.
+   * The allocated CIDR block under the transit router CIDR block.
    * 
    * @example
    * 192.168.10.0/28
@@ -29,7 +29,7 @@ export class ListTransitRouterCidrAllocationResponseBodyTransitRouterCidrAllocat
   attachmentName?: string;
   /**
    * @remarks
-   * The CIDR block of the transit router.
+   * The transit router CIDR block.
    * 
    * @example
    * 192.168.10.0/24
@@ -37,7 +37,7 @@ export class ListTransitRouterCidrAllocationResponseBodyTransitRouterCidrAllocat
   cidr?: string;
   /**
    * @remarks
-   * The ID of the CIDR block of the transit router.
+   * The ID of the transit router CIDR block.
    * 
    * @example
    * cidr-0zv0q9crqpntzz****
@@ -75,11 +75,10 @@ export class ListTransitRouterCidrAllocationResponseBodyTransitRouterCidrAllocat
 export class ListTransitRouterCidrAllocationResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of entries returned on each page.
+   * The number of entries per page.
    * 
-   * - If you did not set the **MaxResults** parameter in the request, this parameter indicates the total number of entries.
-   * 
-   * - If you set the **MaxResults** parameter in the request, this parameter indicates the number of entries on the current page.
+   * - If you did not specify the **MaxResults** request parameter, it indicates that you did not need to query results by page. The value of **MaxResults** in the response indicates the total number of entries.
+   * - If you specified the **MaxResults** request parameter, it indicates that you needed to query results by page. The value of **MaxResults** in the response indicates the number of entries on the current page.
    * 
    * @example
    * 1
@@ -87,11 +86,9 @@ export class ListTransitRouterCidrAllocationResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * A pagination token. It can be used in the next request to retrieve a new page of results. Valid values:
-   * 
-   * - If **NextToken** is empty, no next page exists.
-   * 
-   * - If **NextToken** is not empty, the value of this parameter indicates the token that is used for the next query.
+   * The pagination token that is used in the next request to retrieve a new page of results. Valid values:
+   * - If **NextToken** is empty, no subsequent request exists.
+   * - If **NextToken** is returned, the value indicates the token that is used for the next query.
    * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd****
@@ -115,7 +112,7 @@ export class ListTransitRouterCidrAllocationResponseBody extends $dara.Model {
   totalCount?: number;
   /**
    * @remarks
-   * A list of CIDR block allocations.
+   * The allocation details of the transit router CIDR block.
    */
   transitRouterCidrAllocations?: ListTransitRouterCidrAllocationResponseBodyTransitRouterCidrAllocations[];
   static names(): { [key: string]: string } {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListTransitRouterRouteTablePropagationsRequest extends $dara.Model {
   /**
    * @remarks
-   * The number of entries to return on each page. The default value is **50**.
+   * The number of entries per page for a paged query. Default value: **50**.
    * 
    * @example
    * 50
@@ -13,7 +13,7 @@ export class ListTransitRouterRouteTablePropagationsRequest extends $dara.Model 
   maxResults?: number;
   /**
    * @remarks
-   * The token that is used to retrieve the next page of results.
+   * The token for the next query in a paged query.
    * 
    * @example
    * dd20****
@@ -25,13 +25,10 @@ export class ListTransitRouterRouteTablePropagationsRequest extends $dara.Model 
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The status of the route propagation.
-   * 
-   * - **Active**: The propagation is active.
-   * 
-   * - **Enabling**: The propagation is being enabled.
-   * 
-   * - **Disabling**: The propagation is being disabled.
+   * The status of the route learning relationship. Valid values:
+   * - **Active**: active.
+   * - **Enabling**: being enabled.
+   * - **Disabling**: being disabled.
    * 
    * @example
    * Active
@@ -39,7 +36,7 @@ export class ListTransitRouterRouteTablePropagationsRequest extends $dara.Model 
   status?: string;
   /**
    * @remarks
-   * The ID of the network instance connection.
+   * The network instance connection ID.
    * 
    * @example
    * tr-attach-vx6iwhjr1x1j78****
@@ -47,7 +44,7 @@ export class ListTransitRouterRouteTablePropagationsRequest extends $dara.Model 
   transitRouterAttachmentId?: string;
   /**
    * @remarks
-   * The ID of the network instance.
+   * The network instance ID.
    * 
    * @example
    * vpc-bp1h8vbrbcgohcju5****
@@ -55,15 +52,12 @@ export class ListTransitRouterRouteTablePropagationsRequest extends $dara.Model 
   transitRouterAttachmentResourceId?: string;
   /**
    * @remarks
-   * The type of the network instance.
+   * The network instance type. Valid values:
    * 
-   * - **VPC**: a virtual private cloud (VPC).
-   * 
-   * - **VBR**: a virtual border router (VBR).
-   * 
-   * - **TR**: a transit router.
-   * 
-   * - **VPN**: a VPN connection.
+   * - **VPC**: virtual private cloud (VPC) instance.
+   * - **VBR**: virtual border router (VBR) instance.
+   * - **TR**: transit router instance.
+   * - **VPN**: VPN connection.
    * 
    * @example
    * VPC
@@ -71,7 +65,7 @@ export class ListTransitRouterRouteTablePropagationsRequest extends $dara.Model 
   transitRouterAttachmentResourceType?: string;
   /**
    * @remarks
-   * The ID of the route table of the Enterprise Edition transit router.
+   * The ID of the Enterprise Edition transit router route table.
    * 
    * This parameter is required.
    * 

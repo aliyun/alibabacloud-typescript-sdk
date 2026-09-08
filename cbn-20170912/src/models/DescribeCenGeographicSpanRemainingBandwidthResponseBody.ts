@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCenGeographicSpanRemainingBandwidthResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The remaining bandwidth of the bandwidth plan. Unit: Mbps.
+   * The remaining bandwidth of the bandwidth plan instance. Unit: Mbit/s.
    * 
    * @example
    * 2

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListGrantVSwitchEnisRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the CEN instance to which the VPC is connected.
+   * The ID of the CEN instance to which the VPC-connected instance is connected.
    * 
    * This parameter is required.
    * 
@@ -15,13 +15,11 @@ export class ListGrantVSwitchEnisRequest extends $dara.Model {
   cenId?: string;
   /**
    * @remarks
-   * The maximum number of entries to return on each page. Valid values: 10 to 500.
+   * The maximum number of entries per page for a paged query. Valid values: 10 to 500.
    * 
    * Default value:
-   * 
-   * - If you do not specify this parameter, the default value is 20.
-   * 
-   * - If you specify a value greater than 500, the default value is 500.
+   * - If you do not set this parameter, the default value is 20.
+   * - If the value you set is greater than 500, the default value is 500.
    * 
    * @example
    * 20
@@ -29,12 +27,12 @@ export class ListGrantVSwitchEnisRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The ID of the ENI.
+   * The IDs of network interface controllers (NICs).
    */
   networkInterfaceId?: string[];
   /**
    * @remarks
-   * The name of the ENI.
+   * The name of the elastic network interfaces (ENIs). You can use this parameter to filter network interface controllers (NICs) by name.
    * 
    * @example
    * test-eni-name
@@ -42,11 +40,10 @@ export class ListGrantVSwitchEnisRequest extends $dara.Model {
   networkInterfaceName?: string;
   /**
    * @remarks
-   * The token that is used for the next query. Valid values:
+   * The token for the next query. Valid values:
    * 
-   * - If this is your first query, you do not need to specify this parameter.
-   * 
-   * - If a next query is to be sent, set the value to the NextToken value that was returned from the last call.
+   * - If this is the first query or no next query exists, leave this parameter empty.
+   * - If a next query exists, set this parameter to the NextToken value returned by the previous API call.
    * 
    * @example
    * AAAAAdDWBF2****
@@ -56,7 +53,7 @@ export class ListGrantVSwitchEnisRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The primary private IPv4 address of the ENI.
+   * The primary private IP IPv4 address of the elastic network interfaces (ENIs). You can use this parameter to filter network interface controllers (NICs) by primary private IP address.
    * 
    * @example
    * ``192.168.**.**``
@@ -66,9 +63,9 @@ export class ListGrantVSwitchEnisRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The ID of a vSwitch in the VPC.
+   * The ID of a vSwitch in the VPC-connected instance.
    * 
-   * You can query information about the ENIs in only one vSwitch at a time.
+   * You can query network interface controller (NIC) information for only one vSwitch at a time.
    * 
    * This parameter is required.
    * 
@@ -78,7 +75,7 @@ export class ListGrantVSwitchEnisRequest extends $dara.Model {
   vSwitchId?: string;
   /**
    * @remarks
-   * The ID of the VPC.
+   * The ID of the VPC-connected instance.
    * 
    * This parameter is required.
    * 

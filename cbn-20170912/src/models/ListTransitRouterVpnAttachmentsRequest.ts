@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class ListTransitRouterVpnAttachmentsRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The tag key.
+   * The tag key of the resource.
    * 
-   * The tag key cannot be an empty string. The tag key can be up to 64 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https:// `.
+   * The tag key cannot be an empty string. It can be up to 64 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
    * 
-   * You can specify up to 20 tag keys.
+   * You can specify up to 20 tag keys at a time.
    * 
    * @example
    * tagtest
@@ -17,11 +17,11 @@ export class ListTransitRouterVpnAttachmentsRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value.
+   * The tag value of the resource.
    * 
-   * The tag value can be an empty string or a string of up to 128 characters. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https:// `.
+   * The tag value can be an empty string or up to 128 characters in length. It cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
    * 
-   * Each tag key must have a unique tag value. You can specify up to 20 tag values.
+   * Each tag key corresponds to one tag value. You can specify up to 20 tag values at a time.
    * 
    * @example
    * value_A1
@@ -53,7 +53,7 @@ export class ListTransitRouterVpnAttachmentsRequestTag extends $dara.Model {
 export class ListTransitRouterVpnAttachmentsRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the CEN instance.
+   * The Cloud Enterprise Network (CEN) instance ID.
    * 
    * @example
    * cen-rsgxs8ng2awen2****
@@ -61,7 +61,7 @@ export class ListTransitRouterVpnAttachmentsRequest extends $dara.Model {
   cenId?: string;
   /**
    * @remarks
-   * The number of entries to return on each page. Default value: **20**.
+   * The number of entries per page for a paged query. Default value: **20**.
    * 
    * @example
    * 20
@@ -69,11 +69,9 @@ export class ListTransitRouterVpnAttachmentsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that is used for the next query. Valid values:
-   * 
-   * - If this is your first query or no next query is to be sent, you do not need to specify this parameter.
-   * 
-   * - If a next query is to be sent, set the value to the NextToken value returned from the last API call.
+   * The pagination token that is used in the next request to retrieve a new page of results. Valid values:
+   * - You do not need to specify this parameter for the first request or if no next query exists.
+   * - If a next query exists, set the value to the NextToken value returned by the previous API call.
    * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd****
@@ -83,9 +81,9 @@ export class ListTransitRouterVpnAttachmentsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the region where the transit router is deployed.
+   * The region ID of the transit router instance.
    * 
-   * For more information, see [DescribeChildInstanceRegions](https://help.aliyun.com/document_detail/132080.html).
+   * You can call the [DescribeChildInstanceRegions](https://help.aliyun.com/document_detail/132080.html) operation to query region IDs.
    * 
    * @example
    * cn-hangzhou
@@ -95,9 +93,9 @@ export class ListTransitRouterVpnAttachmentsRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The tags of the CEN instance.
+   * The tag information of the CEN instance.
    * 
-   * You can query a maximum of 20 tags at a time.
+   * You can query up to 20 tags at a time.
    */
   tag?: ListTransitRouterVpnAttachmentsRequestTag[];
   /**
@@ -110,7 +108,7 @@ export class ListTransitRouterVpnAttachmentsRequest extends $dara.Model {
   transitRouterAttachmentId?: string;
   /**
    * @remarks
-   * The ID of the transit router.
+   * The transit router instance ID.
    * 
    * @example
    * tr-p0wm740vjnbaprv0m****

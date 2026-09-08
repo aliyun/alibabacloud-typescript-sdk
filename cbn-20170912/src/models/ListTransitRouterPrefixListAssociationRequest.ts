@@ -7,7 +7,7 @@ export class ListTransitRouterPrefixListAssociationRequest extends $dara.Model {
    * @remarks
    * The ID of the next hop connection.
    * 
-   * > If you want to query information about the prefix list that is used to generate blackhole routes, set this parameter to **BlackHole**.
+   * > To query information about a prefix list that generates blackhole routes, set this parameter to **BlackHole**.
    * 
    * @example
    * tr-attach-flbq507rg2ckrj****
@@ -15,7 +15,7 @@ export class ListTransitRouterPrefixListAssociationRequest extends $dara.Model {
   nextHop?: string;
   /**
    * @remarks
-   * The ID of the network instance that is associated with the next hop connection.
+   * The network instance ID associated with the next hop connection.
    * 
    * @example
    * vpc-6eh7fp9hdqa2wv85t****
@@ -25,13 +25,10 @@ export class ListTransitRouterPrefixListAssociationRequest extends $dara.Model {
    * @remarks
    * The next hop type. Valid values:
    * 
-   * - **BlackHole**: queries the prefix lists that generate blackhole routes.
-   * 
-   * - **VPC**: queries the prefix lists whose next hop is a Virtual Private Cloud (VPC) connection.
-   * 
-   * - **VBR**: queries the prefix lists whose next hop is a virtual border router (VBR) connection.
-   * 
-   * - **TR**: queries the prefix lists whose next hop is an inter-region connection.
+   * - **BlackHole**: queries information about prefix lists that generate blackhole routes.
+   * - **VPC**: queries information about prefix lists whose next hop is a Virtual Private Cloud (VPC) connection.
+   * - **VBR**: queries information about prefix lists whose next hop is a Virtual Border Router (VBR) connection.
+   * - **TR**: queries information about prefix lists whose next hop is an inter-region connection.
    * 
    * @example
    * VPC
@@ -49,7 +46,7 @@ export class ListTransitRouterPrefixListAssociationRequest extends $dara.Model {
   ownerUid?: number;
   /**
    * @remarks
-   * The number of the page to return. Default value: **1**.
+   * The page number of the list to query. Default value: **1**.
    * 
    * @example
    * 1
@@ -57,7 +54,7 @@ export class ListTransitRouterPrefixListAssociationRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Maximum value: **100**. Default value: **10**.
+   * The number of entries per page for a paged query. Maximum value: **100**. Default value: **10**.
    * 
    * @example
    * 10
@@ -73,7 +70,7 @@ export class ListTransitRouterPrefixListAssociationRequest extends $dara.Model {
   prefixListId?: string;
   /**
    * @remarks
-   * The region ID of the transit router.
+   * The region ID of the transit router instance.
    * 
    * You can call the [DescribeChildInstanceRegions](https://help.aliyun.com/document_detail/132080.html) operation to obtain the region ID.
    * 
@@ -89,9 +86,8 @@ export class ListTransitRouterPrefixListAssociationRequest extends $dara.Model {
    * @remarks
    * The status of the prefix list.
    * 
-   * - **Active**: The prefix list is active.
-   * 
-   * - **Updating**: The prefix list is being updated.
+   * - **Active**: active.
+   * - **Updating**: being updated.
    * 
    * @example
    * Active
@@ -99,7 +95,7 @@ export class ListTransitRouterPrefixListAssociationRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The ID of the transit router.
+   * The transit router instance ID.
    * 
    * This parameter is required.
    * 
@@ -109,7 +105,7 @@ export class ListTransitRouterPrefixListAssociationRequest extends $dara.Model {
   transitRouterId?: string;
   /**
    * @remarks
-   * The ID of the route table of the transit router.
+   * The ID of the transit router route table.
    * 
    * @example
    * vtb-6ehgc262hr170qgyc****

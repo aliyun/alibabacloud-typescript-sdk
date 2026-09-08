@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class CreateTransitRouterVpnAttachmentRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The tag key.
+   * The tag key of the resource.
    * 
-   * The tag key cannot be an empty string. It can be up to 64 characters in length. It cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
+   * Once specified, the tag key cannot be an empty string. The tag key can be up to 64 characters in length, and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
    * 
-   * You can specify up to 20 tag keys.
+   * You can specify up to 20 tag keys at a time.
    * 
    * @example
    * TagKey
@@ -17,11 +17,11 @@ export class CreateTransitRouterVpnAttachmentRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value.
+   * The tag value of the resource.
    * 
-   * The tag value can be an empty string or a string of up to 128 characters. It cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
+   * Once specified, the tag value cannot be empty. The tag value can be up to 128 characters in length, and cannot start with aliyun or acs:. It cannot contain http:// or https://.
    * 
-   * You can specify up to 20 tag values.
+   * Each tag key corresponds to one tag value. You can specify up to 20 tag values at a time.
    * 
    * @example
    * TagValue
@@ -55,7 +55,7 @@ export class CreateTransitRouterVpnAttachmentRequestZone extends $dara.Model {
    * @remarks
    * The zone ID.
    * 
-   * You can call the [ListTransitRouterAvailableResource](https://help.aliyun.com/document_detail/261356.html) operation to query available zones.
+   * You can call the [ListTransitRouterAvailableResource](https://help.aliyun.com/document_detail/261356.html) operation to query zone IDs.
    * 
    * @example
    * cn-hangzhou-h
@@ -85,11 +85,10 @@ export class CreateTransitRouterVpnAttachmentRequestZone extends $dara.Model {
 export class CreateTransitRouterVpnAttachmentRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable the transit router to automatically publish routes to the IPsec-VPN connection. Valid values:
+   * Specifies whether to allow the transit router instance to automatically publish route entries to the IPsec connection. Valid values:
    * 
-   * - **true** (default): enabled.
-   * 
-   * - **false**: disabled.
+   * - **true** (default): allowed.
+   * - **false**: not allowed.
    * 
    * @example
    * true
@@ -97,7 +96,7 @@ export class CreateTransitRouterVpnAttachmentRequest extends $dara.Model {
   autoPublishRouteEnabled?: boolean;
   /**
    * @remarks
-   * The ID of the Cloud Enterprise Network (CEN) instance.
+   * The Cloud Enterprise Network (CEN) instance ID.
    * 
    * @example
    * cen-rsgxs8ng2awen2****
@@ -107,7 +106,7 @@ export class CreateTransitRouterVpnAttachmentRequest extends $dara.Model {
    * @remarks
    * The billing method.
    * 
-   * The value is set to **POSTPAY** (default), which specifies the pay-as-you-go billing method.
+   * Set the value to **POSTPAY** (default), which specifies the pay-as-you-go billable method based on usage.
    * 
    * @example
    * POSTPAY
@@ -115,11 +114,11 @@ export class CreateTransitRouterVpnAttachmentRequest extends $dara.Model {
   chargeType?: string;
   /**
    * @remarks
-   * A client token that is used to ensure the idempotence of the request.
+   * The client token that is used to ensure the idempotence of the request.
    * 
-   * Generate a unique token on your client. The token can contain only ASCII characters.
+   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The client token can contain only ASCII characters.
    * 
-   * > If you do not specify this parameter, the system automatically uses the **RequestId** as the **ClientToken**. The **RequestId** of each API request may be different.
+   * > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may be different for each API request.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-42665544****
@@ -128,10 +127,8 @@ export class CreateTransitRouterVpnAttachmentRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to perform a dry run. Valid values:
-   * 
-   * - **true**: performs a dry run but does not create the VPN connection. The system checks the request for required parameters, format, and service limits. If the request fails the check, an error message is returned. If the request passes the check, the `DryRunOperation` error code is returned.
-   * 
-   * - **false** (default): performs a dry run and creates the VPN connection if the request passes the check.
+   * - **true**: performs a dry run. The system checks the required parameters, request syntax, and limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+   * - **false** (default): performs a dry run and sends the request. If the request passes the dry run, the VPN connection is created.
    * 
    * @example
    * false
@@ -141,9 +138,9 @@ export class CreateTransitRouterVpnAttachmentRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the region where the transit router instance is deployed.
+   * The region ID of the transit router instance.
    * 
-   * You can call the [DescribeChildInstanceRegions](https://help.aliyun.com/document_detail/132080.html) operation to query the most recent region list.
+   * You can call the [DescribeChildInstanceRegions](https://help.aliyun.com/document_detail/132080.html) operation to query region IDs.
    * 
    * @example
    * cn-hangzhou
@@ -153,16 +150,16 @@ export class CreateTransitRouterVpnAttachmentRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The tags.
+   * The tag information list.
    * 
-   * You can specify up to 20 tags.
+   * You can specify up to 20 tags at a time.
    */
   tag?: CreateTransitRouterVpnAttachmentRequestTag[];
   /**
    * @remarks
    * The description of the VPN connection.
    * 
-   * The description can be empty or 1 to 256 characters in length, and cannot start with \\`http\\://\\` or \\`https\\://\\`.
+   * The description can be empty or 1 to 256 characters in length, and cannot start with http:// or https://.
    * 
    * @example
    * desctest
@@ -172,7 +169,7 @@ export class CreateTransitRouterVpnAttachmentRequest extends $dara.Model {
    * @remarks
    * The name of the VPN connection.
    * 
-   * The name can be empty or 1 to 128 characters in length, and cannot start with \\`http\\://\\` or \\`https\\://\\`.
+   * The name can be empty or 1 to 128 characters in length, and cannot start with http:// or https://.
    * 
    * @example
    * nametest
@@ -180,7 +177,7 @@ export class CreateTransitRouterVpnAttachmentRequest extends $dara.Model {
   transitRouterAttachmentName?: string;
   /**
    * @remarks
-   * The ID of the transit router instance.
+   * The transit router instance ID.
    * 
    * @example
    * tr-p0wm740vjnbaprv0m****
@@ -188,7 +185,7 @@ export class CreateTransitRouterVpnAttachmentRequest extends $dara.Model {
   transitRouterId?: string;
   /**
    * @remarks
-   * The ID of the IPsec-VPN connection.
+   * The ID of the IPsec connection.
    * 
    * This parameter is required.
    * 
@@ -198,11 +195,10 @@ export class CreateTransitRouterVpnAttachmentRequest extends $dara.Model {
   vpnId?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account to which the IPsec-VPN connection belongs.
+   * The Alibaba Cloud account ID of the Alibaba Cloud account to which the IPsec connection belongs.
    * 
-   * - If you do not specify this parameter, the ID of the current Alibaba Cloud account is used.
-   * 
-   * - This parameter is required if you want to connect to a cross-account IPsec-VPN connection.
+   * - If you do not specify this parameter, the Alibaba Cloud account ID of the current logon account is used by default.
+   * - This parameter is required if you want to connect to an IPsec connection that belongs to a different account.
    * 
    * @example
    * 1210123456123456
@@ -210,11 +206,11 @@ export class CreateTransitRouterVpnAttachmentRequest extends $dara.Model {
   vpnOwnerId?: number;
   /**
    * @remarks
-   * The ID of the zone in the current region.
+   * The zone ID in the current region.
    * 
-   * The system creates resources in the specified zone.
+   * The system creates resources in the zone that you specify.
    * 
-   * > Do not specify this parameter if the attached IPsec-VPN connection is in dual-tunnel mode.
+   * > If the bindeded IPsec connection uses the dual-tunnel mode, leave this parameter empty.
    */
   zone?: CreateTransitRouterVpnAttachmentRequestZone[];
   static names(): { [key: string]: string } {

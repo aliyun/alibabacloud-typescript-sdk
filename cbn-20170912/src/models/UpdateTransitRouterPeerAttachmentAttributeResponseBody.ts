@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateTransitRouterPeerAttachmentAttributeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * A01FEDD7-7D69-4EB3-996D-CF79F6F885CA

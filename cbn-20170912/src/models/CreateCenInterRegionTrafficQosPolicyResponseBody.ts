@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateCenInterRegionTrafficQosPolicyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 6DF9A765-BCD2-5C7E-8C32-C35C8A361A39
@@ -13,7 +13,7 @@ export class CreateCenInterRegionTrafficQosPolicyResponseBody extends $dara.Mode
   requestId?: string;
   /**
    * @remarks
-   * The ID of the QoS policy.
+   * The ID of the traffic scheduling policy.
    * 
    * @example
    * qos-eczzew0v1kzrb5****

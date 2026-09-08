@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCenVbrHealthCheckRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Cloud Enterprise Network (CEN) instance.
+   * The Cloud Enterprise Network (CEN) instance ID.
    * 
    * @example
    * cen-6hpdgj7ni6pz1k****
@@ -23,7 +23,7 @@ export class DescribeCenVbrHealthCheckRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Valid values: **1** to **50**. Default value: **10**.
+   * The number of entries per page for paging. Valid values: **1** to **50**. Default value: **10**.
    * 
    * @example
    * 10
@@ -33,7 +33,7 @@ export class DescribeCenVbrHealthCheckRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The ID of the VBR.
+   * The VBR instance ID.
    * 
    * @example
    * vbr-bp1kznorjeembsuhl****
@@ -41,7 +41,7 @@ export class DescribeCenVbrHealthCheckRequest extends $dara.Model {
   vbrInstanceId?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account that owns the VBR.
+   * The ID of the Alibaba Cloud account that owns the VBR instance.
    * 
    * @example
    * 1250123456123456
@@ -49,9 +49,9 @@ export class DescribeCenVbrHealthCheckRequest extends $dara.Model {
   vbrInstanceOwnerId?: number;
   /**
    * @remarks
-   * The ID of the region where the Virtual Border Router (VBR) is deployed.
+   * The region ID of the VBR instance.
    * 
-   * For more information, see [DescribeChildInstanceRegions](https://help.aliyun.com/document_detail/132080.html).
+   * You can call the [DescribeChildInstanceRegions](https://help.aliyun.com/document_detail/132080.html) operation to obtain region IDs.
    * 
    * This parameter is required.
    * 

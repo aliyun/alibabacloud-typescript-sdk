@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListCenInterRegionTrafficQosQueuesRequestEffectiveBandwidthFilter extends $dara.Model {
   /**
    * @remarks
-   * The actual bandwidth is greater than or equal to the specified value.
+   * The actual effective bandwidth is greater than or equal to the specified bandwidth value.
    * 
    * @example
    * 50
@@ -13,7 +13,7 @@ export class ListCenInterRegionTrafficQosQueuesRequestEffectiveBandwidthFilter e
   gte?: number;
   /**
    * @remarks
-   * The actual bandwidth is less than or equal to the specified value.
+   * The actual effective bandwidth is less than or equal to the specified bandwidth value.
    * 
    * @example
    * 20
@@ -45,12 +45,12 @@ export class ListCenInterRegionTrafficQosQueuesRequestEffectiveBandwidthFilter e
 export class ListCenInterRegionTrafficQosQueuesRequest extends $dara.Model {
   /**
    * @remarks
-   * Filters the results by the actual bandwidth. Only positive integers are supported. Unit: Mbit/s.
+   * Filters results by the actual effective bandwidth value. Only positive integers are allowed. Unit: Mbit/s.
    */
   effectiveBandwidthFilter?: ListCenInterRegionTrafficQosQueuesRequestEffectiveBandwidthFilter;
   /**
    * @remarks
-   * The number of entries to return on each page. Valid values: 1 to 100. Default value: 20.
+   * The number of entries per page for a paged query. Valid values: 1 to 100. Default value: 20.
    * 
    * @example
    * 20
@@ -58,11 +58,10 @@ export class ListCenInterRegionTrafficQosQueuesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * A pagination token. It is used in the next request to retrieve a new page of results.
+   * The token that determines the start point of the next query. Valid values:
    * 
-   * - If **NextToken** is empty, no more results are returned.
-   * 
-   * - If NextToken is not empty, the value of **NextToken** is used for the next query.
+   * - If **NextToken** is empty, no next query exists.
+   * - If a value is returned for **NextToken**, the value indicates the token that is used for the next query.
    * 
    * @example
    * 2ca1ed1573cb****
@@ -74,7 +73,7 @@ export class ListCenInterRegionTrafficQosQueuesRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The ID of the QoS policy.
+   * The ID of the traffic scheduling policy.
    * 
    * @example
    * qos-rnghap5gc8155x****
@@ -82,9 +81,9 @@ export class ListCenInterRegionTrafficQosQueuesRequest extends $dara.Model {
   trafficQosPolicyId?: string;
   /**
    * @remarks
-   * The description of the queue in the QoS policy.
+   * The description of the traffic scheduling policy queue.
    * 
-   * The description can be empty or 1 to 256 characters in length. It cannot start with \\`http\\://\\` or \\`https\\://\\`.
+   * The description can be empty or 1 to 256 characters in length and cannot start with http:// or https://.
    * 
    * @example
    * qosQueueDescription
@@ -92,7 +91,7 @@ export class ListCenInterRegionTrafficQosQueuesRequest extends $dara.Model {
   trafficQosQueueDescription?: string;
   /**
    * @remarks
-   * The ID of the queue in the QoS policy.
+   * The ID of the traffic scheduling policy queue.
    * 
    * @example
    * qos-queue-siakjb2nn9gz5z****
@@ -100,9 +99,9 @@ export class ListCenInterRegionTrafficQosQueuesRequest extends $dara.Model {
   trafficQosQueueId?: string;
   /**
    * @remarks
-   * The name of the queue in the QoS policy.
+   * The name of the traffic scheduling policy queue.
    * 
-   * The name can be empty or 1 to 128 characters in length. It cannot start with \\`http\\://\\` or \\`https\\://\\`.
+   * The name can be empty or 1 to 128 characters in length and cannot start with http:// or https://.
    * 
    * @example
    * qosQueueName
@@ -118,7 +117,7 @@ export class ListCenInterRegionTrafficQosQueuesRequest extends $dara.Model {
   transitRouterAttachmentId?: string;
   /**
    * @remarks
-   * The ID of the transit router.
+   * The ID of the transit router instance.
    * 
    * @example
    * tr-bp1rmwxnk221e3fas****

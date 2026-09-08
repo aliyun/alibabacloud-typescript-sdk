@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UnassociateCenBandwidthPackageRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the bandwidth plan.
+   * The bandwidth package instance ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class UnassociateCenBandwidthPackageRequest extends $dara.Model {
   cenBandwidthPackageId?: string;
   /**
    * @remarks
-   * The ID of the CEN instance.
+   * The CEN instance ID.
    * 
    * This parameter is required.
    * 

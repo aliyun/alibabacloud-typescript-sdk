@@ -5,11 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateTransitRouterVpcAttachmentAttributeShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to allow the Enterprise Edition transit router to automatically advertise routes to the VPC.
+   * Specifies whether to allow the Enterprise Edition forward router to automatically publish route entry to the VPC-connected instance.
    * 
-   * - **false**: The transit router does not automatically advertise routes.
-   * 
-   * - **true**: The transit router automatically advertises routes.
+   * - **false**: no.
+   * - **true**: yes.
    * 
    * @example
    * true
@@ -19,9 +18,9 @@ export class UpdateTransitRouterVpcAttachmentAttributeShrinkRequest extends $dar
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * You can generate the token from your client, but you must make sure that the token is unique among different requests. The client token can contain only ASCII characters.
+   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The client token can contain only ASCII characters.
    * 
-   * > If you do not specify this parameter, the system automatically uses the **RequestId** of the request as the **ClientToken**. The **RequestId** may be different for each request.
+   * > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may be different for each API request.
    * 
    * @example
    * 02fb3da4-130e-11e9-8e44-001****
@@ -29,11 +28,10 @@ export class UpdateTransitRouterVpcAttachmentAttributeShrinkRequest extends $dar
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether to perform a dry run, which checks for issues such as permissions and instance status. Valid values:
+   * Specifies whether to perform a dry run, including permission and instance status verification. Valid values:
    * 
-   * - **false** (default): sends a normal request. After the request passes the check, the system modifies the name and description of the VPC connection.
-   * 
-   * - **true**: sends a check request. The system validates the request without modifying the VPC connection. If the check passes, the system returns the ID of the request. Otherwise, the system returns an error.
+   * - **false** (default): Sends a normal request. If the request passes the check, the name and description of the VPC connection are modified.
+   * - **true**: Sends a check request. Only the verification is performed, and the name and description of the VPC connection are not modified. The system checks whether the required parameters are specified and whether the request format is valid. If the check fails, the corresponding error is returned. If the check passes, the corresponding request ID is returned.
    * 
    * @example
    * false
@@ -41,12 +39,12 @@ export class UpdateTransitRouterVpcAttachmentAttributeShrinkRequest extends $dar
   dryRun?: boolean;
   /**
    * @remarks
-   * The billing method.
+   * The collection of feature attributes.
    */
   optionsShrink?: string;
   /**
    * @remarks
-   * The billing method.
+   * The payer of the network instance.
    * 
    * @example
    * PayByCenOwner
@@ -58,9 +56,9 @@ export class UpdateTransitRouterVpcAttachmentAttributeShrinkRequest extends $dar
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The new description of the VPC connection.
+   * The description of the VPC connection.
    * 
-   * The description can be empty or 1 to 256 characters in length, and cannot start with http\\:// or https\\://.
+   * The description can be empty or 1 to 256 characters in length, and cannot start with http:// or https://.
    * 
    * @example
    * testdesc
@@ -78,9 +76,9 @@ export class UpdateTransitRouterVpcAttachmentAttributeShrinkRequest extends $dar
   transitRouterAttachmentId?: string;
   /**
    * @remarks
-   * The new name of the VPC connection.
+   * The name of the VPC connection.
    * 
-   * The name can be empty or 1 to 128 characters in length, and cannot start with http\\:// or https\\://.
+   * The name can be empty or 1 to 128 characters in length, and cannot start with http:// or https://.
    * 
    * @example
    * testname
@@ -88,7 +86,7 @@ export class UpdateTransitRouterVpcAttachmentAttributeShrinkRequest extends $dar
   transitRouterAttachmentName?: string;
   /**
    * @remarks
-   * The feature properties of the VPC connection. This parameter is deprecated. We recommend that you use the `Options` parameter.
+   * The list of feature attributes of the VPC connection (to be deprecated. Use the new parameter Options instead).
    */
   transitRouterVPCAttachmentOptionsShrink?: string;
   static names(): { [key: string]: string } {

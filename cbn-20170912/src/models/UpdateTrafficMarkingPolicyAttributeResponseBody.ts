@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateTrafficMarkingPolicyAttributeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 60BB11B2-7BF4-54DC-BCC9-F706E1EB02AC

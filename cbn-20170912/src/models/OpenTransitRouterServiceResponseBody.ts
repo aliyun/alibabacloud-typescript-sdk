@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class OpenTransitRouterServiceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the order.
+   * The order ID.
    * 
    * @example
    * 21370700730****
@@ -13,7 +13,7 @@ export class OpenTransitRouterServiceResponseBody extends $dara.Model {
   orderId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 866DEBE1-6411-51EC-80D8-975349B9FB4A

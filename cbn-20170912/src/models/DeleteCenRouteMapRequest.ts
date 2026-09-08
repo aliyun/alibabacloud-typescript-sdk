@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteCenRouteMapRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Cloud Enterprise Network (CEN) instance.
+   * The CEN instance ID.
    * 
    * This parameter is required.
    * 
@@ -17,7 +17,7 @@ export class DeleteCenRouteMapRequest extends $dara.Model {
    * @remarks
    * The ID of the region where the routing policy is applied.
    * 
-   * Call the [DescribeChildInstanceRegions](https://help.aliyun.com/document_detail/132080.html) operation to obtain region IDs.
+   * You can call the [DescribeChildInstanceRegions](https://help.aliyun.com/document_detail/132080.html) operation to query region IDs.
    * 
    * This parameter is required.
    * 

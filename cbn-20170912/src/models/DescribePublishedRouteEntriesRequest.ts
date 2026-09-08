@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePublishedRouteEntriesRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the CEN instance.
+   * The CEN instance ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DescribePublishedRouteEntriesRequest extends $dara.Model {
   cenId?: string;
   /**
    * @remarks
-   * The ID of the network instance.
+   * The network instance ID.
    * 
    * This parameter is required.
    * 
@@ -25,9 +25,9 @@ export class DescribePublishedRouteEntriesRequest extends $dara.Model {
   childInstanceId?: string;
   /**
    * @remarks
-   * The ID of the region where the network instance is deployed.
+   * The region ID of the network instance.
    * 
-   * For more information, see [](t2264556.xdita#).
+   * You can call the [DescribeChildInstanceRegions](https://help.aliyun.com/document_detail/132080.html) operation to query region IDs.
    * 
    * This parameter is required.
    * 
@@ -37,7 +37,7 @@ export class DescribePublishedRouteEntriesRequest extends $dara.Model {
   childInstanceRegionId?: string;
   /**
    * @remarks
-   * The ID of the route table of the network instance.
+   * The route table ID of the network instance.
    * 
    * @example
    * vtb-bp174d1gje79u1g4****
@@ -45,7 +45,7 @@ export class DescribePublishedRouteEntriesRequest extends $dara.Model {
   childInstanceRouteTableId?: string;
   /**
    * @remarks
-   * The type of the network instance. Valid values:
+   * The type of the network instance. Valid values: 
    * 
    * - **VPC**: virtual private cloud.
    * 
@@ -61,7 +61,7 @@ export class DescribePublishedRouteEntriesRequest extends $dara.Model {
   childInstanceType?: string;
   /**
    * @remarks
-   * The destination CIDR block of the route that you want to query.
+   * The destination CIDR block of the route entry to query.
    * 
    * @example
    * 172.16.0.0/16
@@ -77,7 +77,7 @@ export class DescribePublishedRouteEntriesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Default value: **10**. Valid values: **1** to **500**.
+   * The number of entries per page in a paged query. Default value: **10**. Valid values: **1** to **500**.
    * 
    * @example
    * 10

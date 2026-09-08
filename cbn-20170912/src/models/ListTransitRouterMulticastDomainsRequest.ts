@@ -9,7 +9,7 @@ export class ListTransitRouterMulticastDomainsRequestTag extends $dara.Model {
    * 
    * The tag key cannot be an empty string. The tag key can be up to 64 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
    * 
-   * You can specify up to 20 tag keys.
+   * You can specify up to 20 tag keys at a time.
    * 
    * @example
    * TagKey
@@ -19,9 +19,9 @@ export class ListTransitRouterMulticastDomainsRequestTag extends $dara.Model {
    * @remarks
    * The tag value.
    * 
-   * The tag value can be an empty string or a string of up to 128 characters. It cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
+   * The tag value can be an empty string and can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
    * 
-   * Each tag key must have a corresponding tag value. You can specify up to 20 tag values.
+   * Each tag key corresponds to one tag value. You can specify up to 20 tag values at a time.
    * 
    * @example
    * TagValue
@@ -53,7 +53,7 @@ export class ListTransitRouterMulticastDomainsRequestTag extends $dara.Model {
 export class ListTransitRouterMulticastDomainsRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the CEN instance.
+   * The Cloud Enterprise Network (CEN) instance ID.
    * 
    * @example
    * cen-a7syd349kne38g****
@@ -63,7 +63,7 @@ export class ListTransitRouterMulticastDomainsRequest extends $dara.Model {
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * Generate a token that is unique among different requests. The token can contain only ASCII characters.
+   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -71,7 +71,7 @@ export class ListTransitRouterMulticastDomainsRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The number of entries per page. Default value: **20**.
+   * The number of entries per page for a paged query. Default value: **20**.
    * 
    * @example
    * 20
@@ -79,11 +79,10 @@ export class ListTransitRouterMulticastDomainsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that is used for the next query. Valid values:
+   * The token that determines the start point of the query. Valid values:
    * 
-   * - If this is your first query or no next query is to be sent, leave this parameter empty.
-   * 
-   * - If a next query is to be sent, set the value to the NextToken value returned from the last call.
+   * - If this is your first query or no subsequent queries are to be sent, ignore this parameter.
+   * - If a subsequent query is to be sent, set the parameter to the value of NextToken that is returned from the last call.
    * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd****
@@ -93,9 +92,9 @@ export class ListTransitRouterMulticastDomainsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the region where the transit router is deployed.
+   * The region ID of the transit router.
    * 
-   * You can call the [DescribeChildInstanceRegions](https://help.aliyun.com/document_detail/132080.html) operation to obtain the region ID.
+   * You can call the [DescribeChildInstanceRegions](https://help.aliyun.com/document_detail/132080.html) operation to query region IDs.
    * 
    * @example
    * cn-hangzhou
@@ -105,14 +104,14 @@ export class ListTransitRouterMulticastDomainsRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The tags.
+   * The tag information.
    * 
-   * You can specify up to 20 tags.
+   * You can specify up to 20 tags at a time.
    */
   tag?: ListTransitRouterMulticastDomainsRequestTag[];
   /**
    * @remarks
-   * The ID of the transit router.
+   * The transit router instance ID.
    * 
    * @example
    * tr-p0wr9p28r92d598y6****

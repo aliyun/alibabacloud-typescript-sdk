@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class DissociateTransitRouterAttachmentFromRouteTableRequest extends $dara.Model {
   /**
    * @remarks
-   * A client token that ensures the idempotence of the request.
+   * The client token that is used to ensure the idempotence of the request.
    * 
-   * Generate a unique token on your client. The client token can contain only ASCII characters.
+   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The client token can contain only ASCII characters.
    * 
-   * > If you do not specify this parameter, the system uses the **RequestId** as the **ClientToken**. The **RequestId** may be different for each API request.
+   * > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may be different for each API request.
    * 
    * @example
    * 02fb3da4-130e-11e9-8e44-001****
@@ -17,11 +17,10 @@ export class DissociateTransitRouterAttachmentFromRouteTableRequest extends $dar
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether to perform a dry run. Valid values:
+   * Specifies whether to perform a dry run, including permission and instance status verification. Valid values:
    * 
-   * - **false** (default): Sends a normal request. If the request passes the check, the network instance connection is dissociated from the route table.
-   * 
-   * - **true**: Sends a dry run request to check the required parameters, request format, and permissions. An error message is returned if the request fails the dry run. The corresponding request ID is returned if the request passes the dry run.
+   * - **false** (default): Sends a normal request and dissociates the forwarding association after the request passes the check.
+   * - **true**: Sends a check request. Only the check is performed. The forwarding association is not dissociated. The check items include whether required parameters are specified and the request format. If the check fails, the corresponding error is returned. If the check passes, the corresponding request ID is returned.
    * 
    * @example
    * false
@@ -43,7 +42,7 @@ export class DissociateTransitRouterAttachmentFromRouteTableRequest extends $dar
   transitRouterAttachmentId?: string;
   /**
    * @remarks
-   * The ID of the route table of the Enterprise Edition transit router.
+   * The ID of the Enterprise Edition transit router route table.
    * 
    * This parameter is required.
    * 

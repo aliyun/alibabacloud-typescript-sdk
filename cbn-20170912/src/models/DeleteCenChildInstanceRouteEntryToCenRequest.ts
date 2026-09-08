@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteCenChildInstanceRouteEntryToCenRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Cloud Enterprise Network (CEN) instance.
+   * The Cloud Enterprise Network (CEN) instance ID.
    * 
    * This parameter is required.
    * 
@@ -17,7 +17,7 @@ export class DeleteCenChildInstanceRouteEntryToCenRequest extends $dara.Model {
    * @remarks
    * The ID of the Alibaba Cloud account to which the network instance belongs.
    * 
-   * > This parameter is required if the network instance belongs to another Alibaba Cloud account.
+   * > This parameter is required if the network instance belongs to a different Alibaba Cloud account.
    * 
    * @example
    * 1787100000000000
@@ -25,7 +25,7 @@ export class DeleteCenChildInstanceRouteEntryToCenRequest extends $dara.Model {
   childInstanceAliUid?: number;
   /**
    * @remarks
-   * The ID of the network instance.
+   * The network instance ID.
    * 
    * This parameter is required.
    * 
@@ -35,9 +35,9 @@ export class DeleteCenChildInstanceRouteEntryToCenRequest extends $dara.Model {
   childInstanceId?: string;
   /**
    * @remarks
-   * The ID of the region where the network instance is deployed.
+   * The region ID of the network instance.
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to obtain the region ID.
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
    * 
    * This parameter is required.
    * 
@@ -50,7 +50,6 @@ export class DeleteCenChildInstanceRouteEntryToCenRequest extends $dara.Model {
    * The type of the network instance. Valid values:
    * 
    * - **VPC**: a virtual private cloud (VPC).
-   * 
    * - **VBR**: a virtual border router (VBR).
    * 
    * This parameter is required.
@@ -61,9 +60,9 @@ export class DeleteCenChildInstanceRouteEntryToCenRequest extends $dara.Model {
   childInstanceType?: string;
   /**
    * @remarks
-   * The destination CIDR block of the route.
+   * The destination CIDR block of the route entry.
    * 
-   * The destination CIDR block must be in CIDR format. Example: 192.168.10.0/24.
+   * The destination CIDR block must be in CIDR notation. Example: 192.168.10.0/24.
    * 
    * This parameter is required.
    * 

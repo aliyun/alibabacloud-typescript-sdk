@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateCenRouteMapResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 62172DD5-6BAC-45DF-8D44-56SDF467BAC

@@ -74,7 +74,7 @@ export class DescribeRouteConflictResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned on each page.
+   * The number of entries per page during paging.
    * 
    * @example
    * 10
@@ -82,7 +82,7 @@ export class DescribeRouteConflictResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * EE3A2CC7-41F1-58DB-8306-CFC99D9C747B

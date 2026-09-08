@@ -23,7 +23,7 @@ export class ListTransitRouterMulticastDomainAssociationsResponseBodyTransitRout
    * @remarks
    * The type of resource associated with the multicast domain.
    * 
-   * The value is **VPC**.
+   * Set the value to **VPC**.
    * 
    * @example
    * VPC
@@ -33,11 +33,9 @@ export class ListTransitRouterMulticastDomainAssociationsResponseBodyTransitRout
    * @remarks
    * The association status.
    * 
-   * - **Associated**: The resource is associated with the multicast domain.
-   * 
-   * - **Associating**: The resource is being associated with the multicast domain.
-   * 
-   * - **Dissociating**: The resource is being dissociated from the multicast domain.
+   * - **Associated**: associated.
+   * - **Associating**: being associated.
+   * - **Dissociating**: being dissociated.
    * 
    * @example
    * Dissociating
@@ -45,7 +43,7 @@ export class ListTransitRouterMulticastDomainAssociationsResponseBodyTransitRout
   status?: string;
   /**
    * @remarks
-   * The ID of the network instance connection.
+   * The network instance connection ID.
    * 
    * @example
    * tr-attach-p90y3ymbbwuvy5****
@@ -53,7 +51,7 @@ export class ListTransitRouterMulticastDomainAssociationsResponseBodyTransitRout
   transitRouterAttachmentId?: string;
   /**
    * @remarks
-   * The ID of the multicast domain.
+   * The multicast domain ID.
    * 
    * @example
    * tr-mcast-domain-91wpg6wbhchjeq****
@@ -61,7 +59,7 @@ export class ListTransitRouterMulticastDomainAssociationsResponseBodyTransitRout
   transitRouterMulticastDomainId?: string;
   /**
    * @remarks
-   * The ID of the vSwitch.
+   * The vSwitch ID.
    * 
    * @example
    * vsw-p0wxk12u6okfkr8xy****
@@ -103,7 +101,7 @@ export class ListTransitRouterMulticastDomainAssociationsResponseBodyTransitRout
 export class ListTransitRouterMulticastDomainAssociationsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries per page for a paged query.
    * 
    * @example
    * 20
@@ -111,11 +109,10 @@ export class ListTransitRouterMulticastDomainAssociationsResponseBody extends $d
   maxResults?: number;
   /**
    * @remarks
-   * The token for the next query. Valid values:
+   * The token that determines the start point of the query. Valid values:
    * 
-   * - If **NextToken** is empty, it indicates that no next query is to be sent.
-   * 
-   * - If a value is returned for **NextToken**, the value is the token that is used for the next query.
+   * - If **NextToken** is empty, no subsequent query is to be sent.
+   * - If **NextToken** is returned, the value indicates the token for the next query.
    * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd****

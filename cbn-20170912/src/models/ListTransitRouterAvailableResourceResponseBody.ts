@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class ListTransitRouterAvailableResourceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A list of available zone IDs.
+   * The list of zone IDs.
    */
   availableZones?: string[];
   /**
    * @remarks
-   * A list of primary zone IDs.
+   * The list of primary zone IDs.
    */
   masterZones?: string[];
   /**
@@ -23,12 +23,12 @@ export class ListTransitRouterAvailableResourceResponseBody extends $dara.Model 
   requestId?: string;
   /**
    * @remarks
-   * A list of secondary zone IDs.
+   * The list of secondary zone IDs.
    */
   slaveZones?: string[];
   /**
    * @remarks
-   * Indicates whether the returned zones support the multicast feature.
+   * Indicates whether the zone information is for multicast-enabled zones.
    * 
    * @example
    * false

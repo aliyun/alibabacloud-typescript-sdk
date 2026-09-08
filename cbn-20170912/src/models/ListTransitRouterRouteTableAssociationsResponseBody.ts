@@ -13,14 +13,11 @@ export class ListTransitRouterRouteTableAssociationsResponseBodyTransitRouterAss
   resourceId?: string;
   /**
    * @remarks
-   * The type of the next hop resource.
+   * The type of the next hop resource. Valid values:
    * 
-   * - **VPC**: virtual private cloud (VPC).
-   * 
-   * - **VBR**: virtual border router (VBR).
-   * 
-   * - **TR**: transit router.
-   * 
+   * - **VPC**: virtual private cloud (VPC) instance.
+   * - **VBR**: virtual border router (VBR) instance.
+   * - **TR**: transit router instance.
    * - **VPN**: VPN connection.
    * 
    * @example
@@ -29,15 +26,12 @@ export class ListTransitRouterRouteTableAssociationsResponseBodyTransitRouterAss
   resourceType?: string;
   /**
    * @remarks
-   * The status of the association.
+   * The status of the route association. Valid values:
    * 
-   * - **Active**: The association is active.
-   * 
-   * - **Associating**: The association is being created.
-   * 
-   * - **Dissociating**: The association is being deleted.
-   * 
-   * - **Deleted**: The association is deleted.
+   * - **Active**: active.
+   * - **Associating**: being associated.
+   * - **Dissociating**: being dissociated.
+   * - **Deleted**: deleted.
    * 
    * @example
    * Associating
@@ -53,7 +47,7 @@ export class ListTransitRouterRouteTableAssociationsResponseBodyTransitRouterAss
   transitRouterAttachmentId?: string;
   /**
    * @remarks
-   * The ID of the route table of the Enterprise Edition transit router.
+   * The ID of the Enterprise Edition transit router route table.
    * 
    * @example
    * vtb-bp1dudbh2d5na6b50****
@@ -91,7 +85,7 @@ export class ListTransitRouterRouteTableAssociationsResponseBodyTransitRouterAss
 export class ListTransitRouterRouteTableAssociationsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries per page for a paged query.
    * 
    * @example
    * 50
@@ -99,11 +93,9 @@ export class ListTransitRouterRouteTableAssociationsResponseBody extends $dara.M
   maxResults?: number;
   /**
    * @remarks
-   * The token for the next query.
-   * 
-   * - If this parameter is not returned, it indicates that no more results are to be returned.
-   * 
-   * - If a value is returned for this parameter, the value is the token that is used for the next query.
+   * The pagination token that is used in the next request to retrieve a new page of results. Valid values:
+   * - If **NextToken** is empty, no subsequent query exists.
+   * - If **NextToken** is returned, the value indicates the token for the next query.
    * 
    * @example
    * a415****
@@ -119,7 +111,7 @@ export class ListTransitRouterRouteTableAssociationsResponseBody extends $dara.M
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries.
+   * The total number of entries returned.
    * 
    * @example
    * 1
@@ -127,7 +119,7 @@ export class ListTransitRouterRouteTableAssociationsResponseBody extends $dara.M
   totalCount?: number;
   /**
    * @remarks
-   * A list of forwarding associations.
+   * The list of route association relationships.
    */
   transitRouterAssociations?: ListTransitRouterRouteTableAssociationsResponseBodyTransitRouterAssociations[];
   static names(): { [key: string]: string } {

@@ -21,11 +21,11 @@ export class CreateFlowlogResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call is successful.
+   * Indicates whether the API call is successful.
    * 
-   * - **true**: The call is successful.
+   * - **true**: successful.
    * 
-   * - **false**: The call failed.
+   * - **false**: failed.
    * 
    * @example
    * true

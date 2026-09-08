@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RegisterTransitRouterMulticastGroupMembersResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * EB985B7E-2CF8-5EC9-A7DB-F7C82ABD3ACE

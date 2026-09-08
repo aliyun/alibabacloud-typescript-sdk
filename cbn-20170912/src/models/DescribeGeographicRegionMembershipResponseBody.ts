@@ -54,7 +54,7 @@ export class DescribeGeographicRegionMembershipResponseBodyRegionIds extends $da
 export class DescribeGeographicRegionMembershipResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number.
    * 
    * @example
    * 10
@@ -62,7 +62,7 @@ export class DescribeGeographicRegionMembershipResponseBody extends $dara.Model 
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries per page in a paged query.
    * 
    * @example
    * 2
@@ -71,7 +71,7 @@ export class DescribeGeographicRegionMembershipResponseBody extends $dara.Model 
   regionIds?: DescribeGeographicRegionMembershipResponseBodyRegionIds;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * DC9EB0C9-60AF-4A09-A36C-608F70130274
@@ -79,7 +79,7 @@ export class DescribeGeographicRegionMembershipResponseBody extends $dara.Model 
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 2

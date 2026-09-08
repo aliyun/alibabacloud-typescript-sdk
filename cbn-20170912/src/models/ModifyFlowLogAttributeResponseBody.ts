@@ -13,10 +13,11 @@ export class ModifyFlowLogAttributeResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call is successful. Valid values:
+   * Indicates whether the call is successful.
    * 
-   * - **true**
-   * - **false**
+   * - **true**: successful.
+   * 
+   * - **false**: failed.
    * 
    * @example
    * true

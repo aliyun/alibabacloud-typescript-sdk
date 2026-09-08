@@ -5,12 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeGeographicRegionMembershipRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the area that you want to query. Valid values:
+   * The ID of the area to query. Valid values: 
    * 
-   * - **china**: the Chinese mainland
-   * - **asia-pacific**: Asia Pacific
-   * - **europe**: Europe
-   * - **north-america**: North America
+   * - **china**: the Chinese mainland.
+   * 
+   * - **asia-pacific**: Asia-Pacific.
+   * 
+   * - **europe**: Europe.
+   * 
+   * - **north-america**: North America.
    * 
    * This parameter is required.
    * 
@@ -22,7 +25,7 @@ export class DescribeGeographicRegionMembershipRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The number of the page to return. Default value: **1**.
+   * The page number. Default value: **1**.
    * 
    * @example
    * 1
@@ -30,7 +33,7 @@ export class DescribeGeographicRegionMembershipRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return per page. Default value: **10**. Valid values: **1** to **50**.
+   * The number of entries per page in a paged query. Default value: **10**. Valid values: **1** to **50**.
    * 
    * @example
    * 10

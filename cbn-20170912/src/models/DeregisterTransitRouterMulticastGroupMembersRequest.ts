@@ -7,7 +7,7 @@ export class DeregisterTransitRouterMulticastGroupMembersRequest extends $dara.M
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * Generate a unique value from your client for each request. The ClientToken parameter supports only ASCII characters.
+   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The client token can contain only ASCII characters.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -17,9 +17,8 @@ export class DeregisterTransitRouterMulticastGroupMembersRequest extends $dara.M
    * @remarks
    * Specifies whether to perform a dry run. Valid values:
    * 
-   * - **true**: Sends a check request without deleting the multicast member. The system checks required parameters, the request format, and service limits. If the check fails, the corresponding error is returned. If the check passes, the `DryRunOperation` error code is returned.
-   * 
-   * - **false** (default): Sends a normal request. After the request passes the check, the multicast member is deleted.
+   * - **true**: performs a dry run without removing the multicast member. The system checks the required parameters, request syntax, and business restrictions. If the check fails, the corresponding error is returned. If the check succeeds, the error code `DryRunOperation` is returned.
+   * - **false** (default): performs a dry run and sends the request. After the check succeeds, the multicast member is removed.
    * 
    * @example
    * false
@@ -37,14 +36,14 @@ export class DeregisterTransitRouterMulticastGroupMembersRequest extends $dara.M
   groupIpAddress?: string;
   /**
    * @remarks
-   * A list of Elastic Network Interface (ENI) IDs.
+   * The list of network interface controller (NIC) IDs.
    */
   networkInterfaceIds?: string[];
   ownerAccount?: string;
   ownerId?: number;
   /**
    * @remarks
-   * A list of inter-region multicast domain IDs.
+   * The list of cross-region multicast domain IDs.
    */
   peerTransitRouterMulticastDomains?: string[];
   resourceOwnerAccount?: string;

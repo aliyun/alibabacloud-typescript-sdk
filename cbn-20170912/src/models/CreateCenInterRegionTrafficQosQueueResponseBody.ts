@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateCenInterRegionTrafficQosQueueResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the queue.
+   * The queue ID.
    * 
    * @example
    * qos-queue-irqhi8k5fdyuu5****
@@ -13,7 +13,7 @@ export class CreateCenInterRegionTrafficQosQueueResponseBody extends $dara.Model
   qosQueueId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 845F66F6-5C27-53A1-9428-B859086237B2

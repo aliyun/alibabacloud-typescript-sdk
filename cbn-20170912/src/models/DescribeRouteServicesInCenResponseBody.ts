@@ -112,7 +112,7 @@ export class DescribeRouteServicesInCenResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries per page for paging.
    * 
    * @example
    * 10
@@ -129,7 +129,7 @@ export class DescribeRouteServicesInCenResponseBody extends $dara.Model {
   routeServiceEntries?: DescribeRouteServicesInCenResponseBodyRouteServiceEntries;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 2

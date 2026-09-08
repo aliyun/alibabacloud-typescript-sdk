@@ -61,7 +61,7 @@ export class DescribeCenGeographicSpansResponseBody extends $dara.Model {
   geographicSpanModels?: DescribeCenGeographicSpansResponseBodyGeographicSpanModels;
   /**
    * @remarks
-   * The page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -69,7 +69,7 @@ export class DescribeCenGeographicSpansResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned on each page.
+   * The number of entries per page in a paged query.
    * 
    * @example
    * 10

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ResolveAndRouteServiceInCenRequest extends $dara.Model {
   /**
    * @remarks
-   * The IDs of the regions where the cloud service is accessed.
+   * The list of region IDs that access the cloud service.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ResolveAndRouteServiceInCenRequest extends $dara.Model {
   accessRegionIds?: string[];
   /**
    * @remarks
-   * The ID of the CEN instance.
+   * The CEN instance ID.
    * 
    * This parameter is required.
    * 
@@ -29,7 +29,7 @@ export class ResolveAndRouteServiceInCenRequest extends $dara.Model {
    * 
    * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
    * 
-   * > If you do not set this parameter, **ClientToken** is set to the value of **RequestId**. The value of **RequestId** for each API request may be different.
+   * > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may be different for each API request.
    * 
    * @example
    * 02fb3da4****
@@ -39,7 +39,7 @@ export class ResolveAndRouteServiceInCenRequest extends $dara.Model {
    * @remarks
    * The description of the cloud service.
    * 
-   * This parameter is optional. If you enter a description, it must be 1 to 256 characters in length and cannot start with http\\:// or https\\://.
+   * The description can be empty or 1 to 256 characters in length and cannot start with http:// or https://.
    * 
    * @example
    * descname
@@ -47,9 +47,9 @@ export class ResolveAndRouteServiceInCenRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The IP addresses or CIDR blocks of the cloud service.
+   * The IP address or CIDR block of the cloud service.
    * 
-   * > In most cases, multiple IP addresses or CIDR blocks are assigned to a cloud service. We recommend that you call this operation multiple times to add all IP addresses and CIDR blocks of the cloud service.
+   * > Cloud services typically use multiple IP addresses or CIDR blocks. Call this operation repeatedly to add all IP addresses or CIDR blocks of the cloud service.
    * 
    * This parameter is required.
    * 
@@ -59,7 +59,7 @@ export class ResolveAndRouteServiceInCenRequest extends $dara.Model {
   host?: string;
   /**
    * @remarks
-   * The ID of the region in which the cloud service is deployed.
+   * The region ID of the cloud service.
    * 
    * This parameter is required.
    * 
@@ -69,7 +69,7 @@ export class ResolveAndRouteServiceInCenRequest extends $dara.Model {
   hostRegionId?: string;
   /**
    * @remarks
-   * The ID of the VPC that is associated with the cloud service.
+   * The VPC-connected instance ID associated with the cloud service.
    * 
    * This parameter is required.
    * 

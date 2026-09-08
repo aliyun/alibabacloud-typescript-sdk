@@ -7,7 +7,7 @@ export class ListTransitRouterMulticastDomainAssociationsRequest extends $dara.M
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * Generate a token from your client to ensure that it is unique among different requests. The ClientToken parameter can contain only ASCII characters.
+   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The client token can contain only ASCII characters.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-4266****
@@ -15,7 +15,7 @@ export class ListTransitRouterMulticastDomainAssociationsRequest extends $dara.M
   clientToken?: string;
   /**
    * @remarks
-   * The number of entries to return on each page. Default value: **20**.
+   * The number of entries per page for a paged query. Default value: **20**.
    * 
    * @example
    * 20
@@ -23,11 +23,10 @@ export class ListTransitRouterMulticastDomainAssociationsRequest extends $dara.M
   maxResults?: number;
   /**
    * @remarks
-   * The token that determines the start point of the next query. Valid values:
+   * The token that determines the start point of the query. Valid values:
    * 
-   * - If this is your first query and no next query is to be sent, ignore this parameter.
-   * 
-   * - If a next query is to be sent, set the value to the NextToken value returned from the last API call.
+   * - If this is the first query or no subsequent query is to be sent, you do not need to specify this parameter.
+   * - If a subsequent query is to be sent, set the value to the NextToken value returned in the previous call.
    * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd****
@@ -49,7 +48,7 @@ export class ListTransitRouterMulticastDomainAssociationsRequest extends $dara.M
    * @remarks
    * The type of resource associated with the multicast domain.
    * 
-   * The value is **VPC**.
+   * Set the value to **VPC**.
    * 
    * @example
    * VPC
@@ -57,7 +56,7 @@ export class ListTransitRouterMulticastDomainAssociationsRequest extends $dara.M
   resourceType?: string;
   /**
    * @remarks
-   * The ID of the network instance connection.
+   * The network instance connection ID.
    * 
    * @example
    * tr-attach-p90y3ymbbwuvy5****
@@ -65,7 +64,7 @@ export class ListTransitRouterMulticastDomainAssociationsRequest extends $dara.M
   transitRouterAttachmentId?: string;
   /**
    * @remarks
-   * The ID of the multicast domain.
+   * The multicast domain ID.
    * 
    * @example
    * tr-mcast-domain-91wpg6wbhchjeq****

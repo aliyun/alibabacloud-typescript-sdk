@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class ListTransitRouterPeerAttachmentsRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The tag key.
+   * The tag key of the resource.
    * 
-   * The tag key cannot be an empty string. The tag key can be up to 64 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
+   * Once specified, the tag key cannot be an empty string. The tag key can be up to 64 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
    * 
-   * You can specify up to 20 tag keys.
+   * You can specify up to 20 tag keys at a time.
    * 
    * @example
    * tagtest
@@ -17,11 +17,11 @@ export class ListTransitRouterPeerAttachmentsRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value.
+   * The tag value of the resource.
    * 
-   * The tag value can be an empty string or a string of up to 128 characters. It cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
+   * The tag value can be an empty string or up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
    * 
-   * Each tag key must have a unique tag value. You can specify up to 20 tag values.
+   * Each tag key corresponds to one tag value. You can specify up to 20 tag values at a time.
    * 
    * @example
    * tagtest
@@ -53,7 +53,7 @@ export class ListTransitRouterPeerAttachmentsRequestTag extends $dara.Model {
 export class ListTransitRouterPeerAttachmentsRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the CEN instance.
+   * The CEN instance ID.
    * 
    * @example
    * cen-j3jzhw1zpau2km****
@@ -61,7 +61,7 @@ export class ListTransitRouterPeerAttachmentsRequest extends $dara.Model {
   cenId?: string;
   /**
    * @remarks
-   * The number of entries to return on each page. Default value: **20**. Maximum value: **100**.
+   * The number of entries per page for a paged query. Default value: **20**. Maximum value: **100**.
    * 
    * @example
    * 20
@@ -69,11 +69,10 @@ export class ListTransitRouterPeerAttachmentsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token for the next query. Valid values:
+   * The token that determines the start point of the query. Valid values:
    * 
-   * - If this is your first query or no next query is to be sent, do not specify this parameter.
-   * 
-   * - If a next query is to be sent, set the value to the **NextToken** value returned from the last API call.
+   * - If this is the first query or no subsequent query is to be sent, you do not need to specify this parameter.
+   * - If a subsequent query is to be sent, set the value to the **NextToken** value returned in the previous API call.
    * 
    * @example
    * 1
@@ -83,9 +82,9 @@ export class ListTransitRouterPeerAttachmentsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the region where the Enterprise Edition transit router is deployed.
+   * The region ID of the Enterprise Edition transit router instance.
    * 
-   * For more information, see [DescribeRegions](https://help.aliyun.com/document_detail/36063.html).
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
    * 
    * @example
    * cn-hangzhou
@@ -95,14 +94,14 @@ export class ListTransitRouterPeerAttachmentsRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The tags.
+   * The tag information.
    * 
-   * You can specify up to 20 tags.
+   * You can specify up to 20 tags at a time.
    */
   tag?: ListTransitRouterPeerAttachmentsRequestTag[];
   /**
    * @remarks
-   * The ID of the inter-region connection.
+   * The inter-region connection ID.
    * 
    * @example
    * tr-attach-5u4qbayfv2io5v****
@@ -110,7 +109,7 @@ export class ListTransitRouterPeerAttachmentsRequest extends $dara.Model {
   transitRouterAttachmentId?: string;
   /**
    * @remarks
-   * The ID of the Enterprise Edition transit router.
+   * The Enterprise Edition transit router instance ID.
    * 
    * @example
    * tr-bp1su1ytdxtataupl****

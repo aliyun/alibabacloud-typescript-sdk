@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCenAttachedChildInstanceAttributeRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the CEN instance.
+   * The CEN instance ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DescribeCenAttachedChildInstanceAttributeRequest extends $dara.Mode
   cenId?: string;
   /**
    * @remarks
-   * The ID of the network instance that is attached to the CEN instance.
+   * The instance ID of the network instance loaded to the CEN instance.
    * 
    * This parameter is required.
    * 
@@ -25,9 +25,9 @@ export class DescribeCenAttachedChildInstanceAttributeRequest extends $dara.Mode
   childInstanceId?: string;
   /**
    * @remarks
-   * The region ID of the network instance.
+   * The region ID of the network instance.                   
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
    * 
    * This parameter is required.
    * 
@@ -39,9 +39,11 @@ export class DescribeCenAttachedChildInstanceAttributeRequest extends $dara.Mode
    * @remarks
    * The type of the network instance. Valid values:
    * 
-   * - **VPC**: virtual private cloud (VPC)
-   * - **VBR**: virtual border router (VBR)
-   * - **CCN**: Cloud Connect Network (CCN) instance
+   * - **VPC**: virtual private cloud.
+   * 
+   * - **VBR**: virtual border router.
+   * 
+   * - **CCN**: Cloud Connect Network.
    * 
    * This parameter is required.
    * 

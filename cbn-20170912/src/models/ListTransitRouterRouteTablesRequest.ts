@@ -5,11 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ListTransitRouterRouteTablesRequestRouteTableOptions extends $dara.Model {
   /**
    * @remarks
-   * The multi-region equal-cost multi-path (ECMP) routing feature. Valid values:
-   * 
-   * - **disable**: Disables multi-region ECMP routing. After this feature is disabled, for routes that are learned from different regions and have the same prefix and other attributes, the system selects the transit router with the smallest region ID as the next hop. Region IDs are sorted in alphabetical order. This changes the latency and bandwidth consumption between different regions. Make sure that you fully evaluate the impact before you disable the feature.
-   * 
-   * - **enable**: Enables multi-region ECMP routing. After this feature is enabled, for routes that are learned from different regions and have the same prefix and other attributes, ECMP routing is formed. This changes the latency and bandwidth consumption between different regions. Make sure that you fully evaluate the impact before you enable the feature.
+   * Multi-region equal-cost multi-path (ECMP) routing. Valid values:
+   * - **disable**: Disables multi-region ECMP routing. After multi-region ECMP routing is disabled, routes with the same prefix learned from different regions select the transit router (TR) with the smallest Region ID (sorted alphabetically) as the next hop when other route attributes are the same. This changes the traffic latency and bandwidth consumed between different regions. Make sure that you fully evaluate the impact before disabling this feature.
+   * - **enable**: Enables multi-region ECMP routing. After multi-region ECMP routing is enabled, routes with the same prefix learned from different regions form ECMP routes when other route attributes are the same. This changes the traffic latency and bandwidth consumed between different regions. Make sure that you fully evaluate the impact before enabling this feature.
    * 
    * @example
    * disable
@@ -39,11 +37,11 @@ export class ListTransitRouterRouteTablesRequestRouteTableOptions extends $dara.
 export class ListTransitRouterRouteTablesRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The tag key.
+   * The tag key of the resource.
    * 
-   * The tag key cannot be an empty string. The tag key can be up to 64 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https:// `.
+   * Once specified, the tag key cannot be an empty string. The tag key can be up to 64 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
    * 
-   * You can specify up to 20 tag keys.
+   * You can specify up to 20 tag keys at a time.
    * 
    * @example
    * test
@@ -51,11 +49,11 @@ export class ListTransitRouterRouteTablesRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value.
+   * The tag value of the resource.
    * 
-   * The tag value can be an empty string or a string of up to 128 characters. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https:// `.
+   * The tag value can be an empty string or up to 128 characters in length. It cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
    * 
-   * Each tag key must have a corresponding tag value. You can specify up to 20 tag values.
+   * Each tag key corresponds to one tag value. You can specify up to 20 tag values at a time.
    * 
    * @example
    * test
@@ -87,7 +85,7 @@ export class ListTransitRouterRouteTablesRequestTag extends $dara.Model {
 export class ListTransitRouterRouteTablesRequest extends $dara.Model {
   /**
    * @remarks
-   * The number of entries to return on each page. Valid values: **1** to **100**. Default value: **20**.
+   * The number of entries per page when entries are returned by page. Valid values: **1** to **100**. Default value: **20**.
    * 
    * @example
    * 20
@@ -95,11 +93,9 @@ export class ListTransitRouterRouteTablesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that is used for the next query. Valid values:
-   * 
-   * - If this is your first query or no next query is to be sent, do not specify this parameter.
-   * 
-   * - If a next query is to be sent, set the value to the **NextToken** value returned from the last API call.
+   * The pagination token that is used in the next request to retrieve a new page of results. Valid values:
+   * - You do not need to specify this parameter for the first request or if no subsequent query exists.
+   * - If a next query exists, set this parameter to the value of **NextToken** returned in the previous API call.
    * 
    * @example
    * dd20****
@@ -111,19 +107,19 @@ export class ListTransitRouterRouteTablesRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The features of the route table.
+   * The route table feature options.
    */
   routeTableOptions?: ListTransitRouterRouteTablesRequestRouteTableOptions;
   /**
    * @remarks
-   * The tag.
+   * The tag information.
    * 
-   * You can specify up to 20 tags.
+   * You can specify up to 20 tags at a time.
    */
   tag?: ListTransitRouterRouteTablesRequestTag[];
   /**
    * @remarks
-   * The ID of the Enterprise Edition transit router.
+   * The instance ID of the Enterprise Edition transit router.
    * 
    * @example
    * tr-uf654ttymmljlvh2x****
@@ -133,7 +129,7 @@ export class ListTransitRouterRouteTablesRequest extends $dara.Model {
    * @remarks
    * The ID of the route table.
    * 
-   * You can query multiple route tables at a time. The maximum value of **N** is **20**.
+   * You can query multiple route tables at a time. Maximum value of **N**: **20**.
    * 
    * @example
    * vtb-bp1l8awdb4iuo9uwu****
@@ -143,9 +139,9 @@ export class ListTransitRouterRouteTablesRequest extends $dara.Model {
    * @remarks
    * The name of the route table.
    * 
-   * You can query multiple route tables at a time. The maximum value of **N** is **20**.
+   * You can query multiple route tables at a time. Maximum value of **N**: **20**.
    * 
-   * > If you query route tables using both **TransitRouterRouteTableNames.N** and **TransitRouterRouteTableIds.N**, make sure that the names and IDs match.
+   * > If you specify both **TransitRouterRouteTableNames.N** and **TransitRouterRouteTableIds.N**, the route table names and route table IDs must correspond to each other.
    * 
    * @example
    * testname
@@ -155,11 +151,9 @@ export class ListTransitRouterRouteTablesRequest extends $dara.Model {
    * @remarks
    * The status of the route table. Valid values:
    * 
-   * - **Creating**: The route table is being created.
-   * 
-   * - **Deleting**: The route table is being deleted.
-   * 
-   * - **Active**: The route table is available.
+   * - **Creating**: being created.
+   * - **Deleting**: being deleted.
+   * - **Active**: active.
    * 
    * @example
    * Active
@@ -169,9 +163,8 @@ export class ListTransitRouterRouteTablesRequest extends $dara.Model {
    * @remarks
    * The type of the route table. Valid values:
    * 
-   * - **Custom**: a custom route table.
-   * 
-   * - **System**: the default route table.
+   * - **Custom**: custom route table.
+   * - **System**: system default route table.
    * 
    * @example
    * Custom

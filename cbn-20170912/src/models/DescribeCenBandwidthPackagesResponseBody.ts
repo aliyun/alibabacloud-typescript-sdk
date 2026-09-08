@@ -263,7 +263,7 @@ export class DescribeCenBandwidthPackagesResponseBody extends $dara.Model {
   cenBandwidthPackages?: DescribeCenBandwidthPackagesResponseBodyCenBandwidthPackages;
   /**
    * @remarks
-   * The number of the returned page.
+   * The current page number.
    * 
    * @example
    * 1
@@ -271,7 +271,7 @@ export class DescribeCenBandwidthPackagesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries per page.
    * 
    * @example
    * 2
@@ -287,7 +287,7 @@ export class DescribeCenBandwidthPackagesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 2

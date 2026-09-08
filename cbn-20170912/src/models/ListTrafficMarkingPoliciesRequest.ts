@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListTrafficMarkingPoliciesRequest extends $dara.Model {
   /**
    * @remarks
-   * The number of entries to return on each page. Valid values: **1** to **100**. Default value: **20**.
+   * The number of entries per page for a paged query. Valid values: **1** to **100**. Default value: **20**.
    * 
    * @example
    * 20
@@ -13,11 +13,9 @@ export class ListTrafficMarkingPoliciesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that is used for the next query. Valid values:
-   * 
-   * - You do not need to specify this parameter for the first query.
-   * 
-   * - If a next query is to be sent, set the value to the **NextToken** value returned from the last API call.
+   * The pagination token. Valid values:
+   * - You do not need to specify this parameter for the first request or if no subsequent query exists.
+   * - If a subsequent query exists, set the value to the **NextToken** value returned by the previous API call.
    * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd****
@@ -31,7 +29,7 @@ export class ListTrafficMarkingPoliciesRequest extends $dara.Model {
    * @remarks
    * The description of the traffic marking policy.
    * 
-   * The description can be empty or 1 to 256 characters in length. It cannot start with http\\:// or https\\://.
+   * The description can be empty or 1 to 256 characters in length and cannot start with http:// or https://.
    * 
    * @example
    * desctest
@@ -49,7 +47,7 @@ export class ListTrafficMarkingPoliciesRequest extends $dara.Model {
    * @remarks
    * The name of the traffic marking policy.
    * 
-   * The name can be empty or 1 to 128 characters in length. It cannot start with http\\:// or https\\://.
+   * The name can be empty or 1 to 128 characters in length and cannot start with http:// or https://.
    * 
    * @example
    * nametest
@@ -57,7 +55,7 @@ export class ListTrafficMarkingPoliciesRequest extends $dara.Model {
   trafficMarkingPolicyName?: string;
   /**
    * @remarks
-   * The ID of the TransitRouter instance.
+   * The ID of the transit router instance.
    * 
    * @example
    * tr-bp1rmwxnk221e3fas****

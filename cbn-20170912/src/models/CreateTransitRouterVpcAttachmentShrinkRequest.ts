@@ -5,9 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class CreateTransitRouterVpcAttachmentShrinkRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The key of the tag.
+   * The tag key of the resource.
    * 
-   * The tag key cannot be an empty string. The key can be up to 64 characters long and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
+   * Once specified, the tag key cannot be an empty string. The tag key can be up to 64 characters in length, and cannot start with `aliyun` or `acs:`, or contain `http://` or `https://`.
+   * 
+   * You can specify up to 20 tag keys at a time.
    * 
    * @example
    * tagtest
@@ -15,9 +17,11 @@ export class CreateTransitRouterVpcAttachmentShrinkRequestTag extends $dara.Mode
   key?: string;
   /**
    * @remarks
-   * The value of the tag.
+   * The tag value of the resource.
    * 
-   * The tag value can be an empty string or a string up to 128 characters long. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
+   * Once specified, the tag value cannot be empty. The tag value can be up to 128 characters in length, and cannot start with aliyun or acs:, or contain http:// or https://.
+   * 
+   * Each tag key corresponds to one tag value. You can specify up to 20 tag values at a time.
    * 
    * @example
    * tagtest
@@ -49,7 +53,9 @@ export class CreateTransitRouterVpcAttachmentShrinkRequestTag extends $dara.Mode
 export class CreateTransitRouterVpcAttachmentShrinkRequestZoneMappings extends $dara.Model {
   /**
    * @remarks
-   * The ID of the vSwitch.
+   * The ID of the vSwitch instance in a zone supported by the Enterprise Edition transit router.
+   * 
+   * You can select vSwitch instances for up to 10 zones at a time.
    * 
    * This parameter is required.
    * 
@@ -59,9 +65,11 @@ export class CreateTransitRouterVpcAttachmentShrinkRequestZoneMappings extends $
   vSwitchId?: string;
   /**
    * @remarks
-   * The ID of the zone. The zone must be supported by the Enterprise Edition transit router.
+   * The ID of a zone supported by the Enterprise Edition transit router.
    * 
-   * You can call the [DescribeZones](https://help.aliyun.com/document_detail/36064.html) operation to query available zones.
+   * You can call the [DescribeZones](https://help.aliyun.com/document_detail/36064.html) operation to query zone IDs.
+   * 
+   * You can select up to 10 zones at a time.
    * 
    * This parameter is required.
    * 
@@ -95,11 +103,10 @@ export class CreateTransitRouterVpcAttachmentShrinkRequestZoneMappings extends $
 export class CreateTransitRouterVpcAttachmentShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable the Enterprise Edition transit router to automatically advertise routes to the VPC.
+   * Specifies whether to allow the Enterprise Edition transit router to automatically publish routing entries to the VPC instance.
    * 
-   * - **false** (default): Do not automatically advertise routes.
-   * 
-   * - **true**: Automatically advertise routes.
+   * - **false** (default): No.
+   * - **true**: Yes.
    * 
    * @example
    * true
@@ -107,7 +114,7 @@ export class CreateTransitRouterVpcAttachmentShrinkRequest extends $dara.Model {
   autoPublishRouteEnabled?: boolean;
   /**
    * @remarks
-   * The ID of the CEN instance.
+   * The instance ID of the Cloud Enterprise Network (CEN).
    * 
    * @example
    * cen-j3jzhw1zpau2km****
@@ -115,7 +122,7 @@ export class CreateTransitRouterVpcAttachmentShrinkRequest extends $dara.Model {
   cenId?: string;
   /**
    * @remarks
-   * The billing method. The default value is **POSTPAY** (pay-as-you-go).
+   * The billing method. Default value: **POSTPAY**, which indicates pay-as-you-go.
    * 
    * @example
    * POSTPAY
@@ -123,11 +130,11 @@ export class CreateTransitRouterVpcAttachmentShrinkRequest extends $dara.Model {
   chargeType?: string;
   /**
    * @remarks
-   * The client token used to ensure request idempotency.
+   * The client token that is used to ensure the idempotence of the request.
    * 
-   * You must generate a value on your client that is unique among different requests. The token can contain only ASCII characters.
+   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The client token can contain only ASCII characters.
    * 
-   * > If you do not specify this parameter, the system automatically uses the request ID as the client token, which is unique for each request.
+   * >If you do not specify this parameter, the system automatically uses the RequestId of the API request as the ClientToken. The RequestId may be different for each API request.
    * 
    * @example
    * 02fb3da4-130e-11e9-8e44-001****
@@ -135,24 +142,27 @@ export class CreateTransitRouterVpcAttachmentShrinkRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether to perform a dry run to check the validity of the request without creating the resource. The check includes permissions and instance status. Valid values:
+   * Specifies whether to execute a dry run, including permission and instance status verification. Valid values:
    * 
-   * - **false** (default): Sends a normal request. The system creates the VPC connection if the request is valid.
-   * 
-   * - **true**: Sends only a check request. The system checks required parameters, request format, and permissions. The VPC connection is not created. If the check fails, an error is returned. If the check succeeds, the `DryRunOperation` error code is returned.
+   * - **false** (default): Sends a normal request and creates the VPC connection after the request passes the check.
+   * - **true**: Sends a check request. Only the check is performed, and the VPC connection is not created. The check items include whether required parameters are specified and the request format. If the check fails, the corresponding error is returned. If the check succeeds, the error code `DryRunOperation` is returned.
    * 
    * @example
    * false
    */
   dryRun?: boolean;
+  /**
+   * @remarks
+   * The collection of feature attributes.
+   */
   optionsShrink?: string;
   ownerAccount?: string;
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the region where the VPC is located.
+   * The region ID of the VPC-connected instance.
    * 
-   * You can call the [DescribeChildInstanceRegions](https://help.aliyun.com/document_detail/132080.html) operation to query region IDs.
+   * You can invoke the [DescribeChildInstanceRegions](https://help.aliyun.com/document_detail/132080.html) operation to query the region ID.
    * 
    * @example
    * cn-hangzhou
@@ -162,16 +172,16 @@ export class CreateTransitRouterVpcAttachmentShrinkRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The tags to add to the VPC connection.
+   * The list of tags.
    * 
-   * You can add up to 20 tags.
+   * You can specify up to 20 tags at a time.
    */
   tag?: CreateTransitRouterVpcAttachmentShrinkRequestTag[];
   /**
    * @remarks
    * The description of the VPC connection.
    * 
-   * The description can be empty or 1 to 256 characters long, and cannot start with `http://` or `https://`.
+   * The description can be empty or 1 to 256 characters in length, and cannot start with http:// or https://.
    * 
    * @example
    * testname
@@ -181,7 +191,7 @@ export class CreateTransitRouterVpcAttachmentShrinkRequest extends $dara.Model {
    * @remarks
    * The name of the VPC connection.
    * 
-   * The name can be empty or 1 to 128 characters long, and cannot start with `http://` or `https://`.
+   * The name can be empty or 1 to 128 characters in length, and cannot start with http:// or https://.
    * 
    * @example
    * testname
@@ -189,7 +199,7 @@ export class CreateTransitRouterVpcAttachmentShrinkRequest extends $dara.Model {
   transitRouterAttachmentName?: string;
   /**
    * @remarks
-   * The ID of the Enterprise Edition transit router.
+   * The instance ID of the Enterprise Edition transit router.
    * 
    * @example
    * tr-bp1su1ytdxtataupl****
@@ -197,12 +207,12 @@ export class CreateTransitRouterVpcAttachmentShrinkRequest extends $dara.Model {
   transitRouterId?: string;
   /**
    * @remarks
-   * The properties of the VPC connection. This parameter is deprecated. We recommend that you use the `Options` parameter instead.
+   * The list of feature attributes for the VPC connection (to be deprecated, use the new parameter Options instead).
    */
   transitRouterVPCAttachmentOptionsShrink?: string;
   /**
    * @remarks
-   * The ID of the VPC.
+   * The instance ID of the VPC-connected instance.
    * 
    * This parameter is required.
    * 
@@ -212,9 +222,9 @@ export class CreateTransitRouterVpcAttachmentShrinkRequest extends $dara.Model {
   vpcId?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account that owns the VPC. By default, this is the ID of the current Alibaba Cloud account.
+   * The Alibaba Cloud account ID to which the VPC-connected instance belongs. The default value is the Alibaba Cloud account ID of the current logon user.
    * 
-   * > This parameter is required if you want to attach a cross-account network instance.
+   * > This parameter is required if you want to load a cross-account network instance.
    * 
    * @example
    * 1250123456123456
@@ -222,9 +232,9 @@ export class CreateTransitRouterVpcAttachmentShrinkRequest extends $dara.Model {
   vpcOwnerId?: number;
   /**
    * @remarks
-   * The zone mappings for the VPC connection. For each mapping, you must specify a vSwitch in a zone that is supported by the Enterprise Edition transit router.
+   * Select a vSwitch instance in a zone supported by the Enterprise Edition transit router.
    * 
-   * You can specify up to 10 zone mappings.
+   * You can add up to 10 entries at a time.
    * 
    * This parameter is required.
    */

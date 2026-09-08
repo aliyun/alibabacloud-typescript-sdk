@@ -63,7 +63,7 @@ export class DescribeCenPrivateZoneRoutesResponseBodyPrivateZoneInfos extends $d
 export class DescribeCenPrivateZoneRoutesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the CEN instance.
+   * The CEN instance ID.
    * 
    * @example
    * cen-7qthudw0ll6jmc****
@@ -79,7 +79,7 @@ export class DescribeCenPrivateZoneRoutesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries per page for paging.
    * 
    * @example
    * 10
@@ -87,7 +87,7 @@ export class DescribeCenPrivateZoneRoutesResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The IP addresses of the DNS servers for the PrivateZone service.
+   * The IP address of the DNS server for the PrivateZone service.
    * 
    * @example
    * 100.100.XX.XX/32,100.100.XX.XX/32
@@ -104,7 +104,7 @@ export class DescribeCenPrivateZoneRoutesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries.
+   * The total number of entries returned.
    * 
    * @example
    * 2

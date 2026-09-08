@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ActiveFlowLogResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * F7DDDC17-FA06-4AC2-8F35-59D2470FCFC1
@@ -15,9 +15,8 @@ export class ActiveFlowLogResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the call is successful.
    * 
-   * - **true**: yes
-   * 
-   * - **false**: no
+   * - **true**: successful.
+   * - **false**: failed.
    * 
    * @example
    * true

@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ListCenInterRegionTrafficQosQueuesResponseBodyTrafficQosQueues extends $dara.Model {
   /**
    * @remarks
-   * The bandwidth allocated to the queue. This parameter is returned only if you allocate bandwidth to the queue by absolute value.
+   * The inter-region bandwidth allocated to the current queue when the bandwidth guarantee type is set to absolute value mode.
    * 
-   * For example, a value of **1** indicates that traffic that matches the queue can use up to 1 Mbit/s of the inter-region connection bandwidth.
+   * For example, a value of **1** indicates that traffic packets matching the current queue can use up to 1 Mbit/s of inter-region bandwidth.
    * 
    * @example
    * 1
@@ -15,12 +15,12 @@ export class ListCenInterRegionTrafficQosQueuesResponseBodyTrafficQosQueues exte
   bandwidth?: string;
   /**
    * @remarks
-   * The Differentiated Services Code Point (DSCP) values that are matched by the queue.
+   * The DSCP values matched by the current queue.
    */
   dscps?: number[];
   /**
    * @remarks
-   * The actual bandwidth of the queue.
+   * The actual effective bandwidth value of the current queue.
    * 
    * @example
    * 1.35
@@ -28,9 +28,9 @@ export class ListCenInterRegionTrafficQosQueuesResponseBodyTrafficQosQueues exte
   effectiveBandwidth?: string;
   /**
    * @remarks
-   * The percentage of the inter-region connection bandwidth that can be used by the queue. This parameter is returned only if you allocate bandwidth to the queue by percentage.
+   * The percentage of inter-region bandwidth that the current queue can use when the bandwidth guarantee type is set to percentage mode.
    * 
-   * For example, a value of **1** indicates that traffic that matches the queue can use up to 1% of the inter-region connection bandwidth.
+   * For example, a value of **1** indicates that traffic packets matching the current queue can use up to 1% of the inter-region bandwidth.
    * 
    * @example
    * 1
@@ -38,12 +38,10 @@ export class ListCenInterRegionTrafficQosQueuesResponseBodyTrafficQosQueues exte
   remainBandwidthPercent?: number;
   /**
    * @remarks
-   * The status of the queue.
+   * The status of the queue. Valid values:
    * 
    * - **Creating**: The queue is being created.
-   * 
    * - **Active**: The queue is running.
-   * 
    * - **Deleting**: The queue is being deleted.
    * 
    * @example
@@ -52,7 +50,7 @@ export class ListCenInterRegionTrafficQosQueuesResponseBodyTrafficQosQueues exte
   status?: string;
   /**
    * @remarks
-   * The ID of the QoS policy.
+   * The ID of the traffic scheduling policy.
    * 
    * @example
    * qos-fv2qq9yqrsjowp****
@@ -60,7 +58,7 @@ export class ListCenInterRegionTrafficQosQueuesResponseBodyTrafficQosQueues exte
   trafficQosPolicyId?: string;
   /**
    * @remarks
-   * The description of the queue in the QoS policy.
+   * The description of the traffic scheduling policy queue.
    * 
    * @example
    * qosQueueDescription
@@ -68,7 +66,7 @@ export class ListCenInterRegionTrafficQosQueuesResponseBodyTrafficQosQueues exte
   trafficQosQueueDescription?: string;
   /**
    * @remarks
-   * The ID of the queue in the QoS policy.
+   * The ID of the traffic scheduling policy queue.
    * 
    * @example
    * qos-queue-siakjb2nn9gz5z****
@@ -76,7 +74,7 @@ export class ListCenInterRegionTrafficQosQueuesResponseBodyTrafficQosQueues exte
   trafficQosQueueId?: string;
   /**
    * @remarks
-   * The name of the queue in the QoS policy.
+   * The name of the traffic scheduling policy queue.
    * 
    * @example
    * qosQueueName
@@ -92,7 +90,7 @@ export class ListCenInterRegionTrafficQosQueuesResponseBodyTrafficQosQueues exte
   transitRouterAttachmentId?: string;
   /**
    * @remarks
-   * The ID of the transit router.
+   * The ID of the transit router instance.
    * 
    * @example
    * tr-p0wwagjv6fvxt4b7y****
@@ -145,11 +143,10 @@ export class ListCenInterRegionTrafficQosQueuesResponseBodyTrafficQosQueues exte
 export class ListCenInterRegionTrafficQosQueuesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A pagination token. It is used in the next request to retrieve a new page of results. Valid values:
+   * The token that determines the start point of the next query. Valid values:
    * 
-   * - If **NextToken** is empty, no more results are returned.
-   * 
-   * - If NextToken is not empty, the value of **NextToken** is used for the next query.
+   * - If **NextToken** is empty, no next query exists.
+   * - If a value is returned for **NextToken**, the value indicates the token that is used for the next query.
    * 
    * @example
    * 0151fa6aa1ed****
@@ -165,7 +162,7 @@ export class ListCenInterRegionTrafficQosQueuesResponseBody extends $dara.Model 
   requestId?: string;
   /**
    * @remarks
-   * The information about the queues of the QoS policy.
+   * The queue information of the traffic scheduling policy.
    */
   trafficQosQueues?: ListCenInterRegionTrafficQosQueuesResponseBodyTrafficQosQueues[];
   static names(): { [key: string]: string } {

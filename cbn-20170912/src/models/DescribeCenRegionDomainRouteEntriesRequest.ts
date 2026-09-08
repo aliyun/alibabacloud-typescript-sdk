@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCenRegionDomainRouteEntriesRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the CEN instance.
+   * The CEN instance ID.
    * 
    * This parameter is required.
    * 
@@ -17,7 +17,7 @@ export class DescribeCenRegionDomainRouteEntriesRequest extends $dara.Model {
    * @remarks
    * The region ID.
    * 
-   * Call [DescribeChildInstanceRegions](https://help.aliyun.com/document_detail/132080.html) to obtain the region ID.
+   * You can call the [DescribeChildInstanceRegions](https://help.aliyun.com/document_detail/132080.html) operation to obtain the region ID.
    * 
    * This parameter is required.
    * 
@@ -29,7 +29,7 @@ export class DescribeCenRegionDomainRouteEntriesRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The page number. The default value is **1**.
+   * The page number. Default value: **1**.
    * 
    * @example
    * 1
@@ -37,7 +37,7 @@ export class DescribeCenRegionDomainRouteEntriesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. The default value is **10**. Valid values: **1** to **500**.
+   * The number of entries per page during paging. Default value: **10**. Valid values: **1** to **500**.
    * 
    * @example
    * 10
@@ -55,9 +55,9 @@ export class DescribeCenRegionDomainRouteEntriesRequest extends $dara.Model {
    * 
    * - **Rejected**: rejected.
    * 
-   * - **Prohibited**: disabled.
+   * - **Prohibited**: prohibited.
    * 
-   * - **All**: all route entries in the current region, regardless of their status.
+   * - **All**: queries route entries in all states in the current region.
    * 
    * @example
    * Active

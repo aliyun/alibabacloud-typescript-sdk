@@ -45,7 +45,7 @@ export class ListTransitRoutersResponseBodyTransitRoutersTags extends $dara.Mode
 export class ListTransitRoutersResponseBodyTransitRoutersTransitRouterCidrList extends $dara.Model {
   /**
    * @remarks
-   * The CIDR block of the transit router.
+   * The transit router CIDR block.
    * 
    * @example
    * 192.168.1.0/24
@@ -53,7 +53,7 @@ export class ListTransitRoutersResponseBodyTransitRoutersTransitRouterCidrList e
   cidr?: string;
   /**
    * @remarks
-   * The description of the CIDR block.
+   * The description of the transit router CIDR block.
    * 
    * @example
    * CIDRdesc
@@ -61,7 +61,7 @@ export class ListTransitRoutersResponseBodyTransitRoutersTransitRouterCidrList e
   description?: string;
   /**
    * @remarks
-   * The name of the CIDR block.
+   * The name of the transit router CIDR block.
    * 
    * @example
    * CIDRname
@@ -69,17 +69,16 @@ export class ListTransitRoutersResponseBodyTransitRoutersTransitRouterCidrList e
   name?: string;
   /**
    * @remarks
-   * Indicates whether the system automatically adds a route for the transit router CIDR block to the route table of the transit router.
+   * Indicates whether the system is allowed to automatically add a route for the transit router CIDR block to the transit router route table. Valid values:
    * 
-   * - **true**: Yes.
+   * - **true**: allowed.
    * 
-   *   If this parameter is set to **true**, after you create a VPN connection of the private gateway type and enable route learning for the VPN connection, the system automatically adds a blackhole route to the route table of the transit router that is in a route learning correlation with the VPN connection.
+   *      If the value is **true**, after you create a VPN connection of the private gateway type and create a route learning relationship for the VPN connection, the system automatically adds the following route entry to the transit router route table that has a route learning relationship with the VPN connection:
    * 
-   *   The destination CIDR block of the blackhole route is the CIDR block of the transit router. The CIDR block of the transit router is the CIDR block from which an IP address is allocated to the IPsec-VPN connection.
-   * 
-   *   This blackhole route is advertised only to the route tables of the virtual border routers (VBRs) that are connected to the transit router.
-   * 
-   * - **false**: No.
+   *   A blackhole route whose destination CIDR block is the transit router CIDR block from which a gateway IP address is allocated to the IPsec connection.
+   *       
+   *   The blackhole route is propagated only to the route tables of VBR instances under the transit router.
+   * - **false**: not allowed.
    * 
    * @example
    * true
@@ -87,7 +86,7 @@ export class ListTransitRoutersResponseBodyTransitRoutersTransitRouterCidrList e
   publishCidrRoute?: boolean;
   /**
    * @remarks
-   * The ID of the CIDR block.
+   * The ID of the transit router CIDR block.
    * 
    * @example
    * cidr-46p5ceg21e8152****
@@ -133,7 +132,7 @@ export class ListTransitRoutersResponseBodyTransitRouters extends $dara.Model {
   aliUid?: number;
   /**
    * @remarks
-   * The ID of the CEN instance.
+   * The CEN instance ID.
    * 
    * @example
    * cen-j3jzhw1zpau2km****
@@ -141,9 +140,9 @@ export class ListTransitRoutersResponseBodyTransitRouters extends $dara.Model {
   cenId?: string;
   /**
    * @remarks
-   * The time when the transit router was created.
+   * The time when the transit router instance was created.
    * 
-   * The time is displayed in the `YYYY-MM-DDThh:mmZ` format in UTC.
+   * The time is displayed in UTC in the `YYYY-MM-DDThh:mmZ` format.
    * 
    * @example
    * 2021-03-15T09:39Z
@@ -151,7 +150,7 @@ export class ListTransitRoutersResponseBodyTransitRouters extends $dara.Model {
   creationTime?: string;
   /**
    * @remarks
-   * The ID of the region where the transit router is deployed.
+   * The region ID of the transit router instance.
    * 
    * @example
    * cn-hangzhou
@@ -159,17 +158,13 @@ export class ListTransitRoutersResponseBodyTransitRouters extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The status of the transit router.
+   * The status of the transit router instance. Valid values:
    * 
-   * - **Creating**: The transit router is being created.
-   * 
-   * - **Active**: The transit router is available.
-   * 
-   * - **Modifying**: The transit router is being modified.
-   * 
-   * - **Deleting**: The transit router is being deleted.
-   * 
-   * - **Upgrading**: The transit router is being upgraded.
+   * - **Creating**: being created.
+   * - **Active**: active.
+   * - **Modifying**: being modified.
+   * - **Deleting**: being deleted.
+   * - **Upgrading**: being upgraded.
    * 
    * @example
    * Active
@@ -177,10 +172,9 @@ export class ListTransitRoutersResponseBodyTransitRouters extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Indicates whether the multicast feature is enabled for the transit router.
+   * Indicates whether the multicast feature is enabled for the transit router instance. Valid values:
    * 
    * - **true**: enabled.
-   * 
    * - **false**: disabled.
    * 
    * @example
@@ -189,17 +183,17 @@ export class ListTransitRoutersResponseBodyTransitRouters extends $dara.Model {
   supportMulticast?: boolean;
   /**
    * @remarks
-   * A list of tags.
+   * The list of tags.
    */
   tags?: ListTransitRoutersResponseBodyTransitRoutersTags[];
   /**
    * @remarks
-   * A list of CIDR blocks of the transit router.
+   * The list of transit router CIDR blocks.
    */
   transitRouterCidrList?: ListTransitRoutersResponseBodyTransitRoutersTransitRouterCidrList[];
   /**
    * @remarks
-   * The description of the transit router.
+   * The description of the transit router instance.
    * 
    * @example
    * testdesc
@@ -207,7 +201,7 @@ export class ListTransitRoutersResponseBodyTransitRouters extends $dara.Model {
   transitRouterDescription?: string;
   /**
    * @remarks
-   * The ID of the transit router.
+   * The transit router instance ID.
    * 
    * @example
    * tr-bp1su1ytdxtataupl****
@@ -215,7 +209,7 @@ export class ListTransitRoutersResponseBodyTransitRouters extends $dara.Model {
   transitRouterId?: string;
   /**
    * @remarks
-   * The name of the transit router.
+   * The name of the transit router instance.
    * 
    * @example
    * testname
@@ -223,11 +217,10 @@ export class ListTransitRoutersResponseBodyTransitRouters extends $dara.Model {
   transitRouterName?: string;
   /**
    * @remarks
-   * The type of the transit router.
+   * The type of the transit router instance. Valid values:
    * 
-   * - **Enterprise**: Enterprise Edition.
-   * 
-   * - **Basic**: Basic Edition.
+   * - **Enterprise**: Enterprise Edition transit router.
+   * - **Basic**: Basic Edition transit router.
    * 
    * @example
    * Enterprise
@@ -293,7 +286,7 @@ export class ListTransitRoutersResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries per page in a paged query. For more information about paging, see the related parameter descriptions.
    * 
    * @example
    * 10
@@ -317,7 +310,7 @@ export class ListTransitRoutersResponseBody extends $dara.Model {
   totalCount?: number;
   /**
    * @remarks
-   * A list of transit routers.
+   * The list of transit router instances.
    */
   transitRouters?: ListTransitRoutersResponseBodyTransitRouters[];
   static names(): { [key: string]: string } {

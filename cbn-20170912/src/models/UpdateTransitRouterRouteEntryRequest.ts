@@ -7,9 +7,9 @@ export class UpdateTransitRouterRouteEntryRequest extends $dara.Model {
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The ClientToken value can contain only ASCII characters.
    * 
-   * > If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** is different for each request.
+   * > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** of each API request is different.
    * 
    * @example
    * 02fb3da4-130e-11e9-8e44-001****
@@ -17,10 +17,10 @@ export class UpdateTransitRouterRouteEntryRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether to perform a dry run. Default values:
+   * Specifies whether to perform a dry run, including permission and instance status verification. Valid values:
    * 
-   * - **false** (default): performs a dry run and sends the request.
-   * - **true**: performs a dry run. The system checks the required parameters and request syntax. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+   * - **false** (default): Sends a normal request. If the request passes the check, the name and description of the route entry are modified.
+   * - **true**: Sends a check request. Only the validation is performed, and the name and description of the route entry are not modified. The system checks whether the required parameters are specified and whether the request format is valid. If the check fails, the corresponding error is returned. If the check passes, the error code `DryRunOperation` is returned.
    * 
    * @example
    * false
@@ -32,9 +32,9 @@ export class UpdateTransitRouterRouteEntryRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The new description of the route.
+   * The new description of the route entry.
    * 
-   * The description must be 1 to 256 characters in length, and cannot start with http\\:// or https\\://. You can also leave this parameter empty.
+   * The description can be empty or 1 to 256 characters in length and cannot start with http:// or https://.
    * 
    * @example
    * testdesc
@@ -42,7 +42,7 @@ export class UpdateTransitRouterRouteEntryRequest extends $dara.Model {
   transitRouterRouteEntryDescription?: string;
   /**
    * @remarks
-   * The ID of the route.
+   * The route entry ID.
    * 
    * This parameter is required.
    * 
@@ -52,9 +52,9 @@ export class UpdateTransitRouterRouteEntryRequest extends $dara.Model {
   transitRouterRouteEntryId?: string;
   /**
    * @remarks
-   * The new name of the route.
+   * The new name of the route entry.
    * 
-   * The name must be 1 to 128 characters in length, and cannot start with http\\:// or https\\://. You can also leave this parameter empty.
+   * The name can be empty or 1 to 128 characters in length and cannot start with http:// or https://.
    * 
    * @example
    * testname

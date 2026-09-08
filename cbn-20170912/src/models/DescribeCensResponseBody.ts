@@ -166,7 +166,7 @@ export class DescribeCensResponseBody extends $dara.Model {
   cens?: DescribeCensResponseBodyCens;
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number.
    * 
    * @example
    * 1
@@ -174,7 +174,7 @@ export class DescribeCensResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries per page in a paging query.
    * 
    * @example
    * 10
@@ -190,7 +190,7 @@ export class DescribeCensResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 1

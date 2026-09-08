@@ -152,7 +152,7 @@ export class DescribeFlowlogsResponseBody extends $dara.Model {
   flowLogs?: DescribeFlowlogsResponseBodyFlowLogs;
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number.
    * 
    * @example
    * 1
@@ -160,7 +160,7 @@ export class DescribeFlowlogsResponseBody extends $dara.Model {
   pageNumber?: string;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries per page for paging queries.
    * 
    * @example
    * 20
@@ -168,7 +168,7 @@ export class DescribeFlowlogsResponseBody extends $dara.Model {
   pageSize?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * F7DDDC17-FA06-4AC2-8F35-59D2470FCFC1
@@ -176,10 +176,11 @@ export class DescribeFlowlogsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call is successful. Valid values:
+   * Indicates whether the current API call is successful.
    * 
-   * *   **true**: yes
-   * *   **false**: no
+   * - **true**: successful.
+   * 
+   * - **false**: failed.
    * 
    * @example
    * true

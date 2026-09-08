@@ -7,9 +7,9 @@ export class ModifyTransitRouteTableAggregationRequest extends $dara.Model {
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * Generate a token from your client to make sure that the token is unique among different requests. The \\`ClientToken\\` parameter can contain only ASCII characters.
+   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The client token can contain only ASCII characters.
    * 
-   * > If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+   * > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may differ for each API request.
    * 
    * @example
    * 02fb3da4****
@@ -17,11 +17,10 @@ export class ModifyTransitRouteTableAggregationRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether to perform a dry run. Valid values:
+   * Specifies whether to perform a dry run, including permission and instance status validation. Valid values:
    * 
-   * - **false** (default): sends a normal request and modifies the aggregate route after the request passes the check.
-   * 
-   * - **true**: sends a check request to perform a dry run. The system checks the required parameters, request format, and permissions. If the check fails, the corresponding error is returned. If the check passes, the \\`DryRunOperation\\` error code is returned. In this case, the aggregate route is not modified.
+   * - **false** (default): sends a normal request. If the request passes the check, the aggregate route is modified.
+   * - **true**: sends a check request. Only validation is performed, and the aggregate route is not modified. The system checks whether required parameters are specified and whether the request format is valid. If the check fails, the corresponding error is returned. If the check passes, the error code `DryRunOperation` is returned.
    * 
    * @example
    * false
@@ -45,7 +44,7 @@ export class ModifyTransitRouteTableAggregationRequest extends $dara.Model {
    * @remarks
    * The description of the aggregate route.
    * 
-   * The description can be empty or 0 to 256 characters in length. It cannot start with http\\:// or https\\://.
+   * The description can be empty or 0 to 256 characters in length and cannot start with http:// or https://.
    * 
    * @example
    * desctest
@@ -55,7 +54,7 @@ export class ModifyTransitRouteTableAggregationRequest extends $dara.Model {
    * @remarks
    * The name of the aggregate route.
    * 
-   * The name can be empty or 1 to 128 characters in length. It cannot start with http\\:// or https\\://.
+   * The name can be empty or 1 to 128 characters in length and cannot start with http:// or https://.
    * 
    * @example
    * nametest
@@ -65,7 +64,7 @@ export class ModifyTransitRouteTableAggregationRequest extends $dara.Model {
    * @remarks
    * The propagation scope of the aggregate route.
    * 
-   * The only valid value is **VPC**. This value specifies that the aggregate route is propagated to all VPC instances that are associated with the route table of the Enterprise Edition transit router and have route synchronization enabled.
+   * Set the value to **VPC**, which indicates that the aggregate route is propagated to all VPC-connected instances that have established associated forwarding relationships with the current Enterprise Edition transit router route table and have the route synchronization feature enabled.
    * 
    * @example
    * VPC
@@ -74,13 +73,12 @@ export class ModifyTransitRouteTableAggregationRequest extends $dara.Model {
   /**
    * @remarks
    * The list of propagation scopes for the aggregate route.
-   * 
-   * > You must specify this parameter or \\`TransitRouteTableAggregationScope\\`. We recommend that you specify this parameter. The elements in this list cannot be the same as the value of \\`TransitRouteTableAggregationScope\\`.
+   * >You must specify at least one of the aggregate route propagation scope or the aggregate route propagation scope list. We recommend that you use the aggregate route propagation scope list. The elements in the aggregate route propagation scope list cannot duplicate the value of the aggregate route propagation scope.
    */
   transitRouteTableAggregationScopeList?: string[];
   /**
    * @remarks
-   * The ID of the route table of the Enterprise Edition transit router.
+   * The ID of the Enterprise Edition transit router route table.
    * 
    * This parameter is required.
    * 

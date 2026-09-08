@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListCenChildInstanceRouteEntriesToAttachmentResponseBodyRouteEntry extends $dara.Model {
   /**
    * @remarks
-   * The ID of the CEN instance.
+   * The Cloud Enterprise Network (CEN) instance ID.
    * 
    * @example
    * cen-9adwg6ghpq8oq4dp7q
@@ -13,7 +13,7 @@ export class ListCenChildInstanceRouteEntriesToAttachmentResponseBodyRouteEntry 
   cenId?: string;
   /**
    * @remarks
-   * The ID of the route table of the network instance.
+   * The route table ID of the network instance.
    * 
    * @example
    * vtb-bp1tlaj1c4nxr2t3e****
@@ -21,7 +21,7 @@ export class ListCenChildInstanceRouteEntriesToAttachmentResponseBodyRouteEntry 
   childInstanceRouteTableId?: string;
   /**
    * @remarks
-   * The destination CIDR block of the route.
+   * The destination CIDR block of the route entry.
    * 
    * @example
    * 10.0.0.0/8
@@ -29,7 +29,7 @@ export class ListCenChildInstanceRouteEntriesToAttachmentResponseBodyRouteEntry 
   destinationCidrBlock?: string;
   /**
    * @remarks
-   * The type of the managed routing service. If this parameter is empty, the route is not managed. The value TR indicates that the route is managed by a transit router.
+   * The type of route hosting. If this field is empty, the route is not hosted. Valid values: TR, which indicates that the hosting type is transit router.
    * 
    * @example
    * TR
@@ -37,13 +37,10 @@ export class ListCenChildInstanceRouteEntriesToAttachmentResponseBodyRouteEntry 
   serviceType?: string;
   /**
    * @remarks
-   * The status of the route. Valid values:
-   * 
-   * - **Available**: The route is active.
-   * 
-   * - **Pending**: The route is being configured.
-   * 
-   * - **Modifying**: The route is being modified.
+   * The status of the route entry. Valid values:
+   * - **Available**: available.
+   * - **Pending**: being configured.
+   * - **Modifying**: being modified.
    * 
    * @example
    * Available
@@ -91,11 +88,10 @@ export class ListCenChildInstanceRouteEntriesToAttachmentResponseBodyRouteEntry 
 export class ListCenChildInstanceRouteEntriesToAttachmentResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The token that is used for the next query.
+   * Indicates whether a next query token (Token) exists. Valid values:
    * 
-   * - If **NextToken** is empty, no subsequent query is sent.
-   * 
-   * - If a value is returned for **NextToken**, the value is the token that is used for the next query.
+   * - If **NextToken** is empty, no next query exists.
+   * - If **NextToken** is returned, the value indicates the token for the next query.
    * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd****
@@ -111,7 +107,7 @@ export class ListCenChildInstanceRouteEntriesToAttachmentResponseBody extends $d
   requestId?: string;
   /**
    * @remarks
-   * The details of the route.
+   * The details of the route entries.
    */
   routeEntry?: ListCenChildInstanceRouteEntriesToAttachmentResponseBodyRouteEntry[];
   static names(): { [key: string]: string } {

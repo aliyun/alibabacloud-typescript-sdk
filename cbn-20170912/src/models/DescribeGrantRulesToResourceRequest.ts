@@ -5,9 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeGrantRulesToResourceRequest extends $dara.Model {
   /**
    * @remarks
-   * - If you omit this parameter, all entries are returned in a single response. In this case, the **MaxResults** field in the response indicates the total number of entries.
-   * 
-   * - If you specify the **MaxResults** parameter, the query is paginated. **MaxResults** sets the number of entries per page. The value must be an integer from **1** to **100**. The **MaxResults** value in the response indicates the number of entries on the current page. The recommended value for this parameter is **20**.
+   * - If you do not specify the **MaxResults** parameter, paged query is not required. The value of **MaxResults** in the response indicates the total number of entries.
+   * - If you specify the **MaxResults** parameter, paged query is required. The value of **MaxResults** specifies the number of entries to return per page. Valid values: **1** to **100**. The value of **MaxResults** in the response indicates the number of entries in the current page. We recommend that you set **MaxResults** to **20**.
    * 
    * @example
    * 20
@@ -15,11 +14,10 @@ export class DescribeGrantRulesToResourceRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token used to retrieve the next page of results. Valid values:
+   * The pagination token. Valid values:
    * 
-   * - Omit this parameter for the first request.
-   * 
-   * - For subsequent requests, set this parameter to the **NextToken** value from the previous response.
+   * - You do not need to specify this parameter for the first request or if no subsequent query exists.
+   * - If a subsequent query exists, set the value to the **NextToken** value returned by the previous API call.
    * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd****
@@ -31,13 +29,10 @@ export class DescribeGrantRulesToResourceRequest extends $dara.Model {
    * @remarks
    * The type of the network instance. Valid values:
    * 
-   * - **VPC**: a Virtual Private Cloud (VPC) instance.
-   * 
-   * - **ExpressConnect**: a Virtual Border Router (VBR) instance.
-   * 
-   * - **VPN**: an IPsec connection.
-   * 
-   * - **ECR**: an ExpressConnect Router (ECR) instance.
+   * - **VPC**: Virtual Private Cloud (VPC) instance.
+   * - **ExpressConnect**: Virtual border router (VBR) instance.
+   * - **VPN**: IPsec connection.
+   * - **ECR**: Express Connect Router (ECR) instance.
    * 
    * This parameter is required.
    * 
@@ -57,7 +52,7 @@ export class DescribeGrantRulesToResourceRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the network instance.
+   * The network instance ID.
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateTrafficMarkingPolicyRequestTrafficMatchRules extends $dara.Model {
   /**
    * @remarks
-   * The address family. You can set the value to IPv4 or IPv6, or leave the value empty.
+   * The address type. Valid values: IPv4, IPv6, or empty.
    * 
    * @example
    * IPv4
@@ -13,11 +13,11 @@ export class CreateTrafficMarkingPolicyRequestTrafficMatchRules extends $dara.Mo
   addressFamily?: string;
   /**
    * @remarks
-   * The destination CIDR block of packets. IPv4 and IPv6 addresses are supported.
+   * The destination CIDR block of traffic packets. IPv4 and IPv6 addresses are supported.
    * 
-   * Packets whose destination IP addresses fall into the specified destination CIDR block meet the traffic classification rule. If you do not specify a destination CIDR block, all packets meet the traffic classification rule.
+   * The traffic classification rule matches traffic whose destination IP address falls within the destination CIDR block. If you do not set this parameter, the traffic classification rule matches traffic with any destination IP address.
    * 
-   * You can create up to 50 traffic classification rules in each call You can specify a destination CIDR block for each traffic classification rule.
+   * You can create up to 50 traffic classification rules at a time, and each traffic classification rule can specify one destination CIDR block.
    * 
    * @example
    * 10.10.10.0/24
@@ -25,30 +25,28 @@ export class CreateTrafficMarkingPolicyRequestTrafficMatchRules extends $dara.Mo
   dstCidr?: string;
   /**
    * @remarks
-   * The destination port range that is used to match packets. Valid values: **-1** and **1** to **65535**.
+   * The destination port of traffic packets. Valid values: **-1** and **1** to **65535**.
    * 
-   * Packets whose destination ports fall within the destination port range meet the traffic classification rule. If you do not specify destination port range, all packets meet the traffic classification rule.
+   * The traffic classification rule matches traffic whose destination port falls within the destination port range. If you do not set this parameter, the traffic classification rule matches traffic with any destination port.
    * 
-   * You can enter up to two port numbers. Take note of the following rules:
+   * This parameter supports up to two port numbers. The input format is described as follows:
    * 
-   * - If you enter only one port number, such as 1, packets whose destination port is 1 meet the traffic classification rule. A value of -1 specifies all destination ports.
+   * - If you enter only one port number, such as 1, the system matches traffic whose destination port is 1 by default. If the value is -1, the system matches traffic with any destination port.
+   * - If you enter two port numbers, such as 1 and 200, the system matches traffic whose destination port is in the range of 1 to 200 by default.
+   * - If you enter two port numbers and one of them is -1, the other port number must also be -1, which indicates matching traffic with any destination port.
    * 
-   * - If you enter two port numbers, such as 1 and 200, packets whose destination ports fall into 1 and 200 meet the traffic classification rule.
-   * 
-   * - If you enter two port numbers and one of them is -1, the other port number must also be -1. In this case, all packets meet the traffic classification rule.
-   * 
-   * You can create up to 50 traffic classification rules in each call. You can specify a destination port range for each traffic classification rule.
+   * You can create up to 50 traffic classification rules at a time, and each traffic classification rule can specify one destination port range.
    */
   dstPortRange?: number[];
   /**
    * @remarks
-   * The Differentiated Service Code Point (DSCP) value that is used to match packets. Valid values: **0** to **63**.
+   * The DSCP value of traffic packets. Valid values: **0** to **63**.
    * 
-   * Packets that carry the specified DSCP value meet the traffic classification rule. If you do not specify a DSCP value, all packets meet the traffic classification rule.
+   * The traffic classification rule matches traffic that contains the specified DSCP value. If you do not set this parameter, the traffic classification rule matches traffic with any DSCP value.
    * 
-   * > The DSCP value that you specify for this parameter is the DSCP value that packets carry before they are transmitted over the inter-region connection.
+   * > The DSCP value refers to the DSCP value that the traffic packets already carry before entering the inter-region connection.
    * 
-   * You can create up to 50 traffic classification rules in each call. You can specify a DSCP value for each traffic classification rule.
+   * You can create up to 50 traffic classification rules at a time, and each traffic classification rule can match one DSCP value.
    * 
    * @example
    * 6
@@ -56,37 +54,28 @@ export class CreateTrafficMarkingPolicyRequestTrafficMatchRules extends $dara.Mo
   matchDscp?: number;
   /**
    * @remarks
-   * The protocol that is used to match packets.
+   * The protocol type of traffic packets.
    * 
-   * Traffic classification rules support the following protocols: **HTTP**, **HTTPS**, **TCP**, **UDP**, **SSH**, and **Telnet**. For more information, log on to the [CEN console](https://cen.console.aliyun.com/cen/list).
+   * The traffic marking policy supports matching traffic of multiple protocol types such as **HTTP**, **HTTPS**, **TCP**, **UDP**, **SSH**, and **Telnet**. For more protocol types, log on to the [Cloud Enterprise Network (CEN) console](https://cen.console.aliyun.com/cen/list).
+   * <details>
+   * <summary>Some protocols have fixed ports. Click to view port details.</summary>
    * 
-   * **Some protocols use a fixed port. Click to view the protocols and ports.**
+   * - If the protocol type is **ICMP**, the destination port must be set to **-1**.
+   * - If the protocol type is **GRE**, the destination port must be set to **-1**.
+   * - If the protocol type is **SSH**, the destination port must be set to **22**.
+   * - If the protocol type is **Telnet**, the destination port must be set to **23**.
+   * - If the protocol type is **HTTP**, the destination port must be set to **80**.
+   * - If the protocol type is **HTTPS**, the destination port must be set to **443**.
+   * - If the protocol type is **MS SQL**, the destination port must be set to **1443**.
+   * - If the protocol type is **Oracle**, the destination port must be set to **1521**.
+   * - If the protocol type is **Mysql**, the destination port must be set to **3306**.
+   * - If the protocol type is **RDP**, the destination port must be set to **3389**.
+   * - If the protocol type is **Postgre SQL**, the destination port must be set to **5432**.
+   * - If the protocol type is **Redis**, the destination port must be set to **6379**.
    * 
-   * - If the protocol is **ICMP**, the destination port must be **-1**.
+   * </details>
    * 
-   * - If the protocol is **GRE**, the destination port must be **1**.
-   * 
-   * - If the protocol is **SSH**, the destination port must be **22**.
-   * 
-   * - If the protocol is **Telnet**, the destination port must be **23**.
-   * 
-   * - If the protocol is **HTTP**, the destination port must be **80**.
-   * 
-   * - If the protocol is **HTTPS**, the destination port must be **443**.
-   * 
-   * - If the protocol is **MS SQL**, the destination port must be **1443**.
-   * 
-   * - If the protocol is **Oracle**, the destination port must be **1521**.
-   * 
-   * - If the protocol is **Mysql**, the destination port must be **3306**.
-   * 
-   * - If the protocol is **RDP**, the destination port must be **3389**.
-   * 
-   * - If the protocol is **Postgre SQL**, the destination port must be **5432**.
-   * 
-   * - If the protocol is **Redis**, the destination port must be **6379**.
-   * 
-   * You can create up to 50 traffic classification rules in each call. You can specify a protocol for each traffic classification rule.
+   * You can create up to 50 traffic classification rules at a time, and each traffic classification rule can match one protocol type.
    * 
    * @example
    * HTTP
@@ -94,11 +83,11 @@ export class CreateTrafficMarkingPolicyRequestTrafficMatchRules extends $dara.Mo
   protocol?: string;
   /**
    * @remarks
-   * The source CIDR block of packets. IPv6 and IPv4 addresses are supported.
+   * The source CIDR block of traffic packets. IPv6 and IPv4 addresses are supported.
    * 
-   * Packets whose source IP addresses fall into the specified source CIDR block meet the traffic classification rule. If you do not specify a source CIDR block, all packets meet the traffic classification rule.
+   * The traffic classification rule matches traffic whose source IP address falls within the source CIDR block. If you do not set this parameter, the traffic classification rule matches traffic with any source IP address.
    * 
-   * You can create up to 50 traffic classification rules in each call. You can specify a source CIDR block for each traffic classification rule.
+   * You can create up to 50 traffic classification rules at a time, and each traffic classification rule can match one source CIDR block.
    * 
    * @example
    * 192.168.10.0/24
@@ -106,28 +95,26 @@ export class CreateTrafficMarkingPolicyRequestTrafficMatchRules extends $dara.Mo
   srcCidr?: string;
   /**
    * @remarks
-   * The source port range that is used to match packets. Valid values: **-1** and **1** to **65535**.
+   * The source port of traffic packets. Valid values: **-1** and **1** to **65535**.
    * 
-   * Packets whose source ports fall within the source port range meet the traffic classification rule. If you do not specify a source port range, all packets meet the traffic classification rule.
+   * The traffic classification rule matches traffic whose source port falls within the source port range. If you do not set this parameter, the traffic classification rule matches traffic with any source port.
    * 
-   * You can enter up to two port numbers. Take note of the following rules:
+   * This parameter supports up to two port numbers. The input format is described as follows:
    * 
-   * - If you enter only one port number, such as 1, packets whose source port is 1 meet the traffic classification rule. A value of -1 specifies all source ports.
+   * - If you enter only one port number, such as 1, the system matches traffic whose source port is 1 by default. If the value is -1, the system matches traffic with any source port.
+   * - If you enter two port numbers, such as 1 and 200, the system matches traffic whose source port is in the range of 1 to 200 by default.
+   * - If you enter two port numbers and one of them is -1, the other port number must also be -1, which indicates matching traffic with any source port.
    * 
-   * - If you enter two port numbers, such as 1 and 200, packets whose source ports fall into 1 and 200 meet the traffic classification rule.
-   * 
-   * - If you enter two port numbers and one of them is -1, the other port number must also be -1. In this case, all packets meet the traffic classification rule.
-   * 
-   * You can create up to 50 traffic classification rules in each call. You can specify a source port range for each traffic classification rule.
+   * You can create up to 50 traffic classification rules at a time, and each traffic classification rule can specify one source port range.
    */
   srcPortRange?: number[];
   /**
    * @remarks
    * The description of the traffic classification rule.
    * 
-   * You can create up to 50 traffic classification rules in each call. You can specify a description for each traffic classification rule.
+   * You can create up to 50 traffic classification rules at a time, and each traffic classification rule can have one description.
    * 
-   * This parameter is optional. If you enter a description, it must be 1 to 256 characters in length and cannot start with http\\:// or https\\://.
+   * The description can be empty or 1 to 256 characters in length, and cannot start with http:// or https://.
    * 
    * @example
    * desctest
@@ -137,9 +124,9 @@ export class CreateTrafficMarkingPolicyRequestTrafficMatchRules extends $dara.Mo
    * @remarks
    * The name of the traffic classification rule.
    * 
-   * You can create up to 50 traffic classification rules in each call. You can specify a name for each traffic classification rule.
+   * You can create up to 50 traffic classification rules at a time, and each traffic classification rule can have one name.
    * 
-   * The name can be empty or 1 to 128 characters in length, and cannot start with http\\:// or https\\://.
+   * The name can be empty or 1 to 128 characters in length, and cannot start with http:// or https://.
    * 
    * @example
    * nametest
@@ -193,9 +180,9 @@ export class CreateTrafficMarkingPolicyRequest extends $dara.Model {
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the value, but you must make sure that it is unique among all requests. The client token can contain only ASCII characters.
+   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The client token can contain only ASCII characters.
    * 
-   * > If you do not set this parameter, **ClientToken** is set to the value of **RequestId**. The value of **RequestId** for each API request may be different.
+   * > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may be different for each API request.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426****
@@ -205,9 +192,8 @@ export class CreateTrafficMarkingPolicyRequest extends $dara.Model {
    * @remarks
    * Specifies whether to perform a dry run. Valid values:
    * 
-   * - **true**: performs a dry run. The system checks the required parameters, request format, and limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
-   * 
-   * - **false** (default): performs a dry run and sends the request.
+   * - **true**: performs a dry run. The system checks the required parameters, request syntax, and business restrictions. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+   * - **false** (default): performs a dry run and sends the request. If the request passes the dry run, the traffic marking policy is created.
    * 
    * @example
    * false
@@ -215,9 +201,9 @@ export class CreateTrafficMarkingPolicyRequest extends $dara.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * The differentiated services code point (DSCP) value to be added to packets that match the traffic classification rule. Valid values: **0** to **63**.
+   * The DSCP value to be added to traffic packets that match the traffic classification rules. Valid values: **0** to **63**.
    * 
-   * The DSCP value of each traffic marking policy on a transit router must be unique.
+   * The DSCP value of each traffic marking policy under a transit router instance must be unique.
    * 
    * This parameter is required.
    * 
@@ -229,9 +215,9 @@ export class CreateTrafficMarkingPolicyRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The priority value of the traffic marking policy. Valid values: **1** to **100**.
+   * The priority of the traffic marking policy. Valid values: **1** to **100**.
    * 
-   * The priority value of each traffic marking policy on a transit router must be unique. A smaller value specifies a higher priority.
+   * The priority of each traffic marking policy under a transit router instance must be unique. A smaller value indicates a higher priority.
    * 
    * This parameter is required.
    * 
@@ -245,7 +231,7 @@ export class CreateTrafficMarkingPolicyRequest extends $dara.Model {
    * @remarks
    * The description of the traffic marking policy.
    * 
-   * This parameter is optional. If you enter a description, it must be 1 to 256 characters in length, and cannot start with http\\:// or https\\://.
+   * The description can be empty or 1 to 256 characters in length, and cannot start with http:// or https://.
    * 
    * @example
    * desctest
@@ -255,7 +241,7 @@ export class CreateTrafficMarkingPolicyRequest extends $dara.Model {
    * @remarks
    * The name of the traffic marking policy.
    * 
-   * The name can be empty or 1 to 128 characters in length, and cannot start with http\\:// or https\\://.
+   * The name can be empty or 1 to 128 characters in length, and cannot start with http:// or https://.
    * 
    * @example
    * nametest
@@ -263,16 +249,16 @@ export class CreateTrafficMarkingPolicyRequest extends $dara.Model {
   trafficMarkingPolicyName?: string;
   /**
    * @remarks
-   * The traffic classification rules in the traffic marking policy.
+   * The list of traffic classification rules for the traffic marking policy.
    * 
-   * Data packets that meet the traffic classification rule is assigned the DSCP value of quality of service (QoS) policy.
+   * Traffic packets that match the traffic classification rules are marked with the DSCP value of the traffic marking policy.
    * 
-   * You can create up to 50 traffic classification rules.
+   * You can create up to 50 traffic classification rules at a time.
    */
   trafficMatchRules?: CreateTrafficMarkingPolicyRequestTrafficMatchRules[];
   /**
    * @remarks
-   * The ID of the transit router.
+   * The instance ID of the forward routing transit router.
    * 
    * This parameter is required.
    * 

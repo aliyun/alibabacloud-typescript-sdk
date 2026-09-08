@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyGrantInstanceToTransitRouterResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The unique ID of the request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * F7DDDC17-FA06-4AC2-8F35-59D2470FCFC1

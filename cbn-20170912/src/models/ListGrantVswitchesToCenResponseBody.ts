@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListGrantVSwitchesToCenResponseBodyVSwitches extends $dara.Model {
   /**
    * @remarks
-   * The ID of the vSwitch.
+   * The vSwitch instance ID.
    * 
    * @example
    * vsw-bp1194lh263wx1gsk****
@@ -21,7 +21,7 @@ export class ListGrantVSwitchesToCenResponseBodyVSwitches extends $dara.Model {
   vSwitchName?: string;
   /**
    * @remarks
-   * The ID of the VPC to which the vSwitch belongs.
+   * The VPC-connected instance ID to which the vSwitch belongs.
    * 
    * @example
    * vpc-bp12ge2tq5gzdc915****
@@ -29,7 +29,7 @@ export class ListGrantVSwitchesToCenResponseBodyVSwitches extends $dara.Model {
   vpcId?: string;
   /**
    * @remarks
-   * The ID of the zone to which the vSwitch belongs.
+   * The zone ID of the vSwitch.
    * 
    * @example
    * cn-hangzhou-h
@@ -65,7 +65,7 @@ export class ListGrantVSwitchesToCenResponseBodyVSwitches extends $dara.Model {
 export class ListGrantVSwitchesToCenResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The page number.
+   * The page number of the list.
    * 
    * @example
    * 1
@@ -73,7 +73,7 @@ export class ListGrantVSwitchesToCenResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries per page for paging.
    * 
    * @example
    * 10
@@ -89,7 +89,7 @@ export class ListGrantVSwitchesToCenResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries.
+   * The total number of entries in the list.
    * 
    * @example
    * 2
@@ -97,7 +97,7 @@ export class ListGrantVSwitchesToCenResponseBody extends $dara.Model {
   totalCount?: number;
   /**
    * @remarks
-   * A list of vSwitches.
+   * The list of vSwitch information.
    */
   vSwitches?: ListGrantVSwitchesToCenResponseBodyVSwitches[];
   static names(): { [key: string]: string } {

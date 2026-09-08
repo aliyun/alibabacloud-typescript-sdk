@@ -17,7 +17,7 @@ export class ModifyCenAttributeRequest extends $dara.Model {
    * @remarks
    * The description of the CEN instance.
    * 
-   * The description can be empty or must be 1 to 256 characters in length. The description cannot start with http\\:// or https\\://.
+   * The description can be empty or 1 to 256 characters in length and cannot start with http:// or https://.
    * 
    * @example
    * cen
@@ -27,7 +27,7 @@ export class ModifyCenAttributeRequest extends $dara.Model {
    * @remarks
    * The name of the CEN instance.
    * 
-   * The name can be empty or must be 1 to 128 characters in length. The name cannot start with http\\:// or https\\://.
+   * The name can be empty or 1 to 128 characters in length and cannot start with http:// or https://.
    * 
    * @example
    * test
@@ -37,9 +37,9 @@ export class ModifyCenAttributeRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The level of CIDR block overlap.
+   * The level of CIDR block overlapping.
    * 
-   * Set the value to **REDUCED**. This is the default value. This value specifies that CIDR blocks can overlap but cannot be identical.
+   * Valid values: **REDUCED** (default), which indicates that CIDR blocks can overlap but cannot be identical.
    * 
    * @example
    * REDUCED
