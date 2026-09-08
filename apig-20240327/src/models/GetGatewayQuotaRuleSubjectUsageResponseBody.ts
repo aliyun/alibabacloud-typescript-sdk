@@ -13,6 +13,14 @@ export class GetGatewayQuotaRuleSubjectUsageResponseBodyDataDetailsItems extends
   cachedAmount?: number;
   /**
    * @remarks
+   * The exact value of cached consumption. Supports decimals in credit scenarios.
+   * 
+   * @example
+   * 10.5
+   */
+  cachedAmountDecimal?: number;
+  /**
+   * @remarks
    * The consumer name.
    * 
    * @example
@@ -29,6 +37,14 @@ export class GetGatewayQuotaRuleSubjectUsageResponseBodyDataDetailsItems extends
   inputAmount?: number;
   /**
    * @remarks
+   * The exact value of input consumption. Supports decimals in credit scenarios.
+   * 
+   * @example
+   * 120.5
+   */
+  inputAmountDecimal?: number;
+  /**
+   * @remarks
    * The model name.
    * 
    * @example
@@ -43,6 +59,14 @@ export class GetGatewayQuotaRuleSubjectUsageResponseBodyDataDetailsItems extends
    * 80
    */
   outputAmount?: number;
+  /**
+   * @remarks
+   * The exact value of output consumption. Supports decimals in credit scenarios.
+   * 
+   * @example
+   * 80.5
+   */
+  outputAmountDecimal?: number;
   /**
    * @remarks
    * The request ID.
@@ -67,29 +91,45 @@ export class GetGatewayQuotaRuleSubjectUsageResponseBodyDataDetailsItems extends
    * 210
    */
   usedAmount?: number;
+  /**
+   * @remarks
+   * The exact value of total consumption. Supports decimals in credit scenarios.
+   * 
+   * @example
+   * 210.5
+   */
+  usedAmountDecimal?: number;
   static names(): { [key: string]: string } {
     return {
       cachedAmount: 'cachedAmount',
+      cachedAmountDecimal: 'cachedAmountDecimal',
       consumer: 'consumer',
       inputAmount: 'inputAmount',
+      inputAmountDecimal: 'inputAmountDecimal',
       model: 'model',
       outputAmount: 'outputAmount',
+      outputAmountDecimal: 'outputAmountDecimal',
       requestId: 'requestId',
       startTime: 'startTime',
       usedAmount: 'usedAmount',
+      usedAmountDecimal: 'usedAmountDecimal',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       cachedAmount: 'number',
+      cachedAmountDecimal: 'number',
       consumer: 'string',
       inputAmount: 'number',
+      inputAmountDecimal: 'number',
       model: 'string',
       outputAmount: 'number',
+      outputAmountDecimal: 'number',
       requestId: 'string',
       startTime: 'string',
       usedAmount: 'number',
+      usedAmountDecimal: 'number',
     };
   }
 
@@ -129,7 +169,7 @@ export class GetGatewayQuotaRuleSubjectUsageResponseBodyDataDetails extends $dar
   pageSize?: number;
   /**
    * @remarks
-   * The total number of records.
+   * The total number of entries.
    * 
    * @example
    * 100
@@ -176,6 +216,14 @@ export class GetGatewayQuotaRuleSubjectUsageResponseBodyData extends $dara.Model
   cachedAmount?: number;
   /**
    * @remarks
+   * The exact value of total cached consumption. Supports decimals in credit scenarios.
+   * 
+   * @example
+   * 20.5
+   */
+  cachedAmountDecimal?: number;
+  /**
+   * @remarks
    * The paginated consumption details.
    * 
    * @example
@@ -192,12 +240,28 @@ export class GetGatewayQuotaRuleSubjectUsageResponseBodyData extends $dara.Model
   inputAmount?: number;
   /**
    * @remarks
+   * The exact value of total input consumption. Supports decimals in credit scenarios.
+   * 
+   * @example
+   * 300.5
+   */
+  inputAmountDecimal?: number;
+  /**
+   * @remarks
    * The total output token consumption.
    * 
    * @example
    * 180
    */
   outputAmount?: number;
+  /**
+   * @remarks
+   * The exact value of total output consumption. Supports decimals in credit scenarios.
+   * 
+   * @example
+   * 180.5
+   */
+  outputAmountDecimal?: number;
   /**
    * @remarks
    * Indicates whether the quota limit is exceeded.
@@ -208,9 +272,15 @@ export class GetGatewayQuotaRuleSubjectUsageResponseBodyData extends $dara.Model
   overLimit?: boolean;
   /**
    * @remarks
-   * The subject type. Valid values:
-   * - consumer
-   * - consumer_group
+   * The quota dimension. Valid values: token and credit.
+   * 
+   * @example
+   * token
+   */
+  quotaDimension?: string;
+  /**
+   * @remarks
+   * The subject type. Valid values: consumer and consumer_group.
    * 
    * @example
    * consumer_group
@@ -232,29 +302,47 @@ export class GetGatewayQuotaRuleSubjectUsageResponseBodyData extends $dara.Model
    * 500
    */
   usedAmount?: number;
+  /**
+   * @remarks
+   * The exact value of the total used amount of the subject. Supports decimals in credit scenarios.
+   * 
+   * @example
+   * 500.5
+   */
+  usedAmountDecimal?: number;
   static names(): { [key: string]: string } {
     return {
       cachedAmount: 'cachedAmount',
+      cachedAmountDecimal: 'cachedAmountDecimal',
       details: 'details',
       inputAmount: 'inputAmount',
+      inputAmountDecimal: 'inputAmountDecimal',
       outputAmount: 'outputAmount',
+      outputAmountDecimal: 'outputAmountDecimal',
       overLimit: 'overLimit',
+      quotaDimension: 'quotaDimension',
       subjectType: 'subjectType',
       totalQuota: 'totalQuota',
       usedAmount: 'usedAmount',
+      usedAmountDecimal: 'usedAmountDecimal',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       cachedAmount: 'number',
+      cachedAmountDecimal: 'number',
       details: GetGatewayQuotaRuleSubjectUsageResponseBodyDataDetails,
       inputAmount: 'number',
+      inputAmountDecimal: 'number',
       outputAmount: 'number',
+      outputAmountDecimal: 'number',
       overLimit: 'boolean',
+      quotaDimension: 'string',
       subjectType: 'string',
       totalQuota: 'number',
       usedAmount: 'number',
+      usedAmountDecimal: 'number',
     };
   }
 
