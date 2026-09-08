@@ -41,7 +41,7 @@ export class ListCustomAgentResponseBodyDataContentExecutionConfig extends $dara
   forbiddenAppendDataSource?: boolean;
   /**
    * @remarks
-   * Indicates whether to prevent user inquiries during the process.
+   * Specifies whether to disable user inquiries during the process.
    * 
    * @example
    * false
@@ -49,7 +49,7 @@ export class ListCustomAgentResponseBodyDataContentExecutionConfig extends $dara
   skipAskHuman?: boolean;
   /**
    * @remarks
-   * Indicates whether to skip the plan confirmation step.
+   * Specifies whether to skip the plan confirmation step.
    * 
    * @example
    * true
@@ -57,7 +57,7 @@ export class ListCustomAgentResponseBodyDataContentExecutionConfig extends $dara
   skipPlan?: boolean;
   /**
    * @remarks
-   * Indicates whether to skip all SQL confirmations.
+   * Specifies whether to skip all SQL confirmations.
    * 
    * @example
    * true
@@ -65,7 +65,7 @@ export class ListCustomAgentResponseBodyDataContentExecutionConfig extends $dara
   skipSqlConfirm?: boolean;
   /**
    * @remarks
-   * Indicates whether to skip the confirmation for generating a web report.
+   * Specifies whether to skip the web report rendering confirmation.
    * 
    * @example
    * false
@@ -164,7 +164,7 @@ export class ListCustomAgentResponseBodyDataContentKnowledgeSemanticConfigList e
 export class ListCustomAgentResponseBodyDataContentScheduleTaskConfig extends $dara.Model {
   /**
    * @remarks
-   * The cron expression for the recurring task.
+   * The cron expression for the timed scheduling.
    * 
    * @example
    * 0 0 0 ? * 1-7
@@ -172,10 +172,10 @@ export class ListCustomAgentResponseBodyDataContentScheduleTaskConfig extends $d
   cronExpression?: string;
   /**
    * @remarks
-   * The query for the recurring task.
+   * The query of the periodic task.
    * 
    * @example
-   * 分析一下这份数据，给出简报
+   * Analyze this data and provide a brief report
    */
   query?: string;
   /**
@@ -214,7 +214,7 @@ export class ListCustomAgentResponseBodyDataContentScheduleTaskConfig extends $d
 export class ListCustomAgentResponseBodyDataContent extends $dara.Model {
   /**
    * @remarks
-   * The parent Alibaba Cloud account ID.
+   * The Alibaba Cloud primary account ID.
    * 
    * @example
    * 16738266********
@@ -239,23 +239,20 @@ export class ListCustomAgentResponseBodyDataContent extends $dara.Model {
   creatorUserName?: string;
   /**
    * @remarks
-   * The custom agent ID.
+   * The ID of the custom agent.
    * 
    * @example
    * ca-4y3ca4khkcu**********ysf
    */
   customAgentId?: string;
   /**
-   * @remarks
-   * The current DMS unit.
-   * 
    * @example
    * cn-hangzhou
    */
   DMSUnit?: string;
   /**
    * @remarks
-   * The data scope, specified as a JSON string.
+   * The specified data scope in JSON string format.
    * 
    * @example
    * {
@@ -264,7 +261,7 @@ export class ListCustomAgentResponseBodyDataContent extends $dara.Model {
    *   "personal" : {
    *     "DataSourceType" : "remote_data_center",
    *     "FileId" : "f-5qlrwaw10********s3gpw1z",
-   *     "Database" : "测试表格******.xlsx",
+   *     "Database" : "TestTable******.xlsx",
    *     "Tables" : [ "Sheet1" ],
    *     "TableIds" : [ "******" ],
    *     "RegionId" : "cn-hangzhou"
@@ -278,7 +275,7 @@ export class ListCustomAgentResponseBodyDataContent extends $dara.Model {
    * The description of the custom agent.
    * 
    * @example
-   * Agent测试描述
+   * AgentTestDescription
    */
   description?: string;
   /**
@@ -296,7 +293,7 @@ export class ListCustomAgentResponseBodyDataContent extends $dara.Model {
   executionConfig?: ListCustomAgentResponseBodyDataContentExecutionConfig;
   /**
    * @remarks
-   * The time when the agent was created.
+   * The creation time.
    * 
    * @example
    * 2025-12-11T14:04:32.000+00:00
@@ -304,7 +301,7 @@ export class ListCustomAgentResponseBodyDataContent extends $dara.Model {
   gmtCreated?: string;
   /**
    * @remarks
-   * The time when the agent was last modified.
+   * The modification time.
    * 
    * @example
    * 2025-12-11T14:04:32.000+00:00
@@ -312,18 +309,18 @@ export class ListCustomAgentResponseBodyDataContent extends $dara.Model {
   gmtModified?: string;
   /**
    * @remarks
-   * The instructions.
+   * The instruction.
    * 
    * @example
-   * 分析框架：
-   * 1、需按日、周、月维度监控核心指标（GMV、订单量、UV、转化率），分析趋势变化及同比/环比波动；
-   * 2、划分新老客、渠道、地域进行拆解，识别增长来源与短板；
-   * 3、结合用户行为路径（浏览→加购→支付）开展漏斗分析，定位流失环节；
+   * Analysis framework:
+   * 1. Monitor core metrics (GMV, order volume, UV, conversion rate) by day, week, and month dimensions, and analyze trends and year-over-year/month-over-month fluctuations.
+   * 2. Segment by new/existing customers, channels, and regions to identify growth drivers and weaknesses.
+   * 3. Conduct funnel analysis based on user behavior paths (browse → add to cart → payment) to identify drop-off points
    */
   instruction?: string;
   /**
    * @remarks
-   * Indicates whether the agent is configured with a recurring task.
+   * Indicates whether a periodic task is configured.
    * 
    * @example
    * true
@@ -331,21 +328,21 @@ export class ListCustomAgentResponseBodyDataContent extends $dara.Model {
   isScheduleTask?: boolean;
   /**
    * @remarks
-   * The provided knowledge.
+   * The knowledge.
    * 
    * @example
-   * 核心指标定义：
-   * 1、GMV（成交总额）指订单金额总和，含已支付及未支付成功订单；
-   * 2、订单量为每日有效下单笔数；
-   * 3、UV（独立访客）指访问网站或APP的去重用户数；
-   * 4、转化率=支付订单数 / UV，反映流量转化效率；
+   * Core metric definitions:
+   * 1. GMV (Gross Merchandise Volume) refers to the total order amount, including paid and unpaid orders.
+   * 2. Order volume is the number of valid orders placed per day.
+   * 3. UV (Unique Visitors) refers to the deduplicated number of users who visit the website or app.
+   * 4. Conversion rate = number of paid orders / UV, reflecting traffic conversion efficiency
    */
   knowledge?: string;
   knowledgeConfigList?: ListCustomAgentResponseBodyDataContentKnowledgeConfigList[];
   knowledgeSemanticConfigList?: ListCustomAgentResponseBodyDataContentKnowledgeSemanticConfigList[];
   /**
    * @remarks
-   * The user who last modified the agent.
+   * The modifier.
    * 
    * @example
    * 20372822********
@@ -353,7 +350,7 @@ export class ListCustomAgentResponseBodyDataContent extends $dara.Model {
   modifier?: string;
   /**
    * @remarks
-   * The name of the user who last modified the agent.
+   * The name of the modifier.
    * 
    * @example
    * HaoY*****
@@ -364,12 +361,12 @@ export class ListCustomAgentResponseBodyDataContent extends $dara.Model {
    * The name of the custom agent.
    * 
    * @example
-   * Agent测试名称
+   * AgentTestName
    */
   name?: string;
   /**
    * @remarks
-   * If a recurring task is configured, this indicates its next scheduled runtime.
+   * The next run time of the periodic task.
    * 
    * @example
    * 1767715200
@@ -377,7 +374,7 @@ export class ListCustomAgentResponseBodyDataContent extends $dara.Model {
   nextRuntime?: number;
   /**
    * @remarks
-   * The time when the agent was taken offline.
+   * The offline time.
    * 
    * @example
    * 2025-12-11T14:04:32.000+00:00
@@ -394,16 +391,12 @@ export class ListCustomAgentResponseBodyDataContent extends $dara.Model {
   relatedSessionId?: string;
   /**
    * @remarks
-   * The time when the agent was published.
+   * The publish time.
    * 
    * @example
    * 2025-12-11T14:04:32.000+00:00
    */
   releaseTime?: string;
-  /**
-   * @remarks
-   * The recurring task configuration.
-   */
   scheduleTaskConfig?: ListCustomAgentResponseBodyDataContentScheduleTaskConfig;
   /**
    * @remarks
@@ -415,19 +408,19 @@ export class ListCustomAgentResponseBodyDataContent extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The formatting instructions for the text report.
+   * The text report format.
    * 
    * @example
-   * 文字报告要求所有数字不使用阿拉伯数字，全部转为中文数字
+   * The text report requires all numbers to be converted from Arabic numerals to Chinese numerals
    */
   textReportConfig?: string;
   userSpecifiedSkillList?: string[];
   /**
    * @remarks
-   * The formatting instructions for the web report.
+   * The web report format.
    * 
    * @example
-   * 网页报告要求所有数字不使用阿拉伯数字，全部转为中文数字
+   * The web report requires all numbers to be converted from Arabic numerals to Chinese numerals
    */
   webReportConfig?: string;
   webReportTheme?: string;
@@ -545,7 +538,7 @@ export class ListCustomAgentResponseBodyDataContent extends $dara.Model {
 export class ListCustomAgentResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * A list of custom agent objects.
+   * The list of data content.
    */
   content?: ListCustomAgentResponseBodyDataContent[];
   /**
@@ -558,7 +551,7 @@ export class ListCustomAgentResponseBodyData extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of records per page.
    * 
    * @example
    * 20
@@ -566,7 +559,7 @@ export class ListCustomAgentResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of entries.
+   * The total number of records.
    * 
    * @example
    * 5
@@ -615,7 +608,7 @@ export class ListCustomAgentResponseBodyData extends $dara.Model {
 export class ListCustomAgentResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned data.
+   * The response struct.
    */
   data?: ListCustomAgentResponseBodyData;
   /**
@@ -628,7 +621,7 @@ export class ListCustomAgentResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The error message returned if the request fails.
+   * The error message returned if the request failed.
    * 
    * @example
    * Specified parameter Tid is not valid.
@@ -636,7 +629,7 @@ export class ListCustomAgentResponseBody extends $dara.Model {
   errorMessage?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * Id of the request
    * 
    * @example
    * 67E910F2-4B62-5B0C-ACA3-7547695C****
@@ -646,8 +639,7 @@ export class ListCustomAgentResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * - **true**: The request was successful.
-   * 
+   * - **true**: The request was successful.                                 
    * - **false**: The request failed.
    * 
    * @example

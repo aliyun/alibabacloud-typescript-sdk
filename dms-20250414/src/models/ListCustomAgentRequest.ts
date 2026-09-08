@@ -13,7 +13,7 @@ export class ListCustomAgentRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The page size. The default value is 20.
+   * The number of records per page. Default value: 20.
    * 
    * @example
    * 20
@@ -21,7 +21,7 @@ export class ListCustomAgentRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Specifies whether to query all published custom agents. The default value is false.
+   * Specifies whether to query all custom agents in the published state. Default value: false.
    * 
    * @example
    * true
@@ -29,10 +29,10 @@ export class ListCustomAgentRequest extends $dara.Model {
   queryAllReleased?: boolean;
   /**
    * @remarks
-   * A keyword for a fuzzy search on the names and descriptions of custom agents.
+   * The search keyword. Supports fuzzy search by custom agent name and description.
    * 
    * @example
-   * 测试Agent
+   * TestAgent
    */
   searchKey?: string;
   /**
@@ -45,7 +45,7 @@ export class ListCustomAgentRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The ID of the workspace.
+   * The workspace ID.
    * 
    * @example
    * 56kv1pvl9uvt9**********bb
