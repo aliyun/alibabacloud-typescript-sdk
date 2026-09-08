@@ -3,57 +3,17 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListLegacyAppraiseLogsResponseBodyDataList extends $dara.Model {
-  /**
-   * @example
-   * 3786929579
-   */
   acid?: string;
-  /**
-   * @example
-   * Outbound
-   */
   contactType?: string;
-  /**
-   * @example
-   * 10505
-   */
   id?: number;
-  /**
-   * @example
-   * ccc-test
-   */
   instanceId?: string;
-  /**
-   * @example
-   * {}
-   */
   keyMarkRelation?: string;
   note?: string;
   parentNote?: string;
-  /**
-   * @example
-   * 2
-   */
   pressKey?: string;
-  /**
-   * @example
-   * 28036411123456****
-   */
   ramId?: string;
-  /**
-   * @example
-   * test@ccc-test
-   */
   skillGroupId?: string;
-  /**
-   * @example
-   * 2021-12-03T10:15:30
-   */
   statisticDate?: string;
-  /**
-   * @example
-   * Launch
-   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -100,20 +60,8 @@ export class ListLegacyAppraiseLogsResponseBodyDataList extends $dara.Model {
 
 export class ListLegacyAppraiseLogsResponseBodyData extends $dara.Model {
   list?: ListLegacyAppraiseLogsResponseBodyDataList[];
-  /**
-   * @example
-   * 1
-   */
   pageNumber?: number;
-  /**
-   * @example
-   * 10
-   */
   pageSize?: number;
-  /**
-   * @example
-   * 18
-   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -146,27 +94,11 @@ export class ListLegacyAppraiseLogsResponseBodyData extends $dara.Model {
 }
 
 export class ListLegacyAppraiseLogsResponseBody extends $dara.Model {
-  /**
-   * @example
-   * OK
-   */
   code?: string;
   data?: ListLegacyAppraiseLogsResponseBodyData;
-  /**
-   * @example
-   * 200
-   */
   httpStatusCode?: number;
   message?: string;
-  /**
-   * @example
-   * A13BB835-94AA-4E55-8D9E-5EA585CE6555"
-   */
   requestId?: string;
-  /**
-   * @example
-   * true
-   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

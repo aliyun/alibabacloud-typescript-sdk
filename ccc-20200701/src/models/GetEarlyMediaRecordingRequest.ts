@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetEarlyMediaRecordingRequest extends $dara.Model {
   /**
    * @remarks
+   * Call ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class GetEarlyMediaRecordingRequest extends $dara.Model {
   contactId?: string;
   /**
    * @remarks
+   * Cloud Contact Center instance ID.
+   * 
    * This parameter is required.
    * 
    * @example

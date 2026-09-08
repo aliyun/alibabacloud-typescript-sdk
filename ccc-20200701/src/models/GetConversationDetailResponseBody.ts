@@ -4,22 +4,52 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetConversationDetailResponseBodyPhrases extends $dara.Model {
   /**
+   * @remarks
+   * The offset of the sentence start time relative to the session start time, in milliseconds.
+   * 
    * @example
    * 240
    */
   begin?: number;
   /**
+   * @remarks
+   * The offset of the sentence end time relative to the session start time, in milliseconds.
+   * 
    * @example
    * 1280
    */
   end?: number;
+  /**
+   * @remarks
+   * Is finished.
+   * 
+   * @example
+   * false
+   */
   finished?: boolean;
   /**
+   * @remarks
+   * The ARN of the role. The system uses this identifier internally to identify the role. This parameter does not require management.
+   * 
    * @example
    * agent@ccc-test
    */
   identity?: string;
+  /**
+   * @remarks
+   * Role.
+   * 
+   * @example
+   * 客服
+   */
   role?: string;
+  /**
+   * @remarks
+   * Conversation text content.
+   * 
+   * @example
+   * 欢迎致电云联络中心
+   */
   words?: string;
   static names(): { [key: string]: string } {
     return {
@@ -54,18 +84,38 @@ export class GetConversationDetailResponseBodyPhrases extends $dara.Model {
 
 export class GetConversationDetailResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Response code.
+   * 
    * @example
    * OK
    */
   code?: string;
   /**
+   * @remarks
+   * HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
+  /**
+   * @remarks
+   * Response message.
+   * 
+   * @example
+   * 无
+   */
   message?: string;
+  /**
+   * @remarks
+   * List of conversations.
+   */
   phrases?: GetConversationDetailResponseBodyPhrases[];
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 7E407F9B-A278-52A0-B193-3EE5471D7A87
    */

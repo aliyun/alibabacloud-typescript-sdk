@@ -4,94 +4,169 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListTicketTemplatesResponseBodyDataListTicketFields extends $dara.Model {
   /**
+   * @remarks
+   * Indicates whether the field is an array.
+   * 
    * @example
    * false
    */
   array?: boolean;
   /**
+   * @remarks
+   * The extended properties.
+   * 
    * @example
    * {}
    */
   attribute?: string;
   /**
+   * @remarks
+   * The time when the field was created.
+   * 
    * @example
    * 1715780670000
    */
   createdTime?: number;
   /**
+   * @remarks
+   * The creator.
+   * 
    * @example
    * creator
    */
   creator?: string;
   /**
+   * @remarks
+   * The data type.
+   * 
    * @example
    * String
    */
   dataType?: string;
+  /**
+   * @remarks
+   * The description.
+   * 
+   * @example
+   * 姓名字段
+   */
   description?: string;
   /**
+   * @remarks
+   * Indicates whether the field is disabled.
+   * 
    * @example
    * false
    */
   disabled?: boolean;
+  /**
+   * @remarks
+   * The display name.
+   * 
+   * @example
+   * 姓名
+   */
   displayName?: string;
   /**
+   * @remarks
+   * The display order in the list.
+   * 
    * @example
    * 1
    */
   displayOrder?: number;
   /**
+   * @remarks
+   * The type of the editor.
+   * 
    * @example
    * textbox
    */
   editorType?: string;
   /**
+   * @remarks
+   * The maximum length.
+   * 
    * @example
    * 30
    */
   maxLength?: number;
   /**
+   * @remarks
+   * The maximum value for a number.
+   * 
    * @example
    * 10
    */
   maximum?: number;
   /**
+   * @remarks
+   * The minimum length.
+   * 
    * @example
    * 1
    */
   minLength?: number;
   /**
+   * @remarks
+   * The minimum value for a number.
+   * 
    * @example
    * 1
    */
   minimum?: number;
   /**
+   * @remarks
+   * The name.
+   * 
    * @example
    * name
    */
   name?: string;
   /**
+   * @remarks
+   * The regular expression that is used for validation.
+   * 
    * @example
    * ^
    */
   pattern?: string;
+  /**
+   * @remarks
+   * The error message that is returned when the regular expression validation fails.
+   * 
+   * @example
+   * 不是有效的email地址
+   */
   patternErrorMessage?: string;
   /**
+   * @remarks
+   * Indicates whether the field is read-only.
+   * 
    * @example
    * false
    */
   readOnly?: boolean;
   /**
+   * @remarks
+   * Indicates whether the field is required.
+   * 
    * @example
    * false
    */
   required?: boolean;
   /**
+   * @remarks
+   * Indicates whether the field is a system field.
+   * 
    * @example
    * false
    */
   system?: boolean;
   /**
+   * @remarks
+   * The time when the field was last updated.
+   * 
    * @example
    * 1715780670000
    */
@@ -159,44 +234,86 @@ export class ListTicketTemplatesResponseBodyDataListTicketFields extends $dara.M
 
 export class ListTicketTemplatesResponseBodyDataList extends $dara.Model {
   /**
+   * @remarks
+   * The current working version.
+   * 
    * @example
    * 0
    */
   appliedVersion?: string;
   /**
+   * @remarks
+   * The category ID.
+   * 
    * @example
    * 43c2671b-*****-4223-86d0-6bd187905cc8
    */
   categoryId?: string;
   /**
+   * @remarks
+   * The user who last edited the template.
+   * 
    * @example
    * creator@ccc-test
    */
   editor?: string;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * ccc-test
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The draft version.
+   * 
    * @example
    * 1715780670000
    */
   latestVersion?: string;
+  /**
+   * @remarks
+   * The name of the template.
+   * 
+   * @example
+   * 测试模板
+   */
   name?: string;
+  /**
+   * @remarks
+   * The process information. This parameter is deprecated.
+   * 
+   * @example
+   * 无
+   */
   processDefinition?: string;
   /**
+   * @remarks
+   * The status.
+   * 
    * @example
    * Enabled
    */
   state?: string;
   /**
+   * @remarks
+   * The template ID.
+   * 
    * @example
    * b5c21219-3a1e-4bc0-92e7-da66e057d2f6
    */
   templateId?: string;
+  /**
+   * @remarks
+   * The list of fields in the template.
+   */
   ticketFields?: ListTicketTemplatesResponseBodyDataListTicketFields[];
   /**
+   * @remarks
+   * The time when the template was last updated.
+   * 
    * @example
    * 1715780670000
    */
@@ -246,18 +363,31 @@ export class ListTicketTemplatesResponseBodyDataList extends $dara.Model {
 }
 
 export class ListTicketTemplatesResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The list of templates.
+   */
   list?: ListTicketTemplatesResponseBodyDataList[];
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 100
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The total number of entries.
+   * 
    * @example
    * 25
    */
@@ -294,19 +424,43 @@ export class ListTicketTemplatesResponseBodyData extends $dara.Model {
 
 export class ListTicketTemplatesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response code.
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * The data.
+   */
   data?: ListTicketTemplatesResponseBodyData;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
+  /**
+   * @remarks
+   * The response message.
+   * 
+   * @example
+   * 无
+   */
   message?: string;
+  /**
+   * @remarks
+   * The list of invalid parameters.
+   */
   params?: string[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 8707EB29-BAED-4302-B999-40BA61877437
    */

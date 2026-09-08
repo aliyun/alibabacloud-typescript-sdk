@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class AnswerCallRequest extends $dara.Model {
   /**
+   * @remarks
+   * The device ID. This parameter is meaningless and can be filled with any value.
+   * 
    * @example
    * device
    */
   deviceId?: string;
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18,6 +23,8 @@ export class AnswerCallRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * The call ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -25,6 +32,9 @@ export class AnswerCallRequest extends $dara.Model {
    */
   jobId?: string;
   /**
+   * @remarks
+   * The agent ID.
+   * 
    * @example
    * agent@ccc-test
    */

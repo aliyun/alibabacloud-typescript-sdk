@@ -3,19 +3,42 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateSkillGroupResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * Description of the skill group.
+   * 
+   * @example
+   * 云联络中心的测试技能组。
+   */
   description?: string;
   /**
+   * @remarks
+   * Instance ID.
+   * 
    * @example
    * ccc-test
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * Media type. The default value is AUDIO. Other valid values include CHAT and VIDEO.
+   * 
+   * @example
+   * VIDEO
+   */
   mediaType?: string;
   /**
+   * @remarks
+   * Skill group name.
+   * 
    * @example
    * skillgroup
    */
   name?: string;
   /**
+   * @remarks
+   * Skill group ID, in the format: skill group name\\@instance ID.
+   * 
    * @example
    * skillgroup@ccc-test
    */
@@ -51,18 +74,38 @@ export class CreateSkillGroupResponseBodyData extends $dara.Model {
 
 export class CreateSkillGroupResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Response code.
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * Data.
+   */
   data?: CreateSkillGroupResponseBodyData;
   /**
+   * @remarks
+   * HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
+  /**
+   * @remarks
+   * Response message.
+   * 
+   * @example
+   * 无
+   */
   message?: string;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * EEEE671A-3E24-4A04-81E6-6C4F5B39DF75
    */

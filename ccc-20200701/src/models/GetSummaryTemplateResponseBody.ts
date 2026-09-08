@@ -4,102 +4,169 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetSummaryTemplateResponseBodyDataPropertyList extends $dara.Model {
   /**
+   * @remarks
+   * Indicates whether the field is an array.
+   * 
    * @example
    * false
    */
   array?: boolean;
   /**
+   * @remarks
+   * The extended properties.
+   * 
    * @example
    * {}
    */
   attributes?: string;
   /**
+   * @remarks
+   * The time when the field was created.
+   * 
    * @example
    * 1717664210000
    */
   createdTime?: number;
   /**
+   * @remarks
+   * The user who created the field.
+   * 
    * @example
    * cretor-xxx@ccc-test
    */
   creator?: string;
   /**
+   * @remarks
+   * The data type.
+   * 
    * @example
    * string
    */
   dataType?: string;
   /**
+   * @remarks
+   * The description of the field.
+   * 
    * @example
    * Description-xxxx
    */
   description?: string;
   /**
+   * @remarks
+   * Indicates whether the field is disabled.
+   * 
    * @example
    * false
    */
   disabled?: boolean;
   /**
+   * @remarks
+   * The display name.
+   * 
    * @example
    * DisplayName-A
    */
   displayName?: string;
   /**
+   * @remarks
+   * The display order in the list.
+   * 
    * @example
    * 1
    */
   displayOrder?: number;
   /**
+   * @remarks
+   * The type of the editor.
+   * 
    * @example
    * textbox
    */
   editorType?: string;
   /**
+   * @remarks
+   * The maximum length.
+   * 
    * @example
    * 30
    */
   maxLength?: number;
   /**
+   * @remarks
+   * The maximum value of the number.
+   * 
    * @example
    * 10
    */
   maximum?: number;
   /**
+   * @remarks
+   * The minimum length.
+   * 
    * @example
    * 1
    */
   minLength?: number;
   /**
+   * @remarks
+   * The minimum value of the number.
+   * 
    * @example
    * 1
    */
   minimum?: number;
   /**
+   * @remarks
+   * The name of the field.
+   * 
    * @example
    * Name-A
    */
   name?: string;
   /**
+   * @remarks
+   * The validation rule that is specified by a regular expression.
+   * 
    * @example
    * ^
    */
   pattern?: string;
+  /**
+   * @remarks
+   * The error message that is returned when the regular expression fails to pass the validation.
+   * 
+   * @example
+   * 不是有效的email地址
+   */
   patternErrorMessage?: string;
   /**
+   * @remarks
+   * Indicates whether the field is read-only.
+   * 
    * @example
    * false
    */
   readOnly?: boolean;
   /**
+   * @remarks
+   * Indicates whether the field is required.
+   * 
    * @example
    * false
    */
   required?: boolean;
   /**
+   * @remarks
+   * Indicates whether the field is a system field.
+   * 
    * @example
    * false
    */
   system?: boolean;
   /**
+   * @remarks
+   * The time when the field was last updated.
+   * 
    * @example
    * 1717664210000
    */
@@ -167,28 +234,58 @@ export class GetSummaryTemplateResponseBodyDataPropertyList extends $dara.Model 
 
 export class GetSummaryTemplateResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the summary category.
+   * 
    * @example
    * 8939-4223-86d0-6bd187905cc8
    */
   categoryId?: string;
   /**
+   * @remarks
+   * The user who edited the template.
+   * 
    * @example
    * editor-xxx@ccc-test
    */
   editor?: string;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * ccc-test
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * The name of the template.
+   * 
+   * @example
+   * 测试模板
+   */
   name?: string;
+  /**
+   * @remarks
+   * The list of template fields.
+   */
   propertyList?: GetSummaryTemplateResponseBodyDataPropertyList[];
   /**
+   * @remarks
+   * The status code.
+   * 
+   * - Enabled: The template is enabled.
+   * 
+   * - Disabled: The template is disabled.
+   * 
    * @example
    * Enabled
    */
   state?: string;
   /**
+   * @remarks
+   * The template ID.
+   * 
    * @example
    * 43c2671b-8939-4223-86d0-6bd187905cc8_1717664210492
    */
@@ -231,19 +328,43 @@ export class GetSummaryTemplateResponseBodyData extends $dara.Model {
 
 export class GetSummaryTemplateResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response code.
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * The data.
+   */
   data?: GetSummaryTemplateResponseBodyData;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
+  /**
+   * @remarks
+   * The response message.
+   * 
+   * @example
+   * 无
+   */
   message?: string;
+  /**
+   * @remarks
+   * The list of error parameters.
+   */
   params?: string[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 30C7D235-DDCF-4C7F-A462-5E2598252C2B
    */

@@ -3,10 +3,26 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ModifySkillGroupRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Description of the skill group. This parameter is optional and defaults to empty.
+   * 
+   * @example
+   * 云联络中心的新测试技能组。
+   */
   description?: string;
+  /**
+   * @remarks
+   * Display name of the skill group, which must be 1 to 64 characters in length.
+   * 
+   * @example
+   * 新测试技能组
+   */
   displayName?: string;
   /**
    * @remarks
+   * Instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -15,6 +31,8 @@ export class ModifySkillGroupRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * Skill group ID.
+   * 
    * This parameter is required.
    * 
    * @example

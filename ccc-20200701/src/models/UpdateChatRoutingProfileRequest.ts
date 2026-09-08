@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateChatRoutingProfileRequest extends $dara.Model {
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class UpdateChatRoutingProfileRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * The session assignment/transfer configuration.
+   * 
    * This parameter is required.
    * 
    * @example

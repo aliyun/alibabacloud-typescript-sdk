@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class RemovePhoneNumbersFromSkillGroupRequest extends $dara.Model {
   /**
    * @remarks
+   * Instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class RemovePhoneNumbersFromSkillGroupRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * List of phone numbers.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class RemovePhoneNumbersFromSkillGroupRequest extends $dara.Model {
   numberList?: string;
   /**
    * @remarks
+   * Skill group ID.
+   * 
    * This parameter is required.
    * 
    * @example

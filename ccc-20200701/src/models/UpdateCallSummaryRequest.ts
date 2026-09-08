@@ -3,9 +3,18 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateCallSummaryRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Content to update.
+   * 
+   * @example
+   * {"summaryTitle":"标题","summaryContent":"内容","keywords":"关键信息"}
+   */
   context?: string;
   /**
    * @remarks
+   * Instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -14,6 +23,8 @@ export class UpdateCallSummaryRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * Summary ID.
+   * 
    * This parameter is required.
    * 
    * @example

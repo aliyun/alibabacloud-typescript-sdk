@@ -4,11 +4,21 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListDocumentsRequestSorts extends $dara.Model {
   /**
+   * @remarks
+   * The sorting order. Valid values:
+   * 
+   * - ASC (default): ascending order.
+   * 
+   * - DESC: descending order.
+   * 
    * @example
    * desc
    */
   order?: string;
   /**
+   * @remarks
+   * The field name.
+   * 
    * @example
    * name
    */
@@ -39,6 +49,8 @@ export class ListDocumentsRequestSorts extends $dara.Model {
 export class ListDocumentsRequest extends $dara.Model {
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -46,23 +58,32 @@ export class ListDocumentsRequest extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The token for the next page of results.
+   * 
    * @example
    * eyJ0YWJsZUlkIjoiY2Y2MTQxYjA5NDY0NDUxMzk5YjFjMTA5YTMxZWNkMzEiLCJ0b2tlbiI6IjAwMDAwMDAwMDAwNzAzNzcifQ==
    */
   nextPageToken?: string;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 2
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * EAF3C248-E123-441B-A545-B6CD02E98EED
    */
   requestId?: string;
   /**
    * @remarks
-   * schema id
+   * The schema ID.
    * 
    * This parameter is required.
    * 
@@ -70,7 +91,18 @@ export class ListDocumentsRequest extends $dara.Model {
    * profile
    */
   schemaId?: string;
+  /**
+   * @remarks
+   * The search conditional expression.
+   * 
+   * @example
+   * 支持Lucene搜索语法
+   */
   searchPattern?: string;
+  /**
+   * @remarks
+   * The custom sorting value.
+   */
   sorts?: ListDocumentsRequestSorts[];
   static names(): { [key: string]: string } {
     return {

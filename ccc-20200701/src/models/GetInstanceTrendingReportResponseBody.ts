@@ -4,36 +4,57 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetInstanceTrendingReportResponseBodyDataInbound extends $dara.Model {
   /**
+   * @remarks
+   * Number of calls abandoned in the IVR, meaning calls that were abandoned during the IVR flow after entering it.
+   * 
    * @example
    * 0
    */
   callsAbandonedInIVR?: number;
   /**
+   * @remarks
+   * Number of calls abandoned in the queue, meaning calls that were abandoned while waiting in the skill group queue after entering it.
+   * 
    * @example
    * 0
    */
   callsAbandonedInQueue?: number;
   /**
+   * @remarks
+   * Number of calls abandoned during ringing.
+   * 
    * @example
    * 0
    */
   callsAbandonedInRing?: number;
   /**
+   * @remarks
+   * Number of calls answered by agents. If a single call is distributed to multiple agents, it is counted as one call.
+   * 
    * @example
    * 0
    */
   callsHandled?: number;
   /**
+   * @remarks
+   * Number of calls that entered the queue. If a single call enters the queue multiple times, it is counted as one call.
+   * 
    * @example
    * 0
    */
   callsQueued?: number;
   /**
+   * @remarks
+   * The start time of the segment statistics, in UNIX timestamp format, in milliseconds.
+   * 
    * @example
    * 1604639129000
    */
   statsTime?: number;
   /**
+   * @remarks
+   * Total number of incoming calls.
+   * 
    * @example
    * 0
    */
@@ -73,16 +94,25 @@ export class GetInstanceTrendingReportResponseBodyDataInbound extends $dara.Mode
 
 export class GetInstanceTrendingReportResponseBodyDataOutbound extends $dara.Model {
   /**
+   * @remarks
+   * Number of answered outbound calls.
+   * 
    * @example
    * 0
    */
   callsAnswered?: number;
   /**
+   * @remarks
+   * Start time of the segment, in UNIX timestamp format, in milliseconds.
+   * 
    * @example
    * 1604639129000
    */
   statsTime?: number;
   /**
+   * @remarks
+   * Total number of outbound calls.
+   * 
    * @example
    * 0
    */
@@ -113,7 +143,21 @@ export class GetInstanceTrendingReportResponseBodyDataOutbound extends $dara.Mod
 }
 
 export class GetInstanceTrendingReportResponseBodyDataOverall extends $dara.Model {
+  /**
+   * @remarks
+   * Maximum number of agents logged on simultaneously during this time range.
+   * 
+   * @example
+   * 102
+   */
   maxLoggedInAgents?: number;
+  /**
+   * @remarks
+   * The start time of the segment statistics, in UNIX timestamp format, in milliseconds.
+   * 
+   * @example
+   * 1604639129000
+   */
   statsTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -139,8 +183,20 @@ export class GetInstanceTrendingReportResponseBodyDataOverall extends $dara.Mode
 }
 
 export class GetInstanceTrendingReportResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * Inbound metrics.
+   */
   inbound?: GetInstanceTrendingReportResponseBodyDataInbound[];
+  /**
+   * @remarks
+   * Outbound metrics.
+   */
   outbound?: GetInstanceTrendingReportResponseBodyDataOutbound[];
+  /**
+   * @remarks
+   * Overall metrics.
+   */
   overall?: GetInstanceTrendingReportResponseBodyDataOverall[];
   static names(): { [key: string]: string } {
     return {
@@ -178,18 +234,38 @@ export class GetInstanceTrendingReportResponseBodyData extends $dara.Model {
 
 export class GetInstanceTrendingReportResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Response code.
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * Data.
+   */
   data?: GetInstanceTrendingReportResponseBodyData;
   /**
+   * @remarks
+   * HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
+  /**
+   * @remarks
+   * Response message.
+   * 
+   * @example
+   * 无
+   */
   message?: string;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 943D8EF3-3321-471F-A104-51C96FCA94D6
    */

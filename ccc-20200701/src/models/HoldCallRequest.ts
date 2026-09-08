@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class HoldCallRequest extends $dara.Model {
   /**
    * @remarks
+   * Channel ID to be held.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,12 +14,17 @@ export class HoldCallRequest extends $dara.Model {
    */
   channelId?: string;
   /**
+   * @remarks
+   * A unique ID provided by the agent endpoint to represent an agent workbench. An agent can have multiple workbenches of different types, such as browser, iOS, or Android, but only one can be active at a time.
+   * 
    * @example
    * ACC-YUNBS-1.0.10-****
    */
   deviceId?: string;
   /**
    * @remarks
+   * Instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -26,14 +33,26 @@ export class HoldCallRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * Call job ID.
+   * 
    * This parameter is required.
    * 
    * @example
    * job-6582589278232****
    */
   jobId?: string;
+  /**
+   * @remarks
+   * Name of the hold music. This parameter is optional and defaults to empty.
+   * 
+   * @example
+   * 无
+   */
   music?: string;
   /**
+   * @remarks
+   * Agent ID.
+   * 
    * @example
    * agent@ccc-test
    */

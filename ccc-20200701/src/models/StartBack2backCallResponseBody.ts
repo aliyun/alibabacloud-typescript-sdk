@@ -4,52 +4,100 @@ import * as $dara from '@darabonba/typescript';
 
 export class StartBack2BackCallResponseBodyDataCallContextChannelContexts extends $dara.Model {
   /**
+   * @remarks
+   * The call type of the channel.
+   * 
    * @example
    * BACK2BACK
    */
   callType?: string;
   /**
+   * @remarks
+   * Flags of the voice channel.
+   * 
    * @example
    * MONITORING
    */
   channelFlags?: string;
   /**
+   * @remarks
+   * The channel ID.
+   * 
    * @example
    * ch:user:1390501****->8032****:1609138902226:job-653821410368****
    */
   channelId?: string;
   /**
+   * @remarks
+   * The status of the voice channel.
+   * 
    * @example
    * NONE
    */
   channelState?: string;
   /**
+   * @remarks
+   * The called party of the call channel.
+   * 
    * @example
    * 1372168****
    */
   destination?: string;
   /**
+   * @remarks
+   * The call ID.
+   * 
    * @example
    * job-1034159089076****
    */
   jobId?: string;
   /**
+   * @remarks
+   * The originator of the voice channel
+   * 
    * @example
    * 0102157****
    */
   originator?: string;
+  /**
+   * @remarks
+   * The party that initiated the release of the voice channel, indicating who first disconnected the channel.
+   * 
+   * @example
+   * 无
+   */
   releaseInitiator?: string;
+  /**
+   * @remarks
+   * The reason for releasing the voice channel, indicating why the current voice channel was disconnected. The value is derived from the response codes defined in the SIP protocol. Customers should refer to the SIP protocol to analyze the disconnection reason.
+   * 
+   * @example
+   * 无
+   */
   releaseReason?: string;
   /**
+   * @remarks
+   * The UNIX timestamp indicating the most recent status change of the channel, in milliseconds.
+   * 
    * @example
    * 1618217874062
    */
   timestamp?: number;
   /**
+   * @remarks
+   * The extension number of the agent associated with the channel.
+   * 
    * @example
    * 8001****
    */
   userExtension?: string;
+  /**
+   * @remarks
+   * The agent ID associated with the voice channel. This field is empty if the channel belongs to a Customer.
+   * 
+   * @example
+   * 无
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -96,17 +144,30 @@ export class StartBack2BackCallResponseBodyDataCallContextChannelContexts extend
 
 export class StartBack2BackCallResponseBodyDataCallContext extends $dara.Model {
   /**
+   * @remarks
+   * The call type.
+   * 
    * @example
    * BACK2BACK
    */
   callType?: string;
+  /**
+   * @remarks
+   * List of call channels.
+   */
   channelContexts?: StartBack2BackCallResponseBodyDataCallContextChannelContexts[];
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * ccc-test
    */
   instanceId?: string;
   /**
+   * @remarks
+   * Call ID.
+   * 
    * @example
    * job-1034159089076****
    */
@@ -143,63 +204,110 @@ export class StartBack2BackCallResponseBodyDataCallContext extends $dara.Model {
 
 export class StartBack2BackCallResponseBodyDataUserContext extends $dara.Model {
   /**
+   * @remarks
+   * Break status code, which can be either system-defined or customer-defined. System-defined break codes include: Warm-up (temporary break state after the agent is published and before becoming idle), RingingTimeout (break caused by agent ringing timeout), and RejectCall (break caused by agent call rejection). There are no restrictions on customer-defined status codes; customers can define them as needed for their business.
+   * 
    * @example
    * Warm-up
    */
   breakCode?: string;
   /**
+   * @remarks
+   * Device ID, which is the identity of a browser-based Web Real-Time Communication (WebRTC) softphone or a physical phone device. Only one type of device can be registered at a time.
+   * 
    * @example
    * ACC-YUNBS-1.0.10-****
    */
   deviceId?: string;
+  /**
+   * @remarks
+   * Device status.
+   * 
+   * @example
+   * 无
+   */
   deviceState?: string;
   /**
+   * @remarks
+   * Agent extension number.
+   * 
    * @example
    * 8020****
    */
   extension?: string;
   /**
+   * @remarks
+   * The time when the last heartbeat from the agent was received, in Unix timestamp format, in milliseconds.
+   * 
    * @example
    * 1618217872911
    */
   heartbeat?: number;
   /**
+   * @remarks
+   * Instance ID.
+   * 
    * @example
    * ccc-test
    */
   instanceId?: string;
   /**
+   * @remarks
+   * Call ID.
+   * 
    * @example
    * job-1034159089076****
    */
   jobId?: string;
   /**
+   * @remarks
+   * The agent\\"s personal phone number.
+   * 
    * @example
    * 1324730****
    */
   mobile?: string;
   /**
+   * @remarks
+   * Indicates whether the agent is in outbound-only mode.
+   * 
    * @example
    * false
    */
   outboundScenario?: boolean;
   /**
+   * @remarks
+   * The UNIX timestamp (in milliseconds) indicating when the agent was most recently reserved. Being reserved means an incoming call will be assigned to the agent shortly.
+   * 
    * @example
    * 1618217794599
    */
   reserved?: number;
+  /**
+   * @remarks
+   * List of skill group IDs that the agent has signed into.
+   */
   signedSkillGroupIdList?: string[];
   /**
+   * @remarks
+   * Agent ID.
+   * 
    * @example
    * agent@ccc-test
    */
   userId?: string;
   /**
+   * @remarks
+   * Agent status.
+   * 
    * @example
    * OFFLINE
    */
   userState?: string;
   /**
+   * @remarks
+   * Work mode.
+   * 
    * @example
    * ON_SITE
    */
@@ -255,7 +363,15 @@ export class StartBack2BackCallResponseBodyDataUserContext extends $dara.Model {
 }
 
 export class StartBack2BackCallResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The call context environment.
+   */
   callContext?: StartBack2BackCallResponseBodyDataCallContext;
+  /**
+   * @remarks
+   * Agent context environment.
+   */
   userContext?: StartBack2BackCallResponseBodyDataUserContext;
   static names(): { [key: string]: string } {
     return {
@@ -288,19 +404,43 @@ export class StartBack2BackCallResponseBodyData extends $dara.Model {
 
 export class StartBack2BackCallResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response code.
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * Data.
+   */
   data?: StartBack2BackCallResponseBodyData;
   /**
+   * @remarks
+   * HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
+  /**
+   * @remarks
+   * Response message.
+   * 
+   * @example
+   * 无
+   */
   message?: string;
+  /**
+   * @remarks
+   * List of response parameters.
+   */
   params?: string[];
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 26A34338-5CD9-4C95-A7A6-5BDCE76C6B94
    */

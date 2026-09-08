@@ -4,57 +4,90 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListSkillGroupSummaryReportsSinceMidnightResponseBodyPagedSkillGroupSummaryReportListInbound extends $dara.Model {
   /**
+   * @remarks
+   * The number of calls abandoned while waiting in the skill group queue.
+   * 
    * @example
    * 0
    */
   abandonedInQueueOfQueueCount?: number;
   /**
+   * @remarks
+   * The number of calls routed to the skill group and answered by an agent.
+   * 
    * @example
    * 0
    */
   answeredByAgentOfQueueCount?: number;
   /**
+   * @remarks
+   * The maximum queue wait time for a call answered by an agent.
+   * 
    * @example
    * 0
    */
   answeredByAgentOfQueueMaxWaitTimeDuration?: number;
   /**
+   * @remarks
+   * The total queue wait time for calls answered by an agent, in seconds.
+   * 
    * @example
    * 0
    */
   answeredByAgentOfQueueWaitTimeDuration?: number;
   /**
+   * @remarks
+   * The average ring time, in seconds.
+   * 
    * @example
    * 0
    */
   averageRingTime?: number;
   /**
+   * @remarks
+   * The average talk time, in seconds.
+   * 
    * @example
    * 0
    */
   averageTalkTime?: number;
   /**
+   * @remarks
+   * The average after-call work time, in seconds (`TotalWorkTime` / `CallsHandled`).
+   * 
    * @example
    * 0
    */
   averageWorkTime?: number;
   callsAbandoned?: number;
   /**
+   * @remarks
+   * The number of attended transfers initiated. If a call is transferred multiple times, each transfer is counted separately.
+   * 
    * @example
    * 0
    */
   callsAttendedTransferOut?: number;
   /**
+   * @remarks
+   * The number of blind transfers initiated. If a call is transferred multiple times, each transfer is counted separately.
+   * 
    * @example
    * 0
    */
   callsBlindTransferOut?: number;
   /**
+   * @remarks
+   * The number of handled inbound calls. Each call is counted once per queue entry, regardless of how many agents answer it.
+   * 
    * @example
    * 0
    */
   callsHandled?: number;
   /**
+   * @remarks
+   * The number of calls offered to the skill group.
+   * 
    * @example
    * 0
    */
@@ -65,97 +98,154 @@ export class ListSkillGroupSummaryReportsSinceMidnightResponseBodyPagedSkillGrou
   callsQueuingRerouted?: string;
   callsQueuingTimeout?: number;
   /**
+   * @remarks
+   * The number of calls answered by an agent within 10 seconds.
+   * 
    * @example
    * 0
    */
   callsServiceLevel10?: number;
   /**
+   * @remarks
+   * The number of calls answered by an agent within 20 seconds.
+   * 
    * @example
    * 0
    */
   callsServiceLevel20?: number;
   /**
+   * @remarks
+   * The number of calls answered by an agent within 30 seconds.
+   * 
    * @example
    * 0
    */
   callsServiceLevel30?: number;
   callsTimeout?: number;
   /**
+   * @remarks
+   * The number of calls that were abandoned while an agent in the skill group was being alerted.
+   * 
    * @example
    * 0
    */
   giveUpByAgentOfQueueCount?: number;
   /**
+   * @remarks
+   * The handle rate (`CallsHandled` / `CallsOffered`). The value can exceed 100% because the handle and offer events might occur in different time windows.
+   * 
    * @example
    * 0
    */
   handleRate?: number;
   /**
+   * @remarks
+   * The number of calls that entered the skill group queue.
+   * 
    * @example
    * 0
    */
   inComingQueueOfQueueCount?: number;
   /**
+   * @remarks
+   * The maximum ring time, in seconds.
+   * 
    * @example
    * 0
    */
   maxRingTime?: number;
   /**
+   * @remarks
+   * The maximum talk time, in seconds.
+   * 
    * @example
    * 0
    */
   maxTalkTime?: string;
   /**
+   * @remarks
+   * The maximum after-call work time, in seconds.
+   * 
    * @example
    * 0
    */
   maxWorkTime?: number;
   /**
+   * @remarks
+   * The number of calls that overflowed from the skill group queue.
+   * 
    * @example
    * 0
    */
   overFlowInQueueOfQueueCount?: number;
   /**
+   * @remarks
+   * The maximum queue wait time, in seconds.
+   * 
    * @example
    * 0
    */
   queueMaxWaitTimeDuration?: number;
   /**
+   * @remarks
+   * The queue wait time, in seconds.
+   * 
    * @example
    * 0
    */
   queueWaitTimeDuration?: number;
   /**
+   * @remarks
+   * The satisfaction index, calculated as the average of single-digit keypad inputs from satisfaction surveys.
+   * 
    * @example
    * 0
    */
   satisfactionIndex?: number;
   /**
+   * @remarks
+   * The number of satisfaction surveys offered.
+   * 
    * @example
    * 0
    */
   satisfactionSurveysOffered?: number;
   /**
+   * @remarks
+   * The number of satisfaction surveys responded to.
+   * 
    * @example
    * 0
    */
   satisfactionSurveysResponded?: number;
   /**
+   * @remarks
+   * The percentage of calls answered within 20 seconds.
+   * 
    * @example
    * 0
    */
   serviceLevel20?: number;
   /**
+   * @remarks
+   * The total ring time, in seconds.
+   * 
    * @example
    * 0
    */
   totalRingTime?: number;
   /**
+   * @remarks
+   * The total talk time for inbound calls, in seconds.
+   * 
    * @example
    * 0
    */
   totalTalkTime?: number;
   /**
+   * @remarks
+   * The total after-call work time, in seconds.
+   * 
    * @example
    * 0
    */
@@ -255,21 +345,33 @@ export class ListSkillGroupSummaryReportsSinceMidnightResponseBodyPagedSkillGrou
 
 export class ListSkillGroupSummaryReportsSinceMidnightResponseBodyPagedSkillGroupSummaryReportListOutbound extends $dara.Model {
   /**
+   * @remarks
+   * The answer rate, expressed as a percentage (%).
+   * 
    * @example
    * 0
    */
   answerRate?: number;
   /**
+   * @remarks
+   * The average dialing time, in seconds.
+   * 
    * @example
    * 0
    */
   averageDialingTime?: number;
   /**
+   * @remarks
+   * The average talk time, in seconds.
+   * 
    * @example
    * 0
    */
   averageTalkTime?: number;
   /**
+   * @remarks
+   * The average after-call work time, in seconds.
+   * 
    * @example
    * 0
    */
@@ -277,11 +379,17 @@ export class ListSkillGroupSummaryReportsSinceMidnightResponseBodyPagedSkillGrou
   callsAbandoned?: number;
   callsAgentHandled?: number;
   /**
+   * @remarks
+   * The number of answered outbound calls.
+   * 
    * @example
    * 0
    */
   callsAnswered?: number;
   /**
+   * @remarks
+   * The number of outbound calls dialed.
+   * 
    * @example
    * 0
    */
@@ -294,53 +402,83 @@ export class ListSkillGroupSummaryReportsSinceMidnightResponseBodyPagedSkillGrou
   callsQueuingRerouted?: number;
   callsQueuingTimeout?: number;
   /**
+   * @remarks
+   * The number of calls answered by an agent within 30 seconds.
+   * 
    * @example
    * 0
    */
   callsServiceLevel30?: string;
   callsServiceLevel30V2?: number;
   /**
+   * @remarks
+   * The maximum dialing time, in seconds.
+   * 
    * @example
    * 0
    */
   maxDialingTime?: number;
   /**
+   * @remarks
+   * The maximum talk time, in seconds.
+   * 
    * @example
    * 0
    */
   maxTalkTime?: number;
   /**
+   * @remarks
+   * The maximum after-call work time, in seconds.
+   * 
    * @example
    * 0
    */
   maxWorkTime?: number;
   /**
+   * @remarks
+   * The satisfaction index, calculated as the average of single-digit keypad inputs from satisfaction surveys.
+   * 
    * @example
    * 0
    */
   satisfactionIndex?: number;
   /**
+   * @remarks
+   * The number of satisfaction surveys offered.
+   * 
    * @example
    * 0
    */
   satisfactionSurveysOffered?: number;
   /**
+   * @remarks
+   * The number of satisfaction surveys responded to.
+   * 
    * @example
    * 0
    */
   satisfactionSurveysResponded?: number;
   /**
+   * @remarks
+   * The total dialing time, in seconds.
+   * 
    * @example
    * 0
    */
   totalDialingTime?: number;
   /**
+   * @remarks
+   * The total talk time for outbound calls, in seconds.
+   * 
    * @example
    * 0
    */
   totalTalkTime?: number;
   totalWaitTime?: number;
   /**
+   * @remarks
+   * The total after-call work time, in seconds.
+   * 
    * @example
    * 0
    */
@@ -420,81 +558,129 @@ export class ListSkillGroupSummaryReportsSinceMidnightResponseBodyPagedSkillGrou
 
 export class ListSkillGroupSummaryReportsSinceMidnightResponseBodyPagedSkillGroupSummaryReportListOverall extends $dara.Model {
   /**
+   * @remarks
+   * The average ready time, in seconds.
+   * 
    * @example
    * 0
    */
   averageReadyTime?: number;
   /**
+   * @remarks
+   * The average talk time, in seconds.
+   * 
    * @example
    * 0
    */
   averageTalkTime?: number;
   /**
+   * @remarks
+   * The average after-call work time, in seconds.
+   * 
    * @example
    * 0
    */
   averageWorkTime?: number;
   /**
+   * @remarks
+   * The maximum ready time, in seconds.
+   * 
    * @example
    * 0
    */
   maxReadyTime?: number;
   /**
+   * @remarks
+   * The maximum talk time, in seconds.
+   * 
    * @example
    * 0
    */
   maxTalkTime?: number;
   /**
+   * @remarks
+   * The maximum after-call work time, in seconds.
+   * 
    * @example
    * 0
    */
   maxWorkTime?: number;
   /**
+   * @remarks
+   * The agent occupancy rate, expressed as a percentage (%).
+   * 
    * @example
    * 0
    */
   occupancyRate?: number;
   /**
+   * @remarks
+   * The satisfaction index, calculated as the average of single-digit keypad inputs from satisfaction surveys.
+   * 
    * @example
    * 0
    */
   satisfactionIndex?: number;
   /**
+   * @remarks
+   * The number of satisfaction surveys offered.
+   * 
    * @example
    * 0
    */
   satisfactionSurveysOffered?: number;
   /**
+   * @remarks
+   * The number of satisfaction surveys responded to.
+   * 
    * @example
    * 0
    */
   satisfactionSurveysResponded?: number;
   /**
+   * @remarks
+   * The total break time, in seconds.
+   * 
    * @example
    * 0
    */
   totalBreakTime?: number;
   /**
+   * @remarks
+   * The total number of calls (`CallsOffered` + `CallsDialed`).
+   * 
    * @example
    * 0
    */
   totalCalls?: number;
   /**
+   * @remarks
+   * The total logged-in time, in seconds.
+   * 
    * @example
    * 0
    */
   totalLoggedInTime?: number;
   /**
+   * @remarks
+   * The total ready time, in seconds.
+   * 
    * @example
    * 0
    */
   totalReadyTime?: number;
   /**
+   * @remarks
+   * The total talk time, in seconds.
+   * 
    * @example
    * 0
    */
   totalTalkTime?: number;
   /**
+   * @remarks
+   * The total after-call work time, in seconds.
+   * 
    * @example
    * 0
    */
@@ -551,21 +737,49 @@ export class ListSkillGroupSummaryReportsSinceMidnightResponseBodyPagedSkillGrou
 }
 
 export class ListSkillGroupSummaryReportsSinceMidnightResponseBodyPagedSkillGroupSummaryReportList extends $dara.Model {
+  /**
+   * @remarks
+   * Inbound call metrics.
+   */
   inbound?: ListSkillGroupSummaryReportsSinceMidnightResponseBodyPagedSkillGroupSummaryReportListInbound;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * ccc-test
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * Outbound call metrics.
+   */
   outbound?: ListSkillGroupSummaryReportsSinceMidnightResponseBodyPagedSkillGroupSummaryReportListOutbound;
+  /**
+   * @remarks
+   * Overall metrics.
+   */
   overall?: ListSkillGroupSummaryReportsSinceMidnightResponseBodyPagedSkillGroupSummaryReportListOverall;
   /**
+   * @remarks
+   * The skill group ID.
+   * 
    * @example
    * skillgroup@ccc-test
    */
   skillGroupId?: string;
+  /**
+   * @remarks
+   * The name of the skill group.
+   * 
+   * @example
+   * 测试技能组
+   */
   skillGroupName?: string;
   /**
+   * @remarks
+   * The timestamp when the metrics were collected.
+   * 
    * @example
    * 2018-09-13 00:00:00
    */
@@ -613,18 +827,31 @@ export class ListSkillGroupSummaryReportsSinceMidnightResponseBodyPagedSkillGrou
 }
 
 export class ListSkillGroupSummaryReportsSinceMidnightResponseBodyPagedSkillGroupSummaryReport extends $dara.Model {
+  /**
+   * @remarks
+   * A list of skill group summary reports.
+   */
   list?: ListSkillGroupSummaryReportsSinceMidnightResponseBodyPagedSkillGroupSummaryReportList[];
   /**
+   * @remarks
+   * The page number. The valid range is 1 to 100.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page. The valid range is 1 to 100.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The total number of entries.
+   * 
    * @example
    * 3
    */
@@ -661,23 +888,46 @@ export class ListSkillGroupSummaryReportsSinceMidnightResponseBodyPagedSkillGrou
 
 export class ListSkillGroupSummaryReportsSinceMidnightResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response code.
+   * 
    * @example
    * OK
    */
   code?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
+  /**
+   * @remarks
+   * The response message.
+   * 
+   * @example
+   * 无
+   */
   message?: string;
+  /**
+   * @remarks
+   * The returned data.
+   */
   pagedSkillGroupSummaryReport?: ListSkillGroupSummaryReportsSinceMidnightResponseBodyPagedSkillGroupSummaryReport;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 2B36CEBC-6D11-5451-9E6B-C6D1927841C5
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

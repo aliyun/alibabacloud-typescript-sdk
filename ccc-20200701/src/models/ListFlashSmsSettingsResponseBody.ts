@@ -4,20 +4,40 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListFlashSmsSettingsResponseBodyDataList extends $dara.Model {
   /**
+   * @remarks
+   * Indicates whether flash SMS is enabled for the skill group.
+   * 
+   * - **true**: enabled.
+   * 
+   * - **false**: disabled.
+   * 
    * @example
    * true
    */
   enabled?: boolean;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * ccc-test
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The skill group ID.
+   * 
    * @example
    * skillgroup1@ccc-test
    */
   skillGroupId?: string;
+  /**
+   * @remarks
+   * The name of the skill group.
+   * 
+   * @example
+   * 闪信测试技能组
+   */
   skillGroupName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -47,18 +67,31 @@ export class ListFlashSmsSettingsResponseBodyDataList extends $dara.Model {
 }
 
 export class ListFlashSmsSettingsResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * A list of configurations.
+   */
   list?: ListFlashSmsSettingsResponseBodyDataList[];
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The total number of entries.
+   * 
    * @example
    * 1
    */
@@ -95,19 +128,43 @@ export class ListFlashSmsSettingsResponseBodyData extends $dara.Model {
 
 export class ListFlashSmsSettingsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response code.
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * The data.
+   */
   data?: ListFlashSmsSettingsResponseBodyData;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
+  /**
+   * @remarks
+   * The response message.
+   * 
+   * @example
+   * 无
+   */
   message?: string;
+  /**
+   * @remarks
+   * A list of incorrect parameters.
+   */
   params?: string[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * BA03159C-E808-4FF1-B27E-A61B6E888D7F
    */

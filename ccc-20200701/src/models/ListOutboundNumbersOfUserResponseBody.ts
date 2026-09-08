@@ -3,8 +3,18 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListOutboundNumbersOfUserResponseBodyDataList extends $dara.Model {
+  /**
+   * @remarks
+   * The city where the phone number is located.
+   * 
+   * @example
+   * 乐山
+   */
   city?: string;
   /**
+   * @remarks
+   * The phone number.
+   * 
    * @example
    * 0830019****
    */
@@ -20,6 +30,13 @@ export class ListOutboundNumbersOfUserResponseBodyDataList extends $dara.Model {
   providerDisplayName?: string;
   providerShortName?: string;
   providerType?: string;
+  /**
+   * @remarks
+   * The province where the phone number is located.
+   * 
+   * @example
+   * 四川
+   */
   province?: string;
   static names(): { [key: string]: string } {
     return {
@@ -57,18 +74,31 @@ export class ListOutboundNumbersOfUserResponseBodyDataList extends $dara.Model {
 }
 
 export class ListOutboundNumbersOfUserResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * A list of phone numbers.
+   */
   list?: ListOutboundNumbersOfUserResponseBodyDataList[];
   /**
+   * @remarks
+   * The page number. Valid values: 1 to 100.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page. Valid values: 1 to 100.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The total number of entries.
+   * 
    * @example
    * 1
    */
@@ -105,18 +135,38 @@ export class ListOutboundNumbersOfUserResponseBodyData extends $dara.Model {
 
 export class ListOutboundNumbersOfUserResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response code.
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * The data.
+   */
   data?: ListOutboundNumbersOfUserResponseBodyData;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
+  /**
+   * @remarks
+   * The response message.
+   * 
+   * @example
+   * 无
+   */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * EEEE671A-3E24-4A04-81E6-6C4F5B39DF75
    */

@@ -4,28 +4,57 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListPhoneNumbersOfSkillGroupResponseBodyDataList extends $dara.Model {
   /**
+   * @remarks
+   * Whether the phone number is active.
+   * 
    * @example
    * true
    */
   active?: boolean;
+  /**
+   * @remarks
+   * City where the phone number is registered.
+   * 
+   * @example
+   * 乐山
+   */
   city?: string;
   /**
+   * @remarks
+   * IVR contact flow ID associated with the phone number.
+   * 
    * @example
    * a3fb6c62-9b49-4942-ae5b-cf2abd4123ek
    */
   contactFlowId?: string;
   /**
+   * @remarks
+   * Instance ID.
+   * 
    * @example
    * ccc-test
    */
   instanceId?: string;
   /**
+   * @remarks
+   * Phone number.
+   * 
    * @example
    * 08330011****
    */
   number?: string;
+  /**
+   * @remarks
+   * Province where the phone number is registered.
+   * 
+   * @example
+   * 四川
+   */
   province?: string;
   /**
+   * @remarks
+   * Usage of the phone number.
+   * 
    * @example
    * Bidirection
    */
@@ -64,18 +93,31 @@ export class ListPhoneNumbersOfSkillGroupResponseBodyDataList extends $dara.Mode
 }
 
 export class ListPhoneNumbersOfSkillGroupResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * List of phone numbers.
+   */
   list?: ListPhoneNumbersOfSkillGroupResponseBodyDataList[];
   /**
+   * @remarks
+   * Page number, ranging from 1 to 100.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * Page size, ranging from 1 to 100.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * Total count.
+   * 
    * @example
    * 1
    */
@@ -112,18 +154,38 @@ export class ListPhoneNumbersOfSkillGroupResponseBodyData extends $dara.Model {
 
 export class ListPhoneNumbersOfSkillGroupResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Response code.
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * Data.
+   */
   data?: ListPhoneNumbersOfSkillGroupResponseBodyData;
   /**
+   * @remarks
+   * HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
+  /**
+   * @remarks
+   * Response message.
+   * 
+   * @example
+   * 无
+   */
   message?: string;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * EEEE671A-3E24-4A04-81E6-6C4F5B39DF75
    */

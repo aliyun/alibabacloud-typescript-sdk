@@ -4,18 +4,41 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteAudioFileResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Response code.
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * Data.
+   * 
+   * @example
+   * 无
+   */
   data?: string;
   /**
+   * @remarks
+   * HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
+  /**
+   * @remarks
+   * Response message.
+   * 
+   * @example
+   * 无
+   */
   message?: string;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * FB77821C-912F-57FF-8834-6336A6479093
    */

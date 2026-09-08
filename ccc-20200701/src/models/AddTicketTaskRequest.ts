@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class AddTicketTaskRequest extends $dara.Model {
   /**
    * @remarks
+   * The assignee for the signature.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,11 +15,18 @@ export class AddTicketTaskRequest extends $dara.Model {
   assignee?: string;
   /**
    * @remarks
+   * Comments.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * 请assignee处理。
    */
   comment?: string;
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -25,12 +34,21 @@ export class AddTicketTaskRequest extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The position to add the signature.
+   * 
+   * - Before: Before the current handler.
+   * 
+   * - After: After the current handler.
+   * 
    * @example
    * After
    */
   position?: string;
   /**
    * @remarks
+   * The ticket flow node ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -39,6 +57,8 @@ export class AddTicketTaskRequest extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
+   * The ticket ID.
+   * 
    * This parameter is required.
    * 
    * @example

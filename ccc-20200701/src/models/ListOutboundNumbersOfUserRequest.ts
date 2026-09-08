@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListOutboundNumbersOfUserRequest extends $dara.Model {
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class ListOutboundNumbersOfUserRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * The page number. Valid values: 1 to 100.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class ListOutboundNumbersOfUserRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
+   * The number of entries per page. Valid values: 1 to 100.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -28,11 +34,17 @@ export class ListOutboundNumbersOfUserRequest extends $dara.Model {
    */
   pageSize?: number;
   /**
+   * @remarks
+   * A JSON-formatted list of skill group IDs. If specified, the operation returns outbound numbers for the specified skill groups. If omitted, it returns outbound numbers for all skill groups associated with the agent. Note: The agent must be a member of the specified skill groups.
+   * 
    * @example
    * ["skillgroup1@ccc-test","skillgroup2@ccc-test"]
    */
   skillGroupIdList?: string;
   /**
+   * @remarks
+   * The agent ID.
+   * 
    * @example
    * agent@ccc-test
    */

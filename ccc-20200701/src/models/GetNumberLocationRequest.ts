@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetNumberLocationRequest extends $dara.Model {
   /**
    * @remarks
+   * Instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class GetNumberLocationRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * The number to query.
+   * 
    * This parameter is required.
    * 
    * @example

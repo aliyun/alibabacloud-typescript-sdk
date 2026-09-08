@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListAgentStatesRequest extends $dara.Model {
   /**
+   * @remarks
+   * Filters by a list of agent IDs.
+   * 
    * @example
    * agent@ccc-test
    */
   agentIds?: string;
   /**
+   * @remarks
+   * Filters out offline agents. This parameter is fixed to true and does not support false at present.
+   * 
    * @example
    * true
    * 
@@ -18,6 +24,8 @@ export class ListAgentStatesRequest extends $dara.Model {
   excludeOfflineUsers?: boolean;
   /**
    * @remarks
+   * Instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -25,21 +33,33 @@ export class ListAgentStatesRequest extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * Page number, ranging from 1 to 100.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * Page size, ranging from 1 to 300.
+   * 
    * @example
    * 100
    */
   pageSize?: number;
   /**
+   * @remarks
+   * Filters by skill group ID.
+   * 
    * @example
    * skillgroup@ccc-test
    */
   skillGroupId?: string;
   /**
+   * @remarks
+   * Filters agents by status. Only a single status can be specified.
+   * 
    * @example
    * Ready
    */

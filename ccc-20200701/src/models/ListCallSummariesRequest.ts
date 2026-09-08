@@ -3,9 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListCallSummariesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * List of call IDs.
+   */
   contactIdList?: string[];
   /**
    * @remarks
+   * Instance ID.
+   * 
    * This parameter is required.
    * 
    * @example

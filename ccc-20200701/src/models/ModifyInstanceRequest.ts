@@ -3,9 +3,18 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ModifyInstanceRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Description of the instance. The description can be up to 256 characters in length.
+   * 
+   * @example
+   * 新的实例描述。
+   */
   description?: string;
   /**
    * @remarks
+   * Instance ID.
+   * 
    * This parameter is required.
    * 
    * @example

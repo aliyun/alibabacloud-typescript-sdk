@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListLegacyQueueEventLogsRequest extends $dara.Model {
   /**
    * @remarks
+   * End time, in UNIX timestamp format, in milliseconds.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class ListLegacyQueueEventLogsRequest extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
+   * Instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class ListLegacyQueueEventLogsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * Page number for paging, ranging from 1 to 1000.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,6 +35,8 @@ export class ListLegacyQueueEventLogsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
+   * Page size, ranging from 1 to 1000.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -36,12 +44,17 @@ export class ListLegacyQueueEventLogsRequest extends $dara.Model {
    */
   pageSize?: number;
   /**
+   * @remarks
+   * Filter by skill group ID. This parameter is optional and defaults to empty. An empty value means no filtering is applied.
+   * 
    * @example
    * skillgroup@ccc-test
    */
   skillGroupId?: string;
   /**
    * @remarks
+   * Start Time, in UNIX timestamp format, in milliseconds.
+   * 
    * This parameter is required.
    * 
    * @example

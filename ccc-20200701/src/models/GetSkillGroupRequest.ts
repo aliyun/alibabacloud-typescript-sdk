@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetSkillGroupRequest extends $dara.Model {
   /**
    * @remarks
+   * Instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class GetSkillGroupRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * Skill group ID, in the format: skill group name\\@instance ID.
+   * 
    * This parameter is required.
    * 
    * @example

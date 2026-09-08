@@ -3,12 +3,29 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetNumberLocationResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * City of the number\\"s registration location.
+   * 
+   * @example
+   * 北京
+   */
   city?: string;
   /**
+   * @remarks
+   * Number.
+   * 
    * @example
    * 1312121****
    */
   number?: string;
+  /**
+   * @remarks
+   * Province of the number\\"s registration location.
+   * 
+   * @example
+   * 北京
+   */
   province?: string;
   static names(): { [key: string]: string } {
     return {
@@ -37,18 +54,38 @@ export class GetNumberLocationResponseBodyData extends $dara.Model {
 
 export class GetNumberLocationResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Response code.
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * Data.
+   */
   data?: GetNumberLocationResponseBodyData;
   /**
+   * @remarks
+   * HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
+  /**
+   * @remarks
+   * Response message.
+   * 
+   * @example
+   * 无
+   */
   message?: string;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 584AA2E3-9AC4-561B-BC8D-C74BA11B1387
    */

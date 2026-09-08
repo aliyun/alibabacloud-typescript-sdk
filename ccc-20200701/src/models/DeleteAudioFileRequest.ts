@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteAudioFileRequest extends $dara.Model {
   /**
    * @remarks
+   * Audio resource ID, which is the UUID of the audio file.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class DeleteAudioFileRequest extends $dara.Model {
   audioResourceId?: string;
   /**
    * @remarks
+   * Instance ID.
+   * 
    * This parameter is required.
    * 
    * @example

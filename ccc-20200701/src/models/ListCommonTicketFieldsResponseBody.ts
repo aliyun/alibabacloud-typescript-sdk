@@ -5,25 +5,38 @@ import { DataPropertiesValue } from "./DataPropertiesValue";
 
 export class ListCommonTicketFieldsResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * Creation time.
+   * 
    * @example
    * 1703517780627
    */
   createdTime?: string;
   /**
    * @remarks
-   * Schema ID。
+   * Schema ID.
    * 
    * @example
    * ticketing
    */
   id?: string;
   /**
+   * @remarks
+   * Instance ID.
+   * 
    * @example
    * ccc-test
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * List of fields.
+   */
   properties?: { [key: string]: DataPropertiesValue };
   /**
+   * @remarks
+   * Last modification time.
+   * 
    * @example
    * 1716211430928
    */
@@ -62,19 +75,43 @@ export class ListCommonTicketFieldsResponseBodyData extends $dara.Model {
 
 export class ListCommonTicketFieldsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Response code.
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * Data.
+   */
   data?: ListCommonTicketFieldsResponseBodyData;
   /**
+   * @remarks
+   * HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
+  /**
+   * @remarks
+   * Response message.
+   * 
+   * @example
+   * 无
+   */
   message?: string;
+  /**
+   * @remarks
+   * List of error parameters.
+   */
   params?: string[];
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 30C7D235-DDCF-4C7F-A462-5E2598252C2B
    */

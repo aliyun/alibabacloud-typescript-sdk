@@ -3,35 +3,74 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateUserResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The URL of the agent\\"s profile picture.
+   * 
+   * @example
+   * http://abc.com/sam.jpg
+   */
   avatarUrl?: string;
+  /**
+   * @remarks
+   * The display name of the agent.
+   * 
+   * @example
+   * 坐席小王
+   */
   displayName?: string;
   /**
+   * @remarks
+   * The email address.
+   * 
    * @example
    * username@example.com
    */
   email?: string;
   /**
+   * @remarks
+   * The agent\\"s extension number.
+   * 
    * @example
    * 8032****
    */
   extension?: string;
   /**
+   * @remarks
+   * The logon name of the agent.
+   * 
    * @example
    * agent
    */
   loginName?: string;
   /**
+   * @remarks
+   * The personal phone number of the agent.
+   * 
    * @example
    * 1382114****
    */
   mobile?: string;
+  /**
+   * @remarks
+   * The agent\\"s nickname.
+   * 
+   * @example
+   * 老王。
+   */
   nickname?: string;
   /**
+   * @remarks
+   * The agent ID.
+   * 
    * @example
    * agent@ccc-test
    */
   userId?: string;
   /**
+   * @remarks
+   * The work mode.
+   * 
    * @example
    * ON_SITE
    */
@@ -75,19 +114,43 @@ export class CreateUserResponseBodyData extends $dara.Model {
 
 export class CreateUserResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response code.
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * The data.
+   */
   data?: CreateUserResponseBodyData;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
+  /**
+   * @remarks
+   * The response message.
+   * 
+   * @example
+   * 无
+   */
   message?: string;
+  /**
+   * @remarks
+   * The response parameters.
+   */
   params?: string[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * BA03159C-E808-4FF1-B27E-A61B6E888D7F
    */

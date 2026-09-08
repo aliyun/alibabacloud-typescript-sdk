@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class SendDtmfSignalingRequest extends $dara.Model {
   /**
    * @remarks
+   * The channel ID of the call to which DTMF tones are to be sent.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,12 +14,17 @@ export class SendDtmfSignalingRequest extends $dara.Model {
    */
   channelId?: string;
   /**
+   * @remarks
+   * Device ID. This parameter is meaningless and can be filled with any value.
+   * 
    * @example
    * device
    */
   deviceId?: string;
   /**
    * @remarks
+   * DTMF key information, which refers to the keys on a dial pad, including 0–9, \\*, and #.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -26,6 +33,8 @@ export class SendDtmfSignalingRequest extends $dara.Model {
   dtmf?: string;
   /**
    * @remarks
+   * Instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -34,6 +43,8 @@ export class SendDtmfSignalingRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * The call ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -41,6 +52,9 @@ export class SendDtmfSignalingRequest extends $dara.Model {
    */
   jobId?: string;
   /**
+   * @remarks
+   * The agent ID that sends DTMF.
+   * 
    * @example
    * agent@ccc-test
    */

@@ -4,34 +4,49 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetDocumentUploadParametersResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * AccessKeyId used for signing
+   * 
    * @example
    * ****
    */
   accessKeyId?: string;
   /**
+   * @remarks
+   * Expired At
+   * 
    * @example
    * 1647313420
    */
   expireTime?: number;
   /**
+   * @remarks
+   * OSS file path
+   * 
    * @example
    * ccc-test/blacklist.xlsx
    */
   filePath?: string;
   /**
    * @remarks
-   * oss host
+   * OSS host
    * 
    * @example
    * https://ccc-v2-online.oss-cn-shanghai.aliyuncs.com
    */
   host?: string;
   /**
+   * @remarks
+   * Signature policy
+   * 
    * @example
    * Permit
    */
   policy?: string;
   /**
+   * @remarks
+   * Signature
+   * 
    * @example
    * zi31STIMtIfa/UN2l+6lww****
    */
@@ -69,19 +84,43 @@ export class GetDocumentUploadParametersResponseBodyData extends $dara.Model {
 
 export class GetDocumentUploadParametersResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Response code
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * Data.
+   */
   data?: GetDocumentUploadParametersResponseBodyData;
   /**
+   * @remarks
+   * HTTP status code
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
+  /**
+   * @remarks
+   * Response message
+   * 
+   * @example
+   * 无
+   */
   message?: string;
+  /**
+   * @remarks
+   * Response parameters.
+   */
   params?: string[];
   /**
+   * @remarks
+   * Request ID
+   * 
    * @example
    * 9FBA26B0-462B-4D77-B78F-AF35560DBC71
    */

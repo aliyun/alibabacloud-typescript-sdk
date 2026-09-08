@@ -4,32 +4,57 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListRamUsersResponseBodyDataList extends $dara.Model {
   /**
+   * @remarks
+   * The UID of the Alibaba Cloud account to which the RAM user belongs.
+   * 
    * @example
    * 15772400000****
    */
   aliyunUid?: number;
+  /**
+   * @remarks
+   * The display name of the RAM user.
+   * 
+   * @example
+   * 测试账号
+   */
   displayName?: string;
   /**
+   * @remarks
+   * The email address of the RAM user.
+   * 
    * @example
    * username@example.com
    */
   email?: string;
   /**
+   * @remarks
+   * The logon name of the RAM user.
+   * 
    * @example
    * agent
    */
   loginName?: string;
   /**
+   * @remarks
+   * The mobile number of the RAM user.
+   * 
    * @example
    * 1382114****
    */
   mobile?: string;
   /**
+   * @remarks
+   * Indicates whether the user is a primary account. A value of `false` indicates that the user is a RAM user.
+   * 
    * @example
    * false
    */
   primary?: boolean;
   /**
+   * @remarks
+   * The ID of the RAM user.
+   * 
    * @example
    * 28036411123456****
    */
@@ -68,18 +93,31 @@ export class ListRamUsersResponseBodyDataList extends $dara.Model {
 }
 
 export class ListRamUsersResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * A list of RAM users.
+   */
   list?: ListRamUsersResponseBodyDataList[];
   /**
+   * @remarks
+   * The returned page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries returned per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The total number of entries.
+   * 
    * @example
    * 100
    */
@@ -116,19 +154,43 @@ export class ListRamUsersResponseBodyData extends $dara.Model {
 
 export class ListRamUsersResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response code.
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * The data returned.
+   */
   data?: ListRamUsersResponseBodyData;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
+  /**
+   * @remarks
+   * The response message.
+   * 
+   * @example
+   * 无
+   */
   message?: string;
+  /**
+   * @remarks
+   * The response parameters.
+   */
   params?: string[];
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * 24753D71-C91D-1A38-A8AD-372BF12453F6
    */

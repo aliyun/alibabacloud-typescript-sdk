@@ -3,9 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListCallSummariesShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * List of call IDs.
+   */
   contactIdListShrink?: string;
   /**
    * @remarks
+   * Instance ID.
+   * 
    * This parameter is required.
    * 
    * @example

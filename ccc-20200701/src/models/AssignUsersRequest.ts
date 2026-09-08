@@ -6,6 +6,8 @@ export class AssignUsersRequest extends $dara.Model {
   async?: boolean;
   /**
    * @remarks
+   * The ID of the instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -14,6 +16,8 @@ export class AssignUsersRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * A JSON array of RAM user IDs to import, formatted as a string.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -22,6 +26,8 @@ export class AssignUsersRequest extends $dara.Model {
   ramIdList?: string;
   /**
    * @remarks
+   * The ID of the role to assign to the users in the instance. After the RAM users are imported, they are assigned this role. Valid roles are Administrator, Teamleader, and Agent.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,12 +35,17 @@ export class AssignUsersRequest extends $dara.Model {
    */
   roleId?: string;
   /**
+   * @remarks
+   * A JSON array of skill objects, provided as a string. Each object specifies a skillGroupId and a skillLevel from 1 to 10. A lower skillLevel value indicates higher proficiency and greater call-handling capacity.
+   * 
    * @example
    * [{"skillGroupId":"skillgroup@ccc-test","skillLevel":5}]
    */
   skillLevelList?: string;
   /**
    * @remarks
+   * The work mode for the agents.
+   * 
    * This parameter is required.
    * 
    * @example

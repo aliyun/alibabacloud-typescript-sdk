@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ProcessCustomIMCallbackRequest extends $dara.Model {
   /**
    * @remarks
+   * The channel ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class ProcessCustomIMCallbackRequest extends $dara.Model {
   accessChannelId?: string;
   /**
    * @remarks
+   * The session ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class ProcessCustomIMCallbackRequest extends $dara.Model {
   conversationId?: string;
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,21 +35,50 @@ export class ProcessCustomIMCallbackRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * The message content.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * 消息内容，格式如下：
+   * 
+   * 
+   * 文本消息：
+   * { "contentType":"Text", "text":"你好  " }
+   * 
+   * 图片消息：
+   * { "contentType":"Image", "mediaId": "xxx-xxx-xxx", "fileType": "png", "fileSize": 1233 }
+   * 
+   * 视频消息：
+   * { "contentType":"Video", "mediaId": "xxx-xxx-xxx" "duration": 12, "fileSize": 1233, }
+   * 
+   * 音频消息：
+   * { "contentType":"Audio", "mediaId": "xxx-xxx-xxx" "duration": 12, "fileSize": 1233 }
+   * 
+   * 文件消息：
+   * { "contentType":"File", "mediaId": "xxx-xxx-xxx", "fileSize": 223232, "filename": "xyz. zip" }
    */
   messageContent?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 03C67DAD-EB26-41D8-949D-9B0C470FB716
    */
   requestId?: string;
   /**
+   * @remarks
+   * The profile picture ID.
+   * 
    * @example
    * xxxx
    */
   senderAvatarMediaId?: string;
   /**
    * @remarks
+   * The user ID of the message sender.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -51,6 +86,9 @@ export class ProcessCustomIMCallbackRequest extends $dara.Model {
    */
   senderId?: string;
   /**
+   * @remarks
+   * The name of the sender.
+   * 
    * @example
    * tom
    */

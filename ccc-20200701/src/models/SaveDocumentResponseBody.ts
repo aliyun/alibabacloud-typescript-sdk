@@ -4,23 +4,46 @@ import * as $dara from '@darabonba/typescript';
 
 export class SaveDocumentResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Response code.
+   * 
    * @example
    * OK
    */
   code?: string;
   /**
+   * @remarks
+   * Data.
+   * 
    * @example
    * 0101234****
    */
   data?: string;
   /**
+   * @remarks
+   * HTTP status code
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
+  /**
+   * @remarks
+   * Response message
+   * 
+   * @example
+   * 无
+   */
   message?: string;
+  /**
+   * @remarks
+   * Response parameters.
+   */
   params?: string[];
   /**
+   * @remarks
+   * Request ID
+   * 
    * @example
    * 01B12EE4-6AF2-4730-8B78-EC15F4E5C025
    */

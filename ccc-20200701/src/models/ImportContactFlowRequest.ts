@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ImportContactFlowRequest extends $dara.Model {
   /**
    * @remarks
+   * Data
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class ImportContactFlowRequest extends $dara.Model {
   flowPackageData?: string;
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,6 +24,9 @@ export class ImportContactFlowRequest extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * DE803553-8AA9-4B9D-9E4E-A82BC69EDCEE
    */

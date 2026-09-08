@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetHistoricalCampaignReportRequest extends $dara.Model {
   /**
    * @remarks
+   * Predictive outbound call activity ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class GetHistoricalCampaignReportRequest extends $dara.Model {
   campaignId?: string;
   /**
    * @remarks
+   * Instance ID.
+   * 
    * This parameter is required.
    * 
    * @example

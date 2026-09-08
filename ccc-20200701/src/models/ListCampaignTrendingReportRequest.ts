@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListCampaignTrendingReportRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the predictive outbound calling Activity.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,12 +14,17 @@ export class ListCampaignTrendingReportRequest extends $dara.Model {
    */
   campaignId?: string;
   /**
+   * @remarks
+   * The end time. This parameter is optional. The default value is the end time of the predictive outbound dialing activity.
+   * 
    * @example
    * 2021-10-14 20:59:59
    */
   endTime?: number;
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -25,6 +32,9 @@ export class ListCampaignTrendingReportRequest extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * Start Time. This parameter is optional. The default value is the Start Time of the predictive outbound calling Activity.
+   * 
    * @example
    * 2021-10-14 00:00:00
    */

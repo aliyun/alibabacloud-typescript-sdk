@@ -4,43 +4,78 @@ import * as $dara from '@darabonba/typescript';
 
 export class ResetAgentStateResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The reason code for the agent\\"s break. This can be a system-defined or a custom code. System-defined codes include:
+   * 
    * @example
    * Warm-up
    */
   breakCode?: string;
   /**
+   * @remarks
+   * The ID of the registered device, such as a browser-based WebRTC softphone or a physical phone. An agent can register only one device at a time.
+   * 
    * @example
    * ACC-YUNBS-1.0.10-****
    */
   deviceId?: string;
   /**
+   * @remarks
+   * The agent\\"s extension.
+   * 
    * @example
    * 8001****
    */
   extension?: string;
   /**
+   * @remarks
+   * The ID of the instance.
+   * 
    * @example
    * ccc-test
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * The ID of the call. This parameter is returned only if the agent is on a call.
+   * 
+   * @example
+   * 无
+   */
   jobId?: string;
   /**
+   * @remarks
+   * Indicates whether the outbound-only mode is enabled for the agent.
+   * 
    * @example
    * false
    */
   outboundScenario?: boolean;
+  /**
+   * @remarks
+   * The IDs of the skill groups that the agent is signed in to.
+   */
   signedSkillGroupIdList?: string[];
   /**
+   * @remarks
+   * The ID of the agent.
+   * 
    * @example
    * agent@ccc-test
    */
   userId?: string;
   /**
+   * @remarks
+   * The current state of the agent.
+   * 
    * @example
    * OFFLINE
    */
   userState?: string;
   /**
+   * @remarks
+   * The agent\\"s work mode.
+   * 
    * @example
    * ON_SITE
    */
@@ -89,19 +124,43 @@ export class ResetAgentStateResponseBodyData extends $dara.Model {
 
 export class ResetAgentStateResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response code.
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * The response data.
+   */
   data?: ResetAgentStateResponseBodyData;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
+  /**
+   * @remarks
+   * The response message.
+   * 
+   * @example
+   * 无
+   */
   message?: string;
+  /**
+   * @remarks
+   * Reserved for future use.
+   */
   params?: string[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * EEEE671A-3E24-4A04-81E6-6C4F5B39DF75
    */

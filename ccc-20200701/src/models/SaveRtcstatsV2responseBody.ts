@@ -4,32 +4,57 @@ import * as $dara from '@darabonba/typescript';
 
 export class SaveRTCStatsV2ResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Response code.
+   * 
    * @example
    * OK
    */
   code?: string;
   /**
+   * @remarks
+   * HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
+  /**
+   * @remarks
+   * Response message.
+   * 
+   * @example
+   * 无
+   */
   message?: string;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * BA03159C-E808-4FF1-B27E-A61B6E888D7F
    */
   requestId?: string;
   /**
+   * @remarks
+   * Number of rows.
+   * 
    * @example
    * 1
    */
   rowCount?: number;
   /**
+   * @remarks
+   * Indicates whether the operation succeeded.
+   * 
    * @example
    * true
    */
   success?: boolean;
   /**
+   * @remarks
+   * Time when the record was generated, in Unix timestamp format, in milliseconds.
+   * 
    * @example
    * 1647309061000
    */

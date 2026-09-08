@@ -4,33 +4,65 @@ import * as $dara from '@darabonba/typescript';
 
 export class ClaimChatResponseBodyDataChatContexts extends $dara.Model {
   /**
+   * @remarks
+   * Network service channel ID.
+   * 
    * @example
    * 226****-cbb6-****-8fea-1e71baf7bfa7
    */
   accessChannelId?: string;
+  /**
+   * @remarks
+   * Network service channel name.
+   * 
+   * @example
+   * 测试渠道
+   */
   accessChannelName?: string;
   /**
+   * @remarks
+   * Network service channel type.
+   * 
    * @example
    * Web
    */
   accessChannelType?: string;
   /**
+   * @remarks
+   * Whether the session has been assigned to an agent.
+   * 
    * @example
    * true
    */
   beingAssigned?: boolean;
+  /**
+   * @remarks
+   * Call variables.
+   * 
+   * @example
+   * 无
+   */
   callVariables?: string;
   /**
+   * @remarks
+   * Session type.
+   * 
    * @example
    * INBOUND
    */
   chatType?: string;
   /**
+   * @remarks
+   * Instance ID.
+   * 
    * @example
    * ccc-test
    */
   instanceId?: string;
   /**
+   * @remarks
+   * Job ID.
+   * 
    * @example
    * chat-65382141036853491
    */
@@ -72,67 +104,132 @@ export class ClaimChatResponseBodyDataChatContexts extends $dara.Model {
 
 export class ClaimChatResponseBodyDataUserContext extends $dara.Model {
   /**
+   * @remarks
+   * Break status code.
+   * 
    * @example
    * Warm-up
    */
   breakCode?: string;
   /**
+   * @remarks
+   * Device ID.
+   * 
    * @example
    * CCC-169.254.165.2-browser125.0.0-bs48b41903450e6c8
    */
   deviceId?: string;
   /**
+   * @remarks
+   * Device state.
+   * 
    * @example
    * ONLINE
    */
   deviceState?: string;
   /**
+   * @remarks
+   * Agent extension number.
+   * 
    * @example
    * 8032****
    */
   extension?: string;
   /**
+   * @remarks
+   * Time of the agent\\"s last heartbeat, in Unix timestamp format, in milliseconds.
+   * 
    * @example
    * 1609136956378
    */
   heartbeat?: number;
   /**
+   * @remarks
+   * Instance ID.
+   * 
    * @example
    * ccc-test
    */
   instanceId?: string;
   /**
+   * @remarks
+   * Job ID.
+   * 
    * @example
    * chat-65382141036853491
    */
   jobId?: string;
   /**
+   * @remarks
+   * Agent\\"s personal phone number. Not applicable for chat scenarios.
+   * 
    * @example
    * 18******102
    */
   mobile?: string;
   /**
+   * @remarks
+   * Outbound call scenario only. Not applicable for chat services.
+   * 
    * @example
    * false
    */
   outboundScenario?: boolean;
   /**
+   * @remarks
+   * Time when the agent was last reserved, in Unix timestamp format, in milliseconds.
+   * 
    * @example
    * false
    */
   reserved?: number;
+  /**
+   * @remarks
+   * List of skill group IDs the agent is signed into.
+   */
   signedSkillGroupIdList?: string[];
   /**
+   * @remarks
+   * Agent ID.
+   * 
    * @example
    * userId@ccc-test
    */
   userId?: string;
   /**
+   * @remarks
+   * Agent state.
+   * 
+   * Enumerated values:
+   * 
+   * - READY: Idle.
+   * 
+   * - WORKING: Post-call processing.
+   * 
+   * - BREAK: Break.
+   * 
+   * - OFFLINE: Offline.
+   * 
+   * - TALKING: Chatting.
+   * 
+   * - RINGING: Incoming chat.
+   * 
    * @example
    * TALKING
    */
   userState?: string;
   /**
+   * @remarks
+   * Work mode. Not applicable for chat scenarios.
+   * 
+   * Enumerated values:
+   * 
+   * - ON_SITE: On-site mode.
+   * 
+   * - OFF_SITE: Off-site mode.
+   * 
+   * - OFFICE_PHONE: Office phone mode.
+   * 
    * @example
    * ON_SITE
    */
@@ -188,12 +285,23 @@ export class ClaimChatResponseBodyDataUserContext extends $dara.Model {
 }
 
 export class ClaimChatResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * Session context.
+   */
   chatContexts?: ClaimChatResponseBodyDataChatContexts[];
   /**
+   * @remarks
+   * System auto-increment ID. Customers do not need to be concerned.
+   * 
    * @example
    * 123456789
    */
   contextId?: number;
+  /**
+   * @remarks
+   * Agent context.
+   */
   userContext?: ClaimChatResponseBodyDataUserContext;
   static names(): { [key: string]: string } {
     return {
@@ -228,19 +336,43 @@ export class ClaimChatResponseBodyData extends $dara.Model {
 
 export class ClaimChatResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Response code.
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * Data.
+   */
   data?: ClaimChatResponseBodyData;
   /**
+   * @remarks
+   * HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
+  /**
+   * @remarks
+   * Response message.
+   * 
+   * @example
+   * 无
+   */
   message?: string;
+  /**
+   * @remarks
+   * List of response parameters.
+   */
   params?: string[];
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * BC976D32-AC4C-4E0F-8AA9-F4BC6C4E2B3E
    */

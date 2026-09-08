@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListRolesResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * Role name.
+   * 
    * @example
    * Admin
    */
   name?: string;
   /**
+   * @remarks
+   * Role ID, in the format: role\\@instance ID.
+   * 
    * @example
    * Admin@ccc-test
    */
@@ -38,18 +44,38 @@ export class ListRolesResponseBodyData extends $dara.Model {
 
 export class ListRolesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Response code.
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * List of roles.
+   */
   data?: ListRolesResponseBodyData[];
   /**
+   * @remarks
+   * HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
+  /**
+   * @remarks
+   * Response message.
+   * 
+   * @example
+   * 无
+   */
   message?: string;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 711D948F-C616-4E23-8573-0F260513CE09
    */

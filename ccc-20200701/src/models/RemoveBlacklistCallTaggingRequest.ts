@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class RemoveBlacklistCallTaggingRequest extends $dara.Model {
   /**
    * @remarks
+   * ID of the Cloud Contact Center instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,12 +14,17 @@ export class RemoveBlacklistCallTaggingRequest extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * Call ID. Provide this field only for masked numbers (containing \\*). Do not provide it for unmasked numbers.
+   * 
    * @example
    * job-6538214103685****
    */
   jobId?: string;
   /**
    * @remarks
+   * Phone number.
+   * 
    * This parameter is required.
    * 
    * @example

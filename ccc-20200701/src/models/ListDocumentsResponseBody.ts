@@ -5,35 +5,54 @@ import { DataSchemaPropertiesValue } from "./DataSchemaPropertiesValue";
 
 export class ListDocumentsResponseBodyDataSchema extends $dara.Model {
   /**
+   * @remarks
+   * The time when the schema was created.
+   * 
    * @example
    * 2020-10-14T09:53:53Z
    */
   createdTime?: string;
   /**
+   * @remarks
+   * Indicates whether the schema is deleted.
+   * 
    * @example
    * false
    */
   deleted?: boolean;
   /**
+   * @remarks
+   * The description.
+   * 
    * @example
    * -
    */
   description?: string;
   /**
    * @remarks
-   * schame id
+   * The schema ID.
    * 
    * @example
    * profile
    */
   id?: string;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * 87b12784-8ce2-40b6-b21f-c49cb3b5501e
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * The list of fields.
+   */
   properties?: { [key: string]: DataSchemaPropertiesValue };
   /**
+   * @remarks
+   * The time when the schema was last updated.
+   * 
    * @example
    * 2020-10-14T09:53:53Z
    */
@@ -75,18 +94,28 @@ export class ListDocumentsResponseBodyDataSchema extends $dara.Model {
 }
 
 export class ListDocumentsResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The list of documents.
+   */
   documents?: { [key: string]: any }[];
   /**
+   * @remarks
+   * The token for the next page of results.
+   * 
    * @example
    * 54d1a616d95a4a01ba58967a9115b649
    */
   nextPageToken?: string;
   /**
    * @remarks
-   * scheme
+   * The schema.
    */
   schema?: ListDocumentsResponseBodyDataSchema;
   /**
+   * @remarks
+   * The total number of entries.
+   * 
    * @example
    * 1
    */
@@ -126,19 +155,43 @@ export class ListDocumentsResponseBodyData extends $dara.Model {
 
 export class ListDocumentsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response code.
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * The data.
+   */
   data?: ListDocumentsResponseBodyData;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
+  /**
+   * @remarks
+   * The response message.
+   * 
+   * @example
+   * 无
+   */
   message?: string;
+  /**
+   * @remarks
+   * The response parameters.
+   */
   params?: string[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 7BEEA660-A45A-45E3-98CC-AFC65E715C23
    */

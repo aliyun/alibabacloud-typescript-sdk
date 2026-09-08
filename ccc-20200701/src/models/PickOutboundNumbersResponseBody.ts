@@ -3,12 +3,29 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class PickOutboundNumbersResponseBodyDataCallee extends $dara.Model {
+  /**
+   * @remarks
+   * City of number registration.
+   * 
+   * @example
+   * 北京
+   */
   city?: string;
   /**
+   * @remarks
+   * Number
+   * 
    * @example
    * 1388888****
    */
   number?: string;
+  /**
+   * @remarks
+   * Province of number registration.
+   * 
+   * @example
+   * 北京
+   */
   province?: string;
   static names(): { [key: string]: string } {
     return {
@@ -36,12 +53,29 @@ export class PickOutboundNumbersResponseBodyDataCallee extends $dara.Model {
 }
 
 export class PickOutboundNumbersResponseBodyDataCaller extends $dara.Model {
+  /**
+   * @remarks
+   * City of number registration.
+   * 
+   * @example
+   * 北京
+   */
   city?: string;
   /**
+   * @remarks
+   * Number
+   * 
    * @example
    * 0108989****
    */
   number?: string;
+  /**
+   * @remarks
+   * Province of number registration.
+   * 
+   * @example
+   * 北京
+   */
   province?: string;
   static names(): { [key: string]: string } {
     return {
@@ -69,7 +103,15 @@ export class PickOutboundNumbersResponseBodyDataCaller extends $dara.Model {
 }
 
 export class PickOutboundNumbersResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * Callee number.
+   */
   callee?: PickOutboundNumbersResponseBodyDataCallee;
+  /**
+   * @remarks
+   * Caller number.
+   */
   caller?: PickOutboundNumbersResponseBodyDataCaller;
   static names(): { [key: string]: string } {
     return {
@@ -102,18 +144,38 @@ export class PickOutboundNumbersResponseBodyData extends $dara.Model {
 
 export class PickOutboundNumbersResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Response code.
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * Data.
+   */
   data?: PickOutboundNumbersResponseBodyData[];
   /**
+   * @remarks
+   * HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
+  /**
+   * @remarks
+   * Response message.
+   * 
+   * @example
+   * 无
+   */
   message?: string;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * EEEE671A-3E24-4A04-81E6-6C4F5B39DF75
    */

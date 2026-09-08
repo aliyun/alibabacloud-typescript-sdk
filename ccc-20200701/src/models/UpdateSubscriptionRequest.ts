@@ -5,20 +5,34 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateSubscriptionRequest extends $dara.Model {
   /**
    * @remarks
+   * The endpoint for MQ. The service endpoint for webhook.
+   * 
    * This parameter is required.
    * 
    * @example
    * rmq-cn-****.cn-shanghai.rmq.aliyuncs.com:8080
    */
   accessPoint?: string;
+  /**
+   * @remarks
+   * Leave blank.
+   * 
+   * @example
+   * 无
+   */
   aliyunUid?: number;
   /**
+   * @remarks
+   * For MQ, enter the topic name. For webhook, enter Topic_Webhook.
+   * 
    * @example
    * ccc-event
    */
   defaultTopic?: string;
   /**
    * @remarks
+   * The message subscription checklist.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -27,6 +41,8 @@ export class UpdateSubscriptionRequest extends $dara.Model {
   eventSubscriptionsJson?: string;
   /**
    * @remarks
+   * The ID of the Cloud Contact Center instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -34,26 +50,47 @@ export class UpdateSubscriptionRequest extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The MQ instance ID. Specify this only when MqType is rocketmq4 or rocketmq5.
+   * 
    * @example
    * rmq-cn-****
    */
   mqInstanceId?: string;
   /**
+   * @remarks
+   * The message push type.
+   * 
+   * - rocketmq4
+   * 
+   * - rocketmq5
+   * 
+   * - webhook
+   * 
    * @example
    * rocketmq5
    */
   mqType?: string;
   /**
+   * @remarks
+   * The MQ password. Specify this only when MqType is rocketmq5.
+   * 
    * @example
    * password
    */
   password?: string;
   /**
+   * @remarks
+   * For Message Queue (MQ), enter the Group ID. For webhook, enter PID_Webhook.
+   * 
    * @example
    * GID_xxx
    */
   producerId?: string;
   /**
+   * @remarks
+   * The MQ username. Specify this only when MqType is rocketmq5.
+   * 
    * @example
    * username
    */

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class BargeInCallRequest extends $dara.Model {
   /**
    * @remarks
+   * Agent ID whose call was barged in on.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,12 +14,17 @@ export class BargeInCallRequest extends $dara.Model {
    */
   bargedUserId?: string;
   /**
+   * @remarks
+   * Device ID. This parameter is meaningless and can be filled in with any value.
+   * 
    * @example
    * device
    */
   deviceId?: string;
   /**
    * @remarks
+   * Instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -26,6 +33,8 @@ export class BargeInCallRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * Call ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -33,11 +42,17 @@ export class BargeInCallRequest extends $dara.Model {
    */
   jobId?: string;
   /**
+   * @remarks
+   * Timeout for force insert, in seconds. If the force insert operation does not succeed within the specified time, it is canceled. Normally, the force insert operation succeeds immediately. The timeout setting is provided to handle abnormal scenarios. This field is optional and defaults to 30 seconds.
+   * 
    * @example
    * 60
    */
   timeoutSeconds?: number;
   /**
+   * @remarks
+   * Agent ID initiating the force insert.
+   * 
    * @example
    * agent@ccc-test
    */

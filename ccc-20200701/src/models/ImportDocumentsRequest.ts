@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ImportDocumentsRequest extends $dara.Model {
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class ImportDocumentsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * The key of the OSS file.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,13 +24,16 @@ export class ImportDocumentsRequest extends $dara.Model {
    */
   ossFileKey?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 7BEEA660-A45A-45E3-98CC-AFC65E715C23
    */
   requestId?: string;
   /**
    * @remarks
-   * schema id
+   * The schema ID.
    * 
    * This parameter is required.
    * 

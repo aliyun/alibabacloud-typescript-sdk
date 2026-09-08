@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CreateCampaignShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The callable time window for the predictive outbound dialing activity, formatted as a JSON object containing two properties: beginTime and endTime. Example: [{"beginTime":"00:00:00","endTime":"23:00:00"}].
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,13 +14,22 @@ export class CreateCampaignShrinkRequest extends $dara.Model {
    */
   callableTime?: string;
   /**
+   * @remarks
+   * Predictive outbound dialing contact file, specified as the key of an OSS object. Obtain this key by calling the GetCaseFileUploadUrl API.
+   * 
    * @example
    * ccc-test/namelist.csv
    */
   caseFileKey?: string;
+  /**
+   * @remarks
+   * List of predictive outbound dialing contacts. This parameter cannot be used together with CaseFileKey (import from file). You must choose either file import or list import.
+   */
   caseListShrink?: string;
   /**
    * @remarks
+   * The contact flow ID associated with the predictive outbound dialing activity.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -27,25 +38,42 @@ export class CreateCampaignShrinkRequest extends $dara.Model {
   contactFlowId?: string;
   /**
    * @remarks
+   * The end time of the predictive outbound calling activity, formatted as a UNIX timestamp in milliseconds.
+   * 
    * This parameter is required.
    * 
    * @example
    * 1634313600000
    */
   endTime?: string;
+  /**
+   * @remarks
+   * Whether to keep the activity in the executing state until it expires. The default value is false. If false, the activity automatically transitions to the completed state after all contacts have been called. If true, the activity remains in the executing state even after all contacts have been called, allowing you to append additional contacts and continue dialing until the activity expires or is manually stopped.
+   * 
+   * @example
+   * false
+   */
   executingUntilTimeout?: boolean;
   /**
+   * @remarks
+   * Flash SMS parameters
+   * 
    * @example
    * {"applicationId":"08e6b63a-****-****-****-689a288cdbb5","templateId":"325"}
    */
   flashSmsParameters?: string;
   /**
+   * @remarks
+   * Phone number collection ID
+   * 
    * @example
    * 0d368091-2c70-4d26-979a-6997ddc9c34f
    */
   instGroupId?: string;
   /**
    * @remarks
+   * Instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -54,6 +82,8 @@ export class CreateCampaignShrinkRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * The maximum number of attempts for the predictive outbound calling activity. This specifies how many times a number can be redialed if the initial call fails.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -62,6 +92,8 @@ export class CreateCampaignShrinkRequest extends $dara.Model {
   maxAttemptCount?: number;
   /**
    * @remarks
+   * The minimum redial interval for the predictive outbound calling activity, which specifies the minimum time interval between redial attempts after a failed call, in minutes.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -70,25 +102,49 @@ export class CreateCampaignShrinkRequest extends $dara.Model {
   minAttemptInterval?: number;
   /**
    * @remarks
+   * Name of the predictive outbound dialing activity.
+   * 
    * This parameter is required.
    * 
    * @example
    * test-campaign
    */
   name?: string;
+  /**
+   * @remarks
+   * List of caller numbers
+   */
   numberListShrink?: string;
   /**
    * @remarks
+   * The skill group ID associated with the predictive outbound dialing activity.
+   * 
    * This parameter is required.
    * 
    * @example
    * skillgroup@ccc-test
    */
   queueId?: string;
+  /**
+   * @remarks
+   * Indicates whether this is a simulation activity used for testing. Regular customers do not need to concern themselves with this.
+   * 
+   * @example
+   * 无
+   */
   simulation?: boolean;
+  /**
+   * @remarks
+   * Simulation parameters used for testing. Regular customers do not need to concern themselves with this.
+   * 
+   * @example
+   * 无
+   */
   simulationParameters?: string;
   /**
    * @remarks
+   * The start time of the predictive outbound dialing activity, in Unix timestamp format with millisecond precision.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -97,6 +153,8 @@ export class CreateCampaignShrinkRequest extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
+   * Strategy parameters for the predictive outbound dialing activity. For PID strategy, an example format is: {"abandonRate":"5","historicalConnectedRate":"35"}. For PACING strategy, an example format is: {"ratio":1}. abandonRate represents the desired abandonment rate, historicalConnectedRate represents the historical reference connection rate, and ratio represents the fixed dialing ratio.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -105,6 +163,8 @@ export class CreateCampaignShrinkRequest extends $dara.Model {
   strategyParameters?: string;
   /**
    * @remarks
+   * The strategy pattern for the predictive outbound calling activity.
+   * 
    * This parameter is required.
    * 
    * @example

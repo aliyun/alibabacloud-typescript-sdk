@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetIvrTrackingSummaryRequest extends $dara.Model {
   /**
    * @remarks
+   * The call ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class GetIvrTrackingSummaryRequest extends $dara.Model {
   contactId?: string;
   /**
    * @remarks
+   * Instance ID.
+   * 
    * This parameter is required.
    * 
    * @example

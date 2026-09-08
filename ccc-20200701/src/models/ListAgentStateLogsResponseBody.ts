@@ -3,28 +3,61 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListAgentStateLogsResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * Break code.
+   * 
+   * @example
+   * 会议
+   */
   breakCode?: string;
+  /**
+   * @remarks
+   * Duration of the status, in seconds.
+   * 
+   * @example
+   * 32
+   */
   duration?: number;
   /**
+   * @remarks
+   * Indicates whether the agent is in outbound-only mode.
+   * 
    * @example
    * false
    */
   outboundScenario?: boolean;
   /**
+   * @remarks
+   * Start Time of the status, in UNIX timestamp format, in milliseconds.
+   * 
    * @example
    * 1620259200000
    */
   startTime?: number;
   /**
+   * @remarks
+   * Status code.
+   * 
    * @example
    * Break
    */
   state?: string;
   /**
+   * @remarks
+   * Sub-status, which provides additional details for the status code. In certain scenarios, an agent\\"s status is jointly identified by State and StateCode. For example, in a monitoring scenario, the State is Talking and the StateCode is Monitoring.
+   * 
    * @example
    * CHECK_IN_BREAK
    */
   stateCode?: string;
+  /**
+   * @remarks
+   * Work mode.
+   * 
+   * @example
+   * ON_SITE
+   */
   workMode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -61,18 +94,38 @@ export class ListAgentStateLogsResponseBodyData extends $dara.Model {
 
 export class ListAgentStateLogsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Response code.
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * Data.
+   */
   data?: ListAgentStateLogsResponseBodyData[];
   /**
+   * @remarks
+   * HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
+  /**
+   * @remarks
+   * Response message.
+   * 
+   * @example
+   * 无
+   */
   message?: string;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 943D8EF3-3321-471F-A104-51C96FCA94D6
    */

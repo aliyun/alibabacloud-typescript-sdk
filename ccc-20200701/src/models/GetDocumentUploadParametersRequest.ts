@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetDocumentUploadParametersRequest extends $dara.Model {
   /**
    * @remarks
+   * File name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class GetDocumentUploadParametersRequest extends $dara.Model {
   fileName?: string;
   /**
    * @remarks
+   * Instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,6 +24,9 @@ export class GetDocumentUploadParametersRequest extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 24BE19E8-BF7D-4992-A35E-15EBA874F2E5
    */

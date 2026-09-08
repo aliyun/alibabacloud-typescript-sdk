@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListUnassignedNumbersRequest extends $dara.Model {
   /**
    * @remarks
+   * Page number for paging, ranging from 1 to 100.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class ListUnassignedNumbersRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
+   * Page size, ranging from 1 to 100.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,6 +24,9 @@ export class ListUnassignedNumbersRequest extends $dara.Model {
    */
   pageSize?: number;
   /**
+   * @remarks
+   * Performs Fuzzy Matching based on the number. This parameter is optional and defaults to empty. An empty value indicates no filtering.
+   * 
    * @example
    * 0833
    */

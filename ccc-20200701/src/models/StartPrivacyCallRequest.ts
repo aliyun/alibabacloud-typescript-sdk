@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class StartPrivacyCallRequest extends $dara.Model {
   /**
    * @remarks
+   * The application ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class StartPrivacyCallRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
+   * The callee\\"s number.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class StartPrivacyCallRequest extends $dara.Model {
   callee?: string;
   /**
    * @remarks
+   * The caller\\"s number.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,6 +35,8 @@ export class StartPrivacyCallRequest extends $dara.Model {
   caller?: string;
   /**
    * @remarks
+   * The ID of the Cloud Contact Center (CCC) instance.
+   * 
    * This parameter is required.
    * 
    * @example

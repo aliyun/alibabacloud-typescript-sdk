@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class RemovePersonalNumbersFromUserRequest extends $dara.Model {
   /**
    * @remarks
+   * Instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class RemovePersonalNumbersFromUserRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * List of personal outbound numbers to delete. You can obtain the current list of personal outbound numbers associated with the agent by invoking ListPersonalNumbersOfUser.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class RemovePersonalNumbersFromUserRequest extends $dara.Model {
   numberList?: string;
   /**
    * @remarks
+   * Agent ID.
+   * 
    * This parameter is required.
    * 
    * @example

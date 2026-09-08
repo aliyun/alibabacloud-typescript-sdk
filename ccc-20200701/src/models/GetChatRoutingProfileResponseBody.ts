@@ -4,6 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetChatRoutingProfileResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * Agent session concurrent configuration.
+   * 
+   * - AllowExceedingLimitWhenTransferring: Allow exceeding the limit when transferring. When transferring sessions to other agents, exceeding the recipient\\"s limit is allowed, but the total cannot exceed 30.
+   * 
+   * - AllowExceedingLimitWhenClaiming: Allow exceeding the limit when claiming. When an agent actively claims sessions from the queue, exceeding the limit is allowed, but the total cannot exceed 30.
+   * 
+   * - ConcurrencyLimit: The number of network business sessions an agent can process simultaneously.
+   * 
+   * - Enabled: Enable this configuration.
+   * 
    * @example
    * {
    *     "AllowExceedingLimitWhenTransferring": false,
@@ -14,11 +25,27 @@ export class GetChatRoutingProfileResponseBodyData extends $dara.Model {
    */
   agentConcurrencySettings?: string;
   /**
+   * @remarks
+   * Session configuration.
+   * 
+   * - IdleChatTimeoutSeconds: Automatic session end time. If no customer response is received within a specific period, the system ends the session. Unit: seconds.
+   * 
    * @example
    * {"IdleChatTimeoutSeconds":300}
    */
   chatSettings?: string;
   /**
+   * @remarks
+   * Agent session allocation configuration.
+   * 
+   * - AgentRingTimeoutSeconds: Agent processing timeout limit.
+   * 
+   * - MaxNumberOfConversationsAgentCanMiss: The maximum number of consecutive unanswered sessions an agent can miss.
+   * 
+   * - PostAgentMissingConversionsAction: After an agent misses more than the set number of consecutive responses, the system sets the agent\\"s status, such as Break, Invisible, or Nothing (remain unchanged).
+   * 
+   * - Enabled: Enable.
+   * 
    * @example
    * {
    *     "AgentRingTimeoutSeconds": 30,
@@ -29,6 +56,13 @@ export class GetChatRoutingProfileResponseBodyData extends $dara.Model {
    */
   distributionSettings?: string;
   /**
+   * @remarks
+   * Call distribution type.
+   * 
+   * - Automatic distribution (Automatic).
+   * 
+   * - Manual distribution (Manual).
+   * 
    * @example
    * Automatic
    */
@@ -62,18 +96,38 @@ export class GetChatRoutingProfileResponseBodyData extends $dara.Model {
 
 export class GetChatRoutingProfileResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Response code.
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * Data.
+   */
   data?: GetChatRoutingProfileResponseBodyData;
   /**
+   * @remarks
+   * HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
+  /**
+   * @remarks
+   * Response message.
+   * 
+   * @example
+   * 无
+   */
   message?: string;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 30C7D235-DDCF-4C7F-A462-5E2598252C2B
    */

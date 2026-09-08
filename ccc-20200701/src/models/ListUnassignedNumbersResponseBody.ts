@@ -3,12 +3,29 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListUnassignedNumbersResponseBodyDataList extends $dara.Model {
+  /**
+   * @remarks
+   * City where the number is registered.
+   * 
+   * @example
+   * 乐山
+   */
   city?: string;
   /**
+   * @remarks
+   * Number.
+   * 
    * @example
    * 08330011****
    */
   number?: string;
+  /**
+   * @remarks
+   * Province where the number is registered.
+   * 
+   * @example
+   * 四川
+   */
   province?: string;
   static names(): { [key: string]: string } {
     return {
@@ -36,18 +53,31 @@ export class ListUnassignedNumbersResponseBodyDataList extends $dara.Model {
 }
 
 export class ListUnassignedNumbersResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * List of numbers.
+   */
   list?: ListUnassignedNumbersResponseBodyDataList[];
   /**
+   * @remarks
+   * Page number, ranging from 1 to 100.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * Page size, ranging from 1 to 100.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * Total count.
+   * 
    * @example
    * 3
    */
@@ -84,18 +114,38 @@ export class ListUnassignedNumbersResponseBodyData extends $dara.Model {
 
 export class ListUnassignedNumbersResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Response code.
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * Data.
+   */
   data?: ListUnassignedNumbersResponseBodyData;
   /**
+   * @remarks
+   * HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
+  /**
+   * @remarks
+   * Response message.
+   * 
+   * @example
+   * 无
+   */
   message?: string;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * BA03159C-E808-4FF1-B27E-A61B6E888D7F
    */

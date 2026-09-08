@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CommitContactFlowRequest extends $dara.Model {
   /**
    * @remarks
+   * The contact flow ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,11 +15,18 @@ export class CommitContactFlowRequest extends $dara.Model {
   contactFlowId?: string;
   /**
    * @remarks
+   * The definition of the Interactive Voice Response (IVR).
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * {"activities":[{"type":"INCOMING_CALL","id":"e98f0d47","name":"开始","properties":{"position":{"x":263,"y":164}},"events":[{"event":"complete","next":"2d3ad2c2","edgeId":"41f7dbd0"}],"nodeIndex":0},{"type":"HANGUP","id":"bd4f37e2","name":"挂机","properties":{"position":{"x":765,"y":185}},"events":[{"event":"complete","next":null}],"nodeIndex":999},{"type":"PLAY_SAY","id":"2d3ad2c2","name":"放音","properties":{"say":"您好，欢迎来到云联络中心。","audioResourceId":"","position":{"x":485.5,"y":153.5},"audioType":"tts","audioInterrupt":false},"events":[{"event":"complete","next":"bd4f37e2","edgeId":"e1af4f1f"}],"nodeIndex":1}],"description":""}
    */
   definition?: string;
   /**
    * @remarks
+   * The version description.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -26,6 +35,8 @@ export class CommitContactFlowRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
+   * The draft ID. This is the ID of the draft version that corresponds to the current contact flow.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -34,6 +45,8 @@ export class CommitContactFlowRequest extends $dara.Model {
   draftId?: string;
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example

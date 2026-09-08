@@ -4,22 +4,41 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateContactFlowResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Response code.
+   * 
    * @example
    * OK
    */
   code?: string;
   /**
+   * @remarks
+   * IVR contact flow ID.
+   * 
    * @example
    * 78128960-bb00-4ddc-8e82-923a8c5bd22d
    */
   data?: string;
   /**
+   * @remarks
+   * HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
+  /**
+   * @remarks
+   * Response message.
+   * 
+   * @example
+   * 无
+   */
   message?: string;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 2778FA12-EDD6-42AA-9B15-AF855072E5E5
    */

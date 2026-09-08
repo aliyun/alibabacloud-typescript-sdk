@@ -4,61 +4,97 @@ import * as $dara from '@darabonba/typescript';
 
 export class HoldCallResponseBodyDataCallContextChannelContexts extends $dara.Model {
   /**
+   * @remarks
+   * The call type of the channel.
+   * 
    * @example
    * OUTBOUND
    */
   callType?: string;
   /**
+   * @remarks
+   * The channel ID.
+   * 
    * @example
    * ch:user:1390501****->8032****:1609138902226:job-653821410368****
    */
   channelId?: string;
   /**
+   * @remarks
+   * The status of the call channel.
+   * 
    * @example
    * ANSWERED
    */
   channelState?: string;
   /**
+   * @remarks
+   * Called party of the call channel.
+   * 
    * @example
    * 8001****
    */
   destination?: string;
   /**
+   * @remarks
+   * The call ID.
+   * 
    * @example
    * job-6582589278232****
    */
   jobId?: string;
   /**
+   * @remarks
+   * The calling party of the voice channel.
+   * 
    * @example
    * 1318888****
    */
   originator?: string;
   /**
+   * @remarks
+   * The party that initiated the release of the call channel, indicating who first initiated the hang-up for this call channel.
+   * 
    * @example
    * 1390501****
    */
   releaseInitiator?: string;
   /**
+   * @remarks
+   * The release reason of the call channel, indicating why the current call channel was released. The value comes from the response codes defined in the SIP protocol. Customers can refer to the SIP protocol to analyze the release reason.
+   * 
    * @example
    * 404 - No destination
    */
   releaseReason?: string;
   /**
+   * @remarks
+   * The skill group ID associated with the channel. In inbound scenarios, the associated skill group ID is determined by the skill group configured in the IVR transfer-to-agent module. In outbound scenarios, the associated skill group ID is the ID of the first skill group the agent signed into.
+   * 
    * @example
    * skillgroup@ccc-test
    */
   skillGroupId?: string;
   /**
+   * @remarks
+   * The UNIX timestamp (in milliseconds) of the most recent status change of the channel.
+   * 
    * @example
    * 1609255716900
    */
   timestamp?: number;
   /**
+   * @remarks
+   * The extension number of the agent associated with the channel.
+   * 
    * @example
    * 8001****
    */
   userExtension?: string;
   /**
+   * @remarks
+   * The agent ID associated with the voice channel. This field is empty if the channel belongs to a Customer.
+   * 
    * @example
    * agent@ccc-test
    */
@@ -108,17 +144,30 @@ export class HoldCallResponseBodyDataCallContextChannelContexts extends $dara.Mo
 
 export class HoldCallResponseBodyDataCallContext extends $dara.Model {
   /**
+   * @remarks
+   * Call type.
+   * 
    * @example
    * OUTBOUND
    */
   callType?: string;
+  /**
+   * @remarks
+   * List of call channels.
+   */
   channelContexts?: HoldCallResponseBodyDataCallContextChannelContexts[];
   /**
+   * @remarks
+   * Instance ID.
+   * 
    * @example
    * ccc-test
    */
   instanceId?: string;
   /**
+   * @remarks
+   * Call ID.
+   * 
    * @example
    * job-6582589278232****
    */
@@ -155,62 +204,102 @@ export class HoldCallResponseBodyDataCallContext extends $dara.Model {
 
 export class HoldCallResponseBodyDataUserContext extends $dara.Model {
   /**
+   * @remarks
+   * Break status code, which can be either System-defined or Custom-defined. System-defined break codes include: Warm-up (temporary break state after an agent is published and before becoming idle), RingingTimeout (break caused by agent ringing timeout), and RejectCall (break caused by agent call rejection). There are no restrictions on Custom-defined status codes; customers can define them according to their business needs.
+   * 
    * @example
    * Warm-up
    */
   breakCode?: string;
   /**
+   * @remarks
+   * Device ID, the identity ID of a browser-based Web Real-Time Communication (WebRTC) softphone or a physical phone device. Only one type of device can be registered at a time.
+   * 
    * @example
    * ACC-YUNBS-1.0.10-****
    */
   deviceId?: string;
   /**
+   * @remarks
+   * The agent\\"s extension number.
+   * 
    * @example
    * 8001****
    */
   extension?: string;
   /**
+   * @remarks
+   * The time when the last heartbeat was received from the agent, formatted as a UNIX timestamp in milliseconds.
+   * 
    * @example
    * 1609255716908
    */
   heartbeat?: number;
   /**
+   * @remarks
+   * Instance ID.
+   * 
    * @example
    * ccc-test
    */
   instanceId?: string;
   /**
+   * @remarks
+   * Call ID.
+   * 
    * @example
    * job-6582589278232****
    */
   jobId?: string;
   /**
+   * @remarks
+   * The agent\\"s personal phone number.
+   * 
    * @example
    * 1390000****
    */
   mobile?: string;
   /**
+   * @remarks
+   * Indicates whether the agent is in outbound-only mode.
+   * 
    * @example
    * false
    */
   outboundScenario?: boolean;
   /**
+   * @remarks
+   * The time when the agent was most recently reserved. Being reserved means an incoming call will soon be assigned to this agent. The format is a UNIX timestamp in milliseconds.
+   * 
    * @example
    * 1609255715822
    */
   reserved?: number;
+  /**
+   * @remarks
+   * List of skill group IDs that the agent has signed into.
+   */
   signedSkillGroupIdList?: string[];
   /**
+   * @remarks
+   * Agent ID.
+   * 
    * @example
    * agent@ccc-test
    */
   userId?: string;
   /**
+   * @remarks
+   * Agent status.
+   * 
    * @example
    * TALKING
    */
   userState?: string;
   /**
+   * @remarks
+   * Work mode.
+   * 
    * @example
    * ON_SITE
    */
@@ -264,7 +353,15 @@ export class HoldCallResponseBodyDataUserContext extends $dara.Model {
 }
 
 export class HoldCallResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * Call context environment.
+   */
   callContext?: HoldCallResponseBodyDataCallContext;
+  /**
+   * @remarks
+   * Agent context environment.
+   */
   userContext?: HoldCallResponseBodyDataUserContext;
   static names(): { [key: string]: string } {
     return {
@@ -297,19 +394,43 @@ export class HoldCallResponseBodyData extends $dara.Model {
 
 export class HoldCallResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Response code.
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * Data.
+   */
   data?: HoldCallResponseBodyData;
   /**
+   * @remarks
+   * HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
+  /**
+   * @remarks
+   * Response message.
+   * 
+   * @example
+   * 无
+   */
   message?: string;
+  /**
+   * @remarks
+   * List of response parameters.
+   */
   params?: string[];
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 174F7777-2F6C-4F10-B889-C698E26C1AE0
    */

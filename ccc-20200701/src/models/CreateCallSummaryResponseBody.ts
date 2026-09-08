@@ -4,23 +4,46 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateCallSummaryResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Response code
+   * 
    * @example
    * OK
    */
   code?: string;
   /**
+   * @remarks
+   * Data. The summary ID.
+   * 
    * @example
    * c58b9719-3bc3-441d-a4d3-fc0309ef7066
    */
   data?: string;
   /**
+   * @remarks
+   * HTTP status code
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
+  /**
+   * @remarks
+   * Response message
+   * 
+   * @example
+   * 无
+   */
   message?: string;
+  /**
+   * @remarks
+   * List of invalid parameters
+   */
   params?: string[];
   /**
+   * @remarks
+   * Request ID
+   * 
    * @example
    * 8707EB29-BAED-4302-B999-40BA61877437
    */

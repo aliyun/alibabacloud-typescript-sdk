@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteCustomCallTaggingRequest extends $dara.Model {
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class DeleteCustomCallTaggingRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * The number associated with the inbound call tag.
+   * 
    * This parameter is required.
    * 
    * @example

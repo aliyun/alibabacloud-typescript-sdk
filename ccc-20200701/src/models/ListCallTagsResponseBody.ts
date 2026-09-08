@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListCallTagsResponseBodyDataList extends $dara.Model {
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * ccc-test
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The name of the number tag.
+   * 
    * @example
    * TagA
    */
@@ -37,18 +43,31 @@ export class ListCallTagsResponseBodyDataList extends $dara.Model {
 }
 
 export class ListCallTagsResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The list of number tags.
+   */
   list?: ListCallTagsResponseBodyDataList[];
   /**
+   * @remarks
+   * The page number, ranging from 1 to 100.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The page size, ranging from 1 to 100.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The total count.
+   * 
    * @example
    * 10
    */
@@ -85,18 +104,38 @@ export class ListCallTagsResponseBodyData extends $dara.Model {
 
 export class ListCallTagsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response code.
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * The data.
+   */
   data?: ListCallTagsResponseBodyData;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
+  /**
+   * @remarks
+   * The response message.
+   * 
+   * @example
+   * 无
+   */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * BA03159C-E808-4FF1-B27E-A61B6E888D7F
    */

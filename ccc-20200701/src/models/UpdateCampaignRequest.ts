@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateCampaignRequest extends $dara.Model {
   /**
+   * @remarks
+   * Callable time, supports multiple time segments.
+   * 
    * @example
    * [
    *       {
@@ -15,6 +18,8 @@ export class UpdateCampaignRequest extends $dara.Model {
   callableTime?: string;
   /**
    * @remarks
+   * Predictive outbound campaign ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -22,29 +27,63 @@ export class UpdateCampaignRequest extends $dara.Model {
    */
   campaignId?: string;
   /**
+   * @remarks
+   * Contact stream ID.
+   * 
    * @example
    * 3a310f56-4d30-4081-ba24-5d87a3b7262e
    */
   contactFlowId?: string;
   /**
+   * @remarks
+   * End time, in Unix timestamp format, in milliseconds.
+   * 
    * @example
    * 1689933600000
    */
   endTime?: string;
   /**
    * @remarks
+   * Cloud Contact Center instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
    * ccc-test
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * Predictive outbound campaign name.
+   * 
+   * @example
+   * 云联络中心测试
+   */
   name?: string;
   /**
+   * @remarks
+   * Start time, in Unix timestamp format, in milliseconds.
+   * 
    * @example
    * 1689901200000
    */
   startTime?: string;
+  /**
+   * @remarks
+   * Policy parameters.
+   * 
+   * @example
+   * PACING策略，参考参数
+   * {
+   *       "ratio": 2
+   * }
+   * 
+   * PID策略，参考参数
+   * {
+   *     "abandonRate":5,
+   *     "historicalConnectedRate":45
+   * }
+   */
   strategyParameters?: string;
   static names(): { [key: string]: string } {
     return {

@@ -4,31 +4,49 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetVisitorLoginDetailsResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * Chat session application ID.
+   * 
    * @example
    * 7pjxxx
    */
   chatAppId?: string;
   /**
+   * @remarks
+   * Chat session application key.
+   * 
    * @example
    * 955e4bd7xxxxxxxxxxxxxd7898ba9fa0d0
    */
   chatAppKey?: string;
   /**
+   * @remarks
+   * Chat device ID.
+   * 
    * @example
    * 4c51c9116c36537cb850dc1081d745df
    */
   chatDeviceId?: string;
   /**
+   * @remarks
+   * Chat session login token.
+   * 
    * @example
    * {"accessToken":"oauth_cloud_key:+4oJXUAFSWxGD2YuRW4V/oUN0/8qJGNc0I*********n1E3DOr3Q3lX00ZnTpyqRi8Y6hYoLYA7n2ZkWuv485hVtXeSgnIQkKxXPbMgwoLxWaK//lI5Dn/mb4YuDifigv+ZyFzc+07vxm9ZFu/NjA==","accessTokenExpiredTime":86400000,"refreshToken":"oauth_cloud_key:/U+8UueDmpeUszhXC+SWow4pNLZp2C***********U/377BNXF+Mjo1lFgDk6GtEjNNoJpapX2mHH8GcRke2+yKQs/w4gAN9xSMn543Ciung+93pXV6IpQGbEVlu"}
    */
   chatLoginToken?: string;
   /**
+   * @remarks
+   * Chat session server address.
+   * 
    * @example
    * wss://wss.im.dingtalk.cn
    */
   chatServerUrl?: string;
   /**
+   * @remarks
+   * Visitor\\"s identity ID.
+   * 
    * @example
    * dac9c001****a15684ea91a81317
    */
@@ -66,19 +84,43 @@ export class GetVisitorLoginDetailsResponseBodyData extends $dara.Model {
 
 export class GetVisitorLoginDetailsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Response code.
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * Returned data.
+   */
   data?: GetVisitorLoginDetailsResponseBodyData;
   /**
+   * @remarks
+   * HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
+  /**
+   * @remarks
+   * Response message.
+   * 
+   * @example
+   * 无
+   */
   message?: string;
+  /**
+   * @remarks
+   * Parameter information.
+   */
   params?: string[];
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 19D09CCC-F298-4124-849A-AFA217819011
    */

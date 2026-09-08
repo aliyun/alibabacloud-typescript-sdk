@@ -4,19 +4,46 @@ import * as $dara from '@darabonba/typescript';
 
 export class FinishTicketTaskResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Response code.
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * Data.
+   * 
+   * @example
+   * 无
+   */
   data?: any;
   /**
+   * @remarks
+   * HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
+  /**
+   * @remarks
+   * Response message.
+   * 
+   * @example
+   * 无
+   */
   message?: string;
+  /**
+   * @remarks
+   * List of error parameters.
+   */
   params?: string[];
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 7BEEA660-A45A-45E3-98CC-AFC65E715C23
    */

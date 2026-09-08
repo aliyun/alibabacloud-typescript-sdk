@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DisableSchemaPropertyRequest extends $dara.Model {
   /**
    * @remarks
+   * Instance ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class DisableSchemaPropertyRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * Field name
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,13 +24,16 @@ export class DisableSchemaPropertyRequest extends $dara.Model {
    */
   propertyName?: string;
   /**
+   * @remarks
+   * Request ID
+   * 
    * @example
    * 2263B273-AC1B-44EB-BA98-87F2322C6780
    */
   requestId?: string;
   /**
    * @remarks
-   * schema id
+   * Schema ID
    * 
    * This parameter is required.
    * 

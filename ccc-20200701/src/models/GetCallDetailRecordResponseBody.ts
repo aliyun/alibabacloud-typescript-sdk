@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetCallDetailRecordResponseBodyDataAgentEventsEventSequence extends $dara.Model {
   /**
+   * @remarks
+   * The event duration, in seconds.
+   * 
    * @example
    * 3
    */
   duration?: number;
   /**
+   * @remarks
+   * The event type.
+   * 
    * @example
    * Dialing
    */
   event?: string;
   /**
+   * @remarks
+   * The time when the event occurred. The value is a UNIX timestamp, in milliseconds.
+   * 
    * @example
    * 1604639129000
    */
@@ -45,13 +54,30 @@ export class GetCallDetailRecordResponseBodyDataAgentEventsEventSequence extends
 
 export class GetCallDetailRecordResponseBodyDataAgentEvents extends $dara.Model {
   /**
+   * @remarks
+   * The agent ID.
+   * 
    * @example
    * agent@ccc-test
    */
   agentId?: string;
+  /**
+   * @remarks
+   * The agent name.
+   * 
+   * @example
+   * 坐席小王
+   */
   agentName?: string;
+  /**
+   * @remarks
+   * The sequence of events.
+   */
   eventSequence?: GetCallDetailRecordResponseBodyDataAgentEventsEventSequence[];
   /**
+   * @remarks
+   * The skill group ID.
+   * 
    * @example
    * skillgroup@ccc-test
    */
@@ -266,11 +292,17 @@ export class GetCallDetailRecordResponseBodyDataAnalyticsReport extends $dara.Mo
 
 export class GetCallDetailRecordResponseBodyDataCustomerEventsEventSequence extends $dara.Model {
   /**
+   * @remarks
+   * The event type.
+   * 
    * @example
    * Released
    */
   event?: string;
   /**
+   * @remarks
+   * The time when the event occurred. The value is a UNIX timestamp, in milliseconds.
+   * 
    * @example
    * 1532458000000
    */
@@ -300,10 +332,17 @@ export class GetCallDetailRecordResponseBodyDataCustomerEventsEventSequence exte
 
 export class GetCallDetailRecordResponseBodyDataCustomerEvents extends $dara.Model {
   /**
+   * @remarks
+   * The customer ID. This is usually the customer\\"s phone number.
+   * 
    * @example
    * 1332315****
    */
   customerId?: string;
+  /**
+   * @remarks
+   * The sequence of events.
+   */
   eventSequence?: GetCallDetailRecordResponseBodyDataCustomerEventsEventSequence[];
   static names(): { [key: string]: string } {
     return {
@@ -333,11 +372,17 @@ export class GetCallDetailRecordResponseBodyDataCustomerEvents extends $dara.Mod
 
 export class GetCallDetailRecordResponseBodyDataIvrEventsEventSequence extends $dara.Model {
   /**
+   * @remarks
+   * The event type.
+   * 
    * @example
    * Route2IVR
    */
   event?: string;
   /**
+   * @remarks
+   * The time when the event occurred. The value is a UNIX timestamp, in milliseconds.
+   * 
    * @example
    * 1604639129000
    */
@@ -366,13 +411,23 @@ export class GetCallDetailRecordResponseBodyDataIvrEventsEventSequence extends $
 }
 
 export class GetCallDetailRecordResponseBodyDataIvrEvents extends $dara.Model {
+  /**
+   * @remarks
+   * The sequence of events.
+   */
   eventSequence?: GetCallDetailRecordResponseBodyDataIvrEventsEventSequence[];
   /**
+   * @remarks
+   * The ID of the IVR contact flow.
+   * 
    * @example
    * edaf2eaa-8f88-44ca-812e-41b3cd2b7a90
    */
   flowId?: string;
   /**
+   * @remarks
+   * The type of the contact flow.
+   * 
    * @example
    * MAIN_FLOW
    */
@@ -407,11 +462,17 @@ export class GetCallDetailRecordResponseBodyDataIvrEvents extends $dara.Model {
 
 export class GetCallDetailRecordResponseBodyDataQueueEventsEventSequence extends $dara.Model {
   /**
+   * @remarks
+   * The event type.
+   * 
    * @example
    * Enqueue
    */
   event?: string;
   /**
+   * @remarks
+   * The time when the event occurred. The value is a UNIX timestamp, in milliseconds.
+   * 
    * @example
    * 1604639129000
    */
@@ -440,19 +501,39 @@ export class GetCallDetailRecordResponseBodyDataQueueEventsEventSequence extends
 }
 
 export class GetCallDetailRecordResponseBodyDataQueueEvents extends $dara.Model {
+  /**
+   * @remarks
+   * The sequence of events.
+   */
   eventSequence?: GetCallDetailRecordResponseBodyDataQueueEventsEventSequence[];
   /**
+   * @remarks
+   * The contact flow ID.
+   * 
    * @example
    * edaf2eaa-8f88-44ca-812e-41b3cd2b7a90
    */
   flowId?: string;
   /**
+   * @remarks
+   * The queue ID. If the call is routed to a skill group, this is the skill group ID. If the call is routed to an agent, this is the agent ID.
+   * 
    * @example
    * skillgroup@ccc-test
    */
   queueId?: string;
+  /**
+   * @remarks
+   * The queue name.
+   * 
+   * @example
+   * 测试技能组
+   */
   queueName?: string;
   /**
+   * @remarks
+   * The queue type.
+   * 
    * @example
    * 1
    */
@@ -490,13 +571,23 @@ export class GetCallDetailRecordResponseBodyDataQueueEvents extends $dara.Model 
 }
 
 export class GetCallDetailRecordResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The list of agent events.
+   */
   agentEvents?: GetCallDetailRecordResponseBodyDataAgentEvents[];
   /**
+   * @remarks
+   * The IDs of the agents who are involved in the call. Multiple IDs are separated by commas.
+   * 
    * @example
    * agent1@ccc-test,agent2@ccc-test
    */
   agentIds?: string;
   /**
+   * @remarks
+   * The names of the agents who are involved in the call. Multiple names are separated by commas.
+   * 
    * @example
    * agent1,agent2
    */
@@ -504,94 +595,185 @@ export class GetCallDetailRecordResponseBodyData extends $dara.Model {
   analyticsReport?: GetCallDetailRecordResponseBodyDataAnalyticsReport;
   analyticsReportReady?: boolean;
   /**
+   * @remarks
+   * The call duration, in seconds.
+   * 
    * @example
    * 50
    */
   callDuration?: number;
   /**
+   * @remarks
+   * The called number.
+   * 
    * @example
    * 1332315****
    */
   calledNumber?: string;
+  /**
+   * @remarks
+   * The location of the called number.
+   * 
+   * @example
+   * 河北省-唐山
+   */
   calleeLocation?: string;
+  /**
+   * @remarks
+   * The location of the calling number.
+   * 
+   * @example
+   * 山东省-淄博
+   */
   callerLocation?: string;
   /**
+   * @remarks
+   * The calling number.
+   * 
    * @example
    * 0533128****
    */
   callingNumber?: string;
   /**
+   * @remarks
+   * The reason why the call ended. Note: The \\`Voicemail\\`, \\`QueuingFailed\\`, \\`QueuingTimeout\\`, \\`QueuingOverflow\\`, and \\`IVRException\\` reasons are returned only if you configure the hang-up reason node. If you do not configure this node and the IVR flow does not include a module to transfer the call to an agent, the default reason is \\`AbandonedInIVR\\`.
+   * 
    * @example
    * Success
    */
   contactDisposition?: string;
   /**
+   * @remarks
+   * The call ID.
+   * 
    * @example
    * job-10963442671187****
    */
   contactId?: string;
+  /**
+   * @remarks
+   * The call type.
+   * 
+   * @example
+   * OUTBOUND
+   */
   contactType?: string;
+  /**
+   * @remarks
+   * The list of customer events.
+   */
   customerEvents?: GetCallDetailRecordResponseBodyDataCustomerEvents[];
   /**
+   * @remarks
+   * The state of the early media. An exception occurred during the early media phase, which is when the customer is being called. An exception at this stage can cause the call to fail. This parameter provides possible reasons for the connection failure based on an analysis of the early media state.
+   * 
    * @example
    * NotConnected
    */
   earlyMediaState?: string;
   /**
+   * @remarks
+   * The time when the call was connected. This parameter is empty if the call was not connected. The value is a UNIX timestamp, in milliseconds.
+   * 
    * @example
    * 1532458000000
    */
   establishedTime?: number;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * ccc-test
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * The list of IVR events.
+   */
   ivrEvents?: GetCallDetailRecordResponseBodyDataIvrEvents[];
   outsideNumberReleaseReason?: string;
+  /**
+   * @remarks
+   * The list of queue events.
+   */
   queueEvents?: GetCallDetailRecordResponseBodyDataQueueEvents[];
   /**
+   * @remarks
+   * Indicates whether the recording was generated. A value of \\`false\\` is returned if the call was not connected.
+   * 
    * @example
    * true
    */
   recordingReady?: boolean;
   /**
+   * @remarks
+   * The release initiator.
+   * 
    * @example
    * customer
    */
   releaseInitiator?: string;
   /**
+   * @remarks
+   * The reason why the call ended. The value is usually the SIP code followed by a text description.
+   * 
    * @example
    * 200 - OK
    */
   releaseReason?: string;
   /**
+   * @remarks
+   * The time when the call ended. This is the time when the last party of the call hangs up. The value is a UNIX timestamp, in milliseconds.
+   * 
    * @example
    * 1532458000000
    */
   releaseTime?: number;
   /**
+   * @remarks
+   * The satisfaction score. The value and its meaning are defined by you.
+   * 
    * @example
    * 1
    */
   satisfaction?: number;
   /**
+   * @remarks
+   * The channel through which the satisfaction survey was initiated.
+   * 
    * @example
    * IVR
    */
   satisfactionSurveyChannel?: string;
   /**
+   * @remarks
+   * Indicates whether a satisfaction survey was initiated.
+   * 
    * @example
    * true
    */
   satisfactionSurveyOffered?: boolean;
   /**
+   * @remarks
+   * The IDs of the skill groups to which the agents involved in the call belong. Multiple IDs are separated by commas.
+   * 
    * @example
    * skillgroup@ccc-test
    */
   skillGroupIds?: string;
+  /**
+   * @remarks
+   * The names of the skill groups to which the agents involved in the call belong. Multiple names are separated by commas.
+   * 
+   * @example
+   * 测试技能组
+   */
   skillGroupNames?: string;
   /**
+   * @remarks
+   * The time when the call started. For an inbound call, this is the time when the call enters the IVR. For an outbound call, this is the time when the call is initiated. The value is a UNIX timestamp, in milliseconds.
+   * 
    * @example
    * 1532458000000
    */
@@ -692,18 +874,38 @@ export class GetCallDetailRecordResponseBodyData extends $dara.Model {
 
 export class GetCallDetailRecordResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response code.
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * The data.
+   */
   data?: GetCallDetailRecordResponseBodyData;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
+  /**
+   * @remarks
+   * The response message.
+   * 
+   * @example
+   * 无
+   */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 7BEEA660-A45A-45E3-98CC-AFC65E715C23
    */

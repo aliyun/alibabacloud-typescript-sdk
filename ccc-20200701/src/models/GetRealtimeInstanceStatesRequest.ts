@@ -5,12 +5,21 @@ import * as $dara from '@darabonba/typescript';
 export class GetRealtimeInstanceStatesRequest extends $dara.Model {
   /**
    * @remarks
+   * Instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
    * ccc-test
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * Media type. The default is audio (AUDIO).
+   * 
+   * @example
+   * AUDIO
+   */
   mediaType?: string;
   static names(): { [key: string]: string } {
     return {

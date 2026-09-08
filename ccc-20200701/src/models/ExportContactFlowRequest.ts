@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ExportContactFlowRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the IVR contact flow.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class ExportContactFlowRequest extends $dara.Model {
   flowId?: string;
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,6 +24,9 @@ export class ExportContactFlowRequest extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * AF9834D8-6D09-4A1B-BADB-B019D9D444C8
    */

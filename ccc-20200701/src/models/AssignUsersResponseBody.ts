@@ -4,27 +4,49 @@ import * as $dara from '@darabonba/typescript';
 
 export class AssignUsersResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response code.
+   * 
    * @example
    * OK
    */
   code?: string;
   /**
+   * @remarks
+   * The returned data, which is the same as the workflow ID.
+   * 
    * @example
    * 1ca2b084-6f0a-454b-9851-29768a9a5832
    */
   data?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
+  /**
+   * @remarks
+   * The response message.
+   * 
+   * @example
+   * 无
+   */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * EEEE671A-3E24-4A04-81E6-6C4F5B39DF75
    */
   requestId?: string;
   /**
+   * @remarks
+   * The workflow ID.
+   * 
    * @example
    * 1ca2b084-6f0a-454b-9851-29768a9a5832
    */

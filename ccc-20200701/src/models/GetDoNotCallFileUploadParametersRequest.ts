@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetDoNotCallFileUploadParametersRequest extends $dara.Model {
   /**
    * @remarks
+   * Name of the file containing prohibited outbound call numbers.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class GetDoNotCallFileUploadParametersRequest extends $dara.Model {
   fileName?: string;
   /**
    * @remarks
+   * Instance ID.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -3,9 +3,18 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class TerminateTicketRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Resolution comments.
+   * 
+   * @example
+   * 关单
+   */
   comment?: string;
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +22,9 @@ export class TerminateTicketRequest extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The ticket ID.
+   * 
    * @example
    * 5491d3b4-14ee-4341-b5f1-db2c78beddeb
    */

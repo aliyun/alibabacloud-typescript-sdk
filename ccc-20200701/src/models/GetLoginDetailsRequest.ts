@@ -3,9 +3,18 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetLoginDetailsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Chat Device ID.
+   * 
+   * @example
+   * 4c51c9116c36537cb850dc1081d745df
+   */
   chatDeviceId?: string;
   /**
    * @remarks
+   * Instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +22,9 @@ export class GetLoginDetailsRequest extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * Agent ID. This parameter is optional. If not specified, the agent mapped to the current RAM account is used by default.
+   * 
    * @example
    * agent@ccc-test
    */

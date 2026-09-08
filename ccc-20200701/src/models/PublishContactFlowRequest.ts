@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class PublishContactFlowRequest extends $dara.Model {
   /**
    * @remarks
+   * The contact flow ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class PublishContactFlowRequest extends $dara.Model {
   contactFlowId?: string;
   /**
    * @remarks
+   * The draft ID. This is the ID of the draft version that corresponds to the current contact flow.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class PublishContactFlowRequest extends $dara.Model {
   draftId?: string;
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example

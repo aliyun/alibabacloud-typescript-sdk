@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ChangeVisibilityRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the Cloud Connect Center instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,11 +14,17 @@ export class ChangeVisibilityRequest extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * Specifies whether to set the agent\\"s status to invisible.
+   * 
    * @example
    * true
    */
   invisible?: boolean;
   /**
+   * @remarks
+   * The ID of the agent.
+   * 
    * @example
    * sam@szpczf
    */

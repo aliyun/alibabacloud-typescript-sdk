@@ -3,7 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetHistoricalInstanceReportResponseBodyDataInboundAccessChannelTypeDetailList extends $dara.Model {
+  /**
+   * @remarks
+   * Channel Type.
+   * 
+   * @example
+   * Web
+   */
   accessChannelType?: string;
+  /**
+   * @remarks
+   * Number of assigned sessions.
+   * 
+   * @example
+   * 5
+   */
   callsOffered?: number;
   static names(): { [key: string]: string } {
     return {
@@ -30,271 +44,494 @@ export class GetHistoricalInstanceReportResponseBodyDataInboundAccessChannelType
 
 export class GetHistoricalInstanceReportResponseBodyDataInbound extends $dara.Model {
   /**
+   * @remarks
+   * Abandon rate. Calculation Formula: CallsAbandoned / CallsOffered (because abandonment events and assignment events may fall into different time ranges, the result may exceed 100% in certain cases).
+   * 
    * @example
    * 0
    */
   abandonRate?: number;
+  /**
+   * @remarks
+   * Statistics for each channel.
+   */
   accessChannelTypeDetailList?: GetHistoricalInstanceReportResponseBodyDataInboundAccessChannelTypeDetailList[];
   /**
+   * @remarks
+   * Average abandon time, in seconds. Calculation formula: TotalAbandonTime / CallsAbandoned.
+   * 
    * @example
    * 0
    */
   averageAbandonTime?: number;
   /**
+   * @remarks
+   * Average IVR abandonment duration, in seconds. Calculation Formula: TotalAbandonedInIVRTime / CallsAbandonedInIVR.
+   * 
    * @example
    * 0
    */
   averageAbandonedInIVRTime?: number;
   /**
+   * @remarks
+   * [responses_200_schema_properties_Data_properties_Inbound_properties_MaxAbandonedInQueueTime_type]integer
+   * 
    * @example
    * 0
    */
   averageAbandonedInQueueTime?: number;
   /**
+   * @remarks
+   * Average ring-time abandon duration, in seconds. Calculation formula: TotalAbandonedInRingTime / CallsAbandonedInRing.
+   * 
    * @example
    * 0
    */
   averageAbandonedInRingTime?: number;
+  /**
+   * @remarks
+   * Average first response time for chat sessions, in seconds.
+   * 
+   * @example
+   * 12
+   */
   averageFirstResponseTime?: number;
   /**
+   * @remarks
+   * Average call hold duration, in seconds. Calculation Formula: TotalHoldTime / CallsHold.
+   * 
    * @example
    * 0
    */
   averageHoldTime?: number;
+  /**
+   * @remarks
+   * Average response time (RT) for chat sessions.
+   * 
+   * @example
+   * 15
+   */
   averageResponseTime?: number;
   /**
+   * @remarks
+   * Average ring time in seconds. Calculation Formula: TotalRingTime / CallsRinged.
+   * 
    * @example
    * 0
    */
   averageRingTime?: number;
   /**
+   * @remarks
+   * Average talk time, in seconds. Calculation Formula: TotalTalkTime / CallsHandled.
+   * 
    * @example
    * 0
    */
   averageTalkTime?: number;
   /**
+   * @remarks
+   * [responses_200_schema_properties_Data_properties_Inbound_properties_AverageFirstResponseTime_type]number
+   * 
    * @example
    * 0
    */
   averageWaitTime?: number;
   /**
+   * @remarks
+   * Average post-processing time, in seconds. Calculation formula: TotalWorkTime / CallsHandled.
+   * 
    * @example
    * 0
    */
   averageWorkTime?: number;
   /**
+   * @remarks
+   * Total number of abandoned calls. Calculation Formula: CallsAbandonedInIVR + CallsAbandonedInQueue + CallsAbandonedInRing.
+   * 
    * @example
    * 0
    */
   callsAbandoned?: number;
   /**
+   * @remarks
+   * Number of calls abandoned in IVR, which refers to the count of calls where the customer hung up during the IVR flow after entering it. This is determined by the hang-up reason in call details being marked as "IVR abandoned."
+   * 
    * @example
    * 0
    */
   callsAbandonedInIVR?: number;
   /**
+   * @remarks
+   * Number of calls abandoned in queue, which refers to the number of calls where the customer hung up while waiting in the queue after the call entered the queue.
+   * 
    * @example
    * 0
    */
   callsAbandonedInQueue?: number;
   /**
+   * @remarks
+   * Number of calls abandoned during ringing, which refers to the quantity of calls where the customer hung up while the agent\\"s phone was ringing.
+   * 
    * @example
    * 0
    */
   callsAbandonedInRing?: number;
   /**
+   * @remarks
+   * Number of calls abandoned in the Intelligent Voice Navigator module.
+   * 
    * @example
    * 0
    */
   callsAbandonedInVoiceNavigator?: number;
   /**
+   * @remarks
+   * Number of consultative transfers, which refers to the number of calls that were transferred via consultative transfer. If a single call is transferred multiple times, it is counted as one.
+   * 
    * @example
    * 0
    */
   callsAttendedTransferred?: number;
   /**
+   * @remarks
+   * The number of blind transfers, which refers to the count of calls directly transferred without consultation. If a single call is transferred multiple times, it is counted as one.
+   * 
    * @example
    * 0
    */
   callsBlindTransferred?: number;
+  /**
+   * @remarks
+   * Number of calls that caused IVR exceptions.
+   * 
+   * @example
+   * 0
+   */
   callsCausedIVRException?: number;
   /**
+   * @remarks
+   * Number of calls forwarded to an external number.
+   * 
    * @example
    * 0
    */
   callsForwardToOutsideNumber?: number;
   /**
+   * @remarks
+   * Acknowledgement count, which refers to the number of calls answered by agents. If a single call is answered by multiple agents, it is counted only once.
+   * 
    * @example
    * 0
    */
   callsHandled?: number;
   /**
+   * @remarks
+   * [responses_200_schema_properties_Data_properties_Inbound_properties_TotalAbandonTime_type]integer
+   * 
    * @example
    * 0
    */
   callsHold?: number;
   /**
+   * @remarks
+   * Number of calls with IVR exceptions. A call is counted when the IVR enters a hang-up reason node and the hang-up reason configured in that node is "transfer to agent failed."
+   * 
    * @example
    * 0
    */
   callsIVRException?: number;
   /**
+   * @remarks
+   * [responses_200_schema_properties_Data_properties_Inbound_properties_TotalAbandonedInRingTime_type]integer
+   * 
    * @example
    * 0
    */
   callsOffered?: number;
   /**
+   * @remarks
+   * Number of calls entering the queue. If a single call enters the queue multiple times, it is counted once.
+   * 
    * @example
    * 0
    */
   callsQueued?: number;
   /**
+   * @remarks
+   * The number of queue failures, which refers to the count of calls where the customer hung up while waiting in the queue after entering it.
+   * 
    * @example
    * 0
    */
   callsQueuingFailed?: number;
   /**
+   * @remarks
+   * The number of calls that overflowed from the queue, where queue overflow refers to calls exceeding the queue capacity while waiting in the IVR queue.
+   * 
    * @example
    * 0
    */
   callsQueuingOverflow?: number;
   /**
+   * @remarks
+   * Number of calls that timed out during the queuing phase.
+   * 
    * @example
    * 0
    */
   callsQueuingTimeout?: number;
   /**
+   * @remarks
+   * Number of calls that rang agents. If a single call is assigned to multiple agents and rings, it is counted once.
+   * 
    * @example
    * 0
    */
   callsRinged?: number;
+  /**
+   * @remarks
+   * The number of calls routed to voicemail.
+   * 
+   * @example
+   * 3
+   */
   callsToVoicemail?: number;
   /**
+   * @remarks
+   * Number of calls transferred to voicemail. The count increases by 1 when a call enters the voicemail module configured in IVR.
+   * 
    * @example
    * 0
    */
   callsVoicemail?: number;
   /**
+   * @remarks
+   * [responses_200_schema_properties_Data_properties_Inbound_properties_CallsBlindTransferred_type]integer
+   * 
    * @example
    * 0
    */
   handleRate?: number;
   /**
+   * @remarks
+   * Maximum abandon time, in seconds. A call is considered abandoned if the customer hangs up after entering the IVR but before an agent answers.
+   * 
    * @example
    * 0
    */
   maxAbandonTime?: number;
   /**
+   * @remarks
+   * Maximum IVR abandonment duration, in seconds. IVR abandonment is defined as a customer hanging up during IVR interaction. This does not include hang-ups while waiting in queue or during agent ringing after call assignment.
+   * 
    * @example
    * 100
    */
   maxAbandonedInIVRTime?: number;
   /**
+   * @remarks
+   * Maximum queue abandonment duration, in seconds.
+   * 
    * @example
    * 0
    */
   maxAbandonedInQueueTime?: number;
   /**
+   * @remarks
+   * Maximum ringing abandonment duration, in seconds. Ringing abandonment is defined as the customer hanging up while the call is ringing on the agent\\"s side after being assigned to the agent.
+   * 
    * @example
    * 0
    */
   maxAbandonedInRingTime?: number;
   /**
+   * @remarks
+   * Maximum hold time, in seconds.
+   * 
    * @example
    * 0
    */
   maxHoldTime?: number;
   /**
+   * @remarks
+   * Maximum ring duration, in seconds.
+   * 
    * @example
    * 0
    */
   maxRingTime?: number;
   /**
+   * @remarks
+   * Maximum talk time, in seconds.
+   * 
    * @example
    * 0
    */
   maxTalkTime?: number;
   /**
+   * @remarks
+   * Maximum wait time, in seconds.
+   * 
    * @example
    * 0
    */
   maxWaitTime?: number;
   /**
+   * @remarks
+   * Maximum post-processing time, in seconds.
+   * 
    * @example
    * 0
    */
   maxWorkTime?: number;
   /**
+   * @remarks
+   * [responses_200_schema_properties_Data_properties_Inbound_properties_CallsQueuingOverflow_type]integer
+   * 
    * @example
    * 0
    */
   satisfactionIndex?: number;
   /**
+   * @remarks
+   * Satisfaction rate. Calculation Formula: Number of evaluations marked as satisfied / Count of satisfaction survey responses.
+   * 
    * @example
    * 0
    */
   satisfactionRate?: number;
   /**
+   * @remarks
+   * Sending Count of satisfaction surveys.
+   * 
    * @example
    * 0
    */
   satisfactionSurveysOffered?: number;
   /**
+   * @remarks
+   * Count of satisfaction survey responses.
+   * 
    * @example
    * 0
    */
   satisfactionSurveysResponded?: number;
+  /**
+   * @remarks
+   * Service level within 15 seconds.
+   * 
+   * @example
+   * 0.78
+   */
   serviceLevel15?: number;
   /**
+   * @remarks
+   * Service level within 20 seconds: number of calls with wait time less than or equal to 20 seconds divided by CallsQueued.
+   * 
    * @example
    * 0
    */
   serviceLevel20?: number;
+  /**
+   * @remarks
+   * Service level within 30 seconds.
+   * 
+   * @example
+   * 0.9
+   */
   serviceLevel30?: number;
   /**
+   * @remarks
+   * Total abandonment duration, in seconds.
+   * 
    * @example
    * 0
    */
   totalAbandonTime?: number;
   /**
+   * @remarks
+   * Total IVR abandonment duration, in seconds.
+   * 
    * @example
    * 0
    */
   totalAbandonedInIVRTime?: number;
   /**
+   * @remarks
+   * Total queue abandon time, in seconds.
+   * 
    * @example
    * 0
    */
   totalAbandonedInQueueTime?: number;
   /**
+   * @remarks
+   * [responses_200_schema_properties_Data_properties_Inbound_properties_SatisfactionSurveysOffered_type]integer
+   * 
    * @example
    * 0
    */
   totalAbandonedInRingTime?: number;
   /**
+   * @remarks
+   * Total call hold duration, in seconds.
+   * 
    * @example
    * 0
    */
   totalHoldTime?: number;
+  /**
+   * @remarks
+   * Total number of messages sent in chat sessions.
+   * 
+   * @example
+   * 12
+   */
   totalMessagesSent?: number;
+  /**
+   * @remarks
+   * Total number of messages sent by agents in chat sessions.
+   * 
+   * @example
+   * 8
+   */
   totalMessagesSentByAgent?: number;
+  /**
+   * @remarks
+   * Total number of messages sent by the customer in chat sessions.
+   * 
+   * @example
+   * 4
+   */
   totalMessagesSentByCustomer?: number;
   /**
+   * @remarks
+   * [responses_200_schema_properties_Data_properties_Inbound_properties_CallsQueuingFailed_type]integer
+   * 
    * @example
    * 0
    */
   totalRingTime?: number;
   /**
+   * @remarks
+   * [responses_200_schema_properties_Data_properties_Inbound_properties_CallsToVoicemail_type]integer
+   * 
    * @example
    * 0
    */
   totalTalkTime?: number;
   /**
+   * @remarks
+   * Total wait time, in seconds.
+   * 
    * @example
    * 0
    */
   totalWaitTime?: number;
   /**
+   * @remarks
+   * Total post-processing duration, in seconds.
+   * 
    * @example
    * 0
    */
@@ -446,7 +683,21 @@ export class GetHistoricalInstanceReportResponseBodyDataInbound extends $dara.Mo
 }
 
 export class GetHistoricalInstanceReportResponseBodyDataInternal extends $dara.Model {
+  /**
+   * @remarks
+   * Number of answered calls.
+   * 
+   * @example
+   * 100
+   */
   callsAnswered?: number;
+  /**
+   * @remarks
+   * Dial-up volume.
+   * 
+   * @example
+   * 100
+   */
   callsDialed?: number;
   static names(): { [key: string]: string } {
     return {
@@ -473,131 +724,209 @@ export class GetHistoricalInstanceReportResponseBodyDataInternal extends $dara.M
 
 export class GetHistoricalInstanceReportResponseBodyDataOutbound extends $dara.Model {
   /**
+   * @remarks
+   * Answer rate. Calculation Formula: CallsAnswered / CallsDialed. (Because the answering event and the acknowledgement event may fall into different time ranges, the result may exceed 100% in certain cases.)
+   * 
    * @example
    * 0
    */
   answerRate?: number;
   /**
+   * @remarks
+   * Average Dial-up Time, in seconds. Calculation Formula: TotalDialingTime / CallsDialed.
+   * 
    * @example
    * 0
    */
   averageDialingTime?: number;
   /**
+   * @remarks
+   * Average hold duration, in seconds. Calculation formula: TotalHoldTime / CallsHold.
+   * 
    * @example
    * 0
    */
   averageHoldTime?: number;
   /**
+   * @remarks
+   * Average ring time, in seconds. Calculation Formula: TotalRingTime / CallsRinged.
+   * 
    * @example
    * 0
    */
   averageRingTime?: number;
   /**
+   * @remarks
+   * Average talk time, in seconds. Calculation Formula: TotalTalkTime / CallsAnswered.
+   * 
    * @example
    * 0
    */
   averageTalkTime?: number;
   /**
+   * @remarks
+   * Average post-processing time per call, in seconds. Calculation Formula: TotalWorkTime / CallsDialed.
+   * 
    * @example
    * 0
    */
   averageWorkTime?: number;
   /**
+   * @remarks
+   * Answered Call Count.
+   * 
    * @example
    * 0
    */
   callsAnswered?: number;
   /**
+   * @remarks
+   * Number of attended transfers, which refers to the quantity of calls that underwent attended transfer. If a single call is transferred multiple times, it is counted as one.
+   * 
    * @example
    * 0
    */
   callsAttendedTransferred?: number;
   /**
+   * @remarks
+   * Number of blind transfers, which refers to the quantity of calls that underwent blind transfer. If a single call is transferred multiple times, it is counted as one.
+   * 
    * @example
    * 0
    */
   callsBlindTransferred?: number;
   /**
+   * @remarks
+   * Dial-up Call Count.
+   * 
    * @example
    * 0
    */
   callsDialed?: number;
   /**
+   * @remarks
+   * Hold Count, which is the number of calls that were placed on hold. If a single call was put on hold multiple times, it is counted as one.
+   * 
    * @example
    * 0
    */
   callsHold?: number;
   /**
+   * @remarks
+   * Number of calls that rang for agents. If a single call is assigned to multiple agents and rings for each, it is counted as one.
+   * 
    * @example
    * 0
    */
   callsRinged?: number;
   /**
+   * @remarks
+   * Maximum Dial-up Time, in seconds.
+   * 
    * @example
    * 0
    */
   maxDialingTime?: number;
   /**
+   * @remarks
+   * Maximum call hold duration, in seconds.
+   * 
    * @example
    * 0
    */
   maxHoldTime?: number;
   /**
+   * @remarks
+   * Maximum ring duration, in seconds.
+   * 
    * @example
    * 0
    */
   maxRingTime?: number;
   /**
+   * @remarks
+   * Maximum Talk Time, in seconds.
+   * 
    * @example
    * 0
    */
   maxTalkTime?: number;
   /**
+   * @remarks
+   * Maximum post-processing time per call, in seconds.
+   * 
    * @example
    * 0
    */
   maxWorkTime?: number;
   /**
+   * @remarks
+   * Satisfaction Index, which is the average of the satisfaction keypress digits (single-digit numbers).
+   * 
    * @example
    * 0
    */
   satisfactionIndex?: number;
   /**
+   * @remarks
+   * Satisfaction Rate. Calculation Formula: Number of responses marked as satisfied / Count of satisfaction survey responses.
+   * 
    * @example
    * 0
    */
   satisfactionRate?: number;
   /**
+   * @remarks
+   * Sending Count of satisfaction surveys.
+   * 
    * @example
    * 0
    */
   satisfactionSurveysOffered?: number;
   /**
+   * @remarks
+   * Response Count of satisfaction surveys.
+   * 
    * @example
    * 0
    */
   satisfactionSurveysResponded?: number;
   /**
+   * @remarks
+   * Total dial-up duration, in seconds.
+   * 
    * @example
    * 0
    */
   totalDialingTime?: number;
   /**
+   * @remarks
+   * Total hold duration, in seconds.
+   * 
    * @example
    * 0
    */
   totalHoldTime?: number;
   /**
+   * @remarks
+   * Total Ring Time, in seconds.
+   * 
    * @example
    * 0
    */
   totalRingTime?: number;
   /**
+   * @remarks
+   * Total Talk Time, in seconds.
+   * 
    * @example
    * 0
    */
   totalTalkTime?: number;
   /**
+   * @remarks
+   * Total post-processing duration, in seconds.
+   * 
    * @example
    * 0
    */
@@ -675,112 +1004,185 @@ export class GetHistoricalInstanceReportResponseBodyDataOutbound extends $dara.M
 
 export class GetHistoricalInstanceReportResponseBodyDataOverall extends $dara.Model {
   /**
+   * @remarks
+   * Average break duration, in seconds. Calculation Formula: TotalBreakTime / Count of breaks. The count of breaks is not an exposed API field.
+   * 
    * @example
    * 0
    */
   averageBreakTime?: number;
   /**
+   * @remarks
+   * Average call hold duration, in seconds. Calculation Formula: TotalHoldTime / (InboundCallsHold + OutboundCallsHold).
+   * 
    * @example
    * 0
    */
   averageHoldTime?: number;
   /**
+   * @remarks
+   * Average ready duration, in seconds. Calculation Formula: TotalReadyTime / Count of ready events. The count of ready events is not currently exposed externally.
+   * 
    * @example
    * 0
    */
   averageReadyTime?: number;
   /**
+   * @remarks
+   * Average talk time, in seconds. Calculation Formula: TotalTalkTime / (CallsAnswered + CallsHandled).
+   * 
    * @example
    * 0
    */
   averageTalkTime?: number;
   /**
+   * @remarks
+   * Average post-processing time per call, in seconds. Calculation Formula: TotalWorkTime / TotalCalls.
+   * 
    * @example
    * 0
    */
   averageWorkTime?: number;
   /**
+   * @remarks
+   * Maximum short break duration, in seconds.
+   * 
    * @example
    * 0
    */
   maxBreakTime?: number;
   /**
+   * @remarks
+   * Maximum call hold duration, in seconds.
+   * 
    * @example
    * 0
    */
   maxHoldTime?: number;
+  /**
+   * @remarks
+   * Maximum number of agents simultaneously logged on during the Time Range.
+   * 
+   * @example
+   * 102
+   */
   maxLoggedInAgents?: number;
   /**
+   * @remarks
+   * Maximum ready time, in seconds.
+   * 
    * @example
    * 0
    */
   maxReadyTime?: number;
   /**
+   * @remarks
+   * Maximum talk time, in seconds.
+   * 
    * @example
    * 0
    */
   maxTalkTime?: number;
   /**
+   * @remarks
+   * Maximum post-processing time per call, in seconds.
+   * 
    * @example
    * 0
    */
   maxWorkTime?: number;
   /**
+   * @remarks
+   * Agent occupancy rate. Calculation Formula: (TotalWorkTime + TotalTalkTime) / TotalLoggedInTime.
+   * 
    * @example
    * 0
    */
   occupancyRate?: number;
   /**
+   * @remarks
+   * Satisfaction index, which is the average value of the satisfaction keypress digits (single-digit numbers).
+   * 
    * @example
    * 0
    */
   satisfactionIndex?: number;
   /**
+   * @remarks
+   * Satisfaction rate. Calculation Formula: Count of evaluations marked as satisfied / Count of satisfaction survey responses.
+   * 
    * @example
    * 0
    */
   satisfactionRate?: number;
   /**
+   * @remarks
+   * Sending Count of satisfaction surveys.
+   * 
    * @example
    * 0
    */
   satisfactionSurveysOffered?: number;
   /**
+   * @remarks
+   * Count of satisfaction survey responses.
+   * 
    * @example
    * 0
    */
   satisfactionSurveysResponded?: number;
   /**
+   * @remarks
+   * Total break time, in seconds.
+   * 
    * @example
    * 0
    */
   totalBreakTime?: number;
   /**
+   * @remarks
+   * Total call volume. Calculation Formula: CallsOffered + CallsDialed.
+   * 
    * @example
    * 0
    */
   totalCalls?: number;
   /**
+   * @remarks
+   * Total hold time, in seconds.
+   * 
    * @example
    * 0
    */
   totalHoldTime?: number;
   /**
+   * @remarks
+   * Total logon duration, in seconds. Exclude break time.
+   * 
    * @example
    * 0
    */
   totalLoggedInTime?: number;
   /**
+   * @remarks
+   * Total ready time, in seconds.
+   * 
    * @example
    * 0
    */
   totalReadyTime?: number;
   /**
+   * @remarks
+   * Total talk time, in seconds.
+   * 
    * @example
    * 0
    */
   totalTalkTime?: number;
   /**
+   * @remarks
+   * Total post-processing time, in seconds.
+   * 
    * @example
    * 0
    */
@@ -851,9 +1253,25 @@ export class GetHistoricalInstanceReportResponseBodyDataOverall extends $dara.Mo
 }
 
 export class GetHistoricalInstanceReportResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * Inbound data.
+   */
   inbound?: GetHistoricalInstanceReportResponseBodyDataInbound;
+  /**
+   * @remarks
+   * Internal call metrics.
+   */
   internal?: GetHistoricalInstanceReportResponseBodyDataInternal;
+  /**
+   * @remarks
+   * Outbound metrics.
+   */
   outbound?: GetHistoricalInstanceReportResponseBodyDataOutbound;
+  /**
+   * @remarks
+   * Overall metrics.
+   */
   overall?: GetHistoricalInstanceReportResponseBodyDataOverall;
   static names(): { [key: string]: string } {
     return {
@@ -896,18 +1314,38 @@ export class GetHistoricalInstanceReportResponseBodyData extends $dara.Model {
 
 export class GetHistoricalInstanceReportResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Response code.
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * Data.
+   */
   data?: GetHistoricalInstanceReportResponseBodyData;
   /**
+   * @remarks
+   * HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
+  /**
+   * @remarks
+   * Response message.
+   * 
+   * @example
+   * 无
+   */
   message?: string;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 943D8EF3-3321-471F-A104-51C96FCA94D6
    */

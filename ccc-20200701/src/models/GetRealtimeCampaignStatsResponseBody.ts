@@ -4,40 +4,89 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetRealtimeCampaignStatsResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * Number of agents on break.
+   * 
    * @example
    * 1
    */
   breakingAgents?: number;
   /**
+   * @remarks
+   * The number of concurrent calls per second. "Concurrent" means calls happening simultaneously.
+   * 
    * @example
    * 5
    */
   caps?: number;
   /**
+   * @remarks
+   * Number of logged-in agents.
+   * 
    * @example
    * 10
    */
   loggedInAgents?: number;
+  /**
+   * @remarks
+   * The number of agents in outbound-only mode who are on a break.
+   * 
+   * @example
+   * 1
+   */
   outboundScenarioBreakingAgents?: number;
+  /**
+   * @remarks
+   * The number of agents in outbound-only mode who are idle.
+   * 
+   * @example
+   * 1
+   */
   outboundScenarioReadyAgents?: number;
+  /**
+   * @remarks
+   * Number of agents in a call under outbound-only mode.
+   * 
+   * @example
+   * 1
+   */
   outboundScenarioTalkingAgents?: number;
+  /**
+   * @remarks
+   * Number of agents in post-processing status under outbound-only mode.
+   * 
+   * @example
+   * 1
+   */
   outboundScenarioWorkingAgents?: number;
   /**
+   * @remarks
+   * Number of idle agents.
+   * 
    * @example
    * 3
    */
   readyAgents?: number;
   /**
+   * @remarks
+   * Number of agents in a call.
+   * 
    * @example
    * 4
    */
   talkingAgents?: number;
   /**
+   * @remarks
+   * Total number of agents.
+   * 
    * @example
    * 10
    */
   totalAgents?: number;
   /**
+   * @remarks
+   * Number of agents in post-processing.
+   * 
    * @example
    * 2
    */
@@ -85,18 +134,38 @@ export class GetRealtimeCampaignStatsResponseBodyData extends $dara.Model {
 
 export class GetRealtimeCampaignStatsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response code.
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * Data.
+   */
   data?: GetRealtimeCampaignStatsResponseBodyData;
   /**
+   * @remarks
+   * HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
+  /**
+   * @remarks
+   * Response message.
+   * 
+   * @example
+   * 无
+   */
   message?: string;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 42970829-E2C8-515A-8F42-5A6B59F852A7
    */

@@ -4,42 +4,73 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListAgentStatesResponseBodyDataList extends $dara.Model {
   /**
+   * @remarks
+   * Agent ID.
+   * 
    * @example
    * agent@ccc-test
    */
   agentId?: string;
+  /**
+   * @remarks
+   * Agent name.
+   * 
+   * @example
+   * 坐席小王
+   */
   agentName?: string;
   /**
+   * @remarks
+   * Break code.
+   * 
    * @example
    * Warm-up
    */
   breakCode?: string;
   /**
+   * @remarks
+   * Agent extension number.
+   * 
    * @example
    * 8030****
    */
   dn?: string;
   /**
+   * @remarks
+   * Instance ID.
+   * 
    * @example
    * ccc-test
    */
   instanceId?: string;
   /**
+   * @remarks
+   * Agent logon name.
+   * 
    * @example
    * agent
    */
   loginName?: string;
   /**
+   * @remarks
+   * Indicates whether the agent is in outbound-only mode.
+   * 
    * @example
    * false
    */
   outboundScenario?: boolean;
   /**
+   * @remarks
+   * Agent status.
+   * 
    * @example
    * Ready
    */
   state?: string;
   /**
+   * @remarks
+   * Duration of the agent status.
+   * 
    * @example
    * 10
    */
@@ -82,18 +113,31 @@ export class ListAgentStatesResponseBodyDataList extends $dara.Model {
 }
 
 export class ListAgentStatesResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * List.
+   */
   list?: ListAgentStatesResponseBodyDataList[];
   /**
+   * @remarks
+   * Page number, ranging from 1 to 100.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * Page size, ranging from 1 to 300.
+   * 
    * @example
    * 100
    */
   pageSize?: number;
   /**
+   * @remarks
+   * Total count.
+   * 
    * @example
    * 11
    */
@@ -130,23 +174,46 @@ export class ListAgentStatesResponseBodyData extends $dara.Model {
 
 export class ListAgentStatesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Response code.
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * Data.
+   */
   data?: ListAgentStatesResponseBodyData;
   /**
+   * @remarks
+   * HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
+  /**
+   * @remarks
+   * Response message.
+   * 
+   * @example
+   * 无
+   */
   message?: string;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 03C67DAD-EB26-41D8-949D-9B0C470FB716
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the operation succeeded.
+   * 
    * @example
    * true
    */

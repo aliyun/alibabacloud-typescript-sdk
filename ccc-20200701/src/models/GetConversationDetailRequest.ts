@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetConversationDetailRequest extends $dara.Model {
   /**
+   * @remarks
+   * Agent ID.
+   * 
    * @example
    * agent@ccc-test
    */
   agentId?: string;
   /**
    * @remarks
+   * The ID of the conversation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18,6 +23,8 @@ export class GetConversationDetailRequest extends $dara.Model {
   contactId?: string;
   /**
    * @remarks
+   * Instance ID.
+   * 
    * This parameter is required.
    * 
    * @example

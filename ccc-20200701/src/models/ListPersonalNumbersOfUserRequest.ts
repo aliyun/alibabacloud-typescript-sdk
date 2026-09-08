@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListPersonalNumbersOfUserRequest extends $dara.Model {
   /**
    * @remarks
+   * Instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class ListPersonalNumbersOfUserRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * Indicates whether the phone numbers are associated with the agent. If true, the API queries the list of personal outbound phone numbers associated with the UserId. If false, it queries the list of personal outbound phone numbers that can be associated with but are not currently associated with the UserId. This parameter is typically used together with the AddPersonalNumbersToUser API.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class ListPersonalNumbersOfUserRequest extends $dara.Model {
   isMember?: boolean;
   /**
    * @remarks
+   * Page number, ranging from 1 to 100.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,6 +35,8 @@ export class ListPersonalNumbersOfUserRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
+   * Page size, ranging from 1 to 100.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -36,12 +44,17 @@ export class ListPersonalNumbersOfUserRequest extends $dara.Model {
    */
   pageSize?: number;
   /**
+   * @remarks
+   * Fuzzy matching based on phone number. Optional. Default value is empty if not specified.
+   * 
    * @example
    * 0833
    */
   searchPattern?: string;
   /**
    * @remarks
+   * Agent ID.
+   * 
    * This parameter is required.
    * 
    * @example

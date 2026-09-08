@@ -4,26 +4,41 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListConfigItemsResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the instance.
+   * 
    * @example
    * ccc-test
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The name of the config item. A name can be system-defined or custom. You can customize the value of a system-defined item. You can also create custom items with custom names and values.
+   * 
    * @example
    * config-item
    */
   name?: string;
   /**
+   * @remarks
+   * The ID of the object to which the config item applies.
+   * 
    * @example
    * ccc-test
    */
   objectId?: string;
   /**
+   * @remarks
+   * The type of the object to which the config item applies.
+   * 
    * @example
    * INSTANCE
    */
   objectType?: string;
   /**
+   * @remarks
+   * The value of the config item.
+   * 
    * @example
    * 100
    */
@@ -59,19 +74,43 @@ export class ListConfigItemsResponseBodyData extends $dara.Model {
 
 export class ListConfigItemsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response code.
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * The list of config items.
+   */
   data?: ListConfigItemsResponseBodyData[];
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
+  /**
+   * @remarks
+   * The response message.
+   * 
+   * @example
+   * 无
+   */
   message?: string;
+  /**
+   * @remarks
+   * The list of dynamic response parameters.
+   */
   params?: string[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * EEEE671A-3E24-4A04-81E6-6C4F5B39DF75
    */

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ImportAdminsRequest extends $dara.Model {
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class ImportAdminsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * A list of UIDs for Alibaba Cloud RAM accounts. The value must be a string-encoded JSON array. The array supports up to 20 UIDs.
+   * 
    * This parameter is required.
    * 
    * @example

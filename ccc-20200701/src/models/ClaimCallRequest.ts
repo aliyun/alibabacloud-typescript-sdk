@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class ClaimCallRequest extends $dara.Model {
   /**
+   * @remarks
+   * A JSON string that lists the agents and their corresponding skill groups eligible to claim the call.
+   * 
    * @example
    * [
    * {
@@ -15,6 +18,8 @@ export class ClaimCallRequest extends $dara.Model {
   candidateUserListJson?: string;
   /**
    * @remarks
+   * The ID of the instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -23,6 +28,8 @@ export class ClaimCallRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * The ID of the call.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -30,16 +37,25 @@ export class ClaimCallRequest extends $dara.Model {
    */
   jobId?: string;
   /**
+   * @remarks
+   * The ID of the skill group that the call is assigned to.
+   * 
    * @example
    * test_sg_****@ccc-test
    */
   skillGroupId?: string;
   /**
+   * @remarks
+   * A unique business identifier for scheduling purposes. Subsequent event notifications include this identifier.
+   * 
    * @example
    * tags
    */
   tags?: string;
   /**
+   * @remarks
+   * The ID of the agent claiming the call.
+   * 
    * @example
    * invoker@ccc-test
    */

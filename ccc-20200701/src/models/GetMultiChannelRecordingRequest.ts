@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetMultiChannelRecordingRequest extends $dara.Model {
   /**
    * @remarks
+   * Call ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class GetMultiChannelRecordingRequest extends $dara.Model {
   contactId?: string;
   /**
    * @remarks
+   * Instance ID.
+   * 
    * This parameter is required.
    * 
    * @example

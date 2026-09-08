@@ -3,30 +3,66 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListSkillGroupsResponseBodyDataList extends $dara.Model {
+  /**
+   * @remarks
+   * Description of the skill group.
+   * 
+   * @example
+   * 云联络中心的测试技能组。
+   */
   description?: string;
+  /**
+   * @remarks
+   * The display name of the skill group.
+   * 
+   * @example
+   * 测试技能组
+   */
   displayName?: string;
   /**
+   * @remarks
+   * Instance ID.
+   * 
    * @example
    * ccc-test
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * The media type. The default is AUDIO. Other options include CHAT and VIDEO.
+   * 
+   * @example
+   * CHAT
+   */
   mediaType?: string;
   /**
+   * @remarks
+   * Quantity of phone numbers associated with the skill group.
+   * 
    * @example
    * 1
    */
   phoneNumberCount?: number;
   /**
+   * @remarks
+   * The skill group ID.
+   * 
    * @example
    * skillgroup@ccc-test
    */
   skillGroupId?: string;
   /**
+   * @remarks
+   * Name of the skill group.
+   * 
    * @example
    * skillgroup
    */
   skillGroupName?: string;
   /**
+   * @remarks
+   * The number of agents associated with the skill group.
+   * 
    * @example
    * 2
    */
@@ -67,18 +103,31 @@ export class ListSkillGroupsResponseBodyDataList extends $dara.Model {
 }
 
 export class ListSkillGroupsResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * List of skill groups.
+   */
   list?: ListSkillGroupsResponseBodyDataList[];
   /**
+   * @remarks
+   * Page number, ranging from 1 to 100.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * Page size, ranging from 1 to 100.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * Total count.
+   * 
    * @example
    * 1
    */
@@ -115,18 +164,38 @@ export class ListSkillGroupsResponseBodyData extends $dara.Model {
 
 export class ListSkillGroupsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response code.
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * Data.
+   */
   data?: ListSkillGroupsResponseBodyData;
   /**
+   * @remarks
+   * HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
+  /**
+   * @remarks
+   * Response message.
+   * 
+   * @example
+   * 无
+   */
   message?: string;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * BA03159C-E808-4FF1-B27E-A61B6E888D7F
    */

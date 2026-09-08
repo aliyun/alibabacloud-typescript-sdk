@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetVoicemailRecordingRequest extends $dara.Model {
   /**
    * @remarks
+   * Call ID. Ensure that this call ID has a voicemail message; otherwise, the return result will contain no data.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class GetVoicemailRecordingRequest extends $dara.Model {
   contactId?: string;
   /**
    * @remarks
+   * Instance ID.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class RemoveSkillGroupsFromUserRequest extends $dara.Model {
   /**
    * @remarks
+   * Instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class RemoveSkillGroupsFromUserRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * A list of skill group IDs to disassociate, formatted as a JSON array string, where each array element is a skill group ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class RemoveSkillGroupsFromUserRequest extends $dara.Model {
   skillGroupIdList?: string;
   /**
    * @remarks
+   * Agent ID.
+   * 
    * This parameter is required.
    * 
    * @example

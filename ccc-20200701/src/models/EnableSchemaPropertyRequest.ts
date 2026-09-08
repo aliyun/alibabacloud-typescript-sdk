@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class EnableSchemaPropertyRequest extends $dara.Model {
   /**
    * @remarks
+   * Instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class EnableSchemaPropertyRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * Field name
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,6 +24,9 @@ export class EnableSchemaPropertyRequest extends $dara.Model {
    */
   propertyName?: string;
   /**
+   * @remarks
+   * Request ID
+   * 
    * @example
    * 03C67DAD-EB26-41D8-949D-9B0C470FB716
    */

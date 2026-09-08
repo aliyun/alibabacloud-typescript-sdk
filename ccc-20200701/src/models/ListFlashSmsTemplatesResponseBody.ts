@@ -5,10 +5,20 @@ import * as $dara from '@darabonba/typescript';
 export class ListFlashSmsTemplatesResponseBodyData extends $dara.Model {
   templateDetails?: string;
   /**
+   * @remarks
+   * Template ID.
+   * 
    * @example
    * 1715*****38
    */
   templateId?: string;
+  /**
+   * @remarks
+   * Template name.
+   * 
+   * @example
+   * 测试模板
+   */
   templateName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -37,19 +47,43 @@ export class ListFlashSmsTemplatesResponseBodyData extends $dara.Model {
 
 export class ListFlashSmsTemplatesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Response code.
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * Data.
+   */
   data?: ListFlashSmsTemplatesResponseBodyData[];
   /**
+   * @remarks
+   * HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
+  /**
+   * @remarks
+   * Response message.
+   * 
+   * @example
+   * 无
+   */
   message?: string;
+  /**
+   * @remarks
+   * List of error parameters.
+   */
   params?: string[];
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 7BEEA660-A45A-45E3-98CC-AFC65E715C23
    */

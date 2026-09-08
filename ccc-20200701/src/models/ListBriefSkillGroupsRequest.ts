@@ -5,15 +5,26 @@ import * as $dara from '@darabonba/typescript';
 export class ListBriefSkillGroupsRequest extends $dara.Model {
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
    * ccc-test
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * The media type. The default value is AUDIO. Other valid values include CHAT and VIDEO.
+   * 
+   * @example
+   * CHAT
+   */
   mediaType?: string;
   /**
    * @remarks
+   * The page number for paging, ranging from 1 to 100.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -22,6 +33,8 @@ export class ListBriefSkillGroupsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
+   * The page size for paging, ranging from 1 to 100.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,6 +42,9 @@ export class ListBriefSkillGroupsRequest extends $dara.Model {
    */
   pageSize?: number;
   /**
+   * @remarks
+   * Perform fuzzy matching based on the skill group name or display name. This parameter is optional and defaults to empty, which means no filtering is applied.
+   * 
    * @example
    * skillgroup
    */

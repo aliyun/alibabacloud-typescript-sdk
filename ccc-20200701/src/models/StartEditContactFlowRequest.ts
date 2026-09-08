@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class StartEditContactFlowRequest extends $dara.Model {
   /**
    * @remarks
+   * The contact flow ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class StartEditContactFlowRequest extends $dara.Model {
   contactFlowId?: string;
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example

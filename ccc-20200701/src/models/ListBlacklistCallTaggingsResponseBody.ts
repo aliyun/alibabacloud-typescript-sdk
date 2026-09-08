@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListBlacklistCallTaggingsResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * Indicates whether the number has a blacklist tag.
+   * 
    * @example
    * true
    */
   blacklisted?: boolean;
   /**
+   * @remarks
+   * The call ID.
+   * 
    * @example
    * job-481841171213393920
    */
   jobId?: string;
   /**
+   * @remarks
+   * The phone number.
+   * 
    * @example
    * 1521083xxxx
    */
@@ -45,16 +54,33 @@ export class ListBlacklistCallTaggingsResponseBodyData extends $dara.Model {
 
 export class ListBlacklistCallTaggingsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response code.
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * The data.
+   */
   data?: ListBlacklistCallTaggingsResponseBodyData[];
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
+  /**
+   * @remarks
+   * The response message.
+   * 
+   * @example
+   * 无
+   */
   message?: string;
   /**
    * @remarks

@@ -4,22 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListVoicemailsRequest extends $dara.Model {
   /**
+   * @remarks
+   * The calling number.
+   * 
    * @example
    * 073xxxx7539
    */
   caller?: string;
   /**
+   * @remarks
+   * The ID of the call. You can use this parameter to query the record of a specific call. You can obtain the contact ID from the softphone SDK during a call. If you specify this parameter, other query parameters are ignored.
+   * 
    * @example
    * job-125152394144124921
    */
   contactId?: string;
   /**
+   * @remarks
+   * The end time of the query range. This is a UNIX timestamp in milliseconds. The default value is the current time.
+   * 
    * @example
    * 1532707199000
    */
   endTime?: number;
   /**
    * @remarks
+   * The ID of the Cloud Contact Center (CC) instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -27,6 +38,9 @@ export class ListVoicemailsRequest extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The name of the voicemail.
+   * 
    * @example
    * voicemail-test
    * 
@@ -35,6 +49,8 @@ export class ListVoicemailsRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
+   * The page number. Valid values: 1 to 100.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -43,6 +59,8 @@ export class ListVoicemailsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
+   * The number of entries per page. Valid values: 1 to 100.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -50,6 +68,9 @@ export class ListVoicemailsRequest extends $dara.Model {
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The start time of the query range. This is a UNIX timestamp in milliseconds. The default value is 00:00 on the current day.
+   * 
    * @example
    * 1532448000000
    */

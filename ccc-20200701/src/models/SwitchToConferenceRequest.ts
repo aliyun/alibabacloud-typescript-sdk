@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class SwitchToConferenceRequest extends $dara.Model {
   /**
+   * @remarks
+   * Invalid field. You can enter any value.
+   * 
    * @example
    * device
    */
   deviceId?: string;
   /**
    * @remarks
+   * Instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18,6 +23,8 @@ export class SwitchToConferenceRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * Call ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -25,6 +32,9 @@ export class SwitchToConferenceRequest extends $dara.Model {
    */
   jobId?: string;
   /**
+   * @remarks
+   * Agent ID. If not specified, the agent mapped to the current Resource Access Management (RAM) user is used by default.
+   * 
    * @example
    * agent@ccc-test
    */

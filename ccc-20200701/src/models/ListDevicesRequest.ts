@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListDevicesRequest extends $dara.Model {
   /**
    * @remarks
+   * Instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,6 +14,9 @@ export class ListDevicesRequest extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * Agent ID.
+   * 
    * @example
    * agent@ccc-test
    */

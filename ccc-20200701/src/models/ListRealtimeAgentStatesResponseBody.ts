@@ -4,65 +4,131 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListRealtimeAgentStatesResponseBodyDataList extends $dara.Model {
   /**
+   * @remarks
+   * Agent ID.
+   * 
    * @example
    * agent1@ccc-test
    */
   agentId?: string;
+  /**
+   * @remarks
+   * Agent name.
+   * 
+   * @example
+   * 坐席小王
+   */
   agentName?: string;
+  /**
+   * @remarks
+   * Break code.
+   * 
+   * **Enumeration values:**
+   * 
+   * - RingingTimeout: Break caused by agent ringing timeout.
+   * 
+   * - RejectCall: Break caused by agent call rejection.
+   * 
+   * - Warm-up: Temporary break state after the agent is published and before becoming idle.
+   * 
+   * @example
+   * Warm-up
+   */
   breakCode?: string;
   /**
+   * @remarks
+   * Call type.
+   * 
    * @example
    * Outbound
    */
   callType?: string;
   /**
+   * @remarks
+   * Used in specific three-party scenarios, primarily for listener, coaching, and consultation. In three-party scenarios, it represents the third party—for example, the agent being monitored or coached in a listener or coaching scenario, or the agent or external number to which a call is transferred in a consultation scenario.
+   * 
    * @example
    * agent@ccc-test
    */
   counterParty?: string;
   /**
+   * @remarks
+   * Duration of the current status, in seconds.
+   * 
    * @example
    * 16
    */
   duration?: number;
   /**
+   * @remarks
+   * The agent\\"s extension number.
+   * 
    * @example
    * 80317391
    */
   extension?: string;
   /**
+   * @remarks
+   * Instance ID.
+   * 
    * @example
    * ccc-test
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The agent\\"s personal phone number.
+   * 
    * @example
    * 1382114****
    */
   mobile?: string;
   /**
+   * @remarks
+   * Whether the agent is in outbound-only mode.
+   * 
    * @example
    * false
    */
   outboundScenario?: boolean;
+  /**
+   * @remarks
+   * List of skill group IDs that the agent has signed into.
+   */
   skillGroupIdList?: string[];
+  /**
+   * @remarks
+   * List of skill group names that the agent has signed into.
+   */
   skillGroupNameList?: string[];
   /**
+   * @remarks
+   * Agent status.
+   * 
    * @example
    * ACW
    */
   state?: string;
   /**
+   * @remarks
+   * Sub-status. In some scenarios, the agent\\"s status cannot be fully represented by the State field alone, so a sub-status is required for clarification. For example, when an agent is being monitored, State=Talking and StateCode=Monitoring.
+   * 
    * @example
    * Monitored
    */
   stateCode?: string;
   /**
+   * @remarks
+   * Time when the status started.
+   * 
    * @example
-   * 8
+   * 1696670640774
    */
   stateTime?: number;
   /**
+   * @remarks
+   * Work mode.
+   * 
    * @example
    * ON_SITE
    */
@@ -125,18 +191,31 @@ export class ListRealtimeAgentStatesResponseBodyDataList extends $dara.Model {
 }
 
 export class ListRealtimeAgentStatesResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * List of real-time agent status data.
+   */
   list?: ListRealtimeAgentStatesResponseBodyDataList[];
   /**
+   * @remarks
+   * Page number, ranging from 1 to 100.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * Page size, ranging from 1 to 100.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * Total count.
+   * 
    * @example
    * 1
    */
@@ -173,18 +252,38 @@ export class ListRealtimeAgentStatesResponseBodyData extends $dara.Model {
 
 export class ListRealtimeAgentStatesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Response code.
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * Data.
+   */
   data?: ListRealtimeAgentStatesResponseBodyData;
   /**
+   * @remarks
+   * HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
+  /**
+   * @remarks
+   * Response message.
+   * 
+   * @example
+   * 无
+   */
   message?: string;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * EEEE671A-3E24-4A04-81E6-6C4F5B39DF75
    */

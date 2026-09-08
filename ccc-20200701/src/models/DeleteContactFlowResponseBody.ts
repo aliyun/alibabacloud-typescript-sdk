@@ -4,17 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteContactFlowResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response code.
+   * 
    * @example
    * OK
    */
   code?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
+  /**
+   * @remarks
+   * The message returned for the request.
+   * 
+   * @example
+   * 无
+   */
   message?: string;
   /**
+   * @remarks
+   * The unique ID of the request.
+   * 
    * @example
    * 07511949-6DC4-5D0B-8FA8-FF8FA29B4217
    */

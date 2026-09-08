@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListCallTagsRequest extends $dara.Model {
   /**
    * @remarks
+   * Instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class ListCallTagsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * Paging ordinal number, ranging from 1 to 100.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class ListCallTagsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
+   * The page size, ranging from 1 to 100.
+   * 
    * This parameter is required.
    * 
    * @example

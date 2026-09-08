@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListTicketTasksRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,6 +14,9 @@ export class ListTicketTasksRequest extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The ID of the ticket.
+   * 
    * @example
    * 5491d3b4-14ee-4341-b5f1-db2c78beddeb
    */

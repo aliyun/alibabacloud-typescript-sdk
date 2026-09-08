@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class AddPersonalNumbersToUserRequest extends $dara.Model {
   /**
    * @remarks
+   * Instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class AddPersonalNumbersToUserRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * List of numbers to be added. The numbers must be attachable to the agent corresponding to UserId. If you are unsure which numbers the agent can attach, refer to the ListPersonalNumbersOfUser API.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class AddPersonalNumbersToUserRequest extends $dara.Model {
   numberList?: string;
   /**
    * @remarks
+   * Agent ID.
+   * 
    * This parameter is required.
    * 
    * @example

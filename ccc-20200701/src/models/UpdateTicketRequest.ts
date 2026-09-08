@@ -3,14 +3,26 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateTicketRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ticket form information.
+   * 
+   * @example
+   * {"productName":"玩具1"}
+   */
   context?: string;
   /**
+   * @remarks
+   * The user ID.
+   * 
    * @example
    * 51e155ce-***-****-b402-13c69597b920
    */
   customerId?: string;
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -19,12 +31,21 @@ export class UpdateTicketRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * The ticket ID.
+   * 
    * This parameter is required.
    * 
    * @example
    * 5491d3b4-14ee-4341-b5f1-db2c78beddeb
    */
   ticketId?: string;
+  /**
+   * @remarks
+   * The ticket title.
+   * 
+   * @example
+   * 标题
+   */
   title?: string;
   static names(): { [key: string]: string } {
     return {

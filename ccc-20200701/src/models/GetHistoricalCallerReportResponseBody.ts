@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetHistoricalCallerReportResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The UNIX timestamp (in milliseconds) of the most recent incoming call.
+   * 
    * @example
    * 1646917200000
    */
   lastCallingTime?: number;
   /**
+   * @remarks
+   * Total number of incoming calls from this number during the query time period.
+   * 
    * @example
    * 10
    */
@@ -38,18 +44,38 @@ export class GetHistoricalCallerReportResponseBodyData extends $dara.Model {
 
 export class GetHistoricalCallerReportResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Response code.
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * Data.
+   */
   data?: GetHistoricalCallerReportResponseBodyData;
   /**
+   * @remarks
+   * HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
+  /**
+   * @remarks
+   * Response message.
+   * 
+   * @example
+   * 无
+   */
   message?: string;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * BA03159C-E808-4FF1-B27E-A61B6E888D7F
    */

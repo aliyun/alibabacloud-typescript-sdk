@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListNotificationRecordsRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the Cloud Contact Center instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class ListNotificationRecordsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * A list of notification keys to query. For example, if you specify a call ID, the API returns all notifications for that call ID.
+   * 
    * This parameter is required.
    * 
    * @example

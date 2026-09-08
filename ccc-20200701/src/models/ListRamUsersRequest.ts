@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListRamUsersRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class ListRamUsersRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * The page number of the results to return. Valid values: 1 to 1,000.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class ListRamUsersRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
+   * The number of entries to return on each page. Valid values: 1 to 100.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -28,6 +34,9 @@ export class ListRamUsersRequest extends $dara.Model {
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The keyword to use for a fuzzy search based on the RAM user\\"s logon name or display name. This parameter is optional. If you leave this parameter empty, no filtering is applied.
+   * 
    * @example
    * agent
    */

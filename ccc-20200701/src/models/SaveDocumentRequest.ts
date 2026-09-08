@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class SaveDocumentRequest extends $dara.Model {
   /**
+   * @remarks
+   * Document ID
+   * 
    * @example
    * xxx
    */
   documentId?: string;
   /**
    * @remarks
+   * The document content to save. It must conform to the rules defined in the schema.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18,6 +23,8 @@ export class SaveDocumentRequest extends $dara.Model {
   documentJson?: string;
   /**
    * @remarks
+   * Instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -25,6 +32,9 @@ export class SaveDocumentRequest extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * Request ID
+   * 
    * @example
    * EAF3C248-E123-441B-A545-B6CD02E98EED
    */

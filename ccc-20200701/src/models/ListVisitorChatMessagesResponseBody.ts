@@ -3,29 +3,66 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListVisitorChatMessagesResponseBodyDataMessages extends $dara.Model {
+  /**
+   * @remarks
+   * Message content
+   * 
+   * @example
+   * {"variables":{},"text":"Hi，我是小云~ 很高兴遇见你！","contentType":"Text"}
+   */
   content?: string;
   /**
+   * @remarks
+   * Call ID
+   * 
    * @example
    * chat-65382141036853491
    */
   jobId?: string;
   /**
+   * @remarks
+   * Sender profile picture URL
+   * 
    * @example
    * http://xxxxx.com/avatar.png
    */
   senderAvatarUrl?: string;
   /**
+   * @remarks
+   * Sender user ID
+   * 
    * @example
    * fcd020fe-****-1a272a174a7d
    */
   senderId?: string;
+  /**
+   * @remarks
+   * Sender name
+   * 
+   * @example
+   * 访客1
+   */
   senderName?: string;
   /**
+   * @remarks
+   * Sender type
+   * 
+   * Valid values:
+   * 
+   * - **ADMIN**: system
+   * 
+   * - **CUSTOMER**: visitor
+   * 
+   * - **AGENT**: agent
+   * 
    * @example
    * CUSTOMER
    */
   senderType?: string;
   /**
+   * @remarks
+   * UNIX timestamp
+   * 
    * @example
    * 1696126980371
    */
@@ -64,8 +101,15 @@ export class ListVisitorChatMessagesResponseBodyDataMessages extends $dara.Model
 }
 
 export class ListVisitorChatMessagesResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * Message list
+   */
   messages?: ListVisitorChatMessagesResponseBodyDataMessages[];
   /**
+   * @remarks
+   * Token for the next page
+   * 
    * @example
    * 1737193352340::7463707254.EAUNIT
    */
@@ -98,20 +142,37 @@ export class ListVisitorChatMessagesResponseBodyData extends $dara.Model {
 
 export class ListVisitorChatMessagesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Response code
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * Data
+   */
   data?: ListVisitorChatMessagesResponseBodyData;
   /**
+   * @remarks
+   * HTTP status code
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
+  /**
+   * @remarks
+   * Response message
+   * 
+   * @example
+   * 无
+   */
   message?: string;
   /**
    * @remarks
-   * Id of the request
+   * Request ID
    * 
    * @example
    * 8707EB29-BAED-4302-B999-40BA61877437

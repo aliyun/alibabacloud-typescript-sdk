@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetMultiChannelRecordingResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * Recording file name.
+   * 
    * @example
    * job-6538214103689****.mkv
    */
   fileName?: string;
   /**
+   * @remarks
+   * The OSS download URL of the recording file. Note that the download URL expires after a validity period of 1 day.
+   * 
    * @example
    * https://ccc-v2-online.oss-cn-shanghai.aliyuncs.com/ccc-record-mixed/ccc-test/2021/04/job-6538214103689****.mkv?Expires=1617435462&OSSAccessKeyId=****&Signature=****
    */
@@ -38,18 +44,38 @@ export class GetMultiChannelRecordingResponseBodyData extends $dara.Model {
 
 export class GetMultiChannelRecordingResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Response code.
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * Data.
+   */
   data?: GetMultiChannelRecordingResponseBodyData;
   /**
+   * @remarks
+   * HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
+  /**
+   * @remarks
+   * Response message.
+   * 
+   * @example
+   * 无
+   */
   message?: string;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * EEEE671A-3E24-4A04-81E6-6C4F5B39DF75
    */

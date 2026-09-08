@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class AppendCasesShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The predictive campaign ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,12 +15,18 @@ export class AppendCasesShrinkRequest extends $dara.Model {
   campaignId?: string;
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
    * ccc-test
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * The list of cases to be added.
+   */
   bodyShrink?: string;
   static names(): { [key: string]: string } {
     return {

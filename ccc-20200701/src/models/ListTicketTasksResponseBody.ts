@@ -4,55 +4,107 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListTicketTasksResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The action performed on the node.
+   * 
    * @example
    * CounterSignTask
    */
   action?: string;
   /**
+   * @remarks
+   * The ID of the assignee.
+   * 
    * @example
    * assignee@ccc-test
    */
   assignee?: string;
   /**
+   * @remarks
+   * The name of the assignee.
+   * 
    * @example
    * assignee
    */
   assigneeName?: string;
+  /**
+   * @remarks
+   * The comment.
+   * 
+   * @example
+   * 同意
+   */
   comment?: string;
   /**
+   * @remarks
+   * The end time.
+   * 
    * @example
    * 1620269200000
    */
   endTime?: number;
+  /**
+   * @remarks
+   * A list of files.
+   */
   fileKeys?: string[];
+  /**
+   * @remarks
+   * A list of file access URLs.
+   */
   fileUrls?: string[];
   /**
+   * @remarks
+   * The ID of the instance.
+   * 
    * @example
    * ccc-test
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The start time.
+   * 
    * @example
    * 1620259200000
    */
   startTime?: number;
   /**
+   * @remarks
+   * The ID of the ticket node in the process definition.
+   * 
    * @example
    * APPROVAL__6zu2QjAz
    */
   taskDefinitionNodeId?: string;
   /**
+   * @remarks
+   * The type of the ticket node in the process definition.
+   * 
    * @example
    * APPROVAL
    */
   taskDefinitionNodeType?: string;
   /**
+   * @remarks
+   * The ID of the node.
+   * 
    * @example
    * eb039a4a6a5742c6b44ccff0c1fca745
    */
   taskId?: string;
+  /**
+   * @remarks
+   * The name of the node.
+   * 
+   * @example
+   * 节点1
+   */
   taskName?: string;
   /**
+   * @remarks
+   * The ID of the ticket.
+   * 
    * @example
    * 5491d3b4-14ee-4341-b5f1-db2c78beddeb
    */
@@ -112,19 +164,43 @@ export class ListTicketTasksResponseBodyData extends $dara.Model {
 
 export class ListTicketTasksResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response code.
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * The data returned.
+   */
   data?: ListTicketTasksResponseBodyData[];
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
+  /**
+   * @remarks
+   * The response message.
+   * 
+   * @example
+   * 无
+   */
   message?: string;
+  /**
+   * @remarks
+   * A list of error parameters.
+   */
   params?: string[];
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * DE803553-8AA9-4B9D-9E4E-A82BC69EDCEE
    */

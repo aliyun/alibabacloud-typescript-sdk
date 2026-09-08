@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListWaitingChatsRequest extends $dara.Model {
   /**
    * @remarks
+   * Instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,6 +14,9 @@ export class ListWaitingChatsRequest extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * Skill group ID list.
+   * 
    * @example
    * ["skillgroup1@ccc-test", "skillgroup2@ccc-test"]
    */

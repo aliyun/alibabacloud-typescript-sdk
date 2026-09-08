@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyCampaignNumbersShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The campaign ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,18 +14,27 @@ export class ModifyCampaignNumbersShrinkRequest extends $dara.Model {
    */
   campaignId?: string;
   /**
+   * @remarks
+   * The ID of the number collection.
+   * 
    * @example
    * 3971876649-****-****-098763a382a09
    */
   instGroupId?: string;
   /**
    * @remarks
+   * The ID of the Cloud Call Center (CCC) instance.
+   * 
    * This parameter is required.
    * 
    * @example
    * ccc-test
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * The list of numbers.
+   */
   numberListShrink?: string;
   static names(): { [key: string]: string } {
     return {

@@ -4,37 +4,57 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListTicketsRequest extends $dara.Model {
   /**
+   * @remarks
+   * Assignee ID.
+   * 
    * @example
    * assignee@cccV2-kmz
    */
   assignee?: string;
   /**
+   * @remarks
+   * Assignee type.
+   * 
    * @example
    * Agent
    */
   assigneeType?: string;
   /**
+   * @remarks
+   * Ticket category ID.
+   * 
    * @example
    * 43c2671b-****-4223-86d0-6bd187905cc8
    */
   categoryId?: string;
   /**
+   * @remarks
+   * Creator.
+   * 
    * @example
    * creator@cccV2-kmz
    */
   creator?: string;
   /**
+   * @remarks
+   * Customer ID. The Cloud Contact Center customer profile ID.
+   * 
    * @example
    * 51e155ce-3747-*****-b402-13c69597b920
    */
   customerId?: string;
   /**
+   * @remarks
+   * End time. Filter by ticket creation time.
+   * 
    * @example
    * 1646928000000
    */
   endTime?: number;
   /**
    * @remarks
+   * Instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -42,12 +62,17 @@ export class ListTicketsRequest extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * A list of contact IDs.
+   * 
    * @example
    * ["job-12******","job-23****"]
    */
   jobIdList?: string;
   /**
    * @remarks
+   * Paging ordinal number. Range: 1-100.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -56,6 +81,8 @@ export class ListTicketsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
+   * Paging size. Range: 1-100.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -63,25 +90,44 @@ export class ListTicketsRequest extends $dara.Model {
    */
   pageSize?: number;
   /**
+   * @remarks
+   * Participant ID.
+   * 
    * @example
    * participant@cccV2-kmz
    */
   participant?: string;
   /**
+   * @remarks
+   * Start time. Filter by ticket creation time.
+   * 
    * @example
    * 1646841600000
    */
   startTime?: number;
   /**
+   * @remarks
+   * Ticket state.
+   * 
    * @example
    * Processing
    */
   state?: string;
   /**
+   * @remarks
+   * Ticket ID.
+   * 
    * @example
    * 5491d3b4-14ee-4341-b5f1-db2c78beddeb
    */
   ticketId?: string;
+  /**
+   * @remarks
+   * Ticket title.
+   * 
+   * @example
+   * 标题
+   */
   title?: string;
   static names(): { [key: string]: string } {
     return {

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetTurnCredentialsRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,6 +14,9 @@ export class GetTurnCredentialsRequest extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The ID of the agent. This parameter is optional. If you do not specify this parameter, the agent mapped to the current RAM user is used by default.
+   * 
    * @example
    * agent@ccc-test
    */

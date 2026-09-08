@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListPhoneNumbersRequest extends $dara.Model {
   /**
+   * @remarks
+   * Indicates whether the number is active. This parameter is optional. The default value is empty, which means no filtering is applied.
+   * 
    * @example
    * true
    */
   active?: boolean;
   /**
    * @remarks
+   * Instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18,6 +23,8 @@ export class ListPhoneNumbersRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * The paging ordinal number, ranging from 1 to 100.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -26,6 +33,8 @@ export class ListPhoneNumbersRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
+   * Page size, ranging from 1 to 100.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -33,11 +42,17 @@ export class ListPhoneNumbersRequest extends $dara.Model {
    */
   pageSize?: number;
   /**
+   * @remarks
+   * Performs fuzzy matching based on the number. This parameter is optional and defaults to empty. An empty value indicates no filtering.
+   * 
    * @example
    * 0833
    */
   searchPattern?: string;
   /**
+   * @remarks
+   * Usage of the number. This parameter is optional. The default value is empty, which means no filtering is applied.
+   * 
    * @example
    * Bidirection
    */

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class RegisterDeviceRequest extends $dara.Model {
   /**
    * @remarks
+   * The custom device ID. No specific format is required.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class RegisterDeviceRequest extends $dara.Model {
   deviceId?: string;
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class RegisterDeviceRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * The password used to authenticate the SIP device during registration. Keep this password secure.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -28,6 +34,9 @@ export class RegisterDeviceRequest extends $dara.Model {
    */
   password?: string;
   /**
+   * @remarks
+   * The agent ID.
+   * 
    * @example
    * agent@ccc-test
    */

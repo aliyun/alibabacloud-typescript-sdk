@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class RemovePhoneNumbersRequest extends $dara.Model {
   /**
+   * @remarks
+   * Specifies whether to force the removal. If a number is associated with a skill group, contact flow, or agent, you must set this parameter to `true` to remove it. The default value is `false`.
+   * 
    * @example
    * true
    */
   force?: boolean;
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18,6 +23,8 @@ export class RemovePhoneNumbersRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * The list of numbers to remove.
+   * 
    * This parameter is required.
    * 
    * @example

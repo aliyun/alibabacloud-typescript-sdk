@@ -4,23 +4,46 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateSchemaResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response code.
+   * 
    * @example
    * OK
    */
   code?: string;
   /**
+   * @remarks
+   * The data.
+   * 
    * @example
    * 1ca2b084-6f0a-454b-9851-29768a9a5832
    */
   data?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
+  /**
+   * @remarks
+   * The response message.
+   * 
+   * @example
+   * 无
+   */
   message?: string;
+  /**
+   * @remarks
+   * The response parameters.
+   */
   params?: string[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 9F766284-F103-4298-8EC5-19F9F9BE5522
    */

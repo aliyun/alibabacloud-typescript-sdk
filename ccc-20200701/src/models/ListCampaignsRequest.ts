@@ -4,17 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListCampaignsRequest extends $dara.Model {
   /**
+   * @remarks
+   * The actual start time of the campaign. This parameter is optional. By default, all time ranges are queried.
+   * 
    * @example
-   * 2021-10-14 20:59:59
+   * 1780329600000
    */
   actualStartTimeFrom?: string;
   /**
+   * @remarks
+   * The actual end time of the campaign. This parameter is optional. By default, all time ranges are queried.
+   * 
    * @example
-   * 2021-10-14 20:59:59
+   * 1781625600000
    */
   actualStartTimeTo?: string;
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -22,12 +30,17 @@ export class ListCampaignsRequest extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * Filters campaigns by predictive dialing campaign name. Fuzzy match is not supported. This parameter is optional and defaults to empty, which indicates no filtering.
+   * 
    * @example
    * test-campaign
    */
   name?: string;
   /**
    * @remarks
+   * The page number. Valid values: 1 to 100.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -36,6 +49,8 @@ export class ListCampaignsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
+   * The page size. Valid values: 1 to 100.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -43,21 +58,33 @@ export class ListCampaignsRequest extends $dara.Model {
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The planned start time of the campaign. This parameter is optional. By default, all time ranges are queried.
+   * 
    * @example
-   * 2021-10-14 00:00:00
+   * 1780243200000
    */
   planedStartTimeFrom?: string;
   /**
+   * @remarks
+   * The planned end time of the campaign. This parameter is optional. By default, all time ranges are queried.
+   * 
    * @example
-   * 2021-10-14 20:59:59
+   * 1781798399000
    */
   planedStartTimeTo?: string;
   /**
+   * @remarks
+   * Filters campaigns by skill group ID. This parameter is optional and defaults to empty, which indicates no filtering.
+   * 
    * @example
    * skillgroup@ccc-test
    */
   queueId?: string;
   /**
+   * @remarks
+   * Filters campaigns by predictive dialing campaign state. This parameter is optional and defaults to empty.
+   * 
    * @example
    * Draft
    */

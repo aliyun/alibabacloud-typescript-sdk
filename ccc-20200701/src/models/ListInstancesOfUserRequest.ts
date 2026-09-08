@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListInstancesOfUserRequest extends $dara.Model {
   /**
    * @remarks
+   * Paging ordinal number, ranging from 1 to 100.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class ListInstancesOfUserRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
+   * Paging size, ranging from 1 to 100.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -4,62 +4,102 @@ import * as $dara from '@darabonba/typescript';
 
 export class SignOutGroupResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * Break status code, which can be either System-defined or Custom-defined. System-defined break codes include: Warm-up (temporary break status after the agent is published but before becoming idle), RingingTimeout (break caused by ringing timeout), and RejectCall (break caused by the agent rejecting a call). There are no restrictions on Custom-defined status codes; customers can define them according to their business needs.
+   * 
    * @example
    * Warm-up
    */
   breakCode?: string;
   /**
+   * @remarks
+   * Device ID, which is the identity of a browser-based Web Real-Time Communication (WebRTC) softphone or a physical phone device. Only one type of device can be registered at a time.
+   * 
    * @example
    * ACC-YUNBS-1.0.10-****
    */
   deviceId?: string;
   /**
+   * @remarks
+   * Agent extension number.
+   * 
    * @example
    * 8032****
    */
   extension?: string;
   /**
+   * @remarks
+   * Time of the last received agent heartbeat, formatted as a UNIX timestamp in milliseconds.
+   * 
    * @example
    * 1609136956378
    */
   heartbeat?: number;
   /**
+   * @remarks
+   * Instance ID.
+   * 
    * @example
    * ccc-test
    */
   instanceId?: string;
   /**
+   * @remarks
+   * Call ID.
+   * 
    * @example
    * job-6538214103685****
    */
   jobId?: string;
   /**
+   * @remarks
+   * The agent\\"s personal phone number.
+   * 
    * @example
    * 1324730****
    */
   mobile?: string;
   /**
+   * @remarks
+   * Indicates whether the agent is in outbound-only mode.
+   * 
    * @example
    * false
    */
   outboundScenario?: boolean;
   /**
+   * @remarks
+   * The UNIX timestamp (in milliseconds) indicating the most recent time the agent was reserved. Being reserved means an incoming call will be assigned to the agent shortly.
+   * 
    * @example
    * 1609136956378
    */
   reserved?: number;
+  /**
+   * @remarks
+   * List of skill group IDs that the agent has signed into.
+   */
   signedSkillGroupIdList?: string[];
   /**
+   * @remarks
+   * Agent ID.
+   * 
    * @example
    * agent@ccc-test
    */
   userId?: string;
   /**
+   * @remarks
+   * Agent status.
+   * 
    * @example
    * BREAK
    */
   userState?: string;
   /**
+   * @remarks
+   * Work mode.
+   * 
    * @example
    * ON_SITE
    */
@@ -114,19 +154,43 @@ export class SignOutGroupResponseBodyData extends $dara.Model {
 
 export class SignOutGroupResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Response code.
+   * 
    * @example
    * 200
    */
   code?: string;
+  /**
+   * @remarks
+   * Data.
+   */
   data?: SignOutGroupResponseBodyData;
   /**
+   * @remarks
+   * HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
+  /**
+   * @remarks
+   * Response message.
+   * 
+   * @example
+   * 无
+   */
   message?: string;
+  /**
+   * @remarks
+   * List of response parameters.
+   */
   params?: string[];
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * EEEE671A-3E24-4A04-81E6-6C4F5B39DF75
    */

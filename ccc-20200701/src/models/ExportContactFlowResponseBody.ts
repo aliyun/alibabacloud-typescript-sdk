@@ -4,23 +4,46 @@ import * as $dara from '@darabonba/typescript';
 
 export class ExportContactFlowResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response code.
+   * 
    * @example
    * OK
    */
   code?: string;
   /**
+   * @remarks
+   * The data.
+   * 
    * @example
    * {}
    */
   flowPackageData?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
+  /**
+   * @remarks
+   * The response message.
+   * 
+   * @example
+   * 无
+   */
   message?: string;
+  /**
+   * @remarks
+   * The response parameters.
+   */
   params?: string[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * DE803553-8AA9-4B9D-9E4E-A82BC69EDCEE
    */

@@ -4,19 +4,46 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteTicketResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response code.
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * The response data.
+   * 
+   * @example
+   * 无
+   */
   data?: any;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
+  /**
+   * @remarks
+   * The response message.
+   * 
+   * @example
+   * 无
+   */
   message?: string;
+  /**
+   * @remarks
+   * A list of error parameters.
+   */
   params?: string[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 2263B273-AC1B-44EB-BA98-87F2322C6780
    */

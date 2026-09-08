@@ -4,23 +4,46 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetChatMediaUrlResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Response code.
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * Response data.
+   * 
+   * @example
+   * 无
+   */
   data?: string;
   /**
+   * @remarks
+   * HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * Response message.
+   * 
    * @example
    * Internal service issue. Detail:.
    */
   message?: string;
+  /**
+   * @remarks
+   * Response parameters.
+   */
   params?: string[];
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 9FBA26B0-462B-4D77-B78F-AF35560DBC71
    */

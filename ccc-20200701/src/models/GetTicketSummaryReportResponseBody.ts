@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetTicketSummaryReportResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * Number of tickets pending processing.
+   * 
    * @example
    * 3
    */
   ticketsAssigned?: string;
   /**
+   * @remarks
+   * Number of tickets created.
+   * 
    * @example
    * 10
    */
   ticketsCreated?: string;
   /**
+   * @remarks
+   * Number of tickets processed.
+   * 
    * @example
    * 5
    */
@@ -45,18 +54,38 @@ export class GetTicketSummaryReportResponseBodyData extends $dara.Model {
 
 export class GetTicketSummaryReportResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Response code.
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * Data.
+   */
   data?: GetTicketSummaryReportResponseBodyData;
   /**
+   * @remarks
+   * HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
+  /**
+   * @remarks
+   * Response message.
+   * 
+   * @example
+   * 无
+   */
   message?: string;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * EAF3C248-E123-441B-A545-B6CD02E98EED
    */

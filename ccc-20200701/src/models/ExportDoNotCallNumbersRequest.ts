@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ExportDoNotCallNumbersRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,11 +14,17 @@ export class ExportDoNotCallNumbersRequest extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * Specifies the scope of the do-not-call numbers. A value of SYSTEM applies to your entire Alibaba Cloud account, while INSTANCE applies only to the current instance. The default value is INSTANCE.
+   * 
    * @example
    * INSTANCE
    */
   scope?: string;
   /**
+   * @remarks
+   * The keyword for a fuzzy search of phone numbers or remarks. If this parameter is left empty, no keyword-based filtering is applied.
+   * 
    * @example
    * RemarkA
    */

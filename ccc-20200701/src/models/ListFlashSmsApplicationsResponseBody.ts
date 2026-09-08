@@ -4,22 +4,41 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListFlashSmsApplicationsResponseBodyDataList extends $dara.Model {
   /**
+   * @remarks
+   * Registration ID.
+   * 
    * @example
    * 71b396fa-***********-bd80e070b7c0
    */
   applicationId?: string;
   /**
+   * @remarks
+   * Instance ID.
+   * 
    * @example
    * ccc-test
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * Configuration name.
+   * 
+   * @example
+   * 闪信配置
+   */
   name?: string;
   /**
+   * @remarks
+   * Flash SMS provider ID.
+   * 
    * @example
    * Uincall
    */
   providerId?: string;
   /**
+   * @remarks
+   * Configuration content.
+   * 
    * @example
    * {"user":"600******_dev","pwd":"85abf3**********f494e","account":"6004******"}
    */
@@ -54,18 +73,31 @@ export class ListFlashSmsApplicationsResponseBodyDataList extends $dara.Model {
 }
 
 export class ListFlashSmsApplicationsResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * List of flash SMS configurations.
+   */
   list?: ListFlashSmsApplicationsResponseBodyDataList[];
   /**
+   * @remarks
+   * Page number. Valid values: 1 to 100.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * Page size. Valid values: 1 to 100.
+   * 
    * @example
    * 100
    */
   pageSize?: number;
   /**
+   * @remarks
+   * Total count.
+   * 
    * @example
    * 1
    */
@@ -102,19 +134,43 @@ export class ListFlashSmsApplicationsResponseBodyData extends $dara.Model {
 
 export class ListFlashSmsApplicationsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Response code.
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * Data.
+   */
   data?: ListFlashSmsApplicationsResponseBodyData;
   /**
+   * @remarks
+   * HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
+  /**
+   * @remarks
+   * Response message.
+   * 
+   * @example
+   * 无
+   */
   message?: string;
+  /**
+   * @remarks
+   * List of error parameters.
+   */
   params?: string[];
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 7BEEA660-A45A-45E3-98CC-AFC65E715C23
    */

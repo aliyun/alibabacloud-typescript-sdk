@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListLegacyAgentEventLogsRequest extends $dara.Model {
   /**
+   * @remarks
+   * Filter by agent ID. This parameter is optional and defaults to empty. An empty value indicates no filtering.
+   * 
    * @example
    * agent@ccc-test
    */
   agentId?: string;
   /**
    * @remarks
+   * End time, in Unix timestamp format, in milliseconds.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18,6 +23,8 @@ export class ListLegacyAgentEventLogsRequest extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
+   * Instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -26,6 +33,8 @@ export class ListLegacyAgentEventLogsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * Page number, ranging from 1 to 1000.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -34,6 +43,8 @@ export class ListLegacyAgentEventLogsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
+   * Page size, ranging from 1 to 1000.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -42,6 +53,8 @@ export class ListLegacyAgentEventLogsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
+   * Start Time, in Unix timestamp format, in milliseconds.
+   * 
    * This parameter is required.
    * 
    * @example

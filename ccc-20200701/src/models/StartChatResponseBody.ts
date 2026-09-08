@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class StartChatResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the chat session.
+   * 
    * @example
    * $23086709$EAUNIT
    */
   chatConversationId?: string;
   /**
+   * @remarks
+   * The job ID.
+   * 
    * @example
    * chat-525523618219921408
    */
@@ -38,18 +44,38 @@ export class StartChatResponseBodyData extends $dara.Model {
 
 export class StartChatResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response code.
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * The response data.
+   */
   data?: StartChatResponseBodyData;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
+  /**
+   * @remarks
+   * The response message.
+   * 
+   * @example
+   * 无
+   */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * EEEE671A-3E24-4A04-81E6-6C4F5B39DF75
    */

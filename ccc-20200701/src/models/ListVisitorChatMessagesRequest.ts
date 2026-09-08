@@ -4,46 +4,79 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListVisitorChatMessagesRequest extends $dara.Model {
   /**
+   * @remarks
+   * Web business channel ID.
+   * 
    * @example
    * cf584733-***-***-9699-cb77aa3b7aa6
    */
   accessChannelId?: string;
   /**
+   * @remarks
+   * Web business channel token.
+   * 
    * @example
    * 9XYGTGWtq2wXzVikKuip_zeVGl6O4VJ-l-*-*-JPofhap4P7fAevuE=
    */
   accessToken?: string;
   /**
+   * @remarks
+   * End time, in UNIX timestamp format. Unit: milliseconds.
+   * 
    * @example
    * 1650316799000
    */
   endTime?: string;
   /**
+   * @remarks
+   * Cloud Contact Center instance.
+   * 
    * @example
    * ccc-test
    */
   instanceId?: string;
   /**
+   * @remarks
+   * Token for the next page. Do not include this parameter in your first request. The service returns it in the response. Include it in subsequent requests.
+   * 
    * @example
    * 1737193352340::7463707254.EAUNIT
    */
   nextPageToken?: string;
   /**
+   * @remarks
+   * Number of records per page.
+   * 
    * @example
    * 100
    */
   pageSize?: number;
   /**
+   * @remarks
+   * Sorting order. Default is descending.
+   * 
+   * Valid values:
+   * 
+   * ASC: ascending.
+   * 
+   * DESC: descending.
+   * 
    * @example
    * DESC
    */
   sortOrder?: string;
   /**
+   * @remarks
+   * Start time, in UNIX timestamp format. Unit: milliseconds.
+   * 
    * @example
    * 1647325450000
    */
   startTime?: number;
   /**
+   * @remarks
+   * Visitor ID.
+   * 
    * @example
    * fcd020fe-****-1a272a174a7d
    */

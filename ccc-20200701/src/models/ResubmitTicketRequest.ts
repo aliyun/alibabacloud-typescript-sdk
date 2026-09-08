@@ -3,9 +3,18 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ResubmitTicketRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The handling comment.
+   * 
+   * @example
+   * 信息已补充
+   */
   comment?: string;
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -14,6 +23,8 @@ export class ResubmitTicketRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * The ticket ID.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class EndConferenceRequest extends $dara.Model {
   /**
    * @remarks
+   * Instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class EndConferenceRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * Call ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,6 +24,9 @@ export class EndConferenceRequest extends $dara.Model {
    */
   jobId?: string;
   /**
+   * @remarks
+   * Agent ID to leave the meeting. Optional. If not specified, defaults to the agent mapped to the current RAM account.
+   * 
    * @example
    * agent@ccc-test
    */

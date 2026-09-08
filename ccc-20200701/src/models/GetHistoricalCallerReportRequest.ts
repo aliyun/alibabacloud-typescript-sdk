@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetHistoricalCallerReportRequest extends $dara.Model {
   /**
    * @remarks
+   * Calling number.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class GetHistoricalCallerReportRequest extends $dara.Model {
   callingNumber?: string;
   /**
    * @remarks
+   * Instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class GetHistoricalCallerReportRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * Start time of the query, formatted as a UNIX timestamp in milliseconds.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,6 +35,8 @@ export class GetHistoricalCallerReportRequest extends $dara.Model {
   startTime?: number;
   /**
    * @remarks
+   * End time of the query, formatted as a UNIX timestamp in milliseconds.
+   * 
    * This parameter is required.
    * 
    * @example

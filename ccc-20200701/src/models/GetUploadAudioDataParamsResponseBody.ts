@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetUploadAudioDataParamsResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * Parameters related to offline quality inspection audio files.
+   */
   paramsStr?: string;
   static names(): { [key: string]: string } {
     return {
@@ -27,18 +31,38 @@ export class GetUploadAudioDataParamsResponseBodyData extends $dara.Model {
 
 export class GetUploadAudioDataParamsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Response code.
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * Data.
+   */
   data?: GetUploadAudioDataParamsResponseBodyData;
   /**
+   * @remarks
+   * HTTP status code
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
+  /**
+   * @remarks
+   * Response message.
+   * 
+   * @example
+   * 无
+   */
   message?: string;
   /**
+   * @remarks
+   * Request ID, which can be used for LogSearch of the API.
+   * 
    * @example
    * 03C67DAD-EB26-41D8-949D-9B0C470FB716
    */

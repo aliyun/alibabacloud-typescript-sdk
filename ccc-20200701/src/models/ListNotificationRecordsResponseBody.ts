@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListNotificationRecordsResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The notification content.
+   * 
    * @example
    * {
    * 	"agentId": "agent@ccc-test",
@@ -21,16 +24,25 @@ export class ListNotificationRecordsResponseBodyData extends $dara.Model {
    */
   content?: string;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * ccc-test
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The notification key.
+   * 
    * @example
    * job-468a63a2-****-****-****-b1ecf726d4be
    */
   notificationKey?: string;
   /**
+   * @remarks
+   * The message type.
+   * 
    * @example
    * Dialing
    */
@@ -64,19 +76,43 @@ export class ListNotificationRecordsResponseBodyData extends $dara.Model {
 
 export class ListNotificationRecordsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response code.
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * Data.
+   */
   data?: ListNotificationRecordsResponseBodyData[];
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
+  /**
+   * @remarks
+   * The response message.
+   * 
+   * @example
+   * 无
+   */
   message?: string;
+  /**
+   * @remarks
+   * A list of invalid parameters.
+   */
   params?: string[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 0630E5DF-CEB0-445B-8626-D5C7481181C3
    */

@@ -3,18 +3,34 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListSkillLevelsOfUserResponseBodyDataList extends $dara.Model {
+  /**
+   * @remarks
+   * Media type. The default value is AUDIO. Other optional values include CHAT and VIDEO.
+   * 
+   * @example
+   * VIDEO
+   */
   mediaType?: string;
   /**
+   * @remarks
+   * Skill group ID.
+   * 
    * @example
    * skillgroup@ccc-test
    */
   skillGroupId?: string;
   /**
+   * @remarks
+   * Skill group name.
+   * 
    * @example
    * skillgroup
    */
   skillGroupName?: string;
   /**
+   * @remarks
+   * Skill level, with values ranging from 1 to 10. A smaller numeric value indicates stronger business capability and the ability to handle more calls per unit time.
+   * 
    * @example
    * 5
    */
@@ -47,18 +63,31 @@ export class ListSkillLevelsOfUserResponseBodyDataList extends $dara.Model {
 }
 
 export class ListSkillLevelsOfUserResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * List of skill group levels.
+   */
   list?: ListSkillLevelsOfUserResponseBodyDataList[];
   /**
+   * @remarks
+   * Page number, ranging from 1 to 100.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * Page size, ranging from 1 to 100.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * Total count.
+   * 
    * @example
    * 10
    */
@@ -95,18 +124,38 @@ export class ListSkillLevelsOfUserResponseBodyData extends $dara.Model {
 
 export class ListSkillLevelsOfUserResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Response code.
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * Data.
+   */
   data?: ListSkillLevelsOfUserResponseBodyData;
   /**
+   * @remarks
+   * HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
+  /**
+   * @remarks
+   * Response message.
+   * 
+   * @example
+   * 无
+   */
   message?: string;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * EEEE671A-3E24-4A04-81E6-6C4F5B39DF75
    */

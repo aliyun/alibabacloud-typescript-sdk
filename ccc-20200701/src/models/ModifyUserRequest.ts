@@ -3,16 +3,42 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ModifyUserRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Agent profile picture URL.
+   * 
+   * @example
+   * http://abc.com/sam.jpb
+   */
   avatarUrl?: string;
   /**
+   * @remarks
+   * Agent ID (employee ID).
+   * 
    * @example
    * 1001
    */
   displayId?: string;
+  /**
+   * @remarks
+   * User\\"s full name.
+   * 
+   * @example
+   * 张三疯
+   */
   displayName?: string;
+  /**
+   * @remarks
+   * Whether to force the modification.
+   * 
+   * @example
+   * true
+   */
   force?: boolean;
   /**
    * @remarks
+   * Instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,18 +46,33 @@ export class ModifyUserRequest extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * Agent\\"s personal phone number.
+   * 
    * @example
    * 1382114****
    */
   mobile?: string;
+  /**
+   * @remarks
+   * Agent nickname
+   * 
+   * @example
+   * 老王
+   */
   nickname?: string;
   /**
+   * @remarks
+   * Role ID, in the format: role\\@instance ID.
+   * 
    * @example
    * Admin@ccc-test
    */
   roleId?: string;
   /**
    * @remarks
+   * Agent ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -40,6 +81,8 @@ export class ModifyUserRequest extends $dara.Model {
   userId?: string;
   /**
    * @remarks
+   * Work mode.
+   * 
    * This parameter is required.
    * 
    * @example

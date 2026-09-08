@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class PollUserStatusRequest extends $dara.Model {
   /**
+   * @remarks
+   * The Device ID. This parameter is meaningless and can be filled with any value.
+   * 
    * @example
    * device
    */
   deviceId?: string;
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -17,6 +22,9 @@ export class PollUserStatusRequest extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The agent ID.
+   * 
    * @example
    * agent@ccc-test
    */

@@ -4,71 +4,113 @@ import * as $dara from '@darabonba/typescript';
 
 export class InitiateAttendedTransferResponseBodyDataCallContextChannelContexts extends $dara.Model {
   /**
+   * @remarks
+   * The call type of the call channel.
+   * 
    * @example
    * OUTBOUND
    */
   callType?: string;
   /**
+   * @remarks
+   * Channel flags.
+   * 
    * @example
    * MONITORING
    */
   channelFlags?: string;
   /**
+   * @remarks
+   * Channel ID.
+   * 
    * @example
    * ch:user:139xxxx0501->80326034:1609138902226:job-6538214103685****
    */
   channelId?: string;
   /**
+   * @remarks
+   * The status of the call channel.
+   * 
    * @example
    * ANSWERED
    */
   channelState?: string;
   /**
+   * @remarks
+   * The callee of the call channel.
+   * 
    * @example
    * 1390501****
    */
   destination?: string;
   /**
+   * @remarks
+   * Records the order in which this channel was created during the call.
+   * 
    * @example
    * 10
    */
   index?: number;
   /**
+   * @remarks
+   * The call ID.
+   * 
    * @example
    * job-6538214103685****
    */
   jobId?: string;
   /**
+   * @remarks
+   * The originator of the channel.
+   * 
    * @example
    * 0830019****
    */
   originator?: string;
   /**
+   * @remarks
+   * The party that initiated the release of the call channel, indicating who hung up first.
+   * 
    * @example
    * 1390501****
    */
   releaseInitiator?: string;
   /**
+   * @remarks
+   * The hang-up reason for the voice channel, indicating why the current voice channel was disconnected. The value comes from the response codes defined in the SIP protocol. Customers should refer to the SIP protocol to analyze the hang-up reason.
+   * 
    * @example
    * 404 - No destination
    */
   releaseReason?: string;
   /**
+   * @remarks
+   * The skill group ID associated with the voice channel. In inbound scenarios, the associated skill group ID is determined by the agent transfer module configured in the IVR. In outbound scenarios, the associated skill group ID is the first skill group the agent signed into.
+   * 
    * @example
    * skillgroup@ccc-test
    */
   skillGroupId?: string;
   /**
+   * @remarks
+   * The UNIX timestamp of the most recent status change of the voice channel, in milliseconds.
+   * 
    * @example
    * 1609138903315
    */
   timestamp?: number;
   /**
+   * @remarks
+   * The extension number of the agent associated with the channel.
+   * 
    * @example
    * 8032****
    */
   userExtension?: string;
   /**
+   * @remarks
+   * The agent ID associated with the channel. This field is empty for a Customer channel.
+   * 
    * @example
    * agent@ccc-test
    */
@@ -122,17 +164,30 @@ export class InitiateAttendedTransferResponseBodyDataCallContextChannelContexts 
 
 export class InitiateAttendedTransferResponseBodyDataCallContext extends $dara.Model {
   /**
+   * @remarks
+   * Call type.
+   * 
    * @example
    * OUTBOUND
    */
   callType?: string;
+  /**
+   * @remarks
+   * List of call channels.
+   */
   channelContexts?: InitiateAttendedTransferResponseBodyDataCallContextChannelContexts[];
   /**
+   * @remarks
+   * Instance ID.
+   * 
    * @example
    * ccc-test
    */
   instanceId?: string;
   /**
+   * @remarks
+   * Call ID.
+   * 
    * @example
    * job-6538214103685****
    */
@@ -169,62 +224,102 @@ export class InitiateAttendedTransferResponseBodyDataCallContext extends $dara.M
 
 export class InitiateAttendedTransferResponseBodyDataUserContext extends $dara.Model {
   /**
+   * @remarks
+   * Break status code, which can be either System-defined or Custom-defined. System-defined break codes include: Warm-up (temporary break state after an agent is published and before becoming idle), RingingTimeout (break caused by agent ringing timeout), and RejectCall (break caused by agent call rejection). There are no restrictions on Custom-defined status codes; customers can define them as needed for their business.
+   * 
    * @example
    * Warm-up
    */
   breakCode?: string;
   /**
+   * @remarks
+   * Device ID, the identity ID of a browser-based Web Real-Time Communication (WebRTC) softphone or a physical phone device. Only one type of device can be registered at a time.
+   * 
    * @example
    * ACC-YUNBS-1.0.10-****
    */
   deviceId?: string;
   /**
+   * @remarks
+   * The agent\\"s extension number.
+   * 
    * @example
    * 8032****
    */
   extension?: string;
   /**
+   * @remarks
+   * The time when the last heartbeat was received from the agent, in UNIX timestamp format with millisecond precision.
+   * 
    * @example
    * 1609136956378
    */
   heartbeat?: number;
   /**
+   * @remarks
+   * Instance ID.
+   * 
    * @example
    * ccc-test
    */
   instanceId?: string;
   /**
+   * @remarks
+   * Call ID.
+   * 
    * @example
    * job-6538214103685****
    */
   jobId?: string;
   /**
+   * @remarks
+   * The agent\\"s personal phone number.
+   * 
    * @example
    * 1324730****
    */
   mobile?: string;
   /**
+   * @remarks
+   * Indicates whether the agent is in outbound-only mode.
+   * 
    * @example
    * false
    */
   outboundScenario?: boolean;
   /**
+   * @remarks
+   * The most recent time when the agent was reserved. Being reserved means an incoming call will be assigned to the agent shortly. The value is formatted as a UNIX timestamp in milliseconds.
+   * 
    * @example
    * 1609136956378
    */
   reserved?: number;
+  /**
+   * @remarks
+   * List of skill group IDs that the agent has signed into.
+   */
   signedSkillGroupIdList?: string[];
   /**
+   * @remarks
+   * Agent ID.
+   * 
    * @example
    * agent@ccc-test
    */
   userId?: string;
   /**
+   * @remarks
+   * Agent status.
+   * 
    * @example
    * TALKING
    */
   userState?: string;
   /**
+   * @remarks
+   * Work mode.
+   * 
    * @example
    * ON_SITE
    */
@@ -278,12 +373,23 @@ export class InitiateAttendedTransferResponseBodyDataUserContext extends $dara.M
 }
 
 export class InitiateAttendedTransferResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * Call context environment.
+   */
   callContext?: InitiateAttendedTransferResponseBodyDataCallContext;
   /**
+   * @remarks
+   * System auto increment ID. Customers do not need to concern themselves with this field.
+   * 
    * @example
    * 103655
    */
   contextId?: number;
+  /**
+   * @remarks
+   * Agent context environment.
+   */
   userContext?: InitiateAttendedTransferResponseBodyDataUserContext;
   static names(): { [key: string]: string } {
     return {
@@ -318,19 +424,43 @@ export class InitiateAttendedTransferResponseBodyData extends $dara.Model {
 
 export class InitiateAttendedTransferResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Response code.
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * Data.
+   */
   data?: InitiateAttendedTransferResponseBodyData;
   /**
+   * @remarks
+   * HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
+  /**
+   * @remarks
+   * Response message.
+   * 
+   * @example
+   * 无
+   */
   message?: string;
+  /**
+   * @remarks
+   * List of response parameters.
+   */
   params?: string[];
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * EEEE671A-3E24-4A04-81E6-6C4F5B39DF75
    */

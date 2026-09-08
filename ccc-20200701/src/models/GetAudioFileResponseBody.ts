@@ -4,32 +4,57 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetAudioFileResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * Audio file name.
+   * 
    * @example
    * test-file.wav
    */
   audioFileName?: string;
   /**
+   * @remarks
+   * Audio resource ID, the UUID of the audio file.
+   * 
    * @example
    * c1a06b46-302a-4c6e-928b-a43c0df485cf
    */
   audioResourceId?: string;
   /**
+   * @remarks
+   * Creation Time of the audio resource.
+   * 
    * @example
    * 2021-07-14 10:48:43.0
    */
   createdTime?: string;
   /**
+   * @remarks
+   * Instance ID.
+   * 
    * @example
    * ccc-test
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * Display name of the audio.
+   * 
+   * @example
+   * 欢迎语
+   */
   name?: string;
   /**
+   * @remarks
+   * Key of the audio resource file in OSS.
+   * 
    * @example
    * ccc-test/test-file.wav
    */
   ossFileKey?: string;
   /**
+   * @remarks
+   * Last Updated At of the audio resource.
+   * 
    * @example
    * 2021-07-14 10:48:43.0
    */
@@ -69,18 +94,38 @@ export class GetAudioFileResponseBodyData extends $dara.Model {
 
 export class GetAudioFileResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Response code.
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * Audio file data.
+   */
   data?: GetAudioFileResponseBodyData;
   /**
+   * @remarks
+   * HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
+  /**
+   * @remarks
+   * Response message.
+   * 
+   * @example
+   * 无
+   */
   message?: string;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * EEE26562-D921-5CB2-AE49-E4C45A42D432
    */

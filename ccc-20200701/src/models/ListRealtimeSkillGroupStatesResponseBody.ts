@@ -3,7 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListRealtimeSkillGroupStatesResponseBodyDataListBreakCodeDetailList extends $dara.Model {
+  /**
+   * @remarks
+   * Break status code
+   * 
+   * @example
+   * 客户自定义参数，比如午餐、会议等
+   */
   breakCode?: string;
+  /**
+   * @remarks
+   * The number of times the break status occurred
+   * 
+   * @example
+   * 1
+   */
   count?: number;
   static names(): { [key: string]: string } {
     return {
@@ -29,59 +43,103 @@ export class ListRealtimeSkillGroupStatesResponseBodyDataListBreakCodeDetailList
 }
 
 export class ListRealtimeSkillGroupStatesResponseBodyDataList extends $dara.Model {
+  /**
+   * @remarks
+   * Break statistics.
+   */
   breakCodeDetailList?: ListRealtimeSkillGroupStatesResponseBodyDataListBreakCodeDetailList[];
   /**
+   * @remarks
+   * Number of agents currently on break.
+   * 
    * @example
    * 0
    */
   breakingAgents?: number;
   /**
+   * @remarks
+   * Instance ID.
+   * 
    * @example
    * ccc-test
    */
   instanceId?: string;
   /**
+   * @remarks
+   * Number of agents currently logged in.
+   * 
    * @example
    * 2
    */
   loggedInAgents?: number;
   /**
+   * @remarks
+   * Current maximum queue waiting time, in seconds.
+   * 
    * @example
    * 0
    */
   longestWaitingTime?: number;
   /**
+   * @remarks
+   * Number of agents in outbound-only mode and in an idle status.
+   * 
    * @example
    * 0
    */
   outboundScenarioReadyAgents?: number;
   /**
+   * @remarks
+   * Number of agents currently idle.
+   * 
    * @example
    * 2
    */
   readyAgents?: number;
   /**
+   * @remarks
+   * Skill group ID.
+   * 
    * @example
    * skillgroup@ccc-test
    */
   skillGroupId?: string;
   /**
+   * @remarks
+   * Skill group name.
+   * 
    * @example
    * skillgroup
    */
   skillGroupName?: string;
   /**
+   * @remarks
+   * Number of agents currently on a call.
+   * 
    * @example
    * 0
    */
   talkingAgents?: number;
+  /**
+   * @remarks
+   * Total number of agents.
+   * 
+   * @example
+   * 12
+   */
   totalAgents?: number;
   /**
+   * @remarks
+   * Number of calls currently in the queue.
+   * 
    * @example
    * 0
    */
   waitingCalls?: number;
   /**
+   * @remarks
+   * Number of agents currently in post-processing.
+   * 
    * @example
    * 0
    */
@@ -135,18 +193,31 @@ export class ListRealtimeSkillGroupStatesResponseBodyDataList extends $dara.Mode
 }
 
 export class ListRealtimeSkillGroupStatesResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * List of real-time skill group status data.
+   */
   list?: ListRealtimeSkillGroupStatesResponseBodyDataList[];
   /**
+   * @remarks
+   * Page number, ranging from 1 to 100.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * Page size, ranging from 1 to 100.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * Total count.
+   * 
    * @example
    * 2
    */
@@ -183,18 +254,38 @@ export class ListRealtimeSkillGroupStatesResponseBodyData extends $dara.Model {
 
 export class ListRealtimeSkillGroupStatesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Response code.
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * Data.
+   */
   data?: ListRealtimeSkillGroupStatesResponseBodyData;
   /**
+   * @remarks
+   * HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
+  /**
+   * @remarks
+   * Response message.
+   * 
+   * @example
+   * 无
+   */
   message?: string;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 26A34338-5CD9-4C95-A7A6-5BDCE76C6B94
    */

@@ -4,22 +4,38 @@ import * as $dara from '@darabonba/typescript';
 
 export class EnableSchemaPropertyResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Response code
+   * 
    * @example
    * OK
    */
   code?: string;
   /**
+   * @remarks
+   * HTTP status code
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * Response message
+   * 
    * @example
    * The operation is not allowed. User state (READY) does not meet expectations (OFFLINE).
    */
   message?: string;
+  /**
+   * @remarks
+   * Response parameters.
+   */
   params?: string[];
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 2778FA12-EDD6-42AA-9B15-AF855072E5E5
    */

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetTicketTemplateRequest extends $dara.Model {
   /**
    * @remarks
+   * Instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,11 +14,17 @@ export class GetTicketTemplateRequest extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * Template ID.
+   * 
    * @example
    * 4ca2e2-c8d19b82c-d7ce393ac8197d3ab
    */
   templateId?: string;
   /**
+   * @remarks
+   * Template version.
+   * 
    * @example
    * 1703517780627
    */

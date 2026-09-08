@@ -4,18 +4,41 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListUsersResponseBodyDataListPersonalOutboundNumberList extends $dara.Model {
   /**
+   * @remarks
+   * Whether the number is active.
+   * 
    * @example
    * true
    */
   active?: boolean;
+  /**
+   * @remarks
+   * City where the number is registered.
+   * 
+   * @example
+   * 乐山
+   */
   city?: string;
   /**
+   * @remarks
+   * Number.
+   * 
    * @example
    * 0830011****
    */
   number?: string;
+  /**
+   * @remarks
+   * The province of the phone number\\"s registration location.
+   * 
+   * @example
+   * 四川
+   */
   province?: string;
   /**
+   * @remarks
+   * Usage of the number.
+   * 
    * @example
    * Bidirection
    */
@@ -51,16 +74,25 @@ export class ListUsersResponseBodyDataListPersonalOutboundNumberList extends $da
 
 export class ListUsersResponseBodyDataListSkillLevelList extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the skill group.
+   * 
    * @example
    * skillgroup@ccc-test
    */
   skillGroupId?: string;
   /**
+   * @remarks
+   * The name of the skill group.
+   * 
    * @example
    * skillgroup
    */
   skillGroupName?: string;
   /**
+   * @remarks
+   * The skill level.
+   * 
    * @example
    * 5
    */
@@ -92,75 +124,136 @@ export class ListUsersResponseBodyDataListSkillLevelList extends $dara.Model {
 
 export class ListUsersResponseBodyDataList extends $dara.Model {
   /**
+   * @remarks
+   * SIP phone extension number. If the agent has registered a SIP phone, this parameter is the extension number of the SIP phone device.
+   * 
    * @example
    * 8033****
    */
   deviceExt?: string;
   /**
+   * @remarks
+   * Device ID, which is the identity of a browser-based Web Real-Time Communication (WebRTC) softphone or a physical phone device. Only one type of device can be registered at a time.
+   * 
    * @example
    * ACC-YUNBS-1.0.10-****
    */
   deviceId?: string;
   /**
+   * @remarks
+   * The status of the SIP phone device. If no SIP phone is registered, the status is UNREGISTERED (Unregistered). If a SIP phone is registered but offline, the status is OFFLINE (Offline). If a SIP phone is registered and online, the status is ONLINE (Online).
+   * 
    * @example
    * OFFLINE
    */
   deviceState?: string;
   /**
+   * @remarks
+   * The agent\\"s employee ID.
+   * 
    * @example
    * 1001
    */
   displayId?: string;
+  /**
+   * @remarks
+   * Agent display name.
+   * 
+   * @example
+   * 坐席小王
+   */
   displayName?: string;
   /**
+   * @remarks
+   * Mailbox.
+   * 
    * @example
    * username@example.com
    */
   email?: string;
   /**
+   * @remarks
+   * The landline extension number.
+   * 
    * @example
    * 8031****
    */
   extension?: string;
   /**
+   * @remarks
+   * Agent logon name.
+   * 
    * @example
    * agent
    */
   loginName?: string;
   /**
+   * @remarks
+   * The agent\\"s personal phone number.
+   * 
    * @example
    * 1382114****
    */
   mobile?: string;
+  /**
+   * @remarks
+   * List of personal outbound numbers for the agent.
+   */
   personalOutboundNumberList?: ListUsersResponseBodyDataListPersonalOutboundNumberList[];
+  /**
+   * @remarks
+   * Indicates whether the RAM account mapped to the agent is a RAM root account.
+   */
   primary?: boolean;
   /**
+   * @remarks
+   * Indicates whether the RAM account mapped to the agent is a RAM primary account.
+   * 
    * @example
-   * false
+   * 已弃用，请使用Primary代替此参数。
    */
   primaryAccount?: boolean;
   /**
+   * @remarks
+   * The UID of the Resource Access Management (RAM) user associated with the agent.
+   * 
    * @example
    * 21234502254620****
    */
   ramId?: number;
   /**
+   * @remarks
+   * The role ID, in the format: role\\@instance ID.
+   * 
    * @example
    * Admin@ccc-test
    */
   roleId?: string;
   /**
+   * @remarks
+   * The role name.
+   * 
    * @example
    * Admin
    */
   roleName?: string;
+  /**
+   * @remarks
+   * The list of skill group levels associated with the agent.
+   */
   skillLevelList?: ListUsersResponseBodyDataListSkillLevelList[];
   /**
+   * @remarks
+   * Agent ID.
+   * 
    * @example
    * agent@ccc-test
    */
   userId?: string;
   /**
+   * @remarks
+   * Work mode.
+   * 
    * @example
    * ON_SITE
    */
@@ -227,18 +320,31 @@ export class ListUsersResponseBodyDataList extends $dara.Model {
 }
 
 export class ListUsersResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * Agent list.
+   */
   list?: ListUsersResponseBodyDataList[];
   /**
+   * @remarks
+   * Page number, ranging from 1 to 100.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * Page size, ranging from 1 to 100.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * Total count.
+   * 
    * @example
    * 1
    */
@@ -275,19 +381,43 @@ export class ListUsersResponseBodyData extends $dara.Model {
 
 export class ListUsersResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Response code.
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * Data.
+   */
   data?: ListUsersResponseBodyData;
   /**
+   * @remarks
+   * HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
+  /**
+   * @remarks
+   * Response message.
+   * 
+   * @example
+   * 无
+   */
   message?: string;
+  /**
+   * @remarks
+   * Response parameters.
+   */
   params?: string[];
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * EEEE671A-3E24-4A04-81E6-6C4F5B39DF75
    */

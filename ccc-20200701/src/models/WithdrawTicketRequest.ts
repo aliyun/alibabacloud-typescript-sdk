@@ -5,11 +5,18 @@ import * as $dara from '@darabonba/typescript';
 export class WithdrawTicketRequest extends $dara.Model {
   /**
    * @remarks
+   * The comments.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * 撤回，补充信息
    */
   comment?: string;
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18,6 +25,8 @@ export class WithdrawTicketRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * The ticket ID.
+   * 
    * This parameter is required.
    * 
    * @example

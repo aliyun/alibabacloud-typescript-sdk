@@ -4,22 +4,38 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteSchemaPropertyResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response code.
+   * 
    * @example
    * OK
    */
   code?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * User 244715989906081477 does not exist in instance worldfirst01.
    */
   message?: string;
+  /**
+   * @remarks
+   * The information about error parameters.
+   */
   params?: string[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 7BEEA660-A45A-45E3-98CC-AFC65E715C23
    */

@@ -4,99 +4,209 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListLegacyAgentStatusLogsResponseBodyDataList extends $dara.Model {
   /**
+   * @remarks
+   * Indicates whether the agent hung up the call.
+   * 
    * @example
    * false
    */
   agentDropCall?: string;
   /**
+   * @remarks
+   * Agent ID.
+   * 
    * @example
    * agent@ccc-test
    */
   agentNo?: string;
+  /**
+   * @remarks
+   * Hang-up reason.
+   * 
+   * @example
+   * 无
+   */
   aliHangupCause?: string;
+  /**
+   * @remarks
+   * Call direction.
+   * 
+   * @example
+   * 内部
+   */
   callDir?: string;
   /**
+   * @remarks
+   * Call ID.
+   * 
    * @example
    * 454326****
    */
   callId?: string;
+  /**
+   * @remarks
+   * Call type.
+   * 
+   * @example
+   * 呼入
+   */
   callType?: string;
   /**
+   * @remarks
+   * The callee number.
+   * 
    * @example
    * 1312121****
    */
   calleeId?: string;
   /**
+   * @remarks
+   * Calling number.
+   * 
    * @example
    * 08337676****
    */
   callerId?: string;
   /**
+   * @remarks
+   * Call channel ID.
+   * 
    * @example
    * 487326****
    */
   connId?: string;
+  /**
+   * @remarks
+   * Custom extension field.
+   * 
+   * @example
+   * 无
+   */
   extend1?: string;
+  /**
+   * @remarks
+   * Custom extension field.
+   * 
+   * @example
+   * 无
+   */
   extend2?: string;
+  /**
+   * @remarks
+   * Custom extension field.
+   * 
+   * @example
+   * 无
+   */
   extend3?: string;
+  /**
+   * @remarks
+   * Custom extension field.
+   * 
+   * @example
+   * 无
+   */
   extend4?: string;
   /**
+   * @remarks
+   * Skill group ID.
+   * 
    * @example
    * skillgroup@ccc-test
    */
   groupNo?: string;
   /**
+   * @remarks
+   * The listener phone number.
+   * 
    * @example
    * 8032****
    */
   monitedAgentNo?: string;
   /**
+   * @remarks
+   * The monitored agent phone number.
+   * 
    * @example
    * 8012****
    */
   monitedAgentPhoneNo?: string;
   /**
+   * @remarks
+   * Indicates whether the agent is in outbound-only mode.
+   * 
    * @example
    * false
    */
   outboundScenario?: boolean;
   /**
+   * @remarks
+   * Agent extension number.
+   * 
    * @example
    * 8012****
    */
   phoneNo?: string;
   /**
+   * @remarks
+   * The time when the statistics were collected.
+   * 
    * @example
    * 2021-12-03T10:15:30
    */
   statisticDate?: string;
   /**
+   * @remarks
+   * Duration of the status, in seconds.
+   * 
    * @example
    * 3
    */
   statisticTime?: number;
+  /**
+   * @remarks
+   * Agent status.
+   * 
+   * @example
+   * 振铃
+   */
   status?: string;
   /**
+   * @remarks
+   * Skill group ID.
+   * 
    * @example
    * skillgroup@ccc-test
    */
   targetRequest?: string;
   /**
+   * @remarks
+   * Skill group ID.
+   * 
    * @example
    * skillgroup@ccc-test
    */
   targetSelect?: string;
   /**
+   * @remarks
+   * Tenant ID.
+   * 
    * @example
    * acc6736
    */
   tenantId?: string;
   /**
+   * @remarks
+   * Transfer number.
+   * 
    * @example
    * 07551231****
    */
   transferNo?: string;
   /**
+   * @remarks
+   * Transfer number.
+   * 
    * @example
    * 05711231****
    */
@@ -173,18 +283,31 @@ export class ListLegacyAgentStatusLogsResponseBodyDataList extends $dara.Model {
 }
 
 export class ListLegacyAgentStatusLogsResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * List of agent status data.
+   */
   list?: ListLegacyAgentStatusLogsResponseBodyDataList[];
   /**
+   * @remarks
+   * Page number, ranging from 1 to 1000.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * Page size, ranging from 1 to 1000.
+   * 
    * @example
    * 100
    */
   pageSize?: number;
   /**
+   * @remarks
+   * Total count.
+   * 
    * @example
    * 10
    */
@@ -221,23 +344,46 @@ export class ListLegacyAgentStatusLogsResponseBodyData extends $dara.Model {
 
 export class ListLegacyAgentStatusLogsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Response code.
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * Data.
+   */
   data?: ListLegacyAgentStatusLogsResponseBodyData;
   /**
+   * @remarks
+   * HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
+  /**
+   * @remarks
+   * Response message.
+   * 
+   * @example
+   * 无
+   */
   message?: string;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 4C9A5D93-33A6-57F3-A423-4C83BD0A8455
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the operation succeeded.
+   * 
    * @example
    * true
    */

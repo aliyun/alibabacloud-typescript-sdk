@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteSchemaRequest extends $dara.Model {
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,13 +14,16 @@ export class DeleteSchemaRequest extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 0630E5DF-CEB0-445B-8626-D5C7481181C3
    */
   requestId?: string;
   /**
    * @remarks
-   * schema id
+   * The schema ID.
    * 
    * This parameter is required.
    * 

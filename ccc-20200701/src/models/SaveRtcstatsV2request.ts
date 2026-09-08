@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class SaveRTCStatsV2Request extends $dara.Model {
   /**
    * @remarks
+   * Call ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,11 +15,18 @@ export class SaveRTCStatsV2Request extends $dara.Model {
   callId?: string;
   /**
    * @remarks
+   * General information.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * [null,"","","1647337928819","1647337888816","agent",null,"上海","10.10.XX.XX","11.1.XX.XX","2002"]
    */
   generalInfo?: string;
   /**
    * @remarks
+   * Access point address.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -26,6 +35,8 @@ export class SaveRTCStatsV2Request extends $dara.Model {
   googAddress?: string;
   /**
    * @remarks
+   * Instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -34,6 +45,8 @@ export class SaveRTCStatsV2Request extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * Content of the receiver report.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -42,6 +55,8 @@ export class SaveRTCStatsV2Request extends $dara.Model {
   receiverReport?: string;
   /**
    * @remarks
+   * Content of the sender report.
+   * 
    * This parameter is required.
    * 
    * @example

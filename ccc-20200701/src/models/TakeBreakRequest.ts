@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class TakeBreakRequest extends $dara.Model {
   /**
    * @remarks
+   * Break status code. Customers can define any custom break status.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,12 +14,17 @@ export class TakeBreakRequest extends $dara.Model {
    */
   code?: string;
   /**
+   * @remarks
+   * Device ID. This parameter is meaningless and can be filled with any value.
+   * 
    * @example
    * device
    */
   deviceId?: string;
   /**
    * @remarks
+   * Instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -25,6 +32,9 @@ export class TakeBreakRequest extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * Agent ID. If not specified, the agent mapped to the current RAM account is used by default.
+   * 
    * @example
    * agent@ccc-test
    */

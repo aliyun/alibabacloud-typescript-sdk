@@ -33,18 +33,34 @@ export class AppendCasesResponseBodyData extends $dara.Model {
 
 export class AppendCasesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response code.
+   * 
    * @example
    * OK
    */
   code?: string;
   data?: AppendCasesResponseBodyData[];
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: string;
+  /**
+   * @remarks
+   * The response message.
+   * 
+   * @example
+   * 无
+   */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * BC976D32-AC4C-4E0F-8AA9-F4BC6C4E2B3E
    */

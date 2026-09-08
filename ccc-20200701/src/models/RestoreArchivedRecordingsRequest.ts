@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class RestoreArchivedRecordingsRequest extends $dara.Model {
   /**
+   * @remarks
+   * List of contact IDs, in JSON format.
+   * 
    * @example
    * [\\"job-216750038017142784\\"]
    */
   contactIds?: string;
   /**
    * @remarks
+   * Cloud Contact Center instance ID.
+   * 
    * This parameter is required.
    * 
    * @example

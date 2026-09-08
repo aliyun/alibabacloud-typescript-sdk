@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListBlacklistCallTaggingsRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the Cloud Contact Center instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class ListBlacklistCallTaggingsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * A list of numbers to query for their blacklist tag status. The jobId field is required if a number is encrypted (contains \\*\\*\\*).
+   * 
    * This parameter is required.
    * 
    * @example

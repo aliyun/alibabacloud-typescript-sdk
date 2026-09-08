@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetEarlyMediaRecordingResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * Recording file name.
+   * 
    * @example
-   * job-6538214103689****-earlyMedia..wav
+   * job-6538214103689****-earlyMedia.wav
    */
   fileName?: string;
   /**
+   * @remarks
+   * OSS download URL for the recording file. Note the expiration time. The URL is valid for one day.
+   * 
    * @example
    * https://ccc-v2-online.oss-cn-shanghai.aliyuncs.com/ccc-record-mixed/ccc-test/2022/06/voicemail.job-054ded02****.wav?Expires=1656074923&OSSAccessKeyId=****&Signature=****
    */
@@ -38,18 +44,38 @@ export class GetEarlyMediaRecordingResponseBodyData extends $dara.Model {
 
 export class GetEarlyMediaRecordingResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Response code.
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * Data.
+   */
   data?: GetEarlyMediaRecordingResponseBodyData;
   /**
+   * @remarks
+   * HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
+  /**
+   * @remarks
+   * Response message.
+   * 
+   * @example
+   * 无
+   */
   message?: string;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 03C67DAD-EB26-41D8-949D-9B0C470FB716
    */

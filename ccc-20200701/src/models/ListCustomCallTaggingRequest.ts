@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListCustomCallTaggingRequest extends $dara.Model {
   /**
+   * @remarks
+   * Filter by a list of number tag names. This parameter is optional and defaults to empty, which means no filtering is applied. The format is a JSON array string, where each array element is a number tag name.
+   * 
    * @example
    * ["TagA"]
    */
   callTagNameList?: string;
   /**
    * @remarks
+   * Instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18,6 +23,8 @@ export class ListCustomCallTaggingRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * Page number, ranging from 1 to 100.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -26,6 +33,8 @@ export class ListCustomCallTaggingRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
+   * Page size, ranging from 1 to 100.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -33,6 +42,9 @@ export class ListCustomCallTaggingRequest extends $dara.Model {
    */
   pageSize?: number;
   /**
+   * @remarks
+   * Perform fuzzy matching based on number or description. This parameter is optional and defaults to empty. An empty value indicates no filtering.
+   * 
    * @example
    * 1312121****
    */

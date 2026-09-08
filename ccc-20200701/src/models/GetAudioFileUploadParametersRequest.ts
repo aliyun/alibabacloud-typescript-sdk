@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetAudioFileUploadParametersRequest extends $dara.Model {
   /**
    * @remarks
+   * Audio file name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class GetAudioFileUploadParametersRequest extends $dara.Model {
   audioFileName?: string;
   /**
    * @remarks
+   * Instance ID.
+   * 
    * This parameter is required.
    * 
    * @example

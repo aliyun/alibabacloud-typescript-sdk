@@ -5,31 +5,54 @@ import { DataPropertiesValue } from "./DataPropertiesValue";
 
 export class GetSchemaResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The time when the schema was created.
+   * 
    * @example
    * 2021-07-14 10:48:43.0
    */
   createdTime?: string;
   /**
+   * @remarks
+   * Indicates whether the schema is deleted.
+   * 
    * @example
    * false
    */
   deleted?: boolean;
+  /**
+   * @remarks
+   * The description.
+   * 
+   * @example
+   * 客户profile
+   */
   description?: string;
   /**
    * @remarks
-   * schema id
+   * The ID of the schema.
    * 
    * @example
    * profile
    */
   id?: string;
   /**
+   * @remarks
+   * The ID of the instance.
+   * 
    * @example
    * 5e0964fd-951c-4e45-b518-d09d4d2db8ca
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * The list of fields.
+   */
   properties?: { [key: string]: DataPropertiesValue };
   /**
+   * @remarks
+   * The time when the schema was last modified.
+   * 
    * @example
    * 2021-07-14 10:48:43.0
    */
@@ -72,23 +95,43 @@ export class GetSchemaResponseBodyData extends $dara.Model {
 
 export class GetSchemaResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response code.
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: GetSchemaResponseBodyData;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The response message.
+   * 
    * @example
    * Service abnormal, the instance 0418 is ceased.
    */
   message?: string;
+  /**
+   * @remarks
+   * The response parameters.
+   */
   params?: string[];
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * 19D09CCC-F298-4124-849A-AFA217819011
    */

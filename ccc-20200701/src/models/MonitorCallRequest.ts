@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class MonitorCallRequest extends $dara.Model {
   /**
+   * @remarks
+   * Device ID. This parameter is meaningless and can be filled with any value.
+   * 
    * @example
    * device
    */
   deviceId?: string;
   /**
    * @remarks
+   * Instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18,6 +23,8 @@ export class MonitorCallRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * The ID of the agent being monitored.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -25,11 +32,17 @@ export class MonitorCallRequest extends $dara.Model {
    */
   monitoredUserId?: string;
   /**
+   * @remarks
+   * The timeout period for the listening operation, in seconds. If the listening operation does not succeed within the specified time, it is canceled. Normally, the listening operation succeeds immediately. The timeout setting is provided to handle abnormal scenarios. This field is optional and defaults to 30 seconds.
+   * 
    * @example
    * 30
    */
   timeoutSeconds?: number;
   /**
+   * @remarks
+   * Agent ID.
+   * 
    * @example
    * agent@ccc-test
    */

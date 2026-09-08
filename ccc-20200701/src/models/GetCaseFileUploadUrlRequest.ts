@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetCaseFileUploadUrlRequest extends $dara.Model {
   /**
    * @remarks
+   * The file name of the predictive outbound calling Activity list. The name must consist of uppercase and lowercase English letters, and the file format must be CSV.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class GetCaseFileUploadUrlRequest extends $dara.Model {
   fileName?: string;
   /**
    * @remarks
+   * Instance ID.
+   * 
    * This parameter is required.
    * 
    * @example

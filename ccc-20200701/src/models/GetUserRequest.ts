@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetUserRequest extends $dara.Model {
   /**
+   * @remarks
+   * Agent extension number. This parameter is optional. You must specify either UserId or Extension.
+   * 
    * @example
    * 8003****
    */
   extension?: string;
   /**
    * @remarks
+   * Instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -17,6 +22,9 @@ export class GetUserRequest extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * Agent ID. This parameter is optional. You must specify either UserId or Extension.
+   * 
    * @example
    * agent@ccc-test
    */

@@ -3,21 +3,133 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListHistoricalAgentReportResponseBodyDataListBack2Back extends $dara.Model {
+  /**
+   * @remarks
+   * The agent answer rate.
+   * 
+   * @example
+   * 1
+   */
   agentHandleRate?: string;
+  /**
+   * @remarks
+   * The answer rate. Formula: CallsAnswered/CallsDialed. Because the answer event and the dial event may fall within different time ranges, the result may exceed 100% in some cases.
+   * 
+   * @example
+   * 0.6
+   */
   answerRate?: string;
+  /**
+   * @remarks
+   * The average customer-side ring duration. Unit: seconds.
+   * 
+   * @example
+   * 100
+   */
   averageCustomerRingTime?: string;
+  /**
+   * @remarks
+   * The average ring duration. Unit: seconds.
+   * 
+   * @example
+   * 100
+   */
   averageRingTime?: string;
+  /**
+   * @remarks
+   * The average talk duration. Unit: seconds.
+   * 
+   * @example
+   * 100
+   */
   averageTalkTime?: string;
+  /**
+   * @remarks
+   * The number of calls answered by the agent.
+   * 
+   * @example
+   * 10
+   */
   callsAgentHandled?: string;
+  /**
+   * @remarks
+   * The number of calls answered.
+   * 
+   * @example
+   * 100
+   */
   callsAnswered?: string;
+  /**
+   * @remarks
+   * The number of calls answered by the customer.
+   * 
+   * @example
+   * 7
+   */
   callsCustomerAnswered?: string;
+  /**
+   * @remarks
+   * The number of calls dialed.
+   * 
+   * @example
+   * 100
+   */
   callsDialed?: string;
+  /**
+   * @remarks
+   * The customer answer rate.
+   * 
+   * @example
+   * 0.7
+   */
   customerAnswerRate?: string;
+  /**
+   * @remarks
+   * The maximum customer-side ring duration. Unit: seconds.
+   * 
+   * @example
+   * 100
+   */
   maxCustomerRingTime?: string;
+  /**
+   * @remarks
+   * The maximum ring time. Unit: seconds.
+   * 
+   * @example
+   * 100
+   */
   maxRingTime?: string;
+  /**
+   * @remarks
+   * The maximum talk time. Unit: seconds.
+   * 
+   * @example
+   * 100
+   */
   maxTalkTime?: string;
+  /**
+   * @remarks
+   * The total customer-side ring duration. Unit: seconds.
+   * 
+   * @example
+   * 100
+   */
   totalCustomerRingTime?: string;
+  /**
+   * @remarks
+   * The total ring time. Unit: seconds.
+   * 
+   * @example
+   * 100
+   */
   totalRingTime?: string;
+  /**
+   * @remarks
+   * The total talk time. Unit: seconds.
+   * 
+   * @example
+   * 100
+   */
   totalTalkTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -71,7 +183,21 @@ export class ListHistoricalAgentReportResponseBodyDataListBack2Back extends $dar
 }
 
 export class ListHistoricalAgentReportResponseBodyDataListInboundAccessChannelTypeDetails extends $dara.Model {
+  /**
+   * @remarks
+   * The channel type.
+   * 
+   * @example
+   * Web
+   */
   accessChannelType?: string;
+  /**
+   * @remarks
+   * The number of sessions offered.
+   * 
+   * @example
+   * 3
+   */
   callsOffered?: number;
   static names(): { [key: string]: string } {
     return {
@@ -97,134 +223,255 @@ export class ListHistoricalAgentReportResponseBodyDataListInboundAccessChannelTy
 }
 
 export class ListHistoricalAgentReportResponseBodyDataListInbound extends $dara.Model {
+  /**
+   * @remarks
+   * The statistics by channel.
+   */
   accessChannelTypeDetails?: ListHistoricalAgentReportResponseBodyDataListInboundAccessChannelTypeDetails[];
+  /**
+   * @remarks
+   * The average first response time for chat sessions. Unit: seconds.
+   * 
+   * @example
+   * 10
+   */
   averageFirstResponseTime?: number;
   /**
+   * @remarks
+   * The average hold time. Formula: TotalHoldTime/CallsHold. Unit: seconds.
+   * 
    * @example
    * 0
    */
   averageHoldTime?: number;
+  /**
+   * @remarks
+   * The average response time for chat sessions.
+   * 
+   * @example
+   * 12
+   */
   averageResponseTime?: number;
   /**
+   * @remarks
+   * The average ring time. Formula: TotalRingTime/CallsRinged. Unit: seconds.
+   * 
    * @example
    * 0
    */
   averageRingTime?: number;
   /**
+   * @remarks
+   * The average talk time. Formula: TotalTalkTime/CallsHandled. Unit: seconds.
+   * 
    * @example
    * 0
    */
   averageTalkTime?: number;
   /**
+   * @remarks
+   * The average after-call work (ACW) time. Formula: TotalWorkTime/CallsHandled. Unit: seconds.
+   * 
    * @example
    * 0
    */
   averageWorkTime?: number;
   /**
+   * @remarks
+   * The number of attended transfers in. If a call is transferred in to this agent multiple times, each transfer is counted separately.
+   * 
    * @example
    * 0
    */
   callsAttendedTransferIn?: number;
   /**
+   * @remarks
+   * The number of attended transfers out. If a call is transferred out to other agents multiple times, each transfer is counted separately.
+   * 
    * @example
    * 0
    */
   callsAttendedTransferOut?: number;
   /**
+   * @remarks
+   * The number of blind transfers in. If a call is transferred in to this agent multiple times, each transfer is counted separately.
+   * 
    * @example
    * 0
    */
   callsBlindTransferIn?: number;
   /**
+   * @remarks
+   * The number of blind transfers out. If a call is transferred out to other agents multiple times, each transfer is counted separately.
+   * 
    * @example
    * 0
    */
   callsBlindTransferOut?: number;
   /**
+   * @remarks
+   * The number of calls answered by the agent.
+   * 
    * @example
    * 0
    */
   callsHandled?: number;
   /**
+   * @remarks
+   * The number of holds, which is the number of times calls were placed on hold.
+   * 
    * @example
    * 0
    */
   callsHold?: number;
   /**
+   * @remarks
+   * The number of calls offered, which is the number of calls assigned to this agent, including calls blind-transferred and attended-transferred from other agents.
+   * 
    * @example
    * 0
    */
   callsOffered?: number;
   /**
+   * @remarks
+   * The number of calls that rang the agent.
+   * 
    * @example
    * 0
    */
   callsRinged?: number;
   /**
+   * @remarks
+   * The handle rate. Formula: CallsHandled/CallsOffered. Because the answer event and the offered event may fall within different time ranges, the result may exceed 100% in some cases.
+   * 
    * @example
    * 0
    */
   handleRate?: number;
   /**
+   * @remarks
+   * The maximum hold time. Unit: seconds.
+   * 
    * @example
    * 0
    */
   maxHoldTime?: number;
   /**
+   * @remarks
+   * The maximum ring time. Unit: seconds.
+   * 
    * @example
    * 0
    */
   maxRingTime?: number;
   /**
+   * @remarks
+   * The maximum talk time. Unit: seconds.
+   * 
    * @example
    * 0
    */
   maxTalkTime?: number;
   /**
+   * @remarks
+   * The maximum after-call work (ACW) time. Unit: seconds.
+   * 
    * @example
    * 0
    */
   maxWorkTime?: number;
   /**
+   * @remarks
+   * The satisfaction index, which is the average value of satisfaction survey key presses (single-digit numbers).
+   * 
    * @example
    * 0
    */
   satisfactionIndex?: number;
   /**
+   * @remarks
+   * The satisfaction rate. Formula: number of satisfied ratings/number of satisfaction survey responses.
+   * 
    * @example
    * 0
    */
   satisfactionRate?: number;
   /**
+   * @remarks
+   * The number of satisfaction surveys sent.
+   * 
    * @example
    * 0
    */
   satisfactionSurveysOffered?: number;
   /**
+   * @remarks
+   * The number of satisfaction survey responses.
+   * 
    * @example
    * 0
    */
   satisfactionSurveysResponded?: number;
+  /**
+   * @remarks
+   * The 15-second service level.
+   * 
+   * @example
+   * 0.85
+   */
   serviceLevel15?: number;
   /**
+   * @remarks
+   * The total hold time. Unit: seconds.
+   * 
    * @example
    * 0
    */
   totalHoldTime?: number;
+  /**
+   * @remarks
+   * The total number of messages sent in chat sessions.
+   * 
+   * @example
+   * 16
+   */
   totalMessagesSent?: number;
+  /**
+   * @remarks
+   * The total number of messages sent by the agent in chat sessions.
+   * 
+   * @example
+   * 7
+   */
   totalMessagesSentByAgent?: number;
+  /**
+   * @remarks
+   * The total number of messages sent by the customer in chat sessions.
+   * 
+   * @example
+   * 9
+   */
   totalMessagesSentByCustomer?: string;
   /**
+   * @remarks
+   * The total ring time. Unit: seconds.
+   * 
    * @example
    * 0
    */
   totalRingTime?: number;
   /**
+   * @remarks
+   * The total talk time. Unit: seconds.
+   * 
    * @example
    * 0
    */
   totalTalkTime?: number;
   /**
+   * @remarks
+   * The total after-call work (ACW) time. Unit: seconds.
+   * 
    * @example
    * 0
    */
@@ -316,13 +563,69 @@ export class ListHistoricalAgentReportResponseBodyDataListInbound extends $dara.
 }
 
 export class ListHistoricalAgentReportResponseBodyDataListInternal extends $dara.Model {
+  /**
+   * @remarks
+   * The average talk duration. Unit: seconds.
+   * 
+   * @example
+   * 100
+   */
   averageTalkTime?: number;
+  /**
+   * @remarks
+   * The number of calls answered.
+   * 
+   * @example
+   * 100
+   */
   callsAnswered?: number;
+  /**
+   * @remarks
+   * The number of calls dialed.
+   * 
+   * @example
+   * 100
+   */
   callsDialed?: number;
+  /**
+   * @remarks
+   * The number of calls answered.
+   * 
+   * @example
+   * 100
+   */
   callsHandled?: number;
+  /**
+   * @remarks
+   * The number of inbound calls.
+   * 
+   * @example
+   * 100
+   */
   callsOffered?: number;
+  /**
+   * @remarks
+   * The number of calls participated in.
+   * 
+   * @example
+   * 100
+   */
   callsTalked?: number;
+  /**
+   * @remarks
+   * The maximum talk time. Unit: seconds.
+   * 
+   * @example
+   * 100
+   */
   maxTalkTime?: number;
+  /**
+   * @remarks
+   * The total talk time. Unit: seconds.
+   * 
+   * @example
+   * 100
+   */
   totalTalkTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -361,141 +664,225 @@ export class ListHistoricalAgentReportResponseBodyDataListInternal extends $dara
 
 export class ListHistoricalAgentReportResponseBodyDataListOutbound extends $dara.Model {
   /**
+   * @remarks
+   * The answer rate. Formula: CallsAnswered/CallsDialed. Because the answer event and the dial event may fall within different time ranges, the result may exceed 100% in some cases.
+   * 
    * @example
    * 0
    */
   answerRate?: number;
   /**
+   * @remarks
+   * The average dialing time. Formula: TotalDialingTime/CallsDialed. Unit: seconds.
+   * 
    * @example
    * 0
    */
   averageDialingTime?: number;
   /**
+   * @remarks
+   * The average hold time. Formula: TotalHoldTime/CallsHold. Unit: seconds.
+   * 
    * @example
    * 0
    */
   averageHoldTime?: number;
   /**
+   * @remarks
+   * The average ring time. Formula: TotalRingTime/CallsRinged. Unit: seconds.
+   * 
    * @example
    * 0
    */
   averageRingTime?: number;
   /**
+   * @remarks
+   * The average talk time. Formula: TotalTalkTime/CallsAnswered. Unit: seconds.
+   * 
    * @example
    * 0
    */
   averageTalkTime?: number;
   /**
+   * @remarks
+   * The average after-call work (ACW) time. Formula: TotalWorkTime/CallsDialed. Unit: seconds.
+   * 
    * @example
    * 0
    */
   averageWorkTime?: number;
   /**
+   * @remarks
+   * The number of calls answered.
+   * 
    * @example
    * 0
    */
   callsAnswered?: number;
   /**
+   * @remarks
+   * The number of attended transfers in. If a call is transferred in to this agent multiple times, each transfer is counted separately.
+   * 
    * @example
    * 0
    */
   callsAttendedTransferIn?: number;
   /**
+   * @remarks
+   * The number of attended transfers out. If a call is transferred out to other agents multiple times, each transfer is counted separately.
+   * 
    * @example
    * 0
    */
   callsAttendedTransferOut?: number;
   /**
+   * @remarks
+   * The number of blind transfers in. If a call is transferred in to this agent multiple times, each transfer is counted separately.
+   * 
    * @example
    * 0
    */
   callsBlindTransferIn?: number;
   /**
+   * @remarks
+   * The number of blind transfers out. If a call is transferred out to other agents multiple times, each transfer is counted separately.
+   * 
    * @example
    * 0
    */
   callsBlindTransferOut?: number;
   /**
+   * @remarks
+   * The number of calls dialed.
+   * 
    * @example
    * 0
    */
   callsDialed?: number;
   /**
+   * @remarks
+   * The number of holds, which is the number of times calls were placed on hold.
+   * 
    * @example
    * 0
    */
   callsHold?: number;
   /**
+   * @remarks
+   * The number of calls that rang the agent.
+   * 
    * @example
    * 0
    */
   callsRinged?: number;
   /**
+   * @remarks
+   * The maximum dialing time. Unit: seconds.
+   * 
    * @example
    * 0
    */
   maxDialingTime?: number;
   /**
+   * @remarks
+   * The maximum hold time. Unit: seconds.
+   * 
    * @example
    * 0
    */
   maxHoldTime?: number;
   /**
+   * @remarks
+   * The maximum ring time. Unit: seconds.
+   * 
    * @example
    * 0
    */
   maxRingTime?: number;
   /**
+   * @remarks
+   * The maximum talk time. Unit: seconds.
+   * 
    * @example
    * 0
    */
   maxTalkTime?: number;
   /**
+   * @remarks
+   * The maximum after-call work (ACW) time. Unit: seconds.
+   * 
    * @example
    * 0
    */
   maxWorkTime?: number;
   /**
+   * @remarks
+   * The satisfaction index, which is the average value of satisfaction survey key presses (single-digit numbers).
+   * 
    * @example
    * 0
    */
   satisfactionIndex?: number;
   /**
+   * @remarks
+   * The satisfaction rate. Formula: number of satisfied ratings/number of satisfaction survey responses.
+   * 
    * @example
    * 0
    */
   satisfactionRate?: number;
   /**
+   * @remarks
+   * The number of satisfaction surveys sent.
+   * 
    * @example
    * 0
    */
   satisfactionSurveysOffered?: number;
   /**
+   * @remarks
+   * The number of satisfaction survey responses.
+   * 
    * @example
    * 0
    */
   satisfactionSurveysResponded?: number;
   /**
+   * @remarks
+   * The total dialing time. Unit: seconds.
+   * 
    * @example
    * 0
    */
   totalDialingTime?: number;
   /**
+   * @remarks
+   * The total hold time. Unit: seconds.
+   * 
    * @example
    * 0
    */
   totalHoldTime?: number;
   /**
+   * @remarks
+   * The total ring time. Unit: seconds.
+   * 
    * @example
    * 0
    */
   totalRingTime?: number;
   /**
+   * @remarks
+   * The total talk time. Unit: seconds.
+   * 
    * @example
    * 0
    */
   totalTalkTime?: number;
   /**
+   * @remarks
+   * The total after-call work (ACW) time. Unit: seconds.
+   * 
    * @example
    * 0
    */
@@ -576,8 +963,29 @@ export class ListHistoricalAgentReportResponseBodyDataListOutbound extends $dara
 }
 
 export class ListHistoricalAgentReportResponseBodyDataListOverallBreakCodeDetailList extends $dara.Model {
+  /**
+   * @remarks
+   * The break type code.
+   * 
+   * @example
+   * Meeting.
+   */
   breakCode?: string;
+  /**
+   * @remarks
+   * The number of occurrences of this break type.
+   * 
+   * @example
+   * 3
+   */
   count?: number;
+  /**
+   * @remarks
+   * The total duration of this break type. Unit: seconds.
+   * 
+   * @example
+   * 120
+   */
   duration?: number;
   static names(): { [key: string]: string } {
     return {
@@ -606,139 +1014,270 @@ export class ListHistoricalAgentReportResponseBodyDataListOverallBreakCodeDetail
 
 export class ListHistoricalAgentReportResponseBodyDataListOverall extends $dara.Model {
   /**
+   * @remarks
+   * The average break duration. Formula: TotalBreakTime / number of breaks. The number of breaks is a non-API statistical field. Unit: seconds.
+   * 
    * @example
    * 0
    */
   averageBreakTime?: number;
   /**
+   * @remarks
+   * The average hold duration. Unit: seconds. Formula: TotalHoldTime / (inbound CallsHold + outbound CallsHold).
+   * 
    * @example
    * 0
    */
   averageHoldTime?: number;
   /**
+   * @remarks
+   * The average ready duration. Formula: TotalReadyTime / number of ready states. The number of ready states is a non-API statistical field. Unit: seconds.
+   * 
    * @example
    * 0
    */
   averageReadyTime?: number;
   /**
+   * @remarks
+   * The average talk duration. Formula: TotalTalkTime / (CallsAnswered + CallsHandled). Unit: seconds.
+   * 
    * @example
    * 0
    */
   averageTalkTime?: number;
   /**
+   * @remarks
+   * The average after-call work duration. Formula: TotalWorkTime / TotalCalls. Unit: seconds.
+   * 
    * @example
    * 0
    */
   averageWorkTime?: number;
+  /**
+   * @remarks
+   * The statistics for each break type.
+   */
   breakCodeDetailList?: ListHistoricalAgentReportResponseBodyDataListOverallBreakCodeDetailList[];
+  /**
+   * @remarks
+   * The earliest check-in time. The value is a UNIX timestamp. Unit: milliseconds.
+   * 
+   * @example
+   * 1686030515000
+   */
   firstCheckInTime?: number;
+  /**
+   * @remarks
+   * The last check-out time. The value is a UNIX timestamp. Unit: milliseconds.
+   * 
+   * @example
+   * 1686030515000
+   */
   lastCheckOutTime?: number;
   /**
+   * @remarks
+   * The maximum break duration. Unit: seconds.
+   * 
    * @example
    * 0
    */
   maxBreakTime?: number;
   /**
+   * @remarks
+   * The maximum hold time. Unit: seconds.
+   * 
    * @example
    * 0
    */
   maxHoldTime?: number;
   /**
+   * @remarks
+   * The maximum ready duration. Unit: seconds.
+   * 
    * @example
    * 0
    */
   maxReadyTime?: number;
   /**
+   * @remarks
+   * The maximum talk time. Unit: seconds.
+   * 
    * @example
    * 0
    */
   maxTalkTime?: number;
   /**
+   * @remarks
+   * The maximum after-call work (ACW) time. Unit: seconds.
+   * 
    * @example
    * 0
    */
   maxWorkTime?: number;
   /**
+   * @remarks
+   * The agent occupancy rate. Formula: (TotalWorkTime + TotalTalkTime) / TotalLoggedInTime.
+   * 
    * @example
    * 0
    */
   occupancyRate?: number;
   /**
+   * @remarks
+   * The satisfaction index, which is the average value of satisfaction survey key presses (single-digit numbers).
+   * 
    * @example
    * 0
    */
   satisfactionIndex?: number;
   /**
+   * @remarks
+   * The satisfaction rate. Formula: number of satisfied ratings/number of satisfaction survey responses.
+   * 
    * @example
    * 0
    */
   satisfactionRate?: number;
   /**
+   * @remarks
+   * The number of satisfaction surveys sent.
+   * 
    * @example
    * 0
    */
   satisfactionSurveysOffered?: number;
   /**
+   * @remarks
+   * The number of satisfaction survey responses.
+   * 
    * @example
    * 0
    */
   satisfactionSurveysResponded?: number;
   /**
+   * @remarks
+   * The total break duration. Unit: seconds.
+   * 
    * @example
    * 0
    */
   totalBreakTime?: number;
   /**
+   * @remarks
+   * The total number of calls. Formula: CallsOffered + CallsDialed.
+   * 
    * @example
    * 0
    */
   totalCalls?: number;
   /**
+   * @remarks
+   * The total hold duration. Unit: seconds.
+   * 
    * @example
    * 0
    */
   totalHoldTime?: number;
   /**
+   * @remarks
+   * The total logged-in duration, excluding break time. Unit: seconds.
+   * 
    * @example
    * 0
    */
   totalLoggedInTime?: number;
+  /**
+   * @remarks
+   * The total off-site online duration. Unit: seconds.
+   * 
+   * @example
+   * 100
+   */
   totalOffSiteLoggedInTime?: number;
   /**
+   * @remarks
+   * The total off-site online duration. Unit: seconds.
+   * 
    * @example
-   * 已弃用，请使用TotalOffSiteLoggedInTime代替此参数
+   * Deprecated. Use TotalOffSiteLoggedInTime instead.
    */
   totalOffSiteOnlineTime?: number;
+  /**
+   * @remarks
+   * The total online duration in office phone mode. Unit: seconds.
+   * 
+   * @example
+   * 3600
+   */
   totalOfficePhoneLoggedInTime?: number;
   /**
+   * @remarks
+   * The total online duration in office phone mode. Unit: seconds.
+   * 
    * @example
-   * 已弃用，请使用TotalOfficePhoneLoggedInTime代替此参数
+   * Deprecated. Use TotalOfficePhoneLoggedInTime instead.
    */
   totalOfficePhoneOnlineTime?: number;
+  /**
+   * @remarks
+   * The total on-site online duration. Unit: seconds.
+   * 
+   * @example
+   * 100
+   */
   totalOnSiteLoggedInTime?: number;
   /**
+   * @remarks
+   * The total on-site online duration. Unit: seconds.
+   * 
    * @example
-   * 已弃用，请使用TotalOnSiteLoggedInTime代替此参数
+   * Deprecated. Use TotalOnSiteLoggedInTime instead.
    */
   totalOnSiteOnlineTime?: number;
+  /**
+   * @remarks
+   * The total outbound-only online duration. Unit: seconds.
+   * 
+   * @example
+   * 100
+   */
   totalOutboundScenarioLoggedInTime?: number;
+  /**
+   * @remarks
+   * The total outbound-only idle duration. Unit: seconds.
+   * 
+   * @example
+   * 100
+   */
   totalOutboundScenarioReadyTime?: number;
   /**
+   * @remarks
+   * The total outbound-only online duration. Unit: seconds.
+   * 
    * @example
-   * 已弃用，请使用TotalOutboundScenarioLoggedInTime代替此参数
+   * Deprecated. Use TotalOutboundScenarioLoggedInTime instead.
    */
   totalOutboundScenarioTime?: number;
   /**
+   * @remarks
+   * The total ready duration. Unit: seconds.
+   * 
    * @example
    * 0
    */
   totalReadyTime?: number;
   /**
+   * @remarks
+   * The total talk time. Unit: seconds.
+   * 
    * @example
    * 0
    */
   totalTalkTime?: number;
   /**
+   * @remarks
+   * The total after-call work (ACW) time. Unit: seconds.
+   * 
    * @example
    * 0
    */
@@ -835,26 +1374,69 @@ export class ListHistoricalAgentReportResponseBodyDataListOverall extends $dara.
 
 export class ListHistoricalAgentReportResponseBodyDataList extends $dara.Model {
   /**
+   * @remarks
+   * The agent ID.
+   * 
    * @example
    * agent1@ccc-test
    */
   agentId?: string;
+  /**
+   * @remarks
+   * The agent name.
+   * 
+   * @example
+   * Agent Wang.
+   */
   agentName?: string;
+  /**
+   * @remarks
+   * The back-to-back call metrics.
+   */
   back2Back?: ListHistoricalAgentReportResponseBodyDataListBack2Back;
   /**
+   * @remarks
+   * The agent display ID.
+   * 
    * @example
    * 001
    */
   displayId?: string;
+  /**
+   * @remarks
+   * The inbound data.
+   */
   inbound?: ListHistoricalAgentReportResponseBodyDataListInbound;
+  /**
+   * @remarks
+   * The internal call metrics.
+   */
   internal?: ListHistoricalAgentReportResponseBodyDataListInternal;
+  /**
+   * @remarks
+   * The outbound data.
+   */
   outbound?: ListHistoricalAgentReportResponseBodyDataListOutbound;
+  /**
+   * @remarks
+   * The overall data.
+   */
   overall?: ListHistoricalAgentReportResponseBodyDataListOverall;
   /**
+   * @remarks
+   * The list of skill group IDs to which the agent belongs. The format is a JSON array character string. Each array element is a skill group ID.
+   * 
    * @example
    * ["skillgroup1@ccc-test","skillgroup2@ccc-test"]
    */
   skillGroupIds?: string;
+  /**
+   * @remarks
+   * The list of skill group names to which the agent belongs. The format is a JSON array character string. Each array element is a skill group name.
+   * 
+   * @example
+   * ["TestSkillGroup1","TestSkillGroup2"]
+   */
   skillGroupNames?: string;
   static names(): { [key: string]: string } {
     return {
@@ -911,18 +1493,31 @@ export class ListHistoricalAgentReportResponseBodyDataList extends $dara.Model {
 }
 
 export class ListHistoricalAgentReportResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The list of agent historical data.
+   */
   list?: ListHistoricalAgentReportResponseBodyDataList[];
   /**
+   * @remarks
+   * The page number. Valid values: 1 to 100.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The page size. Valid values: 1 to 100.
+   * 
    * @example
    * 100
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The total count.
+   * 
    * @example
    * 10
    */
@@ -959,18 +1554,38 @@ export class ListHistoricalAgentReportResponseBodyData extends $dara.Model {
 
 export class ListHistoricalAgentReportResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response code.
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * The data.
+   */
   data?: ListHistoricalAgentReportResponseBodyData;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
+  /**
+   * @remarks
+   * The response message.
+   * 
+   * @example
+   * None.
+   */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * EEEE671A-3E24-4A04-81E6-6C4F5B39DF75
    */

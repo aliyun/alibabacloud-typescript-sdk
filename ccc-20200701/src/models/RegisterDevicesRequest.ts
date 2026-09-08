@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class RegisterDevicesRequest extends $dara.Model {
   /**
    * @remarks
+   * The device ID. Any string can be used, and there are no specific format requirements.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class RegisterDevicesRequest extends $dara.Model {
   deviceId?: string;
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class RegisterDevicesRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * The device password. The SIP device uses this password for authentication during registration. Store this password securely.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -28,6 +34,9 @@ export class RegisterDevicesRequest extends $dara.Model {
    */
   password?: string;
   /**
+   * @remarks
+   * A JSON string that contains an array of agent IDs.
+   * 
    * @example
    * ["user-test@ccc-test"]
    */

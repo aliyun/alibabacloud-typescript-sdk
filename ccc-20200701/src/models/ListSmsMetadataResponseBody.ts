@@ -4,29 +4,65 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListSmsMetadataResponseBodyDataList extends $dara.Model {
   /**
+   * @remarks
+   * The Alibaba Cloud account ID.
+   * 
    * @example
    * 15772400000****
    */
   aliyunUid?: number;
+  /**
+   * @remarks
+   * The description of the configuration.
+   * 
+   * @example
+   * 漏话短信配置
+   */
   description?: string;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * ccc-test
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * The name of the configuration.
+   * 
+   * @example
+   * 漏话短信提醒
+   */
   name?: string;
   /**
+   * @remarks
+   * The scenario type.
+   * 
    * @example
    * MISSED_CALL_NOTIFICATION
    */
   scenario?: string;
+  /**
+   * @remarks
+   * The name of the SMS signature.
+   * 
+   * @example
+   * 云呼叫中心
+   */
   signName?: string;
   /**
+   * @remarks
+   * The ID of the SMS configuration.
+   * 
    * @example
    * 5ffc1c9a-4d3d-4019-*****-73255fb01d1c
    */
   smsMetadataId?: string;
   /**
+   * @remarks
+   * The template code.
+   * 
    * @example
    * SMS_468xxxx298
    */
@@ -67,18 +103,31 @@ export class ListSmsMetadataResponseBodyDataList extends $dara.Model {
 }
 
 export class ListSmsMetadataResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The list of SMS configurations.
+   */
   list?: ListSmsMetadataResponseBodyDataList[];
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 100
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The total number of records.
+   * 
    * @example
    * 200
    */
@@ -115,19 +164,43 @@ export class ListSmsMetadataResponseBodyData extends $dara.Model {
 
 export class ListSmsMetadataResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response code.
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * The data.
+   */
   data?: ListSmsMetadataResponseBodyData;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
+  /**
+   * @remarks
+   * The response message.
+   * 
+   * @example
+   * 无
+   */
   message?: string;
+  /**
+   * @remarks
+   * The list of incorrect parameters.
+   */
   params?: string[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 8707EB29-BAED-4302-B999-40BA61877437
    */

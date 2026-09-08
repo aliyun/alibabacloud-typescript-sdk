@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class RetrieveCallRequest extends $dara.Model {
   /**
    * @remarks
+   * Channel ID of the call to retrieve.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,12 +14,17 @@ export class RetrieveCallRequest extends $dara.Model {
    */
   channelId?: string;
   /**
+   * @remarks
+   * Device ID. This parameter is meaningless and can be filled with any value.
+   * 
    * @example
    * device
    */
   deviceId?: string;
   /**
    * @remarks
+   * Instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -26,6 +33,8 @@ export class RetrieveCallRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * Call ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -33,6 +42,9 @@ export class RetrieveCallRequest extends $dara.Model {
    */
   jobId?: string;
   /**
+   * @remarks
+   * Agent ID.
+   * 
    * @example
    * agent@ccc-test
    */

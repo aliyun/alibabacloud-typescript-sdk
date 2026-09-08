@@ -4,18 +4,41 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModifyAudioFileResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Response code.
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * Data.
+   * 
+   * @example
+   * 无
+   */
   data?: string;
   /**
+   * @remarks
+   * HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
+  /**
+   * @remarks
+   * Response message.
+   * 
+   * @example
+   * 无
+   */
   message?: string;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * D2F84AAC-7C79-547F-8EE9-7B735F42B93F
    */

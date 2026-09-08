@@ -4,22 +4,41 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateAudioFileResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Response code.
+   * 
    * @example
    * OK
    */
   code?: string;
   /**
+   * @remarks
+   * Data, which is the ID of the audio resource and uniquely identifies an audio resource.
+   * 
    * @example
    * 2301b83f-1f9f-491e-9f97-2f832ed92f0b
    */
   data?: string;
   /**
+   * @remarks
+   * HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
+  /**
+   * @remarks
+   * Response message.
+   * 
+   * @example
+   * 无
+   */
   message?: string;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 94E29B9B-DBC6-5951-B3DD-C85C1BDF20ED
    */

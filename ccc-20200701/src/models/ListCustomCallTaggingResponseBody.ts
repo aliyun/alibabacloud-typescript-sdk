@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListCustomCallTaggingResponseBodyDataListCallTagList extends $dara.Model {
   /**
+   * @remarks
+   * Instance ID.
+   * 
    * @example
    * ccc-test
    */
   instanceId?: string;
   /**
+   * @remarks
+   * Number tag name.
+   * 
    * @example
    * TagA
    */
@@ -37,24 +43,47 @@ export class ListCustomCallTaggingResponseBodyDataListCallTagList extends $dara.
 }
 
 export class ListCustomCallTaggingResponseBodyDataList extends $dara.Model {
+  /**
+   * @remarks
+   * List of number tags.
+   */
   callTagList?: ListCustomCallTaggingResponseBodyDataListCallTagList[];
   /**
+   * @remarks
+   * Creator.
+   * 
    * @example
    * agent
    */
   creator?: string;
+  /**
+   * @remarks
+   * The description of the inbound number mark.
+   * 
+   * @example
+   * 王先生
+   */
   description?: string;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * ccc-test
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The number of the inbound number mark.
+   * 
    * @example
    * 1312121****
    */
   number?: string;
   /**
+   * @remarks
+   * Last update time.
+   * 
    * @example
    * 2020-07-05 00:00:00.0
    */
@@ -94,18 +123,31 @@ export class ListCustomCallTaggingResponseBodyDataList extends $dara.Model {
 }
 
 export class ListCustomCallTaggingResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The list of inbound number marks.
+   */
   list?: ListCustomCallTaggingResponseBodyDataList[];
   /**
+   * @remarks
+   * The page number, ranging from 1 to 100.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The page size, ranging from 1 to 100.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The total count.
+   * 
    * @example
    * 10
    */
@@ -142,18 +184,38 @@ export class ListCustomCallTaggingResponseBodyData extends $dara.Model {
 
 export class ListCustomCallTaggingResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Response code.
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * The data.
+   */
   data?: ListCustomCallTaggingResponseBodyData;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
+  /**
+   * @remarks
+   * The response message.
+   * 
+   * @example
+   * 无
+   */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * BA03159C-E808-4FF1-B27E-A61B6E888D7F
    */

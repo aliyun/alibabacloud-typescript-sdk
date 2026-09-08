@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ClaimChatRequest extends $dara.Model {
   /**
    * @remarks
+   * Instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class ClaimChatRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * The ID of the call.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class ClaimChatRequest extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
+   * Filter by skill group ID.
+   * 
    * This parameter is required.
    * 
    * @example

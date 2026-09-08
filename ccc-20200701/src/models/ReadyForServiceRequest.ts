@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ReadyForServiceRequest extends $dara.Model {
   /**
+   * @remarks
+   * Device ID. This parameter is meaningless and can be filled with any value.
+   * 
    * @example
    * device
    */
   deviceId?: string;
   /**
    * @remarks
+   * Instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -17,11 +22,17 @@ export class ReadyForServiceRequest extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * Specifies whether to enter outbound-only mode after being published. This parameter is optional and defaults to false.
+   * 
    * @example
    * false
    */
   outboundScenario?: boolean;
   /**
+   * @remarks
+   * Agent ID. If not specified, it defaults to the agent mapped to the current RAM account.
+   * 
    * @example
    * user-test@ccc-test
    */

@@ -4,38 +4,73 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListVoicemailsResponseBodyDataList extends $dara.Model {
   /**
+   * @remarks
+   * The called number.
+   * 
    * @example
    * 0533128****
    */
   callee?: string;
   /**
+   * @remarks
+   * The calling number.
+   * 
    * @example
    * 073xxxx7539
    */
   caller?: string;
+  /**
+   * @remarks
+   * The start time of the call.
+   * 
+   * @example
+   * 1532448000000，已废弃，请使用StartTime。
+   */
   cdrStartTime?: number;
   /**
+   * @remarks
+   * The call ID.
+   * 
    * @example
    * job-125152394144124921
    */
   contactId?: string;
   /**
+   * @remarks
+   * The duration of the voicemail message in seconds.
+   * 
    * @example
    * 16
    */
   duration?: number;
   /**
+   * @remarks
+   * The ID of the CC instance.
+   * 
    * @example
    * ccc-test
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The name of the voicemail.
+   * 
    * @example
    * voicemail-test
    */
   name?: string;
+  /**
+   * @remarks
+   * The duration of the voicemail message in seconds.
+   * 
+   * @example
+   * 10，已废弃，请使用Duration
+   */
   recordingDuration?: number;
   /**
+   * @remarks
+   * The start time of the voicemail.
+   * 
    * @example
    * 1631440860000
    */
@@ -78,18 +113,31 @@ export class ListVoicemailsResponseBodyDataList extends $dara.Model {
 }
 
 export class ListVoicemailsResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The list of voicemail records.
+   */
   list?: ListVoicemailsResponseBodyDataList[];
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The total number of entries. This parameter is returned only when \\`PageNumber\\` is set to 1. For other values of \\`PageNumber\\`, this parameter returns 0.
+   * 
    * @example
    * 11
    */
@@ -126,18 +174,38 @@ export class ListVoicemailsResponseBodyData extends $dara.Model {
 
 export class ListVoicemailsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response code.
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * The data.
+   */
   data?: ListVoicemailsResponseBodyData;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
+  /**
+   * @remarks
+   * The response message.
+   * 
+   * @example
+   * 无
+   */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * EEEE671A-3E24-4A04-81E6-6C4F5B39DF75
    */

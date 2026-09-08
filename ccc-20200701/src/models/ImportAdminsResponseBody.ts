@@ -4,26 +4,41 @@ import * as $dara from '@darabonba/typescript';
 
 export class ImportAdminsResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The agent extension.
+   * 
    * @example
    * 8021****
    */
   extension?: string;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * ccc-test
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The UID of the Alibaba Cloud RAM account.
+   * 
    * @example
    * 26972543893791****
    */
   ramId?: string;
   /**
+   * @remarks
+   * The role ID.
+   * 
    * @example
    * Admin@ccc-test
    */
   roleId?: string;
   /**
+   * @remarks
+   * The agent ID.
+   * 
    * @example
    * agent@ccc-test
    */
@@ -59,18 +74,38 @@ export class ImportAdminsResponseBodyData extends $dara.Model {
 
 export class ImportAdminsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response code.
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * A list of imported admins.
+   */
   data?: ImportAdminsResponseBodyData[];
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
+  /**
+   * @remarks
+   * The response message.
+   * 
+   * @example
+   * 无
+   */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 1CDB5C94-ACFB-59B5-85FE-C1DAF8049C63
    */

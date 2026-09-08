@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ImportCustomCallTaggingResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The number of the inbound number tag that failed to be created.
+   * 
    * @example
    * 1312121****
    */
   item?: string;
   /**
+   * @remarks
+   * The reason why the inbound number tag creation failed.
+   * 
    * @example
    * CUSTOM_NUMBER_DUPLICATED
    */
@@ -38,18 +44,38 @@ export class ImportCustomCallTaggingResponseBodyData extends $dara.Model {
 
 export class ImportCustomCallTaggingResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response code.
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * The list of inbound number tags that failed to be created.
+   */
   data?: ImportCustomCallTaggingResponseBodyData[];
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
+  /**
+   * @remarks
+   * The response message.
+   * 
+   * @example
+   * 无
+   */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * BA03159C-E808-4FF1-B27E-A61B6E888D7F
    */

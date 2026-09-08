@@ -3,12 +3,33 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListWaitingChatsResponseBodyDataMessages extends $dara.Model {
+  /**
+   * @remarks
+   * Message content.
+   * 
+   * @example
+   * 测试消息
+   */
   content?: string;
   /**
+   * @remarks
+   * Message sender ID.
+   * 
    * @example
    * c361765f-******-4e07-b81c-4b5d9183fac6
    */
   senderId?: string;
+  /**
+   * @remarks
+   * Sender type. Valid values:
+   * 
+   * - **CUSTOMER**: visitor
+   * 
+   * - **AGENT**: agent
+   * 
+   * @example
+   * {"variables":{},"text":"<p>这种的名片选单面还是双面</p>"}
+   */
   senderType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -36,14 +57,34 @@ export class ListWaitingChatsResponseBodyDataMessages extends $dara.Model {
 }
 
 export class ListWaitingChatsResponseBodyDataUserList extends $dara.Model {
+  /**
+   * @remarks
+   * Profile picture URL.
+   * 
+   * @example
+   * 无
+   */
   avatarUrl?: string;
   /**
+   * @remarks
+   * User ID.
+   * 
    * @example
    * c361765f-******-4e07-b81c-4b5d9183fac6
    */
   userId?: string;
+  /**
+   * @remarks
+   * User name.
+   * 
+   * @example
+   * 访客-1c***
+   */
   userName?: string;
   /**
+   * @remarks
+   * User type.
+   * 
    * @example
    * CUSTOMER
    */
@@ -77,37 +118,70 @@ export class ListWaitingChatsResponseBodyDataUserList extends $dara.Model {
 
 export class ListWaitingChatsResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * Access channel ID.
+   * 
    * @example
    * 843073c2-*****-49fb-a616-738ddddfebdc
    */
   accessChannelId?: string;
   /**
+   * @remarks
+   * Access channel type.
+   * 
    * @example
    * Web
    */
   accessChannelType?: string;
   /**
+   * @remarks
+   * Indicates whether the session has been assigned to an agent.
+   * 
    * @example
    * false
    */
   beingAssigned?: boolean;
   /**
+   * @remarks
+   * Chat session ID.
+   * 
    * @example
    * $23086709$EAUNIT
    */
   chatConversationId?: string;
   /**
+   * @remarks
+   * Enqueue time, in Unix timestamp format, in milliseconds.
+   * 
    * @example
    * 1718868572094
    */
   enqueueTime?: number;
   /**
+   * @remarks
+   * Job ID.
+   * 
    * @example
    * chat-434537064047960064
    */
   jobId?: string;
+  /**
+   * @remarks
+   * Message list.
+   */
   messages?: ListWaitingChatsResponseBodyDataMessages[];
+  /**
+   * @remarks
+   * The skill group information.
+   * 
+   * @example
+   * skill@ccc-test
+   */
   skillGroupId?: string;
+  /**
+   * @remarks
+   * User list.
+   */
   userList?: ListWaitingChatsResponseBodyDataUserList[];
   static names(): { [key: string]: string } {
     return {
@@ -154,18 +228,38 @@ export class ListWaitingChatsResponseBodyData extends $dara.Model {
 
 export class ListWaitingChatsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Response code.
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * Returned data.
+   */
   data?: ListWaitingChatsResponseBodyData[];
   /**
+   * @remarks
+   * HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
+  /**
+   * @remarks
+   * Response message.
+   * 
+   * @example
+   * 无
+   */
   message?: string;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 03C67DAD-EB26-41D8-949D-9B0C470FB716
    */

@@ -4,17 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListMonoRecordingsRequest extends $dara.Model {
   /**
+   * @remarks
+   * The channel ID of the agent conversation.
+   * 
    * @example
    * ch-user-****-****-1772180844645-job-*****
    */
   agentChannelId?: string;
   /**
+   * @remarks
+   * The agent ID.
+   * 
    * @example
    * agent@ccc-test
    */
   agentId?: string;
   /**
    * @remarks
+   * The call ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -23,6 +31,8 @@ export class ListMonoRecordingsRequest extends $dara.Model {
   contactId?: string;
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example

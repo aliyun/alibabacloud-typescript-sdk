@@ -4,13 +4,16 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateSchemaShrinkRequest extends $dara.Model {
   /**
+   * @remarks
+   * The description.
+   * 
    * @example
    * -
    */
   description?: string;
   /**
    * @remarks
-   * schema id
+   * The schema ID.
    * 
    * @example
    * profile
@@ -18,14 +21,23 @@ export class CreateSchemaShrinkRequest extends $dara.Model {
   id?: string;
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
    * b0eb2742-f37e-4c67-82d4-25c651c1c450
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * The list of fields.
+   */
   propertiesShrink?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 7BEEA660-A45A-45E3-98CC-AFC65E715C23
    */

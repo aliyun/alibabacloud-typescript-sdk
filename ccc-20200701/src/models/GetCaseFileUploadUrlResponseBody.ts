@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetCaseFileUploadUrlResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The key of the OSS file.
+   * 
    * @example
    * ccc-test/namelist.csv
    */
   caseFileKey?: string;
   /**
+   * @remarks
+   * A pre-signed OSS file upload URL for uploading the file. The validity period is one hour.
+   * 
    * @example
    * https://ccc-v2-online.oss-cn-shanghai.aliyuncs.com/ccc-test/namelist.csv?Expires=1642067227&OSSAccessKeyId=****&Signature=****
    */
@@ -38,18 +44,38 @@ export class GetCaseFileUploadUrlResponseBodyData extends $dara.Model {
 
 export class GetCaseFileUploadUrlResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Response code.
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * Data.
+   */
   data?: GetCaseFileUploadUrlResponseBodyData;
   /**
+   * @remarks
+   * HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
+  /**
+   * @remarks
+   * Response message.
+   * 
+   * @example
+   * 无
+   */
   message?: string;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * BA03159C-E808-4FF1-B27E-A61B6E888D7F
    */

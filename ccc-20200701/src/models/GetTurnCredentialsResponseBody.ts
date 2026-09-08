@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetTurnCredentialsResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The password.
+   * 
    * @example
    * M0NQNG/uRUrfIxW7er/S9gKX****
    */
   password?: string;
   /**
+   * @remarks
+   * The username.
+   * 
    * @example
    * 1602585817:****
    */
@@ -38,19 +44,39 @@ export class GetTurnCredentialsResponseBodyData extends $dara.Model {
 
 export class GetTurnCredentialsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response code.
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * The data returned.
+   */
   data?: GetTurnCredentialsResponseBodyData;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
+  /**
+   * @remarks
+   * The response message.
+   * 
+   * @example
+   * 无
+   */
   message?: string;
   params?: string[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * EEEE671A-3E24-4A04-81E6-6C4F5B39DF75
    */

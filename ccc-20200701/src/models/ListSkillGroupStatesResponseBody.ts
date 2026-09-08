@@ -4,74 +4,137 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListSkillGroupStatesResponseBodyDataList extends $dara.Model {
   /**
+   * @remarks
+   * The average waiting time, in seconds.
+   * 
    * @example
    * 3
    */
   averageWaitingTime?: number;
   /**
+   * @remarks
+   * Number of agents in break status.
+   * 
    * @example
    * 0
    */
   breakingAgents?: number;
+  /**
+   * @remarks
+   * The number of agents on calls in the inbound scenario.
+   * 
+   * @example
+   * 0
+   */
   inboundTalkingAgents?: number;
   /**
+   * @remarks
+   * Instance ID.
+   * 
    * @example
    * ccc-test
    */
   instanceId?: string;
   /**
+   * @remarks
+   * Number of logged-in agents.
+   * 
    * @example
    * 0
    */
   loggedInAgents?: number;
   /**
+   * @remarks
+   * Maximum waiting duration.
+   * 
    * @example
    * 0
    */
   longestCall?: number;
   /**
+   * @remarks
+   * The number of agents who are idle and in outbound-only status.
+   * 
    * @example
    * 0
    */
   outboundScenarioReadyAgents?: number;
+  /**
+   * @remarks
+   * Number of agents on outbound calls.
+   * 
+   * @example
+   * 0
+   */
   outboundTalkingAgents?: number;
   /**
+   * @remarks
+   * The number of idle agents.
+   * 
    * @example
    * 1
    */
   readyAgents?: number;
   /**
+   * @remarks
+   * The skill group ID.
+   * 
    * @example
    * skillgroup1@ccc-test
    */
   skillGroupId?: string;
+  /**
+   * @remarks
+   * Skill group name.
+   * 
+   * @example
+   * 测试技能组
+   */
   skillGroupName?: string;
   /**
+   * @remarks
+   * The number of agents on calls.
+   * 
    * @example
    * 0
    */
   talkingAgents?: number;
   /**
+   * @remarks
+   * Number of calls currently in the queue.
+   * 
    * @example
    * 0
    */
   waitingCalls?: number;
   /**
+   * @remarks
+   * The number of calls with a waiting duration of less than 10 seconds.
+   * 
    * @example
    * 0
    */
   waitingCallsLevel10?: number;
   /**
+   * @remarks
+   * Number of calls with waiting duration less than 20 seconds.
+   * 
    * @example
    * 0
    */
   waitingCallsLevel20?: number;
   /**
+   * @remarks
+   * The number of calls with a waiting duration of less than 30 seconds.
+   * 
    * @example
    * 0
    */
   waitingCallsLevel30?: number;
   /**
+   * @remarks
+   * The number of agents in post-processing.
+   * 
    * @example
    * 0
    */
@@ -130,18 +193,31 @@ export class ListSkillGroupStatesResponseBodyDataList extends $dara.Model {
 }
 
 export class ListSkillGroupStatesResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * List of skill group status data.
+   */
   list?: ListSkillGroupStatesResponseBodyDataList[];
   /**
+   * @remarks
+   * Page number, ranging from 1 to 100.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * Page size, ranging from 1 to 100.
+   * 
    * @example
    * 100
    */
   pageSize?: number;
   /**
+   * @remarks
+   * Total count.
+   * 
    * @example
    * 10
    */
@@ -178,23 +254,46 @@ export class ListSkillGroupStatesResponseBodyData extends $dara.Model {
 
 export class ListSkillGroupStatesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Response code.
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * Data.
+   */
   data?: ListSkillGroupStatesResponseBodyData;
   /**
+   * @remarks
+   * HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
+  /**
+   * @remarks
+   * Response message.
+   * 
+   * @example
+   * 无
+   */
   message?: string;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 1F69EBB0-63E9-5DDE-887F-9FC040ADF309
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request succeeded.
+   * 
    * @example
    * true
    */

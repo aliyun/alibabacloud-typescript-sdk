@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateChatMediaUrlResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * Media ID.
+   * 
    * @example
    * $iAHNCNQCo21wMwMGBAAFAAbaACOEAaQhIH6TAqogDGyb-qD2Hbj0A88AAAGRLKYVnwTOACwwYwcACM8AAAGRLRPynQ
    */
   mediaId?: string;
   /**
+   * @remarks
+   * File URL.
+   * 
    * @example
    * https://ccc-v2-online.oss-cn-shanghai.aliyuncs.com/ccc-test/namelist.csv?Expires=1642067227&OSSAccessKeyId=****&Signature=****
    */
@@ -38,19 +44,43 @@ export class CreateChatMediaUrlResponseBodyData extends $dara.Model {
 
 export class CreateChatMediaUrlResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Response code.
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * Data.
+   */
   data?: CreateChatMediaUrlResponseBodyData;
   /**
+   * @remarks
+   * HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
+  /**
+   * @remarks
+   * Response message.
+   * 
+   * @example
+   * 无
+   */
   message?: string;
+  /**
+   * @remarks
+   * Response parameters.
+   */
   params?: string[];
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 03C67DAD-EB26-41D8-949D-9B0C470FB716
    */

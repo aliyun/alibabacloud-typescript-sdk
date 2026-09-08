@@ -4,15 +4,28 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateSubscriptionResponseBodyDataEventList extends $dara.Model {
   /**
+   * @remarks
+   * Indicates whether the push is disabled.
+   * 
    * @example
    * true
    */
   disabled?: boolean;
   /**
+   * @remarks
+   * The event name.
+   * 
    * @example
    * Dialing
    */
   name?: string;
+  /**
+   * @remarks
+   * The event topic.
+   * 
+   * @example
+   * 无
+   */
   topic?: string;
   static names(): { [key: string]: string } {
     return {
@@ -41,37 +54,68 @@ export class UpdateSubscriptionResponseBodyDataEventList extends $dara.Model {
 
 export class UpdateSubscriptionResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The endpoint for MQ. The service endpoint for webhook.
+   * 
    * @example
    * rmq-cn-****.cn-shanghai.rmq.aliyuncs.com:8080
    */
   accessPoint?: string;
+  /**
+   * @remarks
+   * The event checklist.
+   */
   eventList?: UpdateSubscriptionResponseBodyDataEventList[];
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * ccc-test
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The MQ instance ID. Specify this only when MqType is rocketmq4 or rocketmq5.
+   * 
    * @example
    * rmq-cn-****
    */
   mqInstanceId?: string;
   /**
+   * @remarks
+   * The message push type.
+   * 
+   * - rocketmq4
+   * 
+   * - rocketmq5
+   * 
+   * - webhook
+   * 
    * @example
    * rocketmq5
    */
   mqType?: string;
   /**
+   * @remarks
+   * For MQ, enter the Group ID. For webhook, enter PID_Webhook.
+   * 
    * @example
    * GID_xxx
    */
   producerId?: string;
   /**
+   * @remarks
+   * For MQ, enter the topic name. For webhook, enter Topic_Webhook.
+   * 
    * @example
    * ccc-event
    */
   topic?: string;
   /**
+   * @remarks
+   * The MQ username. Specify this only when MqType is rocketmq5.
+   * 
    * @example
    * username
    */
@@ -116,19 +160,43 @@ export class UpdateSubscriptionResponseBodyData extends $dara.Model {
 
 export class UpdateSubscriptionResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response code.
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * Data.
+   */
   data?: UpdateSubscriptionResponseBodyData;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
+  /**
+   * @remarks
+   * The response message.
+   * 
+   * @example
+   * 无
+   */
   message?: string;
+  /**
+   * @remarks
+   * The list of invalid parameters.
+   */
   params?: string[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 03C67DAD-EB26-41D8-949D-9B0C470FB716
    */

@@ -4,57 +4,97 @@ import * as $dara from '@darabonba/typescript';
 
 export class ClaimCallResponseBodyDataCallContextChannelContexts extends $dara.Model {
   /**
+   * @remarks
+   * The call type of the channel.
+   * 
    * @example
    * OUTBOUND
    */
   callType?: string;
   /**
+   * @remarks
+   * The channel ID.
+   * 
    * @example
    * ch:user:1390501****->8032****:1609138902226:job-653821410368****
    */
   channelId?: string;
   /**
+   * @remarks
+   * The state of the channel.
+   * 
    * @example
    * ANSWERED
    */
   channelState?: string;
   /**
+   * @remarks
+   * The channel variables.
+   * 
    * @example
    * a=b;c=d;
    */
   channelVariables?: string;
   /**
+   * @remarks
+   * The destination of the channel.
+   * 
    * @example
    * 1390501****
    */
   destination?: string;
   /**
+   * @remarks
+   * The call ID.
+   * 
    * @example
    * job-6573574060089****
    */
   jobId?: string;
   /**
+   * @remarks
+   * The originator of the channel.
+   * 
    * @example
    * 0830019****
    */
   originator?: string;
   /**
+   * @remarks
+   * The party who initiated the channel release.
+   * 
    * @example
    * 1390501****
    */
   releaseInitiator?: string;
+  /**
+   * @remarks
+   * The reason why the channel was released. This is a SIP response code. For more information, see the SIP protocol specification.
+   * 
+   * @example
+   * 无
+   */
   releaseReason?: string;
   /**
+   * @remarks
+   * The Unix timestamp that indicates the last time the channel state changed. Unit: milliseconds.
+   * 
    * @example
    * 1609225718295
    */
   timestamp?: number;
   /**
+   * @remarks
+   * The agent extension number.
+   * 
    * @example
    * 8059****
    */
   userExtension?: string;
   /**
+   * @remarks
+   * The agent ID.
+   * 
    * @example
    * invoker@ccc-test
    */
@@ -103,13 +143,23 @@ export class ClaimCallResponseBodyDataCallContextChannelContexts extends $dara.M
 }
 
 export class ClaimCallResponseBodyDataCallContext extends $dara.Model {
+  /**
+   * @remarks
+   * The channel contexts.
+   */
   channelContexts?: ClaimCallResponseBodyDataCallContextChannelContexts[];
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * ccc-test
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The call ID.
+   * 
    * @example
    * job-6538214103685****
    */
@@ -144,47 +194,78 @@ export class ClaimCallResponseBodyDataCallContext extends $dara.Model {
 
 export class ClaimCallResponseBodyDataUserContext extends $dara.Model {
   /**
+   * @remarks
+   * The break code.
+   * 
    * @example
    * Customized
    */
   breakCode?: string;
   /**
+   * @remarks
+   * The device ID.
+   * 
    * @example
    * device-xxxx
    */
   deviceId?: string;
   /**
+   * @remarks
+   * The extension number.
+   * 
    * @example
    * 0830019****
    */
   extension?: string;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * ccc-test
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The call ID.
+   * 
    * @example
    * job-6573574060089****
    */
   jobId?: string;
   /**
+   * @remarks
+   * Indicates whether this is an outbound scenario.
+   * 
    * @example
    * false
    */
   outboundScenario?: boolean;
+  /**
+   * @remarks
+   * The list of signed-in skill group IDs.
+   */
   signedSkillGroupIdList?: string[];
   /**
+   * @remarks
+   * The agent ID.
+   * 
    * @example
    * user@ccc-test
    */
   userId?: string;
   /**
+   * @remarks
+   * The agent state.
+   * 
    * @example
    * Dialing
    */
   userState?: string;
   /**
+   * @remarks
+   * The work mode.
+   * 
    * @example
    * ON_SITE
    */
@@ -232,12 +313,23 @@ export class ClaimCallResponseBodyDataUserContext extends $dara.Model {
 }
 
 export class ClaimCallResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The call context.
+   */
   callContext?: ClaimCallResponseBodyDataCallContext;
   /**
+   * @remarks
+   * The context ID.
+   * 
    * @example
    * 123456
    */
   contextId?: number;
+  /**
+   * @remarks
+   * The agent context.
+   */
   userContext?: ClaimCallResponseBodyDataUserContext;
   static names(): { [key: string]: string } {
     return {
@@ -272,19 +364,43 @@ export class ClaimCallResponseBodyData extends $dara.Model {
 
 export class ClaimCallResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response code.
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * The data.
+   */
   data?: ClaimCallResponseBodyData;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
+  /**
+   * @remarks
+   * The response message.
+   * 
+   * @example
+   * 无
+   */
   message?: string;
+  /**
+   * @remarks
+   * The list of error parameters.
+   */
   params?: string[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 93CDC17E-3E8A-48F2-99E5-FA2E238DE8B4
    */

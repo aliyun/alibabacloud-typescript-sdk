@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListPhoneNumbersOfSkillGroupRequest extends $dara.Model {
   /**
+   * @remarks
+   * Indicates whether the phone number is active. This parameter is optional. The default value is empty, which means no filtering is applied.
+   * 
    * @example
    * true
    */
   active?: boolean;
   /**
    * @remarks
+   * Instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18,6 +23,8 @@ export class ListPhoneNumbersOfSkillGroupRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * Indicates whether the phone numbers are associated with the skill group. If true, the API queries the list of phone numbers already associated with the specified SkillGroupId. If false, the API queries the list of phone numbers that can be associated with the specified SkillGroupId but are not currently associated. This parameter is typically used together with the AddNumbersToSkillGroup API.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -26,6 +33,8 @@ export class ListPhoneNumbersOfSkillGroupRequest extends $dara.Model {
   isMember?: boolean;
   /**
    * @remarks
+   * Page number for paging. Valid values: 1 to 100.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -34,6 +43,8 @@ export class ListPhoneNumbersOfSkillGroupRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
+   * Page size for paging. Valid values: 1 to 100.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -41,12 +52,17 @@ export class ListPhoneNumbersOfSkillGroupRequest extends $dara.Model {
    */
   pageSize?: number;
   /**
+   * @remarks
+   * Performs Fuzzy Matching on phone numbers. This parameter is optional. The default value is empty, which means no filtering is applied.
+   * 
    * @example
    * 0833
    */
   searchPattern?: string;
   /**
    * @remarks
+   * Skill group ID.
+   * 
    * This parameter is required.
    * 
    * @example

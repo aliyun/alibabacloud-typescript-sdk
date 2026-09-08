@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ResetAgentStateRequest extends $dara.Model {
   /**
+   * @remarks
+   * A string that identifies the device. The value is not processed by the system and can be any string.
+   * 
    * @example
    * device
    */
   deviceId?: string;
   /**
    * @remarks
+   * The ID of the Cloud Call Center (CCC) instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -17,6 +22,9 @@ export class ResetAgentStateRequest extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The ID of the agent. This parameter is optional. If omitted, the agent mapped to the current RAM account is reset.
+   * 
    * @example
    * agent@ccc-test
    */

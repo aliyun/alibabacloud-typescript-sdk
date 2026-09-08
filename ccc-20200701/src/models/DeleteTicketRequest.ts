@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteTicketRequest extends $dara.Model {
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,6 +14,9 @@ export class DeleteTicketRequest extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The ticket ID.
+   * 
    * @example
    * 3d26b90a-c5d2-4b09-8219-********
    */

@@ -4,22 +4,38 @@ import * as $dara from '@darabonba/typescript';
 
 export class DisableSchemaPropertyResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Response code
+   * 
    * @example
    * OK
    */
   code?: string;
   /**
+   * @remarks
+   * HTTP status code
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * Additional information
+   * 
    * @example
    * User 244715989906081477 does not exist in instance worldfirst01.
    */
   message?: string;
+  /**
+   * @remarks
+   * Parameter information
+   */
   params?: string[];
   /**
+   * @remarks
+   * Request ID
+   * 
    * @example
    * 9FBA26B0-462B-4D77-B78F-AF35560DBC71
    */

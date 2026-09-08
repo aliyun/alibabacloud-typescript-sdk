@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListAgentStateLogsRequest extends $dara.Model {
   /**
    * @remarks
+   * Agent ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,12 +14,17 @@ export class ListAgentStateLogsRequest extends $dara.Model {
    */
   agentId?: string;
   /**
+   * @remarks
+   * End UNIX timestamp. The default value is the current time. The time difference between EndTime and StartTime must not exceed 7 days. The format is a Unix timestamp in milliseconds.
+   * 
    * @example
    * 1620273600000
    */
   endTime?: number;
   /**
    * @remarks
+   * Instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -25,6 +32,9 @@ export class ListAgentStateLogsRequest extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * Start UNIX timestamp. The default value is the start time of the current day. The earliest allowed value is 180 days before the current date. The format is a Unix timestamp in milliseconds.
+   * 
    * @example
    * 1620230400000
    */

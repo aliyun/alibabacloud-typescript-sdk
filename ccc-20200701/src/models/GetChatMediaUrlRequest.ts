@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetChatMediaUrlRequest extends $dara.Model {
   /**
    * @remarks
+   * Instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,7 +15,7 @@ export class GetChatMediaUrlRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * media id
+   * Media ID.
    * 
    * This parameter is required.
    * 
@@ -22,6 +24,9 @@ export class GetChatMediaUrlRequest extends $dara.Model {
    */
   mediaId?: string;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 8707EB29-BAED-4302-B999-40BA61877437
    */

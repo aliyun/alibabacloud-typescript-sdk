@@ -4,17 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class MuteCallRequest extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the voice channel to be muted. This parameter is optional and defaults to empty. If it is empty, the voice channel of the agent corresponding to UserId will be muted.
+   * 
    * @example
    * ch:user:1318888****->8001****:1609253204816:job-6581536084722****
    */
   channelId?: string;
   /**
+   * @remarks
+   * Device ID. This parameter is meaningless and can be filled with any value.
+   * 
    * @example
    * device
    */
   deviceId?: string;
   /**
    * @remarks
+   * Instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -23,6 +31,8 @@ export class MuteCallRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * The call ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -30,6 +40,9 @@ export class MuteCallRequest extends $dara.Model {
    */
   jobId?: string;
   /**
+   * @remarks
+   * The agent ID to be muted.
+   * 
    * @example
    * agent@ccc-test
    */

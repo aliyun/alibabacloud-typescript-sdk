@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CoachCallRequest extends $dara.Model {
   /**
    * @remarks
+   * Agent ID being coached.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,12 +14,17 @@ export class CoachCallRequest extends $dara.Model {
    */
   coachedUserId?: string;
   /**
+   * @remarks
+   * Device ID. This field is meaningless and can be filled with any value.
+   * 
    * @example
    * device
    */
   deviceId?: string;
   /**
    * @remarks
+   * Instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -26,6 +33,8 @@ export class CoachCallRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * Call ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -33,11 +42,17 @@ export class CoachCallRequest extends $dara.Model {
    */
   jobId?: string;
   /**
+   * @remarks
+   * Coaching timeout. If the coaching session is not established within the specified time, the coaching operation is canceled. This field is optional and defaults to 30 seconds.
+   * 
    * @example
    * 30
    */
   timeoutSeconds?: number;
   /**
+   * @remarks
+   * Agent ID initiating the coaching.
+   * 
    * @example
    * agent@ccc-test
    */

@@ -6,41 +6,26 @@ export class ListLegacyAppraiseLogsRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 1620273600000
    */
   endTime?: number;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * ccc-test
    */
   instanceId?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 1
    */
   pageNumber?: number;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 10
    */
   pageSize?: number;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 1604638129000
    */
   startTime?: number;
   static names(): { [key: string]: string } {

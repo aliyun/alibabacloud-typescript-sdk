@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetVisitorLoginDetailsRequest extends $dara.Model {
   /**
    * @remarks
+   * Chat device ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,17 +14,25 @@ export class GetVisitorLoginDetailsRequest extends $dara.Model {
    */
   chatDeviceId?: string;
   /**
+   * @remarks
+   * Instance ID.
+   * 
    * @example
    * ccc-test
    */
   instanceId?: string;
   /**
+   * @remarks
+   * Channel token for network services.
+   * 
    * @example
    * 9XYGTGWtq2wFi_Bpg7aUnIoYi_vG_rO3b***YtsxbHRHrYHlz1LDBLJAyZcLxieRQR4h_6AnWvTjJeNU5jgxzO*****bHwej7WgWrmA
    */
   token?: string;
   /**
    * @remarks
+   * Visitor ID.
+   * 
    * This parameter is required.
    * 
    * @example

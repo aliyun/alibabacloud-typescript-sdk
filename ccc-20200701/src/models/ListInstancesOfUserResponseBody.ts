@@ -3,48 +3,82 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListInstancesOfUserResponseBodyDataListAdminList extends $dara.Model {
+  /**
+   * @remarks
+   * The administrator\\"s name.
+   * 
+   * @example
+   * 测试坐席
+   */
   displayName?: string;
   /**
+   * @remarks
+   * Mailbox.
+   * 
    * @example
    * username@example.com
    */
   email?: string;
   /**
+   * @remarks
+   * Agent extension number.
+   * 
    * @example
    * 8032****
    */
   extension?: string;
   /**
+   * @remarks
+   * Instance ID.
+   * 
    * @example
    * ccc-test
    */
   instanceId?: string;
   /**
+   * @remarks
+   * Agent logon name.
+   * 
    * @example
    * agent
    */
   loginName?: string;
   /**
+   * @remarks
+   * The agent\\"s personal phone number.
+   * 
    * @example
    * 1382114****
    */
   mobile?: string;
   /**
+   * @remarks
+   * The role ID, in the format: role\\@instance ID.
+   * 
    * @example
    * Admin@ccc-test
    */
   roleId?: string;
   /**
+   * @remarks
+   * Role name.
+   * 
    * @example
    * Admin
    */
   roleName?: string;
   /**
+   * @remarks
+   * Agent ID.
+   * 
    * @example
    * agent@ccc-test
    */
   userId?: string;
   /**
+   * @remarks
+   * Work mode.
+   * 
    * @example
    * ON_SITE
    */
@@ -89,29 +123,58 @@ export class ListInstancesOfUserResponseBodyDataListAdminList extends $dara.Mode
 }
 
 export class ListInstancesOfUserResponseBodyDataListNumberListSkillGroups extends $dara.Model {
+  /**
+   * @remarks
+   * Skill group description.
+   * 
+   * @example
+   * 云联络中心的测试技能组。
+   */
   description?: string;
+  /**
+   * @remarks
+   * The display name of the skill group.
+   * 
+   * @example
+   * 测试技能组
+   */
   displayName?: string;
   /**
+   * @remarks
+   * Instance ID.
+   * 
    * @example
    * ccc-test
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The name of the skill group.
+   * 
    * @example
    * skillgroup
    */
   name?: string;
   /**
+   * @remarks
+   * Number of phone numbers associated with the skill group.
+   * 
    * @example
    * 1
    */
   phoneNumberCount?: number;
   /**
+   * @remarks
+   * The skill group ID.
+   * 
    * @example
    * skillgroup@ccc-test
    */
   skillGroupId?: string;
   /**
+   * @remarks
+   * The number of agents associated with the skill group.
+   * 
    * @example
    * 2
    */
@@ -151,34 +214,70 @@ export class ListInstancesOfUserResponseBodyDataListNumberListSkillGroups extend
 
 export class ListInstancesOfUserResponseBodyDataListNumberList extends $dara.Model {
   /**
+   * @remarks
+   * Indicates whether the number is active.
+   * 
    * @example
    * true
    */
   active?: boolean;
+  /**
+   * @remarks
+   * The city of the phone number\\"s registration location.
+   * 
+   * @example
+   * 乐山
+   */
   city?: string;
   /**
+   * @remarks
+   * The contact flow ID (IVR) associated with this phone number.
+   * 
    * @example
    * a3fb6c62-9b49-4942-ae5b-cf2abd4123ek
    */
   contactFlowId?: string;
   /**
+   * @remarks
+   * Instance ID.
+   * 
    * @example
    * ccc-test
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The number.
+   * 
    * @example
    * 0830011****
    */
   number?: string;
+  /**
+   * @remarks
+   * The province of the phone number\\"s registration location.
+   * 
+   * @example
+   * 四川
+   */
   province?: string;
+  /**
+   * @remarks
+   * List of skill groups associated with the phone number.
+   */
   skillGroups?: ListInstancesOfUserResponseBodyDataListNumberListSkillGroups[];
   /**
+   * @remarks
+   * The usage of the number.
+   * 
    * @example
    * Bidirection
    */
   usage?: string;
   /**
+   * @remarks
+   * Agent ID. If this parameter is not empty, the number is a personal outbound number assigned to the agent.
+   * 
    * @example
    * agent@ccc-test
    */
@@ -224,31 +323,68 @@ export class ListInstancesOfUserResponseBodyDataListNumberList extends $dara.Mod
 }
 
 export class ListInstancesOfUserResponseBodyDataList extends $dara.Model {
+  /**
+   * @remarks
+   * Administrator list.
+   */
   adminList?: ListInstancesOfUserResponseBodyDataListAdminList[];
   /**
+   * @remarks
+   * The Alibaba Cloud Account ID to which the instance belongs.
+   * 
    * @example
    * 157123456789****
    */
   aliyunUid?: string;
   /**
+   * @remarks
+   * The URL of the Cloud Contact Center instance, used to access the homepage of the Cloud Contact Center instance. It consists of the specific Cloud Contact Center URL followed by the instance ID.
+   * 
    * @example
    * https://ccc-v2.aliyun.com/#/workbench/ccc-test
    */
   consoleUrl?: string;
+  /**
+   * @remarks
+   * The instance description.
+   * 
+   * @example
+   * 云联络中心的测试实例。
+   */
   description?: string;
   /**
+   * @remarks
+   * The domain name of the instance, which is globally unique.
+   * 
    * @example
    * ccc-test
    */
   domainName?: string;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * ccc-test
    */
   id?: string;
+  /**
+   * @remarks
+   * The instance name.
+   * 
+   * @example
+   * 测试实例
+   */
   name?: string;
+  /**
+   * @remarks
+   * List of numbers.
+   */
   numberList?: ListInstancesOfUserResponseBodyDataListNumberList[];
   /**
+   * @remarks
+   * Instance status.
+   * 
    * @example
    * RUNNING
    */
@@ -297,18 +433,31 @@ export class ListInstancesOfUserResponseBodyDataList extends $dara.Model {
 }
 
 export class ListInstancesOfUserResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * List.
+   */
   list?: ListInstancesOfUserResponseBodyDataList[];
   /**
+   * @remarks
+   * Page number, ranging from 1 to 100.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * Page size, ranging from 1 to 100.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * Total count.
+   * 
    * @example
    * 10
    */
@@ -345,18 +494,38 @@ export class ListInstancesOfUserResponseBodyData extends $dara.Model {
 
 export class ListInstancesOfUserResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Response code.
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * Data.
+   */
   data?: ListInstancesOfUserResponseBodyData;
   /**
+   * @remarks
+   * HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
+  /**
+   * @remarks
+   * Response message.
+   * 
+   * @example
+   * 无
+   */
   message?: string;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 3969FC68-CEC2-4398-B76A-60D2F7EDEBAF
    */
