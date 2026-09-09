@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetBatchChangeTableOwnerStatusRequest extends $dara.Model {
   /**
    * @remarks
+   * The batch transfer task ID returned by SubmitBatchChangeTableOwner.
+   * 
    * This parameter is required.
    * 
    * @example

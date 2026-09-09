@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetDataQualityScanRunLogResponseBodyLogSegment extends $dara.Model {
   /**
    * @remarks
-   * The task log.
+   * The node task logs.
    * 
    * @example
    * Running on Serverless_resource_group_xxxxx
@@ -14,7 +14,7 @@ export class GetDataQualityScanRunLogResponseBodyLogSegment extends $dara.Model 
   log?: string;
   /**
    * @remarks
-   * The starting offset of the next log segment. A value of -1 indicates that all logs have been read.
+   * The start offset of the next log segment. A value of -1 indicates that all logs have been read.
    * 
    * @example
    * 512000
@@ -46,7 +46,7 @@ export class GetDataQualityScanRunLogResponseBodyLogSegment extends $dara.Model 
 export class GetDataQualityScanRunLogResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The task log information.
+   * The node task logs information.
    */
   logSegment?: GetDataQualityScanRunLogResponseBodyLogSegment;
   /**

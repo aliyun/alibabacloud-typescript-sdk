@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AssociateProjectToResourceGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the workspace to associate.
+   * The ID of the workspace to associate with the resource group.
    * 
    * This parameter is required.
    * 

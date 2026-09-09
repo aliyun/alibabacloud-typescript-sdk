@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteNodeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The request ID. Used to locate logs and troubleshoot issues.
    * 
    * @example
    * A1E54497-5122-505E-91C6-BAC14980XXXX
@@ -15,8 +15,8 @@ export class DeleteNodeResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * true<br>
-   * false
+   * true: The request was successful.  
+   * false: The request failed.
    * 
    * @example
    * true

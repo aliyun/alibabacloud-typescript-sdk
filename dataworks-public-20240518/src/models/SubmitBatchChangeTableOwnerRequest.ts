@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class SubmitBatchChangeTableOwnerRequest extends $dara.Model {
   /**
+   * @remarks
+   * Specifies whether to allow transferring ownership to an owner in a different tenant. Default value: false.
+   * 
    * @example
    * false
    */
   enableCrossTenant?: boolean;
   /**
    * @remarks
+   * The target owner after the transfer. Use the Alibaba Cloud UID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18,6 +23,8 @@ export class SubmitBatchChangeTableOwnerRequest extends $dara.Model {
   owner?: string;
   /**
    * @remarks
+   * The list of MaxCompute table metadata entity IDs to transfer. A maximum of 100 tables are allowed per request. Duplicate values are not allowed.
+   * 
    * This parameter is required.
    */
   tableMetaEntityIds?: string[];

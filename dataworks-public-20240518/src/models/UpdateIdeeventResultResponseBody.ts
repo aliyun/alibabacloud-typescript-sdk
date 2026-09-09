@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateIDEEventResultResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID. Used for troubleshooting errors.
+   * The unique ID of the request, which is used for subsequent error troubleshooting.
    * 
    * @example
    * 8abcb91f-d266-4073-b907-2ed670378ed1

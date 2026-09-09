@@ -24,7 +24,7 @@ export class CreateAgentShrinkRequest extends $dara.Model {
    * The display name of the Agent.
    * 
    * @example
-   * MyAssistant.
+   * MyAssistant
    */
   displayName?: string;
   /**
@@ -83,7 +83,7 @@ export class CreateAgentShrinkRequest extends $dara.Model {
    * @remarks
    * The visibility level.<br>
    * `TENANT`: Visible within the account.<br>
-   * `PROJECT`: Visible to specified projects.<br>
+   * `PROJECT`: Visible to a specified project.<br>
    * `USER`: Visible to specified users.
    * 
    * @example

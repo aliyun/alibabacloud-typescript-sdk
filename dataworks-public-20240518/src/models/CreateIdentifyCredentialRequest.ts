@@ -6,7 +6,7 @@ import { IdentifyCredential } from "./IdentifyCredential";
 export class CreateIdentifyCredentialRequest extends $dara.Model {
   /**
    * @remarks
-   * The user credential object.
+   * The user identity credential object.
    */
   identifyCredential?: IdentifyCredential;
   static names(): { [key: string]: string } {

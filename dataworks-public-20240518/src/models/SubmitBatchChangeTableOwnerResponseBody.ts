@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class SubmitBatchChangeTableOwnerResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The batch transfer task ID. You can use this ID to call GetBatchChangeTableOwnerStatus to query the task progress.
+   * 
    * @example
    * 524257_xxxxx
    */
   batchId?: string;
   /**
+   * @remarks
+   * The initial status of the task after submission.
+   * 
    * @example
    * SUBMITTED
    */
   status?: string;
   /**
+   * @remarks
+   * The total number of tables submitted in this batch.
+   * 
    * @example
    * 13
    */
@@ -44,13 +53,23 @@ export class SubmitBatchChangeTableOwnerResponseBodyData extends $dara.Model {
 }
 
 export class SubmitBatchChangeTableOwnerResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The submit result of the batch table ownership transfer task.
+   */
   data?: SubmitBatchChangeTableOwnerResponseBodyData;
   /**
+   * @remarks
+   * Id of the request
+   * 
    * @example
    * 824F80BA-1778-5D8A-BAFF-668A4D9C4CC7
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

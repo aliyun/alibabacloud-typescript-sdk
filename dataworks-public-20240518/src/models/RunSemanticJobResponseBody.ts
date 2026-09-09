@@ -26,7 +26,7 @@ export class RunSemanticJobResponseBodyData extends $dara.Model {
   execTypes?: number[];
   /**
    * @remarks
-   * The executor job identifier. Pass this value to the ExecutorJobId parameter of GetSemanticJobDetail, GetSemanticJobLog, or KillSemanticJob.
+   * The executor task identifier. Pass this value to the ExecutorJobId parameter of GetSemanticJobDetail, GetSemanticJobLog, or KillSemanticJob.
    * 
    * @example
    * exec-job-demo
@@ -42,7 +42,7 @@ export class RunSemanticJobResponseBodyData extends $dara.Model {
   jobRunId?: string;
   /**
    * @remarks
-   * The list of status codes returned by the executor in the submission response. The status at the submission stage does not indicate that results are complete.
+   * The list of status codes returned by the executor in the submission response. The status at the submission stage does not indicate that the results are complete.
    */
   statuses?: number[];
   static names(): { [key: string]: string } {

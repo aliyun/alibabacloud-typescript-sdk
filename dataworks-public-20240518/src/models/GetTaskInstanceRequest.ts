@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetTaskInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID.
+   * The unique identifier of the task instance.
    * 
    * This parameter is required.
    * 

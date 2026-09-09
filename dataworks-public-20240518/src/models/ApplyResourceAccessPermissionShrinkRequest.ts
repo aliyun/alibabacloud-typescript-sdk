@@ -5,14 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class ApplyResourceAccessPermissionShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The list of resource permission application contents.
+   * The list of resource permission request entries.
    * 
    * This parameter is required.
    */
   applyContentsShrink?: string;
   /**
    * @remarks
-   * The idempotency parameter. Used to prevent duplicate operations caused by multiple calls.
+   * The idempotency token. Used to prevent duplicate operations caused by multiple calls.
    * 
    * @example
    * ABFUOEUOTRTRJKE
@@ -20,12 +20,12 @@ export class ApplyResourceAccessPermissionShrinkRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The reason for the application.
+   * The reason for the request.
    * 
    * This parameter is required.
    * 
    * @example
-   * 业务发展需要
+   * Business development needs
    */
   reason?: string;
   static names(): { [key: string]: string } {

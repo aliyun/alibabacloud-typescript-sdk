@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDataQualityTemplateRequest extends $dara.Model {
   /**
    * @remarks
-   * The owner ID.
+   * The ID of the owner.
    * 
    * @example
    * 1000000000001
@@ -21,7 +21,7 @@ export class CreateDataQualityTemplateRequest extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * Detailed configuration Spec code of the rule template. For more information, see [Data quality Spec configuration description](~2963394~).
+   * The Spec code for the detailed configuration of the rule template. For more information, see [Data quality Spec configuration](https://help.aliyun.com/document_detail/2963394.html).
    * 
    * @example
    * {

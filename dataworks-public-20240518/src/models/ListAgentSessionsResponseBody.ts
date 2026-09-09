@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAgentSessionsResponseBodyJsonRpcResponseResultAgentSessionsMetaSessionTagList extends $dara.Model {
   /**
    * @remarks
-   * A tag for the session, which can be used for filtering. For example, if your application has its own user accounts but calls the API through a single service account, you can pass your application\\"s user ID as a tag. This allows you to filter sessions by your internal users.
+   * The session tag. You can filter sessions based on session tags. For example, if you use a fixed RAM user to call OpenAPI but the calling system has its own account system, you can filter the session list based on an account ID. In this case, set this parameter to the account ID of the calling system.
    * 
    * @example
    * user_123456
@@ -35,7 +35,7 @@ export class ListAgentSessionsResponseBodyJsonRpcResponseResultAgentSessionsMeta
 export class ListAgentSessionsResponseBodyJsonRpcResponseResultAgentSessionsMeta extends $dara.Model {
   /**
    * @remarks
-   * The source of the session.
+   * The session source.
    * 
    * @example
    * openapi_sdk
@@ -43,18 +43,18 @@ export class ListAgentSessionsResponseBodyJsonRpcResponseResultAgentSessionsMeta
   sessionSource?: string;
   /**
    * @remarks
-   * The session status.
+   * The session connection status.
    * 
    * @example
-   * * NORMAL: 无状态的session
-   * * INIT: 初始化状态
-   * * RUNNING: 运行中
-   * * RELEASED: 释放状态
+   * * NORMAL: Stateless session
+   * * INIT: Initialization state
+   * * RUNNING: Running
+   * * RELEASED: Released state
    */
   sessionStatus?: string;
   /**
    * @remarks
-   * A list of session tags.
+   * The list of session tags.
    */
   sessionTagList?: ListAgentSessionsResponseBodyJsonRpcResponseResultAgentSessionsMetaSessionTagList[];
   static names(): { [key: string]: string } {
@@ -88,12 +88,12 @@ export class ListAgentSessionsResponseBodyJsonRpcResponseResultAgentSessionsMeta
 export class ListAgentSessionsResponseBodyJsonRpcResponseResultAgentSessions extends $dara.Model {
   /**
    * @remarks
-   * DataWorks-specific session metadata. This field is not part of the standard ACP protocol.
+   * The extended session information from DataWorks, which is not part of the ACP standard protocol.
    */
   meta?: ListAgentSessionsResponseBodyJsonRpcResponseResultAgentSessionsMeta;
   /**
    * @remarks
-   * The time the session was created.
+   * The time when the session was created.
    * 
    * @example
    * 123456789
@@ -109,7 +109,7 @@ export class ListAgentSessionsResponseBodyJsonRpcResponseResultAgentSessions ext
   sessionDescription?: string;
   /**
    * @remarks
-   * The unique session ID.
+   * The unique ID of the session.
    * 
    * @example
    * sess_0f12abc34
@@ -125,7 +125,7 @@ export class ListAgentSessionsResponseBodyJsonRpcResponseResultAgentSessions ext
   sessionTitle?: string;
   /**
    * @remarks
-   * The time the session was last modified.
+   * The time when the session was last modified.
    * 
    * @example
    * 123456789
@@ -168,12 +168,12 @@ export class ListAgentSessionsResponseBodyJsonRpcResponseResultAgentSessions ext
 export class ListAgentSessionsResponseBodyJsonRpcResponseResult extends $dara.Model {
   /**
    * @remarks
-   * A list of sessions.
+   * The session list.
    */
   agentSessions?: ListAgentSessionsResponseBodyJsonRpcResponseResultAgentSessions[];
   /**
    * @remarks
-   * The number of entries returned on the current page.
+   * The actual number of entries per page.
    * 
    * @example
    * 100
@@ -181,7 +181,7 @@ export class ListAgentSessionsResponseBodyJsonRpcResponseResult extends $dara.Mo
   maxResults?: number;
   /**
    * @remarks
-   * The token to retrieve the next page of results. To retrieve the first page, use the value `1`.
+   * The token for the next page. Set this parameter to 1 for the first page.
    * 
    * @example
    * 1
@@ -189,7 +189,7 @@ export class ListAgentSessionsResponseBodyJsonRpcResponseResult extends $dara.Mo
   nextToken?: string;
   /**
    * @remarks
-   * The total number of sessions that match the query.
+   * The total number of matched sessions.
    * 
    * @example
    * 200
@@ -228,7 +228,7 @@ export class ListAgentSessionsResponseBodyJsonRpcResponseResult extends $dara.Mo
 export class ListAgentSessionsResponseBodyJsonRpcResponse extends $dara.Model {
   /**
    * @remarks
-   * The ID provided in the request. This value is returned unmodified.
+   * The ID passed in by the requester. The value is returned as-is.
    * 
    * @example
    * 29d9a29c-a284-48c1-9eaa-4a42c7c616d5
@@ -236,7 +236,7 @@ export class ListAgentSessionsResponseBodyJsonRpcResponse extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The JSON-RPC version. The value is always `2.0`.
+   * The JSON-RPC version. Fixed value: 2.0.
    * 
    * @example
    * 2.0
@@ -244,7 +244,7 @@ export class ListAgentSessionsResponseBodyJsonRpcResponse extends $dara.Model {
   jsonrpc?: string;
   /**
    * @remarks
-   * The paginated results of the session query.
+   * The paginated result set of the session query.
    */
   result?: ListAgentSessionsResponseBodyJsonRpcResponseResult;
   static names(): { [key: string]: string } {
@@ -283,7 +283,7 @@ export class ListAgentSessionsResponseBody extends $dara.Model {
   jsonRpcResponse?: ListAgentSessionsResponseBodyJsonRpcResponse;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * 50C5A9F7-B5BD-58B2-9EB8-ADFFA9E6A56F

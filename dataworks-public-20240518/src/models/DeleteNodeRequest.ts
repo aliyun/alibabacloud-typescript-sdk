@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteNodeRequest extends $dara.Model {
   /**
    * @remarks
-   * The unique identifier of the Data Studio node.
+   * The unique identifier of the data development node.
    * 
-   * > This field is of the Long type in SDK versions prior to 8.0.0, and of the String type in SDK versions 8.0.0 and later. This change does not affect normal SDK usage; the parameter will still be returned according to the type defined in the SDK. However, compilation failures may occur due to the type change only when upgrading the SDK across version 8.0.0. In this case, you must manually update the data type.
+   * >Notice: This field was of the Long type in SDK versions earlier than 8.0.0 and is of the String type in SDK 8.0.0 and later. **This change does not affect normal SDK usage, and the parameter is still returned in the type defined in the SDK**. When upgrading across SDK version 8.0.0, the type change may cause project compilation failures, and you must manually correct the data type.
    * 
    * This parameter is required.
    * 
@@ -17,9 +17,9 @@ export class DeleteNodeRequest extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to obtain the ID.
+   * The ID of the DataWorks workspace. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the workspace settings page to obtain the workspace ID.
    * 
-   * You can use this parameter to specify the DataWorks workspace on which you want to perform the API operation.
+   * This parameter specifies the DataWorks workspace for this API call.
    * 
    * This parameter is required.
    * 

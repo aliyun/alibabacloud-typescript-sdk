@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetDataQualityScanRunLogRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the data quality monitor run record.
+   * The ID of the data quality monitoring run record.
    * 
    * @example
    * 10001
@@ -13,7 +13,7 @@ export class GetDataQualityScanRunLogRequest extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The starting position of the log, in bytes, relative to the beginning of the file. Each query returns a maximum of 512 KB of content.
+   * The start position of the log, which is the offset relative to the beginning of the file. Unit: bytes. Each query returns a maximum of 512 KB of content.
    * 
    * @example
    * 200

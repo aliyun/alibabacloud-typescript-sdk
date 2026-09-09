@@ -44,14 +44,10 @@ export class GetTaskInstanceResponseBodyTaskInstanceInputsVariables extends $dar
   /**
    * @remarks
    * The type. Valid values:
-   * 
-   * - Constant: constant
-   * 
-   * - PassThrough: node output
-   * 
-   * - System: variable
-   * 
-   * - NodeOutput: script output
+   * - Constant: constant.
+   * - PassThrough: output of a parameter node.
+   * - System: variable.
+   * - NodeOutput: script output.
    * 
    * @example
    * Constant
@@ -93,7 +89,7 @@ export class GetTaskInstanceResponseBodyTaskInstanceInputsVariables extends $dar
 export class GetTaskInstanceResponseBodyTaskInstanceInputs extends $dara.Model {
   /**
    * @remarks
-   * The variables.
+   * The list of variable definitions.
    */
   variables?: GetTaskInstanceResponseBodyTaskInstanceInputsVariables[];
   static names(): { [key: string]: string } {
@@ -162,14 +158,10 @@ export class GetTaskInstanceResponseBodyTaskInstanceOutputsVariables extends $da
   /**
    * @remarks
    * The type. Valid values:
-   * 
-   * - Constant: constant
-   * 
-   * - PassThrough: node output
-   * 
-   * - System: variable
-   * 
-   * - NodeOutput: script output
+   * - Constant: constant.
+   * - PassThrough: output of a parameter node.
+   * - System: variable.
+   * - NodeOutput: script output.
    * 
    * @example
    * Constant
@@ -211,12 +203,12 @@ export class GetTaskInstanceResponseBodyTaskInstanceOutputsVariables extends $da
 export class GetTaskInstanceResponseBodyTaskInstanceOutputs extends $dara.Model {
   /**
    * @remarks
-   * The task outputs.
+   * The list of task output definitions.
    */
   taskOutputs?: GetTaskInstanceResponseBodyTaskInstanceOutputsTaskOutputs[];
   /**
    * @remarks
-   * The variables.
+   * The list of variable definitions.
    */
   variables?: GetTaskInstanceResponseBodyTaskInstanceOutputsVariables[];
   static names(): { [key: string]: string } {
@@ -251,7 +243,7 @@ export class GetTaskInstanceResponseBodyTaskInstanceOutputs extends $dara.Model 
 export class GetTaskInstanceResponseBodyTaskInstanceRuntime extends $dara.Model {
   /**
    * @remarks
-   * The host for running.
+   * The machine on which the task runs.
    * 
    * @example
    * cn-shanghai.1.2
@@ -259,7 +251,7 @@ export class GetTaskInstanceResponseBodyTaskInstanceRuntime extends $dara.Model 
   gateway?: string;
   /**
    * @remarks
-   * The instance run ID.
+   * The unique ID of the run.
    * 
    * @example
    * T3_123
@@ -291,7 +283,7 @@ export class GetTaskInstanceResponseBodyTaskInstanceRuntime extends $dara.Model 
 export class GetTaskInstanceResponseBodyTaskInstanceRuntimeResource extends $dara.Model {
   /**
    * @remarks
-   * The default number of CUs configured for task running.
+   * The compute unit (CU) consumption configured for the task.
    * 
    * @example
    * 0.25
@@ -299,7 +291,7 @@ export class GetTaskInstanceResponseBodyTaskInstanceRuntimeResource extends $dar
   cu?: string;
   /**
    * @remarks
-   * The ID of the image configured for task running.
+   * The image ID configured for the task.
    * 
    * @example
    * i-xxxxxx
@@ -307,7 +299,7 @@ export class GetTaskInstanceResponseBodyTaskInstanceRuntimeResource extends $dar
   image?: string;
   /**
    * @remarks
-   * The ID of the resource group for scheduling configured for task running.
+   * The identifier of the schedule resource group configured for the task.
    * 
    * @example
    * S_res_group_524258031846018_1684XXXXXXXXX
@@ -349,7 +341,7 @@ export class GetTaskInstanceResponseBodyTaskInstanceScript extends $dara.Model {
   content?: string;
   /**
    * @remarks
-   * The script parameters.
+   * The list of script parameters.
    * 
    * @example
    * para1=$bizdate
@@ -381,7 +373,7 @@ export class GetTaskInstanceResponseBodyTaskInstanceScript extends $dara.Model {
 export class GetTaskInstanceResponseBodyTaskInstanceTags extends $dara.Model {
   /**
    * @remarks
-   * The tag key.
+   * The label key.
    * 
    * @example
    * key1
@@ -389,7 +381,7 @@ export class GetTaskInstanceResponseBodyTaskInstanceTags extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value.
+   * The label value.
    * 
    * @example
    * value1
@@ -429,7 +421,7 @@ export class GetTaskInstanceResponseBodyTaskInstance extends $dara.Model {
   baselineId?: number;
   /**
    * @remarks
-   * The data timestamp.
+   * The business date.
    * 
    * @example
    * 1710239005403
@@ -445,7 +437,7 @@ export class GetTaskInstanceResponseBodyTaskInstance extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * The account ID of the creator.
+   * The account ID of the user who created the instance.
    * 
    * @example
    * 1000
@@ -453,7 +445,7 @@ export class GetTaskInstanceResponseBodyTaskInstance extends $dara.Model {
   createUser?: string;
   /**
    * @remarks
-   * The information about the associated data source.
+   * The data source information associated with the instance.
    */
   dataSource?: GetTaskInstanceResponseBodyTaskInstanceDataSource;
   /**
@@ -466,7 +458,7 @@ export class GetTaskInstanceResponseBodyTaskInstance extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The time when the instance finished running.
+   * The completion time.
    * 
    * @example
    * 1710239005403
@@ -474,7 +466,7 @@ export class GetTaskInstanceResponseBodyTaskInstance extends $dara.Model {
   finishedTime?: number;
   /**
    * @remarks
-   * The instance ID.
+   * The unique identifier of the node instance.
    * 
    * @example
    * 1234
@@ -495,7 +487,7 @@ export class GetTaskInstanceResponseBodyTaskInstance extends $dara.Model {
   modifyTime?: number;
   /**
    * @remarks
-   * The account ID of the modifier.
+   * The account ID of the user who modified the instance.
    * 
    * @example
    * 1000
@@ -503,12 +495,20 @@ export class GetTaskInstanceResponseBodyTaskInstance extends $dara.Model {
   modifyUser?: string;
   /**
    * @remarks
+   * The type of the most recent operation on the instance.
+   * 
+   * @example
+   * TriggerDqc
+   */
+  operationType?: string;
+  /**
+   * @remarks
    * The output information.
    */
   outputs?: GetTaskInstanceResponseBodyTaskInstanceOutputs;
   /**
    * @remarks
-   * The account ID of the task owner.
+   * The account ID of the node owner.
    * 
    * @example
    * 1000
@@ -516,7 +516,7 @@ export class GetTaskInstanceResponseBodyTaskInstance extends $dara.Model {
   owner?: string;
   /**
    * @remarks
-   * The sequence number of the cycle. This parameter indicates the cycle of the task instance on the current day.
+   * The period number. Indicates which scheduling cycle of the day the task instance is in.
    * 
    * @example
    * 1
@@ -524,7 +524,7 @@ export class GetTaskInstanceResponseBodyTaskInstance extends $dara.Model {
   periodNumber?: number;
   /**
    * @remarks
-   * The task priority. Valid values: 1 to 8. A larger value indicates a higher priority. Default value: 1.
+   * The running priority of the task. Minimum value: 1. Maximum value: 8. A larger value indicates a higher priority. Default value: 1.
    * 
    * @example
    * 1
@@ -532,11 +532,9 @@ export class GetTaskInstanceResponseBodyTaskInstance extends $dara.Model {
   priority?: number;
   /**
    * @remarks
-   * The environment of the workspace. Valid values:
-   * 
-   * - Prod: production environment
-   * 
-   * - Dev: development environment
+   * The project environment. Valid values:
+   * - Prod: Production.
+   * - Dev: Development.
    * 
    * @example
    * Prod
@@ -544,7 +542,7 @@ export class GetTaskInstanceResponseBodyTaskInstance extends $dara.Model {
   projectEnv?: string;
   /**
    * @remarks
-   * The workspace ID.
+   * The project ID.
    * 
    * @example
    * 100
@@ -552,13 +550,10 @@ export class GetTaskInstanceResponseBodyTaskInstance extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The rerun mode. Valid values:
-   * 
-   * - AllDenied: The task cannot be rerun regardless of whether the task is successfully run or fails to run.
-   * 
-   * - AllAllowed: The task can be rerun regardless of whether the task is successfully run or fails to run.
-   * 
-   * - FailureAllowed: The task can be rerun only after it fails to run.
+   * The rerun configuration of the task. Valid values:
+   * - AllDenied: reruns are not allowed regardless of whether the task fails or succeeds.
+   * - AllAllowed: reruns are allowed regardless of whether the task fails or succeeds.
+   * - FailureAllowed: reruns are allowed only when the task fails.
    * 
    * @example
    * AllAllowed
@@ -566,7 +561,7 @@ export class GetTaskInstanceResponseBodyTaskInstance extends $dara.Model {
   rerunMode?: string;
   /**
    * @remarks
-   * The number of times the instance is run. By default, the value starts from 1.
+   * The current run number. The value starts from 1 by default.
    * 
    * @example
    * 1
@@ -574,22 +569,22 @@ export class GetTaskInstanceResponseBodyTaskInstance extends $dara.Model {
   runNumber?: number;
   /**
    * @remarks
-   * The runtime information about the instance.
+   * The runtime information of the instance.
    */
   runtime?: GetTaskInstanceResponseBodyTaskInstanceRuntime;
   /**
    * @remarks
-   * The information about the resource group with which the instance is associated.
+   * The resource group information associated with the instance.
    */
   runtimeResource?: GetTaskInstanceResponseBodyTaskInstanceRuntimeResource;
   /**
    * @remarks
-   * The script information.
+   * The running script information.
    */
   script?: GetTaskInstanceResponseBodyTaskInstanceScript;
   /**
    * @remarks
-   * The time when the instance started to run.
+   * The start time of the run.
    * 
    * @example
    * 1710239005403
@@ -597,23 +592,16 @@ export class GetTaskInstanceResponseBodyTaskInstance extends $dara.Model {
   startedTime?: number;
   /**
    * @remarks
-   * The status of the instance. Valid values:
-   * 
-   * - NotRun: The instance is not run.
-   * 
-   * - Running: The instance is running.
-   * 
-   * - WaitTime: The instance is waiting for the scheduling time to arrive.
-   * 
-   * - CheckingCondition: Branch conditions are being checked for the instance.
-   * 
-   * - WaitResource: The instance is waiting for resources.
-   * 
-   * - Failure: The instance fails to be run.
-   * 
-   * - Success: The instance is successfully run.
-   * 
-   * - Checking: Data quality is being checked for the instance.
+   * The instance running status. Valid values:
+   * - NotRun: Not run.
+   * - Running: Running.
+   * - WaitTime: Waiting for the TriggerTime to arrive.
+   * - CheckingCondition: Checking branch conditions.
+   * - WaitResource: Waiting for resources.
+   * - Failure: Execution failed.
+   * - Success: Execution succeeded.
+   * - Checking: Submitted for data quality check.
+   * - WaitTrigger: Waiting for an external trigger. Trigger-based nodes enter this status after the waiting time elapses.
    * 
    * @example
    * Success
@@ -621,12 +609,12 @@ export class GetTaskInstanceResponseBodyTaskInstance extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The tags of the task.
+   * The list of node tags.
    */
   tags?: GetTaskInstanceResponseBodyTaskInstanceTags[];
   /**
    * @remarks
-   * The ID of the task for which the instance is generated.
+   * The ID of the corresponding task.
    * 
    * @example
    * 1234
@@ -634,7 +622,7 @@ export class GetTaskInstanceResponseBodyTaskInstance extends $dara.Model {
   taskId?: number;
   /**
    * @remarks
-   * The name of the task for which the instance is generated.
+   * The name of the corresponding task.
    * 
    * @example
    * SQL node
@@ -642,7 +630,7 @@ export class GetTaskInstanceResponseBodyTaskInstance extends $dara.Model {
   taskName?: string;
   /**
    * @remarks
-   * The type of the task for which the instance is generated.
+   * The type of the corresponding task.
    * 
    * @example
    * ODPS_SQL
@@ -650,9 +638,9 @@ export class GetTaskInstanceResponseBodyTaskInstance extends $dara.Model {
   taskType?: string;
   /**
    * @remarks
-   * The timeout period of task running. Unit: seconds.
+   * The timeout period for task execution. Unit: seconds.
    * 
-   * Note: The value of this parameter is rounded up by hour.
+   * Note: The scheduling system rounds the configured value to the nearest hour.
    * 
    * @example
    * 3600
@@ -660,13 +648,18 @@ export class GetTaskInstanceResponseBodyTaskInstance extends $dara.Model {
   timeout?: number;
   /**
    * @remarks
-   * The running mode of the instance after it is triggered. This parameter takes effect only if the TriggerType parameter is set to Scheduler. Valid values:
+   * The running mode when triggered. This parameter takes effect when TriggerType is set to Scheduler. Valid values:
    * 
-   * - Pause
-   * 
-   * - Skip
-   * 
-   * - Normal
+   * - Normal: a normal scheduled task that is scheduled on a regular basis.
+   * - Manual: a manual task that is not scheduled on a regular basis.
+   * - Pause: a paused task that is scheduled on a regular basis but is set to failed when scheduling starts.
+   * - Skip: a dry-run task that is scheduled on a regular basis but is set to succeeded when scheduling starts.
+   * - SkipUnchoose: a task that is not selected in a temporary workflow. This value exists only in temporary workflows. The task is set to succeeded when scheduling starts.
+   * - SkipCycle: a weekly or monthly task whose running cycle has not arrived. The task is scheduled on a regular basis but is set to succeeded when scheduling starts.
+   * - ConditionUnchoose: a downstream node that is not selected by an upstream branch (IF) node. The task directly becomes a dry run.
+   * - RealtimeDeprecated: an expired periodic instance generated in real time. The task is set to succeeded.
+   * - PauseCalendar: the instance is paused because a calendar is referenced.
+   * - SkipCalendar: the instance is a dry run because a calendar is referenced.
    * 
    * @example
    * Normal
@@ -674,7 +667,7 @@ export class GetTaskInstanceResponseBodyTaskInstance extends $dara.Model {
   triggerRecurrence?: string;
   /**
    * @remarks
-   * The scheduling time.
+   * The scheduled trigger time.
    * 
    * @example
    * 1710239005403
@@ -682,11 +675,9 @@ export class GetTaskInstanceResponseBodyTaskInstance extends $dara.Model {
   triggerTime?: number;
   /**
    * @remarks
-   * The method to trigger instance scheduling. The value of the Trigger.Type parameter in the response of the GetTask operation is used. Valid values:
-   * 
-   * - Scheduler
-   * 
-   * - Manual
+   * The trigger type. You can obtain the trigger type from the Trigger.Type response parameter of the GetTask operation. Valid values:
+   * - Scheduler: triggered by a scheduling cycle.
+   * - Manual: manually triggered.
    * 
    * @example
    * Scheduler
@@ -694,7 +685,7 @@ export class GetTaskInstanceResponseBodyTaskInstance extends $dara.Model {
   triggerType?: string;
   /**
    * @remarks
-   * Unified workflow instance ID. All task instances triggered under the same data timestamp share the same value for this field.
+   * The unified workflow instance ID. All task instances within the same business date under a single trigger share the same value for this field.
    * 
    * @example
    * 1234
@@ -702,7 +693,7 @@ export class GetTaskInstanceResponseBodyTaskInstance extends $dara.Model {
   unifiedWorkflowInstanceId?: number;
   /**
    * @remarks
-   * The timestamp for when it started waiting for resources.
+   * The time when the instance entered the waiting-for-resource state.
    * 
    * @example
    * 1710239005403
@@ -710,7 +701,7 @@ export class GetTaskInstanceResponseBodyTaskInstance extends $dara.Model {
   waitingResourceTime?: number;
   /**
    * @remarks
-   * The timestamp for when it started waiting for the scheduled time.
+   * The time when the instance entered the waiting-for-scheduled-time state.
    * 
    * @example
    * 1710239005403
@@ -718,7 +709,7 @@ export class GetTaskInstanceResponseBodyTaskInstance extends $dara.Model {
   waitingTriggerTime?: number;
   /**
    * @remarks
-   * The ID of the workflow to which the instance belongs.
+   * The ID of the workflow to which the task instance belongs.
    * 
    * @example
    * 1234
@@ -726,7 +717,7 @@ export class GetTaskInstanceResponseBodyTaskInstance extends $dara.Model {
   workflowId?: number;
   /**
    * @remarks
-   * The workflow instance ID.
+   * The ID of the workflow instance to which the task instance belongs.
    * 
    * @example
    * 1234
@@ -734,19 +725,13 @@ export class GetTaskInstanceResponseBodyTaskInstance extends $dara.Model {
   workflowInstanceId?: number;
   /**
    * @remarks
-   * The type of the workflow instance. Valid values:
-   * 
-   * - SmokeTest
-   * 
-   * - SupplementData
-   * 
-   * - Manual
-   * 
-   * - ManualWorkflow
-   * 
-   * - Normal
-   * 
-   * - ManualFlow
+   * The type of the workflow instance to which the task instance belongs. Valid values:
+   * - SmokeTest: test.
+   * - SupplementData: data backfill.
+   * - Manual: manual task.
+   * - ManualWorkflow: manual workflow.
+   * - Normal: periodic scheduling.
+   * - ManualFlow: manually executed business flow.
    * 
    * @example
    * Normal
@@ -754,7 +739,7 @@ export class GetTaskInstanceResponseBodyTaskInstance extends $dara.Model {
   workflowInstanceType?: string;
   /**
    * @remarks
-   * The name of the workflow to which the instance belongs.
+   * The name of the workflow to which the task instance belongs.
    * 
    * @example
    * Test workflow
@@ -773,6 +758,7 @@ export class GetTaskInstanceResponseBodyTaskInstance extends $dara.Model {
       inputs: 'Inputs',
       modifyTime: 'ModifyTime',
       modifyUser: 'ModifyUser',
+      operationType: 'OperationType',
       outputs: 'Outputs',
       owner: 'Owner',
       periodNumber: 'PeriodNumber',
@@ -817,6 +803,7 @@ export class GetTaskInstanceResponseBodyTaskInstance extends $dara.Model {
       inputs: GetTaskInstanceResponseBodyTaskInstanceInputs,
       modifyTime: 'number',
       modifyUser: 'string',
+      operationType: 'string',
       outputs: GetTaskInstanceResponseBodyTaskInstanceOutputs,
       owner: 'string',
       periodNumber: 'number',
@@ -881,7 +868,7 @@ export class GetTaskInstanceResponseBodyTaskInstance extends $dara.Model {
 export class GetTaskInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The request ID, which is used to locate logs and troubleshoot issues.
    * 
    * @example
    * 22C97E95-F023-56B5-8852-B1A77****
@@ -889,7 +876,7 @@ export class GetTaskInstanceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The details of the task instance.
+   * The detailed information about the task instance.
    */
   taskInstance?: GetTaskInstanceResponseBodyTaskInstance;
   static names(): { [key: string]: string } {

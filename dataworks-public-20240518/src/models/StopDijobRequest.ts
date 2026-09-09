@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class StopDIJobRequest extends $dara.Model {
   /**
    * @remarks
-   * This parameter is deprecated and is replaced by the Id parameter.
+   * **[Deprecated]** This parameter is deprecated. Use the Id parameter instead.
    * 
    * @example
    * 11668
@@ -15,7 +15,7 @@ export class StopDIJobRequest extends $dara.Model {
   DIJobId?: number;
   /**
    * @remarks
-   * The ID of the synchronization task.
+   * The ID of the sync task.
    * 
    * @example
    * 11668
@@ -23,7 +23,7 @@ export class StopDIJobRequest extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The instance ID.
+   * The ID of the instance.
    * 
    * @example
    * 1234

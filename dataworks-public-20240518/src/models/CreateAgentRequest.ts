@@ -95,12 +95,12 @@ export class CreateAgentRequestTools extends $dara.Model {
 export class CreateAgentRequestVisibilityScope extends $dara.Model {
   /**
    * @remarks
-   * The list of project IDs that have visibility. This parameter takes effect when Visibility is set to `PROJECT`.
+   * The list of project IDs to which the Agent is visible. This parameter takes effect only when Visibility is set to `PROJECT`.
    */
   projectIds?: string[];
   /**
    * @remarks
-   * The list of user IDs that have visibility. This parameter takes effect when Visibility is set to `USER`.
+   * The list of user IDs to which the Agent is visible. This parameter takes effect only when Visibility is set to `USER`.
    */
   userIds?: string[];
   static names(): { [key: string]: string } {
@@ -154,7 +154,7 @@ export class CreateAgentRequest extends $dara.Model {
    * The display name of the Agent.
    * 
    * @example
-   * MyAssistant.
+   * MyAssistant
    */
   displayName?: string;
   /**
@@ -213,7 +213,7 @@ export class CreateAgentRequest extends $dara.Model {
    * @remarks
    * The visibility level.<br>
    * `TENANT`: Visible within the account.<br>
-   * `PROJECT`: Visible to specified projects.<br>
+   * `PROJECT`: Visible to a specified project.<br>
    * `USER`: Visible to specified users.
    * 
    * @example

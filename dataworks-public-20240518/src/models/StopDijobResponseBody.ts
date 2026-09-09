@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class StopDIJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID. You can use the ID to query logs and troubleshoot issues.
+   * The request ID. You can use the ID to locate logs and troubleshoot issues.
    * 
    * @example
    * 92F778C7-8F00-53B1-AE1A-B3B17101247D
@@ -15,9 +15,8 @@ export class StopDIJobResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * - true
-   * 
-   * - false
+   * - True: The request was successful.
+   * - False: The request failed.
    * 
    * @example
    * true

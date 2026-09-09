@@ -35,7 +35,7 @@ export class ListTaskInstancesResponseBodyPagingInfoTaskInstancesDataSource exte
 export class ListTaskInstancesResponseBodyPagingInfoTaskInstancesRuntime extends $dara.Model {
   /**
    * @remarks
-   * The host for running.
+   * The machine on which the instance runs.
    * 
    * @example
    * cn-shanghai.1.2
@@ -43,7 +43,7 @@ export class ListTaskInstancesResponseBodyPagingInfoTaskInstancesRuntime extends
   gateway?: string;
   /**
    * @remarks
-   * The instance run ID.
+   * The unique run ID.
    * 
    * @example
    * T3_123
@@ -75,7 +75,7 @@ export class ListTaskInstancesResponseBodyPagingInfoTaskInstancesRuntime extends
 export class ListTaskInstancesResponseBodyPagingInfoTaskInstancesRuntimeResource extends $dara.Model {
   /**
    * @remarks
-   * The default number of CUs configured for task running.
+   * The compute unit (CU) consumption configured for the node.
    * 
    * @example
    * 0.25
@@ -83,7 +83,7 @@ export class ListTaskInstancesResponseBodyPagingInfoTaskInstancesRuntimeResource
   cu?: string;
   /**
    * @remarks
-   * The ID of the image configured for task running.
+   * The image ID configured for the node.
    * 
    * @example
    * i-xxxxxx
@@ -91,7 +91,7 @@ export class ListTaskInstancesResponseBodyPagingInfoTaskInstancesRuntimeResource
   image?: string;
   /**
    * @remarks
-   * The ID of the resource group for scheduling configured for task running.
+   * The identifier of the schedule resource group configured for the node.
    * 
    * @example
    * S_res_group_524258031846018_1684XXXXXXXXX
@@ -133,7 +133,9 @@ export class ListTaskInstancesResponseBodyPagingInfoTaskInstances extends $dara.
   baselineId?: number;
   /**
    * @remarks
-   * The data timestamp.
+   * The business date.
+   * 
+   * The value is a 13-digit number, such as `1710239005403`.
    * 
    * @example
    * 1710239005403
@@ -143,13 +145,15 @@ export class ListTaskInstancesResponseBodyPagingInfoTaskInstances extends $dara.
    * @remarks
    * The creation time.
    * 
+   * The value is a 13-digit number, such as `1710239005403`.
+   * 
    * @example
    * 1710239005403
    */
   createTime?: number;
   /**
    * @remarks
-   * The account ID of the user who creates the instance.
+   * The account ID of the user who created the instance.
    * 
    * @example
    * 1000
@@ -157,7 +161,7 @@ export class ListTaskInstancesResponseBodyPagingInfoTaskInstances extends $dara.
   createUser?: string;
   /**
    * @remarks
-   * The information about the associated data source.
+   * The data source information associated with the instance.
    */
   dataSource?: ListTaskInstancesResponseBodyPagingInfoTaskInstancesDataSource;
   /**
@@ -172,13 +176,15 @@ export class ListTaskInstancesResponseBodyPagingInfoTaskInstances extends $dara.
    * @remarks
    * The time when the instance finished running.
    * 
+   * The value is a 13-digit number, such as `1710239005403`.
+   * 
    * @example
    * 1710239005403
    */
   finishedTime?: number;
   /**
    * @remarks
-   * The instance ID.
+   * The unique identifier of the task instance.
    * 
    * @example
    * 1234
@@ -188,13 +194,15 @@ export class ListTaskInstancesResponseBodyPagingInfoTaskInstances extends $dara.
    * @remarks
    * The modification time.
    * 
+   * The value is a 13-digit number, such as `1710239005403`.
+   * 
    * @example
    * 1710239005403
    */
   modifyTime?: number;
   /**
    * @remarks
-   * The account ID of the user who modifies the instance.
+   * The account ID of the user who last modified the instance.
    * 
    * @example
    * 1000
@@ -202,7 +210,15 @@ export class ListTaskInstancesResponseBodyPagingInfoTaskInstances extends $dara.
   modifyUser?: string;
   /**
    * @remarks
-   * The account ID of the task owner.
+   * The type of the most recent operation on the instance.
+   * 
+   * @example
+   * TriggerDqc
+   */
+  operationType?: string;
+  /**
+   * @remarks
+   * The account ID of the node owner.
    * 
    * @example
    * 1000
@@ -210,7 +226,7 @@ export class ListTaskInstancesResponseBodyPagingInfoTaskInstances extends $dara.
   owner?: string;
   /**
    * @remarks
-   * The sequence number of the cycle. This parameter indicates the cycle of the task instance on the current day.
+   * The period number. Indicates which scheduling cycle of the day the instance belongs to.
    * 
    * @example
    * 1
@@ -218,7 +234,7 @@ export class ListTaskInstancesResponseBodyPagingInfoTaskInstances extends $dara.
   periodNumber?: number;
   /**
    * @remarks
-   * The priority of the task. Minimum value: 1. Maximum value: 8. A larger value indicates a higher priority. Default value: 1.
+   * The run priority of the node. Minimum value: 1. Maximum value: 8. A larger value indicates a higher priority. Default value: 1.
    * 
    * @example
    * 1
@@ -226,13 +242,9 @@ export class ListTaskInstancesResponseBodyPagingInfoTaskInstances extends $dara.
   priority?: number;
   /**
    * @remarks
-   * The environment of the workspace.
-   * 
-   * Valid values:
-   * 
-   * - Prod: production environment
-   * 
-   * - Dev: development environment
+   * The project environment. Valid values:
+   * - Prod: production.
+   * - Dev: development.
    * 
    * @example
    * Prod
@@ -240,7 +252,7 @@ export class ListTaskInstancesResponseBodyPagingInfoTaskInstances extends $dara.
   projectEnv?: string;
   /**
    * @remarks
-   * The DataWorks workspace ID.
+   * The project ID.
    * 
    * @example
    * 100
@@ -248,15 +260,10 @@ export class ListTaskInstancesResponseBodyPagingInfoTaskInstances extends $dara.
   projectId?: number;
   /**
    * @remarks
-   * The rerun mode
-   * 
-   * Valid values:
-   * 
-   * - AllDenied: The task cannot be rerun regardless of whether the task is successfully run or fails to run.
-   * 
-   * - FailureAllowed: The task can be rerun only after it fails to run.
-   * 
-   * - AllAllowed: The task can be rerun regardless of whether the task is successfully run or fails to run.
+   * The rerun configuration for the node. Valid values:
+   * - AllDenied: rerun is not allowed regardless of success or failure.
+   * - FailureAllowed: rerun is allowed only upon failure.
+   * - AllAllowed: rerun is allowed regardless of success or failure.
    * 
    * @example
    * AllAllowed
@@ -264,7 +271,7 @@ export class ListTaskInstancesResponseBodyPagingInfoTaskInstances extends $dara.
   rerunMode?: string;
   /**
    * @remarks
-   * The number of times the task is run. By default, the value starts from 1.
+   * The current run number, starting from 1 by default.
    * 
    * @example
    * 1
@@ -272,17 +279,17 @@ export class ListTaskInstancesResponseBodyPagingInfoTaskInstances extends $dara.
   runNumber?: number;
   /**
    * @remarks
-   * The runtime information about the instance.
+   * The runtime information of the instance.
    */
   runtime?: ListTaskInstancesResponseBodyPagingInfoTaskInstancesRuntime;
   /**
    * @remarks
-   * The information about the resource group with which the instance is associated.
+   * The resource group information associated with the instance.
    */
   runtimeResource?: ListTaskInstancesResponseBodyPagingInfoTaskInstancesRuntimeResource;
   /**
    * @remarks
-   * The script parameter list.
+   * The list of script parameters.
    * 
    * @example
    * para1=val1 para2=val2
@@ -290,7 +297,9 @@ export class ListTaskInstancesResponseBodyPagingInfoTaskInstances extends $dara.
   scriptParameters?: string;
   /**
    * @remarks
-   * The time when the instance started to run.
+   * The time when the instance started running.
+   * 
+   * The value is a 13-digit number, such as `1710239005403`.
    * 
    * @example
    * 1710239005403
@@ -298,25 +307,16 @@ export class ListTaskInstancesResponseBodyPagingInfoTaskInstances extends $dara.
   startedTime?: number;
   /**
    * @remarks
-   * The status of the instance.
-   * 
-   * Valid values:
-   * 
-   * - NotRun: The instance is not run.
-   * 
-   * - Running: The instance is running.
-   * 
-   * - WaitTime: The instance is waiting for the scheduling time to arrive.
-   * 
-   * - CheckingCondition: Branch conditions are being checked for the instance.
-   * 
-   * - WaitResource: The instance is waiting for resources.
-   * 
-   * - Failure: The instance fails to be run.
-   * 
-   * - Success: The instance is successfully run.
-   * 
-   * - Checking: Data quality is being checked for the instance.
+   * The run status of the instance. Valid values:
+   * - NotRun: not run.
+   * - Running: running.
+   * - WaitTime: waiting for the TriggerTime to arrive.
+   * - CheckingCondition: checking branch conditions.
+   * - WaitResource: waiting for resources.
+   * - Failure: execution failed.
+   * - Success: execution succeeded.
+   * - Checking: submitted for qualityrule check.
+   * - WaitTrigger: waiting for an external trigger. Trigger-based nodes enter this status after the waiting period.
    * 
    * @example
    * Success
@@ -324,7 +324,7 @@ export class ListTaskInstancesResponseBodyPagingInfoTaskInstances extends $dara.
   status?: string;
   /**
    * @remarks
-   * The ID of the task for which the instance is generated.
+   * The ID of the corresponding node.
    * 
    * @example
    * 1234
@@ -332,7 +332,7 @@ export class ListTaskInstancesResponseBodyPagingInfoTaskInstances extends $dara.
   taskId?: number;
   /**
    * @remarks
-   * The name of the task for which the instance is generated.
+   * The name of the corresponding node.
    * 
    * @example
    * SQL node
@@ -340,7 +340,7 @@ export class ListTaskInstancesResponseBodyPagingInfoTaskInstances extends $dara.
   taskName?: string;
   /**
    * @remarks
-   * The type of the task for which the instance is generated.
+   * The type of the corresponding node.
    * 
    * @example
    * ODPS_SQL
@@ -348,9 +348,9 @@ export class ListTaskInstancesResponseBodyPagingInfoTaskInstances extends $dara.
   taskType?: string;
   /**
    * @remarks
-   * The timeout period of task running. Unit: seconds.
+   * The timeout period for node execution, in seconds.
    * 
-   * Note: The value of this parameter is rounded up by hour.
+   * Note: The scheduling system rounds the configured value to the nearest hour.
    * 
    * @example
    * 3600
@@ -358,15 +358,10 @@ export class ListTaskInstancesResponseBodyPagingInfoTaskInstances extends $dara.
   timeout?: number;
   /**
    * @remarks
-   * The running mode of the instance after it is triggered. This parameter takes effect only if the TriggerType parameter is set to Scheduler.
-   * 
-   * Valid values:
-   * 
-   * - Pause
-   * 
-   * - Skip
-   * 
-   * - Normal
+   * The run mode at the time of triggering. This parameter takes effect when TriggerType is set to Scheduler. Valid values:
+   * - Pause: paused.
+   * - Skip: dry run.
+   * - Normal: normal run.
    * 
    * @example
    * Normal
@@ -374,7 +369,9 @@ export class ListTaskInstancesResponseBodyPagingInfoTaskInstances extends $dara.
   triggerRecurrence?: string;
   /**
    * @remarks
-   * The scheduling time.
+   * The scheduled trigger time.
+   * 
+   * The value is a 13-digit number, such as `1710239005403`.
    * 
    * @example
    * 1710239005403
@@ -382,13 +379,9 @@ export class ListTaskInstancesResponseBodyPagingInfoTaskInstances extends $dara.
   triggerTime?: number;
   /**
    * @remarks
-   * The trigger type.
-   * 
-   * Valid values:
-   * 
-   * - Scheduler: scheduling cycle-based trigger
-   * 
-   * - Manual: manual trigger
+   * The trigger type. Valid values:
+   * - Scheduler: triggered by a scheduling cycle.
+   * - Manual: manually triggered.
    * 
    * @example
    * Scheduler
@@ -396,7 +389,7 @@ export class ListTaskInstancesResponseBodyPagingInfoTaskInstances extends $dara.
   triggerType?: string;
   /**
    * @remarks
-   * Unified workflow instance ID. All task instances triggered under the same data timestamp share the same value for this field.
+   * The unified workflow instance ID. All instances within the same business date under a single trigger share the same value for this field.
    * 
    * @example
    * 1234
@@ -404,7 +397,7 @@ export class ListTaskInstancesResponseBodyPagingInfoTaskInstances extends $dara.
   unifiedWorkflowInstanceId?: number;
   /**
    * @remarks
-   * The timestamp for when it started waiting for resources.
+   * The time when the instance entered the waiting-for-resource state.
    * 
    * @example
    * 1710239005403
@@ -412,7 +405,9 @@ export class ListTaskInstancesResponseBodyPagingInfoTaskInstances extends $dara.
   waitingResourceTime?: number;
   /**
    * @remarks
-   * The timestamp for when it started waiting for the scheduled time.
+   * The time when the instance entered the waiting-for-scheduled-time state.
+   * 
+   * The value is a 13-digit number, such as `1710239005403`.
    * 
    * @example
    * 1710239005403
@@ -428,7 +423,7 @@ export class ListTaskInstancesResponseBodyPagingInfoTaskInstances extends $dara.
   workflowId?: number;
   /**
    * @remarks
-   * The workflow instance ID.
+   * The ID of the workflow instance to which the instance belongs.
    * 
    * @example
    * 1234
@@ -436,21 +431,13 @@ export class ListTaskInstancesResponseBodyPagingInfoTaskInstances extends $dara.
   workflowInstanceId?: number;
   /**
    * @remarks
-   * The type of the workflow instance.
-   * 
-   * Valid values:
-   * 
-   * - SmokeTest
-   * 
-   * - SupplementData
-   * 
-   * - Manual
-   * 
-   * - ManualWorkflow
-   * 
-   * - Normal
-   * 
-   * - ManualFlow
+   * The type of the workflow instance to which the instance belongs. Valid values:
+   * - SmokeTest: smoke test.
+   * - SupplementData: data backfill.
+   * - Manual: manually triggered.
+   * - ManualWorkflow: manual workflow.
+   * - Normal: periodic scheduling.
+   * - ManualFlow: manually triggered workflow.
    * 
    * @example
    * Normal
@@ -476,6 +463,7 @@ export class ListTaskInstancesResponseBodyPagingInfoTaskInstances extends $dara.
       id: 'Id',
       modifyTime: 'ModifyTime',
       modifyUser: 'ModifyUser',
+      operationType: 'OperationType',
       owner: 'Owner',
       periodNumber: 'PeriodNumber',
       priority: 'Priority',
@@ -517,6 +505,7 @@ export class ListTaskInstancesResponseBodyPagingInfoTaskInstances extends $dara.
       id: 'number',
       modifyTime: 'number',
       modifyUser: 'string',
+      operationType: 'string',
       owner: 'string',
       periodNumber: 'number',
       priority: 'number',
@@ -588,7 +577,7 @@ export class ListTaskInstancesResponseBodyPagingInfo extends $dara.Model {
   taskInstances?: ListTaskInstancesResponseBodyPagingInfoTaskInstances[];
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of records.
    * 
    * @example
    * 100
@@ -627,12 +616,12 @@ export class ListTaskInstancesResponseBodyPagingInfo extends $dara.Model {
 export class ListTaskInstancesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Pagination information.
+   * The pagination information.
    */
   pagingInfo?: ListTaskInstancesResponseBodyPagingInfo;
   /**
    * @remarks
-   * The request ID.
+   * The request ID, which is used to locate logs and troubleshoot issues.
    * 
    * @example
    * 22C97E95-F023-56B5-8852-B1A77A17XXXX

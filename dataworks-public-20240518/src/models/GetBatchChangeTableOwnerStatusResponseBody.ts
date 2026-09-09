@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetBatchChangeTableOwnerStatusResponseBodyDataDetails extends $dara.Model {
   /**
+   * @remarks
+   * The error message returned when the table transfer fails.
+   * 
    * @example
    * Forbidden: You are not a member of this project
    */
   errorMessage?: string;
   /**
+   * @remarks
+   * The transfer status of the table.
+   * 
    * @example
    * Success
    */
   status?: string;
   /**
+   * @remarks
+   * The metadata entity ID of the table.
+   * 
    * @example
    * maxcompute-table:123:project_a::table_1
    */
@@ -45,32 +54,54 @@ export class GetBatchChangeTableOwnerStatusResponseBodyDataDetails extends $dara
 
 export class GetBatchChangeTableOwnerStatusResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The batch transfer task ID.
+   * 
    * @example
    * 524257_openapi-req-abc123
    */
   batchId?: string;
+  /**
+   * @remarks
+   * The transfer result details for each table.
+   */
   details?: GetBatchChangeTableOwnerStatusResponseBodyDataDetails[];
   /**
+   * @remarks
+   * The number of tables that failed to transfer.
+   * 
    * @example
    * 1
    */
   failedCount?: number;
   /**
+   * @remarks
+   * The number of tables that are still being processed.
+   * 
    * @example
    * 5
    */
   ongoingCount?: number;
   /**
+   * @remarks
+   * The overall status of the task.
+   * 
    * @example
    * Running
    */
   status?: string;
   /**
+   * @remarks
+   * The number of tables that were successfully transferred.
+   * 
    * @example
    * 2
    */
   successCount?: number;
   /**
+   * @remarks
+   * The total number of tables in the batch.
+   * 
    * @example
    * 8
    */
@@ -112,13 +143,23 @@ export class GetBatchChangeTableOwnerStatusResponseBodyData extends $dara.Model 
 }
 
 export class GetBatchChangeTableOwnerStatusResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The execution status of the batch table owner transfer task.
+   */
   data?: GetBatchChangeTableOwnerStatusResponseBodyData;
   /**
+   * @remarks
+   * Id of the request
+   * 
    * @example
    * 01A017D3-207E-582C-A683-BE991E54051D
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */
