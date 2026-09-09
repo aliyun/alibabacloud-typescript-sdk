@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateTeamRequestBodyAgents extends $dara.Model {
   /**
+   * @remarks
+   * The agent ID.
+   * 
    * @example
    * agent-123456
    */
   agentId?: string;
   /**
+   * @remarks
+   * The role of the agent in the team. Valid values: LEADER, WORKER.
+   * 
    * @example
    * WORKER
    */
@@ -38,11 +44,17 @@ export class UpdateTeamRequestBodyAgents extends $dara.Model {
 
 export class UpdateTeamRequestBodyUsers extends $dara.Model {
   /**
+   * @remarks
+   * The role of the user in the team. Valid values: ADMIN, MEMBER. Each team must have exactly one ADMIN.
+   * 
    * @example
    * ADMIN
    */
   teamRole?: string;
   /**
+   * @remarks
+   * The user ID.
+   * 
    * @example
    * usr-123456
    */
@@ -71,12 +83,23 @@ export class UpdateTeamRequestBodyUsers extends $dara.Model {
 }
 
 export class UpdateTeamRequestBody extends $dara.Model {
+  /**
+   * @remarks
+   * The new list of agent members. The existing agent members are replaced using full overwrite semantics. If not specified, the current value remains unchanged.
+   */
   agents?: UpdateTeamRequestBodyAgents[];
   /**
+   * @remarks
+   * The new team description. If not specified, the current value remains unchanged.
+   * 
    * @example
-   * 负责智能客服业务的团队
+   * Team responsible for intelligent customer service
    */
   description?: string;
+  /**
+   * @remarks
+   * The new list of user members. The existing user members are replaced using full overwrite semantics. When this parameter is specified, the list must contain exactly one member with the ADMIN role. If not specified, the current value remains unchanged.
+   */
   users?: UpdateTeamRequestBodyUsers[];
   static names(): { [key: string]: string } {
     return {
@@ -110,10 +133,17 @@ export class UpdateTeamRequestBody extends $dara.Model {
 }
 
 export class UpdateTeamRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The request body for updating the team.
+   */
   body?: UpdateTeamRequestBody;
   /**
+   * @remarks
+   * Not supported.
+   * 
    * @example
-   * 暂不支持
+   * Not supported
    */
   clientToken?: string;
   static names(): { [key: string]: string } {

@@ -5,13 +5,16 @@ import * as $dara from '@darabonba/typescript';
 export class ListMcpsRequest extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of entries to return per page.
+   * The maximum number of records per page.
    * 
    * @example
    * 20
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The MCP service name. Used together with SearchType.
+   * 
    * @example
    * my-mcp-server
    */
@@ -25,6 +28,13 @@ export class ListMcpsRequest extends $dara.Model {
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The name matching method. Takes effect only when Name is specified. Valid values:
+   * - accurate: exact match.
+   * - blur: fuzzy match.
+   * 
+   * Default value: blur.
+   * 
    * @example
    * blur
    */

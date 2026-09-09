@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DebugModelShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The request body.
+   */
   bodyShrink?: string;
   static names(): { [key: string]: string } {
     return {

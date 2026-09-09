@@ -4,13 +4,19 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateCredentialRequestBody extends $dara.Model {
   /**
+   * @remarks
+   * The new credential content. The value is a JSON string. If credentialType is set to apiKey, only the apiKey field can be included, and the value cannot be empty. At least one of credentialMetadata and description must be specified.
+   * 
    * @example
    * {"apiKey":"sk-example-value"}
    */
   credentialMetadata?: string;
   /**
+   * @remarks
+   * The new credential description. The description can be up to 256 characters in length. At least one of credentialMetadata and description must be specified.
+   * 
    * @example
-   * 线上环境调用模型服务使用的 API Key
+   * API Key used for calling model services in the production environment
    */
   description?: string;
   static names(): { [key: string]: string } {
@@ -37,10 +43,17 @@ export class UpdateCredentialRequestBody extends $dara.Model {
 }
 
 export class UpdateCredentialRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The request body for updating the credential.
+   */
   body?: UpdateCredentialRequestBody;
   /**
+   * @remarks
+   * Not supported.
+   * 
    * @example
-   * 暂不支持
+   * Not supported
    */
   clientToken?: string;
   static names(): { [key: string]: string } {

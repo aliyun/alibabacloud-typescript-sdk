@@ -4,14 +4,21 @@ import * as $dara from '@darabonba/typescript';
 
 export class DebugModelResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The model connection ID.
+   * 
    * @example
    * mc-1
    */
   connectionId?: string;
+  /**
+   * @remarks
+   * Indicates whether the model debugging was successful.
+   */
   debugSuccess?: boolean;
   /**
    * @remarks
-   * 调试失败时的错误码。取值：MODEL_CONNECTION_NOT_READY（模型连接尚未发布就绪）、MODEL_CONNECTION_TEST_FAILED（平台调用网关失败）、UPSTREAM_MODEL_NOT_FOUND（模型服务商侧不存在该模型）、UPSTREAM_UNAUTHORIZED（模型服务商拒绝所配置的凭证）、UPSTREAM_RATE_LIMITED（模型服务商限流）、UPSTREAM_SERVER_ERROR（模型服务商服务端错误）、UPSTREAM_HTTP_ERROR（模型服务商返回其它非成功状态）、UPSTREAM_EMPTY_RESPONSE（模型服务商返回空响应）、UPSTREAM_INVALID_RESPONSE（模型服务商响应格式非法）、UPSTREAM_MODEL_ERROR（模型服务商拒绝本次请求）、MODEL_RESPONSE_INVALID（响应解析失败）。
+   * The error code returned when debugging fails.
    * 
    * @example
    * UPSTREAM_MODEL_ERROR
@@ -19,40 +26,55 @@ export class DebugModelResponseBodyData extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * 调试失败时的错误描述，为固定脱敏文案，不透传模型服务商的原始错误详情。
+   * The error message returned when debugging fails.
    * 
    * @example
    * The model endpoint rejected the debug request.
    */
   errorMessage?: string;
   /**
+   * @remarks
+   * The number of input tokens consumed by this model debugging request.
+   * 
    * @example
    * 3
    */
   inputTokens?: number;
   /**
+   * @remarks
+   * The time consumed by this model debugging call, in milliseconds.
+   * 
    * @example
    * 12
    */
   latencyMs?: number;
   /**
+   * @remarks
+   * The model ID.
+   * 
    * @example
    * model-1
    */
   modelId?: string;
   /**
+   * @remarks
+   * The number of output tokens consumed by this model debugging response.
+   * 
    * @example
    * 2
    */
   outputTokens?: number;
   /**
+   * @remarks
+   * The text response returned by the model when debugging succeeds. This value is empty when debugging fails.
+   * 
    * @example
    * ok
    */
   response?: string;
   /**
    * @remarks
-   * 调试结果状态。取值：NORMAL（正常）、ABNORMAL（异常）。
+   * The debug result status.
    * 
    * @example
    * NORMAL
@@ -99,26 +121,46 @@ export class DebugModelResponseBodyData extends $dara.Model {
 
 export class DebugModelResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The business status code. The value SUCCESS indicates success.
+   * 
    * @example
    * SUCCESS
    */
   code?: string;
+  /**
+   * @remarks
+   * The model debugging result.
+   */
   data?: DebugModelResponseBodyData;
   /**
+   * @remarks
+   * The HTTP status code. The value 200 indicates success.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The request processing result message.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * request-1
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

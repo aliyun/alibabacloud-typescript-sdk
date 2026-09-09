@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteModelConnectionRequest extends $dara.Model {
   /**
+   * @remarks
+   * The client token for idempotence. Not currently supported.
+   * 
    * @example
    * client-token-1
    */

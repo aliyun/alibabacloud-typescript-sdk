@@ -3,10 +3,17 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateTeamShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The request body for updating the team.
+   */
   bodyShrink?: string;
   /**
+   * @remarks
+   * Not supported.
+   * 
    * @example
-   * 暂不支持
+   * Not supported
    */
   clientToken?: string;
   static names(): { [key: string]: string } {

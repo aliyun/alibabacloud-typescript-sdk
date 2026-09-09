@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CreateCredentialRequestBody extends $dara.Model {
   /**
    * @remarks
+   * The credential content. The value is a JSON string. When credentialType is set to apiKey, the JSON string can contain only the apiKey field, and the value cannot be empty. After being written, the content can only be queried in masked form.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class CreateCredentialRequestBody extends $dara.Model {
   credentialMetadata?: string;
   /**
    * @remarks
+   * The credential type. Currently, only apiKey is supported.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,12 +24,17 @@ export class CreateCredentialRequestBody extends $dara.Model {
    */
   credentialType?: string;
   /**
+   * @remarks
+   * The credential description. The description can be up to 256 characters in length.
+   * 
    * @example
-   * 线上环境调用模型服务使用的 API Key
+   * API Key used for calling model services in the production environment
    */
   description?: string;
   /**
    * @remarks
+   * The credential name. The name must be unique within the workspace and can contain only letters, digits, periods, underscores, and hyphens. The name must be 3 to 128 characters in length and cannot use runtime reserved names.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -60,10 +69,17 @@ export class CreateCredentialRequestBody extends $dara.Model {
 }
 
 export class CreateCredentialRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The request body for creating a credential.
+   */
   body?: CreateCredentialRequestBody;
   /**
+   * @remarks
+   * Not supported.
+   * 
    * @example
-   * 暂不支持
+   * Not supported
    */
   clientToken?: string;
   static names(): { [key: string]: string } {

@@ -15,12 +15,12 @@ export class UpdateModelResponseBodyDataCapabilities extends $dara.Model {
   document?: boolean;
   /**
    * @remarks
-   * Indicates whether the model is able to invoke multiple tool calling requests in a single response.
+   * Indicates whether the model is able to invoke multiple tool calls in a single response.
    */
   multiToolCall?: boolean;
   /**
    * @remarks
-   * Indicates whether the model supports reasoning capabilities.
+   * Indicates whether the model supports reasoning.
    */
   reasoning?: boolean;
   /**
@@ -81,7 +81,7 @@ export class UpdateModelResponseBodyDataCapabilities extends $dara.Model {
 export class UpdateModelResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The model capability configurations.
+   * The model capability configuration.
    */
   capabilities?: UpdateModelResponseBodyDataCapabilities;
   /**
@@ -94,7 +94,7 @@ export class UpdateModelResponseBodyData extends $dara.Model {
   connectionId?: string;
   /**
    * @remarks
-   * The model context window size, in tokens. Must be a positive integer.
+   * The context window size of the model, in tokens. The value must be a positive integer.
    * 
    * @example
    * 128000
@@ -110,7 +110,7 @@ export class UpdateModelResponseBodyData extends $dara.Model {
   createdAt?: string;
   /**
    * @remarks
-   * The model description. Maximum length: 255 characters.
+   * The model description. The maximum length is 255 characters.
    * 
    * @example
    * description
@@ -118,7 +118,7 @@ export class UpdateModelResponseBodyData extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The maximum number of output tokens supported per model generation.
+   * The maximum number of output tokens supported per generation by the model.
    * 
    * @example
    * 131072
@@ -222,7 +222,7 @@ export class UpdateModelResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The message of the request processing result.
+   * The result message of the request.
    * 
    * @example
    * success

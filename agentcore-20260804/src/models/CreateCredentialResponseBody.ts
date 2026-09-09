@@ -4,46 +4,73 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateCredentialResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The creation time in UTC, formatted in RFC 3339.
+   * 
    * @example
    * 2026-08-12T03:04:05Z
    */
   createdAt?: string;
   /**
+   * @remarks
+   * The credential ID.
+   * 
    * @example
    * cred-123456
    */
   credentialId?: string;
   /**
+   * @remarks
+   * The masked credential content. When credentialType is apiKey, the apiKey value is returned as asterisks (*) of equal length.
+   * 
    * @example
    * {"apiKey":"****************"}
    */
   credentialMetadata?: string;
   /**
+   * @remarks
+   * The credential type. Currently, only apiKey is supported.
+   * 
    * @example
    * apiKey
    */
   credentialType?: string;
   /**
+   * @remarks
+   * The credential description. The description can be up to 256 characters in length.
+   * 
    * @example
-   * 线上环境调用模型服务使用的 API Key
+   * API Key used for calling model services in the production environment
    */
   description?: string;
   /**
+   * @remarks
+   * The credential name. The name must be unique within the workspace and can contain only letters, digits, periods, underscores, and hyphens. The name must be 3 to 128 characters in length and cannot use runtime reserved names.
+   * 
    * @example
    * model-api-key
    */
   name?: string;
   /**
+   * @remarks
+   * The region ID of the resource.
+   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
   /**
+   * @remarks
+   * The time of the last modification in UTC, formatted in RFC 3339.
+   * 
    * @example
    * 2026-08-12T03:04:05Z
    */
   updatedAt?: string;
   /**
+   * @remarks
+   * The workspace ID.
+   * 
    * @example
    * ws-123456
    */
@@ -87,26 +114,46 @@ export class CreateCredentialResponseBodyData extends $dara.Model {
 
 export class CreateCredentialResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The business status code.
+   * 
    * @example
    * SUCCESS
    */
   code?: string;
+  /**
+   * @remarks
+   * The created credential information.
+   */
   data?: CreateCredentialResponseBodyData;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The response message. An error description is returned if the request failed.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * request-123456
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

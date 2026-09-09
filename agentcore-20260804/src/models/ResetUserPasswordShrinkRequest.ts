@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ResetUserPasswordShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The request body for resetting the user password.
+   */
   bodyShrink?: string;
   static names(): { [key: string]: string } {
     return {

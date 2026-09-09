@@ -3,8 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class BatchDeleteModelsResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The list of model IDs.
+   */
   modelIds?: string[];
   /**
+   * @remarks
+   * The workspace ID.
+   * 
    * @example
    * ws-1
    */
@@ -37,26 +44,46 @@ export class BatchDeleteModelsResponseBodyData extends $dara.Model {
 
 export class BatchDeleteModelsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The business status code. The value SUCCESS indicates success.
+   * 
    * @example
    * SUCCESS
    */
   code?: string;
+  /**
+   * @remarks
+   * The batch deletion result.
+   */
   data?: BatchDeleteModelsResponseBodyData;
   /**
+   * @remarks
+   * The HTTP status code. The value 200 indicates success.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The request processing result message.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * request-1
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

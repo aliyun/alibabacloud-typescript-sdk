@@ -303,7 +303,7 @@ export class ListMcpsResponseBody extends $dara.Model {
   items?: ListMcpsResponseBodyItems[];
   /**
    * @remarks
-   * The maximum number of entries to return per page.
+   * The maximum number of records per page.
    * 
    * @example
    * 20

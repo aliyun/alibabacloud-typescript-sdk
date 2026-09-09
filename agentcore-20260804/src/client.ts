@@ -30,7 +30,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量删除模型
+   * Deletes models in a specified workspace in batches. If any model is in use, the entire batch request fails.
    * 
    * @param tmpReq - BatchDeleteModelsRequest
    * @param headers - map
@@ -75,7 +75,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量删除模型
+   * Deletes models in a specified workspace in batches. If any model is in use, the entire batch request fails.
    * 
    * @param request - BatchDeleteModelsRequest
    * @returns BatchDeleteModelsResponse
@@ -327,7 +327,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建凭证
+   * Creates a credential in a specified workspace for agent authentication when accessing external services. Currently, only the apiKey type is supported. The credential content is passed in as a JSON string through credentialMetadata and can only be queried in masked form after being written.
    * 
    * @param tmpReq - CreateCredentialRequest
    * @param headers - map
@@ -372,7 +372,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建凭证
+   * Creates a credential in a specified workspace for agent authentication when accessing external services. Currently, only the apiKey type is supported. The credential content is passed in as a JSON string through credentialMetadata and can only be queried in masked form after being written.
    * 
    * @param request - CreateCredentialRequest
    * @returns CreateCredentialResponse
@@ -728,7 +728,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建模型连接
+   * Creates a model connection in a specified workspace and configures the upstream model service address, invoke protocol, and access credentials.
    * 
    * @param tmpReq - CreateModelConnectionRequest
    * @param headers - map
@@ -773,7 +773,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建模型连接
+   * Creates a model connection in a specified workspace and configures the upstream model service address, invoke protocol, and access credentials.
    * 
    * @param request - CreateModelConnectionRequest
    * @returns CreateModelConnectionResponse
@@ -844,7 +844,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建团队
+   * Creates a team in a specified workspace and sets user members and agent members at the same time. The user members must include exactly one member with the ADMIN role. Agent members can only have the LEADER or WORKER role.
    * 
    * @param tmpReq - CreateTeamRequest
    * @param headers - map
@@ -889,7 +889,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建团队
+   * Creates a team in a specified workspace and sets user members and agent members at the same time. The user members must include exactly one member with the ADMIN role. Agent members can only have the LEADER or WORKER role.
    * 
    * @param request - CreateTeamRequest
    * @returns CreateTeamResponse
@@ -901,7 +901,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建用户
+   * Creates a user in a specified workspace. The username must be unique within the workspace and can contain only lowercase letters, digits, and hyphens. Reserved names such as manager, admin, or names starting with worker- cannot be used. If password is not specified, the server generates an initial password and returns it in the initialPassword field of the response.
    * 
    * @param tmpReq - CreateUserRequest
    * @param headers - map
@@ -946,7 +946,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建用户
+   * Creates a user in a specified workspace. The username must be unique within the workspace and can contain only lowercase letters, digits, and hyphens. Reserved names such as manager, admin, or names starting with worker- cannot be used. If password is not specified, the server generates an initial password and returns it in the initialPassword field of the response.
    * 
    * @param request - CreateUserRequest
    * @returns CreateUserResponse
@@ -1021,7 +1021,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 调试模型
+   * Calls a specified model through a published model connection to verify whether the model call chain is available.
    * 
    * @param tmpReq - DebugModelRequest
    * @param headers - map
@@ -1060,7 +1060,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 调试模型
+   * Calls a specified model through a published model connection to verify whether the model call chain is available.
    * 
    * @param request - DebugModelRequest
    * @returns DebugModelResponse
@@ -1217,7 +1217,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除凭证
+   * Deletes a credential from the specified workspace and removes the ciphertext hosted in the credential service. After deletion, agents that are bound to this credential can no longer retrieve the credential content.
    * 
    * @param request - DeleteCredentialRequest
    * @param headers - map
@@ -1250,7 +1250,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除凭证
+   * Deletes a credential from the specified workspace and removes the ciphertext hosted in the credential service. After deletion, agents that are bound to this credential can no longer retrieve the credential content.
    * 
    * @param request - DeleteCredentialRequest
    * @returns DeleteCredentialResponse
@@ -1438,7 +1438,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除模型
+   * Deletes a model from a specified workspace. Models that are currently in use cannot be deleted.
    * 
    * @param request - DeleteModelRequest
    * @param headers - map
@@ -1471,7 +1471,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除模型
+   * Deletes a model from a specified workspace. Models that are currently in use cannot be deleted.
    * 
    * @param request - DeleteModelRequest
    * @returns DeleteModelResponse
@@ -1483,7 +1483,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除模型连接
+   * Submits an asynchronous deletion task for a specified model connection. The connection cannot be deleted if it has associated models or runtime references.
    * 
    * @param request - DeleteModelConnectionRequest
    * @param headers - map
@@ -1516,7 +1516,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除模型连接
+   * Submits an asynchronous deletion task for a specified model connection. The connection cannot be deleted if it has associated models or runtime references.
    * 
    * @param request - DeleteModelConnectionRequest
    * @returns DeleteModelConnectionResponse
@@ -1622,7 +1622,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除团队
+   * Deletes a team in the specified workspace. Deleting a team does not delete the users or agents in the team. It only dissociates the member relationships.
    * 
    * @param request - DeleteTeamRequest
    * @param headers - map
@@ -1655,7 +1655,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除团队
+   * Deletes a team in the specified workspace. Deleting a team does not delete the users or agents in the team. It only dissociates the member relationships.
    * 
    * @param request - DeleteTeamRequest
    * @returns DeleteTeamResponse
@@ -1667,7 +1667,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除用户
+   * Deletes a user from a specified workspace. A user cannot be deleted while the user is still a member of any team. Remove the user from all teams before deleting the user.
    * 
    * @param request - DeleteUserRequest
    * @param headers - map
@@ -1700,7 +1700,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除用户
+   * Deletes a user from a specified workspace. A user cannot be deleted while the user is still a member of any team. Remove the user from all teams before deleting the user.
    * 
    * @param request - DeleteUserRequest
    * @returns DeleteUserResponse
@@ -2155,7 +2155,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询凭证
+   * Queries the details of a specified credential and returns the list of agents that are bound to the credential. The credential content is returned in masked form.
    * 
    * @param request - GetCredentialRequest
    * @param headers - map
@@ -2182,7 +2182,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询凭证
+   * Queries the details of a specified credential and returns the list of agents that are bound to the credential. The credential content is returned in masked form.
    * 
    * @param request - GetCredentialRequest
    * @returns GetCredentialResponse
@@ -2448,7 +2448,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询模型连接
+   * Queries the detailed configuration, credential configuration status, publish status, and region of a specified model connection.
    * 
    * @param request - GetModelConnectionRequest
    * @param headers - map
@@ -2475,7 +2475,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询模型连接
+   * Queries the detailed configuration, credential configuration status, publish status, and region of a specified model connection.
    * 
    * @param request - GetModelConnectionRequest
    * @returns GetModelConnectionResponse
@@ -2724,7 +2724,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询团队
+   * Queries the details of a specified team. The response includes the complete properties and team roles of each user member and agent member in the team.
    * 
    * @param request - GetTeamRequest
    * @param headers - map
@@ -2751,7 +2751,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询团队
+   * Queries the details of a specified team. The response includes the complete properties and team roles of each user member and agent member in the team.
    * 
    * @param request - GetTeamRequest
    * @returns GetTeamResponse
@@ -2763,7 +2763,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询用户
+   * Queries the details of a specified user in a workspace. Returns an error if the user does not exist.
    * 
    * @param request - GetUserRequest
    * @param headers - map
@@ -2790,7 +2790,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询用户
+   * Queries the details of a specified user in a workspace. Returns an error if the user does not exist.
    * 
    * @param request - GetUserRequest
    * @returns GetUserResponse
@@ -3154,7 +3154,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询凭证列表
+   * Queries credentials in a specified workspace by using paging. You can use credentialType to filter by type, nameLike to filter by credential name using fuzzy match, maxResults to specify the maximum number of records per page, and nextToken to retrieve the next page. If maxResults is not specified, the server returns 10 records by default.
    * 
    * @param request - ListCredentialsRequest
    * @param headers - map
@@ -3170,6 +3170,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.maxResults)) {
       query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["name"] = request.name;
     }
 
     if (!$dara.isNull(request.nameLike)) {
@@ -3199,7 +3203,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询凭证列表
+   * Queries credentials in a specified workspace by using paging. You can use credentialType to filter by type, nameLike to filter by credential name using fuzzy match, maxResults to specify the maximum number of records per page, and nextToken to retrieve the next page. If maxResults is not specified, the server returns 10 records by default.
    * 
    * @param request - ListCredentialsRequest
    * @returns ListCredentialsResponse
@@ -3427,11 +3431,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries MCP services and their configurations and statuses in a specified workspace by using paging.
+   * Queries MCP services and their configurations and statuses in a specified workspace by page.
    * 
    * @remarks
    * ## Operation description
-   * Queries MCP services and their configurations and statuses in a specified workspace by using paging.
+   * Queries MCP services and their configurations and statuses in a specified workspace by page.
    * 
    * @param request - ListMcpsRequest
    * @param headers - map
@@ -3476,11 +3480,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries MCP services and their configurations and statuses in a specified workspace by using paging.
+   * Queries MCP services and their configurations and statuses in a specified workspace by page.
    * 
    * @remarks
    * ## Operation description
-   * Queries MCP services and their configurations and statuses in a specified workspace by using paging.
+   * Queries MCP services and their configurations and statuses in a specified workspace by page.
    * 
    * @param request - ListMcpsRequest
    * @returns ListMcpsResponse
@@ -3492,10 +3496,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询模型连接列表
+   * Queries model connections in a specified workspace with paging. Supports filtering by name, provider type, and invoke protocol.
    * 
    * @remarks
-   * 查询指定 AgentCore 工作空间中的模型连接。支持通过 `Name` 按名称筛选，并通过 `SearchType` 选择精确匹配或模糊匹配；支持按模型提供商类型和调用协议筛选，并支持分页查询。
+   * Queries model connections in a specified AgentCore workspace. Supports filtering by name through `Name` and selecting exact match or fuzzy match through `SearchType`. Also supports filtering by model provider type and invoke protocol, and supports paging.
    * 
    * @param request - ListModelConnectionsRequest
    * @param headers - map
@@ -3552,10 +3556,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询模型连接列表
+   * Queries model connections in a specified workspace with paging. Supports filtering by name, provider type, and invoke protocol.
    * 
    * @remarks
-   * 查询指定 AgentCore 工作空间中的模型连接。支持通过 `Name` 按名称筛选，并通过 `SearchType` 选择精确匹配或模糊匹配；支持按模型提供商类型和调用协议筛选，并支持分页查询。
+   * Queries model connections in a specified AgentCore workspace. Supports filtering by name through `Name` and selecting exact match or fuzzy match through `SearchType`. Also supports filtering by model provider type and invoke protocol, and supports paging.
    * 
    * @param request - ListModelConnectionsRequest
    * @returns ListModelConnectionsResponse
@@ -3866,7 +3870,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询团队列表
+   * Queries teams in a specified workspace by paging. Use nameLike to filter by team name with fuzzy match, maxResults to specify the maximum number of records per page, and nextToken to retrieve the next page. If maxResults is not specified, the server returns 10 records by default. Member information in the list includes only the member identity, name, and team role.
    * 
    * @param request - ListTeamsRequest
    * @param headers - map
@@ -3907,7 +3911,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询团队列表
+   * Queries teams in a specified workspace by paging. Use nameLike to filter by team name with fuzzy match, maxResults to specify the maximum number of records per page, and nextToken to retrieve the next page. If maxResults is not specified, the server returns 10 records by default. Member information in the list includes only the member identity, name, and team role.
    * 
    * @param request - ListTeamsRequest
    * @returns ListTeamsResponse
@@ -4330,7 +4334,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 重置用户密码
+   * Resets the logon password of a specified user. Specify the user by agentCoreUserId or username. At least one of the two parameters must be specified. Only users who use workspace local password authentication can be reset. If password is not specified, the server generates a random password and returns it in the response.
    * 
    * @param tmpReq - ResetUserPasswordRequest
    * @param headers - map
@@ -4369,7 +4373,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 重置用户密码
+   * Resets the logon password of a specified user. Specify the user by agentCoreUserId or username. At least one of the two parameters must be specified. Only users who use workspace local password authentication can be reset. If password is not specified, the server generates a random password and returns it in the response.
    * 
    * @param request - ResetUserPasswordRequest
    * @returns ResetUserPasswordResponse
@@ -4684,7 +4688,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新凭证
+   * Updates the content or description of a specified credential. At least one of credentialMetadata and description must be specified. Unspecified properties remain unchanged. The credential name and credential type cannot be modified after creation.
    * 
    * @param tmpReq - UpdateCredentialRequest
    * @param headers - map
@@ -4729,7 +4733,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新凭证
+   * Updates the content or description of a specified credential. At least one of credentialMetadata and description must be specified. Unspecified properties remain unchanged. The credential name and credential type cannot be modified after creation.
    * 
    * @param request - UpdateCredentialRequest
    * @returns UpdateCredentialResponse
@@ -4977,7 +4981,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the description of a specified model. Other model configurations cannot be modified through this operation.
+   * Updates the description, context token limit, maximum output token count, or capability configuration of a specified model.
+   * 
+   * @remarks
+   * This operation updates description, contextSize, maxTokens, and capabilities. At least one non-null parameter must be provided. Parameters that are not provided or set to null retain their original values. The capabilities object is replaced as a whole. Capability fields not included in the object are treated as false.
+   * Modifying only description does not refresh the model configuration of associated agents. When contextSize, maxTokens, or capabilities actually change, the system asynchronously refreshes managed agents that reference the model within the same workspace, as well as external agents whose model source is PLATFORM. External agents whose model source is RUNTIME are not affected. Submitting the same configuration repeatedly does not trigger a new model configuration refresh.
+   * A successful response indicates that the model configuration has been saved. It does not indicate that associated agents have completed the configuration refresh or that the runtime has loaded the new configuration. Call GetModel to query the saved model configuration.
    * 
    * @param tmpReq - UpdateModelRequest
    * @param headers - map
@@ -5022,7 +5031,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the description of a specified model. Other model configurations cannot be modified through this operation.
+   * Updates the description, context token limit, maximum output token count, or capability configuration of a specified model.
+   * 
+   * @remarks
+   * This operation updates description, contextSize, maxTokens, and capabilities. At least one non-null parameter must be provided. Parameters that are not provided or set to null retain their original values. The capabilities object is replaced as a whole. Capability fields not included in the object are treated as false.
+   * Modifying only description does not refresh the model configuration of associated agents. When contextSize, maxTokens, or capabilities actually change, the system asynchronously refreshes managed agents that reference the model within the same workspace, as well as external agents whose model source is PLATFORM. External agents whose model source is RUNTIME are not affected. Submitting the same configuration repeatedly does not trigger a new model configuration refresh.
+   * A successful response indicates that the model configuration has been saved. It does not indicate that associated agents have completed the configuration refresh or that the runtime has loaded the new configuration. Call GetModel to query the saved model configuration.
    * 
    * @param request - UpdateModelRequest
    * @returns UpdateModelResponse
@@ -5268,7 +5282,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新团队
+   * Updates the description and members of a specified team. When users or agents are passed in, the corresponding member list is replaced using full overwrite semantics. Member lists that are not passed in remain unchanged. The team name cannot be modified after creation.
    * 
    * @param tmpReq - UpdateTeamRequest
    * @param headers - map
@@ -5313,7 +5327,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新团队
+   * Updates the description and members of a specified team. When users or agents are passed in, the corresponding member list is replaced using full overwrite semantics. Member lists that are not passed in remain unchanged. The team name cannot be modified after creation.
    * 
    * @param request - UpdateTeamRequest
    * @returns UpdateTeamResponse
@@ -5325,7 +5339,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新用户
+   * Updates the display name, email address, or note of a specified user. At least one of displayName, email, and note must be specified. Unspecified properties remain unchanged. The username cannot be modified after creation.
    * 
    * @param tmpReq - UpdateUserRequest
    * @param headers - map
@@ -5370,7 +5384,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新用户
+   * Updates the display name, email address, or note of a specified user. At least one of displayName, email, and note must be specified. Unspecified properties remain unchanged. The username cannot be modified after creation.
    * 
    * @param request - UpdateUserRequest
    * @returns UpdateUserResponse

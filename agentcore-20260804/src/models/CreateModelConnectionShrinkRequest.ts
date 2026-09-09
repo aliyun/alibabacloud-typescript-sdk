@@ -3,8 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateModelConnectionShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The request body.
+   */
   bodyShrink?: string;
   /**
+   * @remarks
+   * The client token used for idempotence. Not supported.
+   * 
    * @example
    * client-token-1
    */

@@ -7,6 +7,8 @@ import * as $dara from '@darabonba/typescript';
 export class BatchDeleteModelsRequestBody extends $dara.Model {
   /**
    * @remarks
+   * The list of model IDs.
+   * 
    * This parameter is required.
    */
   modelIds?: string[];
@@ -35,8 +37,15 @@ export class BatchDeleteModelsRequestBody extends $dara.Model {
 }
 
 export class BatchDeleteModelsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The request body.
+   */
   body?: BatchDeleteModelsRequestBody;
   /**
+   * @remarks
+   * The client token used for idempotence. Not supported.
+   * 
    * @example
    * client-token-1
    */

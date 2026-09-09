@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DebugModelRequestBody extends $dara.Model {
   /**
    * @remarks
+   * The prompt used to verify the model call chain.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -33,6 +35,10 @@ export class DebugModelRequestBody extends $dara.Model {
 }
 
 export class DebugModelRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The request body.
+   */
   body?: DebugModelRequestBody;
   static names(): { [key: string]: string } {
     return {

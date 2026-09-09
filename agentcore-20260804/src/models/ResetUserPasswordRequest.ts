@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class ResetUserPasswordRequestBody extends $dara.Model {
   /**
+   * @remarks
+   * The user ID. At least one of agentCoreUserId and username must be specified. If both are specified, agentCoreUserId takes precedence.
+   * 
    * @example
    * usr-123456
    */
   agentCoreUserId?: string;
   /**
+   * @remarks
+   * The new password after the reset. The password must be 8 to 32 characters in length and must contain uppercase letters, lowercase letters, digits, and special characters. The password cannot contain the username. If this parameter is not specified, the server generates a random password.
+   * 
    * @example
    * Example@2026
    */
   password?: string;
   /**
+   * @remarks
+   * The username. At least one of username and agentCoreUserId must be specified.
+   * 
    * @example
    * user-01
    */
@@ -44,6 +53,10 @@ export class ResetUserPasswordRequestBody extends $dara.Model {
 }
 
 export class ResetUserPasswordRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The request body for resetting the user password.
+   */
   body?: ResetUserPasswordRequestBody;
   static names(): { [key: string]: string } {
     return {
