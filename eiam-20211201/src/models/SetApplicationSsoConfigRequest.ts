@@ -53,7 +53,7 @@ export class SetApplicationSsoConfigRequestOidcSsoConfig extends $dara.Model {
   accessTokenEffectiveTime?: number;
   /**
    * @remarks
-   * Specifies whether the application is allowed to act as a public client to request the IDaaS EIAM authorization server. Only the authorization code mode and device mode support this feature. Default value: false.
+   * Specifies whether the application is allowed to act as a public client to request the IDaaS EIAM authorization server. This parameter can be enabled only in authorization code mode and device mode. Default value: false.
    * 
    * @example
    * true
@@ -69,12 +69,12 @@ export class SetApplicationSsoConfigRequestOidcSsoConfig extends $dara.Model {
   codeEffectiveTime?: number;
   /**
    * @remarks
-   * The custom user information included in the ID token response.
+   * The custom user information included in the returned ID token.
    */
   customClaims?: SetApplicationSsoConfigRequestOidcSsoConfigCustomClaims[];
   /**
    * @remarks
-   * The OIDC standard parameter scope, which specifies the scope of user attributes that can be returned by the userinfo endpoint or the ID token.
+   * The OIDC standard parameter scope, which specifies the range of user attributes that can be returned by the userinfo endpoint or the id_token.
    * 
    * @example
    * profile，email
@@ -82,7 +82,7 @@ export class SetApplicationSsoConfigRequestOidcSsoConfig extends $dara.Model {
   grantScopes?: string[];
   /**
    * @remarks
-   * The list of supported OIDC protocol grant types.
+   * The list of supported OIDC grant types.
    * 
    * @example
    * authorization_code
@@ -98,7 +98,7 @@ export class SetApplicationSsoConfigRequestOidcSsoConfig extends $dara.Model {
   idTokenEffectiveTime?: number;
   /**
    * @remarks
-   * The ID of the identity authentication source used for the password mode. This parameter takes effect only when the GrantTypes of the OIDC application includes the password mode.
+   * The ID of the authentication source used in password mode. This parameter takes effect only when the GrantTypes specified for the OIDC application include the password mode.
    * 
    * @example
    * ia_password
@@ -106,7 +106,7 @@ export class SetApplicationSsoConfigRequestOidcSsoConfig extends $dara.Model {
   passwordAuthenticationSourceId?: string;
   /**
    * @remarks
-   * Specifies whether TOTP-based secondary authentication is required for the password mode. This parameter takes effect only when the GrantTypes of the OIDC application includes the password mode.
+   * Specifies whether TOTP-based secondary authentication is required for password mode. This parameter takes effect only when the GrantTypes specified for the OIDC application include the password mode.
    * 
    * @example
    * true
@@ -122,7 +122,7 @@ export class SetApplicationSsoConfigRequestOidcSsoConfig extends $dara.Model {
   pkceChallengeMethods?: string[];
   /**
    * @remarks
-   * Specifies whether the application SSO requires PKCE (RFC 7636).
+   * Specifies whether Proof Key for Code Exchange (PKCE) (RFC 7636) is required for application SSO.
    * 
    * @example
    * true
@@ -130,12 +130,12 @@ export class SetApplicationSsoConfigRequestOidcSsoConfig extends $dara.Model {
   pkceRequired?: boolean;
   /**
    * @remarks
-   * The list of logout callback addresses supported by the application.
+   * The list of logout callback URIs supported by the application.
    */
   postLogoutRedirectUris?: string[];
   /**
    * @remarks
-   * The list of RedirectUris supported by the application.
+   * The list of redirect URIs supported by the application.
    */
   redirectUris?: string[];
   /**
@@ -148,7 +148,7 @@ export class SetApplicationSsoConfigRequestOidcSsoConfig extends $dara.Model {
   refreshTokenEffective?: number;
   /**
    * @remarks
-   * The response types supported by the application when OidcSsoConfig.GrantTypes includes the implicit mode.
+   * The response types supported by the application when OidcSsoConfig.GrantTypes includes the implicit grant type.
    * 
    * @example
    * token id_token
@@ -156,7 +156,7 @@ export class SetApplicationSsoConfigRequestOidcSsoConfig extends $dara.Model {
   responseTypes?: string[];
   /**
    * @remarks
-   * The custom expression for the sub value returned in the ID token.
+   * The custom expression for the sub claim value returned in the ID token.
    * 
    * @example
    * user.userid
@@ -237,7 +237,7 @@ export class SetApplicationSsoConfigRequestOidcSsoConfig extends $dara.Model {
 export class SetApplicationSsoConfigRequestSamlSsoConfigAttributeStatements extends $dara.Model {
   /**
    * @remarks
-   * The Name of the attribute in the SAML assertion.
+   * The name of the attribute in the SAML assertion.
    * 
    * @example
    * https://www.aliyun.com/SAML-Role/Attributes/RoleSessionName
@@ -317,9 +317,9 @@ export class SetApplicationSsoConfigRequestSamlSsoConfigOptionalRelayStates exte
 export class SetApplicationSsoConfigRequestSamlSsoConfig extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether the Assertion needs to be signed. ResponseSigned and AssertionSigned cannot both be set to false.
-   * - true: The Assertion is signed.
-   * - false: The Assertion is not signed.
+   * Specifies whether the assertion needs to be signed. ResponseSigned and AssertionSigned cannot both be set to false.
+   * - true: The assertion is signed.
+   * - false: The assertion is not signed.
    * 
    * @example
    * true
@@ -332,7 +332,7 @@ export class SetApplicationSsoConfigRequestSamlSsoConfig extends $dara.Model {
   attributeStatements?: SetApplicationSsoConfigRequestSamlSsoConfigAttributeStatements[];
   /**
    * @remarks
-   * The default RelayState value. When the single sign-on (SSO) request is initiated by EIAM, the SAML Response provided by EIAM specifies the RelayState as this value.
+   * The default RelayState value. When a single sign-on (SSO) logon request is initiated by EIAM, the SAML Response provided by EIAM specifies the RelayState as this value.
    * 
    * @example
    * https://home.console.aliyun.com
@@ -360,7 +360,7 @@ export class SetApplicationSsoConfigRequestSamlSsoConfig extends $dara.Model {
   nameIdFormat?: string;
   /**
    * @remarks
-   * The expression used to generate the actual NameID value for the SAML protocol.
+   * The expression used to generate the actual NameID value in the SAML protocol.
    * 
    * @example
    * user.email
@@ -373,9 +373,17 @@ export class SetApplicationSsoConfigRequestSamlSsoConfig extends $dara.Model {
   optionalRelayStates?: SetApplicationSsoConfigRequestSamlSsoConfigOptionalRelayStates[];
   /**
    * @remarks
-   * Specifies whether the Response needs to be signed. ResponseSigned and AssertionSigned cannot both be set to false.
-   * - true: The Response is signed.
-   * - false: The Response is not signed.
+   * Specifies whether SSO AuthnRequest signature verification is enabled. Default value: false. If set to true, spSigningCertificates must be configured (the array must not be empty).
+   * 
+   * @example
+   * false
+   */
+  requireAuthnRequestSigned?: boolean;
+  /**
+   * @remarks
+   * Specifies whether the response needs to be signed. ResponseSigned and AssertionSigned cannot both be set to false.
+   * - true: The response is signed.
+   * - false: The response is not signed.
    * 
    * @example
    * true
@@ -383,7 +391,7 @@ export class SetApplicationSsoConfigRequestSamlSsoConfig extends $dara.Model {
   responseSigned?: boolean;
   /**
    * @remarks
-   * The SAML assertion signature algorithm.
+   * The signature algorithm for the SAML assertion.
    * 
    * @example
    * RSA-SHA256
@@ -399,7 +407,23 @@ export class SetApplicationSsoConfigRequestSamlSsoConfig extends $dara.Model {
   spEntityId?: string;
   /**
    * @remarks
-   * The SAML assertion consumer service (ACS) URL of the application (SP).
+   * The array of SP signature verification certificates in PEM format. A maximum of two certificates are allowed and are shared by SSO and SLO. Each certificate is validated for format and validity upon write. Requests with more than two certificates are rejected.
+   * 
+   * @example
+   * -----BEGIN CERTIFICATE----- MIIC0jCCAbqgAwIBAgIQXXXXX -----END CERTIFICATE-----
+   */
+  spSigningCertificates?: string[];
+  /**
+   * @remarks
+   * The URL on the SP side that receives the LogoutResponse. This parameter is optional.
+   * 
+   * @example
+   * https://example.com/api/slo/response
+   */
+  spSloResponseUrl?: string;
+  /**
+   * @remarks
+   * The SAML assertion consumer service URL of the application (SP).
    * 
    * @example
    * https://signin.aliyun.com/saml-role/sso
@@ -414,9 +438,12 @@ export class SetApplicationSsoConfigRequestSamlSsoConfig extends $dara.Model {
       nameIdFormat: 'NameIdFormat',
       nameIdValueExpression: 'NameIdValueExpression',
       optionalRelayStates: 'OptionalRelayStates',
+      requireAuthnRequestSigned: 'RequireAuthnRequestSigned',
       responseSigned: 'ResponseSigned',
       signatureAlgorithm: 'SignatureAlgorithm',
       spEntityId: 'SpEntityId',
+      spSigningCertificates: 'SpSigningCertificates',
+      spSloResponseUrl: 'SpSloResponseUrl',
       spSsoAcsUrl: 'SpSsoAcsUrl',
     };
   }
@@ -430,9 +457,12 @@ export class SetApplicationSsoConfigRequestSamlSsoConfig extends $dara.Model {
       nameIdFormat: 'string',
       nameIdValueExpression: 'string',
       optionalRelayStates: { 'type': 'array', 'itemType': SetApplicationSsoConfigRequestSamlSsoConfigOptionalRelayStates },
+      requireAuthnRequestSigned: 'boolean',
       responseSigned: 'boolean',
       signatureAlgorithm: 'string',
       spEntityId: 'string',
+      spSigningCertificates: { 'type': 'array', 'itemType': 'string' },
+      spSloResponseUrl: 'string',
       spSsoAcsUrl: 'string',
     };
   }
@@ -443,6 +473,9 @@ export class SetApplicationSsoConfigRequestSamlSsoConfig extends $dara.Model {
     }
     if(Array.isArray(this.optionalRelayStates)) {
       $dara.Model.validateArray(this.optionalRelayStates);
+    }
+    if(Array.isArray(this.spSigningCertificates)) {
+      $dara.Model.validateArray(this.spSigningCertificates);
     }
     super.validate();
   }
@@ -465,7 +498,7 @@ export class SetApplicationSsoConfigRequest extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see How to ensure idempotence.
+   * The client token that is used to ensure the idempotence of the request. Generate a unique value from your client. The value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see How to ensure idempotence.
    * 
    * @example
    * client-examplexxx
@@ -473,9 +506,9 @@ export class SetApplicationSsoConfigRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The initialization single sign-on (SSO) method. Valid values:
-   * - only_app_init_sso: Only application-initiated SSO. This is the default value for OIDC protocol applications. When a SAML application specifies this method, InitLoginUrl must be specified.
-   * - idaas_or_app_init_sso: SSO initiated from the IDaaS portal or the application. This is the default value for SAML protocol applications. When an OIDC protocol application specifies this method, InitLoginUrl must be specified.
+   * The initial single sign-on (SSO) logon method. Valid values:
+   * - only_app_init_sso: Only application-initiated SSO is supported. This is the default value for OIDC protocol applications. When a SAML application uses this method, InitLoginUrl must be specified.
+   * - idaas_or_app_init_sso: Both IDaaS portal-initiated and application-initiated SSO are supported. This is the default value for SAML protocol applications. When an OIDC protocol application uses this method, InitLoginUrl must be specified.
    * 
    * @example
    * only_app_init_sso
@@ -483,9 +516,9 @@ export class SetApplicationSsoConfigRequest extends $dara.Model {
   initLoginType?: string;
   /**
    * @remarks
-   * The URL that triggers the initialization single sign-on (SSO).
-   * When an OIDC protocol application sets InitLoginType to idaas_or_app_init_sso, this parameter is required.
-   * When a SAML protocol application sets InitLoginType to only_app_init_sso, this parameter is required.
+   * The initial single sign-on (SSO) logon trigger URL.
+   * This parameter is required when an OIDC protocol application sets InitLoginType to idaas_or_app_init_sso.
+   * This parameter is required when a SAML protocol application sets InitLoginType to only_app_init_sso.
    * 
    * @example
    * http://127.0.0.1:8000/start_login?enterprise_code=ABCDEF
@@ -503,12 +536,12 @@ export class SetApplicationSsoConfigRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The SSO configuration parameters for an OIDC protocol-based application.
+   * The SSO configuration parameters for an OIDC-based application.
    */
   oidcSsoConfig?: SetApplicationSsoConfigRequestOidcSsoConfig;
   /**
    * @remarks
-   * The SSO configuration parameters for a SAML protocol-based application.
+   * The SSO configuration parameters for a SAML-based application.
    */
   samlSsoConfig?: SetApplicationSsoConfigRequestSamlSsoConfig;
   static names(): { [key: string]: string } {

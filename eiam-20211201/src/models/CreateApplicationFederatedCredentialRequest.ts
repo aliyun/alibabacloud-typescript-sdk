@@ -43,9 +43,34 @@ export class CreateApplicationFederatedCredentialRequestAttributeMappings extend
 }
 
 export class CreateApplicationFederatedCredentialRequestOidcVerificationConfigAzureVmConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The principal ID.
+   * 
+   * @example
+   * 5dee234a-1b4c-4ad7-a19f-fxxxxx
+   */
   principalId?: string;
+  /**
+   * @remarks
+   * The Azure resource group name.
+   * 
+   * @example
+   * user_default
+   */
   resourceGroupName?: string;
+  /**
+   * @remarks
+   * The subscription ID.
+   * 
+   * @example
+   * 4342a1f4-7e5d-4371-97dc-d4f33f4xxxx
+   */
   subscriptionId?: string;
+  /**
+   * @remarks
+   * The list of virtual machine names.
+   */
   vmNames?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -78,11 +103,22 @@ export class CreateApplicationFederatedCredentialRequestOidcVerificationConfigAz
 }
 
 export class CreateApplicationFederatedCredentialRequestOidcVerificationConfigGcpVmConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The list of GCP virtual machine instance IDs.
+   */
   instanceIds?: string[];
+  /**
+   * @remarks
+   * The GCP project ID to which the resource belongs.
+   * 
+   * @example
+   * turnkey-axiom-475109-xx
+   */
   projectId?: string;
   /**
    * @remarks
-   * The sub claim that corresponds to the service account.
+   * The sub claim corresponding to the service account.
    * 
    * @example
    * 123456789
@@ -117,6 +153,13 @@ export class CreateApplicationFederatedCredentialRequestOidcVerificationConfigGc
 }
 
 export class CreateApplicationFederatedCredentialRequestOidcVerificationConfigGenericConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The subject.
+   * 
+   * @example
+   * test_subject
+   */
   subject?: string;
   static names(): { [key: string]: string } {
     return {
@@ -142,7 +185,7 @@ export class CreateApplicationFederatedCredentialRequestOidcVerificationConfigGe
 export class CreateApplicationFederatedCredentialRequestOidcVerificationConfigKubernetesConfig extends $dara.Model {
   /**
    * @remarks
-   * The Kubernetes namespace.
+   * The K8s namespace.
    * 
    * @example
    * default
@@ -158,7 +201,7 @@ export class CreateApplicationFederatedCredentialRequestOidcVerificationConfigKu
   podNamePrefix?: string;
   /**
    * @remarks
-   * The Kubernetes service account name.
+   * The K8s service account name.
    * 
    * @example
    * my-sa
@@ -200,6 +243,10 @@ export class CreateApplicationFederatedCredentialRequestOidcVerificationConfig e
    * The GCP VM scenario configuration.
    */
   gcpVmConfig?: CreateApplicationFederatedCredentialRequestOidcVerificationConfigGcpVmConfig;
+  /**
+   * @remarks
+   * The generic scenario configuration.
+   */
   genericConfig?: CreateApplicationFederatedCredentialRequestOidcVerificationConfigGenericConfig;
   /**
    * @remarks
@@ -208,8 +255,7 @@ export class CreateApplicationFederatedCredentialRequestOidcVerificationConfig e
   kubernetesConfig?: CreateApplicationFederatedCredentialRequestOidcVerificationConfigKubernetesConfig;
   /**
    * @remarks
-   * The OIDC scenario profile. Valid values:
-   * 
+   * The OIDC scenario profile. Different profiles correspond to different configurations. Valid values:
    * - generic
    * - kubernetes
    * - gcp_vm
@@ -261,6 +307,10 @@ export class CreateApplicationFederatedCredentialRequestOidcVerificationConfig e
 }
 
 export class CreateApplicationFederatedCredentialRequestPkcs7VerificationConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The list of instance IDs.
+   */
   instanceIds?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -289,7 +339,7 @@ export class CreateApplicationFederatedCredentialRequestPkcs7VerificationConfig 
 export class CreateApplicationFederatedCredentialRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the application federated identity credential.
+   * The application federated credential name.
    * 
    * This parameter is required.
    * 
@@ -299,7 +349,7 @@ export class CreateApplicationFederatedCredentialRequest extends $dara.Model {
   applicationFederatedCredentialName?: string;
   /**
    * @remarks
-   * The type of the application federated identity credential.
+   * The application federated credential type.
    * 
    * This parameter is required.
    * 
@@ -352,12 +402,12 @@ export class CreateApplicationFederatedCredentialRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The OIDC structured configuration. This parameter applies when the verification mode is structured and the credential type is oidc.
+   * The OIDC structured configuration.
    */
   oidcVerificationConfig?: CreateApplicationFederatedCredentialRequestOidcVerificationConfig;
   /**
    * @remarks
-   * The PKCS#7 structured configuration. This parameter applies when the verification mode is structured and the credential type is pkcs7.
+   * The PKCS#7 structured configuration.
    */
   pkcs7VerificationConfig?: CreateApplicationFederatedCredentialRequestPkcs7VerificationConfig;
   /**
@@ -371,9 +421,8 @@ export class CreateApplicationFederatedCredentialRequest extends $dara.Model {
   /**
    * @remarks
    * The verification mode. Valid values:
-   * 
-   * - freedom (default)
-   * - structured
+   * - freedom: free mode
+   * - structured: structured mode
    * 
    * @example
    * freedom

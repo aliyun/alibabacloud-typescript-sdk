@@ -10,7 +10,7 @@ export class ListEiamInstancesRequest extends $dara.Model {
   instanceIds?: string[];
   /**
    * @remarks
-   * The region to which the instances belong.
+   * The region to which the instance belongs.
    * 
    * @example
    * cn-hangzhou

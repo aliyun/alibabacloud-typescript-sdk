@@ -37,19 +37,37 @@ export class ListBrandsResponseBodyBrands extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * The SMS gateway ID.
+   * 
+   * @example
+   * smsgw_01l9f0kunrrjhxxx
+   */
+  smsGatewayId?: string;
+  /**
+   * @remarks
    * The brand status.
    * 
    * @example
    * enabled
    */
   status?: string;
+  /**
+   * @remarks
+   * The enabling status of system notifications.
+   * 
+   * @example
+   * enabled
+   */
+  systemNotificationStatus?: string;
   static names(): { [key: string]: string } {
     return {
       brandId: 'BrandId',
       brandName: 'BrandName',
       brandType: 'BrandType',
       instanceId: 'InstanceId',
+      smsGatewayId: 'SmsGatewayId',
       status: 'Status',
+      systemNotificationStatus: 'SystemNotificationStatus',
     };
   }
 
@@ -59,7 +77,9 @@ export class ListBrandsResponseBodyBrands extends $dara.Model {
       brandName: 'string',
       brandType: 'string',
       instanceId: 'string',
+      smsGatewayId: 'string',
       status: 'string',
+      systemNotificationStatus: 'string',
     };
   }
 

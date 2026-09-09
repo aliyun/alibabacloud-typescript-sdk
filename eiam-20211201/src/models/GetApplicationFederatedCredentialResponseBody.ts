@@ -43,9 +43,34 @@ export class GetApplicationFederatedCredentialResponseBodyApplicationFederatedCr
 }
 
 export class GetApplicationFederatedCredentialResponseBodyApplicationFederatedCredentialOidcVerificationConfigAzureVmConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The principal ID.
+   * 
+   * @example
+   * 5dee234a-1b4c-4ad7-a19f-fxxxxx
+   */
   principalId?: string;
+  /**
+   * @remarks
+   * The Azure resource group name.
+   * 
+   * @example
+   * user_default
+   */
   resourceGroupName?: string;
+  /**
+   * @remarks
+   * The subscription ID.
+   * 
+   * @example
+   * 4342a1f4-7e5d-4371-97dc-d4f33f4xxxx
+   */
   subscriptionId?: string;
+  /**
+   * @remarks
+   * The list of virtual machine names.
+   */
   vmNames?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -80,13 +105,23 @@ export class GetApplicationFederatedCredentialResponseBodyApplicationFederatedCr
 export class GetApplicationFederatedCredentialResponseBodyApplicationFederatedCredentialOidcVerificationConfigGcpVmConfig extends $dara.Model {
   /**
    * @remarks
-   * The list of VM instance IDs. A maximum of 10 instance IDs are supported.
+   * The list of VM instance IDs.
    */
   instanceIds?: string[];
+  /**
+   * @remarks
+   * The GCP project ID.
+   * 
+   * @example
+   * turnkey-axiom-475109-xx
+   */
   projectId?: string;
   /**
    * @remarks
-   * The service account ID that corresponds to the sub claim.
+   * The subject corresponding to the service account.
+   * 
+   * @example
+   * 123456789
    */
   serviceAccountId?: string;
   static names(): { [key: string]: string } {
@@ -118,6 +153,13 @@ export class GetApplicationFederatedCredentialResponseBodyApplicationFederatedCr
 }
 
 export class GetApplicationFederatedCredentialResponseBodyApplicationFederatedCredentialOidcVerificationConfigGenericConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The subject identifier.
+   * 
+   * @example
+   * test_subject
+   */
   subject?: string;
   static names(): { [key: string]: string } {
     return {
@@ -143,17 +185,26 @@ export class GetApplicationFederatedCredentialResponseBodyApplicationFederatedCr
 export class GetApplicationFederatedCredentialResponseBodyApplicationFederatedCredentialOidcVerificationConfigKubernetesConfig extends $dara.Model {
   /**
    * @remarks
-   * The Kubernetes namespace.
+   * The K8s namespace.
+   * 
+   * @example
+   * default
    */
   namespace?: string;
   /**
    * @remarks
    * The pod name prefix.
+   * 
+   * @example
+   * test-pod
    */
   podNamePrefix?: string;
   /**
    * @remarks
-   * The Kubernetes service account name.
+   * The K8s service account name.
+   * 
+   * @example
+   * default
    */
   serviceAccountName?: string;
   static names(): { [key: string]: string } {
@@ -192,6 +243,10 @@ export class GetApplicationFederatedCredentialResponseBodyApplicationFederatedCr
    * The GCP VM scenario configuration.
    */
   gcpVmConfig?: GetApplicationFederatedCredentialResponseBodyApplicationFederatedCredentialOidcVerificationConfigGcpVmConfig;
+  /**
+   * @remarks
+   * The generic scenario configuration.
+   */
   genericConfig?: GetApplicationFederatedCredentialResponseBodyApplicationFederatedCredentialOidcVerificationConfigGenericConfig;
   /**
    * @remarks
@@ -200,7 +255,14 @@ export class GetApplicationFederatedCredentialResponseBodyApplicationFederatedCr
   kubernetesConfig?: GetApplicationFederatedCredentialResponseBodyApplicationFederatedCredentialOidcVerificationConfigKubernetesConfig;
   /**
    * @remarks
-   * The OIDC scenario profile. Valid values: generic, kubernetes, gcp_vm, and azure_vm.
+   * The OIDC scenario profile. Different profiles correspond to different configurations. Valid values:
+   * - generic
+   * - kubernetes
+   * - gcp_vm
+   * - azure_vm
+   * 
+   * @example
+   * kubernetes
    */
   profile?: string;
   static names(): { [key: string]: string } {
@@ -247,7 +309,7 @@ export class GetApplicationFederatedCredentialResponseBodyApplicationFederatedCr
 export class GetApplicationFederatedCredentialResponseBodyApplicationFederatedCredentialPkcs7VerificationConfig extends $dara.Model {
   /**
    * @remarks
-   * The list of allowed instance IDs. A maximum of 10 instance IDs are supported.
+   * The list of allowed instance IDs.
    */
   instanceIds?: string[];
   static names(): { [key: string]: string } {
@@ -314,7 +376,7 @@ export class GetApplicationFederatedCredentialResponseBodyApplicationFederatedCr
   attributeMappings?: GetApplicationFederatedCredentialResponseBodyApplicationFederatedCredentialAttributeMappings[];
   /**
    * @remarks
-   * The time when the credential was created.
+   * The creation time.
    * 
    * @example
    * 1758785994982
@@ -346,7 +408,7 @@ export class GetApplicationFederatedCredentialResponseBodyApplicationFederatedCr
   instanceId?: string;
   /**
    * @remarks
-   * The time when the credential was last used.
+   * The last used time.
    * 
    * @example
    * 1758785994982
@@ -354,12 +416,12 @@ export class GetApplicationFederatedCredentialResponseBodyApplicationFederatedCr
   lastUsedTime?: number;
   /**
    * @remarks
-   * The OIDC structured configuration. This parameter applies when the verification mode is structured and the credential type is oidc.
+   * The OIDC structured configuration.
    */
   oidcVerificationConfig?: GetApplicationFederatedCredentialResponseBodyApplicationFederatedCredentialOidcVerificationConfig;
   /**
    * @remarks
-   * The PKCS#7 structured configuration. This parameter applies when the verification mode is structured and the credential type is pkcs7.
+   * The PKCS#7 structured configuration.
    */
   pkcs7VerificationConfig?: GetApplicationFederatedCredentialResponseBodyApplicationFederatedCredentialPkcs7VerificationConfig;
   /**
@@ -372,7 +434,7 @@ export class GetApplicationFederatedCredentialResponseBodyApplicationFederatedCr
   status?: string;
   /**
    * @remarks
-   * The time when the credential was last updated.
+   * The update time.
    * 
    * @example
    * 1758785994982
@@ -388,7 +450,12 @@ export class GetApplicationFederatedCredentialResponseBodyApplicationFederatedCr
   verificationCondition?: string;
   /**
    * @remarks
-   * The verification mode. Valid values: freedom and structured.
+   * The verification mode. Valid values:
+   * - freedom: Free mode.
+   * - structured: Structured mode.
+   * 
+   * @example
+   * structured
    */
   verificationMode?: string;
   static names(): { [key: string]: string } {

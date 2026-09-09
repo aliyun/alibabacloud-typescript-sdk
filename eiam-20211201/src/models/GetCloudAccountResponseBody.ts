@@ -13,7 +13,7 @@ export class GetCloudAccountResponseBodyCloudAccountCloudAccountHealthCheckResul
   errorCode?: string;
   /**
    * @remarks
-   * The error description.
+   * The error message.
    * 
    * @example
    * There is no permission.
@@ -45,7 +45,7 @@ export class GetCloudAccountResponseBodyCloudAccountCloudAccountHealthCheckResul
 export class GetCloudAccountResponseBodyCloudAccountCloudAccountHealthCheckResult extends $dara.Model {
   /**
    * @remarks
-   * The error reason. This field is returned when the health check status is unhealthy.
+   * The error reason. This field returns a value when the health check status is unhealthy.
    */
   errorReason?: GetCloudAccountResponseBodyCloudAccountCloudAccountHealthCheckResultErrorReason;
   /**
@@ -159,11 +159,17 @@ export class GetCloudAccountResponseBodyCloudAccountPrivilegeHostingError extend
   /**
    * @remarks
    * The failure error code.
+   * 
+   * @example
+   * Error
    */
   errorCode?: string;
   /**
    * @remarks
    * The failure message.
+   * 
+   * @example
+   * test message
    */
   errorMessage?: string;
   static names(): { [key: string]: string } {
@@ -232,7 +238,7 @@ export class GetCloudAccountResponseBodyCloudAccount extends $dara.Model {
   cloudAccountName?: string;
   /**
    * @remarks
-   * The identity provider configuration.
+   * The identity provider configuration information.
    */
   cloudAccountProviderConfig?: GetCloudAccountResponseBodyCloudAccountCloudAccountProviderConfig;
   /**
@@ -243,10 +249,22 @@ export class GetCloudAccountResponseBodyCloudAccount extends $dara.Model {
    * idaas-eiam-oidc-provider
    */
   cloudAccountProviderName?: string;
+  /**
+   * @remarks
+   * The cloud account role creation type.
+   * 
+   * @example
+   * test
+   */
   cloudAccountRoleCreationType?: string;
   /**
    * @remarks
-   * The cloud account site.
+   * The cloud account site. Valid values:
+   * - china_mainland: The Chinese mainland.
+   * - global: Global.
+   * 
+   * @example
+   * china_mainland
    */
   cloudAccountSite?: string;
   /**
@@ -295,12 +313,26 @@ export class GetCloudAccountResponseBodyCloudAccount extends $dara.Model {
   privilegeHostingError?: GetCloudAccountResponseBodyCloudAccountPrivilegeHostingError;
   /**
    * @remarks
-   * The privilege hosting state, which indicates whether the privilege capability is available.
+   * The hosting state of the cloud account. The default value is hosting_unmanaged. Valid values:
+   * - hosting_unmanaged: Unmanaged. The cloud account has not initiated hosting and is in the initial state.
+   * - hosting_pending: Hosting in progress. The hosting task has been submitted and is being executed asynchronously. Wait for the hosting process to complete before the final state is reached.
+   * - hosting_completed: Hosting completed. The cloud account hosting process was executed successfully. The related permission templates and hosting bindings have taken effect.
+   * - hosting_failed: Hosting failed. The hosting process encountered an exception. View the failure reason and re-initiate hosting.
+   * - hosting_removing: Removal in progress. The removal task has been submitted and is being executed asynchronously. Wait for the removal process to complete before the final state is reached.
+   * - hosting_remove_failed: Removal failed. The removal process encountered an exception. View the failure reason and re-initiate removal.
+   * 
+   * @example
+   * hosting_unmanaged
    */
   privilegeHostingState?: string;
   /**
    * @remarks
-   * The privilege switch status, which indicates whether the privilege capability is enabled.
+   * The privilege switch status. Valid values:
+   * - enabled: Enabled. The resource is active and can be used normally.
+   * - disabled: Disabled. The resource is deactivated and no longer takes effect. You can re-enable it to restore functionality.
+   * 
+   * @example
+   * enabled
    */
   privilegeStatus?: string;
   /**

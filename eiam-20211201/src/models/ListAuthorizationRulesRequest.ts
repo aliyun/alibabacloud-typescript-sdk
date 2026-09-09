@@ -8,7 +8,7 @@ export class ListAuthorizationRulesRequestFilter extends $dara.Model {
    * The name of the filter field. Valid values:
    * 
    * - AuthorizationRuleId: the authorization rule ID.
-   * - AuthorizationRuleNameStartWith: the prefix of the authorization rule name for fuzzy match.
+   * - AuthorizationRuleNameStartWith: the left-match value of the authorization rule name.
    * 
    * @example
    * AuthorizationRuleId
@@ -75,7 +75,7 @@ export class ListAuthorizationRulesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that marks the starting position of the next page.
+   * The token that identifies the start position of the next page.
    * 
    * - If this parameter is not specified, the query starts from the first page.
    * 

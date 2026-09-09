@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetBrandResponseBodyBrand extends $dara.Model {
   /**
    * @remarks
-   * Brand ID.
+   * The brand ID.
    * 
    * @example
    * brand_xxxx
@@ -13,7 +13,7 @@ export class GetBrandResponseBodyBrand extends $dara.Model {
   brandId?: string;
   /**
    * @remarks
-   * Brand name.
+   * The brand name.
    * 
    * @example
    * Custom Brand
@@ -21,7 +21,7 @@ export class GetBrandResponseBodyBrand extends $dara.Model {
   brandName?: string;
   /**
    * @remarks
-   * Brand type.
+   * The brand type.
    * 
    * @example
    * user_custom
@@ -29,7 +29,7 @@ export class GetBrandResponseBodyBrand extends $dara.Model {
   brandType?: string;
   /**
    * @remarks
-   * Instance ID.
+   * The instance ID.
    * 
    * @example
    * idaas_ue2jvisn35ea5lmthk267xxxxx
@@ -37,19 +37,37 @@ export class GetBrandResponseBodyBrand extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Brand status.
+   * The SMS gateway ID.
+   * 
+   * @example
+   * smsgw_01l9f0kunrrjhxxx
+   */
+  smsGatewayId?: string;
+  /**
+   * @remarks
+   * The brand status.
    * 
    * @example
    * enabled
    */
   status?: string;
+  /**
+   * @remarks
+   * The enabling status of system notifications.
+   * 
+   * @example
+   * enabled
+   */
+  systemNotificationStatus?: string;
   static names(): { [key: string]: string } {
     return {
       brandId: 'BrandId',
       brandName: 'BrandName',
       brandType: 'BrandType',
       instanceId: 'InstanceId',
+      smsGatewayId: 'SmsGatewayId',
       status: 'Status',
+      systemNotificationStatus: 'SystemNotificationStatus',
     };
   }
 
@@ -59,7 +77,9 @@ export class GetBrandResponseBodyBrand extends $dara.Model {
       brandName: 'string',
       brandType: 'string',
       instanceId: 'string',
+      smsGatewayId: 'string',
       status: 'string',
+      systemNotificationStatus: 'string',
     };
   }
 
@@ -75,12 +95,12 @@ export class GetBrandResponseBodyBrand extends $dara.Model {
 export class GetBrandResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Brand.
+   * The brand.
    */
   brand?: GetBrandResponseBodyBrand;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 0441BD79-92F3-53AA-8657-F8CE4A2B912A

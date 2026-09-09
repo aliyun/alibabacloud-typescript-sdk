@@ -59,7 +59,7 @@ export class CreateCloudAccountRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * Alibaba_cloud(Alibaba Cloud)
+   * alibaba_cloud(Alibaba Cloud)
    */
   cloudAccountVendorType?: string;
   /**

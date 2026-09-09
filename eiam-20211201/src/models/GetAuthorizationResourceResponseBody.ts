@@ -111,7 +111,7 @@ export class GetAuthorizationResourceResponseBodyAuthorizationResource extends $
   condition?: GetAuthorizationResourceResponseBodyAuthorizationResourceCondition;
   /**
    * @remarks
-   * The creation time.
+   * The creation time, in UNIX timestamp format. Unit: milliseconds.
    * 
    * @example
    * 1787023451494
@@ -127,7 +127,7 @@ export class GetAuthorizationResourceResponseBodyAuthorizationResource extends $
   instanceId?: string;
   /**
    * @remarks
-   * The update time.
+   * The update time, in UNIX timestamp format. Unit: milliseconds.
    * 
    * @example
    * 1787023451494

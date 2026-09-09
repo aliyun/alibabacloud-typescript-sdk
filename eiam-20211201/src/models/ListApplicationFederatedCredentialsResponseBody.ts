@@ -3,9 +3,34 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListApplicationFederatedCredentialsResponseBodyApplicationFederatedCredentialsOidcVerificationConfigAzureVmConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The principal ID.
+   * 
+   * @example
+   * 5dee234a-1b4c-4ad7-a19f-fxxxxx
+   */
   principalId?: string;
+  /**
+   * @remarks
+   * The Azure resource group name.
+   * 
+   * @example
+   * user_default
+   */
   resourceGroupName?: string;
+  /**
+   * @remarks
+   * The subscription ID.
+   * 
+   * @example
+   * 1770621546825D6J5G
+   */
   subscriptionId?: string;
+  /**
+   * @remarks
+   * The list of virtual machine names.
+   */
   vmNames?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -40,13 +65,23 @@ export class ListApplicationFederatedCredentialsResponseBodyApplicationFederated
 export class ListApplicationFederatedCredentialsResponseBodyApplicationFederatedCredentialsOidcVerificationConfigGcpVmConfig extends $dara.Model {
   /**
    * @remarks
-   * The list of VM instance IDs. A maximum of 10 IDs are supported.
+   * The list of VM instance IDs.
    */
   instanceIds?: string[];
+  /**
+   * @remarks
+   * The GCP project ID.
+   * 
+   * @example
+   * 6193072600270353961
+   */
   projectId?: string;
   /**
    * @remarks
-   * The sub claim that corresponds to the service account.
+   * The sub claim corresponding to the service account.
+   * 
+   * @example
+   * 123456789
    */
   serviceAccountId?: string;
   static names(): { [key: string]: string } {
@@ -78,6 +113,13 @@ export class ListApplicationFederatedCredentialsResponseBodyApplicationFederated
 }
 
 export class ListApplicationFederatedCredentialsResponseBodyApplicationFederatedCredentialsOidcVerificationConfigGenericConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The subject identifier.
+   * 
+   * @example
+   * test_subject
+   */
   subject?: string;
   static names(): { [key: string]: string } {
     return {
@@ -103,17 +145,26 @@ export class ListApplicationFederatedCredentialsResponseBodyApplicationFederated
 export class ListApplicationFederatedCredentialsResponseBodyApplicationFederatedCredentialsOidcVerificationConfigKubernetesConfig extends $dara.Model {
   /**
    * @remarks
-   * The Kubernetes namespace.
+   * The K8s namespace.
+   * 
+   * @example
+   * default
    */
   namespace?: string;
   /**
    * @remarks
    * The pod name prefix.
+   * 
+   * @example
+   * test-pod
    */
   podNamePrefix?: string;
   /**
    * @remarks
-   * The Kubernetes service account name.
+   * The K8s service account name.
+   * 
+   * @example
+   * default
    */
   serviceAccountName?: string;
   static names(): { [key: string]: string } {
@@ -152,6 +203,10 @@ export class ListApplicationFederatedCredentialsResponseBodyApplicationFederated
    * The GCP VM scenario configuration.
    */
   gcpVmConfig?: ListApplicationFederatedCredentialsResponseBodyApplicationFederatedCredentialsOidcVerificationConfigGcpVmConfig;
+  /**
+   * @remarks
+   * The generic scenario configuration.
+   */
   genericConfig?: ListApplicationFederatedCredentialsResponseBodyApplicationFederatedCredentialsOidcVerificationConfigGenericConfig;
   /**
    * @remarks
@@ -160,7 +215,14 @@ export class ListApplicationFederatedCredentialsResponseBodyApplicationFederated
   kubernetesConfig?: ListApplicationFederatedCredentialsResponseBodyApplicationFederatedCredentialsOidcVerificationConfigKubernetesConfig;
   /**
    * @remarks
-   * The OIDC scenario profile. Valid values: generic, kubernetes, gcp_vm, and azure_vm.
+   * The OIDC scenario profile. Different profiles correspond to different configurations. Valid values:
+   * - generic
+   * - kubernetes
+   * - gcp_vm
+   * - azure_vm
+   * 
+   * @example
+   * kubernetes
    */
   profile?: string;
   static names(): { [key: string]: string } {
@@ -207,7 +269,7 @@ export class ListApplicationFederatedCredentialsResponseBodyApplicationFederated
 export class ListApplicationFederatedCredentialsResponseBodyApplicationFederatedCredentialsPkcs7VerificationConfig extends $dara.Model {
   /**
    * @remarks
-   * The list of allowed instance IDs. A maximum of 10 IDs are supported.
+   * The list of allowed instance IDs.
    */
   instanceIds?: string[];
   static names(): { [key: string]: string } {
@@ -245,7 +307,7 @@ export class ListApplicationFederatedCredentialsResponseBodyApplicationFederated
   applicationFederatedCredentialId?: string;
   /**
    * @remarks
-   * The name of the application federated credential.
+   * The application federated credential name.
    * 
    * @example
    * test
@@ -253,7 +315,7 @@ export class ListApplicationFederatedCredentialsResponseBodyApplicationFederated
   applicationFederatedCredentialName?: string;
   /**
    * @remarks
-   * The type of the application federated credential.
+   * The application federated credential type.
    * 
    * @example
    * oidc
@@ -269,7 +331,7 @@ export class ListApplicationFederatedCredentialsResponseBodyApplicationFederated
   applicationId?: string;
   /**
    * @remarks
-   * The time when the application federated credential was created.
+   * The creation time.
    * 
    * @example
    * 1758785994982
@@ -277,7 +339,7 @@ export class ListApplicationFederatedCredentialsResponseBodyApplicationFederated
   createTime?: number;
   /**
    * @remarks
-   * The description of the application federated credential.
+   * The application federated credential description.
    * 
    * @example
    * test
@@ -301,7 +363,7 @@ export class ListApplicationFederatedCredentialsResponseBodyApplicationFederated
   instanceId?: string;
   /**
    * @remarks
-   * The time when the application federated credential was last used.
+   * The last used time.
    * 
    * @example
    * 1758785994982
@@ -309,17 +371,17 @@ export class ListApplicationFederatedCredentialsResponseBodyApplicationFederated
   lastUsedTime?: number;
   /**
    * @remarks
-   * The OIDC structured configuration. This parameter applies to the structured mode with the OIDC type.
+   * The OIDC structured configuration.
    */
   oidcVerificationConfig?: ListApplicationFederatedCredentialsResponseBodyApplicationFederatedCredentialsOidcVerificationConfig;
   /**
    * @remarks
-   * The PKCS#7 structured configuration. This parameter applies to the structured mode with the PKCS#7 type.
+   * The PKCS#7 structured configuration.
    */
   pkcs7VerificationConfig?: ListApplicationFederatedCredentialsResponseBodyApplicationFederatedCredentialsPkcs7VerificationConfig;
   /**
    * @remarks
-   * The status of the application federated credential.
+   * The application federated credential status.
    * 
    * @example
    * enabled
@@ -327,7 +389,7 @@ export class ListApplicationFederatedCredentialsResponseBodyApplicationFederated
   status?: string;
   /**
    * @remarks
-   * The time when the application federated credential was last updated.
+   * The update time.
    * 
    * @example
    * 1758785994982
@@ -335,12 +397,20 @@ export class ListApplicationFederatedCredentialsResponseBodyApplicationFederated
   updateTime?: number;
   /**
    * @remarks
-   * The verification condition. In freedom mode, this is a manually entered value. In structured mode, this is the final compiled value.
+   * The verification condition.
+   * 
+   * @example
+   * Equals(cert.subject.CN, "test")
    */
   verificationCondition?: string;
   /**
    * @remarks
-   * The verification mode. Valid values: freedom and structured.
+   * The verification mode. Valid values:
+   * - freedom: free mode.
+   * - structured: structured mode.
+   * 
+   * @example
+   * structured
    */
   verificationMode?: string;
   static names(): { [key: string]: string } {
@@ -406,7 +476,7 @@ export class ListApplicationFederatedCredentialsResponseBody extends $dara.Model
   applicationFederatedCredentials?: ListApplicationFederatedCredentialsResponseBodyApplicationFederatedCredentials[];
   /**
    * @remarks
-   * The number of entries per page in a paged query. This parameter is used for paging.
+   * The maximum number of rows per page in a paged query.
    * 
    * @example
    * 20
@@ -438,7 +508,7 @@ export class ListApplicationFederatedCredentialsResponseBody extends $dara.Model
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries in the list.
    * 
    * @example
    * 100

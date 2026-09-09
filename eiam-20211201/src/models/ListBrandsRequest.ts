@@ -31,7 +31,7 @@ export class ListBrandsRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The pagination token for the previous page.
+   * The token used to query the previous page.
    * 
    * @example
    * PTxxxxxexample

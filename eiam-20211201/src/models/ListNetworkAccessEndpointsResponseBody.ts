@@ -3,11 +3,44 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListNetworkAccessEndpointsResponseBodyNetworkAccessEndpointsBackupVpcEndpoint extends $dara.Model {
+  /**
+   * @remarks
+   * The list of private egress IP addresses of the backup network access endpoint.
+   */
   backupEgressPrivateIpAddresses?: string[];
+  /**
+   * @remarks
+   * The list of public egress IP addresses of the backup network access endpoint.
+   */
   backupEgressPublicIpAddresses?: string[];
+  /**
+   * @remarks
+   * The security group ID of the backup network access endpoint.
+   * 
+   * @example
+   * sg-examplexxx
+   */
   backupSecurityGroupId?: string;
+  /**
+   * @remarks
+   * The list of vSwitches for the backup network access endpoint.
+   */
   backupVSwitchIds?: string[];
+  /**
+   * @remarks
+   * The VPC ID of the backup network access endpoint.
+   * 
+   * @example
+   * vpc-examplexxx
+   */
   backupVpcId?: string;
+  /**
+   * @remarks
+   * The region of the backup network access endpoint VPC.
+   * 
+   * @example
+   * cn-beijing
+   */
   backupVpcRegionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -50,6 +83,10 @@ export class ListNetworkAccessEndpointsResponseBodyNetworkAccessEndpointsBackupV
 }
 
 export class ListNetworkAccessEndpointsResponseBodyNetworkAccessEndpoints extends $dara.Model {
+  /**
+   * @remarks
+   * The backup network access endpoint VPC configuration.
+   */
   backupVpcEndpoint?: ListNetworkAccessEndpointsResponseBodyNetworkAccessEndpointsBackupVpcEndpoint;
   /**
    * @remarks
@@ -77,7 +114,7 @@ export class ListNetworkAccessEndpointsResponseBodyNetworkAccessEndpoints extend
   networkAccessEndpointId?: string;
   /**
    * @remarks
-   * The network access endpoint name.
+   * The network access endpoint name. For example, the VPC access endpoint for a specific business.
    * 
    * @example
    * VPC access endpoint for xx service
@@ -87,8 +124,8 @@ export class ListNetworkAccessEndpointsResponseBodyNetworkAccessEndpoints extend
    * @remarks
    * The type of the network access endpoint. Valid values:
    * 
-   * - shared: Shared network access endpoint.
-   * - private: Dedicated network access endpoint.
+   * - shared: shared network access endpoint.
+   * - private: dedicated network access endpoint.
    * 
    * @example
    * private
@@ -106,10 +143,10 @@ export class ListNetworkAccessEndpointsResponseBodyNetworkAccessEndpoints extend
    * @remarks
    * The status of the network access endpoint. Valid values:
    *  
-   * - pending: Pending initialization.
-   * - creating: Being created.
-   * - running: Running.
-   * - deleting: Being deleted.
+   * - pending: pending initialization.
+   * - creating: being created.
+   * - running: running.
+   * - deleting: being deleted.
    * 
    * @example
    * running

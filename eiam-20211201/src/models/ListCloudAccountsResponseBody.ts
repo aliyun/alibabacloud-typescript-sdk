@@ -50,7 +50,7 @@ export class ListCloudAccountsResponseBodyCloudAccountsCloudAccountHealthCheckRe
   errorReason?: ListCloudAccountsResponseBodyCloudAccountsCloudAccountHealthCheckResultErrorReason;
   /**
    * @remarks
-   * The last check time, in UNIX timestamp format. Unit: milliseconds.
+   * The last check time, in UNIX timestamp format, measured in milliseconds.
    * 
    * @example
    * 1649830226000
@@ -97,12 +97,18 @@ export class ListCloudAccountsResponseBodyCloudAccountsCloudAccountHealthCheckRe
 export class ListCloudAccountsResponseBodyCloudAccountsPrivilegeHostingError extends $dara.Model {
   /**
    * @remarks
-   * The failure error code.
+   * The error code.
+   * 
+   * @example
+   * Error
    */
   errorCode?: string;
   /**
    * @remarks
-   * The failure message.
+   * The error message.
+   * 
+   * @example
+   * test message
    */
   errorMessage?: string;
   static names(): { [key: string]: string } {
@@ -179,7 +185,12 @@ export class ListCloudAccountsResponseBodyCloudAccounts extends $dara.Model {
   cloudAccountProviderName?: string;
   /**
    * @remarks
-   * The cloud account site.
+   * The cloud account site. Valid values:
+   * - china_mainland: The Chinese mainland.
+   * - global: Global.
+   * 
+   * @example
+   * china_mainland
    */
   cloudAccountSite?: string;
   /**
@@ -194,7 +205,7 @@ export class ListCloudAccountsResponseBodyCloudAccounts extends $dara.Model {
   cloudAccountVendorType?: string;
   /**
    * @remarks
-   * The creation time, in UNIX timestamp format. Unit: milliseconds.
+   * The creation time, in UNIX timestamp format, measured in milliseconds.
    * 
    * @example
    * 1649830225000
@@ -218,7 +229,7 @@ export class ListCloudAccountsResponseBodyCloudAccounts extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The list of associated privileged access application IDs.
+   * The list of associated privilege application IDs.
    */
   privilegeApplicationIds?: string[];
   /**
@@ -228,17 +239,31 @@ export class ListCloudAccountsResponseBodyCloudAccounts extends $dara.Model {
   privilegeHostingError?: ListCloudAccountsResponseBodyCloudAccountsPrivilegeHostingError;
   /**
    * @remarks
-   * The privilege hosting state, which indicates whether the account has privileged access capabilities.
+   * The hosting state of the cloud account. The default value is unmanaged. Valid values:
+   * - hosting_unmanaged: Unmanaged. The cloud account has not initiated hosting and is in the initial state.
+   * - hosting_pending: Hosting in progress. The hosting task has been submitted and is being executed asynchronously. Wait for the hosting process to complete before the final state is reached.
+   * - hosting_completed: Hosting completed. The cloud account hosting process was executed successfully, and the related permission templates and hosting bindings have taken effect.
+   * - hosting_failed: Hosting failed. The hosting process encountered an exception. View the failure reason and re-initiate hosting.
+   * - hosting_removing: Removal in progress. The removal task has been submitted and is being executed asynchronously. Wait for the removal process to complete before the final state is reached.
+   * - hosting_remove_failed: Removal failed. The removal process encountered an exception. View the failure reason and re-initiate removal.
+   * 
+   * @example
+   * hosting_unmanaged
    */
   privilegeHostingState?: string;
   /**
    * @remarks
-   * The privilege switch status, which indicates whether the privileged access capability is available.
+   * The privilege switch status. Valid values:
+   * - enabled: Enabled. The resource is active and can be used normally.
+   * - disabled: Disabled. The resource is deactivated and no longer takes effect. You can re-enable it to restore functionality.
+   * 
+   * @example
+   * enabled
    */
   privilegeStatus?: string;
   /**
    * @remarks
-   * The last update time, in UNIX timestamp format. Unit: milliseconds.
+   * The last update time, in UNIX timestamp format, measured in milliseconds.
    * 
    * @example
    * 1649830227000
@@ -312,7 +337,7 @@ export class ListCloudAccountsResponseBody extends $dara.Model {
   cloudAccounts?: ListCloudAccountsResponseBodyCloudAccounts[];
   /**
    * @remarks
-   * The maximum number of entries per page for paging.
+   * The number of rows per page for paging.
    * 
    * @example
    * 20
@@ -320,7 +345,7 @@ export class ListCloudAccountsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token returned for the current call.
+   * The token returned for this request.
    * 
    * @example
    * NTxxxexample

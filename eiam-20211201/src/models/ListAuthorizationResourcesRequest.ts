@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class ListAuthorizationResourcesRequestFilter extends $dara.Model {
   /**
    * @remarks
-   * The filter field name. Valid values:
+   * The name of the filter field. Valid values:
    * 
-   * - AuthorizationResourceEntityType: the resource entity type associated with the authorization resource
+   * - AuthorizationResourceEntityType: the type of the resource entity associated with the authorized resource.
    * 
-   * - AuthorizationResourceEntityId: the resource entity ID associated with the authorization resource
+   * - AuthorizationResourceEntityId: the ID of the resource entity associated with the authorized resource.
    * 
    * @example
    * AuthorizationResourceEntityId
@@ -76,7 +76,7 @@ export class ListAuthorizationResourcesRequest extends $dara.Model {
    * @remarks
    * The maximum number of records per page.
    * 
-   * - If this parameter is not specified, the default value is 20.
+   * - If you do not specify this parameter, the default value is 20.
    * 
    * - The maximum value is 100.
    * 
@@ -88,7 +88,7 @@ export class ListAuthorizationResourcesRequest extends $dara.Model {
    * @remarks
    * The pagination token that marks the starting position of the next page.
    * 
-   * - If this parameter is not specified, the query starts from the first page.
+   * - If you do not specify this parameter, the query starts from the first page.
    * 
    * @example
    * NTxxxxxexample

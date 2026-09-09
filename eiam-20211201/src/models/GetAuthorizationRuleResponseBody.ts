@@ -41,7 +41,12 @@ export class GetAuthorizationRuleResponseBodyAuthorizationRule extends $dara.Mod
   authorizationRuleName?: string;
   /**
    * @remarks
-   * The scenario label of the authorization rule.
+   * The scenario label of the authorization rule. Valid values:
+   * - privileged_cloud_account: Privileged cloud account scenario.
+   * - asset: Asset scenario.
+   * 
+   * @example
+   * Asset
    */
   authorizationRuleScenarioLabel?: string;
   /**
@@ -74,7 +79,7 @@ export class GetAuthorizationRuleResponseBodyAuthorizationRule extends $dara.Mod
   authorizationRuleSubjectType?: string;
   /**
    * @remarks
-   * The creation time, in UNIX timestamp format, measured in milliseconds.
+   * The creation time, in UNIX timestamp format. Unit: milliseconds.
    * 
    * @example
    * 1652085686179
@@ -116,7 +121,7 @@ export class GetAuthorizationRuleResponseBodyAuthorizationRule extends $dara.Mod
   status?: string;
   /**
    * @remarks
-   * The last update time, in UNIX timestamp format, measured in milliseconds.
+   * The last update time, in UNIX timestamp format. Unit: milliseconds.
    * 
    * @example
    * 1652085686179

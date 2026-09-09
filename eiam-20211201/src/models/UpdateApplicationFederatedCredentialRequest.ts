@@ -43,9 +43,34 @@ export class UpdateApplicationFederatedCredentialRequestAttributeMappings extend
 }
 
 export class UpdateApplicationFederatedCredentialRequestOidcVerificationConfigAzureVmConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The principal ID.
+   * 
+   * @example
+   * 5dee234a-1b4c-4ad7-a19f-fxxxxx
+   */
   principalId?: string;
+  /**
+   * @remarks
+   * The Azure resource group name.
+   * 
+   * @example
+   * user_default
+   */
   resourceGroupName?: string;
+  /**
+   * @remarks
+   * The subscription ID.
+   * 
+   * @example
+   * 4342a1f4-7e5d-4371-97dc-d4f33f4xxxx
+   */
   subscriptionId?: string;
+  /**
+   * @remarks
+   * The list of virtual machine names.
+   */
   vmNames?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -78,11 +103,22 @@ export class UpdateApplicationFederatedCredentialRequestOidcVerificationConfigAz
 }
 
 export class UpdateApplicationFederatedCredentialRequestOidcVerificationConfigGcpVmConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The list of VM instance IDs.
+   */
   instanceIds?: string[];
+  /**
+   * @remarks
+   * The GCP project ID.
+   * 
+   * @example
+   * turnkey-axiom-475109-xx
+   */
   projectId?: string;
   /**
    * @remarks
-   * The sub value corresponding to the service account.
+   * The sub claim corresponding to the service account.
    * 
    * @example
    * 123456789
@@ -117,6 +153,13 @@ export class UpdateApplicationFederatedCredentialRequestOidcVerificationConfigGc
 }
 
 export class UpdateApplicationFederatedCredentialRequestOidcVerificationConfigGenericConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The subject identifier.
+   * 
+   * @example
+   * test_subject
+   */
   subject?: string;
   static names(): { [key: string]: string } {
     return {
@@ -142,7 +185,7 @@ export class UpdateApplicationFederatedCredentialRequestOidcVerificationConfigGe
 export class UpdateApplicationFederatedCredentialRequestOidcVerificationConfigKubernetesConfig extends $dara.Model {
   /**
    * @remarks
-   * The Kubernetes namespace.
+   * The K8s namespace.
    * 
    * @example
    * default
@@ -158,7 +201,7 @@ export class UpdateApplicationFederatedCredentialRequestOidcVerificationConfigKu
   podNamePrefix?: string;
   /**
    * @remarks
-   * The Kubernetes service account name.
+   * The K8s service account name.
    * 
    * @example
    * my-sa
@@ -200,6 +243,10 @@ export class UpdateApplicationFederatedCredentialRequestOidcVerificationConfig e
    * The GCP VM scenario configuration.
    */
   gcpVmConfig?: UpdateApplicationFederatedCredentialRequestOidcVerificationConfigGcpVmConfig;
+  /**
+   * @remarks
+   * The generic scenario configuration.
+   */
   genericConfig?: UpdateApplicationFederatedCredentialRequestOidcVerificationConfigGenericConfig;
   /**
    * @remarks
@@ -208,7 +255,11 @@ export class UpdateApplicationFederatedCredentialRequestOidcVerificationConfig e
   kubernetesConfig?: UpdateApplicationFederatedCredentialRequestOidcVerificationConfigKubernetesConfig;
   /**
    * @remarks
-   * The OIDC scenario profile. Valid values: generic, kubernetes, gcp_vm, and azure_vm.
+   * The OIDC scenario profile. Different profiles correspond to different configurations. Valid values:
+   * - generic
+   * - kubernetes
+   * - gcp_vm
+   * - azure_vm
    * 
    * @example
    * kubernetes
@@ -256,6 +307,10 @@ export class UpdateApplicationFederatedCredentialRequestOidcVerificationConfig e
 }
 
 export class UpdateApplicationFederatedCredentialRequestPkcs7VerificationConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The list of VM instance IDs.
+   */
   instanceIds?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -319,12 +374,12 @@ export class UpdateApplicationFederatedCredentialRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The OIDC structured configuration (structured mode + oidc type).
+   * The OIDC structured configuration.
    */
   oidcVerificationConfig?: UpdateApplicationFederatedCredentialRequestOidcVerificationConfig;
   /**
    * @remarks
-   * The PKCS#7 structured configuration (structured mode + pkcs7 type).
+   * The PKCS#7 structured configuration.
    */
   pkcs7VerificationConfig?: UpdateApplicationFederatedCredentialRequestPkcs7VerificationConfig;
   /**

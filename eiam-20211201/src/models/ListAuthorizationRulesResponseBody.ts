@@ -6,8 +6,8 @@ export class ListAuthorizationRulesResponseBodyAuthorizationRules extends $dara.
   /**
    * @remarks
    * The authorization resource scope. Valid values:
-   * - global: all resources under the project
-   * - custom: specified resources under the project
+   * - global: all resources under the project.
+   * - custom: specified resources under the project.
    * 
    * @example
    * global
@@ -16,8 +16,8 @@ export class ListAuthorizationRulesResponseBodyAuthorizationRules extends $dara.
   /**
    * @remarks
    * The creation type of the authorization rule. Valid values:
-   * - system_init: created by the system
-   * - user_custom: created by the user
+   * - system_init: created by the system.
+   * - user_custom: created by the user.
    * 
    * @example
    * user_custom
@@ -41,7 +41,12 @@ export class ListAuthorizationRulesResponseBodyAuthorizationRules extends $dara.
   authorizationRuleName?: string;
   /**
    * @remarks
-   * The scenario label of the authorization rule.
+   * The scenario label of the authorization rule. Valid values:
+   * - privileged_cloud_account: privileged cloud account scenario.
+   * - asset: asset scenario.
+   * 
+   * @example
+   * Asset
    */
   authorizationRuleScenarioLabel?: string;
   /**
@@ -55,8 +60,8 @@ export class ListAuthorizationRulesResponseBodyAuthorizationRules extends $dara.
   /**
    * @remarks
    * The subject scope of the authorization rule. Valid values:
-   * - shared: supports all subjects, including accounts and applications
-   * - exclusive: exclusive type
+   * - shared: supports all subjects, including accounts and applications.
+   * - exclusive: exclusive type.
    * 
    * @example
    * shared
@@ -65,8 +70,8 @@ export class ListAuthorizationRulesResponseBodyAuthorizationRules extends $dara.
   /**
    * @remarks
    * The subject type associated with the authorization rule. This parameter takes effect only when the subject scope is exclusive. Valid values:
-   * - application: application
-   * - user: account
+   * - application: application.
+   * - user: account.
    * 
    * @example
    * user
@@ -107,8 +112,8 @@ export class ListAuthorizationRulesResponseBodyAuthorizationRules extends $dara.
   /**
    * @remarks
    * The authorization rule status. Valid values:
-   * - enabled: enabled
-   * - disabled: disabled
+   * - enabled: Enabled.
+   * - disabled: Disabled.
    * 
    * @example
    * enabled
@@ -177,7 +182,7 @@ export class ListAuthorizationRulesResponseBody extends $dara.Model {
   authorizationRules?: ListAuthorizationRulesResponseBodyAuthorizationRules[];
   /**
    * @remarks
-   * The number of entries per page in the paging query.
+   * The number of entries per page in a paging query.
    * 
    * @example
    * 20

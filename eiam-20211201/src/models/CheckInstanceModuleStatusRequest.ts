@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CheckInstanceModuleStatusRequest extends $dara.Model {
   /**
    * @remarks
-   * The secondary module identifier.
+   * The level-2 module identifier.
    * 
    * @example
    * urn:alibaba:idaas:license:module:ud:customField
@@ -23,7 +23,7 @@ export class CheckInstanceModuleStatusRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The primary module identifier.
+   * The level-1 module identifier.
    * 
    * This parameter is required.
    * 
@@ -31,11 +31,25 @@ export class CheckInstanceModuleStatusRequest extends $dara.Model {
    * urn:alibaba:idaas:license:module:ud
    */
   moduleKey?: string;
+  /**
+   * @remarks
+   * The resource label URN key.
+   * 
+   * @example
+   * urn:alibaba:idaas:license:label:template:app
+   */
   resourceLabelKey?: string;
+  /**
+   * @remarks
+   * The resource label name.
+   * 
+   * @example
+   * apt_ram_user_sso
+   */
   resourceLabelValue?: string;
   /**
    * @remarks
-   * The tertiary module identifier.
+   * The level-3 module identifier.
    * 
    * @example
    * urn:alibaba:idaas:license:module:idp:alibaba:dingtalk:pull:advanced_configuration

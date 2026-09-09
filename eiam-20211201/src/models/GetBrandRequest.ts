@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetBrandRequest extends $dara.Model {
   /**
    * @remarks
-   * Brand ID.
+   * The brand ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class GetBrandRequest extends $dara.Model {
   brandId?: string;
   /**
    * @remarks
-   * Instance ID.
+   * The instance ID.
    * 
    * This parameter is required.
    * 

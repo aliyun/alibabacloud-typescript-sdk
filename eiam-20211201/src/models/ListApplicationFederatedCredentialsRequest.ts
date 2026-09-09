@@ -33,7 +33,7 @@ export class ListApplicationFederatedCredentialsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The number of entries per page in a paged query. This parameter is used for paging.
+   * The maximum number of rows per page in a paged query.
    * 
    * @example
    * 20
@@ -41,7 +41,7 @@ export class ListApplicationFederatedCredentialsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token used to retrieve the next page of results.
+   * The pagination token for the next page.
    * 
    * @example
    * NTxxxxxexample
@@ -49,7 +49,7 @@ export class ListApplicationFederatedCredentialsRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The pagination token used to retrieve the previous page of results.
+   * The pagination token for the previous page.
    * 
    * @example
    * PTxxxxxexample

@@ -23,7 +23,7 @@ export class ListApplicationFederatedCredentialsForProviderRequest extends $dara
   instanceId?: string;
   /**
    * @remarks
-   * The maximum number of entries to return per page in a paged query. This parameter is used for paging.
+   * The maximum number of entries per page for a paged query.
    * 
    * @example
    * 20
@@ -31,7 +31,7 @@ export class ListApplicationFederatedCredentialsForProviderRequest extends $dara
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token.
+   * The pagination token for the next page.
    * 
    * @example
    * NTxxxxxexample
@@ -39,7 +39,7 @@ export class ListApplicationFederatedCredentialsForProviderRequest extends $dara
   nextToken?: string;
   /**
    * @remarks
-   * The token used to retrieve the previous page.
+   * The pagination token for the previous page.
    * 
    * @example
    * PTxxxxxexample
