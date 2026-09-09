@@ -13,10 +13,6 @@ export default class Client extends OpenApi {
   constructor(config: $OpenApiUtil.Config) {
     super(config);
     this._endpointRule = "regional";
-    this._endpointMap = {
-      'cn-beijing': "starops.cn-beijing.aliyuncs.com",
-      'ap-southeast-1': "starops.ap-southeast-1.aliyuncs.com",
-    };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("starops", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
@@ -654,6 +650,45 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes a public schema reference from a digital employee UModel.
+   * 
+   * @param request - DeleteDigitalEmployeeUmodelCommonSchemaRefRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteDigitalEmployeeUmodelCommonSchemaRefResponse
+   */
+  async deleteDigitalEmployeeUmodelCommonSchemaRefWithOptions(name: string, group: string, request: $_model.DeleteDigitalEmployeeUmodelCommonSchemaRefRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteDigitalEmployeeUmodelCommonSchemaRefResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteDigitalEmployeeUmodelCommonSchemaRef",
+      version: "2026-04-28",
+      protocol: "HTTPS",
+      pathname: `/digital-employee/${$dara.URL.percentEncode(name)}/umodel/common-schema-refs/${$dara.URL.percentEncode(group)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteDigitalEmployeeUmodelCommonSchemaRefResponse>(await this.callApi(params, req, runtime), new $_model.DeleteDigitalEmployeeUmodelCommonSchemaRefResponse({}));
+  }
+
+  /**
+   * Deletes a public schema reference from a digital employee UModel.
+   * 
+   * @param request - DeleteDigitalEmployeeUmodelCommonSchemaRefRequest
+   * @returns DeleteDigitalEmployeeUmodelCommonSchemaRefResponse
+   */
+  async deleteDigitalEmployeeUmodelCommonSchemaRef(name: string, group: string, request: $_model.DeleteDigitalEmployeeUmodelCommonSchemaRefRequest): Promise<$_model.DeleteDigitalEmployeeUmodelCommonSchemaRefResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteDigitalEmployeeUmodelCommonSchemaRefWithOptions(name, group, request, headers, runtime);
+  }
+
+  /**
    * Deletes an MCP service.
    * 
    * @param request - DeleteMcpServiceRequest
@@ -951,6 +986,59 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the entity data of a digital employee.
+   * 
+   * @param request - GetDigitalEmployeeEntityDataRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDigitalEmployeeEntityDataResponse
+   */
+  async getDigitalEmployeeEntityDataWithOptions(name: string, request: $_model.GetDigitalEmployeeEntityDataRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetDigitalEmployeeEntityDataResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.from)) {
+      body["from"] = request.from;
+    }
+
+    if (!$dara.isNull(request.query)) {
+      body["query"] = request.query;
+    }
+
+    if (!$dara.isNull(request.to)) {
+      body["to"] = request.to;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetDigitalEmployeeEntityData",
+      version: "2026-04-28",
+      protocol: "HTTPS",
+      pathname: `/digital-employee/${$dara.URL.percentEncode(name)}/entities/query`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetDigitalEmployeeEntityDataResponse>(await this.callApi(params, req, runtime), new $_model.GetDigitalEmployeeEntityDataResponse({}));
+  }
+
+  /**
+   * Queries the entity data of a digital employee.
+   * 
+   * @param request - GetDigitalEmployeeEntityDataRequest
+   * @returns GetDigitalEmployeeEntityDataResponse
+   */
+  async getDigitalEmployeeEntityData(name: string, request: $_model.GetDigitalEmployeeEntityDataRequest): Promise<$_model.GetDigitalEmployeeEntityDataResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getDigitalEmployeeEntityDataWithOptions(name, request, headers, runtime);
+  }
+
+  /**
    * Retrieves the details of a specific skill.
    * 
    * @remarks
@@ -999,6 +1087,45 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getDigitalEmployeeSkillWithOptions(name, skillName, request, headers, runtime);
+  }
+
+  /**
+   * Queries the UModel of a digital employee.
+   * 
+   * @param request - GetDigitalEmployeeUmodelRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDigitalEmployeeUmodelResponse
+   */
+  async getDigitalEmployeeUmodelWithOptions(name: string, request: $_model.GetDigitalEmployeeUmodelRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetDigitalEmployeeUmodelResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetDigitalEmployeeUmodel",
+      version: "2026-04-28",
+      protocol: "HTTPS",
+      pathname: `/digital-employee/${$dara.URL.percentEncode(name)}/umodel`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetDigitalEmployeeUmodelResponse>(await this.callApi(params, req, runtime), new $_model.GetDigitalEmployeeUmodelResponse({}));
+  }
+
+  /**
+   * Queries the UModel of a digital employee.
+   * 
+   * @param request - GetDigitalEmployeeUmodelRequest
+   * @returns GetDigitalEmployeeUmodelResponse
+   */
+  async getDigitalEmployeeUmodel(name: string, request: $_model.GetDigitalEmployeeUmodelRequest): Promise<$_model.GetDigitalEmployeeUmodelResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getDigitalEmployeeUmodelWithOptions(name, request, headers, runtime);
   }
 
   /**
@@ -1657,6 +1784,51 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Updates the UModel of a digital human.
+   * 
+   * @param request - UpdateDigitalEmployeeUmodelRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateDigitalEmployeeUmodelResponse
+   */
+  async updateDigitalEmployeeUmodelWithOptions(name: string, request: $_model.UpdateDigitalEmployeeUmodelRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateDigitalEmployeeUmodelResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.description)) {
+      body["description"] = request.description;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateDigitalEmployeeUmodel",
+      version: "2026-04-28",
+      protocol: "HTTPS",
+      pathname: `/digital-employee/${$dara.URL.percentEncode(name)}/umodel`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateDigitalEmployeeUmodelResponse>(await this.callApi(params, req, runtime), new $_model.UpdateDigitalEmployeeUmodelResponse({}));
+  }
+
+  /**
+   * Updates the UModel of a digital human.
+   * 
+   * @param request - UpdateDigitalEmployeeUmodelRequest
+   * @returns UpdateDigitalEmployeeUmodelResponse
+   */
+  async updateDigitalEmployeeUmodel(name: string, request: $_model.UpdateDigitalEmployeeUmodelRequest): Promise<$_model.UpdateDigitalEmployeeUmodelResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateDigitalEmployeeUmodelWithOptions(name, request, headers, runtime);
+  }
+
+  /**
    * Updates an MCP service.
    * 
    * @param request - UpdateMcpServiceRequest
@@ -1778,6 +1950,51 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateThreadWithOptions(name, threadId, request, headers, runtime);
+  }
+
+  /**
+   * Creates or updates a public schema reference for a digital employee UModel.
+   * 
+   * @param request - UpsertDigitalEmployeeUmodelCommonSchemaRefRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpsertDigitalEmployeeUmodelCommonSchemaRefResponse
+   */
+  async upsertDigitalEmployeeUmodelCommonSchemaRefWithOptions(name: string, group: string, request: $_model.UpsertDigitalEmployeeUmodelCommonSchemaRefRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpsertDigitalEmployeeUmodelCommonSchemaRefResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.version)) {
+      body["version"] = request.version;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpsertDigitalEmployeeUmodelCommonSchemaRef",
+      version: "2026-04-28",
+      protocol: "HTTPS",
+      pathname: `/digital-employee/${$dara.URL.percentEncode(name)}/umodel/common-schema-refs/${$dara.URL.percentEncode(group)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpsertDigitalEmployeeUmodelCommonSchemaRefResponse>(await this.callApi(params, req, runtime), new $_model.UpsertDigitalEmployeeUmodelCommonSchemaRefResponse({}));
+  }
+
+  /**
+   * Creates or updates a public schema reference for a digital employee UModel.
+   * 
+   * @param request - UpsertDigitalEmployeeUmodelCommonSchemaRefRequest
+   * @returns UpsertDigitalEmployeeUmodelCommonSchemaRefResponse
+   */
+  async upsertDigitalEmployeeUmodelCommonSchemaRef(name: string, group: string, request: $_model.UpsertDigitalEmployeeUmodelCommonSchemaRefRequest): Promise<$_model.UpsertDigitalEmployeeUmodelCommonSchemaRefResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.upsertDigitalEmployeeUmodelCommonSchemaRefWithOptions(name, group, request, headers, runtime);
   }
 
 }
